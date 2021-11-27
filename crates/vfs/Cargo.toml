@@ -1,0 +1,17 @@
+[package]
+name = "vfs"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+rustc-hash = "1.0"
+fst = "0.4"
+
+paths = { path = "../paths", version = "0.0.0" }
+indexmap = "1.7"
