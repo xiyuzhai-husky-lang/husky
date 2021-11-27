@@ -1,0 +1,21 @@
+[package]
+name = "flycheck"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+crossbeam-channel = "0.5.0"
+tracing = "0.1"
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.69", features = ["unbounded_depth"] }
+jod-thread = "0.1.1"
+
+toolchain = { path = "../toolchain", version = "0.0.0" }
+stdx = { path = "../stdx", version = "0.0.0" }
+paths = { path = "../paths", version = "0.0.0" }
