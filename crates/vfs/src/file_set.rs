@@ -7,13 +7,13 @@ use std::fmt;
 use fst::{IntoStreamer, Streamer};
 use rustc_hash::FxHashMap;
 
-use crate::{AnchoredPath, FileId, Vfs, VfsPath};
+use crate::{AnchoredPath, FileID, Vfs, VfsPath};
 
-/// A set of [`VfsPath`]s identified by [`FileId`]s.
+/// A set of [`VfsPath`]s identified by [`FileID`]s.
 #[derive(Default, Clone, Eq, PartialEq)]
 pub struct FileSet {
-    files: FxHashMap<VfsPath, FileId>,
-    paths: FxHashMap<FileId, VfsPath>,
+    files: FxHashMap<VfsPath, FileID>,
+    paths: FxHashMap<FileID, VfsPath>,
 }
 
 impl FileSet {
@@ -26,7 +26,7 @@ impl FileSet {
     ///
     /// If either `path`'s [`anchor`](AnchoredPath::anchor) or the resolved path is not in
     /// the set, returns [`None`].
-    pub fn resolve_path(&self, path: AnchoredPath<'_>) -> Option<FileId> {
+    pub fn resolve_path(&self, path: AnchoredPath<'_>) -> Option<FileID> {
         let mut base = self.paths[&path.anchor].clone();
         base.pop();
         let path = base.join(path.path)?;
@@ -34,33 +34,35 @@ impl FileSet {
     }
 
     /// Get the id corresponding to `path` if it exists in the set.
-    pub fn file_for_path(&self, path: &VfsPath) -> Option<&FileId> {
+    pub fn file_for_path(&self, path: &VfsPath) -> Option<&FileID> {
         self.files.get(path)
     }
 
     /// Get the path corresponding to `file` if it exists in the set.
-    pub fn path_for_file(&self, file: &FileId) -> Option<&VfsPath> {
+    pub fn path_for_file(&self, file: &FileID) -> Option<&VfsPath> {
         self.paths.get(file)
     }
 
     /// Insert the `file_id, path` pair into the set.
     ///
     /// # Note
-    /// Multiple [`FileId`] can be mapped to the same [`VfsPath`], and vice-versa.
-    pub fn insert(&mut self, file_id: FileId, path: VfsPath) {
+    /// Multiple [`FileID`] can be mapped to the same [`VfsPath`], and vice-versa.
+    pub fn insert(&mut self, file_id: FileID, path: VfsPath) {
         self.files.insert(path.clone(), file_id);
         self.paths.insert(file_id, path);
     }
 
     /// Iterate over this set's ids.
-    pub fn iter(&self) -> impl Iterator<Item = FileId> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = FileID> + '_ {
         self.paths.keys().copied()
     }
 }
 
 impl fmt::Debug for FileSet {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_struct("FileSet").field("n_files", &self.files.len()).finish()
+        f.debug_struct("FileSet")
+            .field("n_files", &self.files.len())
+            .finish()
     }
 }
 

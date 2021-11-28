@@ -1,7 +1,7 @@
 //! A simple tree implementation which tries to not allocate all over the place.
 use std::ops;
 
-use la_arena::Arena;
+use arena::Arena;
 
 #[derive(Default)]
 pub(crate) struct Tree<T> {
@@ -9,7 +9,7 @@ pub(crate) struct Tree<T> {
     current_path: Vec<(Idx<T>, Option<Idx<T>>)>,
 }
 
-pub(crate) type Idx<T> = la_arena::Idx<Node<T>>;
+pub(crate) type Idx<T> = arena::Idx<Node<T>>;
 
 impl<T> Tree<T> {
     pub(crate) fn start(&mut self)
@@ -40,7 +40,10 @@ impl<T> Tree<T> {
     }
 
     pub(crate) fn children(&self, idx: Idx<T>) -> impl Iterator<Item = Idx<T>> + '_ {
-        NodeIter { nodes: &self.nodes, next: self.nodes[idx].first_child }
+        NodeIter {
+            nodes: &self.nodes,
+            next: self.nodes[idx].first_child,
+        }
     }
     pub(crate) fn clear(&mut self) {
         self.nodes.clear();
@@ -63,7 +66,11 @@ pub(crate) struct Node<T> {
 
 impl<T> Node<T> {
     fn new(data: T) -> Node<T> {
-        Node { data, first_child: None, next_sibling: None }
+        Node {
+            data,
+            first_child: None,
+            next_sibling: None,
+        }
     }
 }
 

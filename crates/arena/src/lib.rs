@@ -80,7 +80,10 @@ impl<T> fmt::Debug for Idx<T> {
 impl<T> Idx<T> {
     /// Creates a new index from a [`RawIdx`].
     pub fn from_raw(raw: RawIdx) -> Self {
-        Idx { raw, _ty: PhantomData }
+        Idx {
+            raw,
+            _ty: PhantomData,
+        }
     }
 
     /// Converts this index into the underlying [`RawIdx`].
@@ -100,32 +103,35 @@ impl<T> IdxRange<T> {
     /// inclusive of the start value and exclusive of the end value.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// let a = arena.alloc("a");
     /// let b = arena.alloc("b");
     /// let c = arena.alloc("c");
     /// let d = arena.alloc("d");
     ///
-    /// let range = la_arena::IdxRange::new(b..d);
+    /// let range = arena::IdxRange::new(b..d);
     /// assert_eq!(&arena[range], &["b", "c"]);
     /// ```
     pub fn new(range: Range<Idx<T>>) -> Self {
-        Self { range: range.start.into_raw().into()..range.end.into_raw().into(), _p: PhantomData }
+        Self {
+            range: range.start.into_raw().into()..range.end.into_raw().into(),
+            _p: PhantomData,
+        }
     }
 
     /// Creates a new index range
     /// inclusive of the start value and end value.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// let foo = arena.alloc("foo");
     /// let bar = arena.alloc("bar");
     /// let baz = arena.alloc("baz");
     ///
-    /// let range = la_arena::IdxRange::new_inclusive(foo..=baz);
+    /// let range = arena::IdxRange::new_inclusive(foo..=baz);
     /// assert_eq!(&arena[range], &["foo", "bar", "baz"]);
     ///
-    /// let range = la_arena::IdxRange::new_inclusive(foo..=foo);
+    /// let range = arena::IdxRange::new_inclusive(foo..=foo);
     /// assert_eq!(&arena[range], &["foo"]);
     /// ```
     pub fn new_inclusive(range: RangeInclusive<Idx<T>>) -> Self {
@@ -138,11 +144,11 @@ impl<T> IdxRange<T> {
     /// Returns whether the index range is empty.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// let one = arena.alloc(1);
     /// let two = arena.alloc(2);
     ///
-    /// assert!(la_arena::IdxRange::new(one..one).is_empty());
+    /// assert!(arena::IdxRange::new(one..one).is_empty());
     /// ```
     pub fn is_empty(&self) -> bool {
         self.range.is_empty()
@@ -172,7 +178,10 @@ impl<T> fmt::Debug for IdxRange<T> {
 
 impl<T> Clone for IdxRange<T> {
     fn clone(&self) -> Self {
-        Self { range: self.range.clone(), _p: PhantomData }
+        Self {
+            range: self.range.clone(),
+            _p: PhantomData,
+        }
     }
 }
 
@@ -192,7 +201,10 @@ pub struct Arena<T> {
 
 impl<T: fmt::Debug> fmt::Debug for Arena<T> {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
-        fmt.debug_struct("Arena").field("len", &self.len()).field("data", &self.data).finish()
+        fmt.debug_struct("Arena")
+            .field("len", &self.len())
+            .field("data", &self.data)
+            .finish()
     }
 }
 
@@ -200,7 +212,7 @@ impl<T> Arena<T> {
     /// Creates a new empty arena.
     ///
     /// ```
-    /// let arena: la_arena::Arena<i32> = la_arena::Arena::new();
+    /// let arena: arena::Arena<i32> = arena::Arena::new();
     /// assert!(arena.is_empty());
     /// ```
     pub const fn new() -> Arena<T> {
@@ -210,7 +222,7 @@ impl<T> Arena<T> {
     /// Empties the arena, removing all contained values.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     ///
     /// arena.alloc(1);
     /// arena.alloc(2);
@@ -227,7 +239,7 @@ impl<T> Arena<T> {
     /// Returns the length of the arena.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// assert_eq!(arena.len(), 0);
     ///
     /// arena.alloc("foo");
@@ -246,7 +258,7 @@ impl<T> Arena<T> {
     /// Returns whether the arena contains no elements.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// assert!(arena.is_empty());
     ///
     /// arena.alloc(0.5);
@@ -259,7 +271,7 @@ impl<T> Arena<T> {
     /// Allocates a new value on the arena, returning the value’s index.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// let idx = arena.alloc(50);
     ///
     /// assert_eq!(arena[idx], 50);
@@ -273,7 +285,7 @@ impl<T> Arena<T> {
     /// Returns an iterator over the arena’s elements.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// let idx1 = arena.alloc(20);
     /// let idx2 = arena.alloc(40);
     /// let idx3 = arena.alloc(60);
@@ -286,13 +298,16 @@ impl<T> Arena<T> {
     pub fn iter(
         &self,
     ) -> impl Iterator<Item = (Idx<T>, &T)> + ExactSizeIterator + DoubleEndedIterator {
-        self.data.iter().enumerate().map(|(idx, value)| (Idx::from_raw(RawIdx(idx as u32)), value))
+        self.data
+            .iter()
+            .enumerate()
+            .map(|(idx, value)| (Idx::from_raw(RawIdx(idx as u32)), value))
     }
 
     /// Returns an iterator over the arena’s mutable elements.
     ///
     /// ```
-    /// let mut arena = la_arena::Arena::new();
+    /// let mut arena = arena::Arena::new();
     /// let idx1 = arena.alloc(20);
     ///
     /// assert_eq!(arena[idx1], 20);
@@ -360,6 +375,8 @@ impl<T> FromIterator<T> for Arena<T> {
     where
         I: IntoIterator<Item = T>,
     {
-        Arena { data: Vec::from_iter(iter) }
+        Arena {
+            data: Vec::from_iter(iter),
+        }
     }
 }
