@@ -6,12 +6,12 @@ let client: lc.LanguageClient;
 
 export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand("husky-lang-server.sayHello", () => {
+    vscode.commands.registerCommand("husky_lang_server.sayHello", () => {
       console.log("executed!");
     })
   );
   const run: lc.Executable = {
-    command: "husky-lang-server",
+    command: "husky_lang_server",
   };
 
   const serverOptions: lc.ServerOptions = {
@@ -76,7 +76,7 @@ export async function activate(context: vscode.ExtensionContext) {
   };
 
   const client = new lc.LanguageClient(
-    "husky-lang-server",
+    "husky_lang_server",
     "Husky Language Server",
     serverOptions,
     clientOptions

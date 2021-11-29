@@ -7,9 +7,7 @@ use lsp_types::{
     request::GotoDefinition, GotoDefinitionResponse, InitializeParams, ServerCapabilities,
 };
 
-use husky_lang_server::{
-    cli::flags, from_json, initialize_connection, run_server, Result, ServerConfig,
-};
+use husky_lang_server::{cli::flags, from_json, init_connection, run_server, Result, ServerConfig};
 
 fn main() {
     if let Err(e) = try_main() {
@@ -24,7 +22,7 @@ fn try_main() -> Result<()> {
 
     let (connection, io_threads) = Connection::stdio();
 
-    let server_config = initialize_connection(&mut connection)?;
+    let server_config = init_connection(&connection)?;
 
     run_server(server_config, connection)?;
 

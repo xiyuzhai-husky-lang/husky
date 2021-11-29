@@ -23,10 +23,7 @@ pub fn run_server(
 }
 
 fn assert_projects_exist(server: &mut Server) {
-    if server.config.linked_projects().is_empty()
-        && server.config.detached_files().is_empty()
-        && server.config.notifications().cargo_toml_not_found
-    {
+    if server.config.linked_projects().is_empty() && server.config.detached_files().is_empty() {
         server.sender.show_message(
             lsp_types::MessageType::ERROR,
             "rust-analyzer failed to discover workspace".to_string(),
