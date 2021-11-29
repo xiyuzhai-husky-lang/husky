@@ -38,7 +38,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "husky-lang-server.sayHello",
+        "command": "husky_lang_server.sayHello",
         "title": "Say Hello",
         "category": "Husky Language Server"
       }

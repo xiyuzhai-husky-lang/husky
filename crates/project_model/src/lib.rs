@@ -6,3 +6,6 @@ pub enum ProjectManifest {
     ProjectJson(ManifestPath),
     CargoToml(ManifestPath),
 }
+
+#[derive(Debug)]
+pub struct Project {}
