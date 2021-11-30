@@ -10,6 +10,16 @@ macro_rules! show {
   };
 }
 
+#[macro_export]
+macro_rules! eshow {
+    ($a:expr)=>{format!("{} = {:#?}",
+    stringify!($a),
+    $a)};
+   ($a:expr, $($as:expr),*) => {
+    format!("{}, {}", (show!($a)), (show!($($as),*)))
+  };
+}
+
 pub const RESET: &str = "\x1B[0m";
 pub const BLACK: &str = "\x1B[30m";
 pub const RED: &str = "\x1B[31m";

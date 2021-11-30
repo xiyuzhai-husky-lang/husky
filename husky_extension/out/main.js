@@ -15467,11 +15467,11 @@ var Direction;
 // src/main.ts
 var client;
 async function activate(context) {
-  context.subscriptions.push(vscode.commands.registerCommand("husky-lang-server.sayHello", () => {
+  context.subscriptions.push(vscode.commands.registerCommand("husky_lang_server.sayHello", () => {
     console.log("executed!");
   }));
   const run = {
-    command: "husky-lang-server"
+    command: "husky_lang_server"
   };
   const serverOptions = {
     run,
@@ -15506,7 +15506,7 @@ async function activate(context) {
       }
     }
   };
-  const client2 = new lc2.LanguageClient("husky-lang-server", "Husky Language Server", serverOptions, clientOptions);
+  const client2 = new lc2.LanguageClient("husky_lang_server", "Husky Language Server", serverOptions, clientOptions);
   client2.registerFeature(new ExperimentalFeatures());
   client2.start();
 }

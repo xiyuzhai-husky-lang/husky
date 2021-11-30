@@ -8,3 +8,11 @@ macro_rules! p {
   common::show::RESET,
   show!($($v),*))};
 }
+
+#[macro_export]
+macro_rules! ep {
+  ($($v:expr),*) => {eprintln!("{}:{} {}",
+  file!(),
+  line!(),
+  eshow!($($v),*))};
+}
