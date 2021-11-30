@@ -3,7 +3,7 @@ use lsp_types::{
     request::GotoDefinition, GotoDefinitionResponse, InitializeParams, ServerCapabilities,
 };
 
-use project_model::Project;
+use project::Project;
 use vfs::AbsPathBuf;
 
 use crate::{

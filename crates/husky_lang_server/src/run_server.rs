@@ -3,6 +3,7 @@ mod handle_event;
 
 use std::error::Error;
 
+use common::*;
 use crossbeam_channel::{select, Receiver};
 use lsp_server::{Connection, Message, Request, RequestId, Response};
 use lsp_types::{
@@ -23,7 +24,7 @@ pub fn run_server(
 }
 
 fn assert_projects_exist(server: &mut Server) {
-    if server.config.linked_projects().is_empty() && server.config.detached_files().is_empty() {
+    if server.config.projects.is_empty() {
         server.sender.show_message(
             lsp_types::MessageType::ERROR,
             "rust-analyzer failed to discover workspace".to_string(),
@@ -32,6 +33,7 @@ fn assert_projects_exist(server: &mut Server) {
 }
 
 fn fetch_workspaces(server: &mut Server) {
+    ep!(server.config);
     todo!()
 }
 

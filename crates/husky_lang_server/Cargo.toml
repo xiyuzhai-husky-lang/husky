@@ -19,10 +19,11 @@ parking_lot = "0.11.0"
 rustc-hash = "1.1.0"
 tracing = "0.1"
 
+common = { path = "../common", version = "0.0.0" }
 flycheck = { path = "../flycheck", version = "0.0.0" }
 vfs = { path = "../vfs", version = "0.0.0" }
 vfs-notify = { path = "../vfs_notify", version = "0.0.0" }
-project_model = { path = "../project_model", version = "0.0.0" }
+project = { path = "../project", version = "0.0.0" }
 
 [profile.dev]
 opt-level = 0
