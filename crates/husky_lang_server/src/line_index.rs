@@ -13,9 +13,8 @@ pub enum OffsetEncoding {
 }
 
 pub(crate) struct LineIndex {
-    // pub(crate) index: Arc<ide::LineIndex>,
-// pub(crate) endings: LineEndings,
-// pub(crate) encoding: OffsetEncoding,
+    pub(crate) index: Arc<ide::LineIndex>,
+    pub(crate) endings: LineEndings,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]

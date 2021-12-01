@@ -1,0 +1,13 @@
+[package]
+name = "parser"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+drop_bomb = "0.1.4"
