@@ -1,6 +1,6 @@
 use crossbeam_channel::{unbounded, Receiver, Sender};
 
-use crate::{server_config::ServerConfig, task::Task, taskpool::TaskPool};
+use crate::{config::ServerConfig, task::Task, taskpool::TaskPool};
 
 use super::handle::Handle;
 
