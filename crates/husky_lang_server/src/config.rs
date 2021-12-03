@@ -5,6 +5,18 @@
 //! Of particular interest is the `feature_flags` hash map: while other fields
 //! configure the server itself, feature flags are passed into analysis, and
 //! tweak things like automatic insertion of `()` in completions.
+pub(crate) mod huskyfmt;
+
+macro_rules! try_ {
+    ($expr:expr) => {
+        || -> _ { Some($expr) }()
+    };
+}
+macro_rules! try_or {
+    ($expr:expr, $or:expr) => {
+        try_!($expr).unwrap_or($or)
+    };
+}
 
 use std::{ffi::OsString, iter, path::PathBuf};
 
@@ -22,7 +34,9 @@ use rustc_hash::{FxHashMap, FxHashSet};
 use serde::{de::DeserializeOwned, Deserialize};
 use vfs::AbsPathBuf;
 
-use crate::Result;
+use crate::{
+    capabilities::completion_item_edit_resolve, line_index::OffsetEncoding, lsp_ext, Result,
+};
 
 macro_rules! _server_config_data {
     (struct $name:ident {
@@ -61,7 +75,7 @@ macro_rules! _server_config_data {
 }
 use _server_config_data as server_config_data;
 
-// Defines the server-side configuration of the rust-analyzer. We generate
+// Defines the server-side configuration of the husky-analyzer. We generate
 // *parts* of VS Code's `package.json` config from this.
 //
 // However, editor specific config, which the server doesn't know about, should
@@ -75,11 +89,11 @@ server_config_data! {
         assist_importGranularity |
         assist_importMergeBehavior |
         assist_importMergeBehaviour: ImportGranularityDef  = "\"crate\"",
-        /// Whether to enforce the import granularity setting for all files. If set to false rust-analyzer will try to keep import styles consistent per file.
+        /// Whether to enforce the import granularity setting for all files. If set to false husky-analyzer will try to keep import styles consistent per file.
         assist_importEnforceGranularity: bool              = "false",
         /// The path structure for newly inserted paths to use.
         assist_importPrefix: ImportPrefixDef               = "\"plain\"",
-        /// Group inserted imports by the https://rust-analyzer.github.io/manual.html#auto-import[following order]. Groups are separated by newlines.
+        /// Group inserted imports by the https://husky-analyzer.github.io/manual.html#auto-import[following order]. Groups are separated by newlines.
         assist_importGroup: bool                           = "true",
         /// Whether to allow import insertion to merge new imports into single path glob imports like `use std::fmt::*;`.
         assist_allowMergingIntoGlobImports: bool           = "true",
@@ -102,9 +116,9 @@ server_config_data! {
         /// Run build scripts (`build.rs`) for more precise code analysis.
         cargo_runBuildScripts |
         cargo_loadOutDirsFromCheck: bool = "true",
-        /// Use `RUSTC_WRAPPER=rust-analyzer` when running build scripts to
+        /// Use `HUSKYC_WRAPPER=husky-analyzer` when running build scripts to
         /// avoid compiling unnecessary things.
-        cargo_useRustcWrapperForBuildScripts: bool = "true",
+        cargo_useHuskycWrapperForBuildScripts: bool = "true",
         /// Do not activate the `default` feature.
         cargo_noDefaultFeatures: bool    = "false",
         /// Compilation target (target triple).
@@ -115,7 +129,7 @@ server_config_data! {
         /// Run specified `cargo check` command for diagnostics on save.
         checkOnSave_enable: bool                         = "true",
         /// Check with all features (`--all-features`).
-        /// Defaults to `#rust-analyzer.cargo.allFeatures#`.
+        /// Defaults to `#husky-analyzer.cargo.allFeatures#`.
         checkOnSave_allFeatures: Option<bool>            = "null",
         /// Check all targets and tests (`--all-targets`).
         checkOnSave_allTargets: bool                     = "true",
@@ -124,20 +138,20 @@ server_config_data! {
         /// Do not activate the `default` feature.
         checkOnSave_noDefaultFeatures: Option<bool>      = "null",
         /// Check for a specific target. Defaults to
-        /// `#rust-analyzer.cargo.target#`.
+        /// `#husky-analyzer.cargo.target#`.
         checkOnSave_target: Option<String>               = "null",
         /// Extra arguments for `cargo check`.
         checkOnSave_extraArgs: Vec<String>               = "[]",
         /// List of features to activate. Defaults to
-        /// `#rust-analyzer.cargo.features#`.
+        /// `#husky-analyzer.cargo.features#`.
         checkOnSave_features: Option<Vec<String>>        = "null",
-        /// Advanced option, fully override the command rust-analyzer uses for
+        /// Advanced option, fully override the command husky-analyzer uses for
         /// checking. The command should include `--message-format=json` or
         /// similar option.
         checkOnSave_overrideCommand: Option<Vec<String>> = "null",
 
         /// Whether to add argument snippets when completing functions.
-        /// Only applies when `#rust-analyzer.completion.addCallParenthesis#` is set.
+        /// Only applies when `#husky-analyzer.completion.addCallParenthesis#` is set.
         completion_addCallArgumentSnippets: bool = "true",
         /// Whether to add parenthesis when completing functions.
         completion_addCallParenthesis: bool      = "true",
@@ -152,12 +166,12 @@ server_config_data! {
         /// with `self` prefixed to them when inside a method.
         completion_autoself_enable: bool       = "true",
 
-        /// Whether to show native rust-analyzer diagnostics.
+        /// Whether to show native husky-analyzer diagnostics.
         enable_diagnostics: bool                = "true",
-        /// List of rust-analyzer diagnostics to disable.
+        /// List of husky-analyzer diagnostics to disable.
         diagnostics_disabled: FxHashSet<String> = "[]",
         /// Map of prefixes to be substituted when parsing diagnostic file paths.
-        /// This should be the reverse mapping of what is passed to `rustc` as `--remap-path-prefix`.
+        /// This should be the reverse mapping of what is passed to `huskyc` as `--remap-path-prefix`.
         diagnostics_remapPrefix: FxHashMap<String, String> = "{}",
         /// List of warnings that should be displayed with hint severity.
         ///
@@ -175,7 +189,7 @@ server_config_data! {
 
         /// Controls file watching implementation.
         files_watcher: String = "\"client\"",
-        /// These directories will be ignored by rust-analyzer. They are
+        /// These directories will be ignored by husky-analyzer. They are
         /// relative to the workspace root, and globs are not supported. You may
         /// also need to add the folders to Code's `files.watcherExclude`.
         files_excludeDirs: Vec<PathBuf> = "[]",
@@ -203,21 +217,21 @@ server_config_data! {
         hoverActions_linksInHover: bool = "true",
 
         /// Whether to show `Debug` action. Only applies when
-        /// `#rust-analyzer.hoverActions.enable#` is set.
+        /// `#husky-analyzer.hoverActions.enable#` is set.
         hoverActions_debug: bool           = "true",
-        /// Whether to show HoverActions in Rust files.
+        /// Whether to show HoverActions in Husky files.
         hoverActions_enable: bool          = "true",
         /// Whether to show `Go to Type Definition` action. Only applies when
-        /// `#rust-analyzer.hoverActions.enable#` is set.
+        /// `#husky-analyzer.hoverActions.enable#` is set.
         hoverActions_gotoTypeDef: bool     = "true",
         /// Whether to show `Implementations` action. Only applies when
-        /// `#rust-analyzer.hoverActions.enable#` is set.
+        /// `#husky-analyzer.hoverActions.enable#` is set.
         hoverActions_implementations: bool = "true",
         /// Whether to show `References` action. Only applies when
-        /// `#rust-analyzer.hoverActions.enable#` is set.
+        /// `#husky-analyzer.hoverActions.enable#` is set.
         hoverActions_references: bool      = "false",
         /// Whether to show `Run` action. Only applies when
-        /// `#rust-analyzer.hoverActions.enable#` is set.
+        /// `#husky-analyzer.hoverActions.enable#` is set.
         hoverActions_run: bool             = "true",
 
         /// Whether to show inlay type hints for method chains.
@@ -242,39 +256,39 @@ server_config_data! {
         joinLines_joinAssignments: bool = "true",
 
         /// Whether to show `Debug` lens. Only applies when
-        /// `#rust-analyzer.lens.enable#` is set.
+        /// `#husky-analyzer.lens.enable#` is set.
         lens_debug: bool            = "true",
-        /// Whether to show CodeLens in Rust files.
+        /// Whether to show CodeLens in Husky files.
         lens_enable: bool           = "true",
         /// Whether to show `Implementations` lens. Only applies when
-        /// `#rust-analyzer.lens.enable#` is set.
+        /// `#husky-analyzer.lens.enable#` is set.
         lens_implementations: bool  = "true",
         /// Whether to show `Run` lens. Only applies when
-        /// `#rust-analyzer.lens.enable#` is set.
+        /// `#husky-analyzer.lens.enable#` is set.
         lens_run: bool              = "true",
         /// Whether to show `Method References` lens. Only applies when
-        /// `#rust-analyzer.lens.enable#` is set.
+        /// `#husky-analyzer.lens.enable#` is set.
         lens_methodReferences: bool = "false",
         /// Whether to show `References` lens for Struct, Enum, Union and Trait.
-        /// Only applies when `#rust-analyzer.lens.enable#` is set.
+        /// Only applies when `#husky-analyzer.lens.enable#` is set.
         lens_references: bool = "false",
         /// Whether to show `References` lens for Enum Variants.
-        /// Only applies when `#rust-analyzer.lens.enable#` is set.
+        /// Only applies when `#husky-analyzer.lens.enable#` is set.
         lens_enumVariantReferences: bool = "false",
         /// Internal config: use custom client-side commands even when the
         /// client doesn't set the corresponding capability.
         lens_forceCustomCommands: bool = "true",
 
-        /// Number of syntax trees rust-analyzer keeps in memory. Defaults to 128.
+        /// Number of syntax trees husky-analyzer keeps in memory. Defaults to 128.
         lru_capacity: Option<usize>                 = "null",
 
         /// Whether to show `can't find Cargo.toml` error message.
         notifications_cargoTomlNotFound: bool      = "true",
 
-        /// Enable support for procedural macros, implies `#rust-analyzer.cargo.runBuildScripts#`.
+        /// Enable support for procedural macros, implies `#husky-analyzer.cargo.runBuildScripts#`.
         procMacro_enable: bool                     = "true",
         /// Internal config, path to proc-macro server executable (typically,
-        /// this is rust-analyzer itself, but we override this in tests).
+        /// this is husky-analyzer itself, but we override this in tests).
         procMacro_server: Option<PathBuf>          = "null",
 
         /// Command to be executed instead of 'cargo' for runnables.
@@ -283,25 +297,25 @@ server_config_data! {
         /// tests or binaries. For example, it may be `--release`.
         runnables_cargoExtraArgs: Vec<String>   = "[]",
 
-        /// Path to the Cargo.toml of the rust compiler workspace, for usage in rustc_private
-        /// projects, or "discover" to try to automatically find it if the `rustc-dev` component
+        /// Path to the Cargo.toml of the husky compiler workspace, for usage in huskyc_private
+        /// projects, or "discover" to try to automatically find it if the `huskyc-dev` component
         /// is installed.
         ///
-        /// Any project which uses rust-analyzer with the rustcPrivate
-        /// crates must set `[package.metadata.rust-analyzer] rustc_private=true` to use it.
+        /// Any project which uses husky-analyzer with the huskycPrivate
+        /// crates must set `[package.metadata.husky-analyzer] huskyc_private=true` to use it.
         ///
-        /// This option does not take effect until rust-analyzer is restarted.
-        rustcSource: Option<String> = "null",
+        /// This option does not take effect until husky-analyzer is restarted.
+        huskycSource: Option<String> = "null",
 
-        /// Additional arguments to `rustfmt`.
-        rustfmt_extraArgs: Vec<String>               = "[]",
-        /// Advanced option, fully override the command rust-analyzer uses for
+        /// Additional arguments to `huskyfmt`.
+        huskyfmt_extraArgs: Vec<String>               = "[]",
+        /// Advanced option, fully override the command husky-analyzer uses for
         /// formatting.
-        rustfmt_overrideCommand: Option<Vec<String>> = "null",
-        /// Enables the use of rustfmt's unstable range formatting command for the
-        /// `textDocument/rangeFormatting` request. The rustfmt option is unstable and only
+        huskyfmt_overrideCommand: Option<Vec<String>> = "null",
+        /// Enables the use of huskyfmt's unstable range formatting command for the
+        /// `textDocument/rangeFormatting` request. The huskyfmt option is unstable and only
         /// available on a nightly build.
-        rustfmt_enableRangeFormatting: bool = "false",
+        huskyfmt_enableRangeFormatting: bool = "false",
     }
 }
 
@@ -317,17 +331,7 @@ pub struct ServerConfig {
     pub(crate) root_path: AbsPathBuf,
     pub(crate) projects: Vec<Project>,
     data: ServerConfigData,
-}
-
-macro_rules! try_ {
-    ($expr:expr) => {
-        || -> _ { Some($expr) }()
-    };
-}
-macro_rules! try_or {
-    ($expr:expr, $or:expr) => {
-        try_!($expr).unwrap_or($or)
-    };
+    snippets: Vec<Snippet>,
 }
 
 impl ServerConfig {
@@ -358,6 +362,7 @@ impl ServerConfig {
             },
             root_path,
             data: ServerConfigData::default(),
+            snippets: Default::default(),
         };
 
         if let Some(json) = init_params.initialization_options {
@@ -386,6 +391,122 @@ impl ServerConfig {
                 .refresh_support?,
             false
         )
+    }
+    pub fn enable_insert_replace(&self) -> bool {
+        try_or!(
+            self.client_capabilities
+                .text_document
+                .as_ref()?
+                .completion
+                .as_ref()?
+                .completion_item
+                .as_ref()?
+                .insert_replace_support?,
+            false
+        )
+    }
+    pub fn enable_hierarchical_symbols(&self) -> bool {
+        try_or!(
+            self.client_capabilities
+                .text_document
+                .as_ref()?
+                .document_symbol
+                .as_ref()?
+                .hierarchical_document_symbol_support?,
+            false
+        )
+    }
+    pub fn line_folding_only(&self) -> bool {
+        try_or!(
+            self.client_capabilities
+                .text_document
+                .as_ref()?
+                .folding_range
+                .as_ref()?
+                .line_folding_only?,
+            false
+        )
+    }
+    pub fn offset_encoding(&self) -> OffsetEncoding {
+        if lsp_ext::supports_utf8(&self.client_capabilities) {
+            OffsetEncoding::Utf8
+        } else {
+            OffsetEncoding::Utf16
+        }
+    }
+    pub fn completion(&self) -> CompletionConfig {
+        CompletionConfig {
+            enable_postfix_completions: self.data.completion_postfix_enable,
+            enable_imports_on_the_fly: self.data.completion_autoimport_enable
+                && completion_item_edit_resolve(&self.client_capabilities),
+            enable_self_on_the_fly: self.data.completion_autoself_enable,
+            add_call_parenthesis: self.data.completion_addCallParenthesis,
+            add_call_argument_snippets: self.data.completion_addCallArgumentSnippets,
+            insert_use: self.insert_use_config(),
+            snippet_cap: SnippetCap::new(try_or!(
+                self.client_capabilities
+                    .text_document
+                    .as_ref()?
+                    .completion
+                    .as_ref()?
+                    .completion_item
+                    .as_ref()?
+                    .snippet_support?,
+                false
+            )),
+            snippets: self.snippets.clone(),
+        }
+    }
+
+    pub fn fmt(&self) -> huskyfmt::HuskyfmtConfig {
+        match &self.data.huskyfmt_overrideCommand {
+            Some(args) if !args.is_empty() => {
+                let mut args = args.clone();
+                let command = args.remove(0);
+                huskyfmt::HuskyfmtConfig::CustomCommand { command, args }
+            }
+            Some(_) | None => huskyfmt::HuskyfmtConfig::Huskyfmt {
+                extra_args: self.data.huskyfmt_extraArgs.clone(),
+                enable_range_formatting: self.data.huskyfmt_enableRangeFormatting,
+            },
+        }
+    }
+    fn insert_use_config(&self) -> InsertUseConfig {
+        InsertUseConfig {
+            granularity: match self.data.assist_importGranularity {
+                ImportGranularityDef::Preserve => ImportGranularity::Preserve,
+                ImportGranularityDef::Item => ImportGranularity::Item,
+                ImportGranularityDef::Crate => ImportGranularity::Crate,
+                ImportGranularityDef::Module => ImportGranularity::Module,
+            },
+            enforce_granularity: self.data.assist_importEnforceGranularity,
+            prefix_kind: match self.data.assist_importPrefix {
+                ImportPrefixDef::Plain => PrefixKind::Plain,
+                ImportPrefixDef::ByCrate => PrefixKind::ByCrate,
+                ImportPrefixDef::BySelf => PrefixKind::BySelf,
+            },
+            group: self.data.assist_importGroup,
+            skip_glob_imports: !self.data.assist_allowMergingIntoGlobImports,
+        }
+    }
+    pub fn diagnostics(&self) -> DiagnosticsConfig {
+        DiagnosticsConfig {
+            disable_experimental: true,
+            disabled: self.data.diagnostics_disabled.clone(),
+        }
+    }
+
+    pub fn highlighting_strings(&self) -> bool {
+        self.data.highlighting_strings
+    }
+
+    pub fn highlight_related(&self) -> HighlightRelatedConfig {
+        HighlightRelatedConfig {
+            references: self.data.highlightRelated_references,
+            break_points: self.data.highlightRelated_breakPoints,
+            exit_points: self.data.highlightRelated_exitPoints,
+            yield_points: self.data.highlightRelated_yieldPoints,
+        }
     }
 }
 
@@ -548,7 +669,7 @@ fn schema(fields: &[(&'static str, &'static str, &[&str], &str)]) -> serde_json:
         .iter()
         .map(|(field, ty, doc, default)| {
             let name = field.replace("_", ".");
-            let name = format!("rust-analyzer.{}", name);
+            let name = format!("husky-analyzer.{}", name);
             let props = field_props(field, ty, doc, default);
             (name, props)
         })

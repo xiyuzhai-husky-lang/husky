@@ -2,12 +2,11 @@
 
 use std::{mem, sync::Arc};
 
-use ide::FileID;
 use rustc_hash::{FxHashMap, FxHashSet};
 
 use crate::lsp_ext;
 
-pub(crate) type CheckFixes = Arc<FxHashMap<FileID, Vec<Fix>>>;
+pub(crate) type CheckFixes = Arc<FxHashMap<ide::FileID, Vec<Fix>>>;
 
 #[derive(Debug, Default, Clone)]
 pub struct DiagnosticsMapConfig {
@@ -18,12 +17,12 @@ pub struct DiagnosticsMapConfig {
 
 #[derive(Debug, Default, Clone)]
 pub(crate) struct DiagnosticCollection {
-    // FIXME: should be FxHashMap<FileID, Vec<ra_id::Diagnostic>>
-    pub(crate) native: FxHashMap<FileID, Vec<lsp_types::Diagnostic>>,
+    // FIXME: should be FxHashMap<ide::FileID, Vec<ra_id::Diagnostic>>
+    pub(crate) native: FxHashMap<ide::FileID, Vec<lsp_types::Diagnostic>>,
     // FIXME: should be Vec<flycheck::Diagnostic>
-    pub(crate) check: FxHashMap<FileID, Vec<lsp_types::Diagnostic>>,
+    pub(crate) check: FxHashMap<ide::FileID, Vec<lsp_types::Diagnostic>>,
     pub(crate) check_fixes: CheckFixes,
-    changes: FxHashSet<FileID>,
+    changes: FxHashSet<ide::FileID>,
 }
 
 #[derive(Debug, Clone)]
@@ -41,7 +40,7 @@ impl DiagnosticCollection {
 
     pub(crate) fn add_check_diagnostic(
         &mut self,
-        file_id: FileID,
+        file_id: ide::FileID,
         diagnostic: lsp_types::Diagnostic,
         fixes: Vec<lsp_ext::CodeAction>,
     ) {
@@ -66,7 +65,7 @@ impl DiagnosticCollection {
 
     pub(crate) fn set_native_diagnostics(
         &mut self,
-        file_id: FileID,
+        file_id: ide::FileID,
         diagnostics: Vec<lsp_types::Diagnostic>,
     ) {
         if let Some(existing_diagnostics) = self.native.get(&file_id) {
@@ -86,14 +85,14 @@ impl DiagnosticCollection {
 
     pub(crate) fn diagnostics_for(
         &self,
-        file_id: FileID,
+        file_id: ide::FileID,
     ) -> impl Iterator<Item = &lsp_types::Diagnostic> {
         let native = self.native.get(&file_id).into_iter().flatten();
         let check = self.check.get(&file_id).into_iter().flatten();
         native.chain(check)
     }
 
-    pub(crate) fn take_changes(&mut self) -> Option<FxHashSet<FileID>> {
+    pub(crate) fn take_changes(&mut self) -> Option<FxHashSet<ide::FileID>> {
         if self.changes.is_empty() {
             return None;
         }

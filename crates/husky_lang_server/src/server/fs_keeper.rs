@@ -8,7 +8,7 @@ use ide::{Analysis, AnalysisHost, Cancellable, Change, FileID};
 
 use crate::{
     fs::ServerFileSystem,
-    line_index::{LineEndings, LineIndex},
+    line_index::{LineCollection, LineEndingType},
     server::handle::Handle,
     source_root_config::SourceRootConfig,
 };

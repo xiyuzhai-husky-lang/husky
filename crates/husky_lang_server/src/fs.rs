@@ -7,7 +7,7 @@ use rustc_hash::FxHashMap;
 use ide::{Analysis, AnalysisHost, Cancellable, Change, FileID};
 
 use crate::{
-    line_index::{LineEndings, LineIndex},
+    line_index::{LineCollection, LineEndingType},
     server::handle::Handle,
     source_root_config::SourceRootConfig,
 };
@@ -15,7 +15,7 @@ use crate::{
 #[derive(Default)]
 pub(crate) struct ServerFileSystem {
     pub(crate) vfs: vfs::Vfs,
-    pub(crate) line_endings: FxHashMap<FileID, LineEndings>,
+    pub(crate) line_endings: FxHashMap<FileID, LineEndingType>,
     pub(crate) source_root_config: SourceRootConfig,
 }
 
@@ -42,7 +42,7 @@ impl ServerFileSystem {
 
             let text = match get_text(&file, &self.vfs) {
                 Some(text) => {
-                    let (text, line_endings) = LineEndings::normalize(text);
+                    let (text, line_endings) = LineEndingType::normalize(text);
                     self.line_endings.insert(file.file_id, line_endings);
                     Some(Arc::new(text))
                 }

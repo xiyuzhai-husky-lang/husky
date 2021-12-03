@@ -1,14 +1,17 @@
-#![allow(warnings, unused)]
+// #![allow(warnings, unused)]
+mod capabilities;
 pub mod cli;
 mod config;
+mod convert;
 mod diagnostics;
-mod from_proto;
+mod diff;
 mod fs;
 mod init_connection;
 mod line_index;
 mod lsp_error;
 mod lsp_ext;
 mod lsp_utils;
+mod markdown;
 mod op_queue;
 mod reload;
 mod run_server;

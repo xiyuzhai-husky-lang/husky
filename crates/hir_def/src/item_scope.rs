@@ -13,8 +13,8 @@ use stdx::format_to;
 use syntax::ast;
 
 use crate::{
-    attr::AttrId, db::DefDatabase, per_ns::PerNs, visibility::Visibility, AdtId, BuiltinType,
-    ConstId, ImplId, LocalModuleId, MacroDefId, ModuleDefId, ModuleId, TraitId,
+    attr::AttrId, db::DefDatabase, per_ns::PerNamespace, visibility::Visibility, AdtId,
+    BuiltinType, ConstId, ImplId, LocalModuleId, ModuleDefId, ModuleId, TraitId,
 };
 
 #[derive(Copy, Clone)]
@@ -38,7 +38,6 @@ pub struct ItemScope {
     /// imports.
     types: FxHashMap<Name, (ModuleDefId, Visibility)>,
     values: FxHashMap<Name, (ModuleDefId, Visibility)>,
-    macros: FxHashMap<Name, (MacroDefId, Visibility)>,
     unresolved: FxHashSet<Name>,
 
     /// The defs declared in this scope. Each def has a single scope where it is
@@ -60,15 +59,19 @@ pub struct ItemScope {
     /// Module scoped macros will be inserted into `items` instead of here.
     // FIXME: Macro shadowing in one module is not properly handled. Non-item place macros will
     // be all resolved to the last one defined if shadowing happens.
-    legacy_macros: FxHashMap<Name, MacroDefId>,
     attr_macros: FxHashMap<AstId<ast::Item>, MacroCallId>,
     derive_macros: FxHashMap<AstId<ast::Item>, SmallVec<[(AttrId, MacroCallId); 1]>>,
 }
 
-pub(crate) static BUILTIN_SCOPE: Lazy<FxHashMap<Name, PerNs>> = Lazy::new(|| {
+pub(crate) static BUILTIN_SCOPE: Lazy<FxHashMap<Name, PerNamespace>> = Lazy::new(|| {
     BuiltinType::ALL
         .iter()
-        .map(|(name, ty)| (name.clone(), PerNs::types((*ty).into(), Visibility::Public)))
+        .map(|(name, ty)| {
+            (
+                name.clone(),
+                PerNamespace::types((*ty).into(), Visibility::Public),
+            )
+        })
         .collect()
 });
 
@@ -84,13 +87,12 @@ pub(crate) enum BuiltinShadowMode {
 /// Legacy macros can only be accessed through special methods like `get_legacy_macros`.
 /// Other methods will only resolve values, types and module scoped macros only.
 impl ItemScope {
-    pub fn entries<'a>(&'a self) -> impl Iterator<Item = (&'a Name, PerNs)> + 'a {
+    pub fn entries<'a>(&'a self) -> impl Iterator<Item = (&'a Name, PerNamespace)> + 'a {
         // FIXME: shadowing
         let keys: FxHashSet<_> = self
             .types
             .keys()
             .chain(self.values.keys())
-            .chain(self.macros.keys())
             .chain(self.unresolved.iter())
             .collect();
 
@@ -115,36 +117,19 @@ impl ItemScope {
         self.unnamed_consts.iter().copied()
     }
 
-    /// Iterate over all module scoped macros
-    pub(crate) fn macros<'a>(&'a self) -> impl Iterator<Item = (&'a Name, MacroDefId)> + 'a {
-        self.entries().filter_map(|(name, def)| def.take_macros().map(|macro_| (name, macro_)))
-    }
-
-    /// Iterate over all legacy textual scoped macros visible at the end of the module
-    pub(crate) fn legacy_macros<'a>(&'a self) -> impl Iterator<Item = (&'a Name, MacroDefId)> + 'a {
-        self.legacy_macros.iter().map(|(name, def)| (name, *def))
-    }
-
     /// Get a name from current module scope, legacy macros are not included
-    pub(crate) fn get(&self, name: &Name) -> PerNs {
-        PerNs {
+    pub(crate) fn get(&self, name: &Name) -> PerNamespace {
+        PerNamespace {
             types: self.types.get(name).copied(),
             values: self.values.get(name).copied(),
-            macros: self.macros.get(name).copied(),
         }
     }
 
     /// XXX: this is O(N) rather than O(1), try to not introduce new usages.
-    pub(crate) fn name_of(&self, item: ItemInNs) -> Option<(&Name, Visibility)> {
+    pub(crate) fn name_of(&self, item: ItemInNamespace) -> Option<(&Name, Visibility)> {
         let (def, mut iter) = match item {
-            ItemInNs::Macros(def) => {
-                return self
-                    .macros
-                    .iter()
-                    .find_map(|(name, &(other_def, vis))| (other_def == def).then(|| (name, vis)));
-            }
-            ItemInNs::Types(def) => (def, self.types.iter()),
-            ItemInNs::Values(def) => (def, self.values.iter()),
+            ItemInNamespace::Types(def) => (def, self.types.iter()),
+            ItemInNamespace::Values(def) => (def, self.values.iter()),
         };
         iter.find_map(|(name, &(other_def, vis))| (other_def == def).then(|| (name, vis)))
     }
@@ -163,20 +148,12 @@ impl ItemScope {
         self.declarations.push(def)
     }
 
-    pub(crate) fn get_legacy_macro(&self, name: &Name) -> Option<MacroDefId> {
-        self.legacy_macros.get(name).copied()
-    }
-
     pub(crate) fn define_impl(&mut self, imp: ImplId) {
         self.impls.push(imp)
     }
 
     pub(crate) fn define_unnamed_const(&mut self, konst: ConstId) {
         self.unnamed_consts.push(konst);
-    }
-
-    pub(crate) fn define_legacy_macro(&mut self, name: Name, mac: MacroDefId) {
-        self.legacy_macros.insert(name, mac);
     }
 
     pub(crate) fn add_attr_macro_invoc(&mut self, item: AstId<ast::Item>, call: MacroCallId) {
@@ -195,7 +172,10 @@ impl ItemScope {
         call: MacroCallId,
         attr_id: AttrId,
     ) {
-        self.derive_macros.entry(item).or_default().push((attr_id, call));
+        self.derive_macros
+            .entry(item)
+            .or_default()
+            .push((attr_id, call));
     }
 
     pub(crate) fn derive_macro_invocs(
@@ -216,7 +196,7 @@ impl ItemScope {
         &mut self,
         glob_imports: &mut PerNsGlobImports,
         lookup: (LocalModuleId, Name),
-        def: PerNs,
+        def: PerNamespace,
         def_import_type: ImportType,
     ) -> bool {
         let mut changed = false;
@@ -261,9 +241,18 @@ impl ItemScope {
             }};
         }
 
-        check_changed!(changed, (self / def).types, glob_imports[lookup], def_import_type);
-        check_changed!(changed, (self / def).values, glob_imports[lookup], def_import_type);
-        check_changed!(changed, (self / def).macros, glob_imports[lookup], def_import_type);
+        check_changed!(
+            changed,
+            (self / def).types,
+            glob_imports[lookup],
+            def_import_type
+        );
+        check_changed!(
+            changed,
+            (self / def).values,
+            glob_imports[lookup],
+            def_import_type
+        );
 
         if def.is_none() && self.unresolved.insert(lookup.1) {
             changed = true;
@@ -272,36 +261,16 @@ impl ItemScope {
         changed
     }
 
-    pub(crate) fn resolutions<'a>(&'a self) -> impl Iterator<Item = (Option<Name>, PerNs)> + 'a {
-        self.entries().map(|(name, res)| (Some(name.clone()), res)).chain(
-            self.unnamed_trait_imports
-                .iter()
-                .map(|(tr, vis)| (None, PerNs::types(ModuleDefId::TraitId(*tr), *vis))),
-        )
-    }
-
-    pub(crate) fn collect_legacy_macros(&self) -> FxHashMap<Name, MacroDefId> {
-        self.legacy_macros.clone()
-    }
-
-    /// Marks everything that is not a procedural macro as private to `this_module`.
-    pub(crate) fn censor_non_proc_macros(&mut self, this_module: ModuleId) {
-        self.types
-            .values_mut()
-            .chain(self.values.values_mut())
-            .map(|(_, v)| v)
-            .chain(self.unnamed_trait_imports.values_mut())
-            .for_each(|vis| *vis = Visibility::Module(this_module));
-
-        for (mac, vis) in self.macros.values_mut() {
-            if let MacroDefKind::ProcMacro(..) = mac.kind {
-                // FIXME: Technically this is insufficient since reexports of proc macros are also
-                // forbidden. Practically nobody does that.
-                continue;
-            }
-
-            *vis = Visibility::Module(this_module);
-        }
+    pub(crate) fn resolutions<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (Option<Name>, PerNamespace)> + 'a {
+        self.entries()
+            .map(|(name, res)| (Some(name.clone()), res))
+            .chain(
+                self.unnamed_trait_imports
+                    .iter()
+                    .map(|(tr, vis)| (None, PerNamespace::types(ModuleDefId::TraitId(*tr), *vis))),
+            )
     }
 
     pub(crate) fn dump(&self, buf: &mut String) {
@@ -309,16 +278,17 @@ impl ItemScope {
         entries.sort_by_key(|(name, _)| name.clone());
 
         for (name, def) in entries {
-            format_to!(buf, "{}:", name.map_or("_".to_string(), |name| name.to_string()));
+            format_to!(
+                buf,
+                "{}:",
+                name.map_or("_".to_string(), |name| name.to_string())
+            );
 
             if def.types.is_some() {
                 buf.push_str(" t");
             }
             if def.values.is_some() {
                 buf.push_str(" v");
-            }
-            if def.macros.is_some() {
-                buf.push_str(" m");
             }
             if def.is_none() {
                 buf.push_str(" _");
@@ -334,75 +304,70 @@ impl ItemScope {
             _c: _,
             types,
             values,
-            macros,
             unresolved,
             declarations: defs,
             impls,
             unnamed_consts,
             unnamed_trait_imports,
-            legacy_macros,
             attr_macros,
             derive_macros,
         } = self;
         types.shrink_to_fit();
         values.shrink_to_fit();
-        macros.shrink_to_fit();
         unresolved.shrink_to_fit();
         defs.shrink_to_fit();
         impls.shrink_to_fit();
         unnamed_consts.shrink_to_fit();
         unnamed_trait_imports.shrink_to_fit();
-        legacy_macros.shrink_to_fit();
         attr_macros.shrink_to_fit();
         derive_macros.shrink_to_fit();
     }
 }
 
-impl PerNs {
-    pub(crate) fn from_def(def: ModuleDefId, v: Visibility, has_constructor: bool) -> PerNs {
+impl PerNamespace {
+    pub(crate) fn from_def(def: ModuleDefId, v: Visibility, has_constructor: bool) -> PerNamespace {
         match def {
-            ModuleDefId::ModuleId(_) => PerNs::types(def, v),
-            ModuleDefId::FunctionId(_) => PerNs::values(def, v),
+            ModuleDefId::ModuleId(_) => PerNamespace::types(def, v),
+            ModuleDefId::FunctionId(_) => PerNamespace::values(def, v),
             ModuleDefId::AdtId(adt) => match adt {
-                AdtId::UnionId(_) => PerNs::types(def, v),
-                AdtId::EnumId(_) => PerNs::types(def, v),
+                AdtId::UnionId(_) => PerNamespace::types(def, v),
+                AdtId::EnumId(_) => PerNamespace::types(def, v),
                 AdtId::StructId(_) => {
                     if has_constructor {
-                        PerNs::both(def, def, v)
+                        PerNamespace::both(def, def, v)
                     } else {
-                        PerNs::types(def, v)
+                        PerNamespace::types(def, v)
                     }
                 }
             },
-            ModuleDefId::EnumVariantId(_) => PerNs::both(def, def, v),
-            ModuleDefId::ConstId(_) | ModuleDefId::StaticId(_) => PerNs::values(def, v),
-            ModuleDefId::TraitId(_) => PerNs::types(def, v),
-            ModuleDefId::TypeAliasId(_) => PerNs::types(def, v),
-            ModuleDefId::BuiltinType(_) => PerNs::types(def, v),
+            ModuleDefId::EnumVariantId(_) => PerNamespace::both(def, def, v),
+            ModuleDefId::ConstId(_) | ModuleDefId::StaticId(_) => PerNamespace::values(def, v),
+            ModuleDefId::TraitId(_) => PerNamespace::types(def, v),
+            ModuleDefId::TypeAliasId(_) => PerNamespace::types(def, v),
+            ModuleDefId::BuiltinType(_) => PerNamespace::types(def, v),
         }
     }
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
-pub enum ItemInNs {
+pub enum ItemInNamespace {
     Types(ModuleDefId),
     Values(ModuleDefId),
-    Macros(MacroDefId),
 }
 
-impl ItemInNs {
+impl ItemInNamespace {
     pub fn as_module_def_id(self) -> Option<ModuleDefId> {
         match self {
-            ItemInNs::Types(id) | ItemInNs::Values(id) => Some(id),
-            ItemInNs::Macros(_) => None,
+            ItemInNamespace::Types(id) | ItemInNamespace::Values(id) => Some(id),
         }
     }
 
     /// Returns the crate defining this item (or `None` if `self` is built-in).
     pub fn krate(&self, db: &dyn DefDatabase) -> Option<CrateId> {
         match self {
-            ItemInNs::Types(did) | ItemInNs::Values(did) => did.module(db).map(|m| m.krate),
-            ItemInNs::Macros(id) => Some(id.krate),
+            ItemInNamespace::Types(did) | ItemInNamespace::Values(did) => {
+                did.module(db).map(|m| m.krate)
+            }
         }
     }
 }

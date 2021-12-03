@@ -73,10 +73,12 @@ impl<'a> AssistContext<'a> {
         let end = frange.range.end();
         let left = source_file.syntax().token_at_offset(start);
         let right = source_file.syntax().token_at_offset(end);
-        let left =
-            left.right_biased().and_then(|t| algo::skip_whitespace_token(t, Direction::Next));
-        let right =
-            right.left_biased().and_then(|t| algo::skip_whitespace_token(t, Direction::Prev));
+        let left = left
+            .right_biased()
+            .and_then(|t| algo::skip_whitespace_token(t, Direction::Next));
+        let right = right
+            .left_biased()
+            .and_then(|t| algo::skip_whitespace_token(t, Direction::Prev));
         let left = left.map(|t| t.text_range().start().clamp(start, end));
         let right = right.map(|t| t.text_range().end().clamp(start, end));
 
@@ -86,7 +88,13 @@ impl<'a> AssistContext<'a> {
             _ => frange.range,
         };
 
-        AssistContext { config, sema, frange, source_file, trimmed_range }
+        AssistContext {
+            config,
+            sema,
+            frange,
+            source_file,
+            trimmed_range,
+        }
     }
 
     pub(crate) fn db(&self) -> &RootDatabase {
@@ -128,11 +136,13 @@ impl<'a> AssistContext<'a> {
         find_node_at_range(self.source_file.syntax(), self.trimmed_range)
     }
     pub(crate) fn find_node_at_offset_with_descend<N: AstNode>(&self) -> Option<N> {
-        self.sema.find_node_at_offset_with_descend(self.source_file.syntax(), self.offset())
+        todo!()
     }
     /// Returns the element covered by the selection range, this excludes trailing whitespace in the selection.
     pub(crate) fn covering_element(&self) -> SyntaxElement {
-        self.source_file.syntax().covering_element(self.selection_trimmed())
+        self.source_file
+            .syntax()
+            .covering_element(self.selection_trimmed())
     }
 }
 
@@ -166,7 +176,9 @@ impl Assists {
         f: impl FnOnce(&mut AssistBuilder),
     ) -> Option<()> {
         let mut f = Some(f);
-        self.add_impl(None, id, label.into(), target, &mut |it| f.take().unwrap()(it))
+        self.add_impl(None, id, label.into(), target, &mut |it| {
+            f.take().unwrap()(it)
+        })
     }
 
     pub(crate) fn add_group(
@@ -178,7 +190,9 @@ impl Assists {
         f: impl FnOnce(&mut AssistBuilder),
     ) -> Option<()> {
         let mut f = Some(f);
-        self.add_impl(Some(group), id, label.into(), target, &mut |it| f.take().unwrap()(it))
+        self.add_impl(Some(group), id, label.into(), target, &mut |it| {
+            f.take().unwrap()(it)
+        })
     }
 
     fn add_impl(
@@ -203,7 +217,13 @@ impl Assists {
 
         let label = Label::new(label);
         let group = group.cloned();
-        self.buf.push(Assist { id, label, group, target, source_change });
+        self.buf.push(Assist {
+            id,
+            label,
+            group,
+            target,
+            source_change,
+        });
         Some(())
     }
 
@@ -233,7 +253,10 @@ impl TreeMutator {
     pub(crate) fn new(immutable: &SyntaxNode) -> TreeMutator {
         let immutable = immutable.ancestors().last().unwrap();
         let mutable_clone = immutable.clone_for_update();
-        TreeMutator { immutable, mutable_clone }
+        TreeMutator {
+            immutable,
+            mutable_clone,
+        }
     }
 
     pub(crate) fn make_mut<N: AstNode>(&self, node: &N) -> N {
@@ -273,7 +296,9 @@ impl AssistBuilder {
     }
 
     pub(crate) fn make_mut<N: AstNode>(&mut self, node: N) -> N {
-        self.mutated_tree.get_or_insert_with(|| TreeMutator::new(node.syntax())).make_mut(&node)
+        self.mutated_tree
+            .get_or_insert_with(|| TreeMutator::new(node.syntax()))
+            .make_mut(&node)
     }
     /// Returns a copy of the `node`, suitable for mutation.
     ///
@@ -286,7 +311,9 @@ impl AssistBuilder {
     /// phase, and then get their mutable couterparts using `make_mut` in the
     /// mutable state.
     pub(crate) fn make_syntax_mut(&mut self, node: SyntaxNode) -> SyntaxNode {
-        self.mutated_tree.get_or_insert_with(|| TreeMutator::new(&node)).make_syntax_mut(&node)
+        self.mutated_tree
+            .get_or_insert_with(|| TreeMutator::new(&node))
+            .make_syntax_mut(&node)
     }
 
     /// Remove specified `range` of text.
@@ -325,7 +352,10 @@ impl AssistBuilder {
         algo::diff(old.syntax(), new.syntax()).into_text_edit(&mut self.edit)
     }
     pub(crate) fn create_file(&mut self, dst: AnchoredPathBuf, content: impl Into<String>) {
-        let file_system_edit = FileSystemEdit::CreateFile { dst, initial_contents: content.into() };
+        let file_system_edit = FileSystemEdit::CreateFile {
+            dst,
+            initial_contents: content.into(),
+        };
         self.source_change.push_file_system_edit(file_system_edit);
     }
     pub(crate) fn move_file(&mut self, src: FileID, dst: AnchoredPathBuf) {

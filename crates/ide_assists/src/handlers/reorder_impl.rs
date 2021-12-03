@@ -1,7 +1,7 @@
 use itertools::Itertools;
 use rustc_hash::FxHashMap;
 
-use hir::{PathResolution, Semantics};
+use hir::{EntityResolution, Semantics};
 use ide_db::RootDatabase;
 use syntax::{
     ast::{self, HasName},
@@ -105,7 +105,7 @@ fn compute_method_ranks(path: &ast::Path, ctx: &AssistContext) -> Option<FxHashM
 
 fn trait_definition(path: &ast::Path, sema: &Semantics<RootDatabase>) -> Option<hir::Trait> {
     match sema.resolve_path(path)? {
-        PathResolution::Def(hir::ModuleDef::Trait(trait_)) => Some(trait_),
+        EntityResolution::Def(hir::ModuleDef::Trait(trait_)) => Some(trait_),
         _ => None,
     }
 }

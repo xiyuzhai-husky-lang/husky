@@ -22,7 +22,7 @@ impl TryEnum {
     /// Returns `Some(..)` if the provided type is an enum that implements `std::ops::Try`.
     pub fn from_ty(sema: &Semantics<RootDatabase>, ty: &hir::Type) -> Option<TryEnum> {
         let enum_ = match ty.as_adt() {
-            Some(hir::Adt::Enum(it)) => it,
+            Some(hir::DataType::Enum(it)) => it,
             _ => return None,
         };
         TryEnum::ALL.iter().find_map(|&var| {

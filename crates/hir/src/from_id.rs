@@ -10,8 +10,8 @@ use hir_def::{
 };
 
 use crate::{
-    Adt, AssocItem, BuiltinType, DefWithBody, Field, GenericDef, GenericParam, ItemInNs, Label,
-    Local, ModuleDef, Variant, VariantDef,
+    AssocItem, BuiltinType, DataType, DefWithBody, Field, GenericDef, GenericParam,
+    ItemInNamespace, Label, Local, ModuleDef, Variant, VariantDef,
 };
 
 macro_rules! from_id {
@@ -43,26 +43,25 @@ from_id![
     (hir_def::ImplId, crate::Impl),
     (hir_def::TypeParamId, crate::TypeParam),
     (hir_def::LifetimeParamId, crate::LifetimeParam),
-    (hir_def::ConstParamId, crate::ConstParam),
-    (hir_expand::MacroDefId, crate::MacroDef)
+    (hir_def::ConstParamId, crate::ConstParam)
 ];
 
-impl From<AdtId> for Adt {
+impl From<AdtId> for DataType {
     fn from(id: AdtId) -> Self {
         match id {
-            AdtId::StructId(it) => Adt::Struct(it.into()),
-            AdtId::UnionId(it) => Adt::Union(it.into()),
-            AdtId::EnumId(it) => Adt::Enum(it.into()),
+            AdtId::StructId(it) => DataType::Struct(it.into()),
+            AdtId::UnionId(it) => DataType::Union(it.into()),
+            AdtId::EnumId(it) => DataType::Enum(it.into()),
         }
     }
 }
 
-impl From<Adt> for AdtId {
-    fn from(id: Adt) -> Self {
+impl From<DataType> for AdtId {
+    fn from(id: DataType) -> Self {
         match id {
-            Adt::Struct(it) => AdtId::StructId(it.id),
-            Adt::Union(it) => AdtId::UnionId(it.id),
-            Adt::Enum(it) => AdtId::EnumId(it.id),
+            DataType::Struct(it) => AdtId::StructId(it.id),
+            DataType::Union(it) => AdtId::UnionId(it.id),
+            DataType::Enum(it) => AdtId::EnumId(it.id),
         }
     }
 }
@@ -89,13 +88,19 @@ impl From<GenericParam> for GenericParamId {
 
 impl From<EnumVariantId> for Variant {
     fn from(id: EnumVariantId) -> Self {
-        Variant { parent: id.parent.into(), id: id.local_id }
+        Variant {
+            parent: id.parent.into(),
+            id: id.local_id,
+        }
     }
 }
 
 impl From<Variant> for EnumVariantId {
     fn from(def: Variant) -> Self {
-        EnumVariantId { parent: def.parent.id, local_id: def.id }
+        EnumVariantId {
+            parent: def.parent.id,
+            local_id: def.id,
+        }
     }
 }
 
@@ -104,7 +109,7 @@ impl From<ModuleDefId> for ModuleDef {
         match id {
             ModuleDefId::ModuleId(it) => ModuleDef::Module(it.into()),
             ModuleDefId::FunctionId(it) => ModuleDef::Function(it.into()),
-            ModuleDefId::AdtId(it) => ModuleDef::Adt(it.into()),
+            ModuleDefId::AdtId(it) => ModuleDef::DataType(it.into()),
             ModuleDefId::EnumVariantId(it) => ModuleDef::Variant(it.into()),
             ModuleDefId::ConstId(it) => ModuleDef::Const(it.into()),
             ModuleDefId::StaticId(it) => ModuleDef::Static(it.into()),
@@ -120,7 +125,7 @@ impl From<ModuleDef> for ModuleDefId {
         match id {
             ModuleDef::Module(it) => ModuleDefId::ModuleId(it.into()),
             ModuleDef::Function(it) => ModuleDefId::FunctionId(it.into()),
-            ModuleDef::Adt(it) => ModuleDefId::AdtId(it.into()),
+            ModuleDef::DataType(it) => ModuleDefId::AdtId(it.into()),
             ModuleDef::Variant(it) => ModuleDefId::EnumVariantId(it.into()),
             ModuleDef::Const(it) => ModuleDefId::ConstId(it.into()),
             ModuleDef::Static(it) => ModuleDefId::StaticId(it.into()),
@@ -165,13 +170,14 @@ impl From<GenericDef> for GenericDefId {
     fn from(def: GenericDef) -> Self {
         match def {
             GenericDef::Function(it) => GenericDefId::FunctionId(it.id),
-            GenericDef::Adt(it) => GenericDefId::AdtId(it.into()),
+            GenericDef::DataType(it) => GenericDefId::AdtId(it.into()),
             GenericDef::Trait(it) => GenericDefId::TraitId(it.id),
             GenericDef::TypeAlias(it) => GenericDefId::TypeAliasId(it.id),
             GenericDef::Impl(it) => GenericDefId::ImplId(it.id),
-            GenericDef::Variant(it) => {
-                GenericDefId::EnumVariantId(EnumVariantId { parent: it.parent.id, local_id: it.id })
-            }
+            GenericDef::Variant(it) => GenericDefId::EnumVariantId(EnumVariantId {
+                parent: it.parent.id,
+                local_id: it.id,
+            }),
             GenericDef::Const(it) => GenericDefId::ConstId(it.id),
         }
     }
@@ -181,24 +187,25 @@ impl From<GenericDefId> for GenericDef {
     fn from(def: GenericDefId) -> Self {
         match def {
             GenericDefId::FunctionId(it) => GenericDef::Function(it.into()),
-            GenericDefId::AdtId(it) => GenericDef::Adt(it.into()),
+            GenericDefId::AdtId(it) => GenericDef::DataType(it.into()),
             GenericDefId::TraitId(it) => GenericDef::Trait(it.into()),
             GenericDefId::TypeAliasId(it) => GenericDef::TypeAlias(it.into()),
             GenericDefId::ImplId(it) => GenericDef::Impl(it.into()),
-            GenericDefId::EnumVariantId(it) => {
-                GenericDef::Variant(Variant { parent: it.parent.into(), id: it.local_id })
-            }
+            GenericDefId::EnumVariantId(it) => GenericDef::Variant(Variant {
+                parent: it.parent.into(),
+                id: it.local_id,
+            }),
             GenericDefId::ConstId(it) => GenericDef::Const(it.into()),
         }
     }
 }
 
-impl From<Adt> for GenericDefId {
-    fn from(id: Adt) -> Self {
+impl From<DataType> for GenericDefId {
+    fn from(id: DataType) -> Self {
         match id {
-            Adt::Struct(it) => it.id.into(),
-            Adt::Union(it) => it.id.into(),
-            Adt::Enum(it) => it.id.into(),
+            DataType::Struct(it) => it.id.into(),
+            DataType::Union(it) => it.id.into(),
+            DataType::Enum(it) => it.id.into(),
         }
     }
 }
@@ -225,13 +232,19 @@ impl From<VariantDef> for VariantId {
 
 impl From<Field> for FieldId {
     fn from(def: Field) -> Self {
-        FieldId { parent: def.parent.into(), local_id: def.id }
+        FieldId {
+            parent: def.parent.into(),
+            local_id: def.id,
+        }
     }
 }
 
 impl From<FieldId> for Field {
     fn from(def: FieldId) -> Self {
-        Field { parent: def.parent.into(), id: def.local_id }
+        Field {
+            parent: def.parent.into(),
+            id: def.local_id,
+        }
     }
 }
 
@@ -257,22 +270,20 @@ impl From<(DefWithBodyId, LabelId)> for Label {
     }
 }
 
-impl From<hir_def::item_scope::ItemInNs> for ItemInNs {
-    fn from(it: hir_def::item_scope::ItemInNs) -> Self {
+impl From<hir_def::item_scope::ItemInNamespace> for ItemInNamespace {
+    fn from(it: hir_def::item_scope::ItemInNamespace) -> Self {
         match it {
-            hir_def::item_scope::ItemInNs::Types(it) => ItemInNs::Types(it.into()),
-            hir_def::item_scope::ItemInNs::Values(it) => ItemInNs::Values(it.into()),
-            hir_def::item_scope::ItemInNs::Macros(it) => ItemInNs::Macros(it.into()),
+            hir_def::item_scope::ItemInNamespace::Types(it) => ItemInNamespace::Types(it.into()),
+            hir_def::item_scope::ItemInNamespace::Values(it) => ItemInNamespace::Values(it.into()),
         }
     }
 }
 
-impl From<ItemInNs> for hir_def::item_scope::ItemInNs {
-    fn from(it: ItemInNs) -> Self {
+impl From<ItemInNamespace> for hir_def::item_scope::ItemInNamespace {
+    fn from(it: ItemInNamespace) -> Self {
         match it {
-            ItemInNs::Types(it) => Self::Types(it.into()),
-            ItemInNs::Values(it) => Self::Values(it.into()),
-            ItemInNs::Macros(it) => Self::Macros(it.into()),
+            ItemInNamespace::Types(it) => Self::Types(it.into()),
+            ItemInNamespace::Values(it) => Self::Values(it.into()),
         }
     }
 }

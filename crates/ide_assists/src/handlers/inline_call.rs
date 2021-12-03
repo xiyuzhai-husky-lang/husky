@@ -1,6 +1,6 @@
 use ast::make;
 use either::Either;
-use hir::{db::HirDatabase, PathResolution, Semantics, TypeInfo};
+use hir::{db::HirDatabase, EntityResolution, Semantics, TypeInfo};
 use ide_db::{
     base_db::{FileID, FileRange},
     defs::Definition,
@@ -122,8 +122,9 @@ pub(crate) fn inline_into_callers(acc: &mut Assists, ctx: &AssistContext) -> Opt
                 let replaced = call_infos
                     .into_iter()
                     .map(|(call_info, mut_node)| {
-                        let replacement =
-                            inline(&ctx.sema, def_file, function, &func_body, &params, &call_info);
+                        let replacement = inline(
+                            &ctx.sema, def_file, function, &func_body, &params, &call_info,
+                        );
                         ted::replace(mut_node, replacement.syntax());
                     })
                     .count();
@@ -183,15 +184,16 @@ pub(crate) fn inline_call(acc: &mut Assists, ctx: &AssistContext) -> Option<()> 
                 _ => None,
             }?;
             let function = match ctx.sema.resolve_path(&path)? {
-                PathResolution::Def(hir::ModuleDef::Function(f)) => f,
-                PathResolution::AssocItem(hir::AssocItem::Function(f)) => f,
+                EntityResolution::Def(hir::ModuleDef::Function(f)) => f,
+                EntityResolution::AssocItem(hir::AssocItem::Function(f)) => f,
                 _ => return None,
             };
             (function, format!("Inline `{}`", path))
         }
-        ast::CallableExpr::MethodCall(call) => {
-            (ctx.sema.resolve_method_call(call)?, format!("Inline `{}`", name_ref))
-        }
+        ast::CallableExpr::MethodCall(call) => (
+            ctx.sema.resolve_method_call(call)?,
+            format!("Inline `{}`", name_ref),
+        ),
     };
 
     let fn_source = ctx.sema.source(function)?;
@@ -299,7 +301,11 @@ fn inline(
     function: hir::Function,
     fn_body: &ast::BlockExpr,
     params: &[(ast::Pat, Option<ast::Type>, hir::Param)],
-    CallInfo { node, arguments, generic_arg_list }: &CallInfo,
+    CallInfo {
+        node,
+        arguments,
+        generic_arg_list,
+    }: &CallInfo,
 ) -> ast::Expr {
     let body = fn_body.clone_for_update();
     let usages_for_locals = |local| {
@@ -373,12 +379,16 @@ fn inline(
             // inline direct local arguments
             [_, ..] if expr_as_name_ref(&expr).is_some() => {
                 cov_mark::hit!(inline_call_inline_locals);
-                usages.into_iter().for_each(|usage| inline_direct(usage, &expr));
+                usages
+                    .into_iter()
+                    .for_each(|usage| inline_direct(usage, &expr));
             }
             // can't inline, emit a let statement
             _ => {
-                let ty =
-                    sema.type_of_expr(expr).filter(TypeInfo::has_adjustment).and(param_ty.clone());
+                let ty = sema
+                    .type_of_expr(expr)
+                    .filter(TypeInfo::has_adjustment)
+                    .and(param_ty.clone());
                 if let Some(stmt_list) = body.stmt_list() {
                     stmt_list.push_front(
                         make::let_stmt(pat.clone(), ty, Some(expr.clone()))

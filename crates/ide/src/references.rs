@@ -9,7 +9,7 @@
 //! at the index that the match starts at and its tree parent is
 //! resolved to the search element definition, we get a reference.
 
-use hir::{PathResolution, Semantics};
+use hir::{EntityResolution, Semantics};
 use ide_db::{
     base_db::FileID,
     defs::{Definition, NameClass, NameRefClass},
@@ -53,92 +53,7 @@ pub(crate) fn find_all_refs(
     position: FilePosition,
     search_scope: Option<SearchScope>,
 ) -> Option<Vec<ReferenceSearchResult>> {
-    let _p = profile::span("find_all_refs");
-    let syntax = sema.parse(position.file_id).syntax().clone();
-    let make_searcher = |literal_search: bool| {
-        move |def: Definition| {
-            let mut usages =
-                def.usages(sema).set_scope(search_scope.clone()).include_self_refs().all();
-            let declaration = match def {
-                Definition::Module(module) => {
-                    Some(NavigationTarget::from_module_to_decl(sema.db, module))
-                }
-                def => def.try_to_nav(sema.db),
-            }
-            .map(|nav| {
-                let decl_range = nav.focus_or_full_range();
-                Declaration {
-                    is_mut: decl_mutability(&def, sema.parse(nav.file_id).syntax(), decl_range),
-                    nav,
-                }
-            });
-            if literal_search {
-                retain_adt_literal_usages(&mut usages, def, sema);
-            }
-
-            let references = usages
-                .into_iter()
-                .map(|(file_id, refs)| {
-                    (
-                        file_id,
-                        refs.into_iter()
-                            .map(|file_ref| (file_ref.range, file_ref.category))
-                            .collect(),
-                    )
-                })
-                .collect();
-
-            ReferenceSearchResult { declaration, references }
-        }
-    };
-
-    match name_for_constructor_search(&syntax, position) {
-        Some(name) => {
-            let def = match NameClass::classify(sema, &name)? {
-                NameClass::Definition(it) | NameClass::ConstReference(it) => it,
-                NameClass::PatFieldShorthand { local_def: _, field_ref } => {
-                    Definition::Field(field_ref)
-                }
-            };
-            Some(vec![make_searcher(true)(def)])
-        }
-        None => {
-            let search = make_searcher(false);
-            Some(find_defs(sema, &syntax, position.offset).into_iter().map(search).collect())
-        }
-    }
-}
-
-pub(crate) fn find_defs<'a>(
-    sema: &'a Semantics<RootDatabase>,
-    syntax: &SyntaxNode,
-    offset: TextSize,
-) -> impl Iterator<Item = Definition> + 'a {
-    sema.find_nodes_at_offset_with_descend(syntax, offset).filter_map(move |name_like| {
-        let def = match name_like {
-            ast::NameLike::NameRef(name_ref) => match NameRefClass::classify(sema, &name_ref)? {
-                NameRefClass::Definition(def) => def,
-                NameRefClass::FieldShorthand { local_ref, field_ref: _ } => {
-                    Definition::Local(local_ref)
-                }
-            },
-            ast::NameLike::Name(name) => match NameClass::classify(sema, &name)? {
-                NameClass::Definition(it) | NameClass::ConstReference(it) => it,
-                NameClass::PatFieldShorthand { local_def, field_ref: _ } => {
-                    Definition::Local(local_def)
-                }
-            },
-            ast::NameLike::Lifetime(lifetime) => NameRefClass::classify_lifetime(sema, &lifetime)
-                .and_then(|class| match class {
-                    NameRefClass::Definition(it) => Some(it),
-                    _ => None,
-                })
-                .or_else(|| {
-                    NameClass::classify_lifetime(sema, &lifetime).and_then(NameClass::defined)
-                })?,
-        };
-        Some(def)
-    })
+    todo!()
 }
 
 pub(crate) fn decl_mutability(def: &Definition, syntax: &SyntaxNode, range: TextRange) -> bool {
@@ -164,18 +79,17 @@ fn retain_adt_literal_usages(
 ) {
     let refs = usages.references.values_mut();
     match def {
-        Definition::Adt(hir::Adt::Enum(enum_)) => {
+        Definition::DataType(hir::DataType::Enum(enum_)) => {
             refs.for_each(|it| {
                 it.retain(|reference| {
-                    reference
-                        .name
-                        .as_name_ref()
-                        .map_or(false, |name_ref| is_enum_lit_name_ref(sema, enum_, name_ref))
+                    reference.name.as_name_ref().map_or(false, |name_ref| {
+                        is_enum_lit_name_ref(sema, enum_, name_ref)
+                    })
                 })
             });
             usages.references.retain(|_, it| !it.is_empty());
         }
-        Definition::Adt(_) | Definition::Variant(_) => {
+        Definition::DataType(_) | Definition::Variant(_) => {
             refs.for_each(|it| {
                 it.retain(|reference| reference.name.as_name_ref().map_or(false, is_lit_name_ref))
             });
@@ -231,7 +145,7 @@ fn is_enum_lit_name_ref(
     let path_is_variant_of_enum = |path: ast::Path| {
         matches!(
             sema.resolve_path(&path),
-            Some(PathResolution::Def(hir::ModuleDef::Variant(variant)))
+            Some(EntityResolution::Def(hir::ModuleDef::Variant(variant)))
                 if variant.parent_enum(sema.db) == enum_
         )
     };

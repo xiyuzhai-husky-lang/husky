@@ -98,8 +98,16 @@ impl Snippet {
         let (requires, snippet, description) = validate_snippet(snippet, description, requires)?;
         Some(Snippet {
             // Box::into doesn't work as that has a Copy bound 😒
-            postfix_triggers: postfix_triggers.iter().map(Deref::deref).map(Into::into).collect(),
-            prefix_triggers: prefix_triggers.iter().map(Deref::deref).map(Into::into).collect(),
+            postfix_triggers: postfix_triggers
+                .iter()
+                .map(Deref::deref)
+                .map(Into::into)
+                .collect(),
+            prefix_triggers: prefix_triggers
+                .iter()
+                .map(Deref::deref)
+                .map(Into::into)
+                .collect(),
             scope,
             snippet,
             description,
@@ -133,8 +141,7 @@ fn import_edits(
     let resolve = |import: &GreenNode| {
         let path = ast::Path::cast(SyntaxNode::new_root(import.clone()))?;
         let item = match ctx.scope.speculative_resolve(&path)? {
-            hir::PathResolution::Macro(mac) => mac.into(),
-            hir::PathResolution::Def(def) => def.into(),
+            hir::EntityResolution::Def(def) => def.into(),
             _ => return None,
         };
         let path = ctx.scope.module()?.find_use_path_prefixed(
@@ -176,6 +183,10 @@ fn validate_snippet(
         imports.push(green);
     }
     let snippet = snippet.iter().join("\n");
-    let description = if description.is_empty() { None } else { Some(description.into()) };
+    let description = if description.is_empty() {
+        None
+    } else {
+        Some(description.into())
+    };
     Some((imports.into_boxed_slice(), snippet, description))
 }

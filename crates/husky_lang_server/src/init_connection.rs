@@ -7,8 +7,8 @@ use project::Project;
 use vfs::AbsPathBuf;
 
 use crate::{
-    cli::flags, from_json, run_server, server_capabilities::get_server_capabilities, Result,
-    ServerConfig,
+    cli::flags, from_json, lsp_ext, run_server, server_capabilities::get_server_capabilities,
+    Result, ServerConfig,
 };
 
 pub fn init_connection(connection: &Connection) -> Result<ServerConfig> {
@@ -36,7 +36,11 @@ fn get_init_result(config: &ServerConfig) -> serde_json::Value {
             name: String::from("rust-analyzer"),
             version: None,
         }),
-        offset_encoding: None,
+        offset_encoding: if lsp_ext::supports_utf8(&config.client_capabilities) {
+            Some("utf-8".to_string())
+        } else {
+            None
+        },
     };
     serde_json::to_value(init_result).unwrap()
 }

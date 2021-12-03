@@ -13,8 +13,10 @@ pub(crate) fn complete_pattern(acc: &mut Completions, ctx: &CompletionContext) {
     };
 
     if refutable {
-        if let Some(hir::Adt::Enum(e)) =
-            ctx.expected_type.as_ref().and_then(|ty| ty.strip_references().as_adt())
+        if let Some(hir::DataType::Enum(e)) = ctx
+            .expected_type
+            .as_ref()
+            .and_then(|ty| ty.strip_references().as_adt())
         {
             super::enum_variants_with_paths(acc, ctx, e, |acc, ctx, variant, path| {
                 acc.add_qualified_variant_pat(ctx, variant, path.clone());
@@ -28,7 +30,7 @@ pub(crate) fn complete_pattern(acc: &mut Completions, ctx: &CompletionContext) {
     ctx.process_all_names(&mut |name, res| {
         let add_resolution = match &res {
             hir::ScopeDef::ModuleDef(def) => match def {
-                hir::ModuleDef::Adt(hir::Adt::Struct(strukt)) => {
+                hir::ModuleDef::DataType(hir::DataType::Struct(strukt)) => {
                     acc.add_struct_pat(ctx, *strukt, Some(name.clone()));
                     true
                 }
@@ -36,19 +38,18 @@ pub(crate) fn complete_pattern(acc: &mut Completions, ctx: &CompletionContext) {
                     acc.add_variant_pat(ctx, *variant, Some(name.clone()));
                     true
                 }
-                hir::ModuleDef::Adt(hir::Adt::Enum(..))
+                hir::ModuleDef::DataType(hir::DataType::Enum(..))
                 | hir::ModuleDef::Variant(..)
                 | hir::ModuleDef::Const(..)
                 | hir::ModuleDef::Module(..) => refutable,
                 _ => false,
             },
-            hir::ScopeDef::MacroDef(mac) => mac.is_fn_like(),
             hir::ScopeDef::ImplSelfType(impl_) => match impl_.self_ty(ctx.db).as_adt() {
-                Some(hir::Adt::Struct(strukt)) => {
+                Some(hir::DataType::Struct(strukt)) => {
                     acc.add_struct_pat(ctx, strukt, Some(name.clone()));
                     true
                 }
-                Some(hir::Adt::Enum(_)) => refutable,
+                Some(hir::DataType::Enum(_)) => refutable,
                 _ => true,
             },
             _ => false,

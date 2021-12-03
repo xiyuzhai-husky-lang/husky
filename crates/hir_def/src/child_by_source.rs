@@ -100,18 +100,8 @@ impl ChildBySource for ModuleId {
 
 impl ChildBySource for ItemScope {
     fn child_by_source_to(&self, db: &dyn DefDatabase, res: &mut DynMap, file_id: HirFileID) {
-        self.declarations().for_each(|item| add_module_def(db, file_id, res, item));
-        self.macros().for_each(|(_, makro)| {
-            let ast_id = makro.ast_id();
-            if ast_id.either(|it| it.file_id, |it| it.file_id) == file_id {
-                let src = match ast_id {
-                    Either::Left(ast_id) => ast_id.with_value(ast_id.to_node(db.upcast())),
-                    // FIXME: Do we need to add proc-macros into a PROCMACRO dynmap here?
-                    Either::Right(_fn) => return,
-                };
-                res[keys::MACRO].insert(src, makro);
-            }
-        });
+        self.declarations()
+            .for_each(|item| add_module_def(db, file_id, res, item));
         self.unnamed_consts().for_each(|konst| {
             let src = konst.lookup(db).source(db);
             res[keys::CONST].insert(src, konst);
@@ -233,7 +223,10 @@ impl ChildBySource for EnumId {
         let arena_map = self.child_source(db);
         let arena_map = arena_map.as_ref();
         for (local_id, source) in arena_map.value.iter() {
-            let id = EnumVariantId { parent: *self, local_id };
+            let id = EnumVariantId {
+                parent: *self,
+                local_id,
+            };
             res[keys::VARIANT].insert(arena_map.with_value(source.clone()), id)
         }
     }
@@ -245,7 +238,9 @@ impl ChildBySource for DefWithBodyId {
         for (_, def_map) in body.blocks(db) {
             // All block expressions are merged into the same map, because they logically all add
             // inner items to the containing `DefWithBodyId`.
-            def_map[def_map.root()].scope.child_by_source_to(db, res, file_id);
+            def_map[def_map.root()]
+                .scope
+                .child_by_source_to(db, res, file_id);
         }
     }
 }

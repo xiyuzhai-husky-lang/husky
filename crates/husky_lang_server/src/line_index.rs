@@ -12,22 +12,23 @@ pub enum OffsetEncoding {
     Utf16,
 }
 
-pub(crate) struct LineIndex {
-    pub(crate) index: Arc<ide::LineIndex>,
-    pub(crate) endings: LineEndings,
+pub(crate) struct LineCollection {
+    pub(crate) begins: Arc<ide::LineBegins>,
+    pub(crate) ending_type: LineEndingType,
+    pub(crate) encoding: OffsetEncoding,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub(crate) enum LineEndings {
+pub(crate) enum LineEndingType {
     Unix,
     Dos,
 }
 
-impl LineEndings {
+impl LineEndingType {
     /// Replaces `\r\n` with `\n` in-place in `src`.
-    pub(crate) fn normalize(src: String) -> (String, LineEndings) {
+    pub(crate) fn normalize(src: String) -> (String, LineEndingType) {
         if !src.as_bytes().contains(&b'\r') {
-            return (src, LineEndings::Unix);
+            return (src, LineEndingType::Unix);
         }
 
         // We replace `\r\n` with `\n` in-place, which doesn't break utf-8 encoding.
@@ -58,7 +59,7 @@ impl LineEndings {
             buf.set_len(new_len);
             String::from_utf8_unchecked(buf)
         };
-        return (src, LineEndings::Dos);
+        return (src, LineEndingType::Dos);
 
         fn find_crlf(src: &[u8]) -> Option<usize> {
             src.windows(2).position(|it| it == b"\r\n")

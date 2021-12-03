@@ -26,9 +26,13 @@ pub(super) fn element(
     element: SyntaxElement,
 ) -> Option<(Highlight, Option<u64>)> {
     match element {
-        NodeOrToken::Node(it) => {
-            node(sema, krate, bindings_shadow_count, syntactic_name_ref_highlighting, it)
-        }
+        NodeOrToken::Node(it) => node(
+            sema,
+            krate,
+            bindings_shadow_count,
+            syntactic_name_ref_highlighting,
+            it,
+        ),
         NodeOrToken::Token(it) => Some((token(sema, krate, it)?, None)),
     }
 }
@@ -47,7 +51,12 @@ fn token(
     } else {
         match token.kind() {
             STRING | BYTE_STRING => HlTag::StringLiteral.into(),
-            INT_NUMBER if token.ancestors().nth(1).map_or(false, |it| it.kind() == FIELD_EXPR) => {
+            INT_NUMBER
+                if token
+                    .ancestors()
+                    .nth(1)
+                    .map_or(false, |it| it.kind() == FIELD_EXPR) =>
+            {
                 SymbolKind::Field.into()
             }
             INT_NUMBER | FLOAT_NUMBER => HlTag::NumericLiteral.into(),
@@ -255,9 +264,6 @@ fn highlight_name_ref_in_attr(sema: &Semantics<RootDatabase>, name_ref: ast::Nam
             {
                 HlTag::Symbol(SymbolKind::Module)
             }
-            NameRefClass::Definition(Definition::Macro(m)) if m.kind() == hir::MacroKind::Attr => {
-                HlTag::Symbol(SymbolKind::Macro)
-            }
             _ => HlTag::BuiltinAttr,
         },
         None => HlTag::BuiltinAttr,
@@ -394,7 +400,6 @@ fn highlight_def(
 ) -> Highlight {
     let db = sema.db;
     let mut h = match def {
-        Definition::Macro(_) => Highlight::new(HlTag::Symbol(SymbolKind::Macro)),
         Definition::Field(_) => Highlight::new(HlTag::Symbol(SymbolKind::Field)),
         Definition::Module(module) => {
             let mut h = Highlight::new(HlTag::Symbol(SymbolKind::Module));
@@ -440,11 +445,11 @@ fn highlight_def(
 
             h
         }
-        Definition::Adt(adt) => {
+        Definition::DataType(adt) => {
             let h = match adt {
-                hir::Adt::Struct(_) => HlTag::Symbol(SymbolKind::Struct),
-                hir::Adt::Enum(_) => HlTag::Symbol(SymbolKind::Enum),
-                hir::Adt::Union(_) => HlTag::Symbol(SymbolKind::Union),
+                hir::DataType::Struct(_) => HlTag::Symbol(SymbolKind::Struct),
+                hir::DataType::Enum(_) => HlTag::Symbol(SymbolKind::Enum),
+                hir::DataType::Union(_) => HlTag::Symbol(SymbolKind::Union),
             };
 
             Highlight::new(h)
@@ -535,13 +540,17 @@ fn highlight_def(
     };
 
     let famous_defs = FamousDefs(sema, krate);
-    let def_crate = def.module(db).map(hir::Module::krate).or_else(|| match def {
-        Definition::Module(module) => Some(module.krate()),
-        _ => None,
-    });
+    let def_crate = def
+        .module(db)
+        .map(hir::Module::krate)
+        .or_else(|| match def {
+            Definition::Module(module) => Some(module.krate()),
+            _ => None,
+        });
     let is_from_other_crate = def_crate != krate;
-    let is_from_builtin_crate =
-        def_crate.map_or(false, |def_crate| famous_defs.builtin_crates().any(|it| def_crate == it));
+    let is_from_builtin_crate = def_crate.map_or(false, |def_crate| {
+        famous_defs.builtin_crates().any(|it| def_crate == it)
+    });
     let is_builtin_type = matches!(def, Definition::BuiltinType(_));
     let is_public = def.visibility(db) == Some(hir::Visibility::Public);
 
@@ -563,7 +572,10 @@ fn highlight_method_call_by_name_ref(
     krate: Option<hir::Crate>,
     name_ref: &ast::NameRef,
 ) -> Option<Highlight> {
-    let mc = name_ref.syntax().parent().and_then(ast::MethodCallExpr::cast)?;
+    let mc = name_ref
+        .syntax()
+        .parent()
+        .and_then(ast::MethodCallExpr::cast)?;
     highlight_method_call(sema, krate, &mc)
 }
 
@@ -583,7 +595,11 @@ fn highlight_method_call(
     if func.is_async(sema.db) {
         h |= HlMod::Async;
     }
-    if func.as_assoc_item(sema.db).and_then(|it| it.containing_trait(sema.db)).is_some() {
+    if func
+        .as_assoc_item(sema.db)
+        .and_then(|it| it.containing_trait(sema.db))
+        .is_some()
+    {
         h |= HlMod::Trait;
     }
 
@@ -690,7 +706,13 @@ fn highlight_name_ref_by_syntax(
                 Some(it) => it,
                 _ => {
                     // within path, decide whether it is module or adt by checking for uppercase name
-                    return if name.text().chars().next().unwrap_or_default().is_uppercase() {
+                    return if name
+                        .text()
+                        .chars()
+                        .next()
+                        .unwrap_or_default()
+                        .is_uppercase()
+                    {
                         SymbolKind::Struct
                     } else {
                         SymbolKind::Module
@@ -705,7 +727,13 @@ fn highlight_name_ref_by_syntax(
 
             match parent.kind() {
                 CALL_EXPR => SymbolKind::Function.into(),
-                _ => if name.text().chars().next().unwrap_or_default().is_uppercase() {
+                _ => if name
+                    .text()
+                    .chars()
+                    .next()
+                    .unwrap_or_default()
+                    .is_uppercase()
+                {
                     SymbolKind::Struct
                 } else {
                     SymbolKind::Const
@@ -719,8 +747,10 @@ fn highlight_name_ref_by_syntax(
 
 fn is_consumed_lvalue(node: &SyntaxNode, local: &hir::Local, db: &RootDatabase) -> bool {
     // When lvalues are passed as arguments and they're not Copy, then mark them as Consuming.
-    parents_match(node.clone().into(), &[PATH_SEGMENT, PATH, PATH_EXPR, ARG_LIST])
-        && !local.ty(db).is_copy(db)
+    parents_match(
+        node.clone().into(),
+        &[PATH_SEGMENT, PATH, PATH_EXPR, ARG_LIST],
+    ) && !local.ty(db).is_copy(db)
 }
 
 /// Returns true if the parent nodes of `node` all match the `SyntaxKind`s in `kinds` exactly.

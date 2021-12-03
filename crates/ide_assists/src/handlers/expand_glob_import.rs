@@ -1,5 +1,5 @@
 use either::Either;
-use hir::{AssocItem, HasVisibility, Module, ModuleDef, Name, PathResolution, ScopeDef};
+use hir::{AssocItem, EntityResolution, HasVisibility, Module, ModuleDef, Name, ScopeDef};
 use ide_db::{
     defs::{Definition, NameRefClass},
     search::SearchScope,
@@ -45,7 +45,7 @@ pub(crate) fn expand_glob_import(acc: &mut Assists, ctx: &AssistContext) -> Opti
     let use_tree = star.parent().and_then(ast::UseTree::cast)?;
     let (parent, mod_path) = find_parent_and_path(&star)?;
     let target_module = match ctx.sema.resolve_path(&mod_path)? {
-        PathResolution::Def(ModuleDef::Module(it)) => it,
+        EntityResolution::Def(ModuleDef::Module(it)) => it,
         _ => return None,
     };
 
@@ -127,12 +127,10 @@ struct Ref {
 impl Ref {
     fn from_scope_def(name: Name, scope_def: ScopeDef) -> Option<Self> {
         match scope_def {
-            ScopeDef::ModuleDef(def) => {
-                Some(Ref { visible_name: name, def: Definition::from(def) })
-            }
-            ScopeDef::MacroDef(def) => {
-                Some(Ref { visible_name: name, def: Definition::Macro(def) })
-            }
+            ScopeDef::ModuleDef(def) => Some(Ref {
+                visible_name: name,
+                def: Definition::from(def),
+            }),
             _ => None,
         }
     }
@@ -167,7 +165,13 @@ impl Refs {
     }
 
     fn filter_out_by_defs(&self, defs: Vec<Definition>) -> Refs {
-        Refs(self.0.clone().into_iter().filter(|r| !defs.contains(&r.def)).collect())
+        Refs(
+            self.0
+                .clone()
+                .into_iter()
+                .filter(|r| !defs.contains(&r.def))
+                .collect(),
+        )
     }
 }
 
@@ -183,14 +187,19 @@ fn find_refs_in_mod(
     }
 
     let module_scope = module.scope(ctx.db(), visible_from);
-    let refs = module_scope.into_iter().filter_map(|(n, d)| Ref::from_scope_def(n, d)).collect();
+    let refs = module_scope
+        .into_iter()
+        .filter_map(|(n, d)| Ref::from_scope_def(n, d))
+        .collect();
     Some(Refs(refs))
 }
 
 fn is_mod_visible_from(ctx: &AssistContext, module: Module, from: Module) -> bool {
     match module.parent(ctx.db()) {
         Some(parent) => {
-            module.visibility(ctx.db()).is_visible_from(ctx.db(), from.into())
+            module
+                .visibility(ctx.db())
+                .is_visible_from(ctx.db(), from.into())
                 && is_mod_visible_from(ctx, parent, from)
         }
         None => true,
@@ -212,8 +221,13 @@ fn is_mod_visible_from(ctx: &AssistContext, module: Module, from: Module) -> boo
 // use baz::Baz;
 // ↑ ---------------
 fn find_imported_defs(ctx: &AssistContext, star: SyntaxToken) -> Option<Vec<Definition>> {
-    let parent_use_item_syntax =
-        star.ancestors().find_map(|n| if ast::Use::can_cast(n.kind()) { Some(n) } else { None })?;
+    let parent_use_item_syntax = star.ancestors().find_map(|n| {
+        if ast::Use::can_cast(n.kind()) {
+            Some(n)
+        } else {
+            None
+        }
+    })?;
 
     Some(
         [Direction::Prev, Direction::Next]
@@ -228,10 +242,9 @@ fn find_imported_defs(ctx: &AssistContext, star: SyntaxToken) -> Option<Vec<Defi
                 NameRefClass::Definition(
                     def
                     @
-                    (Definition::Macro(_)
-                    | Definition::Module(_)
+                    (Definition::Module(_)
                     | Definition::Function(_)
-                    | Definition::Adt(_)
+                    | Definition::DataType(_)
                     | Definition::Variant(_)
                     | Definition::Const(_)
                     | Definition::Static(_)
@@ -249,7 +262,9 @@ fn find_names_to_import(
     refs_in_target: Refs,
     imported_defs: Vec<Definition>,
 ) -> Vec<Name> {
-    let used_refs = refs_in_target.used_refs(ctx).filter_out_by_defs(imported_defs);
+    let used_refs = refs_in_target
+        .used_refs(ctx)
+        .filter_out_by_defs(imported_defs);
     used_refs.0.iter().map(|r| r.visible_name.clone()).collect()
 }
 

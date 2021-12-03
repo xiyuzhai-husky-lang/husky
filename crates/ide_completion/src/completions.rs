@@ -26,7 +26,6 @@ use crate::{
         const_::render_const,
         enum_variant::render_variant,
         function::{render_fn, render_method},
-        macro_::render_macro,
         pattern::{render_struct_pat, render_variant_pat},
         render_field, render_resolution, render_tuple_field,
         struct_literal::render_struct_literal,
@@ -90,20 +89,11 @@ impl Completions {
             cov_mark::hit!(qualified_path_doc_hidden);
             return;
         }
-        self.add_opt(render_resolution(RenderContext::new(ctx), local_name, resolution));
-    }
-
-    pub(crate) fn add_macro(
-        &mut self,
-        ctx: &CompletionContext,
-        name: Option<hir::Name>,
-        macro_: hir::MacroDef,
-    ) {
-        let name = match name {
-            Some(it) => it,
-            None => return,
-        };
-        self.add_opt(render_macro(RenderContext::new(ctx), None, name, macro_));
+        self.add_opt(render_resolution(
+            RenderContext::new(ctx),
+            local_name,
+            resolution,
+        ));
     }
 
     pub(crate) fn add_function(
@@ -128,7 +118,13 @@ impl Completions {
         if !ctx.is_visible(&func) {
             return;
         }
-        self.add_opt(render_method(RenderContext::new(ctx), None, receiver, local_name, func));
+        self.add_opt(render_method(
+            RenderContext::new(ctx),
+            None,
+            receiver,
+            local_name,
+            func,
+        ));
     }
 
     pub(crate) fn add_const(&mut self, ctx: &CompletionContext, konst: hir::Const) {
@@ -150,7 +146,10 @@ impl Completions {
         ctx: &CompletionContext,
         type_alias: hir::TypeAlias,
     ) {
-        self.add_opt(render_type_alias_with_eq(RenderContext::new(ctx), type_alias));
+        self.add_opt(render_type_alias_with_eq(
+            RenderContext::new(ctx),
+            type_alias,
+        ));
     }
 
     pub(crate) fn add_qualified_enum_variant(
@@ -220,7 +219,12 @@ impl Completions {
         variant: hir::Variant,
         local_name: Option<hir::Name>,
     ) {
-        self.add_opt(render_variant_pat(RenderContext::new(ctx), variant, local_name, None));
+        self.add_opt(render_variant_pat(
+            RenderContext::new(ctx),
+            variant,
+            local_name,
+            None,
+        ));
     }
 
     pub(crate) fn add_qualified_variant_pat(
@@ -229,7 +233,12 @@ impl Completions {
         variant: hir::Variant,
         path: hir::ModPath,
     ) {
-        self.add_opt(render_variant_pat(RenderContext::new(ctx), variant, None, Some(path)));
+        self.add_opt(render_variant_pat(
+            RenderContext::new(ctx),
+            variant,
+            None,
+            Some(path),
+        ));
     }
 
     pub(crate) fn add_struct_pat(
@@ -238,7 +247,11 @@ impl Completions {
         strukt: hir::Struct,
         local_name: Option<hir::Name>,
     ) {
-        self.add_opt(render_struct_pat(RenderContext::new(ctx), strukt, local_name));
+        self.add_opt(render_struct_pat(
+            RenderContext::new(ctx),
+            strukt,
+            local_name,
+        ));
     }
 }
 
@@ -260,8 +273,12 @@ fn enum_variants_with_paths(
         enum_.module(ctx.db)
     };
 
-    if let Some(impl_) = ctx.impl_def.as_ref().and_then(|impl_| ctx.sema.to_def(impl_)) {
-        if impl_.self_ty(ctx.db).as_adt() == Some(hir::Adt::Enum(enum_)) {
+    if let Some(impl_) = ctx
+        .impl_def
+        .as_ref()
+        .and_then(|impl_| ctx.sema.to_def(impl_))
+    {
+        if impl_.self_ty(ctx.db).as_adt() == Some(hir::DataType::Enum(enum_)) {
             for &variant in &variants {
                 let self_path = hir::ModPath::from_segments(
                     hir::PathKind::Plain,

@@ -1,13 +1,12 @@
 //! `render` module provides utilities for rendering completion suggestions
 //! into code pieces that will be presented to user.
 
-pub(crate) mod macro_;
-pub(crate) mod function;
-pub(crate) mod enum_variant;
 pub(crate) mod const_;
+pub(crate) mod enum_variant;
+pub(crate) mod function;
 pub(crate) mod pattern;
-pub(crate) mod type_alias;
 pub(crate) mod struct_literal;
+pub(crate) mod type_alias;
 
 mod builder_ext;
 
@@ -21,7 +20,7 @@ use syntax::{SmolStr, SyntaxKind, TextRange};
 use crate::{
     context::{PathCompletionContext, PathKind},
     item::{CompletionRelevanceTypeMatch, ImportEdit},
-    render::{enum_variant::render_variant, function::render_fn, macro_::render_macro},
+    render::{enum_variant::render_variant, function::render_fn},
     CompletionContext, CompletionItem, CompletionItemKind, CompletionRelevance,
 };
 /// Interface for data and methods required for items rendering.
@@ -87,7 +86,10 @@ pub(crate) fn render_field(
     let mut item = CompletionItem::new(
         SymbolKind::Field,
         ctx.source_range(),
-        receiver.map_or_else(|| name.clone(), |receiver| format!("{}.{}", receiver, name).into()),
+        receiver.map_or_else(
+            || name.clone(),
+            |receiver| format!("{}.{}", receiver, name).into(),
+        ),
     );
     item.set_relevance(CompletionRelevance {
         type_match: compute_type_match(ctx.completion, ty),
@@ -119,9 +121,13 @@ pub(crate) fn render_tuple_field(
     let mut item = CompletionItem::new(
         SymbolKind::Field,
         ctx.source_range(),
-        receiver.map_or_else(|| field.to_string(), |receiver| format!("{}.{}", receiver, field)),
+        receiver.map_or_else(
+            || field.to_string(),
+            |receiver| format!("{}.{}", receiver, field),
+        ),
     );
-    item.detail(ty.display(ctx.db()).to_string()).lookup_by(field.to_string());
+    item.detail(ty.display(ctx.db()).to_string())
+        .lookup_by(field.to_string());
     item.build()
 }
 
@@ -167,16 +173,12 @@ fn render_resolution_(
             let item = render_variant(ctx, import_to_add, Some(local_name), *var, None);
             return Some(item);
         }
-        hir::ScopeDef::MacroDef(mac) => {
-            let item = render_macro(ctx, import_to_add, local_name, *mac);
-            return item;
-        }
 
         hir::ScopeDef::ModuleDef(Module(..)) => CompletionItemKind::SymbolKind(SymbolKind::Module),
-        hir::ScopeDef::ModuleDef(Adt(adt)) => CompletionItemKind::SymbolKind(match adt {
-            hir::Adt::Struct(_) => SymbolKind::Struct,
-            hir::Adt::Union(_) => SymbolKind::Union,
-            hir::Adt::Enum(_) => SymbolKind::Enum,
+        hir::ScopeDef::ModuleDef(DataType(adt)) => CompletionItemKind::SymbolKind(match adt {
+            hir::DataType::Struct(_) => SymbolKind::Struct,
+            hir::DataType::Union(_) => SymbolKind::Union,
+            hir::DataType::Enum(_) => SymbolKind::Enum,
         }),
         hir::ScopeDef::ModuleDef(Const(..)) => CompletionItemKind::SymbolKind(SymbolKind::Const),
         hir::ScopeDef::ModuleDef(Static(..)) => CompletionItemKind::SymbolKind(SymbolKind::Static),
@@ -231,12 +233,16 @@ fn render_resolution_(
     // Add `<>` for generic types
     if matches!(
         ctx.completion.path_context,
-        Some(PathCompletionContext { kind: Some(PathKind::Type), has_type_args: false, .. })
+        Some(PathCompletionContext {
+            kind: Some(PathKind::Type),
+            has_type_args: false,
+            ..
+        })
     ) && ctx.completion.config.add_call_parenthesis
     {
         if let Some(cap) = ctx.snippet_cap() {
             let has_non_default_type_params = match resolution {
-                hir::ScopeDef::ModuleDef(Adt(it)) => it.has_non_default_type_params(ctx.db()),
+                hir::ScopeDef::ModuleDef(DataType(it)) => it.has_non_default_type_params(ctx.db()),
                 hir::ScopeDef::ModuleDef(TypeAlias(it)) => it.has_non_default_type_params(ctx.db()),
                 _ => false,
             };
@@ -261,7 +267,7 @@ fn scope_def_docs(db: &RootDatabase, resolution: &hir::ScopeDef) -> Option<hir::
     use hir::ModuleDef::*;
     match resolution {
         hir::ScopeDef::ModuleDef(Module(it)) => it.docs(db),
-        hir::ScopeDef::ModuleDef(Adt(it)) => it.docs(db),
+        hir::ScopeDef::ModuleDef(DataType(it)) => it.docs(db),
         hir::ScopeDef::ModuleDef(Variant(it)) => it.docs(db),
         hir::ScopeDef::ModuleDef(Const(it)) => it.docs(db),
         hir::ScopeDef::ModuleDef(Static(it)) => it.docs(db),
@@ -274,7 +280,6 @@ fn scope_def_docs(db: &RootDatabase, resolution: &hir::ScopeDef) -> Option<hir::
 fn scope_def_is_deprecated(ctx: &RenderContext<'_>, resolution: &hir::ScopeDef) -> bool {
     match resolution {
         hir::ScopeDef::ModuleDef(it) => ctx.is_deprecated_assoc_item(*it),
-        hir::ScopeDef::MacroDef(it) => ctx.is_deprecated(*it),
         hir::ScopeDef::GenericParam(it) => ctx.is_deprecated(*it),
         hir::ScopeDef::AdtSelfType(it) => ctx.is_deprecated(*it),
         _ => false,
@@ -303,7 +308,9 @@ fn compute_type_match(
 }
 
 fn compute_exact_name_match(ctx: &CompletionContext, completion_name: &str) -> bool {
-    ctx.expected_name.as_ref().map_or(false, |name| name.text() == completion_name)
+    ctx.expected_name
+        .as_ref()
+        .map_or(false, |name| name.text() == completion_name)
 }
 
 fn compute_ref_match(
@@ -313,7 +320,10 @@ fn compute_ref_match(
     let expected_type = ctx.expected_type.as_ref()?;
     if completion_ty != expected_type {
         let expected_type_without_ref = expected_type.remove_ref()?;
-        if completion_ty.autoderef(ctx.db).any(|deref_ty| deref_ty == expected_type_without_ref) {
+        if completion_ty
+            .autoderef(ctx.db)
+            .any(|deref_ty| deref_ty == expected_type_without_ref)
+        {
             cov_mark::hit!(suggest_ref);
             let mutability = if expected_type.is_mutable_reference() {
                 hir::Mutability::Mut
@@ -348,8 +358,10 @@ mod tests {
 
     #[track_caller]
     fn check_kinds(ra_fixture: &str, kinds: &[CompletionItemKind], expect: Expect) {
-        let actual: Vec<_> =
-            kinds.iter().flat_map(|&kind| do_completion(ra_fixture, kind)).collect();
+        let actual: Vec<_> = kinds
+            .iter()
+            .flat_map(|&kind| do_completion(ra_fixture, kind))
+            .collect();
         expect.assert_debug_eq(&actual);
     }
 
@@ -397,7 +409,10 @@ mod tests {
 
         fn display_relevance(relevance: CompletionRelevance) -> String {
             let relevance_factors = vec![
-                (relevance.type_match == Some(CompletionRelevanceTypeMatch::Exact), "type"),
+                (
+                    relevance.type_match == Some(CompletionRelevanceTypeMatch::Exact),
+                    "type",
+                ),
                 (
                     relevance.type_match == Some(CompletionRelevanceTypeMatch::CouldUnify),
                     "type_could_unify",
@@ -710,7 +725,10 @@ impl S {
     /// Method docs
     fn bar(self) { self.$0 }
 }"#,
-            &[CompletionItemKind::Method, CompletionItemKind::SymbolKind(SymbolKind::Field)],
+            &[
+                CompletionItemKind::Method,
+                CompletionItemKind::SymbolKind(SymbolKind::Field),
+            ],
             expect![[r#"
                 [
                     CompletionItem {
@@ -1347,7 +1365,10 @@ impl Foo { fn baz(&self) -> u32 { 0 } }
 
 fn foo(f: Foo) { let _: &u32 = f.b$0 }
 "#,
-            &[CompletionItemKind::Method, CompletionItemKind::SymbolKind(SymbolKind::Field)],
+            &[
+                CompletionItemKind::Method,
+                CompletionItemKind::SymbolKind(SymbolKind::Field),
+            ],
             // FIXME
             // Ideally we'd also suggest &f.bar and &f.baz() as exact
             // type matches. See #8058.

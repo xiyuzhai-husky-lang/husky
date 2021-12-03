@@ -1,5 +1,5 @@
 //! See [`FamousDefs`].
-use hir::{Crate, Enum, MacroDef, Module, ScopeDef, Semantics, Trait};
+use hir::{Crate, Enum, Module, ScopeDef, Semantics, Trait};
 
 use crate::RootDatabase;
 
@@ -80,10 +80,6 @@ impl FamousDefs<'_, '_> {
         self.find_trait("core:marker:Copy")
     }
 
-    pub fn core_macros_builtin_derive(&self) -> Option<MacroDef> {
-        self.find_macro("core:macros:builtin:derive")
-    }
-
     pub fn alloc(&self) -> Option<Crate> {
         self.find_crate("alloc")
     }
@@ -114,16 +110,9 @@ impl FamousDefs<'_, '_> {
         }
     }
 
-    fn find_macro(&self, path: &str) -> Option<MacroDef> {
-        match self.find_def(path)? {
-            hir::ScopeDef::MacroDef(it) => Some(it),
-            _ => None,
-        }
-    }
-
     fn find_enum(&self, path: &str) -> Option<Enum> {
         match self.find_def(path)? {
-            hir::ScopeDef::ModuleDef(hir::ModuleDef::Adt(hir::Adt::Enum(it))) => Some(it),
+            hir::ScopeDef::ModuleDef(hir::ModuleDef::DataType(hir::DataType::Enum(it))) => Some(it),
             _ => None,
         }
     }
@@ -138,8 +127,11 @@ impl FamousDefs<'_, '_> {
     fn find_crate(&self, name: &str) -> Option<Crate> {
         let krate = self.1?;
         let db = self.0.db;
-        let res =
-            krate.dependencies(db).into_iter().find(|dep| dep.name.to_smol_str() == name)?.krate;
+        let res = krate
+            .dependencies(db)
+            .into_iter()
+            .find(|dep| dep.name.to_smol_str() == name)?
+            .krate;
         Some(res)
     }
 
@@ -160,8 +152,11 @@ impl FamousDefs<'_, '_> {
                 }
             })?;
         }
-        let def =
-            module.scope(db, None).into_iter().find(|(name, _def)| name.to_smol_str() == trait_)?.1;
+        let def = module
+            .scope(db, None)
+            .into_iter()
+            .find(|(name, _def)| name.to_smol_str() == trait_)?
+            .1;
         Some(def)
     }
 }

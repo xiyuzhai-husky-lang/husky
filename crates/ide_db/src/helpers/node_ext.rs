@@ -14,7 +14,12 @@ pub fn expr_as_name_ref(expr: &ast::Expr) -> Option<ast::NameRef> {
 }
 
 pub fn block_as_lone_tail(block: &ast::BlockExpr) -> Option<ast::Expr> {
-    block.statements().next().is_none().then(|| block.tail_expr()).flatten()
+    block
+        .statements()
+        .next()
+        .is_none()
+        .then(|| block.tail_expr())
+        .flatten()
 }
 
 /// Preorder walk all the expression's child expressions.
@@ -53,11 +58,6 @@ pub fn preorder_expr(start: &ast::Expr, cb: &mut dyn FnMut(WalkEvent<ast::Expr>)
         match ast::Stmt::cast(node.clone()) {
             // Don't skip subtree since we want to process the expression child next
             Some(ast::Stmt::ExprStmt(_)) | Some(ast::Stmt::LetStmt(_)) => (),
-            // This might be an expression
-            Some(ast::Stmt::Item(ast::Item::MacroCall(mcall))) => {
-                cb(WalkEvent::Enter(ast::Expr::MacroCall(mcall)));
-                preorder.skip_subtree();
-            }
             // skip inner items which might have their own expressions
             Some(ast::Stmt::Item(_)) => preorder.skip_subtree(),
             None => {
@@ -178,10 +178,6 @@ pub fn walk_ty(ty: &ast::Type, cb: &mut dyn FnMut(ast::Type)) {
         };
         let kind = node.kind();
         match ast::Type::cast(node) {
-            Some(ty @ ast::Type::MacroType(_)) => {
-                preorder.skip_subtree();
-                cb(ty)
-            }
             Some(ty) => {
                 cb(ty);
             }

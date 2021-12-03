@@ -4,8 +4,8 @@ use std::{error::Error, ops::Range, sync::Arc};
 use lsp_server::Notification;
 
 use crate::{
-    from_proto,
-    line_index::{LineEndings, LineIndex, OffsetEncoding},
+    convert::from_lsp_types,
+    line_index::{LineCollection, LineEndingType, OffsetEncoding},
     lsp_error::LspError,
     server::Server,
 };

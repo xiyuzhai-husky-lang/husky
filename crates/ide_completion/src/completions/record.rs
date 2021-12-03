@@ -12,7 +12,9 @@ pub(crate) fn complete_record(acc: &mut Completions, ctx: &CompletionContext) ->
             ImmediateLocation::RecordExpr(record_expr)
             | ImmediateLocation::RecordExprUpdate(record_expr),
         ) => {
-            let ty = ctx.sema.type_of_expr(&Expr::RecordExpr(record_expr.clone()));
+            let ty = ctx
+                .sema
+                .type_of_expr(&Expr::RecordExpr(record_expr.clone()));
             let default_trait = FamousDefs(&ctx.sema, ctx.krate).core_default_Default();
             let impl_default_trait = default_trait.zip(ty).map_or(false, |(default_trait, ty)| {
                 ty.original.impls_trait(ctx.db, default_trait, &[])
@@ -23,8 +25,9 @@ pub(crate) fn complete_record(acc: &mut Completions, ctx: &CompletionContext) ->
                 let completion_text = "..Default::default()";
                 let mut item =
                     CompletionItem::new(SymbolKind::Field, ctx.source_range(), completion_text);
-                let completion_text =
-                    completion_text.strip_prefix(ctx.token.text()).unwrap_or(completion_text);
+                let completion_text = completion_text
+                    .strip_prefix(ctx.token.text())
+                    .unwrap_or(completion_text);
                 item.insert_text(completion_text);
                 item.add_to(acc);
             }
@@ -58,9 +61,12 @@ pub(crate) fn complete_record_literal(
         return None;
     }
 
-    if let hir::Adt::Struct(strukt) = ctx.expected_type.as_ref()?.as_adt()? {
-        let module =
-            if let Some(module) = ctx.scope.module() { module } else { strukt.module(ctx.db) };
+    if let hir::DataType::Struct(strukt) = ctx.expected_type.as_ref()?.as_adt()? {
+        let module = if let Some(module) = ctx.scope.module() {
+            module
+        } else {
+            strukt.module(ctx.db)
+        };
 
         let path = module.find_use_path(ctx.db, hir::ModuleDef::from(strukt));
 

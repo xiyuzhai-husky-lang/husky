@@ -27,8 +27,7 @@ use crate::{
     nameres::DefMap,
     path::{ModPath, Path},
     src::HasSource,
-    AsMacroCall, BlockId, DefWithBodyId, HasModule, LocalModuleId, Lookup, ModuleId,
-    UnresolvedMacro,
+    BlockId, DefWithBodyId, HasModule, LocalModuleId, Lookup, ModuleId,
 };
 
 pub use lower::LowerCtx;
@@ -57,7 +56,7 @@ impl Expander {
         &mut self,
         db: &dyn DefDatabase,
         macro_call: ast::MacroCall,
-    ) -> Result<ExpandResult<Option<(Mark, T)>>, UnresolvedMacro> {
+    ) -> ExpandResult<Option<(Mark, T)>> {
         todo!()
     }
 
@@ -82,13 +81,6 @@ impl Expander {
 
     fn parse_path(&mut self, db: &dyn DefDatabase, path: ast::Path) -> Option<Path> {
         todo!()
-    }
-
-    fn resolve_path_as_macro(&self, db: &dyn DefDatabase, path: &ModPath) -> Option<MacroDefId> {
-        self.def_map
-            .resolve_path(db, self.module, path, BuiltinShadowMode::Other)
-            .0
-            .take_macros()
     }
 
     fn ast_id<N: AstNode>(&self, item: &N) -> AstId<N> {

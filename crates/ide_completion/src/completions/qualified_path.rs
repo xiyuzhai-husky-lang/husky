@@ -14,9 +14,11 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
         return;
     }
     let (path, use_tree_parent) = match &ctx.path_context {
-        Some(PathCompletionContext { qualifier: Some(qualifier), use_tree_parent, .. }) => {
-            (qualifier, *use_tree_parent)
-        }
+        Some(PathCompletionContext {
+            qualifier: Some(qualifier),
+            use_tree_parent,
+            ..
+        }) => (qualifier, *use_tree_parent),
         _ => return,
     };
 
@@ -29,13 +31,8 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
 
     match ctx.completion_location {
         Some(ImmediateLocation::ItemList | ImmediateLocation::Trait | ImmediateLocation::Impl) => {
-            if let hir::PathResolution::Def(hir::ModuleDef::Module(module)) = resolution {
+            if let hir::EntityResolution::Def(hir::ModuleDef::Module(module)) = resolution {
                 for (name, def) in module.scope(ctx.db, context_module) {
-                    if let hir::ScopeDef::MacroDef(macro_def) = def {
-                        if macro_def.is_fn_like() {
-                            acc.add_macro(ctx, Some(name.clone()), macro_def);
-                        }
-                    }
                     if let hir::ScopeDef::ModuleDef(hir::ModuleDef::Module(_)) = def {
                         acc.add_resolution(ctx, name, &def);
                     }
@@ -44,7 +41,7 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
             return;
         }
         Some(ImmediateLocation::Visibility(_)) => {
-            if let hir::PathResolution::Def(hir::ModuleDef::Module(resolved)) = resolution {
+            if let hir::EntityResolution::Def(hir::ModuleDef::Module(resolved)) = resolution {
                 if let Some(current_module) = ctx.scope.module() {
                     if let Some(next) = current_module
                         .path_to_root(ctx.db)
@@ -87,7 +84,7 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
     });
 
     match resolution {
-        hir::PathResolution::Def(hir::ModuleDef::Module(module)) => {
+        hir::EntityResolution::Def(hir::ModuleDef::Module(module)) => {
             let module_scope = module.scope(ctx.db, context_module);
             for (name, def) in module_scope {
                 if ctx.in_use_tree() {
@@ -103,8 +100,6 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
                 }
 
                 let add_resolution = match def {
-                    // Don't suggest attribute macros and derives.
-                    hir::ScopeDef::MacroDef(mac) => mac.is_fn_like(),
                     // no values in type places
                     hir::ScopeDef::ModuleDef(
                         hir::ModuleDef::Function(_)
@@ -124,21 +119,21 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
                 }
             }
         }
-        hir::PathResolution::Def(
+        hir::EntityResolution::Def(
             def
             @
-            (hir::ModuleDef::Adt(_)
+            (hir::ModuleDef::DataType(_)
             | hir::ModuleDef::TypeAlias(_)
             | hir::ModuleDef::BuiltinType(_)),
         ) => {
-            if let hir::ModuleDef::Adt(hir::Adt::Enum(e)) = def {
+            if let hir::ModuleDef::DataType(hir::DataType::Enum(e)) = def {
                 add_enum_variants(acc, ctx, e);
             }
             let ty = match def {
-                hir::ModuleDef::Adt(adt) => adt.ty(ctx.db),
+                hir::ModuleDef::DataType(adt) => adt.ty(ctx.db),
                 hir::ModuleDef::TypeAlias(a) => {
                     let ty = a.ty(ctx.db);
-                    if let Some(hir::Adt::Enum(e)) = ty.as_adt() {
+                    if let Some(hir::DataType::Enum(e)) = ty.as_adt() {
                         cov_mark::hit!(completes_variant_through_alias);
                         add_enum_variants(acc, ctx, e);
                     }
@@ -175,21 +170,21 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
                 });
             }
         }
-        hir::PathResolution::Def(hir::ModuleDef::Trait(t)) => {
+        hir::EntityResolution::Def(hir::ModuleDef::Trait(t)) => {
             // Handles `Trait::assoc` as well as `<Ty as Trait>::assoc`.
             for item in t.items(ctx.db) {
                 add_assoc_item(acc, ctx, item);
             }
         }
-        hir::PathResolution::TypeParam(_) | hir::PathResolution::SelfType(_) => {
+        hir::EntityResolution::TypeParam(_) | hir::EntityResolution::SelfType(_) => {
             if let Some(krate) = ctx.krate {
                 let ty = match resolution {
-                    hir::PathResolution::TypeParam(param) => param.ty(ctx.db),
-                    hir::PathResolution::SelfType(impl_def) => impl_def.self_ty(ctx.db),
+                    hir::EntityResolution::TypeParam(param) => param.ty(ctx.db),
+                    hir::EntityResolution::SelfType(impl_def) => impl_def.self_ty(ctx.db),
                     _ => return,
                 };
 
-                if let Some(hir::Adt::Enum(e)) = ty.as_adt() {
+                if let Some(hir::DataType::Enum(e)) = ty.as_adt() {
                     add_enum_variants(acc, ctx, e);
                 }
 
@@ -205,7 +200,6 @@ pub(crate) fn complete_qualified_path(acc: &mut Completions, ctx: &CompletionCon
                 });
             }
         }
-        hir::PathResolution::Macro(mac) => acc.add_macro(ctx, None, mac),
         _ => {}
     }
 }
@@ -225,7 +219,9 @@ fn add_enum_variants(acc: &mut Completions, ctx: &CompletionContext, e: hir::Enu
     if ctx.expects_type() {
         return;
     }
-    e.variants(ctx.db).into_iter().for_each(|variant| acc.add_enum_variant(ctx, variant, None));
+    e.variants(ctx.db)
+        .into_iter()
+        .for_each(|variant| acc.add_enum_variant(ctx, variant, None));
 }
 
 #[cfg(test)]

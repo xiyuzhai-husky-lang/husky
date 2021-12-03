@@ -43,7 +43,7 @@ use hir_def::{
     item_tree::ItemTreeNode,
     lang_item::LangItemTarget,
     nameres,
-    per_ns::PerNs,
+    per_ns::PerNamespace,
     resolver::{HasResolver, Resolver},
     src::HasSource as _,
     AdtId, AssocContainerId, AssocItemId, AssocItemLoc, AttrDefId, ConstId, ConstParamId,
@@ -90,7 +90,7 @@ pub use crate::{
         UnresolvedProcMacro,
     },
     has_source::HasSource,
-    semantics::{PathResolution, Semantics, SemanticsScope, TypeInfo},
+    semantics::{EntityResolution, Semantics, SemanticsScope, TypeInfo},
 };
 
 // Be careful with these re-exports.
@@ -204,13 +204,12 @@ impl Crate {
         self,
         db: &dyn DefDatabase,
         query: import_map::Query,
-    ) -> impl Iterator<Item = Either<ModuleDef, MacroDef>> {
+    ) -> impl Iterator<Item = ModuleDef> {
         let _p = profile::span("query_external_importables");
         import_map::search_dependencies(db, self.into(), query)
             .into_iter()
-            .map(|item| match ItemInNs::from(item) {
-                ItemInNs::Types(mod_id) | ItemInNs::Values(mod_id) => Either::Left(mod_id),
-                ItemInNs::Macros(mac_id) => Either::Right(mac_id),
+            .map(|item| match ItemInNamespace::from(item) {
+                ItemInNamespace::Types(entity_id) | ItemInNamespace::Values(entity_id) => entity_id,
             })
     }
 
@@ -253,7 +252,7 @@ pub struct Module {
 pub enum ModuleDef {
     Module(Module),
     Function(Function),
-    Adt(Adt),
+    DataType(DataType),
     // Can't be directly declared, but can be imported.
     Variant(Variant),
     Const(Const),
@@ -265,7 +264,7 @@ pub enum ModuleDef {
 impl_from!(
     Module,
     Function,
-    Adt(Struct, Enum, Union),
+    DataType(Struct, Enum, Union),
     Variant,
     Const,
     Static,
@@ -278,8 +277,8 @@ impl_from!(
 impl From<VariantDef> for ModuleDef {
     fn from(var: VariantDef) -> Self {
         match var {
-            VariantDef::Struct(t) => Adt::from(t).into(),
-            VariantDef::Union(t) => Adt::from(t).into(),
+            VariantDef::Struct(t) => DataType::from(t).into(),
+            VariantDef::Union(t) => DataType::from(t).into(),
             VariantDef::Variant(t) => t.into(),
         }
     }
@@ -290,7 +289,7 @@ impl ModuleDef {
         match self {
             ModuleDef::Module(it) => it.parent(db),
             ModuleDef::Function(it) => Some(it.module(db)),
-            ModuleDef::Adt(it) => Some(it.module(db)),
+            ModuleDef::DataType(it) => Some(it.module(db)),
             ModuleDef::Variant(it) => Some(it.module(db)),
             ModuleDef::Const(it) => Some(it.module(db)),
             ModuleDef::Static(it) => Some(it.module(db)),
@@ -321,7 +320,7 @@ impl ModuleDef {
         let name = match self {
             ModuleDef::Module(it) => it.name(db)?,
             ModuleDef::Const(it) => it.name(db)?,
-            ModuleDef::Adt(it) => it.name(db),
+            ModuleDef::DataType(it) => it.name(db),
             ModuleDef::Trait(it) => it.name(db),
             ModuleDef::Function(it) => it.name(db),
             ModuleDef::Variant(it) => it.name(db),
@@ -334,10 +333,10 @@ impl ModuleDef {
 
     pub fn diagnostics(self, db: &dyn HirDatabase) -> Vec<AnyDiagnostic> {
         let id = match self {
-            ModuleDef::Adt(it) => match it {
-                Adt::Struct(it) => it.id.into(),
-                Adt::Enum(it) => it.id.into(),
-                Adt::Union(it) => it.id.into(),
+            ModuleDef::DataType(it) => match it {
+                DataType::Struct(it) => it.id.into(),
+                DataType::Enum(it) => it.id.into(),
+                DataType::Union(it) => it.id.into(),
             },
             ModuleDef::Trait(it) => it.id.into(),
             ModuleDef::Function(it) => it.id.into(),
@@ -376,7 +375,7 @@ impl ModuleDef {
             ModuleDef::Static(it) => Some(it.into()),
 
             ModuleDef::Module(_)
-            | ModuleDef::Adt(_)
+            | ModuleDef::DataType(_)
             | ModuleDef::Variant(_)
             | ModuleDef::Trait(_)
             | ModuleDef::TypeAlias(_)
@@ -388,7 +387,7 @@ impl ModuleDef {
         Some(match self {
             ModuleDef::Module(it) => it.attrs(db),
             ModuleDef::Function(it) => it.attrs(db),
-            ModuleDef::Adt(it) => it.attrs(db),
+            ModuleDef::DataType(it) => it.attrs(db),
             ModuleDef::Variant(it) => it.attrs(db),
             ModuleDef::Const(it) => it.attrs(db),
             ModuleDef::Static(it) => it.attrs(db),
@@ -404,7 +403,7 @@ impl HasVisibility for ModuleDef {
         match *self {
             ModuleDef::Module(it) => it.visibility(db),
             ModuleDef::Function(it) => it.visibility(db),
-            ModuleDef::Adt(it) => it.visibility(db),
+            ModuleDef::DataType(it) => it.visibility(db),
             ModuleDef::Const(it) => it.visibility(db),
             ModuleDef::Static(it) => it.visibility(db),
             ModuleDef::Trait(it) => it.visibility(db),
@@ -512,7 +511,7 @@ impl Module {
             .collect()
     }
 
-    pub fn diagnostics(self, db: &dyn HirDatabase, acc: &mut Vec<AnyDiagnostic>) {
+    pub fn add_diagnostics(self, db: &dyn HirDatabase, accumulator: &mut Vec<AnyDiagnostic>) {
         let _p = profile::span("Module::diagnostics").detail(|| {
             format!(
                 "{:?}",
@@ -532,7 +531,7 @@ impl Module {
                     candidate,
                 } => {
                     let decl = declaration.to_node(db.upcast());
-                    acc.push(
+                    accumulator.push(
                         UnresolvedModule {
                             decl: InFile::new(declaration.file_id, AstPtr::new(&decl)),
                             candidate: candidate.clone(),
@@ -542,7 +541,7 @@ impl Module {
                 }
                 DefDiagnosticKind::UnresolvedExternCrate { ast } => {
                     let item = ast.to_node(db.upcast());
-                    acc.push(
+                    accumulator.push(
                         UnresolvedExternCrate {
                             decl: InFile::new(ast.file_id, AstPtr::new(&item)),
                         }
@@ -556,7 +555,7 @@ impl Module {
                     let import = &item_tree[id.value];
 
                     let use_tree = import.use_tree_to_ast(db.upcast(), file_id, *index);
-                    acc.push(
+                    accumulator.push(
                         UnresolvedImport {
                             decl: InFile::new(file_id, AstPtr::new(&use_tree)),
                         }
@@ -566,7 +565,7 @@ impl Module {
 
                 DefDiagnosticKind::UnconfiguredCode { ast } => {
                     let item = ast.to_node(db.upcast());
-                    acc.push(
+                    accumulator.push(
                         InactiveCode {
                             node: ast.with_value(AstPtr::new(&item).into()),
                         }
@@ -642,7 +641,7 @@ impl Module {
                             )
                         }
                     };
-                    acc.push(
+                    accumulator.push(
                         UnresolvedProcMacro {
                             node,
                             precise_location,
@@ -654,7 +653,7 @@ impl Module {
 
                 DefDiagnosticKind::UnresolvedMacroCall { ast, path } => {
                     let node = ast.to_node(db.upcast());
-                    acc.push(
+                    accumulator.push(
                         UnresolvedMacroCall {
                             macro_call: InFile::new(ast.file_id, AstPtr::new(&node)),
                             path: path.clone(),
@@ -676,7 +675,7 @@ impl Module {
                             ast_id.with_value(SyntaxNodePtr::from(AstPtr::new(&node)))
                         }
                     };
-                    acc.push(
+                    accumulator.push(
                         MacroError {
                             node,
                             message: message.clone(),
@@ -691,7 +690,7 @@ impl Module {
                     let name = node
                         .name()
                         .expect("unimplemented builtin macro with no name");
-                    acc.push(
+                    accumulator.push(
                         UnimplementedBuiltinMacro {
                             node: ast.with_value(SyntaxNodePtr::from(AstPtr::new(&name))),
                         }
@@ -703,7 +702,7 @@ impl Module {
                     let derive = node.attrs().nth(*id as usize);
                     match derive {
                         Some(derive) => {
-                            acc.push(
+                            accumulator.push(
                                 InvalidDeriveTarget {
                                     node: ast.with_value(SyntaxNodePtr::from(AstPtr::new(&derive))),
                                 }
@@ -718,7 +717,7 @@ impl Module {
                     let derive = node.attrs().nth(*id as usize);
                     match derive {
                         Some(derive) => {
-                            acc.push(
+                            accumulator.push(
                                 MalformedDerive {
                                     node: ast.with_value(SyntaxNodePtr::from(AstPtr::new(&derive))),
                                 }
@@ -735,10 +734,10 @@ impl Module {
                 ModuleDef::Module(m) => {
                     // Only add diagnostics from inline modules
                     if def_map[m.id.local_id].origin.is_inline() {
-                        m.diagnostics(db, acc)
+                        m.add_diagnostics(db, accumulator)
                     }
                 }
-                _ => acc.extend(decl.diagnostics(db)),
+                _ => accumulator.extend(decl.diagnostics(db)),
             }
         }
 
@@ -750,7 +749,7 @@ impl Module {
                     AssocItem::TypeAlias(_) => continue,
                 };
 
-                def.diagnostics(db, acc);
+                def.diagnostics(db, accumulator);
             }
         }
     }
@@ -780,7 +779,11 @@ impl Module {
 
     /// Finds a path that can be used to refer to the given item from within
     /// this module, if possible.
-    pub fn find_use_path(self, db: &dyn DefDatabase, item: impl Into<ItemInNs>) -> Option<ModPath> {
+    pub fn find_use_path(
+        self,
+        db: &dyn DefDatabase,
+        item: impl Into<ItemInNamespace>,
+    ) -> Option<ModPath> {
         hir_def::find_path::find_path(db, item.into().into(), self.into())
     }
 
@@ -789,7 +792,7 @@ impl Module {
     pub fn find_use_path_prefixed(
         self,
         db: &dyn DefDatabase,
-        item: impl Into<ItemInNs>,
+        item: impl Into<ItemInNamespace>,
         prefix_kind: PrefixKind,
     ) -> Option<ModPath> {
         hir_def::find_path::find_path_prefixed(db, item.into().into(), self.into(), prefix_kind)
@@ -1037,14 +1040,14 @@ impl HasVisibility for Variant {
 
 /// A Data Type
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
-pub enum Adt {
+pub enum DataType {
     Struct(Struct),
     Union(Union),
     Enum(Enum),
 }
-impl_from!(Struct, Union, Enum for Adt);
+impl_from!(Struct, Union, Enum for DataType);
 
-impl Adt {
+impl DataType {
     pub fn has_non_default_type_params(self, db: &dyn HirDatabase) -> bool {
         let subst = db.generic_defaults(self.into());
         subst.iter().any(|ty| ty.skip_binders().is_unknown())
@@ -1060,27 +1063,27 @@ impl Adt {
 
     pub fn module(self, db: &dyn HirDatabase) -> Module {
         match self {
-            Adt::Struct(s) => s.module(db),
-            Adt::Union(s) => s.module(db),
-            Adt::Enum(e) => e.module(db),
+            DataType::Struct(s) => s.module(db),
+            DataType::Union(s) => s.module(db),
+            DataType::Enum(e) => e.module(db),
         }
     }
 
     pub fn name(self, db: &dyn HirDatabase) -> Name {
         match self {
-            Adt::Struct(s) => s.name(db),
-            Adt::Union(u) => u.name(db),
-            Adt::Enum(e) => e.name(db),
+            DataType::Struct(s) => s.name(db),
+            DataType::Union(u) => u.name(db),
+            DataType::Enum(e) => e.name(db),
         }
     }
 }
 
-impl HasVisibility for Adt {
+impl HasVisibility for DataType {
     fn visibility(&self, db: &dyn HirDatabase) -> Visibility {
         match self {
-            Adt::Struct(it) => it.visibility(db),
-            Adt::Union(it) => it.visibility(db),
-            Adt::Enum(it) => it.visibility(db),
+            DataType::Struct(it) => it.visibility(db),
+            DataType::Union(it) => it.visibility(db),
+            DataType::Enum(it) => it.visibility(db),
         }
     }
 }
@@ -1790,105 +1793,42 @@ pub enum MacroKind {
     ProcMacro,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct MacroDef {
-    pub(crate) id: MacroDefId,
-}
-
-impl MacroDef {
-    /// FIXME: right now, this just returns the root module of the crate that
-    /// defines this macro. The reasons for this is that macros are expanded
-    /// early, in `hir_expand`, where modules simply do not exist yet.
-    pub fn module(self, db: &dyn HirDatabase) -> Option<Module> {
-        let krate = self.id.krate;
-        let def_map = db.crate_def_map(krate);
-        let module_id = def_map.root();
-        Some(Module {
-            id: def_map.module_id(module_id),
-        })
-    }
-
-    /// XXX: this parses the file
-    pub fn name(self, db: &dyn HirDatabase) -> Option<Name> {
-        match self.source(db)?.value {
-            Either::Left(it) => it.name().map(|it| it.as_name()),
-            Either::Right(_) => {
-                let krate = self.id.krate;
-                let def_map = db.crate_def_map(krate);
-                let (_, name) = def_map
-                    .exported_proc_macros()
-                    .find(|&(id, _)| id == self.id)?;
-                Some(name)
-            }
-        }
-    }
-
-    pub fn kind(&self) -> MacroKind {
-        match self.id.kind {
-            MacroDefKind::Declarative(_) => MacroKind::Declarative,
-            MacroDefKind::BuiltIn(_, _) | MacroDefKind::BuiltInEager(_, _) => MacroKind::BuiltIn,
-            MacroDefKind::BuiltInDerive(_, _) => MacroKind::Derive,
-            MacroDefKind::BuiltInAttr(_, _) => MacroKind::Attr,
-            MacroDefKind::ProcMacro(_, base_db::ProcMacroKind::CustomDerive, _) => {
-                MacroKind::Derive
-            }
-            MacroDefKind::ProcMacro(_, base_db::ProcMacroKind::Attr, _) => MacroKind::Attr,
-            MacroDefKind::ProcMacro(_, base_db::ProcMacroKind::FuncLike, _) => MacroKind::ProcMacro,
-        }
-    }
-
-    pub fn is_fn_like(&self) -> bool {
-        match self.kind() {
-            MacroKind::Declarative | MacroKind::BuiltIn | MacroKind::ProcMacro => true,
-            MacroKind::Attr | MacroKind::Derive => false,
-        }
-    }
-}
-
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
-pub enum ItemInNs {
+pub enum ItemInNamespace {
     Types(ModuleDef),
     Values(ModuleDef),
-    Macros(MacroDef),
 }
 
-impl From<MacroDef> for ItemInNs {
-    fn from(it: MacroDef) -> Self {
-        Self::Macros(it)
-    }
-}
-
-impl From<ModuleDef> for ItemInNs {
+impl From<ModuleDef> for ItemInNamespace {
     fn from(module_def: ModuleDef) -> Self {
         match module_def {
             ModuleDef::Static(_) | ModuleDef::Const(_) | ModuleDef::Function(_) => {
-                ItemInNs::Values(module_def)
+                ItemInNamespace::Values(module_def)
             }
-            _ => ItemInNs::Types(module_def),
+            _ => ItemInNamespace::Types(module_def),
         }
     }
 }
 
-impl ItemInNs {
+impl ItemInNamespace {
     pub fn as_module_def(self) -> Option<ModuleDef> {
         match self {
-            ItemInNs::Types(id) | ItemInNs::Values(id) => Some(id),
-            ItemInNs::Macros(_) => None,
+            ItemInNamespace::Types(id) | ItemInNamespace::Values(id) => Some(id),
         }
     }
 
     /// Returns the crate defining this item (or `None` if `self` is built-in).
     pub fn krate(&self, db: &dyn HirDatabase) -> Option<Crate> {
         match self {
-            ItemInNs::Types(did) | ItemInNs::Values(did) => did.module(db).map(|m| m.krate()),
-            ItemInNs::Macros(id) => id.module(db).map(|m| m.krate()),
+            ItemInNamespace::Types(did) | ItemInNamespace::Values(did) => {
+                did.module(db).map(|m| m.krate())
+            }
         }
     }
 
     pub fn attrs(&self, db: &dyn HirDatabase) -> Option<AttrsWithOwner> {
         match self {
-            ItemInNs::Types(it) | ItemInNs::Values(it) => it.attrs(db),
-            ItemInNs::Macros(it) => Some(it.attrs(db)),
+            ItemInNamespace::Types(it) | ItemInNamespace::Values(it) => it.attrs(db),
         }
     }
 }
@@ -2021,7 +1961,7 @@ impl From<AssocItem> for ModuleDef {
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
 pub enum GenericDef {
     Function(Function),
-    Adt(Adt),
+    DataType(DataType),
     Trait(Trait),
     TypeAlias(TypeAlias),
     Impl(Impl),
@@ -2033,7 +1973,7 @@ pub enum GenericDef {
 }
 impl_from!(
     Function,
-    Adt(Struct, Enum, Union),
+    DataType(Struct, Enum, Union),
     Trait,
     TypeAlias,
     Impl,
@@ -2708,7 +2648,7 @@ impl Type {
 
         let adt = adt_id.into();
         match adt {
-            Adt::Struct(s) => matches!(s.repr(db), Some(ReprKind::Packed)),
+            DataType::Struct(s) => matches!(s.repr(db), Some(ReprKind::Packed)),
             _ => false,
         }
     }
@@ -2956,7 +2896,7 @@ impl Type {
         );
     }
 
-    pub fn as_adt(&self) -> Option<Adt> {
+    pub fn as_adt(&self) -> Option<DataType> {
         let (adt, _subst) = self.ty.as_adt()?;
         Some(adt.into())
     }
@@ -3191,17 +3131,16 @@ impl Callable {
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub enum ScopeDef {
     ModuleDef(ModuleDef),
-    MacroDef(MacroDef),
     GenericParam(GenericParam),
     ImplSelfType(Impl),
-    AdtSelfType(Adt),
+    AdtSelfType(DataType),
     Local(Local),
     Label(Label),
     Unknown,
 }
 
 impl ScopeDef {
-    pub fn all_items(def: PerNs) -> ArrayVec<Self, 3> {
+    pub fn all_items(def: PerNamespace) -> ArrayVec<Self, 3> {
         let mut items = ArrayVec::new();
 
         match (def.take_types(), def.take_values()) {
@@ -3221,10 +3160,6 @@ impl ScopeDef {
             (None, None) => {}
         };
 
-        if let Some(macro_def_id) = def.take_macros() {
-            items.push(ScopeDef::MacroDef(macro_def_id.into()));
-        }
-
         if items.is_empty() {
             items.push(ScopeDef::Unknown);
         }
@@ -3235,7 +3170,6 @@ impl ScopeDef {
     pub fn attrs(&self, db: &dyn HirDatabase) -> Option<AttrsWithOwner> {
         match self {
             ScopeDef::ModuleDef(it) => it.attrs(db),
-            ScopeDef::MacroDef(it) => Some(it.attrs(db)),
             ScopeDef::GenericParam(it) => Some(it.attrs(db)),
             ScopeDef::ImplSelfType(_)
             | ScopeDef::AdtSelfType(_)
@@ -3248,7 +3182,6 @@ impl ScopeDef {
     pub fn krate(&self, db: &dyn HirDatabase) -> Option<Crate> {
         match self {
             ScopeDef::ModuleDef(it) => it.module(db).map(|m| m.krate()),
-            ScopeDef::MacroDef(it) => it.module(db).map(|m| m.krate()),
             ScopeDef::GenericParam(it) => Some(it.module(db).krate()),
             ScopeDef::ImplSelfType(_) => None,
             ScopeDef::AdtSelfType(it) => Some(it.module(db).krate()),
@@ -3259,12 +3192,11 @@ impl ScopeDef {
     }
 }
 
-impl From<ItemInNs> for ScopeDef {
-    fn from(item: ItemInNs) -> Self {
+impl From<ItemInNamespace> for ScopeDef {
+    fn from(item: ItemInNamespace) -> Self {
         match item {
-            ItemInNs::Types(id) => ScopeDef::ModuleDef(id),
-            ItemInNs::Values(id) => ScopeDef::ModuleDef(id),
-            ItemInNs::Macros(id) => ScopeDef::MacroDef(id),
+            ItemInNamespace::Types(id) => ScopeDef::ModuleDef(id),
+            ItemInNamespace::Values(id) => ScopeDef::ModuleDef(id),
         }
     }
 }

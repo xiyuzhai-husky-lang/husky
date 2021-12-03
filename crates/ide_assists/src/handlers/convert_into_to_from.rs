@@ -49,7 +49,7 @@ pub(crate) fn convert_into_to_from(acc: &mut Assists, ctx: &AssistContext) -> Op
     let src_type_path = {
         let src_type_path = src_type.syntax().descendants().find_map(ast::Path::cast)?;
         let src_type_def = match ctx.sema.resolve_path(&src_type_path) {
-            Some(hir::PathResolution::Def(module_def)) => module_def,
+            Some(hir::EntityResolution::Def(module_def)) => module_def,
             _ => return None,
         };
 
@@ -57,9 +57,12 @@ pub(crate) fn convert_into_to_from(acc: &mut Assists, ctx: &AssistContext) -> Op
     };
 
     let dest_type = match &ast_trait {
-        ast::Type::PathType(path) => {
-            path.path()?.segment()?.generic_arg_list()?.generic_args().next()?
-        }
+        ast::Type::PathType(path) => path
+            .path()?
+            .segment()?
+            .generic_arg_list()?
+            .generic_args()
+            .next()?,
         _ => return None,
     };
 
@@ -89,7 +92,10 @@ pub(crate) fn convert_into_to_from(acc: &mut Assists, ctx: &AssistContext) -> Op
         impl_.syntax().text_range(),
         |builder| {
             builder.replace(src_type.syntax().text_range(), dest_type.to_string());
-            builder.replace(ast_trait.syntax().text_range(), format!("From<{}>", src_type));
+            builder.replace(
+                ast_trait.syntax().text_range(),
+                format!("From<{}>", src_type),
+            );
             builder.replace(into_fn_return.syntax().text_range(), "-> Self");
             builder.replace(
                 into_fn_params.syntax().text_range(),

@@ -28,7 +28,7 @@ pub(crate) struct ResolvedPattern {
 }
 
 pub(crate) struct ResolvedPath {
-    pub(crate) resolution: hir::PathResolution,
+    pub(crate) resolution: hir::EntityResolution,
     /// The depth of the ast::Path that was resolved within the pattern.
     pub(crate) depth: u32,
 }
@@ -45,8 +45,10 @@ impl ResolvedRule {
         resolution_scope: &ResolutionScope,
         index: usize,
     ) -> Result<ResolvedRule, SsrError> {
-        let resolver =
-            Resolver { resolution_scope, placeholders_by_stand_in: rule.placeholders_by_stand_in };
+        let resolver = Resolver {
+            resolution_scope,
+            placeholders_by_stand_in: rule.placeholders_by_stand_in,
+        };
         let resolved_template = match rule.template {
             Some(template) => Some(resolver.resolve_pattern_tree(template)?),
             None => None,
@@ -82,13 +84,18 @@ impl Resolver<'_, '_> {
             .filter_map(|(path_node, resolved)| {
                 if let Some(grandparent) = path_node.parent().and_then(|parent| parent.parent()) {
                     if let Some(call_expr) = ast::CallExpr::cast(grandparent.clone()) {
-                        if let hir::PathResolution::AssocItem(hir::AssocItem::Function(function)) =
-                            resolved.resolution
+                        if let hir::EntityResolution::AssocItem(hir::AssocItem::Function(
+                            function,
+                        )) = resolved.resolution
                         {
                             let qualifier_type = self.resolution_scope.qualifier_type(path_node);
                             return Some((
                                 grandparent,
-                                UfcsCallInfo { call_expr, function, qualifier_type },
+                                UfcsCallInfo {
+                                    call_expr,
+                                    function,
+                                    qualifier_type,
+                                },
                             ));
                         }
                     }
@@ -97,10 +104,12 @@ impl Resolver<'_, '_> {
             })
             .collect();
         let contains_self =
-            pattern.descendants_with_tokens().any(|node_or_token| match node_or_token {
-                SyntaxElement::Token(t) => t.kind() == T![self],
-                _ => false,
-            });
+            pattern
+                .descendants_with_tokens()
+                .any(|node_or_token| match node_or_token {
+                    SyntaxElement::Token(t) => t.kind() == T![self],
+                    _ => false,
+                });
         Ok(ResolvedPattern {
             node: pattern,
             resolved_paths,
@@ -149,7 +158,10 @@ impl Resolver<'_, '_> {
     fn path_contains_placeholder(&self, path: &ast::Path) -> bool {
         if let Some(segment) = path.segment() {
             if let Some(name_ref) = segment.name_ref() {
-                if self.placeholders_by_stand_in.contains_key(name_ref.text().as_str()) {
+                if self
+                    .placeholders_by_stand_in
+                    .contains_key(name_ref.text().as_str())
+                {
                     return true;
                 }
             }
@@ -160,10 +172,13 @@ impl Resolver<'_, '_> {
         false
     }
 
-    fn ok_to_use_path_resolution(&self, resolution: &hir::PathResolution) -> bool {
+    fn ok_to_use_path_resolution(&self, resolution: &hir::EntityResolution) -> bool {
         match resolution {
-            hir::PathResolution::AssocItem(hir::AssocItem::Function(function)) => {
-                if function.self_param(self.resolution_scope.scope.db).is_some() {
+            hir::EntityResolution::AssocItem(hir::AssocItem::Function(function)) => {
+                if function
+                    .self_param(self.resolution_scope.scope.db)
+                    .is_some()
+                {
                     // If we don't use this path resolution, then we won't be able to match method
                     // calls. e.g. `Foo::bar($s)` should match `x.bar()`.
                     true
@@ -172,7 +187,7 @@ impl Resolver<'_, '_> {
                     false
                 }
             }
-            hir::PathResolution::AssocItem(_) => {
+            hir::EntityResolution::AssocItem(_) => {
                 // Not a function. Could be a constant or an associated type.
                 cov_mark::hit!(replace_associated_trait_constant);
                 false
@@ -203,10 +218,12 @@ impl<'db> ResolutionScope<'db> {
 
     /// Returns the function in which SSR was invoked, if any.
     pub(crate) fn current_function(&self) -> Option<SyntaxNode> {
-        self.node.ancestors().find(|node| node.kind() == SyntaxKind::FN)
+        self.node
+            .ancestors()
+            .find(|node| node.kind() == SyntaxKind::FN)
     }
 
-    fn resolve_path(&self, path: &ast::Path) -> Option<hir::PathResolution> {
+    fn resolve_path(&self, path: &ast::Path) -> Option<hir::EntityResolution> {
         // First try resolving the whole path. This will work for things like
         // `std::collections::HashMap`, but will fail for things like
         // `std::collections::HashMap::new`.
@@ -217,7 +234,7 @@ impl<'db> ResolutionScope<'db> {
         // that succeeds, then iterate through the candidates on the resolved type with the provided
         // name.
         let resolved_qualifier = self.scope.speculative_resolve(&path.qualifier()?)?;
-        if let hir::PathResolution::Def(hir::ModuleDef::Adt(adt)) = resolved_qualifier {
+        if let hir::EntityResolution::Def(hir::ModuleDef::DataType(adt)) = resolved_qualifier {
             let name = path.segment()?.name_ref()?;
             adt.ty(self.scope.db).iterate_path_candidates(
                 self.scope.db,
@@ -227,7 +244,7 @@ impl<'db> ResolutionScope<'db> {
                 |_ty, assoc_item| {
                     let item_name = assoc_item.name(self.scope.db)?;
                     if item_name.to_smol_str().as_str() == name.text() {
-                        Some(hir::PathResolution::AssocItem(assoc_item))
+                        Some(hir::EntityResolution::AssocItem(assoc_item))
                     } else {
                         None
                     }
@@ -242,7 +259,7 @@ impl<'db> ResolutionScope<'db> {
         use syntax::ast::AstNode;
         if let Some(path) = ast::Path::cast(path.clone()) {
             if let Some(qualifier) = path.qualifier() {
-                if let Some(hir::PathResolution::Def(hir::ModuleDef::Adt(adt))) =
+                if let Some(hir::EntityResolution::Def(hir::ModuleDef::DataType(adt))) =
                     self.resolve_path(&qualifier)
                 {
                     return Some(adt.ty(self.scope.db));
@@ -254,7 +271,9 @@ impl<'db> ResolutionScope<'db> {
 }
 
 fn is_self(path: &ast::Path) -> bool {
-    path.segment().map(|segment| segment.self_token().is_some()).unwrap_or(false)
+    path.segment()
+        .map(|segment| segment.self_token().is_some())
+        .unwrap_or(false)
 }
 
 /// Returns a suitable node for resolving paths in the current scope. If we create a scope based on

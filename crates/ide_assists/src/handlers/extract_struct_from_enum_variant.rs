@@ -57,7 +57,10 @@ pub(crate) fn extract_struct_from_enum_variant(
     let enum_hir = ctx.sema.to_def(&enum_ast)?;
     let target = variant.syntax().text_range();
     acc.add(
-        AssistId("extract_struct_from_enum_variant", AssistKind::RefactorRewrite),
+        AssistId(
+            "extract_struct_from_enum_variant",
+            AssistKind::RefactorRewrite,
+        ),
         "Extract struct from enum variant",
         target,
         |builder| {
@@ -148,7 +151,7 @@ fn existing_definition(db: &RootDatabase, variant_name: &ast::Name, variant: &Va
             hir::ScopeDef::ModuleDef(def) => matches!(
                 def,
                 ModuleDef::Module(_)
-                    | ModuleDef::Adt(_)
+                    | ModuleDef::DataType(_)
                     | ModuleDef::Variant(_)
                     | ModuleDef::Trait(_)
                     | ModuleDef::TypeAlias(_)
@@ -205,8 +208,13 @@ fn create_struct_def(
     field_list.reindent_to(IndentLevel::single());
 
     // FIXME: This uses all the generic params of the enum, but the variant might not use all of them.
-    let strukt = make::struct_(enum_vis, variant_name, enum_.generic_param_list(), field_list)
-        .clone_for_update();
+    let strukt = make::struct_(
+        enum_vis,
+        variant_name,
+        enum_.generic_param_list(),
+        field_list,
+    )
+    .clone_for_update();
 
     // FIXME: Consider making this an actual function somewhere (like in `AttrsOwnerEdit`) after some deliberation
     let attrs_and_docs = |node: &SyntaxNode| {
@@ -238,7 +246,10 @@ fn create_struct_def(
     // copy attributes from enum
     ted::insert_all(
         Position::first_child_of(strukt.syntax()),
-        enum_.attrs().map(|it| it.syntax().clone_for_update().into()).collect(),
+        enum_
+            .attrs()
+            .map(|it| it.syntax().clone_for_update().into())
+            .collect(),
     );
     strukt
 }
@@ -259,14 +270,20 @@ fn update_variant(variant: &ast::Variant, generic: Option<ast::GenericParamList>
                     tbl.remove();
                 }
             });
-            make::ty(&format!("{}<{}>", name.text(), gpl.generic_params().join(", ")))
+            make::ty(&format!(
+                "{}<{}>",
+                name.text(),
+                gpl.generic_params().join(", ")
+            ))
         }
         None => make::ty(&name.text()),
     };
     let tuple_field = make::tuple_field(None, ty);
     let replacement = make::variant(
         name,
-        Some(ast::FieldList::TupleFieldList(make::tuple_field_list(iter::once(tuple_field)))),
+        Some(ast::FieldList::TupleFieldList(make::tuple_field_list(
+            iter::once(tuple_field),
+        ))),
     )
     .clone_for_update();
     ted::replace(variant.syntax(), replacement.syntax());
@@ -284,8 +301,14 @@ fn apply_references(
     }
     // deep clone to prevent cycle
     let path = make::path_from_segments(iter::once(segment.clone_subtree()), false);
-    ted::insert_raw(ted::Position::before(segment.syntax()), path.clone_for_update().syntax());
-    ted::insert_raw(ted::Position::before(segment.syntax()), make::token(T!['(']));
+    ted::insert_raw(
+        ted::Position::before(segment.syntax()),
+        path.clone_for_update().syntax(),
+    );
+    ted::insert_raw(
+        ted::Position::before(segment.syntax()),
+        make::token(T!['(']),
+    );
     ted::insert_raw(ted::Position::after(&node), make::token(T![')']));
 }
 
@@ -296,7 +319,11 @@ fn process_references(
     enum_module_def: &ModuleDef,
     variant_hir_name: &Name,
     refs: Vec<FileReference>,
-) -> Vec<(ast::PathSegment, SyntaxNode, Option<(ImportScope, hir::ModPath)>)> {
+) -> Vec<(
+    ast::PathSegment,
+    SyntaxNode,
+    Option<(ImportScope, hir::ModPath)>,
+)> {
     // we have to recollect here eagerly as we are about to edit the tree we need to calculate the changes
     // and corresponding nodes up front
     refs.into_iter()
@@ -327,8 +354,12 @@ fn reference_to_node(
     sema: &hir::Semantics<RootDatabase>,
     reference: FileReference,
 ) -> Option<(ast::PathSegment, SyntaxNode, hir::Module)> {
-    let segment =
-        reference.name.as_name_ref()?.syntax().parent().and_then(ast::PathSegment::cast)?;
+    let segment = reference
+        .name
+        .as_name_ref()?
+        .syntax()
+        .parent()
+        .and_then(ast::PathSegment::cast)?;
     let parent = segment.parent_path().syntax().parent()?;
     let expr_or_pat = match_ast! {
         match parent {

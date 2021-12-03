@@ -107,13 +107,18 @@ pub(crate) fn replace_if_let_with_match(acc: &mut Assists, ctx: &AssistContext) 
                         ),
                     }
                 };
-                let arms = cond_bodies.into_iter().map(make_match_arm).chain(iter::once(else_arm));
+                let arms = cond_bodies
+                    .into_iter()
+                    .map(make_match_arm)
+                    .chain(iter::once(else_arm));
                 let match_expr = make::expr_match(scrutinee_to_be_expr, make::match_arm_list(arms));
                 match_expr.indent(IndentLevel::from_node(if_expr.syntax()))
             };
 
-            let has_preceding_if_expr =
-                if_expr.syntax().parent().map_or(false, |it| ast::IfExpr::can_cast(it.kind()));
+            let has_preceding_if_expr = if_expr
+                .syntax()
+                .parent()
+                .map_or(false, |it| ast::IfExpr::can_cast(it.kind()));
             let expr = if has_preceding_if_expr {
                 // make sure we replace the `else if let ...` with a block so we don't end up with `else expr`
                 make::block_expr(None, Some(match_expr)).into()
@@ -153,7 +158,11 @@ fn make_else_arm(
         };
         make::match_arm(iter::once(pattern), None, unwrap_trivial_block(else_block))
     } else {
-        make::match_arm(iter::once(make::wildcard_pat().into()), None, make::expr_unit())
+        make::match_arm(
+            iter::once(make::wildcard_pat().into()),
+            None,
+            make::expr_unit(),
+        )
     }
 }
 
@@ -212,7 +221,11 @@ pub(crate) fn replace_match_with_if_let(acc: &mut Assists, ctx: &AssistContext) 
                 ast::Expr::BlockExpr(block) => block,
                 expr => make::block_expr(iter::empty(), Some(expr)),
             };
-            let else_expr = if is_empty_expr(&else_expr) { None } else { Some(else_expr) };
+            let else_expr = if is_empty_expr(&else_expr) {
+                None
+            } else {
+                Some(else_expr)
+            };
             let if_let_expr = make::expr_if(
                 condition,
                 then_block,
@@ -271,14 +284,13 @@ fn binds_name(sema: &hir::Semantics<RootDatabase>, pat: &ast::Pat) -> bool {
             pat.name().and_then(|name| NameClass::classify(sema, &name)),
             Some(NameClass::ConstReference(_))
         ),
-        ast::Pat::MacroPat(_) => true,
         ast::Pat::OrPat(pat) => pat.pats().any(binds_name_v),
         ast::Pat::SlicePat(pat) => pat.pats().any(binds_name_v),
         ast::Pat::TuplePat(it) => it.fields().any(binds_name_v),
         ast::Pat::TupleStructPat(it) => it.fields().any(binds_name_v),
-        ast::Pat::RecordPat(it) => it
-            .record_pat_field_list()
-            .map_or(false, |rpfl| rpfl.fields().flat_map(|rpf| rpf.pat()).any(binds_name_v)),
+        ast::Pat::RecordPat(it) => it.record_pat_field_list().map_or(false, |rpfl| {
+            rpfl.fields().flat_map(|rpf| rpf.pat()).any(binds_name_v)
+        }),
         ast::Pat::RefPat(pat) => pat.pat().map_or(false, binds_name_v),
         ast::Pat::BoxPat(pat) => pat.pat().map_or(false, binds_name_v),
         ast::Pat::ParenPat(pat) => pat.pat().map_or(false, binds_name_v),

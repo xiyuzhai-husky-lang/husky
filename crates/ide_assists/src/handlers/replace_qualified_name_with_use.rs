@@ -31,7 +31,12 @@ pub(crate) fn replace_qualified_name_with_use(
 ) -> Option<()> {
     let path: ast::Path = ctx.find_node_at_offset()?;
     // We don't want to mess with use statements
-    if path.syntax().ancestors().find_map(ast::UseTree::cast).is_some() {
+    if path
+        .syntax()
+        .ancestors()
+        .find_map(ast::UseTree::cast)
+        .is_some()
+    {
         cov_mark::hit!(not_applicable_in_use);
         return None;
     }
@@ -43,14 +48,13 @@ pub(crate) fn replace_qualified_name_with_use(
 
     // only offer replacement for non assoc items
     match ctx.sema.resolve_path(&path)? {
-        hir::PathResolution::Def(def) if def.as_assoc_item(ctx.sema.db).is_none() => (),
-        hir::PathResolution::Macro(_) => (),
+        hir::EntityResolution::Def(def) if def.as_assoc_item(ctx.sema.db).is_none() => (),
         _ => return None,
     }
     // then search for an import for the first path segment of what we want to replace
     // that way it is less likely that we import the item from a different location due re-exports
     let module = match ctx.sema.resolve_path(&path.first_qualifier_or_self())? {
-        hir::PathResolution::Def(module @ hir::ModuleDef::Module(_)) => module,
+        hir::EntityResolution::Def(module @ hir::ModuleDef::Module(_)) => module,
         _ => return None,
     };
 
@@ -73,7 +77,10 @@ pub(crate) fn replace_qualified_name_with_use(
     let scope = ImportScope::find_insert_use_container(path.syntax(), &ctx.sema)?;
     let target = path.syntax().text_range();
     acc.add(
-        AssistId("replace_qualified_name_with_use", AssistKind::RefactorRewrite),
+        AssistId(
+            "replace_qualified_name_with_use",
+            AssistKind::RefactorRewrite,
+        ),
         "Replace qualified path with use",
         target,
         |builder| {

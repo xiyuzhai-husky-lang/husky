@@ -16,7 +16,7 @@ use hir_def::{
     expr::{ExprId, Pat, PatId},
     path::{ModPath, Path, PathKind},
     resolver::{resolver_for_scope, Resolver, TypeNs, ValueNs},
-    AsMacroCall, DefWithBodyId, FieldId, FunctionId, LocalFieldId, VariantId,
+    DefWithBodyId, FieldId, FunctionId, LocalFieldId, VariantId,
 };
 use hir_expand::{hygiene::Hygiene, name::AsName, HirFileID, InFile};
 use hir_ty::{
@@ -29,8 +29,8 @@ use syntax::{
 };
 
 use crate::{
-    db::HirDatabase, semantics::PathResolution, Adt, BuiltinType, Const, Field, Function, Local,
-    MacroDef, ModuleDef, Static, Struct, Trait, Type, TypeAlias, TypeParam, Variant,
+    db::HirDatabase, semantics::EntityResolution, BuiltinType, Const, DataType, Field, Function,
+    Local, ModuleDef, Static, Struct, Trait, Type, TypeAlias, TypeParam, Variant,
 };
 use base_db::CrateId;
 
@@ -82,19 +82,17 @@ impl SourceAnalyzer {
     }
 
     fn expr_id(&self, db: &dyn HirDatabase, expr: &ast::Expr) -> Option<ExprId> {
-        let src = match expr {
-            ast::Expr::MacroCall(call) => {
-                self.expand_expr(db, InFile::new(self.file_id, call.clone()))?
-            }
-            _ => InFile::new(self.file_id, expr.clone()),
-        };
+        let src = InFile::new(self.file_id, expr.clone());
         let sm = self.body_source_map.as_ref()?;
         sm.node_expr(src.as_ref())
     }
 
     fn pat_id(&self, pat: &ast::Pat) -> Option<PatId> {
         // FIXME: macros, see `expr_id`
-        let src = InFile { file_id: self.file_id, value: pat };
+        let src = InFile {
+            file_id: self.file_id,
+            value: pat,
+        };
         self.body_source_map.as_ref()?.node_pat(src)
     }
 
@@ -103,7 +101,10 @@ impl SourceAnalyzer {
         db: &dyn HirDatabase,
         expr: InFile<ast::MacroCall>,
     ) -> Option<InFile<ast::Expr>> {
-        let macro_file = self.body_source_map.as_ref()?.node_macro_file(expr.as_ref())?;
+        let macro_file = self
+            .body_source_map
+            .as_ref()?
+            .node_macro_file(expr.as_ref())?;
         let expanded = db.parse_or_expand(macro_file)?;
 
         let res = match ast::MacroCall::cast(expanded.clone()) {
@@ -150,7 +151,10 @@ impl SourceAnalyzer {
         db: &dyn HirDatabase,
         param: &ast::SelfParam,
     ) -> Option<Type> {
-        let src = InFile { file_id: self.file_id, value: param };
+        let src = InFile {
+            file_id: self.file_id,
+            value: param,
+        };
         let pat_id = self.body_source_map.as_ref()?.node_self_param(src)?;
         let ty = self.infer.as_ref()?[pat_id].clone();
         Type::new_with_resolver(db, &self.resolver, ty)
@@ -171,7 +175,10 @@ impl SourceAnalyzer {
         field: &ast::FieldExpr,
     ) -> Option<Field> {
         let expr_id = self.expr_id(db, &field.clone().into())?;
-        self.infer.as_ref()?.field_resolution(expr_id).map(|it| it.into())
+        self.infer
+            .as_ref()?
+            .field_resolution(expr_id)
+            .map(|it| it.into())
     }
 
     pub(crate) fn resolve_record_field(
@@ -181,27 +188,44 @@ impl SourceAnalyzer {
     ) -> Option<(Field, Option<Local>, Type)> {
         let record_expr = ast::RecordExpr::cast(field.syntax().parent().and_then(|p| p.parent())?)?;
         let expr = ast::Expr::from(record_expr);
-        let expr_id = self.body_source_map.as_ref()?.node_expr(InFile::new(self.file_id, &expr))?;
+        let expr_id = self
+            .body_source_map
+            .as_ref()?
+            .node_expr(InFile::new(self.file_id, &expr))?;
 
         let local_name = field.field_name()?.as_name();
         let local = if field.name_ref().is_some() {
             None
         } else {
             let path = ModPath::from_segments(PathKind::Plain, once(local_name.clone()));
-            match self.resolver.resolve_path_in_value_ns_fully(db.upcast(), &path) {
-                Some(ValueNs::LocalBinding(pat_id)) => {
-                    Some(Local { pat_id, parent: self.resolver.body_owner()? })
-                }
+            match self
+                .resolver
+                .resolve_path_in_value_ns_fully(db.upcast(), &path)
+            {
+                Some(ValueNs::LocalBinding(pat_id)) => Some(Local {
+                    pat_id,
+                    parent: self.resolver.body_owner()?,
+                }),
                 _ => None,
             }
         };
         let (_, subst) = self.infer.as_ref()?.type_of_expr.get(expr_id)?.as_adt()?;
         let variant = self.infer.as_ref()?.variant_resolution_for_expr(expr_id)?;
         let variant_data = variant.variant_data(db.upcast());
-        let field = FieldId { parent: variant, local_id: variant_data.field(&local_name)? };
-        let field_ty =
-            db.field_types(variant).get(field.local_id)?.clone().substitute(&Interner, subst);
-        Some((field.into(), local, Type::new_with_resolver(db, &self.resolver, field_ty)?))
+        let field = FieldId {
+            parent: variant,
+            local_id: variant_data.field(&local_name)?,
+        };
+        let field_ty = db
+            .field_types(variant)
+            .get(field.local_id)?
+            .clone()
+            .substitute(&Interner, subst);
+        Some((
+            field.into(),
+            local,
+            Type::new_with_resolver(db, &self.resolver, field_ty)?,
+        ))
     }
 
     pub(crate) fn resolve_record_pat_field(
@@ -214,18 +238,11 @@ impl SourceAnalyzer {
         let pat_id = self.pat_id(&record_pat.into())?;
         let variant = self.infer.as_ref()?.variant_resolution_for_pat(pat_id)?;
         let variant_data = variant.variant_data(db.upcast());
-        let field = FieldId { parent: variant, local_id: variant_data.field(&field_name)? };
+        let field = FieldId {
+            parent: variant,
+            local_id: variant_data.field(&field_name)?,
+        };
         Some(field.into())
-    }
-
-    pub(crate) fn resolve_macro_call(
-        &self,
-        db: &dyn HirDatabase,
-        macro_call: InFile<&ast::MacroCall>,
-    ) -> Option<MacroDef> {
-        let ctx = body::LowerCtx::new(db.upcast(), macro_call.file_id);
-        let path = macro_call.value.path().and_then(|ast| Path::from_src(ast, &ctx))?;
-        self.resolver.resolve_path_as_macro(db.upcast(), path.mod_path()).map(|it| it.into())
     }
 
     pub(crate) fn resolve_bind_pat_to_const(
@@ -241,40 +258,28 @@ impl SourceAnalyzer {
         };
         let res = resolve_hir_path(db, &self.resolver, path)?;
         match res {
-            PathResolution::Def(def) => Some(def),
+            EntityResolution::Def(def) => Some(def),
             _ => None,
         }
-    }
-
-    pub(crate) fn resolve_path_as_macro(
-        &self,
-        db: &dyn HirDatabase,
-        path: &ast::Path,
-    ) -> Option<MacroDef> {
-        // This must be a normal source file rather than macro file.
-        let hygiene = Hygiene::new(db.upcast(), self.file_id);
-        let ctx = body::LowerCtx::with_hygiene(db.upcast(), &hygiene);
-        let hir_path = Path::from_src(path.clone(), &ctx)?;
-        resolve_hir_path_as_macro(db, &self.resolver, &hir_path)
     }
 
     pub(crate) fn resolve_path(
         &self,
         db: &dyn HirDatabase,
         path: &ast::Path,
-    ) -> Option<PathResolution> {
+    ) -> Option<EntityResolution> {
         let parent = || path.syntax().parent();
         let mut prefer_value_ns = false;
         if let Some(path_expr) = parent().and_then(ast::PathExpr::cast) {
             let expr_id = self.expr_id(db, &path_expr.into())?;
             let infer = self.infer.as_ref()?;
             if let Some(assoc) = infer.assoc_resolutions_for_expr(expr_id) {
-                return Some(PathResolution::AssocItem(assoc.into()));
+                return Some(EntityResolution::AssocItem(assoc.into()));
             }
             if let Some(VariantId::EnumVariantId(variant)) =
                 infer.variant_resolution_for_expr(expr_id)
             {
-                return Some(PathResolution::Def(ModuleDef::Variant(variant.into())));
+                return Some(EntityResolution::Def(ModuleDef::Variant(variant.into())));
             }
             prefer_value_ns = true;
         }
@@ -282,12 +287,12 @@ impl SourceAnalyzer {
         if let Some(path_pat) = parent().and_then(ast::PathPat::cast) {
             let pat_id = self.pat_id(&path_pat.into())?;
             if let Some(assoc) = self.infer.as_ref()?.assoc_resolutions_for_pat(pat_id) {
-                return Some(PathResolution::AssocItem(assoc.into()));
+                return Some(EntityResolution::AssocItem(assoc.into()));
             }
             if let Some(VariantId::EnumVariantId(variant)) =
                 self.infer.as_ref()?.variant_resolution_for_pat(pat_id)
             {
-                return Some(PathResolution::Def(ModuleDef::Variant(variant.into())));
+                return Some(EntityResolution::Def(ModuleDef::Variant(variant.into())));
             }
         }
 
@@ -296,20 +301,24 @@ impl SourceAnalyzer {
             if let Some(VariantId::EnumVariantId(variant)) =
                 self.infer.as_ref()?.variant_resolution_for_expr(expr_id)
             {
-                return Some(PathResolution::Def(ModuleDef::Variant(variant.into())));
+                return Some(EntityResolution::Def(ModuleDef::Variant(variant.into())));
             }
         }
 
         if let Some(pat) = parent()
             .and_then(ast::RecordPat::cast)
             .map(ast::Pat::from)
-            .or_else(|| parent().and_then(ast::TupleStructPat::cast).map(ast::Pat::from))
+            .or_else(|| {
+                parent()
+                    .and_then(ast::TupleStructPat::cast)
+                    .map(ast::Pat::from)
+            })
         {
             let pat_id = self.pat_id(&pat)?;
             if let Some(VariantId::EnumVariantId(variant)) =
                 self.infer.as_ref()?.variant_resolution_for_pat(pat_id)
             {
-                return Some(PathResolution::Def(ModuleDef::Variant(variant.into())));
+                return Some(EntityResolution::Def(ModuleDef::Variant(variant.into())));
             }
         }
 
@@ -393,23 +402,17 @@ impl SourceAnalyzer {
         missing_fields
             .into_iter()
             .map(|local_id| {
-                let field = FieldId { parent: variant, local_id };
+                let field = FieldId {
+                    parent: variant,
+                    local_id,
+                };
                 let ty = field_types[local_id].clone().substitute(&Interner, substs);
-                (field.into(), Type::new_with_resolver_inner(db, krate, &self.resolver, ty))
+                (
+                    field.into(),
+                    Type::new_with_resolver_inner(db, krate, &self.resolver, ty),
+                )
             })
             .collect()
-    }
-
-    pub(crate) fn expand(
-        &self,
-        db: &dyn HirDatabase,
-        macro_call: InFile<&ast::MacroCall>,
-    ) -> Option<HirFileID> {
-        let krate = self.resolver.krate()?;
-        let macro_call_id = macro_call.as_call_id(db.upcast(), krate, |path| {
-            self.resolver.resolve_path_as_macro(db.upcast(), &path)
-        })?;
-        Some(macro_call_id.as_file()).filter(|it| it.expansion_level(db.upcast()) < 64)
     }
 
     pub(crate) fn resolve_variant(
@@ -510,17 +513,8 @@ pub(crate) fn resolve_hir_path(
     db: &dyn HirDatabase,
     resolver: &Resolver,
     path: &Path,
-) -> Option<PathResolution> {
+) -> Option<EntityResolution> {
     resolve_hir_path_(db, resolver, path, false)
-}
-
-#[inline]
-pub(crate) fn resolve_hir_path_as_macro(
-    db: &dyn HirDatabase,
-    resolver: &Resolver,
-    path: &Path,
-) -> Option<MacroDef> {
-    resolver.resolve_path_as_macro(db.upcast(), path.mod_path()).map(Into::into)
 }
 
 fn resolve_hir_path_(
@@ -528,7 +522,7 @@ fn resolve_hir_path_(
     resolver: &Resolver,
     path: &Path,
     prefer_value_ns: bool,
-) -> Option<PathResolution> {
+) -> Option<EntityResolution> {
     let types = || {
         let (ty, unresolved) = match path.type_anchor() {
             Some(type_ref) => {
@@ -545,15 +539,15 @@ fn resolve_hir_path_(
             }
         }?;
         let res = match ty {
-            TypeNs::SelfType(it) => PathResolution::SelfType(it.into()),
-            TypeNs::GenericParam(id) => PathResolution::TypeParam(TypeParam { id }),
+            TypeNs::SelfType(it) => EntityResolution::SelfType(it.into()),
+            TypeNs::GenericParam(id) => EntityResolution::TypeParam(TypeParam { id }),
             TypeNs::AdtSelfType(it) | TypeNs::AdtId(it) => {
-                PathResolution::Def(Adt::from(it).into())
+                EntityResolution::Def(DataType::from(it).into())
             }
-            TypeNs::EnumVariantId(it) => PathResolution::Def(Variant::from(it).into()),
-            TypeNs::TypeAliasId(it) => PathResolution::Def(TypeAlias::from(it).into()),
-            TypeNs::BuiltinType(it) => PathResolution::Def(BuiltinType::from(it).into()),
-            TypeNs::TraitId(it) => PathResolution::Def(Trait::from(it).into()),
+            TypeNs::EnumVariantId(it) => EntityResolution::Def(Variant::from(it).into()),
+            TypeNs::TypeAliasId(it) => EntityResolution::Def(TypeAlias::from(it).into()),
+            TypeNs::BuiltinType(it) => EntityResolution::Def(BuiltinType::from(it).into()),
+            TypeNs::TraitId(it) => EntityResolution::Def(Trait::from(it).into()),
         };
         match unresolved {
             Some(unresolved) => res
@@ -562,47 +556,49 @@ fn resolve_hir_path_(
                 })
                 .map(TypeAlias::from)
                 .map(Into::into)
-                .map(PathResolution::Def),
+                .map(EntityResolution::Def),
             None => Some(res),
         }
     };
 
     let body_owner = resolver.body_owner();
     let values = || {
-        resolver.resolve_path_in_value_ns_fully(db.upcast(), path.mod_path()).and_then(|val| {
-            let res = match val {
-                ValueNs::LocalBinding(pat_id) => {
-                    let var = Local { parent: body_owner?, pat_id };
-                    PathResolution::Local(var)
-                }
-                ValueNs::FunctionId(it) => PathResolution::Def(Function::from(it).into()),
-                ValueNs::ConstId(it) => PathResolution::Def(Const::from(it).into()),
-                ValueNs::StaticId(it) => PathResolution::Def(Static::from(it).into()),
-                ValueNs::StructId(it) => PathResolution::Def(Struct::from(it).into()),
-                ValueNs::EnumVariantId(it) => PathResolution::Def(Variant::from(it).into()),
-                ValueNs::ImplSelf(impl_id) => PathResolution::SelfType(impl_id.into()),
-                ValueNs::GenericParam(it) => PathResolution::ConstParam(it.into()),
-            };
-            Some(res)
-        })
+        resolver
+            .resolve_path_in_value_ns_fully(db.upcast(), path.mod_path())
+            .and_then(|val| {
+                let res = match val {
+                    ValueNs::LocalBinding(pat_id) => {
+                        let var = Local {
+                            parent: body_owner?,
+                            pat_id,
+                        };
+                        EntityResolution::Local(var)
+                    }
+                    ValueNs::FunctionId(it) => EntityResolution::Def(Function::from(it).into()),
+                    ValueNs::ConstId(it) => EntityResolution::Def(Const::from(it).into()),
+                    ValueNs::StaticId(it) => EntityResolution::Def(Static::from(it).into()),
+                    ValueNs::StructId(it) => EntityResolution::Def(Struct::from(it).into()),
+                    ValueNs::EnumVariantId(it) => EntityResolution::Def(Variant::from(it).into()),
+                    ValueNs::ImplSelf(impl_id) => EntityResolution::SelfType(impl_id.into()),
+                    ValueNs::GenericParam(it) => EntityResolution::ConstParam(it.into()),
+                };
+                Some(res)
+            })
     };
 
     let items = || {
         resolver
             .resolve_module_path_in_items(db.upcast(), path.mod_path())
             .take_types()
-            .map(|it| PathResolution::Def(it.into()))
+            .map(|it| EntityResolution::Def(it.into()))
     };
 
-    let macros = || {
-        resolver
-            .resolve_path_as_macro(db.upcast(), path.mod_path())
-            .map(|def| PathResolution::Macro(def.into()))
-    };
-
-    if prefer_value_ns { values().or_else(types) } else { types().or_else(values) }
-        .or_else(items)
-        .or_else(macros)
+    if prefer_value_ns {
+        values().or_else(types)
+    } else {
+        types().or_else(values)
+    }
+    .or_else(items)
 }
 
 /// Resolves a path where we know it is a qualifier of another path.
@@ -622,23 +618,27 @@ fn resolve_hir_path_qualifier(
     db: &dyn HirDatabase,
     resolver: &Resolver,
     path: &Path,
-) -> Option<PathResolution> {
+) -> Option<EntityResolution> {
     let items = resolver
         .resolve_module_path_in_items(db.upcast(), path.mod_path())
         .take_types()
-        .map(|it| PathResolution::Def(it.into()));
+        .map(|it| EntityResolution::Def(it.into()));
 
     if items.is_some() {
         return items;
     }
 
-    resolver.resolve_path_in_type_ns_fully(db.upcast(), path.mod_path()).map(|ty| match ty {
-        TypeNs::SelfType(it) => PathResolution::SelfType(it.into()),
-        TypeNs::GenericParam(id) => PathResolution::TypeParam(TypeParam { id }),
-        TypeNs::AdtSelfType(it) | TypeNs::AdtId(it) => PathResolution::Def(Adt::from(it).into()),
-        TypeNs::EnumVariantId(it) => PathResolution::Def(Variant::from(it).into()),
-        TypeNs::TypeAliasId(it) => PathResolution::Def(TypeAlias::from(it).into()),
-        TypeNs::BuiltinType(it) => PathResolution::Def(BuiltinType::from(it).into()),
-        TypeNs::TraitId(it) => PathResolution::Def(Trait::from(it).into()),
-    })
+    resolver
+        .resolve_path_in_type_ns_fully(db.upcast(), path.mod_path())
+        .map(|ty| match ty {
+            TypeNs::SelfType(it) => EntityResolution::SelfType(it.into()),
+            TypeNs::GenericParam(id) => EntityResolution::TypeParam(TypeParam { id }),
+            TypeNs::AdtSelfType(it) | TypeNs::AdtId(it) => {
+                EntityResolution::Def(DataType::from(it).into())
+            }
+            TypeNs::EnumVariantId(it) => EntityResolution::Def(Variant::from(it).into()),
+            TypeNs::TypeAliasId(it) => EntityResolution::Def(TypeAlias::from(it).into()),
+            TypeNs::BuiltinType(it) => EntityResolution::Def(BuiltinType::from(it).into()),
+            TypeNs::TraitId(it) => EntityResolution::Def(Trait::from(it).into()),
+        })
 }

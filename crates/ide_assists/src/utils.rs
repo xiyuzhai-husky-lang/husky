@@ -24,8 +24,8 @@ use syntax::{
 
 use crate::assist_context::{AssistBuilder, AssistContext};
 
-pub(crate) mod suggest_name;
 mod gen_trait_fn_body;
+pub(crate) mod suggest_name;
 
 pub(crate) fn unwrap_trivial_block(block_expr: ast::BlockExpr) -> ast::Expr {
     extract_trivial_expression(&block_expr)
@@ -40,10 +40,13 @@ pub fn extract_trivial_expression(block_expr: &ast::BlockExpr) -> Option<ast::Ex
     let stmt_list = block_expr.stmt_list()?;
     let has_anything_else = |thing: &SyntaxNode| -> bool {
         let mut non_trivial_children =
-            stmt_list.syntax().children_with_tokens().filter(|it| match it.kind() {
-                WHITESPACE | T!['{'] | T!['}'] => false,
-                _ => it.as_node() != Some(thing),
-            });
+            stmt_list
+                .syntax()
+                .children_with_tokens()
+                .filter(|it| match it.kind() {
+                    WHITESPACE | T!['{'] | T!['}'] => false,
+                    _ => it.as_node() != Some(thing),
+                });
         non_trivial_children.next().is_some()
     };
 
@@ -60,7 +63,10 @@ pub fn extract_trivial_expression(block_expr: &ast::BlockExpr) -> Option<ast::Ex
             return None;
         }
         let expr = expr_stmt.expr()?;
-        if matches!(expr.syntax().kind(), CONTINUE_EXPR | BREAK_EXPR | RETURN_EXPR) {
+        if matches!(
+            expr.syntax().kind(),
+            CONTINUE_EXPR | BREAK_EXPR | RETURN_EXPR
+        ) {
             return Some(expr);
         }
     }
@@ -101,7 +107,6 @@ pub fn filter_assoc_items(
             ast::AssocItem::Fn(def) => def.name(),
             ast::AssocItem::TypeAlias(def) => def.name(),
             ast::AssocItem::Const(def) => def.name(),
-            ast::AssocItem::MacroCall(_) => None,
         }
         .is_some()
     }
@@ -156,7 +161,10 @@ pub fn add_trait_assoc_items_to_impl(
             ast::AssocItem::Fn(fn_) if fn_.body().is_none() => {
                 let body = make::block_expr(None, Some(make::ext::expr_todo()))
                     .indent(edit::IndentLevel(1));
-                ted::replace(fn_.get_or_create_body().syntax(), body.clone_for_update().syntax())
+                ted::replace(
+                    fn_.get_or_create_body().syntax(),
+                    body.clone_for_update().syntax(),
+                )
             }
             ast::AssocItem::TypeAlias(type_alias) => {
                 if let Some(type_bound_list) = type_alias.type_bound_list() {
@@ -250,7 +258,11 @@ fn invert_special_case(expr: &ast::Expr) -> Option<ast::Expr> {
                 "is_err" => "is_ok",
                 _ => return None,
             };
-            Some(make::expr_method_call(receiver, make::name_ref(method), arg_list))
+            Some(make::expr_method_call(
+                receiver,
+                make::name_ref(method),
+                arg_list,
+            ))
         }
         ast::Expr::PrefixExpr(pe) if pe.op_kind()? == ast::UnaryOp::Not => match pe.expr()? {
             ast::Expr::ParenExpr(parexpr) => parexpr.expr(),
@@ -302,7 +314,6 @@ fn calc_depth(pat: &ast::Pat, depth: usize) -> usize {
         | ast::Pat::BoxPat(_)
         | ast::Pat::RestPat(_)
         | ast::Pat::LiteralPat(_)
-        | ast::Pat::MacroPat(_)
         | ast::Pat::OrPat(_)
         | ast::Pat::ParenPat(_)
         | ast::Pat::PathPat(_)
@@ -346,25 +357,28 @@ pub(crate) fn find_struct_impl(
 
     let struct_def = ctx.sema.to_def(adt)?;
 
-    let block = module.descendants().filter_map(ast::Impl::cast).find_map(|impl_blk| {
-        let blk = ctx.sema.to_def(&impl_blk)?;
+    let block = module
+        .descendants()
+        .filter_map(ast::Impl::cast)
+        .find_map(|impl_blk| {
+            let blk = ctx.sema.to_def(&impl_blk)?;
 
-        // FIXME: handle e.g. `struct S<T>; impl<U> S<U> {}`
-        // (we currently use the wrong type parameter)
-        // also we wouldn't want to use e.g. `impl S<u32>`
+            // FIXME: handle e.g. `struct S<T>; impl<U> S<U> {}`
+            // (we currently use the wrong type parameter)
+            // also we wouldn't want to use e.g. `impl S<u32>`
 
-        let same_ty = match blk.self_ty(db).as_adt() {
-            Some(def) => def == struct_def,
-            None => false,
-        };
-        let not_trait_impl = blk.trait_(db).is_none();
+            let same_ty = match blk.self_ty(db).as_adt() {
+                Some(def) => def == struct_def,
+                None => false,
+            };
+            let not_trait_impl = blk.trait_(db).is_none();
 
-        if !(same_ty && not_trait_impl) {
-            None
-        } else {
-            Some(impl_blk)
-        }
-    });
+            if !(same_ty && not_trait_impl) {
+                None
+            } else {
+                Some(impl_blk)
+            }
+        });
 
     if let Some(ref impl_blk) = block {
         if has_fn(impl_blk, name) {
@@ -396,7 +410,11 @@ fn has_fn(imp: &ast::Impl, rhs_name: &str) -> bool {
 // FIXME: this partially overlaps with `find_struct_impl`
 pub(crate) fn find_impl_block_start(impl_def: ast::Impl, buf: &mut String) -> Option<TextSize> {
     buf.push('\n');
-    let start = impl_def.assoc_item_list().and_then(|it| it.l_curly_token())?.text_range().end();
+    let start = impl_def
+        .assoc_item_list()
+        .and_then(|it| it.l_curly_token())?
+        .text_range()
+        .end();
     Some(start)
 }
 
@@ -431,11 +449,17 @@ fn generate_impl_text_inner(adt: &ast::Adt, trait_text: Option<&str>, code: &str
     let mut buf = String::with_capacity(code.len());
     buf.push_str("\n\n");
     adt.attrs()
-        .filter(|attr| attr.as_simple_call().map(|(name, _arg)| name == "cfg").unwrap_or(false))
+        .filter(|attr| {
+            attr.as_simple_call()
+                .map(|(name, _arg)| name == "cfg")
+                .unwrap_or(false)
+        })
         .for_each(|attr| buf.push_str(format!("{}\n", attr.to_string()).as_str()));
     buf.push_str("impl");
     if let Some(generic_params) = &generic_params {
-        let lifetimes = generic_params.lifetime_params().map(|lt| format!("{}", lt.syntax()));
+        let lifetimes = generic_params
+            .lifetime_params()
+            .map(|lt| format!("{}", lt.syntax()));
         let type_params = generic_params.type_params().map(|type_param| {
             let mut buf = String::new();
             if let Some(it) = type_param.name() {
@@ -449,8 +473,13 @@ fn generate_impl_text_inner(adt: &ast::Adt, trait_text: Option<&str>, code: &str
             }
             buf
         });
-        let const_params = generic_params.const_params().map(|t| t.syntax().to_string());
-        let generics = lifetimes.chain(type_params).chain(const_params).format(", ");
+        let const_params = generic_params
+            .const_params()
+            .map(|t| t.syntax().to_string());
+        let generics = lifetimes
+            .chain(type_params)
+            .chain(const_params)
+            .format(", ");
         format_to!(buf, "<{}>", generics);
     }
     buf.push(' ');
@@ -472,7 +501,14 @@ fn generate_impl_text_inner(adt: &ast::Adt, trait_text: Option<&str>, code: &str
             .const_params()
             .filter_map(|it| it.name())
             .map(|it| SmolStr::from(it.text()));
-        format_to!(buf, "<{}>", lifetime_params.chain(type_params).chain(const_params).format(", "))
+        format_to!(
+            buf,
+            "<{}>",
+            lifetime_params
+                .chain(type_params)
+                .chain(const_params)
+                .format(", ")
+        )
     }
 
     match adt.where_clause() {
@@ -537,18 +573,33 @@ impl ReferenceConversion {
             ReferenceConversionType::Copy => self.ty.display(db).to_string(),
             ReferenceConversionType::AsRefStr => "&str".to_string(),
             ReferenceConversionType::AsRefSlice => {
-                let type_argument_name =
-                    self.ty.type_arguments().next().unwrap().display(db).to_string();
+                let type_argument_name = self
+                    .ty
+                    .type_arguments()
+                    .next()
+                    .unwrap()
+                    .display(db)
+                    .to_string();
                 format!("&[{}]", type_argument_name)
             }
             ReferenceConversionType::Dereferenced => {
-                let type_argument_name =
-                    self.ty.type_arguments().next().unwrap().display(db).to_string();
+                let type_argument_name = self
+                    .ty
+                    .type_arguments()
+                    .next()
+                    .unwrap()
+                    .display(db)
+                    .to_string();
                 format!("&{}", type_argument_name)
             }
             ReferenceConversionType::Option => {
-                let type_argument_name =
-                    self.ty.type_arguments().next().unwrap().display(db).to_string();
+                let type_argument_name = self
+                    .ty
+                    .type_arguments()
+                    .next()
+                    .unwrap()
+                    .display(db)
+                    .to_string();
                 format!("Option<&{}>", type_argument_name)
             }
             ReferenceConversionType::Result => {
@@ -557,7 +608,10 @@ impl ReferenceConversion {
                     type_arguments.next().unwrap().display(db).to_string();
                 let second_type_argument_name =
                     type_arguments.next().unwrap().display(db).to_string();
-                format!("Result<&{}, &{}>", first_type_argument_name, second_type_argument_name)
+                format!(
+                    "Result<&{}, &{}>",
+                    first_type_argument_name, second_type_argument_name
+                )
             }
         }
     }

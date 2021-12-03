@@ -63,9 +63,10 @@ impl TraitRef {
     pub(crate) fn from_ast(ctx: &LowerCtx, node: ast::Type) -> Option<Self> {
         // FIXME: Use `Path::from_src`
         match node {
-            ast::Type::PathType(path) => {
-                path.path().and_then(|it| ctx.lower_path(it)).map(|path| TraitRef { path })
-            }
+            ast::Type::PathType(path) => path
+                .path()
+                .and_then(|it| ctx.lower_path(it))
+                .map(|path| TraitRef { path }),
             _ => None,
         }
     }
@@ -93,7 +94,6 @@ pub enum TypeRef {
     // For
     ImplTrait(Vec<Interned<TypeBound>>),
     DynTrait(Vec<Interned<TypeBound>>),
-    Macro(AstId<ast::MacroCall>),
     Error,
 }
 
@@ -108,11 +108,15 @@ impl LifetimeRef {
     }
 
     pub(crate) fn new(lifetime: &ast::Lifetime) -> Self {
-        LifetimeRef { name: Name::new_lifetime(lifetime) }
+        LifetimeRef {
+            name: Name::new_lifetime(lifetime),
+        }
     }
 
     pub fn missing() -> LifetimeRef {
-        LifetimeRef { name: Name::missing() }
+        LifetimeRef {
+            name: Name::missing(),
+        }
     }
 }
 
@@ -137,9 +141,12 @@ impl TypeRef {
     pub fn from_ast(ctx: &LowerCtx, node: ast::Type) -> Self {
         match node {
             ast::Type::ParenType(inner) => TypeRef::from_ast_opt(ctx, inner.ty()),
-            ast::Type::TupleType(inner) => {
-                TypeRef::Tuple(inner.fields().map(|it| TypeRef::from_ast(ctx, it)).collect())
-            }
+            ast::Type::TupleType(inner) => TypeRef::Tuple(
+                inner
+                    .fields()
+                    .map(|it| TypeRef::from_ast(ctx, it))
+                    .collect(),
+            ),
             ast::Type::NeverType(..) => TypeRef::Never,
             ast::Type::PathType(inner) => {
                 // FIXME: Use `Path::from_src`
@@ -188,7 +195,10 @@ impl TypeRef {
                         is_varargs = param.dotdotdot_token().is_some();
                     }
 
-                    pl.params().map(|p| p.ty()).map(|it| TypeRef::from_ast_opt(ctx, it)).collect()
+                    pl.params()
+                        .map(|p| p.ty())
+                        .map(|it| TypeRef::from_ast_opt(ctx, it))
+                        .collect()
                 } else {
                     Vec::new()
                 };
@@ -203,13 +213,6 @@ impl TypeRef {
             ast::Type::DynTraitType(inner) => {
                 TypeRef::DynTrait(type_bounds_from_ast(ctx, inner.type_bound_list()))
             }
-            ast::Type::MacroType(mt) => match mt.macro_call() {
-                Some(mc) => ctx
-                    .ast_id(&mc)
-                    .map(|mc| TypeRef::Macro(InFile::new(ctx.file_id(), mc)))
-                    .unwrap_or(TypeRef::Error),
-                None => TypeRef::Error,
-            },
         }
     }
 
@@ -248,7 +251,7 @@ impl TypeRef {
                     }
                 }
                 TypeRef::Path(path) => go_path(path, f),
-                TypeRef::Never | TypeRef::Placeholder | TypeRef::Macro(_) | TypeRef::Error => {}
+                TypeRef::Never | TypeRef::Placeholder | TypeRef::Error => {}
             };
         }
 
@@ -290,7 +293,10 @@ pub(crate) fn type_bounds_from_ast(
     type_bounds_opt: Option<ast::TypeBoundList>,
 ) -> Vec<Interned<TypeBound>> {
     if let Some(type_bounds) = type_bounds_opt {
-        type_bounds.bounds().map(|it| Interned::new(TypeBound::from_ast(lower_ctx, it))).collect()
+        type_bounds
+            .bounds()
+            .map(|it| Interned::new(TypeBound::from_ast(lower_ctx, it)))
+            .collect()
     } else {
         vec![]
     }

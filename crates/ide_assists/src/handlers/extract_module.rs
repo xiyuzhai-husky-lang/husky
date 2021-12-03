@@ -113,7 +113,13 @@ pub(crate) fn extract_module(acc: &mut Assists, ctx: &AssistContext) -> Option<(
 
             let mut module_def = String::new();
 
-            format_to!(module_def, "mod {} {{\n{}\n{}}}", module.name, body, old_item_indent);
+            format_to!(
+                module_def,
+                "mod {} {{\n{}\n{}}}",
+                module.name,
+                body,
+                old_item_indent
+            );
 
             let mut usages_to_be_updated_for_curr_file = vec![];
             for usages_to_be_updated_for_file in usages_to_be_processed {
@@ -165,7 +171,11 @@ fn extract_target(node: &SyntaxNode, selection_range: TextRange) -> Option<Modul
         body_items.push(node_item);
     }
 
-    Some(Module { text_range: selection_range, name: "modname".to_string(), body_items })
+    Some(Module {
+        text_range: selection_range,
+        name: "modname".to_string(),
+        body_items,
+    })
 }
 
 impl Module {
@@ -184,7 +194,7 @@ impl Module {
                 match (item.syntax()) {
                     ast::Adt(it) => {
                         if let Some( nod ) = ctx.sema.to_def(&it) {
-                            let node_def = Definition::Adt(nod.into());
+                            let node_def = Definition::DataType(nod.into());
                             self.expand_and_group_usages_file_wise(ctx, node_def, &mut refs);
 
                             //Enum Fields are not allowed to explicitly specify pub, it is implied
@@ -313,12 +323,14 @@ impl Module {
 
         let impl_items = impls.into_iter().fold(Vec::new(), |mut impl_items, x| {
             let this_impl_items =
-                x.syntax().descendants().fold(Vec::new(), |mut this_impl_items, x| {
-                    if let Some(item) = ast::Item::cast(x.clone()) {
-                        this_impl_items.push(item);
-                    }
-                    return this_impl_items;
-                });
+                x.syntax()
+                    .descendants()
+                    .fold(Vec::new(), |mut this_impl_items, x| {
+                        if let Some(item) = ast::Item::cast(x.clone()) {
+                            this_impl_items.push(item);
+                        }
+                        return this_impl_items;
+                    });
 
             impl_items.append(&mut this_impl_items.clone());
             return impl_items;
@@ -330,16 +342,18 @@ impl Module {
         replacements.append(&mut impl_item_replacements);
 
         record_field_parents.into_iter().for_each(|x| {
-            x.1.descendants().filter_map(|x| ast::RecordField::cast(x)).for_each(|desc| {
-                let is_record_field_present = record_fields
-                    .clone()
-                    .into_iter()
-                    .find(|x| x.to_string() == desc.to_string())
-                    .is_some();
-                if is_record_field_present {
-                    replacements.push((desc.visibility().clone(), desc.syntax().clone()));
-                }
-            });
+            x.1.descendants()
+                .filter_map(|x| ast::RecordField::cast(x))
+                .for_each(|desc| {
+                    let is_record_field_present = record_fields
+                        .clone()
+                        .into_iter()
+                        .find(|x| x.to_string() == desc.to_string())
+                        .is_some();
+                    if is_record_field_present {
+                        replacements.push((desc.visibility().clone(), desc.syntax().clone()));
+                    }
+                });
         });
 
         replacements.into_iter().for_each(|(vis, syntax)| {
@@ -536,8 +550,10 @@ impl Module {
                 use_tree_str.insert(0, super_path)
             }
 
-            let use_ =
-                make::use_(None, make::use_tree(make::join_paths(use_tree_str), None, None, false));
+            let use_ = make::use_(
+                None,
+                make::use_tree(make::join_paths(use_tree_str), None, None, false),
+            );
             if let Some(item) = ast::Item::cast(use_.syntax().clone()) {
                 self.body_items.insert(0, item);
             }
@@ -551,7 +567,12 @@ impl Module {
         let node_path = make::ext::ident_path(&node_syntax.to_string());
         let use_ = make::use_(
             None,
-            make::use_tree(make::join_paths(vec![super_path, node_path]), None, None, false),
+            make::use_tree(
+                make::join_paths(vec![super_path, node_path]),
+                None,
+                None,
+                false,
+            ),
         );
         if let Some(item) = ast::Item::cast(use_.syntax().clone()) {
             self.body_items.insert(0, item);
@@ -646,7 +667,7 @@ fn does_source_exists_outside_sel_in_same_mod(
                 }
             }
         }
-        Definition::Adt(x) => {
+        Definition::DataType(x) => {
             if let Some(source) = x.source(ctx.db()) {
                 let have_same_parent;
                 if let Some(ast_module) = &curr_parent_module {
@@ -787,12 +808,6 @@ fn get_replacements_for_visibilty_change(
             }
             ast::Item::Fn(it) => replacements.push((it.visibility().clone(), it.syntax().clone())),
             ast::Item::Impl(it) => impls.push(it),
-            ast::Item::MacroRules(it) => {
-                replacements.push((it.visibility().clone(), it.syntax().clone()))
-            }
-            ast::Item::MacroDef(it) => {
-                replacements.push((it.visibility().clone(), it.syntax().clone()))
-            }
             ast::Item::Module(it) => {
                 replacements.push((it.visibility().clone(), it.syntax().clone()))
             }
@@ -824,18 +839,21 @@ fn get_use_tree_paths_from_path(
     path: ast::Path,
     use_tree_str: &mut Vec<ast::Path>,
 ) -> Option<&mut Vec<ast::Path>> {
-    path.syntax().ancestors().filter(|x| x.to_string() != path.to_string()).find_map(|x| {
-        if let Some(use_tree) = ast::UseTree::cast(x.clone()) {
-            if let Some(upper_tree_path) = use_tree.path() {
-                if upper_tree_path.to_string() != path.to_string() {
-                    use_tree_str.push(upper_tree_path.clone());
-                    get_use_tree_paths_from_path(upper_tree_path, use_tree_str);
-                    return Some(use_tree);
+    path.syntax()
+        .ancestors()
+        .filter(|x| x.to_string() != path.to_string())
+        .find_map(|x| {
+            if let Some(use_tree) = ast::UseTree::cast(x.clone()) {
+                if let Some(upper_tree_path) = use_tree.path() {
+                    if upper_tree_path.to_string() != path.to_string() {
+                        use_tree_str.push(upper_tree_path.clone());
+                        get_use_tree_paths_from_path(upper_tree_path, use_tree_str);
+                        return Some(use_tree);
+                    }
                 }
             }
-        }
-        None
-    })?;
+            None
+        })?;
 
     Some(use_tree_str)
 }
@@ -846,7 +864,10 @@ fn add_change_vis(
 ) -> Option<()> {
     if let Some(vis) = vis {
         if vis.syntax().text() == "pub" {
-            ted::replace(vis.syntax(), make::visibility_pub_crate().syntax().clone_for_update());
+            ted::replace(
+                vis.syntax(),
+                make::visibility_pub_crate().syntax().clone_for_update(),
+            );
         }
     } else {
         if let Some(node_or_token) = node_or_token_opt {

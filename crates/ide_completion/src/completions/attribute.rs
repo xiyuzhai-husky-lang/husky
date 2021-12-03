@@ -100,23 +100,6 @@ fn complete_new_attribute(acc: &mut Completions, ctx: &CompletionContext, attrib
             .filter(|compl| !compl.prefer_inner)
             .for_each(add_completion),
     }
-
-    // FIXME: write a test for this when we can
-    ctx.scope.process_all_names(&mut |name, scope_def| {
-        if let hir::ScopeDef::MacroDef(mac) = scope_def {
-            if mac.kind() == hir::MacroKind::Attr {
-                let mut item = CompletionItem::new(
-                    CompletionItemKind::Attribute,
-                    ctx.source_range(),
-                    name.to_smol_str(),
-                );
-                if let Some(docs) = mac.docs(ctx.sema.db) {
-                    item.documentation(docs);
-                }
-                item.add_to(acc);
-            }
-        }
-    });
 }
 
 struct AttrCompletion {

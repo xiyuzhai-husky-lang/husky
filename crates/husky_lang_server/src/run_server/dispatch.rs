@@ -3,7 +3,9 @@ use std::{fmt, panic, thread};
 
 use serde::{de::DeserializeOwned, Serialize};
 
-use crate::{server::Server, server_snapshot::ServerSnapshot, task::Task, Result};
+use crate::{
+    lsp_error, lsp_utils, server::Server, server_snapshot::ServerSnapshot, task::Task, Result,
+};
 
 /// A visitor for routing a raw JSON request to an appropriate handler function.
 ///
@@ -37,7 +39,17 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        todo!()
+        let (id, params, panic_context) = match self.parse::<R>() {
+            Some(it) => it,
+            None => return Ok(self),
+        };
+        let _pctx = stdx::panic_context::enter(panic_context);
+
+        let result = f(&mut self.server, params);
+        let response = result_to_response::<R>(id, result);
+
+        self.server.comm.respond(response);
+        Ok(self)
     }
 
     /// Dispatches the request onto the current thread.
@@ -50,7 +62,20 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        todo!()
+        let (id, params, panic_context) = match self.parse::<R>() {
+            Some(it) => it,
+            None => return Ok(self),
+        };
+        let server_snapshot = self.server.take_snapshot();
+
+        let result = panic::catch_unwind(move || {
+            let _pctx = stdx::panic_context::enter(panic_context);
+            f(server_snapshot, params)
+        });
+        let response = thread_result_to_response::<R>(id, result);
+
+        self.server.comm.respond(response);
+        Ok(self)
     }
 
     /// Dispatches the request onto thread pool
@@ -63,11 +88,65 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + Send + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        todo!()
+        let (id, params, panic_context) = match self.parse::<R>() {
+            Some(it) => it,
+            None => return self,
+        };
+
+        self.server.taskpool.handle.spawn({
+            let world = self.server.take_snapshot();
+            move || {
+                let result = panic::catch_unwind(move || {
+                    let _pctx = stdx::panic_context::enter(panic_context);
+                    f(world, params)
+                });
+                let response = thread_result_to_response::<R>(id, result);
+                Task::Response(response)
+            }
+        });
+
+        self
     }
 
     pub(crate) fn finish(&mut self) {
-        todo!()
+        if let Some(req) = self.req.take() {
+            tracing::error!("unknown request: {:?}", req);
+            let response = lsp_server::Response::new_err(
+                req.id,
+                lsp_server::ErrorCode::MethodNotFound as i32,
+                "unknown request".to_string(),
+            );
+            self.server.comm.respond(response);
+        }
+    }
+
+    fn parse<R>(&mut self) -> Option<(lsp_server::RequestId, R::Params, String)>
+    where
+        R: lsp_types::request::Request + 'static,
+        R::Params: DeserializeOwned + fmt::Debug + 'static,
+    {
+        let req = match &self.req {
+            Some(req) if req.method == R::METHOD => self.req.take().unwrap(),
+            _ => return None,
+        };
+
+        let res = crate::from_json(R::METHOD, req.params);
+        match res {
+            Ok(params) => {
+                let panic_context =
+                    format!("\nversion: {}\nrequest: {} {:#?}", "???", R::METHOD, params);
+                Some((req.id, params, panic_context))
+            }
+            Err(err) => {
+                let response = lsp_server::Response::new_err(
+                    req.id,
+                    lsp_server::ErrorCode::InvalidParams as i32,
+                    err.to_string(),
+                );
+                self.server.comm.respond(response);
+                None
+            }
+        }
     }
 
     fn ParseResult<R>(&mut self) -> Option<(lsp_server::RequestId, R::Params, String)>
@@ -88,7 +167,24 @@ where
     R::Params: DeserializeOwned + 'static,
     R::Result: Serialize + 'static,
 {
-    todo!()
+    match result {
+        Ok(result) => result_to_response::<R>(id, result),
+        Err(panic) => {
+            let mut message = "server panicked".to_string();
+
+            let panic_message = panic
+                .downcast_ref::<String>()
+                .map(String::as_str)
+                .or_else(|| panic.downcast_ref::<&str>().copied());
+
+            if let Some(panic_message) = panic_message {
+                message.push_str(": ");
+                message.push_str(panic_message)
+            };
+
+            lsp_server::Response::new_err(id, lsp_server::ErrorCode::InternalError as i32, message)
+        }
+    }
 }
 
 fn result_to_response<R>(
@@ -100,7 +196,27 @@ where
     R::Params: DeserializeOwned + 'static,
     R::Result: Serialize + 'static,
 {
-    todo!()
+    match result {
+        Ok(resp) => lsp_server::Response::new_ok(id, &resp),
+        Err(e) => match e.downcast::<lsp_error::LspError>() {
+            Ok(lsp_error) => lsp_server::Response::new_err(id, lsp_error.code, lsp_error.message),
+            Err(e) => {
+                if lsp_utils::is_cancelled(&*e) {
+                    lsp_server::Response::new_err(
+                        id,
+                        lsp_server::ErrorCode::ContentModified as i32,
+                        "content modified".to_string(),
+                    )
+                } else {
+                    lsp_server::Response::new_err(
+                        id,
+                        lsp_server::ErrorCode::InternalError as i32,
+                        e.to_string(),
+                    )
+                }
+            }
+        },
+    }
 }
 
 pub(crate) struct NotificationDispatcher<'a> {

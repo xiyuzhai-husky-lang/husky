@@ -10,12 +10,12 @@ use vfs::VfsPath;
 /// For these document, there true contents is maintained by the client. It
 /// might be different from what's on disk.
 #[derive(Default, Clone)]
-pub(crate) struct MemDocs {
+pub(crate) struct LiveDocs {
     live_docs: FxHashMap<VfsPath, DocumentData>,
     added_or_removed: bool,
 }
 
-impl MemDocs {
+impl LiveDocs {
     pub(crate) fn contains(&self, path: &VfsPath) -> bool {
         self.live_docs.contains_key(path)
     }

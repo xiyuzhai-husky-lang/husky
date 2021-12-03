@@ -40,73 +40,7 @@ impl CallInfo {
 
 /// Computes parameter information for the given call expression.
 pub(crate) fn call_info(db: &RootDatabase, position: FilePosition) -> Option<CallInfo> {
-    let sema = Semantics::new(db);
-    let file = sema.parse(position.file_id);
-    let file = file.syntax();
-    let token = file
-        .token_at_offset(position.offset)
-        .left_biased()
-        // if the cursor is sandwiched between two space tokens and the call is unclosed
-        // this prevents us from leaving the CallExpression
-        .and_then(|tok| algo::skip_trivia_token(tok, Direction::Prev))?;
-    let token = sema.descend_into_macros_single(token);
-
-    let (callable, active_parameter) = callable_for_token(&sema, token)?;
-
-    let mut res =
-        CallInfo { doc: None, signature: String::new(), parameters: vec![], active_parameter };
-
-    match callable.kind() {
-        hir::CallableKind::Function(func) => {
-            res.doc = func.docs(db).map(|it| it.into());
-            format_to!(res.signature, "fn {}", func.name(db));
-        }
-        hir::CallableKind::TupleStruct(strukt) => {
-            res.doc = strukt.docs(db).map(|it| it.into());
-            format_to!(res.signature, "struct {}", strukt.name(db));
-        }
-        hir::CallableKind::TupleEnumVariant(variant) => {
-            res.doc = variant.docs(db).map(|it| it.into());
-            format_to!(
-                res.signature,
-                "enum {}::{}",
-                variant.parent_enum(db).name(db),
-                variant.name(db)
-            );
-        }
-        hir::CallableKind::Closure => (),
-    }
-
-    res.signature.push('(');
-    {
-        if let Some(self_param) = callable.receiver_param(db) {
-            format_to!(res.signature, "{}", self_param)
-        }
-        let mut buf = String::new();
-        for (pat, ty) in callable.params(db) {
-            buf.clear();
-            if let Some(pat) = pat {
-                match pat {
-                    Either::Left(_self) => format_to!(buf, "self: "),
-                    Either::Right(pat) => format_to!(buf, "{}: ", pat),
-                }
-            }
-            format_to!(buf, "{}", ty.display(db));
-            res.push_param(&buf);
-        }
-    }
-    res.signature.push(')');
-
-    match callable.kind() {
-        hir::CallableKind::Function(_) | hir::CallableKind::Closure => {
-            let ret_type = callable.return_type();
-            if !ret_type.is_unit() {
-                format_to!(res.signature, " -> {}", ret_type.display(db));
-            }
-        }
-        hir::CallableKind::TupleStruct(_) | hir::CallableKind::TupleEnumVariant(_) => {}
-    }
-    Some(res)
+    todo!()
 }
 
 #[cfg(test)]
@@ -121,8 +55,9 @@ mod tests {
         let change_fixture = ChangeFixture::parse(ra_fixture);
         let mut database = RootDatabase::default();
         database.apply_change(change_fixture.change);
-        let (file_id, range_or_offset) =
-            change_fixture.file_position.expect("expected a marker ($0)");
+        let (file_id, range_or_offset) = change_fixture
+            .file_position
+            .expect("expected a marker ($0)");
         let offset = range_or_offset.expect_offset();
         (database, FilePosition { file_id, offset })
     }

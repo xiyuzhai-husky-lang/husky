@@ -83,8 +83,10 @@ pub struct StaticIndexedFile {
 }
 
 fn all_modules(db: &dyn HirDatabase) -> Vec<Module> {
-    let mut worklist: Vec<_> =
-        Crate::all(db).into_iter().map(|krate| krate.root_module(db)).collect();
+    let mut worklist: Vec<_> = Crate::all(db)
+        .into_iter()
+        .map(|krate| krate.root_module(db))
+        .collect();
     let mut modules = Vec::new();
 
     while let Some(module) = worklist.pop() {
@@ -114,19 +116,28 @@ impl StaticIndex<'_> {
         // hovers
         let sema = hir::Semantics::new(self.db);
         let tokens_or_nodes = sema.parse(file_id).syntax().clone();
-        let tokens = tokens_or_nodes.descendants_with_tokens().filter_map(|x| match x {
-            syntax::NodeOrToken::Node(_) => None,
-            syntax::NodeOrToken::Token(x) => Some(x),
-        });
-        let hover_config =
-            HoverConfig { links_in_hover: true, documentation: Some(HoverDocFormat::Markdown) };
+        let tokens = tokens_or_nodes
+            .descendants_with_tokens()
+            .filter_map(|x| match x {
+                syntax::NodeOrToken::Node(_) => None,
+                syntax::NodeOrToken::Token(x) => Some(x),
+            });
+        let hover_config = HoverConfig {
+            links_in_hover: true,
+            documentation: Some(HoverDocFormat::Markdown),
+        };
         let tokens = tokens.filter(|token| {
             matches!(
                 token.kind(),
                 IDENT | INT_NUMBER | LIFETIME_IDENT | T![self] | T![super] | T![crate]
             )
         });
-        let mut result = StaticIndexedFile { file_id, inlay_hints, folds, tokens: vec![] };
+        let mut result = StaticIndexedFile {
+            file_id,
+            inlay_hints,
+            folds,
+            tokens: vec![],
+        };
         for token in tokens {
             let range = token.text_range();
             let node = token.parent().unwrap();
@@ -139,9 +150,10 @@ impl StaticIndex<'_> {
             } else {
                 let x = self.tokens.insert(TokenStaticData {
                     hover: hover_for_definition(&sema, file_id, def, &node, &hover_config),
-                    definition: def
-                        .try_to_nav(self.db)
-                        .map(|x| FileRange { file_id: x.file_id, range: x.focus_or_full_range() }),
+                    definition: def.try_to_nav(self.db).map(|x| FileRange {
+                        file_id: x.file_id,
+                        range: x.focus_or_full_range(),
+                    }),
                     references: vec![],
                 });
                 self.def_map.insert(def, x);
@@ -190,15 +202,7 @@ impl StaticIndex<'_> {
 }
 
 fn get_definition(sema: &Semantics<RootDatabase>, token: SyntaxToken) -> Option<Definition> {
-    for token in sema.descend_into_macros(token) {
-        let def = Definition::from_token(sema, &token);
-        if let [x] = def.as_slice() {
-            return Some(*x);
-        } else {
-            continue;
-        };
-    }
-    None
+    todo!()
 }
 
 #[cfg(test)]
@@ -213,7 +217,10 @@ mod tests {
         let mut range_set: HashSet<_> = ranges.iter().map(|x| x.0).collect();
         for f in s.files {
             for (range, _) in f.tokens {
-                let x = FileRange { file_id: f.file_id, range };
+                let x = FileRange {
+                    file_id: f.file_id,
+                    range,
+                };
                 if !range_set.contains(&x) {
                     panic!("additional range {:?}", x);
                 }

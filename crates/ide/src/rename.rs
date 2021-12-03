@@ -29,37 +29,7 @@ pub(crate) fn prepare_rename(
     db: &RootDatabase,
     position: FilePosition,
 ) -> RenameResult<RangeInfo<()>> {
-    let sema = Semantics::new(db);
-    let source_file = sema.parse(position.file_id);
-    let syntax = source_file.syntax();
-
-    let res = find_definitions(&sema, syntax, position)?
-        .map(|(name_like, def)| {
-            // ensure all ranges are valid
-
-            if def.range_for_rename(&sema).is_none() {
-                bail!("No references found at position")
-            }
-            let frange = sema.original_range(name_like.syntax());
-
-            always!(
-                frange.range.contains_inclusive(position.offset)
-                    && frange.file_id == position.file_id
-            );
-            Ok(frange.range)
-        })
-        .reduce(|acc, cur| match (acc, cur) {
-            // ensure all ranges are the same
-            (Ok(acc_inner), Ok(cur_inner)) if acc_inner == cur_inner => Ok(acc_inner),
-            (Err(e), _) => Err(e),
-            _ => bail!("inconsistent text range"),
-        });
-
-    match res {
-        // ensure at least one definition was found
-        Some(res) => res.map(|range| RangeInfo::new(range, ())),
-        None => bail!("No references found at position"),
-    }
+    todo!()
 }
 
 // Feature: Rename
@@ -78,31 +48,7 @@ pub(crate) fn rename(
     position: FilePosition,
     new_name: &str,
 ) -> RenameResult<SourceChange> {
-    let sema = Semantics::new(db);
-    let source_file = sema.parse(position.file_id);
-    let syntax = source_file.syntax();
-
-    let defs = find_definitions(&sema, syntax, position)?;
-
-    let ops: RenameResult<Vec<SourceChange>> = defs
-        .map(|(_namelike, def)| {
-            if let Definition::Local(local) = def {
-                if let Some(self_param) = local.as_self_param(sema.db) {
-                    cov_mark::hit!(rename_self_to_param);
-                    return rename_self_to_param(&sema, local, self_param, new_name);
-                }
-                if new_name == "self" {
-                    cov_mark::hit!(rename_to_self);
-                    return rename_to_self(&sema, local);
-                }
-            }
-            def.rename(&sema, new_name)
-        })
-        .collect();
-
-    ops?.into_iter()
-        .reduce(|acc, elem| acc.merge(elem))
-        .ok_or_else(|| format_err!("No references found at position"))
+    todo!()
 }
 
 /// Called by the client when it is about to rename a file.
@@ -117,88 +63,6 @@ pub(crate) fn will_rename_file(
     let mut change = def.rename(&sema, new_name_stem).ok()?;
     change.file_system_edits.clear();
     Some(change)
-}
-
-fn find_definitions(
-    sema: &Semantics<RootDatabase>,
-    syntax: &SyntaxNode,
-    position: FilePosition,
-) -> RenameResult<impl Iterator<Item = (ast::NameLike, Definition)>> {
-    let symbols = sema
-        .find_nodes_at_offset_with_descend::<ast::NameLike>(syntax, position.offset)
-        .map(|name_like| {
-            let res = match &name_like {
-                // renaming aliases would rename the item being aliased as the HIR doesn't track aliases yet
-                ast::NameLike::Name(name)
-                    if name
-                        .syntax()
-                        .parent()
-                        .map_or(false, |it| ast::Rename::can_cast(it.kind())) =>
-                {
-                    bail!("Renaming aliases is currently unsupported")
-                }
-                ast::NameLike::Name(name) => NameClass::classify(sema, name)
-                    .map(|class| match class {
-                        NameClass::Definition(it) | NameClass::ConstReference(it) => it,
-                        NameClass::PatFieldShorthand { local_def, field_ref: _ } => {
-                            Definition::Local(local_def)
-                        }
-                    })
-                    .map(|def| (name_like.clone(), def))
-                    .ok_or_else(|| format_err!("No references found at position")),
-                ast::NameLike::NameRef(name_ref) => {
-                    NameRefClass::classify(sema, name_ref)
-                        .map(|class| match class {
-                            NameRefClass::Definition(def) => def,
-                            NameRefClass::FieldShorthand { local_ref, field_ref: _ } => {
-                                Definition::Local(local_ref)
-                            }
-                        })
-                        .ok_or_else(|| format_err!("No references found at position"))
-                        .and_then(|def| {
-                            // if the name differs from the definitions name it has to be an alias
-                            if def
-                                .name(sema.db)
-                                .map_or(false, |it| it.to_smol_str() != name_ref.text().as_str())
-                            {
-                                Err(format_err!("Renaming aliases is currently unsupported"))
-                            } else {
-                                Ok((name_like.clone(), def))
-                            }
-                        })
-                }
-                ast::NameLike::Lifetime(lifetime) => {
-                    NameRefClass::classify_lifetime(sema, lifetime)
-                        .and_then(|class| match class {
-                            NameRefClass::Definition(def) => Some(def),
-                            _ => None,
-                        })
-                        .or_else(|| {
-                            NameClass::classify_lifetime(sema, lifetime).and_then(|it| match it {
-                                NameClass::Definition(it) => Some(it),
-                                _ => None,
-                            })
-                        })
-                        .map(|def| (name_like, def))
-                        .ok_or_else(|| format_err!("No references found at position"))
-                }
-            };
-            res
-        });
-
-    let res: RenameResult<Vec<_>> = symbols.collect();
-    match res {
-        Ok(v) => {
-            if v.is_empty() {
-                // FIXME: some semantic duplication between "empty vec" and "Err()"
-                Err(format_err!("No references found at position"))
-            } else {
-                // remove duplicates, comparing `Definition`s
-                Ok(v.into_iter().unique_by(|t| t.1))
-            }
-        }
-        Err(e) => Err(e),
-    }
 }
 
 fn rename_to_self(sema: &Semantics<RootDatabase>, local: hir::Local) -> RenameResult<SourceChange> {
@@ -238,23 +102,39 @@ fn rename_to_self(sema: &Semantics<RootDatabase>, local: hir::Local) -> RenameRe
         // if the impl is a ref to the type we can just match the `&T` with self directly
         (first_param_ty.clone(), "self")
     } else {
-        first_param_ty.remove_ref().map_or((first_param_ty.clone(), "self"), |ty| {
-            (ty, if first_param_ty.is_mutable_reference() { "&mut self" } else { "&self" })
-        })
+        first_param_ty
+            .remove_ref()
+            .map_or((first_param_ty.clone(), "self"), |ty| {
+                (
+                    ty,
+                    if first_param_ty.is_mutable_reference() {
+                        "&mut self"
+                    } else {
+                        "&self"
+                    },
+                )
+            })
     };
 
     if ty != impl_ty {
         bail!("Parameter type differs from impl block type");
     }
 
-    let InFile { file_id, value: param_source } =
-        first_param.source(sema.db).ok_or_else(|| format_err!("No source for parameter found"))?;
+    let InFile {
+        file_id,
+        value: param_source,
+    } = first_param
+        .source(sema.db)
+        .ok_or_else(|| format_err!("No source for parameter found"))?;
 
     let def = Definition::Local(local);
     let usages = def.usages(sema).all();
     let mut source_change = SourceChange::default();
     source_change.extend(usages.iter().map(|(&file_id, references)| {
-        (file_id, source_edit_from_references(references, def, "self"))
+        (
+            file_id,
+            source_edit_from_references(references, def, "self"),
+        )
     }));
     source_change.insert_source_edit(
         file_id.original_file(sema.db),
@@ -277,8 +157,12 @@ fn rename_self_to_param(
 
     let identifier_kind = IdentifierKind::classify(new_name)?;
 
-    let InFile { file_id, value: self_param } =
-        self_param.source(sema.db).ok_or_else(|| format_err!("cannot find function source"))?;
+    let InFile {
+        file_id,
+        value: self_param,
+    } = self_param
+        .source(sema.db)
+        .ok_or_else(|| format_err!("cannot find function source"))?;
 
     let def = Definition::Local(local);
     let usages = def.usages(sema).all();
@@ -290,7 +174,10 @@ fn rename_self_to_param(
     let mut source_change = SourceChange::default();
     source_change.insert_source_edit(file_id.original_file(sema.db), edit);
     source_change.extend(usages.iter().map(|(&file_id, references)| {
-        (file_id, source_edit_from_references(references, def, new_name))
+        (
+            file_id,
+            source_edit_from_references(references, def, new_name),
+        )
     }));
     Ok(source_change)
 }
@@ -315,7 +202,10 @@ fn text_edit_from_self_param(self_param: &ast::SelfParam, new_name: &str) -> Opt
     };
     replacement_text.push_str(type_name.as_str());
 
-    Some(TextEdit::replace(self_param.syntax().text_range(), replacement_text))
+    Some(TextEdit::replace(
+        self_param.syntax().text_range(),
+        replacement_text,
+    ))
 }
 
 #[cfg(test)]
@@ -369,8 +259,10 @@ mod tests {
 
     fn check_expect(new_name: &str, ra_fixture: &str, expect: Expect) {
         let (analysis, position) = fixture::position(ra_fixture);
-        let source_change =
-            analysis.rename(position, new_name).unwrap().expect("Expect returned a RenameError");
+        let source_change = analysis
+            .rename(position, new_name)
+            .unwrap()
+            .expect("Expect returned a RenameError");
         expect.assert_debug_eq(&source_change)
     }
 
@@ -391,8 +283,14 @@ mod tests {
     #[test]
     fn test_prepare_rename_namelikes() {
         check_prepare(r"fn name$0<'lifetime>() {}", expect![[r#"3..7: name"#]]);
-        check_prepare(r"fn name<'lifetime$0>() {}", expect![[r#"8..17: 'lifetime"#]]);
-        check_prepare(r"fn name<'lifetime>() { name$0(); }", expect![[r#"23..27: name"#]]);
+        check_prepare(
+            r"fn name<'lifetime$0>() {}",
+            expect![[r#"8..17: 'lifetime"#]],
+        );
+        check_prepare(
+            r"fn name<'lifetime>() { name$0(); }",
+            expect![[r#"23..27: name"#]],
+        );
     }
 
     #[test]
@@ -410,7 +308,10 @@ foo!(Foo$0);",
 
     #[test]
     fn test_prepare_rename_keyword() {
-        check_prepare(r"struct$0 Foo;", expect![[r#"No references found at position"#]]);
+        check_prepare(
+            r"struct$0 Foo;",
+            expect![[r#"No references found at position"#]],
+        );
     }
 
     #[test]
@@ -458,12 +359,20 @@ impl Foo {
 
     #[test]
     fn test_rename_to_underscore() {
-        check("_", r#"fn main() { let i$0 = 1; }"#, r#"fn main() { let _ = 1; }"#);
+        check(
+            "_",
+            r#"fn main() { let i$0 = 1; }"#,
+            r#"fn main() { let _ = 1; }"#,
+        );
     }
 
     #[test]
     fn test_rename_to_raw_identifier() {
-        check("r#fn", r#"fn main() { let i$0 = 1; }"#, r#"fn main() { let r#fn = 1; }"#);
+        check(
+            "r#fn",
+            r#"fn main() { let i$0 = 1; }"#,
+            r#"fn main() { let r#fn = 1; }"#,
+        );
     }
 
     #[test]
@@ -686,17 +595,29 @@ fn main() {
 
     #[test]
     fn test_rename_for_param_inside() {
-        check("j", r#"fn foo(i : u32) -> u32 { i$0 }"#, r#"fn foo(j : u32) -> u32 { j }"#);
+        check(
+            "j",
+            r#"fn foo(i : u32) -> u32 { i$0 }"#,
+            r#"fn foo(j : u32) -> u32 { j }"#,
+        );
     }
 
     #[test]
     fn test_rename_refs_for_fn_param() {
-        check("j", r#"fn foo(i$0 : u32) -> u32 { i }"#, r#"fn foo(j : u32) -> u32 { j }"#);
+        check(
+            "j",
+            r#"fn foo(i$0 : u32) -> u32 { i }"#,
+            r#"fn foo(j : u32) -> u32 { j }"#,
+        );
     }
 
     #[test]
     fn test_rename_for_mut_param() {
-        check("j", r#"fn foo(mut i$0 : u32) -> u32 { i }"#, r#"fn foo(mut j : u32) -> u32 { j }"#);
+        check(
+            "j",
+            r#"fn foo(mut i$0 : u32) -> u32 { i }"#,
+            r#"fn foo(mut j : u32) -> u32 { j }"#,
+        );
     }
 
     #[test]
