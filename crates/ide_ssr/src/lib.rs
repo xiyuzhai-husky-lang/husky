@@ -131,19 +131,30 @@ impl<'db> MatchFinder<'db> {
         restrict_ranges.retain(|range| !range.range.is_empty());
         let sema = Semantics::new(db);
         let resolution_scope = resolving::ResolutionScope::new(&sema, lookup_context);
-        MatchFinder { sema, rules: Vec::new(), resolution_scope, restrict_ranges }
+        MatchFinder {
+            sema,
+            rules: Vec::new(),
+            resolution_scope,
+            restrict_ranges,
+        }
     }
 
     /// Constructs an instance using the start of the first file in `db` as the lookup context.
     pub fn at_first_file(db: &'db ide_db::RootDatabase) -> Result<MatchFinder<'db>, SsrError> {
         use ide_db::base_db::SourceDatabaseExt;
         use ide_db::symbol_index::SymbolsDatabase;
-        if let Some(first_file_id) =
-            db.local_roots().iter().next().and_then(|root| db.source_root(*root).iter().next())
+        if let Some(first_file_id) = db
+            .local_roots()
+            .iter()
+            .next()
+            .and_then(|root| db.source_root(*root).iter().next())
         {
             Ok(MatchFinder::in_context(
                 db,
-                FilePosition { file_id: first_file_id, offset: 0.into() },
+                FilePosition {
+                    file_id: first_file_id,
+                    offset: 0.into(),
+                },
                 vec![],
             ))
         } else {
@@ -230,7 +241,10 @@ impl<'db> MatchFinder<'db> {
             let end = start + len;
             self.output_debug_for_nodes_at_range(
                 file.syntax(),
-                FileRange { file_id, range: TextRange::new(start.into(), end.into()) },
+                FileRange {
+                    file_id,
+                    range: TextRange::new(start.into(), end.into()),
+                },
                 &None,
                 &mut res,
             );
@@ -276,17 +290,6 @@ impl<'db> MatchFinder<'db> {
                         pattern: rule.pattern.node.clone(),
                         node: node.clone(),
                     });
-                }
-            } else if let Some(macro_call) = ast::MacroCall::cast(node.clone()) {
-                if let Some(expanded) = self.sema.expand(&macro_call) {
-                    if let Some(tt) = macro_call.token_tree() {
-                        self.output_debug_for_nodes_at_range(
-                            &expanded,
-                            range,
-                            &Some(self.sema.original_range(tt.syntax())),
-                            out,
-                        );
-                    }
                 }
             }
             self.output_debug_for_nodes_at_range(&node, range, restrict_range, out);

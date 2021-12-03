@@ -1,4 +1,4 @@
-use hir::{ItemInNs, ModuleDef};
+use hir::{ItemInNamespace, ModuleDef};
 use ide_db::{
     assists::{AssistId, AssistKind},
     helpers::import_assets::item_for_path_search,
@@ -46,7 +46,7 @@ pub(crate) fn qualify_method_call(acc: &mut Assists, ctx: &AssistContext) -> Opt
 
     let current_module = ctx.sema.scope(&call.syntax()).module()?;
     let target_module_def = ModuleDef::from(resolved_call);
-    let item_in_ns = ItemInNs::from(target_module_def);
+    let item_in_ns = ItemInNamespace::from(target_module_def);
     let receiver_path = current_module
         .find_use_path(ctx.sema.db, item_for_path_search(ctx.sema.db, item_in_ns)?)?;
 

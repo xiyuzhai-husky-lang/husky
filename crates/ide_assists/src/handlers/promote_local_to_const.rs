@@ -1,4 +1,4 @@
-use hir::{HirDisplay, ModuleDef, PathResolution, Semantics};
+use hir::{EntityResolution, HirDisplay, ModuleDef, Semantics};
 use ide_db::{
     assists::{AssistId, AssistKind},
     defs::Definition,
@@ -106,7 +106,7 @@ fn is_body_const(sema: &Semantics<RootDatabase>, expr: &ast::Expr) -> bool {
         match expr {
             ast::Expr::CallExpr(call) => {
                 if let Some(ast::Expr::PathExpr(path_expr)) = call.expr() {
-                    if let Some(PathResolution::Def(ModuleDef::Function(func))) =
+                    if let Some(EntityResolution::Def(ModuleDef::Function(func))) =
                         path_expr.path().and_then(|path| sema.resolve_path(&path))
                     {
                         is_const &= func.is_const(sema.db);
@@ -114,8 +114,10 @@ fn is_body_const(sema: &Semantics<RootDatabase>, expr: &ast::Expr) -> bool {
                 }
             }
             ast::Expr::MethodCallExpr(call) => {
-                is_const &=
-                    sema.resolve_method_call(&call).map(|it| it.is_const(sema.db)).unwrap_or(true)
+                is_const &= sema
+                    .resolve_method_call(&call)
+                    .map(|it| it.is_const(sema.db))
+                    .unwrap_or(true)
             }
             ast::Expr::BoxExpr(_)
             | ast::Expr::ForExpr(_)

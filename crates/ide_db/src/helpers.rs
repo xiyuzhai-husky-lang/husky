@@ -10,7 +10,7 @@ pub mod rust_doc;
 use std::{collections::VecDeque, iter};
 
 use base_db::FileID;
-use hir::{ItemInNs, MacroDef, ModuleDef, Name, PathResolution, Semantics};
+use hir::{EntityResolution, ItemInNamespace, ModuleDef, Name, Semantics};
 use itertools::Itertools;
 use syntax::{
     ast::{self, make, HasLoopBody, Ident},
@@ -22,11 +22,10 @@ use crate::{defs::Definition, RootDatabase};
 
 pub use self::famous_defs::FamousDefs;
 
-pub fn item_name(db: &RootDatabase, item: ItemInNs) -> Option<Name> {
+pub fn item_name(db: &RootDatabase, item: ItemInNamespace) -> Option<Name> {
     match item {
-        ItemInNs::Types(module_def_id) => ModuleDef::from(module_def_id).name(db),
-        ItemInNs::Values(module_def_id) => ModuleDef::from(module_def_id).name(db),
-        ItemInNs::Macros(macro_def_id) => MacroDef::from(macro_def_id).name(db),
+        ItemInNamespace::Types(module_def_id) => ModuleDef::from(module_def_id).name(db),
+        ItemInNamespace::Values(module_def_id) => ModuleDef::from(module_def_id).name(db),
     }
 }
 
@@ -34,21 +33,10 @@ pub fn item_name(db: &RootDatabase, item: ItemInNs) -> Option<Name> {
 /// This special case is required because the derive macro is a compiler builtin that discards the input derives.
 ///
 /// The returned path is synthesized from TokenTree tokens and as such cannot be used with the [`Semantics`].
-pub fn get_path_in_derive_attr(
-    sema: &hir::Semantics<RootDatabase>,
-    attr: &ast::Attr,
-    cursor: &Ident,
-) -> Option<ast::Path> {
+pub fn get_path_in_derive_attr(attr: &ast::Attr, cursor: &Ident) -> Option<ast::Path> {
     let cursor = cursor.syntax();
-    let path = attr.path()?;
     let tt = attr.token_tree()?;
     if !tt.syntax().text_range().contains_range(cursor.text_range()) {
-        return None;
-    }
-    let scope = sema.scope(attr.syntax());
-    let resolved_attr = sema.resolve_path(&path)?;
-    let derive = FamousDefs(sema, scope.krate()).core_macros_builtin_derive()?;
-    if PathResolution::Macro(derive) != resolved_attr {
         return None;
     }
 
@@ -71,18 +59,8 @@ pub fn try_resolve_derive_input(
     sema: &hir::Semantics<RootDatabase>,
     attr: &ast::Attr,
     cursor: &Ident,
-) -> Option<PathResolution> {
-    let path = get_path_in_derive_attr(sema, attr, cursor)?;
-    let scope = sema.scope(attr.syntax());
-    // FIXME: This double resolve shouldn't be necessary
-    // It's only here so we prefer macros over other namespaces
-    match scope.speculative_resolve_as_mac(&path) {
-        Some(mac) if mac.kind() == hir::MacroKind::Derive => Some(PathResolution::Macro(mac)),
-        Some(_) => return None,
-        None => scope
-            .speculative_resolve(&path)
-            .filter(|res| matches!(res, PathResolution::Def(ModuleDef::Module(_)))),
-    }
+) -> Option<EntityResolution> {
+    todo!()
 }
 
 /// Picks the token with the highest rank returned by the passed in function.
@@ -133,12 +111,18 @@ pub fn visit_file_defs(
         if let ModuleDef::Module(submodule) = def {
             if let hir::ModuleSource::Module(_) = submodule.definition_source(db).value {
                 defs.extend(submodule.declarations(db));
-                submodule.impl_defs(db).into_iter().for_each(|impl_| cb(impl_.into()));
+                submodule
+                    .impl_defs(db)
+                    .into_iter()
+                    .for_each(|impl_| cb(impl_.into()));
             }
         }
         cb(def.into());
     }
-    module.impl_defs(db).into_iter().for_each(|impl_| cb(impl_.into()));
+    module
+        .impl_defs(db)
+        .into_iter()
+        .for_each(|impl_| cb(impl_.into()));
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -200,14 +184,16 @@ pub fn for_each_tail_expr(expr: &ast::Expr, cb: &mut dyn FnMut(&ast::Expr)) {
                 }
             }
         }
-        ast::Expr::LoopExpr(l) => {
-            for_each_break_expr(l.label(), l.loop_body().and_then(|it| it.stmt_list()), &mut |b| {
-                cb(&ast::Expr::BreakExpr(b))
-            })
-        }
+        ast::Expr::LoopExpr(l) => for_each_break_expr(
+            l.label(),
+            l.loop_body().and_then(|it| it.stmt_list()),
+            &mut |b| cb(&ast::Expr::BreakExpr(b)),
+        ),
         ast::Expr::MatchExpr(m) => {
             if let Some(arms) = m.match_arm_list() {
-                arms.arms().filter_map(|arm| arm.expr()).for_each(|e| for_each_tail_expr(&e, cb));
+                arms.arms()
+                    .filter_map(|arm| arm.expr())
+                    .for_each(|e| for_each_tail_expr(&e, cb));
             }
         }
         ast::Expr::ArrayExpr(_)
@@ -223,8 +209,6 @@ pub fn for_each_tail_expr(expr: &ast::Expr, cb: &mut dyn FnMut(&ast::Expr)) {
         | ast::Expr::ForExpr(_)
         | ast::Expr::IndexExpr(_)
         | ast::Expr::Literal(_)
-        | ast::Expr::MacroCall(_)
-        | ast::Expr::MacroStmts(_)
         | ast::Expr::MethodCallExpr(_)
         | ast::Expr::ParenExpr(_)
         | ast::Expr::PathExpr(_)
@@ -255,7 +239,8 @@ pub fn for_each_break_expr(
             WalkEvent::Leave(it) => Some(WalkEvent::Leave(ast::Expr::cast(it)?)),
         };
         let eq_label = |lt: Option<ast::Lifetime>| {
-            lt.zip(label.as_ref()).map_or(false, |(lt, lbl)| lt.text() == lbl.text())
+            lt.zip(label.as_ref())
+                .map_or(false, |(lt, lbl)| lt.text() == lbl.text())
         };
         while let Some(node) = preorder.find_map(ev_as_expr) {
             match node {

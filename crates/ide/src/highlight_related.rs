@@ -91,10 +91,16 @@ fn highlight_references(
                 .remove(&file_id)
         })
         .flatten()
-        .map(|FileReference { category: access, range, .. }| HighlightedRange {
-            range,
-            category: access,
-        });
+        .map(
+            |FileReference {
+                 category: access,
+                 range,
+                 ..
+             }| HighlightedRange {
+                range,
+                category: access,
+            },
+        );
 
     let declarations = defs.iter().flat_map(|def| {
         match def {
@@ -133,16 +139,25 @@ fn highlight_exit_points(
         walk_expr(&body, &mut |expr| match expr {
             ast::Expr::ReturnExpr(expr) => {
                 if let Some(token) = expr.return_token() {
-                    highlights.push(HighlightedRange { category: None, range: token.text_range() });
+                    highlights.push(HighlightedRange {
+                        category: None,
+                        range: token.text_range(),
+                    });
                 }
             }
             ast::Expr::TryExpr(try_) => {
                 if let Some(token) = try_.question_mark_token() {
-                    highlights.push(HighlightedRange { category: None, range: token.text_range() });
+                    highlights.push(HighlightedRange {
+                        category: None,
+                        range: token.text_range(),
+                    });
                 }
             }
-            ast::Expr::MethodCallExpr(_) | ast::Expr::CallExpr(_) | ast::Expr::MacroCall(_) => {
-                if sema.type_of_expr(&expr).map_or(false, |ty| ty.original.is_never()) {
+            ast::Expr::MethodCallExpr(_) | ast::Expr::CallExpr(_) => {
+                if sema
+                    .type_of_expr(&expr)
+                    .map_or(false, |ty| ty.original.is_never())
+                {
                     highlights.push(HighlightedRange {
                         category: None,
                         range: expr.syntax().text_range(),
@@ -164,7 +179,10 @@ fn highlight_exit_points(
                         .map_or_else(|| tail.syntax().text_range(), |tok| tok.text_range()),
                     _ => tail.syntax().text_range(),
                 };
-                highlights.push(HighlightedRange { category: None, range })
+                highlights.push(HighlightedRange {
+                    category: None,
+                    range,
+                })
             });
         }
         Some(highlights)
@@ -197,13 +215,19 @@ fn highlight_break_points(token: SyntaxToken) -> Option<Vec<HighlightedRange>> {
             token.map(|tok| tok.text_range()),
             label.as_ref().map(|it| it.syntax().text_range()),
         );
-        highlights.extend(range.map(|range| HighlightedRange { category: None, range }));
+        highlights.extend(range.map(|range| HighlightedRange {
+            category: None,
+            range,
+        }));
         for_each_break_expr(label, body, &mut |break_| {
             let range = cover_range(
                 break_.break_token().map(|it| it.text_range()),
                 break_.lifetime().map(|it| it.syntax().text_range()),
             );
-            highlights.extend(range.map(|range| HighlightedRange { category: None, range }));
+            highlights.extend(range.map(|range| HighlightedRange {
+                category: None,
+                range,
+            }));
         });
         Some(highlights)
     }
@@ -221,21 +245,31 @@ fn highlight_break_points(token: SyntaxToken) -> Option<Vec<HighlightedRange>> {
     let lbl = lbl.as_ref();
     let label_matches = |def_lbl: Option<ast::Label>| match lbl {
         Some(lbl) => {
-            Some(lbl.text()) == def_lbl.and_then(|it| it.lifetime()).as_ref().map(|it| it.text())
+            Some(lbl.text())
+                == def_lbl
+                    .and_then(|it| it.lifetime())
+                    .as_ref()
+                    .map(|it| it.text())
         }
         None => true,
     };
     for anc in token.ancestors().flat_map(ast::Expr::cast) {
         return match anc {
-            ast::Expr::LoopExpr(l) if label_matches(l.label()) => {
-                hl(l.loop_token(), l.label(), l.loop_body().and_then(|it| it.stmt_list()))
-            }
-            ast::Expr::ForExpr(f) if label_matches(f.label()) => {
-                hl(f.for_token(), f.label(), f.loop_body().and_then(|it| it.stmt_list()))
-            }
-            ast::Expr::WhileExpr(w) if label_matches(w.label()) => {
-                hl(w.while_token(), w.label(), w.loop_body().and_then(|it| it.stmt_list()))
-            }
+            ast::Expr::LoopExpr(l) if label_matches(l.label()) => hl(
+                l.loop_token(),
+                l.label(),
+                l.loop_body().and_then(|it| it.stmt_list()),
+            ),
+            ast::Expr::ForExpr(f) if label_matches(f.label()) => hl(
+                f.for_token(),
+                f.label(),
+                f.loop_body().and_then(|it| it.stmt_list()),
+            ),
+            ast::Expr::WhileExpr(w) if label_matches(w.label()) => hl(
+                w.while_token(),
+                w.label(),
+                w.loop_body().and_then(|it| it.stmt_list()),
+            ),
             ast::Expr::BlockExpr(e) if e.label().is_some() && label_matches(e.label()) => {
                 hl(None, e.label(), e.stmt_list())
             }
@@ -250,14 +284,18 @@ fn highlight_yield_points(token: SyntaxToken) -> Option<Vec<HighlightedRange>> {
         async_token: Option<SyntaxToken>,
         body: Option<ast::Expr>,
     ) -> Option<Vec<HighlightedRange>> {
-        let mut highlights =
-            vec![HighlightedRange { category: None, range: async_token?.text_range() }];
+        let mut highlights = vec![HighlightedRange {
+            category: None,
+            range: async_token?.text_range(),
+        }];
         if let Some(body) = body {
             walk_expr(&body, &mut |expr| {
                 if let ast::Expr::AwaitExpr(expr) = expr {
                     if let Some(token) = expr.await_token() {
-                        highlights
-                            .push(HighlightedRange { category: None, range: token.text_range() });
+                        highlights.push(HighlightedRange {
+                            category: None,
+                            range: token.text_range(),
+                        });
                     }
                 }
             });
@@ -292,10 +330,7 @@ fn cover_range(r0: Option<TextRange>, r1: Option<TextRange>) -> Option<TextRange
 }
 
 fn find_defs(sema: &Semantics<RootDatabase>, token: SyntaxToken) -> FxHashSet<Definition> {
-    sema.descend_into_macros(token)
-        .into_iter()
-        .flat_map(|token| Definition::from_token(sema, &token))
-        .collect()
+    todo!()
 }
 
 #[cfg(test)]
@@ -318,7 +353,10 @@ mod tests {
     fn check_with_config(ra_fixture: &str, config: HighlightRelatedConfig) {
         let (analysis, pos, annotations) = fixture::annotations(ra_fixture);
 
-        let hls = analysis.highlight_related(config, pos).unwrap().unwrap_or_default();
+        let hls = analysis
+            .highlight_related(config, pos)
+            .unwrap()
+            .unwrap_or_default();
 
         let mut expected = annotations
             .into_iter()

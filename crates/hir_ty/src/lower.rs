@@ -329,54 +329,6 @@ impl<'a> TyLoweringContext<'a> {
                     }
                 }
             }
-            TypeRef::Macro(macro_call) => {
-                let (expander, recursion_start) = {
-                    let mut expander = self.expander.borrow_mut();
-                    if expander.is_some() {
-                        (Some(expander), false)
-                    } else if let Some(module_id) = self.resolver.module() {
-                        *expander = Some(Expander::new(
-                            self.db.upcast(),
-                            macro_call.file_id,
-                            module_id,
-                        ));
-                        (Some(expander), true)
-                    } else {
-                        (None, false)
-                    }
-                };
-                let ty = if let Some(mut expander) = expander {
-                    let expander_mut = expander.as_mut().unwrap();
-                    let macro_call = macro_call.to_node(self.db.upcast());
-                    match expander_mut.enter_expand::<ast::Type>(self.db.upcast(), macro_call) {
-                        Ok(ExpandResult {
-                            value: Some((mark, expanded)),
-                            ..
-                        }) => {
-                            let ctx =
-                                LowerCtx::new(self.db.upcast(), expander_mut.current_file_id());
-                            let type_ref = TypeRef::from_ast(&ctx, expanded);
-
-                            drop(expander);
-                            let ty = self.lower_ty(&type_ref);
-
-                            self.expander
-                                .borrow_mut()
-                                .as_mut()
-                                .unwrap()
-                                .exit(self.db.upcast(), mark);
-                            Some(ty)
-                        }
-                        _ => None,
-                    }
-                } else {
-                    None
-                };
-                if recursion_start {
-                    *self.expander.borrow_mut() = None;
-                }
-                ty.unwrap_or_else(|| TyKind::Error.intern(&Interner))
-            }
             TypeRef::Error => TyKind::Error.intern(&Interner),
         };
         (ty, res)

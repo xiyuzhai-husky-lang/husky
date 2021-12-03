@@ -59,7 +59,8 @@ impl fmt::Debug for NavigationTarget {
                 }
             )*}
         }
-        f.field("file_id", &self.file_id).field("full_range", &self.full_range);
+        f.field("file_id", &self.file_id)
+            .field("full_range", &self.full_range);
         opt!(focus_range);
         f.field("name", &self.name);
         opt!(kind container_name description docs);
@@ -90,7 +91,10 @@ impl NavigationTarget {
     }
 
     pub(crate) fn from_module_to_decl(db: &RootDatabase, module: hir::Module) -> NavigationTarget {
-        let name = module.name(db).map(|it| it.to_smol_str()).unwrap_or_default();
+        let name = module
+            .name(db)
+            .map(|it| it.to_smol_str())
+            .unwrap_or_default();
         if let Some(src) = module.declaration_source(db) {
             let node = src.syntax();
             let full_range = node.original_file_range(db);
@@ -136,7 +140,11 @@ impl NavigationTarget {
         node: InFile<&dyn ast::HasName>,
         kind: SymbolKind,
     ) -> NavigationTarget {
-        let name = node.value.name().map(|it| it.text().into()).unwrap_or_else(|| "_".into());
+        let name = node
+            .value
+            .name()
+            .map(|it| it.text().into())
+            .unwrap_or_else(|| "_".into());
         let focus_range = node
             .value
             .name()
@@ -199,12 +207,11 @@ impl TryToNav for Definition {
             Definition::Local(it) => Some(it.to_nav(db)),
             Definition::Label(it) => Some(it.to_nav(db)),
             Definition::Module(it) => Some(it.to_nav(db)),
-            Definition::Macro(it) => it.try_to_nav(db),
             Definition::Field(it) => it.try_to_nav(db),
             Definition::SelfType(it) => it.try_to_nav(db),
             Definition::GenericParam(it) => it.try_to_nav(db),
             Definition::Function(it) => it.try_to_nav(db),
-            Definition::Adt(it) => it.try_to_nav(db),
+            Definition::DataType(it) => it.try_to_nav(db),
             Definition::Variant(it) => it.try_to_nav(db),
             Definition::Const(it) => it.try_to_nav(db),
             Definition::Static(it) => it.try_to_nav(db),
@@ -220,7 +227,7 @@ impl TryToNav for hir::ModuleDef {
         match self {
             hir::ModuleDef::Module(it) => Some(it.to_nav(db)),
             hir::ModuleDef::Function(it) => it.try_to_nav(db),
-            hir::ModuleDef::Adt(it) => it.try_to_nav(db),
+            hir::ModuleDef::DataType(it) => it.try_to_nav(db),
             hir::ModuleDef::Variant(it) => it.try_to_nav(db),
             hir::ModuleDef::Const(it) => it.try_to_nav(db),
             hir::ModuleDef::Static(it) => it.try_to_nav(db),
@@ -286,13 +293,20 @@ impl ToNav for hir::Module {
         let name = self.name(db).map(|it| it.to_smol_str()).unwrap_or_default();
         let (syntax, focus) = match &src.value {
             ModuleSource::SourceFile(node) => (node.syntax(), None),
-            ModuleSource::Module(node) => {
-                (node.syntax(), node.name().map(|it| it.syntax().text_range()))
-            }
+            ModuleSource::Module(node) => (
+                node.syntax(),
+                node.name().map(|it| it.syntax().text_range()),
+            ),
             ModuleSource::BlockExpr(node) => (node.syntax(), None),
         };
         let frange = src.with_value(syntax).original_file_range(db);
-        NavigationTarget::from_syntax(frange.file_id, name, focus, frange.range, SymbolKind::Module)
+        NavigationTarget::from_syntax(
+            frange.file_id,
+            name,
+            focus,
+            frange.range,
+            SymbolKind::Module,
+        )
     }
 }
 
@@ -307,7 +321,9 @@ impl TryToNav for hir::Impl {
         let focus_range = if derive_attr.is_some() {
             None
         } else {
-            src.value.self_ty().map(|ty| src.with_value(ty.syntax()).original_file_range(db).range)
+            src.value
+                .self_ty()
+                .map(|ty| src.with_value(ty.syntax()).original_file_range(db).range)
         };
 
         Some(NavigationTarget::from_syntax(
@@ -347,30 +363,12 @@ impl TryToNav for hir::Field {
     }
 }
 
-impl TryToNav for hir::MacroDef {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
-        let src = self.source(db)?;
-        let name_owner: &dyn ast::HasName = match &src.value {
-            Either::Left(it) => it,
-            Either::Right(it) => it,
-        };
-        tracing::debug!("nav target {:#?}", name_owner.syntax());
-        let mut res = NavigationTarget::from_named(
-            db,
-            src.as_ref().with_value(name_owner),
-            SymbolKind::Macro,
-        );
-        res.docs = self.docs(db);
-        Some(res)
-    }
-}
-
-impl TryToNav for hir::Adt {
+impl TryToNav for hir::DataType {
     fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
         match self {
-            hir::Adt::Struct(it) => it.try_to_nav(db),
-            hir::Adt::Union(it) => it.try_to_nav(db),
-            hir::Adt::Enum(it) => it.try_to_nav(db),
+            hir::DataType::Struct(it) => it.try_to_nav(db),
+            hir::DataType::Union(it) => it.try_to_nav(db),
+            hir::DataType::Enum(it) => it.try_to_nav(db),
         }
     }
 }
@@ -402,8 +400,11 @@ impl ToNav for hir::Local {
             Either::Left(bind_pat) => (bind_pat.syntax().clone(), bind_pat.name()),
             Either::Right(it) => (it.syntax().clone(), it.name()),
         };
-        let focus_range =
-            name.map(|it| src.with_value(&it.syntax().clone()).original_file_range(db).range);
+        let focus_range = name.map(|it| {
+            src.with_value(&it.syntax().clone())
+                .original_file_range(db)
+                .range
+        });
 
         let full_range = src.with_value(&node).original_file_range(db);
         let name = match self.name(db) {
@@ -435,8 +436,11 @@ impl ToNav for hir::Label {
         let src = self.source(db);
         let node = src.value.syntax();
         let FileRange { file_id, range } = src.with_value(node).original_file_range(db);
-        let focus_range =
-            src.value.lifetime().and_then(|lt| lt.lifetime_ident_token()).map(|lt| lt.text_range());
+        let focus_range = src
+            .value
+            .lifetime()
+            .and_then(|lt| lt.lifetime_ident_token())
+            .map(|lt| lt.text_range());
         let name = self.name(db).to_smol_str();
         NavigationTarget {
             file_id,
@@ -456,9 +460,10 @@ impl TryToNav for hir::TypeParam {
         let src = self.source(db)?;
         let full_range = match &src.value {
             Either::Left(type_param) => type_param.syntax().text_range(),
-            Either::Right(trait_) => trait_
-                .name()
-                .map_or_else(|| trait_.syntax().text_range(), |name| name.syntax().text_range()),
+            Either::Right(trait_) => trait_.name().map_or_else(
+                || trait_.syntax().text_range(),
+                |name| name.syntax().text_range(),
+            ),
         };
         let focus_range = match &src.value {
             Either::Left(it) => it.name(),
@@ -553,7 +558,9 @@ fn foo() { enum FooInner { } }
 "#,
         );
 
-        let navs = analysis.symbol_search(Query::new("FooInner".to_string())).unwrap();
+        let navs = analysis
+            .symbol_search(Query::new("FooInner".to_string()))
+            .unwrap();
         expect![[r#"
             [
                 NavigationTarget {
@@ -591,7 +598,9 @@ struct Foo;
 "#,
         );
 
-        let navs = analysis.symbol_search(Query::new("foo".to_string())).unwrap();
+        let navs = analysis
+            .symbol_search(Query::new("foo".to_string()))
+            .unwrap();
         assert_eq!(navs.len(), 2)
     }
 }

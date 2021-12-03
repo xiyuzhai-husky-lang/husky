@@ -26,47 +26,7 @@ pub(crate) fn goto_definition(
     db: &RootDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
-    let sema = &Semantics::new(db);
-    let file = sema.parse(position.file_id).syntax().clone();
-    let original_token =
-        pick_best_token(file.token_at_offset(position.offset), |kind| match kind {
-            IDENT | INT_NUMBER | LIFETIME_IDENT | T![self] | T![super] | T![crate] | COMMENT => 2,
-            kind if kind.is_trivia() => 0,
-            _ => 1,
-        })?;
-    if let Some(doc_comment) = token_as_doc_comment(&original_token) {
-        return doc_comment.get_definition_with_descend_at(sema, position.offset, |def, _, _| {
-            let nav = def.try_to_nav(db)?;
-            Some(RangeInfo::new(original_token.text_range(), vec![nav]))
-        });
-    }
-    let navs = sema
-        .descend_into_macros(original_token.clone())
-        .into_iter()
-        .filter_map(|token| {
-            let parent = token.parent()?;
-            if let Some(tt) = ast::TokenTree::cast(parent) {
-                if let x @ Some(_) =
-                    try_lookup_include_path(sema, tt, token.clone(), position.file_id)
-                {
-                    return x;
-                }
-            }
-            Some(
-                Definition::from_token(sema, &token)
-                    .into_iter()
-                    .flat_map(|def| {
-                        try_find_trait_item_definition(sema.db, &def)
-                            .unwrap_or_else(|| def_to_nav(sema.db, def))
-                    })
-                    .collect::<Vec<_>>(),
-            )
-        })
-        .flatten()
-        .unique()
-        .collect::<Vec<NavigationTarget>>();
-
-    Some(RangeInfo::new(original_token.text_range(), navs))
+    todo!()
 }
 
 fn try_lookup_include_path(
@@ -82,7 +42,10 @@ fn try_lookup_include_path(
     if !matches!(&*name.text(), "include" | "include_str" | "include_bytes") {
         return None;
     }
-    let file_id = sema.db.resolve_path(AnchoredPath { anchor: file_id, path: &path })?;
+    let file_id = sema.db.resolve_path(AnchoredPath {
+        anchor: file_id,
+        path: &path,
+    })?;
     let size = sema.db.file_text(file_id).len().try_into().ok()?;
     Some(vec![NavigationTarget {
         file_id,
@@ -119,7 +82,11 @@ fn try_find_trait_item_definition(
     trait_
         .items(db)
         .iter()
-        .find_map(|itm| (itm.name(db)? == name).then(|| itm.try_to_nav(db)).flatten())
+        .find_map(|itm| {
+            (itm.name(db)? == name)
+                .then(|| itm.try_to_nav(db))
+                .flatten()
+        })
         .map(|it| vec![it])
 }
 
@@ -137,7 +104,11 @@ mod tests {
     #[track_caller]
     fn check(ra_fixture: &str) {
         let (analysis, position, expected) = fixture::annotations(ra_fixture);
-        let navs = analysis.goto_definition(position).unwrap().expect("no definition found").info;
+        let navs = analysis
+            .goto_definition(position)
+            .unwrap()
+            .expect("no definition found")
+            .info;
         if navs.is_empty() {
             panic!("unresolved reference")
         }
@@ -145,7 +116,10 @@ mod tests {
         let cmp = |&FileRange { file_id, range }: &_| (file_id, range.start());
         let navs = navs
             .into_iter()
-            .map(|nav| FileRange { file_id: nav.file_id, range: nav.focus_or_full_range() })
+            .map(|nav| FileRange {
+                file_id: nav.file_id,
+                range: nav.focus_or_full_range(),
+            })
             .sorted_by_key(cmp)
             .collect::<Vec<_>>();
         let expected = expected
@@ -158,9 +132,17 @@ mod tests {
 
     fn check_unresolved(ra_fixture: &str) {
         let (analysis, position) = fixture::position(ra_fixture);
-        let navs = analysis.goto_definition(position).unwrap().expect("no definition found").info;
+        let navs = analysis
+            .goto_definition(position)
+            .unwrap()
+            .expect("no definition found")
+            .info;
 
-        assert!(navs.is_empty(), "didn't expect this to resolve anywhere: {:?}", navs)
+        assert!(
+            navs.is_empty(),
+            "didn't expect this to resolve anywhere: {:?}",
+            navs
+        )
     }
 
     #[test]

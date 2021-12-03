@@ -93,59 +93,7 @@ fn get_chaining_hints(
     config: &InlayHintsConfig,
     expr: &ast::Expr,
 ) -> Option<()> {
-    if !config.chaining_hints {
-        return None;
-    }
-
-    if matches!(expr, ast::Expr::RecordExpr(_)) {
-        return None;
-    }
-
-    let descended = sema.descend_node_into_attributes(expr.clone()).pop();
-    let desc_expr = descended.as_ref().unwrap_or(expr);
-    let krate = sema.scope(desc_expr.syntax()).module().map(|it| it.krate());
-    let famous_defs = FamousDefs(sema, krate);
-
-    let mut tokens = expr
-        .syntax()
-        .siblings_with_tokens(Direction::Next)
-        .filter_map(NodeOrToken::into_token)
-        .filter(|t| match t.kind() {
-            SyntaxKind::WHITESPACE if !t.text().contains('\n') => false,
-            SyntaxKind::COMMENT => false,
-            _ => true,
-        });
-
-    // Chaining can be defined as an expression whose next sibling tokens are newline and dot
-    // Ignoring extra whitespace and comments
-    let next = tokens.next()?.kind();
-    if next == SyntaxKind::WHITESPACE {
-        let mut next_next = tokens.next()?.kind();
-        while next_next == SyntaxKind::WHITESPACE {
-            next_next = tokens.next()?.kind();
-        }
-        if next_next == T![.] {
-            let ty = sema.type_of_expr(desc_expr)?.original;
-            if ty.is_unknown() {
-                return None;
-            }
-            if matches!(expr, ast::Expr::PathExpr(_)) {
-                if let Some(hir::Adt::Struct(st)) = ty.as_adt() {
-                    if st.fields(sema.db).is_empty() {
-                        return None;
-                    }
-                }
-            }
-            acc.push(InlayHint {
-                range: expr.syntax().text_range(),
-                kind: InlayKind::ChainingHint,
-                label: hint_iterator(sema, &famous_defs, config, &ty).unwrap_or_else(|| {
-                    ty.display_truncated(sema.db, config.max_length).to_string().into()
-                }),
-            });
-        }
-    }
-    Some(())
+    todo!()
 }
 
 fn get_param_name_hints(
@@ -194,45 +142,7 @@ fn get_bind_pat_hints(
     config: &InlayHintsConfig,
     pat: &ast::IdentPat,
 ) -> Option<()> {
-    if !config.type_hints {
-        return None;
-    }
-
-    let descended = sema.descend_node_into_attributes(pat.clone()).pop();
-    let desc_pat = descended.as_ref().unwrap_or(pat);
-    let ty = sema.type_of_pat(&desc_pat.clone().into())?.original;
-
-    if should_not_display_type_hint(sema, pat, &ty) {
-        return None;
-    }
-
-    let krate = sema.scope(desc_pat.syntax()).module().map(|it| it.krate());
-    let famous_defs = FamousDefs(sema, krate);
-    let label = hint_iterator(sema, &famous_defs, config, &ty);
-
-    let label = match label {
-        Some(label) => label,
-        None => {
-            let ty_name = ty.display_truncated(sema.db, config.max_length).to_string();
-            if config.hide_named_constructor_hints
-                && is_named_constructor(sema, pat, &ty_name).is_some()
-            {
-                return None;
-            }
-            ty_name.into()
-        }
-    };
-
-    acc.push(InlayHint {
-        range: match pat.name() {
-            Some(name) => name.syntax().text_range(),
-            None => pat.syntax().text_range(),
-        },
-        kind: InlayKind::TypeHint,
-        label,
-    });
-
-    Some(())
+    todo!()
 }
 
 fn is_named_constructor(
@@ -240,55 +150,7 @@ fn is_named_constructor(
     pat: &ast::IdentPat,
     ty_name: &str,
 ) -> Option<()> {
-    let let_node = pat.syntax().parent()?;
-    let expr = match_ast! {
-        match let_node {
-            ast::LetStmt(it) => it.initializer(),
-            ast::Condition(it) => it.expr(),
-            _ => None,
-        }
-    }?;
-
-    let expr = sema.descend_node_into_attributes(expr.clone()).pop().unwrap_or(expr);
-    // unwrap postfix expressions
-    let expr = match expr {
-        ast::Expr::TryExpr(it) => it.expr(),
-        ast::Expr::AwaitExpr(it) => it.expr(),
-        expr => Some(expr),
-    }?;
-    let expr = match expr {
-        ast::Expr::CallExpr(call) => match call.expr()? {
-            ast::Expr::PathExpr(p) => p,
-            _ => return None,
-        },
-        _ => return None,
-    };
-    let path = expr.path()?;
-
-    // Check for tuple-struct or tuple-variant in which case we can check the last segment
-    let callable = sema.type_of_expr(&ast::Expr::PathExpr(expr))?.original.as_callable(sema.db);
-    let callable_kind = callable.map(|it| it.kind());
-    if let Some(hir::CallableKind::TupleStruct(_) | hir::CallableKind::TupleEnumVariant(_)) =
-        callable_kind
-    {
-        if let Some(ctor) = path.segment() {
-            return (ctor.to_string() == ty_name).then(|| ());
-        }
-    }
-
-    // otherwise use the qualifying segment as the constructor name
-    let qual_seg = path.qualifier()?.segment()?;
-    let ctor_name = match qual_seg.kind()? {
-        ast::PathSegmentKind::Name(name_ref) => {
-            match qual_seg.generic_arg_list().map(|it| it.generic_args()) {
-                Some(generics) => format!("{}<{}>", name_ref, generics.format(", ")),
-                None => name_ref.to_string(),
-            }
-        }
-        ast::PathSegmentKind::Type { type_ref: Some(ty), trait_ref: None } => ty.to_string(),
-        _ => return None,
-    };
-    (ctor_name == ty_name).then(|| ())
+    todo!()
 }
 
 /// Checks if the type is an Iterator from std::iter and replaces its hint with an `impl Iterator<Item = Ty>`.
@@ -315,10 +177,13 @@ fn hint_iterator(
     }
 
     if ty.impls_trait(db, iter_trait, &[]) {
-        let assoc_type_item = iter_trait.items(db).into_iter().find_map(|item| match item {
-            hir::AssocItem::TypeAlias(alias) if alias.name(db) == known::Item => Some(alias),
-            _ => None,
-        })?;
+        let assoc_type_item = iter_trait
+            .items(db)
+            .into_iter()
+            .find_map(|item| match item {
+                hir::AssocItem::TypeAlias(alias) if alias.name(db) == known::Item => Some(alias),
+                _ => None,
+            })?;
         if let Some(ty) = ty.normalize_trait_assoc_type(db, &[], assoc_type_item) {
             const LABEL_START: &str = "impl Iterator<Item = ";
             const LABEL_END: &str = ">";
@@ -342,7 +207,7 @@ fn hint_iterator(
 }
 
 fn pat_is_enum_variant(db: &RootDatabase, bind_pat: &ast::IdentPat, pat_ty: &hir::Type) -> bool {
-    if let Some(hir::Adt::Enum(enum_data)) = pat_ty.as_adt() {
+    if let Some(hir::DataType::Enum(enum_data)) = pat_ty.as_adt() {
         let pat_text = bind_pat.to_string();
         enum_data
             .variants(db)
@@ -365,7 +230,7 @@ fn should_not_display_type_hint(
         return true;
     }
 
-    if let Some(hir::Adt::Struct(s)) = pat_ty.as_adt() {
+    if let Some(hir::DataType::Struct(s)) = pat_ty.as_adt() {
         if s.fields(db).is_empty() && s.name(db).to_smol_str() == bind_pat.to_string() {
             return true;
         }
@@ -453,7 +318,11 @@ fn is_argument_similar_to_param_name(argument: &ast::Expr, param_name: &str) -> 
         }
         _ => (),
     }
-    match argument.len().checked_sub(param_name.len()).and_then(|at| str_split_at(argument, at)) {
+    match argument
+        .len()
+        .checked_sub(param_name.len())
+        .and_then(|at| str_split_at(argument, at))
+    {
         Some((rest, suffix)) if param_name.eq_ignore_ascii_case(suffix) => {
             return rest.is_empty() || rest.ends_with('_');
         }
@@ -491,8 +360,11 @@ fn is_enum_name_similar_to_param_name(
     argument: &ast::Expr,
     param_name: &str,
 ) -> bool {
-    match sema.type_of_expr(argument).and_then(|t| t.original.as_adt()) {
-        Some(hir::Adt::Enum(e)) => {
+    match sema
+        .type_of_expr(argument)
+        .and_then(|t| t.original.as_adt())
+    {
+        Some(hir::DataType::Enum(e)) => {
             to_lower_snake_case(&e.name(sema.db).to_smol_str()) == param_name
         }
         _ => false,
@@ -528,19 +400,7 @@ fn get_callable(
     sema: &Semantics<RootDatabase>,
     expr: &ast::Expr,
 ) -> Option<(hir::Callable, ast::ArgList)> {
-    match expr {
-        ast::Expr::CallExpr(expr) => {
-            let descended = sema.descend_node_into_attributes(expr.clone()).pop();
-            let expr = descended.as_ref().unwrap_or(expr);
-            sema.type_of_expr(&expr.expr()?)?.original.as_callable(sema.db).zip(expr.arg_list())
-        }
-        ast::Expr::MethodCallExpr(expr) => {
-            let descended = sema.descend_node_into_attributes(expr.clone()).pop();
-            let expr = descended.as_ref().unwrap_or(expr);
-            sema.resolve_method_call_as_callable(expr).zip(expr.arg_list())
-        }
-        _ => None,
-    }
+    todo!()
 }
 
 #[cfg(test)]
@@ -610,9 +470,15 @@ mod tests {
         let (analysis, file_id) = fixture::file(ra_fixture);
         let expected = extract_annotations(&*analysis.file_text(file_id).unwrap());
         let inlay_hints = analysis.inlay_hints(&config, file_id).unwrap();
-        let actual =
-            inlay_hints.into_iter().map(|it| (it.range, it.label.to_string())).collect::<Vec<_>>();
-        assert_eq!(expected, actual, "\nExpected:\n{:#?}\n\nActual:\n{:#?}", expected, actual);
+        let actual = inlay_hints
+            .into_iter()
+            .map(|it| (it.range, it.label.to_string()))
+            .collect::<Vec<_>>();
+        assert_eq!(
+            expected, actual,
+            "\nExpected:\n{:#?}\n\nActual:\n{:#?}",
+            expected, actual
+        );
     }
 
     #[track_caller]
@@ -1461,7 +1327,10 @@ fn main() {
     #[test]
     fn hint_truncation() {
         check_with_config(
-            InlayHintsConfig { max_length: Some(8), ..TEST_CONFIG },
+            InlayHintsConfig {
+                max_length: Some(8),
+                ..TEST_CONFIG
+            },
             r#"
 struct Smol<T>(T);
 

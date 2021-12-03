@@ -91,70 +91,7 @@ pub(crate) fn hover(
     FileRange { file_id, range }: FileRange,
     config: &HoverConfig,
 ) -> Option<RangeInfo<HoverResult>> {
-    let sema = &hir::Semantics::new(db);
-    let file = sema.parse(file_id).syntax().clone();
-
-    if !range.is_empty() {
-        return hover_ranged(&file, range, sema, config);
-    }
-    let offset = range.start();
-
-    let original_token = pick_best_token(file.token_at_offset(offset), |kind| match kind {
-        IDENT | INT_NUMBER | LIFETIME_IDENT | T![self] | T![super] | T![crate] => 3,
-        T!['('] | T![')'] => 2,
-        kind if kind.is_trivia() => 0,
-        _ => 1,
-    })?;
-
-    if let Some(doc_comment) = token_as_doc_comment(&original_token) {
-        cov_mark::hit!(no_highlight_on_comment_hover);
-        return doc_comment.get_definition_with_descend_at(sema, offset, |def, node, range| {
-            let res = hover_for_definition(sema, file_id, def, &node, config)?;
-            Some(RangeInfo::new(range, res))
-        });
-    }
-
-    let descended = sema.descend_into_macros(original_token.clone());
-
-    // FIXME: Definition should include known lints and the like instead of having this special case here
-    if let Some(res) = descended.iter().find_map(|token| {
-        let attr = token.ancestors().find_map(ast::Attr::cast)?;
-        render::try_for_lint(&attr, token)
-    }) {
-        return Some(RangeInfo::new(original_token.text_range(), res));
-    }
-
-    let result = descended
-        .iter()
-        .filter_map(|token| {
-            let node = token.parent()?;
-            let defs = Definition::from_token(sema, token);
-            Some(defs.into_iter().zip(iter::once(node).cycle()))
-        })
-        .flatten()
-        .unique_by(|&(def, _)| def)
-        .filter_map(|(def, node)| hover_for_definition(sema, file_id, def, &node, config))
-        .reduce(|mut acc: HoverResult, HoverResult { markup, actions }| {
-            acc.actions.extend(actions);
-            acc.markup = Markup::from(format!("{}\n---\n{}", acc.markup, markup));
-            acc
-        });
-
-    if result.is_none() {
-        // fallbacks, show keywords or types
-        if let Some(res) = render::keyword(sema, config, &original_token) {
-            return Some(RangeInfo::new(original_token.text_range(), res));
-        }
-        if let res @ Some(_) =
-            descended.iter().find_map(|token| hover_type_fallback(sema, config, token))
-        {
-            return res;
-        }
-    }
-    result.map(|mut res: HoverResult| {
-        res.actions = dedupe_or_merge_hover_actions(res.actions);
-        RangeInfo::new(original_token.text_range(), res)
-    })
+    todo!()
 }
 
 pub(crate) fn hover_for_definition(
@@ -261,7 +198,7 @@ fn show_implementations_action(db: &RootDatabase, def: Definition) -> Option<Hov
 
     let adt = match def {
         Definition::Trait(it) => return it.try_to_nav(db).map(to_action),
-        Definition::Adt(it) => Some(it),
+        Definition::DataType(it) => Some(it),
         Definition::SelfType(it) => it.self_ty(db).as_adt(),
         _ => None,
     }?;
@@ -310,7 +247,9 @@ fn goto_type_action_for_def(db: &RootDatabase, def: Definition) -> Option<HoverA
     };
 
     if let Definition::GenericParam(hir::GenericParam::TypeParam(it)) = def {
-        it.trait_bounds(db).into_iter().for_each(|it| push_new_def(it.into()));
+        it.trait_bounds(db)
+            .into_iter()
+            .for_each(|it| push_new_def(it.into()));
     } else {
         let ty = match def {
             Definition::Local(it) => it.ty(db),
@@ -378,7 +317,9 @@ fn dedupe_or_merge_hover_actions(actions: Vec<HoverAction>) -> Vec<HoverAction> 
     }
 
     if !go_to_type_targets.is_empty() {
-        deduped_actions.push(HoverAction::GoToType(go_to_type_targets.into_iter().collect()));
+        deduped_actions.push(HoverAction::GoToType(
+            go_to_type_targets.into_iter().collect(),
+        ));
     }
 
     deduped_actions

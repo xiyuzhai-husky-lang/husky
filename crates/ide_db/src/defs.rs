@@ -7,9 +7,9 @@
 
 use arrayvec::ArrayVec;
 use hir::{
-    Adt, AsAssocItem, AssocItem, BuiltinType, Const, Field, Function, GenericParam, HasVisibility,
-    Impl, ItemInNs, Label, Local, MacroDef, Module, ModuleDef, Name, PathResolution, Semantics,
-    Static, Trait, TypeAlias, Variant, Visibility,
+    AsAssocItem, AssocItem, BuiltinType, Const, DataType, EntityResolution, Field, Function,
+    GenericParam, HasVisibility, Impl, ItemInNamespace, Label, Local, Module, ModuleDef, Name,
+    Semantics, Static, Trait, TypeAlias, Variant, Visibility,
 };
 use stdx::impl_from;
 use syntax::{
@@ -22,11 +22,10 @@ use crate::{helpers::try_resolve_derive_input, RootDatabase};
 // FIXME: a more precise name would probably be `Symbol`?
 #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
 pub enum Definition {
-    Macro(MacroDef),
     Field(Field),
     Module(Module),
     Function(Function),
-    Adt(Adt),
+    DataType(DataType),
     Variant(Variant),
     Const(Const),
     Static(Static),
@@ -109,16 +108,16 @@ impl Definition {
     }
 
     pub fn canonical_module_path(&self, db: &RootDatabase) -> Option<impl Iterator<Item = Module>> {
-        self.module(db).map(|it| it.path_to_root(db).into_iter().rev())
+        self.module(db)
+            .map(|it| it.path_to_root(db).into_iter().rev())
     }
 
     pub fn module(&self, db: &RootDatabase) -> Option<Module> {
         let module = match self {
-            Definition::Macro(it) => it.module(db)?,
             Definition::Module(it) => it.parent(db)?,
             Definition::Field(it) => it.parent_def(db).module(db),
             Definition::Function(it) => it.module(db),
-            Definition::Adt(it) => it.module(db),
+            Definition::DataType(it) => it.module(db),
             Definition::Const(it) => it.module(db),
             Definition::Static(it) => it.module(db),
             Definition::Trait(it) => it.module(db),
@@ -138,14 +137,13 @@ impl Definition {
             Definition::Field(sf) => sf.visibility(db),
             Definition::Module(it) => it.visibility(db),
             Definition::Function(it) => it.visibility(db),
-            Definition::Adt(it) => it.visibility(db),
+            Definition::DataType(it) => it.visibility(db),
             Definition::Const(it) => it.visibility(db),
             Definition::Static(it) => it.visibility(db),
             Definition::Trait(it) => it.visibility(db),
             Definition::TypeAlias(it) => it.visibility(db),
             Definition::Variant(it) => it.visibility(db),
             Definition::BuiltinType(_) => Visibility::Public,
-            Definition::Macro(_) => return None,
             Definition::SelfType(_)
             | Definition::Local(_)
             | Definition::GenericParam(_)
@@ -156,11 +154,10 @@ impl Definition {
 
     pub fn name(&self, db: &RootDatabase) -> Option<Name> {
         let name = match self {
-            Definition::Macro(it) => it.name(db)?,
             Definition::Field(it) => it.name(db),
             Definition::Module(it) => it.name(db)?,
             Definition::Function(it) => it.name(db),
-            Definition::Adt(it) => it.name(db),
+            Definition::DataType(it) => it.name(db),
             Definition::Variant(it) => it.name(db),
             Definition::Const(it) => it.name(db)?,
             Definition::Static(it) => it.name(db),
@@ -205,9 +202,10 @@ impl NameClass {
         let res = match self {
             NameClass::Definition(it) => it,
             NameClass::ConstReference(_) => return None,
-            NameClass::PatFieldShorthand { local_def, field_ref: _ } => {
-                Definition::Local(local_def)
-            }
+            NameClass::PatFieldShorthand {
+                local_def,
+                field_ref: _,
+            } => Definition::Local(local_def),
         };
         Some(res)
     }
@@ -287,15 +285,15 @@ impl NameClass {
                 },
                 ast::Struct(it) => {
                     let def: hir::Struct = sema.to_def(&it)?;
-                    Some(NameClass::Definition(Definition::Adt(def.into())))
+                    Some(NameClass::Definition(Definition::DataType(def.into())))
                 },
                 ast::Union(it) => {
                     let def: hir::Union = sema.to_def(&it)?;
-                    Some(NameClass::Definition(Definition::Adt(def.into())))
+                    Some(NameClass::Definition(Definition::DataType(def.into())))
                 },
                 ast::Enum(it) => {
                     let def: hir::Enum = sema.to_def(&it)?;
-                    Some(NameClass::Definition(Definition::Adt(def.into())))
+                    Some(NameClass::Definition(Definition::DataType(def.into())))
                 },
                 ast::Trait(it) => {
                     let def: hir::Trait = sema.to_def(&it)?;
@@ -320,10 +318,6 @@ impl NameClass {
                 ast::TypeAlias(it) => {
                     let def: hir::TypeAlias = sema.to_def(&it)?;
                     Some(NameClass::Definition(Definition::TypeAlias(def)))
-                },
-                ast::Macro(it) => {
-                    let def = sema.to_def(&it)?;
-                    Some(NameClass::Definition(Definition::Macro(def)))
                 },
                 ast::TypeParam(it) => {
                     let def = sema.to_def(&it)?;
@@ -400,9 +394,10 @@ impl NameRefClass {
             if let Some((field, local, _)) = sema.resolve_record_field(&record_field) {
                 let res = match local {
                     None => NameRefClass::Definition(Definition::Field(field)),
-                    Some(local) => {
-                        NameRefClass::FieldShorthand { field_ref: field, local_ref: local }
-                    }
+                    Some(local) => NameRefClass::FieldShorthand {
+                        field_ref: field,
+                        local_ref: local,
+                    },
                 };
                 return Some(res);
             }
@@ -421,7 +416,7 @@ impl NameRefClass {
                 //        ^^^^^
                 let path = name_ref.syntax().ancestors().find_map(ast::Path::cast)?;
                 let resolved = sema.resolve_path(&path)?;
-                if let PathResolution::Def(ModuleDef::Trait(tr)) = resolved {
+                if let EntityResolution::Def(ModuleDef::Trait(tr)) = resolved {
                     // FIXME: resolve in supertraits
                     if let Some(ty) = tr
                         .items(sema.db)
@@ -441,15 +436,6 @@ impl NameRefClass {
         }
 
         if let Some(path) = name_ref.syntax().ancestors().find_map(ast::Path::cast) {
-            if path.qualifier().is_none() {
-                if let Some(macro_call) = path.syntax().parent().and_then(ast::MacroCall::cast) {
-                    // Only use this to resolve single-segment macro calls like `foo!()`. Multi-segment
-                    // paths are handled below (allowing `log$0::info!` to resolve to the log crate).
-                    if let Some(macro_def) = sema.resolve_macro_call(&macro_call) {
-                        return Some(NameRefClass::Definition(Definition::Macro(macro_def)));
-                    }
-                }
-            }
             let top_path = path.top_path();
             let is_attribute_path = top_path
                 .syntax()
@@ -457,14 +443,9 @@ impl NameRefClass {
                 .find_map(ast::Attr::cast)
                 .map(|attr| attr.path().as_ref() == Some(&top_path));
             return match is_attribute_path {
-                Some(true) if path == top_path => sema
-                    .resolve_path_as_macro(&path)
-                    .filter(|mac| mac.kind() == hir::MacroKind::Attr)
-                    .map(Definition::Macro)
-                    .map(NameRefClass::Definition),
                 // in case of the path being a qualifier, don't resolve to anything but a module
                 Some(true) => match sema.resolve_path(&path)? {
-                    PathResolution::Def(ModuleDef::Module(module)) => {
+                    EntityResolution::Def(ModuleDef::Module(module)) => {
                         cov_mark::hit!(name_ref_classify_attr_path_qualifier);
                         Some(NameRefClass::Definition(Definition::Module(module)))
                     }
@@ -472,7 +453,10 @@ impl NameRefClass {
                 },
                 // inside attribute, but our path isn't part of the attribute's path(might be in its expression only)
                 Some(false) => None,
-                None => sema.resolve_path(&path).map(Into::into).map(NameRefClass::Definition),
+                None => sema
+                    .resolve_path(&path)
+                    .map(Into::into)
+                    .map(NameRefClass::Definition),
             };
         }
 
@@ -489,9 +473,10 @@ impl NameRefClass {
         let _p = profile::span("classify_lifetime_ref").detail(|| lifetime.to_string());
         let parent = lifetime.syntax().parent()?;
         match parent.kind() {
-            SyntaxKind::BREAK_EXPR | SyntaxKind::CONTINUE_EXPR => {
-                sema.resolve_label(lifetime).map(Definition::Label).map(NameRefClass::Definition)
-            }
+            SyntaxKind::BREAK_EXPR | SyntaxKind::CONTINUE_EXPR => sema
+                .resolve_label(lifetime)
+                .map(Definition::Label)
+                .map(NameRefClass::Definition),
             SyntaxKind::LIFETIME_ARG
             | SyntaxKind::SELF_PARAM
             | SyntaxKind::TYPE_BOUND
@@ -503,7 +488,9 @@ impl NameRefClass {
                 .map(NameRefClass::Definition),
             // lifetime bounds, as in the 'b in 'a: 'b aren't wrapped in TypeBound nodes so we gotta check
             // if our lifetime is in a LifetimeParam without being the constrained lifetime
-            _ if ast::LifetimeParam::cast(parent).and_then(|param| param.lifetime()).as_ref()
+            _ if ast::LifetimeParam::cast(parent)
+                .and_then(|param| param.lifetime())
+                .as_ref()
                 != Some(lifetime) =>
             {
                 sema.resolve_lifetime_param(lifetime)
@@ -517,7 +504,7 @@ impl NameRefClass {
 }
 
 impl_from!(
-    Field, Module, Function, Adt, Variant, Const, Static, Trait, TypeAlias, BuiltinType, Local,
+    Field, Module, Function, DataType, Variant, Const, Static, Trait, TypeAlias, BuiltinType, Local,
     GenericParam, Label
     for Definition
 );
@@ -549,11 +536,11 @@ impl From<AssocItem> for Definition {
     }
 }
 
-impl From<PathResolution> for Definition {
-    fn from(path_resolution: PathResolution) -> Self {
-        match path_resolution {
-            PathResolution::Def(def) => def.into(),
-            PathResolution::AssocItem(item) => {
+impl From<EntityResolution> for Definition {
+    fn from(entity_resolution: EntityResolution) -> Self {
+        match entity_resolution {
+            EntityResolution::Def(def) => def.into(),
+            EntityResolution::AssocItem(item) => {
                 let def: ModuleDef = match item {
                     hir::AssocItem::Function(it) => it.into(),
                     hir::AssocItem::Const(it) => it.into(),
@@ -561,11 +548,10 @@ impl From<PathResolution> for Definition {
                 };
                 def.into()
             }
-            PathResolution::Local(local) => Definition::Local(local),
-            PathResolution::TypeParam(par) => Definition::GenericParam(par.into()),
-            PathResolution::Macro(def) => Definition::Macro(def),
-            PathResolution::SelfType(impl_def) => Definition::SelfType(impl_def),
-            PathResolution::ConstParam(par) => Definition::GenericParam(par.into()),
+            EntityResolution::Local(local) => Definition::Local(local),
+            EntityResolution::TypeParam(par) => Definition::GenericParam(par.into()),
+            EntityResolution::SelfType(impl_def) => Definition::SelfType(impl_def),
+            EntityResolution::ConstParam(par) => Definition::GenericParam(par.into()),
         }
     }
 }
@@ -575,7 +561,7 @@ impl From<ModuleDef> for Definition {
         match def {
             ModuleDef::Module(it) => Definition::Module(it),
             ModuleDef::Function(it) => Definition::Function(it),
-            ModuleDef::Adt(it) => Definition::Adt(it),
+            ModuleDef::DataType(it) => Definition::DataType(it),
             ModuleDef::Variant(it) => Definition::Variant(it),
             ModuleDef::Const(it) => Definition::Const(it),
             ModuleDef::Static(it) => Definition::Static(it),
@@ -586,12 +572,12 @@ impl From<ModuleDef> for Definition {
     }
 }
 
-impl From<Definition> for Option<ItemInNs> {
+impl From<Definition> for Option<ItemInNamespace> {
     fn from(def: Definition) -> Self {
         let item = match def {
             Definition::Module(it) => ModuleDef::Module(it),
             Definition::Function(it) => ModuleDef::Function(it),
-            Definition::Adt(it) => ModuleDef::Adt(it),
+            Definition::DataType(it) => ModuleDef::DataType(it),
             Definition::Variant(it) => ModuleDef::Variant(it),
             Definition::Const(it) => ModuleDef::Const(it),
             Definition::Static(it) => ModuleDef::Static(it),
@@ -600,6 +586,6 @@ impl From<Definition> for Option<ItemInNs> {
             Definition::BuiltinType(it) => ModuleDef::BuiltinType(it),
             _ => return None,
         };
-        Some(ItemInNs::from(item))
+        Some(ItemInNamespace::from(item))
     }
 }

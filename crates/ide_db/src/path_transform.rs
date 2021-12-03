@@ -105,7 +105,11 @@ impl<'a> PathTransform<'a> {
                 }
             })
             .collect();
-        let res = Ctx { substs: substs_by_param, target_module, source_scope: self.source_scope };
+        let res = Ctx {
+            substs: substs_by_param,
+            target_module,
+            source_scope: self.source_scope,
+        };
         Some(res)
     }
 }
@@ -143,28 +147,34 @@ impl<'a> Ctx<'a> {
         let resolution = self.source_scope.speculative_resolve(&path)?;
 
         match resolution {
-            hir::PathResolution::TypeParam(tp) => {
+            hir::EntityResolution::TypeParam(tp) => {
                 if let Some(subst) = self.substs.get(&tp) {
-                    ted::replace(path.syntax(), subst.clone_subtree().clone_for_update().syntax())
+                    ted::replace(
+                        path.syntax(),
+                        subst.clone_subtree().clone_for_update().syntax(),
+                    )
                 }
             }
-            hir::PathResolution::Def(def) => {
-                let found_path =
-                    self.target_module.find_use_path(self.source_scope.db.upcast(), def)?;
+            hir::EntityResolution::Def(def) => {
+                let found_path = self
+                    .target_module
+                    .find_use_path(self.source_scope.db.upcast(), def)?;
                 let res = mod_path_to_ast(&found_path).clone_for_update();
                 if let Some(args) = path.segment().and_then(|it| it.generic_arg_list()) {
                     if let Some(segment) = res.segment() {
                         let old = segment.get_or_create_generic_arg_list();
-                        ted::replace(old.syntax(), args.clone_subtree().syntax().clone_for_update())
+                        ted::replace(
+                            old.syntax(),
+                            args.clone_subtree().syntax().clone_for_update(),
+                        )
                     }
                 }
                 ted::replace(path.syntax(), res.syntax())
             }
-            hir::PathResolution::Local(_)
-            | hir::PathResolution::ConstParam(_)
-            | hir::PathResolution::SelfType(_)
-            | hir::PathResolution::Macro(_)
-            | hir::PathResolution::AssocItem(_) => (),
+            hir::EntityResolution::Local(_)
+            | hir::EntityResolution::ConstParam(_)
+            | hir::EntityResolution::SelfType(_)
+            | hir::EntityResolution::AssocItem(_) => (),
         }
         Some(())
     }

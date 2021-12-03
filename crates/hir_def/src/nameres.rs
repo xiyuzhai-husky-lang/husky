@@ -71,7 +71,7 @@ use crate::{
     item_scope::{BuiltinShadowMode, ItemScope},
     nameres::{diagnostics::DefDiagnostic, path_resolution::ResolveMode},
     path::ModPath,
-    per_ns::PerNs,
+    per_ns::PerNamespace,
     visibility::Visibility,
     AstId, BlockId, BlockLoc, LocalModuleId, ModuleDefId, ModuleId,
 };
@@ -354,7 +354,7 @@ impl DefMap {
         original_module: LocalModuleId,
         path: &ModPath,
         shadow: BuiltinShadowMode,
-    ) -> (PerNs, Option<usize>) {
+    ) -> (PerNamespace, Option<usize>) {
         let res =
             self.resolve_path_fp_with_macro(db, ResolveMode::Other, original_module, path, shadow);
         (res.resolved_def, res.segment_index)
@@ -366,7 +366,7 @@ impl DefMap {
         original_module: LocalModuleId,
         path: &ModPath,
         shadow: BuiltinShadowMode,
-    ) -> (PerNs, Option<usize>) {
+    ) -> (PerNamespace, Option<usize>) {
         let res = self.resolve_path_fp_with_macro_single(
             db,
             ResolveMode::Other,

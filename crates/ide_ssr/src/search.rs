@@ -74,41 +74,7 @@ impl<'db> MatchFinder<'db> {
         resolved_path: &ResolvedPath,
         file_range: FileRange,
     ) -> Vec<SyntaxNode> {
-        let file = self.sema.parse(file_range.file_id);
-        let depth = resolved_path.depth as usize;
-        let offset = file_range.range.start();
-
-        let mut paths = self
-            .sema
-            .find_nodes_at_offset_with_descend::<ast::Path>(file.syntax(), offset)
-            .peekable();
-
-        if paths.peek().is_some() {
-            paths
-                .filter_map(|path| {
-                    self.sema.ancestors_with_macros(path.syntax().clone()).nth(depth)
-                })
-                .collect::<Vec<_>>()
-        } else {
-            self.sema
-                .find_nodes_at_offset_with_descend::<ast::MethodCallExpr>(file.syntax(), offset)
-                .filter_map(|path| {
-                    // If the pattern contained a path and we found a reference to that path that wasn't
-                    // itself a path, but was a method call, then we need to adjust how far up to try
-                    // matching by how deep the path was within a CallExpr. The structure would have been
-                    // CallExpr, PathExpr, Path - i.e. a depth offset of 2. We don't need to check if the
-                    // path was part of a CallExpr because if it wasn't then all that will happen is we'll
-                    // fail to match, which is the desired behavior.
-                    const PATH_DEPTH_IN_CALL_EXPR: usize = 2;
-                    if depth < PATH_DEPTH_IN_CALL_EXPR {
-                        return None;
-                    }
-                    self.sema
-                        .ancestors_with_macros(path.syntax().clone())
-                        .nth(depth - PATH_DEPTH_IN_CALL_EXPR)
-                })
-                .collect::<Vec<_>>()
-        }
+        todo!()
     }
 
     fn find_usages<'a>(
@@ -121,7 +87,10 @@ impl<'db> MatchFinder<'db> {
         // cache miss. This is a limitation of NLL and is fixed with Polonius. For now we do two
         // lookups in the case of a cache hit.
         if usage_cache.find(&definition).is_none() {
-            let usages = definition.usages(&self.sema).in_scope(self.search_scope()).all();
+            let usages = definition
+                .usages(&self.sema)
+                .in_scope(self.search_scope())
+                .all();
             usage_cache.usages.push((definition, usages));
             return &usage_cache.usages.last().unwrap().1;
         }
@@ -182,23 +151,6 @@ impl<'db> MatchFinder<'db> {
             return;
         }
         self.try_add_match(rule, code, restrict_range, matches_out);
-        // If we've got a macro call, we already tried matching it pre-expansion, which is the only
-        // way to match the whole macro, now try expanding it and matching the expansion.
-        if let Some(macro_call) = ast::MacroCall::cast(code.clone()) {
-            if let Some(expanded) = self.sema.expand(&macro_call) {
-                if let Some(tt) = macro_call.token_tree() {
-                    // When matching within a macro expansion, we only want to allow matches of
-                    // nodes that originated entirely from within the token tree of the macro call.
-                    // i.e. we don't want to match something that came from the macro itself.
-                    self.slow_scan_node(
-                        &expanded,
-                        rule,
-                        &Some(self.sema.original_range(tt.syntax())),
-                        matches_out,
-                    );
-                }
-            }
-        }
         for child in code.children() {
             self.slow_scan_node(&child, rule, restrict_range, matches_out);
         }
@@ -281,7 +233,10 @@ fn pick_path_for_usages(pattern: &ResolvedPattern) -> Option<&ResolvedPath> {
         .resolved_paths
         .iter()
         .filter(|(_, p)| {
-            !matches!(p.resolution, hir::PathResolution::Def(hir::ModuleDef::BuiltinType(_)))
+            !matches!(
+                p.resolution,
+                hir::EntityResolution::Def(hir::ModuleDef::BuiltinType(_))
+            )
         })
         .map(|(node, resolved)| (node.text().len(), resolved))
         .max_by(|(a, _), (b, _)| a.cmp(b))

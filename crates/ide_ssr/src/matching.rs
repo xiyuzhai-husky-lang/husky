@@ -124,7 +124,11 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
         restrict_range: &Option<FileRange>,
         sema: &'sema Semantics<'db, ide_db::RootDatabase>,
     ) -> Result<Match, MatchFailed> {
-        let match_state = Matcher { sema, restrict_range: *restrict_range, rule };
+        let match_state = Matcher {
+            sema,
+            restrict_range: *restrict_range,
+            rule,
+        };
         // First pass at matching, where we check that node types and idents match.
         match_state.attempt_match_node(&mut Phase::First, &rule.pattern.node, code)?;
         match_state.validate_range(&sema.original_range(code))?;
@@ -144,7 +148,9 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
             &rule.pattern.node,
             code,
         )?;
-        the_match.depth = sema.ancestors_with_macros(the_match.matched_node.clone()).count();
+        the_match.depth = sema
+            .ancestors_with_macros(the_match.matched_node.clone())
+            .count();
         if let Some(template) = &rule.template {
             the_match.render_template_paths(template, sema)?;
         }
@@ -363,7 +369,11 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
                     .resolve_path(&code_path)
                     .ok_or_else(|| match_error!("Failed to resolve path `{}`", code.text()))?;
                 if pattern_resolved.resolution != resolution {
-                    fail_match!("Pattern had path `{}` code had `{}`", pattern.text(), code.text());
+                    fail_match!(
+                        "Pattern had path `{}` code had `{}`",
+                        pattern.text(),
+                        code.text()
+                    );
                 }
             }
         } else {
@@ -516,7 +526,10 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
             }
         }
         if let Some(p) = pattern.next() {
-            fail_match!("Reached end of token tree in code, but pattern still has {:?}", p);
+            fail_match!(
+                "Reached end of token tree in code, but pattern still has {:?}",
+                p
+            );
         }
         Ok(())
     }
@@ -571,8 +584,10 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
         } else {
             self.attempt_match_opt(phase, pattern_args.next(), code.receiver())?;
         }
-        let mut code_args =
-            code.arg_list().ok_or_else(|| match_error!("Code method call has no args"))?.args();
+        let mut code_args = code
+            .arg_list()
+            .ok_or_else(|| match_error!("Code method call has no args"))?
+            .args();
         loop {
             match (pattern_args.next(), code_args.next()) {
                 (None, None) => return Ok(()),
@@ -591,7 +606,9 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
         // Check that the first argument is the expected type.
         if let (Some(pattern_type), Some(expr)) = (
             &pattern_ufcs.qualifier_type,
-            &code.arg_list().and_then(|code_args| code_args.args().next()),
+            &code
+                .arg_list()
+                .and_then(|code_args| code_args.args().next()),
         ) {
             self.check_expr_type(pattern_type, expr)?;
         }
@@ -649,7 +666,7 @@ impl Match {
             .module()
             .ok_or_else(|| match_error!("Matched node isn't in a module"))?;
         for (path, resolved_path) in &template.resolved_paths {
-            if let hir::PathResolution::Def(module_def) = resolved_path.resolution {
+            if let hir::EntityResolution::Def(module_def) = resolved_path.resolution {
                 let mod_path = module.find_use_path(sema.db, module_def).ok_or_else(|| {
                     match_error!("Failed to render template path `{}` at match location")
                 })?;
@@ -774,7 +791,9 @@ impl Iterator for PatternIterator {
 
 impl PatternIterator {
     fn new(parent: &SyntaxNode) -> Self {
-        Self { iter: parent.children_with_tokens() }
+        Self {
+            iter: parent.children_with_tokens(),
+        }
     }
 }
 

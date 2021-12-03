@@ -146,7 +146,9 @@ impl<'a> CompletionContext<'a> {
     }
 
     pub(crate) fn previous_token_is(&self, kind: SyntaxKind) -> bool {
-        self.previous_token.as_ref().map_or(false, |tok| tok.kind() == kind)
+        self.previous_token
+            .as_ref()
+            .map_or(false, |tok| tok.kind() == kind)
     }
 
     pub(crate) fn dot_receiver(&self) -> Option<&ast::Expr> {
@@ -168,7 +170,10 @@ impl<'a> CompletionContext<'a> {
     }
 
     pub(crate) fn expects_assoc_item(&self) -> bool {
-        matches!(self.completion_location, Some(ImmediateLocation::Trait | ImmediateLocation::Impl))
+        matches!(
+            self.completion_location,
+            Some(ImmediateLocation::Trait | ImmediateLocation::Impl)
+        )
     }
 
     pub(crate) fn expects_variant(&self) -> bool {
@@ -184,7 +189,10 @@ impl<'a> CompletionContext<'a> {
     }
 
     pub(crate) fn expects_generic_arg(&self) -> bool {
-        matches!(self.completion_location, Some(ImmediateLocation::GenericArgList(_)))
+        matches!(
+            self.completion_location,
+            Some(ImmediateLocation::GenericArgList(_))
+        )
     }
 
     pub(crate) fn has_block_expr_parent(&self) -> bool {
@@ -251,11 +259,23 @@ impl<'a> CompletionContext<'a> {
     }
 
     pub(crate) fn expects_expression(&self) -> bool {
-        matches!(self.path_context, Some(PathCompletionContext { kind: Some(PathKind::Expr), .. }))
+        matches!(
+            self.path_context,
+            Some(PathCompletionContext {
+                kind: Some(PathKind::Expr),
+                ..
+            })
+        )
     }
 
     pub(crate) fn expects_type(&self) -> bool {
-        matches!(self.path_context, Some(PathCompletionContext { kind: Some(PathKind::Type), .. }))
+        matches!(
+            self.path_context,
+            Some(PathCompletionContext {
+                kind: Some(PathKind::Type),
+                ..
+            })
+        )
     }
 
     pub(crate) fn path_call_kind(&self) -> Option<CallKind> {
@@ -263,15 +283,29 @@ impl<'a> CompletionContext<'a> {
     }
 
     pub(crate) fn is_trivial_path(&self) -> bool {
-        matches!(self.path_context, Some(PathCompletionContext { is_trivial_path: true, .. }))
+        matches!(
+            self.path_context,
+            Some(PathCompletionContext {
+                is_trivial_path: true,
+                ..
+            })
+        )
     }
 
     pub(crate) fn is_non_trivial_path(&self) -> bool {
-        matches!(self.path_context, Some(PathCompletionContext { is_trivial_path: false, .. }))
+        matches!(
+            self.path_context,
+            Some(PathCompletionContext {
+                is_trivial_path: false,
+                ..
+            })
+        )
     }
 
     pub(crate) fn path_qual(&self) -> Option<&ast::Path> {
-        self.path_context.as_ref().and_then(|it| it.qualifier.as_ref())
+        self.path_context
+            .as_ref()
+            .and_then(|it| it.qualifier.as_ref())
     }
 
     /// Checks if an item is visible and not `doc(hidden)` at the completion site.
@@ -279,7 +313,11 @@ impl<'a> CompletionContext<'a> {
     where
         I: hir::HasVisibility + hir::HasAttrs + hir::HasCrate + Copy,
     {
-        self.is_visible_impl(&item.visibility(self.db), &item.attrs(self.db), item.krate(self.db))
+        self.is_visible_impl(
+            &item.visibility(self.db),
+            &item.attrs(self.db),
+            item.krate(self.db),
+        )
     }
 
     pub(crate) fn is_scope_def_hidden(&self, scope_def: &ScopeDef) -> bool {
@@ -291,7 +329,7 @@ impl<'a> CompletionContext<'a> {
     }
 
     /// Check if an item is `#[doc(hidden)]`.
-    pub(crate) fn is_item_hidden(&self, item: &hir::ItemInNs) -> bool {
+    pub(crate) fn is_item_hidden(&self, item: &hir::ItemInNamespace) -> bool {
         let attrs = item.attrs(self.db);
         let krate = item.krate(self.db);
         match (attrs, krate) {
@@ -301,7 +339,11 @@ impl<'a> CompletionContext<'a> {
     }
 
     pub(crate) fn is_immediately_after_macro_bang(&self) -> bool {
-        self.token.kind() == BANG && self.token.parent().map_or(false, |it| it.kind() == MACRO_CALL)
+        self.token.kind() == BANG
+            && self
+                .token
+                .parent()
+                .map_or(false, |it| it.kind() == MACRO_CALL)
     }
 
     /// A version of [`SemanticsScope::process_all_names`] that filters out `#[doc(hidden)]` items.
@@ -357,64 +399,7 @@ impl<'a> CompletionContext<'a> {
         position @ FilePosition { file_id, offset }: FilePosition,
         config: &'a CompletionConfig,
     ) -> Option<CompletionContext<'a>> {
-        let _p = profile::span("CompletionContext::new");
-        let sema = Semantics::new(db);
-
-        let original_file = sema.parse(file_id);
-
-        // Insert a fake ident to get a valid parse tree. We will use this file
-        // to determine context, though the original_file will be used for
-        // actual completion.
-        let file_with_fake_ident = {
-            let parse = db.parse(file_id);
-            let edit = Indel::insert(offset, "intellijRulezz".to_string());
-            parse.reparse(&edit).tree()
-        };
-        let fake_ident_token =
-            file_with_fake_ident.syntax().token_at_offset(offset).right_biased().unwrap();
-
-        let original_token = original_file.syntax().token_at_offset(offset).left_biased()?;
-        let token = sema.descend_into_macros_single(original_token.clone());
-        let scope = sema.scope_at_offset(&token, offset);
-        let krate = scope.krate();
-        let mut locals = vec![];
-        scope.process_all_names(&mut |name, scope| {
-            if let ScopeDef::Local(local) = scope {
-                locals.push((name, local));
-            }
-        });
-        let mut ctx = CompletionContext {
-            sema,
-            scope,
-            db,
-            config,
-            position,
-            original_token,
-            token,
-            krate,
-            expected_name: None,
-            expected_type: None,
-            function_def: None,
-            impl_def: None,
-            name_syntax: None,
-            lifetime_ctx: None,
-            pattern_ctx: None,
-            completion_location: None,
-            prev_sibling: None,
-            attribute_under_caret: None,
-            previous_token: None,
-            path_context: None,
-            locals,
-            incomplete_let: false,
-            no_completion_required: false,
-        };
-        ctx.expand_and_fill(
-            original_file.syntax().clone(),
-            file_with_fake_ident.syntax().clone(),
-            offset,
-            fake_ident_token,
-        );
-        Some(ctx)
+        todo!()
     }
 
     /// Do the attribute expansion at the current cursor position for both original file and fake file
@@ -426,77 +411,7 @@ impl<'a> CompletionContext<'a> {
         mut offset: TextSize,
         mut fake_ident_token: SyntaxToken,
     ) {
-        loop {
-            // Expand attributes
-            if let (Some(actual_item), Some(item_with_fake_ident)) = (
-                find_node_at_offset::<ast::Item>(&original_file, offset),
-                find_node_at_offset::<ast::Item>(&speculative_file, offset),
-            ) {
-                match (
-                    self.sema.expand_attr_macro(&actual_item),
-                    self.sema.speculative_expand_attr_macro(
-                        &actual_item,
-                        &item_with_fake_ident,
-                        fake_ident_token.clone(),
-                    ),
-                ) {
-                    (Some(actual_expansion), Some(speculative_expansion)) => {
-                        let new_offset = speculative_expansion.1.text_range().start();
-                        if new_offset > actual_expansion.text_range().end() {
-                            break;
-                        }
-                        original_file = actual_expansion;
-                        speculative_file = speculative_expansion.0;
-                        fake_ident_token = speculative_expansion.1;
-                        offset = new_offset;
-                        continue;
-                    }
-                    (None, None) => (),
-                    _ => break,
-                }
-            }
-
-            // Expand fn-like macro calls
-            if let (Some(actual_macro_call), Some(macro_call_with_fake_ident)) = (
-                find_node_at_offset::<ast::MacroCall>(&original_file, offset),
-                find_node_at_offset::<ast::MacroCall>(&speculative_file, offset),
-            ) {
-                let mac_call_path0 = actual_macro_call.path().as_ref().map(|s| s.syntax().text());
-                let mac_call_path1 =
-                    macro_call_with_fake_ident.path().as_ref().map(|s| s.syntax().text());
-                if mac_call_path0 != mac_call_path1 {
-                    break;
-                }
-                let speculative_args = match macro_call_with_fake_ident.token_tree() {
-                    Some(tt) => tt,
-                    None => break,
-                };
-
-                if let (Some(actual_expansion), Some(speculative_expansion)) = (
-                    self.sema.expand(&actual_macro_call),
-                    self.sema.speculative_expand(
-                        &actual_macro_call,
-                        &speculative_args,
-                        fake_ident_token,
-                    ),
-                ) {
-                    let new_offset = speculative_expansion.1.text_range().start();
-                    if new_offset > actual_expansion.text_range().end() {
-                        break;
-                    }
-                    original_file = actual_expansion;
-                    speculative_file = speculative_expansion.0;
-                    fake_ident_token = speculative_expansion.1;
-                    offset = new_offset;
-                } else {
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
-
-        self.fill(&original_file, speculative_file, offset);
+        todo!()
     }
 
     fn expected_type_and_name(&self) -> (Option<Type>, Option<NameOrNameRef>) {
@@ -625,7 +540,10 @@ impl<'a> CompletionContext<'a> {
         file_with_fake_ident: SyntaxNode,
         offset: TextSize,
     ) {
-        let fake_ident_token = file_with_fake_ident.token_at_offset(offset).right_biased().unwrap();
+        let fake_ident_token = file_with_fake_ident
+            .token_at_offset(offset)
+            .right_biased()
+            .unwrap();
         let syntax_element = NodeOrToken::Token(fake_ident_token);
         self.previous_token = previous_token(syntax_element.clone());
         self.attribute_under_caret = syntax_element.ancestors().find_map(ast::Attr::cast);
@@ -636,8 +554,11 @@ impl<'a> CompletionContext<'a> {
             (fn_is_prev && !inside_impl_trait_block) || for_is_prev2
         };
 
-        self.incomplete_let =
-            syntax_element.ancestors().take(6).find_map(ast::LetStmt::cast).map_or(false, |it| {
+        self.incomplete_let = syntax_element
+            .ancestors()
+            .take(6)
+            .find_map(ast::LetStmt::cast)
+            .map_or(false, |it| {
                 it.syntax().text_range().end() == syntax_element.text_range().end()
             });
 
@@ -745,7 +666,11 @@ impl<'a> CompletionContext<'a> {
                 };
                 (refutability, false)
             });
-        Some(PatternContext { refutability, is_param, has_type_ascription })
+        Some(PatternContext {
+            refutability,
+            is_param,
+            has_type_ascription,
+        })
     }
 
     fn classify_name_ref(
@@ -844,7 +769,10 @@ fn path_or_use_tree_qualifier(path: &ast::Path) -> Option<(ast::Path, bool)> {
         return Some((qual, false));
     }
     let use_tree_list = path.syntax().ancestors().find_map(ast::UseTreeList::cast)?;
-    let use_tree = use_tree_list.syntax().parent().and_then(ast::UseTree::cast)?;
+    let use_tree = use_tree_list
+        .syntax()
+        .parent()
+        .and_then(ast::UseTree::cast)?;
     use_tree.path().zip(Some(true))
 }
 

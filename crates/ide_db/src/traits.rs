@@ -13,11 +13,14 @@ pub fn resolve_target_trait(
     sema: &Semantics<RootDatabase>,
     impl_def: &ast::Impl,
 ) -> Option<hir::Trait> {
-    let ast_path =
-        impl_def.trait_().map(|it| it.syntax().clone()).and_then(ast::PathType::cast)?.path()?;
+    let ast_path = impl_def
+        .trait_()
+        .map(|it| it.syntax().clone())
+        .and_then(ast::PathType::cast)?
+        .path()?;
 
     match sema.resolve_path(&ast_path) {
-        Some(hir::PathResolution::Def(hir::ModuleDef::Trait(def))) => Some(def),
+        Some(hir::EntityResolution::Def(hir::ModuleDef::Trait(def))) => Some(def),
         _ => None,
     }
 }
@@ -53,7 +56,6 @@ pub fn get_missing_assoc_items(
                         impl_fns_consts.insert(n.syntax().to_string());
                     }
                 }
-                ast::AssocItem::MacroCall(_) => (),
             }
         }
     }

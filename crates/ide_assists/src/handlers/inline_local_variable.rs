@@ -1,5 +1,5 @@
 use either::Either;
-use hir::{PathResolution, Semantics};
+use hir::{EntityResolution, Semantics};
 use ide_db::{
     base_db::FileID,
     defs::Definition,
@@ -35,14 +35,18 @@ use crate::{
 pub(crate) fn inline_local_variable(acc: &mut Assists, ctx: &AssistContext) -> Option<()> {
     let file_id = ctx.file_id();
     let range = ctx.selection_trimmed();
-    let InlineData { let_stmt, delete_let, references, target } =
-        if let Some(let_stmt) = ctx.find_node_at_offset::<ast::LetStmt>() {
-            inline_let(&ctx.sema, let_stmt, range, file_id)
-        } else if let Some(path_expr) = ctx.find_node_at_offset::<ast::PathExpr>() {
-            inline_usage(&ctx.sema, path_expr, range, file_id)
-        } else {
-            None
-        }?;
+    let InlineData {
+        let_stmt,
+        delete_let,
+        references,
+        target,
+    } = if let Some(let_stmt) = ctx.find_node_at_offset::<ast::LetStmt>() {
+        inline_let(&ctx.sema, let_stmt, range, file_id)
+    } else if let Some(path_expr) = ctx.find_node_at_offset::<ast::PathExpr>() {
+        inline_usage(&ctx.sema, path_expr, range, file_id)
+    } else {
+        None
+    }?;
     let initializer_expr = let_stmt.initializer()?;
 
     let delete_range = delete_let.then(|| {
@@ -73,10 +77,13 @@ pub(crate) fn inline_local_variable(acc: &mut Assists, ctx: &AssistContext) -> O
                 // FIXME: This feels like a bad heuristic for macros
                 return None;
             }
-            let usage_node =
-                name_ref.syntax().ancestors().find(|it| ast::PathExpr::can_cast(it.kind()));
-            let usage_parent_option =
-                usage_node.and_then(|it| it.parent()).and_then(ast::Expr::cast);
+            let usage_node = name_ref
+                .syntax()
+                .ancestors()
+                .find(|it| ast::PathExpr::can_cast(it.kind()));
+            let usage_parent_option = usage_node
+                .and_then(|it| it.parent())
+                .and_then(ast::Expr::cast);
             let usage_parent = match usage_parent_option {
                 Some(u) => u,
                 None => return Some((range, name_ref, false)),
@@ -130,7 +137,11 @@ pub(crate) fn inline_local_variable(acc: &mut Assists, ctx: &AssistContext) -> O
                 builder.delete(range);
             }
             for (range, name, should_wrap) in wrap_in_parens {
-                let replacement = if should_wrap { &init_in_paren } else { &init_str };
+                let replacement = if should_wrap {
+                    &init_in_paren
+                } else {
+                    &init_str
+                };
                 if ast::RecordExprField::for_field_name(&name).is_some() {
                     cov_mark::hit!(inline_field_shorthand);
                     builder.insert(range.end(), format!(": {}", replacement));
@@ -198,7 +209,7 @@ fn inline_usage(
     }
 
     let local = match sema.resolve_path(&path)? {
-        PathResolution::Local(local) => local,
+        EntityResolution::Local(local) => local,
         _ => return None,
     };
     if local.is_mut(sema.db) {
@@ -218,7 +229,12 @@ fn inline_usage(
     let delete_let = references.len() == 1;
     references.retain(|fref| fref.name.as_name_ref() == Some(&name));
 
-    Some(InlineData { let_stmt, delete_let, target: ast::NameOrNameRef::NameRef(name), references })
+    Some(InlineData {
+        let_stmt,
+        delete_let,
+        target: ast::NameOrNameRef::NameRef(name),
+        references,
+    })
 }
 
 #[cfg(test)]

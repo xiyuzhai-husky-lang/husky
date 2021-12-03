@@ -35,90 +35,11 @@ pub(crate) fn incoming_calls(
     db: &RootDatabase,
     FilePosition { file_id, offset }: FilePosition,
 ) -> Option<Vec<CallItem>> {
-    let sema = &Semantics::new(db);
-
-    let file = sema.parse(file_id);
-    let file = file.syntax();
-    let mut calls = CallLocations::default();
-
-    let references = sema
-        .find_nodes_at_offset_with_descend(file, offset)
-        .filter_map(move |node| match node {
-            ast::NameLike::NameRef(name_ref) => match NameRefClass::classify(sema, &name_ref)? {
-                NameRefClass::Definition(def @ Definition::Function(_)) => Some(def),
-                _ => None,
-            },
-            ast::NameLike::Name(name) => match NameClass::classify(sema, &name)? {
-                NameClass::Definition(def @ Definition::Function(_)) => Some(def),
-                _ => None,
-            },
-            ast::NameLike::Lifetime(_) => None,
-        })
-        .flat_map(|func| func.usages(sema).all());
-
-    for (_, references) in references {
-        let references = references.into_iter().map(|FileReference { name, .. }| name);
-        for name in references {
-            // This target is the containing function
-            let nav = sema.ancestors_with_macros(name.syntax().clone()).find_map(|node| {
-                let def = ast::Fn::cast(node).and_then(|fn_| sema.to_def(&fn_))?;
-                def.try_to_nav(sema.db)
-            });
-            if let Some(nav) = nav {
-                calls.add(nav, sema.original_range(name.syntax()).range);
-            }
-        }
-    }
-
-    Some(calls.into_items())
+    todo!()
 }
 
 pub(crate) fn outgoing_calls(db: &RootDatabase, position: FilePosition) -> Option<Vec<CallItem>> {
-    let sema = Semantics::new(db);
-    let file_id = position.file_id;
-    let file = sema.parse(file_id);
-    let file = file.syntax();
-    let token = pick_best_token(file.token_at_offset(position.offset), |kind| match kind {
-        NAME => 1,
-        _ => 0,
-    })?;
-    let mut calls = CallLocations::default();
-
-    sema.descend_into_macros(token)
-        .into_iter()
-        .filter_map(|it| it.ancestors().nth(1).and_then(ast::Item::cast))
-        .filter_map(|item| match item {
-            ast::Item::Const(c) => c.body().map(|it| it.syntax().descendants()),
-            ast::Item::Fn(f) => f.body().map(|it| it.syntax().descendants()),
-            ast::Item::Static(s) => s.body().map(|it| it.syntax().descendants()),
-            _ => None,
-        })
-        .flatten()
-        .filter_map(ast::CallableExpr::cast)
-        .filter_map(|call_node| {
-            let (nav_target, range) = match call_node {
-                ast::CallableExpr::Call(call) => {
-                    let expr = call.expr()?;
-                    let callable = sema.type_of_expr(&expr)?.original.as_callable(db)?;
-                    match callable.kind() {
-                        hir::CallableKind::Function(it) => {
-                            let range = expr.syntax().text_range();
-                            it.try_to_nav(db).zip(Some(range))
-                        }
-                        _ => None,
-                    }
-                }
-                ast::CallableExpr::MethodCall(expr) => {
-                    let range = expr.name_ref()?.syntax().text_range();
-                    let function = sema.resolve_method_call(&expr)?;
-                    function.try_to_nav(db).zip(Some(range))
-                }
-            }?;
-            Some((nav_target, range))
-        })
-        .for_each(|(nav, range)| calls.add(nav, range));
-
-    Some(calls.into_items())
+    todo!()
 }
 
 #[derive(Default)]
@@ -132,7 +53,10 @@ impl CallLocations {
     }
 
     fn into_items(self) -> Vec<CallItem> {
-        self.funcs.into_iter().map(|(target, ranges)| CallItem { target, ranges }).collect()
+        self.funcs
+            .into_iter()
+            .map(|(target, ranges)| CallItem { target, ranges })
+            .collect()
     }
 }
 
@@ -157,15 +81,25 @@ mod tests {
         let nav = navs.pop().unwrap();
         expected.assert_eq(&nav.debug_render());
 
-        let item_pos =
-            FilePosition { file_id: nav.file_id, offset: nav.focus_or_full_range().start() };
+        let item_pos = FilePosition {
+            file_id: nav.file_id,
+            offset: nav.focus_or_full_range().start(),
+        };
         let incoming_calls = analysis.incoming_calls(item_pos).unwrap().unwrap();
-        expected_incoming
-            .assert_eq(&incoming_calls.into_iter().map(|call| call.debug_render()).join("\n"));
+        expected_incoming.assert_eq(
+            &incoming_calls
+                .into_iter()
+                .map(|call| call.debug_render())
+                .join("\n"),
+        );
 
         let outgoing_calls = analysis.outgoing_calls(item_pos).unwrap().unwrap();
-        expected_outgoing
-            .assert_eq(&outgoing_calls.into_iter().map(|call| call.debug_render()).join("\n"));
+        expected_outgoing.assert_eq(
+            &outgoing_calls
+                .into_iter()
+                .map(|call| call.debug_render())
+                .join("\n"),
+        );
     }
 
     #[test]

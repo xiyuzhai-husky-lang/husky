@@ -54,7 +54,9 @@ pub(crate) fn convert_tuple_struct_to_named_struct(
         .find_node_at_offset::<ast::Struct>()
         .map(Either::Left)
         .or_else(|| ctx.find_node_at_offset::<ast::Variant>().map(Either::Right))?;
-    let field_list = strukt.as_ref().either(|s| s.field_list(), |v| v.field_list())?;
+    let field_list = strukt
+        .as_ref()
+        .either(|s| s.field_list(), |v| v.field_list())?;
     let tuple_fields = match field_list {
         ast::FieldList::TupleFieldList(it) => it,
         ast::FieldList::RecordFieldList(_) => return None,
@@ -63,10 +65,16 @@ pub(crate) fn convert_tuple_struct_to_named_struct(
         Either::Left(s) => Either::Left(ctx.sema.to_def(s)?),
         Either::Right(v) => Either::Right(ctx.sema.to_def(v)?),
     };
-    let target = strukt.as_ref().either(|s| s.syntax(), |v| v.syntax()).text_range();
+    let target = strukt
+        .as_ref()
+        .either(|s| s.syntax(), |v| v.syntax())
+        .text_range();
 
     acc.add(
-        AssistId("convert_tuple_struct_to_named_struct", AssistKind::RefactorRewrite),
+        AssistId(
+            "convert_tuple_struct_to_named_struct",
+            AssistKind::RefactorRewrite,
+        ),
         "Convert to named struct",
         target,
         |edit| {
@@ -108,13 +116,19 @@ fn edit_struct_def(
                 ast::make::tokens::single_newline().text(),
             );
         } else {
-            edit.insert(tuple_fields_text_range.start(), ast::make::tokens::single_space().text());
+            edit.insert(
+                tuple_fields_text_range.start(),
+                ast::make::tokens::single_space().text(),
+            );
         }
         if let Some(t) = strukt.semicolon_token() {
             edit.delete(t.text_range());
         }
     } else {
-        edit.insert(tuple_fields_text_range.start(), ast::make::tokens::single_space().text());
+        edit.insert(
+            tuple_fields_text_range.start(),
+            ast::make::tokens::single_space().text(),
+        );
     }
 
     edit.replace(tuple_fields_text_range, record_fields.to_string());
@@ -127,7 +141,7 @@ fn edit_struct_references(
     names: &[ast::Name],
 ) {
     let strukt_def = match strukt {
-        Either::Left(s) => Definition::Adt(hir::Adt::Struct(s)),
+        Either::Left(s) => Definition::DataType(hir::DataType::Struct(s)),
         Either::Right(v) => Definition::Variant(v),
     };
     let usages = strukt_def.usages(&ctx.sema).include_self_refs().all();
@@ -226,7 +240,10 @@ fn edit_field_references(
 }
 
 fn generate_names(fields: impl Iterator<Item = ast::TupleField>) -> Vec<ast::Name> {
-    fields.enumerate().map(|(i, _)| ast::make::name(&format!("field{}", i + 1))).collect()
+    fields
+        .enumerate()
+        .map(|(i, _)| ast::make::name(&format!("field{}", i + 1)))
+        .collect()
 }
 
 #[cfg(test)]

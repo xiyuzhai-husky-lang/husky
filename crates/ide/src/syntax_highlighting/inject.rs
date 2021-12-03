@@ -26,13 +26,20 @@ pub(super) fn ra_fixture(
     expanded: &ast::String,
 ) -> Option<()> {
     let active_parameter = ActiveParameter::at_token(sema, expanded.syntax().clone())?;
-    if !active_parameter.ident().map_or(false, |name| name.text().starts_with("ra_fixture")) {
+    if !active_parameter
+        .ident()
+        .map_or(false, |name| name.text().starts_with("ra_fixture"))
+    {
         return None;
     }
     let value = literal.value()?;
 
     if let Some(range) = literal.open_quote_text_range() {
-        hl.add(HlRange { range, highlight: HlTag::StringLiteral.into(), binding_hash: None })
+        hl.add(HlRange {
+            range,
+            highlight: HlTag::StringLiteral.into(),
+            binding_hash: None,
+        })
     }
 
     let mut inj = Injector::default();
@@ -51,7 +58,11 @@ pub(super) fn ra_fixture(
 
         if let Some(next) = text.strip_prefix(marker) {
             if let Some(range) = literal.map_range_up(TextRange::at(offset, TextSize::of(marker))) {
-                hl.add(HlRange { range, highlight: HlTag::Keyword.into(), binding_hash: None });
+                hl.add(HlRange {
+                    range,
+                    highlight: HlTag::Keyword.into(),
+                    binding_hash: None,
+                });
             }
 
             text = next;
@@ -73,7 +84,11 @@ pub(super) fn ra_fixture(
     }
 
     if let Some(range) = literal.close_quote_text_range() {
-        hl.add(HlRange { range, highlight: HlTag::StringLiteral.into(), binding_hash: None })
+        hl.add(HlRange {
+            range,
+            highlight: HlTag::StringLiteral.into(),
+            binding_hash: None,
+        })
     }
 
     Some(())
@@ -109,11 +124,18 @@ pub(super) fn doc_comment(
         extract_definitions_from_docs(&docs)
             .into_iter()
             .filter_map(|(range, link, ns)| {
-                doc_mapping.map(range).filter(|mapping| mapping.file_id == node.file_id).and_then(
-                    |InFile { value: mapped_range, .. }| {
-                        Some(mapped_range).zip(resolve_doc_path_for_def(sema.db, def, &link, ns))
-                    },
-                )
+                doc_mapping
+                    .map(range)
+                    .filter(|mapping| mapping.file_id == node.file_id)
+                    .and_then(
+                        |InFile {
+                             value: mapped_range,
+                             ..
+                         }| {
+                            Some(mapped_range)
+                                .zip(resolve_doc_path_for_def(sema.db, def, &link, ns))
+                        },
+                    )
             })
             .for_each(|(range, def)| {
                 hl.add(HlRange {
@@ -128,7 +150,10 @@ pub(super) fn doc_comment(
     }
 
     for attr in attributes.by_key("doc").attrs() {
-        let InFile { file_id, value: src } = attrs_source_map.source_of(attr);
+        let InFile {
+            file_id,
+            value: src,
+        } = attrs_source_map.source_of(attr);
         if file_id != node.file_id {
             continue;
         }
@@ -146,9 +171,11 @@ pub(super) fn doc_comment(
                 let text = string.text();
                 (&text[1..text.len() - 1], text_range, "")
             }
-            Either::Right(comment) => {
-                (comment.text(), comment.syntax().text_range(), comment.prefix())
-            }
+            Either::Right(comment) => (
+                comment.text(),
+                comment.syntax().text_range(),
+                comment.prefix(),
+            ),
         };
 
         let mut pos = TextSize::from(prefix.len() as u32);
@@ -176,7 +203,11 @@ pub(super) fn doc_comment(
             }
 
             // whitespace after comment is ignored
-            if let Some(ws) = line[pos.into()..].chars().next().filter(|c| c.is_whitespace()) {
+            if let Some(ws) = line[pos.into()..]
+                .chars()
+                .next()
+                .filter(|c| c.is_whitespace())
+            {
                 pos += TextSize::of(ws);
             }
             // lines marked with `#` should be ignored in output, we skip the `#` char
@@ -185,7 +216,10 @@ pub(super) fn doc_comment(
             }
 
             new_comments.push(TextRange::at(prev_range_start, pos));
-            inj.add(&line[pos.into()..], TextRange::new(pos, line_len) + prev_range_start);
+            inj.add(
+                &line[pos.into()..],
+                TextRange::new(pos, line_len) + prev_range_start,
+            );
             inj.add_unmapped("\n");
         }
     }
@@ -198,11 +232,20 @@ pub(super) fn doc_comment(
 
     let (analysis, tmp_file_id) = Analysis::from_single_file(inj.text().to_string());
 
-    for HlRange { range, highlight, binding_hash } in
-        analysis.with_db(|db| super::highlight(db, tmp_file_id, None, true)).unwrap()
+    for HlRange {
+        range,
+        highlight,
+        binding_hash,
+    } in analysis
+        .with_db(|db| super::highlight(db, tmp_file_id, None, true))
+        .unwrap()
     {
         for range in inj.map_range_up(range) {
-            hl.add(HlRange { range, highlight: highlight | HlMod::Injected, binding_hash });
+            hl.add(HlRange {
+                range,
+                highlight: highlight | HlMod::Injected,
+                binding_hash,
+            });
         }
     }
 
@@ -233,7 +276,10 @@ fn find_doc_string_in_attr(attr: &hir::Attr, it: &ast::Attr) -> Option<ast::Stri
                 .filter_map(NodeOrToken::into_token)
                 .filter_map(ast::String::cast)
                 .find(|string| {
-                    string.text().get(1..string.text().len() - 1).map_or(false, |it| it == text)
+                    string
+                        .text()
+                        .get(1..string.text().len() - 1)
+                        .map_or(false, |it| it == text)
                 })
         }
         _ => None,
@@ -244,16 +290,15 @@ fn module_def_to_hl_tag(def: Definition) -> HlTag {
     let symbol = match def {
         Definition::Module(_) => SymbolKind::Module,
         Definition::Function(_) => SymbolKind::Function,
-        Definition::Adt(hir::Adt::Struct(_)) => SymbolKind::Struct,
-        Definition::Adt(hir::Adt::Enum(_)) => SymbolKind::Enum,
-        Definition::Adt(hir::Adt::Union(_)) => SymbolKind::Union,
+        Definition::DataType(hir::DataType::Struct(_)) => SymbolKind::Struct,
+        Definition::DataType(hir::DataType::Enum(_)) => SymbolKind::Enum,
+        Definition::DataType(hir::DataType::Union(_)) => SymbolKind::Union,
         Definition::Variant(_) => SymbolKind::Variant,
         Definition::Const(_) => SymbolKind::Const,
         Definition::Static(_) => SymbolKind::Static,
         Definition::Trait(_) => SymbolKind::Trait,
         Definition::TypeAlias(_) => SymbolKind::TypeAlias,
         Definition::BuiltinType(_) => return HlTag::BuiltinType,
-        Definition::Macro(_) => SymbolKind::Macro,
         Definition::Field(_) => SymbolKind::Field,
         Definition::SelfType(_) => SymbolKind::Impl,
         Definition::Local(_) => SymbolKind::Local,

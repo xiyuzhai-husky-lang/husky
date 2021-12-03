@@ -81,8 +81,8 @@ pub(crate) fn annotations(
                     .source(db)
                     .and_then(|node| name_range(&node, file_id))
             }
-            Definition::Adt(adt) => match adt {
-                hir::Adt::Enum(enum_) => {
+            Definition::DataType(adt) => match adt {
+                hir::DataType::Enum(enum_) => {
                     if config.annotate_enum_variant_references {
                         enum_
                             .variants(db)

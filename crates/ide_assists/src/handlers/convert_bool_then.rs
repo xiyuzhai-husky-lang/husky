@@ -41,7 +41,11 @@ use crate::{
 pub(crate) fn convert_if_to_bool_then(acc: &mut Assists, ctx: &AssistContext) -> Option<()> {
     // FIXME applies to match as well
     let expr = ctx.find_node_at_offset::<ast::IfExpr>()?;
-    if !expr.if_token()?.text_range().contains_inclusive(ctx.offset()) {
+    if !expr
+        .if_token()?
+        .text_range()
+        .contains_inclusive(ctx.offset())
+    {
         return None;
     }
 
@@ -95,7 +99,9 @@ pub(crate) fn convert_if_to_bool_then(acc: &mut Assists, ctx: &AssistContext) ->
                     }
                 }
             });
-            replacements.into_iter().for_each(|(old, new)| ted::replace(old, new));
+            replacements
+                .into_iter()
+                .for_each(|(old, new)| ted::replace(old, new));
             let closure_body = match closure_body {
                 ast::Expr::BlockExpr(block) => unwrap_trivial_block(block),
                 e => e,
@@ -113,7 +119,6 @@ pub(crate) fn convert_if_to_bool_then(acc: &mut Assists, ctx: &AssistContext) ->
                     | ast::Expr::ForExpr(_)
                     | ast::Expr::IfExpr(_)
                     | ast::Expr::LoopExpr(_)
-                    | ast::Expr::MacroCall(_)
                     | ast::Expr::MatchExpr(_)
                     | ast::Expr::PrefixExpr(_)
                     | ast::Expr::RangeExpr(_)
@@ -122,8 +127,16 @@ pub(crate) fn convert_if_to_bool_then(acc: &mut Assists, ctx: &AssistContext) ->
                     | ast::Expr::WhileExpr(_)
                     | ast::Expr::YieldExpr(_)
             );
-            let cond = if invert_cond { invert_boolean_expression(cond) } else { cond };
-            let cond = if parenthesize { make::expr_paren(cond) } else { cond };
+            let cond = if invert_cond {
+                invert_boolean_expression(cond)
+            } else {
+                cond
+            };
+            let cond = if parenthesize {
+                make::expr_paren(cond)
+            } else {
+                cond
+            };
             let arg_list = make::arg_list(Some(make::expr_closure(None, closure_body)));
             let mcall = make::expr_method_call(cond, make::name_ref("then"), arg_list);
             builder.replace(target, mcall.to_string());
@@ -153,7 +166,10 @@ pub(crate) fn convert_if_to_bool_then(acc: &mut Assists, ctx: &AssistContext) ->
 // ```
 pub(crate) fn convert_bool_then_to_if(acc: &mut Assists, ctx: &AssistContext) -> Option<()> {
     let name_ref = ctx.find_node_at_offset::<ast::NameRef>()?;
-    let mcall = name_ref.syntax().parent().and_then(ast::MethodCallExpr::cast)?;
+    let mcall = name_ref
+        .syntax()
+        .parent()
+        .and_then(ast::MethodCallExpr::cast)?;
     let receiver = mcall.receiver()?;
     let closure_body = mcall.arg_list()?.args().exactly_one().ok()?;
     let closure_body = match closure_body {
@@ -202,7 +218,9 @@ pub(crate) fn convert_bool_then_to_if(acc: &mut Assists, ctx: &AssistContext) ->
                     ));
                 }
             });
-            replacements.into_iter().for_each(|(old, new)| ted::replace(old, new));
+            replacements
+                .into_iter()
+                .for_each(|(old, new)| ted::replace(old, new));
 
             let cond = match &receiver {
                 ast::Expr::ParenExpr(expr) => expr.expr().unwrap_or(receiver),
@@ -211,7 +229,10 @@ pub(crate) fn convert_bool_then_to_if(acc: &mut Assists, ctx: &AssistContext) ->
             let if_expr = make::expr_if(
                 make::condition(cond, None),
                 closure_body.reset_indent(),
-                Some(ast::ElseBranch::Block(make::block_expr(None, Some(none_path)))),
+                Some(ast::ElseBranch::Block(make::block_expr(
+                    None,
+                    Some(none_path),
+                ))),
             )
             .indent(mcall.indent_level());
 
@@ -245,8 +266,10 @@ fn is_invalid_body(
 ) -> bool {
     let mut invalid = false;
     preorder_expr(expr, &mut |e| {
-        invalid |=
-            matches!(e, syntax::WalkEvent::Enter(ast::Expr::TryExpr(_) | ast::Expr::ReturnExpr(_)));
+        invalid |= matches!(
+            e,
+            syntax::WalkEvent::Enter(ast::Expr::TryExpr(_) | ast::Expr::ReturnExpr(_))
+        );
         invalid
     });
     if !invalid {
@@ -262,7 +285,7 @@ fn is_invalid_body(
             if let Some(ast::Expr::CallExpr(call)) = e {
                 if let Some(ast::Expr::PathExpr(p)) = call.expr() {
                     let res = p.path().and_then(|p| sema.resolve_path(&p));
-                    if let Some(hir::PathResolution::Def(hir::ModuleDef::Variant(v))) = res {
+                    if let Some(hir::EntityResolution::Def(hir::ModuleDef::Variant(v))) = res {
                         return invalid |= v != some_variant;
                     }
                 }
@@ -280,7 +303,7 @@ fn block_is_none_variant(
 ) -> bool {
     block_as_lone_tail(block).and_then(|e| match e {
         ast::Expr::PathExpr(pat) => match sema.resolve_path(&pat.path()?)? {
-            hir::PathResolution::Def(hir::ModuleDef::Variant(v)) => Some(v),
+            hir::EntityResolution::Def(hir::ModuleDef::Variant(v)) => Some(v),
             _ => None,
         },
         _ => None,

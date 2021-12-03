@@ -111,16 +111,20 @@ impl QualifyCandidate<'_> {
         &self,
         mut replacer: impl FnMut(String),
         import: &hir::ModPath,
-        item: hir::ItemInNs,
+        item: hir::ItemInNamespace,
     ) {
         let import = mod_path_to_ast(import);
         match self {
             QualifyCandidate::QualifierStart(segment, generics) => {
-                let generics = generics.as_ref().map_or_else(String::new, ToString::to_string);
+                let generics = generics
+                    .as_ref()
+                    .map_or_else(String::new, ToString::to_string);
                 replacer(format!("{}{}::{}", import, generics, segment));
             }
             QualifyCandidate::UnqualifiedName(generics) => {
-                let generics = generics.as_ref().map_or_else(String::new, ToString::to_string);
+                let generics = generics
+                    .as_ref()
+                    .map_or_else(String::new, ToString::to_string);
                 replacer(format!("{}{}", import.to_string(), generics));
             }
             QualifyCandidate::TraitAssocItem(qualifier, segment) => {
@@ -144,8 +148,10 @@ impl QualifyCandidate<'_> {
     ) -> Option<()> {
         let receiver = mcall_expr.receiver()?;
         let method_name = mcall_expr.name_ref()?;
-        let generics =
-            mcall_expr.generic_arg_list().as_ref().map_or_else(String::new, ToString::to_string);
+        let generics = mcall_expr
+            .generic_arg_list()
+            .as_ref()
+            .map_or_else(String::new, ToString::to_string);
         let arg_list = mcall_expr.arg_list().map(|arg_list| arg_list.args());
 
         if let Some(self_access) = hir_fn.self_param(db).map(|sp| sp.access(db)) {
@@ -173,7 +179,7 @@ impl QualifyCandidate<'_> {
         mcall_expr: &ast::MethodCallExpr,
         replacer: impl FnMut(String),
         import: ast::Path,
-        item: hir::ItemInNs,
+        item: hir::ItemInNamespace,
     ) -> Option<()> {
         let trait_method_name = mcall_expr.name_ref()?;
         let trait_ = item_as_trait(db, item)?;
@@ -200,7 +206,7 @@ fn find_trait_method(
     }
 }
 
-fn item_as_trait(db: &RootDatabase, item: hir::ItemInNs) -> Option<hir::Trait> {
+fn item_as_trait(db: &RootDatabase, item: hir::ItemInNamespace) -> Option<hir::Trait> {
     let item_module_def = item.as_module_def()?;
 
     match item_module_def {

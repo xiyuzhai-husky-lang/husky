@@ -15,7 +15,7 @@ use hir_ty::{
 use syntax::ast::{self, HasName};
 
 use crate::{
-    Adt, Const, ConstParam, Enum, Field, Function, GenericParam, HasCrate, HasVisibility,
+    Const, ConstParam, DataType, Enum, Field, Function, GenericParam, HasCrate, HasVisibility,
     LifetimeParam, Module, Static, Struct, Trait, TyBuilder, Type, TypeAlias, TypeParam, Union,
     Variant,
 };
@@ -96,13 +96,17 @@ impl HirDisplay for Function {
         } else {
             match &*data.ret_type {
                 TypeRef::ImplTrait(bounds) => match bounds[0].as_ref() {
-                    TypeBound::Path(path, _) => {
-                        path.segments().iter().last().unwrap().args_and_bindings.unwrap().bindings
-                            [0]
+                    TypeBound::Path(path, _) => path
+                        .segments()
+                        .iter()
+                        .last()
+                        .unwrap()
+                        .args_and_bindings
+                        .unwrap()
+                        .bindings[0]
                         .type_ref
                         .as_ref()
-                        .unwrap()
-                    }
+                        .unwrap(),
                     _ => panic!("Async fn ret_type should be impl Future"),
                 },
                 _ => panic!("Async fn ret_type should be impl Future"),
@@ -123,12 +127,12 @@ impl HirDisplay for Function {
     }
 }
 
-impl HirDisplay for Adt {
+impl HirDisplay for DataType {
     fn hir_fmt(&self, f: &mut HirFormatter) -> Result<(), HirDisplayError> {
         match self {
-            Adt::Struct(it) => it.hir_fmt(f),
-            Adt::Union(it) => it.hir_fmt(f),
-            Adt::Enum(it) => it.hir_fmt(f),
+            DataType::Struct(it) => it.hir_fmt(f),
+            DataType::Union(it) => it.hir_fmt(f),
+            DataType::Enum(it) => it.hir_fmt(f),
         }
     }
 }
@@ -243,15 +247,21 @@ impl HirDisplay for TypeParam {
 
         let bounds = f.db.generic_predicates_for_param(self.id, None);
         let substs = TyBuilder::type_params_subst(f.db, self.id.parent);
-        let predicates: Vec<_> =
-            bounds.iter().cloned().map(|b| b.substitute(&Interner, &substs)).collect();
+        let predicates: Vec<_> = bounds
+            .iter()
+            .cloned()
+            .map(|b| b.substitute(&Interner, &substs))
+            .collect();
         let krate = self.id.parent.krate(f.db).id;
         let sized_trait =
-            f.db.lang_item(krate, "sized".into()).and_then(|lang_item| lang_item.as_trait());
-        let has_only_sized_bound = predicates.iter().all(move |pred| match pred.skip_binders() {
-            WhereClause::Implemented(it) => Some(it.hir_trait_id()) == sized_trait,
-            _ => false,
-        });
+            f.db.lang_item(krate, "sized".into())
+                .and_then(|lang_item| lang_item.as_trait());
+        let has_only_sized_bound = predicates
+            .iter()
+            .all(move |pred| match pred.skip_binders() {
+                WhereClause::Implemented(it) => Some(it.hir_trait_id()) == sized_trait,
+                _ => false,
+            });
         let has_only_not_sized_bound = predicates.is_empty();
         if !has_only_sized_bound || has_only_not_sized_bound {
             let default_sized = SizedByDefault::Sized { anchor: krate };
@@ -354,8 +364,11 @@ fn write_where_clause(def: GenericDefId, f: &mut HirFormatter) -> Result<(), Hir
     write!(f, "\nwhere")?;
 
     for (pred_idx, pred) in params.where_predicates.iter().enumerate() {
-        let prev_pred =
-            if pred_idx == 0 { None } else { Some(&params.where_predicates[pred_idx - 1]) };
+        let prev_pred = if pred_idx == 0 {
+            None
+        } else {
+            Some(&params.where_predicates[pred_idx - 1])
+        };
 
         let new_predicate = |f: &mut HirFormatter| {
             write!(f, "{}", if pred_idx == 0 { "\n    " } else { ",\n    " })
@@ -383,7 +396,11 @@ fn write_where_clause(def: GenericDefId, f: &mut HirFormatter) -> Result<(), Hir
                     write!(f, "{}: {}", target.name, bound.name)?;
                 }
             }
-            WherePredicate::ForLifetime { lifetimes, target, bound } => {
+            WherePredicate::ForLifetime {
+                lifetimes,
+                target,
+                bound,
+            } => {
                 if matches!(
                     prev_pred,
                     Some(WherePredicate::ForLifetime { lifetimes: lifetimes_, target: target_, .. })

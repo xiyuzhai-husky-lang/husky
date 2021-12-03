@@ -1,9 +1,9 @@
+mod comm;
 mod flychecker;
+mod fs_keeper;
 pub(crate) mod handle;
 pub(crate) mod live_docs;
-mod server_fs_keeper;
-mod server_sender;
-mod server_taskpool;
+mod taskpool;
 
 use std::{collections::HashMap, sync::Arc, time::Instant};
 
@@ -15,27 +15,30 @@ use parking_lot::{Mutex, RwLock};
 use rustc_hash::FxHashMap;
 
 use crate::{
-    config::ServerConfig, line_index::LineEndings, op_queue::OpnQueue, reload,
+    config::ServerConfig, diagnostics, lsp_ext, op_queue::OpnQueue, reload,
     server_snapshot::ServerSnapshot, task::Task, taskpool::TaskPool,
 };
 
+use comm::Communicator;
 use flychecker::FlyChecker;
+use fs_keeper::ServerFileSystemKeeper;
 use handle::Handle;
-use live_docs::MemDocs;
-use server_fs_keeper::ServerFileSystemKeeper;
-use server_sender::ServerSender;
-use server_taskpool::ServerTaskPool;
+use live_docs::LiveDocs;
+use taskpool::ServerTaskPool;
 
 pub(crate) struct Server {
-    pub(crate) sender: ServerSender,
+    pub(crate) comm: Communicator,
     pub(crate) config: Arc<ServerConfig>,
     pub(crate) analysis_host: AnalysisHost,
+    pub(crate) diagnostics: diagnostics::DiagnosticCollection,
     pub(crate) taskpool: ServerTaskPool,
     pub(crate) vfs: ServerFileSystemKeeper,
     pub(crate) flychecker: FlyChecker,
-    pub(crate) live_docs: MemDocs,
+    pub(crate) live_docs: LiveDocs,
     pub(crate) prime_caches_queue: OpnQueue<()>,
     pub(crate) semantic_tokens_cache: Arc<Mutex<FxHashMap<Url, SemanticTokens>>>,
+    pub(crate) last_reported_status: Option<lsp_ext::ServerStatusParams>,
+    pub(crate) shutdown_requested: bool,
 }
 
 impl Server {
@@ -43,14 +46,17 @@ impl Server {
         let analysis_host = AnalysisHost::new(config.lru_capacity());
         Server {
             config: Arc::new(config),
-            sender: ServerSender::new(sender),
+            comm: Communicator::new(sender),
             taskpool: ServerTaskPool::new(),
             vfs: ServerFileSystemKeeper::new(),
             flychecker: FlyChecker::new(),
-            live_docs: MemDocs::default(),
+            live_docs: LiveDocs::default(),
             analysis_host,
+            diagnostics: diagnostics::DiagnosticCollection::default(),
             prime_caches_queue: OpnQueue::<()>::default(),
             semantic_tokens_cache: Arc::new(Default::default()),
+            last_reported_status: None,
+            shutdown_requested: false,
         }
     }
 

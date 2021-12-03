@@ -10,8 +10,8 @@ use hir_expand::InFile;
 use syntax::ast;
 
 use crate::{
-    db::HirDatabase, Adt, Const, ConstParam, Enum, Field, FieldSource, Function, Impl,
-    LifetimeParam, MacroDef, Module, Static, Struct, Trait, TypeAlias, TypeParam, Union, Variant,
+    db::HirDatabase, Const, ConstParam, DataType, Enum, Field, FieldSource, Function, Impl,
+    LifetimeParam, Module, Static, Struct, Trait, TypeAlias, TypeParam, Union, Variant,
 };
 
 pub trait HasSource {
@@ -56,13 +56,13 @@ impl HasSource for Field {
         Some(field_source)
     }
 }
-impl HasSource for Adt {
+impl HasSource for DataType {
     type Ast = ast::Adt;
     fn source(self, db: &dyn HirDatabase) -> Option<InFile<Self::Ast>> {
         match self {
-            Adt::Struct(s) => Some(s.source(db)?.map(ast::Adt::Struct)),
-            Adt::Union(u) => Some(u.source(db)?.map(ast::Adt::Union)),
-            Adt::Enum(e) => Some(e.source(db)?.map(ast::Adt::Enum)),
+            DataType::Struct(s) => Some(s.source(db)?.map(ast::Adt::Struct)),
+            DataType::Union(u) => Some(u.source(db)?.map(ast::Adt::Union)),
+            DataType::Enum(e) => Some(e.source(db)?.map(ast::Adt::Enum)),
         }
     }
 }
@@ -87,7 +87,12 @@ impl HasSource for Enum {
 impl HasSource for Variant {
     type Ast = ast::Variant;
     fn source(self, db: &dyn HirDatabase) -> Option<InFile<ast::Variant>> {
-        Some(self.parent.id.child_source(db.upcast()).map(|map| map[self.id].clone()))
+        Some(
+            self.parent
+                .id
+                .child_source(db.upcast())
+                .map(|map| map[self.id].clone()),
+        )
     }
 }
 impl HasSource for Function {
@@ -118,15 +123,6 @@ impl HasSource for TypeAlias {
     type Ast = ast::TypeAlias;
     fn source(self, db: &dyn HirDatabase) -> Option<InFile<Self::Ast>> {
         Some(self.id.lookup(db.upcast()).source(db.upcast()))
-    }
-}
-impl HasSource for MacroDef {
-    type Ast = Either<ast::Macro, ast::Fn>;
-    fn source(self, db: &dyn HirDatabase) -> Option<InFile<Self::Ast>> {
-        Some(self.id.ast_id().either(
-            |id| id.with_value(Either::Left(id.to_node(db.upcast()))),
-            |id| id.with_value(Either::Right(id.to_node(db.upcast()))),
-        ))
     }
 }
 impl HasSource for Impl {

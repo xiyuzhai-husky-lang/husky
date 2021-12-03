@@ -81,20 +81,13 @@ impl Definition {
     /// renamed.
     pub fn range_for_rename(self, sema: &Semantics<RootDatabase>) -> Option<FileRange> {
         let res = match self {
-            Definition::Macro(mac) => {
-                let src = mac.source(sema.db)?;
-                let name = match &src.value {
-                    Either::Left(it) => it.name()?,
-                    Either::Right(it) => it.name()?,
-                };
-                src.with_value(name.syntax()).original_file_range_opt(sema.db)
-            }
             Definition::Field(field) => {
                 let src = field.source(sema.db)?;
                 match &src.value {
                     FieldSource::Named(record_field) => {
                         let name = record_field.name()?;
-                        src.with_value(name.syntax()).original_file_range_opt(sema.db)
+                        src.with_value(name.syntax())
+                            .original_file_range_opt(sema.db)
                     }
                     FieldSource::Pos(_) => None,
                 }
@@ -102,13 +95,14 @@ impl Definition {
             Definition::Module(module) => {
                 let src = module.declaration_source(sema.db)?;
                 let name = src.value.name()?;
-                src.with_value(name.syntax()).original_file_range_opt(sema.db)
+                src.with_value(name.syntax())
+                    .original_file_range_opt(sema.db)
             }
             Definition::Function(it) => name_range(it, sema),
-            Definition::Adt(adt) => match adt {
-                hir::Adt::Struct(it) => name_range(it, sema),
-                hir::Adt::Union(it) => name_range(it, sema),
-                hir::Adt::Enum(it) => name_range(it, sema),
+            Definition::DataType(adt) => match adt {
+                hir::DataType::Struct(it) => name_range(it, sema),
+                hir::DataType::Union(it) => name_range(it, sema),
+                hir::DataType::Enum(it) => name_range(it, sema),
             },
             Definition::Variant(it) => name_range(it, sema),
             Definition::Const(it) => name_range(it, sema),
@@ -123,7 +117,8 @@ impl Definition {
                     Either::Left(bind_pat) => bind_pat.name()?,
                     Either::Right(_) => return None,
                 };
-                src.with_value(name.syntax()).original_file_range_opt(sema.db)
+                src.with_value(name.syntax())
+                    .original_file_range_opt(sema.db)
             }
             Definition::GenericParam(generic_param) => match generic_param {
                 hir::GenericParam::TypeParam(type_param) => {
@@ -132,19 +127,22 @@ impl Definition {
                         Either::Left(type_param) => type_param.name()?,
                         Either::Right(_trait) => return None,
                     };
-                    src.with_value(name.syntax()).original_file_range_opt(sema.db)
+                    src.with_value(name.syntax())
+                        .original_file_range_opt(sema.db)
                 }
                 hir::GenericParam::LifetimeParam(lifetime_param) => {
                     let src = lifetime_param.source(sema.db)?;
                     let lifetime = src.value.lifetime()?;
-                    src.with_value(lifetime.syntax()).original_file_range_opt(sema.db)
+                    src.with_value(lifetime.syntax())
+                        .original_file_range_opt(sema.db)
                 }
                 hir::GenericParam::ConstParam(it) => name_range(it, sema),
             },
             Definition::Label(label) => {
                 let src = label.source(sema.db);
                 let lifetime = src.value.lifetime()?;
-                src.with_value(lifetime.syntax()).original_file_range_opt(sema.db)
+                src.with_value(lifetime.syntax())
+                    .original_file_range_opt(sema.db)
             }
         };
         return res;
@@ -156,7 +154,8 @@ impl Definition {
         {
             let src = def.source(sema.db)?;
             let name = src.value.name()?;
-            src.with_value(name.syntax()).original_file_range_opt(sema.db)
+            src.with_value(name.syntax())
+                .original_file_range_opt(sema.db)
         }
     }
 }
@@ -172,7 +171,10 @@ fn rename_mod(
 
     let mut source_change = SourceChange::default();
 
-    let InFile { file_id, value: def_source } = module.definition_source(sema.db);
+    let InFile {
+        file_id,
+        value: def_source,
+    } = module.definition_source(sema.db);
     let file_id = file_id.original_file(sema.db);
     if let ModuleSource::SourceFile(..) = def_source {
         // mod is defined in path/to/dir/mod.rs
@@ -181,12 +183,19 @@ fn rename_mod(
         } else {
             format!("{}.rs", new_name)
         };
-        let dst = AnchoredPathBuf { anchor: file_id, path };
+        let dst = AnchoredPathBuf {
+            anchor: file_id,
+            path,
+        };
         let move_file = FileSystemEdit::MoveFile { src: file_id, dst };
         source_change.push_file_system_edit(move_file);
     }
 
-    if let Some(InFile { file_id, value: decl_source }) = module.declaration_source(sema.db) {
+    if let Some(InFile {
+        file_id,
+        value: decl_source,
+    }) = module.declaration_source(sema.db)
+    {
         let file_id = file_id.original_file(sema.db);
         match decl_source.name() {
             Some(name) => source_change.insert_source_edit(
@@ -199,7 +208,10 @@ fn rename_mod(
     let def = Definition::Module(module);
     let usages = def.usages(sema).all();
     let ref_edits = usages.iter().map(|(&file_id, references)| {
-        (file_id, source_edit_from_references(references, def, new_name))
+        (
+            file_id,
+            source_edit_from_references(references, def, new_name),
+        )
     });
     source_change.extend(ref_edits);
 
@@ -247,25 +259,28 @@ fn rename_reference(
         Some(assoc) => assoc
             .containing_trait_impl(sema.db)
             .and_then(|trait_| {
-                trait_.items(sema.db).into_iter().find_map(|it| match (it, assoc) {
-                    (hir::AssocItem::Function(trait_func), hir::AssocItem::Function(func))
-                        if trait_func.name(sema.db) == func.name(sema.db) =>
-                    {
-                        Some(Definition::Function(trait_func))
-                    }
-                    (hir::AssocItem::Const(trait_konst), hir::AssocItem::Const(konst))
-                        if trait_konst.name(sema.db) == konst.name(sema.db) =>
-                    {
-                        Some(Definition::Const(trait_konst))
-                    }
-                    (
-                        hir::AssocItem::TypeAlias(trait_type_alias),
-                        hir::AssocItem::TypeAlias(type_alias),
-                    ) if trait_type_alias.name(sema.db) == type_alias.name(sema.db) => {
-                        Some(Definition::TypeAlias(trait_type_alias))
-                    }
-                    _ => None,
-                })
+                trait_
+                    .items(sema.db)
+                    .into_iter()
+                    .find_map(|it| match (it, assoc) {
+                        (hir::AssocItem::Function(trait_func), hir::AssocItem::Function(func))
+                            if trait_func.name(sema.db) == func.name(sema.db) =>
+                        {
+                            Some(Definition::Function(trait_func))
+                        }
+                        (hir::AssocItem::Const(trait_konst), hir::AssocItem::Const(konst))
+                            if trait_konst.name(sema.db) == konst.name(sema.db) =>
+                        {
+                            Some(Definition::Const(trait_konst))
+                        }
+                        (
+                            hir::AssocItem::TypeAlias(trait_type_alias),
+                            hir::AssocItem::TypeAlias(type_alias),
+                        ) if trait_type_alias.name(sema.db) == type_alias.name(sema.db) => {
+                            Some(Definition::TypeAlias(trait_type_alias))
+                        }
+                        _ => None,
+                    })
             })
             .unwrap_or(def),
         None => def,
@@ -278,7 +293,10 @@ fn rename_reference(
     }
     let mut source_change = SourceChange::default();
     source_change.extend(usages.iter().map(|(&file_id, references)| {
-        (file_id, source_edit_from_references(references, def, new_name))
+        (
+            file_id,
+            source_edit_from_references(references, def, new_name),
+        )
     }));
 
     let (file_id, edit) = source_edit_from_def(sema, def, new_name)?;
@@ -294,7 +312,10 @@ pub fn source_edit_from_references(
     let mut edit = TextEdit::builder();
     // macros can cause multiple refs to occur for the same text range, so keep track of what we have edited so far
     let mut edited_ranges = Vec::new();
-    for &FileReference { range, ref name, .. } in references {
+    for &FileReference {
+        range, ref name, ..
+    } in references
+    {
         let has_emitted_edit = match name {
             // if the ranges differ then the node is inside a macro call, we can't really attempt
             // to make special rewrites like shorthand syntax and such, so just rename the node in
@@ -327,7 +348,10 @@ fn source_edit_from_name(edit: &mut TextEditBuilder, name: &ast::Name, new_name:
 
             // FIXME: instead of splitting the shorthand, recursively trigger a rename of the
             // other name https://github.com/rust-analyzer/rust-analyzer/issues/6547
-            edit.insert(ident_pat.syntax().text_range().start(), format!("{}: ", new_name));
+            edit.insert(
+                ident_pat.syntax().text_range().start(),
+                format!("{}: ", new_name),
+            );
             return true;
         }
     }

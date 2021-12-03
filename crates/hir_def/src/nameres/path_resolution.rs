@@ -18,7 +18,7 @@ use crate::{
     item_scope::BUILTIN_SCOPE,
     nameres::{BuiltinShadowMode, DefMap},
     path::{ModPath, PathKind},
-    per_ns::PerNs,
+    per_ns::PerNamespace,
     visibility::{RawVisibility, Visibility},
     AdtId, CrateId, EnumVariantId, LocalModuleId, ModuleDefId,
 };
@@ -37,7 +37,7 @@ pub(super) enum ReachedFixedPoint {
 
 #[derive(Debug, Clone)]
 pub(super) struct ResolvePathResult {
-    pub(super) resolved_def: PerNs,
+    pub(super) resolved_def: PerNamespace,
     pub(super) segment_index: Option<usize>,
     pub(super) reached_fixedpoint: ReachedFixedPoint,
     pub(super) krate: Option<CrateId>,
@@ -45,16 +45,21 @@ pub(super) struct ResolvePathResult {
 
 impl ResolvePathResult {
     fn empty(reached_fixedpoint: ReachedFixedPoint) -> ResolvePathResult {
-        ResolvePathResult::with(PerNs::none(), reached_fixedpoint, None, None)
+        ResolvePathResult::with(PerNamespace::none(), reached_fixedpoint, None, None)
     }
 
     fn with(
-        resolved_def: PerNs,
+        resolved_def: PerNamespace,
         reached_fixedpoint: ReachedFixedPoint,
         segment_index: Option<usize>,
         krate: Option<CrateId>,
     ) -> ResolvePathResult {
-        ResolvePathResult { resolved_def, segment_index, reached_fixedpoint, krate }
+        ResolvePathResult {
+            resolved_def,
+            segment_index,
+            reached_fixedpoint,
+            krate,
+        }
     }
 }
 
@@ -63,7 +68,7 @@ impl DefMap {
         &self,
         db: &dyn DefDatabase,
         name: &Name,
-    ) -> PerNs {
+    ) -> PerNamespace {
         let arc;
         let root = match self.block {
             Some(_) => {
@@ -75,7 +80,9 @@ impl DefMap {
 
         root.extern_prelude
             .get(name)
-            .map_or(PerNs::none(), |&it| PerNs::types(it, Visibility::Public))
+            .map_or(PerNamespace::none(), |&it| {
+                PerNamespace::types(it, Visibility::Public)
+            })
     }
 
     pub(crate) fn resolve_visibility(
@@ -110,7 +117,11 @@ impl DefMap {
             if self.block_id() != m.block {
                 cov_mark::hit!(adjust_vis_in_block_def_map);
                 vis = Visibility::Module(self.module_id(self.root()));
-                tracing::debug!("visibility {:?} points outside DefMap, adjusting to {:?}", m, vis);
+                tracing::debug!(
+                    "visibility {:?} points outside DefMap, adjusting to {:?}",
+                    m,
+                    vis
+                );
             }
         }
 
@@ -179,19 +190,19 @@ impl DefMap {
         ));
 
         let mut segments = path.segments().iter().enumerate();
-        let mut curr_per_ns: PerNs = match path.kind {
+        let mut curr_per_ns: PerNamespace = match path.kind {
             PathKind::DollarCrate(krate) => {
                 if krate == self.krate {
                     cov_mark::hit!(macro_dollar_crate_self);
-                    PerNs::types(self.crate_root(db).into(), Visibility::Public)
+                    PerNamespace::types(self.crate_root(db).into(), Visibility::Public)
                 } else {
                     let def_map = db.crate_def_map(krate);
                     let module = def_map.module_id(def_map.root);
                     cov_mark::hit!(macro_dollar_crate_other);
-                    PerNs::types(module.into(), Visibility::Public)
+                    PerNamespace::types(module.into(), Visibility::Public)
                 }
             }
-            PathKind::Crate => PerNs::types(self.crate_root(db).into(), Visibility::Public),
+            PathKind::Crate => PerNamespace::types(self.crate_root(db).into(), Visibility::Public),
             // plain import or absolute path in 2015: crate-relative with
             // fallback to extern prelude (with the simplification in
             // rust-lang/rust#57745)
@@ -218,8 +229,11 @@ impl DefMap {
                 // FIXME: If the next segment doesn't resolve in the module and
                 // BuiltinShadowMode wasn't Module, then we need to try
                 // resolving it as a builtin.
-                let prefer_module =
-                    if path.segments().len() == 1 { shadow } else { BuiltinShadowMode::Module };
+                let prefer_module = if path.segments().len() == 1 {
+                    shadow
+                } else {
+                    BuiltinShadowMode::Module
+                };
 
                 tracing::debug!("resolving {:?} in module", segment);
                 self.resolve_name_in_module(db, original_module, segment, prefer_module)
@@ -262,7 +276,10 @@ impl DefMap {
                     if def_map.block.is_some() {
                         None // keep ascending
                     } else {
-                        Some(PerNs::types(def_map.module_id(module).into(), Visibility::Public))
+                        Some(PerNamespace::types(
+                            def_map.module_id(module).into(),
+                            Visibility::Public,
+                        ))
                     }
                 })
                 .expect("block DefMap not rooted in crate DefMap")
@@ -275,7 +292,7 @@ impl DefMap {
                 };
                 if let Some(def) = self.extern_prelude.get(segment) {
                     tracing::debug!("absolute path {:?} resolved to crate {:?}", path, def);
-                    PerNs::types(*def, Visibility::Public)
+                    PerNamespace::types(*def, Visibility::Public)
                 } else {
                     return ResolvePathResult::empty(ReachedFixedPoint::No); // extern crate declarations can add to the extern prelude
                 }
@@ -331,20 +348,25 @@ impl DefMap {
                     let enum_data = db.enum_data(e);
                     match enum_data.variant(segment) {
                         Some(local_id) => {
-                            let variant = EnumVariantId { parent: e, local_id };
+                            let variant = EnumVariantId {
+                                parent: e,
+                                local_id,
+                            };
                             match &*enum_data.variants[local_id].variant_data {
                                 crate::adt::VariantData::Record(_) => {
-                                    PerNs::types(variant.into(), Visibility::Public)
+                                    PerNamespace::types(variant.into(), Visibility::Public)
                                 }
                                 crate::adt::VariantData::Tuple(_)
-                                | crate::adt::VariantData::Unit => {
-                                    PerNs::both(variant.into(), variant.into(), Visibility::Public)
-                                }
+                                | crate::adt::VariantData::Unit => PerNamespace::both(
+                                    variant.into(),
+                                    variant.into(),
+                                    Visibility::Public,
+                                ),
                             }
                         }
                         None => {
                             return ResolvePathResult::with(
-                                PerNs::types(e.into(), vis),
+                                PerNamespace::types(e.into(), vis),
                                 ReachedFixedPoint::Yes,
                                 Some(i),
                                 Some(self.krate),
@@ -362,7 +384,7 @@ impl DefMap {
                     );
 
                     return ResolvePathResult::with(
-                        PerNs::types(s, vis),
+                        PerNamespace::types(s, vis),
                         ReachedFixedPoint::Yes,
                         Some(i),
                         Some(self.krate),
@@ -380,23 +402,22 @@ impl DefMap {
         module: LocalModuleId,
         name: &Name,
         shadow: BuiltinShadowMode,
-    ) -> PerNs {
+    ) -> PerNamespace {
         // Resolve in:
         //  - legacy scope of macro
         //  - current module / scope
         //  - extern prelude
         //  - std prelude
-        let from_legacy_macro = self[module]
-            .scope
-            .get_legacy_macro(name)
-            .map_or_else(PerNs::none, |m| PerNs::macros(m, Visibility::Public));
         let from_scope = self[module].scope.get(name);
         let from_builtin = match self.block {
             Some(_) => {
                 // Only resolve to builtins in the root `DefMap`.
-                PerNs::none()
+                PerNamespace::none()
             }
-            None => BUILTIN_SCOPE.get(name).copied().unwrap_or_else(PerNs::none),
+            None => BUILTIN_SCOPE
+                .get(name)
+                .copied()
+                .unwrap_or_else(PerNamespace::none),
         };
         let from_scope_or_builtin = match shadow {
             BuiltinShadowMode::Module => from_scope.or(from_builtin),
@@ -408,18 +429,22 @@ impl DefMap {
         let from_extern_prelude = self
             .extern_prelude
             .get(name)
-            .map_or(PerNs::none(), |&it| PerNs::types(it, Visibility::Public));
+            .map_or(PerNamespace::none(), |&it| {
+                PerNamespace::types(it, Visibility::Public)
+            });
 
         let from_prelude = self.resolve_in_prelude(db, name);
 
-        from_legacy_macro.or(from_scope_or_builtin).or(from_extern_prelude).or(from_prelude)
+        from_scope_or_builtin
+            .or(from_extern_prelude)
+            .or(from_prelude)
     }
 
     fn resolve_name_in_crate_root_or_extern_prelude(
         &self,
         db: &dyn DefDatabase,
         name: &Name,
-    ) -> PerNs {
+    ) -> PerNamespace {
         let arc;
         let crate_def_map = match self.block {
             Some(_) => {
@@ -434,7 +459,7 @@ impl DefMap {
         from_crate_root.or(from_extern_prelude)
     }
 
-    fn resolve_in_prelude(&self, db: &dyn DefDatabase, name: &Name) -> PerNs {
+    fn resolve_in_prelude(&self, db: &dyn DefDatabase, name: &Name) -> PerNamespace {
         if let Some(prelude) = self.prelude {
             let keep;
             let def_map = if prelude.krate == self.krate {
@@ -446,7 +471,7 @@ impl DefMap {
             };
             def_map[prelude.local_id].scope.get(name)
         } else {
-            PerNs::none()
+            PerNamespace::none()
         }
     }
 }

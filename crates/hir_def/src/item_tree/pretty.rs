@@ -15,7 +15,12 @@ use crate::{
 use super::*;
 
 pub(super) fn print_item_tree(tree: &ItemTree) -> String {
-    let mut p = Printer { tree, buf: String::new(), indent_level: 0, needs_indent: true };
+    let mut p = Printer {
+        tree,
+        buf: String::new(),
+        indent_level: 0,
+        needs_indent: true,
+    };
 
     if let Some(attrs) = tree.attrs.get(&AttrOwner::TopLevel) {
         p.print_attrs(attrs, true);
@@ -93,7 +98,10 @@ impl<'a> Printer<'a> {
                 "#{}[{}{}]  // {:?}",
                 inner,
                 attr.path,
-                attr.input.as_ref().map(|it| it.to_string()).unwrap_or_default(),
+                attr.input
+                    .as_ref()
+                    .map(|it| it.to_string())
+                    .unwrap_or_default(),
                 attr.id,
             );
         }
@@ -119,7 +127,11 @@ impl<'a> Printer<'a> {
                 w!(self, "{{");
                 self.indented(|this| {
                     for field in fields.clone() {
-                        let Field { visibility, name, type_ref } = &this.tree[field];
+                        let Field {
+                            visibility,
+                            name,
+                            type_ref,
+                        } = &this.tree[field];
                         this.print_attrs_of(field);
                         this.print_visibility(*visibility);
                         w!(this, "{}: ", name);
@@ -133,7 +145,11 @@ impl<'a> Printer<'a> {
                 w!(self, "(");
                 self.indented(|this| {
                     for field in fields.clone() {
-                        let Field { visibility, name, type_ref } = &this.tree[field];
+                        let Field {
+                            visibility,
+                            name,
+                            type_ref,
+                        } = &this.tree[field];
                         this.print_attrs_of(field);
                         this.print_visibility(*visibility);
                         w!(this, "{}: ", name);
@@ -201,14 +217,23 @@ impl<'a> Printer<'a> {
 
         match item {
             ModItem::Import(it) => {
-                let Import { visibility, use_tree, ast_id: _ } = &self.tree[it];
+                let Import {
+                    visibility,
+                    use_tree,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "use ");
                 self.print_use_tree(use_tree);
                 wln!(self, ";");
             }
             ModItem::ExternCrate(it) => {
-                let ExternCrate { name, alias, visibility, ast_id: _ } = &self.tree[it];
+                let ExternCrate {
+                    name,
+                    alias,
+                    visibility,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "extern crate {}", name);
                 if let Some(alias) = alias {
@@ -217,7 +242,11 @@ impl<'a> Printer<'a> {
                 wln!(self, ";");
             }
             ModItem::ExternBlock(it) => {
-                let ExternBlock { abi, ast_id: _, children } = &self.tree[it];
+                let ExternBlock {
+                    abi,
+                    ast_id: _,
+                    children,
+                } = &self.tree[it];
                 w!(self, "extern ");
                 if let Some(abi) = abi {
                     w!(self, "\"{}\" ", abi);
@@ -275,7 +304,13 @@ impl<'a> Printer<'a> {
                 wln!(self, ";");
             }
             ModItem::Struct(it) => {
-                let Struct { visibility, name, fields, generic_params, ast_id: _ } = &self.tree[it];
+                let Struct {
+                    visibility,
+                    name,
+                    fields,
+                    generic_params,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "struct {}", name);
                 self.print_generic_params(generic_params);
@@ -287,7 +322,13 @@ impl<'a> Printer<'a> {
                 }
             }
             ModItem::Union(it) => {
-                let Union { name, visibility, fields, generic_params, ast_id: _ } = &self.tree[it];
+                let Union {
+                    name,
+                    visibility,
+                    fields,
+                    generic_params,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "union {}", name);
                 self.print_generic_params(generic_params);
@@ -299,7 +340,13 @@ impl<'a> Printer<'a> {
                 }
             }
             ModItem::Enum(it) => {
-                let Enum { name, visibility, variants, generic_params, ast_id: _ } = &self.tree[it];
+                let Enum {
+                    name,
+                    visibility,
+                    variants,
+                    generic_params,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "enum {}", name);
                 self.print_generic_params(generic_params);
@@ -316,7 +363,12 @@ impl<'a> Printer<'a> {
                 wln!(self, "}}");
             }
             ModItem::Const(it) => {
-                let Const { name, visibility, type_ref, ast_id: _ } = &self.tree[it];
+                let Const {
+                    name,
+                    visibility,
+                    type_ref,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "const ");
                 match name {
@@ -328,8 +380,14 @@ impl<'a> Printer<'a> {
                 wln!(self, " = _;");
             }
             ModItem::Static(it) => {
-                let Static { name, visibility, mutable, is_extern, type_ref, ast_id: _ } =
-                    &self.tree[it];
+                let Static {
+                    name,
+                    visibility,
+                    mutable,
+                    is_extern,
+                    type_ref,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "static ");
                 if *mutable {
@@ -371,8 +429,14 @@ impl<'a> Printer<'a> {
                 wln!(self, "}}");
             }
             ModItem::Impl(it) => {
-                let Impl { target_trait, self_ty, is_negative, items, generic_params, ast_id: _ } =
-                    &self.tree[it];
+                let Impl {
+                    target_trait,
+                    self_ty,
+                    is_negative,
+                    items,
+                    generic_params,
+                    ast_id: _,
+                } = &self.tree[it];
                 w!(self, "impl");
                 self.print_generic_params(generic_params);
                 w!(self, " ");
@@ -421,7 +485,12 @@ impl<'a> Printer<'a> {
                 wln!(self);
             }
             ModItem::Mod(it) => {
-                let Mod { name, visibility, kind, ast_id: _ } = &self.tree[it];
+                let Mod {
+                    name,
+                    visibility,
+                    kind,
+                    ast_id: _,
+                } = &self.tree[it];
                 self.print_visibility(*visibility);
                 w!(self, "mod {}", name);
                 match kind {
@@ -438,19 +507,6 @@ impl<'a> Printer<'a> {
                         wln!(self, ";");
                     }
                 }
-            }
-            ModItem::MacroCall(it) => {
-                let MacroCall { path, ast_id: _, expand_to: _ } = &self.tree[it];
-                wln!(self, "{}!(...);", path);
-            }
-            ModItem::MacroRules(it) => {
-                let MacroRules { name, ast_id: _ } = &self.tree[it];
-                wln!(self, "macro_rules! {} {{ ... }}", name);
-            }
-            ModItem::MacroDef(it) => {
-                let MacroDef { name, visibility, ast_id: _ } = &self.tree[it];
-                self.print_visibility(*visibility);
-                wln!(self, "macro {} {{ ... }}", name);
             }
         }
 
@@ -504,8 +560,9 @@ impl<'a> Printer<'a> {
                 w!(self, "]");
             }
             TypeRef::Fn(args_and_ret, varargs) => {
-                let (ret, args) =
-                    args_and_ret.split_last().expect("TypeRef::Fn is missing return type");
+                let (ret, args) = args_and_ret
+                    .split_last()
+                    .expect("TypeRef::Fn is missing return type");
                 w!(self, "fn(");
                 for (i, arg) in args.iter().enumerate() {
                     if i != 0 {
@@ -521,9 +578,6 @@ impl<'a> Printer<'a> {
                 }
                 w!(self, ") -> ");
                 self.print_type_ref(ret);
-            }
-            TypeRef::Macro(_ast_id) => {
-                w!(self, "<macro>");
             }
             TypeRef::Error => w!(self, "{{unknown}}"),
             TypeRef::ImplTrait(bounds) => {
@@ -698,7 +752,11 @@ impl<'a> Printer<'a> {
                         wln!(this, "{}: {},", target.name, bound.name);
                         continue;
                     }
-                    WherePredicate::ForLifetime { lifetimes, target, bound } => {
+                    WherePredicate::ForLifetime {
+                        lifetimes,
+                        target,
+                        bound,
+                    } => {
                         w!(this, "for<");
                         for (i, lt) in lifetimes.iter().enumerate() {
                             if i != 0 {

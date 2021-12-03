@@ -70,7 +70,8 @@ pub(super) fn type_info(
             original.display(sema.db).to_string().into()
         }
     };
-    res.actions.push(HoverAction::goto_type_from_targets(sema.db, targets));
+    res.actions
+        .push(HoverAction::goto_type_from_targets(sema.db, targets));
     Some(res)
 }
 
@@ -106,7 +107,7 @@ pub(super) fn try_expr(
     let mut s = "Try Target".to_owned();
 
     let adts = inner_ty.as_adt().zip(body_ty.as_adt());
-    if let Some((hir::Adt::Enum(inner), hir::Adt::Enum(body))) = adts {
+    if let Some((hir::DataType::Enum(inner), hir::DataType::Enum(body))) = adts {
         let famous_defs = FamousDefs(sema, sema.scope(&try_expr.syntax()).krate());
         // special case for two options, there is no value in showing them
         if let Some(option_enum) = famous_defs.core_option_Option() {
@@ -119,8 +120,10 @@ pub(super) fn try_expr(
         // special case two results to show the error variants only
         if let Some(result_enum) = famous_defs.core_result_Result() {
             if inner == result_enum && body == result_enum {
-                let error_type_args =
-                    inner_ty.type_arguments().nth(1).zip(body_ty.type_arguments().nth(1));
+                let error_type_args = inner_ty
+                    .type_arguments()
+                    .nth(1)
+                    .zip(body_ty.type_arguments().nth(1));
                 if let Some((inner, body)) = error_type_args {
                     inner_ty = inner;
                     body_ty = body;
@@ -140,7 +143,8 @@ pub(super) fn try_expr(
     };
     walk_and_push_ty(sema.db, &inner_ty, &mut push_new_def);
     walk_and_push_ty(sema.db, &body_ty, &mut push_new_def);
-    res.actions.push(HoverAction::goto_type_from_targets(sema.db, targets));
+    res.actions
+        .push(HoverAction::goto_type_from_targets(sema.db, targets));
 
     let inner_ty = inner_ty.display(sema.db).to_string();
     let body_ty = body_ty.display(sema.db).to_string();
@@ -224,7 +228,8 @@ pub(super) fn deref_expr(
         )
         .into()
     };
-    res.actions.push(HoverAction::goto_type_from_targets(sema.db, targets));
+    res.actions
+        .push(HoverAction::goto_type_from_targets(sema.db, targets));
 
     Some(res)
 }
@@ -248,12 +253,19 @@ pub(super) fn keyword(
         &markup(Some(docs.into()), token.text().into(), None)?,
         config,
     );
-    Some(HoverResult { markup, actions: Default::default() })
+    Some(HoverResult {
+        markup,
+        actions: Default::default(),
+    })
 }
 
 pub(super) fn try_for_lint(attr: &ast::Attr, token: &SyntaxToken) -> Option<HoverResult> {
     let (path, tt) = attr.as_simple_call()?;
-    if !tt.syntax().text_range().contains(token.text_range().start()) {
+    if !tt
+        .syntax()
+        .text_range()
+        .contains(token.text_range().start())
+    {
         return None;
     }
     let (is_clippy, lints) = match &*path {
@@ -284,10 +296,15 @@ pub(super) fn try_for_lint(attr: &ast::Attr, token: &SyntaxToken) -> Option<Hove
         &*token.text()
     };
 
-    let lint =
-        lints.binary_search_by_key(&needle, |lint| lint.label).ok().map(|idx| &lints[idx])?;
+    let lint = lints
+        .binary_search_by_key(&needle, |lint| lint.label)
+        .ok()
+        .map(|idx| &lints[idx])?;
     Some(HoverResult {
-        markup: Markup::from(format!("```\n{}\n```\n___\n\n{}", lint.label, lint.description)),
+        markup: Markup::from(format!(
+            "```\n{}\n```\n___\n\n{}",
+            lint.label, lint.description
+        )),
         ..Default::default()
     })
 }
@@ -324,14 +341,20 @@ fn definition_owner_name(db: &RootDatabase, def: &Definition) -> Option<String> 
 }
 
 pub(super) fn path(db: &RootDatabase, module: hir::Module, item_name: Option<String>) -> String {
-    let crate_name =
-        db.crate_graph()[module.krate().into()].display_name.as_ref().map(|it| it.to_string());
+    let crate_name = db.crate_graph()[module.krate().into()]
+        .display_name
+        .as_ref()
+        .map(|it| it.to_string());
     let module_path = module
         .path_to_root(db)
         .into_iter()
         .rev()
         .flat_map(|it| it.name(db).map(|name| name.to_string()));
-    crate_name.into_iter().chain(module_path).chain(item_name).join("::")
+    crate_name
+        .into_iter()
+        .chain(module_path)
+        .chain(item_name)
+        .join("::")
 }
 
 pub(super) fn definition(
@@ -342,17 +365,10 @@ pub(super) fn definition(
 ) -> Option<Markup> {
     let mod_path = definition_mod_path(db, &def);
     let (label, docs) = match def {
-        Definition::Macro(it) => (
-            match &it.source(db)?.value {
-                Either::Left(mac) => macro_label(mac),
-                Either::Right(mac_fn) => fn_as_proc_macro_label(mac_fn),
-            },
-            it.attrs(db).docs(),
-        ),
         Definition::Field(def) => label_and_docs(db, def),
         Definition::Module(it) => label_and_docs(db, it),
         Definition::Function(it) => label_and_docs(db, it),
-        Definition::Adt(it) => label_and_docs(db, it),
+        Definition::DataType(it) => label_and_docs(db, it),
         Definition::Variant(it) => label_and_docs(db, it),
         Definition::Const(it) => label_value_and_docs(db, it, |it| it.value(db)),
         Definition::Static(it) => label_value_and_docs(db, it, |it| it.value(db)),
@@ -364,14 +380,20 @@ pub(super) fn definition(
                 .or_else(|| Some(Markup::fenced_block(&it.name())))
         }
         Definition::Local(it) => return local(db, it),
-        Definition::SelfType(impl_def) => {
-            impl_def.self_ty(db).as_adt().map(|adt| label_and_docs(db, adt))?
-        }
+        Definition::SelfType(impl_def) => impl_def
+            .self_ty(db)
+            .as_adt()
+            .map(|adt| label_and_docs(db, adt))?,
         Definition::GenericParam(it) => label_and_docs(db, it),
         Definition::Label(it) => return Some(Markup::fenced_block(&it.name(db))),
     };
 
-    markup(docs.filter(|_| config.documentation.is_some()).map(Into::into), label, mod_path)
+    markup(
+        docs.filter(|_| config.documentation.is_some())
+            .map(Into::into),
+        label,
+        mod_path,
+    )
 }
 
 fn label_and_docs<D>(db: &RootDatabase, def: D) -> (String, Option<hir::Documentation>)
@@ -406,7 +428,8 @@ fn definition_mod_path(db: &RootDatabase, def: &Definition) -> Option<String> {
     if let Definition::GenericParam(_) = def {
         return None;
     }
-    def.module(db).map(|module| path(db, module, definition_owner_name(db, def)))
+    def.module(db)
+        .map(|module| path(db, module, definition_owner_name(db, def)))
 }
 
 fn markup(docs: Option<String>, desc: String, mod_path: Option<String>) -> Option<Markup> {
@@ -437,9 +460,11 @@ fn find_std_module(famous_defs: &FamousDefs, name: &str) -> Option<hir::Module> 
     let db = famous_defs.0.db;
     let std_crate = famous_defs.std()?;
     let std_root_module = std_crate.root_module(db);
-    std_root_module
-        .children(db)
-        .find(|module| module.name(db).map_or(false, |module| module.to_string() == name))
+    std_root_module.children(db).find(|module| {
+        module
+            .name(db)
+            .map_or(false, |module| module.to_string() == name)
+    })
 }
 
 fn local(db: &RootDatabase, it: hir::Local) -> Option<Markup> {

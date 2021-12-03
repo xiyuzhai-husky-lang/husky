@@ -52,8 +52,6 @@ pub mod import_map;
 pub mod visibility;
 
 #[cfg(test)]
-mod macro_expansion_tests;
-#[cfg(test)]
 mod test_db;
 
 use std::{
@@ -68,7 +66,7 @@ use hir_expand::{
     ast_id_map::FileAstId,
     eager::{expand_eager_macro, ErrorEmitted, ErrorSink},
     hygiene::Hygiene,
-    AstId, ExpandTo, HirFileID, InFile, MacroCallId, MacroCallKind, MacroDefId, MacroDefKind,
+    AstId, ExpandTo, HirFileID, InFile,
 };
 use nameres::DefMap;
 use path::ModPath;
@@ -340,7 +338,7 @@ pub enum GenericParamId {
 }
 impl_from!(TypeParamId, LifetimeParamId, ConstParamId for GenericParamId);
 
-/// The defs which can be visible in the module.
+/// Def which can be visible in the module.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ModuleDefId {
     ModuleId(ModuleId),
@@ -444,7 +442,6 @@ pub enum AttrDefId {
     ConstId(ConstId),
     TraitId(TraitId),
     TypeAliasId(TypeAliasId),
-    MacroDefId(MacroDefId),
     ImplId(ImplId),
     GenericParamId(GenericParamId),
 }
@@ -459,7 +456,6 @@ impl_from!(
     FunctionId,
     TraitId,
     TypeAliasId,
-    MacroDefId,
     ImplId,
     GenericParamId
     for AttrDefId
@@ -654,71 +650,9 @@ impl AttrDefId {
                 .module(db)
                 .krate
             }
-            // FIXME: `MacroDefId` should store the defining module, then this can implement
-            // `HasModule`
-            AttrDefId::MacroDefId(it) => it.krate,
         }
     }
 }
-
-/// A helper trait for converting to MacroCallId
-pub trait AsMacroCall {
-    fn as_call_id(
-        &self,
-        db: &dyn db::DefDatabase,
-        krate: CrateId,
-        resolver: impl Fn(path::ModPath) -> Option<MacroDefId>,
-    ) -> Option<MacroCallId> {
-        self.as_call_id_with_errors(db, krate, resolver, &mut |_| ())
-            .ok()?
-            .ok()
-    }
-
-    fn as_call_id_with_errors(
-        &self,
-        db: &dyn db::DefDatabase,
-        krate: CrateId,
-        resolver: impl Fn(path::ModPath) -> Option<MacroDefId>,
-        error_sink: &mut dyn FnMut(mbe::ExpandError),
-    ) -> Result<Result<MacroCallId, ErrorEmitted>, UnresolvedMacro>;
-}
-
-impl AsMacroCall for InFile<&ast::MacroCall> {
-    fn as_call_id_with_errors(
-        &self,
-        db: &dyn db::DefDatabase,
-        krate: CrateId,
-        resolver: impl Fn(path::ModPath) -> Option<MacroDefId>,
-        mut error_sink: &mut dyn FnMut(mbe::ExpandError),
-    ) -> Result<Result<MacroCallId, ErrorEmitted>, UnresolvedMacro> {
-        let expands_to = hir_expand::ExpandTo::from_call_site(self.value);
-        let ast_id = AstId::new(self.file_id, db.ast_id_map(self.file_id).ast_id(self.value));
-        let h = Hygiene::new(db.upcast(), self.file_id);
-        let path = self
-            .value
-            .path()
-            .and_then(|path| path::ModPath::from_src(db, path, &h));
-
-        let path = match error_sink.option(path, || {
-            mbe::ExpandError::Other("malformed macro invocation".into())
-        }) {
-            Ok(path) => path,
-            Err(error) => {
-                return Ok(Err(error));
-            }
-        };
-
-        macro_call_as_call_id(
-            &AstIdWithPath::new(ast_id.file_id, ast_id.value, path),
-            expands_to,
-            db,
-            krate,
-            resolver,
-            error_sink,
-        )
-    }
-}
-
 /// Helper wrapper for `AstId` with `ModPath`
 #[derive(Clone, Debug, Eq, PartialEq)]
 struct AstIdWithPath<T: ast::AstNode> {
@@ -733,110 +667,4 @@ impl<T: ast::AstNode> AstIdWithPath<T> {
             path,
         }
     }
-}
-
-#[derive(Debug)]
-pub struct UnresolvedMacro {
-    pub path: ModPath,
-}
-
-fn macro_call_as_call_id(
-    call: &AstIdWithPath<ast::MacroCall>,
-    expand_to: ExpandTo,
-    db: &dyn db::DefDatabase,
-    krate: CrateId,
-    resolver: impl Fn(path::ModPath) -> Option<MacroDefId>,
-    error_sink: &mut dyn FnMut(mbe::ExpandError),
-) -> Result<Result<MacroCallId, ErrorEmitted>, UnresolvedMacro> {
-    let def: MacroDefId = resolver(call.path.clone()).ok_or_else(|| UnresolvedMacro {
-        path: call.path.clone(),
-    })?;
-
-    let res = if let MacroDefKind::BuiltInEager(..) = def.kind {
-        let macro_call = InFile::new(call.ast_id.file_id, call.ast_id.to_node(db.upcast()));
-        let hygiene = Hygiene::new(db.upcast(), call.ast_id.file_id);
-
-        expand_eager_macro(
-            db.upcast(),
-            krate,
-            macro_call,
-            def,
-            &|path: ast::Path| resolver(path::ModPath::from_src(db, path, &hygiene)?),
-            error_sink,
-        )
-    } else {
-        Ok(def.as_lazy_macro(
-            db.upcast(),
-            krate,
-            MacroCallKind::FnLike {
-                ast_id: call.ast_id,
-                expand_to,
-            },
-        ))
-    };
-    Ok(res)
-}
-
-fn derive_macro_as_call_id(
-    item_attr: &AstIdWithPath<ast::Item>,
-    derive_attr: AttrId,
-    db: &dyn db::DefDatabase,
-    krate: CrateId,
-    resolver: impl Fn(path::ModPath) -> Option<MacroDefId>,
-) -> Result<MacroCallId, UnresolvedMacro> {
-    let def: MacroDefId = resolver(item_attr.path.clone()).ok_or_else(|| UnresolvedMacro {
-        path: item_attr.path.clone(),
-    })?;
-    let last_segment = item_attr
-        .path
-        .segments()
-        .last()
-        .ok_or_else(|| UnresolvedMacro {
-            path: item_attr.path.clone(),
-        })?;
-    let res = def.as_lazy_macro(
-        db.upcast(),
-        krate,
-        MacroCallKind::Derive {
-            ast_id: item_attr.ast_id,
-            derive_name: last_segment.to_string().into_boxed_str(),
-            derive_attr_index: derive_attr.ast_index,
-        },
-    );
-    Ok(res)
-}
-
-fn attr_macro_as_call_id(
-    item_attr: &AstIdWithPath<ast::Item>,
-    macro_attr: &Attr,
-    db: &dyn db::DefDatabase,
-    krate: CrateId,
-    def: Option<MacroDefId>,
-) -> Result<MacroCallId, UnresolvedMacro> {
-    let attr_path = &item_attr.path;
-    let def = def.ok_or_else(|| UnresolvedMacro {
-        path: attr_path.clone(),
-    })?;
-    let last_segment = attr_path.segments().last().ok_or_else(|| UnresolvedMacro {
-        path: attr_path.clone(),
-    })?;
-    let mut arg = match macro_attr.input.as_deref() {
-        Some(attr::AttrInput::TokenTree(tt, map)) => (tt.clone(), map.clone()),
-        _ => Default::default(),
-    };
-
-    // The parentheses are always disposed here.
-    arg.0.delimiter = None;
-
-    let res = def.as_lazy_macro(
-        db.upcast(),
-        krate,
-        MacroCallKind::Attr {
-            ast_id: item_attr.ast_id,
-            attr_name: last_segment.to_string().into_boxed_str(),
-            attr_args: arg,
-            invoc_attr_index: macro_attr.id.ast_index,
-        },
-    );
-    Ok(res)
 }

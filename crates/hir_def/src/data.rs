@@ -353,37 +353,6 @@ fn collect_items(
                 .intern(db);
                 items.push((item.name.clone(), def.into()));
             }
-            AssocItem::MacroCall(call) => {
-                let call = &item_tree[call];
-                let ast_id_map = db.ast_id_map(tree_id.file_id());
-                let root = db.parse_or_expand(tree_id.file_id()).unwrap();
-                let call = ast_id_map.get(call.ast_id).to_node(&root);
-                let _cx = stdx::panic_context::enter(format!("collect_items MacroCall: {}", call));
-                let res = expander.enter_expand(db, call);
-
-                if let Ok(res) = res {
-                    if let Some((mark, mac)) = res.value {
-                        let src: InFile<ast::MacroItems> = expander.to_source(mac);
-                        let tree_id = item_tree::TreeId::new(src.file_id, None);
-                        let item_tree = tree_id.item_tree(db);
-                        let iter = item_tree
-                            .top_level_items()
-                            .iter()
-                            .filter_map(ModItem::as_assoc_item);
-                        items.extend(collect_items(
-                            db,
-                            module,
-                            expander,
-                            iter,
-                            tree_id,
-                            container,
-                            limit - 1,
-                        ));
-
-                        expander.exit(db, mark);
-                    }
-                }
-            }
         }
     }
 

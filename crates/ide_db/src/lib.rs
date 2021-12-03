@@ -5,20 +5,20 @@
 mod apply_change;
 
 pub mod assists;
+pub mod defs;
+pub mod helpers;
+pub mod items_locator;
 pub mod label;
 pub mod line_index;
-pub mod symbol_index;
-pub mod defs;
-pub mod items_locator;
-pub mod source_change;
-pub mod ty_filter;
-pub mod traits;
-pub mod helpers;
 pub mod path_transform;
+pub mod source_change;
+pub mod symbol_index;
+pub mod traits;
+pub mod ty_filter;
 
-pub mod search;
-pub mod rename;
 pub mod active_parameter;
+pub mod rename;
+pub mod search;
 
 use std::{fmt, mem::ManuallyDrop, sync::Arc};
 
@@ -29,7 +29,7 @@ use base_db::{
 use hir::db::{AstDatabase, DefDatabase, HirDatabase};
 use rustc_hash::FxHashSet;
 
-use crate::{line_index::LineIndex, symbol_index::SymbolsDatabase};
+use crate::{line_index::LineBegins, symbol_index::SymbolsDatabase};
 
 /// `base_db` is normally also needed in places where `ide_db` is used, so this re-export is for convenience.
 pub use base_db;
@@ -110,7 +110,9 @@ impl Default for RootDatabase {
 
 impl RootDatabase {
     pub fn new(lru_capacity: Option<usize>) -> RootDatabase {
-        let mut db = RootDatabase { storage: ManuallyDrop::new(salsa::Storage::default()) };
+        let mut db = RootDatabase {
+            storage: ManuallyDrop::new(salsa::Storage::default()),
+        };
         db.set_crate_graph_with_durability(Default::default(), Durability::HIGH);
         db.set_local_roots_with_durability(Default::default(), Durability::HIGH);
         db.set_library_roots_with_durability(Default::default(), Durability::HIGH);
@@ -121,26 +123,34 @@ impl RootDatabase {
 
     pub fn update_lru_capacity(&mut self, lru_capacity: Option<usize>) {
         let lru_capacity = lru_capacity.unwrap_or(base_db::DEFAULT_LRU_CAP);
-        base_db::ParseQuery.in_db_mut(self).set_lru_capacity(lru_capacity);
-        hir::db::ParseMacroExpansionQuery.in_db_mut(self).set_lru_capacity(lru_capacity);
-        hir::db::MacroExpandQuery.in_db_mut(self).set_lru_capacity(lru_capacity);
+        base_db::ParseQuery
+            .in_db_mut(self)
+            .set_lru_capacity(lru_capacity);
+        hir::db::ParseMacroExpansionQuery
+            .in_db_mut(self)
+            .set_lru_capacity(lru_capacity);
+        hir::db::MacroExpandQuery
+            .in_db_mut(self)
+            .set_lru_capacity(lru_capacity);
     }
 }
 
 impl salsa::ParallelDatabase for RootDatabase {
     fn snapshot(&self) -> salsa::Snapshot<RootDatabase> {
-        salsa::Snapshot::new(RootDatabase { storage: ManuallyDrop::new(self.storage.snapshot()) })
+        salsa::Snapshot::new(RootDatabase {
+            storage: ManuallyDrop::new(self.storage.snapshot()),
+        })
     }
 }
 
 #[salsa::query_group(LineIndexDatabaseStorage)]
 pub trait LineIndexDatabase: base_db::SourceDatabase {
-    fn line_index(&self, file_id: FileID) -> Arc<LineIndex>;
+    fn line_index(&self, file_id: FileID) -> Arc<LineBegins>;
 }
 
-fn line_index(db: &dyn LineIndexDatabase, file_id: FileID) -> Arc<LineIndex> {
+fn line_index(db: &dyn LineIndexDatabase, file_id: FileID) -> Arc<LineBegins> {
     let text = db.file_text(file_id);
-    Arc::new(LineIndex::new(&*text))
+    Arc::new(LineBegins::new(&*text))
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]

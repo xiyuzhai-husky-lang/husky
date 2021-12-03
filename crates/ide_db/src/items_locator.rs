@@ -5,7 +5,7 @@
 use either::Either;
 use hir::{
     import_map::{self, ImportKind},
-    AsAssocItem, Crate, ItemInNs, Semantics,
+    AsAssocItem, Crate, ItemInNamespace, Semantics,
 };
 use limit::Limit;
 use syntax::{ast, AstNode, SyntaxKind::NAME};
@@ -38,7 +38,7 @@ pub fn items_with_name<'a>(
     name: NameToImport,
     assoc_item_search: AssocItemSearch,
     limit: Option<usize>,
-) -> impl Iterator<Item = ItemInNs> + 'a {
+) -> impl Iterator<Item = ItemInNamespace> + 'a {
     let _p = profile::span("items_with_name").detail(|| {
         format!(
             "Name: {}, crate: {:?}, assoc items: {:?}, limit: {:?}",
@@ -100,32 +100,27 @@ fn find_items<'a>(
     assoc_item_search: AssocItemSearch,
     local_query: symbol_index::Query,
     external_query: import_map::Query,
-) -> impl Iterator<Item = ItemInNs> + 'a {
+) -> impl Iterator<Item = ItemInNamespace> + 'a {
     let _p = profile::span("find_items");
     let db = sema.db;
 
-    let external_importables =
-        krate.query_external_importables(db, external_query).map(|external_importable| {
-            match external_importable {
-                Either::Left(module_def) => ItemInNs::from(module_def),
-                Either::Right(macro_def) => ItemInNs::from(macro_def),
-            }
-        });
+    let external_importables = krate
+        .query_external_importables(db, external_query)
+        .map(|module_def| ItemInNamespace::from(module_def));
 
     // Query the local crate using the symbol index.
     let local_results = symbol_index::crate_symbols(db, krate.into(), local_query)
         .into_iter()
         .filter_map(move |local_candidate| get_name_definition(sema, &local_candidate))
-        .filter_map(|name_definition_to_import| match name_definition_to_import {
-            Definition::Macro(macro_def) => Some(ItemInNs::from(macro_def)),
-            def => <Option<_>>::from(def),
-        });
+        .filter_map(|def| <Option<_>>::from(def));
 
-    external_importables.chain(local_results).filter(move |&item| match assoc_item_search {
-        AssocItemSearch::Include => true,
-        AssocItemSearch::Exclude => !is_assoc_item(item, sema.db),
-        AssocItemSearch::AssocItemsOnly => is_assoc_item(item, sema.db),
-    })
+    external_importables
+        .chain(local_results)
+        .filter(move |&item| match assoc_item_search {
+            AssocItemSearch::Include => true,
+            AssocItemSearch::Exclude => !is_assoc_item(item, sema.db),
+            AssocItemSearch::AssocItemsOnly => is_assoc_item(item, sema.db),
+        })
 }
 
 fn get_name_definition(
@@ -145,6 +140,8 @@ fn get_name_definition(
     NameClass::classify(sema, &name)?.defined()
 }
 
-fn is_assoc_item(item: ItemInNs, db: &RootDatabase) -> bool {
-    item.as_module_def().and_then(|module_def| module_def.as_assoc_item(db)).is_some()
+fn is_assoc_item(item: ItemInNamespace, db: &RootDatabase) -> bool {
+    item.as_module_def()
+        .and_then(|module_def| module_def.as_assoc_item(db))
+        .is_some()
 }

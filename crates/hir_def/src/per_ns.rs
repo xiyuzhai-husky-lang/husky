@@ -5,44 +5,61 @@
 
 use hir_expand::MacroDefId;
 
-use crate::{item_scope::ItemInNs, visibility::Visibility, ModuleDefId};
+use crate::{item_scope::ItemInNamespace, visibility::Visibility, ModuleDefId};
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub struct PerNs {
+pub struct PerNamespace {
     pub types: Option<(ModuleDefId, Visibility)>,
     pub values: Option<(ModuleDefId, Visibility)>,
-    pub macros: Option<(MacroDefId, Visibility)>,
 }
 
-impl Default for PerNs {
+impl Default for PerNamespace {
     fn default() -> Self {
-        PerNs { types: None, values: None, macros: None }
+        PerNamespace {
+            types: None,
+            values: None,
+        }
     }
 }
 
-impl PerNs {
-    pub fn none() -> PerNs {
-        PerNs { types: None, values: None, macros: None }
+impl PerNamespace {
+    pub fn none() -> PerNamespace {
+        PerNamespace {
+            types: None,
+            values: None,
+        }
     }
 
-    pub fn values(t: ModuleDefId, v: Visibility) -> PerNs {
-        PerNs { types: None, values: Some((t, v)), macros: None }
+    pub fn values(t: ModuleDefId, v: Visibility) -> PerNamespace {
+        PerNamespace {
+            types: None,
+            values: Some((t, v)),
+        }
     }
 
-    pub fn types(t: ModuleDefId, v: Visibility) -> PerNs {
-        PerNs { types: Some((t, v)), values: None, macros: None }
+    pub fn types(t: ModuleDefId, v: Visibility) -> PerNamespace {
+        PerNamespace {
+            types: Some((t, v)),
+            values: None,
+        }
     }
 
-    pub fn both(types: ModuleDefId, values: ModuleDefId, v: Visibility) -> PerNs {
-        PerNs { types: Some((types, v)), values: Some((values, v)), macros: None }
+    pub fn both(types: ModuleDefId, values: ModuleDefId, v: Visibility) -> PerNamespace {
+        PerNamespace {
+            types: Some((types, v)),
+            values: Some((values, v)),
+        }
     }
 
-    pub fn macros(macro_: MacroDefId, v: Visibility) -> PerNs {
-        PerNs { types: None, values: None, macros: Some((macro_, v)) }
+    pub fn macros(macro_: MacroDefId, v: Visibility) -> PerNamespace {
+        PerNamespace {
+            types: None,
+            values: None,
+        }
     }
 
     pub fn is_none(&self) -> bool {
-        self.types.is_none() && self.values.is_none() && self.macros.is_none()
+        self.types.is_none() && self.values.is_none()
     }
 
     pub fn take_types(self) -> Option<ModuleDefId> {
@@ -57,41 +74,37 @@ impl PerNs {
         self.values.map(|it| it.0)
     }
 
-    pub fn take_macros(self) -> Option<MacroDefId> {
-        self.macros.map(|it| it.0)
-    }
-
-    pub fn filter_visibility(self, mut f: impl FnMut(Visibility) -> bool) -> PerNs {
+    pub fn filter_visibility(self, mut f: impl FnMut(Visibility) -> bool) -> PerNamespace {
         let _p = profile::span("PerNs::filter_visibility");
-        PerNs {
+        PerNamespace {
             types: self.types.filter(|(_, v)| f(*v)),
             values: self.values.filter(|(_, v)| f(*v)),
-            macros: self.macros.filter(|(_, v)| f(*v)),
         }
     }
 
-    pub fn with_visibility(self, vis: Visibility) -> PerNs {
-        PerNs {
+    pub fn with_visibility(self, vis: Visibility) -> PerNamespace {
+        PerNamespace {
             types: self.types.map(|(it, _)| (it, vis)),
             values: self.values.map(|(it, _)| (it, vis)),
-            macros: self.macros.map(|(it, _)| (it, vis)),
         }
     }
 
-    pub fn or(self, other: PerNs) -> PerNs {
-        PerNs {
+    pub fn or(self, other: PerNamespace) -> PerNamespace {
+        PerNamespace {
             types: self.types.or(other.types),
             values: self.values.or(other.values),
-            macros: self.macros.or(other.macros),
         }
     }
 
-    pub fn iter_items(self) -> impl Iterator<Item = ItemInNs> {
+    pub fn iter_items(self) -> impl Iterator<Item = ItemInNamespace> {
         let _p = profile::span("PerNs::iter_items");
         self.types
-            .map(|it| ItemInNs::Types(it.0))
+            .map(|it| ItemInNamespace::Types(it.0))
             .into_iter()
-            .chain(self.values.map(|it| ItemInNs::Values(it.0)).into_iter())
-            .chain(self.macros.map(|it| ItemInNs::Macros(it.0)).into_iter())
+            .chain(
+                self.values
+                    .map(|it| ItemInNamespace::Values(it.0))
+                    .into_iter(),
+            )
     }
 }

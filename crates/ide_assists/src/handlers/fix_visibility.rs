@@ -1,4 +1,4 @@
-use hir::{db::HirDatabase, HasSource, HasVisibility, PathResolution};
+use hir::{db::HirDatabase, EntityResolution, HasSource, HasVisibility};
 use ide_db::base_db::FileID;
 use syntax::{
     ast::{self, HasVisibility as _},
@@ -39,47 +39,59 @@ fn add_vis_to_referenced_module_def(acc: &mut Assists, ctx: &AssistContext) -> O
     let path: ast::Path = ctx.find_node_at_offset()?;
     let path_res = ctx.sema.resolve_path(&path)?;
     let def = match path_res {
-        PathResolution::Def(def) => def,
+        EntityResolution::Def(def) => def,
         _ => return None,
     };
 
     let current_module = ctx.sema.scope(path.syntax()).module()?;
     let target_module = def.module(ctx.db())?;
 
-    if def.visibility(ctx.db()).is_visible_from(ctx.db(), current_module.into()) {
+    if def
+        .visibility(ctx.db())
+        .is_visible_from(ctx.db(), current_module.into())
+    {
         return None;
     };
 
     let (offset, current_visibility, target, target_file, target_name) =
         target_data_for_def(ctx.db(), def)?;
 
-    let missing_visibility =
-        if current_module.krate() == target_module.krate() { "pub(crate)" } else { "pub" };
+    let missing_visibility = if current_module.krate() == target_module.krate() {
+        "pub(crate)"
+    } else {
+        "pub"
+    };
 
     let assist_label = match target_name {
         None => format!("Change visibility to {}", missing_visibility),
         Some(name) => format!("Change visibility of {} to {}", name, missing_visibility),
     };
 
-    acc.add(AssistId("fix_visibility", AssistKind::QuickFix), assist_label, target, |builder| {
-        builder.edit_file(target_file);
-        match ctx.config.snippet_cap {
-            Some(cap) => match current_visibility {
-                Some(current_visibility) => builder.replace_snippet(
-                    cap,
-                    current_visibility.syntax().text_range(),
-                    format!("$0{}", missing_visibility),
-                ),
-                None => builder.insert_snippet(cap, offset, format!("$0{} ", missing_visibility)),
-            },
-            None => match current_visibility {
-                Some(current_visibility) => {
-                    builder.replace(current_visibility.syntax().text_range(), missing_visibility)
-                }
-                None => builder.insert(offset, format!("{} ", missing_visibility)),
-            },
-        }
-    })
+    acc.add(
+        AssistId("fix_visibility", AssistKind::QuickFix),
+        assist_label,
+        target,
+        |builder| {
+            builder.edit_file(target_file);
+            match ctx.config.snippet_cap {
+                Some(cap) => match current_visibility {
+                    Some(current_visibility) => builder.replace_snippet(
+                        cap,
+                        current_visibility.syntax().text_range(),
+                        format!("$0{}", missing_visibility),
+                    ),
+                    None => {
+                        builder.insert_snippet(cap, offset, format!("$0{} ", missing_visibility))
+                    }
+                },
+                None => match current_visibility {
+                    Some(current_visibility) => builder
+                        .replace(current_visibility.syntax().text_range(), missing_visibility),
+                    None => builder.insert(offset, format!("{} ", missing_visibility)),
+                },
+            }
+        },
+    )
 }
 
 fn add_vis_to_referenced_record_field(acc: &mut Assists, ctx: &AssistContext) -> Option<()> {
@@ -108,39 +120,56 @@ fn add_vis_to_referenced_record_field(acc: &mut Assists, ctx: &AssistContext) ->
         }
     };
 
-    let missing_visibility =
-        if current_module.krate() == target_module.krate() { "pub(crate)" } else { "pub" };
+    let missing_visibility = if current_module.krate() == target_module.krate() {
+        "pub(crate)"
+    } else {
+        "pub"
+    };
     let target_file = in_file_source.file_id.original_file(ctx.db());
 
     let target_name = record_field_def.name(ctx.db());
-    let assist_label =
-        format!("Change visibility of {}.{} to {}", parent_name, target_name, missing_visibility);
+    let assist_label = format!(
+        "Change visibility of {}.{} to {}",
+        parent_name, target_name, missing_visibility
+    );
 
-    acc.add(AssistId("fix_visibility", AssistKind::QuickFix), assist_label, target, |builder| {
-        builder.edit_file(target_file);
-        match ctx.config.snippet_cap {
-            Some(cap) => match current_visibility {
-                Some(current_visibility) => builder.replace_snippet(
-                    cap,
-                    current_visibility.syntax().text_range(),
-                    format!("$0{}", missing_visibility),
-                ),
-                None => builder.insert_snippet(cap, offset, format!("$0{} ", missing_visibility)),
-            },
-            None => match current_visibility {
-                Some(current_visibility) => {
-                    builder.replace(current_visibility.syntax().text_range(), missing_visibility)
-                }
-                None => builder.insert(offset, format!("{} ", missing_visibility)),
-            },
-        }
-    })
+    acc.add(
+        AssistId("fix_visibility", AssistKind::QuickFix),
+        assist_label,
+        target,
+        |builder| {
+            builder.edit_file(target_file);
+            match ctx.config.snippet_cap {
+                Some(cap) => match current_visibility {
+                    Some(current_visibility) => builder.replace_snippet(
+                        cap,
+                        current_visibility.syntax().text_range(),
+                        format!("$0{}", missing_visibility),
+                    ),
+                    None => {
+                        builder.insert_snippet(cap, offset, format!("$0{} ", missing_visibility))
+                    }
+                },
+                None => match current_visibility {
+                    Some(current_visibility) => builder
+                        .replace(current_visibility.syntax().text_range(), missing_visibility),
+                    None => builder.insert(offset, format!("{} ", missing_visibility)),
+                },
+            }
+        },
+    )
 }
 
 fn target_data_for_def(
     db: &dyn HirDatabase,
     def: hir::ModuleDef,
-) -> Option<(TextSize, Option<ast::Visibility>, TextRange, FileID, Option<hir::Name>)> {
+) -> Option<(
+    TextSize,
+    Option<ast::Visibility>,
+    TextRange,
+    FileID,
+    Option<hir::Name>,
+)> {
     fn offset_target_and_file_id<S, Ast>(
         db: &dyn HirDatabase,
         x: S,
@@ -168,12 +197,12 @@ fn target_data_for_def(
             target_name = Some(f.name(db));
             offset_target_and_file_id(db, f)?
         }
-        hir::ModuleDef::Adt(adt) => {
+        hir::ModuleDef::DataType(adt) => {
             target_name = Some(adt.name(db));
             match adt {
-                hir::Adt::Struct(s) => offset_target_and_file_id(db, s)?,
-                hir::Adt::Union(u) => offset_target_and_file_id(db, u)?,
-                hir::Adt::Enum(e) => offset_target_and_file_id(db, e)?,
+                hir::DataType::Struct(s) => offset_target_and_file_id(db, s)?,
+                hir::DataType::Union(u) => offset_target_and_file_id(db, u)?,
+                hir::DataType::Enum(e) => offset_target_and_file_id(db, e)?,
             }
         }
         hir::ModuleDef::Const(c) => {
@@ -197,7 +226,12 @@ fn target_data_for_def(
             let in_file_source = m.declaration_source(db)?;
             let file_id = in_file_source.file_id.original_file(db.upcast());
             let syntax = in_file_source.value.syntax();
-            (vis_offset(syntax), in_file_source.value.visibility(), syntax.text_range(), file_id)
+            (
+                vis_offset(syntax),
+                in_file_source.value.visibility(),
+                syntax.text_range(),
+                file_id,
+            )
         }
         // Enum variants can't be private, we can't modify builtin types
         hir::ModuleDef::Variant(_) | hir::ModuleDef::BuiltinType(_) => return None,

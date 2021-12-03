@@ -40,7 +40,7 @@ pub(crate) fn wrap_return_type_in_result(acc: &mut Assists, ctx: &AssistContext)
     let result_enum =
         FamousDefs(&ctx.sema, ctx.sema.scope(type_ref.syntax()).krate()).core_result_Result()?;
 
-    if matches!(ty, Some(hir::Adt::Enum(ret_type)) if ret_type == result_enum) {
+    if matches!(ty, Some(hir::DataType::Enum(ret_type)) if ret_type == result_enum) {
         cov_mark::hit!(wrap_return_type_in_result_simple_return_type_already_result);
         return None;
     }

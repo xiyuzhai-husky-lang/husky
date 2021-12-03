@@ -20,21 +20,20 @@ pub(crate) fn complete_unqualified_path(acc: &mut Completions, ctx: &CompletionC
             }
         });
 
-        ["self::", "super::", "crate::"].into_iter().for_each(|kw| acc.add_keyword(ctx, kw));
+        ["self::", "super::", "crate::"]
+            .into_iter()
+            .for_each(|kw| acc.add_keyword(ctx, kw));
         return;
     }
-    ["self", "super", "crate"].into_iter().for_each(|kw| acc.add_keyword(ctx, kw));
+    ["self", "super", "crate"]
+        .into_iter()
+        .for_each(|kw| acc.add_keyword(ctx, kw));
 
     match &ctx.completion_location {
         Some(ImmediateLocation::Visibility(_)) => return,
         Some(ImmediateLocation::ItemList | ImmediateLocation::Trait | ImmediateLocation::Impl) => {
             // only show macros in {Assoc}ItemList
             ctx.process_all_names(&mut |name, res| {
-                if let hir::ScopeDef::MacroDef(mac) = res {
-                    if mac.is_fn_like() {
-                        acc.add_macro(ctx, Some(name.clone()), mac);
-                    }
-                }
                 if let hir::ScopeDef::ModuleDef(hir::ModuleDef::Module(_)) = res {
                     acc.add_resolution(ctx, name, &res);
                 }
@@ -44,7 +43,6 @@ pub(crate) fn complete_unqualified_path(acc: &mut Completions, ctx: &CompletionC
         Some(ImmediateLocation::TypeBound) => {
             ctx.process_all_names(&mut |name, res| {
                 let add_resolution = match res {
-                    ScopeDef::MacroDef(mac) => mac.is_fn_like(),
                     ScopeDef::ModuleDef(hir::ModuleDef::Trait(_) | hir::ModuleDef::Module(_)) => {
                         true
                     }
@@ -60,8 +58,10 @@ pub(crate) fn complete_unqualified_path(acc: &mut Completions, ctx: &CompletionC
     }
 
     if !ctx.expects_type() {
-        if let Some(hir::Adt::Enum(e)) =
-            ctx.expected_type.as_ref().and_then(|ty| ty.strip_references().as_adt())
+        if let Some(hir::DataType::Enum(e)) = ctx
+            .expected_type
+            .as_ref()
+            .and_then(|ty| ty.strip_references().as_adt())
         {
             super::enum_variants_with_paths(acc, ctx, e, |acc, ctx, variant, path| {
                 acc.add_qualified_enum_variant(ctx, variant, path)
@@ -71,7 +71,7 @@ pub(crate) fn complete_unqualified_path(acc: &mut Completions, ctx: &CompletionC
 
     if let Some(ImmediateLocation::GenericArgList(arg_list)) = &ctx.completion_location {
         if let Some(path_seg) = arg_list.syntax().parent().and_then(ast::PathSegment::cast) {
-            if let Some(hir::PathResolution::Def(hir::ModuleDef::Trait(trait_))) =
+            if let Some(hir::EntityResolution::Def(hir::ModuleDef::Trait(trait_))) =
                 ctx.sema.resolve_path(&path_seg.parent_path())
             {
                 trait_.items(ctx.sema.db).into_iter().for_each(|it| {
@@ -92,8 +92,6 @@ pub(crate) fn complete_unqualified_path(acc: &mut Completions, ctx: &CompletionC
             ScopeDef::ImplSelfType(_) => {
                 !ctx.previous_token_is(syntax::T![impl]) && !ctx.previous_token_is(syntax::T![for])
             }
-            // Don't suggest attribute macros and derives.
-            ScopeDef::MacroDef(mac) => mac.is_fn_like(),
             // no values in type places
             ScopeDef::ModuleDef(
                 hir::ModuleDef::Function(_)

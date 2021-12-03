@@ -287,10 +287,6 @@ impl AttrsWithOwner {
                 AdtId::UnionId(it) => attrs_from_item_tree(it.lookup(db).id, db),
             },
             AttrDefId::TraitId(it) => attrs_from_item_tree(it.lookup(db).id, db),
-            AttrDefId::MacroDefId(it) => it.ast_id().either(
-                |ast_id| attrs_from_ast(ast_id, db),
-                |ast_id| attrs_from_ast(ast_id, db),
-            ),
             AttrDefId::ImplId(it) => attrs_from_item_tree(it.lookup(db).id, db),
             AttrDefId::ConstId(it) => attrs_from_item_tree(it.lookup(db).id, db),
             AttrDefId::StaticId(it) => attrs_from_item_tree(it.lookup(db).id, db),
@@ -382,10 +378,6 @@ impl AttrsWithOwner {
             AttrDefId::ConstId(id) => id.lookup(db).source(db).map(ast::AnyHasAttrs::new),
             AttrDefId::TraitId(id) => id.lookup(db).source(db).map(ast::AnyHasAttrs::new),
             AttrDefId::TypeAliasId(id) => id.lookup(db).source(db).map(ast::AnyHasAttrs::new),
-            AttrDefId::MacroDefId(id) => id.ast_id().either(
-                |it| it.with_value(ast::AnyHasAttrs::new(it.to_node(db.upcast()))),
-                |it| it.with_value(ast::AnyHasAttrs::new(it.to_node(db.upcast()))),
-            ),
             AttrDefId::ImplId(id) => id.lookup(db).source(db).map(ast::AnyHasAttrs::new),
             AttrDefId::GenericParamId(id) => match id {
                 GenericParamId::TypeParamId(id) => {

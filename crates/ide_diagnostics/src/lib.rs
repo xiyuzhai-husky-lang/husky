@@ -144,7 +144,7 @@ struct DiagnosticsContext<'a> {
     resolve: &'a AssistResolveStrategy,
 }
 
-pub fn diagnostics(
+pub fn get_diagnostics(
     db: &RootDatabase,
     config: &DiagnosticsConfig,
     resolve: &AssistResolveStrategy,
@@ -182,9 +182,11 @@ pub fn diagnostics(
 
     let mut diags = Vec::new();
     if let Some(m) = module {
-        m.diagnostics(db, &mut diags)
+        todo!();
+        m.add_diagnostics(db, &mut diags)
+    } else {
+        todo!();
     }
-
     for diag in diags {
         #[rustfmt::skip]
         let d = match diag {

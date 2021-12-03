@@ -43,6 +43,7 @@ use std::{
     sync::Arc,
 };
 
+use arena::{Arena, Idx, IdxRange, RawIdx};
 use ast::{AstNode, HasName, StructKind};
 use base_db::CrateId;
 use either::Either;
@@ -52,7 +53,6 @@ use hir_expand::{
     name::{name, AsName, Name},
     ExpandTo, HirFileID, InFile,
 };
-use  arena::{Arena, Idx, IdxRange, RawIdx};
 use profile::Count;
 use rustc_hash::FxHashMap;
 use smallvec::SmallVec;
@@ -123,14 +123,6 @@ impl ItemTree {
                 ast::SourceFile(file) => {
                     top_attrs = Some(RawAttrs::new(db, &file, &hygiene));
                     ctx.lower_module_items(&file)
-                },
-                ast::MacroItems(items) => {
-                    ctx.lower_module_items(&items)
-                },
-                ast::MacroStmts(stmts) => {
-                    // The produced statements can include items, which should be added as top-level
-                    // items.
-                    ctx.lower_macro_stmts(stmts)
                 },
                 ast::Pat(_pat) => {
                     // FIXME: This occurs because macros in pattern position are treated as inner
@@ -220,7 +212,11 @@ impl ItemTree {
 
     /// Returns the inner attributes of the source file.
     pub fn top_level_attrs(&self, db: &dyn DefDatabase, krate: CrateId) -> Attrs {
-        self.attrs.get(&AttrOwner::TopLevel).unwrap_or(&RawAttrs::EMPTY).clone().filter(db, krate)
+        self.attrs
+            .get(&AttrOwner::TopLevel)
+            .unwrap_or(&RawAttrs::EMPTY)
+            .clone()
+            .filter(db, krate)
     }
 
     pub(crate) fn raw_attrs(&self, of: AttrOwner) -> &RawAttrs {
@@ -243,7 +239,9 @@ impl ItemTree {
     }
 
     fn data(&self) -> &ItemTreeData {
-        self.data.as_ref().expect("attempted to access data of empty ItemTree")
+        self.data
+            .as_ref()
+            .expect("attempted to access data of empty ItemTree")
     }
 
     fn data_mut(&mut self) -> &mut ItemTreeData {
@@ -325,7 +323,12 @@ macro_rules! from_attrs {
     };
 }
 
-from_attrs!(ModItem(ModItem), Variant(Idx<Variant>), Field(Idx<Field>), Param(Idx<Param>));
+from_attrs!(
+    ModItem(ModItem),
+    Variant(Idx<Variant>),
+    Field(Idx<Field>),
+    Param(Idx<Param>)
+);
 
 /// Trait implemented by all item nodes in the item tree.
 pub trait ItemTreeNode: Clone {
@@ -350,7 +353,10 @@ pub struct FileItemTreeId<N: ItemTreeNode> {
 
 impl<N: ItemTreeNode> Clone for FileItemTreeId<N> {
     fn clone(&self) -> Self {
-        Self { index: self.index, _p: PhantomData }
+        Self {
+            index: self.index,
+            _p: PhantomData,
+        }
     }
 }
 impl<N: ItemTreeNode> Copy for FileItemTreeId<N> {}
@@ -510,9 +516,6 @@ mod_items! {
     Impl in impls -> ast::Impl,
     TypeAlias in type_aliases -> ast::TypeAlias,
     Mod in mods -> ast::Module,
-    MacroCall in macro_calls -> ast::MacroCall,
-    MacroRules in macro_rules -> ast::MacroRules,
-    MacroDef in macro_defs -> ast::MacroDef,
 }
 
 macro_rules! impl_index {
@@ -570,7 +573,10 @@ pub enum UseTreeKind {
     /// use path::to::Item as Renamed;
     /// use path::to::Trait as _;
     /// ```
-    Single { path: Interned<ModPath>, alias: Option<ImportAlias> },
+    Single {
+        path: Interned<ModPath>,
+        alias: Option<ImportAlias>,
+    },
 
     /// ```
     /// use *;  // (invalid, but can occur in nested tree)
@@ -581,7 +587,10 @@ pub enum UseTreeKind {
     /// ```
     /// use prefix::{self, Item, ...};
     /// ```
-    Prefixed { prefix: Option<Interned<ModPath>>, list: Box<[UseTree]> },
+    Prefixed {
+        prefix: Option<Interned<ModPath>>,
+        list: Box<[UseTree]>,
+    },
 }
 
 #[derive(Debug, Clone, Eq, PartialEq)]
@@ -838,7 +847,10 @@ impl UseTree {
                     cb(self.index, prefix, ImportKind::Glob, None);
                 }
             }
-            UseTreeKind::Prefixed { prefix: additional_prefix, list } => {
+            UseTreeKind::Prefixed {
+                prefix: additional_prefix,
+                list,
+            } => {
                 let prefix = match additional_prefix {
                     Some(path) => match concat_mod_paths(prefix, path) {
                         Some((path, ImportKind::Plain)) => Some(path),
@@ -878,10 +890,7 @@ impl ModItem {
             | ModItem::Static(_)
             | ModItem::Trait(_)
             | ModItem::Impl(_)
-            | ModItem::Mod(_)
-            | ModItem::MacroRules(_)
-            | ModItem::MacroDef(_) => None,
-            ModItem::MacroCall(call) => Some(AssocItem::MacroCall(*call)),
+            | ModItem::Mod(_) => None,
             ModItem::Const(konst) => Some(AssocItem::Const(*konst)),
             ModItem::TypeAlias(alias) => Some(AssocItem::TypeAlias(*alias)),
             ModItem::Function(func) => Some(AssocItem::Function(*func)),
@@ -907,9 +916,6 @@ impl ModItem {
             ModItem::Impl(it) => tree[it.index].ast_id().upcast(),
             ModItem::TypeAlias(it) => tree[it.index].ast_id().upcast(),
             ModItem::Mod(it) => tree[it.index].ast_id().upcast(),
-            ModItem::MacroCall(it) => tree[it.index].ast_id().upcast(),
-            ModItem::MacroRules(it) => tree[it.index].ast_id().upcast(),
-            ModItem::MacroDef(it) => tree[it.index].ast_id().upcast(),
         }
     }
 }
@@ -919,14 +925,12 @@ pub enum AssocItem {
     Function(FileItemTreeId<Function>),
     TypeAlias(FileItemTreeId<TypeAlias>),
     Const(FileItemTreeId<Const>),
-    MacroCall(FileItemTreeId<MacroCall>),
 }
 
 impl_froms!(AssocItem {
     Function(FileItemTreeId<Function>),
     TypeAlias(FileItemTreeId<TypeAlias>),
     Const(FileItemTreeId<Const>),
-    MacroCall(FileItemTreeId<MacroCall>),
 });
 
 impl From<AssocItem> for ModItem {
@@ -935,7 +939,6 @@ impl From<AssocItem> for ModItem {
             AssocItem::Function(it) => it.into(),
             AssocItem::TypeAlias(it) => it.into(),
             AssocItem::Const(it) => it.into(),
-            AssocItem::MacroCall(it) => it.into(),
         }
     }
 }

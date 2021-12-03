@@ -24,7 +24,10 @@ pub(crate) fn reorder_fields(acc: &mut Assists, ctx: &AssistContext) -> Option<(
     let record = ctx
         .find_node_at_offset::<ast::RecordExpr>()
         .map(Either::Left)
-        .or_else(|| ctx.find_node_at_offset::<ast::RecordPat>().map(Either::Right))?;
+        .or_else(|| {
+            ctx.find_node_at_offset::<ast::RecordPat>()
+                .map(Either::Right)
+        })?;
 
     let path = record.as_ref().either(|it| it.path(), |it| it.path())?;
     let ranks = compute_fields_ranks(&path, ctx)?;
@@ -62,7 +65,10 @@ pub(crate) fn reorder_fields(acc: &mut Assists, ctx: &AssistContext) -> Option<(
         cov_mark::hit!(reorder_sorted_fields);
         return None;
     }
-    let target = record.as_ref().either(AstNode::syntax, AstNode::syntax).text_range();
+    let target = record
+        .as_ref()
+        .either(AstNode::syntax, AstNode::syntax)
+        .text_range();
     acc.add(
         AssistId("reorder_fields", AssistKind::RefactorRewrite),
         "Reorder record fields",
@@ -89,7 +95,7 @@ fn replace<T: AstNode + PartialEq>(
 
 fn compute_fields_ranks(path: &ast::Path, ctx: &AssistContext) -> Option<FxHashMap<String, usize>> {
     let strukt = match ctx.sema.resolve_path(path) {
-        Some(hir::PathResolution::Def(hir::ModuleDef::Adt(hir::Adt::Struct(it)))) => it,
+        Some(hir::EntityResolution::Def(hir::ModuleDef::DataType(hir::DataType::Struct(it)))) => it,
         _ => return None,
     };
 

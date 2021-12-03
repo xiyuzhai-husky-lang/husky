@@ -29,7 +29,6 @@ mod annotations;
 mod call_hierarchy;
 mod call_info;
 mod doc_links;
-mod expand_macro;
 mod extend_selection;
 mod file_structure;
 mod fn_references;
@@ -77,7 +76,6 @@ pub use crate::{
     annotations::{Annotation, AnnotationConfig, AnnotationKind},
     call_hierarchy::CallItem,
     call_info::CallInfo,
-    expand_macro::ExpandedMacro,
     file_structure::{StructureNode, StructureNodeKind},
     folding_ranges::{Fold, FoldKind},
     highlight_related::{HighlightRelatedConfig, HighlightedRange},
@@ -111,7 +109,7 @@ pub use ide_db::{
         SourceRoot, SourceRootId,
     },
     label::Label,
-    line_index::{LineCol, LineColUtf16, LineIndex},
+    line_index::{LineBegins, LineCol, LineColUtf16},
     search::{ReferenceCategory, SearchScope},
     source_change::{FileSystemEdit, SourceChange},
     symbol_index::Query,
@@ -242,7 +240,7 @@ impl Analysis {
 
     /// Gets the file's `LineIndex`: data structure to convert between absolute
     /// offsets and line/column representation.
-    pub fn file_line_index(&self, file_id: FileID) -> Cancellable<Arc<LineIndex>> {
+    pub fn file_line_index(&self, file_id: FileID) -> Cancellable<Arc<LineBegins>> {
         self.with_db(|db| db.line_index(file_id))
     }
 
@@ -282,10 +280,6 @@ impl Analysis {
     /// Renders the crate graph to GraphViz "dot" syntax.
     pub fn view_crate_graph(&self, full: bool) -> Cancellable<Result<String, String>> {
         self.with_db(|db| view_crate_graph::view_crate_graph(db, full))
-    }
-
-    pub fn expand_macro(&self, position: FilePosition) -> Cancellable<Option<ExpandedMacro>> {
-        self.with_db(|db| expand_macro::expand_macro(db, position))
     }
 
     /// Returns an edit to remove all newlines in the range, cleaning up minor
@@ -544,7 +538,7 @@ impl Analysis {
         resolve: AssistResolveStrategy,
         file_id: FileID,
     ) -> Cancellable<Vec<Diagnostic>> {
-        self.with_db(|db| ide_diagnostics::diagnostics(db, config, &resolve, file_id))
+        self.with_db(|db| ide_diagnostics::get_diagnostics(db, config, &resolve, file_id))
     }
 
     /// Convenience function to return assists + quick fixes for diagnostics
@@ -564,7 +558,7 @@ impl Analysis {
 
         self.with_db(|db| {
             let diagnostic_assists = if include_fixes {
-                ide_diagnostics::diagnostics(db, diagnostics_config, &resolve, frange.file_id)
+                ide_diagnostics::get_diagnostics(db, diagnostics_config, &resolve, frange.file_id)
                     .into_iter()
                     .flat_map(|it| it.fixes.unwrap_or_default())
                     .filter(|it| it.target.intersect(frange.range).is_some())

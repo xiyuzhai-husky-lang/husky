@@ -208,50 +208,7 @@ pub(crate) fn related_tests(
     position: FilePosition,
     search_scope: Option<SearchScope>,
 ) -> Vec<Runnable> {
-    let sema = Semantics::new(db);
-    let mut res: FxHashSet<Runnable> = FxHashSet::default();
-    let syntax = sema.parse(position.file_id).syntax().clone();
-
-    find_related_tests(&sema, &syntax, position, search_scope, &mut res);
-
-    res.into_iter().collect()
-}
-
-fn find_related_tests(
-    sema: &Semantics<RootDatabase>,
-    syntax: &SyntaxNode,
-    position: FilePosition,
-    search_scope: Option<SearchScope>,
-    tests: &mut FxHashSet<Runnable>,
-) {
-    let defs = references::find_defs(sema, syntax, position.offset);
-    for def in defs {
-        let defs = def
-            .usages(sema)
-            .set_scope(search_scope.clone())
-            .all()
-            .references
-            .into_values()
-            .flatten();
-        for ref_ in defs {
-            let name_ref = match ref_.name {
-                ast::NameLike::NameRef(name_ref) => name_ref,
-                _ => continue,
-            };
-            if let Some(fn_def) = sema
-                .ancestors_with_macros(name_ref.syntax().clone())
-                .find_map(ast::Fn::cast)
-            {
-                if let Some(runnable) = as_test_runnable(sema, &fn_def) {
-                    // direct test
-                    tests.insert(runnable);
-                } else if let Some(module) = parent_test_module(sema, &fn_def) {
-                    // indirect test
-                    find_related_tests_in_module(sema, syntax, &fn_def, &module, tests);
-                }
-            }
-        }
-    }
+    todo!()
 }
 
 fn find_related_tests_in_module(
@@ -261,24 +218,7 @@ fn find_related_tests_in_module(
     parent_module: &hir::Module,
     tests: &mut FxHashSet<Runnable>,
 ) {
-    let fn_name = match fn_def.name() {
-        Some(it) => it,
-        _ => return,
-    };
-    let mod_source = parent_module.definition_source(sema.db);
-    let range = match &mod_source.value {
-        hir::ModuleSource::Module(m) => m.syntax().text_range(),
-        hir::ModuleSource::BlockExpr(b) => b.syntax().text_range(),
-        hir::ModuleSource::SourceFile(f) => f.syntax().text_range(),
-    };
-
-    let file_id = mod_source.file_id.original_file(sema.db);
-    let mod_scope = SearchScope::file_range(FileRange { file_id, range });
-    let fn_pos = FilePosition {
-        file_id,
-        offset: fn_name.syntax().text_range().start(),
-    };
-    find_related_tests(sema, syntax, fn_pos, Some(mod_scope), tests)
+    todo!()
 }
 
 fn as_test_runnable(sema: &Semantics<RootDatabase>, fn_def: &ast::Fn) -> Option<Runnable> {
@@ -423,13 +363,12 @@ fn module_def_doctest(db: &RootDatabase, def: Definition) -> Option<Runnable> {
     let attrs = match def {
         Definition::Module(it) => it.attrs(db),
         Definition::Function(it) => it.attrs(db),
-        Definition::Adt(it) => it.attrs(db),
+        Definition::DataType(it) => it.attrs(db),
         Definition::Variant(it) => it.attrs(db),
         Definition::Const(it) => it.attrs(db),
         Definition::Static(it) => it.attrs(db),
         Definition::Trait(it) => it.attrs(db),
         Definition::TypeAlias(it) => it.attrs(db),
-        Definition::Macro(it) => it.attrs(db),
         Definition::SelfType(it) => it.attrs(db),
         _ => return None,
     };

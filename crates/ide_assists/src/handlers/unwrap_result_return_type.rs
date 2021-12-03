@@ -39,7 +39,7 @@ pub(crate) fn unwrap_result_return_type(acc: &mut Assists, ctx: &AssistContext) 
     let result_enum =
         FamousDefs(&ctx.sema, ctx.sema.scope(type_ref.syntax()).krate()).core_result_Result()?;
 
-    if !matches!(ty, Some(hir::Adt::Enum(ret_type)) if ret_type == result_enum) {
+    if !matches!(ty, Some(hir::DataType::Enum(ret_type)) if ret_type == result_enum) {
         return None;
     }
 
@@ -86,7 +86,10 @@ pub(crate) fn unwrap_result_return_type(acc: &mut Assists, ctx: &AssistContext) 
             for ret_expr_arg in exprs_to_unwrap {
                 let ret_expr_str = ret_expr_arg.to_string();
                 if ret_expr_str.starts_with("Ok(") || ret_expr_str.starts_with("Err(") {
-                    let arg_list = ret_expr_arg.syntax().children().find_map(ast::ArgList::cast);
+                    let arg_list = ret_expr_arg
+                        .syntax()
+                        .children()
+                        .find_map(ast::ArgList::cast);
                     if let Some(arg_list) = arg_list {
                         if is_unit_type {
                             match ret_expr_arg.syntax().prev_sibling_or_token() {

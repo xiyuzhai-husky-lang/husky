@@ -12,7 +12,7 @@ use hir_def::{
     find_path,
     generics::TypeParamProvenance,
     intern::{Internable, Interned},
-    item_scope::ItemInNs,
+    item_scope::ItemInNamespace,
     path::{Path, PathKind},
     type_ref::{TraitBoundModifier, TypeBound, TypeRef},
     visibility::Visibility,
@@ -62,7 +62,13 @@ pub trait HirDisplay {
             !matches!(display_target, DisplayTarget::SourceCode { .. }),
             "HirDisplayWrapper cannot fail with DisplaySourceCodeError, use HirDisplay::hir_fmt directly instead"
         );
-        HirDisplayWrapper { db, t: self, max_size, omit_verbose_types, display_target }
+        HirDisplayWrapper {
+            db,
+            t: self,
+            max_size,
+            omit_verbose_types,
+            display_target,
+        }
     }
 
     /// Returns a `Display`able type that is human-readable.
@@ -280,7 +286,12 @@ impl HirDisplay for ProjectionTy {
             f.write_joined(&self.substitution.as_slice(&Interner)[1..], ", ")?;
             write!(f, ">")?;
         }
-        write!(f, ">::{}", f.db.type_alias_data(from_assoc_type_id(self.associated_ty_id)).name)?;
+        write!(
+            f,
+            ">::{}",
+            f.db.type_alias_data(from_assoc_type_id(self.associated_ty_id))
+                .name
+        )?;
         Ok(())
     }
 }
@@ -471,7 +482,9 @@ impl HirDisplay for Ty {
             }
             TyKind::FnDef(def, parameters) => {
                 let def = from_chalk(f.db, *def);
-                let sig = f.db.callable_item_signature(def).substitute(&Interner, parameters);
+                let sig =
+                    f.db.callable_item_signature(def)
+                        .substitute(&Interner, parameters);
                 match def {
                     CallableDefId::FunctionId(ff) => {
                         write!(f, "fn {}", f.db.function_data(ff).name)?
@@ -515,7 +528,7 @@ impl HirDisplay for Ty {
                     DisplayTarget::SourceCode { module_id } => {
                         if let Some(path) = find_path::find_path(
                             f.db.upcast(),
-                            ItemInNs::Types((*def_id).into()),
+                            ItemInNamespace::Types((*def_id).into()),
                             module_id,
                         ) {
                             write!(f, "{}", path)?;
@@ -608,7 +621,8 @@ impl HirDisplay for Ty {
                 match impl_trait_id {
                     ImplTraitId::ReturnTypeImplTrait(func, idx) => {
                         let datas =
-                            f.db.return_type_impl_traits(func).expect("impl trait id without data");
+                            f.db.return_type_impl_traits(func)
+                                .expect("impl trait id without data");
                         let data = (*datas)
                             .as_ref()
                             .map(|rpit| rpit.impl_traits[idx as usize].bounds.clone());
@@ -635,7 +649,10 @@ impl HirDisplay for Ty {
                         DisplaySourceCodeError::Closure,
                     ));
                 }
-                let sig = substs.at(&Interner, 0).assert_ty_ref(&Interner).callable_sig(f.db);
+                let sig = substs
+                    .at(&Interner, 0)
+                    .assert_ty_ref(&Interner)
+                    .callable_sig(f.db);
                 if let Some(sig) = sig {
                     if sig.params().is_empty() {
                         write!(f, "||")?;
@@ -658,9 +675,11 @@ impl HirDisplay for Ty {
                 let generics = generics(f.db.upcast(), id.parent);
                 let param_data = &generics.params.types[id.local_id];
                 match param_data.provenance {
-                    TypeParamProvenance::TypeParamList | TypeParamProvenance::TraitSelf => {
-                        write!(f, "{}", param_data.name.clone().unwrap_or_else(Name::missing))?
-                    }
+                    TypeParamProvenance::TypeParamList | TypeParamProvenance::TraitSelf => write!(
+                        f,
+                        "{}",
+                        param_data.name.clone().unwrap_or_else(Name::missing)
+                    )?,
                     TypeParamProvenance::ArgumentImplTrait => {
                         let substs = generics.type_params_subst(f.db);
                         let bounds =
@@ -699,11 +718,13 @@ impl HirDisplay for Ty {
             }
             TyKind::Alias(AliasTy::Projection(p_ty)) => p_ty.hir_fmt(f)?,
             TyKind::Alias(AliasTy::Opaque(opaque_ty)) => {
-                let impl_trait_id = f.db.lookup_intern_impl_trait_id(opaque_ty.opaque_ty_id.into());
+                let impl_trait_id =
+                    f.db.lookup_intern_impl_trait_id(opaque_ty.opaque_ty_id.into());
                 match impl_trait_id {
                     ImplTraitId::ReturnTypeImplTrait(func, idx) => {
                         let datas =
-                            f.db.return_type_impl_traits(func).expect("impl trait id without data");
+                            f.db.return_type_impl_traits(func)
+                                .expect("impl trait id without data");
                         let data = (*datas)
                             .as_ref()
                             .map(|rpit| rpit.impl_traits[idx as usize].bounds.clone());
@@ -774,8 +795,9 @@ impl SizedByDefault {
         match self {
             Self::NotSized => false,
             Self::Sized { anchor } => {
-                let sized_trait =
-                    db.lang_item(anchor, "sized".into()).and_then(|lang_item| lang_item.as_trait());
+                let sized_trait = db
+                    .lang_item(anchor, "sized".into())
+                    .and_then(|lang_item| lang_item.as_trait());
                 Some(trait_) == sized_trait
             }
         }
@@ -841,8 +863,9 @@ fn write_bounds_like_dyn_trait(
                 write!(f, "{}", f.db.trait_data(trait_).name)?;
                 if let [_, params @ ..] = &*trait_ref.substitution.as_slice(&Interner) {
                     if is_fn_trait {
-                        if let Some(args) =
-                            params.first().and_then(|it| it.assert_ty_ref(&Interner).as_tuple())
+                        if let Some(args) = params
+                            .first()
+                            .and_then(|it| it.assert_ty_ref(&Interner).as_tuple())
                         {
                             write!(f, "(")?;
                             f.write_joined(args.as_slice(&Interner), ", ")?;
@@ -933,13 +956,17 @@ impl HirDisplay for WhereClause {
 
         match self {
             WhereClause::Implemented(trait_ref) => trait_ref.hir_fmt(f)?,
-            WhereClause::AliasEq(AliasEq { alias: AliasTy::Projection(projection_ty), ty }) => {
+            WhereClause::AliasEq(AliasEq {
+                alias: AliasTy::Projection(projection_ty),
+                ty,
+            }) => {
                 write!(f, "<")?;
                 fmt_trait_ref(&projection_ty.trait_ref(f.db), f, true)?;
                 write!(
                     f,
                     ">::{} = ",
-                    f.db.type_alias_data(from_assoc_type_id(projection_ty.associated_ty_id)).name,
+                    f.db.type_alias_data(from_assoc_type_id(projection_ty.associated_ty_id))
+                        .name,
                 )?;
                 ty.hir_fmt(f)?;
             }
@@ -1092,18 +1119,6 @@ impl HirDisplay for TypeRef {
             TypeRef::DynTrait(bounds) => {
                 write!(f, "dyn ")?;
                 f.write_joined(bounds, " + ")?;
-            }
-            TypeRef::Macro(macro_call) => {
-                let macro_call = macro_call.to_node(f.db.upcast());
-                let ctx = body::LowerCtx::with_hygiene(f.db.upcast(), &Hygiene::new_unhygienic());
-                match macro_call.path() {
-                    Some(path) => match Path::from_src(path, &ctx) {
-                        Some(path) => path.hir_fmt(f)?,
-                        None => write!(f, "{{macro}}")?,
-                    },
-                    None => write!(f, "{{macro}}")?,
-                }
-                write!(f, "!(..)")?;
             }
             TypeRef::Error => write!(f, "{{error}}")?,
         }
