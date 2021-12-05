@@ -10,8 +10,7 @@ use std::{
 use anyhow::Context;
 use ide::{
     AnnotationConfig, AssistKind, AssistResolveStrategy, FileID, FilePosition, FileRange,
-    HoverAction, HoverGotoTypeData, Query, RangeInfo, Runnable, RunnableKind, SingleResolve,
-    SourceChange, TextEdit,
+    HoverAction, HoverGotoTypeData, Query, RangeInfo, SingleResolve, SourceChange, TextEdit,
 };
 use ide_db::SymbolKind;
 use itertools::Itertools;
@@ -29,7 +28,7 @@ use lsp_types::{
 use project::Project;
 use serde_json::json;
 use stdx::{format_to, never};
-use syntax::{algo, ast, AstNode, TextRange, TextSize, T};
+use syntax::{ast, TextRange, TextSize};
 use vfs::AbsPathBuf;
 
 use crate::{
@@ -574,63 +573,14 @@ pub(crate) fn handle_related_tests(
     snap: ServerSnapshot,
     params: lsp_types::TextDocumentPositionParams,
 ) -> Result<Vec<lsp_ext::TestInfo>> {
-    let _p = profile::span("handle_related_tests");
-    let position = from_lsp_types::to_file_position(&snap, params)?;
-
-    let tests = snap.analysis.related_tests(position, None)?;
-    let mut res = Vec::new();
-    for it in tests {
-        if let Ok(runnable) = to_lsp_types::runnable(&snap, it) {
-            res.push(lsp_ext::TestInfo { runnable })
-        }
-    }
-
-    Ok(res)
+    todo!()
 }
 
 pub(crate) fn handle_completion(
     snap: ServerSnapshot,
     params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
-    let _p = profile::span("handle_completion");
-    let text_document_position = params.text_document_position.clone();
-    let position = from_lsp_types::to_file_position(&snap, params.text_document_position)?;
-    let completion_triggered_after_single_colon = {
-        let mut res = false;
-        if let Some(ctx) = params.context {
-            if ctx.trigger_character.as_deref() == Some(":") {
-                let source_file = snap.analysis.parse(position.file_id)?;
-                let left_token = source_file
-                    .syntax()
-                    .token_at_offset(position.offset)
-                    .left_biased();
-                match left_token {
-                    Some(left_token) => res = left_token.kind() == T![:],
-                    None => res = true,
-                }
-            }
-        }
-        res
-    };
-    if completion_triggered_after_single_colon {
-        return Ok(None);
-    }
-
-    let completion_config = &snap.config.completion();
-    let items = match snap.analysis.completions(completion_config, position)? {
-        None => return Ok(None),
-        Some(items) => items,
-    };
-    let line_index = snap.file_line_index(position.file_id)?;
-
-    let items =
-        to_lsp_types::completion_items(&snap.config, &line_index, text_document_position, items);
-
-    let completion_list = lsp_types::CompletionList {
-        is_incomplete: true,
-        items,
-    };
-    Ok(Some(completion_list.into()))
+    todo!()
 }
 
 pub(crate) fn handle_completion_resolve(
@@ -1114,13 +1064,6 @@ fn show_ref_command_link(
     todo!()
 }
 
-fn runnable_action_links(
-    snap: &ServerSnapshot,
-    runnable: Runnable,
-) -> Option<lsp_ext::CommandLinkGroup> {
-    todo!()
-}
-
 fn goto_type_action_links(
     snap: &ServerSnapshot,
     nav_targets: &[HoverGotoTypeData],
@@ -1137,14 +1080,9 @@ fn prepare_hover_actions(
         .filter_map(|it| match it {
             HoverAction::Implementation(position) => show_impl_command_link(snap, position),
             HoverAction::Reference(position) => show_ref_command_link(snap, position),
-            HoverAction::Runnable(r) => runnable_action_links(snap, r.clone()),
             HoverAction::GoToType(targets) => goto_type_action_links(snap, targets),
         })
         .collect()
-}
-
-fn should_skip_target(runnable: &Runnable) -> bool {
-    todo!()
 }
 
 fn run_huskyfmt(

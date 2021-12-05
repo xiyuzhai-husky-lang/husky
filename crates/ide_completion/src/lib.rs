@@ -1,19 +1,12 @@
 //! `completions` crate provides utilities for generating completions of user input.
 
-#![allow(dead_code)]
-#![allow(unused_macros)]
-#![allow(unused_imports)]
-#![allow(warnings, unused)]
 mod completions;
 mod config;
 mod context;
 mod item;
-mod patterns;
 mod render;
 
 mod snippet;
-#[cfg(test)]
-mod tests;
 
 use completions::flyimport::position_for_import;
 use ide_db::{
@@ -25,13 +18,13 @@ use ide_db::{
     },
     items_locator, RootDatabase,
 };
-use syntax::algo;
 use text_edit::TextEdit;
 
-use crate::{completions::Completions, context::CompletionContext};
+use crate::completions::Completions;
 
 pub use crate::{
     config::CompletionConfig,
+    context::CompletionContext,
     item::{CompletionItem, CompletionItemKind, CompletionRelevance, ImportEdit},
     snippet::{Snippet, SnippetScope},
 };
@@ -146,34 +139,7 @@ pub fn completions(
     config: &CompletionConfig,
     position: FilePosition,
 ) -> Option<Completions> {
-    let ctx = CompletionContext::new(db, position, config)?;
-
-    if ctx.no_completion_required() {
-        cov_mark::hit!(no_completion_required);
-        // No work required here.
-        return None;
-    }
-
-    let mut acc = Completions::default();
-    completions::attribute::complete_attribute(&mut acc, &ctx);
-    completions::fn_param::complete_fn_param(&mut acc, &ctx);
-    completions::keyword::complete_expr_keyword(&mut acc, &ctx);
-    completions::snippet::complete_expr_snippet(&mut acc, &ctx);
-    completions::snippet::complete_item_snippet(&mut acc, &ctx);
-    completions::qualified_path::complete_qualified_path(&mut acc, &ctx);
-    completions::unqualified_path::complete_unqualified_path(&mut acc, &ctx);
-    completions::dot::complete_dot(&mut acc, &ctx);
-    completions::record::complete_record(&mut acc, &ctx);
-    completions::record::complete_record_literal(&mut acc, &ctx);
-    completions::pattern::complete_pattern(&mut acc, &ctx);
-    completions::postfix::complete_postfix(&mut acc, &ctx);
-    completions::trait_impl::complete_trait_impl(&mut acc, &ctx);
-    completions::mod_::complete_mod(&mut acc, &ctx);
-    completions::flyimport::import_on_the_fly(&mut acc, &ctx);
-    completions::lifetime::complete_lifetime(&mut acc, &ctx);
-    completions::lifetime::complete_label(&mut acc, &ctx);
-
-    Some(acc)
+    todo!()
 }
 
 /// Resolves additional completion data at the position given.
@@ -184,41 +150,5 @@ pub fn resolve_completion_edits(
     position: FilePosition,
     imports: impl IntoIterator<Item = (String, String)>,
 ) -> Option<Vec<TextEdit>> {
-    let _p = profile::span("resolve_completion_edits");
-    let ctx = CompletionContext::new(db, position, config)?;
-    let position_for_import = &position_for_import(&ctx, None)?;
-    let scope = ImportScope::find_insert_use_container(position_for_import, &ctx.sema)?;
-
-    let current_module = ctx.sema.scope(position_for_import).module()?;
-    let current_crate = current_module.krate();
-    let new_ast = scope.clone_for_update();
-    let mut import_insert = TextEdit::builder();
-
-    // FIXME: lift out and make some tests here, this is ImportEdit::to_text_edit but changed to work with multiple edits
-    imports
-        .into_iter()
-        .for_each(|(full_import_path, imported_name)| {
-            let items_with_name = items_locator::items_with_name(
-                &ctx.sema,
-                current_crate,
-                NameToImport::Exact(imported_name),
-                items_locator::AssocItemSearch::Include,
-                Some(items_locator::DEFAULT_QUERY_SEARCH_LIMIT.inner()),
-            );
-            let import = items_with_name
-                .filter_map(|candidate| {
-                    current_module.find_use_path_prefixed(
-                        db,
-                        candidate,
-                        config.insert_use.prefix_kind,
-                    )
-                })
-                .find(|mod_path| mod_path.to_string() == full_import_path);
-            if let Some(import_path) = import {
-                insert_use::insert_use(&new_ast, mod_path_to_ast(&import_path), &config.insert_use);
-            }
-        });
-
-    algo::diff(scope.as_syntax_node(), new_ast.as_syntax_node()).into_text_edit(&mut import_insert);
-    Some(vec![import_insert.finish()])
+    todo!()
 }

@@ -12,7 +12,7 @@
 use itertools::Itertools;
 use stdx::{format_to, never};
 
-use crate::{ast, AstNode, SourceFile, SyntaxKind, SyntaxToken};
+use crate::{ast, AstNode, SingleFileParseTree, SyntaxKind, SyntaxToken};
 
 /// While the parent module defines basic atomic "constructors", the `ext`
 /// module defines shortcuts for common things.
@@ -734,7 +734,7 @@ pub fn struct_(
 }
 
 fn ast_from_text<N: AstNode>(text: &str) -> N {
-    let parse = SourceFile::parse(text);
+    let parse = SingleFileParseTree::parse(text);
     let node = match parse.tree().syntax().descendants().find_map(N::cast) {
         Some(it) => it,
         None => {
@@ -760,10 +760,10 @@ pub fn token(kind: SyntaxKind) -> SyntaxToken {
 pub mod tokens {
     use once_cell::sync::Lazy;
 
-    use crate::{ast, AstNode, ParseResult, SourceFile, SyntaxKind::*, SyntaxToken};
+    use crate::{ast, AstNode, ParseResult, SingleFileParseTree, SyntaxKind::*, SyntaxToken};
 
-    pub(super) static SOURCE_FILE: Lazy<ParseResult<SourceFile>> = Lazy::new(|| {
-        SourceFile::parse(
+    pub(super) static SOURCE_FILE: Lazy<ParseResult<SingleFileParseTree>> = Lazy::new(|| {
+        SingleFileParseTree::parse(
             "const C: <()>::Item = (1 != 1, 2 == 2, 3 < 3, 4 <= 4, 5 > 5, 6 >= 6, !true, *p)\n;\n\n",
         )
     });
@@ -781,13 +781,13 @@ pub mod tokens {
 
     pub fn whitespace(text: &str) -> SyntaxToken {
         assert!(text.trim().is_empty());
-        let sf = SourceFile::parse(text).ok().unwrap();
+        let sf = SingleFileParseTree::parse(text).ok().unwrap();
         sf.syntax().clone_for_update().first_child_or_token().unwrap().into_token().unwrap()
     }
 
     pub fn doc_comment(text: &str) -> SyntaxToken {
         assert!(!text.trim().is_empty());
-        let sf = SourceFile::parse(text).ok().unwrap();
+        let sf = SingleFileParseTree::parse(text).ok().unwrap();
         sf.syntax().first_child_or_token().unwrap().into_token().unwrap()
     }
 
@@ -821,11 +821,11 @@ pub mod tokens {
             .unwrap()
     }
 
-    pub struct WsBuilder(SourceFile);
+    pub struct WsBuilder(SingleFileParseTree);
 
     impl WsBuilder {
         pub fn new(text: &str) -> WsBuilder {
-            WsBuilder(SourceFile::parse(text).ok().unwrap())
+            WsBuilder(SingleFileParseTree::parse(text).ok().unwrap())
         }
         pub fn ws(&self) -> SyntaxToken {
             self.0.syntax().first_child_or_token().unwrap().into_token().unwrap()

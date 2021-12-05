@@ -211,12 +211,12 @@ impl MacroStmts {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct SourceFile {
+pub struct SingleFileParseTree {
     pub(crate) syntax: SyntaxNode,
 }
-impl ast::HasAttrs for SourceFile {}
-impl ast::HasModuleItem for SourceFile {}
-impl SourceFile {
+impl ast::HasAttrs for SingleFileParseTree {}
+impl ast::HasModuleItem for SingleFileParseTree {}
+impl SingleFileParseTree {
     pub fn shebang_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T![shebang]) }
 }
 
@@ -1864,7 +1864,7 @@ impl AstNode for MacroStmts {
     }
     fn syntax(&self) -> &SyntaxNode { &self.syntax }
 }
-impl AstNode for SourceFile {
+impl AstNode for SingleFileParseTree {
     fn can_cast(kind: SyntaxKind) -> bool { kind == SOURCE_FILE }
     fn cast(syntax: SyntaxNode) -> Option<Self> {
         if Self::can_cast(syntax.kind()) {
@@ -4137,7 +4137,7 @@ impl std::fmt::Display for MacroStmts {
         std::fmt::Display::fmt(self.syntax(), f)
     }
 }
-impl std::fmt::Display for SourceFile {
+impl std::fmt::Display for SingleFileParseTree {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         std::fmt::Display::fmt(self.syntax(), f)
     }

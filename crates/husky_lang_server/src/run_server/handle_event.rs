@@ -222,11 +222,10 @@ pub(crate) fn handle_event(server: &mut Server, event: Event) -> Result<()> {
                             )
                             .err()
                             .map(|_| tracing::error!("duplicate DidOpenTextDocument: {}", path));
-                        this.vfs
-                            .internal
-                            .write()
-                            .vfs
-                            .set_file_contents(path, Some(params.text_document.text.into_bytes()));
+                        this.vfs.internal.write().vfs.update_file_contents(
+                            path,
+                            Some(params.text_document.text.into_bytes()),
+                        );
                     }
                     Ok(())
                 }
@@ -430,7 +429,7 @@ pub(crate) fn handle_event(server: &mut Server, event: Event) -> Result<()> {
             let subscriptions = server
                 .live_docs
                 .iter()
-                .map(|path| server.vfs.internal.read().vfs.file_id(path).unwrap())
+                .map(|path| server.vfs.internal.read().vfs.get_file_id(path).unwrap())
                 .collect::<Vec<_>>();
 
             tracing::trace!("updating notifications for {:?}", subscriptions);
@@ -458,7 +457,7 @@ pub(crate) fn handle_event(server: &mut Server, event: Event) -> Result<()> {
 }
 
 pub(crate) fn file_id_to_url(vfs: &vfs::Vfs, id: vfs::FileID) -> lsp_types::Url {
-    let path = vfs.file_path(id);
+    let path = vfs.get_file_path(id);
     let path = path.as_path().unwrap();
     to_lsp_types::url_from_abs_path(path)
 }

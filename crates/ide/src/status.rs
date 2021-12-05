@@ -1,6 +1,5 @@
 use std::{fmt, iter::FromIterator, sync::Arc};
 
-use hir::{ExpandResult, MacroFile};
 use ide_db::base_db::{
     salsa::debug::{DebugQueryTable, TableEntry},
     CrateId, FileID, FileTextQuery, SourceDatabase, SourceRootId,
@@ -17,14 +16,7 @@ use stdx::format_to;
 use syntax::{ast, ParseResult, SyntaxNode};
 
 fn syntax_tree_stats(db: &RootDatabase) -> SyntaxTreeStats {
-    ide_db::base_db::ParseQuery
-        .in_db(db)
-        .entries::<SyntaxTreeStats>()
-}
-fn macro_syntax_tree_stats(db: &RootDatabase) -> SyntaxTreeStats {
-    hir::db::ParseMacroExpansionQuery
-        .in_db(db)
-        .entries::<SyntaxTreeStats>()
+    todo!()
 }
 
 // Feature: Status
@@ -48,7 +40,6 @@ pub(crate) fn status(db: &RootDatabase, file_id: Option<FileID>) -> String {
             .entries::<LibrarySymbolsStats>()
     );
     format_to!(buf, "{}\n", syntax_tree_stats(db));
-    format_to!(buf, "{} (Macros)\n", macro_syntax_tree_stats(db));
     format_to!(buf, "{} in total\n", memory_usage());
     if env::var("RA_COUNT").is_ok() {
         format_to!(buf, "\nCounts:\n{}", profile::countme::get_all());
@@ -117,28 +108,10 @@ impl fmt::Display for SyntaxTreeStats {
     }
 }
 
-impl FromIterator<TableEntry<FileID, ParseResult<ast::SourceFile>>> for SyntaxTreeStats {
+impl FromIterator<TableEntry<FileID, ParseResult<ast::SingleFileParseTree>>> for SyntaxTreeStats {
     fn from_iter<T>(iter: T) -> SyntaxTreeStats
     where
-        T: IntoIterator<Item = TableEntry<FileID, ParseResult<ast::SourceFile>>>,
-    {
-        let mut res = SyntaxTreeStats::default();
-        for entry in iter {
-            res.total += 1;
-            res.retained += entry.value.is_some() as usize;
-        }
-        res
-    }
-}
-
-impl<M> FromIterator<TableEntry<MacroFile, ExpandResult<Option<(ParseResult<SyntaxNode>, M)>>>>
-    for SyntaxTreeStats
-{
-    fn from_iter<T>(iter: T) -> SyntaxTreeStats
-    where
-        T: IntoIterator<
-            Item = TableEntry<MacroFile, ExpandResult<Option<(ParseResult<SyntaxNode>, M)>>>,
-        >,
+        T: IntoIterator<Item = TableEntry<FileID, ParseResult<ast::SingleFileParseTree>>>,
     {
         let mut res = SyntaxTreeStats::default();
         for entry in iter {

@@ -37,10 +37,10 @@ use hir::db::DefDatabase;
 use rayon::prelude::*;
 use rustc_hash::{FxHashMap, FxHashSet};
 use syntax::{
-    ast::{self, HasName},
-    match_ast, AstNode, ParseResult, SmolStr, SourceFile,
+    ast::{self, SyntaxNodePtr},
+    ParseResult, SingleFileParseTree, SmolStr,
     SyntaxKind::*,
-    SyntaxNode, SyntaxNodePtr, TextRange, WalkEvent,
+    SyntaxNode, TextRange, WalkEvent,
 };
 
 use crate::RootDatabase;
@@ -106,37 +106,11 @@ pub trait SymbolsDatabase: hir::db::HirDatabase + SourceDatabaseExt {
 }
 
 fn library_symbols(db: &dyn SymbolsDatabase) -> Arc<FxHashMap<SourceRootId, SymbolIndex>> {
-    let _p = profile::span("library_symbols");
-
-    let roots = db.library_roots();
-    let res = roots
-        .iter()
-        .map(|&root_id| {
-            let root = db.source_root(root_id);
-            let files = root
-                .iter()
-                .map(|it| (it, SourceDatabaseExt::file_text(db, it)))
-                .collect::<Vec<_>>();
-            let symbol_index = SymbolIndex::for_files(
-                files
-                    .into_par_iter()
-                    .map(|(file, text)| (file, SourceFile::parse(&text))),
-            );
-            (root_id, symbol_index)
-        })
-        .collect();
-    Arc::new(res)
+    todo!()
 }
 
 fn file_symbols(db: &dyn SymbolsDatabase, file_id: FileID) -> Arc<SymbolIndex> {
-    db.unwind_if_cancelled();
-    let parse = db.parse(file_id);
-
-    let symbols = source_file_to_file_symbols(&parse.tree(), file_id);
-
-    // FIXME: add macros here
-
-    Arc::new(SymbolIndex::new(symbols))
+    todo!()
 }
 
 /// Need to wrap Snapshot to provide `Clone` impl for `map_with`
@@ -199,28 +173,7 @@ pub fn world_symbols(db: &RootDatabase, query: Query) -> Vec<FileSymbol> {
 }
 
 pub fn crate_symbols(db: &RootDatabase, krate: CrateId, query: Query) -> Vec<FileSymbol> {
-    let _p = profile::span("crate_symbols").detail(|| format!("{:?}", query));
-    // FIXME(#4842): This now depends on DefMap, why not build the entire symbol index from
-    // that instead?
-
-    let def_map = db.crate_def_map(krate);
-    let mut files = Vec::new();
-    let mut modules = vec![def_map.root()];
-    while let Some(module) = modules.pop() {
-        let data = &def_map[module];
-        files.extend(data.origin.file_id());
-        modules.extend(data.children.values());
-    }
-
-    let snap = Snap(db.snapshot());
-
-    let buf = files
-        .par_iter()
-        .map_with(snap, |db, &file_id| db.0.file_symbols(file_id))
-        .collect::<Vec<_>>();
-    let buf = buf.iter().map(|it| &**it).collect::<Vec<_>>();
-
-    query.search(&buf)
+    todo!()
 }
 
 pub fn index_resolve(db: &RootDatabase, name: &str) -> Vec<FileSymbol> {
@@ -302,12 +255,9 @@ impl SymbolIndex {
     }
 
     pub(crate) fn for_files(
-        files: impl ParallelIterator<Item = (FileID, ParseResult<ast::SourceFile>)>,
+        files: impl ParallelIterator<Item = (FileID, ParseResult<ast::SingleFileParseTree>)>,
     ) -> SymbolIndex {
-        let symbols = files
-            .flat_map(|(file_id, file)| source_file_to_file_symbols(&file.tree(), file_id))
-            .collect::<Vec<_>>();
-        SymbolIndex::new(symbols)
+        todo!()
     }
 
     fn range_to_map_value(start: usize, end: usize) -> u64 {
@@ -404,79 +354,17 @@ impl FileSymbolKind {
     }
 }
 
-fn source_file_to_file_symbols(source_file: &SourceFile, file_id: FileID) -> Vec<FileSymbol> {
-    let mut symbols = Vec::new();
-    let mut stack = Vec::new();
-
-    for event in source_file.syntax().preorder() {
-        match event {
-            WalkEvent::Enter(node) => {
-                if let Some(mut symbol) = to_file_symbol(&node, file_id) {
-                    symbol.container_name = stack.last().cloned();
-
-                    stack.push(symbol.name.clone());
-                    symbols.push(symbol);
-                }
-            }
-
-            WalkEvent::Leave(node) => {
-                if to_symbol(&node).is_some() {
-                    stack.pop();
-                }
-            }
-        }
-    }
-
-    symbols
+fn source_file_to_file_symbols(
+    source_file: &SingleFileParseTree,
+    file_id: FileID,
+) -> Vec<FileSymbol> {
+    todo!()
 }
 
 fn to_symbol(node: &SyntaxNode) -> Option<(SmolStr, SyntaxNodePtr, TextRange)> {
-    fn decl<N: HasName>(node: N) -> Option<(SmolStr, SyntaxNodePtr, TextRange)> {
-        let name = node.name()?;
-        let name_range = name.syntax().text_range();
-        let name = name.text().into();
-        let ptr = SyntaxNodePtr::new(node.syntax());
-
-        Some((name, ptr, name_range))
-    }
-    match_ast! {
-        match node {
-            ast::Fn(it) => decl(it),
-            ast::Struct(it) => decl(it),
-            ast::Enum(it) => decl(it),
-            ast::Trait(it) => decl(it),
-            ast::Module(it) => decl(it),
-            ast::TypeAlias(it) => decl(it),
-            ast::Const(it) => decl(it),
-            ast::Static(it) => decl(it),
-            ast::Macro(it) => decl(it),
-            ast::Union(it) => decl(it),
-            _ => None,
-        }
-    }
+    todo!()
 }
 
 fn to_file_symbol(node: &SyntaxNode, file_id: FileID) -> Option<FileSymbol> {
-    to_symbol(node).map(move |(name, ptr, name_range)| FileSymbol {
-        name,
-        kind: match node.kind() {
-            FN => FileSymbolKind::Function,
-            STRUCT => FileSymbolKind::Struct,
-            ENUM => FileSymbolKind::Enum,
-            TRAIT => FileSymbolKind::Trait,
-            MODULE => FileSymbolKind::Module,
-            TYPE_ALIAS => FileSymbolKind::TypeAlias,
-            CONST => FileSymbolKind::Const,
-            STATIC => FileSymbolKind::Static,
-            MACRO_RULES => FileSymbolKind::Macro,
-            MACRO_DEF => FileSymbolKind::Macro,
-            UNION => FileSymbolKind::Union,
-            kind => unreachable!("{:?}", kind),
-        },
-        range: node.text_range(),
-        ptr,
-        file_id,
-        name_range: Some(name_range),
-        container_name: None,
-    })
+    todo!()
 }

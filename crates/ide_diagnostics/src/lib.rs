@@ -23,31 +23,22 @@
 //! There are also a couple of ad-hoc diagnostics implemented directly here, we
 //! don't yet have a great pattern for how to do them properly.
 
-#![allow(dead_code)]
-#![allow(unused)]
-
 mod handlers {
     pub(crate) mod add_reference_here;
     pub(crate) mod break_outside_of_loop;
     pub(crate) mod inactive_code;
     pub(crate) mod incorrect_case;
     pub(crate) mod invalid_derive_target;
-    pub(crate) mod macro_error;
-    pub(crate) mod malformed_derive;
     pub(crate) mod mismatched_arg_count;
     pub(crate) mod missing_fields;
     pub(crate) mod missing_match_arms;
     pub(crate) mod missing_ok_or_some_in_tail_expr;
-    pub(crate) mod missing_unsafe;
     pub(crate) mod no_such_field;
     pub(crate) mod remove_this_semicolon;
     pub(crate) mod replace_filter_map_next_with_find_map;
-    pub(crate) mod unimplemented_builtin_macro;
-    pub(crate) mod unresolved_extern_crate;
+    pub(crate) mod unresolved_extern_package;
     pub(crate) mod unresolved_import;
-    pub(crate) mod unresolved_macro_call;
     pub(crate) mod unresolved_module;
-    pub(crate) mod unresolved_proc_macro;
 
     // The handlers below are unusual, the implement the diagnostics as well.
     pub(crate) mod field_shorthand;
@@ -58,7 +49,7 @@ mod handlers {
 #[cfg(test)]
 mod tests;
 
-use hir::{diagnostics::AnyDiagnostic, Semantics};
+use hir::Semantics;
 use ide_db::{
     assists::{Assist, AssistId, AssistKind, AssistResolveStrategy},
     base_db::{FileID, SourceDatabase},
@@ -67,7 +58,7 @@ use ide_db::{
     RootDatabase,
 };
 use rustc_hash::FxHashSet;
-use syntax::{ast::AstNode, TextRange};
+use syntax::TextRange;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DiagnosticCode(pub &'static str);
@@ -144,87 +135,13 @@ struct DiagnosticsContext<'a> {
     resolve: &'a AssistResolveStrategy,
 }
 
-pub fn get_diagnostics(
+pub fn diagnostics(
     db: &RootDatabase,
     config: &DiagnosticsConfig,
     resolve: &AssistResolveStrategy,
     file_id: FileID,
 ) -> Vec<Diagnostic> {
-    let _p = profile::span("diagnostics");
-    let sema = Semantics::new(db);
-    let parse = db.parse(file_id);
-    let mut res = Vec::new();
-
-    // [#34344] Only take first 128 errors to prevent slowing down editor/ide, the number 128 is chosen arbitrarily.
-    res.extend(parse.errors().iter().take(128).map(|err| {
-        Diagnostic::new(
-            "syntax-error",
-            format!("Syntax Error: {}", err),
-            err.range(),
-        )
-    }));
-
-    for node in parse.tree().syntax().descendants() {
-        handlers::useless_braces::useless_braces(&mut res, file_id, &node);
-        handlers::field_shorthand::field_shorthand(&mut res, file_id, &node);
-    }
-
-    let module = sema.to_module_def(file_id);
-
-    let ctx = DiagnosticsContext {
-        config,
-        sema,
-        resolve,
-    };
-    if module.is_none() {
-        handlers::unlinked_file::unlinked_file(&ctx, &mut res, file_id);
-    }
-
-    let mut diags = Vec::new();
-    if let Some(m) = module {
-        todo!();
-        m.add_diagnostics(db, &mut diags)
-    } else {
-        todo!();
-    }
-    for diag in diags {
-        #[rustfmt::skip]
-        let d = match diag {
-            AnyDiagnostic::AddReferenceHere(d) => handlers::add_reference_here::add_reference_here(&ctx, &d),
-            AnyDiagnostic::BreakOutsideOfLoop(d) => handlers::break_outside_of_loop::break_outside_of_loop(&ctx, &d),
-            AnyDiagnostic::IncorrectCase(d) => handlers::incorrect_case::incorrect_case(&ctx, &d),
-            AnyDiagnostic::MacroError(d) => handlers::macro_error::macro_error(&ctx, &d),
-            AnyDiagnostic::MalformedDerive(d) => handlers::malformed_derive::malformed_derive(&ctx, &d),
-            AnyDiagnostic::MismatchedArgCount(d) => handlers::mismatched_arg_count::mismatched_arg_count(&ctx, &d),
-            AnyDiagnostic::MissingFields(d) => handlers::missing_fields::missing_fields(&ctx, &d),
-            AnyDiagnostic::MissingMatchArms(d) => handlers::missing_match_arms::missing_match_arms(&ctx, &d),
-            AnyDiagnostic::MissingOkOrSomeInTailExpr(d) => handlers::missing_ok_or_some_in_tail_expr::missing_ok_or_some_in_tail_expr(&ctx, &d),
-            AnyDiagnostic::MissingUnsafe(d) => handlers::missing_unsafe::missing_unsafe(&ctx, &d),
-            AnyDiagnostic::NoSuchField(d) => handlers::no_such_field::no_such_field(&ctx, &d),
-            AnyDiagnostic::RemoveThisSemicolon(d) => handlers::remove_this_semicolon::remove_this_semicolon(&ctx, &d),
-            AnyDiagnostic::ReplaceFilterMapNextWithFindMap(d) => handlers::replace_filter_map_next_with_find_map::replace_filter_map_next_with_find_map(&ctx, &d),
-            AnyDiagnostic::UnimplementedBuiltinMacro(d) => handlers::unimplemented_builtin_macro::unimplemented_builtin_macro(&ctx, &d),
-            AnyDiagnostic::UnresolvedExternCrate(d) => handlers::unresolved_extern_crate::unresolved_extern_crate(&ctx, &d),
-            AnyDiagnostic::UnresolvedImport(d) => handlers::unresolved_import::unresolved_import(&ctx, &d),
-            AnyDiagnostic::UnresolvedMacroCall(d) => handlers::unresolved_macro_call::unresolved_macro_call(&ctx, &d),
-            AnyDiagnostic::UnresolvedModule(d) => handlers::unresolved_module::unresolved_module(&ctx, &d),
-            AnyDiagnostic::UnresolvedProcMacro(d) => handlers::unresolved_proc_macro::unresolved_proc_macro(&ctx, &d),
-            AnyDiagnostic::InvalidDeriveTarget(d) => handlers::invalid_derive_target::invalid_derive_target(&ctx, &d),
-
-            AnyDiagnostic::InactiveCode(d) => match handlers::inactive_code::inactive_code(&ctx, &d) {
-                Some(it) => it,
-                None => continue,
-            }
-        };
-        res.push(d)
-    }
-
-    res.retain(|d| {
-        !ctx.config.disabled.contains(d.code.as_str())
-            && !(ctx.config.disable_experimental && d.experimental)
-    });
-
-    res
+    todo!()
 }
 
 fn fix(id: &'static str, label: &str, source_change: SourceChange, target: TextRange) -> Assist {

@@ -36,7 +36,7 @@ fn check_nth_fix(nth: usize, ra_fixture_before: &str, ra_fixture_after: &str) {
     let after = trim_indent(ra_fixture_after);
 
     let (db, file_position) = RootDatabase::with_position(ra_fixture_before);
-    let diagnostic = super::get_diagnostics(
+    let diagnostic = super::diagnostics(
         &db,
         &DiagnosticsConfig::default(),
         &AssistResolveStrategy::All,
@@ -68,7 +68,7 @@ fn check_nth_fix(nth: usize, ra_fixture_before: &str, ra_fixture_after: &str) {
 /// Checks that there's a diagnostic *without* fix at `$0`.
 pub(crate) fn check_no_fix(ra_fixture: &str) {
     let (db, file_position) = RootDatabase::with_position(ra_fixture);
-    let diagnostic = super::get_diagnostics(
+    let diagnostic = super::diagnostics(
         &db,
         &DiagnosticsConfig::default(),
         &AssistResolveStrategy::All,
@@ -76,16 +76,12 @@ pub(crate) fn check_no_fix(ra_fixture: &str) {
     )
     .pop()
     .unwrap();
-    assert!(
-        diagnostic.fixes.is_none(),
-        "got a fix when none was expected: {:?}",
-        diagnostic
-    );
+    assert!(diagnostic.fixes.is_none(), "got a fix when none was expected: {:?}", diagnostic);
 }
 
 pub(crate) fn check_expect(ra_fixture: &str, expect: Expect) {
     let (db, file_id) = RootDatabase::with_single_file(ra_fixture);
-    let diagnostics = super::get_diagnostics(
+    let diagnostics = super::diagnostics(
         &db,
         &DiagnosticsConfig::default(),
         &AssistResolveStrategy::All,
@@ -105,8 +101,7 @@ pub(crate) fn check_diagnostics(ra_fixture: &str) {
 pub(crate) fn check_diagnostics_with_config(config: DiagnosticsConfig, ra_fixture: &str) {
     let (db, files) = RootDatabase::with_many_files(ra_fixture);
     for file_id in files {
-        let diagnostics =
-            super::get_diagnostics(&db, &config, &AssistResolveStrategy::All, file_id);
+        let diagnostics = super::diagnostics(&db, &config, &AssistResolveStrategy::All, file_id);
 
         let expected = extract_annotations(&*db.file_text(file_id));
         let mut actual = diagnostics
@@ -138,10 +133,10 @@ fn test_disabled_diagnostics() {
 
     let (db, file_id) = RootDatabase::with_single_file(r#"mod foo;"#);
 
-    let diagnostics = super::get_diagnostics(&db, &config, &AssistResolveStrategy::All, file_id);
+    let diagnostics = super::diagnostics(&db, &config, &AssistResolveStrategy::All, file_id);
     assert!(diagnostics.is_empty());
 
-    let diagnostics = super::get_diagnostics(
+    let diagnostics = super::diagnostics(
         &db,
         &DiagnosticsConfig::default(),
         &AssistResolveStrategy::All,

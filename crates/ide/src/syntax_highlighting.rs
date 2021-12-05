@@ -6,31 +6,23 @@ mod injector;
 mod format;
 mod highlight;
 mod inject;
-mod macro_;
-
-mod html;
-#[cfg(test)]
-mod tests;
 
 use hir::{InFile, Name, Semantics};
 use ide_db::{RootDatabase, SymbolKind};
 use rustc_hash::FxHashMap;
 use syntax::{
     ast::{self, HasFormatSpecifier},
-    match_ast, AstNode, AstToken, Direction, NodeOrToken,
+    Direction, NodeOrToken,
     SyntaxKind::*,
-    SyntaxNode, TextRange, WalkEvent, T,
+    SyntaxNode, TextRange, WalkEvent,
 };
 
 use crate::{
     syntax_highlighting::{
-        format::highlight_format_string, highlights::Highlights, macro_::MacroHighlighter,
-        tags::Highlight,
+        format::highlight_format_string, highlights::Highlights, tags::Highlight,
     },
     FileID, HlMod, HlTag,
 };
-
-pub(crate) use html::highlight_as_html;
 
 #[derive(Debug, Clone, Copy)]
 pub struct HlRange {
@@ -156,35 +148,7 @@ pub(crate) fn highlight(
     range_to_highlight: Option<TextRange>,
     syntactic_name_ref_highlighting: bool,
 ) -> Vec<HlRange> {
-    let _p = profile::span("highlight");
-    let sema = Semantics::new(db);
-
-    // Determine the root based on the given range.
-    let (root, range_to_highlight) = {
-        let source_file = sema.parse(file_id);
-        let source_file = source_file.syntax();
-        match range_to_highlight {
-            Some(range) => {
-                let node = match source_file.covering_element(range) {
-                    NodeOrToken::Node(it) => it,
-                    NodeOrToken::Token(it) => it.parent().unwrap_or_else(|| source_file.clone()),
-                };
-                (node, range)
-            }
-            None => (source_file.clone(), source_file.text_range()),
-        }
-    };
-
-    let mut hl = highlights::Highlights::new(root.text_range());
-    traverse(
-        &mut hl,
-        &sema,
-        InFile::new(file_id.into(), &root),
-        sema.scope(&root).krate(),
-        range_to_highlight,
-        syntactic_name_ref_highlighting,
-    );
-    hl.to_vec()
+    todo!()
 }
 
 fn traverse(

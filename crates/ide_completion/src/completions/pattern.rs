@@ -7,55 +7,5 @@ use crate::{
 
 /// Completes constants and paths in patterns.
 pub(crate) fn complete_pattern(acc: &mut Completions, ctx: &CompletionContext) {
-    let refutable = match ctx.pattern_ctx {
-        Some(PatternContext { refutability, .. }) => refutability == PatternRefutability::Refutable,
-        None => return,
-    };
-
-    if refutable {
-        if let Some(hir::DataType::Enum(e)) = ctx
-            .expected_type
-            .as_ref()
-            .and_then(|ty| ty.strip_references().as_adt())
-        {
-            super::enum_variants_with_paths(acc, ctx, e, |acc, ctx, variant, path| {
-                acc.add_qualified_variant_pat(ctx, variant, path.clone());
-                acc.add_qualified_enum_variant(ctx, variant, path);
-            });
-        }
-    }
-
-    // FIXME: ideally, we should look at the type we are matching against and
-    // suggest variants + auto-imports
-    ctx.process_all_names(&mut |name, res| {
-        let add_resolution = match &res {
-            hir::ScopeDef::ModuleDef(def) => match def {
-                hir::ModuleDef::DataType(hir::DataType::Struct(strukt)) => {
-                    acc.add_struct_pat(ctx, *strukt, Some(name.clone()));
-                    true
-                }
-                hir::ModuleDef::Variant(variant) if refutable => {
-                    acc.add_variant_pat(ctx, *variant, Some(name.clone()));
-                    true
-                }
-                hir::ModuleDef::DataType(hir::DataType::Enum(..))
-                | hir::ModuleDef::Variant(..)
-                | hir::ModuleDef::Const(..)
-                | hir::ModuleDef::Module(..) => refutable,
-                _ => false,
-            },
-            hir::ScopeDef::ImplSelfType(impl_) => match impl_.self_ty(ctx.db).as_adt() {
-                Some(hir::DataType::Struct(strukt)) => {
-                    acc.add_struct_pat(ctx, strukt, Some(name.clone()));
-                    true
-                }
-                Some(hir::DataType::Enum(_)) => refutable,
-                _ => true,
-            },
-            _ => false,
-        };
-        if add_resolution {
-            acc.add_resolution(ctx, name, &res);
-        }
-    });
+    todo!()
 }

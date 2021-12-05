@@ -1,4 +1,4 @@
-//! `LineBegins` stores beginning offsets of each line as `TextSize`, zero-based
+//! `LineIndex` maps flat `TextSize` offsets into `(Line, Column)`
 //! representation.
 use std::iter;
 
@@ -6,9 +6,9 @@ use rustc_hash::FxHashMap;
 use syntax::{TextRange, TextSize};
 
 #[derive(Clone, Debug, PartialEq, Eq)]
-pub struct LineBegins {
+pub struct LineIndex {
     /// Offset the the beginning of each line, zero-based
-    pub(crate) begins: Vec<TextSize>,
+    pub(crate) newlines: Vec<TextSize>,
     /// List of non-ASCII characters on each line
     pub(crate) utf16_lines: FxHashMap<u32, Vec<Utf16Char>>,
 }
@@ -53,8 +53,8 @@ impl Utf16Char {
     }
 }
 
-impl LineBegins {
-    pub fn new(text: &str) -> LineBegins {
+impl LineIndex {
+    pub fn new(text: &str) -> LineIndex {
         let mut utf16_lines = FxHashMap::default();
         let mut utf16_chars = Vec::new();
 
@@ -81,10 +81,7 @@ impl LineBegins {
             }
 
             if !c.is_ascii() {
-                utf16_chars.push(Utf16Char {
-                    start: curr_col,
-                    end: curr_col + c_len,
-                });
+                utf16_chars.push(Utf16Char { start: curr_col, end: curr_col + c_len });
             }
 
             curr_col += c_len;
@@ -95,47 +92,35 @@ impl LineBegins {
             utf16_lines.insert(line, utf16_chars);
         }
 
-        LineBegins {
-            begins: newlines,
-            utf16_lines,
-        }
+        LineIndex { newlines, utf16_lines }
     }
 
     pub fn line_col(&self, offset: TextSize) -> LineCol {
-        let line = self.begins.partition_point(|&it| it <= offset) - 1;
-        let line_start_offset = self.begins[line];
+        let line = self.newlines.partition_point(|&it| it <= offset) - 1;
+        let line_start_offset = self.newlines[line];
         let col = offset - line_start_offset;
-        LineCol {
-            line: line as u32,
-            col: col.into(),
-        }
+        LineCol { line: line as u32, col: col.into() }
     }
 
     pub fn offset(&self, line_col: LineCol) -> TextSize {
-        self.begins[line_col.line as usize] + TextSize::from(line_col.col)
+        self.newlines[line_col.line as usize] + TextSize::from(line_col.col)
     }
 
     pub fn to_utf16(&self, line_col: LineCol) -> LineColUtf16 {
         let col = self.utf8_to_utf16_col(line_col.line, line_col.col.into());
-        LineColUtf16 {
-            line: line_col.line,
-            col: col as u32,
-        }
+        LineColUtf16 { line: line_col.line, col: col as u32 }
     }
 
     pub fn to_utf8(&self, line_col: LineColUtf16) -> LineCol {
         let col = self.utf16_to_utf8_col(line_col.line, line_col.col);
-        LineCol {
-            line: line_col.line,
-            col: col.into(),
-        }
+        LineCol { line: line_col.line, col: col.into() }
     }
 
     pub fn lines(&self, range: TextRange) -> impl Iterator<Item = TextRange> + '_ {
-        let lo = self.begins.partition_point(|&it| it < range.start());
-        let hi = self.begins.partition_point(|&it| it <= range.end());
+        let lo = self.newlines.partition_point(|&it| it < range.start());
+        let hi = self.newlines.partition_point(|&it| it <= range.end());
         let all = iter::once(range.start())
-            .chain(self.begins[lo..hi].iter().copied())
+            .chain(self.newlines[lo..hi].iter().copied())
             .chain(iter::once(range.end()));
 
         all.clone()

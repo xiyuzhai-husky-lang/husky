@@ -15,14 +15,14 @@ fn test_line_index() {
         (12, 1, 6),
     ];
 
-    let index = LineBegins::new(text);
+    let index = LineIndex::new(text);
     for &(offset, line, col) in &table {
         assert_eq!(index.line_col(offset.into()), LineCol { line, col });
     }
 
     let text = "\nhello\nworld";
     let table = [(0, 0, 0), (1, 1, 0), (2, 1, 1), (6, 1, 5), (7, 2, 0)];
-    let index = LineBegins::new(text);
+    let index = LineIndex::new(text);
     for &(offset, line, col) in &table {
         assert_eq!(index.line_col(offset.into()), LineCol { line, col });
     }
@@ -36,7 +36,7 @@ fn test_char_len() {
 
 #[test]
 fn test_empty_index() {
-    let col_index = LineBegins::new(
+    let col_index = LineIndex::new(
         "
 const C: char = 'x';
 ",
@@ -46,7 +46,7 @@ const C: char = 'x';
 
 #[test]
 fn test_single_char() {
-    let col_index = LineBegins::new(
+    let col_index = LineIndex::new(
         "
 const C: char = 'メ';
 ",
@@ -54,13 +54,7 @@ const C: char = 'メ';
 
     assert_eq!(col_index.utf16_lines.len(), 1);
     assert_eq!(col_index.utf16_lines[&1].len(), 1);
-    assert_eq!(
-        col_index.utf16_lines[&1][0],
-        Utf16Char {
-            start: 17.into(),
-            end: 20.into()
-        }
-    );
+    assert_eq!(col_index.utf16_lines[&1][0], Utf16Char { start: 17.into(), end: 20.into() });
 
     // UTF-8 to UTF-16, no changes
     assert_eq!(col_index.utf8_to_utf16_col(1, 15.into()), 15);
@@ -74,13 +68,13 @@ const C: char = 'メ';
     // UTF-16 to UTF-8
     assert_eq!(col_index.utf16_to_utf8_col(1, 19), TextSize::from(21));
 
-    let col_index = LineBegins::new("a𐐏b");
+    let col_index = LineIndex::new("a𐐏b");
     assert_eq!(col_index.utf16_to_utf8_col(0, 3), TextSize::from(5));
 }
 
 #[test]
 fn test_string() {
-    let col_index = LineBegins::new(
+    let col_index = LineIndex::new(
         "
 const C: char = \"メ メ\";
 ",
@@ -88,20 +82,8 @@ const C: char = \"メ メ\";
 
     assert_eq!(col_index.utf16_lines.len(), 1);
     assert_eq!(col_index.utf16_lines[&1].len(), 2);
-    assert_eq!(
-        col_index.utf16_lines[&1][0],
-        Utf16Char {
-            start: 17.into(),
-            end: 20.into()
-        }
-    );
-    assert_eq!(
-        col_index.utf16_lines[&1][1],
-        Utf16Char {
-            start: 21.into(),
-            end: 24.into()
-        }
-    );
+    assert_eq!(col_index.utf16_lines[&1][0], Utf16Char { start: 17.into(), end: 20.into() });
+    assert_eq!(col_index.utf16_lines[&1][1], Utf16Char { start: 21.into(), end: 24.into() });
 
     // UTF-8 to UTF-16
     assert_eq!(col_index.utf8_to_utf16_col(1, 15.into()), 15);
@@ -129,21 +111,21 @@ fn test_splitlines() {
     }
 
     let text = "a\nbb\nccc\n";
-    let line_index = LineBegins::new(text);
+    let line_index = LineIndex::new(text);
 
     let actual = line_index.lines(r(0, 9)).collect::<Vec<_>>();
     let expected = vec![r(0, 2), r(2, 5), r(5, 9)];
     assert_eq!(actual, expected);
 
     let text = "";
-    let line_index = LineBegins::new(text);
+    let line_index = LineIndex::new(text);
 
     let actual = line_index.lines(r(0, 0)).collect::<Vec<_>>();
     let expected = vec![];
     assert_eq!(actual, expected);
 
     let text = "\n";
-    let line_index = LineBegins::new(text);
+    let line_index = LineIndex::new(text);
 
     let actual = line_index.lines(r(0, 1)).collect::<Vec<_>>();
     let expected = vec![r(0, 1)];

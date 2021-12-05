@@ -28,11 +28,11 @@ flycheck = { path = "../flycheck", version = "0.0.0" }
 vfs = { path = "../vfs", version = "0.0.0" }
 vfs-notify = { path = "../vfs_notify", version = "0.0.0" }
 project = { path = "../project", version = "0.0.0" }
-ide = { path = "../ide", version = "0.0.0"}
-ide_db = { path = "../ide_db", version = "0.0.0"}
 base_db = { path = "../base_db", version = "0.0.0"}
 profile = { path = "../profile", version = "0.0.0"}
 syntax = { path = "../syntax", version = "0.0.0"}
+ide = { path = "../ide", version = "0.0.0"}
+ide_db = { path = "../ide_db", version = "0.0.0"}
 hir = { path = "../hir", version = "0.0.0"}
 
 [profile.dev]

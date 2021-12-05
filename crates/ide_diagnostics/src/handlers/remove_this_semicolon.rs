@@ -26,19 +26,7 @@ fn semicolon_range(
     ctx: &DiagnosticsContext<'_>,
     d: &hir::RemoveThisSemicolon,
 ) -> Result<FileRange, FileRange> {
-    let expr_range = ctx.sema.diagnostics_display_range(d.expr.clone().map(|it| it.into()));
-    let file_text = ctx.sema.db.file_text(expr_range.file_id);
-    let range_end: usize = expr_range.range.end().into();
-    // FIXME: This doesn't handle whitespace and comments, but handling those in
-    // the presence of macros might prove tricky...
-    if file_text[range_end..].starts_with(';') {
-        Ok(FileRange {
-            file_id: expr_range.file_id,
-            range: TextRange::at(expr_range.range.end(), TextSize::of(';')),
-        })
-    } else {
-        Err(expr_range)
-    }
+    todo!()
 }
 
 fn fixes(ctx: &DiagnosticsContext<'_>, d: &hir::RemoveThisSemicolon) -> Option<Vec<Assist>> {

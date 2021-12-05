@@ -88,7 +88,7 @@ use hir::Semantics;
 use ide_db::base_db::{FileID, FilePosition, FileRange};
 use resolving::ResolvedRule;
 use rustc_hash::FxHashMap;
-use syntax::{ast, AstNode, SyntaxNode, TextRange};
+use syntax::{ast, SyntaxNode, TextRange};
 use text_edit::TextEdit;
 
 // A structured search replace rule. Create by calling `parse` on a str.
@@ -128,15 +128,7 @@ impl<'db> MatchFinder<'db> {
         lookup_context: FilePosition,
         mut restrict_ranges: Vec<FileRange>,
     ) -> MatchFinder<'db> {
-        restrict_ranges.retain(|range| !range.range.is_empty());
-        let sema = Semantics::new(db);
-        let resolution_scope = resolving::ResolutionScope::new(&sema, lookup_context);
-        MatchFinder {
-            sema,
-            rules: Vec::new(),
-            resolution_scope,
-            restrict_ranges,
-        }
+        todo!()
     }
 
     /// Constructs an instance using the start of the first file in `db` as the lookup context.
@@ -229,29 +221,7 @@ impl<'db> MatchFinder<'db> {
     /// them, while recording reasons why they don't match. This API is useful for command
     /// line-based debugging where providing a range is difficult.
     pub fn debug_where_text_equal(&self, file_id: FileID, snippet: &str) -> Vec<MatchDebugInfo> {
-        use ide_db::base_db::SourceDatabaseExt;
-        let file = self.sema.parse(file_id);
-        let mut res = Vec::new();
-        let file_text = self.sema.db.file_text(file_id);
-        let mut remaining_text = file_text.as_str();
-        let mut base = 0;
-        let len = snippet.len() as u32;
-        while let Some(offset) = remaining_text.find(snippet) {
-            let start = base + offset as u32;
-            let end = start + len;
-            self.output_debug_for_nodes_at_range(
-                file.syntax(),
-                FileRange {
-                    file_id,
-                    range: TextRange::new(start.into(), end.into()),
-                },
-                &None,
-                &mut res,
-            );
-            remaining_text = &remaining_text[offset + snippet.len()..];
-            base = end;
-        }
-        res
+        todo!()
     }
 
     fn output_debug_for_nodes_at_range(
@@ -261,39 +231,7 @@ impl<'db> MatchFinder<'db> {
         restrict_range: &Option<FileRange>,
         out: &mut Vec<MatchDebugInfo>,
     ) {
-        for node in node.children() {
-            let node_range = self.sema.original_range(&node);
-            if node_range.file_id != range.file_id || !node_range.range.contains_range(range.range)
-            {
-                continue;
-            }
-            if node_range.range == range.range {
-                for rule in &self.rules {
-                    // For now we ignore rules that have a different kind than our node, otherwise
-                    // we get lots of noise. If at some point we add support for restricting rules
-                    // to a particular kind of thing (e.g. only match type references), then we can
-                    // relax this. We special-case expressions, since function calls can match
-                    // method calls.
-                    if rule.pattern.node.kind() != node.kind()
-                        && !(ast::Expr::can_cast(rule.pattern.node.kind())
-                            && ast::Expr::can_cast(node.kind()))
-                    {
-                        continue;
-                    }
-                    out.push(MatchDebugInfo {
-                        matched: matching::get_match(true, rule, &node, restrict_range, &self.sema)
-                            .map_err(|e| MatchFailureReason {
-                                reason: e.reason.unwrap_or_else(|| {
-                                    "Match failed, but no reason was given".to_owned()
-                                }),
-                            }),
-                        pattern: rule.pattern.node.clone(),
-                        node: node.clone(),
-                    });
-                }
-            }
-            self.output_debug_for_nodes_at_range(&node, range, restrict_range, out);
-        }
+        todo!()
     }
 }
 
@@ -343,7 +281,7 @@ impl SsrMatches {
 
 impl Match {
     pub fn matched_text(&self) -> String {
-        self.matched_node.text().to_string()
+        todo!()
     }
 }
 

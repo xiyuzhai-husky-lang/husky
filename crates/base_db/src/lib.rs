@@ -6,7 +6,7 @@ mod input;
 use std::{panic, sync::Arc};
 
 use rustc_hash::FxHashSet;
-use syntax::{ParseResult, SourceFile, TextRange, TextSize};
+use syntax::{ParseResult, SingleFileParseTree, TextRange, TextSize};
 
 pub use crate::{
     change::Change,
@@ -64,17 +64,18 @@ pub trait FileLoader {
 pub trait SourceDatabase: FileLoader + std::fmt::Debug {
     // Parses the file into the syntax tree.
     #[salsa::invoke(parse_query)]
-    fn parse(&self, file_id: FileID) -> ParseResult<SourceFile>;
+    fn parse(&self, file_id: FileID) -> ParseResult<SingleFileParseTree>;
 
     /// The crate graph.
     #[salsa::input]
     fn crate_graph(&self) -> Arc<CrateGraph>;
 }
 
-fn parse_query(db: &dyn SourceDatabase, file_id: FileID) -> ParseResult<SourceFile> {
-    let _p = profile::span("parse_query").detail(|| format!("{:?}", file_id));
-    let text = db.file_text(file_id);
-    SourceFile::parse(&*text)
+fn parse_query(db: &dyn SourceDatabase, file_id: FileID) -> ParseResult<SingleFileParseTree> {
+    todo!()
+    // let _p = profile::span("parse_query").detail(|| format!("{:?}", file_id));
+    // let text = db.file_text(file_id);
+    // SingleFileParseTree::parse(&*text)
 }
 
 /// We don't want to give HIR knowledge of source roots, hence we extract these

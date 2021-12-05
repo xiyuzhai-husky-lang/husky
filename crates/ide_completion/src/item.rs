@@ -13,7 +13,7 @@ use ide_db::{
 };
 use smallvec::SmallVec;
 use stdx::{impl_from, never};
-use syntax::{algo, SmolStr, TextRange};
+use syntax::{SmolStr, TextRange};
 use text_edit::TextEdit;
 
 /// `CompletionItem` describes a single completion variant in the editor pop-up.
@@ -79,40 +79,7 @@ pub struct CompletionItem {
 // We use custom debug for CompletionItem to make snapshot tests more readable.
 impl fmt::Debug for CompletionItem {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let mut s = f.debug_struct("CompletionItem");
-        s.field("label", &self.label()).field("source_range", &self.source_range());
-        if self.text_edit().len() == 1 {
-            let atom = &self.text_edit().iter().next().unwrap();
-            s.field("delete", &atom.delete);
-            s.field("insert", &atom.insert);
-        } else {
-            s.field("text_edit", &self.text_edit);
-        }
-        s.field("kind", &self.kind());
-        if self.lookup() != self.label() {
-            s.field("lookup", &self.lookup());
-        }
-        if let Some(detail) = self.detail() {
-            s.field("detail", &detail);
-        }
-        if let Some(documentation) = self.documentation() {
-            s.field("documentation", &documentation);
-        }
-        if self.deprecated {
-            s.field("deprecated", &true);
-        }
-
-        if self.relevance != CompletionRelevance::default() {
-            s.field("relevance", &self.relevance);
-        }
-
-        if let Some(mutability) = &self.ref_match {
-            s.field("ref_match", &format!("&{}", mutability.as_keyword_for_ref()));
-        }
-        if self.trigger_call_info {
-            s.field("trigger_call_info", &true);
-        }
-        s.finish()
+        todo!()
     }
 }
 
@@ -336,13 +303,7 @@ impl CompletionItem {
     }
 
     pub fn ref_match(&self) -> Option<(Mutability, CompletionRelevance)> {
-        // Relevance of the ref match should be the same as the original
-        // match, but with exact type match set because self.ref_match
-        // is only set if there is an exact type match.
-        let mut relevance = self.relevance;
-        relevance.type_match = Some(CompletionRelevanceTypeMatch::Exact);
-
-        self.ref_match.map(|mutability| (mutability, relevance))
+        todo!()
     }
 
     pub fn imports_to_add(&self) -> &[ImportEdit] {
@@ -361,15 +322,7 @@ impl ImportEdit {
     /// Attempts to insert the import to the given scope, producing a text edit.
     /// May return no edit in edge cases, such as scope already containing the import.
     pub fn to_text_edit(&self, cfg: InsertUseConfig) -> Option<TextEdit> {
-        let _p = profile::span("ImportEdit::to_text_edit");
-
-        let new_ast = self.scope.clone_for_update();
-        insert_use::insert_use(&new_ast, mod_path_to_ast(&self.import.import_path), &cfg);
-        let mut import_insert = TextEdit::builder();
-        algo::diff(self.scope.as_syntax_node(), new_ast.as_syntax_node())
-            .into_text_edit(&mut import_insert);
-
-        Some(import_insert.finish())
+        todo!()
     }
 }
 
@@ -396,42 +349,7 @@ pub(crate) struct Builder {
 
 impl Builder {
     pub(crate) fn build(self) -> CompletionItem {
-        let _p = profile::span("item::Builder::build");
-
-        let mut label = self.label;
-        let mut lookup = self.lookup;
-        let insert_text = self.insert_text.unwrap_or_else(|| label.to_string());
-
-        if let [import_edit] = &*self.imports_to_add {
-            // snippets can have multiple imports, but normal completions only have up to one
-            if let Some(original_path) = import_edit.import.original_path.as_ref() {
-                lookup = lookup.or_else(|| Some(label.clone()));
-                label = SmolStr::from(format!("{} (use {})", label, original_path));
-            }
-        } else if let Some(trait_name) = self.trait_name {
-            label = SmolStr::from(format!("{} (as {})", label, trait_name));
-        }
-
-        let text_edit = match self.text_edit {
-            Some(it) => it,
-            None => TextEdit::replace(self.source_range, insert_text),
-        };
-
-        CompletionItem {
-            source_range: self.source_range,
-            label,
-            text_edit,
-            is_snippet: self.is_snippet,
-            detail: self.detail,
-            documentation: self.documentation,
-            lookup,
-            kind: self.kind,
-            deprecated: self.deprecated,
-            trigger_call_info: self.trigger_call_info.unwrap_or(false),
-            relevance: self.relevance,
-            ref_match: self.ref_match,
-            import_to_add: self.imports_to_add,
-        }
+        todo!()
     }
     pub(crate) fn lookup_by(&mut self, lookup: impl Into<SmolStr>) -> &mut Builder {
         self.lookup = Some(lookup.into());
@@ -558,8 +476,14 @@ mod tests {
         let expected_relevance_order = vec![
             vec![CompletionRelevance::default()],
             vec![
-                CompletionRelevance { exact_name_match: true, ..CompletionRelevance::default() },
-                CompletionRelevance { is_local: true, ..CompletionRelevance::default() },
+                CompletionRelevance {
+                    exact_name_match: true,
+                    ..CompletionRelevance::default()
+                },
+                CompletionRelevance {
+                    is_local: true,
+                    ..CompletionRelevance::default()
+                },
             ],
             vec![CompletionRelevance {
                 exact_name_match: true,

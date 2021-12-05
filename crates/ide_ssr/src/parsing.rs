@@ -9,7 +9,7 @@ use crate::errors::bail;
 use crate::{SsrError, SsrPattern, SsrRule};
 use rustc_hash::{FxHashMap, FxHashSet};
 use std::{fmt::Display, str::FromStr};
-use syntax::{ast, AstNode, SmolStr, SyntaxKind, SyntaxNode, T};
+use syntax::{SmolStr, SyntaxKind, SyntaxNode};
 
 #[derive(Debug)]
 pub(crate) struct ParsedRule {
@@ -65,26 +65,7 @@ impl ParsedRule {
         pattern: &RawPattern,
         template: Option<&RawPattern>,
     ) -> Result<Vec<ParsedRule>, SsrError> {
-        let raw_pattern = pattern.as_rust_code();
-        let raw_template = template.map(|t| t.as_rust_code());
-        let raw_template = raw_template.as_deref();
-        let mut builder = RuleBuilder {
-            placeholders_by_stand_in: pattern.placeholders_by_stand_in(),
-            rules: Vec::new(),
-        };
-
-        let raw_template_stmt = raw_template.map(ast::Stmt::parse);
-        if let raw_template_expr @ Some(Ok(_)) = raw_template.map(ast::Expr::parse) {
-            builder.try_add(ast::Expr::parse(&raw_pattern), raw_template_expr);
-        } else {
-            builder.try_add(ast::Expr::parse(&raw_pattern), raw_template_stmt.clone());
-        }
-        builder.try_add(ast::Type::parse(&raw_pattern), raw_template.map(ast::Type::parse));
-        builder.try_add(ast::Item::parse(&raw_pattern), raw_template.map(ast::Item::parse));
-        builder.try_add(ast::Path::parse(&raw_pattern), raw_template.map(ast::Path::parse));
-        builder.try_add(ast::Pat::parse(&raw_pattern), raw_template.map(ast::Pat::parse));
-        builder.try_add(ast::Stmt::parse(&raw_pattern), raw_template_stmt);
-        builder.build()
+        todo!()
     }
 }
 
@@ -94,24 +75,12 @@ struct RuleBuilder {
 }
 
 impl RuleBuilder {
-    fn try_add<T: AstNode, T2: AstNode>(
+    fn try_add(
         &mut self,
-        pattern: Result<T, ()>,
-        template: Option<Result<T2, ()>>,
+        pattern: Result<SyntaxNode, ()>,
+        template: Option<Result<SyntaxNode, ()>>,
     ) {
-        match (pattern, template) {
-            (Ok(pattern), Some(Ok(template))) => self.rules.push(ParsedRule {
-                placeholders_by_stand_in: self.placeholders_by_stand_in.clone(),
-                pattern: pattern.syntax().clone(),
-                template: Some(template.syntax().clone()),
-            }),
-            (Ok(pattern), None) => self.rules.push(ParsedRule {
-                placeholders_by_stand_in: self.placeholders_by_stand_in.clone(),
-                pattern: pattern.syntax().clone(),
-                template: None,
-            }),
-            _ => {}
-        }
+        todo!()
     }
 
     fn build(mut self) -> Result<Vec<ParsedRule>, SsrError> {
@@ -139,8 +108,7 @@ impl RuleBuilder {
 
 /// Returns whether there are any paths in `node`.
 fn contains_path(node: &SyntaxNode) -> bool {
-    node.kind() == SyntaxKind::PATH
-        || node.descendants().any(|node| node.kind() == SyntaxKind::PATH)
+    todo!()
 }
 
 impl FromStr for SsrRule {
@@ -160,7 +128,11 @@ impl FromStr for SsrRule {
         let raw_pattern = pattern.parse()?;
         let raw_template = template.parse()?;
         let parsed_rules = ParsedRule::new(&raw_pattern, Some(&raw_template))?;
-        let rule = SsrRule { pattern: raw_pattern, template: raw_template, parsed_rules };
+        let rule = SsrRule {
+            pattern: raw_pattern,
+            template: raw_template,
+            parsed_rules,
+        };
         validate_rule(&rule)?;
         Ok(rule)
     }
@@ -170,7 +142,9 @@ impl FromStr for RawPattern {
     type Err = SsrError;
 
     fn from_str(pattern_str: &str) -> Result<RawPattern, SsrError> {
-        Ok(RawPattern { tokens: parse_pattern(pattern_str)? })
+        Ok(RawPattern {
+            tokens: parse_pattern(pattern_str)?,
+        })
     }
 }
 
@@ -191,7 +165,10 @@ impl RawPattern {
         let mut res = FxHashMap::default();
         for t in &self.tokens {
             if let PatternElement::Placeholder(placeholder) = t {
-                res.insert(SmolStr::new(placeholder.stand_in_name.clone()), placeholder.clone());
+                res.insert(
+                    SmolStr::new(placeholder.stand_in_name.clone()),
+                    placeholder.clone(),
+                );
             }
         }
         res
@@ -212,21 +189,7 @@ impl FromStr for SsrPattern {
 /// then any whitespace tokens will be removed, which we do for the search pattern, but not for the
 /// replace pattern.
 fn parse_pattern(pattern_str: &str) -> Result<Vec<PatternElement>, SsrError> {
-    let mut res = Vec::new();
-    let mut placeholder_names = FxHashSet::default();
-    let mut tokens = tokenize(pattern_str)?.into_iter();
-    while let Some(token) = tokens.next() {
-        if token.kind == T![$] {
-            let placeholder = parse_placeholder(&mut tokens)?;
-            if !placeholder_names.insert(placeholder.ident.clone()) {
-                bail!("Placeholder `{}` repeats more than once", placeholder.ident);
-            }
-            res.push(PatternElement::Placeholder(placeholder));
-        } else {
-            res.push(PatternElement::Token(token));
-        }
-    }
-    Ok(res)
+    todo!()
 }
 
 /// Checks for errors in a rule. e.g. the replace pattern referencing placeholders that the search
@@ -250,91 +213,24 @@ fn validate_rule(rule: &SsrRule) -> Result<(), SsrError> {
         }
     }
     if !undefined.is_empty() {
-        bail!("Replacement contains undefined placeholders: {}", undefined.join(", "));
+        bail!(
+            "Replacement contains undefined placeholders: {}",
+            undefined.join(", ")
+        );
     }
     Ok(())
 }
 
 fn tokenize(source: &str) -> Result<Vec<Token>, SsrError> {
-    let mut start = 0;
-    let (raw_tokens, errors) = syntax::tokenize(source);
-    if let Some(first_error) = errors.first() {
-        bail!("Failed to parse pattern: {}", first_error);
-    }
-    let mut tokens: Vec<Token> = Vec::new();
-    for raw_token in raw_tokens {
-        let token_len = usize::from(raw_token.len);
-        tokens.push(Token {
-            kind: raw_token.kind,
-            text: SmolStr::new(&source[start..start + token_len]),
-        });
-        start += token_len;
-    }
-    Ok(tokens)
+    todo!()
 }
 
 fn parse_placeholder(tokens: &mut std::vec::IntoIter<Token>) -> Result<Placeholder, SsrError> {
-    let mut name = None;
-    let mut constraints = Vec::new();
-    if let Some(token) = tokens.next() {
-        match token.kind {
-            SyntaxKind::IDENT => {
-                name = Some(token.text);
-            }
-            T!['{'] => {
-                let token =
-                    tokens.next().ok_or_else(|| SsrError::new("Unexpected end of placeholder"))?;
-                if token.kind == SyntaxKind::IDENT {
-                    name = Some(token.text);
-                }
-                loop {
-                    let token = tokens
-                        .next()
-                        .ok_or_else(|| SsrError::new("Placeholder is missing closing brace '}'"))?;
-                    match token.kind {
-                        T![:] => {
-                            constraints.push(parse_constraint(tokens)?);
-                        }
-                        T!['}'] => break,
-                        _ => bail!("Unexpected token while parsing placeholder: '{}'", token.text),
-                    }
-                }
-            }
-            _ => {
-                bail!("Placeholders should either be $name or ${{name:constraints}}");
-            }
-        }
-    }
-    let name = name.ok_or_else(|| SsrError::new("Placeholder ($) with no name"))?;
-    Ok(Placeholder::new(name, constraints))
+    todo!()
 }
 
 fn parse_constraint(tokens: &mut std::vec::IntoIter<Token>) -> Result<Constraint, SsrError> {
-    let constraint_type = tokens
-        .next()
-        .ok_or_else(|| SsrError::new("Found end of placeholder while looking for a constraint"))?
-        .text
-        .to_string();
-    match constraint_type.as_str() {
-        "kind" => {
-            expect_token(tokens, "(")?;
-            let t = tokens.next().ok_or_else(|| {
-                SsrError::new("Unexpected end of constraint while looking for kind")
-            })?;
-            if t.kind != SyntaxKind::IDENT {
-                bail!("Expected ident, found {:?} while parsing kind constraint", t.kind);
-            }
-            expect_token(tokens, ")")?;
-            Ok(Constraint::Kind(NodeKind::from(&t.text)?))
-        }
-        "not" => {
-            expect_token(tokens, "(")?;
-            let sub = parse_constraint(tokens)?;
-            expect_token(tokens, ")")?;
-            Ok(Constraint::Not(Box::new(sub)))
-        }
-        x => bail!("Unsupported constraint type '{}'", x),
-    }
+    todo!()
 }
 
 fn expect_token(tokens: &mut std::vec::IntoIter<Token>, expected: &str) -> Result<(), SsrError> {
@@ -369,45 +265,5 @@ impl Placeholder {
 impl Display for Var {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "${}", self.0)
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn parser_happy_case() {
-        fn token(kind: SyntaxKind, text: &str) -> PatternElement {
-            PatternElement::Token(Token { kind, text: SmolStr::new(text) })
-        }
-        fn placeholder(name: &str) -> PatternElement {
-            PatternElement::Placeholder(Placeholder::new(SmolStr::new(name), Vec::new()))
-        }
-        let result: SsrRule = "foo($a, $b) ==>> bar($b, $a)".parse().unwrap();
-        assert_eq!(
-            result.pattern.tokens,
-            vec![
-                token(SyntaxKind::IDENT, "foo"),
-                token(T!['('], "("),
-                placeholder("a"),
-                token(T![,], ","),
-                token(SyntaxKind::WHITESPACE, " "),
-                placeholder("b"),
-                token(T![')'], ")"),
-            ]
-        );
-        assert_eq!(
-            result.template.tokens,
-            vec![
-                token(SyntaxKind::IDENT, "bar"),
-                token(T!['('], "("),
-                placeholder("b"),
-                token(T![,], ","),
-                token(SyntaxKind::WHITESPACE, " "),
-                placeholder("a"),
-                token(T![')'], ")"),
-            ]
-        );
     }
 }

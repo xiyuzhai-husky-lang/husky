@@ -11,7 +11,7 @@ use ide_db::{
     search::{SearchScope, UsageSearchResult},
 };
 use rustc_hash::FxHashSet;
-use syntax::{ast, AstNode, SyntaxKind, SyntaxNode};
+use syntax::{ast, SyntaxKind, SyntaxNode};
 
 /// A cache for the results of find_usages. This is for when we have multiple patterns that have the
 /// same path. e.g. if the pattern was `foo::Bar` that can parse as a path, an expression, a type
@@ -111,11 +111,7 @@ impl<'db> MatchFinder<'db> {
     }
 
     fn slow_scan(&self, rule: &ResolvedRule, matches_out: &mut Vec<Match>) {
-        self.search_files_do(|file_id| {
-            let file = self.sema.parse(file_id);
-            let code = file.syntax();
-            self.slow_scan_node(code, rule, &None, matches_out);
-        })
+        todo!()
     }
 
     fn search_files_do(&self, mut callback: impl FnMut(FileID)) {
@@ -147,13 +143,7 @@ impl<'db> MatchFinder<'db> {
         restrict_range: &Option<FileRange>,
         matches_out: &mut Vec<Match>,
     ) {
-        if !is_search_permitted(code) {
-            return;
-        }
-        self.try_add_match(rule, code, restrict_range, matches_out);
-        for child in code.children() {
-            self.slow_scan_node(&child, rule, restrict_range, matches_out);
-        }
+        todo!()
     }
 
     fn try_add_match(
@@ -175,37 +165,18 @@ impl<'db> MatchFinder<'db> {
     /// Returns whether `code` is within one of our range restrictions if we have any. No range
     /// restrictions is considered unrestricted and always returns true.
     fn within_range_restrictions(&self, code: &SyntaxNode) -> bool {
-        if self.restrict_ranges.is_empty() {
-            // There is no range restriction.
-            return true;
-        }
-        let node_range = self.sema.original_range(code);
-        for range in &self.restrict_ranges {
-            if range.file_id == node_range.file_id && range.range.contains_range(node_range.range) {
-                return true;
-            }
-        }
-        false
+        todo!()
     }
 }
 
 /// Returns whether we support matching within `node` and all of its ancestors.
 fn is_search_permitted_ancestors(node: &SyntaxNode) -> bool {
-    if let Some(parent) = node.parent() {
-        if !is_search_permitted_ancestors(&parent) {
-            return false;
-        }
-    }
-    is_search_permitted(node)
+    todo!()
 }
 
 /// Returns whether we support matching within this kind of node.
 fn is_search_permitted(node: &SyntaxNode) -> bool {
-    // FIXME: Properly handle use declarations. At the moment, if our search pattern is `foo::bar`
-    // and the code is `use foo::{baz, bar}`, we'll match `bar`, since it resolves to `foo::bar`.
-    // However we'll then replace just the part we matched `bar`. We probably need to instead remove
-    // `bar` and insert a new use declaration.
-    node.kind() != SyntaxKind::USE
+    todo!()
 }
 
 impl UsageCache {
@@ -225,20 +196,5 @@ impl UsageCache {
 /// something that we can find references to. We then somewhat arbitrarily pick the path that is the
 /// longest as this is hopefully more likely to be less common, making it faster to find.
 fn pick_path_for_usages(pattern: &ResolvedPattern) -> Option<&ResolvedPath> {
-    // FIXME: Take the scope of the resolved path into account. e.g. if there are any paths that are
-    // private to the current module, then we definitely would want to pick them over say a path
-    // from std. Possibly we should go further than this and intersect the search scopes for all
-    // resolved paths then search only in that scope.
-    pattern
-        .resolved_paths
-        .iter()
-        .filter(|(_, p)| {
-            !matches!(
-                p.resolution,
-                hir::EntityResolution::Def(hir::ModuleDef::BuiltinType(_))
-            )
-        })
-        .map(|(node, resolved)| (node.text().len(), resolved))
-        .max_by(|(a, _), (b, _)| a.cmp(b))
-        .map(|(_, resolved)| resolved)
+    todo!()
 }
