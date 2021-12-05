@@ -67,6 +67,7 @@
 // // foo($a, $b) ==>> ($a).foo($b)
 // ```
 
+#![allow(dead_code, unused)]
 mod from_comment;
 mod matching;
 mod nester;

@@ -1,5 +1,6 @@
 //! `completions` crate provides utilities for generating completions of user input.
 
+#![allow(dead_code, unused)]
 mod completions;
 mod config;
 mod context;

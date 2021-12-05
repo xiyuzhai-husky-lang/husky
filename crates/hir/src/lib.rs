@@ -1,3 +1,4 @@
+#![allow(dead_code, unused)]
 pub struct Callable {}
 /// Primary API to get semantic information, like types, from syntax trees.
 pub struct Semantics<'db, DB> {

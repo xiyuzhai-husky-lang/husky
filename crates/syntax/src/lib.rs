@@ -1,3 +1,4 @@
+#![allow(dead_code, unused)]
 use std::{marker::PhantomData, sync::Arc};
 
 #[derive(Debug, Clone, PartialEq, Eq)]

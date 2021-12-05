@@ -1,7 +1,7 @@
 //! This crate defines the core datastructure representing IDE state -- `RootDatabase`.
 //!
 //! It is mainly a `HirDatabase` for semantic analysis, plus a `SymbolsDatabase`, for fuzzy search.
-
+#![allow(dead_code, unused)]
 mod apply_change;
 
 pub mod assists;
@@ -109,15 +109,21 @@ impl Default for RootDatabase {
 
 impl RootDatabase {
     pub fn new(lru_capacity: Option<usize>) -> RootDatabase {
-        todo!()
+        let mut db = RootDatabase {
+            storage: ManuallyDrop::new(salsa::Storage::default()),
+        };
+        db.set_crate_graph_with_durability(Default::default(), Durability::HIGH);
+        db.set_local_roots_with_durability(Default::default(), Durability::HIGH);
+        db.set_library_roots_with_durability(Default::default(), Durability::HIGH);
+        db.update_lru_capacity(lru_capacity);
+        db
     }
 
     pub fn update_lru_capacity(&mut self, lru_capacity: Option<usize>) {
-        // let lru_capacity = lru_capacity.unwrap_or(base_db::DEFAULT_LRU_CAP);
-        // base_db::ParseQuery.in_db_mut(self).set_lru_capacity(lru_capacity);
-        // hir::db::ParseMacroExpansionQuery.in_db_mut(self).set_lru_capacity(lru_capacity);
-        // hir::db::MacroExpandQuery.in_db_mut(self).set_lru_capacity(lru_capacity);
-        todo!()
+        let lru_capacity = lru_capacity.unwrap_or(base_db::DEFAULT_LRU_CAP);
+        base_db::ParseQuery
+            .in_db_mut(self)
+            .set_lru_capacity(lru_capacity);
     }
 }
 

@@ -34,9 +34,3 @@ syntax = { path = "../syntax", version = "0.0.0"}
 ide = { path = "../ide", version = "0.0.0"}
 ide_db = { path = "../ide_db", version = "0.0.0"}
 hir = { path = "../hir", version = "0.0.0"}
-
-[profile.dev]
-opt-level = 0
-
-[profile.release]
-opt-level = 0
