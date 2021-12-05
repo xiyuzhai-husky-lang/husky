@@ -38,7 +38,11 @@ impl ast::NameRef {
 
 fn text_of_first_token(node: &SyntaxNode) -> TokenText<'_> {
     fn first_token(green_ref: &GreenNodeData) -> &GreenTokenData {
-        green_ref.children().next().and_then(NodeOrToken::into_token).unwrap()
+        green_ref
+            .children()
+            .next()
+            .and_then(NodeOrToken::into_token)
+            .unwrap()
     }
 
     match node.green() {
@@ -151,8 +155,10 @@ impl ast::Attr {
     pub fn kind(&self) -> AttrKind {
         let first_token = self.syntax().first_token();
         let first_token_kind = first_token.as_ref().map(SyntaxToken::kind);
-        let second_token_kind =
-            first_token.and_then(|token| token.next_token()).as_ref().map(SyntaxToken::kind);
+        let second_token_kind = first_token
+            .and_then(|token| token.next_token())
+            .as_ref()
+            .map(SyntaxToken::kind);
 
         match (first_token_kind, second_token_kind) {
             (Some(T![#]), Some(T![!])) => AttrKind::Inner,
@@ -176,7 +182,10 @@ impl ast::Attr {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum PathSegmentKind {
     Name(ast::NameRef),
-    Type { type_ref: Option<ast::Type>, trait_ref: Option<ast::PathType> },
+    Type {
+        type_ref: Option<ast::Type>,
+        trait_ref: Option<ast::PathType>,
+    },
     SelfKw,
     SuperKw,
     CrateKw,
@@ -215,11 +224,16 @@ impl ast::PathSegment {
                 T![<] => {
                     // <T> or <T as Trait>
                     // T is any TypeRef, Trait has to be a PathType
-                    let mut type_refs =
-                        self.syntax().children().filter(|node| ast::Type::can_cast(node.kind()));
+                    let mut type_refs = self
+                        .syntax()
+                        .children()
+                        .filter(|node| ast::Type::can_cast(node.kind()));
                     let type_ref = type_refs.next().and_then(ast::Type::cast);
                     let trait_ref = type_refs.next().and_then(ast::PathType::cast);
-                    PathSegmentKind::Type { type_ref, trait_ref }
+                    PathSegmentKind::Type {
+                        type_ref,
+                        trait_ref,
+                    }
                 }
                 _ => return None,
             }
@@ -248,7 +262,9 @@ impl ast::Path {
     }
 
     pub fn first_qualifier_or_self(&self) -> ast::Path {
-        successors(Some(self.clone()), ast::Path::qualifier).last().unwrap()
+        successors(Some(self.clone()), ast::Path::qualifier)
+            .last()
+            .unwrap()
     }
 
     pub fn first_segment(&self) -> Option<ast::PathSegment> {
@@ -414,7 +430,10 @@ impl NameLike {
 
 impl ast::AstNode for NameLike {
     fn can_cast(kind: SyntaxKind) -> bool {
-        matches!(kind, SyntaxKind::NAME | SyntaxKind::NAME_REF | SyntaxKind::LIFETIME)
+        matches!(
+            kind,
+            SyntaxKind::NAME | SyntaxKind::NAME_REF | SyntaxKind::LIFETIME
+        )
     }
     fn cast(syntax: SyntaxNode) -> Option<Self> {
         let res = match syntax.kind() {
@@ -468,7 +487,10 @@ impl NameOrNameRef {
 
 impl ast::RecordPatField {
     pub fn for_field_name_ref(field_name: &ast::NameRef) -> Option<ast::RecordPatField> {
-        let candidate = field_name.syntax().parent().and_then(ast::RecordPatField::cast)?;
+        let candidate = field_name
+            .syntax()
+            .parent()
+            .and_then(ast::RecordPatField::cast)?;
         match candidate.field_name()? {
             NameOrNameRef::NameRef(name_ref) if name_ref == *field_name => Some(candidate),
             _ => None,
@@ -476,8 +498,11 @@ impl ast::RecordPatField {
     }
 
     pub fn for_field_name(field_name: &ast::Name) -> Option<ast::RecordPatField> {
-        let candidate =
-            field_name.syntax().ancestors().nth(2).and_then(ast::RecordPatField::cast)?;
+        let candidate = field_name
+            .syntax()
+            .ancestors()
+            .nth(2)
+            .and_then(ast::RecordPatField::cast)?;
         match candidate.field_name()? {
             NameOrNameRef::Name(name) if name == *field_name => Some(candidate),
             _ => None,
@@ -580,7 +605,11 @@ impl ast::SlicePat {
         let slice = args.next();
         let suffix = args.collect();
 
-        SlicePatComponents { prefix, slice, suffix }
+        SlicePatComponents {
+            prefix,
+            slice,
+            suffix,
+        }
     }
 }
 
@@ -653,8 +682,9 @@ impl ast::Visibility {
     pub fn kind(&self) -> VisibilityKind {
         match self.path() {
             Some(path) => {
-                if let Some(segment) =
-                    path.as_single_segment().filter(|it| it.coloncolon_token().is_none())
+                if let Some(segment) = path
+                    .as_single_segment()
+                    .filter(|it| it.coloncolon_token().is_none())
                 {
                     if segment.crate_token().is_some() {
                         return VisibilityKind::PubCrate;
@@ -763,7 +793,7 @@ impl ast::HasLoopBody for ast::ForExpr {
     }
 }
 
-impl ast::HasDocComments for ast::SourceFile {}
+impl ast::HasDocComments for ast::SingleFileParseTree {}
 impl ast::HasDocComments for ast::Fn {}
 impl ast::HasDocComments for ast::Struct {}
 impl ast::HasDocComments for ast::Union {}

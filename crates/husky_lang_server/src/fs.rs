@@ -26,13 +26,13 @@ impl ServerFileSystem {
         let mut has_structure_changes = false;
 
         let mut change = Change::new();
-        let changed_files = self.vfs.take_changes();
+        let changed_files = self.vfs.drain_changes();
         if changed_files.is_empty() {
             return None;
         }
 
         for file in changed_files {
-            if let Some(path) = self.vfs.file_path(file.file_id).as_path() {
+            if let Some(path) = self.vfs.get_file_path(file.file_id).as_path() {
                 let path = path.to_path_buf();
                 fs_changes.push((path, file.change_kind));
                 if file.is_created_or_deleted() {
@@ -59,7 +59,7 @@ impl ServerFileSystem {
 
         fn get_text(file: &vfs::ChangedFile, vfs: &vfs::Vfs) -> Option<String> {
             if file.exists() {
-                let bytes = vfs.file_contents(file.file_id).to_vec();
+                let bytes = vfs.get_file_contents(file.file_id).to_vec();
                 String::from_utf8(bytes).ok()
             } else {
                 None

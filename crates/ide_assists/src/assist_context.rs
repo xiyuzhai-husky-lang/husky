@@ -13,8 +13,7 @@ use ide_db::{
     RootDatabase,
 };
 use syntax::{
-    algo::{self, find_node_at_offset, find_node_at_range},
-    AstNode, AstToken, Direction, SourceFile, SyntaxElement, SyntaxKind, SyntaxNode, SyntaxNodePtr,
+    Direction, SingleFileParseTree, SyntaxElement, SyntaxKind, SyntaxNode, SyntaxNodePtr,
     SyntaxToken, TextRange, TextSize, TokenAtOffset,
 };
 use text_edit::{TextEdit, TextEditBuilder};
@@ -58,7 +57,7 @@ pub(crate) struct AssistContext<'a> {
     pub(crate) sema: Semantics<'a, RootDatabase>,
     frange: FileRange,
     trimmed_range: TextRange,
-    source_file: SourceFile,
+    source_file: SingleFileParseTree,
 }
 
 impl<'a> AssistContext<'a> {
@@ -67,34 +66,7 @@ impl<'a> AssistContext<'a> {
         config: &'a AssistConfig,
         frange: FileRange,
     ) -> AssistContext<'a> {
-        let source_file = sema.parse(frange.file_id);
-
-        let start = frange.range.start();
-        let end = frange.range.end();
-        let left = source_file.syntax().token_at_offset(start);
-        let right = source_file.syntax().token_at_offset(end);
-        let left = left
-            .right_biased()
-            .and_then(|t| algo::skip_whitespace_token(t, Direction::Next));
-        let right = right
-            .left_biased()
-            .and_then(|t| algo::skip_whitespace_token(t, Direction::Prev));
-        let left = left.map(|t| t.text_range().start().clamp(start, end));
-        let right = right.map(|t| t.text_range().end().clamp(start, end));
-
-        let trimmed_range = match (left, right) {
-            (Some(left), Some(right)) if left <= right => TextRange::new(left, right),
-            // Selection solely consists of whitespace so just fall back to the original
-            _ => frange.range,
-        };
-
-        AssistContext {
-            config,
-            sema,
-            frange,
-            source_file,
-            trimmed_range,
-        }
+        todo!()
     }
 
     pub(crate) fn db(&self) -> &RootDatabase {
@@ -121,28 +93,26 @@ impl<'a> AssistContext<'a> {
     }
 
     pub(crate) fn token_at_offset(&self) -> TokenAtOffset<SyntaxToken> {
-        self.source_file.syntax().token_at_offset(self.offset())
+        todo!()
     }
     pub(crate) fn find_token_syntax_at_offset(&self, kind: SyntaxKind) -> Option<SyntaxToken> {
-        self.token_at_offset().find(|it| it.kind() == kind)
+        todo!()
     }
-    pub(crate) fn find_token_at_offset<T: AstToken>(&self) -> Option<T> {
-        self.token_at_offset().find_map(T::cast)
+    pub(crate) fn find_token_at_offset(&self) -> Option<SyntaxNode> {
+        todo!()
     }
-    pub(crate) fn find_node_at_offset<N: AstNode>(&self) -> Option<N> {
-        find_node_at_offset(self.source_file.syntax(), self.offset())
+    pub(crate) fn find_node_at_offset(&self) -> Option<SyntaxNode> {
+        todo!()
     }
-    pub(crate) fn find_node_at_range<N: AstNode>(&self) -> Option<N> {
-        find_node_at_range(self.source_file.syntax(), self.trimmed_range)
+    pub(crate) fn find_node_at_range(&self) -> Option<SyntaxNode> {
+        todo!()
     }
-    pub(crate) fn find_node_at_offset_with_descend<N: AstNode>(&self) -> Option<N> {
+    pub(crate) fn find_node_at_offset_with_descend(&self) -> Option<SyntaxNode> {
         todo!()
     }
     /// Returns the element covered by the selection range, this excludes trailing whitespace in the selection.
     pub(crate) fn covering_element(&self) -> SyntaxElement {
-        self.source_file
-            .syntax()
-            .covering_element(self.selection_trimmed())
+        todo!()
     }
 }
 
@@ -251,21 +221,15 @@ pub(crate) struct TreeMutator {
 
 impl TreeMutator {
     pub(crate) fn new(immutable: &SyntaxNode) -> TreeMutator {
-        let immutable = immutable.ancestors().last().unwrap();
-        let mutable_clone = immutable.clone_for_update();
-        TreeMutator {
-            immutable,
-            mutable_clone,
-        }
+        todo!()
     }
 
-    pub(crate) fn make_mut<N: AstNode>(&self, node: &N) -> N {
-        N::cast(self.make_syntax_mut(node.syntax())).unwrap()
+    pub(crate) fn make_mut(&self, node: &SyntaxNode) -> SyntaxNode {
+        todo!()
     }
 
     pub(crate) fn make_syntax_mut(&self, node: &SyntaxNode) -> SyntaxNode {
-        let ptr = SyntaxNodePtr::new(node);
-        ptr.to_node(&self.mutable_clone)
+        todo!()
     }
 }
 
@@ -285,20 +249,11 @@ impl AssistBuilder {
     }
 
     fn commit(&mut self) {
-        if let Some(tm) = self.mutated_tree.take() {
-            algo::diff(&tm.immutable, &tm.mutable_clone).into_text_edit(&mut self.edit)
-        }
-
-        let edit = mem::take(&mut self.edit).finish();
-        if !edit.is_empty() {
-            self.source_change.insert_source_edit(self.file_id, edit);
-        }
+        todo!()
     }
 
-    pub(crate) fn make_mut<N: AstNode>(&mut self, node: N) -> N {
-        self.mutated_tree
-            .get_or_insert_with(|| TreeMutator::new(node.syntax()))
-            .make_mut(&node)
+    pub(crate) fn make_mut(&mut self, node: SyntaxNode) -> SyntaxNode {
+        todo!()
     }
     /// Returns a copy of the `node`, suitable for mutation.
     ///
@@ -348,8 +303,8 @@ impl AssistBuilder {
         self.source_change.is_snippet = true;
         self.replace(range, snippet);
     }
-    pub(crate) fn replace_ast<N: AstNode>(&mut self, old: N, new: N) {
-        algo::diff(old.syntax(), new.syntax()).into_text_edit(&mut self.edit)
+    pub(crate) fn replace_ast(&mut self, old: SyntaxNode, new: SyntaxNode) {
+        todo!()
     }
     pub(crate) fn create_file(&mut self, dst: AnchoredPathBuf, content: impl Into<String>) {
         let file_system_edit = FileSystemEdit::CreateFile {

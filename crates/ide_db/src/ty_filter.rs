@@ -5,7 +5,7 @@
 use std::iter;
 
 use hir::Semantics;
-use syntax::ast::{self, make, Pat};
+use syntax::ast::{self, Pat};
 
 use crate::RootDatabase;
 
@@ -21,16 +21,7 @@ impl TryEnum {
 
     /// Returns `Some(..)` if the provided type is an enum that implements `std::ops::Try`.
     pub fn from_ty(sema: &Semantics<RootDatabase>, ty: &hir::Type) -> Option<TryEnum> {
-        let enum_ = match ty.as_adt() {
-            Some(hir::DataType::Enum(it)) => it,
-            _ => return None,
-        };
-        TryEnum::ALL.iter().find_map(|&var| {
-            if enum_.name(sema.db).to_smol_str() == var.type_name() {
-                return Some(var);
-            }
-            None
-        })
+        todo!()
     }
 
     pub fn happy_case(self) -> &'static str {
@@ -41,40 +32,15 @@ impl TryEnum {
     }
 
     pub fn sad_pattern(self) -> ast::Pat {
-        match self {
-            TryEnum::Result => make::tuple_struct_pat(
-                make::ext::ident_path("Err"),
-                iter::once(make::wildcard_pat().into()),
-            )
-            .into(),
-            TryEnum::Option => make::ext::simple_ident_pat(make::name("None")).into(),
-        }
+        todo!()
     }
 
     pub fn happy_pattern(self, pat: Pat) -> ast::Pat {
-        match self {
-            TryEnum::Result => {
-                make::tuple_struct_pat(make::ext::ident_path("Ok"), iter::once(pat)).into()
-            }
-            TryEnum::Option => {
-                make::tuple_struct_pat(make::ext::ident_path("Some"), iter::once(pat)).into()
-            }
-        }
+        todo!()
     }
 
     pub fn happy_pattern_wildcard(self) -> ast::Pat {
-        match self {
-            TryEnum::Result => make::tuple_struct_pat(
-                make::ext::ident_path("Ok"),
-                iter::once(make::wildcard_pat().into()),
-            )
-            .into(),
-            TryEnum::Option => make::tuple_struct_pat(
-                make::ext::ident_path("Some"),
-                iter::once(make::wildcard_pat().into()),
-            )
-            .into(),
-        }
+        todo!()
     }
 
     fn type_name(self) -> &'static str {

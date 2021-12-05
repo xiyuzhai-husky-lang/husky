@@ -8,9 +8,6 @@
 //! in this crate.
 
 // For proving that RootDatabase is RefUnwindSafe.
-
-#![allow(dead_code)]
-#![allow(unused)]
 #![recursion_limit = "128"]
 
 #[allow(unused)]
@@ -39,7 +36,6 @@ mod goto_implementation;
 mod goto_type_definition;
 mod highlight_related;
 mod hover;
-mod inlay_hints;
 mod join_lines;
 mod markdown_remove;
 mod matching_brace;
@@ -47,7 +43,6 @@ mod move_item;
 mod parent_module;
 mod references;
 mod rename;
-mod runnables;
 mod ssr;
 mod static_index;
 mod status;
@@ -68,7 +63,7 @@ use ide_db::{
     symbol_index::{self, FileSymbol},
     LineIndexDatabase,
 };
-use syntax::SourceFile;
+use syntax::SingleFileParseTree;
 
 use crate::navigation_target::{ToNav, TryToNav};
 
@@ -80,7 +75,6 @@ pub use crate::{
     folding_ranges::{Fold, FoldKind},
     highlight_related::{HighlightRelatedConfig, HighlightedRange},
     hover::{HoverAction, HoverConfig, HoverDocFormat, HoverGotoTypeData, HoverResult},
-    inlay_hints::{InlayHint, InlayHintsConfig, InlayKind},
     join_lines::JoinLinesConfig,
     markup::Markup,
     move_item::Direction,
@@ -88,7 +82,6 @@ pub use crate::{
     prime_caches::PrimeCachesProgress,
     references::ReferenceSearchResult,
     rename::RenameError,
-    runnables::{Runnable, RunnableKind, TestId},
     static_index::{StaticIndex, StaticIndexedFile, TokenId, TokenStaticData},
     syntax_highlighting::{
         tags::{Highlight, HlMod, HlMods, HlOperator, HlPunct, HlTag},
@@ -109,7 +102,7 @@ pub use ide_db::{
         SourceRoot, SourceRootId,
     },
     label::Label,
-    line_index::{LineBegins, LineCol, LineColUtf16},
+    line_index::{LineCol, LineColUtf16, LineIndex},
     search::{ReferenceCategory, SearchScope},
     source_change::{FileSystemEdit, SourceChange},
     symbol_index::Query,
@@ -168,7 +161,7 @@ impl AnalysisHost {
 
     /// NB: this clears the database
     pub fn per_query_memory_usage(&mut self) -> Vec<(String, profile::Bytes)> {
-        self.db.per_query_memory_usage()
+        todo!()
     }
     pub fn request_cancellation(&mut self) {
         self.db.request_cancellation();
@@ -228,8 +221,8 @@ impl Analysis {
     }
 
     /// Gets the syntax tree of the file.
-    pub fn parse(&self, file_id: FileID) -> Cancellable<SourceFile> {
-        self.with_db(|db| db.parse(file_id).tree())
+    pub fn parse(&self, file_id: FileID) -> Cancellable<SingleFileParseTree> {
+        todo!()
     }
 
     /// Returns true if this file belongs to an immutable library.
@@ -240,7 +233,7 @@ impl Analysis {
 
     /// Gets the file's `LineIndex`: data structure to convert between absolute
     /// offsets and line/column representation.
-    pub fn file_line_index(&self, file_id: FileID) -> Cancellable<Arc<LineBegins>> {
+    pub fn file_line_index(&self, file_id: FileID) -> Cancellable<Arc<LineIndex>> {
         self.with_db(|db| db.line_index(file_id))
     }
 
@@ -252,11 +245,7 @@ impl Analysis {
     /// Returns position of the matching brace (all types of braces are
     /// supported).
     pub fn matching_brace(&self, position: FilePosition) -> Cancellable<Option<TextSize>> {
-        self.with_db(|db| {
-            let parse = db.parse(position.file_id);
-            let file = parse.tree();
-            matching_brace::matching_brace(&file, position.offset)
-        })
+        todo!()
     }
 
     /// Returns a syntax tree represented as `String`, for debug purposes.
@@ -285,10 +274,7 @@ impl Analysis {
     /// Returns an edit to remove all newlines in the range, cleaning up minor
     /// stuff like trailing commas.
     pub fn join_lines(&self, config: &JoinLinesConfig, frange: FileRange) -> Cancellable<TextEdit> {
-        self.with_db(|db| {
-            let parse = db.parse(frange.file_id);
-            join_lines::join_lines(config, &parse.tree(), frange.range)
-        })
+        todo!()
     }
 
     /// Returns an edit which should be applied when opening a new line, fixing
@@ -317,21 +303,12 @@ impl Analysis {
     /// Returns a tree representation of symbols in the file. Useful to draw a
     /// file outline.
     pub fn file_structure(&self, file_id: FileID) -> Cancellable<Vec<StructureNode>> {
-        self.with_db(|db| file_structure::file_structure(&db.parse(file_id).tree()))
-    }
-
-    /// Returns a list of the places in the file where type hints can be displayed.
-    pub fn inlay_hints(
-        &self,
-        config: &InlayHintsConfig,
-        file_id: FileID,
-    ) -> Cancellable<Vec<InlayHint>> {
-        self.with_db(|db| inlay_hints::inlay_hints(db, file_id, config))
+        todo!()
     }
 
     /// Returns the set of folding ranges.
     pub fn folding_ranges(&self, file_id: FileID) -> Cancellable<Vec<Fold>> {
-        self.with_db(|db| folding_ranges::folding_ranges(&db.parse(file_id).tree()))
+        todo!()
     }
 
     /// Fuzzy searches for a symbol.
@@ -382,7 +359,7 @@ impl Analysis {
         position: FilePosition,
         search_scope: Option<SearchScope>,
     ) -> Cancellable<Option<Vec<ReferenceSearchResult>>> {
-        self.with_db(|db| references::find_all_refs(&Semantics::new(db), position, search_scope))
+        todo!()
     }
 
     /// Finds all methods and free functions for the file. Does not return tests!
@@ -450,20 +427,6 @@ impl Analysis {
         self.with_db(|db| db.crate_graph()[crate_id].root_file_id)
     }
 
-    /// Returns the set of possible targets to run for the current file.
-    pub fn runnables(&self, file_id: FileID) -> Cancellable<Vec<Runnable>> {
-        self.with_db(|db| runnables::runnables(db, file_id))
-    }
-
-    /// Returns the set of tests for the given file position.
-    pub fn related_tests(
-        &self,
-        position: FilePosition,
-        search_scope: Option<SearchScope>,
-    ) -> Cancellable<Vec<Runnable>> {
-        self.with_db(|db| runnables::related_tests(db, position, search_scope))
-    }
-
     /// Computes syntax highlighting for the given file
     pub fn highlight(&self, file_id: FileID) -> Cancellable<Vec<HlRange>> {
         self.with_db(|db| syntax_highlighting::highlight(db, file_id, None, false))
@@ -475,9 +438,7 @@ impl Analysis {
         config: HighlightRelatedConfig,
         position: FilePosition,
     ) -> Cancellable<Option<Vec<HighlightedRange>>> {
-        self.with_db(|db| {
-            highlight_related::highlight_related(&Semantics::new(db), config, position)
-        })
+        todo!()
     }
 
     /// Computes syntax highlighting for the given file range.
@@ -489,7 +450,7 @@ impl Analysis {
 
     /// Computes syntax highlighting for the given file.
     pub fn highlight_as_html(&self, file_id: FileID, rainbow: bool) -> Cancellable<String> {
-        self.with_db(|db| syntax_highlighting::highlight_as_html(db, file_id, rainbow))
+        todo!()
     }
 
     /// Computes completions at the given position.
@@ -538,7 +499,7 @@ impl Analysis {
         resolve: AssistResolveStrategy,
         file_id: FileID,
     ) -> Cancellable<Vec<Diagnostic>> {
-        self.with_db(|db| ide_diagnostics::get_diagnostics(db, config, &resolve, file_id))
+        self.with_db(|db| ide_diagnostics::diagnostics(db, config, &resolve, file_id))
     }
 
     /// Convenience function to return assists + quick fixes for diagnostics
@@ -558,7 +519,7 @@ impl Analysis {
 
         self.with_db(|db| {
             let diagnostic_assists = if include_fixes {
-                ide_diagnostics::get_diagnostics(db, diagnostics_config, &resolve, frange.file_id)
+                ide_diagnostics::diagnostics(db, diagnostics_config, &resolve, frange.file_id)
                     .into_iter()
                     .flat_map(|it| it.fixes.unwrap_or_default())
                     .filter(|it| it.target.intersect(frange.range).is_some())

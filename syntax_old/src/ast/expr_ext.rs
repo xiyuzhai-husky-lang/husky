@@ -154,15 +154,18 @@ impl ast::BinExpr {
 
 impl ast::RangeExpr {
     fn op_details(&self) -> Option<(usize, SyntaxToken, RangeOp)> {
-        self.syntax().children_with_tokens().enumerate().find_map(|(ix, child)| {
-            let token = child.into_token()?;
-            let bin_op = match token.kind() {
-                T![..] => RangeOp::Exclusive,
-                T![..=] => RangeOp::Inclusive,
-                _ => return None,
-            };
-            Some((ix, token, bin_op))
-        })
+        self.syntax()
+            .children_with_tokens()
+            .enumerate()
+            .find_map(|(ix, child)| {
+                let token = child.into_token()?;
+                let bin_op = match token.kind() {
+                    T![..] => RangeOp::Exclusive,
+                    T![..=] => RangeOp::Inclusive,
+                    _ => return None,
+                };
+                Some((ix, token, bin_op))
+            })
     }
 
     pub fn op_kind(&self) -> Option<RangeOp> {
@@ -200,7 +203,10 @@ impl ast::IndexExpr {
 }
 
 pub enum ArrayExprKind {
-    Repeat { initializer: Option<ast::Expr>, repeat: Option<ast::Expr> },
+    Repeat {
+        initializer: Option<ast::Expr>,
+        repeat: Option<ast::Expr>,
+    },
     ElementList(AstChildren<ast::Expr>),
 }
 
@@ -217,7 +223,9 @@ impl ast::ArrayExpr {
     }
 
     fn is_repeat(&self) -> bool {
-        self.syntax().children_with_tokens().any(|it| it.kind() == T![;])
+        self.syntax()
+            .children_with_tokens()
+            .any(|it| it.kind() == T![;])
     }
 }
 
@@ -302,14 +310,22 @@ impl ast::BlockExpr {
 
 #[test]
 fn test_literal_with_attr() {
-    let parse = ast::SourceFile::parse(r#"const _: &str = { #[attr] "Hello" };"#);
-    let lit = parse.tree().syntax().descendants().find_map(ast::Literal::cast).unwrap();
+    let parse = ast::SingleFileParseTree::parse(r#"const _: &str = { #[attr] "Hello" };"#);
+    let lit = parse
+        .tree()
+        .syntax()
+        .descendants()
+        .find_map(ast::Literal::cast)
+        .unwrap();
     assert_eq!(lit.token().text(), r#""Hello""#);
 }
 
 impl ast::RecordExprField {
     pub fn parent_record_lit(&self) -> ast::RecordExpr {
-        self.syntax().ancestors().find_map(ast::RecordExpr::cast).unwrap()
+        self.syntax()
+            .ancestors()
+            .find_map(ast::RecordExpr::cast)
+            .unwrap()
     }
 }
 

@@ -103,7 +103,7 @@ fn assert_ast_is_object_safe() {
 
 #[test]
 fn test_doc_comment_none() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         // non-doc
         mod foo {}
@@ -117,7 +117,7 @@ fn test_doc_comment_none() {
 
 #[test]
 fn test_outer_doc_comment_of_items() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         /// doc
         // non-doc
@@ -132,7 +132,7 @@ fn test_outer_doc_comment_of_items() {
 
 #[test]
 fn test_inner_doc_comment_of_items() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         //! doc
         // non-doc
@@ -147,7 +147,7 @@ fn test_inner_doc_comment_of_items() {
 
 #[test]
 fn test_doc_comment_of_statics() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         /// Number of levels
         static LEVELS: i32 = 0;
@@ -164,7 +164,7 @@ fn test_doc_comment_of_statics() {
 
 #[test]
 fn test_doc_comment_preserves_indents() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         /// doc1
         /// ```
@@ -186,7 +186,7 @@ fn test_doc_comment_preserves_indents() {
 
 #[test]
 fn test_doc_comment_preserves_newlines() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         /// this
         /// is
@@ -206,7 +206,7 @@ fn test_doc_comment_preserves_newlines() {
 
 #[test]
 fn test_doc_comment_single_line_block_strips_suffix() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         /** this is mod foo*/
         mod foo {}
@@ -223,7 +223,7 @@ fn test_doc_comment_single_line_block_strips_suffix() {
 
 #[test]
 fn test_doc_comment_single_line_block_strips_suffix_whitespace() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         /** this is mod foo */
         mod foo {}
@@ -240,7 +240,7 @@ fn test_doc_comment_single_line_block_strips_suffix_whitespace() {
 
 #[test]
 fn test_doc_comment_multi_line_block_strips_suffix() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         /**
         this
@@ -261,7 +261,7 @@ fn test_doc_comment_multi_line_block_strips_suffix() {
 
 #[test]
 fn test_comments_preserve_trailing_whitespace() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         "\n/// Representation of a Realm.   \n/// In the specification these are called Realm Records.\nstruct Realm {}",
     )
     .ok()
@@ -275,7 +275,7 @@ fn test_comments_preserve_trailing_whitespace() {
 
 #[test]
 fn test_four_slash_line_comment() {
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
         //// too many slashes to be a doc comment
         /// doc comment
@@ -297,7 +297,7 @@ fn test_where_predicates() {
         assert_eq!(text, bound.unwrap().syntax().text().to_string());
     }
 
-    let file = SourceFile::parse(
+    let file = SingleFileParseTree::parse(
         r#"
 fn foo()
 where

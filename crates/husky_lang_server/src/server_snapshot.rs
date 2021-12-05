@@ -48,7 +48,7 @@ impl ServerSnapshot {
 pub(crate) fn url_to_file_id(vfs: &vfs::Vfs, url: &Url) -> Result<FileID> {
     let path = from_lsp_types::vfs_path(url)?;
     let res = vfs
-        .file_id(&path)
+        .get_file_id(&path)
         .ok_or_else(|| format!("file not found: {}", path))?;
     Ok(res)
 }

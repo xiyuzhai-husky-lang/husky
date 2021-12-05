@@ -56,7 +56,7 @@ use std::ops::Deref;
 // It does not act as a tabstop.
 use ide_db::helpers::{import_assets::LocatedImport, insert_use::ImportScope};
 use itertools::Itertools;
-use syntax::{ast, AstNode, GreenNode, SyntaxNode};
+use syntax::{ast, GreenNode, SyntaxNode};
 
 use crate::{context::CompletionContext, ImportEdit};
 
@@ -138,30 +138,7 @@ fn import_edits(
     import_scope: &ImportScope,
     requires: &[GreenNode],
 ) -> Option<Vec<ImportEdit>> {
-    let resolve = |import: &GreenNode| {
-        let path = ast::Path::cast(SyntaxNode::new_root(import.clone()))?;
-        let item = match ctx.scope.speculative_resolve(&path)? {
-            hir::EntityResolution::Def(def) => def.into(),
-            _ => return None,
-        };
-        let path = ctx.scope.module()?.find_use_path_prefixed(
-            ctx.db,
-            item,
-            ctx.config.insert_use.prefix_kind,
-        )?;
-        Some((path.len() > 1).then(|| ImportEdit {
-            import: LocatedImport::new(path.clone(), item, item, None),
-            scope: import_scope.clone(),
-        }))
-    };
-    let mut res = Vec::with_capacity(requires.len());
-    for import in requires {
-        match resolve(import) {
-            Some(first) => res.extend(first),
-            None => return None,
-        }
-    }
-    Some(res)
+    todo!()
 }
 
 fn validate_snippet(
@@ -169,24 +146,5 @@ fn validate_snippet(
     description: &str,
     requires: &[String],
 ) -> Option<(Box<[GreenNode]>, String, Option<Box<str>>)> {
-    let mut imports = Vec::with_capacity(requires.len());
-    for path in requires.iter() {
-        let path = ast::Path::parse(path).ok()?;
-        let valid_use_path = path.segments().all(|seg| {
-            matches!(seg.kind(), Some(ast::PathSegmentKind::Name(_)))
-                || seg.generic_arg_list().is_none()
-        });
-        if !valid_use_path {
-            return None;
-        }
-        let green = path.syntax().green().into_owned();
-        imports.push(green);
-    }
-    let snippet = snippet.iter().join("\n");
-    let description = if description.is_empty() {
-        None
-    } else {
-        Some(description.into())
-    };
-    Some((imports.into_boxed_slice(), snippet, description))
+    todo!()
 }

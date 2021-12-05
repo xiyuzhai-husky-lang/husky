@@ -17,7 +17,7 @@
 // image::https://user-images.githubusercontent.com/48062697/113020656-b560f500-917a-11eb-87de-02991f61beb8.gif[]
 
 use ide_db::helpers::SnippetCap;
-use syntax::ast::{self, AstToken};
+use syntax::ast;
 
 use crate::{
     completions::postfix::build_postfix_snippet_builder, context::CompletionContext, Completions,
@@ -43,35 +43,12 @@ pub(crate) fn add_format_like_completions(
     cap: SnippetCap,
     receiver_text: &ast::String,
 ) {
-    let input = match string_literal_contents(receiver_text) {
-        // It's not a string literal, do not parse input.
-        Some(input) => input,
-        None => return,
-    };
-
-    let postfix_snippet = match build_postfix_snippet_builder(ctx, cap, dot_receiver) {
-        Some(it) => it,
-        None => return,
-    };
-    let mut parser = FormatStrParser::new(input);
-
-    if parser.parse().is_ok() {
-        for (label, macro_name) in KINDS {
-            let snippet = parser.to_suggestion(macro_name);
-
-            postfix_snippet(label, macro_name, &snippet).add_to(acc);
-        }
-    }
+    todo!()
 }
 
 /// Checks whether provided item is a string literal.
 fn string_literal_contents(item: &ast::String) -> Option<String> {
-    let item = item.text();
-    if item.len() >= 2 && item.starts_with('\"') && item.ends_with('\"') {
-        return Some(item[1..item.len() - 1].to_owned());
-    }
-
-    None
+    todo!()
 }
 
 /// Parser for a format-like string. It is more allowing in terms of string contents,
@@ -145,7 +122,8 @@ impl FormatStrParser {
                 (State::MaybeExpr, '}') => {
                     // This is an empty sequence '{}'. Replace it with placeholder.
                     self.output.push(chr);
-                    self.extracted_expressions.push(format!("${}", placeholder_id));
+                    self.extracted_expressions
+                        .push(format!("${}", placeholder_id));
                     placeholder_id += 1;
                     self.state = State::NotExpr;
                 }
@@ -208,10 +186,16 @@ impl FormatStrParser {
     }
 
     pub(crate) fn to_suggestion(&self, macro_name: &str) -> String {
-        assert!(self.parsed, "Attempt to get a suggestion from not parsed expression");
+        assert!(
+            self.parsed,
+            "Attempt to get a suggestion from not parsed expression"
+        );
 
         let expressions_as_string = self.extracted_expressions.join(", ");
-        format!(r#"{}("{}", {})"#, macro_name, self.output, expressions_as_string)
+        format!(
+            r#"{}("{}", {})"#,
+            macro_name, self.output, expressions_as_string
+        )
     }
 }
 
@@ -227,7 +211,11 @@ mod tests {
             if parser.extracted_expressions.is_empty() {
                 parser.output
             } else {
-                format!("{}; {}", parser.output, parser.extracted_expressions.join(", "))
+                format!(
+                    "{}; {}",
+                    parser.output,
+                    parser.extracted_expressions.join(", ")
+                )
             }
         } else {
             // Parsing should fail, expected repr is "-".
@@ -250,19 +238,31 @@ mod tests {
             ("{correct}}}", expect![["{}}}; correct"]]),
             ("{correct}}}}}", expect![["{}}}}}; correct"]]),
             ("{incorrect}}", expect![["-"]]),
-            ("placeholders {} {}", expect![["placeholders {} {}; $1, $2"]]),
-            ("mixed {} {2 + 2} {}", expect![["mixed {} {} {}; $1, 2 + 2, $2"]]),
+            (
+                "placeholders {} {}",
+                expect![["placeholders {} {}; $1, $2"]],
+            ),
+            (
+                "mixed {} {2 + 2} {}",
+                expect![["mixed {} {} {}; $1, 2 + 2, $2"]],
+            ),
             (
                 "{SomeStruct { val_a: 0, val_b: 1 }}",
                 expect![["{}; SomeStruct { val_a: 0, val_b: 1 }"]],
             ),
-            ("{expr:?} is {2.32f64:.5}", expect![["{:?} is {:.5}; expr, 2.32f64"]]),
+            (
+                "{expr:?} is {2.32f64:.5}",
+                expect![["{:?} is {:.5}; expr, 2.32f64"]],
+            ),
             (
                 "{SomeStruct { val_a: 0, val_b: 1 }:?}",
                 expect![["{:?}; SomeStruct { val_a: 0, val_b: 1 }"]],
             ),
             ("{     2 + 2        }", expect![["{}; 2 + 2"]]),
-            ("{strsim::jaro_winkle(a)}", expect![["{}; strsim::jaro_winkle(a)"]]),
+            (
+                "{strsim::jaro_winkle(a)}",
+                expect![["{}; strsim::jaro_winkle(a)"]],
+            ),
             ("{foo::bar::baz()}", expect![["{}; foo::bar::baz()"]]),
             ("{foo::bar():?}", expect![["{:?}; foo::bar()"]]),
         ];

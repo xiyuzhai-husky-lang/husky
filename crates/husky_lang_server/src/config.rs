@@ -22,7 +22,7 @@ use std::{ffi::OsString, iter, path::PathBuf};
 
 use ide::{
     AssistConfig, CompletionConfig, DiagnosticsConfig, HighlightRelatedConfig, HoverConfig,
-    HoverDocFormat, InlayHintsConfig, JoinLinesConfig, Snippet, SnippetScope,
+    HoverDocFormat, JoinLinesConfig, Snippet, SnippetScope,
 };
 use ide_db::helpers::{
     insert_use::{ImportGranularity, InsertUseConfig, PrefixKind},
@@ -480,11 +480,12 @@ impl ServerConfig {
                 ImportGranularityDef::Module => ImportGranularity::Module,
             },
             enforce_granularity: self.data.assist_importEnforceGranularity,
-            prefix_kind: match self.data.assist_importPrefix {
-                ImportPrefixDef::Plain => PrefixKind::Plain,
-                ImportPrefixDef::ByCrate => PrefixKind::ByCrate,
-                ImportPrefixDef::BySelf => PrefixKind::BySelf,
-            },
+            prefix_kind: todo!(),
+            // match self.data.assist_importPrefix {
+            //     ImportPrefixDef::Plain => PrefixKind::Plain,
+            //     ImportPrefixDef::ByCrate => PrefixKind::ByCrate,
+            //     ImportPrefixDef::BySelf => PrefixKind::BySelf,
+            // },
             group: self.data.assist_importGroup,
             skip_glob_imports: !self.data.assist_allowMergingIntoGlobImports,
         }

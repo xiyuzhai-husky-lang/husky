@@ -4,7 +4,7 @@ use ide_db::helpers::{
     insert_use::ImportScope,
 };
 use itertools::Itertools;
-use syntax::{AstNode, SyntaxNode, T};
+use syntax::SyntaxNode;
 
 use crate::{
     context::CompletionContext,
@@ -106,115 +106,23 @@ use super::Completions;
 // Note that having this flag set to `true` does not guarantee that the feature is enabled: your client needs to have the corresponding
 // capability enabled.
 pub(crate) fn import_on_the_fly(acc: &mut Completions, ctx: &CompletionContext) -> Option<()> {
-    if !ctx.config.enable_imports_on_the_fly {
-        return None;
-    }
-    if ctx.in_use_tree()
-        || ctx.is_path_disallowed()
-        || ctx.expects_item()
-        || ctx.expects_assoc_item()
-        || ctx.expects_variant()
-    {
-        return None;
-    }
-    let potential_import_name = {
-        let token_kind = ctx.token.kind();
-        if matches!(token_kind, T![.] | T![::]) {
-            String::new()
-        } else {
-            ctx.token.to_string()
-        }
-    };
-
-    let _p = profile::span("import_on_the_fly").detail(|| potential_import_name.clone());
-
-    let user_input_lowercased = potential_import_name.to_lowercase();
-    let import_assets = import_assets(ctx, potential_import_name)?;
-    let import_scope = ImportScope::find_insert_use_container(
-        &position_for_import(ctx, Some(import_assets.import_candidate()))?,
-        &ctx.sema,
-    )?;
-
-    acc.add_all(
-        import_assets
-            .search_for_imports(&ctx.sema, ctx.config.insert_use.prefix_kind)
-            .into_iter()
-            .filter(|import| {
-                !ctx.is_item_hidden(&import.item_to_import)
-                    && !ctx.is_item_hidden(&import.original_item)
-            })
-            .sorted_by_key(|located_import| {
-                compute_fuzzy_completion_order_key(
-                    &located_import.import_path,
-                    &user_input_lowercased,
-                )
-            })
-            .filter_map(|import| {
-                render_resolution_with_import(
-                    RenderContext::new(ctx),
-                    ImportEdit { import, scope: import_scope.clone() },
-                )
-            }),
-    );
-    Some(())
+    todo!()
 }
 
 pub(crate) fn position_for_import(
     ctx: &CompletionContext,
     import_candidate: Option<&ImportCandidate>,
 ) -> Option<SyntaxNode> {
-    Some(
-        match import_candidate {
-            Some(ImportCandidate::Path(_)) => ctx.name_syntax.as_ref()?.syntax(),
-            Some(ImportCandidate::TraitAssocItem(_)) => ctx.path_qual()?.syntax(),
-            Some(ImportCandidate::TraitMethod(_)) => ctx.dot_receiver()?.syntax(),
-            None => return ctx.original_token.parent(),
-        }
-        .clone(),
-    )
+    todo!()
 }
 
 fn import_assets(ctx: &CompletionContext, fuzzy_name: String) -> Option<ImportAssets> {
-    let current_module = ctx.scope.module()?;
-    if let Some(dot_receiver) = ctx.dot_receiver() {
-        ImportAssets::for_fuzzy_method_call(
-            current_module,
-            ctx.sema.type_of_expr(dot_receiver)?.original,
-            fuzzy_name,
-            dot_receiver.syntax().clone(),
-        )
-    } else {
-        let fuzzy_name_length = fuzzy_name.len();
-        let assets_for_path = ImportAssets::for_fuzzy_path(
-            current_module,
-            ctx.path_qual().cloned(),
-            fuzzy_name,
-            &ctx.sema,
-            ctx.token.parent()?,
-        )?;
-
-        if matches!(assets_for_path.import_candidate(), ImportCandidate::Path(_))
-            && fuzzy_name_length < 2
-        {
-            cov_mark::hit!(ignore_short_input_for_path);
-            None
-        } else {
-            Some(assets_for_path)
-        }
-    }
+    todo!()
 }
 
 pub(crate) fn compute_fuzzy_completion_order_key(
     proposed_mod_path: &hir::ModPath,
     user_input_lowercased: &str,
 ) -> usize {
-    cov_mark::hit!(certain_fuzzy_order_test);
-    let import_name = match proposed_mod_path.segments().last() {
-        Some(name) => name.to_smol_str().to_lowercase(),
-        None => return usize::MAX,
-    };
-    match import_name.match_indices(user_input_lowercased).next() {
-        Some((first_matching_index, _)) => first_matching_index,
-        None => usize::MAX,
-    }
+    todo!()
 }

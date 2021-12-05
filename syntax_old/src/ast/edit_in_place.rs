@@ -601,12 +601,12 @@ impl<N: AstNode + Clone> Indent for N {}
 mod tests {
     use std::fmt;
 
-    use crate::SourceFile;
+    use crate::SingleFileParseTree;
 
     use super::*;
 
     fn ast_mut_from_text<N: AstNode>(text: &str) -> N {
-        let parse = SourceFile::parse(text);
+        let parse = SingleFileParseTree::parse(text);
         parse.tree().syntax().descendants().find_map(N::cast).unwrap().clone_for_update()
     }
 

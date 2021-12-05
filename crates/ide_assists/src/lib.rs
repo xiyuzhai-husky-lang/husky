@@ -58,15 +58,13 @@
 //!
 //! See also this post:
 //! <https://rust-analyzer.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html>
-#[allow(unused)]
+#![allow(unused, dead_code)]
 macro_rules! eprintln {
     ($($tt:tt)*) => { stdx::eprintln!($($tt)*) };
 }
 
 mod assist_config;
 mod assist_context;
-#[cfg(test)]
-mod tests;
 pub mod utils;
 
 use hir::Semantics;
@@ -90,13 +88,7 @@ pub fn assists(
     resolve: AssistResolveStrategy,
     range: FileRange,
 ) -> Vec<Assist> {
-    let sema = Semantics::new(db);
-    let ctx = AssistContext::new(sema, config, range);
-    let mut acc = Assists::new(&ctx, resolve);
-    handlers::all().iter().for_each(|handler| {
-        handler(&mut acc, &ctx);
-    });
-    acc.finish()
+    todo!()
 }
 
 mod handlers {
@@ -105,8 +97,9 @@ mod handlers {
     pub(crate) type Handler = fn(&mut Assists, &AssistContext) -> Option<()>;
 
     mod add_explicit_type;
-    mod add_lifetime_to_type;
     mod add_missing_impl_members;
+    mod add_missing_match_arms;
+    mod add_return_type;
     mod add_turbo_fish;
     mod apply_demorgan;
     mod auto_import;
@@ -116,8 +109,8 @@ mod handlers {
     mod convert_integer_literal;
     mod convert_into_to_from;
     mod convert_iter_for_each_to_for;
-    mod convert_tuple_struct_to_named_struct;
     mod convert_to_guarded_return;
+    mod convert_tuple_struct_to_named_struct;
     mod convert_while_to_loop;
     mod destructure_tuple_binding;
     mod expand_glob_import;
@@ -126,70 +119,18 @@ mod handlers {
     mod extract_struct_from_enum_variant;
     mod extract_type_alias;
     mod extract_variable;
-    mod add_missing_match_arms;
     mod fix_visibility;
     mod flip_binexpr;
     mod flip_comma;
-    mod flip_trait_bound;
-    mod generate_constant;
-    mod generate_default_from_enum_variant;
-    mod generate_default_from_new;
-    mod generate_deref;
-    mod generate_derive;
-    mod generate_enum_is_method;
-    mod generate_enum_projection_method;
-    mod generate_from_impl_for_enum;
-    mod generate_function;
-    mod generate_getter;
-    mod generate_impl;
-    mod generate_is_empty_from_len;
-    mod generate_new;
-    mod generate_setter;
-    mod generate_delegate_methods;
-    mod add_return_type;
     mod inline_call;
     mod inline_local_variable;
-    mod introduce_named_lifetime;
-    mod invert_if;
-    mod merge_imports;
-    mod merge_match_arms;
-    mod move_bounds;
-    mod move_guard;
-    mod move_module_to_file;
-    mod move_to_mod_rs;
-    mod move_from_mod_rs;
-    mod promote_local_to_const;
-    mod pull_assignment_up;
-    mod qualify_path;
-    mod qualify_method_call;
-    mod raw_string;
-    mod remove_dbg;
-    mod remove_mut;
-    mod remove_unused_param;
-    mod reorder_fields;
-    mod reorder_impl;
-    mod replace_try_expr_with_match;
-    mod replace_derive_with_manual_impl;
-    mod replace_if_let_with_match;
-    mod introduce_named_generic;
-    mod replace_let_with_if_let;
-    mod replace_qualified_name_with_use;
-    mod replace_string_with_char;
-    mod replace_turbofish_with_explicit_type;
-    mod split_import;
     mod sort_items;
-    mod toggle_ignore;
-    mod unmerge_use;
-    mod unwrap_block;
-    mod unwrap_result_return_type;
-    mod wrap_return_type_in_result;
 
     pub(crate) fn all() -> &'static [Handler] {
         &[
             // These are alphabetic for the foolish consistency
             add_explicit_type::add_explicit_type,
             add_missing_match_arms::add_missing_match_arms,
-            add_lifetime_to_type::add_lifetime_to_type,
             add_return_type::add_return_type,
             add_turbo_fish::add_turbo_fish,
             apply_demorgan::apply_demorgan,
@@ -212,61 +153,10 @@ mod handlers {
             fix_visibility::fix_visibility,
             flip_binexpr::flip_binexpr,
             flip_comma::flip_comma,
-            flip_trait_bound::flip_trait_bound,
-            generate_constant::generate_constant,
-            generate_default_from_enum_variant::generate_default_from_enum_variant,
-            generate_default_from_new::generate_default_from_new,
-            generate_delegate_methods::generate_delegate_methods,
-            generate_deref::generate_deref,
-            generate_derive::generate_derive,
-            generate_enum_is_method::generate_enum_is_method,
-            generate_enum_projection_method::generate_enum_as_method,
-            generate_enum_projection_method::generate_enum_try_into_method,
-            generate_from_impl_for_enum::generate_from_impl_for_enum,
-            generate_function::generate_function,
-            generate_impl::generate_impl,
-            generate_is_empty_from_len::generate_is_empty_from_len,
-            generate_new::generate_new,
             inline_call::inline_call,
             inline_call::inline_into_callers,
             inline_local_variable::inline_local_variable,
-            introduce_named_generic::introduce_named_generic,
-            introduce_named_lifetime::introduce_named_lifetime,
-            invert_if::invert_if,
-            merge_imports::merge_imports,
-            merge_match_arms::merge_match_arms,
-            move_bounds::move_bounds_to_where_clause,
-            move_guard::move_arm_cond_to_match_guard,
-            move_guard::move_guard_to_arm_body,
-            move_module_to_file::move_module_to_file,
-            move_to_mod_rs::move_to_mod_rs,
-            move_from_mod_rs::move_from_mod_rs,
-            pull_assignment_up::pull_assignment_up,
-            promote_local_to_const::promote_local_to_const,
-            qualify_path::qualify_path,
-            qualify_method_call::qualify_method_call,
-            raw_string::add_hash,
-            raw_string::make_usual_string,
-            raw_string::remove_hash,
-            remove_dbg::remove_dbg,
-            remove_mut::remove_mut,
-            remove_unused_param::remove_unused_param,
-            reorder_fields::reorder_fields,
-            reorder_impl::reorder_impl,
-            replace_try_expr_with_match::replace_try_expr_with_match,
-            replace_derive_with_manual_impl::replace_derive_with_manual_impl,
-            replace_if_let_with_match::replace_if_let_with_match,
-            replace_if_let_with_match::replace_match_with_if_let,
-            replace_let_with_if_let::replace_let_with_if_let,
-            replace_turbofish_with_explicit_type::replace_turbofish_with_explicit_type,
-            replace_qualified_name_with_use::replace_qualified_name_with_use,
             sort_items::sort_items,
-            split_import::split_import,
-            toggle_ignore::toggle_ignore,
-            unmerge_use::unmerge_use,
-            unwrap_block::unwrap_block,
-            unwrap_result_return_type::unwrap_result_return_type,
-            wrap_return_type_in_result::wrap_return_type_in_result,
             // These are manually sorted for better priorities. By default,
             // priority is determined by the size of the target range (smaller
             // target wins). If the ranges are equal, position in this list is
@@ -274,17 +164,9 @@ mod handlers {
             add_missing_impl_members::add_missing_impl_members,
             add_missing_impl_members::add_missing_default_members,
             //
-            replace_string_with_char::replace_string_with_char,
-            replace_string_with_char::replace_char_with_string,
-            raw_string::make_raw_string,
-            //
             extract_variable::extract_variable,
             extract_function::extract_function,
             extract_module::extract_module,
-            //
-            generate_getter::generate_getter,
-            generate_getter::generate_getter_mut,
-            generate_setter::generate_setter,
             // Are you sure you want to add new assist here, and not to the
             // sorted list above?
         ]

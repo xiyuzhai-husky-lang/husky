@@ -15,11 +15,11 @@
 //! [`Parser`]: crate::parser::Parser
 #![allow(rustdoc::private_intra_doc_links)]
 
-mod token_set;
-mod syntax_kind;
 mod event;
-mod parser;
 mod grammar;
+mod parser;
+mod syntax_kind;
+mod token_set;
 
 pub(crate) use token_set::TokenSet;
 
@@ -75,7 +75,7 @@ pub trait TreeSink {
 /// are implemented by calling into the parser with non-standard entry point.
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
 pub enum ParserEntryPoint {
-    SourceFile,
+    SingleFileParseTree,
     Path,
     Expr,
     Statement,
@@ -93,7 +93,11 @@ pub enum ParserEntryPoint {
 
 /// Parse given tokens into the given sink as a rust file.
 pub fn parse_source_file(token_source: &mut dyn TokenSource, tree_sink: &mut dyn TreeSink) {
-    parse(token_source, tree_sink, ParserEntryPoint::SourceFile);
+    parse(
+        token_source,
+        tree_sink,
+        ParserEntryPoint::SingleFileParseTree,
+    );
 }
 
 pub fn parse(
@@ -102,7 +106,7 @@ pub fn parse(
     entry_point: ParserEntryPoint,
 ) {
     let entry_point: fn(&'_ mut parser::Parser) = match entry_point {
-        ParserEntryPoint::SourceFile => grammar::entry_points::source_file,
+        ParserEntryPoint::SingleFileParseTree => grammar::entry_points::source_file,
         ParserEntryPoint::Path => grammar::entry_points::path,
         ParserEntryPoint::Expr => grammar::entry_points::expr,
         ParserEntryPoint::Type => grammar::entry_points::type_,

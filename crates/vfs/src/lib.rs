@@ -110,7 +110,7 @@ impl Vfs {
     }
 
     /// Id of the given path if it exists in the `Vfs` and is not deleted.
-    pub fn file_id(&self, path: &VfsPath) -> Option<FileID> {
+    pub fn get_file_id(&self, path: &VfsPath) -> Option<FileID> {
         self.interner.get(path).filter(|&it| self.get(it).is_some())
     }
 
@@ -119,7 +119,7 @@ impl Vfs {
     /// # Panics
     ///
     /// Panics if the id is not present in the `Vfs`.
-    pub fn file_path(&self, file_id: FileID) -> VfsPath {
+    pub fn get_file_path(&self, file_id: FileID) -> VfsPath {
         self.interner.lookup(file_id).clone()
     }
 
@@ -129,7 +129,7 @@ impl Vfs {
     ///
     /// Panics if the id is not present in the `Vfs`, or if the corresponding file is
     /// deleted.
-    pub fn file_contents(&self, file_id: FileID) -> &[u8] {
+    pub fn get_file_contents(&self, file_id: FileID) -> &[u8] {
         self.get(file_id).as_deref().unwrap()
     }
 
@@ -152,8 +152,8 @@ impl Vfs {
     ///
     /// If the path does not currently exists in the `Vfs`, allocates a new
     /// [`FileID`] for it.
-    pub fn set_file_contents(&mut self, path: VfsPath, contents: Option<Vec<u8>>) -> bool {
-        let file_id = self.alloc_file_id(path);
+    pub fn update_file_contents(&mut self, path: VfsPath, contents: Option<Vec<u8>>) -> bool {
+        let file_id = self.alloc_or_get_file_id(path);
         let change_kind = match (&self.get(file_id), &contents) {
             (None, None) => return false,
             (None, Some(_)) => ChangeKind::Create,
@@ -176,7 +176,7 @@ impl Vfs {
     }
 
     /// Drain and returns all the changes in the `Vfs`.
-    pub fn take_changes(&mut self) -> Vec<ChangedFile> {
+    pub fn drain_changes(&mut self) -> Vec<ChangedFile> {
         mem::take(&mut self.changes)
     }
 
@@ -187,7 +187,7 @@ impl Vfs {
     /// - Else, returns `path`'s id.
     ///
     /// Does not record a change.
-    fn alloc_file_id(&mut self, path: VfsPath) -> FileID {
+    fn alloc_or_get_file_id(&mut self, path: VfsPath) -> FileID {
         let file_id = self.interner.intern(path);
         let idx = file_id.0 as usize;
         let len = self.data.len().max(idx + 1);
