@@ -1,4 +1,5 @@
 //! base_db defines basic database traits. The concrete DB is defined by ide.
+#![allow(dead_code, unused)]
 mod change;
 pub mod fixture;
 mod input;

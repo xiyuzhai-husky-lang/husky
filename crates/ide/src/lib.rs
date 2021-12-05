@@ -9,7 +9,7 @@
 
 // For proving that RootDatabase is RefUnwindSafe.
 #![recursion_limit = "128"]
-
+#![allow(dead_code, unused)]
 #[allow(unused)]
 macro_rules! eprintln {
     ($($tt:tt)*) => { stdx::eprintln!($($tt)*) };

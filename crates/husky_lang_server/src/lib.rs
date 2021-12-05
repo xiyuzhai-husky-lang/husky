@@ -1,4 +1,4 @@
-// #![allow(warnings, unused)]
+#![allow(warnings, unused)]
 mod capabilities;
 pub mod cli;
 mod config;

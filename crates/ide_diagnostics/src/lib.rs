@@ -23,6 +23,7 @@
 //! There are also a couple of ad-hoc diagnostics implemented directly here, we
 //! don't yet have a great pattern for how to do them properly.
 
+#![allow(dead_code, unused)]
 mod handlers {
     pub(crate) mod add_reference_here;
     pub(crate) mod break_outside_of_loop;
