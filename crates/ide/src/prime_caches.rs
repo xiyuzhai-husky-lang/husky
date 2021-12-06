@@ -4,7 +4,7 @@
 //! various caches, it's not really advanced at the moment.
 
 use hir::db::DefDatabase;
-use ide_db::base_db::{CrateGraph, CrateId, SourceDatabase, SourceDatabaseExt};
+use ide_db::base_db::{CrateId, SourceDatabase, SourceDatabaseExt};
 use rustc_hash::FxHashSet;
 
 use crate::IdeDatabase;
@@ -19,17 +19,4 @@ pub struct PrimeCachesProgress {
 
 pub(crate) fn prime_caches(db: &IdeDatabase, cb: &(dyn Fn(PrimeCachesProgress) + Sync)) {
     todo!()
-}
-
-fn toposort(graph: &CrateGraph, crates: &FxHashSet<CrateId>) -> Vec<CrateId> {
-    // Just subset the full topologically sorted set for simplicity.
-
-    let all = graph.crates_in_topological_order();
-    let mut result = Vec::with_capacity(crates.len());
-    for krate in all {
-        if crates.contains(&krate) {
-            result.push(krate);
-        }
-    }
-    result
 }

@@ -69,14 +69,6 @@ pub struct ViewCrateGraphParams {
     pub full: bool,
 }
 
-pub enum ViewCrateGraph {}
-
-impl Request for ViewCrateGraph {
-    type Params = ViewCrateGraphParams;
-    type Result = String;
-    const METHOD: &'static str = "husky-lang-server/viewCrateGraph";
-}
-
 #[derive(Deserialize, Serialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct ViewItemTreeParams {

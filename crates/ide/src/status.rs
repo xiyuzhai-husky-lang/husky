@@ -30,44 +30,7 @@ fn syntax_tree_stats(db: &IdeDatabase) -> SyntaxTreeStats {
 // |===
 // image::https://user-images.githubusercontent.com/48062697/113065584-05f34500-91b1-11eb-98cc-5c196f76be7f.gif[]
 pub(crate) fn status(db: &IdeDatabase, file_id: Option<FileID>) -> String {
-    let mut buf = String::new();
-    format_to!(buf, "{}\n", FileTextQuery.in_db(db).entries::<FilesStats>());
-    format_to!(
-        buf,
-        "{}\n",
-        LibrarySymbolsQuery
-            .in_db(db)
-            .entries::<LibrarySymbolsStats>()
-    );
-    format_to!(buf, "{}\n", syntax_tree_stats(db));
-    format_to!(buf, "{} in total\n", memory_usage());
-    if env::var("RA_COUNT").is_ok() {
-        format_to!(buf, "\nCounts:\n{}", profile::countme::get_all());
-    }
-
-    if let Some(file_id) = file_id {
-        format_to!(buf, "\nFile info:\n");
-        let krate = crate::parent_module::crate_for(db, file_id).pop();
-        match krate {
-            Some(krate) => {
-                let crate_graph = db.crate_graph();
-                let display_crate = |krate: CrateId| match &crate_graph[krate].display_name {
-                    Some(it) => format!("{}({:?})", it, krate),
-                    None => format!("{:?}", krate),
-                };
-                format_to!(buf, "Crate: {}\n", display_crate(krate));
-                let deps = crate_graph[krate]
-                    .dependencies
-                    .iter()
-                    .map(|dep| format!("{}={:?}", dep.name, dep.crate_id))
-                    .format(", ");
-                format_to!(buf, "Dependencies: {}\n", deps);
-            }
-            None => format_to!(buf, "Does not belong to any crate"),
-        }
-    }
-
-    buf.trim().to_string()
+    todo!()
 }
 
 #[derive(Default)]

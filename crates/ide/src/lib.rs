@@ -46,7 +46,6 @@ mod status;
 mod syntax_highlighting;
 mod syntax_tree;
 mod typing;
-mod view_crate_graph;
 mod view_hir;
 mod view_item_tree;
 
@@ -57,7 +56,7 @@ use common::*;
 use ide_db::{
     base_db::{
         salsa::{self, ParallelDatabase},
-        Env, FileLoader, FileSet, SourceDatabase, VfsPath,
+        Env, FileLoader, FilePathIdTable, SourceDatabase, VfsPath,
     },
     symbol_index::{self, FileSymbol},
     LineIndexDatabase,
@@ -99,8 +98,8 @@ pub use ide_completion::{
 };
 pub use ide_db::{
     base_db::{
-        Cancelled, Change, CrateGraph, CrateId, Edition, FileID, FilePosition, FileRange,
-        SourceRoot, SourceRootId,
+        Cancelled, Change, CrateId, Edition, FileID, FilePosition, FileRange, SourceRoot,
+        SourceRootId,
     },
     label::Label,
     line_index::{LineCol, LineColUtf16, LineIndex},
@@ -265,11 +264,6 @@ impl DatabaseProxy {
         self.try_db_query(|db| view_item_tree::view_item_tree(db, file_id))
     }
 
-    /// Renders the crate graph to GraphViz "dot" syntax.
-    pub fn view_crate_graph(&self, full: bool) -> Cancellable<Result<String, String>> {
-        self.try_db_query(|db| view_crate_graph::view_crate_graph(db, full))
-    }
-
     /// Returns an edit to remove all newlines in the range, cleaning up minor
     /// stuff like trailing commas.
     pub fn join_lines(&self, config: &JoinLinesConfig, frange: FileRange) -> Cancellable<TextEdit> {
@@ -420,12 +414,12 @@ impl DatabaseProxy {
 
     /// Returns the edition of the given crate.
     pub fn crate_edition(&self, crate_id: CrateId) -> Cancellable<Edition> {
-        self.try_db_query(|db| db.crate_graph()[crate_id].edition)
+        todo!()
     }
 
     /// Returns the root file of the given crate.
     pub fn crate_root(&self, crate_id: CrateId) -> Cancellable<FileID> {
-        self.try_db_query(|db| db.crate_graph()[crate_id].root_file_id)
+        todo!()
     }
 
     /// Computes syntax highlighting for the given file

@@ -1,7 +1,6 @@
 //! base_db defines basic database traits. The concrete DB is defined by ide.
 #![allow(dead_code, unused)]
 mod change;
-pub mod fixture;
 mod input;
 
 use std::{panic, sync::Arc};
@@ -13,13 +12,12 @@ use syntax::{ParseResult, SingleFileParseTree};
 pub use crate::{
     change::Change,
     input::{
-        CrateData, CrateDisplayName, CrateGraph, CrateId, CrateName, Dependency, Edition, Env,
-        ProcMacro, ProcMacroExpander, ProcMacroExpansionError, ProcMacroId, ProcMacroKind,
-        SourceRoot, SourceRootId,
+        CrateDisplayName, CrateId, CrateName, Dependency, Edition, Env, ProcMacroId, SourceRoot,
+        SourceRootId,
     },
 };
 pub use salsa::{self, Cancelled};
-pub use vfs::{file_set::FileSet, AnchoredPath, AnchoredPathBuf, FileID, VfsPath};
+pub use vfs::{file_set::FilePathIdTable, AnchoredPath, AnchoredPathBuf, FileID, VfsPath};
 
 #[macro_export]
 macro_rules! impl_intern_key {
@@ -67,10 +65,6 @@ pub trait SourceDatabase: FileLoader + std::fmt::Debug {
     // Parses the file into the syntax tree.
     #[salsa::invoke(parse_query)]
     fn parse(&self, file_id: FileID) -> ParseResult<SingleFileParseTree>;
-
-    /// The crate graph.
-    #[salsa::input]
-    fn crate_graph(&self) -> Arc<CrateGraph>;
 }
 
 fn parse_query(db: &dyn SourceDatabase, file_id: FileID) -> ParseResult<SingleFileParseTree> {
@@ -98,15 +92,7 @@ pub trait SourceDatabaseExt: SourceDatabase {
 }
 
 fn source_root_crates(db: &dyn SourceDatabaseExt, id: SourceRootId) -> Arc<FxHashSet<CrateId>> {
-    let graph = db.crate_graph();
-    let res = graph
-        .iter()
-        .filter(|&krate| {
-            let root_file = graph[krate].root_file_id;
-            db.file_source_root(root_file) == id
-        })
-        .collect::<FxHashSet<_>>();
-    Arc::new(res)
+    todo!()
 }
 
 /// Silly workaround for cyclic deps between the traits
@@ -120,7 +106,7 @@ impl<T: SourceDatabaseExt> FileLoader for FileLoaderDelegate<&'_ T> {
         // FIXME: this *somehow* should be platform agnostic...
         let source_root = self.0.file_source_root(path.anchor);
         let source_root = self.0.source_root(source_root);
-        source_root.file_set.resolve_path(path)
+        source_root.file_set.get_non_anchor_id_for_path(path)
     }
 
     fn relevant_crates(&self, file_id: FileID) -> Arc<FxHashSet<CrateId>> {

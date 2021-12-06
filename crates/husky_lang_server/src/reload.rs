@@ -4,10 +4,7 @@ use std::{mem, sync::Arc};
 use flycheck::{FlycheckConfig, FlycheckHandle};
 use hir::db::DefDatabase;
 use ide::Change;
-use ide_db::base_db::{
-    CrateGraph, Env, ProcMacro, ProcMacroExpander, ProcMacroExpansionError, ProcMacroKind,
-    SourceRoot, VfsPath,
-};
+use ide_db::base_db::{Env, SourceRoot, VfsPath};
 use vfs::{file_set::FileSetConfig, AbsPath, AbsPathBuf, ChangeKind};
 
 use crate::{config::ServerConfig, lsp_ext, server::Server, task::Task};
@@ -41,7 +38,7 @@ impl Server {
 
 #[derive(Default)]
 pub(crate) struct ProjectFolders {
-    pub(crate) load: Vec<vfs::loader::Entry>,
+    pub(crate) load: Vec<vfs::loader::LoaderFileSet>,
     pub(crate) watch: Vec<usize>,
 }
 

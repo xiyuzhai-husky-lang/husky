@@ -102,59 +102,38 @@ pub enum ChangeKind {
 }
 
 impl Vfs {
-    /// Amount of files currently stored.
-    ///
-    /// Note that this includes deleted files.
-    pub fn len(&self) -> usize {
-        self.data.len()
-    }
-
     /// Id of the given path if it exists in the `Vfs` and is not deleted.
     pub fn get_file_id(&self, path: &VfsPath) -> Option<FileID> {
-        self.interner.get(path).filter(|&it| self.get(it).is_some())
+        self.interner
+            .get(path)
+            .filter(|&it| self.get_file_content_or_none(it).is_some())
     }
 
-    /// File path corresponding to the given `file_id`.
-    ///
-    /// # Panics
-    ///
-    /// Panics if the id is not present in the `Vfs`.
     pub fn get_file_path(&self, file_id: FileID) -> VfsPath {
         self.interner.lookup(file_id).clone()
     }
 
-    /// File content corresponding to the given `file_id`.
-    ///
-    /// # Panics
-    ///
-    /// Panics if the id is not present in the `Vfs`, or if the corresponding file is
-    /// deleted.
-    pub fn get_file_contents(&self, file_id: FileID) -> &[u8] {
-        self.get(file_id).as_deref().unwrap()
+    pub fn get_file_content(&self, file_id: FileID) -> &[u8] {
+        self.get_file_content_or_none(file_id).as_deref().unwrap()
     }
 
-    /// Returns an iterator over the stored ids and their corresponding paths.
-    ///
-    /// This will skip deleted files.
-    pub fn iter(&self) -> impl Iterator<Item = (FileID, &VfsPath)> + '_ {
+    pub fn iter_without_deleted(&self) -> impl Iterator<Item = (FileID, &VfsPath)> + '_ {
         (0..self.data.len())
             .map(|it| FileID(it as u32))
-            .filter(move |&file_id| self.get(file_id).is_some())
+            .filter(move |&file_id| self.get_file_content_or_none(file_id).is_some())
             .map(move |file_id| {
                 let path = self.interner.lookup(file_id);
                 (file_id, path)
             })
     }
 
-    /// Update the `path` with the given `contents`. `None` means the file was deleted.
-    ///
-    /// Returns `true` if the file was modified, and saves the [change](ChangedFile).
-    ///
-    /// If the path does not currently exists in the `Vfs`, allocates a new
-    /// [`FileID`] for it.
-    pub fn update_file_contents(&mut self, path: VfsPath, contents: Option<Vec<u8>>) -> bool {
+    pub fn set_file_content_and_is_updated(
+        &mut self,
+        path: VfsPath,
+        content: Option<Vec<u8>>,
+    ) -> bool {
         let file_id = self.alloc_or_get_file_id(path);
-        let change_kind = match (&self.get(file_id), &contents) {
+        let change_kind = match (&self.get_file_content_or_none(file_id), &content) {
             (None, None) => return false,
             (None, Some(_)) => ChangeKind::Create,
             (Some(_), None) => ChangeKind::Delete,
@@ -162,7 +141,7 @@ impl Vfs {
             (Some(_), Some(_)) => ChangeKind::Modify,
         };
 
-        *self.get_mut(file_id) = contents;
+        *self.get_mut(file_id) = content;
         self.changes.push(ChangedFile {
             file_id,
             change_kind,
@@ -170,23 +149,14 @@ impl Vfs {
         true
     }
 
-    /// Returns `true` if the `Vfs` contains [changes](ChangedFile).
-    pub fn has_changes(&self) -> bool {
+    pub fn has_changed(&self) -> bool {
         !self.changes.is_empty()
     }
 
-    /// Drain and returns all the changes in the `Vfs`.
     pub fn drain_changes(&mut self) -> Vec<ChangedFile> {
         mem::take(&mut self.changes)
     }
 
-    /// Returns the id associated with `path`
-    ///
-    /// - If `path` does not exists in the `Vfs`, allocate a new id for it, associated with a
-    /// deleted file;
-    /// - Else, returns `path`'s id.
-    ///
-    /// Does not record a change.
     fn alloc_or_get_file_id(&mut self, path: VfsPath) -> FileID {
         let file_id = self.interner.intern(path);
         let idx = file_id.0 as usize;
@@ -200,7 +170,7 @@ impl Vfs {
     /// # Panics
     ///
     /// Panics if no file is associated to that id.
-    fn get(&self, file_id: FileID) -> &Option<Vec<u8>> {
+    fn get_file_content_or_none(&self, file_id: FileID) -> &Option<Vec<u8>> {
         &self.data[file_id.0 as usize]
     }
 

@@ -5,28 +5,11 @@ use paths::{AbsPath, AbsPathBuf};
 
 /// A set of files on the file system.
 #[derive(Debug, Clone)]
-pub enum Entry {
+pub enum LoaderFileSet {
     /// The `Entry` is represented by a raw set of files.
     Files(Vec<AbsPathBuf>),
     /// The `Entry` is represented by `Directories`.
     Directories(Directories),
-}
-
-/// Specifies a set of files on the file system.
-///
-/// A file is included if:
-///   * it has included extension
-///   * it is under an `include` path
-///   * it is not under `exclude` path
-///
-/// If many include/exclude paths match, the longest one wins.
-///
-/// If a path is in both `include` and `exclude`, the `exclude` one wins.
-#[derive(Debug, Clone, Default)]
-pub struct Directories {
-    pub extensions: Vec<String>,
-    pub include: Vec<AbsPathBuf>,
-    pub exclude: Vec<AbsPathBuf>,
 }
 
 /// [`Handle`]'s configuration.
@@ -36,7 +19,7 @@ pub struct Config {
     /// version.
     pub version: u32,
     /// Set of initially loaded files.
-    pub load: Vec<Entry>,
+    pub load: Vec<LoaderFileSet>,
     /// Index of watched entries in `load`.
     ///
     /// If a path in a watched entry is modified,the [`Handle`] should notify it.
@@ -80,41 +63,41 @@ pub trait Handle: fmt::Debug {
     fn load_sync(&mut self, path: &AbsPath) -> Option<Vec<u8>>;
 }
 
-impl Entry {
+impl LoaderFileSet {
     /// Returns:
     /// ```text
-    /// Entry::Directories(Directories {
-    ///     extensions: ["rs"],
+    /// LoaderFileSet::Directories(Directories {
+    ///     extensions: ["hsk"],
     ///     include: [base],
     ///     exclude: [base/.git],
     /// })
     /// ```
-    pub fn rs_files_recursively(base: AbsPathBuf) -> Entry {
-        Entry::Directories(dirs(base, &[".git"]))
+    pub fn hsk_files_recursively(base: AbsPathBuf) -> LoaderFileSet {
+        LoaderFileSet::Directories(dirs(base, &[".git"]))
     }
 
     /// Returns:
     /// ```text
-    /// Entry::Directories(Directories {
-    ///     extensions: ["rs"],
+    /// LoaderFileSet::Directories(Directories {
+    ///     extensions: ["hsk"],
     ///     include: [base],
     ///     exclude: [base/.git, base/target],
     /// })
     /// ```
-    pub fn local_cargo_package(base: AbsPathBuf) -> Entry {
-        Entry::Directories(dirs(base, &[".git", "target"]))
+    pub fn local_package(base: AbsPathBuf) -> LoaderFileSet {
+        LoaderFileSet::Directories(dirs(base, &[".git", "target"]))
     }
 
     /// Returns:
     /// ```text
-    /// Entry::Directories(Directories {
-    ///     extensions: ["rs"],
+    /// LoaderFileSet::Directories(Directories {
+    ///     extensions: ["hsk"],
     ///     include: [base],
     ///     exclude: [base/.git, /tests, /examples, /benches],
     /// })
     /// ```
-    pub fn cargo_package_dependency(base: AbsPathBuf) -> Entry {
-        Entry::Directories(dirs(base, &[".git", "/tests", "/examples", "/benches"]))
+    pub fn package_dependency(base: AbsPathBuf) -> LoaderFileSet {
+        LoaderFileSet::Directories(dirs(base, &[".git", "/tests", "/examples", "/benches"]))
     }
 
     /// Returns `true` if `path` is included in `self`.
@@ -122,21 +105,38 @@ impl Entry {
     /// See [`Directories::contains_file`].
     pub fn contains_file(&self, path: &AbsPath) -> bool {
         match self {
-            Entry::Files(files) => files.iter().any(|it| it == path),
-            Entry::Directories(dirs) => dirs.contains_file(path),
+            LoaderFileSet::Files(files) => files.iter().any(|it| it == path),
+            LoaderFileSet::Directories(dirs) => dirs.contains_file(path),
         }
     }
 
     /// Returns `true` if `path` is included in `self`.
     ///
-    /// - If `self` is `Entry::Files`, returns `false`
+    /// - If `self` is `LoaderFileSet::Files`, returns `false`
     /// - Else, see [`Directories::contains_dir`].
     pub fn contains_dir(&self, path: &AbsPath) -> bool {
         match self {
-            Entry::Files(_) => false,
-            Entry::Directories(dirs) => dirs.contains_dir(path),
+            LoaderFileSet::Files(_) => false,
+            LoaderFileSet::Directories(dirs) => dirs.contains_dir(path),
         }
     }
+}
+
+/// Specifies a set of files on the file system.
+///
+/// A file is included if:
+///   * it has included extension
+///   * it is under an `include` path
+///   * it is not under `exclude` path
+///
+/// If many include/exclude paths match, the longest one wins.
+///
+/// If a path is in both `include` and `exclude`, the `exclude` one wins.
+#[derive(Debug, Clone, Default)]
+pub struct Directories {
+    pub extensions: Vec<String>,
+    pub include: Vec<AbsPathBuf>,
+    pub exclude: Vec<AbsPathBuf>,
 }
 
 impl Directories {
@@ -192,7 +192,7 @@ impl Directories {
 /// Returns :
 /// ```text
 /// Directories {
-///     extensions: ["rs"],
+///     extensions: ["hsk"],
 ///     include: [base],
 ///     exclude: [base/<exclude>],
 /// }
@@ -200,7 +200,7 @@ impl Directories {
 fn dirs(base: AbsPathBuf, exclude: &[&str]) -> Directories {
     let exclude = exclude.iter().map(|it| base.join(it)).collect::<Vec<_>>();
     Directories {
-        extensions: vec!["rs".to_string()],
+        extensions: vec!["hsk".to_string()],
         include: vec![base],
         exclude,
     }

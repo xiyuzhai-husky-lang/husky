@@ -10,8 +10,7 @@ use std::{fmt, iter::FromIterator, ops, panic::RefUnwindSafe, str::FromStr, sync
 
 use rustc_hash::{FxHashMap, FxHashSet};
 use syntax::SmolStr;
-use tt::Subtree;
-use vfs::{file_set::FileSet, FileID, VfsPath};
+use vfs::{file_set::FilePathIdTable, FileID, VfsPath};
 
 /// Files are grouped into source roots. A source root is a directory on the
 /// file systems which is watched for changes. Typically it corresponds to a
@@ -30,54 +29,31 @@ pub struct SourceRoot {
     /// Libraries are considered mostly immutable, this assumption is used to
     /// optimize salsa's query structure
     pub is_library: bool,
-    pub(crate) file_set: FileSet,
+    pub(crate) file_set: FilePathIdTable,
 }
 
 impl SourceRoot {
-    pub fn new_local(file_set: FileSet) -> SourceRoot {
+    pub fn new_local(file_set: FilePathIdTable) -> SourceRoot {
         SourceRoot {
             is_library: false,
             file_set,
         }
     }
-    pub fn new_library(file_set: FileSet) -> SourceRoot {
+    pub fn new_library(file_set: FilePathIdTable) -> SourceRoot {
         SourceRoot {
             is_library: true,
             file_set,
         }
     }
     pub fn path_for_file(&self, file: &FileID) -> Option<&VfsPath> {
-        self.file_set.path_for_file(file)
+        self.file_set.get_path_for_id(file)
     }
-    pub fn file_for_path(&self, path: &VfsPath) -> Option<&FileID> {
+    pub fn file_for_path(&self, path: &VfsPath) -> Option<FileID> {
         self.file_set.file_for_path(path)
     }
     pub fn iter(&self) -> impl Iterator<Item = FileID> + '_ {
-        self.file_set.iter()
+        self.file_set.id_iter()
     }
-}
-
-/// `CrateGraph` is a bit of information which turns a set of text files into a
-/// number of Rust crates.
-///
-/// Each crate is defined by the `FileID` of its root module, the set of enabled
-/// `cfg` flags and the set of dependencies.
-///
-/// Note that, due to cfg's, there might be several crates for a single `FileID`!
-///
-/// For the purposes of analysis, a crate does not have a name. Instead, names
-/// are specified on dependency edges. That is, a crate might be known under
-/// different names in different dependent crates.
-///
-/// Note that `CrateGraph` is build-system agnostic: it's a concept of the Rust
-/// language proper, not a concept of the build system. In practice, we get
-/// `CrateGraph` by lowering `cargo metadata` output.
-///
-/// `CrateGraph` is `!Serialize` by design, see
-/// <https://github.com/husky-lang-server/husky-lang-server/blob/master/docs/dev/architecture.md#serialization>
-#[derive(Debug, Clone, Default /* Serialize, Deserialize */)]
-pub struct CrateGraph {
-    arena: FxHashMap<CrateId, CrateData>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -177,45 +153,6 @@ pub enum ProcMacroKind {
     Attr,
 }
 
-pub trait ProcMacroExpander: fmt::Debug + Send + Sync + RefUnwindSafe {
-    fn expand(
-        &self,
-        subtree: &Subtree,
-        attrs: Option<&Subtree>,
-        env: &Env,
-    ) -> Result<Subtree, ProcMacroExpansionError>;
-}
-
-pub enum ProcMacroExpansionError {
-    Panic(String),
-    /// Things like "proc macro server was killed by OOM".
-    System(String),
-}
-
-#[derive(Debug, Clone)]
-pub struct ProcMacro {
-    pub name: SmolStr,
-    pub kind: ProcMacroKind,
-    pub expander: Arc<dyn ProcMacroExpander>,
-}
-
-#[derive(Debug, Clone)]
-pub struct CrateData {
-    pub root_file_id: FileID,
-    pub edition: Edition,
-    pub version: Option<String>,
-    /// A name used in the package's project declaration: for Cargo projects,
-    /// its `[package].name` can be different for other project types or even
-    /// absent (a dummy crate for the code snippet, for example).
-    ///
-    /// For purposes of analysis, crates are anonymous (only names in
-    /// `Dependency` matters), this name should only be used for UI.
-    pub display_name: Option<CrateDisplayName>,
-    pub env: Env,
-    pub dependencies: Vec<Dependency>,
-    pub proc_macro: Vec<ProcMacro>,
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Edition {
     Edition2015,
@@ -259,207 +196,6 @@ impl Dependency {
     /// Whether this dependency is to be added to the depending crate's extern prelude.
     pub fn is_prelude(&self) -> bool {
         self.prelude
-    }
-}
-
-impl CrateGraph {
-    pub fn add_crate_root(
-        &mut self,
-        file_id: FileID,
-        edition: Edition,
-        display_name: Option<CrateDisplayName>,
-        version: Option<String>,
-        env: Env,
-        proc_macro: Vec<ProcMacro>,
-    ) -> CrateId {
-        let data = CrateData {
-            root_file_id: file_id,
-            edition,
-            version,
-            display_name,
-            env,
-            proc_macro,
-            dependencies: Vec::new(),
-        };
-        let crate_id = CrateId(self.arena.len() as u32);
-        let prev = self.arena.insert(crate_id, data);
-        assert!(prev.is_none());
-        crate_id
-    }
-
-    pub fn add_dep(
-        &mut self,
-        from: CrateId,
-        dep: Dependency,
-    ) -> Result<(), CyclicDependenciesError> {
-        let _p = profile::span("add_dep");
-
-        // Check if adding a dep from `from` to `to` creates a cycle. To figure
-        // that out, look for a  path in the *opposite* direction, from `to` to
-        // `from`.
-        if let Some(path) = self.find_path(&mut FxHashSet::default(), dep.crate_id, from) {
-            let path = path
-                .into_iter()
-                .map(|it| (it, self[it].display_name.clone()))
-                .collect();
-            let err = CyclicDependenciesError { path };
-            assert!(err.from().0 == from && err.to().0 == dep.crate_id);
-            return Err(err);
-        }
-
-        self.arena.get_mut(&from).unwrap().add_dep(dep);
-        Ok(())
-    }
-
-    pub fn is_empty(&self) -> bool {
-        self.arena.is_empty()
-    }
-
-    pub fn iter(&self) -> impl Iterator<Item = CrateId> + '_ {
-        self.arena.keys().copied()
-    }
-
-    /// Returns an iterator over all transitive dependencies of the given crate,
-    /// including the crate itself.
-    pub fn transitive_deps(&self, of: CrateId) -> impl Iterator<Item = CrateId> + '_ {
-        let mut worklist = vec![of];
-        let mut deps = FxHashSet::default();
-
-        while let Some(krate) = worklist.pop() {
-            if !deps.insert(krate) {
-                continue;
-            }
-
-            worklist.extend(self[krate].dependencies.iter().map(|dep| dep.crate_id));
-        }
-
-        deps.into_iter()
-    }
-
-    /// Returns all transitive reverse dependencies of the given crate,
-    /// including the crate itself.
-    pub fn transitive_rev_deps(&self, of: CrateId) -> impl Iterator<Item = CrateId> + '_ {
-        let mut worklist = vec![of];
-        let mut rev_deps = FxHashSet::default();
-        rev_deps.insert(of);
-
-        let mut inverted_graph = FxHashMap::<_, Vec<_>>::default();
-        self.arena.iter().for_each(|(&krate, data)| {
-            data.dependencies
-                .iter()
-                .for_each(|dep| inverted_graph.entry(dep.crate_id).or_default().push(krate))
-        });
-
-        while let Some(krate) = worklist.pop() {
-            if let Some(krate_rev_deps) = inverted_graph.get(&krate) {
-                krate_rev_deps
-                    .iter()
-                    .copied()
-                    .filter(|&rev_dep| rev_deps.insert(rev_dep))
-                    .for_each(|rev_dep| worklist.push(rev_dep));
-            }
-        }
-
-        rev_deps.into_iter()
-    }
-
-    /// Returns all crates in the graph, sorted in topological order (ie. dependencies of a crate
-    /// come before the crate itself).
-    pub fn crates_in_topological_order(&self) -> Vec<CrateId> {
-        let mut res = Vec::new();
-        let mut visited = FxHashSet::default();
-
-        for krate in self.arena.keys().copied() {
-            go(self, &mut visited, &mut res, krate);
-        }
-
-        return res;
-
-        fn go(
-            graph: &CrateGraph,
-            visited: &mut FxHashSet<CrateId>,
-            res: &mut Vec<CrateId>,
-            source: CrateId,
-        ) {
-            if !visited.insert(source) {
-                return;
-            }
-            for dep in graph[source].dependencies.iter() {
-                go(graph, visited, res, dep.crate_id)
-            }
-            res.push(source)
-        }
-    }
-
-    // FIXME: this only finds one crate with the given root; we could have multiple
-    pub fn crate_id_for_crate_root(&self, file_id: FileID) -> Option<CrateId> {
-        let (&crate_id, _) = self
-            .arena
-            .iter()
-            .find(|(_crate_id, data)| data.root_file_id == file_id)?;
-        Some(crate_id)
-    }
-
-    /// Extends this crate graph by adding a complete disjoint second crate
-    /// graph.
-    ///
-    /// The ids of the crates in the `other` graph are shifted by the return
-    /// amount.
-    pub fn extend(&mut self, other: CrateGraph) -> u32 {
-        let start = self.arena.len() as u32;
-        self.arena
-            .extend(other.arena.into_iter().map(|(id, mut data)| {
-                let new_id = id.shift(start);
-                for dep in &mut data.dependencies {
-                    dep.crate_id = dep.crate_id.shift(start);
-                }
-                (new_id, data)
-            }));
-        start
-    }
-
-    fn find_path(
-        &self,
-        visited: &mut FxHashSet<CrateId>,
-        from: CrateId,
-        to: CrateId,
-    ) -> Option<Vec<CrateId>> {
-        if !visited.insert(from) {
-            return None;
-        }
-
-        if from == to {
-            return Some(vec![to]);
-        }
-
-        for dep in &self[from].dependencies {
-            let crate_id = dep.crate_id;
-            if let Some(mut path) = self.find_path(visited, crate_id, to) {
-                path.push(from);
-                return Some(path);
-            }
-        }
-
-        None
-    }
-}
-
-impl ops::Index<CrateId> for CrateGraph {
-    type Output = CrateData;
-    fn index(&self, crate_id: CrateId) -> &CrateData {
-        &self.arena[&crate_id]
-    }
-}
-
-impl CrateId {
-    fn shift(self, amount: u32) -> CrateId {
-        CrateId(self.0 + amount)
-    }
-}
-
-impl CrateData {
-    fn add_dep(&mut self, dep: Dependency) {
-        self.dependencies.push(dep)
     }
 }
 
