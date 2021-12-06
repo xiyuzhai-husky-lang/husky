@@ -149,7 +149,7 @@ fn completions_resolve_provider(client_caps: &ClientCapabilities) -> Option<bool
     }
 }
 
-/// Parses client capabilities and returns all completion resolve capabilities rust-analyzer supports.
+/// Parses client capabilities and returns all completion resolve capabilities husky-lang-server supports.
 pub(crate) fn completion_item_edit_resolve(caps: &ClientCapabilities) -> bool {
     (|| {
         Some(

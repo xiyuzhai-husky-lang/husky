@@ -23,7 +23,7 @@ impl StopWatch {
     pub fn start() -> StopWatch {
         #[cfg(target_os = "linux")]
         let counter = {
-            // When debugging rust-analyzer using rr, the perf-related syscalls cause it to abort.
+            // When debugging husky-lang-server using rr, the perf-related syscalls cause it to abort.
             // We allow disabling perf by setting the env var `RA_DISABLE_PERF`.
 
             use once_cell::sync::Lazy;

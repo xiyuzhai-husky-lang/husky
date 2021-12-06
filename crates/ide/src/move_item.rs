@@ -1,9 +1,11 @@
 use std::{iter::once, mem};
 
+use common::*;
+
 use hir::Semantics;
-use ide_db::{base_db::FileRange, helpers::pick_best_token, RootDatabase};
+use ide_db::{base_db::FileRange, helpers::pick_best_token, IdeDatabase};
 use itertools::Itertools;
-use syntax::{ast, SyntaxElement, SyntaxKind, SyntaxNode, TextRange};
+use syntax::{ast, SyntaxElement, SyntaxKind, SyntaxNode};
 use text_edit::{TextEdit, TextEditBuilder};
 
 #[derive(Copy, Clone, Debug)]
@@ -25,7 +27,7 @@ pub enum Direction {
 //
 // image::https://user-images.githubusercontent.com/48062697/113065576-04298180-91b1-11eb-91ce-4505e99ed598.gif[]
 pub(crate) fn move_item(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     range: FileRange,
     direction: Direction,
 ) -> Option<TextEdit> {

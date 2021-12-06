@@ -2,6 +2,8 @@
 
 use std::fmt;
 
+use common::*;
+
 use either::Either;
 use hir::{AssocItem, Documentation, FieldSource, HirDisplay, InFile, ModuleSource, Semantics};
 use ide_db::{
@@ -9,8 +11,8 @@ use ide_db::{
     symbol_index::FileSymbolKind,
     SymbolKind,
 };
-use ide_db::{defs::Definition, RootDatabase};
-use syntax::{ast, SmolStr, TextRange};
+use ide_db::{defs::Definition, IdeDatabase};
+use syntax::{ast, SmolStr};
 
 use crate::FileSymbol;
 
@@ -50,15 +52,15 @@ impl fmt::Debug for NavigationTarget {
 }
 
 pub(crate) trait ToNav {
-    fn to_nav(&self, db: &RootDatabase) -> NavigationTarget;
+    fn to_nav(&self, db: &IdeDatabase) -> NavigationTarget;
 }
 
 pub(crate) trait TryToNav {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget>;
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget>;
 }
 
 impl<T: TryToNav, U: TryToNav> TryToNav for Either<T, U> {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         match self {
             Either::Left(it) => it.try_to_nav(db),
             Either::Right(it) => it.try_to_nav(db),
@@ -71,7 +73,7 @@ impl NavigationTarget {
         self.focus_range.unwrap_or(self.full_range)
     }
 
-    pub(crate) fn from_module_to_decl(db: &RootDatabase, module: hir::Module) -> NavigationTarget {
+    pub(crate) fn from_module_to_decl(db: &IdeDatabase, module: hir::Module) -> NavigationTarget {
         todo!()
     }
 
@@ -96,7 +98,7 @@ impl NavigationTarget {
 }
 
 impl ToNav for FileSymbol {
-    fn to_nav(&self, db: &RootDatabase) -> NavigationTarget {
+    fn to_nav(&self, db: &IdeDatabase) -> NavigationTarget {
         NavigationTarget {
             file_id: self.file_id,
             name: self.name.clone(),
@@ -122,13 +124,13 @@ impl ToNav for FileSymbol {
 }
 
 impl TryToNav for Definition {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl TryToNav for hir::ModuleDef {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
@@ -165,67 +167,67 @@ impl ToNavFromAst for hir::Trait {
 }
 
 impl ToNav for hir::Module {
-    fn to_nav(&self, db: &RootDatabase) -> NavigationTarget {
+    fn to_nav(&self, db: &IdeDatabase) -> NavigationTarget {
         todo!()
     }
 }
 
 impl TryToNav for hir::Impl {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl TryToNav for hir::Field {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl TryToNav for hir::MacroDef {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl TryToNav for hir::Adt {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl TryToNav for hir::AssocItem {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl TryToNav for hir::GenericParam {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl ToNav for hir::Local {
-    fn to_nav(&self, db: &RootDatabase) -> NavigationTarget {
+    fn to_nav(&self, db: &IdeDatabase) -> NavigationTarget {
         todo!()
     }
 }
 
 impl ToNav for hir::Label {
-    fn to_nav(&self, db: &RootDatabase) -> NavigationTarget {
+    fn to_nav(&self, db: &IdeDatabase) -> NavigationTarget {
         todo!()
     }
 }
 
 impl TryToNav for hir::TypeParam {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
 
 impl TryToNav for hir::ConstParam {
-    fn try_to_nav(&self, db: &RootDatabase) -> Option<NavigationTarget> {
+    fn try_to_nav(&self, db: &IdeDatabase) -> Option<NavigationTarget> {
         todo!()
     }
 }
@@ -233,6 +235,6 @@ impl TryToNav for hir::ConstParam {
 /// Get a description of a symbol.
 ///
 /// e.g. `struct Name`, `enum Name`, `fn Name`
-pub(crate) fn description_from_symbol(db: &RootDatabase, symbol: &FileSymbol) -> Option<String> {
+pub(crate) fn description_from_symbol(db: &IdeDatabase, symbol: &FileSymbol) -> Option<String> {
     todo!()
 }

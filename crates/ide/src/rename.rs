@@ -9,7 +9,7 @@ use ide_db::{
     base_db::FileID,
     defs::{Definition, NameClass, NameRefClass},
     rename::{bail, format_err, source_edit_from_references, IdentifierKind},
-    RootDatabase,
+    IdeDatabase,
 };
 use itertools::Itertools;
 use stdx::{always, never};
@@ -26,7 +26,7 @@ type RenameResult<T> = Result<T, RenameError>;
 /// Prepares a rename. The sole job of this function is to return the TextRange of the thing that is
 /// being targeted for a rename.
 pub(crate) fn prepare_rename(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     position: FilePosition,
 ) -> RenameResult<RangeInfo<()>> {
     todo!()
@@ -44,7 +44,7 @@ pub(crate) fn prepare_rename(
 //
 // image::https://user-images.githubusercontent.com/48062697/113065582-055aae80-91b1-11eb-8ade-2b58e6d81883.gif[]
 pub(crate) fn rename(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     position: FilePosition,
     new_name: &str,
 ) -> RenameResult<SourceChange> {
@@ -53,19 +53,19 @@ pub(crate) fn rename(
 
 /// Called by the client when it is about to rename a file.
 pub(crate) fn will_rename_file(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     file_id: FileID,
     new_name_stem: &str,
 ) -> Option<SourceChange> {
     todo!()
 }
 
-fn rename_to_self(sema: &Semantics<RootDatabase>, local: hir::Local) -> RenameResult<SourceChange> {
+fn rename_to_self(sema: &Semantics<IdeDatabase>, local: hir::Local) -> RenameResult<SourceChange> {
     todo!()
 }
 
 fn rename_self_to_param(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     local: hir::Local,
     self_param: hir::SelfParam,
     new_name: &str,

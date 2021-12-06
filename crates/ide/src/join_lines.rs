@@ -1,10 +1,9 @@
+use common::*;
+
 use ide_assists::utils::extract_trivial_expression;
 use ide_db::helpers::node_ext::expr_as_name_ref;
 use itertools::Itertools;
-use syntax::{
-    ast, NodeOrToken, SingleFileParseTree, SyntaxElement, SyntaxKind, SyntaxToken, TextRange,
-    TextSize,
-};
+use syntax::{ast, NodeOrToken, SingleFileParseTree, SyntaxElement, SyntaxKind, SyntaxToken};
 
 use text_edit::{TextEdit, TextEditBuilder};
 

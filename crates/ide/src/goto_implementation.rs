@@ -2,7 +2,7 @@ use hir::{AsAssocItem, Impl, Semantics};
 use ide_db::{
     defs::{Definition, NameClass, NameRefClass},
     helpers::pick_best_token,
-    RootDatabase,
+    IdeDatabase,
 };
 use itertools::Itertools;
 use syntax::{ast, SyntaxKind::*};
@@ -21,22 +21,22 @@ use crate::{FilePosition, NavigationTarget, RangeInfo, TryToNav};
 //
 // image::https://user-images.githubusercontent.com/48062697/113065566-02f85480-91b1-11eb-9288-aaad8abd8841.gif[]
 pub(crate) fn goto_implementation(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()
 }
 
-fn impls_for_ty(sema: &Semantics<RootDatabase>, ty: hir::Type) -> Vec<NavigationTarget> {
+fn impls_for_ty(sema: &Semantics<IdeDatabase>, ty: hir::Type) -> Vec<NavigationTarget> {
     todo!()
 }
 
-fn impls_for_trait(sema: &Semantics<RootDatabase>, trait_: hir::Trait) -> Vec<NavigationTarget> {
+fn impls_for_trait(sema: &Semantics<IdeDatabase>, trait_: hir::Trait) -> Vec<NavigationTarget> {
     todo!()
 }
 
 fn impls_for_trait_item(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     trait_: hir::Trait,
     fun_name: hir::Name,
 ) -> Vec<NavigationTarget> {

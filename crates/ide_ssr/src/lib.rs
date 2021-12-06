@@ -40,7 +40,7 @@
 // | not(a)        | Negates the constraint `a`
 // |===
 //
-// Available via the command `rust-analyzer.ssr`.
+// Available via the command `husky-lang-server.ssr`.
 //
 // ```rust
 // // Using structural search replace command [foo($a, $b) ==>> ($a).foo($b)]
@@ -77,8 +77,8 @@ mod resolving;
 mod search;
 #[macro_use]
 mod errors;
-#[cfg(test)]
-mod tests;
+
+use common::*;
 
 use crate::errors::bail;
 pub use crate::errors::SsrError;
@@ -89,7 +89,7 @@ use hir::Semantics;
 use ide_db::base_db::{FileID, FilePosition, FileRange};
 use resolving::ResolvedRule;
 use rustc_hash::FxHashMap;
-use syntax::{ast, SyntaxNode, TextRange};
+use syntax::{ast, SyntaxNode};
 use text_edit::TextEdit;
 
 // A structured search replace rule. Create by calling `parse` on a str.
@@ -115,7 +115,7 @@ pub struct SsrMatches {
 /// Searches a crate for pattern matches and possibly replaces them with something else.
 pub struct MatchFinder<'db> {
     /// Our source of information about the user's code.
-    sema: Semantics<'db, ide_db::RootDatabase>,
+    sema: Semantics<'db, ide_db::IdeDatabase>,
     rules: Vec<ResolvedRule>,
     resolution_scope: resolving::ResolutionScope<'db>,
     restrict_ranges: Vec<FileRange>,
@@ -125,7 +125,7 @@ impl<'db> MatchFinder<'db> {
     /// Constructs a new instance where names will be looked up as if they appeared at
     /// `lookup_context`.
     pub fn in_context(
-        db: &'db ide_db::RootDatabase,
+        db: &'db ide_db::IdeDatabase,
         lookup_context: FilePosition,
         mut restrict_ranges: Vec<FileRange>,
     ) -> MatchFinder<'db> {
@@ -133,7 +133,7 @@ impl<'db> MatchFinder<'db> {
     }
 
     /// Constructs an instance using the start of the first file in `db` as the lookup context.
-    pub fn at_first_file(db: &'db ide_db::RootDatabase) -> Result<MatchFinder<'db>, SsrError> {
+    pub fn at_first_file(db: &'db ide_db::IdeDatabase) -> Result<MatchFinder<'db>, SsrError> {
         use ide_db::base_db::SourceDatabaseExt;
         use ide_db::symbol_index::SymbolsDatabase;
         if let Some(first_file_id) = db
@@ -287,10 +287,3 @@ impl Match {
 }
 
 impl std::error::Error for SsrError {}
-
-#[cfg(test)]
-impl MatchDebugInfo {
-    pub(crate) fn match_failure_reason(&self) -> Option<&str> {
-        self.matched.as_ref().err().map(|r| r.reason.as_str())
-    }
-}

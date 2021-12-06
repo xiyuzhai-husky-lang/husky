@@ -1,6 +1,6 @@
 //! # Virtual File System
 //!
-//! VFS stores all files read by rust-analyzer. Reading file contents from VFS
+//! VFS stores all files read by husky-lang-server. Reading file contents from VFS
 //! always returns the same contents, unless VFS was explicitly modified with
 //! [`set_file_contents`]. All changes to VFS are logged, and can be retrieved via
 //! [`take_changes`] method. The pack of changes is then pushed to `salsa` and
@@ -55,11 +55,11 @@ pub use paths::{AbsPath, AbsPathBuf};
 
 /// Handle to a file in [`Vfs`]
 ///
-/// Most functions in rust-analyzer use this when they need to refer to a file.
+/// Most functions in husky-lang-server use this when they need to refer to a file.
 #[derive(Copy, Clone, Debug, Ord, PartialOrd, Eq, PartialEq, Hash)]
 pub struct FileID(pub u32);
 
-/// Storage for all files read by rust-analyzer.
+/// Storage for all files read by husky-lang-server.
 ///
 /// For more informations see the [crate-level](crate) documentation.
 #[derive(Default)]

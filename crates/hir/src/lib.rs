@@ -1,14 +1,14 @@
 #![allow(dead_code, unused)]
+mod diagnostic;
+
+pub use diagnostic::{Diagnostic, Severity};
+
 pub struct Callable {}
 /// Primary API to get semantic information, like types, from syntax trees.
 pub struct Semantics<'db, DB> {
     pub db: &'db DB,
-    imp: SemanticsImpl<'db>,
 }
 
-pub struct SemanticsImpl<'db> {
-    pub db: &'db dyn db::HirDatabase,
-}
 pub struct SemanticsScope<'a> {
     pub db: &'a dyn db::HirDatabase,
     // file_id: HirFileID,
@@ -57,21 +57,7 @@ pub struct PrefixKind {}
 #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
 pub struct ModPath {}
 pub struct HasSource {}
-pub mod db {
-
-    // FIXME: rename to ExpandDatabase
-    #[salsa::query_group(AstDatabaseStorage)]
-    pub trait AstDatabase: base_db::SourceDatabase {}
-
-    #[salsa::query_group(InternDatabaseStorage)]
-    pub trait InternDatabase: base_db::SourceDatabase {}
-
-    #[salsa::query_group(DefDatabaseStorage)]
-    pub trait DefDatabase: InternDatabase + AstDatabase + base_db::Upcast<dyn AstDatabase> {}
-
-    #[salsa::query_group(HirDatabaseStorage)]
-    pub trait HirDatabase: DefDatabase + base_db::Upcast<dyn DefDatabase> {}
-}
+pub mod db;
 
 #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
 pub struct Adt {}

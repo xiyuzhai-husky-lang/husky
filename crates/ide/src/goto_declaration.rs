@@ -1,7 +1,7 @@
 use hir::Semantics;
 use ide_db::{
     defs::{Definition, NameClass, NameRefClass},
-    RootDatabase,
+    IdeDatabase,
 };
 use syntax::{ast, SyntaxKind::*};
 
@@ -11,7 +11,7 @@ use crate::{FilePosition, NavigationTarget, RangeInfo};
 //
 // Navigates to the declaration of an identifier.
 pub(crate) fn goto_declaration(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()

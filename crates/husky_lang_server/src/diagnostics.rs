@@ -2,6 +2,7 @@
 
 use std::{mem, sync::Arc};
 
+use common::ep;
 use rustc_hash::{FxHashMap, FxHashSet};
 
 use crate::lsp_ext;
@@ -15,8 +16,14 @@ pub struct DiagnosticsMapConfig {
     pub warnings_as_hint: Vec<String>,
 }
 
+#[derive(Debug, Clone)]
+pub(crate) struct Fix {
+    pub(crate) range: lsp_types::Range,
+    pub(crate) action: lsp_ext::CodeAction,
+}
+
 #[derive(Debug, Default, Clone)]
-pub(crate) struct DiagnosticCollection {
+pub(crate) struct DiagnosticsTracker {
     // FIXME: should be FxHashMap<ide::FileID, Vec<ra_id::Diagnostic>>
     pub(crate) native: FxHashMap<ide::FileID, Vec<lsp_types::Diagnostic>>,
     // FIXME: should be Vec<flycheck::Diagnostic>
@@ -25,13 +32,7 @@ pub(crate) struct DiagnosticCollection {
     changes: FxHashSet<ide::FileID>,
 }
 
-#[derive(Debug, Clone)]
-pub(crate) struct Fix {
-    pub(crate) range: lsp_types::Range,
-    pub(crate) action: lsp_ext::CodeAction,
-}
-
-impl DiagnosticCollection {
+impl DiagnosticsTracker {
     pub(crate) fn clear_check(&mut self) {
         Arc::make_mut(&mut self.check_fixes).clear();
         self.changes
@@ -96,6 +97,7 @@ impl DiagnosticCollection {
         if self.changes.is_empty() {
             return None;
         }
+        ep!(self.changes);
         Some(mem::take(&mut self.changes))
     }
 }

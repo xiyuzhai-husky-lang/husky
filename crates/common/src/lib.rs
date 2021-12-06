@@ -20,6 +20,10 @@ pub use std::io;
 pub use std::path::PathBuf;
 pub use todo::*;
 
+pub use rowan::{
+    Direction, GreenNode, NodeOrToken, SyntaxText, TextRange, TextSize, TokenAtOffset, WalkEvent,
+};
+
 #[derive(Debug)]
 pub enum ParserErrorVariant {
     SyntaxError(SyntaxError),

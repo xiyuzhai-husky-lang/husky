@@ -1,6 +1,9 @@
 //! Generate minimal `TextEdit`s from different text versions
+
+use common::*;
+
 use dissimilar::Chunk;
-use ide::{TextEdit, TextRange, TextSize};
+use ide::TextEdit;
 
 pub(crate) fn diff(left: &str, right: &str) -> TextEdit {
     let chunks = dissimilar::diff(left, right);
@@ -36,18 +39,4 @@ fn textedit_from_chunks(chunks: Vec<dissimilar::Chunk>) -> TextEdit {
         }
     }
     builder.finish()
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn diff_applies() {
-        let mut original = String::from("fn foo(a:u32){\n}");
-        let result = "fn foo(a: u32) {}";
-        let edit = diff(&original, result);
-        edit.apply(&mut original);
-        assert_eq!(original, result);
-    }
 }

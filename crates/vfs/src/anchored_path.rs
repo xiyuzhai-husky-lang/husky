@@ -9,11 +9,11 @@
 //!
 //! The first approach one might reach for is to use `PathBuf`. The problem here
 //! is that `PathBuf` depends on host target (windows or linux), but
-//! rust-analyzer should be capable to process `#[path = r"C:\bar.rs"]` on Unix.
+//! husky-lang-server should be capable to process `#[path = r"C:\bar.rs"]` on Unix.
 //!
 //! The second try is to use a `String`. This also fails, however. Consider a
-//! hypothetical scenario, where rust-analyzer operates in a
-//! networked/distributed mode. There's one global instance of rust-analyzer,
+//! hypothetical scenario, where husky-lang-server operates in a
+//! networked/distributed mode. There's one global instance of husky-lang-server,
 //! which processes requests from different machines. Now, the semantics of
 //! `#[path = "/abs/path.rs"]` actually depends on which file-system we are at!
 //! That is, even absolute paths exist relative to a file system!

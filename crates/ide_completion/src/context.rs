@@ -1,16 +1,18 @@
 //! See `CompletionContext` structure.
 
+use common::*;
+
 use base_db::SourceDatabaseExt;
 use hir::{Local, Name, ScopeDef, Semantics, SemanticsScope, Type};
 use ide_db::{
     active_parameter::ActiveParameter,
     base_db::{FilePosition, SourceDatabase},
-    RootDatabase,
+    IdeDatabase,
 };
 use syntax::{
     ast,
     SyntaxKind::{self, *},
-    SyntaxNode, SyntaxToken, TextRange, TextSize,
+    SyntaxNode, SyntaxToken,
 };
 use text_edit::Indel;
 

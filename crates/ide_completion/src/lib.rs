@@ -17,7 +17,7 @@ use ide_db::{
         insert_use::{self, ImportScope},
         mod_path_to_ast,
     },
-    items_locator, RootDatabase,
+    items_locator, IdeDatabase,
 };
 use text_edit::TextEdit;
 
@@ -34,7 +34,7 @@ pub use crate::{
 
 // Feature: Magic Completions
 //
-// In addition to usual reference completion, rust-analyzer provides some ✨magic✨
+// In addition to usual reference completion, husky-lang-server provides some ✨magic✨
 // completions as well:
 //
 // Keywords like `if`, `else` `while`, `loop` are completed with braces, and cursor
@@ -79,7 +79,7 @@ pub use crate::{
 // }
 // ```
 //
-// And the auto import completions, enabled with the `rust-analyzer.completion.autoimport.enable` setting and the corresponding LSP client capabilities.
+// And the auto import completions, enabled with the `husky-lang-server.completion.autoimport.enable` setting and the corresponding LSP client capabilities.
 // Those are the additional completion options with automatic `use` import and options from all project importable items,
 // fuzzy matched against the completion input.
 //
@@ -136,7 +136,7 @@ pub use crate::{
 /// correctly, as the underlying infrastructure makes use of contexts to do
 /// analysis.
 pub fn completions(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     config: &CompletionConfig,
     position: FilePosition,
 ) -> Option<Completions> {
@@ -146,7 +146,7 @@ pub fn completions(
 /// Resolves additional completion data at the position given.
 /// This is used for import insertion done via completions like flyimport and custom user snippets.
 pub fn resolve_completion_edits(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     config: &CompletionConfig,
     position: FilePosition,
     imports: impl IntoIterator<Item = (String, String)>,

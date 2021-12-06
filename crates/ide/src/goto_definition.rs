@@ -1,3 +1,5 @@
+use common::*;
+
 use std::convert::TryInto;
 
 use crate::{doc_links::token_as_doc_comment, FilePosition, NavigationTarget, RangeInfo, TryToNav};
@@ -6,10 +8,10 @@ use ide_db::{
     base_db::{AnchoredPath, FileID, FileLoader},
     defs::Definition,
     helpers::pick_best_token,
-    RootDatabase,
+    IdeDatabase,
 };
 use itertools::Itertools;
-use syntax::{ast, SyntaxKind::*, SyntaxToken, TextRange};
+use syntax::{ast, SyntaxKind::*, SyntaxToken};
 
 // Feature: Go to Definition
 //
@@ -23,14 +25,14 @@ use syntax::{ast, SyntaxKind::*, SyntaxToken, TextRange};
 //
 // image::https://user-images.githubusercontent.com/48062697/113065563-025fbe00-91b1-11eb-83e4-a5a703610b23.gif[]
 pub(crate) fn goto_definition(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()
 }
 
 fn try_lookup_include_path(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     tt: ast::TokenTree,
     token: SyntaxToken,
     file_id: FileID,
@@ -46,12 +48,12 @@ fn try_lookup_include_path(
 /// impl A for S { fn a(); } // <-- on this function, will get the location of a() in the trait
 /// ```
 fn try_find_trait_item_definition(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     def: &Definition,
 ) -> Option<Vec<NavigationTarget>> {
     todo!()
 }
 
-fn def_to_nav(db: &RootDatabase, def: Definition) -> Vec<NavigationTarget> {
+fn def_to_nav(db: &IdeDatabase, def: Definition) -> Vec<NavigationTarget> {
     def.try_to_nav(db).map(|it| vec![it]).unwrap_or_default()
 }

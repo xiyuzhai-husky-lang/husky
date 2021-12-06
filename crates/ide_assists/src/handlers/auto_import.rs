@@ -1,3 +1,5 @@
+use common::*;
+
 use ide_db::helpers::{
     import_assets::{ImportAssets, ImportCandidate},
     insert_use::{insert_use, ImportScope},
@@ -45,7 +47,7 @@ use crate::{AssistContext, AssistId, AssistKind, Assists, GroupLabel};
 // - `preserve`: Do not change the granularity of any imports. For auto-import this has the same
 //  effect as `item`.
 //
-// In `VS Code` the configuration for this is `rust-analyzer.assist.importGranularity`.
+// In `VS Code` the configuration for this is `husky-lang-server.assist.importGranularity`.
 //
 // .Import Prefix
 //
@@ -59,7 +61,7 @@ use crate::{AssistContext, AssistId, AssistKind, Assists, GroupLabel};
 //  `super` or an extern crate identifier.
 // - `plain`: This setting does not impose any restrictions in imports.
 //
-// In `VS Code` the configuration for this is `rust-analyzer.assist.importPrefix`.
+// In `VS Code` the configuration for this is `husky-lang-server.assist.importPrefix`.
 //
 // image::https://user-images.githubusercontent.com/48062697/113020673-b85be580-917a-11eb-9022-59585f35d4f8.gif[]
 

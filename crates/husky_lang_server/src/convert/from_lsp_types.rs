@@ -1,7 +1,8 @@
-//! Conversion lsp_types types to rust-analyzer specific ones.
+//! Conversion lsp_types types to husky-lang-server specific ones.
+use common::*;
+
 use ide::{Annotation, AnnotationKind, AssistKind, LineCol, LineColUtf16};
 use ide_db::base_db::{FileID, FilePosition, FileRange};
-use syntax::{TextRange, TextSize};
 use vfs::AbsPathBuf;
 
 use crate::{

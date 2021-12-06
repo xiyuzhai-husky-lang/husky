@@ -2,23 +2,25 @@
 
 use std::mem;
 
+use common::*;
+
 use either::Either;
 use hir::{InFile, Semantics};
 use ide_db::{
     active_parameter::ActiveParameter, defs::Definition, helpers::rust_doc::is_rust_fence,
     SymbolKind,
 };
-use syntax::{ast, NodeOrToken, SyntaxNode, TextRange, TextSize};
+use syntax::{ast, NodeOrToken, SyntaxNode};
 
 use crate::{
     doc_links::{doc_attributes, extract_definitions_from_docs, resolve_doc_path_for_def},
     syntax_highlighting::{highlights::Highlights, injector::Injector},
-    Analysis, HlMod, HlRange, HlTag, RootDatabase,
+    DatabaseProxy, HlMod, HlRange, HlTag, IdeDatabase,
 };
 
 pub(super) fn ra_fixture(
     hl: &mut Highlights,
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     literal: &ast::String,
     expanded: &ast::String,
 ) -> Option<()> {
@@ -30,7 +32,7 @@ const RUSTDOC_FENCE: &'static str = "```";
 /// Injection of syntax highlighting of doctests.
 pub(super) fn doc_comment(
     hl: &mut Highlights,
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     node: InFile<&SyntaxNode>,
 ) {
     todo!()

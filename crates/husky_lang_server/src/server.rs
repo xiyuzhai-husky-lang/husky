@@ -8,7 +8,7 @@ mod taskpool;
 use std::{collections::HashMap, sync::Arc, time::Instant};
 
 use crossbeam_channel::{unbounded, Receiver, Sender};
-use ide::{Analysis, AnalysisHost, Cancellable, Change, FileID};
+use ide::{AnalysisHost, Cancellable, Change, DatabaseProxy, FileID};
 use ide_db::base_db::{CrateId, FileLoader, SourceDatabase};
 use lsp_types::{SemanticTokens, Url};
 use parking_lot::{Mutex, RwLock};
@@ -30,7 +30,7 @@ pub(crate) struct Server {
     pub(crate) comm: Communicator,
     pub(crate) config: Arc<ServerConfig>,
     pub(crate) analysis_host: AnalysisHost,
-    pub(crate) diagnostics: diagnostics::DiagnosticCollection,
+    pub(crate) diagnostics: diagnostics::DiagnosticsTracker,
     pub(crate) taskpool: ServerTaskPool,
     pub(crate) vfs: ServerFileSystemKeeper,
     pub(crate) flychecker: FlyChecker,
@@ -52,7 +52,7 @@ impl Server {
             flychecker: FlyChecker::new(),
             live_docs: LiveDocs::default(),
             analysis_host,
-            diagnostics: diagnostics::DiagnosticCollection::default(),
+            diagnostics: diagnostics::DiagnosticsTracker::default(),
             prime_caches_queue: OpnQueue::<()>::default(),
             semantic_tokens_cache: Arc::new(Default::default()),
             last_reported_status: None,

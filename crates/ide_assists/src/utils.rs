@@ -4,14 +4,14 @@ use std::ops;
 
 use itertools::Itertools;
 
+use common::*;
+
 use hir::{db::HirDatabase, HasSource, HirDisplay};
 use ide_db::{
-    helpers::FamousDefs, helpers::SnippetCap, path_transform::PathTransform, RootDatabase,
+    helpers::FamousDefs, helpers::SnippetCap, path_transform::PathTransform, IdeDatabase,
 };
 use stdx::format_to;
-use syntax::{
-    ast, Direction, SingleFileParseTree, SmolStr, SyntaxKind::*, SyntaxNode, TextRange, TextSize,
-};
+use syntax::{ast, Direction, SingleFileParseTree, SmolStr, SyntaxKind::*, SyntaxNode};
 
 use crate::assist_context::{AssistBuilder, AssistContext};
 
@@ -42,7 +42,7 @@ pub enum DefaultMethods {
 }
 
 pub fn filter_assoc_items(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     items: &[hir::AssocItem],
     default_methods: DefaultMethods,
 ) -> Vec<ast::AssocItem> {
@@ -50,7 +50,7 @@ pub fn filter_assoc_items(
 }
 
 pub fn add_trait_assoc_items_to_impl(
-    sema: &hir::Semantics<ide_db::RootDatabase>,
+    sema: &hir::Semantics<ide_db::IdeDatabase>,
     items: Vec<ast::AssocItem>,
     trait_: hir::Trait,
     impl_: ast::Impl,
@@ -213,7 +213,7 @@ impl ReferenceConversion {
 //        itself themselves.
 pub(crate) fn convert_reference_type(
     ty: hir::Type,
-    db: &RootDatabase,
+    db: &IdeDatabase,
     famous_defs: &FamousDefs,
 ) -> Option<ReferenceConversion> {
     handle_copy(&ty, db)

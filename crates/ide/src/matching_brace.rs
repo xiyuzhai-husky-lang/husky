@@ -1,4 +1,6 @@
-use syntax::{ast, SingleFileParseTree, SyntaxKind, TextSize};
+use common::*;
+
+use syntax::{ast, SingleFileParseTree, SyntaxKind};
 
 // Feature: Matching Brace
 //

@@ -48,9 +48,15 @@ pub enum Message {
     /// Indicate a gradual progress.
     ///
     /// This is supposed to be the number of loaded files.
-    Progress { n_total: usize, n_done: usize, config_version: u32 },
+    Progress {
+        n_total: usize,
+        n_done: usize,
+        config_version: u32,
+    },
     /// The handle loaded the following files' content.
-    Loaded { files: Vec<(AbsPathBuf, Option<Vec<u8>>)> },
+    Loaded {
+        files: Vec<(AbsPathBuf, Option<Vec<u8>>)>,
+    },
 }
 
 /// Type that will receive [`Messages`](Message) from a [`Handle`].
@@ -176,7 +182,10 @@ impl Directories {
             None => return false,
         };
 
-        !self.exclude.iter().any(|excl| path.starts_with(excl) && excl.starts_with(include))
+        !self
+            .exclude
+            .iter()
+            .any(|excl| path.starts_with(excl) && excl.starts_with(include))
     }
 }
 
@@ -190,16 +199,25 @@ impl Directories {
 /// ```
 fn dirs(base: AbsPathBuf, exclude: &[&str]) -> Directories {
     let exclude = exclude.iter().map(|it| base.join(it)).collect::<Vec<_>>();
-    Directories { extensions: vec!["rs".to_string()], include: vec![base], exclude }
+    Directories {
+        extensions: vec!["rs".to_string()],
+        include: vec![base],
+        exclude,
+    }
 }
 
 impl fmt::Debug for Message {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Message::Loaded { files } => {
-                f.debug_struct("Loaded").field("n_files", &files.len()).finish()
-            }
-            Message::Progress { n_total, n_done, config_version } => f
+            Message::Loaded { files } => f
+                .debug_struct("Loaded")
+                .field("n_files", &files.len())
+                .finish(),
+            Message::Progress {
+                n_total,
+                n_done,
+                config_version,
+            } => f
                 .debug_struct("Progress")
                 .field("n_total", n_total)
                 .field("n_done", n_done)
@@ -207,9 +225,4 @@ impl fmt::Debug for Message {
                 .finish(),
         }
     }
-}
-
-#[test]
-fn handle_is_object_safe() {
-    fn _assert(_: &dyn Handle) {}
 }

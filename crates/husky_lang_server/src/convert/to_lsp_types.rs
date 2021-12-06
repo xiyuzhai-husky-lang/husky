@@ -1,16 +1,18 @@
-//! Conversion of rust-analyzer specific types to lsp_types equivalents.
+//! Conversion of husky-lang-server specific types to lsp_types equivalents.
 use std::{
     iter::once,
     path,
     sync::atomic::{AtomicU32, Ordering},
 };
 
+use common::*;
+
 use ide::{
     Annotation, AnnotationKind, Assist, AssistKind, CallInfo, Cancellable, CompletionItem,
     CompletionItemKind, CompletionRelevance, Documentation, FileID, FileRange, FileSystemEdit,
     Fold, FoldKind, Highlight, HlMod, HlOperator, HlPunct, HlRange, HlTag, Indel, Markup,
-    NavigationTarget, ReferenceCategory, RenameError, Severity, SourceChange, StructureNodeKind,
-    SymbolKind, TextEdit, TextRange, TextSize,
+    NavigationTarget, ReferenceCategory, RenameError, SourceChange, StructureNodeKind, SymbolKind,
+    TextEdit,
 };
 use itertools::Itertools;
 use serde_json::to_value;
@@ -52,11 +54,9 @@ pub(crate) fn symbol_kind(symbol_kind: SymbolKind) -> lsp_types::SymbolKind {
         SymbolKind::Const => lsp_types::SymbolKind::CONSTANT,
         SymbolKind::ConstParam => lsp_types::SymbolKind::CONSTANT,
         SymbolKind::Impl => lsp_types::SymbolKind::OBJECT,
-        SymbolKind::Local
-        | SymbolKind::SelfParam
-        | SymbolKind::LifetimeParam
-        | SymbolKind::ValueParam
-        | SymbolKind::Label => lsp_types::SymbolKind::VARIABLE,
+        SymbolKind::Local | SymbolKind::SelfParam | SymbolKind::ValueParam | SymbolKind::Label => {
+            lsp_types::SymbolKind::VARIABLE
+        }
         SymbolKind::Union => lsp_types::SymbolKind::STRUCT,
     }
 }
@@ -77,10 +77,10 @@ pub(crate) fn document_highlight_kind(
     }
 }
 
-pub(crate) fn diagnostic_severity(severity: Severity) -> lsp_types::DiagnosticSeverity {
+pub(crate) fn diagnostic_severity(severity: hir::Severity) -> lsp_types::DiagnosticSeverity {
     match severity {
-        Severity::Error => lsp_types::DiagnosticSeverity::ERROR,
-        Severity::WeakWarning => lsp_types::DiagnosticSeverity::HINT,
+        hir::Severity::Error => lsp_types::DiagnosticSeverity::ERROR,
+        hir::Severity::WeakWarning => lsp_types::DiagnosticSeverity::HINT,
     }
 }
 
@@ -107,7 +107,6 @@ pub(crate) fn completion_item_kind(
             SymbolKind::Function => lsp_types::CompletionItemKind::FUNCTION,
             SymbolKind::Impl => lsp_types::CompletionItemKind::TEXT,
             SymbolKind::Label => lsp_types::CompletionItemKind::VARIABLE,
-            SymbolKind::LifetimeParam => lsp_types::CompletionItemKind::TYPE_PARAMETER,
             SymbolKind::Local => lsp_types::CompletionItemKind::VARIABLE,
             SymbolKind::Macro => lsp_types::CompletionItemKind::METHOD,
             SymbolKind::Module => lsp_types::CompletionItemKind::MODULE,
@@ -358,7 +357,6 @@ fn semantic_token_type_and_modifiers(
             SymbolKind::Field => lsp_types::SemanticTokenType::PROPERTY,
             SymbolKind::TypeParam => lsp_types::SemanticTokenType::TYPE_PARAMETER,
             SymbolKind::ConstParam => semantic_tokens::CONST_PARAMETER,
-            SymbolKind::LifetimeParam => semantic_tokens::LIFETIME,
             SymbolKind::Label => semantic_tokens::LABEL,
             SymbolKind::ValueParam => lsp_types::SemanticTokenType::PARAMETER,
             SymbolKind::SelfParam => semantic_tokens::SELF_KEYWORD,
@@ -773,7 +771,7 @@ pub(crate) mod command {
 
         lsp_types::Command {
             title,
-            command: "rust-analyzer.showReferences".into(),
+            command: "husky-lang-server.showReferences".into(),
             arguments: Some(vec![
                 to_value(uri).unwrap(),
                 to_value(position).unwrap(),
@@ -785,7 +783,7 @@ pub(crate) mod command {
     pub(crate) fn run_single(runnable: &lsp_ext::Runnable, title: &str) -> lsp_types::Command {
         lsp_types::Command {
             title: title.to_string(),
-            command: "rust-analyzer.runSingle".into(),
+            command: "husky-lang-server.runSingle".into(),
             arguments: Some(vec![to_value(runnable).unwrap()]),
         }
     }
@@ -793,7 +791,7 @@ pub(crate) mod command {
     pub(crate) fn debug_single(runnable: &lsp_ext::Runnable) -> lsp_types::Command {
         lsp_types::Command {
             title: "Debug".into(),
-            command: "rust-analyzer.debugSingle".into(),
+            command: "husky-lang-server.debugSingle".into(),
             arguments: Some(vec![to_value(runnable).unwrap()]),
         }
     }

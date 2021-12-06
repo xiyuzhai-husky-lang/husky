@@ -2,7 +2,9 @@ use std::cmp::Ordering;
 
 use itertools::Itertools;
 
-use syntax::{ast, TextRange};
+use common::*;
+
+use syntax::ast;
 
 use crate::{utils::get_methods, AssistContext, AssistId, AssistKind, Assists};
 

@@ -1,5 +1,7 @@
 use std::collections::{HashMap, HashSet};
 
+use common::*;
+
 use hir::{HasSource, ModuleSource};
 use ide_db::{
     assists::{AssistId, AssistKind},
@@ -10,7 +12,7 @@ use ide_db::{
 use stdx::format_to;
 use syntax::{
     ast::{self, edit::IndentLevel},
-    SingleFileParseTree, SyntaxNode, TextRange,
+    SingleFileParseTree, SyntaxNode,
 };
 
 use crate::{AssistContext, Assists};

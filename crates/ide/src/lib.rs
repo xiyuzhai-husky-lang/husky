@@ -1,4 +1,4 @@
-//! ide crate provides "ide-centric" APIs for the rust-analyzer. That is,
+//! ide crate provides "ide-centric" APIs for the husky-lang-server. That is,
 //! it generally operates with files and text ranges, and returns results as
 //! Strings, suitable for displaying to the human.
 //!
@@ -14,9 +14,6 @@
 macro_rules! eprintln {
     ($($tt:tt)*) => { stdx::eprintln!($($tt)*) };
 }
-
-#[cfg(test)]
-mod fixture;
 
 mod markup;
 mod navigation_target;
@@ -55,6 +52,8 @@ mod view_item_tree;
 
 use std::sync::Arc;
 
+use common::*;
+
 use ide_db::{
     base_db::{
         salsa::{self, ParallelDatabase},
@@ -64,6 +63,8 @@ use ide_db::{
     LineIndexDatabase,
 };
 use syntax::SingleFileParseTree;
+
+use hir::db::DiagDatabase;
 
 use crate::navigation_target::{ToNav, TryToNav};
 
@@ -106,11 +107,9 @@ pub use ide_db::{
     search::{ReferenceCategory, SearchScope},
     source_change::{FileSystemEdit, SourceChange},
     symbol_index::Query,
-    RootDatabase, SymbolKind,
+    IdeDatabase, SymbolKind,
 };
-pub use ide_diagnostics::{Diagnostic, DiagnosticsConfig, Severity};
 pub use ide_ssr::SsrError;
-pub use syntax::{TextRange, TextSize};
 pub use text_edit::{Indel, TextEdit};
 
 pub type Cancellable<T> = Result<T, Cancelled>;
@@ -131,13 +130,13 @@ impl<T> RangeInfo<T> {
 /// `AnalysisHost` stores the current state of the world.
 #[derive(Debug)]
 pub struct AnalysisHost {
-    db: RootDatabase,
+    db: IdeDatabase,
 }
 
 impl AnalysisHost {
     pub fn new(lru_capacity: Option<usize>) -> AnalysisHost {
         AnalysisHost {
-            db: RootDatabase::new(lru_capacity),
+            db: IdeDatabase::new(lru_capacity),
         }
     }
 
@@ -147,8 +146,8 @@ impl AnalysisHost {
 
     /// Returns a snapshot of the current state, which you can query for
     /// semantic information.
-    pub fn analysis(&self) -> Analysis {
-        Analysis {
+    pub fn analysis(&self) -> DatabaseProxy {
+        DatabaseProxy {
             db: self.db.snapshot(),
         }
     }
@@ -166,10 +165,10 @@ impl AnalysisHost {
     pub fn request_cancellation(&mut self) {
         self.db.request_cancellation();
     }
-    pub fn raw_database(&self) -> &RootDatabase {
+    pub fn raw_database(&self) -> &IdeDatabase {
         &self.db
     }
-    pub fn raw_database_mut(&mut self) -> &mut RootDatabase {
+    pub fn raw_database_mut(&mut self) -> &mut IdeDatabase {
         &mut self.db
     }
 }
@@ -185,8 +184,8 @@ impl Default for AnalysisHost {
 /// state is advanced using `AnalysisHost::apply_change` method, all existing
 /// `Analysis` are canceled (most method return `Err(Canceled)`).
 #[derive(Debug)]
-pub struct Analysis {
-    db: salsa::Snapshot<RootDatabase>,
+pub struct DatabaseProxy {
+    db: salsa::Snapshot<IdeDatabase>,
 }
 
 // As a general design guideline, `Analysis` API are intended to be independent
@@ -195,29 +194,29 @@ pub struct Analysis {
 // "what types LSP uses". Although currently LSP is the only consumer of the
 // API, the API should in theory be usable as a library, or via a different
 // protocol.
-impl Analysis {
+impl DatabaseProxy {
     // Creates an analysis instance for a single file, without any extenal
     // dependencies, stdlib support or ability to apply changes. See
     // `AnalysisHost` for creating a fully-featured analysis.
-    pub fn from_single_file(text: String) -> (Analysis, FileID) {
+    pub fn from_single_file(text: String) -> (DatabaseProxy, FileID) {
         todo!()
     }
 
     /// Debug info about the current state of the analysis.
     pub fn status(&self, file_id: Option<FileID>) -> Cancellable<String> {
-        self.with_db(|db| status::status(&*db, file_id))
+        self.try_db_query(|db| status::status(&*db, file_id))
     }
 
     pub fn prime_caches<F>(&self, cb: F) -> Cancellable<()>
     where
         F: Fn(PrimeCachesProgress) + Sync + std::panic::UnwindSafe,
     {
-        self.with_db(move |db| prime_caches::prime_caches(db, &cb))
+        self.try_db_query(move |db| prime_caches::prime_caches(db, &cb))
     }
 
     /// Gets the text of the source file.
     pub fn file_text(&self, file_id: FileID) -> Cancellable<Arc<String>> {
-        self.with_db(|db| db.file_text(file_id))
+        self.try_db_query(|db| db.file_text(file_id))
     }
 
     /// Gets the syntax tree of the file.
@@ -228,18 +227,18 @@ impl Analysis {
     /// Returns true if this file belongs to an immutable library.
     pub fn is_library_file(&self, file_id: FileID) -> Cancellable<bool> {
         use ide_db::base_db::SourceDatabaseExt;
-        self.with_db(|db| db.source_root(db.file_source_root(file_id)).is_library)
+        self.try_db_query(|db| db.source_root(db.file_source_root(file_id)).is_library)
     }
 
     /// Gets the file's `LineIndex`: data structure to convert between absolute
     /// offsets and line/column representation.
     pub fn file_line_index(&self, file_id: FileID) -> Cancellable<Arc<LineIndex>> {
-        self.with_db(|db| db.line_index(file_id))
+        self.try_db_query(|db| db.line_index(file_id))
     }
 
     /// Selects the next syntactic nodes encompassing the range.
     pub fn extend_selection(&self, frange: FileRange) -> Cancellable<TextRange> {
-        self.with_db(|db| extend_selection::extend_selection(db, frange))
+        self.try_db_query(|db| extend_selection::extend_selection(db, frange))
     }
 
     /// Returns position of the matching brace (all types of braces are
@@ -255,20 +254,20 @@ impl Analysis {
         file_id: FileID,
         text_range: Option<TextRange>,
     ) -> Cancellable<String> {
-        self.with_db(|db| syntax_tree::syntax_tree(db, file_id, text_range))
+        self.try_db_query(|db| syntax_tree::syntax_tree(db, file_id, text_range))
     }
 
     pub fn view_hir(&self, position: FilePosition) -> Cancellable<String> {
-        self.with_db(|db| view_hir::view_hir(db, position))
+        self.try_db_query(|db| view_hir::view_hir(db, position))
     }
 
     pub fn view_item_tree(&self, file_id: FileID) -> Cancellable<String> {
-        self.with_db(|db| view_item_tree::view_item_tree(db, file_id))
+        self.try_db_query(|db| view_item_tree::view_item_tree(db, file_id))
     }
 
     /// Renders the crate graph to GraphViz "dot" syntax.
     pub fn view_crate_graph(&self, full: bool) -> Cancellable<Result<String, String>> {
-        self.with_db(|db| view_crate_graph::view_crate_graph(db, full))
+        self.try_db_query(|db| view_crate_graph::view_crate_graph(db, full))
     }
 
     /// Returns an edit to remove all newlines in the range, cleaning up minor
@@ -281,7 +280,7 @@ impl Analysis {
     /// up minor stuff like continuing the comment.
     /// The edit will be a snippet (with `$0`).
     pub fn on_enter(&self, position: FilePosition) -> Cancellable<Option<TextEdit>> {
-        self.with_db(|db| typing::on_enter(db, position))
+        self.try_db_query(|db| typing::on_enter(db, position))
     }
 
     /// Returns an edit which should be applied after a character was typed.
@@ -297,23 +296,25 @@ impl Analysis {
         if !typing::TRIGGER_CHARS.contains(char_typed) {
             return Ok(None);
         }
-        self.with_db(|db| typing::on_char_typed(db, position, char_typed))
+        self.try_db_query(|db| typing::on_char_typed(db, position, char_typed))
     }
 
     /// Returns a tree representation of symbols in the file. Useful to draw a
     /// file outline.
     pub fn file_structure(&self, file_id: FileID) -> Cancellable<Vec<StructureNode>> {
-        todo!()
+        eprintln!("TODO: tree representation of symbols in the file");
+        Ok(vec![])
     }
 
     /// Returns the set of folding ranges.
     pub fn folding_ranges(&self, file_id: FileID) -> Cancellable<Vec<Fold>> {
-        todo!()
+        eprintln!("TODO: folding_ranges");
+        Ok(vec![])
     }
 
     /// Fuzzy searches for a symbol.
     pub fn symbol_search(&self, query: Query) -> Cancellable<Vec<NavigationTarget>> {
-        self.with_db(|db| {
+        self.try_db_query(|db| {
             symbol_index::world_symbols(db, query)
                 .into_iter()
                 .map(|s| s.to_nav(db))
@@ -326,7 +327,7 @@ impl Analysis {
         &self,
         position: FilePosition,
     ) -> Cancellable<Option<RangeInfo<Vec<NavigationTarget>>>> {
-        self.with_db(|db| goto_definition::goto_definition(db, position))
+        self.try_db_query(|db| goto_definition::goto_definition(db, position))
     }
 
     /// Returns the declaration from the symbol at `position`.
@@ -334,7 +335,7 @@ impl Analysis {
         &self,
         position: FilePosition,
     ) -> Cancellable<Option<RangeInfo<Vec<NavigationTarget>>>> {
-        self.with_db(|db| goto_declaration::goto_declaration(db, position))
+        self.try_db_query(|db| goto_declaration::goto_declaration(db, position))
     }
 
     /// Returns the impls from the symbol at `position`.
@@ -342,7 +343,7 @@ impl Analysis {
         &self,
         position: FilePosition,
     ) -> Cancellable<Option<RangeInfo<Vec<NavigationTarget>>>> {
-        self.with_db(|db| goto_implementation::goto_implementation(db, position))
+        self.try_db_query(|db| goto_implementation::goto_implementation(db, position))
     }
 
     /// Returns the type definitions for the symbol at `position`.
@@ -350,7 +351,7 @@ impl Analysis {
         &self,
         position: FilePosition,
     ) -> Cancellable<Option<RangeInfo<Vec<NavigationTarget>>>> {
-        self.with_db(|db| goto_type_definition::goto_type_definition(db, position))
+        self.try_db_query(|db| goto_type_definition::goto_type_definition(db, position))
     }
 
     /// Finds all usages of the reference at point.
@@ -364,7 +365,7 @@ impl Analysis {
 
     /// Finds all methods and free functions for the file. Does not return tests!
     pub fn find_all_methods(&self, file_id: FileID) -> Cancellable<Vec<FileRange>> {
-        self.with_db(|db| fn_references::find_all_methods(db, file_id))
+        self.try_db_query(|db| fn_references::find_all_methods(db, file_id))
     }
 
     /// Returns a short text describing element at position.
@@ -373,7 +374,7 @@ impl Analysis {
         config: &HoverConfig,
         range: FileRange,
     ) -> Cancellable<Option<RangeInfo<HoverResult>>> {
-        self.with_db(|db| hover::hover(db, range, config))
+        self.try_db_query(|db| hover::hover(db, range, config))
     }
 
     /// Return URL(s) for the documentation of the symbol under the cursor.
@@ -381,12 +382,12 @@ impl Analysis {
         &self,
         position: FilePosition,
     ) -> Cancellable<Option<doc_links::DocumentationLink>> {
-        self.with_db(|db| doc_links::external_docs(db, &position))
+        self.try_db_query(|db| doc_links::external_docs(db, &position))
     }
 
     /// Computes parameter information for the given call expression.
     pub fn call_info(&self, position: FilePosition) -> Cancellable<Option<CallInfo>> {
-        self.with_db(|db| call_info::call_info(db, position))
+        self.try_db_query(|db| call_info::call_info(db, position))
     }
 
     /// Computes call hierarchy candidates for the given file position.
@@ -394,42 +395,42 @@ impl Analysis {
         &self,
         position: FilePosition,
     ) -> Cancellable<Option<RangeInfo<Vec<NavigationTarget>>>> {
-        self.with_db(|db| call_hierarchy::call_hierarchy(db, position))
+        self.try_db_query(|db| call_hierarchy::call_hierarchy(db, position))
     }
 
     /// Computes incoming calls for the given file position.
     pub fn incoming_calls(&self, position: FilePosition) -> Cancellable<Option<Vec<CallItem>>> {
-        self.with_db(|db| call_hierarchy::incoming_calls(db, position))
+        self.try_db_query(|db| call_hierarchy::incoming_calls(db, position))
     }
 
     /// Computes outgoing calls for the given file position.
     pub fn outgoing_calls(&self, position: FilePosition) -> Cancellable<Option<Vec<CallItem>>> {
-        self.with_db(|db| call_hierarchy::outgoing_calls(db, position))
+        self.try_db_query(|db| call_hierarchy::outgoing_calls(db, position))
     }
 
     /// Returns a `mod name;` declaration which created the current module.
     pub fn parent_module(&self, position: FilePosition) -> Cancellable<Vec<NavigationTarget>> {
-        self.with_db(|db| parent_module::parent_module(db, position))
+        self.try_db_query(|db| parent_module::parent_module(db, position))
     }
 
     /// Returns crates this file belongs too.
     pub fn crate_for(&self, file_id: FileID) -> Cancellable<Vec<CrateId>> {
-        self.with_db(|db| parent_module::crate_for(db, file_id))
+        self.try_db_query(|db| parent_module::crate_for(db, file_id))
     }
 
     /// Returns the edition of the given crate.
     pub fn crate_edition(&self, crate_id: CrateId) -> Cancellable<Edition> {
-        self.with_db(|db| db.crate_graph()[crate_id].edition)
+        self.try_db_query(|db| db.crate_graph()[crate_id].edition)
     }
 
     /// Returns the root file of the given crate.
     pub fn crate_root(&self, crate_id: CrateId) -> Cancellable<FileID> {
-        self.with_db(|db| db.crate_graph()[crate_id].root_file_id)
+        self.try_db_query(|db| db.crate_graph()[crate_id].root_file_id)
     }
 
     /// Computes syntax highlighting for the given file
     pub fn highlight(&self, file_id: FileID) -> Cancellable<Vec<HlRange>> {
-        self.with_db(|db| syntax_highlighting::highlight(db, file_id, None, false))
+        self.try_db_query(|db| syntax_highlighting::highlight(db, file_id, None, false))
     }
 
     /// Computes all ranges to highlight for a given item in a file.
@@ -438,12 +439,13 @@ impl Analysis {
         config: HighlightRelatedConfig,
         position: FilePosition,
     ) -> Cancellable<Option<Vec<HighlightedRange>>> {
-        todo!()
+        eprintln!("TODO: all ranges to highlight for a given item in a file");
+        Ok(None)
     }
 
     /// Computes syntax highlighting for the given file range.
     pub fn highlight_range(&self, frange: FileRange) -> Cancellable<Vec<HlRange>> {
-        self.with_db(|db| {
+        self.try_db_query(|db| {
             syntax_highlighting::highlight(db, frange.file_id, Some(frange.range), false)
         })
     }
@@ -459,7 +461,7 @@ impl Analysis {
         config: &CompletionConfig,
         position: FilePosition,
     ) -> Cancellable<Option<Vec<CompletionItem>>> {
-        self.with_db(|db| ide_completion::completions(db, config, position).map(Into::into))
+        self.try_db_query(|db| ide_completion::completions(db, config, position).map(Into::into))
     }
 
     /// Resolves additional completion data at the position given.
@@ -470,7 +472,9 @@ impl Analysis {
         imports: impl IntoIterator<Item = (String, String)> + std::panic::UnwindSafe,
     ) -> Cancellable<Vec<TextEdit>> {
         Ok(self
-            .with_db(|db| ide_completion::resolve_completion_edits(db, config, position, imports))?
+            .try_db_query(|db| {
+                ide_completion::resolve_completion_edits(db, config, position, imports)
+            })?
             .unwrap_or_default())
     }
 
@@ -484,7 +488,7 @@ impl Analysis {
         resolve: AssistResolveStrategy,
         frange: FileRange,
     ) -> Cancellable<Vec<Assist>> {
-        self.with_db(|db| {
+        self.try_db_query(|db| {
             let ssr_assists = ssr::ssr_assists(db, &resolve, frange);
             let mut acc = ide_assists::assists(db, config, resolve, frange);
             acc.extend(ssr_assists.into_iter());
@@ -493,49 +497,8 @@ impl Analysis {
     }
 
     /// Computes the set of diagnostics for the given file.
-    pub fn diagnostics(
-        &self,
-        config: &DiagnosticsConfig,
-        resolve: AssistResolveStrategy,
-        file_id: FileID,
-    ) -> Cancellable<Vec<Diagnostic>> {
-        self.with_db(|db| ide_diagnostics::diagnostics(db, config, &resolve, file_id))
-    }
-
-    /// Convenience function to return assists + quick fixes for diagnostics
-    pub fn assists_with_fixes(
-        &self,
-        assist_config: &AssistConfig,
-        diagnostics_config: &DiagnosticsConfig,
-        resolve: AssistResolveStrategy,
-        frange: FileRange,
-    ) -> Cancellable<Vec<Assist>> {
-        let include_fixes = match &assist_config.allowed {
-            Some(it) => it
-                .iter()
-                .any(|&it| it == AssistKind::None || it == AssistKind::QuickFix),
-            None => true,
-        };
-
-        self.with_db(|db| {
-            let diagnostic_assists = if include_fixes {
-                ide_diagnostics::diagnostics(db, diagnostics_config, &resolve, frange.file_id)
-                    .into_iter()
-                    .flat_map(|it| it.fixes.unwrap_or_default())
-                    .filter(|it| it.target.intersect(frange.range).is_some())
-                    .collect()
-            } else {
-                Vec::new()
-            };
-            let ssr_assists = ssr::ssr_assists(db, &resolve, frange);
-            let assists = ide_assists::assists(db, assist_config, resolve, frange);
-
-            let mut res = diagnostic_assists;
-            res.extend(ssr_assists.into_iter());
-            res.extend(assists.into_iter());
-
-            res
-        })
+    pub fn diagnostics(&self, file_id: FileID) -> Cancellable<Vec<hir::Diagnostic>> {
+        self.try_db_query(|db| db.diagnostics(file_id))
     }
 
     /// Returns the edit required to rename reference at the position to the new
@@ -545,14 +508,14 @@ impl Analysis {
         position: FilePosition,
         new_name: &str,
     ) -> Cancellable<Result<SourceChange, RenameError>> {
-        self.with_db(|db| rename::rename(db, position, new_name))
+        self.try_db_query(|db| rename::rename(db, position, new_name))
     }
 
     pub fn prepare_rename(
         &self,
         position: FilePosition,
     ) -> Cancellable<Result<RangeInfo<()>, RenameError>> {
-        self.with_db(|db| rename::prepare_rename(db, position))
+        self.try_db_query(|db| rename::prepare_rename(db, position))
     }
 
     pub fn will_rename_file(
@@ -560,7 +523,7 @@ impl Analysis {
         file_id: FileID,
         new_name_stem: &str,
     ) -> Cancellable<Option<SourceChange>> {
-        self.with_db(|db| rename::will_rename_file(db, file_id, new_name_stem))
+        self.try_db_query(|db| rename::will_rename_file(db, file_id, new_name_stem))
     }
 
     pub fn structural_search_replace(
@@ -570,7 +533,7 @@ impl Analysis {
         resolve_context: FilePosition,
         selections: Vec<FileRange>,
     ) -> Cancellable<Result<SourceChange, SsrError>> {
-        self.with_db(|db| {
+        self.try_db_query(|db| {
             let rule: ide_ssr::SsrRule = query.parse()?;
             let mut match_finder =
                 ide_ssr::MatchFinder::in_context(db, resolve_context, selections);
@@ -589,11 +552,11 @@ impl Analysis {
         config: &AnnotationConfig,
         file_id: FileID,
     ) -> Cancellable<Vec<Annotation>> {
-        self.with_db(|db| annotations::annotations(db, config, file_id))
+        self.try_db_query(|db| annotations::annotations(db, config, file_id))
     }
 
     pub fn resolve_annotation(&self, annotation: Annotation) -> Cancellable<Annotation> {
-        self.with_db(|db| annotations::resolve_annotation(db, annotation))
+        self.try_db_query(|db| annotations::resolve_annotation(db, annotation))
     }
 
     pub fn move_item(
@@ -601,12 +564,12 @@ impl Analysis {
         range: FileRange,
         direction: Direction,
     ) -> Cancellable<Option<TextEdit>> {
-        self.with_db(|db| move_item::move_item(db, range, direction))
+        self.try_db_query(|db| move_item::move_item(db, range, direction))
     }
 
     /// Performs an operation on the database that may be canceled.
     ///
-    /// rust-analyzer needs to be able to answer semantic questions about the
+    /// husky-lang-server needs to be able to answer semantic questions about the
     /// code while the code is being modified. A common problem is that a
     /// long-running query is being calculated when a new change arrives.
     ///
@@ -617,16 +580,10 @@ impl Analysis {
     ///
     /// Salsa implements cancelation by unwinding with a special value and
     /// catching it on the API boundary.
-    fn with_db<F, T>(&self, f: F) -> Cancellable<T>
+    fn try_db_query<F, T>(&self, f: F) -> Cancellable<T>
     where
-        F: FnOnce(&RootDatabase) -> T + std::panic::UnwindSafe,
+        F: FnOnce(&IdeDatabase) -> T + std::panic::UnwindSafe,
     {
         Cancelled::catch(|| f(&self.db))
     }
-}
-
-#[test]
-fn analysis_is_send() {
-    fn is_send<T: Send>() {}
-    is_send::<Analysis>();
 }

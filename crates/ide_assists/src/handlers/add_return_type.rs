@@ -1,5 +1,7 @@
+use common::*;
+
 use hir::HirDisplay;
-use syntax::{ast, TextRange, TextSize};
+use syntax::ast;
 
 use crate::{AssistContext, AssistId, AssistKind, Assists};
 

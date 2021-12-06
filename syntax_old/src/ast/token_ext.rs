@@ -35,7 +35,10 @@ impl ast::Comment {
     pub fn doc_comment(&self) -> Option<&str> {
         let kind = self.kind();
         match kind {
-            CommentKind { shape, doc: Some(_) } => {
+            CommentKind {
+                shape,
+                doc: Some(_),
+            } => {
                 let prefix = kind.prefix();
                 let text = &self.text()[prefix.len()..];
                 let text = if shape == CommentShape::Block {
@@ -80,15 +83,69 @@ pub enum CommentPlacement {
 
 impl CommentKind {
     const BY_PREFIX: [(&'static str, CommentKind); 9] = [
-        ("/**/", CommentKind { shape: CommentShape::Block, doc: None }),
-        ("/***", CommentKind { shape: CommentShape::Block, doc: None }),
-        ("////", CommentKind { shape: CommentShape::Line, doc: None }),
-        ("///", CommentKind { shape: CommentShape::Line, doc: Some(CommentPlacement::Outer) }),
-        ("//!", CommentKind { shape: CommentShape::Line, doc: Some(CommentPlacement::Inner) }),
-        ("/**", CommentKind { shape: CommentShape::Block, doc: Some(CommentPlacement::Outer) }),
-        ("/*!", CommentKind { shape: CommentShape::Block, doc: Some(CommentPlacement::Inner) }),
-        ("//", CommentKind { shape: CommentShape::Line, doc: None }),
-        ("/*", CommentKind { shape: CommentShape::Block, doc: None }),
+        (
+            "/**/",
+            CommentKind {
+                shape: CommentShape::Block,
+                doc: None,
+            },
+        ),
+        (
+            "/***",
+            CommentKind {
+                shape: CommentShape::Block,
+                doc: None,
+            },
+        ),
+        (
+            "////",
+            CommentKind {
+                shape: CommentShape::Line,
+                doc: None,
+            },
+        ),
+        (
+            "///",
+            CommentKind {
+                shape: CommentShape::Line,
+                doc: Some(CommentPlacement::Outer),
+            },
+        ),
+        (
+            "//!",
+            CommentKind {
+                shape: CommentShape::Line,
+                doc: Some(CommentPlacement::Inner),
+            },
+        ),
+        (
+            "/**",
+            CommentKind {
+                shape: CommentShape::Block,
+                doc: Some(CommentPlacement::Outer),
+            },
+        ),
+        (
+            "/*!",
+            CommentKind {
+                shape: CommentShape::Block,
+                doc: Some(CommentPlacement::Inner),
+            },
+        ),
+        (
+            "//",
+            CommentKind {
+                shape: CommentShape::Line,
+                doc: None,
+            },
+        ),
+        (
+            "/*",
+            CommentKind {
+                shape: CommentShape::Block,
+                doc: None,
+            },
+        ),
     ];
 
     pub(crate) fn from_text(text: &str) -> CommentKind {
@@ -100,8 +157,11 @@ impl CommentKind {
     }
 
     pub fn prefix(&self) -> &'static str {
-        let &(prefix, _) =
-            CommentKind::BY_PREFIX.iter().rev().find(|(_, kind)| kind == self).unwrap();
+        let &(prefix, _) = CommentKind::BY_PREFIX
+            .iter()
+            .rev()
+            .find(|(_, kind)| kind == self)
+            .unwrap();
         prefix
     }
 }
@@ -109,7 +169,8 @@ impl CommentKind {
 impl ast::Whitespace {
     pub fn spans_multiple_lines(&self) -> bool {
         let text = self.text();
-        text.find('\n').map_or(false, |idx| text[idx + 1..].contains('\n'))
+        text.find('\n')
+            .map_or(false, |idx| text[idx + 1..].contains('\n'))
     }
 }
 
@@ -133,7 +194,10 @@ impl QuoteOffsets {
         let end = TextSize::of(literal);
 
         let res = QuoteOffsets {
-            quotes: (TextRange::new(start, left_quote), TextRange::new(right_quote, end)),
+            quotes: (
+                TextRange::new(start, left_quote),
+                TextRange::new(right_quote, end),
+            ),
             contents: TextRange::new(left_quote, right_quote),
         };
         Some(res)
@@ -231,19 +295,20 @@ impl ast::ByteString {
         let mut buf: Vec<u8> = Vec::new();
         let mut text_iter = text.chars();
         let mut has_error = false;
-        unescape_literal(text, Mode::ByteStr, &mut |char_range, unescaped_char| match (
-            unescaped_char,
-            buf.capacity() == 0,
-        ) {
-            (Ok(c), false) => buf.push(c as u8),
-            (Ok(c), true) if char_range.len() == 1 && Some(c) == text_iter.next() => (),
-            (Ok(c), true) => {
-                buf.reserve_exact(text.len());
-                buf.extend_from_slice(text[..char_range.start].as_bytes());
-                buf.push(c as u8);
-            }
-            (Err(_), _) => has_error = true,
-        });
+        unescape_literal(
+            text,
+            Mode::ByteStr,
+            &mut |char_range, unescaped_char| match (unescaped_char, buf.capacity() == 0) {
+                (Ok(c), false) => buf.push(c as u8),
+                (Ok(c), true) if char_range.len() == 1 && Some(c) == text_iter.next() => (),
+                (Ok(c), true) => {
+                    buf.reserve_exact(text.len());
+                    buf.extend_from_slice(text[..char_range.start].as_bytes());
+                    buf.push(c as u8);
+                }
+                (Err(_), _) => has_error = true,
+            },
+        );
 
         match (has_error, buf.capacity() == 0) {
             (true, _) => None,
@@ -603,8 +668,10 @@ impl HasFormatSpecifier for ast::String {
         let mut res = Vec::with_capacity(text.len());
         unescape_literal(text, Mode::Str, &mut |range, unescaped_char| {
             res.push((
-                TextRange::new(range.start.try_into().unwrap(), range.end.try_into().unwrap())
-                    + offset,
+                TextRange::new(
+                    range.start.try_into().unwrap(),
+                    range.end.try_into().unwrap(),
+                ) + offset,
                 unescaped_char,
             ));
         });
@@ -682,67 +749,17 @@ pub enum Radix {
 }
 
 impl Radix {
-    pub const ALL: &'static [Radix] =
-        &[Radix::Binary, Radix::Octal, Radix::Decimal, Radix::Hexadecimal];
+    pub const ALL: &'static [Radix] = &[
+        Radix::Binary,
+        Radix::Octal,
+        Radix::Decimal,
+        Radix::Hexadecimal,
+    ];
 
     const fn prefix_len(self) -> usize {
         match self {
             Self::Decimal => 0,
             _ => 2,
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::ast::{self, make, FloatNumber, IntNumber};
-
-    fn check_float_suffix<'a>(lit: &str, expected: impl Into<Option<&'a str>>) {
-        assert_eq!(FloatNumber { syntax: make::tokens::literal(lit) }.suffix(), expected.into());
-    }
-
-    fn check_int_suffix<'a>(lit: &str, expected: impl Into<Option<&'a str>>) {
-        assert_eq!(IntNumber { syntax: make::tokens::literal(lit) }.suffix(), expected.into());
-    }
-
-    #[test]
-    fn test_float_number_suffix() {
-        check_float_suffix("123.0", None);
-        check_float_suffix("123f32", "f32");
-        check_float_suffix("123.0e", None);
-        check_float_suffix("123.0e4", None);
-        check_float_suffix("123.0ef32", "f32");
-        check_float_suffix("123.0E4f32", "f32");
-        check_float_suffix("1_2_3.0_f32", "f32");
-    }
-
-    #[test]
-    fn test_int_number_suffix() {
-        check_int_suffix("123", None);
-        check_int_suffix("123i32", "i32");
-        check_int_suffix("1_0_1_l_o_l", "l_o_l");
-        check_int_suffix("0b11", None);
-        check_int_suffix("0o11", None);
-        check_int_suffix("0xff", None);
-        check_int_suffix("0b11u32", "u32");
-        check_int_suffix("0o11u32", "u32");
-        check_int_suffix("0xffu32", "u32");
-    }
-
-    fn check_string_value<'a>(lit: &str, expected: impl Into<Option<&'a str>>) {
-        assert_eq!(
-            ast::String { syntax: make::tokens::literal(&format!("\"{}\"", lit)) }
-                .value()
-                .as_deref(),
-            expected.into()
-        );
-    }
-
-    #[test]
-    fn test_string_escape() {
-        check_string_value(r"foobar", "foobar");
-        check_string_value(r"\foobar", None);
-        check_string_value(r"\nfoobar", "\nfoobar");
-        check_string_value(r"C:\\Windows\\System32\\", "C:\\Windows\\System32\\");
     }
 }

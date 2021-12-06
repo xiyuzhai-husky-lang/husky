@@ -3,8 +3,8 @@ use std::iter;
 use std::{cmp::Ordering, ops, time::Instant};
 
 mod macros;
-pub mod process;
 pub mod panic_context;
+pub mod process;
 
 pub use always_assert::{always, never};
 
@@ -97,15 +97,13 @@ pub fn trim_indent(mut text: &str) -> String {
         .min()
         .unwrap_or(0);
     text.split_inclusive('\n')
-        .map(
-            |line| {
-                if line.len() <= indent {
-                    line.trim_start_matches(' ')
-                } else {
-                    &line[indent..]
-                }
-            },
-        )
+        .map(|line| {
+            if line.len() <= indent {
+                line.trim_start_matches(' ')
+            } else {
+                &line[indent..]
+            }
+        })
         .collect()
 }
 
@@ -190,43 +188,5 @@ where
         if !eq(x, y) {
             return false;
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_trim_indent() {
-        assert_eq!(trim_indent(""), "");
-        assert_eq!(
-            trim_indent(
-                "
-            hello
-            world
-"
-            ),
-            "hello\nworld\n"
-        );
-        assert_eq!(
-            trim_indent(
-                "
-            hello
-            world"
-            ),
-            "hello\nworld"
-        );
-        assert_eq!(trim_indent("    hello\n    world\n"), "hello\nworld\n");
-        assert_eq!(
-            trim_indent(
-                "
-            fn main() {
-                return 92;
-            }
-        "
-            ),
-            "fn main() {\n    return 92;\n}\n"
-        );
     }
 }

@@ -1,12 +1,13 @@
+use common::*;
 use either::Either;
 use hir::{PathResolution, Semantics};
 use ide_db::{
     base_db::FileID,
     defs::Definition,
     search::{FileReference, UsageSearchResult},
-    RootDatabase,
+    IdeDatabase,
 };
-use syntax::{ast, SyntaxElement, TextRange};
+use syntax::{ast, SyntaxElement};
 
 use crate::{
     assist_context::{AssistContext, Assists},
@@ -41,7 +42,7 @@ struct InlineData {
 }
 
 fn inline_let(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     let_stmt: ast::LetStmt,
     range: TextRange,
     file_id: FileID,
@@ -50,7 +51,7 @@ fn inline_let(
 }
 
 fn inline_usage(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     path_expr: ast::PathExpr,
     range: TextRange,
     file_id: FileID,

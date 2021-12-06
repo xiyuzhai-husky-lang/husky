@@ -1,8 +1,8 @@
 //! Representation of a `TextEdit`.
 //!
-//! `rust-analyzer` never mutates text itself and only sends diffs to clients,
+//! `husky-lang-server` never mutates text itself and only sends diffs to clients,
 //! so `TextEdit` is the ultimate representation of the work done by
-//! rust-analyzer.
+//! husky-lang-server.
 
 pub use text_size::{TextRange, TextSize};
 

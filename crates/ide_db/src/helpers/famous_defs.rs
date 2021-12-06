@@ -1,14 +1,14 @@
 //! See [`FamousDefs`].
 use hir::{Crate, Enum, MacroDef, Module, ScopeDef, Semantics, Trait};
 
-use crate::RootDatabase;
+use crate::IdeDatabase;
 
 /// Helps with finding well-know things inside the standard library. This is
 /// somewhat similar to the known paths infra inside hir, but it different; We
 /// want to make sure that IDE specific paths don't become interesting inside
 /// the compiler itself as well.
 ///
-/// Note that, by default, rust-analyzer tests **do not** include core or std
+/// Note that, by default, husky-lang-server tests **do not** include core or std
 /// libraries. If you are writing tests for functionality using [`FamousDefs`],
 /// you'd want to include minicore (see `test_utils::MiniCore`) declaration at
 /// the start of your tests:
@@ -16,7 +16,7 @@ use crate::RootDatabase;
 /// ```
 /// //- minicore: iterator, ord, derive
 /// ```
-pub struct FamousDefs<'a, 'b>(pub &'a Semantics<'b, RootDatabase>, pub Option<Crate>);
+pub struct FamousDefs<'a, 'b>(pub &'a Semantics<'b, IdeDatabase>, pub Option<Crate>);
 
 #[allow(non_snake_case)]
 impl FamousDefs<'_, '_> {

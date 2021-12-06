@@ -4,7 +4,7 @@ use crossbeam_channel::{unbounded, Receiver, Sender};
 use parking_lot::{Mutex, RwLock};
 use rustc_hash::FxHashMap;
 
-use ide::{Analysis, AnalysisHost, Cancellable, Change, FileID};
+use ide::{AnalysisHost, Cancellable, Change, DatabaseProxy, FileID};
 
 use crate::{
     fs::ServerFileSystem,

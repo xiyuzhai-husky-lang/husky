@@ -33,7 +33,7 @@ fn try_main() -> Result<()> {
 
 #[cfg(windows)]
 fn prioritize_this_thread() {
-    // rust-analyzer team say:
+    // husky-lang-server team say:
     // Windows scheduler implements priority boosts: if thread waits for an
     // event (like a condvar), and event fires, priority of the thread is
     // temporary bumped. This optimization backfires in our case: each time the
@@ -44,7 +44,7 @@ fn prioritize_this_thread() {
     //
     // https://docs.microsoft.com/en-us/windows/win32/procthread/scheduling-priorities
     // https://docs.microsoft.com/en-us/windows/win32/procthread/priority-boosts
-    // https://github.com/rust-analyzer/rust-analyzer/issues/2835
+    // https://github.com/husky-lang-server/husky-lang-server/issues/2835
     unsafe {
         use winapi::um::processthreadsapi::*;
         let thread = GetCurrentThread();

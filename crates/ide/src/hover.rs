@@ -2,13 +2,15 @@ mod render;
 
 use std::iter;
 
+use common::*;
+
 use either::Either;
 use hir::{HasSource, Semantics};
 use ide_db::{
     base_db::FileRange,
     defs::Definition,
     helpers::{pick_best_token, FamousDefs},
-    FxIndexSet, RootDatabase,
+    FxIndexSet, IdeDatabase,
 };
 use itertools::Itertools;
 use syntax::{ast, SyntaxKind::*, SyntaxNode, SyntaxToken};
@@ -43,7 +45,7 @@ pub enum HoverAction {
 }
 
 impl HoverAction {
-    fn goto_type_from_targets(db: &RootDatabase, targets: Vec<hir::ModuleDef>) -> Self {
+    fn goto_type_from_targets(db: &IdeDatabase, targets: Vec<hir::ModuleDef>) -> Self {
         todo!()
     }
 }
@@ -68,7 +70,7 @@ pub struct HoverResult {
 //
 // image::https://user-images.githubusercontent.com/48062697/113020658-b5f98b80-917a-11eb-9f88-3dbc27320c95.gif[]
 pub(crate) fn hover(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     FileRange { file_id, range }: FileRange,
     config: &HoverConfig,
 ) -> Option<RangeInfo<HoverResult>> {
@@ -76,7 +78,7 @@ pub(crate) fn hover(
 }
 
 pub(crate) fn hover_for_definition(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     file_id: FileID,
     definition: Definition,
     node: &SyntaxNode,
@@ -87,43 +89,43 @@ pub(crate) fn hover_for_definition(
 
 fn hover_ranged(
     file: &SyntaxNode,
-    range: syntax::TextRange,
-    sema: &Semantics<RootDatabase>,
+    range: TextRange,
+    sema: &Semantics<IdeDatabase>,
     config: &HoverConfig,
 ) -> Option<RangeInfo<HoverResult>> {
     todo!()
 }
 
 fn hover_type_fallback(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     config: &HoverConfig,
     token: &SyntaxToken,
 ) -> Option<RangeInfo<HoverResult>> {
     todo!()
 }
 
-fn show_implementations_action(db: &RootDatabase, def: Definition) -> Option<HoverAction> {
+fn show_implementations_action(db: &IdeDatabase, def: Definition) -> Option<HoverAction> {
     todo!()
 }
 
-fn show_fn_references_action(db: &RootDatabase, def: Definition) -> Option<HoverAction> {
+fn show_fn_references_action(db: &IdeDatabase, def: Definition) -> Option<HoverAction> {
     todo!()
 }
 
 fn runnable_action(
-    sema: &hir::Semantics<RootDatabase>,
+    sema: &hir::Semantics<IdeDatabase>,
     def: Definition,
     file_id: FileID,
 ) -> Option<HoverAction> {
     todo!()
 }
 
-fn goto_type_action_for_def(db: &RootDatabase, def: Definition) -> Option<HoverAction> {
+fn goto_type_action_for_def(db: &IdeDatabase, def: Definition) -> Option<HoverAction> {
     todo!()
 }
 
 fn walk_and_push_ty(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     ty: &hir::Type,
     push_new_def: &mut dyn FnMut(hir::ModuleDef),
 ) {

@@ -1,4 +1,7 @@
 //! A module with ide helpers for high-level ide features.
+
+use common::*;
+
 pub mod famous_defs;
 pub mod generated_lints;
 pub mod import_assets;
@@ -14,14 +17,14 @@ use hir::{ItemInNs, MacroDef, ModuleDef, Name, PathResolution, Semantics};
 use itertools::Itertools;
 use syntax::{
     ast::{self, Ident},
-    Direction, SyntaxElement, SyntaxKind, SyntaxToken, TokenAtOffset, WalkEvent,
+    SyntaxElement, SyntaxKind, SyntaxToken,
 };
 
-use crate::{defs::Definition, RootDatabase};
+use crate::{defs::Definition, IdeDatabase};
 
 pub use self::famous_defs::FamousDefs;
 
-pub fn item_name(db: &RootDatabase, item: ItemInNs) -> Option<Name> {
+pub fn item_name(db: &IdeDatabase, item: ItemInNs) -> Option<Name> {
     todo!()
 }
 
@@ -30,7 +33,7 @@ pub fn item_name(db: &RootDatabase, item: ItemInNs) -> Option<Name> {
 ///
 /// The returned path is synthesized from TokenTree tokens and as such cannot be used with the [`Semantics`].
 pub fn get_path_in_derive_attr(
-    sema: &hir::Semantics<RootDatabase>,
+    sema: &hir::Semantics<IdeDatabase>,
     attr: &ast::Attr,
     cursor: &Ident,
 ) -> Option<ast::Path> {
@@ -40,7 +43,7 @@ pub fn get_path_in_derive_attr(
 /// Parses and resolves the path at the cursor position in the given attribute, if it is a derive.
 /// This special case is required because the derive macro is a compiler builtin that discards the input derives.
 pub fn try_resolve_derive_input(
-    sema: &hir::Semantics<RootDatabase>,
+    sema: &hir::Semantics<IdeDatabase>,
     attr: &ast::Attr,
     cursor: &Ident,
 ) -> Option<PathResolution> {
@@ -93,7 +96,7 @@ pub fn mod_path_to_ast(path: &hir::ModPath) -> ast::Path {
 
 /// Iterates all `ModuleDef`s and `Impl` blocks of the given file.
 pub fn visit_file_defs(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     file_id: FileID,
     cb: &mut dyn FnMut(Definition),
 ) {
@@ -134,18 +137,5 @@ pub fn for_each_break_expr(
 
 /// Checks if the given lint is equal or is contained by the other lint which may or may not be a group.
 pub fn lint_eq_or_in_group(lint: &str, lint_is: &str) -> bool {
-    if lint == lint_is {
-        return true;
-    }
-
-    if let Some(group) = generated_lints::DEFAULT_LINT_GROUPS
-        .iter()
-        .chain(generated_lints::CLIPPY_LINT_GROUPS.iter())
-        .chain(generated_lints::RUSTDOC_LINT_GROUPS.iter())
-        .find(|&check| check.lint.label == lint_is)
-    {
-        group.children.contains(&lint)
-    } else {
-        false
-    }
+    todo!()
 }

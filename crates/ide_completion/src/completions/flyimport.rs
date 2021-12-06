@@ -102,7 +102,7 @@ use super::Completions;
 //
 // .Feature toggle
 //
-// The feature can be forcefully turned off in the settings with the `rust-analyzer.completion.autoimport.enable` flag.
+// The feature can be forcefully turned off in the settings with the `husky-lang-server.completion.autoimport.enable` flag.
 // Note that having this flag set to `true` does not guarantee that the feature is enabled: your client needs to have the corresponding
 // capability enabled.
 pub(crate) fn import_on_the_fly(acc: &mut Completions, ctx: &CompletionContext) -> Option<()> {

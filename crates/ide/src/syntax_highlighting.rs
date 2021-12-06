@@ -7,14 +7,16 @@ mod format;
 mod highlight;
 mod inject;
 
+use common::*;
+
 use hir::{InFile, Name, Semantics};
-use ide_db::{RootDatabase, SymbolKind};
+use ide_db::{IdeDatabase, SymbolKind};
 use rustc_hash::FxHashMap;
 use syntax::{
     ast::{self, HasFormatSpecifier},
     Direction, NodeOrToken,
     SyntaxKind::*,
-    SyntaxNode, TextRange, WalkEvent,
+    SyntaxNode,
 };
 
 use crate::{
@@ -33,9 +35,9 @@ pub struct HlRange {
 
 // Feature: Semantic Syntax Highlighting
 //
-// rust-analyzer highlights the code semantically.
+// husky-lang-server highlights the code semantically.
 // For example, `Bar` in `foo::Bar` might be colored differently depending on whether `Bar` is an enum or a trait.
-// rust-analyzer does not specify colors directly, instead it assigns a tag (like `struct`) and a set of modifiers (like `declaration`) to each token.
+// husky-lang-server does not specify colors directly, instead it assigns a tag (like `struct`) and a set of modifiers (like `declaration`) to each token.
 // It's up to the client to map those to specific colors.
 //
 // The general rule is that a reference to an entity gets colored the same way as the entity itself.
@@ -108,7 +110,7 @@ pub struct HlRange {
 // property:: Emitted for struct and union fields.
 // selfKeyword:: Emitted for the self function parameter and self path-specifier.
 // typeParameter:: Emitted for type parameters.
-// unresolvedReference:: Emitted for unresolved references, names that rust-analyzer can't find the definition of.
+// unresolvedReference:: Emitted for unresolved references, names that husky-lang-server can't find the definition of.
 // variable:: Emitted for locals, constants and statics.
 //
 //
@@ -143,17 +145,18 @@ pub struct HlRange {
 // image::https://user-images.githubusercontent.com/48062697/113164457-06cfb980-9239-11eb-819b-0f93e646acf8.png[]
 // image::https://user-images.githubusercontent.com/48062697/113187625-f7f50100-9250-11eb-825e-91c58f236071.png[]
 pub(crate) fn highlight(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     file_id: FileID,
     range_to_highlight: Option<TextRange>,
     syntactic_name_ref_highlighting: bool,
 ) -> Vec<HlRange> {
-    todo!()
+    eprintln!("TODO: syntax highlighting");
+    vec![]
 }
 
 fn traverse(
     hl: &mut Highlights,
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     root: InFile<&SyntaxNode>,
     krate: Option<hir::Crate>,
     range_to_highlight: TextRange,

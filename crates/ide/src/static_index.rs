@@ -3,17 +3,20 @@
 
 use std::collections::HashMap;
 
+use common::*;
+
 use hir::{db::HirDatabase, Crate, Module, Semantics};
 use ide_db::{
     base_db::{FileID, FileRange, SourceDatabaseExt},
     defs::Definition,
-    RootDatabase,
+    IdeDatabase,
 };
 use rustc_hash::FxHashSet;
-use syntax::{SyntaxKind::*, SyntaxToken, TextRange};
+use syntax::{SyntaxKind::*, SyntaxToken};
 
 use crate::{
-    hover::hover_for_definition, Analysis, Fold, HoverConfig, HoverDocFormat, HoverResult, TryToNav,
+    hover::hover_for_definition, DatabaseProxy, Fold, HoverConfig, HoverDocFormat, HoverResult,
+    TryToNav,
 };
 
 /// A static representation of fully analyzed source code.
@@ -23,8 +26,8 @@ use crate::{
 pub struct StaticIndex<'a> {
     pub files: Vec<StaticIndexedFile>,
     pub tokens: TokenStore,
-    analysis: &'a Analysis,
-    db: &'a RootDatabase,
+    analysis: &'a DatabaseProxy,
+    db: &'a IdeDatabase,
     def_map: HashMap<Definition, TokenId>,
 }
 
@@ -89,11 +92,11 @@ impl StaticIndex<'_> {
         todo!()
     }
 
-    pub fn compute(analysis: &Analysis) -> StaticIndex {
+    pub fn compute(analysis: &DatabaseProxy) -> StaticIndex {
         todo!()
     }
 }
 
-fn get_definition(sema: &Semantics<RootDatabase>, token: SyntaxToken) -> Option<Definition> {
+fn get_definition(sema: &Semantics<IdeDatabase>, token: SyntaxToken) -> Option<Definition> {
     todo!()
 }

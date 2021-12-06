@@ -6,8 +6,9 @@ mod input;
 
 use std::{panic, sync::Arc};
 
+use common::{TextRange, TextSize};
 use rustc_hash::FxHashSet;
-use syntax::{ParseResult, SingleFileParseTree, TextRange, TextSize};
+use syntax::{ParseResult, SingleFileParseTree};
 
 pub use crate::{
     change::Change,
@@ -34,9 +35,9 @@ macro_rules! impl_intern_key {
     };
 }
 
-pub trait Upcast<T: ?Sized> {
-    fn upcast(&self) -> &T;
-}
+// pub trait Upcast<T: ?Sized> {
+//     fn upcast(&self) -> &T;
+// }
 
 #[derive(Clone, Copy, Debug)]
 pub struct FilePosition {
@@ -60,7 +61,7 @@ pub trait FileLoader {
 }
 
 /// Database which stores all significant input facts: source code and project
-/// model. Everything else in rust-analyzer is derived from these queries.
+/// model. Everything else in husky-lang-server is derived from these queries.
 #[salsa::query_group(SourceDatabaseStorage)]
 pub trait SourceDatabase: FileLoader + std::fmt::Debug {
     // Parses the file into the syntax tree.

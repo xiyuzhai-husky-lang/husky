@@ -1,7 +1,9 @@
+use common::*;
+
 use itertools::Itertools;
 use syntax::{
     ast::{self, edit::IndentLevel, Comment},
-    Direction, SyntaxElement, TextRange,
+    Direction, SyntaxElement,
 };
 
 use crate::{AssistContext, AssistId, AssistKind, Assists};

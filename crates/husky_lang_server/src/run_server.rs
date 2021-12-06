@@ -23,7 +23,7 @@ pub fn run_server(
         if server.config.projects.is_empty() {
             server.comm.show_message(
                 lsp_types::MessageType::ERROR,
-                "rust-analyzer failed to discover workspace".to_string(),
+                "husky-lang-server failed to discover workspace".to_string(),
             );
         };
     }

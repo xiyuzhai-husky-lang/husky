@@ -1,9 +1,9 @@
-//! This module specifies the input to rust-analyzer. In some sense, this is
+//! This module specifies the input to husky-lang-server. In some sense, this is
 //! **the** most important module, because all other fancy stuff is strictly
 //! derived from this input.
 //!
 //! Note that neither this module, nor any other part of the analyzer's core do
-//! actual IO. See `vfs` and `project_model` in the `rust-analyzer` crate for how
+//! actual IO. See `vfs` and `project_model` in the `husky-lang-server` crate for how
 //! actual IO is done and lowered to input.
 
 use std::{fmt, iter::FromIterator, ops, panic::RefUnwindSafe, str::FromStr, sync::Arc};
@@ -74,7 +74,7 @@ impl SourceRoot {
 /// `CrateGraph` by lowering `cargo metadata` output.
 ///
 /// `CrateGraph` is `!Serialize` by design, see
-/// <https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/dev/architecture.md#serialization>
+/// <https://github.com/husky-lang-server/husky-lang-server/blob/master/docs/dev/architecture.md#serialization>
 #[derive(Debug, Clone, Default /* Serialize, Deserialize */)]
 pub struct CrateGraph {
     arena: FxHashMap<CrateId, CrateData>,
@@ -560,168 +560,5 @@ impl fmt::Display for CyclicDependenciesError {
             render(self.to()),
             path
         )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::{CrateGraph, CrateName, Dependency, Edition::Edition2018, Env, FileID};
-
-    #[test]
-    fn detect_cyclic_dependency_indirect() {
-        let mut graph = CrateGraph::default();
-        let crate1 = graph.add_crate_root(
-            FileID(1u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        let crate2 = graph.add_crate_root(
-            FileID(2u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        let crate3 = graph.add_crate_root(
-            FileID(3u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        assert!(graph
-            .add_dep(
-                crate1,
-                Dependency::new(CrateName::new("crate2").unwrap(), crate2)
-            )
-            .is_ok());
-        assert!(graph
-            .add_dep(
-                crate2,
-                Dependency::new(CrateName::new("crate3").unwrap(), crate3)
-            )
-            .is_ok());
-        assert!(graph
-            .add_dep(
-                crate3,
-                Dependency::new(CrateName::new("crate1").unwrap(), crate1)
-            )
-            .is_err());
-    }
-
-    #[test]
-    fn detect_cyclic_dependency_direct() {
-        let mut graph = CrateGraph::default();
-        let crate1 = graph.add_crate_root(
-            FileID(1u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        let crate2 = graph.add_crate_root(
-            FileID(2u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        assert!(graph
-            .add_dep(
-                crate1,
-                Dependency::new(CrateName::new("crate2").unwrap(), crate2)
-            )
-            .is_ok());
-        assert!(graph
-            .add_dep(
-                crate2,
-                Dependency::new(CrateName::new("crate2").unwrap(), crate2)
-            )
-            .is_err());
-    }
-
-    #[test]
-    fn it_works() {
-        let mut graph = CrateGraph::default();
-        let crate1 = graph.add_crate_root(
-            FileID(1u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        let crate2 = graph.add_crate_root(
-            FileID(2u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        let crate3 = graph.add_crate_root(
-            FileID(3u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        assert!(graph
-            .add_dep(
-                crate1,
-                Dependency::new(CrateName::new("crate2").unwrap(), crate2)
-            )
-            .is_ok());
-        assert!(graph
-            .add_dep(
-                crate2,
-                Dependency::new(CrateName::new("crate3").unwrap(), crate3)
-            )
-            .is_ok());
-    }
-
-    #[test]
-    fn dashes_are_normalized() {
-        let mut graph = CrateGraph::default();
-        let crate1 = graph.add_crate_root(
-            FileID(1u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        let crate2 = graph.add_crate_root(
-            FileID(2u32),
-            Edition2018,
-            None,
-            None,
-            Env::default(),
-            Default::default(),
-        );
-        assert!(graph
-            .add_dep(
-                crate1,
-                Dependency::new(
-                    CrateName::normalize_dashes("crate-name-with-dashes"),
-                    crate2
-                )
-            )
-            .is_ok());
-        assert_eq!(
-            graph[crate1].dependencies,
-            vec![Dependency::new(
-                CrateName::new("crate_name_with_dashes").unwrap(),
-                crate2
-            )]
-        );
     }
 }

@@ -3,14 +3,14 @@ use std::cmp::Ordering;
 use hir::Semantics;
 use syntax::{
     ast::{self, PathSegmentKind},
-    Direction, NodeOrToken, SyntaxNode, SyntaxToken,
+    SyntaxNode, SyntaxToken,
 };
 
 use crate::{
     helpers::merge_imports::{
         common_prefix, eq_attrs, eq_visibility, try_merge_imports, use_tree_path_cmp, MergeBehavior,
     },
-    RootDatabase,
+    IdeDatabase,
 };
 
 pub use hir::PrefixKind;
@@ -45,17 +45,11 @@ pub enum ImportScope {
 }
 
 impl ImportScope {
-    // FIXME: Remove this?
-    #[cfg(test)]
-    fn from(syntax: SyntaxNode) -> Option<Self> {
-        todo!()
-    }
-
     /// Determines the containing syntax node in which to insert a `use` statement affecting `position`.
     /// Returns the original source node inside attributes.
     pub fn find_insert_use_container(
         position: &SyntaxNode,
-        sema: &Semantics<'_, RootDatabase>,
+        sema: &Semantics<'_, IdeDatabase>,
     ) -> Option<Self> {
         todo!()
     }

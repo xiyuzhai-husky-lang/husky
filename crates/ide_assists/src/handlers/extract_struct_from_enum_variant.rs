@@ -9,7 +9,7 @@ use ide_db::{
         mod_path_to_ast,
     },
     search::FileReference,
-    RootDatabase,
+    IdeDatabase,
 };
 use itertools::Itertools;
 use rustc_hash::FxHashSet;
@@ -47,7 +47,7 @@ fn extract_field_list_if_applicable(
     todo!()
 }
 
-fn existing_definition(db: &RootDatabase, variant_name: &ast::Name, variant: &Variant) -> bool {
+fn existing_definition(db: &IdeDatabase, variant_name: &ast::Name, variant: &Variant) -> bool {
     todo!()
 }
 
@@ -89,7 +89,7 @@ fn process_references(
 }
 
 fn reference_to_node(
-    sema: &hir::Semantics<RootDatabase>,
+    sema: &hir::Semantics<IdeDatabase>,
     reference: FileReference,
 ) -> Option<(ast::PathSegment, SyntaxNode, hir::Module)> {
     todo!()

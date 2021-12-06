@@ -2,6 +2,8 @@
 
 use std::mem;
 
+use common::*;
+
 use hir::Semantics;
 use ide_db::{
     base_db::{AnchoredPathBuf, FileID, FileRange},
@@ -10,11 +12,11 @@ use ide_db::{
 use ide_db::{
     label::Label,
     source_change::{FileSystemEdit, SourceChange},
-    RootDatabase,
+    IdeDatabase,
 };
 use syntax::{
     Direction, SingleFileParseTree, SyntaxElement, SyntaxKind, SyntaxNode, SyntaxNodePtr,
-    SyntaxToken, TextRange, TextSize, TokenAtOffset,
+    SyntaxToken,
 };
 use text_edit::{TextEdit, TextEditBuilder};
 
@@ -54,7 +56,7 @@ use crate::{
 /// easier to just compute the edit eagerly :-)
 pub(crate) struct AssistContext<'a> {
     pub(crate) config: &'a AssistConfig,
-    pub(crate) sema: Semantics<'a, RootDatabase>,
+    pub(crate) sema: Semantics<'a, IdeDatabase>,
     frange: FileRange,
     trimmed_range: TextRange,
     source_file: SingleFileParseTree,
@@ -62,14 +64,14 @@ pub(crate) struct AssistContext<'a> {
 
 impl<'a> AssistContext<'a> {
     pub(crate) fn new(
-        sema: Semantics<'a, RootDatabase>,
+        sema: Semantics<'a, IdeDatabase>,
         config: &'a AssistConfig,
         frange: FileRange,
     ) -> AssistContext<'a> {
         todo!()
     }
 
-    pub(crate) fn db(&self) -> &RootDatabase {
+    pub(crate) fn db(&self) -> &IdeDatabase {
         self.sema.db
     }
 
@@ -257,7 +259,7 @@ impl AssistBuilder {
     }
     /// Returns a copy of the `node`, suitable for mutation.
     ///
-    /// Syntax trees in rust-analyzer are typically immutable, and mutating
+    /// Syntax trees in husky-lang-server are typically immutable, and mutating
     /// operations panic at runtime. However, it is possible to make a copy of
     /// the tree and mutate the copy freely. Mutation is based on interior
     /// mutability, and different nodes in the same tree see the same mutations.

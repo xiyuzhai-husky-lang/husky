@@ -97,7 +97,7 @@ impl Resolver<'_, '_> {
 
 impl<'db> ResolutionScope<'db> {
     pub(crate) fn new(
-        sema: &hir::Semantics<'db, ide_db::RootDatabase>,
+        sema: &hir::Semantics<'db, ide_db::IdeDatabase>,
         resolve_context: FilePosition,
     ) -> ResolutionScope<'db> {
         todo!()

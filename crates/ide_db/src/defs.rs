@@ -14,7 +14,7 @@ use hir::{
 use stdx::impl_from;
 use syntax::{ast, SyntaxKind, SyntaxNode, SyntaxToken};
 
-use crate::{helpers::try_resolve_derive_input, RootDatabase};
+use crate::{helpers::try_resolve_derive_input, IdeDatabase};
 
 // FIXME: a more precise name would probably be `Symbol`?
 #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
@@ -38,25 +38,25 @@ pub enum Definition {
 
 impl Definition {
     pub fn from_token(
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
         token: &SyntaxToken,
     ) -> ArrayVec<Definition, 2> {
         todo!()
     }
 
-    pub fn from_node(sema: &Semantics<RootDatabase>, node: &SyntaxNode) -> ArrayVec<Definition, 2> {
+    pub fn from_node(sema: &Semantics<IdeDatabase>, node: &SyntaxNode) -> ArrayVec<Definition, 2> {
         todo!()
     }
 
-    pub fn module(&self, db: &RootDatabase) -> Option<Module> {
+    pub fn module(&self, db: &IdeDatabase) -> Option<Module> {
         todo!()
     }
 
-    pub fn visibility(&self, db: &RootDatabase) -> Option<Visibility> {
+    pub fn visibility(&self, db: &IdeDatabase) -> Option<Visibility> {
         todo!()
     }
 
-    pub fn name(&self, db: &RootDatabase) -> Option<Name> {
+    pub fn name(&self, db: &IdeDatabase) -> Option<Name> {
         todo!()
     }
 }
@@ -98,7 +98,7 @@ impl NameClass {
         Some(res)
     }
 
-    pub fn classify(sema: &Semantics<RootDatabase>, name: &ast::Name) -> Option<NameClass> {
+    pub fn classify(sema: &Semantics<IdeDatabase>, name: &ast::Name) -> Option<NameClass> {
         todo!()
     }
 }
@@ -119,7 +119,7 @@ impl NameRefClass {
     // Note: we don't have unit-tests for this rather important function.
     // It is primarily exercised via goto definition tests in `ide`.
     pub fn classify(
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
         name_ref: &ast::NameRef,
     ) -> Option<NameRefClass> {
         todo!()
