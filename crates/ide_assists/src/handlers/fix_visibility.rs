@@ -1,6 +1,8 @@
+use common::*;
+
 use hir::{db::HirDatabase, HasSource, HasVisibility, PathResolution};
 use ide_db::base_db::FileID;
-use syntax::{ast, TextRange, TextSize};
+use syntax::ast;
 
 use crate::{utils::vis_offset, AssistContext, AssistId, AssistKind, Assists};
 

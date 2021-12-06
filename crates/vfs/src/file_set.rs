@@ -215,6 +215,3 @@ impl fst::Automaton for PrefixOf<'_> {
         }
     }
 }
-
-#[cfg(test)]
-mod tests;

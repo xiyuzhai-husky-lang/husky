@@ -6,7 +6,7 @@ use ide_db::{
     helpers::{insert_use::remove_path_if_in_use_stmt, node_ext::expr_as_name_ref},
     path_transform::PathTransform,
     search::{FileReference, SearchScope},
-    RootDatabase,
+    IdeDatabase,
 };
 use itertools::{izip, Itertools};
 use syntax::ast::{self, edit_in_place::Indent, PathExpr};
@@ -104,7 +104,7 @@ fn get_fn_params(
 }
 
 fn inline(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     function_def_file_id: FileID,
     function: hir::Function,
     fn_body: &ast::BlockExpr,

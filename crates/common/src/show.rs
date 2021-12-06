@@ -45,3 +45,6 @@ impl Debug for ShowCase {
         write!(f, "{}", self.content)
     }
 }
+
+pub use eshow;
+pub use show;

@@ -10,12 +10,14 @@ pub(crate) mod type_alias;
 
 mod builder_ext;
 
+use common::*;
+
 use hir::{AsAssocItem, HirDisplay};
 use ide_db::{
     helpers::{item_name, SnippetCap},
-    RootDatabase, SymbolKind,
+    IdeDatabase, SymbolKind,
 };
-use syntax::{SmolStr, SyntaxKind, TextRange};
+use syntax::{SmolStr, SyntaxKind};
 
 use crate::{
     context::{PathCompletionContext, PathKind},
@@ -38,7 +40,7 @@ impl<'a> RenderContext<'a> {
         todo!()
     }
 
-    fn db(&self) -> &'a RootDatabase {
+    fn db(&self) -> &'a IdeDatabase {
         todo!()
     }
 
@@ -93,7 +95,7 @@ fn render_resolution_(
     todo!()
 }
 
-fn scope_def_docs(db: &RootDatabase, resolution: &hir::ScopeDef) -> Option<hir::Documentation> {
+fn scope_def_docs(db: &IdeDatabase, resolution: &hir::ScopeDef) -> Option<hir::Documentation> {
     todo!()
 }
 

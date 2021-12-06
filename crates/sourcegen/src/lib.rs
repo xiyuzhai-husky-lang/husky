@@ -1,7 +1,7 @@
-//! rust-analyzer relies heavily on source code generation.
+//! husky-lang-server relies heavily on source code generation.
 //!
 //! Things like feature documentation or assist tests are implemented by
-//! processing rust-analyzer's own source code and generating the appropriate
+//! processing husky-lang-server's own source code and generating the appropriate
 //! output. See `sourcegen_` tests in various crates.
 //!
 //! This crate contains utilities to make this kind of source-gen easy.
@@ -125,7 +125,7 @@ impl fmt::Display for Location {
         let name = self.file.file_name().unwrap();
         write!(
             f,
-            "https://github.com/rust-analyzer/rust-analyzer/blob/master/{}#L{}[{}]",
+            "https://github.com/husky-lang-server/husky-lang-server/blob/master/{}#L{}[{}]",
             path,
             self.line,
             name.to_str().unwrap()

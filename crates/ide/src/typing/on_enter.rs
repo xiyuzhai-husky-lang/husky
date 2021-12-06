@@ -1,20 +1,22 @@
 //! Handles the `Enter` key press. At the momently, this only continues
 //! comments, but should handle indent some time in the future as well.
 
+use common::*;
+
 use ide_db::base_db::{FilePosition, SourceDatabase};
-use ide_db::RootDatabase;
+use ide_db::IdeDatabase;
 use syntax::{
     ast::{self, edit::IndentLevel},
     SingleFileParseTree, SmolStr,
     SyntaxKind::*,
-    SyntaxNode, SyntaxToken, TextRange, TextSize, TokenAtOffset,
+    SyntaxNode, SyntaxToken, TokenAtOffset,
 };
 
 use text_edit::TextEdit;
 
 // Feature: On Enter
 //
-// rust-analyzer can override kbd:[Enter] key to make it smarter:
+// husky-lang-server can override kbd:[Enter] key to make it smarter:
 //
 // - kbd:[Enter] inside triple-slash comments automatically inserts `///`
 // - kbd:[Enter] in the middle or after a trailing space in `//` inserts `//`
@@ -30,7 +32,7 @@ use text_edit::TextEdit;
 // ----
 // {
 //   "key": "Enter",
-//   "command": "rust-analyzer.onEnter",
+//   "command": "husky-lang-server.onEnter",
 //   "when": "editorTextFocus && !suggestWidgetVisible && editorLangId == rust"
 // }
 // ----
@@ -40,13 +42,13 @@ use text_edit::TextEdit;
 // ----
 // {
 //   "key": "Enter",
-//   "command": "rust-analyzer.onEnter",
+//   "command": "husky-lang-server.onEnter",
 //   "when": "editorTextFocus && !suggestWidgetVisible && editorLangId == rust && vim.mode == 'Insert'"
 // }
 // ----
 //
 // image::https://user-images.githubusercontent.com/48062697/113065578-04c21800-91b1-11eb-82b8-22b8c481e645.gif[]
-pub(crate) fn on_enter(db: &RootDatabase, position: FilePosition) -> Option<TextEdit> {
+pub(crate) fn on_enter(db: &IdeDatabase, position: FilePosition) -> Option<TextEdit> {
     todo!()
 }
 

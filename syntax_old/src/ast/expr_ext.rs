@@ -308,18 +308,6 @@ impl ast::BlockExpr {
     }
 }
 
-#[test]
-fn test_literal_with_attr() {
-    let parse = ast::SingleFileParseTree::parse(r#"const _: &str = { #[attr] "Hello" };"#);
-    let lit = parse
-        .tree()
-        .syntax()
-        .descendants()
-        .find_map(ast::Literal::cast)
-        .unwrap();
-    assert_eq!(lit.token().text(), r#""Hello""#);
-}
-
 impl ast::RecordExprField {
     pub fn parent_record_lit(&self) -> ast::RecordExpr {
         self.syntax()

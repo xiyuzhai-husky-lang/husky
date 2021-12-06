@@ -7,7 +7,7 @@
 
 use std::str::FromStr;
 
-use syntax::TextRange;
+use common::*;
 
 use crate::{label::Label, source_change::SourceChange};
 

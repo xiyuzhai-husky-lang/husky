@@ -1,4 +1,4 @@
-//! This module defines Concrete Syntax Tree (CST), used by rust-analyzer.
+//! This module defines Concrete Syntax Tree (CST), used by husky-lang-server.
 //!
 //! The CST includes comments and whitespace, provides a single node type,
 //! `SyntaxNode`, and a basic traversal API (parent, children, siblings).
@@ -45,7 +45,7 @@ impl SyntaxTreeBuilder {
 
     pub fn finish(self) -> ParseResult<SyntaxNode> {
         let (green, errors) = self.finish_raw();
-        // Disable block validation, see https://github.com/rust-analyzer/rust-analyzer/pull/10357
+        // Disable block validation, see https://github.com/husky-lang-server/husky-lang-server/pull/10357
         if cfg!(debug_assertions) && false {
             let node = SyntaxNode::new_root(green.clone());
             crate::validation::validate_block_structure(&node);

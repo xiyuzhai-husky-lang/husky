@@ -2,6 +2,8 @@
 
 use std::fmt;
 
+use common::*;
+
 use hir::{Documentation, Mutability};
 use ide_db::{
     helpers::{
@@ -13,7 +15,7 @@ use ide_db::{
 };
 use smallvec::SmallVec;
 use stdx::{impl_from, never};
-use syntax::{SmolStr, TextRange};
+use syntax::SmolStr;
 use text_edit::TextEdit;
 
 /// `CompletionItem` describes a single completion variant in the editor pop-up.
@@ -193,43 +195,6 @@ pub enum CompletionItemKind {
 }
 
 impl_from!(SymbolKind for CompletionItemKind);
-
-impl CompletionItemKind {
-    #[cfg(test)]
-    pub(crate) fn tag(&self) -> &'static str {
-        match self {
-            CompletionItemKind::SymbolKind(kind) => match kind {
-                SymbolKind::Const => "ct",
-                SymbolKind::ConstParam => "cp",
-                SymbolKind::Enum => "en",
-                SymbolKind::Field => "fd",
-                SymbolKind::Function => "fn",
-                SymbolKind::Impl => "im",
-                SymbolKind::Label => "lb",
-                SymbolKind::LifetimeParam => "lt",
-                SymbolKind::Local => "lc",
-                SymbolKind::Macro => "ma",
-                SymbolKind::Module => "md",
-                SymbolKind::SelfParam => "sp",
-                SymbolKind::Static => "sc",
-                SymbolKind::Struct => "st",
-                SymbolKind::Trait => "tt",
-                SymbolKind::TypeAlias => "ta",
-                SymbolKind::TypeParam => "tp",
-                SymbolKind::Union => "un",
-                SymbolKind::ValueParam => "vp",
-                SymbolKind::Variant => "ev",
-            },
-            CompletionItemKind::Attribute => "at",
-            CompletionItemKind::Binding => "bn",
-            CompletionItemKind::BuiltinType => "bt",
-            CompletionItemKind::Keyword => "kw",
-            CompletionItemKind::Method => "me",
-            CompletionItemKind::Snippet => "sn",
-            CompletionItemKind::UnresolvedReference => "??",
-        }
-    }
-}
 
 impl CompletionItem {
     pub(crate) fn new(
@@ -423,100 +388,5 @@ impl Builder {
     pub(crate) fn ref_match(&mut self, mutability: Mutability) -> &mut Builder {
         self.ref_match = Some(mutability);
         self
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use itertools::Itertools;
-    use test_utils::assert_eq_text;
-
-    use super::{CompletionRelevance, CompletionRelevanceTypeMatch};
-
-    /// Check that these are CompletionRelevance are sorted in ascending order
-    /// by their relevance score.
-    ///
-    /// We want to avoid making assertions about the absolute score of any
-    /// item, but we do want to assert whether each is >, <, or == to the
-    /// others.
-    ///
-    /// If provided vec![vec![a], vec![b, c], vec![d]], then this will assert:
-    ///     a.score < b.score == c.score < d.score
-    fn check_relevance_score_ordered(expected_relevance_order: Vec<Vec<CompletionRelevance>>) {
-        let expected = format!("{:#?}", &expected_relevance_order);
-
-        let actual_relevance_order = expected_relevance_order
-            .into_iter()
-            .flatten()
-            .map(|r| (r.score(), r))
-            .sorted_by_key(|(score, _r)| *score)
-            .fold(
-                (u32::MIN, vec![vec![]]),
-                |(mut currently_collecting_score, mut out), (score, r)| {
-                    if currently_collecting_score == score {
-                        out.last_mut().unwrap().push(r);
-                    } else {
-                        currently_collecting_score = score;
-                        out.push(vec![r]);
-                    }
-                    (currently_collecting_score, out)
-                },
-            )
-            .1;
-
-        let actual = format!("{:#?}", &actual_relevance_order);
-
-        assert_eq_text!(&expected, &actual);
-    }
-
-    #[test]
-    fn relevance_score() {
-        // This test asserts that the relevance score for these items is ascending, and
-        // that any items in the same vec have the same score.
-        let expected_relevance_order = vec![
-            vec![CompletionRelevance::default()],
-            vec![
-                CompletionRelevance {
-                    exact_name_match: true,
-                    ..CompletionRelevance::default()
-                },
-                CompletionRelevance {
-                    is_local: true,
-                    ..CompletionRelevance::default()
-                },
-            ],
-            vec![CompletionRelevance {
-                exact_name_match: true,
-                is_local: true,
-                ..CompletionRelevance::default()
-            }],
-            vec![CompletionRelevance {
-                type_match: Some(CompletionRelevanceTypeMatch::CouldUnify),
-                ..CompletionRelevance::default()
-            }],
-            vec![CompletionRelevance {
-                type_match: Some(CompletionRelevanceTypeMatch::Exact),
-                ..CompletionRelevance::default()
-            }],
-            vec![CompletionRelevance {
-                exact_name_match: true,
-                type_match: Some(CompletionRelevanceTypeMatch::Exact),
-                ..CompletionRelevance::default()
-            }],
-            vec![CompletionRelevance {
-                exact_name_match: true,
-                type_match: Some(CompletionRelevanceTypeMatch::Exact),
-                is_local: true,
-                ..CompletionRelevance::default()
-            }],
-            vec![CompletionRelevance {
-                exact_name_match: false,
-                type_match: None,
-                is_local: false,
-                exact_postfix_snippet_match: true,
-            }],
-        ];
-
-        check_relevance_score_ordered(expected_relevance_order);
     }
 }

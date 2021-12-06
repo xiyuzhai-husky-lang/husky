@@ -9,9 +9,9 @@ use base_db::{
 use profile::{memory_usage, Bytes};
 use rustc_hash::FxHashSet;
 
-use crate::{symbol_index::SymbolsDatabase, RootDatabase};
+use crate::{symbol_index::SymbolsDatabase, IdeDatabase};
 
-impl RootDatabase {
+impl IdeDatabase {
     pub fn request_cancellation(&mut self) {
         let _p = profile::span("RootDatabase::request_cancellation");
         self.salsa_runtime_mut().synthetic_write(Durability::LOW);

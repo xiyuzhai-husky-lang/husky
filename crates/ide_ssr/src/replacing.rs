@@ -1,10 +1,11 @@
 //! Code for applying replacement templates for matches that have previously been found.
+use common::*;
 
 use crate::{resolving::ResolvedRule, Match, SsrMatches};
 use itertools::Itertools;
 use rustc_hash::{FxHashMap, FxHashSet};
 use syntax::ast;
-use syntax::{SyntaxElement, SyntaxKind, SyntaxNode, SyntaxToken, TextRange, TextSize};
+use syntax::{SyntaxElement, SyntaxKind, SyntaxNode, SyntaxToken};
 
 use text_edit::TextEdit;
 

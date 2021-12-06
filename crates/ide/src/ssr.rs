@@ -3,10 +3,10 @@
 //! depend on the ide_ssr crate.
 
 use ide_assists::{Assist, AssistId, AssistKind, AssistResolveStrategy, GroupLabel};
-use ide_db::{base_db::FileRange, label::Label, source_change::SourceChange, RootDatabase};
+use ide_db::{base_db::FileRange, label::Label, source_change::SourceChange, IdeDatabase};
 
 pub(crate) fn ssr_assists(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     resolve: &AssistResolveStrategy,
     frange: FileRange,
 ) -> Vec<Assist> {
@@ -28,7 +28,10 @@ pub(crate) fn ssr_assists(
 
         let source_change_for_workspace = SourceChange::from(match_finder.edits());
 
-        (Some(source_change_for_file), Some(source_change_for_workspace))
+        (
+            Some(source_change_for_file),
+            Some(source_change_for_workspace),
+        )
     } else {
         (None, None)
     };
@@ -51,201 +54,4 @@ pub(crate) fn ssr_assists(
     }
 
     ssr_assists
-}
-
-#[cfg(test)]
-mod tests {
-    use std::sync::Arc;
-
-    use expect_test::expect;
-    use ide_assists::{Assist, AssistResolveStrategy};
-    use ide_db::{
-        base_db::{fixture::WithFixture, salsa::Durability, FileRange},
-        symbol_index::SymbolsDatabase,
-        RootDatabase,
-    };
-    use rustc_hash::FxHashSet;
-
-    use super::ssr_assists;
-
-    fn get_assists(ra_fixture: &str, resolve: AssistResolveStrategy) -> Vec<Assist> {
-        let (mut db, file_id, range_or_offset) = RootDatabase::with_range_or_offset(ra_fixture);
-        let mut local_roots = FxHashSet::default();
-        local_roots.insert(ide_db::base_db::fixture::WORKSPACE);
-        db.set_local_roots_with_durability(Arc::new(local_roots), Durability::HIGH);
-        ssr_assists(&db, &resolve, FileRange { file_id, range: range_or_offset.into() })
-    }
-
-    #[test]
-    fn not_applicable_comment_not_ssr() {
-        let ra_fixture = r#"
-            //- /lib.rs
-
-            // This is foo $0
-            fn foo() {}
-            "#;
-        let assists = get_assists(ra_fixture, AssistResolveStrategy::All);
-
-        assert_eq!(0, assists.len());
-    }
-
-    #[test]
-    fn resolve_edits_true() {
-        let assists = get_assists(
-            r#"
-            //- /lib.rs
-            mod bar;
-
-            // 2 ==>> 3$0
-            fn foo() { 2 }
-
-            //- /bar.rs
-            fn bar() { 2 }
-            "#,
-            AssistResolveStrategy::All,
-        );
-
-        assert_eq!(2, assists.len());
-        let mut assists = assists.into_iter();
-
-        let apply_in_file_assist = assists.next().unwrap();
-        expect![[r#"
-            Assist {
-                id: AssistId(
-                    "ssr",
-                    RefactorRewrite,
-                ),
-                label: "Apply SSR in file",
-                group: Some(
-                    GroupLabel(
-                        "Apply SSR",
-                    ),
-                ),
-                target: 10..21,
-                source_change: Some(
-                    SourceChange {
-                        source_file_edits: {
-                            FileID(
-                                0,
-                            ): TextEdit {
-                                indels: [
-                                    Indel {
-                                        insert: "3",
-                                        delete: 33..34,
-                                    },
-                                ],
-                            },
-                        },
-                        file_system_edits: [],
-                        is_snippet: false,
-                    },
-                ),
-            }
-        "#]]
-        .assert_debug_eq(&apply_in_file_assist);
-
-        let apply_in_workspace_assist = assists.next().unwrap();
-        expect![[r#"
-            Assist {
-                id: AssistId(
-                    "ssr",
-                    RefactorRewrite,
-                ),
-                label: "Apply SSR in workspace",
-                group: Some(
-                    GroupLabel(
-                        "Apply SSR",
-                    ),
-                ),
-                target: 10..21,
-                source_change: Some(
-                    SourceChange {
-                        source_file_edits: {
-                            FileID(
-                                0,
-                            ): TextEdit {
-                                indels: [
-                                    Indel {
-                                        insert: "3",
-                                        delete: 33..34,
-                                    },
-                                ],
-                            },
-                            FileID(
-                                1,
-                            ): TextEdit {
-                                indels: [
-                                    Indel {
-                                        insert: "3",
-                                        delete: 11..12,
-                                    },
-                                ],
-                            },
-                        },
-                        file_system_edits: [],
-                        is_snippet: false,
-                    },
-                ),
-            }
-        "#]]
-        .assert_debug_eq(&apply_in_workspace_assist);
-    }
-
-    #[test]
-    fn resolve_edits_false() {
-        let assists = get_assists(
-            r#"
-            //- /lib.rs
-            mod bar;
-
-            // 2 ==>> 3$0
-            fn foo() { 2 }
-
-            //- /bar.rs
-            fn bar() { 2 }
-            "#,
-            AssistResolveStrategy::None,
-        );
-
-        assert_eq!(2, assists.len());
-        let mut assists = assists.into_iter();
-
-        let apply_in_file_assist = assists.next().unwrap();
-        expect![[r#"
-            Assist {
-                id: AssistId(
-                    "ssr",
-                    RefactorRewrite,
-                ),
-                label: "Apply SSR in file",
-                group: Some(
-                    GroupLabel(
-                        "Apply SSR",
-                    ),
-                ),
-                target: 10..21,
-                source_change: None,
-            }
-        "#]]
-        .assert_debug_eq(&apply_in_file_assist);
-
-        let apply_in_workspace_assist = assists.next().unwrap();
-        expect![[r#"
-            Assist {
-                id: AssistId(
-                    "ssr",
-                    RefactorRewrite,
-                ),
-                label: "Apply SSR in workspace",
-                group: Some(
-                    GroupLabel(
-                        "Apply SSR",
-                    ),
-                ),
-                target: 10..21,
-                source_change: None,
-            }
-        "#]]
-        .assert_debug_eq(&apply_in_workspace_assist);
-    }
 }

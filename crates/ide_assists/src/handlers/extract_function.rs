@@ -1,5 +1,7 @@
 use std::iter;
 
+use common::*;
+
 use either::Either;
 use hir::{HirDisplay, InFile, Local, ModuleDef, Semantics};
 use ide_db::{
@@ -7,18 +9,17 @@ use ide_db::{
     helpers::{
         insert_use::{insert_use, ImportScope},
         mod_path_to_ast,
-        node_ext::{preorder_expr, walk_expr, walk_pat, walk_patterns_in_expr},
+        node_ext::{walk_expr, walk_pat, walk_patterns_in_expr},
         FamousDefs,
     },
     search::{FileReference, ReferenceCategory, SearchScope},
-    FxIndexSet, RootDatabase,
+    FxIndexSet, IdeDatabase,
 };
 use itertools::Itertools;
 use stdx::format_to;
 use syntax::{
     ast::{self, edit::IndentLevel},
-    SyntaxElement, SyntaxKind, SyntaxNode, SyntaxToken, TextRange, TextSize, TokenAtOffset,
-    WalkEvent,
+    SyntaxElement, SyntaxKind, SyntaxNode, SyntaxToken, TokenAtOffset,
 };
 
 use crate::{
@@ -280,12 +281,12 @@ impl FunctionBody {
     /// whether it contains an await expression.
     fn analyze(
         &self,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
     ) -> (FxIndexSet<Local>, Option<ast::SelfParam>) {
         todo!()
     }
 
-    fn analyze_container(&self, sema: &Semantics<RootDatabase>) -> Option<ContainerInfo> {
+    fn analyze_container(&self, sema: &Semantics<IdeDatabase>) -> Option<ContainerInfo> {
         todo!()
     }
 
@@ -396,10 +397,7 @@ fn path_element_of_reference(
 }
 
 /// list local variables defined inside `body`
-fn locals_defined_in_body(
-    sema: &Semantics<RootDatabase>,
-    body: &FunctionBody,
-) -> FxIndexSet<Local> {
+fn locals_defined_in_body(sema: &Semantics<IdeDatabase>, body: &FunctionBody) -> FxIndexSet<Local> {
     todo!()
 }
 

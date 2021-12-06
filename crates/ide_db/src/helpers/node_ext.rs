@@ -1,8 +1,5 @@
 //! Various helper functions to work with SyntaxNodes.
-use syntax::{
-    ast::{self, PathSegmentKind, VisibilityKind},
-    WalkEvent,
-};
+use syntax::ast::{self, PathSegmentKind, VisibilityKind};
 
 pub fn expr_as_name_ref(expr: &ast::Expr) -> Option<ast::NameRef> {
     todo!()
@@ -14,20 +11,15 @@ pub fn block_as_lone_tail(block: &ast::BlockExpr) -> Option<ast::Expr> {
 
 /// Preorder walk all the expression's child expressions.
 pub fn walk_expr(expr: &ast::Expr, cb: &mut dyn FnMut(ast::Expr)) {
-    preorder_expr(expr, &mut |ev| {
-        if let WalkEvent::Enter(expr) = ev {
-            cb(expr);
-        }
-        false
-    })
+    todo!()
 }
 
 /// Preorder walk all the expression's child expressions preserving events.
 /// If the callback returns true on an [`WalkEvent::Enter`], the subtree of the expression will be skipped.
 /// Note that the subtree may already be skipped due to the context analysis this function does.
-pub fn preorder_expr(start: &ast::Expr, cb: &mut dyn FnMut(WalkEvent<ast::Expr>) -> bool) {
-    todo!()
-}
+// pub fn preorder_expr(start: &ast::Expr, cb: &mut dyn FnMut(WalkEvent<ast::Expr>) -> bool) {
+//     todo!()
+// }
 
 /// Preorder walk all the expression's child patterns.
 pub fn walk_patterns_in_expr(start: &ast::Expr, cb: &mut dyn FnMut(ast::Pat)) {

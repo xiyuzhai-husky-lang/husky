@@ -10,3 +10,4 @@ doctest = false
 
 [dependencies]
 bimap = "0.6.1"
+rowan = "0.14.0"

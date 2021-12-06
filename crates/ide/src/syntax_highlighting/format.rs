@@ -1,9 +1,8 @@
 //! Syntax highlighting for format macro strings.
+use common::*;
+
 use ide_db::SymbolKind;
-use syntax::{
-    ast::{self, FormatSpecifier, HasFormatSpecifier},
-    TextRange,
-};
+use syntax::ast::{self, FormatSpecifier, HasFormatSpecifier};
 
 use crate::{syntax_highlighting::highlights::Highlights, HlRange, HlTag};
 

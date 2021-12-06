@@ -1,11 +1,13 @@
+use common::*;
+
 use ide_db::base_db::{FileID, SourceDatabase};
-use ide_db::RootDatabase;
-use syntax::{NodeOrToken, SingleFileParseTree, SyntaxToken, TextRange, TextSize};
+use ide_db::IdeDatabase;
+use syntax::{NodeOrToken, SingleFileParseTree, SyntaxToken};
 
 // Feature: Show Syntax Tree
 //
 // Shows the parse tree of the current file. It exists mostly for debugging
-// rust-analyzer itself.
+// husky-lang-server itself.
 //
 // |===
 // | Editor  | Action Name
@@ -14,7 +16,7 @@ use syntax::{NodeOrToken, SingleFileParseTree, SyntaxToken, TextRange, TextSize}
 // |===
 // image::https://user-images.githubusercontent.com/48062697/113065586-068bdb80-91b1-11eb-9507-fee67f9f45a0.gif[]
 pub(crate) fn syntax_tree(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     file_id: FileID,
     text_range: Option<TextRange>,
 ) -> String {

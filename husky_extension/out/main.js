@@ -15428,22 +15428,22 @@ var lc2 = __toModule(require_node3());
 
 // src/lsp_ext.ts
 var lc = __toModule(require_main4());
-var analyzerStatus = new lc.RequestType("rust-analyzer/analyzerStatus");
-var memoryUsage = new lc.RequestType0("rust-analyzer/memoryUsage");
+var analyzerStatus = new lc.RequestType("husky-lang-server/analyzerStatus");
+var memoryUsage = new lc.RequestType0("husky-lang-server/memoryUsage");
 var serverStatus = new lc.NotificationType("experimental/serverStatus");
-var reloadWorkspace = new lc.RequestType0("rust-analyzer/reloadWorkspace");
+var reloadWorkspace = new lc.RequestType0("husky-lang-server/reloadWorkspace");
 var hover = new lc.RequestType("textDocument/hover");
-var syntaxTree = new lc.RequestType("rust-analyzer/syntaxTree");
-var viewHir = new lc.RequestType("rust-analyzer/viewHir");
-var viewItemTree = new lc.RequestType("rust-analyzer/viewItemTree");
-var viewCrateGraph = new lc.RequestType("rust-analyzer/viewCrateGraph");
-var expandMacro = new lc.RequestType("rust-analyzer/expandMacro");
+var syntaxTree = new lc.RequestType("husky-lang-server/syntaxTree");
+var viewHir = new lc.RequestType("husky-lang-server/viewHir");
+var viewItemTree = new lc.RequestType("husky-lang-server/viewItemTree");
+var viewCrateGraph = new lc.RequestType("husky-lang-server/viewCrateGraph");
+var expandMacro = new lc.RequestType("husky-lang-server/expandMacro");
 var matchingBrace = new lc.RequestType("experimental/matchingBrace");
 var parentModule = new lc.RequestType("experimental/parentModule");
 var joinLines = new lc.RequestType("experimental/joinLines");
 var onEnter = new lc.RequestType("experimental/onEnter");
 var runnables = new lc.RequestType("experimental/runnables");
-var relatedTests = new lc.RequestType("rust-analyzer/relatedTests");
+var relatedTests = new lc.RequestType("husky-lang-server/relatedTests");
 var InlayHint;
 (function(InlayHint2) {
   let Kind;
@@ -15453,7 +15453,7 @@ var InlayHint;
     Kind2["ChainingHint"] = "ChainingHint";
   })(Kind = InlayHint2.Kind || (InlayHint2.Kind = {}));
 })(InlayHint || (InlayHint = {}));
-var inlayHints = new lc.RequestType("rust-analyzer/inlayHints");
+var inlayHints = new lc.RequestType("husky-lang-server/inlayHints");
 var ssr = new lc.RequestType("experimental/ssr");
 var openDocs = new lc.RequestType("experimental/externalDocs");
 var openCargoToml = new lc.RequestType("experimental/openCargoToml");
@@ -15529,10 +15529,10 @@ var ExperimentalFeatures = class {
     caps.serverStatusNotification = true;
     caps.commands = {
       commands: [
-        "rust-analyzer.runSingle",
-        "rust-analyzer.debugSingle",
-        "rust-analyzer.showReferences",
-        "rust-analyzer.gotoLocation",
+        "husky-lang-server.runSingle",
+        "husky-lang-server.debugSingle",
+        "husky-lang-server.showReferences",
+        "husky-lang-server.gotoLocation",
         "editor.action.triggerParameterHints"
       ]
     };

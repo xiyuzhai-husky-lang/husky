@@ -149,26 +149,3 @@ pub trait AstNodeEdit: AstNode + Clone + Sized {
 }
 
 impl<N: AstNode + Clone> AstNodeEdit for N {}
-
-#[test]
-fn test_increase_indent() {
-    let arm_list = {
-        let arm = make::match_arm(iter::once(make::wildcard_pat().into()), None, make::expr_unit());
-        make::match_arm_list(vec![arm.clone(), arm])
-    };
-    assert_eq!(
-        arm_list.syntax().to_string(),
-        "{
-    _ => (),
-    _ => (),
-}"
-    );
-    let indented = arm_list.indent(IndentLevel(2));
-    assert_eq!(
-        indented.syntax().to_string(),
-        "{
-            _ => (),
-            _ => (),
-        }"
-    );
-}

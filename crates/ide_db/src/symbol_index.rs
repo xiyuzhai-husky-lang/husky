@@ -28,6 +28,8 @@ use std::{
     sync::Arc,
 };
 
+use common::*;
+
 use base_db::{
     salsa::{self, ParallelDatabase},
     CrateId, FileID, SourceDatabaseExt, SourceRootId,
@@ -40,10 +42,10 @@ use syntax::{
     ast::{self, SyntaxNodePtr},
     ParseResult, SingleFileParseTree, SmolStr,
     SyntaxKind::*,
-    SyntaxNode, TextRange, WalkEvent,
+    SyntaxNode,
 };
 
-use crate::RootDatabase;
+use crate::IdeDatabase;
 
 #[derive(Debug)]
 pub struct Query {
@@ -139,15 +141,15 @@ impl<DB: ParallelDatabase> Clone for Snap<salsa::Snapshot<DB>> {
 //
 // Note that filtering does not currently work in VSCode due to the editor never
 // sending the special symbols to the language server. Instead, you can configure
-// the filtering via the `rust-analyzer.workspace.symbol.search.scope` and
-// `rust-analyzer.workspace.symbol.search.kind` settings.
+// the filtering via the `husky-lang-server.workspace.symbol.search.scope` and
+// `husky-lang-server.workspace.symbol.search.kind` settings.
 //
 // |===
 // | Editor  | Shortcut
 //
 // | VS Code | kbd:[Ctrl+T]
 // |===
-pub fn world_symbols(db: &RootDatabase, query: Query) -> Vec<FileSymbol> {
+pub fn world_symbols(db: &IdeDatabase, query: Query) -> Vec<FileSymbol> {
     let _p = profile::span("world_symbols").detail(|| query.query.clone());
 
     let tmp1;
@@ -172,11 +174,11 @@ pub fn world_symbols(db: &RootDatabase, query: Query) -> Vec<FileSymbol> {
     query.search(&buf)
 }
 
-pub fn crate_symbols(db: &RootDatabase, krate: CrateId, query: Query) -> Vec<FileSymbol> {
+pub fn crate_symbols(db: &IdeDatabase, krate: CrateId, query: Query) -> Vec<FileSymbol> {
     todo!()
 }
 
-pub fn index_resolve(db: &RootDatabase, name: &str) -> Vec<FileSymbol> {
+pub fn index_resolve(db: &IdeDatabase, name: &str) -> Vec<FileSymbol> {
     let mut query = Query::new(name.to_string());
     query.exact();
     query.limit(4);

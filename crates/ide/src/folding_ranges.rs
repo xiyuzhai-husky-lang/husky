@@ -1,10 +1,11 @@
+use common::*;
+
 use ide_db::helpers::node_ext::vis_eq;
 use rustc_hash::FxHashSet;
 
 use syntax::{
     ast, Direction, NodeOrToken, SingleFileParseTree,
     SyntaxKind::{self, *},
-    TextRange, TextSize,
 };
 
 use std::hash::Hash;

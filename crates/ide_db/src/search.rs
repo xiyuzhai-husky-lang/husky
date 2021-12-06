@@ -6,15 +6,17 @@
 
 use std::{convert::TryInto, mem};
 
+use common::*;
+
 use base_db::{FileID, FileRange, SourceDatabase, SourceDatabaseExt};
 use hir::{AsAssocItem, InFile, ModuleSource, Semantics, Visibility};
 use once_cell::unsync::Lazy;
 use rustc_hash::FxHashMap;
-use syntax::{ast, TextRange, TextSize};
+use syntax::ast;
 
 use crate::{
     defs::{Definition, NameClass, NameRefClass},
-    RootDatabase,
+    IdeDatabase,
 };
 
 #[derive(Debug, Default, Clone)]
@@ -86,45 +88,36 @@ impl SearchScope {
         SearchScope { entries }
     }
 
-    fn crate_graph(db: &RootDatabase) -> SearchScope {
-        let mut entries = FxHashMap::default();
-
-        let graph = db.crate_graph();
-        for krate in graph.iter() {
-            let root_file = graph[krate].root_file_id;
-            let source_root_id = db.file_source_root(root_file);
-            let source_root = db.source_root(source_root_id);
-            entries.extend(source_root.iter().map(|id| (id, None)));
-        }
-        SearchScope { entries }
-    }
-
-    fn reverse_dependencies(db: &RootDatabase, of: hir::Crate) -> SearchScope {
+    fn crate_graph(db: &IdeDatabase) -> SearchScope {
         todo!()
     }
 
-    fn krate(db: &RootDatabase, of: hir::Crate) -> SearchScope {
+    fn reverse_dependencies(db: &IdeDatabase, of: hir::Crate) -> SearchScope {
         todo!()
     }
 
-    fn module(db: &RootDatabase, module: hir::Module) -> SearchScope {
+    fn krate(db: &IdeDatabase, of: hir::Crate) -> SearchScope {
+        todo!()
+    }
+
+    fn module(db: &IdeDatabase, module: hir::Module) -> SearchScope {
         todo!()
     }
 
     pub fn empty() -> SearchScope {
-        SearchScope::new(FxHashMap::default())
+        todo!()
     }
 
     pub fn single_file(file: FileID) -> SearchScope {
-        SearchScope::new(std::iter::once((file, None)).collect())
+        todo!()
     }
 
     pub fn file_range(range: FileRange) -> SearchScope {
-        SearchScope::new(std::iter::once((range.file_id, Some(range.range))).collect())
+        todo!()
     }
 
     pub fn files(files: &[FileID]) -> SearchScope {
-        SearchScope::new(files.iter().map(|f| (*f, None)).collect())
+        todo!()
     }
 
     pub fn intersection(&self, other: &SearchScope) -> SearchScope {
@@ -169,11 +162,11 @@ impl IntoIterator for SearchScope {
 }
 
 impl Definition {
-    fn search_scope(&self, db: &RootDatabase) -> SearchScope {
+    fn search_scope(&self, db: &IdeDatabase) -> SearchScope {
         todo!()
     }
 
-    pub fn usages<'a>(self, sema: &'a Semantics<RootDatabase>) -> FindUsages<'a> {
+    pub fn usages<'a>(self, sema: &'a Semantics<IdeDatabase>) -> FindUsages<'a> {
         FindUsages {
             def: self,
             sema,
@@ -187,7 +180,7 @@ impl Definition {
 #[derive(Clone)]
 pub struct FindUsages<'a> {
     def: Definition,
-    sema: &'a Semantics<'a, RootDatabase>,
+    sema: &'a Semantics<'a, IdeDatabase>,
     scope: Option<SearchScope>,
     include_self_kw_refs: Option<hir::Type>,
     search_self_mod: bool,
@@ -267,7 +260,7 @@ impl<'a> FindUsages<'a> {
     }
 }
 
-fn def_to_ty(sema: &Semantics<RootDatabase>, def: &Definition) -> Option<hir::Type> {
+fn def_to_ty(sema: &Semantics<IdeDatabase>, def: &Definition) -> Option<hir::Type> {
     todo!()
 }
 

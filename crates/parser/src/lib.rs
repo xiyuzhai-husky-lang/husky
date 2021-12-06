@@ -69,7 +69,7 @@ pub trait TreeSink {
     fn error(&mut self, error: ParseError);
 }
 
-/// rust-analyzer parser allows you to choose one of the possible entry points.
+/// husky-lang-server parser allows you to choose one of the possible entry points.
 ///
 /// The primary consumer of this API are declarative macros, `$x:expr` matchers
 /// are implemented by calling into the parser with non-standard entry point.

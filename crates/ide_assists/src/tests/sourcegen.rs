@@ -4,61 +4,6 @@ use std::{fmt, fs, path::Path};
 
 use test_utils::project_root;
 
-#[test]
-fn sourcegen_assists_docs() {
-    let assists = Assist::collect();
-
-    {
-        // Generate doctests.
-
-        let mut buf = "
-use super::check_doc_test;
-"
-        .to_string();
-        for assist in assists.iter() {
-            for (idx, section) in assist.sections.iter().enumerate() {
-                let test_id =
-                    if idx == 0 { assist.id.clone() } else { format!("{}_{}", &assist.id, idx) };
-                let test = format!(
-                    r######"
-#[test]
-fn doctest_{}() {{
-    check_doc_test(
-        "{}",
-r#####"
-{}"#####, r#####"
-{}"#####)
-}}
-"######,
-                    &test_id,
-                    &assist.id,
-                    reveal_hash_comments(&section.before),
-                    reveal_hash_comments(&section.after)
-                );
-
-                buf.push_str(&test)
-            }
-        }
-        let buf = sourcegen::add_preamble("sourcegen_assists_docs", sourcegen::reformat(buf));
-        sourcegen::ensure_file_contents(
-            &project_root().join("crates/ide_assists/src/tests/generated.rs"),
-            &buf,
-        );
-    }
-
-    {
-        // Generate assists manual. Note that we do _not_ commit manual to the
-        // git repo. Instead, `cargo xtask release` runs this test before making
-        // a release.
-
-        let contents = sourcegen::add_preamble(
-            "sourcegen_assists_docs",
-            assists.into_iter().map(|it| it.to_string()).collect::<Vec<_>>().join("\n\n"),
-        );
-        let dst = project_root().join("docs/user/generated_assists.adoc");
-        fs::write(dst, contents).unwrap();
-    }
-}
 #[derive(Debug)]
 struct Section {
     doc: String,
@@ -98,8 +43,15 @@ impl Assist {
                     id
                 );
                 let mut lines = block.contents.iter().peekable();
-                let location = sourcegen::Location { file: path.to_path_buf(), line: block.line };
-                let mut assist = Assist { id, location, sections: Vec::new() };
+                let location = sourcegen::Location {
+                    file: path.to_path_buf(),
+                    line: block.line,
+                };
+                let mut assist = Assist {
+                    id,
+                    location,
+                    sections: Vec::new(),
+                };
 
                 while lines.peek().is_some() {
                     let doc = take_until(lines.by_ref(), "```").trim().to_string();

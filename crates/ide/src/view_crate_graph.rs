@@ -3,7 +3,7 @@ use std::sync::Arc;
 use dot::{Id, LabelText};
 use ide_db::{
     base_db::{CrateGraph, CrateId, Dependency, SourceDatabase, SourceDatabaseExt},
-    RootDatabase,
+    IdeDatabase,
 };
 use rustc_hash::FxHashSet;
 
@@ -19,7 +19,7 @@ use rustc_hash::FxHashSet;
 //
 // | VS Code | **Rust Analyzer: View Crate Graph**
 // |===
-pub(crate) fn view_crate_graph(db: &RootDatabase, full: bool) -> Result<String, String> {
+pub(crate) fn view_crate_graph(db: &IdeDatabase, full: bool) -> Result<String, String> {
     let crate_graph = db.crate_graph();
     let crates_to_render = crate_graph
         .iter()
@@ -33,7 +33,10 @@ pub(crate) fn view_crate_graph(db: &RootDatabase, full: bool) -> Result<String, 
             }
         })
         .collect();
-    let graph = DotCrateGraph { graph: crate_graph, crates_to_render };
+    let graph = DotCrateGraph {
+        graph: crate_graph,
+        crates_to_render,
+    };
 
     let mut dot = Vec::new();
     dot::render(&graph, &mut dot).unwrap();
@@ -88,7 +91,10 @@ impl<'a> dot::Labeller<'a, CrateId, Edge<'a>> for DotCrateGraph {
     }
 
     fn node_label(&'a self, n: &CrateId) -> LabelText<'a> {
-        let name = self.graph[*n].display_name.as_ref().map_or("(unnamed crate)", |name| &*name);
+        let name = self.graph[*n]
+            .display_name
+            .as_ref()
+            .map_or("(unnamed crate)", |name| &*name);
         LabelText::LabelStr(name.into())
     }
 }

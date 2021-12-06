@@ -61,14 +61,14 @@ pub(crate) fn convert_for_loop_with_for_each(acc: &mut Assists, ctx: &AssistCont
 /// returning an Iterator called iter or iter_mut (depending on the type of reference) then return
 /// the expression behind the reference and the method name
 fn is_ref_and_impls_iter_method(
-    sema: &hir::Semantics<ide_db::RootDatabase>,
+    sema: &hir::Semantics<ide_db::IdeDatabase>,
     iterable: &ast::Expr,
 ) -> Option<(ast::Expr, hir::Name)> {
     todo!()
 }
 
 /// Whether iterable implements core::Iterator
-fn impls_core_iter(sema: &hir::Semantics<ide_db::RootDatabase>, iterable: &ast::Expr) -> bool {
+fn impls_core_iter(sema: &hir::Semantics<ide_db::IdeDatabase>, iterable: &ast::Expr) -> bool {
     todo!()
 }
 

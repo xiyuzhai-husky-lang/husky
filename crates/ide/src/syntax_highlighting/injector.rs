@@ -2,8 +2,9 @@
 //! between original and extracted texts.
 use std::ops::{self, Sub};
 
+use common::*;
+
 use stdx::equal_range_by;
-use syntax::{TextRange, TextSize};
 
 #[derive(Default)]
 pub(super) struct Injector {
@@ -25,7 +26,10 @@ impl Injector {
     fn add_impl(&mut self, text: &str, source: Option<TextSize>) {
         let len = TextSize::of(text);
         let target_range = TextRange::at(TextSize::of(&self.buf), len);
-        self.ranges.push((target_range, source.map(|it| Delta::new(target_range.start(), it))));
+        self.ranges.push((
+            target_range,
+            source.map(|it| Delta::new(target_range.start(), it)),
+        ));
         self.buf.push_str(text);
     }
 

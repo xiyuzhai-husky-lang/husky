@@ -33,7 +33,7 @@ fn get_init_result(config: &ServerConfig) -> serde_json::Value {
     let init_result = lsp_types::InitializeResult {
         capabilities: get_server_capabilities(&config),
         server_info: Some(lsp_types::ServerInfo {
-            name: String::from("rust-analyzer"),
+            name: String::from("husky-lang-server"),
             version: None,
         }),
         offset_encoding: if lsp_ext::supports_utf8(&config.client_capabilities) {

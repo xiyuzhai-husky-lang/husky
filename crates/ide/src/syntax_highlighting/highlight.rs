@@ -1,10 +1,11 @@
 //! Computes color for a single element.
+use common::*;
 
 use hir::{AsAssocItem, HasVisibility, Semantics};
 use ide_db::{
     defs::{Definition, NameClass, NameRefClass},
     helpers::{try_resolve_derive_input, FamousDefs},
-    RootDatabase, SymbolKind,
+    IdeDatabase, SymbolKind,
 };
 use rustc_hash::FxHashMap;
 use syntax::{
@@ -19,7 +20,7 @@ use crate::{
 };
 
 pub(super) fn element(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
     bindings_shadow_count: &mut FxHashMap<hir::Name, u32>,
     syntactic_name_ref_highlighting: bool,
@@ -29,7 +30,7 @@ pub(super) fn element(
 }
 
 fn token(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
     token: SyntaxToken,
 ) -> Option<Highlight> {
@@ -37,7 +38,7 @@ fn token(
 }
 
 fn node(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
     bindings_shadow_count: &mut FxHashMap<hir::Name, u32>,
     syntactic_name_ref_highlighting: bool,
@@ -46,12 +47,12 @@ fn node(
     todo!()
 }
 
-fn highlight_name_ref_in_attr(sema: &Semantics<RootDatabase>, name_ref: ast::NameRef) -> Highlight {
+fn highlight_name_ref_in_attr(sema: &Semantics<IdeDatabase>, name_ref: ast::NameRef) -> Highlight {
     todo!()
 }
 
 fn highlight_name_ref(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
     bindings_shadow_count: &mut FxHashMap<hir::Name, u32>,
     binding_hash: &mut Option<u64>,
@@ -62,7 +63,7 @@ fn highlight_name_ref(
 }
 
 fn highlight_name(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     bindings_shadow_count: &mut FxHashMap<hir::Name, u32>,
     binding_hash: &mut Option<u64>,
     krate: Option<hir::Crate>,
@@ -84,7 +85,7 @@ fn calc_binding_hash(name: &hir::Name, shadow_count: u32) -> u64 {
 }
 
 fn highlight_def(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
     def: Definition,
 ) -> Highlight {
@@ -92,7 +93,7 @@ fn highlight_def(
 }
 
 fn highlight_method_call_by_name_ref(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
     name_ref: &ast::NameRef,
 ) -> Option<Highlight> {
@@ -100,7 +101,7 @@ fn highlight_method_call_by_name_ref(
 }
 
 fn highlight_method_call(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
     method_call: &ast::MethodCallExpr,
 ) -> Option<Highlight> {
@@ -113,13 +114,13 @@ fn highlight_name_by_syntax(name: ast::Name) -> Highlight {
 
 fn highlight_name_ref_by_syntax(
     name: ast::NameRef,
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     krate: Option<hir::Crate>,
 ) -> Highlight {
     todo!()
 }
 
-fn is_consumed_lvalue(node: &SyntaxNode, local: &hir::Local, db: &RootDatabase) -> bool {
+fn is_consumed_lvalue(node: &SyntaxNode, local: &hir::Local, db: &IdeDatabase) -> bool {
     todo!()
 }
 

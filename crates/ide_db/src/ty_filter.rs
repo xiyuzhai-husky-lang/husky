@@ -7,7 +7,7 @@ use std::iter;
 use hir::Semantics;
 use syntax::ast::{self, Pat};
 
-use crate::RootDatabase;
+use crate::IdeDatabase;
 
 /// Enum types that implement `std::ops::Try` trait.
 #[derive(Clone, Copy)]
@@ -20,7 +20,7 @@ impl TryEnum {
     const ALL: [TryEnum; 2] = [TryEnum::Option, TryEnum::Result];
 
     /// Returns `Some(..)` if the provided type is an enum that implements `std::ops::Try`.
-    pub fn from_ty(sema: &Semantics<RootDatabase>, ty: &hir::Type) -> Option<TryEnum> {
+    pub fn from_ty(sema: &Semantics<IdeDatabase>, ty: &hir::Type) -> Option<TryEnum> {
         todo!()
     }
 

@@ -21,8 +21,8 @@ macro_rules! try_or {
 use std::{ffi::OsString, iter, path::PathBuf};
 
 use ide::{
-    AssistConfig, CompletionConfig, DiagnosticsConfig, HighlightRelatedConfig, HoverConfig,
-    HoverDocFormat, JoinLinesConfig, Snippet, SnippetScope,
+    AssistConfig, CompletionConfig, HighlightRelatedConfig, HoverConfig, HoverDocFormat,
+    JoinLinesConfig, Snippet, SnippetScope,
 };
 use ide_db::helpers::{
     insert_use::{ImportGranularity, InsertUseConfig, PrefixKind},
@@ -434,6 +434,7 @@ impl ServerConfig {
             OffsetEncoding::Utf16
         }
     }
+
     pub fn completion(&self) -> CompletionConfig {
         CompletionConfig {
             enable_postfix_completions: self.data.completion_postfix_enable,
@@ -471,6 +472,7 @@ impl ServerConfig {
             },
         }
     }
+
     fn insert_use_config(&self) -> InsertUseConfig {
         InsertUseConfig {
             granularity: match self.data.assist_importGranularity {
@@ -488,12 +490,6 @@ impl ServerConfig {
             // },
             group: self.data.assist_importGroup,
             skip_glob_imports: !self.data.assist_allowMergingIntoGlobImports,
-        }
-    }
-    pub fn diagnostics(&self) -> DiagnosticsConfig {
-        DiagnosticsConfig {
-            disable_experimental: true,
-            disabled: self.data.diagnostics_disabled.clone(),
         }
     }
 

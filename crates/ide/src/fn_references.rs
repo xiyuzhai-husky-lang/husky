@@ -3,12 +3,12 @@
 
 use hir::Semantics;
 use ide_assists::utils::test_related_attribute;
-use ide_db::RootDatabase;
+use ide_db::IdeDatabase;
 use syntax::{ast, SyntaxNode};
 
 use crate::{FileID, FileRange};
 
-pub(crate) fn find_all_methods(db: &RootDatabase, file_id: FileID) -> Vec<FileRange> {
+pub(crate) fn find_all_methods(db: &IdeDatabase, file_id: FileID) -> Vec<FileRange> {
     todo!()
 }
 

@@ -1,8 +1,9 @@
 //! Collects a tree of highlighted ranges and flattens it.
 use std::iter;
 
+use common::*;
+
 use stdx::equal_range_by;
-use syntax::TextRange;
 
 use crate::{HlRange, HlTag};
 
@@ -18,7 +19,11 @@ struct Node {
 impl Highlights {
     pub(super) fn new(range: TextRange) -> Highlights {
         Highlights {
-            root: Node::new(HlRange { range, highlight: HlTag::None.into(), binding_hash: None }),
+            root: Node::new(HlRange {
+                range,
+                highlight: HlTag::None.into(),
+                binding_hash: None,
+            }),
         }
     }
 
@@ -35,7 +40,10 @@ impl Highlights {
 
 impl Node {
     fn new(hl_range: HlRange) -> Node {
-        Node { hl_range, nested: Vec::new() }
+        Node {
+            hl_range,
+            nested: Vec::new(),
+        }
     }
 
     fn add(&mut self, hl_range: HlRange) {
@@ -51,11 +59,15 @@ impl Node {
             }
         }
 
-        let overlapping =
-            equal_range_by(&self.nested, |n| TextRange::ordering(n.hl_range.range, hl_range.range));
+        let overlapping = equal_range_by(&self.nested, |n| {
+            TextRange::ordering(n.hl_range.range, hl_range.range)
+        });
 
         if overlapping.len() == 1
-            && self.nested[overlapping.start].hl_range.range.contains_range(hl_range.range)
+            && self.nested[overlapping.start]
+                .hl_range
+                .range
+                .contains_range(hl_range.range)
         {
             return self.nested[overlapping.start].add(hl_range);
         }

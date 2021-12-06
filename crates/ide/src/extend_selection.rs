@@ -1,11 +1,13 @@
 use std::iter::successors;
 
+use common::*;
+
 use hir::Semantics;
-use ide_db::RootDatabase;
+use ide_db::IdeDatabase;
 use syntax::{
     ast, Direction, NodeOrToken,
     SyntaxKind::{self, *},
-    SyntaxNode, SyntaxToken, TextRange, TextSize, TokenAtOffset,
+    SyntaxNode, SyntaxToken, TokenAtOffset,
 };
 
 use crate::FileRange;
@@ -24,12 +26,12 @@ use crate::FileRange;
 // |===
 //
 // image::https://user-images.githubusercontent.com/48062697/113020651-b42fc800-917a-11eb-8a4f-cf1a07859fac.gif[]
-pub(crate) fn extend_selection(db: &RootDatabase, frange: FileRange) -> TextRange {
+pub(crate) fn extend_selection(db: &IdeDatabase, frange: FileRange) -> TextRange {
     todo!()
 }
 
 fn try_extend_selection(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     root: &SyntaxNode,
     frange: FileRange,
 ) -> Option<TextRange> {

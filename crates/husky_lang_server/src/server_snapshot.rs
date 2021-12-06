@@ -4,12 +4,12 @@ use lsp_types::{SemanticTokens, Url};
 use parking_lot::{Mutex, RwLock};
 use rustc_hash::FxHashMap;
 
-use ide::{Analysis, AnalysisHost, Cancellable, Change, FileID};
+use ide::{AnalysisHost, Cancellable, Change, DatabaseProxy, FileID};
 
 use crate::{
     config::ServerConfig,
     convert::from_lsp_types,
-    diagnostics::{CheckFixes, DiagnosticCollection},
+    diagnostics::{CheckFixes, DiagnosticsTracker},
     fs::ServerFileSystem,
     line_index::{LineCollection, LineEndingType},
     server::live_docs::LiveDocs,
@@ -20,7 +20,7 @@ use crate::{
 pub(crate) struct ServerSnapshot {
     pub(crate) config: Arc<ServerConfig>,
     pub(crate) vfs: Arc<RwLock<ServerFileSystem>>,
-    pub(crate) analysis: Analysis,
+    pub(crate) analysis: DatabaseProxy,
     pub(crate) check_fixes: CheckFixes,
     pub(crate) live_docs: LiveDocs,
     pub(crate) semantic_tokens_cache: Arc<Mutex<FxHashMap<Url, SemanticTokens>>>,

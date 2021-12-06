@@ -1,4 +1,4 @@
-//! rust-analyzer extensions to the LSP.
+//! husky-lang-server extensions to the LSP.
 
 use std::{collections::HashMap, path::PathBuf};
 
@@ -14,7 +14,7 @@ pub enum AnalyzerStatus {}
 impl Request for AnalyzerStatus {
     type Params = AnalyzerStatusParams;
     type Result = String;
-    const METHOD: &'static str = "rust-analyzer/analyzerStatus";
+    const METHOD: &'static str = "husky-lang-server/analyzerStatus";
 }
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -28,7 +28,7 @@ pub enum MemoryUsage {}
 impl Request for MemoryUsage {
     type Params = ();
     type Result = String;
-    const METHOD: &'static str = "rust-analyzer/memoryUsage";
+    const METHOD: &'static str = "husky-lang-server/memoryUsage";
 }
 
 pub enum ReloadWorkspace {}
@@ -36,7 +36,7 @@ pub enum ReloadWorkspace {}
 impl Request for ReloadWorkspace {
     type Params = ();
     type Result = ();
-    const METHOD: &'static str = "rust-analyzer/reloadWorkspace";
+    const METHOD: &'static str = "husky-lang-server/reloadWorkspace";
 }
 
 pub enum SyntaxTree {}
@@ -44,7 +44,7 @@ pub enum SyntaxTree {}
 impl Request for SyntaxTree {
     type Params = SyntaxTreeParams;
     type Result = String;
-    const METHOD: &'static str = "rust-analyzer/syntaxTree";
+    const METHOD: &'static str = "husky-lang-server/syntaxTree";
 }
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -59,7 +59,7 @@ pub enum ViewHir {}
 impl Request for ViewHir {
     type Params = lsp_types::TextDocumentPositionParams;
     type Result = String;
-    const METHOD: &'static str = "rust-analyzer/viewHir";
+    const METHOD: &'static str = "husky-lang-server/viewHir";
 }
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -74,7 +74,7 @@ pub enum ViewCrateGraph {}
 impl Request for ViewCrateGraph {
     type Params = ViewCrateGraphParams;
     type Result = String;
-    const METHOD: &'static str = "rust-analyzer/viewCrateGraph";
+    const METHOD: &'static str = "husky-lang-server/viewCrateGraph";
 }
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -88,7 +88,7 @@ pub enum ViewItemTree {}
 impl Request for ViewItemTree {
     type Params = ViewItemTreeParams;
     type Result = String;
-    const METHOD: &'static str = "rust-analyzer/viewItemTree";
+    const METHOD: &'static str = "husky-lang-server/viewItemTree";
 }
 
 pub enum ExpandMacro {}
@@ -96,7 +96,7 @@ pub enum ExpandMacro {}
 impl Request for ExpandMacro {
     type Params = ExpandMacroParams;
     type Result = Option<ExpandedMacro>;
-    const METHOD: &'static str = "rust-analyzer/expandMacro";
+    const METHOD: &'static str = "husky-lang-server/expandMacro";
 }
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -212,7 +212,7 @@ pub enum RelatedTests {}
 impl Request for RelatedTests {
     type Params = lsp_types::TextDocumentPositionParams;
     type Result = Vec<TestInfo>;
-    const METHOD: &'static str = "rust-analyzer/relatedTests";
+    const METHOD: &'static str = "husky-lang-server/relatedTests";
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -225,7 +225,7 @@ pub enum InlayHints {}
 impl Request for InlayHints {
     type Params = InlayHintsParams;
     type Result = Vec<InlayHint>;
-    const METHOD: &'static str = "rust-analyzer/inlayHints";
+    const METHOD: &'static str = "husky-lang-server/inlayHints";
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -453,7 +453,11 @@ pub(crate) enum CodeLensResolveData {
 }
 
 pub fn supports_utf8(caps: &lsp_types::ClientCapabilities) -> bool {
-    caps.offset_encoding.as_deref().unwrap_or_default().iter().any(|it| it == "utf-8")
+    caps.offset_encoding
+        .as_deref()
+        .unwrap_or_default()
+        .iter()
+        .any(|it| it == "utf-8")
 }
 
 pub enum MoveItem {}

@@ -23,7 +23,7 @@ use std::{fmt, mem::ManuallyDrop, sync::Arc};
 
 use base_db::{
     salsa::{self, Durability},
-    AnchoredPath, CrateId, FileID, FileLoader, FileLoaderDelegate, SourceDatabase, Upcast,
+    AnchoredPath, CrateId, FileID, FileLoader, FileLoaderDelegate, SourceDatabase,
 };
 use hir::db::{AstDatabase, DefDatabase, HirDatabase};
 use rustc_hash::FxHashSet;
@@ -45,17 +45,18 @@ pub type FxIndexMap<K, V> =
     hir::db::InternDatabaseStorage,
     hir::db::AstDatabaseStorage,
     hir::db::DefDatabaseStorage,
+    hir::db::DiagDatabaseStorage,
     hir::db::HirDatabaseStorage
 )]
-pub struct RootDatabase {
+pub struct IdeDatabase {
     // We use `ManuallyDrop` here because every codegen unit that contains a
     // `&RootDatabase -> &dyn OtherDatabase` cast will instantiate its drop glue in the vtable,
     // which duplicates `Weak::drop` and `Arc::drop` tens of thousands of times, which makes
     // compile times of all `ide_*` and downstream crates suffer greatly.
-    storage: ManuallyDrop<salsa::Storage<RootDatabase>>,
+    storage: ManuallyDrop<salsa::Storage<IdeDatabase>>,
 }
 
-impl Drop for RootDatabase {
+impl Drop for IdeDatabase {
     fn drop(&mut self) {
         unsafe {
             ManuallyDrop::drop(&mut self.storage);
@@ -63,31 +64,31 @@ impl Drop for RootDatabase {
     }
 }
 
-impl fmt::Debug for RootDatabase {
+impl fmt::Debug for IdeDatabase {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("RootDatabase").finish()
     }
 }
 
-impl Upcast<dyn AstDatabase> for RootDatabase {
-    fn upcast(&self) -> &(dyn AstDatabase + 'static) {
-        todo!()
-    }
-}
+// impl Upcast<dyn AstDatabase> for IdeDatabase {
+//     fn upcast(&self) -> &(dyn AstDatabase + 'static) {
+//         todo!()
+//     }
+// }
 
-impl Upcast<dyn DefDatabase> for RootDatabase {
-    fn upcast(&self) -> &(dyn DefDatabase + 'static) {
-        todo!()
-    }
-}
+// impl Upcast<dyn DefDatabase> for IdeDatabase {
+//     fn upcast(&self) -> &(dyn DefDatabase + 'static) {
+//         todo!()
+//     }
+// }
 
-impl Upcast<dyn HirDatabase> for RootDatabase {
-    fn upcast(&self) -> &(dyn HirDatabase + 'static) {
-        todo!()
-    }
-}
+// impl Upcast<dyn HirDatabase> for IdeDatabase {
+//     fn upcast(&self) -> &(dyn HirDatabase + 'static) {
+//         todo!()
+//     }
+// }
 
-impl FileLoader for RootDatabase {
+impl FileLoader for IdeDatabase {
     fn file_text(&self, file_id: FileID) -> Arc<String> {
         FileLoaderDelegate(self).file_text(file_id)
     }
@@ -99,17 +100,17 @@ impl FileLoader for RootDatabase {
     }
 }
 
-impl salsa::Database for RootDatabase {}
+impl salsa::Database for IdeDatabase {}
 
-impl Default for RootDatabase {
-    fn default() -> RootDatabase {
-        RootDatabase::new(None)
+impl Default for IdeDatabase {
+    fn default() -> IdeDatabase {
+        IdeDatabase::new(None)
     }
 }
 
-impl RootDatabase {
-    pub fn new(lru_capacity: Option<usize>) -> RootDatabase {
-        let mut db = RootDatabase {
+impl IdeDatabase {
+    pub fn new(lru_capacity: Option<usize>) -> IdeDatabase {
+        let mut db = IdeDatabase {
             storage: ManuallyDrop::new(salsa::Storage::default()),
         };
         db.set_crate_graph_with_durability(Default::default(), Durability::HIGH);
@@ -127,9 +128,9 @@ impl RootDatabase {
     }
 }
 
-impl salsa::ParallelDatabase for RootDatabase {
-    fn snapshot(&self) -> salsa::Snapshot<RootDatabase> {
-        salsa::Snapshot::new(RootDatabase {
+impl salsa::ParallelDatabase for IdeDatabase {
+    fn snapshot(&self) -> salsa::Snapshot<IdeDatabase> {
+        salsa::Snapshot::new(IdeDatabase {
             storage: ManuallyDrop::new(self.storage.snapshot()),
         })
     }
@@ -154,7 +155,6 @@ pub enum SymbolKind {
     Function,
     Impl,
     Label,
-    LifetimeParam,
     Local,
     Macro,
     Module,
@@ -167,9 +167,4 @@ pub enum SymbolKind {
     Union,
     ValueParam,
     Variant,
-}
-
-#[cfg(test)]
-mod tests {
-    mod sourcegen_lints;
 }

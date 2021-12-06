@@ -2,6 +2,8 @@
 
 mod intra_doc_links;
 
+use common::*;
+
 use either::Either;
 use pulldown_cmark::{BrokenLink, CowStr, Event, InlineStr, LinkType, Options, Parser, Tag};
 use pulldown_cmark_to_cmark::{cmark_with_options, Options as CMarkOptions};
@@ -12,9 +14,9 @@ use hir::{db::HirDatabase, Adt, AsAssocItem, AssocItem, AssocItemContainer, Crat
 use ide_db::{
     defs::{Definition, NameClass, NameRefClass},
     helpers::pick_best_token,
-    RootDatabase,
+    IdeDatabase,
 };
-use syntax::{ast, SyntaxKind::*, SyntaxNode, SyntaxToken, TextRange, TextSize};
+use syntax::{ast, SyntaxKind::*, SyntaxNode, SyntaxToken};
 
 use crate::{
     doc_links::intra_doc_links::{parse_intra_doc_link, strip_prefixes_suffixes},
@@ -29,7 +31,7 @@ const MARKDOWN_OPTIONS: Options = Options::ENABLE_FOOTNOTES
     .union(Options::ENABLE_TASKLISTS);
 
 /// Rewrite documentation links in markdown to point to an online host (e.g. docs.rs)
-pub(crate) fn rewrite_links(db: &RootDatabase, markdown: &str, definition: Definition) -> String {
+pub(crate) fn rewrite_links(db: &IdeDatabase, markdown: &str, definition: Definition) -> String {
     let mut cb = broken_link_clone_cb;
     let doc = Parser::new_with_broken_link_callback(markdown, MARKDOWN_OPTIONS, Some(&mut cb));
 
@@ -108,7 +110,7 @@ pub(crate) fn remove_links(markdown: &str) -> String {
 
 /// Retrieve a link to documentation for the given symbol.
 pub(crate) fn external_docs(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     position: &FilePosition,
 ) -> Option<DocumentationLink> {
     todo!()
@@ -132,7 +134,7 @@ pub(crate) fn resolve_doc_path_for_def(
 }
 
 pub(crate) fn doc_attributes(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     node: &SyntaxNode,
 ) -> Option<(hir::AttrsWithOwner, Definition)> {
     todo!()
@@ -150,7 +152,7 @@ pub(crate) fn token_as_doc_comment(doc_token: &SyntaxToken) -> Option<DocComment
 impl DocCommentToken {
     pub(crate) fn get_definition_with_descend_at<T>(
         self,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
         offset: TextSize,
         // Definition, CommentOwner, range of intra doc link in original file
         mut cb: impl FnMut(Definition, SyntaxNode, TextRange) -> Option<T>,
@@ -175,7 +177,7 @@ fn broken_link_clone_cb<'a, 'b>(link: BrokenLink<'a>) -> Option<(CowStr<'b>, Cow
 //
 // This should cease to be a problem if RFC2988 (Stable Rustdoc URLs) is implemented
 // https://github.com/rust-lang/rfcs/pull/2988
-fn get_doc_link(db: &RootDatabase, def: Definition) -> Option<String> {
+fn get_doc_link(db: &IdeDatabase, def: Definition) -> Option<String> {
     let (target, file, frag) = filename_and_frag_for_def(db, def)?;
 
     let krate = crate_of_def(db, target)?;
@@ -192,7 +194,7 @@ fn get_doc_link(db: &RootDatabase, def: Definition) -> Option<String> {
 }
 
 fn rewrite_intra_doc_link(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     def: Definition,
     target: &str,
     title: &str,
@@ -215,7 +217,7 @@ fn rewrite_intra_doc_link(
 }
 
 /// Try to resolve path to local documentation via path-based links (i.e. `../gateway/struct.Shard.html`).
-fn rewrite_url_link(db: &RootDatabase, def: Definition, target: &str) -> Option<String> {
+fn rewrite_url_link(db: &IdeDatabase, def: Definition, target: &str) -> Option<String> {
     if !(target.contains('#') || target.contains(".html")) {
         return None;
     }
@@ -233,11 +235,11 @@ fn rewrite_url_link(db: &RootDatabase, def: Definition, target: &str) -> Option<
     url.join(target).ok().map(Into::into)
 }
 
-fn crate_of_def(db: &RootDatabase, def: Definition) -> Option<Crate> {
+fn crate_of_def(db: &IdeDatabase, def: Definition) -> Option<Crate> {
     todo!()
 }
 
-fn mod_path_of_def(db: &RootDatabase, def: Definition) -> Option<String> {
+fn mod_path_of_def(db: &IdeDatabase, def: Definition) -> Option<String> {
     todo!()
 }
 
@@ -283,7 +285,7 @@ fn map_links<'e>(
 /// https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next
 /// ^^^^^^^^^^^^^^^^^^^^^^^^^^
 /// ```
-fn get_doc_base_url(db: &RootDatabase, krate: &Crate) -> Option<Url> {
+fn get_doc_base_url(db: &IdeDatabase, krate: &Crate) -> Option<Url> {
     todo!()
 }
 

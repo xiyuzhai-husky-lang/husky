@@ -39,7 +39,7 @@ pub enum HlTag {
 }
 
 // Don't forget to adjust the feature description in crates/ide/src/syntax_highlighting.rs.
-// And make sure to use the lsp strings used when converting to the protocol in crates\rust-analyzer\src\semantic_tokens.rs, not the names of the variants here.
+// And make sure to use the lsp strings used when converting to the protocol in crates\husky-lang-server\src\semantic_tokens.rs, not the names of the variants here.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
 #[repr(u8)]
 pub enum HlMod {
@@ -138,7 +138,6 @@ impl HlTag {
                 SymbolKind::TypeAlias => "type_alias",
                 SymbolKind::TypeParam => "type_param",
                 SymbolKind::ConstParam => "const_param",
-                SymbolKind::LifetimeParam => "lifetime",
                 SymbolKind::Macro => "macro",
                 SymbolKind::Local => "variable",
                 SymbolKind::Label => "label",
@@ -282,7 +281,10 @@ impl From<SymbolKind> for Highlight {
 
 impl Highlight {
     pub(crate) fn new(tag: HlTag) -> Highlight {
-        Highlight { tag, mods: HlMods::default() }
+        Highlight {
+            tag,
+            mods: HlMods::default(),
+        }
     }
     pub fn is_empty(&self) -> bool {
         self.tag == HlTag::None && self.mods == HlMods::default()
@@ -324,6 +326,9 @@ impl HlMods {
     }
 
     pub fn iter(self) -> impl Iterator<Item = HlMod> {
-        HlMod::ALL.iter().copied().filter(move |it| self.0 & it.mask() == it.mask())
+        HlMod::ALL
+            .iter()
+            .copied()
+            .filter(move |it| self.0 & it.mask() == it.mask())
     }
 }

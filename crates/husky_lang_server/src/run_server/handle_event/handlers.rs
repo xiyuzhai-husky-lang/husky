@@ -7,6 +7,8 @@ use std::{
     process::{self, Stdio},
 };
 
+use common::*;
+
 use anyhow::Context;
 use ide::{
     AnnotationConfig, AssistKind, AssistResolveStrategy, FileID, FilePosition, FileRange,
@@ -28,7 +30,6 @@ use lsp_types::{
 use project::Project;
 use serde_json::json;
 use stdx::{format_to, never};
-use syntax::{ast, TextRange, TextSize};
 use vfs::AbsPathBuf;
 
 use crate::{
@@ -235,7 +236,7 @@ pub(crate) fn handle_on_type_formatting(
     let text = snap.analysis.file_text(position.file_id)?;
     if !text[usize::from(position.offset)..].starts_with(char_typed) {
         // Add `always!` here once VS Code bug is fixed:
-        //   https://github.com/rust-analyzer/rust-analyzer/issues/10002
+        //   https://github.com/husky-lang-server/husky-lang-server/issues/10002
         return Ok(None);
     }
 
@@ -803,7 +804,7 @@ pub(crate) fn handle_ssr(
     to_lsp_types::workspace_edit(&snap, source_change)
 }
 
-pub(crate) fn publish_diagnostics(
+pub(crate) fn gen_lsp_diagnostics(
     snapshot: &ServerSnapshot,
     file_id: FileID,
 ) -> Result<Vec<Diagnostic>> {
@@ -812,11 +813,7 @@ pub(crate) fn publish_diagnostics(
 
     let diagnostics: Vec<Diagnostic> = snapshot
         .analysis
-        .diagnostics(
-            &snapshot.config.diagnostics(),
-            AssistResolveStrategy::None,
-            file_id,
-        )?
+        .diagnostics(file_id)?
         .into_iter()
         .map(|d| Diagnostic {
             range: to_lsp_types::range(&line_index, d.range),
@@ -824,19 +821,15 @@ pub(crate) fn publish_diagnostics(
             code: Some(NumberOrString::String(d.code.as_str().to_string())),
             code_description: Some(lsp_types::CodeDescription {
                 href: lsp_types::Url::parse(&format!(
-                    "https://rust-analyzer.github.io/manual.html#{}",
+                    "https://husky-lang-server.github.io/manual.html#{}",
                     d.code.as_str()
                 ))
                 .unwrap(),
             }),
-            source: Some("rust-analyzer".to_string()),
+            source: Some("husky-lang-server".to_string()),
             message: d.message,
             related_information: None,
-            tags: if d.unused {
-                Some(vec![DiagnosticTag::UNNECESSARY])
-            } else {
-                None
-            },
+            tags: None,
             data: None,
         })
         .collect();

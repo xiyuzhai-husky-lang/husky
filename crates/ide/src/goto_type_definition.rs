@@ -1,4 +1,4 @@
-use ide_db::{base_db::Upcast, defs::Definition, helpers::pick_best_token, RootDatabase};
+use ide_db::{defs::Definition, helpers::pick_best_token, IdeDatabase};
 use syntax::{ast, SyntaxKind::*, SyntaxToken};
 
 use crate::{FilePosition, NavigationTarget, RangeInfo, TryToNav};
@@ -15,7 +15,7 @@ use crate::{FilePosition, NavigationTarget, RangeInfo, TryToNav};
 //
 // image::https://user-images.githubusercontent.com/48062697/113020657-b560f500-917a-11eb-9007-0f809733a338.gif[]
 pub(crate) fn goto_type_definition(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()

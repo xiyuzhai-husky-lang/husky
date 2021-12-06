@@ -7,10 +7,10 @@ use ide_db::{
     base_db::SourceDatabase,
     defs::Definition,
     helpers::{
-        generated_lints::{CLIPPY_LINTS, DEFAULT_LINTS, FEATURES},
+        generated_lints::{DEFAULT_LINTS, FEATURES},
         FamousDefs,
     },
-    RootDatabase,
+    IdeDatabase,
 };
 use itertools::Itertools;
 use stdx::format_to;
@@ -24,7 +24,7 @@ use crate::{
 };
 
 pub(super) fn type_info(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     config: &HoverConfig,
     expr_or_pat: &Either<ast::Expr, ast::Pat>,
 ) -> Option<HoverResult> {
@@ -32,7 +32,7 @@ pub(super) fn type_info(
 }
 
 pub(super) fn try_expr(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     config: &HoverConfig,
     try_expr: &ast::TryExpr,
 ) -> Option<HoverResult> {
@@ -40,7 +40,7 @@ pub(super) fn try_expr(
 }
 
 pub(super) fn deref_expr(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     config: &HoverConfig,
     deref_expr: &ast::PrefixExpr,
 ) -> Option<HoverResult> {
@@ -48,7 +48,7 @@ pub(super) fn deref_expr(
 }
 
 pub(super) fn keyword(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     config: &HoverConfig,
     token: &SyntaxToken,
 ) -> Option<HoverResult> {
@@ -60,7 +60,7 @@ pub(super) fn try_for_lint(attr: &ast::Attr, token: &SyntaxToken) -> Option<Hove
 }
 
 pub(super) fn process_markup(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     def: Definition,
     markup: &Markup,
     config: &HoverConfig,
@@ -76,16 +76,16 @@ pub(super) fn process_markup(
     Markup::from(markup)
 }
 
-fn definition_owner_name(db: &RootDatabase, def: &Definition) -> Option<String> {
+fn definition_owner_name(db: &IdeDatabase, def: &Definition) -> Option<String> {
     todo!()
 }
 
-pub(super) fn path(db: &RootDatabase, module: hir::Module, item_name: Option<String>) -> String {
+pub(super) fn path(db: &IdeDatabase, module: hir::Module, item_name: Option<String>) -> String {
     todo!()
 }
 
 pub(super) fn definition(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     def: Definition,
     famous_defs: Option<&FamousDefs>,
     config: &HoverConfig,
@@ -93,7 +93,7 @@ pub(super) fn definition(
     todo!()
 }
 
-fn definition_mod_path(db: &RootDatabase, def: &Definition) -> Option<String> {
+fn definition_mod_path(db: &IdeDatabase, def: &Definition) -> Option<String> {
     if let Definition::GenericParam(_) = def {
         return None;
     }
@@ -125,6 +125,6 @@ fn find_std_module(famous_defs: &FamousDefs, name: &str) -> Option<hir::Module> 
     todo!()
 }
 
-fn local(db: &RootDatabase, it: hir::Local) -> Option<Markup> {
+fn local(db: &IdeDatabase, it: hir::Local) -> Option<Markup> {
     todo!()
 }

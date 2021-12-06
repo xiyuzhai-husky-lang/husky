@@ -6,7 +6,7 @@ use ide_db::base_db::{
 };
 use ide_db::{
     symbol_index::{LibrarySymbolsQuery, SymbolIndex},
-    RootDatabase,
+    IdeDatabase,
 };
 use itertools::Itertools;
 use profile::{memory_usage, Bytes};
@@ -15,13 +15,13 @@ use std::env;
 use stdx::format_to;
 use syntax::{ast, ParseResult, SyntaxNode};
 
-fn syntax_tree_stats(db: &RootDatabase) -> SyntaxTreeStats {
+fn syntax_tree_stats(db: &IdeDatabase) -> SyntaxTreeStats {
     todo!()
 }
 
 // Feature: Status
 //
-// Shows internal statistic about memory usage of rust-analyzer.
+// Shows internal statistic about memory usage of husky-lang-server.
 //
 // |===
 // | Editor  | Action Name
@@ -29,7 +29,7 @@ fn syntax_tree_stats(db: &RootDatabase) -> SyntaxTreeStats {
 // | VS Code | **Rust Analyzer: Status**
 // |===
 // image::https://user-images.githubusercontent.com/48062697/113065584-05f34500-91b1-11eb-98cc-5c196f76be7f.gif[]
-pub(crate) fn status(db: &RootDatabase, file_id: Option<FileID>) -> String {
+pub(crate) fn status(db: &IdeDatabase, file_id: Option<FileID>) -> String {
     let mut buf = String::new();
     format_to!(buf, "{}\n", FileTextQuery.in_db(db).entries::<FilesStats>());
     format_to!(

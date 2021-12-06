@@ -1,11 +1,13 @@
 //! Rename infrastructure for husky
 use std::fmt;
 
+use common::*;
+
 use base_db::{AnchoredPathBuf, FileID, FileRange};
 use either::Either;
 use hir::{AsAssocItem, FieldSource, HasSource, InFile, ModuleSource, Semantics};
 use stdx::never;
-use syntax::{ast, SyntaxKind, TextRange};
+use syntax::{ast, SyntaxKind};
 use text_edit::{TextEdit, TextEditBuilder};
 
 use crate::{
@@ -13,7 +15,7 @@ use crate::{
     helpers::node_ext::expr_as_name_ref,
     search::FileReference,
     source_change::{FileSystemEdit, SourceChange},
-    RootDatabase,
+    IdeDatabase,
 };
 
 pub type Result<T, E = RenameError> = std::result::Result<T, E>;
@@ -41,7 +43,7 @@ macro_rules! _bail {
 pub use _bail as bail;
 
 impl Definition {
-    pub fn rename(&self, sema: &Semantics<RootDatabase>, new_name: &str) -> Result<SourceChange> {
+    pub fn rename(&self, sema: &Semantics<IdeDatabase>, new_name: &str) -> Result<SourceChange> {
         match *self {
             Definition::Module(module) => rename_mod(sema, module, new_name),
             Definition::BuiltinType(_) => {
@@ -55,13 +57,13 @@ impl Definition {
     /// Textual range of the identifier which will change when renaming this
     /// `Definition`. Note that some definitions, like buitin types, can't be
     /// renamed.
-    pub fn range_for_rename(self, sema: &Semantics<RootDatabase>) -> Option<FileRange> {
+    pub fn range_for_rename(self, sema: &Semantics<IdeDatabase>) -> Option<FileRange> {
         todo!()
     }
 }
 
 fn rename_mod(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     module: hir::Module,
     new_name: &str,
 ) -> Result<SourceChange> {
@@ -69,7 +71,7 @@ fn rename_mod(
 }
 
 fn rename_reference(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     mut def: Definition,
     new_name: &str,
 ) -> Result<SourceChange> {
@@ -98,7 +100,7 @@ fn source_edit_from_name_ref(
 }
 
 fn source_edit_from_def(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     def: Definition,
     new_name: &str,
 ) -> Result<(FileID, TextEdit)> {

@@ -2,12 +2,14 @@
 
 mod format_like;
 
+use common::*;
+
 use hir::Documentation;
 use ide_db::{
     helpers::{insert_use::ImportScope, FamousDefs, SnippetCap},
     ty_filter::TryEnum,
 };
-use syntax::{ast, TextRange, TextSize};
+use syntax::ast;
 use text_edit::TextEdit;
 
 use crate::{

@@ -57,7 +57,7 @@
 //! *
 //!
 //! See also this post:
-//! <https://rust-analyzer.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html>
+//! <https://husky-lang-server.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html>
 #![allow(unused, dead_code)]
 macro_rules! eprintln {
     ($($tt:tt)*) => { stdx::eprintln!($($tt)*) };
@@ -67,9 +67,10 @@ mod assist_config;
 mod assist_context;
 pub mod utils;
 
+use common::*;
+
 use hir::Semantics;
-use ide_db::{base_db::FileRange, RootDatabase};
-use syntax::TextRange;
+use ide_db::{base_db::FileRange, IdeDatabase};
 
 pub(crate) use crate::assist_context::{AssistContext, Assists};
 
@@ -83,7 +84,7 @@ pub use ide_db::assists::{
 // NOTE: We don't have a `Feature: ` section for assists, they are special-cased
 // in the manual.
 pub fn assists(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     config: &AssistConfig,
     resolve: AssistResolveStrategy,
     range: FileRange,

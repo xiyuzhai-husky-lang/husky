@@ -1,5 +1,5 @@
 //! Defines `Fixture` -- a convenient way to describe the initial state of
-//! rust-analyzer database from a single string.
+//! husky-lang-server database from a single string.
 //!
 //! Fixtures are strings containing rust source code with optional metadata.
 //! A fixture without metadata is parsed into a single source file.
@@ -126,9 +126,17 @@ impl Fixture {
             fixture = &fixture[first_line.len()..];
         }
 
-        let default = if fixture.contains("//-") { None } else { Some("//- /main.rs") };
+        let default = if fixture.contains("//-") {
+            None
+        } else {
+            Some("//- /main.rs")
+        };
 
-        for (ix, line) in default.into_iter().chain(fixture.split_inclusive('\n')).enumerate() {
+        for (ix, line) in default
+            .into_iter()
+            .chain(fixture.split_inclusive('\n'))
+            .enumerate()
+        {
             if line.contains("//-") {
                 assert!(
                     line.starts_with("//-"),
@@ -169,7 +177,11 @@ impl Fixture {
         let components = meta.split_ascii_whitespace().collect::<Vec<_>>();
 
         let path = components[0].to_string();
-        assert!(path.starts_with('/'), "fixture path does not start with `/`: {:?}", path);
+        assert!(
+            path.starts_with('/'),
+            "fixture path does not start with `/`: {:?}",
+            path
+        );
 
         let mut krate = None;
         let mut deps = Vec::new();
@@ -190,8 +202,12 @@ impl Fixture {
                     if value.is_empty() {
                         extern_prelude = Some(Vec::new());
                     } else {
-                        extern_prelude =
-                            Some(value.split(',').map(|it| it.to_string()).collect::<Vec<_>>());
+                        extern_prelude = Some(
+                            value
+                                .split(',')
+                                .map(|it| it.to_string())
+                                .collect::<Vec<_>>(),
+                        );
                     }
                 }
                 "edition" => edition = Some(value.to_string()),
@@ -247,12 +263,18 @@ impl MiniCore {
     #[track_caller]
     fn assert_valid_flag(&self, flag: &str) {
         if !self.valid_flags.iter().any(|it| it == flag) {
-            panic!("invalid flag: {:?}, valid flags: {:?}", flag, self.valid_flags);
+            panic!(
+                "invalid flag: {:?}, valid flags: {:?}",
+                flag, self.valid_flags
+            );
         }
     }
 
     fn parse(line: &str) -> MiniCore {
-        let mut res = MiniCore { activated_flags: Vec::new(), valid_flags: Vec::new() };
+        let mut res = MiniCore {
+            activated_flags: Vec::new(),
+            valid_flags: Vec::new(),
+        };
 
         let line = line.strip_prefix("//- minicore:").unwrap().trim();
         for entry in line.split(", ") {
@@ -369,41 +391,4 @@ impl MiniCore {
         }
         buf
     }
-}
-
-#[test]
-#[should_panic]
-fn parse_fixture_checks_further_indented_metadata() {
-    Fixture::parse(
-        r"
-        //- /lib.rs
-          mod bar;
-
-          fn foo() {}
-          //- /bar.rs
-          pub fn baz() {}
-          ",
-    );
-}
-
-#[test]
-fn parse_fixture_gets_full_meta() {
-    let (mini_core, proc_macros, parsed) = Fixture::parse(
-        r#"
-//- proc_macros: identity
-//- minicore: coerce_unsized
-//- /lib.rs crate:foo deps:bar,baz cfg:foo=a,bar=b,atom env:OUTDIR=path/to,OTHER=foo
-mod m;
-"#,
-    );
-    assert_eq!(proc_macros, vec!["identity".to_string()]);
-    assert_eq!(mini_core.unwrap().activated_flags, vec!["coerce_unsized".to_string()]);
-    assert_eq!(1, parsed.len());
-
-    let meta = &parsed[0];
-    assert_eq!("mod m;\n", meta.text);
-
-    assert_eq!("foo", meta.krate.as_ref().unwrap());
-    assert_eq!("/lib.rs", meta.path);
-    assert_eq!(2, meta.env.len());
 }

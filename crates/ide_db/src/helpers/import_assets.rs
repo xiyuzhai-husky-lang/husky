@@ -10,7 +10,7 @@ use syntax::{ast, SyntaxNode};
 use crate::{
     helpers::get_path_in_derive_attr,
     items_locator::{self, AssocItemSearch, DEFAULT_QUERY_SEARCH_LIMIT},
-    RootDatabase,
+    IdeDatabase,
 };
 
 use super::item_name;
@@ -91,23 +91,23 @@ pub struct ImportAssets {
 impl ImportAssets {
     pub fn for_method_call(
         method_call: &ast::MethodCallExpr,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
     ) -> Option<Self> {
         todo!()
     }
 
     pub fn for_exact_path(
         fully_qualified_path: &ast::Path,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
     ) -> Option<Self> {
         todo!()
     }
 
-    pub fn for_ident_pat(sema: &Semantics<RootDatabase>, pat: &ast::IdentPat) -> Option<Self> {
+    pub fn for_ident_pat(sema: &Semantics<IdeDatabase>, pat: &ast::IdentPat) -> Option<Self> {
         todo!()
     }
 
-    pub fn for_derive_ident(sema: &Semantics<RootDatabase>, ident: &ast::Ident) -> Option<Self> {
+    pub fn for_derive_ident(sema: &Semantics<IdeDatabase>, ident: &ast::Ident) -> Option<Self> {
         todo!()
     }
 
@@ -115,7 +115,7 @@ impl ImportAssets {
         module_with_candidate: Module,
         qualifier: Option<ast::Path>,
         fuzzy_name: String,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
         candidate_node: SyntaxNode,
     ) -> Option<Self> {
         Some(Self {
@@ -184,7 +184,7 @@ impl ImportAssets {
 
     pub fn search_for_imports(
         &self,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
         prefix_kind: PrefixKind,
     ) -> Vec<LocatedImport> {
         let _p = profile::span("import_assets::search_for_imports");
@@ -192,26 +192,26 @@ impl ImportAssets {
     }
 
     /// This may return non-absolute paths if a part of the returned path is already imported into scope.
-    pub fn search_for_relative_paths(&self, sema: &Semantics<RootDatabase>) -> Vec<LocatedImport> {
+    pub fn search_for_relative_paths(&self, sema: &Semantics<IdeDatabase>) -> Vec<LocatedImport> {
         let _p = profile::span("import_assets::search_for_relative_paths");
         self.search_for(sema, None)
     }
 
     fn search_for(
         &self,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
         prefixed: Option<PrefixKind>,
     ) -> Vec<LocatedImport> {
         todo!()
     }
 
-    fn scope_definitions(&self, sema: &Semantics<RootDatabase>) -> FxHashSet<ScopeDef> {
+    fn scope_definitions(&self, sema: &Semantics<IdeDatabase>) -> FxHashSet<ScopeDef> {
         todo!()
     }
 }
 
 fn path_applicable_imports(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     current_crate: Crate,
     path_candidate: &PathImportCandidate,
     mod_path: impl Fn(ItemInNs) -> Option<ModPath> + Copy,
@@ -220,7 +220,7 @@ fn path_applicable_imports(
 }
 
 fn import_for_item(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     mod_path: impl Fn(ItemInNs) -> Option<ModPath>,
     unresolved_first_segment: &str,
     unresolved_qualifier: &str,
@@ -229,12 +229,12 @@ fn import_for_item(
     todo!()
 }
 
-pub fn item_for_path_search(db: &RootDatabase, item: ItemInNs) -> Option<ItemInNs> {
+pub fn item_for_path_search(db: &IdeDatabase, item: ItemInNs) -> Option<ItemInNs> {
     todo!()
 }
 
 fn find_import_for_segment(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     original_item: ItemInNs,
     unresolved_first_segment: &str,
 ) -> Option<ItemInNs> {
@@ -242,7 +242,7 @@ fn find_import_for_segment(
 }
 
 fn module_with_segment_name(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     segment_name: &str,
     candidate: ItemInNs,
 ) -> Option<Module> {
@@ -250,7 +250,7 @@ fn module_with_segment_name(
 }
 
 fn trait_applicable_items(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     current_crate: Crate,
     trait_candidate: &TraitImportCandidate,
     trait_assoc_item: bool,
@@ -264,7 +264,7 @@ fn assoc_to_item(assoc: AssocItem) -> ItemInNs {
 }
 
 fn get_mod_path(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     item_to_search: ItemInNs,
     module_with_candidate: &Module,
     prefixed: Option<PrefixKind>,
@@ -274,37 +274,37 @@ fn get_mod_path(
 
 impl ImportCandidate {
     fn for_method_call(
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
         method_call: &ast::MethodCallExpr,
     ) -> Option<Self> {
         todo!()
     }
 
-    fn for_regular_path(sema: &Semantics<RootDatabase>, path: &ast::Path) -> Option<Self> {
+    fn for_regular_path(sema: &Semantics<IdeDatabase>, path: &ast::Path) -> Option<Self> {
         todo!()
     }
 
-    fn for_name(sema: &Semantics<RootDatabase>, name: &ast::Name) -> Option<Self> {
+    fn for_name(sema: &Semantics<IdeDatabase>, name: &ast::Name) -> Option<Self> {
         todo!()
     }
 
     fn for_fuzzy_path(
         qualifier: Option<ast::Path>,
         fuzzy_name: String,
-        sema: &Semantics<RootDatabase>,
+        sema: &Semantics<IdeDatabase>,
     ) -> Option<Self> {
         path_import_candidate(sema, qualifier, NameToImport::Fuzzy(fuzzy_name))
     }
 }
 
 fn path_import_candidate(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     qualifier: Option<ast::Path>,
     name: NameToImport,
 ) -> Option<ImportCandidate> {
     todo!()
 }
 
-fn item_as_assoc(db: &RootDatabase, item: ItemInNs) -> Option<AssocItem> {
+fn item_as_assoc(db: &IdeDatabase, item: ItemInNs) -> Option<AssocItem> {
     todo!()
 }

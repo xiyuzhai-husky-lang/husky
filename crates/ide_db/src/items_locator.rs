@@ -11,7 +11,7 @@ use crate::{
     defs::{Definition, NameClass},
     helpers::import_assets::NameToImport,
     symbol_index::{self, FileSymbol},
-    RootDatabase,
+    IdeDatabase,
 };
 
 /// A value to use, when uncertain which limit to pick.
@@ -29,12 +29,12 @@ pub enum AssocItemSearch {
 }
 
 fn get_name_definition(
-    sema: &Semantics<'_, RootDatabase>,
+    sema: &Semantics<'_, IdeDatabase>,
     import_candidate: &FileSymbol,
 ) -> Option<Definition> {
     todo!()
 }
 
-fn is_assoc_item(item: ItemInNs, db: &RootDatabase) -> bool {
+fn is_assoc_item(item: ItemInNs, db: &IdeDatabase) -> bool {
     todo!()
 }

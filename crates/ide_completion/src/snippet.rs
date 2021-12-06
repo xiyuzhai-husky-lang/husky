@@ -6,14 +6,14 @@ use std::ops::Deref;
 
 // Feature: User Snippet Completions
 //
-// rust-analyzer allows the user to define custom (postfix)-snippets that may depend on items to be accessible for the current scope to be applicable.
+// husky-lang-server allows the user to define custom (postfix)-snippets that may depend on items to be accessible for the current scope to be applicable.
 //
-// A custom snippet can be defined by adding it to the `rust-analyzer.completion.snippets` object respectively.
+// A custom snippet can be defined by adding it to the `husky-lang-server.completion.snippets` object respectively.
 //
 // [source,json]
 // ----
 // {
-//   "rust-analyzer.completion.snippets": {
+//   "husky-lang-server.completion.snippets": {
 //     "thread spawn": {
 //       "prefix": ["spawn", "tspawn"],
 //       "body": [

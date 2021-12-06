@@ -1,12 +1,14 @@
 //! This module provides primitives for tracking the information about a call site.
 
+use common::*;
+
 use either::Either;
 use hir::{HirDisplay, Semantics};
 use ide_db::{active_parameter::callable_for_token, base_db::FilePosition};
 use stdx::format_to;
-use syntax::{Direction, TextRange, TextSize};
+use syntax::Direction;
 
-use crate::RootDatabase;
+use crate::IdeDatabase;
 
 /// Contains information about a call site. Specifically the
 /// `FunctionSignature`and current parameter.
@@ -39,6 +41,6 @@ impl CallInfo {
 }
 
 /// Computes parameter information for the given call expression.
-pub(crate) fn call_info(db: &RootDatabase, position: FilePosition) -> Option<CallInfo> {
+pub(crate) fn call_info(db: &IdeDatabase, position: FilePosition) -> Option<CallInfo> {
     todo!()
 }

@@ -1,7 +1,7 @@
+use common::*;
+
 use ide_db::SymbolKind;
-use syntax::{
-    ast, NodeOrToken, SingleFileParseTree, SyntaxNode, SyntaxToken, TextRange, WalkEvent,
-};
+use syntax::{ast, NodeOrToken, SingleFileParseTree, SyntaxNode, SyntaxToken};
 
 #[derive(Debug, Clone)]
 pub struct StructureNode {

@@ -3,9 +3,10 @@ use ide_db::{
     base_db::{FileID, FilePosition, FileRange},
     defs::Definition,
     helpers::visit_file_defs,
-    RootDatabase,
+    IdeDatabase,
 };
-use syntax::TextRange;
+
+use common::*;
 
 use crate::{
     fn_references::find_all_methods, goto_implementation::goto_implementation,
@@ -46,13 +47,13 @@ pub struct AnnotationConfig {
 }
 
 pub(crate) fn annotations(
-    db: &RootDatabase,
+    db: &IdeDatabase,
     config: &AnnotationConfig,
     file_id: FileID,
 ) -> Vec<Annotation> {
     todo!()
 }
 
-pub(crate) fn resolve_annotation(db: &RootDatabase, mut annotation: Annotation) -> Annotation {
+pub(crate) fn resolve_annotation(db: &IdeDatabase, mut annotation: Annotation) -> Annotation {
     todo!()
 }

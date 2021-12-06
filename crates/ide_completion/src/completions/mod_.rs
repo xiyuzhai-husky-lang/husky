@@ -5,7 +5,7 @@ use std::iter;
 use hir::{Module, ModuleSource};
 use ide_db::{
     base_db::{SourceDatabaseExt, VfsPath},
-    RootDatabase, SymbolKind,
+    IdeDatabase, SymbolKind,
 };
 use rustc_hash::FxHashSet;
 
@@ -20,15 +20,12 @@ pub(crate) fn complete_mod(acc: &mut Completions, ctx: &CompletionContext) -> Op
 
 fn directory_to_look_for_submodules(
     module: Module,
-    db: &RootDatabase,
+    db: &IdeDatabase,
     module_file_path: &VfsPath,
 ) -> Option<VfsPath> {
     todo!()
 }
 
-fn module_chain_to_containing_module_file(
-    current_module: Module,
-    db: &RootDatabase,
-) -> Vec<Module> {
+fn module_chain_to_containing_module_file(current_module: Module, db: &IdeDatabase) -> Vec<Module> {
     todo!()
 }

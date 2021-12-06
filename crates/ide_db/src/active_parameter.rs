@@ -4,7 +4,7 @@ use either::Either;
 use hir::{Semantics, Type};
 use syntax::{ast, SyntaxToken};
 
-use crate::RootDatabase;
+use crate::IdeDatabase;
 
 #[derive(Debug)]
 pub struct ActiveParameter {
@@ -14,7 +14,7 @@ pub struct ActiveParameter {
 
 impl ActiveParameter {
     /// Returns information about the call argument this token is part of.
-    pub fn at_token(sema: &Semantics<RootDatabase>, token: SyntaxToken) -> Option<Self> {
+    pub fn at_token(sema: &Semantics<IdeDatabase>, token: SyntaxToken) -> Option<Self> {
         todo!()
     }
 
@@ -25,7 +25,7 @@ impl ActiveParameter {
 
 /// Returns a [`hir::Callable`] this token is a part of and its argument index of said callable.
 pub fn callable_for_token(
-    sema: &Semantics<RootDatabase>,
+    sema: &Semantics<IdeDatabase>,
     token: SyntaxToken,
 ) -> Option<(hir::Callable, Option<usize>)> {
     todo!()
