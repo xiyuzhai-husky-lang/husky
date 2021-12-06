@@ -35,7 +35,10 @@ impl loader::Handle for NotifyHandle {
             .name("VfsLoader".to_owned())
             .spawn(move || actor.run(receiver))
             .expect("failed to spawn thread");
-        NotifyHandle { sender, _thread: thread }
+        NotifyHandle {
+            sender,
+            _thread: thread,
+        }
     }
     fn set_config(&mut self, config: loader::Config) {
         self.sender.send(Message::Config(config)).unwrap();
@@ -52,7 +55,7 @@ type NotifyEvent = notify::Result<notify::Event>;
 
 struct NotifyActor {
     sender: loader::Sender,
-    watched_entries: Vec<loader::Entry>,
+    watched_entries: Vec<loader::LoaderFileSet>,
     // Drop order is significant.
     watcher: Option<(RecommendedWatcher, Receiver<NotifyEvent>)>,
 }
@@ -65,7 +68,11 @@ enum Event {
 
 impl NotifyActor {
     fn new(sender: loader::Sender) -> NotifyActor {
-        NotifyActor { sender, watched_entries: Vec::new(), watcher: None }
+        NotifyActor {
+            sender,
+            watched_entries: Vec::new(),
+            watcher: None,
+        }
     }
     fn next_event(&self, receiver: &Receiver<Message>) -> Option<Event> {
         let watcher_receiver = self.watcher.as_ref().map(|(_, receiver)| receiver);
@@ -92,7 +99,11 @@ impl NotifyActor {
                         let config_version = config.version;
 
                         let n_total = config.load.len();
-                        self.send(loader::Message::Progress { n_total, n_done: 0, config_version });
+                        self.send(loader::Message::Progress {
+                            n_total,
+                            n_done: 0,
+                            config_version,
+                        });
 
                         self.watched_entries.clear();
 
@@ -157,11 +168,11 @@ impl NotifyActor {
     }
     fn load_entry(
         &mut self,
-        entry: loader::Entry,
+        entry: loader::LoaderFileSet,
         watch: bool,
     ) -> Vec<(AbsPathBuf, Option<Vec<u8>>)> {
         match entry {
-            loader::Entry::Files(files) => files
+            loader::LoaderFileSet::Files(files) => files
                 .into_iter()
                 .map(|file| {
                     if watch {
@@ -171,18 +182,24 @@ impl NotifyActor {
                     (file, contents)
                 })
                 .collect::<Vec<_>>(),
-            loader::Entry::Directories(dirs) => {
+            loader::LoaderFileSet::Directories(dirs) => {
                 let mut res = Vec::new();
 
                 for root in &dirs.include {
-                    let walkdir =
-                        WalkDir::new(root).follow_links(true).into_iter().filter_entry(|entry| {
+                    let walkdir = WalkDir::new(root)
+                        .follow_links(true)
+                        .into_iter()
+                        .filter_entry(|entry| {
                             if !entry.file_type().is_dir() {
                                 return true;
                             }
                             let path = AbsPath::assert(entry.path());
                             root == path
-                                || dirs.exclude.iter().chain(&dirs.include).all(|it| it != path)
+                                || dirs
+                                    .exclude
+                                    .iter()
+                                    .chain(&dirs.include)
+                                    .all(|it| it != path)
                         });
 
                     let files = walkdir.filter_map(|it| it.ok()).filter_map(|entry| {
@@ -227,5 +244,6 @@ fn read(path: &AbsPath) -> Option<Vec<u8>> {
 }
 
 fn log_notify_error<T>(res: notify::Result<T>) -> Option<T> {
-    res.map_err(|err| tracing::warn!("notify error: {}", err)).ok()
+    res.map_err(|err| tracing::warn!("notify error: {}", err))
+        .ok()
 }

@@ -1,7 +1,4 @@
-use ide_db::base_db::{
-    CrateGraph, Env, ProcMacro, ProcMacroExpander, ProcMacroExpansionError, ProcMacroKind,
-    SourceRoot, VfsPath,
-};
+use ide_db::base_db::{Env, SourceRoot, VfsPath};
 use vfs::{file_set::FileSetConfig, AbsPath, AbsPathBuf, ChangeKind};
 
 #[derive(Default, Debug)]

@@ -113,7 +113,6 @@ impl IdeDatabase {
         let mut db = IdeDatabase {
             storage: ManuallyDrop::new(salsa::Storage::default()),
         };
-        db.set_crate_graph_with_durability(Default::default(), Durability::HIGH);
         db.set_local_roots_with_durability(Default::default(), Durability::HIGH);
         db.set_library_roots_with_durability(Default::default(), Durability::HIGH);
         db.update_lru_capacity(lru_capacity);

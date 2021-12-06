@@ -59,7 +59,7 @@ impl ServerFileSystem {
 
         fn get_text(file: &vfs::ChangedFile, vfs: &vfs::Vfs) -> Option<String> {
             if file.exists() {
-                let bytes = vfs.get_file_contents(file.file_id).to_vec();
+                let bytes = vfs.get_file_content(file.file_id).to_vec();
                 String::from_utf8(bytes).ok()
             } else {
                 None

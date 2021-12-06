@@ -81,7 +81,6 @@ fn handle_lsp_request(
     .on::<lsp_ext::AnalyzerStatus>(handlers::handle_analyzer_status)
     .on::<lsp_ext::SyntaxTree>(handlers::handle_syntax_tree)
     .on::<lsp_ext::ViewHir>(handlers::handle_view_hir)
-    .on::<lsp_ext::ViewCrateGraph>(handlers::handle_view_crate_graph)
     .on::<lsp_ext::ViewItemTree>(handlers::handle_view_item_tree)
     .on::<lsp_ext::ParentModule>(handlers::handle_parent_module)
     .on::<lsp_ext::Runnables>(handlers::handle_runnables)
@@ -183,7 +182,10 @@ fn handle_lsp_notification(server: &mut Server, notif: lsp_server::Notification)
                 .internal
                 .write()
                 .vfs
-                .update_file_contents(path, Some(params.text_document.text.into_bytes()));
+                .set_file_content_and_is_updated(
+                    path,
+                    Some(params.text_document.text.into_bytes()),
+                );
         }
         Ok(())
     }

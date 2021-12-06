@@ -121,15 +121,6 @@ pub(crate) fn handle_view_item_tree(
     Ok(res)
 }
 
-pub(crate) fn handle_view_crate_graph(
-    snap: ServerSnapshot,
-    params: ViewCrateGraphParams,
-) -> Result<String> {
-    let _p = profile::span("handle_view_crate_graph");
-    let dot = snap.analysis.view_crate_graph(params.full)??;
-    Ok(dot)
-}
-
 pub(crate) fn handle_selection_range(
     snap: ServerSnapshot,
     params: lsp_types::SelectionRangeParams,

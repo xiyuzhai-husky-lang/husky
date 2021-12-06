@@ -9,5 +9,6 @@ edition = "2021"
 doctest = false
 
 [dependencies]
+text-size = "1.0.0"
 bimap = "0.6.1"
 rowan = "0.14.0"

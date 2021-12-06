@@ -1,1 +1,1 @@
-cloc ./ --exclude-dir=node_modules,out,target
+cloc crates/ --exclude-dir=node_modules,out,target

@@ -11,57 +11,47 @@ use crate::{AnchoredPath, FileID, Vfs, VfsPath};
 
 /// A set of [`VfsPath`]s identified by [`FileID`]s.
 #[derive(Default, Clone, Eq, PartialEq)]
-pub struct FileSet {
-    files: FxHashMap<VfsPath, FileID>,
+pub struct FilePathIdTable {
+    ids: FxHashMap<VfsPath, FileID>,
     paths: FxHashMap<FileID, VfsPath>,
 }
 
-impl FileSet {
+impl FilePathIdTable {
     /// Returns the number of stored paths.
     pub fn len(&self) -> usize {
-        self.files.len()
+        self.ids.len()
     }
 
-    /// Get the id of the file corresponding to `path`.
-    ///
-    /// If either `path`'s [`anchor`](AnchoredPath::anchor) or the resolved path is not in
-    /// the set, returns [`None`].
-    pub fn resolve_path(&self, path: AnchoredPath<'_>) -> Option<FileID> {
+    pub fn get_non_anchor_id_for_path(&self, path: AnchoredPath<'_>) -> Option<FileID> {
         let mut base = self.paths[&path.anchor].clone();
         base.pop();
         let path = base.join(path.path)?;
-        self.files.get(&path).copied()
+        self.ids.get(&path).copied()
     }
 
-    /// Get the id corresponding to `path` if it exists in the set.
-    pub fn file_for_path(&self, path: &VfsPath) -> Option<&FileID> {
-        self.files.get(path)
+    pub fn file_for_path(&self, path: &VfsPath) -> Option<FileID> {
+        self.ids.get(path).copied()
     }
 
-    /// Get the path corresponding to `file` if it exists in the set.
-    pub fn path_for_file(&self, file: &FileID) -> Option<&VfsPath> {
+    pub fn get_path_for_id(&self, file: &FileID) -> Option<&VfsPath> {
         self.paths.get(file)
     }
 
-    /// Insert the `file_id, path` pair into the set.
-    ///
-    /// # Note
-    /// Multiple [`FileID`] can be mapped to the same [`VfsPath`], and vice-versa.
     pub fn insert(&mut self, file_id: FileID, path: VfsPath) {
-        self.files.insert(path.clone(), file_id);
+        self.ids.insert(path.clone(), file_id);
         self.paths.insert(file_id, path);
     }
 
     /// Iterate over this set's ids.
-    pub fn iter(&self) -> impl Iterator<Item = FileID> + '_ {
+    pub fn id_iter(&self) -> impl Iterator<Item = FileID> + '_ {
         self.paths.keys().copied()
     }
 }
 
-impl fmt::Debug for FileSet {
+impl fmt::Debug for FilePathIdTable {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("FileSet")
-            .field("n_files", &self.files.len())
+            .field("n_files", &self.ids.len())
             .finish()
     }
 }
@@ -109,10 +99,10 @@ impl FileSetConfig {
     /// Partition `vfs` into `FileSet`s.
     ///
     /// Creates a new [`FileSet`] for every set of prefixes in `self`.
-    pub fn partition(&self, vfs: &Vfs) -> Vec<FileSet> {
+    pub fn partition(&self, vfs: &Vfs) -> Vec<FilePathIdTable> {
         let mut scratch_space = Vec::new();
-        let mut res = vec![FileSet::default(); self.len()];
-        for (file_id, path) in vfs.iter() {
+        let mut res = vec![FilePathIdTable::default(); self.len()];
+        for (file_id, path) in vfs.iter_without_deleted() {
             let root = self.classify(path, &mut scratch_space);
             res[root].insert(file_id, path.clone());
         }
