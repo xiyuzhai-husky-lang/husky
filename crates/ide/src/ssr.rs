@@ -3,7 +3,7 @@
 //! depend on the ide_ssr crate.
 
 use ide_assists::{Assist, AssistId, AssistKind, AssistResolveStrategy, GroupLabel};
-use ide_db::{base_db::FileRange, label::Label, source_change::SourceChange, IdeDatabase};
+use ide_db::{file_db::FileRange, label::Label, source_change::SourceChange, IdeDatabase};
 
 pub(crate) fn ssr_assists(
     db: &IdeDatabase,

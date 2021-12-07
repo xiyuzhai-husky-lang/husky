@@ -4,8 +4,7 @@ mod handle_event;
 
 use std::error::Error;
 
-use common::*;
-use crossbeam_channel::{select, Receiver};
+use crossbeam_channel::Receiver;
 use lsp_types::notification::Notification as _;
 
 use crate::{config::ServerConfig, server::Server, Result};
@@ -28,39 +27,14 @@ pub fn run_server(
         };
     }
 
-    fn fetch_workspaces(server: &mut Server) {
-        ep!(server.config);
-        todo!()
-    }
-
     fn run_event_loop(server: &mut Server, inbox: Receiver<lsp_server::Message>) -> Result<()> {
-        while let Some(event) = recv_next_event(server, &inbox) {
+        while let Some(event) = inbox.recv().ok().map(Event::Lsp) {
             if is_exit(&event) {
                 return Ok(());
             }
             handle_event::handle_event(server, event)?
         }
         return Err("client exited without proper shutdown sequence".into());
-
-        fn recv_next_event(
-            server: &Server,
-            inbox: &Receiver<lsp_server::Message>,
-        ) -> Option<Event> {
-            select! {
-                recv(inbox) -> msg =>
-                    msg.ok().map(Event::Lsp),
-
-                recv(server.taskpool.receiver) -> task =>
-                    Some(Event::Task(task.unwrap())),
-
-                recv(server.vfs.loader.receiver) -> task =>
-                    Some(Event::Vfs(task.unwrap())),
-
-                recv(server.flychecker.receiver) -> task => {
-                    ep!(task);
-                    Some(Event::Flycheck(task.unwrap()))},
-            }
-        }
 
         fn is_exit(event: &Event) -> bool {
             if let Event::Lsp(lsp_server::Message::Notification(not)) = &event {

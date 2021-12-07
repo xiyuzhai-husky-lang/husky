@@ -148,14 +148,6 @@ impl<'a> RequestDispatcher<'a> {
             }
         }
     }
-
-    fn ParseResult<R>(&mut self) -> Option<(lsp_server::RequestId, R::Params, String)>
-    where
-        R: lsp_types::request::Request + 'static,
-        R::Params: DeserializeOwned + fmt::Debug + 'static,
-    {
-        todo!()
-    }
 }
 
 fn thread_result_to_response<R>(

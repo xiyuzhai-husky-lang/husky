@@ -8,7 +8,7 @@ use std::{convert::TryInto, mem};
 
 use common::*;
 
-use base_db::{FileID, FileRange, SourceDatabase, SourceDatabaseExt};
+use file_db::{FileDatabase, FileID, FileRange, SourceDatabaseExt};
 use hir::{AsAssocItem, InFile, ModuleSource, Semantics, Visibility};
 use once_cell::unsync::Lazy;
 use rustc_hash::FxHashMap;

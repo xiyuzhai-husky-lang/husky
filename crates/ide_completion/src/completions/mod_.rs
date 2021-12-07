@@ -4,7 +4,7 @@ use std::iter;
 
 use hir::{Module, ModuleSource};
 use ide_db::{
-    base_db::{SourceDatabaseExt, VfsPath},
+    file_db::{SourceDatabaseExt, VfsPath},
     IdeDatabase, SymbolKind,
 };
 use rustc_hash::FxHashSet;

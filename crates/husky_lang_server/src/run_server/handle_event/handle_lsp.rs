@@ -1,20 +1,12 @@
-use base_db::SourceDatabaseExt;
 use common::ep;
 
 use super::handlers;
 use crate::{
     convert::from_lsp_types,
-    convert::to_lsp_types,
     lsp_ext,
-    lsp_utils::{self, is_cancelled},
-    reload,
-    run_server::{
-        dispatch::{NotificationDispatcher, RequestDispatcher},
-        event::Event,
-    },
+    run_server::dispatch::{NotificationDispatcher, RequestDispatcher},
     server::live_docs::DocumentData,
     server::Server,
-    task::{self, PrimeCachesProgress, Task},
     Result,
 };
 
@@ -44,35 +36,11 @@ fn handle_lsp_request(
         (req.method.clone(), instant_when_received_request),
     );
 
-    if server.shutdown_requested {
-        server.comm.respond(lsp_server::Response::new_err(
-            req.id,
-            lsp_server::ErrorCode::InvalidRequest as i32,
-            "Shutdown already requested.".to_owned(),
-        ));
-
-        return Ok(());
-    }
-
-    // Avoid flashing a bunch of unresolved references during initial load.
-    if server.config.projects.is_empty() && !server.is_quiescent() {
-        server.comm.respond(lsp_server::Response::new_err(
-            req.id,
-            // FIXME: i32 should impl From<ErrorCode> (from() guarantees lossless conversion)
-            lsp_server::ErrorCode::ContentModified as i32,
-            "waiting for cargo metadata or cargo check".to_owned(),
-        ));
-        return Ok(());
-    }
-
     RequestDispatcher {
         req: Some(req),
         server,
     }
-    .on_sync_mut::<lsp_types::request::Shutdown>(|server, ()| {
-        server.shutdown_requested = true;
-        Ok(())
-    })?
+    .on_sync_mut::<lsp_types::request::Shutdown>(|server, ()| todo!())?
     .on_sync_mut::<lsp_ext::MemoryUsage>(handlers::handle_memory_usage)?
     .on_sync::<lsp_ext::JoinLines>(handlers::handle_join_lines)?
     .on_sync::<lsp_ext::OnEnter>(handlers::handle_on_enter)?
@@ -130,9 +98,9 @@ fn handle_lsp_notification(server: &mut Server, notif: lsp_server::Notification)
         notif: Some(notif),
         server,
     }
-    .on::<lsp_types::notification::Cancel>(|this, params| {
+    .on::<lsp_types::notification::Cancel>(|_this, params| {
         ep!(params);
-        let id: lsp_server::RequestId = match params.id {
+        let _id: lsp_server::RequestId = match params.id {
             lsp_types::NumberOrString::Number(id) => id.into(),
             lsp_types::NumberOrString::String(id) => id.into(),
         };
@@ -148,19 +116,19 @@ fn handle_lsp_notification(server: &mut Server, notif: lsp_server::Notification)
         Ok(())
     })?
     .on::<lsp_types::notification::DidOpenTextDocument>(handle_did_open_text_document)?
-    .on::<lsp_types::notification::DidChangeTextDocument>(|this, params| {
+    .on::<lsp_types::notification::DidChangeTextDocument>(|_this, _params| {
         todo!();
     })?
-    .on::<lsp_types::notification::DidCloseTextDocument>(|this, params| {
+    .on::<lsp_types::notification::DidCloseTextDocument>(|_this, _params| {
         todo!();
     })?
-    .on::<lsp_types::notification::DidSaveTextDocument>(|this, params| {
+    .on::<lsp_types::notification::DidSaveTextDocument>(|_this, _params| {
         todo!();
     })?
-    .on::<lsp_types::notification::DidChangeConfiguration>(|this, _params| {
+    .on::<lsp_types::notification::DidChangeConfiguration>(|_this, _params| {
         todo!();
     })?
-    .on::<lsp_types::notification::DidChangeWatchedFiles>(|this, params| {
+    .on::<lsp_types::notification::DidChangeWatchedFiles>(|_this, _params| {
         todo!();
     })?
     .finish();
@@ -178,14 +146,10 @@ fn handle_lsp_notification(server: &mut Server, notif: lsp_server::Notification)
                 )
                 .err()
                 .map(|_| tracing::error!("duplicate DidOpenTextDocument: {}", path));
-            this.vfs
-                .internal
-                .write()
-                .vfs
-                .set_file_content_and_is_updated(
-                    path,
-                    Some(params.text_document.text.into_bytes()),
-                );
+            this.vfs.write().set_file_content_and_is_updated(
+                path,
+                Some(params.text_document.text.into_bytes()),
+            );
         }
         Ok(())
     }

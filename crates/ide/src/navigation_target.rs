@@ -6,12 +6,12 @@ use common::*;
 
 use either::Either;
 use hir::{AssocItem, Documentation, FieldSource, HirDisplay, InFile, ModuleSource, Semantics};
+use ide_db::{defs::Definition, IdeDatabase};
 use ide_db::{
-    base_db::{FileID, FileRange},
+    file_db::{FileID, FileRange},
     symbol_index::FileSymbolKind,
     SymbolKind,
 };
-use ide_db::{defs::Definition, IdeDatabase};
 use syntax::{ast, SmolStr};
 
 use crate::FileSymbol;

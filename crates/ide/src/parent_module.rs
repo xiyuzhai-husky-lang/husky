@@ -1,6 +1,6 @@
 use hir::Semantics;
 use ide_db::{
-    base_db::{CrateId, FileID, FilePosition},
+    file_db::{CrateId, FileID, FilePosition},
     IdeDatabase,
 };
 use itertools::Itertools;

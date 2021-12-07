@@ -16,9 +16,6 @@ pub(crate) struct LiveDocs {
 }
 
 impl LiveDocs {
-    pub(crate) fn contains(&self, path: &VfsPath) -> bool {
-        self.live_docs.contains_key(path)
-    }
     pub(crate) fn insert(&mut self, path: VfsPath, data: DocumentData) -> Result<(), ()> {
         self.added_or_removed = true;
         match self.live_docs.insert(path, data) {
@@ -26,20 +23,8 @@ impl LiveDocs {
             None => Ok(()),
         }
     }
-    pub(crate) fn remove(&mut self, path: &VfsPath) -> Result<(), ()> {
-        self.added_or_removed = true;
-        match self.live_docs.remove(path) {
-            Some(_) => Ok(()),
-            None => Err(()),
-        }
-    }
     pub(crate) fn get(&self, path: &VfsPath) -> Option<&DocumentData> {
         self.live_docs.get(path)
-    }
-    pub(crate) fn get_mut(&mut self, path: &VfsPath) -> Option<&mut DocumentData> {
-        // NB: don't set `self.added_or_removed` here, as that purposefully only
-        // tracks changes to the key set.
-        self.live_docs.get_mut(path)
     }
     pub(crate) fn iter(&self) -> impl Iterator<Item = &VfsPath> {
         self.live_docs.keys()

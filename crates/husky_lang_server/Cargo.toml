@@ -23,11 +23,9 @@ itertools = "0.10.0"
 
 common = { path = "../common", version = "0.0.0" }
 stdx = { path = "../stdx", version = "0.0.0" }
-flycheck = { path = "../flycheck", version = "0.0.0" }
 vfs = { path = "../vfs", version = "0.0.0" }
-vfs-notify = { path = "../vfs_notify", version = "0.0.0" }
 project = { path = "../project", version = "0.0.0" }
-base_db = { path = "../base_db", version = "0.0.0"}
+file_db = { path = "../file_db", version = "0.0.0"}
 profile = { path = "../profile", version = "0.0.0"}
 syntax = { path = "../syntax", version = "0.0.0"}
 ide = { path = "../ide", version = "0.0.0"}

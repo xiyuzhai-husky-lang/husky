@@ -1,7 +1,6 @@
 //! Advertises the capabilities of the LSP Server.
 use lsp_types::{
-    CallHierarchyServerCapability, ClientCapabilities, CodeActionKind, CodeActionOptions,
-    CodeActionProviderCapability, CodeLensOptions, CompletionOptions, DeclarationCapability,
+    CallHierarchyServerCapability, CodeLensOptions, CompletionOptions, DeclarationCapability,
     DocumentOnTypeFormattingOptions, FileOperationFilter, FileOperationPattern,
     FileOperationPatternKind, FileOperationRegistrationOptions, FoldingRangeProviderCapability,
     HoverProviderCapability, ImplementationProviderCapability, OneOf, RenameOptions, SaveOptions,
@@ -13,9 +12,9 @@ use lsp_types::{
 };
 use serde_json::json;
 
-use crate::{semantic_tokens, ServerConfig};
+use crate::semantic_tokens;
 
-pub fn get_server_capabilities(config: &ServerConfig) -> ServerCapabilities {
+pub fn get_server_capabilities() -> ServerCapabilities {
     ServerCapabilities {
         text_document_sync: Some(TextDocumentSyncCapability::Options(
             TextDocumentSyncOptions {

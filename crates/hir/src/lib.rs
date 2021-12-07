@@ -1,7 +1,7 @@
 #![allow(dead_code, unused)]
 mod diagnostic;
 
-pub use diagnostic::{Diagnostic, Severity};
+pub use diagnostic::{Diagnostic, FileDiagnostics, Severity};
 
 pub struct Callable {}
 /// Primary API to get semantic information, like types, from syntax trees.

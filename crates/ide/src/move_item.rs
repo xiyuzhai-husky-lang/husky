@@ -3,7 +3,7 @@ use std::{iter::once, mem};
 use common::*;
 
 use hir::Semantics;
-use ide_db::{base_db::FileRange, helpers::pick_best_token, IdeDatabase};
+use ide_db::{file_db::FileRange, helpers::pick_best_token, IdeDatabase};
 use itertools::Itertools;
 use syntax::{ast, SyntaxElement, SyntaxKind, SyntaxNode};
 use text_edit::{TextEdit, TextEditBuilder};

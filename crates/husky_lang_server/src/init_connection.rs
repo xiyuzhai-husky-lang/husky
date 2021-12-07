@@ -1,17 +1,6 @@
-use lsp_server::{Connection, Message, Request, RequestId, Response};
-use lsp_types::{
-    request::GotoDefinition, GotoDefinitionResponse, InitializeParams, ServerCapabilities,
-};
+use crate::{lsp_ext, server_capabilities, Result, ServerConfig};
 
-use project::Project;
-use vfs::AbsPathBuf;
-
-use crate::{
-    cli::flags, from_json, lsp_ext, run_server, server_capabilities::get_server_capabilities,
-    Result, ServerConfig,
-};
-
-pub fn init_connection(connection: &Connection) -> Result<ServerConfig> {
+pub fn init_connection(connection: &lsp_server::Connection) -> Result<ServerConfig> {
     // let mut server_capabilities = ServerCapabilities::default();
     // server_capabilities.definition_provider = Some(lsp_types::OneOf::Left(true));
     // connection.initialize(serde_json::to_value(&server_capabilities).unwrap())?;
@@ -31,7 +20,7 @@ pub fn init_connection(connection: &Connection) -> Result<ServerConfig> {
 
 fn get_init_result(config: &ServerConfig) -> serde_json::Value {
     let init_result = lsp_types::InitializeResult {
-        capabilities: get_server_capabilities(&config),
+        capabilities: server_capabilities::get_server_capabilities(),
         server_info: Some(lsp_types::ServerInfo {
             name: String::from("husky-lang-server"),
             version: None,

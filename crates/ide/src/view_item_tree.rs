@@ -1,5 +1,5 @@
 use hir::db::DefDatabase;
-use ide_db::base_db::FileID;
+use ide_db::file_db::FileID;
 use ide_db::IdeDatabase;
 
 // Feature: Debug ItemTree

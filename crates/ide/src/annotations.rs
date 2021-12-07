@@ -1,7 +1,7 @@
 use hir::{InFile, Semantics};
 use ide_db::{
-    base_db::{FileID, FilePosition, FileRange},
     defs::Definition,
+    file_db::{FileID, FilePosition, FileRange},
     helpers::visit_file_defs,
     IdeDatabase,
 };

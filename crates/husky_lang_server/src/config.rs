@@ -18,17 +18,10 @@ macro_rules! try_or {
     };
 }
 
-use std::{ffi::OsString, iter, path::PathBuf};
+use std::path::PathBuf;
 
-use ide::{
-    AssistConfig, CompletionConfig, HighlightRelatedConfig, HoverConfig, HoverDocFormat,
-    JoinLinesConfig, Snippet, SnippetScope,
-};
-use ide_db::helpers::{
-    insert_use::{ImportGranularity, InsertUseConfig, PrefixKind},
-    SnippetCap,
-};
-use lsp_types::{ClientCapabilities, MarkupKind};
+use ide::{CompletionConfig, HighlightRelatedConfig, Snippet};
+use ide_db::helpers::{insert_use::InsertUseConfig, SnippetCap};
 use project::{discover_projects, Project};
 use rustc_hash::{FxHashMap, FxHashSet};
 use serde::{de::DeserializeOwned, Deserialize};
@@ -58,17 +51,6 @@ macro_rules! _server_config_data {
                         $default,
                     ),
                 )*}
-            }
-
-            fn json_schema() -> serde_json::Value {
-                schema(&[
-                    $({
-                        let field = stringify!($field);
-                        let ty = stringify!($ty);
-
-                        (field, ty, &[$($doc),*], $default)
-                    },)*
-                ])
             }
         }
     };
@@ -338,7 +320,7 @@ impl ServerConfig {
     pub fn detached_files(&self) -> &[AbsPathBuf] {
         todo!()
     }
-    fn update(&mut self, mut json: serde_json::Value) {
+    fn update(&mut self, mut _json: serde_json::Value) {
         todo!()
     }
 
@@ -474,23 +456,22 @@ impl ServerConfig {
     }
 
     fn insert_use_config(&self) -> InsertUseConfig {
-        InsertUseConfig {
-            granularity: match self.data.assist_importGranularity {
-                ImportGranularityDef::Preserve => ImportGranularity::Preserve,
-                ImportGranularityDef::Item => ImportGranularity::Item,
-                ImportGranularityDef::Crate => ImportGranularity::Crate,
-                ImportGranularityDef::Module => ImportGranularity::Module,
-            },
-            enforce_granularity: self.data.assist_importEnforceGranularity,
-            prefix_kind: todo!(),
-            // match self.data.assist_importPrefix {
-            //     ImportPrefixDef::Plain => PrefixKind::Plain,
-            //     ImportPrefixDef::ByCrate => PrefixKind::ByCrate,
-            //     ImportPrefixDef::BySelf => PrefixKind::BySelf,
-            // },
-            group: self.data.assist_importGroup,
-            skip_glob_imports: !self.data.assist_allowMergingIntoGlobImports,
-        }
+        todo!()
+        // InsertUseConfig {
+        //     granularity: match self.data.assist_importGranularity {
+        //         ImportGranularityDef::Preserve => ImportGranularity::Preserve,
+        //         ImportGranularityDef::Item => ImportGranularity::Item,
+        //         ImportGranularityDef::Crate => ImportGranularity::Crate,
+        //         ImportGranularityDef::Module => ImportGranularity::Module,
+        //     },
+        //     enforce_granularity: self.data.assist_importEnforceGranularity,
+        //     prefix_kind: todo!(),
+        //     // match self.data.assist_importPrefix {
+        //     //     ImportPrefixDef::Plain => PrefixKind::Plain,
+        //     //     ImportPrefixDef::ByCrate => PrefixKind::ByCrate,
+        //     //     ImportPrefixDef::BySelf => PrefixKind::BySelf,
+        //     // },
+        // }
     }
 
     pub fn highlighting_strings(&self) -> bool {
@@ -652,148 +633,4 @@ where
     }
 
     deserializer.deserialize_any(SingleOrVec)
-}
-
-fn schema(fields: &[(&'static str, &'static str, &[&str], &str)]) -> serde_json::Value {
-    for ((f1, ..), (f2, ..)) in fields.iter().zip(&fields[1..]) {
-        fn key(f: &str) -> &str {
-            f.splitn(2, '_').next().unwrap()
-        }
-        assert!(key(f1) <= key(f2), "wrong field order: {:?} {:?}", f1, f2);
-    }
-
-    let map = fields
-        .iter()
-        .map(|(field, ty, doc, default)| {
-            let name = field.replace("_", ".");
-            let name = format!("husky-analyzer.{}", name);
-            let props = field_props(field, ty, doc, default);
-            (name, props)
-        })
-        .collect::<serde_json::Map<_, _>>();
-    map.into()
-}
-
-fn field_props(field: &str, ty: &str, doc: &[&str], default: &str) -> serde_json::Value {
-    let doc = doc_comment_to_string(doc);
-    let doc = doc.trim_end_matches('\n');
-    assert!(
-        doc.ends_with('.') && doc.starts_with(char::is_uppercase),
-        "bad docs for {}: {:?}",
-        field,
-        doc
-    );
-    let default = default.parse::<serde_json::Value>().unwrap();
-
-    let mut map = serde_json::Map::default();
-    macro_rules! set {
-        ($($key:literal: $value:tt),*$(,)?) => {{$(
-            map.insert($key.into(), serde_json::json!($value));
-        )*}};
-    }
-    set!("markdownDescription": doc);
-    set!("default": default);
-
-    match ty {
-        "bool" => set!("type": "boolean"),
-        "String" => set!("type": "string"),
-        "Vec<String>" => set! {
-            "type": "array",
-            "items": { "type": "string" },
-        },
-        "Vec<PathBuf>" => set! {
-            "type": "array",
-            "items": { "type": "string" },
-        },
-        "FxHashSet<String>" => set! {
-            "type": "array",
-            "items": { "type": "string" },
-            "uniqueItems": true,
-        },
-        "FxHashMap<String, SnippetDef>" => set! {
-            "type": "object",
-        },
-        "FxHashMap<String, String>" => set! {
-            "type": "object",
-        },
-        "Option<usize>" => set! {
-            "type": ["null", "integer"],
-            "minimum": 0,
-        },
-        "Option<String>" => set! {
-            "type": ["null", "string"],
-        },
-        "Option<PathBuf>" => set! {
-            "type": ["null", "string"],
-        },
-        "Option<bool>" => set! {
-            "type": ["null", "boolean"],
-        },
-        "Option<Vec<String>>" => set! {
-            "type": ["null", "array"],
-            "items": { "type": "string" },
-        },
-        "MergeBehaviorDef" => set! {
-            "type": "string",
-            "enum": ["none", "crate", "module"],
-            "enumDescriptions": [
-                "Do not merge imports at all.",
-                "Merge imports from the same crate into a single `use` statement.",
-                "Merge imports from the same module into a single `use` statement."
-            ],
-        },
-        "ImportGranularityDef" => set! {
-            "type": "string",
-            "enum": ["preserve", "crate", "module", "item"],
-            "enumDescriptions": [
-                "Do not change the granularity of any imports and preserve the original structure written by the developer.",
-                "Merge imports from the same crate into a single use statement. Conversely, imports from different crates are split into separate statements.",
-                "Merge imports from the same module into a single use statement. Conversely, imports from different modules are split into separate statements.",
-                "Flatten imports so that each has its own use statement."
-            ],
-        },
-        "ImportPrefixDef" => set! {
-            "type": "string",
-            "enum": [
-                "plain",
-                "self",
-                "crate"
-            ],
-            "enumDescriptions": [
-                "Insert import paths relative to the current module, using up to one `super` prefix if the parent module contains the requested item.",
-                "Insert import paths relative to the current module, using up to one `super` prefix if the parent module contains the requested item. Prefixes `self` in front of the path if it starts with a module.",
-                "Force import paths to be absolute by always starting them with `crate` or the extern crate name they come from."
-            ],
-        },
-        "Vec<ManifestOrProjectJson>" => set! {
-            "type": "array",
-            "items": { "type": ["string", "object"] },
-        },
-        "WorkspaceSymbolSearchScopeDef" => set! {
-            "type": "string",
-            "enum": ["workspace", "workspace_and_dependencies"],
-            "enumDescriptions": [
-                "Search in current workspace only",
-                "Search in current workspace and dependencies"
-            ],
-        },
-        "WorkspaceSymbolSearchKindDef" => set! {
-            "type": "string",
-            "enum": ["only_types", "all_symbols"],
-            "enumDescriptions": [
-                "Search for types only",
-                "Search for all symbols kinds"
-            ],
-        },
-        _ => panic!("{}: {}", ty, default),
-    }
-
-    map.into()
-}
-
-fn doc_comment_to_string(doc: &[&str]) -> String {
-    doc.iter()
-        .map(|it| it.strip_prefix(' ').unwrap_or(it))
-        .map(|it| format!("{}\n", it))
-        .collect()
 }

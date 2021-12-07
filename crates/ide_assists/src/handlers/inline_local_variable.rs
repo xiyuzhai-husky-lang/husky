@@ -2,7 +2,7 @@ use common::*;
 use either::Either;
 use hir::{PathResolution, Semantics};
 use ide_db::{
-    base_db::FileID,
+    file_db::FileID,
     defs::Definition,
     search::{FileReference, UsageSearchResult},
     IdeDatabase,

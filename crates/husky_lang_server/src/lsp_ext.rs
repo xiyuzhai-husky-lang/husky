@@ -273,7 +273,6 @@ impl Notification for ServerStatusNotification {
 #[derive(Deserialize, Serialize, PartialEq, Eq, Clone)]
 pub struct ServerStatusParams {
     pub health: Health,
-    pub quiescent: bool,
     pub message: Option<String>,
 }
 

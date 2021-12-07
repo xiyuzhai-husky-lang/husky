@@ -3,10 +3,10 @@ use std::sync::Arc;
 use super::Diagnostic;
 
 #[salsa::query_group(AstDatabaseStorage)]
-pub trait AstDatabase: base_db::SourceDatabase {}
+pub trait AstDatabase: file_db::FileDatabase {}
 
 #[salsa::query_group(InternDatabaseStorage)]
-pub trait InternDatabase: base_db::SourceDatabase {}
+pub trait InternDatabase: file_db::FileDatabase {}
 
 #[salsa::query_group(DefDatabaseStorage)]
 pub trait DefDatabase: InternDatabase + AstDatabase {}

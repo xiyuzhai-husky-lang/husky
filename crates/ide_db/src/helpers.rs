@@ -12,7 +12,7 @@ pub mod rust_doc;
 
 use std::{collections::VecDeque, iter};
 
-use base_db::FileID;
+use file_db::FileID;
 use hir::{ItemInNs, MacroDef, ModuleDef, Name, PathResolution, Semantics};
 use itertools::Itertools;
 use syntax::{

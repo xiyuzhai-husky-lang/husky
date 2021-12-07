@@ -5,8 +5,8 @@ use std::convert::TryInto;
 use crate::{doc_links::token_as_doc_comment, FilePosition, NavigationTarget, RangeInfo, TryToNav};
 use hir::{AsAssocItem, Semantics};
 use ide_db::{
-    base_db::{AnchoredPath, FileID, FileLoader},
     defs::Definition,
+    file_db::{AnchoredPath, FileID, FileLoader},
     helpers::pick_best_token,
     IdeDatabase,
 };

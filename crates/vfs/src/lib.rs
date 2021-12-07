@@ -1,45 +1,6 @@
-//! # Virtual File System
-//!
-//! VFS stores all files read by husky-lang-server. Reading file contents from VFS
-//! always returns the same contents, unless VFS was explicitly modified with
-//! [`set_file_contents`]. All changes to VFS are logged, and can be retrieved via
-//! [`take_changes`] method. The pack of changes is then pushed to `salsa` and
-//! triggers incremental recomputation.
-//!
-//! Files in VFS are identified with [`FileID`]s -- interned paths. The notion of
-//! the path, [`VfsPath`] is somewhat abstract: at the moment, it is represented
-//! as an [`std::path::PathBuf`] internally, but this is an implementation detail.
-//!
-//! VFS doesn't do IO or file watching itself. For that, see the [`loader`]
-//! module. [`loader::Handle`] is an object-safe trait which abstracts both file
-//! loading and file watching. [`Handle`] is dynamically configured with a set of
-//! directory entries which should be scanned and watched. [`Handle`] then
-//! asynchronously pushes file changes. Directory entries are configured in
-//! free-form via list of globs, it's up to the [`Handle`] to interpret the globs
-//! in any specific way.
-//!
-//! VFS stores a flat list of files. [`file_set::FileSet`] can partition this list
-//! of files into disjoint sets of files. Traversal-like operations (including
-//! getting the neighbor file by the relative path) are handled by the [`FileSet`].
-//! [`FileSet`]s are also pushed to salsa and cause it to re-check `mod foo;`
-//! declarations when files are created or deleted.
-//!
-//! [`FileSet`] and [`loader::Entry`] play similar, but different roles.
-//! Both specify the "set of paths/files", one is geared towards file watching,
-//! the other towards salsa changes. In particular, single [`FileSet`]
-//! may correspond to several [`loader::Entry`]. For example, a crate from
-//! crates.io which uses code generation would have two [`Entries`] -- for sources
-//! in `~/.cargo`, and for generated code in `./target/debug/build`. It will
-//! have a single [`FileSet`] which unions the two sources.
-//!
-//! [`set_file_contents`]: Vfs::set_file_contents
-//! [`take_changes`]: Vfs::take_changes
-//! [`FileSet`]: file_set::FileSet
-//! [`Handle`]: loader::Handle
-//! [`Entries`]: loader::Entry
+use std::sync::Arc;
 mod anchored_path;
-pub mod file_set;
-pub mod loader;
+pub mod file_id_path_table;
 mod path_interner;
 mod vfs_path;
 
@@ -59,40 +20,34 @@ pub use paths::{AbsPath, AbsPathBuf};
 #[derive(Copy, Clone, Debug, Ord, PartialOrd, Eq, PartialEq, Hash)]
 pub struct FileID(pub u32);
 
-/// Storage for all files read by husky-lang-server.
-///
-/// For more informations see the [crate-level](crate) documentation.
-#[derive(Default)]
-pub struct Vfs {
-    interner: PathInterner,
-    data: Vec<Option<Vec<u8>>>,
-    changes: Vec<ChangedFile>,
-}
-
 /// Changed file in the [`Vfs`].
-pub struct ChangedFile {
+#[derive(Copy, Clone, Debug)]
+pub struct FileChange {
     /// Id of the changed file
     pub file_id: FileID,
     /// Kind of change
-    pub change_kind: ChangeKind,
+    pub change_kind: FileChangeKind,
 }
 
-impl ChangedFile {
+impl FileChange {
     /// Returns `true` if the change is not [`Delete`](ChangeKind::Delete).
     pub fn exists(&self) -> bool {
-        self.change_kind != ChangeKind::Delete
+        self.change_kind != FileChangeKind::Delete
     }
 
     /// Returns `true` if the change is [`Create`](ChangeKind::Create) or
     /// [`Delete`](ChangeKind::Delete).
     pub fn is_created_or_deleted(&self) -> bool {
-        matches!(self.change_kind, ChangeKind::Create | ChangeKind::Delete)
+        matches!(
+            self.change_kind,
+            FileChangeKind::Create | FileChangeKind::Delete
+        )
     }
 }
 
 /// Kind of [file change](ChangedFile).
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]
-pub enum ChangeKind {
+pub enum FileChangeKind {
     /// The file was (re-)created
     Create,
     /// The file was modified
@@ -100,6 +55,18 @@ pub enum ChangeKind {
     /// The file was deleted
     Delete,
 }
+
+/// Storage for all files read by husky-lang-server.
+///
+/// For more informations see the [crate-level](crate) documentation.
+#[derive(Default)]
+pub struct Vfs {
+    interner: PathInterner,
+    data: Vec<Option<file_data::FileData>>,
+    changes: Vec<FileChange>,
+}
+
+mod file_data;
 
 impl Vfs {
     /// Id of the given path if it exists in the `Vfs` and is not deleted.
@@ -113,11 +80,11 @@ impl Vfs {
         self.interner.lookup(file_id).clone()
     }
 
-    pub fn get_file_content(&self, file_id: FileID) -> &[u8] {
-        self.get_file_content_or_none(file_id).as_deref().unwrap()
+    pub fn get_file_content(&self, file_id: FileID) -> &String {
+        self.get_file_content_or_none(file_id).unwrap()
     }
 
-    pub fn iter_without_deleted(&self) -> impl Iterator<Item = (FileID, &VfsPath)> + '_ {
+    pub fn iter_non_deleted(&self) -> impl Iterator<Item = (FileID, &VfsPath)> + '_ {
         (0..self.data.len())
             .map(|it| FileID(it as u32))
             .filter(move |&file_id| self.get_file_content_or_none(file_id).is_some())
@@ -133,16 +100,17 @@ impl Vfs {
         content: Option<Vec<u8>>,
     ) -> bool {
         let file_id = self.alloc_or_get_file_id(path);
-        let change_kind = match (&self.get_file_content_or_none(file_id), &content) {
+        let file_data = content.map(|content| file_data::FileData::new(content));
+        let change_kind = match (self.get_file_content_or_none(file_id), &file_data) {
             (None, None) => return false,
-            (None, Some(_)) => ChangeKind::Create,
-            (Some(_), None) => ChangeKind::Delete,
-            (Some(old), Some(new)) if old == new => return false,
-            (Some(_), Some(_)) => ChangeKind::Modify,
+            (None, Some(_)) => FileChangeKind::Create,
+            (Some(_), None) => FileChangeKind::Delete,
+            (Some(old), Some(new)) if old == &new.content => return false,
+            (Some(_), Some(_)) => FileChangeKind::Modify,
         };
 
-        *self.get_mut(file_id) = content;
-        self.changes.push(ChangedFile {
+        *self.get_mut(file_id) = file_data;
+        self.changes.push(FileChange {
             file_id,
             change_kind,
         });
@@ -153,8 +121,48 @@ impl Vfs {
         !self.changes.is_empty()
     }
 
-    pub fn drain_changes(&mut self) -> Vec<ChangedFile> {
+    pub fn drain_changes(&mut self) -> Vec<FileChange> {
         mem::take(&mut self.changes)
+        // eprintln!("start transforming");
+        // let mut fs_changes = Vec::new();
+        // // A file was added or deleted
+        // let mut has_structure_changes = false;
+        // eprintln!("here");
+
+        // let mut change = DatabaseChange::new();
+        // eprintln!("here");
+        // if changed_files.is_empty() {
+        //     eprintln!("finish transforming");
+        //     return None;
+        // }
+        // eprintln!("here");
+
+        // for file in changed_files {
+        //     eprintln!("here89");
+        //     if let Some(path) = self.vfs.read().get_file_path(file.file_id).as_path() {
+        //         eprintln!("here90");
+        //         let path = path.to_path_buf();
+        //         fs_changes.push((path, file.change_kind));
+        //         if file.is_created_or_deleted() {
+        //             has_structure_changes = true;
+        //         }
+        //     }
+        //     eprintln!("here98");
+
+        //     change.change_file(
+        //         file.file_id,
+        //         Some(Arc::new(
+        //             self.vfs.read().get_file_content(file.file_id).clone(),
+        //         )),
+        //     );
+        // }
+        // if has_structure_changes {
+        //     todo!()
+        //     // let roots = self.source_root_config.partition(&self.vfs);
+        //     // change.set_roots(roots);
+        // }
+        // eprintln!("finish transforming");
+        // return Some(change);
     }
 
     fn alloc_or_get_file_id(&mut self, path: VfsPath) -> FileID {
@@ -170,8 +178,10 @@ impl Vfs {
     /// # Panics
     ///
     /// Panics if no file is associated to that id.
-    fn get_file_content_or_none(&self, file_id: FileID) -> &Option<Vec<u8>> {
-        &self.data[file_id.0 as usize]
+    fn get_file_content_or_none(&self, file_id: FileID) -> Option<&String> {
+        self.data[file_id.0 as usize]
+            .as_ref()
+            .map(|data| &data.content)
     }
 
     /// Mutably returns the content associated with the given `file_id`.
@@ -179,7 +189,7 @@ impl Vfs {
     /// # Panics
     ///
     /// Panics if no file is associated to that id.
-    fn get_mut(&mut self, file_id: FileID) -> &mut Option<Vec<u8>> {
+    fn get_mut(&mut self, file_id: FileID) -> &mut Option<file_data::FileData> {
         &mut self.data[file_id.0 as usize]
     }
 }

@@ -6,7 +6,7 @@ use common::*;
 
 use hir::Semantics;
 use ide_db::{
-    base_db::{AnchoredPathBuf, FileID, FileRange},
+    file_db::{AnchoredPathBuf, FileID, FileRange},
     helpers::SnippetCap,
 };
 use ide_db::{

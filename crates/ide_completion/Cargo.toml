@@ -21,12 +21,10 @@ common = { path = "../common", version = "0.0.0" }
 stdx = { path = "../stdx", version = "0.0.0" }
 syntax = { path = "../syntax", version = "0.0.0" }
 text_edit = { path = "../text_edit", version = "0.0.0" }
-base_db = { path = "../base_db", version = "0.0.0" }
+file_db = { path = "../file_db", version = "0.0.0" }
 ide_db = { path = "../ide_db", version = "0.0.0" }
 profile = { path = "../profile", version = "0.0.0" }
 
-# completions crate should depend only on the top-level `hir` package. if you need
-# something from some `hir_xxx` subpackage, reexport the API via `hir`.
 hir = { path = "../hir", version = "0.0.0" }
 
 [dev-dependencies]
@@ -34,4 +32,3 @@ expect-test = "1.2.0-pre.1"
 xshell = "0.1"
 
 test_utils = { path = "../test_utils" }
-sourcegen = { path = "../sourcegen" }

@@ -1,5 +1,5 @@
 use hir::{Function, Semantics};
-use ide_db::base_db::FilePosition;
+use ide_db::file_db::FilePosition;
 use ide_db::IdeDatabase;
 use syntax::ast;
 

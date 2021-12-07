@@ -1,6 +1,6 @@
 use common::*;
 
-use ide_db::base_db::{FileID, SourceDatabase};
+use ide_db::file_db::{FileDatabase, FileID};
 use ide_db::IdeDatabase;
 use syntax::{NodeOrToken, SingleFileParseTree, SyntaxToken};
 

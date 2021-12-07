@@ -21,32 +21,32 @@ pub mod search;
 
 use std::{fmt, mem::ManuallyDrop, sync::Arc};
 
-use base_db::{
+use file_db::{
     salsa::{self, Durability},
-    AnchoredPath, CrateId, FileID, FileLoader, FileLoaderDelegate, SourceDatabase,
+    AnchoredPath, CrateId, FileDatabase, FileID, FileLoader, FileLoaderDelegate,
 };
 use hir::db::{AstDatabase, DefDatabase, HirDatabase};
 use rustc_hash::FxHashSet;
 
 use crate::{line_index::LineIndex, symbol_index::SymbolsDatabase};
 
-/// `base_db` is normally also needed in places where `ide_db` is used, so this re-export is for convenience.
-pub use base_db;
+/// `file_db` is normally also needed in places where `ide_db` is used, so this re-export is for convenience.
+pub use file_db;
 
 pub type FxIndexSet<T> = indexmap::IndexSet<T, std::hash::BuildHasherDefault<rustc_hash::FxHasher>>;
 pub type FxIndexMap<K, V> =
     indexmap::IndexMap<K, V, std::hash::BuildHasherDefault<rustc_hash::FxHasher>>;
 
 #[salsa::database(
-    base_db::SourceDatabaseStorage,
-    base_db::SourceDatabaseExtStorage,
-    LineIndexDatabaseStorage,
-    symbol_index::SymbolsDatabaseStorage,
-    hir::db::InternDatabaseStorage,
-    hir::db::AstDatabaseStorage,
-    hir::db::DefDatabaseStorage,
-    hir::db::DiagDatabaseStorage,
-    hir::db::HirDatabaseStorage
+    file_db::FileDatabaseStorage,
+    // file_db::SourceDatabaseExtStorage,
+    // LineIndexDatabaseStorage,
+    // symbol_index::SymbolsDatabaseStorage,
+    // hir::db::InternDatabaseStorage,
+    // hir::db::AstDatabaseStorage,
+    // hir::db::DefDatabaseStorage,
+    // hir::db::DiagDatabaseStorage,
+    // hir::db::HirDatabaseStorage
 )]
 pub struct IdeDatabase {
     // We use `ManuallyDrop` here because every codegen unit that contains a
@@ -90,13 +90,16 @@ impl fmt::Debug for IdeDatabase {
 
 impl FileLoader for IdeDatabase {
     fn file_text(&self, file_id: FileID) -> Arc<String> {
-        FileLoaderDelegate(self).file_text(file_id)
+        todo!()
+        // FileLoaderDelegate(self).file_text(file_id)
     }
     fn resolve_path(&self, path: AnchoredPath) -> Option<FileID> {
-        FileLoaderDelegate(self).resolve_path(path)
+        todo!()
+        // FileLoaderDelegate(self).resolve_path(path)
     }
     fn relevant_crates(&self, file_id: FileID) -> Arc<FxHashSet<CrateId>> {
-        FileLoaderDelegate(self).relevant_crates(file_id)
+        todo!()
+        // FileLoaderDelegate(self).relevant_crates(file_id)
     }
 }
 
@@ -110,20 +113,22 @@ impl Default for IdeDatabase {
 
 impl IdeDatabase {
     pub fn new(lru_capacity: Option<usize>) -> IdeDatabase {
-        let mut db = IdeDatabase {
-            storage: ManuallyDrop::new(salsa::Storage::default()),
-        };
-        db.set_local_roots_with_durability(Default::default(), Durability::HIGH);
-        db.set_library_roots_with_durability(Default::default(), Durability::HIGH);
-        db.update_lru_capacity(lru_capacity);
-        db
+        todo!()
+        // let mut db = IdeDatabase {
+        //     storage: ManuallyDrop::new(salsa::Storage::default()),
+        // };
+        // db.set_local_roots_with_durability(Default::default(), Durability::HIGH);
+        // db.set_library_roots_with_durability(Default::default(), Durability::HIGH);
+        // db.update_lru_capacity(lru_capacity);
+        // db
     }
 
     pub fn update_lru_capacity(&mut self, lru_capacity: Option<usize>) {
-        let lru_capacity = lru_capacity.unwrap_or(base_db::DEFAULT_LRU_CAP);
-        base_db::ParseQuery
-            .in_db_mut(self)
-            .set_lru_capacity(lru_capacity);
+        todo!()
+        // let lru_capacity = lru_capacity.unwrap_or(file_db::DEFAULT_LRU_CAP);
+        // file_db::ParseQuery
+        //     .in_db_mut(self)
+        //     .set_lru_capacity(lru_capacity);
     }
 }
 
@@ -136,7 +141,7 @@ impl salsa::ParallelDatabase for IdeDatabase {
 }
 
 #[salsa::query_group(LineIndexDatabaseStorage)]
-pub trait LineIndexDatabase: base_db::SourceDatabase {
+pub trait LineIndexDatabase: file_db::FileDatabase {
     fn line_index(&self, file_id: FileID) -> Arc<LineIndex>;
 }
 

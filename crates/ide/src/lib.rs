@@ -54,9 +54,9 @@ use std::sync::Arc;
 use common::*;
 
 use ide_db::{
-    base_db::{
+    file_db::{
         salsa::{self, ParallelDatabase},
-        Env, FileLoader, FilePathIdTable, SourceDatabase, VfsPath,
+        Env, FileDatabase, FileLoader, FilePathIdTable, VfsPath,
     },
     symbol_index::{self, FileSymbol},
     LineIndexDatabase,
@@ -97,9 +97,8 @@ pub use ide_completion::{
     SnippetScope,
 };
 pub use ide_db::{
-    base_db::{
-        Cancelled, Change, CrateId, Edition, FileID, FilePosition, FileRange, SourceRoot,
-        SourceRootId,
+    file_db::{
+        Cancelled, CrateId, Edition, FileID, FilePosition, FileRange, SourceRoot, SourceRootId,
     },
     label::Label,
     line_index::{LineCol, LineColUtf16, LineIndex},
@@ -128,13 +127,13 @@ impl<T> RangeInfo<T> {
 
 /// `AnalysisHost` stores the current state of the world.
 #[derive(Debug)]
-pub struct AnalysisHost {
+pub struct IdeDatabaseProxy {
     db: IdeDatabase,
 }
 
-impl AnalysisHost {
-    pub fn new(lru_capacity: Option<usize>) -> AnalysisHost {
-        AnalysisHost {
+impl IdeDatabaseProxy {
+    pub fn new(lru_capacity: Option<usize>) -> IdeDatabaseProxy {
+        IdeDatabaseProxy {
             db: IdeDatabase::new(lru_capacity),
         }
     }
@@ -145,15 +144,15 @@ impl AnalysisHost {
 
     /// Returns a snapshot of the current state, which you can query for
     /// semantic information.
-    pub fn analysis(&self) -> DatabaseProxy {
-        DatabaseProxy {
+    pub fn analysis(&self) -> IdeDatabaseSnapshot {
+        IdeDatabaseSnapshot {
             db: self.db.snapshot(),
         }
     }
 
     /// Applies changes to the current state of the world. If there are
     /// outstanding snapshots, they will be canceled.
-    pub fn apply_change(&mut self, change: Change) {
+    pub fn apply_change(&mut self, change: Vec<vfs::FileChange>) {
         self.db.apply_change(change)
     }
 
@@ -170,11 +169,15 @@ impl AnalysisHost {
     pub fn raw_database_mut(&mut self) -> &mut IdeDatabase {
         &mut self.db
     }
+
+    pub fn drain_diagnostic_changes(&mut self) -> Vec<hir::FileDiagnostics> {
+        todo!()
+    }
 }
 
-impl Default for AnalysisHost {
-    fn default() -> AnalysisHost {
-        AnalysisHost::new(None)
+impl Default for IdeDatabaseProxy {
+    fn default() -> IdeDatabaseProxy {
+        IdeDatabaseProxy::new(None)
     }
 }
 
@@ -183,7 +186,7 @@ impl Default for AnalysisHost {
 /// state is advanced using `AnalysisHost::apply_change` method, all existing
 /// `Analysis` are canceled (most method return `Err(Canceled)`).
 #[derive(Debug)]
-pub struct DatabaseProxy {
+pub struct IdeDatabaseSnapshot {
     db: salsa::Snapshot<IdeDatabase>,
 }
 
@@ -193,11 +196,11 @@ pub struct DatabaseProxy {
 // "what types LSP uses". Although currently LSP is the only consumer of the
 // API, the API should in theory be usable as a library, or via a different
 // protocol.
-impl DatabaseProxy {
+impl IdeDatabaseSnapshot {
     // Creates an analysis instance for a single file, without any extenal
     // dependencies, stdlib support or ability to apply changes. See
     // `AnalysisHost` for creating a fully-featured analysis.
-    pub fn from_single_file(text: String) -> (DatabaseProxy, FileID) {
+    pub fn from_single_file(text: String) -> (IdeDatabaseSnapshot, FileID) {
         todo!()
     }
 
@@ -225,14 +228,16 @@ impl DatabaseProxy {
 
     /// Returns true if this file belongs to an immutable library.
     pub fn is_library_file(&self, file_id: FileID) -> Cancellable<bool> {
-        use ide_db::base_db::SourceDatabaseExt;
-        self.try_db_query(|db| db.source_root(db.file_source_root(file_id)).is_library)
+        todo!();
+        // use ide_db::file_db::SourceDatabaseExt;
+        // self.try_db_query(|db| db.source_root(db.package_root(file_id)).is_library)
     }
 
     /// Gets the file's `LineIndex`: data structure to convert between absolute
     /// offsets and line/column representation.
     pub fn file_line_index(&self, file_id: FileID) -> Cancellable<Arc<LineIndex>> {
-        self.try_db_query(|db| db.line_index(file_id))
+        todo!()
+        // self.try_db_query(|db| db.line_index(file_id))
     }
 
     /// Selects the next syntactic nodes encompassing the range.
@@ -492,7 +497,8 @@ impl DatabaseProxy {
 
     /// Computes the set of diagnostics for the given file.
     pub fn diagnostics(&self, file_id: FileID) -> Cancellable<Vec<hir::Diagnostic>> {
-        self.try_db_query(|db| db.diagnostics(file_id))
+        todo!()
+        // self.try_db_query(|db| db.diagnostics(file_id))
     }
 
     /// Returns the edit required to rename reference at the position to the new

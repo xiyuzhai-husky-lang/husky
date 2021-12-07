@@ -32,4 +32,3 @@ quote = "1.0.2"
 ungrammar = "=1.14.9"
 
 test_utils = { path = "../test_utils" }
-sourcegen = { path = "../sourcegen" }

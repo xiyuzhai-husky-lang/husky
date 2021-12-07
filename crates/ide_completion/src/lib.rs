@@ -11,7 +11,7 @@ mod snippet;
 
 use completions::flyimport::position_for_import;
 use ide_db::{
-    base_db::FilePosition,
+    file_db::FilePosition,
     helpers::{
         import_assets::NameToImport,
         insert_use::{self, ImportScope},

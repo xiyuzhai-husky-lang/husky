@@ -1,6 +1,6 @@
-use crossbeam_channel::{unbounded, Receiver, Sender};
+use crossbeam_channel::{unbounded, Receiver};
 
-use crate::{config::ServerConfig, task::Task, taskpool::TaskPool};
+use crate::{task::Task, taskpool::TaskPool};
 
 use super::handle::Handle;
 
@@ -10,6 +10,9 @@ impl ServerTaskPool {
     pub(super) fn new() -> ServerTaskPool {
         let (sender, receiver) = unbounded();
         let handle = TaskPool::new(sender);
-        Handle { handle, receiver }
+        Handle {
+            handle,
+            _receiver: receiver,
+        }
     }
 }

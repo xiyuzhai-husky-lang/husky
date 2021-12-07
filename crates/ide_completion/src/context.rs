@@ -2,11 +2,11 @@
 
 use common::*;
 
-use base_db::SourceDatabaseExt;
+use file_db::SourceDatabaseExt;
 use hir::{Local, Name, ScopeDef, Semantics, SemanticsScope, Type};
 use ide_db::{
     active_parameter::ActiveParameter,
-    base_db::{FilePosition, SourceDatabase},
+    file_db::{FileDatabase, FilePosition},
     IdeDatabase,
 };
 use syntax::{

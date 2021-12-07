@@ -4,7 +4,7 @@ use common::*;
 
 use either::Either;
 use hir::{HirDisplay, Semantics};
-use ide_db::{active_parameter::callable_for_token, base_db::FilePosition};
+use ide_db::{active_parameter::callable_for_token, file_db::FilePosition};
 use stdx::format_to;
 use syntax::Direction;
 
