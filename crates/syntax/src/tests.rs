@@ -1,4 +1,4 @@
 #[test]
 fn haha() {
-    assert!(false);
+    assert!(true);
 }

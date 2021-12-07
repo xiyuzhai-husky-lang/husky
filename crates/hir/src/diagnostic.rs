@@ -33,3 +33,8 @@ impl Diagnostic {
         }
     }
 }
+
+pub struct FileDiagnostics {
+    pub file_id: vfs::FileID,
+    pub diagnostics: Vec<Diagnostic>,
+}

@@ -13,8 +13,8 @@ use common::*;
 
 use hir::{PathResolution, Semantics};
 use ide_db::{
-    base_db::FileID,
     defs::{Definition, NameClass, NameRefClass},
+    file_db::FileID,
     search::{ReferenceCategory, SearchScope, UsageSearchResult},
     IdeDatabase,
 };

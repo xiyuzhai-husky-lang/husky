@@ -33,8 +33,6 @@ pub struct InsertUseConfig {
     pub granularity: ImportGranularity,
     pub enforce_granularity: bool,
     pub prefix_kind: PrefixKind,
-    pub group: bool,
-    pub skip_glob_imports: bool,
 }
 
 #[derive(Debug, Clone)]

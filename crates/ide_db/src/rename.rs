@@ -3,7 +3,7 @@ use std::fmt;
 
 use common::*;
 
-use base_db::{AnchoredPathBuf, FileID, FileRange};
+use file_db::{AnchoredPathBuf, FileID, FileRange};
 use either::Either;
 use hir::{AsAssocItem, FieldSource, HasSource, InFile, ModuleSource, Semantics};
 use stdx::never;

@@ -2,8 +2,8 @@ use common::*;
 
 use hir::Semantics;
 use ide_db::{
-    base_db::{FileID, FilePosition},
     defs::Definition,
+    file_db::{FileID, FilePosition},
     helpers::{for_each_break_expr, for_each_tail_expr, node_ext::walk_expr, pick_best_token},
     search::{FileReference, ReferenceCategory, SearchScope},
     IdeDatabase,

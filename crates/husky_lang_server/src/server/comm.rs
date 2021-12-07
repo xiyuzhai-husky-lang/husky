@@ -1,6 +1,6 @@
 use std::time::Instant;
 
-use crossbeam_channel::{unbounded, Receiver, Sender};
+use crossbeam_channel::Sender;
 
 use super::Server;
 

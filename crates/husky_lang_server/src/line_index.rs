@@ -14,8 +14,6 @@ pub enum OffsetEncoding {
 
 pub(crate) struct LineCollection {
     pub(crate) begins: Arc<ide::LineIndex>,
-    pub(crate) ending_type: LineEndingType,
-    pub(crate) encoding: OffsetEncoding,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]

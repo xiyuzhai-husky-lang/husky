@@ -6,8 +6,8 @@ use crate::{
     Match, MatchFinder,
 };
 use ide_db::{
-    base_db::{FileID, FileRange},
     defs::Definition,
+    file_db::{FileID, FileRange},
     search::{SearchScope, UsageSearchResult},
 };
 use rustc_hash::FxHashSet;
@@ -115,25 +115,26 @@ impl<'db> MatchFinder<'db> {
     }
 
     fn search_files_do(&self, mut callback: impl FnMut(FileID)) {
-        if self.restrict_ranges.is_empty() {
-            // Unrestricted search.
-            use ide_db::base_db::SourceDatabaseExt;
-            use ide_db::symbol_index::SymbolsDatabase;
-            for &root in self.sema.db.local_roots().iter() {
-                let sr = self.sema.db.source_root(root);
-                for file_id in sr.iter() {
-                    callback(file_id);
-                }
-            }
-        } else {
-            // Search is restricted, deduplicate file IDs (generally only one).
-            let mut files = FxHashSet::default();
-            for range in &self.restrict_ranges {
-                if files.insert(range.file_id) {
-                    callback(range.file_id);
-                }
-            }
-        }
+        todo!()
+        // if self.restrict_ranges.is_empty() {
+        //     // Unrestricted search.
+        //     use ide_db::file_db::SourceDatabaseExt;
+        //     use ide_db::symbol_index::SymbolsDatabase;
+        //     for &root in self.sema.db.local_roots().iter() {
+        //         let sr = self.sema.db.source_root(root);
+        //         for file_id in sr.iter() {
+        //             callback(file_id);
+        //         }
+        //     }
+        // } else {
+        //     // Search is restricted, deduplicate file IDs (generally only one).
+        //     let mut files = FxHashSet::default();
+        //     for range in &self.restrict_ranges {
+        //         if files.insert(range.file_id) {
+        //             callback(range.file_id);
+        //         }
+        //     }
+        // }
     }
 
     fn slow_scan_node(

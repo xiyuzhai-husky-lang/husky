@@ -6,7 +6,7 @@
 
 use hir::{AsAssocItem, InFile, Semantics};
 use ide_db::{
-    base_db::FileID,
+    file_db::FileID,
     defs::{Definition, NameClass, NameRefClass},
     rename::{bail, format_err, source_edit_from_references, IdentifierKind},
     IdeDatabase,

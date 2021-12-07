@@ -1,7 +1,7 @@
 use either::Either;
 use hir::{db::HirDatabase, PathResolution, Semantics};
 use ide_db::{
-    base_db::{FileID, FileRange},
+    file_db::{FileID, FileRange},
     defs::Definition,
     helpers::{insert_use::remove_path_if_in_use_stmt, node_ext::expr_as_name_ref},
     path_transform::PathTransform,

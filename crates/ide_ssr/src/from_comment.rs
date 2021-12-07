@@ -4,7 +4,7 @@
 use common::*;
 
 use ide_db::{
-    base_db::{FilePosition, FileRange, SourceDatabase},
+    file_db::{FileDatabase, FilePosition, FileRange},
     IdeDatabase,
 };
 use syntax::ast;

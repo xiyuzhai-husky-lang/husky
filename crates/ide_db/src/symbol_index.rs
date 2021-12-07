@@ -30,7 +30,7 @@ use std::{
 
 use common::*;
 
-use base_db::{
+use file_db::{
     salsa::{self, ParallelDatabase},
     CrateId, FileID, SourceDatabaseExt, SourceRootId,
 };
@@ -150,28 +150,29 @@ impl<DB: ParallelDatabase> Clone for Snap<salsa::Snapshot<DB>> {
 // | VS Code | kbd:[Ctrl+T]
 // |===
 pub fn world_symbols(db: &IdeDatabase, query: Query) -> Vec<FileSymbol> {
-    let _p = profile::span("world_symbols").detail(|| query.query.clone());
+    todo!()
+    // let _p = profile::span("world_symbols").detail(|| query.query.clone());
 
-    let tmp1;
-    let tmp2;
-    let buf: Vec<&SymbolIndex> = if query.libs {
-        tmp1 = db.library_symbols();
-        tmp1.values().collect()
-    } else {
-        let mut files = Vec::new();
-        for &root in db.local_roots().iter() {
-            let sr = db.source_root(root);
-            files.extend(sr.iter())
-        }
+    // let tmp1;
+    // let tmp2;
+    // let buf: Vec<&SymbolIndex> = if query.libs {
+    //     tmp1 = db.library_symbols();
+    //     tmp1.values().collect()
+    // } else {
+    //     let mut files = Vec::new();
+    //     for &root in db.local_roots().iter() {
+    //         let sr = db.source_root(root);
+    //         files.extend(sr.iter())
+    //     }
 
-        let snap = Snap(db.snapshot());
-        tmp2 = files
-            .par_iter()
-            .map_with(snap, |db, &file_id| db.0.file_symbols(file_id))
-            .collect::<Vec<_>>();
-        tmp2.iter().map(|it| &**it).collect()
-    };
-    query.search(&buf)
+    //     let snap = Snap(db.snapshot());
+    //     tmp2 = files
+    //         .par_iter()
+    //         .map_with(snap, |db, &file_id| db.0.file_symbols(file_id))
+    //         .collect::<Vec<_>>();
+    //     tmp2.iter().map(|it| &**it).collect()
+    // };
+    // query.search(&buf)
 }
 
 pub fn crate_symbols(db: &IdeDatabase, krate: CrateId, query: Query) -> Vec<FileSymbol> {

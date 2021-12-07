@@ -1,51 +1,39 @@
-use std::{sync::Arc, time::Instant};
+use std::sync::Arc;
 
-use lsp_types::{SemanticTokens, Url};
-use parking_lot::{Mutex, RwLock};
-use rustc_hash::FxHashMap;
+use parking_lot::RwLock;
 
-use ide::{AnalysisHost, Cancellable, Change, DatabaseProxy, FileID};
+use ide::{Cancellable, FileID, IdeDatabaseSnapshot};
 
-use crate::{
-    config::ServerConfig,
-    convert::from_lsp_types,
-    diagnostics::{CheckFixes, DiagnosticsTracker},
-    fs::ServerFileSystem,
-    line_index::{LineCollection, LineEndingType},
-    server::live_docs::LiveDocs,
-    Result,
-};
+use crate::{config::ServerConfig, convert::from_lsp_types, line_index::LineCollection, Result};
 
 /// An immutable snapshot of the world's state at a point in time.
 pub(crate) struct ServerSnapshot {
     pub(crate) config: Arc<ServerConfig>,
-    pub(crate) vfs: Arc<RwLock<ServerFileSystem>>,
-    pub(crate) analysis: DatabaseProxy,
-    pub(crate) check_fixes: CheckFixes,
-    pub(crate) live_docs: LiveDocs,
-    pub(crate) semantic_tokens_cache: Arc<Mutex<FxHashMap<Url, SemanticTokens>>>,
+    pub(crate) vfs: Arc<RwLock<vfs::Vfs>>,
+    pub(crate) analysis: IdeDatabaseSnapshot,
 }
 
 impl std::panic::UnwindSafe for ServerSnapshot {}
 
 impl ServerSnapshot {
-    pub(crate) fn url_to_file_id(&self, url: &Url) -> Result<FileID> {
-        url_to_file_id(&self.vfs.read().vfs, url)
+    pub(crate) fn url_to_file_id(&self, url: &lsp_types::Url) -> Result<FileID> {
+        url_to_file_id(&self.vfs.read(), url)
     }
 
-    pub(crate) fn file_line_index(&self, file_id: FileID) -> Cancellable<LineCollection> {
-        let endings = self.vfs.read().line_endings[&file_id];
-        let index = self.analysis.file_line_index(file_id)?;
-        let res = LineCollection {
-            begins: index,
-            ending_type: endings,
-            encoding: self.config.offset_encoding(),
-        };
-        Ok(res)
+    pub(crate) fn file_line_collection(&self, file_id: FileID) -> Cancellable<LineCollection> {
+        todo!()
+        // let endings = self.vfs.read().line_endings[&file_id];
+        // let index = self.analysis.file_line_index(file_id)?;
+        // let res = LineCollection {
+        //     begins: index,
+        //     ending_type: endings,
+        //     encoding: self.config.offset_encoding(),
+        // };
+        // Ok(res)
     }
 }
 
-pub(crate) fn url_to_file_id(vfs: &vfs::Vfs, url: &Url) -> Result<FileID> {
+pub(crate) fn url_to_file_id(vfs: &vfs::Vfs, url: &lsp_types::Url) -> Result<FileID> {
     let path = from_lsp_types::vfs_path(url)?;
     let res = vfs
         .get_file_id(&path)

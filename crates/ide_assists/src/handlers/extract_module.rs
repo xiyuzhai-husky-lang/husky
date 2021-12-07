@@ -5,7 +5,7 @@ use common::*;
 use hir::{HasSource, ModuleSource};
 use ide_db::{
     assists::{AssistId, AssistKind},
-    base_db::FileID,
+    file_db::FileID,
     defs::{Definition, NameClass, NameRefClass},
     search::{FileReference, SearchScope},
 };

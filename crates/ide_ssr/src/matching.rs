@@ -7,7 +7,7 @@ use crate::{
     SsrMatches,
 };
 use hir::Semantics;
-use ide_db::base_db::FileRange;
+use ide_db::file_db::FileRange;
 use rustc_hash::FxHashMap;
 use std::{cell::Cell, iter::Peekable};
 use syntax::SmolStr;

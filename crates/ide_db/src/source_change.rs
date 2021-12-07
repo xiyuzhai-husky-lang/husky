@@ -5,7 +5,7 @@
 
 use std::{collections::hash_map::Entry, iter};
 
-use base_db::{AnchoredPathBuf, FileID};
+use file_db::{AnchoredPathBuf, FileID};
 use rustc_hash::FxHashMap;
 use stdx::never;
 use text_edit::TextEdit;

@@ -1,8 +1,8 @@
 use std::{fmt, iter::FromIterator, sync::Arc};
 
-use ide_db::base_db::{
+use ide_db::file_db::{
     salsa::debug::{DebugQueryTable, TableEntry},
-    CrateId, FileID, FileTextQuery, SourceDatabase, SourceRootId,
+    CrateId, FileDatabase, FileID, FileTextQuery, SourceRootId,
 };
 use ide_db::{
     symbol_index::{LibrarySymbolsQuery, SymbolIndex},

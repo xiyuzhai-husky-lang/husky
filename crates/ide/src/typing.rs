@@ -18,7 +18,7 @@ mod on_enter;
 use common::*;
 
 use ide_db::{
-    base_db::{FilePosition, SourceDatabase},
+    file_db::{FileDatabase, FilePosition},
     IdeDatabase,
 };
 use syntax::{

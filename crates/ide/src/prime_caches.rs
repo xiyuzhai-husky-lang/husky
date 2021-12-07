@@ -4,7 +4,7 @@
 //! various caches, it's not really advanced at the moment.
 
 use hir::db::DefDatabase;
-use ide_db::base_db::{CrateId, SourceDatabase, SourceDatabaseExt};
+use ide_db::file_db::{CrateId, FileDatabase, SourceDatabaseExt};
 use rustc_hash::FxHashSet;
 
 use crate::IdeDatabase;

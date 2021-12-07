@@ -1,25 +1,19 @@
-#![allow(warnings, unused)]
+// #![allow(unused, dead_code, warnings)]
 mod capabilities;
 pub mod cli;
 mod config;
 mod convert;
-mod diagnostics;
-mod diff;
-mod fs;
 mod init_connection;
 mod line_index;
 mod lsp_error;
 mod lsp_ext;
 mod lsp_utils;
-mod markdown;
-mod op_queue;
 mod reload;
 mod run_server;
 mod semantic_tokens;
 mod server;
 mod server_capabilities;
 mod server_snapshot;
-mod source_root_config;
 mod task;
 mod taskpool;
 
@@ -30,8 +24,6 @@ pub use crate::run_server::run_server;
 
 pub type Error = Box<dyn std::error::Error + Send + Sync>;
 pub type Result<T, E = Error> = std::result::Result<T, E>;
-
-use std::fmt;
 
 use serde::de::DeserializeOwned;
 

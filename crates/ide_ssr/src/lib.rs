@@ -86,7 +86,7 @@ pub use crate::from_comment::ssr_from_comment;
 pub use crate::matching::Match;
 use crate::matching::MatchFailureReason;
 use hir::Semantics;
-use ide_db::base_db::{FileID, FilePosition, FileRange};
+use ide_db::file_db::{FileID, FilePosition, FileRange};
 use resolving::ResolvedRule;
 use rustc_hash::FxHashMap;
 use syntax::{ast, SyntaxNode};
@@ -134,25 +134,26 @@ impl<'db> MatchFinder<'db> {
 
     /// Constructs an instance using the start of the first file in `db` as the lookup context.
     pub fn at_first_file(db: &'db ide_db::IdeDatabase) -> Result<MatchFinder<'db>, SsrError> {
-        use ide_db::base_db::SourceDatabaseExt;
-        use ide_db::symbol_index::SymbolsDatabase;
-        if let Some(first_file_id) = db
-            .local_roots()
-            .iter()
-            .next()
-            .and_then(|root| db.source_root(*root).iter().next())
-        {
-            Ok(MatchFinder::in_context(
-                db,
-                FilePosition {
-                    file_id: first_file_id,
-                    offset: 0.into(),
-                },
-                vec![],
-            ))
-        } else {
-            bail!("No files to search");
-        }
+        todo!()
+        // use ide_db::file_db::SourceDatabaseExt;
+        // use ide_db::symbol_index::SymbolsDatabase;
+        // if let Some(first_file_id) = db
+        //     .local_roots()
+        //     .iter()
+        //     .next()
+        //     .and_then(|root| db.source_root(*root).iter().next())
+        // {
+        //     Ok(MatchFinder::in_context(
+        //         db,
+        //         FilePosition {
+        //             file_id: first_file_id,
+        //             offset: 0.into(),
+        //         },
+        //         vec![],
+        //     ))
+        // } else {
+        //     bail!("No files to search");
+        // }
     }
 
     /// Adds a rule to be applied. The order in which rules are added matters. Earlier rules take
@@ -171,28 +172,29 @@ impl<'db> MatchFinder<'db> {
 
     /// Finds matches for all added rules and returns edits for all found matches.
     pub fn edits(&self) -> FxHashMap<FileID, TextEdit> {
-        use ide_db::base_db::SourceDatabaseExt;
-        let mut matches_by_file = FxHashMap::default();
-        for m in self.matches().matches {
-            matches_by_file
-                .entry(m.range.file_id)
-                .or_insert_with(SsrMatches::default)
-                .matches
-                .push(m);
-        }
-        matches_by_file
-            .into_iter()
-            .map(|(file_id, matches)| {
-                (
-                    file_id,
-                    replacing::matches_to_edit(
-                        &matches,
-                        &self.sema.db.file_text(file_id),
-                        &self.rules,
-                    ),
-                )
-            })
-            .collect()
+        todo!()
+        // use ide_db::file_db::SourceDatabaseExt;
+        // let mut matches_by_file = FxHashMap::default();
+        // for m in self.matches().matches {
+        //     matches_by_file
+        //         .entry(m.range.file_id)
+        //         .or_insert_with(SsrMatches::default)
+        //         .matches
+        //         .push(m);
+        // }
+        // matches_by_file
+        //     .into_iter()
+        //     .map(|(file_id, matches)| {
+        //         (
+        //             file_id,
+        //             replacing::matches_to_edit(
+        //                 &matches,
+        //                 &self.sema.db.file_text(file_id),
+        //                 &self.rules,
+        //             ),
+        //         )
+        //     })
+        //     .collect()
     }
 
     /// Adds a search pattern. For use if you intend to only call `find_matches_in_file`. If you

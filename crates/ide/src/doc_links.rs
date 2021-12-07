@@ -178,19 +178,20 @@ fn broken_link_clone_cb<'a, 'b>(link: BrokenLink<'a>) -> Option<(CowStr<'b>, Cow
 // This should cease to be a problem if RFC2988 (Stable Rustdoc URLs) is implemented
 // https://github.com/rust-lang/rfcs/pull/2988
 fn get_doc_link(db: &IdeDatabase, def: Definition) -> Option<String> {
-    let (target, file, frag) = filename_and_frag_for_def(db, def)?;
+    todo!()
+    // let (target, file, frag) = filename_and_frag_for_def(db, def)?;
 
-    let krate = crate_of_def(db, target)?;
-    let mut url = get_doc_base_url(db, &krate)?;
+    // let krate = crate_of_def(db, target)?;
+    // let mut url = get_doc_base_url(db, &krate)?;
 
-    if let Some(path) = mod_path_of_def(db, target) {
-        url = url.join(&path).ok()?;
-    }
+    // if let Some(path) = mod_path_of_def(db, target) {
+    //     url = url.join(&path).ok()?;
+    // }
 
-    url = url.join(&file).ok()?;
-    url.set_fragment(frag.as_deref());
+    // url = url.join(&file).ok()?;
+    // url.set_fragment(frag.as_deref());
 
-    Some(url.into())
+    // Some(url.into())
 }
 
 fn rewrite_intra_doc_link(
@@ -199,40 +200,43 @@ fn rewrite_intra_doc_link(
     target: &str,
     title: &str,
 ) -> Option<(String, String)> {
-    let (link, ns) = parse_intra_doc_link(target);
+    todo!()
 
-    let resolved = resolve_doc_path_for_def(db, def, link, ns)?;
-    let krate = crate_of_def(db, resolved)?;
-    let mut url = get_doc_base_url(db, &krate)?;
+    // let (link, ns) = parse_intra_doc_link(target);
 
-    let (_, file, frag) = filename_and_frag_for_def(db, resolved)?;
-    if let Some(path) = mod_path_of_def(db, resolved) {
-        url = url.join(&path).ok()?;
-    }
+    // let resolved = resolve_doc_path_for_def(db, def, link, ns)?;
+    // let krate = crate_of_def(db, resolved)?;
+    // let mut url = get_doc_base_url(db, &krate)?;
 
-    url = url.join(&file).ok()?;
-    url.set_fragment(frag.as_deref());
+    // let (_, file, frag) = filename_and_frag_for_def(db, resolved)?;
+    // if let Some(path) = mod_path_of_def(db, resolved) {
+    //     url = url.join(&path).ok()?;
+    // }
 
-    Some((url.into(), strip_prefixes_suffixes(title).to_string()))
+    // url = url.join(&file).ok()?;
+    // url.set_fragment(frag.as_deref());
+
+    // Some((url.into(), strip_prefixes_suffixes(title).to_string()))
 }
 
 /// Try to resolve path to local documentation via path-based links (i.e. `../gateway/struct.Shard.html`).
 fn rewrite_url_link(db: &IdeDatabase, def: Definition, target: &str) -> Option<String> {
-    if !(target.contains('#') || target.contains(".html")) {
-        return None;
-    }
+    todo!()
+    // if !(target.contains('#') || target.contains(".html")) {
+    //     return None;
+    // }
 
-    let krate = crate_of_def(db, def)?;
-    let mut url = get_doc_base_url(db, &krate)?;
-    let (def, file, frag) = filename_and_frag_for_def(db, def)?;
+    // let krate = crate_of_def(db, def)?;
+    // let mut url = get_doc_base_url(db, &krate)?;
+    // let (def, file, frag) = filename_and_frag_for_def(db, def)?;
 
-    if let Some(path) = mod_path_of_def(db, def) {
-        url = url.join(&path).ok()?;
-    }
+    // if let Some(path) = mod_path_of_def(db, def) {
+    //     url = url.join(&path).ok()?;
+    // }
 
-    url = url.join(&file).ok()?;
-    url.set_fragment(frag.as_deref());
-    url.join(target).ok().map(Into::into)
+    // url = url.join(&file).ok()?;
+    // url.set_fragment(frag.as_deref());
+    // url.join(target).ok().map(Into::into)
 }
 
 fn crate_of_def(db: &IdeDatabase, def: Definition) -> Option<Crate> {

@@ -7,8 +7,8 @@ use common::*;
 use either::Either;
 use hir::{HasSource, Semantics};
 use ide_db::{
-    base_db::FileRange,
     defs::Definition,
+    file_db::FileRange,
     helpers::{pick_best_token, FamousDefs},
     FxIndexSet, IdeDatabase,
 };

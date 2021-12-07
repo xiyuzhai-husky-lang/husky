@@ -3,7 +3,7 @@
 
 use common::*;
 
-use ide_db::base_db::{FilePosition, SourceDatabase};
+use ide_db::file_db::{FileDatabase, FilePosition};
 use ide_db::IdeDatabase;
 use syntax::{
     ast::{self, edit::IndentLevel},

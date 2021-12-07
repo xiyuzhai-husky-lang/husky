@@ -216,13 +216,14 @@ pub(crate) fn convert_reference_type(
     db: &IdeDatabase,
     famous_defs: &FamousDefs,
 ) -> Option<ReferenceConversion> {
-    handle_copy(&ty, db)
-        .or_else(|| handle_as_ref_str(&ty, db, famous_defs))
-        .or_else(|| handle_as_ref_slice(&ty, db, famous_defs))
-        .or_else(|| handle_dereferenced(&ty, db, famous_defs))
-        .or_else(|| handle_option_as_ref(&ty, db, famous_defs))
-        .or_else(|| handle_result_as_ref(&ty, db, famous_defs))
-        .map(|conversion| ReferenceConversion { ty, conversion })
+    todo!()
+    // handle_copy(&ty, db)
+    //     .or_else(|| handle_as_ref_str(&ty, db, famous_defs))
+    //     .or_else(|| handle_as_ref_slice(&ty, db, famous_defs))
+    //     .or_else(|| handle_dereferenced(&ty, db, famous_defs))
+    //     .or_else(|| handle_option_as_ref(&ty, db, famous_defs))
+    //     .or_else(|| handle_result_as_ref(&ty, db, famous_defs))
+    //     .map(|conversion| ReferenceConversion { ty, conversion })
 }
 
 fn handle_copy(ty: &hir::Type, db: &dyn HirDatabase) -> Option<ReferenceConversionType> {

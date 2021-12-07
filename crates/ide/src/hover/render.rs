@@ -4,8 +4,8 @@ use std::fmt::Display;
 use either::Either;
 use hir::{AsAssocItem, HirDisplay, Semantics};
 use ide_db::{
-    base_db::SourceDatabase,
     defs::Definition,
+    file_db::FileDatabase,
     helpers::{
         generated_lints::{DEFAULT_LINTS, FEATURES},
         FamousDefs,

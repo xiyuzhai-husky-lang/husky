@@ -70,7 +70,7 @@ pub mod utils;
 use common::*;
 
 use hir::Semantics;
-use ide_db::{base_db::FileRange, IdeDatabase};
+use ide_db::{file_db::FileRange, IdeDatabase};
 
 pub(crate) use crate::assist_context::{AssistContext, Assists};
 

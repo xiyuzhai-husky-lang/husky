@@ -7,16 +7,16 @@ use common::*;
 
 use hir::{db::HirDatabase, Crate, Module, Semantics};
 use ide_db::{
-    base_db::{FileID, FileRange, SourceDatabaseExt},
     defs::Definition,
+    file_db::{FileID, FileRange, SourceDatabaseExt},
     IdeDatabase,
 };
 use rustc_hash::FxHashSet;
 use syntax::{SyntaxKind::*, SyntaxToken};
 
 use crate::{
-    hover::hover_for_definition, DatabaseProxy, Fold, HoverConfig, HoverDocFormat, HoverResult,
-    TryToNav,
+    hover::hover_for_definition, Fold, HoverConfig, HoverDocFormat, HoverResult,
+    IdeDatabaseSnapshot, TryToNav,
 };
 
 /// A static representation of fully analyzed source code.
@@ -26,7 +26,7 @@ use crate::{
 pub struct StaticIndex<'a> {
     pub files: Vec<StaticIndexedFile>,
     pub tokens: TokenStore,
-    analysis: &'a DatabaseProxy,
+    analysis: &'a IdeDatabaseSnapshot,
     db: &'a IdeDatabase,
     def_map: HashMap<Definition, TokenId>,
 }
@@ -92,7 +92,7 @@ impl StaticIndex<'_> {
         todo!()
     }
 
-    pub fn compute(analysis: &DatabaseProxy) -> StaticIndex {
+    pub fn compute(analysis: &IdeDatabaseSnapshot) -> StaticIndex {
         todo!()
     }
 }
