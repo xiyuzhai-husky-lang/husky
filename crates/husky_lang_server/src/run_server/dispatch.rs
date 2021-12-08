@@ -3,8 +3,12 @@ use std::{fmt, panic, thread};
 
 use serde::{de::DeserializeOwned, Serialize};
 
+use common::*;
+
 use crate::{
-    lsp_error, lsp_utils, server::Server, server_snapshot::ServerSnapshot, task::Task, Result,
+    server::{Server, ServerControlSignal},
+    server_snapshot::ServerSnapshot,
+    utils::from_json,
 };
 
 /// A visitor for routing a raw JSON request to an appropriate handler function.
@@ -24,34 +28,10 @@ use crate::{
 pub(crate) struct RequestDispatcher<'a> {
     pub(crate) req: Option<lsp_server::Request>,
     pub(crate) server: &'a mut Server,
+    pub(crate) control_signal: ServerControlSignal,
 }
 
 impl<'a> RequestDispatcher<'a> {
-    /// Dispatches the request onto the current thread, given full access to
-    /// mutable global state. Unlike all other methods here, this one isn't
-    /// guarded by `catch_unwind`, so, please, don't make bugs :-)
-    pub(crate) fn on_sync_mut<R>(
-        &mut self,
-        f: fn(&mut Server, R::Params) -> Result<R::Result>,
-    ) -> Result<&mut Self>
-    where
-        R: lsp_types::request::Request + 'static,
-        R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
-        R::Result: Serialize + 'static,
-    {
-        let (id, params, panic_context) = match self.parse::<R>() {
-            Some(it) => it,
-            None => return Ok(self),
-        };
-        let _pctx = stdx::panic_context::enter(panic_context);
-
-        let result = f(&mut self.server, params);
-        let response = result_to_response::<R>(id, result);
-
-        self.server.comm.respond(response);
-        Ok(self)
-    }
-
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_sync<R>(
         &mut self,
@@ -78,6 +58,33 @@ impl<'a> RequestDispatcher<'a> {
         Ok(self)
     }
 
+    /// Dispatches the request onto the current thread.
+    pub(crate) fn on_control<R>(
+        &mut self,
+        f: fn(ServerSnapshot, R::Params) -> ServerControlSignal,
+    ) -> Result<&mut Self>
+    where
+        R: lsp_types::request::Request + 'static,
+        R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
+        R::Result: Serialize + 'static,
+    {
+        let (_id, params, panic_context) = match self.parse::<R>() {
+            Some(it) => it,
+            None => return Ok(self),
+        };
+        let server_snapshot = self.server.take_snapshot();
+
+        match panic::catch_unwind(move || {
+            let _pctx = stdx::panic_context::enter(panic_context);
+            f(server_snapshot, params)
+        }) {
+            Ok(control_signal) => self.control_signal = control_signal,
+            Err(_) => todo!(),
+        }
+
+        Ok(self)
+    }
+
     /// Dispatches the request onto thread pool
     pub(crate) fn on<R>(
         &mut self,
@@ -88,20 +95,19 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + Send + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        let (id, params, panic_context) = match self.parse::<R>() {
+        let (_id, params, panic_context) = match self.parse::<R>() {
             Some(it) => it,
             None => return self,
         };
 
-        self.server.taskpool.handle.spawn({
+        self.server.threadpool.execute({
             let world = self.server.take_snapshot();
-            move || {
-                let result = panic::catch_unwind(move || {
-                    let _pctx = stdx::panic_context::enter(panic_context);
-                    f(world, params)
-                });
-                let response = thread_result_to_response::<R>(id, result);
-                Task::Response(response)
+            move || match panic::catch_unwind(move || {
+                let _pctx = stdx::panic_context::enter(panic_context);
+                f(world, params)
+            }) {
+                Ok(_) => todo!(),
+                Err(_) => todo!(),
             }
         });
 
@@ -130,7 +136,7 @@ impl<'a> RequestDispatcher<'a> {
             _ => return None,
         };
 
-        let res = crate::from_json(R::METHOD, req.params);
+        let res = from_json(R::METHOD, req.params);
         match res {
             Ok(params) => {
                 let panic_context =
@@ -190,24 +196,7 @@ where
 {
     match result {
         Ok(resp) => lsp_server::Response::new_ok(id, &resp),
-        Err(e) => match e.downcast::<lsp_error::LspError>() {
-            Ok(lsp_error) => lsp_server::Response::new_err(id, lsp_error.code, lsp_error.message),
-            Err(e) => {
-                if lsp_utils::is_cancelled(&*e) {
-                    lsp_server::Response::new_err(
-                        id,
-                        lsp_server::ErrorCode::ContentModified as i32,
-                        "content modified".to_string(),
-                    )
-                } else {
-                    lsp_server::Response::new_err(
-                        id,
-                        lsp_server::ErrorCode::InternalError as i32,
-                        e.to_string(),
-                    )
-                }
-            }
-        },
+        Err(_e) => todo!(),
     }
 }
 

@@ -7,7 +7,7 @@ use crate::{
     SsrMatches,
 };
 use hir::Semantics;
-use ide_db::file_db::FileRange;
+use husky_lang_db::vfs::FileRange;
 use rustc_hash::FxHashMap;
 use std::{cell::Cell, iter::Peekable};
 use syntax::SmolStr;
@@ -88,7 +88,7 @@ pub(crate) fn get_match(
     rule: &ResolvedRule,
     code: &SyntaxNode,
     restrict_range: &Option<FileRange>,
-    sema: &Semantics<ide_db::IdeDatabase>,
+    sema: &Semantics<husky_lang_db::HuskyLangDatabase>,
 ) -> Result<Match, MatchFailed> {
     record_match_fails_reasons_scope(debug_active, || {
         Matcher::try_match(rule, code, restrict_range, sema)
@@ -97,7 +97,7 @@ pub(crate) fn get_match(
 
 /// Checks if our search pattern matches a particular node of the AST.
 struct Matcher<'db, 'sema> {
-    sema: &'sema Semantics<'db, ide_db::IdeDatabase>,
+    sema: &'sema Semantics<'db, husky_lang_db::HuskyLangDatabase>,
     /// If any placeholders come from anywhere outside of this range, then the match will be
     /// rejected.
     restrict_range: Option<FileRange>,
@@ -119,7 +119,7 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
         rule: &ResolvedRule,
         code: &SyntaxNode,
         restrict_range: &Option<FileRange>,
-        sema: &'sema Semantics<'db, ide_db::IdeDatabase>,
+        sema: &'sema Semantics<'db, husky_lang_db::HuskyLangDatabase>,
     ) -> Result<Match, MatchFailed> {
         todo!()
     }
@@ -267,7 +267,7 @@ impl Match {
     fn render_template_paths(
         &mut self,
         template: &ResolvedPattern,
-        sema: &Semantics<ide_db::IdeDatabase>,
+        sema: &Semantics<husky_lang_db::HuskyLangDatabase>,
     ) -> Result<(), MatchFailed> {
         todo!()
     }

@@ -3,10 +3,10 @@ use std::collections::{HashMap, HashSet};
 use common::*;
 
 use hir::{HasSource, ModuleSource};
-use ide_db::{
+use husky_lang_db::{
     assists::{AssistId, AssistKind},
-    file_db::FileID,
     defs::{Definition, NameClass, NameRefClass},
+    vfs::FileId,
     search::{FileReference, SearchScope},
 };
 use stdx::format_to;
@@ -36,7 +36,7 @@ impl Module {
     fn get_usages_and_record_fields(
         &self,
         ctx: &AssistContext,
-    ) -> (HashMap<FileID, Vec<(TextRange, String)>>, Vec<SyntaxNode>) {
+    ) -> (HashMap<FileId, Vec<(TextRange, String)>>, Vec<SyntaxNode>) {
         todo!()
     }
 
@@ -44,7 +44,7 @@ impl Module {
         &self,
         ctx: &AssistContext,
         node_def: Definition,
-        refs: &mut HashMap<FileID, Vec<(TextRange, String)>>,
+        refs: &mut HashMap<FileId, Vec<(TextRange, String)>>,
     ) {
         for (file_id, references) in node_def.usages(&ctx.sema).all() {
             if let Some(file_refs) = refs.get_mut(&file_id) {
@@ -60,7 +60,7 @@ impl Module {
         &self,
         refs: Vec<FileReference>,
         ctx: &AssistContext,
-        file_id: FileID,
+        file_id: FileId,
     ) -> Vec<(TextRange, String)> {
         todo!()
     }
@@ -113,7 +113,7 @@ fn does_source_exists_outside_sel_in_same_mod(
     ctx: &AssistContext,
     curr_parent_module: &Option<ast::Module>,
     selection_range: TextRange,
-    curr_file_id: FileID,
+    curr_file_id: FileId,
 ) -> bool {
     todo!()
 }

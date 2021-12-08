@@ -1,5 +1,5 @@
 use hir::AsAssocItem;
-use ide_db::helpers::{
+use husky_lang_db::helpers::{
     insert_use::{insert_use, ImportScope},
     mod_path_to_ast,
 };

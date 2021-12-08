@@ -6,17 +6,17 @@ use common::*;
 
 use either::Either;
 use hir::{HasSource, Semantics};
-use ide_db::{
+use husky_lang_db::{
     defs::Definition,
-    file_db::FileRange,
+    vfs::FileRange,
     helpers::{pick_best_token, FamousDefs},
-    FxIndexSet, IdeDatabase,
+    FxIndexSet, HuskyLangDatabase,
 };
 use itertools::Itertools;
 use syntax::{ast, SyntaxKind::*, SyntaxNode, SyntaxToken};
 
 use crate::{
-    doc_links::token_as_doc_comment, markup::Markup, FileID, FilePosition, NavigationTarget,
+    doc_links::token_as_doc_comment, markup::Markup, FileId, FilePosition, NavigationTarget,
     RangeInfo, TryToNav,
 };
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -45,7 +45,7 @@ pub enum HoverAction {
 }
 
 impl HoverAction {
-    fn goto_type_from_targets(db: &IdeDatabase, targets: Vec<hir::ModuleDef>) -> Self {
+    fn goto_type_from_targets(db: &HuskyLangDatabase, targets: Vec<hir::ModuleDef>) -> Self {
         todo!()
     }
 }
@@ -70,7 +70,7 @@ pub struct HoverResult {
 //
 // image::https://user-images.githubusercontent.com/48062697/113020658-b5f98b80-917a-11eb-9f88-3dbc27320c95.gif[]
 pub(crate) fn hover(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     FileRange { file_id, range }: FileRange,
     config: &HoverConfig,
 ) -> Option<RangeInfo<HoverResult>> {
@@ -78,8 +78,8 @@ pub(crate) fn hover(
 }
 
 pub(crate) fn hover_for_definition(
-    sema: &Semantics<IdeDatabase>,
-    file_id: FileID,
+    sema: &Semantics<HuskyLangDatabase>,
+    file_id: FileId,
     definition: Definition,
     node: &SyntaxNode,
     config: &HoverConfig,
@@ -90,42 +90,42 @@ pub(crate) fn hover_for_definition(
 fn hover_ranged(
     file: &SyntaxNode,
     range: TextRange,
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     config: &HoverConfig,
 ) -> Option<RangeInfo<HoverResult>> {
     todo!()
 }
 
 fn hover_type_fallback(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     config: &HoverConfig,
     token: &SyntaxToken,
 ) -> Option<RangeInfo<HoverResult>> {
     todo!()
 }
 
-fn show_implementations_action(db: &IdeDatabase, def: Definition) -> Option<HoverAction> {
+fn show_implementations_action(db: &HuskyLangDatabase, def: Definition) -> Option<HoverAction> {
     todo!()
 }
 
-fn show_fn_references_action(db: &IdeDatabase, def: Definition) -> Option<HoverAction> {
+fn show_fn_references_action(db: &HuskyLangDatabase, def: Definition) -> Option<HoverAction> {
     todo!()
 }
 
 fn runnable_action(
-    sema: &hir::Semantics<IdeDatabase>,
+    sema: &hir::Semantics<HuskyLangDatabase>,
     def: Definition,
-    file_id: FileID,
+    file_id: FileId,
 ) -> Option<HoverAction> {
     todo!()
 }
 
-fn goto_type_action_for_def(db: &IdeDatabase, def: Definition) -> Option<HoverAction> {
+fn goto_type_action_for_def(db: &HuskyLangDatabase, def: Definition) -> Option<HoverAction> {
     todo!()
 }
 
 fn walk_and_push_ty(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     ty: &hir::Type,
     push_new_def: &mut dyn FnMut(hir::ModuleDef),
 ) {

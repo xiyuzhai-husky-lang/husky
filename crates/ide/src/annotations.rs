@@ -1,9 +1,9 @@
 use hir::{InFile, Semantics};
-use ide_db::{
+use husky_lang_db::{
     defs::Definition,
-    file_db::{FileID, FilePosition, FileRange},
+    vfs::{FileId, FilePosition, FileRange},
     helpers::visit_file_defs,
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 
 use common::*;
@@ -47,13 +47,13 @@ pub struct AnnotationConfig {
 }
 
 pub(crate) fn annotations(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     config: &AnnotationConfig,
-    file_id: FileID,
+    file_id: FileId,
 ) -> Vec<Annotation> {
     todo!()
 }
 
-pub(crate) fn resolve_annotation(db: &IdeDatabase, mut annotation: Annotation) -> Annotation {
+pub(crate) fn resolve_annotation(db: &HuskyLangDatabase, mut annotation: Annotation) -> Annotation {
     todo!()
 }

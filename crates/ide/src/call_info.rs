@@ -4,11 +4,11 @@ use common::*;
 
 use either::Either;
 use hir::{HirDisplay, Semantics};
-use ide_db::{active_parameter::callable_for_token, file_db::FilePosition};
+use husky_lang_db::{active_parameter::callable_for_token, vfs::FilePosition};
 use stdx::format_to;
 use syntax::Direction;
 
-use crate::IdeDatabase;
+use crate::HuskyLangDatabase;
 
 /// Contains information about a call site. Specifically the
 /// `FunctionSignature`and current parameter.
@@ -41,6 +41,6 @@ impl CallInfo {
 }
 
 /// Computes parameter information for the given call expression.
-pub(crate) fn call_info(db: &IdeDatabase, position: FilePosition) -> Option<CallInfo> {
+pub(crate) fn call_info(db: &HuskyLangDatabase, position: FilePosition) -> Option<CallInfo> {
     todo!()
 }

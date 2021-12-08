@@ -3,10 +3,7 @@
 use std::iter;
 
 use hir::{Module, ModuleSource};
-use ide_db::{
-    file_db::{SourceDatabaseExt, VfsPath},
-    IdeDatabase, SymbolKind,
-};
+use husky_lang_db::{HuskyLangDatabase, SymbolKind};
 use rustc_hash::FxHashSet;
 
 use crate::CompletionItem;
@@ -18,14 +15,17 @@ pub(crate) fn complete_mod(acc: &mut Completions, ctx: &CompletionContext) -> Op
     todo!()
 }
 
-fn directory_to_look_for_submodules(
-    module: Module,
-    db: &IdeDatabase,
-    module_file_path: &VfsPath,
-) -> Option<VfsPath> {
-    todo!()
-}
+// fn directory_to_look_for_submodules(
+//     module: Module,
+//     db: &HuskyLangDatabase,
+//     module_file_path: &VfsPath,
+// ) -> Option<VfsPath> {
+//     todo!()
+// }
 
-fn module_chain_to_containing_module_file(current_module: Module, db: &IdeDatabase) -> Vec<Module> {
+fn module_chain_to_containing_module_file(
+    current_module: Module,
+    db: &HuskyLangDatabase,
+) -> Vec<Module> {
     todo!()
 }

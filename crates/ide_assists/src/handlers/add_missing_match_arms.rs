@@ -2,9 +2,9 @@ use std::iter::{self, Peekable};
 
 use either::Either;
 use hir::{Adt, HasSource, ModuleDef, Semantics};
-use ide_db::helpers::{mod_path_to_ast, FamousDefs};
-use ide_db::IdeDatabase;
 use itertools::Itertools;
+use husky_lang_db::helpers::{mod_path_to_ast, FamousDefs};
+use husky_lang_db::HuskyLangDatabase;
 use syntax::ast::{self, MatchArm, MatchArmList, MatchExpr, Pat};
 
 use crate::{
@@ -52,22 +52,22 @@ fn lift_enum(e: hir::Enum) -> ExtendedEnum {
 }
 
 impl ExtendedEnum {
-    fn variants(self, db: &IdeDatabase) -> Vec<ExtendedVariant> {
+    fn variants(self, db: &HuskyLangDatabase) -> Vec<ExtendedVariant> {
         todo!()
     }
 }
 
-fn resolve_enum_def(sema: &Semantics<IdeDatabase>, expr: &ast::Expr) -> Option<ExtendedEnum> {
+fn resolve_enum_def(sema: &Semantics<HuskyLangDatabase>, expr: &ast::Expr) -> Option<ExtendedEnum> {
     todo!()
 }
 
 fn resolve_tuple_of_enum_def(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     expr: &ast::Expr,
 ) -> Option<Vec<ExtendedEnum>> {
     todo!()
 }
 
-fn build_pat(db: &IdeDatabase, module: hir::Module, var: ExtendedVariant) -> Option<ast::Pat> {
+fn build_pat(db: &HuskyLangDatabase, module: hir::Module, var: ExtendedVariant) -> Option<ast::Pat> {
     todo!()
 }

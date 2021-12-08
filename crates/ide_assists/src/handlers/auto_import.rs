@@ -1,6 +1,6 @@
 use common::*;
 
-use ide_db::helpers::{
+use husky_lang_db::helpers::{
     import_assets::{ImportAssets, ImportCandidate},
     insert_use::{insert_use, ImportScope},
     mod_path_to_ast,

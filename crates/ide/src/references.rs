@@ -12,11 +12,11 @@
 use common::*;
 
 use hir::{PathResolution, Semantics};
-use ide_db::{
+use husky_lang_db::{
     defs::{Definition, NameClass, NameRefClass},
-    file_db::FileID,
+    vfs::FileId,
     search::{ReferenceCategory, SearchScope, UsageSearchResult},
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use rustc_hash::FxHashMap;
 use syntax::{ast, SyntaxNode};
@@ -26,7 +26,7 @@ use crate::{FilePosition, NavigationTarget, TryToNav};
 #[derive(Debug, Clone)]
 pub struct ReferenceSearchResult {
     pub declaration: Option<Declaration>,
-    pub references: FxHashMap<FileID, Vec<(TextRange, Option<ReferenceCategory>)>>,
+    pub references: FxHashMap<FileId, Vec<(TextRange, Option<ReferenceCategory>)>>,
 }
 
 #[derive(Debug, Clone)]
@@ -47,7 +47,7 @@ pub struct Declaration {
 //
 // image::https://user-images.githubusercontent.com/48062697/113020670-b7c34f00-917a-11eb-8003-370ac5f2b3cb.gif[]
 pub(crate) fn find_all_refs(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     position: FilePosition,
     search_scope: Option<SearchScope>,
 ) -> Option<Vec<ReferenceSearchResult>> {
@@ -62,7 +62,7 @@ pub(crate) fn decl_mutability(def: &Definition, syntax: &SyntaxNode, range: Text
 fn retain_adt_literal_usages(
     usages: &mut UsageSearchResult,
     def: Definition,
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
 ) {
     todo!()
 }
@@ -73,7 +73,7 @@ fn name_for_constructor_search(syntax: &SyntaxNode, position: FilePosition) -> O
 }
 
 fn is_enum_lit_name_ref(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     enum_: hir::Enum,
     name_ref: &ast::NameRef,
 ) -> bool {

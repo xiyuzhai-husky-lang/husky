@@ -7,8 +7,8 @@ use itertools::Itertools;
 use common::*;
 
 use hir::{db::HirDatabase, HasSource, HirDisplay};
-use ide_db::{
-    helpers::FamousDefs, helpers::SnippetCap, path_transform::PathTransform, IdeDatabase,
+use husky_lang_db::{
+    helpers::FamousDefs, helpers::SnippetCap, path_transform::PathTransform, HuskyLangDatabase,
 };
 use stdx::format_to;
 use syntax::{ast, Direction, SingleFileParseTree, SmolStr, SyntaxKind::*, SyntaxNode};
@@ -42,7 +42,7 @@ pub enum DefaultMethods {
 }
 
 pub fn filter_assoc_items(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     items: &[hir::AssocItem],
     default_methods: DefaultMethods,
 ) -> Vec<ast::AssocItem> {
@@ -50,7 +50,7 @@ pub fn filter_assoc_items(
 }
 
 pub fn add_trait_assoc_items_to_impl(
-    sema: &hir::Semantics<ide_db::IdeDatabase>,
+    sema: &hir::Semantics<husky_lang_db::HuskyLangDatabase>,
     items: Vec<ast::AssocItem>,
     trait_: hir::Trait,
     impl_: ast::Impl,
@@ -213,7 +213,7 @@ impl ReferenceConversion {
 //        itself themselves.
 pub(crate) fn convert_reference_type(
     ty: hir::Type,
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     famous_defs: &FamousDefs,
 ) -> Option<ReferenceConversion> {
     todo!()

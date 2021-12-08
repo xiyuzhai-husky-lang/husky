@@ -11,10 +11,10 @@ use stdx::format_to;
 use url::Url;
 
 use hir::{db::HirDatabase, Adt, AsAssocItem, AssocItem, AssocItemContainer, Crate};
-use ide_db::{
+use husky_lang_db::{
     defs::{Definition, NameClass, NameRefClass},
     helpers::pick_best_token,
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use syntax::{ast, SyntaxKind::*, SyntaxNode, SyntaxToken};
 
@@ -31,7 +31,7 @@ const MARKDOWN_OPTIONS: Options = Options::ENABLE_FOOTNOTES
     .union(Options::ENABLE_TASKLISTS);
 
 /// Rewrite documentation links in markdown to point to an online host (e.g. docs.rs)
-pub(crate) fn rewrite_links(db: &IdeDatabase, markdown: &str, definition: Definition) -> String {
+pub(crate) fn rewrite_links(db: &HuskyLangDatabase, markdown: &str, definition: Definition) -> String {
     let mut cb = broken_link_clone_cb;
     let doc = Parser::new_with_broken_link_callback(markdown, MARKDOWN_OPTIONS, Some(&mut cb));
 
@@ -110,7 +110,7 @@ pub(crate) fn remove_links(markdown: &str) -> String {
 
 /// Retrieve a link to documentation for the given symbol.
 pub(crate) fn external_docs(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     position: &FilePosition,
 ) -> Option<DocumentationLink> {
     todo!()
@@ -134,7 +134,7 @@ pub(crate) fn resolve_doc_path_for_def(
 }
 
 pub(crate) fn doc_attributes(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     node: &SyntaxNode,
 ) -> Option<(hir::AttrsWithOwner, Definition)> {
     todo!()
@@ -152,7 +152,7 @@ pub(crate) fn token_as_doc_comment(doc_token: &SyntaxToken) -> Option<DocComment
 impl DocCommentToken {
     pub(crate) fn get_definition_with_descend_at<T>(
         self,
-        sema: &Semantics<IdeDatabase>,
+        sema: &Semantics<HuskyLangDatabase>,
         offset: TextSize,
         // Definition, CommentOwner, range of intra doc link in original file
         mut cb: impl FnMut(Definition, SyntaxNode, TextRange) -> Option<T>,
@@ -177,7 +177,7 @@ fn broken_link_clone_cb<'a, 'b>(link: BrokenLink<'a>) -> Option<(CowStr<'b>, Cow
 //
 // This should cease to be a problem if RFC2988 (Stable Rustdoc URLs) is implemented
 // https://github.com/rust-lang/rfcs/pull/2988
-fn get_doc_link(db: &IdeDatabase, def: Definition) -> Option<String> {
+fn get_doc_link(db: &HuskyLangDatabase, def: Definition) -> Option<String> {
     todo!()
     // let (target, file, frag) = filename_and_frag_for_def(db, def)?;
 
@@ -195,7 +195,7 @@ fn get_doc_link(db: &IdeDatabase, def: Definition) -> Option<String> {
 }
 
 fn rewrite_intra_doc_link(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     def: Definition,
     target: &str,
     title: &str,
@@ -220,7 +220,7 @@ fn rewrite_intra_doc_link(
 }
 
 /// Try to resolve path to local documentation via path-based links (i.e. `../gateway/struct.Shard.html`).
-fn rewrite_url_link(db: &IdeDatabase, def: Definition, target: &str) -> Option<String> {
+fn rewrite_url_link(db: &HuskyLangDatabase, def: Definition, target: &str) -> Option<String> {
     todo!()
     // if !(target.contains('#') || target.contains(".html")) {
     //     return None;
@@ -239,11 +239,11 @@ fn rewrite_url_link(db: &IdeDatabase, def: Definition, target: &str) -> Option<S
     // url.join(target).ok().map(Into::into)
 }
 
-fn crate_of_def(db: &IdeDatabase, def: Definition) -> Option<Crate> {
+fn crate_of_def(db: &HuskyLangDatabase, def: Definition) -> Option<Crate> {
     todo!()
 }
 
-fn mod_path_of_def(db: &IdeDatabase, def: Definition) -> Option<String> {
+fn mod_path_of_def(db: &HuskyLangDatabase, def: Definition) -> Option<String> {
     todo!()
 }
 
@@ -289,7 +289,7 @@ fn map_links<'e>(
 /// https://doc.rust-lang.org/std/iter/trait.Iterator.html#tymethod.next
 /// ^^^^^^^^^^^^^^^^^^^^^^^^^^
 /// ```
-fn get_doc_base_url(db: &IdeDatabase, krate: &Crate) -> Option<Url> {
+fn get_doc_base_url(db: &HuskyLangDatabase, krate: &Crate) -> Option<Url> {
     todo!()
 }
 

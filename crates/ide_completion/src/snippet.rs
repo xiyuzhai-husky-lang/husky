@@ -54,7 +54,7 @@ use std::ops::Deref;
 //
 // There is also a special placeholder, `${receiver}`, which will be replaced by the receiver expression for postfix snippets, or nothing in case of normal snippets.
 // It does not act as a tabstop.
-use ide_db::helpers::{import_assets::LocatedImport, insert_use::ImportScope};
+use husky_lang_db::helpers::{import_assets::LocatedImport, insert_use::ImportScope};
 use itertools::Itertools;
 use syntax::{ast, GreenNode, SyntaxNode};
 

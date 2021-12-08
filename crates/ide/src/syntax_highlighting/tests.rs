@@ -1,7 +1,7 @@
 use std::time::Instant;
 
 use expect_test::{expect_file, ExpectFile};
-use ide_db::SymbolKind;
+use husky_lang_db::SymbolKind;
 use test_utils::{bench, bench_fixture, skip_slow_tests, AssertLinear};
 
 use crate::{fixture, FileRange, HlTag, TextRange};

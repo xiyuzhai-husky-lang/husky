@@ -2,7 +2,7 @@
 
 use either::Either;
 use hir::{AsAssocItem, HasSource, HirDisplay};
-use ide_db::SymbolKind;
+use husky_lang_db::SymbolKind;
 use itertools::Itertools;
 use syntax::ast;
 

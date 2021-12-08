@@ -4,7 +4,7 @@
 //! module, and we use to statically check that we only produce snippet
 //! completions if we are allowed to.
 
-use ide_db::helpers::{insert_use::InsertUseConfig, SnippetCap};
+use husky_lang_db::helpers::{insert_use::InsertUseConfig, SnippetCap};
 
 use crate::snippet::Snippet;
 
@@ -22,14 +22,18 @@ pub struct CompletionConfig {
 
 impl CompletionConfig {
     pub fn postfix_snippets(&self) -> impl Iterator<Item = (&str, &Snippet)> {
-        self.snippets
-            .iter()
-            .flat_map(|snip| snip.postfix_triggers.iter().map(move |trigger| (&**trigger, snip)))
+        self.snippets.iter().flat_map(|snip| {
+            snip.postfix_triggers
+                .iter()
+                .map(move |trigger| (&**trigger, snip))
+        })
     }
 
     pub fn prefix_snippets(&self) -> impl Iterator<Item = (&str, &Snippet)> {
-        self.snippets
-            .iter()
-            .flat_map(|snip| snip.prefix_triggers.iter().map(move |trigger| (&**trigger, snip)))
+        self.snippets.iter().flat_map(|snip| {
+            snip.prefix_triggers
+                .iter()
+                .map(move |trigger| (&**trigger, snip))
+        })
     }
 }

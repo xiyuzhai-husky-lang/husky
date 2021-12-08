@@ -1,7 +1,7 @@
 //! Renderer for `const` fields.
 
 use hir::AsAssocItem;
-use ide_db::SymbolKind;
+use husky_lang_db::SymbolKind;
 use syntax::ast::Const;
 
 use crate::{item::CompletionItem, render::RenderContext};

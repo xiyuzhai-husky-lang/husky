@@ -3,7 +3,7 @@
 use std::iter;
 
 use hir::HirDisplay;
-use ide_db::SymbolKind;
+use husky_lang_db::SymbolKind;
 use itertools::Itertools;
 
 use crate::{

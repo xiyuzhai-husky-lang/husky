@@ -10,14 +10,14 @@ mod render;
 mod snippet;
 
 use completions::flyimport::position_for_import;
-use ide_db::{
-    file_db::FilePosition,
+use husky_lang_db::{
+    vfs::FilePosition,
     helpers::{
         import_assets::NameToImport,
         insert_use::{self, ImportScope},
         mod_path_to_ast,
     },
-    items_locator, IdeDatabase,
+    items_locator, HuskyLangDatabase,
 };
 use text_edit::TextEdit;
 
@@ -136,7 +136,7 @@ pub use crate::{
 /// correctly, as the underlying infrastructure makes use of contexts to do
 /// analysis.
 pub fn completions(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     config: &CompletionConfig,
     position: FilePosition,
 ) -> Option<Completions> {
@@ -146,7 +146,7 @@ pub fn completions(
 /// Resolves additional completion data at the position given.
 /// This is used for import insertion done via completions like flyimport and custom user snippets.
 pub fn resolve_completion_edits(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     config: &CompletionConfig,
     position: FilePosition,
     imports: impl IntoIterator<Item = (String, String)>,

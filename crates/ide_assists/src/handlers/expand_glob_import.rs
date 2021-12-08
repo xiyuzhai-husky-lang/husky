@@ -1,6 +1,6 @@
 use either::Either;
 use hir::{AssocItem, HasVisibility, Module, ModuleDef, Name, PathResolution, ScopeDef};
-use ide_db::{
+use husky_lang_db::{
     defs::{Definition, NameRefClass},
     search::SearchScope,
 };

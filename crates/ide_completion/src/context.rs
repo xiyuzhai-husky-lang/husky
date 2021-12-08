@@ -2,12 +2,11 @@
 
 use common::*;
 
-use file_db::SourceDatabaseExt;
 use hir::{Local, Name, ScopeDef, Semantics, SemanticsScope, Type};
-use ide_db::{
+use husky_lang_db::{
     active_parameter::ActiveParameter,
-    file_db::{FileDatabase, FilePosition},
-    IdeDatabase,
+    vfs::{FilePosition, VirtualFileSystem},
+    HuskyLangDatabase,
 };
 use syntax::{
     ast,

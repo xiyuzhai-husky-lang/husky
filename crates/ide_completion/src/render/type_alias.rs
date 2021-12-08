@@ -1,7 +1,7 @@
 //! Renderer for type aliases.
 
 use hir::{AsAssocItem, HasSource};
-use ide_db::SymbolKind;
+use husky_lang_db::SymbolKind;
 use syntax::ast::TypeAlias;
 
 use crate::{item::CompletionItem, render::RenderContext};

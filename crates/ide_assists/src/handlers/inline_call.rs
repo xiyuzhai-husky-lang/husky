@@ -1,12 +1,12 @@
 use either::Either;
 use hir::{db::HirDatabase, PathResolution, Semantics};
-use ide_db::{
-    file_db::{FileID, FileRange},
+use husky_lang_db::{
     defs::Definition,
+    vfs::{FileId, FileRange},
     helpers::{insert_use::remove_path_if_in_use_stmt, node_ext::expr_as_name_ref},
     path_transform::PathTransform,
     search::{FileReference, SearchScope},
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use itertools::{izip, Itertools};
 use syntax::ast::{self, edit_in_place::Indent, PathExpr};
@@ -104,8 +104,8 @@ fn get_fn_params(
 }
 
 fn inline(
-    sema: &Semantics<IdeDatabase>,
-    function_def_file_id: FileID,
+    sema: &Semantics<HuskyLangDatabase>,
+    function_def_file_id: FileId,
     function: hir::Function,
     fn_body: &ast::BlockExpr,
     params: &[(ast::Pat, Option<ast::Type>, hir::Param)],

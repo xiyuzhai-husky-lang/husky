@@ -1,6 +1,6 @@
 use crate::assist_context::{AssistContext, Assists};
 use hir::HirDisplay;
-use ide_db::{
+use husky_lang_db::{
     assists::{AssistId, AssistKind},
     defs::NameRefClass,
 };

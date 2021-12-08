@@ -2,7 +2,7 @@
 
 use crate::errors::error;
 use crate::{parsing, SsrError};
-use ide_db::file_db::FilePosition;
+use husky_lang_db::vfs::FilePosition;
 use parsing::Placeholder;
 use rustc_hash::FxHashMap;
 use syntax::{ast, SmolStr, SyntaxKind, SyntaxNode, SyntaxToken};
@@ -97,7 +97,7 @@ impl Resolver<'_, '_> {
 
 impl<'db> ResolutionScope<'db> {
     pub(crate) fn new(
-        sema: &hir::Semantics<'db, ide_db::IdeDatabase>,
+        sema: &hir::Semantics<'db, husky_lang_db::HuskyLangDatabase>,
         resolve_context: FilePosition,
     ) -> ResolutionScope<'db> {
         todo!()

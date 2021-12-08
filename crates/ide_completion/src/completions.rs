@@ -15,7 +15,7 @@ pub(crate) mod unqualified_path;
 
 use std::iter;
 
-use ide_db::SymbolKind;
+use husky_lang_db::SymbolKind;
 
 use crate::{
     item::Builder,

@@ -1,7 +1,7 @@
 //! This file provides snippet completions, like `pd` => `eprintln!(...)`.
 
 use hir::Documentation;
-use ide_db::helpers::{insert_use::ImportScope, SnippetCap};
+use husky_lang_db::helpers::{insert_use::ImportScope, SnippetCap};
 
 use crate::{
     context::PathCompletionContext, item::Builder, CompletionContext, CompletionItem,

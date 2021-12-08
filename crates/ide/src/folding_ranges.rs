@@ -1,6 +1,6 @@
 use common::*;
 
-use ide_db::helpers::node_ext::vis_eq;
+use husky_lang_db::helpers::node_ext::vis_eq;
 use rustc_hash::FxHashSet;
 
 use syntax::{

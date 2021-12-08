@@ -1,7 +1,7 @@
 //! Renderer for `struct` literal.
 
 use hir::{db::HirDatabase, Name, StructKind};
-use ide_db::helpers::SnippetCap;
+use husky_lang_db::helpers::SnippetCap;
 use itertools::Itertools;
 use syntax::SmolStr;
 

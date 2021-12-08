@@ -1,7 +1,7 @@
 use hir::Semantics;
-use ide_db::{
-    file_db::{CrateId, FileID, FilePosition},
-    IdeDatabase,
+use husky_lang_db::{
+    vfs::{FileId, FilePosition},
+    HuskyLangDatabase,
 };
 use itertools::Itertools;
 use syntax::ast;
@@ -21,11 +21,9 @@ use crate::NavigationTarget;
 // image::https://user-images.githubusercontent.com/48062697/113065580-04c21800-91b1-11eb-9a32-00086161c0bd.gif[]
 
 /// This returns `Vec` because a module may be included from several places.
-pub(crate) fn parent_module(db: &IdeDatabase, position: FilePosition) -> Vec<NavigationTarget> {
-    todo!()
-}
-
-/// Returns `Vec` for the same reason as `parent_module`
-pub(crate) fn crate_for(db: &IdeDatabase, file_id: FileID) -> Vec<CrateId> {
+pub(crate) fn parent_module(
+    db: &HuskyLangDatabase,
+    position: FilePosition,
+) -> Vec<NavigationTarget> {
     todo!()
 }

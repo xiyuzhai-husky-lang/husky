@@ -4,7 +4,7 @@ use common::*;
 
 use either::Either;
 use hir::{HirDisplay, InFile, Local, ModuleDef, Semantics};
-use ide_db::{
+use husky_lang_db::{
     defs::{Definition, NameRefClass},
     helpers::{
         insert_use::{insert_use, ImportScope},
@@ -13,7 +13,7 @@ use ide_db::{
         FamousDefs,
     },
     search::{FileReference, ReferenceCategory, SearchScope},
-    FxIndexSet, IdeDatabase,
+    FxIndexSet, HuskyLangDatabase,
 };
 use itertools::Itertools;
 use stdx::format_to;
@@ -162,7 +162,7 @@ struct OutlivedLocal {
 /// Container of local variable usages
 ///
 /// Semanticall same as `UsageSearchResult`, but provides more convenient interface
-struct LocalUsages(ide_db::search::UsageSearchResult);
+struct LocalUsages(husky_lang_db::search::UsageSearchResult);
 
 impl LocalUsages {
     fn find_local_usages(ctx: &AssistContext, var: Local) -> Self {
@@ -281,12 +281,12 @@ impl FunctionBody {
     /// whether it contains an await expression.
     fn analyze(
         &self,
-        sema: &Semantics<IdeDatabase>,
+        sema: &Semantics<HuskyLangDatabase>,
     ) -> (FxIndexSet<Local>, Option<ast::SelfParam>) {
         todo!()
     }
 
-    fn analyze_container(&self, sema: &Semantics<IdeDatabase>) -> Option<ContainerInfo> {
+    fn analyze_container(&self, sema: &Semantics<HuskyLangDatabase>) -> Option<ContainerInfo> {
         todo!()
     }
 
@@ -397,7 +397,10 @@ fn path_element_of_reference(
 }
 
 /// list local variables defined inside `body`
-fn locals_defined_in_body(sema: &Semantics<IdeDatabase>, body: &FunctionBody) -> FxIndexSet<Local> {
+fn locals_defined_in_body(
+    sema: &Semantics<HuskyLangDatabase>,
+    body: &FunctionBody,
+) -> FxIndexSet<Local> {
     todo!()
 }
 

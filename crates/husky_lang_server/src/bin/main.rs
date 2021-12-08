@@ -1,5 +1,6 @@
 #![allow(warnings, unused)]
 
+use common::*;
 use std::error::Error;
 
 use lsp_server::{Connection, Message, Request, RequestId, Response};
@@ -7,7 +8,7 @@ use lsp_types::{
     request::GotoDefinition, GotoDefinitionResponse, InitializeParams, ServerCapabilities,
 };
 
-use husky_lang_server::{cli::flags, from_json, init_connection, run_server, Result, ServerConfig};
+use husky_lang_server::{cli::flags, init_connection, run_server, utils::from_json, ServerConfig};
 
 fn main() {
     if let Err(e) = try_main() {

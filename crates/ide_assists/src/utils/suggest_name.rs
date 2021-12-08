@@ -1,8 +1,8 @@
 //! This module contains functions to suggest names for expressions, functions and other items
 
 use hir::Semantics;
-use ide_db::IdeDatabase;
 use itertools::Itertools;
+use husky_lang_db::HuskyLangDatabase;
 use stdx::to_lower_snake_case;
 use syntax::{ast, SmolStr};
 
@@ -59,7 +59,7 @@ pub(crate) fn for_generic_parameter(ty: &ast::ImplTraitType) -> SmolStr {
     todo!()
 }
 
-pub(crate) fn for_variable(expr: &ast::Expr, sema: &Semantics<'_, IdeDatabase>) -> String {
+pub(crate) fn for_variable(expr: &ast::Expr, sema: &Semantics<'_, HuskyLangDatabase>) -> String {
     todo!()
 }
 
@@ -97,7 +97,7 @@ fn from_method_call(expr: &ast::Expr) -> Option<String> {
     todo!()
 }
 
-fn from_param(expr: &ast::Expr, sema: &Semantics<'_, IdeDatabase>) -> Option<String> {
+fn from_param(expr: &ast::Expr, sema: &Semantics<'_, HuskyLangDatabase>) -> Option<String> {
     todo!()
 }
 
@@ -105,14 +105,14 @@ fn var_name_from_pat(pat: &ast::Pat) -> Option<ast::Name> {
     todo!()
 }
 
-fn from_type(expr: &ast::Expr, sema: &Semantics<'_, IdeDatabase>) -> Option<String> {
+fn from_type(expr: &ast::Expr, sema: &Semantics<'_, HuskyLangDatabase>) -> Option<String> {
     todo!()
 }
 
-fn name_of_type(ty: &hir::Type, db: &IdeDatabase) -> Option<String> {
+fn name_of_type(ty: &hir::Type, db: &HuskyLangDatabase) -> Option<String> {
     todo!()
 }
 
-fn trait_name(trait_: &hir::Trait, db: &IdeDatabase) -> Option<String> {
+fn trait_name(trait_: &hir::Trait, db: &HuskyLangDatabase) -> Option<String> {
     todo!()
 }

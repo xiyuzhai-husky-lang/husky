@@ -2,11 +2,13 @@
 //! assist in ide_assists because that would require the ide_assists crate
 //! depend on the ide_ssr crate.
 
+use husky_lang_db::{
+    vfs::FileRange, label::Label, source_change::SourceChange, HuskyLangDatabase,
+};
 use ide_assists::{Assist, AssistId, AssistKind, AssistResolveStrategy, GroupLabel};
-use ide_db::{file_db::FileRange, label::Label, source_change::SourceChange, IdeDatabase};
 
 pub(crate) fn ssr_assists(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     resolve: &AssistResolveStrategy,
     frange: FileRange,
 ) -> Vec<Assist> {

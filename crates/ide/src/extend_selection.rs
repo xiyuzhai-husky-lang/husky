@@ -3,7 +3,7 @@ use std::iter::successors;
 use common::*;
 
 use hir::Semantics;
-use ide_db::IdeDatabase;
+use husky_lang_db::HuskyLangDatabase;
 use syntax::{
     ast, Direction, NodeOrToken,
     SyntaxKind::{self, *},
@@ -26,12 +26,12 @@ use crate::FileRange;
 // |===
 //
 // image::https://user-images.githubusercontent.com/48062697/113020651-b42fc800-917a-11eb-8a4f-cf1a07859fac.gif[]
-pub(crate) fn extend_selection(db: &IdeDatabase, frange: FileRange) -> TextRange {
+pub(crate) fn extend_selection(db: &HuskyLangDatabase, frange: FileRange) -> TextRange {
     todo!()
 }
 
 fn try_extend_selection(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     root: &SyntaxNode,
     frange: FileRange,
 ) -> Option<TextRange> {

@@ -19,19 +19,19 @@ impl Communicator {
             req_queue: ReqQueue::default(),
         }
     }
-    fn send(&mut self, message: lsp_server::Message) {
+    fn send(&self, message: lsp_server::Message) {
         self.sender.send(message).unwrap()
     }
 
     pub(crate) fn send_notification<N: lsp_types::notification::Notification>(
-        &mut self,
+        &self,
         params: N::Params,
     ) {
         let not = lsp_server::Notification::new(N::METHOD.to_string(), params);
         self.send(not.into());
     }
 
-    pub(crate) fn send_request<R: lsp_types::request::Request>(
+    pub(crate) fn _send_request<R: lsp_types::request::Request>(
         &mut self,
         params: R::Params,
         handler: ReqHandler,

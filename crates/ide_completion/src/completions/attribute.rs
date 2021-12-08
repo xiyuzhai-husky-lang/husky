@@ -3,7 +3,7 @@
 //! This module uses a bit of static metadata to provide completions
 //! for built-in attributes.
 
-use ide_db::helpers::generated_lints::{DEFAULT_LINTS, FEATURES, RUSTDOC_LINTS};
+use husky_lang_db::helpers::generated_lints::{DEFAULT_LINTS, FEATURES, RUSTDOC_LINTS};
 use itertools::Itertools;
 use once_cell::sync::Lazy;
 use rustc_hash::FxHashMap;

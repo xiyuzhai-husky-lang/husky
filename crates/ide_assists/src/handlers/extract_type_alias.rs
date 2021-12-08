@@ -1,6 +1,6 @@
 use either::Either;
-use ide_db::helpers::node_ext::walk_ty;
 use itertools::Itertools;
+use husky_lang_db::helpers::node_ext::walk_ty;
 use syntax::ast::{self, edit::IndentLevel};
 
 use crate::{AssistContext, AssistId, AssistKind, Assists};

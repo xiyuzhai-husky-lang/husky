@@ -86,7 +86,7 @@ pub use crate::from_comment::ssr_from_comment;
 pub use crate::matching::Match;
 use crate::matching::MatchFailureReason;
 use hir::Semantics;
-use ide_db::file_db::{FileID, FilePosition, FileRange};
+use husky_lang_db::vfs::{FileId, FilePosition, FileRange};
 use resolving::ResolvedRule;
 use rustc_hash::FxHashMap;
 use syntax::{ast, SyntaxNode};
@@ -115,7 +115,7 @@ pub struct SsrMatches {
 /// Searches a crate for pattern matches and possibly replaces them with something else.
 pub struct MatchFinder<'db> {
     /// Our source of information about the user's code.
-    sema: Semantics<'db, ide_db::IdeDatabase>,
+    sema: Semantics<'db, husky_lang_db::HuskyLangDatabase>,
     rules: Vec<ResolvedRule>,
     resolution_scope: resolving::ResolutionScope<'db>,
     restrict_ranges: Vec<FileRange>,
@@ -125,7 +125,7 @@ impl<'db> MatchFinder<'db> {
     /// Constructs a new instance where names will be looked up as if they appeared at
     /// `lookup_context`.
     pub fn in_context(
-        db: &'db ide_db::IdeDatabase,
+        db: &'db husky_lang_db::HuskyLangDatabase,
         lookup_context: FilePosition,
         mut restrict_ranges: Vec<FileRange>,
     ) -> MatchFinder<'db> {
@@ -133,10 +133,12 @@ impl<'db> MatchFinder<'db> {
     }
 
     /// Constructs an instance using the start of the first file in `db` as the lookup context.
-    pub fn at_first_file(db: &'db ide_db::IdeDatabase) -> Result<MatchFinder<'db>, SsrError> {
+    pub fn at_first_file(
+        db: &'db husky_lang_db::HuskyLangDatabase,
+    ) -> Result<MatchFinder<'db>, SsrError> {
         todo!()
-        // use ide_db::file_db::SourceDatabaseExt;
-        // use ide_db::symbol_index::SymbolsDatabase;
+        // use husky_lang_db::vfs::SourceDatabaseExt;
+        // use husky_lang_db::symbol_index::SymbolsDatabase;
         // if let Some(first_file_id) = db
         //     .local_roots()
         //     .iter()
@@ -171,9 +173,9 @@ impl<'db> MatchFinder<'db> {
     }
 
     /// Finds matches for all added rules and returns edits for all found matches.
-    pub fn edits(&self) -> FxHashMap<FileID, TextEdit> {
+    pub fn edits(&self) -> FxHashMap<FileId, TextEdit> {
         todo!()
-        // use ide_db::file_db::SourceDatabaseExt;
+        // use husky_lang_db::vfs::SourceDatabaseExt;
         // let mut matches_by_file = FxHashMap::default();
         // for m in self.matches().matches {
         //     matches_by_file
@@ -223,7 +225,7 @@ impl<'db> MatchFinder<'db> {
     /// Finds all nodes in `file_id` whose text is exactly equal to `snippet` and attempts to match
     /// them, while recording reasons why they don't match. This API is useful for command
     /// line-based debugging where providing a range is difficult.
-    pub fn debug_where_text_equal(&self, file_id: FileID, snippet: &str) -> Vec<MatchDebugInfo> {
+    pub fn debug_where_text_equal(&self, file_id: FileId, snippet: &str) -> Vec<MatchDebugInfo> {
         todo!()
     }
 

@@ -2,16 +2,16 @@ use std::iter;
 
 use either::Either;
 use hir::{Module, ModuleDef, Name, Variant};
-use ide_db::{
+use itertools::Itertools;
+use husky_lang_db::{
     defs::Definition,
     helpers::{
         insert_use::{insert_use, ImportScope, InsertUseConfig},
         mod_path_to_ast,
     },
     search::FileReference,
-    IdeDatabase,
+    HuskyLangDatabase,
 };
-use itertools::Itertools;
 use rustc_hash::FxHashSet;
 use syntax::{
     ast::{self, edit::IndentLevel, edit_in_place::Indent},
@@ -47,7 +47,7 @@ fn extract_field_list_if_applicable(
     todo!()
 }
 
-fn existing_definition(db: &IdeDatabase, variant_name: &ast::Name, variant: &Variant) -> bool {
+fn existing_definition(db: &HuskyLangDatabase, variant_name: &ast::Name, variant: &Variant) -> bool {
     todo!()
 }
 
@@ -89,7 +89,7 @@ fn process_references(
 }
 
 fn reference_to_node(
-    sema: &hir::Semantics<IdeDatabase>,
+    sema: &hir::Semantics<HuskyLangDatabase>,
     reference: FileReference,
 ) -> Option<(ast::PathSegment, SyntaxNode, hir::Module)> {
     todo!()
