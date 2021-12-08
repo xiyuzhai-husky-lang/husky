@@ -53,12 +53,9 @@ use std::sync::Arc;
 
 use common::*;
 
-use ide_db::{
-    file_db::{
-        salsa::{self, ParallelDatabase},
-        Env, FileDatabase, FileLoader, FilePathIdTable, VfsPath,
-    },
+use husky_lang_db::{
     symbol_index::{self, FileSymbol},
+    vfs::VirtualFileSystem,
     LineIndexDatabase,
 };
 use syntax::SingleFileParseTree;
@@ -89,6 +86,15 @@ pub use crate::{
     },
 };
 pub use hir::{Documentation, Semantics};
+pub use husky_lang_db::{
+    label::Label,
+    line_map::{LineCol, LineColUtf16, LineMap},
+    search::{ReferenceCategory, SearchScope},
+    source_change::{FileSystemEdit, SourceChange},
+    symbol_index::Query,
+    vfs::{FileId, FilePosition, FileRange},
+    HuskyLangDatabase, SymbolKind,
+};
 pub use ide_assists::{
     Assist, AssistConfig, AssistId, AssistKind, AssistResolveStrategy, SingleResolve,
 };
@@ -96,21 +102,8 @@ pub use ide_completion::{
     CompletionConfig, CompletionItem, CompletionItemKind, CompletionRelevance, ImportEdit, Snippet,
     SnippetScope,
 };
-pub use ide_db::{
-    file_db::{
-        Cancelled, CrateId, Edition, FileID, FilePosition, FileRange, SourceRoot, SourceRootId,
-    },
-    label::Label,
-    line_index::{LineCol, LineColUtf16, LineIndex},
-    search::{ReferenceCategory, SearchScope},
-    source_change::{FileSystemEdit, SourceChange},
-    symbol_index::Query,
-    IdeDatabase, SymbolKind,
-};
 pub use ide_ssr::SsrError;
 pub use text_edit::{Indel, TextEdit};
-
-pub type Cancellable<T> = Result<T, Cancelled>;
 
 /// Info associated with a text range.
 #[derive(Debug)]
@@ -128,13 +121,13 @@ impl<T> RangeInfo<T> {
 /// `AnalysisHost` stores the current state of the world.
 #[derive(Debug)]
 pub struct IdeDatabaseProxy {
-    db: IdeDatabase,
+    db: HuskyLangDatabase,
 }
 
 impl IdeDatabaseProxy {
     pub fn new(lru_capacity: Option<usize>) -> IdeDatabaseProxy {
         IdeDatabaseProxy {
-            db: IdeDatabase::new(lru_capacity),
+            db: HuskyLangDatabase::new(lru_capacity),
         }
     }
 
@@ -144,16 +137,10 @@ impl IdeDatabaseProxy {
 
     /// Returns a snapshot of the current state, which you can query for
     /// semantic information.
-    pub fn analysis(&self) -> IdeDatabaseSnapshot {
-        IdeDatabaseSnapshot {
-            db: self.db.snapshot(),
-        }
-    }
-
-    /// Applies changes to the current state of the world. If there are
-    /// outstanding snapshots, they will be canceled.
-    pub fn apply_change(&mut self, change: Vec<vfs::FileChange>) {
-        self.db.apply_change(change)
+    pub fn snapshot(&self) -> IdeDatabaseSnapshot {
+        todo!() // IdeDatabaseSnapshot {
+                //     db: self.db.snapshot(),
+                // }
     }
 
     /// NB: this clears the database
@@ -161,16 +148,31 @@ impl IdeDatabaseProxy {
         todo!()
     }
     pub fn request_cancellation(&mut self) {
-        self.db.request_cancellation();
+        todo!()
+        // self.db.request_cancellation();
     }
-    pub fn raw_database(&self) -> &IdeDatabase {
+    pub fn raw_database(&self) -> &HuskyLangDatabase {
         &self.db
     }
-    pub fn raw_database_mut(&mut self) -> &mut IdeDatabase {
+    pub fn raw_database_mut(&mut self) -> &mut HuskyLangDatabase {
         &mut self.db
     }
 
-    pub fn drain_diagnostic_changes(&mut self) -> Vec<hir::FileDiagnostics> {
+    pub fn on_diagnostic_change(
+        &self,
+        f: &dyn Fn(FileId, Vec<hir::Diagnostic>) -> Result<()>,
+    ) -> Result<()> {
+        todo!()
+    }
+
+    pub fn get_vfs_path_from_file_id(&self, file_id: FileId) -> vfs::VirtualPath {
+        todo!()
+    }
+    pub fn set_file_content(&mut self, path: vfs::VirtualPath, content: Option<Vec<u8>>) {
+        todo!()
+    }
+
+    pub fn get_file_line_collection(&self, file_id: vfs::FileId) -> Result<LineMap> {
         todo!()
     }
 }
@@ -181,13 +183,17 @@ impl Default for IdeDatabaseProxy {
     }
 }
 
+pub struct Cancellable<T> {
+    phantom: std::marker::PhantomData<T>,
+}
+
 /// Analysis is a snapshot of a world state at a moment in time. It is the main
 /// entry point for asking semantic information about the world. When the world
 /// state is advanced using `AnalysisHost::apply_change` method, all existing
 /// `Analysis` are canceled (most method return `Err(Canceled)`).
 #[derive(Debug)]
 pub struct IdeDatabaseSnapshot {
-    db: salsa::Snapshot<IdeDatabase>,
+    db: salsa::Snapshot<HuskyLangDatabase>,
 }
 
 // As a general design guideline, `Analysis` API are intended to be independent
@@ -200,12 +206,12 @@ impl IdeDatabaseSnapshot {
     // Creates an analysis instance for a single file, without any extenal
     // dependencies, stdlib support or ability to apply changes. See
     // `AnalysisHost` for creating a fully-featured analysis.
-    pub fn from_single_file(text: String) -> (IdeDatabaseSnapshot, FileID) {
+    pub fn from_single_file(text: String) -> (IdeDatabaseSnapshot, FileId) {
         todo!()
     }
 
     /// Debug info about the current state of the analysis.
-    pub fn status(&self, file_id: Option<FileID>) -> Cancellable<String> {
+    pub fn status(&self, file_id: Option<FileId>) -> Cancellable<String> {
         self.try_db_query(|db| status::status(&*db, file_id))
     }
 
@@ -217,25 +223,26 @@ impl IdeDatabaseSnapshot {
     }
 
     /// Gets the text of the source file.
-    pub fn file_text(&self, file_id: FileID) -> Cancellable<Arc<String>> {
-        self.try_db_query(|db| db.file_text(file_id))
+    pub fn file_text(&self, file_id: FileId) -> Cancellable<Arc<String>> {
+        todo!()
+        // self.try_db_query(|db| db.file_text(file_id))
     }
 
     /// Gets the syntax tree of the file.
-    pub fn parse(&self, file_id: FileID) -> Cancellable<SingleFileParseTree> {
+    pub fn parse(&self, file_id: FileId) -> Cancellable<SingleFileParseTree> {
         todo!()
     }
 
     /// Returns true if this file belongs to an immutable library.
-    pub fn is_library_file(&self, file_id: FileID) -> Cancellable<bool> {
+    pub fn is_library_file(&self, file_id: FileId) -> Cancellable<bool> {
         todo!();
-        // use ide_db::file_db::SourceDatabaseExt;
+        // use husky_lang_db::vfs::SourceDatabaseExt;
         // self.try_db_query(|db| db.source_root(db.package_root(file_id)).is_library)
     }
 
     /// Gets the file's `LineIndex`: data structure to convert between absolute
     /// offsets and line/column representation.
-    pub fn file_line_index(&self, file_id: FileID) -> Cancellable<Arc<LineIndex>> {
+    pub fn file_line_index(&self, file_id: FileId) -> Cancellable<Arc<LineMap>> {
         todo!()
         // self.try_db_query(|db| db.line_index(file_id))
     }
@@ -255,7 +262,7 @@ impl IdeDatabaseSnapshot {
     // FIXME: use a better name here.
     pub fn syntax_tree(
         &self,
-        file_id: FileID,
+        file_id: FileId,
         text_range: Option<TextRange>,
     ) -> Cancellable<String> {
         self.try_db_query(|db| syntax_tree::syntax_tree(db, file_id, text_range))
@@ -265,7 +272,7 @@ impl IdeDatabaseSnapshot {
         self.try_db_query(|db| view_hir::view_hir(db, position))
     }
 
-    pub fn view_item_tree(&self, file_id: FileID) -> Cancellable<String> {
+    pub fn view_item_tree(&self, file_id: FileId) -> Cancellable<String> {
         self.try_db_query(|db| view_item_tree::view_item_tree(db, file_id))
     }
 
@@ -291,24 +298,27 @@ impl IdeDatabaseSnapshot {
         position: FilePosition,
         char_typed: char,
     ) -> Cancellable<Option<SourceChange>> {
-        // Fast path to not even parse the file.
-        if !typing::TRIGGER_CHARS.contains(char_typed) {
-            return Ok(None);
-        }
-        self.try_db_query(|db| typing::on_char_typed(db, position, char_typed))
+        todo!()
+        // // Fast path to not even parse the file.
+        // if !typing::TRIGGER_CHARS.contains(char_typed) {
+        //     return Ok(None);
+        // }
+        // self.try_db_query(|db| typing::on_char_typed(db, position, char_typed))
     }
 
     /// Returns a tree representation of symbols in the file. Useful to draw a
     /// file outline.
-    pub fn file_structure(&self, file_id: FileID) -> Cancellable<Vec<StructureNode>> {
-        eprintln!("TODO: tree representation of symbols in the file");
-        Ok(vec![])
+    pub fn file_structure(&self, file_id: FileId) -> Cancellable<Vec<StructureNode>> {
+        todo!()
+        // eprintln!("TODO: tree representation of symbols in the file");
+        // Ok(vec![])
     }
 
     /// Returns the set of folding ranges.
-    pub fn folding_ranges(&self, file_id: FileID) -> Cancellable<Vec<Fold>> {
-        eprintln!("TODO: folding_ranges");
-        Ok(vec![])
+    pub fn folding_ranges(&self, file_id: FileId) -> Cancellable<Vec<Fold>> {
+        todo!()
+        // eprintln!("TODO: folding_ranges");
+        // Ok(vec![])
     }
 
     /// Fuzzy searches for a symbol.
@@ -363,7 +373,7 @@ impl IdeDatabaseSnapshot {
     }
 
     /// Finds all methods and free functions for the file. Does not return tests!
-    pub fn find_all_methods(&self, file_id: FileID) -> Cancellable<Vec<FileRange>> {
+    pub fn find_all_methods(&self, file_id: FileId) -> Cancellable<Vec<FileRange>> {
         self.try_db_query(|db| fn_references::find_all_methods(db, file_id))
     }
 
@@ -412,23 +422,8 @@ impl IdeDatabaseSnapshot {
         self.try_db_query(|db| parent_module::parent_module(db, position))
     }
 
-    /// Returns crates this file belongs too.
-    pub fn crate_for(&self, file_id: FileID) -> Cancellable<Vec<CrateId>> {
-        self.try_db_query(|db| parent_module::crate_for(db, file_id))
-    }
-
-    /// Returns the edition of the given crate.
-    pub fn crate_edition(&self, crate_id: CrateId) -> Cancellable<Edition> {
-        todo!()
-    }
-
-    /// Returns the root file of the given crate.
-    pub fn crate_root(&self, crate_id: CrateId) -> Cancellable<FileID> {
-        todo!()
-    }
-
     /// Computes syntax highlighting for the given file
-    pub fn highlight(&self, file_id: FileID) -> Cancellable<Vec<HlRange>> {
+    pub fn highlight(&self, file_id: FileId) -> Cancellable<Vec<HlRange>> {
         self.try_db_query(|db| syntax_highlighting::highlight(db, file_id, None, false))
     }
 
@@ -438,8 +433,9 @@ impl IdeDatabaseSnapshot {
         config: HighlightRelatedConfig,
         position: FilePosition,
     ) -> Cancellable<Option<Vec<HighlightedRange>>> {
-        eprintln!("TODO: all ranges to highlight for a given item in a file");
-        Ok(None)
+        todo!()
+        // eprintln!("TODO: all ranges to highlight for a given item in a file");
+        // Ok(None)
     }
 
     /// Computes syntax highlighting for the given file range.
@@ -450,7 +446,7 @@ impl IdeDatabaseSnapshot {
     }
 
     /// Computes syntax highlighting for the given file.
-    pub fn highlight_as_html(&self, file_id: FileID, rainbow: bool) -> Cancellable<String> {
+    pub fn highlight_as_html(&self, file_id: FileId, rainbow: bool) -> Cancellable<String> {
         todo!()
     }
 
@@ -470,11 +466,12 @@ impl IdeDatabaseSnapshot {
         position: FilePosition,
         imports: impl IntoIterator<Item = (String, String)> + std::panic::UnwindSafe,
     ) -> Cancellable<Vec<TextEdit>> {
-        Ok(self
-            .try_db_query(|db| {
-                ide_completion::resolve_completion_edits(db, config, position, imports)
-            })?
-            .unwrap_or_default())
+        todo!()
+        // Ok(self
+        //     .try_db_query(|db| {
+        //         ide_completion::resolve_completion_edits(db, config, position, imports)
+        //     })?
+        //     .unwrap_or_default())
     }
 
     /// Computes assists (aka code actions aka intentions) for the given
@@ -496,7 +493,7 @@ impl IdeDatabaseSnapshot {
     }
 
     /// Computes the set of diagnostics for the given file.
-    pub fn diagnostics(&self, file_id: FileID) -> Cancellable<Vec<hir::Diagnostic>> {
+    pub fn diagnostics(&self, file_id: FileId) -> Cancellable<Vec<hir::Diagnostic>> {
         todo!()
         // self.try_db_query(|db| db.diagnostics(file_id))
     }
@@ -520,7 +517,7 @@ impl IdeDatabaseSnapshot {
 
     pub fn will_rename_file(
         &self,
-        file_id: FileID,
+        file_id: FileId,
         new_name_stem: &str,
     ) -> Cancellable<Option<SourceChange>> {
         self.try_db_query(|db| rename::will_rename_file(db, file_id, new_name_stem))
@@ -550,7 +547,7 @@ impl IdeDatabaseSnapshot {
     pub fn annotations(
         &self,
         config: &AnnotationConfig,
-        file_id: FileID,
+        file_id: FileId,
     ) -> Cancellable<Vec<Annotation>> {
         self.try_db_query(|db| annotations::annotations(db, config, file_id))
     }
@@ -582,8 +579,9 @@ impl IdeDatabaseSnapshot {
     /// catching it on the API boundary.
     fn try_db_query<F, T>(&self, f: F) -> Cancellable<T>
     where
-        F: FnOnce(&IdeDatabase) -> T + std::panic::UnwindSafe,
+        F: FnOnce(&HuskyLangDatabase) -> T + std::panic::UnwindSafe,
     {
-        Cancelled::catch(|| f(&self.db))
+        todo!()
+        // Cancelled::catch(|| f(&self.db))
     }
 }

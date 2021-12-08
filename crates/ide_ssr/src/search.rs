@@ -5,9 +5,9 @@ use crate::{
     resolving::{ResolvedPath, ResolvedPattern, ResolvedRule},
     Match, MatchFinder,
 };
-use ide_db::{
+use husky_lang_db::{
     defs::Definition,
-    file_db::{FileID, FileRange},
+    vfs::{FileId, FileRange},
     search::{SearchScope, UsageSearchResult},
 };
 use rustc_hash::FxHashSet;
@@ -114,12 +114,12 @@ impl<'db> MatchFinder<'db> {
         todo!()
     }
 
-    fn search_files_do(&self, mut callback: impl FnMut(FileID)) {
+    fn search_files_do(&self, mut callback: impl FnMut(FileId)) {
         todo!()
         // if self.restrict_ranges.is_empty() {
         //     // Unrestricted search.
-        //     use ide_db::file_db::SourceDatabaseExt;
-        //     use ide_db::symbol_index::SymbolsDatabase;
+        //     use husky_lang_db::vfs::SourceDatabaseExt;
+        //     use husky_lang_db::symbol_index::SymbolsDatabase;
         //     for &root in self.sema.db.local_roots().iter() {
         //         let sr = self.sema.db.source_root(root);
         //         for file_id in sr.iter() {

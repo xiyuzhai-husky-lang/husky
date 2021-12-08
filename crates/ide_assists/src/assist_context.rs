@@ -5,14 +5,14 @@ use std::mem;
 use common::*;
 
 use hir::Semantics;
-use ide_db::{
-    file_db::{AnchoredPathBuf, FileID, FileRange},
+use husky_lang_db::{
     helpers::SnippetCap,
+    vfs::{FileId, FileRange},
 };
-use ide_db::{
+use husky_lang_db::{
     label::Label,
     source_change::{FileSystemEdit, SourceChange},
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use syntax::{
     Direction, SingleFileParseTree, SyntaxElement, SyntaxKind, SyntaxNode, SyntaxNodePtr,
@@ -56,7 +56,7 @@ use crate::{
 /// easier to just compute the edit eagerly :-)
 pub(crate) struct AssistContext<'a> {
     pub(crate) config: &'a AssistConfig,
-    pub(crate) sema: Semantics<'a, IdeDatabase>,
+    pub(crate) sema: Semantics<'a, HuskyLangDatabase>,
     frange: FileRange,
     trimmed_range: TextRange,
     source_file: SingleFileParseTree,
@@ -64,14 +64,14 @@ pub(crate) struct AssistContext<'a> {
 
 impl<'a> AssistContext<'a> {
     pub(crate) fn new(
-        sema: Semantics<'a, IdeDatabase>,
+        sema: Semantics<'a, HuskyLangDatabase>,
         config: &'a AssistConfig,
         frange: FileRange,
     ) -> AssistContext<'a> {
         todo!()
     }
 
-    pub(crate) fn db(&self) -> &IdeDatabase {
+    pub(crate) fn db(&self) -> &HuskyLangDatabase {
         self.sema.db
     }
 
@@ -80,7 +80,7 @@ impl<'a> AssistContext<'a> {
         self.frange.range.start()
     }
 
-    pub(crate) fn file_id(&self) -> FileID {
+    pub(crate) fn file_id(&self) -> FileId {
         self.frange.file_id
     }
 
@@ -119,7 +119,7 @@ impl<'a> AssistContext<'a> {
 }
 
 pub(crate) struct Assists {
-    file: FileID,
+    file: FileId,
     resolve: AssistResolveStrategy,
     buf: Vec<Assist>,
     allowed: Option<Vec<AssistKind>>,
@@ -209,7 +209,7 @@ impl Assists {
 
 pub(crate) struct AssistBuilder {
     edit: TextEditBuilder,
-    file_id: FileID,
+    file_id: FileId,
     source_change: SourceChange,
 
     /// Maps the original, immutable `SyntaxNode` to a `clone_for_update` twin.
@@ -236,7 +236,7 @@ impl TreeMutator {
 }
 
 impl AssistBuilder {
-    pub(crate) fn new(file_id: FileID) -> AssistBuilder {
+    pub(crate) fn new(file_id: FileId) -> AssistBuilder {
         AssistBuilder {
             edit: TextEdit::builder(),
             file_id,
@@ -245,7 +245,7 @@ impl AssistBuilder {
         }
     }
 
-    pub(crate) fn edit_file(&mut self, file_id: FileID) {
+    pub(crate) fn edit_file(&mut self, file_id: FileId) {
         self.commit();
         self.file_id = file_id;
     }
@@ -308,17 +308,17 @@ impl AssistBuilder {
     pub(crate) fn replace_ast(&mut self, old: SyntaxNode, new: SyntaxNode) {
         todo!()
     }
-    pub(crate) fn create_file(&mut self, dst: AnchoredPathBuf, content: impl Into<String>) {
-        let file_system_edit = FileSystemEdit::CreateFile {
-            dst,
-            initial_contents: content.into(),
-        };
-        self.source_change.push_file_system_edit(file_system_edit);
-    }
-    pub(crate) fn move_file(&mut self, src: FileID, dst: AnchoredPathBuf) {
-        let file_system_edit = FileSystemEdit::MoveFile { src, dst };
-        self.source_change.push_file_system_edit(file_system_edit);
-    }
+    // pub(crate) fn create_file(&mut self, dst: AnchoredPathBuf, content: impl Into<String>) {
+    //     let file_system_edit = FileSystemEdit::CreateFile {
+    //         dst,
+    //         initial_contents: content.into(),
+    //     };
+    //     self.source_change.push_file_system_edit(file_system_edit);
+    // }
+    // pub(crate) fn move_file(&mut self, src: FileId, dst: AnchoredPathBuf) {
+    //     let file_system_edit = FileSystemEdit::MoveFile { src, dst };
+    //     self.source_change.push_file_system_edit(file_system_edit);
+    // }
 
     fn finish(mut self) -> SourceChange {
         self.commit();

@@ -1,8 +1,8 @@
 use hir::{AsAssocItem, Impl, Semantics};
-use ide_db::{
+use husky_lang_db::{
     defs::{Definition, NameClass, NameRefClass},
     helpers::pick_best_token,
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use itertools::Itertools;
 use syntax::{ast, SyntaxKind::*};
@@ -21,22 +21,22 @@ use crate::{FilePosition, NavigationTarget, RangeInfo, TryToNav};
 //
 // image::https://user-images.githubusercontent.com/48062697/113065566-02f85480-91b1-11eb-9288-aaad8abd8841.gif[]
 pub(crate) fn goto_implementation(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()
 }
 
-fn impls_for_ty(sema: &Semantics<IdeDatabase>, ty: hir::Type) -> Vec<NavigationTarget> {
+fn impls_for_ty(sema: &Semantics<HuskyLangDatabase>, ty: hir::Type) -> Vec<NavigationTarget> {
     todo!()
 }
 
-fn impls_for_trait(sema: &Semantics<IdeDatabase>, trait_: hir::Trait) -> Vec<NavigationTarget> {
+fn impls_for_trait(sema: &Semantics<HuskyLangDatabase>, trait_: hir::Trait) -> Vec<NavigationTarget> {
     todo!()
 }
 
 fn impls_for_trait_item(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     trait_: hir::Trait,
     fun_name: hir::Name,
 ) -> Vec<NavigationTarget> {

@@ -1,7 +1,7 @@
 use hir::Semantics;
-use ide_db::{
+use husky_lang_db::{
     defs::{Definition, NameClass, NameRefClass},
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use syntax::{ast, SyntaxKind::*};
 
@@ -11,7 +11,7 @@ use crate::{FilePosition, NavigationTarget, RangeInfo};
 //
 // Navigates to the declaration of an identifier.
 pub(crate) fn goto_declaration(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()

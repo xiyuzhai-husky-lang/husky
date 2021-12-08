@@ -1,11 +1,11 @@
 use common::*;
 
-use ide_db::{
+use itertools::Itertools;
+use husky_lang_db::{
     assists::{AssistId, AssistKind},
     defs::Definition,
     search::{FileReference, SearchScope, UsageSearchResult},
 };
-use itertools::Itertools;
 use syntax::ast::{self, FieldExpr, IdentPat, MethodCallExpr};
 
 use crate::assist_context::{AssistBuilder, AssistContext, Assists};

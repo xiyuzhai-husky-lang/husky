@@ -1,4 +1,6 @@
-use crate::{lsp_ext, server_capabilities, Result, ServerConfig};
+use common::*;
+
+use crate::{lsp_ext, server_capabilities, utils::from_json, ServerConfig};
 
 pub fn init_connection(connection: &lsp_server::Connection) -> Result<ServerConfig> {
     // let mut server_capabilities = ServerCapabilities::default();
@@ -8,8 +10,7 @@ pub fn init_connection(connection: &lsp_server::Connection) -> Result<ServerConf
     // todo!()
     let (init_id, init_params) = connection.initialize_start()?;
     tracing::info!("InitializeParams: {}", init_params);
-    let init_params =
-        crate::from_json::<lsp_types::InitializeParams>("InitializeParams", init_params)?;
+    let init_params = from_json::<lsp_types::InitializeParams>("InitializeParams", init_params)?;
 
     let config = ServerConfig::new(init_params)?;
 

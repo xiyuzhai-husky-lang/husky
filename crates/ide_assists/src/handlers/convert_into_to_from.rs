@@ -1,4 +1,4 @@
-use ide_db::helpers::{mod_path_to_ast, FamousDefs};
+use husky_lang_db::helpers::{mod_path_to_ast, FamousDefs};
 use syntax::ast;
 
 use crate::{AssistContext, AssistId, AssistKind, Assists};

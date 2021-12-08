@@ -5,7 +5,7 @@ mod format_like;
 use common::*;
 
 use hir::Documentation;
-use ide_db::{
+use husky_lang_db::{
     helpers::{insert_use::ImportScope, FamousDefs, SnippetCap},
     ty_filter::TryEnum,
 };

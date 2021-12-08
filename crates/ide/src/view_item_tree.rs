@@ -1,6 +1,6 @@
 use hir::db::DefDatabase;
-use ide_db::file_db::FileID;
-use ide_db::IdeDatabase;
+use husky_lang_db::vfs::FileId;
+use husky_lang_db::HuskyLangDatabase;
 
 // Feature: Debug ItemTree
 //
@@ -11,6 +11,6 @@ use ide_db::IdeDatabase;
 //
 // | VS Code | **Rust Analyzer: Debug ItemTree**
 // |===
-pub(crate) fn view_item_tree(db: &IdeDatabase, file_id: FileID) -> String {
+pub(crate) fn view_item_tree(db: &HuskyLangDatabase, file_id: FileId) -> String {
     todo!()
 }

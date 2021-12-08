@@ -1,12 +1,12 @@
 use common::*;
 
 use hir::Semantics;
-use ide_db::{
+use husky_lang_db::{
     defs::Definition,
-    file_db::{FileID, FilePosition},
+    vfs::{FileId, FilePosition},
     helpers::{for_each_break_expr, for_each_tail_expr, node_ext::walk_expr, pick_best_token},
     search::{FileReference, ReferenceCategory, SearchScope},
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use rustc_hash::FxHashSet;
 use syntax::{ast, SyntaxNode, SyntaxToken};
@@ -40,7 +40,7 @@ pub struct HighlightRelatedConfig {
 //
 // Note: `?` and `->` do not currently trigger this behavior in the VSCode editor.
 pub(crate) fn highlight_related(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     config: HighlightRelatedConfig,
     FilePosition { offset, file_id }: FilePosition,
 ) -> Option<Vec<HighlightedRange>> {
@@ -48,16 +48,16 @@ pub(crate) fn highlight_related(
 }
 
 fn highlight_references(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     node: &SyntaxNode,
     token: SyntaxToken,
-    file_id: FileID,
+    file_id: FileId,
 ) -> Option<Vec<HighlightedRange>> {
     todo!()
 }
 
 fn highlight_exit_points(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     token: SyntaxToken,
 ) -> Option<Vec<HighlightedRange>> {
     todo!()
@@ -80,6 +80,6 @@ fn cover_range(r0: Option<TextRange>, r1: Option<TextRange>) -> Option<TextRange
     }
 }
 
-fn find_defs(sema: &Semantics<IdeDatabase>, token: SyntaxToken) -> FxHashSet<Definition> {
+fn find_defs(sema: &Semantics<HuskyLangDatabase>, token: SyntaxToken) -> FxHashSet<Definition> {
     todo!()
 }

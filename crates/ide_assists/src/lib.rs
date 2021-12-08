@@ -70,12 +70,12 @@ pub mod utils;
 use common::*;
 
 use hir::Semantics;
-use ide_db::{file_db::FileRange, IdeDatabase};
+use husky_lang_db::{vfs::FileRange, HuskyLangDatabase};
 
 pub(crate) use crate::assist_context::{AssistContext, Assists};
 
 pub use assist_config::AssistConfig;
-pub use ide_db::assists::{
+pub use husky_lang_db::assists::{
     Assist, AssistId, AssistKind, AssistResolveStrategy, GroupLabel, SingleResolve,
 };
 
@@ -84,7 +84,7 @@ pub use ide_db::assists::{
 // NOTE: We don't have a `Feature: ` section for assists, they are special-cased
 // in the manual.
 pub fn assists(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     config: &AssistConfig,
     resolve: AssistResolveStrategy,
     range: FileRange,

@@ -5,7 +5,7 @@ use std::fmt;
 use common::*;
 
 use hir::{Documentation, Mutability};
-use ide_db::{
+use husky_lang_db::{
     helpers::{
         import_assets::LocatedImport,
         insert_use::{self, ImportScope, InsertUseConfig},

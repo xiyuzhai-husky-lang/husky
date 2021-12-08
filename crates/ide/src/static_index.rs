@@ -6,10 +6,10 @@ use std::collections::HashMap;
 use common::*;
 
 use hir::{db::HirDatabase, Crate, Module, Semantics};
-use ide_db::{
+use husky_lang_db::{
     defs::Definition,
-    file_db::{FileID, FileRange, SourceDatabaseExt},
-    IdeDatabase,
+    vfs::{FileId, FileRange},
+    HuskyLangDatabase,
 };
 use rustc_hash::FxHashSet;
 use syntax::{SyntaxKind::*, SyntaxToken};
@@ -27,7 +27,7 @@ pub struct StaticIndex<'a> {
     pub files: Vec<StaticIndexedFile>,
     pub tokens: TokenStore,
     analysis: &'a IdeDatabaseSnapshot,
-    db: &'a IdeDatabase,
+    db: &'a HuskyLangDatabase,
     def_map: HashMap<Definition, TokenId>,
 }
 
@@ -78,7 +78,7 @@ impl TokenStore {
 
 #[derive(Debug)]
 pub struct StaticIndexedFile {
-    pub file_id: FileID,
+    pub file_id: FileId,
     pub folds: Vec<Fold>,
     pub tokens: Vec<(TextRange, TokenId)>,
 }
@@ -88,7 +88,7 @@ fn all_modules(db: &dyn HirDatabase) -> Vec<Module> {
 }
 
 impl StaticIndex<'_> {
-    fn add_file(&mut self, file_id: FileID) {
+    fn add_file(&mut self, file_id: FileId) {
         todo!()
     }
 
@@ -97,6 +97,6 @@ impl StaticIndex<'_> {
     }
 }
 
-fn get_definition(sema: &Semantics<IdeDatabase>, token: SyntaxToken) -> Option<Definition> {
+fn get_definition(sema: &Semantics<HuskyLangDatabase>, token: SyntaxToken) -> Option<Definition> {
     todo!()
 }

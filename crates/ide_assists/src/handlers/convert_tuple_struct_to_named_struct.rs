@@ -1,5 +1,5 @@
 use either::Either;
-use ide_db::defs::{Definition, NameRefClass};
+use husky_lang_db::defs::{Definition, NameRefClass};
 use syntax::{
     ast::{self},
     SyntaxNode,

@@ -1,8 +1,8 @@
 use common::*;
 
-use ide_db::file_db::{FileDatabase, FileID};
-use ide_db::IdeDatabase;
+use husky_lang_db::HuskyLangDatabase;
 use syntax::{NodeOrToken, SingleFileParseTree, SyntaxToken};
+use vfs::{FileId, VirtualFileSystem};
 
 // Feature: Show Syntax Tree
 //
@@ -16,8 +16,8 @@ use syntax::{NodeOrToken, SingleFileParseTree, SyntaxToken};
 // |===
 // image::https://user-images.githubusercontent.com/48062697/113065586-068bdb80-91b1-11eb-9507-fee67f9f45a0.gif[]
 pub(crate) fn syntax_tree(
-    db: &IdeDatabase,
-    file_id: FileID,
+    db: &HuskyLangDatabase,
+    file_id: FileId,
     text_range: Option<TextRange>,
 ) -> String {
     todo!()

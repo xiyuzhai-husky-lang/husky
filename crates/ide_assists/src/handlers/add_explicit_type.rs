@@ -1,5 +1,5 @@
 use hir::HirDisplay;
-use ide_db::helpers::node_ext::walk_ty;
+use husky_lang_db::helpers::node_ext::walk_ty;
 use syntax::ast::{self, LetStmt, Param};
 
 use crate::{AssistContext, AssistId, AssistKind, Assists};

@@ -1,5 +1,5 @@
 //! Complete fields in record literals and patterns.
-use ide_db::{helpers::FamousDefs, SymbolKind};
+use husky_lang_db::{helpers::FamousDefs, SymbolKind};
 use syntax::ast::Expr;
 
 use crate::{CompletionContext, CompletionItem, CompletionItemKind, Completions};

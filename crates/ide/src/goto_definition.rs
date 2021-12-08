@@ -4,12 +4,7 @@ use std::convert::TryInto;
 
 use crate::{doc_links::token_as_doc_comment, FilePosition, NavigationTarget, RangeInfo, TryToNav};
 use hir::{AsAssocItem, Semantics};
-use ide_db::{
-    defs::Definition,
-    file_db::{AnchoredPath, FileID, FileLoader},
-    helpers::pick_best_token,
-    IdeDatabase,
-};
+use husky_lang_db::{defs::Definition, helpers::pick_best_token, vfs::FileId, HuskyLangDatabase};
 use itertools::Itertools;
 use syntax::{ast, SyntaxKind::*, SyntaxToken};
 
@@ -25,17 +20,17 @@ use syntax::{ast, SyntaxKind::*, SyntaxToken};
 //
 // image::https://user-images.githubusercontent.com/48062697/113065563-025fbe00-91b1-11eb-83e4-a5a703610b23.gif[]
 pub(crate) fn goto_definition(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()
 }
 
 fn try_lookup_include_path(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     tt: ast::TokenTree,
     token: SyntaxToken,
-    file_id: FileID,
+    file_id: FileId,
 ) -> Option<Vec<NavigationTarget>> {
     todo!()
 }
@@ -48,12 +43,12 @@ fn try_lookup_include_path(
 /// impl A for S { fn a(); } // <-- on this function, will get the location of a() in the trait
 /// ```
 fn try_find_trait_item_definition(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     def: &Definition,
 ) -> Option<Vec<NavigationTarget>> {
     todo!()
 }
 
-fn def_to_nav(db: &IdeDatabase, def: Definition) -> Vec<NavigationTarget> {
+fn def_to_nav(db: &HuskyLangDatabase, def: Definition) -> Vec<NavigationTarget> {
     def.try_to_nav(db).map(|it| vec![it]).unwrap_or_default()
 }

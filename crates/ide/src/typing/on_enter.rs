@@ -3,8 +3,8 @@
 
 use common::*;
 
-use ide_db::file_db::{FileDatabase, FilePosition};
-use ide_db::IdeDatabase;
+use husky_lang_db::vfs::{FilePosition, VirtualFileSystem};
+use husky_lang_db::HuskyLangDatabase;
 use syntax::{
     ast::{self, edit::IndentLevel},
     SingleFileParseTree, SmolStr,
@@ -48,7 +48,7 @@ use text_edit::TextEdit;
 // ----
 //
 // image::https://user-images.githubusercontent.com/48062697/113065578-04c21800-91b1-11eb-82b8-22b8c481e645.gif[]
-pub(crate) fn on_enter(db: &IdeDatabase, position: FilePosition) -> Option<TextEdit> {
+pub(crate) fn on_enter(db: &HuskyLangDatabase, position: FilePosition) -> Option<TextEdit> {
     todo!()
 }
 

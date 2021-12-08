@@ -1,6 +1,7 @@
 crates/arena
        3 text files.
-classified 3 files       3 unique files.                              
+classified 3 files
+       3 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.00 s (633.3 files/s, 98582.7 lines/s)
@@ -18,7 +19,8 @@ crates/cloc_all.txt
        1 file ignored.
 crates/common
        9 text files.
-classified 9 files       9 unique files.                              
+classified 9 files
+       9 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (1635.8 files/s, 115412.9 lines/s)
@@ -30,9 +32,10 @@ TOML                             1              2              0             12
 -------------------------------------------------------------------------------
 SUM:                             9             30             14            591
 -------------------------------------------------------------------------------
-crates/file_db
+crates/vfs
        4 text files.
-classified 4 files       4 unique files.                              
+classified 4 files
+       4 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.00 s (844.6 files/s, 88683.4 lines/s)
@@ -46,7 +49,8 @@ SUM:                             4             61             37            322
 -------------------------------------------------------------------------------
 crates/hir
        4 text files.
-classified 4 files       4 unique files.                              
+classified 4 files
+       4 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.00 s (907.6 files/s, 49464.9 lines/s)
@@ -60,7 +64,8 @@ SUM:                             4             21              5            192
 -------------------------------------------------------------------------------
 crates/husky_lang_server
       38 text files.
-classified 38 files      38 unique files.                              
+classified 38 files
+      38 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.11 s (346.6 files/s, 52778.5 lines/s)
@@ -74,7 +79,8 @@ SUM:                            38            620            328           4838
 -------------------------------------------------------------------------------
 crates/ide
       44 text files.
-classified 44 files      44 unique files.                              
+classified 44 files
+      44 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.02 s (2770.8 files/s, 251257.7 lines/s)
@@ -88,7 +94,8 @@ SUM:                            44            507            677           2806
 -------------------------------------------------------------------------------
 crates/ide_assists
       40 text files.
-classified 40 files      40 unique files.                              
+classified 40 files
+      40 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (2871.5 files/s, 242137.8 lines/s)
@@ -102,11 +109,12 @@ SUM:                            40            408            752           2213
 -------------------------------------------------------------------------------
 crates/ide_completion
       28 text files.
-classified 28 files      28 unique files.                              
+classified 28 files
+      28 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (1971.0 files/s, 155709.6 lines/s)
--------------------------------------------------------------------------------
+-------husky_lang_db------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
 Rust                            27            257            458           1463
@@ -116,7 +124,8 @@ SUM:                            28            263            458           1491
 -------------------------------------------------------------------------------
 crates/ide_db
       24 text files.
-classified 24 files      24 unique files.                              
+classified 24 files
+      24 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (1966.1 files/s, 293027.8 lines/s)
@@ -130,7 +139,8 @@ SUM:                            24            391            412           2774
 -------------------------------------------------------------------------------
 crates/ide_ssr
       10 text files.
-classified 10 files      10 unique files.                              
+classified 10 files
+      10 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (1330.5 files/s, 196909.4 lines/s)
@@ -144,7 +154,8 @@ SUM:                            10            162            276           1042
 -------------------------------------------------------------------------------
 crates/limit
        2 text files.
-classified 2 files       2 unique files.                              
+classified 2 files
+       2 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (334.2 files/s, 11528.8 lines/s)
@@ -158,7 +169,8 @@ SUM:                             2              8              7             54
 -------------------------------------------------------------------------------
 crates/lsp-server
       19 text files.
-classified 19 files      19 unique files.                              
+classified 19 files
+      19 unique files.                              
        4 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (1744.6 files/s, 110565.8 lines/s)
@@ -175,7 +187,8 @@ SUM:                            16            110            163            741
 -------------------------------------------------------------------------------
 crates/paths
        2 text files.
-classified 2 files       2 unique files.                              
+classified 2 files
+       2 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.00 s (444.5 files/s, 69568.0 lines/s)
@@ -189,7 +202,8 @@ SUM:                             2             38             60            215
 -------------------------------------------------------------------------------
 crates/profile
        7 text files.
-classified 7 files       7 unique files.                              
+classified 7 files
+       7 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (940.6 files/s, 113947.9 lines/s)
@@ -203,7 +217,8 @@ SUM:                             7            109             87            652
 -------------------------------------------------------------------------------
 crates/project
        4 text files.
-classified 4 files       4 unique files.                              
+classified 4 files
+       4 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (735.6 files/s, 26663.8 lines/s)
@@ -217,7 +232,8 @@ SUM:                             4             26              2            117
 -------------------------------------------------------------------------------
 crates/salsa
       52 text files.
-classified 52 files      52 unique files.                              
+classified 52 files
+      52 unique files.                              
        1 file ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.02 s (2619.8 files/s, 345047.6 lines/s)
@@ -233,7 +249,8 @@ SUM:                            51            922           1172           4623
 -------------------------------------------------------------------------------
 crates/salsa-macros
        6 text files.
-classified 6 files       6 unique files.                              
+classified 6 files
+       6 unique files.                              
        2 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (974.4 files/s, 181231.3 lines/s)
@@ -248,7 +265,8 @@ SUM:                             6            115            226            775
 -------------------------------------------------------------------------------
 crates/stdx
        5 text files.
-classified 5 files       5 unique files.                              
+classified 5 files
+       5 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.00 s (1005.4 files/s, 114017.2 lines/s)
@@ -262,7 +280,8 @@ SUM:                             5             69             35            463
 -------------------------------------------------------------------------------
 crates/syntax
        5 text files.
-classified 5 files       5 unique files.                              
+classified 5 files
+       5 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (980.4 files/s, 94901.7 lines/s)
@@ -276,7 +295,8 @@ SUM:                             5             22             84            378
 -------------------------------------------------------------------------------
 crates/test_utils
        2 text files.
-classified 2 files       2 unique files.                              
+classified 2 files
+       2 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.00 s (539.1 files/s, 5390.8 lines/s)
@@ -290,7 +310,8 @@ SUM:                             2              4              1             15
 -------------------------------------------------------------------------------
 crates/text_edit
        2 text files.
-classified 2 files       2 unique files.                              
+classified 2 files
+       2 unique files.                              
        0 files ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.00 s (477.0 files/s, 51990.6 lines/s)
@@ -304,7 +325,8 @@ SUM:                             2             27             15            176
 -------------------------------------------------------------------------------
 crates/vfs
        9 text files.
-classified 9 files       8 unique files.                              
+classified 9 files
+       8 unique files.                              
        1 file ignored.
 
 github.com/AlDanial/cloc v 1.82  T=0.01 s (1343.8 files/s, 148662.7 lines/s)

@@ -1,11 +1,11 @@
 use common::*;
 use either::Either;
 use hir::{PathResolution, Semantics};
-use ide_db::{
-    file_db::FileID,
+use husky_lang_db::{
     defs::Definition,
+    vfs::FileId,
     search::{FileReference, UsageSearchResult},
-    IdeDatabase,
+    HuskyLangDatabase,
 };
 use syntax::{ast, SyntaxElement};
 
@@ -42,19 +42,19 @@ struct InlineData {
 }
 
 fn inline_let(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     let_stmt: ast::LetStmt,
     range: TextRange,
-    file_id: FileID,
+    file_id: FileId,
 ) -> Option<InlineData> {
     todo!()
 }
 
 fn inline_usage(
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     path_expr: ast::PathExpr,
     range: TextRange,
-    file_id: FileID,
+    file_id: FileId,
 ) -> Option<InlineData> {
     todo!()
 }

@@ -1,6 +1,6 @@
 use common::*;
 
-use ide_db::SymbolKind;
+use husky_lang_db::SymbolKind;
 use syntax::{ast, NodeOrToken, SingleFileParseTree, SyntaxNode, SyntaxToken};
 
 #[derive(Debug, Clone)]

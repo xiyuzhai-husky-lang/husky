@@ -1,5 +1,5 @@
 //! See [`import_on_the_fly`].
-use ide_db::helpers::{
+use husky_lang_db::helpers::{
     import_assets::{ImportAssets, ImportCandidate},
     insert_use::ImportScope,
 };

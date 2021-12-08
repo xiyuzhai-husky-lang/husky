@@ -3,11 +3,11 @@
 use common::*;
 
 use hir::Semantics;
-use ide_db::{
+use husky_lang_db::{
     defs::{Definition, NameClass, NameRefClass},
     helpers::pick_best_token,
     search::FileReference,
-    FxIndexMap, IdeDatabase,
+    FxIndexMap, HuskyLangDatabase,
 };
 use syntax::ast;
 
@@ -20,20 +20,20 @@ pub struct CallItem {
 }
 
 pub(crate) fn call_hierarchy(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     position: FilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     goto_definition::goto_definition(db, position)
 }
 
 pub(crate) fn incoming_calls(
-    db: &IdeDatabase,
+    db: &HuskyLangDatabase,
     FilePosition { file_id, offset }: FilePosition,
 ) -> Option<Vec<CallItem>> {
     todo!()
 }
 
-pub(crate) fn outgoing_calls(db: &IdeDatabase, position: FilePosition) -> Option<Vec<CallItem>> {
+pub(crate) fn outgoing_calls(db: &HuskyLangDatabase, position: FilePosition) -> Option<Vec<CallItem>> {
     todo!()
 }
 

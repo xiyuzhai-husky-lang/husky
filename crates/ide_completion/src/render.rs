@@ -13,9 +13,9 @@ mod builder_ext;
 use common::*;
 
 use hir::{AsAssocItem, HirDisplay};
-use ide_db::{
+use husky_lang_db::{
     helpers::{item_name, SnippetCap},
-    IdeDatabase, SymbolKind,
+    HuskyLangDatabase, SymbolKind,
 };
 use syntax::{SmolStr, SyntaxKind};
 
@@ -40,7 +40,7 @@ impl<'a> RenderContext<'a> {
         todo!()
     }
 
-    fn db(&self) -> &'a IdeDatabase {
+    fn db(&self) -> &'a HuskyLangDatabase {
         todo!()
     }
 
@@ -95,7 +95,10 @@ fn render_resolution_(
     todo!()
 }
 
-fn scope_def_docs(db: &IdeDatabase, resolution: &hir::ScopeDef) -> Option<hir::Documentation> {
+fn scope_def_docs(
+    db: &HuskyLangDatabase,
+    resolution: &hir::ScopeDef,
+) -> Option<hir::Documentation> {
     todo!()
 }
 

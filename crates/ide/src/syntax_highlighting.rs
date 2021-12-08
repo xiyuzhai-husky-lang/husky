@@ -10,7 +10,7 @@ mod inject;
 use common::*;
 
 use hir::{InFile, Name, Semantics};
-use ide_db::{IdeDatabase, SymbolKind};
+use husky_lang_db::{HuskyLangDatabase, SymbolKind};
 use rustc_hash::FxHashMap;
 use syntax::{
     ast::{self, HasFormatSpecifier},
@@ -23,7 +23,7 @@ use crate::{
     syntax_highlighting::{
         format::highlight_format_string, highlights::Highlights, tags::Highlight,
     },
-    FileID, HlMod, HlTag,
+    FileId, HlMod, HlTag,
 };
 
 #[derive(Debug, Clone, Copy)]
@@ -145,8 +145,8 @@ pub struct HlRange {
 // image::https://user-images.githubusercontent.com/48062697/113164457-06cfb980-9239-11eb-819b-0f93e646acf8.png[]
 // image::https://user-images.githubusercontent.com/48062697/113187625-f7f50100-9250-11eb-825e-91c58f236071.png[]
 pub(crate) fn highlight(
-    db: &IdeDatabase,
-    file_id: FileID,
+    db: &HuskyLangDatabase,
+    file_id: FileId,
     range_to_highlight: Option<TextRange>,
     syntactic_name_ref_highlighting: bool,
 ) -> Vec<HlRange> {
@@ -156,7 +156,7 @@ pub(crate) fn highlight(
 
 fn traverse(
     hl: &mut Highlights,
-    sema: &Semantics<IdeDatabase>,
+    sema: &Semantics<HuskyLangDatabase>,
     root: InFile<&SyntaxNode>,
     krate: Option<hir::Crate>,
     range_to_highlight: TextRange,

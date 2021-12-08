@@ -7,6 +7,7 @@ pub mod show;
 pub mod todo;
 pub use file::*;
 pub mod error;
+pub use error::*;
 pub use keyword::*;
 pub use print::*;
 pub use session::*;
@@ -18,6 +19,7 @@ pub use std::fmt::Debug;
 pub use std::fmt::Formatter;
 pub use std::io;
 pub use std::path::PathBuf;
+pub use std::sync::Arc;
 pub use todo::*;
 
 pub use rowan::{Direction, GreenNode, NodeOrToken, SyntaxText, TokenAtOffset, WalkEvent};

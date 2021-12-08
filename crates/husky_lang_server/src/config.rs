@@ -5,6 +5,9 @@
 //! Of particular interest is the `feature_flags` hash map: while other fields
 //! configure the server itself, feature flags are passed into analysis, and
 //! tweak things like automatic insertion of `()` in completions.
+
+use common::*;
+
 pub(crate) mod huskyfmt;
 
 macro_rules! try_ {
@@ -20,16 +23,12 @@ macro_rules! try_or {
 
 use std::path::PathBuf;
 
+use husky_lang_db::helpers::{insert_use::InsertUseConfig, SnippetCap};
 use ide::{CompletionConfig, HighlightRelatedConfig, Snippet};
-use ide_db::helpers::{insert_use::InsertUseConfig, SnippetCap};
-use project::{discover_projects, Project};
 use rustc_hash::{FxHashMap, FxHashSet};
 use serde::{de::DeserializeOwned, Deserialize};
-use vfs::AbsPathBuf;
 
-use crate::{
-    capabilities::completion_item_edit_resolve, line_index::OffsetEncoding, lsp_ext, Result,
-};
+use crate::{capabilities::completion_item_edit_resolve, line_collection::OffsetEncoding, lsp_ext};
 
 macro_rules! _server_config_data {
     (struct $name:ident {
@@ -310,14 +309,13 @@ impl Default for ServerConfigData {
 #[derive(Debug)]
 pub struct ServerConfig {
     pub(crate) client_capabilities: lsp_types::ClientCapabilities,
-    pub(crate) root_path: AbsPathBuf,
-    pub(crate) projects: Vec<Project>,
+    pub(crate) root_path: vfs::AbsPathBuf,
     data: ServerConfigData,
     snippets: Vec<Snippet>,
 }
 
 impl ServerConfig {
-    pub fn detached_files(&self) -> &[AbsPathBuf] {
+    pub fn detached_files(&self) -> &[vfs::AbsPathBuf] {
         todo!()
     }
     fn update(&mut self, mut _json: serde_json::Value) {
@@ -331,17 +329,6 @@ impl ServerConfig {
 
         let mut config = ServerConfig {
             client_capabilities: init_params.capabilities,
-            projects: {
-                let workspace_roots =
-                    get_workspace_roots(init_params.workspace_folders, &root_path);
-
-                let projects = discover_projects(&workspace_roots);
-                tracing::info!("discovered projects: {:?}", projects);
-                if projects.is_empty() {
-                    tracing::error!("failed to find any projects in {:?}", workspace_roots);
-                }
-                projects
-            },
             root_path,
             data: ServerConfigData::default(),
             snippets: Default::default(),
@@ -490,8 +477,8 @@ impl ServerConfig {
 
 fn get_workspace_roots(
     workspace_folders: Option<Vec<lsp_types::WorkspaceFolder>>,
-    root_path: &AbsPathBuf,
-) -> Vec<AbsPathBuf> {
+    root_path: &vfs::AbsPathBuf,
+) -> Vec<vfs::AbsPathBuf> {
     workspace_folders
         .map(|workspaces| {
             workspaces
@@ -516,16 +503,17 @@ fn trace_client_info(client_info: Option<lsp_types::ClientInfo>) {
 
 fn get_root_path_from_initialize_params(
     root_uri: Option<lsp_types::Url>,
-) -> crate::Result<AbsPathBuf> {
+) -> Result<vfs::AbsPathBuf> {
     Ok(
         match root_uri
             .and_then(|it| it.to_file_path().ok())
-            .and_then(|it| AbsPathBuf::try_from(it).ok())
+            .and_then(|it| vfs::AbsPathBuf::try_from(it).ok())
         {
             Some(it) => it,
             None => {
                 let cwd = std::env::current_dir()?;
-                AbsPathBuf::assert(cwd)
+                todo!()
+                // vfs::AbsPathBuf::assert(cwd)
             }
         },
     )
