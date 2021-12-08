@@ -20,7 +20,11 @@ pub mod active_parameter;
 pub mod rename;
 pub mod search;
 
-use std::{fmt, mem::ManuallyDrop, sync::Arc};
+use std::{
+    fmt,
+    mem::ManuallyDrop,
+    sync::{Arc, RwLock},
+};
 
 use hir::db::{AstDatabase, DefDatabase, HirDatabase};
 use rustc_hash::FxHashSet;
@@ -51,11 +55,15 @@ pub struct HuskyLangDatabase {
     // which duplicates `Weak::drop` and `Arc::drop` tens of thousands of times, which makes
     // compile times of all `ide_*` and downstream crates suffer greatly.
     storage: ManuallyDrop<salsa::Storage<HuskyLangDatabase>>,
-    file_interner: Arc<std::sync::RwLock<vfs::FileInterner>>,
+    file_interner: Arc<RwLock<vfs::SourceFileInterner>>,
+    package_interner: Arc<RwLock<vfs::PackageInterner>>,
 }
 impl vfs::VirtualFileSystem for HuskyLangDatabase {
-    fn file_interner(&self) -> Arc<std::sync::RwLock<vfs::FileInterner>> {
+    fn file_interner(&self) -> Arc<RwLock<vfs::SourceFileInterner>> {
         self.file_interner.clone()
+    }
+    fn package_interner(&self) -> Arc<RwLock<vfs::PackageInterner>> {
+        self.package_interner.clone()
     }
 }
 impl Drop for HuskyLangDatabase {
@@ -84,7 +92,8 @@ impl HuskyLangDatabase {
     pub fn new(lru_capacity: Option<usize>) -> HuskyLangDatabase {
         let mut db = HuskyLangDatabase {
             storage: ManuallyDrop::new(salsa::Storage::default()),
-            file_interner: Arc::new(std::sync::RwLock::new(vfs::FileInterner::default())),
+            file_interner: Arc::new(RwLock::new(vfs::SourceFileInterner::default())),
+            package_interner: Arc::new(RwLock::new(vfs::PackageInterner::default())),
         };
         // db.set_local_roots_with_durability(Default::default(), Durability::HIGH);
         // db.set_library_roots_with_durability(Default::default(), Durability::HIGH);
@@ -104,8 +113,9 @@ impl HuskyLangDatabase {
 
     pub fn on_diagnostic_change(
         &self,
-        f: &dyn Fn(vfs::FileId, Vec<hir::Diagnostic>) -> Result<()>,
+        f: &dyn Fn(vfs::SourceFileId, Vec<hir::Diagnostic>) -> Result<()>,
     ) -> Result<()> {
+        // self.diagnostics();
         todo!()
     }
 }
@@ -115,6 +125,7 @@ impl salsa::ParallelDatabase for HuskyLangDatabase {
         salsa::Snapshot::new(HuskyLangDatabase {
             storage: ManuallyDrop::new(self.storage.snapshot()),
             file_interner: self.file_interner.clone(),
+            package_interner: self.package_interner.clone(),
         })
     }
 }
@@ -125,10 +136,10 @@ pub struct HuskyLangDatabaseSnapshot {
 
 #[salsa::query_group(LineIndexDatabaseStorage)]
 pub trait LineIndexDatabase: vfs::VirtualFileSystem {
-    fn line_map(&self, file_id: vfs::FileId) -> Arc<vfs::LineMap>;
+    fn line_map(&self, file_id: vfs::SourceFileId) -> Arc<vfs::LineMap>;
 }
 
-fn line_map(db: &dyn LineIndexDatabase, file_id: vfs::FileId) -> Arc<vfs::LineMap> {
+fn line_map(db: &dyn LineIndexDatabase, file_id: vfs::SourceFileId) -> Arc<vfs::LineMap> {
     todo!()
     // let text = db.file_text(file_id);
     // Arc::new(LineMap::new(&*text))

@@ -23,7 +23,7 @@ use crate::{
     syntax_highlighting::{
         format::highlight_format_string, highlights::Highlights, tags::Highlight,
     },
-    FileId, HlMod, HlTag,
+    HlMod, HlTag, SourceFileId,
 };
 
 #[derive(Debug, Clone, Copy)]
@@ -146,7 +146,7 @@ pub struct HlRange {
 // image::https://user-images.githubusercontent.com/48062697/113187625-f7f50100-9250-11eb-825e-91c58f236071.png[]
 pub(crate) fn highlight(
     db: &HuskyLangDatabase,
-    file_id: FileId,
+    file_id: SourceFileId,
     range_to_highlight: Option<TextRange>,
     syntactic_name_ref_highlighting: bool,
 ) -> Vec<HlRange> {

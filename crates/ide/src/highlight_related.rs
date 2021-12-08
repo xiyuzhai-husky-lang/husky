@@ -3,9 +3,9 @@ use common::*;
 use hir::Semantics;
 use husky_lang_db::{
     defs::Definition,
-    vfs::{FileId, FilePosition},
     helpers::{for_each_break_expr, for_each_tail_expr, node_ext::walk_expr, pick_best_token},
     search::{FileReference, ReferenceCategory, SearchScope},
+    vfs::{SourceFileId, SourceFilePosition},
     HuskyLangDatabase,
 };
 use rustc_hash::FxHashSet;
@@ -42,7 +42,7 @@ pub struct HighlightRelatedConfig {
 pub(crate) fn highlight_related(
     sema: &Semantics<HuskyLangDatabase>,
     config: HighlightRelatedConfig,
-    FilePosition { offset, file_id }: FilePosition,
+    SourceFilePosition { offset, file_id }: SourceFilePosition,
 ) -> Option<Vec<HighlightedRange>> {
     todo!()
 }
@@ -51,7 +51,7 @@ fn highlight_references(
     sema: &Semantics<HuskyLangDatabase>,
     node: &SyntaxNode,
     token: SyntaxToken,
-    file_id: FileId,
+    file_id: SourceFileId,
 ) -> Option<Vec<HighlightedRange>> {
     todo!()
 }

@@ -20,7 +20,7 @@ use syntax::{ast, SyntaxKind::*, SyntaxNode, SyntaxToken};
 
 use crate::{
     doc_links::intra_doc_links::{parse_intra_doc_link, strip_prefixes_suffixes},
-    FilePosition, Semantics,
+    Semantics, SourceFilePosition,
 };
 
 /// Weblink to an item's documentation.
@@ -31,7 +31,11 @@ const MARKDOWN_OPTIONS: Options = Options::ENABLE_FOOTNOTES
     .union(Options::ENABLE_TASKLISTS);
 
 /// Rewrite documentation links in markdown to point to an online host (e.g. docs.rs)
-pub(crate) fn rewrite_links(db: &HuskyLangDatabase, markdown: &str, definition: Definition) -> String {
+pub(crate) fn rewrite_links(
+    db: &HuskyLangDatabase,
+    markdown: &str,
+    definition: Definition,
+) -> String {
     let mut cb = broken_link_clone_cb;
     let doc = Parser::new_with_broken_link_callback(markdown, MARKDOWN_OPTIONS, Some(&mut cb));
 
@@ -111,7 +115,7 @@ pub(crate) fn remove_links(markdown: &str) -> String {
 /// Retrieve a link to documentation for the given symbol.
 pub(crate) fn external_docs(
     db: &HuskyLangDatabase,
-    position: &FilePosition,
+    position: &SourceFilePosition,
 ) -> Option<DocumentationLink> {
     todo!()
 }

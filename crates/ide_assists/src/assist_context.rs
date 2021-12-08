@@ -7,7 +7,7 @@ use common::*;
 use hir::Semantics;
 use husky_lang_db::{
     helpers::SnippetCap,
-    vfs::{FileId, FileRange},
+    vfs::{SourceFileId, SourceFileRange},
 };
 use husky_lang_db::{
     label::Label,
@@ -57,7 +57,7 @@ use crate::{
 pub(crate) struct AssistContext<'a> {
     pub(crate) config: &'a AssistConfig,
     pub(crate) sema: Semantics<'a, HuskyLangDatabase>,
-    frange: FileRange,
+    frange: SourceFileRange,
     trimmed_range: TextRange,
     source_file: SingleFileParseTree,
 }
@@ -66,7 +66,7 @@ impl<'a> AssistContext<'a> {
     pub(crate) fn new(
         sema: Semantics<'a, HuskyLangDatabase>,
         config: &'a AssistConfig,
-        frange: FileRange,
+        frange: SourceFileRange,
     ) -> AssistContext<'a> {
         todo!()
     }
@@ -80,7 +80,7 @@ impl<'a> AssistContext<'a> {
         self.frange.range.start()
     }
 
-    pub(crate) fn file_id(&self) -> FileId {
+    pub(crate) fn file_id(&self) -> SourceFileId {
         self.frange.file_id
     }
 
@@ -119,7 +119,7 @@ impl<'a> AssistContext<'a> {
 }
 
 pub(crate) struct Assists {
-    file: FileId,
+    file: SourceFileId,
     resolve: AssistResolveStrategy,
     buf: Vec<Assist>,
     allowed: Option<Vec<AssistKind>>,
@@ -209,7 +209,7 @@ impl Assists {
 
 pub(crate) struct AssistBuilder {
     edit: TextEditBuilder,
-    file_id: FileId,
+    file_id: SourceFileId,
     source_change: SourceChange,
 
     /// Maps the original, immutable `SyntaxNode` to a `clone_for_update` twin.
@@ -236,7 +236,7 @@ impl TreeMutator {
 }
 
 impl AssistBuilder {
-    pub(crate) fn new(file_id: FileId) -> AssistBuilder {
+    pub(crate) fn new(file_id: SourceFileId) -> AssistBuilder {
         AssistBuilder {
             edit: TextEdit::builder(),
             file_id,
@@ -245,7 +245,7 @@ impl AssistBuilder {
         }
     }
 
-    pub(crate) fn edit_file(&mut self, file_id: FileId) {
+    pub(crate) fn edit_file(&mut self, file_id: SourceFileId) {
         self.commit();
         self.file_id = file_id;
     }

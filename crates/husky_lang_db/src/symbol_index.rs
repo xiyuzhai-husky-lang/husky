@@ -40,7 +40,7 @@ use syntax::{
     SyntaxKind::*,
     SyntaxNode,
 };
-use vfs::FileId;
+use vfs::SourceFileId;
 
 use crate::HuskyLangDatabase;
 
@@ -251,7 +251,7 @@ impl SymbolIndex {
     }
 
     pub(crate) fn for_files(
-        files: impl ParallelIterator<Item = (FileId, ParseResult<ast::SingleFileParseTree>)>,
+        files: impl ParallelIterator<Item = (SourceFileId, ParseResult<ast::SingleFileParseTree>)>,
     ) -> SymbolIndex {
         todo!()
     }
@@ -314,7 +314,7 @@ impl Query {
 /// possible.
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct FileSymbol {
-    pub file_id: FileId,
+    pub file_id: SourceFileId,
     pub name: SmolStr,
     pub kind: FileSymbolKind,
     pub range: TextRange,
@@ -352,7 +352,7 @@ impl FileSymbolKind {
 
 fn source_file_to_file_symbols(
     source_file: &SingleFileParseTree,
-    file_id: FileId,
+    file_id: SourceFileId,
 ) -> Vec<FileSymbol> {
     todo!()
 }
@@ -361,6 +361,6 @@ fn to_symbol(node: &SyntaxNode) -> Option<(SmolStr, SyntaxNodePtr, TextRange)> {
     todo!()
 }
 
-fn to_file_symbol(node: &SyntaxNode, file_id: FileId) -> Option<FileSymbol> {
+fn to_file_symbol(node: &SyntaxNode, file_id: SourceFileId) -> Option<FileSymbol> {
     todo!()
 }

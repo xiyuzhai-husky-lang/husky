@@ -10,7 +10,7 @@ use syntax::{
     SyntaxNode, SyntaxToken, TokenAtOffset,
 };
 
-use crate::FileRange;
+use crate::SourceFileRange;
 
 // Feature: Expand and Shrink Selection
 //
@@ -26,14 +26,14 @@ use crate::FileRange;
 // |===
 //
 // image::https://user-images.githubusercontent.com/48062697/113020651-b42fc800-917a-11eb-8a4f-cf1a07859fac.gif[]
-pub(crate) fn extend_selection(db: &HuskyLangDatabase, frange: FileRange) -> TextRange {
+pub(crate) fn extend_selection(db: &HuskyLangDatabase, frange: SourceFileRange) -> TextRange {
     todo!()
 }
 
 fn try_extend_selection(
     sema: &Semantics<HuskyLangDatabase>,
     root: &SyntaxNode,
-    frange: FileRange,
+    frange: SourceFileRange,
 ) -> Option<TextRange> {
     todo!()
 }

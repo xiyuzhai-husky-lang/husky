@@ -6,7 +6,7 @@
 
 use hir::{AsAssocItem, InFile, Semantics};
 use husky_lang_db::{
-    vfs::FileId,
+    vfs::SourceFileId,
     defs::{Definition, NameClass, NameRefClass},
     rename::{bail, format_err, source_edit_from_references, IdentifierKind},
     HuskyLangDatabase,
@@ -17,7 +17,7 @@ use syntax::{ast, SyntaxNode};
 
 use text_edit::TextEdit;
 
-use crate::{FilePosition, RangeInfo, SourceChange};
+use crate::{SourceFilePosition, RangeInfo, SourceChange};
 
 pub use husky_lang_db::rename::RenameError;
 
@@ -27,7 +27,7 @@ type RenameResult<T> = Result<T, RenameError>;
 /// being targeted for a rename.
 pub(crate) fn prepare_rename(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
 ) -> RenameResult<RangeInfo<()>> {
     todo!()
 }
@@ -45,7 +45,7 @@ pub(crate) fn prepare_rename(
 // image::https://user-images.githubusercontent.com/48062697/113065582-055aae80-91b1-11eb-8ade-2b58e6d81883.gif[]
 pub(crate) fn rename(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
     new_name: &str,
 ) -> RenameResult<SourceChange> {
     todo!()
@@ -54,7 +54,7 @@ pub(crate) fn rename(
 /// Called by the client when it is about to rename a file.
 pub(crate) fn will_rename_file(
     db: &HuskyLangDatabase,
-    file_id: FileId,
+    file_id: SourceFileId,
     new_name_stem: &str,
 ) -> Option<SourceChange> {
     todo!()

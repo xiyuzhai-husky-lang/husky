@@ -17,7 +17,7 @@ use husky_lang_db::{
         mod_path_to_ast,
     },
     items_locator,
-    vfs::FilePosition,
+    vfs::SourceFilePosition,
     HuskyLangDatabase,
 };
 use text_edit::TextEdit;
@@ -139,7 +139,7 @@ pub use crate::{
 pub fn completions(
     db: &HuskyLangDatabase,
     config: &CompletionConfig,
-    position: FilePosition,
+    position: SourceFilePosition,
 ) -> Option<Completions> {
     todo!()
 }
@@ -149,7 +149,7 @@ pub fn completions(
 pub fn resolve_completion_edits(
     db: &HuskyLangDatabase,
     config: &CompletionConfig,
-    position: FilePosition,
+    position: SourceFilePosition,
     imports: impl IntoIterator<Item = (String, String)>,
 ) -> Option<Vec<TextEdit>> {
     todo!()

@@ -7,7 +7,7 @@ use crate::{
     SsrMatches,
 };
 use hir::Semantics;
-use husky_lang_db::vfs::FileRange;
+use husky_lang_db::vfs::SourceFileRange;
 use rustc_hash::FxHashMap;
 use std::{cell::Cell, iter::Peekable};
 use syntax::SmolStr;
@@ -44,7 +44,7 @@ macro_rules! fail_match {
 /// Information about a match that was found.
 #[derive(Debug)]
 pub struct Match {
-    pub(crate) range: FileRange,
+    pub(crate) range: SourceFileRange,
     pub(crate) matched_node: SyntaxNode,
     pub(crate) placeholder_values: FxHashMap<Var, PlaceholderMatch>,
     pub(crate) ignored_comments: Vec<ast::Comment>,
@@ -58,7 +58,7 @@ pub struct Match {
 /// Information about a placeholder bound in a match.
 #[derive(Debug)]
 pub(crate) struct PlaceholderMatch {
-    pub(crate) range: FileRange,
+    pub(crate) range: SourceFileRange,
     /// More matches, found within `node`.
     pub(crate) inner_matches: SsrMatches,
     /// How many times the code that the placeholder matched needed to be dereferenced. Will only be
@@ -87,7 +87,7 @@ pub(crate) fn get_match(
     debug_active: bool,
     rule: &ResolvedRule,
     code: &SyntaxNode,
-    restrict_range: &Option<FileRange>,
+    restrict_range: &Option<SourceFileRange>,
     sema: &Semantics<husky_lang_db::HuskyLangDatabase>,
 ) -> Result<Match, MatchFailed> {
     record_match_fails_reasons_scope(debug_active, || {
@@ -100,7 +100,7 @@ struct Matcher<'db, 'sema> {
     sema: &'sema Semantics<'db, husky_lang_db::HuskyLangDatabase>,
     /// If any placeholders come from anywhere outside of this range, then the match will be
     /// rejected.
-    restrict_range: Option<FileRange>,
+    restrict_range: Option<SourceFileRange>,
     rule: &'sema ResolvedRule,
 }
 
@@ -118,7 +118,7 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
     fn try_match(
         rule: &ResolvedRule,
         code: &SyntaxNode,
-        restrict_range: &Option<FileRange>,
+        restrict_range: &Option<SourceFileRange>,
         sema: &'sema Semantics<'db, husky_lang_db::HuskyLangDatabase>,
     ) -> Result<Match, MatchFailed> {
         todo!()
@@ -127,7 +127,7 @@ impl<'db, 'sema> Matcher<'db, 'sema> {
     /// Checks that `range` is within the permitted range if any. This is applicable when we're
     /// processing a macro expansion and we want to fail the match if we're working with a node that
     /// didn't originate from the token tree of the macro call.
-    fn validate_range(&self, range: &FileRange) -> Result<(), MatchFailed> {
+    fn validate_range(&self, range: &SourceFileRange) -> Result<(), MatchFailed> {
         if let Some(restrict_range) = &self.restrict_range {
             if restrict_range.file_id != range.file_id
                 || !restrict_range.range.contains_range(range.range)
@@ -310,7 +310,7 @@ fn recording_match_fail_reasons() -> bool {
 }
 
 impl PlaceholderMatch {
-    fn from_range(range: FileRange) -> Self {
+    fn from_range(range: SourceFileRange) -> Self {
         todo!()
     }
 }

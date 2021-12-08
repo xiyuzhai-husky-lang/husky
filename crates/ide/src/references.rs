@@ -14,19 +14,19 @@ use common::*;
 use hir::{PathResolution, Semantics};
 use husky_lang_db::{
     defs::{Definition, NameClass, NameRefClass},
-    vfs::FileId,
     search::{ReferenceCategory, SearchScope, UsageSearchResult},
+    vfs::SourceFileId,
     HuskyLangDatabase,
 };
 use rustc_hash::FxHashMap;
 use syntax::{ast, SyntaxNode};
 
-use crate::{FilePosition, NavigationTarget, TryToNav};
+use crate::{NavigationTarget, SourceFilePosition, TryToNav};
 
 #[derive(Debug, Clone)]
 pub struct ReferenceSearchResult {
     pub declaration: Option<Declaration>,
-    pub references: FxHashMap<FileId, Vec<(TextRange, Option<ReferenceCategory>)>>,
+    pub references: FxHashMap<SourceFileId, Vec<(TextRange, Option<ReferenceCategory>)>>,
 }
 
 #[derive(Debug, Clone)]
@@ -48,7 +48,7 @@ pub struct Declaration {
 // image::https://user-images.githubusercontent.com/48062697/113020670-b7c34f00-917a-11eb-8003-370ac5f2b3cb.gif[]
 pub(crate) fn find_all_refs(
     sema: &Semantics<HuskyLangDatabase>,
-    position: FilePosition,
+    position: SourceFilePosition,
     search_scope: Option<SearchScope>,
 ) -> Option<Vec<ReferenceSearchResult>> {
     todo!()
@@ -68,7 +68,10 @@ fn retain_adt_literal_usages(
 }
 
 /// Returns `Some` if the cursor is at a position for an item to search for all its constructor/literal usages
-fn name_for_constructor_search(syntax: &SyntaxNode, position: FilePosition) -> Option<ast::Name> {
+fn name_for_constructor_search(
+    syntax: &SyntaxNode,
+    position: SourceFilePosition,
+) -> Option<ast::Name> {
     todo!()
 }
 

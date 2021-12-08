@@ -12,7 +12,7 @@ pub mod rust_doc;
 
 use std::{collections::VecDeque, iter};
 
-use vfs::FileId;
+use vfs::SourceFileId;
 use hir::{ItemInNs, MacroDef, ModuleDef, Name, PathResolution, Semantics};
 use itertools::Itertools;
 use syntax::{
@@ -97,7 +97,7 @@ pub fn mod_path_to_ast(path: &hir::ModPath) -> ast::Path {
 /// Iterates all `ModuleDef`s and `Impl` blocks of the given file.
 pub fn visit_file_defs(
     sema: &Semantics<HuskyLangDatabase>,
-    file_id: FileId,
+    file_id: SourceFileId,
     cb: &mut dyn FnMut(Definition),
 ) {
     todo!()

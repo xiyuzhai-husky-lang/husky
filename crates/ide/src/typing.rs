@@ -22,7 +22,7 @@ use syntax::{
     ast::{self, edit::IndentLevel},
     ParseResult, SingleFileParseTree, SyntaxKind,
 };
-use vfs::{FilePosition, VirtualFileSystem};
+use vfs::{SourceFilePosition, VirtualFileSystem};
 
 use text_edit::{Indel, TextEdit};
 
@@ -53,7 +53,7 @@ pub(crate) const TRIGGER_CHARS: &str = ".=>{";
 // image::https://user-images.githubusercontent.com/48062697/113171066-105c2000-923f-11eb-87ab-f4a263346567.gif[]
 pub(crate) fn on_char_typed(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
     char_typed: char,
 ) -> Option<SourceChange> {
     todo!()

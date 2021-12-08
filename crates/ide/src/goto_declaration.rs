@@ -5,14 +5,14 @@ use husky_lang_db::{
 };
 use syntax::{ast, SyntaxKind::*};
 
-use crate::{FilePosition, NavigationTarget, RangeInfo};
+use crate::{NavigationTarget, RangeInfo, SourceFilePosition};
 
 // Feature: Go to Declaration
 //
 // Navigates to the declaration of an identifier.
 pub(crate) fn goto_declaration(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()
 }

@@ -7,7 +7,7 @@ use husky_lang_db::{
 use itertools::Itertools;
 use syntax::{ast, SyntaxKind::*};
 
-use crate::{FilePosition, NavigationTarget, RangeInfo, TryToNav};
+use crate::{NavigationTarget, RangeInfo, SourceFilePosition, TryToNav};
 
 // Feature: Go to Implementation
 //
@@ -22,7 +22,7 @@ use crate::{FilePosition, NavigationTarget, RangeInfo, TryToNav};
 // image::https://user-images.githubusercontent.com/48062697/113065566-02f85480-91b1-11eb-9288-aaad8abd8841.gif[]
 pub(crate) fn goto_implementation(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()
 }

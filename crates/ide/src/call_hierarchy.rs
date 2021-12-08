@@ -11,7 +11,7 @@ use husky_lang_db::{
 };
 use syntax::ast;
 
-use crate::{goto_definition, FilePosition, NavigationTarget, RangeInfo, TryToNav};
+use crate::{goto_definition, NavigationTarget, RangeInfo, SourceFilePosition, TryToNav};
 
 #[derive(Debug, Clone)]
 pub struct CallItem {
@@ -21,19 +21,22 @@ pub struct CallItem {
 
 pub(crate) fn call_hierarchy(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     goto_definition::goto_definition(db, position)
 }
 
 pub(crate) fn incoming_calls(
     db: &HuskyLangDatabase,
-    FilePosition { file_id, offset }: FilePosition,
+    SourceFilePosition { file_id, offset }: SourceFilePosition,
 ) -> Option<Vec<CallItem>> {
     todo!()
 }
 
-pub(crate) fn outgoing_calls(db: &HuskyLangDatabase, position: FilePosition) -> Option<Vec<CallItem>> {
+pub(crate) fn outgoing_calls(
+    db: &HuskyLangDatabase,
+    position: SourceFilePosition,
+) -> Option<Vec<CallItem>> {
     todo!()
 }
 

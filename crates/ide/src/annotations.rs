@@ -1,8 +1,8 @@
 use hir::{InFile, Semantics};
 use husky_lang_db::{
     defs::Definition,
-    vfs::{FileId, FilePosition, FileRange},
     helpers::visit_file_defs,
+    vfs::{SourceFilePosition, SourceFileId, SourceFileRange},
     HuskyLangDatabase,
 };
 
@@ -28,12 +28,12 @@ pub struct Annotation {
 #[derive(Debug)]
 pub enum AnnotationKind {
     HasImpls {
-        position: FilePosition,
+        position: SourceFilePosition,
         data: Option<Vec<NavigationTarget>>,
     },
     HasReferences {
-        position: FilePosition,
-        data: Option<Vec<FileRange>>,
+        position: SourceFilePosition,
+        data: Option<Vec<SourceFileRange>>,
     },
 }
 
@@ -49,7 +49,7 @@ pub struct AnnotationConfig {
 pub(crate) fn annotations(
     db: &HuskyLangDatabase,
     config: &AnnotationConfig,
-    file_id: FileId,
+    file_id: SourceFileId,
 ) -> Vec<Annotation> {
     todo!()
 }

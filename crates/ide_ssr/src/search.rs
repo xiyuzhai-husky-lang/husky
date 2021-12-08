@@ -7,8 +7,8 @@ use crate::{
 };
 use husky_lang_db::{
     defs::Definition,
-    vfs::{FileId, FileRange},
     search::{SearchScope, UsageSearchResult},
+    vfs::{SourceFileId, SourceFileRange},
 };
 use rustc_hash::FxHashSet;
 use syntax::{ast, SyntaxKind, SyntaxNode};
@@ -72,7 +72,7 @@ impl<'db> MatchFinder<'db> {
     fn find_nodes_to_match(
         &self,
         resolved_path: &ResolvedPath,
-        file_range: FileRange,
+        file_range: SourceFileRange,
     ) -> Vec<SyntaxNode> {
         todo!()
     }
@@ -114,7 +114,7 @@ impl<'db> MatchFinder<'db> {
         todo!()
     }
 
-    fn search_files_do(&self, mut callback: impl FnMut(FileId)) {
+    fn search_files_do(&self, mut callback: impl FnMut(SourceFileId)) {
         todo!()
         // if self.restrict_ranges.is_empty() {
         //     // Unrestricted search.
@@ -141,7 +141,7 @@ impl<'db> MatchFinder<'db> {
         &self,
         code: &SyntaxNode,
         rule: &ResolvedRule,
-        restrict_range: &Option<FileRange>,
+        restrict_range: &Option<SourceFileRange>,
         matches_out: &mut Vec<Match>,
     ) {
         todo!()
@@ -151,7 +151,7 @@ impl<'db> MatchFinder<'db> {
         &self,
         rule: &ResolvedRule,
         code: &SyntaxNode,
-        restrict_range: &Option<FileRange>,
+        restrict_range: &Option<SourceFileRange>,
         matches_out: &mut Vec<Match>,
     ) {
         if !self.within_range_restrictions(code) {

@@ -146,8 +146,8 @@ impl AbsPath {
     /// let normalized = abs_path_buf.normalize();
     /// assert_eq!(normalized, AbsPathBuf::assert("/b/c".into()));
     /// ```
-    pub fn normalize(&self) -> AbsPathBuf {
-        AbsPathBuf(normalize_path(&self.0))
+    pub fn normalize(&self) -> PathBuf {
+        normalize_path(&self.0)
     }
 
     /// Equivalent of [`Path::to_path_buf`] for `AbsPath`.

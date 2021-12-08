@@ -3,7 +3,7 @@
 
 use common::*;
 
-use husky_lang_db::vfs::{FilePosition, VirtualFileSystem};
+use husky_lang_db::vfs::{SourceFilePosition, VirtualFileSystem};
 use husky_lang_db::HuskyLangDatabase;
 use syntax::{
     ast::{self, edit::IndentLevel},
@@ -48,7 +48,7 @@ use text_edit::TextEdit;
 // ----
 //
 // image::https://user-images.githubusercontent.com/48062697/113065578-04c21800-91b1-11eb-82b8-22b8c481e645.gif[]
-pub(crate) fn on_enter(db: &HuskyLangDatabase, position: FilePosition) -> Option<TextEdit> {
+pub(crate) fn on_enter(db: &HuskyLangDatabase, position: SourceFilePosition) -> Option<TextEdit> {
     todo!()
 }
 
@@ -60,11 +60,14 @@ fn on_enter_in_comment(
     todo!()
 }
 
-fn on_enter_in_block(block: ast::BlockExpr, position: FilePosition) -> Option<TextEdit> {
+fn on_enter_in_block(block: ast::BlockExpr, position: SourceFilePosition) -> Option<TextEdit> {
     todo!()
 }
 
-fn on_enter_in_use_tree_list(list: ast::UseTreeList, position: FilePosition) -> Option<TextEdit> {
+fn on_enter_in_use_tree_list(
+    list: ast::UseTreeList,
+    position: SourceFilePosition,
+) -> Option<TextEdit> {
     todo!()
 }
 

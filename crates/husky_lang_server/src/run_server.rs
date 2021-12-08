@@ -33,7 +33,7 @@ pub fn run_server(
 
         fn send_diagnostics(
             server: &Server,
-            file_id: vfs::FileId,
+            file_id: vfs::SourceFileId,
             diagnostics: Vec<hir::Diagnostic>,
         ) -> Result<()> {
             use vfs::VirtualFileSystem;

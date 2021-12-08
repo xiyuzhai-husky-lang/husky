@@ -70,7 +70,7 @@ pub mod utils;
 use common::*;
 
 use hir::Semantics;
-use husky_lang_db::{vfs::FileRange, HuskyLangDatabase};
+use husky_lang_db::{vfs::SourceFileRange, HuskyLangDatabase};
 
 pub(crate) use crate::assist_context::{AssistContext, Assists};
 
@@ -87,7 +87,7 @@ pub fn assists(
     db: &HuskyLangDatabase,
     config: &AssistConfig,
     resolve: AssistResolveStrategy,
-    range: FileRange,
+    range: SourceFileRange,
 ) -> Vec<Assist> {
     todo!()
 }
