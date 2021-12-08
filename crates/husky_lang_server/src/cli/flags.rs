@@ -1,5 +1,3 @@
-use std::path::PathBuf;
-
 xflags::xflags! {
     src "./src/cli/flags.rs"
 

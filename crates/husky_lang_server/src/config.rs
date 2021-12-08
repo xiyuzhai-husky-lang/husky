@@ -309,13 +309,13 @@ impl Default for ServerConfigData {
 #[derive(Debug)]
 pub struct ServerConfig {
     pub(crate) client_capabilities: lsp_types::ClientCapabilities,
-    pub(crate) root_path: vfs::AbsPathBuf,
+    pub(crate) root_path: AbsPathBuf,
     data: ServerConfigData,
     snippets: Vec<Snippet>,
 }
 
 impl ServerConfig {
-    pub fn detached_files(&self) -> &[vfs::AbsPathBuf] {
+    pub fn detached_files(&self) -> &[AbsPathBuf] {
         todo!()
     }
     fn update(&mut self, mut _json: serde_json::Value) {
@@ -475,22 +475,6 @@ impl ServerConfig {
     }
 }
 
-fn get_workspace_roots(
-    workspace_folders: Option<Vec<lsp_types::WorkspaceFolder>>,
-    root_path: &vfs::AbsPathBuf,
-) -> Vec<vfs::AbsPathBuf> {
-    workspace_folders
-        .map(|workspaces| {
-            workspaces
-                .into_iter()
-                .filter_map(|it| it.uri.to_file_path().ok())
-                .filter_map(|it| vfs::AbsPathBuf::try_from(it).ok())
-                .collect::<Vec<_>>()
-        })
-        .filter(|workspaces| !workspaces.is_empty())
-        .unwrap_or_else(|| vec![root_path.clone()])
-}
-
 fn trace_client_info(client_info: Option<lsp_types::ClientInfo>) {
     if let Some(client_info) = client_info {
         tracing::info!(
@@ -501,19 +485,17 @@ fn trace_client_info(client_info: Option<lsp_types::ClientInfo>) {
     }
 }
 
-fn get_root_path_from_initialize_params(
-    root_uri: Option<lsp_types::Url>,
-) -> Result<vfs::AbsPathBuf> {
+fn get_root_path_from_initialize_params(root_uri: Option<lsp_types::Url>) -> Result<AbsPathBuf> {
     Ok(
         match root_uri
             .and_then(|it| it.to_file_path().ok())
-            .and_then(|it| vfs::AbsPathBuf::try_from(it).ok())
+            .and_then(|it| AbsPathBuf::try_from(it).ok())
         {
             Some(it) => it,
             None => {
-                let cwd = std::env::current_dir()?;
+                let _cwd = std::env::current_dir()?;
                 todo!()
-                // vfs::AbsPathBuf::assert(cwd)
+                // AbsPathBuf::assert(cwd)
             }
         },
     )

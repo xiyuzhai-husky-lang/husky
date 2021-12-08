@@ -1,25 +1,16 @@
 //! Conversion of husky-lang-server specific types to lsp_types equivalents.
-use std::path;
-
 use common::*;
 
 use ide::{Fold, FoldKind};
-use itertools::Itertools;
 
-use crate::{line_collection::LineCollection, lsp_ext};
+use crate::lsp_ext;
 
-pub(crate) fn position(
-    line_index: &husky_lang_db::line_map::LineMap,
-    offset: TextSize,
-) -> lsp_types::Position {
+pub(crate) fn position(line_index: &vfs::LineMap, offset: TextSize) -> lsp_types::Position {
     let line_col = line_index.line_col(offset);
     lsp_types::Position::new(line_col.line, line_col.col)
 }
 
-pub(crate) fn range(
-    line_index: &husky_lang_db::line_map::LineMap,
-    range: TextRange,
-) -> lsp_types::Range {
+pub(crate) fn range(line_index: &vfs::LineMap, range: TextRange) -> lsp_types::Range {
     let start = position(line_index, range.start());
     let end = position(line_index, range.end());
     lsp_types::Range::new(start, end)
@@ -32,13 +23,28 @@ pub(crate) fn to_diagnostic_severity(severity: hir::Severity) -> lsp_types::Diag
     }
 }
 
-pub(crate) fn to_diagnostic(_diagnostic: hir::Diagnostic) -> lsp_types::Diagnostic {
-    todo!()
+pub(crate) fn to_diagnostic(
+    line_map: &vfs::LineMap,
+    diagnostic: hir::Diagnostic,
+) -> lsp_types::Diagnostic {
+    lsp_types::Diagnostic {
+        range: range(&line_map, diagnostic.range),
+        severity: Some(to_diagnostic_severity(diagnostic.severity)),
+        code: Some(lsp_types::NumberOrString::String(
+            diagnostic.code.as_str().to_string(),
+        )),
+        code_description: None,
+        source: Some("husky-lang-server".to_string()),
+        message: diagnostic.message,
+        related_information: None,
+        tags: None,
+        data: None,
+    }
 }
 
-pub(crate) fn folding_range(
+pub(crate) fn _folding_range(
     text: &str,
-    line_index: &husky_lang_db::line_map::LineMap,
+    line_index: &vfs::LineMap,
     line_folding_only: bool,
     fold: Fold,
 ) -> lsp_types::FoldingRange {
@@ -96,7 +102,7 @@ pub(crate) fn folding_range(
 /// This will only happen when processing windows paths.
 ///
 /// When processing non-windows path, this is essentially the same as `Url::from_file_path`.
-pub(crate) fn url_from_abs_path(path: &std::path::Path) -> lsp_types::Url {
+pub(crate) fn url_from_abs_path(_path: &std::path::Path) -> lsp_types::Url {
     todo!()
     // let url = lsp_types::Url::from_file_path(path).unwrap();
     // match path.as_ref().components().next() {

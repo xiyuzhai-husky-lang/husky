@@ -133,7 +133,7 @@ pub(crate) fn database(args: TokenStream, input: TokenStream) -> TokenStream {
         });
     }
     output.extend(quote! {
-        impl salsa::plumbing::SalsaDatabaseOpnTrait for #database_name {
+        impl salsa::plumbing::SalsaInternalOpns for #database_name {
             fn opn_database(&self) -> &dyn salsa::Database {
                 self
             }

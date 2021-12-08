@@ -100,6 +100,10 @@ impl SalsaRuntime {
         self.with_incremented_revision(&mut |_next_revision| Some(durability));
     }
 
+    pub fn request_cancellation(&mut self) {
+        self.synthetic_write(Durability::LOW);
+    }
+
     /// The unique identifier attached to this `SalsaRuntime`. Each
     /// snapshotted runtime has a distinct identifier.
     #[inline]

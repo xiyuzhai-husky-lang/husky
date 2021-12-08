@@ -8,8 +8,8 @@ use either::Either;
 use hir::{HasSource, Semantics};
 use husky_lang_db::{
     defs::Definition,
-    vfs::FileRange,
     helpers::{pick_best_token, FamousDefs},
+    vfs::FileRange,
     FxIndexSet, HuskyLangDatabase,
 };
 use itertools::Itertools;

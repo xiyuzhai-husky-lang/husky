@@ -1,8 +1,8 @@
 //! This module contains functions to suggest names for expressions, functions and other items
 
 use hir::Semantics;
-use itertools::Itertools;
 use husky_lang_db::HuskyLangDatabase;
+use itertools::Itertools;
 use stdx::to_lower_snake_case;
 use syntax::{ast, SmolStr};
 

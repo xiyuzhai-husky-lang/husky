@@ -10,7 +10,6 @@ mod run_server;
 mod semantic_tokens;
 mod server;
 mod server_capabilities;
-mod server_snapshot;
 
 pub use config::ServerConfig;
 

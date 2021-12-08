@@ -36,37 +36,21 @@ pub fn run_server(
             file_id: vfs::FileId,
             diagnostics: Vec<hir::Diagnostic>,
         ) -> Result<()> {
+            use vfs::VirtualFileSystem;
+
             let _p = profile::span("publish_diagnostics");
-            let line_index = server.db.get_file_line_collection(file_id)?;
+            let line_map = server.db.line_map(file_id)?;
 
             let diagnostics = diagnostics
                 .into_iter()
-                .map(|d| lsp_types::Diagnostic {
-                    range: to_lsp_types::range(&line_index, d.range),
-                    severity: Some(to_lsp_types::to_diagnostic_severity(d.severity)),
-                    code: Some(lsp_types::NumberOrString::String(
-                        d.code.as_str().to_string(),
-                    )),
-                    code_description: None,
-                    source: Some("husky-lang-server".to_string()),
-                    message: d.message,
-                    related_information: None,
-                    tags: None,
-                    data: None,
-                })
+                .map(|d| to_lsp_types::to_diagnostic(&line_map, d))
                 .collect();
 
             server
                 .comm
                 .send_notification::<lsp_types::notification::PublishDiagnostics>(
                     lsp_types::PublishDiagnosticsParams {
-                        uri: to_lsp_types::url_from_abs_path(
-                            server
-                                .db
-                                .get_vfs_path_from_file_id(file_id)
-                                .as_path()
-                                .expect(""),
-                        ),
+                        uri: to_lsp_types::url_from_abs_path(server.db.path(file_id)),
                         diagnostics,
                         version: None,
                     },
