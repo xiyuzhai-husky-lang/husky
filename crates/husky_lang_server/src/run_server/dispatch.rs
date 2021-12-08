@@ -5,9 +5,11 @@ use serde::{de::DeserializeOwned, Serialize};
 
 use common::*;
 
+use salsa::ParallelDatabase;
+type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_lang_db::HuskyLangDatabase>;
+
 use crate::{
     server::{Server, ServerControlSignal},
-    server_snapshot::ServerSnapshot,
     utils::from_json,
 };
 
@@ -35,7 +37,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_sync<R>(
         &mut self,
-        f: fn(ServerSnapshot, R::Params) -> Result<R::Result>,
+        f: fn(HuskyLangDatabaseSnapshot, R::Params) -> Result<R::Result>,
     ) -> Result<&mut Self>
     where
         R: lsp_types::request::Request + 'static,
@@ -46,11 +48,10 @@ impl<'a> RequestDispatcher<'a> {
             Some(it) => it,
             None => return Ok(self),
         };
-        let server_snapshot = self.server.take_snapshot();
-
+        let snapshot = self.server.db.snapshot();
         let result = panic::catch_unwind(move || {
             let _pctx = stdx::panic_context::enter(panic_context);
-            f(server_snapshot, params)
+            f(snapshot, params)
         });
         let response = thread_result_to_response::<R>(id, result);
 
@@ -61,7 +62,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_control<R>(
         &mut self,
-        f: fn(ServerSnapshot, R::Params) -> ServerControlSignal,
+        f: fn(HuskyLangDatabaseSnapshot, R::Params) -> ServerControlSignal,
     ) -> Result<&mut Self>
     where
         R: lsp_types::request::Request + 'static,
@@ -72,11 +73,11 @@ impl<'a> RequestDispatcher<'a> {
             Some(it) => it,
             None => return Ok(self),
         };
-        let server_snapshot = self.server.take_snapshot();
 
+        let snapshot = self.server.db.snapshot();
         match panic::catch_unwind(move || {
             let _pctx = stdx::panic_context::enter(panic_context);
-            f(server_snapshot, params)
+            f(snapshot, params)
         }) {
             Ok(control_signal) => self.control_signal = control_signal,
             Err(_) => todo!(),
@@ -88,7 +89,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto thread pool
     pub(crate) fn on<R>(
         &mut self,
-        f: fn(ServerSnapshot, R::Params) -> Result<R::Result>,
+        f: fn(HuskyLangDatabaseSnapshot, R::Params) -> Result<R::Result>,
     ) -> &mut Self
     where
         R: lsp_types::request::Request + 'static,
@@ -99,12 +100,11 @@ impl<'a> RequestDispatcher<'a> {
             Some(it) => it,
             None => return self,
         };
-
         self.server.threadpool.execute({
-            let world = self.server.take_snapshot();
+            let snapshot = self.server.db.snapshot();
             move || match panic::catch_unwind(move || {
                 let _pctx = stdx::panic_context::enter(panic_context);
-                f(world, params)
+                f(snapshot, params)
             }) {
                 Ok(_) => todo!(),
                 Err(_) => todo!(),

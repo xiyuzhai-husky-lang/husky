@@ -30,3 +30,4 @@ ide = { path = "../ide", version = "0.0.0"}
 husky_lang_db = { path = "../husky_lang_db", version = "0.0.0"}
 hir = { path = "../hir", version = "0.0.0"}
 lsp-server = { path = "../lsp-server", version = "0.0.0"}
+salsa = { path = "../salsa", version = "0.0.0" }

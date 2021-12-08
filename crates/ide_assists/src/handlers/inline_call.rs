@@ -2,10 +2,10 @@ use either::Either;
 use hir::{db::HirDatabase, PathResolution, Semantics};
 use husky_lang_db::{
     defs::Definition,
-    vfs::{FileId, FileRange},
     helpers::{insert_use::remove_path_if_in_use_stmt, node_ext::expr_as_name_ref},
     path_transform::PathTransform,
     search::{FileReference, SearchScope},
+    vfs::{FileId, FileRange},
     HuskyLangDatabase,
 };
 use itertools::{izip, Itertools};

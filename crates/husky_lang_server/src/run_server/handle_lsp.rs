@@ -2,6 +2,7 @@ mod handlers;
 use common::*;
 
 use crate::{
+    convert::from_lsp_types,
     lsp_ext,
     run_server::dispatch::{NotificationDispatcher, RequestDispatcher},
     server::{Server, ServerControlSignal},
@@ -138,22 +139,15 @@ fn handle_lsp_notification(
     return Ok(ServerControlSignal::Normal);
 
     fn handle_did_open_text_document(
-        _this: &mut Server,
-        _params: lsp_types::DidOpenTextDocumentParams,
+        this: &mut Server,
+        params: lsp_types::DidOpenTextDocumentParams,
     ) -> Result<()> {
-        todo!()
-        // if let Ok(path) = from_lsp_types::vfs_path(&params.text_document.uri) {
-        //     this.live_docs
-        //         .insert(
-        //             path.clone(),
-        //             DocumentData::new(params.text_document.version),
-        //         )
-        //         .err()
-        //         .map(|_| tracing::error!("duplicate DidOpenTextDocument: {}", path));
-        //     this.husky_lang_db_proxy
-        //         .set_file_content(path, Some(params.text_document.text.into_bytes()));
-        // }
-        // Ok(())
+        use vfs::VirtualFileSystem;
+
+        if let Ok(path) = from_lsp_types::vfs_path(&params.text_document.uri) {
+            this.db.set_live(path, params.text_document.text);
+        }
+        Ok(())
     }
 }
 

@@ -2,7 +2,6 @@ use std::iter;
 
 use either::Either;
 use hir::{Module, ModuleDef, Name, Variant};
-use itertools::Itertools;
 use husky_lang_db::{
     defs::Definition,
     helpers::{
@@ -12,6 +11,7 @@ use husky_lang_db::{
     search::FileReference,
     HuskyLangDatabase,
 };
+use itertools::Itertools;
 use rustc_hash::FxHashSet;
 use syntax::{
     ast::{self, edit::IndentLevel, edit_in_place::Indent},
@@ -47,7 +47,11 @@ fn extract_field_list_if_applicable(
     todo!()
 }
 
-fn existing_definition(db: &HuskyLangDatabase, variant_name: &ast::Name, variant: &Variant) -> bool {
+fn existing_definition(
+    db: &HuskyLangDatabase,
+    variant_name: &ast::Name,
+    variant: &Variant,
+) -> bool {
     todo!()
 }
 

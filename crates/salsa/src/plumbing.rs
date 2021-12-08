@@ -36,7 +36,7 @@ pub trait DatabaseStorageTypes: Database {
 }
 
 /// Internal operations that the runtime uses to operate on the database.
-pub trait SalsaDatabaseOpnTrait {
+pub trait SalsaInternalOpns {
     /// Upcast this type to a `dyn Database`.
     fn opn_database(&self) -> &dyn Database;
 
@@ -45,6 +45,11 @@ pub trait SalsaDatabaseOpnTrait {
 
     /// Gives access to the underlying salsa runtime.
     fn opn_salsa_runtime_mut(&mut self) -> &mut SalsaRuntime;
+
+    fn request_cancellation(&mut self) {
+        self.opn_salsa_runtime_mut()
+            .synthetic_write(Durability::LOW);
+    }
 
     fn fmt_db_key_index(
         &self,

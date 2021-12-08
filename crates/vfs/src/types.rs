@@ -1,19 +1,9 @@
-pub(crate) use common::*;
+use common::*;
+
+use paths::AbsPathBuf;
 
 use std::sync::Arc;
 
-#[derive(Debug, Clone)]
-pub struct AbsPathBuf {}
-impl TryFrom<PathBuf> for AbsPathBuf {
-    type Error = PathBuf;
-    fn try_from(_path_buf: PathBuf) -> Result<AbsPathBuf, PathBuf> {
-        todo!()
-        // if !path_buf.is_absolute() {
-        //     return Err(path_buf);
-        // }
-        // Ok(AbsPathBuf(path_buf))
-    }
-}
 #[derive(Clone, Copy, Debug)]
 pub struct FilePosition {
     pub file_id: FileId,
@@ -35,11 +25,20 @@ pub enum FileType {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct VirtualPath {}
+pub enum VirtualPath {
+    AbsPathBuf(AbsPathBuf),
+    NonResidentPath(String),
+}
 
 impl VirtualPath {
     pub fn as_path(&self) -> Result<&std::path::Path> {
         todo!()
+    }
+}
+
+impl From<AbsPathBuf> for VirtualPath {
+    fn from(v: AbsPathBuf) -> Self {
+        VirtualPath::AbsPathBuf(v.normalize())
     }
 }
 
@@ -57,7 +56,7 @@ pub enum FileContent {
     Live(Arc<String>),
     Deleted,
 }
-
+#[derive(Debug, Default)]
 pub struct FileInterner {
     next_id: u32,
     map: std::collections::HashMap<VirtualPath, FileId>,

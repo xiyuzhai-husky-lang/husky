@@ -11,13 +11,14 @@ mod snippet;
 
 use completions::flyimport::position_for_import;
 use husky_lang_db::{
-    vfs::FilePosition,
     helpers::{
         import_assets::NameToImport,
         insert_use::{self, ImportScope},
         mod_path_to_ast,
     },
-    items_locator, HuskyLangDatabase,
+    items_locator,
+    vfs::FilePosition,
+    HuskyLangDatabase,
 };
 use text_edit::TextEdit;
 

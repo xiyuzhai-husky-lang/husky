@@ -49,6 +49,7 @@ mod typing;
 mod view_hir;
 mod view_item_tree;
 
+use salsa::plumbing::SalsaInternalOpns;
 use std::sync::Arc;
 
 use common::*;
@@ -88,7 +89,6 @@ pub use crate::{
 pub use hir::{Documentation, Semantics};
 pub use husky_lang_db::{
     label::Label,
-    line_map::{LineCol, LineColUtf16, LineMap},
     search::{ReferenceCategory, SearchScope},
     source_change::{FileSystemEdit, SourceChange},
     symbol_index::Query,
@@ -104,6 +104,7 @@ pub use ide_completion::{
 };
 pub use ide_ssr::SsrError;
 pub use text_edit::{Indel, TextEdit};
+use vfs::LineMap;
 
 /// Info associated with a text range.
 #[derive(Debug)]
@@ -148,8 +149,7 @@ impl IdeDatabaseProxy {
         todo!()
     }
     pub fn request_cancellation(&mut self) {
-        todo!()
-        // self.db.request_cancellation();
+        self.db.request_cancellation();
     }
     pub fn raw_database(&self) -> &HuskyLangDatabase {
         &self.db
@@ -158,14 +158,7 @@ impl IdeDatabaseProxy {
         &mut self.db
     }
 
-    pub fn on_diagnostic_change(
-        &self,
-        f: &dyn Fn(FileId, Vec<hir::Diagnostic>) -> Result<()>,
-    ) -> Result<()> {
-        todo!()
-    }
-
-    pub fn get_vfs_path_from_file_id(&self, file_id: FileId) -> vfs::VirtualPath {
+    pub fn path(&self, file_id: FileId) -> &Path {
         todo!()
     }
     pub fn set_file_content(&mut self, path: vfs::VirtualPath, content: Option<Vec<u8>>) {

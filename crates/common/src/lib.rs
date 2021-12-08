@@ -9,6 +9,7 @@ pub use file::*;
 pub mod error;
 pub use error::*;
 pub use keyword::*;
+pub use paths::AbsPathBuf;
 pub use print::*;
 pub use session::*;
 pub use show::*;
@@ -18,7 +19,7 @@ pub use std::fmt;
 pub use std::fmt::Debug;
 pub use std::fmt::Formatter;
 pub use std::io;
-pub use std::path::PathBuf;
+pub use std::path::{Path, PathBuf};
 pub use std::sync::Arc;
 pub use todo::*;
 

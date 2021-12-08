@@ -3,8 +3,8 @@ use either::Either;
 use hir::{PathResolution, Semantics};
 use husky_lang_db::{
     defs::Definition,
-    vfs::FileId,
     search::{FileReference, UsageSearchResult},
+    vfs::FileId,
     HuskyLangDatabase,
 };
 use syntax::{ast, SyntaxElement};

@@ -5,7 +5,7 @@ use crate::durability::Durability;
 use crate::lru::LruIndex;
 use crate::lru::LruNode;
 use crate::plumbing::CycleDetected;
-use crate::plumbing::{QueryFunction, SalsaDatabaseOpnTrait};
+use crate::plumbing::{QueryFunction, SalsaInternalOpns};
 use crate::revision::RevisionId;
 use crate::runtime::SalsaRuntime;
 use crate::runtime::SalsaRuntimeId;
@@ -938,7 +938,7 @@ where
 impl MemoInputs {
     fn debug<'a, D: ?Sized>(&'a self, db: &'a D) -> impl std::fmt::Debug + 'a
     where
-        D: SalsaDatabaseOpnTrait,
+        D: SalsaInternalOpns,
     {
         enum DebugMemoInputs<'a, D: ?Sized> {
             Tracked {
@@ -949,7 +949,7 @@ impl MemoInputs {
             Untracked,
         }
 
-        impl<D: ?Sized + SalsaDatabaseOpnTrait> std::fmt::Debug for DebugMemoInputs<'_, D> {
+        impl<D: ?Sized + SalsaInternalOpns> std::fmt::Debug for DebugMemoInputs<'_, D> {
             fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
                 match self {
                     DebugMemoInputs::Tracked { inputs, db } => fmt

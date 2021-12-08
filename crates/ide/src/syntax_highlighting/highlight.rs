@@ -47,7 +47,10 @@ fn node(
     todo!()
 }
 
-fn highlight_name_ref_in_attr(sema: &Semantics<HuskyLangDatabase>, name_ref: ast::NameRef) -> Highlight {
+fn highlight_name_ref_in_attr(
+    sema: &Semantics<HuskyLangDatabase>,
+    name_ref: ast::NameRef,
+) -> Highlight {
     todo!()
 }
 

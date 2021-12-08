@@ -29,7 +29,7 @@ use crate::plumbing::DerivedQueryStorageOps;
 use crate::plumbing::InputQueryStorageOps;
 use crate::plumbing::LruQueryStorageOps;
 use crate::plumbing::QueryStorageTrait;
-use crate::plumbing::SalsaDatabaseOpnTrait;
+use crate::plumbing::SalsaInternalOpns;
 use crate::plumbing::WholeQueryStorageTrait;
 pub use crate::revision::RevisionId;
 use std::fmt::{self, Debug};
@@ -47,7 +47,7 @@ pub use crate::storage::Storage;
 /// The base trait which your "query context" must implement. Gives
 /// access to the salsa runtime, which you must embed into your query
 /// context (along with whatever other state you may require).
-pub trait Database: plumbing::SalsaDatabaseOpnTrait {
+pub trait Database: plumbing::SalsaInternalOpns {
     /// This function is invoked at key points in the salsa
     /// runtime. It permits the database to be customized and to
     /// inject logging or other custom behavior.
@@ -317,7 +317,7 @@ impl SalsaQueryKeyIndex {
     /// Use like `println!("{:?}", index.debug(db))`.
     pub fn debug<D: ?Sized>(self, db: &D) -> impl std::fmt::Debug + '_
     where
-        D: plumbing::SalsaDatabaseOpnTrait,
+        D: plumbing::SalsaInternalOpns,
     {
         SalsaQueryKeyIndexDebug { index: self, db }
     }
@@ -326,7 +326,7 @@ impl SalsaQueryKeyIndex {
 /// Helper type for `SalsaQueryKeyIndex::debug`
 struct SalsaQueryKeyIndexDebug<'me, D: ?Sized>
 where
-    D: plumbing::SalsaDatabaseOpnTrait,
+    D: plumbing::SalsaInternalOpns,
 {
     index: SalsaQueryKeyIndex,
     db: &'me D,
@@ -334,7 +334,7 @@ where
 
 impl<D: ?Sized> std::fmt::Debug for SalsaQueryKeyIndexDebug<'_, D>
 where
-    D: plumbing::SalsaDatabaseOpnTrait,
+    D: plumbing::SalsaInternalOpns,
 {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.db.fmt_db_key_index(self.index, fmt)
@@ -523,14 +523,14 @@ pub struct CycleError<K> {
 impl CycleError<SalsaQueryKeyIndex> {
     fn debug<'a, D: ?Sized>(&'a self, db: &'a D) -> impl Debug + 'a
     where
-        D: SalsaDatabaseOpnTrait,
+        D: SalsaInternalOpns,
     {
         struct CycleErrorDebug<'a, D: ?Sized> {
             db: &'a D,
             error: &'a CycleError<SalsaQueryKeyIndex>,
         }
 
-        impl<'a, D: ?Sized + SalsaDatabaseOpnTrait> Debug for CycleErrorDebug<'a, D> {
+        impl<'a, D: ?Sized + SalsaInternalOpns> Debug for CycleErrorDebug<'a, D> {
             fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
                 writeln!(f, "Internal error, cycle detected:\n")?;
                 for i in &self.error.cycle {

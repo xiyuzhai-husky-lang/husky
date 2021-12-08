@@ -31,7 +31,10 @@ fn impls_for_ty(sema: &Semantics<HuskyLangDatabase>, ty: hir::Type) -> Vec<Navig
     todo!()
 }
 
-fn impls_for_trait(sema: &Semantics<HuskyLangDatabase>, trait_: hir::Trait) -> Vec<NavigationTarget> {
+fn impls_for_trait(
+    sema: &Semantics<HuskyLangDatabase>,
+    trait_: hir::Trait,
+) -> Vec<NavigationTarget> {
     todo!()
 }
 

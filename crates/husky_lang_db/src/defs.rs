@@ -44,7 +44,10 @@ impl Definition {
         todo!()
     }
 
-    pub fn from_node(sema: &Semantics<HuskyLangDatabase>, node: &SyntaxNode) -> ArrayVec<Definition, 2> {
+    pub fn from_node(
+        sema: &Semantics<HuskyLangDatabase>,
+        node: &SyntaxNode,
+    ) -> ArrayVec<Definition, 2> {
         todo!()
     }
 
