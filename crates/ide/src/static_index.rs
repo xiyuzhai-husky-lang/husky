@@ -8,7 +8,7 @@ use common::*;
 use hir::{db::HirDatabase, Crate, Module, Semantics};
 use husky_lang_db::{
     defs::Definition,
-    vfs::{FileId, FileRange},
+    vfs::{SourceFileId, SourceFileRange},
     HuskyLangDatabase,
 };
 use rustc_hash::FxHashSet;
@@ -33,14 +33,14 @@ pub struct StaticIndex<'a> {
 
 #[derive(Debug)]
 pub struct ReferenceData {
-    pub range: FileRange,
+    pub range: SourceFileRange,
     pub is_definition: bool,
 }
 
 #[derive(Debug)]
 pub struct TokenStaticData {
     pub hover: Option<HoverResult>,
-    pub definition: Option<FileRange>,
+    pub definition: Option<SourceFileRange>,
     pub references: Vec<ReferenceData>,
 }
 
@@ -78,7 +78,7 @@ impl TokenStore {
 
 #[derive(Debug)]
 pub struct StaticIndexedFile {
-    pub file_id: FileId,
+    pub file_id: SourceFileId,
     pub folds: Vec<Fold>,
     pub tokens: Vec<(TextRange, TokenId)>,
 }
@@ -88,7 +88,7 @@ fn all_modules(db: &dyn HirDatabase) -> Vec<Module> {
 }
 
 impl StaticIndex<'_> {
-    fn add_file(&mut self, file_id: FileId) {
+    fn add_file(&mut self, file_id: SourceFileId) {
         todo!()
     }
 

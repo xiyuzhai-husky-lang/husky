@@ -86,7 +86,7 @@ pub use crate::from_comment::ssr_from_comment;
 pub use crate::matching::Match;
 use crate::matching::MatchFailureReason;
 use hir::Semantics;
-use husky_lang_db::vfs::{FileId, FilePosition, FileRange};
+use husky_lang_db::vfs::{SourceFilePosition, SourceFileId, SourceFileRange};
 use resolving::ResolvedRule;
 use rustc_hash::FxHashMap;
 use syntax::{ast, SyntaxNode};
@@ -118,7 +118,7 @@ pub struct MatchFinder<'db> {
     sema: Semantics<'db, husky_lang_db::HuskyLangDatabase>,
     rules: Vec<ResolvedRule>,
     resolution_scope: resolving::ResolutionScope<'db>,
-    restrict_ranges: Vec<FileRange>,
+    restrict_ranges: Vec<SourceFileRange>,
 }
 
 impl<'db> MatchFinder<'db> {
@@ -126,8 +126,8 @@ impl<'db> MatchFinder<'db> {
     /// `lookup_context`.
     pub fn in_context(
         db: &'db husky_lang_db::HuskyLangDatabase,
-        lookup_context: FilePosition,
-        mut restrict_ranges: Vec<FileRange>,
+        lookup_context: SourceFilePosition,
+        mut restrict_ranges: Vec<SourceFileRange>,
     ) -> MatchFinder<'db> {
         todo!()
     }
@@ -173,7 +173,7 @@ impl<'db> MatchFinder<'db> {
     }
 
     /// Finds matches for all added rules and returns edits for all found matches.
-    pub fn edits(&self) -> FxHashMap<FileId, TextEdit> {
+    pub fn edits(&self) -> FxHashMap<SourceFileId, TextEdit> {
         todo!()
         // use husky_lang_db::vfs::SourceDatabaseExt;
         // let mut matches_by_file = FxHashMap::default();
@@ -225,15 +225,19 @@ impl<'db> MatchFinder<'db> {
     /// Finds all nodes in `file_id` whose text is exactly equal to `snippet` and attempts to match
     /// them, while recording reasons why they don't match. This API is useful for command
     /// line-based debugging where providing a range is difficult.
-    pub fn debug_where_text_equal(&self, file_id: FileId, snippet: &str) -> Vec<MatchDebugInfo> {
+    pub fn debug_where_text_equal(
+        &self,
+        file_id: SourceFileId,
+        snippet: &str,
+    ) -> Vec<MatchDebugInfo> {
         todo!()
     }
 
     fn output_debug_for_nodes_at_range(
         &self,
         node: &SyntaxNode,
-        range: FileRange,
-        restrict_range: &Option<FileRange>,
+        range: SourceFileRange,
+        restrict_range: &Option<SourceFileRange>,
         out: &mut Vec<MatchDebugInfo>,
     ) {
         todo!()

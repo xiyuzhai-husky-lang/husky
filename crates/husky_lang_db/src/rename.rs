@@ -8,7 +8,7 @@ use hir::{AsAssocItem, FieldSource, HasSource, InFile, ModuleSource, Semantics};
 use stdx::never;
 use syntax::{ast, SyntaxKind};
 use text_edit::{TextEdit, TextEditBuilder};
-use vfs::FileId;
+use vfs::SourceFileId;
 
 use crate::{
     defs::Definition,
@@ -107,7 +107,7 @@ fn source_edit_from_def(
     sema: &Semantics<HuskyLangDatabase>,
     def: Definition,
     new_name: &str,
-) -> Result<(FileId, TextEdit)> {
+) -> Result<(SourceFileId, TextEdit)> {
     todo!()
 }
 

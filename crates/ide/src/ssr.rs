@@ -3,14 +3,14 @@
 //! depend on the ide_ssr crate.
 
 use husky_lang_db::{
-    vfs::FileRange, label::Label, source_change::SourceChange, HuskyLangDatabase,
+    label::Label, source_change::SourceChange, vfs::SourceFileRange, HuskyLangDatabase,
 };
 use ide_assists::{Assist, AssistId, AssistKind, AssistResolveStrategy, GroupLabel};
 
 pub(crate) fn ssr_assists(
     db: &HuskyLangDatabase,
     resolve: &AssistResolveStrategy,
-    frange: FileRange,
+    frange: SourceFileRange,
 ) -> Vec<Assist> {
     let mut ssr_assists = Vec::with_capacity(2);
 

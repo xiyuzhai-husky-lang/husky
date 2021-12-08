@@ -12,7 +12,7 @@ use hir::{AsAssocItem, InFile, ModuleSource, Semantics, Visibility};
 use once_cell::unsync::Lazy;
 use rustc_hash::FxHashMap;
 use syntax::ast;
-use vfs::{FileId, FileRange};
+use vfs::{SourceFileRange, SourceFileId};
 
 use crate::{
     defs::{Definition, NameClass, NameRefClass},
@@ -21,7 +21,7 @@ use crate::{
 
 #[derive(Debug, Default, Clone)]
 pub struct UsageSearchResult {
-    pub references: FxHashMap<FileId, Vec<FileReference>>,
+    pub references: FxHashMap<SourceFileId, Vec<FileReference>>,
 }
 
 impl UsageSearchResult {
@@ -33,23 +33,23 @@ impl UsageSearchResult {
         self.references.len()
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (&FileId, &[FileReference])> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = (&SourceFileId, &[FileReference])> + '_ {
         self.references
             .iter()
             .map(|(file_id, refs)| (file_id, &**refs))
     }
 
-    pub fn file_ranges(&self) -> impl Iterator<Item = FileRange> + '_ {
+    pub fn file_ranges(&self) -> impl Iterator<Item = SourceFileRange> + '_ {
         self.references.iter().flat_map(|(&file_id, refs)| {
             refs.iter()
-                .map(move |&FileReference { range, .. }| FileRange { file_id, range })
+                .map(move |&FileReference { range, .. }| SourceFileRange { file_id, range })
         })
     }
 }
 
 impl IntoIterator for UsageSearchResult {
-    type Item = (FileId, Vec<FileReference>);
-    type IntoIter = <FxHashMap<FileId, Vec<FileReference>> as IntoIterator>::IntoIter;
+    type Item = (SourceFileId, Vec<FileReference>);
+    type IntoIter = <FxHashMap<SourceFileId, Vec<FileReference>> as IntoIterator>::IntoIter;
 
     fn into_iter(self) -> Self::IntoIter {
         self.references.into_iter()
@@ -80,11 +80,11 @@ pub enum ReferenceCategory {
 /// e.g. for things like local variables.
 #[derive(Clone, Debug)]
 pub struct SearchScope {
-    entries: FxHashMap<FileId, Option<TextRange>>,
+    entries: FxHashMap<SourceFileId, Option<TextRange>>,
 }
 
 impl SearchScope {
-    fn new(entries: FxHashMap<FileId, Option<TextRange>>) -> SearchScope {
+    fn new(entries: FxHashMap<SourceFileId, Option<TextRange>>) -> SearchScope {
         SearchScope { entries }
     }
 
@@ -108,7 +108,7 @@ impl SearchScope {
         todo!()
     }
 
-    pub fn single_file(file: FileId) -> SearchScope {
+    pub fn single_file(file: SourceFileId) -> SearchScope {
         todo!()
     }
 
@@ -116,7 +116,7 @@ impl SearchScope {
     //     todo!()
     // }
 
-    pub fn files(files: &[FileId]) -> SearchScope {
+    pub fn files(files: &[SourceFileId]) -> SearchScope {
         todo!()
     }
 
@@ -153,8 +153,8 @@ impl SearchScope {
 }
 
 impl IntoIterator for SearchScope {
-    type Item = (FileId, Option<TextRange>);
-    type IntoIter = std::collections::hash_map::IntoIter<FileId, Option<TextRange>>;
+    type Item = (SourceFileId, Option<TextRange>);
+    type IntoIter = std::collections::hash_map::IntoIter<SourceFileId, Option<TextRange>>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.entries.into_iter()
@@ -222,7 +222,7 @@ impl<'a> FindUsages<'a> {
         res
     }
 
-    fn search(&self, sink: &mut dyn FnMut(FileId, FileReference) -> bool) {
+    fn search(&self, sink: &mut dyn FnMut(SourceFileId, FileReference) -> bool) {
         todo!()
     }
 
@@ -230,7 +230,7 @@ impl<'a> FindUsages<'a> {
         &self,
         self_ty: &hir::Type,
         name_ref: &ast::NameRef,
-        sink: &mut dyn FnMut(FileId, FileReference) -> bool,
+        sink: &mut dyn FnMut(SourceFileId, FileReference) -> bool,
     ) -> bool {
         todo!()
     }
@@ -238,7 +238,7 @@ impl<'a> FindUsages<'a> {
     fn found_self_module_name_ref(
         &self,
         name_ref: &ast::NameRef,
-        sink: &mut dyn FnMut(FileId, FileReference) -> bool,
+        sink: &mut dyn FnMut(SourceFileId, FileReference) -> bool,
     ) -> bool {
         todo!()
     }
@@ -246,7 +246,7 @@ impl<'a> FindUsages<'a> {
     fn found_name_ref(
         &self,
         name_ref: &ast::NameRef,
-        sink: &mut dyn FnMut(FileId, FileReference) -> bool,
+        sink: &mut dyn FnMut(SourceFileId, FileReference) -> bool,
     ) -> bool {
         todo!()
     }
@@ -254,7 +254,7 @@ impl<'a> FindUsages<'a> {
     fn found_name(
         &self,
         name: &ast::Name,
-        sink: &mut dyn FnMut(FileId, FileReference) -> bool,
+        sink: &mut dyn FnMut(SourceFileId, FileReference) -> bool,
     ) -> bool {
         todo!()
     }

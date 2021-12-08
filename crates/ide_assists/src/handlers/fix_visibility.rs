@@ -1,7 +1,7 @@
 use common::*;
 
 use hir::{db::HirDatabase, HasSource, HasVisibility, PathResolution};
-use husky_lang_db::vfs::FileId;
+use husky_lang_db::vfs::SourceFileId;
 use syntax::ast;
 
 use crate::{utils::vis_offset, AssistContext, AssistId, AssistKind, Assists};

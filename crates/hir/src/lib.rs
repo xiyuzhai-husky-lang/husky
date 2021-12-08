@@ -127,6 +127,6 @@ pub struct SelfParam {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct InFile<T> {
-    pub file_id: vfs::FileId,
+    pub file_id: vfs::SourceFileId,
     pub value: T,
 }

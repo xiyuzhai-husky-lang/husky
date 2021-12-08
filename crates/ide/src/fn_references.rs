@@ -6,12 +6,12 @@ use ide_assists::utils::test_related_attribute;
 use husky_lang_db::HuskyLangDatabase;
 use syntax::{ast, SyntaxNode};
 
-use crate::{FileId, FileRange};
+use crate::{SourceFileId, SourceFileRange};
 
-pub(crate) fn find_all_methods(db: &HuskyLangDatabase, file_id: FileId) -> Vec<FileRange> {
+pub(crate) fn find_all_methods(db: &HuskyLangDatabase, file_id: SourceFileId) -> Vec<SourceFileRange> {
     todo!()
 }
 
-fn method_range(item: SyntaxNode, file_id: FileId) -> Option<FileRange> {
+fn method_range(item: SyntaxNode, file_id: SourceFileId) -> Option<SourceFileRange> {
     todo!()
 }

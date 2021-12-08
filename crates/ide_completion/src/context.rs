@@ -5,7 +5,7 @@ use common::*;
 use hir::{Local, Name, ScopeDef, Semantics, SemanticsScope, Type};
 use husky_lang_db::{
     active_parameter::ActiveParameter,
-    vfs::{FilePosition, VirtualFileSystem},
+    vfs::{SourceFilePosition, VirtualFileSystem},
     HuskyLangDatabase,
 };
 use syntax::{

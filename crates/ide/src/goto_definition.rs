@@ -2,9 +2,13 @@ use common::*;
 
 use std::convert::TryInto;
 
-use crate::{doc_links::token_as_doc_comment, FilePosition, NavigationTarget, RangeInfo, TryToNav};
+use crate::{
+    doc_links::token_as_doc_comment, NavigationTarget, RangeInfo, SourceFilePosition, TryToNav,
+};
 use hir::{AsAssocItem, Semantics};
-use husky_lang_db::{defs::Definition, helpers::pick_best_token, vfs::FileId, HuskyLangDatabase};
+use husky_lang_db::{
+    defs::Definition, helpers::pick_best_token, vfs::SourceFileId, HuskyLangDatabase,
+};
 use itertools::Itertools;
 use syntax::{ast, SyntaxKind::*, SyntaxToken};
 
@@ -21,7 +25,7 @@ use syntax::{ast, SyntaxKind::*, SyntaxToken};
 // image::https://user-images.githubusercontent.com/48062697/113065563-025fbe00-91b1-11eb-83e4-a5a703610b23.gif[]
 pub(crate) fn goto_definition(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
 ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
     todo!()
 }
@@ -30,7 +34,7 @@ fn try_lookup_include_path(
     sema: &Semantics<HuskyLangDatabase>,
     tt: ast::TokenTree,
     token: SyntaxToken,
-    file_id: FileId,
+    file_id: SourceFileId,
 ) -> Option<Vec<NavigationTarget>> {
     todo!()
 }

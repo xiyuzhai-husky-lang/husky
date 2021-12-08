@@ -4,7 +4,7 @@ use common::*;
 
 use either::Either;
 use hir::{HirDisplay, Semantics};
-use husky_lang_db::{active_parameter::callable_for_token, vfs::FilePosition};
+use husky_lang_db::{active_parameter::callable_for_token, vfs::SourceFilePosition};
 use stdx::format_to;
 use syntax::Direction;
 
@@ -41,6 +41,6 @@ impl CallInfo {
 }
 
 /// Computes parameter information for the given call expression.
-pub(crate) fn call_info(db: &HuskyLangDatabase, position: FilePosition) -> Option<CallInfo> {
+pub(crate) fn call_info(db: &HuskyLangDatabase, position: SourceFilePosition) -> Option<CallInfo> {
     todo!()
 }

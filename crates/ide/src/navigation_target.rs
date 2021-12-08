@@ -8,8 +8,8 @@ use either::Either;
 use hir::{AssocItem, Documentation, FieldSource, HirDisplay, InFile, ModuleSource, Semantics};
 use husky_lang_db::{defs::Definition, HuskyLangDatabase};
 use husky_lang_db::{
-    vfs::{FileId, FileRange},
     symbol_index::FileSymbolKind,
+    vfs::{SourceFileId, SourceFileRange},
     SymbolKind,
 };
 use syntax::{ast, SmolStr};
@@ -23,7 +23,7 @@ use crate::FileSymbol;
 /// code, like a function or a struct, but this is not strictly required.
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct NavigationTarget {
-    pub file_id: FileId,
+    pub file_id: SourceFileId,
     /// Range which encompasses the whole element.
     ///
     /// Should include body, doc comments, attributes, etc.
@@ -81,7 +81,7 @@ impl NavigationTarget {
     }
 
     fn from_syntax(
-        file_id: FileId,
+        file_id: SourceFileId,
         name: SmolStr,
         focus_range: Option<TextRange>,
         full_range: TextRange,

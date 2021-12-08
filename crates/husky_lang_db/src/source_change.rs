@@ -8,11 +8,11 @@ use std::{collections::hash_map::Entry, iter};
 use rustc_hash::FxHashMap;
 use stdx::never;
 use text_edit::TextEdit;
-use vfs::FileId;
+use vfs::SourceFileId;
 
 #[derive(Default, Debug, Clone)]
 pub struct SourceChange {
-    pub source_file_edits: FxHashMap<FileId, TextEdit>,
+    pub source_file_edits: FxHashMap<SourceFileId, TextEdit>,
     pub file_system_edits: Vec<FileSystemEdit>,
     pub is_snippet: bool,
 }
@@ -21,7 +21,7 @@ impl SourceChange {
     /// Creates a new SourceChange with the given label
     /// from the edits.
     pub fn from_edits(
-        source_file_edits: FxHashMap<FileId, TextEdit>,
+        source_file_edits: FxHashMap<SourceFileId, TextEdit>,
         file_system_edits: Vec<FileSystemEdit>,
     ) -> Self {
         SourceChange {
@@ -31,7 +31,7 @@ impl SourceChange {
         }
     }
 
-    pub fn from_text_edit(file_id: FileId, edit: TextEdit) -> Self {
+    pub fn from_text_edit(file_id: SourceFileId, edit: TextEdit) -> Self {
         SourceChange {
             source_file_edits: iter::once((file_id, edit)).collect(),
             ..Default::default()
@@ -40,7 +40,7 @@ impl SourceChange {
 
     /// Inserts a [`TextEdit`] for the given [`FileID`]. This properly handles merging existing
     /// edits for a file if some already exist.
-    pub fn insert_source_edit(&mut self, file_id: FileId, edit: TextEdit) {
+    pub fn insert_source_edit(&mut self, file_id: SourceFileId, edit: TextEdit) {
         match self.source_file_edits.entry(file_id) {
             Entry::Occupied(mut entry) => {
                 never!(
@@ -58,7 +58,7 @@ impl SourceChange {
         self.file_system_edits.push(edit);
     }
 
-    pub fn get_source_edit(&self, file_id: FileId) -> Option<&TextEdit> {
+    pub fn get_source_edit(&self, file_id: SourceFileId) -> Option<&TextEdit> {
         self.source_file_edits.get(&file_id)
     }
 
@@ -70,8 +70,8 @@ impl SourceChange {
     }
 }
 
-impl Extend<(FileId, TextEdit)> for SourceChange {
-    fn extend<T: IntoIterator<Item = (FileId, TextEdit)>>(&mut self, iter: T) {
+impl Extend<(SourceFileId, TextEdit)> for SourceChange {
+    fn extend<T: IntoIterator<Item = (SourceFileId, TextEdit)>>(&mut self, iter: T) {
         iter.into_iter()
             .for_each(|(file_id, edit)| self.insert_source_edit(file_id, edit));
     }
@@ -84,8 +84,8 @@ impl Extend<FileSystemEdit> for SourceChange {
     }
 }
 
-impl From<FxHashMap<FileId, TextEdit>> for SourceChange {
-    fn from(source_file_edits: FxHashMap<FileId, TextEdit>) -> SourceChange {
+impl From<FxHashMap<SourceFileId, TextEdit>> for SourceChange {
+    fn from(source_file_edits: FxHashMap<SourceFileId, TextEdit>) -> SourceChange {
         SourceChange {
             source_file_edits,
             file_system_edits: Vec::new(),

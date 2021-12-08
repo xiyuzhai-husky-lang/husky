@@ -3,7 +3,7 @@ use std::{iter::once, mem};
 use common::*;
 
 use hir::Semantics;
-use husky_lang_db::{vfs::FileRange, helpers::pick_best_token, HuskyLangDatabase};
+use husky_lang_db::{helpers::pick_best_token, vfs::SourceFileRange, HuskyLangDatabase};
 use itertools::Itertools;
 use syntax::{ast, SyntaxElement, SyntaxKind, SyntaxNode};
 use text_edit::{TextEdit, TextEditBuilder};
@@ -28,7 +28,7 @@ pub enum Direction {
 // image::https://user-images.githubusercontent.com/48062697/113065576-04298180-91b1-11eb-91ce-4505e99ed598.gif[]
 pub(crate) fn move_item(
     db: &HuskyLangDatabase,
-    range: FileRange,
+    range: SourceFileRange,
     direction: Direction,
 ) -> Option<TextEdit> {
     todo!()

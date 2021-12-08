@@ -1,6 +1,6 @@
 use hir::Semantics;
 use husky_lang_db::{
-    vfs::{FileId, FilePosition},
+    vfs::{SourceFileId, SourceFilePosition},
     HuskyLangDatabase,
 };
 use itertools::Itertools;
@@ -23,7 +23,7 @@ use crate::NavigationTarget;
 /// This returns `Vec` because a module may be included from several places.
 pub(crate) fn parent_module(
     db: &HuskyLangDatabase,
-    position: FilePosition,
+    position: SourceFilePosition,
 ) -> Vec<NavigationTarget> {
     todo!()
 }

@@ -5,7 +5,7 @@ use husky_lang_db::{
     helpers::{insert_use::remove_path_if_in_use_stmt, node_ext::expr_as_name_ref},
     path_transform::PathTransform,
     search::{FileReference, SearchScope},
-    vfs::{FileId, FileRange},
+    vfs::{SourceFileId, SourceFileRange},
     HuskyLangDatabase,
 };
 use itertools::{izip, Itertools};
@@ -105,7 +105,7 @@ fn get_fn_params(
 
 fn inline(
     sema: &Semantics<HuskyLangDatabase>,
-    function_def_file_id: FileId,
+    function_def_file_id: SourceFileId,
     function: hir::Function,
     fn_body: &ast::BlockExpr,
     params: &[(ast::Pat, Option<ast::Type>, hir::Param)],

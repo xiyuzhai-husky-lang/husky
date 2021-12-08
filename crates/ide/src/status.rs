@@ -1,6 +1,6 @@
 use std::{fmt, iter::FromIterator, sync::Arc};
 
-use husky_lang_db::vfs::{FileId, VirtualFileSystem};
+use husky_lang_db::vfs::{SourceFileId, VirtualFileSystem};
 use husky_lang_db::{symbol_index::SymbolIndex, HuskyLangDatabase};
 use itertools::Itertools;
 use profile::{memory_usage, Bytes};
@@ -23,7 +23,7 @@ fn syntax_tree_stats(db: &HuskyLangDatabase) -> SyntaxTreeStats {
 // | VS Code | **Rust Analyzer: Status**
 // |===
 // image::https://user-images.githubusercontent.com/48062697/113065584-05f34500-91b1-11eb-98cc-5c196f76be7f.gif[]
-pub(crate) fn status(db: &HuskyLangDatabase, file_id: Option<FileId>) -> String {
+pub(crate) fn status(db: &HuskyLangDatabase, file_id: Option<SourceFileId>) -> String {
     todo!()
 }
 

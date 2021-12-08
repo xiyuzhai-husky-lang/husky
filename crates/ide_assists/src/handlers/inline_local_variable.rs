@@ -4,7 +4,7 @@ use hir::{PathResolution, Semantics};
 use husky_lang_db::{
     defs::Definition,
     search::{FileReference, UsageSearchResult},
-    vfs::FileId,
+    vfs::SourceFileId,
     HuskyLangDatabase,
 };
 use syntax::{ast, SyntaxElement};
@@ -45,7 +45,7 @@ fn inline_let(
     sema: &Semantics<HuskyLangDatabase>,
     let_stmt: ast::LetStmt,
     range: TextRange,
-    file_id: FileId,
+    file_id: SourceFileId,
 ) -> Option<InlineData> {
     todo!()
 }
@@ -54,7 +54,7 @@ fn inline_usage(
     sema: &Semantics<HuskyLangDatabase>,
     path_expr: ast::PathExpr,
     range: TextRange,
-    file_id: FileId,
+    file_id: SourceFileId,
 ) -> Option<InlineData> {
     todo!()
 }

@@ -4,7 +4,7 @@
 use common::*;
 
 use husky_lang_db::{
-    vfs::{FilePosition, FileRange, VirtualFileSystem},
+    vfs::{SourceFilePosition, SourceFileRange, VirtualFileSystem},
     HuskyLangDatabase,
 };
 use syntax::ast;
@@ -16,7 +16,7 @@ use crate::MatchFinder;
 /// comment.
 pub fn ssr_from_comment(
     db: &HuskyLangDatabase,
-    frange: FileRange,
+    frange: SourceFileRange,
 ) -> Option<(MatchFinder, TextRange)> {
     todo!()
 }
