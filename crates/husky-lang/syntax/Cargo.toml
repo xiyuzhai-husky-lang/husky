@@ -12,5 +12,6 @@ doctest = false
 [dependencies]
 itertools = "0.10.0"
 
+salsa = { path = "../../data_structure/salsa", version = "0.0.0" }
 common = { path = "../../common" }
 word = { path = "../word" }

@@ -1,3 +1,5 @@
+use std::sync::{Arc, Mutex};
+
 use common::*;
 
 use text_size::{TextRange, TextSize};
@@ -39,4 +41,34 @@ impl Diagnostic {
 pub struct FileDiagnostics {
     pub source_id: file::FileId,
     pub diagnostics: Vec<Diagnostic>,
+}
+
+#[salsa::query_group(DiagnosticQueryGroupStorage)]
+pub trait DiagnosticQueryGroup {
+    fn diagnostics(&self) -> DiagnosticReserve;
+}
+
+fn diagnostics(this: &dyn DiagnosticQueryGroup) -> DiagnosticReserve {
+    todo!()
+}
+
+type DiagnosticCollection = Vec<(file::FileId, Vec<Diagnostic>)>;
+
+#[derive(Debug, Clone)]
+pub struct DiagnosticReserve {
+    diagnostics: Arc<Mutex<DiagnosticCollection>>,
+}
+
+impl PartialEq for DiagnosticReserve {
+    fn eq(&self, other: &Self) -> bool {
+        (&self.diagnostics.lock().unwrap() as &DiagnosticCollection)
+            == (&other.diagnostics.lock().unwrap() as &DiagnosticCollection)
+    }
+}
+impl Eq for DiagnosticReserve {}
+
+impl DiagnosticReserve {
+    pub fn drain(&self) -> DiagnosticCollection {
+        std::mem::take(&mut self.diagnostics.lock().unwrap())
+    }
 }

@@ -1,5 +1,7 @@
 //! virtual file system  
 
+use std::sync::Arc;
+
 pub use line_map::LineMap;
 
 mod error;

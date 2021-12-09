@@ -7,3 +7,5 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
+
+salsa = { path = "../../data_structure/salsa", version = "0.0.0" }

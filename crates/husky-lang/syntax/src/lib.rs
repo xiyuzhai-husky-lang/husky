@@ -34,5 +34,8 @@ pub struct NodeOrToken<S, T> {
     phantomt: std::marker::PhantomData<T>,
 }
 
+#[salsa::query_group(SyntaxQueryGroupStorage)]
+pub trait SyntaxQueryGroup {}
+
 #[cfg(test)]
 mod tests;
