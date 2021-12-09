@@ -1,7 +1,9 @@
 use common::*;
 
+use word::{Identifier, Keyword};
+
 pub struct Token {
-    pub range: file::Range,
+    pub range: TextRange,
     pub precedence: Precedence,
     pub cls: TokenVariant,
     pub is_rear_attached: bool,
@@ -20,85 +22,85 @@ impl Debug for Token {
         //   .finish()
     }
 }
-pub fn get_precedence(cls: &TokenVariant) -> Precedence {
-    match cls {
-        TokenVariant::Join(join) => match join {
-            Join::List => Precedence::List,
-            Join::Comma => Precedence::Comma,
-            Join::ModuleQualifier => Precedence::Closed,
-        },
-        TokenVariant::Binary(binary) => match binary {
-            Binary::Call | Binary::Index | Binary::Combine | Binary::MemberAccess => {
-                Precedence::Closed
-            }
-            Binary::Be => Precedence::Be,
-            Binary::Arrow => Precedence::Arrow,
-            Binary::Eq | Binary::Neq => Precedence::Equal,
-            Binary::And => Precedence::And,
-            Binary::BitAnd => Precedence::BitAnd,
-            Binary::Or => Precedence::Or,
-            Binary::BitOr => Precedence::BitOr,
-            Binary::Mult | Binary::Div | Binary::Modulo => Precedence::Multiplicative,
-            Binary::SubAssign => Precedence::Be,
-            Binary::Add | Binary::Sub => Precedence::Additive,
-            Binary::LShift | Binary::RShift => Precedence::Shift,
-            Binary::Leq | Binary::Less | Binary::Geq | Binary::Greater => Precedence::Compare,
-            _ => {
-                td!();
-            }
-        },
-        TokenVariant::Keyword(_) => Precedence::Inert,
-        TokenVariant::Prefix(prefix) => match prefix {
-            Prefix::Shared => Precedence::Closed,
-            Prefix::BitNot => Precedence::Prefix,
-            Prefix::Minus => Precedence::Closed,
-            Prefix::NotOrExclusive => Precedence::Closed,
-        },
-        TokenVariant::Suffix(suffix) => match suffix {
-            Suffix::Incr => Precedence::Closed,
-            Suffix::Decr => Precedence::Closed,
-        },
-        TokenVariant::Atom(_atom) => Precedence::Inert,
-        TokenVariant::Bra(bra) => match bra {
-            _ => Precedence::None,
-        },
-        TokenVariant::Ket(ket) => match ket {
-            _ => Precedence::None,
-        },
-        TokenVariant::PhraseStart => Precedence::None,
-    }
-}
+// pub fn get_precedence(cls: &TokenVariant) -> Precedence {
+//     match cls {
+//         TokenVariant::Join(join) => match join {
+//             Join::List => Precedence::List,
+//             Join::Comma => Precedence::Comma,
+//             Join::ModuleQualifier => Precedence::Closed,
+//         },
+//         TokenVariant::Binary(binary) => match binary {
+//             Binary::Call | Binary::Index | Binary::Combine | Binary::MemberAccess => {
+//                 Precedence::Closed
+//             }
+//             Binary::Be => Precedence::Be,
+//             Binary::Arrow => Precedence::Arrow,
+//             Binary::Eq | Binary::Neq => Precedence::Equal,
+//             Binary::And => Precedence::And,
+//             Binary::BitAnd => Precedence::BitAnd,
+//             Binary::Or => Precedence::Or,
+//             Binary::BitOr => Precedence::BitOr,
+//             Binary::Mult | Binary::Div | Binary::Modulo => Precedence::Multiplicative,
+//             Binary::SubAssign => Precedence::Be,
+//             Binary::Add | Binary::Sub => Precedence::Additive,
+//             Binary::LShift | Binary::RShift => Precedence::Shift,
+//             Binary::Leq | Binary::Less | Binary::Geq | Binary::Greater => Precedence::Compare,
+//             _ => {
+//                 td!();
+//             }
+//         },
+//         TokenVariant::Keyword(_) => Precedence::Inert,
+//         TokenVariant::Prefix(prefix) => match prefix {
+//             Prefix::Shared => Precedence::Closed,
+//             Prefix::BitNot => Precedence::Prefix,
+//             Prefix::Minus => Precedence::Closed,
+//             Prefix::NotOrExclusive => Precedence::Closed,
+//         },
+//         TokenVariant::Suffix(suffix) => match suffix {
+//             Suffix::Incr => Precedence::Closed,
+//             Suffix::Decr => Precedence::Closed,
+//         },
+//         TokenVariant::Atom(_atom) => Precedence::Inert,
+//         TokenVariant::Bra(bra) => match bra {
+//             _ => Precedence::None,
+//         },
+//         TokenVariant::Ket(ket) => match ket {
+//             _ => Precedence::None,
+//         },
+//         TokenVariant::PhraseStart => Precedence::None,
+//     }
+// }
 
-impl Token {
-    fn new(range: file::Range, cls: TokenVariant, is_rear_attached: bool) -> Token {
-        Token {
-            range,
-            precedence: get_precedence(&cls),
-            cls,
-            is_rear_attached,
-        }
-    }
-    pub fn implicit_token_before(before_which: &Token, cls: TokenVariant) -> Token {
-        Token::new(
-            file::Range {
-                start: before_which.range.start,
-                end: before_which.range.start,
-            },
-            cls,
-            false,
-        )
-    }
-    pub fn implicit_token_after(after_which: &Token, cls: TokenVariant) -> Token {
-        Token::new(
-            file::Range {
-                start: after_which.range.end,
-                end: after_which.range.end,
-            },
-            cls,
-            false,
-        )
-    }
-}
+// impl Token {
+//     fn new(range: file::Range, cls: TokenVariant, is_rear_attached: bool) -> Token {
+//         Token {
+//             range,
+//             precedence: get_precedence(&cls),
+//             cls,
+//             is_rear_attached,
+//         }
+//     }
+//     pub fn implicit_token_before(before_which: &Token, cls: TokenVariant) -> Token {
+//         Token::new(
+//             file::Range {
+//                 start: before_which.range.start,
+//                 end: before_which.range.start,
+//             },
+//             cls,
+//             false,
+//         )
+//     }
+//     pub fn implicit_token_after(after_which: &Token, cls: TokenVariant) -> Token {
+//         Token::new(
+//             file::Range {
+//                 start: after_which.range.end,
+//                 end: after_which.range.end,
+//             },
+//             cls,
+//             false,
+//         )
+//     }
+// }
 
 #[derive(Debug)]
 pub enum TokenVariant {
@@ -126,6 +128,7 @@ pub enum Join {
     List,            // space between Atom/Ket && Atom/Bra, List as in Lisp
     Comma,           // ,
 }
+
 impl Join {
     pub fn code(&self) -> String {
         match self {
@@ -231,7 +234,7 @@ pub enum Suffix {
 #[derive(Debug)]
 pub enum Atom {
     Void,
-    Identifier(SymbolID),
+    Identifier(Identifier),
     Int(i32),
     Float(f32),
     Bool(bool),
@@ -267,19 +270,4 @@ pub enum Convexity {
     None,
     Convex,
     Concave,
-}
-mod input;
-pub mod output;
-mod receiver;
-mod scanner;
-pub fn lex_tokens(
-    source: &HuskyFile,
-    start: usize,
-    end: usize,
-    sess: &mut Session,
-) -> Result<output::TokenStream, ParserError> {
-    let mut stream = input::LineGroupCharStream::new(source, start, end);
-    let mut scanner = scanner::TokenScanner::new(sess, &mut stream);
-    scanner.lex_tokens()?;
-    Ok(scanner.output())
 }

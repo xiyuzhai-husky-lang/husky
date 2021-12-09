@@ -15,7 +15,7 @@ pub use token::*;
 
 use std::{marker::PhantomData, sync::Arc};
 
-use common::{ParserError, Session, SourceTree, SymbolID};
+use common::{FileTree, ParserError, Session, SymbolID};
 
 pub struct AST {
     pub phrase_arena: PhraseArena,
@@ -30,7 +30,7 @@ impl AST {
             .find(|child| child.key == key)
             .expect("child should exist")
     }
-    pub fn new(sources: &SourceTree, sess: &mut Session) -> Result<AST, ParserError> {
+    pub fn new(sources: &FileTree, sess: &mut Session) -> Result<AST, ParserError> {
         let mut ast = AST {
             phrase_arena: PhraseArena::new(),
             key: sess.get_symbol_id(&sources.key),
@@ -43,7 +43,7 @@ impl AST {
         }
         Ok(ast)
     }
-    pub fn parse(&mut self, sources: &SourceTree, sess: &mut Session) -> Result<(), ParserError> {
+    pub fn parse(&mut self, sources: &FileTree, sess: &mut Session) -> Result<(), ParserError> {
         // let mut ast = AST {
 
         //   key: sources.key.clone(),

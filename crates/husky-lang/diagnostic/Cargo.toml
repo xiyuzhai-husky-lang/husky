@@ -1,0 +1,10 @@
+[package]
+name = "diagnostic"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+text-size = "1.0.0"
+
+common = { path = "../../common", version = "0.0.0" }
+file = { path = "../file", version = "0.0.0" }

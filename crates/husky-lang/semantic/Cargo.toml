@@ -1,0 +1,17 @@
+[package]
+name = "semantic"
+version = "0.0.0"
+description = "Semantic queries for the Rust language"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+itertools = "0.10.0"
+
+common = { path = "../../common", version = "0.0.0" }
+word = { path = "../word", version = "0.0.0" }
+syntax = { path = "../syntax", version = "0.0.0" }
