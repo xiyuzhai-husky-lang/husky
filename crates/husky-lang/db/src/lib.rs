@@ -12,17 +12,10 @@ pub type FxIndexMap<K, V> =
 
 #[salsa::database(
     file::FileQueryGroupStorage,
-    // lex::LexQueryGroupStorage,
-    // syntax::SyntaxQueryGroupStorage,
-    // semantic::SemanticQueryGroupStorage,
-    // diagnostic::DiagnosticQueryGroupStorage,
-    // LineIndexDatabaseStorage,
-    // symbol_index::SymbolsDatabaseStorage,
-    // hir::db::InternDatabaseStorage,
-    // hir::db::AstDatabaseStorage,
-    // hir::db::DefDatabaseStorage,
-    // hir::db::DiagDatabaseStorage,
-    // hir::db::HirDatabaseStorage
+    lex::LexQueryGroupStorage,
+    syntax::SyntaxQueryGroupStorage,
+    semantic::SemanticQueryGroupStorage,
+    diagnostic::DiagnosticQueryGroupStorage
 )]
 #[derive(Default)]
 pub struct HuskyLangDatabase {
@@ -81,14 +74,6 @@ impl HuskyLangDatabase {
         // salsa::ParseQuery
         //     .in_db_mut(self)
         //     .set_lru_capacity(lru_capacity);
-    }
-
-    pub fn on_diagnostic_change<F>(&self, f: F) -> Result<()>
-    where
-        F: FnOnce(file::FileId, Vec<diagnostic::Diagnostic>) -> Result<()>,
-    {
-        // self.diagnostics();
-        todo!()
     }
 }
 
