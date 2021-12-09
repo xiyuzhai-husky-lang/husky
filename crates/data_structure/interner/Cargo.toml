@@ -1,0 +1,14 @@
+[package]
+name = "interner"
+version = "0.0.0"
+description = "Interner for the Husky Programming Language"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[lib]
+doctest = false
+
+[dependencies]
+bimap = "0.6.1"
+
+stdx = { path = "../../stdx", version = "0.0.0" }

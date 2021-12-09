@@ -5,6 +5,7 @@ use std::{cmp::Ordering, ops, time::Instant};
 mod macros;
 pub mod panic_context;
 pub mod process;
+pub mod sync;
 
 pub use always_assert::{always, never};
 

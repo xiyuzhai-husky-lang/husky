@@ -1,17 +1,11 @@
-// extern crate bimap;
-pub mod file;
-pub mod keyword;
+pub mod _session;
+pub mod error;
 pub mod print;
-pub mod session;
 pub mod show;
 pub mod todo;
-pub use file::*;
-pub mod error;
+
 pub use error::*;
-pub use keyword::*;
-pub use paths::AbsPathBuf;
 pub use print::*;
-pub use session::*;
 pub use show::*;
 pub use std::cell::Cell;
 pub use std::collections::HashMap;
@@ -53,25 +47,25 @@ pub struct ParserCall {
     pub message: String,
 }
 
-#[derive(Debug)]
-pub struct ParserError {
-    pub call_stack: Vec<ParserCall>,
-    pub range: file::Range,
-    pub variant: ParserErrorVariant,
-}
-impl ParserError {
-    // fn new(variant: ParserErrorVariant) -> ParserError {
-    //     td!()
-    // }
-    fn push_call(mut self, file: &'static str, line: u32, message: String) -> ParserError {
-        self.call_stack.push(ParserCall {
-            file,
-            line,
-            message,
-        });
-        self
-    }
-}
+// #[derive(Debug)]
+// pub struct ParserError {
+//     pub call_stack: Vec<ParserCall>,
+//     pub range: file::Range,
+//     pub variant: ParserErrorVariant,
+// }
+// impl ParserError {
+//     // fn new(variant: ParserErrorVariant) -> ParserError {
+//     //     td!()
+//     // }
+//     fn push_call(mut self, file: &'static str, line: u32, message: String) -> ParserError {
+//         self.call_stack.push(ParserCall {
+//             file,
+//             line,
+//             message,
+//         });
+//         self
+//     }
+// }
 
 #[macro_export]
 macro_rules! syntax_error {
@@ -118,14 +112,14 @@ macro_rules! io_error {
     }};
 }
 
-pub fn push_call<T>(
-    result: Result<T, ParserError>,
-    file: &'static str,
-    line: u32,
-    message: String,
-) -> Result<T, ParserError> {
-    match result {
-        Ok(stuff) => Ok(stuff),
-        Err(e) => Err(e.push_call(file, line, message)),
-    }
-}
+// pub fn push_call<T>(
+//     result: Result<T, ParserError>,
+//     file: &'static str,
+//     line: u32,
+//     message: String,
+// ) -> Result<T, ParserError> {
+//     match result {
+//         Ok(stuff) => Ok(stuff),
+//         Err(e) => Err(e.push_call(file, line, message)),
+//     }
+// }
