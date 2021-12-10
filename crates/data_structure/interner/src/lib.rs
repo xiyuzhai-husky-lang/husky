@@ -13,6 +13,41 @@ where
     internal: ARwLock<InternerInternal<T, Id>>,
 }
 
+pub struct IdIter<Id>
+where
+    Id: From<u32>,
+{
+    next: u32,
+    end: u32,
+    phantom: PhantomData<Id>,
+}
+
+impl<Id> IdIter<Id>
+where
+    Id: From<u32>,
+{
+    pub fn new(start: u32, end: u32) -> Self {
+        todo!()
+    }
+}
+
+impl<Id> Iterator for IdIter<Id>
+where
+    Id: From<u32>,
+{
+    type Item = Id;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.next < self.end {
+            let id = Id::from(self.next);
+            self.next += 1;
+            Some(id)
+        } else {
+            None
+        }
+    }
+}
+
 impl<T, Id> Interner<T, Id>
 where
     T: Hash + Eq + Send + Sync + Clone,
@@ -23,7 +58,11 @@ where
             internal: ARwLock::new(InternerInternal::<T, Id>::new(map)),
         }
     }
-    pub fn id_ref<Q>(&self, raw: &Q) -> Id
+    pub fn id_iter(&self) -> IdIter<Id> {
+        self.internal
+            .read(|internal| IdIter::<Id>::new(0, internal.next_id_raw))
+    }
+    pub fn id_by_ref<Q>(&self, raw: &Q) -> Id
     where
         T: Borrow<Q> + for<'a> From<&'a Q>,
         Q: Eq + Hash + ?Sized,
@@ -82,7 +121,7 @@ mod internal {
         T: Hash + PartialEq + Eq + Send + Sync + Clone,
         Id: Hash + PartialEq + Eq + Send + Sync + Clone + Copy,
     {
-        next_id_raw: u32,
+        pub(crate) next_id_raw: u32,
         pub(crate) bimap: BiMap<T, Id>,
     }
     impl<T, Id> Default for InternerInternal<T, Id>

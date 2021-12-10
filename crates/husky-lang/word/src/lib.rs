@@ -73,7 +73,7 @@ pub trait InternWord {
     fn provide_word_interner(&self) -> &WordInterner;
 
     fn string_to_word(&self, raw: &str) -> Word {
-        self.provide_word_interner().id_ref(raw)
+        self.provide_word_interner().id_by_ref(raw)
     }
 
     fn word_to_string(&self, word: Word) -> String {

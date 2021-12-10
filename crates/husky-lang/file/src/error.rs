@@ -3,21 +3,21 @@ use std::{
     fmt::{Debug, Display},
 };
 
-pub enum sourceError {
+pub enum FileError {
     NoSuchPackage,
 }
-impl Display for sourceError {
+impl Display for FileError {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::NoSuchPackage => write!(f, "NoSuchPackage"),
         }
     }
 }
-impl Debug for sourceError {
+impl Debug for FileError {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::NoSuchPackage => write!(f, "NoSuchPackage"),
         }
     }
 }
-impl Error for sourceError {}
+impl Error for FileError {}

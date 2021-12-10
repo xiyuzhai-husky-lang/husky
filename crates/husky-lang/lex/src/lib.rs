@@ -1,2 +1,2 @@
-#[salsa::query_group(LexQueryGroupStorage)]
-pub trait LexQueryGroup {}
+#[salsa::query_group(LexQueryStorage)]
+pub trait LexQuery {}

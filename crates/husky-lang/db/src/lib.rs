@@ -11,11 +11,11 @@ pub type FxIndexMap<K, V> =
     indexmap::IndexMap<K, V, std::hash::BuildHasherDefault<rustc_hash::FxHasher>>;
 
 #[salsa::database(
-    file::FileQueryGroupStorage,
-    lex::LexQueryGroupStorage,
-    syntax::SyntaxQueryGroupStorage,
-    semantic::SemanticQueryGroupStorage,
-    diagnostic::DiagnosticQueryGroupStorage
+    file::FileQueryStorage,
+    lex::LexQueryStorage,
+    syntax::SyntaxQueryStorage,
+    semantic::SemanticQueryStorage,
+    diagnostic::DiagnosticQueryStorage
 )]
 #[derive(Default)]
 pub struct HuskyLangDatabase {
@@ -35,7 +35,7 @@ impl Drop for HuskyLangDatabase {
     }
 }
 impl file::InternFile for HuskyLangDatabase {
-    fn provide_source_interner(&self) -> &file::FileInterner {
+    fn provide_file_interner(&self) -> &file::FileInterner {
         &self.source_file_interner
     }
 }

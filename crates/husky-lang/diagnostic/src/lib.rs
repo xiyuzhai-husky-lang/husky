@@ -39,36 +39,47 @@ impl Diagnostic {
 }
 
 pub struct FileDiagnostics {
-    pub source_id: file::FileId,
+    pub file_id: file::FileId,
     pub diagnostics: Vec<Diagnostic>,
 }
 
-#[salsa::query_group(DiagnosticQueryGroupStorage)]
-pub trait DiagnosticQueryGroup {
-    fn diagnostics(&self) -> DiagnosticReserve;
+#[salsa::query_group(DiagnosticQueryStorage)]
+pub trait DiagnosticQuery {
+    fn diagnostic_reserve(&self, id: file::FileId) -> Arc<DiagnosticReserve>;
 }
 
-fn diagnostics(this: &dyn DiagnosticQueryGroup) -> DiagnosticReserve {
+fn diagnostic_reserve(this: &dyn DiagnosticQuery, id: file::FileId) -> Arc<DiagnosticReserve> {
     todo!()
 }
 
-type DiagnosticCollection = Vec<(file::FileId, Vec<Diagnostic>)>;
-
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct DiagnosticReserve {
-    diagnostics: Arc<Mutex<DiagnosticCollection>>,
+    diagnostics: Vec<Diagnostic>,
+    drained: Mutex<bool>,
 }
 
 impl PartialEq for DiagnosticReserve {
     fn eq(&self, other: &Self) -> bool {
-        (&self.diagnostics.lock().unwrap() as &DiagnosticCollection)
-            == (&other.diagnostics.lock().unwrap() as &DiagnosticCollection)
+        self.diagnostics == other.diagnostics
     }
 }
 impl Eq for DiagnosticReserve {}
 
 impl DiagnosticReserve {
-    pub fn drain(&self) -> DiagnosticCollection {
-        std::mem::take(&mut self.diagnostics.lock().unwrap())
+    pub fn new(diagnostics: Vec<Diagnostic>) -> Self {
+        Self {
+            diagnostics,
+            drained: Mutex::new(false),
+        }
+    }
+
+    pub fn drain(&self) -> Option<Vec<Diagnostic>> {
+        let drained: &mut bool = &mut self.drained.lock().unwrap();
+        if *drained {
+            None
+        } else {
+            *drained = true;
+            Some(self.diagnostics.clone())
+        }
     }
 }
