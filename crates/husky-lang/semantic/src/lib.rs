@@ -1,2 +1,2 @@
-#[salsa::query_group(SemanticQueryGroupStorage)]
-pub trait SemanticQueryGroup {}
+#[salsa::query_group(SemanticQueryStorage)]
+pub trait SemanticQuery {}
