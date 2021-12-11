@@ -10,4 +10,3 @@ doctest = false
 
 [dependencies]
 text-size = "1.0.0"
-rowan = "0.14.0"

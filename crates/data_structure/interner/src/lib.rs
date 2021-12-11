@@ -4,13 +4,24 @@ use stdx::sync::ARwLock;
 
 use internal::InternerInternal;
 
-#[derive(Default, Clone)]
+#[derive(Clone)]
 pub struct Interner<T, Id = BasicId<T>>
 where
     T: Hash + Eq + Send + Sync + Clone,
     Id: Hash + Eq + Send + Sync + Copy + From<u32> + Debug,
 {
     internal: ARwLock<InternerInternal<T, Id>>,
+}
+impl<T, Id> Default for Interner<T, Id>
+where
+    T: Hash + Eq + Send + Sync + Clone,
+    Id: Hash + Eq + Send + Sync + Copy + From<u32> + Debug,
+{
+    fn default() -> Self {
+        Self {
+            internal: Default::default(),
+        }
+    }
 }
 
 pub struct IdIter<Id>
@@ -27,7 +38,11 @@ where
     Id: From<u32>,
 {
     pub fn new(start: u32, end: u32) -> Self {
-        todo!()
+        Self {
+            next: start,
+            end,
+            phantom: PhantomData,
+        }
     }
 }
 

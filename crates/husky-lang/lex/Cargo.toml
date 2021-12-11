@@ -8,4 +8,8 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 
+common = { path = "../../common", version = "0.0.0" }
 salsa = { path = "../../data_structure/salsa", version = "0.0.0" }
+file = { path = "../file", version = "0.0.0" }
+word = { path = "../word", version = "0.0.0" }
+arena = { path = "../../data_structure/arena", version = "0.0.0"}
