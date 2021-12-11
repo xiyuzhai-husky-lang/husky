@@ -6,6 +6,6 @@ edition = "2021"
 [dependencies]
 text-size = "1.0.0"
 
-salsa = { path = "../../data_structure/salsa", version = "0.0.0" }
+salsa = "0.16.1"
 common = { path = "../../common", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }

@@ -3,7 +3,6 @@
 pub mod cli;
 mod convert;
 mod init_connection;
-mod line_collection;
 mod lsp_ext;
 mod run_server;
 mod semantic_tokens;

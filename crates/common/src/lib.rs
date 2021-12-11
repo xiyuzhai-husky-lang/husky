@@ -16,8 +16,7 @@ pub use std::io;
 pub use std::path::{Path, PathBuf};
 pub use todo::*;
 
-pub use text_size::{TextRange, TextSize};
-
+pub type Range = std::ops::Range<usize>;
 #[derive(Debug)]
 pub enum ParserErrorVariant {
     SyntaxError(SyntaxError),

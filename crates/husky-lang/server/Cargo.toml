@@ -24,8 +24,8 @@ itertools = "^0.10.3"
 common = { path = "../../common", version = "0.0.0" }
 stdx = { path = "../../stdx", version = "0.0.0" }
 profile = { path = "../../utils/profile", version = "0.0.0"}
-lsp-server = { path = "../../boundary/lsp-server", version = "0.0.0"}
-salsa = { path = "../../data_structure/salsa", version = "0.0.0" }
+lsp-server = "0.5.2"
+salsa = "0.16.1"
 
 husky_lang_db = { path = "../db", version = "0.0.0"}
 syntax = { path = "../syntax", version = "0.0.0"}

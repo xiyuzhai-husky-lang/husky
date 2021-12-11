@@ -6,40 +6,46 @@ pub use token::Token;
 
 use std::sync::Arc;
 
+use common::*;
+
 use token::{TokenScanner, TokenizedLine};
 
 #[salsa::query_group(LexQueryStorage)]
 pub trait LexQuery: file::FileQuery + word::InternWord {
-    fn lex_result(&self, id: file::FileId) -> Arc<LexResult>;
+    fn tokenized_text(&self, id: file::FileId) -> Arc<Result<TokenizedText, FileError>>;
 }
 
-fn lex_result(this: &dyn LexQuery, id: file::FileId) -> Arc<LexResult> {
+fn tokenized_text(this: &dyn LexQuery, id: file::FileId) -> Arc<Result<TokenizedText, FileError>> {
     if let Some(text) = this.text(id) {
-        return Arc::new(LexResult::TextTokens(TokenizedText::lex(
-            this,
-            text.as_str(),
-        )));
+        return Arc::new(Ok(TokenizedText::lex(this, text.as_str())));
     } else {
-        return Arc::new(LexResult::TextNonExistent);
+        return Arc::new(Err(FileError::TextNonExistent));
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum LexResult {
+pub enum FileError {
     TextNonExistent,
-    TextTokens(TokenizedText),
+}
+#[derive(Debug, PartialEq, Eq)]
+pub enum LexError {
+    IncorrectIndent,
 }
 
-#[derive(Debug, Default, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
+    line_groups: Vec<Range>,
+    errors: Vec<LexError>,
 }
 
 impl TokenizedText {
     fn lex(db: &dyn LexQuery, text: &str) -> Self {
         let mut token_scanner = TokenScanner::new(db);
-        text.lines().for_each(|line| token_scanner.scan(line));
+        text.lines()
+            .enumerate()
+            .for_each(|(i, line)| token_scanner.scan(i, line));
         token_scanner.into()
     }
 }

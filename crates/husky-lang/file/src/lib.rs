@@ -2,10 +2,7 @@
 
 use std::sync::Arc;
 
-pub use line_map::LineMap;
-
 mod error;
-mod line_map;
 
 use common::*;
 use interner::Interner;
@@ -15,13 +12,13 @@ use stdx::sync::ARwLock;
 #[derive(Clone, Copy, Debug)]
 pub struct FilePosition {
     pub file_id: FileId,
-    pub offset: TextSize,
+    // pub offset: TextSize,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
 pub struct FileRange {
     pub source: FileId,
-    pub range: TextRange,
+    // pub range: TextRange,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -75,12 +72,10 @@ pub trait BasicFileQuery: salsa::Database + std::fmt::Debug + LiveFiles {
     fn file_content(&self, id: FileId) -> FileContent;
 
     fn main_file_id(&self, module_file_id: FileId) -> Option<FileId>;
-
-    fn line_map(&self, id: FileId) -> LineMap;
 }
 
 fn file_content(this: &dyn BasicFileQuery, id: FileId) -> FileContent {
-    this.get_salsa_runtime()
+    this.salsa_runtime()
         .report_synthetic_read(salsa::Durability::LOW);
     this.get_live_docs()
         .read(|live_docs| match live_docs.get(&id) {
@@ -108,10 +103,6 @@ fn main_file_id(this: &dyn BasicFileQuery, module_file_id: FileId) -> Option<Fil
         }
     }
     None
-}
-
-fn line_map(this: &dyn BasicFileQuery, id: FileId) -> LineMap {
-    todo!()
 }
 
 pub trait FileQuery: BasicFileQuery {
