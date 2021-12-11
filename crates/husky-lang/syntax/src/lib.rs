@@ -1,5 +1,7 @@
 use std::{marker::PhantomData, sync::Arc};
 
+use common::*;
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ParseResult<T> {
     _ty: PhantomData<fn() -> T>,
@@ -46,6 +48,7 @@ fn subentities(
     id: file::FileId,
 ) -> Result<Arc<EntityTable>, SyntaxError> {
     let lexed = this.lex_result(id);
+    ep!(lexed);
     todo!()
 }
 
