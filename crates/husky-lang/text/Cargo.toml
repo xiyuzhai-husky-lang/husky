@@ -1,0 +1,11 @@
+[package]
+edition = "2021"
+name = "text"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+
+common = { path = "../../common", version = "0.0.0" }

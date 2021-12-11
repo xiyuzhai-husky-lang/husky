@@ -20,6 +20,7 @@ pub enum Special {
     Sub,
     Mult,
     Div,
+    Power,
     And,
     Or,
     BitNot,

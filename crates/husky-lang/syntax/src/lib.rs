@@ -1,39 +1,6 @@
-use std::{marker::PhantomData, sync::Arc};
+use std::sync::Arc;
 
 use common::*;
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ParseResult<T> {
-    _ty: PhantomData<fn() -> T>,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct SingleFileParseTree {}
-
-pub mod ast;
-pub struct SyntaxElementChildren {}
-pub struct SyntaxToken {}
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum SyntaxKind {}
-pub struct SyntaxElement {}
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct SyntaxNode {}
-pub struct SyntaxNodePtr {}
-pub mod token;
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct GreenNode {}
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum Direction {
-    Next,
-    Prev,
-}
-pub struct TokenAtOffset<T> {
-    phantom: std::marker::PhantomData<T>,
-}
-pub struct NodeOrToken<S, T> {
-    phantoms: std::marker::PhantomData<S>,
-    phantomt: std::marker::PhantomData<T>,
-}
 
 #[salsa::query_group(SyntaxQueryStorage)]
 pub trait SyntaxSalsaQuery: file::FileQuery + lex::LexQuery {
@@ -47,8 +14,7 @@ fn subentities(
     this: &dyn SyntaxSalsaQuery,
     id: file::FileId,
 ) -> Result<Arc<EntityTable>, SyntaxError> {
-    let lexed = this.lex_result(id);
-    ep!(lexed);
+    let lexed = this.tokenized_text(id);
     todo!()
 }
 
@@ -93,6 +59,3 @@ pub trait SyntaxQuery: SyntaxSalsaQuery {
             .collect()
     }
 }
-
-#[cfg(test)]
-mod tests;

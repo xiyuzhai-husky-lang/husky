@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/boundary/*", "crates/husky-lang/*", "crates/data_structure/*", "crates/common"]
+members = ["crates/husky-lang/*", "crates/data_structure/*", "crates/common"]
 
 [profile.dev]
 opt-level = 0

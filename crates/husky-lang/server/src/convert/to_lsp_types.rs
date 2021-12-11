@@ -3,17 +3,6 @@
 use crate::lsp_ext;
 use common::*;
 
-pub(crate) fn position(line_index: &file::LineMap, offset: TextSize) -> lsp_types::Position {
-    let line_col = line_index.line_col(offset);
-    lsp_types::Position::new(line_col.line, line_col.col)
-}
-
-pub(crate) fn range(line_index: &file::LineMap, range: TextRange) -> lsp_types::Range {
-    let start = position(line_index, range.start());
-    let end = position(line_index, range.end());
-    lsp_types::Range::new(start, end)
-}
-
 pub(crate) fn to_diagnostic_severity(
     severity: diagnostic::Severity,
 ) -> lsp_types::DiagnosticSeverity {
@@ -23,23 +12,21 @@ pub(crate) fn to_diagnostic_severity(
     }
 }
 
-pub(crate) fn to_diagnostic(
-    line_map: &file::LineMap,
-    diagnostic: diagnostic::Diagnostic,
-) -> lsp_types::Diagnostic {
-    lsp_types::Diagnostic {
-        range: range(&line_map, diagnostic.range),
-        severity: Some(to_diagnostic_severity(diagnostic.severity)),
-        code: Some(lsp_types::NumberOrString::String(
-            diagnostic.code.as_str().to_string(),
-        )),
-        code_description: None,
-        source: Some("husky-lang-server".to_string()),
-        message: diagnostic.message,
-        related_information: None,
-        tags: None,
-        data: None,
-    }
+pub(crate) fn to_diagnostic(diagnostic: diagnostic::Diagnostic) -> lsp_types::Diagnostic {
+    todo!()
+    // lsp_types::Diagnostic {
+    //     range: range(&line_map, diagnostic.range),
+    //     severity: Some(to_diagnostic_severity(diagnostic.severity)),
+    //     code: Some(lsp_types::NumberOrString::String(
+    //         diagnostic.code.as_str().to_string(),
+    //     )),
+    //     code_description: None,
+    //     source: Some("husky-lang-server".to_string()),
+    //     message: diagnostic.message,
+    //     related_information: None,
+    //     tags: None,
+    //     data: None,
+    // }
 }
 
 /// Returns a `Url` object from a given path, will lowercase drive letters if present.

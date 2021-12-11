@@ -1,34 +1,27 @@
-use std::{iter::Enumerate, num::NonZeroU16, str::Chars};
-
 use common::*;
+
+use text::{CharIter, GetTextRange, Indent, TextRange};
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {
-    start: Column,
-    end: Column,
+    range: TextRange,
     kind: TokenKind,
 }
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
-pub struct Column(NonZeroU16);
-impl From<u32> for Column {
-    fn from(raw: u32) -> Self {
-        unsafe {
-            Column(NonZeroU16::new_unchecked(
-                <u32 as TryInto<u16>>::try_into(raw).expect("success") + 1,
-            ))
+impl Token {
+    pub fn new(i: usize, start: usize, end: usize, kind: TokenKind) -> Token {
+        Token {
+            range: TextRange::new_same_line(i, start, end),
+            kind,
         }
     }
 }
-impl From<usize> for Column {
-    fn from(raw: usize) -> Self {
-        unsafe {
-            Column(NonZeroU16::new_unchecked(
-                <usize as TryInto<u16>>::try_into(raw).expect("success") + 1,
-            ))
-        }
+
+impl GetTextRange for Token {
+    fn get_text_range(&self) -> &TextRange {
+        &self.range
     }
 }
 
@@ -41,17 +34,38 @@ pub enum TokenKind {
     F32Literal(f32),
 }
 impl Eq for TokenKind {}
+impl From<word::Word> for TokenKind {
+    fn from(word: word::Word) -> Self {
+        match word {
+            word::Word::Keyword(keyword) => TokenKind::Keyword(keyword),
+            word::Word::Identifier(ident) => TokenKind::Identifier(ident),
+        }
+    }
+}
+impl From<f32> for TokenKind {
+    fn from(f: f32) -> Self {
+        TokenKind::F32Literal(f)
+    }
+}
+impl From<i32> for TokenKind {
+    fn from(i: i32) -> Self {
+        TokenKind::I32Literal(i)
+    }
+}
 
 struct TokenIter<'lex_line> {
     db: &'lex_line dyn LexQuery,
+    line_index: usize,
     buffer: String,
     char_iter: CharIter<'lex_line>,
 }
 
-type CharIter<'lex_line> = std::iter::Peekable<Enumerate<Chars<'lex_line>>>;
-
 impl<'lex_line> TokenIter<'lex_line> {
-    pub fn new(db: &'lex_line dyn LexQuery, mut char_iter: CharIter<'lex_line>) -> (Indent, Self) {
+    pub fn new(
+        db: &'lex_line dyn LexQuery,
+        line_index: usize,
+        mut char_iter: CharIter<'lex_line>,
+    ) -> (Indent, Self) {
         let mut buffer = String::new();
         buffer.reserve(100);
         let indent = Indent::from(&mut char_iter);
@@ -59,29 +73,11 @@ impl<'lex_line> TokenIter<'lex_line> {
             indent,
             Self {
                 db,
+                line_index,
                 buffer,
                 char_iter,
             },
         )
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct Indent(Option<u16>);
-impl<'lex_line> From<&mut CharIter<'lex_line>> for Indent {
-    fn from(char_iter: &mut CharIter<'lex_line>) -> Self {
-        loop {
-            if let Some((j, c)) = char_iter.peek() {
-                if *c == ' ' {
-                    char_iter.next();
-                } else {
-                    let j: u16 = (*j).try_into().expect("yes");
-                    break Indent(Some(j));
-                }
-            } else {
-                break Indent(None);
-            }
-        }
     }
 }
 
@@ -95,39 +91,24 @@ impl<'lex_line> TokenIter<'lex_line> {
             }
         }
     }
-    fn next_word(&mut self, j_start: usize, c_start: char) -> Token {
-        let start = Column::from(j_start);
-        self.buffer.push(c_start);
-        let end = loop {
-            if let Some((j, c)) = self.char_iter.peek() {
-                let c = *c;
-                if is_word_char(c) {
-                    self.buffer.push(c);
-                    self.char_iter.next();
-                } else {
-                    break Column::from(*j);
-                }
+
+    fn next_word(&mut self, j_start: usize) -> Token {
+        while let Some((j, c)) = self.char_iter.peek() {
+            if is_word_char(*c) {
+                self.eat();
             } else {
-                break start;
+                break;
             }
-        };
-        let word = self.db.string_to_word(&self.buffer);
-        self.buffer.clear();
-        return Token {
-            start,
-            end,
-            kind: match word {
-                word::Word::Keyword(keyword) => TokenKind::Keyword(keyword),
-                word::Word::Identifier(ident) => TokenKind::Identifier(ident),
-            },
-        };
+        }
+        let len = self.buffer.len();
+        return Token::new(self.line_index, j_start, j_start + len, self.word().into());
 
         fn is_word_char(c: char) -> bool {
             c.is_alphanumeric() || c == '_'
         }
     }
-    fn next_number(&mut self, j_start: usize, c_start: char) -> Token {
-        self.buffer.push(c_start);
+
+    fn next_number(&mut self, j_start: usize) -> Token {
         while self.peek().is_digit(10) {
             self.eat()
         }
@@ -137,57 +118,58 @@ impl<'lex_line> TokenIter<'lex_line> {
                 self.eat()
             }
             let len = self.buffer.len();
-            let f = self.buffer.parse::<f32>().expect("couldn't be wrong");
-            self.buffer.clear();
-            Token {
-                start: Column::from(j_start),
-                end: Column::from(j_start + len),
-                kind: TokenKind::F32Literal(f),
-            }
+            Token::new(self.line_index, j_start, j_start + len, self.f32().into())
         } else {
             let len = self.buffer.len();
-            let i = self.buffer.parse::<i32>().expect("couldn't be wrong");
-            self.buffer.clear();
-            Token {
-                start: Column::from(j_start),
-                end: Column::from(j_start + len),
-                kind: TokenKind::I32Literal(i),
-            }
+            Token::new(self.line_index, j_start, j_start + len, self.i32().into())
         }
     }
+
+    fn word(&mut self) -> word::Word {
+        let word = self.db.string_to_word(&self.buffer);
+        self.buffer.clear();
+        word
+    }
+
+    fn f32(&mut self) -> f32 {
+        let f = self.buffer.parse::<f32>().expect("couldn't be wrong");
+        self.buffer.clear();
+        f
+    }
+
+    fn i32(&mut self) -> i32 {
+        let i = self.buffer.parse::<i32>().expect("couldn't be wrong");
+        self.buffer.clear();
+        i
+    }
+
     fn peek(&mut self) -> char {
         if let Some((_, c)) = self.char_iter.peek() {
             *c
         } else {
-            ' '
+            0.into()
         }
     }
-    fn pass(&mut self) {
+
+    fn pass(&mut self, special: Special) -> (usize, Special) {
         self.char_iter.next();
+        (2, special)
     }
+
     fn eat(&mut self) {
-        if let Some((_, c)) = self.char_iter.next() {
-            self.buffer.push(c);
-        }
+        let (_, c) = self.char_iter.next().expect("what");
+        self.buffer.push(c);
     }
+
     fn next_special(&mut self, j_start: usize, c_start: char) -> Option<Token> {
         let (len, special) = match c_start {
             '=' => match self.peek() {
-                '=' => {
-                    self.pass();
-                    (2, Special::Eq)
-                }
-                '>' => {
-                    self.pass();
-                    (2, Special::HeavyArrow)
-                }
+                '=' => self.pass(Special::Eq),
+                '>' => self.pass(Special::HeavyArrow),
                 _ => (1, Special::Be),
             },
             ':' => match self.peek() {
-                ':' => {
-                    self.pass();
-                    (2, Special::ScopeAccess)
-                }
+                ':' => self.pass(Special::ScopeAccess),
                 _ => (1, Special::Colon),
             },
             '(' => (1, Special::LPar),
@@ -198,112 +180,58 @@ impl<'lex_line> TokenIter<'lex_line> {
             '}' => (1, Special::RCurl),
             ',' => (1, Special::Comma),
             '&' => match self.peek() {
-                '&' => {
-                    self.pass();
-                    (2, Special::And)
-                }
+                '&' => self.pass(Special::And),
                 _ => (1, Special::Ambersand),
             },
             '|' => match self.peek() {
-                '|' => {
-                    self.pass();
-                    (2, Special::Or)
-                }
+                '|' => self.pass(Special::Or),
                 _ => (1, Special::Vertical),
             },
             '~' => (1, Special::BitNot),
             '.' => (1, Special::MemberAccess),
             '%' => (1, Special::Modulo),
             '-' => match self.peek() {
-                '=' => {
-                    self.pass();
-                    (2, Special::SubAssign)
-                }
-                '-' => {
-                    self.pass();
-                    (2, Special::Decr)
-                }
+                '=' => self.pass(Special::SubAssign),
+                '-' => self.pass(Special::Decr),
                 _ => (1, Special::Sub),
             },
             '<' => match self.peek() {
-                '<' => {
-                    self.pass();
-                    (2, Special::RShift)
-                }
-                '=' => {
-                    self.pass();
-                    (2, Special::Leq)
-                }
+                '<' => self.pass(Special::RShift),
+                '=' => self.pass(Special::Leq),
                 _ => (1, Special::LessOrLAngular),
             },
-            '>' => {
-                match self.peek() {
-                    '>' => {
-                        // >>
-                        self.pass();
-                        (2, Special::LShift)
-                    }
-                    '=' => {
-                        // >=
-                        self.pass();
-                        (2, Special::Geq)
-                    }
-                    _ => (1, Special::GreaterOrRAngular),
-                }
-            }
-            '*' => {
-                match self.peek() {
-                    '*' => {
-                        // <<
-                        self.pass();
-                        todo!()
-                    }
-                    '=' => {
-                        // <<
-                        self.pass();
-                        todo!()
-                    }
-                    _ => (1, Special::Mult),
-                }
-            }
-            '/' => {
-                match self.peek() {
-                    '/' => {
-                        return None;
-                    }
-                    '=' => {
-                        // <<
-                        self.pass();
-                        todo!()
-                    }
-                    _ => (1, Special::Div),
-                }
-            }
+            '>' => match self.peek() {
+                '>' => self.pass(Special::LShift),
+                '=' => self.pass(Special::Geq),
+                _ => (1, Special::GreaterOrRAngular),
+            },
+            '*' => match self.peek() {
+                '*' => self.pass(Special::Power),
+                '=' => self.pass(Special::MultAssign),
+                _ => (1, Special::Mult),
+            },
+            '/' => match self.peek() {
+                '/' => return None,
+                '=' => self.pass(Special::DivAssign),
+                _ => (1, Special::Div),
+            },
             '+' => match self.peek() {
-                '+' => {
-                    self.pass();
-                    (2, Special::Incr)
-                }
-                '=' => {
-                    self.pass();
-                    todo!()
-                }
+                '+' => self.pass(Special::Incr),
+                '=' => self.pass(Special::AddAssign),
                 _ => (1, Special::Add),
             },
             '!' => match self.peek() {
-                '=' => {
-                    self.pass();
-                    (2, Special::Neq)
-                }
+                '=' => self.pass(Special::Neq),
                 _ => (1, Special::NotOrExclusive),
             },
             _ => todo!(),
         };
-        Some(Token {
-            start: Column::from(j_start),
-            end: Column::from(j_start + len),
-            kind: TokenKind::Special(special),
-        })
+        Some(Token::new(
+            self.line_index,
+            j_start,
+            j_start + len,
+            TokenKind::Special(special),
+        ))
     }
 }
 
@@ -316,9 +244,11 @@ impl<'lex_line> Iterator for TokenIter<'lex_line> {
                 self.skip_whitespaces();
                 return self.next();
             } else if c.is_alphabetic() || c == '_' {
-                Some(self.next_word(j, c))
+                self.buffer.push(c);
+                Some(self.next_word(j))
             } else if c.is_digit(10) {
-                Some(self.next_number(j, c))
+                self.buffer.push(c);
+                Some(self.next_number(j))
             } else {
                 self.next_special(j, c)
             }
@@ -331,17 +261,7 @@ impl<'lex_line> Iterator for TokenIter<'lex_line> {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedLine {
     pub(crate) indent: Indent,
-    pub(crate) start: TokenIndex,
-    pub(crate) end: TokenIndex,
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct TokenIndex(u32);
-
-impl From<usize> for TokenIndex {
-    fn from(raw: usize) -> Self {
-        Self(raw.try_into().expect("Token index shouldn't overflow u32"))
-    }
+    pub(crate) range: Range,
 }
 
 #[derive(Debug)]
@@ -349,6 +269,8 @@ pub(crate) struct TokenScanner<'lex> {
     db: &'lex dyn LexQuery,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
+    line_groups: Vec<Range>,
+    errors: Vec<LexError>,
 }
 
 impl<'lex> TokenScanner<'lex> {
@@ -357,21 +279,65 @@ impl<'lex> TokenScanner<'lex> {
             db,
             tokens: vec![],
             tokenized_lines: vec![],
+            line_groups: vec![],
+            errors: vec![],
         }
     }
-    pub(crate) fn scan(&mut self, line: &str) {
-        let start = TokenIndex::from(self.tokens.len());
-        let (indent, token_iter) = TokenIter::new(self.db, line.chars().enumerate().peekable());
+
+    pub(crate) fn scan(&mut self, line_index: usize, line: &str) {
+        let start = self.tokens.len();
+        let (indent, token_iter) =
+            TokenIter::new(self.db, line_index, line.chars().enumerate().peekable());
         self.tokens.extend(token_iter);
-        let end = TokenIndex::from(self.tokens.len());
-        self.tokenized_lines
-            .push(TokenizedLine { indent, start, end })
+        let end = self.tokens.len();
+        self.tokenized_lines.push(TokenizedLine {
+            indent,
+            range: start..end,
+        })
+    }
+
+    fn group_lines(&mut self) {
+        self.line_groups.reserve(self.tokenized_lines.len());
+        let mut line_iter = self.tokenized_lines.iter().enumerate().peekable();
+        while let Some((i, line)) = line_iter.next() {
+            if line.range.len() > 0 {
+                let first_indent = line.indent;
+                let start = i;
+                let end =
+                    if self.tokens[line.range.end - 1].kind != TokenKind::Special(Special::Colon) {
+                        loop {
+                            if let Some((i, line)) = line_iter.peek() {
+                                if line.indent.within(first_indent).expect("todo") {
+                                    line_iter.next();
+                                } else {
+                                    break *i;
+                                }
+                            } else {
+                                break self.tokenized_lines.len();
+                            }
+                        }
+                    } else {
+                        if let Some((_, line)) = line_iter.peek() {
+                            if !line.indent.within(first_indent).expect("todo") {
+                                todo!()
+                            }
+                        } else {
+                            todo!()
+                        }
+                        i + 1
+                    };
+                self.line_groups.push(start..end)
+            }
+        }
     }
 }
 
 impl<'lex> Into<TokenizedText> for TokenScanner<'lex> {
-    fn into(self) -> TokenizedText {
+    fn into(mut self) -> TokenizedText {
+        self.group_lines();
         TokenizedText {
+            line_groups: self.line_groups,
+            errors: self.errors,
             tokens: self.tokens,
             tokenized_lines: self.tokenized_lines,
         }

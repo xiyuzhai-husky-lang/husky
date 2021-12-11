@@ -12,7 +12,7 @@ doctest = false
 [dependencies]
 itertools = "^0.10.3"
 
-salsa = { path = "../../data_structure/salsa", version = "0.0.0" }
+salsa = "0.16.1"
 common = { path = "../../common", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 syntax = { path = "../syntax", version = "0.0.0" }
