@@ -24,7 +24,8 @@ pub struct HuskyLangDatabase {
     // which duplicates `Weak::drop` and `Arc::drop` tens of thousands of times, which makes
     // compile times of all `ide_*` and downstream crates suffer greatly.
     storage: ManuallyDrop<salsa::Storage<HuskyLangDatabase>>,
-    source_file_interner: file::FileInterner,
+    file_interner: file::FileInterner,
+    word_interner: word::WordInterner,
     live_docs: ARwLock<HashMap<file::FileId, Arc<String>>>,
 }
 impl Drop for HuskyLangDatabase {
@@ -36,7 +37,12 @@ impl Drop for HuskyLangDatabase {
 }
 impl file::InternFile for HuskyLangDatabase {
     fn provide_file_interner(&self) -> &file::FileInterner {
-        &self.source_file_interner
+        &self.file_interner
+    }
+}
+impl word::InternWord for HuskyLangDatabase {
+    fn provide_word_interner(&self) -> &word::WordInterner {
+        &self.word_interner
     }
 }
 impl file::LiveFiles for HuskyLangDatabase {
@@ -48,6 +54,9 @@ impl file::LiveFiles for HuskyLangDatabase {
         file::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }
+
+impl file::FileQuery for HuskyLangDatabase {}
+impl syntax::SyntaxQuery for HuskyLangDatabase {}
 
 impl fmt::Debug for HuskyLangDatabase {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -81,7 +90,8 @@ impl salsa::ParallelDatabase for HuskyLangDatabase {
     fn snapshot(&self) -> salsa::Snapshot<HuskyLangDatabase> {
         salsa::Snapshot::new(HuskyLangDatabase {
             storage: ManuallyDrop::new(self.storage.snapshot()),
-            source_file_interner: self.source_file_interner.clone(),
+            file_interner: self.file_interner.clone(),
+            word_interner: self.word_interner.clone(),
             live_docs: self.live_docs.clone(),
         })
     }

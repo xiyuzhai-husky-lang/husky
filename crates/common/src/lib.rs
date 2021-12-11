@@ -16,7 +16,6 @@ pub use std::io;
 pub use std::path::{Path, PathBuf};
 pub use todo::*;
 
-pub use rowan::{Direction, GreenNode, NodeOrToken, SyntaxText, TokenAtOffset, WalkEvent};
 pub use text_size::{TextRange, TextSize};
 
 #[derive(Debug)]

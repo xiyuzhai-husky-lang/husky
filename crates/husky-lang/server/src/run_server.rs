@@ -19,7 +19,10 @@ pub fn run_server(connection: lsp_server::Connection) -> Result<(), Box<dyn Erro
     return Err("client exited without proper shutdown sequence".into());
 
     fn send_updates(server: &Server) -> Result<()> {
+        use syntax::SyntaxQuery;
+
         use diagnostic::DiagnosticQuery;
+        let files = server.db.all_modules();
         todo!();
         // server.db.diagnostics().drain();
         return Ok(());

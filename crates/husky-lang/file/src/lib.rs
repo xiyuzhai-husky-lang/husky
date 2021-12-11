@@ -1,6 +1,6 @@
 //! virtual file system  
 
-use std::{collections::HashSet, sync::Arc};
+use std::sync::Arc;
 
 pub use line_map::LineMap;
 
@@ -8,8 +8,8 @@ mod error;
 mod line_map;
 
 use common::*;
-
 use interner::Interner;
+use itertools::Itertools;
 use stdx::sync::ARwLock;
 
 #[derive(Clone, Copy, Debug)]
@@ -71,7 +71,7 @@ pub trait LiveFiles: InternFile {
 }
 
 #[salsa::query_group(FileQueryStorage)]
-pub trait BasicFileQuery: std::fmt::Debug + LiveFiles {
+pub trait BasicFileQuery: salsa::Database + std::fmt::Debug + LiveFiles {
     fn file_content(&self, id: FileId) -> FileContent;
 
     fn main_file_id(&self, module_file_id: FileId) -> Option<FileId>;
@@ -80,6 +80,8 @@ pub trait BasicFileQuery: std::fmt::Debug + LiveFiles {
 }
 
 fn file_content(this: &dyn BasicFileQuery, id: FileId) -> FileContent {
+    this.get_salsa_runtime()
+        .report_synthetic_read(salsa::Durability::LOW);
     this.get_live_docs()
         .read(|live_docs| match live_docs.get(&id) {
             Some(text) => FileContent::Live(text.clone()),
@@ -122,9 +124,19 @@ pub trait FileQuery: BasicFileQuery {
         }
     }
 
-    fn all_main_files(&self) -> Arc<HashSet<FileId>> {
-        Arc::new(HashSet::<FileId>::from_iter(
-            self.file_id_iter().filter_map(|id| self.main_file_id(id)),
-        ))
+    fn all_main_files(&self) -> Vec<FileId> {
+        self.file_id_iter()
+            .filter_map(|id| self.main_file_id(id))
+            .unique()
+            .collect()
+    }
+
+    fn text(&self, id: FileId) -> Option<Arc<String>> {
+        match self.file_content(id) {
+            FileContent::OnDisk(text) => Some(text),
+            FileContent::Live(text) => Some(text),
+            FileContent::Deleted => None,
+            FileContent::NonExistent => None,
+        }
     }
 }
