@@ -2,7 +2,7 @@ use common::*;
 
 use text::{CharIter, GetTextRange, Indent, TextRange};
 
-use crate::{token_iter::TokenIter, *};
+use crate::{line_token_iter::LineTokenIter, *};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {

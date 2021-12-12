@@ -1,6 +1,6 @@
 use common::*;
 
-pub struct LineGroupCharStream<'lex> {
+pub struct TokenGroupCharStream<'lex> {
     i_end: usize,
     i: usize,
     j: usize,
@@ -8,12 +8,12 @@ pub struct LineGroupCharStream<'lex> {
     _top: Option<char>,
     iter: std::str::Chars<'lex>,
 }
-impl<'lex> LineGroupCharStream<'lex> {
-    pub fn new(source: &'lex HuskyFile, i_start: usize, i_end: usize) -> LineGroupCharStream {
+impl<'lex> TokenGroupCharStream<'lex> {
+    pub fn new(source: &'lex HuskyFile, i_start: usize, i_end: usize) -> TokenGroupCharStream {
         let mut iter = source.lines[i_start].chars();
         let _top = iter.next();
         assert!(i_end <= source.lines.len());
-        LineGroupCharStream {
+        TokenGroupCharStream {
             source,
             i_end,
             i: i_start,

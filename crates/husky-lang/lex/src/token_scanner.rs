@@ -1,4 +1,4 @@
-use crate::{token::TokenKind, token_iter::TokenIter, tokenized_text::TokenizedLineGroup, *};
+use crate::{line_token_iter::LineTokenIter, token::TokenKind, tokenized_text::TokenGroup, *};
 
 use text::Indent;
 
@@ -29,7 +29,7 @@ impl<'lex> TokenScanner<'lex> {
     pub(crate) fn scan(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
         let (indent, token_iter) =
-            TokenIter::new(self.db, line_index, line.chars().enumerate().peekable());
+            LineTokenIter::new(self.db, line_index, line.chars().enumerate().peekable());
         self.tokens.extend(token_iter);
         let end = self.tokens.len();
         self.tokenized_lines.push(TokenizedLine {
@@ -46,7 +46,7 @@ impl<'lex> TokenScanner<'lex> {
         &self.tokens[line.tokens.start]
     }
 
-    fn produce_line_groups(&mut self) -> Vec<TokenizedLineGroup> {
+    fn produce_line_groups(&mut self) -> Vec<TokenGroup> {
         let mut line_groups = Vec::new();
         line_groups.reserve(self.tokenized_lines.len());
         let mut line_iter = self
@@ -57,7 +57,7 @@ impl<'lex> TokenScanner<'lex> {
         while let Some(first_line) = line_iter.next() {
             line_groups.push({
                 let group_indent = first_line.indent;
-                TokenizedLineGroup {
+                TokenGroup {
                     indent: group_indent,
                     tokens: first_line.tokens.start..{
                         if self.last_token(first_line).kind != TokenKind::Special(Special::Colon) {
