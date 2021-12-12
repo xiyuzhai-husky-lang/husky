@@ -81,7 +81,7 @@ pub trait GetTextRange {
     fn get_text_range(&self) -> &TextRange;
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord)]
 pub struct Indent {
     raw: u16,
 }
@@ -121,6 +121,10 @@ impl Indent {
         } else {
             Err(IndentErrorKind::Inappropriate)
         }
+    }
+
+    pub fn child(&self) -> Self {
+        (self.raw + 4).into()
     }
 }
 

@@ -1,4 +1,4 @@
-//! virtual file system  
+pub use error::FileError;
 
 use std::sync::Arc;
 
