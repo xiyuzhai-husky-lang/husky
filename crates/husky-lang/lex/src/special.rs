@@ -1,6 +1,6 @@
 use common::*;
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum Special {
     LessOrLAngular,
     Leq,
