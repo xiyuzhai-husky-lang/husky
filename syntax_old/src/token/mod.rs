@@ -278,7 +278,7 @@ pub fn lex_tokens(
     end: usize,
     sess: &mut Session,
 ) -> Result<output::TokenStream, ParserError> {
-    let mut stream = input::LineGroupCharStream::new(source, start, end);
+    let mut stream = input::TokenGroupCharStream::new(source, start, end);
     let mut scanner = scanner::TokenScanner::new(sess, &mut stream);
     scanner.lex_tokens()?;
     Ok(scanner.output())

@@ -2,14 +2,14 @@ use text::CharIter;
 
 use crate::{token::TokenKind, *};
 
-pub(crate) struct TokenIter<'lex_line> {
+pub(crate) struct LineTokenIter<'lex_line> {
     db: &'lex_line dyn LexQuery,
     line_index: usize,
     buffer: String,
     char_iter: CharIter<'lex_line>,
 }
 
-impl<'lex_line> TokenIter<'lex_line> {
+impl<'lex_line> LineTokenIter<'lex_line> {
     pub fn new(
         db: &'lex_line dyn LexQuery,
         line_index: usize,
@@ -30,7 +30,7 @@ impl<'lex_line> TokenIter<'lex_line> {
     }
 }
 
-impl<'lex_line> TokenIter<'lex_line> {
+impl<'lex_line> LineTokenIter<'lex_line> {
     fn skip_whitespaces(&mut self) {
         while let Some((_, c)) = self.char_iter.peek() {
             if *c != ' ' {
@@ -184,7 +184,7 @@ impl<'lex_line> TokenIter<'lex_line> {
     }
 }
 
-impl<'lex_line> Iterator for TokenIter<'lex_line> {
+impl<'lex_line> Iterator for LineTokenIter<'lex_line> {
     type Item = Token;
 
     fn next(&mut self) -> Option<Self::Item> {

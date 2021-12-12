@@ -1,6 +1,6 @@
+mod line_token_iter;
 mod special;
 mod token;
-mod token_iter;
 mod token_scanner;
 mod tokenized_text;
 
