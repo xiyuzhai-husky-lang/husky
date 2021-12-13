@@ -695,9 +695,9 @@ domutils@^2.5.2, domutils@^2.6.0, domutils@^2.7.0:
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
 
-duplexer2@~0.1.4:
+duptokener2@~0.1.4:
   version "0.1.4"
-  resolved "https://registry.yarnpkg.com/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
+  resolved "https://registry.yarnpkg.com/duptokener2/-/duptokener2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
   integrity sha1-ixLauHjA1p4+eJEFFmKjL8a93ME=
   dependencies:
     readable-stream "^2.0.2"
@@ -2174,7 +2174,7 @@ unzipper@^0.10.11:
     binary "~0.3.0"
     bluebird "~3.4.1"
     buffer-indexof-polyfill "~1.0.0"
-    duplexer2 "~0.1.4"
+    duptokener2 "~0.1.4"
     fstream "^1.0.12"
     graceful-fs "^4.2.2"
     listenercount "~1.0.1"

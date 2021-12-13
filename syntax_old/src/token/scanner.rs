@@ -3,18 +3,18 @@ use crate::token::output::TokenStream;
 use crate::token::receiver::TokenReceiver;
 use crate::token::*;
 use common::{file, ParserError, ParserErrorVariant, SyntaxError};
-pub struct TokenScanner<'lex> {
-    sess: &'lex mut Session,
-    stream: &'lex mut TokenGroupCharStream<'lex>,
+pub struct TokenScanner<'token> {
+    sess: &'token mut Session,
+    stream: &'token mut TokenGroupCharStream<'token>,
     j_start: usize,
     tokens: TokenReceiver,
 }
-impl<'lex> TokenScanner<'lex> {
+impl<'token> TokenScanner<'token> {
     pub fn new(
-        sess: &'lex mut Session,
-        stream: &'lex mut TokenGroupCharStream<'lex>,
-    ) -> TokenScanner<'lex> {
-        let mut scanner = TokenScanner::<'lex> {
+        sess: &'token mut Session,
+        stream: &'token mut TokenGroupCharStream<'token>,
+    ) -> TokenScanner<'token> {
+        let mut scanner = TokenScanner::<'token> {
             sess,
             stream,
             j_start: 0,
@@ -41,7 +41,7 @@ impl<'lex> TokenScanner<'lex> {
     fn pass(&mut self) {
         self.stream.pass()
     }
-    fn token_value(&self) -> &'lex str {
+    fn token_value(&self) -> &'token str {
         self.stream.token_value_from(self.j_start)
     }
     fn is_top_digit(&self) -> bool {
@@ -69,14 +69,14 @@ impl<'lex> TokenScanner<'lex> {
             },
         }
     }
-    pub fn lex_tokens(&mut self) -> Result<(), ParserError> {
+    pub fn token_tokens(&mut self) -> Result<(), ParserError> {
         while !self.is_end() {
             if self.is_top_digit() {
-                self.lex_number()?
+                self.token_number()?
             } else if self.is_top_alphabetic_or_underline() {
-                self.lex_word()?
+                self.token_word()?
             } else if self.is_top_special() {
-                self.lex_special()?
+                self.token_special()?
             } else {
                 todo!();
             }
@@ -85,7 +85,7 @@ impl<'lex> TokenScanner<'lex> {
         assert!(self.tokens.len() >= 2);
         Ok(())
     }
-    fn lex_number(&mut self) -> Result<(), ParserError> {
+    fn token_number(&mut self) -> Result<(), ParserError> {
         while self.is_top_digit() {
             self.pass();
         }
@@ -106,7 +106,7 @@ impl<'lex> TokenScanner<'lex> {
             )))
         }
     }
-    fn lex_word(&mut self) -> Result<(), ParserError> {
+    fn token_word(&mut self) -> Result<(), ParserError> {
         while self.is_top_alphabetic_or_underline() || self.is_top_digit() || self.top() == '_' {
             self.pass();
         }
@@ -154,7 +154,7 @@ impl<'lex> TokenScanner<'lex> {
             Some((cls, _precedence)) => self.add_token(cls),
         }
     }
-    fn lex_special(&mut self) -> Result<(), ParserError> {
+    fn token_special(&mut self) -> Result<(), ParserError> {
         let c = self.top();
         self.pass();
         match c {

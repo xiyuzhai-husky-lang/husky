@@ -106,7 +106,7 @@ fn main_file_id(this: &dyn BasicFileQuery, module_file_id: FileId) -> Option<Fil
 }
 
 pub trait FileQuery: BasicFileQuery {
-    fn exists_file(&self, id: FileId) -> bool {
+    fn file_exists(&self, id: FileId) -> bool {
         match self.file_content(id) {
             FileContent::OnDisk(_) => true,
             FileContent::Live(_) => true,

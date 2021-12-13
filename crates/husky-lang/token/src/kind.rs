@@ -1,29 +1,4 @@
-use common::*;
-
-use text::{CharIter, GetTextRange, Indent, TextRange};
-
-use crate::{line_token_iter::LineTokenIter, *};
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct Token {
-    pub range: TextRange,
-    pub kind: TokenKind,
-}
-
-impl Token {
-    pub fn new(i: usize, start: usize, end: usize, kind: TokenKind) -> Token {
-        Token {
-            range: TextRange::new_same_line(i, start, end),
-            kind,
-        }
-    }
-}
-
-impl GetTextRange for Token {
-    fn get_text_range(&self) -> &TextRange {
-        &self.range
-    }
-}
+pub use crate::*;
 
 #[derive(Debug, PartialEq, Clone, Copy)]
 pub enum TokenKind {
@@ -32,6 +7,11 @@ pub enum TokenKind {
     Special(Special),
     I32Literal(i32),
     F32Literal(f32),
+}
+impl std::hash::Hash for TokenKind {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        core::mem::discriminant(self).hash(state);
+    }
 }
 impl Eq for TokenKind {}
 impl From<word::Word> for TokenKind {

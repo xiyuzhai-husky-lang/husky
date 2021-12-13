@@ -128,10 +128,10 @@ impl Indent {
     }
 }
 
-pub type CharIter<'lex_line> = std::iter::Peekable<Enumerate<Chars<'lex_line>>>;
+pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
 
-impl<'lex_line> From<&mut CharIter<'lex_line>> for Indent {
-    fn from(char_iter: &mut CharIter<'lex_line>) -> Self {
+impl<'token_line> From<&mut CharIter<'token_line>> for Indent {
+    fn from(char_iter: &mut CharIter<'token_line>) -> Self {
         loop {
             if let Some((j, c)) = char_iter.peek() {
                 if *c == ' ' {

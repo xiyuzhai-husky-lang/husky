@@ -272,7 +272,7 @@ mod input;
 pub mod output;
 mod receiver;
 mod scanner;
-pub fn lex_tokens(
+pub fn token_tokens(
     source: &HuskyFile,
     start: usize,
     end: usize,
@@ -280,6 +280,6 @@ pub fn lex_tokens(
 ) -> Result<output::TokenStream, ParserError> {
     let mut stream = input::TokenGroupCharStream::new(source, start, end);
     let mut scanner = scanner::TokenScanner::new(sess, &mut stream);
-    scanner.lex_tokens()?;
+    scanner.token_tokens()?;
     Ok(scanner.output())
 }
