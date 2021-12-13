@@ -24,7 +24,7 @@ impl TokenizedText {
     pub fn folded_iter(&self, start: usize) -> TokenGroupFoldedIter {
         TokenGroupFoldedIter {
             text: &self,
-            next_raw: start,
+            next_index: start,
             indent: self.line_groups[start].indent,
         }
     }
@@ -38,7 +38,7 @@ pub struct TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn lex(db: &dyn LexQuery, text: &str) -> Self {
+    pub(crate) fn token(db: &dyn TokenQuery, text: &str) -> Self {
         let mut token_scanner = TokenScanner::new(db);
         text.lines()
             .enumerate()
@@ -65,22 +65,43 @@ fn set_folding_ends(line_groups: &mut [TokenGroup]) {
 
 pub struct TokenGroupFoldedIter<'a> {
     text: &'a TokenizedText,
-    next_raw: usize,
+    next_index: usize,
     indent: Indent,
 }
 
 impl<'a> Iterator for TokenGroupFoldedIter<'a> {
-    type Item = &'a [Token];
+    type Item = (usize, &'a [Token]);
 
-    fn next(&mut self) -> Option<&'a [Token]> {
-        if self.next_raw >= self.text.line_groups.len() {
+    fn next(&mut self) -> Option<(usize, &'a [Token])> {
+        if self.next_index >= self.text.line_groups.len() {
             return None;
         }
-        if self.text.line_groups[self.next_raw].indent < self.indent {
+        if self.text.line_groups[usize::from(self.next_index)].indent < self.indent {
             return None;
         }
-        let line_group = &self.text.line_groups[self.next_raw];
-        self.next_raw = line_group.folding_end;
-        Some(&self.text.tokens[line_group.tokens.clone()])
+        let line_group = &self.text.line_groups[self.next_index];
+        let token_group_index = self.next_index;
+        self.next_index = line_group.folding_end;
+        Some((
+            token_group_index,
+            &self.text.tokens[line_group.tokens.clone()],
+        ))
+    }
+}
+
+impl<'a> TokenGroupFoldedIter<'a> {
+    pub fn children(&self) -> Option<TokenGroupFoldedIter<'a>> {
+        let next_raw = self.next_index + 1;
+        if next_raw < self.text.line_groups.len()
+            && self.text.line_groups[next_raw].indent < self.indent
+        {
+            Some(TokenGroupFoldedIter {
+                text: self.text,
+                next_index: self.next_index + 1,
+                indent: self.indent.child(),
+            })
+        } else {
+            None
+        }
     }
 }

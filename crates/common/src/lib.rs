@@ -34,7 +34,7 @@ pub enum SyntaxError {
 #[derive(Debug)]
 pub enum SemanticError {
     TypeResolveFailure,
-    EntityResolveFailure,
+    ScopeResolveFailure,
 }
 
 #[derive(Debug)]

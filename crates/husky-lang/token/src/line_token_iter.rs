@@ -1,19 +1,19 @@
 use text::CharIter;
 
-use crate::{token::TokenKind, *};
+use crate::*;
 
-pub(crate) struct LineTokenIter<'lex_line> {
-    db: &'lex_line dyn LexQuery,
+pub(crate) struct LineTokenIter<'token_line> {
+    db: &'token_line dyn TokenQuery,
     line_index: usize,
     buffer: String,
-    char_iter: CharIter<'lex_line>,
+    char_iter: CharIter<'token_line>,
 }
 
-impl<'lex_line> LineTokenIter<'lex_line> {
+impl<'token_line> LineTokenIter<'token_line> {
     pub fn new(
-        db: &'lex_line dyn LexQuery,
+        db: &'token_line dyn TokenQuery,
         line_index: usize,
-        mut char_iter: CharIter<'lex_line>,
+        mut char_iter: CharIter<'token_line>,
     ) -> (Indent, Self) {
         let mut buffer = String::new();
         buffer.reserve(100);
@@ -30,7 +30,7 @@ impl<'lex_line> LineTokenIter<'lex_line> {
     }
 }
 
-impl<'lex_line> LineTokenIter<'lex_line> {
+impl<'token_line> LineTokenIter<'token_line> {
     fn skip_whitespaces(&mut self) {
         while let Some((_, c)) = self.char_iter.peek() {
             if *c != ' ' {
@@ -184,7 +184,7 @@ impl<'lex_line> LineTokenIter<'lex_line> {
     }
 }
 
-impl<'lex_line> Iterator for LineTokenIter<'lex_line> {
+impl<'token_line> Iterator for LineTokenIter<'token_line> {
     type Item = Token;
 
     fn next(&mut self) -> Option<Self::Item> {

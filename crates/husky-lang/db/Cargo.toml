@@ -26,9 +26,8 @@ stdx = { path = "../../stdx", version = "0.0.0" }
 text_edit = { path = "../../utils/text_edit", version = "0.0.0" }
 salsa = "0.16.1"
 profile = { path = "../../utils/profile", version = "0.0.0" }
-lex = { path = "../lex", version = "0.0.0" }
-syntax = { path = "../syntax", version = "0.0.0" }
-semantic = { path = "../semantic", version = "0.0.0" }
+token = { path = "../token", version = "0.0.0" }
+scope = { path = "../scope", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }

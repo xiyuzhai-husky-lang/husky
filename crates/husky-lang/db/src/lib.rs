@@ -12,9 +12,8 @@ pub type FxIndexMap<K, V> =
 
 #[salsa::database(
     file::FileQueryStorage,
-    lex::LexQueryStorage,
-    syntax::SyntaxQueryStorage,
-    semantic::SemanticQueryStorage,
+    token::TokenQueryStorage,
+    scope::ScopeQueryStorage,
     diagnostic::DiagnosticQueryStorage
 )]
 #[derive(Default)]
@@ -26,6 +25,7 @@ pub struct HuskyLangDatabase {
     storage: ManuallyDrop<salsa::Storage<HuskyLangDatabase>>,
     file_interner: file::FileInterner,
     word_interner: word::WordInterner,
+    scope_interner: scope::ScopeInterner,
     live_docs: ARwLock<HashMap<file::FileId, Arc<String>>>,
 }
 impl Drop for HuskyLangDatabase {
@@ -56,7 +56,13 @@ impl file::LiveFiles for HuskyLangDatabase {
 }
 
 impl file::FileQuery for HuskyLangDatabase {}
-impl syntax::SyntaxQuery for HuskyLangDatabase {}
+
+impl scope::InternScope for HuskyLangDatabase {
+    fn provide_scope_interner(&self) -> &scope::ScopeInterner {
+        &self.scope_interner
+    }
+}
+impl scope::ScopeQuery for HuskyLangDatabase {}
 
 impl fmt::Debug for HuskyLangDatabase {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -92,6 +98,7 @@ impl salsa::ParallelDatabase for HuskyLangDatabase {
             storage: ManuallyDrop::new(self.storage.snapshot()),
             file_interner: self.file_interner.clone(),
             word_interner: self.word_interner.clone(),
+            scope_interner: self.scope_interner.clone(),
             live_docs: self.live_docs.clone(),
         })
     }

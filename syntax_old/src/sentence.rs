@@ -55,7 +55,7 @@ fn parse_sentence(
             } else {
                 let end = get_line_group_end(source, start);
                 let sentences = parse_sentence_block(source, end, indent + 2, sess, phrase_arena)?;
-                let tokens = token::lex_tokens(source, start, end, sess)?;
+                let tokens = token::token_tokens(source, start, end, sess)?;
                 let clause = Clause::parse_clause(sentences.len() > 0, tokens, phrase_arena)?;
                 let i_end = if sentences.len() > 0 {
                     sentences.last().unwrap().i_end

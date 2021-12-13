@@ -1,15 +1,15 @@
 use common::*;
 
-pub struct TokenGroupCharStream<'lex> {
+pub struct TokenGroupCharStream<'token> {
     i_end: usize,
     i: usize,
     j: usize,
-    source: &'lex HuskyFile,
+    source: &'token HuskyFile,
     _top: Option<char>,
-    iter: std::str::Chars<'lex>,
+    iter: std::str::Chars<'token>,
 }
-impl<'lex> TokenGroupCharStream<'lex> {
-    pub fn new(source: &'lex HuskyFile, i_start: usize, i_end: usize) -> TokenGroupCharStream {
+impl<'token> TokenGroupCharStream<'token> {
+    pub fn new(source: &'token HuskyFile, i_start: usize, i_end: usize) -> TokenGroupCharStream {
         let mut iter = source.lines[i_start].chars();
         let _top = iter.next();
         assert!(i_end <= source.lines.len());
@@ -38,10 +38,10 @@ impl<'lex> TokenGroupCharStream<'lex> {
     pub fn get_j(&self) -> usize {
         self.j
     }
-    // pub fn line(&self, i: usize) -> &'lex str {
+    // pub fn line(&self, i: usize) -> &'token str {
     //   todo!();
     // }
-    pub fn token_value_from<'b>(&'b self, j_start: usize) -> &'lex str {
+    pub fn token_value_from<'b>(&'b self, j_start: usize) -> &'token str {
         &self.source.lines[self.i][j_start..self.j]
     }
     pub fn pass(&mut self) -> () {

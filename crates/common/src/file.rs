@@ -8,8 +8,8 @@ use std::path::{Path, PathBuf};
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq)]
 pub struct Position {
-    pub i: usize,
-    pub j: usize,
+    pub i: u32,
+    pub j: u32,
 }
 
 #[derive(Clone, Copy, Eq, PartialEq)]

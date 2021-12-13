@@ -1,4 +1,4 @@
-use crate::{line_token_iter::LineTokenIter, token::TokenKind, tokenized_text::TokenGroup, *};
+use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 
 use text::Indent;
 
@@ -9,15 +9,15 @@ pub struct TokenizedLine {
 }
 
 #[derive(Debug)]
-pub(crate) struct TokenScanner<'lex> {
-    db: &'lex dyn LexQuery,
+pub(crate) struct TokenScanner<'token> {
+    db: &'token dyn TokenQuery,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
 }
 
-impl<'lex> TokenScanner<'lex> {
-    pub(crate) fn new(db: &'lex dyn LexQuery) -> Self {
+impl<'token> TokenScanner<'token> {
+    pub(crate) fn new(db: &'token dyn TokenQuery) -> Self {
         Self {
             db,
             tokens: vec![],
@@ -106,7 +106,7 @@ impl<'lex> TokenScanner<'lex> {
     }
 }
 
-impl<'lex> Into<TokenizedText> for TokenScanner<'lex> {
+impl<'token> Into<TokenizedText> for TokenScanner<'token> {
     fn into(mut self) -> TokenizedText {
         TokenizedText::new(self.produce_line_groups(), self.tokens, self.errors)
     }

@@ -1,0 +1,16 @@
+[package]
+edition = "2021"
+name = "opn"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+
+common = { path = "../../common", version = "0.0.0" }
+salsa = "0.16.1"
+file = { path = "../file", version = "0.0.0" }
+text = { path = "../text", version = "0.0.0" }
+word = { path = "../word", version = "0.0.0" }
+arena = { path = "../../data_structure/arena", version = "0.0.0"}

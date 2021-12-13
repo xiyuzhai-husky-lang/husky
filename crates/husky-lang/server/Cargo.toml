@@ -28,6 +28,6 @@ lsp-server = "0.5.2"
 salsa = "0.16.1"
 
 husky_lang_db = { path = "../db", version = "0.0.0"}
-syntax = { path = "../syntax", version = "0.0.0"}
+scope = { path = "../scope", version = "0.0.0"}
 file = { path = "../file", version = "0.0.0"}
 diagnostic = { path = "../diagnostic", version = "0.0.0"}

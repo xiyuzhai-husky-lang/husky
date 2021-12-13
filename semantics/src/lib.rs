@@ -3,20 +3,20 @@
 #![allow(unused_imports)]
 #![allow(warnings, unused)]
 pub mod defn;
-pub mod entity;
 pub mod ovld;
 pub mod project;
+pub mod scope;
 mod utils;
 
 struct Component {}
 enum ComponentVariant {
-    Entity,
+    Scope,
     Expr,
     Stmt,
 }
 
 pub use common::*;
-pub use entity::*;
 pub use ovld::*;
 pub use project::*;
+pub use scope::*;
 pub use syntax::*;
