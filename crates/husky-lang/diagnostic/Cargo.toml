@@ -9,3 +9,4 @@ text-size = "1.0.0"
 salsa = "0.16.1"
 common = { path = "../../common", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
+scope = { path = "../scope", version = "0.0.0" }

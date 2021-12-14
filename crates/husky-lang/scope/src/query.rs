@@ -1,50 +1,52 @@
 use crate::*;
 
-use file::FileId;
+use file::{FileId, FileResultArc};
 use word::Word;
 
-use std::sync::Arc;
+use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryStorage)]
 pub trait ScopeSalsaQuery: token::TokenQuery + InternScope {
-    fn subscopes(&self, scope_id: ScopeId) -> Arc<ScopeTable>;
+    fn subscopes(&self, scope_id: ScopeId) -> FileResultArc<ScopeTable>;
 
     fn scope_kind(&self, scope_id: ScopeId) -> Option<ScopeKind>;
 
     fn scope_source(&self, scope_id: ScopeId) -> Option<ScopeSource>;
 }
 
-fn subscopes(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<ScopeTable> {
-    Arc::new(if let Some(source) = this.scope_source(scope_id) {
+fn subscopes(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> FileResultArc<ScopeTable> {
+    if let Some(source) = this.scope_source(scope_id) {
         match source {
             ScopeSource::Builtin(_) => todo!(),
-            ScopeSource::File {
+            ScopeSource::WithinModule {
                 file_id,
                 token_group_index,
-            } => {
-                if let Some(text) = this.tokenized_text(file_id).as_ref().as_ref().ok() {
-                    if let Some(index) = token_group_index {
-                        if let Some(children) = text.folded_iter(index).children() {
-                            ScopeTable::parse(file_id, children)
-                        } else {
-                            ScopeTable::default()
-                        }
-                    } else {
-                        ScopeTable::parse(file_id, text.folded_iter(0))
-                    }
+            } => this.tokenized_text(file_id).map(|text| {
+                if let Some(children) = text.folded_iter(token_group_index).children() {
+                    Arc::new(ScopeTable::parse(file_id, children))
                 } else {
-                    ScopeTable::default()
+                    Arc::new(ScopeTable::empty())
                 }
-            }
+            }),
+            ScopeSource::Module { file_id } => this
+                .tokenized_text(file_id)
+                .map(|text| Arc::new(ScopeTable::parse(file_id, text.folded_iter(0)))),
         }
     } else {
-        ScopeTable::default()
-    })
+        todo!()
+        // ScopeTable::default()
+    }
 }
 
 fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeKind> {
     let scope = this.id_to_scope(scope_id);
     match scope.parent {
-        ScopeParent::Scope(parent) => this.subscopes(parent).scope_kind(scope.ident),
+        ScopeParent::Scope(parent) => this
+            .subscopes(parent)
+            .as_ref()
+            .as_ref()
+            .ok()
+            .map(|table| table.scope_kind(scope.ident))
+            .flatten(),
         ScopeParent::Package(_) => todo!(),
         ScopeParent::Root => todo!(),
     }
@@ -53,10 +55,15 @@ fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeKind
 fn scope_source(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeSource> {
     let scope = this.id_to_scope(scope_id);
     match scope.parent {
-        ScopeParent::Scope(parent) => this.subscopes(parent).scope_source(scope.ident),
-        ScopeParent::Package(main_file_id) => Some(ScopeSource::File {
+        ScopeParent::Scope(parent) => this
+            .subscopes(parent)
+            .as_ref()
+            .as_ref()
+            .ok()
+            .map(|table| table.scope_source(scope.ident))
+            .flatten(),
+        ScopeParent::Package(main_file_id) => Some(ScopeSource::Module {
             file_id: main_file_id,
-            token_group_index: None,
         }),
         ScopeParent::Root => todo!(),
     }
@@ -78,13 +85,15 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     fn collect_modules(&self, id: FileId) -> Vec<Module> {
         if let Some(module) = self.module_from_file_id(id) {
             let mut modules = vec![module];
-            modules.extend(
-                self.subscopes(module.scope_id)
-                    .submodules()
-                    .into_iter()
-                    .map(|ident| self.collect_modules(self.submodule_file_id(id, ident)))
-                    .flatten(),
-            );
+            self.subscopes(module.scope_id).ok().map(|table| {
+                modules.extend(
+                    table
+                        .submodules()
+                        .into_iter()
+                        .map(|ident| self.collect_modules(self.submodule_file_id(id, ident)))
+                        .flatten(),
+                )
+            });
             modules
         } else {
             vec![]
@@ -92,7 +101,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     }
 
     fn module_from_file_id(&self, id: FileId) -> Option<Module> {
-        let path = self.file_path(id);
+        let path: PathBuf = file::use_filepath(self, id, |pth| pth.into());
         if path.file_name().map(|s| s.to_string_lossy()) == Some("main.hsk".into()) {
             if let Some(package_root) = path.parent() {
                 if let Some(package_name) = package_root.file_name().map(|s| s.to_string_lossy()) {
@@ -124,7 +133,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     }
 
     fn submodule_file_id(&self, id: FileId, ident: Identifier) -> FileId {
-        let path = self.file_path(id);
+        // let path = self.file_id_to_path(id);
         todo!()
     }
 }

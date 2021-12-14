@@ -4,7 +4,7 @@ use crossbeam_channel::Sender;
 
 use super::Server;
 
-pub(crate) struct Communicator {
+pub(crate) struct ClientCommunicator {
     pub(crate) sender: Sender<lsp_server::Message>,
     pub(crate) req_queue: ReqQueue,
 }
@@ -12,9 +12,9 @@ pub(crate) struct Communicator {
 pub(crate) type ReqHandler = fn(&mut Server, lsp_server::Response);
 pub(crate) type ReqQueue = lsp_server::ReqQueue<(String, Instant), ReqHandler>;
 
-impl Communicator {
-    pub(super) fn new(sender: Sender<lsp_server::Message>) -> Communicator {
-        Communicator {
+impl ClientCommunicator {
+    pub(super) fn new(sender: Sender<lsp_server::Message>) -> ClientCommunicator {
+        ClientCommunicator {
             sender,
             req_queue: ReqQueue::default(),
         }

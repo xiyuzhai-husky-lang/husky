@@ -8,7 +8,7 @@ use lsp_types::{
     request::GotoDefinition, GotoDefinitionResponse, InitializeParams, ServerCapabilities,
 };
 
-use husky_lang_server::{init_connection, run_server, utils::from_json};
+use husky_lang_server::{event_loop, init_connection, utils::from_json};
 
 fn main() {
     if let Err(e) = try_main() {
@@ -25,7 +25,7 @@ fn try_main() -> Result<()> {
 
     init_connection(&connection)?;
 
-    run_server(connection)?;
+    event_loop(connection)?;
 
     io_threads.join()?;
 

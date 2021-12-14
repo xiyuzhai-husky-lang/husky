@@ -9,48 +9,82 @@ struct ScopeTableEntry {
     source: ScopeSource,
 }
 
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ScopeDefGrammar {
+    TokenGroupSizeAtLeastTwo,
+    FirstTokenShouldBeKeyword,
+    SecondTokenShouldBeIdentifier,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct ScopeDefError {
+    grammar_failed: ScopeDefGrammar,
+}
+
 impl ScopeTableEntry {
     pub fn parse(
         file_id: FileId,
         token_group_index: usize,
         token_group: &[token::Token],
-    ) -> Option<ScopeTableEntry> {
+    ) -> Result<ScopeTableEntry, Vec<ScopeDefError>> {
         if token_group.len() < 2 {
-            return None;
+            return Err(vec![ScopeDefError {
+                grammar_failed: ScopeDefGrammar::TokenGroupSizeAtLeastTwo,
+            }]);
         }
         match &token_group[0].kind {
             token::TokenKind::Keyword(keyword) => {
                 if let token::TokenKind::Identifier(ident) = token_group[1].kind {
                     if let Some(kind) = ScopeKind::new(*keyword) {
-                        return Some(ScopeTableEntry {
+                        return Ok(ScopeTableEntry {
                             ident,
                             kind,
                             source: ScopeSource::from_file(file_id, token_group_index),
                         });
                     }
                 }
-                return None;
+                return Err(vec![ScopeDefError {
+                    grammar_failed: ScopeDefGrammar::SecondTokenShouldBeIdentifier,
+                }]);
             }
-            _ => None,
+            _ => Err(vec![ScopeDefError {
+                grammar_failed: ScopeDefGrammar::FirstTokenShouldBeKeyword,
+            }]),
         }
     }
 }
 
-#[derive(Debug, Default, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ScopeTable {
     entries: Vec<ScopeTableEntry>,
+    errors: Vec<ScopeDefError>,
 }
 
 impl ScopeTable {
-    pub fn parse(file_id: FileId, token_groups: token::TokenGroupFoldedIter) -> ScopeTable {
-        ScopeTable {
-            entries: token_groups
-                .filter_map(|(index, token_group)| {
-                    ScopeTableEntry::parse(file_id, index, token_group)
-                })
-                .collect(),
+    pub fn empty() -> Self {
+        Self {
+            entries: Vec::new(),
+            errors: Vec::new(),
         }
     }
+
+    pub fn parse(file_id: FileId, token_groups: token::TokenGroupFoldedIter) -> Self {
+        let mut errors = vec![];
+        let entries = token_groups
+            .filter_map(|(index, token_group)| {
+                match ScopeTableEntry::parse(file_id, index, token_group) {
+                    Ok(_) => todo!(),
+                    Err(new_errors) => {
+                        errors.extend(new_errors);
+                        None
+                    }
+                }
+            })
+            .collect();
+        Self { entries, errors }
+    }
+}
+impl ScopeTable {
     pub fn submodules(&self) -> Vec<Identifier> {
         self.entries
             .iter()
@@ -63,12 +97,14 @@ impl ScopeTable {
             })
             .collect()
     }
+
     pub fn scope_source(&self, ident: Identifier) -> Option<ScopeSource> {
         self.entries
             .iter()
             .find(|entry| entry.ident == ident)
             .map(|entry| entry.source)
     }
+
     pub fn scope_kind(&self, ident: Identifier) -> Option<ScopeKind> {
         self.entries
             .iter()

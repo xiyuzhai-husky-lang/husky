@@ -1,40 +1,42 @@
+mod dispatcher;
 mod handlers;
+
 use common::*;
 
 use crate::{
     convert::from_lsp_types,
+    event_loop::dispatch::dispatcher::{NotificationDispatcher, RequestDispatcher},
     lsp_ext,
-    run_server::dispatch::{NotificationDispatcher, RequestDispatcher},
-    server::{Server, ServerControlSignal},
+    server::{Server, TaskSet},
 };
 
 use handlers::*;
 
-pub(crate) fn handle_lsp_msg(
+pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,
     msg: lsp_server::Message,
     loop_start: std::time::Instant,
-) -> Result<ServerControlSignal> {
+) -> Result<TaskSet> {
     match msg {
-        lsp_server::Message::Request(req) => handle_lsp_request(server, loop_start, req),
+        lsp_server::Message::Request(req) => dispatch_lsp_request(server, loop_start, req),
         lsp_server::Message::Notification(notif) => handle_lsp_notification(server, notif),
-        lsp_server::Message::Response(resp) => handle_lsp_request_complete(server, resp),
+        lsp_server::Message::Response(resp) => handle_lsp_response(server, resp),
     }
 }
 
-fn handle_lsp_request(
+fn dispatch_lsp_request(
     server: &mut Server,
     instant_when_received_request: std::time::Instant,
     req: lsp_server::Request,
-) -> Result<ServerControlSignal> {
-    server.comm.req_queue.incoming.register(
+) -> Result<TaskSet> {
+    server.client_comm.req_queue.incoming.register(
         req.id.clone(),
         (req.method.clone(), instant_when_received_request),
     );
     let mut dispatcher = RequestDispatcher {
         req: Some(req),
         server,
-        control_signal: ServerControlSignal::Normal,
+        control_signal: TaskSet::Nothing,
     };
     dispatcher
         .on_sync::<lsp_ext::OnEnter>(handle_on_enter)?
@@ -46,7 +48,6 @@ fn handle_lsp_request(
         .on::<lsp_ext::CodeActionResolveRequest>(handle_code_action_resolve)
         .on::<lsp_ext::HoverRequest>(handle_hover)
         .on::<lsp_ext::ExternalDocs>(handle_open_docs)
-        .on::<lsp_ext::OpenCargoToml>(handle_open_cargo_toml)
         .on::<lsp_ext::MoveItem>(handle_move_item)
         .on::<lsp_ext::WorkspaceSymbol>(handle_workspace_symbol)
         .on::<lsp_types::request::OnTypeFormatting>(handle_on_type_formatting)
@@ -74,7 +75,7 @@ fn handle_lsp_request(
         .on::<lsp_types::request::SemanticTokensRangeRequest>(handle_semantic_tokens_range)
         .on::<lsp_types::request::WillRenameFiles>(handle_will_rename_files)
         .on::<lsp_ext::Ssr>(handle_ssr)
-        .on_control::<lsp_types::request::Shutdown>(|_, _| ServerControlSignal::Shutdown)?
+        .on_control::<lsp_types::request::Shutdown>(|_, _| TaskSet::Shutdown)?
         .finish();
     Ok(dispatcher.control_signal)
 }
@@ -82,65 +83,71 @@ fn handle_lsp_request(
 fn handle_lsp_notification(
     server: &mut Server,
     notif: lsp_server::Notification,
-) -> Result<ServerControlSignal> {
-    NotificationDispatcher {
+) -> Result<TaskSet> {
+    let mut dispatcher = NotificationDispatcher {
         notif: Some(notif),
         server,
-    }
-    .on::<lsp_types::notification::Cancel>(|_this, params| {
-        ep!(params);
-        let _id: lsp_server::RequestId = match params.id {
-            lsp_types::NumberOrString::Number(id) => id.into(),
-            lsp_types::NumberOrString::String(id) => id.into(),
-        };
-        eprintln!("TODO: on::<lsp_types::notification::Cancel>");
-        // this.cancel(id);
-        // todo!();
-        Ok(())
-    })?
-    .on::<lsp_types::notification::WorkDoneProgressCancel>(|_this, _params| {
-        // Just ignore this. It is OK to continue sending progress
-        // notifications for this token, as the client can't know when
-        // we accepted notification.
-        Ok(())
-    })?
-    .on::<lsp_types::notification::DidOpenTextDocument>(handle_did_open_text_document)?
-    .on::<lsp_types::notification::DidChangeTextDocument>(|_this, _params| {
-        todo!();
-    })?
-    .on::<lsp_types::notification::DidCloseTextDocument>(|_this, _params| {
-        todo!();
-    })?
-    .on::<lsp_types::notification::DidSaveTextDocument>(|_this, _params| {
-        todo!();
-    })?
-    .on::<lsp_types::notification::DidChangeConfiguration>(|_this, _params| {
-        todo!();
-    })?
-    .on::<lsp_types::notification::DidChangeWatchedFiles>(|_this, _params| {
-        todo!();
-    })?
-    .finish();
-    return Ok(ServerControlSignal::Normal);
+        task: TaskSet::Nothing,
+    };
+    dispatcher
+        .on_sync::<lsp_types::notification::Cancel>(|_this, params| {
+            ep!(params);
+            let _id: lsp_server::RequestId = match params.id {
+                lsp_types::NumberOrString::Number(id) => id.into(),
+                lsp_types::NumberOrString::String(id) => id.into(),
+            };
+            eprintln!("TODO: on::<lsp_types::notification::Cancel>");
+            // this.cancel(id);
+            // todo!();
+            Ok(TaskSet::Nothing)
+        })?
+        .on_sync::<lsp_types::notification::WorkDoneProgressCancel>(|_this, _params| {
+            // Just ignore this. It is OK to continue sending progress
+            // notifications for this token, as the client can't know when
+            // we accepted notification.
+            Ok(TaskSet::Nothing)
+        })?
+        .on_sync::<lsp_types::notification::DidOpenTextDocument>(handle_did_open_text_document)?
+        .on_sync::<lsp_types::notification::DidChangeTextDocument>(|_this, _params| {
+            eprintln!("todo: lsp_types::notification::DidChangeTextDocument");
+            Ok(TaskSet::Nothing)
+        })?
+        .on_sync::<lsp_types::notification::DidCloseTextDocument>(|_this, _params| {
+            eprintln!("todo: lsp_types::notification::DidCloseTextDocument");
+            Ok(TaskSet::Nothing)
+        })?
+        .on_sync::<lsp_types::notification::DidSaveTextDocument>(|_this, _params| {
+            eprintln!("todo: lsp_types::notification::DidSaveTextDocument");
+            Ok(TaskSet::Nothing)
+        })?
+        .on_sync::<lsp_types::notification::DidChangeConfiguration>(|_this, _params| {
+            todo!();
+        })?
+        .on_sync::<lsp_types::notification::DidChangeWatchedFiles>(|_this, _params| {
+            todo!();
+        })?
+        .finish();
+    return Ok(dispatcher.task);
 
     fn handle_did_open_text_document(
         this: &mut Server,
         params: lsp_types::DidOpenTextDocumentParams,
-    ) -> Result<()> {
+    ) -> Result<TaskSet> {
         use file::LiveFiles;
         if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
             this.db
                 .set_live_doc_content(path, params.text_document.text);
         }
-        Ok(())
+        Ok(TaskSet::SendUpdates)
     }
 }
 
-fn handle_lsp_request_complete(
-    server: &mut Server,
-    response: lsp_server::Response,
-) -> Result<ServerControlSignal> {
-    let handler = server.comm.req_queue.outgoing.complete(response.id.clone());
+fn handle_lsp_response(server: &mut Server, response: lsp_server::Response) -> Result<TaskSet> {
+    let handler = server
+        .client_comm
+        .req_queue
+        .outgoing
+        .complete(response.id.clone());
     handler(server, response);
-    Ok(ServerControlSignal::Normal)
+    Ok(TaskSet::Nothing)
 }
