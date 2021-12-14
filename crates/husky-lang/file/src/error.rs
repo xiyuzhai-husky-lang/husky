@@ -1,6 +1,7 @@
 use std::{
     error::Error,
     fmt::{Debug, Display},
+    sync::Arc,
 };
 
 #[derive(PartialEq, Eq, Clone, Copy)]
@@ -25,3 +26,5 @@ impl Debug for FileError {
     }
 }
 impl Error for FileError {}
+
+pub type FileResultArc<T> = Result<Arc<T>, FileError>;

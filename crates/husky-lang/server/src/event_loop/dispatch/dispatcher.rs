@@ -9,7 +9,7 @@ use salsa::ParallelDatabase;
 type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_lang_db::HuskyLangDatabase>;
 
 use crate::{
-    server::{Server, ServerControlSignal},
+    server::{Server, TaskSet},
     utils::from_json,
 };
 
@@ -30,7 +30,7 @@ use crate::{
 pub(crate) struct RequestDispatcher<'a> {
     pub(crate) req: Option<lsp_server::Request>,
     pub(crate) server: &'a mut Server,
-    pub(crate) control_signal: ServerControlSignal,
+    pub(crate) control_signal: TaskSet,
 }
 
 impl<'a> RequestDispatcher<'a> {
@@ -55,21 +55,21 @@ impl<'a> RequestDispatcher<'a> {
         });
         let response = thread_result_to_response::<R>(id, result);
 
-        self.server.comm.respond(response);
+        self.server.client_comm.respond(response);
         Ok(self)
     }
 
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_control<R>(
         &mut self,
-        f: fn(HuskyLangDatabaseSnapshot, R::Params) -> ServerControlSignal,
+        f: fn(HuskyLangDatabaseSnapshot, R::Params) -> TaskSet,
     ) -> Result<&mut Self>
     where
         R: lsp_types::request::Request + 'static,
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        let (_id, params, panic_context) = match self.parse::<R>() {
+        let (id, params, panic_context) = match self.parse::<R>() {
             Some(it) => it,
             None => return Ok(self),
         };
@@ -96,18 +96,20 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + Send + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        let (_id, params, panic_context) = match self.parse::<R>() {
+        let (id, params, panic_context) = match self.parse::<R>() {
             Some(it) => it,
             None => return self,
         };
         self.server.threadpool.execute({
             let snapshot = self.server.db.snapshot();
-            move || match panic::catch_unwind(move || {
-                let _pctx = stdx::panic_context::enter(panic_context);
-                f(snapshot, params)
-            }) {
-                Ok(_) => todo!(),
-                Err(_) => todo!(),
+            let sender = self.server.event_loop_comm.sender.clone();
+            move || {
+                let result = panic::catch_unwind(move || {
+                    let _pctx = stdx::panic_context::enter(panic_context);
+                    f(snapshot, params)
+                });
+                let response = thread_result_to_response::<R>(id, result);
+                sender.send(TaskSet::Respond(response));
             }
         });
 
@@ -122,7 +124,7 @@ impl<'a> RequestDispatcher<'a> {
                 lsp_server::ErrorCode::MethodNotFound as i32,
                 "unknown request".to_string(),
             );
-            self.server.comm.respond(response);
+            self.server.client_comm.respond(response);
         }
     }
 
@@ -149,7 +151,7 @@ impl<'a> RequestDispatcher<'a> {
                     lsp_server::ErrorCode::InvalidParams as i32,
                     err.to_string(),
                 );
-                self.server.comm.respond(response);
+                self.server.client_comm.respond(response);
                 None
             }
         }
@@ -203,10 +205,14 @@ where
 pub(crate) struct NotificationDispatcher<'a> {
     pub(crate) notif: Option<lsp_server::Notification>,
     pub(crate) server: &'a mut Server,
+    pub(crate) task: TaskSet,
 }
 
 impl<'a> NotificationDispatcher<'a> {
-    pub(crate) fn on<N>(&mut self, f: fn(&mut Server, N::Params) -> Result<()>) -> Result<&mut Self>
+    pub(crate) fn on_sync<N>(
+        &mut self,
+        f: fn(&mut Server, N::Params) -> Result<TaskSet>,
+    ) -> Result<&mut Self>
     where
         N: lsp_types::notification::Notification + 'static,
         N::Params: DeserializeOwned + Send + 'static,
@@ -222,7 +228,7 @@ impl<'a> NotificationDispatcher<'a> {
                 return Ok(self);
             }
         };
-        f(self.server, params)?;
+        self.task.merge(f(self.server, params)?);
         Ok(self)
     }
 

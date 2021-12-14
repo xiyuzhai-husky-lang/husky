@@ -123,7 +123,20 @@ where
         return result;
     }
 
-    pub fn thing(&self, word: Id) -> T {
+    pub fn use_thing<F, Q, S>(&self, word: Id, f: F) -> S
+    where
+        F: Fn(&Q) -> S,
+        T: AsRef<Q>,
+        Q: ?Sized,
+    {
+        self.internal
+            .read(|internal| f(internal.bimap.get_by_right(&word).expect("yes").as_ref()))
+    }
+
+    pub fn clone_thing(&self, word: Id) -> T
+    where
+        T: Clone,
+    {
         self.internal
             .read(|internal| internal.bimap.get_by_right(&word).expect("yes").clone())
     }

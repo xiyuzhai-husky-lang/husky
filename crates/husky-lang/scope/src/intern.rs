@@ -12,6 +12,6 @@ pub trait InternScope {
         self.provide_scope_interner().id(scope)
     }
     fn id_to_scope(&self, id: ScopeId) -> Scope {
-        self.provide_scope_interner().thing(id)
+        self.provide_scope_interner().clone_thing(id)
     }
 }

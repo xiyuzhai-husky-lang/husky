@@ -1,4 +1,4 @@
-pub use error::FileError;
+pub use error::{FileError, FileResultArc};
 
 use std::sync::Arc;
 
@@ -46,13 +46,30 @@ pub trait InternFile {
         self.provide_file_interner().id(path)
     }
 
-    fn file_path(&self, id: FileId) -> PathBuf {
-        self.provide_file_interner().thing(id)
-    }
-
     fn file_id_iter(&self) -> interner::IdIter<FileId> {
         self.provide_file_interner().id_iter()
     }
+}
+
+pub fn use_filepath<F, Q>(this: &(impl InternFile + ?Sized), id: FileId, f: F) -> Q
+where
+    F: Fn(&Path) -> Q,
+{
+    this.provide_file_interner().use_thing(id, f)
+}
+
+pub fn snapshot_use_filepath<Database, F, Q>(
+    this: &salsa::Snapshot<Database>,
+    id: FileId,
+    f: F,
+) -> Q
+where
+    F: Fn(&Path) -> Q,
+    Database: salsa::ParallelDatabase + InternFile,
+{
+    use std::ops::Deref;
+
+    this.deref().provide_file_interner().use_thing(id, f)
 }
 
 pub trait LiveFiles: InternFile {
@@ -81,11 +98,9 @@ fn file_content(this: &dyn BasicFileQuery, id: FileId) -> FileContent {
         .read(|live_docs| match live_docs.get(&id) {
             Some(text) => FileContent::Live(text.clone()),
             None => {
-                let pth = this.file_path(id);
+                let pth: PathBuf = use_filepath(this, id, |pth| pth.into());
                 if pth.is_file() {
-                    FileContent::OnDisk(Arc::new(
-                        std::fs::read_to_string(this.file_path(id)).expect("io failure"),
-                    ))
+                    FileContent::OnDisk(Arc::new(std::fs::read_to_string(pth).expect("io failure")))
                 } else {
                     FileContent::NonExistent
                 }
@@ -94,8 +109,8 @@ fn file_content(this: &dyn BasicFileQuery, id: FileId) -> FileContent {
 }
 
 fn main_file_id(this: &dyn BasicFileQuery, module_file_id: FileId) -> Option<FileId> {
-    let file_path = this.file_path(module_file_id);
-    for ancestor in file_path.ancestors() {
+    let pth: PathBuf = use_filepath(this, module_file_id, |pth| pth.into());
+    for ancestor in pth.ancestors() {
         let id = this.file_id(ancestor.with_file_name("main.hsk"));
         match this.file_content(id) {
             FileContent::OnDisk(_) | FileContent::Live(_) => return Some(id),

@@ -75,8 +75,11 @@ pub trait InternWord {
     fn string_to_word(&self, raw: &str) -> Word {
         self.provide_word_interner().id_by_ref(raw)
     }
+}
 
-    fn word_to_string(&self, word: Word) -> String {
-        self.provide_word_interner().thing(word)
-    }
+pub fn use_string<F, Q>(this: &(impl InternWord + ?Sized), word: Word, f: F) -> Q
+where
+    F: Fn(&str) -> Q,
+{
+    this.provide_word_interner().use_thing(word, f)
 }
