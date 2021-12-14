@@ -6,14 +6,16 @@ use word::Word;
 use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryStorage)]
 pub trait ScopeSalsaQuery: token::TokenQuery + InternScope {
-    fn subscopes(&self, scope_id: ScopeId) -> FileResultArc<ScopeTable>;
+    fn subscope_table(&self, scope_id: ScopeId) -> FileResultArc<SubscopeTable>;
+
+    fn subscope_ids(&self, scope_id: ScopeId) -> Arc<Vec<ScopeId>>;
 
     fn scope_kind(&self, scope_id: ScopeId) -> Option<ScopeKind>;
 
     fn scope_source(&self, scope_id: ScopeId) -> Option<ScopeSource>;
 }
 
-fn subscopes(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> FileResultArc<ScopeTable> {
+fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> FileResultArc<SubscopeTable> {
     if let Some(source) = this.scope_source(scope_id) {
         match source {
             ScopeSource::Builtin(_) => todo!(),
@@ -22,14 +24,14 @@ fn subscopes(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> FileResultArc<Sco
                 token_group_index,
             } => this.tokenized_text(file_id).map(|text| {
                 if let Some(children) = text.folded_iter(token_group_index).children() {
-                    Arc::new(ScopeTable::parse(file_id, children))
+                    Arc::new(SubscopeTable::parse(file_id, children))
                 } else {
-                    Arc::new(ScopeTable::empty())
+                    Arc::new(SubscopeTable::empty())
                 }
             }),
             ScopeSource::Module { file_id } => this
                 .tokenized_text(file_id)
-                .map(|text| Arc::new(ScopeTable::parse(file_id, text.folded_iter(0)))),
+                .map(|text| Arc::new(SubscopeTable::parse(file_id, text.folded_iter(0)))),
         }
     } else {
         todo!()
@@ -37,11 +39,23 @@ fn subscopes(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> FileResultArc<Sco
     }
 }
 
+fn subscope_ids(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<Vec<ScopeId>> {
+    Arc::new(if let Some(table) = this.subscope_table(scope_id).ok() {
+        table
+            .subscopes(scope_id)
+            .into_iter()
+            .map(|scope| this.scope_to_id(scope))
+            .collect()
+    } else {
+        Vec::new()
+    })
+}
+
 fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeKind> {
     let scope = this.id_to_scope(scope_id);
     match scope.parent {
         ScopeParent::Scope(parent) => this
-            .subscopes(parent)
+            .subscope_table(parent)
             .as_ref()
             .as_ref()
             .ok()
@@ -56,7 +70,7 @@ fn scope_source(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeSo
     let scope = this.id_to_scope(scope_id);
     match scope.parent {
         ScopeParent::Scope(parent) => this
-            .subscopes(parent)
+            .subscope_table(parent)
             .as_ref()
             .as_ref()
             .ok()
@@ -70,7 +84,7 @@ fn scope_source(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeSo
 }
 
 pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
-    fn subscope(&self, scope: ScopeKind, word: Word) -> ScopeKind {
+    fn subscope(&self, scope: ScopeId, word: Word) -> ScopeId {
         todo!()
     }
 
@@ -85,7 +99,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     fn collect_modules(&self, id: FileId) -> Vec<Module> {
         if let Some(module) = self.module_from_file_id(id) {
             let mut modules = vec![module];
-            self.subscopes(module.scope_id).ok().map(|table| {
+            self.subscope_table(module.scope_id).ok().map(|table| {
                 modules.extend(
                     table
                         .submodules()

@@ -12,10 +12,7 @@ pub(crate) fn send_updates(snapshot: &HuskyLangDatabase, comm: &ClientCommunicat
     snapshot.all_modules().into_iter().for_each(|module| {
         snapshot.diagnostic_reserve(module).drain(|diagnostics| {
             ep!(diagnostics.len());
-            let diagnostics = diagnostics
-                .into_iter()
-                .map(|d| convert::to_lsp_types::to_diagnostic(d))
-                .collect();
+            let diagnostics = diagnostics.into_iter().map(|d| d.into()).collect();
             if let Some(scope_source) = snapshot.deref().scope_source(module.scope_id) {
                 let file_id = match scope_source {
                     scope::ScopeSource::Builtin(_) => todo!(),

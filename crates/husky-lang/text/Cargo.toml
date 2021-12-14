@@ -7,5 +7,6 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
+lsp-types = { version = "0.91", features = ["proposed"] }
 
 common = { path = "../../common", version = "0.0.0" }

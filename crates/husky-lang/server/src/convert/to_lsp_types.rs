@@ -1,68 +1,45 @@
 //! Conversion of husky-lang-server specific types to lsp_types equivalents.
 #![allow(warnings, dead_code)]
+use std::path::{self, Path};
+
 use crate::lsp_ext;
 use common::*;
-
-pub(crate) fn to_diagnostic_severity(
-    severity: diagnostic::Severity,
-) -> lsp_types::DiagnosticSeverity {
-    match severity {
-        diagnostic::Severity::Error => lsp_types::DiagnosticSeverity::ERROR,
-        diagnostic::Severity::WeakWarning => lsp_types::DiagnosticSeverity::HINT,
-    }
-}
-
-pub(crate) fn to_diagnostic(diagnostic: diagnostic::Diagnostic) -> lsp_types::Diagnostic {
-    todo!()
-    // lsp_types::Diagnostic {
-    //     range: range(&line_map, diagnostic.range),
-    //     severity: Some(to_diagnostic_severity(diagnostic.severity)),
-    //     code: Some(lsp_types::NumberOrString::String(
-    //         diagnostic.code.as_str().to_string(),
-    //     )),
-    //     code_description: None,
-    //     source: Some("husky-lang-server".to_string()),
-    //     message: diagnostic.message,
-    //     related_information: None,
-    //     tags: None,
-    //     data: None,
-    // }
-}
 
 /// Returns a `Url` object from a given path, will lowercase drive letters if present.
 /// This will only happen when processing windows paths.
 ///
 /// When processing non-windows path, this is essentially the same as `Url::from_file_path`.
-pub(crate) fn url_from_abs_path(_path: &std::path::Path) -> lsp_types::Url {
-    todo!()
-    // let url = lsp_types::Url::from_file_path(path).unwrap();
-    // match path.as_ref().components().next() {
-    //     Some(path::Component::Prefix(prefix))
-    //         if matches!(
-    //             prefix.kind(),
-    //             path::Prefix::Disk(_) | path::Prefix::VerbatimDisk(_)
-    //         ) =>
-    //     {
-    //         // Need to lowercase driver letter
-    //     }
-    //     _ => return url,
-    // }
+pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
+    let url = lsp_types::Url::from_file_path(path).unwrap();
+    match path.components().next() {
+        Some(path::Component::Prefix(prefix))
+            if matches!(
+                prefix.kind(),
+                path::Prefix::Disk(_) | path::Prefix::VerbatimDisk(_)
+            ) =>
+        {
+            // Need to lowercase driver letter
+        }
+        _ => return url,
+    }
 
-    // let driver_letter_range = {
-    //     let (scheme, drive_letter, _rest) = match url.as_str().splitn(3, ':').collect_tuple() {
-    //         Some(it) => it,
-    //         None => return url,
-    //     };
-    //     let start = scheme.len() + ':'.len_utf8();
-    //     start..(start + drive_letter.len())
-    // };
+    let driver_letter_range = {
+        use itertools::Itertools;
 
-    // // Note: lowercasing the `path` itself doesn't help, the `Url::parse`
-    // // machinery *also* canonicalizes the drive letter. So, just massage the
-    // // string in place.
-    // let mut url: String = url.into();
-    // url[driver_letter_range].make_ascii_lowercase();
-    // lsp_types::Url::parse(&url).unwrap()
+        let (scheme, drive_letter, _rest) = match url.as_str().splitn(3, ':').collect_tuple() {
+            Some(it) => it,
+            None => return url,
+        };
+        let start = scheme.len() + ':'.len_utf8();
+        start..(start + drive_letter.len())
+    };
+
+    // Note: lowercasing the `path` itself doesn't help, the `Url::parse`
+    // machinery *also* canonicalizes the drive letter. So, just massage the
+    // string in place.
+    let mut url: String = url.into();
+    url[driver_letter_range].make_ascii_lowercase();
+    lsp_types::Url::parse(&url).unwrap()
 }
 impl From<lsp_ext::SnippetWorkspaceEdit> for lsp_types::WorkspaceEdit {
     fn from(snippet_workspace_edit: lsp_ext::SnippetWorkspaceEdit) -> lsp_types::WorkspaceEdit {

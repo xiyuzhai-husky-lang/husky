@@ -6,34 +6,52 @@ mod severity;
 
 pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
-pub use severity::Severity;
+pub use severity::DiagnosticSeverity;
 
 use std::sync::Arc;
 
-use common::*;
+use text::TextRange;
 
-use text_size::{TextRange, TextSize};
+use common::*;
 
 use collect::collect_diagnostics;
 use reserver::DiagnosticReserve;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {
-    pub severity: Severity,
-    pub range: TextRange,
-    pub message: String,
-    pub code: String,
-    pub kind: DiagnosticKind,
+    severity: DiagnosticSeverity,
+    range: TextRange,
+    message: String,
+    code: String,
+    kind: DiagnosticKind,
 }
 
-impl Diagnostic {
-    pub fn todo() -> Diagnostic {
-        Diagnostic {
-            severity: Severity::Error,
-            range: TextRange::new(TextSize::from(0), TextSize::from(10)),
-            message: "todo".into(),
-            code: "todo".into(),
-            kind: DiagnosticKind::Todo,
+impl From<&scope::ScopeDefError> for Diagnostic {
+    fn from(error: &scope::ScopeDefError) -> Self {
+        Self {
+            severity: DiagnosticSeverity::Error,
+            range: error.range.clone(),
+            message: "messagetodo".into(),
+            code: "codetodo".into(),
+            kind: DiagnosticKind::ScopeDefError,
+        }
+    }
+}
+
+impl Into<lsp_types::Diagnostic> for Diagnostic {
+    fn into(self) -> lsp_types::Diagnostic {
+        lsp_types::Diagnostic {
+            range: self.range.into(),
+            severity: Some(self.severity.into()),
+            code: Some(lsp_types::NumberOrString::String(
+                self.code.as_str().to_string(),
+            )),
+            code_description: None,
+            source: Some("husky-lang-server".to_string()),
+            message: self.message,
+            related_information: None,
+            tags: None,
+            data: None,
         }
     }
 }

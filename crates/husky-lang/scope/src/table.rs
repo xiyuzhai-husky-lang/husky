@@ -3,22 +3,10 @@ use crate::*;
 use word::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-struct ScopeTableEntry {
+pub struct ScopeTableEntry {
     ident: Identifier,
     kind: ScopeKind,
     source: ScopeSource,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ScopeDefGrammar {
-    TokenGroupSizeAtLeastTwo,
-    FirstTokenShouldBeKeyword,
-    SecondTokenShouldBeIdentifier,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ScopeDefError {
-    grammar_failed: ScopeDefGrammar,
 }
 
 impl ScopeTableEntry {
@@ -29,6 +17,7 @@ impl ScopeTableEntry {
     ) -> Result<ScopeTableEntry, Vec<ScopeDefError>> {
         if token_group.len() < 2 {
             return Err(vec![ScopeDefError {
+                range: token_group[0].range.clone(),
                 grammar_failed: ScopeDefGrammar::TokenGroupSizeAtLeastTwo,
             }]);
         }
@@ -44,10 +33,12 @@ impl ScopeTableEntry {
                     }
                 }
                 return Err(vec![ScopeDefError {
+                    range: token_group[1].range.clone(),
                     grammar_failed: ScopeDefGrammar::SecondTokenShouldBeIdentifier,
                 }]);
             }
             _ => Err(vec![ScopeDefError {
+                range: token_group[0].range.clone(),
                 grammar_failed: ScopeDefGrammar::FirstTokenShouldBeKeyword,
             }]),
         }
@@ -55,12 +46,12 @@ impl ScopeTableEntry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ScopeTable {
+pub struct SubscopeTable {
     entries: Vec<ScopeTableEntry>,
     errors: Vec<ScopeDefError>,
 }
 
-impl ScopeTable {
+impl SubscopeTable {
     pub fn empty() -> Self {
         Self {
             entries: Vec::new(),
@@ -84,7 +75,8 @@ impl ScopeTable {
         Self { entries, errors }
     }
 }
-impl ScopeTable {
+
+impl SubscopeTable {
     pub fn submodules(&self) -> Vec<Identifier> {
         self.entries
             .iter()
@@ -110,5 +102,23 @@ impl ScopeTable {
             .iter()
             .find(|entry| entry.ident == ident)
             .map(|entry| entry.kind)
+    }
+}
+
+impl SubscopeTable {
+    pub fn entry_iter(&self) -> core::slice::Iter<ScopeTableEntry> {
+        self.entries.iter()
+    }
+    pub fn error_iter(&self) -> core::slice::Iter<ScopeDefError> {
+        self.errors.iter()
+    }
+    pub fn subscopes(&self, parent_scope_id: ScopeId) -> Vec<Scope> {
+        self.entries
+            .iter()
+            .map(|entry| Scope {
+                ident: entry.ident,
+                parent: ScopeParent::Scope(parent_scope_id),
+            })
+            .collect()
     }
 }
