@@ -1,44 +1,17 @@
-use std::num::NonZeroU16;
 use std::{iter::Enumerate, str::Chars};
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
-pub struct Row(NonZeroU16);
-impl From<u32> for Row {
-    fn from(raw: u32) -> Self {
-        unsafe {
-            Row(NonZeroU16::new_unchecked(
-                <u32 as TryInto<u16>>::try_into(raw).expect("success") + 1,
-            ))
-        }
-    }
-}
+pub struct Row(u32);
 impl From<usize> for Row {
     fn from(raw: usize) -> Self {
-        unsafe {
-            Row(NonZeroU16::new_unchecked(
-                <usize as TryInto<u16>>::try_into(raw).expect("success") + 1,
-            ))
-        }
+        Row(<usize as TryInto<u32>>::try_into(raw).expect("success"))
     }
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
-pub struct Column(NonZeroU16);
-impl From<u32> for Column {
-    fn from(raw: u32) -> Self {
-        unsafe {
-            Column(NonZeroU16::new_unchecked(
-                <u32 as TryInto<u16>>::try_into(raw).expect("success") + 1,
-            ))
-        }
-    }
-}
+pub struct Column(u32);
 impl From<usize> for Column {
     fn from(raw: usize) -> Self {
-        unsafe {
-            Column(NonZeroU16::new_unchecked(
-                <usize as TryInto<u16>>::try_into(raw).expect("success") + 1,
-            ))
-        }
+        Column(<usize as TryInto<u32>>::try_into(raw).expect("success"))
     }
 }
 
@@ -54,6 +27,12 @@ impl From<(usize, usize)> for TextPosition {
             row: pair.0.into(),
             col: pair.1.into(),
         }
+    }
+}
+
+impl Into<lsp_types::Position> for TextPosition {
+    fn into(self) -> lsp_types::Position {
+        lsp_types::Position::new(self.row.0, self.col.0)
     }
 }
 
@@ -77,6 +56,13 @@ impl From<((usize, usize), (usize, usize))> for TextRange {
         }
     }
 }
+
+impl Into<lsp_types::Range> for TextRange {
+    fn into(self) -> lsp_types::Range {
+        lsp_types::Range::new(self.start.into(), self.end.into())
+    }
+}
+
 pub trait GetTextRange {
     fn get_text_range(&self) -> &TextRange;
 }

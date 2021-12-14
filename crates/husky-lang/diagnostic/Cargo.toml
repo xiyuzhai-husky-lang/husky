@@ -4,9 +4,10 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-text-size = "1.0.0"
-
 salsa = "0.16.1"
+lsp-types = { version = "0.91", features = ["proposed"] }
+
 common = { path = "../../common", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 scope = { path = "../scope", version = "0.0.0" }
+text = { path = "../text", version = "0.0.0" }

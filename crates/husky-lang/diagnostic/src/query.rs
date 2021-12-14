@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::query_group(DiagnosticQueryStorage)]
-pub trait DiagnosticQuery {
+pub trait DiagnosticQuery: scope::ScopeQuery {
     fn diagnostic_reserve(&self, module: scope::Module) -> Arc<DiagnosticReserve>;
 }
 

@@ -6,12 +6,13 @@ mod query;
 mod table;
 
 pub use builtin::BuiltinScope;
+pub use error::{ScopeDefError, ScopeDefGrammar};
 use file::FileId;
 pub use intern::{InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
 pub use module::Module;
 pub use query::{ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery};
-pub use table::ScopeTable;
+pub use table::SubscopeTable;
 
 use word::Identifier;
 
@@ -19,6 +20,12 @@ use word::Identifier;
 pub struct Scope {
     ident: Identifier,
     parent: ScopeParent,
+}
+
+impl Scope {
+    pub fn new(ident: Identifier, parent: ScopeParent) -> Scope {
+        Scope { ident, parent }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -48,3 +55,5 @@ impl ScopeSource {
         }
     }
 }
+
+mod error;
