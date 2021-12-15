@@ -15,10 +15,15 @@ impl From<usize> for Column {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(PartialEq, Eq, PartialOrd, Ord, Clone)]
 pub struct TextPosition {
     row: Row,
     col: Column,
+}
+impl std::fmt::Debug for TextPosition {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{:?}:{:?}", self.row.0, self.col.0))
+    }
 }
 
 impl From<(usize, usize)> for TextPosition {
@@ -36,10 +41,15 @@ impl Into<lsp_types::Position> for TextPosition {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(PartialEq, Eq, PartialOrd, Ord, Clone)]
 pub struct TextRange {
     start: TextPosition,
     end: TextPosition,
+}
+impl std::fmt::Debug for TextRange {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{:?}..{:?}", self.start, self.end))
+    }
 }
 
 impl TextRange {
@@ -95,6 +105,9 @@ impl From<&usize> for Indent {
 }
 
 impl Indent {
+    pub fn get_raw(&self) -> u16 {
+        self.raw
+    }
     pub fn empty() -> Indent {
         u16::MAX.into()
     }

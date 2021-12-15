@@ -1,17 +1,18 @@
 use text::CharIter;
+use word::WordInterner;
 
 use crate::*;
 
-pub(crate) struct LineTokenIter<'token_line> {
-    db: &'token_line dyn TokenQuery,
+pub(crate) struct LineTokenIter<'token_line, 'lex: 'token_line> {
+    db: &'lex WordInterner,
     line_index: usize,
     buffer: String,
     char_iter: CharIter<'token_line>,
 }
 
-impl<'token_line> LineTokenIter<'token_line> {
+impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     pub fn new(
-        db: &'token_line dyn TokenQuery,
+        word_interner: &'lex WordInterner,
         line_index: usize,
         mut char_iter: CharIter<'token_line>,
     ) -> (Indent, Self) {
@@ -21,7 +22,7 @@ impl<'token_line> LineTokenIter<'token_line> {
         (
             indent,
             Self {
-                db,
+                db: word_interner,
                 line_index,
                 buffer,
                 char_iter,
@@ -30,7 +31,7 @@ impl<'token_line> LineTokenIter<'token_line> {
     }
 }
 
-impl<'token_line> LineTokenIter<'token_line> {
+impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     fn skip_whitespaces(&mut self) {
         while let Some((_, c)) = self.char_iter.peek() {
             if *c != ' ' {
@@ -75,7 +76,7 @@ impl<'token_line> LineTokenIter<'token_line> {
     }
 
     fn word(&mut self) -> word::Word {
-        let word = self.db.string_to_word(&self.buffer);
+        let word = self.db.id_by_ref(&self.buffer);
         self.buffer.clear();
         word
     }
@@ -184,7 +185,7 @@ impl<'token_line> LineTokenIter<'token_line> {
     }
 }
 
-impl<'token_line> Iterator for LineTokenIter<'token_line> {
+impl<'token_line, 'lex: 'token_line> Iterator for LineTokenIter<'token_line, 'lex> {
     type Item = Token;
 
     fn next(&mut self) -> Option<Self::Item> {

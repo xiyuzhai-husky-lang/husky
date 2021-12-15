@@ -22,7 +22,7 @@ pub struct Diagnostic {
     severity: DiagnosticSeverity,
     range: TextRange,
     message: String,
-    code: String,
+    code: &'static str,
     kind: DiagnosticKind,
 }
 
@@ -32,7 +32,7 @@ impl From<&scope::ScopeDefError> for Diagnostic {
             severity: DiagnosticSeverity::Error,
             range: error.range.clone(),
             message: "messagetodo".into(),
-            code: "codetodo".into(),
+            code: error.code(),
             kind: DiagnosticKind::ScopeDefError,
         }
     }
@@ -43,9 +43,7 @@ impl Into<lsp_types::Diagnostic> for Diagnostic {
         lsp_types::Diagnostic {
             range: self.range.into(),
             severity: Some(self.severity.into()),
-            code: Some(lsp_types::NumberOrString::String(
-                self.code.as_str().to_string(),
-            )),
+            code: Some(lsp_types::NumberOrString::String(self.code.into())),
             code_description: None,
             source: Some("husky-lang-server".to_string()),
             message: self.message,

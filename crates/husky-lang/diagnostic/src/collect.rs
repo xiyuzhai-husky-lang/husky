@@ -26,10 +26,6 @@ fn collect_module_def_diagnostics(
     this: &dyn DiagnosticQuery,
     scope: scope::ScopeId,
 ) -> Vec<Diagnostic> {
-    eprintln!(
-        "{}:{} todo collect_module_def_diagnostics!",
-        file!(),
-        line!()
-    );
+    msg_once!("todo collect_module_def_diagnostics!");
     Vec::new()
 }

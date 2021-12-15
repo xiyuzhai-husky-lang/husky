@@ -69,7 +69,7 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        let (id, params, panic_context) = match self.parse::<R>() {
+        let (_id, params, panic_context) = match self.parse::<R>() {
             Some(it) => it,
             None => return Ok(self),
         };
@@ -109,7 +109,7 @@ impl<'a> RequestDispatcher<'a> {
                     f(snapshot, params)
                 });
                 let response = thread_result_to_response::<R>(id, result);
-                sender.send(TaskSet::Respond(response));
+                sender.send(TaskSet::Respond(response)).expect("ok");
             }
         });
 

@@ -10,6 +10,7 @@ description = "Generic LSP server scaffold."
 
 common = { path = "../../common", version = "0.0.0" }
 salsa = "0.16.1"
+test-data = { path = "../test_data", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }

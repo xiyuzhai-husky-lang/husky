@@ -1,18 +1,34 @@
 #[macro_export]
 macro_rules! p {
-  ($($v:expr),*) => {println!("{}{}:{}{}:{} {}",
-  common::show::GREEN,
-  file!(),
-  common::show::YELLOW,
-  line!(),
-  common::show::RESET,
-  show!($($v),*))};
+  ($($v:expr),*) => {println!("{}\n    src: {}{}:{}{}.{}",
+    show!($($v),*),
+    common::show::GREEN,
+    file!(),
+    common::show::YELLOW,
+    line!(),
+    common::show::RESET
+  )};
 }
 
 #[macro_export]
 macro_rules! ep {
-  ($($v:expr),*) => {eprintln!("{}:{} {}",
+  ($($v:expr),*) => {eprintln!("{}\n    src: {}:{}",
+  common::show::eshow!($($v),*),
   file!(),
-  line!(),
-  common::show::eshow!($($v),*))};
+  line!())};
+}
+
+#[macro_export]
+macro_rules! ep_once {
+  ($($v:expr),*) => {common::do_once(||eprintln!("{}\n\t\tsrc: {}:{}",
+  common::show::eshow!($($v),*),
+  file!(),
+  line!()))};
+}
+
+#[macro_export]
+macro_rules! msg_once {
+    ($msg:expr) => {
+        common::do_once(|| eprintln!("[message] {}\n\t\tsrc: {}:{}", $msg, file!(), line!()))
+    };
 }

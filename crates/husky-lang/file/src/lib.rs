@@ -1,13 +1,20 @@
+mod error;
+mod intern;
+mod line_map;
+mod query;
+mod utils;
+
 pub use error::{FileError, FileResultArc};
+pub use intern::{
+    new_file_interner, snapshot_use_filepath, use_filepath, FileId, FileInterner, InternFile,
+};
+pub use query::{FileContentQuery, FileQuery, FileQueryStorage, FileSalsaQuery, LiveFiles};
 
 use std::sync::Arc;
 
-mod error;
+use stdx::sync::ARwLock;
 
 use common::*;
-use interner::Interner;
-use itertools::Itertools;
-use stdx::sync::ARwLock;
 
 #[derive(Clone, Copy, Debug)]
 pub struct FilePosition {
@@ -34,115 +41,4 @@ pub enum FileContent {
     Live(Arc<String>),
     Deleted,
     NonExistent,
-}
-
-pub type FileInterner = Interner<PathBuf>;
-pub type FileId = interner::BasicId<PathBuf>;
-
-pub trait InternFile {
-    fn provide_file_interner(&self) -> &FileInterner;
-
-    fn file_id(&self, path: PathBuf) -> FileId {
-        self.provide_file_interner().id(path)
-    }
-
-    fn file_id_iter(&self) -> interner::IdIter<FileId> {
-        self.provide_file_interner().id_iter()
-    }
-}
-
-pub fn use_filepath<F, Q>(this: &(impl InternFile + ?Sized), id: FileId, f: F) -> Q
-where
-    F: Fn(&Path) -> Q,
-{
-    this.provide_file_interner().use_thing(id, f)
-}
-
-pub fn snapshot_use_filepath<Database, F, Q>(
-    this: &salsa::Snapshot<Database>,
-    id: FileId,
-    f: F,
-) -> Q
-where
-    F: Fn(&Path) -> Q,
-    Database: salsa::ParallelDatabase + InternFile,
-{
-    use std::ops::Deref;
-
-    this.deref().provide_file_interner().use_thing(id, f)
-}
-
-pub trait LiveFiles: InternFile {
-    fn get_live_docs(&self) -> &ARwLock<HashMap<FileId, Arc<String>>>;
-    fn did_change_source(&mut self, id: FileId);
-
-    fn set_live_doc_content(&mut self, path: PathBuf, content: String) {
-        let id = self.file_id(path);
-        self.get_live_docs()
-            .write(|live_docs| live_docs.insert(id, Arc::new(content)));
-        self.did_change_source(id);
-    }
-}
-
-#[salsa::query_group(FileQueryStorage)]
-pub trait BasicFileQuery: salsa::Database + std::fmt::Debug + LiveFiles {
-    fn file_content(&self, id: FileId) -> FileContent;
-
-    fn main_file_id(&self, module_file_id: FileId) -> Option<FileId>;
-}
-
-fn file_content(this: &dyn BasicFileQuery, id: FileId) -> FileContent {
-    this.salsa_runtime()
-        .report_synthetic_read(salsa::Durability::LOW);
-    this.get_live_docs()
-        .read(|live_docs| match live_docs.get(&id) {
-            Some(text) => FileContent::Live(text.clone()),
-            None => {
-                let pth: PathBuf = use_filepath(this, id, |pth| pth.into());
-                if pth.is_file() {
-                    FileContent::OnDisk(Arc::new(std::fs::read_to_string(pth).expect("io failure")))
-                } else {
-                    FileContent::NonExistent
-                }
-            }
-        })
-}
-
-fn main_file_id(this: &dyn BasicFileQuery, module_file_id: FileId) -> Option<FileId> {
-    let pth: PathBuf = use_filepath(this, module_file_id, |pth| pth.into());
-    for ancestor in pth.ancestors() {
-        let id = this.file_id(ancestor.with_file_name("main.hsk"));
-        match this.file_content(id) {
-            FileContent::OnDisk(_) | FileContent::Live(_) => return Some(id),
-            FileContent::Deleted | FileContent::NonExistent => (),
-        }
-    }
-    None
-}
-
-pub trait FileQuery: BasicFileQuery {
-    fn file_exists(&self, id: FileId) -> bool {
-        match self.file_content(id) {
-            FileContent::OnDisk(_) => true,
-            FileContent::Live(_) => true,
-            FileContent::Deleted => false,
-            FileContent::NonExistent => false,
-        }
-    }
-
-    fn all_main_files(&self) -> Vec<FileId> {
-        self.file_id_iter()
-            .filter_map(|id| self.main_file_id(id))
-            .unique()
-            .collect()
-    }
-
-    fn text(&self, id: FileId) -> Option<Arc<String>> {
-        match self.file_content(id) {
-            FileContent::OnDisk(text) => Some(text),
-            FileContent::Live(text) => Some(text),
-            FileContent::Deleted => None,
-            FileContent::NonExistent => None,
-        }
-    }
 }

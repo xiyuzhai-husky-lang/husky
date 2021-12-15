@@ -1,5 +1,6 @@
 use std::sync::{Arc, RwLock};
 
+#[derive(Debug)]
 pub struct ARwLock<T> {
     inner: Arc<RwLock<T>>,
 }
@@ -22,6 +23,13 @@ impl<T> ARwLock<T> {
         F: FnOnce(&mut T) -> S,
     {
         return f(&mut self.inner.write().unwrap());
+    }
+
+    pub fn clone_to_arc(&self) -> Arc<T>
+    where
+        T: Clone,
+    {
+        self.read(|t| Arc::new(t.clone()))
     }
 }
 

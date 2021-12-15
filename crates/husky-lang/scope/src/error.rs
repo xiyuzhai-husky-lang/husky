@@ -10,5 +10,26 @@ pub struct ScopeDefError {
 pub enum ScopeDefGrammar {
     TokenGroupSizeAtLeastTwo,
     FirstTokenShouldBeKeyword,
-    SecondTokenShouldBeIdentifier,
+    NonMainSecondTokenShouldBeIdentifier,
+    TokenGroupOfSizeTwoShouldBeMain,
+}
+
+macro_rules! build_error_code_gen {
+    ($grammar_failed: expr, $($item:ident), *) => {{
+        match $grammar_failed {
+            $(ScopeDefGrammar::$item => concat!("grammar failed: ScopeDefGrammar::", stringify!($item))),*
+        }
+    }};
+}
+
+impl ScopeDefError {
+    pub fn code(&self) -> &'static str {
+        build_error_code_gen!(
+            self.grammar_failed,
+            TokenGroupSizeAtLeastTwo,
+            FirstTokenShouldBeKeyword,
+            NonMainSecondTokenShouldBeIdentifier,
+            TokenGroupOfSizeTwoShouldBeMain
+        )
+    }
 }

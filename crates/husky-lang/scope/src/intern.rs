@@ -15,3 +15,7 @@ pub trait InternScope {
         self.provide_scope_interner().clone_thing(id)
     }
 }
+
+pub fn new_scope_interner() -> ScopeInterner {
+    ScopeInterner::new(vec![])
+}

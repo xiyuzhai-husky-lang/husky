@@ -4,45 +4,40 @@ use word::Keyword;
 pub enum ScopeKind {
     Module,
     Type,
+    Routine,
     TemplateType,
-    TemplateFunc,
-    Func,
-    Pattern,
-    Auto,
-    Template,
+    TemplateRoutine,
 }
 
 impl ScopeKind {
     pub(crate) fn new(keyword: Keyword) -> Option<ScopeKind> {
         match keyword {
             Keyword::Use => todo!(),
-            Keyword::Pub => todo!(),
             Keyword::Mod => Some(ScopeKind::Module),
-            Keyword::Def => todo!(),
-            Keyword::Fn => todo!(),
-            Keyword::Func => todo!(),
-            Keyword::Pattern => todo!(),
-            Keyword::Struct => todo!(),
-            Keyword::Rename => todo!(),
-            Keyword::Enum => todo!(),
-            Keyword::Props => todo!(),
-            Keyword::Tmpl => todo!(),
-            Keyword::Main => todo!(),
-            Keyword::Let => todo!(),
-            Keyword::Var => todo!(),
-            Keyword::If => todo!(),
-            Keyword::Elif => todo!(),
-            Keyword::Else => todo!(),
-            Keyword::Switch => todo!(),
-            Keyword::Case => todo!(),
-            Keyword::DeFault => todo!(),
-            Keyword::For => todo!(),
-            Keyword::Ext => todo!(),
-            Keyword::ForExt => todo!(),
-            Keyword::While => todo!(),
-            Keyword::Do => todo!(),
-            Keyword::Break => todo!(),
-            Keyword::Return => todo!(),
+            Keyword::Main => Some(ScopeKind::Routine),
+            Keyword::Test => Some(ScopeKind::Routine),
+            Keyword::Proc => Some(ScopeKind::Routine),
+            Keyword::Func => Some(ScopeKind::Routine),
+            Keyword::Pattern => Some(ScopeKind::Routine),
+            Keyword::Struct => Some(ScopeKind::Type),
+            Keyword::Rename => Some(ScopeKind::Type),
+            Keyword::Enum => Some(ScopeKind::Type),
+            Keyword::Props => Some(ScopeKind::Type),
+            Keyword::Let
+            | Keyword::Var
+            | Keyword::If
+            | Keyword::Elif
+            | Keyword::Else
+            | Keyword::Switch
+            | Keyword::Case
+            | Keyword::DeFault
+            | Keyword::For
+            | Keyword::Ext
+            | Keyword::ForExt
+            | Keyword::While
+            | Keyword::Do
+            | Keyword::Break
+            | Keyword::Return => None,
         }
     }
 }
