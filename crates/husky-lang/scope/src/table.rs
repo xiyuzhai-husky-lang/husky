@@ -1,10 +1,10 @@
 use crate::*;
 
-use word::Identifier;
+use word::{Identifier, Keyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ScopeTableEntry {
-    ident: Identifier,
+    ident: Option<Identifier>,
     kind: ScopeKind,
     source: ScopeSource,
 }
@@ -14,33 +14,47 @@ impl ScopeTableEntry {
         file_id: FileId,
         token_group_index: usize,
         token_group: &[token::Token],
-    ) -> Result<ScopeTableEntry, Vec<ScopeDefError>> {
+    ) -> Result<ScopeTableEntry, ScopeDefError> {
         if token_group.len() < 2 {
-            return Err(vec![ScopeDefError {
+            return Err(ScopeDefError {
                 range: token_group[0].range.clone(),
                 grammar_failed: ScopeDefGrammar::TokenGroupSizeAtLeastTwo,
-            }]);
+            });
+        }
+        if token_group.len() == 2 {
+            if token_group[0].kind == token::TokenKind::Keyword(Keyword::Main) {
+                return Ok(ScopeTableEntry {
+                    ident: None,
+                    kind: ScopeKind::Routine,
+                    source: ScopeSource::from_file(file_id, token_group_index),
+                });
+            } else {
+                return Err(ScopeDefError {
+                    range: token_group[0].range.clone(),
+                    grammar_failed: ScopeDefGrammar::TokenGroupOfSizeTwoShouldBeMain,
+                });
+            }
         }
         match &token_group[0].kind {
             token::TokenKind::Keyword(keyword) => {
                 if let token::TokenKind::Identifier(ident) = token_group[1].kind {
                     if let Some(kind) = ScopeKind::new(*keyword) {
                         return Ok(ScopeTableEntry {
-                            ident,
+                            ident: Some(ident),
                             kind,
                             source: ScopeSource::from_file(file_id, token_group_index),
                         });
                     }
                 }
-                return Err(vec![ScopeDefError {
+                return Err(ScopeDefError {
                     range: token_group[1].range.clone(),
-                    grammar_failed: ScopeDefGrammar::SecondTokenShouldBeIdentifier,
-                }]);
+                    grammar_failed: ScopeDefGrammar::NonMainSecondTokenShouldBeIdentifier,
+                });
             }
-            _ => Err(vec![ScopeDefError {
+            _ => Err(ScopeDefError {
                 range: token_group[0].range.clone(),
                 grammar_failed: ScopeDefGrammar::FirstTokenShouldBeKeyword,
-            }]),
+            }),
         }
     }
 }
@@ -64,9 +78,9 @@ impl SubscopeTable {
         let entries = token_groups
             .filter_map(|(index, token_group)| {
                 match ScopeTableEntry::parse(file_id, index, token_group) {
-                    Ok(_) => todo!(),
-                    Err(new_errors) => {
-                        errors.extend(new_errors);
+                    Ok(entry) => Some(entry),
+                    Err(new_error) => {
+                        errors.push(new_error);
                         None
                     }
                 }
@@ -86,6 +100,7 @@ impl SubscopeTable {
                 } else {
                     None
                 }
+                .flatten()
             })
             .collect()
     }
@@ -93,14 +108,14 @@ impl SubscopeTable {
     pub fn scope_source(&self, ident: Identifier) -> Option<ScopeSource> {
         self.entries
             .iter()
-            .find(|entry| entry.ident == ident)
+            .find(|entry| entry.ident == Some(ident))
             .map(|entry| entry.source)
     }
 
     pub fn scope_kind(&self, ident: Identifier) -> Option<ScopeKind> {
         self.entries
             .iter()
-            .find(|entry| entry.ident == ident)
+            .find(|entry| entry.ident == Some(ident))
             .map(|entry| entry.kind)
     }
 }
@@ -115,9 +130,11 @@ impl SubscopeTable {
     pub fn subscopes(&self, parent_scope_id: ScopeId) -> Vec<Scope> {
         self.entries
             .iter()
-            .map(|entry| Scope {
-                ident: entry.ident,
-                parent: ScopeParent::Scope(parent_scope_id),
+            .filter_map(|entry| {
+                entry.ident.map(|ident| Scope {
+                    ident,
+                    parent: ScopeParent::Scope(parent_scope_id),
+                })
             })
             .collect()
     }

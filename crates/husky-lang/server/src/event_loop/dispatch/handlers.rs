@@ -52,7 +52,7 @@ pub(crate) fn handle_document_symbol(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::DocumentSymbolParams,
 ) -> Result<Option<lsp_types::DocumentSymbolResponse>> {
-    eprintln!("TODO: handle_document_symbol");
+    msg_once!("todo handle_document_symbol");
     Ok(None)
 }
 
@@ -115,7 +115,7 @@ pub(crate) fn handle_goto_definition(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::GotoDefinitionParams,
 ) -> Result<Option<lsp_types::GotoDefinitionResponse>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    eprintln!("{}:{} todo goto definition!", file!(), line!());
     Ok(None)
 }
 
@@ -147,7 +147,7 @@ pub(crate) fn handle_completion(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    eprintln!("{}:{} todo handle completion!", file!(), line!());
     Ok(None)
 }
 
@@ -155,7 +155,7 @@ pub(crate) fn handle_completion_resolve(
     _snapshot: HuskyLangDatabaseSnapshot,
     mut _original_completion: CompletionItem,
 ) -> Result<CompletionItem> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle completion resolve");
     Ok(CompletionItem::default())
 }
 
@@ -163,7 +163,7 @@ pub(crate) fn handle_folding_range(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
-    eprintln!("TODO: handle_folding_range");
+    msg_once!("todo handle folding range");
     Ok(None)
     // let _p = profile::span("handle_folding_range");
     // let file_id = from_lsp_types::to_file_id(&snapshot, &params.text_document.uri)?;
@@ -182,7 +182,7 @@ pub(crate) fn handle_signature_help(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::SignatureHelpParams,
 ) -> Result<Option<lsp_types::SignatureHelp>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle signature help!");
     Ok(None)
 }
 
@@ -190,6 +190,7 @@ pub(crate) fn handle_hover(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_ext::HoverParams,
 ) -> Result<Option<lsp_ext::Hover>> {
+    msg_once!("todo handle hover!");
     Ok(None)
 }
 
@@ -197,7 +198,7 @@ pub(crate) fn handle_prepare_rename(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::TextDocumentPositionParams,
 ) -> Result<Option<PrepareRenameResponse>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle prepare rename!");
     Ok(None)
 }
 
@@ -205,7 +206,7 @@ pub(crate) fn handle_rename(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: RenameParams,
 ) -> Result<Option<WorkspaceEdit>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle rename!");
     Ok(None)
 }
 
@@ -213,7 +214,7 @@ pub(crate) fn handle_references(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::ReferenceParams,
 ) -> Result<Option<Vec<Location>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle references!");
     Ok(None)
 }
 
@@ -221,7 +222,7 @@ pub(crate) fn handle_formatting(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: DocumentFormattingParams,
 ) -> Result<Option<Vec<lsp_types::TextEdit>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle formatting!");
     Ok(None)
 }
 
@@ -229,7 +230,7 @@ pub(crate) fn handle_range_formatting(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::DocumentRangeFormattingParams,
 ) -> Result<Option<Vec<lsp_types::TextEdit>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle range formatting!");
     Ok(None)
 }
 
@@ -237,7 +238,7 @@ pub(crate) fn handle_code_action(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::CodeActionParams,
 ) -> Result<Option<Vec<lsp_ext::CodeAction>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle code action!");
     Ok(None)
 }
 
@@ -245,7 +246,7 @@ pub(crate) fn handle_code_action_resolve(
     _snapshot: HuskyLangDatabaseSnapshot,
     mut _code_action: lsp_ext::CodeAction,
 ) -> Result<lsp_ext::CodeAction> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle code action resolve!");
     Ok(lsp_ext::CodeAction::default())
 }
 
@@ -260,7 +261,7 @@ pub(crate) fn handle_code_lens_resolve(
     _snapshot: HuskyLangDatabaseSnapshot,
     _code_lens: CodeLens,
 ) -> Result<CodeLens> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle code lens resolve!");
     todo!()
 }
 
@@ -268,7 +269,7 @@ pub(crate) fn handle_document_highlight(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::DocumentHighlightParams,
 ) -> Result<Option<Vec<lsp_types::DocumentHighlight>>> {
-    eprintln!("{}:{} todo handle_document_highlight!", file!(), line!());
+    msg_once!("todo handle document highlight!");
     Ok(None)
 }
 
@@ -276,7 +277,7 @@ pub(crate) fn handle_ssr(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_ext::SsrParams,
 ) -> Result<lsp_types::WorkspaceEdit> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle ssr");
     todo!()
 }
 
@@ -284,7 +285,7 @@ pub(crate) fn handle_inlay_hints(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: InlayHintsParams,
 ) -> Result<Vec<InlayHint>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle inlay hints");
     todo!()
 }
 
@@ -292,7 +293,7 @@ pub(crate) fn handle_call_hierarchy_prepare(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: CallHierarchyPrepareParams,
 ) -> Result<Option<Vec<CallHierarchyItem>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle call hierarchy prepare");
     Ok(None)
 }
 
@@ -300,7 +301,7 @@ pub(crate) fn handle_call_hierarchy_incoming(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: CallHierarchyIncomingCallsParams,
 ) -> Result<Option<Vec<CallHierarchyIncomingCall>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle call hierarchy incoming");
     Ok(None)
 }
 
@@ -308,7 +309,7 @@ pub(crate) fn handle_call_hierarchy_outgoing(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: CallHierarchyOutgoingCallsParams,
 ) -> Result<Option<Vec<CallHierarchyOutgoingCall>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle call hierarchy outgoing");
     Ok(None)
 }
 
@@ -316,7 +317,7 @@ pub(crate) fn handle_semantic_tokens_full(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    eprintln!("handle_semantic_tokens_full");
+    msg_once!("todo handle semantic tokens full");
     Ok(None)
     // let _p = profile::span("handle_semantic_tokens_full");
 
@@ -343,7 +344,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle semantic tokens full delta");
     Ok(None)
 }
 
@@ -351,7 +352,7 @@ pub(crate) fn handle_semantic_tokens_range(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
-    eprintln!("TODO: semantic tokens range");
+    msg_once!("todo semantic tokens range");
     Ok(None)
     // eprintln!("{}:{} todo!", file!(), line!()); Ok(None)
     // let _p = profile::span("handle_semantic_tokens_range");
@@ -379,6 +380,6 @@ pub(crate) fn handle_move_item(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_ext::MoveItemParams,
 ) -> Result<Vec<lsp_ext::SnippetTextEdit>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle move item");
     todo!()
 }

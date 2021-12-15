@@ -90,7 +90,7 @@ fn handle_lsp_notification(
         task: TaskSet::Nothing,
     };
     dispatcher
-        .on_sync::<lsp_types::notification::Cancel>(|_this, params| {
+        .on_sync::<lsp_types::notification::Cancel>(|_server, params| {
             ep!(params);
             let _id: lsp_server::RequestId = match params.id {
                 lsp_types::NumberOrString::Number(id) => id.into(),
@@ -101,45 +101,51 @@ fn handle_lsp_notification(
             // todo!();
             Ok(TaskSet::Nothing)
         })?
-        .on_sync::<lsp_types::notification::WorkDoneProgressCancel>(|_this, _params| {
+        .on_sync::<lsp_types::notification::WorkDoneProgressCancel>(|_server, _params| {
             // Just ignore this. It is OK to continue sending progress
             // notifications for this token, as the client can't know when
             // we accepted notification.
             Ok(TaskSet::Nothing)
         })?
-        .on_sync::<lsp_types::notification::DidOpenTextDocument>(handle_did_open_text_document)?
-        .on_sync::<lsp_types::notification::DidChangeTextDocument>(|_this, _params| {
-            eprintln!("todo: lsp_types::notification::DidChangeTextDocument");
-            Ok(TaskSet::Nothing)
+        .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
+            use file::LiveFiles;
+            if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
+                server
+                    .db
+                    .set_live_file_text(path, params.text_document.text);
+            }
+            Ok(TaskSet::SendUpdates)
         })?
-        .on_sync::<lsp_types::notification::DidCloseTextDocument>(|_this, _params| {
+        .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
+            use file::LiveFiles;
+            eprintln!("did change text document with params:\n{:?}", params);
+            if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
+                server
+                    .db
+                    .apply_live_file_changes(path, params.content_changes);
+            }
+            Ok(TaskSet::SendUpdates)
+        })?
+        .on_sync::<lsp_types::notification::DidCloseTextDocument>(|_server, _params| {
             eprintln!("todo: lsp_types::notification::DidCloseTextDocument");
+            Ok(TaskSet::SendUpdates)
+        })?
+        .on_sync::<lsp_types::notification::DidSaveTextDocument>(|server, params| {
+            eprintln!("did save text document with params:\n{:?}", params);
+            // if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
+            //     ep!(params.text);
+            //     // server.db.set_live_doc_text(path, params.text);
+            // }
             Ok(TaskSet::Nothing)
         })?
-        .on_sync::<lsp_types::notification::DidSaveTextDocument>(|_this, _params| {
-            eprintln!("todo: lsp_types::notification::DidSaveTextDocument");
-            Ok(TaskSet::Nothing)
-        })?
-        .on_sync::<lsp_types::notification::DidChangeConfiguration>(|_this, _params| {
+        .on_sync::<lsp_types::notification::DidChangeConfiguration>(|_server, _params| {
             todo!();
         })?
-        .on_sync::<lsp_types::notification::DidChangeWatchedFiles>(|_this, _params| {
+        .on_sync::<lsp_types::notification::DidChangeWatchedFiles>(|_server, _params| {
             todo!();
         })?
         .finish();
     return Ok(dispatcher.task);
-
-    fn handle_did_open_text_document(
-        this: &mut Server,
-        params: lsp_types::DidOpenTextDocumentParams,
-    ) -> Result<TaskSet> {
-        use file::LiveFiles;
-        if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
-            this.db
-                .set_live_doc_content(path, params.text_document.text);
-        }
-        Ok(TaskSet::SendUpdates)
-    }
 }
 
 fn handle_lsp_response(server: &mut Server, response: lsp_server::Response) -> Result<TaskSet> {

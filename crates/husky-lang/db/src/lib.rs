@@ -1,10 +1,15 @@
+#[cfg(test)]
+mod tests;
+
+pub use file::{FileQuery, InternFile, LiveFiles};
+pub use scope::{InternScope, ScopeQuery};
+pub use word::InternWord;
+
 use common::*;
 
-use std::{fmt, mem::ManuallyDrop, sync::Arc};
+use std::{fmt, mem::ManuallyDrop};
 
 use stdx::sync::ARwLock;
-
-use file;
 
 pub type FxIndexSet<T> = indexmap::IndexSet<T, std::hash::BuildHasherDefault<rustc_hash::FxHasher>>;
 pub type FxIndexMap<K, V> =
@@ -16,7 +21,6 @@ pub type FxIndexMap<K, V> =
     scope::ScopeQueryStorage,
     diagnostic::DiagnosticQueryStorage
 )]
-#[derive(Default)]
 pub struct HuskyLangDatabase {
     // We use `ManuallyDrop` here because every codegen unit that contains a
     // `&RootDatabase -> &dyn OtherDatabase` cast will instantiate its drop glue in the vtable,
@@ -26,7 +30,18 @@ pub struct HuskyLangDatabase {
     file_interner: file::FileInterner,
     word_interner: word::WordInterner,
     scope_interner: scope::ScopeInterner,
-    live_docs: ARwLock<HashMap<file::FileId, Arc<String>>>,
+    live_docs: ARwLock<HashMap<file::FileId, ARwLock<String>>>,
+}
+impl Default for HuskyLangDatabase {
+    fn default() -> Self {
+        Self {
+            storage: Default::default(),
+            file_interner: file::new_file_interner(),
+            word_interner: word::new_word_interner(),
+            scope_interner: scope::new_scope_interner(),
+            live_docs: Default::default(),
+        }
+    }
 }
 impl Drop for HuskyLangDatabase {
     fn drop(&mut self) {
@@ -35,18 +50,18 @@ impl Drop for HuskyLangDatabase {
         }
     }
 }
-impl file::InternFile for HuskyLangDatabase {
+impl InternFile for HuskyLangDatabase {
     fn provide_file_interner(&self) -> &file::FileInterner {
         &self.file_interner
     }
 }
-impl word::InternWord for HuskyLangDatabase {
+impl InternWord for HuskyLangDatabase {
     fn provide_word_interner(&self) -> &word::WordInterner {
         &self.word_interner
     }
 }
-impl file::LiveFiles for HuskyLangDatabase {
-    fn get_live_docs(&self) -> &ARwLock<HashMap<file::FileId, Arc<String>>> {
+impl LiveFiles for HuskyLangDatabase {
+    fn get_live_files(&self) -> &ARwLock<HashMap<file::FileId, ARwLock<String>>> {
         &self.live_docs
     }
 
@@ -55,14 +70,14 @@ impl file::LiveFiles for HuskyLangDatabase {
     }
 }
 
-impl file::FileQuery for HuskyLangDatabase {}
+impl FileQuery for HuskyLangDatabase {}
 
-impl scope::InternScope for HuskyLangDatabase {
+impl InternScope for HuskyLangDatabase {
     fn provide_scope_interner(&self) -> &scope::ScopeInterner {
         &self.scope_interner
     }
 }
-impl scope::ScopeQuery for HuskyLangDatabase {}
+impl ScopeQuery for HuskyLangDatabase {}
 
 impl fmt::Debug for HuskyLangDatabase {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -83,10 +98,10 @@ impl HuskyLangDatabase {
 
     pub fn update_lru_capacity(&mut self, lru_capacity: Option<usize>) {
         const DEFAULT_LRU_CAP: usize = 128;
-
-        let lru_capacity = lru_capacity.unwrap_or(DEFAULT_LRU_CAP);
-        // todo!();
-        // salsa::ParseQuery
+        eprintln!("TODO: update_lru_capacity");
+        // let lru_capacity = lru_capacity.unwrap_or(DEFAULT_LRU_CAP);
+        // // todo!();
+        // file::FileQuery
         //     .in_db_mut(self)
         //     .set_lru_capacity(lru_capacity);
     }
@@ -102,10 +117,6 @@ impl salsa::ParallelDatabase for HuskyLangDatabase {
             live_docs: self.live_docs.clone(),
         })
     }
-}
-
-pub struct HuskyLangDatabaseSnapshot {
-    snapshot: salsa::Snapshot<HuskyLangDatabase>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]

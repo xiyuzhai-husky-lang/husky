@@ -4,6 +4,8 @@ mod line_token_iter;
 mod query;
 mod scanner;
 mod special;
+#[cfg(test)]
+mod tests;
 mod tokenized_text;
 
 pub use error::LexError;
@@ -17,10 +19,16 @@ use common::*;
 use scanner::TokenScanner;
 use text::{GetTextRange, Indent, TextRange};
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct Token {
     pub range: TextRange,
     pub kind: TokenKind,
+}
+
+impl Debug for Token {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        f.write_fmt(format_args!("Token {{{:?}, {:?}}}", self.kind, self.range))
+    }
 }
 
 impl Token {

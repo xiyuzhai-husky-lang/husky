@@ -12,4 +12,5 @@ doctest = false
 text-size = "1.0.0"
 bimap = "0.6.1"
 
+common = { path = "../../common", version = "0.0.0" }
 interner = { path = "../../data_structure/interner", version = "0.0.0" }

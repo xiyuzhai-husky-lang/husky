@@ -5,12 +5,27 @@ use husky_lang_db::HuskyLangDatabase;
 use crate::{convert, server::client_comm::ClientCommunicator};
 
 pub(crate) fn send_updates(snapshot: &HuskyLangDatabase, comm: &ClientCommunicator) {
+    eprintln!(
+        "\n\n\n-------------------------------------------------------------\nsending updates"
+    );
     use scope::{ScopeQuery, ScopeSalsaQuery};
     use std::ops::Deref;
 
     use diagnostic::DiagnosticQuery;
+    ep!(snapshot.all_modules());
     snapshot.all_modules().into_iter().for_each(|module| {
+        use file::FileSalsaQuery;
+        if let Some(scope_source) = snapshot.deref().scope_source(module.scope_id) {
+            let file_id = match scope_source {
+                scope::ScopeSource::Builtin(_) => todo!(),
+                scope::ScopeSource::WithinModule { file_id, .. } => file_id,
+                scope::ScopeSource::Module { file_id } => file_id,
+            };
+            ep!(snapshot.deref().file_content(file_id));
+        }
+        ep!(snapshot.diagnostic_reserve(module));
         snapshot.diagnostic_reserve(module).drain(|diagnostics| {
+            eprintln!("diagnostics drained");
             ep!(diagnostics.len());
             let diagnostics = diagnostics.into_iter().map(|d| d.into()).collect();
             if let Some(scope_source) = snapshot.deref().scope_source(module.scope_id) {

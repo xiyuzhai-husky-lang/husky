@@ -12,17 +12,6 @@ where
 {
     internal: ARwLock<InternerInternal<T, Id>>,
 }
-impl<T, Id> Default for Interner<T, Id>
-where
-    T: Hash + Eq + Send + Sync + Clone,
-    Id: Hash + Eq + Send + Sync + Copy + From<u32> + Debug,
-{
-    fn default() -> Self {
-        Self {
-            internal: Default::default(),
-        }
-    }
-}
 
 pub struct IdIter<Id>
 where
@@ -68,9 +57,11 @@ where
     T: Hash + Eq + Send + Sync + Clone,
     Id: Hash + Eq + Send + Sync + Copy + From<u32> + Debug,
 {
-    pub fn new(map: BiMap<T, Id>) -> Self {
+    pub fn new(map: Vec<(T, Id)>) -> Self {
         Self {
-            internal: ARwLock::new(InternerInternal::<T, Id>::new(map)),
+            internal: ARwLock::new(InternerInternal::<T, Id>::new(BiMap::<T, Id>::from_iter(
+                map,
+            ))),
         }
     }
     pub fn id_iter(&self) -> IdIter<Id> {

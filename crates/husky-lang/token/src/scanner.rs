@@ -1,25 +1,45 @@
 use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 
 use text::Indent;
+use word::WordInterner;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
     pub(crate) indent: Indent,
     pub(crate) tokens: Range,
 }
 
-#[derive(Debug)]
-pub(crate) struct TokenScanner<'token> {
-    db: &'token dyn TokenQuery,
+impl Debug for TokenizedLine {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        f.write_fmt(format_args!(
+            "TokenizedLine{{Indent({:?}), tokens: {:?}}}",
+            &self.indent.get_raw(),
+            &self.tokens,
+        ))
+    }
+}
+
+pub(crate) struct TokenScanner<'lex> {
+    word_interner: &'lex WordInterner,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
 }
 
+impl<'lex> Debug for TokenScanner<'lex> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        f.debug_struct("TokenScanner")
+            .field("tokens", &self.tokens)
+            .field("tokenized_lines", &self.tokenized_lines)
+            .field("errors", &self.errors)
+            .finish()
+    }
+}
+
 impl<'token> TokenScanner<'token> {
-    pub(crate) fn new(db: &'token dyn TokenQuery) -> Self {
+    pub(crate) fn new(word_interner: &'token WordInterner) -> Self {
         Self {
-            db,
+            word_interner,
             tokens: vec![],
             tokenized_lines: vec![],
             errors: vec![],
@@ -28,8 +48,11 @@ impl<'token> TokenScanner<'token> {
 
     pub(crate) fn scan(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
-        let (indent, token_iter) =
-            LineTokenIter::new(self.db, line_index, line.chars().enumerate().peekable());
+        let (indent, token_iter) = LineTokenIter::new(
+            self.word_interner,
+            line_index,
+            line.chars().enumerate().peekable(),
+        );
         self.tokens.extend(token_iter);
         let end = self.tokens.len();
         self.tokenized_lines.push(TokenizedLine {
@@ -86,7 +109,7 @@ impl<'token> TokenScanner<'token> {
                                         }
                                     }
                                 } else {
-                                    break self.tokenized_lines.len();
+                                    break self.tokens.len();
                                 }
                             }
                         } else {

@@ -1,3 +1,5 @@
+use word::WordInterner;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -38,11 +40,12 @@ pub struct TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn token(db: &dyn TokenQuery, text: &str) -> Self {
+    pub(crate) fn parse(db: &WordInterner, text: &str) -> Self {
         let mut token_scanner = TokenScanner::new(db);
         text.lines()
             .enumerate()
             .for_each(|(i, line)| token_scanner.scan(i, line));
+        p!(token_scanner);
         token_scanner.into()
     }
 }

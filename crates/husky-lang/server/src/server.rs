@@ -1,7 +1,7 @@
 pub(crate) mod client_comm;
 pub(crate) mod event_loop_comm;
 
-use crossbeam_channel::{unbounded, Receiver, Sender};
+use crossbeam_channel::Sender;
 
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
