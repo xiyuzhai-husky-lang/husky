@@ -1,6 +1,6 @@
 #[macro_export]
 macro_rules! p {
-  ($($v:expr),*) => {println!("{}\n    src: {}{}:{}{}.{}",
+  ($($v:expr),*) => {println!("\n-------------------------------------------------------------------\n{}\n    src: {}{}:{}{}.{}\n",
     show!($($v),*),
     common::show::GREEN,
     file!(),
