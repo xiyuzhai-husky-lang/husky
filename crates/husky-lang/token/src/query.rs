@@ -10,7 +10,7 @@ pub trait TokenQuery: file::FileQuery + word::InternWord {
 fn tokenized_text(this: &dyn TokenQuery, id: file::FileId) -> FileResultArc<TokenizedText> {
     if let Some(text) = this.text(id) {
         return Ok(Arc::new(TokenizedText::parse(
-            this.provide_word_interner(),
+            this.word_interner(),
             text.as_str(),
         )));
     } else {

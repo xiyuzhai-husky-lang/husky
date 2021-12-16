@@ -18,15 +18,19 @@ pub fn new_word_interner() -> WordInterner {
 }
 
     return WordInterner::new(build_keyword_bimap![
-        Use, Mod, Main, Test, Proc, Func, Pattern, Struct, Rename, Enum, Props, Main, Let, Var, If,
-        Elif, Else, Switch, Case, DeFault, For, Ext, ForExt, While, Do, Break, Return
+        Use, Mod, Main, Test, Proc, Func, Def, Pattern, Struct, Rename, Enum, Props, Main, Let,
+        Var, If, Elif, Else, Switch, Case, DeFault, For, Ext, ForExt, While, Do, Break, Return
     ]);
 }
 
 pub trait InternWord {
-    fn provide_word_interner(&self) -> &WordInterner;
+    fn word_interner(&self) -> &WordInterner;
 
     fn string_to_word(&self, string: &str) -> Word {
-        self.provide_word_interner().id_by_ref(string)
+        self.word_interner().id_by_ref(string)
     }
+}
+
+pub fn convert_ident<T>(this: &dyn InternWord, ident: Identifier, f: impl FnOnce(&str) -> T) -> T {
+    this.word_interner().convert(Word::Identifier(ident), f)
 }

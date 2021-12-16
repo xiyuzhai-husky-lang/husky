@@ -1,6 +1,6 @@
 mod intern;
 
-pub use intern::{new_word_interner, InternWord, WordInterner};
+pub use intern::{convert_ident, new_word_interner, InternWord, WordInterner};
 
 use common::*;
 
@@ -18,6 +18,12 @@ impl From<u32> for Word {
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub struct Identifier(u32);
 
+impl Into<Word> for Identifier {
+    fn into(self) -> Word {
+        Word::Identifier(self)
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
     Use,
@@ -26,6 +32,7 @@ pub enum Keyword {
     Test,
     Proc,
     Func,
+    Def,
     Pattern,
     Struct,
     Rename,
@@ -52,5 +59,5 @@ pub fn use_string<F, Q>(this: &(impl InternWord + ?Sized), word: Word, f: F) -> 
 where
     F: Fn(&str) -> Q,
 {
-    this.provide_word_interner().use_thing(word, f)
+    this.word_interner().convert(word, f)
 }

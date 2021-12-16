@@ -25,7 +25,7 @@ impl ScopeTableEntry {
             if token_group[0].kind == token::TokenKind::Keyword(Keyword::Main) {
                 return Ok(ScopeTableEntry {
                     ident: None,
-                    kind: ScopeKind::Routine,
+                    kind: ScopeKind::Routine { is_generic: false },
                     source: ScopeSource::from_file(file_id, token_group_index),
                 });
             } else {
@@ -38,7 +38,15 @@ impl ScopeTableEntry {
         match &token_group[0].kind {
             token::TokenKind::Keyword(keyword) => {
                 if let token::TokenKind::Identifier(ident) = token_group[1].kind {
-                    if let Some(kind) = ScopeKind::new(*keyword) {
+                    let is_generic = token_group.len() >= 3
+                        && token_group[2].kind
+                            == token::TokenKind::Special(token::Special::LessOrLAngular);
+                    if is_generic && !(token_group.len() >= 5) {
+                        return Err(ScopeDefError {
+                            range: token_group.into(),
+                            grammar_failed: ScopeDefGrammar::GenericsShouldBeWellFormed,
+                        });
+                    } else if let Some(kind) = ScopeKind::new(*keyword, is_generic) {
                         return Ok(ScopeTableEntry {
                             ident: Some(ident),
                             kind,
@@ -117,6 +125,13 @@ impl SubscopeTable {
             .iter()
             .find(|entry| entry.ident == Some(ident))
             .map(|entry| entry.kind)
+    }
+
+    pub fn has_subscope(&self, ident: Identifier) -> bool {
+        self.entries
+            .iter()
+            .find(|entry| entry.ident == Some(ident))
+            .is_some()
     }
 }
 

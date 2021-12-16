@@ -114,9 +114,8 @@ where
         return result;
     }
 
-    pub fn use_thing<F, Q, S>(&self, word: Id, f: F) -> S
+    pub fn convert<Q, S>(&self, word: Id, f: impl FnOnce(&Q) -> S) -> S
     where
-        F: Fn(&Q) -> S,
         T: AsRef<Q>,
         Q: ?Sized,
     {

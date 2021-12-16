@@ -1,3 +1,5 @@
+use std::path;
+
 use crate::*;
 use itertools::Itertools;
 use stdx::sync::ARwLock;
@@ -43,7 +45,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FileId) -> FileContent {
         .read(|live_docs| match live_docs.get(&id) {
             Some(text) => FileContent::Live(text.clone_to_arc()),
             None => {
-                let pth: PathBuf = use_filepath(this, id, |pth| pth.into());
+                let pth: PathBuf = convert_filepath(this, id, |pth| pth.into());
                 if pth.is_file() {
                     FileContent::OnDisk(Arc::new(std::fs::read_to_string(pth).expect("io failure")))
                 } else {
@@ -54,7 +56,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FileId) -> FileContent {
 }
 
 fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FileId) -> Option<FileId> {
-    let pth: PathBuf = use_filepath(this, module_file_id, |pth| pth.into());
+    let pth: PathBuf = convert_filepath(this, module_file_id, |pth| pth.into());
     for ancestor in pth.ancestors() {
         let id = this.file_id(ancestor.with_file_name("main.hsk"));
         match this.file_content(id) {
@@ -88,6 +90,42 @@ pub trait FileQuery: FileSalsaQuery {
             FileContent::Live(text) => Some(text),
             FileContent::Deleted => None,
             FileContent::NonExistent => None,
+        }
+    }
+
+    fn url(&self, id: FileId) -> lsp_types::Url {
+        return convert_filepath(self, id, |pth| url_from_abs_path(pth));
+
+        pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
+            let url = lsp_types::Url::from_file_path(path).unwrap();
+            match path.components().next() {
+                Some(path::Component::Prefix(prefix))
+                    if matches!(
+                        prefix.kind(),
+                        path::Prefix::Disk(_) | path::Prefix::VerbatimDisk(_)
+                    ) =>
+                {
+                    // Need to lowercase driver letter
+                }
+                _ => return url,
+            }
+
+            let driver_letter_range = {
+                let (scheme, drive_letter, _rest) =
+                    match url.as_str().splitn(3, ':').collect_tuple() {
+                        Some(it) => it,
+                        None => return url,
+                    };
+                let start = scheme.len() + ':'.len_utf8();
+                start..(start + drive_letter.len())
+            };
+
+            // Note: lowercasing the `path` itself doesn't help, the `Url::parse`
+            // machinery *also* canonicalizes the drive letter. So, just massage the
+            // string in place.
+            let mut url: String = url.into();
+            url[driver_letter_range].make_ascii_lowercase();
+            lsp_types::Url::parse(&url).unwrap()
         }
     }
 }

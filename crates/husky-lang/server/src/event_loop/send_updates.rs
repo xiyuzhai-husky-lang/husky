@@ -2,47 +2,17 @@ use common::*;
 
 use husky_lang_db::HuskyLangDatabase;
 
-use crate::{convert, server::client_comm::ClientCommunicator};
+use file::FileQuery;
 
-pub(crate) fn send_updates(snapshot: &HuskyLangDatabase, comm: &ClientCommunicator) {
-    eprintln!(
-        "\n\n\n-------------------------------------------------------------\nsending updates"
-    );
-    use scope::{ScopeQuery, ScopeSalsaQuery};
-    use std::ops::Deref;
+use crate::server::client_comm::ClientCommunicator;
+use diagnostic::DiagnosticQuery;
+use scope::ScopeQuery;
 
-    use diagnostic::DiagnosticQuery;
-    ep!(snapshot.all_modules());
-    snapshot.all_modules().into_iter().for_each(|module| {
-        use file::FileSalsaQuery;
-        if let Some(scope_source) = snapshot.deref().scope_source(module.scope_id) {
-            let file_id = match scope_source {
-                scope::ScopeSource::Builtin(_) => todo!(),
-                scope::ScopeSource::WithinModule { file_id, .. } => file_id,
-                scope::ScopeSource::Module { file_id } => file_id,
-            };
-            ep!(snapshot.deref().file_content(file_id));
-        }
-        ep!(snapshot.diagnostic_reserve(module));
-        snapshot.diagnostic_reserve(module).drain(|diagnostics| {
-            eprintln!("diagnostics drained");
-            ep!(diagnostics.len());
-            let diagnostics = diagnostics.into_iter().map(|d| d.into()).collect();
-            if let Some(scope_source) = snapshot.deref().scope_source(module.scope_id) {
-                let file_id = match scope_source {
-                    scope::ScopeSource::Builtin(_) => todo!(),
-                    scope::ScopeSource::WithinModule { file_id, .. } => file_id,
-                    scope::ScopeSource::Module { file_id } => file_id,
-                };
-                comm.send_notification::<lsp_types::notification::PublishDiagnostics>(
-                    lsp_types::PublishDiagnosticsParams {
-                        uri: file::use_filepath(snapshot.deref(), file_id, |pth| {
-                            convert::to_lsp_types::url_from_abs_path(pth)
-                        }),
-                        diagnostics,
-                        version: None,
-                    },
-                );
+pub(crate) fn send_updates(db: &HuskyLangDatabase, comm: &ClientCommunicator) {
+    db.module_iter().for_each(|module| {
+        db.diagnostic_reserve(module).drain(|diagnostics| {
+            if let Some(file_id) = db.module_to_file_id(module) {
+                comm.send_diagnostics(db.url(file_id), batch_into!(diagnostics), None);
             }
         })
     });

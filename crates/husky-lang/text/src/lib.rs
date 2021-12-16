@@ -46,6 +46,16 @@ pub struct TextRange {
     start: TextPosition,
     end: TextPosition,
 }
+
+impl From<std::ops::Range<&TextRange>> for TextRange {
+    fn from(ranges: std::ops::Range<&TextRange>) -> Self {
+        Self {
+            start: ranges.start.start.clone(),
+            end: ranges.end.end.clone(),
+        }
+    }
+}
+
 impl std::fmt::Debug for TextRange {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("{:?}..{:?}", self.start, self.end))
@@ -75,6 +85,15 @@ impl Into<lsp_types::Range> for TextRange {
 
 pub trait GetTextRange {
     fn get_text_range(&self) -> &TextRange;
+}
+
+impl<T> From<&[T]> for TextRange
+where
+    T: GetTextRange,
+{
+    fn from(slice: &[T]) -> Self {
+        (slice[0].get_text_range()..slice.last().unwrap().get_text_range()).into()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord)]

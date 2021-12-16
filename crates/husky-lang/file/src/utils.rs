@@ -1,5 +1,3 @@
-use common::*;
-
 use crate::line_map::LineMap;
 
 pub(crate) fn apply_document_changes(

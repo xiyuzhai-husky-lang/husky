@@ -2,6 +2,8 @@ use std::time::Instant;
 
 use crossbeam_channel::Sender;
 
+use lsp_types::notification::Notification;
+
 use super::Server;
 
 pub(crate) struct ClientCommunicator {
@@ -27,8 +29,25 @@ impl ClientCommunicator {
         &self,
         params: N::Params,
     ) {
-        let not = lsp_server::Notification::new(N::METHOD.to_string(), params);
-        self.send(not.into());
+        let notif = lsp_server::Notification::new(N::METHOD.to_string(), params);
+        self.send(notif.into());
+    }
+
+    pub(crate) fn send_diagnostics(
+        &self,
+        uri: lsp_types::Url,
+        diagnostics: Vec<lsp_types::Diagnostic>,
+        version: Option<i32>,
+    ) {
+        let notif = lsp_server::Notification::new(
+            lsp_types::notification::PublishDiagnostics::METHOD.to_string(),
+            lsp_types::PublishDiagnosticsParams {
+                uri,
+                diagnostics,
+                version,
+            },
+        );
+        self.send(notif.into());
     }
 
     pub(crate) fn _send_request<R: lsp_types::request::Request>(

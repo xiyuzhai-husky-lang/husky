@@ -2,7 +2,7 @@ use crate::*;
 
 use common::*;
 
-use file::{FileId, FileResultArc};
+use file::{FileError, FileId, FileResultArc};
 use word::Word;
 
 use std::{path::PathBuf, sync::Arc};
@@ -85,13 +85,36 @@ fn scope_source(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeSo
     }
 }
 
+pub struct ModuleFromFileError {
+    pub rule_broken: ModuleFromFileRule,
+}
+
+pub enum ModuleFromFileRule {
+    PackageNameShouldBeIdentifier,
+    PackageRootShouldHaveFileName,
+    FileShouldExist,
+    FileShouldHaveExtensionHSK,
+}
+
 pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
-    fn subscope(&self, scope: ScopeId, word: Word) -> ScopeId {
-        todo!()
+    fn subscope(&self, parent_scope: ScopeId, ident: Identifier) -> Option<ScopeId> {
+        if self
+            .subscope_table(parent_scope)
+            .map_or(false, |table| table.has_subscope(ident))
+        {
+            Some(self.provide_scope_interner().id(Scope {
+                parent: ScopeParent::Scope(parent_scope),
+                ident,
+            }))
+        } else {
+            None
+        }
     }
 
-    fn all_modules(&self) -> Vec<Module> {
-        ep!(self.all_main_files());
+    fn all_modules(&self) -> Vec<Module>
+    where
+        Self: Sized,
+    {
         self.all_main_files()
             .iter()
             .map(|id| self.collect_modules(*id))
@@ -99,16 +122,28 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
             .collect()
     }
 
-    fn collect_modules(&self, id: FileId) -> Vec<Module> {
-        ep!(id);
-        if let Some(module) = self.module_from_file_id(id) {
+    fn module_iter(&self) -> std::vec::IntoIter<Module>
+    where
+        Self: Sized,
+    {
+        self.all_modules().into_iter()
+    }
+
+    fn collect_modules(&self, id: FileId) -> Vec<Module>
+    where
+        Self: Sized,
+    {
+        if let Ok(module) = self.module_from_file_id(id) {
             let mut modules = vec![module];
             self.subscope_table(module.scope_id).ok().map(|table| {
                 modules.extend(
                     table
                         .submodules()
                         .into_iter()
-                        .map(|ident| self.collect_modules(self.submodule_file_id(id, ident)))
+                        .filter_map(|ident| {
+                            self.submodule_file_id(id, ident)
+                                .map_or(None, |id| Some(self.collect_modules(id)))
+                        })
                         .flatten(),
                 );
             });
@@ -118,40 +153,85 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
         }
     }
 
-    fn module_from_file_id(&self, id: FileId) -> Option<Module> {
-        let path: PathBuf = file::use_filepath(self, id, |pth| pth.into());
-        if path.file_name().map(|s| s.to_string_lossy()) == Some("main.hsk".into()) {
-            if let Some(package_root) = path.parent() {
-                if let Some(package_name) = package_root.file_name().map(|s| s.to_string_lossy()) {
-                    match self.string_to_word(package_name.as_ref()) {
-                        Word::Keyword(_) => return None,
-                        Word::Identifier(ident) => {
-                            let scope = Scope {
-                                ident,
-                                parent: ScopeParent::Package(id),
-                            };
-                            return Some(Module {
-                                scope_id: self.scope_to_id(scope),
-                            });
-                        }
-                    }
+    fn module_from_file_id(&self, id: FileId) -> Result<Module, ModuleFromFileError> {
+        let path: PathBuf = file::convert_filepath(self, id, |pth| pth.into());
+        if !self.file_exists(id) {
+            Err(ModuleFromFileError {
+                rule_broken: ModuleFromFileRule::FileShouldExist,
+            })
+        } else if path_has_file_name(&path, "main.hsk") {
+            if let Some(package_name) = path_parent_file_name_str(&path) {
+                if let Word::Identifier(ident) = self.string_to_word(package_name.as_ref()) {
+                    Ok(Module {
+                        scope_id: self.scope_to_id(Scope {
+                            ident,
+                            parent: ScopeParent::Package(id),
+                        }),
+                    })
+                } else {
+                    Err(ModuleFromFileError {
+                        rule_broken: ModuleFromFileRule::PackageNameShouldBeIdentifier,
+                    })
                 }
+            } else {
+                Err(ModuleFromFileError {
+                    rule_broken: ModuleFromFileRule::PackageRootShouldHaveFileName,
+                })
             }
-            return None;
-        }
-        if path.extension().map(|s| s.to_string_lossy()) == Some("hsk".into())
-            && self.file_exists(id)
-        {
-            let parent = self.module_from_file_id(self.file_id(path.with_file_name("mod.hsk")));
+        } else if path_has_file_name(&path, "mod.hsk") {
             todo!()
-            // return Some(Module(id));
+        } else if path_has_extension(&path, "hsk") {
+            let maybe_main_path = path.with_file_name("main.hsk");
+            if maybe_main_path.exists() {
+                let _parent =
+                    self.module_from_file_id(self.file_id(path.with_file_name("mod.hsk")));
+                todo!()
+            } else {
+                todo!()
+            }
         } else {
-            return None;
+            Err(ModuleFromFileError {
+                rule_broken: ModuleFromFileRule::FileShouldHaveExtensionHSK,
+            })
         }
     }
 
-    fn submodule_file_id(&self, id: FileId, ident: Identifier) -> FileId {
-        // let path = self.file_id_to_path(id);
-        todo!()
+    fn module_to_file_id(&self, module: Module) -> Option<FileId> {
+        if let Some(scope_source) = self.scope_source(module.scope_id) {
+            match scope_source {
+                ScopeSource::Builtin(_) => todo!(),
+                ScopeSource::WithinModule { file_id, .. } => Some(file_id),
+                ScopeSource::Module { file_id } => Some(file_id),
+            }
+        } else {
+            None
+        }
+    }
+
+    fn submodule_file_id(&self, parent_id: FileId, ident: Identifier) -> Result<FileId, FileError>
+    where
+        Self: Sized,
+    {
+        let path = self.filepath(parent_id);
+
+        assert!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(&path, "main.hsk"));
+
+        let module_path1 = word::convert_ident(self, ident, |s: &str| {
+            path.with_file_name(format!("{}.hsk", s))
+        });
+
+        let module_path2 = word::convert_ident(self, ident, |s: &str| {
+            path.with_file_name(format!("{}/mod.hsk", s))
+        });
+
+        let module_path = if module_path1.is_file() && !module_path2.is_file() {
+            Ok(module_path1)
+        } else if module_path2.is_file() && !module_path1.is_file() {
+            Ok(module_path1)
+        } else {
+            Err(FileError::FileNotFound)
+        };
+
+        module_path.map(|pth| self.file_id(pth))
     }
 }
