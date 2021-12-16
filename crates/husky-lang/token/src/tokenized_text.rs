@@ -45,7 +45,6 @@ impl TokenizedText {
         text.lines()
             .enumerate()
             .for_each(|(i, line)| token_scanner.scan(i, line));
-        ep!(token_scanner);
         token_scanner.into()
     }
 }

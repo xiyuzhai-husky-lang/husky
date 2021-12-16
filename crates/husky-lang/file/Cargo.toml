@@ -19,3 +19,4 @@ salsa = "0.17.0-pre.2"
 interner = { path = "../../data_structure/interner", version = "0.0.0" }
 stdx = { path = "../../stdx", version = "0.0.0" }
 common = { path = "../../common", version = "0.0.0" }
+text = { path = "../text", version = "0.0.0"}

@@ -10,7 +10,7 @@ pub enum ScopeKind {
 impl ScopeKind {
     pub(crate) fn new(keyword: Keyword, is_generic: bool) -> Option<ScopeKind> {
         match keyword {
-            Keyword::Use => todo!(),
+            Keyword::Use => None,
             Keyword::Mod => Some(ScopeKind::Module),
             Keyword::Main => Some(ScopeKind::Routine { is_generic }),
             Keyword::Test => Some(ScopeKind::Routine { is_generic }),
@@ -40,11 +40,11 @@ impl ScopeKind {
         }
     }
 
-    pub fn is_generic(&self) -> bool {
-        match self {
-            ScopeKind::Module => false,
-            ScopeKind::Type { is_generic } => *is_generic,
-            ScopeKind::Routine { is_generic } => *is_generic,
-        }
-    }
+    // pub fn is_generic(&self) -> bool {
+    //     match self {
+    //         ScopeKind::Module => false,
+    //         ScopeKind::Type { is_generic } => *is_generic,
+    //         ScopeKind::Routine { is_generic } => *is_generic,
+    //     }
+    // }
 }

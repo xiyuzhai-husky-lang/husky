@@ -1,18 +1,22 @@
+#![feature(result_flattening)]
+
+mod alias;
 mod builtin;
 mod intern;
 mod kind;
 mod module;
 mod query;
-mod table;
+mod subscope;
 
+pub use alias::ScopeAliasTable;
 pub use builtin::BuiltinScope;
-pub use error::{ScopeDefError, ScopeDefGrammar};
+pub use error::{def::ScopeDefError, ScopeError, ScopeResult, ScopeResultArc};
 use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
 pub use module::Module;
 pub use query::{ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery};
-pub use table::SubscopeTable;
+pub use subscope::SubscopeTable;
 
 use word::Identifier;
 

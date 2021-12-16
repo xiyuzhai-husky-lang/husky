@@ -1,3 +1,5 @@
+use crate::*;
+
 use std::{
     error::Error,
     fmt::{Debug, Display},
@@ -9,6 +11,12 @@ pub enum FileError {
     NoSuchPackage,
     FileNotFound,
     DuplicateModuleFiles,
+}
+
+impl<T> Into<Result<T, Arc<Vec<FileError>>>> for FileError {
+    fn into(self) -> Result<T, Arc<Vec<FileError>>> {
+        Err(Arc::new(vec![self]))
+    }
 }
 impl Display for FileError {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
@@ -28,6 +36,6 @@ impl Debug for FileError {
         }
     }
 }
-impl Error for FileError {}
 
 pub type FileResultArc<T> = Result<Arc<T>, FileError>;
+pub type FileResult<T> = Result<T, FileError>;

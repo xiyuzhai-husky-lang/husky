@@ -20,7 +20,7 @@ pub(crate) fn handle_selection_range(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::SelectionRangeParams,
 ) -> Result<Option<Vec<lsp_types::SelectionRange>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo!");
     Ok(None)
 }
 
@@ -28,7 +28,7 @@ pub(crate) fn handle_matching_brace(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_ext::MatchingBraceParams,
 ) -> Result<Vec<Position>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo!");
     Ok(Vec::new())
 }
 
@@ -36,7 +36,7 @@ pub(crate) fn handle_on_enter(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::TextDocumentPositionParams,
 ) -> Result<Option<Vec<lsp_ext::SnippetTextEdit>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo!");
     Ok(None)
 }
 
@@ -44,7 +44,7 @@ pub(crate) fn handle_on_type_formatting(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::DocumentOnTypeFormattingParams,
 ) -> Result<Option<Vec<lsp_types::TextEdit>>> {
-    eprintln!("TODO: handle_on_type_formatting");
+    msg_once!("TODO: handle_on_type_formatting");
     Ok(None)
 }
 
@@ -60,54 +60,15 @@ pub(crate) fn handle_workspace_symbol(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: WorkspaceSymbolParams,
 ) -> Result<Option<Vec<SymbolInformation>>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle workspace symbol!");
     Ok(None)
-    // let _p = profile::span("handle_workspace_symbol");
-
-    // let (all_symbols, libs) = decide_search_scope_and_kind(&params, &snap);
-
-    // let query = {
-    //     let query: String = params
-    //         .query
-    //         .chars()
-    //         .filter(|&c| c != '#' && c != '*')
-    //         .collect();
-    //     let mut q = Query::new(query);
-    //     if !all_symbols {
-    //         q.only_types();
-    //     }
-    //     if libs {
-    //         q.libs();
-    //     }
-    //     q.limit(128);
-    //     q
-    // };
-    // let mut res = exec_query(&snap, query)?;
-    // if res.is_empty() && !all_symbols {
-    //     let mut query = Query::new(params.query);
-    //     query.limit(128);
-    //     res = exec_query(&snap, query)?;
-    // }
-
-    // return Ok(Some(res));
-
-    // fn decide_search_scope_and_kind(
-    //     _params: &WorkspaceSymbolParams,
-    //     _snapshot: &HuskyLangDatabaseSnapshot,
-    // ) -> (bool, bool) {
-    //     eprintln!("{}:{} todo!", file!(), line!()); Ok(None)
-    // }
-
-    // fn exec_query(snap: &HuskyLangDatabaseSnapshot, query: Query) -> Result<Vec<SymbolInformation>> {
-    //     eprintln!("{}:{} todo!", file!(), line!()); Ok(None)
-    // }
 }
 
 pub(crate) fn handle_will_rename_files(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::RenameFilesParams,
 ) -> Result<Option<lsp_types::WorkspaceEdit>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle will rename files!");
     Ok(None)
 }
 
@@ -115,7 +76,7 @@ pub(crate) fn handle_goto_definition(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::GotoDefinitionParams,
 ) -> Result<Option<lsp_types::GotoDefinitionResponse>> {
-    eprintln!("{}:{} todo goto definition!", file!(), line!());
+    msg_once!("todo goto definition!");
     Ok(None)
 }
 
@@ -123,7 +84,7 @@ pub(crate) fn handle_goto_declaration(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::request::GotoDeclarationParams,
 ) -> Result<Option<lsp_types::request::GotoDeclarationResponse>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo goto declaration!");
     Ok(None)
 }
 
@@ -131,7 +92,7 @@ pub(crate) fn handle_goto_type_definition(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::request::GotoTypeDefinitionParams,
 ) -> Result<Option<lsp_types::request::GotoTypeDefinitionResponse>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo goto type definition!");
     Ok(None)
 }
 
@@ -139,7 +100,7 @@ pub(crate) fn handle_parent_module(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::TextDocumentPositionParams,
 ) -> Result<Option<lsp_types::GotoDefinitionResponse>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo handle parent module!");
     Ok(None)
 }
 
@@ -147,7 +108,7 @@ pub(crate) fn handle_completion(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
-    eprintln!("{}:{} todo handle completion!", file!(), line!());
+    msg_once!("todo handle completion!");
     Ok(None)
 }
 
@@ -165,17 +126,6 @@ pub(crate) fn handle_folding_range(
 ) -> Result<Option<Vec<FoldingRange>>> {
     msg_once!("todo handle folding range");
     Ok(None)
-    // let _p = profile::span("handle_folding_range");
-    // let file_id = from_lsp_types::to_file_id(&snapshot, &params.text_document.uri)?;
-    // let folds = snapshot.db.folding_ranges(file_id)?;
-    // let text = snapshot.db.file_text(file_id)?;
-    // let line_index = snapshot.db.get_file_line_collection(file_id)?;
-    // let line_folding_only = snapshot.config.line_folding_only();
-    // let res = folds
-    //     .into_iter()
-    //     .map(|it| to_lsp_types::folding_range(&*text, &line_index, line_folding_only, it))
-    //     .collect();
-    // Ok(Some(res))
 }
 
 pub(crate) fn handle_signature_help(
@@ -354,7 +304,7 @@ pub(crate) fn handle_semantic_tokens_range(
 ) -> Result<Option<SemanticTokensRangeResult>> {
     msg_once!("todo semantic tokens range");
     Ok(None)
-    // eprintln!("{}:{} todo!", file!(), line!()); Ok(None)
+    // msg_once!("{}:{} todo!", file!(), line!()); Ok(None)
     // let _p = profile::span("handle_semantic_tokens_range");
 
     // let frange = from_lsp_types::file_range(&snapshot, params.text_document, params.range)?;
@@ -372,7 +322,7 @@ pub(crate) fn handle_open_docs(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::TextDocumentPositionParams,
 ) -> Result<Option<lsp_types::Url>> {
-    eprintln!("{}:{} todo!", file!(), line!());
+    msg_once!("todo!");
     Ok(None)
 }
 
