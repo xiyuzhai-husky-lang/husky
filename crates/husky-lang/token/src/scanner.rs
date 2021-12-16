@@ -29,9 +29,9 @@ pub(crate) struct TokenScanner<'lex> {
 impl<'lex> Debug for TokenScanner<'lex> {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         f.debug_struct("TokenScanner")
-            .field("tokens", &self.tokens)
-            .field("tokenized_lines", &self.tokenized_lines)
-            .field("errors", &self.errors)
+            // .field("tokens", &self.tokens)
+            // .field("tokenized_lines", &self.tokenized_lines)
+            // .field("errors", &self.errors)
             .finish()
     }
 }
@@ -58,7 +58,7 @@ impl<'token> TokenScanner<'token> {
         self.tokenized_lines.push(TokenizedLine {
             indent,
             tokens: start..end,
-        })
+        });
     }
 
     fn last_token(&self, line: &TokenizedLine) -> &Token {

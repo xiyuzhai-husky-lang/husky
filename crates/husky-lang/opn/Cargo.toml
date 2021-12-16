@@ -9,7 +9,7 @@ description = "Generic LSP server scaffold."
 [dependencies]
 
 common = { path = "../../common", version = "0.0.0" }
-salsa = "0.16.1"
+salsa = "0.17.0-pre.2"
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }

@@ -1,5 +1,7 @@
 use crate::*;
 
+use common::*;
+
 use file::{FileId, FileResultArc};
 use word::Word;
 
@@ -89,6 +91,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     }
 
     fn all_modules(&self) -> Vec<Module> {
+        ep!(self.all_main_files());
         self.all_main_files()
             .iter()
             .map(|id| self.collect_modules(*id))
@@ -97,6 +100,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     }
 
     fn collect_modules(&self, id: FileId) -> Vec<Module> {
+        ep!(id);
         if let Some(module) = self.module_from_file_id(id) {
             let mut modules = vec![module];
             self.subscope_table(module.scope_id).ok().map(|table| {
@@ -106,7 +110,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
                         .into_iter()
                         .map(|ident| self.collect_modules(self.submodule_file_id(id, ident)))
                         .flatten(),
-                )
+                );
             });
             modules
         } else {
