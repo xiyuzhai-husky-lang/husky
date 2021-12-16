@@ -8,12 +8,14 @@ use std::{
 pub enum FileError {
     NoSuchPackage,
     FileNotFound,
+    DuplicateModuleFiles,
 }
 impl Display for FileError {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::NoSuchPackage => write!(f, "NoSuchPackage"),
             Self::FileNotFound => write!(f, "FileNotFound"),
+            Self::DuplicateModuleFiles => write!(f, "DuplicateModuleFiles"),
         }
     }
 }
@@ -22,6 +24,7 @@ impl Debug for FileError {
         match self {
             Self::NoSuchPackage => write!(f, "NoSuchPackage"),
             Self::FileNotFound => write!(f, "FileNotFound"),
+            Self::DuplicateModuleFiles => write!(f, "DuplicateModuleFiles"),
         }
     }
 }

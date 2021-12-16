@@ -12,6 +12,7 @@ pub enum ScopeDefGrammar {
     FirstTokenShouldBeKeyword,
     NonMainSecondTokenShouldBeIdentifier,
     TokenGroupOfSizeTwoShouldBeMain,
+    GenericsShouldBeWellFormed,
 }
 
 macro_rules! build_error_code_gen {
@@ -29,7 +30,8 @@ impl ScopeDefError {
             TokenGroupSizeAtLeastTwo,
             FirstTokenShouldBeKeyword,
             NonMainSecondTokenShouldBeIdentifier,
-            TokenGroupOfSizeTwoShouldBeMain
+            TokenGroupOfSizeTwoShouldBeMain,
+            GenericsShouldBeWellFormed
         )
     }
 }

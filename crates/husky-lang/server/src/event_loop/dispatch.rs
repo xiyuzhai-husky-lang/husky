@@ -130,12 +130,12 @@ fn handle_lsp_notification(
             eprintln!("todo: lsp_types::notification::DidCloseTextDocument");
             Ok(TaskSet::SendUpdates)
         })?
-        .on_sync::<lsp_types::notification::DidSaveTextDocument>(|server, params| {
-            eprintln!("did save text document with params:\n{:?}", params);
-            // if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
-            //     ep!(params.text);
-            //     // server.db.set_live_doc_text(path, params.text);
-            // }
+        .on_sync::<lsp_types::notification::DidSaveTextDocument>(|_server, params| {
+            if let Ok(_path) = from_lsp_types::path(&params.text_document.uri) {
+                if let Some(_text) = params.text {
+                    todo!()
+                }
+            }
             Ok(TaskSet::Nothing)
         })?
         .on_sync::<lsp_types::notification::DidChangeConfiguration>(|_server, _params| {

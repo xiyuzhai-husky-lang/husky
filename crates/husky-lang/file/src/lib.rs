@@ -6,13 +6,11 @@ mod utils;
 
 pub use error::{FileError, FileResultArc};
 pub use intern::{
-    new_file_interner, snapshot_use_filepath, use_filepath, FileId, FileInterner, InternFile,
+    convert_filepath, new_file_interner, snapshot_use_filepath, FileId, FileInterner, InternFile,
 };
 pub use query::{FileContentQuery, FileQuery, FileQueryStorage, FileSalsaQuery, LiveFiles};
 
 use std::sync::Arc;
-
-use stdx::sync::ARwLock;
 
 use common::*;
 

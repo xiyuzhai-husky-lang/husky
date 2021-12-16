@@ -23,8 +23,8 @@ pub(crate) fn collect_diagnostics(
 }
 
 fn collect_module_def_diagnostics(
-    this: &dyn DiagnosticQuery,
-    scope: scope::ScopeId,
+    _this: &dyn DiagnosticQuery,
+    _scope: scope::ScopeId,
 ) -> Vec<Diagnostic> {
     msg_once!("todo collect_module_def_diagnostics!");
     Vec::new()

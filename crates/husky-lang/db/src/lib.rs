@@ -56,7 +56,7 @@ impl InternFile for HuskyLangDatabase {
     }
 }
 impl InternWord for HuskyLangDatabase {
-    fn provide_word_interner(&self) -> &word::WordInterner {
+    fn word_interner(&self) -> &word::WordInterner {
         &self.word_interner
     }
 }
@@ -97,13 +97,16 @@ impl HuskyLangDatabase {
     }
 
     pub fn update_lru_capacity(&mut self, lru_capacity: Option<usize>) {
-        const DEFAULT_LRU_CAP: usize = 128;
-        eprintln!("TODO: update_lru_capacity");
-        // let lru_capacity = lru_capacity.unwrap_or(DEFAULT_LRU_CAP);
-        // // todo!();
-        // file::FileQuery
-        //     .in_db_mut(self)
-        //     .set_lru_capacity(lru_capacity);
+        if lru_capacity.is_some() {
+            todo!()
+            // const _DEFAULT_LRU_CAP: usize = 128;
+            // msg_once!("TODO: update_lru_capacity");
+            // let lru_capacity = lru_capacity.unwrap_or(DEFAULT_LRU_CAP);
+            // // todo!();
+            // file::FileQuery
+            //     .in_db_mut(self)
+            //     .set_lru_capacity(lru_capacity);
+        }
     }
 }
 
