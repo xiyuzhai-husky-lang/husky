@@ -12,5 +12,5 @@ fn standalone_tokenize(text: &'static str) -> TokenizedText {
 #[test]
 fn test_play() {
     let tokenized_text = standalone_tokenize("struct A {}");
-    p!(tokenized_text);
+    ep!(tokenized_text);
 }

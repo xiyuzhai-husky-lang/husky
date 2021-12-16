@@ -40,12 +40,12 @@ pub struct TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(db: &WordInterner, text: &str) -> Self {
-        let mut token_scanner = TokenScanner::new(db);
+    pub(crate) fn parse(word_interner: &WordInterner, text: &str) -> Self {
+        let mut token_scanner = TokenScanner::new(word_interner);
         text.lines()
             .enumerate()
             .for_each(|(i, line)| token_scanner.scan(i, line));
-        p!(token_scanner);
+        ep!(token_scanner);
         token_scanner.into()
     }
 }

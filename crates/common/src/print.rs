@@ -1,6 +1,7 @@
 #[macro_export]
 macro_rules! p {
-  ($($v:expr),*) => {println!("\n-------------------------------------------------------------------\n{}\n    src: {}{}:{}{}.{}\n",
+  ($($v:expr),*) => {
+    assert_test_env();eprintln!("\n-------------------------------------------------------------------\n{}\n    src: {}{}:{}{}.{}\n",
     show!($($v),*),
     common::show::GREEN,
     file!(),
@@ -30,5 +31,12 @@ macro_rules! ep_once {
 macro_rules! msg_once {
     ($msg:expr) => {
         common::do_once(|| eprintln!("[message] {}\n\t\tsrc: {}:{}", $msg, file!(), line!()))
+    };
+}
+
+#[macro_export]
+macro_rules! epin {
+    () => {
+        eprintln!("[pin] src: {}:{}.", file!(), line!());
     };
 }
