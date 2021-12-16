@@ -91,12 +91,11 @@ fn handle_lsp_notification(
     };
     dispatcher
         .on_sync::<lsp_types::notification::Cancel>(|_server, params| {
-            ep!(params);
             let _id: lsp_server::RequestId = match params.id {
                 lsp_types::NumberOrString::Number(id) => id.into(),
                 lsp_types::NumberOrString::String(id) => id.into(),
             };
-            eprintln!("TODO: on::<lsp_types::notification::Cancel>");
+            msg_once!("TODO: on::<lsp_types::notification::Cancel>");
             // this.cancel(id);
             // todo!();
             Ok(TaskSet::Nothing)
@@ -118,7 +117,6 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
             use file::LiveFiles;
-            eprintln!("did change text document with params:\n{:?}", params);
             if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
                 server
                     .db

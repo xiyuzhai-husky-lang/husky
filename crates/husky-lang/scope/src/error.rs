@@ -1,37 +1,23 @@
+pub(crate) mod def;
+
+use std::sync::Arc;
+
+pub(crate) use def::*;
+use file::FileError;
 use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ScopeDefError {
-    pub range: TextRange,
-    pub grammar_failed: ScopeDefGrammar,
+pub enum ScopeError {
+    FileError(FileError),
+    DefError(def::ScopeDefError),
+    NoSuchScope,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ScopeDefGrammar {
-    TokenGroupSizeAtLeastTwo,
-    FirstTokenShouldBeKeyword,
-    NonMainSecondTokenShouldBeIdentifier,
-    TokenGroupOfSizeTwoShouldBeMain,
-    GenericsShouldBeWellFormed,
-}
+pub type ScopeResult<T> = Result<T, ScopeError>;
+pub type ScopeResultArc<T> = Result<Arc<T>, ScopeError>;
 
-macro_rules! build_error_code_gen {
-    ($grammar_failed: expr, $($item:ident), *) => {{
-        match $grammar_failed {
-            $(ScopeDefGrammar::$item => concat!("grammar failed: ScopeDefGrammar::", stringify!($item))),*
-        }
-    }};
-}
-
-impl ScopeDefError {
-    pub fn code(&self) -> &'static str {
-        build_error_code_gen!(
-            self.grammar_failed,
-            TokenGroupSizeAtLeastTwo,
-            FirstTokenShouldBeKeyword,
-            NonMainSecondTokenShouldBeIdentifier,
-            TokenGroupOfSizeTwoShouldBeMain,
-            GenericsShouldBeWellFormed
-        )
+impl From<FileError> for ScopeError {
+    fn from(error: FileError) -> Self {
+        ScopeError::FileError(error)
     }
 }

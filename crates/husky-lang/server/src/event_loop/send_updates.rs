@@ -11,7 +11,7 @@ use scope::ScopeQuery;
 pub(crate) fn send_updates(db: &HuskyLangDatabase, comm: &ClientCommunicator) {
     db.module_iter().for_each(|module| {
         db.diagnostic_reserve(module).drain(|diagnostics| {
-            if let Some(file_id) = db.module_to_file_id(module) {
+            if let Some(file_id) = db.module_to_file_id(module).ok() {
                 comm.send_diagnostics(db.url(file_id), batch_into!(diagnostics), None);
             }
         })

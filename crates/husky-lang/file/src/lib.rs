@@ -4,7 +4,7 @@ mod line_map;
 mod query;
 mod utils;
 
-pub use error::{FileError, FileResultArc};
+pub use error::{FileError, FileResult, FileResultArc};
 pub use intern::{
     convert_filepath, new_file_interner, snapshot_use_filepath, FileId, FileInterner, InternFile,
 };
@@ -20,10 +20,10 @@ pub struct FilePosition {
     // pub offset: TextSize,
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileRange {
     pub source: FileId,
-    // pub range: TextRange,
+    pub range: text::TextRange,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

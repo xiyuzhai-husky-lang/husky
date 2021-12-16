@@ -26,6 +26,6 @@ fn collect_module_def_diagnostics(
     _this: &dyn DiagnosticQuery,
     _scope: scope::ScopeId,
 ) -> Vec<Diagnostic> {
-    msg_once!("todo collect_module_def_diagnostics!");
+    msg_once!("todo collect module def diagnostics!");
     Vec::new()
 }
