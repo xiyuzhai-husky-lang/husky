@@ -17,7 +17,7 @@ impl ScopeAliasTable {
         }
     }
 
-    pub fn parse(file_id: FileId, token_groups: token::TokenGroupFoldedIter) -> Self {
+    pub fn parse(file_id: FileId, token_groups: token::TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|(index, token_group)| {
@@ -38,8 +38,8 @@ pub struct Entry {
 
 impl Entry {
     pub fn parse(
-        file_id: FileId,
-        token_group_index: usize,
+        _file_id: FileId,
+        _token_group_index: usize,
         token_group: &[token::Token],
     ) -> (Option<Entry>, Option<ScopeAliasDefError>) {
         if token_group[0].kind == TokenKind::Keyword(Keyword::Use) {

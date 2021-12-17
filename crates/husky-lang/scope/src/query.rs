@@ -4,6 +4,8 @@ use common::*;
 
 use word::Word;
 
+use folded::Folded;
+
 use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryStorage)]
 pub trait ScopeSalsaQuery: token::TokenSalsaQuery + InternScope {
@@ -19,29 +21,19 @@ pub trait ScopeSalsaQuery: token::TokenSalsaQuery + InternScope {
 }
 
 fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultArc<SubscopeTable> {
-    Ok(Arc::new(if let source = this.scope_source(scope_id)? {
-        match source {
-            ScopeSource::Builtin(_) => todo!(),
-            ScopeSource::WithinModule {
-                file_id,
-                token_group_index,
-            } => {
-                if let Some(children) = this
-                    .tokenized_text(file_id)?
-                    .folded_iter(token_group_index)
-                    .children()
-                {
-                    SubscopeTable::parse(file_id, children)
-                } else {
-                    SubscopeTable::empty()
-                }
-            }
-            ScopeSource::Module { file_id } => {
-                SubscopeTable::parse(file_id, this.tokenized_text(file_id)?.folded_iter(0))
-            }
+    Ok(Arc::new(match this.scope_source(scope_id)? {
+        ScopeSource::Builtin(_) => todo!(),
+        ScopeSource::WithinModule {
+            file_id,
+            token_group_index,
+        } => {
+            let text = this.tokenized_text(file_id)?;
+            SubscopeTable::parse(file_id, text.folded_iter(token_group_index).children())
         }
-    } else {
-        SubscopeTable::empty()
+        ScopeSource::Module { file_id } => {
+            let text = this.tokenized_text(file_id)?;
+            SubscopeTable::parse(file_id, text.folded_iter(0))
+        }
     }))
 }
 
@@ -49,29 +41,20 @@ fn scope_alias_table(
     this: &dyn ScopeSalsaQuery,
     scope_id: ScopeId,
 ) -> ScopeResultArc<ScopeAliasTable> {
-    Ok(Arc::new(if let source = this.scope_source(scope_id)? {
-        match source {
-            ScopeSource::Builtin(_) => ScopeAliasTable::empty(),
-            ScopeSource::WithinModule {
-                file_id,
-                token_group_index,
-            } => {
-                if let Some(children) = this
-                    .tokenized_text(file_id)?
-                    .folded_iter(token_group_index)
-                    .children()
-                {
-                    ScopeAliasTable::parse(file_id, children)
-                } else {
-                    ScopeAliasTable::empty()
-                }
-            }
-            ScopeSource::Module { file_id } => {
-                ScopeAliasTable::parse(file_id, this.tokenized_text(file_id)?.folded_iter(0))
-            }
+    Ok(Arc::new(match this.scope_source(scope_id)? {
+        ScopeSource::Builtin(_) => ScopeAliasTable::empty(),
+        ScopeSource::WithinModule {
+            file_id,
+            token_group_index,
+        } => ScopeAliasTable::parse(
+            file_id,
+            this.tokenized_text(file_id)?
+                .folded_iter(token_group_index)
+                .children(),
+        ),
+        ScopeSource::Module { file_id } => {
+            ScopeAliasTable::parse(file_id, this.tokenized_text(file_id)?.folded_iter(0))
         }
-    } else {
-        ScopeAliasTable::empty()
     }))
 }
 

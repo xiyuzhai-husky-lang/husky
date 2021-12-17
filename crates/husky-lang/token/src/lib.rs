@@ -12,7 +12,7 @@ pub use error::LexError;
 pub use kind::TokenKind;
 pub use query::{TokenQueryStorage, TokenSalsaQuery};
 pub use special::Special;
-pub use tokenized_text::{TokenGroupFoldedIter, TokenizedText};
+pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
 use common::*;
 

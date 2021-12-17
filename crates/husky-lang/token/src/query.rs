@@ -1,6 +1,6 @@
 use crate::*;
 
-use file::{FileError, FileRange, FileResultArc};
+use file::{FileError, FileResultArc};
 use std::sync::Arc;
 #[salsa::query_group(TokenQueryStorage)]
 pub trait TokenSalsaQuery: file::FileQuery + word::InternWord {

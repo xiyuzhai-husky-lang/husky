@@ -1,5 +1,6 @@
 mod opr;
 
+pub use error::AtomError;
 pub use opr::{BinaryOpr, Bracket, JoinOpr, Opr, Precedence, PrefixOpr, SuffixOpr};
 
 use scope::ScopeId;
@@ -19,3 +20,11 @@ pub enum AtomVariant {
     Literal(Literal),
     Opr(Opr, Precedence),
 }
+
+impl Atom {
+    pub fn parse(_token_group: &[token::Token]) -> (Vec<Atom>, Vec<AtomError>) {
+        todo!()
+    }
+}
+
+mod error;

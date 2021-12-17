@@ -2,7 +2,7 @@ use crate::*;
 
 use crate::error::*;
 
-use token::{Special, TokenKind};
+use token::{Special, Token, TokenGroupIter, TokenKind};
 use word::{Identifier, Keyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -16,7 +16,7 @@ impl Entry {
     pub fn parse(
         file_id: FileId,
         token_group_index: usize,
-        token_group: &[token::Token],
+        token_group: &[Token],
     ) -> (Option<Entry>, Option<ScopeDefError>) {
         if token_group.len() < 2 {
             return (
@@ -109,11 +109,11 @@ impl SubscopeTable {
         }
     }
 
-    pub fn parse(file_id: FileId, token_groups: token::TokenGroupFoldedIter) -> Self {
+    pub fn parse(file_id: FileId, token_groups: TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
-            .filter_map(|(index, token_group)| {
-                let (entry, error) = Entry::parse(file_id, index, token_group);
+            .filter_map(|(index, token_range)| {
+                let (entry, error) = Entry::parse(file_id, index, token_range);
                 error.map(|error| errors.push(error));
                 entry
             })

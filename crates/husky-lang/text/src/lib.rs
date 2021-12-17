@@ -107,6 +107,12 @@ impl From<u16> for Indent {
     }
 }
 
+impl Into<u16> for Indent {
+    fn into(self) -> u16 {
+        self.raw
+    }
+}
+
 impl From<usize> for Indent {
     fn from(j: usize) -> Self {
         Indent {

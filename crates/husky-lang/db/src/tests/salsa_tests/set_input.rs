@@ -1,5 +1,3 @@
-use std::sync::Mutex;
-
 use common::*;
 
 #[salsa::query_group(MyQueryStorage)]
