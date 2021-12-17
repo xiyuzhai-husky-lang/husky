@@ -1,14 +1,30 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct FoldedList<Key> {
-    pub(crate) nodes: Vec<FoldedNode<Key>>,
+pub struct FoldedList<T> {
+    pub(crate) nodes: Vec<FoldedNode<T>>,
 }
 
-impl<Key> FoldedList<Key> {
-    pub fn nodes(&self) -> &[FoldedNode<Key>] {
+impl<T> FoldedList<T> {
+    pub fn new() -> Self {
+        Self { nodes: Vec::new() }
+    }
+    pub fn nodes(&self) -> &[FoldedNode<T>] {
         &self.nodes
     }
+
+    pub fn append(&mut self, value: T, next_sibling: Option<usize>) {
+        self.nodes.push(FoldedNode {
+            value,
+            next_sibling,
+        })
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct FoldedNode<T> {
+    pub(crate) value: T,
+    pub(crate) next_sibling: Option<usize>,
 }
 
 impl<Item, T> From<Vec<Item>> for FoldedList<T>
@@ -32,7 +48,7 @@ where
                 }
             };
             nodes.push(FoldedNode {
-                key: items[i].key(),
+                value: items[i].value(),
                 next_sibling,
             })
         }
@@ -42,6 +58,24 @@ where
 }
 
 pub trait ItemToFold<Key> {
-    fn key(&self) -> Key;
+    fn value(&self) -> Key;
     fn indent(&self) -> u16;
+}
+
+impl<T> FoldedStorage<T, FoldedList<T>> for FoldedList<T> {
+    fn len(&self) -> usize {
+        self.nodes.len()
+    }
+
+    fn next_sibling(&self, index: usize) -> Option<usize> {
+        self.nodes[index].next_sibling
+    }
+
+    fn value(&self, index: usize) -> &T {
+        &self.nodes[index].value
+    }
+
+    fn this(&self) -> &FoldedList<T> {
+        self
+    }
 }

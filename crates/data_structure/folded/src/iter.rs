@@ -2,51 +2,49 @@ use std::marker::PhantomData;
 
 use crate::*;
 
-pub struct FoldedIter<'a, Key, Value, Folded>
+pub struct FoldedIter<'a, Value, Storage>
 where
     Value: ?Sized,
+    Storage: FoldedStorage<Value, Storage>,
 {
-    pub(crate) folded: &'a Folded,
+    pub(crate) storage: &'a Storage,
     pub(crate) next: Option<usize>,
-    phantom_key: PhantomData<Key>,
-    phantom_value: PhantomData<Value>,
+    phantom: PhantomData<Value>,
 }
 
-impl<'a, Key, Value, ValueStorage> FoldedIter<'a, Key, Value, ValueStorage>
+impl<'a, Value, Storage> FoldedIter<'a, Value, Storage>
 where
     Value: ?Sized,
+    Storage: FoldedStorage<Value, Storage>,
 {
-    pub(crate) fn new(storage: &'a ValueStorage, next: Option<usize>) -> Self {
+    pub(crate) fn new(storage: &'a Storage, next: Option<usize>) -> Self {
         Self {
-            folded: storage,
+            storage,
             next,
-            phantom_key: PhantomData,
-            phantom_value: PhantomData,
+            phantom: PhantomData,
         }
     }
 }
 
-impl<'a, Key, Value, ValueStorage> FoldedIter<'a, Key, Value, ValueStorage>
+impl<'a, Value, Storage> FoldedIter<'a, Value, Storage>
 where
-    ValueStorage: Folded<Key, Value, ValueStorage>,
     Value: ?Sized,
+    Storage: FoldedStorage<Value, Storage>,
 {
     pub fn new_iter(&self, next: Option<usize>) -> Self {
         Self {
-            folded: self.folded,
+            storage: self.storage,
             next,
-            phantom_key: PhantomData,
-            phantom_value: PhantomData,
+            phantom: PhantomData,
         }
     }
 
     pub fn children(&self) -> Self {
         if let Some(next) = self.next {
-            if next + 1 >= self.folded.nodes().len() {
+            if next + 1 >= self.storage.len() {
                 return self.new_iter(None);
             }
-            let node = &self.folded.nodes()[next];
-            if let Some(next_sibling) = node.next_sibling {
+            if let Some(next_sibling) = self.storage.next_sibling(next) {
                 if next + 1 >= next_sibling {
                     return self.new_iter(None);
                 }
@@ -58,18 +56,17 @@ where
     }
 }
 
-impl<'a, Key, Value: 'a, ValueStorage> Iterator for FoldedIter<'a, Key, Value, ValueStorage>
+impl<'a, Value: 'a, Storage> Iterator for FoldedIter<'a, Value, Storage>
 where
-    ValueStorage: Folded<Key, Value, ValueStorage>,
     Value: ?Sized,
+    Storage: FoldedStorage<Value, Storage>,
 {
     type Item = (usize, &'a Value);
 
     fn next(&mut self) -> Option<Self::Item> {
         if let Some(next) = self.next {
-            let node = &self.folded.nodes()[next];
-            self.next = node.next_sibling;
-            Some((next, self.folded.value(&node.key)))
+            self.next = self.storage.next_sibling(next);
+            Some((next, self.storage.value(next)))
         } else {
             None
         }

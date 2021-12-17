@@ -4,7 +4,7 @@ use common::*;
 
 use word::Word;
 
-use folded::Folded;
+use folded::FoldedStorage;
 
 use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryStorage)]
