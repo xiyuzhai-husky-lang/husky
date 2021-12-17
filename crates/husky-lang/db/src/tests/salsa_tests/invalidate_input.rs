@@ -1,5 +1,3 @@
-use std::sync::Mutex;
-
 use common::*;
 
 trait InputProvider {
@@ -19,7 +17,7 @@ trait Invalidator {
     fn invalidate_input(&mut self);
 }
 
-fn read(db: &dyn MyQuery, key: ()) -> i32 {
+fn read(db: &dyn MyQuery, _key: ()) -> i32 {
     db.salsa_runtime()
         .report_synthetic_read(salsa::Durability::LOW);
     db.provide_input()

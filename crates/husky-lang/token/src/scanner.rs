@@ -121,7 +121,6 @@ impl<'token> TokenScanner<'token> {
                             first_line.tokens.end
                         }
                     },
-                    folding_end: 0,
                 }
             });
         }

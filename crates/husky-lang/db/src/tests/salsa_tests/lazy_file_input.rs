@@ -25,7 +25,7 @@ struct MyDatabase {
 impl salsa::Database for MyDatabase {}
 
 impl FileWatcher for MyDatabase {
-    fn watch(&self, path: &Path) {
+    fn watch(&self, _path: &Path) {
         todo!()
     }
     fn did_change_file(&mut self, path: &PathBuf) {

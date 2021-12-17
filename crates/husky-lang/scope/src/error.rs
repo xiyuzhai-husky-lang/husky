@@ -4,7 +4,6 @@ use std::sync::Arc;
 
 pub(crate) use def::*;
 use file::FileError;
-use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ScopeError {
