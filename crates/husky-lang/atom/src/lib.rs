@@ -1,7 +1,10 @@
+mod error;
 mod opr;
+mod parser;
 
 pub use error::AtomError;
 pub use opr::{BinaryOpr, Bracket, JoinOpr, Opr, Precedence, PrefixOpr, SuffixOpr};
+pub use parser::AtomParser;
 
 use scope::ScopeId;
 use text::TextRange;
@@ -26,5 +29,3 @@ impl Atom {
         todo!()
     }
 }
-
-mod error;
