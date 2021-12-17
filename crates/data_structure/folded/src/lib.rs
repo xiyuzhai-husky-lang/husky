@@ -1,23 +1,22 @@
 mod iter;
 mod list;
-mod node;
 mod parser;
 
 pub use iter::FoldedIter;
-pub use list::{FoldedList, ItemToFold};
-pub use node::FoldedNode;
+pub use list::{FoldedList, FoldedNode, ItemToFold};
 pub use parser::Parser;
 
-pub trait Folded<Key, Value, This>
+pub trait FoldedStorage<Value, This>
 where
-    This: Folded<Key, Value, This>,
     Value: ?Sized,
+    This: FoldedStorage<Value, This>,
 {
-    fn nodes(&self) -> &[FoldedNode<Key>];
-    fn value(&self, key: &Key) -> &Value;
+    fn len(&self) -> usize;
+    fn next_sibling(&self, index: usize) -> Option<usize>;
+    fn value(&self, index: usize) -> &Value;
     fn this(&self) -> &This;
 
-    fn folded_iter(&self, start: usize) -> FoldedIter<Key, Value, This> {
+    fn folded_iter(&self, start: usize) -> FoldedIter<Value, This> {
         FoldedIter::new(self.this(), Some(start))
     }
 }

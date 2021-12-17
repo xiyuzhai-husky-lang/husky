@@ -8,7 +8,7 @@ use crate::*;
 pub struct TokenizedText {
     pub tokens: Vec<Token>,
     errors: Vec<LexError>,
-    folded_list: FoldedList<Range>,
+    token_groups: FoldedList<Range>,
 }
 
 impl TokenizedText {
@@ -20,20 +20,24 @@ impl TokenizedText {
         TokenizedText {
             tokens,
             errors,
-            folded_list: line_groups.into(),
+            token_groups: line_groups.into(),
         }
     }
 }
 
-pub type TokenGroupIter<'a> = folded::FoldedIter<'a, Range, [Token], TokenizedText>;
+pub type TokenGroupIter<'a> = folded::FoldedIter<'a, [Token], TokenizedText>;
 
-impl folded::Folded<Range, [Token], TokenizedText> for TokenizedText {
-    fn nodes(&self) -> &[folded::FoldedNode<Range>] {
-        self.folded_list.nodes()
+impl folded::FoldedStorage<[Token], TokenizedText> for TokenizedText {
+    fn len(&self) -> usize {
+        self.token_groups.len()
     }
 
-    fn value(&self, key: &Range) -> &[Token] {
-        &self.tokens[key.clone()]
+    fn next_sibling(&self, index: usize) -> Option<usize> {
+        self.token_groups.next_sibling(index)
+    }
+
+    fn value(&self, index: usize) -> &[Token] {
+        &self.tokens[self.token_groups.value(index).clone()]
     }
 
     fn this(&self) -> &TokenizedText {
@@ -48,7 +52,7 @@ pub struct TokenGroup {
 }
 
 impl folded::ItemToFold<Range> for TokenGroup {
-    fn key(&self) -> Range {
+    fn value(&self) -> Range {
         self.tokens.clone()
     }
 
