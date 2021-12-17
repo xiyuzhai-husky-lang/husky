@@ -1,20 +1,20 @@
 use crate::*;
 
-pub trait Parser<'a, Value: 'a, Storage, ParseResult, This>
+pub trait Parser<'a, Input: 'a, Storage, ParseResult, This>
 where
-    This: Parser<'a, Value, Storage, ParseResult, This>,
-    Storage: FoldedStorage<Value, Storage>,
-    Value: ?Sized,
+    This: Parser<'a, Input, Storage, ParseResult, This>,
+    Storage: FoldedStorage<Input, Storage>,
+    Input: ?Sized,
 {
     fn enter_fold(&mut self);
     fn exit_fold(&mut self);
     fn push(&mut self, result: ParseResult);
     fn new() -> This;
-    fn parse_value(&mut self, value: &Value) -> ParseResult;
+    fn parse_value(&mut self, value: &Input) -> ParseResult;
 
     fn parse_recursive(
         &mut self,
-        mut iter: FoldedIter<'a, Value, Storage>,
+        mut iter: FoldedIter<'a, Input, Storage>,
         results: &mut FoldedList<ParseResult>,
     ) {
         let mut child_iter = iter.children();
@@ -30,7 +30,7 @@ where
         }
     }
 
-    fn parse(iter: FoldedIter<'a, Value, Storage>) -> FoldedList<ParseResult> {
+    fn parse(iter: FoldedIter<'a, Input, Storage>) -> FoldedList<ParseResult> {
         let mut parser = Self::new();
         let mut results = FoldedList::new();
         parser.parse_recursive(iter, &mut results);
