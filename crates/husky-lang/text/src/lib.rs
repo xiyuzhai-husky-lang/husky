@@ -15,7 +15,7 @@ impl From<usize> for Column {
     }
 }
 
-#[derive(PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub struct TextPosition {
     row: Row,
     col: Column,
@@ -41,17 +41,26 @@ impl Into<lsp_types::Position> for TextPosition {
     }
 }
 
-#[derive(PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub struct TextRange {
-    start: TextPosition,
-    end: TextPosition,
+    pub start: TextPosition,
+    pub end: TextPosition,
 }
 
-impl From<std::ops::Range<&TextRange>> for TextRange {
-    fn from(ranges: std::ops::Range<&TextRange>) -> Self {
+impl From<std::ops::Range<TextRange>> for TextRange {
+    fn from(ranges: std::ops::Range<TextRange>) -> Self {
         Self {
             start: ranges.start.start.clone(),
             end: ranges.end.end.clone(),
+        }
+    }
+}
+
+impl From<std::ops::Range<TextPosition>> for TextRange {
+    fn from(ranges: std::ops::Range<TextPosition>) -> Self {
+        Self {
+            start: ranges.start,
+            end: ranges.end,
         }
     }
 }
@@ -84,7 +93,7 @@ impl Into<lsp_types::Range> for TextRange {
 }
 
 pub trait GetTextRange {
-    fn get_text_range(&self) -> &TextRange;
+    fn get_text_range(&self) -> TextRange;
 }
 
 impl<T> From<&[T]> for TextRange

@@ -15,7 +15,7 @@ pub trait ScopeSalsaQuery: token::TokenSalsaQuery + InternScope {
 
     fn subscope_ids(&self, scope_id: ScopeId) -> Arc<Vec<ScopeId>>;
 
-    fn scope_kind(&self, scope_id: ScopeId) -> Option<ScopeKind>;
+    fn scope_kind(&self, scope_id: ScopeId) -> ScopeKind;
 
     fn scope_source(&self, scope_id: ScopeId) -> ScopeResult<ScopeSource>;
 }
@@ -61,7 +61,7 @@ fn scope_alias_table(
 fn subscope_ids(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<Vec<ScopeId>> {
     Arc::new(if let Some(table) = this.subscope_table(scope_id).ok() {
         table
-            .subscopes(scope_id)
+            .non_generic_subscopes(scope_id)
             .into_iter()
             .map(|scope| this.scope_to_id(scope))
             .collect()
@@ -70,7 +70,7 @@ fn subscope_ids(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<Vec<ScopeI
     })
 }
 
-fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeKind> {
+fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeKind {
     let scope = this.id_to_scope(scope_id);
     match scope.parent {
         ScopeParent::Scope(parent) => this
@@ -79,7 +79,8 @@ fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Option<ScopeKind
             .as_ref()
             .ok()
             .map(|table| table.scope_kind(scope.ident))
-            .flatten(),
+            .flatten()
+            .unwrap(),
         ScopeParent::Package(_) => todo!(),
         ScopeParent::Root => todo!(),
     }
@@ -109,6 +110,7 @@ pub enum ModuleFromFileRule {
 
 /// methods:
 /// ```no_run
+/// fn is_scope_generic(&self, scope_id: ScopeId) -> bool;
 /// fn subscope(&self, parent_scope: ScopeId, ident: Identifier) -> Option<ScopeId>;
 /// fn all_modules(&self) -> Vec<Module>;
 /// fn module_iter(&self) -> std::vec::IntoIter<Module>;
@@ -118,14 +120,24 @@ pub enum ModuleFromFileRule {
 /// fn submodule_file_id(&self, parent_id: FileId, ident: Identifier) -> Result<FileId, FileError>;
 /// ```
 pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
-    fn subscope(&self, parent_scope: ScopeId, ident: Identifier) -> Option<ScopeId> {
+    fn is_scope_generic(&self, scope_id: ScopeId) -> bool {
+        self.scope_kind(scope_id).is_generic()
+    }
+
+    fn subscope(
+        &self,
+        parent_scope: ScopeId,
+        ident: Identifier,
+        generic_arguments: Option<Vec<ScopeId>>,
+    ) -> Option<ScopeId> {
         if self
             .subscope_table(parent_scope)
-            .map_or(false, |table| table.has_subscope(ident))
+            .map_or(false, |table| table.has_subscope(ident, &generic_arguments))
         {
             Some(self.provide_scope_interner().id(Scope {
                 parent: ScopeParent::Scope(parent_scope),
                 ident,
+                generic_arguments,
             }))
         } else {
             None
@@ -187,6 +199,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
                         scope_id: self.scope_to_id(Scope {
                             ident,
                             parent: ScopeParent::Package(id),
+                            generic_arguments: None,
                         }),
                     })
                 } else {

@@ -41,7 +41,7 @@ impl Token {
 }
 
 impl GetTextRange for Token {
-    fn get_text_range(&self) -> &TextRange {
-        &self.range
+    fn get_text_range(&self) -> TextRange {
+        self.range
     }
 }

@@ -1,10 +1,24 @@
 use text::TextRange;
 
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct AtomError {
-    pub origin: TextRange,
-    pub variant: AtomErrorVariant,
+    pub range: TextRange,
+    pub rule_broken: AtomRule,
 }
 
-pub enum AtomErrorVariant {
-    ScopeResolveError,
+impl AtomError {
+    pub fn new(range: TextRange, rule_broken: AtomRule) -> AtomError {
+        AtomError { range, rule_broken }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum AtomRule {
+    BeforeColonShouldBeScope,
+    ScopeShouldExist,
+    AfterColonShouldBeIdentifier,
+    GenericArgumentsShouldBeNonEmpty,
+    AfterLAngleShouldBeCommaListOfScopes,
+    KeywordShouldBeAtStart,
+    CompatibleConvexity,
 }

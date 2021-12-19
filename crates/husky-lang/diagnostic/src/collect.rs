@@ -10,12 +10,10 @@ pub(crate) fn collect_diagnostics(
         diagnostics.extend(
             this.subscope_ids(module.scope_id)
                 .iter()
-                .map(
-                    |subscope_id| match this.scope_kind(*subscope_id).expect("ok") {
-                        scope::ScopeKind::Module => todo!(),
-                        _ => collect_module_def_diagnostics(this, *subscope_id),
-                    },
-                )
+                .map(|subscope_id| match this.scope_kind(*subscope_id) {
+                    scope::ScopeKind::Module => todo!(),
+                    _ => collect_module_def_diagnostics(this, *subscope_id),
+                })
                 .flatten(),
         );
     }

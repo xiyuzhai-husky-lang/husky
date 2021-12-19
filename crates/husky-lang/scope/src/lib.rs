@@ -1,5 +1,3 @@
-#![feature(result_flattening)]
-
 mod alias;
 mod builtin;
 mod intern;
@@ -24,11 +22,20 @@ use word::Identifier;
 pub struct Scope {
     ident: Identifier,
     parent: ScopeParent,
+    generic_arguments: Option<Vec<ScopeId>>,
 }
 
 impl Scope {
-    pub fn new(ident: Identifier, parent: ScopeParent) -> Scope {
-        Scope { ident, parent }
+    pub fn new(
+        ident: Identifier,
+        parent: ScopeParent,
+        generic_arguments: Option<Vec<ScopeId>>,
+    ) -> Scope {
+        Scope {
+            ident,
+            parent,
+            generic_arguments,
+        }
     }
 }
 

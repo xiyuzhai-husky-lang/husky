@@ -56,7 +56,7 @@ impl Entry {
             TokenKind::Keyword(keyword) => {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
                     let is_generic = token_group.len() >= 3
-                        && token_group[2].kind == TokenKind::Special(Special::LessOrLAngular);
+                        && token_group[2].kind == TokenKind::Special(Special::LessOrLAngle);
                     if is_generic && !(token_group.len() >= 5) {
                         return (
                             None,
@@ -152,7 +152,14 @@ impl SubscopeTable {
             .map(|entry| entry.kind)
     }
 
-    pub fn has_subscope(&self, ident: Identifier) -> bool {
+    pub fn has_subscope(
+        &self,
+        ident: Identifier,
+        generic_arguments: &Option<Vec<ScopeId>>,
+    ) -> bool {
+        if generic_arguments.is_some() {
+            todo!()
+        }
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
@@ -167,13 +174,14 @@ impl SubscopeTable {
     pub fn error_iter(&self) -> core::slice::Iter<ScopeDefError> {
         self.errors.iter()
     }
-    pub fn subscopes(&self, parent_scope_id: ScopeId) -> Vec<Scope> {
+    pub fn non_generic_subscopes(&self, parent_scope_id: ScopeId) -> Vec<Scope> {
         self.entries
             .iter()
             .filter_map(|entry| {
                 entry.ident.map(|ident| Scope {
                     ident,
                     parent: ScopeParent::Scope(parent_scope_id),
+                    generic_arguments: None,
                 })
             })
             .collect()
