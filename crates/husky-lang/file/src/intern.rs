@@ -2,7 +2,7 @@ use common::*;
 use interner::Interner;
 
 pub type FileInterner = Interner<PathBuf>;
-pub type FileId = interner::BasicId<PathBuf>;
+pub type FileId = interner::InternId<PathBuf>;
 
 pub trait InternFile {
     fn provide_file_interner(&self) -> &FileInterner;
@@ -13,7 +13,7 @@ pub trait InternFile {
 
     fn filepath(&self, id: FileId) -> PathBuf {
         self.provide_file_interner()
-            .convert(id, |pth: &Path| pth.into())
+            .apply(id, |pth: &Path| pth.into())
     }
 
     fn file_id_iter(&self) -> interner::IdIter<FileId> {
@@ -22,14 +22,14 @@ pub trait InternFile {
 }
 
 pub fn new_file_interner() -> FileInterner {
-    FileInterner::new(vec![])
+    FileInterner::empty()
 }
 
 pub fn convert_filepath<F, Q>(this: &(impl InternFile + ?Sized), id: FileId, f: F) -> Q
 where
     F: Fn(&Path) -> Q,
 {
-    this.provide_file_interner().convert(id, f)
+    this.provide_file_interner().apply(id, f)
 }
 
 pub fn snapshot_use_filepath<Database, F, Q>(
@@ -43,5 +43,5 @@ where
 {
     use std::ops::Deref;
 
-    this.deref().provide_file_interner().convert(id, f)
+    this.deref().provide_file_interner().apply(id, f)
 }

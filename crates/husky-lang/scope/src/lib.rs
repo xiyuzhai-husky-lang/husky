@@ -16,7 +16,7 @@ pub use module::Module;
 pub use query::{ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery};
 pub use subscope::SubscopeTable;
 
-use word::Identifier;
+use word::{Identifier, Reserved};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Scope {
@@ -35,6 +35,16 @@ impl Scope {
             ident,
             parent,
             generic_arguments,
+        }
+    }
+}
+
+impl From<Reserved> for Scope {
+    fn from(ident: Reserved) -> Self {
+        Scope {
+            ident: Identifier::Reserved(ident),
+            parent: ScopeParent::Root,
+            generic_arguments: None,
         }
     }
 }

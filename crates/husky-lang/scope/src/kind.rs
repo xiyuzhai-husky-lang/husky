@@ -29,6 +29,7 @@ impl ScopeKind {
             | Keyword::Elif
             | Keyword::Else
             | Keyword::Switch
+            | Keyword::Match
             | Keyword::Case
             | Keyword::DeFault
             | Keyword::For

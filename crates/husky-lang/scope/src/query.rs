@@ -108,17 +108,6 @@ pub enum ModuleFromFileRule {
     FileShouldHaveExtensionHSK,
 }
 
-/// methods:
-/// ```no_run
-/// fn is_scope_generic(&self, scope_id: ScopeId) -> bool;
-/// fn subscope(&self, parent_scope: ScopeId, ident: Identifier) -> Option<ScopeId>;
-/// fn all_modules(&self) -> Vec<Module>;
-/// fn module_iter(&self) -> std::vec::IntoIter<Module>;
-/// fn collect_modules(&self, id: FileId) -> Vec<Module>;
-/// fn module_from_file_id(&self, id: FileId) -> Result<Module, ModuleFromFileError>;
-/// fn module_to_file_id(&self, module: Module) -> Option<FileId>;
-/// fn submodule_file_id(&self, parent_id: FileId, ident: Identifier) -> Result<FileId, FileError>;
-/// ```
 pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     fn is_scope_generic(&self, scope_id: ScopeId) -> bool {
         self.scope_kind(scope_id).is_generic()

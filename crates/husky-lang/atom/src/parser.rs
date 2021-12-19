@@ -162,7 +162,9 @@ impl<'a> AtomParser<'a> {
     }
 }
 
-impl<'a> folded::Parser<'_, [Token], TokenizedText, AtomResult, AtomParser<'a>> for AtomParser<'a> {
+impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomResult, AtomParser<'a>>
+    for AtomParser<'a>
+{
     fn enter_fold(&mut self) {
         self.scope_aliases.enter_fold();
     }
@@ -171,7 +173,7 @@ impl<'a> folded::Parser<'_, [Token], TokenizedText, AtomResult, AtomParser<'a>> 
         self.scope_aliases.exit_fold();
     }
 
-    fn parse(&mut self, token_group: &[Token]) -> AtomResult {
+    fn transform(&mut self, token_group: &[Token]) -> AtomResult {
         let mut iter = token_group.iter().peekable();
         let mut atom_group = AtomGroup::new(
             if let TokenKind::Keyword(keyword) = iter.peek().unwrap().kind {

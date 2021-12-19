@@ -7,8 +7,6 @@ use word::Identifier;
 
 use crate::*;
 
-pub type ValueExprId = usize;
-
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ValueExpr {
     range: TextRange,
@@ -30,7 +28,7 @@ impl From<&AtomKind> for ExprKind {
         match kind {
             AtomKind::Variable(ident) => ExprKind::Variable(*ident),
             AtomKind::Literal(literal) => ExprKind::Literal(literal.clone()),
-            AtomKind::Scope(scope) => panic!(),
+            AtomKind::Scope(_) => panic!(),
             AtomKind::Opr(_) => panic!(),
         }
     }

@@ -1,2 +1,6 @@
-mod diagnostic_tests;
-mod salsa_tests;
+mod atom;
+mod diagnostic;
+mod expr;
+mod fmt;
+mod salsa;
+mod scope;

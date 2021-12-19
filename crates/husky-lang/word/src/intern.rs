@@ -5,21 +5,41 @@ use crate::*;
 pub type WordInterner = Interner<String, Word>;
 
 pub fn new_word_interner() -> WordInterner {
-    macro_rules! get_keyword_str {
-        ($keyword: ident) => {{
-            stringify!($keyword).to_lowercase()
-        }};
-    }
-
-    macro_rules! build_keyword_bimap {
-    [$($variant:ident),*] => {{
-         vec![$((get_keyword_str!($variant), Word::Keyword(Keyword::$variant))),*]
-    }};
-}
-
-    return WordInterner::new(build_keyword_bimap![
-        Use, Mod, Main, Test, Proc, Func, Def, Pattern, Struct, Rename, Enum, Props, Main, Let,
-        Var, If, Elif, Else, Switch, Case, DeFault, For, Ext, ForExt, While, Do, Break, Return
+    return WordInterner::new_from::<&'static str, Word>(vec![
+        ("use", Keyword::Use.into()),
+        ("mod", Keyword::Mod.into()),
+        ("main", Keyword::Main.into()),
+        ("test", Keyword::Test.into()),
+        ("proc", Keyword::Proc.into()),
+        ("func", Keyword::Func.into()),
+        ("def", Keyword::Def.into()),
+        ("pattern", Keyword::Pattern.into()),
+        ("struct", Keyword::Struct.into()),
+        ("rename", Keyword::Rename.into()),
+        ("enum", Keyword::Enum.into()),
+        ("props", Keyword::Props.into()),
+        ("main", Keyword::Main.into()),
+        ("let", Keyword::Let.into()),
+        ("var", Keyword::Var.into()),
+        ("if", Keyword::If.into()),
+        ("elif", Keyword::Elif.into()),
+        ("else", Keyword::Else.into()),
+        ("switch", Keyword::Switch.into()),
+        ("match", Keyword::Match.into()),
+        ("case", Keyword::Case.into()),
+        ("default", Keyword::DeFault.into()),
+        ("for", Keyword::For.into()),
+        ("ext", Keyword::Ext.into()),
+        ("forExt", Keyword::ForExt.into()),
+        ("while", Keyword::While.into()),
+        ("do", Keyword::Do.into()),
+        ("break", Keyword::Break.into()),
+        ("return", Keyword::Return.into()),
+        ("i32", Reserved::I32.into()),
+        ("f32", Reserved::F32.into()),
+        ("builtin", Reserved::Builtin.into()),
+        ("std", Reserved::Std.into()),
+        ("core", Reserved::Core.into()),
     ]);
 }
 
@@ -32,5 +52,5 @@ pub trait InternWord {
 }
 
 pub fn convert_ident<T>(this: &dyn InternWord, ident: Identifier, f: impl FnOnce(&str) -> T) -> T {
-    this.word_interner().convert(Word::Identifier(ident), f)
+    this.word_interner().apply(Word::Identifier(ident), f)
 }

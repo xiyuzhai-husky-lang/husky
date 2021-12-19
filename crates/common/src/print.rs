@@ -1,14 +1,17 @@
 #[macro_export]
 macro_rules! p {
-  ($($v:expr),*) => {
-    assert_test_env();eprintln!("\n-------------------------------------------------------------------\n{}\n    src: {}{}:{}{}.{}\n",
-    show!($($v),*),
-    common::show::GREEN,
-    file!(),
-    common::show::YELLOW,
-    line!(),
-    common::show::RESET
-  )};
+    ($($v:expr),*) => {
+        assert_test_env();eprintln!(r#"
+-------------------------------------------------------------------
+{}{}:{}{}:{}
+    {}"#,
+        common::show::GREEN,
+        file!(),
+        common::show::YELLOW,
+        line!(),
+        common::show::RESET,
+        show!($($v),*),
+    )};
 }
 
 #[macro_export]

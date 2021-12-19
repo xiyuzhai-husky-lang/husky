@@ -127,6 +127,7 @@ pub enum BinaryOpr {
     And,          // && and
     BitAnd,       // &
     Or,           // ||
+    BitXor,       // ^
     BitOr,        // |
     Modulo,       // %
     LightArrow,   // ->

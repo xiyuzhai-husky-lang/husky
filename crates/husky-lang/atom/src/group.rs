@@ -8,8 +8,8 @@ pub struct AtomGroup {
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub struct GroupAttr {
-    keyword: Option<Keyword>,
-    is_head: bool,
+    pub keyword: Option<Keyword>,
+    pub is_head: bool,
 }
 
 impl AtomGroup {

@@ -44,10 +44,26 @@ impl<T> core::ops::Index<ArenaIdx<T>> for Arena<T> {
     }
 }
 
+impl<T> core::ops::Index<&ArenaIdx<T>> for Arena<T> {
+    type Output = T;
+
+    fn index(&self, idx: &ArenaIdx<T>) -> &Self::Output {
+        &self.storage[idx.raw]
+    }
+}
+
 impl<T> core::ops::Index<ArenaRange<T>> for Arena<T> {
     type Output = [T];
 
     fn index(&self, idx: ArenaRange<T>) -> &Self::Output {
+        &self.storage[idx.start.raw..idx.end.raw]
+    }
+}
+
+impl<T> core::ops::Index<&ArenaRange<T>> for Arena<T> {
+    type Output = [T];
+
+    fn index(&self, idx: &ArenaRange<T>) -> &Self::Output {
         &self.storage[idx.start.raw..idx.end.raw]
     }
 }
