@@ -1,4 +1,3 @@
-#![allow(warnings)]
 mod error;
 mod kind;
 mod parser;
@@ -12,15 +11,15 @@ use common::*;
 use scope::ScopeId;
 use text::TextRange;
 
-use error::ExprError;
-use kind::{ExprKind, Opn};
-use query::ExprQuery;
-use word::Keyword;
+pub use error::ExprError;
+pub use kind::{ExprKind, Opn};
+pub use query::{ExprQuery, ExprQueryStorage};
+pub use word::Keyword;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Expr {
-    range: TextRange,
-    kind: ExprKind,
+    pub range: TextRange,
+    pub kind: ExprKind,
 }
 
 impl Expr {
@@ -74,7 +73,7 @@ impl From<&atom::Atom> for Expr {
     }
 }
 
-pub type ExprResult = Result<(atom::GroupAttr, Expr), ExprError>;
+pub type ExprResult = Result<(atom::GroupAttr, Option<Expr>), ExprError>;
 
 pub type ExprArena = arena::Arena<Expr>;
 pub type ExprIdx = arena::ArenaIdx<Expr>;

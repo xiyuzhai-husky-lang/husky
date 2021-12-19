@@ -11,7 +11,6 @@ pub enum ScopeDefGrammar {
     TokenGroupSizeAtLeastTwo,
     FirstTokenShouldBeKeyword,
     NonMainSecondTokenShouldBeIdentifier,
-    TokenGroupOfSizeTwoShouldBeMain,
     GenericsShouldBeWellFormed,
 }
 
@@ -30,7 +29,6 @@ impl ScopeDefError {
             TokenGroupSizeAtLeastTwo,
             FirstTokenShouldBeKeyword,
             NonMainSecondTokenShouldBeIdentifier,
-            TokenGroupOfSizeTwoShouldBeMain,
             GenericsShouldBeWellFormed
         )
     }

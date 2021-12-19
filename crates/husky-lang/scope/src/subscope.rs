@@ -5,11 +5,20 @@ use crate::error::*;
 use token::{Special, Token, TokenGroupIter, TokenKind};
 use word::{Identifier, Keyword};
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
     ident: Option<Identifier>,
     kind: ScopeKind,
     source: ScopeSource,
+}
+
+impl std::fmt::Debug for Entry {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "{{ident: {:?}, kind: {:?}}}, source: {:?}",
+            self.ident, self.kind, self.source
+        ))
+    }
 }
 
 impl Entry {
@@ -27,30 +36,15 @@ impl Entry {
                 }),
             );
         }
-        if token_group.len() == 2 {
-            if token_group[0].kind == TokenKind::Keyword(Keyword::Main) {
-                let error = if token_group[1].kind != TokenKind::Special(Special::Colon) {
-                    todo!()
-                } else {
-                    None
-                };
-                return (
-                    Some(Entry {
-                        ident: None,
-                        kind: ScopeKind::Routine { is_generic: false },
-                        source: ScopeSource::from_file(file_id, token_group_index),
-                    }),
-                    error,
-                );
-            } else {
-                return (
-                    None,
-                    Some(ScopeDefError {
-                        range: token_group[0].range.clone(),
-                        grammar_failed: ScopeDefGrammar::TokenGroupOfSizeTwoShouldBeMain,
-                    }),
-                );
-            }
+        if token_group.len() == 2 && token_group[0].kind == TokenKind::Keyword(Keyword::Main) {
+            return (
+                Some(Entry {
+                    ident: None,
+                    kind: ScopeKind::Routine { is_generic: false },
+                    source: ScopeSource::from_file(file_id, token_group_index),
+                }),
+                None,
+            );
         }
         match &token_group[0].kind {
             TokenKind::Keyword(keyword) => {
@@ -97,8 +91,8 @@ impl Entry {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SubscopeTable {
-    entries: Vec<Entry>,
-    errors: Vec<ScopeDefError>,
+    pub entries: Vec<Entry>,
+    pub errors: Vec<ScopeDefError>,
 }
 
 impl SubscopeTable {

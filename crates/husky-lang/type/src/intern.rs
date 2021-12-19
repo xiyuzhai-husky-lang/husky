@@ -1,3 +1,3 @@
 use crate::*;
 
-pub type TypeId = interner::BasicId<Type>;
+pub type TypeId = interner::InternId<Type>;

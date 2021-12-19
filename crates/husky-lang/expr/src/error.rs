@@ -1,6 +1,6 @@
 use text::TextRange;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ExprError {
     range: TextRange,
     rule_broken: ExprRule,
@@ -18,7 +18,7 @@ impl From<&atom::AtomError> for ExprError {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ExprRule {
     ScopeShouldBeCalled,
     BracketsShouldMatch,

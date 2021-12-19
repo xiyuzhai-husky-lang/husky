@@ -77,7 +77,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 self.line_index,
                 j_start,
                 j_start + len,
-                TokenKind::FloatLiteral(self.take_buffer_string()),
+                TokenKind::F32Literal(self.take_buffer_f32()),
             )
         } else {
             let len = self.buffer.len();
@@ -85,7 +85,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 self.line_index,
                 j_start,
                 j_start + len,
-                TokenKind::IntegerLiteral(self.take_buffer_string()),
+                TokenKind::I32Literal(self.take_buffer_i32()),
             )
         }
     }
@@ -96,10 +96,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         word
     }
 
-    fn take_buffer_string(&mut self) -> String {
-        let string = self.buffer.clone();
-        self.buffer.clear();
-        string
+    fn take_buffer_i32(&mut self) -> i32 {
+        std::mem::take(&mut self.buffer).parse::<i32>().unwrap()
+    }
+
+    fn take_buffer_f32(&mut self) -> f32 {
+        std::mem::take(&mut self.buffer).parse::<f32>().unwrap()
     }
 
     fn peek(&mut self) -> char {

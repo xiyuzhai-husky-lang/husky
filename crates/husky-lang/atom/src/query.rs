@@ -1,7 +1,7 @@
 use crate::*;
 
 use file::FileResultArc;
-use folded::Parser;
+use folded::Transformer;
 use folded::{FoldedList, FoldedStorage};
 use scope::ScopeQuery;
 use std::sync::Arc;
@@ -16,6 +16,6 @@ pub trait AtomQuery: ScopeQuery {
 fn atomized_text(this: &dyn AtomQuery, id: file::FileId) -> FileResultArc<AtomizedText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AtomParser::new(this);
-    parser.parse_all(tokenized_text.folded_iter(0));
+    parser.convert_all(tokenized_text.folded_iter(0));
     Ok(Arc::new(parser.take_folded_results()))
 }

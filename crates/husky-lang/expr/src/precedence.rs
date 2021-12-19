@@ -1,8 +1,7 @@
-use atom::{BinaryOpr, Opr, PrefixOpr, SuffixOpr};
+use atom::{BinaryOpr, Opr, PrefixOpr};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum Precedence {
-    Inert = 20,
     Closed = 19,
     Prefix = 18,
     Power = 17,
@@ -16,8 +15,6 @@ pub enum Precedence {
     BitOr = 9,
     And = 8,
     Or = 7,
-    TernaryConditional = 6,
-    List = 5,
     Arrow = 4,
     Assign = 3,
     AboveJoin = 2,
@@ -25,9 +22,10 @@ pub enum Precedence {
     None = 0,
 }
 
+#[cfg(test)]
 #[test]
 fn test_precedence_order() {
-    assert!(Precedence::Inert > Precedence::Closed);
+    assert!(Precedence::Closed > Precedence::Prefix);
 }
 
 impl From<Opr> for Precedence {
@@ -43,6 +41,7 @@ impl From<Opr> for Precedence {
                 BinaryOpr::BitAnd => Precedence::BitAnd,
                 BinaryOpr::Or => Precedence::Or,
                 BinaryOpr::BitOr => Precedence::BitOr,
+                BinaryOpr::BitXor => Precedence::BitXor,
                 BinaryOpr::Mult | BinaryOpr::Div | BinaryOpr::Modulo => Precedence::Multiplicative,
                 BinaryOpr::SubAssign
                 | BinaryOpr::AddAssign
@@ -53,7 +52,7 @@ impl From<Opr> for Precedence {
                 BinaryOpr::Leq | BinaryOpr::Less | BinaryOpr::Geq | BinaryOpr::Greater => {
                     Precedence::Compare
                 }
-                BinaryOpr::Power => todo!(),
+                BinaryOpr::Power => Precedence::Power,
                 BinaryOpr::LambdaMiddle => todo!(),
             },
             Opr::Join => Precedence::Join,
@@ -65,7 +64,7 @@ impl From<Opr> for Precedence {
                 PrefixOpr::Exclusive => Precedence::Closed,
                 PrefixOpr::LambdaBegin => todo!(),
             },
-            Opr::Suffix(suffix) => Precedence::Closed,
+            Opr::Suffix(_) => Precedence::Closed,
             Opr::Bra(_) | Opr::Ket(_) => Precedence::None,
         }
     }

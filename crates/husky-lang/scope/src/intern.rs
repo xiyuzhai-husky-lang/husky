@@ -2,9 +2,27 @@ use interner::Interner;
 
 use crate::*;
 
-pub type ScopeInterner = Interner<Scope>;
+use word::Reserved;
 
-pub type ScopeId = interner::BasicId<Scope>;
+pub type ScopeInterner = Interner<Scope, ScopeId>;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum ScopeId {
+    Builtin(BuiltinScope),
+    UserDefined(u32),
+}
+
+impl From<u32> for ScopeId {
+    fn from(raw: u32) -> Self {
+        ScopeId::UserDefined(raw)
+    }
+}
+
+impl From<BuiltinScope> for ScopeId {
+    fn from(scope: BuiltinScope) -> Self {
+        Self::Builtin(scope)
+    }
+}
 
 pub trait InternScope {
     fn provide_scope_interner(&self) -> &ScopeInterner;
@@ -17,5 +35,8 @@ pub trait InternScope {
 }
 
 pub fn new_scope_interner() -> ScopeInterner {
-    ScopeInterner::new(vec![])
+    ScopeInterner::new_from(vec![
+        (Reserved::I32, BuiltinScope::I32),
+        (Reserved::F32, BuiltinScope::F32),
+    ])
 }

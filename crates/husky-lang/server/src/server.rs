@@ -19,7 +19,7 @@ impl Server {
             client_comm: ClientCommunicator::new(sender),
             threadpool: threadpool::ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
-            db: husky_lang_db::HuskyLangDatabase::default(),
+            db: husky_lang_db::HuskyLangDatabase::new(None),
         }
     }
 }

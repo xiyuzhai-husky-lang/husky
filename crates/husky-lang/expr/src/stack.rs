@@ -1,7 +1,7 @@
 use atom::{BinaryOpr, Bracket, Opr, PrefixOpr, SuffixOpr};
 use text::TextPosition;
 
-use crate::{error::ExprRule, kind::Opn, precedence::Precedence, *};
+use crate::{error::ExprRule, precedence::Precedence, *};
 
 pub(crate) struct ExprStack<'a> {
     arena: &'a mut ExprArena,
@@ -37,16 +37,17 @@ impl<'a> ExprStack<'a> {
     }
 
     pub(crate) fn finish(mut self) -> Expr {
+        self.synthesize_all_above(Precedence::None);
         assert!(self.exprs.len() == 1);
         self.exprs.pop().unwrap()
     }
 
-    pub(crate) fn accept_opr(&mut self, opr: Opr, range: TextRange) {
+    pub(crate) fn accept_opr(&mut self, opr: Opr, range: TextRange) -> Result<(), ExprError> {
         let precedence: Precedence = opr.into();
         match opr {
             Opr::Binary(binary) => {
                 self.synthesize_all_above(precedence);
-                self.oprs.push(StackOpr::Binary { binary, precedence });
+                self.oprs.push(StackOpr::Binary { binary, precedence })
             }
             Opr::Join => {
                 self.synthesize_all_above(precedence);
@@ -65,12 +66,13 @@ impl<'a> ExprStack<'a> {
                 self.synthesize_all_above(precedence);
                 self.synthesize_suffix(suffix, range.end)
             }
-            Opr::Ket(_) => todo!(),
-        }
+            Opr::Ket(ket) => self.synthesize_bracketed_exprs(ket, range)?,
+        };
+        Ok(())
     }
 
-    pub(crate) fn accept_empty_parenthesis(&mut self, range: TextRange) {
-        self.accept_bracketed_exprs(Vec::new(), range);
+    pub(crate) fn accept_empty_parenthesis(&mut self, range: TextRange) -> Result<(), ExprError> {
+        self.accept_bracketed_exprs(Vec::new(), range)
     }
 
     pub(crate) fn accept_atom_expr(&mut self, expr: Expr) {
@@ -85,7 +87,7 @@ impl<'a> ExprStack<'a> {
         match self.oprs.last().map(|opr| opr.clone()) {
             Some(StackOpr::Binary {
                 binary: BinaryOpr::Call,
-                precedence,
+                ..
             }) => {
                 let expr = self.exprs.pop().unwrap();
                 match expr.kind {
@@ -105,7 +107,7 @@ impl<'a> ExprStack<'a> {
             }
             Some(StackOpr::Binary {
                 binary: BinaryOpr::Index,
-                precedence,
+                ..
             }) => {
                 let expr = self.exprs.pop().unwrap();
                 let range = (expr.range..range).into();
@@ -149,9 +151,12 @@ impl<'a> ExprStack<'a> {
         while let Some(stack_opr) = self.oprs.pop() {
             match stack_opr {
                 StackOpr::Binary { .. } | StackOpr::Prefix { .. } => panic!(),
-                StackOpr::Join => self.synthesize_all_above(Precedence::AboveJoin),
+                StackOpr::Join => {
+                    bracketed_exprs.push(self.exprs.pop().unwrap());
+                    self.synthesize_all_above(Precedence::AboveJoin)
+                }
                 StackOpr::Bra { bra, start } => {
-                    if (bra != ket) {
+                    if bra != ket {
                         return Err(ExprError::new(
                             (start..range.end).into(),
                             ExprRule::BracketsShouldMatch,

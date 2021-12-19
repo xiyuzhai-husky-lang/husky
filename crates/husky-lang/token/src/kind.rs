@@ -5,8 +5,8 @@ pub enum TokenKind {
     Keyword(word::Keyword),
     Identifier(word::Identifier),
     Special(Special),
-    IntegerLiteral(String),
-    FloatLiteral(String),
+    I32Literal(i32),
+    F32Literal(f32),
 }
 impl std::hash::Hash for TokenKind {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {

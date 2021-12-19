@@ -1,2 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum BuiltinScope {}
+pub enum BuiltinScope {
+    I32,
+    F32,
+}

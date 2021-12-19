@@ -5,7 +5,7 @@ use stdx::sync::ARwLock;
 use internal::InternerInternal;
 
 #[derive(Clone)]
-pub struct Interner<T, Id = BasicId<T>>
+pub struct Interner<T, Id = InternId<T>>
 where
     T: Hash + Eq + Send + Sync + Clone,
     Id: Hash + Eq + Send + Sync + Copy + From<u32> + Debug,
@@ -57,17 +57,29 @@ where
     T: Hash + Eq + Send + Sync + Clone,
     Id: Hash + Eq + Send + Sync + Copy + From<u32> + Debug,
 {
-    pub fn new(map: Vec<(T, Id)>) -> Self {
+    pub fn new_from<S, V>(entries: Vec<(S, V)>) -> Self
+    where
+        T: From<S>,
+        Id: From<V>,
+    {
         Self {
             internal: ARwLock::new(InternerInternal::<T, Id>::new(BiMap::<T, Id>::from_iter(
-                map,
+                entries.into_iter().map(|(s, v)| (s.into(), v.into())),
             ))),
         }
     }
+
+    pub fn empty() -> Self {
+        Self {
+            internal: ARwLock::new(InternerInternal::<T, Id>::new(BiMap::<T, Id>::default())),
+        }
+    }
+
     pub fn id_iter(&self) -> IdIter<Id> {
         self.internal
             .read(|internal| IdIter::<Id>::new(0, internal.next_id_raw))
     }
+
     pub fn id_by_ref<Q>(&self, raw: &Q) -> Id
     where
         T: Borrow<Q> + for<'a> From<&'a Q>,
@@ -114,7 +126,7 @@ where
         return result;
     }
 
-    pub fn convert<Q, S>(&self, word: Id, f: impl FnOnce(&Q) -> S) -> S
+    pub fn apply<Q, S>(&self, word: Id, f: impl FnOnce(&Q) -> S) -> S
     where
         T: AsRef<Q>,
         Q: ?Sized,
@@ -179,12 +191,23 @@ mod internal {
     }
 }
 
-#[derive(Hash, PartialEq, Eq, Debug, Default)]
-pub struct BasicId<T> {
+#[derive(Hash, PartialEq, Eq, Default)]
+pub struct InternId<T> {
     raw: u32,
     phantom: PhantomData<T>,
 }
-impl<T> Clone for BasicId<T> {
+impl<T> std::fmt::Debug for InternId<T> {
+    // fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    //     f.debug_struct("InternId")
+    //         .field("raw", &self.raw)
+    //         .field("phantom", &self.phantom)
+    //         .finish()
+    // }
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{:?}", self.raw))
+    }
+}
+impl<T> Clone for InternId<T> {
     fn clone(&self) -> Self {
         Self {
             raw: self.raw.clone(),
@@ -192,8 +215,8 @@ impl<T> Clone for BasicId<T> {
         }
     }
 }
-impl<T> Copy for BasicId<T> {}
-impl<T> From<u32> for BasicId<T> {
+impl<T> Copy for InternId<T> {}
+impl<T> From<u32> for InternId<T> {
     fn from(raw: u32) -> Self {
         Self {
             raw,

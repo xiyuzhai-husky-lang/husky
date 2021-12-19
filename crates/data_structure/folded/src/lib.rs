@@ -1,12 +1,12 @@
 mod folded_list;
 mod folded_stack;
 mod iter;
-mod parser;
+mod transformer;
 
 pub use folded_list::{FoldedList, FoldedNode, ItemToFold};
 pub use folded_stack::FoldedStack;
 pub use iter::FoldedIter;
-pub use parser::Parser;
+pub use transformer::Transformer;
 
 pub trait FoldedStorage<Value, This>
 where
