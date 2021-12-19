@@ -7,7 +7,7 @@ pub use word::InternWord;
 
 use common::*;
 
-use std::{fmt, mem::ManuallyDrop};
+use std::fmt;
 
 use stdx::sync::ARwLock;
 
@@ -19,14 +19,11 @@ pub type FxIndexMap<K, V> =
     file::FileQueryStorage,
     token::TokenQueryStorage,
     scope::ScopeQueryStorage,
-    diagnostic::DiagnosticQueryStorage
+    diagnostic::DiagnosticQueryStorage,
+    atom::AtomQueryStorage
 )]
 pub struct HuskyLangDatabase {
-    // We use `ManuallyDrop` here because every codegen unit that contains a
-    // `&RootDatabase -> &dyn OtherDatabase` cast will instantiate its drop glue in the vtable,
-    // which duplicates `Weak::drop` and `Arc::drop` tens of thousands of times, which makes
-    // compile times of all `ide_*` and downstream crates suffer greatly.
-    storage: ManuallyDrop<salsa::Storage<HuskyLangDatabase>>,
+    storage: salsa::Storage<HuskyLangDatabase>,
     file_interner: file::FileInterner,
     word_interner: word::WordInterner,
     scope_interner: scope::ScopeInterner,
@@ -40,13 +37,6 @@ impl Default for HuskyLangDatabase {
             word_interner: word::new_word_interner(),
             scope_interner: scope::new_scope_interner(),
             live_docs: Default::default(),
-        }
-    }
-}
-impl Drop for HuskyLangDatabase {
-    fn drop(&mut self) {
-        unsafe {
-            ManuallyDrop::drop(&mut self.storage);
         }
     }
 }
@@ -113,34 +103,11 @@ impl HuskyLangDatabase {
 impl salsa::ParallelDatabase for HuskyLangDatabase {
     fn snapshot(&self) -> salsa::Snapshot<HuskyLangDatabase> {
         salsa::Snapshot::new(HuskyLangDatabase {
-            storage: ManuallyDrop::new(self.storage.snapshot()),
+            storage: self.storage.snapshot(),
             file_interner: self.file_interner.clone(),
             word_interner: self.word_interner.clone(),
             scope_interner: self.scope_interner.clone(),
             live_docs: self.live_docs.clone(),
         })
     }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum SymbolKind {
-    Const,
-    ConstParam,
-    Enum,
-    Field,
-    Function,
-    Impl,
-    Label,
-    Local,
-    Macro,
-    Module,
-    SelfParam,
-    Static,
-    Struct,
-    Trait,
-    TypeAlias,
-    TypeParam,
-    Union,
-    ValueParam,
-    Variant,
 }

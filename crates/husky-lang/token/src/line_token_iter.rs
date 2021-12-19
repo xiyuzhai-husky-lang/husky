@@ -51,7 +51,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             }
         }
         let len = self.buffer.len();
-        return Token::new(self.line_index, j_start, j_start + len, self.word().into());
+        return Token::new(
+            self.line_index,
+            j_start,
+            j_start + len,
+            self.take_buffer_word().into(),
+        );
 
         fn is_word_char(c: char) -> bool {
             c.is_alphanumeric() || c == '_'
@@ -68,29 +73,33 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 self.eat()
             }
             let len = self.buffer.len();
-            Token::new(self.line_index, j_start, j_start + len, self.f32().into())
+            Token::new(
+                self.line_index,
+                j_start,
+                j_start + len,
+                TokenKind::FloatLiteral(self.take_buffer_string()),
+            )
         } else {
             let len = self.buffer.len();
-            Token::new(self.line_index, j_start, j_start + len, self.i32().into())
+            Token::new(
+                self.line_index,
+                j_start,
+                j_start + len,
+                TokenKind::IntegerLiteral(self.take_buffer_string()),
+            )
         }
     }
 
-    fn word(&mut self) -> word::Word {
+    fn take_buffer_word(&mut self) -> word::Word {
         let word = self.db.id_by_ref(&self.buffer);
         self.buffer.clear();
         word
     }
 
-    fn f32(&mut self) -> f32 {
-        let f = self.buffer.parse::<f32>().expect("couldn't be wrong");
+    fn take_buffer_string(&mut self) -> String {
+        let string = self.buffer.clone();
         self.buffer.clear();
-        f
-    }
-
-    fn i32(&mut self) -> i32 {
-        let i = self.buffer.parse::<i32>().expect("couldn't be wrong");
-        self.buffer.clear();
-        i
+        string
     }
 
     fn peek(&mut self) -> char {
@@ -116,10 +125,10 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             '=' => match self.peek() {
                 '=' => self.pass(Special::Eq),
                 '>' => self.pass(Special::HeavyArrow),
-                _ => (1, Special::Be),
+                _ => (1, Special::Assign),
             },
             ':' => match self.peek() {
-                ':' => self.pass(Special::ScopeAccess),
+                ':' => self.pass(Special::DoubleColon),
                 _ => (1, Special::Colon),
             },
             '(' => (1, Special::LPar),
@@ -134,7 +143,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 _ => (1, Special::Ambersand),
             },
             '|' => match self.peek() {
-                '|' => self.pass(Special::Or),
+                '|' => self.pass(Special::DoubleVertical),
                 _ => (1, Special::Vertical),
             },
             '~' => (1, Special::BitNot),
@@ -148,12 +157,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             '<' => match self.peek() {
                 '<' => self.pass(Special::RShift),
                 '=' => self.pass(Special::Leq),
-                _ => (1, Special::LessOrLAngular),
+                _ => (1, Special::LessOrLAngle),
             },
             '>' => match self.peek() {
                 '>' => self.pass(Special::LShift),
                 '=' => self.pass(Special::Geq),
-                _ => (1, Special::GreaterOrRAngular),
+                _ => (1, Special::GreaterOrRAngle),
             },
             '*' => match self.peek() {
                 '*' => self.pass(Special::Power),
@@ -172,7 +181,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             },
             '!' => match self.peek() {
                 '=' => self.pass(Special::Neq),
-                _ => (1, Special::NotOrExclusive),
+                _ => (1, Special::Exclamation),
             },
             _ => todo!(),
         };

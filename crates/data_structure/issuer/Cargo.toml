@@ -1,13 +1,11 @@
 [package]
-name = "text_edit"
+name = "issuer"
 version = "0.0.0"
-description = "TBD"
+description = "Issuer for the Husky Programming Language"
 license = "MIT OR Apache-2.0"
 edition = "2021"
-rust-version = "1.56"
 
 [lib]
 doctest = false
 
 [dependencies]
-text-size = "1.0.0"

@@ -1,17 +1,87 @@
+use scope::ScopeId;
+use token::Special;
+use word::Identifier;
+
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum Opr {
-    Join(JoinOpr),
     Binary(BinaryOpr),
+    Join,
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
     Bra(Bracket),
     Ket(Bracket),
 }
 
+impl From<BinaryOpr> for Opr {
+    fn from(opr: BinaryOpr) -> Self {
+        Self::Binary(opr)
+    }
+}
+
+impl From<PrefixOpr> for Opr {
+    fn from(opr: PrefixOpr) -> Self {
+        Self::Prefix(opr)
+    }
+}
+
+impl From<SuffixOpr> for Opr {
+    fn from(opr: SuffixOpr) -> Self {
+        Self::Suffix(opr)
+    }
+}
+
+impl From<&Special> for Opr {
+    fn from(special: &Special) -> Self {
+        match special {
+            token::Special::DoubleColon => panic!(),
+            token::Special::Colon => panic!(),
+            token::Special::Vertical => panic!(),
+            token::Special::Ambersand => panic!(),
+            token::Special::Exclamation => panic!(),
+            token::Special::DoubleVertical => panic!(),
+            token::Special::LPar => panic!(),
+            token::Special::LBox => panic!(),
+            token::Special::LCurl => panic!(),
+            token::Special::MemberAccess => panic!(),
+            token::Special::LessOrLAngle => Opr::Binary(BinaryOpr::Less),
+            token::Special::Leq => Opr::Binary(BinaryOpr::Leq),
+            token::Special::GreaterOrRAngle => Opr::Binary(BinaryOpr::Greater),
+            token::Special::Geq => Opr::Binary(BinaryOpr::Geq),
+            token::Special::Neq => Opr::Binary(BinaryOpr::Neq),
+            token::Special::Eq => Opr::Binary(BinaryOpr::Eq),
+            token::Special::LShift => Opr::Binary(BinaryOpr::LShift),
+            token::Special::RShift => Opr::Binary(BinaryOpr::RShift),
+            token::Special::RCurl => Opr::Ket(Bracket::Curl),
+            token::Special::RBox => Opr::Ket(Bracket::Box),
+            token::Special::RPar => Opr::Ket(Bracket::Par),
+            token::Special::Add => Opr::Binary(BinaryOpr::Add),
+            token::Special::Sub => Opr::Binary(BinaryOpr::Sub),
+            token::Special::Mult => Opr::Binary(BinaryOpr::Mult),
+            token::Special::Div => Opr::Binary(BinaryOpr::Div),
+            token::Special::Power => Opr::Binary(BinaryOpr::Power),
+            token::Special::And => Opr::Binary(BinaryOpr::And),
+            token::Special::BitNot => Opr::Prefix(PrefixOpr::BitNot),
+            token::Special::Modulo => Opr::Binary(BinaryOpr::Modulo),
+            token::Special::HeavyArrow => Opr::Binary(BinaryOpr::HeavyArrow),
+            token::Special::Incr => Opr::Suffix(SuffixOpr::Incr),
+            token::Special::Decr => Opr::Suffix(SuffixOpr::Decr),
+            token::Special::Assign => Opr::Binary(BinaryOpr::Assign),
+            token::Special::AddAssign => Opr::Binary(BinaryOpr::AddAssign),
+            token::Special::SubAssign => Opr::Binary(BinaryOpr::SubAssign),
+            token::Special::MultAssign => Opr::Binary(BinaryOpr::MultAssign),
+            token::Special::DivAssign => Opr::Binary(BinaryOpr::DivAssign),
+            token::Special::Comma => Opr::Join,
+        }
+    }
+}
+
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum SuffixOpr {
-    Incr,      // ++
-    Decr,      // --
-    MayReturn, // ?
+    Incr,                     // ++
+    Decr,                     // --
+    MayReturn,                // ?
+    MemberAccess(Identifier), // .
+    WithType(ScopeId),        // :
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
@@ -20,7 +90,7 @@ pub enum PrefixOpr {
     Not,         // !$0
     BitNot,      // ~
     Shared,      // &
-    Exclusive,   // !$0 after OfType or Vec or Array
+    Exclusive,   // !$0 after WithType or Vec or Array
     LambdaBegin, // |$0| $1
 }
 
@@ -59,7 +129,6 @@ pub enum BinaryOpr {
     Or,           // ||
     BitOr,        // |
     Modulo,       // %
-    MemberAccess, // .
     LightArrow,   // ->
     HeavyArrow,   // =>
     Assign,       // =
@@ -67,84 +136,5 @@ pub enum BinaryOpr {
     SubAssign,    // -=
     MultAssign,   // *=
     DivAssign,    // /=
-    OfType,       // :
     LambdaMiddle, // |$0| $1
-}
-
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
-pub enum Precedence {
-    Inert = 20,
-    Closed = 19,
-    Prefix = 18,
-    Power = 17,
-    Multiplicative = 16,
-    Additive = 15,
-    Shift = 14,
-    Compare = 13,
-    Equal = 12,
-    BitAnd = 11,
-    BitXor = 10,
-    BitOr = 9,
-    And = 8,
-    Or = 7,
-    TernaryConditional = 6,
-    List = 5,
-    Arrow = 4,
-    Comma = 3,
-    Assign = 2,
-    Lambda = 1,
-    None = 0,
-}
-
-#[test]
-fn test_precedence_order() {
-    assert!(Precedence::Inert > Precedence::Closed);
-}
-
-impl From<Opr> for Precedence {
-    fn from(opr: Opr) -> Self {
-        match opr {
-            Opr::Join(join) => match join {
-                JoinOpr::Comma => Precedence::Comma,
-            },
-            Opr::Binary(binary) => match binary {
-                BinaryOpr::Call | BinaryOpr::Index | BinaryOpr::MemberAccess => Precedence::Closed,
-                BinaryOpr::Assign => Precedence::Assign,
-                BinaryOpr::LightArrow => Precedence::Arrow,
-                BinaryOpr::HeavyArrow => Precedence::Arrow,
-                BinaryOpr::Eq | BinaryOpr::Neq => Precedence::Equal,
-                BinaryOpr::And => Precedence::And,
-                BinaryOpr::BitAnd => Precedence::BitAnd,
-                BinaryOpr::Or => Precedence::Or,
-                BinaryOpr::BitOr => Precedence::BitOr,
-                BinaryOpr::Mult | BinaryOpr::Div | BinaryOpr::Modulo => Precedence::Multiplicative,
-                BinaryOpr::SubAssign
-                | BinaryOpr::AddAssign
-                | BinaryOpr::MultAssign
-                | BinaryOpr::DivAssign => Precedence::Assign,
-                BinaryOpr::Add | BinaryOpr::Sub => Precedence::Additive,
-                BinaryOpr::LShift | BinaryOpr::RShift => Precedence::Shift,
-                BinaryOpr::Leq | BinaryOpr::Less | BinaryOpr::Geq | BinaryOpr::Greater => {
-                    Precedence::Compare
-                }
-                BinaryOpr::Power => todo!(),
-                BinaryOpr::OfType => todo!(),
-                BinaryOpr::LambdaMiddle => todo!(),
-            },
-            Opr::Prefix(prefix) => match prefix {
-                PrefixOpr::Shared => Precedence::Closed,
-                PrefixOpr::BitNot => Precedence::Prefix,
-                PrefixOpr::Minus => Precedence::Closed,
-                PrefixOpr::Not => Precedence::Closed,
-                PrefixOpr::Exclusive => Precedence::Closed,
-                PrefixOpr::LambdaBegin => todo!(),
-            },
-            Opr::Suffix(suffix) => match suffix {
-                SuffixOpr::Incr => Precedence::Closed,
-                SuffixOpr::Decr => Precedence::Closed,
-                SuffixOpr::MayReturn => Precedence::Closed,
-            },
-            Opr::Bra(_) | Opr::Ket(_) => Precedence::None,
-        }
-    }
 }

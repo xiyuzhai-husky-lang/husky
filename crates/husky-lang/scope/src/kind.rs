@@ -2,6 +2,7 @@ use word::Keyword;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ScopeKind {
+    Value,
     Module,
     Type { is_generic: bool },
     Routine { is_generic: bool },
@@ -40,11 +41,11 @@ impl ScopeKind {
         }
     }
 
-    // pub fn is_generic(&self) -> bool {
-    //     match self {
-    //         ScopeKind::Module => false,
-    //         ScopeKind::Type { is_generic } => *is_generic,
-    //         ScopeKind::Routine { is_generic } => *is_generic,
-    //     }
-    // }
+    pub fn is_generic(self) -> bool {
+        match self {
+            ScopeKind::Module | ScopeKind::Value => false,
+            ScopeKind::Type { is_generic } => is_generic,
+            ScopeKind::Routine { is_generic } => is_generic,
+        }
+    }
 }

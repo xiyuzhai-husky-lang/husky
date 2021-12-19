@@ -101,7 +101,7 @@ impl<'token> TokenScanner<'token> {
                                             }
                                         }
 
-                                        if bind_to_last_line(self.first_token(line).kind) {
+                                        if bind_to_last_line(self.first_token(line).kind.clone()) {
                                             line_iter.next();
                                             break line.tokens.end;
                                         } else {
