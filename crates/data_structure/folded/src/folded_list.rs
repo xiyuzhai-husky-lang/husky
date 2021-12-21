@@ -27,6 +27,12 @@ pub struct FoldedNode<T> {
     pub(crate) next_sibling: Option<usize>,
 }
 
+impl<T> FoldedNode<T> {
+    pub fn value(&self) -> &T {
+        &self.value
+    }
+}
+
 impl<Item, T> From<Vec<Item>> for FoldedList<T>
 where
     Item: ItemToFold<T>,

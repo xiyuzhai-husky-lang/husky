@@ -37,6 +37,14 @@ impl Scope {
             generic_arguments,
         }
     }
+
+    pub fn new_builtin(reserved: Reserved, generic_arguments: Option<Vec<ScopeId>>) -> Scope {
+        Scope {
+            ident: Identifier::Reserved(reserved),
+            parent: ScopeParent::Root,
+            generic_arguments,
+        }
+    }
 }
 
 impl From<Reserved> for Scope {

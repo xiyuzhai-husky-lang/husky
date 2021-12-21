@@ -1,4 +1,4 @@
-use atom::{AtomKind, AtomResult, AtomizedText, Bracket, Opr};
+use atom::{AtomKind, AtomResult, AtomizedText};
 use folded::FoldedList;
 
 use crate::{stack::ExprStack, *};
@@ -34,21 +34,16 @@ impl folded::Transformer<'_, AtomResult, AtomizedText, ExprResult, ExprParser> f
         let mut atom_iter = atoms.iter().peekable();
         let mut stack = ExprStack::new(&mut self.arena);
         while let Some(atom) = atom_iter.next() {
-            match atom.kind {
+            match &atom.kind {
                 AtomKind::Variable(_) | AtomKind::Literal(_) | AtomKind::Scope(_) => {
                     stack.accept_atom_expr(atom.into())
                 }
-                AtomKind::Opr(opr) => {
-                    if opr == Opr::Bra(Bracket::Par) {
-                        if let Some(AtomKind::Opr(Opr::Ket(Bracket::Par))) =
-                            atom_iter.peek().map(|atom| atom.kind.clone())
-                        {
-                            let ket_atom = atom_iter.next().unwrap();
-                            stack.accept_empty_parenthesis((atom.range..ket_atom.range).into())?;
-                        }
-                    }
-                    stack.accept_opr(opr, atom.range)?;
-                }
+                AtomKind::Binary(_) => todo!(),
+                AtomKind::Prefix(_) => todo!(),
+                AtomKind::Suffix(_) => todo!(),
+                AtomKind::ListStart(_, _) => todo!(),
+                AtomKind::ListEnd(_, _) => todo!(),
+                AtomKind::ListItem => todo!(),
             }
         }
         return Ok((atom_result.as_ref()?.attr(), Some(stack.finish())));

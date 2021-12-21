@@ -35,11 +35,18 @@ pub fn new_word_interner() -> WordInterner {
         ("do", Keyword::Do.into()),
         ("break", Keyword::Break.into()),
         ("return", Keyword::Return.into()),
-        ("i32", Reserved::I32.into()),
-        ("f32", Reserved::F32.into()),
-        ("builtin", Reserved::Builtin.into()),
+        ("builtin", Reserved::Debug.into()),
         ("std", Reserved::Std.into()),
         ("core", Reserved::Core.into()),
+        ("debug", Reserved::Debug.into()),
+        ("i32", Reserved::I32.into()),
+        ("f32", Reserved::F32.into()),
+        ("Vec", Reserved::Vec.into()),
+        ("Tuple", Reserved::Tuple.into()),
+        ("Fp", Reserved::Fp.into()),
+        ("Fn", Reserved::Fn.into()),
+        ("FnMut", Reserved::FnMut.into()),
+        ("FnOnce", Reserved::FnOnce.into()),
     ]);
 }
 

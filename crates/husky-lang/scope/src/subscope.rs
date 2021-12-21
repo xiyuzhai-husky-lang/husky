@@ -2,6 +2,8 @@ use crate::*;
 
 use crate::error::*;
 
+use text::get_slice_text_range;
+use text::HasTextRange;
 use token::{Special, Token, TokenGroupIter, TokenKind};
 use word::{Identifier, Keyword};
 
@@ -31,7 +33,7 @@ impl Entry {
             return (
                 None,
                 Some(ScopeDefError {
-                    range: token_group[0].range.clone(),
+                    range: token_group[0].text_range(),
                     grammar_failed: ScopeDefGrammar::TokenGroupSizeAtLeastTwo,
                 }),
             );
@@ -55,7 +57,7 @@ impl Entry {
                         return (
                             None,
                             Some(ScopeDefError {
-                                range: token_group.into(),
+                                range: get_slice_text_range(token_group),
                                 grammar_failed: ScopeDefGrammar::GenericsShouldBeWellFormed,
                             }),
                         );
@@ -73,7 +75,7 @@ impl Entry {
                 return (
                     None,
                     Some(ScopeDefError {
-                        range: token_group[1].range.clone(),
+                        range: token_group[1].text_range(),
                         grammar_failed: ScopeDefGrammar::NonMainSecondTokenShouldBeIdentifier,
                     }),
                 );
@@ -81,7 +83,7 @@ impl Entry {
             _ => (
                 None,
                 Some(ScopeDefError {
-                    range: token_group[0].range.clone(),
+                    range: token_group[0].text_range(),
                     grammar_failed: ScopeDefGrammar::FirstTokenShouldBeKeyword,
                 }),
             ),

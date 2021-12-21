@@ -20,6 +20,22 @@ pub struct TextPosition {
     row: Row,
     col: Column,
 }
+
+impl TextPosition {
+    pub fn to_left(&self, x: u32) -> TextPosition {
+        Self {
+            row: self.row,
+            col: Column(self.col.0 - x),
+        }
+    }
+
+    pub fn to_right(&self, x: u32) -> TextPosition {
+        Self {
+            row: self.row,
+            col: Column(self.col.0 + x),
+        }
+    }
+}
 impl std::fmt::Debug for TextPosition {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("{:?}:{:?}", self.row.0, self.col.0))
@@ -41,68 +57,37 @@ impl Into<lsp_types::Position> for TextPosition {
     }
 }
 
-#[derive(PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
-pub struct TextRange {
-    pub start: TextPosition,
-    pub end: TextPosition,
+pub type TextRange = std::ops::Range<TextPosition>;
+
+pub fn new_same_line(i: usize, start: usize, end: usize) -> TextRange {
+    ((i, start).into())..((i, end).into())
 }
 
-impl From<std::ops::Range<TextRange>> for TextRange {
-    fn from(ranges: std::ops::Range<TextRange>) -> Self {
-        Self {
-            start: ranges.start.start.clone(),
-            end: ranges.end.end.clone(),
-        }
+pub fn lsp_text_range(range: TextRange) -> lsp_types::Range {
+    lsp_types::Range::new(range.start.into(), range.end.into())
+}
+
+pub trait HasTextRange {
+    fn text_range_ref(&self) -> &TextRange;
+    fn text_range(&self) -> TextRange {
+        self.text_range_ref().clone()
+    }
+    fn text_range_to(&self, end: TextPosition) -> TextRange {
+        self.text_range_ref().start..end
+    }
+    fn text_start(&self) -> TextPosition {
+        self.text_range_ref().start
+    }
+    fn text_end(&self) -> TextPosition {
+        self.text_range_ref().end
     }
 }
 
-impl From<std::ops::Range<TextPosition>> for TextRange {
-    fn from(ranges: std::ops::Range<TextPosition>) -> Self {
-        Self {
-            start: ranges.start,
-            end: ranges.end,
-        }
-    }
-}
-
-impl std::fmt::Debug for TextRange {
-    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("{:?}..{:?}", self.start, self.end))
-    }
-}
-
-impl TextRange {
-    pub fn new_same_line(i: usize, start: usize, end: usize) -> TextRange {
-        ((i, start), (i, end)).into()
-    }
-}
-
-impl From<((usize, usize), (usize, usize))> for TextRange {
-    fn from(pair: ((usize, usize), (usize, usize))) -> Self {
-        TextRange {
-            start: pair.0.into(),
-            end: pair.1.into(),
-        }
-    }
-}
-
-impl Into<lsp_types::Range> for TextRange {
-    fn into(self) -> lsp_types::Range {
-        lsp_types::Range::new(self.start.into(), self.end.into())
-    }
-}
-
-pub trait GetTextRange {
-    fn get_text_range(&self) -> TextRange;
-}
-
-impl<T> From<&[T]> for TextRange
+pub fn get_slice_text_range<T>(slice: &[T]) -> TextRange
 where
-    T: GetTextRange,
+    T: HasTextRange,
 {
-    fn from(slice: &[T]) -> Self {
-        (slice[0].get_text_range()..slice.last().unwrap().get_text_range()).into()
-    }
+    (slice[0].text_range().start)..(slice.last().unwrap().text_range().end)
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord)]

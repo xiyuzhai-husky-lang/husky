@@ -26,6 +26,7 @@ pub enum Special {
     BitNot,
     Modulo,
     MemberAccess,
+    LightArrow,  // ->
     HeavyArrow,  // =>
     DoubleColon, // ::
     Colon,       // :

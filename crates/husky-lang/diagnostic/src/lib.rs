@@ -41,7 +41,7 @@ impl From<&scope::ScopeDefError> for Diagnostic {
 impl Into<lsp_types::Diagnostic> for Diagnostic {
     fn into(self) -> lsp_types::Diagnostic {
         lsp_types::Diagnostic {
-            range: self.range.into(),
+            range: text::lsp_text_range(self.range),
             severity: Some(self.severity.into()),
             code: Some(lsp_types::NumberOrString::String(self.code.into())),
             code_description: None,
