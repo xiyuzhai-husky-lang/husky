@@ -15,10 +15,14 @@ impl AtomError {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomRule {
     BeforeColonShouldBeScope,
+    ListShouldBeWellFormed,
     ScopeShouldExist,
     AfterColonShouldBeIdentifier,
     GenericArgumentsShouldBeNonEmpty,
     AfterLAngleShouldBeCommaListOfScopes,
     KeywordShouldBeAtStart,
     CompatibleConvexity,
+    ExpectTypeAfterLightArrow,
+    BracketsShouldMatch,
+    OnlyTypesInTheParenthesisBeforeLightArrow,
 }

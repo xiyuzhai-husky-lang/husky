@@ -8,12 +8,13 @@ mod scope_alias;
 
 pub use error::{AtomError, AtomRule};
 pub use group::{AtomGroup, GroupAttr};
-pub use kind::{AtomKind, Literal};
-pub use opr::{BinaryOpr, Bracket, JoinOpr, Opr, PrefixOpr, SuffixOpr};
+pub use kind::{AtomKind, LambdaHead, Literal};
+pub use opr::{BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 pub use parser::AtomParser;
 pub use query::{AtomQuery, AtomQueryStorage, AtomizedText};
 
 use scope::ScopeId;
+use text::HasTextRange;
 use text::TextRange;
 use token::{Token, TokenKind};
 use word::{Identifier, Keyword};
@@ -30,13 +31,11 @@ impl PartialEq for Literal {
 
 impl Eq for Literal {}
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct Atom {
-    pub range: TextRange,
+    range: TextRange,
     pub kind: AtomKind,
 }
-
-pub type AtomResult = Result<AtomGroup, AtomError>;
 
 impl Atom {
     pub fn new(range: TextRange, variant: AtomKind) -> Atom {
@@ -47,17 +46,32 @@ impl Atom {
     }
 }
 
+impl HasTextRange for Atom {
+    fn text_range_ref(&self) -> &TextRange {
+        &self.range
+    }
+}
+
+impl std::fmt::Debug for Atom {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("Atom{{{:?}, {:?}}}", &self.range, &self.kind))
+        // .debug_struct("Atom")
+        //     .field("range", &self.range)
+        //     .field("kind", &self.kind)
+        //     .finish()
+    }
+}
+
+pub type AtomResult = Result<AtomGroup, AtomError>;
+
 impl From<&Token> for Atom {
     fn from(token: &Token) -> Self {
         match &token.kind {
             TokenKind::Keyword(_) => panic!(),
-            TokenKind::Identifier(ident) => Atom::new(token.range, ident.into()),
-            TokenKind::Special(special) => {
-                let opr: Opr = special.into();
-                Atom::new(token.range, opr.into())
-            }
-            TokenKind::I32Literal(i) => Atom::new(token.range, i.into()),
-            TokenKind::F32Literal(f) => Atom::new(token.range, f.into()),
+            TokenKind::Identifier(ident) => Atom::new(token.text_range(), ident.into()),
+            TokenKind::Special(special) => Atom::new(token.text_range(), special.into()),
+            TokenKind::I32Literal(i) => Atom::new(token.text_range(), i.into()),
+            TokenKind::F32Literal(f) => Atom::new(token.text_range(), f.into()),
         }
     }
 }

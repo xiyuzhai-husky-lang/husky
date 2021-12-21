@@ -1,4 +1,11 @@
+mod convexity;
+
 use crate::*;
+
+use convexity::Convexity;
+use scope::Scope;
+use text::TextPosition;
+use word::Reserved;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AtomGroup {
@@ -6,12 +13,22 @@ pub struct AtomGroup {
     atoms: Vec<Atom>,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Copy)]
+#[derive(Clone, PartialEq, Eq, Copy)]
 pub struct GroupAttr {
     pub keyword: Option<Keyword>,
     pub is_head: bool,
 }
 
+impl std::fmt::Debug for GroupAttr {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "{{keyword: {:?}, is_head: {:?}}}",
+            &self.keyword, &self.is_head
+        ))
+    }
+}
+
+// new
 impl AtomGroup {
     pub(crate) fn new(keyword: Option<Keyword>, is_head: bool) -> Self {
         Self {
@@ -19,10 +36,13 @@ impl AtomGroup {
             atoms: Vec::new(),
         }
     }
+}
 
+// get
+impl AtomGroup {
     pub(crate) fn convexity(&self) -> Convexity {
         if let Some(atom) = self.atoms.last() {
-            Convexity::right_side_convexity(&atom.kind)
+            convexity::right_side_convexity(&atom.kind)
         } else {
             Convexity::Concave
         }
@@ -30,23 +50,6 @@ impl AtomGroup {
 
     pub(crate) fn is_convex(&self) -> bool {
         self.convexity() == Convexity::Convex
-    }
-
-    pub(crate) fn push(&mut self, atom: Atom) -> Result<(), AtomError> {
-        if Convexity::compatible(self.convexity(), Convexity::left_side_convexity(&atom.kind)) {
-            self.atoms.push(atom);
-            Ok(())
-        } else {
-            Err(AtomError::new(atom.range, AtomRule::CompatibleConvexity))
-        }
-    }
-
-    pub(crate) fn is_last(&self, kind: AtomKind) -> bool {
-        if let Some(atom) = self.atoms.last() {
-            atom.kind == kind
-        } else {
-            false
-        }
     }
 
     pub fn attr(&self) -> GroupAttr {
@@ -57,44 +60,125 @@ impl AtomGroup {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum Convexity {
-    Convex,
-    Concave,
-}
-impl Convexity {
-    fn left_side_convexity(kind: &AtomKind) -> Convexity {
-        match kind {
-            AtomKind::Scope(_) | AtomKind::Variable(_) | AtomKind::Literal(_) => Convexity::Convex,
-            AtomKind::Opr(opr) => match opr {
-                Opr::Prefix(_) | Opr::Bra(_) => Convexity::Convex,
-                Opr::Suffix(_) | Opr::Ket(_) => Convexity::Concave,
-                Opr::Binary(_) | Opr::Join => Convexity::Concave,
-            },
+// push
+impl AtomGroup {
+    pub(crate) fn push(&mut self, atom: Atom) -> Result<(), AtomError> {
+        if convexity::compatible(self.convexity(), convexity::left_side_convexity(&atom.kind)) {
+            self.atoms.push(atom);
+            Ok(())
+        } else {
+            Err(AtomError::new(
+                atom.text_range(),
+                AtomRule::CompatibleConvexity,
+            ))
         }
     }
 
-    fn right_side_convexity(kind: &AtomKind) -> Convexity {
-        match kind {
-            AtomKind::Scope(_) | AtomKind::Variable(_) | AtomKind::Literal(_) => Convexity::Convex,
-            AtomKind::Opr(opr) => match opr {
-                Opr::Suffix(_) | Opr::Ket(_) => Convexity::Convex,
-                Opr::Prefix(_) | Opr::Bra(_) => Convexity::Concave,
-                Opr::Binary(_) | Opr::Join => Convexity::Concave,
-            },
+    pub(crate) fn end_list(&mut self, ket: Bracket, attr: ListEndAttr, text_range: TextRange) {
+        if self.is_convex() {
+            self.push(Atom::new(text_range.clone(), AtomKind::ListItem))
+                .unwrap();
         }
+        self.push(Atom::new(text_range, AtomKind::ListEnd(ket, attr)))
+            .unwrap();
     }
 
-    fn compatible(left: Convexity, right: Convexity) -> bool {
-        match left {
-            Convexity::Convex => match right {
-                Convexity::Convex => false,
-                Convexity::Concave => true,
-            },
-            Convexity::Concave => match right {
-                Convexity::Convex => true,
-                Convexity::Concave => false,
-            },
-        }
+    pub(crate) fn start_list(&mut self, bra: Bracket, text_range: TextRange) {
+        self.push(Atom::new(
+            text_range,
+            AtomKind::ListStart(
+                bra,
+                if self.is_convex() {
+                    ListStartAttr::Attach
+                } else {
+                    ListStartAttr::None
+                }
+                .into(),
+            ),
+        ))
+        .unwrap();
+    }
+
+    pub(crate) fn start_lambda(&mut self, text_range: TextRange) -> Result<(), AtomError> {
+        self.push(Atom::new(
+            text_range,
+            AtomKind::ListStart(Bracket::Vert, ListStartAttr::None),
+        ))
+    }
+
+    pub(crate) fn end_lambda(&mut self, text_range: TextRange) {
+        self.end_list(Bracket::Vert, ListEndAttr::Attach, text_range)
+    }
+
+    pub(crate) fn make_default_func_type(
+        &mut self,
+        db: &dyn AtomQuery,
+        output: ScopeId,
+        ket_to_output: &TextRange,
+    ) -> Result<(), AtomError> {
+        let mut generic_arguments = Vec::new();
+        let range = loop {
+            let type_atom = self.atoms.pop().ok_or(AtomError::new(
+                ket_to_output.clone(),
+                AtomRule::BracketsShouldMatch,
+            ))?;
+            match type_atom.kind {
+                AtomKind::ListStart(bra, attr) => {
+                    if bra != Bracket::Par {
+                        Err(AtomError::new(
+                            type_atom.text_start()..(ket_to_output.end),
+                            AtomRule::BracketsShouldMatch,
+                        ))?
+                    }
+                    if attr != ListStartAttr::None {
+                        Err(AtomError::new(
+                            type_atom.text_start()..(ket_to_output.end),
+                            AtomRule::CompatibleConvexity,
+                        ))?
+                    }
+                    break type_atom.text_start()..(ket_to_output.end);
+                }
+                // AtomKind::ListItem => todo!(),
+                _ => Err(AtomError::new(
+                    type_atom.text_start()..(ket_to_output.end),
+                    AtomRule::OnlyTypesInTheParenthesisBeforeLightArrow,
+                ))?,
+                AtomKind::Scope(scope_id) => generic_arguments.insert(0, scope_id),
+            }
+            let bra_or_separator_atom = self.atoms.pop().ok_or(AtomError::new(
+                ket_to_output.clone(),
+                AtomRule::BracketsShouldMatch,
+            ))?;
+            match bra_or_separator_atom.kind {
+                AtomKind::ListStart(bra, attr) => {
+                    if bra != Bracket::Par {
+                        Err(AtomError::new(
+                            bra_or_separator_atom.text_start()..(ket_to_output.end),
+                            AtomRule::BracketsShouldMatch,
+                        ))?
+                    }
+                    if attr != ListStartAttr::None {
+                        Err(AtomError::new(
+                            bra_or_separator_atom.text_start()..(ket_to_output.end),
+                            AtomRule::CompatibleConvexity,
+                        ))?
+                    }
+                    break bra_or_separator_atom.text_start()..(ket_to_output.end);
+                }
+                AtomKind::ListItem => todo!(),
+                _ => Err(AtomError::new(
+                    bra_or_separator_atom.text_start()..(ket_to_output.end),
+                    AtomRule::ListShouldBeWellFormed,
+                ))?,
+            }
+        };
+
+        generic_arguments.push(output);
+        let func_type = db.scope_to_id(Scope::new_builtin(
+            word::default_func_type(),
+            Some(generic_arguments),
+        ));
+        self.push(Atom::new(range, AtomKind::Scope(func_type)));
+        Ok(())
     }
 }

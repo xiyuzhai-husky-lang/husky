@@ -17,8 +17,16 @@ pub enum Reserved {
     I32,
     F32,
     Vec,
-    Array,
-    Builtin,
+    Tuple,
+    Debug,
     Std,
     Core,
+    Fp,
+    Fn,
+    FnMut,
+    FnOnce,
+}
+
+pub fn default_func_type() -> Reserved {
+    Reserved::Fp
 }

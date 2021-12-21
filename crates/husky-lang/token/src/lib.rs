@@ -17,11 +17,11 @@ pub use tokenized_text::{TokenGroupIter, TokenizedText};
 use common::*;
 
 use scanner::TokenScanner;
-use text::{GetTextRange, Indent, TextRange};
+use text::{HasTextRange, Indent, TextRange};
 
 #[derive(PartialEq, Eq)]
 pub struct Token {
-    pub range: TextRange,
+    range: TextRange,
     pub kind: TokenKind,
 }
 
@@ -34,14 +34,14 @@ impl Debug for Token {
 impl Token {
     pub fn new(i: usize, start: usize, end: usize, kind: TokenKind) -> Token {
         Token {
-            range: TextRange::new_same_line(i, start, end),
+            range: text::new_same_line(i, start, end),
             kind,
         }
     }
 }
 
-impl GetTextRange for Token {
-    fn get_text_range(&self) -> TextRange {
-        self.range
+impl HasTextRange for Token {
+    fn text_range_ref(&self) -> &TextRange {
+        &self.range
     }
 }

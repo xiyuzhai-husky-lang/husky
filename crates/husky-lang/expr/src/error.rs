@@ -1,6 +1,6 @@
 use text::TextRange;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ExprError {
     range: TextRange,
     rule_broken: ExprRule,

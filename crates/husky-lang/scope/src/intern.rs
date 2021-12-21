@@ -38,5 +38,14 @@ pub fn new_scope_interner() -> ScopeInterner {
     ScopeInterner::new_from(vec![
         (Reserved::I32, BuiltinScope::I32),
         (Reserved::F32, BuiltinScope::F32),
+        (Reserved::Vec, BuiltinScope::Vec),
+        (Reserved::Tuple, BuiltinScope::Tuple),
+        (Reserved::Debug, BuiltinScope::Debug),
+        (Reserved::Std, BuiltinScope::Std),
+        (Reserved::Core, BuiltinScope::Core),
+        (Reserved::Fp, BuiltinScope::Fp),
+        (Reserved::Fn, BuiltinScope::Fn),
+        (Reserved::FnMut, BuiltinScope::FnMut),
+        (Reserved::FnOnce, BuiltinScope::FnOnce),
     ])
 }

@@ -5,15 +5,16 @@ mod precedence;
 mod query;
 mod stack;
 
-use atom::Opr;
+use atom::{Bracket, ListEndAttr, ListStartAttr};
 use common::*;
 
-use scope::ScopeId;
+use kind::ListOpr;
 use text::TextRange;
 
 pub use error::ExprError;
-pub use kind::{ExprKind, Opn};
+pub use kind::{ExprKind, Opr};
 pub use query::{ExprQuery, ExprQueryStorage};
+use text::HasTextRange;
 pub use word::Keyword;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -23,43 +24,42 @@ pub struct Expr {
 }
 
 impl Expr {
-    pub fn scope_call(range: TextRange, scope_id: ScopeId, opds: ExprRange) -> Self {
-        Self {
-            range,
-            kind: ExprKind::Opn {
-                opn: Opn::ScopeCall(scope_id),
-                opds,
+    pub fn list(
+        bracket: Bracket,
+        start_attr: ListStartAttr,
+        end_attr: ListEndAttr,
+        range: TextRange,
+        opds: ExprRange,
+    ) -> Self {
+        let opr = match start_attr {
+            ListStartAttr::None => match bracket {
+                Bracket::Par => ListOpr::TupleInit,
+                Bracket::Box => ListOpr::NewVec,
+                Bracket::Curl => ListOpr::NewDict,
+                Bracket::Vert => todo!(),
+            },
+            ListStartAttr::Attach => match bracket {
+                Bracket::Par => ListOpr::Call,
+                Bracket::Box => match end_attr {
+                    ListEndAttr::None => ListOpr::Index,
+                    ListEndAttr::Modulo => ListOpr::ModuloIndex,
+                    ListEndAttr::Attach => todo!(),
+                },
+                Bracket::Curl => ListOpr::StructInit,
+                Bracket::Vert => todo!(),
             },
         }
-    }
-
-    pub fn value_call(range: TextRange, opds: ExprRange) -> Self {
+        .into();
         Self {
             range,
-            kind: ExprKind::Opn {
-                opn: Opn::ValueCall,
-                opds,
-            },
-        }
-    }
-
-    pub fn index(range: TextRange, opds: ExprRange) -> Self {
-        Self {
-            range,
-            kind: ExprKind::Opn {
-                opn: Opn::Index,
-                opds,
-            },
+            kind: ExprKind::Opn { opr, opds },
         }
     }
 
     pub fn opn(range: TextRange, opr: Opr, opds: ExprRange) -> Self {
         Self {
             range,
-            kind: ExprKind::Opn {
-                opn: Opn::Opr(opr),
-                opds,
-            },
+            kind: ExprKind::Opn { opr, opds },
         }
     }
 }
@@ -67,7 +67,7 @@ impl Expr {
 impl From<&atom::Atom> for Expr {
     fn from(atom: &atom::Atom) -> Self {
         Self {
-            range: atom.range,
+            range: atom.text_range(),
             kind: (&atom.kind).into(),
         }
     }

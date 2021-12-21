@@ -29,7 +29,7 @@ impl<'a>
         input
             .as_ref()
             .map(|(attr, expr)| self.fmt(&attr, &expr))
-            .map_err(|e| *e)
+            .map_err(|e| e.clone())
     }
 
     fn folded_results(&mut self) -> &mut FormattedText {
@@ -68,31 +68,28 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(result, &self.arena[expr_idx]);
                 result.add_assign(")");
             }
-            expr::ExprKind::Opn { opn, opds } => match opn {
-                expr::Opn::ScopeCall(_) => todo!(),
-                expr::Opn::ValueCall => {
-                    let opds = &self.arena[opds];
-                    self.fmt_expr(result, &opds[0]);
-                    result.add_assign("(");
-                    for i in 1..opds.len() {
-                        if i >= 2 {
-                            result.add_assign(", ")
-                        }
-                        self.fmt_expr(result, &opds[i]);
-                    }
-                    result.add_assign(")");
-                }
-                expr::Opn::MemberCall(_) => todo!(),
-                expr::Opn::Member(_) => todo!(),
-                expr::Opn::Index => todo!(),
-                expr::Opn::Opr(opr) => match opr {
-                    atom::Opr::Binary(_) => todo!(),
-                    atom::Opr::Join => todo!(),
-                    atom::Opr::Prefix(_) => todo!(),
-                    atom::Opr::Suffix(_) => todo!(),
-                    atom::Opr::Bra(_) => todo!(),
-                    atom::Opr::Ket(_) => todo!(),
-                },
+            expr::ExprKind::Opn { opr: opn, opds } => match opn {
+                expr::Opr::Binary(_) => todo!(),
+                expr::Opr::Prefix(_) => todo!(),
+                expr::Opr::Suffix(_) => todo!(),
+                expr::Opr::List(_) => todo!(),
+                // expr::Opr::ScopeCall(_) => todo!(),
+                // expr::Opr::ValueCall => {
+                //     let opds = &self.arena[opds];
+                //     self.fmt_expr(result, &opds[0]);
+                //     result.add_assign("(");
+                //     for i in 1..opds.len() {
+                //         if i >= 2 {
+                //             result.add_assign(", ")
+                //         }
+                //         self.fmt_expr(result, &opds[i]);
+                //     }
+                //     result.add_assign(")");
+                // }
+                // expr::Opr::MemberCall(_) => todo!(),
+                // expr::Opr::Member(_) => todo!(),
+                // expr::Opr::Index => todo!(),
+                // expr::Opr::Opr(opr) => match opr {},
             },
             expr::ExprKind::Void => result.add_assign("()"),
             expr::ExprKind::Scope(_) => todo!(),

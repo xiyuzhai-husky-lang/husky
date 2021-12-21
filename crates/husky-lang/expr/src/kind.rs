@@ -1,4 +1,4 @@
-use atom::{AtomKind, Literal, Opr, SuffixOpr};
+use atom::{AtomKind, BinaryOpr, Literal, PrefixOpr, SuffixOpr};
 use common::*;
 
 use scope::ScopeId;
@@ -19,7 +19,7 @@ pub enum ExprKind {
     Scope(ScopeId),
     Literal(Literal),
     Bracketed(ExprIdx),
-    Opn { opn: Opn, opds: ExprRange },
+    Opn { opr: Opr, opds: ExprRange },
     Void,
 }
 
@@ -28,8 +28,7 @@ impl From<&AtomKind> for ExprKind {
         match kind {
             AtomKind::Variable(ident) => ExprKind::Variable(*ident),
             AtomKind::Literal(literal) => ExprKind::Literal(literal.clone()),
-            AtomKind::Scope(_) => panic!(),
-            AtomKind::Opr(_) => panic!(),
+            _ => panic!(),
         }
     }
 }
@@ -38,23 +37,44 @@ impl From<&AtomKind> for ExprKind {
 pub enum ValueExprKind {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum Opn {
-    ScopeCall(ScopeId),
-    ValueCall,
-    MemberCall(Identifier),
-    Member(Identifier),
-    Index,
-    Opr(Opr),
+pub enum Opr {
+    Binary(BinaryOpr),
+    Prefix(PrefixOpr),
+    Suffix(SuffixOpr),
+    List(ListOpr),
 }
 
-impl From<SuffixOpr> for Opn {
-    fn from(suffix: SuffixOpr) -> Self {
-        Self::Opr(Opr::Suffix(suffix))
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ListOpr {
+    TupleInit,
+    NewVec,
+    NewDict,
+    Call,
+    Index,
+    ModuloIndex,
+    StructInit,
+}
+
+impl From<BinaryOpr> for Opr {
+    fn from(binary: BinaryOpr) -> Self {
+        Self::Binary(binary)
     }
 }
 
-impl From<Opr> for Opn {
-    fn from(opr: Opr) -> Self {
-        Self::Opr(opr)
+impl From<PrefixOpr> for Opr {
+    fn from(prefix: PrefixOpr) -> Self {
+        Self::Prefix(prefix)
+    }
+}
+
+impl From<SuffixOpr> for Opr {
+    fn from(suffix: SuffixOpr) -> Self {
+        Self::Suffix(suffix)
+    }
+}
+
+impl From<ListOpr> for Opr {
+    fn from(list: ListOpr) -> Self {
+        Self::List(list)
     }
 }

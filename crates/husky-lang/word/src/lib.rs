@@ -1,7 +1,7 @@
 mod intern;
 mod keyword;
 
-pub use ident::{Identifier, Reserved};
+pub use ident::{default_func_type, Identifier, Reserved};
 pub use intern::{convert_ident, new_word_interner, InternWord, WordInterner};
 pub use keyword::Keyword;
 
