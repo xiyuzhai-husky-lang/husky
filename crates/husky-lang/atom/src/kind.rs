@@ -4,7 +4,7 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
-    Scope(ScopeId),
+    Scope(ScopeId, scope::ScopeKind),
     Variable(Identifier),
     Literal(Literal),
     Binary(BinaryOpr),
@@ -78,12 +78,6 @@ impl From<&Special> for AtomKind {
             Special::DivAssign => AtomKind::Binary(BinaryOpr::DivAssign),
             Special::Comma => AtomKind::ListItem,
         }
-    }
-}
-
-impl From<ScopeId> for AtomKind {
-    fn from(scope_id: ScopeId) -> Self {
-        Self::Scope(scope_id)
     }
 }
 

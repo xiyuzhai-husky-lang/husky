@@ -2,18 +2,33 @@ use crate::*;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
-    Reserved(Reserved),
-    UserDefined(u32),
+    Builtin(BuiltinIdentifier),
+    UserDefined(UserDefinedIdentifier),
+}
+
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+pub struct UserDefinedIdentifier(u32);
+
+impl From<UserDefinedIdentifier> for Identifier {
+    fn from(ident: UserDefinedIdentifier) -> Self {
+        Self::UserDefined(ident)
+    }
+}
+
+impl From<u32> for UserDefinedIdentifier {
+    fn from(raw: u32) -> Self {
+        UserDefinedIdentifier(raw)
+    }
 }
 
 impl From<u32> for Identifier {
     fn from(raw: u32) -> Self {
-        Self::UserDefined(raw)
+        UserDefinedIdentifier(raw).into()
     }
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub enum Reserved {
+pub enum BuiltinIdentifier {
     I32,
     F32,
     Vec,
@@ -21,12 +36,12 @@ pub enum Reserved {
     Debug,
     Std,
     Core,
-    Fp,
-    Fn,
-    FnMut,
-    FnOnce,
+    Rp,
+    Rt,
+    RtMut,
+    RtOnce,
 }
 
-pub fn default_func_type() -> Reserved {
-    Reserved::Fp
+pub fn default_routine_type() -> BuiltinIdentifier {
+    BuiltinIdentifier::Rp
 }

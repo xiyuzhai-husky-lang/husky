@@ -16,13 +16,14 @@ main:
         .into(),
     );
 
-    let main_file_id = db.file_id("haha/main.hsk".into());
-    let package_scope_id = db.scope_to_id(Scope::new(
-        db.string_to_word("haha".into()).ident().unwrap(),
-        ScopeParent::Package(main_file_id),
-        None,
+    let main_file = db.file_id("haha/main.hsk".into());
+    let package = db.scope_to_id(Scope::package(
+        main_file,
+        db.string_to_word("haha".into())
+            .user_defined_ident()
+            .unwrap(),
     ));
-    let subscope_table = db.subscope_table(package_scope_id).ok().unwrap();
+    let subscope_table = db.subscope_table(package).ok().unwrap();
     assert_eq!(subscope_table.entries.len(), 2);
     assert_eq!(subscope_table.errors.len(), 0);
 }
@@ -49,13 +50,14 @@ struct B {}
         .into(),
     );
 
-    let main_file_id = db.file_id("haha/main.hsk".into());
-    let package_scope_id = db.scope_to_id(Scope::new(
-        db.string_to_word("haha".into()).ident().unwrap(),
-        ScopeParent::Package(main_file_id),
-        None,
+    let main_file = db.file_id("haha/main.hsk".into());
+    let package = db.scope_to_id(Scope::package(
+        main_file,
+        db.string_to_word("haha".into())
+            .user_defined_ident()
+            .unwrap(),
     ));
-    let subscope_table = db.subscope_table(package_scope_id).ok().unwrap();
+    let subscope_table = db.subscope_table(package).ok().unwrap();
     p!(subscope_table);
     assert_eq!(subscope_table.entries.len(), 3);
     assert_eq!(subscope_table.errors.len(), 0);
@@ -75,13 +77,14 @@ main:
         .into(),
     );
 
-    let main_file_id = db.file_id("haha/main.hsk".into());
-    let package_scope_id = db.scope_to_id(Scope::new(
-        db.string_to_word("haha".into()).ident().unwrap(),
-        ScopeParent::Package(main_file_id),
-        None,
+    let main_file = db.file_id("haha/main.hsk".into());
+    let package = db.scope_to_id(Scope::package(
+        main_file,
+        db.string_to_word("haha".into())
+            .user_defined_ident()
+            .unwrap(),
     ));
-    let subscope_table = db.subscope_table(package_scope_id).ok().unwrap();
+    let subscope_table = db.subscope_table(package).ok().unwrap();
     p!(subscope_table);
     assert_eq!(subscope_table.entries.len(), 1);
     assert_eq!(subscope_table.errors.len(), 1);

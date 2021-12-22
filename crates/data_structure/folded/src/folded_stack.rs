@@ -10,6 +10,7 @@ impl<T> FoldedStack<T> {
             block_indices: vec![0],
         }
     }
+
     pub fn append(&mut self, item: T) {
         self.list.push(item);
     }

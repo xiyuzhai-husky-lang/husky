@@ -61,7 +61,7 @@ fn scope_alias_table(
 fn subscope_ids(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<Vec<ScopeId>> {
     Arc::new(if let Some(table) = this.subscope_table(scope_id).ok() {
         table
-            .non_generic_subscopes(scope_id)
+            .subscopes(scope_id)
             .into_iter()
             .map(|scope| this.scope_to_id(scope))
             .collect()
@@ -72,28 +72,40 @@ fn subscope_ids(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<Vec<ScopeI
 
 fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeKind {
     let scope = this.id_to_scope(scope_id);
-    match scope.parent {
-        ScopeParent::Scope(parent) => this
+    match scope.path {
+        ScopePath::Builtin(ident) => match ident {
+            BuiltinIdentifier::I32
+            | BuiltinIdentifier::F32
+            | BuiltinIdentifier::Vec
+            | BuiltinIdentifier::Tuple
+            | BuiltinIdentifier::Rp => ScopeKind::Type,
+            BuiltinIdentifier::Rt | BuiltinIdentifier::RtMut | BuiltinIdentifier::RtOnce => {
+                ScopeKind::Trait
+            }
+            BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
+                ScopeKind::Module
+            }
+        },
+        ScopePath::Package(_, _) => ScopeKind::Module,
+        ScopePath::ChildScope(parent, ident) => this
             .subscope_table(parent)
             .as_ref()
             .as_ref()
             .ok()
-            .map(|table| table.scope_kind(scope.ident))
+            .map(|table| table.scope_kind(ident))
             .flatten()
             .unwrap(),
-        ScopeParent::Package(_) => todo!(),
-        ScopeParent::Root => todo!(),
     }
 }
 
 fn scope_source(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResult<ScopeSource> {
     let scope = this.id_to_scope(scope_id);
-    Ok(match scope.parent {
-        ScopeParent::Scope(parent) => this.subscope_table(parent)?.scope_source(scope.ident)?,
-        ScopeParent::Package(main_file_id) => ScopeSource::Module {
+    Ok(match scope.path {
+        ScopePath::Builtin(_) => todo!(),
+        ScopePath::Package(main_file_id, _) => ScopeSource::Module {
             file_id: main_file_id,
         },
-        ScopeParent::Root => todo!(),
+        ScopePath::ChildScope(parent, ident) => this.subscope_table(parent)?.scope_source(ident)?,
     })
 }
 
@@ -109,25 +121,17 @@ pub enum ModuleFromFileRule {
 }
 
 pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
-    fn is_scope_generic(&self, scope_id: ScopeId) -> bool {
-        self.scope_kind(scope_id).is_generic()
-    }
-
     fn subscope(
         &self,
         parent_scope: ScopeId,
-        ident: Identifier,
+        ident: UserDefinedIdentifier,
         generic_arguments: Option<Vec<ScopeId>>,
-    ) -> Option<ScopeId> {
+    ) -> Option<Scope> {
         if self
             .subscope_table(parent_scope)
             .map_or(false, |table| table.has_subscope(ident, &generic_arguments))
         {
-            Some(self.provide_scope_interner().id(Scope {
-                parent: ScopeParent::Scope(parent_scope),
-                ident,
-                generic_arguments,
-            }))
+            Some(Scope::child_scope(parent_scope, ident, generic_arguments))
         } else {
             None
         }
@@ -160,7 +164,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
             self.subscope_table(module.scope_id).ok().map(|table| {
                 modules.extend(
                     table
-                        .submodules()
+                        .submodule_idents()
                         .into_iter()
                         .filter_map(|ident| {
                             self.submodule_file_id(id, ident)
@@ -183,13 +187,12 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
             })
         } else if path_has_file_name(&path, "main.hsk") {
             if let Some(package_name) = path_parent_file_name_str(&path) {
-                if let Word::Identifier(ident) = self.string_to_word(package_name.as_ref()) {
+                let word = self.string_to_word(package_name.as_ref());
+                if let Word::Identifier(Identifier::UserDefined(ident)) =
+                    self.string_to_word(package_name.as_ref())
+                {
                     Ok(Module {
-                        scope_id: self.scope_to_id(Scope {
-                            ident,
-                            parent: ScopeParent::Package(id),
-                            generic_arguments: None,
-                        }),
+                        scope_id: self.scope_to_id(Scope::package(id, ident)),
                     })
                 } else {
                     Err(ModuleFromFileError {
@@ -227,7 +230,11 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
         })
     }
 
-    fn submodule_file_id(&self, parent_id: FileId, ident: Identifier) -> ScopeResult<FileId>
+    fn submodule_file_id(
+        &self,
+        parent_id: FileId,
+        ident: UserDefinedIdentifier,
+    ) -> ScopeResult<FileId>
     where
         Self: Sized,
     {
@@ -235,11 +242,11 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
 
         assert!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(&path, "main.hsk"));
 
-        let module_path1 = word::convert_ident(self, ident, |s: &str| {
+        let module_path1 = word::convert_ident(self, ident.into(), |s: &str| {
             path.with_file_name(format!("{}.hsk", s))
         });
 
-        let module_path2 = word::convert_ident(self, ident, |s: &str| {
+        let module_path2 = word::convert_ident(self, ident.into(), |s: &str| {
             path.with_file_name(format!("{}/mod.hsk", s))
         });
 

@@ -1,4 +1,4 @@
-use atom::{AtomKind, AtomResult, AtomizedText};
+use atom::{AtomKind, AtomParseResult, AtomizedText};
 use folded::FoldedList;
 
 use crate::{stack::ExprStack, *};
@@ -21,12 +21,12 @@ impl ExprParser {
     }
 }
 
-impl folded::Transformer<'_, AtomResult, AtomizedText, ExprResult, ExprParser> for ExprParser {
+impl folded::Transformer<'_, AtomParseResult, AtomizedText, ExprResult, ExprParser> for ExprParser {
     fn enter_fold(&mut self) {}
 
     fn exit_fold(&mut self) {}
 
-    fn transform(&mut self, atom_result: &atom::AtomResult) -> ExprResult {
+    fn transform(&mut self, atom_result: &atom::AtomParseResult) -> ExprResult {
         let atoms = atom_result.as_ref()?.atoms();
         if atoms.len() == 0 {
             return Ok((atom_result.as_ref()?.attr(), None));
@@ -35,7 +35,7 @@ impl folded::Transformer<'_, AtomResult, AtomizedText, ExprResult, ExprParser> f
         let mut stack = ExprStack::new(&mut self.arena);
         while let Some(atom) = atom_iter.next() {
             match &atom.kind {
-                AtomKind::Variable(_) | AtomKind::Literal(_) | AtomKind::Scope(_) => {
+                AtomKind::Variable(_) | AtomKind::Literal(_) | AtomKind::Scope(_, _) => {
                     stack.accept_atom_expr(atom.into())
                 }
                 AtomKind::Binary(_) => todo!(),

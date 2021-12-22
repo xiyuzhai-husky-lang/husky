@@ -8,6 +8,12 @@ pub enum TokenKind {
     I32Literal(i32),
     F32Literal(f32),
 }
+
+impl From<Special> for TokenKind {
+    fn from(special: Special) -> Self {
+        TokenKind::Special(special)
+    }
+}
 impl std::hash::Hash for TokenKind {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);

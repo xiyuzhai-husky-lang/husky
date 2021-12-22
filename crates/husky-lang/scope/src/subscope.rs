@@ -9,7 +9,7 @@ use word::{Identifier, Keyword};
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
-    ident: Option<Identifier>,
+    ident: Option<UserDefinedIdentifier>,
     kind: ScopeKind,
     source: ScopeSource,
 }
@@ -34,7 +34,7 @@ impl Entry {
                 None,
                 Some(ScopeDefError {
                     range: token_group[0].text_range(),
-                    grammar_failed: ScopeDefGrammar::TokenGroupSizeAtLeastTwo,
+                    rule_broken: ScopeDefRule::TokenGroupSizeAtLeastTwo,
                 }),
             );
         }
@@ -42,7 +42,7 @@ impl Entry {
             return (
                 Some(Entry {
                     ident: None,
-                    kind: ScopeKind::Routine { is_generic: false },
+                    kind: ScopeKind::Routine,
                     source: ScopeSource::from_file(file_id, token_group_index),
                 }),
                 None,
@@ -51,32 +51,35 @@ impl Entry {
         match &token_group[0].kind {
             TokenKind::Keyword(keyword) => {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
-                    let is_generic = token_group.len() >= 3
-                        && token_group[2].kind == TokenKind::Special(Special::LessOrLAngle);
-                    if is_generic && !(token_group.len() >= 5) {
-                        return (
-                            None,
-                            Some(ScopeDefError {
-                                range: get_slice_text_range(token_group),
-                                grammar_failed: ScopeDefGrammar::GenericsShouldBeWellFormed,
-                            }),
-                        );
-                    } else if let Some(kind) = ScopeKind::new(*keyword, is_generic) {
-                        return (
-                            Some(Entry {
-                                ident: Some(ident),
-                                kind,
-                                source: ScopeSource::from_file(file_id, token_group_index),
-                            }),
-                            None,
-                        );
+                    if let Some(kind) = ScopeKind::new(*keyword) {
+                        match ident {
+                            Identifier::Builtin(_) => {
+                                return (
+                                    None,
+                                    Some(ScopeDefError {
+                                        range: token_group[1].text_range(),
+                                        rule_broken: ScopeDefRule::BuiltinIdentifierAreReserved,
+                                    }),
+                                )
+                            }
+                            Identifier::UserDefined(user_defined_ident) => {
+                                return (
+                                    Some(Entry {
+                                        ident: Some(user_defined_ident),
+                                        kind,
+                                        source: ScopeSource::from_file(file_id, token_group_index),
+                                    }),
+                                    None,
+                                )
+                            }
+                        }
                     }
                 }
                 return (
                     None,
                     Some(ScopeDefError {
                         range: token_group[1].text_range(),
-                        grammar_failed: ScopeDefGrammar::NonMainSecondTokenShouldBeIdentifier,
+                        rule_broken: ScopeDefRule::NonMainSecondTokenShouldBeIdentifier,
                     }),
                 );
             }
@@ -84,7 +87,7 @@ impl Entry {
                 None,
                 Some(ScopeDefError {
                     range: token_group[0].text_range(),
-                    grammar_failed: ScopeDefGrammar::FirstTokenShouldBeKeyword,
+                    rule_broken: ScopeDefRule::FirstTokenShouldBeKeyword,
                 }),
             ),
         }
@@ -119,7 +122,7 @@ impl SubscopeTable {
 }
 
 impl SubscopeTable {
-    pub fn submodules(&self) -> Vec<Identifier> {
+    pub fn submodule_idents(&self) -> Vec<UserDefinedIdentifier> {
         self.entries
             .iter()
             .filter_map(|entry| {
@@ -133,7 +136,7 @@ impl SubscopeTable {
             .collect()
     }
 
-    pub fn scope_source(&self, ident: Identifier) -> ScopeResult<ScopeSource> {
+    pub fn scope_source(&self, ident: UserDefinedIdentifier) -> ScopeResult<ScopeSource> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
@@ -141,7 +144,7 @@ impl SubscopeTable {
             .ok_or(ScopeError::NoSuchScope)
     }
 
-    pub fn scope_kind(&self, ident: Identifier) -> Option<ScopeKind> {
+    pub fn scope_kind(&self, ident: UserDefinedIdentifier) -> Option<ScopeKind> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
@@ -150,7 +153,7 @@ impl SubscopeTable {
 
     pub fn has_subscope(
         &self,
-        ident: Identifier,
+        ident: UserDefinedIdentifier,
         generic_arguments: &Option<Vec<ScopeId>>,
     ) -> bool {
         if generic_arguments.is_some() {
@@ -170,15 +173,13 @@ impl SubscopeTable {
     pub fn error_iter(&self) -> core::slice::Iter<ScopeDefError> {
         self.errors.iter()
     }
-    pub fn non_generic_subscopes(&self, parent_scope_id: ScopeId) -> Vec<Scope> {
+    pub fn subscopes(&self, parent_scope_id: ScopeId) -> Vec<Scope> {
         self.entries
             .iter()
             .filter_map(|entry| {
-                entry.ident.map(|ident| Scope {
-                    ident,
-                    parent: ScopeParent::Scope(parent_scope_id),
-                    generic_arguments: None,
-                })
+                entry
+                    .ident
+                    .map(|ident| Scope::child_scope(parent_scope_id, ident, None))
             })
             .collect()
     }

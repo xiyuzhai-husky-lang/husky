@@ -1,5 +1,6 @@
 mod alias;
 mod builtin;
+mod error;
 mod intern;
 mod kind;
 mod module;
@@ -13,55 +14,56 @@ use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
 pub use module::Module;
-pub use query::{ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery};
+pub use query::{ModuleFromFileError, ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery};
 pub use subscope::SubscopeTable;
 
-use word::{Identifier, Reserved};
+use word::{BuiltinIdentifier, Identifier, UserDefinedIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Scope {
-    ident: Identifier,
-    parent: ScopeParent,
-    generic_arguments: Option<Vec<ScopeId>>,
+    path: ScopePath,
+    // ident: Identifier,
+    // parent: ScopeParent,
+    pub generic_arguments: Option<Vec<ScopeId>>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum ScopePath {
+    Builtin(BuiltinIdentifier),
+    Package(FileId, UserDefinedIdentifier),
+    ChildScope(ScopeId, UserDefinedIdentifier),
 }
 
 impl Scope {
-    pub fn new(
-        ident: Identifier,
-        parent: ScopeParent,
-        generic_arguments: Option<Vec<ScopeId>>,
-    ) -> Scope {
+    pub fn package(main_file: FileId, ident: UserDefinedIdentifier) -> Self {
         Scope {
-            ident,
-            parent,
-            generic_arguments,
-        }
-    }
-
-    pub fn new_builtin(reserved: Reserved, generic_arguments: Option<Vec<ScopeId>>) -> Scope {
-        Scope {
-            ident: Identifier::Reserved(reserved),
-            parent: ScopeParent::Root,
-            generic_arguments,
-        }
-    }
-}
-
-impl From<Reserved> for Scope {
-    fn from(ident: Reserved) -> Self {
-        Scope {
-            ident: Identifier::Reserved(ident),
-            parent: ScopeParent::Root,
+            path: ScopePath::Package(main_file, ident),
             generic_arguments: None,
         }
     }
+    pub fn child_scope(
+        parent_scope: ScopeId,
+        ident: UserDefinedIdentifier,
+        generic_arguments: Option<Vec<ScopeId>>,
+    ) -> Scope {
+        Scope {
+            path: ScopePath::ChildScope(parent_scope, ident),
+            generic_arguments,
+        }
+    }
+
+    pub fn builtin(ident: BuiltinIdentifier, generic_arguments: Option<Vec<ScopeId>>) -> Scope {
+        Scope {
+            path: ScopePath::Builtin(ident),
+            generic_arguments,
+        }
+    }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ScopeParent {
-    Scope(ScopeId),
-    Package(FileId),
-    Root,
+impl From<BuiltinIdentifier> for Scope {
+    fn from(ident: BuiltinIdentifier) -> Self {
+        Self::builtin(ident, None)
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -84,5 +86,3 @@ impl ScopeSource {
         }
     }
 }
-
-mod error;

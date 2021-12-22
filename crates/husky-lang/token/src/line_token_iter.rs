@@ -154,6 +154,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             '-' => match self.peek() {
                 '=' => self.pass(Special::SubAssign),
                 '-' => self.pass(Special::Decr),
+                '>' => self.pass(Special::LightArrow),
                 _ => (1, Special::Sub),
             },
             '<' => match self.peek() {
