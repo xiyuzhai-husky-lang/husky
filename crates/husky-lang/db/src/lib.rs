@@ -3,7 +3,7 @@ mod tests;
 
 pub use atom::AtomQuery;
 pub use file::{FileQuery, InternFile, LiveFiles};
-pub use scope::{InternScope, Scope, ScopeParent, ScopeQuery, ScopeSalsaQuery};
+pub use scope::{InternScope, Scope, ScopeQuery, ScopeSalsaQuery};
 pub use word::InternWord;
 
 use common::*;
@@ -27,18 +27,6 @@ pub struct HuskyLangDatabase {
     scope_interner: scope::ScopeInterner,
     live_docs: ARwLock<HashMap<file::FileId, ARwLock<String>>>,
 }
-
-// impl Default for HuskyLangDatabase {
-//     fn default() -> Self {
-//         Self {
-//             storage: Default::default(),
-//             file_interner: file::new_file_interner(),
-//             word_interner: word::new_word_interner(),
-//             scope_interner: scope::new_scope_interner(),
-//             live_docs: Default::default(),
-//         }
-//     }
-// }
 
 impl fmt::Debug for HuskyLangDatabase {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {

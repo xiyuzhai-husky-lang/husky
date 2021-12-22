@@ -1,3 +1,5 @@
+use common::*;
+
 use bimap::BiMap;
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData};
 use stdx::sync::ARwLock;
@@ -93,7 +95,7 @@ where
             None => {
                 self.internal
                     .write(|internal| match internal.bimap.get_by_left(raw) {
-                        Some(id) => *id, // this step is necessary to make sure it's atomic
+                        Some(id) => *id, // this step is lest the value has changed
                         None => {
                             let id = internal.alloc_new_word();
                             internal.bimap.insert(raw.into(), id);

@@ -3,9 +3,9 @@ mod convexity;
 use crate::*;
 
 use convexity::Convexity;
-use scope::Scope;
+use scope::{Scope, ScopeKind};
 use text::TextPosition;
-use word::Reserved;
+use word::BuiltinIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AtomGroup {
@@ -110,7 +110,7 @@ impl AtomGroup {
         self.end_list(Bracket::Vert, ListEndAttr::Attach, text_range)
     }
 
-    pub(crate) fn make_default_func_type(
+    pub(crate) fn make_default_routine_type(
         &mut self,
         db: &dyn AtomQuery,
         output: ScopeId,
@@ -138,12 +138,20 @@ impl AtomGroup {
                     }
                     break type_atom.text_start()..(ket_to_output.end);
                 }
+                AtomKind::Scope(scope_id, scope_kind) => {
+                    if scope_kind != ScopeKind::Type {
+                        return Err(AtomError::new(
+                            type_atom.text_start()..(ket_to_output.end),
+                            AtomRule::OnlyTypesInTheParenthesisBeforeLightArrow,
+                        ))?;
+                    };
+                    generic_arguments.insert(0, scope_id)
+                }
                 // AtomKind::ListItem => todo!(),
                 _ => Err(AtomError::new(
                     type_atom.text_start()..(ket_to_output.end),
                     AtomRule::OnlyTypesInTheParenthesisBeforeLightArrow,
                 ))?,
-                AtomKind::Scope(scope_id) => generic_arguments.insert(0, scope_id),
             }
             let bra_or_separator_atom = self.atoms.pop().ok_or(AtomError::new(
                 ket_to_output.clone(),
@@ -174,11 +182,14 @@ impl AtomGroup {
         };
 
         generic_arguments.push(output);
-        let func_type = db.scope_to_id(Scope::new_builtin(
-            word::default_func_type(),
+        let routine_type = db.scope_to_id(Scope::builtin(
+            word::default_routine_type(),
             Some(generic_arguments),
         ));
-        self.push(Atom::new(range, AtomKind::Scope(func_type)));
+        self.push(Atom::new(
+            range,
+            AtomKind::Scope(routine_type, ScopeKind::Type),
+        ));
         Ok(())
     }
 }

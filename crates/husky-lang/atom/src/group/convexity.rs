@@ -8,7 +8,7 @@ pub enum Convexity {
 
 pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
-        AtomKind::Scope(_)
+        AtomKind::Scope(_, _)
         | AtomKind::Variable(_)
         | AtomKind::Literal(_)
         | AtomKind::Prefix(_)
@@ -23,7 +23,7 @@ pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
 
 pub(super) fn right_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
-        AtomKind::Scope(_)
+        AtomKind::Scope(_, _)
         | AtomKind::Variable(_)
         | AtomKind::Literal(_)
         | AtomKind::Suffix(_)

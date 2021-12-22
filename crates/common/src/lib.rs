@@ -1,4 +1,4 @@
-pub mod error;
+mod error;
 mod once;
 mod path_utils;
 pub mod print;

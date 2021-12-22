@@ -6,7 +6,7 @@ mod parser;
 mod query;
 mod scope_alias;
 
-pub use error::{AtomError, AtomRule};
+pub use error::{AtomError, AtomResult, AtomResultArc, AtomRule};
 pub use group::{AtomGroup, GroupAttr};
 pub use kind::{AtomKind, LambdaHead, Literal};
 pub use opr::{BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
@@ -62,7 +62,7 @@ impl std::fmt::Debug for Atom {
     }
 }
 
-pub type AtomResult = Result<AtomGroup, AtomError>;
+pub type AtomParseResult = Result<AtomGroup, AtomError>;
 
 impl From<&Token> for Atom {
     fn from(token: &Token) -> Self {

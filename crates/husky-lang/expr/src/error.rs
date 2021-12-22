@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -12,8 +14,23 @@ impl ExprError {
     }
 }
 
+pub type ExprResult<T> = Result<T, ExprError>;
+pub type ExprResultArc<T> = Result<Arc<T>, ExprError>;
+
 impl From<&atom::AtomError> for ExprError {
     fn from(_: &atom::AtomError) -> Self {
+        todo!()
+    }
+}
+
+impl From<atom::AtomError> for ExprError {
+    fn from(_: atom::AtomError) -> Self {
+        todo!()
+    }
+}
+
+impl From<scope::ModuleFromFileError> for ExprError {
+    fn from(_: scope::ModuleFromFileError) -> Self {
         todo!()
     }
 }

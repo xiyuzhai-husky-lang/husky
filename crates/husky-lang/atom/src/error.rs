@@ -1,3 +1,6 @@
+use std::sync::Arc;
+
+use file::FileError;
 use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -12,13 +15,29 @@ impl AtomError {
     }
 }
 
+impl From<FileError> for AtomError {
+    fn from(_: FileError) -> Self {
+        todo!()
+    }
+}
+
+impl From<scope::ModuleFromFileError> for AtomError {
+    fn from(_: scope::ModuleFromFileError) -> Self {
+        todo!()
+    }
+}
+
+pub type AtomResult<T> = Result<T, AtomError>;
+pub type AtomResultArc<T> = Result<Arc<T>, AtomError>;
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomRule {
     BeforeColonShouldBeScope,
     ListShouldBeWellFormed,
     ScopeShouldExist,
-    AfterColonShouldBeIdentifier,
-    GenericArgumentsShouldBeNonEmpty,
+    AfterColonShouldBeUserDefinedIdentifier,
+    NonEmptyAngles,
+    ExpectCommaInAngle,
     AfterLAngleShouldBeCommaListOfScopes,
     KeywordShouldBeAtStart,
     CompatibleConvexity,

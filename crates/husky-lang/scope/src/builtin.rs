@@ -8,8 +8,8 @@ pub enum BuiltinScope {
     Vec,
     Array(usize),
     Tuple,
-    Fp,
-    Fn,
-    FnMut,
-    FnOnce,
+    Rp,
+    Rt,
+    RtMut,
+    RtOnce,
 }

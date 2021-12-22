@@ -1,9 +1,13 @@
+use common::*;
+
 use core::{iter::Peekable, slice::Iter};
 
+use file::FileId;
 use folded::FoldedList;
-use scope::BuiltinScope;
+use scope::{BuiltinScope, InternScope, Scope, ScopeKind};
 use text::TextPosition;
 use token::{Special, Token, TokenKind, TokenizedText};
+use word::UserDefinedIdentifier;
 
 use crate::{
     kind::LambdaHead, opr::ListStartAttr, query::AtomQuery, scope_alias::ScopeAliasStack, *,
@@ -12,11 +16,11 @@ use crate::{
 pub struct AtomParser<'a> {
     db: &'a dyn AtomQuery,
     scope_aliases: ScopeAliasStack,
-    folded_results: FoldedList<AtomResult>,
+    folded_results: FoldedList<AtomParseResult>,
 }
 
 impl<'a> AtomParser<'a> {
-    pub(crate) fn new(db: &'a dyn AtomQuery) -> Self {
+    pub(crate) fn new(db: &'a dyn AtomQuery, module: scope::Module) -> Self {
         Self {
             db,
             scope_aliases: ScopeAliasStack::new(),
@@ -24,7 +28,7 @@ impl<'a> AtomParser<'a> {
         }
     }
 
-    pub(crate) fn take_folded_results(self) -> FoldedList<AtomResult> {
+    pub(crate) fn take_folded_results(self) -> FoldedList<AtomParseResult> {
         self.folded_results
     }
 
@@ -32,27 +36,18 @@ impl<'a> AtomParser<'a> {
         &mut self,
         token: &Token,
         iter: &mut Peekable<Iter<Token>>,
-    ) -> Result<Option<(ScopeId, TextPosition)>, AtomError> {
+    ) -> Result<Option<(ScopeId, ScopeKind, TextPosition)>, AtomError> {
         if let Some(mut scope) = self.resolve_scope(token) {
+            scope.generic_arguments = self.parse_generic_arguments(iter)?;
             let mut end = token.text_end();
-            if let Some((subscope_ident, end0)) = parse_coloned_identifier(iter)? {
-                end = end0;
-                let start = token.text_start();
-                let generic_arguments = self.parse_generic_arguments(iter)?;
-                scope = self.subscope(scope, subscope_ident, generic_arguments, start, end0)?;
-                while let Some((subscope_ident, end1)) = parse_coloned_identifier(iter)? {
-                    end = end1;
-                    let raw_scope = self.subscope(scope, subscope_ident, None, start, end)?;
-                    if self.db.is_scope_generic(raw_scope) {
-                        let generic_arguments = self.parse_generic_arguments(iter)?;
-                        scope =
-                            self.subscope(scope, subscope_ident, generic_arguments, start, end)?;
-                    } else {
-                        scope = raw_scope;
-                    }
-                }
+            while let Some((subscope_ident, new_end)) = parse_coloned_identifier(iter)? {
+                end = new_end;
+                scope = self.resolve_subscope(scope, subscope_ident, token.text_start(), end)?;
+                scope.generic_arguments = self.parse_generic_arguments(iter)?;
             }
-            return Ok(Some((scope, end)));
+            let scope_id = self.db.scope_to_id(scope);
+            let scope_kind = self.db.scope_kind(scope_id);
+            return Ok(Some((scope_id, scope_kind, end)));
         } else {
             return Ok(None);
         }
@@ -62,14 +57,14 @@ impl<'a> AtomParser<'a> {
                 TokenKind::Identifier(ident) => Ok(ident),
                 _ => Err(AtomError::new(
                     token.text_range(),
-                    AtomRule::AfterColonShouldBeIdentifier,
+                    AtomRule::AfterColonShouldBeUserDefinedIdentifier,
                 )),
             }
         }
 
         fn parse_coloned_identifier(
             iter: &mut Peekable<Iter<Token>>,
-        ) -> Result<Option<(Identifier, TextPosition)>, AtomError> {
+        ) -> Result<Option<(UserDefinedIdentifier, TextPosition)>, AtomError> {
             if let Some(next_token) = iter.peek().map(|e| *e) {
                 if TokenKind::Special(Special::Colon) == next_token.kind {
                     iter.next();
@@ -77,29 +72,27 @@ impl<'a> AtomParser<'a> {
                         next_token.text_range(),
                         AtomRule::ScopeShouldExist,
                     ))?;
-                    return Ok(Some((identify(ident_token)?, ident_token.text_end())));
+                    match identify(ident_token)? {
+                        Identifier::Builtin(_) => {
+                            return Err(AtomError::new(
+                                ident_token.text_range(),
+                                AtomRule::AfterColonShouldBeUserDefinedIdentifier,
+                            ))
+                        }
+                        Identifier::UserDefined(ident) => {
+                            return Ok(Some((ident, ident_token.text_end())))
+                        }
+                    }
                 }
             }
             return Ok(None);
         }
     }
 
-    fn resolve_scope(&self, token: &Token) -> Option<ScopeId> {
+    fn resolve_scope(&self, token: &Token) -> Option<Scope> {
         match token.kind {
             TokenKind::Identifier(ident) => match ident {
-                Identifier::Reserved(reserved) => Some(match reserved {
-                    word::Reserved::Std => BuiltinScope::Std.into(),
-                    word::Reserved::Core => BuiltinScope::Core.into(),
-                    word::Reserved::Debug => BuiltinScope::Debug.into(),
-                    word::Reserved::I32 => BuiltinScope::I32.into(),
-                    word::Reserved::F32 => BuiltinScope::F32.into(),
-                    word::Reserved::Vec => BuiltinScope::Vec.into(),
-                    word::Reserved::Tuple => BuiltinScope::Tuple.into(),
-                    word::Reserved::Fp => BuiltinScope::Fp.into(),
-                    word::Reserved::Fn => BuiltinScope::Fn.into(),
-                    word::Reserved::FnMut => BuiltinScope::FnMut.into(),
-                    word::Reserved::FnOnce => BuiltinScope::FnOnce.into(),
-                }),
+                Identifier::Builtin(builtin) => Some(Scope::builtin(builtin, None)),
                 Identifier::UserDefined(_) => todo!(),
             },
             _ => None,
@@ -123,60 +116,49 @@ impl<'a> AtomParser<'a> {
                 let mut end = token_for_langle.text_end();
                 while let Some(token_for_scope) = iter.next() {
                     {
-                        let (new_scope, new_end) =
-                            self.parse_scope(token_for_scope, iter)?
-                                .ok_or(AtomError::new(
-                                    (start..end).into(),
-                                    AtomRule::AfterLAngleShouldBeCommaListOfScopes,
-                                ))?;
+                        let (new_scope, new_scope_kind, new_end) = self
+                            .parse_scope(token_for_scope, iter)?
+                            .ok_or(AtomError::new(
+                                start..end,
+                                AtomRule::AfterLAngleShouldBeCommaListOfScopes,
+                            ))?;
                         end = new_end;
                         scopes.push(new_scope);
+                        ep!(scopes);
                     }
 
                     {
                         let token_comma_or_rangle = iter.next().ok_or(AtomError::new(
-                            (start..end).into(),
+                            start..end,
                             AtomRule::AfterLAngleShouldBeCommaListOfScopes,
                         ))?;
                         end = token_comma_or_rangle.text_end();
 
-                        if token_comma_or_rangle.kind == TokenKind::Special(Special::Comma) {
-                            if scopes.len() == 0 {
-                                return Err(AtomError::new(
-                                    (start..end).into(),
-                                    AtomRule::GenericArgumentsShouldBeNonEmpty,
-                                ));
-                            }
+                        if token_comma_or_rangle.kind == Special::GreaterOrRAngle.into() {
                             return Ok(Some(scopes));
-                        } else if token_comma_or_rangle.kind
-                            != TokenKind::Special(Special::GreaterOrRAngle)
-                        {
-                            return Err(AtomError::new(
-                                (start..end).into(),
-                                AtomRule::GenericArgumentsShouldBeNonEmpty,
-                            ));
+                        }
+                        if token_comma_or_rangle.kind != Special::Comma.into() {
+                            epin!();
+                            return Err(AtomError::new(start..end, AtomRule::ExpectCommaInAngle));
                         }
                     }
                 }
-                return Err(AtomError::new(
-                    (start..end).into(),
-                    AtomRule::GenericArgumentsShouldBeNonEmpty,
-                ));
+                epin!();
+                return Err(AtomError::new(start..end, AtomRule::NonEmptyAngles));
             }
         }
         return Ok(None);
     }
 
-    fn subscope(
+    fn resolve_subscope(
         &self,
-        parent_scope: ScopeId,
-        subscope_ident: Identifier,
-        generic_arguments: Option<Vec<ScopeId>>,
+        parent_scope: Scope,
+        subscope_ident: UserDefinedIdentifier,
         start: TextPosition,
         end: TextPosition,
-    ) -> Result<ScopeId, AtomError> {
+    ) -> Result<Scope, AtomError> {
         self.db
-            .subscope(parent_scope, subscope_ident, generic_arguments)
+            .subscope(self.db.scope_to_id(parent_scope), subscope_ident, None)
             .ok_or(AtomError::new(
                 (start..end).into(),
                 AtomRule::ScopeShouldExist,
@@ -184,7 +166,7 @@ impl<'a> AtomParser<'a> {
     }
 }
 
-impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomResult, AtomParser<'a>>
+impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomParseResult, AtomParser<'a>>
     for AtomParser<'a>
 {
     fn enter_fold(&mut self) {
@@ -195,7 +177,7 @@ impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomResult, AtomParser<
         self.scope_aliases.exit_fold();
     }
 
-    fn transform(&mut self, token_group: &[Token]) -> AtomResult {
+    fn transform(&mut self, token_group: &[Token]) -> AtomParseResult {
         let mut iter = token_group.iter().peekable();
         let mut atom_group = AtomGroup::new(
             if let TokenKind::Keyword(keyword) = iter.peek().unwrap().kind {
@@ -209,8 +191,11 @@ impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomResult, AtomParser<
         let mut expect_lambda_second_vertical = false;
 
         while let Some(token) = iter.next() {
-            if let Some((scope, end)) = self.parse_scope(token, &mut iter)? {
-                atom_group.push(Atom::new(token.text_range_to(end), AtomKind::Scope(scope)))?
+            if let Some((scope_id, scope_kind, end)) = self.parse_scope(token, &mut iter)? {
+                atom_group.push(Atom::new(
+                    token.text_range_to(end),
+                    AtomKind::Scope(scope_id, scope_kind),
+                ))?
             } else {
                 match &token.kind {
                     TokenKind::Keyword(_) => {
@@ -226,8 +211,6 @@ impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomResult, AtomParser<
                                 return Ok(atom_group);
                             } else {
                                 todo!()
-                                // atom_group
-                                //     .push(Atom::new(token.range, BinaryOpr::WithType.into()))?;
                             }
                         }
                         Special::DoubleVertical => {
@@ -272,33 +255,38 @@ impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomResult, AtomParser<
                         Special::LBox => atom_group.start_list(Bracket::Box, token.text_range()),
                         Special::LCurl => atom_group.start_list(Bracket::Curl, token.text_range()),
                         Special::RPar => {
+                            epin!();
+                            ep!(iter.peek());
                             if let Some(Token {
                                 kind: TokenKind::Special(Special::LightArrow),
                                 ..
                             }) = iter.peek()
                             {
+                                epin!();
                                 let arrow_atom = iter.next().unwrap();
                                 let no_type_after_arrow_error = AtomError::new(
                                     arrow_atom.text_range(),
                                     AtomRule::ExpectTypeAfterLightArrow,
                                 );
-                                let (scope, end) = self
+                                let (scope_id, scope_kind, end) = self
                                     .parse_scope(
                                         iter.next().ok_or(no_type_after_arrow_error.clone())?,
                                         &mut iter,
                                     )?
                                     .ok_or(no_type_after_arrow_error.clone())?;
-                                match self.db.scope_kind(scope) {
-                                    scope::ScopeKind::Type { .. } => Ok(()),
-                                    scope::ScopeKind::Value => Err(no_type_after_arrow_error),
-                                    scope::ScopeKind::Module => Err(no_type_after_arrow_error),
-                                    scope::ScopeKind::Routine { .. } => {
+                                match scope_kind {
+                                    ScopeKind::Type { .. } => Ok(()),
+                                    ScopeKind::Value => Err(no_type_after_arrow_error),
+                                    ScopeKind::Module => Err(no_type_after_arrow_error),
+                                    ScopeKind::Routine { .. } => {
                                         Err(no_type_after_arrow_error.clone())
                                     }
+                                    ScopeKind::Trait => Err(no_type_after_arrow_error.clone()),
                                 }?;
-                                atom_group.make_default_func_type(
+                                epin!();
+                                atom_group.make_default_routine_type(
                                     self.db,
-                                    scope,
+                                    scope_id,
                                     &(arrow_atom.text_start()..end),
                                 )?;
                             } else {
@@ -329,7 +317,7 @@ impl<'a> folded::Transformer<'_, [Token], TokenizedText, AtomResult, AtomParser<
         Ok(atom_group)
     }
 
-    fn folded_results(&mut self) -> &mut FoldedList<AtomResult> {
+    fn folded_results(&mut self) -> &mut FoldedList<AtomParseResult> {
         &mut self.folded_results
     }
 }

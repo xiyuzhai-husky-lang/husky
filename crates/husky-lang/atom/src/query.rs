@@ -1,21 +1,25 @@
+pub type AtomizedText = FoldedList<AtomParseResult>;
+pub use error::AtomResultArc;
+
+use common::*;
+
 use crate::*;
 
-use file::FileResultArc;
+use file::FileId;
 use folded::Transformer;
 use folded::{FoldedList, FoldedStorage};
 use scope::ScopeQuery;
 use std::sync::Arc;
 
-pub type AtomizedText = FoldedList<AtomResult>;
-
 #[salsa::query_group(AtomQueryStorage)]
 pub trait AtomQuery: ScopeQuery {
-    fn atomized_text(&self, id: file::FileId) -> FileResultArc<AtomizedText>;
+    fn atomized_text(&self, id: FileId) -> AtomResultArc<AtomizedText>;
 }
 
-fn atomized_text(this: &dyn AtomQuery, id: file::FileId) -> FileResultArc<AtomizedText> {
+fn atomized_text(this: &dyn AtomQuery, id: FileId) -> AtomResultArc<AtomizedText> {
     let tokenized_text = this.tokenized_text(id)?;
-    let mut parser = AtomParser::new(this);
-    parser.convert_all(tokenized_text.folded_iter(0));
+    let module = this.module_from_file_id(id)?;
+    let mut parser = AtomParser::new(this, module);
+    parser.transform_all(tokenized_text.folded_iter(0));
     Ok(Arc::new(parser.take_folded_results()))
 }

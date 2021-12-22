@@ -20,19 +20,6 @@ pub fn timeit(label: &'static str) -> impl Drop {
     defer(move || eprintln!("{}: {:.2?}", label, start.elapsed()))
 }
 
-/// Prints backtrace to stderr, useful for debugging.
-pub fn print_backtrace() {
-    #[cfg(feature = "backtrace")]
-    eprintln!("{:?}", backtrace::Backtrace::new());
-
-    #[cfg(not(feature = "backtrace"))]
-    eprintln!(
-        r#"Enable the backtrace feature.
-Uncomment `default = [ "backtrace" ]` in `crates/stdx/Cargo.toml`.
-"#
-    );
-}
-
 pub fn to_lower_snake_case(s: &str) -> String {
     to_snake_case(s, char::to_ascii_lowercase)
 }

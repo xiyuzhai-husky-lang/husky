@@ -21,5 +21,6 @@ main:
     p!(atomized_main_file);
 }
 mod builtin;
+mod generics;
 mod lambda;
 mod utils;

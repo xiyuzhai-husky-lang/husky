@@ -2,7 +2,7 @@ use interner::Interner;
 
 use crate::*;
 
-use word::Reserved;
+use word::BuiltinIdentifier;
 
 pub type ScopeInterner = Interner<Scope, ScopeId>;
 
@@ -36,16 +36,16 @@ pub trait InternScope {
 
 pub fn new_scope_interner() -> ScopeInterner {
     ScopeInterner::new_from(vec![
-        (Reserved::I32, BuiltinScope::I32),
-        (Reserved::F32, BuiltinScope::F32),
-        (Reserved::Vec, BuiltinScope::Vec),
-        (Reserved::Tuple, BuiltinScope::Tuple),
-        (Reserved::Debug, BuiltinScope::Debug),
-        (Reserved::Std, BuiltinScope::Std),
-        (Reserved::Core, BuiltinScope::Core),
-        (Reserved::Fp, BuiltinScope::Fp),
-        (Reserved::Fn, BuiltinScope::Fn),
-        (Reserved::FnMut, BuiltinScope::FnMut),
-        (Reserved::FnOnce, BuiltinScope::FnOnce),
+        (BuiltinIdentifier::I32, BuiltinScope::I32),
+        (BuiltinIdentifier::F32, BuiltinScope::F32),
+        (BuiltinIdentifier::Vec, BuiltinScope::Vec),
+        (BuiltinIdentifier::Tuple, BuiltinScope::Tuple),
+        (BuiltinIdentifier::Debug, BuiltinScope::Debug),
+        (BuiltinIdentifier::Std, BuiltinScope::Std),
+        (BuiltinIdentifier::Core, BuiltinScope::Core),
+        (BuiltinIdentifier::Rp, BuiltinScope::Rp),
+        (BuiltinIdentifier::Rt, BuiltinScope::Rt),
+        (BuiltinIdentifier::RtMut, BuiltinScope::RtMut),
+        (BuiltinIdentifier::RtOnce, BuiltinScope::RtOnce),
     ])
 }
