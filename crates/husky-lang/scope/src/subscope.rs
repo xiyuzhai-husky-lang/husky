@@ -9,7 +9,7 @@ use word::{Identifier, Keyword};
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
-    ident: Option<UserDefinedIdentifier>,
+    ident: Option<CustomIdentifier>,
     kind: ScopeKind,
     source: ScopeSource,
 }
@@ -42,7 +42,7 @@ impl Entry {
             return (
                 Some(Entry {
                     ident: None,
-                    kind: ScopeKind::Routine,
+                    kind: ScopeKind::Func,
                     source: ScopeSource::from_file(file_id, token_group_index),
                 }),
                 None,
@@ -62,7 +62,7 @@ impl Entry {
                                     }),
                                 )
                             }
-                            Identifier::UserDefined(user_defined_ident) => {
+                            Identifier::Custom(user_defined_ident) => {
                                 return (
                                     Some(Entry {
                                         ident: Some(user_defined_ident),
@@ -122,7 +122,7 @@ impl SubscopeTable {
 }
 
 impl SubscopeTable {
-    pub fn submodule_idents(&self) -> Vec<UserDefinedIdentifier> {
+    pub fn submodule_idents(&self) -> Vec<CustomIdentifier> {
         self.entries
             .iter()
             .filter_map(|entry| {
@@ -136,7 +136,7 @@ impl SubscopeTable {
             .collect()
     }
 
-    pub fn scope_source(&self, ident: UserDefinedIdentifier) -> ScopeResult<ScopeSource> {
+    pub fn scope_source(&self, ident: CustomIdentifier) -> ScopeResult<ScopeSource> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
@@ -144,7 +144,7 @@ impl SubscopeTable {
             .ok_or(ScopeError::NoSuchScope)
     }
 
-    pub fn scope_kind(&self, ident: UserDefinedIdentifier) -> Option<ScopeKind> {
+    pub fn scope_kind(&self, ident: CustomIdentifier) -> Option<ScopeKind> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
@@ -153,10 +153,10 @@ impl SubscopeTable {
 
     pub fn has_subscope(
         &self,
-        ident: UserDefinedIdentifier,
-        generic_arguments: &Option<Vec<ScopeId>>,
+        ident: CustomIdentifier,
+        generic_arguments: &[GenericArgument],
     ) -> bool {
-        if generic_arguments.is_some() {
+        if generic_arguments.len() > 0 {
             todo!()
         }
         self.entries
@@ -179,7 +179,7 @@ impl SubscopeTable {
             .filter_map(|entry| {
                 entry
                     .ident
-                    .map(|ident| Scope::child_scope(parent_scope_id, ident, None))
+                    .map(|ident| Scope::child_scope(parent_scope_id, ident, Vec::new()))
             })
             .collect()
     }

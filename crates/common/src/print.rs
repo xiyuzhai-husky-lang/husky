@@ -16,10 +16,10 @@ macro_rules! p {
 
 #[macro_export]
 macro_rules! ep {
-  ($($v:expr),*) => {eprintln!("{}\n    src: {}:{}",
-  common::show::eshow!($($v),*),
+  ($($v:expr),*) => {eprintln!("src: {}:{}\n  {}\n",
   file!(),
-  line!())};
+  line!(),
+  common::show::eshow!($($v),*))};
 }
 
 #[macro_export]

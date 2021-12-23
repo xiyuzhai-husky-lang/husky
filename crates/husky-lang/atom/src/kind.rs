@@ -1,10 +1,12 @@
+use scope::{GenericArgument, Scope, ScopeKind};
 use token::Special;
+use word::BuiltinIdentifier;
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
-    Scope(ScopeId, scope::ScopeKind),
+    Scope(ScopeId, ScopeKind),
     Variable(Identifier),
     Literal(Literal),
     Binary(BinaryOpr),
