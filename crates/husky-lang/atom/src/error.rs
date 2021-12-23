@@ -6,14 +6,104 @@ use text::TextRange;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct AtomError {
     pub range: TextRange,
-    pub rule_broken: AtomRule,
+    pub kind: AtomErrorKind,
+    pub src: Source,
 }
 
-impl AtomError {
-    pub fn new(range: TextRange, rule_broken: AtomRule) -> AtomError {
-        AtomError { range, rule_broken }
+#[derive(PartialEq, Eq, Clone)]
+pub struct Source {
+    pub file: &'static str,
+    pub line: u32,
+}
+
+macro_rules! src {
+    () => {
+        Source {
+            file: file!(),
+            line: line!(),
+        }
+    };
+}
+
+pub(crate) use src;
+
+impl std::fmt::Debug for Source {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{}:{}", &self.file, &self.line))
     }
 }
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum AtomErrorKind {
+    BreakRule(AtomRule),
+    FailExpectation(String),
+}
+
+impl From<AtomRule> for AtomErrorKind {
+    fn from(rule: AtomRule) -> Self {
+        Self::BreakRule(rule)
+    }
+}
+
+impl From<&'static str> for AtomErrorKind {
+    fn from(expectation: &'static str) -> Self {
+        Self::FailExpectation(expectation.into())
+    }
+}
+
+impl From<String> for AtomErrorKind {
+    fn from(expectation: String) -> Self {
+        Self::FailExpectation(expectation.into())
+    }
+}
+
+macro_rules! atom_error {
+    ($range: expr, $kind: expr) => {{
+        AtomError {
+            range: $range.into(),
+            kind: $kind.into(),
+            src: crate::error::Source {
+                file: file!(),
+                line: line!(),
+            },
+        }
+    }};
+    ($range: expr, $kind: expr,) => {{
+        AtomError {
+            range: $range,
+            kind: $kind.into(),
+            src: crate::error::Source {
+                file: file!(),
+                line: line!(),
+            },
+        }
+    }};
+}
+pub(crate) use atom_error;
+
+macro_rules! atom_err {
+    ($range: expr, $kind: expr) => {{
+        Err(AtomError {
+            range: $range.clone(),
+            kind: $kind.into(),
+            src: crate::error::Source {
+                file: file!(),
+                line: line!(),
+            },
+        })
+    }};
+    ($range: expr, $kind: expr,) => {{
+        Err(AtomError {
+            range: $range,
+            kind: $kind.into(),
+            src: crate::error::Source {
+                file: file!(),
+                line: line!(),
+            },
+        })
+    }};
+}
+pub(crate) use atom_err;
 
 impl From<FileError> for AtomError {
     fn from(_: FileError) -> Self {
@@ -35,7 +125,7 @@ pub enum AtomRule {
     BeforeColonShouldBeScope,
     ListShouldBeWellFormed,
     ScopeShouldExist,
-    AfterColonShouldBeUserDefinedIdentifier,
+    AfterColonShouldBeCustomIdentifier,
     NonEmptyAngles,
     ExpectCommaInAngle,
     AfterLAngleShouldBeCommaListOfScopes,

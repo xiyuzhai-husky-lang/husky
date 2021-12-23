@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum BuiltinScope {
+pub enum BuiltinIdentifier3 {
     Std,
     Core,
     Debug,
@@ -8,8 +8,8 @@ pub enum BuiltinScope {
     Vec,
     Array(usize),
     Tuple,
-    Rp,
-    Rt,
-    RtMut,
-    RtOnce,
+    Fp,
+    Fn,
+    FnMut,
+    FnOnce,
 }

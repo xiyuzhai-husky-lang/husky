@@ -13,10 +13,13 @@ pub use opr::{BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr
 pub use parser::AtomParser;
 pub use query::{AtomQuery, AtomQueryStorage, AtomizedText};
 
+use error::atom_err;
+use scope::GenericArgument;
 use scope::ScopeId;
 use text::HasTextRange;
 use text::TextRange;
 use token::{Token, TokenKind};
+use word::BuiltinIdentifier;
 use word::{Identifier, Keyword};
 
 impl PartialEq for Literal {

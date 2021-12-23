@@ -39,14 +39,16 @@ pub fn new_word_interner() -> WordInterner {
         ("std", BuiltinIdentifier::Std.into()),
         ("core", BuiltinIdentifier::Core.into()),
         ("debug", BuiltinIdentifier::Debug.into()),
+        ("void", BuiltinIdentifier::Void.into()),
         ("i32", BuiltinIdentifier::I32.into()),
         ("f32", BuiltinIdentifier::F32.into()),
         ("Vec", BuiltinIdentifier::Vec.into()),
+        ("Array", BuiltinIdentifier::Array.into()),
         ("Tuple", BuiltinIdentifier::Tuple.into()),
-        ("Rp", BuiltinIdentifier::Rp.into()),
-        ("Rt", BuiltinIdentifier::Rt.into()),
-        ("RtMut", BuiltinIdentifier::RtMut.into()),
-        ("FnOnce", BuiltinIdentifier::RtOnce.into()),
+        ("Fp", BuiltinIdentifier::Fp.into()),
+        ("Fn", BuiltinIdentifier::Fn.into()),
+        ("FnMut", BuiltinIdentifier::FnMut.into()),
+        ("FnOnce", BuiltinIdentifier::FnOnce.into()),
     ]);
 }
 

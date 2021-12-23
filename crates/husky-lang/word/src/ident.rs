@@ -3,32 +3,33 @@ use crate::*;
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
     Builtin(BuiltinIdentifier),
-    UserDefined(UserDefinedIdentifier),
+    Custom(CustomIdentifier),
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub struct UserDefinedIdentifier(u32);
+pub struct CustomIdentifier(u32);
 
-impl From<UserDefinedIdentifier> for Identifier {
-    fn from(ident: UserDefinedIdentifier) -> Self {
-        Self::UserDefined(ident)
+impl From<CustomIdentifier> for Identifier {
+    fn from(ident: CustomIdentifier) -> Self {
+        Self::Custom(ident)
     }
 }
 
-impl From<u32> for UserDefinedIdentifier {
+impl From<u32> for CustomIdentifier {
     fn from(raw: u32) -> Self {
-        UserDefinedIdentifier(raw)
+        CustomIdentifier(raw)
     }
 }
 
 impl From<u32> for Identifier {
     fn from(raw: u32) -> Self {
-        UserDefinedIdentifier(raw).into()
+        CustomIdentifier(raw).into()
     }
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum BuiltinIdentifier {
+    Void,
     I32,
     F32,
     Vec,
@@ -36,12 +37,13 @@ pub enum BuiltinIdentifier {
     Debug,
     Std,
     Core,
-    Rp,
-    Rt,
-    RtMut,
-    RtOnce,
+    Fp,
+    Fn,
+    FnMut,
+    FnOnce,
+    Array,
 }
 
-pub fn default_routine_type() -> BuiltinIdentifier {
-    BuiltinIdentifier::Rp
+pub fn default_func_type() -> BuiltinIdentifier {
+    BuiltinIdentifier::Fp
 }

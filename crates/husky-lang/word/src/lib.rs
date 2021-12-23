@@ -1,7 +1,7 @@
 mod intern;
 mod keyword;
 
-pub use ident::{default_routine_type, BuiltinIdentifier, Identifier, UserDefinedIdentifier};
+pub use ident::{default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier};
 pub use intern::{convert_ident, new_word_interner, InternWord, WordInterner};
 pub use keyword::Keyword;
 
@@ -21,11 +21,11 @@ impl Word {
         }
     }
 
-    pub fn user_defined_ident(self) -> Option<UserDefinedIdentifier> {
+    pub fn user_defined_ident(self) -> Option<CustomIdentifier> {
         self.ident()
             .map(|ident| match ident {
                 Identifier::Builtin(_) => None,
-                Identifier::UserDefined(ident) => Some(ident),
+                Identifier::Custom(ident) => Some(ident),
             })
             .flatten()
     }

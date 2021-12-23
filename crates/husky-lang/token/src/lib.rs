@@ -21,7 +21,7 @@ use text::{HasTextRange, Indent, TextRange};
 
 #[derive(PartialEq, Eq)]
 pub struct Token {
-    range: TextRange,
+    pub range: TextRange,
     pub kind: TokenKind,
 }
 

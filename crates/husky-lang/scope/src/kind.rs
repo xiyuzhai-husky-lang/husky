@@ -6,7 +6,7 @@ pub enum ScopeKind {
     Value,
     Type,
     Trait,
-    Routine,
+    Func,
 }
 
 impl ScopeKind {
@@ -14,12 +14,12 @@ impl ScopeKind {
         match keyword {
             Keyword::Use => None,
             Keyword::Mod => Some(ScopeKind::Module),
-            Keyword::Main => Some(ScopeKind::Routine),
-            Keyword::Test => Some(ScopeKind::Routine),
-            Keyword::Proc => Some(ScopeKind::Routine),
-            Keyword::Func => Some(ScopeKind::Routine),
-            Keyword::Def => Some(ScopeKind::Routine),
-            Keyword::Pattern => Some(ScopeKind::Routine),
+            Keyword::Main => Some(ScopeKind::Func),
+            Keyword::Test => Some(ScopeKind::Func),
+            Keyword::Proc => Some(ScopeKind::Func),
+            Keyword::Func => Some(ScopeKind::Func),
+            Keyword::Def => Some(ScopeKind::Func),
+            Keyword::Pattern => Some(ScopeKind::Func),
             Keyword::Struct => Some(ScopeKind::Type),
             Keyword::Rename => Some(ScopeKind::Type),
             Keyword::Enum => Some(ScopeKind::Type),

@@ -17,7 +17,7 @@ main:
     );
 
     let main_file = db.file_id("haha/main.hsk".into());
-    let package = db.scope_to_id(Scope::package(
+    let package = db.intern_scope(Scope::package(
         main_file,
         db.string_to_word("haha".into())
             .user_defined_ident()
@@ -51,7 +51,7 @@ struct B {}
     );
 
     let main_file = db.file_id("haha/main.hsk".into());
-    let package = db.scope_to_id(Scope::package(
+    let package = db.intern_scope(Scope::package(
         main_file,
         db.string_to_word("haha".into())
             .user_defined_ident()
@@ -78,7 +78,7 @@ main:
     );
 
     let main_file = db.file_id("haha/main.hsk".into());
-    let package = db.scope_to_id(Scope::package(
+    let package = db.intern_scope(Scope::package(
         main_file,
         db.string_to_word("haha".into())
             .user_defined_ident()

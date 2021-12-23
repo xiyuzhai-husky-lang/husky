@@ -81,6 +81,9 @@ pub trait HasTextRange {
     fn text_end(&self) -> TextPosition {
         self.text_range_ref().end
     }
+    fn to(&self, range: &TextRange) -> TextRange {
+        self.text_end()..range.end
+    }
 }
 
 pub fn get_slice_text_range<T>(slice: &[T]) -> TextRange

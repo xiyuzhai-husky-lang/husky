@@ -2,31 +2,29 @@ use interner::Interner;
 
 use crate::*;
 
-use word::BuiltinIdentifier;
-
 pub type ScopeInterner = Interner<Scope, ScopeId>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ScopeId {
-    Builtin(BuiltinScope),
-    UserDefined(u32),
+    Builtin(BuiltinIdentifier),
+    Custom(u32),
 }
 
 impl From<u32> for ScopeId {
     fn from(raw: u32) -> Self {
-        ScopeId::UserDefined(raw)
+        ScopeId::Custom(raw)
     }
 }
 
-impl From<BuiltinScope> for ScopeId {
-    fn from(scope: BuiltinScope) -> Self {
-        Self::Builtin(scope)
+impl From<BuiltinIdentifier> for ScopeId {
+    fn from(ident: BuiltinIdentifier) -> Self {
+        Self::Builtin(ident)
     }
 }
 
 pub trait InternScope {
     fn provide_scope_interner(&self) -> &ScopeInterner;
-    fn scope_to_id(&self, scope: Scope) -> ScopeId {
+    fn intern_scope(&self, scope: Scope) -> ScopeId {
         self.provide_scope_interner().id(scope)
     }
     fn id_to_scope(&self, id: ScopeId) -> Scope {
@@ -36,16 +34,16 @@ pub trait InternScope {
 
 pub fn new_scope_interner() -> ScopeInterner {
     ScopeInterner::new_from(vec![
-        (BuiltinIdentifier::I32, BuiltinScope::I32),
-        (BuiltinIdentifier::F32, BuiltinScope::F32),
-        (BuiltinIdentifier::Vec, BuiltinScope::Vec),
-        (BuiltinIdentifier::Tuple, BuiltinScope::Tuple),
-        (BuiltinIdentifier::Debug, BuiltinScope::Debug),
-        (BuiltinIdentifier::Std, BuiltinScope::Std),
-        (BuiltinIdentifier::Core, BuiltinScope::Core),
-        (BuiltinIdentifier::Rp, BuiltinScope::Rp),
-        (BuiltinIdentifier::Rt, BuiltinScope::Rt),
-        (BuiltinIdentifier::RtMut, BuiltinScope::RtMut),
-        (BuiltinIdentifier::RtOnce, BuiltinScope::RtOnce),
+        (BuiltinIdentifier::I32, BuiltinIdentifier::I32),
+        (BuiltinIdentifier::F32, BuiltinIdentifier::F32),
+        (BuiltinIdentifier::Vec, BuiltinIdentifier::Vec),
+        (BuiltinIdentifier::Tuple, BuiltinIdentifier::Tuple),
+        (BuiltinIdentifier::Debug, BuiltinIdentifier::Debug),
+        (BuiltinIdentifier::Std, BuiltinIdentifier::Std),
+        (BuiltinIdentifier::Core, BuiltinIdentifier::Core),
+        (BuiltinIdentifier::Fp, BuiltinIdentifier::Fp),
+        (BuiltinIdentifier::Fn, BuiltinIdentifier::Fn),
+        (BuiltinIdentifier::FnMut, BuiltinIdentifier::FnMut),
+        (BuiltinIdentifier::FnOnce, BuiltinIdentifier::FnOnce),
     ])
 }
