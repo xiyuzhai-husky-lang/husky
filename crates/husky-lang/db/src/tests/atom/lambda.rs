@@ -1,34 +1,27 @@
+use super::utils;
 use crate::*;
 use test_utils::assert_test_env;
 
 #[test]
 fn empty_lambda() {
-    let mut db = HuskyLangDatabase::new(None);
-    db.set_live_file_text(
-        "haha/main.hsk".into(),
-        r#"
-|| 1
-"#
-        .into(),
-    );
-
-    let main_file_id = db.file_id("haha/main.hsk".into());
-    let atomized_main_file = db.atomized_text(main_file_id);
-    p!(atomized_main_file);
+    let (_, atoms) = utils::get_atoms_in_one_line_group("|| 1");
+    assert_eq!(atoms.len(), 2);
 }
 
 #[test]
 fn one_argument_lambda() {
-    let mut db = HuskyLangDatabase::new(None);
-    db.set_live_file_text(
-        "haha/main.hsk".into(),
-        r#"
-|x| x
-"#
-        .into(),
-    );
+    let (_, atoms) = utils::get_atoms_in_one_line_group("|x| x");
+    assert_eq!(atoms.len(), 2);
+}
 
-    let main_file_id = db.file_id("haha/main.hsk".into());
-    let atomized_main_file = db.atomized_text(main_file_id);
-    p!(atomized_main_file);
+#[test]
+fn one_argument_with_type_lambda() {
+    let (_, atoms) = utils::get_atoms_in_one_line_group("|x: i32| x");
+    assert_eq!(atoms.len(), 2);
+}
+
+#[test]
+fn two_arguments_lambda() {
+    let (_, atoms) = utils::get_atoms_in_one_line_group("|x: i32, y| x");
+    assert_eq!(atoms.len(), 2);
 }

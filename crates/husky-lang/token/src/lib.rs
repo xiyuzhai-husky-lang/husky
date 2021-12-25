@@ -17,7 +17,7 @@ pub use tokenized_text::{TokenGroupIter, TokenizedText};
 use common::*;
 
 use scanner::TokenScanner;
-use text::{HasTextRange, Indent, TextRange};
+use text::{Indent, TextRange, TextRanged};
 
 #[derive(PartialEq, Eq)]
 pub struct Token {
@@ -40,7 +40,7 @@ impl Token {
     }
 }
 
-impl HasTextRange for Token {
+impl TextRanged for Token {
     fn text_range_ref(&self) -> &TextRange {
         &self.range
     }

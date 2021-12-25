@@ -1,12 +1,12 @@
 mod folded_list;
 mod folded_stack;
+mod generator;
 mod iter;
-mod transformer;
 
 pub use folded_list::{FoldedList, FoldedNode, ItemToFold};
 pub use folded_stack::FoldedStack;
+pub use generator::Generator;
 pub use iter::FoldedIter;
-pub use transformer::Transformer;
 
 pub trait FoldedStorage<Value, This>
 where

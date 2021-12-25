@@ -21,7 +21,7 @@ impl ExprParser {
     }
 }
 
-impl folded::Transformer<'_, AtomParseResult, AtomizedText, ExprResult, ExprParser> for ExprParser {
+impl folded::Generator<'_, AtomParseResult, AtomizedText, ExprResult, ExprParser> for ExprParser {
     fn enter_fold(&mut self) {}
 
     fn exit_fold(&mut self) {}
@@ -44,6 +44,7 @@ impl folded::Transformer<'_, AtomParseResult, AtomizedText, ExprResult, ExprPars
                 AtomKind::ListStart(_, _) => todo!(),
                 AtomKind::ListEnd(_, _) => todo!(),
                 AtomKind::ListItem => todo!(),
+                AtomKind::LambdaHead(_) => todo!(),
             }
         }
         return Ok((atom_result.as_ref()?.attr(), Some(stack.finish())));

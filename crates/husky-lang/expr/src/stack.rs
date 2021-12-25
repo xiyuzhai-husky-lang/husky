@@ -1,5 +1,5 @@
 use atom::{BinaryOpr, Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
-use text::TextPosition;
+use text::{TextPosition, TextRange};
 
 use crate::{error::ExprRule, precedence::Precedence, *};
 
@@ -59,7 +59,7 @@ enum StackOprKind {
         attr: ListStartAttr,
         start: TextPosition,
     },
-    LambdaHead(LambdaHead, TextRange),
+    LambdaHead(LambdaHead, TextPosition),
 }
 
 impl<'a> ExprStack<'a> {
@@ -141,7 +141,7 @@ impl<'a> ExprStack<'a> {
                     StackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
                             return Err(ExprError::new(
-                                (self.exprs[0].range.start..end).into(),
+                                self.exprs[0].range.start..end,
                                 ExprRule::BracketsShouldMatch,
                             ));
                         };

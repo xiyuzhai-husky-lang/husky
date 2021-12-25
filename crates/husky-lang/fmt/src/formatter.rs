@@ -13,7 +13,7 @@ pub struct Formatter<'a> {
 }
 
 impl<'a>
-    folded::Transformer<
+    folded::Generator<
         '_,
         ExprResult,
         folded::FoldedList<ExprResult>,

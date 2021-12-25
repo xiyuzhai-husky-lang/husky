@@ -1,7 +1,7 @@
 use crate::*;
 
 use file::FileResultArc;
-use folded::Transformer;
+use folded::Generator;
 use folded::{FoldedList, FoldedStorage};
 use scope::ScopeQuery;
 use std::sync::Arc;

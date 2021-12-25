@@ -1,6 +1,6 @@
-use scope::{GenericArgument, Scope, ScopeKind};
+use scope::ScopeKind;
 use token::Special;
-use word::BuiltinIdentifier;
+use word::CustomIdentifier;
 
 use crate::*;
 
@@ -15,6 +15,7 @@ pub enum AtomKind {
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
+    LambdaHead(Vec<(CustomIdentifier, Option<ScopeId>)>),
 }
 
 pub type LambdaHead = Vec<(Identifier, Option<ScopeId>)>;
@@ -55,9 +56,9 @@ impl From<&Special> for AtomKind {
             Special::RBox => panic!(),
             Special::RPar => panic!(),
             Special::MemberAccess => panic!(),
-            Special::LessOrLAngle => AtomKind::Binary(BinaryOpr::Less),
+            Special::LAngle => AtomKind::Binary(BinaryOpr::Less),
             Special::Leq => AtomKind::Binary(BinaryOpr::Leq),
-            Special::GreaterOrRAngle => AtomKind::Binary(BinaryOpr::Greater),
+            Special::RAngle => AtomKind::Binary(BinaryOpr::Greater),
             Special::Geq => AtomKind::Binary(BinaryOpr::Geq),
             Special::Neq => AtomKind::Binary(BinaryOpr::Neq),
             Special::Eq => AtomKind::Binary(BinaryOpr::Eq),

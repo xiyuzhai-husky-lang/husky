@@ -24,7 +24,7 @@ pub struct Scope {
     pub route: ScopeRoute,
     // ident: Identifier,
     // parent: ScopeParent,
-    pub generic_arguments: Vec<GenericArgument>,
+    pub args: Vec<GenericArgument>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -62,7 +62,7 @@ impl Scope {
     pub fn package(main_file: FileId, ident: CustomIdentifier) -> Self {
         Scope {
             route: ScopeRoute::Package(main_file, ident),
-            generic_arguments: Vec::new(),
+            args: Vec::new(),
         }
     }
     pub fn child_scope(
@@ -72,15 +72,34 @@ impl Scope {
     ) -> Scope {
         Scope {
             route: ScopeRoute::ChildScope(parent_scope, ident),
-            generic_arguments,
+            args: generic_arguments,
         }
     }
 
     pub fn builtin(scope: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
         Scope {
             route: ScopeRoute::Builtin(scope),
-            generic_arguments,
+            args: generic_arguments,
         }
+    }
+
+    pub fn vec(element: GenericArgument) -> Self {
+        Self::builtin(BuiltinIdentifier::Vector, vec![element])
+    }
+
+    pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
+        Scope::builtin(
+            if args.len() > 0 {
+                BuiltinIdentifier::Tuple
+            } else {
+                BuiltinIdentifier::Void
+            },
+            args,
+        )
+    }
+
+    pub fn default_func_type(args: Vec<GenericArgument>) -> Self {
+        Scope::builtin(word::default_func_type(), args)
     }
 }
 

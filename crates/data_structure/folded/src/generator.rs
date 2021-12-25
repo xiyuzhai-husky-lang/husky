@@ -1,8 +1,8 @@
 use crate::*;
 
-pub trait Transformer<'a, Input: 'a, Storage, Output, This>
+pub trait Generator<'a, Input: 'a, Storage, Output, This>
 where
-    This: Transformer<'a, Input, Storage, Output, This>,
+    This: Generator<'a, Input, Storage, Output, This>,
     Storage: FoldedStorage<Input, Storage>,
     Input: ?Sized,
 {
