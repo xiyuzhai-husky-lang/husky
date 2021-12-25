@@ -14,7 +14,7 @@ use text::TextRange;
 pub use error::ExprError;
 pub use kind::{ExprKind, Opr};
 pub use query::{ExprQuery, ExprQueryStorage};
-use text::HasTextRange;
+use text::TextRanged;
 pub use word::Keyword;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

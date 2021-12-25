@@ -67,7 +67,7 @@ pub fn lsp_text_range(range: TextRange) -> lsp_types::Range {
     lsp_types::Range::new(range.start.into(), range.end.into())
 }
 
-pub trait HasTextRange {
+pub trait TextRanged {
     fn text_range_ref(&self) -> &TextRange;
     fn text_range(&self) -> TextRange {
         self.text_range_ref().clone()
@@ -88,7 +88,7 @@ pub trait HasTextRange {
 
 pub fn get_slice_text_range<T>(slice: &[T]) -> TextRange
 where
-    T: HasTextRange,
+    T: TextRanged,
 {
     (slice[0].text_range().start)..(slice.last().unwrap().text_range().end)
 }

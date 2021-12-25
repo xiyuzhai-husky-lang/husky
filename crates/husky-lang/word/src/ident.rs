@@ -32,7 +32,7 @@ pub enum BuiltinIdentifier {
     Void,
     I32,
     F32,
-    Vec,
+    Vector,
     Tuple,
     Debug,
     Std,

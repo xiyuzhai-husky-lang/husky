@@ -3,7 +3,7 @@ use crate::*;
 use crate::error::*;
 
 use text::get_slice_text_range;
-use text::HasTextRange;
+use text::TextRanged;
 use token::{Special, Token, TokenGroupIter, TokenKind};
 use word::{Identifier, Keyword};
 

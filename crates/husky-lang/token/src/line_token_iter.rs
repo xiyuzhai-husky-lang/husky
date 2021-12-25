@@ -160,12 +160,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             '<' => match self.peek() {
                 '<' => self.pass(Special::RShift),
                 '=' => self.pass(Special::Leq),
-                _ => (1, Special::LessOrLAngle),
+                _ => (1, Special::LAngle),
             },
             '>' => match self.peek() {
                 '>' => self.pass(Special::LShift),
                 '=' => self.pass(Special::Geq),
-                _ => (1, Special::GreaterOrRAngle),
+                _ => (1, Special::RAngle),
             },
             '*' => match self.peek() {
                 '*' => self.pass(Special::Power),

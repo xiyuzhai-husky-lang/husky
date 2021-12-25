@@ -27,6 +27,20 @@ pub trait InternScope {
     fn intern_scope(&self, scope: Scope) -> ScopeId {
         self.provide_scope_interner().id(scope)
     }
+    fn make_scope(&self, route: ScopeRoute, args: Vec<GenericArgument>) -> ScopeId {
+        self.provide_scope_interner().id(Scope { route, args })
+    }
+    fn make_child_scope(
+        &self,
+        parent: ScopeId,
+        ident: CustomIdentifier,
+        args: Vec<GenericArgument>,
+    ) -> ScopeId {
+        self.provide_scope_interner().id(Scope {
+            route: ScopeRoute::ChildScope(parent, ident),
+            args,
+        })
+    }
     fn id_to_scope(&self, id: ScopeId) -> Scope {
         self.provide_scope_interner().clone_thing(id)
     }
@@ -36,7 +50,7 @@ pub fn new_scope_interner() -> ScopeInterner {
     ScopeInterner::new_from(vec![
         (BuiltinIdentifier::I32, BuiltinIdentifier::I32),
         (BuiltinIdentifier::F32, BuiltinIdentifier::F32),
-        (BuiltinIdentifier::Vec, BuiltinIdentifier::Vec),
+        (BuiltinIdentifier::Vector, BuiltinIdentifier::Vector),
         (BuiltinIdentifier::Tuple, BuiltinIdentifier::Tuple),
         (BuiltinIdentifier::Debug, BuiltinIdentifier::Debug),
         (BuiltinIdentifier::Std, BuiltinIdentifier::Std),

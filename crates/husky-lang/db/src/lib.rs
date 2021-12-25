@@ -2,6 +2,7 @@
 mod tests;
 
 pub use atom::AtomQuery;
+pub use expr::ExprQuery;
 pub use file::{FileQuery, InternFile, LiveFiles};
 pub use scope::{InternScope, Scope, ScopeQuery, ScopeSalsaQuery};
 pub use word::InternWord;

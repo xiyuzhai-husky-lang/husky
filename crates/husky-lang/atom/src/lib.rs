@@ -1,23 +1,23 @@
 mod error;
+mod generator;
 mod group;
 mod kind;
 mod opr;
 mod parser;
 mod query;
-mod scope_alias;
+mod scope_proxy;
 
 pub use error::{AtomError, AtomResult, AtomResultArc, AtomRule};
+pub use generator::AtomGenerator;
 pub use group::{AtomGroup, GroupAttr};
 pub use kind::{AtomKind, LambdaHead, Literal};
 pub use opr::{BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
-pub use parser::AtomParser;
 pub use query::{AtomQuery, AtomQueryStorage, AtomizedText};
 
 use error::atom_err;
-use scope::GenericArgument;
 use scope::ScopeId;
-use text::HasTextRange;
 use text::TextRange;
+use text::TextRanged;
 use token::{Token, TokenKind};
 use word::BuiltinIdentifier;
 use word::{Identifier, Keyword};
@@ -49,7 +49,7 @@ impl Atom {
     }
 }
 
-impl HasTextRange for Atom {
+impl TextRanged for Atom {
     fn text_range_ref(&self) -> &TextRange {
         &self.range
     }

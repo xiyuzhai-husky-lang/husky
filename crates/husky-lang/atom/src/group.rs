@@ -2,10 +2,10 @@ mod convexity;
 
 use common::*;
 
-use crate::{error::atom_error, *};
+use crate::{error::atom_error, scope_proxy::ScopeProxy, *};
 
 use convexity::Convexity;
-use scope::{GenericArgument, Scope, ScopeKind};
+use scope::{GenericArgument, ScopeKind};
 use word::BuiltinIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -90,7 +90,7 @@ impl AtomGroup {
         ket: Bracket,
         attr: ListEndAttr,
         mut tail: TextRange,
-        db: &dyn AtomQuery,
+        scope_proxy: ScopeProxy,
     ) -> Result<(), AtomError> {
         match (ket, self.atoms.last()) {
             (
@@ -108,7 +108,7 @@ impl AtomGroup {
                         self.func_generic(attr)?
                     }
                 };
-                self.push(db.builtin_type_atom(ident, args, tail))
+                self.push(scope_proxy.builtin_type_atom(ident, args, tail))
             }
             _ => Ok(self.end_list(ket, attr, tail)),
         }
@@ -128,17 +128,6 @@ impl AtomGroup {
             ),
         ))
         .unwrap();
-    }
-
-    pub(crate) fn start_lambda(&mut self, text_range: TextRange) -> Result<(), AtomError> {
-        self.push(Atom::new(
-            text_range,
-            AtomKind::ListStart(Bracket::Vert, ListStartAttr::None),
-        ))
-    }
-
-    pub(crate) fn end_lambda(&mut self, text_range: TextRange) {
-        self.end_list(Bracket::Vert, ListEndAttr::Attach, text_range)
     }
 
     fn func_generic(&mut self, attr: ListStartAttr) -> AtomResult<BuiltinIdentifier> {
@@ -199,26 +188,13 @@ impl AtomGroup {
 
     pub(crate) fn make_func_type(
         &mut self,
-        db: &dyn AtomQuery,
+        scope_proxy: ScopeProxy,
         output: ScopeId,
         mut tail: TextRange,
     ) -> Result<(), AtomError> {
         let (attr, mut args) = self.pop_par_list_of_types(&mut tail)?;
         args.push(output.into());
         let func_type = self.func_generic(attr)?;
-        self.push(db.builtin_type_atom(func_type, args, tail))
-    }
-}
-
-impl<'a> dyn AtomQuery + 'a {
-    pub fn builtin_type_atom(
-        &self,
-        ident: BuiltinIdentifier,
-        args: Vec<GenericArgument>,
-        tail: TextRange,
-    ) -> Atom {
-        let scope = Scope::builtin(ident.into(), args);
-        let kind = AtomKind::Scope(self.intern_scope(scope), ScopeKind::Type);
-        Atom::new(tail, kind)
+        self.push(scope_proxy.builtin_type_atom(func_type, args, tail))
     }
 }

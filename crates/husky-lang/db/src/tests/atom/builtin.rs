@@ -49,7 +49,7 @@ fn f32_type() {
 fn vec_generics() {
     utils::check_atom_kind(
         "Vec",
-        AtomKind::Scope(BuiltinIdentifier::Vec.into(), ScopeKind::Module),
+        AtomKind::Scope(BuiltinIdentifier::Vector.into(), ScopeKind::Module),
     );
 }
 

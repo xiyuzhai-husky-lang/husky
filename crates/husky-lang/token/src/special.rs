@@ -2,9 +2,9 @@ use common::*;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum Special {
-    LessOrLAngle,
+    LAngle,
     Leq,
-    GreaterOrRAngle,
+    RAngle,
     Geq,
     Neq,
     Eq,

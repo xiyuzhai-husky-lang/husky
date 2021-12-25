@@ -1,4 +1,4 @@
-use folded::Transformer;
+use folded::Generator;
 use folded::{FoldedList, FoldedStorage};
 use std::sync::Arc;
 

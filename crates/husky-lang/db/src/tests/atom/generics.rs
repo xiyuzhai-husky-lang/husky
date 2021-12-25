@@ -33,7 +33,7 @@ fn func_pointer_with_implicitly_void_return_type() {
     let atom = &atoms[0];
     if let AtomKind::Scope(scope_id, _) = atom.kind {
         let scope = db.id_to_scope(scope_id);
-        assert_eq!(scope.generic_arguments.len(), 3);
+        assert_eq!(scope.args.len(), 3);
     } else {
         panic!()
     }
