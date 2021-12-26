@@ -1,0 +1,12 @@
+[package]
+name = "interpreter"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+salsa = "0.17.0-pre.2"
+lsp-types = { version = "0.91", features = ["proposed"] }
+
+common = { path = "../../common", version = "0.0.0" }
+file = { path = "../file", version = "0.0.0" }
+ast = { path = "../ast", version = "0.0.0" }

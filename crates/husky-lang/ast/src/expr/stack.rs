@@ -1,7 +1,7 @@
 use atom::{BinaryOpr, Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 use text::{TextPosition, TextRange};
 
-use crate::{error::ExprRule, precedence::Precedence, *};
+use crate::{expr::error::ExprRule, expr::precedence::Precedence, *};
 
 pub(crate) struct ExprStack<'a> {
     arena: &'a mut ExprArena,

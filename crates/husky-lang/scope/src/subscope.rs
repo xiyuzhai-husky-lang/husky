@@ -5,6 +5,7 @@ use crate::error::*;
 use text::get_slice_text_range;
 use text::TextRanged;
 use token::{Special, Token, TokenGroupIter, TokenKind};
+use word::FuncKeyword;
 use word::{Identifier, Keyword};
 
 #[derive(PartialEq, Eq, Clone)]
@@ -38,7 +39,9 @@ impl Entry {
                 }),
             );
         }
-        if token_group.len() == 2 && token_group[0].kind == TokenKind::Keyword(Keyword::Main) {
+        if token_group.len() == 2
+            && token_group[0].kind == TokenKind::Keyword(FuncKeyword::Main.into())
+        {
             return (
                 Some(Entry {
                     ident: None,

@@ -14,6 +14,7 @@ use token::{Special, Token, TokenKind};
 use word::CustomIdentifier;
 
 use crate::{
+    atomic_line_group::AtomStack,
     error::{src, Source},
     scope_proxy::ScopeProxy,
     *,
@@ -56,25 +57,21 @@ impl<'a> From<&'a [Token]> for Stream<'a> {
 pub struct ScopeLRParser<'a> {
     scope_proxy: ScopeProxy<'a>,
     stream: Stream<'a>,
-    atom_group: AtomGroup,
+    stack: AtomStack,
 }
 
 impl<'a> ScopeLRParser<'a> {
-    pub(super) fn new(
-        scope_proxy: ScopeProxy<'a>,
-        tokens: &'a [Token],
-        atom_group: AtomGroup,
-    ) -> Self {
+    pub(super) fn new(scope_proxy: ScopeProxy<'a>, tokens: &'a [Token]) -> Self {
         Self {
             scope_proxy,
             stream: tokens.into(),
-            atom_group,
+            stack: AtomStack::new(),
         }
     }
 
-    pub(super) fn parse(mut self) -> AtomParseResult {
+    pub(super) fn parse(mut self) -> AtomResult<Vec<Atom>> {
         loop {
-            if self.atom_group.is_concave() {
+            if self.stack.is_concave() {
                 if let Some((scope, kind)) = try_get!(self, scope) {
                     self.push(AtomKind::Scope(scope, kind))?;
                 }
@@ -94,9 +91,9 @@ impl<'a> ScopeLRParser<'a> {
                                 break;
                             }
                         }
-                        Special::DoubleVertical => self.atom_group.push(Atom::new(
+                        Special::DoubleVertical => self.stack.push(Atom::new(
                             token.text_range(),
-                            if !self.atom_group.is_concave() {
+                            if !self.stack.is_concave() {
                                 BinaryOpr::BitOr.into()
                             } else {
                                 AtomKind::LambdaHead(Vec::new())
@@ -104,38 +101,32 @@ impl<'a> ScopeLRParser<'a> {
                         ))?,
                         Special::Vertical => {
                             let lambda_head = self.lambda_head()?;
-                            self.atom_group.push(Atom::new(
+                            self.stack.push(Atom::new(
                                 token.text_start()..self.stream.range.end,
                                 AtomKind::LambdaHead(lambda_head),
                             ));
                         }
-                        Special::Ambersand => self.atom_group.push(Atom::new(
+                        Special::Ambersand => self.stack.push(Atom::new(
                             token.text_range(),
-                            if self.atom_group.is_concave() {
+                            if self.stack.is_concave() {
                                 PrefixOpr::Shared.into()
                             } else {
                                 BinaryOpr::BitAnd.into()
                             },
                         ))?,
-                        Special::LPar => {
-                            self.atom_group.start_list(Bracket::Par, token.text_range())
-                        }
-                        Special::LBox => {
-                            self.atom_group.start_list(Bracket::Box, token.text_range())
-                        }
-                        Special::LCurl => self
-                            .atom_group
-                            .start_list(Bracket::Curl, token.text_range()),
+                        Special::LPar => self.stack.start_list(Bracket::Par, token.text_range()),
+                        Special::LBox => self.stack.start_list(Bracket::Box, token.text_range()),
+                        Special::LCurl => self.stack.start_list(Bracket::Curl, token.text_range()),
                         Special::RPar => {
                             if next_matches!(self, Special::LightArrow) {
                                 let output = get!(self, ty?);
-                                self.atom_group.make_func_type(
+                                self.stack.make_func_type(
                                     self.scope_proxy,
                                     output,
                                     self.stream.pop_range(),
                                 )?;
                             } else {
-                                self.atom_group.end_list_or_make_type(
+                                self.stack.end_list_or_make_type(
                                     Bracket::Par,
                                     ListEndAttr::None,
                                     token.text_range(),
@@ -143,13 +134,13 @@ impl<'a> ScopeLRParser<'a> {
                                 )?
                             }
                         }
-                        Special::RBox => self.atom_group.end_list_or_make_type(
+                        Special::RBox => self.stack.end_list_or_make_type(
                             Bracket::Box,
                             ListEndAttr::None,
                             token.text_range(),
                             self.scope_proxy,
                         )?,
-                        Special::RCurl => self.atom_group.end_list_or_make_type(
+                        Special::RCurl => self.stack.end_list_or_make_type(
                             Bracket::Curl,
                             ListEndAttr::None,
                             token.text_range(),
@@ -157,14 +148,14 @@ impl<'a> ScopeLRParser<'a> {
                         )?,
                         // Special::RPar
                         Special::MemberAccess => todo!(),
-                        _ => self.atom_group.push(token.into())?,
+                        _ => self.stack.push(token.into())?,
                     },
-                    _ => self.atom_group.push(token.into())?,
+                    _ => self.stack.push(token.into())?,
                 }
             } else {
                 break;
             }
         }
-        Ok(self.atom_group)
+        Ok(self.stack.into())
     }
 }

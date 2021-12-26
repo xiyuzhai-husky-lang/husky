@@ -1,8 +1,7 @@
 use crate::*;
 
-pub trait Generator<'a, Input: 'a, Storage, Output, This>
+pub trait Generator<'a, Input: 'a, Storage, Output>
 where
-    This: Generator<'a, Input, Storage, Output, This>,
     Storage: FoldedStorage<Input, Storage>,
     Input: ?Sized,
 {

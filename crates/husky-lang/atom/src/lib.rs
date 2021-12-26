@@ -1,18 +1,19 @@
+mod atomic_line_group;
+mod convexity;
 mod error;
 mod generator;
-mod group;
 mod kind;
 mod opr;
 mod parser;
 mod query;
 mod scope_proxy;
 
+pub use atomic_line_group::{atomic_stmt::StmtAttr, AtomicLineGroup};
 pub use error::{AtomError, AtomResult, AtomResultArc, AtomRule};
 pub use generator::AtomGenerator;
-pub use group::{AtomGroup, GroupAttr};
 pub use kind::{AtomKind, LambdaHead, Literal};
 pub use opr::{BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
-pub use query::{AtomQuery, AtomQueryStorage, AtomizedText};
+pub use query::{AtomQuery, AtomQueryStorage, AtomicText};
 
 use error::atom_err;
 use scope::ScopeId;
@@ -65,7 +66,7 @@ impl std::fmt::Debug for Atom {
     }
 }
 
-pub type AtomParseResult = Result<AtomGroup, AtomError>;
+pub type AtomParseResult = Result<AtomicLineGroup, AtomError>;
 
 impl From<&Token> for Atom {
     fn from(token: &Token) -> Self {

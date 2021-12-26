@@ -1,5 +1,5 @@
 [package]
-name = "husky_lang_db"
+name = "husky-lang-db"
 version = "0.0.0"
 description = "TBD"
 license = "MIT OR Apache-2.0"
@@ -29,5 +29,7 @@ word = { path = "../word", version = "0.0.0" }
 token = { path = "../token", version = "0.0.0" }
 scope = { path = "../scope", version = "0.0.0" }
 atom = { path = "../atom", version = "0.0.0" }
-expr = { path = "../expr", version = "0.0.0" }
+ast = { path = "../ast", version = "0.0.0" }
+husky-fmt = { path = "../fmt", version = "0.0.0" }
+interpreter = { path = "../interpreter", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }

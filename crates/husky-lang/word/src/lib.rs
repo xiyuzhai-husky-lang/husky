@@ -3,7 +3,7 @@ mod keyword;
 
 pub use ident::{default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier};
 pub use intern::{convert_ident, new_word_interner, InternWord, WordInterner};
-pub use keyword::Keyword;
+pub use keyword::{FuncKeyword, Keyword, StmtKeyword, TypeKeyword};
 
 use common::*;
 
@@ -40,6 +40,24 @@ impl From<u32> for Word {
 impl From<Keyword> for Word {
     fn from(keyword: Keyword) -> Self {
         Self::Keyword(keyword)
+    }
+}
+
+impl From<TypeKeyword> for Word {
+    fn from(Type: TypeKeyword) -> Self {
+        Self::Keyword(Type.into())
+    }
+}
+
+impl From<FuncKeyword> for Word {
+    fn from(Func: FuncKeyword) -> Self {
+        Self::Keyword(Func.into())
+    }
+}
+
+impl From<StmtKeyword> for Word {
+    fn from(stmt: StmtKeyword) -> Self {
+        Self::Keyword(stmt.into())
     }
 }
 

@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "fmt"
+name = "husky-fmt"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -20,4 +20,4 @@ word = { path = "../word", version = "0.0.0" }
 token = { path = "../token", version = "0.0.0" }
 scope = { path = "../scope", version = "0.0.0" }
 atom = { path = "../atom", version = "0.0.0" }
-expr = { path = "../expr", version = "0.0.0" }
+ast = { path = "../ast", version = "0.0.0" }
