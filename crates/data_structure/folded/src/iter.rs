@@ -8,7 +8,7 @@ where
     Storage: FoldedStorage<Value, Storage>,
 {
     pub(crate) storage: &'a Storage,
-    pub(crate) next: Option<usize>,
+    pub next: Option<usize>,
     phantom: PhantomData<Value>,
 }
 

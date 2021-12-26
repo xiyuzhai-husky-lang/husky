@@ -1,9 +1,11 @@
 #[cfg(test)]
 mod tests;
 
+pub use ast::AstQuery;
 pub use atom::AtomQuery;
-pub use expr::ExprQuery;
 pub use file::{FileQuery, InternFile, LiveFiles};
+use husky_fmt::FormatQuery;
+use interpreter::Interpreter;
 pub use scope::{InternScope, Scope, ScopeQuery, ScopeSalsaQuery};
 pub use word::InternWord;
 
@@ -18,7 +20,8 @@ use stdx::sync::ARwLock;
     token::TokenQueryStorage,
     scope::ScopeQueryStorage,
     atom::AtomQueryStorage,
-    expr::ExprQueryStorage,
+    ast::AstQueryStorage,
+    husky_fmt::FormatQueryStorage,
     diagnostic::DiagnosticQueryStorage
 )]
 pub struct HuskyLangDatabase {
@@ -109,3 +112,5 @@ impl InternScope for HuskyLangDatabase {
 }
 
 impl ScopeQuery for HuskyLangDatabase {}
+
+impl Interpreter for HuskyLangDatabase {}

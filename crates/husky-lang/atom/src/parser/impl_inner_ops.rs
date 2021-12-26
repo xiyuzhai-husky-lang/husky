@@ -5,8 +5,7 @@ use super::*;
 // inner ops
 impl<'a> ScopeLRParser<'a> {
     pub(super) fn push(&mut self, kind: AtomKind) -> AtomResult<()> {
-        self.atom_group
-            .push(Atom::new(self.stream.pop_range(), kind))
+        self.stack.push(Atom::new(self.stream.pop_range(), kind))
     }
 
     pub(super) fn save_stream(&self) -> Stream<'a> {

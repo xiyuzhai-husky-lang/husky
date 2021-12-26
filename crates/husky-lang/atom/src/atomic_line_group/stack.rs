@@ -1,46 +1,26 @@
-mod convexity;
-
 use common::*;
 
-use crate::{error::atom_error, scope_proxy::ScopeProxy, *};
-
-use convexity::Convexity;
 use scope::{GenericArgument, ScopeKind};
 use word::BuiltinIdentifier;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct AtomGroup {
-    attr: GroupAttr,
+use crate::{convexity::Convexity, error::atom_error, scope_proxy::ScopeProxy, *};
+
+pub(crate) struct AtomStack {
     atoms: Vec<Atom>,
 }
 
-#[derive(Clone, PartialEq, Eq, Copy)]
-pub struct GroupAttr {
-    pub keyword: Option<Keyword>,
-    pub is_head: bool,
-}
-
-impl std::fmt::Debug for GroupAttr {
-    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!(
-            "{{keyword: {:?}, is_head: {:?}}}",
-            &self.keyword, &self.is_head
-        ))
-    }
-}
-
-// new
-impl AtomGroup {
-    pub(crate) fn new(keyword: Option<Keyword>, is_head: bool) -> Self {
-        Self {
-            attr: GroupAttr { keyword, is_head },
-            atoms: Vec::new(),
-        }
+impl Into<Vec<Atom>> for AtomStack {
+    fn into(self) -> Vec<Atom> {
+        self.atoms
     }
 }
 
 // get
-impl AtomGroup {
+impl AtomStack {
+    pub fn new() -> Self {
+        Self { atoms: Vec::new() }
+    }
+
     pub(crate) fn convexity(&self) -> Convexity {
         if let Some(atom) = self.atoms.last() {
             convexity::right_side_convexity(&atom.kind)
@@ -56,17 +36,10 @@ impl AtomGroup {
     pub(crate) fn is_concave(&self) -> bool {
         self.convexity() == Convexity::Concave
     }
-
-    pub fn attr(&self) -> GroupAttr {
-        self.attr
-    }
-    pub fn atoms(&self) -> &[Atom] {
-        &self.atoms
-    }
 }
 
 // push
-impl AtomGroup {
+impl AtomStack {
     pub(crate) fn push(&mut self, atom: Atom) -> Result<(), AtomError> {
         if convexity::compatible(self.convexity(), convexity::left_side_convexity(&atom.kind)) {
             self.atoms.push(atom);

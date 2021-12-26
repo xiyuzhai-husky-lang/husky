@@ -3,9 +3,7 @@ use word::CustomIdentifier;
 
 use crate::*;
 
-pub type ScopeAliasStack = folded::FoldedStack<ScopeAlias>;
-
-pub struct ScopeAlias {
+pub struct SymbolDef {
     ident: word::Identifier,
     scope_id: scope::ScopeId,
 }
@@ -14,6 +12,7 @@ pub struct ScopeAlias {
 pub struct ScopeProxy<'a> {
     pub(crate) db: &'a dyn AtomQuery,
     pub(crate) symbols: &'a Vec<(CustomIdentifier, common::Range)>,
+    pub(crate) line: usize,
 }
 
 impl<'a> ScopeProxy<'a> {
@@ -40,10 +39,6 @@ impl<'a> ScopeProxy<'a> {
             },
             _ => None,
         }
-        // ident).ok_or(atom_error!(
-        //     &next_token.range,
-        //     AtomRule::BeforeColonShouldBeScope,
-        // todo!()
     }
 
     fn resolve_subscope(

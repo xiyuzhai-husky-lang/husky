@@ -2,7 +2,6 @@ mod error;
 mod kind;
 mod parser;
 mod precedence;
-mod query;
 mod stack;
 
 use atom::{Bracket, ListEndAttr, ListStartAttr};
@@ -11,9 +10,9 @@ use common::*;
 use kind::ListOpr;
 use text::TextRange;
 
-pub use error::ExprError;
+pub use error::{ExprError, ExprResultArc};
 pub use kind::{ExprKind, Opr};
-pub use query::{ExprQuery, ExprQueryStorage};
+pub use parser::ExprParser;
 use text::TextRanged;
 pub use word::Keyword;
 
@@ -73,7 +72,7 @@ impl From<&atom::Atom> for Expr {
     }
 }
 
-pub type ExprResult = Result<(atom::GroupAttr, Option<Expr>), ExprError>;
+pub type ExprResult = Result<Option<(atom::StmtAttr, Option<Expr>)>, ExprError>;
 
 pub type ExprArena = arena::Arena<Expr>;
 pub type ExprIdx = arena::ArenaIdx<Expr>;
