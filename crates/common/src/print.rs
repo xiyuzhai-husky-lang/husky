@@ -23,6 +23,14 @@ macro_rules! ep {
 }
 
 #[macro_export]
+macro_rules! esp {
+  ($($v:expr),*) => {eprintln!("src: {}:{}\n  {}\n",
+  file!(),
+  line!(),
+  common::show::esimple_show!($($v),*))};
+}
+
+#[macro_export]
 macro_rules! ep_once {
   ($($v:expr),*) => {common::do_once(||eprintln!("{}\n\t\tsrc: {}:{}",
   common::show::eshow!($($v),*),

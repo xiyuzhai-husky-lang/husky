@@ -9,5 +9,5 @@ lsp-types = { version = "0.91", features = ["proposed"] }
 
 common = { path = "../../common", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
-scope = { path = "../scope", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
+scope = { path = "../syntax/scope", version = "0.0.0" }

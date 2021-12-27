@@ -2,6 +2,7 @@ mod any;
 mod builtin;
 mod error;
 mod opn;
+mod trace;
 mod utils;
 
 #[cfg(test)]

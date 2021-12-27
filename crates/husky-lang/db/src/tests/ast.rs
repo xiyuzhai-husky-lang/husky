@@ -1,7 +1,5 @@
 use crate::*;
 
-use test_utils::assert_test_env;
-
 #[test]
 fn no_error_single_file() {
     let mut db = HuskyLangDatabase::new(None);
@@ -13,15 +11,17 @@ struct A:
 
 main:
     let a = 1
+    let b = 1
 "#
         .into(),
     );
 
     let main_file_id = db.file_id("haha/main.hsk".into());
-    let atomized_main_file = db.atomized_text(main_file_id);
-    p!(atomized_main_file);
+    let ast_text = db.ast_text(main_file_id);
+    // ep!(expr_text);
 }
-mod builtin;
-mod generics;
-mod lambda;
-mod utils;
+
+#[test]
+fn t() {
+    let c: Box<dyn FnOnce()> = Box::new(move || ());
+}

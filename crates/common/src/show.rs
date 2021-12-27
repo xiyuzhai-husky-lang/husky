@@ -20,6 +20,16 @@ macro_rules! eshow {
   };
 }
 
+#[macro_export]
+macro_rules! esimple_show {
+    ($a:expr)=>{format!("{} = {:?}",
+    stringify!($a),
+    $a)};
+   ($a:expr, $($as:expr),*) => {
+    format!("{}, {}", (show!($a)), (show!($($as),*)))
+  };
+}
+
 pub const RESET: &str = "\x1B[0m";
 pub const BLACK: &str = "\x1B[30m";
 pub const RED: &str = "\x1B[31m";
@@ -47,4 +57,5 @@ impl Debug for ShowCase {
 }
 
 pub use eshow;
+pub use esimple_show;
 pub use show;

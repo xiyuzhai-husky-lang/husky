@@ -1,7 +1,8 @@
 use std::ops::AddAssign;
 
-use ast::{Expr, ExprError, ExprResult};
+use ast::{AstGenResult, Expr, ExprError};
 use atom::StmtAttr;
+use folded::FoldedIdx;
 use word::WordInterner;
 
 use crate::*;
@@ -13,14 +14,14 @@ pub struct Formatter<'a> {
 }
 
 impl<'a>
-    folded::Generator<'_, ExprResult, folded::FoldedList<ExprResult>, Result<String, ExprError>>
+    folded::Generator<'_, AstGenResult, folded::FoldedList<AstGenResult>, Result<String, ExprError>>
     for Formatter<'a>
 {
     fn enter_fold(&mut self) {}
 
-    fn exit_fold(&mut self) {}
+    fn exit_fold(&mut self, _: FoldedIdx<Result<String, ExprError>>) {}
 
-    fn transform(&mut self, input: &ExprResult) -> Result<String, ExprError> {
+    fn transform(&mut self, input: &AstGenResult) -> Result<String, ExprError> {
         todo!()
 
         // Ok(input
@@ -30,7 +31,7 @@ impl<'a>
         //     .or("".to_string()))
     }
 
-    fn folded_results(&mut self) -> &mut FormattedText {
+    fn folded_results_mut(&mut self) -> &mut FormattedText {
         &mut self.formatted_text
     }
 }
@@ -38,7 +39,7 @@ impl<'a>
 impl<'a> Formatter<'a> {
     fn fmt(&self, attr: &StmtAttr, expr: &Option<Expr>) -> String {
         let mut result = String::new();
-        if let Some(keyword) = &attr.keyword {
+        if let Some((keyword, _)) = &attr.keyword {
             result += keyword.code();
         }
         if let Some(expr) = expr {
