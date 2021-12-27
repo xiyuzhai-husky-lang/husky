@@ -17,15 +17,32 @@ impl<T> Arena<T> {
         let end = ArenaIdx::new(self.storage.len());
         start..end
     }
+
+    pub fn alloc_one(&mut self, item: T) -> ArenaIdx<T> {
+        let idx = ArenaIdx::new(self.storage.len());
+        self.storage.push(item);
+        idx
+    }
 }
 
 pub type ArenaRange<T> = core::ops::Range<ArenaIdx<T>>;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct ArenaIdx<T> {
     raw: usize,
     phantom: PhantomData<T>,
 }
+
+impl<T> Clone for ArenaIdx<T> {
+    fn clone(&self) -> Self {
+        Self {
+            raw: self.raw.clone(),
+            phantom: PhantomData,
+        }
+    }
+}
+
+impl<T> Copy for ArenaIdx<T> {}
 
 impl<T> ArenaIdx<T> {
     pub(crate) fn new(raw: usize) -> Self {

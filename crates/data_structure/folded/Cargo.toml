@@ -12,3 +12,4 @@ doctest = false
 bimap = "0.6.1"
 
 stdx = { path = "../../stdx", version = "0.0.0" }
+common = { path = "../../common", version = "0.0.0" }

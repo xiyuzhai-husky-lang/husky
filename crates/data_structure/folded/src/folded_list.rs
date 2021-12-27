@@ -1,8 +1,41 @@
+use std::marker::PhantomData;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct FoldedList<T> {
     pub(crate) nodes: Vec<FoldedNode<T>>,
+}
+
+pub struct FoldedIdx<T> {
+    raw: usize,
+    phantom: PhantomData<T>,
+}
+
+impl<T> std::fmt::Debug for FoldedIdx<T> {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("FoldedIdx").field("raw", &self.raw).finish()
+    }
+}
+
+impl<T> Clone for FoldedIdx<T> {
+    fn clone(&self) -> Self {
+        Self {
+            raw: self.raw.clone(),
+            phantom: self.phantom.clone(),
+        }
+    }
+}
+
+impl<T> Copy for FoldedIdx<T> {}
+
+impl<T> From<usize> for FoldedIdx<T> {
+    fn from(raw: usize) -> Self {
+        Self {
+            raw,
+            phantom: PhantomData,
+        }
+    }
 }
 
 impl<T> FoldedList<T> {
@@ -13,11 +46,13 @@ impl<T> FoldedList<T> {
         &self.nodes
     }
 
-    pub fn append(&mut self, value: T, next_sibling: Option<usize>) {
+    pub fn append(&mut self, value: T, next_sibling: Option<usize>) -> FoldedIdx<T> {
+        let raw = self.nodes.len();
         self.nodes.push(FoldedNode {
             value,
             next_sibling,
-        })
+        });
+        raw.into()
     }
 }
 
@@ -68,7 +103,7 @@ pub trait ItemToFold<Key> {
     fn indent(&self) -> u16;
 }
 
-impl<T> FoldedStorage<T, FoldedList<T>> for FoldedList<T> {
+impl<T> FoldedStorage<T> for FoldedList<T> {
     fn len(&self) -> usize {
         self.nodes.len()
     }

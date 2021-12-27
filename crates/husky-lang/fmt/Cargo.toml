@@ -16,8 +16,8 @@ arena = { path = "../../data_structure/arena", version = "0.0.0"}
 common = { path = "../../common", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
-word = { path = "../word", version = "0.0.0" }
-token = { path = "../token", version = "0.0.0" }
-scope = { path = "../scope", version = "0.0.0" }
-atom = { path = "../atom", version = "0.0.0" }
-ast = { path = "../ast", version = "0.0.0" }
+word = { path = "../syntax/word", version = "0.0.0" }
+token = { path = "../syntax/token", version = "0.0.0" }
+scope = { path = "../syntax/scope", version = "0.0.0" }
+atom = { path = "../syntax/atom", version = "0.0.0" }
+ast = { path = "../syntax/ast", version = "0.0.0" }

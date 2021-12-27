@@ -86,7 +86,7 @@ pub trait TextRanged {
     }
 }
 
-pub fn get_slice_text_range<T>(slice: &[T]) -> TextRange
+pub fn group_text_range<T>(slice: &[T]) -> TextRange
 where
     T: TextRanged,
 {

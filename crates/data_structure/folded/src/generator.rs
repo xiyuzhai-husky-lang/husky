@@ -2,26 +2,25 @@ use crate::*;
 
 pub trait Generator<'a, Input: 'a, Storage, Output>
 where
-    Storage: FoldedStorage<Input, Storage>,
+    Storage: FoldedStorage<Input>,
     Input: ?Sized,
 {
     fn enter_fold(&mut self);
-    fn exit_fold(&mut self);
+    fn exit_fold(&mut self, idx: folded_list::FoldedIdx<Output>);
     fn transform(&mut self, input: &Input) -> Output;
-    fn folded_results(&mut self) -> &mut FoldedList<Output>;
+    fn folded_results_mut(&mut self) -> &mut FoldedList<Output>;
 
     fn transform_all(&mut self, mut iter: FoldedIter<'a, Input, Storage>) {
-        let mut child_iter = iter.children();
-        while let Some((_, value)) = iter.next() {
+        while let Some((_, value, children)) = iter.next() {
             // parse current
-            let parse_result = self.transform(value);
-            self.folded_results().append(parse_result, iter.next);
-            // parse children
             self.enter_fold();
-            self.transform_all(child_iter);
-            self.exit_fold();
-            // reset child iter
-            child_iter = iter.children();
+            let parse_result = self.transform(value);
+            let idx = self.folded_results_mut().append(parse_result, iter.next);
+            // parse children
+            if let Some(children) = children {
+                self.transform_all(children);
+            }
+            self.exit_fold(idx);
         }
     }
 }
