@@ -10,12 +10,12 @@ pub enum TypeKind {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum MembKind {
     MembVar {
-        ty: ContractedType,
+        ty: InputType,
     },
     MembFunc {
-        this: Contract,
-        inputs: Vec<ContractedType>,
-        output: ContractedType,
+        this: InputContract,
+        inputs: Vec<InputType>,
+        output: InputType,
         args: Vec<GenericPlaceholder>,
     },
 }
@@ -24,7 +24,7 @@ pub enum MembKind {
 pub enum FuncKind {
     Test,
     Proc,
-    Func,
+    PureFunc,
     Def,
 }
 
@@ -32,7 +32,7 @@ pub enum FuncKind {
 pub struct FuncDecl {
     pub funcname: CustomIdentifier,
     pub placeholders: Vec<GenericPlaceholder>,
-    pub inputs: Vec<(CustomIdentifier, ContractedType)>,
+    pub inputs: Vec<(CustomIdentifier, InputType)>,
     pub output: ScopeId,
 }
 
@@ -43,14 +43,14 @@ pub struct GenericPlaceholder {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ContractedType {
-    pub contract: Contract,
+pub struct InputType {
+    pub contract: InputContract,
     pub ty: ScopeId,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum Contract {
-    PureInput,
+pub enum InputContract {
+    Intact,
     Share,
-    Give,
+    Own,
 }

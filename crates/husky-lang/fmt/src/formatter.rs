@@ -3,10 +3,11 @@ use std::ops::AddAssign;
 use common::*;
 
 use ast::{AstGenResult, Expr, ExprError, ExprKind};
-use atom::{types::ContractedType, PrefixOpr, StmtAttr};
+use atom::{PrefixOpr, StmtAttr};
 use folded::FoldedIdx;
+use hir::*;
 use scope::ScopeId;
-use word::WordInterner;
+use word::{BuiltinIdentifier, WordInterner};
 
 use crate::*;
 
@@ -94,8 +95,8 @@ impl<'a> Formatter<'a> {
             } => {
                 epin!();
                 match kind {
-                    atom::types::TypeKind::Enum(_) => todo!(),
-                    atom::types::TypeKind::Struct => writer.write("struct "),
+                    TypeKind::Enum(_) => todo!(),
+                    TypeKind::Struct => writer.write("struct "),
                 }
                 self.fmt_ident(&mut writer, ident.into());
                 if args.len() > 0 {
@@ -103,16 +104,41 @@ impl<'a> Formatter<'a> {
                 }
             }
             ast::Ast::MainDef => writer.write("main:"),
-            ast::Ast::FuncDef { .. } => todo!(),
+            ast::Ast::FuncDef { kind, decl } => {
+                writer.write(match kind {
+                    FuncKind::Test => "test ",
+                    FuncKind::Proc => todo!(),
+                    FuncKind::PureFunc => "func ",
+                    FuncKind::Def => todo!(),
+                });
+                self.word_interner
+                    .apply(decl.funcname.into(), |s| writer.write(s));
+                writer.write("(");
+                for i in 0..decl.inputs.len() {
+                    if i > 0 {
+                        writer.write(", ");
+                    }
+                    let (ident, ty) = &decl.inputs[i];
+                    self.fmt_ident(&mut writer, ident.into());
+                    writer.write(": ");
+                    self.fmt_func_input_contracted_type(&mut writer, ty);
+                }
+                writer.write(")");
+                if decl.output != ScopeId::Builtin(BuiltinIdentifier::Void) {
+                    writer.write(" -> ");
+                    self.fmt_type(&mut writer, decl.output);
+                }
+                writer.write(":");
+            }
             ast::Ast::PatternDef => todo!(),
             ast::Ast::Use { ident, scope } => todo!(),
             ast::Ast::MembDef { ident, kind } => match kind {
-                atom::types::MembKind::MembVar { ty } => {
+                MembKind::MembVar { ty } => {
                     self.fmt_ident(&mut writer, ident.into());
                     writer.write(": ");
-                    self.fmt_member_variable_contracted_type(ty, &mut writer);
+                    self.fmt_member_variable_contracted_type(&mut writer, ty);
                 }
-                atom::types::MembKind::MembFunc {
+                MembKind::MembFunc {
                     this,
                     inputs,
                     output,
@@ -129,16 +155,25 @@ impl<'a> Formatter<'a> {
             .apply(word::Word::Identifier(ident), |s: &str| writer.write(s))
     }
 
-    fn fmt_member_variable_contracted_type(&self, ty: &ContractedType, writer: &mut Writer) {
+    fn fmt_member_variable_contracted_type(&self, writer: &mut Writer, ty: &InputType) {
         match ty.contract {
-            atom::types::Contract::PureInput => todo!(),
-            atom::types::Contract::Share => todo!(),
-            atom::types::Contract::Give => (),
+            InputContract::Intact => todo!(),
+            InputContract::Share => todo!(),
+            InputContract::Own => (),
         }
-        self.fmt_type(ty.ty, writer);
+        self.fmt_type(writer, ty.ty);
     }
 
-    fn fmt_type(&self, ty: ScopeId, writer: &mut Writer) {
+    fn fmt_func_input_contracted_type(&self, writer: &mut Writer, ty: &InputType) {
+        match ty.contract {
+            InputContract::Intact => (),
+            InputContract::Share => writer.write("&"),
+            InputContract::Own => writer.write("!"),
+        }
+        self.fmt_type(writer, ty.ty);
+    }
+
+    fn fmt_type(&self, writer: &mut Writer, ty: ScopeId) {
         match ty {
             ScopeId::Builtin(ident) => writer.write(ident.code()),
             ScopeId::Custom(_) => todo!(),
@@ -164,7 +199,10 @@ impl<'a> Formatter<'a> {
                 writer.write(" = ");
                 self.fmt_expr(writer, &self.arena[initial_value]);
             }
-            ast::Stmt::Return(_) => todo!(),
+            ast::Stmt::Return(expr) => {
+                writer.write("return ");
+                self.fmt_expr(writer, &self.arena[expr]);
+            }
             ast::Stmt::Assert(expr) => {
                 writer.write("assert ");
                 self.fmt_expr(writer, &self.arena[expr]);

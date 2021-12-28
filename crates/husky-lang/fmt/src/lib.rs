@@ -2,12 +2,8 @@ mod formatter;
 
 pub type FormattedText = folded::FoldedList<ast::AstResult<String>>;
 
-use ast::ExprError;
-
-use file::FileResultArc;
+use folded::FoldedContainer;
 use folded::Transformer;
-use folded::{FoldedContainer, FoldedList};
-use scope::ScopeQuery;
 use std::sync::Arc;
 
 use formatter::Formatter;

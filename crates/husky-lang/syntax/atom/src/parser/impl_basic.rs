@@ -33,6 +33,18 @@ impl<'a> ScopeLRParser<'a> {
         }
     }
 
+    pub(crate) fn elide(&mut self) -> Option<()> {
+        if let Some(Token {
+            kind: TokenKind::Identifier(Identifier::Elide),
+            ..
+        }) = self.stream.next()
+        {
+            Some(())
+        } else {
+            None
+        }
+    }
+
     fn kind(&mut self, target: TokenKind) -> Option<()> {
         if let Some(Token { kind, .. }) = self.stream.next() {
             if *kind == target {

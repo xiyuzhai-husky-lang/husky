@@ -114,7 +114,9 @@ impl Stmt {
                 StmtKeyword::While => todo!(),
                 StmtKeyword::Do => todo!(),
                 StmtKeyword::Break => todo!(),
-                StmtKeyword::Return => todo!(),
+                StmtKeyword::Return => {
+                    Ok(Stmt::Return(expr.ok_or(ast_error!(range, "expect expr"))?).into())
+                }
                 StmtKeyword::Assert => {
                     Ok(Stmt::Assert(expr.ok_or(ast_error!(range, "expect expr"))?).into())
                 }

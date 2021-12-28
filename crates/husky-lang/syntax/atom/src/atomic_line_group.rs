@@ -4,12 +4,13 @@ mod stack;
 
 use atomic_stmt::AtomicStmt;
 
+use hir::*;
 use scope::{ScopeId, ScopeKind};
 pub(crate) use stack::AtomStack;
 use token::Token;
 use word::{CustomIdentifier, StmtKeyword};
 
-use crate::{parser::ScopeLRParser, scope_proxy::ScopeProxy, types::*, AtomResult, *};
+use crate::{parser::ScopeLRParser, scope_proxy::ScopeProxy, AtomResult, *};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomicLineGroup {

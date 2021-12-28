@@ -166,13 +166,14 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
         &self,
         parent_scope: ScopeId,
         ident: CustomIdentifier,
-        generic_arguments: Vec<GenericArgument>,
+        lifetimes: Vec<LifetimeParameter>,
+        generics: Vec<GenericArgument>,
     ) -> Option<Scope> {
         if self
             .subscope_table(parent_scope)
-            .map_or(false, |table| table.has_subscope(ident, &generic_arguments))
+            .map_or(false, |table| table.has_subscope(ident, &generics))
         {
-            Some(Scope::child_scope(parent_scope, ident, generic_arguments))
+            Some(Scope::child_scope(parent_scope, ident, lifetimes, generics))
         } else {
             None
         }

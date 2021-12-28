@@ -73,15 +73,15 @@ impl AtomStack {
                     ..
                 }),
             ) => {
-                let (attr, mut args) = self.pop_par_list_of_types(&mut tail)?;
+                let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
                 let ident = match attr {
                     ListStartAttr::None => BuiltinIdentifier::Tuple,
                     ListStartAttr::Attach => {
-                        args.push(ScopeId::Builtin(BuiltinIdentifier::Void).into());
+                        generics.push(ScopeId::Builtin(BuiltinIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
                 };
-                self.push(scope_proxy.builtin_type_atom(ident, args, tail))
+                self.push(scope_proxy.builtin_type_atom(ident, vec![], generics, tail))
             }
             _ => Ok(self.end_list(ket, attr, tail)),
         }
@@ -165,9 +165,9 @@ impl AtomStack {
         output: ScopeId,
         mut tail: TextRange,
     ) -> Result<(), AtomError> {
-        let (attr, mut args) = self.pop_par_list_of_types(&mut tail)?;
-        args.push(output.into());
+        let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
+        generics.push(output.into());
         let func_type = self.func_generic(attr)?;
-        self.push(scope_proxy.builtin_type_atom(func_type, args, tail))
+        self.push(scope_proxy.builtin_type_atom(func_type, vec![], generics, tail))
     }
 }

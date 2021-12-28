@@ -1,3 +1,9 @@
+mod builtin;
+mod generics;
+mod lambda;
+mod lifetimes;
+mod utils;
+
 use crate::*;
 
 use test_utils::assert_test_env;
@@ -21,7 +27,3 @@ main:
     let atomized_main_file = db.atomized_text(main_file_id);
     p!(atomized_main_file);
 }
-mod builtin;
-mod generics;
-mod lambda;
-mod utils;

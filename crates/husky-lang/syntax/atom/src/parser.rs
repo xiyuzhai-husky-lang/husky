@@ -68,7 +68,7 @@ impl<'a> ScopeLRParser<'a> {
     pub(crate) fn parse(mut self) -> AtomResult<Vec<Atom>> {
         loop {
             if self.stack.is_concave() {
-                if let Some((scope, kind)) = try_get!(self, scope) {
+                if let Some((scope, kind)) = try_get!(self, scope?) {
                     self.push(AtomKind::Scope(scope, kind))?;
                 }
             }
@@ -152,6 +152,7 @@ impl<'a> ScopeLRParser<'a> {
                             }
                         }
                         Special::MemberAccess => todo!(),
+                        Special::Lifetime => todo!(),
                         _ => self.stack.push(token.into())?,
                     },
                     _ => self.stack.push(token.into())?,
