@@ -29,7 +29,7 @@ macro_rules! try_get {
      }
     }}
 }
-pub(super) use try_get;
+pub(crate) use try_get;
 
 macro_rules! next_matches {
     ($this:ident, $patt:ident) => {{
@@ -97,8 +97,12 @@ macro_rules! next_matches {
     ($this:ident, ":") => {{
         next_matches!($this, Special::Colon)
     }};
+
+    ($this:ident, "+") => {{
+        next_matches!($this, Special::Add)
+    }};
 }
-pub(super) use next_matches;
+pub(crate) use next_matches;
 
 macro_rules! get{
     ($this:ident, $patt:ident) => {{
@@ -106,7 +110,7 @@ macro_rules! get{
             pattern
         } else {
             return Err(AtomError{range:$this.stream.pop_range(),
-                 src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+                 src: common::src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
         }
     }};
 
@@ -156,7 +160,7 @@ macro_rules! get{
         }
     }};
 }
-pub(super) use get;
+pub(crate) use get;
 
 macro_rules! no_look_pass{
     ($this:ident, $patt:ident) => {{
@@ -187,9 +191,9 @@ macro_rules! no_look_pass{
     }
     }};
 }
-pub(super) use no_look_pass;
+pub(crate) use no_look_pass;
 
-macro_rules! list {
+macro_rules! comma_list {
     ($this:ident, $patt:ident, $terminator:ident) => {{
         let mut args = Vec::new();
         if !next_matches!($this, Special::$terminator) {
@@ -228,8 +232,8 @@ macro_rules! list {
         args
     }};
 
-    ($this:ident, $patt:ident+, $terminator:ident) => {{
-        let mut items = vec![get!($this, arg?)];
+    ($this:ident, $patt:ident!+, $terminator:ident) => {{
+        let mut items = vec![$this.$patt()?];
         loop {
             if !next_matches!($this, Special::Comma) {
                 no_look_pass!($this, special, Special::$terminator);
@@ -238,21 +242,21 @@ macro_rules! list {
             if next_matches!($this, Special::$terminator) {
                 break;
             }
-            items.push(get!($this, $patt?));
+            items.push($this.$patt()?);
         }
         items
     }};
 
-    ($this:ident, $patt:ident, ")") => {{
-        list!($this, $patt, RPar)
+    ($this:ident, $patt:ident!, ")") => {{
+        comma_list!($this, $patt!, RPar)
     }};
 
     ($this:ident, $patt:ident!, "|") => {{
-        list!($this, $patt!, Vertical)
+        comma_list!($this, $patt!, Vertical)
     }};
 
-    ($this:ident, $patt:ident+, ">") => {{
-        list!($this, $patt, RAngle)
+    ($this:ident, $patt:ident!+, ">") => {{
+        comma_list!($this, $patt!+, RAngle)
     }};
 }
-pub(super) use list;
+pub(crate) use comma_list;

@@ -3,17 +3,16 @@ mod kind;
 mod precedence;
 mod stack;
 
-use atom::{Bracket, ListEndAttr, ListStartAttr};
-use common::*;
-
-use kind::ListOpr;
-use text::TextRange;
-
-pub use error::{ExprError, ExprResultArc};
+pub use error::{ExprError, ExprErrorKind, ExprResultArc};
+pub use kind::ListOpr;
 pub use kind::{ExprKind, Opr};
 pub(crate) use stack::ExprStack;
 use text::TextRanged;
 pub use word::Keyword;
+
+use atom::{Bracket, ListEndAttr, ListStartAttr};
+use common::*;
+use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Expr {
@@ -22,19 +21,24 @@ pub struct Expr {
 }
 
 impl Expr {
-    pub fn list(
+    pub fn synthesize_list(
         bracket: Bracket,
         start_attr: ListStartAttr,
         end_attr: ListEndAttr,
         range: TextRange,
         opds: ExprRange,
     ) -> Self {
+        if bracket == Bracket::Par && start_attr == ListStartAttr::None && arena::len(&opds) == 1 {
+            return Self {
+                range,
+                kind: ExprKind::Bracketed(opds.start),
+            };
+        }
         let opr = match start_attr {
             ListStartAttr::None => match bracket {
                 Bracket::Par => ListOpr::TupleInit,
                 Bracket::Box => ListOpr::NewVec,
                 Bracket::Curl => ListOpr::NewDict,
-                Bracket::Vert => todo!(),
             },
             ListStartAttr::Attach => match bracket {
                 Bracket::Par => ListOpr::Call,
@@ -44,7 +48,6 @@ impl Expr {
                     ListEndAttr::Attach => todo!(),
                 },
                 Bracket::Curl => ListOpr::StructInit,
-                Bracket::Vert => todo!(),
             },
         }
         .into();

@@ -1,7 +1,8 @@
 #[macro_export]
 macro_rules! p {
     ($($v:expr),*) => {
-        assert_test_env();eprintln!(r#"
+        #[cfg(test)]
+        eprintln!(r#"
 -------------------------------------------------------------------
 {}{}:{}{}:{}
     {}"#,

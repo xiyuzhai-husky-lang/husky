@@ -6,6 +6,7 @@ macro_rules! repeat_less_than {
             if COUNTER > $n {
                 panic!()
             } else {
+                eprintln!("counter: {}", COUNTER);
                 COUNTER += 1
             }
         }

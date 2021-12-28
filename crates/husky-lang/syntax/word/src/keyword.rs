@@ -30,7 +30,7 @@ pub enum FuncKeyword {
     Main,
     Test,
     Proc,
-    Pure,
+    Func,
     Def,
     Pattern,
 }
@@ -61,6 +61,7 @@ pub enum StmtKeyword {
     Do,
     Break,
     Return,
+    Assert,
 }
 
 impl StmtKeyword {
@@ -82,6 +83,7 @@ impl StmtKeyword {
             StmtKeyword::Do => "do",
             StmtKeyword::Break => "break",
             StmtKeyword::Return => "return",
+            StmtKeyword::Assert => "assert",
         }
     }
 }

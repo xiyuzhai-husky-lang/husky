@@ -4,15 +4,15 @@ use super::*;
 
 // inner ops
 impl<'a> ScopeLRParser<'a> {
-    pub(super) fn push(&mut self, kind: AtomKind) -> AtomResult<()> {
+    pub(crate) fn push(&mut self, kind: AtomKind) -> AtomResult<()> {
         self.stack.push(Atom::new(self.stream.pop_range(), kind))
     }
 
-    pub(super) fn save_stream(&self) -> Stream<'a> {
+    pub(crate) fn save_stream(&self) -> Stream<'a> {
         self.stream.clone()
     }
 
-    pub(super) fn rollback(&mut self, stream: Stream<'a>) {
+    pub(crate) fn rollback(&mut self, stream: Stream<'a>) {
         self.stream = stream
     }
 }

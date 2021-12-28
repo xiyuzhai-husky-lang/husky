@@ -114,7 +114,7 @@ impl SubscopeTable {
     pub fn parse(file_id: FileId, token_groups: TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
-            .filter_map(|(index, token_range, _)| {
+            .filter_map(|(index, _, token_range, _)| {
                 let (entry, error) = Entry::parse(file_id, index, token_range);
                 error.map(|error| errors.push(error));
                 entry

@@ -3,19 +3,20 @@ use token::{Special, Token, TokenKind, TokenizedText};
 use word::CustomIdentifier;
 
 use crate::{
+    parser::ScopeLRParser,
     query::AtomQuery,
     scope_proxy::ScopeProxy,
-    types::{Contract, LiasonedType, MembKind},
+    types::{Contract, ContractedType, MembKind},
     *,
 };
 
-pub struct AtomGenerator<'a> {
+pub struct AtomicTransformer<'a> {
     db: &'a dyn AtomQuery,
     folded_results: FoldedList<AtomParseResult>,
     symbols: Vec<(CustomIdentifier, common::Range)>,
 }
 
-impl<'a> AtomGenerator<'a> {
+impl<'a> AtomicTransformer<'a> {
     pub(crate) fn new(db: &'a dyn AtomQuery, module: scope::Module) -> Self {
         Self {
             db,
@@ -37,36 +38,39 @@ impl<'a> AtomGenerator<'a> {
     }
 }
 
-impl<'a> folded::Generator<'_, [Token], TokenizedText, AtomParseResult> for AtomGenerator<'a> {
-    fn enter_fold(&mut self) {}
+impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for AtomicTransformer<'a> {
+    fn enter(&mut self) {}
 
-    fn exit_fold(&mut self, idx: folded::FoldedIdx<AtomParseResult>) {}
+    fn exit(&mut self) {}
 
-    fn transform(&mut self, tokens: &[Token]) -> AtomParseResult {
+    fn post_exit(&mut self, idx: folded::FoldedIdx<AtomParseResult>) {}
+
+    fn transform(&mut self, indent: folded::Indent, tokens: &[Token]) -> AtomParseResult {
+        use parser::*;
+
         if let TokenKind::Keyword(keyword) = tokens[0].kind {
             match keyword {
                 Keyword::Func(func_kw) => match func_kw {
                     word::FuncKeyword::Main => Ok(AtomicLineGroup::MainDef),
                     word::FuncKeyword::Test => todo!(),
                     word::FuncKeyword::Proc => todo!(),
-                    word::FuncKeyword::Pure => todo!(),
+                    word::FuncKeyword::Func => {
+                        let mut parser =
+                            ScopeLRParser::new(self.scope_proxy(), &tokens[1..(tokens.len() - 1)]);
+                        let func_decl = parser.func_decl();
+                        todo!()
+                    }
                     word::FuncKeyword::Def => todo!(),
                     word::FuncKeyword::Pattern => todo!(),
                 },
                 Keyword::Type(ty_kw) => match ty_kw {
                     word::TypeKeyword::Struct => {
-                        if tokens.len() > 1 {
-                            return atom_err!(
-                                text::group_text_range(&tokens[1..]),
-                                "unexpected tokens"
-                            );
-                        }
-                        if tokens.len() == 0 {
+                        if tokens.len() == 1 {
                             // need to know where the keyword is
                             todo!()
                         }
 
-                        let ident = match tokens[0].kind {
+                        let ident = match tokens[1].kind {
                             TokenKind::Keyword(_) => todo!(),
                             TokenKind::Identifier(ident) => match ident {
                                 Identifier::Builtin(_) => atom_err!(
@@ -79,7 +83,17 @@ impl<'a> folded::Generator<'_, [Token], TokenizedText, AtomParseResult> for Atom
                             TokenKind::I32Literal(_) => todo!(),
                             TokenKind::F32Literal(_) => todo!(),
                         };
-                        todo!()
+                        if tokens.len() > 3 {
+                            todo!()
+                        }
+                        if tokens.last().unwrap().kind != TokenKind::Special(Special::Colon) {
+                            todo!()
+                        }
+                        Ok(AtomicLineGroup::TypeDef {
+                            ident,
+                            kind: types::TypeKind::Struct,
+                            args: Vec::new(),
+                        })
                     }
                     word::TypeKeyword::Rename => todo!(),
                     word::TypeKeyword::Enum => todo!(),
@@ -120,7 +134,7 @@ impl<'a> folded::Generator<'_, [Token], TokenizedText, AtomParseResult> for Atom
                 Ok(AtomicLineGroup::MembDef {
                     ident,
                     kind: MembKind::MembVar {
-                        ty: LiasonedType {
+                        ty: ContractedType {
                             contract: Contract::Give,
                             ty,
                         },
@@ -130,11 +144,10 @@ impl<'a> folded::Generator<'_, [Token], TokenizedText, AtomParseResult> for Atom
                 dbg!(tokens);
                 todo!();
             }
-            // AtomicLineGroup::stmt(self.scope_proxy(), None, false, tokens)
         }
     }
 
-    fn folded_results_mut(&mut self) -> &mut FoldedList<AtomParseResult> {
+    fn folded_outputs_mut(&mut self) -> &mut FoldedList<AtomParseResult> {
         &mut self.folded_results
     }
 }

@@ -1,8 +1,10 @@
-use std::marker::PhantomData;
+use std::{fmt::Debug, marker::PhantomData};
+
+use common::*;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FoldedList<T> {
     pub(crate) nodes: Vec<FoldedNode<T>>,
 }
@@ -12,7 +14,7 @@ pub struct FoldedIdx<T> {
     phantom: PhantomData<T>,
 }
 
-impl<T> std::fmt::Debug for FoldedIdx<T> {
+impl<T> Debug for FoldedIdx<T> {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("FoldedIdx").field("raw", &self.raw).finish()
     }
@@ -46,9 +48,15 @@ impl<T> FoldedList<T> {
         &self.nodes
     }
 
-    pub fn append(&mut self, value: T, next_sibling: Option<usize>) -> FoldedIdx<T> {
+    pub fn append(
+        &mut self,
+        indent: Indent,
+        value: T,
+        next_sibling: Option<usize>,
+    ) -> FoldedIdx<T> {
         let raw = self.nodes.len();
         self.nodes.push(FoldedNode {
+            indent,
             value,
             next_sibling,
         });
@@ -56,10 +64,23 @@ impl<T> FoldedList<T> {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct FoldedNode<T> {
+    pub(crate) indent: u16,
     pub(crate) value: T,
     pub(crate) next_sibling: Option<usize>,
+}
+
+impl<T> Debug for FoldedNode<T>
+where
+    T: Debug,
+{
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        f.write_fmt(format_args!(
+            "FoldedNode{{indent: {:?}, value: {:?}, next_sibling: {:?}}}",
+            &self.indent, &self.value, &self.next_sibling
+        ))
+    }
 }
 
 impl<T> FoldedNode<T> {
@@ -78,17 +99,23 @@ where
 
         for i in 0..items.len() {
             let mut j = i + 1;
+            let indent = items[i].indent();
             let next_sibling = loop {
                 if j < items.len() {
-                    if items[j].indent() <= items[i].indent() {
+                    let indent_below = items[j].indent();
+                    if indent_below == indent {
                         break Some(j);
+                    } else if indent_below < indent {
+                        break None;
+                    } else {
+                        j += 1;
                     }
-                    j += 1;
                 } else {
                     break None;
                 }
             };
             nodes.push(FoldedNode {
+                indent: items[i].indent(),
                 value: items[i].value(),
                 next_sibling,
             })
@@ -103,7 +130,10 @@ pub trait ItemToFold<Key> {
     fn indent(&self) -> u16;
 }
 
-impl<T> FoldedStorage<T> for FoldedList<T> {
+impl<T> FoldedContainer<T> for FoldedList<T>
+where
+    T: Debug,
+{
     fn len(&self) -> usize {
         self.nodes.len()
     }
@@ -118,5 +148,9 @@ impl<T> FoldedStorage<T> for FoldedList<T> {
 
     fn this(&self) -> &FoldedList<T> {
         self
+    }
+
+    fn indent(&self, index: usize) -> Indent {
+        self.nodes[index].indent
     }
 }

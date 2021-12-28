@@ -1,4 +1,4 @@
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Copy)]
 pub struct DevSource {
     pub file: &'static str,
     pub line: u32,
@@ -13,7 +13,7 @@ impl std::fmt::Debug for DevSource {
 #[macro_export]
 macro_rules! src {
     () => {
-        DevSource {
+        common::DevSource {
             file: file!(),
             line: line!(),
         }

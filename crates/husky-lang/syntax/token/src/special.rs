@@ -17,7 +17,7 @@ pub enum Special {
     LPar,
     RPar,
     Add,
-    Sub,
+    SubOrMinus,
     Mult,
     Div,
     Power,

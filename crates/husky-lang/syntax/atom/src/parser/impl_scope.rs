@@ -4,7 +4,7 @@ use super::*;
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
 impl<'a> ScopeLRParser<'a> {
-    pub(super) fn scope(&mut self) -> Result<Option<(ScopeId, ScopeKind)>, AtomError> {
+    pub(crate) fn scope(&mut self) -> Result<Option<(ScopeId, ScopeKind)>, AtomError> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {
                 Some((self.symbolic_ty()?, ScopeKind::Type))
@@ -30,13 +30,13 @@ impl<'a> ScopeLRParser<'a> {
     }
 
     fn vec_ty(&mut self) -> AtomResult<Scope> {
-        Ok(Scope::vec(get!(self, arg?)))
+        Ok(Scope::vec(self.arg()?))
     }
 
     fn array_ty(&mut self) -> AtomResult<Scope> {
         let size = get!(self, usize_literal);
         no_look_pass!(self, special, Special::RBox);
-        let element = get!(self, arg?);
+        let element = self.arg()?;
         Ok(Scope::builtin(
             BuiltinIdentifier::Array,
             vec![element, size.into()],
@@ -55,7 +55,7 @@ impl<'a> ScopeLRParser<'a> {
         return Ok((scope, self.scope_proxy.db.scope_kind(scope)));
     }
 
-    pub(super) fn ty(&mut self) -> AtomResult<Option<ScopeId>> {
+    pub(crate) fn ty(&mut self) -> AtomResult<Option<ScopeId>> {
         Ok(if let Some((scope, kind)) = self.scope()? {
             if kind == ScopeKind::Type {
                 Some(scope)
@@ -95,9 +95,9 @@ impl<'a> ScopeLRParser<'a> {
         if !next_matches!(self, "(") {
             return atom_err!(self.stream.pop_range(), "args");
         }
-        let mut args = list![self, arg, RPar];
+        let mut args = comma_list![self, arg!, RPar];
         args.push(if next_matches!(self, "->") {
-            get!(self, arg?)
+            self.arg()?
         } else {
             ScopeId::Builtin(BuiltinIdentifier::Void).into()
         });
@@ -106,24 +106,24 @@ impl<'a> ScopeLRParser<'a> {
 
     fn angled_args(&mut self) -> Result<Vec<GenericArgument>, AtomError> {
         Ok(if next_matches!(self, Special::LAngle) {
-            list![self, arg+, ">"]
+            comma_list![self, arg!+, ">"]
         } else {
             Vec::new()
         })
     }
 
-    fn arg(&mut self) -> AtomResult<Option<GenericArgument>> {
+    fn arg(&mut self) -> AtomResult<GenericArgument> {
         Ok(if next_matches!(self, "(") {
-            let mut args = list!(self, arg, ")");
+            let mut args = comma_list!(self, arg!, ")");
             let scope = if next_matches!(self, "->") {
-                args.push(get!(self, arg?));
+                args.push(self.arg()?);
                 Scope::default_func_type(args)
             } else {
                 Scope::tuple_or_void(args)
             };
-            Some(self.intern(scope).into())
+            self.intern(scope).into()
         } else {
-            try_get!(self, ty).map(|scope| scope.into())
+            get!(self, ty?).into()
         })
     }
 
