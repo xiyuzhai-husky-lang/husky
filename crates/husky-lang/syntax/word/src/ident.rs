@@ -4,6 +4,7 @@ use crate::*;
 pub enum Identifier {
     Builtin(BuiltinIdentifier),
     Custom(CustomIdentifier),
+    Elide,
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]

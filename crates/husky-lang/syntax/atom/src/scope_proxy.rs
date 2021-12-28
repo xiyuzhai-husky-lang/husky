@@ -1,4 +1,4 @@
-use scope::{GenericArgument, Scope, ScopeKind, ScopeRoute};
+use scope::*;
 use word::CustomIdentifier;
 
 use crate::*;
@@ -19,10 +19,11 @@ impl<'a> ScopeProxy<'a> {
     pub fn builtin_type_atom(
         &self,
         ident: BuiltinIdentifier,
-        args: Vec<GenericArgument>,
+        lifetimes: Vec<LifetimeParameter>,
+        generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
-        let scope = Scope::builtin(ident.into(), args);
+        let scope = Scope::builtin(ident.into(), lifetimes, generics);
         let kind = AtomKind::Scope(self.db.intern_scope(scope), ScopeKind::Type);
         Atom::new(tail, kind)
     }
@@ -30,6 +31,7 @@ impl<'a> ScopeProxy<'a> {
     pub fn resolve_scope_route(&self, token: &Token) -> Option<ScopeRoute> {
         match token.kind {
             TokenKind::Identifier(ident) => match ident {
+                Identifier::Elide => None,
                 Identifier::Builtin(builtin) => Some(builtin.into()),
                 Identifier::Custom(ident) => self
                     .symbols
@@ -49,6 +51,7 @@ impl<'a> ScopeProxy<'a> {
         self.db.subscope(
             self.db.intern_scope(parent_scope),
             subscope_ident,
+            Vec::new(),
             Vec::new(),
         )
     }

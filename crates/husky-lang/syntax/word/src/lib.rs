@@ -21,10 +21,10 @@ impl Word {
         }
     }
 
-    pub fn user_defined_ident(self) -> Option<CustomIdentifier> {
+    pub fn custom_ident(self) -> Option<CustomIdentifier> {
         self.ident()
             .map(|ident| match ident {
-                Identifier::Builtin(_) => None,
+                Identifier::Builtin(_) | Identifier::Elide => None,
                 Identifier::Custom(ident) => Some(ident),
             })
             .flatten()
@@ -70,6 +70,12 @@ impl From<Identifier> for Word {
 impl From<BuiltinIdentifier> for Word {
     fn from(reserved: BuiltinIdentifier) -> Self {
         Word::Identifier(Identifier::Builtin(reserved))
+    }
+}
+
+impl From<CustomIdentifier> for Word {
+    fn from(ident: CustomIdentifier) -> Self {
+        Word::Identifier(Identifier::Custom(ident))
     }
 }
 

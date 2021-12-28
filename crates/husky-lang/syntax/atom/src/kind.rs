@@ -57,6 +57,7 @@ impl From<&Special> for AtomKind {
             Special::RPar => panic!(),
             Special::SubOrMinus => panic!(),
             Special::MemberAccess => panic!(),
+            Special::Lifetime => panic!(),
             Special::LAngle => AtomKind::Binary(BinaryOpr::Less),
             Special::Leq => AtomKind::Binary(BinaryOpr::Leq),
             Special::RAngle => AtomKind::Binary(BinaryOpr::Greater),

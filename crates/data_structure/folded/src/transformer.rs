@@ -17,7 +17,6 @@ where
     where
         Input: 'a,
     {
-        repeat_less_than!(100);
         while let Some((index, indent, value, children)) = iter.next() {
             // parse current
             self.enter();

@@ -1,14 +1,9 @@
 use folded::FoldedList;
-use token::{Special, Token, TokenKind, TokenizedText};
-use word::CustomIdentifier;
+use hir::*;
+use token::*;
+use word::*;
 
-use crate::{
-    parser::ScopeLRParser,
-    query::AtomQuery,
-    scope_proxy::ScopeProxy,
-    types::{Contract, ContractedType, MembKind},
-    *,
-};
+use crate::{query::AtomQuery, scope_proxy::ScopeProxy, *};
 
 pub struct AtomicTransformer<'a> {
     db: &'a dyn AtomQuery,
@@ -57,8 +52,11 @@ impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for Atomic
                     word::FuncKeyword::Func => {
                         let mut parser =
                             ScopeLRParser::new(self.scope_proxy(), &tokens[1..(tokens.len() - 1)]);
-                        let func_decl = parser.func_decl();
-                        todo!()
+                        let decl = parser.func_decl()?;
+                        Ok(AtomicLineGroup::FuncDef {
+                            kind: FuncKind::PureFunc,
+                            decl,
+                        })
                     }
                     word::FuncKeyword::Def => todo!(),
                     word::FuncKeyword::Pattern => todo!(),
@@ -77,6 +75,10 @@ impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for Atomic
                                     text::group_text_range(&tokens[1..]),
                                     "expect custom identifier, but got builtin instead"
                                 )?,
+                                Identifier::Elide => atom_err!(
+                                    text::group_text_range(&tokens[1..]),
+                                    "expect custom identifier, but got elide instead"
+                                )?,
                                 Identifier::Custom(custom_ident) => custom_ident,
                             },
                             TokenKind::Special(_) => todo!(),
@@ -91,7 +93,7 @@ impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for Atomic
                         }
                         Ok(AtomicLineGroup::TypeDef {
                             ident,
-                            kind: types::TypeKind::Struct,
+                            kind: TypeKind::Struct,
                             args: Vec::new(),
                         })
                     }
@@ -126,6 +128,10 @@ impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for Atomic
                             tokens[0].text_range(),
                             "expect custom identifier but got builtin"
                         )?,
+                        Identifier::Elide => atom_err!(
+                            tokens[0].text_range(),
+                            "expect custom identifier but got elide"
+                        )?,
                         Identifier::Custom(custom_ident) => custom_ident,
                     },
                     _ => atom_err!(tokens[0].text_range(), "expect custom identifier")?,
@@ -134,15 +140,15 @@ impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for Atomic
                 Ok(AtomicLineGroup::MembDef {
                     ident,
                     kind: MembKind::MembVar {
-                        ty: ContractedType {
-                            contract: Contract::Give,
+                        ty: InputType {
+                            contract: InputContract::Own,
                             ty,
                         },
                     },
                 })
             } else {
-                dbg!(tokens);
-                todo!();
+                let is_head = tokens.last().unwrap().kind == TokenKind::Special(Special::Colon);
+                AtomicLineGroup::parse_stmt(self.scope_proxy(), None, is_head, tokens)
             }
         }
     }

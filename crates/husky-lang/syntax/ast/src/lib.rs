@@ -12,9 +12,10 @@ pub use query::{AstQuery, AstQueryStorage};
 pub use stmt::{InitKind, Stmt};
 pub use transform::{AstGenResult, AstText};
 
+use hir::*;
 use scope::ScopeId;
 
-use atom::{types::*, BinaryOpr};
+use atom::BinaryOpr;
 use word::{CustomIdentifier, Identifier, StmtKeyword};
 
 use crate::error::{ast_err, ast_error};

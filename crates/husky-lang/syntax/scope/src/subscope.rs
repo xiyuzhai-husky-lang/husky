@@ -56,12 +56,13 @@ impl Entry {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
                     if let Some(kind) = ScopeKind::new(*keyword) {
                         match ident {
-                            Identifier::Builtin(_) => {
+                            Identifier::Builtin(_) | Identifier::Elide => {
                                 return (
                                     None,
                                     Some(ScopeDefError {
                                         range: token_group[1].text_range(),
-                                        rule_broken: ScopeDefRule::BuiltinIdentifierAreReserved,
+                                        rule_broken:
+                                            ScopeDefRule::BuiltinIdentifierOrElideAreReserved,
                                     }),
                                 )
                             }
@@ -182,7 +183,7 @@ impl SubscopeTable {
             .filter_map(|entry| {
                 entry
                     .ident
-                    .map(|ident| Scope::child_scope(parent_scope_id, ident, Vec::new()))
+                    .map(|ident| Scope::child_scope(parent_scope_id, ident, Vec::new(), Vec::new()))
             })
             .collect()
     }

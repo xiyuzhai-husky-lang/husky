@@ -1,3 +1,5 @@
+use scope::LifetimeParameter;
+
 use super::*;
 
 /// parse scope from left to right
@@ -30,27 +32,28 @@ impl<'a> ScopeLRParser<'a> {
     }
 
     fn vec_ty(&mut self) -> AtomResult<Scope> {
-        Ok(Scope::vec(self.arg()?))
+        Ok(Scope::vec(self.generic()?))
     }
 
     fn array_ty(&mut self) -> AtomResult<Scope> {
         let size = get!(self, usize_literal);
         no_look_pass!(self, special, Special::RBox);
-        let element = self.arg()?;
-        Ok(Scope::builtin(
-            BuiltinIdentifier::Array,
-            vec![element, size.into()],
-        ))
+        let element = self.generic()?;
+        Ok(Scope::array(element, size))
     }
 
     fn normal_scope(&mut self, route: ScopeRoute) -> AtomResult<(ScopeId, ScopeKind)> {
-        let mut scope = self.scope_proxy.db.make_scope(route, self.args(route)?);
+        let mut scope = self
+            .scope_proxy
+            .db
+            .make_scope(route, self.lifetimes_and_generics(route)?);
         while next_matches!(self, Special::DoubleColon) {
             let ident = get!(self, custom_ident);
-            scope = self
-                .scope_proxy
-                .db
-                .make_child_scope(scope, ident, self.args(route)?);
+            scope = self.scope_proxy.db.make_child_scope(
+                scope,
+                ident,
+                self.lifetimes_and_generics(route)?,
+            );
         }
         return Ok((scope, self.scope_proxy.db.scope_kind(scope)));
     }
@@ -67,7 +70,10 @@ impl<'a> ScopeLRParser<'a> {
         })
     }
 
-    fn args(&mut self, route: ScopeRoute) -> AtomResult<Vec<GenericArgument>> {
+    fn lifetimes_and_generics(
+        &mut self,
+        route: ScopeRoute,
+    ) -> AtomResult<(Vec<LifetimeParameter>, Vec<GenericArgument>)> {
         match route {
             ScopeRoute::Builtin(ident) => match ident {
                 BuiltinIdentifier::Void
@@ -75,18 +81,20 @@ impl<'a> ScopeLRParser<'a> {
                 | BuiltinIdentifier::F32
                 | BuiltinIdentifier::Debug
                 | BuiltinIdentifier::Std
-                | BuiltinIdentifier::Core => Ok(Vec::new()),
+                | BuiltinIdentifier::Core => Ok((Vec::new(), Vec::new())),
                 BuiltinIdentifier::Fp
                 | BuiltinIdentifier::Fn
                 | BuiltinIdentifier::FnMut
-                | BuiltinIdentifier::FnOnce => self.func_args(),
+                | BuiltinIdentifier::FnOnce => Ok((Vec::new(), self.func_args()?)),
                 BuiltinIdentifier::Vector | BuiltinIdentifier::Array | BuiltinIdentifier::Tuple => {
-                    self.angled_args()
+                    self.angled_lifetimes_and_generics()
                 }
             },
             _ => match self.scope_proxy.db.scope_kind_from_route(route) {
-                ScopeKind::Module | ScopeKind::Value => Ok(Vec::new()),
-                ScopeKind::Type | ScopeKind::Trait | ScopeKind::Func => self.angled_args(),
+                ScopeKind::Module | ScopeKind::Value => Ok((Vec::new(), Vec::new())),
+                ScopeKind::Type | ScopeKind::Trait | ScopeKind::Func => {
+                    self.angled_lifetimes_and_generics()
+                }
             },
         }
     }
@@ -95,28 +103,43 @@ impl<'a> ScopeLRParser<'a> {
         if !next_matches!(self, "(") {
             return atom_err!(self.stream.pop_range(), "args");
         }
-        let mut args = comma_list![self, arg!, RPar];
+        let mut args = comma_list![self, generic!, RPar];
         args.push(if next_matches!(self, "->") {
-            self.arg()?
+            self.generic()?
         } else {
             ScopeId::Builtin(BuiltinIdentifier::Void).into()
         });
         Ok(args)
     }
 
-    fn angled_args(&mut self) -> Result<Vec<GenericArgument>, AtomError> {
+    fn angled_lifetimes_and_generics(
+        &mut self,
+    ) -> Result<(Vec<LifetimeParameter>, Vec<GenericArgument>), AtomError> {
         Ok(if next_matches!(self, Special::LAngle) {
-            comma_list![self, arg!+, ">"]
+            comma_list![self, lifetime?, generic!, ">"]
         } else {
-            Vec::new()
+            (Vec::new(), Vec::new())
         })
     }
 
-    fn arg(&mut self) -> AtomResult<GenericArgument> {
+    fn lifetime(&mut self) -> AtomResult<Option<LifetimeParameter>> {
+        if next_matches!(self, "'") {
+            if next_matches!(self, "_") {
+                Ok(Some(LifetimeParameter::Elided))
+            } else {
+                let ident = get!(self, custom_ident);
+                Ok(Some(LifetimeParameter::Explicit(ident)))
+            }
+        } else {
+            Ok(None)
+        }
+    }
+
+    fn generic(&mut self) -> AtomResult<GenericArgument> {
         Ok(if next_matches!(self, "(") {
-            let mut args = comma_list!(self, arg!, ")");
+            let mut args = comma_list!(self, generic!, ")");
             let scope = if next_matches!(self, "->") {
-                args.push(self.arg()?);
+                args.push(self.generic()?);
                 Scope::default_func_type(args)
             } else {
                 Scope::tuple_or_void(args)

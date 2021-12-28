@@ -36,9 +36,10 @@ pub enum Special {
     Decr,        // --
     Vertical,    // |
     Assign,      // =
-    AddAssign,
-    SubAssign,
-    MultAssign,
-    DivAssign,
-    Exclamation,
+    AddAssign,   // +=
+    SubAssign,   // -=
+    MultAssign,  // *=
+    DivAssign,   // /=
+    Exclamation, // !
+    Lifetime,    // '
 }

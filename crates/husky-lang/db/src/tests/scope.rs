@@ -1,7 +1,5 @@
 use crate::*;
 
-use test_utils::assert_test_env;
-
 #[test]
 fn no_error_single_file() {
     let mut db = HuskyLangDatabase::new();
@@ -19,9 +17,7 @@ main:
     let main_file = db.file_id("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
-        db.string_to_word("haha".into())
-            .user_defined_ident()
-            .unwrap(),
+        db.string_to_word("haha".into()).custom_ident().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
     assert_eq!(subscope_table.entries.len(), 2);
@@ -53,9 +49,7 @@ struct B {}
     let main_file = db.file_id("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
-        db.string_to_word("haha".into())
-            .user_defined_ident()
-            .unwrap(),
+        db.string_to_word("haha".into()).custom_ident().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
     p!(subscope_table);
@@ -80,9 +74,7 @@ main:
     let main_file = db.file_id("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
-        db.string_to_word("haha".into())
-            .user_defined_ident()
-            .unwrap(),
+        db.string_to_word("haha".into()).custom_ident().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
     p!(subscope_table);

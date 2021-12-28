@@ -11,7 +11,7 @@ pub enum ScopeDefRule {
     TokenGroupSizeAtLeastTwo,
     FirstTokenShouldBeKeyword,
     NonMainSecondTokenShouldBeIdentifier,
-    BuiltinIdentifierAreReserved,
+    BuiltinIdentifierOrElideAreReserved,
 }
 
 macro_rules! build_error_code_gen {
@@ -29,7 +29,7 @@ impl ScopeDefError {
             TokenGroupSizeAtLeastTwo,
             FirstTokenShouldBeKeyword,
             NonMainSecondTokenShouldBeIdentifier,
-            BuiltinIdentifierAreReserved
+            BuiltinIdentifierOrElideAreReserved
         )
     }
 }

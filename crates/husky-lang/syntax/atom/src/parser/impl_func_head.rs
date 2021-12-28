@@ -1,4 +1,5 @@
-use crate::{types::*, *};
+use crate::*;
+use hir::*;
 
 use super::*;
 
@@ -37,17 +38,19 @@ impl<'a> ScopeLRParser<'a> {
         Ok(GenericPlaceholder { ident, traits })
     }
 
-    fn func_input_types(&mut self) -> AtomResult<Vec<(CustomIdentifier, ContractedType)>> {
-        Ok(comma_list!(self, func_input_type!, "|"))
+    fn func_input_types(&mut self) -> AtomResult<Vec<(CustomIdentifier, InputType)>> {
+        no_look_pass!(self, "(");
+        Ok(comma_list!(self, func_input_type!, ")"))
     }
 
-    fn func_input_type(&mut self) -> AtomResult<(CustomIdentifier, ContractedType)> {
+    fn func_input_type(&mut self) -> AtomResult<(CustomIdentifier, InputType)> {
         let ident = get!(self, custom_ident);
-        let ty = get!(self.ty?);
+        no_look_pass!(self, ":");
+        let ty = get!(self, ty?);
         Ok((
             ident,
-            ContractedType {
-                contract: Contract::PureInput,
+            InputType {
+                contract: InputContract::Intact,
                 ty,
             },
         ))

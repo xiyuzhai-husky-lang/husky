@@ -22,9 +22,14 @@ use word::{BuiltinIdentifier, CustomIdentifier, Identifier};
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Scope {
     pub route: ScopeRoute,
-    // ident: Identifier,
-    // parent: ScopeParent,
-    pub args: Vec<GenericArgument>,
+    pub lifetimes: Vec<LifetimeParameter>,
+    pub generics: Vec<GenericArgument>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum LifetimeParameter {
+    Elided,
+    Explicit(CustomIdentifier),
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -62,29 +67,41 @@ impl Scope {
     pub fn package(main_file: FileId, ident: CustomIdentifier) -> Self {
         Scope {
             route: ScopeRoute::Package(main_file, ident),
-            args: Vec::new(),
+            lifetimes: Vec::new(),
+            generics: Vec::new(),
         }
     }
     pub fn child_scope(
         parent_scope: ScopeId,
         ident: CustomIdentifier,
-        generic_arguments: Vec<GenericArgument>,
+        lifetimes: Vec<LifetimeParameter>,
+        generics: Vec<GenericArgument>,
     ) -> Scope {
         Scope {
             route: ScopeRoute::ChildScope(parent_scope, ident),
-            args: generic_arguments,
+            lifetimes,
+            generics,
         }
     }
 
-    pub fn builtin(scope: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
+    pub fn builtin(
+        scope: BuiltinIdentifier,
+        lifetimes: Vec<LifetimeParameter>,
+        generic_arguments: Vec<GenericArgument>,
+    ) -> Scope {
         Scope {
             route: ScopeRoute::Builtin(scope),
-            args: generic_arguments,
+            lifetimes,
+            generics: generic_arguments,
         }
     }
 
     pub fn vec(element: GenericArgument) -> Self {
-        Self::builtin(BuiltinIdentifier::Vector, vec![element])
+        Self::builtin(BuiltinIdentifier::Vector, vec![], vec![element])
+    }
+
+    pub fn array(element: GenericArgument, size: usize) -> Self {
+        Self::builtin(BuiltinIdentifier::Array, vec![], vec![element, size.into()])
     }
 
     pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
@@ -94,18 +111,19 @@ impl Scope {
             } else {
                 BuiltinIdentifier::Void
             },
+            vec![],
             args,
         )
     }
 
     pub fn default_func_type(args: Vec<GenericArgument>) -> Self {
-        Scope::builtin(word::default_func_type(), args)
+        Scope::builtin(word::default_func_type(), vec![], args)
     }
 }
 
 impl From<BuiltinIdentifier> for Scope {
     fn from(ident: BuiltinIdentifier) -> Self {
-        Self::builtin(ident, Vec::new())
+        Self::builtin(ident, vec![], Vec::new())
     }
 }
 

@@ -7,7 +7,6 @@ mod parser;
 mod query;
 mod scope_proxy;
 mod transform;
-pub mod types;
 
 pub use atomic_line_group::{atomic_stmt::StmtAttr, AtomicLineGroup};
 pub use error::{AtomError, AtomErrorKind, AtomResult, AtomResultArc, AtomRule};

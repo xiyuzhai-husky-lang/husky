@@ -7,7 +7,7 @@ fn func() {
         "haha/main.hsk".into(),
         r#"
 func f(x: i32, y: i32) -> i32:
-    x + y
+    return x + y
 "#
         .into(),
     );
