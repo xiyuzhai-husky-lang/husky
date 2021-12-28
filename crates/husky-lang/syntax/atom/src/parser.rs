@@ -1,4 +1,5 @@
 mod impl_basic;
+mod impl_func_head;
 mod impl_inner_ops;
 mod impl_lambda_head;
 mod impl_scope;
@@ -15,16 +16,16 @@ use word::CustomIdentifier;
 
 use crate::{atomic_line_group::AtomStack, scope_proxy::ScopeProxy, *};
 
-use utils::*;
+pub use utils::*;
 
 #[derive(Debug, Clone)]
-struct Stream<'a> {
-    iter: Iter<'a, Token>,
-    range: TextRange,
+pub(crate) struct Stream<'a> {
+    pub(crate) iter: Iter<'a, Token>,
+    pub(crate) range: TextRange,
 }
 
 impl<'a> Stream<'a> {
-    fn next(&mut self) -> Option<&'a Token> {
+    pub(crate) fn next(&mut self) -> Option<&'a Token> {
         if let Some(token) = self.iter.next() {
             self.range.end = token.text_end();
             Some(token)
@@ -33,7 +34,7 @@ impl<'a> Stream<'a> {
         }
     }
 
-    fn pop_range(&mut self) -> TextRange {
+    pub(crate) fn pop_range(&mut self) -> TextRange {
         let range = self.range.clone();
         self.range = (self.range.end)..(self.range.end);
         range
@@ -49,14 +50,14 @@ impl<'a> From<&'a [Token]> for Stream<'a> {
     }
 }
 
-pub struct ScopeLRParser<'a> {
+pub(crate) struct ScopeLRParser<'a> {
     scope_proxy: ScopeProxy<'a>,
-    stream: Stream<'a>,
+    pub(crate) stream: Stream<'a>,
     stack: AtomStack,
 }
 
 impl<'a> ScopeLRParser<'a> {
-    pub(super) fn new(scope_proxy: ScopeProxy<'a>, tokens: &'a [Token]) -> Self {
+    pub(crate) fn new(scope_proxy: ScopeProxy<'a>, tokens: &'a [Token]) -> Self {
         Self {
             scope_proxy,
             stream: tokens.into(),
@@ -64,7 +65,7 @@ impl<'a> ScopeLRParser<'a> {
         }
     }
 
-    pub(super) fn parse(mut self) -> AtomResult<Vec<Atom>> {
+    pub(crate) fn parse(mut self) -> AtomResult<Vec<Atom>> {
         loop {
             if self.stack.is_concave() {
                 if let Some((scope, kind)) = try_get!(self, scope) {
@@ -99,7 +100,7 @@ impl<'a> ScopeLRParser<'a> {
                             self.stack.push(Atom::new(
                                 token.text_start()..self.stream.range.end,
                                 AtomKind::LambdaHead(lambda_head),
-                            ));
+                            ))?;
                         }
                         Special::Ambersand => self.stack.push(Atom::new(
                             token.text_range(),
@@ -141,7 +142,15 @@ impl<'a> ScopeLRParser<'a> {
                             token.text_range(),
                             self.scope_proxy,
                         )?,
-                        // Special::RPar
+                        Special::SubOrMinus => {
+                            if self.stack.is_convex() {
+                                self.stack
+                                    .push(Atom::new(token.text_range(), BinaryOpr::Sub.into()))?
+                            } else {
+                                self.stack
+                                    .push(Atom::new(token.text_range(), PrefixOpr::Minus.into()))?
+                            }
+                        }
                         Special::MemberAccess => todo!(),
                         _ => self.stack.push(token.into())?,
                     },

@@ -27,7 +27,16 @@ pub enum Bracket {
     Par,
     Box,
     Curl,
-    Vert,
+}
+
+impl Bracket {
+    pub fn bra_code(&self) -> &'static str {
+        match self {
+            Bracket::Par => "(",
+            Bracket::Box => "[",
+            Bracket::Curl => "{",
+        }
+    }
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
@@ -74,4 +83,34 @@ pub enum BinaryOpr {
     SubAssign,  // -=
     MultAssign, // *=
     DivAssign,  // /=
+}
+impl BinaryOpr {
+    pub fn spaced_code(&self) -> &'static str {
+        match self {
+            BinaryOpr::Less => " < ",
+            BinaryOpr::Leq => " <= ",
+            BinaryOpr::Greater => " > ",
+            BinaryOpr::Geq => " >= ",
+            BinaryOpr::Neq => " != ",
+            BinaryOpr::Eq => " == ",
+            BinaryOpr::LShift => " << ",
+            BinaryOpr::RShift => " >>",
+            BinaryOpr::Add => " + ",
+            BinaryOpr::Sub => " - ",
+            BinaryOpr::Mult => " * ",
+            BinaryOpr::Div => " / ",
+            BinaryOpr::Power => " ** ",
+            BinaryOpr::And => " && ",
+            BinaryOpr::BitAnd => " & ",
+            BinaryOpr::Or => " || ",
+            BinaryOpr::BitXor => " ^ ",
+            BinaryOpr::BitOr => " | ",
+            BinaryOpr::Modulo => " % ",
+            BinaryOpr::Assign => " = ",
+            BinaryOpr::AddAssign => " += ",
+            BinaryOpr::SubAssign => " -= ",
+            BinaryOpr::MultAssign => " *= ",
+            BinaryOpr::DivAssign => " /= ",
+        }
+    }
 }

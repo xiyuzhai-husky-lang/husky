@@ -4,7 +4,7 @@ use test_utils::assert_test_env;
 
 #[test]
 fn no_error_single_file() {
-    let mut db = HuskyLangDatabase::new(None);
+    let mut db = HuskyLangDatabase::new();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"

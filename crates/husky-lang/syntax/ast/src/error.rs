@@ -5,6 +5,8 @@ use common::*;
 use atom::{AtomError, AtomErrorKind};
 use text::TextRange;
 
+use crate::*;
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct AstError {
     pub range: TextRange,
@@ -22,12 +24,23 @@ impl From<AtomError> for AstError {
     }
 }
 
+impl From<ExprError> for AstError {
+    fn from(error: ExprError) -> Self {
+        Self {
+            range: error.range,
+            kind: AstErrorKind::ExprError(error.kind),
+            src: error.src,
+        }
+    }
+}
+
 pub type AstResultArc<T> = Result<Arc<T>, AstError>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstErrorKind {
     Message(String),
     AtomError(AtomErrorKind),
+    ExprError(ExprErrorKind),
 }
 
 impl From<String> for AstErrorKind {
@@ -52,12 +65,20 @@ macro_rules! ast_error {
             src: $src,
         }
     }};
+
+    ($range:expr,$kind: expr) => {{
+        ast_error!($range, $kind, src!())
+    }};
 }
 pub(crate) use ast_error;
 
 macro_rules! ast_err {
     ($range:expr,$kind: expr, $src: expr) => {{
         Err(ast_error!($range, $kind, $src))
+    }};
+
+    ($range:expr,$kind: expr) => {{
+        Err(ast_error!($range, $kind, src!()))
     }};
 }
 pub(crate) use ast_err;

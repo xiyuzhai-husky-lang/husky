@@ -1,25 +1,38 @@
 use std::sync::Arc;
 
+use common::*;
+
 use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ExprError {
-    range: TextRange,
-    kind: ExprKind,
+    pub range: TextRange,
+    pub kind: ExprErrorKind,
+    pub src: DevSource,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ExprKind {
+pub enum ExprErrorKind {
     BreakRule(ExprRule),
     AtomError(atom::AtomErrorKind),
+    General(String),
+}
+
+impl From<String> for ExprErrorKind {
+    fn from(msg: String) -> Self {
+        Self::General(msg)
+    }
+}
+
+impl From<ExprRule> for ExprErrorKind {
+    fn from(rule: ExprRule) -> Self {
+        Self::BreakRule(rule)
+    }
 }
 
 impl ExprError {
-    pub fn new(range: TextRange, rule_broken: ExprRule) -> ExprError {
-        Self {
-            range,
-            kind: ExprKind::BreakRule(rule_broken),
-        }
+    pub fn new(range: TextRange, kind: ExprErrorKind, src: DevSource) -> ExprError {
+        Self { range, kind, src }
     }
 }
 
@@ -30,7 +43,8 @@ impl From<&atom::AtomError> for ExprError {
     fn from(error: &atom::AtomError) -> Self {
         Self {
             range: error.range.clone(),
-            kind: ExprKind::AtomError(error.kind.clone()),
+            kind: ExprErrorKind::AtomError(error.kind.clone()),
+            src: error.src,
         }
     }
 }
@@ -39,7 +53,8 @@ impl From<atom::AtomError> for ExprError {
     fn from(error: atom::AtomError) -> Self {
         Self {
             range: error.range,
-            kind: ExprKind::AtomError(error.kind),
+            kind: ExprErrorKind::AtomError(error.kind),
+            src: error.src,
         }
     }
 }

@@ -20,11 +20,8 @@ pub enum AtomicLineGroup {
     },
     MainDef,
     FuncDef {
-        ident: CustomIdentifier,
         kind: FuncKind,
-        args: Vec<GenericPlaceholder>,
-        inputs: Vec<LiasonedType>,
-        output: LiasonedType,
+        decl: FuncDecl,
     },
     Use {
         ident: CustomIdentifier,

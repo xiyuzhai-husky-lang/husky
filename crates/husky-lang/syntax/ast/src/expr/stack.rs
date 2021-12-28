@@ -1,4 +1,6 @@
-use atom::{BinaryOpr, Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
+use atom::{
+    BinaryOpr, Bracket, LambdaHead, ListEndAttr, ListStartAttr, Literal, PrefixOpr, SuffixOpr,
+};
 use text::{TextPosition, TextRange};
 
 use crate::{expr::error::ExprRule, expr::precedence::Precedence, *};
@@ -62,6 +64,15 @@ enum StackOprKind {
     LambdaHead(LambdaHead, TextPosition),
 }
 
+impl<'a> std::fmt::Debug for ExprStack<'a> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        f.debug_struct("ExprStack")
+            .field("oprs", &self.oprs)
+            .field("exprs", &self.exprs)
+            .finish()
+    }
+}
+
 impl<'a> ExprStack<'a> {
     pub(crate) fn new(arena: &'a mut ExprArena) -> Self {
         Self {
@@ -121,9 +132,16 @@ impl<'a> ExprStack<'a> {
     pub(crate) fn accept_atom_expr(&mut self, expr: Expr) {
         self.exprs.push(expr);
     }
+
+    pub(crate) fn accept_lambda_head(&mut self, args: Vec<(CustomIdentifier, Option<ScopeId>)>) {
+        todo!()
+    }
 }
 
 impl<'a> ExprStack<'a> {
+    fn top(&self, i: usize) -> &StackOpr {
+        &self.oprs[self.oprs.len() - 1 - i]
+    }
     fn synthesize_list(
         &mut self,
         ket: Bracket,
@@ -136,13 +154,14 @@ impl<'a> ExprStack<'a> {
                 if i >= self.oprs.len() {
                     todo!()
                 }
-                match self.oprs[i].kind {
+                match self.top(i).kind {
                     StackOprKind::ListItem => (),
                     StackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
                             return Err(ExprError::new(
                                 self.exprs[0].range.start..end,
-                                ExprRule::BracketsShouldMatch,
+                                ExprRule::BracketsShouldMatch.into(),
+                                src!(),
                             ));
                         };
                         break (attr, start, i);
@@ -150,7 +169,13 @@ impl<'a> ExprStack<'a> {
                     _ => {
                         return Err(ExprError::new(
                             (self.exprs[0].range.start..end).into(),
-                            ExprRule::BracketsShouldMatch,
+                            format!(
+                                "expect {} but got {:?} instead",
+                                ket.bra_code(),
+                                self.oprs[i]
+                            )
+                            .into(),
+                            src!(),
                         ))
                     }
                 }
@@ -162,7 +187,7 @@ impl<'a> ExprStack<'a> {
             .arena
             .alloc(self.exprs[self.exprs.len() - list_len..].into());
         self.exprs.truncate(self.exprs.len() - list_len);
-        self.exprs.push(Expr::list(
+        self.exprs.push(Expr::synthesize_list(
             ket,
             start_attr,
             end_attr,
@@ -195,6 +220,22 @@ impl<'a> ExprStack<'a> {
 
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
         let range = (start..self.exprs.last().unwrap().range.end).into();
+        if prefix == PrefixOpr::Minus {
+            if let ExprKind::Literal(lit) = self.exprs.last().unwrap().kind {
+                self.exprs.pop();
+                match lit {
+                    Literal::I32Literal(i) => self.exprs.push(Expr {
+                        range,
+                        kind: ExprKind::Literal(Literal::I32Literal(-i)),
+                    }),
+                    Literal::F32Literal(f) => self.exprs.push(Expr {
+                        range,
+                        kind: ExprKind::Literal(Literal::F32Literal(-f)),
+                    }),
+                }
+                return;
+            }
+        }
         self.synthesize_opr(prefix.into(), 1, range)
     }
 

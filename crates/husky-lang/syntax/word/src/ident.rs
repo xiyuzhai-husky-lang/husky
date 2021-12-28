@@ -15,6 +15,12 @@ impl From<CustomIdentifier> for Identifier {
     }
 }
 
+impl From<&CustomIdentifier> for Identifier {
+    fn from(ident: &CustomIdentifier) -> Self {
+        Self::Custom(*ident)
+    }
+}
+
 impl From<u32> for CustomIdentifier {
     fn from(raw: u32) -> Self {
         CustomIdentifier(raw)
@@ -23,7 +29,7 @@ impl From<u32> for CustomIdentifier {
 
 impl From<u32> for Identifier {
     fn from(raw: u32) -> Self {
-        CustomIdentifier(raw).into()
+        Self::Custom(CustomIdentifier(raw))
     }
 }
 
@@ -42,6 +48,26 @@ pub enum BuiltinIdentifier {
     FnMut,
     FnOnce,
     Array,
+}
+
+impl BuiltinIdentifier {
+    pub fn code(self) -> &'static str {
+        match self {
+            BuiltinIdentifier::Void => "()",
+            BuiltinIdentifier::I32 => "i32",
+            BuiltinIdentifier::F32 => "f32",
+            BuiltinIdentifier::Vector => "Vec",
+            BuiltinIdentifier::Tuple => "Tuple",
+            BuiltinIdentifier::Debug => "debug",
+            BuiltinIdentifier::Std => "std",
+            BuiltinIdentifier::Core => "core",
+            BuiltinIdentifier::Fp => "Fp",
+            BuiltinIdentifier::Fn => "Fn",
+            BuiltinIdentifier::FnMut => "FnMut",
+            BuiltinIdentifier::FnOnce => "FnOnce",
+            BuiltinIdentifier::Array => "Array",
+        }
+    }
 }
 
 pub fn default_func_type() -> BuiltinIdentifier {

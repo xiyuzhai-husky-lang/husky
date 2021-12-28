@@ -1,20 +1,20 @@
 mod atomic_line_group;
 mod convexity;
 mod error;
-mod generator;
 mod kind;
 mod opr;
 mod parser;
 mod query;
 mod scope_proxy;
+mod transform;
 pub mod types;
 
 pub use atomic_line_group::{atomic_stmt::StmtAttr, AtomicLineGroup};
 pub use error::{AtomError, AtomErrorKind, AtomResult, AtomResultArc, AtomRule};
-pub use generator::AtomGenerator;
 pub use kind::{AtomKind, LambdaHead, Literal};
 pub use opr::{BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 pub use query::{AtomQuery, AtomQueryStorage, AtomicText};
+pub use transform::AtomicTransformer;
 
 use error::atom_err;
 use scope::ScopeId;

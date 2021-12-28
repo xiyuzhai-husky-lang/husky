@@ -1,11 +1,11 @@
 use super::*;
 
 impl<'a> ScopeLRParser<'a> {
-    pub(super) fn special(&mut self, target: Special) -> Option<()> {
+    pub(crate) fn special(&mut self, target: Special) -> Option<()> {
         self.kind(target.into())
     }
 
-    pub(super) fn usize_literal(&mut self) -> Option<usize> {
+    pub(crate) fn usize_literal(&mut self) -> Option<usize> {
         if let Some(Token {
             kind: TokenKind::I32Literal(i),
             ..
@@ -21,7 +21,7 @@ impl<'a> ScopeLRParser<'a> {
         }
     }
 
-    pub(super) fn custom_ident(&mut self) -> Option<CustomIdentifier> {
+    pub(crate) fn custom_ident(&mut self) -> Option<CustomIdentifier> {
         if let Some(Token {
             kind: TokenKind::Identifier(Identifier::Custom(ident)),
             ..

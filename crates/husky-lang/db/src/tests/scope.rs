@@ -4,7 +4,7 @@ use test_utils::assert_test_env;
 
 #[test]
 fn no_error_single_file() {
-    let mut db = HuskyLangDatabase::new(None);
+    let mut db = HuskyLangDatabase::new();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -30,7 +30,7 @@ main:
 
 #[test]
 fn no_error_many_files() {
-    let mut db = HuskyLangDatabase::new(None);
+    let mut db = HuskyLangDatabase::new();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -65,7 +65,7 @@ struct B {}
 
 #[test]
 fn error1() {
-    let mut db = HuskyLangDatabase::new(None);
+    let mut db = HuskyLangDatabase::new();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"

@@ -27,7 +27,7 @@ impl TokenizedText {
 
 pub type TokenGroupIter<'a> = folded::FoldedIter<'a, [Token], TokenizedText>;
 
-impl folded::FoldedStorage<[Token]> for TokenizedText {
+impl folded::FoldedContainer<[Token]> for TokenizedText {
     fn len(&self) -> usize {
         self.token_groups.len()
     }
@@ -42,6 +42,10 @@ impl folded::FoldedStorage<[Token]> for TokenizedText {
 
     fn this(&self) -> &TokenizedText {
         self
+    }
+
+    fn indent(&self, index: usize) -> folded::Indent {
+        self.token_groups.indent(index)
     }
 }
 

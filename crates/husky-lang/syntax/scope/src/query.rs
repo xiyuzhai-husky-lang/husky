@@ -4,7 +4,7 @@ use common::*;
 
 use word::Word;
 
-use folded::FoldedStorage;
+use folded::FoldedContainer;
 
 use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryStorage)]
@@ -30,7 +30,7 @@ fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultA
             token_group_index,
         } => {
             let text = this.tokenized_text(file_id)?;
-            let (_, _, children) = text.folded_iter(token_group_index).next().unwrap();
+            let (_, _, _, children) = text.folded_iter(token_group_index).next().unwrap();
             if let Some(children) = children {
                 SubscopeTable::parse(file_id, children)
             } else {
@@ -59,7 +59,7 @@ fn scope_alias_table(
                 .folded_iter(token_group_index)
                 .next()
                 .unwrap()
-                .2
+                .3
                 .unwrap(),
         ),
         ScopeSource::Module { file_id } => {

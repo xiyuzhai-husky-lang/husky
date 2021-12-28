@@ -1,6 +1,6 @@
 use std::marker::PhantomData;
 
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Arena<T> {
     storage: Vec<T>,
 }
@@ -25,12 +25,27 @@ impl<T> Arena<T> {
     }
 }
 
+pub fn len<T>(range: &ArenaRange<T>) -> usize {
+    range.end.raw - range.start.raw
+}
+
 pub type ArenaRange<T> = core::ops::Range<ArenaIdx<T>>;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ArenaIdx<T> {
     raw: usize,
     phantom: PhantomData<T>,
+}
+
+impl<T> std::ops::Sub<usize> for ArenaIdx<T> {
+    type Output = Self;
+
+    fn sub(self, rhs: usize) -> Self::Output {
+        Self {
+            raw: self.raw - rhs,
+            phantom: PhantomData,
+        }
+    }
 }
 
 impl<T> Clone for ArenaIdx<T> {

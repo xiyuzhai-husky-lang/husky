@@ -8,7 +8,7 @@ use file::LiveFiles;
 #[cfg(test)]
 #[test]
 fn test_diagnostics() {
-    let mut db = HuskyLangDatabase::new(None);
+    let mut db = HuskyLangDatabase::new();
     db.set_live_file_text("play/main.hsk".into(), "struct A {}\n".into());
     db.set_live_file_text("play/main.hsk".into(), "s truct A {}\n".into());
     let modules = db.all_modules();

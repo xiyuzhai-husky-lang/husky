@@ -4,7 +4,7 @@ mod tests;
 pub use ast::AstQuery;
 pub use atom::AtomQuery;
 pub use file::{FileQuery, InternFile, LiveFiles};
-use husky_fmt::FormatQuery;
+pub use husky_fmt::FmtQuery;
 use interpreter::Interpreter;
 pub use scope::{InternScope, Scope, ScopeQuery, ScopeSalsaQuery};
 pub use word::InternWord;
@@ -53,30 +53,13 @@ impl salsa::ParallelDatabase for HuskyLangDatabase {
 }
 
 impl HuskyLangDatabase {
-    pub fn new(lru_capacity: Option<usize>) -> HuskyLangDatabase {
-        let mut db = Self {
+    pub fn new() -> HuskyLangDatabase {
+        Self {
             storage: Default::default(),
             file_interner: file::new_file_interner(),
             word_interner: word::new_word_interner(),
             scope_interner: scope::new_scope_interner(),
             live_docs: Default::default(),
-        };
-        // db.set_local_roots_with_durability(Default::default(), Durability::HIGH);
-        // db.set_library_roots_with_durability(Default::default(), Durability::HIGH);
-        db.update_lru_capacity(lru_capacity);
-        db
-    }
-
-    pub fn update_lru_capacity(&mut self, lru_capacity: Option<usize>) {
-        if lru_capacity.is_some() {
-            todo!()
-            // const _DEFAULT_LRU_CAP: usize = 128;
-            // msg_once!("TODO: update_lru_capacity");
-            // let lru_capacity = lru_capacity.unwrap_or(DEFAULT_LRU_CAP);
-            // // todo!();
-            // file::FileQuery
-            //     .in_db_mut(self)
-            //     .set_lru_capacity(lru_capacity);
         }
     }
 }
