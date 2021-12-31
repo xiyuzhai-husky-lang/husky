@@ -17,7 +17,7 @@ pub enum AtomicLineGroup {
     TypeDef {
         ident: CustomIdentifier,
         kind: TypeKind,
-        args: Vec<GenericPlaceholder>,
+        args: Vec<SpaceParamKind>,
     },
     MainDef,
     FuncDef {

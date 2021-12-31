@@ -33,12 +33,16 @@ impl<'a> AtomicTransformer<'a> {
     }
 }
 
-impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for AtomicTransformer<'a> {
+pub struct AtomTask {}
+
+impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult, AtomTask>
+    for AtomicTransformer<'a>
+{
     fn enter(&mut self) {}
 
     fn exit(&mut self) {}
 
-    fn post_exit(&mut self, idx: folded::FoldedIdx<AtomParseResult>) {}
+    fn post_exit(&mut self, task: AtomTask) {}
 
     fn transform(&mut self, indent: folded::Indent, tokens: &[Token]) -> AtomParseResult {
         use parser::*;
@@ -155,5 +159,9 @@ impl<'a> folded::Transformer<[Token], TokenizedText, AtomParseResult> for Atomic
 
     fn folded_outputs_mut(&mut self) -> &mut FoldedList<AtomParseResult> {
         &mut self.folded_results
+    }
+
+    fn designate_task(&self, output: &AtomParseResult) -> Option<AtomTask> {
+        None
     }
 }

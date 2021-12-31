@@ -1,3 +1,5 @@
+use common::*;
+
 use atom::BinaryOpr;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
@@ -23,7 +25,7 @@ pub enum Precedence {
 #[cfg(test)]
 #[test]
 fn test_precedence_order() {
-    assert!(Precedence::Power < Precedence::Prefix);
+    should!(Precedence::Power < Precedence::Prefix);
 }
 
 impl From<BinaryOpr> for Precedence {

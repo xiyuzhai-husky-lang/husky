@@ -24,9 +24,4 @@ pub use templates::*;
 pub use todo::*;
 pub use utils::*;
 
-pub mod test_utils {
-    // import this function to tests module so that p! could be used
-    pub fn assert_test_env() {}
-}
-
 pub type Range = std::ops::Range<usize>;

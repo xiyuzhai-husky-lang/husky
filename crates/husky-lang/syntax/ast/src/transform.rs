@@ -33,12 +33,18 @@ impl AtomToAstTransformer {
     }
 }
 
-impl folded::Transformer<AtomParseResult, AtomicText, AstGenResult> for AtomToAstTransformer {
+pub struct AstTask {}
+
+impl folded::Transformer<AtomParseResult, AtomicText, AstGenResult, AstTask>
+    for AtomToAstTransformer
+{
     fn enter(&mut self) {}
 
     fn exit(&mut self) {}
 
-    fn post_exit(&mut self, _: FoldedIdx<AstGenResult>) {}
+    fn post_exit(&mut self, task: AstTask) {
+        todo!()
+    }
 
     fn transform(
         &mut self,
@@ -71,7 +77,9 @@ impl folded::Transformer<AtomParseResult, AtomicText, AstGenResult> for AtomToAs
                                 stack.accept_list_end(*ket, *attr, atom.text_end())?
                             }
                             AtomKind::ListItem => stack.accept_list_item(),
-                            AtomKind::LambdaHead(args) => stack.accept_lambda_head(args.clone()),
+                            AtomKind::LambdaHead(args) => {
+                                stack.accept_lambda_head(args.clone(), atom.text_start())
+                            }
                         }
                     }
                     Some(stack.finish())
@@ -81,7 +89,7 @@ impl folded::Transformer<AtomParseResult, AtomicText, AstGenResult> for AtomToAs
             AtomicLineGroup::TypeDef { ident, kind, args } => Ok(Ast::TypeDef {
                 ident,
                 kind,
-                placeholders: args,
+                generics: args,
             }),
             AtomicLineGroup::MainDef => Ok(Ast::MainDef),
             AtomicLineGroup::FuncDef { kind, decl } => Ok(Ast::FuncDef { kind, decl }),
@@ -92,5 +100,9 @@ impl folded::Transformer<AtomParseResult, AtomicText, AstGenResult> for AtomToAs
 
     fn folded_outputs_mut(&mut self) -> &mut FoldedList<AstGenResult> {
         &mut self.folded_results
+    }
+
+    fn designate_task(&self, output: &AstGenResult) -> Option<AstTask> {
+        None
     }
 }

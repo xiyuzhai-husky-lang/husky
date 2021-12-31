@@ -1,3 +1,5 @@
+use common::*;
+
 #[salsa::query_group(SimpleQueryStorage)]
 trait SimpleQuery: salsa::Database {
     #[salsa::input]
@@ -21,23 +23,23 @@ impl salsa::Database for SimpleDatabase {}
 pub fn simple1() {
     let mut db = SimpleDatabase::default();
     db.set_input(1);
-    assert_eq!(db.output(), 1);
+    should_be!(db.output(), 1);
 }
 
 #[test]
 pub fn simple2() {
     let mut db = SimpleDatabase::default();
     db.set_input(1);
-    assert_eq!(db.output(), 1);
+    should_be!(db.output(), 1);
     db.set_input(2);
-    assert_eq!(db.output(), 2);
+    should_be!(db.output(), 2);
 }
 
 #[test]
 pub fn simple3() {
     let mut db = SimpleDatabase::default();
     db.set_input(1);
-    assert_eq!(db.output(), 1);
+    should_be!(db.output(), 1);
     db.set_input(2);
-    assert_eq!(db.output(), 2);
+    should_be!(db.output(), 2);
 }

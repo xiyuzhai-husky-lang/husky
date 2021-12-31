@@ -263,11 +263,6 @@ macro_rules! comma_list {
         (firsts, seconds)
     }};
 
-
-    ($this:expr, $first_patt:ident?, $second_patt:ident!, ">") => {{
-        comma_list!($this, $first_patt?, $second_patt!, RAngle)
-    }};
-
     ($this:expr, $patt:ident, $terminator:ident) => {{
         let mut args = Vec::new();
         if !next_matches!($this, Special::$terminator) {

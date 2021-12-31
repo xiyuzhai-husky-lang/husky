@@ -1,3 +1,4 @@
+use common::*;
 use std::marker::PhantomData;
 
 use crate::*;
@@ -51,16 +52,28 @@ where
     }
 }
 
-impl<'a, Value: 'a, Storage> Iterator for FoldedIter<'a, Value, Storage>
+#[derive(Debug)]
+pub struct FoldedIterItem<'a, Value: 'a, Storage>
 where
     Value: ?Sized,
     Storage: FoldedContainer<Value>,
 {
-    type Item = (usize, Indent, &'a Value, Option<Self>);
+    pub idx: usize,
+    pub indent: Indent,
+    pub value: &'a Value,
+    pub children: Option<FoldedIter<'a, Value, Storage>>,
+}
+
+impl<'a, Value: 'a, Storage> Iterator for FoldedIter<'a, Value, Storage>
+where
+    Value: ?Sized + 'a,
+    Storage: FoldedContainer<Value>,
+{
+    type Item = FoldedIterItem<'a, Value, Storage>;
 
     fn next(&mut self) -> Option<Self::Item> {
         if let Some(idx) = self.next {
-            let next_children = if idx + 1 >= self.storage.len() {
+            let children = if idx + 1 >= self.storage.len() {
                 None
             } else if self.storage.indent(idx + 1) > self.storage.indent(idx) {
                 Some(self.next_level_iter(Some(idx + 1)))
@@ -70,14 +83,14 @@ where
             self.next = self.storage.next_sibling(idx);
             #[cfg(test)]
             if let Some(raw) = self.next {
-                assert!(raw < self.storage.len());
+                should!(raw < self.storage.len());
             }
-            Some((
+            Some(Self::Item {
                 idx,
-                self.storage.indent(idx),
-                self.storage.value(idx),
-                next_children,
-            ))
+                indent: self.storage.indent(idx),
+                value: self.storage.value(idx),
+                children,
+            })
         } else {
             None
         }

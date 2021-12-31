@@ -1,5 +1,3 @@
-use scope::LifetimeParameter;
-
 use super::*;
 
 /// parse scope from left to right
@@ -70,10 +68,7 @@ impl<'a> ScopeLRParser<'a> {
         })
     }
 
-    fn lifetimes_and_generics(
-        &mut self,
-        route: ScopeRoute,
-    ) -> AtomResult<(Vec<LifetimeParameter>, Vec<GenericArgument>)> {
+    fn lifetimes_and_generics(&mut self, route: ScopeRoute) -> AtomResult<Vec<GenericArgument>> {
         match route {
             ScopeRoute::Builtin(ident) => match ident {
                 BuiltinIdentifier::Void
@@ -81,17 +76,17 @@ impl<'a> ScopeLRParser<'a> {
                 | BuiltinIdentifier::F32
                 | BuiltinIdentifier::Debug
                 | BuiltinIdentifier::Std
-                | BuiltinIdentifier::Core => Ok((Vec::new(), Vec::new())),
+                | BuiltinIdentifier::Core => Ok(Vec::new()),
                 BuiltinIdentifier::Fp
                 | BuiltinIdentifier::Fn
                 | BuiltinIdentifier::FnMut
-                | BuiltinIdentifier::FnOnce => Ok((Vec::new(), self.func_args()?)),
+                | BuiltinIdentifier::FnOnce => Ok(self.func_args()?),
                 BuiltinIdentifier::Vector | BuiltinIdentifier::Array | BuiltinIdentifier::Tuple => {
                     self.angled_lifetimes_and_generics()
                 }
             },
             _ => match self.scope_proxy.db.scope_kind_from_route(route) {
-                ScopeKind::Module | ScopeKind::Value => Ok((Vec::new(), Vec::new())),
+                ScopeKind::Module | ScopeKind::Value => Ok(Vec::new()),
                 ScopeKind::Type | ScopeKind::Trait | ScopeKind::Func => {
                     self.angled_lifetimes_and_generics()
                 }
@@ -112,27 +107,12 @@ impl<'a> ScopeLRParser<'a> {
         Ok(args)
     }
 
-    fn angled_lifetimes_and_generics(
-        &mut self,
-    ) -> Result<(Vec<LifetimeParameter>, Vec<GenericArgument>), AtomError> {
+    fn angled_lifetimes_and_generics(&mut self) -> AtomResult<Vec<GenericArgument>> {
         Ok(if next_matches!(self, Special::LAngle) {
-            comma_list![self, lifetime?, generic!, ">"]
+            comma_list![self, generic!+, ">"]
         } else {
-            (Vec::new(), Vec::new())
+            Vec::new()
         })
-    }
-
-    fn lifetime(&mut self) -> AtomResult<Option<LifetimeParameter>> {
-        if next_matches!(self, "'") {
-            if next_matches!(self, "_") {
-                Ok(Some(LifetimeParameter::Elided))
-            } else {
-                let ident = get!(self, custom_ident);
-                Ok(Some(LifetimeParameter::Explicit(ident)))
-            }
-        } else {
-            Ok(None)
-        }
     }
 
     fn generic(&mut self) -> AtomResult<GenericArgument> {

@@ -59,13 +59,13 @@ impl Invalidator for MyDatabase {
 #[test]
 fn change_file() {
     let mut db = MyDatabase::default();
-    assert_eq!(db.output(), 0);
-    assert_eq!(db.output2(), 0);
+    should_be!(db.output(), 0);
+    should_be!(db.output2(), 0);
     db.global_value = 1;
-    assert_eq!(db.output(), 0);
-    assert_eq!(db.output2(), 0);
+    should_be!(db.output(), 0);
+    should_be!(db.output2(), 0);
     db.invalidate_input();
-    assert_eq!(db.output(), 1);
+    should_be!(db.output(), 1);
     ep!(db.output2());
-    assert_eq!(db.output2(), 1);
+    should_be!(db.output2(), 1);
 }

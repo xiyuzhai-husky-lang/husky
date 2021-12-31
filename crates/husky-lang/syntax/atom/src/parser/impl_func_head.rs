@@ -7,18 +7,19 @@ use super::*;
 impl<'a> ScopeLRParser<'a> {
     pub(crate) fn func_decl(&mut self) -> AtomResult<FuncDecl> {
         let funcname = get!(self, custom_ident);
-        let placeholders = self.placeholders()?;
+        let space_params = self.placeholders()?;
         let inputs = self.func_input_types()?;
         let output = self.func_output_type()?;
         Ok(FuncDecl {
             funcname,
-            placeholders,
+            time_params: Vec::new(),
+            space_params,
             inputs,
             output,
         })
     }
 
-    fn placeholders(&mut self) -> AtomResult<Vec<GenericPlaceholder>> {
+    fn placeholders(&mut self) -> AtomResult<Vec<SpaceParameter>> {
         if next_matches!(self, "<") {
             Ok(comma_list![self, placeholder!+, ">"])
         } else {
@@ -26,7 +27,7 @@ impl<'a> ScopeLRParser<'a> {
         }
     }
 
-    fn placeholder(&mut self) -> AtomResult<GenericPlaceholder> {
+    fn placeholder(&mut self) -> AtomResult<SpaceParameter> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
@@ -35,7 +36,10 @@ impl<'a> ScopeLRParser<'a> {
                 todo!()
             }
         }
-        Ok(GenericPlaceholder { ident, traits })
+        Ok(SpaceParameter {
+            ident,
+            kind: SpaceParamKind::Type { traits },
+        })
     }
 
     fn func_input_types(&mut self) -> AtomResult<Vec<(CustomIdentifier, InputType)>> {

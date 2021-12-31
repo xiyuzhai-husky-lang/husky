@@ -27,26 +27,17 @@ pub trait InternScope {
     fn intern_scope(&self, scope: Scope) -> ScopeId {
         self.provide_scope_interner().id(scope)
     }
-    fn make_scope(
-        &self,
-        route: ScopeRoute,
-        (lifetimes, generics): (Vec<LifetimeParameter>, Vec<GenericArgument>),
-    ) -> ScopeId {
-        self.provide_scope_interner().id(Scope {
-            route,
-            lifetimes,
-            generics,
-        })
+    fn make_scope(&self, route: ScopeRoute, generics: Vec<GenericArgument>) -> ScopeId {
+        self.provide_scope_interner().id(Scope { route, generics })
     }
     fn make_child_scope(
         &self,
         parent: ScopeId,
         ident: CustomIdentifier,
-        (lifetimes, generics): (Vec<LifetimeParameter>, Vec<GenericArgument>),
+        generics: Vec<GenericArgument>,
     ) -> ScopeId {
         self.provide_scope_interner().id(Scope {
             route: ScopeRoute::ChildScope(parent, ident),
-            lifetimes,
             generics,
         })
     }

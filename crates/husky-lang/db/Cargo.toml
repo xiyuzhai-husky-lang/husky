@@ -31,5 +31,4 @@ scope = { path = "../syntax/scope", version = "0.0.0" }
 atom = { path = "../syntax/atom", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 husky-fmt = { path = "../fmt", version = "0.0.0" }
-interpreter = { path = "../interpreter", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }
