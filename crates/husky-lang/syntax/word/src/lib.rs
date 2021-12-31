@@ -50,8 +50,8 @@ impl From<TypeKeyword> for Word {
 }
 
 impl From<FuncKeyword> for Word {
-    fn from(Func: FuncKeyword) -> Self {
-        Self::Keyword(Func.into())
+    fn from(func: FuncKeyword) -> Self {
+        Self::Keyword(func.into())
     }
 }
 

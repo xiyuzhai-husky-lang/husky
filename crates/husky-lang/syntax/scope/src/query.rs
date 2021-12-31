@@ -11,8 +11,6 @@ use std::{path::PathBuf, sync::Arc};
 pub trait ScopeSalsaQuery: token::TokenSalsaQuery + InternScope {
     fn subscope_table(&self, scope_id: ScopeId) -> ScopeResultArc<SubscopeTable>;
 
-    fn scope_alias_table(&self, scope_id: ScopeId) -> ScopeResultArc<ScopeAliasTable>;
-
     fn subscope_ids(&self, scope_id: ScopeId) -> Arc<Vec<ScopeId>>;
 
     fn scope_kind(&self, scope_id: ScopeId) -> ScopeKind;
@@ -25,13 +23,13 @@ pub trait ScopeSalsaQuery: token::TokenSalsaQuery + InternScope {
 fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultArc<SubscopeTable> {
     Ok(Arc::new(match this.scope_source(scope_id)? {
         ScopeSource::Builtin(_) => todo!(),
-        ScopeSource::WithinModule {
+        ScopeSource::WithinCustomModule {
             file_id,
             token_group_index,
         } => {
             let text = this.tokenized_text(file_id)?;
-            let (_, _, _, children) = text.folded_iter(token_group_index).next().unwrap();
-            if let Some(children) = children {
+            let item = text.folded_iter(token_group_index).next().unwrap();
+            if let Some(children) = item.children {
                 SubscopeTable::parse(file_id, children)
             } else {
                 SubscopeTable::empty()
@@ -41,30 +39,7 @@ fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultA
             let text = this.tokenized_text(file_id)?;
             SubscopeTable::parse(file_id, text.folded_iter(0))
         }
-    }))
-}
-
-fn scope_alias_table(
-    this: &dyn ScopeSalsaQuery,
-    scope_id: ScopeId,
-) -> ScopeResultArc<ScopeAliasTable> {
-    Ok(Arc::new(match this.scope_source(scope_id)? {
-        ScopeSource::Builtin(_) => ScopeAliasTable::empty(),
-        ScopeSource::WithinModule {
-            file_id,
-            token_group_index,
-        } => ScopeAliasTable::parse(
-            file_id,
-            this.tokenized_text(file_id)?
-                .folded_iter(token_group_index)
-                .next()
-                .unwrap()
-                .3
-                .unwrap(),
-        ),
-        ScopeSource::Module { file_id } => {
-            ScopeAliasTable::parse(file_id, this.tokenized_text(file_id)?.folded_iter(0))
-        }
+        ScopeSource::WithinBuiltinModule => todo!(),
     }))
 }
 
@@ -166,14 +141,13 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
         &self,
         parent_scope: ScopeId,
         ident: CustomIdentifier,
-        lifetimes: Vec<LifetimeParameter>,
         generics: Vec<GenericArgument>,
     ) -> Option<Scope> {
         if self
             .subscope_table(parent_scope)
             .map_or(false, |table| table.has_subscope(ident, &generics))
         {
-            Some(Scope::child_scope(parent_scope, ident, lifetimes, generics))
+            Some(Scope::child_scope(parent_scope, ident, generics))
         } else {
             None
         }
@@ -267,8 +241,9 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     fn module_to_file_id(&self, module: Module) -> ScopeResult<FileId> {
         Ok(match self.scope_source(module.scope_id)? {
             ScopeSource::Builtin(_) => todo!(),
-            ScopeSource::WithinModule { file_id, .. } => file_id,
+            ScopeSource::WithinCustomModule { file_id, .. } => file_id,
             ScopeSource::Module { file_id } => file_id,
+            ScopeSource::WithinBuiltinModule => todo!(),
         })
     }
 
@@ -278,7 +253,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     {
         let path = self.filepath(parent_id);
 
-        assert!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(&path, "main.hsk"));
+        should!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(&path, "main.hsk"));
 
         let module_path1 = word::convert_ident(self, ident.into(), |s: &str| {
             path.with_file_name(format!("{}.hsk", s))

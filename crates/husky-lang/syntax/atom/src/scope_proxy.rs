@@ -19,11 +19,10 @@ impl<'a> ScopeProxy<'a> {
     pub fn builtin_type_atom(
         &self,
         ident: BuiltinIdentifier,
-        lifetimes: Vec<LifetimeParameter>,
         generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
-        let scope = Scope::builtin(ident.into(), lifetimes, generics);
+        let scope = Scope::builtin(ident.into(), generics);
         let kind = AtomKind::Scope(self.db.intern_scope(scope), ScopeKind::Type);
         Atom::new(tail, kind)
     }
@@ -51,7 +50,6 @@ impl<'a> ScopeProxy<'a> {
         self.db.subscope(
             self.db.intern_scope(parent_scope),
             subscope_ident,
-            Vec::new(),
             Vec::new(),
         )
     }

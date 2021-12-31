@@ -48,19 +48,13 @@ impl<T> FoldedList<T> {
         &self.nodes
     }
 
-    pub fn append(
-        &mut self,
-        indent: Indent,
-        value: T,
-        next_sibling: Option<usize>,
-    ) -> FoldedIdx<T> {
+    pub fn append(&mut self, indent: Indent, value: T, next_sibling: Option<usize>) {
         let raw = self.nodes.len();
         self.nodes.push(FoldedNode {
             indent,
             value,
             next_sibling,
         });
-        raw.into()
     }
 }
 

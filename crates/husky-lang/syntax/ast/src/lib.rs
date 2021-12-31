@@ -25,7 +25,7 @@ pub enum Ast {
     TypeDef {
         ident: CustomIdentifier,
         kind: TypeKind,
-        placeholders: Vec<GenericPlaceholder>,
+        generics: Vec<SpaceParamKind>,
     },
     MainDef,
     FuncDef {

@@ -20,8 +20,8 @@ impl ScopeAliasTable {
     pub fn parse(file_id: FileId, token_groups: token::TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
-            .filter_map(|(index, _, token_group, _)| {
-                let (entry, error) = Entry::parse(file_id, index, token_group);
+            .filter_map(|item| {
+                let (entry, error) = Entry::parse(file_id, item.idx, item.value);
                 error.map(|error| errors.push(error));
                 entry
             })

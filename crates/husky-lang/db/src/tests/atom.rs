@@ -1,12 +1,9 @@
 mod builtin;
 mod generics;
 mod lambda;
-mod lifetimes;
 mod utils;
 
 use crate::*;
-
-use test_utils::assert_test_env;
 
 #[test]
 fn no_error_single_file() {

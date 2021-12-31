@@ -2,8 +2,6 @@ use crate::*;
 
 use common::*;
 
-use test_utils::assert_test_env;
-
 impl ItemToFold<()> for u16 {
     fn value(&self) -> () {
         ()
@@ -18,15 +16,20 @@ impl ItemToFold<()> for u16 {
 fn fold_items1() {
     let items: Vec<u16> = vec![0, 4, 0].into();
     let folded_items: FoldedList<()> = items.into();
-    assert_eq!(folded_items.nodes[1].next_sibling, None);
+    should_be!(folded_items.nodes[1].next_sibling, None);
 }
 
 #[test]
 fn fold_items2() {
     let items: Vec<u16> = vec![0, 4, 0, 4, 4].into();
     let folded_items: FoldedList<()> = items.into();
-    assert!(folded_items.folded_iter(1).next().unwrap().3.is_none());
-    assert_eq!(folded_items.nodes[3].next_sibling, Some(4));
+    should!(folded_items
+        .folded_iter(1)
+        .next()
+        .unwrap()
+        .children
+        .is_none());
+    should_be!(folded_items.nodes[3].next_sibling, Some(4));
 }
 
 pub struct TrivialTransformer {
@@ -38,12 +41,16 @@ impl<'a> Transformer<(), FoldedList<()>, ()> for TrivialTransformer {
 
     fn exit(&mut self) {}
 
-    fn post_exit(&mut self, idx: folded_list::FoldedIdx<()>) {}
+    fn post_exit(&mut self, task: ()) {}
 
     fn transform(&mut self, indent: Indent, input: &()) -> () {}
 
     fn folded_outputs_mut(&mut self) -> &mut FoldedList<()> {
         &mut self.folded_outputs
+    }
+
+    fn designate_task(&self, output: &()) -> Option<()> {
+        None
     }
 }
 
@@ -54,12 +61,17 @@ fn transform() {
     let mut transformer = TrivialTransformer {
         folded_outputs: FoldedList::<()>::new(),
     };
-    assert!(folded_items.folded_iter(2).next().unwrap().3.is_some());
+    should!(folded_items
+        .folded_iter(2)
+        .next()
+        .unwrap()
+        .children
+        .is_some());
     for i in 0..folded_items.len() {
         let mut iter = folded_items.folded_iter(i);
         p!(i, iter, iter.next());
     }
     transformer.transform_all(folded_items.folded_iter(0));
-    assert_eq!(transformer.folded_outputs.len(), 5);
+    should_be!(transformer.folded_outputs.len(), 5);
     p!(transformer.folded_outputs);
 }

@@ -7,49 +7,56 @@ use crate::{expr::error::ExprRule, expr::precedence::Precedence, *};
 
 pub(crate) struct ExprStack<'a> {
     arena: &'a mut ExprArena,
-    oprs: Vec<StackOpr>,
+    oprs: Vec<ExprStackOpr>,
     exprs: Vec<Expr>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-struct StackOpr {
+struct ExprStackOpr {
     precedence: Precedence,
-    kind: StackOprKind,
+    kind: ExprStackOprKind,
 }
 
-impl StackOpr {
+impl ExprStackOpr {
     fn binary(opr: BinaryOpr) -> Self {
         let precedence = opr.into();
         Self {
             precedence: precedence,
-            kind: StackOprKind::Binary(opr),
+            kind: ExprStackOprKind::Binary(opr),
         }
     }
 
     fn prefix(prefix: PrefixOpr, start: TextPosition) -> Self {
         Self {
             precedence: Precedence::Prefix,
-            kind: StackOprKind::Prefix { prefix, start },
+            kind: ExprStackOprKind::Prefix { prefix, start },
         }
     }
 
     fn list_item() -> Self {
         Self {
             precedence: Precedence::None,
-            kind: StackOprKind::ListItem,
+            kind: ExprStackOprKind::ListItem,
         }
     }
 
     fn list_start(bra: Bracket, attr: ListStartAttr, start: TextPosition) -> Self {
         Self {
             precedence: Precedence::None,
-            kind: StackOprKind::ListStart { bra, attr, start },
+            kind: ExprStackOprKind::ListStart { bra, attr, start },
+        }
+    }
+
+    fn lambda_head(inputs: Vec<(CustomIdentifier, Option<ScopeId>)>, start: TextPosition) -> Self {
+        Self {
+            precedence: Precedence::LambdaHead,
+            kind: ExprStackOprKind::LambdaHead { inputs, start },
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-enum StackOprKind {
+enum ExprStackOprKind {
     Binary(BinaryOpr),
     ListItem,
     Prefix {
@@ -61,7 +68,10 @@ enum StackOprKind {
         attr: ListStartAttr,
         start: TextPosition,
     },
-    LambdaHead(LambdaHead, TextPosition),
+    LambdaHead {
+        inputs: Vec<(CustomIdentifier, Option<ScopeId>)>,
+        start: TextPosition,
+    },
 }
 
 impl<'a> std::fmt::Debug for ExprStack<'a> {
@@ -84,7 +94,7 @@ impl<'a> ExprStack<'a> {
 
     pub(crate) fn finish(mut self) -> ExprIdx {
         self.synthesize_all_above(Precedence::None);
-        assert!(self.exprs.len() == 1);
+        should!(self.exprs.len() == 1);
         self.arena.alloc_one(self.exprs.pop().unwrap())
     }
 
@@ -96,14 +106,14 @@ impl<'a> ExprStack<'a> {
     ) {
         match attr {
             ListStartAttr::None => (),
-            ListStartAttr::Attach => self.oprs.push(StackOpr::list_item()),
+            ListStartAttr::Attach => self.oprs.push(ExprStackOpr::list_item()),
         };
-        self.oprs.push(StackOpr::list_start(bra, attr, start))
+        self.oprs.push(ExprStackOpr::list_start(bra, attr, start))
     }
 
     pub(crate) fn accept_list_item(&mut self) {
         self.synthesize_all_above(Precedence::ListItem);
-        self.oprs.push(StackOpr::list_item())
+        self.oprs.push(ExprStackOpr::list_item())
     }
 
     pub(crate) fn accept_list_end(
@@ -116,13 +126,13 @@ impl<'a> ExprStack<'a> {
     }
 
     pub(crate) fn accept_binary(&mut self, binary: BinaryOpr) {
-        let stack_opr = StackOpr::binary(binary);
+        let stack_opr = ExprStackOpr::binary(binary);
         self.synthesize_all_above(stack_opr.precedence);
         self.oprs.push(stack_opr);
     }
 
     pub(crate) fn accept_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
-        self.oprs.push(StackOpr::prefix(prefix, start))
+        self.oprs.push(ExprStackOpr::prefix(prefix, start))
     }
 
     pub(crate) fn accept_suffix(&mut self, suffix: SuffixOpr, end: TextPosition) {
@@ -133,13 +143,17 @@ impl<'a> ExprStack<'a> {
         self.exprs.push(expr);
     }
 
-    pub(crate) fn accept_lambda_head(&mut self, args: Vec<(CustomIdentifier, Option<ScopeId>)>) {
-        todo!()
+    pub(crate) fn accept_lambda_head(
+        &mut self,
+        inputs: Vec<(CustomIdentifier, Option<ScopeId>)>,
+        start: TextPosition,
+    ) {
+        self.oprs.push(ExprStackOpr::lambda_head(inputs, start))
     }
 }
 
 impl<'a> ExprStack<'a> {
-    fn top(&self, i: usize) -> &StackOpr {
+    fn top(&self, i: usize) -> &ExprStackOpr {
         &self.oprs[self.oprs.len() - 1 - i]
     }
     fn synthesize_list(
@@ -155,8 +169,8 @@ impl<'a> ExprStack<'a> {
                     todo!()
                 }
                 match self.top(i).kind {
-                    StackOprKind::ListItem => (),
-                    StackOprKind::ListStart { bra, attr, start } => {
+                    ExprStackOprKind::ListItem => (),
+                    ExprStackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
                             return Err(ExprError::new(
                                 self.exprs[0].range.start..end,
@@ -202,9 +216,14 @@ impl<'a> ExprStack<'a> {
             if stack_opr.precedence >= threshold {
                 self.oprs.pop();
                 match stack_opr.kind {
-                    StackOprKind::Binary(binary) => self.synthesize_binary(binary),
-                    StackOprKind::Prefix { prefix, start } => self.synthesize_prefix(prefix, start),
-                    _ => panic!(),
+                    ExprStackOprKind::Binary(binary) => self.synthesize_binary(binary),
+                    ExprStackOprKind::Prefix { prefix, start } => {
+                        self.synthesize_prefix(prefix, start)
+                    }
+                    ExprStackOprKind::LambdaHead { inputs, start } => {
+                        self.synthesize_lambda(inputs, start)
+                    }
+                    ExprStackOprKind::ListItem | ExprStackOprKind::ListStart { .. } => panic!(),
                 }
             } else {
                 return;
@@ -252,5 +271,18 @@ impl<'a> ExprStack<'a> {
             range,
             kind: ExprKind::Opn { opr: opr, opds },
         });
+    }
+
+    fn synthesize_lambda(
+        &mut self,
+        inputs: Vec<(CustomIdentifier, Option<ScopeId>)>,
+        start: TextPosition,
+    ) {
+        let range = (start..self.exprs.last().unwrap().range.end).into();
+        let lambda_expr = Expr {
+            range,
+            kind: ExprKind::Lambda(inputs, self.arena.alloc_one(self.exprs.pop().unwrap())),
+        };
+        self.exprs.push(lambda_expr);
     }
 }

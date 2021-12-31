@@ -1,39 +1,38 @@
-use common::repeat_less_than;
+use common::*;
 
 use crate::*;
 
-pub trait Transformer<Input, Storage, Output>
+pub trait Transformer<Input, InputContainer, Output, Task = ()>
 where
-    Storage: FoldedContainer<Input>,
+    InputContainer: FoldedContainer<Input>,
     Input: ?Sized,
 {
     fn enter(&mut self);
     fn exit(&mut self);
-    fn post_exit(&mut self, idx: folded_list::FoldedIdx<Output>);
+    fn designate_task(&self, output: &Output) -> Option<Task>;
+    fn post_exit(&mut self, task: Task);
     fn transform(&mut self, indent: Indent, input: &Input) -> Output;
     fn folded_outputs_mut(&mut self) -> &mut FoldedList<Output>;
 
-    fn transform_all<'a>(&mut self, mut iter: FoldedIter<'a, Input, Storage>)
+    fn transform_all<'a>(&mut self, mut iter: FoldedIter<'a, Input, InputContainer>)
     where
         Input: 'a,
     {
-        while let Some((index, indent, value, children)) = iter.next() {
+        while let Some(item) = iter.next() {
+            should_be!(self.folded_outputs_mut().nodes.len(), item.idx);
+
             // parse current
             self.enter();
-            let parse_result = self.transform(indent, value);
-
-            #[cfg(test)]
-            assert_eq!(self.folded_outputs_mut().nodes.len(), index);
-
-            let idx = self
-                .folded_outputs_mut()
-                .append(indent, parse_result, iter.next);
+            let parse_result = self.transform(item.indent, item.value);
+            let task = self.designate_task(&parse_result);
+            self.folded_outputs_mut()
+                .append(item.indent, parse_result, iter.next);
             // parse children
-            if let Some(children) = children {
+            if let Some(children) = item.children {
                 self.transform_all(children);
             }
             self.exit();
-            self.post_exit(idx);
+            task.map(|task| self.post_exit(task));
         }
     }
 }

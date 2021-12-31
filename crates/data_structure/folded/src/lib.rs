@@ -3,11 +3,13 @@ mod folded_list;
 mod folded_stack;
 #[cfg(test)]
 mod tests;
+mod transcriber;
 mod transformer;
 
 pub use folded_iter::FoldedIter;
 pub use folded_list::{FoldedIdx, FoldedList, FoldedNode, ItemToFold};
 pub use folded_stack::FoldedStack;
+pub use transcriber::Transcriber;
 pub use transformer::Transformer;
 
 pub trait FoldedContainer<Value>

@@ -14,7 +14,8 @@ use crate::*;
 pub struct Formatter<'a> {
     word_interner: &'a WordInterner,
     arena: &'a ast::ExprArena,
-    formatted_text: FormattedText,
+    indent: folded::Indent,
+    result: String,
 }
 
 impl<'a> Formatter<'a> {
@@ -22,33 +23,40 @@ impl<'a> Formatter<'a> {
         Self {
             word_interner,
             arena,
-            formatted_text: FormattedText::new(),
+            indent: 0,
+            result: String::new(),
         }
     }
 
-    pub(crate) fn finish(self) -> FormattedText {
-        self.formatted_text
+    pub(crate) fn finish(self) -> String {
+        self.result
     }
 }
 
-pub struct Writer {
-    indent: folded::Indent,
-    result: String,
-}
+impl<'a> folded::Transcriber<AstGenResult, folded::FoldedList<AstGenResult>> for Formatter<'a> {
+    fn enter(&mut self) {}
 
-impl Writer {
-    fn new(indent: folded::Indent) -> Self {
-        let mut writer = Writer {
-            indent,
-            result: String::new(),
-        };
-        writer.newline();
-        writer
+    fn exit(&mut self) {}
+
+    fn post_exit(&mut self, task: ()) {
+        todo!()
     }
 
+    fn transcribe(&mut self, indent: folded::Indent, input: &AstGenResult) -> Option<()> {
+        self.indent = indent;
+        if self.result.len() > 0 {
+            self.newline();
+        }
+        self.fmt(input.as_ref().unwrap());
+        None
+    }
+}
+
+impl<'a> Formatter<'a> {
     fn newline(&mut self) {
         self.result
-            .reserve(self.result.len() + self.indent as usize);
+            .reserve(self.result.len() + self.indent as usize + 1);
+        self.result.push('\n');
         for _ in 0..self.indent {
             self.result.push(' ');
         }
@@ -57,86 +65,60 @@ impl Writer {
     fn write(&mut self, s: &str) {
         self.result += s;
     }
-
-    fn finish(self) -> String {
-        self.result
-    }
-}
-
-impl<'a> folded::Transformer<AstGenResult, folded::FoldedList<AstGenResult>, ast::AstResult<String>>
-    for Formatter<'a>
-{
-    fn enter(&mut self) {}
-
-    fn exit(&mut self) {}
-
-    fn post_exit(&mut self, _: FoldedIdx<ast::AstResult<String>>) {}
-
-    fn transform(
-        &mut self,
-        indent: folded::Indent,
-        input: &AstGenResult,
-    ) -> ast::AstResult<String> {
-        Ok(self.fmt(input.as_ref().map_err(|e| e.clone())?, Writer::new(indent)))
-    }
-
-    fn folded_outputs_mut(&mut self) -> &mut FormattedText {
-        &mut self.formatted_text
-    }
 }
 
 impl<'a> Formatter<'a> {
-    fn fmt(&self, ast: &ast::Ast, mut writer: Writer) -> String {
+    fn fmt(&mut self, ast: &ast::Ast) {
         match ast {
             ast::Ast::TypeDef {
                 ident,
                 kind,
-                placeholders: args,
+                generics,
             } => {
                 epin!();
                 match kind {
                     TypeKind::Enum(_) => todo!(),
-                    TypeKind::Struct => writer.write("struct "),
+                    TypeKind::Struct => self.write("struct "),
                 }
-                self.fmt_ident(&mut writer, ident.into());
-                if args.len() > 0 {
+                self.fmt_ident(ident.into());
+                if generics.len() > 0 {
                     todo!()
                 }
             }
-            ast::Ast::MainDef => writer.write("main:"),
+            ast::Ast::MainDef => self.write("main:"),
             ast::Ast::FuncDef { kind, decl } => {
-                writer.write(match kind {
+                self.write(match kind {
                     FuncKind::Test => "test ",
                     FuncKind::Proc => todo!(),
                     FuncKind::PureFunc => "func ",
                     FuncKind::Def => todo!(),
                 });
                 self.word_interner
-                    .apply(decl.funcname.into(), |s| writer.write(s));
-                writer.write("(");
+                    .apply(decl.funcname.into(), |s| self.write(s));
+                self.write("(");
                 for i in 0..decl.inputs.len() {
                     if i > 0 {
-                        writer.write(", ");
+                        self.write(", ");
                     }
                     let (ident, ty) = &decl.inputs[i];
-                    self.fmt_ident(&mut writer, ident.into());
-                    writer.write(": ");
-                    self.fmt_func_input_contracted_type(&mut writer, ty);
+                    self.fmt_ident(ident.into());
+                    self.write(": ");
+                    self.fmt_func_input_contracted_type(ty);
                 }
-                writer.write(")");
+                self.write(")");
                 if decl.output != ScopeId::Builtin(BuiltinIdentifier::Void) {
-                    writer.write(" -> ");
-                    self.fmt_type(&mut writer, decl.output);
+                    self.write(" -> ");
+                    self.fmt_type(decl.output);
                 }
-                writer.write(":");
+                self.write(":");
             }
             ast::Ast::PatternDef => todo!(),
             ast::Ast::Use { ident, scope } => todo!(),
             ast::Ast::MembDef { ident, kind } => match kind {
                 MembKind::MembVar { ty } => {
-                    self.fmt_ident(&mut writer, ident.into());
-                    writer.write(": ");
-                    self.fmt_member_variable_contracted_type(&mut writer, ty);
+                    self.fmt_ident(ident.into());
+                    self.write(": ");
+                    self.fmt_member_variable_contracted_type(ty);
                 }
                 MembKind::MembFunc {
                     this,
@@ -145,91 +127,92 @@ impl<'a> Formatter<'a> {
                     args,
                 } => todo!(),
             },
-            ast::Ast::Stmt(stmt) => self.fmt_stmt(&mut writer, stmt),
+            ast::Ast::Stmt(stmt) => self.fmt_stmt(stmt),
         }
-        writer.finish()
     }
 
-    fn fmt_ident(&self, writer: &mut Writer, ident: word::Identifier) {
+    fn fmt_ident(&mut self, ident: word::Identifier) {
         self.word_interner
-            .apply(word::Word::Identifier(ident), |s: &str| writer.write(s))
+            .apply(word::Word::Identifier(ident), |s: &str| {
+                self.result.add_assign(s)
+            })
     }
 
-    fn fmt_member_variable_contracted_type(&self, writer: &mut Writer, ty: &InputType) {
+    fn fmt_member_variable_contracted_type(&mut self, ty: &InputType) {
         match ty.contract {
             InputContract::Intact => todo!(),
             InputContract::Share => todo!(),
             InputContract::Own => (),
         }
-        self.fmt_type(writer, ty.ty);
+        self.fmt_type(ty.ty);
     }
 
-    fn fmt_func_input_contracted_type(&self, writer: &mut Writer, ty: &InputType) {
+    fn fmt_func_input_contracted_type(&mut self, ty: &InputType) {
         match ty.contract {
             InputContract::Intact => (),
-            InputContract::Share => writer.write("&"),
-            InputContract::Own => writer.write("!"),
+            InputContract::Share => self.write("&"),
+            InputContract::Own => self.write("!"),
         }
-        self.fmt_type(writer, ty.ty);
+        self.fmt_type(ty.ty);
     }
 
-    fn fmt_type(&self, writer: &mut Writer, ty: ScopeId) {
+    fn fmt_type(&mut self, ty: ScopeId) {
         match ty {
-            ScopeId::Builtin(ident) => writer.write(ident.code()),
+            ScopeId::Builtin(ident) => self.write(ident.code()),
             ScopeId::Custom(_) => todo!(),
         }
     }
 
-    fn fmt_stmt(&self, writer: &mut Writer, stmt: &ast::Stmt) {
+    fn fmt_stmt(&mut self, stmt: &ast::Stmt) {
         match stmt {
             ast::Stmt::Loop(_) => todo!(),
             ast::Stmt::Branch(_) => todo!(),
-            ast::Stmt::Exec { expr } => todo!(),
+            ast::Stmt::Exec(expr) => self.fmt_expr(&self.arena[expr]),
             ast::Stmt::Init {
                 kind,
                 varname,
                 initial_value,
             } => {
                 match kind {
-                    ast::InitKind::Let => writer.write("let "),
-                    ast::InitKind::Var => writer.write("var "),
+                    ast::InitKind::Let => self.write("let "),
+                    ast::InitKind::Var => self.write("var "),
                     ast::InitKind::Functional => (),
                 }
-                self.fmt_ident(writer, varname.into());
-                writer.write(" = ");
-                self.fmt_expr(writer, &self.arena[initial_value]);
+                self.fmt_ident(varname.into());
+                self.write(" = ");
+                self.fmt_expr(&self.arena[initial_value]);
             }
             ast::Stmt::Return(expr) => {
-                writer.write("return ");
-                self.fmt_expr(writer, &self.arena[expr]);
+                self.write("return ");
+                self.fmt_expr(&self.arena[expr]);
             }
             ast::Stmt::Assert(expr) => {
-                writer.write("assert ");
-                self.fmt_expr(writer, &self.arena[expr]);
+                self.write("assert ");
+                self.fmt_expr(&self.arena[expr]);
             }
         }
     }
 
-    fn fmt_expr(&self, writer: &mut Writer, expr: &Expr) {
+    fn fmt_expr(&mut self, expr: &Expr) {
         match &expr.kind {
             ExprKind::Variable(ident) => self
                 .word_interner
-                .apply(word::Word::Identifier(*ident), |s| writer.write(s)),
+                .apply(word::Word::Identifier(*ident), |s| self.write(s)),
             ExprKind::Literal(literal) => match literal {
-                atom::Literal::I32Literal(i) => writer.write(&i.to_string()),
-                atom::Literal::F32Literal(f) => writer.write(&f.to_string()),
+                atom::Literal::I32Literal(i) => self.write(&i.to_string()),
+                atom::Literal::F32Literal(f) => self.write(&f.to_string()),
             },
             ExprKind::Bracketed(expr_idx) => {
-                writer.write("(");
-                self.fmt_expr(writer, &self.arena[expr_idx]);
-                writer.write(")");
+                self.write("(");
+                self.fmt_expr(&self.arena[expr_idx]);
+                self.write(")");
             }
             ExprKind::Opn { opr: opn, opds } => match opn {
                 ast::Opr::Binary(opr) => {
                     let opds = &self.arena[opds];
-                    self.fmt_expr(writer, &opds[0]);
-                    writer.write(opr.spaced_code());
-                    self.fmt_expr(writer, &opds[1]);
+                    self.fmt_expr(&opds[0]);
+                    self.write(opr.spaced_code());
+                    self.fmt_expr(&opds[1]);
                 }
                 ast::Opr::Prefix(opr) => todo!(),
                 ast::Opr::Suffix(_) => todo!(),
@@ -246,22 +229,47 @@ impl<'a> Formatter<'a> {
                 // ast::Opr::ValueCall => {
                 //     let opds = &self.arena[opds];
                 //     self.fmt_expr(result, &opds[0]);
-                //     writer.write("(");
+                //     self.write("(");
                 //     for i in 1..opds.len() {
                 //         if i >= 2 {
-                //             writer.write(", ")
+                //             self.write(", ")
                 //         }
                 //         self.fmt_expr(result, &opds[i]);
                 //     }
-                //     writer.write(")");
+                //     self.write(")");
                 // }
                 // ast::Opr::MemberCall(_) => todo!(),
                 // ast::Opr::Member(_) => todo!(),
                 // ast::Opr::Index => todo!(),
                 // ast::Opr::Opr(opr) => match opr {},
             },
-            ExprKind::Void => writer.write("()"),
+            ExprKind::Void => self.write("()"),
             ExprKind::Scope(_) => todo!(),
+            ExprKind::Lambda(inputs, expr) => {
+                self.write("|");
+                self.join(
+                    inputs,
+                    |this, (ident, ty)| {
+                        this.fmt_ident(ident.into());
+                        if let Some(ty) = ty {
+                            this.write(": ");
+                            this.fmt_type(*ty)
+                        }
+                    },
+                    ", ",
+                );
+                self.write("| ");
+                self.fmt_expr(&self.arena[expr])
+            }
+        }
+    }
+
+    fn join<T>(&mut self, items: &[T], f: fn(&mut Self, item: &T), separator: &'static str) {
+        for i in 0..items.len() {
+            if i > 0 {
+                self.write(separator);
+            }
+            f(self, &items[i]);
         }
     }
 }

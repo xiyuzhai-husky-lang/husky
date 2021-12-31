@@ -81,7 +81,7 @@ impl AtomStack {
                         self.func_generic(attr)?
                     }
                 };
-                self.push(scope_proxy.builtin_type_atom(ident, vec![], generics, tail))
+                self.push(scope_proxy.builtin_type_atom(ident, generics, tail))
             }
             _ => Ok(self.end_list(ket, attr, tail)),
         }
@@ -168,6 +168,6 @@ impl AtomStack {
         let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
         generics.push(output.into());
         let func_type = self.func_generic(attr)?;
-        self.push(scope_proxy.builtin_type_atom(func_type, vec![], generics, tail))
+        self.push(scope_proxy.builtin_type_atom(func_type, generics, tail))
     }
 }

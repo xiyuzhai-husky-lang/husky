@@ -21,6 +21,7 @@ pub enum ExprKind {
     Bracketed(ExprIdx),
     Opn { opr: Opr, opds: ExprRange },
     Void,
+    Lambda(Vec<(CustomIdentifier, Option<ScopeId>)>, ExprIdx),
 }
 
 impl From<&AtomKind> for ExprKind {

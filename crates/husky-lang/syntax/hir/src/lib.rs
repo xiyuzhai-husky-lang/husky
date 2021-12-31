@@ -16,7 +16,7 @@ pub enum MembKind {
         this: InputContract,
         inputs: Vec<InputType>,
         output: InputType,
-        args: Vec<GenericPlaceholder>,
+        args: Vec<(CustomIdentifier, SpaceParamKind)>,
     },
 }
 
@@ -31,15 +31,28 @@ pub enum FuncKind {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncDecl {
     pub funcname: CustomIdentifier,
-    pub placeholders: Vec<GenericPlaceholder>,
+    pub time_params: Vec<SpaceParameter>,
+    pub space_params: Vec<SpaceParameter>,
     pub inputs: Vec<(CustomIdentifier, InputType)>,
     pub output: ScopeId,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct GenericPlaceholder {
+pub struct TimeParameter {
     pub ident: CustomIdentifier,
-    pub traits: Vec<ScopeId>,
+    pub traits: Vec<CustomIdentifier>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum SpaceParamKind {
+    Const,
+    Type { traits: Vec<ScopeId> },
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SpaceParameter {
+    pub ident: CustomIdentifier,
+    pub kind: SpaceParamKind,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -48,7 +61,7 @@ pub struct InputType {
     pub ty: ScopeId,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InputContract {
     Intact,
     Share,

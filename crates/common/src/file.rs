@@ -124,10 +124,10 @@ impl FileTree {
             .to_str()
             .expect("valid package name")
             .to_string();
-        assert!(folderpath.is_dir());
+        should!(folderpath.is_dir());
         let mut mainpath = folderpath;
         mainpath.push("main.hsk");
-        assert!(mainpath.is_file());
+        should!(mainpath.is_file());
         let mut sources = FileTree {
             key: package_name,
             source: HuskyFile::new(mainpath)?,

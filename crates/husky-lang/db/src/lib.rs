@@ -5,7 +5,6 @@ pub use ast::AstQuery;
 pub use atom::AtomQuery;
 pub use file::{FileQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
-use interpreter::Interpreter;
 pub use scope::{InternScope, Scope, ScopeQuery, ScopeSalsaQuery};
 pub use word::InternWord;
 
@@ -95,5 +94,3 @@ impl InternScope for HuskyLangDatabase {
 }
 
 impl ScopeQuery for HuskyLangDatabase {}
-
-impl Interpreter for HuskyLangDatabase {}

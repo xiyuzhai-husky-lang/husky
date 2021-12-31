@@ -6,9 +6,7 @@ use crate::{expr::ExprIdx, *};
 pub enum Stmt {
     Loop(Loop),
     Branch(BranchStmt),
-    Exec {
-        expr: ExprIdx,
-    },
+    Exec(ExprIdx),
     Init {
         kind: InitKind,
         varname: CustomIdentifier,
@@ -122,7 +120,7 @@ impl Stmt {
                 }
             }
         } else {
-            todo!()
+            Ok(Stmt::Exec(expr.unwrap()).into())
         }
     }
 }
