@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2019",
-    "outDir": "out",
+    "outDir": "dist",
     "lib": ["es2019"],
     "sourceMap": true,
     "rootDir": ".",
@@ -14,6 +14,6 @@
     "noFallthroughCasesInSwitch": true,
     "newLine": "LF"
   },
-  "exclude": ["node_modules", ".vscode-test"],
+  "exclude": ["node_modules", ".vscode-test", "webviews"],
   "include": ["src", "tests"]
 }
