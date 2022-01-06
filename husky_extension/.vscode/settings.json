@@ -1,3 +1,7 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.options": {
+        "ignorePattern": "webpack.config.js"
+    },
+    "liveServer.settings.port": 5501
 }
