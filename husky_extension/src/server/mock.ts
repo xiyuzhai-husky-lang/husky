@@ -151,7 +151,6 @@ function getChildren(version: number, idx: number): number[] {
 }
 
 function getFigure(version: number, idx: number): FigureProps {
-    console.log("getFigure called");
     return figures[idx];
 }
 
