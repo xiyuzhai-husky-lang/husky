@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import * as lc from "vscode-languageclient/node";
-import * as lsp_ext from "../src/lsp_ext";
+import * as lsp_ext from "./lsp_ext";
 import { DebuggerSingleton } from "./DebuggerPanel";
 
 let client: lc.LanguageClient;
@@ -80,8 +80,7 @@ export async function activate(context: vscode.ExtensionContext) {
                             client.handleFailedRequest(
                                 lc.HoverRequest.type,
                                 token,
-                                error,
-                                null
+                                error
                             );
                             return Promise.resolve(null);
                         }

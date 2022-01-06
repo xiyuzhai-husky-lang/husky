@@ -1,4 +1,4 @@
-import App from "../components/DebuggerUI.svelte";
+import App from "./DebuggerUI.svelte";
 
 const app = new App({ target: document.body });
 
