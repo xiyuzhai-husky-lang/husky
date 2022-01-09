@@ -10,11 +10,8 @@ doctest = false
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-
 common = { path = "../../../common", version = "0.0.0" }
-
-folded = { path = "../../../data_structure/folded", version = "0.0.0"}
-
+fold = { path = "../../../data_structure/fold", version = "0.0.0" }
 file = { path = "../../file", version = "0.0.0" }
 text = { path = "../../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }

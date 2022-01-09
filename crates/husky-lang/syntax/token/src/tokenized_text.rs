@@ -1,6 +1,6 @@
 use word::WordInterner;
 
-use folded::FoldedList;
+use fold::FoldedList;
 
 use crate::*;
 
@@ -25,9 +25,9 @@ impl TokenizedText {
     }
 }
 
-pub type TokenGroupIter<'a> = folded::FoldedIter<'a, [Token], TokenizedText>;
+pub type TokenGroupIter<'a> = fold::FoldIter<'a, [Token], TokenizedText>;
 
-impl folded::FoldedContainer<[Token]> for TokenizedText {
+impl fold::FoldStorage<[Token]> for TokenizedText {
     fn len(&self) -> usize {
         self.token_groups.len()
     }
@@ -44,7 +44,7 @@ impl folded::FoldedContainer<[Token]> for TokenizedText {
         self
     }
 
-    fn indent(&self, index: usize) -> folded::Indent {
+    fn indent(&self, index: usize) -> fold::Indent {
         self.token_groups.indent(index)
     }
 }
@@ -55,7 +55,7 @@ pub struct TokenGroup {
     pub(crate) tokens: Range,
 }
 
-impl folded::ItemToFold<Range> for TokenGroup {
+impl fold::ItemToFold<Range> for TokenGroup {
     fn value(&self) -> Range {
         self.tokens.clone()
     }

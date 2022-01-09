@@ -1,10 +1,10 @@
-use crate::*;
+use crate::{error::scope_err, *};
 
 use common::*;
 
 use word::Word;
 
-use folded::FoldedContainer;
+use fold::FoldStorage;
 
 use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryStorage)]
@@ -28,7 +28,7 @@ fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultA
             token_group_index,
         } => {
             let text = this.tokenized_text(file_id)?;
-            let item = text.folded_iter(token_group_index).next().unwrap();
+            let item = text.fold_iter(token_group_index).next().unwrap();
             if let Some(children) = item.children {
                 SubscopeTable::parse(file_id, children)
             } else {
@@ -37,7 +37,7 @@ fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultA
         }
         ScopeSource::Module { file_id } => {
             let text = this.tokenized_text(file_id)?;
-            SubscopeTable::parse(file_id, text.folded_iter(0))
+            SubscopeTable::parse(file_id, text.fold_iter(0))
         }
         ScopeSource::WithinBuiltinModule => todo!(),
     }))
@@ -70,6 +70,7 @@ fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeKind {
             BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
                 ScopeKind::Module
             }
+            BuiltinIdentifier::Input => ScopeKind::Feature,
         },
         ScopeRoute::Package(_, _) => ScopeKind::Module,
         ScopeRoute::ChildScope(parent, ident) => this
@@ -99,6 +100,7 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQuery, route: ScopeRoute) -> Scope
             BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
                 ScopeKind::Module
             }
+            BuiltinIdentifier::Input => ScopeKind::Feature,
         },
         ScopeRoute::Package(_, _) => ScopeKind::Module,
         ScopeRoute::ChildScope(parent, ident) => this
@@ -153,7 +155,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
         }
     }
 
-    fn all_modules(&self) -> Vec<Module>
+    fn all_modules(&self) -> Vec<PackageOrModule>
     where
         Self: Sized,
     {
@@ -164,20 +166,20 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
             .collect()
     }
 
-    fn module_iter(&self) -> std::vec::IntoIter<Module>
+    fn module_iter(&self) -> std::vec::IntoIter<PackageOrModule>
     where
         Self: Sized,
     {
         self.all_modules().into_iter()
     }
 
-    fn collect_modules(&self, id: FileId) -> Vec<Module>
+    fn collect_modules(&self, id: FileId) -> Vec<PackageOrModule>
     where
         Self: Sized,
     {
         if let Ok(module) = self.module_from_file_id(id) {
             let mut modules = vec![module];
-            self.subscope_table(module.scope_id).ok().map(|table| {
+            self.subscope_table(module.scope_id()).ok().map(|table| {
                 modules.extend(
                     table
                         .submodule_idents()
@@ -195,30 +197,24 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
         }
     }
 
-    fn module_from_file_id(&self, id: FileId) -> Result<Module, ModuleFromFileError> {
+    fn module_from_file_id(&self, id: FileId) -> ScopeResult<PackageOrModule> {
         let path: PathBuf = file::convert_filepath(self, id, |pth| pth.into());
         if !self.file_exists(id) {
-            Err(ModuleFromFileError {
-                rule_broken: ModuleFromFileRule::FileShouldExist,
-            })
+            scope_err!(format!("file didn't exist"))?
         } else if path_has_file_name(&path, "main.hsk") {
             if let Some(package_name) = path_parent_file_name_str(&path) {
                 let word = self.string_to_word(package_name.as_ref());
                 if let Word::Identifier(Identifier::Custom(ident)) =
                     self.string_to_word(package_name.as_ref())
                 {
-                    Ok(Module {
+                    Ok(PackageOrModule {
                         scope_id: self.intern_scope(Scope::package(id, ident)),
                     })
                 } else {
-                    Err(ModuleFromFileError {
-                        rule_broken: ModuleFromFileRule::PackageNameShouldBeIdentifier,
-                    })
+                    scope_err!(format!("package name should be identifier"))?
                 }
             } else {
-                Err(ModuleFromFileError {
-                    rule_broken: ModuleFromFileRule::PackageRootShouldHaveFileName,
-                })
+                scope_err!(format!("package root should have filename"))?
             }
         } else if path_has_file_name(&path, "mod.hsk") {
             todo!()
@@ -232,14 +228,12 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
                 todo!()
             }
         } else {
-            Err(ModuleFromFileError {
-                rule_broken: ModuleFromFileRule::FileShouldHaveExtensionHSK,
-            })
+            scope_err!(format!("file should have extension .hsk"))?
         }
     }
 
-    fn module_to_file_id(&self, module: Module) -> ScopeResult<FileId> {
-        Ok(match self.scope_source(module.scope_id)? {
+    fn module_to_file_id(&self, module: PackageOrModule) -> ScopeResult<FileId> {
+        Ok(match self.scope_source(module.scope_id())? {
             ScopeSource::Builtin(_) => todo!(),
             ScopeSource::WithinCustomModule { file_id, .. } => file_id,
             ScopeSource::Module { file_id } => file_id,
@@ -272,5 +266,16 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
         };
 
         module_path.map(|pth| self.file_id(pth))
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct PackageOrModule {
+    scope_id: ScopeId,
+}
+
+impl PackageOrModule {
+    pub fn scope_id(&self) -> ScopeId {
+        self.scope_id
     }
 }

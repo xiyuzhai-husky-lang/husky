@@ -11,6 +11,9 @@ members = [
     "crates/husky-lang/text",
     "crates/husky-lang/fmt",
     "crates/data_structure/*",
+    "crates/ml/*",
+    "crates/try",
+    "crates/utils/*",
     "crates/common"
 ]
 

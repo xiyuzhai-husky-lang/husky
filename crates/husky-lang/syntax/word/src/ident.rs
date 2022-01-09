@@ -4,7 +4,6 @@ use crate::*;
 pub enum Identifier {
     Builtin(BuiltinIdentifier),
     Custom(CustomIdentifier),
-    Elide,
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
@@ -49,6 +48,7 @@ pub enum BuiltinIdentifier {
     FnMut,
     FnOnce,
     Array,
+    Input,
 }
 
 impl BuiltinIdentifier {
@@ -67,6 +67,7 @@ impl BuiltinIdentifier {
             BuiltinIdentifier::FnMut => "FnMut",
             BuiltinIdentifier::FnOnce => "FnOnce",
             BuiltinIdentifier::Array => "Array",
+            BuiltinIdentifier::Input => "Input",
         }
     }
 }

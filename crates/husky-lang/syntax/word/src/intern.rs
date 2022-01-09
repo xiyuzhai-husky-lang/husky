@@ -6,6 +6,7 @@ pub type WordInterner = Interner<String, Word>;
 
 pub fn new_word_interner() -> WordInterner {
     return WordInterner::new_from::<&'static str, Word>(vec![
+        ("dataset", ConfigKeyword::Dataset.into()),
         ("use", Keyword::Use.into()),
         ("mod", Keyword::Mod.into()),
         ("main", FuncKeyword::Main.into()),

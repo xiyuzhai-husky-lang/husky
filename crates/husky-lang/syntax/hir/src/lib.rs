@@ -1,3 +1,5 @@
+mod literal;
+
 use scope::ScopeId;
 use word::CustomIdentifier;
 
@@ -67,3 +69,19 @@ pub enum InputContract {
     Share,
     Own,
 }
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum Env {
+    Package,
+    Module,
+    DatasetConfig,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum InitKind {
+    Let,
+    Var,
+    Functional,
+}
+
+pub use literal::Literal;

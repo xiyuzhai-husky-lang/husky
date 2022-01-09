@@ -1,10 +1,12 @@
+use text::TextRange;
+use token::{Token, TokenKind};
 use word::CustomIdentifier;
 
-use crate::{expr::ExprIdx, *};
+use crate::{atom::symbol_proxy::SymbolProxy, expr::ExprIdx, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Stmt {
-    Loop(Loop),
+    Loop(LoopStmt),
     Branch(BranchStmt),
     Exec(ExprIdx),
     Init {
@@ -17,7 +19,7 @@ pub enum Stmt {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum Loop {
+pub enum LoopStmt {
     For {
         left_bound: ExprIdx,
         right_bound: ExprIdx,
@@ -41,13 +43,6 @@ pub enum Loop {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum InitKind {
-    Let,
-    Var,
-    Functional,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum BranchStmt {
     If { condition: ExprIdx },
     Elif { condition: ExprIdx },
@@ -57,51 +52,84 @@ pub enum BranchStmt {
 impl Stmt {
     pub(crate) fn parse(
         arena: &ExprArena,
-        attr: &atom::StmtAttr,
-        expr: Option<ExprIdx>,
+        env: hir::Env,
+        scope_proxy: SymbolProxy,
+        keyword: Option<(StmtKeyword, TextRange)>,
+        tokens: &[Token],
     ) -> AstResult<Ast> {
         macro_rules! identify {
-            ($expr:expr) => {{
-                identify($expr, src!())
+            ($token:expr) => {{
+                match &$token.kind {
+                    TokenKind::Identifier(Identifier::Custom(ident)) => Ok(*ident),
+                    _ => ast_err!($token.range, "expect `<custom_identifier>`"),
+                }
             }};
         }
 
-        fn identify(expr: &Expr, src: DevSource) -> AstResult<CustomIdentifier> {
-            match &expr.kind {
-                ExprKind::Variable(Identifier::Custom(ident)) => Ok(*ident),
-                _ => ast_err!(expr.range, "expect `<custom_identifier>`", src),
-            }
+        macro_rules! expect {
+            ($cond:expr, $range:expr, $msg:expr) => {
+                ast_err!($range, $msg)?
+            };
         }
 
-        if let Some((keyword, range)) = &attr.keyword {
+        if let Some((keyword, range)) = keyword {
             match keyword {
                 StmtKeyword::Let => {
-                    let expr = &arena[expr.ok_or(ast_error!(
+                    expect!(tokens.len() >= 3, range, "expect at least 3 tokens");
+                    let varname = identify!(&tokens[0])?;
+                    expect!(
+                        tokens[1].kind == TokenKind::Special(Special::Be),
                         range,
-                        "expect `let <var> = <expr>`, but get `let` instead.",
-                        src!()
-                    ))?];
-                    match &expr.kind {
-                        ExprKind::Opn {
-                            opr: Opr::Binary(BinaryOpr::Assign),
-                            opds,
-                        } => {
-                            let varname = identify!(&arena[&opds.start])?;
-                            let initial_value = opds.end - 1;
-                            Ok(Stmt::Init {
-                                kind: InitKind::Let,
-                                varname,
-                                initial_value,
-                            }
-                            .into())
-                        }
-                        _ => ast_err!(range, "expect: let <var> = <expr>.", src!())?,
-                    }
+                        "expect `=`"
+                    );
+                    &tokens[2..];
+                    todo!()
+                    // let expr = &arena[expr.ok_or(ast_error!(
+                    //     range,
+                    //     "expect `let <varname> = <expr>`, but get `let` instead.",
+                    //     src!()
+                    // ))?];
+                    // match &expr.kind {
+                    //     ExprKind::Opn {
+                    //         opr: Opr::Binary(BinaryOpr::Assign),
+                    //         opds,
+                    //     } => {
+                    //         let varname = identify!(&arena[&opds.start])?;
+                    //         let initial_value = opds.end - 1;
+                    //         Ok(Stmt::Init {
+                    //             kind: InitKind::Let,
+                    //             varname,
+                    //             initial_value,
+                    //         }
+                    //         .into())
+                    //     }
+                    //     _ => ast_err!(range, "expect: let <varname> = <expr>.", src!())?,
+                    // }
                 }
                 StmtKeyword::Var => todo!(),
-                StmtKeyword::If => todo!(),
+                StmtKeyword::If => {
+                    todo!()
+                    //     Ok(Stmt::Branch(BranchStmt::If {
+                    //     condition: expr.ok_or(ast_error!(
+                    //         range,
+                    //         "expect `if <expr>:`, but get `if:` instead.",
+                    //         src!()
+                    //     ))?,
+                    // })
+                    // .into())
+                }
                 StmtKeyword::Elif => todo!(),
-                StmtKeyword::Else => todo!(),
+                StmtKeyword::Else => {
+                    todo!()
+                    // if expr != None {
+                    //     ast_err!(
+                    //         range,
+                    //         "expect `else:`, but get `else <expr>:` instead.",
+                    //         src!()
+                    //     )?;
+                    // }
+                    // Ok(Stmt::Branch(BranchStmt::Else).into())
+                }
                 StmtKeyword::Switch => todo!(),
                 StmtKeyword::Match => todo!(),
                 StmtKeyword::Case => todo!(),
@@ -113,14 +141,17 @@ impl Stmt {
                 StmtKeyword::Do => todo!(),
                 StmtKeyword::Break => todo!(),
                 StmtKeyword::Return => {
-                    Ok(Stmt::Return(expr.ok_or(ast_error!(range, "expect expr"))?).into())
+                    todo!()
+                    // Ok(Stmt::Return(expr.ok_or(ast_error!(range, "expect expr"))?).into())
                 }
                 StmtKeyword::Assert => {
-                    Ok(Stmt::Assert(expr.ok_or(ast_error!(range, "expect expr"))?).into())
+                    todo!()
+                    // Ok(Stmt::Assert(expr.ok_or(ast_error!(range, "expect expr"))?).into())
                 }
             }
         } else {
-            Ok(Stmt::Exec(expr.unwrap()).into())
+            todo!()
+            // Ok(Stmt::Exec(expr.unwrap()).into())
         }
     }
 }

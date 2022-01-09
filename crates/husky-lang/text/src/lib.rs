@@ -1,5 +1,5 @@
 use std::{iter::Enumerate, str::Chars};
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
+#[derive(Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub struct Row(u32);
 impl From<usize> for Row {
     fn from(raw: usize) -> Self {
@@ -7,7 +7,7 @@ impl From<usize> for Row {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
+#[derive(Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy)]
 pub struct Column(u32);
 impl From<usize> for Column {
     fn from(raw: usize) -> Self {
@@ -15,7 +15,7 @@ impl From<usize> for Column {
     }
 }
 
-#[derive(PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
+#[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub struct TextPosition {
     row: Row,
     col: Column,
@@ -90,7 +90,11 @@ pub fn group_text_range<T>(slice: &[T]) -> TextRange
 where
     T: TextRanged,
 {
-    (slice[0].text_range().start)..(slice.last().unwrap().text_range().end)
+    if slice.len() > 0 {
+        (slice[0].text_range().start)..(slice.last().unwrap().text_range().end)
+    } else {
+        TextRange::default()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord)]

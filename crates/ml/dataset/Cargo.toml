@@ -1,0 +1,9 @@
+[package]
+name = "dataset"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+xrng = { path = "../../utils/xrng" }
+
+[lib]

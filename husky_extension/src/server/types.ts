@@ -7,9 +7,15 @@ export type GalleryProps = { type: "Gallery" };
 
 export type Graphics2dProps = {
     type: "Graphics2d";
+    image: null | ImageProps;
     shape_groups: ShapeGroupProps[];
     xrange: [number, number];
     yrange: [number, number];
+};
+export type ImageProps = {
+    data: number[];
+    originalWidth: number;
+    originalHeight: number;
 };
 export type ShapeGroupProps = {
     shapes: ShapeProps[];

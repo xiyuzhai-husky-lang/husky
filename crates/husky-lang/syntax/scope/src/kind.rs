@@ -7,12 +7,14 @@ pub enum ScopeKind {
     Type,
     Trait,
     Func,
+    Feature,
+    Pattern,
 }
 
 impl ScopeKind {
     pub(crate) fn new(keyword: Keyword) -> Option<ScopeKind> {
         match keyword {
-            Keyword::Use | Keyword::Stmt(_) => None,
+            Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) => None,
             Keyword::Mod => Some(ScopeKind::Module),
             Keyword::Func(_) => Some(ScopeKind::Func),
             Keyword::Type(_) => Some(ScopeKind::Type),

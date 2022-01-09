@@ -1,7 +1,7 @@
 mod ast;
-mod atom;
 mod diagnostic;
 mod fmt;
+mod ml;
 mod salsa;
 mod scope;
 mod token;

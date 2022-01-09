@@ -3,7 +3,6 @@ mod builtin;
 mod error;
 mod intern;
 mod kind;
-mod module;
 mod query;
 mod subscope;
 
@@ -13,8 +12,9 @@ pub use error::{def::ScopeDefError, ScopeError, ScopeResult, ScopeResultArc};
 use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
-pub use module::Module;
-pub use query::{ModuleFromFileError, ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery};
+pub use query::{
+    ModuleFromFileError, PackageOrModule, ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery,
+};
 pub use subscope::SubscopeTable;
 
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier};

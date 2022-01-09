@@ -1,3 +1,4 @@
+mod atom;
 mod error;
 mod expr;
 mod query;
@@ -8,9 +9,10 @@ use common::*;
 
 pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
+pub use hir::InitKind;
 pub use query::{AstQuery, AstQueryStorage};
-pub use stmt::{InitKind, Stmt};
-pub use transform::{AstGenResult, AstText};
+pub use stmt::Stmt;
+use transform::AstTransformer;
 
 use hir::*;
 use scope::ScopeId;
@@ -28,6 +30,7 @@ pub enum Ast {
         generics: Vec<SpaceParamKind>,
     },
     MainDef,
+    DatasetConfig,
     FuncDef {
         kind: FuncKind,
         decl: FuncDecl,
