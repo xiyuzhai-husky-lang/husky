@@ -3,7 +3,7 @@ mod keyword;
 
 pub use ident::{default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier};
 pub use intern::{convert_ident, new_word_interner, InternWord, WordInterner};
-pub use keyword::{FuncKeyword, Keyword, StmtKeyword, TypeKeyword};
+pub use keyword::{ConfigKeyword, FuncKeyword, Keyword, StmtKeyword, TypeKeyword};
 
 use common::*;
 
@@ -24,7 +24,7 @@ impl Word {
     pub fn custom_ident(self) -> Option<CustomIdentifier> {
         self.ident()
             .map(|ident| match ident {
-                Identifier::Builtin(_) | Identifier::Elide => None,
+                Identifier::Builtin(_) => None,
                 Identifier::Custom(ident) => Some(ident),
             })
             .flatten()
@@ -44,8 +44,14 @@ impl From<Keyword> for Word {
 }
 
 impl From<TypeKeyword> for Word {
-    fn from(Type: TypeKeyword) -> Self {
-        Self::Keyword(Type.into())
+    fn from(ty: TypeKeyword) -> Self {
+        Self::Keyword(ty.into())
+    }
+}
+
+impl From<ConfigKeyword> for Word {
+    fn from(func: ConfigKeyword) -> Self {
+        Self::Keyword(func.into())
     }
 }
 

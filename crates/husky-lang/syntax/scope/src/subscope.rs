@@ -56,7 +56,7 @@ impl Entry {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
                     if let Some(kind) = ScopeKind::new(*keyword) {
                         match ident {
-                            Identifier::Builtin(_) | Identifier::Elide => {
+                            Identifier::Builtin(_) => {
                                 return (
                                     None,
                                     Some(ScopeDefError {

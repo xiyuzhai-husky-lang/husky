@@ -1,10 +1,17 @@
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
+    Config(ConfigKeyword),
     Func(FuncKeyword),
     Type(TypeKeyword),
     Stmt(StmtKeyword),
     Use,
     Mod,
+}
+
+impl From<ConfigKeyword> for Keyword {
+    fn from(kw: ConfigKeyword) -> Self {
+        Self::Config(kw)
+    }
 }
 
 impl From<FuncKeyword> for Keyword {
@@ -23,6 +30,11 @@ impl From<StmtKeyword> for Keyword {
     fn from(stmt: StmtKeyword) -> Self {
         Keyword::Stmt(stmt)
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum ConfigKeyword {
+    Dataset,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

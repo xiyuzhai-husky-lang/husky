@@ -3,16 +3,16 @@ mod kind;
 mod precedence;
 mod stack;
 
-pub use error::{ExprError, ExprErrorKind, ExprResultArc};
 pub use kind::ListOpr;
 pub use kind::{ExprKind, Opr};
 pub(crate) use stack::ExprStack;
-use text::TextRanged;
 pub use word::Keyword;
 
+use crate::*;
 use atom::{Bracket, ListEndAttr, ListStartAttr};
 use common::*;
 use text::TextRange;
+use text::TextRanged;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Expr {

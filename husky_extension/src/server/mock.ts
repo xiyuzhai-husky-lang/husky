@@ -1,5 +1,7 @@
 import type { Trace, FigureProps } from "./types";
 
+const simpleImage1 = { data: [], originalWidth: 28, originalHeight: 28 };
+
 const traces: { [idx: number]: Trace } = {
     0: {
         idx: 0,
@@ -82,6 +84,7 @@ const figures: readonly FigureProps[] = [
     },
     {
         type: "Graphics2d",
+        image: null,
         shape_groups: [
             {
                 shapes: [
@@ -100,6 +103,7 @@ const figures: readonly FigureProps[] = [
     },
     {
         type: "Graphics2d",
+        image: null,
         shape_groups: [
             {
                 shapes: [
@@ -127,7 +131,36 @@ const figures: readonly FigureProps[] = [
         xrange: [0, 28],
         yrange: [0, 28],
     },
-    null,
+    {
+        type: "Graphics2d",
+        image: simpleImage1,
+        shape_groups: [
+            {
+                shapes: [
+                    {
+                        shape_kind: "Arrow",
+                        from: { x: 5, y: 6 },
+                        to: { x: 16, y: 15 },
+                    },
+                ],
+                lineWidth: 0.15,
+                color: "yellow",
+            },
+            {
+                shapes: [
+                    {
+                        shape_kind: "Arrow",
+                        from: { x: 16, y: 6 },
+                        to: { x: 5, y: 15 },
+                    },
+                ],
+                lineWidth: 0.15,
+                color: "red",
+            },
+        ],
+        xrange: [0, 28],
+        yrange: [0, 28],
+    },
 ];
 
 const children: any = { 0: [1, 2, 3], 1: [], 2: [], 3: [] };
@@ -151,6 +184,10 @@ function getChildren(version: number, idx: number): number[] {
 }
 
 function getFigure(version: number, idx: number): FigureProps {
+    let figure = figures[idx];
+    if (figure !== null && figure.type === "Graphics2d") {
+        console.log("figures[idx].image", figure.image);
+    }
     return figures[idx];
 }
 

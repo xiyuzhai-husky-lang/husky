@@ -2,7 +2,6 @@
 mod tests;
 
 pub use ast::AstQuery;
-pub use atom::AtomQuery;
 pub use file::{FileQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use scope::{InternScope, Scope, ScopeQuery, ScopeSalsaQuery};
@@ -18,7 +17,6 @@ use stdx::sync::ARwLock;
     file::FileQueryStorage,
     token::TokenQueryStorage,
     scope::ScopeQueryStorage,
-    atom::AtomQueryStorage,
     ast::AstQueryStorage,
     husky_fmt::FormatQueryStorage,
     diagnostic::DiagnosticQueryStorage

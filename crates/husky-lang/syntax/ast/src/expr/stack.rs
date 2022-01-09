@@ -1,9 +1,7 @@
-use atom::{
-    BinaryOpr, Bracket, LambdaHead, ListEndAttr, ListStartAttr, Literal, PrefixOpr, SuffixOpr,
-};
+use atom::{BinaryOpr, Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 use text::{TextPosition, TextRange};
 
-use crate::{expr::error::ExprRule, expr::precedence::Precedence, *};
+use crate::{expr::precedence::Precedence, *};
 
 pub(crate) struct ExprStack<'a> {
     arena: &'a mut ExprArena,
@@ -121,7 +119,7 @@ impl<'a> ExprStack<'a> {
         ket: Bracket,
         attr: ListEndAttr,
         end: TextPosition,
-    ) -> Result<(), ExprError> {
+    ) -> AstResult<()> {
         self.synthesize_list(ket, attr, end)
     }
 
@@ -161,7 +159,7 @@ impl<'a> ExprStack<'a> {
         ket: Bracket,
         end_attr: ListEndAttr,
         end: TextPosition,
-    ) -> Result<(), ExprError> {
+    ) -> AstResult<()> {
         let (start_attr, start, list_len) = {
             let mut i = 0;
             loop {
@@ -172,25 +170,26 @@ impl<'a> ExprStack<'a> {
                     ExprStackOprKind::ListItem => (),
                     ExprStackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
-                            return Err(ExprError::new(
+                            ast_err!(
                                 self.exprs[0].range.start..end,
-                                ExprRule::BracketsShouldMatch.into(),
-                                src!(),
-                            ));
+                                format!(
+                                    "brackets should match but get bra = {}, ket = {}",
+                                    bra.bra_code(),
+                                    ket.ket_code(),
+                                )
+                            )?;
                         };
                         break (attr, start, i);
                     }
                     _ => {
-                        return Err(ExprError::new(
-                            (self.exprs[0].range.start..end).into(),
+                        ast_err!(
+                            (self.exprs[0].range.start..end),
                             format!(
                                 "expect {} but got {:?} instead",
                                 ket.bra_code(),
                                 self.oprs[i]
                             )
-                            .into(),
-                            src!(),
-                        ))
+                        )?;
                     }
                 }
                 i += 1;

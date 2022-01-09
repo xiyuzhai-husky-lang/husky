@@ -2,9 +2,8 @@ use std::ops::AddAssign;
 
 use common::*;
 
-use ast::{AstGenResult, Expr, ExprError, ExprKind};
-use atom::{PrefixOpr, StmtAttr};
-use folded::FoldedIdx;
+use ast::{Ast, AstResult, Expr, ExprKind};
+use fold::FoldIdx;
 use hir::*;
 use scope::ScopeId;
 use word::{BuiltinIdentifier, WordInterner};
@@ -14,7 +13,7 @@ use crate::*;
 pub struct Formatter<'a> {
     word_interner: &'a WordInterner,
     arena: &'a ast::ExprArena,
-    indent: folded::Indent,
+    indent: fold::Indent,
     result: String,
 }
 
@@ -33,22 +32,19 @@ impl<'a> Formatter<'a> {
     }
 }
 
-impl<'a> folded::Transcriber<AstGenResult, folded::FoldedList<AstGenResult>> for Formatter<'a> {
-    fn enter(&mut self) {}
+impl<'a> fold::Transcriber<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>> for Formatter<'a> {
+    fn enter_fold(&mut self) {}
+
+    fn enter_block(&mut self) {}
 
     fn exit(&mut self) {}
 
-    fn post_exit(&mut self, task: ()) {
-        todo!()
-    }
-
-    fn transcribe(&mut self, indent: folded::Indent, input: &AstGenResult) -> Option<()> {
+    fn transcribe(&mut self, indent: fold::Indent, input: &AstResult<Ast>) {
         self.indent = indent;
         if self.result.len() > 0 {
             self.newline();
         }
         self.fmt(input.as_ref().unwrap());
-        None
     }
 }
 
@@ -128,6 +124,7 @@ impl<'a> Formatter<'a> {
                 } => todo!(),
             },
             ast::Ast::Stmt(stmt) => self.fmt_stmt(stmt),
+            ast::Ast::DatasetConfig => todo!(),
         }
     }
 
@@ -199,8 +196,8 @@ impl<'a> Formatter<'a> {
                 .word_interner
                 .apply(word::Word::Identifier(*ident), |s| self.write(s)),
             ExprKind::Literal(literal) => match literal {
-                atom::Literal::I32Literal(i) => self.write(&i.to_string()),
-                atom::Literal::F32Literal(f) => self.write(&f.to_string()),
+                hir::Literal::I32Literal(i) => self.write(&i.to_string()),
+                hir::Literal::F32Literal(f) => self.write(&f.to_string()),
             },
             ExprKind::Bracketed(expr_idx) => {
                 self.write("(");

@@ -6,7 +6,7 @@ use hir::*;
 use word::{BuiltinIdentifier, CustomIdentifier};
 
 use crate::*;
-use folded::FoldedContainer;
+use fold::FoldStorage;
 
 use scope::{ScopeId, ScopeSource};
 
@@ -23,12 +23,13 @@ fn scope_signature(this: &dyn ScopeValidator, scope: ScopeId) -> SemanticResultA
     let source = this.scope_source(scope)?;
     Ok(Arc::new(match source {
         ScopeSource::Builtin(scope) => match scope {
-            BuiltinIdentifier::Void | BuiltinIdentifier::I32 | BuiltinIdentifier::F32 => {
-                vec![].into()
-            }
-            BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
-                vec![].into()
-            }
+            BuiltinIdentifier::Void
+            | BuiltinIdentifier::I32
+            | BuiltinIdentifier::F32
+            | BuiltinIdentifier::Debug
+            | BuiltinIdentifier::Std
+            | BuiltinIdentifier::Core
+            | BuiltinIdentifier::Input => vec![].into(),
             BuiltinIdentifier::Fp
             | BuiltinIdentifier::Fn
             | BuiltinIdentifier::FnMut
@@ -49,7 +50,7 @@ fn scope_signature(this: &dyn ScopeValidator, scope: ScopeId) -> SemanticResultA
             let ast_text = this.ast_text(file_id)?;
             let item = ast_text
                 .folded_results
-                .folded_iter(token_group_index)
+                .fold_iter(token_group_index)
                 .next()
                 .unwrap();
             let ast = item.value.as_ref().unwrap();
@@ -59,6 +60,7 @@ fn scope_signature(this: &dyn ScopeValidator, scope: ScopeId) -> SemanticResultA
                 ast::Ast::FuncDef { decl, .. } => todo!(),
                 ast::Ast::PatternDef => todo!(),
                 ast::Ast::Use { .. } | ast::Ast::MembDef { .. } | ast::Ast::Stmt(_) => panic!(),
+                ast::Ast::DatasetConfig => todo!(),
             }
         }
         ScopeSource::Module { file_id } => ScopeSignature::default(),

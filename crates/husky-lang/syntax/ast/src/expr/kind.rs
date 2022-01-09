@@ -1,4 +1,4 @@
-use atom::{AtomKind, BinaryOpr, Literal, PrefixOpr, SuffixOpr};
+use atom::{AtomKind, BinaryOpr, PrefixOpr, SuffixOpr};
 use common::*;
 
 use scope::ScopeId;

@@ -10,6 +10,7 @@ pub enum ScopeError {
     FileError(FileError),
     DefError(def::ScopeDefError),
     NoSuchScope,
+    Message(String),
 }
 
 pub type ScopeResult<T> = Result<T, ScopeError>;
@@ -20,3 +21,17 @@ impl From<FileError> for ScopeError {
         ScopeError::FileError(error)
     }
 }
+
+macro_rules! scope_error {
+    ($msg: expr) => {{
+        crate::ScopeError::Message($msg.into())
+    }};
+}
+pub(crate) use scope_error;
+
+macro_rules! scope_err {
+    ($msg: expr) => {{
+        Err(crate::ScopeError::Message($msg))
+    }};
+}
+pub(crate) use scope_err;

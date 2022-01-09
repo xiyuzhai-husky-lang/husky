@@ -1,0 +1,61 @@
+mod atomic_line_group;
+mod convexity;
+mod error;
+mod kind;
+mod opr;
+pub(crate) mod parser;
+mod query;
+pub(crate) mod symbol_proxy;
+
+pub(crate) use atomic_line_group::parse_stmt;
+pub(crate) use kind::{AtomKind, LambdaHead};
+pub(crate) use opr::{
+    BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr,
+};
+pub(crate) use parser::parse_ty;
+
+use scope::ScopeId;
+use text::TextRange;
+use text::TextRanged;
+use token::{Token, TokenKind};
+use word::BuiltinIdentifier;
+use word::Identifier;
+
+#[derive(Clone, PartialEq, Eq)]
+pub struct Atom {
+    range: TextRange,
+    pub kind: AtomKind,
+}
+
+impl Atom {
+    pub fn new(range: TextRange, variant: AtomKind) -> Atom {
+        Atom {
+            range,
+            kind: variant,
+        }
+    }
+}
+
+impl TextRanged for Atom {
+    fn text_range_ref(&self) -> &TextRange {
+        &self.range
+    }
+}
+
+impl std::fmt::Debug for Atom {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("Atom{{{:?}, {:?}}}", &self.range, &self.kind))
+    }
+}
+
+impl From<&Token> for Atom {
+    fn from(token: &Token) -> Self {
+        match &token.kind {
+            TokenKind::Keyword(_) => panic!(),
+            TokenKind::Identifier(ident) => Atom::new(token.text_range(), ident.into()),
+            TokenKind::Special(special) => Atom::new(token.text_range(), special.into()),
+            TokenKind::I32Literal(i) => Atom::new(token.text_range(), i.into()),
+            TokenKind::F32Literal(f) => Atom::new(token.text_range(), f.into()),
+        }
+    }
+}
