@@ -44,7 +44,6 @@ pub enum FuncKeyword {
     Proc,
     Func,
     Def,
-    Pattern,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -67,7 +66,6 @@ pub enum StmtKeyword {
     Case,
     DeFault,
     For,
-    Ext,
     ForExt,
     While,
     Do,
@@ -89,7 +87,6 @@ impl StmtKeyword {
             StmtKeyword::Case => "case",
             StmtKeyword::DeFault => "default",
             StmtKeyword::For => "for",
-            StmtKeyword::Ext => "ext",
             StmtKeyword::ForExt => "forext",
             StmtKeyword::While => "while",
             StmtKeyword::Do => "do",

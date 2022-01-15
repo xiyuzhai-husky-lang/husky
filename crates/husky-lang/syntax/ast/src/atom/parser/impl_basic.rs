@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> ScopeLRParser<'a> {
+impl<'a> AtomLRParser<'a> {
     pub(crate) fn special(&mut self, target: Special) -> Option<()> {
         self.kind(target.into())
     }

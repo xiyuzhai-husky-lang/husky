@@ -8,74 +8,21 @@ use word::Identifier;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ValueExpr {
-    range: TextRange,
-    kind: ValueExprKind,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ExprKind {
+pub enum RawExprKind {
     Variable(Identifier),
     Scope(ScopeId),
     Literal(Literal),
-    Bracketed(ExprIdx),
-    Opn { opr: Opr, opds: ExprRange },
-    Void,
-    Lambda(Vec<(CustomIdentifier, Option<ScopeId>)>, ExprIdx),
+    Bracketed(RawExprIdx),
+    Opn { opr: Opr, opds: RawExprRange },
+    Lambda(Vec<(CustomIdentifier, Option<ScopeId>)>, RawExprIdx),
 }
 
-impl From<&AtomKind> for ExprKind {
+impl From<&AtomKind> for RawExprKind {
     fn from(kind: &AtomKind) -> Self {
         match kind {
-            AtomKind::Variable(ident) => ExprKind::Variable(*ident),
-            AtomKind::Literal(literal) => ExprKind::Literal(literal.clone()),
+            AtomKind::Variable(ident) => RawExprKind::Variable(*ident),
+            AtomKind::Literal(literal) => RawExprKind::Literal(literal.clone()),
             _ => panic!(),
         }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ValueExprKind {}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum Opr {
-    Binary(BinaryOpr),
-    Prefix(PrefixOpr),
-    Suffix(SuffixOpr),
-    List(ListOpr),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ListOpr {
-    TupleInit,
-    NewVec,
-    NewDict,
-    Call,
-    Index,
-    ModuloIndex,
-    StructInit,
-}
-
-impl From<BinaryOpr> for Opr {
-    fn from(binary: BinaryOpr) -> Self {
-        Self::Binary(binary)
-    }
-}
-
-impl From<PrefixOpr> for Opr {
-    fn from(prefix: PrefixOpr) -> Self {
-        Self::Prefix(prefix)
-    }
-}
-
-impl From<SuffixOpr> for Opr {
-    fn from(suffix: SuffixOpr) -> Self {
-        Self::Suffix(suffix)
-    }
-}
-
-impl From<ListOpr> for Opr {
-    fn from(list: ListOpr) -> Self {
-        Self::List(list)
     }
 }

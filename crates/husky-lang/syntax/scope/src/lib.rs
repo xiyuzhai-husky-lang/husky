@@ -13,7 +13,8 @@ use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
 pub use query::{
-    ModuleFromFileError, PackageOrModule, ScopeQuery, ScopeQueryStorage, ScopeSalsaQuery,
+    ModuleFromFileError, PackageOrModule, ScopeQueryGroup, ScopeQueryGroupStorage,
+    ScopeSalsaQueryGroup,
 };
 pub use subscope::SubscopeTable;
 
@@ -115,7 +116,7 @@ impl From<BuiltinIdentifier> for Scope {
 pub enum ScopeSource {
     Builtin(BuiltinIdentifier),
     WithinBuiltinModule,
-    WithinCustomModule {
+    WithinModule {
         file_id: FileId,
         token_group_index: usize, // None means the whole file
     },
@@ -126,7 +127,7 @@ pub enum ScopeSource {
 
 impl ScopeSource {
     pub fn from_file(file_id: FileId, token_group_index: usize) -> ScopeSource {
-        ScopeSource::WithinCustomModule {
+        ScopeSource::WithinModule {
             file_id,
             token_group_index: token_group_index,
         }

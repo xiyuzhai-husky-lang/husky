@@ -186,7 +186,6 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 '=' => self.pass(Special::Neq),
                 _ => (1, Special::Exclamation),
             },
-            '\'' => (1, Special::Lifetime),
             _ => todo!(),
         };
         Some(Token::new(

@@ -1,7 +1,7 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 
 /// a wrapper for random generation
-use rand::{rngs::StdRng, Rng, SeedableRng};
+use rand::{rngs::StdRng, Rng, RngCore, SeedableRng};
 
 pub struct XRng {
     rng: StdRng,
@@ -28,6 +28,10 @@ impl XRng {
         T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd,
     {
         self.rng.gen_range(a..b)
+    }
+
+    pub fn randidx(&mut self) -> usize {
+        self.rng.next_u64() as usize
     }
 
     pub fn with_probability(&mut self, p: f32) -> bool {

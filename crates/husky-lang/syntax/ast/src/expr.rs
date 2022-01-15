@@ -3,35 +3,34 @@ mod kind;
 mod precedence;
 mod stack;
 
-pub use kind::ListOpr;
-pub use kind::{ExprKind, Opr};
+pub use kind::RawExprKind;
 pub(crate) use stack::ExprStack;
 pub use word::Keyword;
 
 use crate::*;
-use atom::{Bracket, ListEndAttr, ListStartAttr};
 use common::*;
+use syntax_types::*;
 use text::TextRange;
 use text::TextRanged;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct Expr {
+pub struct RawExpr {
     pub range: TextRange,
-    pub kind: ExprKind,
+    pub kind: RawExprKind,
 }
 
-impl Expr {
+impl RawExpr {
     pub fn synthesize_list(
         bracket: Bracket,
         start_attr: ListStartAttr,
         end_attr: ListEndAttr,
         range: TextRange,
-        opds: ExprRange,
+        opds: RawExprRange,
     ) -> Self {
         if bracket == Bracket::Par && start_attr == ListStartAttr::None && arena::len(&opds) == 1 {
             return Self {
                 range,
-                kind: ExprKind::Bracketed(opds.start),
+                kind: RawExprKind::Bracketed(opds.start),
             };
         }
         let opr = match start_attr {
@@ -53,19 +52,19 @@ impl Expr {
         .into();
         Self {
             range,
-            kind: ExprKind::Opn { opr, opds },
+            kind: RawExprKind::Opn { opr, opds },
         }
     }
 
-    pub fn opn(range: TextRange, opr: Opr, opds: ExprRange) -> Self {
+    pub fn opn(range: TextRange, opr: Opr, opds: RawExprRange) -> Self {
         Self {
             range,
-            kind: ExprKind::Opn { opr, opds },
+            kind: RawExprKind::Opn { opr, opds },
         }
     }
 }
 
-impl From<&atom::Atom> for Expr {
+impl From<&atom::Atom> for RawExpr {
     fn from(atom: &atom::Atom) -> Self {
         Self {
             range: atom.text_range(),
@@ -74,6 +73,6 @@ impl From<&atom::Atom> for Expr {
     }
 }
 
-pub type ExprArena = arena::Arena<Expr>;
-pub type ExprIdx = arena::ArenaIdx<Expr>;
-pub type ExprRange = arena::ArenaRange<Expr>;
+pub type RawExprArena = arena::Arena<RawExpr>;
+pub type RawExprIdx = arena::ArenaIdx<RawExpr>;
+pub type RawExprRange = arena::ArenaRange<RawExpr>;

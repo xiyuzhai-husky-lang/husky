@@ -10,14 +10,15 @@ struct A:
     a: i32
 
 main:
-    let a = 1
-    let b = 1
-    assert a == c
+    a = 1
+    b = 1
+    assert a == b
+    a
 "#
         .into(),
     );
 
     let main_file_id = db.file_id("haha/main.hsk".into());
-    let ast_text = db.ast_text(main_file_id);
-    // ep!(expr_text);
+    let ast_text = db.ast_text(main_file_id).unwrap();
+    should_be!(ast_text.errors().len(), 0);
 }

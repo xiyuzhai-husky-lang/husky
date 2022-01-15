@@ -9,15 +9,14 @@ use common::*;
 
 pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
-pub use hir::InitKind;
-pub use query::{AstQuery, AstQueryStorage};
-pub use stmt::Stmt;
+pub use query::{AstQueryGroup, AstQueryGroupStorage, AstText};
+pub use stmt::RawStmt;
+pub use syntax_types::InitKind;
 use transform::AstTransformer;
 
-use hir::*;
 use scope::ScopeId;
+use syntax_types::*;
 
-use atom::BinaryOpr;
 use word::{CustomIdentifier, Identifier, StmtKeyword};
 
 use crate::error::{ast_err, ast_error};
@@ -26,8 +25,8 @@ use crate::error::{ast_err, ast_error};
 pub enum Ast {
     TypeDef {
         ident: CustomIdentifier,
-        kind: TypeKind,
-        generics: Vec<SpaceParamKind>,
+        kind: TyKind,
+        generics: Vec<GenericPlaceholderKind>,
     },
     MainDef,
     DatasetConfig,
@@ -44,11 +43,11 @@ pub enum Ast {
         ident: CustomIdentifier,
         kind: MembKind,
     },
-    Stmt(Stmt),
+    Stmt(RawStmt),
 }
 
-impl From<Stmt> for Ast {
-    fn from(stmt: Stmt) -> Self {
+impl From<RawStmt> for Ast {
+    fn from(stmt: RawStmt) -> Self {
         Self::Stmt(stmt)
     }
 }

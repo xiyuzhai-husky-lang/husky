@@ -18,7 +18,6 @@ pub enum Precedence {
     BitOr = 9,
     And = 8,
     Or = 7,
-    Assign = 6,
     LambdaHead = 2,
     ListItem = 1,
     None = 0,
@@ -33,7 +32,6 @@ fn test_precedence_order() {
 impl From<BinaryOpr> for Precedence {
     fn from(binary: BinaryOpr) -> Self {
         match binary {
-            BinaryOpr::Assign => Precedence::Assign,
             BinaryOpr::Eq | BinaryOpr::Neq => Precedence::Equal,
             BinaryOpr::And => Precedence::And,
             BinaryOpr::BitAnd => Precedence::BitAnd,
@@ -41,10 +39,6 @@ impl From<BinaryOpr> for Precedence {
             BinaryOpr::BitOr => Precedence::BitOr,
             BinaryOpr::BitXor => Precedence::BitXor,
             BinaryOpr::Mult | BinaryOpr::Div | BinaryOpr::Modulo => Precedence::Multiplicative,
-            BinaryOpr::SubAssign
-            | BinaryOpr::AddAssign
-            | BinaryOpr::MultAssign
-            | BinaryOpr::DivAssign => Precedence::Assign,
             BinaryOpr::Add | BinaryOpr::Sub => Precedence::Additive,
             BinaryOpr::LShift | BinaryOpr::RShift => Precedence::Shift,
             BinaryOpr::Leq | BinaryOpr::Less | BinaryOpr::Geq | BinaryOpr::Greater => {

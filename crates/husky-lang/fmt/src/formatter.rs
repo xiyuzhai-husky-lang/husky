@@ -2,23 +2,20 @@ use std::ops::AddAssign;
 
 use common::*;
 
-use ast::{Ast, AstResult, Expr, ExprKind};
-use fold::FoldIdx;
-use hir::*;
+use ast::{Ast, AstResult, RawExpr, RawExprKind};
 use scope::ScopeId;
+use syntax_types::*;
 use word::{BuiltinIdentifier, WordInterner};
-
-use crate::*;
 
 pub struct Formatter<'a> {
     word_interner: &'a WordInterner,
-    arena: &'a ast::ExprArena,
+    arena: &'a ast::RawExprArena,
     indent: fold::Indent,
     result: String,
 }
 
 impl<'a> Formatter<'a> {
-    pub(crate) fn new(word_interner: &'a WordInterner, arena: &'a ast::ExprArena) -> Self {
+    pub(crate) fn new(word_interner: &'a WordInterner, arena: &'a ast::RawExprArena) -> Self {
         Self {
             word_interner,
             arena,
@@ -32,14 +29,17 @@ impl<'a> Formatter<'a> {
     }
 }
 
-impl<'a> fold::Transcriber<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>> for Formatter<'a> {
-    fn enter_fold(&mut self) {}
+impl<'a> fold::Executor<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>> for Formatter<'a> {
+    fn _enter_block(&mut self) {}
 
-    fn enter_block(&mut self) {}
+    fn _exit_block(&mut self) {}
 
-    fn exit(&mut self) {}
-
-    fn transcribe(&mut self, indent: fold::Indent, input: &AstResult<Ast>) {
+    fn execute(
+        &mut self,
+        indent: fold::Indent,
+        input: &AstResult<Ast>,
+        enter_block: impl FnOnce(&mut Self),
+    ) {
         self.indent = indent;
         if self.result.len() > 0 {
             self.newline();
@@ -73,8 +73,8 @@ impl<'a> Formatter<'a> {
             } => {
                 epin!();
                 match kind {
-                    TypeKind::Enum(_) => todo!(),
-                    TypeKind::Struct => self.write("struct "),
+                    TyKind::Enum(_) => todo!(),
+                    TyKind::Struct => self.write("struct "),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {
@@ -135,7 +135,7 @@ impl<'a> Formatter<'a> {
             })
     }
 
-    fn fmt_member_variable_contracted_type(&mut self, ty: &InputType) {
+    fn fmt_member_variable_contracted_type(&mut self, ty: &MembType) {
         match ty.contract {
             InputContract::Intact => todo!(),
             InputContract::Share => todo!(),
@@ -160,12 +160,12 @@ impl<'a> Formatter<'a> {
         }
     }
 
-    fn fmt_stmt(&mut self, stmt: &ast::Stmt) {
+    fn fmt_stmt(&mut self, stmt: &ast::RawStmt) {
         match stmt {
-            ast::Stmt::Loop(_) => todo!(),
-            ast::Stmt::Branch(_) => todo!(),
-            ast::Stmt::Exec(expr) => self.fmt_expr(&self.arena[expr]),
-            ast::Stmt::Init {
+            ast::RawStmt::Loop(_) => todo!(),
+            ast::RawStmt::Branch(_) => todo!(),
+            ast::RawStmt::Exec(expr) => self.fmt_expr(&self.arena[expr]),
+            ast::RawStmt::Init {
                 kind,
                 varname,
                 initial_value,
@@ -179,48 +179,49 @@ impl<'a> Formatter<'a> {
                 self.write(" = ");
                 self.fmt_expr(&self.arena[initial_value]);
             }
-            ast::Stmt::Return(expr) => {
+            ast::RawStmt::Return(expr) => {
                 self.write("return ");
                 self.fmt_expr(&self.arena[expr]);
             }
-            ast::Stmt::Assert(expr) => {
+            ast::RawStmt::Assert(expr) => {
                 self.write("assert ");
                 self.fmt_expr(&self.arena[expr]);
             }
         }
     }
 
-    fn fmt_expr(&mut self, expr: &Expr) {
+    fn fmt_expr(&mut self, expr: &RawExpr) {
         match &expr.kind {
-            ExprKind::Variable(ident) => self
+            RawExprKind::Variable(ident) => self
                 .word_interner
                 .apply(word::Word::Identifier(*ident), |s| self.write(s)),
-            ExprKind::Literal(literal) => match literal {
-                hir::Literal::I32Literal(i) => self.write(&i.to_string()),
-                hir::Literal::F32Literal(f) => self.write(&f.to_string()),
+            RawExprKind::Literal(literal) => match literal {
+                Literal::I32Literal(i) => self.write(&i.to_string()),
+                Literal::F32Literal(f) => self.write(&f.to_string()),
+                Literal::Void => todo!(),
             },
-            ExprKind::Bracketed(expr_idx) => {
+            RawExprKind::Bracketed(expr_idx) => {
                 self.write("(");
                 self.fmt_expr(&self.arena[expr_idx]);
                 self.write(")");
             }
-            ExprKind::Opn { opr: opn, opds } => match opn {
-                ast::Opr::Binary(opr) => {
+            RawExprKind::Opn { opr: opn, opds } => match opn {
+                Opr::Binary(opr) => {
                     let opds = &self.arena[opds];
                     self.fmt_expr(&opds[0]);
                     self.write(opr.spaced_code());
                     self.fmt_expr(&opds[1]);
                 }
-                ast::Opr::Prefix(opr) => todo!(),
-                ast::Opr::Suffix(_) => todo!(),
-                ast::Opr::List(opr) => match opr {
-                    ast::ListOpr::TupleInit => todo!(),
-                    ast::ListOpr::NewVec => todo!(),
-                    ast::ListOpr::NewDict => todo!(),
-                    ast::ListOpr::Call => todo!(),
-                    ast::ListOpr::Index => todo!(),
-                    ast::ListOpr::ModuloIndex => todo!(),
-                    ast::ListOpr::StructInit => todo!(),
+                Opr::Prefix(opr) => todo!(),
+                Opr::Suffix(_) => todo!(),
+                Opr::List(opr) => match opr {
+                    ListOpr::TupleInit => todo!(),
+                    ListOpr::NewVec => todo!(),
+                    ListOpr::NewDict => todo!(),
+                    ListOpr::Call => todo!(),
+                    ListOpr::Index => todo!(),
+                    ListOpr::ModuloIndex => todo!(),
+                    ListOpr::StructInit => todo!(),
                 },
                 // ast::Opr::ScopeCall(_) => todo!(),
                 // ast::Opr::ValueCall => {
@@ -240,9 +241,8 @@ impl<'a> Formatter<'a> {
                 // ast::Opr::Index => todo!(),
                 // ast::Opr::Opr(opr) => match opr {},
             },
-            ExprKind::Void => self.write("()"),
-            ExprKind::Scope(_) => todo!(),
-            ExprKind::Lambda(inputs, expr) => {
+            RawExprKind::Scope(_) => todo!(),
+            RawExprKind::Lambda(inputs, expr) => {
                 self.write("|");
                 self.join(
                     inputs,

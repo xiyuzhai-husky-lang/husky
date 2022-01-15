@@ -13,17 +13,25 @@ pub struct Symbol {
     kind: SymbolKind,
 }
 
+impl Symbol {
+    pub fn var(ident: word::CustomIdentifier, range: TextRange) -> Self {
+        Self {
+            ident: ident.into(),
+            kind: SymbolKind::Variable(range),
+        }
+    }
+}
+
 #[derive(Debug, Clone)]
 pub enum SymbolKind {
     Scope(scope::ScopeRoute),
-    Variable(Range),
+    Variable(TextRange),
 }
 
 #[derive(Debug, Clone, Copy)]
 pub struct SymbolProxy<'a> {
-    pub(crate) db: &'a dyn AstQuery,
+    pub(crate) db: &'a dyn AstQueryGroup,
     pub(crate) symbols: &'a fold::LocalStack<Symbol>,
-    pub(crate) line: usize,
 }
 
 impl<'a> SymbolProxy<'a> {
@@ -48,7 +56,13 @@ impl<'a> SymbolProxy<'a> {
             Identifier::Custom(ident) => Ok(self
                 .symbols
                 .find(|symbol| symbol.ident == ident.into())
-                .ok_or(ast_error!(range.clone(), "what is this identifier?"))?
+                .ok_or(ast_error!(
+                    range.clone(),
+                    word::use_string(self.db, ident.into(), |s| format!(
+                        "unrecognized identifier `{}`",
+                        s
+                    ))
+                ))?
                 .kind
                 .clone()),
         }

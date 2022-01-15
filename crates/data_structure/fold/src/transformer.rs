@@ -2,13 +2,13 @@ use common::*;
 
 use crate::*;
 
-pub trait Transformer<Input, InputContainer, Output = (), Task = ()>
+pub trait Transformer<Input, InputContainer, Output>
 where
     InputContainer: FoldStorage<Input>,
     Input: ?Sized,
 {
     fn _enter_block(&mut self);
-    fn _exit(&mut self);
+    fn _exit_block(&mut self);
     fn transform(
         &mut self,
         indent: Indent,
@@ -24,9 +24,9 @@ where
         while let Some(item) = iter.next() {
             should_be!(self.folded_output_mut().nodes.len(), item.idx);
 
-            // parse current
             let mut block_entered = false;
 
+            // parse current
             let parse_result = self.transform(item.indent, item.value, &mut |this| {
                 block_entered = true;
                 this._enter_block();
@@ -40,7 +40,7 @@ where
             if let Some(children) = item.children {
                 self.transform_all(children);
             }
-            self._exit();
+            self._exit_block();
         }
     }
 }

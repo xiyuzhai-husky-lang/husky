@@ -14,7 +14,7 @@ use text::TextRange;
 use token::{Special, Token, TokenKind};
 use word::CustomIdentifier;
 
-use super::{atomic_line_group::AtomStack, symbol_proxy::SymbolProxy, *};
+use super::{stack::AtomStack, symbol_proxy::SymbolProxy, *};
 use crate::*;
 
 use utils::*;
@@ -51,13 +51,13 @@ impl<'a> From<&'a [Token]> for Stream<'a> {
     }
 }
 
-pub(crate) struct ScopeLRParser<'a> {
+pub(crate) struct AtomLRParser<'a> {
     scope_proxy: SymbolProxy<'a>,
     pub(crate) stream: Stream<'a>,
     stack: AtomStack,
 }
 
-impl<'a> ScopeLRParser<'a> {
+impl<'a> AtomLRParser<'a> {
     pub(crate) fn new(scope_proxy: SymbolProxy<'a>, tokens: &'a [Token]) -> Self {
         Self {
             scope_proxy,
@@ -66,7 +66,7 @@ impl<'a> ScopeLRParser<'a> {
         }
     }
 
-    pub(crate) fn parse(mut self) -> AstResult<Vec<Atom>> {
+    pub(crate) fn parse_all(mut self) -> AstResult<Vec<Atom>> {
         loop {
             if self.stack.is_concave() {
                 if let Some(kind) = try_get!(self, symbol?) {
@@ -155,7 +155,11 @@ impl<'a> ScopeLRParser<'a> {
                             }
                         }
                         Special::MemberAccess => todo!(),
-                        Special::Lifetime => todo!(),
+                       Special::Assign
+                        | Special::AddAssign
+                        | Special::SubAssign
+                        | Special::MultAssign
+                        | Special::DivAssign => todo!(),
                         _ => self.stack.push(token.into())?,
                     },
                     _ => self.stack.push(token.into())?,
@@ -169,7 +173,7 @@ impl<'a> ScopeLRParser<'a> {
 }
 
 pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopeId> {
-    let result = ScopeLRParser::new(scope_proxy, tokens.into()).parse()?;
+    let result = AtomLRParser::new(scope_proxy, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()
     }

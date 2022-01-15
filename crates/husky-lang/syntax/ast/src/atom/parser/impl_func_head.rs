@@ -1,11 +1,11 @@
 use crate::*;
-use hir::*;
+use syntax_types::*;
 
 use super::*;
 
 // inner ops
-impl<'a> ScopeLRParser<'a> {
-    pub(crate) fn func_decl(&mut self) -> AstResult<FuncDecl> {
+impl<'a> AtomLRParser<'a> {
+    pub(crate) fn func_decl(mut self) -> AstResult<FuncDecl> {
         let funcname = get!(self, custom_ident);
         let space_params = self.placeholders()?;
         let inputs = self.func_input_types()?;
@@ -19,7 +19,7 @@ impl<'a> ScopeLRParser<'a> {
         })
     }
 
-    fn placeholders(&mut self) -> AstResult<Vec<SpaceParameter>> {
+    fn placeholders(&mut self) -> AstResult<Vec<GenericPlaceholder>> {
         if next_matches!(self, "<") {
             Ok(comma_list![self, placeholder!+, ">"])
         } else {
@@ -27,7 +27,7 @@ impl<'a> ScopeLRParser<'a> {
         }
     }
 
-    fn placeholder(&mut self) -> AstResult<SpaceParameter> {
+    fn placeholder(&mut self) -> AstResult<GenericPlaceholder> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
@@ -36,9 +36,9 @@ impl<'a> ScopeLRParser<'a> {
                 todo!()
             }
         }
-        Ok(SpaceParameter {
+        Ok(GenericPlaceholder {
             ident,
-            kind: SpaceParamKind::Type { traits },
+            kind: GenericPlaceholderKind::Type { traits },
         })
     }
 

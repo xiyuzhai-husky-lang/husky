@@ -29,4 +29,5 @@ token = { path = "../syntax/token", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 husky-fmt = { path = "../fmt", version = "0.0.0" }
+semantics = { path = "../semantics", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }

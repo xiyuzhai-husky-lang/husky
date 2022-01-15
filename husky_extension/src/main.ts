@@ -7,13 +7,13 @@ let client: lc.LanguageClient;
 
 export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.commands.registerCommand("husky_lang_server.sayHello", () => {
+        vscode.commands.registerCommand("husky_lang_analyzer.sayHello", () => {
             DebuggerSingleton.createOrShow(context.extensionUri);
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand("husky_lang_server.refresh", () => {
+        vscode.commands.registerCommand("husky_lang_analyzer.refresh", () => {
             DebuggerSingleton.kill();
             DebuggerSingleton.createOrShow(context.extensionUri);
             vscode.commands.executeCommand(
@@ -23,7 +23,7 @@ export async function activate(context: vscode.ExtensionContext) {
     );
 
     const run: lc.Executable = {
-        command: "husky_lang_server",
+        command: "husky_lang_analyzer",
     };
 
     const serverOptions: lc.ServerOptions = {
@@ -90,7 +90,7 @@ export async function activate(context: vscode.ExtensionContext) {
     };
 
     const client = new lc.LanguageClient(
-        "husky_lang_server",
+        "husky_lang_analyzer",
         "Husky Language Server",
         serverOptions,
         clientOptions

@@ -1,41 +1,34 @@
-use ast::AstError;
-use common::*;
-use scope::ScopeError;
+use std::sync::Arc;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct Origin {
-    file: file::FileId,
-    range: text::TextRange,
-}
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SemanticError {}
 
 pub type SemanticResult<T> = Result<T, SemanticError>;
 
-pub type SemanticResultArc<T> = Result<std::sync::Arc<T>, SemanticError>;
+pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct SemanticError {
-    origin: Option<Origin>,
-    src: Option<DevSource>,
-    kind: SemanticErrorKind,
-}
-
-impl From<ScopeError> for SemanticError {
-    fn from(error: ScopeError) -> Self {
-        Self {
-            origin: None,
-            src: None,
-            kind: SemanticErrorKind::ScopeError(error),
-        }
-    }
-}
-
-impl From<AstError> for SemanticError {
-    fn from(_: AstError) -> Self {
+impl From<scope::ScopeError> for SemanticError {
+    fn from(_: scope::ScopeError) -> Self {
         todo!()
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum SemanticErrorKind {
-    ScopeError(ScopeError),
+impl From<&ast::AstError> for SemanticError {
+    fn from(_: &ast::AstError) -> Self {
+        todo!()
+    }
 }
+
+macro_rules! err {
+    () => {{
+        Err(SemanticError {})?
+    }};
+}
+pub(crate) use err;
+
+macro_rules! not_none {
+    ($option:expr) => {{
+        $option.ok_or(SemanticError {})?
+    }};
+}
+pub(crate) use not_none;

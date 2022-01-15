@@ -2,14 +2,14 @@ use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
 use std::sync::Arc;
 
-use crate::{error::AstResultArc, *};
+use crate::*;
 
-#[salsa::query_group(AstQueryStorage)]
-pub trait AstQuery: scope::ScopeQuery {
+#[salsa::query_group(AstQueryGroupStorage)]
+pub trait AstQueryGroup: scope::ScopeQueryGroup {
     fn ast_text(&self, id: file::FileId) -> scope::ScopeResultArc<AstText>;
 }
 
-fn ast_text(this: &dyn AstQuery, id: file::FileId) -> scope::ScopeResultArc<AstText> {
+fn ast_text(this: &dyn AstQueryGroup, id: file::FileId) -> scope::ScopeResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module_from_file_id(id)?);
     parser.transform_all(tokenized_text.fold_iter(0));
@@ -18,7 +18,7 @@ fn ast_text(this: &dyn AstQuery, id: file::FileId) -> scope::ScopeResultArc<AstT
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AstText {
-    pub arena: ExprArena,
+    pub arena: RawExprArena,
     pub folded_results: FoldedList<AstResult<Ast>>,
 }
 

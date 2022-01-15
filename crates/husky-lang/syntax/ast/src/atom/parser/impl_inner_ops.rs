@@ -3,7 +3,7 @@ use crate::*;
 use super::*;
 
 // inner ops
-impl<'a> ScopeLRParser<'a> {
+impl<'a> AtomLRParser<'a> {
     pub(crate) fn push(&mut self, kind: AtomKind) -> AstResult<()> {
         self.stack.push(Atom::new(self.stream.pop_range(), kind))
     }
