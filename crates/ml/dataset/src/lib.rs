@@ -1,11 +1,19 @@
 mod iter;
+mod loader;
 pub mod synthetic;
 
-pub use iter::SampleIterator;
+use std::any::Any;
 
-pub trait Dataset<'a, Sample: 'a, SampleIter: 'a + SampleIterator<Sample = Sample>> {
-    fn epoch(&self) -> usize;
-    fn train_set(&'a self, seed: u64) -> SampleIter;
-    fn val_set(&'a self) -> SampleIter;
-    fn test_set(&'a self) -> SampleIter;
+pub use iter::SampleIter;
+pub use loader::SampleLoader;
+
+pub trait Dataset {
+    fn dev_loader(&self) -> SampleLoader;
+    fn val_iter(&self) -> SampleIter;
+    fn test_iter(&self) -> SampleIter;
+}
+
+pub enum Input<'a> {
+    Owned(Box<dyn Any>),
+    Borrowed(&'a dyn Any),
 }

@@ -4,9 +4,9 @@ use text::{TextPosition, TextRange};
 use crate::{expr::precedence::Precedence, *};
 
 pub(crate) struct ExprStack<'a> {
-    arena: &'a mut ExprArena,
+    arena: &'a mut RawExprArena,
     oprs: Vec<ExprStackOpr>,
-    exprs: Vec<Expr>,
+    exprs: Vec<RawExpr>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -82,7 +82,7 @@ impl<'a> std::fmt::Debug for ExprStack<'a> {
 }
 
 impl<'a> ExprStack<'a> {
-    pub(crate) fn new(arena: &'a mut ExprArena) -> Self {
+    pub(crate) fn new(arena: &'a mut RawExprArena) -> Self {
         Self {
             arena,
             oprs: Vec::new(),
@@ -90,7 +90,7 @@ impl<'a> ExprStack<'a> {
         }
     }
 
-    pub(crate) fn finish(mut self) -> ExprIdx {
+    pub(crate) fn finish(mut self) -> RawExprIdx {
         self.synthesize_all_above(Precedence::None);
         should!(self.exprs.len() == 1);
         self.arena.alloc_one(self.exprs.pop().unwrap())
@@ -137,7 +137,7 @@ impl<'a> ExprStack<'a> {
         self.synthesize_suffix(suffix, end)
     }
 
-    pub(crate) fn accept_atom_expr(&mut self, expr: Expr) {
+    pub(crate) fn accept_atom_expr(&mut self, expr: RawExpr) {
         self.exprs.push(expr);
     }
 
@@ -200,7 +200,7 @@ impl<'a> ExprStack<'a> {
             .arena
             .alloc(self.exprs[self.exprs.len() - list_len..].into());
         self.exprs.truncate(self.exprs.len() - list_len);
-        self.exprs.push(Expr::synthesize_list(
+        self.exprs.push(RawExpr::synthesize_list(
             ket,
             start_attr,
             end_attr,
@@ -239,17 +239,18 @@ impl<'a> ExprStack<'a> {
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
         let range = (start..self.exprs.last().unwrap().range.end).into();
         if prefix == PrefixOpr::Minus {
-            if let ExprKind::Literal(lit) = self.exprs.last().unwrap().kind {
+            if let RawExprKind::Literal(lit) = self.exprs.last().unwrap().kind {
                 self.exprs.pop();
                 match lit {
-                    Literal::I32Literal(i) => self.exprs.push(Expr {
+                    Literal::I32Literal(i) => self.exprs.push(RawExpr {
                         range,
-                        kind: ExprKind::Literal(Literal::I32Literal(-i)),
+                        kind: RawExprKind::Literal(Literal::I32Literal(-i)),
                     }),
-                    Literal::F32Literal(f) => self.exprs.push(Expr {
+                    Literal::F32Literal(f) => self.exprs.push(RawExpr {
                         range,
-                        kind: ExprKind::Literal(Literal::F32Literal(-f)),
+                        kind: RawExprKind::Literal(Literal::F32Literal(-f)),
                     }),
+                    Literal::Void => todo!(),
                 }
                 return;
             }
@@ -266,9 +267,9 @@ impl<'a> ExprStack<'a> {
         let len = self.exprs.len();
         let opds = self.arena.alloc(self.exprs[(len - n_opds)..len].into());
         self.exprs.truncate(len - n_opds);
-        self.exprs.push(Expr {
+        self.exprs.push(RawExpr {
             range,
-            kind: ExprKind::Opn { opr: opr, opds },
+            kind: RawExprKind::Opn { opr: opr, opds },
         });
     }
 
@@ -278,9 +279,9 @@ impl<'a> ExprStack<'a> {
         start: TextPosition,
     ) {
         let range = (start..self.exprs.last().unwrap().range.end).into();
-        let lambda_expr = Expr {
+        let lambda_expr = RawExpr {
             range,
-            kind: ExprKind::Lambda(inputs, self.arena.alloc_one(self.exprs.pop().unwrap())),
+            kind: RawExprKind::Lambda(inputs, self.arena.alloc_one(self.exprs.pop().unwrap())),
         };
         self.exprs.push(lambda_expr);
     }

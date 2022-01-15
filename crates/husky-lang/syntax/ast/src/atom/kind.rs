@@ -9,7 +9,7 @@ use crate::*;
 pub enum AtomKind {
     Scope(ScopeId, ScopeKind),
     Variable(Identifier),
-    Literal(hir::Literal),
+    Literal(syntax_types::Literal),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
@@ -42,23 +42,27 @@ impl From<SuffixOpr> for AtomKind {
 impl From<&Special> for AtomKind {
     fn from(special: &Special) -> Self {
         match special {
-            Special::DoubleColon => panic!(),
-            Special::Colon => panic!(),
-            Special::Vertical => panic!(),
-            Special::Ambersand => panic!(),
-            Special::Exclamation => panic!(),
-            Special::DoubleVertical => panic!(),
-            Special::LightArrow => panic!(),
-            Special::HeavyArrow => panic!(),
-            Special::LPar => panic!(),
-            Special::LBox => panic!(),
-            Special::LCurl => panic!(),
-            Special::RCurl => panic!(),
-            Special::RBox => panic!(),
-            Special::RPar => panic!(),
-            Special::SubOrMinus => panic!(),
-            Special::MemberAccess => panic!(),
-            Special::Lifetime => panic!(),
+            Special::DoubleColon
+            | Special::Colon
+            | Special::Vertical
+            | Special::Ambersand
+            | Special::Exclamation
+            | Special::DoubleVertical
+            | Special::LightArrow
+            | Special::HeavyArrow
+            | Special::LPar
+            | Special::LBox
+            | Special::LCurl
+            | Special::RCurl
+            | Special::RBox
+            | Special::RPar
+            | Special::SubOrMinus
+            | Special::MemberAccess
+            | Special::Assign
+            | Special::AddAssign
+            | Special::SubAssign
+            | Special::MultAssign
+            | Special::DivAssign => panic!(),
             Special::LAngle => AtomKind::Binary(BinaryOpr::Less),
             Special::Leq => AtomKind::Binary(BinaryOpr::Leq),
             Special::RAngle => AtomKind::Binary(BinaryOpr::Greater),
@@ -76,11 +80,6 @@ impl From<&Special> for AtomKind {
             Special::Modulo => AtomKind::Binary(BinaryOpr::Modulo),
             Special::Incr => AtomKind::Suffix(SuffixOpr::Incr),
             Special::Decr => AtomKind::Suffix(SuffixOpr::Decr),
-            Special::Assign => AtomKind::Binary(BinaryOpr::Assign),
-            Special::AddAssign => AtomKind::Binary(BinaryOpr::AddAssign),
-            Special::SubAssign => AtomKind::Binary(BinaryOpr::SubAssign),
-            Special::MultAssign => AtomKind::Binary(BinaryOpr::MultAssign),
-            Special::DivAssign => AtomKind::Binary(BinaryOpr::DivAssign),
             Special::Comma => AtomKind::ListItem,
         }
     }

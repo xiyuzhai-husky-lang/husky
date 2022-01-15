@@ -1,5 +1,7 @@
-pub trait SampleIterator {
-    type Sample;
+use crate::*;
 
-    fn next(&mut self) -> Self::Sample;
+pub trait SampleIterator {
+    fn next(&mut self) -> &dyn Any;
 }
+
+pub type SampleIter<'a> = Box<dyn SampleIterator + 'a>;

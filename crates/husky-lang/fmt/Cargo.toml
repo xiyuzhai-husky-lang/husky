@@ -17,5 +17,5 @@ text = { path = "../text", version = "0.0.0" }
 word = { path = "../syntax/word", version = "0.0.0" }
 token = { path = "../syntax/token", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
-hir = { path = "../syntax/hir", version = "0.0.0" }
+syntax-types = { path = "../syntax/types", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }

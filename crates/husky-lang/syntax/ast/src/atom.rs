@@ -1,18 +1,13 @@
-mod atomic_line_group;
 mod convexity;
 mod error;
 mod kind;
-mod opr;
 pub(crate) mod parser;
-mod query;
+mod stack;
 pub(crate) mod symbol_proxy;
 
-pub(crate) use atomic_line_group::parse_stmt;
 pub(crate) use kind::{AtomKind, LambdaHead};
-pub(crate) use opr::{
-    BinaryOpr, Bracket, JoinOpr, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr,
-};
 pub(crate) use parser::parse_ty;
+pub(crate) use syntax_types::*;
 
 use scope::ScopeId;
 use text::TextRange;

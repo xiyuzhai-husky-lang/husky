@@ -7,7 +7,8 @@ pub struct Real1dDatapoint {
     pub y: i32,
 }
 
-pub fn gen_sample1(xrng: &mut XRng) -> Real1dDatapoint {
+pub fn gen_sample1(idx: usize) -> Real1dDatapoint {
+    let mut xrng = XRng::new(((idx >> 32) & (idx << 32)) as u64);
     if xrng.with_probability(0.5) {
         Real1dDatapoint { x: 1.0, y: 1 }
     } else {
@@ -15,7 +16,8 @@ pub fn gen_sample1(xrng: &mut XRng) -> Real1dDatapoint {
     }
 }
 
-pub fn gen_sample2(xrng: &mut XRng) -> Real1dDatapoint {
+pub fn gen_sample2(idx: usize) -> Real1dDatapoint {
+    let mut xrng = XRng::new(((idx >> 32) & (idx << 32)) as u64);
     if xrng.with_probability(0.5) {
         Real1dDatapoint { x: 1.0, y: 1 }
     } else {

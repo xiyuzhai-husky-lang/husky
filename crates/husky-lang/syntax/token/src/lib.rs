@@ -10,7 +10,7 @@ mod tokenized_text;
 
 pub use error::LexError;
 pub use kind::TokenKind;
-pub use query::{TokenQueryStorage, TokenSalsaQuery};
+pub use query::{TokenQueryGroup, TokenQueryGroupStorage};
 pub use special::Special;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 

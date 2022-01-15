@@ -4,4 +4,5 @@ mod fmt;
 mod ml;
 mod salsa;
 mod scope;
+mod semantics;
 mod token;

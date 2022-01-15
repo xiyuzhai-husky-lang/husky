@@ -3,7 +3,7 @@ mod item;
 #[cfg(test)]
 mod tests;
 
-use hir::*;
+use syntax_types::*;
 
 use crate::*;
 use item::VirtualStackItem;

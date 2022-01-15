@@ -14,18 +14,18 @@
     "main": "./out/main",
     "activationEvents": [
         "onLanguage:husky",
-        "onCommand:husky_lang_server.sayHello",
-        "onCommand:husky_lang_server.refresh"
+        "onCommand:husky_lang_analyzer.sayHello",
+        "onCommand:husky_lang_analyzer.refresh"
     ],
     "contributes": {
         "commands": [
             {
-                "command": "husky_lang_server.sayHello",
+                "command": "husky_lang_analyzer.sayHello",
                 "title": "Say Hello",
                 "category": "Husky Language Server"
             },
             {
-                "command": "husky_lang_server.refresh",
+                "command": "husky_lang_analyzer.refresh",
                 "title": "Refresh",
                 "category": "Husky Language Server"
             }

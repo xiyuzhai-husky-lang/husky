@@ -1,10 +1,11 @@
 #[cfg(test)]
 mod tests;
 
-pub use ast::AstQuery;
+pub use ast::AstQueryGroup;
 pub use file::{FileQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
-pub use scope::{InternScope, Scope, ScopeQuery, ScopeSalsaQuery};
+pub use scope::{InternScope, Scope, ScopeQueryGroup, ScopeSalsaQueryGroup};
+use semantics::PackageQueryGroup;
 pub use word::InternWord;
 
 use common::*;
@@ -15,10 +16,13 @@ use stdx::sync::ARwLock;
 
 #[salsa::database(
     file::FileQueryStorage,
-    token::TokenQueryStorage,
-    scope::ScopeQueryStorage,
-    ast::AstQueryStorage,
-    husky_fmt::FormatQueryStorage,
+    token::TokenQueryGroupStorage,
+    scope::ScopeQueryGroupStorage,
+    ast::AstQueryGroupStorage,
+    husky_fmt::FormatQueryGroupStorage,
+    semantics::PackageQueryGroupStorage,
+    semantics::MainQueryGroupStorage,
+    semantics::EntityQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage
 )]
 pub struct HuskyLangDatabase {
@@ -91,4 +95,10 @@ impl InternScope for HuskyLangDatabase {
     }
 }
 
-impl ScopeQuery for HuskyLangDatabase {}
+impl ScopeQueryGroup for HuskyLangDatabase {}
+
+impl semantics::LazyStmtQueryGroup for HuskyLangDatabase {
+    fn as_lazy_stmt_query_group(&self) -> &dyn semantics::LazyStmtQueryGroup {
+        self
+    }
+}

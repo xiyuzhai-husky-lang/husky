@@ -1,4 +1,4 @@
-use hir::*;
+use syntax_types::*;
 
 use crate::*;
 

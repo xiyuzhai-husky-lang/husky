@@ -8,7 +8,6 @@ pub enum ScopeKind {
     Trait,
     Func,
     Feature,
-    Pattern,
 }
 
 impl ScopeKind {

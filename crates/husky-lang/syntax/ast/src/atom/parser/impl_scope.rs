@@ -5,7 +5,7 @@ use super::*;
 /// parse scope from left to right
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
-impl<'a> ScopeLRParser<'a> {
+impl<'a> AtomLRParser<'a> {
     pub(crate) fn symbol(&mut self) -> AstResult<Option<AtomKind>> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {
@@ -14,7 +14,7 @@ impl<'a> ScopeLRParser<'a> {
                 let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, &token.range)?;
                 match symbol_kind {
                     SymbolKind::Scope(route) => Some(self.normal_scope(route)?),
-                    SymbolKind::Variable(_) => todo!(),
+                    SymbolKind::Variable(_) => Some(AtomKind::Variable(ident)),
                 }
             } else {
                 None
@@ -79,6 +79,7 @@ impl<'a> ScopeLRParser<'a> {
                 BuiltinIdentifier::Void
                 | BuiltinIdentifier::I32
                 | BuiltinIdentifier::F32
+                | BuiltinIdentifier::Bool
                 | BuiltinIdentifier::Debug
                 | BuiltinIdentifier::Std
                 | BuiltinIdentifier::Core
@@ -93,9 +94,7 @@ impl<'a> ScopeLRParser<'a> {
             },
             _ => match self.scope_proxy.db.scope_kind_from_route(route) {
                 ScopeKind::Module | ScopeKind::Value | ScopeKind::Feature => Ok(Vec::new()),
-                ScopeKind::Type | ScopeKind::Trait | ScopeKind::Func | ScopeKind::Pattern => {
-                    self.angled_generics()
-                }
+                ScopeKind::Type | ScopeKind::Trait | ScopeKind::Func => self.angled_generics(),
             },
         }
     }

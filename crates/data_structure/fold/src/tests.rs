@@ -34,7 +34,7 @@ pub struct TrivialTransformer {
 impl<'a> Transformer<(), FoldedList<()>, ()> for TrivialTransformer {
     fn _enter_block(&mut self) {}
 
-    fn _exit(&mut self) {}
+    fn _exit_block(&mut self) {}
 
     fn transform(
         &mut self,

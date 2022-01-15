@@ -7,8 +7,8 @@ use word::Word;
 use fold::FoldStorage;
 
 use std::{path::PathBuf, sync::Arc};
-#[salsa::query_group(ScopeQueryStorage)]
-pub trait ScopeSalsaQuery: token::TokenSalsaQuery + InternScope {
+#[salsa::query_group(ScopeQueryGroupStorage)]
+pub trait ScopeSalsaQueryGroup: token::TokenQueryGroup + InternScope {
     fn subscope_table(&self, scope_id: ScopeId) -> ScopeResultArc<SubscopeTable>;
 
     fn subscope_ids(&self, scope_id: ScopeId) -> Arc<Vec<ScopeId>>;
@@ -20,10 +20,13 @@ pub trait ScopeSalsaQuery: token::TokenSalsaQuery + InternScope {
     fn scope_source(&self, scope_id: ScopeId) -> ScopeResult<ScopeSource>;
 }
 
-fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultArc<SubscopeTable> {
+fn subscope_table(
+    this: &dyn ScopeSalsaQueryGroup,
+    scope_id: ScopeId,
+) -> ScopeResultArc<SubscopeTable> {
     Ok(Arc::new(match this.scope_source(scope_id)? {
         ScopeSource::Builtin(_) => todo!(),
-        ScopeSource::WithinCustomModule {
+        ScopeSource::WithinModule {
             file_id,
             token_group_index,
         } => {
@@ -43,7 +46,7 @@ fn subscope_table(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResultA
     }))
 }
 
-fn subscope_ids(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<Vec<ScopeId>> {
+fn subscope_ids(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopeId) -> Arc<Vec<ScopeId>> {
     Arc::new(this.subscope_table(scope_id).map_or(Vec::new(), |table| {
         table
             .subscopes(scope_id)
@@ -53,13 +56,14 @@ fn subscope_ids(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> Arc<Vec<ScopeI
     }))
 }
 
-fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeKind {
+fn scope_kind(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopeId) -> ScopeKind {
     let scope = this.id_to_scope(scope_id);
     match scope.route {
         ScopeRoute::Builtin(scope) => match scope {
             BuiltinIdentifier::Void
             | BuiltinIdentifier::I32
             | BuiltinIdentifier::F32
+            | BuiltinIdentifier::Bool
             | BuiltinIdentifier::Vector
             | BuiltinIdentifier::Tuple
             | BuiltinIdentifier::Fp
@@ -84,12 +88,13 @@ fn scope_kind(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeKind {
     }
 }
 
-fn scope_kind_from_route(this: &dyn ScopeSalsaQuery, route: ScopeRoute) -> ScopeKind {
+fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> ScopeKind {
     match route {
         ScopeRoute::Builtin(scope) => match scope {
             BuiltinIdentifier::Void
             | BuiltinIdentifier::I32
             | BuiltinIdentifier::F32
+            | BuiltinIdentifier::Bool
             | BuiltinIdentifier::Vector
             | BuiltinIdentifier::Tuple
             | BuiltinIdentifier::Fp
@@ -114,7 +119,7 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQuery, route: ScopeRoute) -> Scope
     }
 }
 
-fn scope_source(this: &dyn ScopeSalsaQuery, scope_id: ScopeId) -> ScopeResult<ScopeSource> {
+fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopeId) -> ScopeResult<ScopeSource> {
     let scope = this.id_to_scope(scope_id);
     Ok(match scope.route {
         ScopeRoute::Builtin(_) => todo!(),
@@ -138,7 +143,7 @@ pub enum ModuleFromFileRule {
     FileShouldHaveExtensionHSK,
 }
 
-pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
+pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
     fn subscope(
         &self,
         parent_scope: ScopeId,
@@ -235,7 +240,7 @@ pub trait ScopeQuery: ScopeSalsaQuery + InternScope {
     fn module_to_file_id(&self, module: PackageOrModule) -> ScopeResult<FileId> {
         Ok(match self.scope_source(module.scope_id())? {
             ScopeSource::Builtin(_) => todo!(),
-            ScopeSource::WithinCustomModule { file_id, .. } => file_id,
+            ScopeSource::WithinModule { file_id, .. } => file_id,
             ScopeSource::Module { file_id } => file_id,
             ScopeSource::WithinBuiltinModule => todo!(),
         })

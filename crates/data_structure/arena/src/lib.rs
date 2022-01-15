@@ -23,6 +23,10 @@ impl<T> Arena<T> {
         self.storage.push(item);
         idx
     }
+
+    pub fn len(&self) -> usize {
+        self.storage.len()
+    }
 }
 
 pub fn len<T>(range: &ArenaRange<T>) -> usize {
@@ -73,6 +77,14 @@ impl<T> core::ops::Index<ArenaIdx<T>> for Arena<T> {
 
     fn index(&self, idx: ArenaIdx<T>) -> &Self::Output {
         &self.storage[idx.raw]
+    }
+}
+
+impl<T> core::ops::Index<ArenaIdx<T>> for Vec<T> {
+    type Output = T;
+
+    fn index(&self, idx: ArenaIdx<T>) -> &Self::Output {
+        &self[idx.raw]
     }
 }
 

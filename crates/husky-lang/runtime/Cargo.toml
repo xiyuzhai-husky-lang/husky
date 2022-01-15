@@ -10,9 +10,11 @@ interner = { path = "../../data_structure/interner", version = "0.0.0" }
 fold = { path = "../../data_structure/fold", version = "0.0.0" }
 arena = { path = "../../data_structure/arena", version = "0.0.0" }
 common = { path = "../../common", version = "0.0.0" }
+stdx = { path = "../../stdx", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 word = { path = "../syntax/word", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
-hir = { path = "../syntax/hir", version = "0.0.0" }
+syntax-types = { path = "../syntax/types", version = "0.0.0" }
+dataset = { path = "../../ml/dataset", version = "0.0.0" }
