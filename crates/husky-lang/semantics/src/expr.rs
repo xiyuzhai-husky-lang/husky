@@ -12,12 +12,12 @@ pub struct Expr {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ExprKind {
-    Variable(Identifier),
+    Variable(CustomIdentifier),
     Scope {
         id: ScopeId,
         compiled: Option<()>,
     },
-    Literal(Literal),
+    Literal(PrimitiveValue),
     Bracketed(Box<Expr>),
     Opn {
         opn: Opn,
@@ -70,6 +70,7 @@ pub enum BinaryOpnKind {
     // bool
     And,
     Or,
+    EqBool,
     // 32 binary bits
     BitAnd32,
     BitOr32,

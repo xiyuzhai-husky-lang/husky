@@ -1,5 +1,5 @@
-mod literal;
 mod opr;
+mod primitive;
 
 pub use opr::*;
 
@@ -117,4 +117,4 @@ impl std::fmt::Display for InitKind {
     }
 }
 
-pub use literal::Literal;
+pub use primitive::PrimitiveValue;

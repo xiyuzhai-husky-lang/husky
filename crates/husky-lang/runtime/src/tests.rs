@@ -1,7 +1,7 @@
-use crate::*;
+use husky_lang_db::*;
 
 #[test]
-fn no_error_single_file() {
+fn simple() {
     let mut db = HuskyLangDatabase::new();
     db.set_live_file_text(
         "haha/main.hsk".into(),
@@ -19,5 +19,5 @@ main:
     );
 
     let main_file_id = db.file_id("haha/main.hsk".into());
-    let package = db.package(main_file_id).unwrap();
+    let package = db.package(main_file_id);
 }

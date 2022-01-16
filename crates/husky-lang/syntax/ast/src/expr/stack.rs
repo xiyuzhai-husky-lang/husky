@@ -242,15 +242,18 @@ impl<'a> ExprStack<'a> {
             if let RawExprKind::Literal(lit) = self.exprs.last().unwrap().kind {
                 self.exprs.pop();
                 match lit {
-                    Literal::I32Literal(i) => self.exprs.push(RawExpr {
+                    PrimitiveValue::I32(i) => self.exprs.push(RawExpr {
                         range,
-                        kind: RawExprKind::Literal(Literal::I32Literal(-i)),
+                        kind: RawExprKind::Literal(PrimitiveValue::I32(-i)),
                     }),
-                    Literal::F32Literal(f) => self.exprs.push(RawExpr {
+                    PrimitiveValue::F32(f) => self.exprs.push(RawExpr {
                         range,
-                        kind: RawExprKind::Literal(Literal::F32Literal(-f)),
+                        kind: RawExprKind::Literal(PrimitiveValue::F32(-f)),
                     }),
-                    Literal::Void => todo!(),
+                    PrimitiveValue::Void
+                    | PrimitiveValue::B32(_)
+                    | PrimitiveValue::Bool(_)
+                    | PrimitiveValue::B64(_) => todo!(),
                 }
                 return;
             }

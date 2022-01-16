@@ -14,7 +14,10 @@ impl<'a> AtomLRParser<'a> {
                 let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, &token.range)?;
                 match symbol_kind {
                     SymbolKind::Scope(route) => Some(self.normal_scope(route)?),
-                    SymbolKind::Variable(_) => Some(AtomKind::Variable(ident)),
+                    SymbolKind::Variable(_) => match ident {
+                        Identifier::Builtin(_) => panic!(),
+                        Identifier::Custom(ident) => Some(AtomKind::Variable(ident)),
+                    },
                 }
             } else {
                 None
@@ -79,6 +82,8 @@ impl<'a> AtomLRParser<'a> {
                 BuiltinIdentifier::Void
                 | BuiltinIdentifier::I32
                 | BuiltinIdentifier::F32
+                | BuiltinIdentifier::B32
+                | BuiltinIdentifier::B64
                 | BuiltinIdentifier::Bool
                 | BuiltinIdentifier::Debug
                 | BuiltinIdentifier::Std

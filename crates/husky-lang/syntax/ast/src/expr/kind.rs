@@ -9,9 +9,9 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprKind {
-    Variable(Identifier),
+    Variable(CustomIdentifier),
     Scope(ScopeId),
-    Literal(Literal),
+    Literal(PrimitiveValue),
     Bracketed(RawExprIdx),
     Opn { opr: Opr, opds: RawExprRange },
     Lambda(Vec<(CustomIdentifier, Option<ScopeId>)>, RawExprIdx),

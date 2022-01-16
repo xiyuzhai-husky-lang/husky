@@ -22,7 +22,7 @@ where
         Input: 'a,
     {
         while let Some(item) = iter.next() {
-            should_be!(self.folded_output_mut().nodes.len(), item.idx);
+            should_eq!(self.folded_output_mut().nodes.len(), item.idx);
 
             let mut block_entered = false;
 

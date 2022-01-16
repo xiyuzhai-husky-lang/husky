@@ -8,8 +8,8 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
     Scope(ScopeId, ScopeKind),
-    Variable(Identifier),
-    Literal(syntax_types::Literal),
+    Variable(CustomIdentifier),
+    Literal(syntax_types::PrimitiveValue),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
@@ -85,33 +85,21 @@ impl From<&Special> for AtomKind {
     }
 }
 
-impl From<Identifier> for AtomKind {
-    fn from(ident: Identifier) -> Self {
-        Self::Variable(ident)
-    }
-}
-
-impl From<&Identifier> for AtomKind {
-    fn from(ident: &Identifier) -> Self {
-        Self::Variable(*ident)
-    }
-}
-
-impl From<Literal> for AtomKind {
-    fn from(lit: Literal) -> Self {
+impl From<PrimitiveValue> for AtomKind {
+    fn from(lit: PrimitiveValue) -> Self {
         Self::Literal(lit)
     }
 }
 
 impl From<&i32> for AtomKind {
     fn from(i: &i32) -> Self {
-        Literal::I32Literal(*i).into()
+        PrimitiveValue::I32(*i).into()
     }
 }
 
 impl From<&f32> for AtomKind {
     fn from(f: &f32) -> Self {
-        Literal::F32Literal(*f).into()
+        PrimitiveValue::F32(*f).into()
     }
 }
 

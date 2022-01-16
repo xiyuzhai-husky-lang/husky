@@ -8,7 +8,7 @@ fn add_i32() {
     stack.push_primitive(2.into());
     stack.push_primitive(3.into());
     stack.add();
-    should_be!(stack.finish_as_primitive(), 5.into());
+    should_eq!(stack.finish_as_primitive(), 5.into());
 }
 
 #[test]
@@ -17,7 +17,7 @@ fn add_f32() {
     stack.push_primitive(2.0.into());
     stack.push_primitive(3.2.into());
     stack.add();
-    should_be!(stack.finish_as_primitive(), 5.2.into());
+    should_eq!(stack.finish_as_primitive(), 5.2.into());
 }
 
 #[test]
@@ -27,7 +27,7 @@ fn add_assign_i32() {
     stack.push_primitive(2.into());
     stack.push_primitive(3.into());
     stack.add_assign(1);
-    should_be!(stack.primitive(1), 5.into());
+    should_eq!(stack.primitive(1), 5.into());
 }
 
 #[test]
@@ -37,8 +37,8 @@ fn add_assign_f32() {
     stack.push_primitive(2.0.into());
     stack.push_primitive(3.2.into());
     stack.add_assign(1);
-    should_be!(stack.primitive(1), 5.2.into());
-    should_be!(stack.len(), 2);
+    should_eq!(stack.primitive(1), 5.2.into());
+    should_eq!(stack.len(), 2);
 }
 
 #[test]
@@ -47,7 +47,7 @@ fn and() {
     stack.push_primitive(true.into());
     stack.push_primitive(false.into());
     stack.and();
-    should_be!(stack.finish_as_primitive(), false.into());
+    should_eq!(stack.finish_as_primitive(), false.into());
 }
 
 #[test]
@@ -56,7 +56,7 @@ fn bitand_u32() {
     stack.push_primitive(10u32.into());
     stack.push_primitive(3u32.into());
     stack.bitand();
-    should_be!(stack.finish_as_primitive(), 2u32.into());
+    should_eq!(stack.finish_as_primitive(), 2u32.into());
 }
 
 #[test]
@@ -66,8 +66,8 @@ fn bitand_assign_u32() {
     stack.push_primitive(10u32.into());
     stack.push_primitive(3u32.into());
     stack.bitand_assign(1);
-    should_be!(stack.primitive(1), 2u32.into());
-    should_be!(stack.len(), 2);
+    should_eq!(stack.primitive(1), 2u32.into());
+    should_eq!(stack.len(), 2);
 }
 
 #[test]
@@ -76,7 +76,7 @@ fn bitor_u32() {
     stack.push_primitive(0b0011u32.into());
     stack.push_primitive(0b0101u32.into());
     stack.bitor();
-    should_be!(stack.finish_as_primitive(), 0b0111u32.into());
+    should_eq!(stack.finish_as_primitive(), 0b0111u32.into());
 }
 
 #[test]
@@ -86,8 +86,8 @@ fn bitor_assign_u32() {
     stack.push_primitive(0b0011u32.into());
     stack.push_primitive(0b0101u32.into());
     stack.bitor_assign(1);
-    should_be!(stack.primitive(1), 0b0111u32.into());
-    should_be!(stack.len(), 2);
+    should_eq!(stack.primitive(1), 0b0111u32.into());
+    should_eq!(stack.len(), 2);
 }
 
 #[test]
@@ -96,7 +96,7 @@ fn mul_i32() {
     stack.push_primitive(2.into());
     stack.push_primitive(3.into());
     stack.mul();
-    should_be!(stack.finish_as_primitive(), 6.into());
+    should_eq!(stack.finish_as_primitive(), 6.into());
 }
 
 #[test]
@@ -105,7 +105,7 @@ fn mul_f32() {
     stack.push_primitive(2.0.into());
     stack.push_primitive(3.2.into());
     stack.mul();
-    should_be!(stack.finish_as_primitive(), 6.4.into());
+    should_eq!(stack.finish_as_primitive(), 6.4.into());
 }
 
 #[test]
@@ -115,8 +115,8 @@ fn mul_assign_i32() {
     stack.push_primitive(2.into());
     stack.push_primitive(3.into());
     stack.mul_assign(1);
-    should_be!(stack.primitive(1), 6.into());
-    should_be!(stack.len(), 2);
+    should_eq!(stack.primitive(1), 6.into());
+    should_eq!(stack.len(), 2);
 }
 
 #[test]
@@ -126,8 +126,8 @@ fn mul_assign_f32() {
     stack.push_primitive(2.0.into());
     stack.push_primitive(3.2.into());
     stack.mul_assign(1);
-    should_be!(stack.primitive(1), 6.4.into());
-    should_be!(stack.len(), 2);
+    should_eq!(stack.primitive(1), 6.4.into());
+    should_eq!(stack.len(), 2);
 }
 
 #[test]
@@ -142,7 +142,7 @@ fn rem_euclid_i32() {
     stack.push_primitive((-2).into());
     stack.push_primitive(7.into());
     stack.rem_euclid();
-    should_be!(stack.finish_as_primitive(), 5.into());
+    should_eq!(stack.finish_as_primitive(), 5.into());
 }
 
 #[test]
@@ -151,7 +151,7 @@ fn rem_euclid_f32() {
     stack.push_primitive((-2.1).into());
     stack.push_primitive(5.0.into());
     stack.rem_euclid();
-    should_be!(stack.finish_as_primitive(), 2.9.into());
+    should_eq!(stack.finish_as_primitive(), 2.9.into());
 }
 
 #[test]
@@ -161,8 +161,8 @@ fn rem_euclid_assign_i32() {
     stack.push_primitive((-2).into());
     stack.push_primitive(7.into());
     stack.rem_euclid_assign(1);
-    should_be!(stack.primitive(1), 5.into());
-    should_be!(stack.len(), 2);
+    should_eq!(stack.primitive(1), 5.into());
+    should_eq!(stack.len(), 2);
 }
 
 #[test]
@@ -172,16 +172,16 @@ fn rem_euclid_assign_f32() {
     stack.push_primitive((-2.1).into());
     stack.push_primitive(5.0.into());
     stack.rem_euclid_assign(1);
-    should_be!(stack.primitive(1), 2.9.into());
-    should_be!(stack.len(), 2);
+    should_eq!(stack.primitive(1), 2.9.into());
+    should_eq!(stack.len(), 2);
 }
 
-impl VirtualStack {
+impl<'stack> VirtualStack<'stack> {
     fn primitive(&self, idx: u16) -> PrimitiveValue {
         should_ok!(should_ok!(self.var(idx)).as_primitive())
     }
     fn finish_as_primitive(self) -> PrimitiveValue {
-        should_be!(self.len, 1);
+        should_eq!(self.len, 1);
         should_ok!(self.items[0].as_primitive())
     }
 
