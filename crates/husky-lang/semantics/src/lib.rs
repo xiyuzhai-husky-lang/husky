@@ -1,3 +1,4 @@
+#![allow(dead_code, warnings)]
 mod error;
 mod expr;
 mod kind;

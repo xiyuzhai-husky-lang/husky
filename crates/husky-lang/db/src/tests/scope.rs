@@ -20,8 +20,8 @@ main:
         db.string_to_word("haha".into()).custom_ident().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
-    should_be!(subscope_table.entries.len(), 2);
-    should_be!(subscope_table.errors.len(), 0);
+    should_eq!(subscope_table.entries.len(), 2);
+    should_eq!(subscope_table.errors.len(), 0);
 }
 
 #[test]
@@ -52,8 +52,8 @@ struct B {}
         db.string_to_word("haha".into()).custom_ident().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
-    should_be!(subscope_table.entries.len(), 3);
-    should_be!(subscope_table.errors.len(), 0);
+    should_eq!(subscope_table.entries.len(), 3);
+    should_eq!(subscope_table.errors.len(), 0);
 }
 
 #[test]
@@ -76,6 +76,6 @@ main:
         db.string_to_word("haha".into()).custom_ident().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
-    should_be!(subscope_table.entries.len(), 1);
-    should_be!(subscope_table.errors.len(), 1);
+    should_eq!(subscope_table.entries.len(), 1);
+    should_eq!(subscope_table.errors.len(), 1);
 }

@@ -16,7 +16,7 @@ impl ItemToFold<()> for u16 {
 fn fold_items1() {
     let items: Vec<u16> = vec![0, 4, 0].into();
     let fold_items: FoldedList<()> = items.into();
-    should_be!(fold_items.nodes[1].next_sibling, None);
+    should_eq!(fold_items.nodes[1].next_sibling, None);
 }
 
 #[test]
@@ -24,7 +24,7 @@ fn fold_items2() {
     let items: Vec<u16> = vec![0, 4, 0, 4, 4].into();
     let fold_items: FoldedList<()> = items.into();
     should!(fold_items.fold_iter(1).next().unwrap().children.is_none());
-    should_be!(fold_items.nodes[3].next_sibling, Some(4));
+    should_eq!(fold_items.nodes[3].next_sibling, Some(4));
 }
 
 pub struct TrivialTransformer {
@@ -62,5 +62,5 @@ fn transform() {
         p!(i, iter, iter.next());
     }
     transformer.transform_all(fold_items.fold_iter(0));
-    should_be!(transformer.fold_outputs.len(), 5);
+    should_eq!(transformer.fold_outputs.len(), 5);
 }

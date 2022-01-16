@@ -5,7 +5,7 @@ pub use ast::AstQueryGroup;
 pub use file::{FileQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use scope::{InternScope, Scope, ScopeQueryGroup, ScopeSalsaQueryGroup};
-use semantics::PackageQueryGroup;
+pub use semantics::PackageQueryGroup;
 pub use word::InternWord;
 
 use common::*;

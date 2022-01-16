@@ -15,7 +15,7 @@ macro_rules! repeat_less_than {
 }
 
 #[macro_export]
-macro_rules! should_be {
+macro_rules! should_eq {
     ($a:expr, $b:expr) => {
         match (&$a, &$b) {
             (left_val, right_val) => {

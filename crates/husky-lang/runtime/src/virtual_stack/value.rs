@@ -1,35 +1,37 @@
+use crate::any::Any;
+
 use syntax_types::*;
 
 use crate::*;
 
 #[derive(Debug)]
-pub enum VirtualStackItem {
+pub enum VirtualStackValue<'stack> {
     Undefined,
     Primitive(PrimitiveValue),
-    Owned(Box<dyn std::any::Any>),
-    Ref(&'static dyn std::any::Any),
-    MutRef(&'static mut dyn std::any::Any),
+    Owned(Box<dyn Any>),
+    Ref(&'static dyn Any),
+    MutRef(&'stack mut dyn Any),
 }
 
-impl From<PrimitiveValue> for VirtualStackItem {
+impl<'stack> From<PrimitiveValue> for VirtualStackValue<'stack> {
     fn from(value: PrimitiveValue) -> Self {
-        VirtualStackItem::Primitive(value)
+        VirtualStackValue::Primitive(value)
     }
 }
 
-impl From<&PrimitiveValue> for VirtualStackItem {
+impl<'stack> From<&PrimitiveValue> for VirtualStackValue<'stack> {
     fn from(value: &PrimitiveValue) -> Self {
-        VirtualStackItem::Primitive(*value)
+        VirtualStackValue::Primitive(*value)
     }
 }
 
-impl Default for VirtualStackItem {
+impl<'stack> Default for VirtualStackValue<'stack> {
     fn default() -> Self {
         todo!()
     }
 }
 
-impl VirtualStackItem {
+impl<'stack> VirtualStackValue<'stack> {
     pub(super) fn as_input(&self, contract: InputContract) -> RuntimeResult<Self> {
         match contract {
             InputContract::Intact => todo!(),
@@ -76,5 +78,9 @@ impl VirtualStackItem {
         } else {
             todo!()
         }
+    }
+
+    pub(crate) fn clone_any(&self) -> Option<Box<dyn Any>> {
+        todo!()
     }
 }

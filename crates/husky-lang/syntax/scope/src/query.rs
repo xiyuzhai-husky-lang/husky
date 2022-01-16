@@ -63,6 +63,8 @@ fn scope_kind(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopeId) -> ScopeKind {
             BuiltinIdentifier::Void
             | BuiltinIdentifier::I32
             | BuiltinIdentifier::F32
+            | BuiltinIdentifier::B32
+            | BuiltinIdentifier::B64
             | BuiltinIdentifier::Bool
             | BuiltinIdentifier::Vector
             | BuiltinIdentifier::Tuple
@@ -94,6 +96,8 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
             BuiltinIdentifier::Void
             | BuiltinIdentifier::I32
             | BuiltinIdentifier::F32
+            | BuiltinIdentifier::B32
+            | BuiltinIdentifier::B64
             | BuiltinIdentifier::Bool
             | BuiltinIdentifier::Vector
             | BuiltinIdentifier::Tuple

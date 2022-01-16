@@ -1,20 +1,20 @@
 mod impl_exec;
-mod item;
 #[cfg(test)]
 mod tests;
+mod value;
 
 use syntax_types::*;
 
 use crate::*;
-use item::VirtualStackItem;
+pub use value::VirtualStackValue;
 
-pub struct VirtualStack {
-    items: Box<[VirtualStackItem; VIRTUAL_STACK_SIZE]>,
+pub struct VirtualStack<'stack> {
+    items: Box<[VirtualStackValue<'stack>; VIRTUAL_STACK_SIZE]>,
     current_frame_start: u16,
     len: u16,
 }
 
-impl std::fmt::Debug for VirtualStack {
+impl<'stack> std::fmt::Debug for VirtualStack<'stack> {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         f.write_str("\nVirtualStack {\n")?;
         f.write_str("    items: [\n")?;
@@ -28,9 +28,9 @@ impl std::fmt::Debug for VirtualStack {
 
 const VIRTUAL_STACK_SIZE: usize = 1 << 16;
 
-impl VirtualStack {
+impl<'stack> VirtualStack<'stack> {
     pub fn new() -> Self {
-        const DEFAULT_VIRTUAL_STACK_ITEM: VirtualStackItem = VirtualStackItem::Undefined;
+        const DEFAULT_VIRTUAL_STACK_ITEM: VirtualStackValue = VirtualStackValue::Undefined;
         VirtualStack {
             items: Box::new([DEFAULT_VIRTUAL_STACK_ITEM; VIRTUAL_STACK_SIZE]),
             current_frame_start: 0,
@@ -39,15 +39,15 @@ impl VirtualStack {
     }
 }
 
-impl VirtualStack {
-    pub fn var(&self, rel_idx: u16) -> RuntimeResult<&VirtualStackItem> {
+impl<'stack> VirtualStack<'stack> {
+    pub fn var(&self, rel_idx: u16) -> RuntimeResult<&VirtualStackValue<'stack>> {
         if self.current_frame_start + rel_idx >= self.len {
             todo!()
         }
         Ok(&self.items[(self.current_frame_start + rel_idx) as usize])
     }
 
-    pub fn var_mut(&mut self, rel_idx: u16) -> RuntimeResult<&mut VirtualStackItem> {
+    pub fn var_mut(&mut self, rel_idx: u16) -> RuntimeResult<&mut VirtualStackValue<'stack>> {
         if self.current_frame_start + rel_idx >= self.len {
             todo!()
         }

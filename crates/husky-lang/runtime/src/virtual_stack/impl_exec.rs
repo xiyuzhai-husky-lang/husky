@@ -2,7 +2,7 @@ use crate::*;
 
 use super::*;
 
-impl VirtualStack {
+impl<'stack> VirtualStack<'stack> {
     pub(super) fn execute_all(&mut self, instructions: &[Instruction]) -> RuntimeResult<()> {
         for ins in instructions {
             self.execute(ins)?
@@ -22,8 +22,8 @@ impl VirtualStack {
     }
 }
 
-impl VirtualStack {
-    fn push(&mut self, item: VirtualStackItem) -> RuntimeResult<()> {
+impl<'stack> VirtualStack<'stack> {
+    fn push(&mut self, item: VirtualStackValue<'stack>) -> RuntimeResult<()> {
         self.items[self.len as usize] = item;
         self.len += 1;
         if self.len as usize >= VIRTUAL_STACK_SIZE {
@@ -33,7 +33,7 @@ impl VirtualStack {
     }
 }
 
-impl VirtualStack {
+impl<'stack> VirtualStack<'stack> {
     fn call(&mut self, f: fn(&mut Self) -> RuntimeResult<()>, nargs: u16) -> RuntimeResult<()> {
         let save = self.current_frame_start;
         // take nargs
@@ -54,7 +54,7 @@ impl VirtualStack {
         }
         for i in new_len..self.len {
             // ensure local objects out of scope are deleted
-            self.items[i as usize] = VirtualStackItem::Undefined
+            self.items[i as usize] = VirtualStackValue::Undefined
         }
         self.len = new_len;
         Ok(())
@@ -210,14 +210,14 @@ impl VirtualStack {
         self.shrink_by(1)
     }
 
-    fn top(&self, rel_idx: u16) -> RuntimeResult<&VirtualStackItem> {
+    fn top(&self, rel_idx: u16) -> RuntimeResult<&VirtualStackValue<'stack>> {
         if self.len - 1 - rel_idx < self.current_frame_start {
             todo!()
         }
         Ok(&self.items[(self.len - 1 - rel_idx) as usize])
     }
 
-    fn top_mut(&mut self, rel_idx: u16) -> RuntimeResult<&mut VirtualStackItem> {
+    fn top_mut(&mut self, rel_idx: u16) -> RuntimeResult<&mut VirtualStackValue<'stack>> {
         if self.len - 1 - rel_idx < self.current_frame_start {
             todo!()
         }

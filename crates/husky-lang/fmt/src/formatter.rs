@@ -194,11 +194,14 @@ impl<'a> Formatter<'a> {
         match &expr.kind {
             RawExprKind::Variable(ident) => self
                 .word_interner
-                .apply(word::Word::Identifier(*ident), |s| self.write(s)),
+                .apply(word::Word::Identifier(ident.into()), |s| self.write(s)),
             RawExprKind::Literal(literal) => match literal {
-                Literal::I32Literal(i) => self.write(&i.to_string()),
-                Literal::F32Literal(f) => self.write(&f.to_string()),
-                Literal::Void => todo!(),
+                PrimitiveValue::I32(i) => self.write(&i.to_string()),
+                PrimitiveValue::F32(f) => self.write(&f.to_string()),
+                PrimitiveValue::Void => todo!(),
+                PrimitiveValue::B32(_) => todo!(),
+                PrimitiveValue::Bool(_) => todo!(),
+                PrimitiveValue::B64(_) => todo!(),
             },
             RawExprKind::Bracketed(expr_idx) => {
                 self.write("(");

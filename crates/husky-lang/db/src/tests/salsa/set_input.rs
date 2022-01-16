@@ -34,9 +34,9 @@ impl salsa::Database for MyDatabase {}
 fn change_file() {
     let mut db = MyDatabase::default();
     db.set_input(0);
-    should_be!(db.output(), 0);
-    should_be!(db.output2(), 0);
+    should_eq!(db.output(), 0);
+    should_eq!(db.output2(), 0);
     db.set_input(1);
-    should_be!(db.output(), 1);
-    should_be!(db.output2(), 1);
+    should_eq!(db.output(), 1);
+    should_eq!(db.output2(), 1);
 }

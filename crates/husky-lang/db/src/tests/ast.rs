@@ -20,5 +20,5 @@ main:
 
     let main_file_id = db.file_id("haha/main.hsk".into());
     let ast_text = db.ast_text(main_file_id).unwrap();
-    should_be!(ast_text.errors().len(), 0);
+    should_eq!(ast_text.errors().len(), 0);
 }
