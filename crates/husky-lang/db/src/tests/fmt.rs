@@ -21,7 +21,7 @@ main:
         .into(),
     );
 
-    let main_file_id = db.file_id("haha/main.hsk".into());
+    let main_file_id = db.intern_file("haha/main.hsk".into());
     let fmt_text = db.fmt_text(main_file_id).unwrap();
     ep!(fmt_text);
 }

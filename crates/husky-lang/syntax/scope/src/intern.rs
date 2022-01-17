@@ -1,3 +1,4 @@
+use core::hash::Hash;
 use std::{borrow::Borrow, ops::Deref};
 
 use interner::{InternId, Interner};
@@ -8,10 +9,38 @@ use crate::*;
 
 pub type ScopeInterner = Interner<Scope, Scope, ScopeId>;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy)]
 pub enum ScopeId {
     Builtin(ReservedIdentifier),
     Custom(&'static Scope),
+}
+
+impl std::fmt::Debug for ScopeId {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        (**self).fmt(f)
+    }
+}
+
+impl PartialEq for ScopeId {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Builtin(l), Self::Builtin(r)) => l == r,
+            (Self::Custom(l), Self::Custom(r)) => (*l as *const Scope) == (*r as *const Scope),
+            _ => false,
+        }
+    }
+}
+
+impl Eq for ScopeId {}
+
+impl Hash for ScopeId {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        core::mem::discriminant(self).hash(state);
+        match self {
+            ScopeId::Builtin(ident) => ident.hash(state),
+            ScopeId::Custom(scope) => (*scope as *const Scope).hash(state),
+        }
+    }
 }
 
 impl Deref for ScopeId {

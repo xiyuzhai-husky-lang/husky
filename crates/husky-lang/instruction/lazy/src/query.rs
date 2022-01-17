@@ -1,11 +1,3 @@
-use std::sync::Arc;
-
-use fold::{Executor, FoldStorage};
-use scope::ScopeId;
-use scope_query::ScopeResultArc;
-
-use crate::*;
-
 #[salsa::query_group(LazyInstructionQueryStorage)]
 pub trait LazyInstructionQuery: strict_instruction::StrictInstructionQuery {
     fn main_instructions(&self, main_file: file::FileId) -> Vec<LazyInstruction> {}

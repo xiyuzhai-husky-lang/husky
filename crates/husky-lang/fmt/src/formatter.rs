@@ -238,7 +238,7 @@ impl<'a> Formatter<'a> {
                 // ast::Opr::Index => todo!(),
                 // ast::Opr::Opr(opr) => match opr {},
             },
-            RawExprKind::Scope(_) => todo!(),
+            RawExprKind::Scope(_, _) => todo!(),
             RawExprKind::Lambda(inputs, expr) => {
                 self.write("|");
                 self.join(

@@ -122,7 +122,7 @@ impl<'a> LazyStmtParser<'a> {
     fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Expr> {
         let (ty, kind): (ScopeId, _) = match &raw_expr.kind {
             RawExprKind::Variable(ident) => (self.vartype(*ident), ExprKind::Variable(*ident)),
-            RawExprKind::Scope(id) => (
+            RawExprKind::Scope(id, _) => (
                 todo!(),
                 ExprKind::Scope {
                     id: *id,

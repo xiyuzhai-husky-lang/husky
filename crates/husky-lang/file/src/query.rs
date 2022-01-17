@@ -10,7 +10,7 @@ pub trait LiveFiles: InternFile {
     fn did_change_source(&mut self, id: FileId);
 
     fn set_live_file_text(&mut self, path: PathBuf, text: String) {
-        let id = self.file_id(path);
+        let id = self.intern_file(path);
         self.get_live_files()
             .write(|live_docs| live_docs.insert(id, ARwLock::new(text)));
         self.did_change_source(id);
@@ -21,7 +21,7 @@ pub trait LiveFiles: InternFile {
         path: PathBuf,
         changes: Vec<lsp_types::TextDocumentContentChangeEvent>,
     ) {
-        let id = self.file_id(path);
+        let id = self.intern_file(path);
         self.get_live_files().write(|live_docs| {
             live_docs
                 .get(&id)
@@ -59,7 +59,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FileId) -> FileContent {
 fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FileId) -> Option<FileId> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
-        let id = this.file_id(ancestor.with_file_name("main.hsk"));
+        let id = this.intern_file(ancestor.with_file_name("main.hsk"));
         match this.file_content(id) {
             FileContent::OnDisk(_) | FileContent::Live(_) => return Some(id),
             FileContent::Deleted | FileContent::NonExistent => (),

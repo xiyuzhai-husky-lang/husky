@@ -5,11 +5,10 @@ use word::CustomIdentifier;
 use crate::error::*;
 use crate::ScopeSalsaQueryGroup;
 
-use text::group_text_range;
 use text::TextRanged;
-use token::{Special, Token, TokenGroupIter, TokenKind};
+use token::{Token, TokenGroupIter, TokenKind};
 use word::FuncKeyword;
-use word::{Identifier, Keyword};
+use word::Identifier;
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
@@ -107,6 +106,18 @@ pub struct SubscopeTable {
     pub errors: Vec<ScopeDefError>,
 }
 
+impl std::fmt::Display for SubscopeTable {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("[")?;
+        self.entries
+            .iter()
+            .map(|entry| f.write_fmt(format_args!("{:?},", entry)))
+            .collect::<std::fmt::Result>()?;
+        f.write_str("[")?;
+        Ok(())
+    }
+}
+
 impl SubscopeTable {
     pub fn empty() -> Self {
         Self {
@@ -148,7 +159,10 @@ impl SubscopeTable {
             .iter()
             .find(|entry| entry.ident == Some(ident))
             .map(|entry| entry.source)
-            .ok_or(ScopeError::NoSuchScope)
+            .ok_or(scope_error!(format!(
+                "No scope with ident: \"{}\" among {}",
+                ident, self
+            )))
     }
 
     pub fn scope_kind(&self, ident: CustomIdentifier) -> Option<ScopeKind> {

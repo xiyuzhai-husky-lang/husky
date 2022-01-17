@@ -9,6 +9,5 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-shared_arena = "0.8.4"
 stdx = { path = "../../stdx", version = "0.0.0" }
 common = { path = "../../common", version = "0.0.0" }

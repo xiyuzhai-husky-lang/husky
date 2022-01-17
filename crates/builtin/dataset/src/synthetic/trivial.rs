@@ -3,8 +3,8 @@ pub mod real2d;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[
-        ("read1d", real1d::SCOPE_DATA),
-        ("read2d", real2d::SCOPE_DATA),
+        ("real1d", real1d::SCOPE_DATA),
+        ("real2d", real2d::SCOPE_DATA),
     ],
 };
 

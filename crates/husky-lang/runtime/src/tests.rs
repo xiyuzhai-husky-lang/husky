@@ -1,3 +1,4 @@
+use common::*;
 use husky_lang_db::*;
 
 use crate::session::Session;
@@ -22,8 +23,8 @@ main:
 "#
         .into(),
     );
-
-    let main_file_id = db.file_id("haha/main.hsk".into());
-    let package = db.package(main_file_id).unwrap();
+    let main_file = db.intern_file("haha/main.hsk".into());
+    let ast_text = db.ast_text(main_file);
+    let package = db.package(main_file).unwrap();
     let sess = Session::new(&package);
 }
