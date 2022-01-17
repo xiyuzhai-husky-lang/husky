@@ -9,7 +9,6 @@ use file::FileError;
 pub enum ScopeError {
     FileError(FileError),
     DefError(def::ScopeDefError),
-    NoSuchScope,
     Message(String),
 }
 

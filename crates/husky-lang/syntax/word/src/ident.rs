@@ -1,4 +1,5 @@
-use std::{borrow::Borrow, ops::Deref};
+use core::hash::Hash;
+use std::{borrow::Borrow, fmt::Display, ops::Deref};
 
 use crate::*;
 
@@ -19,8 +20,34 @@ impl Deref for Identifier {
     }
 }
 
-#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+#[derive(Copy, Clone)]
 pub struct CustomIdentifier(pub(crate) &'static str);
+
+impl Debug for CustomIdentifier {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        f.write_str(self.0)
+    }
+}
+
+impl Display for CustomIdentifier {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+        f.write_str(self.0)
+    }
+}
+
+impl PartialEq for CustomIdentifier {
+    fn eq(&self, other: &Self) -> bool {
+        (self.0 as *const str) == (other.0 as *const str)
+    }
+}
+
+impl Eq for CustomIdentifier {}
+
+impl Hash for CustomIdentifier {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        (self.0 as *const str).hash(state);
+    }
+}
 
 impl Deref for CustomIdentifier {
     type Target = str;

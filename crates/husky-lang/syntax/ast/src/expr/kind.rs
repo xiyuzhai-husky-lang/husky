@@ -1,16 +1,13 @@
-use atom::{AtomKind, BinaryOpr, PrefixOpr, SuffixOpr};
+use atom::AtomKind;
 use common::*;
 
-use scope::ScopeId;
-use text::TextRange;
-use word::Identifier;
-
 use crate::*;
+use scope::{ScopeId, ScopeKind};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprKind {
     Variable(CustomIdentifier),
-    Scope(ScopeId),
+    Scope(ScopeId, ScopeKind),
     Literal(PrimitiveValue),
     Bracketed(RawExprIdx),
     Opn { opr: Opr, opds: RawExprRange },
@@ -22,7 +19,11 @@ impl From<&AtomKind> for RawExprKind {
         match kind {
             AtomKind::Variable(ident) => RawExprKind::Variable(*ident),
             AtomKind::Literal(literal) => RawExprKind::Literal(literal.clone()),
-            _ => panic!(),
+            AtomKind::Scope(scope, kind) => RawExprKind::Scope(*scope, *kind),
+            _ => {
+                p!(kind);
+                panic!()
+            }
         }
     }
 }

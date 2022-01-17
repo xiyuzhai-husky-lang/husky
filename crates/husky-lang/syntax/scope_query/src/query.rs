@@ -1,6 +1,5 @@
 use crate::{error::scope_err, *};
 use file::FileId;
-use interner::InternId;
 use scope::*;
 
 use common::*;
@@ -142,12 +141,14 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
     ) -> Option<Scope> {
-        if self
-            .subscope_table(parent_scope)
-            .map_or(false, |table| table.has_subscope(ident, &generics))
-        {
+        epin!();
+        let parent_subscope_table = self.subscope_table(parent_scope);
+        epin!();
+        if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
+            epin!();
             Some(Scope::child_scope(parent_scope, ident, generics))
         } else {
+            epin!();
             None
         }
     }
@@ -218,13 +219,16 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
             let maybe_main_path = path.with_file_name("main.hsk");
             if maybe_main_path.exists() {
                 let _parent =
-                    self.module_from_file_id(self.file_id(path.with_file_name("mod.hsk")));
+                    self.module_from_file_id(self.intern_file(path.with_file_name("mod.hsk")));
                 todo!()
             } else {
                 todo!()
             }
         } else {
-            scope_err!(format!("file should have extension .hsk"))?
+            scope_err!(format!(
+                "file (path: {:?}) should have extension .hsk",
+                path.to_str()
+            ))?
         }
     }
 
@@ -256,7 +260,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
             Err(file::FileError::FileNotFound.into())
         };
 
-        module_path.map(|pth| self.file_id(pth))
+        module_path.map(|pth| self.intern_file(pth))
     }
 }
 

@@ -17,7 +17,7 @@ main:
         .into(),
     );
 
-    let main_file = db.file_id("haha/main.hsk".into());
+    let main_file = db.intern_file("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -49,7 +49,7 @@ struct B {}
         .into(),
     );
 
-    let main_file = db.file_id("haha/main.hsk".into());
+    let main_file = db.intern_file("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -73,7 +73,7 @@ main:
         .into(),
     );
 
-    let main_file = db.file_id("haha/main.hsk".into());
+    let main_file = db.intern_file("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -100,15 +100,15 @@ fn datasets() {
         )
         .unwrap(),
     );
-    let synthetic_trivial_scope = db.intern_scope(
-        db.subscope(
+    let synthetic_trivial_scope = db
+        .subscope(
             synthetic_scope,
             db.intern_word("trivial").custom().unwrap(),
             vec![],
         )
-        .unwrap(),
-    );
-    let synthetic_trivial_real1d_scope = db.intern_scope(
+        .unwrap();
+    let synthetic_trivial_scope = db.intern_scope(synthetic_trivial_scope);
+    let _synthetic_trivial_real1d_scope = db.intern_scope(
         db.subscope(
             synthetic_trivial_scope,
             db.intern_word("trivial").custom().unwrap(),

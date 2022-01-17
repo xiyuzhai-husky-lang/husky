@@ -1,5 +1,6 @@
 mod id;
 mod internal;
+mod pool;
 
 pub use id::{BasicInternId, InternId};
 
@@ -10,7 +11,7 @@ use stdx::sync::ARwLock;
 
 use internal::InternerInternal;
 
-pub struct Interner<T, Owned = Box<T>, Id = BasicInternId<T>>
+pub struct Interner<T, Owned, Id = BasicInternId<T>>
 where
     T: Hash + Eq + 'static + ?Sized,
     Id: InternId<Thing = T>,
@@ -34,7 +35,7 @@ where
     }
 }
 
-impl<T, Id, Owned> Interner<T, Owned, Id>
+impl<T, Owned, Id> Interner<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
     Id: InternId<Thing = T>,
@@ -64,7 +65,10 @@ where
         }
     }
 
-    pub fn intern(&self, owned: Owned) -> Id {
+    pub fn intern(&self, owned: Owned) -> Id
+    where
+        T: Debug,
+    {
         let result = match self
             .internal
             .read(|internal| internal.ids.get(owned.borrow()).map(|id| *id))
@@ -75,13 +79,35 @@ where
                     .write(|internal| match internal.ids.get(owned.borrow()) {
                         Some(id) => *id, // this step is lest the value has changed
                         None => {
-                            let owned: &Owned = &internal.things.alloc(owned);
+                            let owned: &Owned = unsafe { &*internal.things.alloc(owned) };
                             let ptr: *const T = owned.borrow();
-                            let id = unsafe { &*ptr }.into();
+                            let id: Id = unsafe { &*ptr }.into();
                             internal.ids.insert(owned.clone(), id);
                             id
                         }
                     })
+            }
+        };
+        return result;
+    }
+
+    pub fn intern_ref(&self, t: &T) -> Id {
+        let result = match self
+            .internal
+            .read(|internal| internal.ids.get(t).map(|id| *id))
+        {
+            Some(id) => id,
+            None => {
+                self.internal.write(|internal| match internal.ids.get(t) {
+                    Some(id) => *id, // this step is lest the value has changed
+                    None => {
+                        let owned: &Owned = unsafe { &*internal.things.alloc(t.into()) };
+                        let ptr: *const T = owned.borrow();
+                        let id = unsafe { &*ptr }.into();
+                        internal.ids.insert(owned.clone(), id);
+                        id
+                    }
+                })
             }
         };
         return result;

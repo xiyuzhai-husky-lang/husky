@@ -1,3 +1,5 @@
+use core::hash::Hash;
+
 use scope::ScopeId;
 use word::ReservedIdentifier;
 
@@ -25,9 +27,17 @@ impl PrimitiveValue {
     }
 }
 
-impl core::hash::Hash for PrimitiveValue {
+impl Hash for PrimitiveValue {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
+        match self {
+            PrimitiveValue::I32(i) => i.hash(state),
+            PrimitiveValue::F32(f) => f.to_bits().hash(state),
+            PrimitiveValue::B32(b) => b.hash(state),
+            PrimitiveValue::B64(b) => b.hash(state),
+            PrimitiveValue::Bool(b) => b.hash(state),
+            PrimitiveValue::Void => ().hash(state),
+        }
     }
 }
 

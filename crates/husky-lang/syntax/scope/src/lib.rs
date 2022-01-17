@@ -3,16 +3,40 @@ mod intern;
 mod kind;
 
 pub use alias::ScopeAliasTable;
+use common::*;
 use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
 
 use word::{CustomIdentifier, Identifier, ReservedIdentifier};
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Clone, PartialEq, Eq, Hash)]
 pub struct Scope {
     pub route: ScopeRoute,
     pub generics: Vec<GenericArgument>,
+}
+
+impl std::fmt::Debug for Scope {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+        match self.route {
+            ScopeRoute::Reserved { ident } => ident.fmt(f)?,
+            ScopeRoute::Package { main, ident } => {
+                f.write_str("(package ")?;
+                main.fmt(f)?;
+                f.write_str(") ")?;
+                ident.fmt(f)?
+            }
+            ScopeRoute::ChildScope { parent, ident } => {
+                parent.fmt(f)?;
+                f.write_str("::")?;
+                ident.fmt(f)?
+            }
+        };
+        if self.generics.len() > 0 {
+            todo!()
+        }
+        Ok(())
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

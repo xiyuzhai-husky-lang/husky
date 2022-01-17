@@ -34,7 +34,7 @@ impl InternId for WordId {
 }
 
 pub fn new_word_interner() -> WordInterner {
-    return WordInterner::new(&[
+    WordInterner::new(&[
         ConfigKeyword::Dataset.into(),
         Keyword::Use.into(),
         Keyword::Mod.into(),
@@ -77,12 +77,12 @@ pub fn new_word_interner() -> WordInterner {
         ReservedIdentifier::FnMut.into(),
         ReservedIdentifier::FnOnce.into(),
         ReservedIdentifier::Dataset.into(),
-    ]);
+    ])
 }
 
 pub trait InternWord {
     fn word_interner(&self) -> &WordInterner;
     fn intern_word(&self, word: &str) -> WordId {
-        self.word_interner().intern(word.to_string())
+        self.word_interner().intern_ref(word)
     }
 }

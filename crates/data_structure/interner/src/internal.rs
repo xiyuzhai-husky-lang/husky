@@ -1,8 +1,4 @@
-use std::ops::Deref;
-
-use shared_arena::SharedArena;
-
-use crate::*;
+use crate::{pool::Pool, *};
 
 pub struct InternerInternal<T, Owned, Id>
 where
@@ -10,7 +6,7 @@ where
     Id: InternId<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
-    pub(crate) things: SharedArena<Owned>,
+    pub(crate) things: Pool<Owned, 10000>,
     pub(crate) ids: HashMap<Owned, Id>,
 }
 impl<T, Owned, Id> Default for InternerInternal<T, Owned, Id>
