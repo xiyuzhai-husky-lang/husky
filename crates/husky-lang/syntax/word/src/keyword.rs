@@ -1,3 +1,5 @@
+use std::ops::Deref;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
     Config(ConfigKeyword),
@@ -6,6 +8,21 @@ pub enum Keyword {
     Stmt(StmtKeyword),
     Use,
     Mod,
+}
+
+impl Deref for Keyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            Keyword::Config(keyword) => keyword.deref(),
+            Keyword::Func(keyword) => keyword.deref(),
+            Keyword::Type(keyword) => keyword.deref(),
+            Keyword::Stmt(keyword) => keyword.deref(),
+            Keyword::Use => "use",
+            Keyword::Mod => "mod",
+        }
+    }
 }
 
 impl From<ConfigKeyword> for Keyword {
@@ -37,6 +54,16 @@ pub enum ConfigKeyword {
     Dataset,
 }
 
+impl Deref for ConfigKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            ConfigKeyword::Dataset => "dataset",
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum FuncKeyword {
     Main,
@@ -46,12 +73,39 @@ pub enum FuncKeyword {
     Def,
 }
 
+impl Deref for FuncKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            FuncKeyword::Main => "main",
+            FuncKeyword::Test => "test",
+            FuncKeyword::Proc => "proc",
+            FuncKeyword::Func => "func",
+            FuncKeyword::Def => "def",
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeKeyword {
     Struct,
     Rename,
     Enum,
     Props,
+}
+
+impl Deref for TypeKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            TypeKeyword::Struct => "struct",
+            TypeKeyword::Rename => "rename",
+            TypeKeyword::Enum => "enum",
+            TypeKeyword::Props => "props",
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -74,8 +128,10 @@ pub enum StmtKeyword {
     Assert,
 }
 
-impl StmtKeyword {
-    pub fn code(&self) -> &'static str {
+impl Deref for StmtKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
         match self {
             StmtKeyword::Let => "let",
             StmtKeyword::Var => "var",

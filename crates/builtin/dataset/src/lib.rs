@@ -2,10 +2,16 @@ mod iter;
 mod loader;
 pub mod synthetic;
 
+pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+    scope_kind: ScopeKind::Module,
+    subscopes: &[("synthetic", synthetic::SCOPE_DATA)],
+};
+
 use std::any::Any;
 
 pub use iter::SampleIter;
 pub use loader::SampleLoader;
+use scope::{BuiltinScopeData, ScopeKind};
 
 pub trait Dataset {
     fn dev_loader(&self) -> SampleLoader;

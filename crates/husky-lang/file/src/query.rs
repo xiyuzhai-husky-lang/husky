@@ -1,6 +1,7 @@
 use std::path;
 
 use crate::*;
+use interner::InternId;
 use itertools::Itertools;
 use stdx::sync::ARwLock;
 
@@ -45,7 +46,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FileId) -> FileContent {
         .read(|live_docs| match live_docs.get(&id) {
             Some(text) => FileContent::Live(text.clone_to_arc()),
             None => {
-                let pth: PathBuf = convert_filepath(this, id, |pth| pth.into());
+                let pth: PathBuf = (*id).into();
                 if pth.is_file() {
                     FileContent::OnDisk(Arc::new(std::fs::read_to_string(pth).expect("io failure")))
                 } else {
@@ -56,7 +57,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FileId) -> FileContent {
 }
 
 fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FileId) -> Option<FileId> {
-    let pth: PathBuf = convert_filepath(this, module_file_id, |pth| pth.into());
+    let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
         let id = this.file_id(ancestor.with_file_name("main.hsk"));
         match this.file_content(id) {
@@ -78,7 +79,8 @@ pub trait FileQuery: FileSalsaQuery {
     }
 
     fn all_main_files(&self) -> Vec<FileId> {
-        self.file_id_iter()
+        self.file_interner()
+            .id_iter()
             .filter_map(|id| self.main_file_id(id))
             .unique()
             .collect()
@@ -94,7 +96,7 @@ pub trait FileQuery: FileSalsaQuery {
     }
 
     fn url(&self, id: FileId) -> lsp_types::Url {
-        return convert_filepath(self, id, |pth| url_from_abs_path(pth));
+        return url_from_abs_path(&id);
 
         pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
             let url = lsp_types::Url::from_file_path(path).unwrap();

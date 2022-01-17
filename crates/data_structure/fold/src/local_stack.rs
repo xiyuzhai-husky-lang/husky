@@ -16,6 +16,10 @@ impl<T> LocalStack<T> {
         self.stack.push(item);
     }
 
+    pub fn extend(&mut self, iter: impl Iterator<Item = T>) {
+        self.stack.extend(iter);
+    }
+
     pub fn enter(&mut self) {
         self.local_indices.push(self.stack.len());
     }

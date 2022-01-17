@@ -1,12 +1,13 @@
 use std::sync::Arc;
 
-use crate::*;
+use crate::{config::Config, *};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Package {
     pub(crate) ident: CustomIdentifier,
     pub(crate) subentities: Arc<Vec<Arc<Entity>>>,
     pub(crate) main: Arc<Main>,
+    pub(crate) config: Arc<Config>,
 }
 
 impl Package {

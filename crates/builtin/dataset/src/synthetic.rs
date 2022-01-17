@@ -1,9 +1,11 @@
 mod iter;
 mod loader;
-
 pub mod trivial;
 
-use xrng::XRng;
+pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+    scope_kind: ScopeKind::Module,
+    subscopes: &[("trivial", trivial::SCOPE_DATA)],
+};
 
 use crate::*;
 

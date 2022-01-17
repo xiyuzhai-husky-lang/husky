@@ -6,6 +6,7 @@ mod severity;
 
 pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
+use scope_query::ScopeDefError;
 pub use severity::DiagnosticSeverity;
 
 use std::sync::Arc;
@@ -26,8 +27,8 @@ pub struct Diagnostic {
     kind: DiagnosticKind,
 }
 
-impl From<&scope::ScopeDefError> for Diagnostic {
-    fn from(error: &scope::ScopeDefError) -> Self {
+impl From<&ScopeDefError> for Diagnostic {
+    fn from(error: &ScopeDefError) -> Self {
         Self {
             severity: DiagnosticSeverity::Error,
             range: error.range.clone(),

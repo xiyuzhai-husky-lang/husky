@@ -13,8 +13,8 @@ use scope::ScopeId;
 use text::TextRange;
 use text::TextRanged;
 use token::{Token, TokenKind};
-use word::BuiltinIdentifier;
 use word::Identifier;
+use word::ReservedIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct Atom {

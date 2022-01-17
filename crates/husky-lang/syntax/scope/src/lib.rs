@@ -1,24 +1,13 @@
 mod alias;
-mod builtin;
-mod error;
 mod intern;
 mod kind;
-mod query;
-mod subscope;
 
 pub use alias::ScopeAliasTable;
-pub use builtin::BuiltinIdentifier3;
-pub use error::{def::ScopeDefError, ScopeError, ScopeResult, ScopeResultArc};
 use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
-pub use query::{
-    ModuleFromFileError, PackageOrModule, ScopeQueryGroup, ScopeQueryGroupStorage,
-    ScopeSalsaQueryGroup,
-};
-pub use subscope::SubscopeTable;
 
-use word::{BuiltinIdentifier, CustomIdentifier, Identifier};
+use word::{CustomIdentifier, Identifier, ReservedIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Scope {
@@ -44,58 +33,78 @@ impl From<ScopeId> for GenericArgument {
     }
 }
 
-impl From<BuiltinIdentifier> for ScopeRoute {
-    fn from(ident: BuiltinIdentifier) -> Self {
-        Self::Builtin(ident)
+impl From<ReservedIdentifier> for ScopeRoute {
+    fn from(ident: ReservedIdentifier) -> Self {
+        Self::Reserved { ident }
+    }
+}
+
+impl From<&ReservedIdentifier> for ScopeRoute {
+    fn from(ident: &ReservedIdentifier) -> Self {
+        Self::Reserved { ident: *ident }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ScopeRoute {
-    Builtin(BuiltinIdentifier),
-    Package(FileId, CustomIdentifier),
-    ChildScope(ScopeId, CustomIdentifier),
+    Reserved {
+        ident: ReservedIdentifier,
+    },
+    Package {
+        main: FileId,
+        ident: CustomIdentifier,
+    },
+    ChildScope {
+        parent: ScopeId,
+        ident: CustomIdentifier,
+    },
+}
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub struct BuiltinScopeData {
+    pub scope_kind: ScopeKind,
+    pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
 }
 
 impl Scope {
-    pub fn package(main_file: FileId, ident: CustomIdentifier) -> Self {
+    pub fn package(main: FileId, ident: CustomIdentifier) -> Self {
         Scope {
-            route: ScopeRoute::Package(main_file, ident),
+            route: ScopeRoute::Package { main, ident },
             generics: Vec::new(),
         }
     }
     pub fn child_scope(
-        parent_scope: ScopeId,
+        parent: ScopeId,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
     ) -> Scope {
         Scope {
-            route: ScopeRoute::ChildScope(parent_scope, ident),
+            route: ScopeRoute::ChildScope { parent, ident },
             generics,
         }
     }
 
-    pub fn builtin(scope: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
+    pub fn builtin(ident: ReservedIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
         Scope {
-            route: ScopeRoute::Builtin(scope),
+            route: ScopeRoute::Reserved { ident },
             generics: generic_arguments,
         }
     }
 
     pub fn vec(element: GenericArgument) -> Self {
-        Self::builtin(BuiltinIdentifier::Vector, vec![element])
+        Self::builtin(ReservedIdentifier::Vector, vec![element])
     }
 
     pub fn array(element: GenericArgument, size: usize) -> Self {
-        Self::builtin(BuiltinIdentifier::Array, vec![element, size.into()])
+        Self::builtin(ReservedIdentifier::Array, vec![element, size.into()])
     }
 
     pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
         Scope::builtin(
             if args.len() > 0 {
-                BuiltinIdentifier::Tuple
+                ReservedIdentifier::Tuple
             } else {
-                BuiltinIdentifier::Void
+                ReservedIdentifier::Void
             },
             args,
         )
@@ -106,15 +115,15 @@ impl Scope {
     }
 }
 
-impl From<BuiltinIdentifier> for Scope {
-    fn from(ident: BuiltinIdentifier) -> Self {
+impl From<ReservedIdentifier> for Scope {
+    fn from(ident: ReservedIdentifier) -> Self {
         Self::builtin(ident, Vec::new())
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ScopeSource {
-    Builtin(BuiltinIdentifier),
+    Builtin(&'static BuiltinScopeData),
     WithinBuiltinModule,
     WithinModule {
         file_id: FileId,
@@ -131,5 +140,11 @@ impl ScopeSource {
             file_id,
             token_group_index: token_group_index,
         }
+    }
+}
+
+impl From<&'static BuiltinScopeData> for ScopeSource {
+    fn from(data: &'static BuiltinScopeData) -> Self {
+        Self::Builtin(data)
     }
 }

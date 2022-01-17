@@ -1,5 +1,5 @@
 use scope::ScopeId;
-use word::BuiltinIdentifier;
+use word::ReservedIdentifier;
 
 #[derive(Debug, Clone, Copy)]
 pub enum PrimitiveValue {
@@ -14,10 +14,10 @@ pub enum PrimitiveValue {
 impl PrimitiveValue {
     pub fn ty(&self) -> ScopeId {
         match self {
-            PrimitiveValue::I32(_) => BuiltinIdentifier::I32,
-            PrimitiveValue::F32(_) => BuiltinIdentifier::F32,
-            PrimitiveValue::B32(_) => BuiltinIdentifier::B32,
-            PrimitiveValue::B64(_) => BuiltinIdentifier::B64,
+            PrimitiveValue::I32(_) => ReservedIdentifier::I32,
+            PrimitiveValue::F32(_) => ReservedIdentifier::F32,
+            PrimitiveValue::B32(_) => ReservedIdentifier::B32,
+            PrimitiveValue::B64(_) => ReservedIdentifier::B64,
             PrimitiveValue::Bool(_) => todo!(),
             PrimitiveValue::Void => todo!(),
         }

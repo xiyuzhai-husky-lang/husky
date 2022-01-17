@@ -2,9 +2,13 @@ mod impl_parse_expr;
 mod impl_parse_func_decl;
 mod impl_parse_stmt;
 mod impl_symbol_proxy;
+mod impl_use_all;
 mod utils;
 
 use fold::{FoldedList, LocalStack, LocalValue};
+use interner::InternId;
+use scope::ScopeRoute;
+use scope_query::PackageOrModule;
 use syntax_types::*;
 use text::TextRanged;
 use token::*;
@@ -26,16 +30,16 @@ pub struct AstTransformer<'a> {
 }
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn new(db: &'a dyn AstQueryGroup, module: scope::PackageOrModule) -> Self {
+    pub(crate) fn new(db: &'a dyn AstQueryGroup, module: PackageOrModule) -> Self {
         Self {
             db,
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
             symbols: LocalStack::new(),
-            env: LocalValue::new(match db.id_to_scope(module.scope_id()).route {
-                scope::ScopeRoute::Builtin(_) => todo!(),
-                scope::ScopeRoute::Package(_, _) => Env::Package,
-                scope::ScopeRoute::ChildScope(_, _) => Env::Module,
+            env: LocalValue::new(match module.scope().route {
+                ScopeRoute::Reserved { .. } => panic!(),
+                ScopeRoute::Package { .. } => Env::Package,
+                ScopeRoute::ChildScope { .. } => Env::Module,
             }),
         }
     }
@@ -67,7 +71,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         &mut self,
         _indent: fold::Indent,
         tokens: &[Token],
-        enter_block: &mut impl FnOnce(&mut Self),
+        enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<Ast> {
         if let TokenKind::Keyword(keyword) = tokens[0].kind {
             match keyword {
@@ -111,6 +115,8 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 Keyword::Config(cfg) => match cfg {
                     ConfigKeyword::Dataset => {
                         self.env.set_value(Env::DatasetConfig);
+                        enter_block(self);
+                        self.use_all(ReservedIdentifier::Dataset.into(), tokens[0].text_range())?;
                         Ok(Ast::DatasetConfig)
                     }
                 },

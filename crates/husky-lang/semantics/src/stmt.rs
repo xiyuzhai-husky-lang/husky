@@ -2,7 +2,7 @@ use ast::*;
 use scope::ScopeId;
 use syntax_types::{BinaryOpr, Opr};
 use text::TextRange;
-use word::{BuiltinIdentifier, CustomIdentifier};
+use word::{CustomIdentifier, ReservedIdentifier};
 
 use crate::SemanticResult;
 
@@ -180,10 +180,10 @@ impl<'a> LazyStmtParser<'a> {
                 let opn = match opds[0].ty {
                     ScopeId::Builtin(ident) => {
                         let kind = match ident {
-                            BuiltinIdentifier::Void => todo!(),
-                            BuiltinIdentifier::I32 => BinaryOpnKind::EqI32,
-                            BuiltinIdentifier::F32 => BinaryOpnKind::EqF32,
-                            BuiltinIdentifier::Bool => BinaryOpnKind::EqBool,
+                            ReservedIdentifier::Void => todo!(),
+                            ReservedIdentifier::I32 => BinaryOpnKind::EqI32,
+                            ReservedIdentifier::F32 => BinaryOpnKind::EqF32,
+                            ReservedIdentifier::Bool => BinaryOpnKind::EqBool,
                             _ => panic!(),
                         };
                         Opn::Binary {
@@ -195,7 +195,7 @@ impl<'a> LazyStmtParser<'a> {
                     ScopeId::Custom(_) => todo!(),
                 };
                 (
-                    BuiltinIdentifier::Bool.into(),
+                    ReservedIdentifier::Bool.into(),
                     ExprKind::Opn {
                         opds,
                         compiled: None,

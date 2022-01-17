@@ -5,7 +5,7 @@ use common::*;
 use ast::{Ast, AstResult, RawExpr, RawExprKind};
 use scope::ScopeId;
 use syntax_types::*;
-use word::{BuiltinIdentifier, WordInterner};
+use word::{ReservedIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
     word_interner: &'a WordInterner,
@@ -89,8 +89,7 @@ impl<'a> Formatter<'a> {
                     FuncKind::PureFunc => "func ",
                     FuncKind::Def => todo!(),
                 });
-                self.word_interner
-                    .apply(decl.funcname.into(), |s| self.write(s));
+                self.write(&decl.funcname);
                 self.write("(");
                 for i in 0..decl.inputs.len() {
                     if i > 0 {
@@ -102,7 +101,7 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_contracted_type(ty);
                 }
                 self.write(")");
-                if decl.output != ScopeId::Builtin(BuiltinIdentifier::Void) {
+                if decl.output != ScopeId::Builtin(ReservedIdentifier::Void) {
                     self.write(" -> ");
                     self.fmt_type(decl.output);
                 }
@@ -129,10 +128,7 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_ident(&mut self, ident: word::Identifier) {
-        self.word_interner
-            .apply(word::Word::Identifier(ident), |s: &str| {
-                self.result.add_assign(s)
-            })
+        self.result.add_assign(&ident)
     }
 
     fn fmt_member_variable_contracted_type(&mut self, ty: &MembType) {
@@ -155,7 +151,7 @@ impl<'a> Formatter<'a> {
 
     fn fmt_type(&mut self, ty: ScopeId) {
         match ty {
-            ScopeId::Builtin(ident) => self.write(ident.code()),
+            ScopeId::Builtin(ident) => self.write(&ident),
             ScopeId::Custom(_) => todo!(),
         }
     }
@@ -192,9 +188,7 @@ impl<'a> Formatter<'a> {
 
     fn fmt_expr(&mut self, expr: &RawExpr) {
         match &expr.kind {
-            RawExprKind::Variable(ident) => self
-                .word_interner
-                .apply(word::Word::Identifier(ident.into()), |s| self.write(s)),
+            RawExprKind::Variable(ident) => self.write(&ident),
             RawExprKind::Literal(literal) => match literal {
                 PrimitiveValue::I32(i) => self.write(&i.to_string()),
                 PrimitiveValue::F32(f) => self.write(&f.to_string()),

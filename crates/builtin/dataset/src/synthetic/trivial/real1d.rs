@@ -1,6 +1,24 @@
+pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+    scope_kind: ScopeKind::Module,
+    subscopes: &[
+        ("dataset1", DATASET1_SCOPE_DATA),
+        ("dataset2", DATASET2_SCOPE_DATA),
+    ],
+};
+
+pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+    scope_kind: ScopeKind::Func,
+    subscopes: &[],
+};
+
+pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+    scope_kind: ScopeKind::Func,
+    subscopes: &[],
+};
+
 use xrng::XRng;
 
-use crate::synthetic::SimpleSyntheticDataset;
+use crate::{synthetic::SimpleSyntheticDataset, *};
 
 pub struct Real1dDatapoint {
     pub x: f32,

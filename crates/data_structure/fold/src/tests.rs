@@ -40,7 +40,7 @@ impl<'a> Transformer<(), FoldedList<()>, ()> for TrivialTransformer {
         &mut self,
         _indent: Indent,
         _input: &(),
-        _enter_block: &mut impl FnOnce(&mut Self),
+        _enter_block: impl FnOnce(&mut Self),
     ) -> () {
     }
 
@@ -59,7 +59,7 @@ fn transform() {
     should!(fold_items.fold_iter(2).next().unwrap().children.is_some());
     for i in 0..fold_items.len() {
         let mut iter = fold_items.fold_iter(i);
-        p!(i, iter, iter.next());
+        test_print!(i, iter, iter.next());
     }
     transformer.transform_all(fold_items.fold_iter(0));
     should_eq!(transformer.fold_outputs.len(), 5);

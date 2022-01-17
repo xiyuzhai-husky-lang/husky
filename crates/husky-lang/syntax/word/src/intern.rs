@@ -1,63 +1,88 @@
-use interner::Interner;
+use std::{borrow::Borrow, ops::Deref};
+
+use interner::{InternId, Interner};
 
 use crate::*;
 
-pub type WordInterner = Interner<String, Word>;
+pub type WordInterner = Interner<str, String, WordId>;
+
+impl Deref for WordId {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            WordId::Keyword(keyword) => keyword.deref(),
+            WordId::Identifier(ident) => ident.deref(),
+        }
+    }
+}
+
+impl Borrow<str> for WordId {
+    fn borrow(&self) -> &str {
+        self.deref()
+    }
+}
+
+impl From<&'static str> for WordId {
+    fn from(target: &'static str) -> Self {
+        Self::Identifier(Identifier::Custom(CustomIdentifier(target)))
+    }
+}
+
+impl InternId for WordId {
+    type Thing = str;
+}
 
 pub fn new_word_interner() -> WordInterner {
-    return WordInterner::new_from::<&'static str, Word>(vec![
-        ("dataset", ConfigKeyword::Dataset.into()),
-        ("use", Keyword::Use.into()),
-        ("mod", Keyword::Mod.into()),
-        ("main", FuncKeyword::Main.into()),
-        ("test", FuncKeyword::Test.into()),
-        ("proc", FuncKeyword::Proc.into()),
-        ("func", FuncKeyword::Func.into()),
-        ("def", FuncKeyword::Def.into()),
-        ("struct", TypeKeyword::Struct.into()),
-        ("rename", TypeKeyword::Rename.into()),
-        ("enum", TypeKeyword::Enum.into()),
-        ("props", TypeKeyword::Props.into()),
-        ("let", StmtKeyword::Let.into()),
-        ("var", StmtKeyword::Var.into()),
-        ("if", StmtKeyword::If.into()),
-        ("elif", StmtKeyword::Elif.into()),
-        ("else", StmtKeyword::Else.into()),
-        ("switch", StmtKeyword::Switch.into()),
-        ("match", StmtKeyword::Match.into()),
-        ("case", StmtKeyword::Case.into()),
-        ("default", StmtKeyword::DeFault.into()),
-        ("for", StmtKeyword::For.into()),
-        ("forext", StmtKeyword::ForExt.into()),
-        ("while", StmtKeyword::While.into()),
-        ("do", StmtKeyword::Do.into()),
-        ("break", StmtKeyword::Break.into()),
-        ("return", StmtKeyword::Return.into()),
-        ("assert", StmtKeyword::Assert.into()),
-        ("builtin", BuiltinIdentifier::Debug.into()),
-        ("std", BuiltinIdentifier::Std.into()),
-        ("core", BuiltinIdentifier::Core.into()),
-        ("debug", BuiltinIdentifier::Debug.into()),
-        ("i32", BuiltinIdentifier::I32.into()),
-        ("f32", BuiltinIdentifier::F32.into()),
-        ("Vec", BuiltinIdentifier::Vector.into()),
-        ("Array", BuiltinIdentifier::Array.into()),
-        ("Tuple", BuiltinIdentifier::Tuple.into()),
-        ("Fp", BuiltinIdentifier::Fp.into()),
-        ("Fn", BuiltinIdentifier::Fn.into()),
-        ("FnMut", BuiltinIdentifier::FnMut.into()),
-        ("FnOnce", BuiltinIdentifier::FnOnce.into()),
+    return WordInterner::new(&[
+        ConfigKeyword::Dataset.into(),
+        Keyword::Use.into(),
+        Keyword::Mod.into(),
+        FuncKeyword::Main.into(),
+        FuncKeyword::Test.into(),
+        FuncKeyword::Proc.into(),
+        FuncKeyword::Func.into(),
+        FuncKeyword::Def.into(),
+        TypeKeyword::Struct.into(),
+        TypeKeyword::Rename.into(),
+        TypeKeyword::Enum.into(),
+        TypeKeyword::Props.into(),
+        StmtKeyword::Let.into(),
+        StmtKeyword::Var.into(),
+        StmtKeyword::If.into(),
+        StmtKeyword::Elif.into(),
+        StmtKeyword::Else.into(),
+        StmtKeyword::Switch.into(),
+        StmtKeyword::Match.into(),
+        StmtKeyword::Case.into(),
+        StmtKeyword::DeFault.into(),
+        StmtKeyword::For.into(),
+        StmtKeyword::ForExt.into(),
+        StmtKeyword::While.into(),
+        StmtKeyword::Do.into(),
+        StmtKeyword::Break.into(),
+        StmtKeyword::Return.into(),
+        StmtKeyword::Assert.into(),
+        ReservedIdentifier::Debug.into(),
+        ReservedIdentifier::Std.into(),
+        ReservedIdentifier::Core.into(),
+        ReservedIdentifier::Debug.into(),
+        ReservedIdentifier::I32.into(),
+        ReservedIdentifier::F32.into(),
+        ReservedIdentifier::Vector.into(),
+        ReservedIdentifier::Array.into(),
+        ReservedIdentifier::Tuple.into(),
+        ReservedIdentifier::Fp.into(),
+        ReservedIdentifier::Fn.into(),
+        ReservedIdentifier::FnMut.into(),
+        ReservedIdentifier::FnOnce.into(),
+        ReservedIdentifier::Dataset.into(),
     ]);
 }
 
 pub trait InternWord {
     fn word_interner(&self) -> &WordInterner;
-
-    fn string_to_word(&self, string: &str) -> Word {
-        self.word_interner().id_by_ref(string)
+    fn intern_word(&self, word: &str) -> WordId {
+        self.word_interner().intern(word.to_string())
     }
-}
-
-pub fn convert_ident<T>(this: &dyn InternWord, ident: Identifier, f: impl FnOnce(&str) -> T) -> T {
-    this.word_interner().apply(Word::Identifier(ident), f)
 }

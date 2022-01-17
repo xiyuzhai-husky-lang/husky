@@ -5,9 +5,7 @@ mod query;
 mod utils;
 
 pub use error::{FileError, FileResult, FileResultArc};
-pub use intern::{
-    convert_filepath, new_file_interner, snapshot_use_filepath, FileId, FileInterner, InternFile,
-};
+pub use intern::{new_file_interner, FileId, FileInterner, InternFile};
 pub use query::{FileContentQuery, FileQuery, FileQueryStorage, FileSalsaQuery, LiveFiles};
 
 use std::sync::Arc;
@@ -17,7 +15,6 @@ use common::*;
 #[derive(Clone, Copy, Debug)]
 pub struct FilePosition {
     pub file_id: FileId,
-    // pub offset: TextSize,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

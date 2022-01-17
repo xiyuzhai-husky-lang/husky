@@ -6,8 +6,8 @@ edition = "2021"
 [dependencies]
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.91", features = ["proposed"] }
-
 common = { path = "../../common", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
+scope_query = { path = "../syntax/scope_query", version = "0.0.0" }

@@ -1,4 +1,5 @@
 #![allow(dead_code, warnings)]
+mod config;
 mod error;
 mod expr;
 mod kind;

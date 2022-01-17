@@ -1,5 +1,7 @@
 use husky_lang_db::*;
 
+use crate::session::Session;
+
 #[test]
 fn simple() {
     let mut db = HuskyLangDatabase::new();
@@ -8,6 +10,9 @@ fn simple() {
         r#"
 struct A:
     a: i32
+
+dataset:
+    synthetic::trivial::real1d::dataset1()
 
 main:
     a = 1
@@ -19,5 +24,6 @@ main:
     );
 
     let main_file_id = db.file_id("haha/main.hsk".into());
-    let package = db.package(main_file_id);
+    let package = db.package(main_file_id).unwrap();
+    let sess = Session::new(&package);
 }

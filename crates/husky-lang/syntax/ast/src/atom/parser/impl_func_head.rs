@@ -64,7 +64,7 @@ impl<'a> AtomLRParser<'a> {
         Ok(if next_matches!(self, "->") {
             get!(self, ty?)
         } else {
-            ScopeId::Builtin(BuiltinIdentifier::Void)
+            ScopeId::Builtin(ReservedIdentifier::Void)
         })
     }
 }

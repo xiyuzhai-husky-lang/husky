@@ -13,7 +13,7 @@ where
         &mut self,
         indent: Indent,
         input: &Input,
-        enter_block: &mut impl FnOnce(&mut Self),
+        enter_block: impl FnOnce(&mut Self),
     ) -> Output;
     fn folded_output_mut(&mut self) -> &mut FoldedList<Output>;
 
@@ -27,7 +27,7 @@ where
             let mut block_entered = false;
 
             // parse current
-            let parse_result = self.transform(item.indent, item.value, &mut |this| {
+            let parse_result = self.transform(item.indent, item.value, |this| {
                 block_entered = true;
                 this._enter_block();
             });

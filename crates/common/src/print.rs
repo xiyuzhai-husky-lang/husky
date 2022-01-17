@@ -1,7 +1,22 @@
 #[macro_export]
-macro_rules! p {
+macro_rules! test_print {
     ($($v:expr),*) => {
         #[cfg(test)]
+        eprintln!(r#"
+-------------------------------------------------------------------
+{}{}:{}{}:{}
+    {}"#,
+        common::show::GREEN,
+        file!(),
+        common::show::YELLOW,
+        line!(),
+        common::show::RESET,
+        show!($($v),*),
+    )};
+}
+#[macro_export]
+macro_rules! p {
+    ($($v:expr),*) => {
         eprintln!(r#"
 -------------------------------------------------------------------
 {}{}:{}{}:{}

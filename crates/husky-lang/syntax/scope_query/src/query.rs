@@ -1,12 +1,15 @@
 use crate::{error::scope_err, *};
+use file::FileId;
+use interner::InternId;
+use scope::*;
 
 use common::*;
 
-use word::Word;
+use word::{CustomIdentifier, Identifier, ReservedIdentifier, WordId};
 
 use fold::FoldStorage;
 
-use std::{path::PathBuf, sync::Arc};
+use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait ScopeSalsaQueryGroup: token::TokenQueryGroup + InternScope {
     fn subscope_table(&self, scope_id: ScopeId) -> ScopeResultArc<SubscopeTable>;
@@ -25,7 +28,7 @@ fn subscope_table(
     scope_id: ScopeId,
 ) -> ScopeResultArc<SubscopeTable> {
     Ok(Arc::new(match this.scope_source(scope_id)? {
-        ScopeSource::Builtin(_) => todo!(),
+        ScopeSource::Builtin(data) => SubscopeTable::builtin(this, data),
         ScopeSource::WithinModule {
             file_id,
             token_group_index,
@@ -56,81 +59,66 @@ fn subscope_ids(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopeId) -> Arc<Vec<S
     }))
 }
 
-fn scope_kind(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopeId) -> ScopeKind {
-    let scope = this.id_to_scope(scope_id);
-    match scope.route {
-        ScopeRoute::Builtin(scope) => match scope {
-            BuiltinIdentifier::Void
-            | BuiltinIdentifier::I32
-            | BuiltinIdentifier::F32
-            | BuiltinIdentifier::B32
-            | BuiltinIdentifier::B64
-            | BuiltinIdentifier::Bool
-            | BuiltinIdentifier::Vector
-            | BuiltinIdentifier::Tuple
-            | BuiltinIdentifier::Fp
-            | BuiltinIdentifier::Array => ScopeKind::Type,
-            BuiltinIdentifier::Fn | BuiltinIdentifier::FnMut | BuiltinIdentifier::FnOnce => {
-                ScopeKind::Trait
-            }
-            BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
-                ScopeKind::Module
-            }
-            BuiltinIdentifier::Input => ScopeKind::Feature,
-        },
-        ScopeRoute::Package(_, _) => ScopeKind::Module,
-        ScopeRoute::ChildScope(parent, ident) => this
-            .subscope_table(parent)
-            .as_ref()
-            .as_ref()
-            .ok()
-            .map(|table| table.scope_kind(ident))
-            .flatten()
-            .unwrap(),
-    }
+fn scope_kind(this: &dyn ScopeSalsaQueryGroup, scope: ScopeId) -> ScopeKind {
+    this.scope_kind_from_route(scope.route)
 }
 
 fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> ScopeKind {
     match route {
-        ScopeRoute::Builtin(scope) => match scope {
-            BuiltinIdentifier::Void
-            | BuiltinIdentifier::I32
-            | BuiltinIdentifier::F32
-            | BuiltinIdentifier::B32
-            | BuiltinIdentifier::B64
-            | BuiltinIdentifier::Bool
-            | BuiltinIdentifier::Vector
-            | BuiltinIdentifier::Tuple
-            | BuiltinIdentifier::Fp
-            | BuiltinIdentifier::Array => ScopeKind::Type,
-            BuiltinIdentifier::Fn | BuiltinIdentifier::FnMut | BuiltinIdentifier::FnOnce => {
+        ScopeRoute::Reserved { ident } => match ident {
+            ReservedIdentifier::Void
+            | ReservedIdentifier::I32
+            | ReservedIdentifier::F32
+            | ReservedIdentifier::B32
+            | ReservedIdentifier::B64
+            | ReservedIdentifier::Bool
+            | ReservedIdentifier::Vector
+            | ReservedIdentifier::Tuple
+            | ReservedIdentifier::Fp
+            | ReservedIdentifier::Array => ScopeKind::Type,
+            ReservedIdentifier::Fn | ReservedIdentifier::FnMut | ReservedIdentifier::FnOnce => {
                 ScopeKind::Trait
             }
-            BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
-                ScopeKind::Module
-            }
-            BuiltinIdentifier::Input => ScopeKind::Feature,
+            ReservedIdentifier::Debug
+            | ReservedIdentifier::Std
+            | ReservedIdentifier::Core
+            | ReservedIdentifier::Dataset => ScopeKind::Module,
+            ReservedIdentifier::Input => ScopeKind::Feature,
         },
-        ScopeRoute::Package(_, _) => ScopeKind::Module,
-        ScopeRoute::ChildScope(parent, ident) => this
+        ScopeRoute::Package { .. } => ScopeKind::Module,
+        ScopeRoute::ChildScope { parent, ident } => this
             .subscope_table(parent)
-            .as_ref()
-            .as_ref()
-            .ok()
-            .map(|table| table.scope_kind(ident))
-            .flatten()
+            .unwrap()
+            .scope_kind(ident)
             .unwrap(),
     }
 }
 
-fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopeId) -> ScopeResult<ScopeSource> {
-    let scope = this.id_to_scope(scope_id);
+fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopeId) -> ScopeResult<ScopeSource> {
     Ok(match scope.route {
-        ScopeRoute::Builtin(_) => todo!(),
-        ScopeRoute::Package(main_file_id, _) => ScopeSource::Module {
-            file_id: main_file_id,
-        },
-        ScopeRoute::ChildScope(parent, ident) => {
+        ScopeRoute::Reserved { ident } => match ident {
+            ReservedIdentifier::Void => todo!(),
+            ReservedIdentifier::I32 => todo!(),
+            ReservedIdentifier::F32 => todo!(),
+            ReservedIdentifier::B32 => todo!(),
+            ReservedIdentifier::B64 => todo!(),
+            ReservedIdentifier::Bool => todo!(),
+            ReservedIdentifier::Vector => todo!(),
+            ReservedIdentifier::Tuple => todo!(),
+            ReservedIdentifier::Debug => todo!(),
+            ReservedIdentifier::Std => todo!(),
+            ReservedIdentifier::Core => todo!(),
+            ReservedIdentifier::Fp => todo!(),
+            ReservedIdentifier::Fn => todo!(),
+            ReservedIdentifier::FnMut => todo!(),
+            ReservedIdentifier::FnOnce => todo!(),
+            ReservedIdentifier::Array => todo!(),
+            ReservedIdentifier::Input => todo!(),
+            ReservedIdentifier::Dataset => dataset::SCOPE_DATA,
+        }
+        .into(),
+        ScopeRoute::Package { main, .. } => ScopeSource::Module { file_id: main },
+        ScopeRoute::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
     })
@@ -188,7 +176,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
     {
         if let Ok(module) = self.module_from_file_id(id) {
             let mut modules = vec![module];
-            self.subscope_table(module.scope_id()).ok().map(|table| {
+            self.subscope_table(module.scope()).ok().map(|table| {
                 modules.extend(
                     table
                         .submodule_idents()
@@ -207,14 +195,13 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
     }
 
     fn module_from_file_id(&self, id: FileId) -> ScopeResult<PackageOrModule> {
-        let path: PathBuf = file::convert_filepath(self, id, |pth| pth.into());
+        let path: PathBuf = (*id).into();
         if !self.file_exists(id) {
             scope_err!(format!("file didn't exist"))?
         } else if path_has_file_name(&path, "main.hsk") {
             if let Some(package_name) = path_parent_file_name_str(&path) {
-                let word = self.string_to_word(package_name.as_ref());
-                if let Word::Identifier(Identifier::Custom(ident)) =
-                    self.string_to_word(package_name.as_ref())
+                if let WordId::Identifier(Identifier::Custom(ident)) =
+                    self.word_interner().intern(package_name)
                 {
                     Ok(PackageOrModule {
                         scope_id: self.intern_scope(Scope::package(id, ident)),
@@ -242,8 +229,8 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
     }
 
     fn module_to_file_id(&self, module: PackageOrModule) -> ScopeResult<FileId> {
-        Ok(match self.scope_source(module.scope_id())? {
-            ScopeSource::Builtin(_) => todo!(),
+        Ok(match self.scope_source(module.scope())? {
+            ScopeSource::Builtin(_) => panic!(),
             ScopeSource::WithinModule { file_id, .. } => file_id,
             ScopeSource::Module { file_id } => file_id,
             ScopeSource::WithinBuiltinModule => todo!(),
@@ -254,17 +241,12 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + InternScope {
     where
         Self: Sized,
     {
-        let path = self.filepath(parent_id);
+        let path = &*parent_id;
 
-        should!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(&path, "main.hsk"));
+        should!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(path, "main.hsk"));
 
-        let module_path1 = word::convert_ident(self, ident.into(), |s: &str| {
-            path.with_file_name(format!("{}.hsk", s))
-        });
-
-        let module_path2 = word::convert_ident(self, ident.into(), |s: &str| {
-            path.with_file_name(format!("{}/mod.hsk", s))
-        });
+        let module_path1 = path.with_file_name(format!("{}.hsk", ident.deref()));
+        let module_path2 = path.with_file_name(format!("{}/mod.hsk", ident.deref()));
 
         let module_path = if module_path1.is_file() && !module_path2.is_file() {
             Ok(module_path1)
@@ -284,7 +266,7 @@ pub struct PackageOrModule {
 }
 
 impl PackageOrModule {
-    pub fn scope_id(&self) -> ScopeId {
+    pub fn scope(&self) -> ScopeId {
         self.scope_id
     }
 }
