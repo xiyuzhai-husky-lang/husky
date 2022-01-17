@@ -19,7 +19,7 @@ fn test_diagnostics() {
     // }
     {
         let diagnostic_reserve = db.diagnostic_reserve(the_module);
-        p!(diagnostic_reserve);
+        test_print!(diagnostic_reserve);
         should_eq!(diagnostic_reserve.diagnostics_ref().len(), 1);
     }
 }

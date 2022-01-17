@@ -2,15 +2,15 @@ use common::*;
 
 use scope::*;
 use text::TextRange;
-use word::{BuiltinIdentifier, CustomIdentifier};
+use word::{CustomIdentifier, ReservedIdentifier};
 
 use super::*;
 use crate::*;
 
 #[derive(Debug, Clone)]
 pub struct Symbol {
-    ident: word::Identifier,
-    kind: SymbolKind,
+    pub ident: word::Identifier,
+    pub kind: SymbolKind,
 }
 
 impl Symbol {
@@ -37,7 +37,7 @@ pub struct SymbolProxy<'a> {
 impl<'a> SymbolProxy<'a> {
     pub fn builtin_type_atom(
         &self,
-        ident: BuiltinIdentifier,
+        ident: ReservedIdentifier,
         generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
@@ -58,10 +58,7 @@ impl<'a> SymbolProxy<'a> {
                 .find(|symbol| symbol.ident == ident.into())
                 .ok_or(ast_error!(
                     range.clone(),
-                    word::use_string(self.db, ident.into(), |s| format!(
-                        "unrecognized identifier `{}`",
-                        s
-                    ))
+                    format!("unrecognized identifier `{}`", &*ident)
                 ))?
                 .kind
                 .clone()),

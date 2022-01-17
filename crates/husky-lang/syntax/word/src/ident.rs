@@ -1,13 +1,40 @@
+use std::{borrow::Borrow, ops::Deref};
+
 use crate::*;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
-    Builtin(BuiltinIdentifier),
+    Builtin(ReservedIdentifier),
     Custom(CustomIdentifier),
 }
 
+impl Deref for Identifier {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            Identifier::Builtin(ident) => ident.deref(),
+            Identifier::Custom(ident) => ident.deref(),
+        }
+    }
+}
+
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub struct CustomIdentifier(u32);
+pub struct CustomIdentifier(pub(crate) &'static str);
+
+impl Deref for CustomIdentifier {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        self.0
+    }
+}
+
+impl Borrow<str> for CustomIdentifier {
+    fn borrow(&self) -> &str {
+        self.deref()
+    }
+}
 
 impl From<CustomIdentifier> for Identifier {
     fn from(ident: CustomIdentifier) -> Self {
@@ -21,20 +48,8 @@ impl From<&CustomIdentifier> for Identifier {
     }
 }
 
-impl From<u32> for CustomIdentifier {
-    fn from(raw: u32) -> Self {
-        CustomIdentifier(raw)
-    }
-}
-
-impl From<u32> for Identifier {
-    fn from(raw: u32) -> Self {
-        Self::Custom(CustomIdentifier(raw))
-    }
-}
-
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub enum BuiltinIdentifier {
+pub enum ReservedIdentifier {
     Void,
     I32,
     F32,
@@ -52,32 +67,42 @@ pub enum BuiltinIdentifier {
     FnOnce,
     Array,
     Input,
+    Dataset,
 }
 
-impl BuiltinIdentifier {
-    pub fn code(self) -> &'static str {
+impl Deref for ReservedIdentifier {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
         match self {
-            BuiltinIdentifier::Void => "()",
-            BuiltinIdentifier::I32 => "i32",
-            BuiltinIdentifier::F32 => "f32",
-            BuiltinIdentifier::B32 => "b32",
-            BuiltinIdentifier::B64 => "b64",
-            BuiltinIdentifier::Bool => "bool",
-            BuiltinIdentifier::Vector => "Vec",
-            BuiltinIdentifier::Tuple => "Tuple",
-            BuiltinIdentifier::Debug => "debug",
-            BuiltinIdentifier::Std => "std",
-            BuiltinIdentifier::Core => "core",
-            BuiltinIdentifier::Fp => "Fp",
-            BuiltinIdentifier::Fn => "Fn",
-            BuiltinIdentifier::FnMut => "FnMut",
-            BuiltinIdentifier::FnOnce => "FnOnce",
-            BuiltinIdentifier::Array => "Array",
-            BuiltinIdentifier::Input => "Input",
+            ReservedIdentifier::Void => "()",
+            ReservedIdentifier::I32 => "i32",
+            ReservedIdentifier::F32 => "f32",
+            ReservedIdentifier::B32 => "b32",
+            ReservedIdentifier::B64 => "b64",
+            ReservedIdentifier::Bool => "bool",
+            ReservedIdentifier::Vector => "Vec",
+            ReservedIdentifier::Tuple => "Tuple",
+            ReservedIdentifier::Debug => "debug",
+            ReservedIdentifier::Std => "std",
+            ReservedIdentifier::Core => "core",
+            ReservedIdentifier::Fp => "Fp",
+            ReservedIdentifier::Fn => "Fn",
+            ReservedIdentifier::FnMut => "FnMut",
+            ReservedIdentifier::FnOnce => "FnOnce",
+            ReservedIdentifier::Array => "Array",
+            ReservedIdentifier::Input => "Input",
+            ReservedIdentifier::Dataset => "builtin_dataset",
         }
     }
 }
 
-pub fn default_func_type() -> BuiltinIdentifier {
-    BuiltinIdentifier::Fp
+impl Borrow<str> for ReservedIdentifier {
+    fn borrow(&self) -> &str {
+        self.deref()
+    }
+}
+
+pub fn default_func_type() -> ReservedIdentifier {
+    ReservedIdentifier::Fp
 }

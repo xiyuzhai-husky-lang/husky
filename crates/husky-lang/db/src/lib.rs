@@ -2,9 +2,11 @@
 mod tests;
 
 pub use ast::AstQueryGroup;
+pub use diagnostic::DiagnosticQuery;
 pub use file::{FileQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
-pub use scope::{InternScope, Scope, ScopeQueryGroup, ScopeSalsaQueryGroup};
+pub use scope::{InternScope, Scope};
+pub use scope_query::{ScopeQueryGroup, ScopeSalsaQueryGroup};
 pub use semantics::PackageQueryGroup;
 pub use word::InternWord;
 
@@ -17,12 +19,13 @@ use stdx::sync::ARwLock;
 #[salsa::database(
     file::FileQueryStorage,
     token::TokenQueryGroupStorage,
-    scope::ScopeQueryGroupStorage,
+    scope_query::ScopeQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
     semantics::PackageQueryGroupStorage,
     semantics::MainQueryGroupStorage,
     semantics::EntityQueryGroupStorage,
+    semantics::ConfigQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage
 )]
 pub struct HuskyLangDatabase {
@@ -66,7 +69,7 @@ impl HuskyLangDatabase {
 }
 
 impl InternFile for HuskyLangDatabase {
-    fn provide_file_interner(&self) -> &file::FileInterner {
+    fn file_interner(&self) -> &file::FileInterner {
         &self.file_interner
     }
 }
@@ -90,7 +93,7 @@ impl LiveFiles for HuskyLangDatabase {
 impl FileQuery for HuskyLangDatabase {}
 
 impl InternScope for HuskyLangDatabase {
-    fn provide_scope_interner(&self) -> &scope::ScopeInterner {
+    fn scope_interner(&self) -> &scope::ScopeInterner {
         &self.scope_interner
     }
 }

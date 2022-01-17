@@ -17,5 +17,6 @@ word = { path = "../syntax/word", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 syntax-types = { path = "../syntax/types", version = "0.0.0" }
-dataset = { path = "../../ml/dataset", version = "0.0.0" }
+semantics = { path = "../semantics", version = "0.0.0" }
+dataset = { path = "../../builtin/dataset", version = "0.0.0" }
 husky-lang-db = { path = "../db", version = "0.0.0" }

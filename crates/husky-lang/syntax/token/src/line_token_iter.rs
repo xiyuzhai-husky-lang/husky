@@ -4,7 +4,7 @@ use word::WordInterner;
 use crate::*;
 
 pub(crate) struct LineTokenIter<'token_line, 'lex: 'token_line> {
-    db: &'lex WordInterner,
+    word_interner: &'lex WordInterner,
     line_index: usize,
     buffer: String,
     char_iter: CharIter<'token_line>,
@@ -22,7 +22,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         (
             indent,
             Self {
-                db: word_interner,
+                word_interner,
                 line_index,
                 buffer,
                 char_iter,
@@ -90,8 +90,8 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         }
     }
 
-    fn take_buffer_word(&mut self) -> word::Word {
-        let word = self.db.id_by_ref(&self.buffer);
+    fn take_buffer_word(&mut self) -> word::WordId {
+        let word = self.word_interner.intern(std::mem::take(&mut self.buffer));
         self.buffer.clear();
         word
     }

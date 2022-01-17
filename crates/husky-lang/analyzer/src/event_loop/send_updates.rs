@@ -1,12 +1,10 @@
 use common::*;
 
-use husky_lang_db::HuskyLangDatabase;
+use husky_lang_db::*;
 
 use file::FileQuery;
 
 use crate::server::client_comm::ClientCommunicator;
-use diagnostic::DiagnosticQuery;
-use scope::ScopeQueryGroup;
 
 pub(crate) fn send_updates(db: &HuskyLangDatabase, comm: &ClientCommunicator) {
     db.module_iter().for_each(|module| {

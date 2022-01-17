@@ -1,6 +1,9 @@
-use crate::*;
+use file::FileId;
+use scope::*;
+use word::CustomIdentifier;
 
 use crate::error::*;
+use crate::ScopeSalsaQueryGroup;
 
 use text::group_text_range;
 use text::TextRanged;
@@ -10,9 +13,9 @@ use word::{Identifier, Keyword};
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
-    ident: Option<CustomIdentifier>,
-    kind: ScopeKind,
-    source: ScopeSource,
+    pub ident: Option<CustomIdentifier>,
+    pub kind: ScopeKind,
+    pub source: ScopeSource,
 }
 
 impl std::fmt::Debug for Entry {
@@ -186,5 +189,23 @@ impl SubscopeTable {
                     .map(|ident| Scope::child_scope(parent_scope_id, ident, Vec::new()))
             })
             .collect()
+    }
+}
+
+impl SubscopeTable {
+    pub(crate) fn builtin(this: &dyn ScopeSalsaQueryGroup, data: &BuiltinScopeData) -> Self {
+        let entries = data
+            .subscopes
+            .iter()
+            .map(|(s, data)| Entry {
+                ident: Some(this.intern_word(s).custom().unwrap()),
+                kind: data.scope_kind,
+                source: (*data).into(),
+            })
+            .collect();
+        Self {
+            entries,
+            errors: vec![],
+        }
     }
 }

@@ -1,6 +1,6 @@
 use ast::AstError;
 use common::*;
-use scope::ScopeError;
+use scope_query::ScopeError;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Origin {

@@ -7,9 +7,9 @@ pub type SemanticResult<T> = Result<T, SemanticError>;
 
 pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
 
-impl From<scope::ScopeError> for SemanticError {
-    fn from(_: scope::ScopeError) -> Self {
-        todo!()
+impl From<ScopeError> for SemanticError {
+    fn from(error: ScopeError) -> Self {
+        Self {}
     }
 }
 
@@ -32,3 +32,4 @@ macro_rules! not_none {
     }};
 }
 pub(crate) use not_none;
+use scope_query::ScopeError;

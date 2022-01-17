@@ -1,7 +1,8 @@
 use std::sync::Arc;
 
 use fold::{Executor, FoldStorage};
-use scope::{ScopeId, ScopeResultArc};
+use scope::ScopeId;
+use scope_query::ScopeResultArc;
 
 use crate::*;
 

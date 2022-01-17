@@ -3,7 +3,7 @@ mod primitive;
 
 pub use opr::*;
 
-use scope::ScopeId;
+use scope::{ScopeId, ScopeKind};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -118,3 +118,9 @@ impl std::fmt::Display for InitKind {
 }
 
 pub use primitive::PrimitiveValue;
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub struct BuiltinScopeData {
+    scope_kind: ScopeKind,
+    subscopes: [(String, &'static BuiltinScopeData)],
+}

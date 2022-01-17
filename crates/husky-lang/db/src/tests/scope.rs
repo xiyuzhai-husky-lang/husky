@@ -1,3 +1,6 @@
+use scope::ScopeRoute;
+use word::ReservedIdentifier;
+
 use crate::*;
 
 #[test]
@@ -17,7 +20,7 @@ main:
     let main_file = db.file_id("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
-        db.string_to_word("haha".into()).custom_ident().unwrap(),
+        db.intern_word("haha".into()).custom().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 2);
@@ -49,7 +52,7 @@ struct B {}
     let main_file = db.file_id("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
-        db.string_to_word("haha".into()).custom_ident().unwrap(),
+        db.intern_word("haha".into()).custom().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 3);
@@ -73,9 +76,44 @@ main:
     let main_file = db.file_id("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
-        db.string_to_word("haha".into()).custom_ident().unwrap(),
+        db.intern_word("haha".into()).custom().unwrap(),
     ));
     let subscope_table = db.subscope_table(package).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 1);
     should_eq!(subscope_table.errors.len(), 1);
+}
+
+#[test]
+fn datasets() {
+    let mut db = HuskyLangDatabase::new();
+    let dataset_scope = db.intern_scope(Scope {
+        route: ScopeRoute::Reserved {
+            ident: ReservedIdentifier::Dataset,
+        },
+        generics: vec![],
+    });
+    let synthetic_scope = db.intern_scope(
+        db.subscope(
+            dataset_scope,
+            db.intern_word("synthetic").custom().unwrap(),
+            vec![],
+        )
+        .unwrap(),
+    );
+    let synthetic_trivial_scope = db.intern_scope(
+        db.subscope(
+            synthetic_scope,
+            db.intern_word("trivial").custom().unwrap(),
+            vec![],
+        )
+        .unwrap(),
+    );
+    let synthetic_trivial_real1d_scope = db.intern_scope(
+        db.subscope(
+            synthetic_trivial_scope,
+            db.intern_word("trivial").custom().unwrap(),
+            vec![],
+        )
+        .unwrap(),
+    );
 }

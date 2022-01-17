@@ -1,25 +1,31 @@
+mod config;
 mod entity;
 mod main;
 mod module;
 
+use std::sync::Arc;
+
+pub use config::{ConfigQueryGroup, ConfigQueryGroupStorage};
 pub use entity::{EntityQueryGroup, EntityQueryGroupStorage};
+use interner::InternId;
 pub use main::{MainQueryGroup, MainQueryGroupStorage};
 
-use crate::*;
+use crate::{Package, SemanticResultArc};
 
 #[salsa::query_group(PackageQueryGroupStorage)]
-pub trait PackageQueryGroup: MainQueryGroup + EntityQueryGroup {
+pub trait PackageQueryGroup: MainQueryGroup + EntityQueryGroup + ConfigQueryGroup {
     fn package(&self, main_file: file::FileId) -> SemanticResultArc<Package>;
 }
 
 fn package(this: &dyn PackageQueryGroup, main_file: file::FileId) -> SemanticResultArc<Package> {
-    let scope_id = this.module_from_file_id(main_file)?.scope_id();
+    let scope = this.module_from_file_id(main_file)?.scope();
     Ok(Arc::new(Package {
-        ident: match this.id_to_scope(scope_id).route {
-            scope::ScopeRoute::Package(_, ident) => ident,
+        ident: match scope.route {
+            scope::ScopeRoute::Package { ident, .. } => ident,
             _ => panic!(),
         },
-        subentities: this.subentities(scope_id)?,
+        subentities: this.subentities(scope)?,
         main: this.main(main_file)?,
+        config: this.config(main_file)?,
     }))
 }
