@@ -76,7 +76,7 @@ pub fn new_word_interner() -> WordInterner {
         ReservedIdentifier::Fn.into(),
         ReservedIdentifier::FnMut.into(),
         ReservedIdentifier::FnOnce.into(),
-        ReservedIdentifier::Dataset.into(),
+        ReservedIdentifier::DatasetType.into(),
     ])
 }
 

@@ -1,5 +1,5 @@
 use ast::*;
-use scope::ScopeId;
+use scope::{ScopeId, ScopeKind};
 use syntax_types::{BinaryOpr, Opr};
 use text::TextRange;
 use word::{CustomIdentifier, ReservedIdentifier};
@@ -8,6 +8,7 @@ use crate::SemanticResult;
 
 use crate::error::err;
 use crate::expr::{BinaryOpnKind, Opn};
+use crate::query::signature::CallSignatureQueryGroup;
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -27,7 +28,7 @@ pub enum LazyStmt {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StrictStmt {}
 
-pub trait LazyStmtQueryGroup {
+pub trait LazyStmtQueryGroup: CallSignatureQueryGroup {
     fn as_lazy_stmt_query_group(&self) -> &dyn LazyStmtQueryGroup;
 
     fn parse_lazy_stmts(
@@ -150,7 +151,34 @@ impl<'a> LazyStmtParser<'a> {
                 syntax_types::ListOpr::TupleInit => todo!(),
                 syntax_types::ListOpr::NewVec => todo!(),
                 syntax_types::ListOpr::NewDict => todo!(),
-                syntax_types::ListOpr::Call => todo!(),
+                syntax_types::ListOpr::Call => {
+                    let call = &self.arena[opds][0];
+                    match &call.kind {
+                        RawExprKind::Scope(scope, ScopeKind::Func) => {
+                            let signature = self.db.call_signature(*scope)?;
+                            let arguments: Vec<Expr> = self.arena[opds][1..]
+                                .iter()
+                                .map(|raw| self.parse_expr(raw))
+                                .collect::<SemanticResult<_>>()?;
+                            let output = signature.output;
+                            Ok((
+                                output,
+                                ExprKind::Opn {
+                                    opn: Opn::FuncCall { func: *scope },
+                                    compiled: None,
+                                    opds: arguments,
+                                },
+                            ))
+                        }
+                        RawExprKind::Scope(scope, ScopeKind::Type) => todo!(),
+                        RawExprKind::Scope(_, _) => todo!(),
+                        RawExprKind::Variable(_) => todo!(),
+                        RawExprKind::Literal(_) => todo!(),
+                        RawExprKind::Bracketed(_) => todo!(),
+                        RawExprKind::Opn { opr, opds } => todo!(),
+                        RawExprKind::Lambda(_, _) => todo!(),
+                    }
+                }
                 syntax_types::ListOpr::Index => todo!(),
                 syntax_types::ListOpr::ModuloIndex => todo!(),
                 syntax_types::ListOpr::StructInit => todo!(),

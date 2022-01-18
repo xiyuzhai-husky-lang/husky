@@ -1,12 +1,35 @@
 use scope::ScopeId;
 use word::Identifier;
 
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(PartialEq, Eq, Copy, Clone)]
 pub enum Opr {
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
     List(ListOpr),
+}
+
+impl std::fmt::Debug for Opr {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Binary(arg0) => {
+                f.write_str("Binary ")?;
+                arg0.fmt(f)
+            }
+            Self::Prefix(arg0) => {
+                f.write_str("Prefix ")?;
+                arg0.fmt(f)
+            }
+            Self::Suffix(arg0) => {
+                f.write_str("Suffix ")?;
+                arg0.fmt(f)
+            }
+            Self::List(arg0) => {
+                f.write_str("List ")?;
+                arg0.fmt(f)
+            }
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]

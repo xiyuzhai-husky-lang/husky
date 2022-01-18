@@ -2,6 +2,7 @@ mod config;
 mod entity;
 mod main;
 mod module;
+pub(crate) mod signature;
 
 use std::sync::Arc;
 
@@ -9,6 +10,7 @@ pub use config::{ConfigQueryGroup, ConfigQueryGroupStorage};
 pub use entity::{EntityQueryGroup, EntityQueryGroupStorage};
 use interner::InternId;
 pub use main::{MainQueryGroup, MainQueryGroupStorage};
+pub use signature::{CallSignatureQueryGroup, CallSignatureQueryGroupStorage};
 
 use crate::{Package, SemanticResultArc};
 

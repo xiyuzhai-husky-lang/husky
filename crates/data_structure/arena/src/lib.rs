@@ -35,10 +35,16 @@ pub fn len<T>(range: &ArenaRange<T>) -> usize {
 
 pub type ArenaRange<T> = core::ops::Range<ArenaIdx<T>>;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct ArenaIdx<T> {
     raw: usize,
     phantom: PhantomData<T>,
+}
+
+impl<T> std::fmt::Debug for ArenaIdx<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.raw.fmt(f)
+    }
 }
 
 impl<T> std::ops::Sub<usize> for ArenaIdx<T> {

@@ -6,6 +6,7 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         ("real1d", real1d::SCOPE_DATA),
         ("real2d", real2d::SCOPE_DATA),
     ],
+    call_signature: None,
 };
 
 use crate::*;

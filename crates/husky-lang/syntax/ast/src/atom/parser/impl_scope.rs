@@ -88,7 +88,7 @@ impl<'a> AtomLRParser<'a> {
                 | ReservedIdentifier::Debug
                 | ReservedIdentifier::Std
                 | ReservedIdentifier::Core
-                | ReservedIdentifier::Dataset
+                | ReservedIdentifier::DatasetType
                 | ReservedIdentifier::Input => Ok(Vec::new()),
                 ReservedIdentifier::Fp
                 | ReservedIdentifier::Fn

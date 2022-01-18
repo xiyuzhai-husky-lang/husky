@@ -36,7 +36,9 @@ pub enum Opn {
     },
     Prefix(PrefixOpn),
     Suffix(SuffixOpn),
-    FuncCall,
+    FuncCall {
+        func: ScopeId,
+    },
     PattCall,
     MembVarAccess,
     MembFuncCall(ScopeId),

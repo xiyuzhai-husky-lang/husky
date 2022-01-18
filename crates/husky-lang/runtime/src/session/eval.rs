@@ -1,7 +1,8 @@
 use common::*;
 use syntax_types::PrimitiveValue;
 
-use crate::{any::Any, virtual_stack::VirtualStackValue, *};
+use crate::*;
+use virtual_stack::VirtualStackValue;
 
 use super::{
     feature::{Feature, FeatureId, FeatureKind},

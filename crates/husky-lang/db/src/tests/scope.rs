@@ -88,7 +88,7 @@ fn datasets() {
     let mut db = HuskyLangDatabase::new();
     let dataset_scope = db.intern_scope(Scope {
         route: ScopeRoute::Reserved {
-            ident: ReservedIdentifier::Dataset,
+            ident: ReservedIdentifier::DatasetType,
         },
         generics: vec![],
     });

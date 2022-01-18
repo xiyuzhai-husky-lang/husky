@@ -1,6 +1,7 @@
 use common::*;
 
-use crate::{any::Any, virtual_stack::VirtualStackValue, *};
+use crate::*;
+use virtual_stack::{Any, VirtualStackValue};
 
 use super::{
     eval::Evaluator,

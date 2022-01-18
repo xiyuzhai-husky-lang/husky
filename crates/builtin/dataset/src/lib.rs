@@ -5,6 +5,7 @@ pub mod synthetic;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("synthetic", synthetic::SCOPE_DATA)],
+    call_signature: None,
 };
 
 use std::any::Any;
