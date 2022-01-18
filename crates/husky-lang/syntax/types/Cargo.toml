@@ -17,3 +17,4 @@ text = { path = "../../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 token = { path = "../token", version = "0.0.0" }
 scope = { path = "../scope", version = "0.0.0" }
+virtual-stack = { path = "../../virtual-stack", version = "0.0.0" }

@@ -8,7 +8,7 @@ mod tests;
 mod value;
 
 use common::*;
-use semantics::Package;
+use semantics::{LazyStmt, Package};
 
 use crate::*;
 
@@ -25,6 +25,8 @@ pub struct Session<'sess> {
 
 impl<'sess> Session<'sess> {
     pub(crate) fn new(package: &'sess Package) -> Self {
+        let mut stack = VirtualStack::new();
+        let stmts: &[LazyStmt] = &package.config.dataset.stmts;
         todo!()
     }
 }

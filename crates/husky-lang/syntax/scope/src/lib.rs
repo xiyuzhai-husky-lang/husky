@@ -8,6 +8,7 @@ use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
 
+use virtual_stack::{VirtualStack, VirtualStackResult};
 use word::{CustomIdentifier, Identifier, ReservedIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -84,12 +85,34 @@ pub enum ScopeRoute {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct BuiltinScopeData {
     pub scope_kind: ScopeKind,
     pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
     pub call_signature: Option<CallSignature>,
+    pub compiled: Option<fn(&mut VirtualStack) -> VirtualStackResult<()>>,
 }
+
+impl std::fmt::Debug for BuiltinScopeData {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        f.debug_struct("BuiltinScopeData")
+            .field("scope_kind", &self.scope_kind)
+            .field("subscopes", &self.subscopes)
+            .field("call_signature", &self.call_signature)
+            .field("compiled", &self.compiled.map(|f| f as usize))
+            .finish()
+    }
+}
+
+impl PartialEq for BuiltinScopeData {
+    fn eq(&self, other: &Self) -> bool {
+        self.scope_kind == other.scope_kind
+            && self.subscopes == other.subscopes
+            && self.call_signature == other.call_signature
+            && self.compiled.map(|f| f as usize) == other.compiled.map(|f| f as usize)
+    }
+}
+
+impl Eq for BuiltinScopeData {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct CallSignature {
@@ -152,7 +175,7 @@ impl From<ReservedIdentifier> for Scope {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ScopeSource {
     Builtin(&'static BuiltinScopeData),
     WithinBuiltinModule,

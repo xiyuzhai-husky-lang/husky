@@ -20,3 +20,4 @@ token = { path = "../syntax/token", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 scope_query = { path = "../syntax/scope_query", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
+virtual-stack = { path = "../virtual-stack", version = "0.0.0" }

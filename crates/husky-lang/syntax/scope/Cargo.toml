@@ -9,9 +9,10 @@ description = "Generic LSP server scaffold."
 [dependencies]
 salsa = "0.17.0-pre.2"
 paste = "1.0"
+common = { path = "../../../common", version = "0.0.0" }
 interner = { path = "../../../data_structure/interner", version = "0.0.0" }
 fold = { path = "../../../data_structure/fold", version = "0.0.0" }
-common = { path = "../../../common", version = "0.0.0" }
+virtual-stack = { path = "../../virtual-stack" }
 file = { path = "../../file", version = "0.0.0" }
 text = { path = "../../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
