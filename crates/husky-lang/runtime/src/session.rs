@@ -10,7 +10,7 @@ mod value;
 use common::*;
 use semantics::Package;
 
-use crate::{any::Any, *};
+use crate::*;
 
 use dataset::Dataset;
 
@@ -24,7 +24,7 @@ pub struct Session<'sess> {
 }
 
 impl<'sess> Session<'sess> {
-    pub(crate) fn new(package: &Package) -> Self {
+    pub(crate) fn new(package: &'sess Package) -> Self {
         todo!()
     }
 }

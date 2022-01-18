@@ -102,11 +102,11 @@ impl<'a> ExprStack<'a> {
         attr: ListStartAttr,
         start: TextPosition,
     ) {
+        self.oprs.push(ExprStackOpr::list_start(bra, attr, start));
         match attr {
             ListStartAttr::None => (),
             ListStartAttr::Attach => self.oprs.push(ExprStackOpr::list_item()),
         };
-        self.oprs.push(ExprStackOpr::list_start(bra, attr, start))
     }
 
     pub(crate) fn accept_list_item(&mut self) {
@@ -160,6 +160,7 @@ impl<'a> ExprStack<'a> {
         end_attr: ListEndAttr,
         end: TextPosition,
     ) -> AstResult<()> {
+        epin!();
         let (start_attr, start, list_len) = {
             let mut i = 0;
             loop {

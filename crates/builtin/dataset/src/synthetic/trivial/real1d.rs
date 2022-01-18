@@ -4,18 +4,29 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
+    call_signature: None,
 };
 
 pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Func,
     subscopes: &[],
+    call_signature: Some(CallSignature {
+        inputs: vec![],
+        output: ScopeId::Builtin(ReservedIdentifier::DatasetType),
+    }),
 };
 
 pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Func,
     subscopes: &[],
+    call_signature: Some(CallSignature {
+        inputs: vec![],
+        output: ScopeId::Builtin(ReservedIdentifier::DatasetType),
+    }),
 };
 
+use scope::{CallSignature, ScopeId};
+use word::ReservedIdentifier;
 use xrng::XRng;
 
 use crate::{synthetic::SimpleSyntheticDataset, *};

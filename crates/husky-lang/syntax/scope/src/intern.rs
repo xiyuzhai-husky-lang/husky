@@ -71,7 +71,7 @@ impl Deref for ScopeId {
         match self {
             ScopeId::Builtin(ident) => match_builtin!(
                 ident => Void, I32, F32, B32, B64, Bool, Vector, Tuple, Debug, Std, Core, Fp, Fn,
-                FnMut, FnOnce, Array, Input, Dataset
+                FnMut, FnOnce, Array, Input, DatasetType
             ),
             ScopeId::Custom(scope) => scope,
         }
@@ -146,6 +146,6 @@ pub fn new_scope_interner() -> ScopeInterner {
         ReservedIdentifier::Fn,
         ReservedIdentifier::FnMut,
         ReservedIdentifier::FnOnce,
-        ReservedIdentifier::Dataset,
+        ReservedIdentifier::DatasetType,
     ])
 }

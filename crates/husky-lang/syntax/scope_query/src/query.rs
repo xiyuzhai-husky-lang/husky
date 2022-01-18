@@ -81,7 +81,7 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
             ReservedIdentifier::Debug
             | ReservedIdentifier::Std
             | ReservedIdentifier::Core
-            | ReservedIdentifier::Dataset => ScopeKind::Module,
+            | ReservedIdentifier::DatasetType => ScopeKind::Module,
             ReservedIdentifier::Input => ScopeKind::Feature,
         },
         ScopeRoute::Package { .. } => ScopeKind::Module,
@@ -113,7 +113,7 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopeId) -> ScopeResult<
             ReservedIdentifier::FnOnce => todo!(),
             ReservedIdentifier::Array => todo!(),
             ReservedIdentifier::Input => todo!(),
-            ReservedIdentifier::Dataset => dataset::SCOPE_DATA,
+            ReservedIdentifier::DatasetType => dataset::SCOPE_DATA,
         }
         .into(),
         ScopeRoute::Package { main, .. } => ScopeSource::Module { file_id: main },

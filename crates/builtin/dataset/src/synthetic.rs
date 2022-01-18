@@ -5,6 +5,7 @@ pub mod trivial;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
+    call_signature: None,
 };
 
 use crate::*;

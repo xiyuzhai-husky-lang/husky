@@ -88,6 +88,13 @@ pub enum ScopeRoute {
 pub struct BuiltinScopeData {
     pub scope_kind: ScopeKind,
     pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
+    pub call_signature: Option<CallSignature>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+pub struct CallSignature {
+    pub inputs: Vec<ScopeId>,
+    pub output: ScopeId,
 }
 
 impl Scope {

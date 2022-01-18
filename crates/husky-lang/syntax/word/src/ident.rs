@@ -94,7 +94,7 @@ pub enum ReservedIdentifier {
     FnOnce,
     Array,
     Input,
-    Dataset,
+    DatasetType,
 }
 
 impl Deref for ReservedIdentifier {
@@ -119,7 +119,7 @@ impl Deref for ReservedIdentifier {
             ReservedIdentifier::FnOnce => "FnOnce",
             ReservedIdentifier::Array => "Array",
             ReservedIdentifier::Input => "Input",
-            ReservedIdentifier::Dataset => "builtin_dataset",
+            ReservedIdentifier::DatasetType => "builtin_dataset",
         }
     }
 }

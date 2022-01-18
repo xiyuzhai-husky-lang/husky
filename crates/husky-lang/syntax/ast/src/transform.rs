@@ -116,7 +116,10 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                     ConfigKeyword::Dataset => {
                         self.env.set_value(Env::DatasetConfig);
                         enter_block(self);
-                        self.use_all(ReservedIdentifier::Dataset.into(), tokens[0].text_range())?;
+                        self.use_all(
+                            ReservedIdentifier::DatasetType.into(),
+                            tokens[0].text_range(),
+                        )?;
                         Ok(Ast::DatasetConfig)
                     }
                 },

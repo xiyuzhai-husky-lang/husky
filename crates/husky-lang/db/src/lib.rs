@@ -26,6 +26,7 @@ use stdx::sync::ARwLock;
     semantics::MainQueryGroupStorage,
     semantics::EntityQueryGroupStorage,
     semantics::ConfigQueryGroupStorage,
+    semantics::CallSignatureQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage
 )]
 pub struct HuskyLangDatabase {
@@ -38,7 +39,7 @@ pub struct HuskyLangDatabase {
 
 impl fmt::Debug for HuskyLangDatabase {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_struct("RootDatabase").finish()
+        f.debug_struct("HuskyLangDatabase").finish()
     }
 }
 

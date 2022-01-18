@@ -5,7 +5,7 @@ macro_rules! test_print {
         eprintln!(r#"
 -------------------------------------------------------------------
 {}{}:{}{}:{}
-    {}"#,
+{}"#,
         common::show::GREEN,
         file!(),
         common::show::YELLOW,
@@ -20,7 +20,7 @@ macro_rules! p {
         eprintln!(r#"
 -------------------------------------------------------------------
 {}{}:{}{}:{}
-    {}"#,
+{}"#,
         common::show::GREEN,
         file!(),
         common::show::YELLOW,
