@@ -6,6 +6,7 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
     call_signature: None,
+    compiled: None,
 };
 
 use crate::*;
@@ -31,8 +32,23 @@ impl<D: SyntheticDataset> Dataset for D {
     }
 }
 
+#[derive(Debug)]
 pub struct SimpleSyntheticDataset<Sample: 'static> {
     gen_sample: fn(idx: usize) -> Sample,
+}
+
+impl<Sample: 'static> Clone for SimpleSyntheticDataset<Sample> {
+    fn clone(&self) -> Self {
+        Self {
+            gen_sample: self.gen_sample.clone(),
+        }
+    }
+}
+
+impl<Sample> virtual_stack::HasRef for SimpleSyntheticDataset<Sample> {
+    fn has_ref(&self) -> bool {
+        false
+    }
 }
 
 impl<Sample: 'static> SimpleSyntheticDataset<Sample> {

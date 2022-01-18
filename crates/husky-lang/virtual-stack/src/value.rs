@@ -1,12 +1,9 @@
 use crate::any::Any;
 
-use syntax_types::*;
-
 use crate::*;
 
 #[derive(Debug)]
 pub enum VirtualStackValue<'stack> {
-    Undefined,
     Primitive(PrimitiveValue),
     Owned(Box<dyn Any>),
     Ref(&'static dyn Any),
@@ -22,12 +19,6 @@ impl<'stack> From<PrimitiveValue> for VirtualStackValue<'stack> {
 impl<'stack> From<&PrimitiveValue> for VirtualStackValue<'stack> {
     fn from(value: &PrimitiveValue) -> Self {
         VirtualStackValue::Primitive(*value)
-    }
-}
-
-impl<'stack> Default for VirtualStackValue<'stack> {
-    fn default() -> Self {
-        todo!()
     }
 }
 

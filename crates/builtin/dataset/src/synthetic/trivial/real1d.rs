@@ -5,6 +5,7 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
     call_signature: None,
+    compiled: None,
 };
 
 pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
@@ -14,6 +15,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         inputs: vec![],
         output: ScopeId::Builtin(ReservedIdentifier::DatasetType),
     }),
+    compiled: Some(|stack| stack.push(VirtualStackValue::Owned(Box::new(dataset1())))),
 };
 
 pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
@@ -23,14 +25,17 @@ pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         inputs: vec![],
         output: ScopeId::Builtin(ReservedIdentifier::DatasetType),
     }),
+    compiled: None,
 };
 
 use scope::{CallSignature, ScopeId};
+use virtual_stack::VirtualStackValue;
 use word::ReservedIdentifier;
 use xrng::XRng;
 
 use crate::{synthetic::SimpleSyntheticDataset, *};
 
+#[derive(Debug, Clone)]
 pub struct Real1dDatapoint {
     pub x: f32,
     pub y: i32,

@@ -1,35 +1,40 @@
 use crate::*;
 
-use super::*;
-
 impl<'stack> VirtualStack<'stack> {
-    pub(super) fn execute_all(&mut self, instructions: &[Instruction]) -> VirtualStackResult<()> {
+    pub fn exec_all(&mut self, instructions: &[Instruction]) -> VirtualStackResult<()> {
         for ins in instructions {
-            self.execute(ins)?
+            self.exec(&ins.kind)?
         }
         Ok(())
     }
 
-    pub(super) fn execute(&mut self, ins: &Instruction) -> VirtualStackResult<()> {
+    pub fn exec(&mut self, ins: &InstructionKind) -> VirtualStackResult<()> {
         match ins {
-            Instruction::PushVarInput(contract, rel_idx) => {
+            InstructionKind::PushVarInput(contract, rel_idx) => {
                 self.push(self.var(*rel_idx)?.as_input(*contract)?)
             }
-            Instruction::PushPrimitive(value) => self.push(value.into()),
-            Instruction::Call(f, nargs) => self.call(*f, *nargs),
-            Instruction::BuiltinArithmetic(opn) => self.exec_builtin_arithmetic(*opn),
+            InstructionKind::PushPrimitive(value) => self.push(value.into()),
+            InstructionKind::Call(f, nargs) => self.call(*f, *nargs),
+            InstructionKind::PrimitiveOpn(opn) => self.exec_builtin_arithmetic(*opn),
+            InstructionKind::CallInterpret(instructions) => self.exec_all(&instructions),
         }
     }
 }
 
 impl<'stack> VirtualStack<'stack> {
-    fn push(&mut self, item: VirtualStackValue<'stack>) -> VirtualStackResult<()> {
-        self.items[self.len as usize] = item;
-        self.len += 1;
-        if self.len as usize >= VIRTUAL_STACK_SIZE {
+    pub fn push(&mut self, item: VirtualStackValue<'stack>) -> VirtualStackResult<()> {
+        self.values.push(item);
+        if self.len() >= self.stack_size {
             todo!()
         }
         Ok(())
+    }
+
+    pub fn finish(&mut self) -> VirtualStackResult<VirtualStackValue> {
+        if self.len() != 1 {
+            todo!()
+        }
+        Ok(self.values.pop().unwrap())
     }
 }
 
@@ -41,7 +46,7 @@ impl<'stack> VirtualStack<'stack> {
     ) -> VirtualStackResult<()> {
         let save = self.current_frame_start;
         // take nargs
-        self.current_frame_start = self.len - nargs;
+        self.current_frame_start = (self.len() - (nargs as usize)) as u16;
         f(self)?;
         // keep only the first item in the new frame
         self.rollback(save)
@@ -49,23 +54,22 @@ impl<'stack> VirtualStack<'stack> {
 
     fn rollback(&mut self, save: u16) -> VirtualStackResult<()> {
         self.current_frame_start = save;
-        self.shrink_to(save + 1)
+        self.shrink_to(save as usize + 1)
     }
 
-    fn shrink_to(&mut self, new_len: u16) -> VirtualStackResult<()> {
-        if new_len < self.current_frame_start + 1 {
+    fn shrink_to(&mut self, new_len: usize) -> VirtualStackResult<()> {
+        if new_len < self.current_frame_start as usize + 1 {
             todo!()
         }
-        for i in new_len..self.len {
-            // ensure local objects out of scope are deleted
-            self.items[i as usize] = VirtualStackValue::Undefined
+        if new_len > self.len() {
+            todo!()
         }
-        self.len = new_len;
+        self.values.truncate(new_len as usize);
         Ok(())
     }
 
     fn shrink_by(&mut self, decr: u16) -> VirtualStackResult<()> {
-        self.shrink_to(self.len - decr)
+        self.shrink_to(self.len() - (decr as usize))
     }
 
     fn top_i32(&self) -> VirtualStackResult<i32> {
@@ -84,147 +88,150 @@ impl<'stack> VirtualStack<'stack> {
         self.top(0)?.as_bool()
     }
 
-    fn exec_builtin_arithmetic(&mut self, opn: BuiltinArithmeticOpn) -> VirtualStackResult<()> {
+    fn exec_builtin_arithmetic(&mut self, opn: PrimitiveOpn) -> VirtualStackResult<()> {
         macro_rules! no_such_opn {
             () => {{
                 todo!()
             }};
         }
         match opn {
-            BuiltinArithmeticOpn::Add => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_op((a + self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_op((a + self.top_f32()?).into()),
+            PrimitiveOpn::Add => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_op((a + self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_op((a + self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::AddAssign(idx) => match self.var(idx)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_assign(idx, (a + self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_assign(idx, (a + self.top_f32()?).into()),
+            PrimitiveOpn::AddAssign(idx) => match self.var(idx)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_assign(idx, (a + self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_assign(idx, (a + self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::And => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::Bool(a) => self.bi_op((a && self.top_bool()?).into()),
+            PrimitiveOpn::And => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::Bool(a) => self.binary_op((a && self.top_bool()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::AndAssign(idx) => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::Bool(a) => self.bi_assign(idx, (a && self.top_bool()?).into()),
+            PrimitiveOpn::AndAssign(idx) => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::Bool(a) => self.binary_assign(idx, (a && self.top_bool()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::BitAnd => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_op((a & self.top_u32()?).into()),
+            PrimitiveOpn::BitAnd => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_op((a & self.top_u32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::BitAndAssign(idx) => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_assign(idx, (a & self.top_u32()?).into()),
+            PrimitiveOpn::BitAndAssign(idx) => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_assign(idx, (a & self.top_u32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::BitOr => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_op((a | self.top_u32()?).into()),
+            PrimitiveOpn::BitOr => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_op((a | self.top_u32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::BitOrAssign(idx) => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_assign(idx, (a | self.top_u32()?).into()),
+            PrimitiveOpn::BitOrAssign(idx) => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_assign(idx, (a | self.top_u32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::BitXor => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_op((a ^ self.top_u32()?).into()),
+            PrimitiveOpn::BitXor => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_op((a ^ self.top_u32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::BitXorAssign(idx) => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_assign(idx, (a ^ self.top_u32()?).into()),
+            PrimitiveOpn::BitXorAssign(idx) => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_assign(idx, (a ^ self.top_u32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::Div => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_op((a / self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_op((a / self.top_f32()?).into()),
+            PrimitiveOpn::Div => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_op((a / self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_op((a / self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::DivAssign(idx) => match self.var(idx)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_assign(idx, (a / self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_assign(idx, (a / self.top_f32()?).into()),
+            PrimitiveOpn::DivAssign(idx) => match self.var(idx)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_assign(idx, (a / self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_assign(idx, (a / self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::Mul => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_op((a * self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_op((a * self.top_f32()?).into()),
+            PrimitiveOpn::Mul => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_op((a * self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_op((a * self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::MulAssign(idx) => match self.var(idx)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_assign(idx, (a * self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_assign(idx, (a * self.top_f32()?).into()),
+            PrimitiveOpn::MulAssign(idx) => match self.var(idx)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_assign(idx, (a * self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_assign(idx, (a * self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::Or => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::Bool(a) => self.bi_op((a || self.top_bool()?).into()),
+            PrimitiveOpn::Or => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::Bool(a) => self.binary_op((a || self.top_bool()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::OrAssign(idx) => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::Bool(a) => self.bi_assign(idx, (a || self.top_bool()?).into()),
+            PrimitiveOpn::OrAssign(idx) => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::Bool(a) => self.binary_assign(idx, (a || self.top_bool()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::RemEuclid => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_op((a.rem_euclid(self.top_i32()?).into())),
-                PrimitiveValue::F32(a) => self.bi_op((a.rem_euclid(self.top_f32()?).into())),
+            PrimitiveOpn::RemEuclid => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_op(a.rem_euclid(self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_op(a.rem_euclid(self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::RemEuclidAssign(idx) => match self.var(idx)?.as_primitive()? {
+            PrimitiveOpn::RemEuclidAssign(idx) => match self.var(idx)?.as_primitive()? {
                 PrimitiveValue::I32(a) => {
-                    self.bi_assign(idx, (a.rem_euclid(self.top_i32()?).into()))
+                    self.binary_assign(idx, a.rem_euclid(self.top_i32()?).into())
                 }
                 PrimitiveValue::F32(a) => {
-                    self.bi_assign(idx, (a.rem_euclid(self.top_f32()?).into()))
+                    self.binary_assign(idx, a.rem_euclid(self.top_f32()?).into())
                 }
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::Shl => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_op((a << self.top_i32()?).into()),
+            PrimitiveOpn::Shl => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_op((a << self.top_i32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::ShlAssign(idx) => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_assign(idx, (a << self.top_i32()?).into()),
+            PrimitiveOpn::ShlAssign(idx) => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_assign(idx, (a << self.top_i32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::Shr => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_op((a >> self.top_i32()?).into()),
+            PrimitiveOpn::Shr => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_op((a >> self.top_i32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::ShrAssign(idx) => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::B32(a) => self.bi_assign(idx, (a >> self.top_i32()?).into()),
+            PrimitiveOpn::ShrAssign(idx) => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::B32(a) => self.binary_assign(idx, (a >> self.top_i32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::Sub => match self.top(1)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_op((a - self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_op((a - self.top_f32()?).into()),
+            PrimitiveOpn::Sub => match self.top(1)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_op((a - self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_op((a - self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
-            BuiltinArithmeticOpn::SubAssign(idx) => match self.var(idx)?.as_primitive()? {
-                PrimitiveValue::I32(a) => self.bi_assign(idx, (a - self.top_i32()?).into()),
-                PrimitiveValue::F32(a) => self.bi_assign(idx, (a - self.top_f32()?).into()),
+            PrimitiveOpn::SubAssign(idx) => match self.var(idx)?.as_primitive()? {
+                PrimitiveValue::I32(a) => self.binary_assign(idx, (a - self.top_i32()?).into()),
+                PrimitiveValue::F32(a) => self.binary_assign(idx, (a - self.top_f32()?).into()),
                 _ => no_such_opn!(),
             },
         }
     }
 
-    fn bi_op(&mut self, value: PrimitiveValue) -> VirtualStackResult<()> {
+    fn binary_op(&mut self, value: PrimitiveValue) -> VirtualStackResult<()> {
         *self.top_mut(1)? = value.into();
         self.shrink_by(1)
     }
 
-    fn bi_assign(&mut self, idx: u16, value: PrimitiveValue) -> VirtualStackResult<()> {
+    fn binary_assign(&mut self, idx: u16, value: PrimitiveValue) -> VirtualStackResult<()> {
         *self.var_mut(idx)? = value.into();
         self.shrink_by(1)
     }
 
     fn top(&self, rel_idx: u16) -> VirtualStackResult<&VirtualStackValue<'stack>> {
-        if self.len - 1 - rel_idx < self.current_frame_start {
+        let rel_idx = rel_idx as usize;
+        if self.len() - 1 - rel_idx < self.current_frame_start as usize {
             todo!()
         }
-        Ok(&self.items[(self.len - 1 - rel_idx) as usize])
+        Ok(&self.values[(self.len() - 1 - rel_idx) as usize])
     }
 
     fn top_mut(&mut self, rel_idx: u16) -> VirtualStackResult<&mut VirtualStackValue<'stack>> {
-        if self.len - 1 - rel_idx < self.current_frame_start {
+        let rel_idx = rel_idx as usize;
+        if self.len() - 1 - rel_idx < self.current_frame_start as usize {
             todo!()
         }
-        Ok(&mut self.items[(self.len - 1 - rel_idx) as usize])
+        let len = self.len();
+        Ok(&mut self.values[(len - 1 - rel_idx) as usize])
     }
 }

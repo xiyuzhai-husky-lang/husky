@@ -1,7 +1,9 @@
 use core::hash::Hash;
 
-use scope::ScopeId;
 use word::ReservedIdentifier;
+
+// use scope::ScopeId;
+// use word::ReservedIdentifier;
 
 #[derive(Debug, Clone, Copy)]
 pub enum PrimitiveValue {
@@ -14,7 +16,7 @@ pub enum PrimitiveValue {
 }
 
 impl PrimitiveValue {
-    pub fn ty(&self) -> ScopeId {
+    pub fn ty(&self) -> ReservedIdentifier {
         match self {
             PrimitiveValue::I32(_) => ReservedIdentifier::I32,
             PrimitiveValue::F32(_) => ReservedIdentifier::F32,
@@ -23,7 +25,6 @@ impl PrimitiveValue {
             PrimitiveValue::Bool(_) => todo!(),
             PrimitiveValue::Void => todo!(),
         }
-        .into()
     }
 }
 

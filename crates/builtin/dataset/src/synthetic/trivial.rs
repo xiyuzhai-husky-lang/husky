@@ -7,6 +7,7 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         ("real2d", real2d::SCOPE_DATA),
     ],
     call_signature: None,
+    compiled: None,
 };
 
 use crate::*;

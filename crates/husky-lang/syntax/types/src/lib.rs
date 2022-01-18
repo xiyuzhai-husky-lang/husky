@@ -1,9 +1,9 @@
 mod opr;
-mod primitive;
 
 pub use opr::*;
 
 use scope::{ScopeId, ScopeKind};
+pub use virtual_stack::{InputContract, PrimitiveValue};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -67,13 +67,6 @@ pub struct InputType {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum InputContract {
-    Intact,
-    Share,
-    Own,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Env {
     Package,
     Module,
@@ -116,8 +109,6 @@ impl std::fmt::Display for InitKind {
         })
     }
 }
-
-pub use primitive::PrimitiveValue;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct BuiltinScopeData {

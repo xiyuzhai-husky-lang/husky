@@ -33,9 +33,9 @@ fn dataset_config_from_ast_text(
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()? {
             Ast::DatasetConfig => {
-                return Ok(DatasetConfig {
-                    stmts: this.parse_lazy_stmts(&ast_text.arena, not_none!(item.children))?,
-                })
+                return Ok(DatasetConfig::new(
+                    this.parse_lazy_stmts(&ast_text.arena, not_none!(item.children))?,
+                ))
             }
             _ => (),
         }
