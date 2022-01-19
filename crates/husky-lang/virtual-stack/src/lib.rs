@@ -17,7 +17,7 @@ pub use value::VirtualStackValue;
 
 pub struct VirtualStack<'stack> {
     values: Vec<VirtualStackValue<'stack>>,
-    current_frame_start: u16,
+    current_frame_start: usize,
     stack_size: usize,
 }
 
@@ -51,15 +51,18 @@ impl<'stack> VirtualStack<'stack> {
 }
 
 impl<'stack> VirtualStack<'stack> {
-    pub fn var(&self, rel_idx: u16) -> VirtualStackResult<&VirtualStackValue<'stack>> {
+    pub fn var(&self, rel_idx: usize) -> VirtualStackResult<&VirtualStackValue<'stack>> {
         if (self.current_frame_start + rel_idx) as usize >= self.len() {
             todo!()
         }
-        Ok(&self.values[(self.current_frame_start + rel_idx) as usize])
+        Ok(&self.values[self.current_frame_start + rel_idx])
     }
 
-    pub fn var_mut(&mut self, rel_idx: u16) -> VirtualStackResult<&mut VirtualStackValue<'stack>> {
-        if (self.current_frame_start + rel_idx) as usize >= self.len() {
+    pub fn var_mut(
+        &mut self,
+        rel_idx: usize,
+    ) -> VirtualStackResult<&mut VirtualStackValue<'stack>> {
+        if self.current_frame_start + rel_idx >= self.len() {
             todo!()
         }
         Ok(&mut self.values[(self.current_frame_start + rel_idx) as usize])
@@ -68,4 +71,30 @@ impl<'stack> VirtualStack<'stack> {
     pub fn len(&self) -> usize {
         self.values.len()
     }
+}
+
+#[derive(Clone)]
+pub struct Compiled(pub fn(&mut VirtualStack) -> VirtualStackResult<()>);
+
+impl std::fmt::Debug for Compiled {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
+        f.write_str("Compiled(")?;
+        (self.0 as usize).fmt(f)?;
+        f.write_str(")")
+    }
+}
+
+impl PartialEq for Compiled {
+    fn eq(&self, other: &Self) -> bool {
+        (self.0 as usize) == (other.0 as usize)
+    }
+}
+
+impl Eq for Compiled {}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ControlSignal {
+    Normal,
+    Return,
+    Break,
 }

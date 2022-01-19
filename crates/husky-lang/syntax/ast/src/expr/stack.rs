@@ -160,7 +160,6 @@ impl<'a> ExprStack<'a> {
         end_attr: ListEndAttr,
         end: TextPosition,
     ) -> AstResult<()> {
-        epin!();
         let (start_attr, start, list_len) = {
             let mut i = 0;
             loop {

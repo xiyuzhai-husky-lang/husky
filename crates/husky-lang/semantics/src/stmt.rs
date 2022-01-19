@@ -1,8 +1,9 @@
-mod lazy;
-mod strict;
+mod decl;
+mod impr;
 
-pub use lazy::{LazyStmt, LazyStmtKind};
-pub use strict::{StrictStmt, StrictStmtKind};
+pub(crate) use decl::build_decl_stmt_instructions;
+pub use decl::{DeclStmt, DeclStmtKind};
+pub use impr::{StrictStmt, StrictStmtKind};
 
 use ast::*;
 use scope::{ScopeId, ScopeKind};
@@ -24,7 +25,7 @@ pub trait LazyStmtQueryGroup: CallSignatureQueryGroup {
         &self,
         arena: &RawExprArena,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResult<Vec<LazyStmt>> {
+    ) -> SemanticResult<Vec<DeclStmt>> {
         let mut parser = LazyStmtParser::new(self.as_lazy_stmt_query_group(), arena);
         parser.parse_stmt(iter)
     }
@@ -53,7 +54,7 @@ impl<'a> LazyStmtParser<'a> {
     fn parse_stmt(
         &mut self,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResult<Vec<LazyStmt>> {
+    ) -> SemanticResult<Vec<DeclStmt>> {
         iter.map(|item| {
             Ok(match item.value.as_ref()? {
                 Ast::TypeDef { .. } => todo!(),
@@ -75,20 +76,20 @@ impl<'a> LazyStmtParser<'a> {
                         let varname = *varname;
                         let initial_value = self.parse_expr(&self.arena[initial_value])?;
                         self.def_variable(varname, initial_value.ty);
-                        LazyStmt {
-                            kind: LazyStmtKind::Init {
+                        DeclStmt {
+                            kind: DeclStmtKind::Init {
                                 varname,
                                 initial_value,
                             },
                         }
                     }
-                    RawStmt::Return(result) => LazyStmt {
-                        kind: LazyStmtKind::Return {
+                    RawStmt::Return(result) => DeclStmt {
+                        kind: DeclStmtKind::Return {
                             result: self.parse_expr(&self.arena[result])?,
                         },
                     },
-                    RawStmt::Assert(condition) => LazyStmt {
-                        kind: LazyStmtKind::Assert {
+                    RawStmt::Assert(condition) => DeclStmt {
+                        kind: DeclStmtKind::Assert {
                             condition: self.parse_expr(&self.arena[condition])?,
                         },
                     },

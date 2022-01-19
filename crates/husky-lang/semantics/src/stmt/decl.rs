@@ -1,12 +1,16 @@
+mod build;
+
+pub(crate) use build::build_decl_stmt_instructions;
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct LazyStmt {
-    pub kind: LazyStmtKind,
+pub struct DeclStmt {
+    pub kind: DeclStmtKind,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LazyStmtKind {
+pub enum DeclStmtKind {
     Init {
         varname: CustomIdentifier,
         initial_value: Expr,

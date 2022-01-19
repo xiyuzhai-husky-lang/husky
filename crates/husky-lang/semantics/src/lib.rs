@@ -11,7 +11,7 @@ pub use error::{SemanticError, SemanticResult, SemanticResultArc};
 pub use expr::{Expr, ExprKind};
 pub use package::Package;
 pub use query::*;
-pub use stmt::{LazyStmt, LazyStmtKind, LazyStmtQueryGroup, StrictStmt, StrictStmtKind};
+pub use stmt::{DeclStmt, DeclStmtKind, LazyStmtQueryGroup, StrictStmt, StrictStmtKind};
 
 use kind::*;
 use std::sync::Arc;
