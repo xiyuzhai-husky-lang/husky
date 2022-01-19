@@ -1,7 +1,6 @@
 #![allow(warnings)]
 
 mod error;
-mod instruction_builder;
 mod session;
 mod tests;
 

@@ -197,7 +197,7 @@ fn sub_i32() {
 
 impl<'stack> VirtualStack<'stack> {
     fn primitive(&self, idx: u16) -> PrimitiveValue {
-        should_ok!(should_ok!(self.var(idx)).as_primitive())
+        should_ok!(should_ok!(self.var(idx.into())).as_primitive())
     }
 
     fn finish_as_primitive(&mut self) -> PrimitiveValue {
@@ -205,64 +205,81 @@ impl<'stack> VirtualStack<'stack> {
     }
 
     fn push_primitive(&mut self, value: PrimitiveValue) {
-        self.exec(&InstructionKind::PushPrimitive(value)).unwrap()
+        self.exec(&InstructionKind::PushPrimitive(value)).unwrap();
     }
 
     fn add(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Add))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Add))?;
+        Ok(())
     }
 
     fn and(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::And))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::And))?;
+        Ok(())
     }
 
     fn add_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::AddAssign(idx)))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::AddAssign {
+            dst_idx: idx,
+        }))?;
+        Ok(())
     }
 
     fn bitand(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitAnd))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitAnd))?;
+        Ok(())
     }
 
     fn bitand_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitAndAssign(
-            idx,
-        )))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitAndAssign {
+            dst_idx: idx,
+        }))?;
+        Ok(())
     }
 
     fn bitor(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitOr))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitOr))?;
+        Ok(())
     }
 
     fn bitor_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitOrAssign(
-            idx,
-        )))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitOrAssign {
+            dst_idx: idx,
+        }))?;
+        Ok(())
     }
 
     fn div(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Div))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Div))?;
+        Ok(())
     }
 
     fn mul(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Mul))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Mul))?;
+        Ok(())
     }
 
     fn mul_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::MulAssign(idx)))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::MulAssign {
+            dst_idx: idx,
+        }))?;
+        Ok(())
     }
 
     fn rem_euclid(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::RemEuclid))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::RemEuclid))?;
+        Ok(())
     }
 
     fn rem_euclid_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
         self.exec(&InstructionKind::PrimitiveOpn(
-            PrimitiveOpn::RemEuclidAssign(idx),
-        ))
+            PrimitiveOpn::RemEuclidAssign { dst_idx: idx },
+        ))?;
+        Ok(())
     }
 
     fn sub(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Sub))
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Sub))?;
+        Ok(())
     }
 }

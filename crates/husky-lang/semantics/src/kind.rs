@@ -14,7 +14,7 @@ pub use ty::Ty;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Main {
-    pub stmts: Vec<LazyStmt>,
+    pub stmts: Vec<DeclStmt>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
