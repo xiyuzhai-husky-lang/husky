@@ -5,8 +5,7 @@ pub mod trivial;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
-    call_signature: None,
-    compiled: None,
+    signature: ScopeSignature::Module,
 };
 
 use crate::*;
@@ -45,7 +44,7 @@ impl<Sample: 'static> Clone for SimpleSyntheticDataset<Sample> {
     }
 }
 
-impl<Sample> virtual_stack::HasRef for SimpleSyntheticDataset<Sample> {
+impl<Sample> interpret::HasRef for SimpleSyntheticDataset<Sample> {
     fn has_ref(&self) -> bool {
         false
     }

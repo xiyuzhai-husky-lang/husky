@@ -2,21 +2,19 @@ use common::*;
 use syntax_types::PrimitiveValue;
 
 use crate::*;
-use virtual_stack::VirtualStackValue;
+use interpret::StackValue;
 
 use super::{
     feature::{Feature, FeatureId, FeatureKind},
-    value::{CachedValue, DurableValue},
+    value::{CachedValue, CachedValueStorage},
     *,
 };
 
 pub trait Evaluator<'eval> {
     fn feature_kind(&self, feature_id: FeatureId) -> &FeatureKind;
-    fn cache(&self, feature_id: FeatureId, value: CachedValue<'eval>) -> DurableValue<'eval>;
-    fn eval(&self, feature_id: FeatureId) -> VirtualStackValue<'eval> {
+    fn cache(&self, feature_id: FeatureId, value: CachedValueStorage<'eval>) -> CachedValue<'eval>;
+    fn eval(&self, feature_id: FeatureId) -> StackValue<'eval> {
         const VOID: () = ();
-
-        let mut stack = VirtualStack::new();
         match self.feature_kind(feature_id) {
             FeatureKind::Literal(literal) => literal.into(),
             FeatureKind::FunctionCall => todo!(),

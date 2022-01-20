@@ -20,4 +20,4 @@ syntax-types = { path = "../syntax/types", version = "0.0.0" }
 semantics = { path = "../semantics", version = "0.0.0" }
 dataset = { path = "../../builtin/dataset", version = "0.0.0" }
 husky-lang-db = { path = "../db", version = "0.0.0" }
-virtual-stack = { path = "../virtual-stack", version = "0.0.0" }
+interpret = { path = "../interpret", version = "0.0.0" }

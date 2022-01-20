@@ -689,7 +689,7 @@
                 {
                     "comment": "other keywords",
                     "name": "keyword.other.husky",
-                    "match": "\\b(as|async|assign|mut|mutate|become|box|dyn|move|final|impl|in|override|priv|pub|ref|typeof|union|unsafe|unsized|use|virtual|where)\\b"
+                    "match": "\\b(as|async|assign|mut|mutate|become|box|dyn|move|final|impl|in|override|priv|pub|ref|typeof|union|unsafe|unsized|use|interpret|where)\\b"
                 },
                 {
                     "comment": "fn",

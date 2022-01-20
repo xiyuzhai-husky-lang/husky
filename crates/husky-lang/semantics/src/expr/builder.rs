@@ -1,5 +1,5 @@
 use common::*;
-use virtual_stack::{Instruction, InstructionKind};
+use interpret::{Instruction, InstructionKind};
 
 use crate::*;
 
@@ -30,12 +30,16 @@ pub trait ExprInstructionBuilder {
                             todo!()
                         }
                     }
-                    self.push_instruction(Instruction {
-                        kind: InstructionKind::Call {
-                            compiled: self.compiled(func),
-                            nargs: opds.len() as u16,
-                        },
-                    })
+                    if let Some(compiled) = compiled {
+                        self.push_instruction(Instruction {
+                            kind: InstructionKind::Call {
+                                compiled: *compiled,
+                                nargs: opds.len() as u16,
+                            },
+                        })
+                    } else {
+                        todo!()
+                    }
                 }
                 expr::Opn::PattCall => todo!(),
                 expr::Opn::MembVarAccess => todo!(),

@@ -6,6 +6,7 @@ pub mod print;
 pub mod show;
 mod templates;
 pub mod todo;
+mod upcast;
 mod utils;
 
 pub use dev_source::DevSource;
@@ -22,6 +23,7 @@ pub use std::io;
 pub use std::path::{Path, PathBuf};
 pub use templates::*;
 pub use todo::*;
+pub use upcast::Upcast;
 pub use utils::*;
 
 pub type Range = std::ops::Range<usize>;

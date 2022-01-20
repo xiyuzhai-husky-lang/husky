@@ -3,7 +3,7 @@ mod opr;
 pub use opr::*;
 
 use scope::{ScopeId, ScopeKind};
-pub use virtual_stack::{InputContract, PrimitiveValue};
+pub use interpret::{InputContract, PrimitiveValue};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

@@ -5,7 +5,7 @@ members = [
     "crates/husky-lang/diagnostic",
     "crates/husky-lang/instruction/*",
     "crates/husky-lang/db",
-    "crates/husky-lang/virtual-stack",
+    "crates/husky-lang/interpret",
     "crates/husky-lang/runtime",
     "crates/husky-lang/compiler",
     "crates/husky-lang/analyzer",

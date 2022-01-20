@@ -5,15 +5,13 @@ pub mod synthetic;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("synthetic", synthetic::SCOPE_DATA)],
-    call_signature: None,
-    compiled: None,
+    signature: ScopeSignature::Module,
 };
 pub use iter::SampleIter;
 pub use loader::SampleLoader;
 
-use scope::{BuiltinScopeData, ScopeKind};
+use scope::{BuiltinScopeData, ScopeKind, ScopeSignature};
 use std::any::Any;
-use virtual_stack::VirtualStack;
 
 pub trait Dataset {
     fn dev_loader(&self) -> SampleLoader;

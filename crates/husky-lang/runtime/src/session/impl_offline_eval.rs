@@ -1,21 +1,17 @@
 use common::*;
 
 use crate::*;
-use virtual_stack::{Any, VirtualStackValue};
+use interpret::{Any, StackValue};
 
 use super::{
     eval::Evaluator,
     feature::{Feature, FeatureId, FeatureKind},
-    value::{CachedValue, DurableValue},
+    value::{CachedValue, CachedValueStorage},
     *,
 };
 
 impl<'sess> Session<'sess> {
-    pub(super) fn offline_eval(
-        &self,
-        feature_id: FeatureId,
-        input_idx: usize,
-    ) -> VirtualStackValue {
+    pub(super) fn offline_eval(&self, feature_id: FeatureId, input_idx: usize) -> StackValue {
         OfflineEvaluator::new(self, input_idx).eval(feature_id)
     }
 
@@ -23,8 +19,8 @@ impl<'sess> Session<'sess> {
         &self,
         feature_id: FeatureId,
         input_idx: usize,
-        value: CachedValue<'sess>,
-    ) -> DurableValue<'sess> {
+        value: CachedValueStorage<'sess>,
+    ) -> CachedValue<'sess> {
         self.features[feature_id.0].cache(input_idx, value)
     }
 }
@@ -45,7 +41,7 @@ impl<'a, 'sess: 'a> Evaluator<'sess> for OfflineEvaluator<'a, 'sess> {
         &self.sess.features[feature_id.0].kind
     }
 
-    fn cache(&self, feature_id: FeatureId, value: CachedValue<'sess>) -> DurableValue<'sess> {
+    fn cache(&self, feature_id: FeatureId, value: CachedValueStorage<'sess>) -> CachedValue<'sess> {
         self.sess.cache(feature_id, self.input_idx, value)
     }
 }

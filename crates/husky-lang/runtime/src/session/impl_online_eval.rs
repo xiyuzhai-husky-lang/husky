@@ -6,7 +6,7 @@ use crate::*;
 use super::{
     eval::Evaluator,
     feature::{Feature, FeatureId, FeatureKind},
-    value::{CachedValue, DurableValue},
+    value::{CachedValue, CachedValueStorage},
     *,
 };
 
@@ -25,7 +25,7 @@ impl<'sess> Session<'sess> {
 struct OnlineEvaluator<'eval, 'sess: 'eval> {
     sess: &'eval Session<'sess>,
     input: &'eval dyn Any,
-    cached_values: ARwLock<HashMap<FeatureId, CachedValue<'eval>>>,
+    cached_values: ARwLock<HashMap<FeatureId, CachedValueStorage<'eval>>>,
 }
 
 impl<'eval, 'sess: 'eval> OnlineEvaluator<'eval, 'sess> {
@@ -46,8 +46,8 @@ impl<'eval, 'sess: 'eval> Evaluator<'eval> for OnlineEvaluator<'eval, 'sess> {
     fn cache(
         &self,
         feature_id: FeatureId,
-        cached_value: CachedValue<'eval>,
-    ) -> DurableValue<'eval> {
+        cached_value: CachedValueStorage<'eval>,
+    ) -> CachedValue<'eval> {
         let value = unsafe { cached_value.value() };
         self.cached_values
             .write(|values| should!(values.insert(feature_id, cached_value).is_none()));

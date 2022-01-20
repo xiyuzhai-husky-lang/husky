@@ -1,7 +1,7 @@
 use common::*;
 
 use crate::*;
-use virtual_stack::VirtualStackValue;
+use interpret::StackValue;
 
 use super::*;
 

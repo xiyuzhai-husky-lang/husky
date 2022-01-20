@@ -1,9 +1,12 @@
+use common::Upcast;
 use fold::FoldStorage;
 
-use crate::{error::*, stmt::LazyStmtQueryGroup, *};
+use crate::{error::*, *};
 
 #[salsa::query_group(MainQueryGroupStorage)]
-pub trait MainQueryGroup: ast::AstQueryGroup + LazyStmtQueryGroup {
+pub trait MainQueryGroup:
+    ast::AstQueryGroup + InferQueryGroup + Upcast<dyn InferQueryGroup>
+{
     fn main(&self, main_file: file::FileId) -> SemanticResultArc<Main>;
 }
 
@@ -13,7 +16,11 @@ fn main(this: &dyn MainQueryGroup, main_file: file::FileId) -> SemanticResultArc
         match item.value.as_ref()? {
             ast::Ast::MainDef => {
                 return Ok(Arc::new(Main {
-                    stmts: this.parse_lazy_stmts(&ast_text.arena, not_none!(item.children))?,
+                    stmts: stmt::parse_lazy_stmts(
+                        this.upcast(),
+                        &ast_text.arena,
+                        not_none!(item.children),
+                    )?,
                 }))
             }
             _ => (),

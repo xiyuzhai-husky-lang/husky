@@ -15,24 +15,20 @@ use crate::SemanticResult;
 
 use crate::error::err;
 use crate::expr::{BinaryOpnKind, ExprParser, Opn};
-use crate::query::signature::CallSignatureQueryGroup;
+use crate::query::infer::InferQueryGroup;
 use crate::*;
 
-pub trait LazyStmtQueryGroup: CallSignatureQueryGroup {
-    fn as_lazy_stmt_query_group(&self) -> &dyn LazyStmtQueryGroup;
-
-    fn parse_lazy_stmts(
-        &self,
-        arena: &RawExprArena,
-        iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResult<Vec<DeclStmt>> {
-        let mut parser = LazyStmtParser::new(self.as_lazy_stmt_query_group(), arena);
-        parser.parse_stmt(iter)
-    }
+pub(crate) fn parse_lazy_stmts(
+    this: &dyn InferQueryGroup,
+    arena: &RawExprArena,
+    iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
+) -> SemanticResult<Vec<DeclStmt>> {
+    let mut parser = LazyStmtParser::new(this, arena);
+    parser.parse_stmt(iter)
 }
 
 pub struct LazyStmtParser<'a> {
-    db: &'a dyn LazyStmtQueryGroup,
+    db: &'a dyn InferQueryGroup,
     arena: &'a RawExprArena,
     variables: Vec<Variable>,
 }
@@ -43,7 +39,7 @@ pub struct Variable {
 }
 
 impl<'a> LazyStmtParser<'a> {
-    fn new(db: &'a dyn LazyStmtQueryGroup, arena: &'a RawExprArena) -> Self {
+    fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena) -> Self {
         Self {
             db,
             arena,
@@ -122,7 +118,7 @@ impl<'a> ExprParser<'a> for LazyStmtParser<'a> {
             .unwrap()
     }
 
-    fn db(&self) -> &'a dyn LazyStmtQueryGroup {
+    fn db(&self) -> &'a dyn InferQueryGroup {
         self.db
     }
 }

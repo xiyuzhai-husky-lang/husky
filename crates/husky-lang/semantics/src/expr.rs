@@ -6,10 +6,10 @@ pub(crate) use builder::ExprInstructionBuilder;
 pub use opn::*;
 pub(crate) use parser::ExprParser;
 
+use interpret::{Compiled, InterpretResult};
 use scope::ScopeId;
 use syntax_types::*;
 use text::TextRange;
-use virtual_stack::{Compiled, VirtualStack, VirtualStackResult};
 use word::{CustomIdentifier, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]

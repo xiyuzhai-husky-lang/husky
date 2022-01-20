@@ -1,5 +1,5 @@
 [package]
-name = "virtual-stack"
+name = "interpret"
 version = "0.0.0"
 edition = "2021"
 
