@@ -5,7 +5,7 @@ use crate::*;
 use super::{
     eval::Evaluator,
     feature::{Feature, FeatureId, FeatureKind},
-    value::{CachedValue, DurableValue},
+    value::{CachedValue, CachedValueStorage},
     *,
 };
 

@@ -2,10 +2,10 @@ use common::*;
 use stdx::sync::ARwLock;
 use syntax_types::PrimitiveValue;
 
-use super::{value::DurableValue, *};
+use super::{value::CachedValue, *};
 
 pub struct Feature<'sess> {
-    cached_values: ARwLock<HashMap<usize, CachedValue<'sess>>>,
+    cached_values: ARwLock<HashMap<usize, CachedValueStorage<'sess>>>,
     pub(super) kind: FeatureKind,
 }
 
@@ -29,8 +29,8 @@ impl<'sess> Feature<'sess> {
     pub(super) fn cache(
         &self,
         input_idx: usize,
-        cached_value: CachedValue<'sess>,
-    ) -> DurableValue<'sess> {
+        cached_value: CachedValueStorage<'sess>,
+    ) -> CachedValue<'sess> {
         let value = unsafe { cached_value.value() };
         self.cached_values
             .write(|values| should!(values.insert(input_idx, cached_value).is_none()));

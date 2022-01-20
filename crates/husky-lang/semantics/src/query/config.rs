@@ -11,7 +11,9 @@ use crate::{config::*, error::*, *};
 // currently dataset config is put in main file
 
 #[salsa::query_group(ConfigQueryGroupStorage)]
-pub trait ConfigQueryGroup: ast::AstQueryGroup + LazyStmtQueryGroup {
+pub trait ConfigQueryGroup:
+    ast::AstQueryGroup + InferQueryGroup + Upcast<dyn InferQueryGroup>
+{
     fn config(&self, main_file: file::FileId) -> SemanticResultArc<Config>;
 }
 
@@ -33,9 +35,11 @@ fn dataset_config_from_ast_text(
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()? {
             Ast::DatasetConfig => {
-                return Ok(DatasetConfig::new(
-                    this.parse_lazy_stmts(&ast_text.arena, not_none!(item.children))?,
-                ))
+                return Ok(DatasetConfig::new(stmt::parse_lazy_stmts(
+                    this.upcast(),
+                    &ast_text.arena,
+                    not_none!(item.children),
+                )?))
             }
             _ => (),
         }

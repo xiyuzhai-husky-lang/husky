@@ -208,78 +208,72 @@ impl<'stack> VirtualStack<'stack> {
         self.exec(&InstructionKind::PushPrimitive(value)).unwrap();
     }
 
-    fn add(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Add))?;
+    fn calculate_primitive_binary(&mut self, func: PrimitiveBinaryFunc) -> InterpretResult<()> {
+        self.exec(&InstructionKind::Primitive(PrimitiveOpn::Binary(func)))?;
         Ok(())
     }
 
-    fn and(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::And))?;
-        Ok(())
-    }
-
-    fn add_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::AddAssign {
-            dst_idx: idx,
+    fn assign_primitive_binary(
+        &mut self,
+        kind: PrimitiveBinaryFunc,
+        dst_idx: u16,
+    ) -> InterpretResult<()> {
+        self.exec(&InstructionKind::Primitive(PrimitiveOpn::BinaryAssign {
+            func: kind,
+            dst_idx,
         }))?;
         Ok(())
     }
 
-    fn bitand(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitAnd))?;
-        Ok(())
+    fn add(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::Add)
     }
 
-    fn bitand_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitAndAssign {
-            dst_idx: idx,
-        }))?;
-        Ok(())
+    fn and(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::And)
     }
 
-    fn bitor(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitOr))?;
-        Ok(())
+    fn add_assign(&mut self, idx: u16) -> InterpretResult<()> {
+        self.assign_primitive_binary(PrimitiveBinaryFunc::Add, idx)
     }
 
-    fn bitor_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BitOrAssign {
-            dst_idx: idx,
-        }))?;
-        Ok(())
+    fn bitand(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::BitAnd)
     }
 
-    fn div(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Div))?;
-        Ok(())
+    fn bitand_assign(&mut self, idx: u16) -> InterpretResult<()> {
+        self.assign_primitive_binary(PrimitiveBinaryFunc::BitAnd, idx)
     }
 
-    fn mul(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Mul))?;
-        Ok(())
+    fn bitor(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::BitOr)
     }
 
-    fn mul_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::MulAssign {
-            dst_idx: idx,
-        }))?;
-        Ok(())
+    fn bitor_assign(&mut self, idx: u16) -> InterpretResult<()> {
+        self.assign_primitive_binary(PrimitiveBinaryFunc::BitOr, idx)
     }
 
-    fn rem_euclid(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::RemEuclid))?;
-        Ok(())
+    fn div(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::Div)
     }
 
-    fn rem_euclid_assign(&mut self, idx: u16) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(
-            PrimitiveOpn::RemEuclidAssign { dst_idx: idx },
-        ))?;
-        Ok(())
+    fn mul(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::Mul)
     }
 
-    fn sub(&mut self) -> VirtualStackResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Sub))?;
-        Ok(())
+    fn mul_assign(&mut self, idx: u16) -> InterpretResult<()> {
+        self.assign_primitive_binary(PrimitiveBinaryFunc::Mul, idx)
+    }
+
+    fn rem_euclid(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::RemEuclid)
+    }
+
+    fn rem_euclid_assign(&mut self, idx: u16) -> InterpretResult<()> {
+        self.assign_primitive_binary(PrimitiveBinaryFunc::RemEuclid, idx)
+    }
+
+    fn sub(&mut self) -> InterpretResult<()> {
+        self.calculate_primitive_binary(PrimitiveBinaryFunc::Sub)
     }
 }

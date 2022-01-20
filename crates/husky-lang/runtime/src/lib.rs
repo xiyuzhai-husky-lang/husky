@@ -6,4 +6,4 @@ mod tests;
 
 pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 
-use virtual_stack::{Any, Instruction, VirtualStack};
+use interpret::{interpret, Any, Instruction};

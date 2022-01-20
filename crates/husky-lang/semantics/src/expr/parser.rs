@@ -10,7 +10,7 @@ use super::{BinaryOpnKind, Opn};
 pub trait ExprParser<'a> {
     fn arena(&self) -> &'a RawExprArena;
     fn vartype(&self, varname: CustomIdentifier) -> ScopeId;
-    fn db(&self) -> &'a dyn LazyStmtQueryGroup;
+    fn db(&self) -> &'a dyn InferQueryGroup;
 
     fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Expr> {
         let (ty, kind): (ScopeId, _) = match &raw_expr.kind {
@@ -47,7 +47,7 @@ pub trait ExprParser<'a> {
                     let call = &self.arena()[opds][0];
                     match &call.kind {
                         RawExprKind::Scope(scope, ScopeKind::Func) => {
-                            let signature = self.db().call_signature(*scope)?;
+                            let signature = self.db().func_signature(*scope)?;
                             let arguments: Vec<Expr> = self.arena()[opds][1..]
                                 .iter()
                                 .map(|raw| self.parse_expr(raw))
@@ -57,7 +57,7 @@ pub trait ExprParser<'a> {
                                 output,
                                 ExprKind::Opn {
                                     opn: Opn::FuncCall { func: *scope },
-                                    compiled: None,
+                                    compiled: signature.compiled,
                                     opds: arguments,
                                 },
                             ))

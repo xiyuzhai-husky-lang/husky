@@ -7,6 +7,7 @@ pub use file::{FileQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use scope::{InternScope, Scope};
 pub use scope_query::{ScopeQueryGroup, ScopeSalsaQueryGroup};
+use semantics::InferQueryGroup;
 pub use semantics::PackageQueryGroup;
 pub use word::InternWord;
 
@@ -26,7 +27,7 @@ use stdx::sync::ARwLock;
     semantics::MainQueryGroupStorage,
     semantics::EntityQueryGroupStorage,
     semantics::ConfigQueryGroupStorage,
-    semantics::CallSignatureQueryGroupStorage,
+    semantics::InferQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage
 )]
 pub struct HuskyLangDatabase {
@@ -101,8 +102,8 @@ impl InternScope for HuskyLangDatabase {
 
 impl ScopeQueryGroup for HuskyLangDatabase {}
 
-impl semantics::LazyStmtQueryGroup for HuskyLangDatabase {
-    fn as_lazy_stmt_query_group(&self) -> &dyn semantics::LazyStmtQueryGroup {
+impl Upcast<dyn InferQueryGroup> for HuskyLangDatabase {
+    fn upcast(&self) -> &(dyn semantics::InferQueryGroup + 'static) {
         self
     }
 }

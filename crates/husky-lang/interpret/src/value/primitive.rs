@@ -2,6 +2,8 @@ use core::hash::Hash;
 
 use word::ReservedIdentifier;
 
+use crate::*;
+
 // use scope::ScopeId;
 // use word::ReservedIdentifier;
 
@@ -24,6 +26,38 @@ impl PrimitiveValue {
             PrimitiveValue::B64(_) => ReservedIdentifier::B64,
             PrimitiveValue::Bool(_) => todo!(),
             PrimitiveValue::Void => todo!(),
+        }
+    }
+
+    pub(crate) fn as_i32(&self) -> InterpretResult<i32> {
+        if let PrimitiveValue::I32(i) = self {
+            Ok(*i)
+        } else {
+            todo!()
+        }
+    }
+
+    pub(crate) fn as_f32(&self) -> InterpretResult<f32> {
+        if let PrimitiveValue::F32(f) = self {
+            Ok(*f)
+        } else {
+            todo!()
+        }
+    }
+
+    pub(crate) fn as_b32(&self) -> InterpretResult<u32> {
+        if let PrimitiveValue::B32(b) = self {
+            Ok(*b)
+        } else {
+            todo!()
+        }
+    }
+
+    pub(crate) fn as_bool(&self) -> InterpretResult<bool> {
+        if let PrimitiveValue::Bool(b) = self {
+            Ok(*b)
+        } else {
+            todo!()
         }
     }
 }
