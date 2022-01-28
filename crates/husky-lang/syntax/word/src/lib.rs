@@ -1,7 +1,9 @@
 mod intern;
 mod keyword;
 
-pub use ident::{default_func_type, CustomIdentifier, Identifier, ReservedIdentifier};
+pub use ident::{
+    default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier,
+};
 pub use intern::{new_word_interner, InternWord, WordInterner};
 pub use keyword::{ConfigKeyword, FuncKeyword, Keyword, StmtKeyword, TypeKeyword};
 
@@ -24,7 +26,7 @@ impl WordId {
     pub fn custom(self) -> Option<CustomIdentifier> {
         self.ident()
             .map(|ident| match ident {
-                Identifier::Builtin(_) => None,
+                Identifier::Builtin(_) | Identifier::Implicit(_) => None,
                 Identifier::Custom(ident) => Some(ident),
             })
             .flatten()
@@ -67,8 +69,8 @@ impl From<Identifier> for WordId {
     }
 }
 
-impl From<ReservedIdentifier> for WordId {
-    fn from(reserved: ReservedIdentifier) -> Self {
+impl From<BuiltinIdentifier> for WordId {
+    fn from(reserved: BuiltinIdentifier) -> Self {
         WordId::Identifier(Identifier::Builtin(reserved))
     }
 }
@@ -76,6 +78,12 @@ impl From<ReservedIdentifier> for WordId {
 impl From<CustomIdentifier> for WordId {
     fn from(ident: CustomIdentifier) -> Self {
         WordId::Identifier(Identifier::Custom(ident))
+    }
+}
+
+impl From<ImplicitIdentifier> for WordId {
+    fn from(ident: ImplicitIdentifier) -> Self {
+        WordId::Identifier(Identifier::Implicit(ident))
     }
 }
 

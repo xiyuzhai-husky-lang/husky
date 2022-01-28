@@ -13,8 +13,8 @@ use scope::ScopeId;
 use text::TextRange;
 use text::TextRanged;
 use token::{Token, TokenKind};
+use word::BuiltinIdentifier;
 use word::Identifier;
-use word::ReservedIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct Atom {
@@ -45,7 +45,7 @@ impl std::fmt::Debug for Atom {
 
 impl From<&Token> for Atom {
     fn from(token: &Token) -> Self {
-        match &token.kind {
+        match token.kind {
             TokenKind::Keyword(_) | TokenKind::Identifier(_) => panic!(),
             TokenKind::Special(special) => Atom::new(token.text_range(), special.into()),
             TokenKind::I32Literal(i) => Atom::new(token.text_range(), i.into()),

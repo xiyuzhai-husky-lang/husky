@@ -5,59 +5,114 @@ pub mod trivial;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
-    signature: ScopeSignature::Module,
+    signature: RawScopeSignature::Module,
 };
 
-use crate::*;
+use crate::{labeled::LabeledData, *};
 
 use iter::SyntheticSampleIter;
 use loader::SyntheticSampleLoader;
+use vm::BoxedValue;
 
-pub trait SyntheticDataset {
-    fn sample(&self, idx: usize) -> Box<dyn Any>;
+pub trait SyntheticDataset: AnyValue + 'static {
+    fn data_generator(&self) -> fn(seed: u64, idx: usize) -> LabeledData;
+    fn seed(&self) -> u64;
+    fn dev_len(&self) -> usize {
+        100
+    }
+    fn dev_seed(&self) -> u64 {
+        (self.seed() << 11) & (self.seed() >> 53)
+    }
+    fn val_len(&self) -> usize {
+        100
+    }
+    fn val_seed(&self) -> u64 {
+        (self.seed() << 30) & (self.seed() >> 34)
+    }
+    fn test_len(&self) -> usize {
+        100
+    }
+    fn test_seed(&self) -> u64 {
+        (self.seed() << 41) & (self.seed() >> 23)
+    }
 }
 
 impl<D: SyntheticDataset> Dataset for D {
-    fn dev_loader(&self) -> SampleLoader {
-        Box::new(SyntheticSampleLoader::new(self))
+    fn dev_loader(&self) -> DataLoader {
+        Box::new(SyntheticSampleLoader::new(
+            self.dev_len(),
+            self.data_generator(),
+            self.dev_seed(),
+        ))
     }
 
-    fn val_iter(&self) -> SampleIter {
-        Box::new(SyntheticSampleIter::new_time_seeded(self))
+    fn val_loader(&self) -> DataLoader {
+        Box::new(SyntheticSampleLoader::new(
+            self.val_len(),
+            self.data_generator(),
+            self.val_seed(),
+        ))
     }
 
-    fn test_iter(&self) -> SampleIter {
-        Box::new(SyntheticSampleIter::new_time_seeded(self))
+    fn test_loader(&self) -> DataLoader {
+        Box::new(SyntheticSampleLoader::new(
+            self.test_len(),
+            self.data_generator(),
+            self.test_seed(),
+        ))
+    }
+
+    fn profile_iter(&self) -> DataIter {
+        Box::new(SyntheticSampleIter::new(self))
     }
 }
 
-#[derive(Debug)]
-pub struct SimpleSyntheticDataset<Sample: 'static> {
-    gen_sample: fn(idx: usize) -> Sample,
+pub struct SimpleSyntheticDataset {
+    seed: u64,
+    data_generator: fn(seed: u64, idx: usize) -> LabeledData,
 }
 
-impl<Sample: 'static> Clone for SimpleSyntheticDataset<Sample> {
+impl std::fmt::Debug for SimpleSyntheticDataset {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("SimpleSyntheticDataset")
+            .field("gen_sample", &self.data_generator)
+            .finish()
+    }
+}
+
+impl Clone for SimpleSyntheticDataset {
     fn clone(&self) -> Self {
         Self {
-            gen_sample: self.gen_sample.clone(),
+            seed: self.seed,
+            data_generator: self.data_generator.clone(),
         }
     }
 }
 
-impl<Sample> interpret::HasRef for SimpleSyntheticDataset<Sample> {
-    fn has_ref(&self) -> bool {
-        false
+impl SimpleSyntheticDataset {
+    pub fn new(seed: u64, gen_sample: fn(seed: u64, idx: usize) -> LabeledData) -> Self {
+        SimpleSyntheticDataset {
+            seed,
+            data_generator: gen_sample,
+        }
     }
 }
 
-impl<Sample: 'static> SimpleSyntheticDataset<Sample> {
-    pub fn new(gen_sample: fn(idx: usize) -> Sample) -> Self {
-        SimpleSyntheticDataset { gen_sample }
+impl AnyValue for SimpleSyntheticDataset {
+    fn static_type_id() -> std::any::TypeId {
+        todo!()
+    }
+
+    fn static_type_name() -> Cow<'static, str> {
+        todo!()
     }
 }
 
-impl<Sample> SyntheticDataset for SimpleSyntheticDataset<Sample> {
-    fn sample(&self, idx: usize) -> Box<dyn Any> {
-        Box::new((self.gen_sample)(idx))
+impl SyntheticDataset for SimpleSyntheticDataset {
+    fn data_generator(&self) -> fn(u64, usize) -> LabeledData {
+        self.data_generator
+    }
+    fn seed(&self) -> u64 {
+        self.seed
     }
 }

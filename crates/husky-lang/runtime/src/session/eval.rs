@@ -2,26 +2,43 @@ use common::*;
 use syntax_types::PrimitiveValue;
 
 use crate::*;
-use interpret::StackValue;
+use vm::{Conditional, EvalValue, StackValue};
 
 use super::{
-    feature::{Feature, FeatureId, FeatureKind},
-    value::{CachedValue, CachedValueStorage},
+    feature::{Feature, FeatureId},
     *,
 };
 
-pub trait Evaluator<'eval> {
-    fn feature_kind(&self, feature_id: FeatureId) -> &FeatureKind;
-    fn cache(&self, feature_id: FeatureId, value: CachedValueStorage<'eval>) -> CachedValue<'eval>;
-    fn eval(&self, feature_id: FeatureId) -> StackValue<'eval> {
+pub struct Evaluator<'a, 'eval: 'a> {
+    features: &'a FeatureInterner,
+    cache: &'a EvalCache<'eval>,
+}
+
+impl<'a, 'eval: 'a> Evaluator<'a, 'eval> {
+    pub(super) fn new(features: &'a FeatureInterner, cache: &'a EvalCache<'eval>) -> Self {
+        Self { cache, features }
+    }
+
+    pub(super) fn eval(&self, id: FeatureId) -> EvalValue<'eval, 'eval> {
         const VOID: () = ();
-        match self.feature_kind(feature_id) {
-            FeatureKind::Literal(literal) => literal.into(),
-            FeatureKind::FunctionCall => todo!(),
-            // FeatureKind::PatternCall => todo!(),
-            FeatureKind::Binary => todo!(),
-            FeatureKind::MembAccess => todo!(),
-            FeatureKind::MembCall => todo!(),
+        match self.features[id] {
+            Feature::Input => todo!(),
+            Feature::Literal(literal) => Ok(Conditional::Defined(StackValue::Primitive(literal))),
+            Feature::Cached(feature) => self.cache.value(id, || self.eval(feature)),
+            Feature::Assert { condition } => match self.eval(condition) {
+                Ok(_) => Ok(Conditional::Undefined),
+                Err(_) => todo!(),
+            },
+            Feature::Do { first, then } => match self.eval(first)? {
+                Conditional::Defined(value) => Ok(Conditional::Defined(value)),
+                Conditional::Undefined => self.eval(then),
+            },
+            Feature::PrimitiveBinaryFunc { func, lopd, ropd } => Ok(Conditional::Defined(
+                StackValue::Primitive(func.act_on_primitives(
+                    self.eval(lopd)?.defined()?.as_primitive()?,
+                    self.eval(ropd)?.defined()?.as_primitive()?,
+                )?),
+            )),
         }
     }
 }

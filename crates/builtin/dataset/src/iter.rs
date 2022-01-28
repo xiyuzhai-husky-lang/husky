@@ -1,7 +1,7 @@
 use crate::*;
 
-pub trait SampleIterator {
-    fn next(&mut self) -> &dyn Any;
+pub trait DataIterator {
+    fn next(&mut self) -> LabeledData;
 }
 
-pub type SampleIter<'a> = Box<dyn SampleIterator + 'a>;
+pub type DataIter<'a> = Box<dyn DataIterator + 'a>;

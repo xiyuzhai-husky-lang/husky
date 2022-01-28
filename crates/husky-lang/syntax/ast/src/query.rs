@@ -3,11 +3,14 @@ use fold::{FoldStorage, FoldedList};
 use scope_query::ScopeResultArc;
 use std::sync::Arc;
 
+use crate::atom::symbol_proxy::{Symbol, SymbolProxy};
 use crate::*;
 
 #[salsa::query_group(AstQueryGroupStorage)]
 pub trait AstQueryGroup: scope_query::ScopeQueryGroup {
     fn ast_text(&self, id: file::FileId) -> ScopeResultArc<AstText>;
+
+    fn parse_ty(&self, code: &'static str) -> AstResult<ScopeId>;
 }
 
 fn ast_text(this: &dyn AstQueryGroup, id: file::FileId) -> ScopeResultArc<AstText> {
@@ -15,6 +18,17 @@ fn ast_text(this: &dyn AstQueryGroup, id: file::FileId) -> ScopeResultArc<AstTex
     let mut parser = AstTransformer::new(this, this.module_from_file_id(id)?);
     parser.transform_all(tokenized_text.fold_iter(0));
     Ok(Arc::new(parser.finish()))
+}
+
+fn parse_ty(this: &dyn AstQueryGroup, code: &'static str) -> AstResult<ScopeId> {
+    let tokens = this.tokenize(code);
+    let symbols = fold::LocalStack::<Symbol>::new();
+    let proxy = SymbolProxy {
+        main: None,
+        db: this,
+        symbols: &symbols,
+    };
+    atom::parser::parse_ty(proxy, &tokens)
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

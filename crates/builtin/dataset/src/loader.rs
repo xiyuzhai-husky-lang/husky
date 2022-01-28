@@ -1,7 +1,8 @@
-use std::any::Any;
+use crate::*;
 
 pub trait LoadSample {
-    fn load(&mut self, idx: usize) -> &dyn Any;
+    fn len(&self) -> usize;
+    fn load<'a>(&'a mut self, idx: usize) -> LabeledData;
 }
 
-pub type SampleLoader<'a> = Box<dyn LoadSample + 'a>;
+pub type DataLoader = Box<dyn LoadSample>;

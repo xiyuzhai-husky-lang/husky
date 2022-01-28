@@ -7,9 +7,9 @@ pub use impr::{StrictStmt, StrictStmtKind};
 
 use ast::*;
 use scope::{ScopeId, ScopeKind};
-use syntax_types::{BinaryOpr, Opr};
+use syntax_types::Opr;
 use text::TextRange;
-use word::{CustomIdentifier, ReservedIdentifier};
+use word::{BuiltinIdentifier, CustomIdentifier};
 
 use crate::SemanticResult;
 

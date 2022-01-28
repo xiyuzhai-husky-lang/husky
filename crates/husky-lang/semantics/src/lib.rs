@@ -7,8 +7,9 @@ mod package;
 mod query;
 mod stmt;
 
+pub use config::Config;
 pub use error::{SemanticError, SemanticResult, SemanticResultArc};
-pub use expr::{Expr, ExprKind};
+pub use expr::{BinaryOpnKind, Expr, ExprKind, Opn};
 pub use package::Package;
 pub use query::*;
 pub use stmt::{DeclStmt, DeclStmtKind, StrictStmt, StrictStmtKind};

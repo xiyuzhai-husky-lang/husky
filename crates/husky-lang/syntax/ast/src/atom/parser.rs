@@ -12,6 +12,7 @@ use common::*;
 use scope::{GenericArgument, Scope, ScopeKind, ScopeRoute};
 use text::TextRange;
 use token::{Special, Token, TokenKind};
+use vm::BinaryOpr;
 use word::CustomIdentifier;
 
 use super::{stack::AtomStack, symbol_proxy::SymbolProxy, *};
@@ -75,7 +76,7 @@ impl<'a> AtomLRParser<'a> {
             }
 
             if let Some(token) = self.stream.next() {
-                match &token.kind {
+                match token.kind {
                     TokenKind::Keyword(_) => {
                         ast_err!(token.text_range(), "keyword should be put at start")?
                     }
@@ -178,17 +179,12 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopeId
         panic!()
     }
     if result.len() > 1 {
-        ast_err!(
-            text::group_text_range(&result[1..]),
-            "unexpected atoms in memb var"
-        )?
+        p!(result);
+        ast_err!(text::group_text_range(&result[1..]), "too many atoms")?
     } else {
         match result[0].kind {
             AtomKind::Scope(scope, ScopeKind::Type) => Ok(scope),
-            _ => ast_err!(
-                text::group_text_range(&result),
-                "unexpected atoms in memb var"
-            )?,
+            _ => ast_err!(text::group_text_range(&result), "too many atoms")?,
         }
     }
 }

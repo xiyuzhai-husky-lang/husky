@@ -1,7 +1,7 @@
 use common::*;
 
 use scope::{GenericArgument, ScopeKind};
-use word::ReservedIdentifier;
+use word::BuiltinIdentifier;
 
 use crate::{
     atom::{convexity::Convexity, symbol_proxy::SymbolProxy, *},
@@ -78,9 +78,9 @@ impl AtomStack {
             ) => {
                 let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
                 let ident = match attr {
-                    ListStartAttr::None => ReservedIdentifier::Tuple,
+                    ListStartAttr::None => BuiltinIdentifier::Tuple,
                     ListStartAttr::Attach => {
-                        generics.push(ScopeId::Builtin(ReservedIdentifier::Void).into());
+                        generics.push(ScopeId::Builtin(BuiltinIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
                 };
@@ -106,7 +106,7 @@ impl AtomStack {
         .unwrap();
     }
 
-    fn func_generic(&mut self, attr: ListStartAttr) -> AstResult<ReservedIdentifier> {
+    fn func_generic(&mut self, attr: ListStartAttr) -> AstResult<BuiltinIdentifier> {
         let expectation = "expect Fp, Fn, FnMut, FnOnce";
 
         match attr {
@@ -115,10 +115,10 @@ impl AtomStack {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.kind {
                     AtomKind::Scope(ScopeId::Builtin(ident), _) => match ident {
-                        ReservedIdentifier::Fp
-                        | ReservedIdentifier::Fn
-                        | ReservedIdentifier::FnMut
-                        | ReservedIdentifier::FnOnce => Ok(ident),
+                        BuiltinIdentifier::Fp
+                        | BuiltinIdentifier::Fn
+                        | BuiltinIdentifier::FnMut
+                        | BuiltinIdentifier::FnOnce => Ok(ident),
                         _ => ast_err!(last_atom.text_range(), expectation),
                     },
                     _ => ast_err!(last_atom.text_range(), expectation),

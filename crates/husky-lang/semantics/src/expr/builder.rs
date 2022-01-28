@@ -1,5 +1,5 @@
 use common::*;
-use interpret::{Instruction, InstructionKind};
+use vm::{Instruction, InstructionKind};
 
 use crate::*;
 
@@ -8,15 +8,18 @@ pub trait ExprInstructionBuilder {
 
     fn build_expr_instructions(&mut self, expr: &Expr) {
         epin!();
-        match &expr.kind {
+        match expr.kind {
             ExprKind::Variable(_) => todo!(),
-            ExprKind::Scope { id, compiled } => todo!(),
+            ExprKind::Scope {
+                scope: id,
+                compiled,
+            } => todo!(),
             ExprKind::Literal(_) => todo!(),
             ExprKind::Bracketed(_) => todo!(),
             ExprKind::Opn {
                 opn,
                 compiled,
-                opds,
+                ref opds,
             } => match opn {
                 expr::Opn::Binary { opr, this, kind } => todo!(),
                 expr::Opn::Prefix(_) => todo!(),
@@ -33,7 +36,7 @@ pub trait ExprInstructionBuilder {
                     if let Some(compiled) = compiled {
                         self.push_instruction(Instruction {
                             kind: InstructionKind::Call {
-                                compiled: *compiled,
+                                compiled,
                                 nargs: opds.len() as u16,
                             },
                         })

@@ -1,38 +1,8 @@
 <script lang="ts">
     import TreeView from "./DebuggerUI/TreeView.svelte";
     import Figure from "./DebuggerUI/Figure.svelte";
-    import { new_globalState } from "./DebuggerUI/GlobalState";
-    import type GlobalState from "./DebuggerUI/GlobalState";
+    import { figure, onKeyDown, getDummy } from "./DebuggerUI/globalState";
     import HSplitPane from "./SplitPane/HSplitPane.svelte";
-
-    let globalState: GlobalState = new_globalState();
-    $: toggleExpansion = (idx: number) =>
-        (globalState = globalState.toggleExpansion(idx));
-    $: activate = (idx: number) => (globalState = globalState.activate(idx));
-    $: moveUp = () => (globalState = globalState.moveUp());
-    $: moveDown = () => (globalState = globalState.moveDown());
-    $: moveRight = () => (globalState = globalState.moveRight());
-    $: moveLeft = () => (globalState = globalState.moveLeft());
-    $: onKeyDown = (e: KeyboardEvent) => {
-        switch (e.code) {
-            case "KeyH":
-                moveLeft();
-                break;
-            case "KeyL":
-                moveRight();
-                break;
-            case "KeyJ":
-                moveDown();
-                break;
-            case "KeyK":
-                moveUp();
-                break;
-            case "KeyS":
-                console.log(JSON.stringify(globalState));
-                break;
-            default:
-        }
-    };
 
     let windowHeight: number;
 </script>
@@ -41,15 +11,21 @@
 
 <div class="DebuggerUI" style="height: {windowHeight}px">
     <HSplitPane>
-        <TreeView slot="left" {globalState} {toggleExpansion} {activate} />
-        <Figure slot="right" figure={globalState.getFigure()} />
+        <TreeView slot="left" />
+        <Figure slot="right" figure={$figure} />
     </HSplitPane>
+    <div class="BottomTemp">connection: {getDummy()}</div>
 </div>
 
 <style>
     .DebuggerUI {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
+    }
+    .BottomTemp {
+        display: flex;
+        height: 25px;
+        background: rgb(0, 126, 126);
     }
 </style>

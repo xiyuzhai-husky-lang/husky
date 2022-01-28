@@ -4,7 +4,7 @@ use scope::*;
 
 use common::*;
 
-use word::{CustomIdentifier, Identifier, ReservedIdentifier, WordId};
+use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier, WordId};
 
 use fold::FoldStorage;
 
@@ -64,25 +64,24 @@ fn scope_kind(this: &dyn ScopeSalsaQueryGroup, scope: ScopeId) -> ScopeKind {
 
 fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> ScopeKind {
     match route {
-        ScopeRoute::Reserved { ident } => match ident {
-            ReservedIdentifier::Void
-            | ReservedIdentifier::I32
-            | ReservedIdentifier::F32
-            | ReservedIdentifier::B32
-            | ReservedIdentifier::B64
-            | ReservedIdentifier::Bool
-            | ReservedIdentifier::Vector
-            | ReservedIdentifier::Tuple
-            | ReservedIdentifier::Fp
-            | ReservedIdentifier::Array => ScopeKind::Type,
-            ReservedIdentifier::Fn | ReservedIdentifier::FnMut | ReservedIdentifier::FnOnce => {
+        ScopeRoute::Builtin { ident } => match ident {
+            BuiltinIdentifier::Void
+            | BuiltinIdentifier::I32
+            | BuiltinIdentifier::F32
+            | BuiltinIdentifier::B32
+            | BuiltinIdentifier::B64
+            | BuiltinIdentifier::Bool
+            | BuiltinIdentifier::Vector
+            | BuiltinIdentifier::Tuple
+            | BuiltinIdentifier::Fp
+            | BuiltinIdentifier::Array
+            | BuiltinIdentifier::DatasetType => ScopeKind::Type,
+            BuiltinIdentifier::Fn | BuiltinIdentifier::FnMut | BuiltinIdentifier::FnOnce => {
                 ScopeKind::Trait
             }
-            ReservedIdentifier::Debug
-            | ReservedIdentifier::Std
-            | ReservedIdentifier::Core
-            | ReservedIdentifier::DatasetType => ScopeKind::Module,
-            ReservedIdentifier::Input => ScopeKind::Feature,
+            BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
+                ScopeKind::Module
+            }
         },
         ScopeRoute::Package { .. } => ScopeKind::Module,
         ScopeRoute::ChildScope { parent, ident } => this
@@ -90,36 +89,39 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
             .unwrap()
             .scope_kind(ident)
             .unwrap(),
+        ScopeRoute::Implicit { ident, .. } => match ident {
+            ImplicitIdentifier::Input => ScopeKind::Feature,
+        },
     }
 }
 
 fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopeId) -> ScopeResult<ScopeSource> {
     Ok(match scope.route {
-        ScopeRoute::Reserved { ident } => match ident {
-            ReservedIdentifier::Void => todo!(),
-            ReservedIdentifier::I32 => todo!(),
-            ReservedIdentifier::F32 => todo!(),
-            ReservedIdentifier::B32 => todo!(),
-            ReservedIdentifier::B64 => todo!(),
-            ReservedIdentifier::Bool => todo!(),
-            ReservedIdentifier::Vector => todo!(),
-            ReservedIdentifier::Tuple => todo!(),
-            ReservedIdentifier::Debug => todo!(),
-            ReservedIdentifier::Std => todo!(),
-            ReservedIdentifier::Core => todo!(),
-            ReservedIdentifier::Fp => todo!(),
-            ReservedIdentifier::Fn => todo!(),
-            ReservedIdentifier::FnMut => todo!(),
-            ReservedIdentifier::FnOnce => todo!(),
-            ReservedIdentifier::Array => todo!(),
-            ReservedIdentifier::Input => todo!(),
-            ReservedIdentifier::DatasetType => dataset::SCOPE_DATA,
+        ScopeRoute::Builtin { ident } => match ident {
+            BuiltinIdentifier::Void => todo!(),
+            BuiltinIdentifier::I32 => todo!(),
+            BuiltinIdentifier::F32 => todo!(),
+            BuiltinIdentifier::B32 => todo!(),
+            BuiltinIdentifier::B64 => todo!(),
+            BuiltinIdentifier::Bool => todo!(),
+            BuiltinIdentifier::Vector => todo!(),
+            BuiltinIdentifier::Tuple => todo!(),
+            BuiltinIdentifier::Debug => todo!(),
+            BuiltinIdentifier::Std => todo!(),
+            BuiltinIdentifier::Core => todo!(),
+            BuiltinIdentifier::Fp => todo!(),
+            BuiltinIdentifier::Fn => todo!(),
+            BuiltinIdentifier::FnMut => todo!(),
+            BuiltinIdentifier::FnOnce => todo!(),
+            BuiltinIdentifier::Array => todo!(),
+            BuiltinIdentifier::DatasetType => dataset::SCOPE_DATA,
         }
         .into(),
         ScopeRoute::Package { main, .. } => ScopeSource::Module { file_id: main },
         ScopeRoute::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
+        ScopeRoute::Implicit { main, ident } => todo!(),
     })
 }
 

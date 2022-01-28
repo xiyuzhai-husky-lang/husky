@@ -17,7 +17,6 @@ pub fn event_loop(connection: lsp_server::Connection) -> Result<(), Box<dyn Erro
     while let Some(event) = select! {
         recv(connection.receiver) -> msg =>
             msg.ok().map(Event::Lsp),
-
         recv(server.event_loop_comm.receiver) -> task =>
             Some(Event::Task(task.unwrap())),
     } {
@@ -33,7 +32,7 @@ pub fn event_loop(connection: lsp_server::Connection) -> Result<(), Box<dyn Erro
             TaskSet::Respond(response) => server.client_comm.respond(response),
         }
     }
-    return Err("client exited without proper shutdown sequence".into());
+    Err("lsp client exited without proper shutdown sequence".into())
 }
 
 pub enum Event {

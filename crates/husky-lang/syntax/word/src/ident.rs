@@ -5,8 +5,9 @@ use crate::*;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
-    Builtin(ReservedIdentifier),
+    Builtin(BuiltinIdentifier),
     Custom(CustomIdentifier),
+    Implicit(ImplicitIdentifier),
 }
 
 impl Deref for Identifier {
@@ -16,6 +17,7 @@ impl Deref for Identifier {
         match self {
             Identifier::Builtin(ident) => ident.deref(),
             Identifier::Custom(ident) => ident.deref(),
+            Identifier::Implicit(ident) => ident.deref(),
         }
     }
 }
@@ -69,14 +71,14 @@ impl From<CustomIdentifier> for Identifier {
     }
 }
 
-impl From<&CustomIdentifier> for Identifier {
-    fn from(ident: &CustomIdentifier) -> Self {
-        Self::Custom(*ident)
+impl From<ImplicitIdentifier> for Identifier {
+    fn from(ident: ImplicitIdentifier) -> Self {
+        Self::Implicit(ident)
     }
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub enum ReservedIdentifier {
+pub enum BuiltinIdentifier {
     Void,
     I32,
     F32,
@@ -93,43 +95,62 @@ pub enum ReservedIdentifier {
     FnMut,
     FnOnce,
     Array,
-    Input,
     DatasetType,
 }
 
-impl Deref for ReservedIdentifier {
+impl Deref for BuiltinIdentifier {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
         match self {
-            ReservedIdentifier::Void => "()",
-            ReservedIdentifier::I32 => "i32",
-            ReservedIdentifier::F32 => "f32",
-            ReservedIdentifier::B32 => "b32",
-            ReservedIdentifier::B64 => "b64",
-            ReservedIdentifier::Bool => "bool",
-            ReservedIdentifier::Vector => "Vec",
-            ReservedIdentifier::Tuple => "Tuple",
-            ReservedIdentifier::Debug => "debug",
-            ReservedIdentifier::Std => "std",
-            ReservedIdentifier::Core => "core",
-            ReservedIdentifier::Fp => "Fp",
-            ReservedIdentifier::Fn => "Fn",
-            ReservedIdentifier::FnMut => "FnMut",
-            ReservedIdentifier::FnOnce => "FnOnce",
-            ReservedIdentifier::Array => "Array",
-            ReservedIdentifier::Input => "Input",
-            ReservedIdentifier::DatasetType => "builtin_dataset",
+            BuiltinIdentifier::Void => "()",
+            BuiltinIdentifier::I32 => "i32",
+            BuiltinIdentifier::F32 => "f32",
+            BuiltinIdentifier::B32 => "b32",
+            BuiltinIdentifier::B64 => "b64",
+            BuiltinIdentifier::Bool => "bool",
+            BuiltinIdentifier::Vector => "Vec",
+            BuiltinIdentifier::Tuple => "Tuple",
+            BuiltinIdentifier::Debug => "debug",
+            BuiltinIdentifier::Std => "std",
+            BuiltinIdentifier::Core => "core",
+            BuiltinIdentifier::Fp => "Fp",
+            BuiltinIdentifier::Fn => "Fn",
+            BuiltinIdentifier::FnMut => "FnMut",
+            BuiltinIdentifier::FnOnce => "FnOnce",
+            BuiltinIdentifier::Array => "Array",
+            BuiltinIdentifier::DatasetType => "Dataset",
         }
     }
 }
 
-impl Borrow<str> for ReservedIdentifier {
+impl Borrow<str> for BuiltinIdentifier {
     fn borrow(&self) -> &str {
         self.deref()
     }
 }
 
-pub fn default_func_type() -> ReservedIdentifier {
-    ReservedIdentifier::Fp
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+pub enum ImplicitIdentifier {
+    Input,
+}
+
+impl Deref for ImplicitIdentifier {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            ImplicitIdentifier::Input => "input",
+        }
+    }
+}
+
+impl Borrow<str> for ImplicitIdentifier {
+    fn borrow(&self) -> &str {
+        self.deref()
+    }
+}
+
+pub fn default_func_type() -> BuiltinIdentifier {
+    BuiltinIdentifier::Fp
 }

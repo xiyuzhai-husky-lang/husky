@@ -11,8 +11,17 @@ pub type ScopeInterner = Interner<Scope, Scope, ScopeId>;
 
 #[derive(Clone, Copy)]
 pub enum ScopeId {
-    Builtin(ReservedIdentifier),
+    Builtin(BuiltinIdentifier),
     Custom(&'static Scope),
+}
+
+impl ScopeId {
+    pub fn custom(&self) -> Option<&'static Scope> {
+        match self {
+            ScopeId::Builtin(_) => None,
+            ScopeId::Custom(scope) => Some(scope),
+        }
+    }
 }
 
 impl std::fmt::Debug for ScopeId {
@@ -52,8 +61,8 @@ impl Deref for ScopeId {
                  paste! {
                     $(
                         const [<$reserved:upper _SCOPE>]:&Scope = &Scope {
-                            route: ScopeRoute::Reserved {
-                                ident: ReservedIdentifier::$reserved,
+                            route: ScopeRoute::Builtin {
+                                ident: BuiltinIdentifier::$reserved,
                             },
                             generics: vec![],
                         };
@@ -61,8 +70,9 @@ impl Deref for ScopeId {
 
                     match $x {
                         $(
-                            ReservedIdentifier::$reserved => [<$reserved:upper _SCOPE>],
+                            BuiltinIdentifier::$reserved => [<$reserved:upper _SCOPE>],
                         )*
+                        _=> panic!(),
                     }
                 }
             }}
@@ -71,7 +81,7 @@ impl Deref for ScopeId {
         match self {
             ScopeId::Builtin(ident) => match_builtin!(
                 ident => Void, I32, F32, B32, B64, Bool, Vector, Tuple, Debug, Std, Core, Fp, Fn,
-                FnMut, FnOnce, Array, Input, DatasetType
+                FnMut, FnOnce, Array, DatasetType
             ),
             ScopeId::Custom(scope) => scope,
         }
@@ -94,14 +104,14 @@ impl InternId for ScopeId {
     type Thing = Scope;
 }
 
-impl From<ReservedIdentifier> for ScopeId {
-    fn from(ident: ReservedIdentifier) -> Self {
+impl From<BuiltinIdentifier> for ScopeId {
+    fn from(ident: BuiltinIdentifier) -> Self {
         Self::Builtin(ident)
     }
 }
 
-impl From<&ReservedIdentifier> for ScopeId {
-    fn from(ident: &ReservedIdentifier) -> Self {
+impl From<&BuiltinIdentifier> for ScopeId {
+    fn from(ident: &BuiltinIdentifier) -> Self {
         Self::Builtin(*ident)
     }
 }
@@ -134,18 +144,18 @@ pub trait InternScope {
 }
 
 pub fn new_scope_interner() -> ScopeInterner {
-    ScopeInterner::new_from::<ReservedIdentifier>(&[
-        ReservedIdentifier::I32,
-        ReservedIdentifier::F32,
-        ReservedIdentifier::Vector,
-        ReservedIdentifier::Tuple,
-        ReservedIdentifier::Debug,
-        ReservedIdentifier::Std,
-        ReservedIdentifier::Core,
-        ReservedIdentifier::Fp,
-        ReservedIdentifier::Fn,
-        ReservedIdentifier::FnMut,
-        ReservedIdentifier::FnOnce,
-        ReservedIdentifier::DatasetType,
+    ScopeInterner::new_from::<BuiltinIdentifier>(&[
+        BuiltinIdentifier::I32,
+        BuiltinIdentifier::F32,
+        BuiltinIdentifier::Vector,
+        BuiltinIdentifier::Tuple,
+        BuiltinIdentifier::Debug,
+        BuiltinIdentifier::Std,
+        BuiltinIdentifier::Core,
+        BuiltinIdentifier::Fp,
+        BuiltinIdentifier::Fn,
+        BuiltinIdentifier::FnMut,
+        BuiltinIdentifier::FnOnce,
+        BuiltinIdentifier::DatasetType,
     ])
 }

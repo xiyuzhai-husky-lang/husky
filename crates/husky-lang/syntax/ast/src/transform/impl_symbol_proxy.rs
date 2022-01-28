@@ -5,6 +5,7 @@ impl<'a> AstTransformer<'a> {
         SymbolProxy {
             db: self.db,
             symbols: &self.symbols,
+            main: Some(self.main),
         }
     }
 }

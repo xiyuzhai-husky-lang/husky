@@ -1,26 +1,29 @@
-use crate::{loader::LoadSample, *};
+use crate::loader::LoadSample;
 
 use super::*;
 
-pub struct SyntheticSampleLoader<'a, D: SyntheticDataset> {
-    dataset: &'a D,
-    current: Option<Box<dyn Any>>,
+pub struct SyntheticSampleLoader {
+    len: usize,
+    gen: fn(seed: u64, idx: usize) -> LabeledData,
+    seed: u64,
 }
 
-impl<'a, D> SyntheticSampleLoader<'a, D>
-where
-    D: SyntheticDataset,
-{
-    pub(super) fn new(dataset: &'a D) -> Self {
-        SyntheticSampleLoader {
-            dataset,
-            current: None,
-        }
+impl SyntheticSampleLoader {
+    pub(super) fn new(
+        len: usize,
+        gen: fn(seed: u64, idx: usize) -> LabeledData,
+        seed: u64,
+    ) -> Self {
+        Self { len, gen, seed }
     }
 }
 
-impl<'a, D: SyntheticDataset> LoadSample for SyntheticSampleLoader<'a, D> {
-    fn load(&mut self, idx: usize) -> &dyn Any {
-        todo!()
+impl LoadSample for SyntheticSampleLoader {
+    fn len(&self) -> usize {
+        self.len
+    }
+
+    fn load(&mut self, idx: usize) -> LabeledData {
+        (self.gen)(self.seed, idx)
     }
 }

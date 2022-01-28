@@ -31,12 +31,12 @@
             style="width: {canvasWidth}px; height: {canvasHeight}px"
         >
             {#if figure !== null}
-                {#if figure.type === "Plot2d"}
+                {#if figure.kind === "Plot2d"}
                     <Plot2d {figure} />
-                {:else if figure.type === "Graphics2d"}
+                {:else if figure.kind === "Graphics2d"}
                     <Graphics2d {figure} />
                 {:else}
-                    <p class="error">{figure.type} not supported</p>
+                    <p class="error">{figure.kind} not supported</p>
                 {/if}
             {/if}
         </div>

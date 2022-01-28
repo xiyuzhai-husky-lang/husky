@@ -11,9 +11,7 @@ use crate::{config::*, error::*, *};
 // currently dataset config is put in main file
 
 #[salsa::query_group(ConfigQueryGroupStorage)]
-pub trait ConfigQueryGroup:
-    ast::AstQueryGroup + InferQueryGroup + Upcast<dyn InferQueryGroup>
-{
+pub trait ConfigQueryGroup: InferQueryGroup + Upcast<dyn InferQueryGroup> {
     fn config(&self, main_file: file::FileId) -> SemanticResultArc<Config>;
 }
 

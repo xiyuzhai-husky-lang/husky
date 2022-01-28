@@ -15,7 +15,7 @@ impl From<ScopeError> for SemanticError {
 
 impl From<&ast::AstError> for SemanticError {
     fn from(_: &ast::AstError) -> Self {
-        todo!()
+        SemanticError {}
     }
 }
 

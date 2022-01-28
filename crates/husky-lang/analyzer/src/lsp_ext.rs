@@ -4,8 +4,8 @@ use std::{collections::HashMap, path::PathBuf};
 
 use lsp_types::request::Request;
 use lsp_types::{
-    notification::Notification, CodeActionKind, PartialResultParams, Position, Range,
-    TextDocumentIdentifier, WorkDoneProgressParams,
+    CodeActionKind, PartialResultParams, Position, Range, TextDocumentIdentifier,
+    WorkDoneProgressParams,
 };
 use serde::{Deserialize, Serialize};
 
@@ -261,13 +261,6 @@ pub struct SsrParams {
 
     /// Current selections. Search/replace will be restricted to these if non-empty.
     pub selections: Vec<lsp_types::Range>,
-}
-
-pub enum ServerStatusNotification {}
-
-impl Notification for ServerStatusNotification {
-    type Params = ServerStatusParams;
-    const METHOD: &'static str = "experimental/serverStatus";
 }
 
 #[derive(Deserialize, Serialize, PartialEq, Eq, Clone)]

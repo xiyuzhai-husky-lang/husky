@@ -1,5 +1,6 @@
 use scope::ScopeKind;
 use token::Special;
+use vm::BinaryOpr;
 use word::CustomIdentifier;
 
 use super::*;
@@ -39,8 +40,8 @@ impl From<SuffixOpr> for AtomKind {
     }
 }
 
-impl From<&Special> for AtomKind {
-    fn from(special: &Special) -> Self {
+impl From<Special> for AtomKind {
+    fn from(special: Special) -> Self {
         match special {
             Special::DoubleColon
             | Special::Colon
@@ -69,15 +70,15 @@ impl From<&Special> for AtomKind {
             Special::Geq => AtomKind::Binary(BinaryOpr::Geq),
             Special::Neq => AtomKind::Binary(BinaryOpr::Neq),
             Special::Eq => AtomKind::Binary(BinaryOpr::Eq),
-            Special::LShift => AtomKind::Binary(BinaryOpr::LShift),
-            Special::RShift => AtomKind::Binary(BinaryOpr::RShift),
+            Special::Shl => AtomKind::Binary(BinaryOpr::Shl),
+            Special::Shr => AtomKind::Binary(BinaryOpr::Shr),
             Special::Add => AtomKind::Binary(BinaryOpr::Add),
-            Special::Mult => AtomKind::Binary(BinaryOpr::Mult),
+            Special::Mul => AtomKind::Binary(BinaryOpr::Mul),
             Special::Div => AtomKind::Binary(BinaryOpr::Div),
             Special::Power => AtomKind::Binary(BinaryOpr::Power),
             Special::And => AtomKind::Binary(BinaryOpr::And),
             Special::BitNot => AtomKind::Prefix(PrefixOpr::BitNot),
-            Special::Modulo => AtomKind::Binary(BinaryOpr::Modulo),
+            Special::Modulo => AtomKind::Binary(BinaryOpr::RemEuclid),
             Special::Incr => AtomKind::Suffix(SuffixOpr::Incr),
             Special::Decr => AtomKind::Suffix(SuffixOpr::Decr),
             Special::Comma => AtomKind::ListItem,
@@ -91,15 +92,15 @@ impl From<PrimitiveValue> for AtomKind {
     }
 }
 
-impl From<&i32> for AtomKind {
-    fn from(i: &i32) -> Self {
-        PrimitiveValue::I32(*i).into()
+impl From<i32> for AtomKind {
+    fn from(i: i32) -> Self {
+        PrimitiveValue::I32(i).into()
     }
 }
 
-impl From<&f32> for AtomKind {
-    fn from(f: &f32) -> Self {
-        PrimitiveValue::F32(*f).into()
+impl From<f32> for AtomKind {
+    fn from(f: f32) -> Self {
+        PrimitiveValue::F32(f).into()
     }
 }
 

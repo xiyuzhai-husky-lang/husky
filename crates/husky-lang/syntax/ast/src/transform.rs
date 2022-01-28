@@ -5,8 +5,8 @@ mod impl_symbol_proxy;
 mod impl_use_all;
 mod utils;
 
+use file::FileId;
 use fold::{FoldedList, LocalStack, LocalValue};
-use interner::InternId;
 use scope::ScopeRoute;
 use scope_query::PackageOrModule;
 use syntax_types::*;
@@ -23,6 +23,7 @@ use crate::{
 
 pub struct AstTransformer<'a> {
     db: &'a dyn AstQueryGroup,
+    main: FileId,
     arena: RawExprArena,
     folded_results: FoldedList<AstResult<Ast>>,
     symbols: LocalStack<Symbol>,
@@ -33,13 +34,16 @@ impl<'a> AstTransformer<'a> {
     pub(crate) fn new(db: &'a dyn AstQueryGroup, module: PackageOrModule) -> Self {
         Self {
             db,
+            main: db
+                .main_file_id(db.module_to_file_id(module).unwrap())
+                .unwrap(),
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
             symbols: LocalStack::new(),
             env: LocalValue::new(match module.scope().route {
-                ScopeRoute::Reserved { .. } => panic!(),
                 ScopeRoute::Package { .. } => Env::Package,
                 ScopeRoute::ChildScope { .. } => Env::Module,
+                ScopeRoute::Builtin { .. } | ScopeRoute::Implicit { .. } => panic!(),
             }),
         }
     }
@@ -117,7 +121,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                         self.env.set_value(Env::DatasetConfig);
                         enter_block(self);
                         self.use_all(
-                            ReservedIdentifier::DatasetType.into(),
+                            BuiltinIdentifier::DatasetType.into(),
                             tokens[0].text_range(),
                         )?;
                         Ok(Ast::DatasetConfig)
@@ -134,6 +138,10 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                         Identifier::Builtin(_) => ast_err!(
                             tokens[0].text_range(),
                             "expect custom identifier but got builtin"
+                        )?,
+                        Identifier::Implicit(_) => ast_err!(
+                            tokens[0].text_range(),
+                            "expect implicit identifier but got builtin"
                         )?,
                         Identifier::Custom(custom_ident) => custom_ident,
                     },
