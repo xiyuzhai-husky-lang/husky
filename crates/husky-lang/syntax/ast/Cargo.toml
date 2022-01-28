@@ -19,3 +19,4 @@ token = { path = "../token", version = "0.0.0" }
 scope = { path = "../scope", version = "0.0.0" }
 scope_query = { path = "../scope_query", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
+vm = { path = "../../vm", version = "0.0.0" }

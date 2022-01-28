@@ -1,5 +1,5 @@
 use scope::ScopeRoute;
-use word::ReservedIdentifier;
+use word::BuiltinIdentifier;
 
 use crate::*;
 
@@ -87,8 +87,8 @@ main:
 fn datasets() {
     let mut db = HuskyLangDatabase::new();
     let dataset_scope = db.intern_scope(Scope {
-        route: ScopeRoute::Reserved {
-            ident: ReservedIdentifier::DatasetType,
+        route: ScopeRoute::Builtin {
+            ident: BuiltinIdentifier::DatasetType,
         },
         generics: vec![],
     });

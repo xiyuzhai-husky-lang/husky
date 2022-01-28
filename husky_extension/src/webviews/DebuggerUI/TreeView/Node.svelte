@@ -1,25 +1,13 @@
 <script lang="ts">
+    import { Trace } from "src/server/types";
+
     import Token from "./Token.svelte";
-    export let trace: any;
+    export let trace: Trace;
     export let onClick: () => void;
     export let onDoubleClick: () => void;
-    export let hasChildren: boolean;
+    export let hasSubtraces: boolean;
     export let expanded: boolean;
-    export let activeTrace: boolean;
-
-    // function onClick() {
-    //     if (validSingleClick) {
-    //         validSingleClick = false;
-    //     } else {
-    //         validSingleClick = true;
-    //         setTimeout(() => {
-    //             if (validSingleClick) {
-    //                 validSingleClick = false;
-    //                 onSingleClick();
-    //             }
-    //         }, 200);
-    //     }
-    // }
+    export let active: boolean;
 </script>
 
 <div
@@ -28,9 +16,9 @@
     on:dblclick={onDoubleClick}
     lang="ts"
 >
-    <div class="inner" class:activeTrace>
+    <div class="inner" class:active>
         <p>
-            <span class="GroupStart" class:hasChildren class:expanded
+            <span class="GroupStart" class:hasSubtraces class:expanded
                 >&#x25b6</span
             >
             {#each trace.tokens as token}
@@ -45,7 +33,7 @@
         height: 20px;
         padding: 2px;
     }
-    .activeTrace {
+    .active {
         outline: rgb(202, 132, 2) solid 2px;
     }
     p {
@@ -66,11 +54,11 @@
         align-items: center;
         width: 20px;
     }
-    .GroupStart.hasChildren {
+    .GroupStart.hasSubtraces {
         font-size: 10px;
         text-align: center;
     }
-    .GroupStart.hasChildren.expanded {
+    .GroupStart.hasSubtraces.expanded {
         transform: rotate(90deg);
     }
 </style>

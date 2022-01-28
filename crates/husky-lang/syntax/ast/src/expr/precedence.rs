@@ -1,8 +1,6 @@
 use common::*;
 
-use crate::*;
-
-use atom::BinaryOpr;
+use vm::BinaryOpr;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum Precedence {
@@ -38,9 +36,9 @@ impl From<BinaryOpr> for Precedence {
             BinaryOpr::Or => Precedence::Or,
             BinaryOpr::BitOr => Precedence::BitOr,
             BinaryOpr::BitXor => Precedence::BitXor,
-            BinaryOpr::Mult | BinaryOpr::Div | BinaryOpr::Modulo => Precedence::Multiplicative,
+            BinaryOpr::Mul | BinaryOpr::Div | BinaryOpr::RemEuclid => Precedence::Multiplicative,
             BinaryOpr::Add | BinaryOpr::Sub => Precedence::Additive,
-            BinaryOpr::LShift | BinaryOpr::RShift => Precedence::Shift,
+            BinaryOpr::Shl | BinaryOpr::Shr => Precedence::Shift,
             BinaryOpr::Leq | BinaryOpr::Less | BinaryOpr::Geq | BinaryOpr::Greater => {
                 Precedence::Compare
             }

@@ -8,8 +8,7 @@ mod lsp_ext;
 mod semantic_tokens;
 mod server;
 mod server_capabilities;
+pub mod utils;
 
 pub use crate::event_loop::event_loop;
 pub use crate::init_connection::init_connection;
-
-pub mod utils;

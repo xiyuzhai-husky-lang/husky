@@ -35,7 +35,7 @@ impl From<&'static str> for AstErrorKind {
 pub type AstResult<T> = Result<T, AstError>;
 
 macro_rules! ast_error {
-    ($range:expr,$kind: expr, $src: expr) => {{
+    ($range:expr, $kind: expr, $src: expr) => {{
         AstError {
             range: $range.clone(),
             kind: $kind.into(),
@@ -43,7 +43,7 @@ macro_rules! ast_error {
         }
     }};
 
-    ($range:expr,$kind: expr) => {{
+    ($range:expr, $kind: expr) => {{
         ast_error!($range, $kind, src!())
     }};
 }

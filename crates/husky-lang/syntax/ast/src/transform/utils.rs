@@ -1,7 +1,7 @@
 macro_rules! identify {
     ($token:expr) => {{
-        match &$token.kind {
-            TokenKind::Identifier(Identifier::Custom(ident)) => *ident,
+        match $token.kind {
+            TokenKind::Identifier(Identifier::Custom(ident)) => ident,
             _ => ast_err!($token.range, "expect `<custom_identifier>`")?,
         }
     }};

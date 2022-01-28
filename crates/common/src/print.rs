@@ -26,7 +26,7 @@ macro_rules! p {
         common::show::YELLOW,
         line!(),
         common::show::RESET,
-        show!($($v),*),
+        common::show!($($v),*),
     )};
 }
 

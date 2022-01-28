@@ -5,7 +5,7 @@ use common::*;
 use ast::{Ast, AstResult, RawExpr, RawExprKind};
 use scope::ScopeId;
 use syntax_types::*;
-use word::{ReservedIdentifier, WordInterner};
+use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
     word_interner: &'a WordInterner,
@@ -76,7 +76,7 @@ impl<'a> Formatter<'a> {
                     TyKind::Enum(_) => todo!(),
                     TyKind::Struct => self.write("struct "),
                 }
-                self.fmt_ident(ident.into());
+                self.fmt_ident((*ident).into());
                 if generics.len() > 0 {
                     todo!()
                 }
@@ -95,13 +95,13 @@ impl<'a> Formatter<'a> {
                     if i > 0 {
                         self.write(", ");
                     }
-                    let (ident, ty) = &decl.inputs[i];
+                    let (ident, ref ty) = decl.inputs[i];
                     self.fmt_ident(ident.into());
                     self.write(": ");
                     self.fmt_func_input_contracted_type(ty);
                 }
                 self.write(")");
-                if decl.output != ScopeId::Builtin(ReservedIdentifier::Void) {
+                if decl.output != ScopeId::Builtin(BuiltinIdentifier::Void) {
                     self.write(" -> ");
                     self.fmt_type(decl.output);
                 }
@@ -111,7 +111,7 @@ impl<'a> Formatter<'a> {
             ast::Ast::Use { ident, scope } => todo!(),
             ast::Ast::MembDef { ident, kind } => match kind {
                 MembKind::MembVar { ty } => {
-                    self.fmt_ident(ident.into());
+                    self.fmt_ident((*ident).into());
                     self.write(": ");
                     self.fmt_member_variable_contracted_type(ty);
                 }
@@ -171,7 +171,7 @@ impl<'a> Formatter<'a> {
                     ast::InitKind::Var => self.write("var "),
                     ast::InitKind::Functional => (),
                 }
-                self.fmt_ident(varname.into());
+                self.fmt_ident((*varname).into());
                 self.write(" = ");
                 self.fmt_expr(&self.arena[initial_value]);
             }
@@ -187,7 +187,7 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_expr(&mut self, expr: &RawExpr) {
-        match &expr.kind {
+        match expr.kind {
             RawExprKind::Variable(ident) => self.write(&ident),
             RawExprKind::Literal(literal) => match literal {
                 PrimitiveValue::I32(i) => self.write(&i.to_string()),
@@ -202,7 +202,7 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[expr_idx]);
                 self.write(")");
             }
-            RawExprKind::Opn { opr: opn, opds } => match opn {
+            RawExprKind::Opn { opr: opn, ref opds } => match opn {
                 Opr::Binary(opr) => {
                     let opds = &self.arena[opds];
                     self.fmt_expr(&opds[0]);
@@ -239,12 +239,12 @@ impl<'a> Formatter<'a> {
                 // ast::Opr::Opr(opr) => match opr {},
             },
             RawExprKind::Scope(_, _) => todo!(),
-            RawExprKind::Lambda(inputs, expr) => {
+            RawExprKind::Lambda(ref inputs, expr) => {
                 self.write("|");
                 self.join(
                     inputs,
                     |this, (ident, ty)| {
-                        this.fmt_ident(ident.into());
+                        this.fmt_ident((*ident).into());
                         if let Some(ty) = ty {
                             this.write(": ");
                             this.fmt_type(*ty)

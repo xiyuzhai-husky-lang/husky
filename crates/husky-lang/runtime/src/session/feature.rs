@@ -1,53 +1,50 @@
 use common::*;
+use semantics::Opn;
 use stdx::sync::ARwLock;
 use syntax_types::PrimitiveValue;
+use vm::{BinaryOpr, Compiled};
+use word::CustomIdentifier;
 
-use super::{value::CachedValue, *};
+use super::*;
 
-pub struct Feature<'sess> {
-    cached_values: ARwLock<HashMap<usize, CachedValueStorage<'sess>>>,
-    pub(super) kind: FeatureKind,
-}
-
-#[derive(Hash, PartialEq, Eq, Clone)]
-pub enum FeatureKind {
+#[derive(Debug, Hash, PartialEq, Eq, Clone)]
+pub enum Feature {
+    Input,
     Literal(PrimitiveValue),
-    FunctionCall,
-    Binary,
-    MembAccess,
-    MembCall,
+    Assert {
+        condition: FeatureId,
+    },
+    Do {
+        first: FeatureId,
+        then: FeatureId,
+    },
+    Cached(FeatureId),
+    PrimitiveBinaryFunc {
+        func: BinaryOpr,
+        lopd: FeatureId,
+        ropd: FeatureId,
+    },
 }
 
-impl<'sess> Feature<'sess> {
-    pub(super) fn new(kind: FeatureKind) -> Self {
-        Self {
-            cached_values: ARwLock::new(HashMap::new()),
-            kind,
-        }
-    }
+// impl<'sess> Feature<'sess> {
+//     pub(super) fn new(kind: Feature) -> Self {
+//         Self {
+//             cached_values: ARwLock::new(HashMap::new()),
+//             kind,
+//         }
+//     }
 
-    pub(super) fn cache(
-        &self,
-        input_idx: usize,
-        cached_value: CachedValueStorage<'sess>,
-    ) -> CachedValue<'sess> {
-        let value = unsafe { cached_value.value() };
-        self.cached_values
-            .write(|values| should!(values.insert(input_idx, cached_value).is_none()));
-        value
-    }
-}
+//     pub(super) fn cache(
+//         &self,
+//         input_idx: usize,
+//         cached_value: CachedValueStorage<'sess>,
+//     ) -> CachedValue<'sess> {
+//         let value = unsafe { cached_value.value() };
+//         self.cached_values
+//             .write(|values| should!(values.insert(input_idx, cached_value).is_none()));
+//         value
+//     }
+// }
 
-#[derive(Hash, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, Hash, PartialEq, Eq, Clone, Copy)]
 pub struct FeatureId(pub(super) usize);
-
-#[test]
-fn move_box() {
-    use common::*;
-
-    let a = Box::new(1);
-    let pa: *const dyn Any = &*a;
-    let b = a;
-    let pb: *const dyn Any = &*b;
-    should_eq!(pa, pb);
-}

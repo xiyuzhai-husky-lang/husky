@@ -1,7 +1,7 @@
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[],
-    signature: ScopeSignature::Module,
+    signature: RawScopeSignature::Module,
 };
 
 use crate::*;

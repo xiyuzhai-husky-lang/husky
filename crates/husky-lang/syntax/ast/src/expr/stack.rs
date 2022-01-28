@@ -1,5 +1,6 @@
-use atom::{BinaryOpr, Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
+use atom::{Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 use text::{TextPosition, TextRange};
+use vm::BinaryOpr;
 
 use crate::{expr::precedence::Precedence, *};
 

@@ -1,16 +1,20 @@
 <script lang="ts">
     import Node from "./Node.svelte";
-    import type GlobalState from "../GlobalState";
+    import {
+        toggleExpansion,
+        activate,
+        activeTraceIdx,
+        isExpanded,
+        getSubtraces,
+    } from "../globalState";
+    import { Trace } from "src/server/types";
 
-    export let globalState: GlobalState;
-    export let activate: (idx: number) => void;
-    export let toggleExpansion: (idx: number) => void;
-    export let idx: number;
+    export let trace: Trace;
+    $: idx = trace.id;
 
-    $: expanded = globalState.isExpanded(idx);
-    $: children = globalState.getChildren(idx);
-    $: hasChildren = children && children.length > 0;
-    $: trace = globalState.getTrace(idx);
+    let expanded = isExpanded(idx);
+    let subtraces = getSubtraces(idx);
+    $: hasSubtraces = $subtraces !== null && $subtraces.length > 0;
 </script>
 
 <div class="TraceTree">
@@ -19,22 +23,16 @@
             activate(idx);
         }}
         onDoubleClick={() => {
-            expanded = !expanded;
             toggleExpansion(idx);
         }}
         {trace}
-        {hasChildren}
-        {expanded}
-        activeTrace={globalState.activeTraceIdx === idx}
+        {hasSubtraces}
+        expanded={$expanded}
+        active={$activeTraceIdx === idx}
     />
-    {#if hasChildren && expanded === true}
-        {#each children as child}
-            <svelte:self
-                {globalState}
-                {activate}
-                {toggleExpansion}
-                idx={child}
-            />
+    {#if $subtraces !== null && $expanded === true}
+        {#each $subtraces as child}
+            <svelte:self idx={child} />
         {/each}
     {/if}
 </div>

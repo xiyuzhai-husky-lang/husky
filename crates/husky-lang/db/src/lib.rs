@@ -7,8 +7,9 @@ pub use file::{FileQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use scope::{InternScope, Scope};
 pub use scope_query::{ScopeQueryGroup, ScopeSalsaQueryGroup};
-use semantics::InferQueryGroup;
+pub use semantics::InferQueryGroup;
 pub use semantics::PackageQueryGroup;
+pub use token::TokenQueryGroup;
 pub use word::InternWord;
 
 use common::*;
@@ -99,6 +100,8 @@ impl InternScope for HuskyLangDatabase {
         &self.scope_interner
     }
 }
+
+impl TokenQueryGroup for HuskyLangDatabase {}
 
 impl ScopeQueryGroup for HuskyLangDatabase {}
 

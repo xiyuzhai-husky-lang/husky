@@ -1,9 +1,10 @@
 use scope::ScopeId;
 use syntax_types::*;
 use text::TextRange;
+use vm::BinaryOpr;
 use word::{CustomIdentifier, Identifier};
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Opn {
     Binary {
         opr: BinaryOpr,
@@ -21,7 +22,7 @@ pub enum Opn {
     ElementAccess,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum BinaryOpnKind {
     // ordered field i32
     AddI32,
@@ -56,8 +57,8 @@ pub enum BinaryOpnKind {
     Custom,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum PrefixOpn {}
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum SuffixOpn {}

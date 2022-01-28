@@ -3,6 +3,7 @@ use scope::*;
 use word::CustomIdentifier;
 
 use crate::error::*;
+use crate::ScopeQueryGroup;
 use crate::ScopeSalsaQueryGroup;
 
 use text::TextRanged;
@@ -53,41 +54,43 @@ impl Entry {
                 None,
             );
         }
-        match &token_group[0].kind {
+        match token_group[0].kind {
             TokenKind::Keyword(keyword) => {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
-                    if let Some(kind) = ScopeKind::new(*keyword) {
-                        match ident {
-                            Identifier::Builtin(_) => {
-                                return (
-                                    None,
-                                    Some(ScopeDefError {
-                                        range: token_group[1].text_range(),
-                                        rule_broken:
-                                            ScopeDefRule::BuiltinIdentifierOrElideAreReserved,
-                                    }),
-                                )
-                            }
-                            Identifier::Custom(user_defined_ident) => {
-                                return (
-                                    Some(Entry {
-                                        ident: Some(user_defined_ident),
-                                        kind,
-                                        source: ScopeSource::from_file(file_id, token_group_index),
-                                    }),
-                                    None,
-                                )
-                            }
-                        }
+                    if let Some(kind) = ScopeKind::new(keyword) {
+                        return match ident {
+                            Identifier::Builtin(_) => (
+                                None,
+                                Some(ScopeDefError {
+                                    range: token_group[1].text_range(),
+                                    rule_broken: ScopeDefRule::BuiltinIdentifierAreReserved,
+                                }),
+                            ),
+                            Identifier::Custom(user_defined_ident) => (
+                                Some(Entry {
+                                    ident: Some(user_defined_ident),
+                                    kind,
+                                    source: ScopeSource::from_file(file_id, token_group_index),
+                                }),
+                                None,
+                            ),
+                            Identifier::Implicit(_) => (
+                                None,
+                                Some(ScopeDefError {
+                                    range: token_group[1].text_range(),
+                                    rule_broken: ScopeDefRule::ImplicitIdentifierAreReserved,
+                                }),
+                            ),
+                        };
                     }
                 }
-                return (
+                (
                     None,
                     Some(ScopeDefError {
                         range: token_group[1].text_range(),
                         rule_broken: ScopeDefRule::NonMainSecondTokenShouldBeIdentifier,
                     }),
-                );
+                )
             }
             _ => (
                 None,

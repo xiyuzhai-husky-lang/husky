@@ -1,4 +1,4 @@
-use interpret::{Instruction, InstructionKind};
+use vm::{Instruction, InstructionKind};
 
 use crate::{expr::ExprInstructionBuilder, stmt::build_decl_stmt_instructions, *};
 

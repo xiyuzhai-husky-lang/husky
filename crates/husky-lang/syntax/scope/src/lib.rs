@@ -8,8 +8,8 @@ use file::FileId;
 pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
 pub use kind::ScopeKind;
 
-use interpret::Compiled;
-use word::{CustomIdentifier, Identifier, ReservedIdentifier};
+use vm::Compiled;
+use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct Scope {
@@ -20,7 +20,7 @@ pub struct Scope {
 impl std::fmt::Debug for Scope {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.route {
-            ScopeRoute::Reserved { ident } => ident.fmt(f)?,
+            ScopeRoute::Builtin { ident } => ident.fmt(f)?,
             ScopeRoute::Package { main, ident } => {
                 f.write_str("(package ")?;
                 main.fmt(f)?;
@@ -32,6 +32,7 @@ impl std::fmt::Debug for Scope {
                 f.write_str("::")?;
                 ident.fmt(f)?
             }
+            ScopeRoute::Implicit { main, ident } => todo!(),
         };
         if self.generics.len() > 0 {
             todo!()
@@ -58,22 +59,22 @@ impl From<ScopeId> for GenericArgument {
     }
 }
 
-impl From<ReservedIdentifier> for ScopeRoute {
-    fn from(ident: ReservedIdentifier) -> Self {
-        Self::Reserved { ident }
+impl From<BuiltinIdentifier> for ScopeRoute {
+    fn from(ident: BuiltinIdentifier) -> Self {
+        Self::Builtin { ident }
     }
 }
 
-impl From<&ReservedIdentifier> for ScopeRoute {
-    fn from(ident: &ReservedIdentifier) -> Self {
-        Self::Reserved { ident: *ident }
+impl From<&BuiltinIdentifier> for ScopeRoute {
+    fn from(ident: &BuiltinIdentifier) -> Self {
+        Self::Builtin { ident: *ident }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ScopeRoute {
-    Reserved {
-        ident: ReservedIdentifier,
+    Builtin {
+        ident: BuiltinIdentifier,
     },
     Package {
         main: FileId,
@@ -83,19 +84,30 @@ pub enum ScopeRoute {
         parent: ScopeId,
         ident: CustomIdentifier,
     },
+    Implicit {
+        main: FileId,
+        ident: ImplicitIdentifier,
+    },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BuiltinScopeData {
     pub scope_kind: ScopeKind,
     pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
-    pub signature: ScopeSignature,
+    pub signature: RawScopeSignature,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ScopeSignature {
-    Func(FuncSignature),
+pub enum RawScopeSignature {
+    Func(RawFuncSignature),
     Module,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct RawFuncSignature {
+    pub inputs: Vec<&'static str>,
+    pub output: &'static str,
+    pub compiled: Option<Compiled>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -123,27 +135,27 @@ impl Scope {
         }
     }
 
-    pub fn builtin(ident: ReservedIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
+    pub fn builtin(ident: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
         Scope {
-            route: ScopeRoute::Reserved { ident },
+            route: ScopeRoute::Builtin { ident },
             generics: generic_arguments,
         }
     }
 
     pub fn vec(element: GenericArgument) -> Self {
-        Self::builtin(ReservedIdentifier::Vector, vec![element])
+        Self::builtin(BuiltinIdentifier::Vector, vec![element])
     }
 
     pub fn array(element: GenericArgument, size: usize) -> Self {
-        Self::builtin(ReservedIdentifier::Array, vec![element, size.into()])
+        Self::builtin(BuiltinIdentifier::Array, vec![element, size.into()])
     }
 
     pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
         Scope::builtin(
             if args.len() > 0 {
-                ReservedIdentifier::Tuple
+                BuiltinIdentifier::Tuple
             } else {
-                ReservedIdentifier::Void
+                BuiltinIdentifier::Void
             },
             args,
         )
@@ -154,8 +166,8 @@ impl Scope {
     }
 }
 
-impl From<ReservedIdentifier> for Scope {
-    fn from(ident: ReservedIdentifier) -> Self {
+impl From<BuiltinIdentifier> for Scope {
+    fn from(ident: BuiltinIdentifier) -> Self {
         Self::builtin(ident, Vec::new())
     }
 }

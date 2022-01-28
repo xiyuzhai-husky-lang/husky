@@ -3,7 +3,7 @@ mod opr;
 pub use opr::*;
 
 use scope::{ScopeId, ScopeKind};
-pub use interpret::{InputContract, PrimitiveValue};
+pub use vm::{InputContract, PrimitiveValue};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

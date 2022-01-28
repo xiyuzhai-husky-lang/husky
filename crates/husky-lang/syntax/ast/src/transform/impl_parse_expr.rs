@@ -13,21 +13,21 @@ impl<'a> AstTransformer<'a> {
             let mut atom_iter = atoms.iter().peekable();
             let mut stack = ExprStack::new(&mut self.arena);
             while let Some(atom) = atom_iter.next() {
-                match &atom.kind {
+                match atom.kind {
                     AtomKind::Variable(_) | AtomKind::Literal(_) | AtomKind::Scope(_, _) => {
                         stack.accept_atom_expr(atom.into())
                     }
-                    AtomKind::Binary(opr) => stack.accept_binary(*opr),
-                    AtomKind::Prefix(prefix) => stack.accept_prefix(*prefix, atom.text_end()),
-                    AtomKind::Suffix(suffix) => stack.accept_suffix(*suffix, atom.text_end()),
+                    AtomKind::Binary(opr) => stack.accept_binary(opr),
+                    AtomKind::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_end()),
+                    AtomKind::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),
                     AtomKind::ListStart(bra, attr) => {
-                        stack.accept_list_start(*bra, *attr, atom.text_start())
+                        stack.accept_list_start(bra, attr, atom.text_start())
                     }
                     AtomKind::ListEnd(ket, attr) => {
-                        stack.accept_list_end(*ket, *attr, atom.text_end())?
+                        stack.accept_list_end(ket, attr, atom.text_end())?
                     }
                     AtomKind::ListItem => stack.accept_list_item(),
-                    AtomKind::LambdaHead(args) => {
+                    AtomKind::LambdaHead(ref args) => {
                         stack.accept_lambda_head(args.clone(), atom.text_start())
                     }
                 }

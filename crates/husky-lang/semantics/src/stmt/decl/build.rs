@@ -1,4 +1,4 @@
-use interpret::{Instruction, InstructionKind};
+use vm::{Instruction, InstructionKind};
 
 use crate::{expr::ExprInstructionBuilder, DeclStmt, DeclStmtKind, Expr};
 
@@ -22,13 +22,13 @@ impl DeclStmtInstructionBuilder {
     }
 
     fn build_stmt_instructions(&mut self, stmt: &DeclStmt) {
-        match &stmt.kind {
+        match stmt.kind {
             DeclStmtKind::Init {
                 varname,
-                initial_value,
+                ref initial_value,
             } => todo!(),
-            DeclStmtKind::Assert { condition } => todo!(),
-            DeclStmtKind::Return { result } => {
+            DeclStmtKind::Assert { ref condition } => todo!(),
+            DeclStmtKind::Return { ref result } => {
                 self.build_expr_instructions(result);
                 self.push_instruction(Instruction {
                     kind: InstructionKind::Return,

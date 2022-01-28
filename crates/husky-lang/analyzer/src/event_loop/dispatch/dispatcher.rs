@@ -133,8 +133,8 @@ impl<'a> RequestDispatcher<'a> {
         R: lsp_types::request::Request + 'static,
         R::Params: DeserializeOwned + fmt::Debug + 'static,
     {
-        let req = match &self.req {
-            Some(req) if req.method == R::METHOD => self.req.take().unwrap(),
+        let req = match self.req {
+            Some(ref req) if req.method == R::METHOD => self.req.take().unwrap(),
             _ => return None,
         };
 
@@ -228,7 +228,7 @@ impl<'a> NotificationDispatcher<'a> {
                 return Ok(self);
             }
         };
-        self.task.merge(f(self.server, params)?);
+        self.task.then(f(self.server, params)?);
         Ok(self)
     }
 

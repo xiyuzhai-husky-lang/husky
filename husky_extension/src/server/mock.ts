@@ -4,59 +4,59 @@ const simpleImage1 = { data: [], originalWidth: 28, originalHeight: 28 };
 
 const traces: { [idx: number]: Trace } = {
     0: {
-        idx: 0,
+        id: 0,
         parent: null,
         tokens: [
-            { type: "keyword", value: "let", spaces_before: 0 },
-            { type: "ident", value: "a" },
-            { type: "special", value: "=" },
-            { type: "scope", value: "f" },
-            { type: "special", value: "(", spaces_before: 0 },
-            { type: "ident", value: "c", spaces_before: 0 },
-            { type: "special", value: "+" },
-            { type: "ident", value: "b" },
-            { type: "special", value: ")", spaces_before: 0 },
-            { type: "fade", value: "=" },
-            { type: "fade", value: "a plot" },
+            { kind: "keyword", value: "let", spaces_before: 0 },
+            { kind: "ident", value: "a" },
+            { kind: "special", value: "=" },
+            { kind: "scope", value: "f" },
+            { kind: "special", value: "(", spaces_before: 0 },
+            { kind: "ident", value: "c", spaces_before: 0 },
+            { kind: "special", value: "+" },
+            { kind: "ident", value: "b" },
+            { kind: "special", value: ")", spaces_before: 0 },
+            { kind: "fade", value: "=" },
+            { kind: "fade", value: "a plot" },
         ],
     },
     1: {
-        idx: 1,
+        id: 1,
         parent: 0,
         tokens: [
-            { type: "scope", value: "f", spaces_before: 4 },
-            { type: "special", value: "(", spaces_before: 0 },
-            { type: "ident", value: "c", spaces_before: 0 },
-            { type: "special", value: "+" },
-            { type: "ident", value: "b" },
-            { type: "special", value: ")", spaces_before: 0 },
-            { type: "fade", value: "=" },
-            { type: "fade", value: "an arrow" },
+            { kind: "scope", value: "f", spaces_before: 4 },
+            { kind: "special", value: "(", spaces_before: 0 },
+            { kind: "ident", value: "c", spaces_before: 0 },
+            { kind: "special", value: "+" },
+            { kind: "ident", value: "b" },
+            { kind: "special", value: ")", spaces_before: 0 },
+            { kind: "fade", value: "=" },
+            { kind: "fade", value: "an arrow" },
         ],
     },
     2: {
-        idx: 2,
+        id: 2,
         parent: 0,
         tokens: [
-            { type: "ident", value: "c", spaces_before: 4 },
-            { type: "fade", value: "=" },
-            { type: "fade", value: "arrows" },
+            { kind: "ident", value: "c", spaces_before: 4 },
+            { kind: "fade", value: "=" },
+            { kind: "fade", value: "arrows" },
         ],
     },
     3: {
-        idx: 3,
+        id: 3,
         parent: 0,
         tokens: [
-            { type: "ident", value: "b", spaces_before: 4 },
-            { type: "fade", value: "=" },
-            { type: "fade", value: "an image" },
+            { kind: "ident", value: "b", spaces_before: 4 },
+            { kind: "fade", value: "=" },
+            { kind: "fade", value: "an image" },
         ],
     },
 };
 
 const figures: readonly FigureProps[] = [
     {
-        type: "Plot2d",
+        kind: "Plot2d",
         plot_kind: "Scatter",
         groups: [
             {
@@ -83,7 +83,7 @@ const figures: readonly FigureProps[] = [
         yrange: [-5, 5],
     },
     {
-        type: "Graphics2d",
+        kind: "Graphics2d",
         image: null,
         shape_groups: [
             {
@@ -102,7 +102,7 @@ const figures: readonly FigureProps[] = [
         yrange: [0, 28],
     },
     {
-        type: "Graphics2d",
+        kind: "Graphics2d",
         image: null,
         shape_groups: [
             {
@@ -132,7 +132,7 @@ const figures: readonly FigureProps[] = [
         yrange: [0, 28],
     },
     {
-        type: "Graphics2d",
+        kind: "Graphics2d",
         image: simpleImage1,
         shape_groups: [
             {
@@ -185,7 +185,7 @@ function getChildren(version: number, idx: number): number[] {
 
 function getFigure(version: number, idx: number): FigureProps {
     let figure = figures[idx];
-    if (figure !== null && figure.type === "Graphics2d") {
+    if (figure !== null && figure.kind === "Graphics2d") {
         console.log("figures[idx].image", figure.image);
     }
     return figures[idx];

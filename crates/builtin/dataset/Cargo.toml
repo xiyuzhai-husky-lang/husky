@@ -9,4 +9,4 @@ edition = "2021"
 xrng = { path = "../../utils/xrng" }
 word = { path = "../../husky-lang/syntax/word", version = "0.0.0" }
 scope = { path = "../../husky-lang/syntax/scope", version = "0.0.0" }
-interpret = { path = "../../husky-lang/interpret", version = "0.0.0" }
+vm = { path = "../../husky-lang/vm", version = "0.0.0" }

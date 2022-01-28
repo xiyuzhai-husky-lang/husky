@@ -46,10 +46,10 @@
 </script>
 
 <canvas bind:this={canvas} />
+
 <!-- 
 -webkit-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
 mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat; -->
-
 <style>
     canvas {
         width: 100%;

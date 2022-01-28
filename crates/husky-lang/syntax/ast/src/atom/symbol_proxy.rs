@@ -1,8 +1,9 @@
 use common::*;
 
+use file::FileId;
 use scope::*;
 use text::TextRange;
-use word::{CustomIdentifier, ReservedIdentifier};
+use word::{BuiltinIdentifier, CustomIdentifier};
 
 use super::*;
 use crate::*;
@@ -30,6 +31,7 @@ pub enum SymbolKind {
 
 #[derive(Debug, Clone, Copy)]
 pub struct SymbolProxy<'a> {
+    pub(crate) main: Option<FileId>,
     pub(crate) db: &'a dyn AstQueryGroup,
     pub(crate) symbols: &'a fold::LocalStack<Symbol>,
 }
@@ -37,7 +39,7 @@ pub struct SymbolProxy<'a> {
 impl<'a> SymbolProxy<'a> {
     pub fn builtin_type_atom(
         &self,
-        ident: ReservedIdentifier,
+        ident: BuiltinIdentifier,
         generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
@@ -52,7 +54,13 @@ impl<'a> SymbolProxy<'a> {
         range: &TextRange,
     ) -> AstResult<SymbolKind> {
         match ident {
-            Identifier::Builtin(builtin) => Ok(SymbolKind::Scope(builtin.into())),
+            Identifier::Builtin(ident) => Ok(SymbolKind::Scope(ident.into())),
+            Identifier::Implicit(ident) => Ok(SymbolKind::Scope(ScopeRoute::Implicit {
+                main: self
+                    .main
+                    .ok_or(ast_error!(range, "can't use implicit outside package"))?,
+                ident,
+            })),
             Identifier::Custom(ident) => Ok(self
                 .symbols
                 .find(|symbol| symbol.ident == ident.into())

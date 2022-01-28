@@ -1,12 +1,6 @@
-use text::TextRange;
-use token::{Token, TokenKind};
 use word::CustomIdentifier;
 
-use crate::{
-    atom::{symbol_proxy::SymbolProxy, Atom},
-    expr::RawExprIdx,
-    *,
-};
+use crate::{expr::RawExprIdx, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawStmt {

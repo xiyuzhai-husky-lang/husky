@@ -2,7 +2,7 @@ use std::{borrow::Borrow, ops::Deref};
 
 use interner::{InternId, Interner};
 
-use crate::*;
+use crate::{ident::ImplicitIdentifier, *};
 
 pub type WordInterner = Interner<str, String, WordId>;
 
@@ -63,20 +63,21 @@ pub fn new_word_interner() -> WordInterner {
         StmtKeyword::Break.into(),
         StmtKeyword::Return.into(),
         StmtKeyword::Assert.into(),
-        ReservedIdentifier::Debug.into(),
-        ReservedIdentifier::Std.into(),
-        ReservedIdentifier::Core.into(),
-        ReservedIdentifier::Debug.into(),
-        ReservedIdentifier::I32.into(),
-        ReservedIdentifier::F32.into(),
-        ReservedIdentifier::Vector.into(),
-        ReservedIdentifier::Array.into(),
-        ReservedIdentifier::Tuple.into(),
-        ReservedIdentifier::Fp.into(),
-        ReservedIdentifier::Fn.into(),
-        ReservedIdentifier::FnMut.into(),
-        ReservedIdentifier::FnOnce.into(),
-        ReservedIdentifier::DatasetType.into(),
+        BuiltinIdentifier::Debug.into(),
+        BuiltinIdentifier::Std.into(),
+        BuiltinIdentifier::Core.into(),
+        BuiltinIdentifier::Debug.into(),
+        BuiltinIdentifier::I32.into(),
+        BuiltinIdentifier::F32.into(),
+        BuiltinIdentifier::Vector.into(),
+        BuiltinIdentifier::Array.into(),
+        BuiltinIdentifier::Tuple.into(),
+        BuiltinIdentifier::Fp.into(),
+        BuiltinIdentifier::Fn.into(),
+        BuiltinIdentifier::FnMut.into(),
+        BuiltinIdentifier::FnOnce.into(),
+        BuiltinIdentifier::DatasetType.into(),
+        ImplicitIdentifier::Input.into(),
     ])
 }
 

@@ -5,21 +5,23 @@ use crossbeam_channel::Sender;
 
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
+use husky_lang_db::HuskyLangDatabase;
+use threadpool::ThreadPool;
 
 pub(crate) struct Server {
     pub(crate) client_comm: ClientCommunicator,
     pub(crate) event_loop_comm: EventLoopCommunicator,
-    pub(crate) db: husky_lang_db::HuskyLangDatabase,
-    pub(crate) threadpool: threadpool::ThreadPool,
+    pub(crate) db: HuskyLangDatabase,
+    pub(crate) threadpool: ThreadPool,
 }
 
 impl Server {
     pub fn new(sender: Sender<lsp_server::Message>) -> Server {
         Server {
             client_comm: ClientCommunicator::new(sender),
-            threadpool: threadpool::ThreadPool::default(),
+            threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
-            db: husky_lang_db::HuskyLangDatabase::new(),
+            db: HuskyLangDatabase::new(),
         }
     }
 }
@@ -32,7 +34,7 @@ pub enum TaskSet {
 }
 
 impl TaskSet {
-    pub fn merge(&mut self, next: TaskSet) {
+    pub fn then(&mut self, next: TaskSet) {
         match self {
             TaskSet::Nothing => *self = next,
             TaskSet::Shutdown => (),

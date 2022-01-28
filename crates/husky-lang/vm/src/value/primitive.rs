@@ -1,6 +1,6 @@
 use core::hash::Hash;
 
-use word::ReservedIdentifier;
+use word::BuiltinIdentifier;
 
 use crate::*;
 
@@ -18,18 +18,18 @@ pub enum PrimitiveValue {
 }
 
 impl PrimitiveValue {
-    pub fn ty(&self) -> ReservedIdentifier {
+    pub fn ty(&self) -> BuiltinIdentifier {
         match self {
-            PrimitiveValue::I32(_) => ReservedIdentifier::I32,
-            PrimitiveValue::F32(_) => ReservedIdentifier::F32,
-            PrimitiveValue::B32(_) => ReservedIdentifier::B32,
-            PrimitiveValue::B64(_) => ReservedIdentifier::B64,
+            PrimitiveValue::I32(_) => BuiltinIdentifier::I32,
+            PrimitiveValue::F32(_) => BuiltinIdentifier::F32,
+            PrimitiveValue::B32(_) => BuiltinIdentifier::B32,
+            PrimitiveValue::B64(_) => BuiltinIdentifier::B64,
             PrimitiveValue::Bool(_) => todo!(),
             PrimitiveValue::Void => todo!(),
         }
     }
 
-    pub(crate) fn as_i32(&self) -> InterpretResult<i32> {
+    pub(crate) fn as_i32(&self) -> VMResult<i32> {
         if let PrimitiveValue::I32(i) = self {
             Ok(*i)
         } else {
@@ -37,7 +37,7 @@ impl PrimitiveValue {
         }
     }
 
-    pub(crate) fn as_f32(&self) -> InterpretResult<f32> {
+    pub(crate) fn as_f32(&self) -> VMResult<f32> {
         if let PrimitiveValue::F32(f) = self {
             Ok(*f)
         } else {
@@ -45,7 +45,7 @@ impl PrimitiveValue {
         }
     }
 
-    pub(crate) fn as_b32(&self) -> InterpretResult<u32> {
+    pub(crate) fn as_b32(&self) -> VMResult<u32> {
         if let PrimitiveValue::B32(b) = self {
             Ok(*b)
         } else {
@@ -53,7 +53,7 @@ impl PrimitiveValue {
         }
     }
 
-    pub(crate) fn as_bool(&self) -> InterpretResult<bool> {
+    pub(crate) fn as_bool(&self) -> VMResult<bool> {
         if let PrimitiveValue::Bool(b) = self {
             Ok(*b)
         } else {

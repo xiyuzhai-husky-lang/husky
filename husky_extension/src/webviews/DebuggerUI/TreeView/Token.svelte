@@ -11,20 +11,20 @@
 </script>
 
 <span style={cssVarStyles} />
-{#if token.type == "special"}
+{#if token.kind == "special"}
     <code class="special">{token.value} </code>
-{:else if token.type == "scope"}
+{:else if token.kind == "scope"}
     <code class="scope">{token.value}</code>
-{:else if token.type == "keyword"}
+{:else if token.kind == "keyword"}
     <code class="keyword">{token.value}</code>
-{:else if token.type == "ident"}
+{:else if token.kind == "ident"}
     <code class="ident">{token.value}</code>
-{:else if token.type == "literal"}
+{:else if token.kind == "literal"}
     <code class="literal">{token.value}</code>
-{:else if token.type == "fade"}
+{:else if token.kind == "fade"}
     <code class="fade">{token.value}</code>
 {:else}
-    <code class="error">`unrecognized token type: {token.type}`</code>
+    <code class="error">`unrecognized token type: {token.kind}`</code>
 {/if}
 
 <style>

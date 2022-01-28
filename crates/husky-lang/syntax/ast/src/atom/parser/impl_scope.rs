@@ -15,7 +15,7 @@ impl<'a> AtomLRParser<'a> {
                 match symbol_kind {
                     SymbolKind::Scope(route) => Some(self.normal_scope(route)?),
                     SymbolKind::Variable(_) => match ident {
-                        Identifier::Builtin(_) => panic!(),
+                        Identifier::Builtin(_) | Identifier::Implicit(_) => panic!(),
                         Identifier::Custom(ident) => Some(AtomKind::Variable(ident)),
                     },
                 }
@@ -78,25 +78,24 @@ impl<'a> AtomLRParser<'a> {
 
     fn generics(&mut self, route: ScopeRoute) -> AstResult<Vec<GenericArgument>> {
         match route {
-            ScopeRoute::Reserved { ident } => match ident {
-                ReservedIdentifier::Void
-                | ReservedIdentifier::I32
-                | ReservedIdentifier::F32
-                | ReservedIdentifier::B32
-                | ReservedIdentifier::B64
-                | ReservedIdentifier::Bool
-                | ReservedIdentifier::Debug
-                | ReservedIdentifier::Std
-                | ReservedIdentifier::Core
-                | ReservedIdentifier::DatasetType
-                | ReservedIdentifier::Input => Ok(Vec::new()),
-                ReservedIdentifier::Fp
-                | ReservedIdentifier::Fn
-                | ReservedIdentifier::FnMut
-                | ReservedIdentifier::FnOnce => Ok(self.func_args()?),
-                ReservedIdentifier::Vector
-                | ReservedIdentifier::Array
-                | ReservedIdentifier::Tuple => self.angled_generics(),
+            ScopeRoute::Builtin { ident } => match ident {
+                BuiltinIdentifier::Void
+                | BuiltinIdentifier::I32
+                | BuiltinIdentifier::F32
+                | BuiltinIdentifier::B32
+                | BuiltinIdentifier::B64
+                | BuiltinIdentifier::Bool
+                | BuiltinIdentifier::Debug
+                | BuiltinIdentifier::Std
+                | BuiltinIdentifier::Core => Ok(Vec::new()),
+                BuiltinIdentifier::Fp
+                | BuiltinIdentifier::Fn
+                | BuiltinIdentifier::FnMut
+                | BuiltinIdentifier::FnOnce => Ok(self.func_args()?),
+                BuiltinIdentifier::Vector
+                | BuiltinIdentifier::Array
+                | BuiltinIdentifier::Tuple
+                | BuiltinIdentifier::DatasetType => self.angled_generics(),
             },
             _ => match self.scope_proxy.db.scope_kind_from_route(route) {
                 ScopeKind::Module | ScopeKind::Value | ScopeKind::Feature => Ok(Vec::new()),
@@ -113,7 +112,7 @@ impl<'a> AtomLRParser<'a> {
         args.push(if next_matches!(self, "->") {
             self.generic()?
         } else {
-            ScopeId::Builtin(ReservedIdentifier::Void).into()
+            ScopeId::Builtin(BuiltinIdentifier::Void).into()
         });
         Ok(args)
     }

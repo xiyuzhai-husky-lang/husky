@@ -1,7 +1,8 @@
 use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
 use scope::{ScopeId, ScopeKind};
-use syntax_types::{BinaryOpr, Opr};
-use word::ReservedIdentifier;
+use syntax_types::Opr;
+use vm::BinaryOpr;
+use word::BuiltinIdentifier;
 
 use crate::{error::err, *};
 
@@ -13,18 +14,25 @@ pub trait ExprParser<'a> {
     fn db(&self) -> &'a dyn InferQueryGroup;
 
     fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Expr> {
-        let (ty, kind): (ScopeId, _) = match &raw_expr.kind {
-            RawExprKind::Variable(ident) => (self.vartype(*ident), ExprKind::Variable(*ident)),
-            RawExprKind::Scope(id, _) => (
-                todo!(),
-                ExprKind::Scope {
-                    id: *id,
-                    compiled: None,
-                },
-            ),
-            RawExprKind::Literal(value) => (value.ty().into(), ExprKind::Literal(*value)),
+        let (ty, kind): (ScopeId, _) = match raw_expr.kind {
+            RawExprKind::Variable(ident) => (self.vartype(ident), ExprKind::Variable(ident)),
+            RawExprKind::Scope(id, kind) => match kind {
+                ScopeKind::Module => todo!(),
+                ScopeKind::Value => todo!(),
+                ScopeKind::Type => todo!(),
+                ScopeKind::Trait => todo!(),
+                ScopeKind::Func => todo!(),
+                ScopeKind::Feature => (
+                    self.db().scope_ty(id)?,
+                    ExprKind::Scope {
+                        scope: id,
+                        compiled: None,
+                    },
+                ),
+            },
+            RawExprKind::Literal(value) => (value.ty().into(), ExprKind::Literal(value)),
             RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn { opr, opds } => self.parse_opn(opr, opds)?,
+            RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
             RawExprKind::Lambda(_, _) => todo!(),
         };
         Ok(Expr {
@@ -34,7 +42,7 @@ pub trait ExprParser<'a> {
         })
     }
 
-    fn parse_opn(&mut self, opr: &Opr, opds: &RawExprRange) -> SemanticResult<(ScopeId, ExprKind)> {
+    fn parse_opn(&mut self, opr: Opr, opds: &RawExprRange) -> SemanticResult<(ScopeId, ExprKind)> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
@@ -45,9 +53,9 @@ pub trait ExprParser<'a> {
                 syntax_types::ListOpr::NewDict => todo!(),
                 syntax_types::ListOpr::Call => {
                     let call = &self.arena()[opds][0];
-                    match &call.kind {
+                    match call.kind {
                         RawExprKind::Scope(scope, ScopeKind::Func) => {
-                            let signature = self.db().func_signature(*scope)?;
+                            let signature = self.db().func_signature(scope)?;
                             let arguments: Vec<Expr> = self.arena()[opds][1..]
                                 .iter()
                                 .map(|raw| self.parse_expr(raw))
@@ -56,7 +64,7 @@ pub trait ExprParser<'a> {
                             Ok((
                                 output,
                                 ExprKind::Opn {
-                                    opn: Opn::FuncCall { func: *scope },
+                                    opn: Opn::FuncCall { func: scope },
                                     compiled: signature.compiled,
                                     opds: arguments,
                                 },
@@ -67,7 +75,7 @@ pub trait ExprParser<'a> {
                         RawExprKind::Variable(_) => todo!(),
                         RawExprKind::Literal(_) => todo!(),
                         RawExprKind::Bracketed(_) => todo!(),
-                        RawExprKind::Opn { opr, opds } => todo!(),
+                        RawExprKind::Opn { opr, ref opds } => todo!(),
                         RawExprKind::Lambda(_, _) => todo!(),
                     }
                 }
@@ -80,7 +88,7 @@ pub trait ExprParser<'a> {
 
     fn parse_binary_opr(
         &mut self,
-        opr: &BinaryOpr,
+        opr: BinaryOpr,
         opds: &RawExprRange,
     ) -> SemanticResult<(ScopeId, ExprKind)> {
         let opds = self.arena()[opds]
@@ -100,10 +108,10 @@ pub trait ExprParser<'a> {
                 let opn = match opds[0].ty {
                     ScopeId::Builtin(ident) => {
                         let kind = match ident {
-                            ReservedIdentifier::Void => todo!(),
-                            ReservedIdentifier::I32 => BinaryOpnKind::EqI32,
-                            ReservedIdentifier::F32 => BinaryOpnKind::EqF32,
-                            ReservedIdentifier::Bool => BinaryOpnKind::EqBool,
+                            BuiltinIdentifier::Void => todo!(),
+                            BuiltinIdentifier::I32 => BinaryOpnKind::EqI32,
+                            BuiltinIdentifier::F32 => BinaryOpnKind::EqF32,
+                            BuiltinIdentifier::Bool => BinaryOpnKind::EqBool,
                             _ => panic!(),
                         };
                         Opn::Binary {
@@ -115,7 +123,7 @@ pub trait ExprParser<'a> {
                     ScopeId::Custom(_) => todo!(),
                 };
                 (
-                    ReservedIdentifier::Bool.into(),
+                    BuiltinIdentifier::Bool.into(),
                     ExprKind::Opn {
                         opds,
                         compiled: None,
@@ -123,11 +131,11 @@ pub trait ExprParser<'a> {
                     },
                 )
             }
-            BinaryOpr::LShift => todo!(),
-            BinaryOpr::RShift => todo!(),
+            BinaryOpr::Shl => todo!(),
+            BinaryOpr::Shr => todo!(),
             BinaryOpr::Add => todo!(),
             BinaryOpr::Sub => todo!(),
-            BinaryOpr::Mult => todo!(),
+            BinaryOpr::Mul => todo!(),
             BinaryOpr::Div => todo!(),
             BinaryOpr::Power => todo!(),
             BinaryOpr::And => todo!(),
@@ -135,7 +143,7 @@ pub trait ExprParser<'a> {
             BinaryOpr::Or => todo!(),
             BinaryOpr::BitXor => todo!(),
             BinaryOpr::BitOr => todo!(),
-            BinaryOpr::Modulo => todo!(),
+            BinaryOpr::RemEuclid => todo!(),
         })
     }
 }

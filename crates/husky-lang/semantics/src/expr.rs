@@ -6,10 +6,10 @@ pub(crate) use builder::ExprInstructionBuilder;
 pub use opn::*;
 pub(crate) use parser::ExprParser;
 
-use interpret::{Compiled, InterpretResult};
 use scope::ScopeId;
 use syntax_types::*;
 use text::TextRange;
+use vm::{Compiled, VMResult};
 use word::{CustomIdentifier, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -23,7 +23,7 @@ pub struct Expr {
 pub enum ExprKind {
     Variable(CustomIdentifier),
     Scope {
-        id: ScopeId,
+        scope: ScopeId,
         compiled: Option<Compiled>,
     },
     Literal(PrimitiveValue),

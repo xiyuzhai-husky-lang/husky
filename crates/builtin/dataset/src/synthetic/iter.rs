@@ -1,39 +1,41 @@
-use xrng::XRng;
+use std::{
+    mem::MaybeUninit,
+    time::{SystemTime, UNIX_EPOCH},
+};
 
-use crate::{iter::SampleIterator, *};
+use vm::AnyValueDyn;
+
+use crate::iter::DataIterator;
 
 use super::*;
 
 pub struct SyntheticSampleIter<'a, D: SyntheticDataset> {
     dataset: &'a D,
-    xrng: XRng,
-    current: Option<Box<dyn Any>>,
+    seed: u64,
+    current: MaybeUninit<BoxedValue<'static>>,
+    next_idx: usize,
 }
 
 impl<'a, D> SyntheticSampleIter<'a, D>
 where
     D: SyntheticDataset,
 {
-    fn new(dataset: &'a D, seed: u64) -> Self {
+    pub(super) fn new(dataset: &'a D) -> Self {
+        let start = SystemTime::now();
+        let since_the_epoch = start
+            .duration_since(UNIX_EPOCH)
+            .expect("Time went backwards");
         SyntheticSampleIter {
             dataset,
-            xrng: XRng::new(seed),
-            current: None,
-        }
-    }
-
-    pub(super) fn new_time_seeded(dataset: &'a D) -> Self {
-        SyntheticSampleIter {
-            dataset,
-            xrng: XRng::new_time_seeded(),
-            current: None,
+            seed: since_the_epoch.as_millis() as u64,
+            current: MaybeUninit::uninit(),
+            next_idx: 0,
         }
     }
 }
 
-impl<'a, D: SyntheticDataset> SampleIterator for SyntheticSampleIter<'a, D> {
-    fn next(&mut self) -> &dyn Any {
-        self.current = Some(self.dataset.sample(self.xrng.randidx()));
-        self.current.as_ref().unwrap()
+impl<'a, D: SyntheticDataset> DataIterator for SyntheticSampleIter<'a, D> {
+    fn next(&mut self) -> LabeledData {
+        todo!()
     }
 }
