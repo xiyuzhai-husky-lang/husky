@@ -10,29 +10,27 @@
     import { Trace } from "src/server/types";
 
     export let trace: Trace;
-    $: idx = trace.id;
-
-    let expanded = isExpanded(idx);
-    let subtraces = getSubtraces(idx);
+    let expanded = isExpanded(trace.id);
+    let subtraces = getSubtraces(trace.id);
     $: hasSubtraces = $subtraces !== null && $subtraces.length > 0;
 </script>
 
 <div class="TraceTree">
     <Node
         onClick={() => {
-            activate(idx);
+            activate(trace.id);
         }}
         onDoubleClick={() => {
-            toggleExpansion(idx);
+            toggleExpansion(trace.id);
         }}
         {trace}
         {hasSubtraces}
         expanded={$expanded}
-        active={$activeTraceIdx === idx}
+        active={$activeTraceIdx === trace.id}
     />
     {#if $subtraces !== null && $expanded === true}
-        {#each $subtraces as child}
-            <svelte:self idx={child} />
+        {#each $subtraces as trace}
+            <svelte:self {trace} />
         {/each}
     {/if}
 </div>

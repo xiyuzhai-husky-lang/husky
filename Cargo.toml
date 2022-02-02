@@ -4,6 +4,7 @@ members = [
     "crates/husky-lang/semantics",
     "crates/husky-lang/diagnostic",
     "crates/husky-lang/instruction/*",
+    "crates/husky-lang/feature",
     "crates/husky-lang/db",
     "crates/husky-lang/vm",
     "crates/husky-lang/runtime",

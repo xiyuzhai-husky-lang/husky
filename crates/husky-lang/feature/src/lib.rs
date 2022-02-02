@@ -1,11 +1,10 @@
-use common::*;
-use semantics::Opn;
-use stdx::sync::ARwLock;
-use syntax_types::PrimitiveValue;
-use vm::{BinaryOpr, Compiled};
-use word::CustomIdentifier;
+mod cache;
+mod eval;
+mod intern;
+mod query;
 
-use super::*;
+use common::*;
+use vm::{BinaryOpr, PrimitiveValue};
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub enum Feature {
@@ -18,7 +17,6 @@ pub enum Feature {
         first: FeatureId,
         then: FeatureId,
     },
-    Cached(FeatureId),
     PrimitiveBinaryFunc {
         func: BinaryOpr,
         lopd: FeatureId,
@@ -28,6 +26,6 @@ pub enum Feature {
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone, Copy)]
 pub struct FeatureId {
-    pub(super) raw: usize,
-    pub(super) cached: bool,
+    pub(crate) raw: usize,
+    pub(crate) cached: bool,
 }

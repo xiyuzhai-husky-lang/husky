@@ -1,0 +1,22 @@
+[package]
+name = "feature"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+rustc-hash = "1.1.0"
+bimap = "0.6.1"
+itertools = "^0.10.3"
+lsp-types = { version = "0.91", features = ["proposed"] }
+salsa = "0.17.0-pre.2"
+interner = { path = "../../data_structure/interner", version = "0.0.0" }
+stdx = { path = "../../stdx", version = "0.0.0" }
+common = { path = "../../common", version = "0.0.0" }
+text = { path = "../text", version = "0.0.0" }
+vm = { path = "../vm", version = "0.0.0" }

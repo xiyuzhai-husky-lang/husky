@@ -57,6 +57,8 @@
     "dependencies": {
         "@babel/plugin-transform-modules-commonjs": "^7.16.7",
         "@rollup/plugin-alias": "^3.1.9",
+        "fp-ts": "^2.11.8",
+        "io-ts": "^2.2.16",
         "node": "^17.3.0",
         "svelte-preprocess": "^4.10.1",
         "vscode-languageclient": "^7.0.0"
@@ -84,7 +86,7 @@
         "svelte-check": "^2.2.11",
         "svelte-jester": "^2.1.5",
         "ts-todo": "^1.0.0",
-        "vsce": "^2.6.0",
+        "vsce": "^1.102.0",
         "vscode-test": "^1.6.1"
     }
 }

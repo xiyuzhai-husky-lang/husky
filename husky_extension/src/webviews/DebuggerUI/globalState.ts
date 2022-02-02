@@ -1,21 +1,23 @@
 import type { Trace, FigureProps } from "server/types";
 import type { Readable, Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
-import type DebuggerResponse from "./DebuggerResponse";
+import DebuggerResponse, { tDebuggerResponse } from "./DebuggerResponse";
+import { isRight } from "fp-ts/Either";
+import { PathReporter } from "io-ts/PathReporter";
 
 const version: Writable<number> = writable(0);
 
 const activeTraceIdx_: Writable<number | null> = writable(null);
 export const activeTraceIdx: Readable<number | null> = activeTraceIdx_;
 
-let figures: { [idx: number]: Writable<FigureProps | null> } = {};
+let figures: { [id: number]: FigureProps | null } = {};
 const figure_: Writable<FigureProps | null> = writable(null);
 export const figure: Readable<FigureProps | null> = figure_;
 
-let expansions: { [idx: number]: Writable<boolean> } = {};
+let expansions: { [id: number]: Writable<boolean> } = {};
 
-let subtraces_table: { [idx: number]: Writable<Trace[] | null> } = {};
-let traces: { [idx: number]: Trace } = {};
+let subtraces_table: { [id: number]: Writable<Trace[] | null> } = {};
+let traces: { [id: number]: Trace } = {};
 const rootTraces_: Writable<Trace[]> = writable([]);
 export const rootTraces: Readable<Trace[]> = rootTraces_;
 
@@ -29,18 +31,62 @@ function init_websocket(websocket: WebSocket) {
     });
     websocket.addEventListener("message", function (event: MessageEvent) {
         let data: DebuggerResponse = JSON.parse(event.data);
-
-        switch (data.t) {
-            case "RootTraces":
-                setRootTraces(data.c);
+        const result = tDebuggerResponse.decode(data);
+        if (isRight(result)) {
+            console.log(data);
+            switch (data.type) {
+                case "RootTraces":
+                    setRootTraces(data.root_traces);
+                    break;
+                case "Subtraces":
+                    setSubtraces(data.id, data.subtraces);
+                    break;
+                case "Figure":
+                    setFigure(data.id, data.figure);
+                    break;
+                case "DidActivate":
+                    didActivate(data.id);
+                    break;
+                case "DidToggleExpansion":
+                    didToggleExpansion(data.id);
+                    break;
+            }
+        } else {
+            console.error("invalid response: ", data);
+            console.log(PathReporter.report(result));
         }
     });
 
-    const rootTracesQuery = JSON.stringify("RootTraces");
+    const rootTracesQuery = JSON.stringify({ type: "RootTraces" });
 
     function setRootTraces(traces: Trace[]) {
         rootTraces_.set(traces);
         addTraces(traces);
+    }
+
+    function setSubtraces(id: number, subtraces: Trace[]) {
+        if (!(id in subtraces_table)) {
+            console.error(id, subtraces_table);
+        }
+        subtraces_table[id].set(subtraces);
+        addTraces(subtraces);
+    }
+
+    function setFigure(id: number, figure: FigureProps) {
+        figures[id] = figure;
+        if (id === get(activeTraceIdx)) {
+            figure_.set(figure);
+        }
+    }
+
+    function didActivate(id: number) {
+        activeTraceIdx_.set(id);
+        figure_.set(figures[id]);
+    }
+
+    function didToggleExpansion(id: number) {
+        expansions[id].update((expanded) => !expanded);
+        updateTraceList();
     }
 }
 
@@ -49,10 +95,10 @@ function updateTraceList() {
         updateTraceListDfs(trace.id);
     }
 
-    function updateTraceListDfs(idx: number) {
-        traceList.push(idx);
-        if (isExpanded(idx)) {
-            let subtraces: Trace[] = get(getSubtraces(idx)) || [];
+    function updateTraceListDfs(id: number) {
+        traceList.push(id);
+        if (isExpanded(id)) {
+            let subtraces: Trace[] = get(getSubtraces(id)) || [];
             for (const trace of subtraces) {
                 updateTraceListDfs(trace.id);
             }
@@ -60,26 +106,23 @@ function updateTraceList() {
     }
 }
 
-export function toggleExpansion(idx: number) {
-    if (hasChildren(idx)) {
-        expansions[idx].update((expanded) => !expanded);
-        didToggleExpansion(idx);
-    }
-
-    function didToggleExpansion(idx: number) {
-        updateTraceList();
-        console.error("TODO");
+export function toggleExpansion(id: number) {
+    if (hasChildren(id)) {
+        websocket.send(JSON.stringify({ type: "ToggleExpansion", id }));
     }
 }
 
-export function activate(idx: number) {
-    if (get(activeTraceIdx) !== idx) {
-        activeTraceIdx_.set(idx);
-        didActivate(idx);
+export function activate(id: number) {
+    if (get(activeTraceIdx) !== id) {
+        prepareFigure(id);
+        websocket.send(JSON.stringify({ type: "Activate", id }));
     }
 
-    function didActivate(idx: number) {
-        console.error("TODO");
+    function prepareFigure(id: number) {
+        if (!(id in figures)) {
+            figures[id] = null;
+            websocket.send(JSON.stringify({ type: "Figure", id }));
+        }
     }
 }
 
@@ -98,53 +141,53 @@ export function onKeyDown(e: KeyboardEvent) {
             moveUp();
             break;
         case "KeyS":
-            // console.log(JSON.stringify(globalState));
+            console.error("TODO");
             break;
         default:
     }
 
     function moveUp() {
-        const idx = get(activeTraceIdx);
-        if (idx !== null) {
-            const before = idxBefore(idx);
+        const id = get(activeTraceIdx);
+        if (id !== null) {
+            const before = idxBefore(id);
             if (before !== undefined) {
                 return activate(before);
             }
         }
 
-        function idxBefore(idx: number): number | undefined {
-            return traceList[traceList.indexOf(idx) - 1];
+        function idxBefore(id: number): number | undefined {
+            return traceList[traceList.indexOf(id) - 1];
         }
     }
 
     function moveDown() {
-        const idx = get(activeTraceIdx);
-        if (idx !== null) {
-            const after = idxAfter(idx);
+        const id = get(activeTraceIdx);
+        if (id !== null) {
+            const after = idxAfter(id);
             if (after !== undefined) {
                 return activate(after);
             }
         }
 
-        function idxAfter(idx: number): number | undefined {
-            return traceList[traceList.indexOf(idx) + 1];
+        function idxAfter(id: number): number | undefined {
+            return traceList[traceList.indexOf(id) + 1];
         }
     }
 
     function moveRight() {
-        const idx = get(activeTraceIdx);
-        if (idx !== null) {
-            if (!isExpanded(idx) && hasChildren(idx)) {
-                toggleExpansion(idx);
+        const id = get(activeTraceIdx);
+        if (id !== null) {
+            if (!isExpanded(id) && hasChildren(id)) {
+                toggleExpansion(id);
                 moveDown();
             }
         }
     }
 
     function moveLeft() {
-        let idx = get(activeTraceIdx);
-        if (idx !== null) {
-            const trace = traces[idx];
+        let id = get(activeTraceIdx);
+        if (id !== null) {
+            const trace = traces[id];
             if (trace.parent !== null) {
                 toggleExpansion(trace.parent);
                 activate(trace.parent);
@@ -153,8 +196,8 @@ export function onKeyDown(e: KeyboardEvent) {
     }
 }
 
-function hasChildren(idx: number) {
-    const children = get(getSubtraces(idx));
+function hasChildren(id: number) {
+    const children = get(getSubtraces(id));
     return children !== null && children.length > 0;
 }
 
@@ -162,27 +205,27 @@ export function getDummy() {}
 
 export function isExpanded(id: number): Readable<boolean> {
     if (!(id in expansions)) {
-        console.error("id is not in expansions");
+        // console.error("id ", id, " is not in expansions");
+        throw new Error(`id ${id} is not in expansions`);
     }
     return expansions[id];
 }
 
-export function getSubtraces(idx: number | null): Readable<Trace[] | null> {
-    if (idx === null) {
+export function getSubtraces(id: number | null): Readable<Trace[] | null> {
+    if (id === null) {
         return rootTraces;
     }
-    if (idx in subtraces_table) {
-        return subtraces_table[idx];
+    if (id in subtraces_table) {
+        return subtraces_table[id];
     } else {
         const subtraces = writable(null);
-        subtraces_table[idx] = subtraces;
-        querySubtraces(idx);
+        subtraces_table[id] = subtraces;
+        querySubtraces(id);
         return subtraces;
     }
 
-    function querySubtraces(idx: number) {
-        console.log(get(rootTraces));
-        console.error("TODO");
+    function querySubtraces(id: number) {
+        websocket.send(JSON.stringify({ type: "Subtraces", id }));
     }
 }
 

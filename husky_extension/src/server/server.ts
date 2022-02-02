@@ -60,7 +60,7 @@ const traces: { [idx: number]: Trace } = {
 
 const figures: readonly FigureProps[] = [
     {
-        kind: "Plot2d",
+        type: "Plot2d",
         plot_kind: "Scatter",
         groups: [
             {
@@ -87,18 +87,18 @@ const figures: readonly FigureProps[] = [
         yrange: [-5, 5],
     },
     {
-        kind: "Graphics2d",
+        type: "Graphics2d",
         image: null,
         shape_groups: [
             {
                 shapes: [
                     {
-                        shape_kind: "Arrow",
+                        type: "Arrow",
                         from: { x: 5, y: 6 },
                         to: { x: 16, y: 15 },
                     },
                 ],
-                lineWidth: 0.15,
+                line_width: 0.15,
                 color: "yellow",
             },
         ],
@@ -106,29 +106,29 @@ const figures: readonly FigureProps[] = [
         yrange: [0, 28],
     },
     {
-        kind: "Graphics2d",
+        type: "Graphics2d",
         image: null,
         shape_groups: [
             {
                 shapes: [
                     {
-                        shape_kind: "Arrow",
+                        type: "Arrow",
                         from: { x: 5, y: 6 },
                         to: { x: 16, y: 15 },
                     },
                 ],
-                lineWidth: 0.15,
+                line_width: 0.15,
                 color: "yellow",
             },
             {
                 shapes: [
                     {
-                        shape_kind: "Arrow",
+                        type: "Arrow",
                         from: { x: 16, y: 6 },
                         to: { x: 5, y: 15 },
                     },
                 ],
-                lineWidth: 0.15,
+                line_width: 0.15,
                 color: "red",
             },
         ],
@@ -136,29 +136,29 @@ const figures: readonly FigureProps[] = [
         yrange: [0, 28],
     },
     {
-        kind: "Graphics2d",
+        type: "Graphics2d",
         image: simpleImage1,
         shape_groups: [
             {
                 shapes: [
                     {
-                        shape_kind: "Arrow",
+                        type: "Arrow",
                         from: { x: 5, y: 6 },
                         to: { x: 16, y: 15 },
                     },
                 ],
-                lineWidth: 0.15,
+                line_width: 0.15,
                 color: "yellow",
             },
             {
                 shapes: [
                     {
-                        shape_kind: "Arrow",
+                        type: "Arrow",
                         from: { x: 16, y: 6 },
                         to: { x: 5, y: 15 },
                     },
                 ],
-                lineWidth: 0.15,
+                line_width: 0.15,
                 color: "red",
             },
         ],
@@ -191,10 +191,6 @@ function getChildren(version: number, idx: number): number[] {
 }
 
 function getFigure(version: number, idx: number): FigureProps {
-    let figure = figures[idx];
-    if (figure !== null && figure.kind === "Graphics2d") {
-        console.log("figures[idx].image", figure.image);
-    }
     return figures[idx];
 }
 
