@@ -33,7 +33,7 @@ pub trait LiveFiles: InternFile {
 }
 
 #[salsa::query_group(FileQueryStorage)]
-pub trait FileSalsaQuery: salsa::Database + std::fmt::Debug + LiveFiles {
+pub trait FileSalsaQuery: LiveFiles {
     fn file_content(&self, id: FileId) -> FileContent;
 
     fn main_file_id(&self, module_file_id: FileId) -> Option<FileId>;

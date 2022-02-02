@@ -29,7 +29,7 @@ pub enum SymbolKind {
     Variable(TextRange),
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
     pub(crate) main: Option<FileId>,
     pub(crate) db: &'a dyn AstQueryGroup,

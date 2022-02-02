@@ -50,7 +50,7 @@ impl Index<FeatureId> for FeatureInterner {
     type Output = Feature;
 
     fn index(&self, index: FeatureId) -> &Self::Output {
-        &self.features[index.0]
+        &self.features[index.raw]
     }
 }
 
@@ -78,7 +78,7 @@ impl<'sess> Session<'sess> {
             config,
             dataset,
             features: Default::default(),
-            main: FeatureId(0),
+            main: todo!(),
         };
         sess.update(package);
         Ok(sess)

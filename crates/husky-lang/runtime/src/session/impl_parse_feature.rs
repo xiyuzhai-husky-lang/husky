@@ -44,46 +44,45 @@ impl<'a, 'sess: 'a> FeatureStack<'a, 'sess> {
                 self.parse_stmts(prev, next)
             }
             semantics::DeclStmtKind::Assert { ref condition } => {
-                let condition = self.parse_expr(condition);
-                let condition = self.cache(condition);
-                let assert = self.sess.intern_feature(Feature::Assert { condition });
-                let new_prev = self.merge(prev, assert);
+                let condition = self.parse_expr(condition, true);
+                let assert = self
+                    .sess
+                    .intern_feature(Feature::Assert { condition }, false);
+                let new_prev = self.merge(prev, assert, false);
                 self.parse_stmts(Some(new_prev), next)
             }
             semantics::DeclStmtKind::Return { ref result } => {
-                let result = self.parse_expr(result);
-                let result = self.cache(result);
-                self.merge(prev, result)
+                let result = self.parse_expr(result, true);
+                self.merge(prev, result, false)
             }
         }
     }
 
-    fn cache(&mut self, feature: FeatureId) -> FeatureId {
-        self.sess.intern_feature(Feature::Cached(feature))
-    }
-
-    fn merge(&mut self, first: Option<FeatureId>, second: FeatureId) -> FeatureId {
+    fn merge(&mut self, first: Option<FeatureId>, second: FeatureId, cached: bool) -> FeatureId {
         if let Some(first) = first {
-            self.sess.intern_feature(Feature::Do {
-                first,
-                then: second,
-            })
+            self.sess.intern_feature(
+                Feature::Do {
+                    first,
+                    then: second,
+                },
+                cached,
+            )
         } else {
             second
         }
     }
 
-    fn parse_expr(&mut self, initial_value: &Expr) -> FeatureId {
+    fn parse_expr(&mut self, initial_value: &Expr, cached: bool) -> FeatureId {
         match initial_value.kind {
             ExprKind::Variable(varname) => self.resolve_var(varname),
             ExprKind::Scope { scope, compiled } => match scope.route {
                 scope::ScopeRoute::Implicit {
                     main,
                     ident: ImplicitIdentifier::Input,
-                } => self.sess.intern_feature(Feature::Input),
+                } => self.sess.intern_feature(Feature::Input, false),
                 _ => todo!(),
             },
-            ExprKind::Literal(value) => self.sess.intern_feature(Feature::Literal(value)),
+            ExprKind::Literal(value) => self.sess.intern_feature(Feature::Literal(value), false),
             ExprKind::Bracketed(_) => todo!(),
             ExprKind::Opn {
                 opn,
@@ -94,13 +93,16 @@ impl<'a, 'sess: 'a> FeatureStack<'a, 'sess> {
                     if kind == BinaryOpnKind::Custom {
                         todo!()
                     } else {
-                        let lopd = self.parse_expr(&opds[0]);
-                        let ropd = self.parse_expr(&opds[1]);
-                        self.sess.intern_feature(Feature::PrimitiveBinaryFunc {
-                            func: opr.into(),
-                            lopd,
-                            ropd,
-                        })
+                        let lopd = self.parse_expr(&opds[0], false);
+                        let ropd = self.parse_expr(&opds[1], false);
+                        self.sess.intern_feature(
+                            Feature::PrimitiveBinaryFunc {
+                                func: opr.into(),
+                                lopd,
+                                ropd,
+                            },
+                            cached,
+                        )
                     }
                 }
                 Opn::Prefix(_) => todo!(),
@@ -116,8 +118,7 @@ impl<'a, 'sess: 'a> FeatureStack<'a, 'sess> {
     }
 
     fn def_var(&mut self, varname: CustomIdentifier, value: &Expr) {
-        let value = self.parse_expr(value);
-        let value = self.cache(value);
+        let value = self.parse_expr(value, true);
         self.vars.push(FeatureVariable { varname, value })
     }
 

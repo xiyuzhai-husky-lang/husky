@@ -1,18 +1,19 @@
-use std::borrow::Cow;
-
 use crate::*;
 use common::*;
 use futures::{task::SpawnExt, FutureExt, StreamExt};
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc;
-use trace::Trace;
+use trace::{FigureProps, Trace};
 use warp::ws::{Message, WebSocket};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
+#[serde(tag = "type")]
 enum Query {
-    Dummy,
-    MainTrace,
     RootTraces,
+    Subtraces { id: usize },
+    Activate { id: usize },
+    ToggleExpansion { id: usize },
+    Figure { id: usize },
 }
 
 #[test]
@@ -23,11 +24,25 @@ fn print_queries() {
 }
 
 #[derive(Debug, Serialize, Clone)]
-#[serde(tag = "t", content = "c")]
+#[serde(tag = "type")]
 pub enum Response {
-    MainTrace(()),
-    Dummy,
-    RootTraces(Cow<'static, [Trace]>),
+    RootTraces {
+        root_traces: Vec<Trace>,
+    },
+    Subtraces {
+        id: usize,
+        subtraces: Vec<Trace>,
+    },
+    Figure {
+        id: usize,
+        figure: Option<FigureProps>,
+    },
+    DidActivate {
+        id: usize,
+    },
+    DidToggleExpansion {
+        id: usize,
+    },
 }
 
 pub(crate) async fn handle_query(
@@ -58,13 +73,25 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                     let future = async move {
                         match client_sender_.send(Ok(Message::text(
                             serde_json::to_string(&match query {
-                                Query::MainTrace => {
-                                    Response::MainTrace(debugger_.runtime.main_trace())
+                                Query::RootTraces => Response::RootTraces {
+                                    root_traces: debugger_.runtime.root_traces(),
+                                },
+                                Query::Subtraces { id } => Response::Subtraces {
+                                    id,
+                                    subtraces: debugger_.runtime.subtraces(id),
+                                },
+                                Query::Activate { id } => {
+                                    debugger_.runtime.activate(id);
+                                    Response::DidActivate { id }
                                 }
-                                Query::Dummy => Response::Dummy,
-                                Query::RootTraces => {
-                                    Response::RootTraces(debugger_.runtime.root_traces())
+                                Query::ToggleExpansion { id } => {
+                                    debugger_.runtime.toggle_expansion(id);
+                                    Response::DidToggleExpansion { id }
                                 }
+                                Query::Figure { id } => Response::Figure {
+                                    id,
+                                    figure: debugger_.runtime.figure(id),
+                                },
                             })
                             .unwrap(),
                         ))) {

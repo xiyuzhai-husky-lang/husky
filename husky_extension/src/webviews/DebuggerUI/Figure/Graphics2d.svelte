@@ -8,7 +8,6 @@
     $: svgWidth = figure.xrange[1] - figure.xrange[0];
     $: svgYMin = 0;
     $: svgHeight = figure.yrange[1] - figure.yrange[0];
-    $: console.log(figure.image);
 </script>
 
 <div class="wrapper">
@@ -21,7 +20,7 @@
             {#each figure.shape_groups as shape_group}
                 <g class={shape_group.color}>
                     {#each shape_group.shapes as shape}
-                        <Shape {shape} lineWidth={shape_group.lineWidth} />
+                        <Shape {shape} lineWidth={shape_group.line_width} />
                     {/each}
                 </g>
             {/each}
@@ -34,8 +33,8 @@
         position: relative;
     }
     svg {
-        height: 100%;
-        width: 100%;
+        min-height: 100%;
+        min-width: 100%;
         position: absolute;
         left: 0px;
         top: 0px;
@@ -46,5 +45,11 @@
     }
     svg :global(.yellow) {
         fill: yellow;
+    }
+    svg :global(.green) {
+        fill: green;
+    }
+    svg :global(.blue) {
+        fill: blue;
     }
 </style>

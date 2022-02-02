@@ -14,11 +14,6 @@
     <g><Scatter2d {figure} {pointRadius} /></g>
 </svg>
 
-<!-- 
-svg :global(.red),
-:global(.yellow) {
-    mix-blend-mode: multiply;
-} -->
 <style>
     svg :global(.red) {
         fill: red;
@@ -27,5 +22,11 @@ svg :global(.red),
     svg :global(.yellow) {
         fill: yellow;
         opacity: 0.7;
+    }
+    svg :global(.green) {
+        fill: green;
+    }
+    svg :global(.blue) {
+        fill: blue;
     }
 </style>

@@ -13,9 +13,6 @@
     $: length = get_point_distance(arrow.from, arrow.to);
     $: angle = get_angle_in_degree(displacement);
     $: arrowHeadHeight = Math.min(length / 2, gamma * lineWidth);
-    $: console.log("arrow.from", arrow.from);
-    $: console.log("displacement", displacement);
-    $: console.log("angle", angle);
     const gamma = 1.7;
 </script>
 

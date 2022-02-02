@@ -1,16 +1,17 @@
+mod figure;
 pub mod mock;
-
-use std::borrow::Cow;
 
 use common::*;
 use serde::Serialize;
 
+pub use figure::FigureProps;
+
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug, Serialize, Clone, PartialEq, Eq)]
 pub struct Trace {
-    pub idx: usize,
+    pub id: usize,
     pub parent: Option<usize>,
-    pub tokens: Cow<'static, [TraceToken]>,
+    pub tokens: Vec<TraceToken>,
 }
 
 // ts: { type: string; value: string; spaces_before?: number }
