@@ -1,8 +1,10 @@
+use std::sync::Arc;
+
 use vm::{Instruction, InstructionKind};
 
 use crate::{expr::ExprInstructionBuilder, DeclStmt, DeclStmtKind, Expr};
 
-pub fn build_decl_stmt_instructions(stmts: &[DeclStmt]) -> Vec<Instruction> {
+pub fn build_decl_stmt_instructions(stmts: &[Arc<DeclStmt>]) -> Vec<Instruction> {
     let mut builder = DeclStmtInstructionBuilder::new();
     stmts
         .iter()

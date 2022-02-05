@@ -22,9 +22,9 @@ pub(crate) fn parse_lazy_stmts(
     this: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-) -> SemanticResult<Vec<DeclStmt>> {
+) -> SemanticResult<Vec<Arc<DeclStmt>>> {
     let mut parser = LazyStmtParser::new(this, arena);
-    parser.parse_stmt(iter)
+    parser.parse_stmts(iter)
 }
 
 pub struct LazyStmtParser<'a> {
@@ -47,12 +47,12 @@ impl<'a> LazyStmtParser<'a> {
         }
     }
 
-    fn parse_stmt(
+    fn parse_stmts(
         &mut self,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResult<Vec<DeclStmt>> {
+    ) -> SemanticResult<Vec<Arc<DeclStmt>>> {
         iter.map(|item| {
-            Ok(match item.value.as_ref()? {
+            Ok(Arc::new(match item.value.as_ref()? {
                 Ast::TypeDef { .. } => todo!(),
                 Ast::MainDef => todo!(),
                 Ast::DatasetConfig => todo!(),
@@ -90,7 +90,7 @@ impl<'a> LazyStmtParser<'a> {
                         },
                     },
                 },
-            })
+            }))
         })
         .collect()
     }

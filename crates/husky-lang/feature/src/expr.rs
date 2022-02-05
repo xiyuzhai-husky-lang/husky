@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use itertools::Itertools;
 use scope::ScopePtr;
 use semantics::{Expr, ExprKind, Opn};
@@ -17,8 +19,8 @@ pub enum FeatureExprKind {
     Literal(PrimitiveValue),
     PrimitiveBinaryOpr {
         opr: BinaryOpr,
-        lopd: Box<FeatureExpr>,
-        ropd: Box<FeatureExpr>,
+        lopd: Arc<FeatureExpr>,
+        ropd: Arc<FeatureExpr>,
     },
     Variable(CustomIdentifier),
 }
@@ -57,8 +59,8 @@ impl FeatureExpr {
                     | ScopePtr::Builtin(BuiltinIdentifier::F32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
-                        let lopd = Box::new(Self::new(&opds[0], symbols, features));
-                        let ropd = Box::new(Self::new(&opds[0], symbols, features));
+                        let lopd = Arc::new(Self::new(&opds[0], symbols, features));
+                        let ropd = Arc::new(Self::new(&opds[0], symbols, features));
                         let feature = features.alloc(Feature::PrimitiveBinaryOpr {
                             opr,
                             lopd: lopd.feature,
