@@ -13,7 +13,7 @@ pub trait ExprParser<'a> {
     fn vartype(&self, varname: CustomIdentifier) -> ScopePtr;
     fn db(&self) -> &'a dyn InferQueryGroup;
 
-    fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Expr> {
+    fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Arc<Expr>> {
         let (ty, kind): (ScopePtr, _) = match raw_expr.kind {
             RawExprKind::Variable(ident) => (self.vartype(ident), ExprKind::Variable(ident)),
             RawExprKind::Scope(id, kind) => match kind {
@@ -35,11 +35,11 @@ pub trait ExprParser<'a> {
             RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
             RawExprKind::Lambda(_, _) => todo!(),
         };
-        Ok(Expr {
+        Ok(Arc::new(Expr {
             range: raw_expr.range.clone(),
             ty,
             kind,
-        })
+        }))
     }
 
     fn parse_opn(&mut self, opr: Opr, opds: &RawExprRange) -> SemanticResult<(ScopePtr, ExprKind)> {
@@ -56,7 +56,7 @@ pub trait ExprParser<'a> {
                     match call.kind {
                         RawExprKind::Scope(scope, ScopeKind::Func) => {
                             let signature = self.db().func_signature(scope)?;
-                            let arguments: Vec<Expr> = self.arena()[opds][1..]
+                            let arguments: Vec<_> = self.arena()[opds][1..]
                                 .iter()
                                 .map(|raw| self.parse_expr(raw))
                                 .collect::<SemanticResult<_>>()?;

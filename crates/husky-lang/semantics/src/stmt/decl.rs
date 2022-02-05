@@ -13,12 +13,12 @@ pub struct DeclStmt {
 pub enum DeclStmtKind {
     Init {
         varname: CustomIdentifier,
-        value: Expr,
+        value: Arc<Expr>,
     },
     Assert {
-        condition: Expr,
+        condition: Arc<Expr>,
     },
     Return {
-        result: Expr,
+        result: Arc<Expr>,
     },
 }

@@ -2,6 +2,8 @@ mod builder;
 mod opn;
 mod parser;
 
+use std::sync::Arc;
+
 pub(crate) use builder::ExprInstructionBuilder;
 pub use opn::*;
 pub(crate) use parser::ExprParser;
@@ -27,11 +29,11 @@ pub enum ExprKind {
         compiled: Option<Compiled>,
     },
     Literal(PrimitiveValue),
-    Bracketed(Box<Expr>),
+    Bracketed(Arc<Expr>),
     Opn {
         opn: Opn,
         compiled: Option<Compiled>,
-        opds: Vec<Expr>,
+        opds: Vec<Arc<Expr>>,
     },
     Lambda(Vec<(CustomIdentifier, Option<ScopePtr>)>, Box<Expr>),
 }
