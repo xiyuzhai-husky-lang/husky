@@ -66,8 +66,8 @@ impl fold::ItemToFold<Range> for TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(word_interner: &WordInterner, text: &str) -> Self {
-        let mut token_scanner = TokenScanner::new(word_interner);
+    pub(crate) fn parse(word_unique_allocator: &WordInterner, text: &str) -> Self {
+        let mut token_scanner = TokenScanner::new(word_unique_allocator);
         text.lines()
             .enumerate()
             .for_each(|(i, line)| token_scanner.scan(i, line));

@@ -3,21 +3,24 @@ use std::ops::AddAssign;
 use common::*;
 
 use ast::{Ast, AstResult, RawExpr, RawExprKind};
-use scope::ScopeId;
+use scope::ScopePtr;
 use syntax_types::*;
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
-    word_interner: &'a WordInterner,
+    word_unique_allocator: &'a WordInterner,
     arena: &'a ast::RawExprArena,
     indent: fold::Indent,
     result: String,
 }
 
 impl<'a> Formatter<'a> {
-    pub(crate) fn new(word_interner: &'a WordInterner, arena: &'a ast::RawExprArena) -> Self {
+    pub(crate) fn new(
+        word_unique_allocator: &'a WordInterner,
+        arena: &'a ast::RawExprArena,
+    ) -> Self {
         Self {
-            word_interner,
+            word_unique_allocator,
             arena,
             indent: 0,
             result: String::new(),
@@ -101,7 +104,7 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_contracted_type(ty);
                 }
                 self.write(")");
-                if decl.output != ScopeId::Builtin(BuiltinIdentifier::Void) {
+                if decl.output != ScopePtr::Builtin(BuiltinIdentifier::Void) {
                     self.write(" -> ");
                     self.fmt_type(decl.output);
                 }
@@ -137,7 +140,7 @@ impl<'a> Formatter<'a> {
             InputContract::Share => todo!(),
             InputContract::Own => (),
         }
-        self.fmt_type(ty.ty);
+        self.fmt_type(ty.scope);
     }
 
     fn fmt_func_input_contracted_type(&mut self, ty: &InputType) {
@@ -149,10 +152,10 @@ impl<'a> Formatter<'a> {
         self.fmt_type(ty.ty);
     }
 
-    fn fmt_type(&mut self, ty: ScopeId) {
+    fn fmt_type(&mut self, ty: ScopePtr) {
         match ty {
-            ScopeId::Builtin(ident) => self.write(&ident),
-            ScopeId::Custom(_) => todo!(),
+            ScopePtr::Builtin(ident) => self.write(&ident),
+            ScopePtr::Custom(_) => todo!(),
         }
     }
 

@@ -20,11 +20,11 @@ impl std::hash::Hash for TokenKind {
     }
 }
 impl Eq for TokenKind {}
-impl From<word::WordId> for TokenKind {
-    fn from(word: word::WordId) -> Self {
+impl From<word::WordPtr> for TokenKind {
+    fn from(word: word::WordPtr) -> Self {
         match word {
-            word::WordId::Keyword(keyword) => TokenKind::Keyword(keyword),
-            word::WordId::Identifier(ident) => TokenKind::Identifier(ident),
+            word::WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
+            word::WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
         }
     }
 }

@@ -8,19 +8,19 @@ use crate::*;
 
 #[salsa::query_group(AstQueryGroupStorage)]
 pub trait AstQueryGroup: scope_query::ScopeQueryGroup {
-    fn ast_text(&self, id: file::FileId) -> ScopeResultArc<AstText>;
+    fn ast_text(&self, id: file::FilePtr) -> ScopeResultArc<AstText>;
 
-    fn parse_ty(&self, code: &'static str) -> AstResult<ScopeId>;
+    fn parse_ty(&self, code: &'static str) -> AstResult<ScopePtr>;
 }
 
-fn ast_text(this: &dyn AstQueryGroup, id: file::FileId) -> ScopeResultArc<AstText> {
+fn ast_text(this: &dyn AstQueryGroup, id: file::FilePtr) -> ScopeResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module_from_file_id(id)?);
     parser.transform_all(tokenized_text.fold_iter(0));
     Ok(Arc::new(parser.finish()))
 }
 
-fn parse_ty(this: &dyn AstQueryGroup, code: &'static str) -> AstResult<ScopeId> {
+fn parse_ty(this: &dyn AstQueryGroup, code: &'static str) -> AstResult<ScopePtr> {
     let tokens = this.tokenize(code);
     let symbols = fold::LocalStack::<Symbol>::new();
     let proxy = SymbolProxy {

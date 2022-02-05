@@ -1,4 +1,4 @@
-use scope::ScopeId;
+use scope::ScopePtr;
 use vm::BinaryOpr;
 use word::Identifier;
 
@@ -74,7 +74,7 @@ pub enum SuffixOpr {
     Decr,                     // --
     MayReturn,                // ?
     MemberAccess(Identifier), // .
-    WithType(ScopeId),        // :
+    WithType(ScopePtr),        // :
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]

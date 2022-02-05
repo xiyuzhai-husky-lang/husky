@@ -9,12 +9,12 @@ use formatter::Formatter;
 
 #[salsa::query_group(FormatQueryGroupStorage)]
 pub trait FmtQuery: ast::AstQueryGroup {
-    fn fmt_text(&self, id: file::FileId) -> scope_query::ScopeResultArc<String>;
+    fn fmt_text(&self, id: file::FilePtr) -> scope_query::ScopeResultArc<String>;
 }
 
-fn fmt_text(db: &dyn FmtQuery, id: file::FileId) -> scope_query::ScopeResultArc<String> {
+fn fmt_text(db: &dyn FmtQuery, id: file::FilePtr) -> scope_query::ScopeResultArc<String> {
     let ast_text = db.ast_text(id)?;
-    let mut formatter = Formatter::new(db.word_interner(), &ast_text.arena);
+    let mut formatter = Formatter::new(db.word_unique_allocator(), &ast_text.arena);
     formatter.execute_all(ast_text.folded_results.fold_iter(0));
     Ok(Arc::new(formatter.finish()))
 }

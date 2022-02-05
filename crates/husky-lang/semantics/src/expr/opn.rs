@@ -1,4 +1,4 @@
-use scope::ScopeId;
+use scope::ScopePtr;
 use syntax_types::*;
 use text::TextRange;
 use vm::BinaryOpr;
@@ -8,17 +8,17 @@ use word::{CustomIdentifier, Identifier};
 pub enum Opn {
     Binary {
         opr: BinaryOpr,
-        this: ScopeId,
+        this: ScopePtr,
         kind: BinaryOpnKind,
     },
     Prefix(PrefixOpn),
     Suffix(SuffixOpn),
     FuncCall {
-        func: ScopeId,
+        func: ScopePtr,
     },
     PattCall,
     MembVarAccess,
-    MembFuncCall(ScopeId),
+    MembFuncCall(ScopePtr),
     ElementAccess,
 }
 

@@ -1,18 +1,18 @@
 use crate::{pool::Pool, *};
 
-pub struct InternerInternal<T, Owned, Id>
+pub struct UniqueAllocatorInternal<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: InternId<Thing = T>,
+    Id: UniqueAllocatorPtr<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     pub(crate) things: Pool<Owned, 10000>,
     pub(crate) ids: HashMap<Owned, Id>,
 }
-impl<T, Owned, Id> Default for InternerInternal<T, Owned, Id>
+impl<T, Owned, Id> Default for UniqueAllocatorInternal<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: InternId<Thing = T>,
+    Id: UniqueAllocatorPtr<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     fn default() -> Self {
@@ -23,10 +23,10 @@ where
     }
 }
 
-impl<T, Owned, Id> InternerInternal<T, Owned, Id>
+impl<T, Owned, Id> UniqueAllocatorInternal<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: InternId<Thing = T>,
+    Id: UniqueAllocatorPtr<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     pub fn id_iter<'a>(&'a self) -> impl Iterator<Item = Id> + 'a {

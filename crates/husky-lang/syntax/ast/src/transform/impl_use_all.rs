@@ -7,7 +7,7 @@ use crate::{
 };
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn use_all(&mut self, parent: ScopeId, range: TextRange) -> AstResult<()> {
+    pub(super) fn use_all(&mut self, parent: ScopePtr, range: TextRange) -> AstResult<()> {
         self.symbols.extend(
             self.db
                 .subscope_table(parent)

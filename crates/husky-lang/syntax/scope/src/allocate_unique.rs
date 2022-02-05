@@ -1,36 +1,36 @@
 use core::hash::Hash;
 use std::{borrow::Borrow, ops::Deref};
 
-use interner::{InternId, Interner};
+use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
 
 use paste::paste;
 
 use crate::*;
 
-pub type ScopeInterner = Interner<Scope, Scope, ScopeId>;
+pub type UniqueScopeAllocator = UniqueAllocator<Scope, Scope, ScopePtr>;
 
 #[derive(Clone, Copy)]
-pub enum ScopeId {
+pub enum ScopePtr {
     Builtin(BuiltinIdentifier),
     Custom(&'static Scope),
 }
 
-impl ScopeId {
+impl ScopePtr {
     pub fn custom(&self) -> Option<&'static Scope> {
         match self {
-            ScopeId::Builtin(_) => None,
-            ScopeId::Custom(scope) => Some(scope),
+            ScopePtr::Builtin(_) => None,
+            ScopePtr::Custom(scope) => Some(scope),
         }
     }
 }
 
-impl std::fmt::Debug for ScopeId {
+impl std::fmt::Debug for ScopePtr {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         (**self).fmt(f)
     }
 }
 
-impl PartialEq for ScopeId {
+impl PartialEq for ScopePtr {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
             (Self::Builtin(l), Self::Builtin(r)) => l == r,
@@ -40,19 +40,19 @@ impl PartialEq for ScopeId {
     }
 }
 
-impl Eq for ScopeId {}
+impl Eq for ScopePtr {}
 
-impl Hash for ScopeId {
+impl Hash for ScopePtr {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
         match self {
-            ScopeId::Builtin(ident) => ident.hash(state),
-            ScopeId::Custom(scope) => (*scope as *const Scope).hash(state),
+            ScopePtr::Builtin(ident) => ident.hash(state),
+            ScopePtr::Custom(scope) => (*scope as *const Scope).hash(state),
         }
     }
 }
 
-impl Deref for ScopeId {
+impl Deref for ScopePtr {
     type Target = Scope;
 
     fn deref(&self) -> &Self::Target {
@@ -79,38 +79,38 @@ impl Deref for ScopeId {
         }
 
         match self {
-            ScopeId::Builtin(ident) => match_builtin!(
+            ScopePtr::Builtin(ident) => match_builtin!(
                 ident => Void, I32, F32, B32, B64, Bool, Vector, Tuple, Debug, Std, Core, Fp, Fn,
                 FnMut, FnOnce, Array, DatasetType
             ),
-            ScopeId::Custom(scope) => scope,
+            ScopePtr::Custom(scope) => scope,
         }
     }
 }
 
-impl Borrow<Scope> for ScopeId {
+impl Borrow<Scope> for ScopePtr {
     fn borrow(&self) -> &Scope {
         self.deref()
     }
 }
 
-impl From<&'static Scope> for ScopeId {
+impl From<&'static Scope> for ScopePtr {
     fn from(target: &'static Scope) -> Self {
         Self::Custom(target)
     }
 }
 
-impl InternId for ScopeId {
+impl UniqueAllocatorPtr for ScopePtr {
     type Thing = Scope;
 }
 
-impl From<BuiltinIdentifier> for ScopeId {
+impl From<BuiltinIdentifier> for ScopePtr {
     fn from(ident: BuiltinIdentifier) -> Self {
         Self::Builtin(ident)
     }
 }
 
-impl From<&BuiltinIdentifier> for ScopeId {
+impl From<&BuiltinIdentifier> for ScopePtr {
     fn from(ident: &BuiltinIdentifier) -> Self {
         Self::Builtin(*ident)
     }
@@ -122,20 +122,20 @@ impl From<&Scope> for Scope {
     }
 }
 
-pub trait InternScope {
-    fn scope_interner(&self) -> &ScopeInterner;
-    fn intern_scope(&self, scope: Scope) -> ScopeId {
-        self.scope_interner().intern(scope)
+pub trait AllocateUniqueScope {
+    fn scope_unique_allocator(&self) -> &UniqueScopeAllocator;
+    fn intern_scope(&self, scope: Scope) -> ScopePtr {
+        self.scope_unique_allocator().alloc(scope)
     }
-    fn make_scope(&self, route: ScopeRoute, generics: Vec<GenericArgument>) -> ScopeId {
+    fn make_scope(&self, route: ScopeRoute, generics: Vec<GenericArgument>) -> ScopePtr {
         self.intern_scope(Scope { route, generics })
     }
     fn make_child_scope(
         &self,
-        parent: ScopeId,
+        parent: ScopePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
-    ) -> ScopeId {
+    ) -> ScopePtr {
         self.intern_scope(Scope {
             route: ScopeRoute::ChildScope { parent, ident },
             generics,
@@ -143,8 +143,8 @@ pub trait InternScope {
     }
 }
 
-pub fn new_scope_interner() -> ScopeInterner {
-    ScopeInterner::new_from::<BuiltinIdentifier>(&[
+pub fn new_scope_unique_allocator() -> UniqueScopeAllocator {
+    UniqueScopeAllocator::new_from::<BuiltinIdentifier>(&[
         BuiltinIdentifier::I32,
         BuiltinIdentifier::F32,
         BuiltinIdentifier::Vector,

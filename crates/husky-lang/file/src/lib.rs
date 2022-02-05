@@ -1,11 +1,13 @@
+mod allocate_unique;
 mod error;
-mod intern;
 mod line_map;
 mod query;
 mod utils;
 
+pub use allocate_unique::{
+    new_file_unique_allocator, AllocateUniqueFile, FilePtr, UniqueFileAllocator,
+};
 pub use error::{FileError, FileResult, FileResultArc};
-pub use intern::{new_file_interner, FileId, FileInterner, InternFile};
 pub use query::{FileContentQuery, FileQuery, FileQueryStorage, FileSalsaQuery, LiveFiles};
 
 use std::sync::Arc;
@@ -14,12 +16,12 @@ use common::*;
 
 #[derive(Clone, Copy, Debug)]
 pub struct FilePosition {
-    pub file_id: FileId,
+    pub file_id: FilePtr,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileRange {
-    pub source: FileId,
+    pub source: FilePtr,
     pub range: text::TextRange,
 }
 

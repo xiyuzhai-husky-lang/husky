@@ -60,11 +60,11 @@ impl<'a> AtomLRParser<'a> {
         ))
     }
 
-    fn func_output_type(&mut self) -> AstResult<ScopeId> {
+    fn func_output_type(&mut self) -> AstResult<ScopePtr> {
         Ok(if next_matches!(self, "->") {
             get!(self, ty?)
         } else {
-            ScopeId::Builtin(BuiltinIdentifier::Void)
+            ScopePtr::Builtin(BuiltinIdentifier::Void)
         })
     }
 }

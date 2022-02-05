@@ -9,17 +9,17 @@ use std::sync::Arc;
 pub use config::{ConfigQueryGroup, ConfigQueryGroupStorage};
 pub use entity::{EntityQueryGroup, EntityQueryGroupStorage};
 pub use infer::{InferQueryGroup, InferQueryGroupStorage};
-use interner::InternId;
 pub use main::{MainQueryGroup, MainQueryGroupStorage};
+use unique_allocator::UniqueAllocatorPtr;
 
 use crate::{Package, SemanticResultArc};
 
 #[salsa::query_group(PackageQueryGroupStorage)]
 pub trait PackageQueryGroup: MainQueryGroup + EntityQueryGroup + ConfigQueryGroup {
-    fn package(&self, main_file: file::FileId) -> SemanticResultArc<Package>;
+    fn package(&self, main_file: file::FilePtr) -> SemanticResultArc<Package>;
 }
 
-fn package(this: &dyn PackageQueryGroup, main_file: file::FileId) -> SemanticResultArc<Package> {
+fn package(this: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Package> {
     let scope = this.module_from_file_id(main_file)?.scope();
     Ok(Arc::new(Package {
         ident: match scope.route {

@@ -1,5 +1,7 @@
 // this crate is for trying stuffs
-#[cfg(test)]
 mod try_random;
+mod try_rayon;
+#[cfg(test)]
+mod try_salsa;
 mod try_serde;
 mod try_trait;

@@ -1,11 +1,13 @@
 mod alias;
-mod intern;
+mod allocate_unique;
 mod kind;
 
 pub use alias::ScopeAliasTable;
+pub use allocate_unique::{
+    new_scope_unique_allocator, AllocateUniqueScope, ScopePtr, UniqueScopeAllocator,
+};
 use common::*;
-use file::FileId;
-pub use intern::{new_scope_interner, InternScope, ScopeId, ScopeInterner};
+use file::FilePtr;
 pub use kind::ScopeKind;
 
 use vm::Compiled;
@@ -44,7 +46,7 @@ impl std::fmt::Debug for Scope {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum GenericArgument {
     Const(usize),
-    Scope(ScopeId),
+    Scope(ScopePtr),
 }
 
 impl From<usize> for GenericArgument {
@@ -53,8 +55,8 @@ impl From<usize> for GenericArgument {
     }
 }
 
-impl From<ScopeId> for GenericArgument {
-    fn from(scope: ScopeId) -> Self {
+impl From<ScopePtr> for GenericArgument {
+    fn from(scope: ScopePtr) -> Self {
         GenericArgument::Scope(scope)
     }
 }
@@ -77,15 +79,15 @@ pub enum ScopeRoute {
         ident: BuiltinIdentifier,
     },
     Package {
-        main: FileId,
+        main: FilePtr,
         ident: CustomIdentifier,
     },
     ChildScope {
-        parent: ScopeId,
+        parent: ScopePtr,
         ident: CustomIdentifier,
     },
     Implicit {
-        main: FileId,
+        main: FilePtr,
         ident: ImplicitIdentifier,
     },
 }
@@ -112,20 +114,20 @@ pub struct RawFuncSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FuncSignature {
-    pub inputs: Vec<ScopeId>,
-    pub output: ScopeId,
+    pub inputs: Vec<ScopePtr>,
+    pub output: ScopePtr,
     pub compiled: Option<Compiled>,
 }
 
 impl Scope {
-    pub fn package(main: FileId, ident: CustomIdentifier) -> Self {
+    pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         Scope {
             route: ScopeRoute::Package { main, ident },
             generics: Vec::new(),
         }
     }
     pub fn child_scope(
-        parent: ScopeId,
+        parent: ScopePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
     ) -> Scope {
@@ -177,16 +179,16 @@ pub enum ScopeSource {
     Builtin(&'static BuiltinScopeData),
     WithinBuiltinModule,
     WithinModule {
-        file_id: FileId,
+        file_id: FilePtr,
         token_group_index: usize, // None means the whole file
     },
     Module {
-        file_id: FileId,
+        file_id: FilePtr,
     },
 }
 
 impl ScopeSource {
-    pub fn from_file(file_id: FileId, token_group_index: usize) -> ScopeSource {
+    pub fn from_file(file_id: FilePtr, token_group_index: usize) -> ScopeSource {
         ScopeSource::WithinModule {
             file_id,
             token_group_index: token_group_index,

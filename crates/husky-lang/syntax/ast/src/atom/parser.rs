@@ -173,7 +173,7 @@ impl<'a> AtomLRParser<'a> {
     }
 }
 
-pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopeId> {
+pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopePtr> {
     let result = AtomLRParser::new(scope_proxy, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()

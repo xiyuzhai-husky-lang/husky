@@ -33,7 +33,7 @@ pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 
 use std::sync::Arc;
 
-use scope::{RawFuncSignature, ScopeId};
+use scope::{RawFuncSignature, ScopePtr};
 use vm::{BoxedValue, Compiled, StackValue};
 use word::BuiltinIdentifier;
 use xrng::XRng;

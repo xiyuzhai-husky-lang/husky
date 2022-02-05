@@ -3,7 +3,7 @@ use std::sync::Arc;
 use ast::{Ast, AstResult, RawExprArena, RawExprKind, RawStmt};
 use common::*;
 use fold::FoldStorage;
-use scope::{FuncSignature, RawFuncSignature, ScopeId, ScopeKind, ScopeRoute};
+use scope::{FuncSignature, RawFuncSignature, ScopeKind, ScopePtr, ScopeRoute};
 use scope_query::ScopeQueryGroup;
 use syntax_types::{ListOpr, Opr};
 use word::{BuiltinIdentifier, ImplicitIdentifier};
@@ -12,14 +12,14 @@ use crate::{error::*, SemanticResult};
 
 #[salsa::query_group(InferQueryGroupStorage)]
 pub trait InferQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
-    fn func_signature(&self, scope: ScopeId) -> SemanticResult<Arc<FuncSignature>>;
-    fn scope_ty(&self, scope: ScopeId) -> SemanticResult<ScopeId>;
-    fn input_ty(&self, main_file: file::FileId) -> SemanticResult<ScopeId>;
+    fn func_signature(&self, scope: ScopePtr) -> SemanticResult<Arc<FuncSignature>>;
+    fn scope_ty(&self, scope: ScopePtr) -> SemanticResult<ScopePtr>;
+    fn input_ty(&self, main_file: file::FilePtr) -> SemanticResult<ScopePtr>;
 }
 
 fn func_signature(
     this: &dyn InferQueryGroup,
-    scope: ScopeId,
+    scope: ScopePtr,
 ) -> SemanticResult<Arc<FuncSignature>> {
     let source = this.scope_source(scope)?;
     return match source {
@@ -56,9 +56,9 @@ fn func_signature(
     }
 }
 
-fn scope_ty(this: &dyn InferQueryGroup, scope: ScopeId) -> SemanticResult<ScopeId> {
+fn scope_ty(this: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<ScopePtr> {
     match scope {
-        ScopeId::Builtin(ident) => match ident {
+        ScopePtr::Builtin(ident) => match ident {
             BuiltinIdentifier::Void => todo!(),
             BuiltinIdentifier::I32 => todo!(),
             BuiltinIdentifier::F32 => todo!(),
@@ -77,7 +77,7 @@ fn scope_ty(this: &dyn InferQueryGroup, scope: ScopeId) -> SemanticResult<ScopeI
             BuiltinIdentifier::Array => todo!(),
             BuiltinIdentifier::DatasetType => todo!(),
         },
-        ScopeId::Custom(scope) => match scope.route {
+        ScopePtr::Custom(scope) => match scope.route {
             ScopeRoute::Implicit { main, ident } => match ident {
                 ImplicitIdentifier::Input => input_ty(this, main),
             },
@@ -86,7 +86,7 @@ fn scope_ty(this: &dyn InferQueryGroup, scope: ScopeId) -> SemanticResult<ScopeI
     }
 }
 
-fn input_ty(this: &dyn InferQueryGroup, main_file: file::FileId) -> SemanticResult<ScopeId> {
+fn input_ty(this: &dyn InferQueryGroup, main_file: file::FilePtr) -> SemanticResult<ScopePtr> {
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()? {
@@ -100,14 +100,14 @@ fn input_ty(this: &dyn InferQueryGroup, main_file: file::FileId) -> SemanticResu
             _ => (),
         }
     }
-    err!()
+    err!("dataset config not found, so input type can't be inferred")
 }
 
 fn input_ty_from_ast(
     this: &dyn InferQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
-) -> SemanticResult<ScopeId> {
+) -> SemanticResult<ScopePtr> {
     match ast {
         Ast::Stmt(RawStmt::Return(idx)) => match arena[idx].kind {
             RawExprKind::Opn {

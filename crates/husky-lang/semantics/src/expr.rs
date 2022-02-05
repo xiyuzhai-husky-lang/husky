@@ -6,7 +6,7 @@ pub(crate) use builder::ExprInstructionBuilder;
 pub use opn::*;
 pub(crate) use parser::ExprParser;
 
-use scope::ScopeId;
+use scope::ScopePtr;
 use syntax_types::*;
 use text::TextRange;
 use vm::{Compiled, VMResult};
@@ -15,7 +15,7 @@ use word::{CustomIdentifier, Identifier};
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Expr {
     pub range: TextRange,
-    pub ty: ScopeId,
+    pub ty: ScopePtr,
     pub kind: ExprKind,
 }
 
@@ -23,7 +23,7 @@ pub struct Expr {
 pub enum ExprKind {
     Variable(CustomIdentifier),
     Scope {
-        scope: ScopeId,
+        scope: ScopePtr,
         compiled: Option<Compiled>,
     },
     Literal(PrimitiveValue),
@@ -33,5 +33,5 @@ pub enum ExprKind {
         compiled: Option<Compiled>,
         opds: Vec<Expr>,
     },
-    Lambda(Vec<(CustomIdentifier, Option<ScopeId>)>, Box<Expr>),
+    Lambda(Vec<(CustomIdentifier, Option<ScopePtr>)>, Box<Expr>),
 }

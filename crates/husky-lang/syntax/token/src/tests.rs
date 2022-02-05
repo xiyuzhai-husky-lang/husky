@@ -1,12 +1,12 @@
-use word::new_word_interner;
+use word::new_word_unique_allocator;
 
 use common::*;
 
 use crate::TokenizedText;
 
 fn standalone_tokenize(text: &'static str) -> TokenizedText {
-    let word_interner = new_word_interner();
-    TokenizedText::parse(&word_interner, text)
+    let word_unique_allocator = new_word_unique_allocator();
+    TokenizedText::parse(&word_unique_allocator, text)
 }
 
 #[test]

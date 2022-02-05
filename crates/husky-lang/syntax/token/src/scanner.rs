@@ -20,7 +20,7 @@ impl Debug for TokenizedLine {
 }
 
 pub(crate) struct TokenScanner<'lex> {
-    word_interner: &'lex WordInterner,
+    word_unique_allocator: &'lex WordInterner,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
@@ -37,9 +37,9 @@ impl<'lex> Debug for TokenScanner<'lex> {
 }
 
 impl<'token> TokenScanner<'token> {
-    pub(crate) fn new(word_interner: &'token WordInterner) -> Self {
+    pub(crate) fn new(word_unique_allocator: &'token WordInterner) -> Self {
         Self {
-            word_interner,
+            word_unique_allocator,
             tokens: vec![],
             tokenized_lines: vec![],
             errors: vec![],
@@ -49,7 +49,7 @@ impl<'token> TokenScanner<'token> {
     pub(crate) fn scan(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
         let (indent, token_iter) = LineTokenIter::new(
-            self.word_interner,
+            self.word_unique_allocator,
             line_index,
             line.chars().enumerate().peekable(),
         );

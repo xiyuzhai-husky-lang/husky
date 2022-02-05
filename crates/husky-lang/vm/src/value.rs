@@ -11,6 +11,7 @@ pub use stack::StackValue;
 
 pub type EvalValue<'a, 'eval> = VMResult<Conditional<StackValue<'a, 'eval>>>;
 
+#[derive(PartialEq, Eq, Debug)]
 pub enum Conditional<T> {
     Defined(T),
     Undefined,

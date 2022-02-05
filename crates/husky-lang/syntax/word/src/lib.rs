@@ -4,22 +4,22 @@ mod keyword;
 pub use ident::{
     default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier,
 };
-pub use intern::{new_word_interner, InternWord, WordInterner};
+pub use intern::{new_word_unique_allocator, InternWord, WordInterner};
 pub use keyword::{ConfigKeyword, FuncKeyword, Keyword, StmtKeyword, TypeKeyword};
 
 use common::*;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub enum WordId {
+pub enum WordPtr {
     Keyword(Keyword),
     Identifier(Identifier),
 }
 
-impl WordId {
+impl WordPtr {
     pub fn ident(self) -> Option<Identifier> {
         match self {
-            WordId::Keyword(_) => None,
-            WordId::Identifier(ident) => Some(ident),
+            WordPtr::Keyword(_) => None,
+            WordPtr::Identifier(ident) => Some(ident),
         }
     }
 
@@ -33,57 +33,57 @@ impl WordId {
     }
 }
 
-impl From<Keyword> for WordId {
+impl From<Keyword> for WordPtr {
     fn from(keyword: Keyword) -> Self {
         Self::Keyword(keyword)
     }
 }
 
-impl From<TypeKeyword> for WordId {
+impl From<TypeKeyword> for WordPtr {
     fn from(ty: TypeKeyword) -> Self {
         Self::Keyword(ty.into())
     }
 }
 
-impl From<ConfigKeyword> for WordId {
+impl From<ConfigKeyword> for WordPtr {
     fn from(func: ConfigKeyword) -> Self {
         Self::Keyword(func.into())
     }
 }
 
-impl From<FuncKeyword> for WordId {
+impl From<FuncKeyword> for WordPtr {
     fn from(func: FuncKeyword) -> Self {
         Self::Keyword(func.into())
     }
 }
 
-impl From<StmtKeyword> for WordId {
+impl From<StmtKeyword> for WordPtr {
     fn from(stmt: StmtKeyword) -> Self {
         Self::Keyword(stmt.into())
     }
 }
 
-impl From<Identifier> for WordId {
+impl From<Identifier> for WordPtr {
     fn from(ident: Identifier) -> Self {
         Self::Identifier(ident)
     }
 }
 
-impl From<BuiltinIdentifier> for WordId {
+impl From<BuiltinIdentifier> for WordPtr {
     fn from(reserved: BuiltinIdentifier) -> Self {
-        WordId::Identifier(Identifier::Builtin(reserved))
+        WordPtr::Identifier(Identifier::Builtin(reserved))
     }
 }
 
-impl From<CustomIdentifier> for WordId {
+impl From<CustomIdentifier> for WordPtr {
     fn from(ident: CustomIdentifier) -> Self {
-        WordId::Identifier(Identifier::Custom(ident))
+        WordPtr::Identifier(Identifier::Custom(ident))
     }
 }
 
-impl From<ImplicitIdentifier> for WordId {
+impl From<ImplicitIdentifier> for WordPtr {
     fn from(ident: ImplicitIdentifier) -> Self {
-        WordId::Identifier(Identifier::Implicit(ident))
+        WordPtr::Identifier(Identifier::Implicit(ident))
     }
 }
 

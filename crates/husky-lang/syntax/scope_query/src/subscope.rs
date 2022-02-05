@@ -1,4 +1,4 @@
-use file::FileId;
+use file::FilePtr;
 use scope::*;
 use word::CustomIdentifier;
 
@@ -29,7 +29,7 @@ impl std::fmt::Debug for Entry {
 
 impl Entry {
     pub fn parse(
-        file_id: FileId,
+        file_id: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
     ) -> (Option<Entry>, Option<ScopeDefError>) {
@@ -129,7 +129,7 @@ impl SubscopeTable {
         }
     }
 
-    pub fn parse(file_id: FileId, token_groups: TokenGroupIter) -> Self {
+    pub fn parse(file_id: FilePtr, token_groups: TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|item| {
@@ -197,7 +197,7 @@ impl SubscopeTable {
     pub fn error_iter(&self) -> core::slice::Iter<ScopeDefError> {
         self.errors.iter()
     }
-    pub fn subscopes(&self, parent_scope_id: ScopeId) -> Vec<Scope> {
+    pub fn subscopes(&self, parent_scope_id: ScopePtr) -> Vec<Scope> {
         self.entries
             .iter()
             .filter_map(|entry| {

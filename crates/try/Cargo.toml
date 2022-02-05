@@ -8,6 +8,8 @@ rand = "0.8.4"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 common = { path = "../common", version = "0.0.0" }
+salsa = "0.17.0-pre.2"
+rayon = "1.5.1"
 
 [lib]
 doctest = false

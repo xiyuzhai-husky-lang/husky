@@ -27,7 +27,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn symbolic_ty(&mut self) -> AstResult<ScopeId> {
+    fn symbolic_ty(&mut self) -> AstResult<ScopePtr> {
         Ok(self
             .scope_proxy
             .db
@@ -64,7 +64,7 @@ impl<'a> AtomLRParser<'a> {
         ));
     }
 
-    pub(crate) fn ty(&mut self) -> AstResult<Option<ScopeId>> {
+    pub(crate) fn ty(&mut self) -> AstResult<Option<ScopePtr>> {
         Ok(if let Some(AtomKind::Scope(scope, kind)) = self.symbol()? {
             if kind == ScopeKind::Type {
                 Some(scope)
@@ -112,7 +112,7 @@ impl<'a> AtomLRParser<'a> {
         args.push(if next_matches!(self, "->") {
             self.generic()?
         } else {
-            ScopeId::Builtin(BuiltinIdentifier::Void).into()
+            ScopePtr::Builtin(BuiltinIdentifier::Void).into()
         });
         Ok(args)
     }
@@ -140,7 +140,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn intern(&self, scope: Scope) -> ScopeId {
+    fn intern(&self, scope: Scope) -> ScopePtr {
         self.scope_proxy.db.intern_scope(scope)
     }
 }

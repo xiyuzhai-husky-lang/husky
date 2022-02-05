@@ -1,6 +1,6 @@
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, ops::Deref};
 
-pub trait InternId:
+pub trait UniqueAllocatorPtr:
     'static
     + Hash
     + PartialEq
@@ -15,28 +15,28 @@ pub trait InternId:
     type Thing: 'static + ?Sized;
 }
 
-pub struct BasicInternId<T>
+pub struct BasicUniqueAllocatorPtr<T>
 where
     T: 'static + ?Sized,
 {
     target: &'static T,
 }
 
-impl<T: 'static + ?Sized> PartialEq for BasicInternId<T> {
+impl<T: 'static + ?Sized> PartialEq for BasicUniqueAllocatorPtr<T> {
     fn eq(&self, other: &Self) -> bool {
         (self.target as *const T) == (other.target as *const T)
     }
 }
 
-impl<T: 'static + ?Sized> Eq for BasicInternId<T> {}
+impl<T: 'static + ?Sized> Eq for BasicUniqueAllocatorPtr<T> {}
 
-impl<T: 'static + ?Sized> Hash for BasicInternId<T> {
+impl<T: 'static + ?Sized> Hash for BasicUniqueAllocatorPtr<T> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         (self.target as *const T).hash(state);
     }
 }
 
-impl<T: 'static + ?Sized> Clone for BasicInternId<T> {
+impl<T: 'static + ?Sized> Clone for BasicUniqueAllocatorPtr<T> {
     fn clone(&self) -> Self {
         Self {
             target: self.target,
@@ -44,12 +44,12 @@ impl<T: 'static + ?Sized> Clone for BasicInternId<T> {
     }
 }
 
-impl<T: 'static + ?Sized> Copy for BasicInternId<T> {}
+impl<T: 'static + ?Sized> Copy for BasicUniqueAllocatorPtr<T> {}
 
-unsafe impl<T: 'static + ?Sized> std::marker::Sync for BasicInternId<T> {}
-unsafe impl<T: 'static + ?Sized> std::marker::Send for BasicInternId<T> {}
+unsafe impl<T: 'static + ?Sized> std::marker::Sync for BasicUniqueAllocatorPtr<T> {}
+unsafe impl<T: 'static + ?Sized> std::marker::Send for BasicUniqueAllocatorPtr<T> {}
 
-impl<T: 'static + ?Sized> std::fmt::Debug for BasicInternId<T>
+impl<T: 'static + ?Sized> std::fmt::Debug for BasicUniqueAllocatorPtr<T>
 where
     T: 'static + Debug,
 {
@@ -58,7 +58,7 @@ where
     }
 }
 
-impl<T: 'static + ?Sized> Deref for BasicInternId<T> {
+impl<T: 'static + ?Sized> Deref for BasicUniqueAllocatorPtr<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -66,18 +66,18 @@ impl<T: 'static + ?Sized> Deref for BasicInternId<T> {
     }
 }
 
-impl<T: 'static + ?Sized> Borrow<T> for BasicInternId<T> {
+impl<T: 'static + ?Sized> Borrow<T> for BasicUniqueAllocatorPtr<T> {
     fn borrow(&self) -> &T {
         self.target
     }
 }
 
-impl<T: 'static + ?Sized> From<&'static T> for BasicInternId<T> {
+impl<T: 'static + ?Sized> From<&'static T> for BasicUniqueAllocatorPtr<T> {
     fn from(target: &'static T) -> Self {
         Self { target }
     }
 }
 
-impl<T: 'static + ?Sized> InternId for BasicInternId<T> {
+impl<T: 'static + ?Sized> UniqueAllocatorPtr for BasicUniqueAllocatorPtr<T> {
     type Thing = T;
 }
