@@ -6,7 +6,7 @@ pub use decl::{DeclStmt, DeclStmtKind};
 pub use impr::{StrictStmt, StrictStmtKind};
 
 use ast::*;
-use scope::{ScopeId, ScopeKind};
+use scope::{ScopeKind, ScopePtr};
 use syntax_types::Opr;
 use text::TextRange;
 use word::{BuiltinIdentifier, CustomIdentifier};
@@ -35,7 +35,7 @@ pub struct LazyStmtParser<'a> {
 
 pub struct Variable {
     ident: CustomIdentifier,
-    ty: ScopeId,
+    ty: ScopePtr,
 }
 
 impl<'a> LazyStmtParser<'a> {
@@ -75,7 +75,7 @@ impl<'a> LazyStmtParser<'a> {
                         DeclStmt {
                             kind: DeclStmtKind::Init {
                                 varname,
-                                initial_value,
+                                value: initial_value,
                             },
                         }
                     }
@@ -95,7 +95,7 @@ impl<'a> LazyStmtParser<'a> {
         .collect()
     }
 
-    fn def_variable(&mut self, varname: CustomIdentifier, ty: ScopeId) {
+    fn def_variable(&mut self, varname: CustomIdentifier, ty: ScopePtr) {
         self.variables.push(Variable { ident: varname, ty });
     }
 }
@@ -105,7 +105,7 @@ impl<'a> ExprParser<'a> for LazyStmtParser<'a> {
         self.arena
     }
 
-    fn vartype(&self, varname: CustomIdentifier) -> ScopeId {
+    fn vartype(&self, varname: CustomIdentifier) -> ScopePtr {
         self.variables
             .iter()
             .find_map(|variable| {

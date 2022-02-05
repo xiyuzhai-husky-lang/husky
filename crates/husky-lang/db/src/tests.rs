@@ -1,5 +1,6 @@
 mod ast;
 mod diagnostic;
+mod feature;
 mod fmt;
 mod ml;
 mod salsa;

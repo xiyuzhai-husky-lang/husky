@@ -1,2 +1,2 @@
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Def {}
+pub struct Pattern {}

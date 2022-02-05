@@ -14,7 +14,7 @@ pub use stmt::RawStmt;
 pub use syntax_types::InitKind;
 use transform::AstTransformer;
 
-use scope::ScopeId;
+use scope::ScopePtr;
 use syntax_types::*;
 
 use word::{CustomIdentifier, Identifier, StmtKeyword};
@@ -37,7 +37,7 @@ pub enum Ast {
     PatternDef,
     Use {
         ident: CustomIdentifier,
-        scope: ScopeId,
+        scope: ScopePtr,
     },
     MembDef {
         ident: CustomIdentifier,

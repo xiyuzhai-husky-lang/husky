@@ -1,32 +1,19 @@
-use std::{collections::hash_map::Entry, mem::MaybeUninit};
-
-use stdx::sync::ARwLock;
 use vm::{Conditional, EvalValue, StackValue};
 
 use super::*;
-use crate::*;
 
 #[derive(Default)]
-pub struct EvalCache<'eval> {
-    storage: ARwLock<HashMap<FeatureId, ARwLock<Option<EvalValue<'eval, 'eval>>>>>,
+pub struct FeatureSheet<'eval> {
+    values: HashMap<FeaturePtr, EvalValue<'eval, 'eval>>,
 }
 
-impl<'eval> EvalCache<'eval> {
+impl<'eval> FeatureSheet<'eval> {
     pub(super) fn value(
-        &self,
-        feature: FeatureId,
+        &mut self,
+        feature: FeaturePtr,
         compute_value: impl FnOnce() -> EvalValue<'eval, 'eval>,
     ) -> EvalValue<'eval, 'eval> {
-        self.storage
-            .write(|storage| storage.entry(feature).or_default().clone())
-            .write(|maybe_uninit| {
-                if let Some(value) = maybe_uninit {
-                    unsafe { share_cached(value) }
-                } else {
-                    *maybe_uninit = Some(compute_value());
-                    unsafe { share_cached(maybe_uninit.as_ref().unwrap()) }
-                }
-            })
+        unsafe { share_cached(self.values.entry(feature).or_insert_with(compute_value)) }
     }
 }
 
@@ -39,6 +26,7 @@ unsafe fn share_cached<'eval>(cached: &EvalValue<'eval, 'eval>) -> EvalValue<'ev
                 StackValue::GlobalRef(_) => todo!(),
                 StackValue::Ref(_) => todo!(),
                 StackValue::MutRef(_) => todo!(),
+                StackValue::Volatile(_) => todo!(),
             }),
             Conditional::Undefined => Conditional::Undefined,
         }),
@@ -46,6 +34,6 @@ unsafe fn share_cached<'eval>(cached: &EvalValue<'eval, 'eval>) -> EvalValue<'ev
     }
 }
 
-pub trait CacheFeature<'cache> {
-    fn cache(&self, idx: usize) -> &EvalCache<'cache>;
+pub trait HasFeatureSheet<'cache> {
+    fn feature_sheet(&self, idx: usize) -> &FeatureSheet<'cache>;
 }

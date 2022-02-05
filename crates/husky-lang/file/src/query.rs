@@ -1,13 +1,13 @@
 use std::path;
 
 use crate::*;
-use interner::InternId;
 use itertools::Itertools;
 use stdx::sync::ARwLock;
+use unique_allocator::UniqueAllocatorPtr;
 
-pub trait LiveFiles: InternFile {
-    fn get_live_files(&self) -> &ARwLock<HashMap<FileId, ARwLock<String>>>;
-    fn did_change_source(&mut self, id: FileId);
+pub trait LiveFiles: AllocateUniqueFile {
+    fn get_live_files(&self) -> &ARwLock<HashMap<FilePtr, ARwLock<String>>>;
+    fn did_change_source(&mut self, id: FilePtr);
 
     fn set_live_file_text(&mut self, path: PathBuf, text: String) {
         let id = self.intern_file(path);
@@ -34,12 +34,12 @@ pub trait LiveFiles: InternFile {
 
 #[salsa::query_group(FileQueryStorage)]
 pub trait FileSalsaQuery: LiveFiles {
-    fn file_content(&self, id: FileId) -> FileContent;
+    fn file_content(&self, id: FilePtr) -> FileContent;
 
-    fn main_file_id(&self, module_file_id: FileId) -> Option<FileId>;
+    fn main_file_id(&self, module_file_id: FilePtr) -> Option<FilePtr>;
 }
 
-fn file_content(this: &dyn FileSalsaQuery, id: FileId) -> FileContent {
+fn file_content(this: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
     this.salsa_runtime()
         .report_synthetic_read(salsa::Durability::LOW);
     this.get_live_files()
@@ -56,7 +56,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FileId) -> FileContent {
         })
 }
 
-fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FileId) -> Option<FileId> {
+fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
         let id = this.intern_file(ancestor.with_file_name("main.hsk"));
@@ -69,7 +69,7 @@ fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FileId) -> Option<Fil
 }
 
 pub trait FileQuery: FileSalsaQuery {
-    fn file_exists(&self, id: FileId) -> bool {
+    fn file_exists(&self, id: FilePtr) -> bool {
         match self.file_content(id) {
             FileContent::OnDisk(_) => true,
             FileContent::Live(_) => true,
@@ -78,15 +78,15 @@ pub trait FileQuery: FileSalsaQuery {
         }
     }
 
-    fn all_main_files(&self) -> Vec<FileId> {
-        self.file_interner()
+    fn all_main_files(&self) -> Vec<FilePtr> {
+        self.file_unique_allocator()
             .id_iter()
             .filter_map(|id| self.main_file_id(id))
             .unique()
             .collect()
     }
 
-    fn text(&self, id: FileId) -> Option<Arc<String>> {
+    fn text(&self, id: FilePtr) -> Option<Arc<String>> {
         match self.file_content(id) {
             FileContent::OnDisk(text) => Some(text),
             FileContent::Live(text) => Some(text),
@@ -95,7 +95,7 @@ pub trait FileQuery: FileSalsaQuery {
         }
     }
 
-    fn url(&self, id: FileId) -> lsp_types::Url {
+    fn url(&self, id: FilePtr) -> lsp_types::Url {
         return url_from_abs_path(&id);
 
         pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {

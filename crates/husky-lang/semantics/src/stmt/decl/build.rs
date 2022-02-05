@@ -25,7 +25,7 @@ impl DeclStmtInstructionBuilder {
         match stmt.kind {
             DeclStmtKind::Init {
                 varname,
-                ref initial_value,
+                value: ref initial_value,
             } => todo!(),
             DeclStmtKind::Assert { ref condition } => todo!(),
             DeclStmtKind::Return { ref result } => {

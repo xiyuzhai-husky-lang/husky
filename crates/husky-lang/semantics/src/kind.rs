@@ -1,14 +1,14 @@
-mod def;
 mod func;
 mod module;
+mod pattern;
 mod proc;
 pub mod ty;
 
 use crate::*;
 
-pub use def::Def;
 pub use func::Func;
 pub use module::Module;
+pub use pattern::Pattern;
 pub use proc::Proc;
 pub use ty::Ty;
 
@@ -20,7 +20,8 @@ pub struct Main {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EntityKind {
     Module(Module),
-    Def(Def),
+    Feature(Vec<DeclStmt>),
+    Pattern(Pattern),
     Func(Func),
     Proc(Proc),
     Ty(Ty),

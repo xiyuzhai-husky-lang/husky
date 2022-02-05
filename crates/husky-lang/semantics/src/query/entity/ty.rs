@@ -10,10 +10,14 @@ pub(super) fn ty_from_ast(
     generics: &[GenericPlaceholderKind],
     block: Option<FoldIter<AstResult<Ast>, FoldedList<AstResult<Ast>>>>,
     subentities: Arc<Vec<Arc<Entity>>>,
+    scope: ScopePtr,
+    vc: &EntityVersionControl,
 ) -> SemanticResultArc<Entity> {
     match kind {
         syntax_types::TyKind::Enum(_) => todo!(),
-        syntax_types::TyKind::Struct => struct_from_ast(ident, kind, generics, block, subentities),
+        syntax_types::TyKind::Struct => {
+            struct_from_ast(ident, kind, generics, block, subentities, scope, vc)
+        }
     }
 }
 
@@ -23,11 +27,13 @@ pub(super) fn struct_from_ast(
     generics: &[GenericPlaceholderKind],
     block: Option<FoldIter<AstResult<Ast>, FoldedList<AstResult<Ast>>>>,
     subentities: Arc<Vec<Arc<Entity>>>,
+    scope: ScopePtr,
+    vc: &EntityVersionControl,
 ) -> SemanticResultArc<Entity> {
     let block = if let Some(block) = block {
         block
     } else {
-        err!()
+        todo!()
     };
     let mut memb_vars = Vec::new();
     for FoldIterItem { value, .. } in block {
@@ -55,11 +61,13 @@ pub(super) fn struct_from_ast(
             Ast::Stmt(_) => todo!(),
         }
     }
-    Ok(Arc::new(Entity {
+    Ok(Arc::new(Entity::new(
         ident,
-        kind: EntityKind::Ty(Ty {
+        EntityKind::Ty(Ty {
             kind: TyKind::Struct { memb_vars },
         }),
         subentities,
-    }))
+        scope,
+        vc,
+    )))
 }

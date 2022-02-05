@@ -3,10 +3,14 @@ mod tests;
 
 pub use ast::AstQueryGroup;
 pub use diagnostic::DiagnosticQuery;
-pub use file::{FileQuery, InternFile, LiveFiles};
+pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
+pub use file::{AllocateUniqueFile, FileQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
-pub use scope::{InternScope, Scope};
+use scope::ScopePtr;
+pub use scope::{AllocateUniqueScope, Scope};
 pub use scope_query::{ScopeQueryGroup, ScopeSalsaQueryGroup};
+pub use semantics::ControlEntityVersion;
+use semantics::EntityKind;
 pub use semantics::InferQueryGroup;
 pub use semantics::PackageQueryGroup;
 pub use token::TokenQueryGroup;
@@ -29,14 +33,17 @@ use stdx::sync::ARwLock;
     semantics::EntityQueryGroupStorage,
     semantics::ConfigQueryGroupStorage,
     semantics::InferQueryGroupStorage,
+    feature::FeatureQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage
 )]
 pub struct HuskyLangDatabase {
     storage: salsa::Storage<HuskyLangDatabase>,
-    file_interner: file::FileInterner,
-    word_interner: word::WordInterner,
-    scope_interner: scope::ScopeInterner,
-    live_docs: ARwLock<HashMap<file::FileId, ARwLock<String>>>,
+    file_unique_allocator: file::UniqueFileAllocator,
+    word_unique_allocator: word::WordInterner,
+    scope_unique_allocator: scope::UniqueScopeAllocator,
+    live_docs: ARwLock<HashMap<file::FilePtr, ARwLock<String>>>,
+    vc: semantics::EntityVersionControl,
+    features: feature::FeatureUniqueAllocator,
 }
 
 impl fmt::Debug for HuskyLangDatabase {
@@ -51,10 +58,12 @@ impl salsa::ParallelDatabase for HuskyLangDatabase {
     fn snapshot(&self) -> salsa::Snapshot<HuskyLangDatabase> {
         salsa::Snapshot::new(HuskyLangDatabase {
             storage: self.storage.snapshot(),
-            file_interner: self.file_interner.clone(),
-            word_interner: self.word_interner.clone(),
-            scope_interner: self.scope_interner.clone(),
+            file_unique_allocator: self.file_unique_allocator.clone(),
+            word_unique_allocator: self.word_unique_allocator.clone(),
+            scope_unique_allocator: self.scope_unique_allocator.clone(),
             live_docs: self.live_docs.clone(),
+            vc: self.vc.clone(),
+            features: self.features.clone(),
         })
     }
 }
@@ -63,41 +72,43 @@ impl HuskyLangDatabase {
     pub fn new() -> HuskyLangDatabase {
         Self {
             storage: Default::default(),
-            file_interner: file::new_file_interner(),
-            word_interner: word::new_word_interner(),
-            scope_interner: scope::new_scope_interner(),
+            file_unique_allocator: file::new_file_unique_allocator(),
+            word_unique_allocator: word::new_word_unique_allocator(),
+            scope_unique_allocator: scope::new_scope_unique_allocator(),
             live_docs: Default::default(),
+            vc: semantics::EntityVersionControl::new(),
+            features: feature::new_feature_unique_allocator(),
         }
     }
 }
 
-impl InternFile for HuskyLangDatabase {
-    fn file_interner(&self) -> &file::FileInterner {
-        &self.file_interner
+impl AllocateUniqueFile for HuskyLangDatabase {
+    fn file_unique_allocator(&self) -> &file::UniqueFileAllocator {
+        &self.file_unique_allocator
     }
 }
 
 impl InternWord for HuskyLangDatabase {
-    fn word_interner(&self) -> &word::WordInterner {
-        &self.word_interner
+    fn word_unique_allocator(&self) -> &word::WordInterner {
+        &self.word_unique_allocator
     }
 }
 
 impl LiveFiles for HuskyLangDatabase {
-    fn get_live_files(&self) -> &ARwLock<HashMap<file::FileId, ARwLock<String>>> {
+    fn get_live_files(&self) -> &ARwLock<HashMap<file::FilePtr, ARwLock<String>>> {
         &self.live_docs
     }
 
-    fn did_change_source(&mut self, id: file::FileId) {
+    fn did_change_source(&mut self, id: file::FilePtr) {
         file::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }
 
 impl FileQuery for HuskyLangDatabase {}
 
-impl InternScope for HuskyLangDatabase {
-    fn scope_interner(&self) -> &scope::ScopeInterner {
-        &self.scope_interner
+impl AllocateUniqueScope for HuskyLangDatabase {
+    fn scope_unique_allocator(&self) -> &scope::UniqueScopeAllocator {
+        &self.scope_unique_allocator
     }
 }
 
@@ -108,5 +119,17 @@ impl ScopeQueryGroup for HuskyLangDatabase {}
 impl Upcast<dyn InferQueryGroup> for HuskyLangDatabase {
     fn upcast(&self) -> &(dyn semantics::InferQueryGroup + 'static) {
         self
+    }
+}
+
+impl ControlEntityVersion for HuskyLangDatabase {
+    fn entity_vc(&self) -> &vc::VersionControl<ScopePtr, EntityKind> {
+        &self.vc
+    }
+}
+
+impl AllocateUniqueFeature for HuskyLangDatabase {
+    fn features(&self) -> &feature::FeatureUniqueAllocator {
+        &self.features
     }
 }

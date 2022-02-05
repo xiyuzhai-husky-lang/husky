@@ -46,7 +46,7 @@ impl ExprStackOpr {
         }
     }
 
-    fn lambda_head(inputs: Vec<(CustomIdentifier, Option<ScopeId>)>, start: TextPosition) -> Self {
+    fn lambda_head(inputs: Vec<(CustomIdentifier, Option<ScopePtr>)>, start: TextPosition) -> Self {
         Self {
             precedence: Precedence::LambdaHead,
             kind: ExprStackOprKind::LambdaHead { inputs, start },
@@ -68,7 +68,7 @@ enum ExprStackOprKind {
         start: TextPosition,
     },
     LambdaHead {
-        inputs: Vec<(CustomIdentifier, Option<ScopeId>)>,
+        inputs: Vec<(CustomIdentifier, Option<ScopePtr>)>,
         start: TextPosition,
     },
 }
@@ -144,7 +144,7 @@ impl<'a> ExprStack<'a> {
 
     pub(crate) fn accept_lambda_head(
         &mut self,
-        inputs: Vec<(CustomIdentifier, Option<ScopeId>)>,
+        inputs: Vec<(CustomIdentifier, Option<ScopePtr>)>,
         start: TextPosition,
     ) {
         self.oprs.push(ExprStackOpr::lambda_head(inputs, start))
@@ -279,7 +279,7 @@ impl<'a> ExprStack<'a> {
 
     fn synthesize_lambda(
         &mut self,
-        inputs: Vec<(CustomIdentifier, Option<ScopeId>)>,
+        inputs: Vec<(CustomIdentifier, Option<ScopePtr>)>,
         start: TextPosition,
     ) {
         let range = (start..self.exprs.last().unwrap().range.end).into();

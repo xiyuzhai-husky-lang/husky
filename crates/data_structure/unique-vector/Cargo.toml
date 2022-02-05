@@ -1,5 +1,5 @@
 [package]
-name = "interner"
+name = "unique-vector"
 version = "0.0.0"
 description = "Interner for the Husky Programming Language"
 license = "MIT OR Apache-2.0"

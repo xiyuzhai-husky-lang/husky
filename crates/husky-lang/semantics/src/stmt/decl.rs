@@ -13,7 +13,7 @@ pub struct DeclStmt {
 pub enum DeclStmtKind {
     Init {
         varname: CustomIdentifier,
-        initial_value: Expr,
+        value: Expr,
     },
     Assert {
         condition: Expr,

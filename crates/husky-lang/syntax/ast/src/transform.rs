@@ -5,7 +5,7 @@ mod impl_symbol_proxy;
 mod impl_use_all;
 mod utils;
 
-use file::FileId;
+use file::FilePtr;
 use fold::{FoldedList, LocalStack, LocalValue};
 use scope::ScopeRoute;
 use scope_query::PackageOrModule;
@@ -23,7 +23,7 @@ use crate::{
 
 pub struct AstTransformer<'a> {
     db: &'a dyn AstQueryGroup,
-    main: FileId,
+    main: FilePtr,
     arena: RawExprArena,
     folded_results: FoldedList<AstResult<Ast>>,
     symbols: LocalStack<Symbol>,
@@ -153,7 +153,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                     kind: MembKind::MembVar {
                         ty: MembType {
                             contract: InputContract::Own,
-                            ty,
+                            scope: ty,
                         },
                     },
                 })

@@ -8,7 +8,7 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-interner = { path = "../../../data_structure/interner", version = "0.0.0" }
+unique-allocator = { path = "../../../data_structure/unique_allocator", version = "0.0.0" }
 fold = { path = "../../../data_structure/fold", version = "0.0.0" }
 arena = { path = "../../../data_structure/arena", version = "0.0.0" }
 common = { path = "../../../common", version = "0.0.0" }

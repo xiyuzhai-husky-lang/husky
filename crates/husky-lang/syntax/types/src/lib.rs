@@ -2,7 +2,7 @@ mod opr;
 
 pub use opr::*;
 
-use scope::{ScopeId, ScopeKind};
+use scope::{ScopeKind, ScopePtr};
 pub use vm::{InputContract, PrimitiveValue};
 use word::CustomIdentifier;
 
@@ -39,13 +39,13 @@ pub struct FuncDecl {
     pub time_params: Vec<GenericPlaceholder>,
     pub space_params: Vec<GenericPlaceholder>,
     pub inputs: Vec<(CustomIdentifier, InputType)>,
-    pub output: ScopeId,
+    pub output: ScopePtr,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum GenericPlaceholderKind {
     Const,
-    Type { traits: Vec<ScopeId> },
+    Type { traits: Vec<ScopePtr> },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -57,13 +57,13 @@ pub struct GenericPlaceholder {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MembType {
     pub contract: InputContract,
-    pub ty: ScopeId,
+    pub scope: ScopePtr,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct InputType {
     pub contract: InputContract,
-    pub ty: ScopeId,
+    pub ty: ScopePtr,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

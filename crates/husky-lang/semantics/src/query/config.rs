@@ -4,7 +4,7 @@ use std::sync::Arc;
 
 use ast::{Ast, AstResult, AstText};
 use fold::{FoldIter, FoldIterItem, FoldStorage, FoldedList};
-use scope::ScopeId;
+use scope::ScopePtr;
 
 use crate::{config::*, error::*, *};
 
@@ -12,10 +12,10 @@ use crate::{config::*, error::*, *};
 
 #[salsa::query_group(ConfigQueryGroupStorage)]
 pub trait ConfigQueryGroup: InferQueryGroup + Upcast<dyn InferQueryGroup> {
-    fn config(&self, main_file: file::FileId) -> SemanticResultArc<Config>;
+    fn config(&self, main_file: file::FilePtr) -> SemanticResultArc<Config>;
 }
 
-fn config(this: &dyn ConfigQueryGroup, main_file: file::FileId) -> SemanticResultArc<Config> {
+fn config(this: &dyn ConfigQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Config> {
     let ast_text = this.ast_text(main_file)?;
     config_from_ast(this, &ast_text)
 }
@@ -42,5 +42,5 @@ fn dataset_config_from_ast_text(
             _ => (),
         }
     }
-    err!()
+    err!("dataset config not found")
 }

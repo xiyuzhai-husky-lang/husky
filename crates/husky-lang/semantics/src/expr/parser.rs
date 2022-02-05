@@ -1,5 +1,5 @@
 use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
-use scope::{ScopeId, ScopeKind};
+use scope::{ScopeKind, ScopePtr};
 use syntax_types::Opr;
 use vm::BinaryOpr;
 use word::BuiltinIdentifier;
@@ -10,11 +10,11 @@ use super::{BinaryOpnKind, Opn};
 
 pub trait ExprParser<'a> {
     fn arena(&self) -> &'a RawExprArena;
-    fn vartype(&self, varname: CustomIdentifier) -> ScopeId;
+    fn vartype(&self, varname: CustomIdentifier) -> ScopePtr;
     fn db(&self) -> &'a dyn InferQueryGroup;
 
     fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Expr> {
-        let (ty, kind): (ScopeId, _) = match raw_expr.kind {
+        let (ty, kind): (ScopePtr, _) = match raw_expr.kind {
             RawExprKind::Variable(ident) => (self.vartype(ident), ExprKind::Variable(ident)),
             RawExprKind::Scope(id, kind) => match kind {
                 ScopeKind::Module => todo!(),
@@ -42,7 +42,7 @@ pub trait ExprParser<'a> {
         })
     }
 
-    fn parse_opn(&mut self, opr: Opr, opds: &RawExprRange) -> SemanticResult<(ScopeId, ExprKind)> {
+    fn parse_opn(&mut self, opr: Opr, opds: &RawExprRange) -> SemanticResult<(ScopePtr, ExprKind)> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
@@ -90,7 +90,7 @@ pub trait ExprParser<'a> {
         &mut self,
         opr: BinaryOpr,
         opds: &RawExprRange,
-    ) -> SemanticResult<(ScopeId, ExprKind)> {
+    ) -> SemanticResult<(ScopePtr, ExprKind)> {
         let opds = self.arena()[opds]
             .iter()
             .map(|raw| self.parse_expr(raw))
@@ -103,10 +103,10 @@ pub trait ExprParser<'a> {
             BinaryOpr::Neq => todo!(),
             BinaryOpr::Eq => {
                 if opds[0].ty != opds[1].ty {
-                    err!()
+                    err!("expect use of \"==\" on same types")
                 }
                 let opn = match opds[0].ty {
-                    ScopeId::Builtin(ident) => {
+                    ScopePtr::Builtin(ident) => {
                         let kind = match ident {
                             BuiltinIdentifier::Void => todo!(),
                             BuiltinIdentifier::I32 => BinaryOpnKind::EqI32,
@@ -120,7 +120,7 @@ pub trait ExprParser<'a> {
                             kind,
                         }
                     }
-                    ScopeId::Custom(_) => todo!(),
+                    ScopePtr::Custom(_) => todo!(),
                 };
                 (
                     BuiltinIdentifier::Bool.into(),

@@ -8,7 +8,7 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
-    Scope(ScopeId, ScopeKind),
+    Scope(ScopePtr, ScopeKind),
     Variable(CustomIdentifier),
     Literal(syntax_types::PrimitiveValue),
     Binary(BinaryOpr),
@@ -17,10 +17,10 @@ pub enum AtomKind {
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
-    LambdaHead(Vec<(CustomIdentifier, Option<ScopeId>)>),
+    LambdaHead(Vec<(CustomIdentifier, Option<ScopePtr>)>),
 }
 
-pub type LambdaHead = Vec<(Identifier, Option<ScopeId>)>;
+pub type LambdaHead = Vec<(Identifier, Option<ScopePtr>)>;
 
 impl From<BinaryOpr> for AtomKind {
     fn from(opr: BinaryOpr) -> Self {

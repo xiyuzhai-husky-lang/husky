@@ -1,30 +1,30 @@
-mod id;
 mod internal;
 mod pool;
+mod ptr;
 
-pub use id::{BasicInternId, InternId};
+pub use ptr::{BasicUniqueAllocatorPtr, UniqueAllocatorPtr};
 
 use common::*;
 
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData};
 use stdx::sync::ARwLock;
 
-use internal::InternerInternal;
+use internal::UniqueAllocatorInternal;
 
-pub struct Interner<T, Owned, Id = BasicInternId<T>>
+pub struct UniqueAllocator<T, Owned = T, Id = BasicUniqueAllocatorPtr<T>>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: InternId<Thing = T>,
+    Id: UniqueAllocatorPtr<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
-    internal: ARwLock<InternerInternal<T, Owned, Id>>,
+    internal: ARwLock<UniqueAllocatorInternal<T, Owned, Id>>,
     phantom: PhantomData<T>,
 }
 
-impl<T, Owned, Id> Clone for Interner<T, Owned, Id>
+impl<T, Owned, Id> Clone for UniqueAllocator<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: InternId<Thing = T>,
+    Id: UniqueAllocatorPtr<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     fn clone(&self) -> Self {
@@ -35,37 +35,37 @@ where
     }
 }
 
-impl<T, Owned, Id> Interner<T, Owned, Id>
+impl<T, Owned, Ptr> UniqueAllocator<T, Owned, Ptr>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: InternId<Thing = T>,
+    Ptr: UniqueAllocatorPtr<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     pub fn empty() -> Self {
         Self {
-            internal: ARwLock::new(InternerInternal::default()),
+            internal: ARwLock::new(UniqueAllocatorInternal::default()),
             phantom: PhantomData,
         }
     }
 
     pub fn new_from<I: 'static>(ids: &[I]) -> Self
     where
-        Id: for<'a> From<&'a I>,
+        Ptr: for<'a> From<&'a I>,
     {
         Self {
-            internal: ARwLock::new(InternerInternal::new_from(ids)),
+            internal: ARwLock::new(UniqueAllocatorInternal::new_from(ids)),
             phantom: PhantomData,
         }
     }
 
-    pub fn new(ids: &[Id]) -> Self {
+    pub fn new(ids: &[Ptr]) -> Self {
         Self {
-            internal: ARwLock::new(InternerInternal::new(ids)),
+            internal: ARwLock::new(UniqueAllocatorInternal::new(ids)),
             phantom: PhantomData,
         }
     }
 
-    pub fn intern(&self, owned: Owned) -> Id
+    pub fn alloc(&self, owned: Owned) -> Ptr
     where
         T: Debug,
     {
@@ -81,7 +81,7 @@ where
                         None => {
                             let owned: &Owned = unsafe { &*internal.things.alloc(owned) };
                             let ptr: *const T = owned.borrow();
-                            let id: Id = unsafe { &*ptr }.into();
+                            let id: Ptr = unsafe { &*ptr }.into();
                             internal.ids.insert(owned.clone(), id);
                             id
                         }
@@ -91,7 +91,7 @@ where
         return result;
     }
 
-    pub fn intern_ref(&self, t: &T) -> Id {
+    pub fn alloc_from_ref(&self, t: &T) -> Ptr {
         let result = match self
             .internal
             .read(|internal| internal.ids.get(t).map(|id| *id))
@@ -113,9 +113,9 @@ where
         return result;
     }
 
-    pub fn id_iter(&self) -> impl Iterator<Item = Id> {
+    pub fn id_iter(&self) -> impl Iterator<Item = Ptr> {
         self.internal
-            .read(|internal| internal.id_iter().collect::<Vec<Id>>())
+            .read(|internal| internal.id_iter().collect::<Vec<Ptr>>())
             .into_iter()
     }
 }

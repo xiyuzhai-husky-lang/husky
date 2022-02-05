@@ -7,10 +7,10 @@ use crate::{error::*, *};
 pub trait MainQueryGroup:
     ast::AstQueryGroup + InferQueryGroup + Upcast<dyn InferQueryGroup>
 {
-    fn main(&self, main_file: file::FileId) -> SemanticResultArc<Main>;
+    fn main(&self, main_file: file::FilePtr) -> SemanticResultArc<Main>;
 }
 
-fn main(this: &dyn MainQueryGroup, main_file: file::FileId) -> SemanticResultArc<Main> {
+fn main(this: &dyn MainQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Main> {
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()? {
@@ -26,5 +26,5 @@ fn main(this: &dyn MainQueryGroup, main_file: file::FileId) -> SemanticResultArc
             _ => (),
         }
     }
-    err!()
+    err!("main not found")
 }

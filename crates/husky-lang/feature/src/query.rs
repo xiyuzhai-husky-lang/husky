@@ -1,20 +1,35 @@
-use vm::EvalValue;
+use std::sync::Arc;
 
-use crate::{cache::CacheFeature, eval::Evaluator, intern::InternFeature, *};
+use scope::ScopePtr;
+use semantics::EntityKind;
+use semantics::PackageQueryGroup;
+use semantics::SemanticResultArc;
 
-#[salsa::query_group(FeatureQueryStorage)]
-pub trait FeatureSalsaQuery: InternFeature {
-    fn main_feature(&self) -> FeatureId {}
+use crate::{unique_allocate::AllocateUniqueFeature, *};
+
+#[salsa::query_group(FeatureQueryGroupStorage)]
+pub trait FeatureQueryGroup: AllocateUniqueFeature + PackageQueryGroup {
+    fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
+    fn feature_block(&self, scope: ScopePtr) -> SemanticResultArc<FeatureBlock>;
 }
 
-fn main_feature(this: &dyn FeatureSalsaQuery) -> FeatureId {
-    todo!()
+fn main_feature_block(
+    this: &dyn FeatureQueryGroup,
+    main_file: file::FilePtr,
+) -> SemanticResultArc<FeatureBlock> {
+    let package = this.package(main_file)?;
+    let main = &*package.main;
+    Ok(Arc::new(FeatureBlock::new(
+        &main.stmts,
+        &[],
+        this.features(),
+    )))
 }
 
-// pub trait FeatureQuery: FeatureSalsaQuery {
-//     fn eval(&self, feature: FeatureId, idx: usize) -> EvalValue<'static, 'static> {
-//         let features = self.features();
-//         let cache = self.cache(idx);
-//         Evaluator::<'_, 'static>::new(features, cache).eval(feature)
-//     }
-// }
+fn feature_block(this: &dyn FeatureQueryGroup, scope: ScopePtr) -> SemanticResultArc<FeatureBlock> {
+    let entity = this.entity(scope)?;
+    match entity.kind() {
+        EntityKind::Feature(_) => todo!(),
+        _ => todo!(),
+    }
+}

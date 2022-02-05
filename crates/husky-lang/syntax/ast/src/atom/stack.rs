@@ -80,7 +80,7 @@ impl AtomStack {
                 let ident = match attr {
                     ListStartAttr::None => BuiltinIdentifier::Tuple,
                     ListStartAttr::Attach => {
-                        generics.push(ScopeId::Builtin(BuiltinIdentifier::Void).into());
+                        generics.push(ScopePtr::Builtin(BuiltinIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
                 };
@@ -114,7 +114,7 @@ impl AtomStack {
             ListStartAttr::Attach => {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.kind {
-                    AtomKind::Scope(ScopeId::Builtin(ident), _) => match ident {
+                    AtomKind::Scope(ScopePtr::Builtin(ident), _) => match ident {
                         BuiltinIdentifier::Fp
                         | BuiltinIdentifier::Fn
                         | BuiltinIdentifier::FnMut
@@ -165,7 +165,7 @@ impl AtomStack {
     pub(crate) fn make_func_type(
         &mut self,
         scope_proxy: SymbolProxy,
-        output: ScopeId,
+        output: ScopePtr,
         mut tail: TextRange,
     ) -> AstResult<()> {
         let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;

@@ -17,7 +17,7 @@ impl ScopeAliasTable {
         }
     }
 
-    pub fn parse(file_id: FileId, token_groups: token::TokenGroupIter) -> Self {
+    pub fn parse(file_id: FilePtr, token_groups: token::TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|item| {
@@ -33,12 +33,12 @@ impl ScopeAliasTable {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Entry {
     ident: Identifier,
-    scope_id: ScopeId,
+    scope_id: ScopePtr,
 }
 
 impl Entry {
     pub fn parse(
-        _file_id: FileId,
+        _file_id: FilePtr,
         _token_group_index: usize,
         token_group: &[token::Token],
     ) -> (Option<Entry>, Option<ScopeAliasDefError>) {

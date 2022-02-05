@@ -1,6 +1,6 @@
 use common::*;
 
-use file::FileId;
+use file::FilePtr;
 use scope::*;
 use text::TextRange;
 use word::{BuiltinIdentifier, CustomIdentifier};
@@ -31,7 +31,7 @@ pub enum SymbolKind {
 
 #[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
-    pub(crate) main: Option<FileId>,
+    pub(crate) main: Option<FilePtr>,
     pub(crate) db: &'a dyn AstQueryGroup,
     pub(crate) symbols: &'a fold::LocalStack<Symbol>,
 }
