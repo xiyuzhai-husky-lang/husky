@@ -19,6 +19,8 @@ scope = { path = "../syntax/scope", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 syntax-types = { path = "../syntax/types", version = "0.0.0" }
 semantics = { path = "../semantics", version = "0.0.0" }
+feature = { path = "../feature", version = "0.0.0" }
 dataset = { path = "../../builtin/dataset", version = "0.0.0" }
-husky-lang-db = { path = "../db", version = "0.0.0" }
+husky-lang-compile-time = { path = "../compile-time", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
+tokio = { version = "1.16.1", features = ["sync"] }

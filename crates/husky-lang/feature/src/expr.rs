@@ -10,7 +10,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureExpr {
-    kind: FeatureExprKind,
+    pub kind: FeatureExprKind,
     pub(crate) feature: FeaturePtr,
 }
 
@@ -22,7 +22,10 @@ pub enum FeatureExprKind {
         lopd: Arc<FeatureExpr>,
         ropd: Arc<FeatureExpr>,
     },
-    Variable(CustomIdentifier),
+    Variable {
+        varname: CustomIdentifier,
+        value: Arc<FeatureExpr>,
+    },
 }
 
 impl FeatureExpr {
@@ -34,7 +37,10 @@ impl FeatureExpr {
                 .find_map(|symbol| {
                     if symbol.varname == varname {
                         Some(Self {
-                            kind: FeatureExprKind::Variable(varname),
+                            kind: FeatureExprKind::Variable {
+                                varname,
+                                value: symbol.value.clone(),
+                            },
                             feature: symbol.feature,
                         })
                     } else {

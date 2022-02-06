@@ -3,7 +3,7 @@
 //! `ide` crate.
 
 use common::*;
-type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_lang_db::HuskyLangDatabase>;
+type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_lang_compile_time::HuskyLangCompileTime>;
 
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,

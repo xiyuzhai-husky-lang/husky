@@ -31,7 +31,7 @@ pub(crate) async fn handle_notif_upgraded(websocket: WebSocket, server: Arc<Debu
                 let server_ = server.clone();
                 let future = async move {
                     match notif {
-                        Notification::DidChangeText => server_.runtime.change_text(),
+                        Notification::DidChangeText => server_.change_text(),
                     }
                 };
                 server.threadpool.spawn(future).unwrap();

@@ -14,7 +14,9 @@
         <TreeView slot="left" />
         <Figure slot="right" figure={$figure} />
     </HSplitPane>
-    <div class="BottomTemp">connection: {getDummy()}</div>
+    <div class="BottomTemp">
+        current package: <div class="Package">none</div>
+    </div>
 </div>
 
 <style>
@@ -27,5 +29,13 @@
         display: flex;
         height: 25px;
         background: rgb(0, 126, 126);
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+    .Package {
+        background: rgb(0, 80, 80);
+        padding-left: 10px;
+        padding-right: 10px;
     }
 </style>

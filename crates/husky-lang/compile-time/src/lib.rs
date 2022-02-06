@@ -36,8 +36,8 @@ use stdx::sync::ARwLock;
     feature::FeatureQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage
 )]
-pub struct HuskyLangDatabase {
-    storage: salsa::Storage<HuskyLangDatabase>,
+pub struct HuskyLangCompileTime {
+    storage: salsa::Storage<HuskyLangCompileTime>,
     file_unique_allocator: file::UniqueFileAllocator,
     word_unique_allocator: word::WordInterner,
     scope_unique_allocator: scope::UniqueScopeAllocator,
@@ -46,17 +46,17 @@ pub struct HuskyLangDatabase {
     features: feature::FeatureUniqueAllocator,
 }
 
-impl fmt::Debug for HuskyLangDatabase {
+impl fmt::Debug for HuskyLangCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("HuskyLangDatabase").finish()
     }
 }
 
-impl salsa::Database for HuskyLangDatabase {}
+impl salsa::Database for HuskyLangCompileTime {}
 
-impl salsa::ParallelDatabase for HuskyLangDatabase {
-    fn snapshot(&self) -> salsa::Snapshot<HuskyLangDatabase> {
-        salsa::Snapshot::new(HuskyLangDatabase {
+impl salsa::ParallelDatabase for HuskyLangCompileTime {
+    fn snapshot(&self) -> salsa::Snapshot<HuskyLangCompileTime> {
+        salsa::Snapshot::new(HuskyLangCompileTime {
             storage: self.storage.snapshot(),
             file_unique_allocator: self.file_unique_allocator.clone(),
             word_unique_allocator: self.word_unique_allocator.clone(),
@@ -68,8 +68,8 @@ impl salsa::ParallelDatabase for HuskyLangDatabase {
     }
 }
 
-impl HuskyLangDatabase {
-    pub fn new() -> HuskyLangDatabase {
+impl Default for HuskyLangCompileTime {
+    fn default() -> Self {
         Self {
             storage: Default::default(),
             file_unique_allocator: file::new_file_unique_allocator(),
@@ -82,19 +82,19 @@ impl HuskyLangDatabase {
     }
 }
 
-impl AllocateUniqueFile for HuskyLangDatabase {
+impl AllocateUniqueFile for HuskyLangCompileTime {
     fn file_unique_allocator(&self) -> &file::UniqueFileAllocator {
         &self.file_unique_allocator
     }
 }
 
-impl InternWord for HuskyLangDatabase {
+impl InternWord for HuskyLangCompileTime {
     fn word_unique_allocator(&self) -> &word::WordInterner {
         &self.word_unique_allocator
     }
 }
 
-impl LiveFiles for HuskyLangDatabase {
+impl LiveFiles for HuskyLangCompileTime {
     fn get_live_files(&self) -> &ARwLock<HashMap<file::FilePtr, ARwLock<String>>> {
         &self.live_docs
     }
@@ -104,31 +104,31 @@ impl LiveFiles for HuskyLangDatabase {
     }
 }
 
-impl FileQuery for HuskyLangDatabase {}
+impl FileQuery for HuskyLangCompileTime {}
 
-impl AllocateUniqueScope for HuskyLangDatabase {
+impl AllocateUniqueScope for HuskyLangCompileTime {
     fn scope_unique_allocator(&self) -> &scope::UniqueScopeAllocator {
         &self.scope_unique_allocator
     }
 }
 
-impl TokenQueryGroup for HuskyLangDatabase {}
+impl TokenQueryGroup for HuskyLangCompileTime {}
 
-impl ScopeQueryGroup for HuskyLangDatabase {}
+impl ScopeQueryGroup for HuskyLangCompileTime {}
 
-impl Upcast<dyn InferQueryGroup> for HuskyLangDatabase {
+impl Upcast<dyn InferQueryGroup> for HuskyLangCompileTime {
     fn upcast(&self) -> &(dyn semantics::InferQueryGroup + 'static) {
         self
     }
 }
 
-impl ControlEntityVersion for HuskyLangDatabase {
+impl ControlEntityVersion for HuskyLangCompileTime {
     fn entity_vc(&self) -> &vc::VersionControl<ScopePtr, EntityKind> {
         &self.vc
     }
 }
 
-impl AllocateUniqueFeature for HuskyLangDatabase {
+impl AllocateUniqueFeature for HuskyLangCompileTime {
     fn features(&self) -> &feature::FeatureUniqueAllocator {
         &self.features
     }

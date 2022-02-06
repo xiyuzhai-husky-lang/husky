@@ -5,7 +5,7 @@ use crate::*;
 
 #[test]
 fn no_error_single_file() {
-    let mut db = HuskyLangDatabase::new();
+    let mut db = HuskyLangCompileTime::default();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -17,7 +17,7 @@ main:
         .into(),
     );
 
-    let main_file = db.intern_file("haha/main.hsk".into());
+    let main_file = db.alloc_file("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -29,7 +29,7 @@ main:
 
 #[test]
 fn no_error_many_files() {
-    let mut db = HuskyLangDatabase::new();
+    let mut db = HuskyLangCompileTime::default();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -49,7 +49,7 @@ struct B {}
         .into(),
     );
 
-    let main_file = db.intern_file("haha/main.hsk".into());
+    let main_file = db.alloc_file("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -61,7 +61,7 @@ struct B {}
 
 #[test]
 fn error1() {
-    let mut db = HuskyLangDatabase::new();
+    let mut db = HuskyLangCompileTime::default();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -73,7 +73,7 @@ main:
         .into(),
     );
 
-    let main_file = db.intern_file("haha/main.hsk".into());
+    let main_file = db.alloc_file("haha/main.hsk".into());
     let package = db.intern_scope(Scope::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -85,7 +85,7 @@ main:
 
 #[test]
 fn datasets() {
-    let mut db = HuskyLangDatabase::new();
+    let mut db = HuskyLangCompileTime::default();
     let dataset_scope = db.intern_scope(Scope {
         route: ScopeRoute::Builtin {
             ident: BuiltinIdentifier::DatasetType,

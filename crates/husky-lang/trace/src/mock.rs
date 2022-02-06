@@ -70,8 +70,8 @@ macro_rules! fade {
     }};
 }
 
-pub fn root_traces() -> Vec<Trace> {
-    vec![Trace {
+pub fn root_traces() -> Vec<Arc<Trace>> {
+    vec![Arc::new(Trace {
         id: 0,
         parent: None,
         tokens: vec![
@@ -87,12 +87,12 @@ pub fn root_traces() -> Vec<Trace> {
             fade!("="),
             fade!("a plot"),
         ],
-    }]
+    })]
 }
-pub fn subtraces(id: usize) -> Vec<Trace> {
+pub fn subtraces(id: usize) -> Vec<Arc<Trace>> {
     if id == 0 {
         vec![
-            Trace {
+            Arc::new(Trace {
                 id: 1,
                 parent: Some(0),
                 tokens: vec![
@@ -108,8 +108,8 @@ pub fn subtraces(id: usize) -> Vec<Trace> {
                     fade!("="),
                     fade!("a plot"),
                 ],
-            },
-            Trace {
+            }),
+            Arc::new(Trace {
                 id: 2,
                 parent: Some(0),
                 tokens: vec![
@@ -125,7 +125,7 @@ pub fn subtraces(id: usize) -> Vec<Trace> {
                     fade!("="),
                     fade!("a plot"),
                 ],
-            },
+            }),
         ]
     } else {
         vec![]

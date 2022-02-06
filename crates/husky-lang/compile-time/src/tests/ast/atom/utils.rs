@@ -3,7 +3,7 @@ use crate::*;
 use ast::atom::{Atom, AtomKind};
 
 pub(super) fn check_atom_kind(source: &'static str, kind: AtomKind) {
-    let mut db = HuskyLangDatabase::new();
+    let mut db = HuskyLangDatabase::default();
     db.set_live_file_text("haha/main.hsk".into(), source.into());
 
     let main_file_id = db.file_id("haha/main.hsk".into());
@@ -23,7 +23,7 @@ pub(super) fn check_atom_kind(source: &'static str, kind: AtomKind) {
 pub(super) fn get_stmt_atoms_in_one_line_group(
     source: &'static str,
 ) -> (HuskyLangDatabase, Vec<Atom>) {
-    let mut db = HuskyLangDatabase::new();
+    let mut db = HuskyLangDatabase::default();
     db.set_live_file_text("haha/main.hsk".into(), source.into());
 
     let main_file_id = db.file_id("haha/main.hsk".into());

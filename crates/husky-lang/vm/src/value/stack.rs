@@ -2,7 +2,6 @@ use std::sync::Arc;
 
 use crate::*;
 
-#[derive(Debug)]
 pub enum StackValue<'stack, 'eval: 'stack> {
     Primitive(PrimitiveValue),
     Boxed(BoxedValue<'eval>),
@@ -10,6 +9,19 @@ pub enum StackValue<'stack, 'eval: 'stack> {
     GlobalRef(&'eval dyn AnyValueDyn),
     Ref(&'stack dyn AnyValueDyn),
     MutRef(&'stack mut dyn AnyValueDyn),
+}
+
+impl<'stack, 'eval: 'stack> std::fmt::Debug for StackValue<'stack, 'eval> {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Primitive(arg0) => arg0.fmt(f),
+            Self::Boxed(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
+            Self::Volatile(arg0) => f.debug_tuple("Volatile").field(arg0).finish(),
+            Self::GlobalRef(arg0) => f.debug_tuple("GlobalRef").field(arg0).finish(),
+            Self::Ref(arg0) => f.debug_tuple("Ref").field(arg0).finish(),
+            Self::MutRef(arg0) => f.debug_tuple("MutRef").field(arg0).finish(),
+        }
+    }
 }
 
 impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {

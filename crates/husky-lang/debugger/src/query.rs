@@ -27,11 +27,11 @@ fn print_queries() {
 #[serde(tag = "type")]
 pub enum Response {
     RootTraces {
-        root_traces: Vec<Trace>,
+        root_traces: Vec<Arc<Trace>>,
     },
     Subtraces {
         id: usize,
-        subtraces: Vec<Trace>,
+        subtraces: Vec<Arc<Trace>>,
     },
     Figure {
         id: usize,
@@ -60,11 +60,14 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
             eprintln!("error sending websocket msg: {}", e);
         }
     }));
-    println!("query connection established.");
+    println!(
+        "{}query connection established.{}",
+        common::show::CYAN,
+        common::show::RESET
+    );
 
     while let Some(result) = rx.next().await {
         let msg = result.expect("error receiving ws message: {}");
-        p!(msg);
         match msg.to_str() {
             Ok(text) => match serde_json::from_str(text) {
                 Ok::<Query, _>(query) => {
@@ -74,23 +77,23 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                         match client_sender_.send(Ok(Message::text(
                             serde_json::to_string(&match query {
                                 Query::RootTraces => Response::RootTraces {
-                                    root_traces: debugger_.runtime.root_traces(),
+                                    root_traces: debugger_.root_traces().await,
                                 },
                                 Query::Subtraces { id } => Response::Subtraces {
                                     id,
-                                    subtraces: debugger_.runtime.subtraces(id),
+                                    subtraces: debugger_.subtraces(id).await,
                                 },
                                 Query::Activate { id } => {
-                                    debugger_.runtime.activate(id);
+                                    debugger_.activate(id).await;
                                     Response::DidActivate { id }
                                 }
                                 Query::ToggleExpansion { id } => {
-                                    debugger_.runtime.toggle_expansion(id);
+                                    debugger_.toggle_expansion(id).await;
                                     Response::DidToggleExpansion { id }
                                 }
                                 Query::Figure { id } => Response::Figure {
                                     id,
-                                    figure: debugger_.runtime.figure(id),
+                                    figure: debugger_.figure(id).await,
                                 },
                             })
                             .unwrap(),

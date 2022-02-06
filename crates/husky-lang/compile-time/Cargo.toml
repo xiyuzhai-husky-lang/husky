@@ -1,5 +1,5 @@
 [package]
-name = "husky-lang-db"
+name = "husky-lang-compile-time"
 version = "0.0.0"
 description = "TBD"
 license = "MIT OR Apache-2.0"
@@ -24,6 +24,7 @@ salsa = "0.17.0-pre.2"
 common = { path = "../../common", version = "0.0.0" }
 stdx = { path = "../../stdx", version = "0.0.0" }
 vc = { path = "../../data_structure/vc", version = "0.0.0" }
+vm = { path = "../vm", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 word = { path = "../syntax/word", version = "0.0.0" }
 token = { path = "../syntax/token", version = "0.0.0" }
