@@ -10,7 +10,7 @@ pub trait LiveFiles: AllocateUniqueFile {
     fn did_change_source(&mut self, id: FilePtr);
 
     fn set_live_file_text(&mut self, path: PathBuf, text: String) {
-        let id = self.intern_file(path);
+        let id = self.alloc_file(path);
         self.get_live_files()
             .write(|live_docs| live_docs.insert(id, ARwLock::new(text)));
         self.did_change_source(id);
@@ -21,7 +21,7 @@ pub trait LiveFiles: AllocateUniqueFile {
         path: PathBuf,
         changes: Vec<lsp_types::TextDocumentContentChangeEvent>,
     ) {
-        let id = self.intern_file(path);
+        let id = self.alloc_file(path);
         self.get_live_files().write(|live_docs| {
             live_docs
                 .get(&id)
@@ -59,7 +59,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
 fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
-        let id = this.intern_file(ancestor.with_file_name("main.hsk"));
+        let id = this.alloc_file(ancestor.with_file_name("main.hsk"));
         match this.file_content(id) {
             FileContent::OnDisk(_) | FileContent::Live(_) => return Some(id),
             FileContent::Deleted | FileContent::NonExistent => (),

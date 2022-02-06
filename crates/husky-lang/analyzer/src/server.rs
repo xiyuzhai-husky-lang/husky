@@ -5,13 +5,13 @@ use crossbeam_channel::Sender;
 
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
-use husky_lang_db::HuskyLangDatabase;
+use husky_lang_compile_time::HuskyLangCompileTime;
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {
     pub(crate) client_comm: ClientCommunicator,
     pub(crate) event_loop_comm: EventLoopCommunicator,
-    pub(crate) db: HuskyLangDatabase,
+    pub(crate) db: HuskyLangCompileTime,
     pub(crate) threadpool: ThreadPool,
 }
 
@@ -21,7 +21,7 @@ impl Server {
             client_comm: ClientCommunicator::new(sender),
             threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
-            db: HuskyLangDatabase::new(),
+            db: Default::default(),
         }
     }
 }

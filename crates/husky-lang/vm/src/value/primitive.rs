@@ -7,7 +7,7 @@ use crate::*;
 // use scope::ScopeId;
 // use word::ReservedIdentifier;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Clone, Copy)]
 pub enum PrimitiveValue {
     I32(i32),
     F32(f32),
@@ -15,6 +15,22 @@ pub enum PrimitiveValue {
     B64(u64),
     Bool(bool),
     Void,
+}
+
+impl std::fmt::Debug for PrimitiveValue {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::I32(arg0) => {
+                arg0.fmt(f)?;
+                f.write_str("(i32)")
+            }
+            Self::F32(arg0) => f.debug_tuple("F32").field(arg0).finish(),
+            Self::B32(arg0) => f.debug_tuple("B32").field(arg0).finish(),
+            Self::B64(arg0) => f.debug_tuple("B64").field(arg0).finish(),
+            Self::Bool(arg0) => f.debug_tuple("Bool").field(arg0).finish(),
+            Self::Void => write!(f, "Void"),
+        }
+    }
 }
 
 impl PrimitiveValue {

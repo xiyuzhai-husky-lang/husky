@@ -10,12 +10,12 @@ pub struct FeatureStmt {
 pub enum FeatureStmtKind {
     Init {
         varname: CustomIdentifier,
-        value: FeatureExpr,
+        value: Arc<FeatureExpr>,
     },
     Assert {
-        condition: FeatureExpr,
+        condition: Arc<FeatureExpr>,
     },
     Return {
-        result: FeatureExpr,
+        result: Arc<FeatureExpr>,
     },
 }

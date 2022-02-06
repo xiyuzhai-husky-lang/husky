@@ -1,17 +1,15 @@
 mod cache;
 mod division;
-mod eval;
-mod feature;
-mod impl_intern_feature;
-mod impl_offline_eval;
-mod impl_online_eval;
-mod impl_parse_feature;
-mod impl_train;
-mod impl_update;
+// mod eval;
+// mod impl_intern_feature;
+// mod impl_offline_eval;
+// mod impl_online_eval;
+// mod impl_parse_feature;
+// mod impl_train;
+// mod impl_update;
 mod tests;
-mod value;
+// mod value;
 
-use cache::EvalCache;
 use common::*;
 use semantics::{DeclStmt, Package};
 use vm::{run, EvalValue, VMResult};
@@ -27,33 +25,20 @@ use std::{
 use dataset::Dataset;
 
 use division::Division;
-use feature::{Feature, FeatureId};
+use feature::{Feature, FeaturePtr, FeatureSheet};
 
+#[derive(Debug)]
 pub struct Session<'sess> {
     config: Arc<semantics::Config>,
     dataset: Box<dyn Dataset>,
-    features: FeatureInterner,
     dev: Division<'sess>,
     val: Division<'sess>,
     test: Division<'sess>,
     validation_report: ValidationReport<'sess>,
-    main: FeatureId,
+    main: FeaturePtr,
 }
 
-#[derive(Default)]
-pub struct FeatureInterner {
-    features: Vec<Feature>,
-    ids: HashMap<Feature, FeatureId>,
-}
-
-impl Index<FeatureId> for FeatureInterner {
-    type Output = Feature;
-
-    fn index(&self, index: FeatureId) -> &Self::Output {
-        &self.features[index.raw]
-    }
-}
-
+#[derive(Debug)]
 pub struct ValidationReport<'sess> {
     predictions: Vec<EvalValue<'sess, 'sess>>,
 }
@@ -77,7 +62,6 @@ impl<'sess> Session<'sess> {
             validation_report: Default::default(),
             config,
             dataset,
-            features: Default::default(),
             main: todo!(),
         };
         sess.update(package);
@@ -85,8 +69,9 @@ impl<'sess> Session<'sess> {
     }
 
     pub fn update(&mut self, package: &Package) {
-        self.update_config(&package.config);
-        self.update_main(package);
-        self.update_validation_report();
+        todo!()
+        // self.update_config(&package.config);
+        // self.update_main(package);
+        // self.update_validation_report();
     }
 }

@@ -2,6 +2,7 @@ use crate::loader::LoadSample;
 
 use super::*;
 
+#[derive(Debug)]
 pub struct SyntheticSampleLoader {
     len: usize,
     gen: fn(seed: u64, idx: usize) -> LabeledData,

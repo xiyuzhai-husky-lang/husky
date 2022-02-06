@@ -221,7 +221,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
             let maybe_main_path = path.with_file_name("main.hsk");
             if maybe_main_path.exists() {
                 let _parent =
-                    self.module_from_file_id(self.intern_file(path.with_file_name("mod.hsk")));
+                    self.module_from_file_id(self.alloc_file(path.with_file_name("mod.hsk")));
                 todo!()
             } else {
                 todo!()
@@ -262,7 +262,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
             Err(file::FileError::FileNotFound.into())
         };
 
-        module_path.map(|pth| self.intern_file(pth))
+        module_path.map(|pth| self.alloc_file(pth))
     }
 }
 

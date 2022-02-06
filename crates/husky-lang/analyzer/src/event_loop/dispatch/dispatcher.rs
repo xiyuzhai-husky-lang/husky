@@ -6,7 +6,7 @@ use serde::{de::DeserializeOwned, Serialize};
 use common::*;
 
 use salsa::ParallelDatabase;
-type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_lang_db::HuskyLangDatabase>;
+type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_lang_compile_time::HuskyLangCompileTime>;
 
 use crate::{
     server::{Server, TaskSet},
