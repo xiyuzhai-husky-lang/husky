@@ -60,8 +60,7 @@ impl Debugger {
     }
 
     pub async fn subtraces(&self, id: usize) -> Vec<Arc<Trace>> {
-        todo!()
-        // trace::mock::subtraces(id)
+        self.runtime.lock().unwrap().subtraces(id)
     }
 
     pub async fn figure(&self, id: usize) -> Option<FigureProps> {

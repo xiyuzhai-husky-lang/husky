@@ -1,131 +1,65 @@
 use crate::{
     figure::{Color, ImageProps, Plot2dKind, Point2d, PointGroup, Shape, ShapeGroup},
+    token::*,
     *,
 };
 
-macro_rules! kw {
-    ($value:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Keyword,
-            value: $value,
-            spaces_before: None,
-        }
-    }};
-    ($value:expr, $spaces_before:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Keyword,
-            value: $value,
-            spaces_before: Some($spaces_before),
-        }
-    }};
-}
-macro_rules! ident {
-    ($value:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Ident,
-            value: $value,
-            spaces_before: None,
-        }
-    }};
-    ($value:expr, $spaces_before:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Ident,
-            value: $value,
-            spaces_before: Some($spaces_before),
-        }
-    }};
-}
-macro_rules! spl {
-    ($value:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Special,
-            value: $value,
-            spaces_before: None,
-        }
-    }};
-    ($value:expr, $spaces_before:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Special,
-            value: $value,
-            spaces_before: Some($spaces_before),
-        }
-    }};
-}
-macro_rules! scp {
-    ($value:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Scope,
-            value: $value,
-            spaces_before: None,
-        }
-    }};
-}
-macro_rules! fade {
-    ($value:expr) => {{
-        TraceToken {
-            kind: TraceTokenKind::Fade,
-            value: $value,
-            spaces_before: None,
-        }
-    }};
-}
-
 pub fn root_traces() -> Vec<Arc<Trace>> {
-    vec![Arc::new(Trace {
-        id: 0,
-        parent: None,
-        tokens: vec![
-            kw!("let"),
+    vec![Trace::mock(
+        0,
+        None,
+        vec![
+            keyword!("let"),
             ident!("a"),
-            spl!("="),
+            special!("="),
             scp!("f"),
-            spl!("(", 0),
+            special!("(", 0),
             ident!("c", 0),
-            spl!("+"),
+            special!("+"),
             ident!("b"),
-            spl!(")", 0),
+            special!(")", 0),
             fade!("="),
             fade!("a plot"),
         ],
-    })]
+    )]
 }
 pub fn subtraces(id: usize) -> Vec<Arc<Trace>> {
     if id == 0 {
         vec![
-            Arc::new(Trace {
-                id: 1,
-                parent: Some(0),
-                tokens: vec![
-                    kw!("let", 4),
+            Trace::mock(
+                1,
+                Some(0),
+                vec![
+                    keyword!("let", 4),
                     ident!("a"),
-                    spl!("="),
+                    special!("="),
                     scp!("f"),
-                    spl!("(", 0),
+                    special!("(", 0),
                     ident!("c", 0),
-                    spl!("+"),
+                    special!("+"),
                     ident!("b"),
-                    spl!(")", 0),
+                    special!(")", 0),
                     fade!("="),
                     fade!("a plot"),
                 ],
-            }),
-            Arc::new(Trace {
-                id: 2,
-                parent: Some(0),
-                tokens: vec![
-                    kw!("let", 4),
+            ),
+            Trace::mock(
+                2,
+                Some(0),
+                vec![
+                    keyword!("let", 4),
                     ident!("a"),
-                    spl!("="),
+                    special!("="),
                     scp!("f"),
-                    spl!("(", 0),
+                    special!("(", 0),
                     ident!("c", 0),
-                    spl!("+"),
+                    special!("+"),
                     ident!("b"),
-                    spl!(")", 0),
+                    special!(")", 0),
                     fade!("="),
                     fade!("a plot"),
                 ],
-            }),
+            ),
         ]
     } else {
         vec![]

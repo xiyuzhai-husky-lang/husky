@@ -3,8 +3,8 @@ use std::sync::Arc;
 use ast::{Ast, AstResult, RawExprArena, RawExprKind, RawStmt};
 use common::*;
 use fold::FoldStorage;
-use scope::{FuncSignature, RawFuncSignature, ScopeKind, ScopePtr, ScopeRoute};
 use scope_query::ScopeQueryGroup;
+use scope::{FuncSignature, RawFuncSignature, ScopeKind, ScopePtr, ScopeRoute};
 use syntax_types::{ListOpr, Opr};
 use word::{BuiltinIdentifier, ImplicitIdentifier};
 
