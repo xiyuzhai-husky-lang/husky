@@ -23,7 +23,7 @@ impl Deref for Identifier {
 }
 
 #[derive(Copy, Clone)]
-pub struct CustomIdentifier(pub(crate) &'static str);
+pub struct CustomIdentifier(pub &'static str);
 
 impl Debug for CustomIdentifier {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {

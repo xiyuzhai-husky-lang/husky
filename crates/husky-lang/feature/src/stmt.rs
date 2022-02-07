@@ -2,7 +2,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureStmt {
-    pub(crate) kind: FeatureStmtKind,
+    pub kind: FeatureStmtKind,
     pub(crate) feature: Option<FeaturePtr>,
 }
 

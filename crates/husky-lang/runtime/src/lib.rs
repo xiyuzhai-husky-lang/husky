@@ -13,7 +13,7 @@ use std::{borrow::Cow, sync::Arc};
 pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 
 use session::Session;
-use trace::{FigureProps, Trace};
+use trace::{FigureProps, Trace, TraceKind};
 use vm::{run, AnyValueDyn, Instruction};
 
 #[derive(Debug)]
@@ -54,7 +54,7 @@ impl HuskyLangRuntime {
                 .compile_time
                 .main_feature_block(current_package_main)
                 .unwrap();
-            self.store_traces(vec![Trace::main()])
+            self.store_traces(vec![Trace::main(current_package_main, main_feature_block)])
         } else {
             vec![]
         };
@@ -78,14 +78,23 @@ impl HuskyLangRuntime {
         traces
             .into_iter()
             .map(|trace| {
-                self.traces.insert(trace.id(), trace.clone());
+                self.traces.insert(trace.id, trace.clone());
                 trace
             })
             .collect()
     }
 
     pub fn subtraces(&self, id: usize) -> Vec<Arc<Trace>> {
-        trace::mock::subtraces(id)
+        let trace = &self.traces[&id];
+        match trace.kind {
+            TraceKind::Mock { ref tokens } => trace::mock::subtraces(id),
+            TraceKind::Main {
+                main_file,
+                ref feature_block,
+            } => trace::eval_block_traces(Some(trace.id), feature_block),
+            TraceKind::Stmt(_) => todo!(),
+            TraceKind::Expr(_) => todo!(),
+        }
     }
 
     pub fn figure(&self, id: usize) -> Option<FigureProps> {

@@ -8,9 +8,12 @@ mod unique_allocate;
 
 use std::sync::Arc;
 
+pub use block::FeatureBlock;
 pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt};
+pub use expr::{FeatureExpr, FeatureExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use sheet::FeatureSheet;
+pub use stmt::{FeatureStmt, FeatureStmtKind};
 pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
 };
@@ -18,10 +21,6 @@ pub use unique_allocate::{
 use common::*;
 use vm::{BinaryOpr, PrimitiveValue};
 use word::CustomIdentifier;
-
-use block::FeatureBlock;
-use expr::FeatureExpr;
-use stmt::FeatureStmt;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {
