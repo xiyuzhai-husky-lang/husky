@@ -70,8 +70,8 @@ impl From<Identifier> for WordPtr {
 }
 
 impl From<BuiltinIdentifier> for WordPtr {
-    fn from(reserved: BuiltinIdentifier) -> Self {
-        WordPtr::Identifier(Identifier::Builtin(reserved))
+    fn from(ident: BuiltinIdentifier) -> Self {
+        WordPtr::Identifier(Identifier::Builtin(ident))
     }
 }
 

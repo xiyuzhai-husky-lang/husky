@@ -69,6 +69,8 @@ pub fn new_word_unique_allocator() -> WordInterner {
         BuiltinIdentifier::Debug.into(),
         BuiltinIdentifier::I32.into(),
         BuiltinIdentifier::F32.into(),
+        BuiltinIdentifier::True.into(),
+        BuiltinIdentifier::False.into(),
         BuiltinIdentifier::Vector.into(),
         BuiltinIdentifier::Array.into(),
         BuiltinIdentifier::Tuple.into(),

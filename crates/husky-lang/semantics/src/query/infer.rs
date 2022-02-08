@@ -3,8 +3,8 @@ use std::sync::Arc;
 use ast::{Ast, AstResult, RawExprArena, RawExprKind, RawStmt};
 use common::*;
 use fold::FoldStorage;
-use scope_query::ScopeQueryGroup;
 use scope::{FuncSignature, RawFuncSignature, ScopeKind, ScopePtr, ScopeRoute};
+use scope_query::ScopeQueryGroup;
 use syntax_types::{ListOpr, Opr};
 use word::{BuiltinIdentifier, ImplicitIdentifier};
 
@@ -65,6 +65,9 @@ fn scope_ty(this: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<Scope
             BuiltinIdentifier::B32 => todo!(),
             BuiltinIdentifier::B64 => todo!(),
             BuiltinIdentifier::Bool => todo!(),
+            BuiltinIdentifier::True | BuiltinIdentifier::False => {
+                Ok(ScopePtr::Builtin(BuiltinIdentifier::Bool))
+            }
             BuiltinIdentifier::Vector => todo!(),
             BuiltinIdentifier::Tuple => todo!(),
             BuiltinIdentifier::Debug => todo!(),
