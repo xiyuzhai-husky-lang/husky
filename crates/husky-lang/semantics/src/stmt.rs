@@ -13,7 +13,7 @@ use word::{BuiltinIdentifier, CustomIdentifier};
 
 use crate::SemanticResult;
 
-use crate::error::err;
+use crate::error::{err, not_none};
 use crate::expr::{BinaryOpnKind, ExprParser, Opn};
 use crate::query::infer::InferQueryGroup;
 use crate::*;
@@ -51,8 +51,10 @@ impl<'a> LazyStmtParser<'a> {
         &mut self,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     ) -> SemanticResult<Vec<Arc<DeclStmt>>> {
-        iter.map(|item| {
-            Ok(Arc::new(match item.value.as_ref()? {
+        let mut stmts = Vec::new();
+        let mut iter = iter.peekable();
+        while let Some(item) = iter.next() {
+            stmts.push(Arc::new(match item.value.as_ref()? {
                 Ast::TypeDef { .. } => todo!(),
                 Ast::MainDef => todo!(),
                 Ast::DatasetConfig => todo!(),
@@ -62,10 +64,45 @@ impl<'a> LazyStmtParser<'a> {
                 Ast::MembDef { .. } => todo!(),
                 Ast::Stmt(stmt) => match stmt {
                     RawStmt::Loop(_) => todo!(),
-                    RawStmt::Branch(stmt) => DeclStmt {
-                        kind: DeclStmtKind::Branch {},
-                        indent: item.indent,
-                    },
+                    RawStmt::Branch(stmt) => {
+                        let mut conditional_blocks = vec![];
+                        let mut default_block = None;
+                        while let Some(item) = iter.peek() {
+                            let item = match item.value.as_ref()? {
+                                Ast::Stmt(RawStmt::Branch(_)) => iter.next().unwrap(),
+                                _ => break,
+                            };
+                            match item.value.as_ref()? {
+                                Ast::Stmt(RawStmt::Branch(branch_stmt)) => match branch_stmt {
+                                    BranchRawStmt::If { condition } => {
+                                        if conditional_blocks.len() > 0 {
+                                            break;
+                                        }
+                                        todo!()
+                                    }
+                                    BranchRawStmt::Elif { condition } => {
+                                        if conditional_blocks.len() == 0 {
+                                            todo!()
+                                        }
+                                        todo!()
+                                    }
+                                    BranchRawStmt::Else => {
+                                        default_block =
+                                            Some(self.parse_stmts(not_none!(item.children))?);
+                                        break;
+                                    }
+                                },
+                                _ => break,
+                            }
+                        }
+                        DeclStmt {
+                            kind: DeclStmtKind::Branch {
+                                conditional_blocks,
+                                default_block,
+                            },
+                            indent: item.indent,
+                        }
+                    }
                     RawStmt::Exec(_) => todo!(),
                     RawStmt::Init {
                         varname,
@@ -97,8 +134,8 @@ impl<'a> LazyStmtParser<'a> {
                     },
                 },
             }))
-        })
-        .collect()
+        }
+        Ok(stmts)
     }
 
     fn def_variable(&mut self, varname: CustomIdentifier, ty: ScopePtr) {

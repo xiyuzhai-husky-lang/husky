@@ -6,8 +6,7 @@ use crate::*;
 pub trait ExprInstructionBuilder {
     fn push_instruction(&mut self, instruction: Instruction);
 
-    fn build_expr_instructions(&mut self, expr: &Expr) {
-        epin!();
+    fn gen_expr_instructions(&mut self, expr: &Expr) {
         match expr.kind {
             ExprKind::Variable(_) => todo!(),
             ExprKind::Scope {
@@ -26,7 +25,7 @@ pub trait ExprInstructionBuilder {
                 expr::Opn::Suffix(_) => todo!(),
                 expr::Opn::FuncCall { func } => {
                     for opd in opds {
-                        self.build_expr_instructions(opd);
+                        self.gen_expr_instructions(opd);
                         if let Some(compiled) = compiled {
                             todo!()
                         } else {

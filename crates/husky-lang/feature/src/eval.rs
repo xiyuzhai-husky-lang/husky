@@ -1,6 +1,6 @@
 use vm::{PrimitiveValue, VMError};
 
-use crate::{expr::FeatureExprKind, sheet::FeatureSheet, *};
+use crate::{expr::FeatureExprKind, sheet::FeatureSheet, stmt::FeatureStmtKind, *};
 use vm::{Conditional, EvalValue, StackValue};
 
 pub fn eval_feature_block<'eval>(
@@ -76,8 +76,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
 
     fn eval_stmt(&mut self, stmt: &FeatureStmt) -> EvalValue<'eval, 'eval> {
         match stmt.kind {
-            stmt::FeatureStmtKind::Init { .. } => Ok(Conditional::Undefined),
-            stmt::FeatureStmtKind::Assert { ref condition } => {
+            FeatureStmtKind::Init { .. } => Ok(Conditional::Undefined),
+            FeatureStmtKind::Assert { ref condition } => {
                 let satisfied: bool = match self.eval_expr(condition)?.defined_ref()? {
                     StackValue::Primitive(value) => match value {
                         PrimitiveValue::I32(_) => todo!(),
@@ -95,7 +95,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     Err(VMError::AssertionFailure)
                 }
             }
-            stmt::FeatureStmtKind::Return { ref result } => self.eval_expr(result),
+            FeatureStmtKind::Return { ref result } => self.eval_expr(result),
+            FeatureStmtKind::Branch {
+                ref conditional_feature_blocks,
+                ref default_feature_block,
+            } => todo!(),
         }
     }
 

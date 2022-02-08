@@ -13,7 +13,7 @@ pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt};
 pub use expr::{FeatureExpr, FeatureExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use sheet::FeatureSheet;
-pub use stmt::{FeatureStmt, FeatureStmtKind};
+pub use stmt::{ConditionalFeatureBlock, FeatureStmt, FeatureStmtKind};
 pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
 };
@@ -42,6 +42,16 @@ pub enum Feature {
         lopd: FeaturePtr,
         ropd: FeaturePtr,
     },
+    Branch {
+        conditional_features: Vec<ConditionalFeature>,
+        default_feature: Option<Vec<FeaturePtr>>,
+    },
+}
+
+#[derive(Debug, Hash, PartialEq, Eq, Clone)]
+pub struct ConditionalFeature {
+    condition: FeaturePtr,
+    block: Vec<FeaturePtr>,
 }
 
 impl From<&Feature> for Feature {

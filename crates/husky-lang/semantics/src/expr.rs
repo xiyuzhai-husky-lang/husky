@@ -1,10 +1,10 @@
-mod builder;
+mod gen_instructions;
 mod opn;
 mod parser;
 
 use std::sync::Arc;
 
-pub(crate) use builder::ExprInstructionBuilder;
+pub(crate) use gen_instructions::ExprInstructionBuilder;
 pub use opn::*;
 pub(crate) use parser::ExprParser;
 

@@ -22,5 +22,14 @@ pub enum DeclStmtKind {
     Return {
         result: Arc<Expr>,
     },
-    Branch {},
+    Branch {
+        conditional_blocks: Vec<ConditionalBlock>,
+        default_block: Option<Vec<Arc<DeclStmt>>>,
+    },
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ConditionalBlock {
+    pub condition: Arc<Expr>,
+    pub stmts: Vec<Arc<DeclStmt>>,
 }

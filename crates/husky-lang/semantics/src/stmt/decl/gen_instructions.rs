@@ -31,12 +31,12 @@ impl DeclStmtInstructionGenerator {
             } => todo!(),
             DeclStmtKind::Assert { ref condition } => todo!(),
             DeclStmtKind::Return { ref result } => {
-                self.build_expr_instructions(result);
+                self.gen_expr_instructions(result);
                 self.push_instruction(Instruction {
                     kind: InstructionKind::Return,
                 });
             }
-            DeclStmtKind::Branch {} => todo!(),
+            DeclStmtKind::Branch { .. } => todo!(),
         }
     }
 }
