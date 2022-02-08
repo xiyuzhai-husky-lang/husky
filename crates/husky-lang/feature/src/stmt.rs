@@ -19,4 +19,14 @@ pub enum FeatureStmtKind {
     Return {
         result: Arc<FeatureExpr>,
     },
+    Branch {
+        conditional_feature_blocks: Vec<Arc<ConditionalFeatureBlock>>,
+        default_feature_block: Option<Arc<FeatureBlock>>,
+    },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct ConditionalFeatureBlock {
+    pub condition: Arc<FeatureExpr>,
+    pub block: FeatureBlock,
 }

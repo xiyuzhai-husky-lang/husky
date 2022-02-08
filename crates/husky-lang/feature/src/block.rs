@@ -54,6 +54,41 @@ impl FeatureBlock {
                             indent: decl_stmt.indent,
                         }
                     }
+                    DeclStmtKind::Branch {
+                        ref conditional_blocks,
+                        ref default_block,
+                    } => {
+                        let conditional_feature_blocks = conditional_blocks
+                            .iter()
+                            .map(|block| {
+                                Arc::new(ConditionalFeatureBlock {
+                                    condition: Arc::new(FeatureExpr::new(
+                                        &block.condition,
+                                        &symbols,
+                                        features,
+                                    )),
+                                    block: FeatureBlock::new(&block.stmts, &symbols, features),
+                                })
+                            })
+                            .collect();
+                        let default_feature_block = default_block
+                            .as_ref()
+                            .map(|stmts| Arc::new(FeatureBlock::new(&stmts, &symbols, features)));
+                        let feature = Some(features.alloc(Feature::Branch {
+                            conditional_features: vec![],
+                            default_feature: default_feature_block.as_ref().map(|block| {
+                                block.stmts.iter().filter_map(|stmt| stmt.feature).collect()
+                            }),
+                        }));
+                        FeatureStmt {
+                            feature,
+                            kind: FeatureStmtKind::Branch {
+                                conditional_feature_blocks,
+                                default_feature_block,
+                            },
+                            indent: decl_stmt.indent,
+                        }
+                    }
                 })
             })
             .collect();

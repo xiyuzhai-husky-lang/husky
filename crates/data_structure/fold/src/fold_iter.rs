@@ -9,7 +9,6 @@ where
     Storage: FoldStorage<Value>,
 {
     pub(crate) storage: &'a Storage,
-    // pub indent: Indent,
     pub next: Option<usize>,
     phantom: PhantomData<Value>,
 }

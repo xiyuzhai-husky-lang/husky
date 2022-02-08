@@ -10,7 +10,7 @@ use common::*;
 pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstText};
-pub use stmt::RawStmt;
+pub use stmt::{BranchRawStmt, RawStmt};
 pub use syntax_types::InitKind;
 use transform::AstTransformer;
 
