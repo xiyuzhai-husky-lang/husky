@@ -59,7 +59,7 @@ impl<T> FoldedList<T> {
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct FoldedNode<T> {
-    pub(crate) indent: u16,
+    pub(crate) indent: Indent,
     pub value: T,
     pub(crate) next_sibling: Option<usize>,
 }
@@ -120,7 +120,7 @@ where
 
 pub trait ItemToFold<Key> {
     fn value(&self) -> Key;
-    fn indent(&self) -> u16;
+    fn indent(&self) -> Indent;
 }
 
 impl<T> FoldStorage<T> for FoldedList<T>

@@ -15,10 +15,10 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         word_unique_allocator: &'lex WordInterner,
         line_index: usize,
         mut char_iter: CharIter<'token_line>,
-    ) -> (Indent, Self) {
+    ) -> (TextIndent, Self) {
         let mut buffer = String::new();
         buffer.reserve(100);
-        let indent = Indent::from(&mut char_iter);
+        let indent = TextIndent::from(&mut char_iter);
         (
             indent,
             Self {

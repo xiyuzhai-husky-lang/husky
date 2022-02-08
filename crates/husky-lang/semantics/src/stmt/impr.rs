@@ -3,6 +3,7 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StrictStmt {
     pub kind: StrictStmtKind,
+    pub indent: usize,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

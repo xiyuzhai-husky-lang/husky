@@ -130,6 +130,30 @@ impl BinaryOpr {
         })
     }
 
+    pub fn code(&self) -> &'static str {
+        match self {
+            BinaryOpr::Less => "<",
+            BinaryOpr::Leq => "<=",
+            BinaryOpr::Greater => ">",
+            BinaryOpr::Geq => ">=",
+            BinaryOpr::Neq => "!=",
+            BinaryOpr::Eq => "==",
+            BinaryOpr::Shl => "<<",
+            BinaryOpr::Shr => ">>",
+            BinaryOpr::Add => "+",
+            BinaryOpr::Sub => "-",
+            BinaryOpr::Mul => "*",
+            BinaryOpr::Div => "/",
+            BinaryOpr::And => "&&",
+            BinaryOpr::BitAnd => "&",
+            BinaryOpr::Or => "||",
+            BinaryOpr::Power => "**",
+            BinaryOpr::BitXor => "^",
+            BinaryOpr::BitOr => "|",
+            BinaryOpr::RemEuclid => "%",
+        }
+    }
+
     pub fn spaced_code(&self) -> &'static str {
         match self {
             BinaryOpr::Less => " < ",

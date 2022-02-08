@@ -18,6 +18,7 @@
 >
     <div class="inner" class:active>
         <p>
+            <span class="indent" style="padding-left: {trace.indent * 9.5}px" />
             <span class="GroupStart" class:hasSubtraces class:expanded
                 >&#x25b6</span
             >
@@ -32,6 +33,10 @@
     .TraceNode {
         height: 20px;
         padding: 2px;
+        padding-right: 3px;
+    }
+    .inner {
+        padding: 0px;
     }
     .active {
         outline: rgb(202, 132, 2) solid 2px;
@@ -52,7 +57,7 @@
         text-align: center;
         justify-content: center;
         align-items: center;
-        width: 20px;
+        width: 18px;
     }
     .GroupStart.hasSubtraces {
         font-size: 10px;

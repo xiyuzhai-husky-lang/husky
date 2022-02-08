@@ -1,16 +1,18 @@
-<script>
-    export let token;
+<script lang="ts">
+    import { TokenProps } from "src/server/types";
+
+    export let token: TokenProps;
     let spaces_before =
         token.spaces_before === undefined ? 1 : token.spaces_before;
     let style = {
         width: `${spaces_before * 9.5}px`,
     };
-    $: cssVarStyles = Object.entries(style)
+    $: spacesBeforeStyles = Object.entries(style)
         .map(([key, value]) => `${key}:${value}`)
         .join(";");
 </script>
 
-<span style={cssVarStyles} />
+<span style={spacesBeforeStyles} />
 {#if token.kind == "special"}
     <code class="special">{token.value} </code>
 {:else if token.kind == "scope"}
@@ -41,8 +43,7 @@
         color: rgb(189, 189, 105);
     }
     .literal {
-        color: rgb(12, 75, 148);
-        /* color: cyan; */
+        color: rgb(18, 155, 75);
     }
     .fade {
         color: rgb(97, 97, 97);

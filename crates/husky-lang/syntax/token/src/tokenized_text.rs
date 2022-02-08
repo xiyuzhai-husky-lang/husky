@@ -51,7 +51,7 @@ impl fold::FoldStorage<[Token]> for TokenizedText {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenGroup {
-    pub(crate) indent: Indent,
+    pub(crate) indent: TextIndent,
     pub(crate) tokens: Range,
 }
 
@@ -60,8 +60,8 @@ impl fold::ItemToFold<Range> for TokenGroup {
         self.tokens.clone()
     }
 
-    fn indent(&self) -> u16 {
-        self.indent.into()
+    fn indent(&self) -> fold::Indent {
+        self.indent.raw
     }
 }
 

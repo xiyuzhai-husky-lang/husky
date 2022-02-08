@@ -17,7 +17,7 @@ pub use tokenized_text::{TokenGroupIter, TokenizedText};
 use common::*;
 
 use scanner::TokenScanner;
-use text::{Indent, TextRange, TextRanged};
+use text::{TextIndent, TextRange, TextRanged};
 
 #[derive(PartialEq, Eq)]
 pub struct Token {

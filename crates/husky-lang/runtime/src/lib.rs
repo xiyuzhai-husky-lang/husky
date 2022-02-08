@@ -23,6 +23,7 @@ pub struct HuskyLangRuntime {
     current_package_main: Option<FilePtr>,
     session: Option<Session<'static>>,
     traces: HashMap<usize, Arc<Trace>>,
+    subtraces: HashMap<usize, Arc<Vec<Arc<Trace>>>>,
     root_traces: Vec<Arc<Trace>>,
 }
 
@@ -42,6 +43,7 @@ impl HuskyLangRuntime {
             current_package_main,
             session: None,
             traces: Default::default(),
+            subtraces: Default::default(),
             root_traces: vec![],
         };
         runtime.init_root_traces();
@@ -84,17 +86,26 @@ impl HuskyLangRuntime {
             .collect()
     }
 
-    pub fn subtraces(&self, id: usize) -> Vec<Arc<Trace>> {
+    pub fn subtraces(&mut self, id: usize) -> Arc<Vec<Arc<Trace>>> {
         let trace = &self.traces[&id];
-        match trace.kind {
+        if let Some(subtraces) = self.subtraces.get(&id) {
+            return subtraces.clone();
+        }
+        let subtraces = match trace.kind {
             TraceKind::Mock { ref tokens } => trace::mock::subtraces(id),
             TraceKind::Main {
                 main_file,
                 ref feature_block,
-            } => trace::eval_block_traces(Some(trace.id), feature_block),
-            TraceKind::Stmt(_) => todo!(),
-            TraceKind::Expr(_) => todo!(),
+            } => trace::eval_block_subtraces(Some(trace.id), feature_block),
+            TraceKind::Stmt(ref stmt) => trace::eval_feature_stmt_subtraces(trace.id, stmt),
+            TraceKind::Expr(ref expr) => {
+                trace::eval_feature_expr_subtraces(trace.id, trace.indent, expr)
+            }
+        };
+        for subtrace in subtraces.iter() {
+            self.traces.insert(subtrace.id, subtrace.clone());
         }
+        subtraces
     }
 
     pub fn figure(&self, id: usize) -> Option<FigureProps> {

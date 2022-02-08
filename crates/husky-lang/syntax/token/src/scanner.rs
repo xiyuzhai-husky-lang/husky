@@ -1,11 +1,11 @@
 use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 
-use text::Indent;
+use text::TextIndent;
 use word::WordInterner;
 
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
-    pub(crate) indent: Indent,
+    pub(crate) indent: TextIndent,
     pub(crate) tokens: Range,
 }
 
