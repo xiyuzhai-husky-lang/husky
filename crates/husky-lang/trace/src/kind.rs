@@ -6,7 +6,7 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TraceKind {
     Mock {
-        tokens: Vec<TraceToken>,
+        tokens: Vec<TokenProps>,
     },
     Main {
         main_file: FilePtr,

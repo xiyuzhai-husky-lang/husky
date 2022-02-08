@@ -1,6 +1,6 @@
 use vm::{PrimitiveValue, VMError};
 
-use crate::{sheet::FeatureSheet, *};
+use crate::{expr::FeatureExprKind, sheet::FeatureSheet, *};
 use vm::{Conditional, EvalValue, StackValue};
 
 pub fn eval_feature_block<'eval>(
@@ -38,8 +38,8 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn eval_expr(&mut self, expr: &FeatureExpr) -> EvalValue<'eval, 'eval> {
         match expr.kind {
-            expr::FeatureExprKind::Literal(value) => Ok(Conditional::Defined(value.into())),
-            expr::FeatureExprKind::PrimitiveBinaryOpr {
+            FeatureExprKind::Literal(value) => Ok(Conditional::Defined(value.into())),
+            FeatureExprKind::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
@@ -50,7 +50,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 )?
                 .into(),
             )),
-            expr::FeatureExprKind::Variable { ref value, .. } => {
+            FeatureExprKind::Variable { ref value, .. } => {
                 self.cache(expr.feature, |this: &mut Self| this.eval_expr(&value))
             }
         }

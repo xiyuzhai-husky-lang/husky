@@ -7,6 +7,7 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DeclStmt {
     pub kind: DeclStmtKind,
+    pub indent: fold::Indent,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

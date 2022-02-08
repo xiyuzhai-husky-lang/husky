@@ -2,7 +2,7 @@ import * as t from "io-ts";
 
 import { tPoint2d } from "./geom2d/types";
 
-export const tTraceToken = t.interface({
+export const tTokenProps = t.interface({
     kind: t.string,
     value: t.string,
     spaces_before: t.union([t.number, t.undefined]),
@@ -10,7 +10,8 @@ export const tTraceToken = t.interface({
 export const tTrace = t.interface({
     id: t.number,
     parent: t.union([t.number, t.null]),
-    tokens: t.array(tTraceToken),
+    indent: t.number,
+    tokens: t.array(tTokenProps),
 });
 export const tImageProps = t.interface({
     data: t.array(t.number),
@@ -62,7 +63,7 @@ export const tFigureProps = t.union([
 
 export type FigureProps = t.TypeOf<typeof tFigureProps>;
 export type Trace = t.TypeOf<typeof tTrace>;
-export type TraceToken = t.TypeOf<typeof tTraceToken>;
+export type TokenProps = t.TypeOf<typeof tTokenProps>;
 export type GalleryProps = t.TypeOf<typeof tGalleryProps>;
 export type Graphics2dProps = t.TypeOf<typeof tGraphics2dProps>;
 export type ImageProps = t.TypeOf<typeof tImageProps>;

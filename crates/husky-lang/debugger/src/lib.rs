@@ -59,7 +59,7 @@ impl Debugger {
         self.runtime.lock().unwrap().root_traces()
     }
 
-    pub async fn subtraces(&self, id: usize) -> Vec<Arc<Trace>> {
+    pub async fn subtraces(&self, id: usize) -> Arc<Vec<Arc<Trace>>> {
         self.runtime.lock().unwrap().subtraces(id)
     }
 

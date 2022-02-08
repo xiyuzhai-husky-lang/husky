@@ -66,7 +66,7 @@ impl FeatureExpr {
                     | ScopePtr::Builtin(BuiltinIdentifier::B32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
                         let lopd = Arc::new(Self::new(&opds[0], symbols, features));
-                        let ropd = Arc::new(Self::new(&opds[0], symbols, features));
+                        let ropd = Arc::new(Self::new(&opds[1], symbols, features));
                         let feature = features.alloc(Feature::PrimitiveBinaryOpr {
                             opr,
                             lopd: lopd.feature,

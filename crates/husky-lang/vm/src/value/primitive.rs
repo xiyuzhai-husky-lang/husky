@@ -1,4 +1,5 @@
 use core::hash::Hash;
+use std::borrow::Cow;
 
 use word::BuiltinIdentifier;
 
@@ -137,6 +138,32 @@ impl From<bool> for PrimitiveValue {
 impl From<&bool> for PrimitiveValue {
     fn from(value: &bool) -> Self {
         Self::Bool(*value)
+    }
+}
+
+impl Into<String> for PrimitiveValue {
+    fn into(self) -> String {
+        match self {
+            PrimitiveValue::I32(i) => format!("{}", i),
+            PrimitiveValue::F32(f) => format!("{}", f),
+            PrimitiveValue::B32(b) => format!("{}", b),
+            PrimitiveValue::B64(b) => format!("{}", b),
+            PrimitiveValue::Bool(b) => format!("{}", b),
+            PrimitiveValue::Void => "()".into(),
+        }
+    }
+}
+
+impl Into<Cow<'static, str>> for PrimitiveValue {
+    fn into(self) -> Cow<'static, str> {
+        match self {
+            PrimitiveValue::I32(i) => format!("{}", i).into(),
+            PrimitiveValue::F32(f) => format!("{}", f).into(),
+            PrimitiveValue::B32(b) => format!("{}", b).into(),
+            PrimitiveValue::B64(b) => format!("{}", b).into(),
+            PrimitiveValue::Bool(b) => format!("{}", b).into(),
+            PrimitiveValue::Void => "()".into(),
+        }
     }
 }
 

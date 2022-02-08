@@ -91,6 +91,7 @@ function init_websocket(websocket: WebSocket) {
 }
 
 function updateTraceList() {
+    console.log("root traces: ", get(rootTraces));
     for (const trace of get(rootTraces)) {
         updateTraceListDfs(trace.id);
     }

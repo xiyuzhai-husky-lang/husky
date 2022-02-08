@@ -31,7 +31,7 @@ pub enum Response {
     },
     Subtraces {
         id: usize,
-        subtraces: Vec<Arc<Trace>>,
+        subtraces: Arc<Vec<Arc<Trace>>>,
     },
     Figure {
         id: usize,
@@ -107,7 +107,15 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                 Err(_) => todo!(),
             },
             Err(_) => {
-                eprintln!("nontext message received: {:?}", msg);
+                if msg.is_close() {
+                    println!(
+                        "{}query connection closed.{}",
+                        common::show::RED,
+                        common::show::RESET
+                    );
+                } else {
+                    eprintln!("nontext message received: {:?}", msg);
+                }
             }
         };
     }

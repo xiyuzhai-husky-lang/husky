@@ -2,26 +2,26 @@ use crate::*;
 
 use common::*;
 
-impl ItemToFold<()> for u16 {
+impl ItemToFold<()> for Indent {
     fn value(&self) -> () {
         ()
     }
 
-    fn indent(&self) -> u16 {
-        *self
+    fn indent(&self) -> Indent {
+        0
     }
 }
 
 #[test]
 fn fold_items1() {
-    let items: Vec<u16> = vec![0, 4, 0].into();
+    let items: Vec<Indent> = vec![0, 4, 0].into();
     let fold_items: FoldedList<()> = items.into();
     should_eq!(fold_items.nodes[1].next_sibling, None);
 }
 
 #[test]
 fn fold_items2() {
-    let items: Vec<u16> = vec![0, 4, 0, 4, 4].into();
+    let items: Vec<Indent> = vec![0, 4, 0, 4, 4].into();
     let fold_items: FoldedList<()> = items.into();
     should!(fold_items.fold_iter(1).next().unwrap().children.is_none());
     should_eq!(fold_items.nodes[3].next_sibling, Some(4));
@@ -51,7 +51,7 @@ impl<'a> Transformer<(), FoldedList<()>, ()> for TrivialTransformer {
 
 #[test]
 fn transform() {
-    let items: Vec<u16> = vec![0, 4, 0, 4, 4].into();
+    let items: Vec<Indent> = vec![0, 4, 0, 4, 4].into();
     let fold_items: FoldedList<()> = items.into();
     let mut transformer = TrivialTransformer {
         fold_outputs: FoldedList::<()>::new(),

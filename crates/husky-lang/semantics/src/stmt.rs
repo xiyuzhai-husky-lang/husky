@@ -77,17 +77,20 @@ impl<'a> LazyStmtParser<'a> {
                                 varname,
                                 value: initial_value,
                             },
+                            indent: item.indent,
                         }
                     }
                     RawStmt::Return(result) => DeclStmt {
                         kind: DeclStmtKind::Return {
                             result: self.parse_expr(&self.arena[result])?,
                         },
+                        indent: item.indent,
                     },
                     RawStmt::Assert(condition) => DeclStmt {
                         kind: DeclStmtKind::Assert {
                             condition: self.parse_expr(&self.arena[condition])?,
                         },
+                        indent: item.indent,
                     },
                 },
             }))

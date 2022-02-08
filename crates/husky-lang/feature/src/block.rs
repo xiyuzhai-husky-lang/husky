@@ -32,6 +32,7 @@ impl FeatureBlock {
                         FeatureStmt {
                             kind: FeatureStmtKind::Init { varname, value },
                             feature: None,
+                            indent: decl_stmt.indent,
                         }
                     }
                     DeclStmtKind::Assert { ref condition } => {
@@ -42,6 +43,7 @@ impl FeatureBlock {
                         FeatureStmt {
                             kind: FeatureStmtKind::Assert { condition },
                             feature,
+                            indent: decl_stmt.indent,
                         }
                     }
                     DeclStmtKind::Return { ref result } => {
@@ -49,6 +51,7 @@ impl FeatureBlock {
                         FeatureStmt {
                             feature: Some(result.feature),
                             kind: FeatureStmtKind::Return { result },
+                            indent: decl_stmt.indent,
                         }
                     }
                 })

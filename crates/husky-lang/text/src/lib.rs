@@ -98,47 +98,47 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord)]
-pub struct Indent {
-    raw: u16,
+pub struct TextIndent {
+    pub raw: u8,
 }
 
-impl From<u16> for Indent {
-    fn from(j: u16) -> Self {
-        Indent { raw: j }
+impl From<u8> for TextIndent {
+    fn from(j: u8) -> Self {
+        TextIndent { raw: j }
     }
 }
 
-impl Into<u16> for Indent {
-    fn into(self) -> u16 {
+impl Into<u8> for TextIndent {
+    fn into(self) -> u8 {
         self.raw
     }
 }
 
-impl From<usize> for Indent {
+impl From<usize> for TextIndent {
     fn from(j: usize) -> Self {
-        Indent {
+        TextIndent {
             raw: j.try_into().expect("a line should be short!"),
         }
     }
 }
 
-impl From<&usize> for Indent {
+impl From<&usize> for TextIndent {
     fn from(j: &usize) -> Self {
-        Indent {
+        TextIndent {
             raw: (*j).try_into().expect("a line should be short!"),
         }
     }
 }
 
-impl Indent {
-    pub fn get_raw(&self) -> u16 {
+impl TextIndent {
+    pub fn get_raw(&self) -> u8 {
         self.raw
     }
-    pub fn empty() -> Indent {
-        u16::MAX.into()
+    pub fn empty() -> TextIndent {
+        u8::MAX.into()
     }
 
-    pub fn within(&self, other: Indent) -> Result<bool, IndentErrorKind> {
+    pub fn within(&self, other: TextIndent) -> Result<bool, IndentErrorKind> {
         if self.raw >= other.raw + 4 {
             Ok(true)
         } else if self.raw <= other.raw {
@@ -155,7 +155,7 @@ impl Indent {
 
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
 
-impl<'token_line> From<&mut CharIter<'token_line>> for Indent {
+impl<'token_line> From<&mut CharIter<'token_line>> for TextIndent {
     fn from(char_iter: &mut CharIter<'token_line>) -> Self {
         loop {
             if let Some((j, c)) = char_iter.peek() {
@@ -165,7 +165,7 @@ impl<'token_line> From<&mut CharIter<'token_line>> for Indent {
                     break j.into();
                 }
             } else {
-                break Indent::empty();
+                break TextIndent::empty();
             }
         }
     }

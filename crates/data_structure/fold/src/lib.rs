@@ -32,4 +32,4 @@ where
     }
 }
 
-pub type Indent = u16;
+pub type Indent = u8;

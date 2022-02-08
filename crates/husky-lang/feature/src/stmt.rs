@@ -2,6 +2,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureStmt {
+    pub indent: fold::Indent,
     pub kind: FeatureStmtKind,
     pub(crate) feature: Option<FeaturePtr>,
 }

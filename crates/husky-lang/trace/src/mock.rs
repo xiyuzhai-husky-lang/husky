@@ -8,6 +8,7 @@ pub fn root_traces() -> Vec<Arc<Trace>> {
     vec![Trace::mock(
         0,
         None,
+        0,
         vec![
             keyword!("let"),
             ident!("a"),
@@ -23,14 +24,15 @@ pub fn root_traces() -> Vec<Arc<Trace>> {
         ],
     )]
 }
-pub fn subtraces(id: usize) -> Vec<Arc<Trace>> {
-    if id == 0 {
+pub fn subtraces(id: usize) -> Arc<Vec<Arc<Trace>>> {
+    Arc::new(if id == 0 {
         vec![
             Trace::mock(
                 1,
                 Some(0),
+                4,
                 vec![
-                    keyword!("let", 4),
+                    keyword!("let"),
                     ident!("a"),
                     special!("="),
                     scp!("f"),
@@ -46,8 +48,9 @@ pub fn subtraces(id: usize) -> Vec<Arc<Trace>> {
             Trace::mock(
                 2,
                 Some(0),
+                4,
                 vec![
-                    keyword!("let", 4),
+                    keyword!("let"),
                     ident!("a"),
                     special!("="),
                     scp!("f"),
@@ -63,7 +66,7 @@ pub fn subtraces(id: usize) -> Vec<Arc<Trace>> {
         ]
     } else {
         vec![]
-    }
+    })
 }
 
 pub fn figure(id: usize) -> Option<FigureProps> {
