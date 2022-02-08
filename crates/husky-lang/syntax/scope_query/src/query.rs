@@ -76,6 +76,7 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
             | BuiltinIdentifier::Fp
             | BuiltinIdentifier::Array
             | BuiltinIdentifier::DatasetType => ScopeKind::Type,
+            BuiltinIdentifier::True | BuiltinIdentifier::False => ScopeKind::Value,
             BuiltinIdentifier::Fn | BuiltinIdentifier::FnMut | BuiltinIdentifier::FnOnce => {
                 ScopeKind::Trait
             }
@@ -104,6 +105,8 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::B32 => todo!(),
             BuiltinIdentifier::B64 => todo!(),
             BuiltinIdentifier::Bool => todo!(),
+            BuiltinIdentifier::True => todo!(),
+            BuiltinIdentifier::False => todo!(),
             BuiltinIdentifier::Vector => todo!(),
             BuiltinIdentifier::Tuple => todo!(),
             BuiltinIdentifier::Debug => todo!(),

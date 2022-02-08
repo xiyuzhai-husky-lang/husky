@@ -85,6 +85,8 @@ impl<'a> AtomLRParser<'a> {
                 | BuiltinIdentifier::B32
                 | BuiltinIdentifier::B64
                 | BuiltinIdentifier::Bool
+                | BuiltinIdentifier::True
+                | BuiltinIdentifier::False
                 | BuiltinIdentifier::Debug
                 | BuiltinIdentifier::Std
                 | BuiltinIdentifier::Core => Ok(Vec::new()),

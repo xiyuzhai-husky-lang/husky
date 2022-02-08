@@ -1,7 +1,7 @@
 mod decl;
 mod impr;
 
-pub(crate) use decl::build_decl_stmt_instructions;
+pub(crate) use decl::gen_decl_stmt_instructions;
 pub use decl::{DeclStmt, DeclStmtKind};
 pub use impr::{StrictStmt, StrictStmtKind};
 
@@ -62,7 +62,10 @@ impl<'a> LazyStmtParser<'a> {
                 Ast::MembDef { .. } => todo!(),
                 Ast::Stmt(stmt) => match stmt {
                     RawStmt::Loop(_) => todo!(),
-                    RawStmt::Branch(_) => todo!(),
+                    RawStmt::Branch(stmt) => DeclStmt {
+                        kind: DeclStmtKind::Branch {},
+                        indent: item.indent,
+                    },
                     RawStmt::Exec(_) => todo!(),
                     RawStmt::Init {
                         varname,

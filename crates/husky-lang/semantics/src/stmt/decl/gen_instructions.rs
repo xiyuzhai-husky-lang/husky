@@ -4,26 +4,26 @@ use vm::{Instruction, InstructionKind};
 
 use crate::{expr::ExprInstructionBuilder, DeclStmt, DeclStmtKind, Expr};
 
-pub fn build_decl_stmt_instructions(stmts: &[Arc<DeclStmt>]) -> Vec<Instruction> {
-    let mut builder = DeclStmtInstructionBuilder::new();
+pub fn gen_decl_stmt_instructions(stmts: &[Arc<DeclStmt>]) -> Vec<Instruction> {
+    let mut generator = DeclStmtInstructionGenerator::new();
     stmts
         .iter()
-        .for_each(|stmt| builder.build_stmt_instructions(stmt));
-    builder.instructions
+        .for_each(|stmt| generator.gen_stmt_instructions(stmt));
+    generator.instructions
 }
 
-struct DeclStmtInstructionBuilder {
+struct DeclStmtInstructionGenerator {
     instructions: Vec<Instruction>,
 }
 
-impl DeclStmtInstructionBuilder {
+impl DeclStmtInstructionGenerator {
     fn new() -> Self {
         Self {
             instructions: vec![],
         }
     }
 
-    fn build_stmt_instructions(&mut self, stmt: &DeclStmt) {
+    fn gen_stmt_instructions(&mut self, stmt: &DeclStmt) {
         match stmt.kind {
             DeclStmtKind::Init {
                 varname,
@@ -36,11 +36,12 @@ impl DeclStmtInstructionBuilder {
                     kind: InstructionKind::Return,
                 });
             }
+            DeclStmtKind::Branch {} => todo!(),
         }
     }
 }
 
-impl ExprInstructionBuilder for DeclStmtInstructionBuilder {
+impl ExprInstructionBuilder for DeclStmtInstructionGenerator {
     fn push_instruction(&mut self, instruction: Instruction) {
         self.instructions.push(instruction)
     }

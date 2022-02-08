@@ -1,6 +1,6 @@
-mod build;
+mod gen_instructions;
 
-pub(crate) use build::build_decl_stmt_instructions;
+pub(crate) use gen_instructions::gen_decl_stmt_instructions;
 
 use crate::*;
 
@@ -22,4 +22,5 @@ pub enum DeclStmtKind {
     Return {
         result: Arc<Expr>,
     },
+    Branch {},
 }
