@@ -60,7 +60,7 @@ impl Deref for ScopePtr {
             ($x:ident => $($reserved:ident),*) => {{
                  paste! {
                     $(
-                        const [<$reserved:upper _SCOPE>]:&Scope = &Scope {
+                        const [<$reserved:upper _SCOPE>]: &Scope = &Scope {
                             route: ScopeRoute::Builtin {
                                 ident: BuiltinIdentifier::$reserved,
                             },
@@ -72,7 +72,6 @@ impl Deref for ScopePtr {
                         $(
                             BuiltinIdentifier::$reserved => [<$reserved:upper _SCOPE>],
                         )*
-                        _=> panic!(),
                     }
                 }
             }}
@@ -80,7 +79,7 @@ impl Deref for ScopePtr {
 
         match self {
             ScopePtr::Builtin(ident) => match_builtin!(
-                ident => Void, I32, F32, B32, B64, Bool, Vector, Tuple, Debug, Std, Core, Fp, Fn,
+                ident => Void, I32, F32, B32, B64, Bool, True, False, Vector, Tuple, Debug, Std, Core, Fp, Fn,
                 FnMut, FnOnce, Array, DatasetType
             ),
             ScopePtr::Custom(scope) => scope,
@@ -145,8 +144,14 @@ pub trait AllocateUniqueScope {
 
 pub fn new_scope_unique_allocator() -> UniqueScopeAllocator {
     UniqueScopeAllocator::new_from::<BuiltinIdentifier>(&[
+        BuiltinIdentifier::Void,
         BuiltinIdentifier::I32,
         BuiltinIdentifier::F32,
+        BuiltinIdentifier::B32,
+        BuiltinIdentifier::B64,
+        BuiltinIdentifier::Bool,
+        BuiltinIdentifier::True,
+        BuiltinIdentifier::False,
         BuiltinIdentifier::Vector,
         BuiltinIdentifier::Tuple,
         BuiltinIdentifier::Debug,

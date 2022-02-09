@@ -12,6 +12,7 @@ use scope_query::PackageOrModule;
 use syntax_types::*;
 use text::TextRanged;
 use token::*;
+use vm::InputContract;
 use word::*;
 
 use crate::{

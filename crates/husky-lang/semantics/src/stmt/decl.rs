@@ -22,14 +22,30 @@ pub enum DeclStmtKind {
     Return {
         result: Arc<Expr>,
     },
-    Branch {
-        conditional_blocks: Vec<ConditionalBlock>,
-        default_block: Option<Vec<Arc<DeclStmt>>>,
+    Branches {
+        kind: DeclBranchesKind,
+        branches: Vec<Arc<DeclBranch>>,
     },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ConditionalBlock {
-    pub condition: Arc<Expr>,
+pub struct DeclBranch {
+    pub kind: DeclBranchKind,
     pub stmts: Vec<Arc<DeclStmt>>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum DeclBranchKind {
+    If { condition: Arc<Expr> },
+    Elif { condition: Arc<Expr> },
+    Else,
+    Case { pattern: Arc<Expr> },
+    Default,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DeclBranchesKind {
+    If,
+    Switch,
+    Match,
 }

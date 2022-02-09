@@ -1,7 +1,8 @@
 use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
+use common::p;
 use scope::{ScopeKind, ScopePtr};
 use syntax_types::Opr;
-use vm::BinaryOpr;
+use vm::{BinaryOpr, PrimitiveValue};
 use word::BuiltinIdentifier;
 
 use crate::{error::err, *};
@@ -16,16 +17,36 @@ pub trait ExprParser<'a> {
     fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Arc<Expr>> {
         let (ty, kind): (ScopePtr, _) = match raw_expr.kind {
             RawExprKind::Variable(ident) => (self.vartype(ident), ExprKind::Variable(ident)),
-            RawExprKind::Scope(id, kind) => match kind {
+            RawExprKind::Scope(scope, kind) => match kind {
                 ScopeKind::Module => todo!(),
-                ScopeKind::Value => todo!(),
+                ScopeKind::Literal => {
+                    match scope {
+                        ScopePtr::Builtin(BuiltinIdentifier::True) => (
+                            ScopePtr::Builtin(BuiltinIdentifier::Bool),
+                            ExprKind::Literal(PrimitiveValue::Bool(true)),
+                        ),
+                        ScopePtr::Builtin(BuiltinIdentifier::False) => (
+                            ScopePtr::Builtin(BuiltinIdentifier::Bool),
+                            ExprKind::Literal(PrimitiveValue::Bool(false)),
+                        ),
+                        ScopePtr::Custom(_) => todo!(),
+                        _ => todo!(),
+                    }
+                    // (
+                    //     self.db().scope_ty(scope)?,
+                    //     ExprKind::Scope {
+                    //         scope,
+                    //         compiled: None,
+                    //     },
+                    // )
+                }
                 ScopeKind::Type => todo!(),
                 ScopeKind::Trait => todo!(),
                 ScopeKind::Func => todo!(),
                 ScopeKind::Feature => (
-                    self.db().scope_ty(id)?,
+                    self.db().scope_ty(scope)?,
                     ExprKind::Scope {
-                        scope: id,
+                        scope,
                         compiled: None,
                     },
                 ),

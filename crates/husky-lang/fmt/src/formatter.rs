@@ -5,6 +5,7 @@ use common::*;
 use ast::{Ast, AstResult, RawExpr, RawExprKind};
 use scope::ScopePtr;
 use syntax_types::*;
+use vm::{InputContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {

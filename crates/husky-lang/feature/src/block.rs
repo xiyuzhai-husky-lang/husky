@@ -1,8 +1,12 @@
 use std::sync::Arc;
 
-use semantics::{DeclStmt, DeclStmtKind};
+use semantics::{DeclBranchKind, DeclStmt, DeclStmtKind};
 
-use crate::{stmt::FeatureStmtKind, unique_allocate::FeatureUniqueAllocator, *};
+use crate::{
+    stmt::{FeatureBranchKind, FeatureStmtKind},
+    unique_allocate::FeatureUniqueAllocator,
+    *,
+};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureBlock {
@@ -54,38 +58,62 @@ impl FeatureBlock {
                             indent: decl_stmt.indent,
                         }
                     }
-                    DeclStmtKind::Branch {
-                        ref conditional_blocks,
-                        ref default_block,
-                    } => {
-                        let conditional_feature_blocks = conditional_blocks
+                    DeclStmtKind::Branches { kind, ref branches } => {
+                        let branches: Vec<Arc<FeatureBranch>> = branches
                             .iter()
-                            .map(|block| {
-                                Arc::new(ConditionalFeatureBlock {
-                                    condition: Arc::new(FeatureExpr::new(
-                                        &block.condition,
-                                        &symbols,
-                                        features,
-                                    )),
-                                    block: FeatureBlock::new(&block.stmts, &symbols, features),
+                            .map(|branch| {
+                                Arc::new(FeatureBranch {
+                                    kind: match branch.kind {
+                                        DeclBranchKind::If { ref condition } => {
+                                            FeatureBranchKind::If {
+                                                condition: Arc::new(FeatureExpr::new(
+                                                    condition, &symbols, features,
+                                                )),
+                                            }
+                                        }
+                                        DeclBranchKind::Elif { ref condition } => {
+                                            FeatureBranchKind::Elif {
+                                                condition: Arc::new(FeatureExpr::new(
+                                                    condition, &symbols, features,
+                                                )),
+                                            }
+                                        }
+                                        DeclBranchKind::Else => FeatureBranchKind::Else,
+                                        DeclBranchKind::Case { ref pattern } => todo!(),
+                                        DeclBranchKind::Default => todo!(),
+                                    },
+                                    block: FeatureBlock::new(&branch.stmts, &symbols, features),
                                 })
                             })
                             .collect();
-                        let default_feature_block = default_block
-                            .as_ref()
-                            .map(|stmts| Arc::new(FeatureBlock::new(&stmts, &symbols, features)));
-                        let feature = Some(features.alloc(Feature::Branch {
-                            conditional_features: vec![],
-                            default_feature: default_feature_block.as_ref().map(|block| {
-                                block.stmts.iter().filter_map(|stmt| stmt.feature).collect()
+                        let feature = Some(
+                            features.alloc(Feature::Branches {
+                                branches: branches
+                                    .iter()
+                                    .map(|branch| match branch.kind {
+                                        FeatureBranchKind::If { ref condition } => {
+                                            BranchedFeature {
+                                                condition: Some(condition.feature),
+                                                block: branch.block.feature,
+                                            }
+                                        }
+                                        FeatureBranchKind::Elif { ref condition } => {
+                                            BranchedFeature {
+                                                condition: Some(condition.feature),
+                                                block: branch.block.feature,
+                                            }
+                                        }
+                                        FeatureBranchKind::Else => BranchedFeature {
+                                            condition: None,
+                                            block: branch.block.feature,
+                                        },
+                                    })
+                                    .collect(),
                             }),
-                        }));
+                        );
                         FeatureStmt {
                             feature,
-                            kind: FeatureStmtKind::Branch {
-                                conditional_feature_blocks,
-                                default_feature_block,
-                            },
+                            kind: FeatureStmtKind::Branches { kind, branches },
                             indent: decl_stmt.indent,
                         }
                     }

@@ -1,5 +1,6 @@
 use atom::AtomKind;
 use common::*;
+use vm::PrimitiveValue;
 
 use crate::*;
 use scope::{ScopeKind, ScopePtr};

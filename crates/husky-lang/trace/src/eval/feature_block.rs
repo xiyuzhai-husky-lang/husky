@@ -6,7 +6,7 @@ use std::sync::Arc;
 
 use feature::FeatureBlock;
 
-pub fn eval_block_subtraces(
+pub fn eval_feature_block_subtraces(
     parent: Option<usize>,
     feature_block: &FeatureBlock,
 ) -> Arc<Vec<Arc<Trace>>> {

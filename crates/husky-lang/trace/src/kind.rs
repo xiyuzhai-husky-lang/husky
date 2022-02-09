@@ -1,4 +1,4 @@
-use feature::{FeatureBlock, FeatureExpr, FeatureStmt};
+use feature::{FeatureBlock, FeatureBranch, FeatureExpr, FeatureStmt};
 use file::FilePtr;
 
 use crate::*;
@@ -14,4 +14,5 @@ pub enum TraceKind {
     },
     Stmt(Arc<FeatureStmt>),
     Expr(Arc<FeatureExpr>),
+    Branch(Arc<FeatureBranch>),
 }

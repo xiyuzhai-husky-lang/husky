@@ -36,7 +36,7 @@ impl DeclStmtInstructionGenerator {
                     kind: InstructionKind::Return,
                 });
             }
-            DeclStmtKind::Branch { .. } => todo!(),
+            DeclStmtKind::Branches { .. } => todo!(),
         }
     }
 }
