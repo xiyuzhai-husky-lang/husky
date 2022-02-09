@@ -1,6 +1,6 @@
 use scope::ScopeKind;
 use token::Special;
-use vm::BinaryOpr;
+use vm::{BinaryOpr, PrimitiveValue};
 use word::CustomIdentifier;
 
 use super::*;
@@ -10,7 +10,7 @@ use crate::*;
 pub enum AtomKind {
     Scope(ScopePtr, ScopeKind),
     Variable(CustomIdentifier),
-    Literal(syntax_types::PrimitiveValue),
+    Literal(PrimitiveValue),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),

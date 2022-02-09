@@ -6,7 +6,10 @@ pub mod mock;
 mod tests;
 mod token;
 
-pub use eval::{eval_block_subtraces, eval_feature_expr_subtraces, eval_feature_stmt_subtraces};
+pub use eval::{
+    eval_feature_block_subtraces, eval_feature_branch_subtraces, eval_feature_branch_trace_tokens,
+    eval_feature_expr_subtraces, eval_feature_stmt_subtraces,
+};
 use eval::{eval_feature_expr_trace_tokens, eval_feature_stmt_trace_tokens};
 pub use figure::FigureProps;
 use fold::Indent;
@@ -106,6 +109,7 @@ impl Trace {
                 tokens[0].spaces_before = Some(0);
                 tokens.into()
             }
+            TraceKind::Branch(ref branch) => eval_feature_branch_trace_tokens(branch).into(),
         }
     }
 }

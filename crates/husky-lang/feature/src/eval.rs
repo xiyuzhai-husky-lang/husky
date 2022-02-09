@@ -96,10 +96,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 }
             }
             FeatureStmtKind::Return { ref result } => self.eval_expr(result),
-            FeatureStmtKind::Branch {
-                ref conditional_feature_blocks,
-                ref default_feature_block,
-            } => todo!(),
+            FeatureStmtKind::Branches { .. } => todo!(),
         }
     }
 

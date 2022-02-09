@@ -1,5 +1,6 @@
 use crate::*;
 use syntax_types::*;
+use vm::InputContract;
 
 use super::*;
 

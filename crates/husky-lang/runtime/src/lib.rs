@@ -96,10 +96,13 @@ impl HuskyLangRuntime {
             TraceKind::Main {
                 main_file,
                 ref feature_block,
-            } => trace::eval_block_subtraces(Some(trace.id), feature_block),
+            } => trace::eval_feature_block_subtraces(Some(trace.id), feature_block),
             TraceKind::Stmt(ref stmt) => trace::eval_feature_stmt_subtraces(trace.id, stmt),
             TraceKind::Expr(ref expr) => {
                 trace::eval_feature_expr_subtraces(trace.id, trace.indent, expr)
+            }
+            TraceKind::Branch(ref branch) => {
+                trace::eval_feature_branch_subtraces(trace.id, trace.indent, branch)
             }
         };
         for subtrace in subtraces.iter() {

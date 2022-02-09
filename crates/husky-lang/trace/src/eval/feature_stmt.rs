@@ -23,10 +23,19 @@ pub fn eval_feature_stmt_subtraces(parent: usize, stmt: &FeatureStmt) -> Arc<Vec
         FeatureStmtKind::Return { ref result } => {
             vec![eval_feature_expr_trace(parent, stmt.indent, result.clone())]
         }
-        FeatureStmtKind::Branch {
-            ref conditional_feature_blocks,
-            ref default_feature_block,
-        } => todo!(),
+        FeatureStmtKind::Branches {
+            ref kind,
+            ref branches,
+        } => branches
+            .iter()
+            .map(|branch| {
+                Trace::new(
+                    Some(parent),
+                    stmt.indent + 2,
+                    TraceKind::Branch(branch.clone()),
+                )
+            })
+            .collect(),
     })
 }
 
@@ -51,9 +60,6 @@ pub fn eval_feature_stmt_trace_tokens(stmt: &FeatureStmt) -> Vec<TokenProps> {
             tokens[0].spaces_before = Some(0);
             tokens.into()
         }
-        FeatureStmtKind::Branch {
-            ref conditional_feature_blocks,
-            ref default_feature_block,
-        } => todo!(),
+        FeatureStmtKind::Branches { .. } => vec![keyword!("if", 0), special!("...")],
     }
 }

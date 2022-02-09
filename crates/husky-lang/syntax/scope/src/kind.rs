@@ -3,11 +3,11 @@ use word::Keyword;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ScopeKind {
     Module,
-    Value,
     Type,
     Trait,
     Func,
     Feature,
+    Literal,
 }
 
 impl ScopeKind {

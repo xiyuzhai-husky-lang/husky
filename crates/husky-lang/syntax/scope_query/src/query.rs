@@ -76,7 +76,7 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
             | BuiltinIdentifier::Fp
             | BuiltinIdentifier::Array
             | BuiltinIdentifier::DatasetType => ScopeKind::Type,
-            BuiltinIdentifier::True | BuiltinIdentifier::False => ScopeKind::Value,
+            BuiltinIdentifier::True | BuiltinIdentifier::False => ScopeKind::Literal,
             BuiltinIdentifier::Fn | BuiltinIdentifier::FnMut | BuiltinIdentifier::FnOnce => {
                 ScopeKind::Trait
             }

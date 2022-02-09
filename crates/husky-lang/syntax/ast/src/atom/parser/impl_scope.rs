@@ -100,7 +100,7 @@ impl<'a> AtomLRParser<'a> {
                 | BuiltinIdentifier::DatasetType => self.angled_generics(),
             },
             _ => match self.scope_proxy.db.scope_kind_from_route(route) {
-                ScopeKind::Module | ScopeKind::Value | ScopeKind::Feature => Ok(Vec::new()),
+                ScopeKind::Module | ScopeKind::Literal | ScopeKind::Feature => Ok(Vec::new()),
                 ScopeKind::Type | ScopeKind::Trait | ScopeKind::Func => self.angled_generics(),
             },
         }

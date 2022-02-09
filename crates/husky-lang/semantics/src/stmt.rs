@@ -1,8 +1,9 @@
 mod decl;
 mod impr;
 
+use common::p;
 pub(crate) use decl::gen_decl_stmt_instructions;
-pub use decl::{DeclStmt, DeclStmtKind};
+pub use decl::{DeclBranchKind, DeclBranchesKind, DeclStmt, DeclStmtKind};
 pub use impr::{StrictStmt, StrictStmtKind};
 
 use ast::*;
@@ -18,16 +19,18 @@ use crate::expr::{BinaryOpnKind, ExprParser, Opn};
 use crate::query::infer::InferQueryGroup;
 use crate::*;
 
+use self::decl::DeclBranch;
+
 pub(crate) fn parse_lazy_stmts(
     this: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
 ) -> SemanticResult<Vec<Arc<DeclStmt>>> {
-    let mut parser = LazyStmtParser::new(this, arena);
+    let mut parser = DeclStmtParser::new(this, arena);
     parser.parse_stmts(iter)
 }
 
-pub struct LazyStmtParser<'a> {
+pub struct DeclStmtParser<'a> {
     db: &'a dyn InferQueryGroup,
     arena: &'a RawExprArena,
     variables: Vec<Variable>,
@@ -38,7 +41,7 @@ pub struct Variable {
     ty: ScopePtr,
 }
 
-impl<'a> LazyStmtParser<'a> {
+impl<'a> DeclStmtParser<'a> {
     fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena) -> Self {
         Self {
             db,
@@ -65,8 +68,19 @@ impl<'a> LazyStmtParser<'a> {
                 Ast::Stmt(stmt) => match stmt {
                     RawStmt::Loop(_) => todo!(),
                     RawStmt::Branch(stmt) => {
-                        let mut conditional_blocks = vec![];
-                        let mut default_block = None;
+                        let mut branches = vec![];
+                        match stmt {
+                            BranchRawStmt::If { condition } => {
+                                branches.push(Arc::new(DeclBranch {
+                                    kind: DeclBranchKind::If {
+                                        condition: self.parse_expr(&self.arena[condition])?,
+                                    },
+                                    stmts: self.parse_stmts(not_none!(item.children))?,
+                                }))
+                            }
+                            BranchRawStmt::Elif { condition } => todo!(),
+                            BranchRawStmt::Else => todo!(),
+                        }
                         while let Some(item) = iter.peek() {
                             let item = match item.value.as_ref()? {
                                 Ast::Stmt(RawStmt::Branch(_)) => iter.next().unwrap(),
@@ -74,21 +88,18 @@ impl<'a> LazyStmtParser<'a> {
                             };
                             match item.value.as_ref()? {
                                 Ast::Stmt(RawStmt::Branch(branch_stmt)) => match branch_stmt {
-                                    BranchRawStmt::If { condition } => {
-                                        if conditional_blocks.len() > 0 {
-                                            break;
-                                        }
-                                        todo!()
-                                    }
+                                    BranchRawStmt::If { condition } => break,
                                     BranchRawStmt::Elif { condition } => {
-                                        if conditional_blocks.len() == 0 {
+                                        if branches.len() == 0 {
                                             todo!()
                                         }
                                         todo!()
                                     }
                                     BranchRawStmt::Else => {
-                                        default_block =
-                                            Some(self.parse_stmts(not_none!(item.children))?);
+                                        branches.push(Arc::new(DeclBranch {
+                                            kind: DeclBranchKind::Else,
+                                            stmts: self.parse_stmts(not_none!(item.children))?,
+                                        }));
                                         break;
                                     }
                                 },
@@ -96,9 +107,9 @@ impl<'a> LazyStmtParser<'a> {
                             }
                         }
                         DeclStmt {
-                            kind: DeclStmtKind::Branch {
-                                conditional_blocks,
-                                default_block,
+                            kind: DeclStmtKind::Branches {
+                                kind: DeclBranchesKind::If,
+                                branches,
                             },
                             indent: item.indent,
                         }
@@ -143,7 +154,7 @@ impl<'a> LazyStmtParser<'a> {
     }
 }
 
-impl<'a> ExprParser<'a> for LazyStmtParser<'a> {
+impl<'a> ExprParser<'a> for DeclStmtParser<'a> {
     fn arena(&self) -> &'a RawExprArena {
         self.arena
     }

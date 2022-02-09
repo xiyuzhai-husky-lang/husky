@@ -20,3 +20,4 @@ scope = { path = "../syntax/scope", version = "0.0.0" }
 scope_query = { path = "../syntax/scope_query", version = "0.0.0" }
 syntax-types = { path = "../syntax/types", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
+vm = { path = "../vm", version = "0.0.0" }

@@ -11,7 +11,7 @@ pub(crate) use parser::ExprParser;
 use scope::ScopePtr;
 use syntax_types::*;
 use text::TextRange;
-use vm::{Compiled, VMResult};
+use vm::{Compiled, PrimitiveValue, VMResult};
 use word::{CustomIdentifier, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]

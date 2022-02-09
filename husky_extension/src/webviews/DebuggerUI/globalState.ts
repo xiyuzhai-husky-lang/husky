@@ -33,7 +33,6 @@ function init_websocket(websocket: WebSocket) {
         let data: DebuggerResponse = JSON.parse(event.data);
         const result = tDebuggerResponse.decode(data);
         if (isRight(result)) {
-            console.log(data);
             switch (data.type) {
                 case "RootTraces":
                     setRootTraces(data.root_traces);
@@ -142,7 +141,11 @@ export function onKeyDown(e: KeyboardEvent) {
             moveUp();
             break;
         case "KeyS":
-            console.error("TODO");
+            let idx = get(activeTraceIdx);
+            if (idx !== null) {
+                console.log("trace: ", traces[idx]);
+                console.log("subtraces: ", get(subtraces_table[idx]));
+            }
             break;
         default:
     }

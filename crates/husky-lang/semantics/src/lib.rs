@@ -14,7 +14,9 @@ pub use kind::EntityKind;
 pub use package::Package;
 pub use query::*;
 use scope::ScopePtr;
-pub use stmt::{DeclStmt, DeclStmtKind, StrictStmt, StrictStmtKind};
+pub use stmt::{
+    DeclBranchKind, DeclBranchesKind, DeclStmt, DeclStmtKind, StrictStmt, StrictStmtKind,
+};
 
 use kind::*;
 use std::sync::Arc;

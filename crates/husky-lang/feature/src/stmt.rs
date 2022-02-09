@@ -1,3 +1,5 @@
+use semantics::{DeclBranchKind, DeclBranchesKind};
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -19,14 +21,21 @@ pub enum FeatureStmtKind {
     Return {
         result: Arc<FeatureExpr>,
     },
-    Branch {
-        conditional_feature_blocks: Vec<Arc<ConditionalFeatureBlock>>,
-        default_feature_block: Option<Arc<FeatureBlock>>,
+    Branches {
+        kind: DeclBranchesKind,
+        branches: Vec<Arc<FeatureBranch>>,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ConditionalFeatureBlock {
-    pub condition: Arc<FeatureExpr>,
+pub struct FeatureBranch {
+    pub kind: FeatureBranchKind,
     pub block: FeatureBlock,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum FeatureBranchKind {
+    If { condition: Arc<FeatureExpr> },
+    Elif { condition: Arc<FeatureExpr> },
+    Else,
 }
