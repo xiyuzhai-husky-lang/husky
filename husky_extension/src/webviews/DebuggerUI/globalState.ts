@@ -90,7 +90,6 @@ function init_websocket(websocket: WebSocket) {
 }
 
 function updateTraceList() {
-    console.log("root traces: ", get(rootTraces));
     for (const trace of get(rootTraces)) {
         updateTraceListDfs(trace.id);
     }
@@ -140,7 +139,7 @@ export function onKeyDown(e: KeyboardEvent) {
         case "KeyK":
             moveUp();
             break;
-        case "KeyS":
+        case "KeyT":
             let idx = get(activeTraceIdx);
             if (idx !== null) {
                 console.log("trace: ", traces[idx]);

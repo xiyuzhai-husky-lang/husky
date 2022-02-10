@@ -1,4 +1,4 @@
-mod eval;
+mod alloc;
 mod figure;
 mod kind;
 pub mod mock;
@@ -6,13 +6,8 @@ pub mod mock;
 mod tests;
 mod token;
 
-pub use eval::{
-    eval_feature_block_subtraces, eval_feature_branch_subtraces, eval_feature_branch_trace_tokens,
-    eval_feature_expr_subtraces, eval_feature_stmt_subtraces,
-};
-use eval::{eval_feature_expr_trace_tokens, eval_feature_stmt_trace_tokens};
+pub use alloc::{AllocateTrace, TraceAllocator};
 pub use figure::FigureProps;
-use fold::Indent;
 pub use kind::TraceKind;
 pub use token::{TokenProps, TraceTokenKind};
 
@@ -27,9 +22,10 @@ use std::{
 use common::*;
 use feature::FeatureBlock;
 use file::FilePtr;
+use fold::Indent;
 use serde::{ser::SerializeStruct, Serialize};
 
-use token::*;
+use token::{feature_trace::*, *};
 
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -58,15 +54,15 @@ static NEXT_TRACE_ID: AtomicUsize = AtomicUsize::new(0);
 static NEXT_TRACE_ID_ORDERING: Ordering = Ordering::SeqCst;
 
 impl Trace {
-    fn new(parent: Option<usize>, indent: Indent, kind: TraceKind) -> Arc<Self> {
+    pub(crate) fn new(parent: Option<usize>, indent: Indent, kind: TraceKind) -> Self {
         let id = NEXT_TRACE_ID.load(NEXT_TRACE_ID_ORDERING);
         NEXT_TRACE_ID.store(id + 1, NEXT_TRACE_ID_ORDERING);
-        Arc::new(Self {
+        Self {
             id,
             parent,
             indent,
             kind,
-        })
+        }
     }
 
     fn mock(
@@ -84,16 +80,16 @@ impl Trace {
         })
     }
 
-    pub fn main(main_file: FilePtr, feature_block: Arc<FeatureBlock>) -> Arc<Self> {
-        Self::new(
-            None,
-            0,
-            TraceKind::Main {
-                main_file,
-                feature_block,
-            },
-        )
-    }
+    // pub(crate) fn main(main_file: FilePtr, feature_block: Arc<FeatureBlock>) -> Arc<Self> {
+    //     Self::new(
+    //         None,
+    //         0,
+    //         TraceKind::Main {
+    //             main_file,
+    //             feature_block,
+    //         },
+    //     )
+    // }
 
     pub fn tokens(&self) -> Cow<[TokenProps]> {
         match self.kind {
@@ -103,13 +99,18 @@ impl Trace {
                 value: Cow::Borrowed("main"),
                 spaces_before: Some(0),
             }]),
-            TraceKind::Stmt(ref stmt) => eval_feature_stmt_trace_tokens(stmt).into(),
+            TraceKind::Stmt(ref stmt) => feature_stmt_trace_tokens(stmt).into(),
             TraceKind::Expr(ref expr) => {
-                let mut tokens = eval_feature_expr_trace_tokens(expr);
+                let mut tokens = feature_expr_trace_tokens(expr);
                 tokens[0].spaces_before = Some(0);
                 tokens.into()
             }
-            TraceKind::Branch(ref branch) => eval_feature_branch_trace_tokens(branch).into(),
+            TraceKind::Branch(ref branch) => feature_branch_trace_tokens(branch).into(),
+            TraceKind::Condition(ref expr) => {
+                let mut tokens = vec![label!("on:", 0)];
+                tokens.extend(feature_expr_trace_tokens(expr));
+                tokens.into()
+            }
         }
     }
 }

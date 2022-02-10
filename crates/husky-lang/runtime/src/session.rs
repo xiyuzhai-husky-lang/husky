@@ -1,14 +1,6 @@
 mod cache;
 mod division;
-// mod eval;
-// mod impl_intern_feature;
-// mod impl_offline_eval;
-// mod impl_online_eval;
-// mod impl_parse_feature;
-// mod impl_train;
-// mod impl_update;
 mod tests;
-// mod value;
 
 use common::*;
 use semantics::{DeclStmt, Package};

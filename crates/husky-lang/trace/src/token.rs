@@ -1,3 +1,5 @@
+pub(crate) mod feature_trace;
+
 use crate::*;
 
 // ts: { type: string; value: string; spaces_before?: number }
@@ -14,6 +16,7 @@ pub struct TokenProps {
 #[serde(rename_all = "lowercase")]
 pub enum TraceTokenKind {
     Keyword,
+    Label,
     Ident,
     Literal,
     Special,
@@ -38,6 +41,24 @@ macro_rules! keyword {
     }};
 }
 pub(crate) use keyword;
+
+macro_rules! label {
+    ($value:expr) => {{
+        TokenProps {
+            kind: TraceTokenKind::Label,
+            value: $value.into(),
+            spaces_before: None,
+        }
+    }};
+    ($value:expr, $spaces_before:expr) => {{
+        TokenProps {
+            kind: TraceTokenKind::Label,
+            value: $value.into(),
+            spaces_before: Some($spaces_before),
+        }
+    }};
+}
+pub(crate) use label;
 
 macro_rules! ident {
     ($value:expr) => {{
