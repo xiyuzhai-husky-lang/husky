@@ -15,4 +15,5 @@ pub enum TraceKind {
     Stmt(Arc<FeatureStmt>),
     Expr(Arc<FeatureExpr>),
     Branch(Arc<FeatureBranch>),
+    Condition(Arc<FeatureExpr>),
 }

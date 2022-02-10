@@ -7,6 +7,7 @@ edition = "2021"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 common = { path = "../../common", version = "0.0.0" }
+stdx = { path = "../../stdx", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 feature = { path = "../feature", version = "0.0.0" }
 fold = { path = "../../data_structure/fold", version = "0.0.0" }

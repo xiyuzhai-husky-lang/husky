@@ -1,7 +1,11 @@
 #![allow(warnings)]
 mod error;
+mod query;
 mod session;
 mod tests;
+
+pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
+pub use query::{AskCompileTime, RuntimeQueryGroup, RuntimeQueryGroupStorage};
 
 use common::HashMap;
 use file::{FilePtr, FileQuery};
@@ -10,105 +14,54 @@ use tokio::sync::Mutex;
 
 use std::{borrow::Cow, sync::Arc};
 
-pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
-
 use session::Session;
-use trace::{FigureProps, Trace, TraceKind};
+use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceKind};
 use vm::{run, AnyValueDyn, Instruction};
 
-#[derive(Debug)]
+#[salsa::database(RuntimeQueryGroupStorage)]
 pub struct HuskyLangRuntime {
+    storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
-    all_main_files: Vec<FilePtr>,
-    current_package_main: Option<FilePtr>,
+    trace_allocator: TraceAllocator,
     session: Option<Session<'static>>,
-    traces: HashMap<usize, Arc<Trace>>,
-    subtraces: HashMap<usize, Arc<Vec<Arc<Trace>>>>,
-    root_traces: Vec<Arc<Trace>>,
+}
+
+impl AskCompileTime for HuskyLangRuntime {
+    fn compile_time(&self, _version: usize) -> &HuskyLangCompileTime {
+        &self.compile_time
+    }
+}
+
+impl AllocateTrace for HuskyLangRuntime {
+    fn trace_allocator(&self) -> &trace::TraceAllocator {
+        &self.trace_allocator
+    }
 }
 
 impl HuskyLangRuntime {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyLangCompileTime)) -> Self {
         let mut compile_time = HuskyLangCompileTime::default();
         init_compile_time(&mut compile_time);
-        let all_main_files = compile_time.all_main_files();
-        let current_package_main = if all_main_files.len() == 1 {
-            Some(all_main_files[0])
-        } else {
-            None
-        };
         let mut runtime = Self {
+            storage: Default::default(),
             compile_time,
-            all_main_files,
-            current_package_main,
+            trace_allocator: Default::default(),
             session: None,
-            traces: Default::default(),
-            subtraces: Default::default(),
-            root_traces: vec![],
         };
-        runtime.init_root_traces();
+        runtime.init_salsa();
         runtime
     }
 
-    fn init_root_traces(&mut self) {
-        self.root_traces = if let Some(current_package_main) = self.current_package_main {
-            let main_feature_block = self
-                .compile_time
-                .main_feature_block(current_package_main)
-                .unwrap();
-            self.store_traces(vec![Trace::main(current_package_main, main_feature_block)])
-        } else {
-            vec![]
-        };
+    fn init_salsa(&mut self) {
+        self.set_version(0);
+        let all_main_files = self.compile_time.all_main_files();
+        assert!(all_main_files.len() == 1);
+        let current_package_main = all_main_files[0];
+        self.set_package_main(current_package_main);
     }
 
     pub async fn change_text(&mut self) {
-        self.all_main_files = self.compile_time.all_main_files();
-        self.current_package_main = if self.all_main_files.len() == 1 {
-            Some(self.all_main_files[0])
-        } else {
-            None
-        };
-        todo!("send updates on all main files and currrent package main")
-    }
-
-    pub fn root_traces(&self) -> Vec<Arc<Trace>> {
-        self.root_traces.clone()
-    }
-
-    fn store_traces(&mut self, traces: Vec<Arc<Trace>>) -> Vec<Arc<Trace>> {
-        traces
-            .into_iter()
-            .map(|trace| {
-                self.traces.insert(trace.id, trace.clone());
-                trace
-            })
-            .collect()
-    }
-
-    pub fn subtraces(&mut self, id: usize) -> Arc<Vec<Arc<Trace>>> {
-        let trace = &self.traces[&id];
-        if let Some(subtraces) = self.subtraces.get(&id) {
-            return subtraces.clone();
-        }
-        let subtraces = match trace.kind {
-            TraceKind::Mock { ref tokens } => trace::mock::subtraces(id),
-            TraceKind::Main {
-                main_file,
-                ref feature_block,
-            } => trace::eval_feature_block_subtraces(Some(trace.id), feature_block),
-            TraceKind::Stmt(ref stmt) => trace::eval_feature_stmt_subtraces(trace.id, stmt),
-            TraceKind::Expr(ref expr) => {
-                trace::eval_feature_expr_subtraces(trace.id, trace.indent, expr)
-            }
-            TraceKind::Branch(ref branch) => {
-                trace::eval_feature_branch_subtraces(trace.id, trace.indent, branch)
-            }
-        };
-        for subtrace in subtraces.iter() {
-            self.traces.insert(subtrace.id, subtrace.clone());
-        }
-        subtraces
+        self.set_version(self.version() + 1);
     }
 
     pub fn figure(&self, id: usize) -> Option<FigureProps> {
@@ -119,3 +72,5 @@ impl HuskyLangRuntime {
 
     pub fn toggle_expansion(&self, id: usize) {}
 }
+
+impl salsa::Database for HuskyLangRuntime {}

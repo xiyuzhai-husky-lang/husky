@@ -19,6 +19,8 @@
     <code class="scope">{token.value}</code>
 {:else if token.kind == "keyword"}
     <code class="keyword">{token.value}</code>
+{:else if token.kind == "label"}
+    <code class="label">{token.value}</code>
 {:else if token.kind == "ident"}
     <code class="ident">{token.value}</code>
 {:else if token.kind == "literal"}
@@ -34,6 +36,9 @@
         font-size: 16px;
     }
     .keyword {
+        color: rgb(28, 142, 195);
+    }
+    .label {
         color: rgb(28, 142, 195);
     }
     .special {

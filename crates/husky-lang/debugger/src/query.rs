@@ -27,7 +27,7 @@ fn print_queries() {
 #[serde(tag = "type")]
 pub enum Response {
     RootTraces {
-        root_traces: Vec<Arc<Trace>>,
+        root_traces: Arc<Vec<Arc<Trace>>>,
     },
     Subtraces {
         id: usize,

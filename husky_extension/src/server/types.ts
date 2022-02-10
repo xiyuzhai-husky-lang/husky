@@ -3,7 +3,15 @@ import * as t from "io-ts";
 import { tPoint2d } from "./geom2d/types";
 
 export const tTokenProps = t.interface({
-    kind: t.string,
+    kind: t.union([
+        t.literal("special"),
+        t.literal("scope"),
+        t.literal("keyword"),
+        t.literal("label"),
+        t.literal("ident"),
+        t.literal("literal"),
+        t.literal("fade"),
+    ]),
     value: t.string,
     spaces_before: t.union([t.number, t.undefined]),
 });

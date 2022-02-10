@@ -9,7 +9,7 @@ use std::{convert::Infallible, net::ToSocketAddrs, sync::Arc};
 pub use error::{DebuggerError, DebuggerResult};
 
 use husky_lang_compile_time::HuskyLangCompileTime;
-use husky_lang_runtime::HuskyLangRuntime;
+use husky_lang_runtime::{HuskyLangRuntime, RuntimeQueryGroup};
 
 use futures::executor::ThreadPool;
 use notif::handle_notif;
@@ -55,7 +55,7 @@ impl Debugger {
 
     pub fn change_text(&self) {}
 
-    pub async fn root_traces(&self) -> Vec<Arc<Trace>> {
+    pub async fn root_traces(&self) -> Arc<Vec<Arc<Trace>>> {
         self.runtime.lock().unwrap().root_traces()
     }
 
