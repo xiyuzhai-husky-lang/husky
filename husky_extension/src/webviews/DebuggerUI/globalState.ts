@@ -1,7 +1,8 @@
 import type { Trace, FigureProps } from "server/types";
 import type { Readable, Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
-import DebuggerResponse, { tDebuggerResponse } from "./DebuggerResponse";
+import type DebuggerResponse from "./DebuggerResponse";
+import { tDebuggerResponse } from "./DebuggerResponse";
 import { isRight } from "fp-ts/Either";
 import { PathReporter } from "io-ts/PathReporter";
 
@@ -49,6 +50,8 @@ function init_websocket(websocket: WebSocket) {
                 case "DidToggleExpansion":
                     didToggleExpansion(data.id);
                     break;
+                case "DidToggleAssociatedTrace":
+                    didToggleAssociatedTrace(data.id, data.trace);
             }
         } else {
             console.error("invalid response: ", data);
@@ -87,6 +90,20 @@ function init_websocket(websocket: WebSocket) {
         expansions[id].update((expanded) => !expanded);
         updateTraceList();
     }
+
+    function didToggleAssociatedTrace(id: number, trace: null | Trace) {
+        if (trace !== null) {
+            addTrace(trace);
+        }
+        activeAssociatedTraces[id].update((trace) => {
+            if (trace !== null) {
+                return null;
+            } else {
+                return traces[id];
+            }
+        });
+        updateTraceList();
+    }
 }
 
 function updateTraceList() {
@@ -96,10 +113,33 @@ function updateTraceList() {
 
     function updateTraceListDfs(id: number) {
         traceList.push(id);
+        updateAssociatedTraces(id);
         if (isExpanded(id)) {
             let subtraces: Trace[] = get(getSubtraces(id)) || [];
             for (const trace of subtraces) {
                 updateTraceListDfs(trace.id);
+            }
+        }
+
+        function updateAssociatedTraces(id: number) {
+            let trace = traces[id];
+            let tokens = trace.tokens;
+            for (const token of tokens) {
+                let id = token.associated_trace;
+                if (id === 7) {
+                    console.log("here");
+                    console.log("id = ", id);
+                    console.log(
+                        "get(activeAssociatedTraces[id]) = ",
+                        get(activeAssociatedTraces[id])
+                    );
+                }
+                if (id !== null) {
+                    if (get(activeAssociatedTraces[id]) !== null) {
+                        console.log("id ", id, " pushed");
+                        traceList.push(id);
+                    }
+                }
             }
         }
     }
@@ -109,6 +149,34 @@ export function toggleExpansion(id: number) {
     if (hasChildren(id)) {
         websocket.send(JSON.stringify({ type: "ToggleExpansion", id }));
     }
+}
+
+export function toggleAssociatedTrace(id: number | null) {
+    if (id === null) {
+        return;
+    }
+    let request_trace =
+        get(_getActiveAssociatedTrace(id)) === null && !(id in traces);
+    websocket.send(
+        JSON.stringify({
+            type: "ToggleAssociatedTrace",
+            id,
+            request_trace,
+        })
+    );
+}
+
+let activeAssociatedTraces: { [id: number]: Writable<Trace | null> } = {};
+function _getActiveAssociatedTrace(id: number): Writable<Trace | null> {
+    if (id in activeAssociatedTraces) {
+        console.log("here");
+        return activeAssociatedTraces[id];
+    }
+    console.log("here");
+    return (activeAssociatedTraces[id] = writable(null));
+}
+export function getActiveAssociatedTrace(id: number): Readable<Trace | null> {
+    return _getActiveAssociatedTrace(id);
 }
 
 export function activate(id: number) {
@@ -234,7 +302,11 @@ export function getSubtraces(id: number | null): Readable<Trace[] | null> {
 
 function addTraces(new_traces: Trace[]) {
     for (const trace of new_traces) {
-        traces[trace.id] = trace;
-        expansions[trace.id] = writable(false);
+        addTrace(trace);
     }
+}
+
+function addTrace(trace: Trace) {
+    traces[trace.id] = trace;
+    expansions[trace.id] = writable(false);
 }

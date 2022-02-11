@@ -1,4 +1,4 @@
-use std::sync::Arc;
+use std::{pin::Pin, sync::Arc};
 
 use itertools::Itertools;
 use scope::ScopePtr;
@@ -29,8 +29,12 @@ pub enum FeatureExprKind {
 }
 
 impl FeatureExpr {
-    pub fn new(expr: &Expr, symbols: &[FeatureSymbol], features: &FeatureUniqueAllocator) -> Self {
-        match expr.kind {
+    pub fn new(
+        expr: &Expr,
+        symbols: &[FeatureSymbol],
+        features: &FeatureUniqueAllocator,
+    ) -> Arc<Self> {
+        Arc::new(match expr.kind {
             ExprKind::Variable(varname) => symbols
                 .iter()
                 .rev()
@@ -65,8 +69,8 @@ impl FeatureExpr {
                     | ScopePtr::Builtin(BuiltinIdentifier::F32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
-                        let lopd = Arc::new(Self::new(&opds[0], symbols, features));
-                        let ropd = Arc::new(Self::new(&opds[1], symbols, features));
+                        let lopd = Self::new(&opds[0], symbols, features);
+                        let ropd = Self::new(&opds[1], symbols, features);
                         let feature = features.alloc(Feature::PrimitiveBinaryOpr {
                             opr,
                             lopd: lopd.feature,
@@ -88,6 +92,6 @@ impl FeatureExpr {
                 Opn::ElementAccess => todo!(),
             },
             ExprKind::Lambda(_, _) => todo!(),
-        }
+        })
     }
 }

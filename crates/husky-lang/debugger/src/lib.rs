@@ -1,7 +1,6 @@
 mod error;
 mod notif;
 mod query;
-mod response;
 mod tests;
 
 use std::{convert::Infallible, net::ToSocketAddrs, sync::Arc};
@@ -15,7 +14,7 @@ use futures::executor::ThreadPool;
 use notif::handle_notif;
 use query::handle_query;
 use std::sync::Mutex;
-use trace::{FigureProps, Trace};
+use trace::{FigureProps, Trace, TraceId};
 use warp::Filter;
 
 pub struct Debugger {
@@ -35,7 +34,7 @@ impl Debugger {
         let debugger = Arc::new(self);
         let addr = addr.to_socket_addrs().unwrap().next().unwrap();
         println!(
-            "{}husky{}:  serve on {:?}",
+            "{}husky{}: serve on {:?}",
             common::show::CYAN,
             common::show::RESET,
             addr
@@ -59,20 +58,31 @@ impl Debugger {
         self.runtime.lock().unwrap().root_traces()
     }
 
-    pub async fn subtraces(&self, id: usize) -> Arc<Vec<Arc<Trace>>> {
+    pub async fn subtraces(&self, id: TraceId) -> Arc<Vec<Arc<Trace>>> {
         self.runtime.lock().unwrap().subtraces(id)
     }
 
-    pub async fn figure(&self, id: usize) -> Option<FigureProps> {
+    pub async fn figure(&self, id: TraceId) -> Option<FigureProps> {
         self.runtime.lock().unwrap().figure(id)
     }
 
-    pub async fn activate(&self, id: usize) {
+    pub async fn activate(&self, id: TraceId) {
         self.runtime.lock().unwrap().activate(id)
     }
 
-    pub async fn toggle_expansion(&self, id: usize) {
+    pub async fn toggle_expansion(&self, id: TraceId) {
         self.runtime.lock().unwrap().toggle_expansion(id)
+    }
+
+    pub async fn toggle_associated_trace(
+        &self,
+        id: TraceId,
+        request_trace: bool,
+    ) -> Option<Arc<Trace>> {
+        self.runtime
+            .lock()
+            .unwrap()
+            .toggle_associated_trace(id, request_trace)
     }
 }
 

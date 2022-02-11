@@ -1,42 +1,49 @@
-use feature::{FeatureStmt, FeatureStmtKind};
+use feature::{FeatureExpr, FeatureExprKind, FeatureStmt, FeatureStmtKind};
 
 use crate::*;
 
 use super::*;
 
 impl TraceAllocator {
-    pub fn feature_stmt_trace(&self, parent: Option<usize>, stmt: Arc<FeatureStmt>) -> Arc<Trace> {
-        self.new_trace(parent, stmt.indent, TraceKind::Stmt(stmt))
+    pub fn feature_stmt_traces(&self, parent: &Trace, stmt: Arc<FeatureStmt>) -> Vec<Arc<Trace>> {
+        match stmt.kind {
+            FeatureStmtKind::Init { .. }
+            | FeatureStmtKind::Assert { .. }
+            | FeatureStmtKind::Return { .. } => {
+                vec![self.new_trace(Some(parent), stmt.indent, TraceKind::FeatureStmt(stmt))]
+            }
+            FeatureStmtKind::Branches { ref branches, .. } => branches
+                .iter()
+                .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone()))
+                .collect(),
+        }
     }
 
-    pub fn feature_stmt_subtraces(
+    pub(crate) fn feature_stmt_tokens(
         &self,
-        parent: usize,
+        stmt_trace_id: TraceId,
         stmt: &FeatureStmt,
-    ) -> Arc<Vec<Arc<Trace>>> {
-        Arc::new(match stmt.kind {
+    ) -> Vec<TokenProps> {
+        match stmt.kind {
             FeatureStmtKind::Init { varname, ref value } => {
-                vec![self.feature_expr_trace(parent, stmt.indent, value.clone())]
+                let mut tokens = vec![];
+                tokens.push(ident!(varname.0, None));
+                tokens.push(special!(" = ", None));
+                tokens.extend(self.feature_expr_tokens(value, true));
+                tokens.into()
             }
             FeatureStmtKind::Assert { ref condition } => {
-                vec![self.feature_expr_trace(parent, stmt.indent, condition.clone())]
+                let mut tokens = vec![];
+                tokens.push(keyword!("assert "));
+                tokens.extend(self.feature_expr_tokens(condition, true));
+                tokens.into()
             }
             FeatureStmtKind::Return { ref result } => {
-                vec![self.feature_expr_trace(parent, stmt.indent, result.clone())]
+                let mut tokens = vec![];
+                tokens.extend(self.feature_expr_tokens(result, true));
+                tokens.into()
             }
-            FeatureStmtKind::Branches {
-                ref kind,
-                ref branches,
-            } => branches
-                .iter()
-                .map(|branch| {
-                    self.new_trace(
-                        Some(parent),
-                        stmt.indent + 2,
-                        TraceKind::Branch(branch.clone()),
-                    )
-                })
-                .collect(),
-        })
+            FeatureStmtKind::Branches { .. } => panic!(),
+        }
     }
 }

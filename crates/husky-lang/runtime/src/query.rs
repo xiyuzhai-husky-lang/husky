@@ -14,7 +14,7 @@ pub trait RuntimeQueryGroup: AskCompileTime + AllocateTrace {
     #[salsa::input]
     fn version(&self) -> usize;
 
-    fn subtraces(&self, id: usize) -> Arc<Vec<Arc<Trace>>>;
+    fn subtraces(&self, id: TraceId) -> Arc<Vec<Arc<Trace>>>;
     fn root_traces(&self) -> Arc<Vec<Arc<Trace>>>;
 }
 
@@ -31,33 +31,25 @@ pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<Arc<Trace>>> {
     )])
 }
 
-pub fn subtraces(this: &dyn RuntimeQueryGroup, id: usize) -> Arc<Vec<Arc<Trace>>> {
-    let trace = this.trace(id);
+pub fn subtraces(this: &dyn RuntimeQueryGroup, id: TraceId) -> Arc<Vec<Arc<Trace>>> {
+    let trace: &Trace = &this.trace(id);
     match trace.kind {
-        TraceKind::Mock { ref tokens } => trace::mock::subtraces(id),
         TraceKind::Main {
             main_file,
             ref feature_block,
         } => Arc::new(
             this.trace_allocator()
-                .feature_block_subtraces(Some(trace.id), feature_block),
+                .feature_block_subtraces(&trace, feature_block),
         ),
-        TraceKind::Stmt(ref stmt) => this
-            .trace_allocator()
-            .feature_stmt_subtraces(trace.id, stmt),
-        TraceKind::Expr(ref expr) => {
-            this.trace_allocator()
-                .feature_expr_subtraces(trace.id, trace.indent, expr)
+        TraceKind::FeatureStmt(ref stmt) => Arc::new(vec![]),
+        TraceKind::FeatureExpr(ref expr) => {
+            this.trace_allocator().feature_expr_subtraces(trace, expr)
         }
-        TraceKind::Branch(ref branch) => this.trace_allocator().feature_branch_subtraces(
-            trace.id,
+        TraceKind::FeatureBranch(ref branch) => this.trace_allocator().feature_branch_subtraces(
+            trace,
             trace.indent,
             branch,
             this.trace_allocator(),
         ),
-        TraceKind::Condition(ref cond) => {
-            this.trace_allocator()
-                .feature_expr_subtraces(trace.id, trace.indent, cond)
-        }
     }
 }

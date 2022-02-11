@@ -7,15 +7,16 @@ mod tests;
 pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 pub use query::{AskCompileTime, RuntimeQueryGroup, RuntimeQueryGroupStorage};
 
-use common::HashMap;
+use common::{msg_once, HashMap};
 use file::{FilePtr, FileQuery};
 use husky_lang_compile_time::*;
+use stdx::sync::ARwLock;
 use tokio::sync::Mutex;
 
 use std::{borrow::Cow, sync::Arc};
 
 use session::Session;
-use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceKind};
+use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceId, TraceKind};
 use vm::{run, AnyValueDyn, Instruction};
 
 #[salsa::database(RuntimeQueryGroupStorage)]
@@ -64,13 +65,22 @@ impl HuskyLangRuntime {
         self.set_version(self.version() + 1);
     }
 
-    pub fn figure(&self, id: usize) -> Option<FigureProps> {
-        trace::mock::figure(id)
+    pub fn figure(&self, id: TraceId) -> Option<FigureProps> {
+        msg_once!("todo");
+        None
     }
 
-    pub fn activate(&self, id: usize) {}
+    pub fn activate(&self, id: TraceId) {}
 
-    pub fn toggle_expansion(&self, id: usize) {}
+    pub fn toggle_expansion(&self, id: TraceId) {}
+
+    pub fn toggle_associated_trace(&self, id: TraceId, request_trace: bool) -> Option<Arc<Trace>> {
+        if request_trace {
+            Some(self.trace(id))
+        } else {
+            None
+        }
+    }
 }
 
 impl salsa::Database for HuskyLangRuntime {}

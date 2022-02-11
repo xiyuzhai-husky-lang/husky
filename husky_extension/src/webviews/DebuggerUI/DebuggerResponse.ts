@@ -16,19 +16,25 @@ const tFigureResponse = t.interface({
     id: t.number,
     figure: t.union([tFigureProps, t.null]),
 });
+const tDidActivateResponse = t.interface({
+    type: t.literal("DidActivate"),
+    id: t.number,
+});
 const tDidToggleExpansionResponse = t.interface({
     type: t.literal("DidToggleExpansion"),
     id: t.number,
 });
-const tDidActivateResponse = t.interface({
-    type: t.literal("DidActivate"),
+const tDidToggleAssociatedTraceResponse = t.interface({
+    type: t.literal("DidToggleAssociatedTrace"),
     id: t.number,
+    trace: t.union([tTrace, t.null]),
 });
 export const tDebuggerResponse = t.union([
     tRootTracesResponse,
     tSubtracesResponse,
     tFigureResponse,
     tDidActivateResponse,
+    tDidToggleAssociatedTraceResponse,
     tDidToggleExpansionResponse,
 ]);
 
