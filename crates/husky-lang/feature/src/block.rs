@@ -27,7 +27,7 @@ impl FeatureBlock {
             .map(|decl_stmt| {
                 Arc::new(match decl_stmt.kind {
                     DeclStmtKind::Init { varname, ref value } => {
-                        let value = Arc::new(FeatureExpr::new(value, &symbols, features));
+                        let value = FeatureExpr::new(value, &symbols, features);
                         symbols.push(FeatureSymbol {
                             varname,
                             value: value.clone(),
@@ -40,7 +40,7 @@ impl FeatureBlock {
                         }
                     }
                     DeclStmtKind::Assert { ref condition } => {
-                        let condition = Arc::new(FeatureExpr::new(condition, &symbols, features));
+                        let condition = FeatureExpr::new(condition, &symbols, features);
                         let feature = Some(features.alloc(Feature::Assert {
                             condition: condition.feature,
                         }));
@@ -51,7 +51,7 @@ impl FeatureBlock {
                         }
                     }
                     DeclStmtKind::Return { ref result } => {
-                        let result = Arc::new(FeatureExpr::new(result, &symbols, features));
+                        let result = FeatureExpr::new(result, &symbols, features);
                         FeatureStmt {
                             feature: Some(result.feature),
                             kind: FeatureStmtKind::Return { result },
@@ -66,16 +66,16 @@ impl FeatureBlock {
                                     kind: match branch.kind {
                                         DeclBranchKind::If { ref condition } => {
                                             FeatureBranchKind::If {
-                                                condition: Arc::new(FeatureExpr::new(
+                                                condition: FeatureExpr::new(
                                                     condition, &symbols, features,
-                                                )),
+                                                ),
                                             }
                                         }
                                         DeclBranchKind::Elif { ref condition } => {
                                             FeatureBranchKind::Elif {
-                                                condition: Arc::new(FeatureExpr::new(
+                                                condition: FeatureExpr::new(
                                                     condition, &symbols, features,
-                                                )),
+                                                ),
                                             }
                                         }
                                         DeclBranchKind::Else => FeatureBranchKind::Else,

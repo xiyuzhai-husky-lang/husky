@@ -1,39 +1,70 @@
 <script lang="ts">
     import { TokenProps } from "src/server/types";
+    import {
+        toggleAssociatedTrace,
+        getActiveAssociatedTrace,
+    } from "../globalState";
 
     export let token: TokenProps;
-    let spaces_before =
-        token.spaces_before === undefined ? 1 : token.spaces_before;
-    let style = {
-        width: `${spaces_before * 9.5}px`,
-    };
-    $: spacesBeforeStyles = Object.entries(style)
-        .map(([key, value]) => `${key}:${value}`)
-        .join(";");
+    export let within_active_node: boolean;
+    $: spacesBeforeStyles = spacesStyle(countSpacesBefore(token.value));
+    $: spacesAfterStyles = spacesStyle(countSpacesAfter(token.value));
+    $: associated = token.associated_trace !== null;
+    $: activeAssociatedTrace =
+        token.associated_trace === null
+            ? null
+            : getActiveAssociatedTrace(token.associated_trace);
+    $: active = associated && $activeAssociatedTrace !== null;
+
+    function countSpacesBefore(text: string): number {
+        for (let i = 0; i < text.length; i++) {
+            if (text.charAt(i) != " ") {
+                return i;
+            }
+        }
+        return text.length;
+    }
+    function countSpacesAfter(text: string): number {
+        for (let i = 0; i < text.length; i++) {
+            if (text.charAt(text.length - 1 - i) != " ") {
+                return i;
+            }
+        }
+        return 0;
+    }
+    function spacesStyle(n: number): string {
+        const rawStyle = {
+            width: `${n * 9.5}px`,
+        };
+        return Object.entries(rawStyle)
+            .map(([key, value]) => `${key}:${value}`)
+            .join(";");
+    }
+    function handleClick() {
+        if (within_active_node) {
+            if (token.associated_trace !== null) {
+                toggleAssociatedTrace(token.associated_trace);
+            }
+        }
+    }
 </script>
 
 <span style={spacesBeforeStyles} />
-{#if token.kind == "special"}
-    <code class="special">{token.value} </code>
-{:else if token.kind == "scope"}
-    <code class="scope">{token.value}</code>
-{:else if token.kind == "keyword"}
-    <code class="keyword">{token.value}</code>
-{:else if token.kind == "label"}
-    <code class="label">{token.value}</code>
-{:else if token.kind == "ident"}
-    <code class="ident">{token.value}</code>
-{:else if token.kind == "literal"}
-    <code class="literal">{token.value}</code>
-{:else if token.kind == "fade"}
-    <code class="fade">{token.value}</code>
-{:else}
-    <code class="error">`unrecognized token type: {token.kind}`</code>
-{/if}
+<code class={token.kind} class:associated class:active on:click={handleClick}>
+    {token.value}
+</code>
+<span style={spacesAfterStyles} />
 
 <style>
     code {
         font-size: 16px;
+    }
+    code.active {
+        font-size: 16px;
+        text-decoration: underline cyan;
+    }
+    code.associated:hover {
+        background: rgb(78, 78, 78);
     }
     .keyword {
         color: rgb(28, 142, 195);

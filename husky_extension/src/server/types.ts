@@ -13,7 +13,7 @@ export const tTokenProps = t.interface({
         t.literal("fade"),
     ]),
     value: t.string,
-    spaces_before: t.union([t.number, t.undefined]),
+    associated_trace: t.union([t.number, t.null]),
 });
 export const tTrace = t.interface({
     id: t.number,

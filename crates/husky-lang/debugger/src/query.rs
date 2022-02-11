@@ -3,17 +3,18 @@ use common::*;
 use futures::{task::SpawnExt, FutureExt, StreamExt};
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc;
-use trace::{FigureProps, Trace};
+use trace::{FigureProps, Trace, TraceId};
 use warp::ws::{Message, WebSocket};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "type")]
 enum Query {
     RootTraces,
-    Subtraces { id: usize },
-    Activate { id: usize },
-    ToggleExpansion { id: usize },
-    Figure { id: usize },
+    Subtraces { id: TraceId },
+    Figure { id: TraceId },
+    Activate { id: TraceId },
+    ToggleExpansion { id: TraceId },
+    ToggleAssociatedTrace { id: TraceId, request_trace: bool },
 }
 
 #[test]
@@ -30,18 +31,22 @@ pub enum Response {
         root_traces: Arc<Vec<Arc<Trace>>>,
     },
     Subtraces {
-        id: usize,
+        id: TraceId,
         subtraces: Arc<Vec<Arc<Trace>>>,
     },
     Figure {
-        id: usize,
+        id: TraceId,
         figure: Option<FigureProps>,
     },
     DidActivate {
-        id: usize,
+        id: TraceId,
     },
     DidToggleExpansion {
-        id: usize,
+        id: TraceId,
+    },
+    DidToggleAssociatedTrace {
+        id: TraceId,
+        trace: Option<Arc<Trace>>,
     },
 }
 
@@ -61,7 +66,7 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
         }
     }));
     println!(
-        "{}query connection established.{}",
+        "{}husky:{} query connection established.",
         common::show::CYAN,
         common::show::RESET
     );
@@ -95,6 +100,11 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                                     id,
                                     figure: debugger_.figure(id).await,
                                 },
+                                Query::ToggleAssociatedTrace { id, request_trace } => {
+                                    let trace =
+                                        debugger_.toggle_associated_trace(id, request_trace).await;
+                                    Response::DidToggleAssociatedTrace { id, trace }
+                                }
                             })
                             .unwrap(),
                         ))) {
@@ -109,8 +119,8 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
             Err(_) => {
                 if msg.is_close() {
                     println!(
-                        "{}query connection closed.{}",
-                        common::show::RED,
+                        "{}husky:{} query connection closed.",
+                        common::show::CYAN,
                         common::show::RESET
                     );
                 } else {
