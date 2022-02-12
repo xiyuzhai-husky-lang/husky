@@ -35,3 +35,4 @@ husky-fmt = { path = "../fmt", version = "0.0.0" }
 semantics = { path = "../semantics", version = "0.0.0" }
 feature = { path = "../feature", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }
+compiler = { path = "../compiler", version = "0.0.0" }

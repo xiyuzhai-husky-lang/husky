@@ -34,7 +34,8 @@ use stdx::sync::ARwLock;
     semantics::ConfigQueryGroupStorage,
     semantics::InferQueryGroupStorage,
     feature::FeatureQueryGroupStorage,
-    diagnostic::DiagnosticQueryStorage
+    diagnostic::DiagnosticQueryStorage,
+    compiler::CompilerStorage
 )]
 pub struct HuskyLangCompileTime {
     storage: salsa::Storage<HuskyLangCompileTime>,

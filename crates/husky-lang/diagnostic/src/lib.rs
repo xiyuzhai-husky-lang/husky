@@ -1,7 +1,7 @@
 mod collect;
 mod kind;
 mod query;
-mod reserver;
+// mod reserve;
 mod severity;
 
 pub use kind::DiagnosticKind;
@@ -16,7 +16,6 @@ use text::TextRange;
 use common::*;
 
 use collect::collect_diagnostics;
-use reserver::DiagnosticReserve;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {

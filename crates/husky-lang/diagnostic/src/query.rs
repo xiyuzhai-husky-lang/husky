@@ -1,3 +1,4 @@
+use reserve::Reserve;
 use scope_query::{PackageOrModule, ScopeQueryGroup};
 
 use crate::*;
@@ -13,3 +14,5 @@ fn diagnostic_reserve(
 ) -> Arc<DiagnosticReserve> {
     Arc::new(DiagnosticReserve::new(collect_diagnostics(this, module)))
 }
+
+pub type DiagnosticReserve = Reserve<Vec<Diagnostic>>;

@@ -41,20 +41,4 @@ impl TraceAllocator {
         // Arc::new(subtraces)
         Arc::new(self.feature_block_subtraces(parent, &branch.block))
     }
-
-    pub(crate) fn feature_branch_tokens(&self, branch: &FeatureBranch) -> Vec<TokenProps> {
-        match branch.kind {
-            feature::FeatureBranchKind::If { ref condition } => {
-                let mut tokens = vec![keyword!("if ")];
-                tokens.extend(self.feature_expr_tokens(condition, false));
-                tokens
-            }
-            feature::FeatureBranchKind::Elif { ref condition } => {
-                let mut tokens = vec![keyword!("elif ")];
-                tokens.extend(self.feature_expr_tokens(condition, false));
-                tokens
-            }
-            feature::FeatureBranchKind::Else => vec![keyword!("else ")],
-        }
-    }
 }
