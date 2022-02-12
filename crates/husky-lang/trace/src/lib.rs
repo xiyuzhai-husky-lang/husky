@@ -62,7 +62,7 @@ impl Trace {
             id,
             parent,
             indent,
-            tokens: trace_allocator.tokens(id, &kind),
+            tokens: trace_allocator.tokens(id, indent, &kind),
             kind,
         }
     }

@@ -41,18 +41,4 @@ impl DiagnosticReserve {
             f(self.diagnostics.clone())
         }
     }
-
-    pub fn drained(&self) -> bool {
-        *self.drained_mu.lock().unwrap()
-    }
-
-    pub fn diagnostics_ref(&self) -> &Vec<Diagnostic> {
-        &self.diagnostics
-    }
-}
-
-impl AsRef<Vec<Diagnostic>> for DiagnosticReserve {
-    fn as_ref(&self) -> &Vec<Diagnostic> {
-        &self.diagnostics
-    }
 }

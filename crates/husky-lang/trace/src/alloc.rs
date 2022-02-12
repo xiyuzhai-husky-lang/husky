@@ -3,7 +3,7 @@ mod feature_branch;
 mod feature_expr;
 mod feature_stmt;
 
-use feature::FeatureExpr;
+use feature::{FeatureExpr, FeatureStmtKind};
 use serde::Deserialize;
 use stdx::sync::ARwLock;
 
@@ -42,7 +42,7 @@ impl TraceAllocator {
         }))
     }
 
-    pub(crate) fn tokens(&self, id: TraceId, kind: &TraceKind) -> Vec<TokenProps> {
+    pub(crate) fn tokens(&self, id: TraceId, indent: Indent, kind: &TraceKind) -> Vec<TokenProps> {
         match kind {
             TraceKind::Main {
                 main_file,
@@ -52,9 +52,41 @@ impl TraceAllocator {
                 value: Cow::Borrowed("main"),
                 associated_trace: None,
             }],
-            TraceKind::FeatureStmt(stmt) => self.feature_stmt_tokens(id, stmt),
-            TraceKind::FeatureExpr(expr) => self.feature_expr_tokens(expr, false),
-            TraceKind::FeatureBranch(branch) => self.feature_branch_tokens(branch).into(),
+            TraceKind::FeatureStmt(stmt) => match stmt.kind {
+                FeatureStmtKind::Init { varname, ref value } => {
+                    let mut tokens = vec![];
+                    tokens.push(ident!(varname.0, None));
+                    tokens.push(special!(" = ", None));
+                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, value));
+                    tokens.into()
+                }
+                FeatureStmtKind::Assert { ref condition } => {
+                    let mut tokens = vec![];
+                    tokens.push(keyword!("assert "));
+                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, condition));
+                    tokens.into()
+                }
+                FeatureStmtKind::Return { ref result } => {
+                    let mut tokens = vec![];
+                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, result));
+                    tokens.into()
+                }
+                FeatureStmtKind::Branches { .. } => panic!(),
+            },
+            TraceKind::FeatureExpr(expr) => self.feature_expr_tokens(expr),
+            TraceKind::FeatureBranch(branch) => match branch.kind {
+                feature::FeatureBranchKind::If { ref condition } => {
+                    let mut tokens = vec![keyword!("if ")];
+                    tokens.extend(self.feature_expr_tokens(condition));
+                    tokens
+                }
+                feature::FeatureBranchKind::Elif { ref condition } => {
+                    let mut tokens = vec![keyword!("elif ")];
+                    tokens.extend(self.feature_expr_tokens(condition));
+                    tokens
+                }
+                feature::FeatureBranchKind::Else => vec![keyword!("else ")],
+            },
         }
     }
 

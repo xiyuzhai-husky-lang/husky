@@ -8,7 +8,7 @@ use crate::server::client_comm::ClientCommunicator;
 
 pub(crate) fn send_updates(db: &HuskyLangCompileTime, comm: &ClientCommunicator) {
     db.module_iter().for_each(|module| {
-        db.diagnostic_reserve(module).drain(|diagnostics| {
+        db.diagnostic_reserve(module).release(|diagnostics| {
             if let Some(file_id) = db.module_to_file_id(module).ok() {
                 comm.send_diagnostics(db.url(file_id), batch_into!(diagnostics), None);
             }

@@ -20,6 +20,6 @@ fn test_diagnostics() {
     {
         let diagnostic_reserve = db.diagnostic_reserve(the_module);
         test_print!(diagnostic_reserve);
-        should_eq!(diagnostic_reserve.diagnostics_ref().len(), 1);
+        should_eq!(diagnostic_reserve.len(), 1);
     }
 }
