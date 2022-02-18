@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { ArrowProps } from "trace/figure";
+    import type { ArrowProps } from "trace/figure/FigureProps";
     import {
         get_displacement,
         get_point_distance,

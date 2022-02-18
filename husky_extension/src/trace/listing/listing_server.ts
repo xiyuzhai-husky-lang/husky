@@ -1,6 +1,6 @@
 import { get_root_traces } from "src/trace/root/root_server";
 import { is_expanded, is_shown } from "src/trace/status/status_server";
-import { get_subtraces } from "trace/subtraces/server";
+import { get_subtraces } from "src/trace/subtraces/subtraces_server";
 import type Trace from "trace/Trace";
 import { get_trace } from "src/trace/trace_server";
 import { trace_listing_store } from "src/trace/listing/listing_store";

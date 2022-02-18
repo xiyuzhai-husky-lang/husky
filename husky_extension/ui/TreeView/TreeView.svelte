@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Tree from "./TreeView/Tree.svelte";
+    import Tree from "./Tree.svelte";
     import { get_root_traces_store } from "src/trace/root/root_client";
 
     let root_traces_store = get_root_traces_store();

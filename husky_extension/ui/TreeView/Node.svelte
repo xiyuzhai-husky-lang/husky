@@ -1,6 +1,9 @@
 <script lang="ts">
+    import { get_input_id_store } from "src/trace/input/input_client";
+    import { get_trace_stalk_store } from "src/trace/stalk/stalk_client";
     import { Trace } from "src/trace/Trace";
     import Token from "./Token.svelte";
+
     export let trace: Trace;
     export let on_click: () => void;
     export let on_double_click: () => void;
@@ -9,6 +12,25 @@
     export let has_subtraces: boolean;
     export let expanded: boolean;
     export let active: boolean;
+
+    function tell_has_extra(trace: Trace, input_id: number | null): boolean {
+        switch (trace.kind) {
+            case "Main":
+            case "FeatureStmt":
+            case "FeatureBranch":
+            case "FeatureExpr":
+                return input_id !== null;
+        }
+    }
+
+    const input_id_store = get_input_id_store();
+    $: input_id = $input_id_store;
+    $: has_extra = tell_has_extra(trace, input_id);
+    $: stalk_store = has_extra
+        ? get_trace_stalk_store(trace.id, input_id!)
+        : null;
+    $: stalk = stalk_store !== null ? $stalk_store : null;
+    $: extra_tokens = [];
 </script>
 
 <div
@@ -33,6 +55,11 @@
             {#each trace.tokens as token}
                 <Token {token} within_active_node={active} />
             {/each}
+            {#if has_extra}
+                {#each extra_tokens as token}
+                    <Token {token} within_active_node={active} />
+                {/each}
+            {/if}
         </p>
     </div>
 </div>

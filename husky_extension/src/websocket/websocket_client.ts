@@ -25,8 +25,11 @@ export function request_root_traces() {
     try_send_request({ type: "RootTraces" });
 }
 
-export function request_subtraces(id: number) {
-    try_send_request({ type: "Subtraces", id });
+export function request_subtraces(
+    trace_id: number,
+    input_locked_on: number | null
+) {
+    try_send_request({ type: "Subtraces", id: trace_id, input_locked_on });
 }
 
 export function request_toggle_expansion(id: number) {
@@ -52,6 +55,10 @@ export function request_trace(id: number) {
     try_send_request({ type: "Trace", id });
 }
 
-export function request_lock_input(input_temp: number | null) {
-    try_send_request({ type: "LockInput", input_temp });
+export function request_lock_input(input_str: number | null) {
+    try_send_request({ type: "LockInput", input_str });
+}
+
+export function request_trace_stalk(trace_id: number, input_id: number) {
+    try_send_request({ type: "TraceStalk", trace_id, input_id });
 }

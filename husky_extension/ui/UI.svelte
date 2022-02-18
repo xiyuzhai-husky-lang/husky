@@ -1,17 +1,19 @@
 <script lang="ts">
-    import TreeView from "./DebuggerUI/TreeView.svelte";
-    import Figure from "./DebuggerUI/Figure.svelte";
+    import TreeView from "./TreeView/TreeView.svelte";
+    import Figure from "./Figure/Figure.svelte";
     import HSplitPane from "./SplitPane/HSplitPane.svelte";
     import { get_active_figure_store } from "src/trace/figure/figure_client";
-    import { get_active_trace_id_store, activate } from "trace/activate/client";
-    import { get_trace } from "src/trace/trace_client";
-    import { get_subtraces, has_children } from "src/trace/subtraces/client";
+    import {
+        get_active_trace_store,
+        activate,
+    } from "src/trace/active/active_trace_client";
+    import { get_subtraces } from "src/trace/subtraces/subtraces_client";
     import {
         get_id_before,
         get_id_after,
     } from "src/trace/listing/listing_client";
     import {
-        get_input_store,
+        get_input_id_store,
         get_input_locked_store,
     } from "src/trace/input/input_client";
     import {
@@ -25,8 +27,8 @@
     let input_temp: number | null = null;
     $: figure_store = get_active_figure_store();
     $: figure = $figure_store;
-    $: active_trace_id_store = get_active_trace_id_store();
-    $: active_trace_id = $active_trace_id_store;
+    $: active_trace_store = get_active_trace_store();
+    $: active_trace = $active_trace_store;
     function on_key_down(e: KeyboardEvent) {
         switch (e.code) {
             case "KeyH":
@@ -42,17 +44,17 @@
                 moveUp();
                 break;
             case "KeyT":
-                if (active_trace_id !== null) {
-                    console.log("trace: ", get_trace(active_trace_id));
-                    console.log("subtraces: ", get_subtraces(active_trace_id));
+                if (active_trace !== null) {
+                    console.log("trace: ", active_trace);
+                    console.log("subtraces: ", get_subtraces(active_trace.id));
                 }
                 break;
             default:
         }
 
         function moveUp() {
-            if (active_trace_id !== null) {
-                const before = get_id_before(active_trace_id);
+            if (active_trace !== null) {
+                const before = get_id_before(active_trace.id);
                 if (before !== undefined) {
                     activate(before);
                 }
@@ -60,8 +62,8 @@
         }
 
         function move_down() {
-            if (active_trace_id !== null) {
-                const after = get_id_after(active_trace_id);
+            if (active_trace !== null) {
+                const after = get_id_after(active_trace.id);
                 if (after !== undefined) {
                     return activate(after);
                 }
@@ -69,34 +71,31 @@
         }
 
         function moveRight() {
-            if (active_trace_id !== null) {
+            if (active_trace !== null) {
                 if (
-                    !is_expanded(active_trace_id) &&
-                    has_children(active_trace_id)
+                    !is_expanded(active_trace.id) &&
+                    active_trace.has_subtraces
                 ) {
-                    toggle_expansion(active_trace_id);
+                    toggle_expansion(active_trace.id);
                     move_down();
                 }
             }
         }
 
         function move_left() {
-            if (active_trace_id !== null) {
-                const trace = get_trace(active_trace_id);
-                if (trace !== null) {
-                    if (trace.parent !== null) {
-                        toggle_expansion(trace.parent);
-                        activate(trace.parent);
-                    }
+            if (active_trace !== null) {
+                if (active_trace.parent !== null) {
+                    toggle_expansion(active_trace.parent);
+                    activate(active_trace.parent);
                 }
             }
         }
     }
 
     let input_locked_store = get_input_locked_store();
-    let input_store = get_input_store();
+    let input_id_store = get_input_id_store();
     $: input_locked = $input_locked_store;
-    $: input = $input_store;
+    $: input = $input_id_store;
     function on_input_clicked() {
         if (input_locked) {
             input_locked_store.set(false);
@@ -106,7 +105,9 @@
         if (input_locked) {
             e.preventDefault();
         }
+        console.log("e.code: ", e.code, ", input_locked: ", input_locked);
         if (e.code === "Enter" && !input_locked) {
+            console.log("here");
             request_lock_input(input_temp);
         }
     }
@@ -121,7 +122,7 @@
     </HSplitPane>
     <div class="Bottom">
         <div class="BottomItem">
-            lock on:
+            locked on:
             <div on:click={on_input_clicked} class="BottomInputWrapper">
                 <input
                     class:input_locked
@@ -175,10 +176,5 @@
         align-items: center;
         padding-left: 10px;
         padding-right: 10px;
-    }
-    .Package {
-        background: rgb(0, 80, 80);
-        padding-left: 3px;
-        padding-right: 3px;
     }
 </style>

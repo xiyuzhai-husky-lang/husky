@@ -43,7 +43,7 @@ impl<'a> SymbolProxy<'a> {
         generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
-        let scope = Scope::builtin(ident.into(), generics);
+        let scope = Scope::new_builtin(ident.into(), generics);
         let kind = AtomKind::Scope {
             scope: self.db.intern_scope(scope),
             kind: ScopeKind::Type,

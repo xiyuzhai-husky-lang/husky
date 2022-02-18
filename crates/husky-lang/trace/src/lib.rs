@@ -1,6 +1,7 @@
 mod alloc;
 mod figure;
 mod kind;
+mod stalk;
 #[cfg(test)]
 mod tests;
 mod token;
@@ -9,6 +10,7 @@ pub use alloc::{AllocateTrace, TraceAllocator, TraceId};
 pub use figure::FigureProps;
 use file::FilePtr;
 pub use kind::TraceKind;
+pub use stalk::TraceStalk;
 use text::{Text, TextRange};
 pub use token::{TokenProps, TraceTokenKind};
 
@@ -51,6 +53,19 @@ impl Serialize for Trace {
         state.serialize_field("indent", &self.indent)?;
         state.serialize_field("tokens", &self.tokens)?;
         state.serialize_field("kind", &self.kind)?;
+        state.serialize_field(
+            "has_subtraces",
+            &match self.kind {
+                TraceKind::FeatureStmt(_) => false,
+                TraceKind::Main(_) | TraceKind::FeatureBranch(_) => true,
+                TraceKind::FeatureExpr(ref expr) => match expr.kind {
+                    feature::FeatureExprKind::Literal(_)
+                    | feature::FeatureExprKind::PrimitiveBinaryOpr { .. }
+                    | feature::FeatureExprKind::Variable { .. } => false,
+                    feature::FeatureExprKind::FuncCall { func, .. } => !func.is_builtin(),
+                },
+            },
+        )?;
         state.end()
     }
 }

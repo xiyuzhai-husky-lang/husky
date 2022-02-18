@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { FigureProps, Plot2dProps } from "trace/figure/FigureProps";
-    import Plot2d from "./Figure/Plot2d.svelte";
-    import Graphics2d from "./Figure/Graphics2d.svelte";
+    import Plot2d from "./Plot2d.svelte";
+    import Graphics2d from "./Graphics2d.svelte";
     export let figure: FigureProps;
     let windowHeight: number;
     let figureHeight: number;

@@ -137,7 +137,7 @@ impl Scope {
         }
     }
 
-    pub fn builtin(ident: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
+    pub fn new_builtin(ident: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
         Scope {
             route: ScopeRoute::Builtin { ident },
             generics: generic_arguments,
@@ -145,15 +145,15 @@ impl Scope {
     }
 
     pub fn vec(element: GenericArgument) -> Self {
-        Self::builtin(BuiltinIdentifier::Vector, vec![element])
+        Self::new_builtin(BuiltinIdentifier::Vector, vec![element])
     }
 
     pub fn array(element: GenericArgument, size: usize) -> Self {
-        Self::builtin(BuiltinIdentifier::Array, vec![element, size.into()])
+        Self::new_builtin(BuiltinIdentifier::Array, vec![element, size.into()])
     }
 
     pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
-        Scope::builtin(
+        Scope::new_builtin(
             if args.len() > 0 {
                 BuiltinIdentifier::Tuple
             } else {
@@ -164,13 +164,22 @@ impl Scope {
     }
 
     pub fn default_func_type(args: Vec<GenericArgument>) -> Self {
-        Scope::builtin(word::default_func_type(), args)
+        Scope::new_builtin(word::default_func_type(), args)
+    }
+
+    pub fn is_builtin(&self) -> bool {
+        match self.route {
+            ScopeRoute::Builtin { .. } => true,
+            ScopeRoute::Package { .. } => false,
+            ScopeRoute::ChildScope { parent, .. } => parent.is_builtin(),
+            ScopeRoute::Implicit { .. } => false,
+        }
     }
 }
 
 impl From<BuiltinIdentifier> for Scope {
     fn from(ident: BuiltinIdentifier) -> Self {
-        Self::builtin(ident, Vec::new())
+        Self::new_builtin(ident, Vec::new())
     }
 }
 
