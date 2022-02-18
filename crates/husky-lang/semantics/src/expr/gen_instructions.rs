@@ -16,14 +16,17 @@ pub trait ExprInstructionBuilder {
             ExprKind::Literal(_) => todo!(),
             ExprKind::Bracketed(_) => todo!(),
             ExprKind::Opn {
-                opn,
+                ref opn,
                 compiled,
                 ref opds,
             } => match opn {
                 expr::Opn::Binary { opr, this, kind } => todo!(),
                 expr::Opn::Prefix(_) => todo!(),
                 expr::Opn::Suffix(_) => todo!(),
-                expr::Opn::FuncCall { func } => {
+                expr::Opn::FuncCall {
+                    func,
+                    scope_expr_range,
+                } => {
                     for opd in opds {
                         self.gen_expr_instructions(opd);
                         if let Some(compiled) = compiled {

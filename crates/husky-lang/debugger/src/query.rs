@@ -14,7 +14,9 @@ enum Query {
     Figure { id: TraceId },
     Activate { id: TraceId },
     ToggleExpansion { id: TraceId },
-    ToggleAssociatedTrace { id: TraceId, request_trace: bool },
+    ToggleShow { id: TraceId },
+    Trace { id: TraceId },
+    LockInput { input_temp: String },
 }
 
 #[test]
@@ -44,9 +46,17 @@ pub enum Response {
     DidToggleExpansion {
         id: TraceId,
     },
-    DidToggleAssociatedTrace {
+    DidToggleShow {
         id: TraceId,
-        trace: Option<Arc<Trace>>,
+    },
+    Trace {
+        id: TraceId,
+        trace: Arc<Trace>,
+    },
+    DidLockInput {
+        #[serde(skip_serializing_if = "Option::is_none")]
+        input_locked_on: Option<Option<usize>>,
+        message: Option<String>,
     },
 }
 
@@ -96,14 +106,25 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                                     debugger_.toggle_expansion(id).await;
                                     Response::DidToggleExpansion { id }
                                 }
+                                Query::ToggleShow { id } => {
+                                    debugger_.toggle_show(id).await;
+                                    Response::DidToggleShow { id }
+                                }
                                 Query::Figure { id } => Response::Figure {
                                     id,
                                     figure: debugger_.figure(id).await,
                                 },
-                                Query::ToggleAssociatedTrace { id, request_trace } => {
-                                    let trace =
-                                        debugger_.toggle_associated_trace(id, request_trace).await;
-                                    Response::DidToggleAssociatedTrace { id, trace }
+                                Query::Trace { id } => {
+                                    let trace = debugger_.trace(id).await;
+                                    Response::Trace { id, trace }
+                                }
+                                Query::LockInput { input_temp } => {
+                                    let (input_locked_on, message) =
+                                        debugger_.lock_input(input_temp).await;
+                                    Response::DidLockInput {
+                                        input_locked_on,
+                                        message,
+                                    }
                                 }
                             })
                             .unwrap(),
@@ -114,7 +135,10 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                     };
                     debugger.threadpool.spawn(future).unwrap();
                 }
-                Err(_) => todo!(),
+                Err(_) => {
+                    p!(text);
+                    todo!()
+                }
             },
             Err(_) => {
                 if msg.is_close() {

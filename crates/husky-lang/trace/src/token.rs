@@ -84,6 +84,14 @@ macro_rules! literal {
 pub(crate) use literal;
 
 macro_rules! special {
+    ($value: expr) => {{
+        TokenProps {
+            kind: TraceTokenKind::Special,
+            value: $value.into(),
+            associated_trace: None,
+        }
+    }};
+
     ($value: expr, $associated_trace: expr) => {{
         TokenProps {
             kind: TraceTokenKind::Special,
@@ -95,12 +103,19 @@ macro_rules! special {
 pub(crate) use special;
 
 macro_rules! scope {
-    ($value:expr, $associated_trace: expr, $associated_subtraces: expr) => {{
+    ($value:expr) => {{
+        TokenProps {
+            kind: TraceTokenKind::Scope,
+            value: $value.into(),
+            associated_trace: None,
+        }
+    }};
+
+    ($value:expr, $associated_trace: expr) => {{
         TokenProps {
             kind: TraceTokenKind::Scope,
             value: $value.into(),
             associated_trace: $associated_trace,
-            associated_subtraces: $associated_subtraces,
         }
     }};
 }

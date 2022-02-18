@@ -23,13 +23,11 @@ where
     T: PartialEq + Eq,
 {
     fn from(iter: Iter) -> Self {
-        let mut vec = vec![];
+        let mut v = Self::new();
         for item in iter {
-            if !vec.contains(&item) {
-                vec.push(item)
-            }
+            v.push(item)
         }
-        Self { v: vec }
+        v
     }
 }
 
@@ -43,6 +41,16 @@ where
 
     pub fn len(&self) -> usize {
         self.v.len()
+    }
+
+    pub fn push(&mut self, item: T) {
+        if !self.v.contains(&item) {
+            self.v.push(item)
+        }
+    }
+
+    pub fn new() -> Self {
+        Self::default()
     }
 }
 

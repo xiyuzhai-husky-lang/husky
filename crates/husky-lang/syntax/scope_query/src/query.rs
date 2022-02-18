@@ -13,7 +13,7 @@ use std::{ops::Deref, path::PathBuf, sync::Arc};
 pub trait ScopeSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
     fn subscope_table(&self, scope_id: ScopePtr) -> ScopeResultArc<SubscopeTable>;
 
-    fn subscope_ids(&self, scope_id: ScopePtr) -> Arc<Vec<ScopePtr>>;
+    fn subscopes(&self, scope: ScopePtr) -> Arc<Vec<ScopePtr>>;
 
     fn scope_kind(&self, scope_id: ScopePtr) -> ScopeKind;
 
@@ -29,7 +29,7 @@ fn subscope_table(
     Ok(Arc::new(match this.scope_source(scope_id)? {
         ScopeSource::Builtin(data) => SubscopeTable::builtin(this, data),
         ScopeSource::WithinModule {
-            file_id,
+            file: file_id,
             token_group_index,
         } => {
             let text = this.tokenized_text(file_id)?;
@@ -40,7 +40,7 @@ fn subscope_table(
                 SubscopeTable::empty()
             }
         }
-        ScopeSource::Module { file_id } => {
+        ScopeSource::Module { file: file_id } => {
             let text = this.tokenized_text(file_id)?;
             SubscopeTable::parse(file_id, text.fold_iter(0))
         }
@@ -48,10 +48,10 @@ fn subscope_table(
     }))
 }
 
-fn subscope_ids(this: &dyn ScopeSalsaQueryGroup, scope_id: ScopePtr) -> Arc<Vec<ScopePtr>> {
-    Arc::new(this.subscope_table(scope_id).map_or(Vec::new(), |table| {
+fn subscopes(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> Arc<Vec<ScopePtr>> {
+    Arc::new(this.subscope_table(scope).map_or(Vec::new(), |table| {
         table
-            .subscopes(scope_id)
+            .subscopes(scope)
             .into_iter()
             .map(|scope| this.intern_scope(scope))
             .collect()
@@ -120,7 +120,7 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::DatasetType => dataset::SCOPE_DATA,
         }
         .into(),
-        ScopeRoute::Package { main, .. } => ScopeSource::Module { file_id: main },
+        ScopeRoute::Package { main, .. } => ScopeSource::Module { file: main },
         ScopeRoute::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
@@ -158,7 +158,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         }
     }
 
-    fn all_modules(&self) -> Vec<PackageOrModule>
+    fn all_modules(&self) -> Vec<ScopePtr>
     where
         Self: Sized,
     {
@@ -169,20 +169,20 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
             .collect()
     }
 
-    fn module_iter(&self) -> std::vec::IntoIter<PackageOrModule>
+    fn module_iter(&self) -> std::vec::IntoIter<ScopePtr>
     where
         Self: Sized,
     {
         self.all_modules().into_iter()
     }
 
-    fn collect_modules(&self, id: FilePtr) -> Vec<PackageOrModule>
+    fn collect_modules(&self, id: FilePtr) -> Vec<ScopePtr>
     where
         Self: Sized,
     {
         if let Ok(module) = self.module_from_file_id(id) {
             let mut modules = vec![module];
-            self.subscope_table(module.scope()).ok().map(|table| {
+            self.subscope_table(module).ok().map(|table| {
                 modules.extend(
                     table
                         .submodule_idents()
@@ -200,7 +200,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         }
     }
 
-    fn module_from_file_id(&self, id: FilePtr) -> ScopeResult<PackageOrModule> {
+    fn module_from_file_id(&self, id: FilePtr) -> ScopeResult<ScopePtr> {
         let path: PathBuf = (*id).into();
         if !self.file_exists(id) {
             scope_err!(format!("file didn't exist"))?
@@ -209,9 +209,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
                     self.word_unique_allocator().alloc(package_name)
                 {
-                    Ok(PackageOrModule {
-                        scope_id: self.intern_scope(Scope::package(id, ident)),
-                    })
+                    Ok(self.intern_scope(Scope::package(id, ident)))
                 } else {
                     scope_err!(format!("package name should be identifier"))?
                 }
@@ -237,11 +235,11 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         }
     }
 
-    fn module_to_file_id(&self, module: PackageOrModule) -> ScopeResult<FilePtr> {
-        Ok(match self.scope_source(module.scope())? {
+    fn module_to_file_id(&self, module: ScopePtr) -> ScopeResult<FilePtr> {
+        Ok(match self.scope_source(module)? {
             ScopeSource::Builtin(_) => panic!(),
-            ScopeSource::WithinModule { file_id, .. } => file_id,
-            ScopeSource::Module { file_id } => file_id,
+            ScopeSource::WithinModule { file: file_id, .. } => file_id,
+            ScopeSource::Module { file: file_id } => file_id,
             ScopeSource::WithinBuiltinModule => todo!(),
         })
     }
@@ -266,16 +264,5 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         };
 
         module_path.map(|pth| self.alloc_file(pth))
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct PackageOrModule {
-    scope_id: ScopePtr,
-}
-
-impl PackageOrModule {
-    pub fn scope(&self) -> ScopePtr {
-        self.scope_id
     }
 }

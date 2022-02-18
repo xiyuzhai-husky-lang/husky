@@ -2,7 +2,7 @@ use common::*;
 
 use husky_lang_compile_time::*;
 
-use file::FileQuery;
+use file::FileQueryGroup;
 
 use crate::server::client_comm::ClientCommunicator;
 

@@ -7,7 +7,7 @@ use common::Formatter;
 
 pub struct Reserve<T>
 where
-    T: PartialEq + Eq,
+    T: PartialEq + Eq + Clone,
 {
     data: T,
     drained: Arc<Mutex<bool>>,
@@ -15,18 +15,30 @@ where
 
 impl<T> PartialEq for Reserve<T>
 where
-    T: PartialEq + Eq,
+    T: PartialEq + Eq + Clone,
 {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
 
-impl<T> Eq for Reserve<T> where T: PartialEq + Eq {}
+impl<T> Clone for Reserve<T>
+where
+    T: PartialEq + Eq + Clone,
+{
+    fn clone(&self) -> Self {
+        Self {
+            data: self.data.clone(),
+            drained: self.drained.clone(),
+        }
+    }
+}
+
+impl<T> Eq for Reserve<T> where T: PartialEq + Eq + Clone {}
 
 impl<T> std::fmt::Debug for Reserve<T>
 where
-    T: PartialEq + Eq + std::fmt::Debug,
+    T: PartialEq + Eq + std::fmt::Debug + Clone,
 {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("Reserve")
@@ -38,7 +50,7 @@ where
 
 impl<T> Reserve<T>
 where
-    T: PartialEq + Eq,
+    T: PartialEq + Eq + Clone,
 {
     pub fn new(data: T) -> Self {
         Self {
@@ -57,7 +69,7 @@ where
 
 impl<T> Deref for Reserve<T>
 where
-    T: PartialEq + Eq,
+    T: PartialEq + Eq + Clone,
 {
     type Target = T;
 

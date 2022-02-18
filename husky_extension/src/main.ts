@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import * as lc from "vscode-languageclient/node";
-import * as lsp_ext from "./lsp_ext";
-import { DebuggerSingleton } from "./DebuggerPanel";
+import * as lsp_ext from "./ext/lsp_ext";
+import { DebuggerSingleton } from "./ext/DebuggerPanel";
 
 let client: lc.LanguageClient;
 

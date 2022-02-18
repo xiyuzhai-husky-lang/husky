@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { Trace } from "src/server/types";
-
+    import { Trace } from "src/trace/Trace";
     import Token from "./Token.svelte";
     export let trace: Trace;
     export let on_click: () => void;

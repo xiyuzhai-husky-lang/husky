@@ -8,22 +8,11 @@ pub use allocate_unique::{
     new_file_unique_allocator, AllocateUniqueFile, FilePtr, UniqueFileAllocator,
 };
 pub use error::{FileError, FileResult, FileResultArc};
-pub use query::{FileContentQuery, FileQuery, FileQueryStorage, FileSalsaQuery, LiveFiles};
+pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
 
 use std::sync::Arc;
 
 use common::*;
-
-#[derive(Clone, Copy, Debug)]
-pub struct FilePosition {
-    pub file_id: FilePtr,
-}
-
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct FileRange {
-    pub source: FilePtr,
-    pub range: text::TextRange,
-}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum FileType {

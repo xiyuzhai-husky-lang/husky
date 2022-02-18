@@ -1,12 +1,17 @@
 <script lang="ts">
     import Tree from "./TreeView/Tree.svelte";
-    import { rootTraces } from "./globalState";
+    import { get_root_traces_store } from "src/trace/root/root_client";
+
+    let root_traces_store = get_root_traces_store();
+    $: root_traces = $root_traces_store;
 </script>
 
 <div class="TreeView">
-    {#each $rootTraces as trace}
-        <Tree {trace} />
-    {/each}
+    {#if root_traces !== null}
+        {#each root_traces as trace}
+            <Tree trace_id={trace.id} />
+        {/each}
+    {/if}
 </div>
 
 <style>

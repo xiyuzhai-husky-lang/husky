@@ -179,18 +179,18 @@ pub enum ScopeSource {
     Builtin(&'static BuiltinScopeData),
     WithinBuiltinModule,
     WithinModule {
-        file_id: FilePtr,
+        file: FilePtr,
         token_group_index: usize, // None means the whole file
     },
     Module {
-        file_id: FilePtr,
+        file: FilePtr,
     },
 }
 
 impl ScopeSource {
     pub fn from_file(file_id: FilePtr, token_group_index: usize) -> ScopeSource {
         ScopeSource::WithinModule {
-            file_id,
+            file: file_id,
             token_group_index: token_group_index,
         }
     }

@@ -20,6 +20,7 @@ fn main_feature_block(
     let package = this.package(main_file)?;
     let main = &*package.main;
     Ok(Arc::new(FeatureBlock::new(
+        this.entity_vc(),
         &main.stmts,
         &[],
         this.features(),

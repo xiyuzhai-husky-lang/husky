@@ -3,9 +3,11 @@ mod feature_branch;
 mod feature_expr;
 mod feature_stmt;
 
-use feature::{FeatureExpr, FeatureStmtKind};
+use feature::{FeatureBlock, FeatureBranch, FeatureBranchKind, FeatureStmtKind};
+use file::FileQueryGroup;
 use serde::Deserialize;
 use stdx::sync::ARwLock;
+use text::{Text, TextQueryGroup};
 
 use crate::*;
 
@@ -31,7 +33,6 @@ fn test_trace_id_deserialize() {
 #[derive(Default)]
 pub struct TraceAllocator {
     traces: ARwLock<Vec<Option<Arc<Trace>>>>,
-    expr_traces: ARwLock<HashMap<(TraceId, usize), Arc<Trace>>>,
 }
 
 impl TraceAllocator {
@@ -42,12 +43,15 @@ impl TraceAllocator {
         }))
     }
 
-    pub(crate) fn tokens(&self, id: TraceId, indent: Indent, kind: &TraceKind) -> Vec<TokenProps> {
+    pub(crate) fn tokens(
+        &self,
+        id: TraceId,
+        indent: Indent,
+        kind: &TraceKind,
+        text: &Text,
+    ) -> Vec<TokenProps> {
         match kind {
-            TraceKind::Main {
-                main_file,
-                feature_block,
-            } => vec![TokenProps {
+            TraceKind::Main(feature_block) => vec![TokenProps {
                 kind: TraceTokenKind::Keyword,
                 value: Cow::Borrowed("main"),
                 associated_trace: None,
@@ -57,84 +61,106 @@ impl TraceAllocator {
                     let mut tokens = vec![];
                     tokens.push(ident!(varname.0, None));
                     tokens.push(special!(" = ", None));
-                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, value));
+                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, value, text));
                     tokens.into()
                 }
                 FeatureStmtKind::Assert { ref condition } => {
                     let mut tokens = vec![];
                     tokens.push(keyword!("assert "));
-                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, condition));
+                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, condition, text));
                     tokens.into()
                 }
                 FeatureStmtKind::Return { ref result } => {
                     let mut tokens = vec![];
-                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, result));
+                    tokens.extend(self.feature_expr_associated_tokens(indent + 4, result, text));
                     tokens.into()
                 }
                 FeatureStmtKind::Branches { .. } => panic!(),
             },
-            TraceKind::FeatureExpr(expr) => self.feature_expr_tokens(expr),
+            TraceKind::FeatureExpr(expr) => self.feature_expr_tokens(expr, text),
             TraceKind::FeatureBranch(branch) => match branch.kind {
-                feature::FeatureBranchKind::If { ref condition } => {
+                FeatureBranchKind::If { ref condition } => {
                     let mut tokens = vec![keyword!("if ")];
-                    tokens.extend(self.feature_expr_tokens(condition));
+                    tokens.extend(self.feature_expr_tokens(condition, text));
                     tokens
                 }
-                feature::FeatureBranchKind::Elif { ref condition } => {
+                FeatureBranchKind::Elif { ref condition } => {
                     let mut tokens = vec![keyword!("elif ")];
-                    tokens.extend(self.feature_expr_tokens(condition));
+                    tokens.extend(self.feature_expr_tokens(condition, text));
                     tokens
                 }
-                feature::FeatureBranchKind::Else => vec![keyword!("else ")],
+                FeatureBranchKind::Else => vec![keyword!("else ")],
             },
         }
     }
 
-    pub fn new_trace(&self, parent: Option<&Trace>, indent: Indent, kind: TraceKind) -> Arc<Trace> {
-        let trace = Arc::new(Trace::new(parent.map(|trace| trace.id), indent, kind, self));
+    fn new_trace(
+        &self,
+        parent: Option<&Trace>,
+        indent: Indent,
+        kind: TraceKind,
+        text: &Text,
+    ) -> Arc<Trace> {
+        let trace = Arc::new(Trace::new(
+            parent.map(|trace| trace.id),
+            indent,
+            kind,
+            self,
+            text,
+        ));
         self.traces.write(|traces| {
             assert!(traces[trace.id.0].is_none());
             traces[trace.id.0] = Some(trace.clone())
         });
         trace
     }
+}
 
-    fn expr_trace(&self, stmt_trace_id: TraceId, expr: &Arc<FeatureExpr>) -> Arc<Trace> {
-        let p: *const FeatureExpr = &**expr;
-        self.expr_traces.write(|expr_traces| {
-            expr_traces
-                .entry((stmt_trace_id, p as usize))
-                .or_insert(self.new_trace(None, 0, TraceKind::FeatureExpr(expr.clone())))
-                .clone()
-        })
+pub trait AllocateTrace: TextQueryGroup {
+    fn trace_allocator(&self) -> &TraceAllocator;
+
+    fn feature_block_subtraces(
+        &self,
+        parent: &Trace,
+        feature_block: &FeatureBlock,
+    ) -> Vec<Arc<Trace>> {
+        let text = &self.text(parent.file).unwrap();
+        self.trace_allocator()
+            .feature_block_subtraces(parent, feature_block, text)
+    }
+
+    fn feature_branch_subtraces(
+        &self,
+        parent: &Trace,
+        branch: &FeatureBranch,
+    ) -> Arc<Vec<Arc<Trace>>> {
+        let text = &self.text(parent.file).unwrap();
+        self.trace_allocator().feature_branch_subtraces(
+            parent,
+            branch,
+            self.trace_allocator(),
+            text,
+        )
+    }
+
+    fn new_trace(
+        &self,
+        parent: Option<&Trace>,
+        file: FilePtr,
+        indent: Indent,
+        kind: TraceKind,
+    ) -> Arc<Trace> {
+        self.trace_allocator()
+            .new_trace(parent, indent, kind, &self.text(file).unwrap())
     }
 
     fn trace(&self, id: TraceId) -> Arc<Trace> {
-        self.traces
+        self.trace_allocator()
+            .traces
             .read(|traces| traces[id.0].as_ref().unwrap().clone())
     }
 
-    pub fn clear(&self) {
-        self.traces.write(|traces| traces.clear())
-    }
-}
-
-pub trait AllocateTrace {
-    fn trace_allocator(&self) -> &TraceAllocator;
-
-    fn new_trace(&self, parent: Option<&Trace>, indent: Indent, kind: TraceKind) -> Arc<Trace> {
-        self.trace_allocator().new_trace(parent, indent, kind)
-    }
-
-    fn expr_trace(&self, stmt_trace_id: TraceId, expr: &Arc<FeatureExpr>) -> Arc<Trace> {
-        self.trace_allocator().expr_trace(stmt_trace_id, expr)
-    }
-
-    fn trace(&self, id: TraceId) -> Arc<Trace> {
-        self.trace_allocator().trace(id)
-    }
-
     fn clear(&self) {
-        self.trace_allocator().clear()
+        self.trace_allocator().traces.write(|traces| traces.clear())
     }
 }

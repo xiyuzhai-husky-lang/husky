@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use ast::{Ast, AstResult, RawExprArena, RawExprKind, RawStmt};
+use ast::{Ast, AstResult, RawExprArena, RawExprKind, RawStmt, RawStmtKind};
 use common::*;
 use fold::FoldStorage;
 use scope::{FuncSignature, RawFuncSignature, ScopeKind, ScopePtr, ScopeRoute};
@@ -31,10 +31,27 @@ fn func_signature(
         })),
         scope::ScopeSource::WithinBuiltinModule => todo!(),
         scope::ScopeSource::WithinModule {
-            file_id,
+            file: file_id,
             token_group_index,
-        } => todo!(),
-        scope::ScopeSource::Module { file_id } => todo!(),
+        } => {
+            let ast_text = this.ast_text(file_id)?;
+            let ast = ast_text
+                .folded_results
+                .fold_iter(token_group_index)
+                .next()
+                .unwrap()
+                .value
+                .as_ref()?;
+            match ast {
+                Ast::FuncDef { kind, decl } => Ok(Arc::new(FuncSignature {
+                    inputs: decl.inputs.iter().map(|input| input.1.ty).collect(),
+                    output: decl.output,
+                    compiled: None,
+                })),
+                _ => panic!(),
+            }
+        }
+        scope::ScopeSource::Module { file: file_id } => todo!(),
     };
 
     fn func_signature_from_raw(
@@ -112,12 +129,19 @@ fn input_ty_from_ast(
     ast: &Ast,
 ) -> SemanticResult<ScopePtr> {
     match ast {
-        Ast::Stmt(RawStmt::Return(idx)) => match arena[idx].kind {
+        Ast::Stmt(RawStmt {
+            kind: RawStmtKind::Return(idx),
+            ..
+        }) => match arena[idx].kind {
             RawExprKind::Opn {
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
             } => match arena[opds][0].kind {
-                RawExprKind::Scope(scope, ScopeKind::Func) => {
+                RawExprKind::Scope {
+                    scope,
+                    kind: ScopeKind::Func,
+                    ..
+                } => {
                     let signature = this.func_signature(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.route {

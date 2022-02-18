@@ -172,7 +172,7 @@ impl<'a> ExprStack<'a> {
                     ExprStackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
                             ast_err!(
-                                self.exprs[0].range.start..end,
+                                (self.exprs[0].range.start..end).into(),
                                 format!(
                                     "brackets should match but get bra = {}, ket = {}",
                                     bra.bra_code(),
@@ -184,7 +184,7 @@ impl<'a> ExprStack<'a> {
                     }
                     _ => {
                         ast_err!(
-                            (self.exprs[0].range.start..end),
+                            (self.exprs[0].range.start..end).into(),
                             format!(
                                 "expect {} but got {:?} instead",
                                 ket.bra_code(),

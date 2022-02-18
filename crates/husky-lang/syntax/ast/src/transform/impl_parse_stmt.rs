@@ -1,4 +1,9 @@
-use crate::{atom::symbol_proxy::Symbol, stmt::BranchRawStmt, transform::utils::*, *};
+use crate::{
+    atom::symbol_proxy::Symbol,
+    stmt::{RawBranchKind, RawStmtKind},
+    transform::utils::*,
+    *,
+};
 use text::{TextRange, TextRanged};
 use token::{Special, Token, TokenKind};
 
@@ -15,9 +20,12 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::If => {
                     expect_at_least!(tokens, kw_range, 2);
                     expect_kind!(tokens.last().unwrap(), Special::Colon);
-                    RawStmt::Branch(BranchRawStmt::If {
-                        condition: self.parse_expr(&tokens[0..(tokens.len() - 1)])?,
-                    })
+                    RawStmt {
+                        range: text::group_text_range(tokens),
+                        kind: RawStmtKind::Branch(RawBranchKind::If {
+                            condition: self.parse_expr(&tokens[0..(tokens.len() - 1)])?,
+                        }),
+                    }
                 }
                 StmtKeyword::Elif => todo!(),
                 StmtKeyword::Else => {
@@ -27,7 +35,10 @@ impl<'a> AstTransformer<'a> {
                         tokens[0].range,
                         "expect `:`"
                     );
-                    RawStmt::Branch(BranchRawStmt::Else)
+                    RawStmt {
+                        range: text::group_text_range(tokens),
+                        kind: RawStmtKind::Branch(RawBranchKind::Else),
+                    }
                 }
                 StmtKeyword::Switch => todo!(),
                 StmtKeyword::Match => todo!(),
@@ -40,11 +51,17 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Break => todo!(),
                 StmtKeyword::Return => {
                     expect!(tokens.len() > 0, kw_range, "expect some tokens after");
-                    RawStmt::Return(self.parse_expr(tokens)?)
+                    RawStmt {
+                        range: text::group_text_range(tokens),
+                        kind: RawStmtKind::Return(self.parse_expr(tokens)?),
+                    }
                 }
                 StmtKeyword::Assert => {
                     expect!(tokens.len() > 0, kw_range, "expect some tokens after");
-                    RawStmt::Assert(self.parse_expr(tokens)?)
+                    RawStmt {
+                        range: text::group_text_range(tokens),
+                        kind: RawStmtKind::Assert(self.parse_expr(tokens)?),
+                    }
                 }
             }
         } else {
@@ -52,15 +69,21 @@ impl<'a> AstTransformer<'a> {
                 // functional initialization
                 let varname = identify!(tokens[0]);
                 self.symbols
-                    .append(Symbol::var(varname, tokens[0].text_range()));
-                RawStmt::Init {
-                    kind: InitKind::Functional,
-                    varname,
-                    initial_value: self.parse_expr(&tokens[2..])?,
+                    .push(Symbol::var(varname, tokens[0].text_range()));
+                RawStmt {
+                    range: text::group_text_range(tokens),
+                    kind: RawStmtKind::Init {
+                        kind: InitKind::Functional,
+                        varname,
+                        initial_value: self.parse_expr(&tokens[2..])?,
+                    },
                 }
             } else {
                 // functional return
-                RawStmt::Return(self.parse_expr(tokens)?)
+                RawStmt {
+                    range: text::group_text_range(tokens),
+                    kind: RawStmtKind::Return(self.parse_expr(tokens)?),
+                }
             }
             // Ok(Stmt::Exec(expr.unwrap()).into())
         })
@@ -89,13 +112,16 @@ impl<'a> AstTransformer<'a> {
         expect_at_least!(tokens, kw_range, 3);
         let varname = identify!(&tokens[0]);
         self.symbols
-            .append(Symbol::var(varname, tokens[0].range.clone()));
+            .push(Symbol::var(varname, tokens[0].range.clone()));
         expect_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
-        Ok(RawStmt::Init {
-            kind,
-            varname,
-            initial_value,
+        Ok(RawStmt {
+            range: text::group_text_range(tokens),
+            kind: RawStmtKind::Init {
+                kind,
+                varname,
+                initial_value,
+            },
         })
     }
 }

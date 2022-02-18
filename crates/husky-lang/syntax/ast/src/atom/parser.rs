@@ -38,7 +38,7 @@ impl<'a> Stream<'a> {
 
     pub(crate) fn pop_range(&mut self) -> TextRange {
         let range = self.range.clone();
-        self.range = (self.range.end)..(self.range.end);
+        self.range = ((self.range.end)..(self.range.end)).into();
         range
     }
 }
@@ -102,7 +102,7 @@ impl<'a> AtomLRParser<'a> {
                         Special::Vertical => {
                             let lambda_head = self.lambda_head()?;
                             self.stack.push(Atom::new(
-                                token.text_start()..self.stream.range.end,
+                                (token.text_start()..self.stream.range.end).into(),
                                 AtomKind::LambdaHead(lambda_head),
                             ))?;
                         }
@@ -183,7 +183,11 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopePt
         ast_err!(text::group_text_range(&result[1..]), "too many atoms")?
     } else {
         match result[0].kind {
-            AtomKind::Scope(scope, ScopeKind::Type) => Ok(scope),
+            AtomKind::Scope {
+                scope,
+                kind: ScopeKind::Type,
+                ..
+            } => Ok(scope),
             _ => ast_err!(text::group_text_range(&result), "too many atoms")?,
         }
     }

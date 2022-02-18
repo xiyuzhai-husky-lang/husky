@@ -8,7 +8,6 @@ mod utils;
 use file::FilePtr;
 use fold::{FoldedList, LocalStack, LocalValue};
 use scope::ScopeRoute;
-use scope_query::PackageOrModule;
 use syntax_types::*;
 use text::TextRanged;
 use token::*;
@@ -16,14 +15,14 @@ use vm::InputContract;
 use word::*;
 
 use crate::{
-    atom::symbol_proxy::Symbol,
-    query::{AstQueryGroup, AstText},
+    atom::symbol_proxy::{Symbol, SymbolKind},
+    query::{AstQueryGroup, AstSalsaQueryGroup, AstText},
     transform::utils::*,
     *,
 };
 
 pub struct AstTransformer<'a> {
-    db: &'a dyn AstQueryGroup,
+    db: &'a dyn AstSalsaQueryGroup,
     main: FilePtr,
     arena: RawExprArena,
     folded_results: FoldedList<AstResult<Ast>>,
@@ -32,20 +31,36 @@ pub struct AstTransformer<'a> {
 }
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn new(db: &'a dyn AstQueryGroup, module: PackageOrModule) -> Self {
-        Self {
+    pub(crate) fn new(db: &'a dyn AstSalsaQueryGroup, module: ScopePtr) -> Self {
+        return Self {
             db,
             main: db
                 .main_file_id(db.module_to_file_id(module).unwrap())
                 .unwrap(),
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
-            symbols: LocalStack::new(),
-            env: LocalValue::new(match module.scope().route {
+            symbols: module_symbols(db, module),
+            env: LocalValue::new(match module.route {
                 ScopeRoute::Package { .. } => Env::Package,
-                ScopeRoute::ChildScope { .. } => Env::Module,
+                ScopeRoute::ChildScope { .. } => Env::Module(module),
                 ScopeRoute::Builtin { .. } | ScopeRoute::Implicit { .. } => panic!(),
             }),
+        };
+
+        fn module_symbols(db: &dyn AstSalsaQueryGroup, module: ScopePtr) -> LocalStack<Symbol> {
+            let mut symbols = LocalStack::new();
+            for scope in db.subscopes(module).iter() {
+                match scope.route {
+                    ScopeRoute::Builtin { .. }
+                    | ScopeRoute::Package { .. }
+                    | ScopeRoute::Implicit { .. } => panic!(),
+                    ScopeRoute::ChildScope { ident, .. } => symbols.push(Symbol {
+                        ident,
+                        kind: SymbolKind::Scope(scope.route),
+                    }),
+                }
+            }
+            symbols
         }
     }
 
@@ -94,7 +109,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                         todo!()
                     }
                     word::FuncKeyword::Func => Ok(Ast::FuncDef {
-                        kind: FuncKind::PureFunc,
+                        kind: FuncKind::Func,
                         decl: self.parse_func_decl(trim!(tokens; keyword, colon))?,
                     }),
                     word::FuncKeyword::Def => todo!(),

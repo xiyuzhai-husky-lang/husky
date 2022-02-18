@@ -39,6 +39,7 @@ pub struct EntityInnerId {
 }
 
 pub type EntityVersionControl = VersionControl<ScopePtr, EntityKind>;
+pub type EntityUid = Uid;
 
 pub trait ControlEntityVersion {
     fn entity_vc(&self) -> &EntityVersionControl;
@@ -53,11 +54,18 @@ impl Entity {
     }
 
     fn dependees(kind: &EntityKind) -> UniqVec<ScopePtr> {
-        match kind {
+        return match kind {
             EntityKind::Module(_) => Default::default(),
             EntityKind::Feature(_) => todo!(),
             EntityKind::Pattern(_) => todo!(),
-            EntityKind::Func(_) => todo!(),
+            EntityKind::Func { inputs, stmts } => {
+                let mut v = UniqVec::new();
+                for input in inputs {
+                    v.push(input.1.ty)
+                }
+                extract_decl_stmts_dependees(stmts, &mut v);
+                v
+            }
             EntityKind::Proc(_) => todo!(),
             EntityKind::Ty(ty) => match ty.kind {
                 ty::TyKind::Enum => todo!(),
@@ -65,6 +73,45 @@ impl Entity {
                     memb_vars.iter().map(|memb_var| memb_var.ty.scope).into()
                 }
             },
+        };
+
+        fn extract_decl_stmts_dependees(stmts: &[Arc<DeclStmt>], v: &mut UniqVec<ScopePtr>) {
+            for stmt in stmts {
+                match stmt.kind {
+                    DeclStmtKind::Init { varname, ref value } => extract_expr_dependees(value, v),
+                    DeclStmtKind::Assert { ref condition } => extract_expr_dependees(condition, v),
+                    DeclStmtKind::Return { ref result } => extract_expr_dependees(result, v),
+                    DeclStmtKind::Branches { kind, ref branches } => {
+                        for branch in branches {
+                            extract_decl_stmts_dependees(&branch.stmts, v)
+                        }
+                    }
+                }
+            }
+        }
+
+        fn extract_expr_dependees(expr: &Expr, v: &mut UniqVec<ScopePtr>) {
+            match expr.kind {
+                ExprKind::Variable(_) => (),
+                ExprKind::Scope { scope, compiled } => v.push(scope),
+                ExprKind::Literal(_) => (),
+                ExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
+                ExprKind::Opn {
+                    ref opn,
+                    compiled,
+                    ref opds,
+                } => match opn {
+                    Opn::Binary { opr, this, kind } => v.push(*this),
+                    Opn::Prefix(_) => todo!(),
+                    Opn::Suffix(_) => todo!(),
+                    Opn::FuncCall { func, .. } => v.push(*func),
+                    Opn::PattCall => todo!(),
+                    Opn::MembVarAccess => todo!(),
+                    Opn::MembFuncCall(_) => todo!(),
+                    Opn::ElementAccess => todo!(),
+                },
+                ExprKind::Lambda(_, _) => todo!(),
+            }
         }
     }
 

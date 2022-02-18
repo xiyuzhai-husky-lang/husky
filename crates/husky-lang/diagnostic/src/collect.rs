@@ -1,16 +1,13 @@
-use scope_query::PackageOrModule;
+use scope::ScopePtr;
 
 use crate::*;
 
-pub(crate) fn collect_diagnostics(
-    this: &dyn DiagnosticQuery,
-    module: PackageOrModule,
-) -> Vec<Diagnostic> {
+pub(crate) fn collect_diagnostics(this: &dyn DiagnosticQuery, module: ScopePtr) -> Vec<Diagnostic> {
     let mut diagnostics = Vec::new();
-    if let Ok(table) = this.subscope_table(module.scope()) {
+    if let Ok(table) = this.subscope_table(module) {
         diagnostics.extend(table.error_iter().map(|e| e.into()));
         diagnostics.extend(
-            this.subscope_ids(module.scope())
+            this.subscopes(module)
                 .iter()
                 .map(|subscope_id| match this.scope_kind(*subscope_id) {
                     scope::ScopeKind::Module => todo!(),

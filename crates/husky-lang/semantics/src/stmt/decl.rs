@@ -1,13 +1,17 @@
 mod gen_instructions;
 
+use file::FilePtr;
 pub(crate) use gen_instructions::gen_decl_stmt_instructions;
+use text::TextRange;
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DeclStmt {
-    pub kind: DeclStmtKind,
+    pub file: FilePtr,
+    pub range: TextRange,
     pub indent: fold::Indent,
+    pub kind: DeclStmtKind,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

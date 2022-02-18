@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { FigureProps, Plot2dProps } from "server/types";
+    import type { FigureProps, Plot2dProps } from "trace/figure/FigureProps";
     import Plot2d from "./Figure/Plot2d.svelte";
     import Graphics2d from "./Figure/Graphics2d.svelte";
     export let figure: FigureProps;

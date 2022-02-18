@@ -2,7 +2,7 @@ use std::ops::AddAssign;
 
 use common::*;
 
-use ast::{Ast, AstResult, RawExpr, RawExprKind};
+use ast::{Ast, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::ScopePtr;
 use syntax_types::*;
 use vm::{InputContract, PrimitiveValue};
@@ -90,7 +90,7 @@ impl<'a> Formatter<'a> {
                 self.write(match kind {
                     FuncKind::Test => "test ",
                     FuncKind::Proc => todo!(),
-                    FuncKind::PureFunc => "func ",
+                    FuncKind::Func => "func ",
                     FuncKind::Def => todo!(),
                 });
                 self.write(&decl.funcname);
@@ -161,11 +161,11 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_stmt(&mut self, stmt: &ast::RawStmt) {
-        match stmt {
-            ast::RawStmt::Loop(_) => todo!(),
-            ast::RawStmt::Branch(_) => todo!(),
-            ast::RawStmt::Exec(expr) => self.fmt_expr(&self.arena[expr]),
-            ast::RawStmt::Init {
+        match stmt.kind {
+            RawStmtKind::Loop(_) => todo!(),
+            RawStmtKind::Branch(_) => todo!(),
+            RawStmtKind::Exec(expr) => self.fmt_expr(&self.arena[expr]),
+            RawStmtKind::Init {
                 kind,
                 varname,
                 initial_value,
@@ -175,15 +175,15 @@ impl<'a> Formatter<'a> {
                     ast::InitKind::Var => self.write("var "),
                     ast::InitKind::Functional => (),
                 }
-                self.fmt_ident((*varname).into());
+                self.fmt_ident(varname.into());
                 self.write(" = ");
                 self.fmt_expr(&self.arena[initial_value]);
             }
-            ast::RawStmt::Return(expr) => {
+            RawStmtKind::Return(expr) => {
                 self.write("return ");
                 self.fmt_expr(&self.arena[expr]);
             }
-            ast::RawStmt::Assert(expr) => {
+            RawStmtKind::Assert(expr) => {
                 self.write("assert ");
                 self.fmt_expr(&self.arena[expr]);
             }
@@ -242,7 +242,7 @@ impl<'a> Formatter<'a> {
                 // ast::Opr::Index => todo!(),
                 // ast::Opr::Opr(opr) => match opr {},
             },
-            RawExprKind::Scope(_, _) => todo!(),
+            RawExprKind::Scope { .. } => todo!(),
             RawExprKind::Lambda(ref inputs, expr) => {
                 self.write("|");
                 self.join(

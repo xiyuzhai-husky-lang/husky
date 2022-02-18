@@ -37,7 +37,7 @@ pub type AstResult<T> = Result<T, AstError>;
 macro_rules! ast_error {
     ($range:expr, $kind: expr, $src: expr) => {{
         AstError {
-            range: $range.clone(),
+            range: $range,
             kind: $kind.into(),
             src: $src,
         }

@@ -72,7 +72,11 @@ impl AtomStack {
             (
                 Bracket::Par,
                 Some(Atom {
-                    kind: AtomKind::Scope(_, ScopeKind::Type),
+                    kind:
+                        AtomKind::Scope {
+                            kind: ScopeKind::Type,
+                            ..
+                        },
                     ..
                 }),
             ) => {
@@ -114,7 +118,10 @@ impl AtomStack {
             ListStartAttr::Attach => {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.kind {
-                    AtomKind::Scope(ScopePtr::Builtin(ident), _) => match ident {
+                    AtomKind::Scope {
+                        scope: ScopePtr::Builtin(ident),
+                        ..
+                    } => match ident {
                         BuiltinIdentifier::Fp
                         | BuiltinIdentifier::Fn
                         | BuiltinIdentifier::FnMut
@@ -143,8 +150,11 @@ impl AtomStack {
         let mut types = Vec::new();
         match self.pop(tail)?.kind {
             AtomKind::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
-            AtomKind::Scope(scope, ScopeKind::Type) => types.push(scope.into()),
-            _ => ast_err!(tail, "left parenthesis or type")?,
+            AtomKind::Scope {
+                scope,
+                kind: ScopeKind::Type,
+            } => types.push(scope.into()),
+            _ => ast_err!(*tail, "left parenthesis or type")?,
         };
         loop {
             match self.pop(tail)?.kind {
@@ -153,11 +163,14 @@ impl AtomStack {
                     return Ok((attr, types));
                 }
                 AtomKind::ListItem => (),
-                _ => ast_err!(tail, "left parenthesis or comma")?,
+                _ => ast_err!(*tail, "left parenthesis or comma")?,
             }
             match self.pop(tail)?.kind {
-                AtomKind::Scope(scope, ScopeKind::Type) => types.push(scope.into()),
-                _ => ast_err!(tail, "type")?,
+                AtomKind::Scope {
+                    scope,
+                    kind: ScopeKind::Type,
+                } => types.push(scope.into()),
+                _ => ast_err!(*tail, "type")?,
             }
         }
     }

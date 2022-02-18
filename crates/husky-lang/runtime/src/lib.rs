@@ -8,9 +8,10 @@ pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 pub use query::{AskCompileTime, RuntimeQueryGroup, RuntimeQueryGroupStorage};
 
 use common::{msg_once, HashMap};
-use file::{FilePtr, FileQuery};
+use file::{FilePtr, FileQueryGroup};
 use husky_lang_compile_time::*;
 use stdx::sync::ARwLock;
+use text::{RawTextQueryGroup, TextQueryGroupStorage};
 use tokio::sync::Mutex;
 
 use std::{borrow::Cow, sync::Arc};
@@ -19,7 +20,7 @@ use session::Session;
 use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceId, TraceKind};
 use vm::{run, AnyValueDyn, Instruction};
 
-#[salsa::database(RuntimeQueryGroupStorage)]
+#[salsa::database(RuntimeQueryGroupStorage, TextQueryGroupStorage)]
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
@@ -30,6 +31,12 @@ pub struct HuskyLangRuntime {
 impl AskCompileTime for HuskyLangRuntime {
     fn compile_time(&self, _version: usize) -> &HuskyLangCompileTime {
         &self.compile_time
+    }
+}
+
+impl RawTextQueryGroup for HuskyLangRuntime {
+    fn raw_text(&self, file: FilePtr) -> Option<Arc<String>> {
+        self.compile_time.raw_text(file)
     }
 }
 
@@ -74,11 +81,15 @@ impl HuskyLangRuntime {
 
     pub fn toggle_expansion(&self, id: TraceId) {}
 
-    pub fn toggle_associated_trace(&self, id: TraceId, request_trace: bool) -> Option<Arc<Trace>> {
-        if request_trace {
-            Some(self.trace(id))
-        } else {
-            None
+    pub fn toggle_show(&self, id: TraceId) {}
+
+    pub fn lock_input(&self, input_temp: String) -> (Option<Option<usize>>, Option<String>) {
+        if input_temp.len() == 0 {
+            return (Some(None), None);
+        }
+        match input_temp.parse::<usize>() {
+            Ok(idx) => (Some(Some(idx)), None),
+            Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
         }
     }
 }

@@ -1,10 +1,10 @@
 #[cfg(test)]
 mod tests;
 
-pub use ast::AstQueryGroup;
+pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use diagnostic::DiagnosticQuery;
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
-pub use file::{AllocateUniqueFile, FileQuery, LiveFiles};
+pub use file::{AllocateUniqueFile, FileQueryGroup, LiveFiles};
 pub use husky_fmt::FmtQuery;
 use scope::ScopePtr;
 pub use scope::{AllocateUniqueScope, Scope};
@@ -105,7 +105,7 @@ impl LiveFiles for HuskyLangCompileTime {
     }
 }
 
-impl FileQuery for HuskyLangCompileTime {}
+impl FileQueryGroup for HuskyLangCompileTime {}
 
 impl AllocateUniqueScope for HuskyLangCompileTime {
     fn scope_unique_allocator(&self) -> &scope::UniqueScopeAllocator {
@@ -116,6 +116,8 @@ impl AllocateUniqueScope for HuskyLangCompileTime {
 impl TokenQueryGroup for HuskyLangCompileTime {}
 
 impl ScopeQueryGroup for HuskyLangCompileTime {}
+
+impl AstQueryGroup for HuskyLangCompileTime {}
 
 impl Upcast<dyn InferQueryGroup> for HuskyLangCompileTime {
     fn upcast(&self) -> &(dyn semantics::InferQueryGroup + 'static) {

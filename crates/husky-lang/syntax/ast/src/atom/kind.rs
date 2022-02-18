@@ -1,14 +1,16 @@
+use std::sync::Arc;
+
 use scope::ScopeKind;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue};
-use word::CustomIdentifier;
+use word::{CustomIdentifier, WordPtr};
 
 use super::*;
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
-    Scope(ScopePtr, ScopeKind),
+    Scope { scope: ScopePtr, kind: ScopeKind },
     Variable(CustomIdentifier),
     Literal(PrimitiveValue),
     Binary(BinaryOpr),

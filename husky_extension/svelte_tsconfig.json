@@ -1,13 +1,14 @@
 {
     "extends": "@tsconfig/svelte/tsconfig.json",
-    "include": ["./**/*"],
-    "exclude": ["../node_modules/*"],
+    "include": ["./src/webviews", "./src/trace"],
+    "exclude": ["./node_modules/*", ".old/*"],
     "compilerOptions": {
         "strict": true,
         "baseUrl": ".",
         "paths": {
             "src/*": ["./src/*"],
-            "server/*": ["./src/server/*"]
+            "trace/*": ["./src/trace/*"],
+            "websocket/*": ["./src/websocket/*"]
         }
     }
 }

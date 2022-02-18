@@ -68,7 +68,7 @@ fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<Fi
     None
 }
 
-pub trait FileQuery: FileSalsaQuery {
+pub trait FileQueryGroup: FileSalsaQuery {
     fn file_exists(&self, id: FilePtr) -> bool {
         match self.file_content(id) {
             FileContent::OnDisk(_) => true,
@@ -86,8 +86,8 @@ pub trait FileQuery: FileSalsaQuery {
             .collect()
     }
 
-    fn text(&self, id: FilePtr) -> Option<Arc<String>> {
-        match self.file_content(id) {
+    fn raw_text(&self, file: FilePtr) -> Option<Arc<String>> {
+        match self.file_content(file) {
             FileContent::OnDisk(text) => Some(text),
             FileContent::Live(text) => Some(text),
             FileContent::Deleted => None,

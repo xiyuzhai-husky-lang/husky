@@ -12,7 +12,7 @@ impl<T> LocalStack<T> {
         }
     }
 
-    pub fn append(&mut self, item: T) {
+    pub fn push(&mut self, item: T) {
         self.stack.push(item);
     }
 

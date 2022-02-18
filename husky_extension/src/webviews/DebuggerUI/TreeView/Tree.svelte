@@ -1,23 +1,33 @@
 <script lang="ts">
     import Node from "./Node.svelte";
-    import Associated from "./Associated.svelte";
+    import { get_trace_store } from "src/trace/trace_client";
+    import { get_subtraces_store } from "src/trace/subtraces/client";
     import {
-        toggleExpansion,
+        get_expansion_store,
+        toggle_expansion,
+        get_shown_store,
+    } from "src/trace/status/status_client";
+    import {
         activate,
-        activeTraceIdx,
-        isExpanded,
-        getSubtraces,
-    } from "../globalState";
-    import { Trace } from "src/server/types";
+        get_active_trace_id_store,
+    } from "src/trace/activate/client";
 
-    export let trace: Trace;
-    let expanded = isExpanded(trace.id);
-    let subtraces = getSubtraces(trace.id);
-    let locked = false;
-    $: has_subtraces = $subtraces !== null && $subtraces.length > 0;
-    function toggleExpansionLocked() {
+    export let trace_id: number;
+
+    $: trace_store = get_trace_store(trace_id);
+    $: trace = $trace_store;
+    $: expanded = get_expansion_store(trace_id);
+    $: subtraces_store = get_subtraces_store(trace_id);
+    $: subtraces = $subtraces_store;
+    $: active_trace_id_store = get_active_trace_id_store();
+    $: active = $active_trace_id_store === trace_id;
+    $: locked = false;
+    $: shown_store = get_shown_store(trace_id);
+    $: shown = $shown_store;
+    $: has_subtraces = subtraces !== null && subtraces.length > 0;
+    function toggle_expansion_locked() {
         if (!locked) {
-            toggleExpansion(trace.id);
+            toggle_expansion(trace_id);
             locked = true;
             setTimeout(() => {
                 locked = false;
@@ -26,36 +36,38 @@
     }
 </script>
 
-<div class="TraceTree">
-    <Node
-        on_click={() => {
-            activate(trace.id);
-        }}
-        on_double_click={() => {
-            toggleExpansionLocked();
-        }}
-        on_group_start_click={() => {
-            toggleExpansionLocked();
-        }}
-        on_indent_click={() => {
-            toggleExpansionLocked();
-        }}
-        {trace}
-        {has_subtraces}
-        expanded={$expanded}
-        active={$activeTraceIdx === trace.id}
-    />
-    {#each trace.tokens as token}
-        {#if token.associated_trace !== null}
-            <Associated associated_trace_id={token.associated_trace} />
-        {/if}
-    {/each}
-    {#if $subtraces !== null && $expanded === true}
-        {#each $subtraces as trace}
-            <svelte:self {trace} />
+{#if shown && trace !== null}
+    <div class="TraceTree">
+        <Node
+            on_click={() => {
+                activate(trace_id);
+            }}
+            on_double_click={() => {
+                toggle_expansion_locked();
+            }}
+            on_group_start_click={() => {
+                toggle_expansion_locked();
+            }}
+            on_indent_click={() => {
+                toggle_expansion_locked();
+            }}
+            {trace}
+            {has_subtraces}
+            expanded={$expanded}
+            {active}
+        />
+        {#each trace.tokens as token}
+            {#if token.associated_trace !== null}
+                <svelte:self trace_id={token.associated_trace} />
+            {/if}
         {/each}
-    {/if}
-</div>
+        {#if subtraces !== null && $expanded === true}
+            {#each subtraces as subtrace}
+                <svelte:self trace_id={subtrace.id} />
+            {/each}
+        {/if}
+    </div>
+{/if}
 
 <style>
     .TraceTree {

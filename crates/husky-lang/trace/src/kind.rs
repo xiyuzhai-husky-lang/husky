@@ -1,15 +1,11 @@
 use feature::{FeatureBlock, FeatureBranch, FeatureExpr, FeatureStmt};
-use file::FilePtr;
 
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub enum TraceKind {
-    Main {
-        main_file: FilePtr,
-        feature_block: Arc<FeatureBlock>,
-    },
-    FeatureStmt(Arc<FeatureStmt>),
-    FeatureExpr(Arc<FeatureExpr>),
-    FeatureBranch(Arc<FeatureBranch>),
+    Main(#[serde(skip)] Arc<FeatureBlock>),
+    FeatureStmt(#[serde(skip)] Arc<FeatureStmt>),
+    FeatureBranch(#[serde(skip)] Arc<FeatureBranch>),
+    FeatureExpr(#[serde(skip)] Arc<FeatureExpr>),
 }

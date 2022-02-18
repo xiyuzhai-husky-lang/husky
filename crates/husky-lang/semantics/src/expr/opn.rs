@@ -4,7 +4,7 @@ use text::TextRange;
 use vm::BinaryOpr;
 use word::{CustomIdentifier, Identifier};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Opn {
     Binary {
         opr: BinaryOpr,
@@ -15,11 +15,31 @@ pub enum Opn {
     Suffix(SuffixOpn),
     FuncCall {
         func: ScopePtr,
+        scope_expr_range: TextRange,
     },
     PattCall,
     MembVarAccess,
     MembFuncCall(ScopePtr),
     ElementAccess,
+}
+
+impl std::hash::Hash for Opn {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        core::mem::discriminant(self).hash(state);
+        match self {
+            Opn::Binary { opr, this, kind } => todo!(),
+            Opn::Prefix(_) => todo!(),
+            Opn::Suffix(_) => todo!(),
+            Opn::FuncCall {
+                func,
+                scope_expr_range,
+            } => todo!(),
+            Opn::PattCall => todo!(),
+            Opn::MembVarAccess => todo!(),
+            Opn::MembFuncCall(_) => todo!(),
+            Opn::ElementAccess => todo!(),
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

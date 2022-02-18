@@ -4,6 +4,7 @@ mod impr;
 use common::p;
 pub(crate) use decl::gen_decl_stmt_instructions;
 pub use decl::{DeclBranchKind, DeclBranchesKind, DeclStmt, DeclStmtKind};
+use file::FilePtr;
 pub use impr::{StrictStmt, StrictStmtKind};
 
 use ast::*;
@@ -21,12 +22,13 @@ use crate::*;
 
 use self::decl::DeclBranch;
 
-pub(crate) fn parse_lazy_stmts(
+pub(crate) fn parse_decl_stmts(
     this: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
+    file: FilePtr,
 ) -> SemanticResult<Vec<Arc<DeclStmt>>> {
-    let mut parser = DeclStmtParser::new(this, arena);
+    let mut parser = DeclStmtParser::new(this, arena, file);
     parser.parse_stmts(iter)
 }
 
@@ -34,6 +36,7 @@ pub struct DeclStmtParser<'a> {
     db: &'a dyn InferQueryGroup,
     arena: &'a RawExprArena,
     variables: Vec<Variable>,
+    file: FilePtr,
 }
 
 pub struct Variable {
@@ -42,11 +45,12 @@ pub struct Variable {
 }
 
 impl<'a> DeclStmtParser<'a> {
-    fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena) -> Self {
+    fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
         Self {
             db,
             arena,
             variables: Vec::new(),
+            file,
         }
     }
 
@@ -65,12 +69,12 @@ impl<'a> DeclStmtParser<'a> {
                 Ast::PatternDef => todo!(),
                 Ast::Use { .. } => todo!(),
                 Ast::MembDef { .. } => todo!(),
-                Ast::Stmt(stmt) => match stmt {
-                    RawStmt::Loop(_) => todo!(),
-                    RawStmt::Branch(stmt) => {
+                Ast::Stmt(stmt) => match stmt.kind {
+                    RawStmtKind::Loop(_) => todo!(),
+                    RawStmtKind::Branch(branch_kind) => {
                         let mut branches = vec![];
-                        match stmt {
-                            BranchRawStmt::If { condition } => {
+                        match branch_kind {
+                            RawBranchKind::If { condition } => {
                                 branches.push(Arc::new(DeclBranch {
                                     kind: DeclBranchKind::If {
                                         condition: self.parse_expr(&self.arena[condition])?,
@@ -78,24 +82,30 @@ impl<'a> DeclStmtParser<'a> {
                                     stmts: self.parse_stmts(not_none!(item.children))?,
                                 }))
                             }
-                            BranchRawStmt::Elif { condition } => todo!(),
-                            BranchRawStmt::Else => todo!(),
+                            RawBranchKind::Elif { condition } => todo!(),
+                            RawBranchKind::Else => todo!(),
                         }
                         while let Some(item) = iter.peek() {
                             let item = match item.value.as_ref()? {
-                                Ast::Stmt(RawStmt::Branch(_)) => iter.next().unwrap(),
+                                Ast::Stmt(RawStmt {
+                                    kind: RawStmtKind::Branch(_),
+                                    ..
+                                }) => iter.next().unwrap(),
                                 _ => break,
                             };
                             match item.value.as_ref()? {
-                                Ast::Stmt(RawStmt::Branch(branch_stmt)) => match branch_stmt {
-                                    BranchRawStmt::If { condition } => break,
-                                    BranchRawStmt::Elif { condition } => {
+                                Ast::Stmt(RawStmt {
+                                    kind: RawStmtKind::Branch(branch_stmt),
+                                    ..
+                                }) => match branch_stmt {
+                                    RawBranchKind::If { condition } => break,
+                                    RawBranchKind::Elif { condition } => {
                                         if branches.len() == 0 {
                                             todo!()
                                         }
                                         todo!()
                                     }
-                                    BranchRawStmt::Else => {
+                                    RawBranchKind::Else => {
                                         branches.push(Arc::new(DeclBranch {
                                             kind: DeclBranchKind::Else,
                                             stmts: self.parse_stmts(not_none!(item.children))?,
@@ -107,41 +117,48 @@ impl<'a> DeclStmtParser<'a> {
                             }
                         }
                         DeclStmt {
+                            file: self.file,
+                            range: stmt.range,
+                            indent: item.indent,
                             kind: DeclStmtKind::Branches {
                                 kind: DeclBranchesKind::If,
                                 branches,
                             },
-                            indent: item.indent,
                         }
                     }
-                    RawStmt::Exec(_) => todo!(),
-                    RawStmt::Init {
+                    RawStmtKind::Exec(_) => todo!(),
+                    RawStmtKind::Init {
                         varname,
                         initial_value,
                         ..
                     } => {
-                        let varname = *varname;
                         let initial_value = self.parse_expr(&self.arena[initial_value])?;
                         self.def_variable(varname, initial_value.ty);
                         DeclStmt {
+                            file: self.file,
+                            range: stmt.range,
+                            indent: item.indent,
                             kind: DeclStmtKind::Init {
                                 varname,
                                 value: initial_value,
                             },
-                            indent: item.indent,
                         }
                     }
-                    RawStmt::Return(result) => DeclStmt {
+                    RawStmtKind::Return(result) => DeclStmt {
+                        file: self.file,
+                        range: stmt.range,
+                        indent: item.indent,
                         kind: DeclStmtKind::Return {
                             result: self.parse_expr(&self.arena[result])?,
                         },
-                        indent: item.indent,
                     },
-                    RawStmt::Assert(condition) => DeclStmt {
+                    RawStmtKind::Assert(condition) => DeclStmt {
+                        file: self.file,
+                        range: stmt.range,
+                        indent: item.indent,
                         kind: DeclStmtKind::Assert {
                             condition: self.parse_expr(&self.arena[condition])?,
                         },
-                        indent: item.indent,
                     },
                 },
             }))
@@ -174,5 +191,9 @@ impl<'a> ExprParser<'a> for DeclStmtParser<'a> {
 
     fn db(&self) -> &'a dyn InferQueryGroup {
         self.db
+    }
+
+    fn file(&self) -> FilePtr {
+        self.file
     }
 }

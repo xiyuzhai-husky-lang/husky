@@ -2,13 +2,18 @@ mod ty;
 
 use std::sync::Arc;
 
+use ast::Ast;
+use common::Upcast;
+use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
 use scope::ScopePtr;
 
-use crate::*;
+use crate::{error::not_none, *};
 
 #[salsa::query_group(EntityQueryGroupStorage)]
-pub trait EntityQueryGroup: ast::AstQueryGroup + ControlEntityVersion {
+pub trait EntityQueryGroup:
+    ast::AstQueryGroup + ControlEntityVersion + Upcast<dyn InferQueryGroup>
+{
     fn entity(&self, scope: ScopePtr) -> SemanticResult<Arc<Entity>>;
     fn subentities(&self, scope: ScopePtr) -> SemanticResultArc<Vec<Arc<Entity>>>;
 }
@@ -19,11 +24,13 @@ fn entity(this: &dyn EntityQueryGroup, scope: ScopePtr) -> SemanticResultArc<Ent
         scope::ScopeSource::Builtin(_) => todo!(),
         scope::ScopeSource::WithinBuiltinModule => todo!(),
         scope::ScopeSource::WithinModule {
-            file_id,
+            file,
             token_group_index,
         } => {
-            let ast_text = this.ast_text(file_id)?;
+            let ast_text = this.ast_text(file)?;
             entity_from_ast(
+                this,
+                file,
                 &ast_text,
                 token_group_index,
                 this.subentities(scope)?,
@@ -31,11 +38,13 @@ fn entity(this: &dyn EntityQueryGroup, scope: ScopePtr) -> SemanticResultArc<Ent
                 this.entity_vc(),
             )
         }
-        scope::ScopeSource::Module { file_id } => todo!(),
+        scope::ScopeSource::Module { file: file_id } => todo!(),
     }
 }
 
 pub fn entity_from_ast(
+    this: &dyn EntityQueryGroup,
+    file: FilePtr,
     ast_text: &ast::AstText,
     token_group_index: usize,
     subentities: Arc<Vec<Arc<Entity>>>,
@@ -51,16 +60,38 @@ pub fn entity_from_ast(
         .unwrap();
     let head = value.as_ref()?;
     match head {
-        ast::Ast::TypeDef {
+        Ast::TypeDef {
             ident,
             kind,
             generics,
         } => ty::ty_from_ast(*ident, kind, generics, children, subentities, scope, vc),
-        ast::Ast::FuncDef { kind, decl } => todo!(),
-        ast::Ast::PatternDef => todo!(),
-        ast::Ast::Use { ident, scope } => todo!(),
-        ast::Ast::MembDef { ident, kind } => todo!(),
-        ast::Ast::MainDef | ast::Ast::DatasetConfig | ast::Ast::Stmt(_) => panic!(),
+        Ast::FuncDef { kind, decl } => {
+            let kind = match kind {
+                syntax_types::FuncKind::Test => todo!(),
+                syntax_types::FuncKind::Proc => todo!(),
+                syntax_types::FuncKind::Func => EntityKind::Func {
+                    inputs: decl.inputs.clone(),
+                    stmts: stmt::parse_decl_stmts(
+                        this.upcast(),
+                        &ast_text.arena,
+                        not_none!(children),
+                        file,
+                    )?,
+                },
+                syntax_types::FuncKind::Def => todo!(),
+            };
+            Ok(Arc::new(Entity::new(
+                decl.funcname,
+                kind,
+                Arc::new(Vec::new()),
+                scope,
+                vc,
+            )))
+        }
+        Ast::PatternDef => todo!(),
+        Ast::Use { ident, scope } => todo!(),
+        Ast::MembDef { ident, kind } => todo!(),
+        Ast::MainDef | Ast::DatasetConfig | Ast::Stmt(_) => panic!(),
     }
 }
 
@@ -68,7 +99,7 @@ pub(crate) fn subentities(
     this: &dyn EntityQueryGroup,
     scope_id: ScopePtr,
 ) -> SemanticResultArc<Vec<Arc<Entity>>> {
-    this.subscope_ids(scope_id)
+    this.subscopes(scope_id)
         .iter()
         .map(|scope| this.entity(*scope))
         .collect::<SemanticResult<Vec<Arc<Entity>>>>()

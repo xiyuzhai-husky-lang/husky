@@ -14,7 +14,7 @@ impl<'a> AstTransformer<'a> {
             let mut stack = ExprStack::new(&mut self.arena);
             while let Some(atom) = atom_iter.next() {
                 match atom.kind {
-                    AtomKind::Variable(_) | AtomKind::Literal(_) | AtomKind::Scope(_, _) => {
+                    AtomKind::Variable(_) | AtomKind::Literal(_) | AtomKind::Scope { .. } => {
                         stack.accept_atom_expr(atom.into())
                     }
                     AtomKind::Binary(opr) => stack.accept_binary(opr),
