@@ -3,20 +3,39 @@ use common::*;
 use futures::{task::SpawnExt, FutureExt, StreamExt};
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc;
-use trace::{FigureProps, Trace, TraceId};
+use trace::{FigureProps, Trace, TraceId, TraceStalk};
 use warp::ws::{Message, WebSocket};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "type")]
 enum Query {
     RootTraces,
-    Subtraces { id: TraceId },
-    Figure { id: TraceId },
-    Activate { id: TraceId },
-    ToggleExpansion { id: TraceId },
-    ToggleShow { id: TraceId },
-    Trace { id: TraceId },
-    LockInput { input_temp: String },
+    Subtraces {
+        id: TraceId,
+        input_locked_on: Option<usize>,
+    },
+    Figure {
+        id: TraceId,
+    },
+    Activate {
+        id: TraceId,
+    },
+    ToggleExpansion {
+        id: TraceId,
+    },
+    ToggleShow {
+        id: TraceId,
+    },
+    Trace {
+        id: TraceId,
+    },
+    LockInput {
+        input_str: String,
+    },
+    TraceStalk {
+        trace_id: TraceId,
+        input_id: usize,
+    },
 }
 
 #[test]
@@ -34,6 +53,7 @@ pub enum Response {
     },
     Subtraces {
         id: TraceId,
+        input_locked_on: Option<usize>,
         subtraces: Arc<Vec<Arc<Trace>>>,
     },
     Figure {
@@ -57,6 +77,11 @@ pub enum Response {
         #[serde(skip_serializing_if = "Option::is_none")]
         input_locked_on: Option<Option<usize>>,
         message: Option<String>,
+    },
+    TraceStalk {
+        trace_id: TraceId,
+        input_id: usize,
+        stalk: Arc<TraceStalk>,
     },
 }
 
@@ -94,9 +119,13 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                                 Query::RootTraces => Response::RootTraces {
                                     root_traces: debugger_.root_traces().await,
                                 },
-                                Query::Subtraces { id } => Response::Subtraces {
+                                Query::Subtraces {
                                     id,
-                                    subtraces: debugger_.subtraces(id).await,
+                                    input_locked_on,
+                                } => Response::Subtraces {
+                                    id,
+                                    input_locked_on,
+                                    subtraces: debugger_.subtraces(id, input_locked_on).await,
                                 },
                                 Query::Activate { id } => {
                                     debugger_.activate(id).await;
@@ -118,12 +147,20 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                                     let trace = debugger_.trace(id).await;
                                     Response::Trace { id, trace }
                                 }
-                                Query::LockInput { input_temp } => {
+                                Query::LockInput { input_str } => {
                                     let (input_locked_on, message) =
-                                        debugger_.lock_input(input_temp).await;
+                                        debugger_.lock_input(input_str).await;
                                     Response::DidLockInput {
                                         input_locked_on,
                                         message,
+                                    }
+                                }
+                                Query::TraceStalk { trace_id, input_id } => {
+                                    let stalk = debugger_.trace_stalk(trace_id, input_id).await;
+                                    Response::TraceStalk {
+                                        trace_id,
+                                        input_id,
+                                        stalk,
                                     }
                                 }
                             })

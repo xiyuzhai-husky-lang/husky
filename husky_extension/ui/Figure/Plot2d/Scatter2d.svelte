@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Plot2dProps } from "trace/figure";
+    import type { Plot2dProps } from "trace/figure/FigureProps";
     export let figure: Plot2dProps;
     export let pointRadius: number;
 

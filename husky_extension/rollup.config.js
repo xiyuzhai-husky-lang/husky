@@ -20,9 +20,9 @@ const aliases = alias({
 // const production = !process.env.ROLLUP_WATCH;
 const production = false;
 
-export default ["Debugger"].map((name) => {
+export default ["entry"].map((name) => {
     return {
-        input: "src/webviews/" + name + ".ts",
+        input: "ui/" + name + ".ts",
         output: {
             sourcemap: true,
             format: "iife",

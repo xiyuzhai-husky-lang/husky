@@ -17,7 +17,7 @@ use futures::executor::ThreadPool;
 use notif::handle_notif;
 use query::handle_query;
 use std::sync::Mutex;
-use trace::{AllocateTrace, FigureProps, Trace, TraceId};
+use trace::{AllocateTrace, FigureProps, Trace, TraceId, TraceStalk};
 use warp::Filter;
 
 pub struct Debugger {
@@ -61,8 +61,12 @@ impl Debugger {
         self.runtime.lock().unwrap().root_traces()
     }
 
-    pub async fn subtraces(&self, id: TraceId) -> Arc<Vec<Arc<Trace>>> {
-        self.runtime.lock().unwrap().subtraces(id)
+    pub async fn subtraces(
+        &self,
+        id: TraceId,
+        input_locked_on: Option<usize>,
+    ) -> Arc<Vec<Arc<Trace>>> {
+        self.runtime.lock().unwrap().subtraces(id, input_locked_on)
     }
 
     pub async fn figure(&self, id: TraceId) -> Option<FigureProps> {
@@ -85,8 +89,12 @@ impl Debugger {
         self.runtime.lock().unwrap().trace(id)
     }
 
-    pub async fn lock_input(&self, input_temp: String) -> (Option<Option<usize>>, Option<String>) {
-        self.runtime.lock().unwrap().lock_input(input_temp)
+    pub async fn lock_input(&self, input_str: String) -> (Option<Option<usize>>, Option<String>) {
+        self.runtime.lock().unwrap().lock_input(input_str)
+    }
+
+    pub async fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk> {
+        self.runtime.lock().unwrap().trace_stalk(trace_id, input_id)
     }
 }
 

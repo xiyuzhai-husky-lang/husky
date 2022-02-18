@@ -17,7 +17,7 @@ use tokio::sync::Mutex;
 use std::{borrow::Cow, sync::Arc};
 
 use session::Session;
-use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceId, TraceKind};
+use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceId, TraceKind, TraceStalk};
 use vm::{run, AnyValueDyn, Instruction};
 
 #[salsa::database(RuntimeQueryGroupStorage, TextQueryGroupStorage)]
@@ -73,7 +73,7 @@ impl HuskyLangRuntime {
     }
 
     pub fn figure(&self, id: TraceId) -> Option<FigureProps> {
-        msg_once!("todo");
+        msg_once!("todo: figure");
         None
     }
 
@@ -91,6 +91,10 @@ impl HuskyLangRuntime {
             Ok(idx) => (Some(Some(idx)), None),
             Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
         }
+    }
+
+    pub fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk> {
+        todo!()
     }
 }
 

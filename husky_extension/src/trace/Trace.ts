@@ -20,6 +20,7 @@ export const tTrace = t.interface({
     parent: t.union([t.number, t.null]),
     indent: t.number,
     tokens: t.array(tTokenProps),
+    has_subtraces: t.boolean,
     kind: t.union([
         t.literal("Main"),
         t.literal("FeatureStmt"),

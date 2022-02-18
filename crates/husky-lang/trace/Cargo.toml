@@ -12,3 +12,4 @@ file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 feature = { path = "../feature", version = "0.0.0" }
 fold = { path = "../../data_structure/fold", version = "0.0.0" }
+scope = { path = "../syntax/scope", version = "0.0.0" }

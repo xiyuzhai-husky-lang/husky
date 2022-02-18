@@ -14,7 +14,7 @@ pub trait RuntimeQueryGroup: AskCompileTime + AllocateTrace {
     #[salsa::input]
     fn version(&self) -> usize;
 
-    fn subtraces(&self, id: TraceId) -> Arc<Vec<Arc<Trace>>>;
+    fn subtraces(&self, id: TraceId, input_locked_on: Option<usize>) -> Arc<Vec<Arc<Trace>>>;
     fn root_traces(&self) -> Arc<Vec<Arc<Trace>>>;
 }
 
@@ -29,7 +29,11 @@ pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<Arc<Trace>>> {
     )])
 }
 
-pub fn subtraces(this: &dyn RuntimeQueryGroup, id: TraceId) -> Arc<Vec<Arc<Trace>>> {
+pub fn subtraces(
+    this: &dyn RuntimeQueryGroup,
+    id: TraceId,
+    input_locked_on: Option<usize>,
+) -> Arc<Vec<Arc<Trace>>> {
     let trace: &Trace = &this.trace(id);
     match trace.kind {
         TraceKind::Main(ref block) => Arc::new(this.feature_block_subtraces(&trace, block)),

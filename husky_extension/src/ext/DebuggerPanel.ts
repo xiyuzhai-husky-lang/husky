@@ -140,7 +140,7 @@ export class DebuggerSingleton {
                 this._extensionUri,
                 "out",
                 "compiled",
-                "Debugger.js"
+                "entry.js"
             )
         );
 
@@ -152,11 +152,7 @@ export class DebuggerSingleton {
             vscode.Uri.joinPath(this._extensionUri, "media", "vscode.css")
         );
         const cssUri = webview.asWebviewUri(
-            vscode.Uri.joinPath(
-                this._extensionUri,
-                "out",
-                "compiled/Debugger.css"
-            )
+            vscode.Uri.joinPath(this._extensionUri, "out", "compiled/entry.css")
         );
 
         // Use a nonce to only allow specific scripts to be run
