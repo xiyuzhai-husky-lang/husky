@@ -53,25 +53,10 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureExprKind::Variable { ref value, .. } => {
                 self.cache(expr.feature, |this: &mut Self| this.eval_expr(&value))
             }
+            FeatureExprKind::FuncCall {
+                func, ref inputs, ..
+            } => todo!(),
         }
-        //     match *cached_ptr.ptr {
-        //         Feature::Input => todo!(),
-        //         Feature::Literal(literal) => Ok(Conditional::Defined(StackValue::Primitive(literal))),
-        //         Feature::Assert { condition } => match self.eval(condition) {
-        //             Ok(_) => Ok(Conditional::Undefined),
-        //             Err(_) => todo!(),
-        //         },
-        //         Feature::Do { first, then } => match self.eval(first)? {
-        //             Conditional::Defined(value) => Ok(Conditional::Defined(value)),
-        //             Conditional::Undefined => self.eval(then),
-        //         },
-        //         Feature::PrimitiveBinaryFunc { func, lopd, ropd } => Ok(Conditional::Defined(
-        //             StackValue::Primitive(func.act_on_primitives(
-        //                 self.eval(lopd)?.defined()?.as_primitive()?,
-        //                 self.eval(ropd)?.defined()?.as_primitive()?,
-        //             )?),
-        //         )),
-        //     }
     }
 
     fn eval_stmt(&mut self, stmt: &FeatureStmt) -> EvalValue<'eval, 'eval> {

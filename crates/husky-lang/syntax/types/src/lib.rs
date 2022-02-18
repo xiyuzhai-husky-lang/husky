@@ -1,5 +1,7 @@
+mod env;
 mod opr;
 
+pub use env::Env;
 pub use opr::*;
 
 use scope::{ScopeKind, ScopePtr};
@@ -29,15 +31,14 @@ pub enum MembKind {
 pub enum FuncKind {
     Test,
     Proc,
-    PureFunc,
+    Func,
     Def,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncDecl {
     pub funcname: CustomIdentifier,
-    pub time_params: Vec<GenericPlaceholder>,
-    pub space_params: Vec<GenericPlaceholder>,
+    pub generics: Vec<GenericPlaceholder>,
     pub inputs: Vec<(CustomIdentifier, InputType)>,
     pub output: ScopePtr,
 }
@@ -54,46 +55,19 @@ pub struct GenericPlaceholder {
     pub kind: GenericPlaceholderKind,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembType {
     pub contract: InputContract,
     pub scope: ScopePtr,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct InputType {
     pub contract: InputContract,
     pub ty: ScopePtr,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum Env {
-    Package,
-    Module,
-    DatasetConfig,
-    Main,
-    Def,
-    Func,
-    Proc,
-    Test,
-}
-
-impl std::fmt::Display for Env {
-    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
-        f.write_str(match self {
-            Env::Package => "package",
-            Env::Module => "module",
-            Env::DatasetConfig => "dataset config",
-            Env::Main => "main",
-            Env::Def => "def",
-            Env::Func => "func",
-            Env::Proc => "proc",
-            Env::Test => "test",
-        })
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum InitKind {
     Let,
     Var,

@@ -1,26 +1,39 @@
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
-use scope_query::ScopeResultArc;
+use scope_query::{ScopeResult, ScopeResultArc};
 use std::sync::Arc;
 
 use crate::atom::symbol_proxy::{Symbol, SymbolProxy};
 use crate::*;
 
 #[salsa::query_group(AstQueryGroupStorage)]
-pub trait AstQueryGroup: scope_query::ScopeQueryGroup {
+pub trait AstSalsaQueryGroup: scope_query::ScopeQueryGroup {
     fn ast_text(&self, id: file::FilePtr) -> ScopeResultArc<AstText>;
 
     fn parse_ty(&self, code: &'static str) -> AstResult<ScopePtr>;
 }
 
-fn ast_text(this: &dyn AstQueryGroup, id: file::FilePtr) -> ScopeResultArc<AstText> {
+pub trait AstQueryGroup: AstSalsaQueryGroup {
+    fn ast(&self, file: file::FilePtr, token_group_index: usize) -> ScopeResult<&AstResult<Ast>> {
+        todo!()
+        // Ok(self
+        //     .ast_text(file)?
+        //     .folded_results
+        //     .fold_iter(token_group_index)
+        //     .next()
+        //     .unwrap()
+        //     .value)
+    }
+}
+
+fn ast_text(this: &dyn AstSalsaQueryGroup, id: file::FilePtr) -> ScopeResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module_from_file_id(id)?);
     parser.transform_all(tokenized_text.fold_iter(0));
     Ok(Arc::new(parser.finish()))
 }
 
-fn parse_ty(this: &dyn AstQueryGroup, code: &'static str) -> AstResult<ScopePtr> {
+fn parse_ty(this: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<ScopePtr> {
     let tokens = this.tokenize(code);
     let symbols = fold::LocalStack::<Symbol>::new();
     let proxy = SymbolProxy {

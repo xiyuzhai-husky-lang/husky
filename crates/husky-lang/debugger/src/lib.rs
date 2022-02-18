@@ -1,10 +1,13 @@
 mod error;
+pub mod mock;
 mod notif;
 mod query;
+#[cfg(test)]
 mod tests;
 
 use std::{convert::Infallible, net::ToSocketAddrs, sync::Arc};
 
+use common::epin;
 pub use error::{DebuggerError, DebuggerResult};
 
 use husky_lang_compile_time::HuskyLangCompileTime;
@@ -14,7 +17,7 @@ use futures::executor::ThreadPool;
 use notif::handle_notif;
 use query::handle_query;
 use std::sync::Mutex;
-use trace::{FigureProps, Trace, TraceId};
+use trace::{AllocateTrace, FigureProps, Trace, TraceId};
 use warp::Filter;
 
 pub struct Debugger {
@@ -74,15 +77,16 @@ impl Debugger {
         self.runtime.lock().unwrap().toggle_expansion(id)
     }
 
-    pub async fn toggle_associated_trace(
-        &self,
-        id: TraceId,
-        request_trace: bool,
-    ) -> Option<Arc<Trace>> {
-        self.runtime
-            .lock()
-            .unwrap()
-            .toggle_associated_trace(id, request_trace)
+    pub async fn toggle_show(&self, id: TraceId) {
+        self.runtime.lock().unwrap().toggle_show(id)
+    }
+
+    pub async fn trace(&self, id: TraceId) -> Arc<Trace> {
+        self.runtime.lock().unwrap().trace(id)
+    }
+
+    pub async fn lock_input(&self, input_temp: String) -> (Option<Option<usize>>, Option<String>) {
+        self.runtime.lock().unwrap().lock_input(input_temp)
     }
 }
 

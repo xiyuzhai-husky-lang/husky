@@ -1,4 +1,6 @@
+use file::FilePtr;
 use semantics::{DeclBranchKind, DeclBranchesKind};
+use text::TextRange;
 
 use crate::*;
 
@@ -7,6 +9,14 @@ pub struct FeatureStmt {
     pub indent: fold::Indent,
     pub kind: FeatureStmtKind,
     pub(crate) feature: Option<FeaturePtr>,
+    pub file: FilePtr,
+    pub range: TextRange,
+}
+
+impl text::TextRanged for FeatureStmt {
+    fn text_range_ref(&self) -> &text::TextRange {
+        &self.range
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -29,8 +39,8 @@ pub enum FeatureStmtKind {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureBranch {
-    pub kind: FeatureBranchKind,
     pub block: FeatureBlock,
+    pub kind: FeatureBranchKind,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

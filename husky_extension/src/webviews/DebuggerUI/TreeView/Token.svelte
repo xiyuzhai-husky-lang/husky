@@ -1,20 +1,21 @@
 <script lang="ts">
-    import { TokenProps } from "src/server/types";
-    import {
-        toggleAssociatedTrace,
-        getActiveAssociatedTrace,
-    } from "../globalState";
+    import { get_shown_store } from "src/trace/status/status_client";
 
+    import { TokenProps } from "src/trace/Trace";
+    import { request_toggle_show } from "src/websocket/websocket_client";
     export let token: TokenProps;
     export let within_active_node: boolean;
     $: spacesBeforeStyles = spacesStyle(countSpacesBefore(token.value));
     $: spacesAfterStyles = spacesStyle(countSpacesAfter(token.value));
     $: associated = token.associated_trace !== null;
-    $: activeAssociatedTrace =
-        token.associated_trace === null
-            ? null
-            : getActiveAssociatedTrace(token.associated_trace);
-    $: active = associated && $activeAssociatedTrace !== null;
+    $: associated_trace_shown_store =
+        token.associated_trace !== null
+            ? get_shown_store(token.associated_trace)
+            : null;
+    $: associated_trace_shown =
+        associated_trace_shown_store !== null
+            ? $associated_trace_shown_store
+            : false;
 
     function countSpacesBefore(text: string): number {
         for (let i = 0; i < text.length; i++) {
@@ -43,14 +44,19 @@
     function handleClick() {
         if (within_active_node) {
             if (token.associated_trace !== null) {
-                toggleAssociatedTrace(token.associated_trace);
+                request_toggle_show(token.associated_trace);
             }
         }
     }
 </script>
 
 <span style={spacesBeforeStyles} />
-<code class={token.kind} class:associated class:active on:click={handleClick}>
+<code
+    class={token.kind}
+    class:associated
+    class:associated_trace_shown
+    on:click={handleClick}
+>
     {token.value}
 </code>
 <span style={spacesAfterStyles} />
@@ -59,8 +65,7 @@
     code {
         font-size: 16px;
     }
-    code.active {
-        font-size: 16px;
+    code.associated_trace_shown {
         text-decoration: underline cyan;
     }
     code.associated:hover {

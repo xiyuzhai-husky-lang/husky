@@ -8,16 +8,17 @@ impl TraceAllocator {
         parent: &Trace,
         indent: Indent,
         branch: Arc<FeatureBranch>,
+        text: &Text,
     ) -> Arc<Trace> {
-        self.new_trace(Some(parent), indent, TraceKind::FeatureBranch(branch))
+        self.new_trace(Some(parent), indent, TraceKind::FeatureBranch(branch), text)
     }
 
     pub fn feature_branch_subtraces(
         &self,
         parent: &Trace,
-        parent_indent: Indent,
         branch: &FeatureBranch,
         trace_allocator: &TraceAllocator,
+        text: &Text,
     ) -> Arc<Vec<Arc<Trace>>> {
         // let mut subtraces = vec![];
         // match branch.kind {
@@ -39,6 +40,6 @@ impl TraceAllocator {
         // }
         // subtraces.extend();
         // Arc::new(subtraces)
-        Arc::new(self.feature_block_subtraces(parent, &branch.block))
+        Arc::new(self.feature_block_subtraces(parent, &branch.block, text))
     }
 }

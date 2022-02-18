@@ -13,8 +13,7 @@ impl<'a> AtomLRParser<'a> {
         let output = self.func_output_type()?;
         Ok(FuncDecl {
             funcname,
-            time_params: Vec::new(),
-            space_params,
+            generics: space_params,
             inputs,
             output,
         })

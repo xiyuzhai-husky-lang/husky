@@ -1,11 +1,18 @@
+use text::TextRange;
 use word::CustomIdentifier;
 
 use crate::{expr::RawExprIdx, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum RawStmt {
+pub struct RawStmt {
+    pub range: TextRange,
+    pub kind: RawStmtKind,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum RawStmtKind {
     Loop(LoopRawStmt),
-    Branch(BranchRawStmt),
+    Branch(RawBranchKind),
     Exec(RawExprIdx),
     Init {
         kind: InitKind,
@@ -40,8 +47,8 @@ pub enum LoopRawStmt {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum BranchRawStmt {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum RawBranchKind {
     If { condition: RawExprIdx },
     Elif { condition: RawExprIdx },
     Else,

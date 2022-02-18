@@ -1,9 +1,9 @@
-use std::{pin::Pin, sync::Arc};
+use std::sync::Arc;
 
-use itertools::Itertools;
+use file::FilePtr;
 use scope::ScopePtr;
-use semantics::{Expr, ExprKind, Opn};
-use vm::Compiled;
+use semantics::{EntityVersionControl, Expr, ExprKind, Opn};
+use text::TextRange;
 use word::BuiltinIdentifier;
 
 use crate::*;
@@ -12,6 +12,8 @@ use crate::*;
 pub struct FeatureExpr {
     pub kind: FeatureExprKind,
     pub(crate) feature: FeaturePtr,
+    pub range: TextRange,
+    pub file: FilePtr,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -26,10 +28,18 @@ pub enum FeatureExprKind {
         varname: CustomIdentifier,
         value: Arc<FeatureExpr>,
     },
+    FuncCall {
+        func: ScopePtr,
+        scope_expr_range: TextRange,
+        uid: EntityUid,
+        inputs: Vec<Arc<FeatureExpr>>,
+        compiled: Option<()>,
+    },
 }
 
 impl FeatureExpr {
     pub fn new(
+        vc: &EntityVersionControl,
         expr: &Expr,
         symbols: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
@@ -46,6 +56,8 @@ impl FeatureExpr {
                                 value: symbol.value.clone(),
                             },
                             feature: symbol.feature,
+                            range: expr.range,
+                            file: expr.file,
                         })
                     } else {
                         None
@@ -56,6 +68,8 @@ impl FeatureExpr {
             ExprKind::Literal(value) => FeatureExpr {
                 kind: FeatureExprKind::Literal(value),
                 feature: features.alloc(Feature::Literal(value)),
+                range: expr.range,
+                file: expr.file,
             },
             ExprKind::Bracketed(_) => todo!(),
             ExprKind::Opn {
@@ -69,8 +83,8 @@ impl FeatureExpr {
                     | ScopePtr::Builtin(BuiltinIdentifier::F32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
-                        let lopd = Self::new(&opds[0], symbols, features);
-                        let ropd = Self::new(&opds[1], symbols, features);
+                        let lopd = Self::new(vc, &opds[0], symbols, features);
+                        let ropd = Self::new(vc, &opds[1], symbols, features);
                         let feature = features.alloc(Feature::PrimitiveBinaryOpr {
                             opr,
                             lopd: lopd.feature,
@@ -79,13 +93,41 @@ impl FeatureExpr {
                         Self {
                             kind: FeatureExprKind::PrimitiveBinaryOpr { opr, lopd, ropd },
                             feature,
+                            range: expr.range,
+                            file: expr.file,
                         }
                     }
                     _ => todo!(),
                 },
                 Opn::Prefix(_) => todo!(),
                 Opn::Suffix(_) => todo!(),
-                Opn::FuncCall { func } => todo!(),
+                Opn::FuncCall {
+                    func,
+                    scope_expr_range,
+                } => {
+                    let uid = vc.uid(func);
+                    let inputs: Vec<_> = opds
+                        .iter()
+                        .map(|opd| Self::new(vc, opd, symbols, features))
+                        .collect();
+                    let feature = features.alloc(Feature::FuncCall {
+                        func,
+                        uid,
+                        inputs: inputs.iter().map(|expr| expr.feature).collect(),
+                    });
+                    Self {
+                        kind: FeatureExprKind::FuncCall {
+                            func,
+                            scope_expr_range,
+                            inputs,
+                            uid,
+                            compiled: None,
+                        },
+                        feature,
+                        range: expr.range,
+                        file: expr.file,
+                    }
+                }
                 Opn::PattCall => todo!(),
                 Opn::MembVarAccess => todo!(),
                 Opn::MembFuncCall(_) => todo!(),

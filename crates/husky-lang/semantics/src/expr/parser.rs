@@ -1,5 +1,6 @@
 use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
 use common::p;
+use file::FilePtr;
 use scope::{ScopeKind, ScopePtr};
 use syntax_types::Opr;
 use vm::{BinaryOpr, PrimitiveValue};
@@ -13,11 +14,12 @@ pub trait ExprParser<'a> {
     fn arena(&self) -> &'a RawExprArena;
     fn vartype(&self, varname: CustomIdentifier) -> ScopePtr;
     fn db(&self) -> &'a dyn InferQueryGroup;
+    fn file(&self) -> FilePtr;
 
     fn parse_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Arc<Expr>> {
         let (ty, kind): (ScopePtr, _) = match raw_expr.kind {
             RawExprKind::Variable(ident) => (self.vartype(ident), ExprKind::Variable(ident)),
-            RawExprKind::Scope(scope, kind) => match kind {
+            RawExprKind::Scope { scope, kind, .. } => match kind {
                 ScopeKind::Module => todo!(),
                 ScopeKind::Literal => {
                     match scope {
@@ -60,6 +62,7 @@ pub trait ExprParser<'a> {
             range: raw_expr.range.clone(),
             ty,
             kind,
+            file: self.file(),
         }))
     }
 
@@ -75,7 +78,11 @@ pub trait ExprParser<'a> {
                 syntax_types::ListOpr::Call => {
                     let call = &self.arena()[opds][0];
                     match call.kind {
-                        RawExprKind::Scope(scope, ScopeKind::Func) => {
+                        RawExprKind::Scope {
+                            scope,
+                            kind: ScopeKind::Func,
+                            ..
+                        } => {
                             let signature = self.db().func_signature(scope)?;
                             let arguments: Vec<_> = self.arena()[opds][1..]
                                 .iter()
@@ -85,14 +92,21 @@ pub trait ExprParser<'a> {
                             Ok((
                                 output,
                                 ExprKind::Opn {
-                                    opn: Opn::FuncCall { func: scope },
+                                    opn: Opn::FuncCall {
+                                        func: scope,
+                                        scope_expr_range: call.range.clone(),
+                                    },
                                     compiled: signature.compiled,
                                     opds: arguments,
                                 },
                             ))
                         }
-                        RawExprKind::Scope(scope, ScopeKind::Type) => todo!(),
-                        RawExprKind::Scope(_, _) => todo!(),
+                        RawExprKind::Scope {
+                            scope,
+                            kind: ScopeKind::Type,
+                            ..
+                        } => todo!(),
+                        RawExprKind::Scope { .. } => todo!(),
                         RawExprKind::Variable(_) => todo!(),
                         RawExprKind::Literal(_) => todo!(),
                         RawExprKind::Bracketed(_) => todo!(),

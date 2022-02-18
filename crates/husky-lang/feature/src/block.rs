@@ -1,6 +1,8 @@
 use std::sync::Arc;
 
-use semantics::{DeclBranchKind, DeclStmt, DeclStmtKind};
+use file::FilePtr;
+use semantics::{DeclBranchKind, DeclStmt, DeclStmtKind, EntityVersionControl};
+use text::TextRange;
 
 use crate::{
     stmt::{FeatureBranchKind, FeatureStmtKind},
@@ -13,10 +15,13 @@ pub struct FeatureBlock {
     pub symbols: Vec<FeatureSymbol>,
     pub stmts: Vec<Arc<FeatureStmt>>,
     pub feature: FeaturePtr,
+    pub file: FilePtr,
+    pub range: TextRange,
 }
 
 impl FeatureBlock {
     pub(crate) fn new(
+        vc: &EntityVersionControl,
         decl_stmts: &[Arc<DeclStmt>],
         externals: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
@@ -27,35 +32,41 @@ impl FeatureBlock {
             .map(|decl_stmt| {
                 Arc::new(match decl_stmt.kind {
                     DeclStmtKind::Init { varname, ref value } => {
-                        let value = FeatureExpr::new(value, &symbols, features);
+                        let value = FeatureExpr::new(vc, value, &symbols, features);
                         symbols.push(FeatureSymbol {
                             varname,
                             value: value.clone(),
                             feature: value.feature,
                         });
                         FeatureStmt {
-                            kind: FeatureStmtKind::Init { varname, value },
-                            feature: None,
+                            file: decl_stmt.file,
+                            range: decl_stmt.range,
                             indent: decl_stmt.indent,
+                            feature: None,
+                            kind: FeatureStmtKind::Init { varname, value },
                         }
                     }
                     DeclStmtKind::Assert { ref condition } => {
-                        let condition = FeatureExpr::new(condition, &symbols, features);
+                        let condition = FeatureExpr::new(vc, condition, &symbols, features);
                         let feature = Some(features.alloc(Feature::Assert {
                             condition: condition.feature,
                         }));
                         FeatureStmt {
-                            kind: FeatureStmtKind::Assert { condition },
-                            feature,
+                            file: decl_stmt.file,
+                            range: decl_stmt.range,
                             indent: decl_stmt.indent,
+                            feature,
+                            kind: FeatureStmtKind::Assert { condition },
                         }
                     }
                     DeclStmtKind::Return { ref result } => {
-                        let result = FeatureExpr::new(result, &symbols, features);
+                        let result = FeatureExpr::new(vc, result, &symbols, features);
                         FeatureStmt {
+                            file: decl_stmt.file,
+                            range: decl_stmt.range,
+                            indent: decl_stmt.indent,
                             feature: Some(result.feature),
                             kind: FeatureStmtKind::Return { result },
-                            indent: decl_stmt.indent,
                         }
                     }
                     DeclStmtKind::Branches { kind, ref branches } => {
@@ -63,18 +74,19 @@ impl FeatureBlock {
                             .iter()
                             .map(|branch| {
                                 Arc::new(FeatureBranch {
+                                    block: FeatureBlock::new(vc, &branch.stmts, &symbols, features),
                                     kind: match branch.kind {
                                         DeclBranchKind::If { ref condition } => {
                                             FeatureBranchKind::If {
                                                 condition: FeatureExpr::new(
-                                                    condition, &symbols, features,
+                                                    vc, condition, &symbols, features,
                                                 ),
                                             }
                                         }
                                         DeclBranchKind::Elif { ref condition } => {
                                             FeatureBranchKind::Elif {
                                                 condition: FeatureExpr::new(
-                                                    condition, &symbols, features,
+                                                    vc, condition, &symbols, features,
                                                 ),
                                             }
                                         }
@@ -82,7 +94,6 @@ impl FeatureBlock {
                                         DeclBranchKind::Case { ref pattern } => todo!(),
                                         DeclBranchKind::Default => todo!(),
                                     },
-                                    block: FeatureBlock::new(&branch.stmts, &symbols, features),
                                 })
                             })
                             .collect();
@@ -112,9 +123,11 @@ impl FeatureBlock {
                             }),
                         );
                         FeatureStmt {
+                            file: decl_stmt.file,
+                            range: decl_stmt.range,
+                            indent: decl_stmt.indent,
                             feature,
                             kind: FeatureStmtKind::Branches { kind, branches },
-                            indent: decl_stmt.indent,
                         }
                     }
                 })
@@ -126,10 +139,14 @@ impl FeatureBlock {
                 .filter_map(|stmt: &Arc<FeatureStmt>| stmt.feature)
                 .collect(),
         ));
+        let file = stmts[0].file;
+        let range = text::group_text_range(&stmts);
         FeatureBlock {
             symbols,
             stmts,
             feature,
+            file,
+            range,
         }
     }
 }

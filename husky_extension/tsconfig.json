@@ -4,7 +4,9 @@
         "baseUrl": ".",
         "paths": {
             "src/*": ["./src/*"],
-            "server/*": ["./src/server/*"]
+            "trace/*": ["./src/trace/*"],
+            "websocket/*": ["./src/websocket/*"]
         }
-    }
+    },
+    "exclude": ["./old/*", "./node_modules/*"]
 }

@@ -1,3 +1,4 @@
+use husky_lang_compile_time::*;
 use warp::Filter;
 
 #[tokio::test]

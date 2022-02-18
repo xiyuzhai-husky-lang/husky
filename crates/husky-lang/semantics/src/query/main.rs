@@ -16,10 +16,11 @@ fn main(this: &dyn MainQueryGroup, main_file: file::FilePtr) -> SemanticResultAr
         match item.value.as_ref()? {
             ast::Ast::MainDef => {
                 return Ok(Arc::new(Main {
-                    stmts: stmt::parse_lazy_stmts(
+                    stmts: stmt::parse_decl_stmts(
                         this.upcast(),
                         &ast_text.arena,
                         not_none!(item.children),
+                        main_file,
                     )?,
                 }))
             }

@@ -20,13 +20,13 @@ pub trait PackageQueryGroup: MainQueryGroup + EntityQueryGroup + ConfigQueryGrou
 }
 
 fn package(this: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Package> {
-    let scope = this.module_from_file_id(main_file)?.scope();
+    let module = this.module_from_file_id(main_file)?;
     Ok(Arc::new(Package {
-        ident: match scope.route {
+        ident: match module.route {
             scope::ScopeRoute::Package { ident, .. } => ident,
             _ => panic!(),
         },
-        subentities: this.subentities(scope)?,
+        subentities: this.subentities(module)?,
         main: this.main(main_file)?,
         config: this.config(main_file)?,
     }))

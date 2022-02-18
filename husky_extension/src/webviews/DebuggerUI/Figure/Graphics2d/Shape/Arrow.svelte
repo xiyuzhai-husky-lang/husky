@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type { ArrowProps } from "server/types";
+    import type { ArrowProps } from "trace/figure";
     import {
         get_displacement,
         get_point_distance,
         get_angle_in_degree,
-    } from "server/geom2d";
+    } from "src/geom2d/geom2d";
 
     export let arrow: ArrowProps;
     export let lineWidth: number;

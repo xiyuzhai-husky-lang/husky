@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Plot2dProps } from "server/types";
+    import type { Plot2dProps } from "trace/figure";
     import Scatter2d from "./Plot2d/Scatter2d.svelte";
     export let figure: Plot2dProps;
 

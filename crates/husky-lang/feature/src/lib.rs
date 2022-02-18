@@ -12,6 +12,8 @@ pub use block::FeatureBlock;
 pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt};
 pub use expr::{FeatureExpr, FeatureExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
+use scope::ScopePtr;
+use semantics::EntityUid;
 pub use sheet::FeatureSheet;
 pub use stmt::{FeatureBranch, FeatureBranchKind, FeatureStmt, FeatureStmtKind};
 pub use unique_allocate::{
@@ -41,6 +43,11 @@ pub enum Feature {
         opr: BinaryOpr,
         lopd: FeaturePtr,
         ropd: FeaturePtr,
+    },
+    FuncCall {
+        func: ScopePtr,
+        uid: EntityUid,
+        inputs: Vec<FeaturePtr>,
     },
     Branches {
         branches: Vec<BranchedFeature>,

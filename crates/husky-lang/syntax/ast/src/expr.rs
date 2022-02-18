@@ -7,6 +7,7 @@ pub use kind::RawExprKind;
 pub(crate) use stack::ExprStack;
 pub use word::Keyword;
 
+use crate::atom::AtomKind;
 use crate::*;
 use common::*;
 use syntax_types::*;
@@ -68,7 +69,15 @@ impl From<&atom::Atom> for RawExpr {
     fn from(atom: &atom::Atom) -> Self {
         Self {
             range: atom.text_range(),
-            kind: (&atom.kind).into(),
+            kind: match atom.kind {
+                AtomKind::Variable(ident) => RawExprKind::Variable(ident),
+                AtomKind::Literal(literal) => RawExprKind::Literal(literal.clone()),
+                AtomKind::Scope { scope, kind } => RawExprKind::Scope { scope, kind },
+                _ => {
+                    p!(atom.kind);
+                    panic!()
+                }
+            },
         }
     }
 }

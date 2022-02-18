@@ -9,11 +9,12 @@ impl TraceAllocator {
         &self,
         parent: &Trace,
         feature_block: &FeatureBlock,
+        text: &Text,
     ) -> Vec<Arc<Trace>> {
         feature_block
             .stmts
             .iter()
-            .map(|stmt| self.feature_stmt_traces(parent, stmt.clone()))
+            .map(|stmt| self.feature_stmt_traces(parent, stmt.clone(), text))
             .flatten()
             .collect()
     }

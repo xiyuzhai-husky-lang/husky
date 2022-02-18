@@ -9,8 +9,8 @@ use common::*;
 
 pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
-pub use query::{AstQueryGroup, AstQueryGroupStorage, AstText};
-pub use stmt::{BranchRawStmt, RawStmt};
+pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
+pub use stmt::{RawBranchKind, RawStmt, RawStmtKind};
 pub use syntax_types::InitKind;
 use transform::AstTransformer;
 

@@ -6,11 +6,11 @@ use text::TextRange;
 use word::{BuiltinIdentifier, CustomIdentifier};
 
 use super::*;
-use crate::*;
+use crate::{query::AstSalsaQueryGroup, *};
 
 #[derive(Debug, Clone)]
 pub struct Symbol {
-    pub ident: word::Identifier,
+    pub ident: CustomIdentifier,
     pub kind: SymbolKind,
 }
 
@@ -32,7 +32,7 @@ pub enum SymbolKind {
 #[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
     pub(crate) main: Option<FilePtr>,
-    pub(crate) db: &'a dyn AstQueryGroup,
+    pub(crate) db: &'a dyn AstSalsaQueryGroup,
     pub(crate) symbols: &'a fold::LocalStack<Symbol>,
 }
 
@@ -44,14 +44,17 @@ impl<'a> SymbolProxy<'a> {
         tail: TextRange,
     ) -> Atom {
         let scope = Scope::builtin(ident.into(), generics);
-        let kind = AtomKind::Scope(self.db.intern_scope(scope), ScopeKind::Type);
+        let kind = AtomKind::Scope {
+            scope: self.db.intern_scope(scope),
+            kind: ScopeKind::Type,
+        };
         Atom::new(tail, kind)
     }
 
     pub fn resolve_symbol_kind(
         &self,
         ident: Identifier,
-        range: &TextRange,
+        range: TextRange,
     ) -> AstResult<SymbolKind> {
         match ident {
             Identifier::Builtin(ident) => Ok(SymbolKind::Scope(ident.into())),

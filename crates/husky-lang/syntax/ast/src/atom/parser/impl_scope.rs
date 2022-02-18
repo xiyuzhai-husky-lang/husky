@@ -9,9 +9,12 @@ impl<'a> AtomLRParser<'a> {
     pub(crate) fn symbol(&mut self) -> AstResult<Option<AtomKind>> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {
-                Some(AtomKind::Scope(self.symbolic_ty()?, ScopeKind::Type))
+                Some(AtomKind::Scope {
+                    scope: self.symbolic_ty()?,
+                    kind: ScopeKind::Type,
+                })
             } else if let TokenKind::Identifier(ident) = token.kind {
-                let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, &token.range)?;
+                let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, token.range)?;
                 match symbol_kind {
                     SymbolKind::Scope(route) => Some(self.normal_scope(route)?),
                     SymbolKind::Variable(_) => match ident {
@@ -58,22 +61,24 @@ impl<'a> AtomLRParser<'a> {
                 .db
                 .make_child_scope(scope, ident, self.generics(route)?);
         }
-        return Ok(AtomKind::Scope(
+        return Ok(AtomKind::Scope {
             scope,
-            self.scope_proxy.db.scope_kind(scope),
-        ));
+            kind: self.scope_proxy.db.scope_kind(scope),
+        });
     }
 
     pub(crate) fn ty(&mut self) -> AstResult<Option<ScopePtr>> {
-        Ok(if let Some(AtomKind::Scope(scope, kind)) = self.symbol()? {
-            if kind == ScopeKind::Type {
-                Some(scope)
+        Ok(
+            if let Some(AtomKind::Scope { scope, kind, .. }) = self.symbol()? {
+                if kind == ScopeKind::Type {
+                    Some(scope)
+                } else {
+                    None
+                }
             } else {
                 None
-            }
-        } else {
-            None
-        })
+            },
+        )
     }
 
     fn generics(&mut self, route: ScopeRoute) -> AstResult<Vec<GenericArgument>> {

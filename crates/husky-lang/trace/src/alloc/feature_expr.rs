@@ -7,28 +7,41 @@ impl TraceAllocator {
         &self,
         parent: &Trace,
         expr: &FeatureExpr,
+        maybe_locked_on: Option<usize>,
     ) -> Arc<Vec<Arc<Trace>>> {
-        msg_once!("todo: feature_expr_subtraces");
-        Arc::new(Vec::new())
-        // Arc::new(match expr.kind {
-        //     FeatureExprKind::Literal(_) => vec![],
-        //     FeatureExprKind::PrimitiveBinaryOpr {
-        //         ref lopd, ref ropd, ..
-        //     } => vec![
-        //         self.feature_expr_trace(parent, lopd.clone()),
-        //         self.feature_expr_trace(parent, ropd.clone()),
-        //     ],
-        //     FeatureExprKind::Variable { varname, ref value } => vec![],
-        // })
+        Arc::new(match expr.kind {
+            FeatureExprKind::Literal(_)
+            | FeatureExprKind::PrimitiveBinaryOpr { .. }
+            | FeatureExprKind::Variable { .. } => vec![],
+            FeatureExprKind::FuncCall {
+                func,
+                scope_expr_range,
+                uid,
+                ref inputs,
+                compiled,
+            } => {
+                if let Some(locked_on) = maybe_locked_on {
+                    let mut subtraces = vec![];
+                    for input in inputs {
+                        todo!("add input trace")
+                    }
+                    todo!();
+                    subtraces
+                } else {
+                    vec![]
+                }
+            }
+        })
     }
 
     pub(crate) fn feature_expr_associated_tokens(
         &self,
         indent: Indent,
         expr: &Arc<FeatureExpr>,
+        text: &Text,
     ) -> Vec<TokenProps> {
         let associated_trace =
-            Some(self.new_trace(None, indent, TraceKind::FeatureExpr(expr.clone())));
+            Some(self.new_trace(None, indent, TraceKind::FeatureExpr(expr.clone()), text));
         match expr.kind {
             FeatureExprKind::Literal(value) => vec![literal!(value)],
             FeatureExprKind::PrimitiveBinaryOpr {
@@ -37,16 +50,36 @@ impl TraceAllocator {
                 ref ropd,
             } => {
                 let mut tokens = vec![];
-                tokens.extend(self.feature_expr_associated_tokens(indent, lopd));
+                tokens.extend(self.feature_expr_associated_tokens(indent, lopd, text));
                 tokens.push(special!(opr.spaced_code(), associated_trace));
-                tokens.extend(self.feature_expr_associated_tokens(indent, ropd));
+                tokens.extend(self.feature_expr_associated_tokens(indent, ropd, text));
                 tokens
             }
             FeatureExprKind::Variable { varname, .. } => vec![ident!(varname.0, associated_trace)],
+            FeatureExprKind::FuncCall {
+                func,
+                scope_expr_range,
+                ref inputs,
+                ..
+            } => {
+                let mut tokens = vec![
+                    scope!(text.ranged(scope_expr_range), associated_trace),
+                    special!("("),
+                ];
+                for input in inputs {
+                    todo!()
+                }
+                tokens.push(special!(")"));
+                tokens
+            }
         }
     }
 
-    pub(crate) fn feature_expr_tokens(&self, expr: &Arc<FeatureExpr>) -> Vec<TokenProps> {
+    pub(crate) fn feature_expr_tokens(
+        &self,
+        expr: &Arc<FeatureExpr>,
+        text: &Text,
+    ) -> Vec<TokenProps> {
         match expr.kind {
             FeatureExprKind::Literal(value) => vec![literal!(value)],
             FeatureExprKind::PrimitiveBinaryOpr {
@@ -55,12 +88,25 @@ impl TraceAllocator {
                 ref ropd,
             } => {
                 let mut tokens = vec![];
-                tokens.extend(self.feature_expr_tokens(lopd));
-                tokens.push(special!(opr.spaced_code(), None));
-                tokens.extend(self.feature_expr_tokens(ropd));
+                tokens.extend(self.feature_expr_tokens(lopd, text));
+                tokens.push(special!(opr.spaced_code()));
+                tokens.extend(self.feature_expr_tokens(ropd, text));
                 tokens
             }
             FeatureExprKind::Variable { varname, .. } => vec![ident!(varname.0, None)],
+            FeatureExprKind::FuncCall {
+                func,
+                scope_expr_range,
+                ref inputs,
+                ..
+            } => {
+                let mut tokens = vec![scope!(text.ranged(scope_expr_range), None), special!("(")];
+                for input in inputs {
+                    todo!()
+                }
+                tokens.push(special!(")"));
+                tokens
+            }
         }
     }
 }
