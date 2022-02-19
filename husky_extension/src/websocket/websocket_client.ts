@@ -60,5 +60,11 @@ export function request_lock_input(input_str: number | null) {
 }
 
 export function request_trace_stalk(trace_id: number, input_id: number) {
+    console.log(
+        "request trace stalk with trace id ",
+        trace_id,
+        ", input id: ",
+        input_id
+    );
     try_send_request({ type: "TraceStalk", trace_id, input_id });
 }

@@ -12,7 +12,7 @@ pub use scope_query::{ScopeQueryGroup, ScopeSalsaQueryGroup};
 pub use semantics::ControlEntityVersion;
 use semantics::EntityKind;
 pub use semantics::InferQueryGroup;
-pub use semantics::PackageQueryGroup;
+pub use semantics::SemanticQueryGroup;
 pub use token::TokenQueryGroup;
 pub use word::InternWord;
 
@@ -28,11 +28,12 @@ use stdx::sync::ARwLock;
     scope_query::ScopeQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
-    semantics::PackageQueryGroupStorage,
+    semantics::SemanticQueryGroupStorage,
     semantics::MainQueryGroupStorage,
     semantics::EntityQueryGroupStorage,
     semantics::ConfigQueryGroupStorage,
     semantics::InferQueryGroupStorage,
+    semantics::InstructionQueryGroupStorage,
     feature::FeatureQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage,
     compiler::CompilerStorage
@@ -121,6 +122,12 @@ impl AstQueryGroup for HuskyLangCompileTime {}
 
 impl Upcast<dyn InferQueryGroup> for HuskyLangCompileTime {
     fn upcast(&self) -> &(dyn semantics::InferQueryGroup + 'static) {
+        self
+    }
+}
+
+impl Upcast<dyn SemanticQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn SemanticQueryGroup + 'static) {
         self
     }
 }

@@ -9,11 +9,10 @@ pub use compiled::Compiled;
 pub use contract::InputContract;
 pub use error::{VMError, VMResult};
 pub use instruction::*;
+pub use stack::VMStack;
 pub use value::{
     AnyValue, AnyValueDyn, BoxedValue, Conditional, EvalValue, PrimitiveValue, StackValue,
 };
-
-use stack::VMStack;
 
 pub enum ControlSignal<'a, 'eval: 'a> {
     Normal,

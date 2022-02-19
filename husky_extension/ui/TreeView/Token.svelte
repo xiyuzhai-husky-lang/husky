@@ -89,6 +89,9 @@
     .fade {
         color: rgb(97, 97, 97);
     }
+    .error {
+        color: red;
+    }
     .ident {
         color: rgb(135, 164, 167);
     }

@@ -11,13 +11,13 @@ use stdx::sync::ARwLock;
 
 use internal::UniqueAllocatorInternal;
 
-pub struct UniqueAllocator<T, Owned = T, Id = BasicUniqueAllocatorPtr<T>>
+pub struct UniqueAllocator<T, Owned = T, Ptr = BasicUniqueAllocatorPtr<T>>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: UniqueAllocatorPtr<Thing = T>,
+    Ptr: UniqueAllocatorPtr<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
-    internal: ARwLock<UniqueAllocatorInternal<T, Owned, Id>>,
+    internal: ARwLock<UniqueAllocatorInternal<T, Owned, Ptr>>,
     phantom: PhantomData<T>,
 }
 

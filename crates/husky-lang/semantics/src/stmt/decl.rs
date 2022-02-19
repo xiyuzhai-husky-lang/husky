@@ -1,7 +1,7 @@
-mod gen_instructions;
+mod compile;
 
+pub(crate) use compile::gen_decl_stmt_instructions;
 use file::FilePtr;
-pub(crate) use gen_instructions::gen_decl_stmt_instructions;
 use text::TextRange;
 
 use crate::*;

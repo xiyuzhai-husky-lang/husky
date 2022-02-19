@@ -1,14 +1,10 @@
 use std::sync::Arc;
 
 use file::FilePtr;
-use semantics::{DeclBranchKind, DeclStmt, DeclStmtKind, EntityVersionControl};
+use semantics::{DeclBranchKind, DeclStmt, DeclStmtKind, EntityVersionControl, SemanticQueryGroup};
 use text::TextRange;
 
-use crate::{
-    stmt::{FeatureBranchKind, FeatureStmtKind},
-    unique_allocate::FeatureUniqueAllocator,
-    *,
-};
+use crate::{eval::FeatureEvalId, unique_allocate::FeatureUniqueAllocator, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureBlock {
@@ -17,11 +13,12 @@ pub struct FeatureBlock {
     pub feature: FeaturePtr,
     pub file: FilePtr,
     pub range: TextRange,
+    pub eval_id: FeatureEvalId,
 }
 
 impl FeatureBlock {
     pub(crate) fn new(
-        vc: &EntityVersionControl,
+        db: &dyn SemanticQueryGroup,
         decl_stmts: &[Arc<DeclStmt>],
         externals: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
@@ -32,7 +29,7 @@ impl FeatureBlock {
             .map(|decl_stmt| {
                 Arc::new(match decl_stmt.kind {
                     DeclStmtKind::Init { varname, ref value } => {
-                        let value = FeatureExpr::new(vc, value, &symbols, features);
+                        let value = FeatureExpr::new(db, value, &symbols, features);
                         symbols.push(FeatureSymbol {
                             varname,
                             value: value.clone(),
@@ -44,10 +41,11 @@ impl FeatureBlock {
                             indent: decl_stmt.indent,
                             feature: None,
                             kind: FeatureStmtKind::Init { varname, value },
+                            eval_id: Default::default(),
                         }
                     }
                     DeclStmtKind::Assert { ref condition } => {
-                        let condition = FeatureExpr::new(vc, condition, &symbols, features);
+                        let condition = FeatureExpr::new(db, condition, &symbols, features);
                         let feature = Some(features.alloc(Feature::Assert {
                             condition: condition.feature,
                         }));
@@ -57,16 +55,18 @@ impl FeatureBlock {
                             indent: decl_stmt.indent,
                             feature,
                             kind: FeatureStmtKind::Assert { condition },
+                            eval_id: Default::default(),
                         }
                     }
                     DeclStmtKind::Return { ref result } => {
-                        let result = FeatureExpr::new(vc, result, &symbols, features);
+                        let result = FeatureExpr::new(db, result, &symbols, features);
                         FeatureStmt {
                             file: decl_stmt.file,
                             range: decl_stmt.range,
                             indent: decl_stmt.indent,
                             feature: Some(result.feature),
                             kind: FeatureStmtKind::Return { result },
+                            eval_id: Default::default(),
                         }
                     }
                     DeclStmtKind::Branches { kind, ref branches } => {
@@ -74,19 +74,19 @@ impl FeatureBlock {
                             .iter()
                             .map(|branch| {
                                 Arc::new(FeatureBranch {
-                                    block: FeatureBlock::new(vc, &branch.stmts, &symbols, features),
+                                    block: FeatureBlock::new(db, &branch.stmts, &symbols, features),
                                     kind: match branch.kind {
                                         DeclBranchKind::If { ref condition } => {
                                             FeatureBranchKind::If {
                                                 condition: FeatureExpr::new(
-                                                    vc, condition, &symbols, features,
+                                                    db, condition, &symbols, features,
                                                 ),
                                             }
                                         }
                                         DeclBranchKind::Elif { ref condition } => {
                                             FeatureBranchKind::Elif {
                                                 condition: FeatureExpr::new(
-                                                    vc, condition, &symbols, features,
+                                                    db, condition, &symbols, features,
                                                 ),
                                             }
                                         }
@@ -94,6 +94,7 @@ impl FeatureBlock {
                                         DeclBranchKind::Case { ref pattern } => todo!(),
                                         DeclBranchKind::Default => todo!(),
                                     },
+                                    eval_id: Default::default(),
                                 })
                             })
                             .collect();
@@ -128,6 +129,7 @@ impl FeatureBlock {
                             indent: decl_stmt.indent,
                             feature,
                             kind: FeatureStmtKind::Branches { kind, branches },
+                            eval_id: Default::default(),
                         }
                     }
                 })
@@ -147,6 +149,7 @@ impl FeatureBlock {
             feature,
             file,
             range,
+            eval_id: Default::default(),
         }
     }
 }

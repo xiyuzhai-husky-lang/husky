@@ -1,5 +1,5 @@
 use dataset::DataLoader;
-use feature::FeatureSheet;
+use feature::{FeatureEvalIndicator, FeatureSheet};
 
 use crate::*;
 
@@ -7,15 +7,24 @@ use crate::*;
 
 #[derive(Debug)]
 pub struct Division<'sess> {
-    pub(super) loader: DataLoader,
-    pub(super) caches: Vec<FeatureSheet<'sess>>,
+    pub loader: DataLoader,
+    pub sheets: Vec<FeatureSheet<'sess>>,
+    pub indicators: Vec<FeatureEvalIndicator>,
 }
 
 impl<'sess> Division<'sess> {
     pub fn new(loader: DataLoader) -> Self {
-        let mut caches = vec![];
-        caches.reserve(loader.len());
-        (0..loader.len()).for_each(|_| caches.push(FeatureSheet::default()));
-        Self { loader, caches }
+        let mut sheets = vec![];
+        let mut indicators = vec![];
+        sheets.reserve(loader.len());
+        (0..loader.len()).for_each(|_| {
+            sheets.push(FeatureSheet::default());
+            indicators.push(Default::default())
+        });
+        Self {
+            loader,
+            sheets,
+            indicators,
+        }
     }
 }

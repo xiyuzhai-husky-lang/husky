@@ -1,94 +1,70 @@
-use vm::{PrimitiveValue, VMError};
+mod id;
+mod impl_expr;
+mod impl_stmt;
+mod indicator;
 
-use crate::{expr::FeatureExprKind, sheet::FeatureSheet, stmt::FeatureStmtKind, *};
+pub(crate) use id::FeatureEvalId;
+pub use indicator::FeatureEvalIndicator;
+
+use vm::{AnyValueDyn, Instruction, VMResult, VMStack};
+
+use crate::{sheet::FeatureSheet, *};
 use vm::{Conditional, EvalValue, StackValue};
 
 pub fn eval_feature_block<'eval>(
-    input: EvalValue<'eval, 'eval>,
-    sheet: &mut FeatureSheet<'eval>,
     block: &FeatureBlock,
+    input: Arc<dyn AnyValueDyn>,
+    sheet: &mut FeatureSheet<'eval>,
+    indicator: &mut FeatureEvalIndicator,
 ) -> EvalValue<'eval, 'eval> {
-    let mut evaluator = FeatureEvaluator { input, sheet };
-    evaluator.eval_block(block)
+    let mut evaluator = FeatureEvaluator {
+        input,
+        sheet,
+        indicator,
+    };
+    evaluator.eval_feature_block(block)
 }
 
 pub fn eval_feature_stmt<'eval>(
-    input: EvalValue<'eval, 'eval>,
-    sheet: &mut FeatureSheet<'eval>,
     stmt: &FeatureStmt,
+    input: Arc<dyn AnyValueDyn>,
+    sheet: &mut FeatureSheet<'eval>,
+    indicator: &mut FeatureEvalIndicator,
 ) -> EvalValue<'eval, 'eval> {
-    let mut evaluator = FeatureEvaluator { input, sheet };
-    evaluator.eval_stmt(stmt)
+    let mut evaluator = FeatureEvaluator {
+        input,
+        sheet,
+        indicator,
+    };
+    evaluator.eval_feature_stmt(stmt)
 }
 
 pub fn eval_feature_expr<'eval>(
-    input: EvalValue<'eval, 'eval>,
-    sheet: &mut FeatureSheet<'eval>,
     expr: &FeatureExpr,
+    input: Arc<dyn AnyValueDyn>,
+    sheet: &mut FeatureSheet<'eval>,
+    indicator: &mut FeatureEvalIndicator,
 ) -> EvalValue<'eval, 'eval> {
-    let mut evaluator = FeatureEvaluator { input, sheet };
-    evaluator.eval_expr(expr)
+    let mut evaluator = FeatureEvaluator {
+        input,
+        sheet,
+        indicator,
+    };
+    evaluator.eval_feature_expr(expr)
 }
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
-    input: EvalValue<'eval, 'eval>,
+    input: Arc<dyn AnyValueDyn>,
     sheet: &'a mut FeatureSheet<'eval>,
+    indicator: &'a mut FeatureEvalIndicator,
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    fn eval_expr(&mut self, expr: &FeatureExpr) -> EvalValue<'eval, 'eval> {
-        match expr.kind {
-            FeatureExprKind::Literal(value) => Ok(Conditional::Defined(value.into())),
-            FeatureExprKind::PrimitiveBinaryOpr {
-                opr,
-                ref lopd,
-                ref ropd,
-            } => Ok(Conditional::Defined(
-                opr.act_on_primitives(
-                    self.eval_expr(lopd)?.defined_ref()?.as_primitive()?,
-                    self.eval_expr(ropd)?.defined_ref()?.as_primitive()?,
-                )?
-                .into(),
-            )),
-            FeatureExprKind::Variable { ref value, .. } => {
-                self.cache(expr.feature, |this: &mut Self| this.eval_expr(&value))
-            }
-            FeatureExprKind::FuncCall {
-                func, ref inputs, ..
-            } => todo!(),
-        }
-    }
-
-    fn eval_stmt(&mut self, stmt: &FeatureStmt) -> EvalValue<'eval, 'eval> {
-        match stmt.kind {
-            FeatureStmtKind::Init { .. } => Ok(Conditional::Undefined),
-            FeatureStmtKind::Assert { ref condition } => {
-                let satisfied: bool = match self.eval_expr(condition)?.defined_ref()? {
-                    StackValue::Primitive(value) => match value {
-                        PrimitiveValue::I32(_) => todo!(),
-                        PrimitiveValue::F32(_) => todo!(),
-                        PrimitiveValue::B32(_) => todo!(),
-                        PrimitiveValue::B64(_) => todo!(),
-                        PrimitiveValue::Bool(b) => *b,
-                        PrimitiveValue::Void => todo!(),
-                    },
-                    _ => todo!(),
-                };
-                if satisfied {
-                    Ok(Conditional::Undefined)
-                } else {
-                    Err(VMError::AssertionFailure)
-                }
-            }
-            FeatureStmtKind::Return { ref result } => self.eval_expr(result),
-            FeatureStmtKind::Branches { .. } => todo!(),
-        }
-    }
-
-    fn eval_block(&mut self, block: &FeatureBlock) -> EvalValue<'eval, 'eval> {
+    fn eval_feature_block(&mut self, block: &FeatureBlock) -> EvalValue<'eval, 'eval> {
         self.cache(block.feature, |this: &mut Self| {
+            this.indicator.set(block.eval_id);
             for stmt in block.stmts.iter() {
-                let value = this.eval_stmt(stmt)?;
+                let value = this.eval_feature_stmt(stmt)?;
                 match value {
                     Conditional::Defined(_) => return Ok(value),
                     Conditional::Undefined => (),
@@ -96,6 +72,27 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             }
             Ok(Conditional::Undefined)
         })
+    }
+
+    fn eval_func_call(
+        &mut self,
+        instrns: &[Instruction],
+        maybe_compiled: Option<()>,
+        inputs: &[Arc<FeatureExpr>],
+    ) -> EvalValue<'eval, 'eval> {
+        let values: Vec<StackValue<'eval, 'eval>> = inputs
+            .iter()
+            .map(|expr| self.eval_feature_expr(expr)?.defined())
+            .collect::<VMResult<_>>()?;
+        let mut stack = VMStack::new(values);
+        if let Some(compiled) = maybe_compiled {
+            todo!()
+        } else {
+            match stack.exec_all(instrns)? {
+                vm::ControlSignal::Normal | vm::ControlSignal::Break => panic!(),
+                vm::ControlSignal::Return(value) => Ok(Conditional::Defined(value)),
+            }
+        }
     }
 
     fn cache(
