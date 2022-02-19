@@ -13,13 +13,7 @@ impl TraceAllocator {
             FeatureExprKind::Literal(_)
             | FeatureExprKind::PrimitiveBinaryOpr { .. }
             | FeatureExprKind::Variable { .. } => vec![],
-            FeatureExprKind::FuncCall {
-                func,
-                scope_expr_range,
-                uid,
-                ref inputs,
-                compiled,
-            } => {
+            FeatureExprKind::FuncCall { ref inputs, .. } => {
                 if let Some(locked_on) = maybe_locked_on {
                     let mut subtraces = vec![];
                     for input in inputs {

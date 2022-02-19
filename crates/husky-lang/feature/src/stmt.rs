@@ -2,7 +2,7 @@ use file::FilePtr;
 use semantics::{DeclBranchKind, DeclBranchesKind};
 use text::TextRange;
 
-use crate::*;
+use crate::{eval::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureStmt {
@@ -11,6 +11,7 @@ pub struct FeatureStmt {
     pub(crate) feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
+    pub eval_id: FeatureEvalId,
 }
 
 impl text::TextRanged for FeatureStmt {
@@ -35,17 +36,4 @@ pub enum FeatureStmtKind {
         kind: DeclBranchesKind,
         branches: Vec<Arc<FeatureBranch>>,
     },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureBranch {
-    pub block: FeatureBlock,
-    pub kind: FeatureBranchKind,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureBranchKind {
-    If { condition: Arc<FeatureExpr> },
-    Elif { condition: Arc<FeatureExpr> },
-    Else,
 }

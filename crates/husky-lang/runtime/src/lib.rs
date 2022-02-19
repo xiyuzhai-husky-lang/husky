@@ -4,7 +4,9 @@ mod query;
 mod session;
 mod tests;
 
+use dataset::LabeledData;
 pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
+use query::EvalFeature;
 pub use query::{AskCompileTime, RuntimeQueryGroup, RuntimeQueryGroupStorage};
 
 use common::{msg_once, HashMap};
@@ -12,9 +14,11 @@ use file::{FilePtr, FileQueryGroup};
 use husky_lang_compile_time::*;
 use stdx::sync::ARwLock;
 use text::{RawTextQueryGroup, TextQueryGroupStorage};
-use tokio::sync::Mutex;
 
-use std::{borrow::Cow, sync::Arc};
+use std::{
+    borrow::Cow,
+    sync::{Arc, Mutex},
+};
 
 use session::Session;
 use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceId, TraceKind, TraceStalk};
@@ -25,7 +29,7 @@ pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
     trace_allocator: TraceAllocator,
-    session: Option<Session<'static>>,
+    session: Arc<Mutex<Session<'static>>>,
 }
 
 impl AskCompileTime for HuskyLangRuntime {
@@ -46,26 +50,29 @@ impl AllocateTrace for HuskyLangRuntime {
     }
 }
 
+impl EvalFeature for HuskyLangRuntime {
+    fn session(&self) -> &Arc<Mutex<Session<'static>>> {
+        &self.session
+    }
+}
+
 impl HuskyLangRuntime {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyLangCompileTime)) -> Self {
         let mut compile_time = HuskyLangCompileTime::default();
         init_compile_time(&mut compile_time);
+        let all_main_files = compile_time.all_main_files();
+        assert!(all_main_files.len() == 1);
+        let current_package_main = all_main_files[0];
+        let package = compile_time.package(current_package_main).unwrap();
         let mut runtime = Self {
             storage: Default::default(),
             compile_time,
             trace_allocator: Default::default(),
-            session: None,
+            session: Arc::new(Mutex::new(Session::new(&package).unwrap())),
         };
-        runtime.init_salsa();
+        runtime.set_version(0);
+        runtime.set_package_main(current_package_main);
         runtime
-    }
-
-    fn init_salsa(&mut self) {
-        self.set_version(0);
-        let all_main_files = self.compile_time.all_main_files();
-        assert!(all_main_files.len() == 1);
-        let current_package_main = all_main_files[0];
-        self.set_package_main(current_package_main);
     }
 
     pub async fn change_text(&mut self) {
@@ -91,10 +98,6 @@ impl HuskyLangRuntime {
             Ok(idx) => (Some(Some(idx)), None),
             Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
         }
-    }
-
-    pub fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk> {
-        todo!()
     }
 }
 

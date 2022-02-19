@@ -2,16 +2,18 @@ use std::sync::Arc;
 
 use file::FilePtr;
 use scope::ScopePtr;
-use semantics::{EntityVersionControl, Expr, ExprKind, Opn};
+use semantics::{EntityQueryGroup, EntityVersionControl, Expr, ExprKind, Opn, SemanticQueryGroup};
 use text::TextRange;
+use vm::Instruction;
 use word::BuiltinIdentifier;
 
-use crate::*;
+use crate::{eval::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureExpr {
     pub kind: FeatureExprKind,
     pub(crate) feature: FeaturePtr,
+    pub(crate) eval_id: FeatureEvalId,
     pub range: TextRange,
     pub file: FilePtr,
 }
@@ -32,14 +34,15 @@ pub enum FeatureExprKind {
         func: ScopePtr,
         scope_expr_range: TextRange,
         uid: EntityUid,
-        inputs: Vec<Arc<FeatureExpr>>,
         compiled: Option<()>,
+        instructions: Arc<Vec<Instruction>>,
+        inputs: Vec<Arc<FeatureExpr>>,
     },
 }
 
 impl FeatureExpr {
     pub fn new(
-        vc: &EntityVersionControl,
+        db: &dyn SemanticQueryGroup,
         expr: &Expr,
         symbols: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
@@ -58,6 +61,7 @@ impl FeatureExpr {
                             feature: symbol.feature,
                             range: expr.range,
                             file: expr.file,
+                            eval_id: Default::default(),
                         })
                     } else {
                         None
@@ -70,6 +74,7 @@ impl FeatureExpr {
                 feature: features.alloc(Feature::Literal(value)),
                 range: expr.range,
                 file: expr.file,
+                eval_id: Default::default(),
             },
             ExprKind::Bracketed(_) => todo!(),
             ExprKind::Opn {
@@ -83,8 +88,8 @@ impl FeatureExpr {
                     | ScopePtr::Builtin(BuiltinIdentifier::F32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B32)
                     | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
-                        let lopd = Self::new(vc, &opds[0], symbols, features);
-                        let ropd = Self::new(vc, &opds[1], symbols, features);
+                        let lopd = Self::new(db, &opds[0], symbols, features);
+                        let ropd = Self::new(db, &opds[1], symbols, features);
                         let feature = features.alloc(Feature::PrimitiveBinaryOpr {
                             opr,
                             lopd: lopd.feature,
@@ -95,6 +100,7 @@ impl FeatureExpr {
                             feature,
                             range: expr.range,
                             file: expr.file,
+                            eval_id: Default::default(),
                         }
                     }
                     _ => todo!(),
@@ -105,10 +111,10 @@ impl FeatureExpr {
                     func,
                     scope_expr_range,
                 } => {
-                    let uid = vc.uid(func);
+                    let uid = db.entity_vc().uid(func);
                     let inputs: Vec<_> = opds
                         .iter()
-                        .map(|opd| Self::new(vc, opd, symbols, features))
+                        .map(|opd| Self::new(db, opd, symbols, features))
                         .collect();
                     let feature = features.alloc(Feature::FuncCall {
                         func,
@@ -119,13 +125,15 @@ impl FeatureExpr {
                         kind: FeatureExprKind::FuncCall {
                             func,
                             scope_expr_range,
-                            inputs,
                             uid,
                             compiled: None,
+                            instructions: db.instructions(func).unwrap(),
+                            inputs,
                         },
                         feature,
                         range: expr.range,
                         file: expr.file,
+                        eval_id: Default::default(),
                     }
                 }
                 Opn::PattCall => todo!(),

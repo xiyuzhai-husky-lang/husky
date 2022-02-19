@@ -9,6 +9,7 @@ export const tTokenProps = t.interface({
         t.literal("ident"),
         t.literal("literal"),
         t.literal("fade"),
+        t.literal("error"),
     ]),
     value: t.string,
     associated_trace: t.union([t.number, t.null]),

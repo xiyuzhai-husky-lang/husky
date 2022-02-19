@@ -24,6 +24,29 @@ impl Serialize for TokenProps {
     }
 }
 
+impl From<EvalValue<'static, 'static>> for TokenProps {
+    fn from(eval_value: EvalValue<'static, 'static>) -> Self {
+        match eval_value {
+            Ok(conditional) => match conditional {
+                vm::Conditional::Defined(stack_value) => match stack_value {
+                    vm::StackValue::Primitive(value) => fade!(value),
+                    vm::StackValue::Boxed(_) => todo!(),
+                    vm::StackValue::Volatile(_) => todo!(),
+                    vm::StackValue::GlobalRef(_) => todo!(),
+                    vm::StackValue::Ref(_) => todo!(),
+                    vm::StackValue::MutRef(_) => todo!(),
+                },
+                vm::Conditional::Undefined => fade!("undefined"),
+            },
+            Err(e) => Self {
+                value: e.into(),
+                associated_trace: None,
+                kind: TraceTokenKind::Error,
+            },
+        }
+    }
+}
+
 // ts: string
 #[derive(Debug, Serialize, Clone, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
@@ -35,8 +58,10 @@ pub enum TraceTokenKind {
     Special,
     Scope,
     Fade,
+    Error,
 }
 
+#[macro_export]
 macro_rules! keyword {
     ($value:expr) => {{
         TokenProps {
@@ -46,21 +71,21 @@ macro_rules! keyword {
         }
     }};
 }
-pub(crate) use keyword;
 
-// macro_rules! label {
-//     ($value:expr, $associated:expr) => {{
-//         TokenProps {
-//             kind: TraceTokenKind::Label,
-//             value: $value.into(),
-//             spaces_before: None,
-//             associated: $associated,
-//             associated: vec![],
-//         }
-//     }};
-// }
-// pub(crate) use label;
+#[macro_export]
+macro_rules! label {
+    ($value:expr, $associated:expr) => {{
+        TokenProps {
+            kind: TraceTokenKind::Label,
+            value: $value.into(),
+            spaces_before: None,
+            associated: $associated,
+            associated: vec![],
+        }
+    }};
+}
 
+#[macro_export]
 macro_rules! ident {
     ($value:expr, $associated_trace: expr) => {{
         TokenProps {
@@ -70,8 +95,8 @@ macro_rules! ident {
         }
     }};
 }
-pub(crate) use ident;
 
+#[macro_export]
 macro_rules! literal {
     ($value:expr) => {{
         TokenProps {
@@ -81,8 +106,8 @@ macro_rules! literal {
         }
     }};
 }
-pub(crate) use literal;
 
+#[macro_export]
 macro_rules! special {
     ($value: expr) => {{
         TokenProps {
@@ -100,8 +125,8 @@ macro_rules! special {
         }
     }};
 }
-pub(crate) use special;
 
+#[macro_export]
 macro_rules! scope {
     ($value:expr) => {{
         TokenProps {
@@ -119,15 +144,23 @@ macro_rules! scope {
         }
     }};
 }
-pub(crate) use scope;
 
+#[macro_export]
 macro_rules! fade {
+    ($value:expr) => {{
+        TokenProps {
+            kind: TraceTokenKind::Fade,
+            value: $value.into(),
+            associated_trace: None,
+        }
+    }};
     ($value:expr, $associated:expr) => {{
         TokenProps {
             kind: TraceTokenKind::Fade,
             value: $value.into(),
-            associated: $associated,
+            associated_trace: $associated,
         }
     }};
 }
-pub(crate) use fade;
+
+use vm::EvalValue;

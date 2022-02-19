@@ -13,7 +13,9 @@ pub trait ExprInstructionBuilder {
                 scope: id,
                 compiled,
             } => todo!(),
-            ExprKind::Literal(_) => todo!(),
+            ExprKind::Literal(value) => self.push_instruction(Instruction {
+                kind: InstructionKind::PushPrimitive(value),
+            }),
             ExprKind::Bracketed(_) => todo!(),
             ExprKind::Opn {
                 ref opn,

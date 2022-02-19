@@ -2,13 +2,15 @@ use std::sync::Arc;
 
 use scope::ScopePtr;
 use semantics::EntityKind;
-use semantics::PackageQueryGroup;
+use semantics::SemanticQueryGroup;
 use semantics::SemanticResultArc;
 
 use crate::{unique_allocate::AllocateUniqueFeature, *};
 
 #[salsa::query_group(FeatureQueryGroupStorage)]
-pub trait FeatureQueryGroup: AllocateUniqueFeature + PackageQueryGroup {
+pub trait FeatureQueryGroup:
+    AllocateUniqueFeature + SemanticQueryGroup + Upcast<dyn SemanticQueryGroup>
+{
     fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
     fn feature_block(&self, scope: ScopePtr) -> SemanticResultArc<FeatureBlock>;
 }
@@ -20,7 +22,7 @@ fn main_feature_block(
     let package = this.package(main_file)?;
     let main = &*package.main;
     Ok(Arc::new(FeatureBlock::new(
-        this.entity_vc(),
+        this.upcast(),
         &main.stmts,
         &[],
         this.features(),

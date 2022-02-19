@@ -30,7 +30,8 @@
         ? get_trace_stalk_store(trace.id, input_id!)
         : null;
     $: stalk = stalk_store !== null ? $stalk_store : null;
-    $: extra_tokens = [];
+    $: console.log("stalk: ", stalk);
+    $: extra_tokens = stalk !== null ? stalk.extra_tokens : [];
 </script>
 
 <div

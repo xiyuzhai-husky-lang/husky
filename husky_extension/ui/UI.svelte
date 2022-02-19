@@ -105,9 +105,7 @@
         if (input_locked) {
             e.preventDefault();
         }
-        console.log("e.code: ", e.code, ", input_locked: ", input_locked);
         if (e.code === "Enter" && !input_locked) {
-            console.log("here");
             request_lock_input(input_temp);
         }
     }

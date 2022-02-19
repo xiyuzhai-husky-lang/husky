@@ -1,4 +1,6 @@
-use feature::{eval_feature_block, FeatureSheet};
+use std::sync::Arc;
+
+use feature::{eval_feature_block, FeatureEvalIndicator, FeatureSheet};
 use vm::Conditional;
 
 use crate::*;
@@ -27,8 +29,8 @@ main:
     let main_file = db.alloc_file("haha/main.hsk".into());
     let main_feature_block = db.main_feature_block(main_file).unwrap();
     let mut sheet = FeatureSheet::default();
-    let input = Ok(Conditional::Undefined);
-    let result = eval_feature_block(input, &mut sheet, &main_feature_block)
+    let mut indicator = FeatureEvalIndicator::default();
+    let result = eval_feature_block(&main_feature_block, Arc::new(1), &mut sheet, &mut indicator)
         .unwrap()
         .defined()
         .unwrap()

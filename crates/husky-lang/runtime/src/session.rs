@@ -3,7 +3,7 @@ mod division;
 mod tests;
 
 use common::*;
-use semantics::{DeclStmt, Package};
+use semantics::{Config, DeclStmt, Package};
 use vm::{run, EvalValue, VMResult};
 
 use crate::*;
@@ -21,13 +21,12 @@ use feature::{Feature, FeaturePtr, FeatureSheet};
 
 #[derive(Debug)]
 pub struct Session<'sess> {
-    config: Arc<semantics::Config>,
-    dataset: Box<dyn Dataset>,
-    dev: Division<'sess>,
+    config: Arc<Config>,
+    pub(crate) dataset: Box<dyn Dataset>,
+    pub(crate) dev: Division<'sess>,
     val: Division<'sess>,
     test: Division<'sess>,
     validation_report: ValidationReport<'sess>,
-    main: FeaturePtr,
 }
 
 #[derive(Debug)]
@@ -47,23 +46,13 @@ impl<'sess> Session<'sess> {
     pub(crate) fn new(package: &Package) -> VMResult<Self> {
         let config = package.config.clone();
         let dataset: Box<dyn Dataset> = run(&config.dataset.instructions)?.boxed()?.take()?;
-        let mut sess = Self {
+        Ok(Self {
             dev: Division::new(dataset.dev_loader()),
             val: Division::new(dataset.val_loader()),
             test: Division::new(dataset.test_loader()),
             validation_report: Default::default(),
             config,
             dataset,
-            main: todo!(),
-        };
-        sess.update(package);
-        Ok(sess)
-    }
-
-    pub fn update(&mut self, package: &Package) {
-        todo!()
-        // self.update_config(&package.config);
-        // self.update_main(package);
-        // self.update_validation_report();
+        })
     }
 }
