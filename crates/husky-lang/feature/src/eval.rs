@@ -6,7 +6,7 @@ mod indicator;
 pub(crate) use id::FeatureEvalId;
 pub use indicator::FeatureEvalIndicator;
 
-use vm::{AnyValueDyn, Instruction, VMResult, VMStack};
+use vm::{AnyValueDyn, BasicInterpreter, Instruction, Interpreter, VMResult};
 
 use crate::{sheet::FeatureSheet, *};
 use vm::{Conditional, EvalValue, StackValue};
@@ -15,13 +15,8 @@ pub fn eval_feature_block<'eval>(
     block: &FeatureBlock,
     input: Arc<dyn AnyValueDyn>,
     sheet: &mut FeatureSheet<'eval>,
-    indicator: &mut FeatureEvalIndicator,
 ) -> EvalValue<'eval, 'eval> {
-    let mut evaluator = FeatureEvaluator {
-        input,
-        sheet,
-        indicator,
-    };
+    let mut evaluator = FeatureEvaluator { input, sheet };
     evaluator.eval_feature_block(block)
 }
 
@@ -29,13 +24,8 @@ pub fn eval_feature_stmt<'eval>(
     stmt: &FeatureStmt,
     input: Arc<dyn AnyValueDyn>,
     sheet: &mut FeatureSheet<'eval>,
-    indicator: &mut FeatureEvalIndicator,
 ) -> EvalValue<'eval, 'eval> {
-    let mut evaluator = FeatureEvaluator {
-        input,
-        sheet,
-        indicator,
-    };
+    let mut evaluator = FeatureEvaluator { input, sheet };
     evaluator.eval_feature_stmt(stmt)
 }
 
@@ -43,26 +33,19 @@ pub fn eval_feature_expr<'eval>(
     expr: &FeatureExpr,
     input: Arc<dyn AnyValueDyn>,
     sheet: &mut FeatureSheet<'eval>,
-    indicator: &mut FeatureEvalIndicator,
 ) -> EvalValue<'eval, 'eval> {
-    let mut evaluator = FeatureEvaluator {
-        input,
-        sheet,
-        indicator,
-    };
+    let mut evaluator = FeatureEvaluator { input, sheet };
     evaluator.eval_feature_expr(expr)
 }
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     input: Arc<dyn AnyValueDyn>,
     sheet: &'a mut FeatureSheet<'eval>,
-    indicator: &'a mut FeatureEvalIndicator,
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn eval_feature_block(&mut self, block: &FeatureBlock) -> EvalValue<'eval, 'eval> {
         self.cache(block.feature, |this: &mut Self| {
-            this.indicator.set(block.eval_id);
             for stmt in block.stmts.iter() {
                 let value = this.eval_feature_stmt(stmt)?;
                 match value {
@@ -84,7 +67,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             .iter()
             .map(|expr| self.eval_feature_expr(expr)?.defined())
             .collect::<VMResult<_>>()?;
-        let mut stack = VMStack::new(values);
+        let mut stack = BasicInterpreter::new(values);
         if let Some(compiled) = maybe_compiled {
             todo!()
         } else {

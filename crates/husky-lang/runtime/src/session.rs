@@ -45,7 +45,9 @@ impl<'sess> Default for ValidationReport<'sess> {
 impl<'sess> Session<'sess> {
     pub(crate) fn new(package: &Package) -> VMResult<Self> {
         let config = package.config.clone();
-        let dataset: Box<dyn Dataset> = run(&config.dataset.instructions)?.boxed()?.take()?;
+        let dataset: Box<dyn Dataset> = run(&config.dataset.instruction_sheet.instructions())?
+            .boxed()?
+            .take()?;
         Ok(Self {
             dev: Division::new(dataset.dev_loader()),
             val: Division::new(dataset.val_loader()),

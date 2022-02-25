@@ -4,16 +4,18 @@ use crate::{expr::ExprInstructionBuilder, stmt::gen_decl_stmt_instructions, *};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DatasetConfig {
-    pub stmts: Vec<Arc<DeclStmt>>,
-    pub instructions: Vec<Instruction>,
+    pub stmts: Arc<Vec<Arc<DeclStmt>>>,
+    pub instruction_sheet: InstructionSheet,
 }
 
 impl DatasetConfig {
-    pub fn new(stmts: Vec<Arc<DeclStmt>>) -> Self {
-        let instructions = gen_decl_stmt_instructions(&stmts);
+    pub fn new(stmts: Arc<Vec<Arc<DeclStmt>>>) -> Self {
+        let mut instruction_sheet = InstructionSheet::default();
+
+        gen_decl_stmt_instructions(&stmts, &mut instruction_sheet);
         Self {
             stmts,
-            instructions,
+            instruction_sheet,
         }
     }
 }

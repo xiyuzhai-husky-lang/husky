@@ -1,5 +1,5 @@
 use common::*;
-use vm::{Instruction, InstructionKind};
+use vm::{Instruction, InstructionKind, PrimitiveOpn};
 
 use crate::*;
 
@@ -18,41 +18,40 @@ pub trait ExprInstructionBuilder {
             }),
             ExprKind::Bracketed(_) => todo!(),
             ExprKind::Opn {
-                ref opn,
+                opn,
                 compiled,
                 ref opds,
-            } => match opn {
-                expr::Opn::Binary { opr, this, kind } => todo!(),
-                expr::Opn::Prefix(_) => todo!(),
-                expr::Opn::Suffix(_) => todo!(),
-                expr::Opn::FuncCall {
-                    func,
-                    scope_expr_range,
-                } => {
-                    for opd in opds {
-                        self.gen_expr_instructions(opd);
+            } => {
+                for opd in opds {
+                    self.gen_expr_instructions(opd);
+                }
+                match opn {
+                    expr::Opn::Binary { opr, this, kind } => self.push_instruction(Instruction {
+                        kind: InstructionKind::PrimitiveOpn(PrimitiveOpn::Binary(opr)),
+                    }),
+                    expr::Opn::Prefix(_) => todo!(),
+                    expr::Opn::Suffix(_) => todo!(),
+                    expr::Opn::FuncCall {
+                        func,
+                        scope_expr_range,
+                    } => {
                         if let Some(compiled) = compiled {
-                            todo!()
+                            self.push_instruction(Instruction {
+                                kind: InstructionKind::Call {
+                                    compiled,
+                                    nargs: opds.len() as u16,
+                                },
+                            })
                         } else {
                             todo!()
                         }
                     }
-                    if let Some(compiled) = compiled {
-                        self.push_instruction(Instruction {
-                            kind: InstructionKind::Call {
-                                compiled,
-                                nargs: opds.len() as u16,
-                            },
-                        })
-                    } else {
-                        todo!()
-                    }
+                    expr::Opn::PattCall => todo!(),
+                    expr::Opn::MembVarAccess => todo!(),
+                    expr::Opn::MembFuncCall(_) => todo!(),
+                    expr::Opn::ElementAccess => todo!(),
                 }
-                expr::Opn::PattCall => todo!(),
-                expr::Opn::MembVarAccess => todo!(),
-                expr::Opn::MembFuncCall(_) => todo!(),
-                expr::Opn::ElementAccess => todo!(),
-            },
+            }
             ExprKind::Lambda(_, _) => todo!(),
         }
     }

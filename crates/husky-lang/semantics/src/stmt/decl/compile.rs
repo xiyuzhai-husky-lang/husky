@@ -2,25 +2,22 @@ use std::sync::Arc;
 
 use vm::{Instruction, InstructionKind};
 
-use crate::{expr::ExprInstructionBuilder, DeclStmt, DeclStmtKind, Expr};
+use crate::{expr::ExprInstructionBuilder, *};
 
-pub fn gen_decl_stmt_instructions(stmts: &[Arc<DeclStmt>]) -> Vec<Instruction> {
-    let mut generator = DeclStmtInstructionGenerator::new();
+pub fn gen_decl_stmt_instructions(stmts: &[Arc<DeclStmt>], sheet: &mut InstructionSheet) {
+    let mut generator = DeclStmtInstructionGenerator::new(sheet);
     stmts
         .iter()
         .for_each(|stmt| generator.gen_stmt_instructions(stmt));
-    generator.instructions
 }
 
-struct DeclStmtInstructionGenerator {
-    instructions: Vec<Instruction>,
+struct DeclStmtInstructionGenerator<'a> {
+    sheet: &'a mut InstructionSheet,
 }
 
-impl DeclStmtInstructionGenerator {
-    fn new() -> Self {
-        Self {
-            instructions: vec![],
-        }
+impl<'a> DeclStmtInstructionGenerator<'a> {
+    fn new(sheet: &'a mut InstructionSheet) -> Self {
+        Self { sheet }
     }
 
     fn gen_stmt_instructions(&mut self, stmt: &DeclStmt) {
@@ -41,8 +38,8 @@ impl DeclStmtInstructionGenerator {
     }
 }
 
-impl ExprInstructionBuilder for DeclStmtInstructionGenerator {
+impl<'a> ExprInstructionBuilder for DeclStmtInstructionGenerator<'a> {
     fn push_instruction(&mut self, instruction: Instruction) {
-        self.instructions.push(instruction)
+        self.sheet.push_instruction(instruction)
     }
 }

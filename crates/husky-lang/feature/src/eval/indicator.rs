@@ -1,7 +1,5 @@
 use std::collections::HashSet;
 
-use bitvec::prelude::BitVec;
-
 use super::id::FeatureEvalId;
 
 #[derive(Debug, Default)]

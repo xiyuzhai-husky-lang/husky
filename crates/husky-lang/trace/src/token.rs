@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{interpreter::TraceStackValue, *};
 
 // ts: { type: string; value: string; spaces_before?: number }
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -38,6 +38,31 @@ impl From<EvalValue<'static, 'static>> for TokenProps {
                 },
                 vm::Conditional::Undefined => fade!("undefined"),
             },
+            Err(e) => Self {
+                value: e.into(),
+                associated_trace: None,
+                kind: TraceTokenKind::Error,
+            },
+        }
+    }
+}
+
+impl From<TraceStackValue> for TokenProps {
+    fn from(_: TraceStackValue) -> Self {
+        todo!()
+    }
+}
+
+impl From<VMResult<TraceStackValue>> for TokenProps {
+    fn from(_: VMResult<TraceStackValue>) -> Self {
+        todo!()
+    }
+}
+
+impl From<VMResult<PrimitiveValue>> for TokenProps {
+    fn from(result: VMResult<PrimitiveValue>) -> Self {
+        match result {
+            Ok(value) => fade!(value),
             Err(e) => Self {
                 value: e.into(),
                 associated_trace: None,
@@ -163,4 +188,4 @@ macro_rules! fade {
     }};
 }
 
-use vm::EvalValue;
+use vm::{EvalValue, PrimitiveValue, VMResult};

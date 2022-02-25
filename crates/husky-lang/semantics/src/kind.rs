@@ -15,7 +15,7 @@ pub use ty::Ty;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Main {
-    pub stmts: Vec<Arc<DeclStmt>>,
+    pub stmts: Arc<Vec<Arc<DeclStmt>>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -24,8 +24,8 @@ pub enum EntityKind {
     Feature(Vec<DeclStmt>),
     Pattern(Pattern),
     Func {
-        inputs: Vec<(CustomIdentifier, InputType)>,
-        stmts: Vec<Arc<DeclStmt>>,
+        input_contracts: Arc<Vec<(CustomIdentifier, InputType)>>,
+        stmts: Arc<Vec<Arc<DeclStmt>>>,
     },
     Proc(Proc),
     Ty(Ty),

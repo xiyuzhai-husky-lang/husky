@@ -3,10 +3,13 @@ import * as t from "io-ts";
 import { tFigureProps } from "trace/figure/FigureProps";
 import { tTrace } from "src/trace/Trace";
 import { tTraceStalk } from "src/trace/stalk/TraceStalk";
-
-const tRootTracesResponse = t.interface({
-    type: t.literal("RootTraces"),
+export const tInitResponse = t.interface({
+    type: t.literal("Init"),
+    active_trace_id: t.union([t.number, t.null]),
+    opt_input_id: t.union([t.number, t.null]),
     root_traces: t.array(tTrace),
+    expansions: t.record(t.string, t.boolean),
+    showns: t.record(t.string, t.boolean),
 });
 const tSubtracesResponse = t.interface({
     type: t.literal("Subtraces"),
@@ -40,22 +43,28 @@ const tDidLockInputResponse = t.interface({
     input_locked_on: t.union([t.number, t.null, t.undefined]),
     message: t.union([t.string, t.null]),
 });
-const tTraceStalkReponse = t.interface({
+const tSetShownResponse = t.interface({
+    type: t.literal("SetShown"),
+    trace_id: t.number,
+    is_shown: t.boolean,
+});
+export const tTraceStalkResponse = t.interface({
     type: t.literal("TraceStalk"),
-    id: t.number,
-    input_locked_on: t.number,
+    trace_id: t.number,
+    input_id: t.number,
     stalk: tTraceStalk,
 });
 export const tDebuggerResponse = t.union([
-    tRootTracesResponse,
+    tInitResponse,
     tSubtracesResponse,
     tTraceResponse,
-    tTraceStalkReponse,
+    tTraceStalkResponse,
     tFigureResponse,
     tDidActivateResponse,
     tDidToggleExpansionResponse,
     tDidToggleShowResponse,
     tDidLockInputResponse,
+    tSetShownResponse,
 ]);
 
 type DebuggerResponse = t.TypeOf<typeof tDebuggerResponse>;

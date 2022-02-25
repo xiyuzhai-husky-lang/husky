@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use crate::*;
 use syntax_types::*;
 use vm::InputContract;
@@ -9,12 +11,12 @@ impl<'a> AtomLRParser<'a> {
     pub(crate) fn func_decl(mut self) -> AstResult<FuncDecl> {
         let funcname = get!(self, custom_ident);
         let space_params = self.placeholders()?;
-        let inputs = self.func_input_types()?;
+        let input_contracts = self.func_input_contracts()?;
         let output = self.func_output_type()?;
         Ok(FuncDecl {
             funcname,
             generics: space_params,
-            inputs,
+            input_contracts,
             output,
         })
     }
@@ -42,9 +44,9 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn func_input_types(&mut self) -> AstResult<Vec<(CustomIdentifier, InputType)>> {
+    fn func_input_contracts(&mut self) -> AstResultArc<Vec<(CustomIdentifier, InputType)>> {
         no_look_pass!(self, "(");
-        Ok(comma_list!(self, func_input_type!, ")"))
+        Ok(Arc::new(comma_list!(self, func_input_type!, ")")))
     }
 
     fn func_input_type(&mut self) -> AstResult<(CustomIdentifier, InputType)> {

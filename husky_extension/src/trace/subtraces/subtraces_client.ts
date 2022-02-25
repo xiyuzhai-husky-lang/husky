@@ -16,10 +16,9 @@ function get_effective_input_id(trace_id: number): number | null {
     }
     switch (trace.kind) {
         case "Main":
-            return null;
         case "FeatureStmt":
-            return null;
         case "FeatureBranch":
+        case "DeclStmt":
             return null;
         case "FeatureExpr":
             return get_input();
@@ -36,10 +35,9 @@ function get_effective_input_id_or(
     }
     switch (trace.kind) {
         case "Main":
-            return null;
         case "FeatureStmt":
-            return null;
         case "FeatureBranch":
+        case "DeclStmt":
             return null;
         case "FeatureExpr":
             return default_input_id;
@@ -56,6 +54,7 @@ export function get_subtraces(trace_id: number): Trace[] | null {
             return get((subtraces_stores[trace_id] = writable(null)));
         }
     } else {
+        console.log("here");
         let subtraces_locked_on_stores: {
             [trace_id: number]: Writable<Trace[] | null>;
         };
@@ -68,6 +67,7 @@ export function get_subtraces(trace_id: number): Trace[] | null {
             ] = {};
         }
         if (!(input_id in subtraces_locked_on_stores)) {
+            console.log("request local subtraces");
             request_subtraces(trace_id, input_id);
             return get((subtraces_locked_on_stores[input_id] = writable(null)));
         } else {

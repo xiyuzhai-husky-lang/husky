@@ -64,13 +64,22 @@ pub fn entity_from_ast(
             ident,
             kind,
             generics,
-        } => ty::ty_from_ast(*ident, kind, generics, children, subentities, scope, vc),
+        } => ty::ty_from_ast(
+            *ident,
+            kind,
+            generics,
+            children,
+            subentities,
+            scope,
+            file,
+            vc,
+        ),
         Ast::FuncDef { kind, decl } => {
             let kind = match kind {
                 syntax_types::FuncKind::Test => todo!(),
                 syntax_types::FuncKind::Proc => todo!(),
                 syntax_types::FuncKind::Func => EntityKind::Func {
-                    inputs: decl.inputs.clone(),
+                    input_contracts: decl.input_contracts.clone(),
                     stmts: stmt::parse_decl_stmts(
                         this.upcast(),
                         &ast_text.arena,
@@ -85,6 +94,7 @@ pub fn entity_from_ast(
                 kind,
                 Arc::new(Vec::new()),
                 scope,
+                file,
                 vc,
             )))
         }

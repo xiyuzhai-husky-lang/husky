@@ -150,7 +150,7 @@ pub trait ExprParser<'a> {
                             _ => panic!(),
                         };
                         Opn::Binary {
-                            opr: BinaryOpr::Eq,
+                            opr,
                             this: opds[0].ty,
                             kind,
                         }
@@ -168,7 +168,34 @@ pub trait ExprParser<'a> {
             }
             BinaryOpr::Shl => todo!(),
             BinaryOpr::Shr => todo!(),
-            BinaryOpr::Add => todo!(),
+            BinaryOpr::Add => {
+                if opds[0].ty != opds[1].ty {
+                    err!("expect use of \"+\" on same types")
+                }
+                let opn = match opds[0].ty {
+                    ScopePtr::Builtin(ident) => {
+                        let kind = match ident {
+                            BuiltinIdentifier::I32 => BinaryOpnKind::AddI32,
+                            BuiltinIdentifier::F32 => BinaryOpnKind::AddF32,
+                            _ => panic!(),
+                        };
+                        Opn::Binary {
+                            opr,
+                            this: opds[0].ty,
+                            kind,
+                        }
+                    }
+                    ScopePtr::Custom(_) => todo!(),
+                };
+                (
+                    opds[0].ty,
+                    ExprKind::Opn {
+                        opds,
+                        compiled: None,
+                        opn,
+                    },
+                )
+            }
             BinaryOpr::Sub => todo!(),
             BinaryOpr::Mul => todo!(),
             BinaryOpr::Div => todo!(),

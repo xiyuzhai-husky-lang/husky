@@ -50,7 +50,10 @@ impl PrimitiveValue {
         if let PrimitiveValue::I32(i) = self {
             Ok(*i)
         } else {
-            todo!()
+            Err(VMError::TypeMismatch(format!(
+                "expect I32, but get {:?} instead",
+                self
+            )))
         }
     }
 

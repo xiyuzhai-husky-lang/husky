@@ -28,8 +28,11 @@ use vm::{run, AnyValueDyn, Instruction};
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
-    trace_allocator: TraceAllocator,
+    trace_allocator: Arc<TraceAllocator>,
     session: Arc<Mutex<Session<'static>>>,
+    input_id: Option<usize>,
+    expansions: HashMap<TraceId, bool>,
+    showns: HashMap<TraceId, bool>,
 }
 
 impl AskCompileTime for HuskyLangRuntime {
@@ -47,6 +50,9 @@ impl RawTextQueryGroup for HuskyLangRuntime {
 impl AllocateTrace for HuskyLangRuntime {
     fn trace_allocator(&self) -> &trace::TraceAllocator {
         &self.trace_allocator
+    }
+    fn trace_allocator_arc(&self) -> Arc<trace::TraceAllocator> {
+        self.trace_allocator.clone()
     }
 }
 
@@ -69,6 +75,9 @@ impl HuskyLangRuntime {
             compile_time,
             trace_allocator: Default::default(),
             session: Arc::new(Mutex::new(Session::new(&package).unwrap())),
+            input_id: None,
+            expansions: Default::default(),
+            showns: Default::default(),
         };
         runtime.set_version(0);
         runtime.set_package_main(current_package_main);
@@ -84,18 +93,41 @@ impl HuskyLangRuntime {
         None
     }
 
-    pub fn activate(&self, id: TraceId) {}
+    pub fn toggle_expansion(&mut self, id: TraceId) {
+        let expanded = self.expansions.entry(id).or_insert(false);
+        *expanded = !*expanded;
+    }
 
-    pub fn toggle_expansion(&self, id: TraceId) {}
+    pub fn is_expanded(&mut self, trace: &Trace) -> bool {
+        *self.expansions.entry(trace.id()).or_insert(false)
+    }
 
-    pub fn toggle_show(&self, id: TraceId) {}
+    pub fn expansions(&mut self) -> HashMap<TraceId, bool> {
+        self.expansions.clone()
+    }
 
-    pub fn lock_input(&self, input_temp: String) -> (Option<Option<usize>>, Option<String>) {
+    pub fn toggle_show(&mut self, id: TraceId) {
+        let shown = self.showns.entry(id).or_insert(false);
+        *shown = !*shown;
+    }
+
+    pub fn showns(&self) -> HashMap<TraceId, bool> {
+        self.showns.clone()
+    }
+
+    pub fn input_id(&self) -> Option<usize> {
+        self.input_id
+    }
+
+    pub fn lock_input(&mut self, input_temp: String) -> (Option<Option<usize>>, Option<String>) {
         if input_temp.len() == 0 {
             return (Some(None), None);
         }
         match input_temp.parse::<usize>() {
-            Ok(idx) => (Some(Some(idx)), None),
+            Ok(id) => {
+                self.input_id = Some(id);
+                (Some(Some(id)), None)
+            }
             Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
         }
     }
