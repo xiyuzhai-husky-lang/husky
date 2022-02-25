@@ -27,7 +27,7 @@ pub(crate) fn parse_decl_stmts(
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     file: FilePtr,
-) -> SemanticResult<Vec<Arc<DeclStmt>>> {
+) -> SemanticResultArc<Vec<Arc<DeclStmt>>> {
     let mut parser = DeclStmtParser::new(this, arena, file);
     parser.parse_stmts(iter)
 }
@@ -57,7 +57,7 @@ impl<'a> DeclStmtParser<'a> {
     fn parse_stmts(
         &mut self,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResult<Vec<Arc<DeclStmt>>> {
+    ) -> SemanticResultArc<Vec<Arc<DeclStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
@@ -163,7 +163,7 @@ impl<'a> DeclStmtParser<'a> {
                 },
             }))
         }
-        Ok(stmts)
+        Ok(Arc::new(stmts))
     }
 
     fn def_variable(&mut self, varname: CustomIdentifier, ty: ScopePtr) {

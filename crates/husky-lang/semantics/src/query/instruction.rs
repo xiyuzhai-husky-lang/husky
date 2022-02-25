@@ -5,20 +5,22 @@ use vm::Instruction;
 
 #[salsa::query_group(InstructionQueryGroupStorage)]
 pub trait InstructionQueryGroup: EntityQueryGroup {
-    fn instructions(&self, scope: ScopePtr) -> SemanticResultArc<Vec<Instruction>>;
+    fn instruction_sheet(&self, scope: ScopePtr) -> SemanticResultArc<InstructionSheet>;
 }
 
-fn instructions(
+fn instruction_sheet(
     this: &dyn InstructionQueryGroup,
     scope: ScopePtr,
-) -> SemanticResultArc<Vec<Instruction>> {
+) -> SemanticResultArc<InstructionSheet> {
     let entity = this.entity(scope)?;
-    Ok(Arc::new(match entity.kind() {
+    let mut sheet = InstructionSheet::default();
+    Arc::new(match entity.kind() {
         EntityKind::Module(_) => todo!(),
         EntityKind::Feature(_) => todo!(),
         EntityKind::Pattern(_) => todo!(),
-        EntityKind::Func { inputs, stmts } => gen_decl_stmt_instructions(stmts),
+        EntityKind::Func { stmts, .. } => gen_decl_stmt_instructions(stmts, &mut sheet),
         EntityKind::Proc(_) => todo!(),
         EntityKind::Ty(_) => todo!(),
-    }))
+    });
+    Ok(Arc::new(sheet))
 }

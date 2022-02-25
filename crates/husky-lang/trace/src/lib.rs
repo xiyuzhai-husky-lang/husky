@@ -1,7 +1,9 @@
 mod alloc;
 mod figure;
+mod interpreter;
 mod kind;
 mod stalk;
+mod subtraces;
 #[cfg(test)]
 mod tests;
 mod token;
@@ -9,6 +11,8 @@ mod token;
 pub use alloc::{AllocateTrace, TraceAllocator, TraceId};
 pub use figure::FigureProps;
 use file::FilePtr;
+pub use interpreter::TraceInterpreter;
+use interpreter::TraceInterpreterControlSignal;
 pub use kind::TraceKind;
 pub use stalk::TraceStalk;
 use text::{Text, TextRange};
@@ -19,8 +23,6 @@ use std::{borrow::Cow, sync::Arc};
 use common::*;
 use fold::Indent;
 use serde::{ser::SerializeStruct, Serialize};
-
-use token::*;
 
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug, Clone)]
@@ -56,7 +58,9 @@ impl Serialize for Trace {
         state.serialize_field(
             "has_subtraces",
             &match self.kind {
-                TraceKind::FeatureStmt(_) => false,
+                TraceKind::FeatureStmt(_) | TraceKind::Input(_) | TraceKind::DeclStmt { .. } => {
+                    false
+                }
                 TraceKind::Main(_) | TraceKind::FeatureBranch(_) => true,
                 TraceKind::FeatureExpr(ref expr) => match expr.kind {
                     feature::FeatureExprKind::Literal(_)
@@ -65,6 +69,10 @@ impl Serialize for Trace {
                     feature::FeatureExprKind::FuncCall { func, .. } => !func.is_builtin(),
                 },
             },
+        )?;
+        state.serialize_field(
+            "subtraces_container_class",
+            &self.subtraces_container_class(),
         )?;
         state.end()
     }
@@ -84,6 +92,8 @@ impl Trace {
             TraceKind::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
             TraceKind::FeatureExpr(ref expr) => (expr.file, expr.range),
             TraceKind::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
+            TraceKind::Input(_) => todo!(),
+            TraceKind::DeclStmt { ref stmt, .. } => (stmt.file, stmt.range),
         };
         Self {
             id,
@@ -94,5 +104,37 @@ impl Trace {
             file,
             range,
         }
+    }
+
+    pub(crate) fn new2(
+        parent: Option<TraceId>,
+        indent: Indent,
+        gen_kind: impl FnOnce(TraceId) -> TraceKind,
+        trace_allocator: &TraceAllocator,
+        text: &Text,
+    ) -> Self {
+        let id = trace_allocator.next_id();
+        let kind = gen_kind(id);
+        let (file, range) = match kind {
+            TraceKind::Main(ref block) => (block.file, block.range),
+            TraceKind::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
+            TraceKind::FeatureExpr(ref expr) => (expr.file, expr.range),
+            TraceKind::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
+            TraceKind::Input(_) => todo!(),
+            TraceKind::DeclStmt { ref stmt, .. } => (stmt.file, stmt.range),
+        };
+        Self {
+            id,
+            parent,
+            indent,
+            tokens: trace_allocator.tokens(id, indent, &kind, text),
+            kind,
+            file,
+            range,
+        }
+    }
+
+    pub fn id(&self) -> TraceId {
+        self.id
     }
 }

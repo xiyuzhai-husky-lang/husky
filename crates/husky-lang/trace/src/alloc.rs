@@ -1,10 +1,12 @@
+mod decl_stmt;
 mod feature_block;
 mod feature_branch;
 mod feature_expr;
 mod feature_stmt;
 
-use feature::{FeatureBlock, FeatureBranch, FeatureBranchKind, FeatureStmtKind};
-use file::FileQueryGroup;
+use feature::{
+    FeatureBlock, FeatureBranch, FeatureBranchKind, FeatureExpr, FeatureExprKind, FeatureStmtKind,
+};
 use serde::Deserialize;
 use stdx::sync::ARwLock;
 use text::{Text, TextQueryGroup};
@@ -91,6 +93,8 @@ impl TraceAllocator {
                 }
                 FeatureBranchKind::Else => vec![keyword!("else ")],
             },
+            TraceKind::Input(_) => todo!(),
+            TraceKind::DeclStmt { ref tokens, .. } => tokens.clone(),
         }
     }
 
@@ -114,10 +118,26 @@ impl TraceAllocator {
         });
         trace
     }
+
+    fn new_trace2(
+        &self,
+        parent: TraceId,
+        indent: Indent,
+        gen_kind: impl FnOnce(TraceId) -> TraceKind,
+        text: &Text,
+    ) -> Arc<Trace> {
+        let trace = Arc::new(Trace::new2(Some(parent), indent, gen_kind, self, text));
+        self.traces.write(|traces| {
+            assert!(traces[trace.id.0].is_none());
+            traces[trace.id.0] = Some(trace.clone())
+        });
+        trace
+    }
 }
 
 pub trait AllocateTrace: TextQueryGroup {
     fn trace_allocator(&self) -> &TraceAllocator;
+    fn trace_allocator_arc(&self) -> Arc<TraceAllocator>;
 
     fn feature_block_subtraces(
         &self,

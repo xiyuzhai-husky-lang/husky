@@ -6,10 +6,9 @@ export function shown_default(trace: Trace | null): boolean {
     }
     switch (trace.kind) {
         case "Main":
-            return true;
         case "FeatureStmt":
-            return true;
         case "FeatureBranch":
+        case "DeclStmt":
             return true;
         case "FeatureExpr":
             return false;

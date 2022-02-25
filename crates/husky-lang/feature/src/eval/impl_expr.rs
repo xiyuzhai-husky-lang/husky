@@ -6,7 +6,6 @@ use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalValue<'eval, 'eval> {
-        self.indicator.set(expr.eval_id);
         match expr.kind {
             FeatureExprKind::Literal(value) => Ok(Conditional::Defined(value.into())),
             FeatureExprKind::PrimitiveBinaryOpr {
@@ -29,11 +28,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     this.eval_feature_expr(&value)
                 }),
             FeatureExprKind::FuncCall {
-                ref instructions,
+                ref instruction_sheet,
                 compiled,
                 ref inputs,
                 ..
-            } => self.eval_func_call(instructions, compiled, inputs),
+            } => self.eval_func_call(instruction_sheet.instructions(), compiled, inputs),
         }
     }
 }

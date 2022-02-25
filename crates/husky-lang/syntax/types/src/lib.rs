@@ -1,6 +1,8 @@
 mod env;
 mod opr;
 
+use std::sync::Arc;
+
 pub use env::Env;
 pub use opr::*;
 
@@ -39,7 +41,7 @@ pub enum FuncKind {
 pub struct FuncDecl {
     pub funcname: CustomIdentifier,
     pub generics: Vec<GenericPlaceholder>,
-    pub inputs: Vec<(CustomIdentifier, InputType)>,
+    pub input_contracts: Arc<Vec<(CustomIdentifier, InputType)>>,
     pub output: ScopePtr,
 }
 

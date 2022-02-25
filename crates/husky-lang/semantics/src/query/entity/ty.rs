@@ -11,12 +11,13 @@ pub(super) fn ty_from_ast(
     block: Option<FoldIter<AstResult<Ast>, FoldedList<AstResult<Ast>>>>,
     subentities: Arc<Vec<Arc<Entity>>>,
     scope: ScopePtr,
+    file: FilePtr,
     vc: &EntityVersionControl,
 ) -> SemanticResultArc<Entity> {
     match kind {
         syntax_types::TyKind::Enum(_) => todo!(),
         syntax_types::TyKind::Struct => {
-            struct_from_ast(ident, kind, generics, block, subentities, scope, vc)
+            struct_from_ast(ident, kind, generics, block, subentities, scope, file, vc)
         }
     }
 }
@@ -28,6 +29,7 @@ pub(super) fn struct_from_ast(
     block: Option<FoldIter<AstResult<Ast>, FoldedList<AstResult<Ast>>>>,
     subentities: Arc<Vec<Arc<Entity>>>,
     scope: ScopePtr,
+    file: FilePtr,
     vc: &EntityVersionControl,
 ) -> SemanticResultArc<Entity> {
     let block = if let Some(block) = block {
@@ -68,6 +70,7 @@ pub(super) fn struct_from_ast(
         }),
         subentities,
         scope,
+        file,
         vc,
     )))
 }

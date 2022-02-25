@@ -2,6 +2,7 @@
 mod config;
 mod error;
 mod expr;
+mod instruction_sheet;
 mod kind;
 mod package;
 mod query;
@@ -10,6 +11,8 @@ mod stmt;
 pub use config::Config;
 pub use error::{SemanticError, SemanticResult, SemanticResultArc};
 pub use expr::{BinaryOpnKind, Expr, ExprKind, Opn};
+use file::FilePtr;
+pub use instruction_sheet::InstructionSheet;
 pub use kind::EntityKind;
 pub use package::Package;
 pub use query::*;
@@ -27,10 +30,11 @@ use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Entity {
-    ident: CustomIdentifier,
-    kind: Arc<EntityKind>,
-    subentities: Arc<Vec<Arc<Entity>>>,
-    scope: ScopePtr,
+    pub ident: CustomIdentifier,
+    pub kind: Arc<EntityKind>,
+    pub subentities: Arc<Vec<Arc<Entity>>>,
+    pub scope: ScopePtr,
+    pub file: FilePtr,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -58,9 +62,12 @@ impl Entity {
             EntityKind::Module(_) => Default::default(),
             EntityKind::Feature(_) => todo!(),
             EntityKind::Pattern(_) => todo!(),
-            EntityKind::Func { inputs, stmts } => {
+            EntityKind::Func {
+                input_contracts: inputs,
+                stmts,
+            } => {
                 let mut v = UniqVec::new();
-                for input in inputs {
+                for input in inputs.iter() {
                     v.push(input.1.ty)
                 }
                 extract_decl_stmts_dependees(stmts, &mut v);
@@ -120,6 +127,7 @@ impl Entity {
         kind: EntityKind,
         subentities: Arc<Vec<Arc<Entity>>>,
         scope: ScopePtr,
+        file: FilePtr,
         vc: &EntityVersionControl,
     ) -> Entity {
         use std::borrow::Borrow;
@@ -130,6 +138,7 @@ impl Entity {
             kind,
             subentities,
             scope,
+            file,
         }
     }
 }

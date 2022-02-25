@@ -1,89 +1,17 @@
+mod query;
+mod response;
+mod tests;
+
 use crate::*;
 use common::*;
 use futures::{task::SpawnExt, FutureExt, StreamExt};
 use serde::{Deserialize, Serialize};
-use tokio::sync::mpsc;
+use tokio::sync::mpsc::{self, UnboundedSender};
 use trace::{FigureProps, Trace, TraceId, TraceStalk};
 use warp::ws::{Message, WebSocket};
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
-#[serde(tag = "type")]
-enum Query {
-    RootTraces,
-    Subtraces {
-        id: TraceId,
-        input_locked_on: Option<usize>,
-    },
-    Figure {
-        id: TraceId,
-    },
-    Activate {
-        id: TraceId,
-    },
-    ToggleExpansion {
-        id: TraceId,
-    },
-    ToggleShow {
-        id: TraceId,
-    },
-    Trace {
-        id: TraceId,
-    },
-    LockInput {
-        input_str: String,
-    },
-    TraceStalk {
-        trace_id: TraceId,
-        input_id: usize,
-    },
-}
-
-#[test]
-fn print_queries() {
-    p!(serde_json::to_string(&Query::RootTraces));
-    let query: Query = serde_json::from_str("\"RootTraces\"").unwrap();
-    should_eq!(query, Query::RootTraces);
-}
-
-#[derive(Debug, Serialize, Clone)]
-#[serde(tag = "type")]
-pub enum Response {
-    RootTraces {
-        root_traces: Arc<Vec<Arc<Trace>>>,
-    },
-    Subtraces {
-        id: TraceId,
-        input_locked_on: Option<usize>,
-        subtraces: Arc<Vec<Arc<Trace>>>,
-    },
-    Figure {
-        id: TraceId,
-        figure: Option<FigureProps>,
-    },
-    DidActivate {
-        id: TraceId,
-    },
-    DidToggleExpansion {
-        id: TraceId,
-    },
-    DidToggleShow {
-        id: TraceId,
-    },
-    Trace {
-        id: TraceId,
-        trace: Arc<Trace>,
-    },
-    DidLockInput {
-        #[serde(skip_serializing_if = "Option::is_none")]
-        input_locked_on: Option<Option<usize>>,
-        message: Option<String>,
-    },
-    TraceStalk {
-        trace_id: TraceId,
-        input_id: usize,
-        stalk: Arc<TraceStalk>,
-    },
-}
+use query::Query;
+use response::Response;
 
 pub(crate) async fn handle_query(
     socket: warp::ws::Ws,
@@ -105,7 +33,7 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
         common::show::CYAN,
         common::show::RESET
     );
-
+    init_gui(&debugger, client_sender.clone());
     while let Some(result) = rx.next().await {
         let msg = result.expect("error receiving ws message: {}");
         match msg.to_str() {
@@ -116,17 +44,17 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
                     let future = async move {
                         match client_sender_.send(Ok(Message::text(
                             serde_json::to_string(&match query {
-                                Query::RootTraces => Response::RootTraces {
-                                    root_traces: debugger_.root_traces().await,
-                                },
                                 Query::Subtraces {
-                                    id,
-                                    input_locked_on,
-                                } => Response::Subtraces {
-                                    id,
-                                    input_locked_on,
-                                    subtraces: debugger_.subtraces(id, input_locked_on).await,
-                                },
+                                    trace_id: id,
+                                    opt_input_id: input_locked_on,
+                                } => {
+                                    let subtraces = debugger_.subtraces(id, input_locked_on).await;
+                                    Response::Subtraces {
+                                        id,
+                                        input_locked_on,
+                                        subtraces,
+                                    }
+                                }
                                 Query::Activate { id } => {
                                     debugger_.activate(id).await;
                                     Response::DidActivate { id }
@@ -190,4 +118,24 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
             }
         };
     }
+}
+
+fn init_gui(debugger: &Debugger, sender: UnboundedSender<Result<Message, warp::Error>>) {
+    let root_traces = debugger.root_traces();
+    let expansions = debugger.expansions();
+    let showns = debugger.showns();
+    let state = debugger.state.lock().unwrap();
+    match sender.send(Ok(Message::text(
+        serde_json::to_string(&Response::Init {
+            active_trace_id: state.active_trace_id,
+            opt_input_id: debugger.input_id(),
+            root_traces,
+            expansions: &expansions,
+            showns: &showns,
+        })
+        .unwrap(),
+    ))) {
+        Ok(_) => (),
+        Err(_) => todo!(),
+    };
 }

@@ -2,9 +2,9 @@ use std::sync::Arc;
 
 use file::FilePtr;
 use scope::ScopePtr;
-use semantics::{EntityQueryGroup, EntityVersionControl, Expr, ExprKind, Opn, SemanticQueryGroup};
+use semantics::{DeclStmt, Expr, ExprKind, InstructionSheet, Opn, SemanticQueryGroup};
+use syntax_types::InputType;
 use text::TextRange;
-use vm::Instruction;
 use word::BuiltinIdentifier;
 
 use crate::{eval::FeatureEvalId, *};
@@ -34,9 +34,12 @@ pub enum FeatureExprKind {
         func: ScopePtr,
         scope_expr_range: TextRange,
         uid: EntityUid,
-        compiled: Option<()>,
-        instructions: Arc<Vec<Instruction>>,
+        callee_file: FilePtr,
+        input_contracts: Arc<Vec<(CustomIdentifier, InputType)>>,
         inputs: Vec<Arc<FeatureExpr>>,
+        compiled: Option<()>,
+        instruction_sheet: Arc<InstructionSheet>,
+        stmts: Arc<Vec<Arc<DeclStmt>>>,
     },
 }
 
@@ -121,14 +124,25 @@ impl FeatureExpr {
                         uid,
                         inputs: inputs.iter().map(|expr| expr.feature).collect(),
                     });
+                    let entity = db.entity(func).unwrap();
+                    let (input_contracts, stmts) = match entity.kind() {
+                        semantics::EntityKind::Func {
+                            input_contracts,
+                            stmts,
+                        } => (input_contracts.clone(), stmts.clone()),
+                        _ => panic!(),
+                    };
                     Self {
                         kind: FeatureExprKind::FuncCall {
                             func,
                             scope_expr_range,
                             uid,
                             compiled: None,
-                            instructions: db.instructions(func).unwrap(),
+                            callee_file: entity.file,
+                            input_contracts,
                             inputs,
+                            instruction_sheet: db.instruction_sheet(func).unwrap(),
+                            stmts,
                         },
                         feature,
                         range: expr.range,

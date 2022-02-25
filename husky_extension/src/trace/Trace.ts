@@ -27,7 +27,9 @@ export const tTrace = t.interface({
         t.literal("FeatureStmt"),
         t.literal("FeatureBranch"),
         t.literal("FeatureExpr"),
+        t.literal("DeclStmt"),
     ]),
+    subtraces_container_class: t.union([t.literal("Call"), t.null]),
 });
 export type Trace = t.TypeOf<typeof tTrace>;
 export default Trace;

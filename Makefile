@@ -1,2 +1,2 @@
 run:
-	scripts/install.sh && husky-lang-debugger
+	cargo run --bin husky-lang-debugger

@@ -20,6 +20,8 @@
             case "FeatureBranch":
             case "FeatureExpr":
                 return input_id !== null;
+            case "DeclStmt":
+                return false;
         }
     }
 
@@ -30,7 +32,6 @@
         ? get_trace_stalk_store(trace.id, input_id!)
         : null;
     $: stalk = stalk_store !== null ? $stalk_store : null;
-    $: console.log("stalk: ", stalk);
     $: extra_tokens = stalk !== null ? stalk.extra_tokens : [];
 </script>
 

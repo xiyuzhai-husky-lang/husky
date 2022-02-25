@@ -44,7 +44,11 @@ fn func_signature(
                 .as_ref()?;
             match ast {
                 Ast::FuncDef { kind, decl } => Ok(Arc::new(FuncSignature {
-                    inputs: decl.inputs.iter().map(|input| input.1.ty).collect(),
+                    inputs: decl
+                        .input_contracts
+                        .iter()
+                        .map(|input| input.1.ty)
+                        .collect(),
                     output: decl.output,
                     compiled: None,
                 })),

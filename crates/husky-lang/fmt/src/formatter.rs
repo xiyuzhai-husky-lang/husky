@@ -95,11 +95,11 @@ impl<'a> Formatter<'a> {
                 });
                 self.write(&decl.funcname);
                 self.write("(");
-                for i in 0..decl.inputs.len() {
+                for i in 0..decl.input_contracts.len() {
                     if i > 0 {
                         self.write(", ");
                     }
-                    let (ident, ref ty) = decl.inputs[i];
+                    let (ident, ref ty) = decl.input_contracts[i];
                     self.fmt_ident(ident.into());
                     self.write(": ");
                     self.fmt_func_input_contracted_type(ty);

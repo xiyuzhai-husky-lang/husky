@@ -2,14 +2,14 @@ mod compiled;
 mod contract;
 mod error;
 mod instruction;
-mod stack;
+mod interpreter;
 mod value;
 
 pub use compiled::Compiled;
 pub use contract::InputContract;
 pub use error::{VMError, VMResult};
 pub use instruction::*;
-pub use stack::VMStack;
+pub use interpreter::{BasicInterpreter, Interpreter};
 pub use value::{
     AnyValue, AnyValueDyn, BoxedValue, Conditional, EvalValue, PrimitiveValue, StackValue,
 };
@@ -21,8 +21,8 @@ pub enum ControlSignal<'a, 'eval: 'a> {
 }
 
 pub fn run<'a, 'eval: 'a>(instructions: &[Instruction]) -> VMResult<StackValue<'a, 'eval>> {
-    let mut stack = VMStack::<'_, 'eval>::new(vec![]);
-    match stack.exec_all(instructions)? {
+    let mut interpreter = BasicInterpreter::<'_, 'eval>::new(vec![]);
+    match interpreter.exec_all(instructions)? {
         ControlSignal::Normal => todo!(),
         ControlSignal::Return(value) => Ok(value),
         ControlSignal::Break => todo!(),

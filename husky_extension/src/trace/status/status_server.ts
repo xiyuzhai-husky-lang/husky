@@ -1,5 +1,5 @@
 import { expansion_stores, shown_stores } from "./status_stores";
-import { get } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { shown_default, expanded_default } from "./status_default";
 import { get_trace } from "trace/trace_server";
 
@@ -25,4 +25,18 @@ export function did_toggle_expansion(id: number) {
 
 export function did_toggle_show(id: number) {
     shown_stores[id].update((shown) => !shown);
+}
+
+export function load_expansions(expansions: { [id: string]: boolean }) {
+    for (let id_str in expansions) {
+        let id = parseInt(id_str);
+        expansion_stores[id] = writable(expansions[id]);
+    }
+}
+
+export function load_showns(showns: { [id: string]: boolean }) {
+    for (let id_str in showns) {
+        let id = parseInt(id_str);
+        shown_stores[id] = writable(showns[id]);
+    }
 }

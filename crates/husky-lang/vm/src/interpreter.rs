@@ -1,12 +1,18 @@
-use common::*;
+mod basic;
+
+pub use basic::BasicInterpreter;
 
 use crate::*;
 
-impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
-    pub fn exec_all(
-        &mut self,
-        instructions: &[Instruction],
-    ) -> VMResult<ControlSignal<'stack, 'eval>> {
+pub trait Interpreter<'stack, 'eval: 'stack> {
+    fn var(&self, rel_idx: usize) -> VMResult<&StackValue<'stack, 'eval>>;
+    fn var_mut(&mut self, rel_idx: usize) -> VMResult<&mut StackValue<'stack, 'eval>>;
+    fn len(&self) -> usize;
+    fn push(&mut self, value: StackValue<'stack, 'eval>);
+    fn pop(&mut self) -> VMResult<StackValue<'stack, 'eval>>;
+    fn drain(&mut self, new_len: usize) -> Vec<StackValue<'stack, 'eval>>;
+
+    fn exec_all(&mut self, instructions: &[Instruction]) -> VMResult<ControlSignal<'stack, 'eval>> {
         for ins in instructions {
             match self.exec(&ins.kind)? {
                 ControlSignal::Normal => (),
@@ -17,15 +23,14 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         Ok(ControlSignal::Normal)
     }
 
-    pub fn exec(&mut self, ins: &InstructionKind) -> VMResult<ControlSignal<'stack, 'eval>> {
+    fn exec(&mut self, ins: &InstructionKind) -> VMResult<ControlSignal<'stack, 'eval>> {
         match ins {
             InstructionKind::PushVarInput(contract, rel_idx) => {
-                self.values
-                    .push(self.var(*rel_idx as usize)?.as_input(*contract)?);
+                self.push(self.var(*rel_idx as usize)?.as_input(*contract)?);
                 Ok(ControlSignal::Normal)
             }
             InstructionKind::PushPrimitive(value) => {
-                self.values.push(value.into());
+                self.push(value.into());
                 Ok(ControlSignal::Normal)
             }
             InstructionKind::Call { compiled, nargs } => {
@@ -37,42 +42,37 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
                 Ok(ControlSignal::Normal)
             }
             InstructionKind::CallInterpret(instructions) => self.exec_all(&instructions),
-            InstructionKind::Return => Ok(ControlSignal::Return(self.values.pop().unwrap())),
+            InstructionKind::Return => Ok(ControlSignal::Return(self.pop().unwrap())),
         }
     }
-}
 
-impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
-    pub fn finish(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
+    fn finish(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
         if self.len() != 1 {
-            p!(self.len());
             todo!()
         }
-        Ok(self.values.pop().unwrap())
+        Ok(self.pop().unwrap())
     }
-}
 
-impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     fn call(&mut self, f: &Compiled, nargs: u16) -> VMResult<()> {
-        let new_len = self.values.len() - nargs as usize;
-        let result = (f.call)(self.values.drain(new_len..).collect())?;
-        self.values.push(result.into());
+        let new_len = self.len() - nargs as usize;
+        let result = (f.call)(self.drain(new_len))?;
+        self.push(result.into());
         Ok(())
     }
 
     fn exec_primitive(&mut self, opn: PrimitiveOpn) -> VMResult<()> {
         match opn {
             PrimitiveOpn::Binary(func) => {
-                let ropd = self.values.pop().unwrap();
-                let lopd = self.values.pop().unwrap();
-                self.values.push(
+                let ropd = self.pop().unwrap();
+                let lopd = self.pop().unwrap();
+                self.push(
                     func.act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?
                         .into(),
                 );
                 Ok(())
             }
             PrimitiveOpn::BinaryAssign { dst_idx, func } => {
-                let ropd = self.values.pop().unwrap();
+                let ropd = self.pop().unwrap();
                 let lopd = self.var_mut(dst_idx as usize)?;
                 *lopd = func
                     .act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?

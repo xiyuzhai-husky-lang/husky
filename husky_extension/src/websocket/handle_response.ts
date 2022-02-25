@@ -9,12 +9,16 @@ import { set_figure } from "src/trace/figure/figure_server";
 import { did_activate } from "src/trace/active/active_trace_server";
 import { cache_trace } from "trace/trace_server";
 import { update_trace_listing } from "src/trace/listing/listing_server";
-import { did_lock_input } from "src/trace/input/input_server";
+import { did_lock_input, init_input } from "src/trace/input/input_server";
 import { set_trace_stalk } from "src/trace/stalk/stalk_server";
+import { load_expansions, load_showns } from "src/trace/status/status_server";
 
 export function handle_response(response: DebuggerResponse) {
     switch (response.type) {
-        case "RootTraces":
+        case "Init":
+            init_input(response.opt_input_id);
+            load_expansions(response.expansions);
+            load_showns(response.showns);
             set_root_traces(response.root_traces);
             update_trace_listing();
             break;
@@ -32,8 +36,8 @@ export function handle_response(response: DebuggerResponse) {
             break;
         case "TraceStalk":
             set_trace_stalk(
-                response.id,
-                response.input_locked_on,
+                response.trace_id,
+                response.input_id,
                 response.stalk
             );
             break;
@@ -50,7 +54,6 @@ export function handle_response(response: DebuggerResponse) {
             did_toggle_show(response.id);
             break;
         case "DidLockInput":
-            console.log("DidLockInput");
             did_lock_input(response.input_locked_on, response.message);
             break;
     }

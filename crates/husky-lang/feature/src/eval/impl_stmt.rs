@@ -6,7 +6,6 @@ use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(super) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> EvalValue<'eval, 'eval> {
-        self.indicator.set(stmt.eval_id);
         match stmt.kind {
             FeatureStmtKind::Init { .. } => Ok(Conditional::Undefined),
             FeatureStmtKind::Assert { ref condition } => {

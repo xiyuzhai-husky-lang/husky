@@ -3,31 +3,6 @@ use feature::{FeatureExpr, FeatureExprKind};
 use crate::*;
 
 impl TraceAllocator {
-    pub fn feature_expr_subtraces(
-        &self,
-        parent: &Trace,
-        expr: &FeatureExpr,
-        maybe_locked_on: Option<usize>,
-    ) -> Arc<Vec<Arc<Trace>>> {
-        Arc::new(match expr.kind {
-            FeatureExprKind::Literal(_)
-            | FeatureExprKind::PrimitiveBinaryOpr { .. }
-            | FeatureExprKind::Variable { .. } => vec![],
-            FeatureExprKind::FuncCall { ref inputs, .. } => {
-                if let Some(locked_on) = maybe_locked_on {
-                    let mut subtraces = vec![];
-                    for input in inputs {
-                        todo!("add input trace")
-                    }
-                    todo!();
-                    subtraces
-                } else {
-                    vec![]
-                }
-            }
-        })
-    }
-
     pub(crate) fn feature_expr_associated_tokens(
         &self,
         indent: Indent,
