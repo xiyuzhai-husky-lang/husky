@@ -1,33 +1,32 @@
 <script lang="ts">
     import Node from "./Node.svelte";
     import {
-        get_trace_store,
+        get_trace_future,
         get_expansion_store,
         get_shown_store,
         get_subtraces_store,
-        get_input_id_store,
         get_active_trace_store,
         activate,
     } from "src/state/client";
     import { request_toggle_expansion } from "src/websocket/websocket_client";
-    import type Trace from "src/trace/Trace";
+    import { tell_has_subtraces_store } from "src/state/client";
 
     export let trace_id: number;
 
-    $: trace_store = get_trace_store(trace_id);
-    $: trace = $trace_store;
-    $: expanded = get_expansion_store(trace_id);
-    const input_id_store = get_input_id_store();
-    $: input_id = $input_id_store;
+    $: trace_future = get_trace_future(trace_id);
+    $: trace = $trace_future;
+    $: expanded_store = get_expansion_store(trace_id);
+    $: expanded = $expanded_store;
     $: shown_store = trace !== null ? get_shown_store(trace) : null;
     $: shown = shown_store !== null ? $shown_store : false;
-    $: subtraces_store = shown ? get_subtraces_store(trace_id, input_id) : null;
+    $: subtraces_store = shown ? get_subtraces_store(trace_id) : null;
     $: subtraces = shown ? $subtraces_store : null;
     $: active_trace_store = get_active_trace_store();
     $: active_trace = $active_trace_store;
     $: active = active_trace !== null ? active_trace.id === trace_id : false;
     $: locked = false;
-    $: has_subtraces = tell_has_subtraces(trace, input_id);
+    $: has_subtraces_store = tell_has_subtraces_store(trace);
+    $: has_subtraces = $has_subtraces_store;
     function toggle_expansion_locked() {
         if (!locked) {
             request_toggle_expansion(trace_id);
@@ -35,25 +34,6 @@
             setTimeout(() => {
                 locked = false;
             }, 300);
-        }
-    }
-    function tell_has_subtraces(
-        trace: Trace | null,
-        opt_input_id: number | null
-    ): boolean {
-        if (trace === null) {
-            return false;
-        }
-        switch (trace.kind) {
-            case "Main":
-                return true;
-            case "FeatureStmt":
-            case "DeclStmt":
-                return false;
-            case "FeatureBranch":
-                return true;
-            case "FeatureExpr":
-                return opt_input_id !== null && trace.has_subtraces;
         }
     }
 </script>
@@ -75,7 +55,7 @@
             }}
             {trace}
             {has_subtraces}
-            expanded={$expanded}
+            {expanded}
             {active}
         />
         {#each trace.tokens as token}
@@ -83,7 +63,7 @@
                 <svelte:self trace_id={token.associated_trace} />
             {/if}
         {/each}
-        {#if subtraces !== null && $expanded === true}
+        {#if subtraces !== null && expanded === true && has_subtraces}
             {#if trace.subtraces_container_class === null}
                 {#each subtraces as subtrace}
                     <svelte:self trace_id={subtrace.id} />

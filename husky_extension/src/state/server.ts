@@ -13,12 +13,12 @@ export function receive_subtraces(
     input_id: number | null,
     subtraces: Trace[]
 ) {
-    global_state.trace_state.receive_subtraces(trace_id, input_id, subtraces);
+    global_state.trace_cache.receive_subtraces(trace_id, input_id, subtraces);
     global_state.update_trace_listing();
 }
 
 export function cache_trace(trace: Trace) {
-    global_state.trace_state.cache_trace(trace);
+    global_state.trace_cache.cache_trace(trace);
     global_state.update_trace_listing();
 }
 
@@ -27,7 +27,7 @@ export function set_trace_stalk(
     input_id: number,
     stalk: TraceStalk
 ) {
-    global_state.trace_state.set_trace_stalk(trace_id, input_id, stalk);
+    global_state.trace_cache.set_trace_stalk(trace_id, input_id, stalk);
 }
 
 export function set_figure(id: number, figure: FigureProps) {
@@ -39,7 +39,7 @@ export function set_figure(id: number, figure: FigureProps) {
 }
 
 export function did_activate(trace_id: number) {
-    let trace = global_state.trace_state.get_trace(trace_id);
+    let trace = global_state.trace_cache.get_trace(trace_id);
     global_state.user_state.active_trace_store.set(trace);
 }
 

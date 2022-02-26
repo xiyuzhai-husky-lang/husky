@@ -4,14 +4,22 @@ import { writable, get } from "svelte/store";
 class FutureStore<T> {
     private values: { [id: number]: Writable<T | null> } = {};
 
+    clear() {
+        this.values = {};
+    }
+
     set(id: number, value: T) {
         if (id in this.values) {
             this.values[id].update((old) => {
                 if (old !== null) {
+                    console.error("old: ", old);
+                    console.error("new: ", value);
                     throw new Error("what");
                 }
                 return value;
             });
+        } else {
+            this.values[id] = writable(value);
         }
     }
 
