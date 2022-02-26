@@ -1,5 +1,9 @@
 import type DebuggerMessage from "./DebuggerMessage";
-import { tDebuggerMessage, tInitMessage } from "./DebuggerMessage";
+import {
+    parse_debugger_message,
+    tDebuggerMessage,
+    tInitMessage,
+} from "./DebuggerMessage";
 import { isRight } from "fp-ts/Either";
 import reporter from "io-ts-reporters";
 import { send_pending_requests } from "./pending";
@@ -10,16 +14,7 @@ export function init_websocket(websocket: WebSocket) {
         send_pending_requests(websocket);
     });
     websocket.addEventListener("message", function (event: MessageEvent) {
-        let data: DebuggerMessage = JSON.parse(event.data);
-        const result = tDebuggerMessage.decode(data);
-        if (isRight(result)) {
-            handle_message(data);
-        } else {
-            console.log("raw data: ", event.data);
-            console.error("invalid response: ", data);
-            console.log("report: ", reporter.report(result));
-            let init_result = tInitMessage.decode(data);
-            console.log("init_report: ", reporter.report(init_result));
-        }
+        let data: DebuggerMessage = parse_debugger_message(event.data);
+        handle_message(data);
     });
 }

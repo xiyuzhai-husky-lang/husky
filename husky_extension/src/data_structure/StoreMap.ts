@@ -12,7 +12,24 @@ class StoreMap<T> {
         }
     }
 
-    get_store_or(id: number, v: T): Readable<T> {
+    get_or(id: number, v: T): T {
+        if (id in this.stores) {
+            return get(this.stores[id]);
+        } else {
+            return v;
+        }
+    }
+
+    get_or_insert(id: number, v: T): T {
+        if (id in this.stores) {
+            return get(this.stores[id]);
+        } else {
+            this.stores[id] = writable(v);
+            return v;
+        }
+    }
+
+    get_store_or_insert(id: number, v: T): Readable<T> {
         if (id in this.stores) {
             return this.stores[id];
         } else {
@@ -20,7 +37,7 @@ class StoreMap<T> {
         }
     }
 
-    get_store_or_with(id: number, f: () => T): Readable<T> {
+    get_store_or_insert_with(id: number, f: () => T): Readable<T> {
         if (id in this.stores) {
             return this.stores[id];
         } else {

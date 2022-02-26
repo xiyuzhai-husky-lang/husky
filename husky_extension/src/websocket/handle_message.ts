@@ -4,7 +4,6 @@ import * as state from "src/state/server";
 export function handle_message(message: DebuggerMessage) {
     switch (message.type) {
         case "Init":
-            console.log("here");
             state.receive_init_message(message.raw_state);
             break;
         case "Subtraces":

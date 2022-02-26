@@ -1,4 +1,4 @@
-import type { Readable, Writable } from "svelte/store";
+import { derived, readable, type Readable, type Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import {
     request_trace,
@@ -10,20 +10,23 @@ import type Trace from "src/trace/Trace";
 import global_state from "./global_state";
 
 export function get_root_traces_store() {
-    return global_state.trace_state.root_traces_store;
+    return global_state.trace_cache.root_traces_store;
 }
 
 export function get_expansion_store(trace_id: number) {
-    return global_state.user_state.expansion_stores.get_store_or(
+    return global_state.user_state.expansion_stores.get_store_or_insert(
         trace_id,
         false
     );
 }
 
 export function get_shown_store(trace: Trace) {
-    return global_state.user_state.shown_stores.get_store_or_with(
+    return global_state.user_state.shown_stores.get_store_or_insert_with(
         trace.id,
-        () => tell_shown_default(trace)
+        () => {
+            let result = tell_shown_default(trace);
+            return result;
+        }
     );
 
     function tell_shown_default(trace: Trace) {
@@ -39,20 +42,25 @@ export function get_shown_store(trace: Trace) {
     }
 }
 
-export function get_trace_store(trace_id: number): Readable<Trace | null> {
-    return global_state.trace_state.trace_futures.get_store(trace_id, () =>
+export function get_trace_future(trace_id: number): Readable<Trace | null> {
+    return global_state.trace_cache.trace_futures.get_store(trace_id, () =>
         request_trace(trace_id)
     );
 }
 
 export function get_subtraces_store(
-    trace_id: number,
-    effective_input_id: number | null
-): Readable<Trace[] | null> {
-    return global_state.trace_state.subtraces_map.get_store(
+    trace_id: number
+): Readable<Trace[] | null> | null {
+    let trace = global_state.trace_cache.get_trace(trace_id);
+    if (trace === null) {
+        return null;
+    }
+    let effective_input_id_for_subtraces =
+        global_state.get_effective_input_id_for_subtraces(trace);
+    return global_state.trace_cache.subtraces_map.get_store(
         trace_id,
-        effective_input_id,
-        () => request_subtraces(trace_id, effective_input_id)
+        effective_input_id_for_subtraces,
+        () => request_subtraces(trace_id, effective_input_id_for_subtraces)
     );
 }
 
@@ -68,7 +76,7 @@ export function get_active_trace_store(): Readable<Trace | null> {
 }
 
 export function get_input_id_store() {
-    return global_state.user_state.input_id_store;
+    return global_state.user_state.opt_input_id_store;
 }
 
 export function get_input_locked_store(): Writable<boolean> {
@@ -76,7 +84,7 @@ export function get_input_locked_store(): Writable<boolean> {
 }
 
 export function get_trace_stalk_store(trace_id: number, opt_input_id: number) {
-    return global_state.trace_state.get_trace_stalk_store(
+    return global_state.trace_cache.get_trace_stalk_store(
         trace_id,
         opt_input_id,
         () => {
@@ -89,8 +97,15 @@ export function get_active_figure_store() {
     return global_state.figure_state.current_figure;
 }
 
-export function get_subtraces(trace_id: number) {
-    console.log("todo");
+export function get_subtraces(trace_id: number): Trace[] | null {
+    let trace = global_state.trace_cache.get_trace(trace_id);
+    if (trace === null) {
+        return null;
+    }
+    return global_state.trace_cache.get_subtraces(
+        trace_id,
+        global_state.get_effective_input_id_for_subtraces(trace)
+    );
 }
 
 export function get_id_before(trace_id: number) {
@@ -146,5 +161,28 @@ export function move_left() {
             toggle_expansion(active_trace.parent);
             activate(active_trace.parent);
         }
+    }
+}
+
+export function tell_has_subtraces_store(
+    trace: Trace | null
+): Readable<boolean> {
+    if (trace === null) {
+        return readable(false);
+    }
+    switch (trace.kind) {
+        case "Main":
+        case "FeatureBranch":
+            return readable(true);
+        case "FeatureStmt":
+        case "DeclStmt":
+            return readable(false);
+        case "FeatureExpr":
+            let opt_input_id_store = global_state.user_state.opt_input_id_store;
+            return derived(
+                opt_input_id_store,
+                ($opt_input_id_store) =>
+                    $opt_input_id_store !== null && trace.has_subtraces
+            );
     }
 }

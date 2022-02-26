@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { get_shown_store, get_trace_store } from "src/state/client";
+    import { get_shown_store, get_trace_future } from "src/state/client";
 
     import type { TokenProps } from "src/trace/Trace";
     import { request_toggle_show } from "src/websocket/websocket_client";
@@ -10,7 +10,7 @@
     $: associated = token.associated_trace !== null;
     $: associated_trace_store =
         token.associated_trace !== null
-            ? get_trace_store(token.associated_trace)
+            ? get_trace_future(token.associated_trace)
             : null;
     $: associated_trace =
         associated_trace_store !== null ? $associated_trace_store : null;

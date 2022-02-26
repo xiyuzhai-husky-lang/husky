@@ -19,7 +19,6 @@ use gui::handle_query;
 use notif::handle_notif;
 use state::DebuggerState;
 use std::sync::Mutex;
-use stdx::sync::ARwLock;
 use trace::{AllocateTrace, FigureProps, Trace, TraceId, TraceStalk};
 use warp::Filter;
 
@@ -62,19 +61,26 @@ impl Debugger {
 
     pub fn change_text(&self) {}
 
-    pub fn root_traces(&self) -> Arc<Vec<Arc<Trace>>> {
+    pub fn root_traces(&self) -> Arc<Vec<TraceId>> {
         self.runtime.lock().unwrap().root_traces()
     }
 
     pub async fn subtraces(
         &self,
         trace_id: TraceId,
-        opt_input_id: Option<usize>,
+        effective_opt_input_id_for_subtraces: Option<usize>,
     ) -> Arc<Vec<Arc<Trace>>> {
-        self.runtime
+        let subtraces = self
+            .runtime
             .lock()
             .unwrap()
-            .subtraces(trace_id, opt_input_id)
+            .subtraces(trace_id, effective_opt_input_id_for_subtraces);
+        self.state.lock().unwrap().set_subtraces(
+            trace_id,
+            effective_opt_input_id_for_subtraces,
+            &subtraces,
+        );
+        subtraces
     }
 
     pub fn expansions(&self) -> HashMap<TraceId, bool> {
@@ -111,10 +117,6 @@ impl Debugger {
 
     pub async fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk> {
         self.runtime.lock().unwrap().trace_stalk(trace_id, input_id)
-    }
-
-    pub fn input_id(&self) -> Option<usize> {
-        self.runtime.lock().unwrap().input_id()
     }
 }
 

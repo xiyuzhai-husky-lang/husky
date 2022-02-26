@@ -1,11 +1,16 @@
 import type { Readable, Writable } from "svelte/store";
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 
 class SchemeFutureMap<T> {
     private generic_points: { [trace_id: number]: Writable<T | null> } = {};
     private closed_points: {
         [trace_id: number]: { [input_id: number]: Writable<T | null> };
     } = {};
+
+    clear() {
+        this.generic_points = {};
+        this.closed_points = {};
+    }
 
     set(trace_id: number, input_id: number | null, value: T) {
         if (input_id === null) {
@@ -55,6 +60,14 @@ class SchemeFutureMap<T> {
                 return (values[input_id] = writable(null));
             }
         }
+    }
+
+    get(
+        trace_id: number,
+        input_id: number | null,
+        make_request: () => void = () => {}
+    ): T | null {
+        return get(this.get_store(trace_id, input_id, make_request));
     }
 }
 export default SchemeFutureMap;

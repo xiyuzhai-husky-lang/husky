@@ -7,12 +7,7 @@ use crate::*;
 #[serde(tag = "type")]
 pub(super) enum Response<'a> {
     Init {
-        active_trace_id: Option<TraceId>,
-        opt_input_id: Option<usize>,
-        traces: &'a TraceAllocator,
-        root_traces: &'a [Arc<Trace>],
-        expansions: &'a HashMap<TraceId, bool>,
-        showns: &'a HashMap<TraceId, bool>,
+        raw_state: InitState<'a>,
     },
     Subtraces {
         id: TraceId,

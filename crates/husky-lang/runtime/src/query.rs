@@ -60,20 +60,22 @@ pub trait RuntimeQueryGroup: AskCompileTime + AllocateTrace + EvalFeature {
     fn version(&self) -> usize;
 
     fn subtraces(&self, trace_id: TraceId, opt_input_id: Option<usize>) -> Arc<Vec<Arc<Trace>>>;
-    fn root_traces(&self) -> Arc<Vec<Arc<Trace>>>;
+    fn root_traces(&self) -> Arc<Vec<TraceId>>;
 
     fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk>;
 }
 
-pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<Arc<Trace>>> {
+pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<TraceId>> {
     let compile_time = this.compile_time(this.version());
     let package_main = this.package_main();
-    Arc::new(vec![this.new_trace(
-        None,
-        package_main,
-        0,
-        TraceKind::Main(compile_time.main_feature_block(package_main).unwrap()),
-    )])
+    Arc::new(vec![this
+        .new_trace(
+            None,
+            package_main,
+            0,
+            TraceKind::Main(compile_time.main_feature_block(package_main).unwrap()),
+        )
+        .id()])
 }
 
 pub fn subtraces(

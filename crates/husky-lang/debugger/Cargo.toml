@@ -29,3 +29,4 @@ file = { path = "../file", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }
 trace = { path = "../trace", version = "0.0.0" }
 husky-lang-runtime = { path = "../runtime", version = "0.0.0" }
+json-map = { path = "../../data_structure/json-map", version = "0.0.0" }
