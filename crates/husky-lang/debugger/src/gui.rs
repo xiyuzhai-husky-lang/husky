@@ -125,17 +125,23 @@ fn init_gui(debugger: &Debugger, sender: UnboundedSender<Result<Message, warp::E
     let expansions = debugger.expansions();
     let showns = debugger.showns();
     let state = debugger.state.lock().unwrap();
-    match sender.send(Ok(Message::text(
-        serde_json::to_string(&Response::Init {
-            active_trace_id: state.active_trace_id,
-            opt_input_id: debugger.input_id(),
-            root_traces,
-            expansions: &expansions,
-            showns: &showns,
-        })
-        .unwrap(),
-    ))) {
-        Ok(_) => (),
+    let runtime = debugger.runtime.lock().unwrap();
+    epin!();
+    let traces = runtime.traces();
+    epin!();
+    let response = Response::Init {
+        active_trace_id: state.active_trace_id,
+        opt_input_id: debugger.input_id(),
+        traces,
+        root_traces: &root_traces,
+        expansions: &expansions,
+        showns: &showns,
+    };
+    epin!();
+    match sender.send(Ok(Message::text(serde_json::to_string(&response).unwrap()))) {
+        Ok(_) => {
+            println!("init message sent")
+        }
         Err(_) => todo!(),
     };
 }

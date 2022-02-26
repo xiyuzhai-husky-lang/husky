@@ -1,3 +1,5 @@
+use trace::TraceAllocator;
+
 use super::*;
 use crate::*;
 
@@ -7,7 +9,8 @@ pub(super) enum Response<'a> {
     Init {
         active_trace_id: Option<TraceId>,
         opt_input_id: Option<usize>,
-        root_traces: Arc<Vec<Arc<Trace>>>,
+        traces: &'a TraceAllocator,
+        root_traces: &'a [Arc<Trace>],
         expansions: &'a HashMap<TraceId, bool>,
         showns: &'a HashMap<TraceId, bool>,
     },

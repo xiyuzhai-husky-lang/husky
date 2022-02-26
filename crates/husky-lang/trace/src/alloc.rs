@@ -32,9 +32,19 @@ fn test_trace_id_deserialize() {
     assert_eq!(id0, id1);
 }
 
-#[derive(Default)]
+#[derive(Debug, Default)]
 pub struct TraceAllocator {
     traces: ARwLock<Vec<Option<Arc<Trace>>>>,
+}
+
+impl Serialize for TraceAllocator {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.traces
+            .read(|traces| serializer.collect_seq(traces.iter()))
+    }
 }
 
 impl TraceAllocator {

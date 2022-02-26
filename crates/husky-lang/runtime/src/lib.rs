@@ -28,7 +28,7 @@ use vm::{run, AnyValueDyn, Instruction};
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
-    trace_allocator: Arc<TraceAllocator>,
+    traces: Arc<TraceAllocator>,
     session: Arc<Mutex<Session<'static>>>,
     input_id: Option<usize>,
     expansions: HashMap<TraceId, bool>,
@@ -49,10 +49,10 @@ impl RawTextQueryGroup for HuskyLangRuntime {
 
 impl AllocateTrace for HuskyLangRuntime {
     fn trace_allocator(&self) -> &trace::TraceAllocator {
-        &self.trace_allocator
+        &self.traces
     }
     fn trace_allocator_arc(&self) -> Arc<trace::TraceAllocator> {
-        self.trace_allocator.clone()
+        self.traces.clone()
     }
 }
 
@@ -73,7 +73,7 @@ impl HuskyLangRuntime {
         let mut runtime = Self {
             storage: Default::default(),
             compile_time,
-            trace_allocator: Default::default(),
+            traces: Default::default(),
             session: Arc::new(Mutex::new(Session::new(&package).unwrap())),
             input_id: None,
             expansions: Default::default(),
@@ -82,6 +82,10 @@ impl HuskyLangRuntime {
         runtime.set_version(0);
         runtime.set_package_main(current_package_main);
         runtime
+    }
+
+    pub fn traces(&self) -> &TraceAllocator {
+        &self.traces
     }
 
     pub async fn change_text(&mut self) {

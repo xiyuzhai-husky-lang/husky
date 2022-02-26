@@ -1,7 +1,9 @@
 <script lang="ts">
-    import { get_input_id_store } from "src/trace/input/input_client";
-    import { get_trace_stalk_store } from "src/trace/stalk/stalk_client";
-    import { Trace } from "src/trace/Trace";
+    import {
+        get_input_id_store as get_opt_input_id_store,
+        get_trace_stalk_store,
+    } from "src/state/client";
+    import type Trace from "src/trace/Trace";
     import Token from "./Token.svelte";
 
     export let trace: Trace;
@@ -25,8 +27,8 @@
         }
     }
 
-    const input_id_store = get_input_id_store();
-    $: input_id = $input_id_store;
+    const opt_input_id_store = get_opt_input_id_store();
+    $: input_id = $opt_input_id_store;
     $: has_extra = tell_has_extra(trace, input_id);
     $: stalk_store = has_extra
         ? get_trace_stalk_store(trace.id, input_id!)
