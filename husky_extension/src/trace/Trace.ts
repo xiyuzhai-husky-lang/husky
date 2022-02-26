@@ -1,6 +1,6 @@
 import * as t from "io-ts";
 
-export const tTokenProps = t.interface({
+export const tTokenProps = t.type({
     kind: t.union([
         t.literal("special"),
         t.literal("scope"),
@@ -16,7 +16,7 @@ export const tTokenProps = t.interface({
 });
 export type TokenProps = t.TypeOf<typeof tTokenProps>;
 
-export const tTrace = t.interface({
+export const tTrace = t.type({
     id: t.number,
     parent: t.union([t.number, t.null]),
     indent: t.number,
@@ -31,5 +31,5 @@ export const tTrace = t.interface({
     ]),
     subtraces_container_class: t.union([t.literal("Call"), t.null]),
 });
-export type Trace = t.TypeOf<typeof tTrace>;
+type Trace = t.TypeOf<typeof tTrace>;
 export default Trace;

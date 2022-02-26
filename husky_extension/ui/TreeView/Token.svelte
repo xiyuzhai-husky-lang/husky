@@ -1,17 +1,21 @@
 <script lang="ts">
-    import { get_shown_store } from "src/trace/status/status_client";
+    import { get_shown_store, get_trace_store } from "src/state/client";
 
-    import { TokenProps } from "src/trace/Trace";
+    import type { TokenProps } from "src/trace/Trace";
     import { request_toggle_show } from "src/websocket/websocket_client";
     export let token: TokenProps;
     export let within_active_node: boolean;
     $: spacesBeforeStyles = spacesStyle(countSpacesBefore(token.value));
     $: spacesAfterStyles = spacesStyle(countSpacesAfter(token.value));
     $: associated = token.associated_trace !== null;
-    $: associated_trace_shown_store =
+    $: associated_trace_store =
         token.associated_trace !== null
-            ? get_shown_store(token.associated_trace)
+            ? get_trace_store(token.associated_trace)
             : null;
+    $: associated_trace =
+        associated_trace_store !== null ? $associated_trace_store : null;
+    $: associated_trace_shown_store =
+        associated_trace !== null ? get_shown_store(associated_trace) : null;
     $: associated_trace_shown =
         associated_trace_shown_store !== null
             ? $associated_trace_shown_store

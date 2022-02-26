@@ -1,4 +1,7 @@
 {
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "include": ["./ui", "./src"],
+    "exclude": ["./node_modules/*", ".old/*"],
     "compilerOptions": {
         "strict": true,
         "baseUrl": ".",
@@ -9,5 +12,5 @@
             "ui/*": ["./ui/*"]
         }
     },
-    "exclude": ["./old/*", "./node_modules/*"]
+    "types": ["node", "svelte"]
 }

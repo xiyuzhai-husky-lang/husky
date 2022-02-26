@@ -1,4 +1,3 @@
-import { has_figure } from "src/trace/figure/figure_server";
 import { pending_requests } from "./pending";
 import { websocket } from "./websocket";
 
@@ -40,12 +39,12 @@ export function request_toggle_show(id: number) {
     try_send_request({ type: "ToggleShow", id });
 }
 
-export function request_activate(id: number) {
-    prepare_figure(id);
+export function request_activate(id: number, figure_cached: boolean) {
+    prepare_figure(id, figure_cached);
     try_send_request({ type: "Activate", id });
 
-    function prepare_figure(id: number) {
-        if (!has_figure(id)) {
+    function prepare_figure(id: number, figure_cached: boolean) {
+        if (!figure_cached) {
             try_send_request({ type: "Figure", id });
         }
     }

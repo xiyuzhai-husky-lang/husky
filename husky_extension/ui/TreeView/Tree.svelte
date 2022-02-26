@@ -1,17 +1,15 @@
 <script lang="ts">
     import Node from "./Node.svelte";
-    import { get_trace_store } from "src/trace/trace_client";
-    import { get_subtraces_store } from "src/trace/subtraces/subtraces_client";
     import {
+        get_trace_store,
         get_expansion_store,
-        toggle_expansion,
         get_shown_store,
-    } from "src/trace/status/status_client";
-    import {
-        activate,
+        get_subtraces_store,
+        get_input_id_store,
         get_active_trace_store,
-    } from "src/trace/active/active_trace_client";
-    import { get_input_id_store } from "src/trace/input/input_client";
+        activate,
+    } from "src/state/client";
+    import { request_toggle_expansion } from "src/websocket/websocket_client";
     import type Trace from "src/trace/Trace";
 
     export let trace_id: number;
@@ -21,8 +19,8 @@
     $: expanded = get_expansion_store(trace_id);
     const input_id_store = get_input_id_store();
     $: input_id = $input_id_store;
-    $: shown_store = get_shown_store(trace_id);
-    $: shown = $shown_store;
+    $: shown_store = trace !== null ? get_shown_store(trace) : null;
+    $: shown = shown_store !== null ? $shown_store : false;
     $: subtraces_store = shown ? get_subtraces_store(trace_id, input_id) : null;
     $: subtraces = shown ? $subtraces_store : null;
     $: active_trace_store = get_active_trace_store();
@@ -32,7 +30,7 @@
     $: has_subtraces = tell_has_subtraces(trace, input_id);
     function toggle_expansion_locked() {
         if (!locked) {
-            toggle_expansion(trace_id);
+            request_toggle_expansion(trace_id);
             locked = true;
             setTimeout(() => {
                 locked = false;
