@@ -142,7 +142,7 @@ impl FeatureBlock {
                 .collect(),
         ));
         let file = stmts[0].file;
-        let range = text::group_text_range(&stmts);
+        let range = (&stmts).into();
         FeatureBlock {
             symbols,
             stmts,

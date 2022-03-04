@@ -69,65 +69,64 @@ impl<'a> Formatter<'a> {
 
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &ast::Ast) {
-        match ast {
-            ast::Ast::TypeDef {
+        match ast.kind {
+            ast::AstKind::TypeDef {
                 ident,
-                kind,
-                generics,
+                ref kind,
+                ref generics,
             } => {
                 epin!();
                 match kind {
                     TyKind::Enum(_) => todo!(),
                     TyKind::Struct => self.write("struct "),
                 }
-                self.fmt_ident((*ident).into());
+                self.fmt_ident(ident.into());
                 if generics.len() > 0 {
                     todo!()
                 }
             }
-            ast::Ast::MainDef => self.write("main:"),
-            ast::Ast::FuncDef { kind, decl } => {
+            ast::AstKind::MainDef => self.write("main:"),
+            ast::AstKind::RoutineDef { ref kind, ref decl } => {
                 self.write(match kind {
-                    FuncKind::Test => "test ",
-                    FuncKind::Proc => todo!(),
-                    FuncKind::Func => "func ",
-                    FuncKind::Def => todo!(),
+                    RoutineKind::Test => "test ",
+                    RoutineKind::Proc => todo!(),
+                    RoutineKind::Func => "func ",
+                    RoutineKind::Def => todo!(),
                 });
                 self.write(&decl.funcname);
                 self.write("(");
-                for i in 0..decl.input_contracts.len() {
+                for i in 0..decl.input_placeholders.len() {
                     if i > 0 {
                         self.write(", ");
                     }
-                    let (ident, ref ty) = decl.input_contracts[i];
-                    self.fmt_ident(ident.into());
+                    let input_placeholder = &decl.input_placeholders[i];
+                    self.fmt_ident(input_placeholder.ident.into());
                     self.write(": ");
-                    self.fmt_func_input_contracted_type(ty);
+                    self.fmt_func_input_contracted_type(&input_placeholder);
                 }
                 self.write(")");
-                if decl.output != ScopePtr::Builtin(BuiltinIdentifier::Void) {
+                if decl.output.scope != ScopePtr::Builtin(BuiltinIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_type(decl.output);
+                    self.fmt_type(decl.output.scope);
                 }
                 self.write(":");
             }
-            ast::Ast::PatternDef => todo!(),
-            ast::Ast::Use { ident, scope } => todo!(),
-            ast::Ast::MembDef { ident, kind } => match kind {
-                MembKind::MembVar { ty } => {
-                    self.fmt_ident((*ident).into());
-                    self.write(": ");
-                    self.fmt_member_variable_contracted_type(ty);
-                }
-                MembKind::MembFunc {
-                    this,
-                    inputs,
-                    output,
-                    args,
-                } => todo!(),
-            },
-            ast::Ast::Stmt(stmt) => self.fmt_stmt(stmt),
-            ast::Ast::DatasetConfig => todo!(),
+            ast::AstKind::PatternDef => todo!(),
+            ast::AstKind::Use { ident, scope } => todo!(),
+            ast::AstKind::MembDef {
+                ident,
+                kind: MembKind::MembVar { ty },
+            } => {
+                self.fmt_ident(ident.into());
+                self.write(": ");
+                self.fmt_member_variable_contracted_type(ty)
+            }
+            ast::AstKind::MembDef {
+                ident,
+                kind: MembKind::MembFunc { .. },
+            } => todo!(),
+            ast::AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
+            ast::AstKind::DatasetConfig => todo!(),
         }
     }
 
@@ -135,22 +134,26 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_member_variable_contracted_type(&mut self, ty: &MembType) {
+    fn fmt_member_variable_contracted_type(&mut self, ty: MembType) {
         match ty.contract {
             InputContract::Intact => todo!(),
             InputContract::Share => todo!(),
             InputContract::Own => (),
+            InputContract::MutShare => todo!(),
+            InputContract::MutOwn => todo!(),
         }
         self.fmt_type(ty.scope);
     }
 
-    fn fmt_func_input_contracted_type(&mut self, ty: &InputType) {
+    fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
         match ty.contract {
             InputContract::Intact => (),
             InputContract::Share => self.write("&"),
             InputContract::Own => self.write("!"),
+            InputContract::MutShare => self.write("mut &"),
+            InputContract::MutOwn => self.write("mut !"),
         }
-        self.fmt_type(ty.ty);
+        self.fmt_type(ty.ty.scope);
     }
 
     fn fmt_type(&mut self, ty: ScopePtr) {
@@ -173,7 +176,7 @@ impl<'a> Formatter<'a> {
                 match kind {
                     ast::InitKind::Let => self.write("let "),
                     ast::InitKind::Var => self.write("var "),
-                    ast::InitKind::Functional => (),
+                    ast::InitKind::Decl => (),
                 }
                 self.fmt_ident(varname.into());
                 self.write(" = ");
@@ -251,7 +254,7 @@ impl<'a> Formatter<'a> {
                         this.fmt_ident((*ident).into());
                         if let Some(ty) = ty {
                             this.write(": ");
-                            this.fmt_type(*ty)
+                            this.fmt_type(ty.scope)
                         }
                     },
                     ", ",

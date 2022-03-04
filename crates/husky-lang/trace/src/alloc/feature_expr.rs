@@ -1,4 +1,5 @@
 use feature::{FeatureExpr, FeatureExprKind};
+use scope::RangedScope;
 
 use crate::*;
 
@@ -10,8 +11,8 @@ impl TraceAllocator {
         text: &Text,
     ) -> Vec<TokenProps> {
         let associated_trace =
-            Some(self.new_trace(None, indent, TraceKind::FeatureExpr(expr.clone()), text));
-        match expr.kind {
+            self.new_trace(None, indent, TraceKind::FeatureExpr(expr.clone()), text);
+        return match expr.kind {
             FeatureExprKind::Literal(value) => vec![literal!(value)],
             FeatureExprKind::PrimitiveBinaryOpr {
                 opr,
@@ -26,21 +27,32 @@ impl TraceAllocator {
             }
             FeatureExprKind::Variable { varname, .. } => vec![ident!(varname.0, associated_trace)],
             FeatureExprKind::FuncCall {
-                func,
-                scope_expr_range,
+                ranged_scope,
                 ref inputs,
                 ..
-            } => {
-                let mut tokens = vec![
-                    scope!(text.ranged(scope_expr_range), associated_trace),
-                    special!("("),
-                ];
-                for input in inputs {
-                    todo!()
-                }
-                tokens.push(special!(")"));
-                tokens
+            } => routine_call_tokens(ranged_scope, inputs, associated_trace, text),
+            FeatureExprKind::ProcCall {
+                ranged_scope,
+                ref inputs,
+                ..
+            } => routine_call_tokens(ranged_scope, inputs, associated_trace, text),
+        };
+
+        fn routine_call_tokens(
+            ranged_scope: RangedScope,
+            inputs: &[Arc<FeatureExpr>],
+            associated_trace: Arc<Trace>,
+            text: &Text,
+        ) -> Vec<TokenProps> {
+            let mut tokens = vec![
+                scope!(text.ranged(ranged_scope.range), associated_trace),
+                special!("("),
+            ];
+            for input in inputs {
+                todo!()
             }
+            tokens.push(special!(")"));
+            tokens
         }
     }
 
@@ -62,14 +74,25 @@ impl TraceAllocator {
                 tokens.extend(self.feature_expr_tokens(ropd, text));
                 tokens
             }
-            FeatureExprKind::Variable { varname, .. } => vec![ident!(varname.0, None)],
+            FeatureExprKind::Variable { varname, .. } => vec![ident!(varname.0)],
             FeatureExprKind::FuncCall {
-                func,
-                scope_expr_range,
+                ranged_scope,
                 ref inputs,
                 ..
             } => {
-                let mut tokens = vec![scope!(text.ranged(scope_expr_range), None), special!("(")];
+                let mut tokens = vec![scope!(text.ranged(ranged_scope.range)), special!("(")];
+                for input in inputs {
+                    todo!()
+                }
+                tokens.push(special!(")"));
+                tokens
+            }
+            FeatureExprKind::ProcCall {
+                ranged_scope,
+                ref inputs,
+                ..
+            } => {
+                let mut tokens = vec![scope!(text.ranged(ranged_scope.range)), special!("(")];
                 for input in inputs {
                     todo!()
                 }

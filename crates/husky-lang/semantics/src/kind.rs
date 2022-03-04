@@ -10,7 +10,8 @@ pub use func::Func;
 pub use module::Module;
 pub use pattern::Pattern;
 pub use proc::Proc;
-use syntax_types::InputType;
+use scope::RangedScope;
+use syntax_types::InputPlaceholder;
 pub use ty::Ty;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -24,9 +25,14 @@ pub enum EntityKind {
     Feature(Vec<DeclStmt>),
     Pattern(Pattern),
     Func {
-        input_contracts: Arc<Vec<(CustomIdentifier, InputType)>>,
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        output: RangedScope,
         stmts: Arc<Vec<Arc<DeclStmt>>>,
     },
-    Proc(Proc),
+    Proc {
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        output: RangedScope,
+        stmts: Arc<Vec<Arc<ImprStmt>>>,
+    },
     Ty(Ty),
 }

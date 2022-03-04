@@ -47,7 +47,7 @@ macro_rules! expect_len {
     ($tokens:expr,  $len:expr) => {
         expect!(
             $tokens.len() == $len,
-            text::group_text_range($tokens),
+            $tokens.into(),
             format!(
                 "expect {} tokens after keyword, but got {} tokens instead",
                 $len,

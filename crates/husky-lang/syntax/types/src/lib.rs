@@ -6,7 +6,7 @@ use std::sync::Arc;
 pub use env::Env;
 pub use opr::*;
 
-use scope::{ScopeKind, ScopePtr};
+use scope::{RangedScope, ScopeKind, ScopePtr};
 use vm::{InputContract, PrimitiveValue};
 use word::CustomIdentifier;
 
@@ -23,14 +23,14 @@ pub enum MembKind {
     },
     MembFunc {
         this: InputContract,
-        inputs: Vec<InputType>,
-        output: InputType,
+        inputs: Vec<InputPlaceholder>,
+        output: RangedScope,
         args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FuncKind {
+pub enum RoutineKind {
     Test,
     Proc,
     Func,
@@ -38,17 +38,17 @@ pub enum FuncKind {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct FuncDecl {
+pub struct RoutineDecl {
     pub funcname: CustomIdentifier,
     pub generics: Vec<GenericPlaceholder>,
-    pub input_contracts: Arc<Vec<(CustomIdentifier, InputType)>>,
-    pub output: ScopePtr,
+    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
+    pub output: RangedScope,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum GenericPlaceholderKind {
     Const,
-    Type { traits: Vec<ScopePtr> },
+    Type { traits: Vec<RangedScope> },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -63,17 +63,24 @@ pub struct MembType {
     pub scope: ScopePtr,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct InputType {
+// #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+// pub struct InputType {
+//     pub contract: InputContract,
+//     pub ty: RangedScope,
+// }
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct InputPlaceholder {
+    pub ident: CustomIdentifier,
     pub contract: InputContract,
-    pub ty: ScopePtr,
+    pub ty: RangedScope,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InitKind {
     Let,
     Var,
-    Functional,
+    Decl,
 }
 
 impl std::fmt::Display for InitKind {
@@ -81,7 +88,7 @@ impl std::fmt::Display for InitKind {
         f.write_str(match self {
             InitKind::Let => "let",
             InitKind::Var => "var",
-            InitKind::Functional => "functional",
+            InitKind::Decl => "decl",
         })
     }
 }

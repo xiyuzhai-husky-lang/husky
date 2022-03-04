@@ -1,3 +1,4 @@
+use ast::AstKind;
 use common::Upcast;
 use fold::FoldStorage;
 
@@ -13,8 +14,8 @@ pub trait MainQueryGroup:
 fn main(this: &dyn MainQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Main> {
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
-        match item.value.as_ref()? {
-            ast::Ast::MainDef => {
+        match item.value.as_ref()?.kind {
+            AstKind::MainDef => {
                 return Ok(Arc::new(Main {
                     stmts: stmt::parse_decl_stmts(
                         this.upcast(),

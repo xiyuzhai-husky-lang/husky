@@ -14,10 +14,9 @@
         move_down,
         move_left,
     } from "src/state/client";
+    import { onDestroy } from "svelte";
 
     let window_height: number;
-    let input: number | null = null;
-    let input_temp: number | null = null;
     $: figure_store = get_active_figure_store();
     $: figure = $figure_store;
     $: active_trace_store = get_active_trace_store();
@@ -48,19 +47,25 @@
 
     let input_locked_store = get_input_locked_store();
     let input_id_store = get_input_id_store();
-    $: input_locked = $input_locked_store;
     $: input = $input_id_store;
+    let input_str: string = JSON.stringify(input);
+    $: is_input_locked = $input_locked_store;
+    const unsubscribe = input_id_store.subscribe((value) => {
+        input_str = value === null ? "" : JSON.stringify(value);
+    });
+
+    onDestroy(unsubscribe);
     function on_input_clicked() {
-        if (input_locked) {
+        if (is_input_locked) {
             input_locked_store.set(false);
         }
     }
     function on_input_keydown(e: KeyboardEvent) {
-        if (input_locked) {
+        if (is_input_locked) {
             e.preventDefault();
         }
-        if (e.code === "Enter" && !input_locked) {
-            request_lock_input(input_temp);
+        if (e.code === "Enter" && !is_input_locked) {
+            request_lock_input(input_str);
         }
     }
 </script>
@@ -77,15 +82,12 @@
             locked on:
             <div on:click={on_input_clicked} class="BottomInputWrapper">
                 <input
-                    class:input_locked
+                    class:is_input_locked
                     on:keydown={on_input_keydown}
-                    bind:value={input_temp}
+                    bind:value={input_str}
+                    on:input={() => {}}
                 />
             </div>
-            {#if input !== null}
-                =
-                {input}
-            {/if}
         </div>
     </div>
 </div>
@@ -113,7 +115,7 @@
         outline: orange solid 1px;
         color: white;
     }
-    input.input_locked {
+    input.is_input_locked {
         caret-color: transparent;
         background: rgb(0, 80, 80);
         outline: none;

@@ -1,3 +1,5 @@
+use semantics::Opn;
+
 use crate::*;
 
 impl Trace {
@@ -7,8 +9,37 @@ impl Trace {
             | TraceKind::FeatureStmt(_)
             | TraceKind::FeatureBranch(_)
             | TraceKind::Input(_)
-            | TraceKind::DeclStmt { .. } => None,
-            TraceKind::FeatureExpr(_) => Some(SubtracesContainerClass::Call),
+            | TraceKind::StrictDeclStmt { .. }
+            | TraceKind::ImprStmt { .. }
+            | TraceKind::CallHead { .. } => None,
+            TraceKind::FeatureExpr(ref expr) => match expr.kind {
+                feature::FeatureExprKind::Literal(_)
+                | feature::FeatureExprKind::PrimitiveBinaryOpr { .. }
+                | feature::FeatureExprKind::Variable { .. } => None,
+                feature::FeatureExprKind::FuncCall { .. }
+                | feature::FeatureExprKind::ProcCall { .. } => Some(SubtracesContainerClass::Call),
+            },
+            TraceKind::Expr { ref expr, .. } => match expr.kind {
+                semantics::ExprKind::Variable(_)
+                | semantics::ExprKind::Scope { .. }
+                | semantics::ExprKind::Literal(_) => None,
+                semantics::ExprKind::Opn { opn, ref opds, .. } => match opn {
+                    Opn::MembVarAccess | Opn::ElementAccess => None,
+                    Opn::Binary { .. } | Opn::Prefix(_) | Opn::Suffix(_) => {
+                        if opds[0].ty.is_builtin() {
+                            None
+                        } else {
+                            Some(SubtracesContainerClass::Call)
+                        }
+                    }
+                    Opn::RoutineCall { .. } | Opn::MembFuncCall(_) => {
+                        Some(SubtracesContainerClass::Call)
+                    }
+                    Opn::PattCall => panic!(),
+                },
+                semantics::ExprKind::Lambda(_, _) => todo!(),
+                semantics::ExprKind::Bracketed(_) => panic!(),
+            },
         }
     }
 }

@@ -31,10 +31,7 @@ pub trait ExprInstructionBuilder {
                     }),
                     expr::Opn::Prefix(_) => todo!(),
                     expr::Opn::Suffix(_) => todo!(),
-                    expr::Opn::FuncCall {
-                        func,
-                        scope_expr_range,
-                    } => {
+                    expr::Opn::RoutineCall(routine) => {
                         if let Some(compiled) = compiled {
                             self.push_instruction(Instruction {
                                 kind: InstructionKind::Call {

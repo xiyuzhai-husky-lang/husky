@@ -1,5 +1,6 @@
-use crate::{stmt::gen_decl_stmt_instructions, *};
+use crate::{stmt::gen_decl_stmt_instructions, stmt::gen_impr_stmt_instructions, *};
 
+use common::p;
 use scope::ScopePtr;
 use vm::Instruction;
 
@@ -19,7 +20,7 @@ fn instruction_sheet(
         EntityKind::Feature(_) => todo!(),
         EntityKind::Pattern(_) => todo!(),
         EntityKind::Func { stmts, .. } => gen_decl_stmt_instructions(stmts, &mut sheet),
-        EntityKind::Proc(_) => todo!(),
+        EntityKind::Proc { stmts, .. } => gen_impr_stmt_instructions(stmts, &mut sheet),
         EntityKind::Ty(_) => todo!(),
     });
     Ok(Arc::new(sheet))

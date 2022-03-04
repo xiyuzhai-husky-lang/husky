@@ -3,7 +3,7 @@ use file::FilePtr;
 
 use std::sync::Arc;
 
-use ast::{Ast, AstResult, AstText};
+use ast::{Ast, AstKind, AstResult, AstText};
 use fold::{FoldIter, FoldIterItem, FoldStorage, FoldedList};
 use scope::ScopePtr;
 
@@ -37,8 +37,8 @@ fn dataset_config_from_ast_text(
     file: FilePtr,
 ) -> SemanticResult<DatasetConfig> {
     for item in ast_text.folded_results.fold_iter(0) {
-        match item.value.as_ref()? {
-            Ast::DatasetConfig => {
+        match item.value.as_ref()?.kind {
+            AstKind::DatasetConfig => {
                 return Ok(DatasetConfig::new(stmt::parse_decl_stmts(
                     this.upcast(),
                     &ast_text.arena,

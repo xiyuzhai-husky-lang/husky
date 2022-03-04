@@ -37,6 +37,7 @@ impl<'a> Stream<'a> {
     }
 
     pub(crate) fn pop_range(&mut self) -> TextRange {
+        should!(self.range.start != self.range.end);
         let range = self.range.clone();
         self.range = ((self.range.end)..(self.range.end)).into();
         range
@@ -47,7 +48,7 @@ impl<'a> From<&'a [Token]> for Stream<'a> {
     fn from(tokens: &'a [Token]) -> Self {
         Self {
             iter: tokens.iter(),
-            range: text::group_text_range(tokens),
+            range: tokens.into(),
         }
     }
 }
@@ -180,7 +181,7 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopePt
     }
     if result.len() > 1 {
         p!(result);
-        ast_err!(text::group_text_range(&result[1..]), "too many atoms")?
+        ast_err!(result[1..].into(), "too many atoms")?
     } else {
         match result[0].kind {
             AtomKind::Scope {
@@ -188,7 +189,7 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopePt
                 kind: ScopeKind::Type,
                 ..
             } => Ok(scope),
-            _ => ast_err!(text::group_text_range(&result), "too many atoms")?,
+            _ => ast_err!((&result).into(), "too many atoms")?,
         }
     }
 }

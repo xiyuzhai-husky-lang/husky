@@ -12,7 +12,7 @@ pub(super) fn check_atom_kind(source: &'static str, kind: AtomKind) {
     should_be!(nodes.len(), 1);
     let node = &nodes[0];
     let atoms = match should_ok!(node.value().as_ref()) {
-        atom::Ast::Stmt(stmt) => stmt.atoms.clone(),
+        atom::AstKind::Stmt(stmt) => stmt.atoms.clone(),
         _ => panic!(),
     };
     should_be!(atoms.len(), 1);
@@ -32,7 +32,7 @@ pub(super) fn get_stmt_atoms_in_one_line_group(
     should_be!(nodes.len(), 1);
     let node = &nodes[0];
     match node.value().as_ref().unwrap() {
-        atom::Ast::Stmt(stmt) => (db, stmt.atoms.clone()),
+        atom::AstKind::Stmt(stmt) => (db, stmt.atoms.clone()),
         _ => panic!(),
     }
 }

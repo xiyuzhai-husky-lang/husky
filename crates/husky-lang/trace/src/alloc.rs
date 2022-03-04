@@ -1,8 +1,11 @@
-mod decl_stmt;
+mod call_head;
+mod expr;
 mod feature_block;
 mod feature_branch;
 mod feature_expr;
 mod feature_stmt;
+mod impr_stmt;
+mod strict_decl_stmt;
 
 use feature::{
     FeatureBlock, FeatureBranch, FeatureBranchKind, FeatureExpr, FeatureExprKind, FeatureStmtKind,
@@ -71,8 +74,8 @@ impl TraceAllocator {
             TraceKind::FeatureStmt(stmt) => match stmt.kind {
                 FeatureStmtKind::Init { varname, ref value } => {
                     let mut tokens = vec![];
-                    tokens.push(ident!(varname.0, None));
-                    tokens.push(special!(" = ", None));
+                    tokens.push(ident!(varname.0));
+                    tokens.push(special!(" = "));
                     tokens.extend(self.feature_expr_associated_tokens(indent + 4, value, text));
                     tokens.into()
                 }
@@ -104,24 +107,21 @@ impl TraceAllocator {
                 FeatureBranchKind::Else => vec![keyword!("else ")],
             },
             TraceKind::Input(_) => todo!(),
-            TraceKind::DeclStmt { ref tokens, .. } => tokens.clone(),
+            TraceKind::StrictDeclStmt { ref tokens, .. } => tokens.clone(),
+            TraceKind::ImprStmt { ref tokens, .. } => tokens.clone(),
+            TraceKind::Expr { expr, value } => self.expr_tokens(expr, Some(value)),
+            TraceKind::CallHead { ref tokens, .. } => tokens.clone(),
         }
     }
 
     fn new_trace(
         &self,
-        parent: Option<&Trace>,
+        parent_id: Option<TraceId>,
         indent: Indent,
         kind: TraceKind,
         text: &Text,
     ) -> Arc<Trace> {
-        let trace = Arc::new(Trace::new(
-            parent.map(|trace| trace.id),
-            indent,
-            kind,
-            self,
-            text,
-        ));
+        let trace = Arc::new(Trace::new(parent_id, indent, kind, self, text));
         self.traces.write(|traces| {
             assert!(traces[trace.id.0].is_none());
             traces[trace.id.0] = Some(trace.clone())
@@ -175,13 +175,13 @@ pub trait AllocateTrace: TextQueryGroup {
 
     fn new_trace(
         &self,
-        parent: Option<&Trace>,
+        parent_id: Option<TraceId>,
         file: FilePtr,
         indent: Indent,
         kind: TraceKind,
     ) -> Arc<Trace> {
         self.trace_allocator()
-            .new_trace(parent, indent, kind, &self.text(file).unwrap())
+            .new_trace(parent_id, indent, kind, &self.text(file).unwrap())
     }
 
     fn trace(&self, id: TraceId) -> Arc<Trace> {

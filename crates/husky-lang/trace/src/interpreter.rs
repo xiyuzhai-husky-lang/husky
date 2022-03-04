@@ -1,12 +1,14 @@
 mod control;
+mod impl_decl;
+mod impl_impr;
 mod value;
 
 use std::sync::Arc;
 
 use common::*;
 pub(crate) use control::TraceInterpreterControlSignal;
-use semantics::{DeclStmt, DeclStmtKind, Expr, ExprKind, InstructionSheet, Opn};
-pub(crate) use value::TraceStackValue;
+use semantics::{DeclStmt, DeclStmtKind, Expr, ExprKind, ImprStmt, InstructionSheet, Opn};
+pub use value::TraceStackValue;
 use vm::{Interpreter, StackValue, VMResult};
 
 use crate::*;
@@ -37,62 +39,10 @@ impl TraceInterpreter {
         }
     }
 
-    pub fn decl_stmt_traces(
-        &self,
-        parent: &Trace,
-        stmts: &[Arc<DeclStmt>],
-        indent: Indent,
-    ) -> Vec<Arc<Trace>> {
-        let mut traces = vec![];
-        for stmt in stmts {
-            let trace = self.trace_allocator.new_decl_stmt_trace(
-                parent.id,
-                indent,
-                stmt.clone(),
-                |trace_id| self.exec_decl_stmt(trace_id, stmt),
-                &self.text,
-            );
-            let stop = match trace.kind {
-                TraceKind::DeclStmt {
-                    ref control_signal, ..
-                } => match control_signal {
-                    TraceInterpreterControlSignal::Return(_)
-                    | TraceInterpreterControlSignal::Err(_) => true,
-                    TraceInterpreterControlSignal::None => false,
-                },
-                _ => panic!(),
-            };
-            traces.push(trace);
-            if stop {
-                break;
-            }
-        }
-        traces
-    }
-
-    fn exec_decl_stmt(
-        &self,
-        trace_id: TraceId,
-        stmt: &DeclStmt,
-    ) -> (TraceInterpreterControlSignal, Vec<TokenProps>) {
-        match stmt.kind {
-            DeclStmtKind::Init { varname, ref value } => todo!(),
-            DeclStmtKind::Assert { ref condition } => todo!(),
-            DeclStmtKind::Return { ref result } => {
-                let (result, tokens) = self.exec_expr(trace_id, result.clone(), true);
-                let control_signal = match result {
-                    Ok(value) => TraceInterpreterControlSignal::Return(value),
-                    Err(error) => TraceInterpreterControlSignal::Err(error),
-                };
-                (control_signal, tokens)
-            }
-            DeclStmtKind::Branches { kind, ref branches } => todo!(),
-        }
-    }
-
     fn exec_expr(
         &self,
         parent_id: TraceId,
+        indent: Indent,
         expr: Arc<Expr>,
         show_value_default: bool,
     ) -> (VMResult<TraceStackValue>, Vec<TokenProps>) {
@@ -109,11 +59,11 @@ impl TraceInterpreter {
                 let mut tokens = vec![];
                 let value = (|| {
                     Ok(match opn {
-                        Opn::Binary { opr, this, kind } => {
+                        Opn::Binary { opr, this, .. } => {
                             let (lopd_value, lopd_tokens) =
-                                self.exec_expr(parent_id, opds[0].clone(), false);
+                                self.exec_expr(parent_id, indent, opds[0].clone(), false);
                             let (ropd_value, ropd_tokens) =
-                                self.exec_expr(parent_id, opds[1].clone(), false);
+                                self.exec_expr(parent_id, indent, opds[1].clone(), false);
                             let value = if this.is_builtin() {
                                 (|| {
                                     opr.act_on_primitives(
@@ -125,7 +75,16 @@ impl TraceInterpreter {
                                 todo!()
                             }?;
                             tokens.extend(lopd_tokens);
-                            tokens.push(special!(opr.spaced_code()));
+                            tokens.push(special!(
+                                opr.spaced_code(),
+                                self.trace_allocator.new_expr_trace(
+                                    parent_id,
+                                    indent,
+                                    expr.clone(),
+                                    value.into(),
+                                    &self.text,
+                                )
+                            ));
                             tokens.extend(ropd_tokens);
                             if show_value_default {
                                 tokens.push(fade!(" = "));
@@ -135,10 +94,7 @@ impl TraceInterpreter {
                         }
                         Opn::Prefix(_) => todo!(),
                         Opn::Suffix(_) => todo!(),
-                        Opn::FuncCall {
-                            func,
-                            scope_expr_range,
-                        } => todo!(),
+                        Opn::RoutineCall(_) => todo!(),
                         Opn::PattCall => todo!(),
                         Opn::MembVarAccess => todo!(),
                         Opn::MembFuncCall(_) => todo!(),

@@ -5,7 +5,7 @@ use super::*;
 use crate::*;
 
 impl TraceAllocator {
-    pub fn new_decl_stmt_trace(
+    pub fn new_strict_decl_stmt_trace(
         &self,
         parent: TraceId,
         indent: Indent,
@@ -18,7 +18,7 @@ impl TraceAllocator {
             indent,
             |trace_id| {
                 let (control_signal, tokens) = exec(trace_id);
-                TraceKind::DeclStmt {
+                TraceKind::StrictDeclStmt {
                     stmt,
                     tokens,
                     control_signal,

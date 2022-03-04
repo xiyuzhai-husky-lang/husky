@@ -55,6 +55,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             InputContract::Intact => todo!(),
             InputContract::Share => todo!(),
             InputContract::Own => todo!(),
+            InputContract::MutShare => todo!(),
+            InputContract::MutOwn => todo!(),
         }
     }
 

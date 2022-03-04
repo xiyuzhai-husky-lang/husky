@@ -10,6 +10,7 @@ use common::*;
 use file::FilePtr;
 pub use kind::ScopeKind;
 
+use text::TextRange;
 use vm::Compiled;
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 
@@ -17,6 +18,12 @@ use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 pub struct Scope {
     pub route: ScopeRoute,
     pub generics: Vec<GenericArgument>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RangedScope {
+    pub scope: ScopePtr,
+    pub range: TextRange,
 }
 
 impl std::fmt::Debug for Scope {

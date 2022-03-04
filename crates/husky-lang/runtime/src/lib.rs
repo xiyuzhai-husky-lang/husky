@@ -9,7 +9,7 @@ pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 use query::EvalFeature;
 pub use query::{AskCompileTime, RuntimeQueryGroup, RuntimeQueryGroupStorage};
 
-use common::{msg_once, HashMap};
+use common::{msg_once, p, should_eq, HashMap};
 use file::{FilePtr, FileQueryGroup};
 use husky_lang_compile_time::*;
 use stdx::sync::ARwLock;
@@ -30,7 +30,7 @@ pub struct HuskyLangRuntime {
     compile_time: HuskyLangCompileTime,
     traces: Arc<TraceAllocator>,
     session: Arc<Mutex<Session<'static>>>,
-    input_id: Option<usize>,
+    opt_input_id: Option<usize>,
     expansions: HashMap<TraceId, bool>,
     showns: HashMap<TraceId, bool>,
 }
@@ -67,7 +67,7 @@ impl HuskyLangRuntime {
         let mut compile_time = HuskyLangCompileTime::default();
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
-        assert!(all_main_files.len() == 1);
+        should_eq!(all_main_files.len(), 1);
         let current_package_main = all_main_files[0];
         let package = compile_time.package(current_package_main).unwrap();
         let mut runtime = Self {
@@ -75,7 +75,7 @@ impl HuskyLangRuntime {
             compile_time,
             traces: Default::default(),
             session: Arc::new(Mutex::new(Session::new(&package).unwrap())),
-            input_id: None,
+            opt_input_id: None,
             expansions: Default::default(),
             showns: Default::default(),
         };
@@ -119,17 +119,17 @@ impl HuskyLangRuntime {
         self.showns.clone()
     }
 
-    pub fn input_id(&self) -> Option<usize> {
-        self.input_id
+    pub fn opt_input_id(&self) -> Option<usize> {
+        self.opt_input_id
     }
 
-    pub fn lock_input(&mut self, input_temp: String) -> (Option<Option<usize>>, Option<String>) {
-        if input_temp.len() == 0 {
+    pub fn lock_input(&mut self, input_id_str: &str) -> (Option<Option<usize>>, Option<String>) {
+        if input_id_str.len() == 0 {
             return (Some(None), None);
         }
-        match input_temp.parse::<usize>() {
+        match input_id_str.parse::<usize>() {
             Ok(id) => {
-                self.input_id = Some(id);
+                self.opt_input_id = Some(id);
                 (Some(Some(id)), None)
             }
             Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),

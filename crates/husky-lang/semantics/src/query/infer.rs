@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use ast::{Ast, AstResult, RawExprArena, RawExprKind, RawStmt, RawStmtKind};
+use ast::{Ast, AstKind, AstResult, RawExprArena, RawExprKind, RawStmt, RawStmtKind};
 use common::*;
 use fold::FoldStorage;
 use scope::{FuncSignature, RawFuncSignature, ScopeKind, ScopePtr, ScopeRoute};
@@ -42,14 +42,14 @@ fn func_signature(
                 .unwrap()
                 .value
                 .as_ref()?;
-            match ast {
-                Ast::FuncDef { kind, decl } => Ok(Arc::new(FuncSignature {
+            match ast.kind {
+                AstKind::RoutineDef { ref kind, ref decl } => Ok(Arc::new(FuncSignature {
                     inputs: decl
-                        .input_contracts
+                        .input_placeholders
                         .iter()
-                        .map(|input| input.1.ty)
+                        .map(|input| input.ty.scope)
                         .collect(),
-                    output: decl.output,
+                    output: decl.output.scope,
                     compiled: None,
                 })),
                 _ => panic!(),
@@ -113,8 +113,8 @@ fn scope_ty(this: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<Scope
 fn input_ty(this: &dyn InferQueryGroup, main_file: file::FilePtr) -> SemanticResult<ScopePtr> {
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
-        match item.value.as_ref()? {
-            Ast::DatasetConfig => {
+        match item.value.as_ref()?.kind {
+            AstKind::DatasetConfig => {
                 return input_ty_from_ast(
                     this,
                     &ast_text.arena,
@@ -132,8 +132,8 @@ fn input_ty_from_ast(
     arena: &RawExprArena,
     ast: &Ast,
 ) -> SemanticResult<ScopePtr> {
-    match ast {
-        Ast::Stmt(RawStmt {
+    match ast.kind {
+        AstKind::Stmt(RawStmt {
             kind: RawStmtKind::Return(idx),
             ..
         }) => match arena[idx].kind {

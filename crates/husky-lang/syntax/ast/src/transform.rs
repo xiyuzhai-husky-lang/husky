@@ -12,7 +12,7 @@ use syntax_types::*;
 use text::TextRanged;
 use token::*;
 use vm::InputContract;
-use word::*;
+use word::{FuncKeyword, *};
 
 use crate::{
     atom::symbol_proxy::{Symbol, SymbolKind},
@@ -93,90 +93,110 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         tokens: &[Token],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<Ast> {
-        if let TokenKind::Keyword(keyword) = tokens[0].kind {
-            match keyword {
-                Keyword::Func(func_kw) => match func_kw {
-                    word::FuncKeyword::Main => {
-                        self.env.set_value(Env::Main);
-                        Ok(Ast::MainDef)
-                    }
-                    word::FuncKeyword::Test => {
-                        self.env.set_value(Env::Test);
-                        todo!()
-                    }
-                    word::FuncKeyword::Proc => {
-                        self.env.set_value(Env::Proc);
-                        todo!()
-                    }
-                    word::FuncKeyword::Func => Ok(Ast::FuncDef {
-                        kind: FuncKind::Func,
-                        decl: self.parse_func_decl(trim!(tokens; keyword, colon))?,
-                    }),
-                    word::FuncKeyword::Def => todo!(),
-                },
-                Keyword::Type(ty_kw) => match ty_kw {
-                    word::TypeKeyword::Struct => {
-                        expect_len!(tokens, 3);
-                        expect_head!(tokens);
-                        Ok(Ast::TypeDef {
-                            ident: identify!(tokens[1]),
-                            kind: TyKind::Struct,
-                            generics: Vec::new(),
-                        })
-                    }
-                    word::TypeKeyword::Rename => todo!(),
-                    word::TypeKeyword::Enum => todo!(),
-                    word::TypeKeyword::Props => todo!(),
-                },
-                Keyword::Use | Keyword::Mod => todo!(),
-                Keyword::Stmt(kw) => self
-                    .parse_stmt(Some((kw, tokens[0].range.clone())), &tokens[1..])
-                    .map(|stmt| stmt.into()),
-                Keyword::Config(cfg) => match cfg {
-                    ConfigKeyword::Dataset => {
-                        self.env.set_value(Env::DatasetConfig);
-                        enter_block(self);
-                        self.use_all(
-                            BuiltinIdentifier::DatasetType.into(),
-                            tokens[0].text_range(),
-                        )?;
-                        Ok(Ast::DatasetConfig)
-                    }
-                },
-            }
-        } else {
-            if tokens.len() >= 2 && tokens[1].kind == TokenKind::Special(Special::Colon) {
-                if tokens.len() == 2 {
-                    todo!()
+        Ok(Ast {
+            range: tokens.into(),
+            kind: if let TokenKind::Keyword(keyword) = tokens[0].kind {
+                match keyword {
+                    Keyword::Func(func_kw) => match func_kw {
+                        FuncKeyword::Main => {
+                            self.env.set_value(Env::Main);
+                            AstKind::MainDef
+                        }
+                        FuncKeyword::Test => {
+                            self.env.set_value(Env::Test);
+                            todo!()
+                        }
+                        FuncKeyword::Proc => {
+                            self.env.set_value(Env::Proc);
+                            AstKind::RoutineDef {
+                                kind: RoutineKind::Proc,
+                                decl: self.parse_routine_decl(trim!(tokens; keyword, colon))?,
+                            }
+                        }
+                        FuncKeyword::Func => {
+                            self.env.set_value(Env::Func);
+                            let decl = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
+                            for input_placeholder in decl.input_placeholders.iter() {
+                                match input_placeholder.contract {
+                                    InputContract::Intact
+                                    | InputContract::Share
+                                    | InputContract::Own => (),
+                                    InputContract::MutShare | InputContract::MutOwn => {
+                                        todo!("report invalid input contract")
+                                    }
+                                }
+                            }
+                            AstKind::RoutineDef {
+                                kind: RoutineKind::Func,
+                                decl,
+                            }
+                        }
+                        FuncKeyword::Def => todo!(),
+                    },
+                    Keyword::Type(ty_kw) => match ty_kw {
+                        word::TypeKeyword::Struct => {
+                            expect_len!(tokens, 3);
+                            expect_head!(tokens);
+                            AstKind::TypeDef {
+                                ident: identify!(tokens[1]),
+                                kind: TyKind::Struct,
+                                generics: Vec::new(),
+                            }
+                        }
+                        word::TypeKeyword::Rename => todo!(),
+                        word::TypeKeyword::Enum => todo!(),
+                        word::TypeKeyword::Props => todo!(),
+                    },
+                    Keyword::Use | Keyword::Mod => todo!(),
+                    Keyword::Stmt(kw) => self
+                        .parse_stmt(Some((kw, tokens[0].range.clone())), &tokens[1..])?
+                        .into(),
+                    Keyword::Config(cfg) => match cfg {
+                        ConfigKeyword::Dataset => {
+                            self.env.set_value(Env::DatasetConfig);
+                            enter_block(self);
+                            self.use_all(
+                                BuiltinIdentifier::DatasetType.into(),
+                                tokens[0].text_range(),
+                            )?;
+                            AstKind::DatasetConfig
+                        }
+                    },
                 }
-                let ident = match tokens[0].kind {
-                    TokenKind::Identifier(ident) => match ident {
-                        Identifier::Builtin(_) => ast_err!(
-                            tokens[0].text_range(),
-                            "expect custom identifier but got builtin"
-                        )?,
-                        Identifier::Implicit(_) => ast_err!(
-                            tokens[0].text_range(),
-                            "expect implicit identifier but got builtin"
-                        )?,
-                        Identifier::Custom(custom_ident) => custom_ident,
-                    },
-                    _ => ast_err!(tokens[0].text_range(), "expect custom identifier")?,
-                };
-                let ty = atom::parse_ty(self.symbol_proxy(), &tokens[2..])?;
-                Ok(Ast::MembDef {
-                    ident,
-                    kind: MembKind::MembVar {
-                        ty: MembType {
-                            contract: InputContract::Own,
-                            scope: ty,
-                        },
-                    },
-                })
             } else {
-                self.parse_stmt(None, tokens).map(|stmt| stmt.into())
-            }
-        }
+                if tokens.len() >= 2 && tokens[1].kind == TokenKind::Special(Special::Colon) {
+                    if tokens.len() == 2 {
+                        todo!()
+                    }
+                    let ident = match tokens[0].kind {
+                        TokenKind::Identifier(ident) => match ident {
+                            Identifier::Builtin(_) => ast_err!(
+                                tokens[0].text_range(),
+                                "expect custom identifier but got builtin"
+                            )?,
+                            Identifier::Implicit(_) => ast_err!(
+                                tokens[0].text_range(),
+                                "expect implicit identifier but got builtin"
+                            )?,
+                            Identifier::Custom(custom_ident) => custom_ident,
+                        },
+                        _ => ast_err!(tokens[0].text_range(), "expect custom identifier")?,
+                    };
+                    let ty = atom::parse_ty(self.symbol_proxy(), &tokens[2..])?;
+                    AstKind::MembDef {
+                        ident,
+                        kind: MembKind::MembVar {
+                            ty: MembType {
+                                contract: InputContract::Own,
+                                scope: ty,
+                            },
+                        },
+                    }
+                } else {
+                    self.parse_stmt(None, tokens)?.into()
+                }
+            },
+        })
     }
 
     fn folded_output_mut(&mut self) -> &mut FoldedList<AstResult<Ast>> {

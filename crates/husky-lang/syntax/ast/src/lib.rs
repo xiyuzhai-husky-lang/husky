@@ -6,6 +6,7 @@ mod stmt;
 mod transform;
 
 use common::*;
+use text::TextRange;
 
 pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
@@ -22,17 +23,23 @@ use word::{CustomIdentifier, Identifier, StmtKeyword};
 use crate::error::{ast_err, ast_error};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum Ast {
+pub struct Ast {
+    pub kind: AstKind,
+    pub range: TextRange,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum AstKind {
     TypeDef {
         ident: CustomIdentifier,
         kind: TyKind,
-        generics: Vec<GenericPlaceholderKind>,
+        generics: Vec<GenericPlaceholder>,
     },
     MainDef,
     DatasetConfig,
-    FuncDef {
-        kind: FuncKind,
-        decl: FuncDecl,
+    RoutineDef {
+        kind: RoutineKind,
+        decl: RoutineDecl,
     },
     PatternDef,
     Use {
@@ -48,6 +55,15 @@ pub enum Ast {
 
 impl From<RawStmt> for Ast {
     fn from(stmt: RawStmt) -> Self {
-        Self::Stmt(stmt)
+        Self {
+            range: stmt.range,
+            kind: AstKind::Stmt(stmt),
+        }
+    }
+}
+
+impl From<RawStmt> for AstKind {
+    fn from(stmt: RawStmt) -> Self {
+        AstKind::Stmt(stmt)
     }
 }

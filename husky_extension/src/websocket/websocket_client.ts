@@ -54,7 +54,7 @@ export function request_trace(id: number) {
     try_send_request({ type: "Trace", id });
 }
 
-export function request_lock_input(input_str: number | null) {
+export function request_lock_input(input_str: string) {
     try_send_request({ type: "LockInput", input_str });
 }
 

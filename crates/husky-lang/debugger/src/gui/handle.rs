@@ -5,6 +5,9 @@ pub fn handle_message(
     text: &str,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
 ) {
+    if debugger.config.verbose {
+        p!(text);
+    }
     match serde_json::from_str(text) {
         Ok::<Query, _>(query) => {
             let debugger_ = debugger.clone();
@@ -43,7 +46,7 @@ pub fn handle_message(
                             let trace = debugger_.trace(id).await;
                             Response::Trace { id, trace }
                         }
-                        Query::LockInput { input_str } => {
+                        Query::LockInput { ref input_str } => {
                             let (input_locked_on, message) = debugger_.lock_input(input_str).await;
                             Response::DidLockInput {
                                 input_locked_on,

@@ -21,7 +21,7 @@ impl<'a> AstTransformer<'a> {
                     expect_at_least!(tokens, kw_range, 2);
                     expect_kind!(tokens.last().unwrap(), Special::Colon);
                     RawStmt {
-                        range: text::group_text_range(tokens),
+                        range: tokens.into(),
                         kind: RawStmtKind::Branch(RawBranchKind::If {
                             condition: self.parse_expr(&tokens[0..(tokens.len() - 1)])?,
                         }),
@@ -36,7 +36,7 @@ impl<'a> AstTransformer<'a> {
                         "expect `:`"
                     );
                     RawStmt {
-                        range: text::group_text_range(tokens),
+                        range: tokens.into(),
                         kind: RawStmtKind::Branch(RawBranchKind::Else),
                     }
                 }
@@ -52,37 +52,48 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Return => {
                     expect!(tokens.len() > 0, kw_range, "expect some tokens after");
                     RawStmt {
-                        range: text::group_text_range(tokens),
+                        range: tokens.into(),
                         kind: RawStmtKind::Return(self.parse_expr(tokens)?),
                     }
                 }
                 StmtKeyword::Assert => {
                     expect!(tokens.len() > 0, kw_range, "expect some tokens after");
                     RawStmt {
-                        range: text::group_text_range(tokens),
+                        range: tokens.into(),
                         kind: RawStmtKind::Assert(self.parse_expr(tokens)?),
                     }
                 }
             }
         } else {
             if tokens.len() > 2 && tokens[1].kind == Special::Assign.into() {
-                // functional initialization
+                // declarative initialization
                 let varname = identify!(tokens[0]);
                 self.symbols
                     .push(Symbol::var(varname, tokens[0].text_range()));
                 RawStmt {
-                    range: text::group_text_range(tokens),
+                    range: tokens.into(),
                     kind: RawStmtKind::Init {
-                        kind: InitKind::Functional,
+                        kind: InitKind::Decl,
                         varname,
                         initial_value: self.parse_expr(&tokens[2..])?,
                     },
                 }
             } else {
-                // functional return
-                RawStmt {
-                    range: text::group_text_range(tokens),
-                    kind: RawStmtKind::Return(self.parse_expr(tokens)?),
+                match self.env() {
+                    Env::Package => todo!(),
+                    Env::Module(_) => todo!(),
+                    Env::DatasetConfig | Env::Main | Env::Def | Env::Func => {
+                        // declarative return
+                        RawStmt {
+                            range: tokens.into(),
+                            kind: RawStmtKind::Return(self.parse_expr(tokens)?),
+                        }
+                    }
+                    Env::Proc => RawStmt {
+                        range: tokens.into(),
+                        kind: RawStmtKind::Exec(self.parse_expr(tokens)?),
+                    },
+                    Env::Test => todo!(),
                 }
             }
             // Ok(Stmt::Exec(expr.unwrap()).into())
@@ -107,7 +118,7 @@ impl<'a> AstTransformer<'a> {
                     )
                 )?,
             },
-            InitKind::Functional => todo!(),
+            InitKind::Decl => todo!(),
         }
         expect_at_least!(tokens, kw_range, 3);
         let varname = identify!(&tokens[0]);
@@ -116,7 +127,7 @@ impl<'a> AstTransformer<'a> {
         expect_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmt {
-            range: text::group_text_range(tokens),
+            range: tokens.into(),
             kind: RawStmtKind::Init {
                 kind,
                 varname,

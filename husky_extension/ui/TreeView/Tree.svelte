@@ -3,13 +3,16 @@
     import {
         get_trace_future,
         get_expansion_store,
-        get_shown_store,
+        get_show_store,
         get_subtraces_store,
         get_active_trace_store,
         activate,
+        toggle_expansion,
     } from "src/state/client";
-    import { request_toggle_expansion } from "src/websocket/websocket_client";
-    import { tell_has_subtraces_store } from "src/state/client";
+    import {
+        tell_has_subtraces_store,
+        get_input_id_store,
+    } from "src/state/client";
 
     export let trace_id: number;
 
@@ -17,9 +20,12 @@
     $: trace = $trace_future;
     $: expanded_store = get_expansion_store(trace_id);
     $: expanded = $expanded_store;
-    $: shown_store = trace !== null ? get_shown_store(trace) : null;
+    $: shown_store = trace !== null ? get_show_store(trace) : null;
     $: shown = shown_store !== null ? $shown_store : false;
-    $: subtraces_store = shown ? get_subtraces_store(trace_id) : null;
+    $: opt_input_id_store = get_input_id_store();
+    $: subtraces_store = shown
+        ? get_subtraces_store(trace_id, $opt_input_id_store)
+        : null;
     $: subtraces = shown ? $subtraces_store : null;
     $: active_trace_store = get_active_trace_store();
     $: active_trace = $active_trace_store;
@@ -29,7 +35,7 @@
     $: has_subtraces = $has_subtraces_store;
     function toggle_expansion_locked() {
         if (!locked) {
-            request_toggle_expansion(trace_id);
+            toggle_expansion(trace_id);
             locked = true;
             setTimeout(() => {
                 locked = false;
@@ -70,7 +76,6 @@
                 {/each}
             {:else if trace.subtraces_container_class === "Call"}
                 <div class="Call">
-                    <div class="CallTitle">call</div>
                     {#each subtraces as subtrace}
                         <svelte:self trace_id={subtrace.id} />
                     {/each}
@@ -94,5 +99,6 @@
     .CallTitle {
         padding-left: 10px;
         font-family: monospace;
+        font-size: 14px;
     }
 </style>

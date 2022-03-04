@@ -1,3 +1,5 @@
+use scope::RangedScope;
+
 use super::symbol_proxy::SymbolKind;
 
 use super::*;
@@ -15,13 +17,13 @@ impl<'a> AtomLRParser<'a> {
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, token.range)?;
-                match symbol_kind {
-                    SymbolKind::Scope(route) => Some(self.normal_scope(route)?),
+                Some(match symbol_kind {
+                    SymbolKind::Scope(route) => self.normal_scope(route)?,
                     SymbolKind::Variable(_) => match ident {
                         Identifier::Builtin(_) | Identifier::Implicit(_) => panic!(),
-                        Identifier::Custom(ident) => Some(AtomKind::Variable(ident)),
+                        Identifier::Custom(ident) => AtomKind::Variable(ident),
                     },
-                }
+                })
             } else {
                 None
             }

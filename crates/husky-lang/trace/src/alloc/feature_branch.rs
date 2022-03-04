@@ -10,7 +10,12 @@ impl TraceAllocator {
         branch: Arc<FeatureBranch>,
         text: &Text,
     ) -> Arc<Trace> {
-        self.new_trace(Some(parent), indent, TraceKind::FeatureBranch(branch), text)
+        self.new_trace(
+            Some(parent.id),
+            indent,
+            TraceKind::FeatureBranch(branch),
+            text,
+        )
     }
 
     pub fn feature_branch_subtraces(

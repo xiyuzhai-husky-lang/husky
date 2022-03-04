@@ -11,9 +11,10 @@ mod token;
 pub use alloc::{AllocateTrace, TraceAllocator, TraceId};
 pub use figure::FigureProps;
 use file::FilePtr;
-pub use interpreter::TraceInterpreter;
 use interpreter::TraceInterpreterControlSignal;
+pub use interpreter::{TraceInterpreter, TraceStackValue};
 pub use kind::TraceKind;
+use semantics::ImprStmtKind;
 pub use stalk::TraceStalk;
 use text::{Text, TextRange};
 pub use token::{TokenProps, TraceTokenKind};
@@ -58,16 +59,37 @@ impl Serialize for Trace {
         state.serialize_field(
             "has_subtraces",
             &match self.kind {
-                TraceKind::FeatureStmt(_) | TraceKind::Input(_) | TraceKind::DeclStmt { .. } => {
-                    false
-                }
+                TraceKind::FeatureStmt(_)
+                | TraceKind::Input(_)
+                | TraceKind::StrictDeclStmt { .. } => false,
+                TraceKind::ImprStmt { ref stmt, .. } => match stmt.kind {
+                    ImprStmtKind::Init { .. }
+                    | ImprStmtKind::Assert { .. }
+                    | ImprStmtKind::Return { .. } => false,
+                    ImprStmtKind::Loop => true,
+                    ImprStmtKind::BranchGroup { .. } => panic!(),
+                },
                 TraceKind::Main(_) | TraceKind::FeatureBranch(_) => true,
                 TraceKind::FeatureExpr(ref expr) => match expr.kind {
                     feature::FeatureExprKind::Literal(_)
                     | feature::FeatureExprKind::PrimitiveBinaryOpr { .. }
                     | feature::FeatureExprKind::Variable { .. } => false,
-                    feature::FeatureExprKind::FuncCall { func, .. } => !func.is_builtin(),
+                    feature::FeatureExprKind::FuncCall { ranged_scope, .. } => {
+                        !ranged_scope.scope.is_builtin()
+                    }
+                    feature::FeatureExprKind::ProcCall { ranged_scope, .. } => {
+                        !ranged_scope.scope.is_builtin()
+                    }
                 },
+                TraceKind::Expr { ref expr, .. } => match expr.kind {
+                    semantics::ExprKind::Variable(_)
+                    | semantics::ExprKind::Scope { .. }
+                    | semantics::ExprKind::Literal(_) => false,
+                    semantics::ExprKind::Bracketed(_) => todo!(),
+                    semantics::ExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
+                    semantics::ExprKind::Lambda(_, _) => todo!(),
+                },
+                TraceKind::CallHead { .. } => false,
             },
         )?;
         state.serialize_field(
@@ -87,14 +109,7 @@ impl Trace {
         text: &Text,
     ) -> Self {
         let id = trace_allocator.next_id();
-        let (file, range) = match kind {
-            TraceKind::Main(ref block) => (block.file, block.range),
-            TraceKind::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
-            TraceKind::FeatureExpr(ref expr) => (expr.file, expr.range),
-            TraceKind::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
-            TraceKind::Input(_) => todo!(),
-            TraceKind::DeclStmt { ref stmt, .. } => (stmt.file, stmt.range),
-        };
+        let (file, range) = kind.file_and_range();
         Self {
             id,
             parent,
@@ -115,14 +130,7 @@ impl Trace {
     ) -> Self {
         let id = trace_allocator.next_id();
         let kind = gen_kind(id);
-        let (file, range) = match kind {
-            TraceKind::Main(ref block) => (block.file, block.range),
-            TraceKind::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
-            TraceKind::FeatureExpr(ref expr) => (expr.file, expr.range),
-            TraceKind::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
-            TraceKind::Input(_) => todo!(),
-            TraceKind::DeclStmt { ref stmt, .. } => (stmt.file, stmt.range),
-        };
+        let (file, range) = kind.file_and_range();
         Self {
             id,
             parent,

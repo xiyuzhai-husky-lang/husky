@@ -5,6 +5,8 @@ import {
     request_subtraces,
     request_activate,
     request_trace_stalk,
+    request_toggle_expansion,
+    request_toggle_show,
 } from "src/websocket/websocket_client";
 import type Trace from "src/trace/Trace";
 import global_state from "./global_state";
@@ -20,7 +22,7 @@ export function get_expansion_store(trace_id: number) {
     );
 }
 
-export function get_shown_store(trace: Trace) {
+export function get_show_store(trace: Trace) {
     return global_state.user_state.shown_stores.get_store_or_insert_with(
         trace.id,
         () => {
@@ -29,14 +31,17 @@ export function get_shown_store(trace: Trace) {
         }
     );
 
-    function tell_shown_default(trace: Trace) {
+    function tell_shown_default(trace: Trace): boolean {
         switch (trace.kind) {
             case "Main":
             case "FeatureStmt":
-            case "DeclStmt":
+            case "StrictDeclStmt":
+            case "ImprStmt":
             case "FeatureBranch":
+            case "CallHead":
                 return true;
             case "FeatureExpr":
+            case "Expr":
                 return false;
         }
     }
@@ -49,14 +54,15 @@ export function get_trace_future(trace_id: number): Readable<Trace | null> {
 }
 
 export function get_subtraces_store(
-    trace_id: number
+    trace_id: number,
+    opt_input_id: number | null
 ): Readable<Trace[] | null> | null {
     let trace = global_state.trace_cache.get_trace(trace_id);
     if (trace === null) {
         return null;
     }
     let effective_input_id_for_subtraces =
-        global_state.get_effective_input_id_for_subtraces(trace);
+        global_state.get_effective_input_id_for_subtraces(trace, opt_input_id);
     return global_state.trace_cache.subtraces_map.get_store(
         trace_id,
         effective_input_id_for_subtraces,
@@ -104,7 +110,10 @@ export function get_subtraces(trace_id: number): Trace[] | null {
     }
     return global_state.trace_cache.get_subtraces(
         trace_id,
-        global_state.get_effective_input_id_for_subtraces(trace)
+        global_state.get_effective_input_id_for_subtraces(
+            trace,
+            get(global_state.user_state.opt_input_id_store)
+        )
     );
 }
 
@@ -117,7 +126,11 @@ export function get_id_after(trace_id: number) {
 }
 
 export function toggle_expansion(trace_id: number) {
-    throw new Error("todo");
+    request_toggle_expansion(trace_id);
+}
+
+export function toggle_show(trace_id: number) {
+    request_toggle_show(trace_id);
 }
 
 export function is_expanded(trace_id: number): boolean {
@@ -174,10 +187,14 @@ export function tell_has_subtraces_store(
         case "Main":
         case "FeatureBranch":
             return readable(true);
+        case "CallHead":
         case "FeatureStmt":
-        case "DeclStmt":
+        case "StrictDeclStmt":
             return readable(false);
+        case "ImprStmt":
+            return readable(trace.has_subtraces);
         case "FeatureExpr":
+        case "Expr":
             let opt_input_id_store = global_state.user_state.opt_input_id_store;
             return derived(
                 opt_input_id_store,

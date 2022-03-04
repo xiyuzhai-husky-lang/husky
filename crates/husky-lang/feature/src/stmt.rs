@@ -1,5 +1,5 @@
 use file::FilePtr;
-use semantics::{DeclBranchKind, DeclBranchesKind};
+use semantics::{DeclBranchGroupKind, DeclBranchKind};
 use text::TextRange;
 
 use crate::{eval::FeatureEvalId, *};
@@ -33,7 +33,7 @@ pub enum FeatureStmtKind {
         result: Arc<FeatureExpr>,
     },
     Branches {
-        kind: DeclBranchesKind,
+        kind: DeclBranchGroupKind,
         branches: Vec<Arc<FeatureBranch>>,
     },
 }

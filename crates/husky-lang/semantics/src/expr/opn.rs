@@ -1,4 +1,4 @@
-use scope::ScopePtr;
+use scope::{RangedScope, ScopePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::BinaryOpr;
@@ -13,10 +13,7 @@ pub enum Opn {
     },
     Prefix(PrefixOpn),
     Suffix(SuffixOpn),
-    FuncCall {
-        func: ScopePtr,
-        scope_expr_range: TextRange,
-    },
+    RoutineCall(RangedScope),
     PattCall,
     MembVarAccess,
     MembFuncCall(ScopePtr),
@@ -30,10 +27,7 @@ impl std::hash::Hash for Opn {
             Opn::Binary { opr, this, kind } => todo!(),
             Opn::Prefix(_) => todo!(),
             Opn::Suffix(_) => todo!(),
-            Opn::FuncCall {
-                func,
-                scope_expr_range,
-            } => todo!(),
+            Opn::RoutineCall(_) => todo!(),
             Opn::PattCall => todo!(),
             Opn::MembVarAccess => todo!(),
             Opn::MembFuncCall(_) => todo!(),
