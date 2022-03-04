@@ -5,7 +5,6 @@ use crate::TokenProps;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TraceStackValue {
     Primitive(PrimitiveValue),
-    Err(VMError),
 }
 
 impl From<PrimitiveValue> for TraceStackValue {

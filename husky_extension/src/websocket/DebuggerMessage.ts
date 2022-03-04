@@ -4,7 +4,7 @@ import { tFigureProps } from "trace/figure/FigureProps";
 import { tTrace } from "src/trace/Trace";
 import { isRight } from "fp-ts/Either";
 import { tTraceStalk } from "src/trace/stalk/TraceStalk";
-import { tInitState } from "src/state/State/InitState";
+import { tInitState } from "src/state/InitState";
 import reporter from "io-ts-reporters";
 
 export const tInitMessage = t.interface({

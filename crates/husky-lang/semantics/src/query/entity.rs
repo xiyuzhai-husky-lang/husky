@@ -2,7 +2,7 @@ mod ty;
 
 use std::sync::Arc;
 
-use ast::Ast;
+use ast::{Ast, AstKind};
 use common::Upcast;
 use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
@@ -59,27 +59,38 @@ pub fn entity_from_ast(
         .next()
         .unwrap();
     let head = value.as_ref()?;
-    match head {
-        Ast::TypeDef {
+    match head.kind {
+        AstKind::TypeDef {
             ident,
-            kind,
-            generics,
+            ref kind,
+            ref generics,
         } => ty::ty_from_ast(
-            *ident,
+            ident,
             kind,
             generics,
             children,
             subentities,
             scope,
             file,
+            head.range,
             vc,
         ),
-        Ast::FuncDef { kind, decl } => {
+        AstKind::RoutineDef { ref kind, ref decl } => {
             let kind = match kind {
-                syntax_types::FuncKind::Test => todo!(),
-                syntax_types::FuncKind::Proc => todo!(),
-                syntax_types::FuncKind::Func => EntityKind::Func {
-                    input_contracts: decl.input_contracts.clone(),
+                syntax_types::RoutineKind::Test => todo!(),
+                syntax_types::RoutineKind::Proc => EntityKind::Proc {
+                    input_placeholders: decl.input_placeholders.clone(),
+                    output: decl.output,
+                    stmts: stmt::parse_impr_stmts(
+                        this.upcast(),
+                        &ast_text.arena,
+                        not_none!(children),
+                        file,
+                    )?,
+                },
+                syntax_types::RoutineKind::Func => EntityKind::Func {
+                    input_placeholders: decl.input_placeholders.clone(),
+                    output: decl.output,
                     stmts: stmt::parse_decl_stmts(
                         this.upcast(),
                         &ast_text.arena,
@@ -87,7 +98,7 @@ pub fn entity_from_ast(
                         file,
                     )?,
                 },
-                syntax_types::FuncKind::Def => todo!(),
+                syntax_types::RoutineKind::Def => todo!(),
             };
             Ok(Arc::new(Entity::new(
                 decl.funcname,
@@ -95,13 +106,14 @@ pub fn entity_from_ast(
                 Arc::new(Vec::new()),
                 scope,
                 file,
+                head.range,
                 vc,
             )))
         }
-        Ast::PatternDef => todo!(),
-        Ast::Use { ident, scope } => todo!(),
-        Ast::MembDef { ident, kind } => todo!(),
-        Ast::MainDef | Ast::DatasetConfig | Ast::Stmt(_) => panic!(),
+        AstKind::PatternDef => todo!(),
+        AstKind::Use { ident, scope } => todo!(),
+        AstKind::MembDef { ident, ref kind } => todo!(),
+        AstKind::MainDef | AstKind::DatasetConfig | AstKind::Stmt(_) => panic!(),
     }
 }
 

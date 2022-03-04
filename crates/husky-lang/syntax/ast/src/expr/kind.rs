@@ -6,7 +6,7 @@ use vm::PrimitiveValue;
 use word::WordPtr;
 
 use crate::*;
-use scope::{ScopeKind, ScopePtr};
+use scope::{RangedScope, ScopeKind, ScopePtr};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprKind {
@@ -15,7 +15,7 @@ pub enum RawExprKind {
     Literal(PrimitiveValue),
     Bracketed(RawExprIdx),
     Opn { opr: Opr, opds: RawExprRange },
-    Lambda(Vec<(CustomIdentifier, Option<ScopePtr>)>, RawExprIdx),
+    Lambda(Vec<(CustomIdentifier, Option<RangedScope>)>, RawExprIdx),
 }
 
 // impl From<AtomKind> for RawExprKind {

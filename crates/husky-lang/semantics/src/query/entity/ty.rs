@@ -1,35 +1,45 @@
-use ast::{Ast, AstResult};
+use ast::{Ast, AstKind, AstResult};
 use fold::{FoldIter, FoldIterItem, FoldedList};
-use syntax_types::GenericPlaceholderKind;
+use syntax_types::{GenericPlaceholder, GenericPlaceholderKind};
 
 use crate::{error::err, kind::ty::TyKind, *};
 
 pub(super) fn ty_from_ast(
     ident: CustomIdentifier,
     kind: &syntax_types::TyKind,
-    generics: &[GenericPlaceholderKind],
+    generics: &[GenericPlaceholder],
     block: Option<FoldIter<AstResult<Ast>, FoldedList<AstResult<Ast>>>>,
     subentities: Arc<Vec<Arc<Entity>>>,
     scope: ScopePtr,
     file: FilePtr,
+    range: TextRange,
     vc: &EntityVersionControl,
 ) -> SemanticResultArc<Entity> {
     match kind {
         syntax_types::TyKind::Enum(_) => todo!(),
-        syntax_types::TyKind::Struct => {
-            struct_from_ast(ident, kind, generics, block, subentities, scope, file, vc)
-        }
+        syntax_types::TyKind::Struct => struct_from_ast(
+            ident,
+            kind,
+            generics,
+            block,
+            subentities,
+            scope,
+            file,
+            range,
+            vc,
+        ),
     }
 }
 
 pub(super) fn struct_from_ast(
     ident: CustomIdentifier,
     kind: &syntax_types::TyKind,
-    generics: &[GenericPlaceholderKind],
+    generics: &[GenericPlaceholder],
     block: Option<FoldIter<AstResult<Ast>, FoldedList<AstResult<Ast>>>>,
     subentities: Arc<Vec<Arc<Entity>>>,
     scope: ScopePtr,
     file: FilePtr,
+    range: TextRange,
     vc: &EntityVersionControl,
 ) -> SemanticResultArc<Entity> {
     let block = if let Some(block) = block {
@@ -40,16 +50,16 @@ pub(super) fn struct_from_ast(
     let mut memb_vars = Vec::new();
     for FoldIterItem { value, .. } in block {
         let ast = value.as_ref()?;
-        match ast {
-            Ast::TypeDef { .. } => (),
-            Ast::MainDef | Ast::DatasetConfig => panic!(),
-            Ast::FuncDef { kind, decl } => todo!(),
-            Ast::PatternDef => panic!(),
-            Ast::Use { .. } => (),
-            Ast::MembDef { ident, kind } => match kind {
+        match ast.kind {
+            AstKind::TypeDef { .. } => (),
+            AstKind::MainDef | AstKind::DatasetConfig => panic!(),
+            AstKind::RoutineDef { ref kind, ref decl } => todo!(),
+            AstKind::PatternDef => panic!(),
+            AstKind::Use { .. } => (),
+            AstKind::MembDef { ident, ref kind } => match kind {
                 syntax_types::MembKind::MembVar { ty } => {
                     memb_vars.push(crate::kind::ty::MembVar {
-                        ident: *ident,
+                        ident,
                         ty: ty.clone(),
                     })
                 }
@@ -60,7 +70,7 @@ pub(super) fn struct_from_ast(
                     args,
                 } => todo!(),
             },
-            Ast::Stmt(_) => todo!(),
+            AstKind::Stmt(_) => todo!(),
         }
     }
     Ok(Arc::new(Entity::new(
@@ -71,6 +81,7 @@ pub(super) fn struct_from_ast(
         subentities,
         scope,
         file,
+        range,
         vc,
     )))
 }

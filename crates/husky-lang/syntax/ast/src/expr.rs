@@ -16,11 +16,14 @@ use text::TextRanged;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawExpr {
-    pub range: TextRange,
+    range: TextRange,
     pub kind: RawExprKind,
 }
 
 impl RawExpr {
+    pub fn range(&self) -> TextRange {
+        self.range
+    }
     pub fn synthesize_list(
         bracket: Bracket,
         start_attr: ListStartAttr,

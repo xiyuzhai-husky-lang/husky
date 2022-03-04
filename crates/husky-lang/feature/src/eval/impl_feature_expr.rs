@@ -32,7 +32,13 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 compiled,
                 ref inputs,
                 ..
-            } => self.eval_func_call(instruction_sheet.instructions(), compiled, inputs),
+            } => self.eval_routine_call(instruction_sheet.instructions(), compiled, inputs),
+            FeatureExprKind::ProcCall {
+                ref instruction_sheet,
+                compiled,
+                ref inputs,
+                ..
+            } => self.eval_routine_call(instruction_sheet.instructions(), compiled, inputs),
         }
     }
 }

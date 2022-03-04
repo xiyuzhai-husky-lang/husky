@@ -3,4 +3,6 @@ pub enum InputContract {
     Intact,
     Share,
     Own,
+    MutShare,
+    MutOwn,
 }

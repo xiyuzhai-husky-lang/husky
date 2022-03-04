@@ -1,12 +1,12 @@
 #[macro_export]
 macro_rules! repeat_less_than {
     ($n:expr) => {
+        #[cfg(debug_assertions)]
         unsafe {
             static mut COUNTER: i32 = 0;
             if COUNTER > $n {
                 panic!()
             } else {
-                #[cfg(test)]
                 eprintln!("{}:{}: counter: {}", file!(), line!(), COUNTER);
                 COUNTER += 1
             }
@@ -17,10 +17,10 @@ macro_rules! repeat_less_than {
 #[macro_export]
 macro_rules! should_eq {
     ($a:expr, $b:expr) => {
+        #[cfg(debug_assertions)]
         match (&$a, &$b) {
             (left_val, right_val) => {
                 if !(*left_val == *right_val) {
-                    #[cfg(test)]
                     eprintln!(
                         r#"{}{}:{}{}{}
     {}{}{} (which is {:?}){}
@@ -64,11 +64,17 @@ macro_rules! should_ok {
 #[macro_export]
 macro_rules! should {
     ($result:expr) => {
+        #[cfg(debug_assertions)]
         match $result {
             true => (),
             false => {
-                #[cfg(test)]
-                println!("{}:{} should be true, but failed", file!(), line!());
+                println!(
+                    "{}{}{}:{} should be true, but failed",
+                    common::show::GREEN,
+                    file!(),
+                    common::show::RESET,
+                    line!()
+                );
                 std::process::exit(1)
             }
         }

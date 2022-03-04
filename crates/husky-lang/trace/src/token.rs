@@ -48,8 +48,10 @@ impl From<EvalValue<'static, 'static>> for TokenProps {
 }
 
 impl From<TraceStackValue> for TokenProps {
-    fn from(_: TraceStackValue) -> Self {
-        todo!()
+    fn from(value: TraceStackValue) -> Self {
+        match value {
+            TraceStackValue::Primitive(value) => value.into(),
+        }
     }
 }
 
@@ -62,13 +64,19 @@ impl From<VMResult<TraceStackValue>> for TokenProps {
 impl From<VMResult<PrimitiveValue>> for TokenProps {
     fn from(result: VMResult<PrimitiveValue>) -> Self {
         match result {
-            Ok(value) => fade!(value),
+            Ok(value) => value.into(),
             Err(e) => Self {
                 value: e.into(),
                 associated_trace: None,
                 kind: TraceTokenKind::Error,
             },
         }
+    }
+}
+
+impl From<PrimitiveValue> for TokenProps {
+    fn from(value: PrimitiveValue) -> Self {
+        fade!(value)
     }
 }
 
@@ -112,11 +120,18 @@ macro_rules! label {
 
 #[macro_export]
 macro_rules! ident {
+    ($value:expr) => {{
+        TokenProps {
+            kind: TraceTokenKind::Ident,
+            value: $value.into(),
+            associated_trace: None,
+        }
+    }};
     ($value:expr, $associated_trace: expr) => {{
         TokenProps {
             kind: TraceTokenKind::Ident,
             value: $value.into(),
-            associated_trace: $associated_trace,
+            associated_trace: Some($associated_trace),
         }
     }};
 }
@@ -146,7 +161,7 @@ macro_rules! special {
         TokenProps {
             kind: TraceTokenKind::Special,
             value: $value.into(),
-            associated_trace: $associated_trace,
+            associated_trace: Some($associated_trace),
         }
     }};
 }
@@ -165,7 +180,7 @@ macro_rules! scope {
         TokenProps {
             kind: TraceTokenKind::Scope,
             value: $value.into(),
-            associated_trace: $associated_trace,
+            associated_trace: Some($associated_trace),
         }
     }};
 }

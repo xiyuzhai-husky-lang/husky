@@ -1,0 +1,17 @@
+func f() -> i32:
+    1 + 1
+
+proc g() -> i32:
+    return 2
+
+dataset:
+    synthetic::trivial::real1d::dataset1()
+
+main:
+    a = 1
+    b = g()
+    assert a == b
+    if true:
+        1
+    else:
+        2

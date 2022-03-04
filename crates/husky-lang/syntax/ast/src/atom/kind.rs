@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use scope::ScopeKind;
+use scope::{RangedScope, ScopeKind};
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue};
 use word::{CustomIdentifier, WordPtr};
@@ -19,10 +19,10 @@ pub enum AtomKind {
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
-    LambdaHead(Vec<(CustomIdentifier, Option<ScopePtr>)>),
+    LambdaHead(Vec<(CustomIdentifier, Option<RangedScope>)>),
 }
 
-pub type LambdaHead = Vec<(Identifier, Option<ScopePtr>)>;
+pub type LambdaHead = Vec<(Identifier, Option<RangedScope>)>;
 
 impl From<BinaryOpr> for AtomKind {
     fn from(opr: BinaryOpr) -> Self {

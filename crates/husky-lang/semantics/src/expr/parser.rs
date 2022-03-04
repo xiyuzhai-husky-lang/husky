@@ -59,7 +59,7 @@ pub trait ExprParser<'a> {
             RawExprKind::Lambda(_, _) => todo!(),
         };
         Ok(Arc::new(Expr {
-            range: raw_expr.range.clone(),
+            range: raw_expr.range().clone(),
             ty,
             kind,
             file: self.file(),
@@ -92,10 +92,10 @@ pub trait ExprParser<'a> {
                             Ok((
                                 output,
                                 ExprKind::Opn {
-                                    opn: Opn::FuncCall {
-                                        func: scope,
-                                        scope_expr_range: call.range.clone(),
-                                    },
+                                    opn: Opn::RoutineCall(RangedScope {
+                                        scope,
+                                        range: call.range(),
+                                    }),
                                     compiled: signature.compiled,
                                     opds: arguments,
                                 },

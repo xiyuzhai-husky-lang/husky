@@ -14,7 +14,7 @@ pub fn init_gui(debugger: &Debugger, sender: UnboundedSender<Result<Message, war
     let response = Response::Init {
         raw_state: InitState {
             active_trace_id: state.active_trace_id,
-            opt_input_id: runtime.input_id(),
+            opt_input_id: runtime.opt_input_id(),
             traces,
             subtraces_list: &state.subtraces_map,
             root_traces: &root_traces,

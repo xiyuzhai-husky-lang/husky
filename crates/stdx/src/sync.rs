@@ -11,7 +11,7 @@ impl<T> ARwLock<T> {
             inner: Arc::new(RwLock::new(data)),
         }
     }
-    // functional style prevents deadlock
+    // declarative style prevents deadlock
     pub fn read<F, S>(&self, f: F) -> S
     where
         F: FnOnce(&T) -> S,

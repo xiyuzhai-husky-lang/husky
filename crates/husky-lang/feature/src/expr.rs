@@ -1,9 +1,11 @@
 use std::sync::Arc;
 
 use file::FilePtr;
-use scope::ScopePtr;
-use semantics::{DeclStmt, Expr, ExprKind, InstructionSheet, Opn, SemanticQueryGroup};
-use syntax_types::InputType;
+use scope::{RangedScope, ScopePtr};
+use semantics::{
+    DeclStmt, EntityKind, Expr, ExprKind, ImprStmt, InstructionSheet, Opn, SemanticQueryGroup,
+};
+use syntax_types::InputPlaceholder;
 use text::TextRange;
 use word::BuiltinIdentifier;
 
@@ -31,15 +33,24 @@ pub enum FeatureExprKind {
         value: Arc<FeatureExpr>,
     },
     FuncCall {
-        func: ScopePtr,
-        scope_expr_range: TextRange,
+        ranged_scope: RangedScope,
         uid: EntityUid,
         callee_file: FilePtr,
-        input_contracts: Arc<Vec<(CustomIdentifier, InputType)>>,
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
         inputs: Vec<Arc<FeatureExpr>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<DeclStmt>>>,
+    },
+    ProcCall {
+        ranged_scope: RangedScope,
+        uid: EntityUid,
+        callee_file: FilePtr,
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        inputs: Vec<Arc<FeatureExpr>>,
+        compiled: Option<()>,
+        instruction_sheet: Arc<InstructionSheet>,
+        stmts: Arc<Vec<Arc<ImprStmt>>>,
     },
 }
 
@@ -110,40 +121,51 @@ impl FeatureExpr {
                 },
                 Opn::Prefix(_) => todo!(),
                 Opn::Suffix(_) => todo!(),
-                Opn::FuncCall {
-                    func,
-                    scope_expr_range,
-                } => {
-                    let uid = db.entity_vc().uid(func);
+                Opn::RoutineCall(routine) => {
+                    let uid = db.entity_vc().uid(routine.scope);
                     let inputs: Vec<_> = opds
                         .iter()
                         .map(|opd| Self::new(db, opd, symbols, features))
                         .collect();
                     let feature = features.alloc(Feature::FuncCall {
-                        func,
+                        func: routine.scope,
                         uid,
                         inputs: inputs.iter().map(|expr| expr.feature).collect(),
                     });
-                    let entity = db.entity(func).unwrap();
-                    let (input_contracts, stmts) = match entity.kind() {
-                        semantics::EntityKind::Func {
-                            input_contracts,
+                    let entity = db.entity(routine.scope).unwrap();
+                    let kind = match entity.kind() {
+                        EntityKind::Func {
+                            input_placeholders,
                             stmts,
-                        } => (input_contracts.clone(), stmts.clone()),
-                        _ => panic!(),
-                    };
-                    Self {
-                        kind: FeatureExprKind::FuncCall {
-                            func,
-                            scope_expr_range,
+                            ..
+                        } => FeatureExprKind::FuncCall {
+                            ranged_scope: routine,
                             uid,
                             compiled: None,
                             callee_file: entity.file,
-                            input_contracts,
+                            input_placeholders: input_placeholders.clone(),
                             inputs,
-                            instruction_sheet: db.instruction_sheet(func).unwrap(),
-                            stmts,
+                            instruction_sheet: db.instruction_sheet(routine.scope).unwrap(),
+                            stmts: stmts.clone(),
                         },
+                        EntityKind::Proc {
+                            input_placeholders,
+                            stmts,
+                            ..
+                        } => FeatureExprKind::ProcCall {
+                            ranged_scope: routine,
+                            uid,
+                            compiled: None,
+                            callee_file: entity.file,
+                            input_placeholders: input_placeholders.clone(),
+                            inputs,
+                            instruction_sheet: db.instruction_sheet(routine.scope).unwrap(),
+                            stmts: stmts.clone(),
+                        },
+                        _ => panic!(),
+                    };
+                    Self {
+                        kind,
                         feature,
                         range: expr.range,
                         file: expr.file,

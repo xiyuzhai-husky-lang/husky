@@ -1,7 +1,7 @@
-import type RawState from "./State/InitState";
-import TraceCache from "./State/TraceCache";
-import FigureState from "./State/FigureState";
-import UserState from "./State/UserState";
+import type RawState from "./InitState";
+import TraceCache from "./TraceCache";
+import FigureState from "./FigureState";
+import UserState from "./UserState";
 import type { Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import type Trace from "src/trace/Trace";
@@ -31,15 +31,21 @@ class State {
         }
     }
 
-    get_effective_input_id_for_subtraces(trace: Trace): number | null {
+    get_effective_input_id_for_subtraces(
+        trace: Trace,
+        opt_input_id: number | null
+    ): number | null {
         switch (trace.kind) {
             case "Main":
             case "FeatureStmt":
-            case "DeclStmt":
+            case "StrictDeclStmt":
+            case "ImprStmt":
             case "FeatureBranch":
                 return null;
             case "FeatureExpr":
-                return this.user_state.opt_input_id();
+            case "CallHead":
+            case "Expr":
+                return opt_input_id;
         }
     }
 
@@ -48,7 +54,10 @@ class State {
         if (this.user_state.is_expanded(trace.id)) {
             let subtraces = this.trace_cache.get_subtraces(
                 trace.id,
-                this.get_effective_input_id_for_subtraces(trace)
+                this.get_effective_input_id_for_subtraces(
+                    trace,
+                    this.user_state.opt_input_id()
+                )
             );
             if (subtraces !== null) {
                 for (const trace of subtraces) {

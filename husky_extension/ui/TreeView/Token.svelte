@@ -1,8 +1,11 @@
 <script lang="ts">
-    import { get_shown_store, get_trace_future } from "src/state/client";
+    import {
+        get_show_store,
+        get_trace_future,
+        toggle_show,
+    } from "src/state/client";
 
     import type { TokenProps } from "src/trace/Trace";
-    import { request_toggle_show } from "src/websocket/websocket_client";
     export let token: TokenProps;
     export let within_active_node: boolean;
     $: spacesBeforeStyles = spacesStyle(countSpacesBefore(token.value));
@@ -15,7 +18,7 @@
     $: associated_trace =
         associated_trace_store !== null ? $associated_trace_store : null;
     $: associated_trace_shown_store =
-        associated_trace !== null ? get_shown_store(associated_trace) : null;
+        associated_trace !== null ? get_show_store(associated_trace) : null;
     $: associated_trace_shown =
         associated_trace_shown_store !== null
             ? $associated_trace_shown_store
@@ -48,7 +51,7 @@
     function handleClick() {
         if (within_active_node) {
             if (token.associated_trace !== null) {
-                request_toggle_show(token.associated_trace);
+                toggle_show(token.associated_trace);
             }
         }
     }

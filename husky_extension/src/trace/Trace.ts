@@ -24,10 +24,13 @@ export const tTrace = t.type({
     has_subtraces: t.boolean,
     kind: t.union([
         t.literal("Main"),
+        t.literal("CallHead"),
         t.literal("FeatureStmt"),
         t.literal("FeatureBranch"),
         t.literal("FeatureExpr"),
-        t.literal("DeclStmt"),
+        t.literal("StrictDeclStmt"),
+        t.literal("ImprStmt"),
+        t.literal("Expr"),
     ]),
     subtraces_container_class: t.union([t.literal("Call"), t.null]),
 });

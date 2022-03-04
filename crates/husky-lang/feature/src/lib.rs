@@ -14,7 +14,7 @@ pub use branch::{FeatureBranch, FeatureBranchKind};
 pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt, FeatureEvalIndicator};
 pub use expr::{FeatureExpr, FeatureExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
-use scope::ScopePtr;
+use scope::{RangedScope, ScopePtr};
 use semantics::EntityUid;
 pub use sheet::FeatureSheet;
 pub use stmt::{FeatureStmt, FeatureStmtKind};

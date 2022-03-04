@@ -4,6 +4,7 @@ use feature::{
     eval_feature_block, eval_feature_expr, eval_feature_stmt, FeatureBlock, FeatureExpr,
     FeatureExprKind, FeaturePtr, FeatureSheet, FeatureStmt,
 };
+use semantics::{EntityQueryGroup, ImprStmtKind};
 use vm::EvalValue;
 
 use trace::*;
@@ -86,11 +87,23 @@ pub fn subtraces(
     let trace: &Trace = &this.trace(trace_id);
     match trace.kind {
         TraceKind::Main(ref block) => Arc::new(this.feature_block_subtraces(&trace, block)),
-        TraceKind::FeatureStmt(_) | TraceKind::Input(_) | TraceKind::DeclStmt { .. } => {
-            Arc::new(vec![])
-        }
+        TraceKind::FeatureStmt(_)
+        | TraceKind::Input(_)
+        | TraceKind::StrictDeclStmt { .. }
+        | TraceKind::CallHead { .. } => Arc::new(vec![]),
+        TraceKind::ImprStmt { ref stmt, .. } => match stmt.kind {
+            ImprStmtKind::Init { .. }
+            | ImprStmtKind::Assert { .. }
+            | ImprStmtKind::Return { .. } => Arc::new(vec![]),
+            ImprStmtKind::BranchGroup { .. } => panic!(),
+            ImprStmtKind::Loop => todo!(),
+        },
         TraceKind::FeatureExpr(ref expr) => feature_expr_subtraces(this, trace, expr, opt_input_id),
         TraceKind::FeatureBranch(ref branch) => this.feature_branch_subtraces(trace, branch),
+        TraceKind::Expr {
+            ref expr,
+            ref value,
+        } => todo!(),
     }
 }
 
@@ -105,6 +118,7 @@ fn feature_expr_subtraces(
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
         | FeatureExprKind::Variable { .. } => vec![],
         FeatureExprKind::FuncCall {
+            ranged_scope,
             ref inputs,
             ref stmts,
             ref instruction_sheet,
@@ -114,9 +128,17 @@ fn feature_expr_subtraces(
             if let Some(input_id) = opt_input_id {
                 let mut subtraces = vec![];
                 let mut func_input_values = vec![];
+                let entity = this
+                    .compile_time(this.version())
+                    .entity(ranged_scope.scope)
+                    .unwrap();
+                subtraces.push(
+                    this.trace_allocator()
+                        .new_call_head(entity.clone(), &this.text(callee_file).unwrap()),
+                );
                 for func_input in inputs {
                     subtraces.push(this.new_trace(
-                        Some(parent),
+                        Some(parent.id()),
                         expr.file,
                         4,
                         TraceKind::Input(func_input.clone()),
@@ -135,6 +157,51 @@ fn feature_expr_subtraces(
                     this.text(callee_file).unwrap(),
                 );
                 subtraces.extend(interpreter.decl_stmt_traces(parent, stmts, 4));
+                subtraces
+            } else {
+                vec![]
+            }
+        }
+        FeatureExprKind::ProcCall {
+            ranged_scope,
+            ref inputs,
+            ref stmts,
+            ref instruction_sheet,
+            callee_file,
+            ..
+        } => {
+            if let Some(input_id) = opt_input_id {
+                let mut subtraces = vec![];
+                let mut func_input_values = vec![];
+                let entity = this
+                    .compile_time(this.version())
+                    .entity(ranged_scope.scope)
+                    .unwrap();
+                subtraces.push(
+                    this.trace_allocator()
+                        .new_call_head(entity.clone(), &this.text(callee_file).unwrap()),
+                );
+                for func_input in inputs {
+                    subtraces.push(this.new_trace(
+                        Some(parent.id()),
+                        expr.file,
+                        4,
+                        TraceKind::Input(func_input.clone()),
+                    ));
+                    let func_input_value =
+                        (|| this.eval_feature_expr(func_input, input_id)?.defined())();
+                    match func_input_value {
+                        Ok(value) => func_input_values.push(value),
+                        Err(_) => return Arc::new(subtraces),
+                    }
+                }
+                let interpreter = TraceInterpreter::new(
+                    func_input_values,
+                    instruction_sheet.clone(),
+                    this.trace_allocator_arc(),
+                    this.text(callee_file).unwrap(),
+                );
+                subtraces.extend(interpreter.impr_stmt_traces(parent, stmts, 4));
                 subtraces
             } else {
                 vec![]
@@ -187,6 +254,9 @@ pub fn trace_stalk(
             ],
         },
         TraceKind::Input(_) => todo!(),
-        TraceKind::DeclStmt { .. } => todo!(),
+        TraceKind::StrictDeclStmt { .. }
+        | TraceKind::ImprStmt { .. }
+        | TraceKind::Expr { .. }
+        | TraceKind::CallHead { .. } => panic!(),
     })
 }

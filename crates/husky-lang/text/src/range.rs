@@ -77,13 +77,20 @@ pub fn new_same_line(i: usize, start: usize, end: usize) -> TextRange {
         end: (i, end).into(),
     }
 }
-pub fn group_text_range<T>(slice: &[T]) -> TextRange
-where
-    T: TextRanged,
-{
-    if slice.len() > 0 {
-        ((slice[0].text_range().start)..(slice.last().unwrap().text_range().end)).into()
-    } else {
-        TextRange::default()
+
+impl<T: TextRanged> From<&[T]> for TextRange {
+    fn from(slice: &[T]) -> Self {
+        if slice.len() > 0 {
+            ((slice[0].text_range().start)..(slice.last().unwrap().text_range().end)).into()
+        } else {
+            TextRange::default()
+        }
+    }
+}
+
+impl<T: TextRanged> From<&Vec<T>> for TextRange {
+    fn from(v: &Vec<T>) -> Self {
+        let slice: &[T] = v;
+        slice.into()
     }
 }

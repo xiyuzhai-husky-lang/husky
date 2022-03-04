@@ -43,10 +43,7 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
     while let Some(result) = rx.next().await {
         let msg = result.expect("error receiving ws message: {}");
         match msg.to_str() {
-            Ok(text) => {
-                println!("received message: {}", text);
-                handle_message(debugger.clone(), text, client_sender.clone())
-            }
+            Ok(text) => handle_message(debugger.clone(), text, client_sender.clone()),
             Err(_) => {
                 if msg.is_close() {
                     println!(

@@ -9,7 +9,7 @@ class UserState {
     active_trace_store: Writable<Trace | null> = writable(null);
     expansion_stores: StoreMap<boolean> = new StoreMap();
     shown_stores: StoreMap<boolean> = new StoreMap();
-    opt_input_id_store: Writable<number | null> = writable(null);
+    opt_input_id_store: Writable<number | null> = writable(0);
     input_locked_store: Writable<boolean> = writable(true);
 
     init(raw_state: InitState) {
@@ -20,6 +20,9 @@ class UserState {
         );
         this.expansion_stores.load(raw_state.expansions);
         this.shown_stores.load(raw_state.showns);
+        this.opt_input_id_store.set(raw_state.opt_input_id);
+        console.log("raw_state.opt_input_id", raw_state.opt_input_id);
+        this.input_locked_store.set(true);
     }
 
     is_expanded(trace_id: number): boolean {

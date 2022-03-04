@@ -11,17 +11,17 @@ pub fn entity_from_ast(
         .unwrap();
     let head = value.as_ref()?;
     match head {
-        ast::Ast::TypeDef {
+        ast::AstKind::TypeDef {
             ident,
             kind,
             generics,
         } => todo!(),
-        ast::Ast::MainDef => todo!(),
-        ast::Ast::DatasetConfig => todo!(),
-        ast::Ast::FuncDef { kind, decl } => todo!(),
-        ast::Ast::PatternDef => todo!(),
-        ast::Ast::Use { ident, scope } => todo!(),
-        ast::Ast::MembDef { ident, kind } => todo!(),
-        ast::Ast::Stmt(_) => todo!(),
+        ast::AstKind::MainDef => todo!(),
+        ast::AstKind::DatasetConfig => todo!(),
+        ast::AstKind::FuncDef { kind, decl } => todo!(),
+        ast::AstKind::PatternDef => todo!(),
+        ast::AstKind::Use { ident, scope } => todo!(),
+        ast::AstKind::MembDef { ident, kind } => todo!(),
+        ast::AstKind::Stmt(_) => todo!(),
     }
 }

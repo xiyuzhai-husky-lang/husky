@@ -1,4 +1,6 @@
+mod config;
 mod error;
+pub mod flags;
 mod gui;
 pub mod mock;
 mod notif;
@@ -8,9 +10,9 @@ mod tests;
 
 use std::{convert::Infallible, net::ToSocketAddrs, sync::Arc};
 
-use common::HashMap;
+use common::{epin, p, HashMap};
+use config::DebuggerConfig;
 pub use error::{DebuggerError, DebuggerResult};
-
 use husky_lang_compile_time::HuskyLangCompileTime;
 use husky_lang_runtime::{HuskyLangRuntime, RuntimeQueryGroup};
 
@@ -26,14 +28,21 @@ pub struct Debugger {
     runtime: Mutex<HuskyLangRuntime>,
     threadpool: ThreadPool,
     state: Mutex<DebuggerState>,
+    config: DebuggerConfig,
 }
 
 impl Debugger {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyLangCompileTime)) -> Self {
+        let config = DebuggerConfig::from_env();
+        let mut runtime = HuskyLangRuntime::new(init_compile_time);
+        if let Some(ref input_id_str) = config.opt_input_id {
+            runtime.lock_input(input_id_str);
+        }
         Self {
-            runtime: Mutex::new(HuskyLangRuntime::new(init_compile_time)),
+            runtime: Mutex::new(runtime),
             threadpool: ThreadPool::new().unwrap(),
             state: Default::default(),
+            config,
         }
     }
 
@@ -111,7 +120,7 @@ impl Debugger {
         self.runtime.lock().unwrap().trace(id)
     }
 
-    pub async fn lock_input(&self, input_str: String) -> (Option<Option<usize>>, Option<String>) {
+    pub async fn lock_input(&self, input_str: &str) -> (Option<Option<usize>>, Option<String>) {
         self.runtime.lock().unwrap().lock_input(input_str)
     }
 

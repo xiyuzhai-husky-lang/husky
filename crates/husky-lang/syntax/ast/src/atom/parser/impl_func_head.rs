@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use crate::*;
+use scope::RangedScope;
 use syntax_types::*;
 use vm::InputContract;
 
@@ -8,15 +9,15 @@ use super::*;
 
 // inner ops
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn func_decl(mut self) -> AstResult<FuncDecl> {
+    pub(crate) fn func_decl(mut self) -> AstResult<RoutineDecl> {
         let funcname = get!(self, custom_ident);
         let space_params = self.placeholders()?;
-        let input_contracts = self.func_input_contracts()?;
+        let input_contracts = self.func_input_placeholders()?;
         let output = self.func_output_type()?;
-        Ok(FuncDecl {
+        Ok(RoutineDecl {
             funcname,
             generics: space_params,
-            input_contracts,
+            input_placeholders: input_contracts,
             output,
         })
     }
@@ -33,7 +34,10 @@ impl<'a> AtomLRParser<'a> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
-            traits.push(get!(self, ty?));
+            traits.push(RangedScope {
+                scope: get!(self, ty?),
+                range: self.stream.pop_range(),
+            });
             if next_matches!(self, "+") {
                 todo!()
             }
@@ -44,29 +48,36 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn func_input_contracts(&mut self) -> AstResultArc<Vec<(CustomIdentifier, InputType)>> {
+    fn func_input_placeholders(&mut self) -> AstResultArc<Vec<InputPlaceholder>> {
         no_look_pass!(self, "(");
-        Ok(Arc::new(comma_list!(self, func_input_type!, ")")))
+        Ok(Arc::new(comma_list!(self, func_input_placeholder!, ")")))
     }
 
-    fn func_input_type(&mut self) -> AstResult<(CustomIdentifier, InputType)> {
+    fn func_input_placeholder(&mut self) -> AstResult<InputPlaceholder> {
         let ident = get!(self, custom_ident);
         no_look_pass!(self, ":");
-        let ty = get!(self, ty?);
-        Ok((
+        let ty = RangedScope {
+            scope: get!(self, ty?),
+            range: self.stream.pop_range(),
+        };
+        Ok(InputPlaceholder {
             ident,
-            InputType {
-                contract: InputContract::Intact,
-                ty,
-            },
-        ))
+            contract: InputContract::Intact,
+            ty,
+        })
     }
 
-    fn func_output_type(&mut self) -> AstResult<ScopePtr> {
+    fn func_output_type(&mut self) -> AstResult<RangedScope> {
         Ok(if next_matches!(self, "->") {
-            get!(self, ty?)
+            RangedScope {
+                scope: get!(self, ty?),
+                range: self.stream.pop_range(),
+            }
         } else {
-            ScopePtr::Builtin(BuiltinIdentifier::Void)
+            RangedScope {
+                scope: ScopePtr::Builtin(BuiltinIdentifier::Void),
+                range: self.stream.pop_range(),
+            }
         })
     }
 }

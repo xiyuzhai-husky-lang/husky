@@ -1,4 +1,4 @@
-use feature::{FeatureExpr, FeatureExprKind, FeatureStmt, FeatureStmtKind};
+use feature::{FeatureStmt, FeatureStmtKind};
 
 use crate::*;
 
@@ -16,7 +16,7 @@ impl TraceAllocator {
             | FeatureStmtKind::Assert { .. }
             | FeatureStmtKind::Return { .. } => {
                 vec![self.new_trace(
-                    Some(parent),
+                    Some(parent.id),
                     stmt.indent,
                     TraceKind::FeatureStmt(stmt),
                     text,
