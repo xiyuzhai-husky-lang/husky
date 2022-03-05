@@ -80,6 +80,16 @@ impl From<PrimitiveValue> for TokenProps {
     }
 }
 
+impl From<InitKind> for TokenProps {
+    fn from(init_kind: InitKind) -> Self {
+        match init_kind {
+            InitKind::Let => keyword!("let "),
+            InitKind::Var => keyword!("var "),
+            InitKind::Decl => panic!(),
+        }
+    }
+}
+
 // ts: string
 #[derive(Debug, Serialize, Clone, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
@@ -203,4 +213,4 @@ macro_rules! fade {
     }};
 }
 
-use vm::{EvalValue, PrimitiveValue, VMResult};
+use vm::{EvalValue, InitKind, PrimitiveValue, VMResult};

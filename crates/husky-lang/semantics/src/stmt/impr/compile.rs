@@ -25,7 +25,12 @@ impl<'a> ImprStmtInstructionGenerator<'a> {
             ImprStmtKind::Init {
                 varname,
                 ref initial_value,
-            } => todo!(),
+                init_kind,
+                ..
+            } => {
+                self.gen_expr_instructions(initial_value);
+                self.sheet.def_variable(varname, init_kind)
+            }
             ImprStmtKind::Assert { ref condition } => todo!(),
             ImprStmtKind::Return { ref result } => {
                 self.gen_expr_instructions(result);

@@ -2,7 +2,11 @@ func f() -> i32:
     1 + 1
 
 proc g() -> i32:
-    return 2
+    let a = 1
+    var b = 0
+    for 0 <= i < 2:
+        b += 1
+    return b
 
 dataset:
     synthetic::trivial::real1d::dataset1()

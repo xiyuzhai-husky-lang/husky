@@ -85,18 +85,18 @@ impl<'a> StmtParser<'a> {
                     RawStmtKind::Init {
                         varname,
                         initial_value,
-                        kind,
+                        init_kind ,
                     } => {
                         let initial_value = self.parse_expr(&self.arena[initial_value])?;
-                        let qual = Qual::from_init(kind, &mut self.qual_table);
-                        self.def_variable(varname, initial_value.ty, qual);
+                        let qual = Qual::from_init(init_kind, &mut self.qual_table);
+                    let varidx =     self.def_variable(varname, initial_value.ty, qual);
                         ImprStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
                             kind: ImprStmtKind::Init {
                                 varname,
-                                initial_value,
+                                initial_value,init_kind,varidx,
                             },
                         }
                     }

@@ -12,8 +12,8 @@ pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBranchKind, RawStmt, RawStmtKind};
-pub use syntax_types::InitKind;
 use transform::AstTransformer;
+use vm::InitKind;
 
 use scope::ScopePtr;
 use syntax_types::*;

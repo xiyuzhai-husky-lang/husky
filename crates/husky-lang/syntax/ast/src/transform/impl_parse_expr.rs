@@ -20,6 +20,7 @@ impl<'a> AstTransformer<'a> {
                     AtomKind::Binary(opr) => stack.accept_binary(opr),
                     AtomKind::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_end()),
                     AtomKind::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),
+                    AtomKind::Assign(opt_binary_opr) => stack.accept_assign(opt_binary_opr),
                     AtomKind::ListStart(bra, attr) => {
                         stack.accept_list_start(bra, attr, atom.text_start())
                     }

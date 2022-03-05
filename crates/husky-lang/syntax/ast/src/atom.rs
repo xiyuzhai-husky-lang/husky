@@ -24,11 +24,8 @@ pub struct Atom {
 }
 
 impl Atom {
-    pub fn new(range: TextRange, variant: AtomKind) -> Atom {
-        Atom {
-            range,
-            kind: variant,
-        }
+    pub fn new(range: TextRange, kind: AtomKind) -> Atom {
+        Atom { range, kind }
     }
 }
 

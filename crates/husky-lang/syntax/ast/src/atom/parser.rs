@@ -157,11 +157,6 @@ impl<'a> AtomLRParser<'a> {
                             }
                         }
                         Special::MemberAccess => todo!(),
-                       Special::Assign
-                        | Special::AddAssign
-                        | Special::SubAssign
-                        | Special::MultAssign
-                        | Special::DivAssign => todo!(),
                         _ => self.stack.push(token.into())?,
                     },
                     _ => self.stack.push(token.into())?,

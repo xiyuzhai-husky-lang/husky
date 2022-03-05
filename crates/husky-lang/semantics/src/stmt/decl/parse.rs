@@ -80,7 +80,7 @@ impl<'a> StmtParser<'a> {
                     RawStmtKind::Init {
                         varname,
                         initial_value,
-                        kind,
+                        init_kind: kind,
                     } => {
                         let initial_value = self.parse_expr(&self.arena[initial_value])?;
                         let qual = Qual::from_init(kind, &mut self.qual_table);

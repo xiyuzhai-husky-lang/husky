@@ -16,6 +16,7 @@ pub enum AtomKind {
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
+    Assign(Option<BinaryOpr>),
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
@@ -60,12 +61,12 @@ impl From<Special> for AtomKind {
             | Special::RBox
             | Special::RPar
             | Special::SubOrMinus
-            | Special::MemberAccess
-            | Special::Assign
-            | Special::AddAssign
-            | Special::SubAssign
-            | Special::MultAssign
-            | Special::DivAssign => panic!(),
+            | Special::MemberAccess => panic!(),
+            Special::Assign => AtomKind::Assign(None),
+            Special::AddAssign => AtomKind::Assign(Some(BinaryOpr::Add)),
+            Special::SubAssign => AtomKind::Assign(Some(BinaryOpr::Sub)),
+            Special::MulAssign => AtomKind::Assign(Some(BinaryOpr::Mul)),
+            Special::DivAssign => AtomKind::Assign(Some(BinaryOpr::Div)),
             Special::LAngle => AtomKind::Binary(BinaryOpr::Less),
             Special::Leq => AtomKind::Binary(BinaryOpr::Leq),
             Special::RAngle => AtomKind::Binary(BinaryOpr::Greater),

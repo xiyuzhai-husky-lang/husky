@@ -21,12 +21,19 @@ impl<'a> StmtParser<'a> {
         }
     }
 
-    pub(super) fn def_variable(&mut self, varname: CustomIdentifier, ty: ScopePtr, qual: Qual) {
+    pub(super) fn def_variable(
+        &mut self,
+        varname: CustomIdentifier,
+        ty: ScopePtr,
+        qual: Qual,
+    ) -> VarIdx {
+        let varidx = VarIdx::new(self.variables.len());
         self.variables.push(Variable {
             ident: varname,
             ty,
             qual,
         });
+        varidx
     }
 }
 
