@@ -38,7 +38,7 @@ pub enum Special {
     Assign,      // =
     AddAssign,   // +=
     SubAssign,   // -=
-    MultAssign,  // *=
+    MulAssign,   // *=
     DivAssign,   // /=
     Exclamation, // !
 }
@@ -82,7 +82,7 @@ impl Special {
             Special::Assign => "=",
             Special::AddAssign => "+=",
             Special::SubAssign => "-=",
-            Special::MultAssign => "*=",
+            Special::MulAssign => "*=",
             Special::DivAssign => "/=",
             Special::Exclamation => "!",
         }

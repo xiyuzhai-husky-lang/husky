@@ -25,6 +25,12 @@ impl ExprStackOpr {
             kind: ExprStackOprKind::Binary(opr),
         }
     }
+    fn assign(opt_binary_opr: Option<BinaryOpr>) -> Self {
+        Self {
+            precedence: Precedence::None,
+            kind: ExprStackOprKind::Assign(opt_binary_opr),
+        }
+    }
 
     fn prefix(prefix: PrefixOpr, start: TextPosition) -> Self {
         Self {
@@ -61,6 +67,7 @@ impl ExprStackOpr {
 #[derive(Debug, PartialEq, Eq, Clone)]
 enum ExprStackOprKind {
     Binary(BinaryOpr),
+    Assign(Option<BinaryOpr>),
     ListItem,
     Prefix {
         prefix: PrefixOpr,
@@ -140,6 +147,11 @@ impl<'a> ExprStack<'a> {
 
     pub(crate) fn accept_suffix(&mut self, suffix: SuffixOpr, end: TextPosition) {
         self.synthesize_suffix(suffix, end)
+    }
+
+    pub(crate) fn accept_assign(&mut self, opt_binary_opr: Option<BinaryOpr>) {
+        let stack_opr = ExprStackOpr::assign(opt_binary_opr);
+        todo!()
     }
 
     pub(crate) fn accept_atom_expr(&mut self, expr: RawExpr) {
@@ -228,6 +240,7 @@ impl<'a> ExprStack<'a> {
                         self.synthesize_lambda(inputs, start)
                     }
                     ExprStackOprKind::ListItem | ExprStackOprKind::ListStart { .. } => panic!(),
+                    ExprStackOprKind::Assign(_) => todo!(),
                 }
             } else {
                 return;

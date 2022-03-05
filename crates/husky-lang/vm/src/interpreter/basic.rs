@@ -26,6 +26,19 @@ impl<'stack, 'eval: 'stack> BasicInterpreter<'stack, 'eval> {
 }
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> for BasicInterpreter<'stack, 'eval> {
+    fn init(&mut self, init_kind: InitKind) -> VMResult<()> {
+        match init_kind {
+            InitKind::Let | InitKind::Decl => Ok(()),
+            InitKind::Var => match self.values.last().unwrap() {
+                StackValue::Primitive(_) | StackValue::Boxed(_) => Ok(()),
+                StackValue::MutRef(_)
+                | StackValue::Volatile(_)
+                | StackValue::GlobalRef(_)
+                | StackValue::Ref(_) => todo!(),
+            },
+        }
+    }
+
     fn var(&self, rel_idx: usize) -> VMResult<&StackValue<'stack, 'eval>> {
         if rel_idx >= self.len() {
             todo!()

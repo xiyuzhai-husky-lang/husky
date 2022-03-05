@@ -15,7 +15,7 @@ pub enum RawStmtKind {
     Branch(RawBranchKind),
     Exec(RawExprIdx),
     Init {
-        kind: InitKind,
+        init_kind: InitKind,
         varname: CustomIdentifier,
         initial_value: RawExprIdx,
     },

@@ -19,7 +19,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Var => self.parse_init_stmt(InitKind::Var, kw_range, tokens)?,
                 StmtKeyword::If => {
                     expect_at_least!(tokens, kw_range, 2);
-                    expect_kind!(tokens.last().unwrap(), Special::Colon);
+                    expect_block_head!(tokens);
                     RawStmt {
                         range: tokens.into(),
                         kind: RawStmtKind::Branch(RawBranchKind::If {
@@ -44,7 +44,16 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Match => todo!(),
                 StmtKeyword::Case => todo!(),
                 StmtKeyword::DeFault => todo!(),
-                StmtKeyword::For => todo!(),
+                StmtKeyword::For => {
+                    expect_block_head!(tokens);
+                    let expr = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+                    let expr = &self.arena[expr];
+                    match expr.kind {
+                        RawExprKind::Opn { opr, ref opds } => todo!(),
+                        _ => todo!(),
+                    }
+                    todo!()
+                }
                 StmtKeyword::ForExt => todo!(),
                 StmtKeyword::While => todo!(),
                 StmtKeyword::Do => todo!(),
@@ -73,7 +82,7 @@ impl<'a> AstTransformer<'a> {
                 RawStmt {
                     range: tokens.into(),
                     kind: RawStmtKind::Init {
-                        kind: InitKind::Decl,
+                        init_kind: InitKind::Decl,
                         varname,
                         initial_value: self.parse_expr(&tokens[2..])?,
                     },
@@ -129,7 +138,7 @@ impl<'a> AstTransformer<'a> {
         Ok(RawStmt {
             range: tokens.into(),
             kind: RawStmtKind::Init {
-                kind,
+                init_kind: kind,
                 varname,
                 initial_value,
             },

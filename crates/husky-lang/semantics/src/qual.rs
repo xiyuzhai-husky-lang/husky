@@ -1,4 +1,4 @@
-use ast::InitKind;
+use vm::InitKind;
 
 use crate::*;
 
@@ -25,7 +25,11 @@ impl Qual {
                 owned: true,
                 owner_id: table.issue_owner_id(),
             },
-            InitKind::Var => todo!(),
+            InitKind::Var => Self {
+                mutable: true,
+                owned: true,
+                owner_id: table.issue_owner_id(),
+            },
             InitKind::Decl => Self {
                 mutable: false,
                 owned: true,

@@ -7,14 +7,14 @@ use std::sync::Arc;
 
 use common::*;
 pub(crate) use control::TraceInterpreterControlSignal;
-use semantics::{DeclStmt, DeclStmtKind, Expr, ExprKind, ImprStmt, InstructionSheet, Opn};
+use semantics::{DeclStmt, DeclStmtKind, Expr, ExprKind, ImprStmt, InstructionSheet, Opn, VarIdx};
 pub use value::TraceStackValue;
-use vm::{Interpreter, StackValue, VMResult};
+use vm::{InitKind, Interpreter, StackValue, VMResult};
 
 use crate::*;
 
 pub struct TraceInterpreter {
-    values: HashMap<usize, StackValue<'static, 'static>>,
+    values: HashMap<VarIdx, TraceStackValue>,
     instruction_sheet: Arc<InstructionSheet>,
     trace_allocator: Arc<TraceAllocator>,
     text: Arc<Text>,
@@ -27,9 +27,9 @@ impl TraceInterpreter {
         trace_allocator: Arc<TraceAllocator>,
         text: Arc<Text>,
     ) -> Self {
-        let mut values: HashMap<usize, StackValue<'static, 'static>> = Default::default();
+        let mut values: HashMap<VarIdx, TraceStackValue> = Default::default();
         for (i, value) in input_values.into_iter().enumerate() {
-            values.insert(i, value);
+            values.insert(i.into(), value.into());
         }
         Self {
             values,
@@ -106,9 +106,20 @@ impl TraceInterpreter {
             ExprKind::Lambda(_, _) => todo!(),
         }
     }
+
+    fn init_trace_stack_value(&mut self, varidx: VarIdx, value: TraceStackValue) {
+        should!(self.values.insert(varidx, value).is_none())
+    }
 }
 
 impl Interpreter<'static, 'static> for TraceInterpreter {
+    fn init(&mut self, init_kind: InitKind) -> VMResult<()> {
+        match init_kind {
+            InitKind::Let | InitKind::Decl => todo!(),
+            InitKind::Var => todo!(),
+        }
+    }
+
     fn var(&self, rel_idx: usize) -> vm::VMResult<&StackValue<'static, 'static>> {
         todo!()
     }

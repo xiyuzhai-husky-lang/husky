@@ -5,6 +5,7 @@ mod parse;
 pub use branch::*;
 pub(crate) use compile::gen_impr_stmt_instructions;
 use fold::Indent;
+use vm::InitKind;
 
 use super::*;
 use crate::*;
@@ -24,6 +25,8 @@ pub enum ImprStmtKind {
     Init {
         varname: CustomIdentifier,
         initial_value: Arc<Expr>,
+        init_kind: InitKind,
+        varidx: VarIdx,
     },
     Assert {
         condition: Arc<Expr>,

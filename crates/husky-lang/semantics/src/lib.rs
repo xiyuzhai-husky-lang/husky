@@ -21,7 +21,7 @@ pub use query::*;
 pub use stmt::{
     DeclBranchGroupKind, DeclBranchKind, DeclStmt, DeclStmtKind, ImprStmt, ImprStmtKind,
 };
-pub use variable::Variable;
+pub use variable::{VarIdx, Variable};
 
 use file::FilePtr;
 use kind::*;
@@ -129,6 +129,7 @@ impl Entity {
                     ImprStmtKind::Init {
                         varname,
                         ref initial_value,
+                        ..
                     } => extract_expr_dependees(initial_value, v),
                     ImprStmtKind::Assert { ref condition } => extract_expr_dependees(condition, v),
                     ImprStmtKind::Return { ref result } => extract_expr_dependees(result, v),

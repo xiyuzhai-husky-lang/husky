@@ -5,6 +5,7 @@ pub use basic::BasicInterpreter;
 use crate::*;
 
 pub trait Interpreter<'stack, 'eval: 'stack> {
+    fn init(&mut self, init_kind: InitKind) -> VMResult<()>;
     fn var(&self, rel_idx: usize) -> VMResult<&StackValue<'stack, 'eval>>;
     fn var_mut(&mut self, rel_idx: usize) -> VMResult<&mut StackValue<'stack, 'eval>>;
     fn len(&self) -> usize;
@@ -14,7 +15,34 @@ pub trait Interpreter<'stack, 'eval: 'stack> {
 
     fn exec_all(&mut self, instructions: &[Instruction]) -> VMResult<ControlSignal<'stack, 'eval>> {
         for ins in instructions {
-            match self.exec(&ins.kind)? {
+            let control_signal = match ins.kind {
+                InstructionKind::PushVarInput(contract, rel_idx) => {
+                    self.push(self.var(rel_idx as usize)?.as_input(contract)?);
+                    Ok(ControlSignal::Normal)
+                }
+                InstructionKind::PushPrimitive(value) => {
+                    self.push(value.into());
+                    Ok(ControlSignal::Normal)
+                }
+                InstructionKind::Call {
+                    ref compiled,
+                    nargs,
+                } => {
+                    self.call(compiled, nargs)?;
+                    Ok(ControlSignal::Normal)
+                }
+                InstructionKind::PrimitiveOpn(opn) => {
+                    self.exec_primitive(opn)?;
+                    Ok(ControlSignal::Normal)
+                }
+                InstructionKind::CallInterpret(ref instructions) => self.exec_all(instructions),
+                InstructionKind::Return => Ok(ControlSignal::Return(self.pop().unwrap())),
+                InstructionKind::Init(init_kind) => {
+                    self.init(init_kind);
+                    Ok(ControlSignal::Normal)
+                }
+            }?;
+            match control_signal {
                 ControlSignal::Normal => (),
                 ControlSignal::Return(value) => return Ok(ControlSignal::Return(value)),
                 ControlSignal::Break => return Ok(ControlSignal::Break),
@@ -23,8 +51,8 @@ pub trait Interpreter<'stack, 'eval: 'stack> {
         Ok(ControlSignal::Normal)
     }
 
-    fn exec(&mut self, ins: &InstructionKind) -> VMResult<ControlSignal<'stack, 'eval>> {
-        match ins {
+    fn exec(&mut self, ins_kind: &InstructionKind) -> VMResult<ControlSignal<'stack, 'eval>> {
+        match ins_kind {
             InstructionKind::PushVarInput(contract, rel_idx) => {
                 self.push(self.var(*rel_idx as usize)?.as_input(*contract)?);
                 Ok(ControlSignal::Normal)
@@ -33,7 +61,10 @@ pub trait Interpreter<'stack, 'eval: 'stack> {
                 self.push(value.into());
                 Ok(ControlSignal::Normal)
             }
-            InstructionKind::Call { compiled, nargs } => {
+            InstructionKind::Call {
+                ref compiled,
+                nargs,
+            } => {
                 self.call(compiled, *nargs)?;
                 Ok(ControlSignal::Normal)
             }
@@ -41,8 +72,12 @@ pub trait Interpreter<'stack, 'eval: 'stack> {
                 self.exec_primitive(*opn)?;
                 Ok(ControlSignal::Normal)
             }
-            InstructionKind::CallInterpret(instructions) => self.exec_all(&instructions),
+            InstructionKind::CallInterpret(ref instructions) => self.exec_all(instructions),
             InstructionKind::Return => Ok(ControlSignal::Return(self.pop().unwrap())),
+            InstructionKind::Init(init_kind) => {
+                self.init(*init_kind);
+                Ok(ControlSignal::Normal)
+            }
         }
     }
 

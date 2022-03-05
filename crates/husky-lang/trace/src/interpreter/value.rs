@@ -1,4 +1,4 @@
-use vm::{PrimitiveValue, VMError, VMResult};
+use vm::{PrimitiveValue, StackValue, VMError, VMResult};
 
 use crate::TokenProps;
 
@@ -19,5 +19,11 @@ impl TraceStackValue {
             TraceStackValue::Primitive(value) => Ok(value),
             _ => todo!(),
         }
+    }
+}
+
+impl From<StackValue<'static, 'static>> for TraceStackValue {
+    fn from(_: StackValue<'static, 'static>) -> Self {
+        todo!()
     }
 }

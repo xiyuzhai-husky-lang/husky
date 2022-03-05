@@ -5,7 +5,7 @@ use common::*;
 use ast::{Ast, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::ScopePtr;
 use syntax_types::*;
-use vm::{InputContract, PrimitiveValue};
+use vm::{InitKind, InputContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
@@ -169,14 +169,14 @@ impl<'a> Formatter<'a> {
             RawStmtKind::Branch(_) => todo!(),
             RawStmtKind::Exec(expr) => self.fmt_expr(&self.arena[expr]),
             RawStmtKind::Init {
-                kind,
+                init_kind: kind,
                 varname,
                 initial_value,
             } => {
                 match kind {
-                    ast::InitKind::Let => self.write("let "),
-                    ast::InitKind::Var => self.write("var "),
-                    ast::InitKind::Decl => (),
+                    InitKind::Let => self.write("let "),
+                    InitKind::Var => self.write("var "),
+                    InitKind::Decl => (),
                 }
                 self.fmt_ident(varname.into());
                 self.write(" = ");

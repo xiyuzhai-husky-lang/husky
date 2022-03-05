@@ -28,6 +28,13 @@ macro_rules! expect_kind {
 }
 pub(super) use expect_kind;
 
+macro_rules! expect_block_head {
+    ($tokens:expr) => {
+        expect_kind!($tokens.last().unwrap(), Special::Colon)
+    };
+}
+pub(super) use expect_block_head;
+
 macro_rules! expect_at_least {
     ($tokens:expr, $kw_range:expr, $lower_bound:expr) => {
         expect!(
