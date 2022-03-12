@@ -11,7 +11,7 @@ use file::FilePtr;
 pub use kind::ScopeKind;
 
 use text::TextRange;
-use vm::Compiled;
+use vm::{Compiled, Contract};
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -103,27 +103,46 @@ pub enum ScopeRoute {
 pub struct BuiltinScopeData {
     pub scope_kind: ScopeKind,
     pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
-    pub signature: RawScopeSignature,
+    pub signature: StaticScopeSignature,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum RawScopeSignature {
-    Func(RawFuncSignature),
+pub enum StaticScopeSignature {
+    Func(StaticFuncSignature),
     Module,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct RawFuncSignature {
-    pub inputs: Vec<&'static str>,
+pub struct StaticFuncSignature {
+    pub inputs: Vec<StaticInputSignature>,
     pub output: &'static str,
     pub compiled: Option<Compiled>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FuncSignature {
-    pub inputs: Vec<ScopePtr>,
+    pub inputs: Vec<InputSignature>,
     pub output: ScopePtr,
     pub compiled: Option<Compiled>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct StaticInputSignature {
+    pub contract: Contract,
+    pub ty: &'static str,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct InputSignature {
+    pub contract: Contract,
+    pub ty: ScopePtr,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct InputPlaceholder {
+    pub ident: CustomIdentifier,
+    pub contract: Contract,
+    pub ty: RangedScope,
 }
 
 impl Scope {

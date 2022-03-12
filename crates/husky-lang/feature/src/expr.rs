@@ -1,19 +1,21 @@
 use std::sync::Arc;
 
 use file::FilePtr;
+use scope::InputPlaceholder;
 use scope::{RangedScope, ScopePtr};
 use semantics::{
-    DeclStmt, EntityKind, Expr, ExprKind, ImprStmt, InstructionSheet, Opn, SemanticQueryGroup,
+    DeclStmt, EntityKind, Expr, ImprStmt, InstructionSheetBuilder, Opn, SemanticQueryGroup,
+    StrictExprKind,
 };
-use syntax_types::InputPlaceholder;
 use text::TextRange;
+use vm::{BinaryOpr, InstructionSheet};
 use word::BuiltinIdentifier;
 
 use crate::{eval::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureExpr {
-    pub kind: FeatureExprKind,
+pub struct LazyExpr {
+    pub kind: LazyExprKind,
     pub(crate) feature: FeaturePtr,
     pub(crate) eval_id: FeatureEvalId,
     pub range: TextRange,
@@ -21,23 +23,23 @@ pub struct FeatureExpr {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureExprKind {
+pub enum LazyExprKind {
     Literal(PrimitiveValue),
     PrimitiveBinaryOpr {
-        opr: BinaryOpr,
-        lopd: Arc<FeatureExpr>,
-        ropd: Arc<FeatureExpr>,
+        opr: PureBinaryOpr,
+        lopd: Arc<LazyExpr>,
+        ropd: Arc<LazyExpr>,
     },
     Variable {
         varname: CustomIdentifier,
-        value: Arc<FeatureExpr>,
+        value: Arc<LazyExpr>,
     },
     FuncCall {
         ranged_scope: RangedScope,
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        inputs: Vec<Arc<FeatureExpr>>,
+        inputs: Vec<Arc<LazyExpr>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<DeclStmt>>>,
@@ -47,28 +49,28 @@ pub enum FeatureExprKind {
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        inputs: Vec<Arc<FeatureExpr>>,
+        inputs: Vec<Arc<LazyExpr>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ImprStmt>>>,
     },
 }
 
-impl FeatureExpr {
+impl LazyExpr {
     pub fn new(
         db: &dyn SemanticQueryGroup,
         expr: &Expr,
-        symbols: &[FeatureSymbol],
+        symbols: &[LazySymbol],
         features: &FeatureUniqueAllocator,
     ) -> Arc<Self> {
         Arc::new(match expr.kind {
-            ExprKind::Variable(varname) => symbols
+            StrictExprKind::Variable(varname) => symbols
                 .iter()
                 .rev()
                 .find_map(|symbol| {
                     if symbol.varname == varname {
                         Some(Self {
-                            kind: FeatureExprKind::Variable {
+                            kind: LazyExprKind::Variable {
                                 varname,
                                 value: symbol.value.clone(),
                             },
@@ -82,16 +84,16 @@ impl FeatureExpr {
                     }
                 })
                 .unwrap(),
-            ExprKind::Scope { scope, compiled } => todo!(),
-            ExprKind::Literal(value) => FeatureExpr {
-                kind: FeatureExprKind::Literal(value),
+            StrictExprKind::Scope { scope, compiled } => todo!(),
+            StrictExprKind::Literal(value) => LazyExpr {
+                kind: LazyExprKind::Literal(value),
                 feature: features.alloc(Feature::Literal(value)),
                 range: expr.range,
                 file: expr.file,
                 eval_id: Default::default(),
             },
-            ExprKind::Bracketed(_) => todo!(),
-            ExprKind::Opn {
+            StrictExprKind::Bracketed(_) => todo!(),
+            StrictExprKind::Opn {
                 opn,
                 compiled,
                 ref opds,
@@ -104,13 +106,17 @@ impl FeatureExpr {
                     | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
                         let lopd = Self::new(db, &opds[0], symbols, features);
                         let ropd = Self::new(db, &opds[1], symbols, features);
+                        let opr = match opr {
+                            BinaryOpr::Pure(opr) => opr,
+                            BinaryOpr::Assign(_) => todo!(),
+                        };
                         let feature = features.alloc(Feature::PrimitiveBinaryOpr {
                             opr,
                             lopd: lopd.feature,
                             ropd: ropd.feature,
                         });
                         Self {
-                            kind: FeatureExprKind::PrimitiveBinaryOpr { opr, lopd, ropd },
+                            kind: LazyExprKind::PrimitiveBinaryOpr { opr, lopd, ropd },
                             feature,
                             range: expr.range,
                             file: expr.file,
@@ -138,7 +144,7 @@ impl FeatureExpr {
                             input_placeholders,
                             stmts,
                             ..
-                        } => FeatureExprKind::FuncCall {
+                        } => LazyExprKind::FuncCall {
                             ranged_scope: routine,
                             uid,
                             compiled: None,
@@ -152,7 +158,7 @@ impl FeatureExpr {
                             input_placeholders,
                             stmts,
                             ..
-                        } => FeatureExprKind::ProcCall {
+                        } => LazyExprKind::ProcCall {
                             ranged_scope: routine,
                             uid,
                             compiled: None,
@@ -177,7 +183,7 @@ impl FeatureExpr {
                 Opn::MembFuncCall(_) => todo!(),
                 Opn::ElementAccess => todo!(),
             },
-            ExprKind::Lambda(_, _) => todo!(),
+            StrictExprKind::Lambda(_, _) => todo!(),
         })
     }
 }

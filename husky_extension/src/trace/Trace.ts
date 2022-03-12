@@ -25,12 +25,13 @@ export const tTrace = t.type({
     kind: t.union([
         t.literal("Main"),
         t.literal("CallHead"),
-        t.literal("FeatureStmt"),
-        t.literal("FeatureBranch"),
-        t.literal("FeatureExpr"),
+        t.literal("LazyStmt"),
+        t.literal("LazyBranch"),
+        t.literal("LazyExpr"),
         t.literal("StrictDeclStmt"),
         t.literal("ImprStmt"),
-        t.literal("Expr"),
+        t.literal("LoopFrame"),
+        t.literal("StrictExpr"),
     ]),
     subtraces_container_class: t.union([t.literal("Call"), t.null]),
 });

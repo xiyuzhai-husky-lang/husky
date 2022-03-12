@@ -1,14 +1,14 @@
-use vm::{Conditional, EvalValue, StackValue};
+use vm::{EvalResult, EvalValue, StackValue};
 
 use super::*;
 
 #[derive(Default, Debug)]
 pub struct FeatureSheet<'eval> {
-    values: HashMap<FeaturePtr, EvalValue<'eval, 'eval>>,
+    values: HashMap<FeaturePtr, EvalResult<'eval>>,
 }
 
 impl<'eval> FeatureSheet<'eval> {
-    pub(crate) fn cached_value(&self, feature: FeaturePtr) -> Option<EvalValue<'eval, 'eval>> {
+    pub(crate) fn cached_value(&self, feature: FeaturePtr) -> Option<EvalResult<'eval>> {
         self.values
             .get(&feature)
             .map(|v| unsafe { share_cached(v) })
@@ -17,8 +17,8 @@ impl<'eval> FeatureSheet<'eval> {
     pub(crate) fn cache(
         &mut self,
         feature: FeaturePtr,
-        value: EvalValue<'eval, 'eval>,
-    ) -> EvalValue<'eval, 'eval> {
+        value: EvalResult<'eval>,
+    ) -> EvalResult<'eval> {
         let result = unsafe { share_cached(&value) };
         assert!(self.values.insert(feature, value).is_none());
         result
@@ -33,21 +33,17 @@ impl<'eval> FeatureSheet<'eval> {
     // }
 }
 
-unsafe fn share_cached<'eval>(cached: &EvalValue<'eval, 'eval>) -> EvalValue<'eval, 'eval> {
-    match cached {
-        Ok(conditional) => Ok(match conditional {
-            Conditional::Defined(value) => Conditional::Defined(match value {
-                StackValue::Primitive(value) => StackValue::Primitive(*value),
-                StackValue::Boxed(value) => StackValue::GlobalRef(&*value.pointer()),
-                StackValue::GlobalRef(_) => todo!(),
-                StackValue::Ref(_) => todo!(),
-                StackValue::MutRef(_) => todo!(),
-                StackValue::Volatile(_) => todo!(),
-            }),
-            Conditional::Undefined => Conditional::Undefined,
-        }),
-        Err(error) => Err(error.clone()),
-    }
+unsafe fn share_cached<'eval>(cached: &EvalResult<'eval>) -> EvalResult<'eval> {
+    Ok(match cached {
+        Ok(value) => match value {
+            EvalValue::Primitive(value) => EvalValue::Primitive(*value),
+            EvalValue::Boxed(value) => EvalValue::GlobalRef(&*value.pointer()),
+            EvalValue::GlobalRef(_) => todo!(),
+            EvalValue::Volatile(_) => todo!(),
+            EvalValue::Undefined => EvalValue::Undefined,
+        },
+        Err(error) => Err(error.clone())?,
+    })
 }
 
 pub trait HasFeatureSheet<'cache> {

@@ -3,7 +3,10 @@ use std::sync::Arc;
 use ast::{Ast, AstKind, AstResult, RawExprArena, RawExprKind, RawStmt, RawStmtKind};
 use common::*;
 use fold::FoldStorage;
-use scope::{FuncSignature, RawFuncSignature, ScopeKind, ScopePtr, ScopeRoute};
+use scope::{
+    FuncSignature, InputPlaceholder, InputSignature, ScopeKind, ScopePtr, ScopeRoute,
+    StaticFuncSignature,
+};
 use scope_query::ScopeQueryGroup;
 use syntax_types::{ListOpr, Opr};
 use word::{BuiltinIdentifier, ImplicitIdentifier};
@@ -24,7 +27,7 @@ fn func_signature(
     let source = this.scope_source(scope)?;
     return match source {
         scope::ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
-            scope::RawScopeSignature::Func(ref signature) => {
+            scope::StaticScopeSignature::Func(ref signature) => {
                 func_signature_from_raw(this, signature)
             }
             _ => panic!(),
@@ -47,7 +50,10 @@ fn func_signature(
                     inputs: decl
                         .input_placeholders
                         .iter()
-                        .map(|input| input.ty.scope)
+                        .map(|input_placeholder| InputSignature {
+                            contract: input_placeholder.contract,
+                            ty: input_placeholder.ty.scope,
+                        })
                         .collect(),
                     output: decl.output.scope,
                     compiled: None,
@@ -60,13 +66,18 @@ fn func_signature(
 
     fn func_signature_from_raw(
         this: &dyn InferQueryGroup,
-        signature: &RawFuncSignature,
+        signature: &StaticFuncSignature,
     ) -> FuncSignature {
         let inputs = signature
             .inputs
             .iter()
-            .map(|ty| this.parse_ty(ty))
-            .collect::<AstResult<Vec<_>>>()
+            .map(|sig| {
+                Ok(InputSignature {
+                    ty: this.parse_ty(sig.ty)?,
+                    contract: sig.contract,
+                })
+            })
+            .collect::<AstResult<Vec<InputSignature>>>()
             .unwrap();
         let output = this.parse_ty(signature.output).unwrap();
         FuncSignature {

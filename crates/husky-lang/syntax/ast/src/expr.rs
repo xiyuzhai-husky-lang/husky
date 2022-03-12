@@ -74,6 +74,7 @@ impl From<&atom::Atom> for RawExpr {
             range: atom.text_range(),
             kind: match atom.kind {
                 AtomKind::Variable(ident) => RawExprKind::Variable(ident),
+                AtomKind::Unrecognized(ident) => RawExprKind::Unrecognized(ident),
                 AtomKind::Literal(literal) => RawExprKind::Literal(literal.clone()),
                 AtomKind::Scope { scope, kind } => RawExprKind::Scope { scope, kind },
                 _ => {

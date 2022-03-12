@@ -11,7 +11,7 @@ use scope::ScopeRoute;
 use syntax_types::*;
 use text::TextRanged;
 use token::*;
-use vm::InputContract;
+use vm::Contract;
 use word::{FuncKeyword, *};
 
 use crate::{
@@ -118,10 +118,8 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                             let decl = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
                             for input_placeholder in decl.input_placeholders.iter() {
                                 match input_placeholder.contract {
-                                    InputContract::Intact
-                                    | InputContract::Share
-                                    | InputContract::Own => (),
-                                    InputContract::MutShare | InputContract::MutOwn => {
+                                    Contract::Pure | Contract::Share | Contract::Take => (),
+                                    Contract::BorrowMut | Contract::TakeMut => {
                                         todo!("report invalid input contract")
                                     }
                                 }
@@ -170,24 +168,24 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                     }
                     let ident = match tokens[0].kind {
                         TokenKind::Identifier(ident) => match ident {
-                            Identifier::Builtin(_) => ast_err!(
+                            Identifier::Builtin(_) => err!(
                                 tokens[0].text_range(),
                                 "expect custom identifier but got builtin"
                             )?,
-                            Identifier::Implicit(_) => ast_err!(
+                            Identifier::Implicit(_) => err!(
                                 tokens[0].text_range(),
                                 "expect implicit identifier but got builtin"
                             )?,
                             Identifier::Custom(custom_ident) => custom_ident,
                         },
-                        _ => ast_err!(tokens[0].text_range(), "expect custom identifier")?,
+                        _ => err!(tokens[0].text_range(), "expect custom identifier")?,
                     };
                     let ty = atom::parse_ty(self.symbol_proxy(), &tokens[2..])?;
                     AstKind::MembDef {
                         ident,
                         kind: MembKind::MembVar {
                             ty: MembType {
-                                contract: InputContract::Own,
+                                contract: Contract::Take,
                                 scope: ty,
                             },
                         },

@@ -2,7 +2,7 @@
 mod config;
 mod error;
 mod expr;
-mod instruction_sheet;
+mod instruction;
 mod kind;
 mod package;
 mod qual;
@@ -12,22 +12,23 @@ mod variable;
 
 pub use config::Config;
 pub use error::{SemanticError, SemanticResult, SemanticResultArc};
-pub use expr::{BinaryOpnKind, Expr, ExprKind, Opn};
-pub use instruction_sheet::InstructionSheet;
+pub use expr::{BinaryOpnKind, Expr, Opn, StrictExprKind};
+pub use instruction::InstructionSheetBuilder;
 pub use kind::EntityKind;
 pub use package::Package;
 pub use qual::Qual;
 pub use query::*;
 pub use stmt::{
-    DeclBranchGroupKind, DeclBranchKind, DeclStmt, DeclStmtKind, ImprStmt, ImprStmtKind,
+    Boundary, DeclBranchGroupKind, DeclBranchKind, DeclStmt, DeclStmtKind, ImprStmt, ImprStmtKind,
+    LoopKind,
 };
 pub use variable::{VarIdx, Variable};
 
 use file::FilePtr;
 use kind::*;
+use scope::InputPlaceholder;
 use scope::{RangedScope, ScopePtr};
 use std::sync::Arc;
-use syntax_types::InputPlaceholder;
 use text::TextRange;
 use unique_vector::UniqVec;
 use vc::{Uid, VersionControl};
@@ -133,23 +134,36 @@ impl Entity {
                     } => extract_expr_dependees(initial_value, v),
                     ImprStmtKind::Assert { ref condition } => extract_expr_dependees(condition, v),
                     ImprStmtKind::Return { ref result } => extract_expr_dependees(result, v),
+                    ImprStmtKind::Execute { ref expr } => extract_expr_dependees(expr, v),
                     ImprStmtKind::BranchGroup { kind, ref branches } => {
                         for branch in branches {
                             extract_impr_stmts_dependees(&branch.stmts, v)
                         }
                     }
-                    ImprStmtKind::Loop => todo!(),
+                    ImprStmtKind::Loop { ref loop_kind, .. } => match loop_kind {
+                        LoopKind::For {
+                            ref initial_boundary,
+                            ref final_boundary,
+                            ..
+                        } => {
+                            extract_boundary_dependees(initial_boundary, v);
+                            extract_boundary_dependees(final_boundary, v);
+                        }
+                        LoopKind::ForExt => todo!(),
+                        LoopKind::While => todo!(),
+                        LoopKind::DoWhile => todo!(),
+                    },
                 }
             }
         }
 
         fn extract_expr_dependees(expr: &Expr, v: &mut UniqVec<ScopePtr>) {
             match expr.kind {
-                ExprKind::Variable(_) => (),
-                ExprKind::Scope { scope, compiled } => v.push(scope),
-                ExprKind::Literal(_) => (),
-                ExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
-                ExprKind::Opn {
+                StrictExprKind::Variable(_) => (),
+                StrictExprKind::Scope { scope, compiled } => v.push(scope),
+                StrictExprKind::Literal(_) => (),
+                StrictExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
+                StrictExprKind::Opn {
                     ref opn,
                     compiled,
                     ref opds,
@@ -163,8 +177,15 @@ impl Entity {
                     Opn::MembFuncCall(_) => todo!(),
                     Opn::ElementAccess => todo!(),
                 },
-                ExprKind::Lambda(_, _) => todo!(),
+                StrictExprKind::Lambda(_, _) => todo!(),
             }
+        }
+
+        fn extract_boundary_dependees(boundary: &Boundary, v: &mut UniqVec<ScopePtr>) {
+            boundary
+                .opt_bound
+                .as_ref()
+                .map(|bound| extract_expr_dependees(bound, v));
         }
     }
 

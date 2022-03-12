@@ -14,13 +14,13 @@ impl<'a> AstTransformer<'a> {
             let mut stack = ExprStack::new(&mut self.arena);
             while let Some(atom) = atom_iter.next() {
                 match atom.kind {
-                    AtomKind::Variable(_) | AtomKind::Literal(_) | AtomKind::Scope { .. } => {
-                        stack.accept_atom_expr(atom.into())
-                    }
+                    AtomKind::Variable(_)
+                    | AtomKind::Unrecognized(_)
+                    | AtomKind::Literal(_)
+                    | AtomKind::Scope { .. } => stack.accept_atom_expr(atom.into()),
                     AtomKind::Binary(opr) => stack.accept_binary(opr),
                     AtomKind::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_end()),
                     AtomKind::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),
-                    AtomKind::Assign(opt_binary_opr) => stack.accept_assign(opt_binary_opr),
                     AtomKind::ListStart(bra, attr) => {
                         stack.accept_list_start(bra, attr, atom.text_start())
                     }

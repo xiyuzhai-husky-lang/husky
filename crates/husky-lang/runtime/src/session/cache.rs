@@ -1,7 +1,7 @@
 // use std::{collections::hash_map::Entry, mem::MaybeUninit};
 
 // use stdx::sync::ARwLock;
-// use vm::{Conditional, EvalValue, StackValue};
+// use vm::{Conditional, EvalValue, VMValue};
 
 // use super::*;
 // use crate::*;
@@ -34,13 +34,13 @@
 //     match cached {
 //         Ok(conditional) => Ok(match conditional {
 //             Conditional::Defined(value) => Conditional::Defined(match value {
-//                 StackValue::Primitive(value) => StackValue::Primitive(*value),
-//                 StackValue::Boxed(value) => StackValue::GlobalRef(&*value.pointer()),
-//                 StackValue::GlobalRef(_) => todo!(),
-//                 StackValue::Ref(_) => todo!(),
-//                 StackValue::MutRef(_) => todo!(),
+//                 VMValue::Primitive(value) => VMValue::Primitive(*value),
+//                 VMValue::Boxed(value) => VMValue::GlobalRef(&*value.pointer()),
+//                 VMValue::GlobalRef(_) => todo!(),
+//                 VMValue::Ref(_) => todo!(),
+//                 VMValue::MutRef(_) => todo!(),
 //             }),
-//             Conditional::Undefined => Conditional::Undefined,
+//             EvalValue::Undefined => EvalValue::Undefined,
 //         }),
 //         Err(error) => Err(error.clone()),
 //     }

@@ -10,8 +10,8 @@ pub use func::Func;
 pub use module::Module;
 pub use pattern::Pattern;
 pub use proc::Proc;
+use scope::InputPlaceholder;
 use scope::RangedScope;
-use syntax_types::InputPlaceholder;
 pub use ty::Ty;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

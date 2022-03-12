@@ -58,7 +58,7 @@ impl TextPosition {
 
 impl std::fmt::Debug for TextPosition {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("{:?}:{:?}", self.row.0, self.col.0))
+        f.write_fmt(format_args!("{:?}:{:?}", self.row.0 + 1, self.col.0 + 1))
     }
 }
 

@@ -1,6 +1,6 @@
 use common::*;
 
-use vm::BinaryOpr;
+use vm::{BinaryOpr, PureBinaryOpr};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum Precedence {
@@ -30,19 +30,25 @@ fn test_precedence_order() {
 impl From<BinaryOpr> for Precedence {
     fn from(binary: BinaryOpr) -> Self {
         match binary {
-            BinaryOpr::Eq | BinaryOpr::Neq => Precedence::Equal,
-            BinaryOpr::And => Precedence::And,
-            BinaryOpr::BitAnd => Precedence::BitAnd,
-            BinaryOpr::Or => Precedence::Or,
-            BinaryOpr::BitOr => Precedence::BitOr,
-            BinaryOpr::BitXor => Precedence::BitXor,
-            BinaryOpr::Mul | BinaryOpr::Div | BinaryOpr::RemEuclid => Precedence::Multiplicative,
-            BinaryOpr::Add | BinaryOpr::Sub => Precedence::Additive,
-            BinaryOpr::Shl | BinaryOpr::Shr => Precedence::Shift,
-            BinaryOpr::Leq | BinaryOpr::Less | BinaryOpr::Geq | BinaryOpr::Greater => {
-                Precedence::Compare
-            }
-            BinaryOpr::Power => Precedence::Power,
+            BinaryOpr::Pure(pure_binary) => match pure_binary {
+                PureBinaryOpr::Eq | PureBinaryOpr::Neq => Precedence::Equal,
+                PureBinaryOpr::And => Precedence::And,
+                PureBinaryOpr::BitAnd => Precedence::BitAnd,
+                PureBinaryOpr::Or => Precedence::Or,
+                PureBinaryOpr::BitOr => Precedence::BitOr,
+                PureBinaryOpr::BitXor => Precedence::BitXor,
+                PureBinaryOpr::Mul | PureBinaryOpr::Div | PureBinaryOpr::RemEuclid => {
+                    Precedence::Multiplicative
+                }
+                PureBinaryOpr::Add | PureBinaryOpr::Sub => Precedence::Additive,
+                PureBinaryOpr::Shl | PureBinaryOpr::Shr => Precedence::Shift,
+                PureBinaryOpr::Leq
+                | PureBinaryOpr::Less
+                | PureBinaryOpr::Geq
+                | PureBinaryOpr::Greater => Precedence::Compare,
+                PureBinaryOpr::Power => Precedence::Power,
+            },
+            BinaryOpr::Assign(_) => Precedence::None,
         }
     }
 }

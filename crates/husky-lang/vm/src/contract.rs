@@ -1,8 +1,8 @@
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum InputContract {
-    Intact,
+pub enum Contract {
+    Pure,
     Share,
-    Own,
-    MutShare,
-    MutOwn,
+    Take,
+    BorrowMut,
+    TakeMut,
 }

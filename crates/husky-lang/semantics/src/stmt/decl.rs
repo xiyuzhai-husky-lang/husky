@@ -1,11 +1,10 @@
 mod branch;
-mod compile;
 mod parse;
 
 pub use branch::*;
+use vm::{InstructionId, InstructionSource};
 
 use super::parser::StmtParser;
-pub(crate) use compile::gen_decl_stmt_instructions;
 
 use file::FilePtr;
 use text::TextRange;
@@ -19,6 +18,13 @@ pub struct DeclStmt {
     pub range: TextRange,
     pub indent: fold::Indent,
     pub kind: DeclStmtKind,
+    pub instruction_id: InstructionId,
+}
+
+impl InstructionSource for DeclStmt {
+    fn instruction_id(&self) -> InstructionId {
+        self.instruction_id
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

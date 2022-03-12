@@ -208,68 +208,70 @@ impl<'stack, 'eval: 'stack> BasicInterpreter<'stack, 'eval> {
         self.exec(&InstructionKind::PushPrimitive(value)).unwrap();
     }
 
-    fn calculate_primitive_binary(&mut self, func: BinaryOpr) -> VMResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Binary(func)))?;
+    fn calculate_primitive_binary(&mut self, func: PureBinaryOpr) -> VMResult<()> {
+        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::PureBinary(
+            func,
+        )))?;
         Ok(())
     }
 
-    fn assign_primitive_binary(&mut self, kind: BinaryOpr, dst_idx: u16) -> VMResult<()> {
-        self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::BinaryAssign {
-            func: kind,
-            dst_idx,
-        }))?;
-        Ok(())
+    fn assign_primitive_binary(&mut self, kind: PureBinaryOpr, dst_idx: u16) -> VMResult<()> {
+        todo!() // self.exec(&InstructionKind::PrimitiveOpn(PrimitiveOpn::Assign {
+                //     func: kind,
+                //     dst_idx,
+                // }))?;
+                // Ok(())
     }
 
     fn add(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::Add)
+        self.calculate_primitive_binary(PureBinaryOpr::Add)
     }
 
     fn and(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::And)
+        self.calculate_primitive_binary(PureBinaryOpr::And)
     }
 
     fn add_assign(&mut self, idx: u16) -> VMResult<()> {
-        self.assign_primitive_binary(BinaryOpr::Add, idx)
+        self.assign_primitive_binary(PureBinaryOpr::Add, idx)
     }
 
     fn bitand(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::BitAnd)
+        self.calculate_primitive_binary(PureBinaryOpr::BitAnd)
     }
 
     fn bitand_assign(&mut self, idx: u16) -> VMResult<()> {
-        self.assign_primitive_binary(BinaryOpr::BitAnd, idx)
+        self.assign_primitive_binary(PureBinaryOpr::BitAnd, idx)
     }
 
     fn bitor(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::BitOr)
+        self.calculate_primitive_binary(PureBinaryOpr::BitOr)
     }
 
     fn bitor_assign(&mut self, idx: u16) -> VMResult<()> {
-        self.assign_primitive_binary(BinaryOpr::BitOr, idx)
+        self.assign_primitive_binary(PureBinaryOpr::BitOr, idx)
     }
 
     fn div(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::Div)
+        self.calculate_primitive_binary(PureBinaryOpr::Div)
     }
 
     fn mul(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::Mul)
+        self.calculate_primitive_binary(PureBinaryOpr::Mul)
     }
 
     fn mul_assign(&mut self, idx: u16) -> VMResult<()> {
-        self.assign_primitive_binary(BinaryOpr::Mul, idx)
+        self.assign_primitive_binary(PureBinaryOpr::Mul, idx)
     }
 
     fn rem_euclid(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::RemEuclid)
+        self.calculate_primitive_binary(PureBinaryOpr::RemEuclid)
     }
 
     fn rem_euclid_assign(&mut self, idx: u16) -> VMResult<()> {
-        self.assign_primitive_binary(BinaryOpr::RemEuclid, idx)
+        self.assign_primitive_binary(PureBinaryOpr::RemEuclid, idx)
     }
 
     fn sub(&mut self) -> VMResult<()> {
-        self.calculate_primitive_binary(BinaryOpr::Sub)
+        self.calculate_primitive_binary(PureBinaryOpr::Sub)
     }
 }

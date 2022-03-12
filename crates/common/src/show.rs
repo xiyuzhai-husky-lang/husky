@@ -6,7 +6,7 @@ macro_rules! show {
     common::show::RESET,
     $a)};
    ($a:expr ,$($as:expr),*) => {
-    format!("{}, {}", (show!($a)), (show!($($as),*)))
+    format!("{}, {}", (common::show!($a)), (common::show!($($as),*)))
   };
 }
 
@@ -16,7 +16,7 @@ macro_rules! eshow {
     stringify!($a),
     $a)};
    ($a:expr, $($as:expr),*) => {
-    format!("{}, {}", (show!($a)), (show!($($as),*)))
+    format!("{}, {}", (common::show!($a)), (common::show!($($as),*)))
   };
 }
 
@@ -26,7 +26,7 @@ macro_rules! esimple_show {
     stringify!($a),
     $a)};
    ($a:expr, $($as:expr),*) => {
-    format!("{}, {}", (show!($a)), (show!($($as),*)))
+    format!("{}, {}", (common::show!($a)), (common::show!($($as),*)))
   };
 }
 

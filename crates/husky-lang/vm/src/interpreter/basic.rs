@@ -4,7 +4,7 @@ mod tests;
 
 use crate::*;
 pub struct BasicInterpreter<'stack, 'eval: 'stack> {
-    values: Vec<StackValue<'stack, 'eval>>,
+    values: Vec<VMValue<'stack, 'eval>>,
 }
 
 impl<'stack, 'eval: 'stack> std::fmt::Debug for BasicInterpreter<'stack, 'eval> {
@@ -20,7 +20,7 @@ impl<'stack, 'eval: 'stack> std::fmt::Debug for BasicInterpreter<'stack, 'eval> 
 }
 
 impl<'stack, 'eval: 'stack> BasicInterpreter<'stack, 'eval> {
-    pub fn new(values: Vec<StackValue<'stack, 'eval>>) -> Self {
+    pub fn new(values: Vec<VMValue<'stack, 'eval>>) -> Self {
         Self { values }
     }
 }
@@ -30,23 +30,23 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> for BasicInterpreter<'sta
         match init_kind {
             InitKind::Let | InitKind::Decl => Ok(()),
             InitKind::Var => match self.values.last().unwrap() {
-                StackValue::Primitive(_) | StackValue::Boxed(_) => Ok(()),
-                StackValue::MutRef(_)
-                | StackValue::Volatile(_)
-                | StackValue::GlobalRef(_)
-                | StackValue::Ref(_) => todo!(),
+                VMValue::Primitive(_) | VMValue::Boxed(_) => Ok(()),
+                VMValue::MutRef(_)
+                | VMValue::Volatile(_)
+                | VMValue::GlobalRef(_)
+                | VMValue::Ref(_) => todo!(),
             },
         }
     }
 
-    fn var(&self, rel_idx: usize) -> VMResult<&StackValue<'stack, 'eval>> {
+    fn var(&self, rel_idx: usize) -> VMResult<&VMValue<'stack, 'eval>> {
         if rel_idx >= self.len() {
             todo!()
         }
         Ok(&self.values[rel_idx])
     }
 
-    fn var_mut(&mut self, rel_idx: usize) -> VMResult<&mut StackValue<'stack, 'eval>> {
+    fn var_mut(&mut self, rel_idx: usize) -> VMResult<&mut VMValue<'stack, 'eval>> {
         if rel_idx >= self.len() {
             todo!()
         }
@@ -57,15 +57,15 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> for BasicInterpreter<'sta
         self.values.len()
     }
 
-    fn push(&mut self, value: StackValue<'stack, 'eval>) {
+    fn push(&mut self, value: VMValue<'stack, 'eval>) {
         self.values.push(value)
     }
 
-    fn pop(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
+    fn pop(&mut self) -> VMResult<VMValue<'stack, 'eval>> {
         self.values.pop().ok_or(VMError::CannotPop)
     }
 
-    fn drain(&mut self, new_len: usize) -> Vec<StackValue<'stack, 'eval>> {
+    fn drain(&mut self, new_len: usize) -> Vec<VMValue<'stack, 'eval>> {
         self.values.drain(new_len..).collect()
     }
 }

@@ -18,9 +18,9 @@
     function tell_has_extra(trace: Trace, input_id: number | null): boolean {
         switch (trace.kind) {
             case "Main":
-            case "FeatureStmt":
-            case "FeatureBranch":
-            case "FeatureExpr":
+            case "LazyStmt":
+            case "LazyBranch":
+            case "LazyExpr":
                 return input_id !== null;
             case "DeclStmt":
                 return false;

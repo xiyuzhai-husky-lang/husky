@@ -21,14 +21,14 @@ use std::{
 };
 
 use session::Session;
-use trace::{AllocateTrace, FigureProps, Trace, TraceAllocator, TraceId, TraceKind, TraceStalk};
-use vm::{run, AnyValueDyn, Instruction};
+use trace::{CreateTrace, FigureProps, Trace, TraceFactory, TraceId, TraceKind, TraceStalk};
+use vm::{AnyValueDyn, Instruction};
 
 #[salsa::database(RuntimeQueryGroupStorage, TextQueryGroupStorage)]
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
-    traces: Arc<TraceAllocator>,
+    traces: Arc<TraceFactory>,
     session: Arc<Mutex<Session<'static>>>,
     opt_input_id: Option<usize>,
     expansions: HashMap<TraceId, bool>,
@@ -47,11 +47,11 @@ impl RawTextQueryGroup for HuskyLangRuntime {
     }
 }
 
-impl AllocateTrace for HuskyLangRuntime {
-    fn trace_allocator(&self) -> &trace::TraceAllocator {
+impl CreateTrace for HuskyLangRuntime {
+    fn trace_factory(&self) -> &trace::TraceFactory {
         &self.traces
     }
-    fn trace_allocator_arc(&self) -> Arc<trace::TraceAllocator> {
+    fn trace_factory_arc(&self) -> Arc<trace::TraceFactory> {
         self.traces.clone()
     }
 }
@@ -84,7 +84,7 @@ impl HuskyLangRuntime {
         runtime
     }
 
-    pub fn traces(&self) -> &TraceAllocator {
+    pub fn traces(&self) -> &TraceFactory {
         &self.traces
     }
 

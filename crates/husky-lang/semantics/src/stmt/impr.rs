@@ -1,11 +1,11 @@
 mod branch;
-mod compile;
+mod loop_kind;
 mod parse;
 
 pub use branch::*;
-pub(crate) use compile::gen_impr_stmt_instructions;
 use fold::Indent;
-use vm::InitKind;
+pub use loop_kind::*;
+use vm::{InitKind, InstructionId, InstructionSource};
 
 use super::*;
 use crate::*;
@@ -18,6 +18,13 @@ pub struct ImprStmt {
     pub file: FilePtr,
     pub range: TextRange,
     pub indent: Indent,
+    pub instruction_id: InstructionId,
+}
+
+impl InstructionSource for ImprStmt {
+    fn instruction_id(&self) -> InstructionId {
+        self.instruction_id
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -31,6 +38,9 @@ pub enum ImprStmtKind {
     Assert {
         condition: Arc<Expr>,
     },
+    Execute {
+        expr: Arc<Expr>,
+    },
     Return {
         result: Arc<Expr>,
     },
@@ -38,7 +48,10 @@ pub enum ImprStmtKind {
         kind: ImprBranchGroupKind,
         branches: Vec<Arc<ImprBranch>>,
     },
-    Loop,
+    Loop {
+        loop_kind: LoopKind,
+        stmts: Arc<Vec<Arc<ImprStmt>>>,
+    },
 }
 
 pub(crate) fn parse_impr_stmts(

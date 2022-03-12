@@ -34,14 +34,15 @@ export function get_show_store(trace: Trace) {
     function tell_shown_default(trace: Trace): boolean {
         switch (trace.kind) {
             case "Main":
-            case "FeatureStmt":
+            case "LazyStmt":
             case "StrictDeclStmt":
             case "ImprStmt":
-            case "FeatureBranch":
+            case "LazyBranch":
             case "CallHead":
+            case "LoopFrame":
                 return true;
-            case "FeatureExpr":
-            case "Expr":
+            case "LazyExpr":
+            case "StrictExpr":
                 return false;
         }
     }
@@ -185,16 +186,17 @@ export function tell_has_subtraces_store(
     }
     switch (trace.kind) {
         case "Main":
-        case "FeatureBranch":
+        case "LazyBranch":
+        case "LoopFrame":
             return readable(true);
         case "CallHead":
-        case "FeatureStmt":
+        case "LazyStmt":
         case "StrictDeclStmt":
             return readable(false);
         case "ImprStmt":
             return readable(trace.has_subtraces);
-        case "FeatureExpr":
-        case "Expr":
+        case "LazyExpr":
+        case "StrictExpr":
             let opt_input_id_store = global_state.user_state.opt_input_id_store;
             return derived(
                 opt_input_id_store,

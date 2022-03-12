@@ -1,5 +1,5 @@
 use json_map::JsonMap;
-use trace::TraceAllocator;
+use trace::TraceFactory;
 
 use super::*;
 use crate::*;
@@ -34,7 +34,7 @@ pub fn init_gui(debugger: &Debugger, sender: UnboundedSender<Result<Message, war
 pub struct InitState<'a> {
     pub active_trace_id: Option<TraceId>,
     pub opt_input_id: Option<usize>,
-    pub traces: &'a TraceAllocator,
+    pub traces: &'a TraceFactory,
     pub subtraces_list: &'a JsonMap<(TraceId, Option<usize>), Vec<TraceId>>,
     pub root_traces: &'a [TraceId],
     pub expansions: &'a HashMap<TraceId, bool>,

@@ -4,6 +4,7 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
+tokio = { version = "1.16.1", features = ["sync"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.91", features = ["proposed"] }
 unique-allocator = { path = "../../data_structure/unique_allocator", version = "0.0.0" }
@@ -23,4 +24,4 @@ feature = { path = "../feature", version = "0.0.0" }
 dataset = { path = "../../builtin/dataset", version = "0.0.0" }
 husky-lang-compile-time = { path = "../compile-time", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
-tokio = { version = "1.16.1", features = ["sync"] }
+trivial-iter = { path = "../../data_structure/trivial-iter", version = "0.0.0" }

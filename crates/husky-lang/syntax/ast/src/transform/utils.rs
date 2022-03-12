@@ -2,7 +2,7 @@ macro_rules! identify {
     ($token:expr) => {{
         match $token.kind {
             TokenKind::Identifier(Identifier::Custom(ident)) => ident,
-            _ => ast_err!($token.range, "expect `<custom_identifier>`")?,
+            _ => err!($token.range, "expect `<custom_identifier>`")?,
         }
     }};
 }
@@ -11,7 +11,7 @@ pub(super) use identify;
 macro_rules! expect {
     ($cond:expr, $range:expr, $msg:expr) => {
         if !$cond {
-            ast_err!($range, $msg)?
+            err!($range, $msg)?
         }
     };
 }

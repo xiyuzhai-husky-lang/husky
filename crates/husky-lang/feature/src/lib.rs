@@ -9,27 +9,27 @@ mod unique_allocate;
 
 use std::sync::Arc;
 
-pub use block::FeatureBlock;
-pub use branch::{FeatureBranch, FeatureBranchKind};
-pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt, FeatureEvalIndicator};
-pub use expr::{FeatureExpr, FeatureExprKind};
+pub use block::LazyBlock;
+pub use branch::{LazyBranch, LazyBranchKind};
+pub use eval::{eval_lazy_block, eval_lazy_expr, eval_lazy_stmt, FeatureEvalIndicator};
+pub use expr::{LazyExpr, LazyExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
 use scope::{RangedScope, ScopePtr};
 use semantics::EntityUid;
 pub use sheet::FeatureSheet;
-pub use stmt::{FeatureStmt, FeatureStmtKind};
+pub use stmt::{LazyStmt, LazyStmtKind};
 pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
 };
 
 use common::*;
-use vm::{BinaryOpr, PrimitiveValue};
+use vm::{PrimitiveValue, PureBinaryOpr};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureSymbol {
+pub struct LazySymbol {
     varname: CustomIdentifier,
-    value: Arc<FeatureExpr>,
+    value: Arc<LazyExpr>,
     feature: FeaturePtr,
 }
 
@@ -42,7 +42,7 @@ pub enum Feature {
     },
     Block(Vec<FeaturePtr>),
     PrimitiveBinaryOpr {
-        opr: BinaryOpr,
+        opr: PureBinaryOpr,
         lopd: FeaturePtr,
         ropd: FeaturePtr,
     },

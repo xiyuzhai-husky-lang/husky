@@ -12,7 +12,7 @@ pub(crate) use parser::ExprParser;
 use scope::ScopePtr;
 use syntax_types::*;
 use text::TextRange;
-use vm::{Compiled, PrimitiveValue, VMResult};
+use vm::{Compiled, Contract, InstructionId, InstructionSource, PrimitiveValue, VMResult};
 use word::{CustomIdentifier, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -20,11 +20,19 @@ pub struct Expr {
     pub file: FilePtr,
     pub range: TextRange,
     pub ty: ScopePtr,
-    pub kind: ExprKind,
+    pub kind: StrictExprKind,
+    pub instruction_id: InstructionId,
+    pub contract: Contract,
+}
+
+impl InstructionSource for Expr {
+    fn instruction_id(&self) -> InstructionId {
+        self.instruction_id
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ExprKind {
+pub enum StrictExprKind {
     Variable(CustomIdentifier),
     Scope {
         scope: ScopePtr,

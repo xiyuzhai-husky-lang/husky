@@ -1,4 +1,4 @@
-use crate::{interpreter::TraceStackValue, *};
+use crate::*;
 
 // ts: { type: string; value: string; spaces_before?: number }
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -24,19 +24,15 @@ impl Serialize for TokenProps {
     }
 }
 
-impl From<EvalValue<'static, 'static>> for TokenProps {
-    fn from(eval_value: EvalValue<'static, 'static>) -> Self {
-        match eval_value {
-            Ok(conditional) => match conditional {
-                vm::Conditional::Defined(stack_value) => match stack_value {
-                    vm::StackValue::Primitive(value) => fade!(value),
-                    vm::StackValue::Boxed(_) => todo!(),
-                    vm::StackValue::Volatile(_) => todo!(),
-                    vm::StackValue::GlobalRef(_) => todo!(),
-                    vm::StackValue::Ref(_) => todo!(),
-                    vm::StackValue::MutRef(_) => todo!(),
-                },
-                vm::Conditional::Undefined => fade!("undefined"),
+impl From<EvalResult<'static>> for TokenProps {
+    fn from(result: EvalResult<'static>) -> Self {
+        match result {
+            Ok(value) => match value {
+                EvalValue::Primitive(value) => fade!(value),
+                EvalValue::Boxed(_) => todo!(),
+                EvalValue::Volatile(_) => todo!(),
+                EvalValue::GlobalRef(_) => todo!(),
+                EvalValue::Undefined => fade!("undefined"),
             },
             Err(e) => Self {
                 value: e.into(),
@@ -47,16 +43,19 @@ impl From<EvalValue<'static, 'static>> for TokenProps {
     }
 }
 
-impl From<TraceStackValue> for TokenProps {
-    fn from(value: TraceStackValue) -> Self {
+impl From<StackValueSnapshot> for TokenProps {
+    fn from(value: StackValueSnapshot) -> Self {
         match value {
-            TraceStackValue::Primitive(value) => value.into(),
+            StackValueSnapshot::Primitive(value) => value.into(),
+            StackValueSnapshot::MutRef {
+                value, owner, gen, ..
+            } => fade!(format!("{:?}", value)),
         }
     }
 }
 
-impl From<VMResult<TraceStackValue>> for TokenProps {
-    fn from(_: VMResult<TraceStackValue>) -> Self {
+impl From<VMResult<StackValueSnapshot>> for TokenProps {
+    fn from(_: VMResult<StackValueSnapshot>) -> Self {
         todo!()
     }
 }
@@ -141,7 +140,7 @@ macro_rules! ident {
         TokenProps {
             kind: TraceTokenKind::Ident,
             value: $value.into(),
-            associated_trace: Some($associated_trace),
+            associated_trace: $associated_trace,
         }
     }};
 }
@@ -171,7 +170,7 @@ macro_rules! special {
         TokenProps {
             kind: TraceTokenKind::Special,
             value: $value.into(),
-            associated_trace: Some($associated_trace),
+            associated_trace: $associated_trace,
         }
     }};
 }
@@ -190,7 +189,7 @@ macro_rules! scope {
         TokenProps {
             kind: TraceTokenKind::Scope,
             value: $value.into(),
-            associated_trace: Some($associated_trace),
+            associated_trace: $associated_trace,
         }
     }};
 }
@@ -213,4 +212,4 @@ macro_rules! fade {
     }};
 }
 
-use vm::{EvalValue, InitKind, PrimitiveValue, VMResult};
+use vm::{EvalResult, EvalValue, InitKind, PrimitiveValue, StackValueSnapshot, VMResult};

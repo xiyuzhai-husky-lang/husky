@@ -1,3 +1,5 @@
+use vm::Contract;
+
 use super::parser::StmtParser;
 use super::*;
 use crate::*;
@@ -26,7 +28,8 @@ impl<'a> StmtParser<'a> {
                             RawBranchKind::If { condition } => {
                                 branches.push(Arc::new(DeclBranch {
                                     kind: DeclBranchKind::If {
-                                        condition: self.parse_expr(&self.arena[condition])?,
+                                        condition: self
+                                            .parse_expr(&self.arena[condition], Contract::Pure)?,
                                     },
                                     stmts: self.parse_decl_stmts(not_none!(item.children))?,
                                 }))
@@ -74,6 +77,7 @@ impl<'a> StmtParser<'a> {
                                 kind: DeclBranchGroupKind::If,
                                 branches,
                             },
+                            instruction_id: Default::default(),
                         }
                     }
                     RawStmtKind::Exec(_) => todo!(),
@@ -82,7 +86,8 @@ impl<'a> StmtParser<'a> {
                         initial_value,
                         init_kind: kind,
                     } => {
-                        let initial_value = self.parse_expr(&self.arena[initial_value])?;
+                        let initial_value =
+                            self.parse_expr(&self.arena[initial_value], Contract::Take)?;
                         let qual = Qual::from_init(kind, &mut self.qual_table);
                         if qual.mutable {
                             todo!()
@@ -96,6 +101,7 @@ impl<'a> StmtParser<'a> {
                                 varname,
                                 value: initial_value,
                             },
+                            instruction_id: Default::default(),
                         }
                     }
                     RawStmtKind::Return(result) => DeclStmt {
@@ -103,16 +109,18 @@ impl<'a> StmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Return {
-                            result: self.parse_expr(&self.arena[result])?,
+                            result: self.parse_expr(&self.arena[result], Contract::Take)?,
                         },
+                        instruction_id: Default::default(),
                     },
                     RawStmtKind::Assert(condition) => DeclStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Assert {
-                            condition: self.parse_expr(&self.arena[condition])?,
+                            condition: self.parse_expr(&self.arena[condition], Contract::Pure)?,
                         },
+                        instruction_id: Default::default(),
                     },
                 },
             }))

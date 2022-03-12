@@ -1,120 +1,77 @@
-mod basic;
+mod exec;
 
-pub use basic::BasicInterpreter;
+use crate::{history::HistoryEntry, *};
 
-use crate::*;
+use common::{p, should};
 
-pub trait Interpreter<'stack, 'eval: 'stack> {
-    fn init(&mut self, init_kind: InitKind) -> VMResult<()>;
-    fn var(&self, rel_idx: usize) -> VMResult<&StackValue<'stack, 'eval>>;
-    fn var_mut(&mut self, rel_idx: usize) -> VMResult<&mut StackValue<'stack, 'eval>>;
-    fn len(&self) -> usize;
-    fn push(&mut self, value: StackValue<'stack, 'eval>);
-    fn pop(&mut self) -> VMResult<StackValue<'stack, 'eval>>;
-    fn drain(&mut self, new_len: usize) -> Vec<StackValue<'stack, 'eval>>;
+pub struct Interpreter<'stack, 'eval: 'stack> {
+    stack: VMStack<'stack, 'eval>,
+    pub(crate) history: History,
+    snapshot: Option<StackSnapshot>,
+    pub(crate) frames: Vec<LoopFrameSnapshot>,
+}
 
-    fn exec_all(&mut self, instructions: &[Instruction]) -> VMResult<ControlSignal<'stack, 'eval>> {
-        for ins in instructions {
-            let control_signal = match ins.kind {
-                InstructionKind::PushVarInput(contract, rel_idx) => {
-                    self.push(self.var(rel_idx as usize)?.as_input(contract)?);
-                    Ok(ControlSignal::Normal)
-                }
-                InstructionKind::PushPrimitive(value) => {
-                    self.push(value.into());
-                    Ok(ControlSignal::Normal)
-                }
-                InstructionKind::Call {
-                    ref compiled,
-                    nargs,
-                } => {
-                    self.call(compiled, nargs)?;
-                    Ok(ControlSignal::Normal)
-                }
-                InstructionKind::PrimitiveOpn(opn) => {
-                    self.exec_primitive(opn)?;
-                    Ok(ControlSignal::Normal)
-                }
-                InstructionKind::CallInterpret(ref instructions) => self.exec_all(instructions),
-                InstructionKind::Return => Ok(ControlSignal::Return(self.pop().unwrap())),
-                InstructionKind::Init(init_kind) => {
-                    self.init(init_kind);
-                    Ok(ControlSignal::Normal)
-                }
-            }?;
-            match control_signal {
-                ControlSignal::Normal => (),
-                ControlSignal::Return(value) => return Ok(ControlSignal::Return(value)),
-                ControlSignal::Break => return Ok(ControlSignal::Break),
-            }
+impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
+    pub(crate) fn try_new(
+        iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
+    ) -> VMResult<Interpreter<'stack, 'eval>> {
+        Ok(Self {
+            stack: VMStack::try_new(iter)?,
+            history: Default::default(),
+            snapshot: None,
+            frames: vec![],
+        })
+    }
+    // Vec<StackValue<'stack, 'eval>>
+    pub(crate) fn new(values: impl Into<VMStack<'stack, 'eval>>) -> Interpreter<'stack, 'eval> {
+        Self {
+            stack: values.into(),
+            history: Default::default(),
+            snapshot: None,
+            frames: vec![],
         }
-        Ok(ControlSignal::Normal)
     }
 
-    fn exec(&mut self, ins_kind: &InstructionKind) -> VMResult<ControlSignal<'stack, 'eval>> {
-        match ins_kind {
-            InstructionKind::PushVarInput(contract, rel_idx) => {
-                self.push(self.var(*rel_idx as usize)?.as_input(*contract)?);
-                Ok(ControlSignal::Normal)
+    pub(crate) fn eval_instructions(
+        &mut self,
+        instructions: &[Instruction],
+        mode: Mode,
+    ) -> EvalResult<'eval> {
+        match self.exec_all(instructions, mode) {
+            VMControl::None => {
+                panic!("no return from eval_instructions")
             }
-            InstructionKind::PushPrimitive(value) => {
-                self.push(value.into());
-                Ok(ControlSignal::Normal)
-            }
-            InstructionKind::Call {
-                ref compiled,
-                nargs,
-            } => {
-                self.call(compiled, *nargs)?;
-                Ok(ControlSignal::Normal)
-            }
-            InstructionKind::PrimitiveOpn(opn) => {
-                self.exec_primitive(*opn)?;
-                Ok(ControlSignal::Normal)
-            }
-            InstructionKind::CallInterpret(ref instructions) => self.exec_all(instructions),
-            InstructionKind::Return => Ok(ControlSignal::Return(self.pop().unwrap())),
-            InstructionKind::Init(init_kind) => {
-                self.init(*init_kind);
-                Ok(ControlSignal::Normal)
-            }
+            VMControl::Return(result) => Ok(result),
+            VMControl::Break => todo!(),
+            VMControl::Err(_) => todo!(),
         }
     }
 
     fn finish(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
-        if self.len() != 1 {
+        if self.stack.len() != 1 {
             todo!()
         }
-        Ok(self.pop().unwrap())
+        Ok(self.stack.pop().unwrap())
     }
 
-    fn call(&mut self, f: &Compiled, nargs: u16) -> VMResult<()> {
-        let new_len = self.len() - nargs as usize;
-        let result = (f.call)(self.drain(new_len))?;
-        self.push(result.into());
+    fn call(&mut self, f: &Compiled, nargs: u8) -> VMResult<()> {
+        let result = (f.call)(self.stack.topk_mut(nargs))?;
+        self.stack.push(result.into());
         Ok(())
     }
 
-    fn exec_primitive(&mut self, opn: PrimitiveOpn) -> VMResult<()> {
-        match opn {
-            PrimitiveOpn::Binary(func) => {
-                let ropd = self.pop().unwrap();
-                let lopd = self.pop().unwrap();
-                self.push(
-                    func.act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?
-                        .into(),
-                );
-                Ok(())
-            }
-            PrimitiveOpn::BinaryAssign { dst_idx, func } => {
-                let ropd = self.pop().unwrap();
-                let lopd = self.var_mut(dst_idx as usize)?;
-                *lopd = func
-                    .act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?
-                    .into();
-                Ok(())
-            }
-            PrimitiveOpn::Unary => todo!(),
+    fn take_snapshot(&mut self) {
+        if let Some(_) = self.snapshot {
+            panic!()
+        }
+        self.snapshot = Some(self.stack.snapshot());
+    }
+
+    fn take_changes(&mut self) -> (StackSnapshot, Vec<()>) {
+        if let Some(snapshot) = std::mem::take(&mut self.snapshot) {
+            (snapshot, vec![()])
+        } else {
+            panic!()
         }
     }
 }

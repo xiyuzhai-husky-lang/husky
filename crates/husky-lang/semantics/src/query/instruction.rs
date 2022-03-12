@@ -1,8 +1,7 @@
-use crate::{stmt::gen_decl_stmt_instructions, stmt::gen_impr_stmt_instructions, *};
-
+use crate::*;
 use common::p;
 use scope::ScopePtr;
-use vm::Instruction;
+use vm::{Instruction, InstructionSheet};
 
 #[salsa::query_group(InstructionQueryGroupStorage)]
 pub trait InstructionQueryGroup: EntityQueryGroup {
@@ -14,14 +13,12 @@ fn instruction_sheet(
     scope: ScopePtr,
 ) -> SemanticResultArc<InstructionSheet> {
     let entity = this.entity(scope)?;
-    let mut sheet = InstructionSheet::default();
-    Arc::new(match entity.kind() {
+    Ok(match entity.kind() {
         EntityKind::Module(_) => todo!(),
         EntityKind::Feature(_) => todo!(),
         EntityKind::Pattern(_) => todo!(),
-        EntityKind::Func { stmts, .. } => gen_decl_stmt_instructions(stmts, &mut sheet),
-        EntityKind::Proc { stmts, .. } => gen_impr_stmt_instructions(stmts, &mut sheet),
+        EntityKind::Func { stmts, .. } => InstructionSheetBuilder::new_decl(stmts),
+        EntityKind::Proc { stmts, .. } => InstructionSheetBuilder::new_impr(stmts),
         EntityKind::Ty(_) => todo!(),
-    });
-    Ok(Arc::new(sheet))
+    })
 }

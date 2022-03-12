@@ -37,14 +37,15 @@ class State {
     ): number | null {
         switch (trace.kind) {
             case "Main":
-            case "FeatureStmt":
+            case "LazyStmt":
             case "StrictDeclStmt":
             case "ImprStmt":
-            case "FeatureBranch":
+            case "LoopFrame":
+            case "LazyBranch":
                 return null;
-            case "FeatureExpr":
+            case "LazyExpr":
             case "CallHead":
-            case "Expr":
+            case "StrictExpr":
                 return opt_input_id;
         }
     }

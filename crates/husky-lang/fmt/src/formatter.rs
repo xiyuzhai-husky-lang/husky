@@ -3,9 +3,9 @@ use std::ops::AddAssign;
 use common::*;
 
 use ast::{Ast, AstResult, RawExpr, RawExprKind, RawStmtKind};
-use scope::ScopePtr;
+use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
-use vm::{InitKind, InputContract, PrimitiveValue};
+use vm::{Contract, InitKind, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
@@ -136,22 +136,22 @@ impl<'a> Formatter<'a> {
 
     fn fmt_member_variable_contracted_type(&mut self, ty: MembType) {
         match ty.contract {
-            InputContract::Intact => todo!(),
-            InputContract::Share => todo!(),
-            InputContract::Own => (),
-            InputContract::MutShare => todo!(),
-            InputContract::MutOwn => todo!(),
+            Contract::Pure => todo!(),
+            Contract::Share => todo!(),
+            Contract::Take => (),
+            Contract::BorrowMut => todo!(),
+            Contract::TakeMut => todo!(),
         }
         self.fmt_type(ty.scope);
     }
 
     fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
         match ty.contract {
-            InputContract::Intact => (),
-            InputContract::Share => self.write("&"),
-            InputContract::Own => self.write("!"),
-            InputContract::MutShare => self.write("mut &"),
-            InputContract::MutOwn => self.write("mut !"),
+            Contract::Pure => (),
+            Contract::Share => self.write("&"),
+            Contract::Take => self.write("!"),
+            Contract::BorrowMut => self.write("mut &"),
+            Contract::TakeMut => self.write("mut !"),
         }
         self.fmt_type(ty.ty.scope);
     }
@@ -196,6 +196,7 @@ impl<'a> Formatter<'a> {
     fn fmt_expr(&mut self, expr: &RawExpr) {
         match expr.kind {
             RawExprKind::Variable(ident) => self.write(&ident),
+            RawExprKind::Unrecognized(_) => todo!(),
             RawExprKind::Literal(literal) => match literal {
                 PrimitiveValue::I32(i) => self.write(&i.to_string()),
                 PrimitiveValue::F32(f) => self.write(&f.to_string()),

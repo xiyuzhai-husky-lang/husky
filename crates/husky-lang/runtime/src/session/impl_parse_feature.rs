@@ -3,7 +3,7 @@ use semantics::{BinaryOpnKind, DeclStmt, Expr, ExprKind, Opn};
 use word::{CustomIdentifier, ImplicitIdentifier};
 
 use crate::*;
-use vm::StackValue;
+use vm::VMValue;
 
 use super::*;
 
