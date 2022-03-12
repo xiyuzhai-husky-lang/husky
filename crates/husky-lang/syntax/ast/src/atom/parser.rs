@@ -12,7 +12,7 @@ use common::*;
 use scope::{GenericArgument, Scope, ScopeKind, ScopeRoute};
 use text::TextRange;
 use token::{Special, Token, TokenKind};
-use vm::BinaryOpr;
+use vm::{BinaryOpr, PureBinaryOpr};
 use word::CustomIdentifier;
 
 use super::{stack::AtomStack, symbol_proxy::SymbolProxy, *};
@@ -79,11 +79,11 @@ impl<'a> AtomLRParser<'a> {
             if let Some(token) = self.stream.next() {
                 match token.kind {
                     TokenKind::Keyword(_) => {
-                        ast_err!(token.text_range(), "keyword should be put at start")?
+                        err!(token.text_range(), "keyword should be put at start")?
                     }
                     TokenKind::Special(special) => match special {
                         Special::DoubleColon => {
-                            ast_err!(token.text_range(), "unexpected double colon, maybe the identifier before is not recognized as scope")?
+                            err!(token.text_range(), "unexpected double colon, maybe the identifier before is not recognized as scope")?
                         }
                         Special::Colon => {
                             if let Some(_) = self.stream.next() {
@@ -95,7 +95,7 @@ impl<'a> AtomLRParser<'a> {
                         Special::DoubleVertical => self.stack.push(Atom::new(
                             token.text_range(),
                             if !self.stack.is_concave() {
-                                BinaryOpr::BitOr.into()
+                                BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
                             } else {
                                 AtomKind::LambdaHead(Vec::new())
                             },
@@ -112,7 +112,7 @@ impl<'a> AtomLRParser<'a> {
                             if self.stack.is_concave() {
                                 PrefixOpr::Shared.into()
                             } else {
-                                BinaryOpr::BitAnd.into()
+                                BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
                             },
                         ))?,
                         Special::LPar => self.stack.start_list(Bracket::Par, token.text_range()),
@@ -150,7 +150,7 @@ impl<'a> AtomLRParser<'a> {
                         Special::SubOrMinus => {
                             if self.stack.is_convex() {
                                 self.stack
-                                    .push(Atom::new(token.text_range(), BinaryOpr::Sub.into()))?
+                                    .push(Atom::new(token.text_range(), BinaryOpr::Pure(PureBinaryOpr::Sub).into()))?
                             } else {
                                 self.stack
                                     .push(Atom::new(token.text_range(), PrefixOpr::Minus.into()))?
@@ -176,7 +176,7 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopePt
     }
     if result.len() > 1 {
         p!(result);
-        ast_err!(result[1..].into(), "too many atoms")?
+        err!(result[1..].into(), "too many atoms")?
     } else {
         match result[0].kind {
             AtomKind::Scope {
@@ -184,7 +184,7 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AstResult<ScopePt
                 kind: ScopeKind::Type,
                 ..
             } => Ok(scope),
-            _ => ast_err!((&result).into(), "too many atoms")?,
+            _ => err!((&result).into(), "too many atoms")?,
         }
     }
 }

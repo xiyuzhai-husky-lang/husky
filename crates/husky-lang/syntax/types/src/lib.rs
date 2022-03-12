@@ -6,8 +6,8 @@ use std::sync::Arc;
 pub use env::Env;
 pub use opr::*;
 
-use scope::{RangedScope, ScopeKind, ScopePtr};
-use vm::{InputContract, PrimitiveValue};
+use scope::{InputPlaceholder, RangedScope, ScopeKind, ScopePtr};
+use vm::Contract;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -22,7 +22,7 @@ pub enum MembKind {
         ty: MembType,
     },
     MembFunc {
-        this: InputContract,
+        this: Contract,
         inputs: Vec<InputPlaceholder>,
         output: RangedScope,
         args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,
@@ -59,22 +59,15 @@ pub struct GenericPlaceholder {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembType {
-    pub contract: InputContract,
+    pub contract: Contract,
     pub scope: ScopePtr,
 }
 
 // #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 // pub struct InputType {
-//     pub contract: InputContract,
+//     pub contract: Contract,
 //     pub ty: RangedScope,
 // }
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputPlaceholder {
-    pub ident: CustomIdentifier,
-    pub contract: InputContract,
-    pub ty: RangedScope,
-}
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct BuiltinScopeData {

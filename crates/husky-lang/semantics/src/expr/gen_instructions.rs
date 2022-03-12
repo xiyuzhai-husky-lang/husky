@@ -1,55 +1,69 @@
 use common::*;
-use vm::{Instruction, InstructionKind, PrimitiveOpn};
+use expr::Opn;
+use vm::{BinaryOpr, Contract, Instruction, InstructionKind, PrimitiveOpn};
 
 use crate::*;
 
 pub trait ExprInstructionBuilder {
     fn push_instruction(&mut self, instruction: Instruction);
 
-    fn gen_expr_instructions(&mut self, expr: &Expr) {
+    fn gen_expr_instructions(&mut self, expr: Arc<Expr>) {
         match expr.kind {
-            ExprKind::Variable(_) => todo!(),
-            ExprKind::Scope {
+            StrictExprKind::Variable(ident) => todo!(),
+            StrictExprKind::Scope {
                 scope: id,
                 compiled,
             } => todo!(),
-            ExprKind::Literal(value) => self.push_instruction(Instruction {
-                kind: InstructionKind::PushPrimitive(value),
-            }),
-            ExprKind::Bracketed(_) => todo!(),
-            ExprKind::Opn {
+            StrictExprKind::Literal(value) => self.push_instruction(Instruction::new(
+                InstructionKind::PushPrimitiveLiteral(value),
+                expr,
+            )),
+            StrictExprKind::Bracketed(_) => todo!(),
+            StrictExprKind::Opn {
                 opn,
                 compiled,
                 ref opds,
-            } => {
-                for opd in opds {
-                    self.gen_expr_instructions(opd);
+            } => match opn {
+                Opn::Binary { opr, this, kind } => {
+                    let instruction = Instruction::new(
+                        InstructionKind::PrimitiveOpn(match opr {
+                            BinaryOpr::Pure(pure_binary_opr) => {
+                                for opd in opds {
+                                    self.gen_expr_instructions(opd.clone());
+                                }
+                                PrimitiveOpn::PureBinary(pure_binary_opr)
+                            }
+                            BinaryOpr::Assign(opt_binary_opr) => {
+                                self.gen_expr_instructions(opds[0].clone());
+                                self.gen_expr_instructions(opds[1].clone());
+                                PrimitiveOpn::Assign(opt_binary_opr)
+                            }
+                        }),
+                        expr,
+                    );
+                    self.push_instruction(instruction)
                 }
-                match opn {
-                    expr::Opn::Binary { opr, this, kind } => self.push_instruction(Instruction {
-                        kind: InstructionKind::PrimitiveOpn(PrimitiveOpn::Binary(opr)),
-                    }),
-                    expr::Opn::Prefix(_) => todo!(),
-                    expr::Opn::Suffix(_) => todo!(),
-                    expr::Opn::RoutineCall(routine) => {
-                        if let Some(compiled) = compiled {
-                            self.push_instruction(Instruction {
-                                kind: InstructionKind::Call {
-                                    compiled,
-                                    nargs: opds.len() as u16,
-                                },
-                            })
-                        } else {
-                            todo!()
-                        }
+                Opn::Prefix(_) => todo!(),
+                Opn::Suffix(_) => todo!(),
+                Opn::RoutineCall(routine) => {
+                    if let Some(compiled) = compiled {
+                        self.push_instruction(Instruction::new(
+                            InstructionKind::Call {
+                                compiled,
+                                nargs: opds.len() as u8,
+                            },
+                            expr,
+                        ))
+                    } else {
+                        todo!()
                     }
-                    expr::Opn::PattCall => todo!(),
-                    expr::Opn::MembVarAccess => todo!(),
-                    expr::Opn::MembFuncCall(_) => todo!(),
-                    expr::Opn::ElementAccess => todo!(),
                 }
-            }
-            ExprKind::Lambda(_, _) => todo!(),
+                Opn::PattCall => todo!(),
+                Opn::MembVarAccess => todo!(),
+                Opn::MembFuncCall(_) => todo!(),
+                Opn::ElementAccess => todo!(),
+            },
+            StrictExprKind::Lambda(_, _) => todo!(),
         }
     }
 }

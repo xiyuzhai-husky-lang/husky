@@ -4,7 +4,7 @@ use common::*;
 use semantics::Config;
 
 use crate::*;
-use vm::{AnyValueDyn, StackValue};
+use vm::{AnyValueDyn, VMValue};
 
 use super::{
     eval::Evaluator,

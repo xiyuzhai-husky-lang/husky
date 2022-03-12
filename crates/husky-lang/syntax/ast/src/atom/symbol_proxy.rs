@@ -1,7 +1,7 @@
 use common::*;
 
 use file::FilePtr;
-use scope::*;
+use scope::{ScopeRoute, *};
 use text::TextRange;
 use word::{BuiltinIdentifier, CustomIdentifier};
 
@@ -23,10 +23,11 @@ impl Symbol {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Copy)]
 pub enum SymbolKind {
-    Scope(scope::ScopeRoute),
+    Scope(ScopeRoute),
     Variable(TextRange),
+    Unrecognized(CustomIdentifier),
 }
 
 #[derive(Clone, Copy)]
@@ -64,15 +65,13 @@ impl<'a> SymbolProxy<'a> {
                     .ok_or(ast_error!(range, "can't use implicit outside package"))?,
                 ident,
             })),
-            Identifier::Custom(ident) => Ok(self
-                .symbols
-                .find(|symbol| symbol.ident == ident.into())
-                .ok_or(ast_error!(
-                    range.clone(),
-                    format!("unrecognized identifier `{}`", &*ident)
-                ))?
-                .kind
-                .clone()),
+            Identifier::Custom(ident) => Ok(
+                if let Some(symbol) = self.symbols.find(|symbol| symbol.ident == ident.into()) {
+                    symbol.kind
+                } else {
+                    SymbolKind::Unrecognized(ident)
+                },
+            ),
         }
     }
 

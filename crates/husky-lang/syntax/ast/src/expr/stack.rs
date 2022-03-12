@@ -1,7 +1,7 @@
 use atom::{Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 use scope::RangedScope;
 use text::{TextPosition, TextRange};
-use vm::{BinaryOpr, PrimitiveValue};
+use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
 
 use crate::{expr::precedence::Precedence, *};
 
@@ -23,12 +23,6 @@ impl ExprStackOpr {
         Self {
             precedence: precedence,
             kind: ExprStackOprKind::Binary(opr),
-        }
-    }
-    fn assign(opt_binary_opr: Option<BinaryOpr>) -> Self {
-        Self {
-            precedence: Precedence::None,
-            kind: ExprStackOprKind::Assign(opt_binary_opr),
         }
     }
 
@@ -67,7 +61,6 @@ impl ExprStackOpr {
 #[derive(Debug, PartialEq, Eq, Clone)]
 enum ExprStackOprKind {
     Binary(BinaryOpr),
-    Assign(Option<BinaryOpr>),
     ListItem,
     Prefix {
         prefix: PrefixOpr,
@@ -149,11 +142,6 @@ impl<'a> ExprStack<'a> {
         self.synthesize_suffix(suffix, end)
     }
 
-    pub(crate) fn accept_assign(&mut self, opt_binary_opr: Option<BinaryOpr>) {
-        let stack_opr = ExprStackOpr::assign(opt_binary_opr);
-        todo!()
-    }
-
     pub(crate) fn accept_atom_expr(&mut self, expr: RawExpr) {
         self.exprs.push(expr);
     }
@@ -187,7 +175,7 @@ impl<'a> ExprStack<'a> {
                     ExprStackOprKind::ListItem => (),
                     ExprStackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
-                            ast_err!(
+                            err!(
                                 (self.exprs[0].range.start..end).into(),
                                 format!(
                                     "brackets should match but get bra = {}, ket = {}",
@@ -199,7 +187,7 @@ impl<'a> ExprStack<'a> {
                         break (attr, start, i);
                     }
                     _ => {
-                        ast_err!(
+                        err!(
                             (self.exprs[0].range.start..end).into(),
                             format!(
                                 "expect {} but got {:?} instead",
@@ -240,7 +228,6 @@ impl<'a> ExprStack<'a> {
                         self.synthesize_lambda(inputs, start)
                     }
                     ExprStackOprKind::ListItem | ExprStackOprKind::ListStart { .. } => panic!(),
-                    ExprStackOprKind::Assign(_) => todo!(),
                 }
             } else {
                 return;

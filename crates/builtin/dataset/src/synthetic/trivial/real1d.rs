@@ -4,13 +4,13 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
-    signature: RawScopeSignature::Module,
+    signature: StaticScopeSignature::Module,
 };
 
 pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Func,
     subscopes: &[],
-    signature: RawScopeSignature::Func(RawFuncSignature {
+    signature: StaticScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32>",
         compiled: Some(Compiled {
@@ -22,7 +22,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Func,
     subscopes: &[],
-    signature: RawScopeSignature::Func(RawFuncSignature {
+    signature: StaticScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32>",
         compiled: Some(Compiled {
@@ -33,7 +33,7 @@ pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 
 use std::sync::Arc;
 
-use scope::{RawFuncSignature, ScopePtr};
+use scope::{ScopePtr, StaticFuncSignature};
 use vm::{BoxedValue, Compiled, StackValue};
 use word::BuiltinIdentifier;
 use xrng::XRng;

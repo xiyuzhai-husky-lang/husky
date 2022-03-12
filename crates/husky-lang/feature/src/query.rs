@@ -11,17 +11,17 @@ use crate::{unique_allocate::AllocateUniqueFeature, *};
 pub trait FeatureQueryGroup:
     AllocateUniqueFeature + SemanticQueryGroup + Upcast<dyn SemanticQueryGroup>
 {
-    fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
-    fn feature_block(&self, scope: ScopePtr) -> SemanticResultArc<FeatureBlock>;
+    fn main_block(&self, main_file: file::FilePtr) -> SemanticResultArc<LazyBlock>;
+    fn lazy_block(&self, scope: ScopePtr) -> SemanticResultArc<LazyBlock>;
 }
 
-fn main_feature_block(
+fn main_block(
     this: &dyn FeatureQueryGroup,
     main_file: file::FilePtr,
-) -> SemanticResultArc<FeatureBlock> {
+) -> SemanticResultArc<LazyBlock> {
     let package = this.package(main_file)?;
     let main = &*package.main;
-    Ok(Arc::new(FeatureBlock::new(
+    Ok(Arc::new(LazyBlock::new(
         this.upcast(),
         &main.stmts,
         &[],
@@ -29,7 +29,7 @@ fn main_feature_block(
     )))
 }
 
-fn feature_block(this: &dyn FeatureQueryGroup, scope: ScopePtr) -> SemanticResultArc<FeatureBlock> {
+fn lazy_block(this: &dyn FeatureQueryGroup, scope: ScopePtr) -> SemanticResultArc<LazyBlock> {
     let entity = this.entity(scope)?;
     match entity.kind() {
         EntityKind::Feature(_) => todo!(),

@@ -11,6 +11,7 @@ pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
         AtomKind::Scope { .. }
         | AtomKind::Variable(_)
+        | AtomKind::Unrecognized(_)
         | AtomKind::Literal(_)
         | AtomKind::Prefix(_)
         | AtomKind::ListStart(_, ListStartAttr::None)
@@ -18,7 +19,6 @@ pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
         | AtomKind::LambdaHead(_) => Convexity::Convex,
         AtomKind::Suffix(_)
         | AtomKind::Binary(_)
-        | AtomKind::Assign(_)
         | AtomKind::ListStart(_, ListStartAttr::Attach)
         | AtomKind::ListItem => Convexity::Concave,
     }
@@ -28,13 +28,13 @@ pub(super) fn right_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
         AtomKind::Scope { .. }
         | AtomKind::Variable(_)
+        | AtomKind::Unrecognized(_)
         | AtomKind::Literal(_)
         | AtomKind::Suffix(_)
         | AtomKind::ListEnd(_, ListEndAttr::None)
         | AtomKind::ListEnd(_, ListEndAttr::Modulo) => Convexity::Convex,
         AtomKind::Prefix(_)
         | AtomKind::Binary(_)
-        | AtomKind::Assign(_)
         | AtomKind::ListStart(_, _)
         | AtomKind::ListItem
         | AtomKind::ListEnd(_, ListEndAttr::Attach)

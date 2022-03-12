@@ -10,7 +10,7 @@ mod tests;
 
 use std::{convert::Infallible, net::ToSocketAddrs, sync::Arc};
 
-use common::{epin, p, HashMap};
+use common::*;
 use config::DebuggerConfig;
 pub use error::{DebuggerError, DebuggerResult};
 use husky_lang_compile_time::HuskyLangCompileTime;
@@ -21,7 +21,7 @@ use gui::handle_query;
 use notif::handle_notif;
 use state::DebuggerState;
 use std::sync::Mutex;
-use trace::{AllocateTrace, FigureProps, Trace, TraceId, TraceStalk};
+use trace::{CreateTrace, FigureProps, Trace, TraceId, TraceStalk};
 use warp::Filter;
 
 pub struct Debugger {

@@ -1,20 +1,75 @@
-use std::sync::Arc;
+mod id;
+mod sheet;
+
+pub use id::{InstructionId, InstructionSource};
+pub use sheet::InstructionSheet;
+
+use std::{
+    ops::Deref,
+    panic::RefUnwindSafe,
+    sync::{
+        atomic::{AtomicUsize, Ordering},
+        Arc,
+    },
+};
+
+use common::*;
 
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone)]
 pub struct Instruction {
     pub kind: InstructionKind,
+    pub src: Arc<dyn InstructionSource>,
+}
+
+impl PartialEq for Instruction {
+    fn eq(&self, other: &Self) -> bool {
+        self.kind == other.kind && self.src.instruction_id() == other.src.instruction_id()
+    }
+}
+
+impl Eq for Instruction {}
+
+impl Instruction {
+    pub fn new(kind: InstructionKind, src: Arc<dyn InstructionSource>) -> Self {
+        Self { kind, src }
+    }
+
+    pub fn id(&self) -> InstructionId {
+        self.src.instruction_id()
+    }
+}
+
+impl<
+        S: InstructionSource,
+        T: Deref<Target = S> + std::fmt::Debug + Send + Sync + RefUnwindSafe,
+    > InstructionSource for T
+{
+    fn instruction_id(&self) -> InstructionId {
+        let this: &S = self;
+        this.instruction_id()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum InstructionKind {
     Init(InitKind),
-    PushVarInput(InputContract, u16),
-    PushPrimitive(PrimitiveValue),
-    Call { compiled: Compiled, nargs: u16 },
-    CallInterpret(Arc<Vec<Instruction>>),
+    PushVariable {
+        stack_idx: StackIdx,
+        contract: Contract,
+    },
+    PushPrimitiveLiteral(PrimitiveValue),
+    Call {
+        compiled: Compiled,
+        nargs: u8,
+    },
+    InterpretCall(Arc<Vec<Instruction>>),
     PrimitiveOpn(PrimitiveOpn),
+    Loop {
+        body: Arc<InstructionSheet>,
+        loop_kind: VMLoopKind,
+    },
     Return,
 }
 
@@ -37,13 +92,61 @@ impl std::fmt::Display for InitKind {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum PrimitiveOpn {
-    Binary(BinaryOpr),
-    BinaryAssign { dst_idx: u16, func: BinaryOpr },
+    PureBinary(PureBinaryOpr),
+    Assign(Option<PureBinaryOpr>),
     Unary,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum BinaryOpr {
+    Pure(PureBinaryOpr),
+    Assign(Option<PureBinaryOpr>),
+}
+
+impl BinaryOpr {
+    pub fn lopd_contract(self) -> Contract {
+        todo!()
+    }
+
+    pub fn ropd_contract(self) -> Contract {
+        todo!()
+    }
+
+    pub fn spaced_code(self) -> &'static str {
+        match self {
+            BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr.spaced_code(),
+            BinaryOpr::Assign(opt_binary_opr) => {
+                if let Some(binary_opr) = opt_binary_opr {
+                    match binary_opr {
+                        PureBinaryOpr::Add => " += ",
+                        PureBinaryOpr::And => " &&= ",
+                        PureBinaryOpr::BitAnd => " &= ",
+                        PureBinaryOpr::BitOr => " |= ",
+                        PureBinaryOpr::BitXor => " ^= ",
+                        PureBinaryOpr::Div => " /= ",
+                        PureBinaryOpr::Greater => todo!(),
+                        PureBinaryOpr::Leq => todo!(),
+                        PureBinaryOpr::Less => todo!(),
+                        PureBinaryOpr::Mul => todo!(),
+                        PureBinaryOpr::Neq => todo!(),
+                        PureBinaryOpr::RemEuclid => todo!(),
+                        PureBinaryOpr::Or => todo!(),
+                        PureBinaryOpr::Power => todo!(),
+                        PureBinaryOpr::Shl => todo!(),
+                        PureBinaryOpr::Shr => todo!(),
+                        PureBinaryOpr::Sub => " -= ",
+                        PureBinaryOpr::Eq | PureBinaryOpr::Geq => panic!(),
+                    }
+                } else {
+                    " = "
+                }
+            }
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum PureBinaryOpr {
     Add,
     And,
     BitAnd,
@@ -65,7 +168,7 @@ pub enum BinaryOpr {
     Sub,
 }
 
-impl BinaryOpr {
+impl PureBinaryOpr {
     pub fn act_on_primitives(
         &self,
         lopd: PrimitiveValue,
@@ -78,33 +181,33 @@ impl BinaryOpr {
         }
 
         Ok(match self {
-            BinaryOpr::Add => match lopd {
+            PureBinaryOpr::Add => match lopd {
                 PrimitiveValue::I32(a) => (a + ropd.as_i32()?).into(),
                 PrimitiveValue::F32(a) => (a + ropd.as_f32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::And => match lopd {
+            PureBinaryOpr::And => match lopd {
                 PrimitiveValue::Bool(a) => (a && ropd.as_bool()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::BitAnd => match lopd {
+            PureBinaryOpr::BitAnd => match lopd {
                 PrimitiveValue::B32(a) => (a & ropd.as_b32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::BitOr => match lopd {
+            PureBinaryOpr::BitOr => match lopd {
                 PrimitiveValue::B32(a) => (a | ropd.as_b32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::BitXor => match lopd {
+            PureBinaryOpr::BitXor => match lopd {
                 PrimitiveValue::B32(a) => (a ^ ropd.as_b32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::Div => match lopd {
+            PureBinaryOpr::Div => match lopd {
                 PrimitiveValue::I32(a) => (a / ropd.as_i32()?).into(),
                 PrimitiveValue::F32(a) => (a / ropd.as_f32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::Eq => match lopd {
+            PureBinaryOpr::Eq => match lopd {
                 PrimitiveValue::I32(a) => (a == ropd.as_i32()?).into(),
                 PrimitiveValue::F32(_) => todo!(),
                 PrimitiveValue::B32(_) => todo!(),
@@ -112,35 +215,35 @@ impl BinaryOpr {
                 PrimitiveValue::Bool(_) => todo!(),
                 PrimitiveValue::Void => todo!(),
             },
-            BinaryOpr::Geq => todo!(),
-            BinaryOpr::Greater => todo!(),
-            BinaryOpr::Leq => todo!(),
-            BinaryOpr::Less => todo!(),
-            BinaryOpr::Mul => match lopd {
+            PureBinaryOpr::Geq => todo!(),
+            PureBinaryOpr::Greater => todo!(),
+            PureBinaryOpr::Leq => todo!(),
+            PureBinaryOpr::Less => todo!(),
+            PureBinaryOpr::Mul => match lopd {
                 PrimitiveValue::I32(a) => (a * ropd.as_i32()?).into(),
                 PrimitiveValue::F32(a) => (a * ropd.as_f32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::Neq => todo!(),
-            BinaryOpr::Or => match lopd {
+            PureBinaryOpr::Neq => todo!(),
+            PureBinaryOpr::Or => match lopd {
                 PrimitiveValue::Bool(a) => (a || ropd.as_bool()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::Power => todo!(),
-            BinaryOpr::RemEuclid => match lopd {
+            PureBinaryOpr::Power => todo!(),
+            PureBinaryOpr::RemEuclid => match lopd {
                 PrimitiveValue::I32(a) => a.rem_euclid(ropd.as_i32()?).into(),
                 PrimitiveValue::F32(a) => a.rem_euclid(ropd.as_f32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::Shl => match lopd {
+            PureBinaryOpr::Shl => match lopd {
                 PrimitiveValue::B32(a) => (a << ropd.as_i32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::Shr => match lopd {
+            PureBinaryOpr::Shr => match lopd {
                 PrimitiveValue::B32(a) => (a >> ropd.as_i32()?).into(),
                 _ => no_such_opn!(),
             },
-            BinaryOpr::Sub => match lopd {
+            PureBinaryOpr::Sub => match lopd {
                 PrimitiveValue::I32(a) => (a - ropd.as_i32()?).into(),
                 PrimitiveValue::F32(a) => (a - ropd.as_f32()?).into(),
                 _ => no_such_opn!(),
@@ -150,49 +253,49 @@ impl BinaryOpr {
 
     pub fn code(&self) -> &'static str {
         match self {
-            BinaryOpr::Less => "<",
-            BinaryOpr::Leq => "<=",
-            BinaryOpr::Greater => ">",
-            BinaryOpr::Geq => ">=",
-            BinaryOpr::Neq => "!=",
-            BinaryOpr::Eq => "==",
-            BinaryOpr::Shl => "<<",
-            BinaryOpr::Shr => ">>",
-            BinaryOpr::Add => "+",
-            BinaryOpr::Sub => "-",
-            BinaryOpr::Mul => "*",
-            BinaryOpr::Div => "/",
-            BinaryOpr::And => "&&",
-            BinaryOpr::BitAnd => "&",
-            BinaryOpr::Or => "||",
-            BinaryOpr::Power => "**",
-            BinaryOpr::BitXor => "^",
-            BinaryOpr::BitOr => "|",
-            BinaryOpr::RemEuclid => "%",
+            PureBinaryOpr::Less => "<",
+            PureBinaryOpr::Leq => "<=",
+            PureBinaryOpr::Greater => ">",
+            PureBinaryOpr::Geq => ">=",
+            PureBinaryOpr::Neq => "!=",
+            PureBinaryOpr::Eq => "==",
+            PureBinaryOpr::Shl => "<<",
+            PureBinaryOpr::Shr => ">>",
+            PureBinaryOpr::Add => "+",
+            PureBinaryOpr::Sub => "-",
+            PureBinaryOpr::Mul => "*",
+            PureBinaryOpr::Div => "/",
+            PureBinaryOpr::And => "&&",
+            PureBinaryOpr::BitAnd => "&",
+            PureBinaryOpr::Or => "||",
+            PureBinaryOpr::Power => "**",
+            PureBinaryOpr::BitXor => "^",
+            PureBinaryOpr::BitOr => "|",
+            PureBinaryOpr::RemEuclid => "%",
         }
     }
 
     pub fn spaced_code(&self) -> &'static str {
         match self {
-            BinaryOpr::Less => " < ",
-            BinaryOpr::Leq => " <= ",
-            BinaryOpr::Greater => " > ",
-            BinaryOpr::Geq => " >= ",
-            BinaryOpr::Neq => " != ",
-            BinaryOpr::Eq => " == ",
-            BinaryOpr::Shl => " << ",
-            BinaryOpr::Shr => " >>",
-            BinaryOpr::Add => " + ",
-            BinaryOpr::Sub => " - ",
-            BinaryOpr::Mul => " * ",
-            BinaryOpr::Div => " / ",
-            BinaryOpr::And => " && ",
-            BinaryOpr::BitAnd => " & ",
-            BinaryOpr::Or => " || ",
-            BinaryOpr::Power => " ** ",
-            BinaryOpr::BitXor => " ^ ",
-            BinaryOpr::BitOr => " | ",
-            BinaryOpr::RemEuclid => " % ",
+            PureBinaryOpr::Less => " < ",
+            PureBinaryOpr::Leq => " <= ",
+            PureBinaryOpr::Greater => " > ",
+            PureBinaryOpr::Geq => " >= ",
+            PureBinaryOpr::Neq => " != ",
+            PureBinaryOpr::Eq => " == ",
+            PureBinaryOpr::Shl => " << ",
+            PureBinaryOpr::Shr => " >>",
+            PureBinaryOpr::Add => " + ",
+            PureBinaryOpr::Sub => " - ",
+            PureBinaryOpr::Mul => " * ",
+            PureBinaryOpr::Div => " / ",
+            PureBinaryOpr::And => " && ",
+            PureBinaryOpr::BitAnd => " & ",
+            PureBinaryOpr::Or => " || ",
+            PureBinaryOpr::Power => " ** ",
+            PureBinaryOpr::BitXor => " ^ ",
+            PureBinaryOpr::BitOr => " | ",
+            PureBinaryOpr::RemEuclid => " % ",
         }
     }
 }

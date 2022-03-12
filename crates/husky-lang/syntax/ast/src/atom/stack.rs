@@ -48,7 +48,7 @@ impl AtomStack {
             self.atoms.push(atom);
             Ok(())
         } else {
-            ast_err!(atom.text_range(), "convexity not compatible")
+            err!(atom.text_range(), "convexity not compatible")
         }
     }
 
@@ -126,9 +126,9 @@ impl AtomStack {
                         | BuiltinIdentifier::Fn
                         | BuiltinIdentifier::FnMut
                         | BuiltinIdentifier::FnOnce => Ok(ident),
-                        _ => ast_err!(last_atom.text_range(), expectation),
+                        _ => err!(last_atom.text_range(), expectation),
                     },
-                    _ => ast_err!(last_atom.text_range(), expectation),
+                    _ => err!(last_atom.text_range(), expectation),
                 }
             }
         }
@@ -154,7 +154,7 @@ impl AtomStack {
                 scope,
                 kind: ScopeKind::Type,
             } => types.push(scope.into()),
-            _ => ast_err!(*tail, "left parenthesis or type")?,
+            _ => err!(*tail, "left parenthesis or type")?,
         };
         loop {
             match self.pop(tail)?.kind {
@@ -163,14 +163,14 @@ impl AtomStack {
                     return Ok((attr, types));
                 }
                 AtomKind::ListItem => (),
-                _ => ast_err!(*tail, "left parenthesis or comma")?,
+                _ => err!(*tail, "left parenthesis or comma")?,
             }
             match self.pop(tail)?.kind {
                 AtomKind::Scope {
                     scope,
                     kind: ScopeKind::Type,
                 } => types.push(scope.into()),
-                _ => ast_err!(*tail, "type")?,
+                _ => err!(*tail, "type")?,
             }
         }
     }

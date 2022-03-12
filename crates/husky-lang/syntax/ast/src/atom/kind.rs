@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use scope::{RangedScope, ScopeKind};
 use token::Special;
-use vm::{BinaryOpr, PrimitiveValue};
+use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
 use word::{CustomIdentifier, WordPtr};
 
 use super::*;
@@ -12,11 +12,11 @@ use crate::*;
 pub enum AtomKind {
     Scope { scope: ScopePtr, kind: ScopeKind },
     Variable(CustomIdentifier),
+    Unrecognized(CustomIdentifier),
     Literal(PrimitiveValue),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
-    Assign(Option<BinaryOpr>),
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
@@ -62,26 +62,26 @@ impl From<Special> for AtomKind {
             | Special::RPar
             | Special::SubOrMinus
             | Special::MemberAccess => panic!(),
-            Special::Assign => AtomKind::Assign(None),
-            Special::AddAssign => AtomKind::Assign(Some(BinaryOpr::Add)),
-            Special::SubAssign => AtomKind::Assign(Some(BinaryOpr::Sub)),
-            Special::MulAssign => AtomKind::Assign(Some(BinaryOpr::Mul)),
-            Special::DivAssign => AtomKind::Assign(Some(BinaryOpr::Div)),
-            Special::LAngle => AtomKind::Binary(BinaryOpr::Less),
-            Special::Leq => AtomKind::Binary(BinaryOpr::Leq),
-            Special::RAngle => AtomKind::Binary(BinaryOpr::Greater),
-            Special::Geq => AtomKind::Binary(BinaryOpr::Geq),
-            Special::Neq => AtomKind::Binary(BinaryOpr::Neq),
-            Special::Eq => AtomKind::Binary(BinaryOpr::Eq),
-            Special::Shl => AtomKind::Binary(BinaryOpr::Shl),
-            Special::Shr => AtomKind::Binary(BinaryOpr::Shr),
-            Special::Add => AtomKind::Binary(BinaryOpr::Add),
-            Special::Mul => AtomKind::Binary(BinaryOpr::Mul),
-            Special::Div => AtomKind::Binary(BinaryOpr::Div),
-            Special::Power => AtomKind::Binary(BinaryOpr::Power),
-            Special::And => AtomKind::Binary(BinaryOpr::And),
-            Special::BitNot => AtomKind::Prefix(PrefixOpr::BitNot),
-            Special::Modulo => AtomKind::Binary(BinaryOpr::RemEuclid),
+            Special::Assign => BinaryOpr::Assign(None).into(),
+            Special::AddAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Add)).into(),
+            Special::SubAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Sub)).into(),
+            Special::MulAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Mul)).into(),
+            Special::DivAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Div)).into(),
+            Special::LAngle => BinaryOpr::Pure(PureBinaryOpr::Less).into(),
+            Special::Leq => BinaryOpr::Pure(PureBinaryOpr::Leq).into(),
+            Special::RAngle => BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
+            Special::Geq => BinaryOpr::Pure(PureBinaryOpr::Geq).into(),
+            Special::Neq => BinaryOpr::Pure(PureBinaryOpr::Neq).into(),
+            Special::Eq => BinaryOpr::Pure(PureBinaryOpr::Eq).into(),
+            Special::Shl => BinaryOpr::Pure(PureBinaryOpr::Shl).into(),
+            Special::Shr => BinaryOpr::Pure(PureBinaryOpr::Shr).into(),
+            Special::Add => BinaryOpr::Pure(PureBinaryOpr::Add).into(),
+            Special::Mul => BinaryOpr::Pure(PureBinaryOpr::Mul).into(),
+            Special::Div => BinaryOpr::Pure(PureBinaryOpr::Div).into(),
+            Special::Power => BinaryOpr::Pure(PureBinaryOpr::Power).into(),
+            Special::And => BinaryOpr::Pure(PureBinaryOpr::And).into(),
+            Special::BitNot => PrefixOpr::BitNot.into(),
+            Special::Modulo => BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into(),
             Special::Incr => AtomKind::Suffix(SuffixOpr::Incr),
             Special::Decr => AtomKind::Suffix(SuffixOpr::Decr),
             Special::Comma => AtomKind::ListItem,

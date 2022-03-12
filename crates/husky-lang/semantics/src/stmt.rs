@@ -2,10 +2,10 @@ mod decl;
 mod impr;
 mod parser;
 
-pub(crate) use decl::{gen_decl_stmt_instructions, parse_decl_stmts};
+pub(crate) use decl::parse_decl_stmts;
 pub use decl::{DeclBranchGroupKind, DeclBranchKind, DeclStmt, DeclStmtKind};
-pub(crate) use impr::{gen_impr_stmt_instructions, parse_impr_stmts};
-pub use impr::{ImprStmt, ImprStmtKind};
+pub(crate) use impr::parse_impr_stmts;
+pub use impr::{Boundary, ImprStmt, ImprStmtKind, LoopKind};
 
 use crate::error::{err, not_none};
 use crate::expr::{BinaryOpnKind, ExprParser, Opn};

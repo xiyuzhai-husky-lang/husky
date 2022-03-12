@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 common = { path = "../../common", version = "0.0.0" }
 word = { path = "../syntax/word", version = "0.0.0" }
+arrayvec = "0.7.2"

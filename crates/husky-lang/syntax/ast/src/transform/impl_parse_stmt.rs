@@ -1,11 +1,12 @@
 use crate::{
     atom::symbol_proxy::Symbol,
-    stmt::{RawBranchKind, RawStmtKind},
+    stmt::{RawBranchKind, RawLoopKind, RawStmtKind},
     transform::utils::*,
     *,
 };
 use text::{TextRange, TextRanged};
 use token::{Special, Token, TokenKind};
+use vm::{BinaryOpr, PureBinaryOpr};
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_stmt(
@@ -14,64 +15,126 @@ impl<'a> AstTransformer<'a> {
         tokens: &[Token],
     ) -> AstResult<RawStmt> {
         Ok(if let Some((keyword, kw_range)) = keyword {
-            match keyword {
-                StmtKeyword::Let => self.parse_init_stmt(InitKind::Let, kw_range, tokens)?,
-                StmtKeyword::Var => self.parse_init_stmt(InitKind::Var, kw_range, tokens)?,
-                StmtKeyword::If => {
-                    expect_at_least!(tokens, kw_range, 2);
-                    expect_block_head!(tokens);
-                    RawStmt {
-                        range: tokens.into(),
-                        kind: RawStmtKind::Branch(RawBranchKind::If {
+            RawStmt {
+                range: tokens.into(),
+                kind: match keyword {
+                    StmtKeyword::Let => self.parse_init_stmt(InitKind::Let, kw_range, tokens)?,
+                    StmtKeyword::Var => self.parse_init_stmt(InitKind::Var, kw_range, tokens)?,
+                    StmtKeyword::If => {
+                        expect_at_least!(tokens, kw_range, 2);
+                        expect_block_head!(tokens);
+                        RawStmtKind::Branch(RawBranchKind::If {
                             condition: self.parse_expr(&tokens[0..(tokens.len() - 1)])?,
-                        }),
+                        })
                     }
-                }
-                StmtKeyword::Elif => todo!(),
-                StmtKeyword::Else => {
-                    expect!(tokens.len() == 1, kw_range, "expect one tokens after");
-                    expect!(
-                        tokens[0].kind == TokenKind::Special(Special::Colon),
-                        tokens[0].range,
-                        "expect `:`"
-                    );
-                    RawStmt {
-                        range: tokens.into(),
-                        kind: RawStmtKind::Branch(RawBranchKind::Else),
+                    StmtKeyword::Elif => todo!(),
+                    StmtKeyword::Else => {
+                        expect!(tokens.len() == 1, kw_range, "expect one tokens after");
+                        expect!(
+                            tokens[0].kind == TokenKind::Special(Special::Colon),
+                            tokens[0].range,
+                            "expect `:`"
+                        );
+                        RawStmtKind::Branch(RawBranchKind::Else)
                     }
-                }
-                StmtKeyword::Switch => todo!(),
-                StmtKeyword::Match => todo!(),
-                StmtKeyword::Case => todo!(),
-                StmtKeyword::DeFault => todo!(),
-                StmtKeyword::For => {
-                    expect_block_head!(tokens);
-                    let expr = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
-                    let expr = &self.arena[expr];
-                    match expr.kind {
-                        RawExprKind::Opn { opr, ref opds } => todo!(),
-                        _ => todo!(),
+                    StmtKeyword::Switch => todo!(),
+                    StmtKeyword::Match => todo!(),
+                    StmtKeyword::Case => todo!(),
+                    StmtKeyword::DeFault => todo!(),
+                    StmtKeyword::For => {
+                        expect_block_head!(tokens);
+                        let expr = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+                        let expr = &self.arena[expr];
+                        match expr.kind {
+                            RawExprKind::Opn { opr, ref opds } => match opr {
+                                Opr::Prefix(_) | Opr::Suffix(_) | Opr::List(_) => todo!(),
+                                Opr::Binary(binary) => match binary {
+                                    BinaryOpr::Assign(_) => todo!(),
+                                    BinaryOpr::Pure(pure_binary) => {
+                                        let lopd_idx = opds.start;
+                                        let ropd_idx = opds.end - 1;
+                                        let lopd = &self.arena[lopd_idx];
+                                        let ropd = &self.arena[ropd_idx];
+                                        if let RawExprKind::Unrecognized(frame_var) = lopd.kind {
+                                            RawLoopKind::for_loop_with_default_initial(
+                                                frame_var,
+                                                pure_binary,
+                                                opds.end - 1,
+                                                expr.range(),
+                                            )?
+                                            .into()
+                                        } else if let RawExprKind::Unrecognized(frame_var) =
+                                            ropd.kind
+                                        {
+                                            RawLoopKind::for_loop_with_default_final(
+                                                opds.start,
+                                                pure_binary,
+                                                frame_var,
+                                                expr.range(),
+                                            )?
+                                            .into()
+                                        } else {
+                                            let final_comparison = pure_binary;
+                                            match lopd.kind {
+                                                RawExprKind::Opn { opr, ref opds } => {
+                                                    let llopd_idx = opds.start;
+                                                    let lropd_idx = opds.end - 1;
+                                                    let llopd = &self.arena[llopd_idx];
+                                                    let lropd = &self.arena[lropd_idx];
+                                                    let initial_comparison = match opr {
+                                                        Opr::Binary(binary) => match binary {
+                                                            BinaryOpr::Pure(pure_binary_opr) => {
+                                                                pure_binary_opr
+                                                            }
+                                                            BinaryOpr::Assign(_) => todo!(),
+                                                        },
+                                                        _ => todo!(),
+                                                    };
+                                                    let frame_var =
+                                                        if let RawExprKind::Unrecognized(
+                                                            frame_var,
+                                                        ) = lropd.kind
+                                                        {
+                                                            frame_var
+                                                        } else {
+                                                            err!(
+                                                                expr.range(),
+                                                                "expect unrecognized"
+                                                            )?
+                                                        };
+                                                    RawLoopKind::for_loop(
+                                                        llopd_idx,
+                                                        initial_comparison,
+                                                        frame_var,
+                                                        final_comparison,
+                                                        ropd_idx,
+                                                        expr.range(),
+                                                    )?
+                                                    .into()
+                                                }
+                                                _ => todo!(),
+                                            }
+                                            // LoopRawStmt::for_loop()?.into()
+                                        }
+                                    }
+                                },
+                            },
+                            _ => todo!(),
+                        }
                     }
-                    todo!()
-                }
-                StmtKeyword::ForExt => todo!(),
-                StmtKeyword::While => todo!(),
-                StmtKeyword::Do => todo!(),
-                StmtKeyword::Break => todo!(),
-                StmtKeyword::Return => {
-                    expect!(tokens.len() > 0, kw_range, "expect some tokens after");
-                    RawStmt {
-                        range: tokens.into(),
-                        kind: RawStmtKind::Return(self.parse_expr(tokens)?),
+                    StmtKeyword::ForExt => todo!(),
+                    StmtKeyword::While => todo!(),
+                    StmtKeyword::Do => todo!(),
+                    StmtKeyword::Break => todo!(),
+                    StmtKeyword::Return => {
+                        expect!(tokens.len() > 0, kw_range, "expect some tokens after");
+                        RawStmtKind::Return(self.parse_expr(tokens)?)
                     }
-                }
-                StmtKeyword::Assert => {
-                    expect!(tokens.len() > 0, kw_range, "expect some tokens after");
-                    RawStmt {
-                        range: tokens.into(),
-                        kind: RawStmtKind::Assert(self.parse_expr(tokens)?),
+                    StmtKeyword::Assert => {
+                        expect!(tokens.len() > 0, kw_range, "expect some tokens after");
+                        RawStmtKind::Assert(self.parse_expr(tokens)?)
                     }
-                }
+                },
             }
         } else {
             if tokens.len() > 2 && tokens[1].kind == Special::Assign.into() {
@@ -114,11 +177,11 @@ impl<'a> AstTransformer<'a> {
         kind: InitKind,
         kw_range: TextRange,
         tokens: &[Token],
-    ) -> AstResult<RawStmt> {
+    ) -> AstResult<RawStmtKind> {
         match kind {
             InitKind::Let | InitKind::Var => match self.env() {
                 Env::Proc | Env::Test => (),
-                _ => ast_err!(
+                _ => err!(
                     kw_range,
                     format!(
                         "`{}` statement requires env to be `proc` or `test`, but got `{}` instead",
@@ -135,13 +198,10 @@ impl<'a> AstTransformer<'a> {
             .push(Symbol::var(varname, tokens[0].range.clone()));
         expect_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
-        Ok(RawStmt {
-            range: tokens.into(),
-            kind: RawStmtKind::Init {
-                init_kind: kind,
-                varname,
-                initial_value,
-            },
+        Ok(RawStmtKind::Init {
+            init_kind: kind,
+            varname,
+            initial_value,
         })
     }
 }

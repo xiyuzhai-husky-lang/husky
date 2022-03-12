@@ -1,5 +1,5 @@
 use scope::ScopePtr;
-use vm::BinaryOpr;
+use vm::{BinaryOpr, PureBinaryOpr};
 use word::Identifier;
 
 #[derive(PartialEq, Eq, Copy, Clone)]
@@ -17,6 +17,14 @@ impl std::fmt::Debug for Opr {
                 f.write_str("Binary ")?;
                 arg0.fmt(f)
             }
+            // Self::Assign(opt_binary) => {
+            //     f.write_str("Assign ")?;
+            //     if let Some(binary) = opt_binary {
+            //         binary.fmt(f)
+            //     } else {
+            //         Ok(())
+            //     }
+            // }
             Self::Prefix(arg0) => {
                 f.write_str("Prefix ")?;
                 arg0.fmt(f)
@@ -74,7 +82,7 @@ pub enum SuffixOpr {
     Decr,                     // --
     MayReturn,                // ?
     MemberAccess(Identifier), // .
-    WithType(ScopePtr),        // :
+    WithType(ScopePtr),       // :
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]

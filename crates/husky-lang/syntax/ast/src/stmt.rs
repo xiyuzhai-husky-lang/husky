@@ -1,5 +1,8 @@
 use text::TextRange;
 use word::CustomIdentifier;
+mod loop_kind;
+
+pub use loop_kind::{RawBoundary, RawLoopKind};
 
 use crate::{expr::RawExprIdx, *};
 
@@ -11,7 +14,7 @@ pub struct RawStmt {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawStmtKind {
-    Loop(LoopRawStmt),
+    Loop(RawLoopKind),
     Branch(RawBranchKind),
     Exec(RawExprIdx),
     Init {
@@ -23,28 +26,10 @@ pub enum RawStmtKind {
     Assert(RawExprIdx),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum LoopRawStmt {
-    For {
-        left_bound: RawExprIdx,
-        right_bound: RawExprIdx,
-        is_left_shifted: bool,
-        is_right_shifted: bool,
-        is_incremental: bool,
-        fvar_ident: CustomIdentifier,
-    },
-    ForExt {
-        bound: RawExprIdx,
-        is_shifted: bool,
-        is_incremental: bool,
-        fvar_ident: CustomIdentifier,
-    },
-    While {
-        condition: RawExprIdx,
-    },
-    DoWhile {
-        condition: RawExprIdx,
-    },
+impl From<RawLoopKind> for RawStmtKind {
+    fn from(stmt: RawLoopKind) -> Self {
+        Self::Loop(stmt)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

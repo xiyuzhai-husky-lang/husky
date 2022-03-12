@@ -7,6 +7,7 @@ pub enum VMError {
     ValueUndefined,
     AssertionFailure,
     CannotPop,
+    Message(String),
 }
 
 pub type VMResult<T> = Result<T, VMError>;
@@ -19,6 +20,14 @@ impl Into<Cow<'static, str>> for VMError {
             VMError::ValueUndefined => "value undefined".into(),
             VMError::AssertionFailure => "assertion failure".into(),
             VMError::CannotPop => todo!(),
+            VMError::Message(_) => todo!(),
         }
     }
 }
+
+macro_rules! error {
+    ($message: expr) => {
+        VMError::Message($message.into())
+    };
+}
+pub(crate) use error;

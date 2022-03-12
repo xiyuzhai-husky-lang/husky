@@ -49,9 +49,9 @@ macro_rules! ast_error {
 }
 pub(crate) use ast_error;
 
-macro_rules! ast_err {
+macro_rules! err {
     ($range:expr, $kind: expr) => {{
         Err(ast_error!($range, $kind, src!()))
     }};
 }
-pub(crate) use ast_err;
+pub(crate) use err;

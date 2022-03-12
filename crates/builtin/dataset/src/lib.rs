@@ -6,7 +6,7 @@ pub mod synthetic;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("synthetic", synthetic::SCOPE_DATA)],
-    signature: RawScopeSignature::Module,
+    signature: StaticScopeSignature::Module,
 };
 
 use std::borrow::Cow;
@@ -15,7 +15,7 @@ pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::DataLoader;
 
-use scope::{BuiltinScopeData, RawScopeSignature, ScopeKind};
+use scope::{BuiltinScopeData, ScopeKind, StaticScopeSignature};
 use vm::AnyValue;
 
 pub trait Dataset: std::fmt::Debug + Send + Sync + 'static {
@@ -32,5 +32,13 @@ impl AnyValue for Box<dyn Dataset> {
 
     fn static_type_name() -> Cow<'static, str> {
         "Box<dyn Dataset>".into()
+    }
+
+    fn clone_any(&self) -> Box<dyn vm::AnyValueDyn> {
+        todo!()
+    }
+
+    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn> {
+        todo!()
     }
 }

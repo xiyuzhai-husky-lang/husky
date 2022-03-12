@@ -11,7 +11,7 @@ use text::TextRange;
 pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
-pub use stmt::{RawBranchKind, RawStmt, RawStmtKind};
+pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
 use transform::AstTransformer;
 use vm::InitKind;
 
@@ -20,7 +20,7 @@ use syntax_types::*;
 
 use word::{CustomIdentifier, Identifier, StmtKeyword};
 
-use crate::error::{ast_err, ast_error};
+use crate::error::{ast_error, err};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {

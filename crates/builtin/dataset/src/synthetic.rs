@@ -5,7 +5,7 @@ pub mod trivial;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
-    signature: RawScopeSignature::Module,
+    signature: StaticScopeSignature::Module,
 };
 
 use crate::{labeled::LabeledData, *};
@@ -104,6 +104,14 @@ impl AnyValue for SimpleSyntheticDataset {
     }
 
     fn static_type_name() -> Cow<'static, str> {
+        todo!()
+    }
+
+    fn clone_any(&self) -> Box<dyn vm::AnyValueDyn> {
+        todo!()
+    }
+
+    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn> {
         todo!()
     }
 }

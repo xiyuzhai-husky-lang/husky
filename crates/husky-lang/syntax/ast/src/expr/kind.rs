@@ -11,6 +11,7 @@ use scope::{RangedScope, ScopeKind, ScopePtr};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprKind {
     Variable(CustomIdentifier),
+    Unrecognized(CustomIdentifier),
     Scope { scope: ScopePtr, kind: ScopeKind },
     Literal(PrimitiveValue),
     Bracketed(RawExprIdx),

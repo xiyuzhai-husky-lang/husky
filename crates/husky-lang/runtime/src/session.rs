@@ -4,7 +4,8 @@ mod tests;
 
 use common::*;
 use semantics::{Config, DeclStmt, Package};
-use vm::{run, EvalValue, VMResult};
+use trivial_iter::TrivialIter;
+use vm::{eval_fast, EvalResult, Mode, VMResult};
 
 use crate::*;
 
@@ -31,7 +32,7 @@ pub struct Session<'sess> {
 
 #[derive(Debug)]
 pub struct ValidationReport<'sess> {
-    predictions: Vec<EvalValue<'sess, 'sess>>,
+    predictions: Vec<EvalResult<'sess>>,
 }
 
 impl<'sess> Default for ValidationReport<'sess> {
@@ -45,9 +46,13 @@ impl<'sess> Default for ValidationReport<'sess> {
 impl<'sess> Session<'sess> {
     pub(crate) fn new(package: &Package) -> VMResult<Self> {
         let config = package.config.clone();
-        let dataset: Box<dyn Dataset> = run(&config.dataset.instruction_sheet.instructions())?
-            .boxed()?
-            .take()?;
+        let dataset: Box<dyn Dataset> = eval_fast(
+            TrivialIter::default(),
+            &config.dataset.instruction_sheet,
+            None,
+        )?
+        .into_boxed()?
+        .take()?;
         Ok(Self {
             dev: Division::new(dataset.dev_loader()),
             val: Division::new(dataset.val_loader()),

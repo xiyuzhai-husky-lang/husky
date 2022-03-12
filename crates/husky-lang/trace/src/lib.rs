@@ -1,6 +1,5 @@
-mod alloc;
+mod factory;
 mod figure;
-mod interpreter;
 mod kind;
 mod stalk;
 mod subtraces;
@@ -8,11 +7,11 @@ mod subtraces;
 mod tests;
 mod token;
 
-pub use alloc::{AllocateTrace, TraceAllocator, TraceId};
+pub use factory::{CreateTrace, TraceFactory, TraceId};
 pub use figure::FigureProps;
 use file::FilePtr;
-use interpreter::TraceInterpreterControlSignal;
-pub use interpreter::{TraceInterpreter, TraceStackValue};
+// use interpreter::VMControl;
+// pub use interpreter::{TraceInterpreter, VMValueSnapshot};
 pub use kind::TraceKind;
 use semantics::ImprStmtKind;
 pub use stalk::TraceStalk;
@@ -59,35 +58,36 @@ impl Serialize for Trace {
         state.serialize_field(
             "has_subtraces",
             &match self.kind {
-                TraceKind::FeatureStmt(_)
-                | TraceKind::Input(_)
-                | TraceKind::StrictDeclStmt { .. } => false,
+                TraceKind::LazyStmt(_) | TraceKind::Input(_) | TraceKind::StrictDeclStmt { .. } => {
+                    false
+                }
                 TraceKind::ImprStmt { ref stmt, .. } => match stmt.kind {
                     ImprStmtKind::Init { .. }
                     | ImprStmtKind::Assert { .. }
+                    | ImprStmtKind::Execute { .. }
                     | ImprStmtKind::Return { .. } => false,
-                    ImprStmtKind::Loop => true,
+                    ImprStmtKind::Loop { .. } => true,
                     ImprStmtKind::BranchGroup { .. } => panic!(),
                 },
-                TraceKind::Main(_) | TraceKind::FeatureBranch(_) => true,
-                TraceKind::FeatureExpr(ref expr) => match expr.kind {
-                    feature::FeatureExprKind::Literal(_)
-                    | feature::FeatureExprKind::PrimitiveBinaryOpr { .. }
-                    | feature::FeatureExprKind::Variable { .. } => false,
-                    feature::FeatureExprKind::FuncCall { ranged_scope, .. } => {
+                TraceKind::LoopFrame { .. } | TraceKind::Main(_) | TraceKind::LazyBranch(_) => true,
+                TraceKind::LazyExpr(ref expr) => match expr.kind {
+                    feature::LazyExprKind::Literal(_)
+                    | feature::LazyExprKind::PrimitiveBinaryOpr { .. }
+                    | feature::LazyExprKind::Variable { .. } => false,
+                    feature::LazyExprKind::FuncCall { ranged_scope, .. } => {
                         !ranged_scope.scope.is_builtin()
                     }
-                    feature::FeatureExprKind::ProcCall { ranged_scope, .. } => {
+                    feature::LazyExprKind::ProcCall { ranged_scope, .. } => {
                         !ranged_scope.scope.is_builtin()
                     }
                 },
-                TraceKind::Expr { ref expr, .. } => match expr.kind {
-                    semantics::ExprKind::Variable(_)
-                    | semantics::ExprKind::Scope { .. }
-                    | semantics::ExprKind::Literal(_) => false,
-                    semantics::ExprKind::Bracketed(_) => todo!(),
-                    semantics::ExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
-                    semantics::ExprKind::Lambda(_, _) => todo!(),
+                TraceKind::StrictExpr { ref expr, .. } => match expr.kind {
+                    semantics::StrictExprKind::Variable(_)
+                    | semantics::StrictExprKind::Scope { .. }
+                    | semantics::StrictExprKind::Literal(_) => false,
+                    semantics::StrictExprKind::Bracketed(_) => todo!(),
+                    semantics::StrictExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
+                    semantics::StrictExprKind::Lambda(_, _) => todo!(),
                 },
                 TraceKind::CallHead { .. } => false,
             },
@@ -105,7 +105,7 @@ impl Trace {
         parent: Option<TraceId>,
         indent: Indent,
         kind: TraceKind,
-        trace_allocator: &TraceAllocator,
+        trace_allocator: &TraceFactory,
         text: &Text,
     ) -> Self {
         let id = trace_allocator.next_id();
@@ -125,7 +125,7 @@ impl Trace {
         parent: Option<TraceId>,
         indent: Indent,
         gen_kind: impl FnOnce(TraceId) -> TraceKind,
-        trace_allocator: &TraceAllocator,
+        trace_allocator: &TraceFactory,
         text: &Text,
     ) -> Self {
         let id = trace_allocator.next_id();

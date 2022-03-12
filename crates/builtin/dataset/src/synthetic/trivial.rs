@@ -6,7 +6,7 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         ("real1d", real1d::SCOPE_DATA),
         ("real2d", real2d::SCOPE_DATA),
     ],
-    signature: RawScopeSignature::Module,
+    signature: StaticScopeSignature::Module,
 };
 
 use crate::*;

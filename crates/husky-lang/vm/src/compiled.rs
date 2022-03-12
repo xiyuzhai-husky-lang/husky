@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Clone, Copy)]
 pub struct Compiled {
     pub call: for<'stack, 'eval> fn(
-        Vec<StackValue<'stack, 'eval>>,
+        &mut [StackValue<'stack, 'eval>],
     ) -> VMResult<StackValue<'stack, 'eval>>,
 }
 

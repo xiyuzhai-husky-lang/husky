@@ -1,7 +1,7 @@
 use common::*;
 
 use crate::*;
-use vm::{AnyValueDyn, EvalValue, StackValue};
+use vm::{AnyValueDyn, EvalValue, VMValue};
 
 use super::{
     eval::Evaluator,

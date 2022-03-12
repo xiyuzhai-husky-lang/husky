@@ -1,4 +1,4 @@
-use trace::TraceAllocator;
+use trace::TraceFactory;
 
 use super::*;
 use crate::*;

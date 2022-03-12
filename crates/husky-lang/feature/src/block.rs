@@ -7,90 +7,90 @@ use text::TextRange;
 use crate::{eval::FeatureEvalId, unique_allocate::FeatureUniqueAllocator, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureBlock {
-    pub symbols: Vec<FeatureSymbol>,
-    pub stmts: Vec<Arc<FeatureStmt>>,
+pub struct LazyBlock {
+    pub symbols: Vec<LazySymbol>,
+    pub stmts: Vec<Arc<LazyStmt>>,
     pub feature: FeaturePtr,
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
 }
 
-impl FeatureBlock {
+impl LazyBlock {
     pub(crate) fn new(
         db: &dyn SemanticQueryGroup,
         decl_stmts: &[Arc<DeclStmt>],
-        externals: &[FeatureSymbol],
+        externals: &[LazySymbol],
         features: &FeatureUniqueAllocator,
-    ) -> FeatureBlock {
-        let mut symbols: Vec<FeatureSymbol> = externals.into();
-        let stmts: Vec<Arc<FeatureStmt>> = decl_stmts
+    ) -> LazyBlock {
+        let mut symbols: Vec<LazySymbol> = externals.into();
+        let stmts: Vec<Arc<LazyStmt>> = decl_stmts
             .iter()
             .map(|decl_stmt| {
                 Arc::new(match decl_stmt.kind {
                     DeclStmtKind::Init { varname, ref value } => {
-                        let value = FeatureExpr::new(db, value, &symbols, features);
-                        symbols.push(FeatureSymbol {
+                        let value = LazyExpr::new(db, value, &symbols, features);
+                        symbols.push(LazySymbol {
                             varname,
                             value: value.clone(),
                             feature: value.feature,
                         });
-                        FeatureStmt {
+                        LazyStmt {
                             file: decl_stmt.file,
                             range: decl_stmt.range,
                             indent: decl_stmt.indent,
                             feature: None,
-                            kind: FeatureStmtKind::Init { varname, value },
+                            kind: LazyStmtKind::Init { varname, value },
                             eval_id: Default::default(),
                         }
                     }
                     DeclStmtKind::Assert { ref condition } => {
-                        let condition = FeatureExpr::new(db, condition, &symbols, features);
+                        let condition = LazyExpr::new(db, condition, &symbols, features);
                         let feature = Some(features.alloc(Feature::Assert {
                             condition: condition.feature,
                         }));
-                        FeatureStmt {
+                        LazyStmt {
                             file: decl_stmt.file,
                             range: decl_stmt.range,
                             indent: decl_stmt.indent,
                             feature,
-                            kind: FeatureStmtKind::Assert { condition },
+                            kind: LazyStmtKind::Assert { condition },
                             eval_id: Default::default(),
                         }
                     }
                     DeclStmtKind::Return { ref result } => {
-                        let result = FeatureExpr::new(db, result, &symbols, features);
-                        FeatureStmt {
+                        let result = LazyExpr::new(db, result, &symbols, features);
+                        LazyStmt {
                             file: decl_stmt.file,
                             range: decl_stmt.range,
                             indent: decl_stmt.indent,
                             feature: Some(result.feature),
-                            kind: FeatureStmtKind::Return { result },
+                            kind: LazyStmtKind::Return { result },
                             eval_id: Default::default(),
                         }
                     }
                     DeclStmtKind::Branches { kind, ref branches } => {
-                        let branches: Vec<Arc<FeatureBranch>> = branches
+                        let branches: Vec<Arc<LazyBranch>> = branches
                             .iter()
                             .map(|branch| {
-                                Arc::new(FeatureBranch {
-                                    block: FeatureBlock::new(db, &branch.stmts, &symbols, features),
+                                Arc::new(LazyBranch {
+                                    block: LazyBlock::new(db, &branch.stmts, &symbols, features),
                                     kind: match branch.kind {
                                         DeclBranchKind::If { ref condition } => {
-                                            FeatureBranchKind::If {
-                                                condition: FeatureExpr::new(
+                                            LazyBranchKind::If {
+                                                condition: LazyExpr::new(
                                                     db, condition, &symbols, features,
                                                 ),
                                             }
                                         }
                                         DeclBranchKind::Elif { ref condition } => {
-                                            FeatureBranchKind::Elif {
-                                                condition: FeatureExpr::new(
+                                            LazyBranchKind::Elif {
+                                                condition: LazyExpr::new(
                                                     db, condition, &symbols, features,
                                                 ),
                                             }
                                         }
-                                        DeclBranchKind::Else => FeatureBranchKind::Else,
+                                        DeclBranchKind::Else => LazyBranchKind::Else,
                                         DeclBranchKind::Case { ref pattern } => todo!(),
                                         DeclBranchKind::Default => todo!(),
                                     },
@@ -103,19 +103,15 @@ impl FeatureBlock {
                                 branches: branches
                                     .iter()
                                     .map(|branch| match branch.kind {
-                                        FeatureBranchKind::If { ref condition } => {
-                                            BranchedFeature {
-                                                condition: Some(condition.feature),
-                                                block: branch.block.feature,
-                                            }
-                                        }
-                                        FeatureBranchKind::Elif { ref condition } => {
-                                            BranchedFeature {
-                                                condition: Some(condition.feature),
-                                                block: branch.block.feature,
-                                            }
-                                        }
-                                        FeatureBranchKind::Else => BranchedFeature {
+                                        LazyBranchKind::If { ref condition } => BranchedFeature {
+                                            condition: Some(condition.feature),
+                                            block: branch.block.feature,
+                                        },
+                                        LazyBranchKind::Elif { ref condition } => BranchedFeature {
+                                            condition: Some(condition.feature),
+                                            block: branch.block.feature,
+                                        },
+                                        LazyBranchKind::Else => BranchedFeature {
                                             condition: None,
                                             block: branch.block.feature,
                                         },
@@ -123,12 +119,12 @@ impl FeatureBlock {
                                     .collect(),
                             }),
                         );
-                        FeatureStmt {
+                        LazyStmt {
                             file: decl_stmt.file,
                             range: decl_stmt.range,
                             indent: decl_stmt.indent,
                             feature,
-                            kind: FeatureStmtKind::Branches { kind, branches },
+                            kind: LazyStmtKind::Branches { kind, branches },
                             eval_id: Default::default(),
                         }
                     }
@@ -138,12 +134,12 @@ impl FeatureBlock {
         let feature = features.alloc(Feature::Block(
             stmts
                 .iter()
-                .filter_map(|stmt: &Arc<FeatureStmt>| stmt.feature)
+                .filter_map(|stmt: &Arc<LazyStmt>| stmt.feature)
                 .collect(),
         ));
         let file = stmts[0].file;
         let range = (&stmts).into();
-        FeatureBlock {
+        LazyBlock {
             symbols,
             stmts,
             feature,
