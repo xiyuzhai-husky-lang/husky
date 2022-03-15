@@ -51,7 +51,38 @@ impl InstructionSheetBuilder {
             } => {
                 self.compile_boundary(initial_boundary, &loop_stmt);
                 self.compile_boundary(final_boundary, &loop_stmt);
+                let body = self.build_impr_block(body_stmts);
+                self.push_instruction(Instruction::new(
+                    InstructionKind::Loop {
+                        body,
+                        loop_kind: loop_kind.into(),
+                    },
+                    loop_stmt,
+                ));
+            }
+            LoopKind::ForExt {
+                frame_var,
+                frame_varidx,
+                final_boundary,
+                step,
+            } => {
+                self.compile_boundary(final_boundary, &loop_stmt);
+                let body = self.build_impr_block(body_stmts);
+                self.push_instruction(Instruction::new(
+                    InstructionKind::Loop {
+                        body,
+                        loop_kind: loop_kind.into(),
+                    },
+                    loop_stmt,
+                ));
+            }
+            LoopKind::While { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
+                block_sheet_builder.compile_expr(condition);
+                block_sheet_builder.push_instruction(Instruction::new(
+                    InstructionKind::BreakIfFalse,
+                    loop_stmt.clone(),
+                ));
                 block_sheet_builder.compile_impr_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
@@ -62,9 +93,23 @@ impl InstructionSheetBuilder {
                     loop_stmt,
                 ));
             }
-            LoopKind::ForExt => todo!(),
-            LoopKind::While => todo!(),
-            LoopKind::DoWhile => todo!(),
+            LoopKind::DoWhile { condition } => {
+                let mut block_sheet_builder = self.subsheet_builder();
+                block_sheet_builder.compile_impr_stmts(body_stmts);
+                block_sheet_builder.compile_expr(condition);
+                block_sheet_builder.push_instruction(Instruction::new(
+                    InstructionKind::BreakIfFalse,
+                    loop_stmt.clone(),
+                ));
+                let body = block_sheet_builder.finalize();
+                self.push_instruction(Instruction::new(
+                    InstructionKind::Loop {
+                        body,
+                        loop_kind: loop_kind.into(),
+                    },
+                    loop_stmt,
+                ));
+            }
         }
     }
 

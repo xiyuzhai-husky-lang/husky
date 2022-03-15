@@ -44,7 +44,17 @@ impl std::fmt::Debug for Scope {
             ScopeRoute::Implicit { main, ident } => todo!(),
         };
         if self.generics.len() > 0 {
-            todo!()
+            f.write_str("<")?;
+            for (i, generic) in self.generics.iter().enumerate() {
+                if i > 0 {
+                    f.write_str(", ")?;
+                }
+                match generic {
+                    GenericArgument::Const(_) => todo!(),
+                    GenericArgument::Scope(scope) => scope.fmt(f)?,
+                }
+            }
+            f.write_str(">")?;
         }
         Ok(())
     }
@@ -142,7 +152,7 @@ pub struct InputSignature {
 pub struct InputPlaceholder {
     pub ident: CustomIdentifier,
     pub contract: Contract,
-    pub ty: RangedScope,
+    pub ranged_ty: RangedScope,
 }
 
 impl Scope {

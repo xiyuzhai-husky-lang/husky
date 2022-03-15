@@ -1,4 +1,4 @@
-use vm::{BoundaryKind, LoopStep, VMLoopKind};
+use vm::{BoundaryKind, LoopStep, StackIdx, VMLoopKind};
 
 use crate::*;
 
@@ -10,9 +10,18 @@ pub enum LoopKind {
         final_boundary: Boundary,
         step: LoopStep,
     },
-    ForExt,
-    While,
-    DoWhile,
+    ForExt {
+        frame_var: CustomIdentifier,
+        frame_varidx: StackIdx,
+        final_boundary: Boundary,
+        step: LoopStep,
+    },
+    While {
+        condition: Arc<Expr>,
+    },
+    DoWhile {
+        condition: Arc<Expr>,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -35,9 +44,18 @@ impl Into<VMLoopKind> for &LoopKind {
                 step: *step,
                 frame_var: *frame_var,
             },
-            LoopKind::ForExt => todo!(),
-            LoopKind::While => todo!(),
-            LoopKind::DoWhile => todo!(),
+            LoopKind::ForExt {
+                frame_var,
+                final_boundary,
+                frame_varidx,
+                step,
+            } => VMLoopKind::ForExt {
+                final_boundary_kind: final_boundary.kind,
+                step: *step,
+                frame_var: *frame_var,
+                frame_varidx: *frame_varidx,
+            },
+            LoopKind::While { .. } | LoopKind::DoWhile { .. } => VMLoopKind::Loop,
         }
     }
 }

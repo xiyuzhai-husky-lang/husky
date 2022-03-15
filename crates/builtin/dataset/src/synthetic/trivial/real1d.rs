@@ -33,9 +33,8 @@ pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 
 use std::sync::Arc;
 
-use scope::{ScopePtr, StaticFuncSignature};
+use scope::StaticFuncSignature;
 use vm::{BoxedValue, Compiled, StackValue};
-use word::BuiltinIdentifier;
 use xrng::XRng;
 
 use crate::{synthetic::SimpleSyntheticDataset, *};
@@ -70,10 +69,10 @@ pub fn gen_sample2(seed: u64, idx: usize) -> LabeledData {
     }
 }
 
-pub fn dataset1() -> Box<dyn Dataset> {
-    Box::new(SimpleSyntheticDataset::new(1223418012u64, gen_sample1))
+pub fn dataset1() -> Dataset {
+    Dataset::new(SimpleSyntheticDataset::new(1223418012u64, gen_sample1))
 }
 
-pub fn dataset2() -> Box<dyn Dataset> {
-    Box::new(SimpleSyntheticDataset::new(1213148012u64, gen_sample2))
+pub fn dataset2() -> Dataset {
+    Dataset::new(SimpleSyntheticDataset::new(1213148012u64, gen_sample2))
 }

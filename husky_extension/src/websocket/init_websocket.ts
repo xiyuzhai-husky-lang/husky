@@ -1,11 +1,5 @@
 import type DebuggerMessage from "./DebuggerMessage";
-import {
-    parse_debugger_message,
-    tDebuggerMessage,
-    tInitMessage,
-} from "./DebuggerMessage";
-import { isRight } from "fp-ts/Either";
-import reporter from "io-ts-reporters";
+import { parse_debugger_message } from "./DebuggerMessage";
 import { send_pending_requests } from "./pending";
 import { handle_message } from "./handle_message";
 

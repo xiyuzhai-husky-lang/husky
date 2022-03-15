@@ -9,33 +9,61 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     signature: StaticScopeSignature::Module,
 };
 
-use std::borrow::Cow;
+use std::{borrow::Cow, sync::Arc};
 
 pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::DataLoader;
 
 use scope::{BuiltinScopeData, ScopeKind, StaticScopeSignature};
-use vm::AnyValue;
+use synthetic::SyntheticDataset;
+use vm::{AnyValue, AnyValueDyn};
 
-pub trait Dataset: std::fmt::Debug + Send + Sync + 'static {
+pub trait DatasetDyn: AnyValueDyn + std::fmt::Debug + Send + Sync + 'static {
     fn dev_loader(&self) -> DataLoader;
     fn val_loader(&self) -> DataLoader;
     fn test_loader(&self) -> DataLoader;
     fn profile_iter(&self) -> DataIter;
 }
 
-impl AnyValue for Box<dyn Dataset> {
+#[derive(Debug, Clone)]
+pub struct Dataset(Arc<dyn DatasetDyn>);
+
+impl Dataset {
+    pub fn new<T: SyntheticDataset>(t: T) -> Self {
+        Self(Arc::new(t))
+    }
+
+    pub fn dev_loader(&self) -> DataLoader {
+        self.0.dev_loader()
+    }
+
+    pub fn val_loader(&self) -> DataLoader {
+        self.0.val_loader()
+    }
+
+    pub fn test_loader(&self) -> DataLoader {
+        self.0.test_loader()
+    }
+
+    pub fn profile_iter(&self) -> DataIter {
+        self.0.profile_iter()
+    }
+}
+
+impl PartialEq for Dataset {
+    fn eq(&self, other: &Self) -> bool {
+        self.0.equal_any(other.0.upcast_any())
+    }
+}
+
+impl AnyValue for Dataset {
     fn static_type_id() -> std::any::TypeId {
         std::any::TypeId::of::<Self>()
     }
 
     fn static_type_name() -> Cow<'static, str> {
         "Box<dyn Dataset>".into()
-    }
-
-    fn clone_any(&self) -> Box<dyn vm::AnyValueDyn> {
-        todo!()
     }
 
     fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn> {

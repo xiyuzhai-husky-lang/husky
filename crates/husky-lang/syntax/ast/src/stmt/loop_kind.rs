@@ -11,10 +11,9 @@ pub enum RawLoopKind {
         step: LoopStep,
     },
     ForExt {
-        bound: RawExprIdx,
-        is_shifted: bool,
-        is_incremental: bool,
-        fvar_ident: CustomIdentifier,
+        frame_var: CustomIdentifier,
+        final_boundary: RawBoundary,
+        step: LoopStep,
     },
     While {
         condition: RawExprIdx,
@@ -96,11 +95,11 @@ impl RawLoopKind {
 
     pub fn for_loop_with_default_final(
         initial_bound: RawExprIdx,
-        pure_binary: PureBinaryOpr,
+        comparison: PureBinaryOpr,
         frame_var: CustomIdentifier,
         range: TextRange,
     ) -> AstResult<Self> {
-        let initial_boundary_kind = match pure_binary {
+        let initial_boundary_kind = match comparison {
             // well-formed: $initial_bound >= $frame_var
             PureBinaryOpr::Geq => BoundaryKind::LowerClosed,
             // well-formed: $initial_bound > $frame_var
@@ -120,6 +119,40 @@ impl RawLoopKind {
             final_boundary: Default::default(),
             step: LoopStep(-1),
         })
+    }
+
+    pub fn forext_loop(
+        frame_var: CustomIdentifier,
+        comparison: PureBinaryOpr,
+        bound: RawExprIdx,
+    ) -> AstResult<Self> {
+        let (boundary_kind, step) = match comparison {
+            // ... $frame_var >= $final_bound
+            PureBinaryOpr::Geq => (BoundaryKind::LowerClosed, LoopStep(-1)),
+            // ... $frame_var > $final_bound
+            PureBinaryOpr::Greater => (BoundaryKind::LowerOpen, LoopStep(-1)),
+            // ... $frame_var <= $final_bound
+            PureBinaryOpr::Leq => (BoundaryKind::UpperClosed, LoopStep(1)),
+            // ... $frame_var < $final_bound
+            PureBinaryOpr::Less => (BoundaryKind::UpperOpen, LoopStep(1)),
+            _ => todo!(),
+        };
+        Ok(Self::ForExt {
+            frame_var,
+            final_boundary: RawBoundary {
+                opt_bound: Some(bound),
+                kind: boundary_kind,
+            },
+            step,
+        })
+    }
+
+    pub fn while_loop(condition: RawExprIdx) -> Self {
+        Self::While { condition }
+    }
+
+    pub fn do_while_loop(condition: RawExprIdx) -> Self {
+        Self::DoWhile { condition }
     }
     // match pure_binary {
     //     PureBinaryOpr::Geq => todo!(),

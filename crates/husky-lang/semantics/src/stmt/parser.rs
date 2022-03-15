@@ -1,3 +1,5 @@
+use vm::{StackIdx, VMResult};
+
 use crate::qual::QualTable;
 
 use super::*;
@@ -11,11 +13,19 @@ pub(super) struct StmtParser<'a> {
 }
 
 impl<'a> StmtParser<'a> {
-    pub(super) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
+    pub(super) fn new(
+        input_placeholders: &[InputPlaceholder],
+        db: &'a dyn InferQueryGroup,
+        arena: &'a RawExprArena,
+        file: FilePtr,
+    ) -> Self {
         Self {
             db,
             arena,
-            variables: Vec::new(),
+            variables: input_placeholders
+                .iter()
+                .map(|input_placeholder| Variable::from_input(input_placeholder))
+                .collect(),
             file,
             qual_table: Default::default(),
         }
@@ -26,14 +36,28 @@ impl<'a> StmtParser<'a> {
         varname: CustomIdentifier,
         ty: ScopePtr,
         qual: Qual,
-    ) -> VarIdx {
-        let varidx = VarIdx::new(self.variables.len());
+    ) -> VMResult<StackIdx> {
+        let varidx = StackIdx::new(self.variables.len())?;
         self.variables.push(Variable {
             ident: varname,
             ty,
             qual,
         });
-        varidx
+        Ok(varidx)
+    }
+
+    pub(super) fn varidx(&self, varname: CustomIdentifier) -> StackIdx {
+        StackIdx::new(
+            self.variables.len()
+                - 1
+                - self
+                    .variables
+                    .iter()
+                    .rev()
+                    .position(|v| v.ident == varname)
+                    .unwrap(),
+        )
+        .unwrap()
     }
 }
 

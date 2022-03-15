@@ -3,10 +3,7 @@ use std::sync::Arc;
 use file::FilePtr;
 use scope::InputPlaceholder;
 use scope::{RangedScope, ScopePtr};
-use semantics::{
-    DeclStmt, EntityKind, Expr, ImprStmt, InstructionSheetBuilder, Opn, SemanticQueryGroup,
-    StrictExprKind,
-};
+use semantics::{DeclStmt, EntityKind, Expr, ExprKind, ImprStmt, OpnKind, SemanticQueryGroup};
 use text::TextRange;
 use vm::{BinaryOpr, InstructionSheet};
 use word::BuiltinIdentifier;
@@ -64,7 +61,7 @@ impl LazyExpr {
         features: &FeatureUniqueAllocator,
     ) -> Arc<Self> {
         Arc::new(match expr.kind {
-            StrictExprKind::Variable(varname) => symbols
+            ExprKind::Variable(varname) => symbols
                 .iter()
                 .rev()
                 .find_map(|symbol| {
@@ -84,21 +81,21 @@ impl LazyExpr {
                     }
                 })
                 .unwrap(),
-            StrictExprKind::Scope { scope, compiled } => todo!(),
-            StrictExprKind::Literal(value) => LazyExpr {
+            ExprKind::Scope { scope, compiled } => todo!(),
+            ExprKind::Literal(value) => LazyExpr {
                 kind: LazyExprKind::Literal(value),
                 feature: features.alloc(Feature::Literal(value)),
                 range: expr.range,
                 file: expr.file,
                 eval_id: Default::default(),
             },
-            StrictExprKind::Bracketed(_) => todo!(),
-            StrictExprKind::Opn {
-                opn,
+            ExprKind::Bracketed(_) => todo!(),
+            ExprKind::Opn {
+                opn_kind: opn,
                 compiled,
                 ref opds,
             } => match opn {
-                Opn::Binary { opr, this, kind } => match this {
+                OpnKind::Binary { opr, this } => match this {
                     ScopePtr::Builtin(BuiltinIdentifier::Void)
                     | ScopePtr::Builtin(BuiltinIdentifier::I32)
                     | ScopePtr::Builtin(BuiltinIdentifier::F32)
@@ -125,9 +122,9 @@ impl LazyExpr {
                     }
                     _ => todo!(),
                 },
-                Opn::Prefix(_) => todo!(),
-                Opn::Suffix(_) => todo!(),
-                Opn::RoutineCall(routine) => {
+                OpnKind::Prefix(_) => todo!(),
+                OpnKind::Suffix(_) => todo!(),
+                OpnKind::RoutineCall(routine) => {
                     let uid = db.entity_vc().uid(routine.scope);
                     let inputs: Vec<_> = opds
                         .iter()
@@ -178,12 +175,12 @@ impl LazyExpr {
                         eval_id: Default::default(),
                     }
                 }
-                Opn::PattCall => todo!(),
-                Opn::MembVarAccess => todo!(),
-                Opn::MembFuncCall(_) => todo!(),
-                Opn::ElementAccess => todo!(),
+                OpnKind::PattCall => todo!(),
+                OpnKind::MembVarAccess => todo!(),
+                OpnKind::MembFuncCall(_) => todo!(),
+                OpnKind::ElementAccess => todo!(),
             },
-            StrictExprKind::Lambda(_, _) => todo!(),
+            ExprKind::Lambda(_, _) => todo!(),
         })
     }
 }

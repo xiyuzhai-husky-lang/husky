@@ -12,16 +12,16 @@ class UserState {
     opt_input_id_store: Writable<number | null> = writable(0);
     input_locked_store: Writable<boolean> = writable(true);
 
-    init(raw_state: InitState) {
+    init(init_state: InitState) {
         this.active_trace_store.set(
-            raw_state.active_trace_id === null
+            init_state.active_trace_id === null
                 ? null
-                : raw_state.traces[raw_state.active_trace_id]
+                : init_state.traces[init_state.active_trace_id]
         );
-        this.expansion_stores.load(raw_state.expansions);
-        this.shown_stores.load(raw_state.showns);
-        this.opt_input_id_store.set(raw_state.opt_input_id);
-        console.log("raw_state.opt_input_id", raw_state.opt_input_id);
+        this.expansion_stores.load(init_state.expansions);
+        this.shown_stores.load(init_state.showns);
+        this.opt_input_id_store.set(init_state.opt_input_id);
+        console.log("init_state.opt_input_id", init_state.opt_input_id);
         this.input_locked_store.set(true);
     }
 

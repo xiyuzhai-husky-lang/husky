@@ -3,6 +3,7 @@
         get_input_id_store as get_opt_input_id_store,
         get_trace_stalk_store,
     } from "src/state/client";
+    import Line from "./Line.svelte";
     import type Trace from "src/trace/Trace";
     import Token from "./Token.svelte";
 
@@ -22,7 +23,11 @@
             case "LazyBranch":
             case "LazyExpr":
                 return input_id !== null;
-            case "DeclStmt":
+            case "StrictDeclStmt":
+            case "LoopFrame":
+            case "ImprStmt":
+            case "StrictExpr":
+            case "CallHead":
                 return false;
         }
     }
@@ -44,7 +49,18 @@
     lang="ts"
 >
     <div class="inner" class:active>
-        <p>
+        {#each trace.lines as line}
+            <Line
+                {on_group_start_click}
+                {has_subtraces}
+                {expanded}
+                {active}
+                {line}
+                {extra_tokens}
+            />
+        {/each}
+        <!-- within_active_node={active} -->
+        <!-- <p>
             <span
                 class="indent"
                 style="padding-left: {trace.indent * 9.5}px"
@@ -56,15 +72,12 @@
                 class:expanded
                 on:click={on_group_start_click}>&#x25b6</span
             >
-            {#each trace.tokens as token}
-                <Token {token} within_active_node={active} />
-            {/each}
             {#if has_extra}
                 {#each extra_tokens as token}
                     <Token {token} within_active_node={active} />
                 {/each}
             {/if}
-        </p>
+        </p> -->
     </div>
 </div>
 

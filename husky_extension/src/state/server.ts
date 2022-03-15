@@ -2,10 +2,10 @@ import type FigureProps from "src/trace/figure/FigureProps";
 import type TraceStalk from "src/trace/stalk/TraceStalk";
 import type Trace from "src/trace/Trace";
 import global_state from "./global_state";
-import type RawState from "./InitState";
+import type InitState from "./InitState";
 
-export function receive_init_message(raw_state: RawState) {
-    global_state.init(raw_state);
+export function receive_init_message(init_state: InitState) {
+    global_state.init(init_state);
 }
 
 export function receive_subtraces(

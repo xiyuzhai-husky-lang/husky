@@ -5,7 +5,7 @@ mod parse;
 pub use branch::*;
 use fold::Indent;
 pub use loop_kind::*;
-use vm::{InitKind, InstructionId, InstructionSource};
+use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
 
 use super::*;
 use crate::*;
@@ -33,7 +33,7 @@ pub enum ImprStmtKind {
         varname: CustomIdentifier,
         initial_value: Arc<Expr>,
         init_kind: InitKind,
-        varidx: VarIdx,
+        varidx: StackIdx,
     },
     Assert {
         condition: Arc<Expr>,
@@ -55,10 +55,11 @@ pub enum ImprStmtKind {
 }
 
 pub(crate) fn parse_impr_stmts(
-    this: &dyn InferQueryGroup,
+    input_placeholders: &[InputPlaceholder],
+    db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<ImprStmt>>> {
-    StmtParser::new(this, arena, file).parse_impr_stmts(iter)
+    StmtParser::new(input_placeholders, db, arena, file).parse_impr_stmts(iter)
 }

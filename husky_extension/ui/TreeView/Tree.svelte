@@ -64,10 +64,12 @@
             {expanded}
             {active}
         />
-        {#each trace.tokens as token}
-            {#if token.associated_trace !== null}
-                <svelte:self trace_id={token.associated_trace} />
-            {/if}
+        {#each trace.lines as line}
+            {#each line.tokens as token}
+                {#if token.associated_trace !== null}
+                    <svelte:self trace_id={token.associated_trace} />
+                {/if}
+            {/each}
         {/each}
         {#if subtraces !== null && expanded === true && has_subtraces}
             {#if trace.subtraces_container_class === null}

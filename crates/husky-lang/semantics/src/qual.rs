@@ -1,16 +1,36 @@
-use vm::InitKind;
+use vm::{Contract, InitKind};
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Qual {
-    pub mutable: bool,
-    pub owned: bool,
-    pub owner_id: OwnerId,
+pub enum Qual {
+    PureInput,
+    ImmutableOwned,
+    MutableOwned,
+    FrameVar,
+}
+
+impl Qual {
+    pub fn from_input(contract: Contract) -> Self {
+        match contract {
+            Contract::PureInput => Qual::PureInput,
+            Contract::Share => todo!(),
+            Contract::Take => todo!(),
+            Contract::BorrowMut => todo!(),
+            Contract::TakeMut => todo!(),
+        }
+    }
+
+    pub fn frame_var() -> Self {
+        Self::FrameVar
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct OwnerId(u8);
+pub enum Owner {
+    PureExternal,
+    OnStack(u8),
+}
 
 pub struct QualifiedType {
     qual: Qual,
@@ -18,23 +38,11 @@ pub struct QualifiedType {
 }
 
 impl Qual {
-    pub(crate) fn from_init(init_kind: InitKind, table: &mut QualTable) -> Self {
+    pub(crate) fn from_init(init_kind: InitKind) -> Self {
         match init_kind {
-            InitKind::Let => Self {
-                mutable: false,
-                owned: true,
-                owner_id: table.issue_owner_id(),
-            },
-            InitKind::Var => Self {
-                mutable: true,
-                owned: true,
-                owner_id: table.issue_owner_id(),
-            },
-            InitKind::Decl => Self {
-                mutable: false,
-                owned: true,
-                owner_id: table.issue_owner_id(),
-            },
+            InitKind::Let => Self::ImmutableOwned,
+            InitKind::Var => Self::MutableOwned,
+            InitKind::Decl => Self::ImmutableOwned,
         }
     }
 }
@@ -45,8 +53,8 @@ pub(crate) struct QualTable {
 }
 
 impl QualTable {
-    fn issue_owner_id(&mut self) -> OwnerId {
-        let id = OwnerId(self.next_owner_id_raw);
+    fn new_owner_on_stack(&mut self) -> Owner {
+        let id = Owner::OnStack(self.next_owner_id_raw);
         self.next_owner_id_raw += 1;
         id
     }

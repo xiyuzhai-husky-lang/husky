@@ -40,6 +40,7 @@ fn dataset_config_from_ast_text(
         match item.value.as_ref()?.kind {
             AstKind::DatasetConfig => {
                 return Ok(DatasetConfig::new(stmt::parse_decl_stmts(
+                    &[],
                     this.upcast(),
                     &ast_text.arena,
                     not_none!(item.children),

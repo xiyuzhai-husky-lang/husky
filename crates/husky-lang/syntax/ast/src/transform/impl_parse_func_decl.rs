@@ -2,7 +2,7 @@ use crate::{atom::parser::AtomLRParser, *};
 use token::*;
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_routine_decl(&mut self, tokens: &[Token]) -> AstResult<RoutineDecl> {
+    pub(super) fn parse_routine_decl(&mut self, tokens: &[Token]) -> AstResult<RoutineHead> {
         AtomLRParser::new(self.symbol_proxy(), tokens).func_decl()
     }
 }

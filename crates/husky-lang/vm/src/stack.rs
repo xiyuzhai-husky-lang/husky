@@ -1,11 +1,8 @@
 mod value;
 
-use common::p;
 pub use value::{
     AnyValue, AnyValueDyn, BoxedValue, EvalResult, EvalValue, PrimitiveValue, StackValue,
 };
-
-use std::mem::MaybeUninit;
 
 use arrayvec::ArrayVec;
 use word::CustomIdentifier;
@@ -16,7 +13,7 @@ use crate::*;
 pub struct StackIdx(u8);
 
 impl StackIdx {
-    fn new(raw: usize) -> VMResult<StackIdx> {
+    pub fn new(raw: usize) -> VMResult<StackIdx> {
         let raw: u8 = raw.try_into().unwrap();
         Ok(StackIdx(raw))
     }
@@ -54,6 +51,10 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
 
     pub(crate) fn value(&self, idx: StackIdx) -> &StackValue<'stack, 'eval> {
         &self.values[idx.raw()]
+    }
+
+    pub(crate) fn value_mut(&mut self, idx: StackIdx) -> &mut StackValue<'stack, 'eval> {
+        &mut self.values[idx.raw()]
     }
 
     pub(crate) fn push_variable(
@@ -121,22 +122,25 @@ impl<'stack, 'eval: 'stack> From<Vec<StackValue<'stack, 'eval>>> for VMStack<'st
     }
 }
 
-#[derive(Debug, Default, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VariableStack {
     variables: Vec<CustomIdentifier>,
 }
 
 impl VariableStack {
+    pub fn new(inputs: Vec<CustomIdentifier>) -> Self {
+        Self { variables: inputs }
+    }
+
     pub fn stack_idx(&self, ident0: CustomIdentifier) -> StackIdx {
         StackIdx::new(
             self.variables.len()
-                - 1
-                - self
+                - (1 + self
                     .variables
                     .iter()
                     .rev()
                     .position(|ident| *ident == ident0)
-                    .unwrap(),
+                    .unwrap()),
         )
         .unwrap()
     }

@@ -80,6 +80,17 @@ impl PrimitiveValue {
             todo!()
         }
     }
+
+    pub(crate) fn to_bool(&self) -> VMResult<bool> {
+        Ok(match self {
+            PrimitiveValue::I32(value) => *value != 0i32,
+            PrimitiveValue::F32(value) => *value != 0.0f32,
+            PrimitiveValue::B32(value) => *value != 0u32,
+            PrimitiveValue::B64(value) => *value != 0u64,
+            PrimitiveValue::Bool(value) => *value,
+            PrimitiveValue::Void => panic!(),
+        })
+    }
 }
 
 impl Hash for PrimitiveValue {

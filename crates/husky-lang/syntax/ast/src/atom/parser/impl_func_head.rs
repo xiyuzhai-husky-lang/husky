@@ -9,12 +9,12 @@ use super::*;
 
 // inner ops
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn func_decl(mut self) -> AstResult<RoutineDecl> {
+    pub(crate) fn func_decl(mut self) -> AstResult<RoutineHead> {
         let funcname = get!(self, custom_ident);
         let space_params = self.placeholders()?;
         let input_contracts = self.func_input_placeholders()?;
         let output = self.func_output_type()?;
-        Ok(RoutineDecl {
+        Ok(RoutineHead {
             funcname,
             generics: space_params,
             input_placeholders: input_contracts,
@@ -62,8 +62,8 @@ impl<'a> AtomLRParser<'a> {
         };
         Ok(InputPlaceholder {
             ident,
-            contract: Contract::Pure,
-            ty,
+            contract: Contract::PureInput,
+            ranged_ty: ty,
         })
     }
 

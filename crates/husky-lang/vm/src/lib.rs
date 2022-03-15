@@ -16,7 +16,7 @@ use std::sync::Arc;
 pub use compiled::Compiled;
 pub use contract::Contract;
 pub use control::{ControlSnapshot, VMControl};
-use error::error;
+use error::*;
 pub use error::{VMError, VMResult};
 pub use frame::{FrameKind, LoopFrameSnapshot};
 pub use history::{History, HistoryEntry};

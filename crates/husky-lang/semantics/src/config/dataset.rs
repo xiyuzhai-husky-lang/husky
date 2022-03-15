@@ -11,7 +11,7 @@ pub struct DatasetConfig {
 impl DatasetConfig {
     pub fn new(stmts: Arc<Vec<Arc<DeclStmt>>>) -> Self {
         Self {
-            instruction_sheet: InstructionSheetBuilder::new_decl(&stmts),
+            instruction_sheet: InstructionSheetBuilder::new_decl(vec![], &stmts),
             stmts,
         }
     }

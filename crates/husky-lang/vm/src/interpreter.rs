@@ -1,8 +1,6 @@
 mod exec;
 
-use crate::{history::HistoryEntry, *};
-
-use common::{p, should};
+use crate::*;
 
 pub struct Interpreter<'stack, 'eval: 'stack> {
     stack: VMStack<'stack, 'eval>,
@@ -47,17 +45,21 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         }
     }
 
-    fn finish(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
-        if self.stack.len() != 1 {
-            todo!()
-        }
-        Ok(self.stack.pop().unwrap())
-    }
+    // fn finish(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
+    //     if self.stack.len() != 1 {
+    //         todo!()
+    //     }
+    //     Ok(self.stack.pop().unwrap())
+    // }
 
-    fn call(&mut self, f: &Compiled, nargs: u8) -> VMResult<()> {
+    fn call_compiled(&mut self, f: &Compiled, nargs: u8) -> VMResult<()> {
         let result = (f.call)(self.stack.topk_mut(nargs))?;
         self.stack.push(result.into());
         Ok(())
+    }
+
+    fn call_interpreted(&mut self, instructions: &[Instruction], nargs: u8) -> VMResult<()> {
+        todo!()
     }
 
     fn take_snapshot(&mut self) {

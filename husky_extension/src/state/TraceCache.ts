@@ -4,7 +4,7 @@ import type TraceStalk from "src/trace/stalk/TraceStalk";
 import type Trace from "src/trace/Trace";
 import type { Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
-import type RawState from "./InitState";
+import type InitState from "./InitState";
 
 class TraceCache {
     trace_futures: FutureMap<Trace> = new FutureMap();
@@ -12,10 +12,10 @@ class TraceCache {
     trace_stalk_store_map: SchemeFutureMap<TraceStalk> = new SchemeFutureMap();
     root_traces_store: Writable<Trace[] | null> = writable(null);
 
-    init(raw_state: RawState) {
-        this.init_trace_futures(raw_state.traces);
-        this.init_root_traces_stores(raw_state.traces, raw_state.root_traces);
-        this.init_subtraces_map(raw_state.traces, raw_state.subtraces_list);
+    init(init_state: InitState) {
+        this.init_trace_futures(init_state.traces);
+        this.init_root_traces_stores(init_state.traces, init_state.root_traces);
+        this.init_subtraces_map(init_state.traces, init_state.subtraces_list);
     }
 
     init_trace_futures(traces: Trace[]) {

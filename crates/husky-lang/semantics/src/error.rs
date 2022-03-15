@@ -25,6 +25,12 @@ impl From<&ast::AstError> for SemanticError {
     }
 }
 
+impl From<VMError> for SemanticError {
+    fn from(_: VMError) -> Self {
+        todo!()
+    }
+}
+
 macro_rules! err {
     ($msg:expr) => {{
         Err(SemanticError {
@@ -43,3 +49,4 @@ macro_rules! not_none {
 }
 pub(crate) use not_none;
 use scope_query::ScopeError;
+use vm::VMError;

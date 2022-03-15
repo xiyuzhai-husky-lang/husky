@@ -1,6 +1,6 @@
 use common::Debug;
 use futures::{task::SpawnExt, StreamExt};
-use serde::{de::DeserializeOwned, Deserialize, Serialize};
+use serde::{Deserialize, Serialize};
 use warp::ws::{WebSocket, Ws};
 
 use crate::*;

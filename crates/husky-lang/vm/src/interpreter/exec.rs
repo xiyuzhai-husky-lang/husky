@@ -18,14 +18,13 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     contract,
                     stack_idx,
                 } => {
-                    p!(ins);
                     let value = self.stack.push_variable(stack_idx, contract);
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => {
                             let snapshot = value.snapshot();
                             self.history
-                                .write(ins.id(), HistoryEntry::PureExpr { output: snapshot })
+                                .write(ins, HistoryEntry::PureExpr { output: snapshot })
                         }
                     }
                     VMControl::None
@@ -34,11 +33,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.push(value.into());
                     VMControl::None
                 }
-                InstructionKind::Call {
+                InstructionKind::CallCompiled {
                     ref compiled,
                     nargs,
                 } => {
-                    let control = self.call(compiled, nargs).into();
+                    let control = self.call_compiled(compiled, nargs).into();
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => todo!(),
@@ -46,14 +45,18 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionKind::PrimitiveOpn(opn) => {
-                    self.exec_primitive_opn(opn, mode, ins.id()).into()
+                    self.exec_primitive_opn(opn, mode, ins).into()
                 }
-                InstructionKind::InterpretCall(ref instructions) => {
+                InstructionKind::CallInterpreted {
+                    ref instructions,
+                    nargs,
+                } => {
+                    let control = self.call_interpreted(instructions, nargs).into();
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => todo!(),
                     };
-                    self.exec_all(instructions, mode)
+                    control
                 }
                 InstructionKind::Return => VMControl::Return(self.stack.pop().unwrap().into_eval()),
                 InstructionKind::Init(init_kind) => self.init(init_kind, mode).into(),
@@ -66,17 +69,25 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         let stack_snapshot = self.stack.snapshot();
                         let control = self.exec_loop_fast(loop_kind, body).into();
                         self.history.write(
-                            ins.id(),
+                            ins,
                             HistoryEntry::loop_entry(&control, stack_snapshot, body.clone()),
                         );
                         control
                     }
                 },
+                InstructionKind::BreakIfFalse => {
+                    let control = if !self.stack.top().as_primitive().unwrap().to_bool().unwrap() {
+                        VMControl::Break
+                    } else {
+                        VMControl::None
+                    };
+                    self.stack.pop().unwrap();
+                    control
+                }
             };
             match control {
                 VMControl::None => (),
-                VMControl::Break => todo!(),
-                VMControl::Return(_) | VMControl::Err(_) => return control,
+                VMControl::Break | VMControl::Return(_) | VMControl::Err(_) => return control,
             }
         }
         VMControl::None

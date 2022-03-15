@@ -53,7 +53,10 @@ pub(super) fn struct_from_ast(
         match ast.kind {
             AstKind::TypeDef { .. } => (),
             AstKind::MainDef | AstKind::DatasetConfig => panic!(),
-            AstKind::RoutineDef { ref kind, ref decl } => todo!(),
+            AstKind::RoutineDef {
+                routine_kind: ref kind,
+                routine_head: ref decl,
+            } => todo!(),
             AstKind::PatternDef => panic!(),
             AstKind::Use { .. } => (),
             AstKind::MembDef { ident, ref kind } => match kind {

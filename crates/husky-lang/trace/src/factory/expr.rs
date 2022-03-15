@@ -39,4 +39,11 @@ impl ExprTokenConfig {
             appended: false,
         }
     }
+
+    pub(super) fn loop_head() -> Self {
+        Self {
+            associated: false,
+            appended: false,
+        }
+    }
 }

@@ -1,5 +1,5 @@
 use file::FilePtr;
-use semantics::{DeclBranchGroupKind, DeclBranchKind};
+use semantics::DeclBranchGroupKind;
 use text::TextRange;
 
 use crate::{eval::FeatureEvalId, *};

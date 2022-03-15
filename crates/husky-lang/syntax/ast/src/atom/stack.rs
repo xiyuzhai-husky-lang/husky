@@ -138,7 +138,7 @@ impl AtomStack {
         let atom = self
             .atoms
             .pop()
-            .ok_or(ast_error!(follower.clone(), "something before it"))?;
+            .ok_or(error!(follower.clone(), "something before it"))?;
         *follower = atom.to(follower);
         Ok(atom)
     }

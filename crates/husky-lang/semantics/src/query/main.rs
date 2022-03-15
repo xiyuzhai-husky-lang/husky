@@ -18,6 +18,7 @@ fn main(this: &dyn MainQueryGroup, main_file: file::FilePtr) -> SemanticResultAr
             AstKind::MainDef => {
                 return Ok(Arc::new(Main {
                     stmts: stmt::parse_decl_stmts(
+                        &[],
                         this.upcast(),
                         &ast_text.arena,
                         not_none!(item.children),

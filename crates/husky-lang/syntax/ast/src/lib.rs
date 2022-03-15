@@ -20,7 +20,7 @@ use syntax_types::*;
 
 use word::{CustomIdentifier, Identifier, StmtKeyword};
 
-use crate::error::{ast_error, err};
+use crate::error::{err, error};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
@@ -38,8 +38,8 @@ pub enum AstKind {
     MainDef,
     DatasetConfig,
     RoutineDef {
-        kind: RoutineKind,
-        decl: RoutineDecl,
+        routine_kind: RoutineKind,
+        routine_head: RoutineHead,
     },
     PatternDef,
     Use {

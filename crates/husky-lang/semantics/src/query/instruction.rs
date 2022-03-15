@@ -17,8 +17,28 @@ fn instruction_sheet(
         EntityKind::Module(_) => todo!(),
         EntityKind::Feature(_) => todo!(),
         EntityKind::Pattern(_) => todo!(),
-        EntityKind::Func { stmts, .. } => InstructionSheetBuilder::new_decl(stmts),
-        EntityKind::Proc { stmts, .. } => InstructionSheetBuilder::new_impr(stmts),
+        EntityKind::Func {
+            input_placeholders,
+            stmts,
+            ..
+        } => InstructionSheetBuilder::new_decl(
+            input_placeholders
+                .iter()
+                .map(|input_placeholder| input_placeholder.ident)
+                .collect(),
+            stmts,
+        ),
+        EntityKind::Proc {
+            input_placeholders,
+            stmts,
+            ..
+        } => InstructionSheetBuilder::new_impr(
+            input_placeholders
+                .iter()
+                .map(|input_placeholder| input_placeholder.ident)
+                .collect(),
+            stmts,
+        ),
         EntityKind::Ty(_) => todo!(),
     })
 }

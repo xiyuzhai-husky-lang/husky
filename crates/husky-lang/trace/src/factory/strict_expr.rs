@@ -1,4 +1,4 @@
-use semantics::{Expr, Opn, StrictExprKind};
+use semantics::{Expr, ExprKind, OpnKind};
 use text::Text;
 use vm::{History, StackValueSnapshot};
 
@@ -22,6 +22,20 @@ impl TraceFactory {
         )
     }
 
+    pub(super) fn strict_expr_lines(
+        &self,
+        expr: &Arc<Expr>,
+        text: &Text,
+        history: &Arc<History>,
+        config: ExprTokenConfig,
+    ) -> Vec<LineProps> {
+        vec![LineProps {
+            indent: 0,
+            idx: 0,
+            tokens: self.strict_expr_tokens(expr, text, history, config),
+        }]
+    }
+
     pub(super) fn strict_expr_tokens(
         &self,
         expr: &Arc<Expr>,
@@ -43,18 +57,18 @@ impl TraceFactory {
             None
         };
         match expr.kind {
-            StrictExprKind::Variable(ident) => vec![ident!(ident.0, associated_trace)],
-            StrictExprKind::Scope { scope, compiled } => todo!(),
-            StrictExprKind::Literal(value) => vec![literal!(value)],
-            StrictExprKind::Bracketed(_) => todo!(),
-            StrictExprKind::Opn {
-                opn,
+            ExprKind::Variable(ident) => vec![ident!(ident.0, associated_trace)],
+            ExprKind::Scope { scope, compiled } => todo!(),
+            ExprKind::Literal(value) => vec![literal!(value)],
+            ExprKind::Bracketed(_) => todo!(),
+            ExprKind::Opn {
+                opn_kind: opn,
                 compiled,
                 ref opds,
             } => {
                 let mut tokens = vec![];
                 match opn {
-                    Opn::Binary { opr, this, kind } => {
+                    OpnKind::Binary { opr, this } => {
                         tokens.extend(self.strict_expr_tokens(
                             &opds[0],
                             text,
@@ -69,13 +83,13 @@ impl TraceFactory {
                             config.subexpr(),
                         ));
                     }
-                    Opn::Prefix(_) => todo!(),
-                    Opn::Suffix(_) => todo!(),
-                    Opn::RoutineCall(_) => todo!(),
-                    Opn::PattCall => todo!(),
-                    Opn::MembVarAccess => todo!(),
-                    Opn::MembFuncCall(_) => todo!(),
-                    Opn::ElementAccess => todo!(),
+                    OpnKind::Prefix(_) => todo!(),
+                    OpnKind::Suffix(_) => todo!(),
+                    OpnKind::RoutineCall(_) => todo!(),
+                    OpnKind::PattCall => todo!(),
+                    OpnKind::MembVarAccess => todo!(),
+                    OpnKind::MembFuncCall(_) => todo!(),
+                    OpnKind::ElementAccess => todo!(),
                 }
                 if config.appended {
                     tokens.push(fade!(" = "));
@@ -83,7 +97,7 @@ impl TraceFactory {
                 }
                 tokens
             }
-            StrictExprKind::Lambda(_, _) => todo!(),
+            ExprKind::Lambda(_, _) => todo!(),
         }
     }
 }

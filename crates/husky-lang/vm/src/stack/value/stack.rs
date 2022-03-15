@@ -21,13 +21,16 @@ pub enum StackValue<'stack, 'eval: 'stack> {
 impl<'stack, 'eval: 'stack> std::fmt::Debug for StackValue<'stack, 'eval> {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         match self {
-            StackValue::Primitive(arg0) => arg0.fmt(f),
+            StackValue::Primitive(arg0) => {
+                f.write_str("Primitive ")?;
+                arg0.fmt(f)
+            }
             StackValue::Boxed(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
             StackValue::Volatile(arg0) => f.debug_tuple("Volatile").field(arg0).finish(),
             StackValue::GlobalRef(arg0) => f.debug_tuple("GlobalRef").field(arg0).finish(),
             StackValue::Ref(arg0) => f.debug_tuple("Ref").field(arg0).finish(),
             StackValue::MutRef { value, .. } => f.debug_tuple("MutRef").field(value).finish(),
-            StackValue::Taken => todo!(),
+            StackValue::Taken => f.write_str("Taken"),
         }
     }
 }
@@ -60,13 +63,13 @@ impl<'stack, 'eval: 'stack> From<&PrimitiveValue> for StackValue<'stack, 'eval> 
 
 impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn from_eval(eval_value: EvalValue<'eval>) -> VMResult<Self> {
-        match eval_value {
-            EvalValue::Primitive(_) => todo!(),
+        Ok(match eval_value {
+            EvalValue::Primitive(value) => Self::Primitive(value),
             EvalValue::Boxed(_) => todo!(),
             EvalValue::Volatile(_) => todo!(),
             EvalValue::GlobalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
-        }
+        })
     }
 
     pub fn into_eval(self) -> EvalValue<'eval> {
@@ -83,7 +86,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     pub(crate) unsafe fn bind(&mut self, contract: Contract, stack_idx: StackIdx) -> Self {
         match contract {
-            Contract::Pure => self.pure(),
+            Contract::PureInput => self.pure(),
             Contract::Take => self.take(),
             Contract::Share => todo!(),
             Contract::TakeMut => todo!(),

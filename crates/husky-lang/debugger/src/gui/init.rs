@@ -12,7 +12,7 @@ pub fn init_gui(debugger: &Debugger, sender: UnboundedSender<Result<Message, war
     let runtime = debugger.runtime.lock().unwrap();
     let traces = runtime.traces();
     let response = Response::Init {
-        raw_state: InitState {
+        init_state: InitState {
             active_trace_id: state.active_trace_id,
             opt_input_id: runtime.opt_input_id(),
             traces,

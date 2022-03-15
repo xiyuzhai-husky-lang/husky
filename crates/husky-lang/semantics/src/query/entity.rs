@@ -7,8 +7,9 @@ use common::Upcast;
 use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
 use scope::ScopePtr;
+use syntax_types::RoutineKind;
 
-use crate::{error::not_none, *};
+use crate::{error::not_none, stmt::parse_impr_stmts, *};
 
 #[salsa::query_group(EntityQueryGroupStorage)]
 pub trait EntityQueryGroup:
@@ -43,7 +44,7 @@ fn entity(this: &dyn EntityQueryGroup, scope: ScopePtr) -> SemanticResultArc<Ent
 }
 
 pub fn entity_from_ast(
-    this: &dyn EntityQueryGroup,
+    db: &dyn EntityQueryGroup,
     file: FilePtr,
     ast_text: &ast::AstText,
     token_group_index: usize,
@@ -58,8 +59,8 @@ pub fn entity_from_ast(
         .fold_iter(token_group_index)
         .next()
         .unwrap();
-    let head = value.as_ref()?;
-    match head.kind {
+    let ast_head = value.as_ref()?;
+    match ast_head.kind {
         AstKind::TypeDef {
             ident,
             ref kind,
@@ -72,41 +73,46 @@ pub fn entity_from_ast(
             subentities,
             scope,
             file,
-            head.range,
+            ast_head.range,
             vc,
         ),
-        AstKind::RoutineDef { ref kind, ref decl } => {
-            let kind = match kind {
-                syntax_types::RoutineKind::Test => todo!(),
-                syntax_types::RoutineKind::Proc => EntityKind::Proc {
-                    input_placeholders: decl.input_placeholders.clone(),
-                    output: decl.output,
-                    stmts: stmt::parse_impr_stmts(
-                        this.upcast(),
+        AstKind::RoutineDef {
+            ref routine_kind,
+            ref routine_head,
+        } => {
+            let entity_kind = match routine_kind {
+                RoutineKind::Test => todo!(),
+                RoutineKind::Proc => EntityKind::Proc {
+                    input_placeholders: routine_head.input_placeholders.clone(),
+                    output: routine_head.output,
+                    stmts: parse_impr_stmts(
+                        &routine_head.input_placeholders,
+                        db.upcast(),
                         &ast_text.arena,
                         not_none!(children),
                         file,
                     )?,
                 },
-                syntax_types::RoutineKind::Func => EntityKind::Func {
-                    input_placeholders: decl.input_placeholders.clone(),
-                    output: decl.output,
+                RoutineKind::Func => EntityKind::Func {
+                    input_placeholders: routine_head.input_placeholders.clone(),
+                    output: routine_head.output,
                     stmts: stmt::parse_decl_stmts(
-                        this.upcast(),
+                        &routine_head.input_placeholders,
+                        db.upcast(),
                         &ast_text.arena,
                         not_none!(children),
                         file,
                     )?,
                 },
-                syntax_types::RoutineKind::Def => todo!(),
+                RoutineKind::Def => todo!(),
             };
             Ok(Arc::new(Entity::new(
-                decl.funcname,
-                kind,
+                routine_head.funcname,
+                entity_kind,
                 Arc::new(Vec::new()),
                 scope,
                 file,
-                head.range,
+                ast_head.range,
                 vc,
             )))
         }

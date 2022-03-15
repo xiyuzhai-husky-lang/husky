@@ -57,8 +57,6 @@
     "dependencies": {
         "@babel/plugin-transform-modules-commonjs": "^7.16.7",
         "@rollup/plugin-alias": "^3.1.9",
-        "fp-ts": "^2.11.8",
-        "io-ts": "^2.2.16",
         "node": "^17.3.0",
         "svelte-preprocess": "^4.10.1",
         "vscode-languageclient": "^7.0.0"
@@ -75,7 +73,6 @@
         "babel-jest": "^27.4.5",
         "concurrently": "^6.5.1",
         "esbuild": "^0.14.10",
-        "io-ts-reporters": "^2.0.1",
         "jest": "^27.4.5",
         "rollup": "^2.62.0",
         "rollup-plugin-css-only": "^3.1.0",

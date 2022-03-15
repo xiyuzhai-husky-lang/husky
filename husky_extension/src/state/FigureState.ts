@@ -2,13 +2,13 @@ import type FigureProps from "src/trace/figure/FigureProps";
 import type Trace from "src/trace/Trace";
 import type { Writable } from "svelte/store";
 import { writable } from "svelte/store";
-import type RawState from "./InitState";
+import type InitState from "./InitState";
 
 class FigureState {
     figures: { [id: number]: FigureProps | null } = {};
     current_figure: Writable<FigureProps | null> = writable(null);
 
-    init(raw_state: RawState) {}
+    init(init_state: InitState) {}
 
     set_figure(
         trace_id: number,

@@ -8,7 +8,7 @@ pub(crate) use impr::parse_impr_stmts;
 pub use impr::{Boundary, ImprStmt, ImprStmtKind, LoopKind};
 
 use crate::error::{err, not_none};
-use crate::expr::{BinaryOpnKind, ExprParser, Opn};
+use crate::expr::{ExprParser, OpnKind};
 use crate::query::infer::InferQueryGroup;
 use crate::SemanticResult;
 use crate::*;

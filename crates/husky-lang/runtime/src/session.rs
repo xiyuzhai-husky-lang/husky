@@ -1,4 +1,3 @@
-mod cache;
 mod division;
 mod tests;
 
@@ -15,7 +14,7 @@ use std::{
     sync::Arc,
 };
 
-use dataset::Dataset;
+use dataset::{Dataset, DatasetDyn};
 
 use division::Division;
 use feature::{Feature, FeaturePtr, FeatureSheet};
@@ -23,7 +22,7 @@ use feature::{Feature, FeaturePtr, FeatureSheet};
 #[derive(Debug)]
 pub struct Session<'sess> {
     config: Arc<Config>,
-    pub(crate) dataset: Box<dyn Dataset>,
+    pub(crate) dataset: Dataset,
     pub(crate) dev: Division<'sess>,
     val: Division<'sess>,
     test: Division<'sess>,
@@ -46,7 +45,7 @@ impl<'sess> Default for ValidationReport<'sess> {
 impl<'sess> Session<'sess> {
     pub(crate) fn new(package: &Package) -> VMResult<Self> {
         let config = package.config.clone();
-        let dataset: Box<dyn Dataset> = eval_fast(
+        let dataset: Dataset = eval_fast(
             TrivialIter::default(),
             &config.dataset.instruction_sheet,
             None,

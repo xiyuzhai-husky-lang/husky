@@ -6,5 +6,6 @@ xflags::xflags! {
     {
         optional -v, --verbose
         optional --input-id input_id: String
+        optional --mode mode: String
     }
 }

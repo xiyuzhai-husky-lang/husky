@@ -29,11 +29,18 @@ use serde::{ser::SerializeStruct, Serialize};
 pub struct Trace {
     parent: Option<TraceId>,
     pub(crate) id: TraceId,
-    pub indent: fold::Indent,
     pub kind: TraceKind,
-    pub tokens: Vec<TokenProps>,
+    pub indent: Indent,
+    pub lines: Vec<LineProps>,
     pub range: TextRange,
     pub file: FilePtr,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct LineProps {
+    pub indent: Indent,
+    pub tokens: Vec<TokenProps>,
+    pub idx: usize,
 }
 
 impl PartialEq for Trace {
@@ -52,8 +59,7 @@ impl Serialize for Trace {
         let mut state = serializer.serialize_struct("Trace", 3)?;
         state.serialize_field("id", &self.id)?;
         state.serialize_field("parent", &self.parent)?;
-        state.serialize_field("indent", &self.indent)?;
-        state.serialize_field("tokens", &self.tokens)?;
+        state.serialize_field("lines", &self.lines)?;
         state.serialize_field("kind", &self.kind)?;
         state.serialize_field(
             "has_subtraces",
@@ -82,12 +88,12 @@ impl Serialize for Trace {
                     }
                 },
                 TraceKind::StrictExpr { ref expr, .. } => match expr.kind {
-                    semantics::StrictExprKind::Variable(_)
-                    | semantics::StrictExprKind::Scope { .. }
-                    | semantics::StrictExprKind::Literal(_) => false,
-                    semantics::StrictExprKind::Bracketed(_) => todo!(),
-                    semantics::StrictExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
-                    semantics::StrictExprKind::Lambda(_, _) => todo!(),
+                    semantics::ExprKind::Variable(_)
+                    | semantics::ExprKind::Scope { .. }
+                    | semantics::ExprKind::Literal(_) => false,
+                    semantics::ExprKind::Bracketed(_) => todo!(),
+                    semantics::ExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
+                    semantics::ExprKind::Lambda(_, _) => todo!(),
                 },
                 TraceKind::CallHead { .. } => false,
             },
@@ -114,33 +120,32 @@ impl Trace {
             id,
             parent,
             indent,
-            tokens: trace_allocator.tokens(id, indent, &kind, text),
+            lines: trace_allocator.lines(id, indent, &kind, text),
             kind,
             file,
             range,
         }
     }
 
-    pub(crate) fn new2(
-        parent: Option<TraceId>,
-        indent: Indent,
-        gen_kind: impl FnOnce(TraceId) -> TraceKind,
-        trace_allocator: &TraceFactory,
-        text: &Text,
-    ) -> Self {
-        let id = trace_allocator.next_id();
-        let kind = gen_kind(id);
-        let (file, range) = kind.file_and_range();
-        Self {
-            id,
-            parent,
-            indent,
-            tokens: trace_allocator.tokens(id, indent, &kind, text),
-            kind,
-            file,
-            range,
-        }
-    }
+    // pub(crate) fn new2(
+    //     parent: Option<TraceId>,
+    //     indent: Indent,
+    //     gen_kind: impl FnOnce(TraceId) -> TraceKind,
+    //     trace_allocator: &TraceFactory,
+    //     text: &Text,
+    // ) -> Self {
+    //     let id = trace_allocator.next_id();
+    //     let kind = gen_kind(id);
+    //     let (file, range) = kind.file_and_range();
+    //     Self {
+    //         id,
+    //         parent,
+    //         line: trace_allocator.tokens(id, indent, &kind, text),
+    //         kind,
+    //         file,
+    //         range,
+    //     }
+    // }
 
     pub fn id(&self) -> TraceId {
         self.id

@@ -1,5 +1,6 @@
 use std::iter::Peekable;
 
+use common::msg_once;
 use vm::Contract;
 
 use super::{parser::StmtParser, *};
@@ -10,7 +11,7 @@ type IterType<'a> = fold::FoldIter<'a, AstResult<Ast>, fold::FoldedList<AstResul
 impl<'a> StmtParser<'a> {
     fn parse_boundary(&mut self, boundary: RawBoundary) -> SemanticResult<Boundary> {
         let bound = if let Some(bound) = boundary.opt_bound {
-            Some(self.parse_expr(&self.arena[bound], Contract::Pure)?)
+            Some(self.parse_expr(&self.arena[bound], Contract::PureInput)?)
         } else {
             None
         };
@@ -61,7 +62,8 @@ impl<'a> StmtParser<'a> {
                 match branch_kind {
                     RawBranchKind::If { condition } => branches.push(Arc::new(ImprBranch {
                         kind: ImprBranchKind::If {
-                            condition: self.parse_expr(&self.arena[condition], Contract::Pure)?,
+                            condition: self
+                                .parse_expr(&self.arena[condition], Contract::PureInput)?,
                         },
                         stmts: self.parse_impr_stmts(not_none!(children))?,
                     })),
@@ -105,7 +107,7 @@ impl<'a> StmtParser<'a> {
                 }
             }
             RawStmtKind::Exec(expr) => {
-                let expr = self.parse_expr(&self.arena[expr], Contract::Pure)?;
+                let expr = self.parse_expr(&self.arena[expr], Contract::PureInput)?;
                 if expr.ty != ScopePtr::Builtin(BuiltinIdentifier::Void) {
                     err!(format!(
                         "expect executed expression to be of type void, but got {:?} instead",
@@ -120,8 +122,8 @@ impl<'a> StmtParser<'a> {
                 init_kind,
             } => {
                 let initial_value = self.parse_expr(&self.arena[initial_value], Contract::Take)?;
-                let qual = Qual::from_init(init_kind, &mut self.qual_table);
-                let varidx = self.def_variable(varname, initial_value.ty, qual);
+                let qual = Qual::from_init(init_kind);
+                let varidx = self.def_variable(varname, initial_value.ty, qual)?;
                 ImprStmtKind::Init {
                     varname,
                     initial_value,
@@ -133,7 +135,7 @@ impl<'a> StmtParser<'a> {
                 result: self.parse_expr(&self.arena[result], Contract::Take)?,
             },
             RawStmtKind::Assert(condition) => ImprStmtKind::Assert {
-                condition: self.parse_expr(&self.arena[condition], Contract::Pure)?,
+                condition: self.parse_expr(&self.arena[condition], Contract::PureInput)?,
             },
         })
     }
@@ -149,23 +151,68 @@ impl<'a> StmtParser<'a> {
                 initial_boundary,
                 final_boundary,
                 step,
-            } => ImprStmtKind::Loop {
-                loop_kind: LoopKind::For {
+            } => {
+                self.def_variable(
                     frame_var,
-                    initial_boundary: self.parse_boundary(initial_boundary)?,
-                    final_boundary: self.parse_boundary(final_boundary)?,
-                    step,
-                },
-                stmts: self.parse_impr_stmts(children)?,
-            },
+                    ScopePtr::Builtin(BuiltinIdentifier::I32),
+                    Qual::frame_var(),
+                );
+                ImprStmtKind::Loop {
+                    loop_kind: LoopKind::For {
+                        frame_var,
+                        initial_boundary: self.parse_boundary(initial_boundary)?,
+                        final_boundary: self.parse_boundary(final_boundary)?,
+                        step,
+                    },
+                    stmts: self.parse_impr_stmts(children)?,
+                }
+            }
             RawLoopKind::ForExt {
-                bound,
-                is_shifted,
-                is_incremental,
-                fvar_ident,
-            } => todo!(),
-            RawLoopKind::While { condition } => todo!(),
-            RawLoopKind::DoWhile { condition } => todo!(),
+                frame_var,
+                final_boundary,
+                step,
+            } => {
+                msg_once!("todo: change frame var qual in forext");
+                ImprStmtKind::Loop {
+                    loop_kind: LoopKind::ForExt {
+                        frame_var,
+                        frame_varidx: self.varidx(frame_var),
+                        final_boundary: self.parse_boundary(final_boundary)?,
+                        step,
+                    },
+                    stmts: self.parse_impr_stmts(children)?,
+                }
+            }
+            RawLoopKind::While { condition } => {
+                let condition = self.parse_expr(&self.arena[condition], Contract::PureInput)?;
+                match condition.ty {
+                    ScopePtr::Builtin(BuiltinIdentifier::Bool)
+                    | ScopePtr::Builtin(BuiltinIdentifier::I32)
+                    | ScopePtr::Builtin(BuiltinIdentifier::F32)
+                    | ScopePtr::Builtin(BuiltinIdentifier::B32)
+                    | ScopePtr::Builtin(BuiltinIdentifier::B64) => (),
+                    _ => todo!(),
+                }
+                ImprStmtKind::Loop {
+                    loop_kind: LoopKind::While { condition },
+                    stmts: self.parse_impr_stmts(children)?,
+                }
+            }
+            RawLoopKind::DoWhile { condition } => {
+                let condition = self.parse_expr(&self.arena[condition], Contract::PureInput)?;
+                match condition.ty {
+                    ScopePtr::Builtin(BuiltinIdentifier::Bool)
+                    | ScopePtr::Builtin(BuiltinIdentifier::I32)
+                    | ScopePtr::Builtin(BuiltinIdentifier::F32)
+                    | ScopePtr::Builtin(BuiltinIdentifier::B32)
+                    | ScopePtr::Builtin(BuiltinIdentifier::B64) => (),
+                    _ => todo!(),
+                }
+                ImprStmtKind::Loop {
+                    loop_kind: LoopKind::DoWhile { condition },
+                    stmts: self.parse_impr_stmts(children)?,
+                }
+            }
         })
     }
 }

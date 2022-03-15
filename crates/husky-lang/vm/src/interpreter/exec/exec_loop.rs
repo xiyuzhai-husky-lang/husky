@@ -77,15 +77,63 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     match control {
                         VMControl::None => (),
                         VMControl::Return(value) => return Ok(VMControl::Return(value)),
-                        VMControl::Break => break,
+                        VMControl::Break => return Ok(VMControl::None),
                         VMControl::Err(_) => todo!(),
                     }
                 }
                 Ok(VMControl::None)
             }
-            VMLoopKind::ForExt => todo!(),
-            VMLoopKind::While => todo!(),
-            VMLoopKind::DoWhile => todo!(),
+            VMLoopKind::ForExt {
+                frame_varidx,
+                final_boundary_kind,
+                step,
+                ..
+            } => {
+                let initial_value = self.stack.value(frame_varidx).as_primitive()?.as_i32()?;
+                let final_bound_shifted = {
+                    let final_bound = self.stack.top().as_primitive()?.as_i32()?;
+                    match final_boundary_kind {
+                        BoundaryKind::UpperOpen => final_bound - 1,
+                        BoundaryKind::UpperClosed => final_bound,
+                        BoundaryKind::LowerOpen => final_bound + 1,
+                        BoundaryKind::LowerClosed => final_bound,
+                    }
+                };
+                let n = step.n(initial_value, final_bound_shifted);
+                for _ in 0..n {
+                    exec_before_each_frame(self);
+                    let control = self.exec_all(&body.instructions, Mode::Fast);
+                    exec_after_each_frame(
+                        self,
+                        self.stack.value(frame_varidx).as_primitive()?.as_i32()?,
+                        &control,
+                    );
+                    match control {
+                        VMControl::None => (),
+                        VMControl::Return(value) => return Ok(VMControl::Return(value)),
+                        VMControl::Break => return Ok(VMControl::None),
+                        VMControl::Err(_) => todo!(),
+                    }
+                    step.update(self.stack.value_mut(frame_varidx));
+                }
+                Ok(VMControl::None)
+            }
+            VMLoopKind::Loop => {
+                for frame_var in 0..LOOP_LIMIT {
+                    exec_before_each_frame(self);
+                    let control = self.exec_all(&body.instructions, Mode::Fast);
+                    exec_after_each_frame(self, frame_var, &control);
+                    match control {
+                        VMControl::None => (),
+                        VMControl::Return(value) => return Ok(VMControl::Return(value)),
+                        VMControl::Break => return Ok(VMControl::None),
+                        VMControl::Err(_) => todo!(),
+                    }
+                }
+                err!(format!("infinite loop (loop limit = {})", LOOP_LIMIT))
+            }
         }
     }
 }
+
+const LOOP_LIMIT: i32 = 50000;
