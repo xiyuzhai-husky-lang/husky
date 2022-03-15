@@ -38,7 +38,7 @@ pub enum RoutineKind {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct RoutineDecl {
+pub struct RoutineHead {
     pub funcname: CustomIdentifier,
     pub generics: Vec<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,

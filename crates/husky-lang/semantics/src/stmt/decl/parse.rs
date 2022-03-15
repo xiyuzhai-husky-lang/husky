@@ -1,4 +1,4 @@
-use vm::Contract;
+use vm::{Contract, InitKind};
 
 use super::parser::StmtParser;
 use super::*;
@@ -28,8 +28,10 @@ impl<'a> StmtParser<'a> {
                             RawBranchKind::If { condition } => {
                                 branches.push(Arc::new(DeclBranch {
                                     kind: DeclBranchKind::If {
-                                        condition: self
-                                            .parse_expr(&self.arena[condition], Contract::Pure)?,
+                                        condition: self.parse_expr(
+                                            &self.arena[condition],
+                                            Contract::PureInput,
+                                        )?,
                                     },
                                     stmts: self.parse_decl_stmts(not_none!(item.children))?,
                                 }))
@@ -88,10 +90,10 @@ impl<'a> StmtParser<'a> {
                     } => {
                         let initial_value =
                             self.parse_expr(&self.arena[initial_value], Contract::Take)?;
-                        let qual = Qual::from_init(kind, &mut self.qual_table);
-                        if qual.mutable {
+                        if kind != InitKind::Decl {
                             todo!()
                         }
+                        let qual = Qual::from_init(kind);
                         self.def_variable(varname, initial_value.ty, qual);
                         DeclStmt {
                             file: self.file,
@@ -118,7 +120,8 @@ impl<'a> StmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Assert {
-                            condition: self.parse_expr(&self.arena[condition], Contract::Pure)?,
+                            condition: self
+                                .parse_expr(&self.arena[condition], Contract::PureInput)?,
                         },
                         instruction_id: Default::default(),
                     },

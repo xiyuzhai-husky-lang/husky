@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct DebuggerError {}
 pub type DebuggerResult<T> = Result<T, DebuggerError>;
 
@@ -14,7 +15,7 @@ impl From<std::io::Error> for DebuggerError {
 }
 
 impl std::fmt::Display for DebuggerError {
-    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _: &mut common::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }

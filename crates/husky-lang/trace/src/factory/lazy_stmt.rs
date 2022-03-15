@@ -29,6 +29,14 @@ impl TraceFactory {
         }
     }
 
+    pub fn lazy_stmt_lines(&self, stmt: &LazyStmt, text: &Text) -> Vec<LineProps> {
+        vec![LineProps {
+            indent: stmt.indent,
+            idx: 0,
+            tokens: self.lazy_stmt_tokens(stmt, text),
+        }]
+    }
+
     pub fn lazy_stmt_tokens(&self, stmt: &LazyStmt, text: &Text) -> Vec<TokenProps> {
         match stmt.kind {
             LazyStmtKind::Init { varname, ref value } => {
@@ -36,18 +44,18 @@ impl TraceFactory {
                 tokens.push(ident!(varname.0));
                 tokens.push(special!(" = "));
                 tokens.extend(self.lazy_expr_tokens(value, text, ExprTokenConfig::stmt()));
-                tokens.into()
+                tokens
             }
             LazyStmtKind::Assert { ref condition } => {
                 let mut tokens = vec![];
                 tokens.push(keyword!("assert "));
                 tokens.extend(self.lazy_expr_tokens(condition, text, ExprTokenConfig::stmt()));
-                tokens.into()
+                tokens
             }
             LazyStmtKind::Return { ref result } => {
                 let mut tokens = vec![];
                 tokens.extend(self.lazy_expr_tokens(result, text, ExprTokenConfig::stmt()));
-                tokens.into()
+                tokens
             }
             LazyStmtKind::Branches { .. } => panic!(),
         }

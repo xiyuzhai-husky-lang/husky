@@ -25,6 +25,19 @@ impl TraceFactory {
         )
     }
 
+    pub(super) fn impr_stmt_lines(
+        &self,
+        stmt: &ImprStmt,
+        text: &Text,
+        history: &Arc<History>,
+    ) -> Vec<LineProps> {
+        vec![LineProps {
+            indent: stmt.indent,
+            tokens: self.impr_stmt_tokens(stmt, text, history),
+            idx: 0,
+        }]
+    }
+
     pub(super) fn impr_stmt_tokens(
         &self,
         stmt: &ImprStmt,
@@ -94,9 +107,39 @@ impl TraceFactory {
                     tokens.push(special!(":"));
                     tokens
                 }
-                LoopKind::ForExt => todo!(),
-                LoopKind::While => todo!(),
-                LoopKind::DoWhile => todo!(),
+                LoopKind::ForExt {
+                    frame_var,
+                    ref final_boundary,
+                    ..
+                } => {
+                    let mut tokens = vec![keyword!("forext ")];
+                    tokens.push(ident!(frame_var.0));
+                    tokens.extend(self.final_boundary_tokens(final_boundary, text, history));
+                    tokens.push(special!(":"));
+                    tokens
+                }
+                LoopKind::While { ref condition } => {
+                    let mut tokens = vec![keyword!("while ")];
+                    tokens.extend(self.strict_expr_tokens(
+                        condition,
+                        text,
+                        history,
+                        ExprTokenConfig::loop_head(),
+                    ));
+                    tokens.push(special!(":"));
+                    tokens
+                }
+                LoopKind::DoWhile { condition } => {
+                    let mut tokens = vec![keyword!("do while ")];
+                    tokens.extend(self.strict_expr_tokens(
+                        condition,
+                        text,
+                        history,
+                        ExprTokenConfig::loop_head(),
+                    ));
+                    tokens.push(special!(":"));
+                    tokens
+                }
             },
         }
     }
@@ -131,14 +174,18 @@ impl TraceFactory {
     ) -> Vec<TokenProps> {
         match boundary.opt_bound {
             Some(ref bound) => {
-                let mut tokens =
-                    self.strict_expr_tokens(bound, text, history, ExprTokenConfig::stmt());
-                match boundary.kind {
-                    BoundaryKind::UpperOpen => tokens.insert(0, special!(" < ")),
-                    BoundaryKind::UpperClosed => tokens.insert(0, special!(" <= ")),
-                    BoundaryKind::LowerOpen => tokens.push(special!(" < ")),
-                    BoundaryKind::LowerClosed => tokens.push(special!(" <= ")),
-                }
+                let mut tokens = vec![special!(match boundary.kind {
+                    BoundaryKind::UpperOpen => " < ",
+                    BoundaryKind::UpperClosed => " <= ",
+                    BoundaryKind::LowerOpen => " > ",
+                    BoundaryKind::LowerClosed => " >= ",
+                })];
+                tokens.extend(self.strict_expr_tokens(
+                    bound,
+                    text,
+                    history,
+                    ExprTokenConfig::stmt(),
+                ));
                 tokens
             }
             None => vec![],
@@ -168,38 +215,25 @@ impl TraceFactory {
         stack_snapshot: &StackSnapshot,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Arc<Vec<Arc<Trace>>> {
-        match loop_kind {
-            LoopKind::For {
-                frame_var,
-                initial_boundary,
-                final_boundary,
-                step,
-            } => {
-                let frames =
-                    exec_loop_debug(stack_snapshot, loop_kind.into(), &body_instruction_sheet);
-                Arc::new(
-                    frames
-                        .into_iter()
-                        .map(|loop_frame_snapshot| {
-                            self.new_trace(
-                                Some(parent.id),
-                                parent.indent + 2,
-                                TraceKind::LoopFrame {
-                                    loop_stmt: loop_stmt.clone(),
-                                    body_stmts: body_stmts.clone(),
-                                    body_instruction_sheet: body_instruction_sheet.clone(),
-                                    loop_frame_snapshot,
-                                },
-                                text,
-                            )
-                        })
-                        .collect(),
-                )
-            }
-            LoopKind::ForExt => todo!(),
-            LoopKind::While => todo!(),
-            LoopKind::DoWhile => todo!(),
-        }
+        let frames = exec_loop_debug(stack_snapshot, loop_kind.into(), &body_instruction_sheet);
+        Arc::new(
+            frames
+                .into_iter()
+                .map(|loop_frame_snapshot| {
+                    self.new_trace(
+                        Some(parent.id),
+                        parent.indent + 2,
+                        TraceKind::LoopFrame {
+                            loop_stmt: loop_stmt.clone(),
+                            body_stmts: body_stmts.clone(),
+                            body_instruction_sheet: body_instruction_sheet.clone(),
+                            loop_frame_snapshot,
+                        },
+                        text,
+                    )
+                })
+                .collect(),
+        )
     }
 
     pub(super) fn loop_frame_subtraces(
@@ -217,6 +251,18 @@ impl TraceFactory {
         )
     }
 
+    pub(super) fn loop_frame_lines(
+        &self,
+        indent: Indent,
+        vm_loop_frame: &LoopFrameSnapshot,
+    ) -> Vec<LineProps> {
+        vec![LineProps {
+            indent,
+            tokens: self.loop_frame_tokens(vm_loop_frame),
+            idx: 0,
+        }]
+    }
+
     pub(super) fn loop_frame_tokens(&self, vm_loop_frame: &LoopFrameSnapshot) -> Vec<TokenProps> {
         match vm_loop_frame.kind {
             vm::FrameKind::For(frame_var) => {
@@ -227,7 +273,12 @@ impl TraceFactory {
                     literal!(format!("{}", vm_loop_frame.frame_var_value)),
                 ]
             }
-            vm::FrameKind::While => todo!(),
+            vm::FrameKind::Loop => {
+                vec![
+                    keyword!("frame "),
+                    literal!(format!("{}", vm_loop_frame.frame_var_value)),
+                ]
+            }
         }
     }
 }

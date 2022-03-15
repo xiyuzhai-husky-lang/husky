@@ -34,7 +34,7 @@ impl From<&'static str> for AstErrorKind {
 
 pub type AstResult<T> = Result<T, AstError>;
 
-macro_rules! ast_error {
+macro_rules! error {
     ($range:expr, $kind: expr, $src: expr) => {{
         AstError {
             range: $range,
@@ -44,14 +44,14 @@ macro_rules! ast_error {
     }};
 
     ($range:expr, $kind: expr) => {{
-        ast_error!($range, $kind, src!())
+        error!($range, $kind, src!())
     }};
 }
-pub(crate) use ast_error;
+pub(crate) use error;
 
 macro_rules! err {
     ($range:expr, $kind: expr) => {{
-        Err(ast_error!($range, $kind, src!()))
+        Err(error!($range, $kind, src!()))
     }};
 }
 pub(crate) use err;

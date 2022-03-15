@@ -37,7 +37,7 @@ pub trait SyntheticDataset: AnyValue + 'static {
     }
 }
 
-impl<D: SyntheticDataset> Dataset for D {
+impl<D: SyntheticDataset> DatasetDyn for D {
     fn dev_loader(&self) -> DataLoader {
         Box::new(SyntheticSampleLoader::new(
             self.dev_len(),
@@ -67,6 +67,7 @@ impl<D: SyntheticDataset> Dataset for D {
     }
 }
 
+#[derive(PartialEq, Eq)]
 pub struct SimpleSyntheticDataset {
     seed: u64,
     data_generator: fn(seed: u64, idx: usize) -> LabeledData,
@@ -107,7 +108,7 @@ impl AnyValue for SimpleSyntheticDataset {
         todo!()
     }
 
-    fn clone_any(&self) -> Box<dyn vm::AnyValueDyn> {
+    fn boxed_any(&self) -> Box<dyn vm::AnyValueDyn> {
         todo!()
     }
 

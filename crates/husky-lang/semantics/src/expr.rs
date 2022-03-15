@@ -20,7 +20,7 @@ pub struct Expr {
     pub file: FilePtr,
     pub range: TextRange,
     pub ty: ScopePtr,
-    pub kind: StrictExprKind,
+    pub kind: ExprKind,
     pub instruction_id: InstructionId,
     pub contract: Contract,
 }
@@ -32,7 +32,7 @@ impl InstructionSource for Expr {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum StrictExprKind {
+pub enum ExprKind {
     Variable(CustomIdentifier),
     Scope {
         scope: ScopePtr,
@@ -41,7 +41,7 @@ pub enum StrictExprKind {
     Literal(PrimitiveValue),
     Bracketed(Arc<Expr>),
     Opn {
-        opn: Opn,
+        opn_kind: OpnKind,
         compiled: Option<Compiled>,
         opds: Vec<Arc<Expr>>,
     },

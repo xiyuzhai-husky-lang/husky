@@ -14,7 +14,7 @@ pub use branch::{LazyBranch, LazyBranchKind};
 pub use eval::{eval_lazy_block, eval_lazy_expr, eval_lazy_stmt, FeatureEvalIndicator};
 pub use expr::{LazyExpr, LazyExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
-use scope::{RangedScope, ScopePtr};
+use scope::ScopePtr;
 use semantics::EntityUid;
 pub use sheet::FeatureSheet;
 pub use stmt::{LazyStmt, LazyStmtKind};

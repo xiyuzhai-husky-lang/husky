@@ -14,7 +14,7 @@ dataset:
 main:
     a = 1
     b = g()
-    assert a == b
+    assert a != b
     if true:
         1
     else:

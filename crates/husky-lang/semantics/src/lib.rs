@@ -12,7 +12,7 @@ mod variable;
 
 pub use config::Config;
 pub use error::{SemanticError, SemanticResult, SemanticResultArc};
-pub use expr::{BinaryOpnKind, Expr, Opn, StrictExprKind};
+pub use expr::{Expr, ExprKind, OpnKind};
 pub use instruction::InstructionSheetBuilder;
 pub use kind::EntityKind;
 pub use package::Package;
@@ -22,7 +22,7 @@ pub use stmt::{
     Boundary, DeclBranchGroupKind, DeclBranchKind, DeclStmt, DeclStmtKind, ImprStmt, ImprStmtKind,
     LoopKind,
 };
-pub use variable::{VarIdx, Variable};
+pub use variable::Variable;
 
 use file::FilePtr;
 use kind::*;
@@ -104,7 +104,7 @@ impl Entity {
             v: &mut UniqVec<ScopePtr>,
         ) {
             for input_placeholder in inputs.iter() {
-                v.push(input_placeholder.ty.scope)
+                v.push(input_placeholder.ranged_ty.scope)
             }
             v.push(output.scope);
         }
@@ -140,44 +140,54 @@ impl Entity {
                             extract_impr_stmts_dependees(&branch.stmts, v)
                         }
                     }
-                    ImprStmtKind::Loop { ref loop_kind, .. } => match loop_kind {
-                        LoopKind::For {
-                            ref initial_boundary,
-                            ref final_boundary,
-                            ..
-                        } => {
-                            extract_boundary_dependees(initial_boundary, v);
-                            extract_boundary_dependees(final_boundary, v);
+                    ImprStmtKind::Loop {
+                        ref loop_kind,
+                        ref stmts,
+                    } => {
+                        match loop_kind {
+                            LoopKind::For {
+                                ref initial_boundary,
+                                ref final_boundary,
+                                ..
+                            } => {
+                                extract_boundary_dependees(initial_boundary, v);
+                                extract_boundary_dependees(final_boundary, v);
+                            }
+                            LoopKind::ForExt {
+                                ref final_boundary, ..
+                            } => {
+                                extract_boundary_dependees(final_boundary, v);
+                            }
+                            LoopKind::While { condition } => extract_expr_dependees(condition, v),
+                            LoopKind::DoWhile { condition } => extract_expr_dependees(condition, v),
                         }
-                        LoopKind::ForExt => todo!(),
-                        LoopKind::While => todo!(),
-                        LoopKind::DoWhile => todo!(),
-                    },
+                        extract_impr_stmts_dependees(stmts, v)
+                    }
                 }
             }
         }
 
         fn extract_expr_dependees(expr: &Expr, v: &mut UniqVec<ScopePtr>) {
             match expr.kind {
-                StrictExprKind::Variable(_) => (),
-                StrictExprKind::Scope { scope, compiled } => v.push(scope),
-                StrictExprKind::Literal(_) => (),
-                StrictExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
-                StrictExprKind::Opn {
-                    ref opn,
+                ExprKind::Variable(_) => (),
+                ExprKind::Scope { scope, compiled } => v.push(scope),
+                ExprKind::Literal(_) => (),
+                ExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
+                ExprKind::Opn {
+                    opn_kind: ref opn,
                     compiled,
                     ref opds,
                 } => match opn {
-                    Opn::Binary { opr, this, kind } => v.push(*this),
-                    Opn::Prefix(_) => todo!(),
-                    Opn::Suffix(_) => todo!(),
-                    Opn::RoutineCall(routine) => v.push(routine.scope),
-                    Opn::PattCall => todo!(),
-                    Opn::MembVarAccess => todo!(),
-                    Opn::MembFuncCall(_) => todo!(),
-                    Opn::ElementAccess => todo!(),
+                    OpnKind::Binary { opr, this } => v.push(*this),
+                    OpnKind::Prefix(_) => todo!(),
+                    OpnKind::Suffix(_) => todo!(),
+                    OpnKind::RoutineCall(routine) => v.push(routine.scope),
+                    OpnKind::PattCall => todo!(),
+                    OpnKind::MembVarAccess => todo!(),
+                    OpnKind::MembFuncCall(_) => todo!(),
+                    OpnKind::ElementAccess => todo!(),
                 },
-                StrictExprKind::Lambda(_, _) => todo!(),
+                ExprKind::Lambda(_, _) => todo!(),
             }
         }
 

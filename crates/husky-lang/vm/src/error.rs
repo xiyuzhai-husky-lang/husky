@@ -31,3 +31,10 @@ macro_rules! error {
     };
 }
 pub(crate) use error;
+
+macro_rules! err {
+    ($message: expr) => {
+        Err(VMError::Message($message.into()))
+    };
+}
+pub(crate) use err;

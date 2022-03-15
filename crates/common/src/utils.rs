@@ -68,14 +68,13 @@ macro_rules! should {
         match $result {
             true => (),
             false => {
-                println!(
+                panic!(
                     "{}{}{}:{} should be true, but failed",
                     common::show::GREEN,
                     file!(),
                     common::show::RESET,
                     line!()
                 );
-                std::process::exit(1)
             }
         }
     };

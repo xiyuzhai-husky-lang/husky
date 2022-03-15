@@ -7,17 +7,12 @@ pub struct Variable {
     pub qual: Qual,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VarIdx(u8);
-
-impl VarIdx {
-    pub(crate) fn new(raw: usize) -> VarIdx {
-        VarIdx(u8::try_from(raw).unwrap())
-    }
-}
-
-impl From<usize> for VarIdx {
-    fn from(raw: usize) -> Self {
-        Self::new(raw)
+impl Variable {
+    pub(crate) fn from_input(input_placeholder: &InputPlaceholder) -> Self {
+        Variable {
+            ident: input_placeholder.ident,
+            ty: input_placeholder.ranged_ty.scope,
+            qual: Qual::from_input(input_placeholder.contract),
+        }
     }
 }

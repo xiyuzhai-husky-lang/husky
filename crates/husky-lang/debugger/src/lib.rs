@@ -21,7 +21,7 @@ use gui::handle_query;
 use notif::handle_notif;
 use state::DebuggerState;
 use std::sync::Mutex;
-use trace::{CreateTrace, FigureProps, Trace, TraceId, TraceStalk};
+use trace::{CreateTrace, FigureProps, Trace, TraceId, TraceStalk, TraceTokenKind};
 use warp::Filter;
 
 pub struct Debugger {
@@ -44,6 +44,41 @@ impl Debugger {
             state: Default::default(),
             config,
         }
+    }
+
+    pub async fn serve_on_error(self, addr: impl ToSocketAddrs, input_id: usize) -> bool {
+        let package_main: &Path = &self.runtime.lock().unwrap().package_main();
+        println!(
+            "\n{}test{} {}",
+            common::show::CYAN,
+            common::show::RESET,
+            package_main.parent().unwrap().to_str().unwrap(),
+        );
+        let mut error_flag = false;
+        for trace in self.root_traces().iter() {
+            let stalk = self.trace_stalk(*trace, input_id).await;
+            for token in &stalk.extra_tokens {
+                match token.kind {
+                    TraceTokenKind::Error => {
+                        error_flag = true;
+                        break;
+                    }
+                    _ => (),
+                }
+            }
+        }
+        if error_flag {
+            self.serve(addr).await.unwrap()
+        } else {
+            println!(
+                "    {}result{}: {}ok{}",
+                common::show::CYAN,
+                common::show::RESET,
+                common::show::GREEN,
+                common::show::RESET,
+            )
+        }
+        error_flag
     }
 
     pub async fn serve(self, addr: impl ToSocketAddrs) -> DebuggerResult<()> {

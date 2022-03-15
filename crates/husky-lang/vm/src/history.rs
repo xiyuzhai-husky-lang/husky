@@ -14,7 +14,7 @@ impl History {
         self.entries.get(&t.instruction_id()).unwrap().clone()
     }
 
-    pub fn write(&mut self, id: InstructionId, entry: HistoryEntry) {
-        should!(self.entries.insert(id, entry).is_none());
+    pub fn write(&mut self, ins: &Instruction, entry: HistoryEntry) {
+        should!(self.entries.insert(ins.id(), entry).is_none());
     }
 }

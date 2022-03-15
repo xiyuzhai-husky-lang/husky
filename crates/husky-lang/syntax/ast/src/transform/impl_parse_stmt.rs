@@ -41,90 +41,10 @@ impl<'a> AstTransformer<'a> {
                     StmtKeyword::Match => todo!(),
                     StmtKeyword::Case => todo!(),
                     StmtKeyword::DeFault => todo!(),
-                    StmtKeyword::For => {
-                        expect_block_head!(tokens);
-                        let expr = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
-                        let expr = &self.arena[expr];
-                        match expr.kind {
-                            RawExprKind::Opn { opr, ref opds } => match opr {
-                                Opr::Prefix(_) | Opr::Suffix(_) | Opr::List(_) => todo!(),
-                                Opr::Binary(binary) => match binary {
-                                    BinaryOpr::Assign(_) => todo!(),
-                                    BinaryOpr::Pure(pure_binary) => {
-                                        let lopd_idx = opds.start;
-                                        let ropd_idx = opds.end - 1;
-                                        let lopd = &self.arena[lopd_idx];
-                                        let ropd = &self.arena[ropd_idx];
-                                        if let RawExprKind::Unrecognized(frame_var) = lopd.kind {
-                                            RawLoopKind::for_loop_with_default_initial(
-                                                frame_var,
-                                                pure_binary,
-                                                opds.end - 1,
-                                                expr.range(),
-                                            )?
-                                            .into()
-                                        } else if let RawExprKind::Unrecognized(frame_var) =
-                                            ropd.kind
-                                        {
-                                            RawLoopKind::for_loop_with_default_final(
-                                                opds.start,
-                                                pure_binary,
-                                                frame_var,
-                                                expr.range(),
-                                            )?
-                                            .into()
-                                        } else {
-                                            let final_comparison = pure_binary;
-                                            match lopd.kind {
-                                                RawExprKind::Opn { opr, ref opds } => {
-                                                    let llopd_idx = opds.start;
-                                                    let lropd_idx = opds.end - 1;
-                                                    let llopd = &self.arena[llopd_idx];
-                                                    let lropd = &self.arena[lropd_idx];
-                                                    let initial_comparison = match opr {
-                                                        Opr::Binary(binary) => match binary {
-                                                            BinaryOpr::Pure(pure_binary_opr) => {
-                                                                pure_binary_opr
-                                                            }
-                                                            BinaryOpr::Assign(_) => todo!(),
-                                                        },
-                                                        _ => todo!(),
-                                                    };
-                                                    let frame_var =
-                                                        if let RawExprKind::Unrecognized(
-                                                            frame_var,
-                                                        ) = lropd.kind
-                                                        {
-                                                            frame_var
-                                                        } else {
-                                                            err!(
-                                                                expr.range(),
-                                                                "expect unrecognized"
-                                                            )?
-                                                        };
-                                                    RawLoopKind::for_loop(
-                                                        llopd_idx,
-                                                        initial_comparison,
-                                                        frame_var,
-                                                        final_comparison,
-                                                        ropd_idx,
-                                                        expr.range(),
-                                                    )?
-                                                    .into()
-                                                }
-                                                _ => todo!(),
-                                            }
-                                            // LoopRawStmt::for_loop()?.into()
-                                        }
-                                    }
-                                },
-                            },
-                            _ => todo!(),
-                        }
-                    }
-                    StmtKeyword::ForExt => todo!(),
-                    StmtKeyword::While => todo!(),
-                    StmtKeyword::Do => todo!(),
+                    StmtKeyword::For => self.parse_for_loop(tokens)?,
+                    StmtKeyword::ForExt => self.parse_forext_loop(tokens)?,
+                    StmtKeyword::While => self.parse_while_loop(tokens)?,
+                    StmtKeyword::Do => self.parse_do_while_loop(tokens)?,
                     StmtKeyword::Break => todo!(),
                     StmtKeyword::Return => {
                         expect!(tokens.len() > 0, kw_range, "expect some tokens after");
@@ -203,5 +123,114 @@ impl<'a> AstTransformer<'a> {
             varname,
             initial_value,
         })
+    }
+
+    fn parse_for_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(tokens);
+        let expr = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+        let expr = &self.arena[expr];
+        Ok(match expr.kind {
+            RawExprKind::Opn { opr, ref opds } => match opr {
+                Opr::Prefix(_) | Opr::Suffix(_) | Opr::List(_) => todo!(),
+                Opr::Binary(binary) => match binary {
+                    BinaryOpr::Assign(_) => todo!(),
+                    BinaryOpr::Pure(pure_binary) => {
+                        let lopd_idx = opds.start;
+                        let ropd_idx = opds.end - 1;
+                        let lopd = &self.arena[lopd_idx];
+                        let ropd = &self.arena[ropd_idx];
+                        if let RawExprKind::Unrecognized(frame_var) = lopd.kind {
+                            RawLoopKind::for_loop_with_default_initial(
+                                frame_var,
+                                pure_binary,
+                                opds.end - 1,
+                                expr.range(),
+                            )?
+                            .into()
+                        } else if let RawExprKind::Unrecognized(frame_var) = ropd.kind {
+                            RawLoopKind::for_loop_with_default_final(
+                                opds.start,
+                                pure_binary,
+                                frame_var,
+                                expr.range(),
+                            )?
+                            .into()
+                        } else {
+                            let final_comparison = pure_binary;
+                            match lopd.kind {
+                                RawExprKind::Opn { opr, ref opds } => {
+                                    let llopd_idx = opds.start;
+                                    let lropd_idx = opds.end - 1;
+                                    let lropd = &self.arena[lropd_idx];
+                                    let initial_comparison = match opr {
+                                        Opr::Binary(binary) => match binary {
+                                            BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr,
+                                            BinaryOpr::Assign(_) => todo!(),
+                                        },
+                                        _ => todo!(),
+                                    };
+                                    let frame_var =
+                                        if let RawExprKind::Unrecognized(frame_var) = lropd.kind {
+                                            frame_var
+                                        } else {
+                                            err!(expr.range(), "expect unrecognized")?
+                                        };
+                                    RawLoopKind::for_loop(
+                                        llopd_idx,
+                                        initial_comparison,
+                                        frame_var,
+                                        final_comparison,
+                                        ropd_idx,
+                                        expr.range(),
+                                    )?
+                                    .into()
+                                }
+                                _ => todo!(),
+                            }
+                            // LoopRawStmt::for_loop()?.into()
+                        }
+                    }
+                },
+            },
+            _ => todo!(),
+        })
+    }
+
+    fn parse_forext_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(tokens);
+        let expr_idx = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+        let expr = &self.arena[expr_idx];
+        Ok(match expr.kind {
+            RawExprKind::Opn {
+                opr: Opr::Binary(BinaryOpr::Pure(comparison)),
+                ref opds,
+            } => {
+                let lopd_idx = opds.start;
+                let ropd_idx = opds.end - 1;
+                let lopd = &self.arena[lopd_idx];
+                let frame_var = match lopd.kind {
+                    RawExprKind::Variable(frame_var) => frame_var,
+                    _ => todo!(),
+                };
+                RawLoopKind::forext_loop(frame_var, comparison, ropd_idx)?.into()
+            }
+            _ => todo!(),
+        })
+    }
+
+    fn parse_while_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(tokens);
+        let expr_idx = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+        Ok(RawLoopKind::while_loop(expr_idx).into())
+    }
+
+    fn parse_do_while_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(tokens);
+        match tokens[0].kind {
+            TokenKind::Keyword(Keyword::Stmt(StmtKeyword::While)) => (),
+            _ => todo!(),
+        }
+        let expr_idx = self.parse_expr(&tokens[1..(tokens.len() - 1)])?;
+        Ok(RawLoopKind::do_while_loop(expr_idx).into())
     }
 }

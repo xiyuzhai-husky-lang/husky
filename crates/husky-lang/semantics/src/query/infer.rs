@@ -46,13 +46,16 @@ fn func_signature(
                 .value
                 .as_ref()?;
             match ast.kind {
-                AstKind::RoutineDef { ref kind, ref decl } => Ok(Arc::new(FuncSignature {
+                AstKind::RoutineDef {
+                    routine_kind: ref kind,
+                    routine_head: ref decl,
+                } => Ok(Arc::new(FuncSignature {
                     inputs: decl
                         .input_placeholders
                         .iter()
                         .map(|input_placeholder| InputSignature {
                             contract: input_placeholder.contract,
-                            ty: input_placeholder.ty.scope,
+                            ty: input_placeholder.ranged_ty.scope,
                         })
                         .collect(),
                     output: decl.output.scope,

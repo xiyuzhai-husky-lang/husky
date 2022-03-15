@@ -46,10 +46,11 @@ pub enum DeclStmtKind {
 }
 
 pub(crate) fn parse_decl_stmts(
-    this: &dyn InferQueryGroup,
+    input_placeholders: &[InputPlaceholder],
+    db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<DeclStmt>>> {
-    StmtParser::new(this, arena, file).parse_decl_stmts(iter)
+    StmtParser::new(input_placeholders, db, arena, file).parse_decl_stmts(iter)
 }

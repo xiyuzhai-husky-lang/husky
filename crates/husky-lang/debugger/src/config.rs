@@ -1,8 +1,8 @@
 use crate::*;
 
-pub struct DebuggerConfig {
-    pub verbose: bool,
-    pub opt_input_id: Option<String>,
+pub(crate) struct DebuggerConfig {
+    pub(crate) verbose: bool,
+    pub(crate) opt_input_id: Option<String>,
 }
 
 impl DebuggerConfig {

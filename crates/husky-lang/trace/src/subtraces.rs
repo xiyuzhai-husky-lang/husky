@@ -1,4 +1,4 @@
-use semantics::Opn;
+use semantics::OpnKind;
 
 use crate::*;
 
@@ -22,25 +22,29 @@ impl Trace {
                 }
             },
             TraceKind::StrictExpr { ref expr, .. } => match expr.kind {
-                semantics::StrictExprKind::Variable(_)
-                | semantics::StrictExprKind::Scope { .. }
-                | semantics::StrictExprKind::Literal(_) => None,
-                semantics::StrictExprKind::Opn { opn, ref opds, .. } => match opn {
-                    Opn::MembVarAccess | Opn::ElementAccess => None,
-                    Opn::Binary { .. } | Opn::Prefix(_) | Opn::Suffix(_) => {
+                semantics::ExprKind::Variable(_)
+                | semantics::ExprKind::Scope { .. }
+                | semantics::ExprKind::Literal(_) => None,
+                semantics::ExprKind::Opn {
+                    opn_kind: opn,
+                    ref opds,
+                    ..
+                } => match opn {
+                    OpnKind::MembVarAccess | OpnKind::ElementAccess => None,
+                    OpnKind::Binary { .. } | OpnKind::Prefix(_) | OpnKind::Suffix(_) => {
                         if opds[0].ty.is_builtin() {
                             None
                         } else {
                             Some(SubtracesContainerClass::Call)
                         }
                     }
-                    Opn::RoutineCall { .. } | Opn::MembFuncCall(_) => {
+                    OpnKind::RoutineCall { .. } | OpnKind::MembFuncCall(_) => {
                         Some(SubtracesContainerClass::Call)
                     }
-                    Opn::PattCall => panic!(),
+                    OpnKind::PattCall => panic!(),
                 },
-                semantics::StrictExprKind::Lambda(_, _) => todo!(),
-                semantics::StrictExprKind::Bracketed(_) => panic!(),
+                semantics::ExprKind::Lambda(_, _) => todo!(),
+                semantics::ExprKind::Bracketed(_) => panic!(),
             },
         }
     }

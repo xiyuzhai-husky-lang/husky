@@ -7,24 +7,23 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         &mut self,
         opn: PrimitiveOpn,
         mode: Mode,
-        id: InstructionId,
+        ins: &Instruction,
     ) -> VMResult<()> {
         match opn {
             PrimitiveOpn::PureBinary(pure_binary_opr) => {
                 let ropd = self.stack.pop().unwrap();
                 let lopd = self.stack.pop().unwrap();
-                match mode {
-                    Mode::Fast => (),
-                    Mode::Debug => todo!(),
-                }
                 let output = pure_binary_opr
                     .act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?;
-                self.history.write(
-                    id,
-                    HistoryEntry::PureExpr {
-                        output: output.into(),
-                    },
-                );
+                match mode {
+                    Mode::Fast => (),
+                    Mode::Debug => self.history.write(
+                        ins,
+                        HistoryEntry::PureExpr {
+                            output: output.into(),
+                        },
+                    ),
+                }
                 self.stack.push(output.into());
                 Ok(())
             }
@@ -43,15 +42,17 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                             ropd
                         });
                     }
-                    _ => panic!(),
+                    _ => {
+                        p!(lopd);
+                        panic!()
+                    }
                 }
                 let after = lopd.snapshot();
-                p!(self.stack);
                 match mode {
                     Mode::Fast => (),
                     Mode::Debug => self
                         .history
-                        .write(id, HistoryEntry::Assign { before, after }),
+                        .write(ins, HistoryEntry::Assign { before, after }),
                 }
                 Ok(())
             }

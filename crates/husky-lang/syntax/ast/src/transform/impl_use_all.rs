@@ -11,7 +11,7 @@ impl<'a> AstTransformer<'a> {
         self.symbols.extend(
             self.db
                 .subscope_table(parent)
-                .map_err(|_| ast_error!(range, "scope not found"))?
+                .map_err(|_| error!(range, "scope not found"))?
                 .entries
                 .iter()
                 .filter_map(|entry| {

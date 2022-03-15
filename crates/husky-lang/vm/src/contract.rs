@@ -1,6 +1,6 @@
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Contract {
-    Pure,
+    PureInput,
     Share,
     Take,
     BorrowMut,

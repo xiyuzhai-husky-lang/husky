@@ -62,7 +62,7 @@ impl<'a> SymbolProxy<'a> {
             Identifier::Implicit(ident) => Ok(SymbolKind::Scope(ScopeRoute::Implicit {
                 main: self
                     .main
-                    .ok_or(ast_error!(range, "can't use implicit outside package"))?,
+                    .ok_or(error!(range, "can't use implicit outside package"))?,
                 ident,
             })),
             Identifier::Custom(ident) => Ok(

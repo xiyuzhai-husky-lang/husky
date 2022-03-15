@@ -1,4 +1,4 @@
-import type RawState from "./InitState";
+import type InitState from "./InitState";
 import TraceCache from "./TraceCache";
 import FigureState from "./FigureState";
 import UserState from "./UserState";
@@ -12,10 +12,10 @@ class State {
     user_state = new UserState();
     trace_listing_store: Writable<number[]> = writable([]);
 
-    init(raw_state: RawState) {
-        this.trace_cache.init(raw_state);
-        this.figure_state.init(raw_state);
-        this.user_state.init(raw_state);
+    init(init_state: InitState) {
+        this.trace_cache.init(init_state);
+        this.figure_state.init(init_state);
+        this.user_state.init(init_state);
     }
 
     update_trace_listing() {
@@ -71,12 +71,14 @@ class State {
     add_associated_traces(id: number, trace_listing: number[]) {
         let trace = this.trace_cache.get_trace(id);
         if (trace !== null) {
-            let tokens = trace.tokens;
-            for (const token of tokens) {
-                let associated_trace_id = token.associated_trace;
-                if (associated_trace_id !== null) {
-                    if (this.user_state.is_shown(associated_trace_id)) {
-                        trace_listing.push(associated_trace_id);
+            for (const line of trace.lines) {
+                let tokens = line.tokens;
+                for (const token of tokens) {
+                    let associated_trace_id = token.associated_trace;
+                    if (associated_trace_id !== null) {
+                        if (this.user_state.is_shown(associated_trace_id)) {
+                            trace_listing.push(associated_trace_id);
+                        }
                     }
                 }
             }

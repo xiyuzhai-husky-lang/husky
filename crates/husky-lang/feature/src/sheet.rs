@@ -1,4 +1,4 @@
-use vm::{EvalResult, EvalValue, StackValue};
+use vm::{EvalResult, EvalValue};
 
 use super::*;
 

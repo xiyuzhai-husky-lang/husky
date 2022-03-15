@@ -1,5 +1,3 @@
-use trace::TraceFactory;
-
 use super::*;
 use crate::*;
 
@@ -7,7 +5,7 @@ use crate::*;
 #[serde(tag = "type")]
 pub(super) enum Response<'a> {
     Init {
-        raw_state: InitState<'a>,
+        init_state: InitState<'a>,
     },
     Subtraces {
         id: TraceId,

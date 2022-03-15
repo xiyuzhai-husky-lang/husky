@@ -60,37 +60,45 @@ impl TraceFactory {
         }))
     }
 
-    pub(crate) fn tokens(
+    pub(crate) fn lines(
         &self,
         id: TraceId,
         indent: Indent,
         kind: &TraceKind,
         text: &Text,
-    ) -> Vec<TokenProps> {
+    ) -> Vec<LineProps> {
         match kind {
-            TraceKind::Main(lazy_block) => vec![TokenProps {
-                kind: TraceTokenKind::Keyword,
-                value: Cow::Borrowed("main"),
-                associated_trace: None,
+            TraceKind::Main(lazy_block) => vec![LineProps {
+                indent,
+                idx: 0,
+                tokens: vec![TokenProps {
+                    kind: TraceTokenKind::Keyword,
+                    value: Cow::Borrowed("main"),
+                    associated_trace: None,
+                }],
             }],
-            TraceKind::LazyStmt(stmt) => self.lazy_stmt_tokens(stmt, text),
-            TraceKind::LazyExpr(expr) => self.lazy_expr_tokens(expr, text, ExprTokenConfig::expr()),
-            TraceKind::LazyBranch(branch) => self.lazy_branch_tokens(branch, text),
+            TraceKind::LazyStmt(stmt) => self.lazy_stmt_lines(stmt, text),
+            TraceKind::LazyExpr(expr) => self.lazy_expr_lines(expr, text, ExprTokenConfig::expr()),
+            TraceKind::LazyBranch(branch) => self.lazy_branch_lines(indent, branch, text),
             TraceKind::Input(_) => todo!(),
             TraceKind::StrictDeclStmt { .. } => todo!(),
             TraceKind::ImprStmt {
                 ref stmt,
                 ref history,
-            } => self.impr_stmt_tokens(stmt, text, history),
+            } => self.impr_stmt_lines(stmt, text, history),
             TraceKind::StrictExpr {
                 ref expr,
                 ref history,
-            } => self.strict_expr_tokens(expr, text, history, ExprTokenConfig::expr()),
-            TraceKind::CallHead { ref tokens, .. } => tokens.clone(),
+            } => self.strict_expr_lines(expr, text, history, ExprTokenConfig::expr()),
+            TraceKind::CallHead { ref tokens, .. } => vec![LineProps {
+                indent: 0,
+                idx: 0,
+                tokens: tokens.clone(),
+            }],
             TraceKind::LoopFrame {
                 loop_frame_snapshot: ref vm_loop_frame,
                 ..
-            } => self.loop_frame_tokens(vm_loop_frame),
+            } => self.loop_frame_lines(indent, vm_loop_frame),
         }
     }
 
@@ -109,20 +117,20 @@ impl TraceFactory {
         trace
     }
 
-    fn new_trace2(
-        &self,
-        parent: TraceId,
-        indent: Indent,
-        gen_kind: impl FnOnce(TraceId) -> TraceKind,
-        text: &Text,
-    ) -> Arc<Trace> {
-        let trace = Arc::new(Trace::new2(Some(parent), indent, gen_kind, self, text));
-        self.traces.write(|traces| {
-            assert!(traces[trace.id.0].is_none());
-            traces[trace.id.0] = Some(trace.clone())
-        });
-        trace
-    }
+    // fn new_trace2(
+    //     &self,
+    //     parent: TraceId,
+    //     indent: Indent,
+    //     gen_kind: impl FnOnce(TraceId) -> TraceKind,
+    //     text: &Text,
+    // ) -> Arc<Trace> {
+    //     let trace = Arc::new(Trace::new2(Some(parent), indent, gen_kind, self, text));
+    //     self.traces.write(|traces| {
+    //         assert!(traces[trace.id.0].is_none());
+    //         traces[trace.id.0] = Some(trace.clone())
+    //     });
+    //     trace
+    // }
 }
 
 pub trait CreateTrace: TextQueryGroup {

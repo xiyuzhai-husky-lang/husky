@@ -156,7 +156,17 @@ impl<'a> AtomLRParser<'a> {
                                     .push(Atom::new(token.text_range(), PrefixOpr::Minus.into()))?
                             }
                         }
-                        Special::MemberAccess => todo!(),
+                        Special::MemberAccess =>  {
+                            let member_ident_token = self.stream.next().ok_or(error!(token.text_range(),"expect identifier after `.`"))?;
+                            let member_ident =   match member_ident_token.kind {
+                                TokenKind::Keyword(_) => todo!(),
+                                TokenKind::Identifier(ident) => ident,
+                                TokenKind::Special(_) => todo!(),
+                                TokenKind::I32Literal(_) => todo!(),
+                                TokenKind::F32Literal(_) => todo!(),
+                            };
+                            self.stack
+                        .push(Atom::new(token.text_range(), SuffixOpr::MemberAccess(member_ident).into()))?},
                         _ => self.stack.push(token.into())?,
                     },
                     _ => self.stack.push(token.into())?,

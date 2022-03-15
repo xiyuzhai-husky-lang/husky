@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use feature::{eval_lazy_block, FeatureEvalIndicator, FeatureSheet};
+use feature::{eval_lazy_block, FeatureSheet};
 
 use crate::*;
 

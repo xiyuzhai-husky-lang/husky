@@ -1,6 +1,6 @@
-current_test_project=projects/tests/current
+debugger_tests_dir=projects/tests/debugger
 
-run:
-	cargo run --bin husky-lang-debugger $(current_test_project) --input-id 1
-run_with_backtrace:
-	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(current_test_project) --input-id 1
+test:
+	cargo run --bin husky-lang-debugger $(debugger_tests_dir) --input-id 1 --mode test
+test_with_backtrace:
+	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(debugger_tests_dir) --input-id 1 --mode test

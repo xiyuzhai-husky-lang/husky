@@ -1,5 +1,5 @@
 use common::*;
-use expr::Opn;
+use expr::OpnKind;
 use vm::{BinaryOpr, Contract, Instruction, InstructionKind, PrimitiveOpn};
 
 use crate::*;
@@ -9,22 +9,22 @@ pub trait ExprInstructionBuilder {
 
     fn gen_expr_instructions(&mut self, expr: Arc<Expr>) {
         match expr.kind {
-            StrictExprKind::Variable(ident) => todo!(),
-            StrictExprKind::Scope {
+            ExprKind::Variable(ident) => todo!(),
+            ExprKind::Scope {
                 scope: id,
                 compiled,
             } => todo!(),
-            StrictExprKind::Literal(value) => self.push_instruction(Instruction::new(
+            ExprKind::Literal(value) => self.push_instruction(Instruction::new(
                 InstructionKind::PushPrimitiveLiteral(value),
                 expr,
             )),
-            StrictExprKind::Bracketed(_) => todo!(),
-            StrictExprKind::Opn {
-                opn,
+            ExprKind::Bracketed(_) => todo!(),
+            ExprKind::Opn {
+                opn_kind: opn,
                 compiled,
                 ref opds,
             } => match opn {
-                Opn::Binary { opr, this, kind } => {
+                OpnKind::Binary { opr, this } => {
                     let instruction = Instruction::new(
                         InstructionKind::PrimitiveOpn(match opr {
                             BinaryOpr::Pure(pure_binary_opr) => {
@@ -43,12 +43,12 @@ pub trait ExprInstructionBuilder {
                     );
                     self.push_instruction(instruction)
                 }
-                Opn::Prefix(_) => todo!(),
-                Opn::Suffix(_) => todo!(),
-                Opn::RoutineCall(routine) => {
+                OpnKind::Prefix(_) => todo!(),
+                OpnKind::Suffix(_) => todo!(),
+                OpnKind::RoutineCall(routine) => {
                     if let Some(compiled) = compiled {
                         self.push_instruction(Instruction::new(
-                            InstructionKind::Call {
+                            InstructionKind::CallCompiled {
                                 compiled,
                                 nargs: opds.len() as u8,
                             },
@@ -58,12 +58,12 @@ pub trait ExprInstructionBuilder {
                         todo!()
                     }
                 }
-                Opn::PattCall => todo!(),
-                Opn::MembVarAccess => todo!(),
-                Opn::MembFuncCall(_) => todo!(),
-                Opn::ElementAccess => todo!(),
+                OpnKind::PattCall => todo!(),
+                OpnKind::MembVarAccess => todo!(),
+                OpnKind::MembFuncCall(_) => todo!(),
+                OpnKind::ElementAccess => todo!(),
             },
-            StrictExprKind::Lambda(_, _) => todo!(),
+            ExprKind::Lambda(_, _) => todo!(),
         }
     }
 }

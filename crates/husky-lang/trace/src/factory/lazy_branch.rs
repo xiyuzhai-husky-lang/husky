@@ -15,6 +15,19 @@ impl TraceFactory {
         self.new_trace(Some(parent.id), indent, TraceKind::LazyBranch(branch), text)
     }
 
+    pub(super) fn lazy_branch_lines(
+        &self,
+        indent: Indent,
+        branch: &LazyBranch,
+        text: &Text,
+    ) -> Vec<LineProps> {
+        vec![LineProps {
+            idx: 0,
+            indent,
+            tokens: self.lazy_branch_tokens(branch, text),
+        }]
+    }
+
     pub(super) fn lazy_branch_tokens(&self, branch: &LazyBranch, text: &Text) -> Vec<TokenProps> {
         match branch.kind {
             LazyBranchKind::If { ref condition } => {

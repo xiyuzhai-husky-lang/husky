@@ -1,6 +1,6 @@
 use word::CustomIdentifier;
 
-use crate::*;
+use crate::{PrimitiveValue, StackIdx, StackValue};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VMLoopKind {
@@ -10,9 +10,13 @@ pub enum VMLoopKind {
         final_boundary_kind: BoundaryKind,
         step: LoopStep,
     },
-    ForExt,
-    While,
-    DoWhile,
+    ForExt {
+        frame_var: CustomIdentifier,
+        frame_varidx: StackIdx,
+        final_boundary_kind: BoundaryKind,
+        step: LoopStep,
+    },
+    Loop,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -37,6 +41,15 @@ impl LoopStep {
 
     pub fn frame_var(&self, a: i32, i: i32) -> i32 {
         a + self.0 * i
+    }
+
+    pub fn update<'stack, 'eval: 'stack>(&self, frame_var: &mut StackValue<'stack, 'eval>) {
+        match frame_var {
+            StackValue::Primitive(PrimitiveValue::I32(ref mut frame_var)) => {
+                *frame_var = *frame_var + self.0;
+            }
+            _ => panic!(),
+        }
     }
 }
 

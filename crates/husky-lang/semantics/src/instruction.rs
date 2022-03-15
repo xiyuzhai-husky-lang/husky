@@ -13,21 +13,27 @@ pub struct InstructionSheetBuilder {
 }
 
 impl InstructionSheetBuilder {
-    pub fn new_decl(stmts: &[Arc<DeclStmt>]) -> Arc<InstructionSheet> {
-        let mut builder = Self::new();
+    pub fn new_decl(
+        inputs: Vec<CustomIdentifier>,
+        stmts: &[Arc<DeclStmt>],
+    ) -> Arc<InstructionSheet> {
+        let mut builder = Self::new(inputs);
         builder.compile_decl_stmts(stmts);
         builder.finalize()
     }
 
-    pub fn new_impr(stmts: &[Arc<ImprStmt>]) -> Arc<InstructionSheet> {
-        let mut builder = Self::new();
+    pub fn new_impr(
+        inputs: Vec<CustomIdentifier>,
+        stmts: &[Arc<ImprStmt>],
+    ) -> Arc<InstructionSheet> {
+        let mut builder = Self::new(inputs);
         builder.compile_impr_stmts(stmts);
         builder.finalize()
     }
 
-    fn new() -> Self {
+    fn new(inputs: Vec<CustomIdentifier>) -> Self {
         Self {
-            sheet: Default::default(),
+            sheet: InstructionSheet::new(inputs),
         }
     }
 
@@ -35,6 +41,12 @@ impl InstructionSheetBuilder {
         Self {
             sheet: self.sheet.init_subsheet(),
         }
+    }
+
+    fn build_impr_block(&self, stmts: &[Arc<ImprStmt>]) -> Arc<InstructionSheet> {
+        let mut block_sheet_builder = self.subsheet_builder();
+        block_sheet_builder.compile_impr_stmts(stmts);
+        block_sheet_builder.finalize()
     }
 
     fn finalize(self) -> Arc<InstructionSheet> {

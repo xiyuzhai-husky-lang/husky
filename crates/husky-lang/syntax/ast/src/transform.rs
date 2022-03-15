@@ -16,7 +16,7 @@ use word::{FuncKeyword, *};
 
 use crate::{
     atom::symbol_proxy::{Symbol, SymbolKind},
-    query::{AstQueryGroup, AstSalsaQueryGroup, AstText},
+    query::{AstSalsaQueryGroup, AstText},
     transform::utils::*,
     *,
 };
@@ -99,34 +99,49 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 match keyword {
                     Keyword::Func(func_kw) => match func_kw {
                         FuncKeyword::Main => {
+                            enter_block(self);
                             self.env.set_value(Env::Main);
                             AstKind::MainDef
                         }
                         FuncKeyword::Test => {
+                            enter_block(self);
                             self.env.set_value(Env::Test);
                             todo!()
                         }
                         FuncKeyword::Proc => {
+                            enter_block(self);
                             self.env.set_value(Env::Proc);
+                            let head = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
+                            self.symbols.extend(head.input_placeholders.iter().map(
+                                |input_placeholder| Symbol {
+                                    ident: input_placeholder.ident,
+                                    kind: SymbolKind::Variable(input_placeholder.ranged_ty.range),
+                                },
+                            ));
                             AstKind::RoutineDef {
-                                kind: RoutineKind::Proc,
-                                decl: self.parse_routine_decl(trim!(tokens; keyword, colon))?,
+                                routine_kind: RoutineKind::Proc,
+                                routine_head: head,
                             }
                         }
                         FuncKeyword::Func => {
+                            enter_block(self);
                             self.env.set_value(Env::Func);
                             let decl = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
                             for input_placeholder in decl.input_placeholders.iter() {
                                 match input_placeholder.contract {
-                                    Contract::Pure | Contract::Share | Contract::Take => (),
+                                    Contract::PureInput | Contract::Share | Contract::Take => (),
                                     Contract::BorrowMut | Contract::TakeMut => {
                                         todo!("report invalid input contract")
                                     }
                                 }
+                                self.symbols.push(Symbol {
+                                    ident: input_placeholder.ident,
+                                    kind: SymbolKind::Variable(input_placeholder.ranged_ty.range),
+                                })
                             }
                             AstKind::RoutineDef {
-                                kind: RoutineKind::Func,
-                                decl,
+                                routine_kind: RoutineKind::Func,
+                                routine_head: decl,
                             }
                         }
                         FuncKeyword::Def => todo!(),

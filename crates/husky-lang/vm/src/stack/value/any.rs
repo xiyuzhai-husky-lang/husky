@@ -1,16 +1,13 @@
 use crate::*;
-use std::{
-    any::{Any, TypeId},
-    borrow::Cow,
-    fmt::Debug,
-    sync::Arc,
-};
+use std::{any::TypeId, borrow::Cow, fmt::Debug, sync::Arc};
 
 // type level trait
-pub trait AnyValue: Debug + Send + Sync + Sized {
+pub trait AnyValue: Debug + Send + Sync + Sized + PartialEq + Clone + 'static {
     fn static_type_id() -> TypeId;
     fn static_type_name() -> Cow<'static, str>;
-    fn clone_any(&self) -> Box<dyn AnyValueDyn>;
+    fn boxed_any(&self) -> Box<dyn AnyValueDyn> {
+        Box::new(self.clone())
+    }
     fn snapshot(&self) -> Arc<dyn AnyValueDyn>;
     fn from_stack(stack_value: StackValue) -> Self {
         match stack_value {
@@ -32,6 +29,7 @@ pub trait AnyValueDyn: Debug + Send + Sync {
     fn equal_any(&self, other: &dyn AnyValueDyn) -> bool;
     fn assign<'stack, 'eval>(&mut self, other: StackValue<'stack, 'eval>);
     fn as_primitive(&self) -> PrimitiveValue;
+    fn upcast_any(&self) -> &dyn AnyValueDyn;
 }
 
 impl<T: AnyValue> AnyValueDyn for T {
@@ -44,7 +42,7 @@ impl<T: AnyValue> AnyValueDyn for T {
     }
 
     fn clone_any(&self) -> Box<dyn AnyValueDyn> {
-        T::clone_any(self)
+        T::boxed_any(self)
     }
 
     fn snapshot(&self) -> Arc<dyn AnyValueDyn> {
@@ -62,6 +60,10 @@ impl<T: AnyValue> AnyValueDyn for T {
     fn as_primitive(&self) -> PrimitiveValue {
         T::as_primitive(self)
     }
+
+    fn upcast_any(&self) -> &dyn AnyValueDyn {
+        self
+    }
 }
 
 impl AnyValue for i32 {
@@ -73,7 +75,7 @@ impl AnyValue for i32 {
         "i32".into()
     }
 
-    fn clone_any(&self) -> Box<dyn AnyValueDyn> {
+    fn boxed_any(&self) -> Box<dyn AnyValueDyn> {
         Box::new(*self)
     }
 
@@ -103,7 +105,7 @@ impl AnyValue for f32 {
         "f32".into()
     }
 
-    fn clone_any(&self) -> Box<dyn AnyValueDyn> {
+    fn boxed_any(&self) -> Box<dyn AnyValueDyn> {
         Box::new(*self)
     }
 
@@ -133,7 +135,7 @@ impl AnyValue for u32 {
         "u32".into()
     }
 
-    fn clone_any(&self) -> Box<dyn AnyValueDyn> {
+    fn boxed_any(&self) -> Box<dyn AnyValueDyn> {
         Box::new(*self)
     }
 
@@ -163,7 +165,7 @@ impl AnyValue for u64 {
         "u64".into()
     }
 
-    fn clone_any(&self) -> Box<dyn AnyValueDyn> {
+    fn boxed_any(&self) -> Box<dyn AnyValueDyn> {
         Box::new(*self)
     }
 
@@ -193,7 +195,7 @@ impl AnyValue for bool {
         "bool".into()
     }
 
-    fn clone_any(&self) -> Box<dyn AnyValueDyn> {
+    fn boxed_any(&self) -> Box<dyn AnyValueDyn> {
         Box::new(*self)
     }
 

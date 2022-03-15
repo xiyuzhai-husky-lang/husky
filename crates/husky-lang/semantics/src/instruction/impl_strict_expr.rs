@@ -6,9 +6,8 @@ use vm::{BinaryOpr, Contract, Instruction, InstructionKind, PrimitiveOpn};
 impl InstructionSheetBuilder {
     pub(super) fn compile_expr(&mut self, expr: &Arc<Expr>) {
         match expr.kind {
-            StrictExprKind::Variable(ident) => {
+            ExprKind::Variable(ident) => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(ident);
-                p!(stack_idx, ident);
                 self.push_instruction(Instruction::new(
                     InstructionKind::PushVariable {
                         stack_idx,
@@ -17,21 +16,21 @@ impl InstructionSheetBuilder {
                     expr.clone(),
                 ))
             }
-            StrictExprKind::Scope {
+            ExprKind::Scope {
                 scope: id,
                 compiled,
             } => todo!(),
-            StrictExprKind::Literal(value) => self.push_instruction(Instruction::new(
+            ExprKind::Literal(value) => self.push_instruction(Instruction::new(
                 InstructionKind::PushPrimitiveLiteral(value),
                 expr.clone(),
             )),
-            StrictExprKind::Bracketed(_) => todo!(),
-            StrictExprKind::Opn {
-                opn,
+            ExprKind::Bracketed(_) => todo!(),
+            ExprKind::Opn {
+                opn_kind: opn,
                 compiled,
                 ref opds,
             } => match opn {
-                Opn::Binary { opr, this, kind } => {
+                OpnKind::Binary { opr, this } => {
                     let instruction = Instruction::new(
                         InstructionKind::PrimitiveOpn(match opr {
                             BinaryOpr::Pure(pure_binary_opr) => {
@@ -50,12 +49,12 @@ impl InstructionSheetBuilder {
                     );
                     self.push_instruction(instruction)
                 }
-                Opn::Prefix(_) => todo!(),
-                Opn::Suffix(_) => todo!(),
-                Opn::RoutineCall(routine) => {
+                OpnKind::Prefix(_) => todo!(),
+                OpnKind::Suffix(_) => todo!(),
+                OpnKind::RoutineCall(routine) => {
                     if let Some(compiled) = compiled {
                         self.push_instruction(Instruction::new(
-                            InstructionKind::Call {
+                            InstructionKind::CallCompiled {
                                 compiled,
                                 nargs: opds.len() as u8,
                             },
@@ -65,12 +64,12 @@ impl InstructionSheetBuilder {
                         todo!()
                     }
                 }
-                Opn::PattCall => todo!(),
-                Opn::MembVarAccess => todo!(),
-                Opn::MembFuncCall(_) => todo!(),
-                Opn::ElementAccess => todo!(),
+                OpnKind::PattCall => todo!(),
+                OpnKind::MembVarAccess => todo!(),
+                OpnKind::MembFuncCall(_) => todo!(),
+                OpnKind::ElementAccess => todo!(),
             },
-            StrictExprKind::Lambda(_, _) => todo!(),
+            ExprKind::Lambda(_, _) => todo!(),
         }
     }
 }

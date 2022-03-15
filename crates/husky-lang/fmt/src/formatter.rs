@@ -86,7 +86,10 @@ impl<'a> Formatter<'a> {
                 }
             }
             ast::AstKind::MainDef => self.write("main:"),
-            ast::AstKind::RoutineDef { ref kind, ref decl } => {
+            ast::AstKind::RoutineDef {
+                routine_kind: ref kind,
+                routine_head: ref decl,
+            } => {
                 self.write(match kind {
                     RoutineKind::Test => "test ",
                     RoutineKind::Proc => todo!(),
@@ -136,7 +139,7 @@ impl<'a> Formatter<'a> {
 
     fn fmt_member_variable_contracted_type(&mut self, ty: MembType) {
         match ty.contract {
-            Contract::Pure => todo!(),
+            Contract::PureInput => todo!(),
             Contract::Share => todo!(),
             Contract::Take => (),
             Contract::BorrowMut => todo!(),
@@ -147,13 +150,13 @@ impl<'a> Formatter<'a> {
 
     fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
         match ty.contract {
-            Contract::Pure => (),
+            Contract::PureInput => (),
             Contract::Share => self.write("&"),
             Contract::Take => self.write("!"),
             Contract::BorrowMut => self.write("mut &"),
             Contract::TakeMut => self.write("mut !"),
         }
-        self.fmt_type(ty.ty.scope);
+        self.fmt_type(ty.ranged_ty.scope);
     }
 
     fn fmt_type(&mut self, ty: ScopePtr) {
