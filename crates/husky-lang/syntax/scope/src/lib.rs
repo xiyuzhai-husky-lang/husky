@@ -20,7 +20,7 @@ pub struct Scope {
     pub generics: Vec<GenericArgument>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct RangedScope {
     pub scope: ScopePtr,
     pub range: TextRange,

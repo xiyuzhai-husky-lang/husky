@@ -1,5 +1,4 @@
 use scope::InputPlaceholder;
-use semantics::{Entity, EntityKind};
 use word::CustomIdentifier;
 
 use super::*;
@@ -18,6 +17,7 @@ impl TraceFactory {
                 input_placeholders, ..
             } => routine_call_head_tokens("proc ", entity.ident, input_placeholders, text),
             EntityKind::Ty(_) => todo!(),
+            EntityKind::Main(_) => todo!(),
         };
         return self.new_trace(None, 0, TraceKind::CallHead { entity, tokens }, text);
 

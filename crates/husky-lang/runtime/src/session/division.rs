@@ -1,5 +1,5 @@
 use dataset::DataLoader;
-use feature::{FeatureEvalIndicator, FeatureSheet};
+use semantics_feature::*;
 
 use crate::*;
 

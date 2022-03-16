@@ -39,9 +39,9 @@ class Trace {
     kind:
         | "Main"
         | "CallHead"
-        | "LazyStmt"
-        | "LazyBranch"
-        | "LazyExpr"
+        | "FeatureStmt"
+        | "FeatureBranch"
+        | "FeatureExpr"
         | "StrictDeclStmt"
         | "ImprStmt"
         | "LoopFrame"
@@ -62,9 +62,9 @@ class Trace {
         switch (kind) {
             case "Main":
             case "CallHead":
-            case "LazyStmt":
-            case "LazyBranch":
-            case "LazyExpr":
+            case "FeatureStmt":
+            case "FeatureBranch":
+            case "FeatureExpr":
             case "StrictDeclStmt":
             case "ImprStmt":
             case "LoopFrame":

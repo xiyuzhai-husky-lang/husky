@@ -3,9 +3,10 @@ use std::ops::Deref;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
     Config(ConfigKeyword),
-    Func(FuncKeyword),
+    Routine(RoutineKeyword),
     Type(TypeKeyword),
     Stmt(StmtKeyword),
+    Def,
     Use,
     Mod,
 }
@@ -16,11 +17,12 @@ impl Deref for Keyword {
     fn deref(&self) -> &Self::Target {
         match self {
             Keyword::Config(keyword) => keyword.deref(),
-            Keyword::Func(keyword) => keyword.deref(),
+            Keyword::Routine(keyword) => keyword.deref(),
             Keyword::Type(keyword) => keyword.deref(),
             Keyword::Stmt(keyword) => keyword.deref(),
             Keyword::Use => "use",
             Keyword::Mod => "mod",
+            Keyword::Def => "def",
         }
     }
 }
@@ -31,9 +33,9 @@ impl From<ConfigKeyword> for Keyword {
     }
 }
 
-impl From<FuncKeyword> for Keyword {
-    fn from(kw: FuncKeyword) -> Self {
-        Keyword::Func(kw)
+impl From<RoutineKeyword> for Keyword {
+    fn from(kw: RoutineKeyword) -> Self {
+        Keyword::Routine(kw)
     }
 }
 
@@ -65,24 +67,22 @@ impl Deref for ConfigKeyword {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum FuncKeyword {
+pub enum RoutineKeyword {
     Main,
     Test,
     Proc,
     Func,
-    Def,
 }
 
-impl Deref for FuncKeyword {
+impl Deref for RoutineKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
         match self {
-            FuncKeyword::Main => "main",
-            FuncKeyword::Test => "test",
-            FuncKeyword::Proc => "proc",
-            FuncKeyword::Func => "func",
-            FuncKeyword::Def => "def",
+            RoutineKeyword::Main => "main",
+            RoutineKeyword::Test => "test",
+            RoutineKeyword::Proc => "proc",
+            RoutineKeyword::Func => "func",
         }
     }
 }

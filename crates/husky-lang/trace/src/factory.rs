@@ -1,16 +1,16 @@
 mod call_head;
+mod eager_decl_stmt;
+mod eager_expr;
+mod eager_impr_stmt;
 mod expr;
-mod impr_stmt;
-mod lazy_block;
-mod lazy_branch;
-mod lazy_expr;
-mod lazy_stmt;
-mod strict_decl_stmt;
-mod strict_expr;
+mod feature_block;
+mod feature_branch;
+mod feature_expr;
+mod feature_stmt;
 
 use expr::ExprTokenConfig;
-use feature::{LazyBlock, LazyBranch, LazyBranchKind, LazyExpr, LazyExprKind, LazyStmtKind};
-use semantics::{ImprStmt, LoopKind};
+use semantics_eager::*;
+use semantics_feature::*;
 use serde::Deserialize;
 use stdx::sync::ARwLock;
 use text::{Text, TextQueryGroup};
@@ -68,7 +68,7 @@ impl TraceFactory {
         text: &Text,
     ) -> Vec<LineProps> {
         match kind {
-            TraceKind::Main(lazy_block) => vec![LineProps {
+            TraceKind::Main(feature_block) => vec![LineProps {
                 indent,
                 idx: 0,
                 tokens: vec![TokenProps {
@@ -77,19 +77,21 @@ impl TraceFactory {
                     associated_trace: None,
                 }],
             }],
-            TraceKind::LazyStmt(stmt) => self.lazy_stmt_lines(stmt, text),
-            TraceKind::LazyExpr(expr) => self.lazy_expr_lines(expr, text, ExprTokenConfig::expr()),
-            TraceKind::LazyBranch(branch) => self.lazy_branch_lines(indent, branch, text),
+            TraceKind::FeatureStmt(stmt) => self.feature_stmt_lines(stmt, text),
+            TraceKind::FeatureExpr(expr) => {
+                self.feature_expr_lines(expr, text, ExprTokenConfig::expr())
+            }
+            TraceKind::FeatureBranch(branch) => self.feature_branch_lines(indent, branch, text),
             TraceKind::Input(_) => todo!(),
             TraceKind::StrictDeclStmt { .. } => todo!(),
             TraceKind::ImprStmt {
                 ref stmt,
                 ref history,
             } => self.impr_stmt_lines(stmt, text, history),
-            TraceKind::StrictExpr {
+            TraceKind::EagerExpr {
                 ref expr,
                 ref history,
-            } => self.strict_expr_lines(expr, text, history, ExprTokenConfig::expr()),
+            } => self.eager_expr_lines(expr, text, history, ExprTokenConfig::expr()),
             TraceKind::CallHead { ref tokens, .. } => vec![LineProps {
                 indent: 0,
                 idx: 0,
@@ -137,18 +139,26 @@ pub trait CreateTrace: TextQueryGroup {
     fn trace_factory(&self) -> &TraceFactory;
     fn trace_factory_arc(&self) -> Arc<TraceFactory>;
 
-    fn lazy_block_subtraces(&self, parent: &Trace, lazy_block: &LazyBlock) -> Arc<Vec<Arc<Trace>>> {
+    fn feature_block_subtraces(
+        &self,
+        parent: &Trace,
+        feature_block: &FeatureBlock,
+    ) -> Arc<Vec<Arc<Trace>>> {
         let text = &self.text(parent.file).unwrap();
         Arc::new(
             self.trace_factory()
-                .lazy_block_subtraces(parent, lazy_block, text),
+                .feature_block_subtraces(parent, feature_block, text),
         )
     }
 
-    fn lazy_branch_subtraces(&self, parent: &Trace, branch: &LazyBranch) -> Arc<Vec<Arc<Trace>>> {
+    fn feature_branch_subtraces(
+        &self,
+        parent: &Trace,
+        branch: &FeatureBranch,
+    ) -> Arc<Vec<Arc<Trace>>> {
         let text = &self.text(parent.file).unwrap();
         self.trace_factory()
-            .lazy_branch_subtraces(parent, branch, self.trace_factory(), text)
+            .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
     }
 
     fn loop_subtraces(

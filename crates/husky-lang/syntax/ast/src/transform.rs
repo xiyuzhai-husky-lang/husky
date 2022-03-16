@@ -12,7 +12,7 @@ use syntax_types::*;
 use text::TextRanged;
 use token::*;
 use vm::Contract;
-use word::{FuncKeyword, *};
+use word::{RoutineKeyword, *};
 
 use crate::{
     atom::symbol_proxy::{Symbol, SymbolKind},
@@ -97,18 +97,18 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
             range: tokens.into(),
             kind: if let TokenKind::Keyword(keyword) = tokens[0].kind {
                 match keyword {
-                    Keyword::Func(func_kw) => match func_kw {
-                        FuncKeyword::Main => {
+                    Keyword::Routine(routine_keyword) => match routine_keyword {
+                        RoutineKeyword::Main => {
                             enter_block(self);
                             self.env.set_value(Env::Main);
                             AstKind::MainDef
                         }
-                        FuncKeyword::Test => {
+                        RoutineKeyword::Test => {
                             enter_block(self);
                             self.env.set_value(Env::Test);
                             todo!()
                         }
-                        FuncKeyword::Proc => {
+                        RoutineKeyword::Proc => {
                             enter_block(self);
                             self.env.set_value(Env::Proc);
                             let head = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
@@ -123,7 +123,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                                 routine_head: head,
                             }
                         }
-                        FuncKeyword::Func => {
+                        RoutineKeyword::Func => {
                             enter_block(self);
                             self.env.set_value(Env::Func);
                             let decl = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
@@ -144,7 +144,6 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                                 routine_head: decl,
                             }
                         }
-                        FuncKeyword::Def => todo!(),
                     },
                     Keyword::Type(ty_kw) => match ty_kw {
                         word::TypeKeyword::Struct => {
@@ -175,6 +174,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                             AstKind::DatasetConfig
                         }
                     },
+                    Keyword::Def => todo!(),
                 }
             } else {
                 if tokens.len() >= 2 && tokens[1].kind == TokenKind::Special(Special::Colon) {

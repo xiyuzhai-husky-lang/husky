@@ -5,7 +5,7 @@ pub use ident::{
     default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier,
 };
 pub use intern::{new_word_unique_allocator, InternWord, WordInterner};
-pub use keyword::{ConfigKeyword, FuncKeyword, Keyword, StmtKeyword, TypeKeyword};
+pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TypeKeyword};
 
 use common::*;
 
@@ -51,8 +51,8 @@ impl From<ConfigKeyword> for WordPtr {
     }
 }
 
-impl From<FuncKeyword> for WordPtr {
-    fn from(func: FuncKeyword) -> Self {
+impl From<RoutineKeyword> for WordPtr {
+    fn from(func: RoutineKeyword) -> Self {
         Self::Keyword(func.into())
     }
 }

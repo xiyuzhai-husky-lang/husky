@@ -1,50 +1,53 @@
-use semantics::OpnKind;
-
 use crate::*;
 
 impl Trace {
     pub fn subtraces_container_class(&self) -> Option<SubtracesContainerClass> {
         match self.kind {
             TraceKind::Main(_)
-            | TraceKind::LazyStmt(_)
-            | TraceKind::LazyBranch(_)
+            | TraceKind::FeatureStmt(_)
+            | TraceKind::FeatureBranch(_)
             | TraceKind::Input(_)
             | TraceKind::StrictDeclStmt { .. }
             | TraceKind::ImprStmt { .. }
             | TraceKind::LoopFrame { .. }
             | TraceKind::CallHead { .. } => None,
-            TraceKind::LazyExpr(ref expr) => match expr.kind {
-                feature::LazyExprKind::Literal(_)
-                | feature::LazyExprKind::PrimitiveBinaryOpr { .. }
-                | feature::LazyExprKind::Variable { .. } => None,
-                feature::LazyExprKind::FuncCall { .. } | feature::LazyExprKind::ProcCall { .. } => {
+            TraceKind::FeatureExpr(ref expr) => match expr.kind {
+                FeatureExprKind::Literal(_)
+                | FeatureExprKind::PrimitiveBinaryOpr { .. }
+                | FeatureExprKind::Variable { .. } => None,
+                FeatureExprKind::FuncCall { .. } | FeatureExprKind::ProcCall { .. } => {
                     Some(SubtracesContainerClass::Call)
                 }
             },
-            TraceKind::StrictExpr { ref expr, .. } => match expr.kind {
-                semantics::ExprKind::Variable(_)
-                | semantics::ExprKind::Scope { .. }
-                | semantics::ExprKind::Literal(_) => None,
-                semantics::ExprKind::Opn {
+            TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
+                EagerExprKind::Variable(_)
+                | EagerExprKind::Scope { .. }
+                | EagerExprKind::Literal(_) => None,
+                EagerExprKind::Opn {
                     opn_kind: opn,
                     ref opds,
                     ..
                 } => match opn {
-                    OpnKind::MembVarAccess | OpnKind::ElementAccess => None,
-                    OpnKind::Binary { .. } | OpnKind::Prefix(_) | OpnKind::Suffix(_) => {
+                    semantics_eager::EagerOpnKind::MembVarAccess | EagerOpnKind::ElementAccess => {
+                        None
+                    }
+                    EagerOpnKind::Binary { .. }
+                    | EagerOpnKind::Prefix(_)
+                    | EagerOpnKind::Suffix(_) => {
                         if opds[0].ty.is_builtin() {
                             None
                         } else {
                             Some(SubtracesContainerClass::Call)
                         }
                     }
-                    OpnKind::RoutineCall { .. } | OpnKind::MembFuncCall(_) => {
+                    EagerOpnKind::RoutineCall { .. } | EagerOpnKind::MembFuncCall(_) => {
                         Some(SubtracesContainerClass::Call)
                     }
-                    OpnKind::PattCall => panic!(),
+                    EagerOpnKind::PatternCall => panic!(),
+                    EagerOpnKind::TypeCall(_) => todo!(),
                 },
-                semantics::ExprKind::Lambda(_, _) => todo!(),
-                semantics::ExprKind::Bracketed(_) => panic!(),
+                EagerExprKind::Lambda(_, _) => todo!(),
+                EagerExprKind::Bracketed(_) => panic!(),
             },
         }
     }

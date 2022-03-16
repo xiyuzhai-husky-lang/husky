@@ -29,10 +29,13 @@ file = { path = "../file", version = "0.0.0" }
 word = { path = "../syntax/word", version = "0.0.0" }
 token = { path = "../syntax/token", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
-scope_query = { path = "../syntax/scope_query", version = "0.0.0" }
+scope-query = { path = "../syntax/scope-query", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 husky-fmt = { path = "../fmt", version = "0.0.0" }
-semantics = { path = "../semantics", version = "0.0.0" }
-feature = { path = "../feature", version = "0.0.0" }
+semantics-entity = { path = "../semantics/entity", version = "0.0.0" }
+semantics-lazy = { path = "../semantics/lazy", version = "0.0.0" }
+semantics-feature = { path = "../semantics/feature", version = "0.0.0" }
+semantics-infer = { path = "../semantics/infer", version = "0.0.0" }
+semantics-package = { path = "../semantics/pack", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }
 compiler = { path = "../compiler", version = "0.0.0" }

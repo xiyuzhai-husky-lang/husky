@@ -1,16 +1,15 @@
-use feature::{LazyBlock, LazyBranch, LazyExpr, LazyStmt};
-use semantics::{DeclStmt, Entity, Expr, ImprStmt};
+use semantics_feature::*;
 use vm::{History, InstructionSheet, LoopFrameSnapshot, StackValueSnapshot, VMControl};
 
 use crate::*;
 
 #[derive(Debug, Clone)]
 pub enum TraceKind {
-    Main(Arc<LazyBlock>),
-    LazyStmt(Arc<LazyStmt>),
-    LazyBranch(Arc<LazyBranch>),
-    LazyExpr(Arc<LazyExpr>),
-    Input(Arc<LazyExpr>),
+    Main(Arc<FeatureBlock>),
+    FeatureStmt(Arc<FeatureStmt>),
+    FeatureBranch(Arc<FeatureBranch>),
+    FeatureExpr(Arc<FeatureExpr>),
+    Input(Arc<FeatureExpr>),
     StrictDeclStmt {
         stmt: Arc<DeclStmt>,
         history: Arc<History>,
@@ -25,8 +24,8 @@ pub enum TraceKind {
         body_stmts: Arc<Vec<Arc<ImprStmt>>>,
         loop_frame_snapshot: LoopFrameSnapshot,
     },
-    StrictExpr {
-        expr: Arc<Expr>,
+    EagerExpr {
+        expr: Arc<EagerExpr>,
         history: Arc<History>,
     },
     CallHead {
@@ -39,12 +38,12 @@ impl TraceKind {
     pub fn file_and_range(&self) -> (FilePtr, TextRange) {
         match self {
             TraceKind::Main(ref block) => (block.file, block.range),
-            TraceKind::LazyStmt(ref stmt) => (stmt.file, stmt.range),
-            TraceKind::LazyExpr(ref expr) => (expr.file, expr.range),
-            TraceKind::LazyBranch(ref branch) => (branch.block.file, branch.block.range),
+            TraceKind::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
+            TraceKind::FeatureExpr(ref expr) => (expr.file, expr.range),
+            TraceKind::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
             TraceKind::Input(_) => todo!(),
             TraceKind::StrictDeclStmt { ref stmt, .. } => (stmt.file, stmt.range),
-            TraceKind::StrictExpr { ref expr, .. } => (expr.file, expr.range),
+            TraceKind::EagerExpr { ref expr, .. } => (expr.file, expr.range),
             TraceKind::CallHead { ref entity, .. } => (entity.file, entity.range),
             TraceKind::ImprStmt { stmt, .. } => (stmt.file, stmt.range),
             TraceKind::LoopFrame { loop_stmt, .. } => (loop_stmt.file, loop_stmt.range),
@@ -59,13 +58,13 @@ impl Serialize for TraceKind {
     {
         serializer.serialize_str(match self {
             TraceKind::Main(_) => "Main",
-            TraceKind::LazyStmt(_) => "LazyStmt",
-            TraceKind::LazyBranch(_) => "LazyBranch",
-            TraceKind::LazyExpr(_) => "LazyExpr",
+            TraceKind::FeatureStmt(_) => "FeatureStmt",
+            TraceKind::FeatureBranch(_) => "FeatureBranch",
+            TraceKind::FeatureExpr(_) => "FeatureExpr",
             TraceKind::Input(_) => "Input",
             TraceKind::StrictDeclStmt { .. } => "StrictDeclStmt",
             TraceKind::ImprStmt { .. } => "ImprStmt",
-            TraceKind::StrictExpr { .. } => "StrictExpr",
+            TraceKind::EagerExpr { .. } => "StrictExpr",
             TraceKind::CallHead { .. } => "CallHead",
             TraceKind::LoopFrame { .. } => "LoopFrame",
         })
