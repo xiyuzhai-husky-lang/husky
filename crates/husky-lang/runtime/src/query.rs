@@ -1,10 +1,7 @@
 use common::epin;
 use dataset::LabeledData;
-use feature::{
-    eval_lazy_block, eval_lazy_expr, eval_lazy_stmt, FeaturePtr, FeatureSheet, LazyBlock, LazyExpr,
-    LazyExprKind, LazyStmt,
-};
-use semantics::{EntityQueryGroup, ImprStmtKind};
+use semantics_eager::ImprStmtKind;
+use semantics_feature::*;
 use vm::{exec_debug, EvalResult, HistoryEntry};
 
 use trace::*;
@@ -18,25 +15,25 @@ pub trait AskCompileTime {
 pub trait EvalFeature {
     fn session(&self) -> &Arc<Mutex<Session<'static>>>;
 
-    fn eval_lazy_block(&self, block: &LazyBlock, input_id: usize) -> EvalResult<'static> {
+    fn eval_feature_block(&self, block: &FeatureBlock, input_id: usize) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_lazy_block(block, input, sheet)
+        eval_feature_block(block, input, sheet)
     }
 
-    fn eval_lazy_stmt(&self, stmt: &LazyStmt, input_id: usize) -> EvalResult<'static> {
+    fn eval_feature_stmt(&self, stmt: &FeatureStmt, input_id: usize) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_lazy_stmt(stmt, input, sheet)
+        eval_feature_stmt(stmt, input, sheet)
     }
 
-    fn eval_lazy_expr(&self, expr: &LazyExpr, input_id: usize) -> EvalResult<'static> {
+    fn eval_feature_expr(&self, expr: &FeatureExpr, input_id: usize) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_lazy_expr(expr, input, sheet)
+        eval_feature_expr(expr, input, sheet)
     }
 }
 
@@ -74,8 +71,8 @@ pub fn subtraces(
 ) -> Arc<Vec<Arc<Trace>>> {
     let trace: &Trace = &this.trace(trace_id);
     match trace.kind {
-        TraceKind::Main(ref block) => this.lazy_block_subtraces(&trace, block),
-        TraceKind::LazyStmt(_)
+        TraceKind::Main(ref block) => this.feature_block_subtraces(&trace, block),
+        TraceKind::FeatureStmt(_)
         | TraceKind::Input(_)
         | TraceKind::StrictDeclStmt { .. }
         | TraceKind::CallHead { .. } => Arc::new(vec![]),
@@ -102,9 +99,9 @@ pub fn subtraces(
                 } => this.loop_subtraces(trace, loop_kind, stmt, stmts, stack_snapshot, body),
             },
         },
-        TraceKind::LazyExpr(ref expr) => lazy_expr_subtraces(this, trace, expr, opt_input_id),
-        TraceKind::LazyBranch(ref branch) => this.lazy_branch_subtraces(trace, branch),
-        TraceKind::StrictExpr { .. } => todo!(),
+        TraceKind::FeatureExpr(ref expr) => feature_expr_subtraces(this, trace, expr, opt_input_id),
+        TraceKind::FeatureBranch(ref branch) => this.feature_branch_subtraces(trace, branch),
+        TraceKind::EagerExpr { .. } => todo!(),
         TraceKind::LoopFrame {
             loop_frame_snapshot: ref vm_loop_frame,
             ref body_stmts,
@@ -114,17 +111,17 @@ pub fn subtraces(
     }
 }
 
-fn lazy_expr_subtraces(
+fn feature_expr_subtraces(
     this: &dyn RuntimeQueryGroup,
     parent: &Trace,
-    expr: &LazyExpr,
+    expr: &FeatureExpr,
     opt_input_id: Option<usize>,
 ) -> Arc<Vec<Arc<Trace>>> {
     Arc::new(match expr.kind {
-        LazyExprKind::Literal(_)
-        | LazyExprKind::PrimitiveBinaryOpr { .. }
-        | LazyExprKind::Variable { .. } => vec![],
-        LazyExprKind::FuncCall {
+        FeatureExprKind::Literal(_)
+        | FeatureExprKind::PrimitiveBinaryOpr { .. }
+        | FeatureExprKind::Variable { .. } => vec![],
+        FeatureExprKind::FuncCall {
             ranged_scope,
             ref inputs,
             ref stmts,
@@ -150,7 +147,7 @@ fn lazy_expr_subtraces(
                         4,
                         TraceKind::Input(func_input.clone()),
                     ));
-                    match this.eval_lazy_expr(func_input, input_id) {
+                    match this.eval_feature_expr(func_input, input_id) {
                         Ok(value) => func_input_values.push(value),
                         Err(_) => return Arc::new(subtraces),
                     }
@@ -168,7 +165,7 @@ fn lazy_expr_subtraces(
                 vec![]
             }
         }
-        LazyExprKind::ProcCall {
+        FeatureExprKind::ProcCall {
             ranged_scope,
             ref inputs,
             ref stmts,
@@ -194,7 +191,7 @@ fn lazy_expr_subtraces(
                         4,
                         TraceKind::Input(func_input.clone()),
                     ));
-                    match this.eval_lazy_expr(func_input, input_id) {
+                    match this.eval_feature_expr(func_input, input_id) {
                         Ok(value) => match value.into_stack() {
                             Ok(value) => func_input_values.push(value),
                             Err(_) => {
@@ -242,43 +239,43 @@ pub fn trace_stalk(
         TraceKind::Main(ref block) => TraceStalk {
             extra_tokens: vec![
                 trace::fade!(" = "),
-                this.eval_lazy_block(block, input_id).into(),
+                this.eval_feature_block(block, input_id).into(),
             ],
         },
-        TraceKind::LazyStmt(ref stmt) => match stmt.kind {
-            feature::LazyStmtKind::Init { varname, ref value } => TraceStalk {
+        TraceKind::FeatureStmt(ref stmt) => match stmt.kind {
+            FeatureStmtKind::Init { varname, ref value } => TraceStalk {
                 extra_tokens: vec![
                     trace::fade!(" = "),
-                    this.eval_lazy_expr(value, input_id).into(),
+                    this.eval_feature_expr(value, input_id).into(),
                 ],
             },
-            feature::LazyStmtKind::Assert { ref condition } => TraceStalk {
+            FeatureStmtKind::Assert { ref condition } => TraceStalk {
                 extra_tokens: vec![
                     trace::fade!(" = "),
-                    this.eval_lazy_expr(condition, input_id).into(),
+                    this.eval_feature_expr(condition, input_id).into(),
                 ],
             },
-            feature::LazyStmtKind::Return { ref result } => TraceStalk {
+            FeatureStmtKind::Return { ref result } => TraceStalk {
                 extra_tokens: vec![
                     trace::fade!(" = "),
-                    this.eval_lazy_expr(result, input_id).into(),
+                    this.eval_feature_expr(result, input_id).into(),
                 ],
             },
-            feature::LazyStmtKind::Branches { kind, ref branches } => panic!(),
+            FeatureStmtKind::BranchGroup { kind, ref branches } => panic!(),
         },
-        TraceKind::LazyBranch(_) => TraceStalk {
+        TraceKind::FeatureBranch(_) => TraceStalk {
             extra_tokens: vec![],
         },
-        TraceKind::LazyExpr(ref expr) => TraceStalk {
+        TraceKind::FeatureExpr(ref expr) => TraceStalk {
             extra_tokens: vec![
                 trace::fade!(" = "),
-                this.eval_lazy_expr(expr, input_id).into(),
+                this.eval_feature_expr(expr, input_id).into(),
             ],
         },
         TraceKind::Input(_) => todo!(),
         TraceKind::StrictDeclStmt { .. }
         | TraceKind::ImprStmt { .. }
-        | TraceKind::StrictExpr { .. }
+        | TraceKind::EagerExpr { .. }
         | TraceKind::CallHead { .. } => panic!(),
         TraceKind::LoopFrame {
             loop_frame_snapshot: ref vm_loop_frame,

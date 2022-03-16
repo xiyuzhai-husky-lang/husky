@@ -13,7 +13,9 @@ use file::FilePtr;
 // use interpreter::VMControl;
 // pub use interpreter::{TraceInterpreter, VMValueSnapshot};
 pub use kind::TraceKind;
-use semantics::ImprStmtKind;
+use semantics_eager::*;
+use semantics_entity::*;
+use semantics_feature::*;
 pub use stalk::TraceStalk;
 use text::{Text, TextRange};
 pub use token::{TokenProps, TraceTokenKind};
@@ -64,9 +66,9 @@ impl Serialize for Trace {
         state.serialize_field(
             "has_subtraces",
             &match self.kind {
-                TraceKind::LazyStmt(_) | TraceKind::Input(_) | TraceKind::StrictDeclStmt { .. } => {
-                    false
-                }
+                TraceKind::FeatureStmt(_)
+                | TraceKind::Input(_)
+                | TraceKind::StrictDeclStmt { .. } => false,
                 TraceKind::ImprStmt { ref stmt, .. } => match stmt.kind {
                     ImprStmtKind::Init { .. }
                     | ImprStmtKind::Assert { .. }
@@ -75,25 +77,27 @@ impl Serialize for Trace {
                     ImprStmtKind::Loop { .. } => true,
                     ImprStmtKind::BranchGroup { .. } => panic!(),
                 },
-                TraceKind::LoopFrame { .. } | TraceKind::Main(_) | TraceKind::LazyBranch(_) => true,
-                TraceKind::LazyExpr(ref expr) => match expr.kind {
-                    feature::LazyExprKind::Literal(_)
-                    | feature::LazyExprKind::PrimitiveBinaryOpr { .. }
-                    | feature::LazyExprKind::Variable { .. } => false,
-                    feature::LazyExprKind::FuncCall { ranged_scope, .. } => {
+                TraceKind::LoopFrame { .. } | TraceKind::Main(_) | TraceKind::FeatureBranch(_) => {
+                    true
+                }
+                TraceKind::FeatureExpr(ref expr) => match expr.kind {
+                    FeatureExprKind::Literal(_)
+                    | FeatureExprKind::PrimitiveBinaryOpr { .. }
+                    | FeatureExprKind::Variable { .. } => false,
+                    FeatureExprKind::FuncCall { ranged_scope, .. } => {
                         !ranged_scope.scope.is_builtin()
                     }
-                    feature::LazyExprKind::ProcCall { ranged_scope, .. } => {
+                    FeatureExprKind::ProcCall { ranged_scope, .. } => {
                         !ranged_scope.scope.is_builtin()
                     }
                 },
-                TraceKind::StrictExpr { ref expr, .. } => match expr.kind {
-                    semantics::ExprKind::Variable(_)
-                    | semantics::ExprKind::Scope { .. }
-                    | semantics::ExprKind::Literal(_) => false,
-                    semantics::ExprKind::Bracketed(_) => todo!(),
-                    semantics::ExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
-                    semantics::ExprKind::Lambda(_, _) => todo!(),
+                TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
+                    EagerExprKind::Variable(_)
+                    | EagerExprKind::Scope { .. }
+                    | EagerExprKind::Literal(_) => false,
+                    EagerExprKind::Bracketed(_) => todo!(),
+                    EagerExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
+                    EagerExprKind::Lambda(_, _) => todo!(),
                 },
                 TraceKind::CallHead { .. } => false,
             },

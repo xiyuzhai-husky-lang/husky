@@ -1,0 +1,103 @@
+use text::Text;
+use vm::{History, StackValueSnapshot};
+
+use super::{expr::ExprTokenConfig, *};
+use crate::*;
+
+impl TraceFactory {
+    pub fn new_eager_expr_trace(
+        &self,
+        parent_id: TraceId,
+        expr: Arc<EagerExpr>,
+        value: StackValueSnapshot,
+        history: Arc<History>,
+        text: &Text,
+    ) -> Arc<Trace> {
+        self.new_trace(
+            Some(parent_id),
+            0,
+            TraceKind::EagerExpr { expr, history },
+            text,
+        )
+    }
+
+    pub(super) fn eager_expr_lines(
+        &self,
+        expr: &Arc<EagerExpr>,
+        text: &Text,
+        history: &Arc<History>,
+        config: ExprTokenConfig,
+    ) -> Vec<LineProps> {
+        vec![LineProps {
+            indent: 0,
+            idx: 0,
+            tokens: self.eager_expr_tokens(expr, text, history, config),
+        }]
+    }
+
+    pub(super) fn eager_expr_tokens(
+        &self,
+        expr: &Arc<EagerExpr>,
+        text: &Text,
+        history: &Arc<History>,
+        config: ExprTokenConfig,
+    ) -> Vec<TokenProps> {
+        let associated_trace = if config.associated {
+            Some(self.new_trace(
+                None,
+                0,
+                TraceKind::EagerExpr {
+                    expr: expr.clone(),
+                    history: history.clone(),
+                },
+                text,
+            ))
+        } else {
+            None
+        };
+        match expr.kind {
+            EagerExprKind::Variable(ident) => vec![ident!(ident.0, associated_trace)],
+            EagerExprKind::Scope { scope, compiled } => todo!(),
+            EagerExprKind::Literal(value) => vec![literal!(value)],
+            EagerExprKind::Bracketed(_) => todo!(),
+            EagerExprKind::Opn {
+                opn_kind: opn,
+                compiled,
+                ref opds,
+            } => {
+                let mut tokens = vec![];
+                match opn {
+                    EagerOpnKind::Binary { opr, this } => {
+                        tokens.extend(self.eager_expr_tokens(
+                            &opds[0],
+                            text,
+                            history,
+                            config.subexpr(),
+                        ));
+                        tokens.push(special!(opr.spaced_code(), associated_trace));
+                        tokens.extend(self.eager_expr_tokens(
+                            &opds[1],
+                            text,
+                            history,
+                            config.subexpr(),
+                        ));
+                    }
+                    EagerOpnKind::Prefix(_) => todo!(),
+                    EagerOpnKind::Suffix(_) => todo!(),
+                    EagerOpnKind::RoutineCall(_) => todo!(),
+                    EagerOpnKind::PatternCall => todo!(),
+                    EagerOpnKind::MembVarAccess => todo!(),
+                    EagerOpnKind::MembFuncCall(_) => todo!(),
+                    EagerOpnKind::ElementAccess => todo!(),
+                    EagerOpnKind::TypeCall(_) => todo!(),
+                }
+                if config.appended {
+                    tokens.push(fade!(" = "));
+                    tokens.push(history.entry(expr).value().into())
+                }
+                tokens
+            }
+            EagerExprKind::Lambda(_, _) => todo!(),
+        }
+    }
+}

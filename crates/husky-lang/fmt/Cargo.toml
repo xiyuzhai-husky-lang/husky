@@ -17,7 +17,7 @@ text = { path = "../text", version = "0.0.0" }
 word = { path = "../syntax/word", version = "0.0.0" }
 token = { path = "../syntax/token", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
-scope_query = { path = "../syntax/scope_query", version = "0.0.0" }
+scope-query = { path = "../syntax/scope-query", version = "0.0.0" }
 syntax-types = { path = "../syntax/types", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }

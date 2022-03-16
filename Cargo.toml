@@ -1,9 +1,8 @@
 [workspace]
 members = [
     "crates/husky-lang/syntax/*",
-    "crates/husky-lang/semantics",
+    "crates/husky-lang/semantics/*",
     "crates/husky-lang/diagnostic",
-    "crates/husky-lang/feature",
     "crates/husky-lang/compile-time",
     "crates/husky-lang/vm",
     "crates/husky-lang/runtime",

@@ -1,9 +1,9 @@
 use reserve::Reserve;
 use scope::ScopePtr;
-use semantics::{SemanticQueryGroup, SemanticResult};
+use semantics_error::*;
 
 #[salsa::query_group(CompilerStorage)]
-pub trait Compiler: SemanticQueryGroup {
+pub trait Compiler {
     fn compiled_rust_code(&self, scope: ScopePtr) -> SemanticResult<Option<Reserve<String>>>;
 }
 

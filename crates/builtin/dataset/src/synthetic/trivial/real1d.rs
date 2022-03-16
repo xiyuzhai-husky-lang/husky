@@ -8,7 +8,7 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 };
 
 pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Func,
+    scope_kind: ScopeKind::Routine,
     subscopes: &[],
     signature: StaticScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
@@ -20,7 +20,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 };
 
 pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Func,
+    scope_kind: ScopeKind::Routine,
     subscopes: &[],
     signature: StaticScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],

@@ -11,4 +11,4 @@ reserve = { path = "../../data_structure/reserve", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
-semantics = { path = "../semantics", version = "0.0.0" }
+semantics-error = { path = "../semantics/error", version = "0.0.0" }

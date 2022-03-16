@@ -2,7 +2,8 @@ mod division;
 mod tests;
 
 use common::*;
-use semantics::{Config, DeclStmt, Package};
+use semantics_eager::DeclStmt;
+use semantics_package::{Config, Package};
 use trivial_iter::TrivialIter;
 use vm::{eval_fast, EvalResult, Mode, VMResult};
 
@@ -17,7 +18,7 @@ use std::{
 use dataset::{Dataset, DatasetDyn};
 
 use division::Division;
-use feature::{Feature, FeaturePtr, FeatureSheet};
+use semantics_feature::{Feature, FeaturePtr, FeatureSheet};
 
 #[derive(Debug)]
 pub struct Session<'sess> {

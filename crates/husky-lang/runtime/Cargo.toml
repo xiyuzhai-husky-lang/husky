@@ -19,9 +19,10 @@ word = { path = "../syntax/word", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 syntax-types = { path = "../syntax/types", version = "0.0.0" }
-semantics = { path = "../semantics", version = "0.0.0" }
-feature = { path = "../feature", version = "0.0.0" }
 dataset = { path = "../../builtin/dataset", version = "0.0.0" }
 husky-lang-compile-time = { path = "../compile-time", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
 trivial-iter = { path = "../../data_structure/trivial-iter", version = "0.0.0" }
+semantics-eager = { path = "../semantics/eager", version = "0.0.0" }
+semantics-package = { path = "../semantics/pack", version = "0.0.0" }
+semantics-feature = { path = "../semantics/feature", version = "0.0.0" }

@@ -4,23 +4,22 @@ mod tests;
 
 pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use diagnostic::DiagnosticQuery;
-pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, LiveFiles};
 pub use husky_fmt::FmtQuery;
-use scope::ScopePtr;
 pub use scope::{AllocateUniqueScope, Scope};
 pub use scope_query::{ScopeQueryGroup, ScopeSalsaQueryGroup};
-pub use semantics::ControlEntityVersion;
-use semantics::EntityKind;
-pub use semantics::InferQueryGroup;
-pub use semantics::SemanticQueryGroup;
+pub use semantics_entity::ControlEntityVersion;
+pub use semantics_entity::EntityQueryGroup;
+pub use semantics_feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
+pub use semantics_infer::InferQueryGroup;
+pub use semantics_package::PackageQueryGroup;
 pub use token::TokenQueryGroup;
 pub use word::InternWord;
 
 use common::*;
-
+use scope::ScopePtr;
+use semantics_entity::{EntityKind, EntityVersionControl};
 use std::fmt;
-
 use stdx::sync::ARwLock;
 
 #[salsa::database(
@@ -29,13 +28,10 @@ use stdx::sync::ARwLock;
     scope_query::ScopeQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
-    semantics::SemanticQueryGroupStorage,
-    semantics::MainQueryGroupStorage,
-    semantics::EntityQueryGroupStorage,
-    semantics::ConfigQueryGroupStorage,
-    semantics::InferQueryGroupStorage,
-    semantics::InstructionQueryGroupStorage,
-    feature::FeatureQueryGroupStorage,
+    semantics_infer::InferQueryGroupStorage,
+    semantics_entity::EntityQueryGroupStorage,
+    semantics_package::PackageQueryGroupStorage,
+    semantics_feature::FeatureQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage,
     compiler::CompilerStorage
 )]
@@ -45,8 +41,8 @@ pub struct HuskyLangCompileTime {
     word_unique_allocator: word::WordInterner,
     scope_unique_allocator: scope::UniqueScopeAllocator,
     live_docs: ARwLock<HashMap<file::FilePtr, ARwLock<String>>>,
-    vc: semantics::EntityVersionControl,
-    features: feature::FeatureUniqueAllocator,
+    vc: semantics_entity::EntityVersionControl,
+    features: semantics_feature::FeatureUniqueAllocator,
 }
 
 impl fmt::Debug for HuskyLangCompileTime {
@@ -79,8 +75,8 @@ impl Default for HuskyLangCompileTime {
             word_unique_allocator: word::new_word_unique_allocator(),
             scope_unique_allocator: scope::new_scope_unique_allocator(),
             live_docs: Default::default(),
-            vc: semantics::EntityVersionControl::new(),
-            features: feature::new_feature_unique_allocator(),
+            vc: EntityVersionControl::new(),
+            features: semantics_feature::new_feature_unique_allocator(),
         }
     }
 }
@@ -122,13 +118,13 @@ impl ScopeQueryGroup for HuskyLangCompileTime {}
 impl AstQueryGroup for HuskyLangCompileTime {}
 
 impl Upcast<dyn InferQueryGroup> for HuskyLangCompileTime {
-    fn upcast(&self) -> &(dyn semantics::InferQueryGroup + 'static) {
+    fn upcast(&self) -> &(dyn semantics_infer::InferQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn SemanticQueryGroup> for HuskyLangCompileTime {
-    fn upcast(&self) -> &(dyn SemanticQueryGroup + 'static) {
+impl Upcast<dyn semantics_entity::EntityQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn semantics_entity::EntityQueryGroup + 'static) {
         self
     }
 }
@@ -140,7 +136,7 @@ impl ControlEntityVersion for HuskyLangCompileTime {
 }
 
 impl AllocateUniqueFeature for HuskyLangCompileTime {
-    fn features(&self) -> &feature::FeatureUniqueAllocator {
+    fn features(&self) -> &semantics_feature::FeatureUniqueAllocator {
         &self.features
     }
 }

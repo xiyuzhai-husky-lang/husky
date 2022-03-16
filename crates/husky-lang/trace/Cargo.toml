@@ -10,10 +10,11 @@ common = { path = "../../common", version = "0.0.0" }
 stdx = { path = "../../stdx", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
-feature = { path = "../feature", version = "0.0.0" }
 fold = { path = "../../data_structure/fold", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
-semantics = { path = "../semantics", version = "0.0.0" }
 syntax-types = { path = "../syntax/types", version = "0.0.0" }
 word = { path = "../syntax/word", version = "0.0.0" }
+semantics-eager = { path = "../semantics/eager", version = "0.0.0" }
+semantics-entity = { path = "../semantics/entity", version = "0.0.0" }
+semantics-feature = { path = "../semantics/feature", version = "0.0.0" }
