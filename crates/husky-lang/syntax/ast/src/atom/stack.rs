@@ -1,6 +1,6 @@
 use common::*;
 
-use scope::{GenericArgument, RangedScope, ScopeKind};
+use scope::{GenericArgument, ScopeKind};
 use word::BuiltinIdentifier;
 
 use crate::{

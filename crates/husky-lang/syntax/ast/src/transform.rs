@@ -11,7 +11,7 @@ use scope::ScopeRoute;
 use syntax_types::*;
 use text::TextRanged;
 use token::*;
-use vm::{InputContract, MemberContract};
+use vm::{InputContract, MembVarContract};
 use word::{RoutineKeyword, *};
 
 use crate::{
@@ -201,10 +201,8 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                     AstKind::MembDef {
                         ident,
                         memb_kind: MembKind::MembVar {
-                            ty: MembType {
-                                contract: MemberContract::Own,
-                                scope: ty,
-                            },
+                            contract: MembVarContract::Own,
+                            ty,
                         },
                     }
                 } else {

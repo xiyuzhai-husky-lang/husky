@@ -253,10 +253,13 @@ pub trait EagerExprParser<'a> {
                 Ok((
                     scope,
                     EagerExprKind::Opn {
-                        opn_kind: EagerOpnKind::TypeCall(RangedScope {
-                            scope,
-                            range: call.range(),
-                        }),
+                        opn_kind: EagerOpnKind::TypeCall {
+                            ranged_ty: RangedScope {
+                                scope,
+                                range: call.range(),
+                            },
+                            ty_signature: self.db().ty_signature(scope)?,
+                        },
                         compiled: signature.compiled,
                         opds: arguments,
                     },

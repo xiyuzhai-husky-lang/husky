@@ -1,6 +1,6 @@
 use crate::*;
 
 #[derive(Debug, Default, Clone, PartialEq, Eq, Serialize)]
-pub struct TraceStalk {
-    pub extra_tokens: Vec<TokenProps>,
+pub struct TraceStalk<'eval> {
+    pub extra_tokens: Vec<TokenProps<'eval>>,
 }

@@ -7,17 +7,17 @@ pub enum InputContract {
     TakeMut,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum MemberContract {
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum MembVarContract {
     Own,
     Ref,
 }
 
-impl MemberContract {
+impl MembVarContract {
     pub fn constructor_input(&self) -> InputContract {
         match self {
-            MemberContract::Own => InputContract::Take,
-            MemberContract::Ref => InputContract::Share,
+            MembVarContract::Own => InputContract::Take,
+            MembVarContract::Ref => InputContract::Share,
         }
     }
 }

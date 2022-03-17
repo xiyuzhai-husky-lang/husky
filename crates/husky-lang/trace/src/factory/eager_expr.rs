@@ -4,15 +4,15 @@ use vm::{History, StackValueSnapshot};
 use super::{expr::ExprTokenConfig, *};
 use crate::*;
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     pub fn new_eager_expr_trace(
         &self,
         parent_id: TraceId,
         expr: Arc<EagerExpr>,
         value: StackValueSnapshot,
-        history: Arc<History>,
+        history: Arc<History<'eval>>,
         text: &Text,
-    ) -> Arc<Trace> {
+    ) -> Arc<Trace<'eval>> {
         self.new_trace(
             Some(parent_id),
             0,
@@ -25,9 +25,9 @@ impl TraceFactory {
         &self,
         expr: &Arc<EagerExpr>,
         text: &Text,
-        history: &Arc<History>,
+        history: &Arc<History<'eval>>,
         config: ExprTokenConfig,
-    ) -> Vec<LineProps> {
+    ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent: 0,
             idx: 0,
@@ -39,9 +39,9 @@ impl TraceFactory {
         &self,
         expr: &Arc<EagerExpr>,
         text: &Text,
-        history: &Arc<History>,
+        history: &Arc<History<'eval>>,
         config: ExprTokenConfig,
-    ) -> Vec<TokenProps> {
+    ) -> Vec<TokenProps<'eval>> {
         let associated_trace = if config.associated {
             Some(self.new_trace(
                 None,
@@ -61,12 +61,12 @@ impl TraceFactory {
             EagerExprKind::Literal(value) => vec![literal!(value)],
             EagerExprKind::Bracketed(_) => todo!(),
             EagerExprKind::Opn {
-                opn_kind: opn,
+                ref opn_kind,
                 compiled,
                 ref opds,
             } => {
                 let mut tokens = vec![];
-                match opn {
+                match opn_kind {
                     EagerOpnKind::Binary { opr, this } => {
                         tokens.extend(self.eager_expr_tokens(
                             &opds[0],
@@ -86,10 +86,10 @@ impl TraceFactory {
                     EagerOpnKind::Suffix(_) => todo!(),
                     EagerOpnKind::RoutineCall(_) => todo!(),
                     EagerOpnKind::PatternCall => todo!(),
-                    EagerOpnKind::MembVarAccess => todo!(),
+                    EagerOpnKind::MembVarAccess { .. } => todo!(),
                     EagerOpnKind::MembFuncCall(_) => todo!(),
                     EagerOpnKind::ElementAccess => todo!(),
-                    EagerOpnKind::TypeCall(_) => todo!(),
+                    EagerOpnKind::TypeCall { .. } => todo!(),
                 }
                 if config.appended {
                     tokens.push(fade!(" = "));

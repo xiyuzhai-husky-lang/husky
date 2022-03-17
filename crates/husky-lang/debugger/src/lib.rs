@@ -113,7 +113,7 @@ impl Debugger {
         &self,
         trace_id: TraceId,
         effective_opt_input_id_for_subtraces: Option<usize>,
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'static>>>> {
         let subtraces = self
             .runtime
             .lock()
@@ -151,7 +151,7 @@ impl Debugger {
         self.runtime.lock().unwrap().toggle_show(id)
     }
 
-    pub async fn trace(&self, id: TraceId) -> Arc<Trace> {
+    pub async fn trace(&self, id: TraceId) -> Arc<Trace<'static>> {
         self.runtime.lock().unwrap().trace(id)
     }
 
@@ -159,7 +159,11 @@ impl Debugger {
         self.runtime.lock().unwrap().lock_input(input_str)
     }
 
-    pub async fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk> {
+    pub async fn trace_stalk(
+        &self,
+        trace_id: TraceId,
+        input_id: usize,
+    ) -> Arc<TraceStalk<'static>> {
         self.runtime.lock().unwrap().trace_stalk(trace_id, input_id)
     }
 }

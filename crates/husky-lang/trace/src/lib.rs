@@ -28,32 +28,32 @@ use serde::{ser::SerializeStruct, Serialize};
 
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug, Clone)]
-pub struct Trace {
+pub struct Trace<'eval> {
     parent: Option<TraceId>,
     pub(crate) id: TraceId,
-    pub kind: TraceKind,
+    pub kind: TraceKind<'eval>,
     pub indent: Indent,
-    pub lines: Vec<LineProps>,
+    pub lines: Vec<LineProps<'eval>>,
     pub range: TextRange,
     pub file: FilePtr,
 }
 
 #[derive(Debug, Clone, Serialize)]
-pub struct LineProps {
+pub struct LineProps<'eval> {
     pub indent: Indent,
-    pub tokens: Vec<TokenProps>,
+    pub tokens: Vec<TokenProps<'eval>>,
     pub idx: usize,
 }
 
-impl PartialEq for Trace {
+impl<'eval> PartialEq for Trace<'eval> {
     fn eq(&self, other: &Self) -> bool {
         self.id == other.id
     }
 }
 
-impl Eq for Trace {}
+impl<'eval> Eq for Trace<'eval> {}
 
-impl Serialize for Trace {
+impl<'eval> Serialize for Trace<'eval> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -90,6 +90,7 @@ impl Serialize for Trace {
                     FeatureExprKind::ProcCall { ranged_scope, .. } => {
                         !ranged_scope.scope.is_builtin()
                     }
+                    FeatureExprKind::MembVarAccess { .. } => todo!(),
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)
@@ -110,12 +111,12 @@ impl Serialize for Trace {
     }
 }
 
-impl Trace {
+impl<'eval> Trace<'eval> {
     pub(crate) fn new(
         parent: Option<TraceId>,
         indent: Indent,
-        kind: TraceKind,
-        trace_allocator: &TraceFactory,
+        kind: TraceKind<'eval>,
+        trace_allocator: &TraceFactory<'eval>,
         text: &Text,
     ) -> Self {
         let id = trace_allocator.next_id();

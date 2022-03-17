@@ -1,5 +1,5 @@
 struct A:
-    a: i32
+    x: i32
 
 proc f1() -> A:
     return A(1)
@@ -8,4 +8,5 @@ dataset:
     synthetic::trivial::real1d::dataset1()
 
 main:
-    assert f1().a == 1
+    a = f1()
+    assert a.x == 1

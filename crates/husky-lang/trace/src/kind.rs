@@ -4,7 +4,7 @@ use vm::{History, InstructionSheet, LoopFrameSnapshot, StackValueSnapshot, VMCon
 use crate::*;
 
 #[derive(Debug, Clone)]
-pub enum TraceKind {
+pub enum TraceKind<'eval> {
     Main(Arc<FeatureBlock>),
     FeatureStmt(Arc<FeatureStmt>),
     FeatureBranch(Arc<FeatureBranch>),
@@ -12,29 +12,29 @@ pub enum TraceKind {
     Input(Arc<FeatureExpr>),
     StrictDeclStmt {
         stmt: Arc<DeclStmt>,
-        history: Arc<History>,
+        history: Arc<History<'eval>>,
     },
     ImprStmt {
         stmt: Arc<ImprStmt>,
-        history: Arc<History>,
+        history: Arc<History<'eval>>,
     },
     LoopFrame {
         loop_stmt: Arc<ImprStmt>,
         body_instruction_sheet: Arc<InstructionSheet>,
         body_stmts: Arc<Vec<Arc<ImprStmt>>>,
-        loop_frame_snapshot: LoopFrameSnapshot,
+        loop_frame_snapshot: LoopFrameSnapshot<'eval>,
     },
     EagerExpr {
         expr: Arc<EagerExpr>,
-        history: Arc<History>,
+        history: Arc<History<'eval>>,
     },
     CallHead {
         entity: Arc<Entity>,
-        tokens: Vec<TokenProps>,
+        tokens: Vec<TokenProps<'eval>>,
     },
 }
 
-impl TraceKind {
+impl<'eval> TraceKind<'eval> {
     pub fn file_and_range(&self) -> (FilePtr, TextRange) {
         match self {
             TraceKind::Main(ref block) => (block.file, block.range),
@@ -51,7 +51,7 @@ impl TraceKind {
     }
 }
 
-impl Serialize for TraceKind {
+impl<'eval> Serialize for TraceKind<'eval> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,

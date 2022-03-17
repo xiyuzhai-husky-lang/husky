@@ -4,9 +4,9 @@ use crate::*;
 
 pub struct Interpreter<'stack, 'eval: 'stack> {
     stack: VMStack<'stack, 'eval>,
-    pub(crate) history: History,
-    snapshot: Option<StackSnapshot>,
-    pub(crate) frames: Vec<LoopFrameSnapshot>,
+    pub(crate) history: History<'eval>,
+    snapshot: Option<StackSnapshot<'eval>>,
+    pub(crate) frames: Vec<LoopFrameSnapshot<'eval>>,
 }
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -49,7 +49,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     //     if self.stack.len() != 1 {
     //         todo!()
     //     }
-    //     Ok(self.stack.pop().unwrap())
+    //     Ok(self.stack.pop())
     // }
 
     fn call_compiled(&mut self, f: &Compiled, nargs: u8) -> VMResult<()> {
@@ -58,8 +58,24 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         Ok(())
     }
 
-    fn call_interpreted(&mut self, instructions: &[Instruction], nargs: u8) -> VMResult<()> {
+    fn routine_call_interpreted(
+        &mut self,
+        instructions: &[Instruction],
+        nargs: u8,
+    ) -> VMResult<()> {
         todo!()
+    }
+
+    fn ty_call_interpreted(&mut self, signature: &VMTySignature) -> VMResult<()> {
+        match signature {
+            VMTySignature::Enum => todo!(),
+            VMTySignature::Struct { ref memb_vars } => {
+                let inputs = self.stack.drain(memb_vars.len().try_into().unwrap());
+                self.stack
+                    .push(VirtualTy::new_struct(inputs, memb_vars).into());
+                Ok(())
+            }
+        }
     }
 
     fn take_snapshot(&mut self) {
@@ -69,7 +85,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         self.snapshot = Some(self.stack.snapshot());
     }
 
-    fn take_changes(&mut self) -> (StackSnapshot, Vec<()>) {
+    fn take_changes(&mut self) -> (StackSnapshot<'eval>, Vec<()>) {
         if let Some(snapshot) = std::mem::take(&mut self.snapshot) {
             (snapshot, vec![()])
         } else {

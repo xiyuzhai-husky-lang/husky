@@ -21,13 +21,13 @@ use division::Division;
 use semantics_feature::{Feature, FeaturePtr, FeatureSheet};
 
 #[derive(Debug)]
-pub struct Session<'sess> {
+pub struct Session<'eval> {
     config: Arc<Config>,
-    pub(crate) dataset: Dataset,
-    pub(crate) dev: Division<'sess>,
-    val: Division<'sess>,
-    test: Division<'sess>,
-    validation_report: ValidationReport<'sess>,
+    pub(crate) dataset: Dataset<'eval>,
+    pub(crate) dev: Division<'eval>,
+    val: Division<'eval>,
+    test: Division<'eval>,
+    validation_report: ValidationReport<'eval>,
 }
 
 #[derive(Debug)]

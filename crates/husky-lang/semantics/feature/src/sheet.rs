@@ -39,7 +39,7 @@ unsafe fn share_cached<'eval>(cached: &EvalResult<'eval>) -> EvalResult<'eval> {
             EvalValue::Primitive(value) => EvalValue::Primitive(*value),
             EvalValue::Boxed(value) => EvalValue::GlobalRef(&*value.pointer()),
             EvalValue::GlobalRef(_) => todo!(),
-            EvalValue::Volatile(_) => todo!(),
+            EvalValue::GlobalPure(_) => todo!(),
             EvalValue::Undefined => EvalValue::Undefined,
         },
         Err(error) => Err(error.clone())?,

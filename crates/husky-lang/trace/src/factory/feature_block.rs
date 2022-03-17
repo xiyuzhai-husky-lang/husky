@@ -2,13 +2,13 @@ use crate::*;
 
 use std::sync::Arc;
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     pub fn feature_block_subtraces(
         &self,
-        parent: &Trace,
+        parent: &Trace<'eval>,
         feature_block: &FeatureBlock,
         text: &Text,
-    ) -> Vec<Arc<Trace>> {
+    ) -> Vec<Arc<Trace<'eval>>> {
         feature_block
             .stmts
             .iter()

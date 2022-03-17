@@ -1,18 +1,26 @@
-use scope::{RangedScope, ScopePtr};
-use syntax_types::*;
-use text::TextRange;
-use vm::BinaryOpr;
-use word::{CustomIdentifier, Identifier};
+use std::sync::Arc;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+use scope::{RangedScope, ScopePtr};
+use semantics_infer::TySignature;
+use vm::{BinaryOpr, MembVarContract};
+
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerOpnKind {
-    Binary { opr: BinaryOpr, this: ScopePtr },
+    Binary {
+        opr: BinaryOpr,
+        this: ScopePtr,
+    },
     Prefix(PrefixOpn),
     Suffix(SuffixOpn),
     RoutineCall(RangedScope),
-    TypeCall(RangedScope),
+    TypeCall {
+        ranged_ty: RangedScope,
+        ty_signature: Arc<TySignature>,
+    },
     PatternCall,
-    MembVarAccess,
+    MembVarAccess {
+        memb_var_contract: MembVarContract,
+    },
     MembFuncCall(ScopePtr),
     ElementAccess,
 }

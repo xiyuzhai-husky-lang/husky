@@ -7,7 +7,7 @@ use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
 use text::TextRange;
-use vm::{BinaryOpr, InstructionSheet};
+use vm::{BinaryOpr, InstructionSheet, MembVarAccessCompiled};
 use word::BuiltinIdentifier;
 
 use crate::{eval::FeatureEvalId, *};
@@ -35,23 +35,28 @@ pub enum FeatureExprKind {
     },
     FuncCall {
         ranged_scope: RangedScope,
+        inputs: Vec<Arc<FeatureExpr>>,
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        inputs: Vec<Arc<FeatureExpr>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<DeclStmt>>>,
     },
     ProcCall {
         ranged_scope: RangedScope,
+        inputs: Vec<Arc<FeatureExpr>>,
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        inputs: Vec<Arc<FeatureExpr>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ImprStmt>>>,
+    },
+    MembVarAccess {
+        this: Arc<FeatureExpr>,
+        memb_var_ident: CustomIdentifier,
+        opt_compiled: Option<MembVarAccessCompiled>,
     },
 }
 
@@ -173,7 +178,25 @@ impl FeatureExpr {
                     }
                 }
                 LazyOpnKind::PatternCall => todo!(),
-                LazyOpnKind::MembVarAccess(_) => todo!(),
+                LazyOpnKind::MembVarAccess(memb_var_ident) => {
+                    let this = Self::new(db, &opds[0], symbols, features);
+                    let feature = features.alloc(Feature::MembVarAccess {
+                        this: this.feature,
+                        memb_var_ident,
+                    });
+                    msg_once!("compiled memb var access");
+                    Self {
+                        kind: FeatureExprKind::MembVarAccess {
+                            this,
+                            memb_var_ident,
+                            opt_compiled: None,
+                        },
+                        feature,
+                        range: expr.range,
+                        file: expr.file,
+                        eval_id: Default::default(),
+                    }
+                }
                 LazyOpnKind::MembFuncCall(_) => todo!(),
                 LazyOpnKind::ElementAccess => todo!(),
                 LazyOpnKind::TypeCall(_) => todo!(),

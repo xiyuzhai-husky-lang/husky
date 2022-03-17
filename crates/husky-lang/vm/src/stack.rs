@@ -1,8 +1,6 @@
 mod value;
 
-pub use value::{
-    AnyValue, AnyValueDyn, BoxedValue, EvalResult, EvalValue, PrimitiveValue, StackValue,
-};
+pub use value::*;
 
 use arrayvec::ArrayVec;
 use word::CustomIdentifier;
@@ -71,7 +69,7 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         self.values.last_mut().unwrap()
     }
 
-    pub(crate) fn snapshot(&mut self) -> StackSnapshot {
+    pub(crate) fn snapshot(&mut self) -> StackSnapshot<'eval> {
         StackSnapshot {
             values: self
                 .values
@@ -79,12 +77,6 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
                 .map(|value| value.snapshot())
                 .collect(),
         }
-        // let mut values: Box<[StaticVMValue; STACK_SIZE]> =
-        //     Box::new([UNINITIALIZED_STACK_VALUE; STACK_SIZE]);
-        // for i in 0..STACK_SIZE {
-        //     values[i] = self.values[i].snapshot();
-        // }
-        // VMStack { values }
     }
 
     pub(crate) fn len(&self) -> usize {
@@ -94,8 +86,12 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     pub(crate) fn push(&mut self, value: StackValue<'stack, 'eval>) {
         self.values.push(value);
     }
-    pub(crate) fn pop(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
-        self.values.pop().ok_or(error!("pop error"))
+    pub(crate) fn pop(&mut self) -> StackValue<'stack, 'eval> {
+        self.values.pop().unwrap()
+    }
+
+    pub(crate) fn drain(&mut self, k: u8) -> Vec<StackValue<'stack, 'eval>> {
+        self.values.drain((self.len() - k as usize)..).collect()
     }
 
     pub(crate) fn topk_mut(&mut self, k: u8) -> &mut [StackValue<'stack, 'eval>] {

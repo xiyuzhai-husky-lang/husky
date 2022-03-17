@@ -3,7 +3,7 @@ use crate::*;
 use super::*;
 
 pub struct BoxedValue<'eval> {
-    inner: Box<dyn AnyValueDyn + 'eval>,
+    inner: Box<dyn AnyValueDyn<'eval>>,
 }
 
 impl<'eval> Clone for BoxedValue<'eval> {
@@ -15,7 +15,7 @@ impl<'eval> Clone for BoxedValue<'eval> {
 }
 
 impl<'eval> PartialEq for BoxedValue<'eval> {
-    fn eq(&self, other: &Self) -> bool {
+    fn eq(&self, other: &BoxedValue<'eval>) -> bool {
         self.inner.equal_any(&*other.inner)
     }
 }
@@ -23,13 +23,13 @@ impl<'eval> PartialEq for BoxedValue<'eval> {
 impl<'eval> Eq for BoxedValue<'eval> {}
 
 impl<'eval> BoxedValue<'eval> {
-    pub fn new<T: AnyValueDyn + 'eval>(value: T) -> BoxedValue<'eval> {
+    pub fn new<T: AnyValueDyn<'eval>>(value: T) -> BoxedValue<'eval> {
         Self {
             inner: Box::new(value),
         }
     }
 
-    pub fn take<T: AnyValue>(self) -> VMResult<T> {
+    pub fn take<T: AnyValue<'eval>>(self) -> VMResult<T> {
         // check type
         if (*self.inner).static_type_id() != T::static_type_id() {
             Err(VMError::TypeMismatch("tooododo".into()))
@@ -40,12 +40,21 @@ impl<'eval> BoxedValue<'eval> {
         }
     }
 
-    pub fn pointer(&self) -> *const (dyn AnyValueDyn + 'eval) {
+    pub fn pointer(&self) -> *const (dyn AnyValueDyn<'eval>) {
         &*(self.inner)
     }
 
-    pub fn as_ref(&self) -> &dyn AnyValueDyn {
+    pub fn as_ref(&self) -> &dyn AnyValueDyn<'eval> {
         &*self.inner
+    }
+
+    pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
+        if T::static_type_id() != self.inner.static_type_id() {
+            panic!()
+        }
+        let ptr: *const dyn AnyValueDyn = &*self.inner;
+        let ptr: *const T = ptr as *const T;
+        unsafe { &*ptr }
     }
 }
 

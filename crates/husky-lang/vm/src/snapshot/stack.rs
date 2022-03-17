@@ -1,19 +1,17 @@
-use arrayvec::ArrayVec;
-
-use crate::{stack::STACK_SIZE, *};
+use crate::*;
 
 #[derive(Debug, Clone)]
-pub struct StackSnapshot {
-    pub(crate) values: Vec<StackValueSnapshot>,
+pub struct StackSnapshot<'eval> {
+    pub(crate) values: Vec<StackValueSnapshot<'eval>>,
 }
 
-impl StackSnapshot {
-    pub(crate) fn stack<'stack, 'eval: 'stack>(&self) -> VMStack<'stack, 'eval> {
+impl<'stack, 'eval: 'stack> StackSnapshot<'eval> {
+    pub(crate) fn stack(&self) -> VMStack<'stack, 'eval> {
         todo!()
     }
 }
 
-impl<'stack, 'eval: 'stack> Into<VMStack<'stack, 'eval>> for &StackSnapshot {
+impl<'stack, 'eval: 'stack> Into<VMStack<'stack, 'eval>> for &StackSnapshot<'eval> {
     fn into(self) -> VMStack<'stack, 'eval> {
         VMStack::new(
             self.values

@@ -1,6 +1,8 @@
+use semantics_eager::EagerOpnKind;
+
 use crate::*;
 
-impl Trace {
+impl<'eval> Trace<'eval> {
     pub fn subtraces_container_class(&self) -> Option<SubtracesContainerClass> {
         match self.kind {
             TraceKind::Main(_)
@@ -18,19 +20,18 @@ impl Trace {
                 FeatureExprKind::FuncCall { .. } | FeatureExprKind::ProcCall { .. } => {
                     Some(SubtracesContainerClass::Call)
                 }
+                FeatureExprKind::MembVarAccess { .. } => todo!(),
             },
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)
                 | EagerExprKind::Scope { .. }
                 | EagerExprKind::Literal(_) => None,
                 EagerExprKind::Opn {
-                    opn_kind: opn,
+                    ref opn_kind,
                     ref opds,
                     ..
-                } => match opn {
-                    semantics_eager::EagerOpnKind::MembVarAccess | EagerOpnKind::ElementAccess => {
-                        None
-                    }
+                } => match opn_kind {
+                    EagerOpnKind::MembVarAccess { .. } | EagerOpnKind::ElementAccess => None,
                     EagerOpnKind::Binary { .. }
                     | EagerOpnKind::Prefix(_)
                     | EagerOpnKind::Suffix(_) => {
@@ -44,7 +45,7 @@ impl Trace {
                         Some(SubtracesContainerClass::Call)
                     }
                     EagerOpnKind::PatternCall => panic!(),
-                    EagerOpnKind::TypeCall(_) => todo!(),
+                    EagerOpnKind::TypeCall { .. } => todo!(),
                 },
                 EagerExprKind::Lambda(_, _) => todo!(),
                 EagerExprKind::Bracketed(_) => panic!(),

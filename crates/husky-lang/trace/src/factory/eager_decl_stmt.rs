@@ -4,15 +4,15 @@ use vm::{History, VMControl};
 use super::*;
 use crate::*;
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     pub fn new_strict_decl_stmt_trace(
         &self,
         parent_id: TraceId,
         indent: Indent,
         stmt: Arc<DeclStmt>,
-        history: Arc<History>,
+        history: Arc<History<'eval>>,
         text: &Text,
-    ) -> Arc<Trace> {
+    ) -> Arc<Trace<'eval>> {
         self.new_trace(
             Some(parent_id),
             indent,

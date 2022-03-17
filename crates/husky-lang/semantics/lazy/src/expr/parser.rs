@@ -86,13 +86,7 @@ pub trait LazyExprParser<'a> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
-            Opr::Suffix(opr) => match opr {
-                SuffixOpr::Incr => todo!(),
-                SuffixOpr::Decr => todo!(),
-                SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-                SuffixOpr::MemberAccess(_) => todo!(),
-                SuffixOpr::WithType(_) => todo!(),
-            },
+            Opr::Suffix(opr) => self.parse_suffix_opr(opr, opds),
             Opr::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
@@ -211,6 +205,33 @@ pub trait LazyExprParser<'a> {
             PureBinaryOpr::RemEuclid => todo!(),
         }
         .into())
+    }
+
+    fn parse_suffix_opr(
+        &mut self,
+        opr: SuffixOpr,
+        opds: &RawExprRange,
+    ) -> SemanticResult<(ScopePtr, LazyExprKind)> {
+        let opd = self.parse_lazy_expr(&self.arena()[opds][0])?;
+        Ok(match opr {
+            SuffixOpr::Incr => todo!(),
+            SuffixOpr::Decr => todo!(),
+            SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
+            SuffixOpr::MembVarAccess(ident) => {
+                let ty_signature = self.db().ty_signature(opd.ty)?;
+                let memb_var_ty = ty_signature.memb_var_ty(ident);
+                msg_once!("todo: compiled for memb var access");
+                (
+                    memb_var_ty,
+                    LazyExprKind::Opn {
+                        opn_kind: LazyOpnKind::MembVarAccess(ident),
+                        compiled: None,
+                        opds: vec![opd],
+                    },
+                )
+            }
+            SuffixOpr::WithType(_) => todo!(),
+        })
     }
 
     fn parse_call(&mut self, opds: &[RawExpr]) -> SemanticResult<(ScopePtr, LazyExprKind)> {

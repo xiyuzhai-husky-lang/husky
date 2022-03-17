@@ -2,13 +2,13 @@ use crate::*;
 
 use super::{expr::ExprTokenConfig, *};
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     pub fn feature_stmt_traces(
         &self,
         parent: &Trace,
         stmt: Arc<FeatureStmt>,
         text: &Text,
-    ) -> Vec<Arc<Trace>> {
+    ) -> Vec<Arc<Trace<'eval>>> {
         match stmt.kind {
             FeatureStmtKind::Init { .. }
             | FeatureStmtKind::Assert { .. }
@@ -27,7 +27,7 @@ impl TraceFactory {
         }
     }
 
-    pub fn feature_stmt_lines(&self, stmt: &FeatureStmt, text: &Text) -> Vec<LineProps> {
+    pub fn feature_stmt_lines(&self, stmt: &FeatureStmt, text: &Text) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent: stmt.indent,
             idx: 0,
@@ -35,7 +35,7 @@ impl TraceFactory {
         }]
     }
 
-    pub fn feature_stmt_tokens(&self, stmt: &FeatureStmt, text: &Text) -> Vec<TokenProps> {
+    pub fn feature_stmt_tokens(&self, stmt: &FeatureStmt, text: &Text) -> Vec<TokenProps<'eval>> {
         match stmt.kind {
             FeatureStmtKind::Init { varname, ref value } => {
                 let mut tokens = vec![];
