@@ -11,7 +11,7 @@ use scope::ScopeRoute;
 use syntax_types::*;
 use text::TextRanged;
 use token::*;
-use vm::Contract;
+use vm::{InputContract, MemberContract};
 use word::{RoutineKeyword, *};
 
 use crate::{
@@ -129,8 +129,10 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                             let decl = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
                             for input_placeholder in decl.input_placeholders.iter() {
                                 match input_placeholder.contract {
-                                    Contract::PureInput | Contract::Share | Contract::Take => (),
-                                    Contract::BorrowMut | Contract::TakeMut => {
+                                    InputContract::Pure
+                                    | InputContract::Share
+                                    | InputContract::Take => (),
+                                    InputContract::BorrowMut | InputContract::TakeMut => {
                                         todo!("report invalid input contract")
                                     }
                                 }
@@ -198,9 +200,9 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                     let ty = atom::parse_ty(self.symbol_proxy(), &tokens[2..])?;
                     AstKind::MembDef {
                         ident,
-                        kind: MembKind::MembVar {
+                        memb_kind: MembKind::MembVar {
                             ty: MembType {
-                                contract: Contract::Take,
+                                contract: MemberContract::Own,
                                 scope: ty,
                             },
                         },

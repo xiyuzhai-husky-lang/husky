@@ -1,3 +1,4 @@
+use common::p;
 use file::FilePtr;
 use scope::*;
 use word::CustomIdentifier;
@@ -42,17 +43,19 @@ impl Entry {
                 }),
             );
         }
-        if token_group.len() == 2
-            && token_group[0].kind == TokenKind::Keyword(RoutineKeyword::Main.into())
-        {
-            return (
-                Some(Entry {
-                    ident: None,
-                    kind: ScopeKind::Routine,
-                    source: ScopeSource::from_file(file_id, token_group_index),
-                }),
-                None,
-            );
+        if token_group.len() == 2 {
+            if token_group[0].kind == TokenKind::Keyword(RoutineKeyword::Main.into()) {
+                return (
+                    Some(Entry {
+                        ident: None,
+                        kind: ScopeKind::Routine,
+                        source: ScopeSource::from_file(file_id, token_group_index),
+                    }),
+                    None,
+                );
+            } else {
+                return (None, None);
+            }
         }
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => {

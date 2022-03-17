@@ -5,7 +5,7 @@ use common::*;
 use ast::{Ast, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
-use vm::{Contract, InitKind, PrimitiveValue};
+use vm::{InitKind, InputContract, MemberContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
@@ -118,7 +118,7 @@ impl<'a> Formatter<'a> {
             ast::AstKind::Use { ident, scope } => todo!(),
             ast::AstKind::MembDef {
                 ident,
-                kind: MembKind::MembVar { ty },
+                memb_kind: MembKind::MembVar { ty },
             } => {
                 self.fmt_ident(ident.into());
                 self.write(": ");
@@ -126,7 +126,7 @@ impl<'a> Formatter<'a> {
             }
             ast::AstKind::MembDef {
                 ident,
-                kind: MembKind::MembFunc { .. },
+                memb_kind: MembKind::MembFunc { .. },
             } => todo!(),
             ast::AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
             ast::AstKind::DatasetConfig => todo!(),
@@ -139,22 +139,19 @@ impl<'a> Formatter<'a> {
 
     fn fmt_member_variable_contracted_type(&mut self, ty: MembType) {
         match ty.contract {
-            Contract::PureInput => todo!(),
-            Contract::Share => todo!(),
-            Contract::Take => (),
-            Contract::BorrowMut => todo!(),
-            Contract::TakeMut => todo!(),
+            MemberContract::Own => (),
+            MemberContract::Ref => self.write("&"),
         }
         self.fmt_type(ty.scope);
     }
 
     fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
         match ty.contract {
-            Contract::PureInput => (),
-            Contract::Share => self.write("&"),
-            Contract::Take => self.write("!"),
-            Contract::BorrowMut => self.write("mut &"),
-            Contract::TakeMut => self.write("mut !"),
+            InputContract::Pure => (),
+            InputContract::Share => self.write("&"),
+            InputContract::Take => self.write("!"),
+            InputContract::BorrowMut => self.write("mut &"),
+            InputContract::TakeMut => self.write("mut !"),
         }
         self.fmt_type(ty.ranged_ty.scope);
     }

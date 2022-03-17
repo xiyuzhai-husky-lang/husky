@@ -1,6 +1,6 @@
 use super::EagerOpnKind;
 use common::*;
-use vm::{BinaryOpr, Contract, Instruction, InstructionKind, PrimitiveOpn};
+use vm::{BinaryOpr, InputContract, Instruction, InstructionKind, PrimitiveOpn};
 
 use crate::*;
 

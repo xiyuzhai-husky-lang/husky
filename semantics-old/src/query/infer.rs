@@ -15,12 +15,12 @@ use crate::{error::*, SemanticResult};
 
 #[salsa::query_group(InferQueryGroupStorage)]
 pub trait InferQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
-    fn func_signature(&self, scope: ScopePtr) -> SemanticResult<Arc<FuncSignature>>;
+    fn call_signature(&self, scope: ScopePtr) -> SemanticResult<Arc<FuncSignature>>;
     fn scope_ty(&self, scope: ScopePtr) -> SemanticResult<ScopePtr>;
     fn input_ty(&self, main_file: file::FilePtr) -> SemanticResult<ScopePtr>;
 }
 
-fn func_signature(
+fn call_signature(
     this: &dyn InferQueryGroup,
     scope: ScopePtr,
 ) -> SemanticResult<Arc<FuncSignature>> {
@@ -28,7 +28,7 @@ fn func_signature(
     return match source {
         scope::ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
             scope::StaticScopeSignature::Func(ref signature) => {
-                func_signature_from_raw(this, signature)
+                call_signature_from_raw(this, signature)
             }
             _ => panic!(),
         })),
@@ -67,7 +67,7 @@ fn func_signature(
         scope::ScopeSource::Module { file: file_id } => todo!(),
     };
 
-    fn func_signature_from_raw(
+    fn call_signature_from_raw(
         this: &dyn InferQueryGroup,
         signature: &StaticFuncSignature,
     ) -> FuncSignature {
@@ -160,7 +160,7 @@ fn input_ty_from_ast(
                     kind: ScopeKind::Routine,
                     ..
                 } => {
-                    let signature = this.func_signature(scope)?;
+                    let signature = this.call_signature(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.route {
                         ScopeRoute::Builtin {

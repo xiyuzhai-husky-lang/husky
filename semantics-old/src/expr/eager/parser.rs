@@ -214,7 +214,7 @@ pub trait StrictExprParser<'a> {
                 kind: ScopeKind::Routine,
                 ..
             } => {
-                let signature = self.db().func_signature(scope)?;
+                let signature = self.db().call_signature(scope)?;
                 let arguments: Vec<_> = opds[1..]
                     .iter()
                     .enumerate()

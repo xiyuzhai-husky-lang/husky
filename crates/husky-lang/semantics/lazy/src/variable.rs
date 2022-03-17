@@ -14,11 +14,11 @@ impl LazyVariable {
             ident: input_placeholder.ident,
             ty: input_placeholder.ranged_ty.scope,
             is_reference: match input_placeholder.contract {
-                vm::Contract::PureInput => false,
-                vm::Contract::Share => todo!(),
-                vm::Contract::Take => todo!(),
-                vm::Contract::BorrowMut => todo!(),
-                vm::Contract::TakeMut => todo!(),
+                vm::InputContract::Pure => false,
+                vm::InputContract::Share => todo!(),
+                vm::InputContract::Take => todo!(),
+                vm::InputContract::BorrowMut => todo!(),
+                vm::InputContract::TakeMut => todo!(),
             },
         }
     }

@@ -1,6 +1,6 @@
 use crate::*;
 
-use vm::{Contract, Instruction, InstructionKind, VMLoopKind};
+use vm::{InputContract, Instruction, InstructionKind, VMLoopKind};
 
 impl InstructionSheetBuilder {
     pub(super) fn compile_impr_stmts(&mut self, stmts: &[Arc<ImprStmt>]) {

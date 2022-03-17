@@ -84,13 +84,13 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub(crate) unsafe fn bind(&mut self, contract: Contract, stack_idx: StackIdx) -> Self {
+    pub(crate) unsafe fn bind(&mut self, contract: InputContract, stack_idx: StackIdx) -> Self {
         match contract {
-            Contract::PureInput => self.pure(),
-            Contract::Take => self.take(),
-            Contract::Share => todo!(),
-            Contract::TakeMut => todo!(),
-            Contract::BorrowMut => self.borrow_mut(stack_idx),
+            InputContract::Pure => self.pure(),
+            InputContract::Take => self.take(),
+            InputContract::Share => todo!(),
+            InputContract::TakeMut => todo!(),
+            InputContract::BorrowMut => self.borrow_mut(stack_idx),
         }
         // ,
         //     match self {

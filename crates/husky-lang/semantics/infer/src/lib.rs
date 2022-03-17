@@ -4,52 +4,49 @@ use ast::{Ast, AstKind, AstResult, RawExprArena, RawExprKind, RawStmt, RawStmtKi
 use common::*;
 use fold::FoldStorage;
 use scope::{
-    FuncSignature, InputPlaceholder, InputSignature, ScopeKind, ScopePtr, ScopeRoute,
+    CallSignature, InputSignature, ScopeKind, ScopePtr, ScopeRoute, ScopeSource,
     StaticFuncSignature,
 };
 use scope_query::ScopeQueryGroup;
-use syntax_types::{ListOpr, Opr};
+use syntax_types::{ListOpr, MembKind, Opr, TyKind};
+use vm::InputContract;
 use word::{BuiltinIdentifier, ImplicitIdentifier};
 
 use semantics_error::*;
 
 #[salsa::query_group(InferQueryGroupStorage)]
 pub trait InferQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
-    fn func_signature(&self, scope: ScopePtr) -> SemanticResult<Arc<FuncSignature>>;
+    fn call_signature(&self, scope: ScopePtr) -> SemanticResultArc<CallSignature>;
     fn scope_ty(&self, scope: ScopePtr) -> SemanticResult<ScopePtr>;
     fn input_ty(&self, main_file: file::FilePtr) -> SemanticResult<ScopePtr>;
 }
 
-fn func_signature(
-    this: &dyn InferQueryGroup,
-    scope: ScopePtr,
-) -> SemanticResult<Arc<FuncSignature>> {
+fn call_signature(this: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResultArc<CallSignature> {
     let source = this.scope_source(scope)?;
     return match source {
-        scope::ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
+        ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
             scope::StaticScopeSignature::Func(ref signature) => {
-                func_signature_from_raw(this, signature)
+                func_call_signature_from_raw(this, signature)
             }
             _ => panic!(),
         })),
-        scope::ScopeSource::WithinBuiltinModule => todo!(),
-        scope::ScopeSource::WithinModule {
+        ScopeSource::WithinBuiltinModule => todo!(),
+        ScopeSource::WithinModule {
             file: file_id,
             token_group_index,
         } => {
             let ast_text = this.ast_text(file_id)?;
-            let ast = ast_text
+            let item = ast_text
                 .folded_results
                 .fold_iter(token_group_index)
                 .next()
-                .unwrap()
-                .value
-                .as_ref()?;
+                .unwrap();
+            let ast = item.value.as_ref()?;
             match ast.kind {
                 AstKind::RoutineDef {
                     routine_kind: ref kind,
                     routine_head: ref decl,
-                } => Ok(Arc::new(FuncSignature {
+                } => Ok(Arc::new(CallSignature {
                     inputs: decl
                         .input_placeholders
                         .iter()
@@ -61,16 +58,59 @@ fn func_signature(
                     output: decl.output.scope,
                     compiled: None,
                 })),
+                AstKind::TypeDef {
+                    ref kind,
+                    ref generics,
+                    ..
+                } => match kind {
+                    TyKind::Enum(_) => todo!(),
+                    TyKind::Struct => {
+                        let mut inputs = vec![];
+                        for subitem in item.children.unwrap() {
+                            let subast = subitem.value.as_ref()?;
+                            match subast.kind {
+                                AstKind::TypeDef { .. } => todo!(),
+                                AstKind::MainDef => todo!(),
+                                AstKind::DatasetConfig => todo!(),
+                                AstKind::RoutineDef { .. } => todo!(),
+                                AstKind::PatternDef => todo!(),
+                                AstKind::Use { .. } => todo!(),
+                                AstKind::MembDef {
+                                    ident,
+                                    ref memb_kind,
+                                } => match memb_kind {
+                                    MembKind::MembVar { ty } => inputs.push(InputSignature {
+                                        contract: ty.contract.constructor_input(),
+                                        ty: ty.scope,
+                                    }),
+                                    MembKind::MembFunc {
+                                        this,
+                                        inputs,
+                                        output,
+                                        args,
+                                    } => todo!(),
+                                },
+                                AstKind::Stmt(_) => todo!(),
+                            }
+                        }
+                        msg_once!("type call compiled");
+                        Ok(Arc::new(CallSignature {
+                            inputs,
+                            output: scope,
+                            compiled: None,
+                        }))
+                    }
+                },
                 _ => panic!(),
             }
         }
-        scope::ScopeSource::Module { file: file_id } => todo!(),
+        ScopeSource::Module { file: file_id } => todo!(),
     };
 
-    fn func_signature_from_raw(
+    fn func_call_signature_from_raw(
         this: &dyn InferQueryGroup,
         signature: &StaticFuncSignature,
-    ) -> FuncSignature {
+    ) -> CallSignature {
         let inputs = signature
             .inputs
             .iter()
@@ -83,7 +123,7 @@ fn func_signature(
             .collect::<AstResult<Vec<InputSignature>>>()
             .unwrap();
         let output = this.parse_ty(signature.output).unwrap();
-        FuncSignature {
+        CallSignature {
             inputs,
             output,
             compiled: signature.compiled,
@@ -160,7 +200,7 @@ fn input_ty_from_ast(
                     kind: ScopeKind::Routine,
                     ..
                 } => {
-                    let signature = this.func_signature(scope)?;
+                    let signature = this.call_signature(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.route {
                         ScopeRoute::Builtin {

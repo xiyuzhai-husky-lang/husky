@@ -154,20 +154,25 @@ impl Entity {
                 EagerExprKind::Literal(_) => (),
                 EagerExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
                 EagerExprKind::Opn {
-                    opn_kind: ref opn,
-                    compiled,
+                    ref opn_kind,
                     ref opds,
-                } => match opn {
-                    EagerOpnKind::Binary { opr, this } => v.push(*this),
-                    EagerOpnKind::Prefix(_) => todo!(),
-                    EagerOpnKind::Suffix(_) => todo!(),
-                    EagerOpnKind::RoutineCall(routine) => v.push(routine.scope),
-                    EagerOpnKind::PatternCall => todo!(),
-                    EagerOpnKind::MembVarAccess => todo!(),
-                    EagerOpnKind::MembFuncCall(_) => todo!(),
-                    EagerOpnKind::ElementAccess => todo!(),
-                    EagerOpnKind::TypeCall(_) => todo!(),
-                },
+                    ..
+                } => {
+                    match opn_kind {
+                        EagerOpnKind::Binary { opr, this } => v.push(*this),
+                        EagerOpnKind::Prefix(_) => todo!(),
+                        EagerOpnKind::Suffix(_) => todo!(),
+                        EagerOpnKind::RoutineCall(routine) => v.push(routine.scope),
+                        EagerOpnKind::PatternCall => todo!(),
+                        EagerOpnKind::MembVarAccess => todo!(),
+                        EagerOpnKind::MembFuncCall(_) => todo!(),
+                        EagerOpnKind::ElementAccess => todo!(),
+                        EagerOpnKind::TypeCall(ranged_scope) => v.push(ranged_scope.scope),
+                    }
+                    for opd in opds {
+                        extract_expr_dependees(opd, v)
+                    }
+                }
                 EagerExprKind::Lambda(_, _) => todo!(),
             }
         }

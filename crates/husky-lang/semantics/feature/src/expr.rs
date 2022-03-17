@@ -121,7 +121,6 @@ impl FeatureExpr {
                     _ => todo!(),
                 },
                 LazyOpnKind::Prefix(_) => todo!(),
-                LazyOpnKind::Suffix(_) => todo!(),
                 LazyOpnKind::RoutineCall(routine) => {
                     let uid = db.entity_vc().uid(routine.scope);
                     let inputs: Vec<_> = opds
@@ -174,7 +173,7 @@ impl FeatureExpr {
                     }
                 }
                 LazyOpnKind::PatternCall => todo!(),
-                LazyOpnKind::MembVarAccess => todo!(),
+                LazyOpnKind::MembVarAccess(_) => todo!(),
                 LazyOpnKind::MembFuncCall(_) => todo!(),
                 LazyOpnKind::ElementAccess => todo!(),
                 LazyOpnKind::TypeCall(_) => todo!(),

@@ -5,7 +5,7 @@ use common::msg_once;
 use file::FilePtr;
 use scope::{InputPlaceholder, ScopePtr};
 use semantics_error::*;
-use vm::{Contract, InitKind, StackIdx, VMResult};
+use vm::{InitKind, InputContract, StackIdx, VMResult};
 use word::CustomIdentifier;
 
 use crate::*;

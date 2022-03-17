@@ -7,7 +7,7 @@ pub use env::Env;
 pub use opr::*;
 
 use scope::{InputPlaceholder, RangedScope, ScopeKind, ScopePtr};
-use vm::Contract;
+use vm::{InputContract, MemberContract};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -22,7 +22,7 @@ pub enum MembKind {
         ty: MembType,
     },
     MembFunc {
-        this: Contract,
+        this: InputContract,
         inputs: Vec<InputPlaceholder>,
         output: RangedScope,
         args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,
@@ -59,7 +59,7 @@ pub struct GenericPlaceholder {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembType {
-    pub contract: Contract,
+    pub contract: MemberContract,
     pub scope: ScopePtr,
 }
 

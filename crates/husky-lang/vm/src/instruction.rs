@@ -50,7 +50,7 @@ pub enum InstructionKind {
     Init(InitKind),
     PushVariable {
         stack_idx: StackIdx,
-        contract: Contract,
+        contract: InputContract,
     },
     PushPrimitiveLiteral(PrimitiveValue),
     CallCompiled {
@@ -101,11 +101,11 @@ pub enum BinaryOpr {
 }
 
 impl BinaryOpr {
-    pub fn lopd_contract(self) -> Contract {
+    pub fn lopd_contract(self) -> InputContract {
         todo!()
     }
 
-    pub fn ropd_contract(self) -> Contract {
+    pub fn ropd_contract(self) -> InputContract {
         todo!()
     }
 

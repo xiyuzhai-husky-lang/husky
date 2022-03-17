@@ -14,7 +14,7 @@ mod stack;
 use std::sync::Arc;
 
 pub use compiled::Compiled;
-pub use contract::Contract;
+pub use contract::{InputContract, MemberContract};
 pub use control::{ControlSnapshot, VMControl};
 use error::*;
 pub use error::{VMError, VMResult};

@@ -1,7 +1,7 @@
 use crate::*;
 
 use common::p;
-use vm::{BinaryOpr, Contract, Instruction, InstructionKind, PrimitiveOpn};
+use vm::{BinaryOpr, InputContract, Instruction, InstructionKind, PrimitiveOpn};
 
 impl InstructionSheetBuilder {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {

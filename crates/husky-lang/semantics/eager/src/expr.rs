@@ -12,7 +12,7 @@ pub(crate) use parser::EagerExprParser;
 use scope::ScopePtr;
 use syntax_types::*;
 use text::TextRange;
-use vm::{Compiled, Contract, InstructionId, InstructionSource, PrimitiveValue, VMResult};
+use vm::{Compiled, InputContract, InstructionId, InstructionSource, PrimitiveValue, VMResult};
 use word::{CustomIdentifier, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -22,7 +22,7 @@ pub struct EagerExpr {
     pub ty: ScopePtr,
     pub kind: EagerExprKind,
     pub instruction_id: InstructionId,
-    pub contract: Contract,
+    pub contract: InputContract,
 }
 
 impl InstructionSource for EagerExpr {
