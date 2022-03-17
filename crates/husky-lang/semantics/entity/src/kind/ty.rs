@@ -1,19 +1,10 @@
-use syntax_types::MembType;
-use word::CustomIdentifier;
+use std::sync::Arc;
+
+use semantics_infer::TySignature;
+use syntax_types::TyKind;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Ty {
     pub kind: TyKind,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum TyKind {
-    Enum,
-    Struct { memb_vars: Vec<MembVar> },
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct MembVar {
-    pub ident: CustomIdentifier,
-    pub ty: MembType,
+    pub signature: Arc<TySignature>,
 }

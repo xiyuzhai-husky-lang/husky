@@ -20,10 +20,10 @@ pub trait ExprInstructionBuilder {
             )),
             EagerExprKind::Bracketed(_) => todo!(),
             EagerExprKind::Opn {
-                opn_kind: opn,
+                ref opn_kind,
                 compiled,
                 ref opds,
-            } => match opn {
+            } => match opn_kind {
                 EagerOpnKind::Binary { opr, this } => {
                     let instruction = Instruction::new(
                         InstructionKind::PrimitiveOpn(match opr {
@@ -31,12 +31,12 @@ pub trait ExprInstructionBuilder {
                                 for opd in opds {
                                     self.gen_expr_instructions(opd.clone());
                                 }
-                                PrimitiveOpn::PureBinary(pure_binary_opr)
+                                PrimitiveOpn::PureBinary(*pure_binary_opr)
                             }
                             BinaryOpr::Assign(opt_binary_opr) => {
                                 self.gen_expr_instructions(opds[0].clone());
                                 self.gen_expr_instructions(opds[1].clone());
-                                PrimitiveOpn::Assign(opt_binary_opr)
+                                PrimitiveOpn::Assign(*opt_binary_opr)
                             }
                         }),
                         expr,
@@ -59,10 +59,10 @@ pub trait ExprInstructionBuilder {
                     }
                 }
                 EagerOpnKind::PatternCall => todo!(),
-                EagerOpnKind::MembVarAccess => todo!(),
+                EagerOpnKind::MembVarAccess { .. } => todo!(),
                 EagerOpnKind::MembFuncCall(_) => todo!(),
                 EagerOpnKind::ElementAccess => todo!(),
-                EagerOpnKind::TypeCall(_) => todo!(),
+                EagerOpnKind::TypeCall { .. } => todo!(),
             },
             EagerExprKind::Lambda(_, _) => todo!(),
         }

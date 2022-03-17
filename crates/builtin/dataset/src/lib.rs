@@ -17,56 +17,56 @@ pub use loader::DataLoader;
 
 use scope::{BuiltinScopeData, ScopeKind, StaticScopeSignature};
 use synthetic::SyntheticDataset;
-use vm::{AnyValue, AnyValueDyn};
+use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 
-pub trait DatasetDyn: AnyValueDyn + std::fmt::Debug + Send + Sync + 'static {
-    fn dev_loader(&self) -> DataLoader;
-    fn val_loader(&self) -> DataLoader;
-    fn test_loader(&self) -> DataLoader;
-    fn profile_iter(&self) -> DataIter;
+pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
+    fn dev_loader(&self) -> DataLoader<'eval>;
+    fn val_loader(&self) -> DataLoader<'eval>;
+    fn test_loader(&self) -> DataLoader<'eval>;
+    fn profile_iter(&self) -> DataIter<'eval>;
 }
 
 #[derive(Debug, Clone)]
-pub struct Dataset(Arc<dyn DatasetDyn>);
+pub struct Dataset<'eval>(Arc<dyn DatasetDyn<'eval>>);
 
-impl Dataset {
-    pub fn new<T: SyntheticDataset>(t: T) -> Self {
+impl<'eval> Dataset<'eval> {
+    pub fn new<T: SyntheticDataset<'eval>>(t: T) -> Self {
         Self(Arc::new(t))
     }
 
-    pub fn dev_loader(&self) -> DataLoader {
+    pub fn dev_loader(&self) -> DataLoader<'eval> {
         self.0.dev_loader()
     }
 
-    pub fn val_loader(&self) -> DataLoader {
+    pub fn val_loader(&self) -> DataLoader<'eval> {
         self.0.val_loader()
     }
 
-    pub fn test_loader(&self) -> DataLoader {
+    pub fn test_loader(&self) -> DataLoader<'eval> {
         self.0.test_loader()
     }
 
-    pub fn profile_iter(&self) -> DataIter {
+    pub fn profile_iter(&self) -> DataIter<'eval> {
         self.0.profile_iter()
     }
 }
 
-impl PartialEq for Dataset {
+impl<'eval> PartialEq for Dataset<'eval> {
     fn eq(&self, other: &Self) -> bool {
         self.0.equal_any(other.0.upcast_any())
     }
 }
 
-impl AnyValue for Dataset {
-    fn static_type_id() -> std::any::TypeId {
-        std::any::TypeId::of::<Self>()
+impl<'eval> AnyValue<'eval> for Dataset<'eval> {
+    fn static_type_id() -> StaticTypeId {
+        HuskyBuiltinStaticTypeId::Dataset.into()
     }
 
     fn static_type_name() -> Cow<'static, str> {
-        "Box<dyn Dataset>".into()
+        "Arc<dyn Dataset>".into()
     }
 
-    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn> {
+    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
         todo!()
     }
 }

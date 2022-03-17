@@ -1,6 +1,6 @@
 use scope::ScopePtr;
 use vm::{BinaryOpr, PureBinaryOpr};
-use word::Identifier;
+use word::{CustomIdentifier, Identifier};
 
 #[derive(PartialEq, Eq, Copy, Clone)]
 pub enum Opr {
@@ -78,11 +78,11 @@ impl From<ListOpr> for Opr {
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum SuffixOpr {
-    Incr,                     // ++
-    Decr,                     // --
-    MayReturn,                // ?
-    MemberAccess(Identifier), // .
-    WithType(ScopePtr),       // :
+    Incr,                            // ++
+    Decr,                            // --
+    MayReturn,                       // ?
+    MembVarAccess(CustomIdentifier), // .
+    WithType(ScopePtr),              // :
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]

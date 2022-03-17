@@ -14,8 +14,8 @@ use iter::SyntheticSampleIter;
 use loader::SyntheticSampleLoader;
 use vm::BoxedValue;
 
-pub trait SyntheticDataset: AnyValue + 'static {
-    fn data_generator(&self) -> fn(seed: u64, idx: usize) -> LabeledData;
+pub trait SyntheticDataset<'eval>: AnyValueDyn<'eval> + 'eval {
+    fn data_generator(&self) -> fn(seed: u64, idx: usize) -> LabeledData<'eval>;
     fn seed(&self) -> u64;
     fn dev_len(&self) -> usize {
         100
@@ -37,8 +37,8 @@ pub trait SyntheticDataset: AnyValue + 'static {
     }
 }
 
-impl<D: SyntheticDataset> DatasetDyn for D {
-    fn dev_loader(&self) -> DataLoader {
+impl<'eval, D: SyntheticDataset<'eval>> DatasetDyn<'eval> for D {
+    fn dev_loader(&self) -> DataLoader<'eval> {
         Box::new(SyntheticSampleLoader::new(
             self.dev_len(),
             self.data_generator(),
@@ -46,7 +46,7 @@ impl<D: SyntheticDataset> DatasetDyn for D {
         ))
     }
 
-    fn val_loader(&self) -> DataLoader {
+    fn val_loader(&self) -> DataLoader<'eval> {
         Box::new(SyntheticSampleLoader::new(
             self.val_len(),
             self.data_generator(),
@@ -54,7 +54,7 @@ impl<D: SyntheticDataset> DatasetDyn for D {
         ))
     }
 
-    fn test_loader(&self) -> DataLoader {
+    fn test_loader(&self) -> DataLoader<'eval> {
         Box::new(SyntheticSampleLoader::new(
             self.test_len(),
             self.data_generator(),
@@ -62,18 +62,19 @@ impl<D: SyntheticDataset> DatasetDyn for D {
         ))
     }
 
-    fn profile_iter(&self) -> DataIter {
-        Box::new(SyntheticSampleIter::new(self))
+    fn profile_iter(&self) -> DataIter<'eval> {
+        todo!()
+        // Box::new(SyntheticSampleIter::new(self))
     }
 }
 
 #[derive(PartialEq, Eq)]
-pub struct SimpleSyntheticDataset {
+pub struct SimpleSyntheticDataset<'eval> {
     seed: u64,
-    data_generator: fn(seed: u64, idx: usize) -> LabeledData,
+    data_generator: fn(seed: u64, idx: usize) -> LabeledData<'eval>,
 }
 
-impl std::fmt::Debug for SimpleSyntheticDataset {
+impl<'eval> std::fmt::Debug for SimpleSyntheticDataset<'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("SimpleSyntheticDataset")
             .field("gen_sample", &self.data_generator)
@@ -81,7 +82,7 @@ impl std::fmt::Debug for SimpleSyntheticDataset {
     }
 }
 
-impl Clone for SimpleSyntheticDataset {
+impl<'eval> Clone for SimpleSyntheticDataset<'eval> {
     fn clone(&self) -> Self {
         Self {
             seed: self.seed,
@@ -90,8 +91,8 @@ impl Clone for SimpleSyntheticDataset {
     }
 }
 
-impl SimpleSyntheticDataset {
-    pub fn new(seed: u64, gen_sample: fn(seed: u64, idx: usize) -> LabeledData) -> Self {
+impl<'eval> SimpleSyntheticDataset<'eval> {
+    pub fn new(seed: u64, gen_sample: fn(seed: u64, idx: usize) -> LabeledData<'eval>) -> Self {
         SimpleSyntheticDataset {
             seed,
             data_generator: gen_sample,
@@ -99,8 +100,8 @@ impl SimpleSyntheticDataset {
     }
 }
 
-impl AnyValue for SimpleSyntheticDataset {
-    fn static_type_id() -> std::any::TypeId {
+impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
+    fn static_type_id() -> StaticTypeId {
         todo!()
     }
 
@@ -108,17 +109,17 @@ impl AnyValue for SimpleSyntheticDataset {
         todo!()
     }
 
-    fn boxed_any(&self) -> Box<dyn vm::AnyValueDyn> {
+    fn boxed_any(&self) -> Box<dyn vm::AnyValueDyn<'eval>> {
         todo!()
     }
 
-    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn> {
+    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
         todo!()
     }
 }
 
-impl SyntheticDataset for SimpleSyntheticDataset {
-    fn data_generator(&self) -> fn(u64, usize) -> LabeledData {
+impl<'eval> SyntheticDataset<'eval> for SimpleSyntheticDataset<'eval> {
+    fn data_generator(&self) -> fn(u64, usize) -> LabeledData<'eval> {
         self.data_generator
     }
     fn seed(&self) -> u64 {

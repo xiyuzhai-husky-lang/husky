@@ -3,13 +3,13 @@ use scope::RangedScope;
 use super::expr::ExprTokenConfig;
 use crate::*;
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     pub(crate) fn feature_expr_lines(
         &self,
         expr: &Arc<FeatureExpr>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<LineProps> {
+    ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent: 0,
             idx: 0,
@@ -22,7 +22,7 @@ impl TraceFactory {
         expr: &Arc<FeatureExpr>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<TokenProps> {
+    ) -> Vec<TokenProps<'eval>> {
         let associated_trace = if config.associated {
             Some(self.new_trace(None, 0, TraceKind::FeatureExpr(expr.clone()), text))
         } else {
@@ -52,6 +52,7 @@ impl TraceFactory {
                 ref inputs,
                 ..
             } => self.routine_call_tokens(ranged_scope, inputs, associated_trace, text, &config),
+            FeatureExprKind::MembVarAccess { .. } => todo!(),
         };
     }
 
@@ -59,10 +60,10 @@ impl TraceFactory {
         &self,
         ranged_scope: RangedScope,
         inputs: &[Arc<FeatureExpr>],
-        associated_trace: Option<Arc<Trace>>,
+        associated_trace: Option<Arc<Trace<'eval>>>,
         text: &Text,
         config: &ExprTokenConfig,
-    ) -> Vec<TokenProps> {
+    ) -> Vec<TokenProps<'eval>> {
         let mut tokens = vec![
             scope!(text.ranged(ranged_scope.range), associated_trace),
             special!("("),

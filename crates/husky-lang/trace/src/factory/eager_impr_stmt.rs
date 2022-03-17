@@ -7,15 +7,15 @@ use vm::{
 use super::{expr::ExprTokenConfig, *};
 use crate::*;
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     fn new_impr_stmt_trace(
         &self,
         parent_id: TraceId,
         indent: Indent,
         stmt: Arc<ImprStmt>,
         text: &Text,
-        history: Arc<History>,
-    ) -> Arc<Trace> {
+        history: Arc<History<'eval>>,
+    ) -> Arc<Trace<'eval>> {
         self.new_trace(
             Some(parent_id),
             indent,
@@ -28,8 +28,8 @@ impl TraceFactory {
         &self,
         stmt: &ImprStmt,
         text: &Text,
-        history: &Arc<History>,
-    ) -> Vec<LineProps> {
+        history: &Arc<History<'eval>>,
+    ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent: stmt.indent,
             tokens: self.impr_stmt_tokens(stmt, text, history),
@@ -41,8 +41,8 @@ impl TraceFactory {
         &self,
         stmt: &ImprStmt,
         text: &Text,
-        history: &Arc<History>,
-    ) -> Vec<TokenProps> {
+        history: &Arc<History<'eval>>,
+    ) -> Vec<TokenProps<'eval>> {
         match stmt.kind {
             ImprStmtKind::Init {
                 varname,
@@ -147,8 +147,8 @@ impl TraceFactory {
         &self,
         boundary: &Boundary,
         text: &Text,
-        history: &Arc<History>,
-    ) -> Vec<TokenProps> {
+        history: &Arc<History<'eval>>,
+    ) -> Vec<TokenProps<'eval>> {
         match boundary.opt_bound {
             Some(ref bound) => {
                 let mut tokens =
@@ -169,8 +169,8 @@ impl TraceFactory {
         &self,
         boundary: &Boundary,
         text: &Text,
-        history: &Arc<History>,
-    ) -> Vec<TokenProps> {
+        history: &Arc<History<'eval>>,
+    ) -> Vec<TokenProps<'eval>> {
         match boundary.opt_bound {
             Some(ref bound) => {
                 let mut tokens = vec![special!(match boundary.kind {
@@ -197,8 +197,8 @@ impl TraceFactory {
         indent: Indent,
         stmts: &'a [Arc<ImprStmt>],
         text: &'a Text,
-        history: &'a Arc<History>,
-    ) -> impl Iterator<Item = Arc<Trace>> + 'a {
+        history: &'a Arc<History<'eval>>,
+    ) -> impl Iterator<Item = Arc<Trace<'eval>>> + 'a {
         stmts.iter().map(move |stmt| {
             self.new_impr_stmt_trace(parent_id, indent, stmt.clone(), text, history.clone())
         })
@@ -211,9 +211,9 @@ impl TraceFactory {
         loop_stmt: &Arc<ImprStmt>,
         body_stmts: &Arc<Vec<Arc<ImprStmt>>>,
         text: &Text,
-        stack_snapshot: &StackSnapshot,
+        stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let frames = exec_loop_debug(stack_snapshot, loop_kind.into(), &body_instruction_sheet);
         Arc::new(
             frames
@@ -238,11 +238,11 @@ impl TraceFactory {
     pub(super) fn loop_frame_subtraces(
         &self,
         parent: &Trace,
-        loop_frame_snapshot: &LoopFrameSnapshot,
+        loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
         instruction_sheet: &InstructionSheet,
         stmts: &[Arc<ImprStmt>],
         text: &Text,
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let history = exec_debug(&loop_frame_snapshot.stack, instruction_sheet);
         Arc::new(
             self.impr_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history)
@@ -254,7 +254,7 @@ impl TraceFactory {
         &self,
         indent: Indent,
         vm_loop_frame: &LoopFrameSnapshot,
-    ) -> Vec<LineProps> {
+    ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent,
             tokens: self.loop_frame_tokens(vm_loop_frame),
@@ -262,7 +262,10 @@ impl TraceFactory {
         }]
     }
 
-    pub(super) fn loop_frame_tokens(&self, vm_loop_frame: &LoopFrameSnapshot) -> Vec<TokenProps> {
+    pub(super) fn loop_frame_tokens(
+        &self,
+        vm_loop_frame: &LoopFrameSnapshot,
+    ) -> Vec<TokenProps<'eval>> {
         match vm_loop_frame.kind {
             vm::FrameKind::For(frame_var) => {
                 vec![

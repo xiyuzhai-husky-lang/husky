@@ -28,3 +28,6 @@ impl PartialEq for Compiled {
 }
 
 impl Eq for Compiled {}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct MembVarAccessCompiled {}

@@ -2,13 +2,13 @@ use crate::*;
 
 // ts: { type: string; value: string; spaces_before?: number }
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct TokenProps {
+pub struct TokenProps<'eval> {
     pub kind: TraceTokenKind,
     pub value: Cow<'static, str>,
-    pub associated_trace: Option<Arc<Trace>>,
+    pub associated_trace: Option<Arc<Trace<'eval>>>,
 }
 
-impl Serialize for TokenProps {
+impl<'eval> Serialize for TokenProps<'eval> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -24,13 +24,13 @@ impl Serialize for TokenProps {
     }
 }
 
-impl From<EvalResult<'static>> for TokenProps {
+impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
     fn from(result: EvalResult<'static>) -> Self {
         match result {
             Ok(value) => match value {
                 EvalValue::Primitive(value) => fade!(value),
                 EvalValue::Boxed(_) => todo!(),
-                EvalValue::Volatile(_) => todo!(),
+                EvalValue::GlobalPure(_) => todo!(),
                 EvalValue::GlobalRef(_) => todo!(),
                 EvalValue::Undefined => fade!("undefined"),
             },
@@ -43,7 +43,7 @@ impl From<EvalResult<'static>> for TokenProps {
     }
 }
 
-impl From<StackValueSnapshot> for TokenProps {
+impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
     fn from(value: StackValueSnapshot) -> Self {
         match value {
             StackValueSnapshot::Primitive(value) => value.into(),
@@ -54,13 +54,13 @@ impl From<StackValueSnapshot> for TokenProps {
     }
 }
 
-impl From<VMResult<StackValueSnapshot>> for TokenProps {
+impl<'eval> From<VMResult<StackValueSnapshot<'eval>>> for TokenProps<'eval> {
     fn from(_: VMResult<StackValueSnapshot>) -> Self {
         todo!()
     }
 }
 
-impl From<VMResult<PrimitiveValue>> for TokenProps {
+impl<'eval> From<VMResult<PrimitiveValue>> for TokenProps<'eval> {
     fn from(result: VMResult<PrimitiveValue>) -> Self {
         match result {
             Ok(value) => value.into(),
@@ -73,13 +73,13 @@ impl From<VMResult<PrimitiveValue>> for TokenProps {
     }
 }
 
-impl From<PrimitiveValue> for TokenProps {
+impl<'eval> From<PrimitiveValue> for TokenProps<'eval> {
     fn from(value: PrimitiveValue) -> Self {
         fade!(value)
     }
 }
 
-impl From<InitKind> for TokenProps {
+impl<'eval> From<InitKind> for TokenProps<'eval> {
     fn from(init_kind: InitKind) -> Self {
         match init_kind {
             InitKind::Let => keyword!("let "),

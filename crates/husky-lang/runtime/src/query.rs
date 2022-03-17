@@ -38,17 +38,21 @@ pub trait EvalFeature {
 }
 
 #[salsa::query_group(RuntimeQueryGroupStorage)]
-pub trait RuntimeQueryGroup: AskCompileTime + CreateTrace + EvalFeature {
+pub trait RuntimeQueryGroup: AskCompileTime + CreateTrace<'static> + EvalFeature {
     #[salsa::input]
     fn package_main(&self) -> FilePtr;
 
     #[salsa::input]
     fn version(&self) -> usize;
 
-    fn subtraces(&self, trace_id: TraceId, opt_input_id: Option<usize>) -> Arc<Vec<Arc<Trace>>>;
+    fn subtraces(
+        &self,
+        trace_id: TraceId,
+        opt_input_id: Option<usize>,
+    ) -> Arc<Vec<Arc<Trace<'static>>>>;
     fn root_traces(&self) -> Arc<Vec<TraceId>>;
 
-    fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk>;
+    fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk<'static>>;
 }
 
 pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<TraceId>> {
@@ -68,7 +72,7 @@ pub fn subtraces(
     this: &dyn RuntimeQueryGroup,
     trace_id: TraceId,
     opt_input_id: Option<usize>,
-) -> Arc<Vec<Arc<Trace>>> {
+) -> Arc<Vec<Arc<Trace<'static>>>> {
     let trace: &Trace = &this.trace(trace_id);
     match trace.kind {
         TraceKind::Main(ref block) => this.feature_block_subtraces(&trace, block),
@@ -116,7 +120,7 @@ fn feature_expr_subtraces(
     parent: &Trace,
     expr: &FeatureExpr,
     opt_input_id: Option<usize>,
-) -> Arc<Vec<Arc<Trace>>> {
+) -> Arc<Vec<Arc<Trace<'static>>>> {
     Arc::new(match expr.kind {
         FeatureExprKind::Literal(_)
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
@@ -226,6 +230,7 @@ fn feature_expr_subtraces(
                 vec![]
             }
         }
+        FeatureExprKind::MembVarAccess { .. } => todo!(),
     })
 }
 
@@ -233,7 +238,7 @@ pub fn trace_stalk(
     this: &dyn RuntimeQueryGroup,
     trace_id: TraceId,
     input_id: usize,
-) -> Arc<TraceStalk> {
+) -> Arc<TraceStalk<'static>> {
     let trace: &Trace = &this.trace(trace_id);
     Arc::new(match trace.kind {
         TraceKind::Main(ref block) => TraceStalk {

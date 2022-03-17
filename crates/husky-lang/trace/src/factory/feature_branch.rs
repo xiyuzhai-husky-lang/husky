@@ -2,14 +2,14 @@ use crate::*;
 
 use super::expr::ExprTokenConfig;
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     pub fn feature_branch_trace(
         &self,
         parent: &Trace,
         indent: Indent,
         branch: Arc<FeatureBranch>,
         text: &Text,
-    ) -> Arc<Trace> {
+    ) -> Arc<Trace<'eval>> {
         self.new_trace(
             Some(parent.id),
             indent,
@@ -23,7 +23,7 @@ impl TraceFactory {
         indent: Indent,
         branch: &FeatureBranch,
         text: &Text,
-    ) -> Vec<LineProps> {
+    ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             idx: 0,
             indent,
@@ -35,7 +35,7 @@ impl TraceFactory {
         &self,
         branch: &FeatureBranch,
         text: &Text,
-    ) -> Vec<TokenProps> {
+    ) -> Vec<TokenProps<'eval>> {
         match branch.kind {
             FeatureBranchKind::If { ref condition } => {
                 let mut tokens = vec![keyword!("if ")];
@@ -53,11 +53,11 @@ impl TraceFactory {
 
     pub fn feature_branch_subtraces(
         &self,
-        parent: &Trace,
+        parent: &Trace<'eval>,
         branch: &FeatureBranch,
-        trace_allocator: &TraceFactory,
+        trace_allocator: &TraceFactory<'eval>,
         text: &Text,
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         // let mut subtraces = vec![];
         // match branch.kind {
         //     feature::FeatureBranchKind::If { ref condition } => {

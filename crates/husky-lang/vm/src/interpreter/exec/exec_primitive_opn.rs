@@ -11,8 +11,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     ) -> VMResult<()> {
         match opn {
             PrimitiveOpn::PureBinary(pure_binary_opr) => {
-                let ropd = self.stack.pop().unwrap();
-                let lopd = self.stack.pop().unwrap();
+                let ropd = self.stack.pop();
+                let lopd = self.stack.pop();
                 let output = pure_binary_opr
                     .act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?;
                 match mode {
@@ -28,8 +28,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 Ok(())
             }
             PrimitiveOpn::Assign(opt_binary_opr) => {
-                let ropd = self.stack.pop().unwrap();
-                let mut lopd = self.stack.pop().unwrap();
+                let ropd = self.stack.pop();
+                let mut lopd = self.stack.pop();
                 let before = lopd.snapshot();
                 let lopd_value = lopd.as_primitive()?;
                 match lopd {

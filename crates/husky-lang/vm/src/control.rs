@@ -27,7 +27,7 @@ impl<'eval> From<VMResult<VMControl<'eval>>> for VMControl<'eval> {
 }
 
 impl<'eval> VMControl<'eval> {
-    pub(crate) fn snapshot(&self) -> ControlSnapshot {
+    pub(crate) fn snapshot(&self) -> ControlSnapshot<'eval> {
         match self {
             VMControl::None => ControlSnapshot::None,
             VMControl::Return(value) => ControlSnapshot::Return(value.snapshot()),
@@ -38,9 +38,9 @@ impl<'eval> VMControl<'eval> {
 }
 
 #[derive(Debug, Clone)]
-pub enum ControlSnapshot {
+pub enum ControlSnapshot<'eval> {
     None,
-    Return(StackValueSnapshot),
+    Return(StackValueSnapshot<'eval>),
     Break,
     Err(VMError),
 }

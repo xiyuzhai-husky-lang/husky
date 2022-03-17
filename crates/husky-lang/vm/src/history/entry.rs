@@ -1,25 +1,25 @@
 use crate::*;
 
 #[derive(Debug, Clone)]
-pub enum HistoryEntry {
+pub enum HistoryEntry<'eval> {
     // Stmt { control: VMControlSnapshot },
     PureExpr {
-        output: StackValueSnapshot,
+        output: StackValueSnapshot<'eval>,
     },
     Exec,
     Assign {
-        before: StackValueSnapshot,
-        after: StackValueSnapshot,
+        before: StackValueSnapshot<'eval>,
+        after: StackValueSnapshot<'eval>,
     },
     Loop {
-        result: ControlSnapshot,
-        stack_snapshot: StackSnapshot,
+        result: ControlSnapshot<'eval>,
+        stack_snapshot: StackSnapshot<'eval>,
         body: Arc<InstructionSheet>,
     },
 }
 
-impl HistoryEntry {
-    pub fn value(&self) -> StackValueSnapshot {
+impl<'eval> HistoryEntry<'eval> {
+    pub fn value(&self) -> StackValueSnapshot<'eval> {
         match self {
             HistoryEntry::PureExpr { ref output } => output.clone(),
             HistoryEntry::Exec => todo!(),
@@ -31,11 +31,11 @@ impl HistoryEntry {
         }
     }
 
-    pub(crate) fn loop_entry<'eval>(
+    pub(crate) fn loop_entry(
         result: &VMControl<'eval>,
-        stack_snapshot: StackSnapshot,
+        stack_snapshot: StackSnapshot<'eval>,
         body: Arc<InstructionSheet>,
-    ) -> HistoryEntry {
+    ) -> HistoryEntry<'eval> {
         HistoryEntry::Loop {
             result: result.snapshot(),
             stack_snapshot,

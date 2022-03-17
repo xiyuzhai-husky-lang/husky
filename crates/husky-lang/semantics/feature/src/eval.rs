@@ -14,7 +14,7 @@ use vm::{EvalResult, StackValue};
 
 pub fn eval_feature_block<'eval>(
     block: &FeatureBlock,
-    input: Arc<dyn AnyValueDyn>,
+    input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator { input, sheet };
@@ -23,7 +23,7 @@ pub fn eval_feature_block<'eval>(
 
 pub fn eval_feature_stmt<'eval>(
     stmt: &FeatureStmt,
-    input: Arc<dyn AnyValueDyn>,
+    input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator { input, sheet };
@@ -32,7 +32,7 @@ pub fn eval_feature_stmt<'eval>(
 
 pub fn eval_feature_expr<'eval>(
     expr: &FeatureExpr,
-    input: Arc<dyn AnyValueDyn>,
+    input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator { input, sheet };
@@ -40,7 +40,7 @@ pub fn eval_feature_expr<'eval>(
 }
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
-    input: Arc<dyn AnyValueDyn>,
+    input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &'a mut FeatureSheet<'eval>,
 }
 

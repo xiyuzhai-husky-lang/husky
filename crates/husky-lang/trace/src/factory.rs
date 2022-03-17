@@ -38,11 +38,11 @@ fn test_trace_id_deserialize() {
 }
 
 #[derive(Debug, Default)]
-pub struct TraceFactory {
-    traces: ARwLock<Vec<Option<Arc<Trace>>>>,
+pub struct TraceFactory<'eval> {
+    traces: ARwLock<Vec<Option<Arc<Trace<'eval>>>>>,
 }
 
-impl Serialize for TraceFactory {
+impl<'eval> Serialize for TraceFactory<'eval> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -52,7 +52,7 @@ impl Serialize for TraceFactory {
     }
 }
 
-impl TraceFactory {
+impl<'eval> TraceFactory<'eval> {
     pub(crate) fn next_id(&self) -> TraceId {
         TraceId(self.traces.write(|traces| {
             traces.push(None);
@@ -64,9 +64,9 @@ impl TraceFactory {
         &self,
         id: TraceId,
         indent: Indent,
-        kind: &TraceKind,
+        kind: &TraceKind<'eval>,
         text: &Text,
-    ) -> Vec<LineProps> {
+    ) -> Vec<LineProps<'eval>> {
         match kind {
             TraceKind::Main(feature_block) => vec![LineProps {
                 indent,
@@ -108,9 +108,9 @@ impl TraceFactory {
         &self,
         parent_id: Option<TraceId>,
         indent: Indent,
-        kind: TraceKind,
+        kind: TraceKind<'eval>,
         text: &Text,
-    ) -> Arc<Trace> {
+    ) -> Arc<Trace<'eval>> {
         let trace = Arc::new(Trace::new(parent_id, indent, kind, self, text));
         self.traces.write(|traces| {
             assert!(traces[trace.id.0].is_none());
@@ -135,15 +135,15 @@ impl TraceFactory {
     // }
 }
 
-pub trait CreateTrace: TextQueryGroup {
-    fn trace_factory(&self) -> &TraceFactory;
-    fn trace_factory_arc(&self) -> Arc<TraceFactory>;
+pub trait CreateTrace<'eval>: TextQueryGroup {
+    fn trace_factory(&self) -> &TraceFactory<'eval>;
+    fn trace_factory_arc(&self) -> Arc<TraceFactory<'eval>>;
 
     fn feature_block_subtraces(
         &self,
-        parent: &Trace,
+        parent: &Trace<'eval>,
         feature_block: &FeatureBlock,
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.text(parent.file).unwrap();
         Arc::new(
             self.trace_factory()
@@ -153,9 +153,9 @@ pub trait CreateTrace: TextQueryGroup {
 
     fn feature_branch_subtraces(
         &self,
-        parent: &Trace,
+        parent: &Trace<'eval>,
         branch: &FeatureBranch,
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.text(parent.file).unwrap();
         self.trace_factory()
             .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
@@ -167,9 +167,9 @@ pub trait CreateTrace: TextQueryGroup {
         loop_kind: &LoopKind,
         loop_stmt: &Arc<ImprStmt>,
         stmts: &Arc<Vec<Arc<ImprStmt>>>,
-        stack_snapshot: &StackSnapshot,
+        stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.text(parent.file).unwrap();
         self.trace_factory().loop_subtraces(
             parent,
@@ -185,10 +185,10 @@ pub trait CreateTrace: TextQueryGroup {
     fn loop_frame_subtraces(
         &self,
         parent: &Trace,
-        loop_frame_snapshot: &LoopFrameSnapshot,
+        loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
         instruction_sheet: &InstructionSheet,
         stmts: &[Arc<ImprStmt>],
-    ) -> Arc<Vec<Arc<Trace>>> {
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(
             parent,
@@ -204,13 +204,13 @@ pub trait CreateTrace: TextQueryGroup {
         parent_id: Option<TraceId>,
         file: FilePtr,
         indent: Indent,
-        kind: TraceKind,
-    ) -> Arc<Trace> {
+        kind: TraceKind<'eval>,
+    ) -> Arc<Trace<'eval>> {
         self.trace_factory()
             .new_trace(parent_id, indent, kind, &self.text(file).unwrap())
     }
 
-    fn trace(&self, id: TraceId) -> Arc<Trace> {
+    fn trace(&self, id: TraceId) -> Arc<Trace<'eval>> {
         self.trace_factory()
             .traces
             .read(|traces| traces[id.0].as_ref().unwrap().clone())

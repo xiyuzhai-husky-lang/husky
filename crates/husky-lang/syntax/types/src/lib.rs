@@ -7,19 +7,20 @@ pub use env::Env;
 pub use opr::*;
 
 use scope::{InputPlaceholder, RangedScope, ScopeKind, ScopePtr};
-use vm::{InputContract, MemberContract};
+use vm::{InputContract, MembVarContract};
 use word::CustomIdentifier;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TyKind {
-    Enum(Vec<CustomIdentifier>),
+    Enum,
     Struct,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum MembKind {
     MembVar {
-        ty: MembType,
+        contract: MembVarContract,
+        ty: ScopePtr,
     },
     MembFunc {
         this: InputContract,
@@ -59,8 +60,8 @@ pub struct GenericPlaceholder {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembType {
-    pub contract: MemberContract,
-    pub scope: ScopePtr,
+    pub contract: MembVarContract,
+    pub ty: ScopePtr,
 }
 
 // #[derive(Debug, PartialEq, Eq, Clone, Copy)]

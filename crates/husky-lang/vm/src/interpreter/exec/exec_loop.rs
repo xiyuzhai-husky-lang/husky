@@ -39,7 +39,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         loop_kind: VMLoopKind,
         body: &InstructionSheet,
         exec_before_each_frame: impl Fn(&mut Self),
-        exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl),
+        exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
     ) -> VMResult<VMControl<'eval>> {
         match loop_kind {
             VMLoopKind::For {
@@ -73,7 +73,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     exec_before_each_frame(self);
                     let control = self.exec_all(&body.instructions, Mode::Fast);
                     exec_after_each_frame(self, frame_var, &control);
-                    self.stack.pop().unwrap();
+                    self.stack.pop();
                     match control {
                         VMControl::None => (),
                         VMControl::Return(value) => return Ok(VMControl::Return(value)),

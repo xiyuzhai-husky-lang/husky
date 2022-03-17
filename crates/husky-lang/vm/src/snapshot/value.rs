@@ -1,16 +1,16 @@
 use crate::*;
 
 #[derive(Clone)]
-pub enum StackValueSnapshot {
+pub enum StackValueSnapshot<'eval> {
     Primitive(PrimitiveValue),
     MutRef {
-        value: Arc<dyn AnyValueDyn>,
+        value: Arc<dyn AnyValueDyn<'eval>>,
         owner: StackIdx,
-        gen: Arc<dyn (Fn(&mut StackValue) -> *mut dyn AnyValueDyn) + Send + Sync + 'static>,
+        gen: MutRefGenerator,
     },
 }
 
-impl std::fmt::Debug for StackValueSnapshot {
+impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
     fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Primitive(arg0) => f.debug_tuple("Primitive").field(arg0).finish(),
@@ -21,13 +21,13 @@ impl std::fmt::Debug for StackValueSnapshot {
     }
 }
 
-impl From<PrimitiveValue> for StackValueSnapshot {
+impl<'eval> From<PrimitiveValue> for StackValueSnapshot<'eval> {
     fn from(value: PrimitiveValue) -> Self {
         Self::Primitive(value)
     }
 }
 
-impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnapshot {
+impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnapshot<'eval> {
     fn into(self) -> StackValue<'stack, 'eval> {
         match self {
             StackValueSnapshot::Primitive(value) => StackValue::Primitive(*value),

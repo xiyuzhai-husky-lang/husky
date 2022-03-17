@@ -2,10 +2,10 @@ use crate::*;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone)]
-pub struct LoopFrameSnapshot {
-    pub stack: StackSnapshot,
+pub struct LoopFrameSnapshot<'eval> {
+    pub stack: StackSnapshot<'eval>,
     pub changes: Vec<()>,
-    pub control: ControlSnapshot,
+    pub control: ControlSnapshot<'eval>,
     pub frame_var_value: i32,
     pub kind: FrameKind,
 }

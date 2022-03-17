@@ -5,7 +5,7 @@ use common::*;
 use ast::{Ast, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
-use vm::{InitKind, InputContract, MemberContract, PrimitiveValue};
+use vm::{InitKind, InputContract, MembVarContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
@@ -77,7 +77,7 @@ impl<'a> Formatter<'a> {
             } => {
                 epin!();
                 match kind {
-                    TyKind::Enum(_) => todo!(),
+                    TyKind::Enum => todo!(),
                     TyKind::Struct => self.write("struct "),
                 }
                 self.fmt_ident(ident.into());
@@ -110,7 +110,7 @@ impl<'a> Formatter<'a> {
                 self.write(")");
                 if decl.output.scope != ScopePtr::Builtin(BuiltinIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_type(decl.output.scope);
+                    self.fmt_ty(decl.output.scope);
                 }
                 self.write(":");
             }
@@ -118,11 +118,11 @@ impl<'a> Formatter<'a> {
             ast::AstKind::Use { ident, scope } => todo!(),
             ast::AstKind::MembDef {
                 ident,
-                memb_kind: MembKind::MembVar { ty },
+                memb_kind: MembKind::MembVar { contract, ty },
             } => {
                 self.fmt_ident(ident.into());
                 self.write(": ");
-                self.fmt_member_variable_contracted_type(ty)
+                self.fmt_member_variable_contracted_type(contract, ty)
             }
             ast::AstKind::MembDef {
                 ident,
@@ -137,12 +137,12 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_member_variable_contracted_type(&mut self, ty: MembType) {
-        match ty.contract {
-            MemberContract::Own => (),
-            MemberContract::Ref => self.write("&"),
+    fn fmt_member_variable_contracted_type(&mut self, contract: MembVarContract, ty: ScopePtr) {
+        match contract {
+            MembVarContract::Own => (),
+            MembVarContract::Ref => self.write("&"),
         }
-        self.fmt_type(ty.scope);
+        self.fmt_ty(ty);
     }
 
     fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
@@ -153,10 +153,10 @@ impl<'a> Formatter<'a> {
             InputContract::BorrowMut => self.write("mut &"),
             InputContract::TakeMut => self.write("mut !"),
         }
-        self.fmt_type(ty.ranged_ty.scope);
+        self.fmt_ty(ty.ranged_ty.scope);
     }
 
-    fn fmt_type(&mut self, ty: ScopePtr) {
+    fn fmt_ty(&mut self, ty: ScopePtr) {
         match ty {
             ScopePtr::Builtin(ident) => self.write(&ident),
             ScopePtr::Custom(_) => todo!(),
@@ -255,7 +255,7 @@ impl<'a> Formatter<'a> {
                         this.fmt_ident((*ident).into());
                         if let Some(ty) = ty {
                             this.write(": ");
-                            this.fmt_type(ty.scope)
+                            this.fmt_ty(ty.scope)
                         }
                     },
                     ", ",

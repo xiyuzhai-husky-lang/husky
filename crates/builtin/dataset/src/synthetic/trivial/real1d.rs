@@ -39,7 +39,7 @@ use xrng::XRng;
 
 use crate::{synthetic::SimpleSyntheticDataset, *};
 
-pub fn gen_sample1(seed: u64, idx: usize) -> LabeledData {
+pub fn gen_sample1<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {
     let mut xrng = XRng::new(((seed + (idx as u64)) >> 32) & ((idx as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
@@ -54,7 +54,7 @@ pub fn gen_sample1(seed: u64, idx: usize) -> LabeledData {
     }
 }
 
-pub fn gen_sample2(seed: u64, idx: usize) -> LabeledData {
+pub fn gen_sample2<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {
     let mut xrng = XRng::new(((seed + (idx as u64)) >> 32) & ((idx as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
@@ -69,10 +69,10 @@ pub fn gen_sample2(seed: u64, idx: usize) -> LabeledData {
     }
 }
 
-pub fn dataset1() -> Dataset {
+pub fn dataset1<'eval>() -> Dataset<'eval> {
     Dataset::new(SimpleSyntheticDataset::new(1223418012u64, gen_sample1))
 }
 
-pub fn dataset2() -> Dataset {
+pub fn dataset2<'eval>() -> Dataset<'eval> {
     Dataset::new(SimpleSyntheticDataset::new(1213148012u64, gen_sample2))
 }

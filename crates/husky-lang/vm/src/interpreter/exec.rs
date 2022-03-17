@@ -47,18 +47,28 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::PrimitiveOpn(opn) => {
                     self.exec_primitive_opn(opn, mode, ins).into()
                 }
-                InstructionKind::CallInterpreted {
+                InstructionKind::RoutineCallInterpreted {
                     ref instructions,
                     nargs,
                 } => {
-                    let control = self.call_interpreted(instructions, nargs).into();
+                    let control = self.routine_call_interpreted(instructions, nargs).into();
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => todo!(),
                     };
                     control
                 }
-                InstructionKind::Return => VMControl::Return(self.stack.pop().unwrap().into_eval()),
+                InstructionKind::TyCallInterpreted {
+                    ty_signature: ref signature,
+                } => {
+                    let control = self.ty_call_interpreted(signature).into();
+                    match mode {
+                        Mode::Fast => (),
+                        Mode::Debug => todo!(),
+                    };
+                    control
+                }
+                InstructionKind::Return => VMControl::Return(self.stack.pop().into_eval()),
                 InstructionKind::Init(init_kind) => self.init(init_kind, mode).into(),
                 InstructionKind::Loop {
                     ref body,
@@ -81,7 +91,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     } else {
                         VMControl::None
                     };
-                    self.stack.pop().unwrap();
+                    self.stack.pop();
                     control
                 }
             };
@@ -106,7 +116,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         match self.stack.top_mut(mode) {
             StackValue::Primitive(_)
             | StackValue::Boxed(_)
-            | StackValue::Volatile(_)
+            | StackValue::GlobalPure(_)
             | StackValue::GlobalRef(_) => (),
             StackValue::Ref(_) => todo!(),
             StackValue::MutRef { .. } => todo!(),
@@ -141,7 +151,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     //         }
     //         InstructionKind::InterpretCall(ref Instructions) => self.exec_all(Instructions),
     //         InstructionKind::Return => {
-    //             Ok(VMControl::Return(self.stack.pop().unwrap().into_eval()?))
+    //             Ok(VMControl::Return(self.stack.pop().into_eval()?))
     //         }
     //         InstructionKind::Init(init_kind) => {
     //             self.init(*init_kind)?;

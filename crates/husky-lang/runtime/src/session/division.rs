@@ -6,14 +6,14 @@ use crate::*;
 // use super::cache::EvalCache;
 
 #[derive(Debug)]
-pub struct Division<'sess> {
-    pub loader: DataLoader,
-    pub sheets: Vec<FeatureSheet<'sess>>,
+pub struct Division<'eval> {
+    pub loader: DataLoader<'eval>,
+    pub sheets: Vec<FeatureSheet<'eval>>,
     pub indicators: Vec<FeatureEvalIndicator>,
 }
 
-impl<'sess> Division<'sess> {
-    pub fn new(loader: DataLoader) -> Self {
+impl<'eval> Division<'eval> {
+    pub fn new(loader: DataLoader<'eval>) -> Self {
         let mut sheets = vec![];
         let mut indicators = vec![];
         sheets.reserve(loader.len());

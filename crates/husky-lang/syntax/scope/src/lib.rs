@@ -119,6 +119,7 @@ pub struct BuiltinScopeData {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum StaticScopeSignature {
     Func(StaticFuncSignature),
+    Ty(StaticTySignature),
     Module,
 }
 
@@ -130,11 +131,7 @@ pub struct StaticFuncSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct CallSignature {
-    pub inputs: Vec<InputSignature>,
-    pub output: ScopePtr,
-    pub compiled: Option<Compiled>,
-}
+pub struct StaticTySignature {}
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StaticInputSignature {

@@ -1,8 +1,8 @@
 use crate::*;
 
-pub trait LoadSample: std::fmt::Debug + Send + Sync + 'static {
+pub trait LoadSample<'eval>: std::fmt::Debug + Send + Sync + 'eval {
     fn len(&self) -> usize;
-    fn load<'a>(&'a mut self, idx: usize) -> LabeledData;
+    fn load<'a>(&'a mut self, idx: usize) -> LabeledData<'eval>;
 }
 
-pub type DataLoader = Box<dyn LoadSample>;
+pub type DataLoader<'eval> = Box<dyn LoadSample<'eval>>;

@@ -28,7 +28,7 @@ use vm::{AnyValueDyn, Instruction};
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
-    traces: Arc<TraceFactory>,
+    traces: Arc<TraceFactory<'static>>,
     session: Arc<Mutex<Session<'static>>>,
     opt_input_id: Option<usize>,
     expansions: HashMap<TraceId, bool>,
@@ -47,11 +47,11 @@ impl RawTextQueryGroup for HuskyLangRuntime {
     }
 }
 
-impl CreateTrace for HuskyLangRuntime {
-    fn trace_factory(&self) -> &trace::TraceFactory {
+impl CreateTrace<'static> for HuskyLangRuntime {
+    fn trace_factory(&self) -> &trace::TraceFactory<'static> {
         &self.traces
     }
-    fn trace_factory_arc(&self) -> Arc<trace::TraceFactory> {
+    fn trace_factory_arc(&self) -> Arc<trace::TraceFactory<'static>> {
         self.traces.clone()
     }
 }
@@ -84,7 +84,7 @@ impl HuskyLangRuntime {
         runtime
     }
 
-    pub fn traces(&self) -> &TraceFactory {
+    pub fn traces(&self) -> &TraceFactory<'static> {
         &self.traces
     }
 

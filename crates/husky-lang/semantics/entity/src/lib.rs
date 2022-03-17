@@ -9,6 +9,7 @@ use kind::*;
 use scope::{InputPlaceholder, RangedScope, ScopePtr};
 use semantics_eager::*;
 use std::sync::Arc;
+use syntax_types::TyKind;
 use text::TextRange;
 use unique_vector::UniqVec;
 use vc::{Uid, VersionControl};
@@ -70,10 +71,13 @@ impl Entity {
                 v
             }
             EntityKind::Ty(ty) => match ty.kind {
-                ty::TyKind::Enum => todo!(),
-                ty::TyKind::Struct { ref memb_vars } => {
-                    memb_vars.iter().map(|memb_var| memb_var.ty.scope).into()
-                }
+                TyKind::Enum => todo!(),
+                TyKind::Struct => ty
+                    .signature
+                    .memb_vars
+                    .iter()
+                    .map(|memb_var| memb_var.ty)
+                    .into(),
             },
             EntityKind::Main(_) => todo!(),
         };
@@ -164,10 +168,10 @@ impl Entity {
                         EagerOpnKind::Suffix(_) => todo!(),
                         EagerOpnKind::RoutineCall(routine) => v.push(routine.scope),
                         EagerOpnKind::PatternCall => todo!(),
-                        EagerOpnKind::MembVarAccess => todo!(),
+                        EagerOpnKind::MembVarAccess { .. } => todo!(),
                         EagerOpnKind::MembFuncCall(_) => todo!(),
                         EagerOpnKind::ElementAccess => todo!(),
-                        EagerOpnKind::TypeCall(ranged_scope) => v.push(ranged_scope.scope),
+                        EagerOpnKind::TypeCall { ranged_ty, .. } => v.push(ranged_ty.scope),
                     }
                     for opd in opds {
                         extract_expr_dependees(opd, v)

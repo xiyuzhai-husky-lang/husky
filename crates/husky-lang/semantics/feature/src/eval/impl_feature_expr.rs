@@ -19,8 +19,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 )?
                 .into()),
             FeatureExprKind::Variable { ref value, .. } => self
-                .cache(expr.feature, |this: &mut Self| {
-                    this.eval_feature_expr(&value)
+                .cache(expr.feature, |evaluator: &mut Self| {
+                    evaluator.eval_feature_expr(&value)
                 }),
             FeatureExprKind::FuncCall {
                 ref instruction_sheet,
@@ -34,6 +34,18 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 ref inputs,
                 ..
             } => self.eval_routine_call(instruction_sheet, compiled, inputs),
+            FeatureExprKind::MembVarAccess {
+                ref this,
+                memb_var_ident,
+                opt_compiled,
+            } => {
+                if let Some(compiled) = opt_compiled {
+                    todo!()
+                } else {
+                    let this_value = self.eval_feature_expr(this)?;
+                    Ok(unsafe { this_value.global_memb_var(memb_var_ident) })
+                }
+            }
         }
     }
 }

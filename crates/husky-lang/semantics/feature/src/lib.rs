@@ -54,6 +54,10 @@ pub enum Feature {
     Branches {
         branches: Vec<BranchedFeature>,
     },
+    MembVarAccess {
+        this: FeaturePtr,
+        memb_var_ident: CustomIdentifier,
+    },
 }
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]

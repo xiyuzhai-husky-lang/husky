@@ -10,7 +10,7 @@ pub(super) enum Response<'a> {
     Subtraces {
         id: TraceId,
         input_locked_on: Option<usize>,
-        subtraces: Arc<Vec<Arc<Trace>>>,
+        subtraces: Arc<Vec<Arc<Trace<'static>>>>,
     },
     Figure {
         id: TraceId,
@@ -27,7 +27,7 @@ pub(super) enum Response<'a> {
     },
     Trace {
         id: TraceId,
-        trace: Arc<Trace>,
+        trace: Arc<Trace<'static>>,
     },
     DidLockInput {
         #[serde(skip_serializing_if = "Option::is_none")]
@@ -37,6 +37,6 @@ pub(super) enum Response<'a> {
     TraceStalk {
         trace_id: TraceId,
         input_id: usize,
-        stalk: Arc<TraceStalk>,
+        stalk: Arc<TraceStalk<'static>>,
     },
 }

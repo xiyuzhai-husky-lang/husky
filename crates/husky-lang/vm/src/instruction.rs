@@ -57,9 +57,12 @@ pub enum InstructionKind {
         compiled: Compiled,
         nargs: u8,
     },
-    CallInterpreted {
+    RoutineCallInterpreted {
         instructions: Arc<Vec<Instruction>>,
         nargs: u8,
+    },
+    TyCallInterpreted {
+        ty_signature: VMTySignature,
     },
     PrimitiveOpn(PrimitiveOpn),
     Loop {

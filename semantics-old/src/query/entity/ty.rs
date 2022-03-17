@@ -16,7 +16,7 @@ pub(super) fn ty_from_ast(
     vc: &EntityVersionControl,
 ) -> SemanticResultArc<Entity> {
     match kind {
-        syntax_types::TyKind::Enum(_) => todo!(),
+        syntax_types::TyKind::Enum => todo!(),
         syntax_types::TyKind::Struct => struct_from_ast(
             ident,
             kind,
