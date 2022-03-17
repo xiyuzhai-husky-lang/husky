@@ -1,4 +1,4 @@
-use vm::{Contract, InitKind};
+use vm::{InitKind, InputContract};
 
 use super::parser::EagerStmtParser;
 use super::*;
@@ -30,7 +30,7 @@ impl<'a> EagerStmtParser<'a> {
                                     kind: DeclBranchKind::If {
                                         condition: self.parse_eager_expr(
                                             &self.arena[condition],
-                                            Contract::PureInput,
+                                            InputContract::Pure,
                                         )?,
                                     },
                                     stmts: self.parse_decl_stmts(not_none!(item.children))?,
@@ -89,7 +89,7 @@ impl<'a> EagerStmtParser<'a> {
                         init_kind: kind,
                     } => {
                         let initial_value =
-                            self.parse_eager_expr(&self.arena[initial_value], Contract::Take)?;
+                            self.parse_eager_expr(&self.arena[initial_value], InputContract::Take)?;
                         if kind != InitKind::Decl {
                             todo!()
                         }
@@ -111,7 +111,8 @@ impl<'a> EagerStmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Return {
-                            result: self.parse_eager_expr(&self.arena[result], Contract::Take)?,
+                            result: self
+                                .parse_eager_expr(&self.arena[result], InputContract::Take)?,
                         },
                         instruction_id: Default::default(),
                     },
@@ -121,7 +122,7 @@ impl<'a> EagerStmtParser<'a> {
                         indent: item.indent,
                         kind: DeclStmtKind::Assert {
                             condition: self
-                                .parse_eager_expr(&self.arena[condition], Contract::PureInput)?,
+                                .parse_eager_expr(&self.arena[condition], InputContract::Pure)?,
                         },
                         instruction_id: Default::default(),
                     },

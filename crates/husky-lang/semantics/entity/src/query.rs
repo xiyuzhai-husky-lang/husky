@@ -146,7 +146,10 @@ pub fn entity_from_ast(
         }
         AstKind::PatternDef => todo!(),
         AstKind::Use { ident, scope } => todo!(),
-        AstKind::MembDef { ident, ref kind } => todo!(),
+        AstKind::MembDef {
+            ident,
+            memb_kind: ref kind,
+        } => todo!(),
         AstKind::MainDef | AstKind::DatasetConfig | AstKind::Stmt(_) => panic!(),
     }
 }

@@ -60,7 +60,10 @@ pub(super) fn struct_from_ast(
             } => todo!(),
             AstKind::PatternDef => panic!(),
             AstKind::Use { .. } => (),
-            AstKind::MembDef { ident, ref kind } => match kind {
+            AstKind::MembDef {
+                ident,
+                memb_kind: ref kind,
+            } => match kind {
                 syntax_types::MembKind::MembVar { ty } => {
                     memb_vars.push(crate::kind::ty::MembVar {
                         ident,

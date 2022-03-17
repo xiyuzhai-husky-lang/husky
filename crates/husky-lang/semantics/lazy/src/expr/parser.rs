@@ -6,7 +6,7 @@ use common::*;
 use file::FilePtr;
 use scope::{RangedScope, ScopeKind, ScopePtr};
 use syntax_types::{ListOpr, Opr};
-use vm::{BinaryOpr, Contract, PrimitiveValue, PureBinaryOpr};
+use vm::{BinaryOpr, InputContract, PrimitiveValue, PureBinaryOpr};
 use word::{BuiltinIdentifier, CustomIdentifier};
 
 use super::*;
@@ -86,7 +86,13 @@ pub trait LazyExprParser<'a> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
-            Opr::Suffix(_) => todo!(),
+            Opr::Suffix(opr) => match opr {
+                SuffixOpr::Incr => todo!(),
+                SuffixOpr::Decr => todo!(),
+                SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
+                SuffixOpr::MemberAccess(_) => todo!(),
+                SuffixOpr::WithType(_) => todo!(),
+            },
             Opr::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
@@ -215,17 +221,17 @@ pub trait LazyExprParser<'a> {
                 kind: ScopeKind::Routine,
                 ..
             } => {
-                let signature = self.db().func_signature(scope)?;
+                let signature = self.db().call_signature(scope)?;
                 let arguments: Vec<_> = opds[1..]
                     .iter()
                     .enumerate()
                     .map(|(i, raw)| {
                         match signature.inputs[i].contract {
-                            Contract::PureInput => (),
-                            Contract::Share => todo!(),
-                            Contract::Take => todo!(),
-                            Contract::BorrowMut => todo!(),
-                            Contract::TakeMut => todo!(),
+                            InputContract::Pure => (),
+                            InputContract::Share => todo!(),
+                            InputContract::Take => todo!(),
+                            InputContract::BorrowMut => todo!(),
+                            InputContract::TakeMut => todo!(),
                         }
                         self.parse_lazy_expr(raw)
                     })

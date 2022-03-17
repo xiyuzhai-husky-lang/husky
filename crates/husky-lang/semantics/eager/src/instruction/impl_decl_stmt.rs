@@ -1,6 +1,6 @@
 use crate::*;
 
-use vm::{Contract, Instruction, InstructionKind};
+use vm::{InputContract, Instruction, InstructionKind};
 
 impl InstructionSheetBuilder {
     pub(super) fn compile_decl_stmts(&mut self, stmts: &[Arc<DeclStmt>]) {

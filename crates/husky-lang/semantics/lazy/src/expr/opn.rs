@@ -8,11 +8,10 @@ use word::{CustomIdentifier, Identifier};
 pub enum LazyOpnKind {
     Binary { opr: PureBinaryOpr, this: ScopePtr },
     Prefix(PrefixOpn),
-    Suffix(SuffixOpn),
     RoutineCall(RangedScope),
     TypeCall(RangedScope),
     PatternCall,
-    MembVarAccess,
+    MembVarAccess(CustomIdentifier),
     MembFuncCall(ScopePtr),
     ElementAccess,
 }

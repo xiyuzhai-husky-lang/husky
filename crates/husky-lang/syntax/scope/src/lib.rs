@@ -11,7 +11,7 @@ use file::FilePtr;
 pub use kind::ScopeKind;
 
 use text::TextRange;
-use vm::{Compiled, Contract};
+use vm::{Compiled, InputContract};
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -130,7 +130,7 @@ pub struct StaticFuncSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FuncSignature {
+pub struct CallSignature {
     pub inputs: Vec<InputSignature>,
     pub output: ScopePtr,
     pub compiled: Option<Compiled>,
@@ -138,20 +138,20 @@ pub struct FuncSignature {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StaticInputSignature {
-    pub contract: Contract,
+    pub contract: InputContract,
     pub ty: &'static str,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputSignature {
-    pub contract: Contract,
+    pub contract: InputContract,
     pub ty: ScopePtr,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputPlaceholder {
     pub ident: CustomIdentifier,
-    pub contract: Contract,
+    pub contract: InputContract,
     pub ranged_ty: RangedScope,
 }
 

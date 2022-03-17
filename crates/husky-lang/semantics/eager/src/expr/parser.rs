@@ -3,7 +3,7 @@ use common::p;
 use file::FilePtr;
 use scope::{ScopeKind, ScopePtr};
 use syntax_types::{ListOpr, Opr};
-use vm::{BinaryOpr, Contract, PrimitiveValue, PureBinaryOpr};
+use vm::{BinaryOpr, InputContract, PrimitiveValue, PureBinaryOpr};
 use word::BuiltinIdentifier;
 
 use crate::*;
@@ -20,7 +20,7 @@ pub trait EagerExprParser<'a> {
     fn parse_eager_expr(
         &mut self,
         raw_expr: &RawExpr,
-        contract: Contract,
+        contract: InputContract,
     ) -> SemanticResult<Arc<EagerExpr>> {
         let (ty, kind): (ScopePtr, _) = match raw_expr.kind {
             RawExprKind::Variable(ident) => (self.vartype(ident), EagerExprKind::Variable(ident)),
@@ -111,11 +111,11 @@ pub trait EagerExprParser<'a> {
         let lopd = self.parse_eager_expr(
             &raw_opds[0],
             match opr {
-                BinaryOpr::Pure(_) => Contract::PureInput,
-                BinaryOpr::Assign(_) => Contract::BorrowMut,
+                BinaryOpr::Pure(_) => InputContract::Pure,
+                BinaryOpr::Assign(_) => InputContract::BorrowMut,
             },
         )?;
-        let ropd = self.parse_eager_expr(&raw_opds[1], Contract::PureInput)?;
+        let ropd = self.parse_eager_expr(&raw_opds[1], InputContract::Pure)?;
         let output_type = match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty, ropd.ty)?
@@ -220,7 +220,7 @@ pub trait EagerExprParser<'a> {
                 kind: ScopeKind::Routine,
                 ..
             } => {
-                let signature = self.db().func_signature(scope)?;
+                let signature = self.db().call_signature(scope)?;
                 let arguments: Vec<_> = opds[1..]
                     .iter()
                     .enumerate()
@@ -244,8 +244,23 @@ pub trait EagerExprParser<'a> {
                 kind: ScopeKind::Type,
                 ..
             } => {
-                p!(scope);
-                todo!()
+                let signature = self.db().call_signature(scope)?;
+                let arguments: Vec<_> = opds[1..]
+                    .iter()
+                    .enumerate()
+                    .map(|(i, raw)| self.parse_eager_expr(raw, signature.inputs[i].contract))
+                    .collect::<SemanticResult<_>>()?;
+                Ok((
+                    scope,
+                    EagerExprKind::Opn {
+                        opn_kind: EagerOpnKind::TypeCall(RangedScope {
+                            scope,
+                            range: call.range(),
+                        }),
+                        compiled: signature.compiled,
+                        opds: arguments,
+                    },
+                ))
             }
             RawExprKind::Scope { .. } => todo!(),
             RawExprKind::Variable(_) => todo!(),

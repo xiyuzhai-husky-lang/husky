@@ -48,7 +48,7 @@ pub enum AstKind {
     },
     MembDef {
         ident: CustomIdentifier,
-        kind: MembKind,
+        memb_kind: MembKind,
     },
     Stmt(RawStmt),
 }
