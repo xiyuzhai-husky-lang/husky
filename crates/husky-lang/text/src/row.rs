@@ -1,4 +1,4 @@
-use serde::Serialize;
+use serde::{Deserialize, Deserializer, Serialize};
 
 #[derive(Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct Row(pub(crate) u32);
@@ -28,5 +28,14 @@ impl Serialize for Row {
         S: serde::Serializer,
     {
         serializer.serialize_i32((self.0 + 1) as i32)
+    }
+}
+
+impl<'de> Deserialize<'de> for Row {
+    fn deserialize<D>(_: D) -> Result<Self, <D as Deserializer<'de>>::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        todo!()
     }
 }

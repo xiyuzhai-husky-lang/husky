@@ -31,10 +31,11 @@ impl std::fmt::Debug for Scope {
         match self.route {
             ScopeRoute::Builtin { ident } => ident.fmt(f)?,
             ScopeRoute::Package { main, ident } => {
-                f.write_str("(package ")?;
-                main.fmt(f)?;
-                f.write_str(") ")?;
-                ident.fmt(f)?
+                // f.write_str("[package=")?;
+                // main.fmt(f)?;
+                // f.write_str("]")?;
+                // ident.fmt(f)?
+                f.write_str("package")?
             }
             ScopeRoute::ChildScope { parent, ident } => {
                 parent.fmt(f)?;

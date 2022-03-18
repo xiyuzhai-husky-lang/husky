@@ -1,6 +1,8 @@
+use serde::{Deserialize, Serialize};
+
 use crate::*;
 
-#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {
     pub start: TextPosition,
     pub end: TextPosition,

@@ -7,6 +7,7 @@ mod severity;
 pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
 use scope_query::ScopeDefError;
+use serde::{Deserialize, Serialize};
 pub use severity::DiagnosticSeverity;
 
 use std::sync::Arc;
@@ -17,7 +18,7 @@ use common::*;
 
 use collect::collect_diagnostics;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Diagnostic {
     severity: DiagnosticSeverity,
     range: TextRange,

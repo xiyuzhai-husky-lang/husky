@@ -22,6 +22,10 @@ impl ScopePtr {
             ScopePtr::Custom(scope) => Some(scope),
         }
     }
+
+    pub fn to_str(&self) -> String {
+        format!("{:?}", self)
+    }
 }
 
 impl std::fmt::Debug for ScopePtr {
