@@ -12,3 +12,5 @@ file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 scope = { path = "../syntax/scope", version = "0.0.0" }
 scope-query = { path = "../syntax/scope-query", version = "0.0.0" }
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }

@@ -235,7 +235,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         }
     }
 
-    fn module_to_file_id(&self, module: ScopePtr) -> ScopeResult<FilePtr> {
+    fn module_file(&self, module: ScopePtr) -> ScopeResult<FilePtr> {
         Ok(match self.scope_source(module)? {
             ScopeSource::Builtin(_) => panic!(),
             ScopeSource::WithinModule { file: file_id, .. } => file_id,

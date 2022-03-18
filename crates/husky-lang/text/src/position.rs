@@ -1,6 +1,8 @@
+use serde::{Deserialize, Serialize};
+
 use crate::*;
 
-#[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+#[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
 pub struct TextPosition {
     pub(crate) row: Row,
     pub(crate) col: Column,

@@ -34,9 +34,7 @@ impl<'a> AstTransformer<'a> {
     pub(crate) fn new(db: &'a dyn AstSalsaQueryGroup, module: ScopePtr) -> Self {
         return Self {
             db,
-            main: db
-                .main_file_id(db.module_to_file_id(module).unwrap())
-                .unwrap(),
+            main: db.main_file_id(db.module_file(module).unwrap()).unwrap(),
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),

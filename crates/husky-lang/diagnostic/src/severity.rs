@@ -1,4 +1,6 @@
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Serialize, Deserialize)]
 pub enum DiagnosticSeverity {
     Error,
     // We don't actually emit this one yet, but we should at some point.

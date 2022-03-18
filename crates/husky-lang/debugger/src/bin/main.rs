@@ -1,6 +1,7 @@
 use std::fs;
 
-use common::PathBuf;
+use common::{p, HashMap, PathBuf};
+use diagnostic::Diagnostic;
 use husky_lang_compile_time::HuskyLangCompileTime;
 use husky_lang_debugger::*;
 
@@ -10,7 +11,8 @@ async fn main() {
     let mode: Mode = flags.mode.into();
     match mode {
         Mode::Run => run(flags.path.into()).await,
-        Mode::Test => test(flags.path.into()).await,
+        Mode::TestRuntime => serve_on_error(flags.path.into()).await,
+        Mode::TestCompileTime => test_diagnostics(flags.path.into()).await,
     }
 }
 
@@ -21,11 +23,11 @@ async fn run(path: PathBuf) {
         .expect("")
 }
 
-async fn test(path: PathBuf) {
-    assert!(path.is_dir());
-    let package_paths = collect_package_paths(path);
+async fn serve_on_error(dir: PathBuf) {
+    assert!(dir.is_dir());
+    let package_paths = collect_package_paths(dir);
     println!(
-        "\n{}Running{} {} tests:",
+        "\n{}Running{} {} servs:",
         common::show::CYAN,
         common::show::RESET,
         package_paths.len()
@@ -41,14 +43,36 @@ async fn test(path: PathBuf) {
     }
 }
 
-fn collect_package_paths(path: PathBuf) -> Vec<PathBuf> {
-    assert!(path.is_dir());
-    let main_path = path.join("main.hsk");
+async fn test_diagnostics(dir: PathBuf) {
+    let package_paths = collect_package_paths(dir);
+    for package_path in package_paths {
+        use husky_lang_compile_time::*;
+        let mut compile_time = HuskyLangCompileTime::default();
+        init_compile_time_from_path(&mut compile_time, package_path);
+        let modules = compile_time.all_modules();
+        let mut diagnostics_table = HashMap::<String, Vec<Diagnostic>>::new();
+        for module in modules {
+            compile_time
+                .diagnostic_reserve(module)
+                .release(|diagnostics| {
+                    assert!(diagnostics_table
+                        .insert(module.to_str(), diagnostics.clone())
+                        .is_none());
+                });
+            let diagnostics_table_json = serde_json::to_string(&diagnostics_table);
+            p!(diagnostics_table)
+        }
+    }
+}
+
+fn collect_package_paths(dir: PathBuf) -> Vec<PathBuf> {
+    assert!(dir.is_dir());
+    let main_path = dir.join("main.hsk");
     if main_path.exists() {
-        return vec![path];
+        return vec![dir];
     } else {
         let mut package_paths = vec![];
-        for entry in fs::read_dir(path).unwrap() {
+        for entry in fs::read_dir(dir).unwrap() {
             let entry = entry.unwrap();
             let subpath = entry.path();
             if subpath.is_dir() {
@@ -65,14 +89,16 @@ fn init_compile_time_from_path(compile_time: &mut HuskyLangCompileTime, path: Pa
 
 pub(crate) enum Mode {
     Run,
-    Test,
+    TestCompileTime,
+    TestRuntime,
 }
 
 impl From<Option<String>> for Mode {
     fn from(opt_str: Option<String>) -> Self {
         if let Some(ref s) = opt_str {
             match s.as_str() {
-                "test" => Mode::Test,
+                "test-runtime" => Mode::TestRuntime,
+                "test-compile-time" => Mode::TestCompileTime,
                 _ => panic!(),
             }
         } else {
