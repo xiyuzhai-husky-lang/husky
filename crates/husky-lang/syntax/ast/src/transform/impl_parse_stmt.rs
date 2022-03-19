@@ -6,92 +6,116 @@ use crate::{
 };
 use text::{TextRange, TextRanged};
 use token::{Special, Token, TokenKind};
-use vm::{BinaryOpr, PureBinaryOpr};
+use vm::BinaryOpr;
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_stmt(
+    pub(super) fn parse_stmt_with_keyword(
         &mut self,
-        keyword: Option<(StmtKeyword, TextRange)>,
-        tokens: &[Token],
+        keyword: StmtKeyword,
+        token_group: &[Token],
     ) -> AstResult<RawStmt> {
-        Ok(if let Some((keyword, kw_range)) = keyword {
-            RawStmt {
-                range: tokens.into(),
-                kind: match keyword {
-                    StmtKeyword::Let => self.parse_init_stmt(InitKind::Let, kw_range, tokens)?,
-                    StmtKeyword::Var => self.parse_init_stmt(InitKind::Var, kw_range, tokens)?,
-                    StmtKeyword::If => {
-                        expect_at_least!(tokens, kw_range, 2);
-                        expect_block_head!(tokens);
-                        RawStmtKind::Branch(RawBranchKind::If {
-                            condition: self.parse_expr(&tokens[0..(tokens.len() - 1)])?,
-                        })
-                    }
-                    StmtKeyword::Elif => todo!(),
-                    StmtKeyword::Else => {
-                        expect!(tokens.len() == 1, kw_range, "expect one tokens after");
-                        expect!(
-                            tokens[0].kind == TokenKind::Special(Special::Colon),
-                            tokens[0].range,
-                            "expect `:`"
-                        );
-                        RawStmtKind::Branch(RawBranchKind::Else)
-                    }
-                    StmtKeyword::Switch => todo!(),
-                    StmtKeyword::Match => todo!(),
-                    StmtKeyword::Case => todo!(),
-                    StmtKeyword::DeFault => todo!(),
-                    StmtKeyword::For => self.parse_for_loop(tokens)?,
-                    StmtKeyword::ForExt => self.parse_forext_loop(tokens)?,
-                    StmtKeyword::While => self.parse_while_loop(tokens)?,
-                    StmtKeyword::Do => self.parse_do_while_loop(tokens)?,
-                    StmtKeyword::Break => todo!(),
-                    StmtKeyword::Return => {
-                        expect!(tokens.len() > 0, kw_range, "expect some tokens after");
-                        RawStmtKind::Return(self.parse_expr(tokens)?)
-                    }
-                    StmtKeyword::Assert => {
-                        expect!(tokens.len() > 0, kw_range, "expect some tokens after");
-                        RawStmtKind::Assert(self.parse_expr(tokens)?)
-                    }
-                },
-            }
-        } else {
-            if tokens.len() > 2 && tokens[1].kind == Special::Assign.into() {
-                // declarative initialization
-                let varname = identify!(tokens[0]);
-                self.symbols
-                    .push(Symbol::var(varname, tokens[0].text_range()));
-                RawStmt {
-                    range: tokens.into(),
-                    kind: RawStmtKind::Init {
-                        init_kind: InitKind::Decl,
-                        varname,
-                        initial_value: self.parse_expr(&tokens[2..])?,
-                    },
+        let kw_range = token_group[0].text_range();
+        Ok(RawStmt {
+            range: token_group.into(),
+            kind: match keyword {
+                StmtKeyword::Let => {
+                    self.parse_init_stmt(InitKind::Let, kw_range, &token_group[1..])?
                 }
-            } else {
-                match self.env() {
-                    Env::Package => todo!(),
-                    Env::Module(_) => todo!(),
-                    Env::DatasetConfig | Env::Main | Env::Def | Env::Func => {
-                        // declarative return
-                        RawStmt {
-                            range: tokens.into(),
-                            kind: RawStmtKind::Return(self.parse_expr(tokens)?),
-                        }
-                    }
-                    Env::Proc => RawStmt {
-                        range: tokens.into(),
-                        kind: RawStmtKind::Exec(self.parse_expr(tokens)?),
-                    },
-                    Env::Test => todo!(),
+                StmtKeyword::Var => {
+                    self.parse_init_stmt(InitKind::Var, kw_range, &token_group[1..])?
                 }
-            }
-            // Ok(Stmt::Exec(expr.unwrap()).into())
+                StmtKeyword::If => {
+                    expect_at_least!(token_group, Some(self.file), kw_range, 3);
+                    expect_block_head!(Some(self.file), token_group);
+                    RawStmtKind::Branch(RawBranchKind::If {
+                        condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
+                    })
+                }
+                StmtKeyword::Elif => todo!(),
+                StmtKeyword::Else => {
+                    expect!(
+                        token_group.len() == 2,
+                        Some(self.file),
+                        kw_range,
+                        "expect one tokens after"
+                    );
+                    expect!(
+                        token_group[1].kind == TokenKind::Special(Special::Colon),
+                        Some(self.file),
+                        token_group[1].range,
+                        "expect `:`"
+                    );
+                    RawStmtKind::Branch(RawBranchKind::Else)
+                }
+                StmtKeyword::Switch => todo!(),
+                StmtKeyword::Match => todo!(),
+                StmtKeyword::Case => todo!(),
+                StmtKeyword::DeFault => todo!(),
+                StmtKeyword::For => self.parse_for_loop(token_group)?,
+                StmtKeyword::ForExt => self.parse_forext_loop(token_group)?,
+                StmtKeyword::While => self.parse_while_loop(token_group)?,
+                StmtKeyword::Do => self.parse_do_while_loop(token_group)?,
+                StmtKeyword::Break => todo!(),
+                StmtKeyword::Return => {
+                    expect!(
+                        token_group.len() >= 2,
+                        Some(self.file),
+                        kw_range,
+                        "expect some tokens after"
+                    );
+                    RawStmtKind::Return(self.parse_expr(&token_group[1..])?)
+                }
+                StmtKeyword::Assert => {
+                    expect!(
+                        token_group.len() >= 2,
+                        Some(self.file),
+                        kw_range,
+                        "expect some tokens after"
+                    );
+                    RawStmtKind::Assert(self.parse_expr(&token_group[1..])?)
+                }
+            },
         })
     }
 
+    pub(super) fn parse_stmt_without_keyword(
+        &mut self,
+        token_group: &[Token],
+    ) -> AstResult<RawStmt> {
+        Ok(match self.env() {
+            Env::Package => todo!(),
+            Env::Module(_) => todo!(),
+            Env::DatasetConfig | Env::Main | Env::Def | Env::Func => {
+                if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
+                    // declarative initialization
+                    let varname = identify!(Some(self.file), token_group[0]);
+                    self.symbols
+                        .push(Symbol::var(varname, token_group[0].text_range()));
+                    RawStmt {
+                        range: token_group.into(),
+                        kind: RawStmtKind::Init {
+                            init_kind: InitKind::Decl,
+                            varname,
+                            initial_value: self.parse_expr(&token_group[2..])?,
+                        },
+                    }
+                } else {
+                    // declarative return
+                    RawStmt {
+                        range: token_group.into(),
+                        kind: RawStmtKind::Return(self.parse_expr(token_group)?),
+                    }
+                }
+            }
+            Env::Proc => RawStmt {
+                range: token_group.into(),
+                kind: RawStmtKind::Exec(self.parse_expr(token_group)?),
+            },
+            Env::Test => todo!(),
+            Env::Struct | Env::Enum => panic!(),
+        })
+        // Ok(Stmt::Exec(expr.unwrap()).into())
+    }
     fn parse_init_stmt(
         &mut self,
         kind: InitKind,
@@ -102,6 +126,7 @@ impl<'a> AstTransformer<'a> {
             InitKind::Let | InitKind::Var => match self.env() {
                 Env::Proc | Env::Test => (),
                 _ => err!(
+                    Some(self.file),
                     kw_range,
                     format!(
                         "`{}` statement requires env to be `proc` or `test`, but got `{}` instead",
@@ -112,11 +137,11 @@ impl<'a> AstTransformer<'a> {
             },
             InitKind::Decl => todo!(),
         }
-        expect_at_least!(tokens, kw_range, 3);
-        let varname = identify!(&tokens[0]);
+        expect_at_least!(tokens, Some(self.file), kw_range, 3);
+        let varname = identify!(Some(self.file), &tokens[0]);
         self.symbols
             .push(Symbol::var(varname, tokens[0].range.clone()));
-        expect_kind!(tokens[1], Special::Assign);
+        expect_kind!(Some(self.file), tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtKind::Init {
             init_kind: kind,
@@ -125,9 +150,9 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_for_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(tokens);
-        let expr = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+    fn parse_for_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(Some(self.file), token_group);
+        let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr];
         Ok(match expr.kind {
             RawExprKind::Opn { opr, ref opds } => match opr {
@@ -144,6 +169,7 @@ impl<'a> AstTransformer<'a> {
                                 frame_var,
                                 pure_binary,
                                 opds.end - 1,
+                                self.file,
                                 expr.range(),
                             )?
                             .into()
@@ -152,6 +178,7 @@ impl<'a> AstTransformer<'a> {
                                 opds.start,
                                 pure_binary,
                                 frame_var,
+                                self.file,
                                 expr.range(),
                             )?
                             .into()
@@ -169,18 +196,20 @@ impl<'a> AstTransformer<'a> {
                                         },
                                         _ => todo!(),
                                     };
-                                    let frame_var =
-                                        if let RawExprKind::Unrecognized(frame_var) = lropd.kind {
-                                            frame_var
-                                        } else {
-                                            err!(expr.range(), "expect unrecognized")?
-                                        };
+                                    let frame_var = if let RawExprKind::Unrecognized(frame_var) =
+                                        lropd.kind
+                                    {
+                                        frame_var
+                                    } else {
+                                        err!(Some(self.file), expr.range(), "expect unrecognized")?
+                                    };
                                     RawLoopKind::for_loop(
                                         llopd_idx,
                                         initial_comparison,
                                         frame_var,
                                         final_comparison,
                                         ropd_idx,
+                                        self.file,
                                         expr.range(),
                                     )?
                                     .into()
@@ -196,9 +225,9 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_forext_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(tokens);
-        let expr_idx = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+    fn parse_forext_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(Some(self.file), token_group);
+        let expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr_idx];
         Ok(match expr.kind {
             RawExprKind::Opn {
@@ -218,19 +247,21 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_while_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(tokens);
-        let expr_idx = self.parse_expr(&tokens[0..(tokens.len() - 1)])?;
+    fn parse_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(Some(self.file), token_group);
+        let expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         Ok(RawLoopKind::while_loop(expr_idx).into())
     }
 
-    fn parse_do_while_loop(&mut self, tokens: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(tokens);
-        match tokens[0].kind {
+    fn parse_do_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
+        expect_block_head!(Some(self.file), token_group);
+        match token_group[1].kind {
             TokenKind::Keyword(Keyword::Stmt(StmtKeyword::While)) => (),
-            _ => todo!(),
+            _ => {
+                todo!()
+            }
         }
-        let expr_idx = self.parse_expr(&tokens[1..(tokens.len() - 1)])?;
+        let expr_idx = self.parse_expr(&token_group[2..(token_group.len() - 1)])?;
         Ok(RawLoopKind::do_while_loop(expr_idx).into())
     }
 }

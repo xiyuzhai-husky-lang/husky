@@ -10,6 +10,8 @@ pub enum Env {
     Func,
     Proc,
     Test,
+    Struct,
+    Enum,
 }
 
 impl std::fmt::Display for Env {
@@ -23,6 +25,8 @@ impl std::fmt::Display for Env {
             Env::Func => "func",
             Env::Proc => "proc",
             Env::Test => "test",
+            Env::Struct => todo!(),
+            Env::Enum => todo!(),
         })
     }
 }

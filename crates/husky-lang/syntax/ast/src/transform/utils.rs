@@ -1,26 +1,27 @@
 macro_rules! identify {
-    ($token:expr) => {{
+    ($file: expr, $token:expr) => {{
         match $token.kind {
             TokenKind::Identifier(Identifier::Custom(ident)) => ident,
-            _ => err!($token.range, "expect `<custom_identifier>`")?,
+            _ => err!($file, $token.range, "expect `<custom_identifier>`")?,
         }
     }};
 }
 pub(super) use identify;
 
 macro_rules! expect {
-    ($cond:expr, $range:expr, $msg:expr) => {
+    ($cond:expr, $file: expr, $range:expr, $msg:expr) => {
         if !$cond {
-            err!($range, $msg)?
+            err!($file, $range, $msg)?
         }
     };
 }
 pub(super) use expect;
 
 macro_rules! expect_kind {
-    ($token:expr, $kind:expr) => {
+    ($file: expr, $token:expr, $kind:expr) => {
         expect!(
             $token.kind == TokenKind::Special($kind),
+            $file,
             $token.range,
             format!("expect `{}`", $kind.code())
         );
@@ -29,16 +30,17 @@ macro_rules! expect_kind {
 pub(super) use expect_kind;
 
 macro_rules! expect_block_head {
-    ($tokens:expr) => {
-        expect_kind!($tokens.last().unwrap(), Special::Colon)
+    ($file: expr, $tokens:expr) => {
+        expect_kind!($file, $tokens.last().unwrap(), Special::Colon)
     };
 }
 pub(super) use expect_block_head;
 
 macro_rules! expect_at_least {
-    ($tokens:expr, $kw_range:expr, $lower_bound:expr) => {
+    ($tokens:expr, $file: expr, $kw_range:expr, $lower_bound:expr) => {
         expect!(
             $tokens.len() >= $lower_bound,
+            $file,
             $kw_range,
             format!(
                 "expect at least {} tokens after keyword, but got {} tokens instead",
@@ -51,9 +53,10 @@ macro_rules! expect_at_least {
 pub(super) use expect_at_least;
 
 macro_rules! expect_len {
-    ($tokens:expr,  $len:expr) => {
+    ($file: expr, $tokens:expr,  $len:expr) => {
         expect!(
             $tokens.len() == $len,
+            $file,
             $tokens.into(),
             format!(
                 "expect {} tokens after keyword, but got {} tokens instead",
@@ -66,8 +69,8 @@ macro_rules! expect_len {
 pub(super) use expect_len;
 
 macro_rules! trim {
-    ($tokens:expr; keyword, colon) => {{
-        expect_kind!($tokens.last().unwrap(), Special::Colon);
+    ($file: expr, $tokens:expr; keyword, colon) => {{
+        expect_kind!($file, $tokens.last().unwrap(), Special::Colon);
         &$tokens[1..($tokens.len() - 1)]
     }};
 
@@ -80,8 +83,8 @@ macro_rules! trim {
 pub(super) use trim;
 
 macro_rules! expect_head {
-    ($tokens:expr) => {{
-        expect_kind!($tokens.last().unwrap(), Special::Colon);
+    ($file: expr, $tokens:expr) => {{
+        expect_kind!($file, $tokens.last().unwrap(), Special::Colon);
     }};
 }
 pub(super) use expect_head;

@@ -1,0 +1,8 @@
+enum A:
+    Haha
+
+dataset:
+    synthetic::trivial::real1d::dataset1()
+
+main:
+    A::Haha

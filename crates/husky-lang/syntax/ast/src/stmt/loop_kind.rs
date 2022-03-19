@@ -1,3 +1,4 @@
+use file::FilePtr;
 use vm::{BoundaryKind, LoopStep, PureBinaryOpr};
 
 use crate::*;
@@ -30,6 +31,7 @@ impl RawLoopKind {
         frame_var: CustomIdentifier,
         final_comparison: PureBinaryOpr,
         final_bound: RawExprIdx,
+        file: FilePtr,
         range: TextRange,
     ) -> AstResult<Self> {
         let (initial_boundary_kind, step) = match initial_comparison {
@@ -69,13 +71,14 @@ impl RawLoopKind {
         frame_var: CustomIdentifier,
         comparison: PureBinaryOpr,
         final_bound: RawExprIdx,
+        file: FilePtr,
         range: TextRange,
     ) -> AstResult<Self> {
         let final_boundary_kind = match comparison {
             // ill-formed: $frame_var >= $final_bound
-            PureBinaryOpr::Geq => err!(range, "invalid form")?,
+            PureBinaryOpr::Geq => err!(Some(file), range, "invalid form")?,
             // ill-formed: $frame_var > $final_bound
-            PureBinaryOpr::Greater => err!(range, "invalid form")?,
+            PureBinaryOpr::Greater => err!(Some(file), range, "invalid form")?,
             // well-formed: $frame_var <= $final_bound
             PureBinaryOpr::Leq => BoundaryKind::UpperClosed,
             // well-formed: $frame_var < $final_bound
@@ -97,6 +100,7 @@ impl RawLoopKind {
         initial_bound: RawExprIdx,
         comparison: PureBinaryOpr,
         frame_var: CustomIdentifier,
+        file: FilePtr,
         range: TextRange,
     ) -> AstResult<Self> {
         let initial_boundary_kind = match comparison {
@@ -105,9 +109,9 @@ impl RawLoopKind {
             // well-formed: $initial_bound > $frame_var
             PureBinaryOpr::Greater => BoundaryKind::LowerOpen,
             // ill-formed: $initial_bound <= $frame_var
-            PureBinaryOpr::Leq => err!(range, "invalid form")?,
+            PureBinaryOpr::Leq => err!(Some(file), range, "invalid form")?,
             // ill-formed: $initial_bound < $frame_var
-            PureBinaryOpr::Less => err!(range, "invalid form")?,
+            PureBinaryOpr::Less => err!(Some(file), range, "invalid form")?,
             _ => todo!(),
         };
         Ok(Self::For {

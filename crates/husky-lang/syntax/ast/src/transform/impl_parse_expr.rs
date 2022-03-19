@@ -7,11 +7,11 @@ use token::Token;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {
-        let atoms = AtomLRParser::new(self.symbol_proxy(), tokens).parse_all()?;
+        let atoms = AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens).parse_all()?;
         should!(atoms.len() > 0);
         Ok({
             let mut atom_iter = atoms.iter().peekable();
-            let mut stack = ExprStack::new(&mut self.arena);
+            let mut stack = ExprStack::new(Some(self.file), &mut self.arena);
             while let Some(atom) = atom_iter.next() {
                 match atom.kind {
                     AtomKind::Variable(_)

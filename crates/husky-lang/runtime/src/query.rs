@@ -122,7 +122,7 @@ fn feature_expr_subtraces(
     opt_input_id: Option<usize>,
 ) -> Arc<Vec<Arc<Trace<'static>>>> {
     Arc::new(match expr.kind {
-        FeatureExprKind::Literal(_)
+        FeatureExprKind::PrimitiveLiteral(_)
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
         | FeatureExprKind::Variable { .. } => vec![],
         FeatureExprKind::FuncCall {
@@ -231,6 +231,7 @@ fn feature_expr_subtraces(
             }
         }
         FeatureExprKind::MembVarAccess { .. } => todo!(),
+        FeatureExprKind::EnumLiteral { .. } => todo!(),
     })
 }
 

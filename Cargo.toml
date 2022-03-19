@@ -12,7 +12,7 @@ members = [
     "crates/husky-lang/file",
     "crates/husky-lang/text",
     "crates/husky-lang/fmt",
-    "crates/data_structure/*",
+    "crates/data-structure/*",
     "crates/builtin/*",
     "crates/try",
     "crates/utils/*",

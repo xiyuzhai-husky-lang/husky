@@ -7,7 +7,7 @@ use file::FilePtr;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use scope::ScopePtr;
+use scope::{Scope, ScopePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::*;
@@ -35,7 +35,11 @@ pub enum LazyExprKind {
         scope: ScopePtr,
         compiled: Option<Compiled>,
     },
-    Literal(PrimitiveValue),
+    PrimitiveLiteral(PrimitiveValue),
+    EnumLiteral {
+        scope: ScopePtr,
+        value: EnumLiteralValue,
+    },
     Bracketed(Arc<LazyExpr>),
     Opn {
         opn_kind: LazyOpnKind,

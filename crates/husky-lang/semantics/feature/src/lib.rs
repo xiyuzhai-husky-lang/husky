@@ -36,7 +36,8 @@ pub struct FeatureSymbol {
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub enum Feature {
     Input,
-    Literal(PrimitiveValue),
+    PrimitiveLiteral(PrimitiveValue),
+    EnumLiteral(ScopePtr),
     Assert {
         condition: FeaturePtr,
     },

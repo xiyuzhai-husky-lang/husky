@@ -55,6 +55,7 @@ impl<'a> SymbolProxy<'a> {
     pub fn resolve_symbol_kind(
         &self,
         ident: Identifier,
+        file: Option<FilePtr>,
         range: TextRange,
     ) -> AstResult<SymbolKind> {
         match ident {
@@ -62,7 +63,7 @@ impl<'a> SymbolProxy<'a> {
             Identifier::Implicit(ident) => Ok(SymbolKind::Scope(ScopeRoute::Implicit {
                 main: self
                     .main
-                    .ok_or(error!(range, "can't use implicit outside package"))?,
+                    .ok_or(error!(file, range, "can't use implicit outside package"))?,
                 ident,
             })),
             Identifier::Custom(ident) => Ok(

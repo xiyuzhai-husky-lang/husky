@@ -1,4 +1,5 @@
 use atom::{Bracket, LambdaHead, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
+use file::FilePtr;
 use scope::RangedScope;
 use text::{TextPosition, TextRange};
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
@@ -6,6 +7,7 @@ use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
 use crate::{expr::precedence::Precedence, *};
 
 pub(crate) struct ExprStack<'a> {
+    file: Option<FilePtr>,
     arena: &'a mut RawExprArena,
     oprs: Vec<ExprStackOpr>,
     exprs: Vec<RawExpr>,
@@ -87,8 +89,9 @@ impl<'a> std::fmt::Debug for ExprStack<'a> {
 }
 
 impl<'a> ExprStack<'a> {
-    pub(crate) fn new(arena: &'a mut RawExprArena) -> Self {
+    pub(crate) fn new(file: Option<FilePtr>, arena: &'a mut RawExprArena) -> Self {
         Self {
+            file,
             arena,
             oprs: Vec::new(),
             exprs: Vec::new(),
@@ -176,6 +179,7 @@ impl<'a> ExprStack<'a> {
                     ExprStackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
                             err!(
+                                self.file,
                                 (self.exprs[0].range.start..end).into(),
                                 format!(
                                     "brackets should match but get bra = {}, ket = {}",
@@ -188,6 +192,7 @@ impl<'a> ExprStack<'a> {
                     }
                     _ => {
                         err!(
+                            self.file,
                             (self.exprs[0].range.start..end).into(),
                             format!(
                                 "expect {} but got {:?} instead",

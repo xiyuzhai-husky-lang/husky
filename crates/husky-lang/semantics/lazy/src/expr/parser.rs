@@ -4,13 +4,12 @@ use crate::*;
 use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
 use common::*;
 use file::FilePtr;
-use scope::{RangedScope, ScopeKind, ScopePtr};
+use scope::{RangedScope, ScopeKind, ScopePtr, ScopeRoute};
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, InputContract, PrimitiveValue, PureBinaryOpr};
 use word::{BuiltinIdentifier, CustomIdentifier};
 
 use super::*;
-use crate::*;
 use semantics_error::*;
 
 pub trait LazyExprParser<'a> {
@@ -35,13 +34,27 @@ pub trait LazyExprParser<'a> {
                     match scope {
                         ScopePtr::Builtin(BuiltinIdentifier::True) => (
                             ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                            LazyExprKind::Literal(PrimitiveValue::Bool(true)),
+                            LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true)),
                         ),
                         ScopePtr::Builtin(BuiltinIdentifier::False) => (
                             ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                            LazyExprKind::Literal(PrimitiveValue::Bool(false)),
+                            LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false)),
                         ),
-                        ScopePtr::Custom(_) => todo!(),
+                        ScopePtr::Custom(scope_ref) => {
+                            let ty = match scope_ref.route {
+                                ScopeRoute::Builtin { ident } => todo!(),
+                                ScopeRoute::Package { main, ident } => todo!(),
+                                ScopeRoute::ChildScope { parent, ident } => parent,
+                                ScopeRoute::Implicit { main, ident } => todo!(),
+                            };
+                            (
+                                ty,
+                                LazyExprKind::EnumLiteral {
+                                    scope,
+                                    value: self.db().enum_literal_value(scope),
+                                },
+                            )
+                        }
                         _ => todo!(),
                     }
                     // (
@@ -64,7 +77,9 @@ pub trait LazyExprParser<'a> {
                 ),
                 ScopeKind::Pattern => todo!(),
             },
-            RawExprKind::Literal(value) => (value.ty().into(), LazyExprKind::Literal(value)),
+            RawExprKind::Literal(value) => {
+                (value.ty().into(), LazyExprKind::PrimitiveLiteral(value))
+            }
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
             RawExprKind::Lambda(_, _) => todo!(),

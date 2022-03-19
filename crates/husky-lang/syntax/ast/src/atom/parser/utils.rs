@@ -132,7 +132,9 @@ macro_rules! get{
         if let Some(pattern) = $this.$patt() {
             pattern
         } else {
-            return Err(AstError{range:$this.stream.pop_range(),
+            return Err(AstError{
+                file: $this.file,
+                range: $this.stream.pop_range(),
                 src: common::src!(),
                 kind: format!("expect {} after it, but get {{{:?}}} instead",
                             stringify!($patt),
@@ -155,7 +157,9 @@ macro_rules! get{
         if let Some(pattern) = $this.$patt()? {
             pattern
         } else {
-            return Err(AstError{range:$this.stream.pop_range(),
+            return Err(AstError{
+                file: $this.file,
+                range: $this.stream.pop_range(),
                 src: src!(),
                 kind: format!("expect {} after it, but get {{{:?}}} instead",
                     stringify!($patt),
@@ -178,7 +182,9 @@ macro_rules! get{
         if let Some(pattern) = $this.$patt()? {
             pattern
         } else {
-            return Err(AstError{range:$this.stream.pop_range(),
+            return Err(AstError{
+                file: $this.file,
+                range: $this.stream.pop_range(),
                  src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
         }
     }};
@@ -204,10 +210,13 @@ macro_rules! no_look_pass{
 
     ($this:expr, $patt:ident, $($args:expr),*) => {{
         if  $this.$patt($($args),*).is_none() {
-            return Err(AstError{range:$this.stream.pop_range(),
-                    src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return Err(AstError{
+                file: $this.file,
+                range: $this.stream.pop_range(),
+                src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            }
         }
-    }};
+    };
 
     ($this:expr, $patt:ident?) => {{
         if $this.$patt()?.is_none() {

@@ -1,29 +1,31 @@
+mod impl_parse_enum;
 mod impl_parse_expr;
 mod impl_parse_func_decl;
+mod impl_parse_module;
 mod impl_parse_stmt;
+mod impl_parse_struct;
 mod impl_symbol_proxy;
 mod impl_use_all;
 mod utils;
 
 use file::FilePtr;
-use fold::{FoldedList, LocalStack, LocalValue};
+use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use scope::ScopeRoute;
 use syntax_types::*;
-use text::TextRanged;
 use token::*;
-use vm::{InputContract, MembVarContract};
-use word::{RoutineKeyword, *};
 
 use crate::{
     atom::symbol_proxy::{Symbol, SymbolKind},
     query::{AstSalsaQueryGroup, AstText},
-    transform::utils::*,
     *,
 };
+
+pub type AstIter<'a> = FoldIter<'a, AstResult<Ast>, FoldedList<AstResult<Ast>>>;
 
 pub struct AstTransformer<'a> {
     db: &'a dyn AstSalsaQueryGroup,
     main: FilePtr,
+    file: FilePtr,
     arena: RawExprArena,
     folded_results: FoldedList<AstResult<Ast>>,
     symbols: LocalStack<Symbol>,
@@ -35,6 +37,7 @@ impl<'a> AstTransformer<'a> {
         return Self {
             db,
             main: db.main_file_id(db.module_file(module).unwrap()).unwrap(),
+            file: db.module_file(module).unwrap(),
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
@@ -88,124 +91,33 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
     fn transform(
         &mut self,
         _indent: fold::Indent,
-        tokens: &[Token],
+        token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<Ast> {
         Ok(Ast {
-            range: tokens.into(),
-            kind: if let TokenKind::Keyword(keyword) = tokens[0].kind {
-                match keyword {
-                    Keyword::Routine(routine_keyword) => match routine_keyword {
-                        RoutineKeyword::Main => {
-                            enter_block(self);
-                            self.env.set_value(Env::Main);
-                            AstKind::MainDef
-                        }
-                        RoutineKeyword::Test => {
-                            enter_block(self);
-                            self.env.set_value(Env::Test);
-                            todo!()
-                        }
-                        RoutineKeyword::Proc => {
-                            enter_block(self);
-                            self.env.set_value(Env::Proc);
-                            let head = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
-                            self.symbols.extend(head.input_placeholders.iter().map(
-                                |input_placeholder| Symbol {
-                                    ident: input_placeholder.ident,
-                                    kind: SymbolKind::Variable(input_placeholder.ranged_ty.range),
-                                },
-                            ));
-                            AstKind::RoutineDef {
-                                routine_kind: RoutineKind::Proc,
-                                routine_head: head,
-                            }
-                        }
-                        RoutineKeyword::Func => {
-                            enter_block(self);
-                            self.env.set_value(Env::Func);
-                            let decl = self.parse_routine_decl(trim!(tokens; keyword, colon))?;
-                            for input_placeholder in decl.input_placeholders.iter() {
-                                match input_placeholder.contract {
-                                    InputContract::Pure
-                                    | InputContract::Share
-                                    | InputContract::Take => (),
-                                    InputContract::BorrowMut | InputContract::TakeMut => {
-                                        todo!("report invalid input contract")
-                                    }
-                                }
-                                self.symbols.push(Symbol {
-                                    ident: input_placeholder.ident,
-                                    kind: SymbolKind::Variable(input_placeholder.ranged_ty.range),
-                                })
-                            }
-                            AstKind::RoutineDef {
-                                routine_kind: RoutineKind::Func,
-                                routine_head: decl,
-                            }
-                        }
-                    },
-                    Keyword::Type(ty_kw) => match ty_kw {
-                        word::TypeKeyword::Struct => {
-                            expect_len!(tokens, 3);
-                            expect_head!(tokens);
-                            AstKind::TypeDef {
-                                ident: identify!(tokens[1]),
-                                kind: TyKind::Struct,
-                                generics: Vec::new(),
-                            }
-                        }
-                        word::TypeKeyword::Rename => todo!(),
-                        word::TypeKeyword::Enum => todo!(),
-                        word::TypeKeyword::Props => todo!(),
-                    },
-                    Keyword::Use | Keyword::Mod => todo!(),
-                    Keyword::Stmt(kw) => self
-                        .parse_stmt(Some((kw, tokens[0].range.clone())), &tokens[1..])?
-                        .into(),
-                    Keyword::Config(cfg) => match cfg {
-                        ConfigKeyword::Dataset => {
-                            self.env.set_value(Env::DatasetConfig);
-                            enter_block(self);
-                            self.use_all(
-                                BuiltinIdentifier::DatasetType.into(),
-                                tokens[0].text_range(),
-                            )?;
-                            AstKind::DatasetConfig
-                        }
-                    },
-                    Keyword::Def => todo!(),
+            range: token_group.into(),
+            kind: match self.env() {
+                Env::Package | Env::Module(_) => {
+                    self.parse_module_item(token_group, enter_block)?
                 }
-            } else {
-                if tokens.len() >= 2 && tokens[1].kind == TokenKind::Special(Special::Colon) {
-                    if tokens.len() == 2 {
-                        todo!()
-                    }
-                    let ident = match tokens[0].kind {
-                        TokenKind::Identifier(ident) => match ident {
-                            Identifier::Builtin(_) => err!(
-                                tokens[0].text_range(),
-                                "expect custom identifier but got builtin"
-                            )?,
-                            Identifier::Implicit(_) => err!(
-                                tokens[0].text_range(),
-                                "expect implicit identifier but got builtin"
-                            )?,
-                            Identifier::Custom(custom_ident) => custom_ident,
+                Env::DatasetConfig | Env::Main | Env::Def | Env::Func | Env::Proc | Env::Test => {
+                    match token_group[0].kind {
+                        TokenKind::Keyword(keyword) => match keyword {
+                            Keyword::Config(_) => todo!(),
+                            Keyword::Routine(_) => todo!(),
+                            Keyword::Type(_) => todo!(),
+                            Keyword::Stmt(keyword) => {
+                                self.parse_stmt_with_keyword(keyword, token_group)?.into()
+                            }
+                            Keyword::Def => todo!(),
+                            Keyword::Use => todo!(),
+                            Keyword::Mod => todo!(),
                         },
-                        _ => err!(tokens[0].text_range(), "expect custom identifier")?,
-                    };
-                    let ty = atom::parse_ty(self.symbol_proxy(), &tokens[2..])?;
-                    AstKind::MembDef {
-                        ident,
-                        memb_kind: MembKind::MembVar {
-                            contract: MembVarContract::Own,
-                            ty,
-                        },
+                        _ => self.parse_stmt_without_keyword(token_group)?.into(),
                     }
-                } else {
-                    self.parse_stmt(None, tokens)?.into()
                 }
+                Env::Struct => self.parse_struct_memb_var(token_group)?,
+                Env::Enum => self.parse_enum_variant(token_group)?,
             },
         })
     }

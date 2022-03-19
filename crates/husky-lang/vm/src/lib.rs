@@ -1,6 +1,7 @@
 mod compiled;
 mod contract;
 mod control;
+mod enum_literal;
 mod error;
 mod frame;
 mod history;
@@ -18,6 +19,7 @@ use std::sync::Arc;
 pub use compiled::{Compiled, MembVarAccessCompiled};
 pub use contract::{InputContract, MembVarContract};
 pub use control::{ControlSnapshot, VMControl};
+pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
 pub use frame::{FrameKind, LoopFrameSnapshot};
 pub use history::{History, HistoryEntry};

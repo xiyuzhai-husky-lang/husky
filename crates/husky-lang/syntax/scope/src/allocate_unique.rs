@@ -1,9 +1,10 @@
 use core::hash::Hash;
-use std::{borrow::Borrow, ops::Deref};
+use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
 
 use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
 
 use paste::paste;
+use vm::{AnyValue, AnyValueDyn, EnumLiteralValueDyn, StaticTypeId};
 
 use crate::*;
 
@@ -13,6 +14,30 @@ pub type UniqueScopeAllocator = UniqueAllocator<Scope, Scope, ScopePtr>;
 pub enum ScopePtr {
     Builtin(BuiltinIdentifier),
     Custom(&'static Scope),
+}
+
+impl<'eval> AnyValue<'eval> for ScopePtr {
+    fn static_type_id() -> StaticTypeId {
+        TypeId::of::<ScopePtr>().into()
+    }
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        "ScopePtr".into()
+    }
+
+    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+        todo!()
+    }
+}
+
+impl EnumLiteralValueDyn for ScopePtr {
+    fn clone_as_boxed(&self) -> Box<dyn EnumLiteralValueDyn> {
+        Box::new(self.clone())
+    }
+
+    fn eq_dyn(&self, other: &dyn EnumLiteralValueDyn) -> bool {
+        self.eq(other.upcast_any().downcast_ref::<ScopePtr>())
+    }
 }
 
 impl ScopePtr {

@@ -1,15 +1,13 @@
 mod kind;
 mod query;
 
-pub use kind::{EntityKind, Main};
+pub use kind::*;
 pub use query::{EntityQueryGroup, EntityQueryGroupStorage};
 
 use file::FilePtr;
-use kind::*;
 use scope::{InputPlaceholder, RangedScope, ScopePtr};
 use semantics_eager::*;
 use std::sync::Arc;
-use syntax_types::TyKind;
 use text::TextRange;
 use unique_vector::UniqVec;
 use vc::{Uid, VersionControl};
@@ -71,12 +69,16 @@ impl Entity {
                 v
             }
             EntityKind::Ty(ty) => match ty.kind {
-                TyKind::Enum => todo!(),
-                TyKind::Struct => ty
-                    .signature
-                    .memb_vars
+                TyKind::Enum { ref variants } => {
+                    let mut v = UniqVec::new();
+                    variants.iter().for_each(|(_ident, variant_kind)| {
+                        extract_enum_variant_dependees(variant_kind, &mut v)
+                    });
+                    v
+                }
+                TyKind::Struct { ref memb_vars } => memb_vars
                     .iter()
-                    .map(|memb_var| memb_var.ty)
+                    .map(|(_ident, memb_var)| memb_var.ty)
                     .into(),
             },
             EntityKind::Main(_) => todo!(),
@@ -186,6 +188,15 @@ impl Entity {
                 .opt_bound
                 .as_ref()
                 .map(|bound| extract_expr_dependees(bound, v));
+        }
+
+        fn extract_enum_variant_dependees(
+            variant_kind: &EnumVariantKind,
+            v: &mut UniqVec<ScopePtr>,
+        ) {
+            match variant_kind {
+                EnumVariantKind::Constant => (),
+            }
         }
     }
 

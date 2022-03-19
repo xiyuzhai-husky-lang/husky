@@ -12,12 +12,12 @@ pub enum VirtualTy<'eval> {
 impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
     pub fn new_struct(
         mut inputs: Vec<StackValue<'stack, 'eval>>,
-        memb_var_sigs: &[VMMembVarSignature],
+        memb_var_sigs: &[(CustomIdentifier, MembVarContract)],
     ) -> Self {
         let mut memb_vars = vec![];
         for i in 0..inputs.len() {
             memb_vars.push(VirtualMembVar {
-                ident: memb_var_sigs[i].ident,
+                ident: memb_var_sigs[i].0,
                 value: inputs[i].take().into_eval(),
             });
         }

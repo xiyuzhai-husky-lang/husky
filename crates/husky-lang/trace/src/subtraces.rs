@@ -14,13 +14,14 @@ impl<'eval> Trace<'eval> {
             | TraceKind::LoopFrame { .. }
             | TraceKind::CallHead { .. } => None,
             TraceKind::FeatureExpr(ref expr) => match expr.kind {
-                FeatureExprKind::Literal(_)
+                FeatureExprKind::PrimitiveLiteral(_)
                 | FeatureExprKind::PrimitiveBinaryOpr { .. }
                 | FeatureExprKind::Variable { .. } => None,
                 FeatureExprKind::FuncCall { .. } | FeatureExprKind::ProcCall { .. } => {
                     Some(SubtracesContainerClass::Call)
                 }
                 FeatureExprKind::MembVarAccess { .. } => todo!(),
+                FeatureExprKind::EnumLiteral { .. } => todo!(),
             },
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)

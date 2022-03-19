@@ -29,7 +29,7 @@ impl<'eval> TraceFactory<'eval> {
             None
         };
         return match expr.kind {
-            FeatureExprKind::Literal(value) => vec![literal!(value)],
+            FeatureExprKind::PrimitiveLiteral(value) => vec![literal!(value)],
             FeatureExprKind::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
@@ -53,6 +53,7 @@ impl<'eval> TraceFactory<'eval> {
                 ..
             } => self.routine_call_tokens(ranged_scope, inputs, associated_trace, text, &config),
             FeatureExprKind::MembVarAccess { .. } => todo!(),
+            FeatureExprKind::EnumLiteral { .. } => todo!(),
         };
     }
 

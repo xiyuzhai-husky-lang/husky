@@ -1,3 +1,5 @@
+mod impl_opn;
+
 use std::sync::Arc;
 
 use file::FilePtr;
@@ -7,7 +9,7 @@ use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
 use text::TextRange;
-use vm::{BinaryOpr, InstructionSheet, MembVarAccessCompiled};
+use vm::{AnyValueDyn, BinaryOpr, EnumLiteralValue, InstructionSheet, MembVarAccessCompiled};
 use word::BuiltinIdentifier;
 
 use crate::{eval::FeatureEvalId, *};
@@ -23,7 +25,11 @@ pub struct FeatureExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureExprKind {
-    Literal(PrimitiveValue),
+    PrimitiveLiteral(PrimitiveValue),
+    EnumLiteral {
+        value: EnumLiteralValue,
+        uid: EntityUid,
+    },
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
         lopd: Arc<FeatureExpr>,
@@ -67,141 +73,68 @@ impl FeatureExpr {
         symbols: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
     ) -> Arc<Self> {
-        Arc::new(match expr.kind {
-            LazyExprKind::Variable(varname) => symbols
+        FeatureExprBuilder {
+            db,
+            symbols,
+            features,
+        }
+        .new_expr(expr)
+    }
+}
+
+struct FeatureExprBuilder<'a> {
+    db: &'a dyn EntityQueryGroup,
+    symbols: &'a [FeatureSymbol],
+    features: &'a FeatureUniqueAllocator,
+}
+
+impl<'a> FeatureExprBuilder<'a> {
+    fn new_expr(&self, expr: &LazyExpr) -> Arc<FeatureExpr> {
+        let (kind, feature) = match expr.kind {
+            LazyExprKind::Variable(varname) => self
+                .symbols
                 .iter()
                 .rev()
                 .find_map(|symbol| {
                     if symbol.varname == varname {
-                        Some(Self {
-                            kind: FeatureExprKind::Variable {
+                        Some((
+                            FeatureExprKind::Variable {
                                 varname,
                                 value: symbol.value.clone(),
                             },
-                            feature: symbol.feature,
-                            range: expr.range,
-                            file: expr.file,
-                            eval_id: Default::default(),
-                        })
+                            symbol.feature,
+                        ))
                     } else {
                         None
                     }
                 })
                 .unwrap(),
             LazyExprKind::Scope { scope, compiled } => todo!(),
-            LazyExprKind::Literal(value) => FeatureExpr {
-                kind: FeatureExprKind::Literal(value),
-                feature: features.alloc(Feature::Literal(value)),
-                range: expr.range,
-                file: expr.file,
-                eval_id: Default::default(),
-            },
+            LazyExprKind::PrimitiveLiteral(value) => (
+                FeatureExprKind::PrimitiveLiteral(value),
+                self.features.alloc(Feature::PrimitiveLiteral(value)),
+            ),
             LazyExprKind::Bracketed(_) => todo!(),
             LazyExprKind::Opn {
-                opn_kind: opn,
+                opn_kind,
                 compiled,
                 ref opds,
-            } => match opn {
-                LazyOpnKind::Binary { opr, this } => match this {
-                    ScopePtr::Builtin(BuiltinIdentifier::Void)
-                    | ScopePtr::Builtin(BuiltinIdentifier::I32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::F32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::B32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
-                        let lopd = Self::new(db, &opds[0], symbols, features);
-                        let ropd = Self::new(db, &opds[1], symbols, features);
-                        let feature = features.alloc(Feature::PrimitiveBinaryOpr {
-                            opr,
-                            lopd: lopd.feature,
-                            ropd: ropd.feature,
-                        });
-                        Self {
-                            kind: FeatureExprKind::PrimitiveBinaryOpr { opr, lopd, ropd },
-                            feature,
-                            range: expr.range,
-                            file: expr.file,
-                            eval_id: Default::default(),
-                        }
-                    }
-                    _ => todo!(),
-                },
-                LazyOpnKind::Prefix(_) => todo!(),
-                LazyOpnKind::RoutineCall(routine) => {
-                    let uid = db.entity_vc().uid(routine.scope);
-                    let inputs: Vec<_> = opds
-                        .iter()
-                        .map(|opd| Self::new(db, opd, symbols, features))
-                        .collect();
-                    let feature = features.alloc(Feature::FuncCall {
-                        func: routine.scope,
-                        uid,
-                        inputs: inputs.iter().map(|expr| expr.feature).collect(),
-                    });
-                    let entity = db.entity(routine.scope).unwrap();
-                    let kind = match entity.kind() {
-                        EntityKind::Func {
-                            input_placeholders,
-                            stmts,
-                            ..
-                        } => FeatureExprKind::FuncCall {
-                            ranged_scope: routine,
-                            uid,
-                            compiled: None,
-                            callee_file: entity.file,
-                            input_placeholders: input_placeholders.clone(),
-                            inputs,
-                            instruction_sheet: db.instruction_sheet(routine.scope).unwrap(),
-                            stmts: stmts.clone(),
-                        },
-                        EntityKind::Proc {
-                            input_placeholders,
-                            stmts,
-                            ..
-                        } => FeatureExprKind::ProcCall {
-                            ranged_scope: routine,
-                            uid,
-                            compiled: None,
-                            callee_file: entity.file,
-                            input_placeholders: input_placeholders.clone(),
-                            inputs,
-                            instruction_sheet: db.instruction_sheet(routine.scope).unwrap(),
-                            stmts: stmts.clone(),
-                        },
-                        _ => panic!(),
-                    };
-                    Self {
-                        kind,
-                        feature,
-                        range: expr.range,
-                        file: expr.file,
-                        eval_id: Default::default(),
-                    }
-                }
-                LazyOpnKind::PatternCall => todo!(),
-                LazyOpnKind::MembVarAccess(memb_var_ident) => {
-                    let this = Self::new(db, &opds[0], symbols, features);
-                    let feature = features.alloc(Feature::MembVarAccess {
-                        this: this.feature,
-                        memb_var_ident,
-                    });
-                    msg_once!("compiled memb var access");
-                    Self {
-                        kind: FeatureExprKind::MembVarAccess {
-                            this,
-                            memb_var_ident,
-                            opt_compiled: None,
-                        },
-                        feature,
-                        range: expr.range,
-                        file: expr.file,
-                        eval_id: Default::default(),
-                    }
-                }
-                LazyOpnKind::MembFuncCall(_) => todo!(),
-                LazyOpnKind::ElementAccess => todo!(),
-                LazyOpnKind::TypeCall(_) => todo!(),
-            },
+            } => self.new_opn(opn_kind, compiled, opds),
             LazyExprKind::Lambda(_, _) => todo!(),
+            LazyExprKind::EnumLiteral { scope, ref value } => (
+                FeatureExprKind::EnumLiteral {
+                    value: value.clone(),
+                    uid: self.db.entity_uid(scope),
+                },
+                self.features.alloc(Feature::EnumLiteral(scope)),
+            ),
+        };
+        Arc::new(FeatureExpr {
+            kind,
+            feature,
+            eval_id: Default::default(),
+            range: expr.range,
+            file: expr.file,
         })
     }
 }
