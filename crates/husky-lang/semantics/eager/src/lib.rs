@@ -14,12 +14,8 @@ pub use stmt::{
 };
 pub use variable::EagerVariable;
 
-use file::FilePtr;
 use scope::InputPlaceholder;
 use scope::{RangedScope, ScopePtr};
-use semantics_infer::InferQueryGroup;
 use std::sync::Arc;
-use text::TextRange;
-use unique_vector::UniqVec;
-use vc::{Uid, VersionControl};
+use syntax_infer::InferQueryGroup;
 use word::CustomIdentifier;

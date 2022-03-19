@@ -1,3 +1,4 @@
+use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
 use scope_query::ScopeResultArc;
@@ -8,7 +9,7 @@ use crate::*;
 
 #[salsa::query_group(AstQueryGroupStorage)]
 pub trait AstSalsaQueryGroup: scope_query::ScopeQueryGroup {
-    fn ast_text(&self, id: file::FilePtr) -> ScopeResultArc<AstText>;
+    fn ast_text(&self, file: FilePtr) -> ScopeResultArc<AstText>;
 
     fn parse_ty(&self, code: &'static str) -> AstResult<ScopePtr>;
 }
@@ -26,7 +27,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
     // }
 }
 
-fn ast_text(this: &dyn AstSalsaQueryGroup, id: file::FilePtr) -> ScopeResultArc<AstText> {
+fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> ScopeResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module_from_file_id(id)?);
     parser.transform_all(tokenized_text.fold_iter(0));

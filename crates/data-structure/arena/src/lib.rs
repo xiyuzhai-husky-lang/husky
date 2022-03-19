@@ -1,4 +1,4 @@
-use std::marker::PhantomData;
+use std::{marker::PhantomData, ops::Index};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Arena<T> {
@@ -39,6 +39,29 @@ pub type ArenaRange<T> = core::ops::Range<ArenaIdx<T>>;
 pub struct ArenaIdx<T> {
     raw: usize,
     phantom: PhantomData<T>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct ArenaMap<K, V> {
+    data: Vec<V>,
+    phantom: PhantomData<K>,
+}
+
+impl<K, V> Default for ArenaMap<K, V> {
+    fn default() -> Self {
+        Self {
+            data: vec![],
+            phantom: Default::default(),
+        }
+    }
+}
+
+impl<K, V> Index<ArenaIdx<K>> for ArenaMap<K, V> {
+    type Output = V;
+
+    fn index(&self, index: ArenaIdx<K>) -> &Self::Output {
+        &self.data[index.raw]
+    }
 }
 
 impl<T> std::fmt::Debug for ArenaIdx<T> {

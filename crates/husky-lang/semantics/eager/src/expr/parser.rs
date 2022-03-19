@@ -2,7 +2,7 @@ use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
 use common::p;
 use file::FilePtr;
 use scope::{ScopeKind, ScopePtr};
-use syntax_types::{ListOpr, Opr};
+use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, InputContract, PrimitiveValue, PureBinaryOpr};
 use word::BuiltinIdentifier;
 
@@ -89,7 +89,7 @@ pub trait EagerExprParser<'a> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
-            Opr::Suffix(_) => todo!(),
+            Opr::Suffix(opr) => self.parse_suffix_opr(opr, opds),
             Opr::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
@@ -210,6 +210,31 @@ pub trait EagerExprParser<'a> {
             PureBinaryOpr::RemEuclid => todo!(),
         }
         .into())
+    }
+
+    fn parse_suffix_opr(
+        &mut self,
+        opr: SuffixOpr,
+        raw_opds: &RawExprRange,
+    ) -> SemanticResult<(ScopePtr, EagerExprKind)> {
+        let opd_idx = raw_opds.start;
+        let opd = &self.arena()[raw_opds][0];
+        let contract = match opr {
+            SuffixOpr::Incr => todo!(),
+            SuffixOpr::Decr => todo!(),
+            SuffixOpr::MayReturn => todo!(),
+            SuffixOpr::MembVarAccess(ident) => {
+                let ty = self.db().expr_ty(self.file(), opd_idx);
+                let memb_var_signature = self
+                    .db()
+                    .expr_ty_signature(self.file(), opd_idx)?
+                    .memb_var_signature(ident);
+                todo!()
+            }
+            SuffixOpr::WithType(_) => panic!(),
+        };
+        let opd = self.parse_eager_expr(opd, contract);
+        todo!()
     }
 
     fn parse_call(&mut self, opds: &[RawExpr]) -> SemanticResult<(ScopePtr, EagerExprKind)> {

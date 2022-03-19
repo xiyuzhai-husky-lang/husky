@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use vm::{BoundaryKind, LoopStep, StackIdx, VMLoopKind};
 
 use crate::*;

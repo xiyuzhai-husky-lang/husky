@@ -30,41 +30,32 @@ pub trait LazyExprParser<'a> {
             }
             RawExprKind::Scope { scope, kind, .. } => match kind {
                 ScopeKind::Module => todo!(),
-                ScopeKind::Literal => {
-                    match scope {
-                        ScopePtr::Builtin(BuiltinIdentifier::True) => (
-                            ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                            LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true)),
-                        ),
-                        ScopePtr::Builtin(BuiltinIdentifier::False) => (
-                            ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                            LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false)),
-                        ),
-                        ScopePtr::Custom(scope_ref) => {
-                            let ty = match scope_ref.route {
-                                ScopeRoute::Builtin { ident } => todo!(),
-                                ScopeRoute::Package { main, ident } => todo!(),
-                                ScopeRoute::ChildScope { parent, ident } => parent,
-                                ScopeRoute::Implicit { main, ident } => todo!(),
-                            };
-                            (
-                                ty,
-                                LazyExprKind::EnumLiteral {
-                                    scope,
-                                    value: self.db().enum_literal_value(scope),
-                                },
-                            )
-                        }
-                        _ => todo!(),
+                ScopeKind::Literal => match scope {
+                    ScopePtr::Builtin(BuiltinIdentifier::True) => (
+                        ScopePtr::Builtin(BuiltinIdentifier::Bool),
+                        LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true)),
+                    ),
+                    ScopePtr::Builtin(BuiltinIdentifier::False) => (
+                        ScopePtr::Builtin(BuiltinIdentifier::Bool),
+                        LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false)),
+                    ),
+                    ScopePtr::Custom(scope_ref) => {
+                        let ty = match scope_ref.route {
+                            ScopeRoute::Builtin { ident } => todo!(),
+                            ScopeRoute::Package { main, ident } => todo!(),
+                            ScopeRoute::ChildScope { parent, ident } => parent,
+                            ScopeRoute::Implicit { main, ident } => todo!(),
+                        };
+                        (
+                            ty,
+                            LazyExprKind::EnumLiteral {
+                                scope,
+                                value: self.db().enum_literal_value(scope),
+                            },
+                        )
                     }
-                    // (
-                    //     self.db().scope_ty(scope)?,
-                    //     ExprKind::Scope {
-                    //         scope,
-                    //         compiled: None,
-                    //     },
-                    // )
-                }
+                    _ => todo!(),
+                },
                 ScopeKind::Type => todo!(),
                 ScopeKind::Trait => todo!(),
                 ScopeKind::Routine => todo!(),

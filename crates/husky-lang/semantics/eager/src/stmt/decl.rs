@@ -1,6 +1,8 @@
 mod branch;
 mod parse;
 
+use std::sync::Arc;
+
 pub use branch::*;
 use vm::{InstructionId, InstructionSource};
 

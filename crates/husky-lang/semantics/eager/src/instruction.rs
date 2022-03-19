@@ -3,7 +3,9 @@ mod impl_decl_stmt;
 mod impl_expr;
 mod impl_impr_stmt;
 
-use vm::{InitKind, Instruction, InstructionKind, InstructionSheet, VariableStack};
+use std::sync::Arc;
+
+use vm::InstructionSheet;
 
 use crate::*;
 
