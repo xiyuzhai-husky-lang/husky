@@ -1,6 +1,6 @@
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
-use scope_query::{ScopeResult, ScopeResultArc};
+use scope_query::ScopeResultArc;
 use std::sync::Arc;
 
 use crate::atom::symbol_proxy::{Symbol, SymbolProxy};
@@ -14,16 +14,16 @@ pub trait AstSalsaQueryGroup: scope_query::ScopeQueryGroup {
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
-    fn ast(&self, file: file::FilePtr, token_group_index: usize) -> ScopeResult<&AstResult<Ast>> {
-        todo!()
-        // Ok(self
-        //     .ast_text(file)?
-        //     .folded_results
-        //     .fold_iter(token_group_index)
-        //     .next()
-        //     .unwrap()
-        //     .value)
-    }
+    // fn ast(&self, file: file::FilePtr, token_group_index: usize) -> ScopeResult<&AstResult<Ast>> {
+    //     todo!()
+    //     // Ok(self
+    //     //     .ast_text(file)?
+    //     //     .folded_results
+    //     //     .fold_iter(token_group_index)
+    //     //     .next()
+    //     //     .unwrap()
+    //     //     .value)
+    // }
 }
 
 fn ast_text(this: &dyn AstSalsaQueryGroup, id: file::FilePtr) -> ScopeResultArc<AstText> {
@@ -41,7 +41,7 @@ fn parse_ty(this: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<Scop
         db: this,
         symbols: &symbols,
     };
-    atom::parser::parse_ty(proxy, &tokens)
+    atom::parser::parse_ty(proxy, &tokens, None)
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

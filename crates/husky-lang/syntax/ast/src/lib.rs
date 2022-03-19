@@ -12,7 +12,7 @@ pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
-use transform::AstTransformer;
+pub use transform::*;
 use vm::InitKind;
 
 use scope::ScopePtr;
@@ -32,12 +32,12 @@ pub struct Ast {
 pub enum AstKind {
     TypeDef {
         ident: CustomIdentifier,
-        kind: TyKind,
+        kind: RawTyKind,
         generics: Vec<GenericPlaceholder>,
     },
-    MainDef,
+    MainDecl,
     DatasetConfig,
-    RoutineDef {
+    RoutineDecl {
         routine_kind: RoutineKind,
         routine_head: RoutineHead,
     },
@@ -46,11 +46,16 @@ pub enum AstKind {
         ident: CustomIdentifier,
         scope: ScopePtr,
     },
-    MembDef {
+    MembVar {
         ident: CustomIdentifier,
-        memb_kind: MembKind,
+        signature: MembVarSignature,
     },
+    MembRoutineDecl(MembFuncDecl),
     Stmt(RawStmt),
+    EnumVariant {
+        ident: CustomIdentifier,
+        raw_variant_kind: RawEnumVariantKind,
+    },
 }
 
 impl From<RawStmt> for Ast {

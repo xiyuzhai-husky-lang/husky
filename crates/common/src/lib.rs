@@ -21,8 +21,6 @@ pub use std::fmt::Debug;
 pub use std::fmt::Formatter;
 pub use std::io;
 pub use std::path::{Path, PathBuf};
-use std::pin::Pin;
-use std::sync::Arc;
 pub use templates::*;
 pub use todo::*;
 pub use upcast::Upcast;

@@ -1,54 +1,58 @@
+use ast::AstIter;
+use fold::{FoldIter, FoldedList};
 use scope::StaticScopeSignature;
-use vm::{MembVarContract, VMMembVarSignature, VMTySignature};
+use syntax_types::{MembVarSignature, RawEnumVariantKind};
+use vec_map::VecMap;
+use vm::{MembVarContract, VMTySignature};
 
 use crate::*;
 
+pub type IdentMap<T> = VecMap<CustomIdentifier, T>;
+
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct TySignature {
-    pub memb_vars: Vec<MembVarSignature>,
+pub enum TySignature {
+    Struct {
+        memb_vars: IdentMap<MembVarSignature>,
+    },
+    Enum {
+        variants: IdentMap<EnumVariantSignature>,
+    },
 }
 
 impl TySignature {
     pub fn memb_var_ty(&self, ident: CustomIdentifier) -> ScopePtr {
-        self.memb_vars
-            .iter()
-            .find(|memb_var_sig| memb_var_sig.ident == ident)
-            .unwrap()
-            .ty
+        match self {
+            TySignature::Struct { ref memb_vars } => memb_vars.get(ident).unwrap().ty,
+            TySignature::Enum { ref variants } => todo!(),
+        }
     }
 
     pub fn vm_ty_signature(&self) -> VMTySignature {
-        VMTySignature::Struct {
-            memb_vars: self
-                .memb_vars
-                .iter()
-                .map(|memb_var| memb_var.into())
-                .collect(),
+        match self {
+            TySignature::Struct { memb_vars } => {
+                let mut vm_memb_vars = IdentMap::<MembVarContract>::default();
+                memb_vars.iter().for_each(|(ident, memb_var_sig)| {
+                    vm_memb_vars.insert_new(*ident, memb_var_sig.contract)
+                });
+                VMTySignature::Struct {
+                    memb_vars: vm_memb_vars,
+                }
+            }
+            TySignature::Enum { variants } => todo!(),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MembVarSignature {
-    pub ident: CustomIdentifier,
-    pub contract: MembVarContract,
-    pub ty: ScopePtr,
-}
-
-impl Into<VMMembVarSignature> for &MembVarSignature {
-    fn into(self) -> VMMembVarSignature {
-        VMMembVarSignature {
-            ident: self.ident,
-            contract: self.contract,
-        }
-    }
+pub enum EnumVariantSignature {
+    Constant,
 }
 
 pub(crate) fn ty_signature(
-    this: &dyn InferQueryGroup,
+    db: &dyn InferQueryGroup,
     scope: ScopePtr,
 ) -> SemanticResultArc<TySignature> {
-    let source = this.scope_source(scope)?;
+    let source = db.scope_source(scope)?;
     match source {
         ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
             StaticScopeSignature::Func(_) => todo!(),
@@ -60,7 +64,7 @@ pub(crate) fn ty_signature(
             file,
             token_group_index,
         } => {
-            let ast_text = this.ast_text(file)?;
+            let ast_text = db.ast_text(file)?;
             let item = ast_text
                 .folded_results
                 .fold_iter(token_group_index)
@@ -68,35 +72,48 @@ pub(crate) fn ty_signature(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::TypeDef { kind, .. } => {
-                    match kind {
-                        TyKind::Enum => err!("enum type doesn't have member variables"),
-                        TyKind::Struct => (),
-                    }
-                    let mut memb_vars = vec![];
-                    for subitem in item.children.unwrap() {
-                        let subast = subitem.value.as_ref()?;
-                        match subast.kind {
-                            AstKind::MembDef {
-                                ident,
-                                memb_kind: MembKind::MembVar { contract, ty },
-                            } => memb_vars.push(MembVarSignature {
-                                ident,
-                                contract,
-                                ty,
-                            }),
-                            AstKind::MembDef {
-                                ident,
-                                memb_kind: MembKind::MembFunc { .. },
-                            } => todo!(),
-                            _ => panic!(),
-                        }
-                    }
-                    Ok(Arc::new(TySignature { memb_vars }))
-                }
+                AstKind::TypeDef { kind, .. } => match kind {
+                    RawTyKind::Enum => enum_signature(not_none!(item.children)),
+                    RawTyKind::Struct => struct_signature(item.children.unwrap()),
+                },
                 _ => panic!(),
             }
         }
         ScopeSource::Module { file } => todo!(),
     }
+}
+
+fn enum_signature(children: AstIter) -> SemanticResultArc<TySignature> {
+    let mut variants = VecMap::default();
+    for subitem in children {
+        match subitem.value.as_ref()?.kind {
+            AstKind::EnumVariant {
+                ident,
+                ref raw_variant_kind,
+            } => {
+                let variant_sig = match raw_variant_kind {
+                    RawEnumVariantKind::Constant => EnumVariantSignature::Constant,
+                };
+                variants.insert_new(ident, variant_sig)
+            }
+            _ => panic!(),
+        }
+    }
+    Ok(Arc::new(TySignature::Enum { variants }))
+}
+
+fn struct_signature(children: AstIter) -> SemanticResultArc<TySignature> {
+    let mut memb_vars = VecMap::default();
+    for subitem in children {
+        let subast = subitem.value.as_ref()?;
+        match subast.kind {
+            AstKind::MembVar {
+                ident,
+                signature: MembVarSignature { contract, ty },
+            } => memb_vars.insert_new(ident, MembVarSignature { contract, ty }),
+            AstKind::MembRoutineDecl(_) => todo!(),
+            _ => panic!(),
+        }
+    }
+    Ok(Arc::new(TySignature::Struct { memb_vars }))
 }

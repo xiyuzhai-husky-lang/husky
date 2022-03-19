@@ -1,6 +1,6 @@
 use std::fs;
 
-use common::{p, HashMap, PathBuf};
+use common::*;
 use diagnostic::Diagnostic;
 use husky_lang_compile_time::HuskyLangCompileTime;
 use husky_lang_debugger::*;
@@ -9,9 +9,10 @@ use husky_lang_debugger::*;
 async fn main() {
     let flags = flags::HuskyLangDebuggerCommand::from_env().expect("invalid arguments");
     let mode: Mode = flags.mode.into();
+    p!(mode);
     match mode {
         Mode::Run => run(flags.path.into()).await,
-        Mode::TestRuntime => serve_on_error(flags.path.into()).await,
+        Mode::TestRuntime => test_runtime(flags.path.into()).await,
         Mode::TestCompileTime => test_diagnostics(flags.path.into()).await,
     }
 }
@@ -23,11 +24,11 @@ async fn run(path: PathBuf) {
         .expect("")
 }
 
-async fn serve_on_error(dir: PathBuf) {
+async fn test_runtime(dir: PathBuf) {
     assert!(dir.is_dir());
     let package_paths = collect_package_paths(dir);
     println!(
-        "\n{}Running{} {} servs:",
+        "\n{}Running{} {} tests on runtime:",
         common::show::CYAN,
         common::show::RESET,
         package_paths.len()
@@ -44,23 +45,62 @@ async fn serve_on_error(dir: PathBuf) {
 }
 
 async fn test_diagnostics(dir: PathBuf) {
+    type DiagnosticsTable = HashMap<String, Vec<Diagnostic>>;
+
     let package_paths = collect_package_paths(dir);
+    println!(
+        "\n{}Running{} {} tests on compile time:",
+        common::show::CYAN,
+        common::show::RESET,
+        package_paths.len()
+    );
     for package_path in package_paths {
         use husky_lang_compile_time::*;
         let mut compile_time = HuskyLangCompileTime::default();
-        init_compile_time_from_path(&mut compile_time, package_path);
+        init_compile_time_from_path(&mut compile_time, package_path.clone());
+        println!(
+            "\n{}test{} {}",
+            common::show::CYAN,
+            common::show::RESET,
+            package_path.as_os_str().to_str().unwrap(),
+        );
         let modules = compile_time.all_modules();
         let mut diagnostics_table = HashMap::<String, Vec<Diagnostic>>::new();
         for module in modules {
             compile_time
                 .diagnostic_reserve(module)
                 .release(|diagnostics| {
-                    assert!(diagnostics_table
-                        .insert(module.to_str(), diagnostics.clone())
-                        .is_none());
+                    if diagnostics.len() > 0 {
+                        assert!(diagnostics_table
+                            .insert(module.to_str(), diagnostics.clone())
+                            .is_none());
+                    }
                 });
-            let diagnostics_table_json = serde_json::to_string(&diagnostics_table);
-            p!(diagnostics_table)
+        }
+        compare_diagnostics_tables(diagnostics_table, package_path);
+    }
+
+    fn compare_diagnostics_tables(diagnostics_table: DiagnosticsTable, path: PathBuf) {
+        let diagnostics_table_path = path.join("diagnostics_table.json");
+        let diagnostics_table_on_disk: DiagnosticsTable = if !diagnostics_table_path.exists() {
+            Default::default()
+        } else {
+            let text = fs::read_to_string(diagnostics_table_path).unwrap();
+            let v: serde_json::Value = serde_json::from_str(&text).unwrap();
+            serde_json::from_value(v).unwrap()
+        };
+        if diagnostics_table_on_disk != diagnostics_table {
+            p!(diagnostics_table);
+            p!(diagnostics_table_on_disk);
+            todo!()
+        } else {
+            println!(
+                "    {}result{}: {}ok{}",
+                common::show::CYAN,
+                common::show::RESET,
+                common::show::GREEN,
+                common::show::RESET,
+            )
         }
     }
 }
@@ -87,6 +127,7 @@ fn init_compile_time_from_path(compile_time: &mut HuskyLangCompileTime, path: Pa
     compile_time.load_package(path)
 }
 
+#[derive(Debug)]
 pub(crate) enum Mode {
     Run,
     TestCompileTime,

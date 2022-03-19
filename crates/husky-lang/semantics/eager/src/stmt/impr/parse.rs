@@ -31,12 +31,11 @@ impl<'a> EagerStmtParser<'a> {
             let instruction_id = InstructionId::default();
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
                 AstKind::TypeDef { .. } => todo!(),
-                AstKind::MainDef => todo!(),
+                AstKind::MainDecl => todo!(),
                 AstKind::DatasetConfig => todo!(),
-                AstKind::RoutineDef { .. } => todo!(),
+                AstKind::RoutineDecl { .. } => todo!(),
                 AstKind::PatternDef => todo!(),
                 AstKind::Use { .. } => todo!(),
-                AstKind::MembDef { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => ImprStmt {
                     file: self.file,
                     range: stmt.range,
@@ -44,6 +43,12 @@ impl<'a> EagerStmtParser<'a> {
                     kind: self.parse_impr_stmt(stmt, item.children, &mut iter)?,
                     instruction_id,
                 },
+                AstKind::EnumVariant {
+                    ident,
+                    raw_variant_kind: ref variant_kind,
+                } => todo!(),
+                AstKind::MembVar { .. } => todo!(),
+                AstKind::MembRoutineDecl(_) => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

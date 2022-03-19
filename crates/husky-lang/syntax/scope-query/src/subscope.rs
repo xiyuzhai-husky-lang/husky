@@ -1,3 +1,4 @@
+use common::epin;
 use common::p;
 use file::FilePtr;
 use scope::*;
@@ -29,19 +30,25 @@ impl std::fmt::Debug for Entry {
 }
 
 impl Entry {
-    pub fn parse(
+    pub fn from_token_group(
         file_id: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
     ) -> (Option<Entry>, Option<ScopeDefError>) {
         if token_group.len() < 2 {
-            return (
-                None,
-                Some(ScopeDefError {
-                    range: token_group[0].text_range(),
-                    rule_broken: ScopeDefRule::TokenGroupSizeAtLeastTwo,
-                }),
-            );
+            match token_group[0].kind {
+                TokenKind::Identifier(Identifier::Custom(ident)) => {
+                    return (
+                        Some(Entry {
+                            ident: Some(ident),
+                            kind: ScopeKind::Literal,
+                            source: ScopeSource::from_file(file_id, token_group_index),
+                        }),
+                        None,
+                    )
+                }
+                _ => todo!(),
+            }
         }
         if token_group.len() == 2 {
             if token_group[0].kind == TokenKind::Keyword(RoutineKeyword::Main.into()) {
@@ -136,7 +143,7 @@ impl SubscopeTable {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|item| {
-                let (entry, error) = Entry::parse(file_id, item.idx, item.value);
+                let (entry, error) = Entry::from_token_group(file_id, item.idx, item.value);
                 error.map(|error| errors.push(error));
                 entry
             })

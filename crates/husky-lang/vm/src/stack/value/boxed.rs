@@ -3,7 +3,7 @@ use crate::*;
 use super::*;
 
 pub struct BoxedValue<'eval> {
-    inner: Box<dyn AnyValueDyn<'eval>>,
+    pub(crate) inner: Box<dyn AnyValueDyn<'eval>>,
 }
 
 impl<'eval> Clone for BoxedValue<'eval> {

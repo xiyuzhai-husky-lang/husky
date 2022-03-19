@@ -31,7 +31,7 @@ impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
                 EvalValue::Primitive(value) => fade!(value),
                 EvalValue::Boxed(_) => todo!(),
                 EvalValue::GlobalPure(_) => todo!(),
-                EvalValue::GlobalRef(_) => todo!(),
+                EvalValue::GlobalRef(value) => fade!(value.print_short(20)),
                 EvalValue::Undefined => fade!("undefined"),
             },
             Err(e) => Self {

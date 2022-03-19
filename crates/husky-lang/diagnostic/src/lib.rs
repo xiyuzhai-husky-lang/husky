@@ -23,7 +23,7 @@ pub struct Diagnostic {
     severity: DiagnosticSeverity,
     range: TextRange,
     message: String,
-    code: &'static str,
+    code: String,
     kind: DiagnosticKind,
 }
 
@@ -33,7 +33,7 @@ impl From<&ScopeDefError> for Diagnostic {
             severity: DiagnosticSeverity::Error,
             range: error.range.clone(),
             message: "messagetodo".into(),
-            code: error.code(),
+            code: error.code().into(),
             kind: DiagnosticKind::ScopeDefError,
         }
     }

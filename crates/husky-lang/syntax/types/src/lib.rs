@@ -11,23 +11,28 @@ use vm::{InputContract, MembVarContract};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TyKind {
+pub enum RawTyKind {
     Enum,
     Struct,
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct MembVarSignature {
+    pub contract: MembVarContract,
+    pub ty: ScopePtr,
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum MembKind {
-    MembVar {
-        contract: MembVarContract,
-        ty: ScopePtr,
-    },
-    MembFunc {
-        this: InputContract,
-        inputs: Vec<InputPlaceholder>,
-        output: RangedScope,
-        args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,
-    },
+pub struct MembFuncDecl {
+    this: InputContract,
+    inputs: Vec<InputPlaceholder>,
+    output: RangedScope,
+    args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum RawEnumVariantKind {
+    Constant,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

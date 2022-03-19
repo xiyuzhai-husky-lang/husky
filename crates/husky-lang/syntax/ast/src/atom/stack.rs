@@ -1,5 +1,6 @@
 use common::*;
 
+use file::FilePtr;
 use scope::{GenericArgument, ScopeKind};
 use word::BuiltinIdentifier;
 
@@ -9,6 +10,7 @@ use crate::{
 };
 
 pub(crate) struct AtomStack {
+    file: Option<FilePtr>,
     atoms: Vec<Atom>,
 }
 
@@ -20,8 +22,11 @@ impl Into<Vec<Atom>> for AtomStack {
 
 // get
 impl AtomStack {
-    pub fn new() -> Self {
-        Self { atoms: Vec::new() }
+    pub fn new(file: Option<FilePtr>) -> Self {
+        Self {
+            file,
+            atoms: Vec::new(),
+        }
     }
 
     pub(crate) fn convexity(&self) -> Convexity {
@@ -48,7 +53,7 @@ impl AtomStack {
             self.atoms.push(atom);
             Ok(())
         } else {
-            err!(atom.text_range(), "convexity not compatible")
+            err!(self.file, atom.text_range(), "convexity not compatible")
         }
     }
 
@@ -126,19 +131,19 @@ impl AtomStack {
                         | BuiltinIdentifier::Fn
                         | BuiltinIdentifier::FnMut
                         | BuiltinIdentifier::FnOnce => Ok(ident),
-                        _ => err!(last_atom.text_range(), expectation),
+                        _ => err!(self.file, last_atom.text_range(), expectation),
                     },
-                    _ => err!(last_atom.text_range(), expectation),
+                    _ => err!(self.file, last_atom.text_range(), expectation),
                 }
             }
         }
     }
 
     fn pop(&mut self, follower: &mut TextRange) -> AstResult<Atom> {
-        let atom = self
-            .atoms
-            .pop()
-            .ok_or(error!(follower.clone(), "something before it"))?;
+        let atom =
+            self.atoms
+                .pop()
+                .ok_or(error!(self.file, follower.clone(), "something before it"))?;
         *follower = atom.to(follower);
         Ok(atom)
     }
@@ -154,7 +159,7 @@ impl AtomStack {
                 scope,
                 kind: ScopeKind::Type,
             } => types.push(scope.into()),
-            _ => err!(*tail, "left parenthesis or type")?,
+            _ => err!(self.file, *tail, "left parenthesis or type")?,
         };
         loop {
             match self.pop(tail)?.kind {
@@ -163,14 +168,14 @@ impl AtomStack {
                     return Ok((attr, types));
                 }
                 AtomKind::ListItem => (),
-                _ => err!(*tail, "left parenthesis or comma")?,
+                _ => err!(self.file, *tail, "left parenthesis or comma")?,
             }
             match self.pop(tail)?.kind {
                 AtomKind::Scope {
                     scope,
                     kind: ScopeKind::Type,
                 } => types.push(scope.into()),
-                _ => err!(*tail, "type")?,
+                _ => err!(self.file, *tail, "type")?,
             }
         }
     }

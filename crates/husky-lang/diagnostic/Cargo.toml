@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.91", features = ["proposed"] }
-reserve = { path = "../../data_structure/reserve", version = "0.0.0" }
+reserve = { path = "../../data-structure/reserve", version = "0.0.0" }
 common = { path = "../../common", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }

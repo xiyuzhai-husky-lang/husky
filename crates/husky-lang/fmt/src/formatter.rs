@@ -2,7 +2,7 @@ use std::ops::AddAssign;
 
 use common::*;
 
-use ast::{Ast, AstResult, RawExpr, RawExprKind, RawStmtKind};
+use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembVarContract, PrimitiveValue};
@@ -70,23 +70,23 @@ impl<'a> Formatter<'a> {
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &ast::Ast) {
         match ast.kind {
-            ast::AstKind::TypeDef {
+            AstKind::TypeDef {
                 ident,
                 ref kind,
                 ref generics,
             } => {
                 epin!();
                 match kind {
-                    TyKind::Enum => todo!(),
-                    TyKind::Struct => self.write("struct "),
+                    RawTyKind::Enum => todo!(),
+                    RawTyKind::Struct => self.write("struct "),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {
                     todo!()
                 }
             }
-            ast::AstKind::MainDef => self.write("main:"),
-            ast::AstKind::RoutineDef {
+            AstKind::MainDecl => self.write("main:"),
+            AstKind::RoutineDecl {
                 routine_kind: ref kind,
                 routine_head: ref decl,
             } => {
@@ -114,22 +114,23 @@ impl<'a> Formatter<'a> {
                 }
                 self.write(":");
             }
-            ast::AstKind::PatternDef => todo!(),
-            ast::AstKind::Use { ident, scope } => todo!(),
-            ast::AstKind::MembDef {
+            AstKind::PatternDef => todo!(),
+            AstKind::Use { ident, scope } => todo!(),
+            AstKind::MembVar {
                 ident,
-                memb_kind: MembKind::MembVar { contract, ty },
+                signature: MembVarSignature { contract, ty },
             } => {
                 self.fmt_ident(ident.into());
                 self.write(": ");
                 self.fmt_member_variable_contracted_type(contract, ty)
             }
-            ast::AstKind::MembDef {
+            AstKind::MembRoutineDecl(_) => todo!(),
+            AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
+            AstKind::DatasetConfig => todo!(),
+            AstKind::EnumVariant {
                 ident,
-                memb_kind: MembKind::MembFunc { .. },
+                raw_variant_kind: ref variant_kind,
             } => todo!(),
-            ast::AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
-            ast::AstKind::DatasetConfig => todo!(),
         }
     }
 

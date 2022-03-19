@@ -9,7 +9,7 @@ pub use module::Module;
 pub use pattern::Pattern;
 pub use proc::Proc;
 use semantics_lazy::LazyStmt;
-pub use ty::Ty;
+pub use ty::*;
 
 use crate::*;
 use scope::InputPlaceholder;

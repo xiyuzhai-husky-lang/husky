@@ -32,7 +32,7 @@ pub(crate) fn call_signature(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::RoutineDef {
+                AstKind::RoutineDecl {
                     routine_kind: ref kind,
                     routine_head: ref decl,
                 } => Ok(Arc::new(CallSignature {
@@ -52,30 +52,30 @@ pub(crate) fn call_signature(
                     ref generics,
                     ..
                 } => match kind {
-                    TyKind::Enum => todo!(),
-                    TyKind::Struct => {
+                    RawTyKind::Enum => todo!(),
+                    RawTyKind::Struct => {
                         let mut inputs = vec![];
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
                             match subast.kind {
                                 AstKind::TypeDef { .. } => todo!(),
-                                AstKind::MainDef => todo!(),
+                                AstKind::MainDecl => todo!(),
                                 AstKind::DatasetConfig => todo!(),
-                                AstKind::RoutineDef { .. } => todo!(),
+                                AstKind::RoutineDecl { .. } => todo!(),
                                 AstKind::PatternDef => todo!(),
                                 AstKind::Use { .. } => todo!(),
-                                AstKind::MembDef {
-                                    memb_kind: MembKind::MembVar { contract, ty },
-                                    ..
-                                } => inputs.push(InputSignature {
-                                    contract: contract.constructor_input(),
-                                    ty,
-                                }),
-                                AstKind::MembDef {
-                                    ident,
-                                    memb_kind: MembKind::MembFunc { .. },
-                                } => todo!(),
+                                AstKind::MembVar { ident, signature } => {
+                                    inputs.push(InputSignature {
+                                        contract: signature.contract.constructor_input(),
+                                        ty: signature.ty,
+                                    })
+                                }
+                                AstKind::MembRoutineDecl(_) => todo!(),
                                 AstKind::Stmt(_) => todo!(),
+                                AstKind::EnumVariant {
+                                    ident,
+                                    raw_variant_kind: ref variant_kind,
+                                } => todo!(),
                             }
                         }
                         msg_once!("type call compiled");

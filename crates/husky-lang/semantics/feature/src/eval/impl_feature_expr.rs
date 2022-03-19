@@ -1,4 +1,4 @@
-use vm::EvalResult;
+use vm::{EvalResult, EvalValue};
 
 use crate::{FeatureExpr, FeatureExprKind};
 
@@ -7,7 +7,10 @@ use super::FeatureEvaluator;
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
         match expr.kind {
-            FeatureExprKind::Literal(value) => Ok(value.into()),
+            FeatureExprKind::PrimitiveLiteral(value) => Ok(value.into()),
+            FeatureExprKind::EnumLiteral { ref value, uid } => {
+                Ok(EvalValue::Boxed(value.clone_any()))
+            }
             FeatureExprKind::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,

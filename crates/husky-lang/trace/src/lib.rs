@@ -81,7 +81,7 @@ impl<'eval> Serialize for Trace<'eval> {
                     true
                 }
                 TraceKind::FeatureExpr(ref expr) => match expr.kind {
-                    FeatureExprKind::Literal(_)
+                    FeatureExprKind::PrimitiveLiteral(_)
                     | FeatureExprKind::PrimitiveBinaryOpr { .. }
                     | FeatureExprKind::Variable { .. } => false,
                     FeatureExprKind::FuncCall { ranged_scope, .. } => {
@@ -91,6 +91,7 @@ impl<'eval> Serialize for Trace<'eval> {
                         !ranged_scope.scope.is_builtin()
                     }
                     FeatureExprKind::MembVarAccess { .. } => todo!(),
+                    FeatureExprKind::EnumLiteral { .. } => todo!(),
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)

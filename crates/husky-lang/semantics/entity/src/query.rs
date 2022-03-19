@@ -28,7 +28,7 @@ fn main(this: &dyn EntityQueryGroup, main_file: file::FilePtr) -> SemanticResult
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
-            AstKind::MainDef => {
+            AstKind::MainDecl => {
                 return Ok(Arc::new(Main {
                     stmts: parse_lazy_stmts(
                         &[],
@@ -66,27 +66,21 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
             match ast_head.kind {
                 AstKind::TypeDef {
                     ident,
-                    ref kind,
+                    kind,
                     ref generics,
-                } => match kind {
-                    TyKind::Enum => todo!(),
-                    TyKind::Struct => {
-                        let signature = db.ty_signature(entity_scope)?;
-                        Ok(Arc::new(Entity::new(
-                            ident,
-                            EntityKind::Ty(Ty {
-                                kind: TyKind::Struct,
-                                signature,
-                            }),
-                            Arc::new(Vec::new()),
-                            entity_scope,
-                            file,
-                            ast_head.range,
-                            db.entity_vc(),
-                        )))
-                    }
-                },
-                AstKind::RoutineDef {
+                } => {
+                    let signature = db.ty_signature(entity_scope)?;
+                    Ok(Arc::new(Entity::new(
+                        ident,
+                        EntityKind::Ty(Ty::from_ast(ast_head, not_none!(children))?),
+                        Arc::new(Vec::new()),
+                        entity_scope,
+                        file,
+                        ast_head.range,
+                        db.entity_vc(),
+                    )))
+                }
+                AstKind::RoutineDecl {
                     ref routine_kind,
                     ref routine_head,
                 } => {
@@ -128,11 +122,13 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                 }
                 AstKind::PatternDef => todo!(),
                 AstKind::Use { ident, scope } => todo!(),
-                AstKind::MembDef {
+                AstKind::MainDecl | AstKind::DatasetConfig | AstKind::Stmt(_) => panic!(),
+                AstKind::EnumVariant {
                     ident,
-                    memb_kind: ref kind,
+                    raw_variant_kind: ref variant_kind,
                 } => todo!(),
-                AstKind::MainDef | AstKind::DatasetConfig | AstKind::Stmt(_) => panic!(),
+                AstKind::MembVar { .. } => todo!(),
+                AstKind::MembRoutineDecl(_) => todo!(),
             }
         }
         scope::ScopeSource::Module { file: file_id } => todo!(),

@@ -2,12 +2,14 @@ use std::sync::Arc;
 
 use common::*;
 
+use file::FilePtr;
 use text::TextRange;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct AstError {
+    pub file: Option<FilePtr>,
     pub range: TextRange,
     pub kind: AstErrorKind,
     pub src: DevSource,
@@ -35,23 +37,24 @@ impl From<&'static str> for AstErrorKind {
 pub type AstResult<T> = Result<T, AstError>;
 
 macro_rules! error {
-    ($range:expr, $kind: expr, $src: expr) => {{
+    ($file:expr, $range:expr, $kind: expr, $src: expr) => {{
         AstError {
+            file: $file,
             range: $range,
             kind: $kind.into(),
             src: $src,
         }
     }};
 
-    ($range:expr, $kind: expr) => {{
-        error!($range, $kind, src!())
+    ($file:expr, $range:expr, $kind: expr) => {{
+        error!($file, $range, $kind, src!())
     }};
 }
 pub(crate) use error;
 
 macro_rules! err {
-    ($range:expr, $kind: expr) => {{
-        Err(error!($range, $kind, src!()))
+    ($file:expr, $range:expr, $kind: expr) => {{
+        Err(error!($file, $range, $kind, src!()))
     }};
 }
 pub(crate) use err;

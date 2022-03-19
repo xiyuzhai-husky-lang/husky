@@ -11,8 +11,8 @@ use scope::{InputSignature, ScopeKind, ScopePtr, ScopeRoute, ScopeSource, Static
 use scope_query::ScopeQueryGroup;
 use semantics_error::*;
 use std::sync::Arc;
-use syntax_types::{ListOpr, MembKind, Opr, TyKind};
-use vm::Compiled;
+use syntax_types::{ListOpr, Opr, RawTyKind};
+use vm::{Compiled, EnumLiteralValue};
 use word::{BuiltinIdentifier, CustomIdentifier, ImplicitIdentifier};
 
 #[salsa::query_group(InferQueryGroupStorage)]
@@ -21,9 +21,10 @@ pub trait InferQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
     fn ty_signature(&self, scope: ScopePtr) -> SemanticResultArc<TySignature>;
     fn scope_ty(&self, scope: ScopePtr) -> SemanticResult<ScopePtr>;
     fn input_ty(&self, main_file: file::FilePtr) -> SemanticResult<ScopePtr>;
+    fn enum_literal_value(&self, scope: ScopePtr) -> EnumLiteralValue;
 }
 
-fn scope_ty(this: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<ScopePtr> {
+fn scope_ty(db: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<ScopePtr> {
     match scope {
         ScopePtr::Builtin(ident) => match ident {
             BuiltinIdentifier::Void => todo!(),
@@ -49,20 +50,20 @@ fn scope_ty(this: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<Scope
         },
         ScopePtr::Custom(scope) => match scope.route {
             ScopeRoute::Implicit { main, ident } => match ident {
-                ImplicitIdentifier::Input => input_ty(this, main),
+                ImplicitIdentifier::Input => input_ty(db, main),
             },
             _ => todo!(),
         },
     }
 }
 
-fn input_ty(this: &dyn InferQueryGroup, main_file: file::FilePtr) -> SemanticResult<ScopePtr> {
-    let ast_text = this.ast_text(main_file)?;
+fn input_ty(db: &dyn InferQueryGroup, main_file: file::FilePtr) -> SemanticResult<ScopePtr> {
+    let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
             AstKind::DatasetConfig => {
                 return input_ty_from_ast(
-                    this,
+                    db,
                     &ast_text.arena,
                     not_none!(item.children).last().unwrap().value.as_ref()?,
                 )
@@ -110,4 +111,9 @@ fn input_ty_from_ast(
         },
         _ => todo!(),
     }
+}
+
+fn enum_literal_value(db: &dyn InferQueryGroup, scope: ScopePtr) -> EnumLiteralValue {
+    msg_once!("todo: enum_literal_value");
+    EnumLiteralValue::interpreted(scope)
 }

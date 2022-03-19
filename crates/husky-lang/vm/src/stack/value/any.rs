@@ -1,5 +1,5 @@
 use crate::*;
-use std::{any::TypeId, borrow::Cow, fmt::Debug, sync::Arc};
+use std::{any::TypeId, borrow::Cow, fmt::Debug, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum StaticTypeId {
@@ -26,7 +26,9 @@ pub enum HuskyBuiltinStaticTypeId {
 }
 
 // type level trait
-pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + 'eval {
+pub trait AnyValue<'eval>:
+    Debug + Send + Sync + Sized + PartialEq + Clone + RefUnwindSafe + 'eval
+{
     fn static_type_id() -> StaticTypeId;
     fn static_type_name() -> Cow<'static, str>;
     fn boxed_any(&self) -> Box<dyn AnyValueDyn<'eval>> {
@@ -42,10 +44,13 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + 'ev
     fn as_primitive(&self) -> PrimitiveValue {
         panic!()
     }
+    fn print_short(&self, _: u8) -> String {
+        format!("{:?}", self)
+    }
 }
 
 // object safe trait
-pub trait AnyValueDyn<'eval>: Debug + Send + Sync + 'eval {
+pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + 'eval {
     fn static_type_id(&self) -> StaticTypeId;
     fn static_type_name(&self) -> Cow<'static, str>;
     fn clone_any(&self) -> Box<dyn AnyValueDyn<'eval>>;
@@ -54,6 +59,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + 'eval {
     fn assign<'stack>(&mut self, other: StackValue<'stack, 'eval>);
     fn as_primitive(&self) -> PrimitiveValue;
     fn upcast_any(&self) -> &dyn AnyValueDyn<'eval>;
+    fn print_short(&self, max_length: u8) -> String;
 }
 
 impl<'eval> dyn AnyValueDyn<'eval> {
@@ -99,6 +105,9 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
 
     fn upcast_any(&self) -> &dyn AnyValueDyn<'eval> {
         self
+    }
+    fn print_short(&self, max_length: u8) -> String {
+        T::print_short(self, max_length)
     }
 }
 

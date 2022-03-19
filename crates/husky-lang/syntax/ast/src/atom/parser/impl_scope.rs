@@ -16,7 +16,9 @@ impl<'a> AtomLRParser<'a> {
                     kind: ScopeKind::Type,
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
-                let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, token.range)?;
+                let symbol_kind =
+                    self.scope_proxy
+                        .resolve_symbol_kind(ident, self.file, token.range)?;
                 Some(match symbol_kind {
                     SymbolKind::Scope(route) => self.normal_scope(route)?,
                     SymbolKind::Variable(_) => match ident {
@@ -118,7 +120,7 @@ impl<'a> AtomLRParser<'a> {
 
     fn func_args(&mut self) -> AstResult<Vec<GenericArgument>> {
         if !next_matches!(self, "(") {
-            return err!(self.stream.pop_range(), "args");
+            return err!(self.file, self.stream.pop_range(), "args");
         }
         let mut args = comma_list![self, generic!, RPar];
         args.push(if next_matches!(self, "->") {
