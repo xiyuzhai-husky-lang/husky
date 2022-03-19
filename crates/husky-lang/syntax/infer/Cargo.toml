@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "semantics-infer"
+name = "syntax-infer"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -13,6 +13,7 @@ itertools = "^0.10.3"
 lsp-types = { version = "0.91", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
 fold = { path = "../../../data-structure/fold", version = "0.0.0" }
+arena = { path = "../../../data-structure/arena", version = "0.0.0" }
 unique-allocator = { path = "../../../data-structure/unique_allocator", version = "0.0.0" }
 stdx = { path = "../../../stdx", version = "0.0.0" }
 common = { path = "../../../common", version = "0.0.0" }
@@ -24,5 +25,5 @@ scope = { path = "../../syntax/scope", version = "0.0.0" }
 scope-query = { path = "../../syntax/scope-query", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
-semantics-error = { path = "../../semantics/error", version = "0.0.0" }
+syntax-error = { path = "../../syntax/error", version = "0.0.0" }
 vec-map = { path = "../../../data-structure/vec-map", version = "0.0.0" }

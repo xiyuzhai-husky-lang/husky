@@ -2,6 +2,8 @@ mod branch;
 mod loop_kind;
 mod parse;
 
+use std::sync::Arc;
+
 pub use branch::*;
 use fold::Indent;
 pub use loop_kind::*;

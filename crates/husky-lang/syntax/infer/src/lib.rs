@@ -2,29 +2,45 @@ mod call;
 mod ty;
 
 pub use call::*;
+use file::FilePtr;
 pub use ty::*;
 
-use ast::{Ast, AstKind, AstResult, RawExprArena, RawExprKind, RawStmt, RawStmtKind};
+use ast::{Ast, AstKind, AstResult, RawExprArena, RawExprIdx, RawExprKind, RawStmt, RawStmtKind};
 use common::*;
 use fold::FoldStorage;
 use scope::{InputSignature, ScopeKind, ScopePtr, ScopeRoute, ScopeSource, StaticFuncSignature};
 use scope_query::ScopeQueryGroup;
-use semantics_error::*;
 use std::sync::Arc;
+use syntax_error::*;
 use syntax_types::{ListOpr, Opr, RawTyKind};
 use vm::{Compiled, EnumLiteralValue};
 use word::{BuiltinIdentifier, CustomIdentifier, ImplicitIdentifier};
 
-#[salsa::query_group(InferQueryGroupStorage)]
-pub trait InferQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
-    fn call_signature(&self, scope: ScopePtr) -> SemanticResultArc<CallSignature>;
-    fn ty_signature(&self, scope: ScopePtr) -> SemanticResultArc<TySignature>;
-    fn scope_ty(&self, scope: ScopePtr) -> SemanticResult<ScopePtr>;
-    fn input_ty(&self, main_file: file::FilePtr) -> SemanticResult<ScopePtr>;
-    fn enum_literal_value(&self, scope: ScopePtr) -> EnumLiteralValue;
+pub trait InferQueryGroup: InferSalsaQueryGroup {
+    fn expr_ty(&self, file: FilePtr, expr_idx: RawExprIdx) -> SyntaxResult<ScopePtr> {
+        self.ty_sheet(file)?.ty(expr_idx)
+    }
+
+    fn expr_ty_signature(
+        &self,
+        file: FilePtr,
+        expr_idx: RawExprIdx,
+    ) -> SyntaxResultArc<TySignature> {
+        self.ty_signature(self.expr_ty(file, expr_idx)?)
+    }
 }
 
-fn scope_ty(db: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<ScopePtr> {
+#[salsa::query_group(InferSalsaQueryGroupStorage)]
+pub trait InferSalsaQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
+    fn call_signature(&self, scope: ScopePtr) -> SyntaxResultArc<CallSignature>;
+    fn ty_signature(&self, scope: ScopePtr) -> SyntaxResultArc<TySignature>;
+    fn scope_ty(&self, scope: ScopePtr) -> SyntaxResult<ScopePtr>;
+    fn input_ty(&self, main_file: FilePtr) -> SyntaxResult<ScopePtr>;
+    fn enum_literal_value(&self, scope: ScopePtr) -> EnumLiteralValue;
+    fn ty_sheet(&self, file: FilePtr) -> SyntaxResultArc<TySheet>;
+}
+
+fn scope_ty(db: &dyn InferSalsaQueryGroup, scope: ScopePtr) -> SyntaxResult<ScopePtr> {
     match scope {
         ScopePtr::Builtin(ident) => match ident {
             BuiltinIdentifier::Void => todo!(),
@@ -57,7 +73,7 @@ fn scope_ty(db: &dyn InferQueryGroup, scope: ScopePtr) -> SemanticResult<ScopePt
     }
 }
 
-fn input_ty(db: &dyn InferQueryGroup, main_file: file::FilePtr) -> SemanticResult<ScopePtr> {
+fn input_ty(db: &dyn InferSalsaQueryGroup, main_file: FilePtr) -> SyntaxResult<ScopePtr> {
     let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
@@ -75,10 +91,10 @@ fn input_ty(db: &dyn InferQueryGroup, main_file: file::FilePtr) -> SemanticResul
 }
 
 fn input_ty_from_ast(
-    this: &dyn InferQueryGroup,
+    db: &dyn InferSalsaQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
-) -> SemanticResult<ScopePtr> {
+) -> SyntaxResult<ScopePtr> {
     match ast.kind {
         AstKind::Stmt(RawStmt {
             kind: RawStmtKind::Return(idx),
@@ -93,7 +109,7 @@ fn input_ty_from_ast(
                     kind: ScopeKind::Routine,
                     ..
                 } => {
-                    let signature = this.call_signature(scope)?;
+                    let signature = db.call_signature(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.route {
                         ScopeRoute::Builtin {
@@ -113,7 +129,7 @@ fn input_ty_from_ast(
     }
 }
 
-fn enum_literal_value(db: &dyn InferQueryGroup, scope: ScopePtr) -> EnumLiteralValue {
+fn enum_literal_value(db: &dyn InferSalsaQueryGroup, scope: ScopePtr) -> EnumLiteralValue {
     msg_once!("todo: enum_literal_value");
     EnumLiteralValue::interpreted(scope)
 }

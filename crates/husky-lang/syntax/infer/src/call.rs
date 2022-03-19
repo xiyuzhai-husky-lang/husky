@@ -8,14 +8,14 @@ pub struct CallSignature {
 }
 
 pub(crate) fn call_signature(
-    this: &dyn InferQueryGroup,
+    db: &dyn InferSalsaQueryGroup,
     scope: ScopePtr,
-) -> SemanticResultArc<CallSignature> {
-    let source = this.scope_source(scope)?;
+) -> SyntaxResultArc<CallSignature> {
+    let source = db.scope_source(scope)?;
     return match source {
         ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
             scope::StaticScopeSignature::Func(ref signature) => {
-                func_call_signature_from_raw(this, signature)
+                func_call_signature_from_raw(db, signature)
             }
             _ => panic!(),
         })),
@@ -24,7 +24,7 @@ pub(crate) fn call_signature(
             file,
             token_group_index,
         } => {
-            let ast_text = this.ast_text(file)?;
+            let ast_text = db.ast_text(file)?;
             let item = ast_text
                 .folded_results
                 .fold_iter(token_group_index)
@@ -93,7 +93,7 @@ pub(crate) fn call_signature(
     };
 
     fn func_call_signature_from_raw(
-        this: &dyn InferQueryGroup,
+        this: &dyn InferSalsaQueryGroup,
         signature: &StaticFuncSignature,
     ) -> CallSignature {
         let inputs = signature

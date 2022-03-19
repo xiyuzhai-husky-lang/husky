@@ -1,16 +1,16 @@
 use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct SemanticError {
+pub struct SyntaxError {
     pub message: String,
     pub src: DevSource,
 }
 
-pub type SemanticResult<T> = Result<T, SemanticError>;
+pub type SyntaxResult<T> = Result<T, SyntaxError>;
 
-pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
+pub type SyntaxResultArc<T> = Result<Arc<T>, SyntaxError>;
 
-impl From<ScopeError> for SemanticError {
+impl From<ScopeError> for SyntaxError {
     fn from(error: ScopeError) -> Self {
         todo!()
         // Self {
@@ -20,13 +20,7 @@ impl From<ScopeError> for SemanticError {
     }
 }
 
-impl From<SyntaxError> for SemanticError {
-    fn from(_: SyntaxError) -> Self {
-        todo!()
-    }
-}
-
-impl From<&ast::AstError> for SemanticError {
+impl From<&ast::AstError> for SyntaxError {
     fn from(error: &ast::AstError) -> Self {
         Self {
             message: format!("AstError {:?}", error),
@@ -35,7 +29,7 @@ impl From<&ast::AstError> for SemanticError {
     }
 }
 
-impl From<VMError> for SemanticError {
+impl From<VMError> for SyntaxError {
     fn from(_: VMError) -> Self {
         todo!()
     }
@@ -44,7 +38,7 @@ impl From<VMError> for SemanticError {
 #[macro_export]
 macro_rules! err {
     ($msg:expr) => {{
-        Err(SemanticError {
+        Err(SyntaxError {
             message: $msg.into(),
             src: common::src!(),
         })?
@@ -54,7 +48,7 @@ macro_rules! err {
 #[macro_export]
 macro_rules! not_none {
     ($option:expr) => {{
-        $option.ok_or(SemanticError {
+        $option.ok_or(SyntaxError {
             message: "expect not none".into(),
             src: common::src!(),
         })?
@@ -63,5 +57,4 @@ macro_rules! not_none {
 
 use common::DevSource;
 use scope_query::ScopeError;
-use syntax_error::SyntaxError;
 use vm::VMError;

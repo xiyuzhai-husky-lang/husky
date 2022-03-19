@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use scope::{RangedScope, ScopePtr};
-use semantics_infer::TySignature;
+use syntax_infer::TySignature;
 use vm::{BinaryOpr, MembVarContract};
 
 #[derive(Debug, Clone, PartialEq, Eq)]

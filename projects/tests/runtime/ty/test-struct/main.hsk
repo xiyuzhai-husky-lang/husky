@@ -4,9 +4,14 @@ struct A:
 proc f1() -> A:
     return A(1)
 
+func g1() -> i32:
+    a = A(2)
+    return a.x
+
 dataset:
     synthetic::trivial::real1d::dataset1()
 
 main:
     a = f1()
     assert a.x == 1
+    assert g1() == 2

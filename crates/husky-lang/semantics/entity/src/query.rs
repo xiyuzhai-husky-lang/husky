@@ -12,7 +12,7 @@ use vm::InstructionSheet;
 use crate::*;
 use semantics_eager::parse_impr_stmts;
 use semantics_error::*;
-use semantics_infer::*;
+use syntax_infer::*;
 
 #[salsa::query_group(EntityQueryGroupStorage)]
 pub trait EntityQueryGroup:
