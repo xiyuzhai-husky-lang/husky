@@ -20,6 +20,7 @@ pub struct LazyExpr {
     pub ty: ScopePtr,
     pub kind: LazyExprKind,
     pub instruction_id: InstructionId,
+    pub contract: LazyContract,
 }
 
 impl InstructionSource for LazyExpr {
@@ -33,7 +34,7 @@ pub enum LazyExprKind {
     Variable(CustomIdentifier),
     Scope {
         scope: ScopePtr,
-        compiled: Option<Compiled>,
+        compiled: (),
     },
     PrimitiveLiteral(PrimitiveValue),
     EnumLiteral {
@@ -43,7 +44,7 @@ pub enum LazyExprKind {
     Bracketed(Arc<LazyExpr>),
     Opn {
         opn_kind: LazyOpnKind,
-        compiled: Option<Compiled>,
+        compiled: (),
         opds: Vec<Arc<LazyExpr>>,
     },
     Lambda(Vec<(CustomIdentifier, Option<ScopePtr>)>, Box<LazyExpr>),

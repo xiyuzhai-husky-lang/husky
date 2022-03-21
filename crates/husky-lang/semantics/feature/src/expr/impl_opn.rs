@@ -1,4 +1,4 @@
-use vm::Compiled;
+use vm::{Compiled, LazyContract};
 
 use super::*;
 
@@ -6,8 +6,9 @@ impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn new_opn(
         &self,
         opn_kind: LazyOpnKind,
-        compiled: Option<Compiled>,
+        compiled: (),
         opds: &[Arc<LazyExpr>],
+        contract: LazyContract,
     ) -> (FeatureExprKind, FeaturePtr) {
         match opn_kind {
             LazyOpnKind::Binary { opr, this } => match this {
@@ -85,6 +86,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     FeatureExprKind::MembVarAccess {
                         this,
                         memb_var_ident,
+                        contract,
                         opt_compiled: None,
                     },
                     feature,

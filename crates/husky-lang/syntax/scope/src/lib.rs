@@ -10,8 +10,8 @@ use common::*;
 use file::FilePtr;
 pub use kind::ScopeKind;
 
-use text::TextRange;
-use vm::{Compiled, InputContract};
+use text::{TextRange, TextRanged};
+use vm::{Compiled, EagerContract};
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -24,6 +24,12 @@ pub struct Scope {
 pub struct RangedScope {
     pub scope: ScopePtr,
     pub range: TextRange,
+}
+
+impl TextRanged for RangedScope {
+    fn text_range_ref(&self) -> &TextRange {
+        &self.range
+    }
 }
 
 impl std::fmt::Debug for Scope {
@@ -136,20 +142,20 @@ pub struct StaticTySignature {}
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StaticInputSignature {
-    pub contract: InputContract,
+    pub contract: EagerContract,
     pub ty: &'static str,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputSignature {
-    pub contract: InputContract,
+    pub contract: EagerContract,
     pub ty: ScopePtr,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputPlaceholder {
     pub ident: CustomIdentifier,
-    pub contract: InputContract,
+    pub contract: EagerContract,
     pub ranged_ty: RangedScope,
 }
 

@@ -33,7 +33,7 @@ impl InstructionSource for DeclStmt {
 pub enum DeclStmtKind {
     Init {
         varname: CustomIdentifier,
-        value: Arc<EagerExpr>,
+        initial_value: Arc<EagerExpr>,
     },
     Assert {
         condition: Arc<EagerExpr>,

@@ -13,7 +13,6 @@ pub use semantics_entity::ControlEntityVersion;
 pub use semantics_entity::EntityQueryGroup;
 pub use semantics_feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use semantics_package::PackageQueryGroup;
-pub use syntax_infer::InferQueryGroup;
 pub use token::TokenQueryGroup;
 pub use word::InternWord;
 
@@ -29,7 +28,9 @@ use stdx::sync::ARwLock;
     scope_query::ScopeQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
-    syntax_infer::InferSalsaQueryGroupStorage,
+    infer_signature::InferSignatureQueryGroupStorage,
+    infer_ty::InferTyQueryGroupStorage,
+    infer_contract::InferContractQueryGroupStorage,
     semantics_entity::EntityQueryGroupStorage,
     semantics_package::PackageQueryGroupStorage,
     semantics_feature::FeatureQueryGroupStorage,

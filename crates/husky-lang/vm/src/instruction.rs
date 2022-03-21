@@ -3,6 +3,7 @@ mod sheet;
 
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
+use word::CustomIdentifier;
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -50,9 +51,16 @@ pub enum InstructionKind {
     Init(InitKind),
     PushVariable {
         stack_idx: StackIdx,
-        contract: InputContract,
+        contract: EagerContract,
     },
     PushPrimitiveLiteral(PrimitiveValue),
+    MembVarAccessCompiled {
+        compiled: (),
+    },
+    MembVarAccessInterpreted {
+        ident: CustomIdentifier,
+        contract: EagerContract,
+    },
     CallCompiled {
         compiled: Compiled,
         nargs: u8,
@@ -104,11 +112,11 @@ pub enum BinaryOpr {
 }
 
 impl BinaryOpr {
-    pub fn lopd_contract(self) -> InputContract {
+    pub fn lopd_contract(self) -> EagerContract {
         todo!()
     }
 
-    pub fn ropd_contract(self) -> InputContract {
+    pub fn ropd_contract(self) -> EagerContract {
         todo!()
     }
 

@@ -8,6 +8,7 @@ pub use boxed::BoxedValue;
 pub use eval::{EvalResult, EvalValue};
 pub use primitive::PrimitiveValue;
 use std::{any::TypeId, sync::Arc};
+use word::CustomIdentifier;
 
 use common::p;
 
@@ -93,13 +94,14 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub(crate) unsafe fn bind(&mut self, contract: InputContract, stack_idx: StackIdx) -> Self {
+    pub(crate) unsafe fn bind(&mut self, contract: EagerContract, stack_idx: StackIdx) -> Self {
         match contract {
-            InputContract::Pure => self.pure(),
-            InputContract::Take => self.take(),
-            InputContract::Share => todo!(),
-            InputContract::TakeMut => todo!(),
-            InputContract::BorrowMut => self.borrow_mut(stack_idx),
+            EagerContract::Pure => self.pure(),
+            EagerContract::Take => self.take(),
+            EagerContract::Ref => todo!(),
+            EagerContract::TakeMut => todo!(),
+            EagerContract::BorrowMut => self.borrow_mut(stack_idx),
+            EagerContract::Exec => todo!(),
         }
         // ,
         //     match self {
@@ -128,21 +130,12 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         match self {
             StackValue::Taken => todo!(),
             StackValue::Primitive(value) => StackValue::Primitive(*value),
-            StackValue::Boxed(_) => todo!(),
+            StackValue::Boxed(_) => std::mem::replace(self, StackValue::Taken),
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::Ref(_) => todo!(),
             StackValue::MutRef { value, owner, gen } => todo!(),
         }
-        // match std::mem::replace(self, StackValue::Taken) {
-        //     StackValue::Primitive(value) => StackValue::Primitive(value),
-        //     StackValue::Boxed(_) => todo!(),
-        //     StackValue::Volatile(_) => todo!(),
-        //     StackValue::GlobalRef(_) => todo!(),
-        //     StackValue::Ref(_) => todo!(),
-        //     StackValue::MutRef { value, owner, gen } => todo!(),
-        //     StackValue::Taken => todo!(),
-        // }
     }
 
     unsafe fn borrow_mut(&mut self, self_stack_idx: StackIdx) -> Self {
@@ -195,7 +188,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                     PrimitiveValue::Bool(value) => value,
                     PrimitiveValue::Void => todo!(),
                 },
-                StackValue::Boxed(_) => todo!(),
+                StackValue::Boxed(value) => value.any_mut_ptr(),
                 StackValue::GlobalPure(_) => todo!(),
                 StackValue::GlobalRef(_) => todo!(),
                 StackValue::Ref(_) => todo!(),
@@ -242,5 +235,27 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     pub fn static_type_id(&self) -> StaticTypeId {
         self.any().static_type_id()
+    }
+
+    pub fn memb_var(
+        mut self,
+        ident: CustomIdentifier,
+        contract: EagerContract,
+    ) -> StackValue<'stack, 'eval> {
+        match self {
+            StackValue::Taken => todo!(),
+            StackValue::Primitive(_) => todo!(),
+            StackValue::Boxed(boxed_value) => {
+                let value: VirtualTy = boxed_value.take().unwrap();
+                value.take_memb_var(ident)
+            }
+            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::Ref(_) => todo!(),
+            StackValue::MutRef { value, owner, gen } => {
+                let virtual_value: &mut VirtualTy = value.downcast_mut();
+                virtual_value.memb_var_mut(ident, contract, owner)
+            }
+        }
     }
 }

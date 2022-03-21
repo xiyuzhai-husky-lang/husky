@@ -1,6 +1,6 @@
 use super::EagerOpnKind;
 use common::*;
-use vm::{BinaryOpr, InputContract, Instruction, InstructionKind, PrimitiveOpn};
+use vm::{BinaryOpr, EagerContract, Instruction, InstructionKind, PrimitiveOpn};
 
 use crate::*;
 
@@ -43,8 +43,8 @@ pub trait ExprInstructionBuilder {
                     );
                     self.push_instruction(instruction)
                 }
-                EagerOpnKind::Prefix(_) => todo!(),
-                EagerOpnKind::Suffix(_) => todo!(),
+                EagerOpnKind::Prefix { .. } => todo!(),
+                EagerOpnKind::Suffix { .. } => todo!(),
                 EagerOpnKind::RoutineCall(routine) => {
                     if let Some(compiled) = compiled {
                         self.push_instruction(Instruction::new(

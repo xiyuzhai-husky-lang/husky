@@ -3,6 +3,7 @@ mod kind;
 mod precedence;
 mod stack;
 
+use arena::{Arena, ArenaIdx, ArenaRange};
 pub use kind::RawExprKind;
 pub(crate) use stack::ExprStack;
 pub use word::Keyword;
@@ -16,8 +17,14 @@ use text::TextRanged;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawExpr {
-    range: TextRange,
+    pub range: TextRange,
     pub kind: RawExprKind,
+}
+
+impl TextRanged for RawExpr {
+    fn text_range_ref(&self) -> &TextRange {
+        &self.range
+    }
 }
 
 impl RawExpr {
@@ -73,9 +80,11 @@ impl From<&atom::Atom> for RawExpr {
         Self {
             range: atom.text_range(),
             kind: match atom.kind {
-                AtomKind::Variable(ident) => RawExprKind::Variable(ident),
+                AtomKind::Variable { varname, init_row } => {
+                    RawExprKind::Variable { varname, init_row }
+                }
                 AtomKind::Unrecognized(ident) => RawExprKind::Unrecognized(ident),
-                AtomKind::Literal(literal) => RawExprKind::Literal(literal.clone()),
+                AtomKind::Literal(literal) => RawExprKind::PrimitiveLiteral(literal.clone()),
                 AtomKind::Scope { scope, kind } => RawExprKind::Scope { scope, kind },
                 _ => {
                     p!(atom.kind);
@@ -86,6 +95,6 @@ impl From<&atom::Atom> for RawExpr {
     }
 }
 
-pub type RawExprArena = arena::Arena<RawExpr>;
-pub type RawExprIdx = arena::ArenaIdx<RawExpr>;
-pub type RawExprRange = arena::ArenaRange<RawExpr>;
+pub type RawExprArena = Arena<RawExpr>;
+pub type RawExprIdx = ArenaIdx<RawExpr>;
+pub type RawExprRange = ArenaRange<RawExpr>;

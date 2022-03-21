@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "crates/husky-lang/syntax/*",
+    "crates/husky-lang/infer/*",
     "crates/husky-lang/semantics/*",
     "crates/husky-lang/diagnostic",
     "crates/husky-lang/compile-time",

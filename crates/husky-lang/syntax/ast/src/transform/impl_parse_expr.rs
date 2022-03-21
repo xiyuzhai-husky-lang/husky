@@ -14,7 +14,7 @@ impl<'a> AstTransformer<'a> {
             let mut stack = ExprStack::new(Some(self.file), &mut self.arena);
             while let Some(atom) = atom_iter.next() {
                 match atom.kind {
-                    AtomKind::Variable(_)
+                    AtomKind::Variable { .. }
                     | AtomKind::Unrecognized(_)
                     | AtomKind::Literal(_)
                     | AtomKind::Scope { .. } => stack.accept_atom_expr(atom.into()),

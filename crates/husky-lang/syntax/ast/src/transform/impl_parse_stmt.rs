@@ -90,7 +90,7 @@ impl<'a> AstTransformer<'a> {
                     // declarative initialization
                     let varname = identify!(Some(self.file), token_group[0]);
                     self.symbols
-                        .push(Symbol::var(varname, token_group[0].text_range()));
+                        .push(Symbol::var(varname, token_group[0].row()));
                     RawStmt {
                         range: token_group.into(),
                         kind: RawStmtKind::Init {
@@ -139,8 +139,7 @@ impl<'a> AstTransformer<'a> {
         }
         expect_at_least!(tokens, Some(self.file), kw_range, 3);
         let varname = identify!(Some(self.file), &tokens[0]);
-        self.symbols
-            .push(Symbol::var(varname, tokens[0].range.clone()));
+        self.symbols.push(Symbol::var(varname, tokens[0].row()));
         expect_kind!(Some(self.file), tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtKind::Init {
@@ -238,7 +237,7 @@ impl<'a> AstTransformer<'a> {
                 let ropd_idx = opds.end - 1;
                 let lopd = &self.arena[lopd_idx];
                 let frame_var = match lopd.kind {
-                    RawExprKind::Variable(frame_var) => frame_var,
+                    RawExprKind::Variable { varname, .. } => varname,
                     _ => todo!(),
                 };
                 RawLoopKind::forext_loop(frame_var, comparison, ropd_idx)?.into()

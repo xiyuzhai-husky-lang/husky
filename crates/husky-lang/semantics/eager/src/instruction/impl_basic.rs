@@ -1,6 +1,6 @@
 use crate::*;
 
-use vm::{InitKind, InputContract, Instruction, InstructionKind, InstructionSource, StackIdx};
+use vm::{EagerContract, InitKind, Instruction, InstructionKind, InstructionSource, StackIdx};
 
 impl InstructionSheetBuilder {
     pub(super) fn push_instruction(&mut self, instr: Instruction) {

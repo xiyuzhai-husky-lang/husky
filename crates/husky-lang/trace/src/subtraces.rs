@@ -34,8 +34,8 @@ impl<'eval> Trace<'eval> {
                 } => match opn_kind {
                     EagerOpnKind::MembVarAccess { .. } | EagerOpnKind::ElementAccess => None,
                     EagerOpnKind::Binary { .. }
-                    | EagerOpnKind::Prefix(_)
-                    | EagerOpnKind::Suffix(_) => {
+                    | EagerOpnKind::Prefix { .. }
+                    | EagerOpnKind::Suffix { .. } => {
                         if opds[0].ty.is_builtin() {
                             None
                         } else {

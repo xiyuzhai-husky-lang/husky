@@ -32,10 +32,13 @@ scope = { path = "../syntax/scope", version = "0.0.0" }
 scope-query = { path = "../syntax/scope-query", version = "0.0.0" }
 ast = { path = "../syntax/ast", version = "0.0.0" }
 husky-fmt = { path = "../fmt", version = "0.0.0" }
+infer-signature = { path = "../infer/signature", version = "0.0.0" }
+infer-ty = { path = "../infer/ty", version = "0.0.0" }
+infer-contract = { path = "../infer/contract", version = "0.0.0" }
+infer-total = { path = "../infer/total", version = "0.0.0" }
 semantics-entity = { path = "../semantics/entity", version = "0.0.0" }
 semantics-lazy = { path = "../semantics/lazy", version = "0.0.0" }
 semantics-feature = { path = "../semantics/feature", version = "0.0.0" }
-syntax-infer = { path = "../syntax/infer", version = "0.0.0" }
 semantics-package = { path = "../semantics/pack", version = "0.0.0" }
 diagnostic = { path = "../diagnostic", version = "0.0.0" }
 compiler = { path = "../compiler", version = "0.0.0" }

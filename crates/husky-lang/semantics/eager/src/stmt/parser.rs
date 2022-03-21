@@ -1,3 +1,4 @@
+use infer_total::InferQueryGroup;
 use vm::{StackIdx, VMResult};
 
 use crate::qual::QualTable;
@@ -64,19 +65,6 @@ impl<'a> EagerStmtParser<'a> {
 impl<'a> EagerExprParser<'a> for EagerStmtParser<'a> {
     fn arena(&self) -> &'a RawExprArena {
         self.arena
-    }
-
-    fn vartype(&self, varname: CustomIdentifier) -> ScopePtr {
-        self.variables
-            .iter()
-            .find_map(|variable| {
-                if variable.ident == varname {
-                    Some(variable.ty)
-                } else {
-                    None
-                }
-            })
-            .unwrap()
     }
 
     fn db(&self) -> &'a dyn InferQueryGroup {

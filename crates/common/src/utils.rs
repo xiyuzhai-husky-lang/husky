@@ -51,7 +51,9 @@ macro_rules! should_eq {
 #[macro_export]
 macro_rules! should_ok {
     ($result:expr) => {
-        match $result {
+        let result = $result;
+        #[cfg(debug_assertions)]
+        match result {
             Ok(v) => v,
             Err(should_ok_failed) => {
                 p!(should_ok_failed);
@@ -64,8 +66,9 @@ macro_rules! should_ok {
 #[macro_export]
 macro_rules! should {
     ($result:expr) => {
+        let result = $result;
         #[cfg(debug_assertions)]
-        match $result {
+        match result {
             true => (),
             false => {
                 panic!(
@@ -77,6 +80,13 @@ macro_rules! should {
                 );
             }
         }
+    };
+}
+
+#[macro_export]
+macro_rules! insert_new {
+    ($map:expr, $key: expr, $value: expr) => {
+        should!($map.insert($key, $value).is_none());
     };
 }
 

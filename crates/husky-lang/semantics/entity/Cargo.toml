@@ -22,6 +22,8 @@ fold = { path = "../../../data-structure/fold", version = "0.0.0" }
 scope = { path = "../../syntax/scope", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 semantics-error = { path = "../../semantics/error", version = "0.0.0" }
-syntax-infer = { path = "../../syntax/infer", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
+infer-ty = { path = "../../infer/ty", version = "0.0.0" }
+infer-contract = { path = "../../infer/contract", version = "0.0.0" }
+infer-total = { path = "../../infer/total", version = "0.0.0" }

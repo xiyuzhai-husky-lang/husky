@@ -7,7 +7,7 @@ pub use env::Env;
 pub use opr::*;
 
 use scope::{InputPlaceholder, RangedScope, ScopeKind, ScopePtr};
-use vm::{InputContract, MembVarContract};
+use vm::{EagerContract, MembVarContract};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -24,7 +24,7 @@ pub struct MembVarSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MembFuncDecl {
-    this: InputContract,
+    this: EagerContract,
     inputs: Vec<InputPlaceholder>,
     output: RangedScope,
     args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,

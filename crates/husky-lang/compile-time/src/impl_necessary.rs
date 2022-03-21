@@ -1,3 +1,5 @@
+use infer_total::InferQueryGroup;
+
 use crate::*;
 
 impl fmt::Debug for HuskyLangCompileTime {
@@ -73,7 +75,7 @@ impl ScopeQueryGroup for HuskyLangCompileTime {}
 impl AstQueryGroup for HuskyLangCompileTime {}
 
 impl Upcast<dyn InferQueryGroup> for HuskyLangCompileTime {
-    fn upcast(&self) -> &(dyn syntax_infer::InferQueryGroup + 'static) {
+    fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {
         self
     }
 }
@@ -96,4 +98,8 @@ impl AllocateUniqueFeature for HuskyLangCompileTime {
     }
 }
 
-impl syntax_infer::InferQueryGroup for HuskyLangCompileTime {}
+impl infer_ty::InferTyQueryGroup for HuskyLangCompileTime {}
+
+impl infer_contract::InferContractQueryGroup for HuskyLangCompileTime {}
+
+impl infer_total::InferQueryGroup for HuskyLangCompileTime {}

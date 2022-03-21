@@ -9,7 +9,10 @@ use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
 use text::TextRange;
-use vm::{AnyValueDyn, BinaryOpr, EnumLiteralValue, InstructionSheet, MembVarAccessCompiled};
+use vm::{
+    AnyValueDyn, BinaryOpr, EagerContract, EnumLiteralValue, InstructionSheet, LazyContract,
+    MembVarAccessCompiled,
+};
 use word::BuiltinIdentifier;
 
 use crate::{eval::FeatureEvalId, *};
@@ -21,6 +24,7 @@ pub struct FeatureExpr {
     pub(crate) eval_id: FeatureEvalId,
     pub range: TextRange,
     pub file: FilePtr,
+    pub contract: LazyContract,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -62,6 +66,7 @@ pub enum FeatureExprKind {
     MembVarAccess {
         this: Arc<FeatureExpr>,
         memb_var_ident: CustomIdentifier,
+        contract: LazyContract,
         opt_compiled: Option<MembVarAccessCompiled>,
     },
 }
@@ -119,7 +124,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 opn_kind,
                 compiled,
                 ref opds,
-            } => self.new_opn(opn_kind, compiled, opds),
+            } => self.new_opn(opn_kind, compiled, opds, expr.contract),
             LazyExprKind::Lambda(_, _) => todo!(),
             LazyExprKind::EnumLiteral { scope, ref value } => (
                 FeatureExprKind::EnumLiteral {
@@ -135,6 +140,7 @@ impl<'a> FeatureExprBuilder<'a> {
             eval_id: Default::default(),
             range: expr.range,
             file: expr.file,
+            contract: expr.contract,
         })
     }
 }

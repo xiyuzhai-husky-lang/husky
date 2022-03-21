@@ -43,7 +43,9 @@ impl<'a> AstTransformer<'a> {
                                 .iter()
                                 .map(|input_placeholder| Symbol {
                                     ident: input_placeholder.ident,
-                                    kind: SymbolKind::Variable(input_placeholder.ranged_ty.range),
+                                    kind: SymbolKind::Variable {
+                                        init_row: input_placeholder.ranged_ty.row(),
+                                    },
                                 }),
                         );
                     AstKind::RoutineDecl {
@@ -58,14 +60,17 @@ impl<'a> AstTransformer<'a> {
                         self.parse_routine_decl(trim!(Some(self.file), tokens; keyword, colon))?;
                     for input_placeholder in decl.input_placeholders.iter() {
                         match input_placeholder.contract {
-                            InputContract::Pure | InputContract::Share | InputContract::Take => (),
-                            InputContract::BorrowMut | InputContract::TakeMut => {
+                            EagerContract::Pure | EagerContract::Ref | EagerContract::Take => (),
+                            EagerContract::BorrowMut | EagerContract::TakeMut => {
                                 todo!("report invalid input contract")
                             }
+                            EagerContract::Exec => todo!(),
                         }
                         self.symbols.push(Symbol {
                             ident: input_placeholder.ident,
-                            kind: SymbolKind::Variable(input_placeholder.ranged_ty.range),
+                            kind: SymbolKind::Variable {
+                                init_row: input_placeholder.ranged_ty.row(),
+                            },
                         })
                     }
                     AstKind::RoutineDecl {

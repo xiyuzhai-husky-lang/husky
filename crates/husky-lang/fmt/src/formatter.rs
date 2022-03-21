@@ -5,7 +5,7 @@ use common::*;
 use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
-use vm::{InitKind, InputContract, MembVarContract, PrimitiveValue};
+use vm::{EagerContract, InitKind, MembVarContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
@@ -148,11 +148,12 @@ impl<'a> Formatter<'a> {
 
     fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
         match ty.contract {
-            InputContract::Pure => (),
-            InputContract::Share => self.write("&"),
-            InputContract::Take => self.write("!"),
-            InputContract::BorrowMut => self.write("mut &"),
-            InputContract::TakeMut => self.write("mut !"),
+            EagerContract::Pure => (),
+            EagerContract::Ref => self.write("&"),
+            EagerContract::Take => self.write("!"),
+            EagerContract::BorrowMut => self.write("mut &"),
+            EagerContract::TakeMut => self.write("mut !"),
+            EagerContract::Exec => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.scope);
     }
@@ -196,9 +197,9 @@ impl<'a> Formatter<'a> {
 
     fn fmt_expr(&mut self, expr: &RawExpr) {
         match expr.kind {
-            RawExprKind::Variable(ident) => self.write(&ident),
+            RawExprKind::Variable { varname, .. } => self.write(&varname),
             RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::Literal(literal) => match literal {
+            RawExprKind::PrimitiveLiteral(literal) => match literal {
                 PrimitiveValue::I32(i) => self.write(&i.to_string()),
                 PrimitiveValue::F32(f) => self.write(&f.to_string()),
                 PrimitiveValue::Void => todo!(),

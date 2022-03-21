@@ -5,7 +5,7 @@ use common::msg_once;
 use file::FilePtr;
 use scope::{InputPlaceholder, ScopePtr};
 use semantics_error::*;
-use vm::{InitKind, InputContract, StackIdx, VMResult};
+use vm::{EagerContract, InitKind, StackIdx, VMResult};
 use word::CustomIdentifier;
 
 use crate::*;
@@ -86,7 +86,7 @@ impl<'a> LazyStmtParser<'a> {
                             RawBranchKind::If { condition } => {
                                 branches.push(Arc::new(LazyBranch {
                                     kind: LazyBranchKind::If {
-                                        condition: self.parse_lazy_expr(&self.arena[condition])?,
+                                        condition: self.parse_lazy_expr(condition)?,
                                     },
                                     stmts: self.parse_lazy_stmts(not_none!(item.children))?,
                                 }))
@@ -143,7 +143,7 @@ impl<'a> LazyStmtParser<'a> {
                         initial_value,
                         init_kind: kind,
                     } => {
-                        let initial_value = self.parse_lazy_expr(&self.arena[initial_value])?;
+                        let initial_value = self.parse_lazy_expr(initial_value)?;
                         if kind != InitKind::Decl {
                             todo!()
                         }
@@ -164,7 +164,7 @@ impl<'a> LazyStmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: LazyStmtKind::Return {
-                            result: self.parse_lazy_expr(&self.arena[result])?,
+                            result: self.parse_lazy_expr(result)?,
                         },
                         instruction_id: Default::default(),
                     },
@@ -173,7 +173,7 @@ impl<'a> LazyStmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: LazyStmtKind::Assert {
-                            condition: self.parse_lazy_expr(&self.arena[condition])?,
+                            condition: self.parse_lazy_expr(condition)?,
                         },
                         instruction_id: Default::default(),
                     },

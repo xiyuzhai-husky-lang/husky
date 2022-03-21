@@ -85,7 +85,7 @@ pub enum SuffixOpr {
     WithType(ScopePtr),              // :
 }
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum PrefixOpr {
     Minus,     // -
     Not,       // !$0

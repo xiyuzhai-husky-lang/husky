@@ -98,6 +98,7 @@ pub enum BuiltinIdentifier {
     FnOnce,
     Array,
     DatasetType,
+    Type,
 }
 
 impl Deref for BuiltinIdentifier {
@@ -124,6 +125,7 @@ impl Deref for BuiltinIdentifier {
             BuiltinIdentifier::FnOnce => "FnOnce",
             BuiltinIdentifier::Array => "Array",
             BuiltinIdentifier::DatasetType => "Dataset",
+            BuiltinIdentifier::Type => "type",
         }
     }
 }

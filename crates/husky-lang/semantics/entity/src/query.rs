@@ -1,9 +1,9 @@
 use std::sync::Arc;
 
-use ast::{Ast, AstKind};
+use ast::AstKind;
 use common::Upcast;
-use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
+use infer_total::InferQueryGroup;
 use scope::ScopePtr;
 use semantics_lazy::parse_lazy_stmts;
 use syntax_types::RoutineKind;
@@ -12,7 +12,6 @@ use vm::InstructionSheet;
 use crate::*;
 use semantics_eager::parse_impr_stmts;
 use semantics_error::*;
-use syntax_infer::*;
 
 #[salsa::query_group(EntityQueryGroupStorage)]
 pub trait EntityQueryGroup:
@@ -69,7 +68,7 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                     kind,
                     ref generics,
                 } => {
-                    let signature = db.ty_signature(entity_scope)?;
+                    let signature = try_infer!(db.ty_signature(entity_scope));
                     Ok(Arc::new(Entity::new(
                         ident,
                         EntityKind::Ty(Ty::from_ast(ast_head, not_none!(children))?),

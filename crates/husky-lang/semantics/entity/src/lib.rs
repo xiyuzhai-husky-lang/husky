@@ -98,7 +98,10 @@ impl Entity {
         fn extract_decl_stmts_dependees(stmts: &[Arc<DeclStmt>], v: &mut UniqVec<ScopePtr>) {
             for stmt in stmts {
                 match stmt.kind {
-                    DeclStmtKind::Init { varname, ref value } => extract_expr_dependees(value, v),
+                    DeclStmtKind::Init {
+                        varname,
+                        initial_value: ref value,
+                    } => extract_expr_dependees(value, v),
                     DeclStmtKind::Assert { ref condition } => extract_expr_dependees(condition, v),
                     DeclStmtKind::Return { ref result } => extract_expr_dependees(result, v),
                     DeclStmtKind::Branches { kind, ref branches } => {
@@ -165,9 +168,9 @@ impl Entity {
                     ..
                 } => {
                     match opn_kind {
-                        EagerOpnKind::Binary { opr, this } => v.push(*this),
-                        EagerOpnKind::Prefix(_) => todo!(),
-                        EagerOpnKind::Suffix(_) => todo!(),
+                        EagerOpnKind::Binary { this, .. } => v.push(*this),
+                        EagerOpnKind::Prefix { this, .. } => v.push(*this),
+                        EagerOpnKind::Suffix { this, .. } => v.push(*this),
                         EagerOpnKind::RoutineCall(routine) => v.push(routine.scope),
                         EagerOpnKind::PatternCall => todo!(),
                         EagerOpnKind::MembVarAccess { .. } => todo!(),

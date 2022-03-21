@@ -1,7 +1,5 @@
-mod sheet;
 mod signature;
 
-pub(crate) use sheet::*;
 pub(crate) use signature::*;
 
 use ast::AstIter;
@@ -25,9 +23,13 @@ pub enum TySignature {
 }
 
 impl TySignature {
-    pub fn memb_var_ty(&self, ident: CustomIdentifier) -> ScopePtr {
+    pub fn memb_var_ty_result(&self, ident: CustomIdentifier) -> InferResult<ScopePtr> {
         match self {
-            TySignature::Struct { ref memb_vars } => memb_vars.get(ident).unwrap().ty,
+            TySignature::Struct { ref memb_vars } => ok_or!(
+                memb_vars.get(ident),
+                format!("no such member variable {}", ident.0)
+            )
+            .map(|signature| signature.ty),
             TySignature::Enum { ref variants } => todo!(),
         }
     }

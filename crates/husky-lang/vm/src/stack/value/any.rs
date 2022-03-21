@@ -72,6 +72,16 @@ impl<'eval> dyn AnyValueDyn<'eval> {
         let ptr: *const T = ptr as *const T;
         unsafe { &*ptr }
     }
+
+    #[inline]
+    pub fn downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
+        if T::static_type_id() != self.static_type_id() {
+            panic!()
+        }
+        let ptr: *mut dyn AnyValueDyn = &mut *self;
+        let ptr: *mut T = ptr as *mut T;
+        unsafe { &mut *ptr }
+    }
 }
 
 impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {

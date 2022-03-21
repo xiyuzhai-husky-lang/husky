@@ -2,6 +2,7 @@ use std::sync::Arc;
 
 use atom::AtomKind;
 use common::*;
+use text::Row;
 use vm::PrimitiveValue;
 use word::WordPtr;
 
@@ -10,12 +11,21 @@ use scope::{RangedScope, ScopeKind, ScopePtr};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprKind {
-    Variable(CustomIdentifier),
+    Variable {
+        varname: CustomIdentifier,
+        init_row: Row,
+    },
     Unrecognized(CustomIdentifier),
-    Scope { scope: ScopePtr, kind: ScopeKind },
-    Literal(PrimitiveValue),
+    Scope {
+        scope: ScopePtr,
+        kind: ScopeKind,
+    },
+    PrimitiveLiteral(PrimitiveValue),
     Bracketed(RawExprIdx),
-    Opn { opr: Opr, opds: RawExprRange },
+    Opn {
+        opr: Opr,
+        opds: RawExprRange,
+    },
     Lambda(Vec<(CustomIdentifier, Option<RangedScope>)>, RawExprIdx),
 }
 

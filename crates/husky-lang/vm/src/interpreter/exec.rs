@@ -4,7 +4,6 @@ mod exec_loop;
 mod exec_primitive_opn;
 
 use crate::{history::HistoryEntry, *};
-use common::*;
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn exec_all(
@@ -93,6 +92,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     self.stack.pop();
                     control
+                }
+                InstructionKind::MembVarAccessCompiled { compiled } => todo!(),
+                InstructionKind::MembVarAccessInterpreted { ident, contract } => {
+                    let this = self.stack.pop();
+                    self.stack.push(this.memb_var(ident, contract));
+                    VMControl::None
                 }
             };
             match control {

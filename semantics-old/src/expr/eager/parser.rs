@@ -242,7 +242,7 @@ pub trait StrictExprParser<'a> {
                 todo!()
             }
             RawExprKind::Scope { .. } => todo!(),
-            RawExprKind::Variable(_) => todo!(),
+            RawExprKind::Variable { .. } => todo!(),
             RawExprKind::Unrecognized(_) => todo!(),
             RawExprKind::Literal(_) => todo!(),
             RawExprKind::Bracketed(_) => todo!(),

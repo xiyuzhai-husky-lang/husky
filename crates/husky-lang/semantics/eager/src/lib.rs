@@ -14,8 +14,8 @@ pub use stmt::{
 };
 pub use variable::EagerVariable;
 
+use infer_total::InferQueryGroup;
 use scope::InputPlaceholder;
 use scope::{RangedScope, ScopePtr};
 use std::sync::Arc;
-use syntax_infer::InferQueryGroup;
 use word::CustomIdentifier;

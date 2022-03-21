@@ -5,15 +5,13 @@ mod parser;
 use std::sync::Arc;
 
 use file::FilePtr;
-pub(crate) use gen_instructions::ExprInstructionBuilder;
 pub use opn::*;
 pub(crate) use parser::EagerExprParser;
 
 use scope::ScopePtr;
-use syntax_types::*;
 use text::TextRange;
-use vm::{Compiled, InputContract, InstructionId, InstructionSource, PrimitiveValue, VMResult};
-use word::{CustomIdentifier, Identifier};
+use vm::{Compiled, EagerContract, InstructionId, InstructionSource, PrimitiveValue};
+use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerExpr {
@@ -22,7 +20,7 @@ pub struct EagerExpr {
     pub ty: ScopePtr,
     pub kind: EagerExprKind,
     pub instruction_id: InstructionId,
-    pub contract: InputContract,
+    pub contract: EagerContract,
 }
 
 impl InstructionSource for EagerExpr {
