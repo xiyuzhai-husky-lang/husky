@@ -2,7 +2,7 @@ use common::*;
 
 use file::FilePtr;
 use scope::{ScopeRoute, *};
-use text::TextRange;
+use text::{Row, TextRange};
 use word::{BuiltinIdentifier, CustomIdentifier};
 
 use super::*;
@@ -15,10 +15,10 @@ pub struct Symbol {
 }
 
 impl Symbol {
-    pub fn var(ident: word::CustomIdentifier, range: TextRange) -> Self {
+    pub fn var(ident: word::CustomIdentifier, init_row: Row) -> Self {
         Self {
             ident: ident.into(),
-            kind: SymbolKind::Variable(range),
+            kind: SymbolKind::Variable { init_row },
         }
     }
 }
@@ -26,7 +26,7 @@ impl Symbol {
 #[derive(Debug, Clone, Copy)]
 pub enum SymbolKind {
     Scope(ScopeRoute),
-    Variable(TextRange),
+    Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
 }
 

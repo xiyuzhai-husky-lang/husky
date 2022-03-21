@@ -1,4 +1,4 @@
-use vm::{InitKind, InputContract};
+use vm::{EagerContract, InitKind};
 
 use crate::*;
 
@@ -11,13 +11,14 @@ pub enum Qual {
 }
 
 impl Qual {
-    pub fn from_input(contract: InputContract) -> Self {
+    pub fn from_input(contract: EagerContract) -> Self {
         match contract {
-            InputContract::Pure => Qual::PureInput,
-            InputContract::Share => todo!(),
-            InputContract::Take => todo!(),
-            InputContract::BorrowMut => todo!(),
-            InputContract::TakeMut => todo!(),
+            EagerContract::Pure => Qual::PureInput,
+            EagerContract::Ref => todo!(),
+            EagerContract::Take => todo!(),
+            EagerContract::BorrowMut => todo!(),
+            EagerContract::TakeMut => todo!(),
+            EagerContract::Exec => todo!(),
         }
     }
 

@@ -23,7 +23,7 @@ impl ExprStackOpr {
     fn binary(opr: BinaryOpr) -> Self {
         let precedence = opr.into();
         Self {
-            precedence: precedence,
+            precedence,
             kind: ExprStackOprKind::Binary(opr),
         }
     }
@@ -249,16 +249,16 @@ impl<'a> ExprStack<'a> {
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
         let range = (start..self.exprs.last().unwrap().range.end).into();
         if prefix == PrefixOpr::Minus {
-            if let RawExprKind::Literal(lit) = self.exprs.last().unwrap().kind {
+            if let RawExprKind::PrimitiveLiteral(lit) = self.exprs.last().unwrap().kind {
                 self.exprs.pop();
                 match lit {
                     PrimitiveValue::I32(i) => self.exprs.push(RawExpr {
                         range,
-                        kind: RawExprKind::Literal(PrimitiveValue::I32(-i)),
+                        kind: RawExprKind::PrimitiveLiteral(PrimitiveValue::I32(-i)),
                     }),
                     PrimitiveValue::F32(f) => self.exprs.push(RawExpr {
                         range,
-                        kind: RawExprKind::Literal(PrimitiveValue::F32(-f)),
+                        kind: RawExprKind::PrimitiveLiteral(PrimitiveValue::F32(-f)),
                     }),
                     PrimitiveValue::Void
                     | PrimitiveValue::B32(_)

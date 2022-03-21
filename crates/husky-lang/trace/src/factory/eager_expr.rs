@@ -82,8 +82,8 @@ impl<'eval> TraceFactory<'eval> {
                             config.subexpr(),
                         ));
                     }
-                    EagerOpnKind::Prefix(_) => todo!(),
-                    EagerOpnKind::Suffix(_) => todo!(),
+                    EagerOpnKind::Prefix { .. } => todo!(),
+                    EagerOpnKind::Suffix { .. } => todo!(),
                     EagerOpnKind::RoutineCall(_) => todo!(),
                     EagerOpnKind::PatternCall => todo!(),
                     EagerOpnKind::MembVarAccess { .. } => todo!(),

@@ -58,7 +58,7 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     pub(crate) fn push_variable(
         &mut self,
         stack_idx: StackIdx,
-        contract: InputContract,
+        contract: EagerContract,
     ) -> &mut StackValue<'stack, 'eval> {
         //  self.stack.variable(stack_idx).bind(,  stack_idx) };
         // self.stack.push(value);

@@ -40,13 +40,14 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureExprKind::MembVarAccess {
                 ref this,
                 memb_var_ident,
+                contract,
                 opt_compiled,
             } => {
                 if let Some(compiled) = opt_compiled {
                     todo!()
                 } else {
                     let this_value = self.eval_feature_expr(this)?;
-                    Ok(unsafe { this_value.global_memb_var(memb_var_ident) })
+                    Ok(unsafe { this_value.lazy_memb_var(memb_var_ident, contract) })
                 }
             }
         }

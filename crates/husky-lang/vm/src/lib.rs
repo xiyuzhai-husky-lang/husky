@@ -17,7 +17,7 @@ mod ty;
 use std::sync::Arc;
 
 pub use compiled::{Compiled, MembVarAccessCompiled};
-pub use contract::{InputContract, MembVarContract};
+pub use contract::{EagerContract, LazyContract, MembVarContract};
 pub use control::{ControlSnapshot, VMControl};
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};

@@ -54,7 +54,13 @@ impl<'eval> EvalValue<'eval> {
     }
 
     pub fn into_stack(self) -> VMResult<StackValue<'eval, 'eval>> {
-        todo!()
+        match self {
+            EvalValue::Primitive(value) => Ok(StackValue::Primitive(value)),
+            EvalValue::Boxed(value) => Ok(StackValue::Boxed(value)),
+            EvalValue::GlobalPure(_) => todo!(),
+            EvalValue::GlobalRef(_) => todo!(),
+            EvalValue::Undefined => todo!(),
+        }
     }
 
     pub fn snapshot(&self) -> StackValueSnapshot<'eval> {
@@ -67,15 +73,22 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn global_memb_var(&self, ident: CustomIdentifier) -> EvalValue<'eval> {
+    pub fn lazy_memb_var(
+        mut self,
+        ident: CustomIdentifier,
+        contract: LazyContract,
+    ) -> EvalValue<'eval> {
         match self {
             EvalValue::Primitive(_) => panic!("primitive doesn't have member variables"),
-            EvalValue::Boxed(value) => panic!("expect global ref"),
+            EvalValue::Boxed(value) => {
+                let value: VirtualTy = value.take().unwrap();
+                value.take_memb_var(ident).into_eval()
+            }
             EvalValue::GlobalPure(_) => panic!("expect global ref"),
             EvalValue::GlobalRef(value) => unsafe {
                 value
                     .downcast_ref::<VirtualTy<'eval>>()
-                    .memb_var(ident)
+                    .eval_memb_var(ident)
                     .share_globally()
             },
             EvalValue::Undefined => todo!(),

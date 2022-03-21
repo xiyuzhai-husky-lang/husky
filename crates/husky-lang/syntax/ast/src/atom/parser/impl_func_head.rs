@@ -3,7 +3,7 @@ use std::sync::Arc;
 use crate::*;
 use scope::{InputPlaceholder, RangedScope};
 use syntax_types::*;
-use vm::InputContract;
+use vm::EagerContract;
 
 use super::*;
 
@@ -62,7 +62,7 @@ impl<'a> AtomLRParser<'a> {
         };
         Ok(InputPlaceholder {
             ident,
-            contract: InputContract::Pure,
+            contract: EagerContract::Pure,
             ranged_ty: ty,
         })
     }

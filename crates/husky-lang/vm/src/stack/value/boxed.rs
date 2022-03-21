@@ -48,6 +48,10 @@ impl<'eval> BoxedValue<'eval> {
         &*self.inner
     }
 
+    pub fn any_mut_ptr(&mut self) -> *mut dyn AnyValueDyn<'eval> {
+        &mut *self.inner
+    }
+
     pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
         if T::static_type_id() != self.inner.static_type_id() {
             panic!()

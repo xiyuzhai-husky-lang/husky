@@ -1,7 +1,8 @@
 use std::sync::Arc;
 
+use infer_signature::TySignature;
 use scope::{RangedScope, ScopePtr};
-use syntax_infer::TySignature;
+use syntax_types::{PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembVarContract};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -10,8 +11,14 @@ pub enum EagerOpnKind {
         opr: BinaryOpr,
         this: ScopePtr,
     },
-    Prefix(PrefixOpn),
-    Suffix(SuffixOpn),
+    Prefix {
+        opr: PrefixOpr,
+        this: ScopePtr,
+    },
+    Suffix {
+        opr: SuffixOpr,
+        this: ScopePtr,
+    },
     RoutineCall(RangedScope),
     TypeCall {
         ranged_ty: RangedScope,
@@ -25,8 +32,8 @@ pub enum EagerOpnKind {
     ElementAccess,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum PrefixOpn {}
+// #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+// pub enum PrefixOpn {}
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum SuffixOpn {}
+// #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+// pub enum SuffixOpn {}

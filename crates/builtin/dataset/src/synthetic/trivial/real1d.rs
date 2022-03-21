@@ -12,7 +12,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     subscopes: &[],
     signature: StaticScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
-        output: "Dataset<f32>",
+        output: "Dataset<f32, i32>",
         compiled: Some(Compiled {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
         }),
@@ -24,7 +24,7 @@ pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     subscopes: &[],
     signature: StaticScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
-        output: "Dataset<f32>",
+        output: "Dataset<f32, i32>",
         compiled: Some(Compiled {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
         }),

@@ -1,7 +1,8 @@
 use crate::*;
 
 use common::{msg_once, p};
-use vm::{BinaryOpr, Compiled, InputContract, Instruction, InstructionKind, PrimitiveOpn};
+use syntax_types::SuffixOpr;
+use vm::{BinaryOpr, Compiled, EagerContract, Instruction, InstructionKind, PrimitiveOpn};
 
 impl InstructionSheetBuilder {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
@@ -54,8 +55,28 @@ impl InstructionSheetBuilder {
                 );
                 self.push_instruction(instruction)
             }
-            EagerOpnKind::Prefix(_) => todo!(),
-            EagerOpnKind::Suffix(_) => todo!(),
+            EagerOpnKind::Prefix { opr, .. } => {
+                todo!()
+            }
+            EagerOpnKind::Suffix { opr, .. } => {
+                let instruction = Instruction::new(
+                    match opr {
+                        SuffixOpr::Incr => todo!(),
+                        SuffixOpr::Decr => todo!(),
+                        SuffixOpr::MayReturn => todo!(),
+                        SuffixOpr::MembVarAccess(ident) => {
+                            msg_once!("memb var access compiled");
+                            InstructionKind::MembVarAccessInterpreted {
+                                ident: *ident,
+                                contract: expr.contract,
+                            }
+                        }
+                        SuffixOpr::WithType(_) => todo!(),
+                    },
+                    expr.clone(),
+                );
+                self.push_instruction(instruction)
+            }
             EagerOpnKind::RoutineCall(routine) => {
                 if let Some(compiled) = compiled {
                     self.push_instruction(Instruction::new(

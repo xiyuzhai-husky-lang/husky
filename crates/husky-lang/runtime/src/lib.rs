@@ -69,7 +69,13 @@ impl HuskyLangRuntime {
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
         let current_package_main = all_main_files[0];
-        let package = compile_time.package(current_package_main).unwrap();
+        let package = match compile_time.package(current_package_main) {
+            Ok(package) => package,
+            Err(error) => {
+                println!("{}", error.message);
+                panic!()
+            }
+        };
         let mut runtime = Self {
             storage: Default::default(),
             compile_time,

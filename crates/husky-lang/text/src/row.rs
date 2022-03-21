@@ -1,7 +1,13 @@
 use serde::{Deserialize, Deserializer, Serialize};
 
-#[derive(Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub struct Row(pub(crate) u32);
+#[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+pub struct Row(pub u32);
+
+impl std::fmt::Debug for Row {
+    fn fmt(&self, f: &mut common::Formatter<'_>) -> std::fmt::Result {
+        (self.0 + 1).fmt(f)
+    }
+}
 
 impl From<u32> for Row {
     fn from(raw: u32) -> Self {

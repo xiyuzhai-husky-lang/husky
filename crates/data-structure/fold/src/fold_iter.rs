@@ -3,6 +3,7 @@ use std::marker::PhantomData;
 
 use crate::*;
 
+#[derive(Clone)]
 pub struct FoldIter<'a, Value, Storage>
 where
     Value: ?Sized,

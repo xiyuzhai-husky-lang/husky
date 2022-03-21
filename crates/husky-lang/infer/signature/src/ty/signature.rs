@@ -1,9 +1,9 @@
 use super::*;
 
 pub(crate) fn ty_signature(
-    db: &dyn InferSalsaQueryGroup,
+    db: &dyn InferSignatureQueryGroup,
     scope: ScopePtr,
-) -> SyntaxResultArc<TySignature> {
+) -> InferResultArc<TySignature> {
     let source = db.scope_source(scope)?;
     match source {
         ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
@@ -35,7 +35,7 @@ pub(crate) fn ty_signature(
     }
 }
 
-pub(crate) fn enum_signature(children: AstIter) -> SyntaxResultArc<TySignature> {
+pub(crate) fn enum_signature(children: AstIter) -> InferResultArc<TySignature> {
     let mut variants = VecMap::default();
     for subitem in children {
         match subitem.value.as_ref()?.kind {
@@ -54,7 +54,7 @@ pub(crate) fn enum_signature(children: AstIter) -> SyntaxResultArc<TySignature> 
     Ok(Arc::new(TySignature::Enum { variants }))
 }
 
-pub(crate) fn struct_signature(children: AstIter) -> SyntaxResultArc<TySignature> {
+pub(crate) fn struct_signature(children: AstIter) -> InferResultArc<TySignature> {
     let mut memb_vars = VecMap::default();
     for subitem in children {
         let subast = subitem.value.as_ref()?;

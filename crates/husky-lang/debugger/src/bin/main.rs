@@ -9,7 +9,6 @@ use husky_lang_debugger::*;
 async fn main() {
     let flags = flags::HuskyLangDebuggerCommand::from_env().expect("invalid arguments");
     let mode: Mode = flags.mode.into();
-    p!(mode);
     match mode {
         Mode::Run => run(flags.path.into()).await,
         Mode::TestRuntime => test_runtime(flags.path.into()).await,

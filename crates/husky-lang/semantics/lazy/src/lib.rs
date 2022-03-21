@@ -6,4 +6,4 @@ pub use expr::*;
 pub use stmt::*;
 pub use variable::LazyVariable;
 
-use syntax_infer::InferQueryGroup;
+use infer_total::InferQueryGroup;

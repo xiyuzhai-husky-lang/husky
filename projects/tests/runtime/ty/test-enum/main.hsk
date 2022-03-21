@@ -5,4 +5,5 @@ dataset:
     synthetic::trivial::real1d::dataset1()
 
 main:
-    A::Haha
+    a = A::Haha
+    1

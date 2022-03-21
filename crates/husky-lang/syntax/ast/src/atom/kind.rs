@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use scope::{RangedScope, ScopeKind};
+use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
 use word::{CustomIdentifier, WordPtr};
@@ -10,8 +11,14 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
-    Scope { scope: ScopePtr, kind: ScopeKind },
-    Variable(CustomIdentifier),
+    Scope {
+        scope: ScopePtr,
+        kind: ScopeKind,
+    },
+    Variable {
+        varname: CustomIdentifier,
+        init_row: Row,
+    },
     Unrecognized(CustomIdentifier),
     Literal(PrimitiveValue),
     Binary(BinaryOpr),

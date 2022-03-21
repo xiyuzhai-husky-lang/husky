@@ -8,9 +8,9 @@ pub struct CallSignature {
 }
 
 pub(crate) fn call_signature(
-    db: &dyn InferSalsaQueryGroup,
+    db: &dyn InferSignatureQueryGroup,
     scope: ScopePtr,
-) -> SyntaxResultArc<CallSignature> {
+) -> InferResultArc<CallSignature> {
     let source = db.scope_source(scope)?;
     return match source {
         ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
@@ -33,7 +33,7 @@ pub(crate) fn call_signature(
             let ast = item.value.as_ref()?;
             match ast.kind {
                 AstKind::RoutineDecl {
-                    routine_kind: ref kind,
+                    ref routine_kind,
                     routine_head: ref decl,
                 } => Ok(Arc::new(CallSignature {
                     inputs: decl
@@ -93,7 +93,7 @@ pub(crate) fn call_signature(
     };
 
     fn func_call_signature_from_raw(
-        this: &dyn InferSalsaQueryGroup,
+        this: &dyn InferSignatureQueryGroup,
         signature: &StaticFuncSignature,
     ) -> CallSignature {
         let inputs = signature

@@ -1,4 +1,4 @@
-use text::TextRange;
+use text::{TextRange, TextRanged};
 use word::CustomIdentifier;
 mod loop_kind;
 
@@ -10,6 +10,12 @@ use crate::{expr::RawExprIdx, *};
 pub struct RawStmt {
     pub range: TextRange,
     pub kind: RawStmtKind,
+}
+
+impl TextRanged for RawStmt {
+    fn text_range_ref(&self) -> &TextRange {
+        &self.range
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

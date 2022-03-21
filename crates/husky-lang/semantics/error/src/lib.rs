@@ -6,6 +6,15 @@ pub struct SemanticError {
     pub src: DevSource,
 }
 
+impl SemanticError {
+    pub fn from_infer_error(error: InferError, src: DevSource) -> SemanticError {
+        Self {
+            message: error.to_string(),
+            src,
+        }
+    }
+}
+
 pub type SemanticResult<T> = Result<T, SemanticError>;
 
 pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
@@ -20,11 +29,14 @@ impl From<ScopeError> for SemanticError {
     }
 }
 
-impl From<SyntaxError> for SemanticError {
-    fn from(_: SyntaxError) -> Self {
-        todo!()
-    }
-}
+// impl From<SyntaxError> for SemanticError {
+//     fn from(error: SyntaxError) -> Self {
+//         Self {
+//             message: error.message,
+//             src: error.src,
+//         }
+//     }
+// }
 
 impl From<&ast::AstError> for SemanticError {
     fn from(error: &ast::AstError) -> Self {
@@ -61,7 +73,14 @@ macro_rules! not_none {
     }};
 }
 
+#[macro_export]
+macro_rules! try_infer {
+    ($syntax_result: expr) => {{
+        $syntax_result.map_err(|e| SemanticError::from_infer_error(e, common::src!()))?
+    }};
+}
+
 use common::DevSource;
+use infer_error::InferError;
 use scope_query::ScopeError;
-use syntax_error::SyntaxError;
 use vm::VMError;

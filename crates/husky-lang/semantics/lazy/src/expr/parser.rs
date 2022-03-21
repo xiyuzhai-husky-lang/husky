@@ -1,12 +1,12 @@
 use std::sync::Arc;
 
 use crate::*;
-use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
+use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 use common::*;
 use file::FilePtr;
 use scope::{RangedScope, ScopeKind, ScopePtr, ScopeRoute};
 use syntax_types::{ListOpr, Opr};
-use vm::{BinaryOpr, InputContract, PrimitiveValue, PureBinaryOpr};
+use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
 use word::{BuiltinIdentifier, CustomIdentifier};
 
 use super::*;
@@ -18,9 +18,10 @@ pub trait LazyExprParser<'a> {
     fn db(&self) -> &'a dyn InferQueryGroup;
     fn file(&self) -> FilePtr;
 
-    fn parse_lazy_expr(&mut self, raw_expr: &RawExpr) -> SemanticResult<Arc<LazyExpr>> {
-        let (ty, kind): (ScopePtr, _) = match raw_expr.kind {
-            RawExprKind::Variable(ident) => (self.vartype(ident), LazyExprKind::Variable(ident)),
+    fn parse_lazy_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<LazyExpr>> {
+        let raw_expr = &self.arena()[raw_expr_idx];
+        let kind: LazyExprKind = match raw_expr.kind {
+            RawExprKind::Variable { varname, .. } => LazyExprKind::Variable(varname),
             RawExprKind::Unrecognized(ident) => {
                 err!(format!(
                     "unrecognized identifier {} at {:?}",
@@ -31,64 +32,52 @@ pub trait LazyExprParser<'a> {
             RawExprKind::Scope { scope, kind, .. } => match kind {
                 ScopeKind::Module => todo!(),
                 ScopeKind::Literal => match scope {
-                    ScopePtr::Builtin(BuiltinIdentifier::True) => (
-                        ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                        LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true)),
-                    ),
-                    ScopePtr::Builtin(BuiltinIdentifier::False) => (
-                        ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                        LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false)),
-                    ),
-                    ScopePtr::Custom(scope_ref) => {
-                        let ty = match scope_ref.route {
-                            ScopeRoute::Builtin { ident } => todo!(),
-                            ScopeRoute::Package { main, ident } => todo!(),
-                            ScopeRoute::ChildScope { parent, ident } => parent,
-                            ScopeRoute::Implicit { main, ident } => todo!(),
-                        };
-                        (
-                            ty,
-                            LazyExprKind::EnumLiteral {
-                                scope,
-                                value: self.db().enum_literal_value(scope),
-                            },
-                        )
+                    ScopePtr::Builtin(BuiltinIdentifier::True) => {
+                        LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
+                    ScopePtr::Builtin(BuiltinIdentifier::False) => {
+                        LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false))
+                    }
+                    ScopePtr::Custom(scope_ref) => LazyExprKind::EnumLiteral {
+                        scope,
+                        value: self.db().enum_literal_value(scope),
+                    },
                     _ => todo!(),
                 },
                 ScopeKind::Type => todo!(),
                 ScopeKind::Trait => todo!(),
                 ScopeKind::Routine => todo!(),
-                ScopeKind::Feature => (
-                    self.db().scope_ty(scope)?,
-                    LazyExprKind::Scope {
-                        scope,
-                        compiled: None,
-                    },
-                ),
+                ScopeKind::Feature => {
+                    (
+                        todo!()
+                        // try_syntax!(self.db().scope_ty(scope)?,
+                        // LazyExprKind::Scope {
+                        //     scope,
+                        //     compiled: None,
+                        // },
+                    )
+                }
                 ScopeKind::Pattern => todo!(),
             },
-            RawExprKind::Literal(value) => {
-                (value.ty().into(), LazyExprKind::PrimitiveLiteral(value))
-            }
+            RawExprKind::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
             RawExprKind::Lambda(_, _) => todo!(),
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
-            ty,
+            ty: self.db().expr_ty_result(self.file(), raw_expr_idx).unwrap(),
             kind,
             file: self.file(),
             instruction_id: Default::default(),
+            contract: self
+                .db()
+                .lazy_expr_contract_result(self.file(), raw_expr_idx)
+                .unwrap(),
         }))
     }
 
-    fn parse_opn(
-        &mut self,
-        opr: Opr,
-        opds: &RawExprRange,
-    ) -> SemanticResult<(ScopePtr, LazyExprKind)> {
+    fn parse_opn(&mut self, opr: Opr, opds: &RawExprRange) -> SemanticResult<LazyExprKind> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
@@ -97,7 +86,7 @@ pub trait LazyExprParser<'a> {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_call(&self.arena()[opds]),
+                ListOpr::Call => self.parse_call(opds),
                 ListOpr::Index => todo!(),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
@@ -109,10 +98,10 @@ pub trait LazyExprParser<'a> {
         &mut self,
         opr: BinaryOpr,
         raw_opds: &RawExprRange,
-    ) -> SemanticResult<(ScopePtr, LazyExprKind)> {
-        let raw_opds = &self.arena()[raw_opds];
-        let lopd = self.parse_lazy_expr(&raw_opds[0])?;
-        let ropd = self.parse_lazy_expr(&raw_opds[1])?;
+    ) -> SemanticResult<LazyExprKind> {
+        // let raw_opds = &self.arena()[raw_opds];
+        let lopd = self.parse_lazy_expr(raw_opds.start)?;
+        let ropd = self.parse_lazy_expr(raw_opds.start + 1)?;
         let output_type = match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty, ropd.ty)?
@@ -132,14 +121,11 @@ pub trait LazyExprParser<'a> {
             BinaryOpr::Pure(opr) => opr,
             BinaryOpr::Assign(_) => todo!(),
         };
-        Ok((
-            output_type,
-            LazyExprKind::Opn {
-                opn_kind: LazyOpnKind::Binary { opr, this: lopd.ty },
-                opds: vec![lopd, ropd],
-                compiled: None,
-            },
-        ))
+        Ok(LazyExprKind::Opn {
+            opn_kind: LazyOpnKind::Binary { opr, this: lopd.ty },
+            opds: vec![lopd, ropd],
+            compiled: (),
+        })
     }
 
     fn infer_pure_binary_opr_type(
@@ -217,64 +203,53 @@ pub trait LazyExprParser<'a> {
         &mut self,
         opr: SuffixOpr,
         opds: &RawExprRange,
-    ) -> SemanticResult<(ScopePtr, LazyExprKind)> {
-        let opd = self.parse_lazy_expr(&self.arena()[opds][0])?;
+    ) -> SemanticResult<LazyExprKind> {
+        let opd = self.parse_lazy_expr(opds.start)?;
         Ok(match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembVarAccess(ident) => {
-                let ty_signature = self.db().ty_signature(opd.ty)?;
-                let memb_var_ty = ty_signature.memb_var_ty(ident);
-                msg_once!("todo: compiled for memb var access");
-                (
-                    memb_var_ty,
-                    LazyExprKind::Opn {
-                        opn_kind: LazyOpnKind::MembVarAccess(ident),
-                        compiled: None,
-                        opds: vec![opd],
-                    },
-                )
-            }
+            SuffixOpr::MembVarAccess(ident) => LazyExprKind::Opn {
+                opn_kind: LazyOpnKind::MembVarAccess(ident),
+                compiled: (),
+                opds: vec![opd],
+            },
             SuffixOpr::WithType(_) => todo!(),
         })
     }
 
-    fn parse_call(&mut self, opds: &[RawExpr]) -> SemanticResult<(ScopePtr, LazyExprKind)> {
-        let call = &opds[0];
+    fn parse_call(&mut self, opds: &RawExprRange) -> SemanticResult<LazyExprKind> {
+        let call = &self.arena()[opds.start];
         match call.kind {
             RawExprKind::Scope {
                 scope,
                 kind: ScopeKind::Routine,
                 ..
             } => {
-                let signature = self.db().call_signature(scope)?;
-                let arguments: Vec<_> = opds[1..]
-                    .iter()
+                let signature = try_infer!(self.db().call_signature(scope));
+                let arguments: Vec<_> = ((opds.start + 1)..opds.end)
                     .enumerate()
                     .map(|(i, raw)| {
                         match signature.inputs[i].contract {
-                            InputContract::Pure => (),
-                            InputContract::Share => todo!(),
-                            InputContract::Take => todo!(),
-                            InputContract::BorrowMut => todo!(),
-                            InputContract::TakeMut => todo!(),
+                            EagerContract::Pure => (),
+                            EagerContract::Ref => todo!(),
+                            EagerContract::Take => todo!(),
+                            EagerContract::BorrowMut => todo!(),
+                            EagerContract::TakeMut => todo!(),
+                            EagerContract::Exec => todo!(),
                         }
                         self.parse_lazy_expr(raw)
                     })
                     .collect::<SemanticResult<_>>()?;
                 let output = signature.output;
-                Ok((
-                    output,
-                    LazyExprKind::Opn {
-                        opn_kind: LazyOpnKind::RoutineCall(RangedScope {
-                            scope,
-                            range: call.range(),
-                        }),
-                        compiled: signature.compiled,
-                        opds: arguments,
-                    },
-                ))
+                Ok(LazyExprKind::Opn {
+                    opn_kind: LazyOpnKind::RoutineCall(RangedScope {
+                        scope,
+                        range: call.range(),
+                    }),
+                    compiled: (),
+                    opds: arguments,
+                })
             }
             RawExprKind::Scope {
                 scope,
@@ -285,9 +260,9 @@ pub trait LazyExprParser<'a> {
                 todo!()
             }
             RawExprKind::Scope { .. } => todo!(),
-            RawExprKind::Variable(_) => todo!(),
+            RawExprKind::Variable { .. } => todo!(),
             RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::Literal(_) => todo!(),
+            RawExprKind::PrimitiveLiteral(_) => todo!(),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => todo!(),
             RawExprKind::Lambda(_, _) => todo!(),

@@ -1,4 +1,4 @@
-use std::ops::Deref;
+use std::ops::{Deref, Index};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VecMap<K, V>
@@ -21,6 +21,13 @@ where
             .iter()
             .find(|entry| entry.0 == key)
             .map(|entry| &entry.1)
+    }
+
+    pub fn get_mut(&mut self, key: K) -> Option<&mut V> {
+        self.data
+            .iter_mut()
+            .find(|entry| entry.0 == key)
+            .map(|entry| &mut entry.1)
     }
 
     pub fn insert_new(&mut self, key: K, value: V) {

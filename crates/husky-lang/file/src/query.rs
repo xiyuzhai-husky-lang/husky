@@ -36,7 +36,7 @@ pub trait LiveFiles: AllocateUniqueFile {
 pub trait FileSalsaQuery: LiveFiles {
     fn file_content(&self, id: FilePtr) -> FileContent;
 
-    fn main_file_id(&self, module_file_id: FilePtr) -> Option<FilePtr>;
+    fn main_file(&self, module_file_id: FilePtr) -> Option<FilePtr>;
 }
 
 fn file_content(this: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
@@ -56,7 +56,7 @@ fn file_content(this: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
         })
 }
 
-fn main_file_id(this: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
+fn main_file(this: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
         let id = this.alloc_file(ancestor.with_file_name("main.hsk"));
@@ -81,7 +81,7 @@ pub trait FileQueryGroup: FileSalsaQuery {
     fn all_main_files(&self) -> Vec<FilePtr> {
         self.file_unique_allocator()
             .id_iter()
-            .filter_map(|id| self.main_file_id(id))
+            .filter_map(|id| self.main_file(id))
             .unique()
             .collect()
     }

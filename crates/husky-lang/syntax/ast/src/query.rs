@@ -47,6 +47,7 @@ fn parse_ty(this: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<Scop
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AstText {
+    pub file: FilePtr,
     pub arena: RawExprArena,
     pub folded_results: FoldedList<AstResult<Ast>>,
 }

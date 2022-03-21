@@ -24,7 +24,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
         Self::Struct { memb_vars }
     }
 
-    pub fn memb_var(&self, ident: CustomIdentifier) -> &EvalValue<'eval> {
+    pub fn eval_memb_var(&self, ident: CustomIdentifier) -> &EvalValue<'eval> {
         match self {
             VirtualTy::Struct { memb_vars } => {
                 &memb_vars
@@ -33,6 +33,54 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                     .unwrap()
                     .value
             }
+        }
+    }
+
+    pub fn take_memb_var(self, ident: CustomIdentifier) -> StackValue<'stack, 'eval> {
+        match self {
+            VirtualTy::Struct { memb_vars } => memb_vars
+                .into_iter()
+                .find(|memb_var| memb_var.ident == ident)
+                .unwrap()
+                .value
+                .into_stack()
+                .unwrap(),
+        }
+    }
+
+    pub fn memb_var_mut(
+        &mut self,
+        ident: CustomIdentifier,
+        contract: EagerContract,
+        owner: StackIdx,
+    ) -> StackValue<'stack, 'eval> {
+        match contract {
+            EagerContract::Pure => todo!(),
+            EagerContract::Ref => todo!(),
+            EagerContract::Take => todo!(),
+            EagerContract::BorrowMut => match self {
+                VirtualTy::Struct { memb_vars } => {
+                    let memb_var_value = &mut memb_vars
+                        .iter_mut()
+                        .find(|memb_var| memb_var.ident == ident)
+                        .unwrap()
+                        .value;
+                    let ptr: *mut dyn AnyValueDyn = match memb_var_value {
+                        EvalValue::Primitive(ref mut value) => value.any_mut(),
+                        EvalValue::Boxed(_) => todo!(),
+                        EvalValue::GlobalPure(_) => todo!(),
+                        EvalValue::GlobalRef(_) => todo!(),
+                        EvalValue::Undefined => todo!(),
+                    };
+                    StackValue::MutRef {
+                        value: unsafe { &mut *ptr },
+                        owner,
+                        gen: (),
+                    }
+                }
+            },
+            EagerContract::TakeMut => todo!(),
+            EagerContract::Exec => todo!(),
         }
     }
 }

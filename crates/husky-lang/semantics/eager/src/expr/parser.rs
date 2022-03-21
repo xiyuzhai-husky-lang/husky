@@ -1,29 +1,28 @@
-use ast::{RawExpr, RawExprArena, RawExprKind, RawExprRange};
-use common::p;
+use ast::{RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 use file::FilePtr;
 use scope::{ScopeKind, ScopePtr};
 use syntax_types::{ListOpr, Opr, SuffixOpr};
-use vm::{BinaryOpr, InputContract, PrimitiveValue, PureBinaryOpr};
+use vm::{BinaryOpr, EagerContract, PrimitiveValue};
 use word::BuiltinIdentifier;
 
 use crate::*;
-use semantics_error::err;
+use semantics_error::{err, try_infer};
 
 use super::EagerOpnKind;
 
 pub trait EagerExprParser<'a> {
     fn arena(&self) -> &'a RawExprArena;
-    fn vartype(&self, varname: CustomIdentifier) -> ScopePtr;
     fn db(&self) -> &'a dyn InferQueryGroup;
     fn file(&self) -> FilePtr;
 
     fn parse_eager_expr(
         &mut self,
-        raw_expr: &RawExpr,
-        contract: InputContract,
+        raw_expr_idx: RawExprIdx,
+        contract: EagerContract,
     ) -> SemanticResult<Arc<EagerExpr>> {
-        let (ty, kind): (ScopePtr, _) = match raw_expr.kind {
-            RawExprKind::Variable(ident) => (self.vartype(ident), EagerExprKind::Variable(ident)),
+        let raw_expr = &self.arena()[raw_expr_idx];
+        let kind = match raw_expr.kind {
+            RawExprKind::Variable { varname, .. } => EagerExprKind::Variable(varname),
             RawExprKind::Unrecognized(ident) => {
                 err!(format!(
                     "unrecognized identifier {} at {:?}",
@@ -31,49 +30,34 @@ pub trait EagerExprParser<'a> {
                     raw_expr.range()
                 ))
             }
-            RawExprKind::Scope { scope, kind, .. } => match kind {
+            RawExprKind::Scope { scope, kind } => match kind {
                 ScopeKind::Module => todo!(),
-                ScopeKind::Literal => {
-                    match scope {
-                        ScopePtr::Builtin(BuiltinIdentifier::True) => (
-                            ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                            EagerExprKind::Literal(PrimitiveValue::Bool(true)),
-                        ),
-                        ScopePtr::Builtin(BuiltinIdentifier::False) => (
-                            ScopePtr::Builtin(BuiltinIdentifier::Bool),
-                            EagerExprKind::Literal(PrimitiveValue::Bool(false)),
-                        ),
-                        ScopePtr::Custom(_) => todo!(),
-                        _ => todo!(),
+                ScopeKind::Literal => match scope {
+                    ScopePtr::Builtin(BuiltinIdentifier::True) => {
+                        EagerExprKind::Literal(PrimitiveValue::Bool(true))
                     }
-                    // (
-                    //     self.db().scope_ty(scope)?,
-                    //     ExprKind::Scope {
-                    //         scope,
-                    //         compiled: None,
-                    //     },
-                    // )
-                }
+                    ScopePtr::Builtin(BuiltinIdentifier::False) => {
+                        EagerExprKind::Literal(PrimitiveValue::Bool(false))
+                    }
+                    ScopePtr::Custom(_) => todo!(),
+                    _ => todo!(),
+                },
                 ScopeKind::Type => todo!(),
                 ScopeKind::Trait => todo!(),
                 ScopeKind::Routine => todo!(),
-                ScopeKind::Feature => (
-                    self.db().scope_ty(scope)?,
-                    EagerExprKind::Scope {
-                        scope,
-                        compiled: None,
-                    },
-                ),
+                ScopeKind::Feature => {
+                    panic!("what")
+                }
                 ScopeKind::Pattern => todo!(),
             },
-            RawExprKind::Literal(value) => (value.ty().into(), EagerExprKind::Literal(value)),
+            RawExprKind::PrimitiveLiteral(value) => EagerExprKind::Literal(value),
             RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
+            RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds, contract)?,
             RawExprKind::Lambda(_, _) => todo!(),
         };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
-            ty,
+            ty: try_infer!(self.db().expr_ty_result(self.file(), raw_expr_idx)),
             kind,
             file: self.file(),
             instruction_id: Default::default(),
@@ -85,16 +69,17 @@ pub trait EagerExprParser<'a> {
         &mut self,
         opr: Opr,
         opds: &RawExprRange,
-    ) -> SemanticResult<(ScopePtr, EagerExprKind)> {
+        contract: EagerContract,
+    ) -> SemanticResult<EagerExprKind> {
         match opr {
-            Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
+            Opr::Binary(opr) => self.parse_binary_opr(opr, opds, contract),
             Opr::Prefix(_) => todo!(),
-            Opr::Suffix(opr) => self.parse_suffix_opr(opr, opds),
+            Opr::Suffix(opr) => self.parse_suffix_opr(opr, opds, contract),
             Opr::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_call(&self.arena()[opds]),
+                ListOpr::Call => self.parse_call(opds.clone(), contract),
                 ListOpr::Index => todo!(),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
@@ -105,195 +90,106 @@ pub trait EagerExprParser<'a> {
     fn parse_binary_opr(
         &mut self,
         opr: BinaryOpr,
-        raw_opds: &RawExprRange,
-    ) -> SemanticResult<(ScopePtr, EagerExprKind)> {
-        let raw_opds = &self.arena()[raw_opds];
+        raw_opd_idx_range: &RawExprRange,
+        contract: EagerContract,
+    ) -> SemanticResult<EagerExprKind> {
+        let raw_opds = &self.arena()[raw_opd_idx_range];
         let lopd = self.parse_eager_expr(
-            &raw_opds[0],
+            raw_opd_idx_range.start,
             match opr {
-                BinaryOpr::Pure(_) => InputContract::Pure,
-                BinaryOpr::Assign(_) => InputContract::BorrowMut,
+                BinaryOpr::Pure(_) => EagerContract::Pure,
+                BinaryOpr::Assign(_) => EagerContract::BorrowMut,
             },
         )?;
-        let ropd = self.parse_eager_expr(&raw_opds[1], InputContract::Pure)?;
-        let output_type = match opr {
-            BinaryOpr::Pure(pure_binary_opr) => {
-                self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty, ropd.ty)?
-            }
-            BinaryOpr::Assign(opt_binary) => {
-                if let Some(pure_binary_opr) = opt_binary {
-                    if lopd.ty
-                        != self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty, ropd.ty)?
-                    {
-                        todo!()
-                    }
-                }
-                BuiltinIdentifier::Void.into()
-            }
-        };
-        Ok((
-            output_type,
-            EagerExprKind::Opn {
-                opn_kind: EagerOpnKind::Binary { opr, this: lopd.ty },
-                opds: vec![lopd, ropd],
-                compiled: None,
-            },
-        ))
-    }
-
-    fn infer_pure_binary_opr_type(
-        &self,
-        pure_binary_opr: PureBinaryOpr,
-        lopd_ty: ScopePtr,
-        ropd_ty: ScopePtr,
-    ) -> SemanticResult<ScopePtr> {
-        match lopd_ty {
-            ScopePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
-                ScopePtr::Builtin(ropd_builtin_ty) => self.infer_builtin_pure_binary_opr_type(
-                    pure_binary_opr,
-                    lopd_builtin_ty,
-                    ropd_builtin_ty,
-                ),
-                ScopePtr::Custom(_) => todo!(),
-            },
-            ScopePtr::Custom(lopd_custom_ty) => todo!(),
-        }
-    }
-
-    fn infer_builtin_pure_binary_opr_type(
-        &self,
-        pure_binary_opr: PureBinaryOpr,
-        lopd_builtin_ty: BuiltinIdentifier,
-        ropd_builtin_ty: BuiltinIdentifier,
-    ) -> SemanticResult<ScopePtr> {
-        Ok(match pure_binary_opr {
-            PureBinaryOpr::Less
-            | PureBinaryOpr::Leq
-            | PureBinaryOpr::Greater
-            | PureBinaryOpr::Geq => {
-                if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"<, <=, >, >=\" on same types")
-                }
-                match lopd_builtin_ty {
-                    BuiltinIdentifier::I32 | BuiltinIdentifier::F32 => (),
-                    _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
-                }
-                BuiltinIdentifier::Bool
-            }
-            PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
-                if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"!=\" on same types")
-                }
-                BuiltinIdentifier::Bool
-            }
-            PureBinaryOpr::Shl => todo!(),
-            PureBinaryOpr::Shr => todo!(),
-            PureBinaryOpr::Add
-            | PureBinaryOpr::Sub
-            | PureBinaryOpr::Mul
-            | PureBinaryOpr::Div
-            | PureBinaryOpr::Power => {
-                if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"+, -, *, /, **\" on same types")
-                }
-                match lopd_builtin_ty {
-                    BuiltinIdentifier::I32 | BuiltinIdentifier::F32 => (),
-                    _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
-                }
-                lopd_builtin_ty
-            }
-            PureBinaryOpr::And => todo!(),
-            PureBinaryOpr::BitAnd => todo!(),
-            PureBinaryOpr::Or => todo!(),
-            PureBinaryOpr::BitXor => todo!(),
-            PureBinaryOpr::BitOr => todo!(),
-            PureBinaryOpr::RemEuclid => todo!(),
-        }
-        .into())
+        let ropd = self.parse_eager_expr(raw_opd_idx_range.start + 1, EagerContract::Pure)?;
+        Ok(EagerExprKind::Opn {
+            opn_kind: EagerOpnKind::Binary { opr, this: lopd.ty },
+            opds: vec![lopd, ropd],
+            compiled: None,
+        })
     }
 
     fn parse_suffix_opr(
         &mut self,
         opr: SuffixOpr,
         raw_opds: &RawExprRange,
-    ) -> SemanticResult<(ScopePtr, EagerExprKind)> {
+        contract: EagerContract,
+    ) -> SemanticResult<EagerExprKind> {
         let opd_idx = raw_opds.start;
-        let opd = &self.arena()[raw_opds][0];
         let contract = match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => todo!(),
             SuffixOpr::MembVarAccess(ident) => {
-                let ty = self.db().expr_ty(self.file(), opd_idx);
-                let memb_var_signature = self
-                    .db()
-                    .expr_ty_signature(self.file(), opd_idx)?
-                    .memb_var_signature(ident);
-                todo!()
+                let ty_signature = try_infer!(self.db().expr_ty_signature(self.file(), opd_idx));
+                let memb_var_signature = ty_signature.memb_var_signature(ident);
+                memb_var_signature.contract.this(contract)?
             }
             SuffixOpr::WithType(_) => panic!(),
         };
-        let opd = self.parse_eager_expr(opd, contract);
-        todo!()
+        let opd = self.parse_eager_expr(opd_idx, contract)?;
+        Ok(EagerExprKind::Opn {
+            opn_kind: EagerOpnKind::Suffix { opr, this: opd.ty },
+            opds: vec![opd],
+            compiled: None,
+        })
     }
 
-    fn parse_call(&mut self, opds: &[RawExpr]) -> SemanticResult<(ScopePtr, EagerExprKind)> {
-        let call = &opds[0];
+    fn parse_call(
+        &mut self,
+        opd_idx_range: RawExprRange,
+        contract: EagerContract,
+    ) -> SemanticResult<EagerExprKind> {
+        let call = &self.arena()[opd_idx_range.start];
+        let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.kind {
             RawExprKind::Scope {
                 scope,
                 kind: ScopeKind::Routine,
                 ..
             } => {
-                let signature = self.db().call_signature(scope)?;
-                let arguments: Vec<_> = opds[1..]
-                    .iter()
+                let signature = try_infer!(self.db().call_signature(scope));
+                let arguments: Vec<_> = input_opd_idx_range
+                    .clone()
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw, signature.inputs[i].contract))
                     .collect::<SemanticResult<_>>()?;
                 let output = signature.output;
-                Ok((
-                    output,
-                    EagerExprKind::Opn {
-                        opn_kind: EagerOpnKind::RoutineCall(RangedScope {
-                            scope,
-                            range: call.range(),
-                        }),
-                        compiled: signature.compiled,
-                        opds: arguments,
-                    },
-                ))
+                Ok(EagerExprKind::Opn {
+                    opn_kind: EagerOpnKind::RoutineCall(RangedScope {
+                        scope,
+                        range: call.range(),
+                    }),
+                    compiled: signature.compiled,
+                    opds: arguments,
+                })
             }
             RawExprKind::Scope {
                 scope,
                 kind: ScopeKind::Type,
                 ..
             } => {
-                let signature = self.db().call_signature(scope)?;
-                let arguments: Vec<_> = opds[1..]
-                    .iter()
+                let signature = try_infer!(self.db().call_signature(scope));
+                let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw, signature.inputs[i].contract))
                     .collect::<SemanticResult<_>>()?;
-                Ok((
-                    scope,
-                    EagerExprKind::Opn {
-                        opn_kind: EagerOpnKind::TypeCall {
-                            ranged_ty: RangedScope {
-                                scope,
-                                range: call.range(),
-                            },
-                            ty_signature: self.db().ty_signature(scope)?,
+                Ok(EagerExprKind::Opn {
+                    opn_kind: EagerOpnKind::TypeCall {
+                        ranged_ty: RangedScope {
+                            scope,
+                            range: call.range(),
                         },
-                        compiled: signature.compiled,
-                        opds: arguments,
+                        ty_signature: try_infer!(self.db().ty_signature(scope)),
                     },
-                ))
+                    compiled: signature.compiled,
+                    opds: arguments,
+                })
             }
             RawExprKind::Scope { .. } => todo!(),
-            RawExprKind::Variable(_) => todo!(),
+            RawExprKind::Variable { .. } => todo!(),
             RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::Literal(_) => todo!(),
+            RawExprKind::PrimitiveLiteral(_) => todo!(),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => todo!(),
             RawExprKind::Lambda(_, _) => todo!(),

@@ -21,9 +21,9 @@ impl<'a> AtomLRParser<'a> {
                         .resolve_symbol_kind(ident, self.file, token.range)?;
                 Some(match symbol_kind {
                     SymbolKind::Scope(route) => self.normal_scope(route)?,
-                    SymbolKind::Variable(_) => match ident {
+                    SymbolKind::Variable { init_row } => match ident {
                         Identifier::Builtin(_) | Identifier::Implicit(_) => panic!(),
-                        Identifier::Custom(ident) => AtomKind::Variable(ident),
+                        Identifier::Custom(varname) => AtomKind::Variable { varname, init_row },
                     },
                     SymbolKind::Unrecognized(ident) => AtomKind::Unrecognized(ident),
                 })
@@ -108,6 +108,7 @@ impl<'a> AtomLRParser<'a> {
                 | BuiltinIdentifier::Array
                 | BuiltinIdentifier::Tuple
                 | BuiltinIdentifier::DatasetType => self.angled_generics(),
+                BuiltinIdentifier::Type => todo!(),
             },
             _ => match self.scope_proxy.db.scope_kind_from_route(route) {
                 ScopeKind::Module | ScopeKind::Literal | ScopeKind::Feature => Ok(Vec::new()),

@@ -1,6 +1,6 @@
 use crate::*;
 
-use vm::{InputContract, Instruction, InstructionKind};
+use vm::{EagerContract, InitKind, Instruction, InstructionKind};
 
 impl InstructionSheetBuilder {
     pub(super) fn compile_decl_stmts(&mut self, stmts: &[Arc<DeclStmt>]) {
@@ -13,8 +13,11 @@ impl InstructionSheetBuilder {
         match stmt.kind {
             DeclStmtKind::Init {
                 varname,
-                value: ref initial_value,
-            } => todo!(),
+                ref initial_value,
+            } => {
+                self.compile_expr(initial_value);
+                self.def_variable(varname, InitKind::Decl, stmt)
+            }
             DeclStmtKind::Assert { ref condition } => todo!(),
             DeclStmtKind::Return { ref result } => {
                 self.compile_expr(result);

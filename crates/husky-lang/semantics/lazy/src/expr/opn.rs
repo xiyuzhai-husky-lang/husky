@@ -7,7 +7,7 @@ use word::{CustomIdentifier, Identifier};
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LazyOpnKind {
     Binary { opr: PureBinaryOpr, this: ScopePtr },
-    Prefix(PrefixOpn),
+    Prefix(PrefixOpr),
     RoutineCall(RangedScope),
     TypeCall(RangedScope),
     PatternCall,
@@ -15,9 +15,3 @@ pub enum LazyOpnKind {
     MembFuncCall(ScopePtr),
     ElementAccess,
 }
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum PrefixOpn {}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum SuffixOpn {}

@@ -1,4 +1,4 @@
-use vm::{InitKind, InputContract};
+use vm::{EagerContract, InitKind};
 
 use super::parser::EagerStmtParser;
 use super::*;
@@ -27,10 +27,8 @@ impl<'a> EagerStmtParser<'a> {
                             RawBranchKind::If { condition } => {
                                 branches.push(Arc::new(DeclBranch {
                                     kind: DeclBranchKind::If {
-                                        condition: self.parse_eager_expr(
-                                            &self.arena[condition],
-                                            InputContract::Pure,
-                                        )?,
+                                        condition: self
+                                            .parse_eager_expr(condition, EagerContract::Pure)?,
                                     },
                                     stmts: self.parse_decl_stmts(not_none!(item.children))?,
                                 }))
@@ -51,7 +49,7 @@ impl<'a> EagerStmtParser<'a> {
                                     kind: RawStmtKind::Branch(branch_stmt),
                                     ..
                                 }) => match branch_stmt {
-                                    RawBranchKind::If { condition } => break,
+                                    RawBranchKind::If { .. } => break,
                                     RawBranchKind::Elif { condition } => {
                                         if branches.len() == 0 {
                                             todo!()
@@ -88,19 +86,19 @@ impl<'a> EagerStmtParser<'a> {
                         init_kind: kind,
                     } => {
                         let initial_value =
-                            self.parse_eager_expr(&self.arena[initial_value], InputContract::Take)?;
+                            self.parse_eager_expr(initial_value, EagerContract::Take)?;
                         if kind != InitKind::Decl {
                             todo!()
                         }
                         let qual = Qual::from_init(kind);
-                        self.def_variable(varname, initial_value.ty, qual);
+                        self.def_variable(varname, initial_value.ty, qual)?;
                         DeclStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
                             kind: DeclStmtKind::Init {
                                 varname,
-                                value: initial_value,
+                                initial_value,
                             },
                             instruction_id: Default::default(),
                         }
@@ -110,8 +108,7 @@ impl<'a> EagerStmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Return {
-                            result: self
-                                .parse_eager_expr(&self.arena[result], InputContract::Take)?,
+                            result: self.parse_eager_expr(result, EagerContract::Take)?,
                         },
                         instruction_id: Default::default(),
                     },
@@ -120,15 +117,14 @@ impl<'a> EagerStmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Assert {
-                            condition: self
-                                .parse_eager_expr(&self.arena[condition], InputContract::Pure)?,
+                            condition: self.parse_eager_expr(condition, EagerContract::Pure)?,
                         },
                         instruction_id: Default::default(),
                     },
                 },
                 AstKind::EnumVariant {
                     ident,
-                    raw_variant_kind: ref variant_kind,
+                    ref raw_variant_kind,
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
                 AstKind::MembRoutineDecl(_) => todo!(),

@@ -1,8 +1,28 @@
-use std::{marker::PhantomData, ops::Index};
+#![feature(step_trait)]
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+use std::{
+    fmt::Debug,
+    iter::Step,
+    marker::PhantomData,
+    ops::{Add, Index, IndexMut},
+};
+
+#[derive(Clone, PartialEq, Eq)]
 pub struct Arena<T> {
     storage: Vec<T>,
+}
+
+impl<T> Debug for Arena<T>
+where
+    T: Debug,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("\nArena:\n")?;
+        for (i, v) in self.storage.iter().enumerate() {
+            f.write_fmt(format_args!("  #{}: {:?}\n", i, &v))?
+        }
+        Ok(())
+    }
 }
 
 impl<T> Arena<T> {
@@ -41,30 +61,117 @@ pub struct ArenaIdx<T> {
     phantom: PhantomData<T>,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ArenaMap<K, V> {
-    data: Vec<V>,
-    phantom: PhantomData<K>,
+impl<T> std::hash::Hash for ArenaIdx<T> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.raw.hash(state);
+    }
 }
 
-impl<K, V> Default for ArenaMap<K, V> {
-    fn default() -> Self {
+impl<T> Add<usize> for ArenaIdx<T> {
+    type Output = Self;
+
+    fn add(self, rhs: usize) -> Self::Output {
         Self {
-            data: vec![],
-            phantom: Default::default(),
+            raw: self.raw + rhs,
+            phantom: PhantomData,
         }
     }
 }
 
-impl<K, V> Index<ArenaIdx<K>> for ArenaMap<K, V> {
-    type Output = V;
-
-    fn index(&self, index: ArenaIdx<K>) -> &Self::Output {
-        &self.data[index.raw]
+impl<T> PartialOrd for ArenaIdx<T>
+where
+    T: PartialEq,
+{
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        match self.raw.partial_cmp(&other.raw) {
+            Some(core::cmp::Ordering::Equal) => {}
+            ord => return ord,
+        }
+        self.phantom.partial_cmp(&other.phantom)
     }
 }
 
-impl<T> std::fmt::Debug for ArenaIdx<T> {
+impl<T> Step for ArenaIdx<T>
+where
+    T: PartialEq + Clone,
+{
+    fn steps_between(start: &Self, end: &Self) -> Option<usize> {
+        if start.raw <= end.raw {
+            Some(end.raw - start.raw)
+        } else {
+            None
+        }
+    }
+
+    fn forward_checked(start: Self, count: usize) -> Option<Self> {
+        Some(Self {
+            raw: start.raw + count,
+            phantom: PhantomData,
+        })
+    }
+
+    fn backward_checked(start: Self, count: usize) -> Option<Self> {
+        if start.raw >= count {
+            Some(Self {
+                raw: start.raw - count,
+                phantom: PhantomData,
+            })
+        } else {
+            None
+        }
+    }
+}
+
+// #[derive(Debug, PartialEq, Eq, Clone)]
+// pub struct ArenaMap<K, V>
+// where
+//     V: for<'a> From<&'a K>,
+// {
+//     data: Vec<V>,
+//     phantom: PhantomData<K>,
+// }
+
+// impl<K, V> Index<ArenaIdx<K>> for ArenaMap<K, V>
+// where
+//     V: for<'a> From<&'a K>,
+// {
+//     type Output = V;
+
+//     fn index(&self, idx: ArenaIdx<K>) -> &Self::Output {
+//         &self.data[idx.raw]
+//     }
+// }
+
+// impl<K, V> IndexMut<ArenaIdx<K>> for ArenaMap<K, V>
+// where
+//     V: for<'a> From<&'a K>,
+// {
+//     fn index_mut(&mut self, idx: ArenaIdx<K>) -> &mut Self::Output {
+//         &mut self.data[idx.raw]
+//     }
+// }
+
+// impl<K, V> ArenaMap<K, V>
+// where
+//     V: for<'a> From<&'a K>,
+// {
+//     pub fn new(arena: &Arena<K>) -> Self {
+//         Self {
+//             data: arena.storage.iter().map(|k| k.into()).collect(),
+//             phantom: Default::default(),
+//         }
+//     }
+
+//     pub fn get(&self, idx: ArenaIdx<K>) -> &V {
+//         &self.data[idx.raw]
+//     }
+
+//     pub fn get_mut(&mut self, idx: ArenaIdx<K>) -> &mut V {
+//         &mut self.data[idx.raw]
+//     }
+// }
+
+impl<T> Debug for ArenaIdx<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.raw.fmt(f)
     }

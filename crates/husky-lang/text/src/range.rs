@@ -58,6 +58,10 @@ pub trait TextRanged {
     fn to(&self, range: &TextRange) -> TextRange {
         (self.text_end()..range.end).into()
     }
+
+    fn row(&self) -> Row {
+        self.text_range_ref().start.row
+    }
 }
 
 impl<T> TextRanged for Arc<T>
