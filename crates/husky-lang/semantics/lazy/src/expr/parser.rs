@@ -63,6 +63,7 @@ pub trait LazyExprParser<'a> {
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
             RawExprKind::Lambda(_, _) => todo!(),
+            RawExprKind::This { .. } => todo!(),
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
@@ -226,22 +227,9 @@ pub trait LazyExprParser<'a> {
                 kind: ScopeKind::Routine,
                 ..
             } => {
-                let signature = try_infer!(self.db().call_signature(scope));
                 let arguments: Vec<_> = ((opds.start + 1)..opds.end)
-                    .enumerate()
-                    .map(|(i, raw)| {
-                        match signature.inputs[i].contract {
-                            EagerContract::Pure => (),
-                            EagerContract::Ref => todo!(),
-                            EagerContract::Take => todo!(),
-                            EagerContract::BorrowMut => todo!(),
-                            EagerContract::TakeMut => todo!(),
-                            EagerContract::Exec => todo!(),
-                        }
-                        self.parse_lazy_expr(raw)
-                    })
+                    .map(|raw| self.parse_lazy_expr(raw))
                     .collect::<SemanticResult<_>>()?;
-                let output = signature.output;
                 Ok(LazyExprKind::Opn {
                     opn_kind: LazyOpnKind::RoutineCall(RangedScope {
                         scope,
@@ -266,6 +254,7 @@ pub trait LazyExprParser<'a> {
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => todo!(),
             RawExprKind::Lambda(_, _) => todo!(),
+            RawExprKind::This { .. } => todo!(),
         }
     }
 }

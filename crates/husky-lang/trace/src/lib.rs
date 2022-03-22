@@ -100,6 +100,7 @@ impl<'eval> Serialize for Trace<'eval> {
                     EagerExprKind::Bracketed(_) => todo!(),
                     EagerExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
                     EagerExprKind::Lambda(_, _) => todo!(),
+                    EagerExprKind::This => todo!(),
                 },
                 TraceKind::CallHead { .. } => false,
             },

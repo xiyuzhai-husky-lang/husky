@@ -14,9 +14,9 @@ fn instruction_sheet(
 ) -> SemanticResultArc<InstructionSheet> {
     let entity = this.entity(scope)?;
     Ok(match entity.kind() {
-        EntityKind::Module(_) => todo!(),
+        EntityKind::Module { .. } => todo!(),
         EntityKind::Feature(_) => todo!(),
-        EntityKind::Pattern(_) => todo!(),
+        EntityKind::Pattern { .. } => todo!(),
         EntityKind::Func {
             input_placeholders,
             stmts,

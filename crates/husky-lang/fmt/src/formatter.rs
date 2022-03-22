@@ -5,7 +5,7 @@ use common::*;
 use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
-use vm::{EagerContract, InitKind, MembVarContract, PrimitiveValue};
+use vm::{EagerContract, InitKind, InputContract, MembVarContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
@@ -96,7 +96,7 @@ impl<'a> Formatter<'a> {
                     RoutineKind::Func => "func ",
                     RoutineKind::Def => todo!(),
                 });
-                self.write(&decl.funcname);
+                self.write(&decl.routine_name);
                 self.write("(");
                 for i in 0..decl.input_placeholders.len() {
                     if i > 0 {
@@ -124,13 +124,13 @@ impl<'a> Formatter<'a> {
                 self.write(": ");
                 self.fmt_member_variable_contracted_type(contract, ty)
             }
-            AstKind::MembRoutineDecl(_) => todo!(),
             AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstKind::DatasetConfig => todo!(),
             AstKind::EnumVariant {
                 ident,
                 raw_variant_kind: ref variant_kind,
             } => todo!(),
+            AstKind::MembRoutineDecl { .. } => todo!(),
         }
     }
 
@@ -148,12 +148,12 @@ impl<'a> Formatter<'a> {
 
     fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
         match ty.contract {
-            EagerContract::Pure => (),
-            EagerContract::Ref => self.write("&"),
-            EagerContract::Take => self.write("!"),
-            EagerContract::BorrowMut => self.write("mut &"),
-            EagerContract::TakeMut => self.write("mut !"),
-            EagerContract::Exec => todo!(),
+            InputContract::Pure => (),
+            InputContract::GlobalRef => self.write("&"),
+            InputContract::Take => self.write("!"),
+            InputContract::BorrowMut => self.write("mut &"),
+            InputContract::TakeMut => self.write("mut !"),
+            InputContract::Exec => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.scope);
     }
@@ -265,6 +265,7 @@ impl<'a> Formatter<'a> {
                 self.write("| ");
                 self.fmt_expr(&self.arena[expr])
             }
+            RawExprKind::This { .. } => todo!(),
         }
     }
 

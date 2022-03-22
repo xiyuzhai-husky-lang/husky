@@ -26,7 +26,7 @@ impl WordPtr {
     pub fn custom(self) -> Option<CustomIdentifier> {
         self.ident()
             .map(|ident| match ident {
-                Identifier::Builtin(_) | Identifier::Implicit(_) => None,
+                Identifier::Builtin(_) | Identifier::Implicit(_) | Identifier::This => None,
                 Identifier::Custom(ident) => Some(ident),
             })
             .flatten()

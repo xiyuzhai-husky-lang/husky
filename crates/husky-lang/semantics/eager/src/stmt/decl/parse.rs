@@ -27,8 +27,7 @@ impl<'a> EagerStmtParser<'a> {
                             RawBranchKind::If { condition } => {
                                 branches.push(Arc::new(DeclBranch {
                                     kind: DeclBranchKind::If {
-                                        condition: self
-                                            .parse_eager_expr(condition, EagerContract::Pure)?,
+                                        condition: self.parse_eager_expr(condition)?,
                                     },
                                     stmts: self.parse_decl_stmts(not_none!(item.children))?,
                                 }))
@@ -85,8 +84,7 @@ impl<'a> EagerStmtParser<'a> {
                         initial_value,
                         init_kind: kind,
                     } => {
-                        let initial_value =
-                            self.parse_eager_expr(initial_value, EagerContract::Take)?;
+                        let initial_value = self.parse_eager_expr(initial_value)?;
                         if kind != InitKind::Decl {
                             todo!()
                         }
@@ -108,7 +106,7 @@ impl<'a> EagerStmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Return {
-                            result: self.parse_eager_expr(result, EagerContract::Take)?,
+                            result: self.parse_eager_expr(result)?,
                         },
                         instruction_id: Default::default(),
                     },
@@ -117,7 +115,7 @@ impl<'a> EagerStmtParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         kind: DeclStmtKind::Assert {
-                            condition: self.parse_eager_expr(condition, EagerContract::Pure)?,
+                            condition: self.parse_eager_expr(condition)?,
                         },
                         instruction_id: Default::default(),
                     },
@@ -127,7 +125,7 @@ impl<'a> EagerStmtParser<'a> {
                     ref raw_variant_kind,
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl(_) => todo!(),
+                AstKind::MembRoutineDecl { .. } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

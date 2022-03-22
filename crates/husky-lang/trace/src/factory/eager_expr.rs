@@ -98,6 +98,7 @@ impl<'eval> TraceFactory<'eval> {
                 tokens
             }
             EagerExprKind::Lambda(_, _) => todo!(),
+            EagerExprKind::This => todo!(),
         }
     }
 }

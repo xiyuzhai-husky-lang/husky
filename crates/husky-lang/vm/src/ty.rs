@@ -56,7 +56,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
     ) -> StackValue<'stack, 'eval> {
         match contract {
             EagerContract::Pure => todo!(),
-            EagerContract::Ref => todo!(),
+            EagerContract::GlobalRef => todo!(),
             EagerContract::Take => todo!(),
             EagerContract::BorrowMut => match self {
                 VirtualTy::Struct { memb_vars } => {

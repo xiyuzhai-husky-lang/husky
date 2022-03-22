@@ -83,7 +83,7 @@ impl<'a> AstTransformer<'a> {
         token_group: &[Token],
     ) -> AstResult<RawStmt> {
         Ok(match self.env() {
-            Env::Package => todo!(),
+            Env::Package(_) => todo!(),
             Env::Module(_) => todo!(),
             Env::DatasetConfig | Env::Main | Env::Def | Env::Func => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {

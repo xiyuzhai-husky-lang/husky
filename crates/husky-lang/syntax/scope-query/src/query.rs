@@ -147,13 +147,13 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         parent_scope: ScopePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
-    ) -> Option<Scope> {
+    ) -> Option<ScopePtr> {
         epin!();
         let parent_subscope_table = self.subscope_table(parent_scope);
         epin!();
         if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
             epin!();
-            Some(Scope::child_scope(parent_scope, ident, generics))
+            Some(self.intern_scope(Scope::child_scope(parent_scope, ident, generics)))
         } else {
             epin!();
             None
@@ -182,7 +182,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
     where
         Self: Sized,
     {
-        if let Ok(module) = self.module_from_file_id(id) {
+        if let Ok(module) = self.module(id) {
             let mut modules = vec![module];
             self.subscope_table(module).ok().map(|table| {
                 modules.extend(
@@ -202,7 +202,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         }
     }
 
-    fn module_from_file_id(&self, id: FilePtr) -> ScopeResult<ScopePtr> {
+    fn module(&self, id: FilePtr) -> ScopeResult<ScopePtr> {
         let path: PathBuf = (*id).into();
         if !self.file_exists(id) {
             scope_err!(format!("file didn't exist"))?
@@ -223,8 +223,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         } else if path_has_extension(&path, "hsk") {
             let maybe_main_path = path.with_file_name("main.hsk");
             if maybe_main_path.exists() {
-                let _parent =
-                    self.module_from_file_id(self.alloc_file(path.with_file_name("mod.hsk")));
+                let _parent = self.module(self.alloc_file(path.with_file_name("mod.hsk")));
                 todo!()
             } else {
                 todo!()

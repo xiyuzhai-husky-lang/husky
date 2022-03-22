@@ -91,6 +91,7 @@ impl Entry {
                                     rule_broken: ScopeDefRule::ImplicitIdentifierAreReserved,
                                 }),
                             ),
+                            Identifier::This => todo!(),
                         };
                     }
                 }

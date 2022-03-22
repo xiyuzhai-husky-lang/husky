@@ -3,22 +3,41 @@ use std::sync::Arc;
 use crate::*;
 use scope::{InputPlaceholder, RangedScope};
 use syntax_types::*;
-use vm::EagerContract;
+use vm::{EagerContract, InputContract};
 
 use super::*;
 
 // inner ops
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn func_decl(mut self) -> AstResult<RoutineHead> {
-        let funcname = get!(self, custom_ident);
+    pub(crate) fn routine_decl(mut self) -> AstResult<RoutineHead> {
+        let routine_name = get!(self, custom_ident);
         let space_params = self.placeholders()?;
         let input_contracts = self.func_input_placeholders()?;
         let output = self.func_output_type()?;
         Ok(RoutineHead {
-            funcname,
+            routine_name,
             generics: space_params,
             input_placeholders: input_contracts,
             output,
+        })
+    }
+
+    pub(crate) fn memb_routine_decl(
+        mut self,
+        this: InputContract,
+        kind: RawMembRoutineKind,
+    ) -> AstResult<MembRoutineHead> {
+        let routine_name = get!(self, custom_ident);
+        let space_params = self.placeholders()?;
+        let input_contracts = self.func_input_placeholders()?;
+        let output = self.func_output_type()?;
+        Ok(MembRoutineHead {
+            this,
+            routine_name,
+            generics: space_params,
+            input_placeholders: input_contracts,
+            output,
+            kind,
         })
     }
 
@@ -62,7 +81,7 @@ impl<'a> AtomLRParser<'a> {
         };
         Ok(InputPlaceholder {
             ident,
-            contract: EagerContract::Pure,
+            contract: InputContract::Pure,
             ranged_ty: ty,
         })
     }

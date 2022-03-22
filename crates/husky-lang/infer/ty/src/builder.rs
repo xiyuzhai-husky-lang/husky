@@ -60,8 +60,17 @@ impl<'a> TySheetBuilder<'a> {
                     AstKind::PatternDef => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
                     AstKind::MembVar { .. } => (),
-                    AstKind::MembRoutineDecl(_) => todo!(),
                     AstKind::Stmt(_) => todo!(),
+                    AstKind::MembRoutineDecl {
+                        ref memb_routine_head,
+                        ..
+                    } => self.infer_routine(
+                        item.idx,
+                        &memb_routine_head.input_placeholders,
+                        memb_routine_head.output.scope,
+                        item.children.unwrap(),
+                        &arena,
+                    ),
                 },
                 _ => (),
             }

@@ -84,7 +84,7 @@ macro_rules! ok_or {
 }
 
 #[macro_export]
-macro_rules! not_none {
+macro_rules! not_none_or_derived {
     ($opt_value: expr) => {{
         $opt_value.ok_or(InferError {
             kind: InferErrorKind::Derived,

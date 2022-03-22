@@ -15,6 +15,9 @@ pub enum RawExprKind {
         varname: CustomIdentifier,
         init_row: Row,
     },
+    This {
+        ty: Option<ScopePtr>,
+    },
     Unrecognized(CustomIdentifier),
     Scope {
         scope: ScopePtr,

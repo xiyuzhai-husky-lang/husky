@@ -1,12 +1,10 @@
 use ast::{
     RawBoundary, RawExprArena, RawExprKind, RawExprRange, RawLoopKind, RawStmt, RawStmtKind,
 };
-use common::{msg_once, p, should};
-use infer_error::err;
-use scope::{InputPlaceholder, ScopeKind, ScopePtr, ScopeRoute};
+use common::*;
+use scope::ScopePtr;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
-use vm::{BinaryOpr, MembVarContract, PureBinaryOpr};
-use word::BuiltinIdentifier;
+use vm::{BinaryOpr, MembVarContract};
 
 use super::*;
 use crate::*;
@@ -14,8 +12,6 @@ use crate::*;
 impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn infer_routine(
         &mut self,
-        line_group_idx: usize,
-        inputs: &[InputPlaceholder],
         output_ty: ScopePtr,
         ast_iter: AstIter,
         arena: &RawExprArena,
@@ -62,15 +58,16 @@ impl<'a> ContractSheetBuilder<'a> {
             },
             RawStmtKind::Branch(_) => todo!(),
             RawStmtKind::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
-            RawStmtKind::Init {
-                varname,
-                initial_value,
-                ..
-            } => {
+            RawStmtKind::Init { initial_value, .. } => {
                 self.infer_eager_expr(initial_value, EagerContract::Take, arena);
             }
             RawStmtKind::Return(result) => {
-                self.infer_eager_expr(result, EagerContract::Take, arena)
+                self.infer_eager_expr(result, EagerContract::Take, arena);
+                should!(!self
+                    .contract_sheet
+                    .eager_expr_contract_results
+                    .get(&result)
+                    .is_none())
             }
             RawStmtKind::Assert(_) => todo!(),
         }
@@ -96,7 +93,8 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprKind::Variable { .. }
             | RawExprKind::Unrecognized(_)
             | RawExprKind::Scope { .. }
-            | RawExprKind::PrimitiveLiteral(_) => Ok(()),
+            | RawExprKind::PrimitiveLiteral(_)
+            | RawExprKind::This { .. } => Ok(()),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.infer_eager_opn(opr, opds, contract, arena),
             RawExprKind::Lambda(_, _) => todo!(),
@@ -145,9 +143,8 @@ impl<'a> ContractSheetBuilder<'a> {
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
-                    EagerContract::Pure => (),
-                    EagerContract::Ref => todo!(),
-                    EagerContract::Take => todo!(),
+                    EagerContract::Pure | EagerContract::Take => (),
+                    EagerContract::GlobalRef => todo!(),
                     EagerContract::BorrowMut => todo!(),
                     EagerContract::TakeMut => todo!(),
                     EagerContract::Exec => todo!(),
@@ -193,7 +190,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 let this_contract = match this_ty_signature.memb_var_signature(ident).contract {
                     MembVarContract::Own => match contract {
                         EagerContract::Pure => EagerContract::Pure,
-                        EagerContract::Ref => todo!(),
+                        EagerContract::GlobalRef => todo!(),
                         EagerContract::Take => EagerContract::Take,
                         EagerContract::BorrowMut => EagerContract::BorrowMut,
                         EagerContract::TakeMut => todo!(),
@@ -240,13 +237,17 @@ impl<'a> ContractSheetBuilder<'a> {
         match contract {
             EagerContract::Pure => (),
             EagerContract::Take => (),
-            EagerContract::Ref => todo!(),
+            EagerContract::GlobalRef => todo!(),
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
             EagerContract::Exec => todo!(),
         }
         for i in 0..call_signature.inputs.len() {
-            self.infer_eager_expr(opds.start + i, call_signature.inputs[i].contract, arena)
+            self.infer_eager_expr(
+                opds.start + 1 + i,
+                call_signature.inputs[i].contract.eager()?,
+                arena,
+            )
         }
         Ok(())
     }

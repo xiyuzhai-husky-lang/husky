@@ -1,13 +1,5 @@
-mod func;
-mod module;
-mod pattern;
-mod proc;
 pub mod ty;
 
-pub use func::Func;
-pub use module::Module;
-pub use pattern::Pattern;
-pub use proc::Proc;
 use semantics_lazy::LazyStmt;
 pub use ty::*;
 
@@ -23,9 +15,9 @@ pub struct Main {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EntityKind {
     Main(Main),
-    Module(Module),
+    Module {},
     Feature(Vec<DeclStmt>),
-    Pattern(Pattern),
+    Pattern {},
     Func {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedScope,

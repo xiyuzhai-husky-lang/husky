@@ -72,7 +72,7 @@ impl HuskyLangRuntime {
         let package = match compile_time.package(current_package_main) {
             Ok(package) => package,
             Err(error) => {
-                println!("{}", error.message);
+                println!("{:?}", error);
                 panic!()
             }
         };

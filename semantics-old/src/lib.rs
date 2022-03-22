@@ -67,9 +67,9 @@ impl Entity {
 
     fn dependees(kind: &EntityKind) -> UniqVec<ScopePtr> {
         return match kind {
-            EntityKind::Module(_) => Default::default(),
+            EntityKind::Module { .. } => Default::default(),
             EntityKind::Feature(_) => todo!(),
-            EntityKind::Pattern(_) => todo!(),
+            EntityKind::Pattern { .. } => todo!(),
             EntityKind::Func {
                 input_placeholders: inputs,
                 output,

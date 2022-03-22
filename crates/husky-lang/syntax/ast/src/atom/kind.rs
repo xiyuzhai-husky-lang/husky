@@ -19,6 +19,9 @@ pub enum AtomKind {
         varname: CustomIdentifier,
         init_row: Row,
     },
+    This {
+        ty: Option<ScopePtr>,
+    },
     Unrecognized(CustomIdentifier),
     Literal(PrimitiveValue),
     Binary(BinaryOpr),

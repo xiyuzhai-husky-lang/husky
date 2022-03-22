@@ -13,7 +13,7 @@ pub trait PackageQueryGroup: EntityQueryGroup {
 }
 
 fn package(this: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Package> {
-    let module = this.module_from_file_id(main_file)?;
+    let module = this.module(main_file)?;
     Ok(Arc::new(Package {
         ident: match module.route {
             scope::ScopeRoute::Package { ident, .. } => ident,

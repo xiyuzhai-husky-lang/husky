@@ -25,7 +25,7 @@ pub(crate) fn ty_signature(
             let ast = item.value.as_ref()?;
             match ast.kind {
                 AstKind::TypeDef { kind, .. } => match kind {
-                    RawTyKind::Enum => enum_signature(not_none!(item.children)),
+                    RawTyKind::Enum => enum_signature(not_none_or_derived!(item.children)),
                     RawTyKind::Struct => struct_signature(item.children.unwrap()),
                 },
                 _ => panic!(),
@@ -56,6 +56,7 @@ pub(crate) fn enum_signature(children: AstIter) -> InferResultArc<TySignature> {
 
 pub(crate) fn struct_signature(children: AstIter) -> InferResultArc<TySignature> {
     let mut memb_vars = VecMap::default();
+    let mut memb_routines = VecMap::default();
     for subitem in children {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
@@ -63,9 +64,15 @@ pub(crate) fn struct_signature(children: AstIter) -> InferResultArc<TySignature>
                 ident,
                 signature: MembVarSignature { contract, ty },
             } => memb_vars.insert_new(ident, MembVarSignature { contract, ty }),
-            AstKind::MembRoutineDecl(_) => todo!(),
+            AstKind::MembRoutineDecl {
+                ref memb_routine_head,
+                ..
+            } => memb_routines.insert_new(memb_routine_head.routine_name, memb_routine_head.into()),
             _ => panic!(),
         }
     }
-    Ok(Arc::new(TySignature::Struct { memb_vars }))
+    Ok(Arc::new(TySignature::Struct {
+        memb_vars,
+        memb_routines,
+    }))
 }

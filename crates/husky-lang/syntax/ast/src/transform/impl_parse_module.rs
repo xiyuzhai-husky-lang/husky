@@ -21,67 +21,81 @@ impl<'a> AstTransformer<'a> {
             todo!()
         };
         Ok(match keyword {
-            Keyword::Routine(routine_keyword) => match routine_keyword {
-                RoutineKeyword::Main => {
-                    enter_block(self);
-                    self.env.set_value(Env::Main);
-                    AstKind::MainDecl
-                }
-                RoutineKeyword::Test => {
-                    enter_block(self);
-                    self.env.set_value(Env::Test);
-                    todo!()
-                }
-                RoutineKeyword::Proc => {
-                    enter_block(self);
-                    self.env.set_value(Env::Proc);
-                    let head =
-                        self.parse_routine_decl(trim!(Some(self.file), tokens; keyword, colon))?;
-                    self.symbols
-                        .extend(
-                            head.input_placeholders
-                                .iter()
-                                .map(|input_placeholder| Symbol {
-                                    ident: input_placeholder.ident,
-                                    kind: SymbolKind::Variable {
-                                        init_row: input_placeholder.ranged_ty.row(),
-                                    },
-                                }),
-                        );
-                    AstKind::RoutineDecl {
-                        routine_kind: RoutineKind::Proc,
-                        routine_head: head,
+            Keyword::Routine(routine_keyword) => {
+                match routine_keyword {
+                    RoutineKeyword::Main => {
+                        enter_block(self);
+                        self.env.set_value(Env::Main);
+                        AstKind::MainDecl
                     }
-                }
-                RoutineKeyword::Func => {
-                    enter_block(self);
-                    self.env.set_value(Env::Func);
-                    let decl =
-                        self.parse_routine_decl(trim!(Some(self.file), tokens; keyword, colon))?;
-                    for input_placeholder in decl.input_placeholders.iter() {
-                        match input_placeholder.contract {
-                            EagerContract::Pure | EagerContract::Ref | EagerContract::Take => (),
-                            EagerContract::BorrowMut | EagerContract::TakeMut => {
-                                todo!("report invalid input contract")
-                            }
-                            EagerContract::Exec => todo!(),
-                        }
-                        self.symbols.push(Symbol {
-                            ident: input_placeholder.ident,
-                            kind: SymbolKind::Variable {
-                                init_row: input_placeholder.ranged_ty.row(),
+                    RoutineKeyword::Test => {
+                        enter_block(self);
+                        self.env.set_value(Env::Test);
+                        todo!()
+                    }
+                    RoutineKeyword::Proc => {
+                        enter_block(self);
+                        self.env.set_value(Env::Proc);
+                        let head = self
+                            .parse_routine_decl(trim!(Some(self.file), tokens; keyword, colon))?;
+                        self.symbols.extend(head.input_placeholders.iter().map(
+                            |input_placeholder| Symbol {
+                                ident: input_placeholder.ident,
+                                kind: SymbolKind::Variable {
+                                    init_row: input_placeholder.ranged_ty.row(),
+                                },
                             },
-                        })
+                        ));
+                        AstKind::RoutineDecl {
+                            routine_kind: RoutineKind::Proc,
+                            routine_head: head,
+                        }
                     }
-                    AstKind::RoutineDecl {
-                        routine_kind: RoutineKind::Func,
-                        routine_head: decl,
+                    RoutineKeyword::Func => {
+                        enter_block(self);
+                        self.env.set_value(Env::Func);
+                        let decl = self
+                            .parse_routine_decl(trim!(Some(self.file), tokens; keyword, colon))?;
+                        for input_placeholder in decl.input_placeholders.iter() {
+                            match input_placeholder.contract {
+                                InputContract::Pure
+                                | InputContract::GlobalRef
+                                | InputContract::Take => (),
+                                InputContract::BorrowMut | InputContract::TakeMut => {
+                                    todo!("report invalid input contract")
+                                }
+                                InputContract::Exec => todo!(),
+                            }
+                            self.symbols.push(Symbol {
+                                ident: input_placeholder.ident,
+                                kind: SymbolKind::Variable {
+                                    init_row: input_placeholder.ranged_ty.row(),
+                                },
+                            })
+                        }
+                        AstKind::RoutineDecl {
+                            routine_kind: RoutineKind::Func,
+                            routine_head: decl,
+                        }
                     }
                 }
-            },
+            }
             Keyword::Type(ty_kw) => match ty_kw {
                 TypeKeyword::Struct => {
                     enter_block(self);
+                    if tokens.len() >= 2 {
+                        match tokens[1].kind {
+                            TokenKind::Identifier(ident) => match ident {
+                                Identifier::Custom(custom_ident) => {
+                                    self.this.set_value(Some(
+                                        self.env().subscope(self.db, custom_ident),
+                                    ));
+                                }
+                                _ => (),
+                            },
+                            _ => (),
+                        }
+                    };
                     self.env.set_value(Env::Struct);
                     expect_len!(Some(self.file), tokens, 3);
                     expect_head!(Some(self.file), tokens);

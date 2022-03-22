@@ -3,7 +3,7 @@ mod impl_parse_expr;
 mod impl_parse_func_decl;
 mod impl_parse_module;
 mod impl_parse_stmt;
-mod impl_parse_struct;
+mod impl_parse_struct_item;
 mod impl_symbol_proxy;
 mod impl_use_all;
 mod utils;
@@ -11,7 +11,6 @@ mod utils;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use scope::ScopeRoute;
-use syntax_types::*;
 use token::*;
 
 use crate::{
@@ -29,7 +28,8 @@ pub struct AstTransformer<'a> {
     arena: RawExprArena,
     folded_results: FoldedList<AstResult<Ast>>,
     symbols: LocalStack<Symbol>,
-    env: LocalValue<syntax_types::Env>,
+    env: LocalValue<Env>,
+    this: LocalValue<Option<ScopePtr>>,
 }
 
 impl<'a> AstTransformer<'a> {
@@ -42,10 +42,11 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.route {
-                ScopeRoute::Package { .. } => Env::Package,
+                ScopeRoute::Package { main, ident } => Env::Package(main),
                 ScopeRoute::ChildScope { .. } => Env::Module(module),
                 ScopeRoute::Builtin { .. } | ScopeRoute::Implicit { .. } => panic!(),
             }),
+            this: LocalValue::new(None),
         };
 
         fn module_symbols(db: &dyn AstSalsaQueryGroup, module: ScopePtr) -> LocalStack<Symbol> {
@@ -98,7 +99,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         Ok(Ast {
             range: token_group.into(),
             kind: match self.env() {
-                Env::Package | Env::Module(_) => {
+                Env::Package(_) | Env::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?
                 }
                 Env::DatasetConfig | Env::Main | Env::Def | Env::Func | Env::Proc | Env::Test => {
@@ -117,7 +118,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                         _ => self.parse_stmt_without_keyword(token_group)?.into(),
                     }
                 }
-                Env::Struct => self.parse_struct_memb_var(token_group)?,
+                Env::Struct => self.parse_struct_item(token_group, enter_block)?,
                 Env::Enum => self.parse_enum_variant(token_group)?,
             },
         })

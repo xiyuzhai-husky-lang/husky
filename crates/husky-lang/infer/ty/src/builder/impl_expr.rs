@@ -12,7 +12,7 @@ impl<'a> TySheetBuilder<'a> {
         expectation: Option<ScopePtr>,
         arena: &RawExprArena,
     ) -> Option<ScopePtr> {
-        let ty_result: InferResult<ScopePtr> = self.expr_ty_result(expr_idx, arena);
+        let ty_result: InferResult<ScopePtr> = self.expr_ty_result(expr_idx, expectation, arena);
         let opt_ty = ty_result.as_ref().ok().map(|ty| *ty);
         insert_new!(self.ty_sheet.exprs, expr_idx, ty_result);
         opt_ty
@@ -21,10 +21,11 @@ impl<'a> TySheetBuilder<'a> {
     pub(super) fn expr_ty_result(
         &mut self,
         expr_idx: RawExprIdx,
+        expectation: Option<ScopePtr>,
         arena: &RawExprArena,
     ) -> InferResult<ScopePtr> {
-        match arena[expr_idx].kind {
-            RawExprKind::Variable { varname, init_row } => Ok(not_none!(self
+        let ty = match arena[expr_idx].kind {
+            RawExprKind::Variable { varname, init_row } => Ok(not_none_or_derived!(self
                 .ty_sheet
                 .variables
                 .get(&(varname, init_row))
@@ -59,7 +60,14 @@ impl<'a> TySheetBuilder<'a> {
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.opn_opt_ty(opr, opds, expr_idx, arena),
             RawExprKind::Lambda(_, _) => todo!(),
+            RawExprKind::This { ty } => Ok(not_none_or_derived!(ty)),
+        }?;
+        if let Some(expected_ty) = expectation {
+            if !self.db.is_implicit_convertible(ty, expected_ty) {
+                todo!()
+            }
         }
+        Ok(ty)
     }
 
     fn opn_opt_ty(
@@ -84,8 +92,8 @@ impl<'a> TySheetBuilder<'a> {
         ropd: RawExprIdx,
         arena: &RawExprArena,
     ) -> InferResult<ScopePtr> {
-        let lopd_ty = not_none!(self.infer_expr(lopd, None, arena));
-        let ropd_ty = not_none!(self.infer_expr(ropd, None, arena));
+        let lopd_ty = not_none_or_derived!(self.infer_expr(lopd, None, arena));
+        let ropd_ty = not_none_or_derived!(self.infer_expr(ropd, None, arena));
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => match lopd_ty {
                 ScopePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
@@ -174,7 +182,7 @@ impl<'a> TySheetBuilder<'a> {
         opd: RawExprIdx,
         arena: &RawExprArena,
     ) -> InferResult<ScopePtr> {
-        let opd_ty = not_none!(self.infer_expr(opd, None, arena));
+        let opd_ty = not_none_or_derived!(self.infer_expr(opd, None, arena));
         match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
@@ -217,6 +225,7 @@ impl<'a> TySheetBuilder<'a> {
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => todo!(),
             RawExprKind::Lambda(_, _) => todo!(),
+            RawExprKind::This { .. } => todo!(),
         };
         for i in 0..call_signature.inputs.len() {
             let input_expr_idx = opds.start + 1 + i;

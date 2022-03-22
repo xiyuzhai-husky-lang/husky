@@ -98,7 +98,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         match contract {
             EagerContract::Pure => self.pure(),
             EagerContract::Take => self.take(),
-            EagerContract::Ref => todo!(),
+            EagerContract::GlobalRef => todo!(),
             EagerContract::TakeMut => todo!(),
             EagerContract::BorrowMut => self.borrow_mut(stack_idx),
             EagerContract::Exec => todo!(),

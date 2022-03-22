@@ -183,7 +183,7 @@ impl<'a> LazyStmtParser<'a> {
                     raw_variant_kind: ref variant_kind,
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl(_) => todo!(),
+                AstKind::MembRoutineDecl { .. } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

@@ -50,6 +50,7 @@ impl<'eval> Trace<'eval> {
                 },
                 EagerExprKind::Lambda(_, _) => todo!(),
                 EagerExprKind::Bracketed(_) => panic!(),
+                EagerExprKind::This => todo!(),
             },
         }
     }

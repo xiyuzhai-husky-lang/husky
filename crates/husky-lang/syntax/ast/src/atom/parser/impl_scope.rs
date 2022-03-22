@@ -24,8 +24,10 @@ impl<'a> AtomLRParser<'a> {
                     SymbolKind::Variable { init_row } => match ident {
                         Identifier::Builtin(_) | Identifier::Implicit(_) => panic!(),
                         Identifier::Custom(varname) => AtomKind::Variable { varname, init_row },
+                        Identifier::This => todo!(),
                     },
                     SymbolKind::Unrecognized(ident) => AtomKind::Unrecognized(ident),
+                    SymbolKind::This { ty } => AtomKind::This { ty },
                 })
             } else {
                 None
