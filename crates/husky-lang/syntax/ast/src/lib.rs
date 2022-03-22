@@ -1,4 +1,5 @@
 mod atom;
+mod env;
 mod error;
 mod expr;
 mod query;
@@ -9,6 +10,7 @@ use common::*;
 use text::TextRange;
 
 pub use crate::error::{AstError, AstResult, AstResultArc};
+use env::Env;
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
@@ -41,6 +43,10 @@ pub enum AstKind {
         routine_kind: RoutineKind,
         routine_head: RoutineHead,
     },
+    MembRoutineDecl {
+        routine_kind: RoutineKind,
+        memb_routine_head: MembRoutineHead,
+    },
     PatternDef,
     Use {
         ident: CustomIdentifier,
@@ -50,7 +56,6 @@ pub enum AstKind {
         ident: CustomIdentifier,
         signature: MembVarSignature,
     },
-    MembRoutineDecl(MembFuncDecl),
     Stmt(RawStmt),
     EnumVariant {
         ident: CustomIdentifier,

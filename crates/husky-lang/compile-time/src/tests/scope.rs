@@ -85,21 +85,20 @@ main:
 
 #[test]
 fn datasets() {
-    let mut db = HuskyLangCompileTime::default();
+    let db = HuskyLangCompileTime::default();
     let dataset_scope = db.intern_scope(Scope {
         route: ScopeRoute::Builtin {
             ident: BuiltinIdentifier::DatasetType,
         },
         generics: vec![],
     });
-    let synthetic_scope = db.intern_scope(
-        db.subscope(
+    let synthetic_scope = db
+        .subscope(
             dataset_scope,
             db.intern_word("synthetic").custom().unwrap(),
             vec![],
         )
-        .unwrap(),
-    );
+        .unwrap();
     let synthetic_trivial_scope = db
         .subscope(
             synthetic_scope,
@@ -107,13 +106,11 @@ fn datasets() {
             vec![],
         )
         .unwrap();
-    let synthetic_trivial_scope = db.intern_scope(synthetic_trivial_scope);
-    let _synthetic_trivial_real1d_scope = db.intern_scope(
-        db.subscope(
+    let _synthetic_trivial_real1d_scope = db
+        .subscope(
             synthetic_trivial_scope,
             db.intern_word("trivial").custom().unwrap(),
             vec![],
         )
-        .unwrap(),
-    );
+        .unwrap();
 }

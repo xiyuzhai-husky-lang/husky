@@ -11,7 +11,7 @@ use file::FilePtr;
 pub use kind::ScopeKind;
 
 use text::{TextRange, TextRanged};
-use vm::{Compiled, EagerContract};
+use vm::{Compiled, EagerContract, InputContract};
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -142,21 +142,30 @@ pub struct StaticTySignature {}
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StaticInputSignature {
-    pub contract: EagerContract,
+    pub contract: InputContract,
     pub ty: &'static str,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputSignature {
-    pub contract: EagerContract,
+    pub contract: InputContract,
     pub ty: ScopePtr,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputPlaceholder {
     pub ident: CustomIdentifier,
-    pub contract: EagerContract,
+    pub contract: InputContract,
     pub ranged_ty: RangedScope,
+}
+
+impl Into<InputSignature> for &InputPlaceholder {
+    fn into(self) -> InputSignature {
+        InputSignature {
+            contract: self.contract,
+            ty: self.ranged_ty.scope,
+        }
+    }
 }
 
 impl Scope {

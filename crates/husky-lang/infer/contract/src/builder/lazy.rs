@@ -1,10 +1,9 @@
 use ast::*;
 use common::*;
 use infer_error::*;
-use scope::{InputPlaceholder, ScopeKind, ScopePtr, ScopeRoute};
+use scope::{InputPlaceholder, ScopeKind, ScopePtr};
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
-use vm::{BinaryOpr, MembVarContract, PureBinaryOpr};
-use word::BuiltinIdentifier;
+use vm::{BinaryOpr, MembVarContract};
 
 use super::*;
 use crate::*;
@@ -12,8 +11,6 @@ use crate::*;
 impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn infer_def(
         &mut self,
-        line_group_idx: usize,
-        inputs: &[InputPlaceholder],
         output_ty: ScopePtr,
         ast_iter: AstIter,
         arena: &RawExprArena,
@@ -74,6 +71,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.infer_lazy_opn(opr, opds, contract, arena),
             RawExprKind::Lambda(_, _) => todo!(),
+            RawExprKind::This { .. } => todo!(),
         };
         should!(self
             .contract_sheet
@@ -192,7 +190,11 @@ impl<'a> ContractSheetBuilder<'a> {
             } => {
                 let call_signature = self.db.call_signature(scope)?;
                 for i in 0..call_signature.inputs.len() {
-                    todo!("ss")
+                    self.infer_lazy_expr(
+                        opds.start + 1 + i,
+                        call_signature.inputs[i].contract.lazy()?,
+                        arena,
+                    )
                 }
             }
             RawExprKind::Scope {
@@ -212,6 +214,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => todo!(),
             RawExprKind::Lambda(_, _) => todo!(),
+            RawExprKind::This { .. } => todo!(),
         };
         Ok(())
     }

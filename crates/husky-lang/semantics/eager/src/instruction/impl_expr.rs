@@ -29,6 +29,7 @@ impl InstructionSheetBuilder {
                 ref opds,
             } => self.compile_opn(opn_kind, compiled, opds, expr),
             EagerExprKind::Lambda(_, _) => todo!(),
+            EagerExprKind::This => todo!(),
         }
     }
 

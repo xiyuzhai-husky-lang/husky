@@ -71,7 +71,13 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                     let signature = try_infer!(db.ty_signature(entity_scope));
                     Ok(Arc::new(Entity::new(
                         ident,
-                        EntityKind::Ty(Ty::from_ast(ast_head, not_none!(children))?),
+                        EntityKind::Ty(Ty::from_ast(
+                            db.upcast(),
+                            ast_head,
+                            not_none!(children),
+                            &ast_text.arena,
+                            file,
+                        )?),
                         Arc::new(Vec::new()),
                         entity_scope,
                         file,
@@ -110,7 +116,7 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                         RoutineKind::Def => todo!(),
                     };
                     Ok(Arc::new(Entity::new(
-                        routine_head.funcname,
+                        routine_head.routine_name,
                         entity_kind,
                         Arc::new(Vec::new()),
                         entity_scope,
@@ -127,7 +133,7 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                     raw_variant_kind: ref variant_kind,
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl(_) => todo!(),
+                AstKind::MembRoutineDecl { .. } => todo!(),
             }
         }
         scope::ScopeSource::Module { file: file_id } => todo!(),
@@ -151,9 +157,9 @@ fn instruction_sheet(
 ) -> SemanticResultArc<InstructionSheet> {
     let entity = this.entity(scope)?;
     Ok(match entity.kind() {
-        EntityKind::Module(_) => todo!(),
+        EntityKind::Module { .. } => todo!(),
         EntityKind::Feature(_) => todo!(),
-        EntityKind::Pattern(_) => todo!(),
+        EntityKind::Pattern { .. } => todo!(),
         EntityKind::Func {
             input_placeholders,
             stmts,

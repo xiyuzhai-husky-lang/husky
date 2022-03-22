@@ -32,6 +32,7 @@ impl InstructionSource for EagerExpr {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerExprKind {
     Variable(CustomIdentifier),
+    This,
     Scope {
         scope: ScopePtr,
         compiled: Option<Compiled>,

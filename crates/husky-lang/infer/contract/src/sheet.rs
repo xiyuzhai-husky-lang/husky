@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use common::HashMap;
+use common::{p, HashMap};
 use fold::FoldStorage;
 use infer_ty::TySheet;
 

@@ -11,7 +11,7 @@ type IterType<'a> = fold::FoldIter<'a, AstResult<Ast>, fold::FoldedList<AstResul
 impl<'a> EagerStmtParser<'a> {
     fn parse_boundary(&mut self, boundary: RawBoundary) -> SemanticResult<Boundary> {
         let bound = if let Some(bound) = boundary.opt_bound {
-            Some(self.parse_eager_expr(bound, EagerContract::Pure)?)
+            Some(self.parse_eager_expr(bound)?)
         } else {
             None
         };
@@ -48,7 +48,7 @@ impl<'a> EagerStmtParser<'a> {
                     raw_variant_kind: ref variant_kind,
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl(_) => todo!(),
+                AstKind::MembRoutineDecl { .. } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))
@@ -67,7 +67,7 @@ impl<'a> EagerStmtParser<'a> {
                 match branch_kind {
                     RawBranchKind::If { condition } => branches.push(Arc::new(ImprBranch {
                         kind: ImprBranchKind::If {
-                            condition: self.parse_eager_expr(condition, EagerContract::Pure)?,
+                            condition: self.parse_eager_expr(condition)?,
                         },
                         stmts: self.parse_impr_stmts(not_none!(children))?,
                     })),
@@ -111,7 +111,7 @@ impl<'a> EagerStmtParser<'a> {
                 }
             }
             RawStmtKind::Exec(expr) => {
-                let expr = self.parse_eager_expr(expr, EagerContract::Pure)?;
+                let expr = self.parse_eager_expr(expr)?;
                 if expr.ty != ScopePtr::Builtin(BuiltinIdentifier::Void) {
                     err!(format!(
                         "expect executed expression to be of type void, but got {:?} instead",
@@ -125,7 +125,7 @@ impl<'a> EagerStmtParser<'a> {
                 initial_value,
                 init_kind,
             } => {
-                let initial_value = self.parse_eager_expr(initial_value, EagerContract::Take)?;
+                let initial_value = self.parse_eager_expr(initial_value)?;
                 let qual = Qual::from_init(init_kind);
                 let varidx = self.def_variable(varname, initial_value.ty, qual)?;
                 ImprStmtKind::Init {
@@ -136,10 +136,10 @@ impl<'a> EagerStmtParser<'a> {
                 }
             }
             RawStmtKind::Return(result) => ImprStmtKind::Return {
-                result: self.parse_eager_expr(result, EagerContract::Take)?,
+                result: self.parse_eager_expr(result)?,
             },
             RawStmtKind::Assert(condition) => ImprStmtKind::Assert {
-                condition: self.parse_eager_expr(condition, EagerContract::Pure)?,
+                condition: self.parse_eager_expr(condition)?,
             },
         })
     }
@@ -188,7 +188,7 @@ impl<'a> EagerStmtParser<'a> {
                 }
             }
             RawLoopKind::While { condition } => {
-                let condition = self.parse_eager_expr(condition, EagerContract::Pure)?;
+                let condition = self.parse_eager_expr(condition)?;
                 match condition.ty {
                     ScopePtr::Builtin(BuiltinIdentifier::Bool)
                     | ScopePtr::Builtin(BuiltinIdentifier::I32)
@@ -203,7 +203,7 @@ impl<'a> EagerStmtParser<'a> {
                 }
             }
             RawLoopKind::DoWhile { condition } => {
-                let condition = self.parse_eager_expr(condition, EagerContract::Pure)?;
+                let condition = self.parse_eager_expr(condition)?;
                 match condition.ty {
                     ScopePtr::Builtin(BuiltinIdentifier::Bool)
                     | ScopePtr::Builtin(BuiltinIdentifier::I32)

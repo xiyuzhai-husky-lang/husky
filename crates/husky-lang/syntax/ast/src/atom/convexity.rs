@@ -11,6 +11,7 @@ pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
         AtomKind::Scope { .. }
         | AtomKind::Variable { .. }
+        | AtomKind::This { .. }
         | AtomKind::Unrecognized(_)
         | AtomKind::Literal(_)
         | AtomKind::Prefix(_)
@@ -28,6 +29,7 @@ pub(super) fn right_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
         AtomKind::Scope { .. }
         | AtomKind::Variable { .. }
+        | AtomKind::This { .. }
         | AtomKind::Unrecognized(_)
         | AtomKind::Literal(_)
         | AtomKind::Suffix(_)

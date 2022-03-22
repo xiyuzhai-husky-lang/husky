@@ -1,4 +1,5 @@
 use scope::{InputPlaceholder, ScopePtr};
+use vm::InputContract;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -14,12 +15,12 @@ impl LazyVariable {
             ident: input_placeholder.ident,
             ty: input_placeholder.ranged_ty.scope,
             is_reference: match input_placeholder.contract {
-                vm::EagerContract::Pure => false,
-                vm::EagerContract::Ref => todo!(),
-                vm::EagerContract::Take => todo!(),
-                vm::EagerContract::BorrowMut => todo!(),
-                vm::EagerContract::TakeMut => todo!(),
-                vm::EagerContract::Exec => todo!(),
+                InputContract::Pure => false,
+                InputContract::GlobalRef => todo!(),
+                InputContract::Take => todo!(),
+                InputContract::BorrowMut => todo!(),
+                InputContract::TakeMut => todo!(),
+                InputContract::Exec => todo!(),
             },
         }
     }

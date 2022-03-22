@@ -29,17 +29,18 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
 
 fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> ScopeResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
-    let mut parser = AstTransformer::new(this, this.module_from_file_id(id)?);
+    let mut parser = AstTransformer::new(this, this.module(id)?);
     parser.transform_all(tokenized_text.fold_iter(0));
     Ok(Arc::new(parser.finish()))
 }
 
-fn parse_ty(this: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<ScopePtr> {
-    let tokens = this.tokenize(code);
+fn parse_ty(db: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<ScopePtr> {
+    let tokens = db.tokenize(code);
     let symbols = fold::LocalStack::<Symbol>::new();
     let proxy = SymbolProxy {
         main: None,
-        db: this,
+        db,
+        this: None,
         symbols: &symbols,
     };
     atom::parser::parse_ty(proxy, &tokens, None)

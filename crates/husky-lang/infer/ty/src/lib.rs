@@ -85,7 +85,11 @@ fn package_input_ty(db: &dyn InferTySalsaQueryGroup, main_file: FilePtr) -> Infe
                 return input_ty_from_ast(
                     db,
                     &ast_text.arena,
-                    not_none!(item.children).last().unwrap().value.as_ref()?,
+                    not_none_or_derived!(item.children)
+                        .last()
+                        .unwrap()
+                        .value
+                        .as_ref()?,
                 )
             }
             _ => (),
@@ -102,7 +106,11 @@ fn package_output_ty(db: &dyn InferTySalsaQueryGroup, main_file: FilePtr) -> Inf
                 return output_ty_from_ast(
                     db,
                     &ast_text.arena,
-                    not_none!(item.children).last().unwrap().value.as_ref()?,
+                    not_none_or_derived!(item.children)
+                        .last()
+                        .unwrap()
+                        .value
+                        .as_ref()?,
                 )
             }
             _ => (),

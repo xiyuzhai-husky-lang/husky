@@ -65,6 +65,7 @@ pub trait ExprInstructionBuilder {
                 EagerOpnKind::TypeCall { .. } => todo!(),
             },
             EagerExprKind::Lambda(_, _) => todo!(),
+            EagerExprKind::This => todo!(),
         }
     }
 }

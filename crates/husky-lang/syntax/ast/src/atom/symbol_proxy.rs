@@ -28,12 +28,14 @@ pub enum SymbolKind {
     Scope(ScopeRoute),
     Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
+    This { ty: Option<ScopePtr> },
 }
 
 #[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
     pub(crate) main: Option<FilePtr>,
     pub(crate) db: &'a dyn AstSalsaQueryGroup,
+    pub(crate) this: Option<ScopePtr>,
     pub(crate) symbols: &'a fold::LocalStack<Symbol>,
 }
 
@@ -63,7 +65,7 @@ impl<'a> SymbolProxy<'a> {
             Identifier::Implicit(ident) => Ok(SymbolKind::Scope(ScopeRoute::Implicit {
                 main: self
                     .main
-                    .ok_or(error!(file, range, "can't use implicit outside package"))?,
+                    .ok_or(error!(file, range, "can't use implicit without main"))?,
                 ident,
             })),
             Identifier::Custom(ident) => Ok(
@@ -73,6 +75,7 @@ impl<'a> SymbolProxy<'a> {
                     SymbolKind::Unrecognized(ident)
                 },
             ),
+            Identifier::This => Ok(SymbolKind::This { ty: self.this }),
         }
     }
 
@@ -80,7 +83,7 @@ impl<'a> SymbolProxy<'a> {
         &self,
         parent_scope: Scope,
         subscope_ident: CustomIdentifier,
-    ) -> Option<Scope> {
+    ) -> Option<ScopePtr> {
         self.db.subscope(
             self.db.intern_scope(parent_scope),
             subscope_ident,

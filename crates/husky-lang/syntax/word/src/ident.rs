@@ -8,6 +8,7 @@ pub enum Identifier {
     Builtin(BuiltinIdentifier),
     Custom(CustomIdentifier),
     Implicit(ImplicitIdentifier),
+    This,
 }
 
 impl Deref for Identifier {
@@ -18,6 +19,7 @@ impl Deref for Identifier {
             Identifier::Builtin(ident) => ident.deref(),
             Identifier::Custom(ident) => ident.deref(),
             Identifier::Implicit(ident) => ident.deref(),
+            Identifier::This => "this",
         }
     }
 }

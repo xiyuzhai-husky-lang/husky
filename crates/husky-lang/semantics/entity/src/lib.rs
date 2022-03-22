@@ -45,9 +45,9 @@ impl Entity {
 
     fn dependees(kind: &EntityKind) -> UniqVec<ScopePtr> {
         return match kind {
-            EntityKind::Module(_) => Default::default(),
+            EntityKind::Module { .. } => Default::default(),
             EntityKind::Feature(_) => todo!(),
-            EntityKind::Pattern(_) => todo!(),
+            EntityKind::Pattern { .. } => todo!(),
             EntityKind::Func {
                 input_placeholders: inputs,
                 output,
@@ -76,7 +76,7 @@ impl Entity {
                     });
                     v
                 }
-                TyKind::Struct { ref memb_vars } => memb_vars
+                TyKind::Struct { ref memb_vars, .. } => memb_vars
                     .iter()
                     .map(|(_ident, memb_var)| memb_var.ty)
                     .into(),
@@ -183,6 +183,7 @@ impl Entity {
                     }
                 }
                 EagerExprKind::Lambda(_, _) => todo!(),
+                EagerExprKind::This => todo!(),
             }
         }
 

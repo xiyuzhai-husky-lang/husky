@@ -47,6 +47,7 @@ pub(crate) fn call_signature(
                     output: decl.output.scope,
                     compiled: None,
                 })),
+                // type constructor
                 AstKind::TypeDef {
                     ref kind,
                     ref generics,
@@ -70,12 +71,12 @@ pub(crate) fn call_signature(
                                         ty: signature.ty,
                                     })
                                 }
-                                AstKind::MembRoutineDecl(_) => todo!(),
                                 AstKind::Stmt(_) => todo!(),
                                 AstKind::EnumVariant {
                                     ident,
-                                    raw_variant_kind: ref variant_kind,
+                                    ref raw_variant_kind,
                                 } => todo!(),
+                                AstKind::MembRoutineDecl { .. } => (),
                             }
                         }
                         msg_once!("type call compiled");

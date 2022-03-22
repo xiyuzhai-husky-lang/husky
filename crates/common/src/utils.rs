@@ -65,7 +65,7 @@ macro_rules! should_ok {
 
 #[macro_export]
 macro_rules! should {
-    ($result:expr) => {
+    ($result:expr) => {{
         let result = $result;
         #[cfg(debug_assertions)]
         match result {
@@ -80,7 +80,7 @@ macro_rules! should {
                 );
             }
         }
-    };
+    }};
 }
 
 #[macro_export]

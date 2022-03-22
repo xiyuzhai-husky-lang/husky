@@ -1,6 +1,9 @@
 struct A:
     x: i32
 
+    func get_x() -> i32:
+        this.x
+
 proc f1() -> A:
     return A(1)
 
@@ -8,6 +11,10 @@ proc f2() -> A:
     let a = A(2)
     a.x = 1
     return a
+
+proc f3():
+    let a = A(2)
+    assert a.get_x() == 2
 
 func g1() -> i32:
     a = A(2)
@@ -19,5 +26,6 @@ dataset:
 main:
     a = f1()
     assert a.x == 1
+    assert a.get_x() == 1
     assert g1() == 2
     assert f2().x == 1

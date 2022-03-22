@@ -40,11 +40,9 @@ impl<'a> ContractSheetBuilder<'a> {
                     }
                     AstKind::MainDecl => {
                         let output_ty = self.db.package_output_ty(self.main_file).unwrap();
-                        self.infer_def(item.idx, &[], output_ty, item.children.unwrap(), &arena)
+                        self.infer_def(output_ty, item.children.unwrap(), &arena)
                     }
                     AstKind::DatasetConfig => self.infer_routine(
-                        item.idx,
-                        &[],
                         BuiltinIdentifier::DatasetType.into(),
                         item.children.unwrap(),
                         &arena,
@@ -52,8 +50,6 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstKind::RoutineDecl {
                         ref routine_head, ..
                     } => self.infer_routine(
-                        item.idx,
-                        &routine_head.input_placeholders,
                         routine_head.output.scope,
                         item.children.unwrap(),
                         &arena,
@@ -61,8 +57,15 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstKind::PatternDef => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
                     AstKind::MembVar { .. } => (),
-                    AstKind::MembRoutineDecl(_) => todo!(),
                     AstKind::Stmt(_) => todo!(),
+                    AstKind::MembRoutineDecl {
+                        ref memb_routine_head,
+                        ..
+                    } => self.infer_routine(
+                        memb_routine_head.output.scope,
+                        item.children.unwrap(),
+                        &arena,
+                    ),
                 },
                 _ => (),
             }

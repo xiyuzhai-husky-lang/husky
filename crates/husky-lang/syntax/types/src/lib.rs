@@ -1,13 +1,11 @@
-mod env;
 mod opr;
 
 use std::sync::Arc;
 
-pub use env::Env;
 pub use opr::*;
 
-use scope::{InputPlaceholder, RangedScope, ScopeKind, ScopePtr};
-use vm::{EagerContract, MembVarContract};
+use scope::{InputPlaceholder, InputSignature, RangedScope, ScopeKind, ScopePtr};
+use vm::{EagerContract, InputContract, MembVarContract};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -23,19 +21,26 @@ pub struct MembVarSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MembFuncDecl {
-    this: EagerContract,
-    inputs: Vec<InputPlaceholder>,
-    output: RangedScope,
-    args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,
+pub struct MembRoutineSignature {
+    this: InputContract,
+    inputs: Vec<InputSignature>,
+    output: ScopePtr,
+    args: Vec<GenericPlaceholder>,
 }
+// #[derive(Debug, PartialEq, Eq, Clone)]
+// pub struct MembFuncDecl {
+//     this: EagerContract,
+//     inputs: Vec<InputPlaceholder>,
+//     output: RangedScope,
+//     args: Vec<(CustomIdentifier, GenericPlaceholderKind)>,
+// }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawEnumVariantKind {
     Constant,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RoutineKind {
     Test,
     Proc,
@@ -45,10 +50,41 @@ pub enum RoutineKind {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RoutineHead {
-    pub funcname: CustomIdentifier,
+    pub routine_name: CustomIdentifier,
     pub generics: Vec<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedScope,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MembRoutineHead {
+    pub this: InputContract,
+    pub kind: RawMembRoutineKind,
+    pub routine_name: CustomIdentifier,
+    pub generics: Vec<GenericPlaceholder>,
+    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
+    pub output: RangedScope,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum RawMembRoutineKind {
+    Proc,
+    Func,
+}
+
+impl Into<MembRoutineSignature> for &MembRoutineHead {
+    fn into(self) -> MembRoutineSignature {
+        MembRoutineSignature {
+            this: self.this,
+            inputs: self
+                .input_placeholders
+                .iter()
+                .map(|input_placeholder| input_placeholder.into())
+                .collect(),
+            output: self.output.scope,
+            args: self.generics.clone(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
