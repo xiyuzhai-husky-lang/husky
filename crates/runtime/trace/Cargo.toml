@@ -1,0 +1,22 @@
+[package]
+name = "trace"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+dev-utils = { path = "../../utils/dev", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+sync-utils = { path = "../../utils/sync", version = "0.0.0" }
+file = { path = "../../syntax/file", version = "0.0.0" }
+text = { path = "../../syntax/text", version = "0.0.0" }
+fold = { path = "../../abstraction/fold", version = "0.0.0" }
+scope = { path = "../../syntax/scope", version = "0.0.0" }
+vm = { path = "../vm", version = "0.0.0" }
+syntax-types = { path = "../../syntax/types", version = "0.0.0" }
+word = { path = "../../syntax/word", version = "0.0.0" }
+semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
+semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
+feature = { path = "../../compile-time/feature", version = "0.0.0" }

@@ -1,0 +1,18 @@
+[package]
+name = "diagnostic"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+salsa = "0.17.0-pre.2"
+lsp-types = { version = "0.91", features = ["proposed"] }
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+dev-utils = { path = "../../utils/dev", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+reserve = { path = "../../abstraction/reserve", version = "0.0.0" }
+file = { path = "../../syntax/file", version = "0.0.0" }
+text = { path = "../../syntax/text", version = "0.0.0" }
+scope = { path = "../../syntax/scope", version = "0.0.0" }
+scope-query = { path = "../../syntax/scope-query", version = "0.0.0" }

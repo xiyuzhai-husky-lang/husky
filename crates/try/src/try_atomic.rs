@@ -1,6 +1,5 @@
+use crate::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
-
-use common::p;
 
 #[test]
 fn test_atomic() {

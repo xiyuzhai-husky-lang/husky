@@ -1,0 +1,12 @@
+[package]
+name = "datasets"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+xrng = { path = "../../../utils/xrng" }
+word = { path = "../../../syntax/word", version = "0.0.0" }
+scope = { path = "../../../syntax/scope", version = "0.0.0" }
+vm = { path = "../../../runtime/vm", version = "0.0.0" }

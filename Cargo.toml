@@ -1,24 +1,18 @@
 [workspace]
 members = [
-    "crates/husky-lang/syntax/*",
-    "crates/husky-lang/infer/*",
-    "crates/husky-lang/semantics/*",
-    "crates/husky-lang/diagnostic",
-    "crates/husky-lang/compile-time",
-    "crates/husky-lang/vm",
-    "crates/husky-lang/runtime",
-    "crates/husky-lang/compiler",
-    "crates/husky-lang/analyzer",
-    "crates/husky-lang/debugger",
-    "crates/husky-lang/file",
-    "crates/husky-lang/text",
-    "crates/husky-lang/fmt",
-    "crates/data-structure/*",
-    "crates/builtin/*",
-    "crates/try",
     "crates/utils/*",
-    "crates/domains/rl/*",
-    "crates/common"
+    "crates/abstraction/*",
+    "crates/syntax/*",
+    "crates/infer/*",
+    "crates/semantics/*",
+    "crates/compile-time/*",
+    "crates/runtime/*",
+    "crates/apps/*",
+    "crates/try",
+    # "crates/domains/rl/*",
+    # "extra/ml/*",
+    # "extra/rl/*",
+
 ]
 
 [profile.dev]

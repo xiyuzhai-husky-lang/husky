@@ -1,0 +1,17 @@
+[package]
+name = "json-map"
+version = "0.0.0"
+description = "JsonMap for the Husky Programming Language"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[lib]
+doctest = false
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+
+[dev-dependencies]
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
