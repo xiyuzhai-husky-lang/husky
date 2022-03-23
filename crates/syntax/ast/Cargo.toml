@@ -1,0 +1,24 @@
+[package]
+edition = "2021"
+name = "ast"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+salsa = "0.17.0-pre.2"
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+dev-utils = { path = "../../utils/dev", version = "0.0.0" }
+unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
+fold = { path = "../../abstraction/fold", version = "0.0.0" }
+arena = { path = "../../abstraction/arena", version = "0.0.0" }
+file = { path = "../file", version = "0.0.0" }
+text = { path = "../text", version = "0.0.0" }
+word = { path = "../word", version = "0.0.0" }
+token = { path = "../token", version = "0.0.0" }
+scope = { path = "../scope", version = "0.0.0" }
+scope-query = { path = "../scope-query", version = "0.0.0" }
+syntax-types = { path = "../types", version = "0.0.0" }
+vm = { path = "../../runtime/vm", version = "0.0.0" }

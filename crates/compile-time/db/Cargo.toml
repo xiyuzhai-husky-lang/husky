@@ -1,0 +1,47 @@
+[package]
+name = "compile-time-db"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+cov-mark = "2.0.0-pre.1"
+tracing = "0.1"
+rayon = "1.5.0"
+fst = { version = "0.4", default-features = false }
+rustc-hash = "1.1.0"
+once_cell = "1.3.1"
+either = "1.6.1"
+itertools = "0.10.0"
+arrayvec = "0.7"
+indexmap = "1.7"
+salsa = "0.17.0-pre.2"
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+dev-utils = { path = "../../utils/dev", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+sync-utils = { path = "../../utils/sync", version = "0.0.0" }
+vc = { path = "../../abstraction/vc", version = "0.0.0" }
+upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
+vm = { path = "../../runtime/vm", version = "0.0.0" }
+file = { path = "../../syntax/file", version = "0.0.0" }
+word = { path = "../../syntax/word", version = "0.0.0" }
+token = { path = "../../syntax/token", version = "0.0.0" }
+scope = { path = "../../syntax/scope", version = "0.0.0" }
+scope-query = { path = "../../syntax/scope-query", version = "0.0.0" }
+ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-fmt = { path = "../../syntax/fmt", version = "0.0.0" }
+infer-signature = { path = "../../infer/signature", version = "0.0.0" }
+infer-ty = { path = "../../infer/ty", version = "0.0.0" }
+infer-contract = { path = "../../infer/contract", version = "0.0.0" }
+infer-total = { path = "../../infer/total", version = "0.0.0" }
+semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
+semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
+semantics-package = { path = "../../semantics/package", version = "0.0.0" }
+feature = { path = "../feature", version = "0.0.0" }
+rust-gen = { path = "../rust-gen", version = "0.0.0" }
+diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }

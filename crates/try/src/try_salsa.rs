@@ -1,4 +1,5 @@
-use common::*;
+use crate::*;
+use std::cell::Cell;
 
 pub trait IssueUid {
     fn issue_uid(&self, x: i32) -> i32;

@@ -1,4 +1,3 @@
-use common::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize)]
@@ -14,6 +13,7 @@ pub enum B {
 
 #[test]
 fn try_serialize_a() {
+    use crate::*;
     let a = A { x: 3 };
     should_eq!(
         format!("{}", &serde_json::to_string(&a).unwrap()),

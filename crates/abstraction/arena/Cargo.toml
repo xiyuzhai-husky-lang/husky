@@ -1,0 +1,15 @@
+[package]
+name = "arena"
+version = "0.0.0"
+description = "Arena for the Husky Programming Language"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[lib]
+doctest = false
+
+[dependencies]
+
+[dev-dependencies]
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }

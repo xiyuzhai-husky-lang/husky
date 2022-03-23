@@ -3,13 +3,15 @@ name = "try"
 version = "0.0.0"
 edition = "2021"
 
+[lib]
+doctest = false
+
 [dependencies]
 rand = "0.8.4"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-common = { path = "../common", version = "0.0.0" }
 salsa = "0.17.0-pre.2"
 rayon = "1.5.1"
-
-[lib]
-doctest = false
+check-utils = { path = "../utils/check", version = "0.0.0" }
+dev-utils = { path = "../utils/dev", version = "0.0.0" }
+print-utils = { path = "../utils/print", version = "0.0.0" }
