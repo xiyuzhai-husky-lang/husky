@@ -1,13 +1,22 @@
 [package]
-name = "compiler"
+name = "husky-lang-compiler"
 version = "0.0.0"
 edition = "2021"
 
+[[bin]]
+name = "husky-lang-compiler"
+path = "src/bin/main.rs"
+
 [dependencies]
+xflags = "0.2.4"
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.91", features = ["proposed"] }
+path-utils = { path = "../../utils/path", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+io-utils = { path = "../../utils/io", version = "0.0.0" }
 reserve = { path = "../../abstraction/reserve", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 scope = { path = "../../syntax/scope", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 semantics-error = { path = "../../semantics/error", version = "0.0.0" }
+compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }

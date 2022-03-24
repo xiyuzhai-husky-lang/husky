@@ -117,7 +117,7 @@ impl<'eval> Serialize for Trace<'eval> {
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)
                     | EagerExprKind::Scope { .. }
-                    | EagerExprKind::Literal(_) => false,
+                    | EagerExprKind::PrimitiveLiteral(_) => false,
                     EagerExprKind::Bracketed(_) => todo!(),
                     EagerExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
                     EagerExprKind::Lambda(_, _) => todo!(),

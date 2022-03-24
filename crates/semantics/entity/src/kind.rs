@@ -16,12 +16,12 @@ pub struct Main {
 pub enum EntityKind {
     Main(Main),
     Module {},
-    Feature(Vec<DeclStmt>),
+    Feature(Vec<FuncStmt>),
     Pattern {},
     Func {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedScope,
-        stmts: Arc<Vec<Arc<DeclStmt>>>,
+        stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     Proc {
         input_placeholders: Arc<Vec<InputPlaceholder>>,

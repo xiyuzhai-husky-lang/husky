@@ -58,7 +58,7 @@ impl<'eval> TraceFactory<'eval> {
         match expr.kind {
             EagerExprKind::Variable(ident) => vec![ident!(ident.0, associated_trace)],
             EagerExprKind::Scope { scope, compiled } => todo!(),
-            EagerExprKind::Literal(value) => vec![literal!(value)],
+            EagerExprKind::PrimitiveLiteral(value) => vec![literal!(value)],
             EagerExprKind::Bracketed(_) => todo!(),
             EagerExprKind::Opn {
                 ref opn_kind,

@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DeclBranch {
     pub kind: DeclBranchKind,
-    pub stmts: Arc<Vec<Arc<DeclStmt>>>,
+    pub stmts: Arc<Vec<Arc<FuncStmt>>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

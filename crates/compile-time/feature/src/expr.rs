@@ -52,7 +52,7 @@ pub enum FeatureExprKind {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<DeclStmt>>>,
+        stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     ProcCall {
         proc_ranged_scope: RangedScope,
@@ -75,7 +75,7 @@ pub enum FeatureExprKind {
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
         compiled: Option<()>,
-        stmts: Arc<Vec<Arc<DeclStmt>>>,
+        stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     MembProcCall {
         memb_ident: CustomIdentifier,

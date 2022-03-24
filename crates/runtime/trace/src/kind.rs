@@ -11,7 +11,7 @@ pub enum TraceKind<'eval> {
     FeatureExpr(Arc<FeatureExpr>),
     Input(Arc<FeatureExpr>),
     StrictDeclStmt {
-        stmt: Arc<DeclStmt>,
+        stmt: Arc<FuncStmt>,
         history: Arc<History<'eval>>,
     },
     ImprStmt {

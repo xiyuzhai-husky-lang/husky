@@ -24,7 +24,9 @@ impl HuskyLangCompileTime {
         for maybe_entry in fs::read_dir(dir).unwrap() {
             let path = maybe_entry.expect("what").path();
             if path.is_dir() {
-                self.load_module(path)
+                if path.join("mod.hsk").exists() {
+                    self.load_module(path)
+                }
             } else if path.extension().unwrap() == "hsk" {
                 let text = fs::read_to_string(&path).expect("what");
                 if text.len() == 0 {

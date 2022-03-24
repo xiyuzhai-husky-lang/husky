@@ -17,7 +17,7 @@ impl InstructionSheetBuilder {
                 ))
             }
             EagerExprKind::Scope { scope, compiled } => todo!(),
-            EagerExprKind::Literal(value) => self.push_instruction(Instruction::new(
+            EagerExprKind::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
                 InstructionKind::PushPrimitiveLiteral(value),
                 expr.clone(),
             )),

@@ -32,7 +32,7 @@ impl<'a> AtomLRParser<'a> {
         let input_contracts = self.func_input_placeholders()?;
         let output = self.func_output_type()?;
         Ok(MembRoutineHead {
-            this,
+            this_contract: this,
             routine_name,
             generics: space_params,
             input_placeholders: input_contracts,

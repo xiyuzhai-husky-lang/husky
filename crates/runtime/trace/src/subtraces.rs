@@ -46,7 +46,7 @@ impl<'eval> Trace<'eval> {
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)
                 | EagerExprKind::Scope { .. }
-                | EagerExprKind::Literal(_) => None,
+                | EagerExprKind::PrimitiveLiteral(_) => None,
                 EagerExprKind::Opn {
                     ref opn_kind,
                     ref opds,

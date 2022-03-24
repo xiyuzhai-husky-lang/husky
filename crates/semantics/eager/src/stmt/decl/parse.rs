@@ -8,7 +8,7 @@ impl<'a> EagerStmtParser<'a> {
     pub(super) fn parse_decl_stmts(
         &mut self,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResultArc<Vec<Arc<DeclStmt>>> {
+    ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
@@ -67,7 +67,7 @@ impl<'a> EagerStmtParser<'a> {
                                 _ => break,
                             }
                         }
-                        DeclStmt {
+                        FuncStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
@@ -90,7 +90,7 @@ impl<'a> EagerStmtParser<'a> {
                         }
                         let qual = Qual::from_init(kind);
                         self.def_variable(varname, initial_value.ty, qual)?;
-                        DeclStmt {
+                        FuncStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
@@ -101,7 +101,7 @@ impl<'a> EagerStmtParser<'a> {
                             instruction_id: Default::default(),
                         }
                     }
-                    RawStmtKind::Return(result) => DeclStmt {
+                    RawStmtKind::Return(result) => FuncStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
@@ -110,7 +110,7 @@ impl<'a> EagerStmtParser<'a> {
                         },
                         instruction_id: Default::default(),
                     },
-                    RawStmtKind::Assert(condition) => DeclStmt {
+                    RawStmtKind::Assert(condition) => FuncStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,

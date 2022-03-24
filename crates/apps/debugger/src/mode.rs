@@ -4,6 +4,7 @@ use crate::*;
 
 use compile_time_db::HuskyLangCompileTime;
 use diagnostic::Diagnostic;
+use path_utils::collect_package_dirs;
 
 #[derive(Debug)]
 pub enum Mode {
@@ -37,7 +38,7 @@ impl From<Option<String>> for Mode {
 }
 
 async fn run(path: PathBuf) {
-    Debugger::new(|compile_time| init_compile_time_from_path(compile_time, path.into()))
+    Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, path.into()))
         .serve("localhost:51617")
         .await
         .expect("")
@@ -45,7 +46,7 @@ async fn run(path: PathBuf) {
 
 async fn test_runtime(dir: PathBuf) {
     assert!(dir.is_dir());
-    let package_paths = collect_package_paths(dir);
+    let package_paths = collect_package_dirs(dir);
     println!(
         "\n{}Running{} {} tests on runtime:",
         print_utils::CYAN,
@@ -54,7 +55,7 @@ async fn test_runtime(dir: PathBuf) {
     );
     for package_path in package_paths {
         let error_flag =
-            Debugger::new(|compile_time| init_compile_time_from_path(compile_time, package_path))
+            Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, package_path))
                 .serve_on_error("localhost:51617", 0)
                 .await;
         if error_flag {
@@ -66,7 +67,7 @@ async fn test_runtime(dir: PathBuf) {
 async fn test_diagnostics(dir: PathBuf) {
     type DiagnosticsTable = HashMap<String, Vec<Diagnostic>>;
 
-    let package_paths = collect_package_paths(dir);
+    let package_paths = collect_package_dirs(dir);
     println!(
         "\n{}Running{} {} tests on compile time:",
         print_utils::CYAN,
@@ -76,7 +77,7 @@ async fn test_diagnostics(dir: PathBuf) {
     for package_path in package_paths {
         use compile_time_db::*;
         let mut compile_time = HuskyLangCompileTime::default();
-        init_compile_time_from_path(&mut compile_time, package_path.clone());
+        init_compile_time_from_dir(&mut compile_time, package_path.clone());
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,
@@ -124,24 +125,6 @@ async fn test_diagnostics(dir: PathBuf) {
     }
 }
 
-fn collect_package_paths(dir: PathBuf) -> Vec<PathBuf> {
-    assert!(dir.is_dir());
-    let main_path = dir.join("main.hsk");
-    if main_path.exists() {
-        return vec![dir];
-    } else {
-        let mut package_paths = vec![];
-        for entry in fs::read_dir(dir).unwrap() {
-            let entry = entry.unwrap();
-            let subpath = entry.path();
-            if subpath.is_dir() {
-                package_paths.extend(collect_package_paths(subpath))
-            }
-        }
-        package_paths
-    }
-}
-
-fn init_compile_time_from_path(compile_time: &mut HuskyLangCompileTime, path: PathBuf) {
+fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: PathBuf) {
     compile_time.load_package(path)
 }
