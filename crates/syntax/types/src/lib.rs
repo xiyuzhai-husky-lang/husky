@@ -58,7 +58,7 @@ pub struct RoutineHead {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MembRoutineHead {
-    pub this: InputContract,
+    pub this_contract: InputContract,
     pub kind: RawMembRoutineKind,
     pub routine_name: CustomIdentifier,
     pub generics: Vec<GenericPlaceholder>,
@@ -75,7 +75,7 @@ pub enum RawMembRoutineKind {
 impl Into<MembCallSignature> for &MembRoutineHead {
     fn into(self) -> MembCallSignature {
         MembCallSignature {
-            this: self.this,
+            this: self.this_contract,
             inputs: self
                 .input_placeholders
                 .iter()

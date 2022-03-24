@@ -4,12 +4,13 @@ use ast::*;
 use file::FilePtr;
 use infer_total::InferQueryGroup;
 use scope::{InputPlaceholder, RangedScope};
-use semantics_eager::{DeclStmt, ImprStmt};
+use semantics_eager::{FuncStmt, ImprStmt};
 use semantics_error::SemanticResult;
 use syntax_types::{
     MembVarSignature, RawEnumVariantKind, RawMembRoutineKind, RawTyKind, RoutineKind,
 };
 use vec_map::VecMap;
+use vm::InputContract;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -94,6 +95,7 @@ impl Ty {
                                 kind: MembRoutineKind::Func { stmts },
                                 input_placeholders: memb_routine_head.input_placeholders.clone(),
                                 output: memb_routine_head.output,
+                                this_contract: memb_routine_head.this_contract,
                             },
                         )
                     }
@@ -124,11 +126,12 @@ pub struct MembRoutine {
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedScope,
     pub kind: MembRoutineKind,
+    pub this_contract: InputContract,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum MembRoutineKind {
-    Func { stmts: Arc<Vec<Arc<DeclStmt>>> },
+    Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
     Proc { stmts: Arc<Vec<Arc<ImprStmt>>> },
 }
 

@@ -17,7 +17,7 @@ pub struct InstructionSheetBuilder {
 impl InstructionSheetBuilder {
     pub fn new_decl(
         inputs: Vec<CustomIdentifier>,
-        stmts: &[Arc<DeclStmt>],
+        stmts: &[Arc<FuncStmt>],
         has_this: bool,
     ) -> Arc<InstructionSheet> {
         let mut builder = Self::new(inputs, has_this);

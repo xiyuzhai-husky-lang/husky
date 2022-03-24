@@ -88,6 +88,12 @@ pub trait FileQueryGroup: FileSalsaQuery {
             .collect()
     }
 
+    fn unique_main_file(&self) -> FilePtr {
+        let all_main_files = self.all_main_files();
+        assert_eq!(all_main_files.len(), 1);
+        all_main_files[0]
+    }
+
     fn raw_text(&self, file: FilePtr) -> Option<Arc<String>> {
         match self.file_content(file) {
             FileContent::OnDisk(text) => Some(text),

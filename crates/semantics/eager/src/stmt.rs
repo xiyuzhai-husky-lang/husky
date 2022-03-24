@@ -3,7 +3,7 @@ mod impr;
 mod parser;
 
 pub use decl::parse_decl_stmts;
-pub use decl::{DeclBranchGroupKind, DeclBranchKind, DeclStmt, DeclStmtKind};
+pub use decl::{DeclBranchGroupKind, DeclBranchKind, DeclStmtKind, FuncStmt};
 pub use impr::parse_impr_stmts;
 pub use impr::{Boundary, ImprStmt, ImprStmtKind, LoopKind};
 

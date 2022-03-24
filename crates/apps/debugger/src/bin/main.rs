@@ -7,6 +7,6 @@ async fn main() {
         todo!()
     } else {
         let mode: Mode = flags.mode.into();
-        mode.run(flags.path.into()).await
+        mode.run(flags.dir.into()).await
     }
 }

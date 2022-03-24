@@ -37,7 +37,7 @@ pub enum EagerExprKind {
         scope: ScopePtr,
         compiled: Option<Compiled>,
     },
-    Literal(PrimitiveValue),
+    PrimitiveLiteral(PrimitiveValue),
     Bracketed(Arc<EagerExpr>),
     Opn {
         opn_kind: EagerOpnKind,

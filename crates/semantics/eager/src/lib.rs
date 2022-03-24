@@ -8,8 +8,8 @@ pub use expr::{EagerExpr, EagerExprKind, EagerOpnKind};
 pub use instruction::InstructionSheetBuilder;
 pub use qual::Qual;
 pub use stmt::{
-    parse_decl_stmts, parse_impr_stmts, Boundary, DeclBranchGroupKind, DeclBranchKind, DeclStmt,
-    DeclStmtKind, ImprStmt, ImprStmtKind, LoopKind,
+    parse_decl_stmts, parse_impr_stmts, Boundary, DeclBranchGroupKind, DeclBranchKind,
+    DeclStmtKind, FuncStmt, ImprStmt, ImprStmtKind, LoopKind,
 };
 pub use variable::EagerVariable;
 

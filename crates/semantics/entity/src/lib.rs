@@ -95,7 +95,7 @@ impl Entity {
             v.push(output.scope);
         }
 
-        fn extract_decl_stmts_dependees(stmts: &[Arc<DeclStmt>], v: &mut UniqVec<ScopePtr>) {
+        fn extract_decl_stmts_dependees(stmts: &[Arc<FuncStmt>], v: &mut UniqVec<ScopePtr>) {
             for stmt in stmts {
                 match stmt.kind {
                     DeclStmtKind::Init {
@@ -160,7 +160,7 @@ impl Entity {
             match expr.kind {
                 EagerExprKind::Variable(_) => (),
                 EagerExprKind::Scope { scope, compiled } => v.push(scope),
-                EagerExprKind::Literal(_) => (),
+                EagerExprKind::PrimitiveLiteral(_) => (),
                 EagerExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
                 EagerExprKind::Opn {
                     ref opn_kind,

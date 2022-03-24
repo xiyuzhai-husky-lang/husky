@@ -27,3 +27,13 @@ pub enum FileContent {
     Deleted,
     NonExistent,
 }
+
+impl FileContent {
+    pub fn to_str(&self) -> Option<&str> {
+        match self {
+            FileContent::OnDisk(s) => Some(&s),
+            FileContent::Live(s) => Some(&s),
+            FileContent::Deleted | FileContent::NonExistent => None,
+        }
+    }
+}

@@ -31,10 +31,10 @@ pub trait EagerExprParser<'a> {
                 ScopeKind::Module => todo!(),
                 ScopeKind::Literal => match scope {
                     ScopePtr::Builtin(BuiltinIdentifier::True) => {
-                        EagerExprKind::Literal(PrimitiveValue::Bool(true))
+                        EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
                     ScopePtr::Builtin(BuiltinIdentifier::False) => {
-                        EagerExprKind::Literal(PrimitiveValue::Bool(false))
+                        EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false))
                     }
                     ScopePtr::Custom(_) => todo!(),
                     _ => todo!(),
@@ -47,7 +47,7 @@ pub trait EagerExprParser<'a> {
                 }
                 ScopeKind::Pattern => todo!(),
             },
-            RawExprKind::PrimitiveLiteral(value) => EagerExprKind::Literal(value),
+            RawExprKind::PrimitiveLiteral(value) => EagerExprKind::PrimitiveLiteral(value),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
             RawExprKind::Lambda(_, _) => todo!(),
