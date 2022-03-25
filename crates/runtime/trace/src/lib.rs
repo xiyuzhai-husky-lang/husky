@@ -113,6 +113,7 @@ impl<'eval> Serialize for Trace<'eval> {
                         ref instruction_sheet,
                         ref stmts,
                     } => todo!(),
+                    FeatureExprKind::ScopedFeature { .. } => todo!(),
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)

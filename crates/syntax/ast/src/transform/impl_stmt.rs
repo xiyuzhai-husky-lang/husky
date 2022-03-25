@@ -85,7 +85,7 @@ impl<'a> AstTransformer<'a> {
         Ok(match self.env() {
             Env::Package(_) => todo!(),
             Env::Module(_) => todo!(),
-            Env::DatasetConfig | Env::Main | Env::Def | Env::Func => {
+            Env::DatasetConfig | Env::Main | Env::Morphism | Env::Func => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
                     let varname = identify!(Some(self.file), token_group[0]);
@@ -113,6 +113,8 @@ impl<'a> AstTransformer<'a> {
             },
             Env::Test => todo!(),
             Env::Struct | Env::Enum => panic!(),
+            Env::Class => todo!(),
+            Env::Props => todo!(),
         })
         // Ok(Stmt::Exec(expr.unwrap()).into())
     }

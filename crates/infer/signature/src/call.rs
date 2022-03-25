@@ -50,7 +50,7 @@ pub(crate) fn call_signature(
                     compiled: None,
                 })),
                 // type constructor
-                AstKind::TypeDef {
+                AstKind::TypeDecl {
                     ref kind,
                     ref generics,
                     ..
@@ -61,27 +61,36 @@ pub(crate) fn call_signature(
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
                             match subast.kind {
-                                AstKind::TypeDef { .. } => todo!(),
-                                AstKind::MainDecl => todo!(),
-                                AstKind::DatasetConfig => todo!(),
-                                AstKind::RoutineDecl { .. } => todo!(),
-                                AstKind::PatternDef => todo!(),
-                                AstKind::Use { .. } => todo!(),
                                 AstKind::MembVar { ident, signature } => {
                                     inputs.push(InputSignature {
                                         contract: signature.contract.constructor_input(),
                                         ty: signature.ty,
                                     })
                                 }
-                                AstKind::Stmt(_) => todo!(),
-                                AstKind::EnumVariant {
-                                    ident,
-                                    ref raw_variant_kind,
-                                } => todo!(),
-                                AstKind::MembRoutineDecl { .. } => (),
+                                _ => (),
                             }
                         }
-                        msg_once!("type call compiled");
+                        msg_once!("struct type call compiled");
+                        Ok(Arc::new(CallSignature {
+                            inputs,
+                            output: scope,
+                            compiled: None,
+                        }))
+                    }
+                    RawTyKind::Class => {
+                        let mut inputs = vec![];
+                        for subitem in item.children.unwrap() {
+                            let subast = subitem.value.as_ref()?;
+                            match subast.kind {
+                                AstKind::MembVar { ident, signature } => {
+                                    inputs.push(InputSignature {
+                                        contract: signature.contract.constructor_input(),
+                                        ty: signature.ty,
+                                    })
+                                }
+                                _ => (),
+                            }
+                        }
                         Ok(Arc::new(CallSignature {
                             inputs,
                             output: scope,

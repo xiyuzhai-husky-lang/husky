@@ -7,6 +7,7 @@ pub enum Keyword {
     Type(TypeKeyword),
     Stmt(StmtKeyword),
     Def,
+    Main,
     Use,
     Mod,
 }
@@ -23,6 +24,7 @@ impl Deref for Keyword {
             Keyword::Use => "use",
             Keyword::Mod => "mod",
             Keyword::Def => "def",
+            Keyword::Main => "main",
         }
     }
 }
@@ -68,7 +70,6 @@ impl Deref for ConfigKeyword {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum RoutineKeyword {
-    Main,
     Test,
     Proc,
     Func,
@@ -79,7 +80,6 @@ impl Deref for RoutineKeyword {
 
     fn deref(&self) -> &Self::Target {
         match self {
-            RoutineKeyword::Main => "main",
             RoutineKeyword::Test => "test",
             RoutineKeyword::Proc => "proc",
             RoutineKeyword::Func => "func",
@@ -93,6 +93,7 @@ pub enum TypeKeyword {
     Rename,
     Enum,
     Props,
+    Class,
 }
 
 impl Deref for TypeKeyword {
@@ -104,6 +105,7 @@ impl Deref for TypeKeyword {
             TypeKeyword::Rename => "rename",
             TypeKeyword::Enum => "enum",
             TypeKeyword::Props => "props",
+            TypeKeyword::Class => "class",
         }
     }
 }

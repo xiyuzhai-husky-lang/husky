@@ -8,16 +8,16 @@ impl<'a> EagerStmtParser<'a> {
     pub(super) fn parse_decl_stmts(
         &mut self,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
+    ) -> SemanticResultArc<Vec<Arc<DeclStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
-                AstKind::TypeDef { .. } => todo!(),
+                AstKind::TypeDecl { .. } => todo!(),
                 AstKind::MainDecl => todo!(),
                 AstKind::DatasetConfig => todo!(),
                 AstKind::RoutineDecl { .. } => todo!(),
-                AstKind::PatternDef => todo!(),
+                AstKind::PatternDecl => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => match stmt.kind {
                     RawStmtKind::Loop(_) => todo!(),
@@ -67,7 +67,7 @@ impl<'a> EagerStmtParser<'a> {
                                 _ => break,
                             }
                         }
-                        FuncStmt {
+                        DeclStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
@@ -90,7 +90,7 @@ impl<'a> EagerStmtParser<'a> {
                         }
                         let qual = Qual::from_init(kind);
                         self.def_variable(varname, initial_value.ty, qual)?;
-                        FuncStmt {
+                        DeclStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
@@ -101,7 +101,7 @@ impl<'a> EagerStmtParser<'a> {
                             instruction_id: Default::default(),
                         }
                     }
-                    RawStmtKind::Return(result) => FuncStmt {
+                    RawStmtKind::Return(result) => DeclStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
@@ -110,7 +110,7 @@ impl<'a> EagerStmtParser<'a> {
                         },
                         instruction_id: Default::default(),
                     },
-                    RawStmtKind::Assert(condition) => FuncStmt {
+                    RawStmtKind::Assert(condition) => DeclStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
@@ -126,6 +126,8 @@ impl<'a> EagerStmtParser<'a> {
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
                 AstKind::MembRoutineDecl { .. } => todo!(),
+                AstKind::FeatureDecl { .. } => todo!(),
+                AstKind::MembFeatureDecl { ident, ty } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

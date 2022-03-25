@@ -4,7 +4,9 @@ use file::FilePtr;
 use path_utils::*;
 use scope::*;
 
-use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier, WordPtr};
+use word::{
+    dash_to_snake, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier, WordPtr,
+};
 
 use fold::FoldStorage;
 
@@ -204,8 +206,9 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
             scope_err!(format!("file didn't exist"))?
         } else if path_has_file_name(&path, "main.hsk") {
             if let Some(package_name) = path_parent_file_name_str(&path) {
+                let snake_name = dash_to_snake(&package_name);
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
-                    self.word_unique_allocator().alloc(package_name)
+                    self.word_unique_allocator().alloc(snake_name)
                 {
                     Ok(self.intern_scope(Scope::package(id, ident)))
                 } else {

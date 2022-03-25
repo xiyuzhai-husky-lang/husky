@@ -21,3 +21,4 @@ semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 scope = { path = "../../syntax/scope", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
+compile-time-dir = { path = "../../compile-time/dir", version = "0.0.0" }

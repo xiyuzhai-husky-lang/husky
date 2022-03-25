@@ -69,11 +69,11 @@ impl<'a> LazyStmtParser<'a> {
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
-                AstKind::TypeDef { .. } => todo!(),
+                AstKind::TypeDecl { .. } => todo!(),
                 AstKind::MainDecl => todo!(),
                 AstKind::DatasetConfig => todo!(),
                 AstKind::RoutineDecl { .. } => todo!(),
-                AstKind::PatternDef => todo!(),
+                AstKind::PatternDecl => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => match stmt.kind {
                     RawStmtKind::Loop(_) => todo!(),
@@ -181,6 +181,8 @@ impl<'a> LazyStmtParser<'a> {
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
                 AstKind::MembRoutineDecl { .. } => todo!(),
+                AstKind::FeatureDecl { .. } => todo!(),
+                AstKind::MembFeatureDecl { ident, ty } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

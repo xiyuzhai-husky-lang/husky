@@ -1,9 +1,11 @@
+use word::{Identifier, Keyword, WordPtr};
+
 pub use crate::*;
 
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokenKind {
-    Keyword(word::Keyword),
-    Identifier(word::Identifier),
+    Keyword(Keyword),
+    Identifier(Identifier),
     Special(Special),
     I32Literal(i32),
     F32Literal(f32),
@@ -20,11 +22,11 @@ impl std::hash::Hash for TokenKind {
     }
 }
 impl Eq for TokenKind {}
-impl From<word::WordPtr> for TokenKind {
-    fn from(word: word::WordPtr) -> Self {
+impl From<WordPtr> for TokenKind {
+    fn from(word: WordPtr) -> Self {
         match word {
-            word::WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
-            word::WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
+            WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
+            WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
         }
     }
 }

@@ -70,7 +70,7 @@ impl InstructionSheetBuilder {
                         SuffixOpr::Incr => todo!(),
                         SuffixOpr::Decr => todo!(),
                         SuffixOpr::MayReturn => todo!(),
-                        SuffixOpr::MembVarAccess(ident) => {
+                        SuffixOpr::MembAccess(ident) => {
                             msg_once!("memb var access compiled");
                             InstructionKind::MembVarAccessInterpreted {
                                 ident: *ident,

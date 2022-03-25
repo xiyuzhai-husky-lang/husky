@@ -32,7 +32,7 @@ fn main_block(
 fn lazy_block(this: &dyn FeatureQueryGroup, scope: ScopePtr) -> SemanticResultArc<FeatureBlock> {
     let entity = this.entity(scope)?;
     match entity.kind() {
-        EntityKind::Feature(_) => todo!(),
+        EntityKind::Feature { .. } => todo!(),
         _ => todo!(),
     }
 }

@@ -8,11 +8,13 @@ pub enum Env {
     Module(ScopePtr),
     DatasetConfig,
     Main,
-    Def,
+    Morphism,
     Func,
     Proc,
     Test,
     Struct,
+    Class,
+    Props,
     Enum,
 }
 
@@ -25,12 +27,14 @@ impl Env {
             Env::Module(_) => todo!(),
             Env::DatasetConfig => todo!(),
             Env::Main => todo!(),
-            Env::Def => todo!(),
+            Env::Morphism => todo!(),
             Env::Func => todo!(),
             Env::Proc => todo!(),
             Env::Test => todo!(),
             Env::Struct => todo!(),
             Env::Enum => todo!(),
+            Env::Class => todo!(),
+            Env::Props => todo!(),
         }
     }
 }
@@ -42,12 +46,14 @@ impl std::fmt::Display for Env {
             Env::Module(_) => "module",
             Env::DatasetConfig => "dataset config",
             Env::Main => "main",
-            Env::Def => "def",
+            Env::Morphism => "def",
             Env::Func => "func",
             Env::Proc => "proc",
             Env::Test => "test",
-            Env::Struct => todo!(),
-            Env::Enum => todo!(),
+            Env::Struct => "struct",
+            Env::Enum => "enum",
+            Env::Class => "class",
+            Env::Props => "props",
         })
     }
 }

@@ -9,8 +9,8 @@ pub enum LazyOpnKind {
     Prefix(PrefixOpr),
     RoutineCall(RangedScope),
     TypeCall(RangedScope),
-    PattCall,
-    MembVarAccess(CustomIdentifier),
+    PatternCall,
+    MembAccess(CustomIdentifier),
     MembCall { memb_ident: CustomIdentifier },
     ElementAccess,
 }

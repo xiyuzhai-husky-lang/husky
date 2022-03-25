@@ -3,7 +3,7 @@ use std::ops::AddAssign;
 use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
-use vm::{EagerContract, InitKind, InputContract, MembVarContract, PrimitiveValue};
+use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
@@ -68,7 +68,7 @@ impl<'a> Formatter<'a> {
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &ast::Ast) {
         match ast.kind {
-            AstKind::TypeDef {
+            AstKind::TypeDecl {
                 ident,
                 ref kind,
                 ref generics,
@@ -76,6 +76,7 @@ impl<'a> Formatter<'a> {
                 match kind {
                     RawTyKind::Enum => todo!(),
                     RawTyKind::Struct => self.write("struct "),
+                    RawTyKind::Class => todo!(),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {
@@ -111,11 +112,11 @@ impl<'a> Formatter<'a> {
                 }
                 self.write(":");
             }
-            AstKind::PatternDef => todo!(),
+            AstKind::PatternDecl => todo!(),
             AstKind::Use { ident, scope } => todo!(),
             AstKind::MembVar {
                 ident,
-                signature: MembVarSignature { contract, ty },
+                signature: MembAccessSignature { contract, ty },
             } => {
                 self.fmt_ident(ident.into());
                 self.write(": ");
@@ -128,6 +129,8 @@ impl<'a> Formatter<'a> {
                 raw_variant_kind: ref variant_kind,
             } => todo!(),
             AstKind::MembRoutineDecl { .. } => todo!(),
+            AstKind::FeatureDecl { .. } => todo!(),
+            AstKind::MembFeatureDecl { ident, ty } => todo!(),
         }
     }
 
@@ -135,10 +138,11 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_member_variable_contracted_type(&mut self, contract: MembVarContract, ty: ScopePtr) {
+    fn fmt_member_variable_contracted_type(&mut self, contract: MembAccessContract, ty: ScopePtr) {
         match contract {
-            MembVarContract::Own => (),
-            MembVarContract::Ref => self.write("&"),
+            MembAccessContract::Own => (),
+            MembAccessContract::Ref => self.write("&"),
+            MembAccessContract::LazyOwn => todo!(),
         }
         self.fmt_ty(ty);
     }

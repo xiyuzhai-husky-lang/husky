@@ -251,6 +251,7 @@ fn feature_expr_subtraces(
             ref instruction_sheet,
             ref stmts,
         } => todo!(),
+        FeatureExprKind::ScopedFeature { .. } => todo!(),
     })
 }
 

@@ -78,11 +78,11 @@ impl From<ListOpr> for Opr {
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum SuffixOpr {
-    Incr,                            // ++
-    Decr,                            // --
-    MayReturn,                       // ?
-    MembVarAccess(CustomIdentifier), // .
-    WithType(ScopePtr),              // :
+    Incr,                         // ++
+    Decr,                         // --
+    MayReturn,                    // ?
+    MembAccess(CustomIdentifier), // .
+    WithType(ScopePtr),           // :
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]

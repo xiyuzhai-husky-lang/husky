@@ -1,7 +1,7 @@
 mod division;
 mod tests;
 
-use semantics_eager::FuncStmt;
+use semantics_eager::DeclStmt;
 use semantics_package::{Config, Package};
 use trivial_iter::TrivialIter;
 use vm::{eval_fast, EvalResult, Mode, VMResult};

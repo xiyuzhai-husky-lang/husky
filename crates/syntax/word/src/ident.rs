@@ -25,6 +25,23 @@ impl Deref for Identifier {
 #[derive(Copy, Clone)]
 pub struct CustomIdentifier(pub &'static str);
 
+impl CustomIdentifier {
+    pub fn snake_name(&self) -> String {
+        let mut snake_name = String::new();
+        for c in self.0.chars() {
+            if c.is_alphanumeric() {
+                snake_name.push(c)
+            } else {
+                todo!()
+            }
+        }
+        snake_name
+    }
+    pub fn dash_name(&self) -> String {
+        todo!()
+    }
+}
+
 impl std::fmt::Debug for CustomIdentifier {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str(self.0)

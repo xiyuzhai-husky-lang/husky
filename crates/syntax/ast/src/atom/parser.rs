@@ -169,7 +169,7 @@ impl<'a> AtomLRParser<'a> {
                                 _=>todo!(),
                             };
                             self.stack
-                        .push(Atom::new(token.text_range(), SuffixOpr::MembVarAccess(memb_ident).into()))?},
+                        .push(Atom::new(token.text_range(), SuffixOpr::MembAccess(memb_ident).into()))?},
                         _ => self.stack.push(token.into())?,
                     },
                     _ => self.stack.push(token.into())?,

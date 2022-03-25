@@ -7,6 +7,7 @@ pub use query::{EntityQueryGroup, EntityQueryGroupStorage};
 use file::FilePtr;
 use scope::{InputPlaceholder, RangedScope, ScopePtr};
 use semantics_eager::*;
+use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
 use std::sync::Arc;
 use text::TextRange;
 use unique_vector::UniqVec;
@@ -46,7 +47,12 @@ impl Entity {
     fn dependees(kind: &EntityKind) -> UniqVec<ScopePtr> {
         return match kind {
             EntityKind::Module { .. } => Default::default(),
-            EntityKind::Feature(_) => todo!(),
+            EntityKind::Feature { ty, stmts } => {
+                let mut v = UniqVec::new();
+                v.push(ty.scope);
+                extract_lazy_stmts_dependees(stmts, &mut v);
+                v
+            }
             EntityKind::Pattern { .. } => todo!(),
             EntityKind::Func {
                 input_placeholders: inputs,
@@ -69,17 +75,30 @@ impl Entity {
                 v
             }
             EntityKind::Ty(ty) => match ty.kind {
-                TyKind::Enum { ref variants } => {
+                TyDefnKind::Enum { ref variants } => {
                     let mut v = UniqVec::new();
                     variants.iter().for_each(|(_ident, variant_kind)| {
                         extract_enum_variant_dependees(variant_kind, &mut v)
                     });
                     v
                 }
-                TyKind::Struct { ref memb_vars, .. } => memb_vars
+                TyDefnKind::Struct { ref memb_vars, .. } => memb_vars
                     .iter()
                     .map(|(_ident, memb_var)| memb_var.ty)
                     .into(),
+                TyDefnKind::Class {
+                    ref memb_vars,
+                    ref memb_features,
+                } => {
+                    let mut v = UniqVec::new();
+                    memb_vars
+                        .iter()
+                        .for_each(|(_ident, memb_var_signature)| v.push(memb_var_signature.ty));
+                    memb_features
+                        .iter()
+                        .for_each(|(_ident, memb_feature_defn)| v.push(memb_feature_defn.ty));
+                    v
+                }
             },
             EntityKind::Main(_) => todo!(),
         };
@@ -95,15 +114,28 @@ impl Entity {
             v.push(output.scope);
         }
 
-        fn extract_decl_stmts_dependees(stmts: &[Arc<FuncStmt>], v: &mut UniqVec<ScopePtr>) {
+        fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], v: &mut UniqVec<ScopePtr>) {
+            for stmt in stmts {
+                match stmt.kind {
+                    LazyStmtKind::Init { varname, ref value } => todo!(),
+                    LazyStmtKind::Assert { ref condition } => todo!(),
+                    LazyStmtKind::Return { ref result } => extract_lazy_expr_dependees(result, v),
+                    LazyStmtKind::Branches { kind, ref branches } => todo!(),
+                }
+            }
+        }
+
+        fn extract_decl_stmts_dependees(stmts: &[Arc<DeclStmt>], v: &mut UniqVec<ScopePtr>) {
             for stmt in stmts {
                 match stmt.kind {
                     DeclStmtKind::Init {
                         varname,
                         initial_value: ref value,
-                    } => extract_expr_dependees(value, v),
-                    DeclStmtKind::Assert { ref condition } => extract_expr_dependees(condition, v),
-                    DeclStmtKind::Return { ref result } => extract_expr_dependees(result, v),
+                    } => extract_eager_expr_dependees(value, v),
+                    DeclStmtKind::Assert { ref condition } => {
+                        extract_eager_expr_dependees(condition, v)
+                    }
+                    DeclStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
                     DeclStmtKind::Branches { kind, ref branches } => {
                         for branch in branches {
                             extract_decl_stmts_dependees(&branch.stmts, v)
@@ -120,10 +152,12 @@ impl Entity {
                         varname,
                         ref initial_value,
                         ..
-                    } => extract_expr_dependees(initial_value, v),
-                    ImprStmtKind::Assert { ref condition } => extract_expr_dependees(condition, v),
-                    ImprStmtKind::Return { ref result } => extract_expr_dependees(result, v),
-                    ImprStmtKind::Execute { ref expr } => extract_expr_dependees(expr, v),
+                    } => extract_eager_expr_dependees(initial_value, v),
+                    ImprStmtKind::Assert { ref condition } => {
+                        extract_eager_expr_dependees(condition, v)
+                    }
+                    ImprStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
+                    ImprStmtKind::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
                     ImprStmtKind::BranchGroup { kind, ref branches } => {
                         for branch in branches {
                             extract_impr_stmts_dependees(&branch.stmts, v)
@@ -147,8 +181,12 @@ impl Entity {
                             } => {
                                 extract_boundary_dependees(final_boundary, v);
                             }
-                            LoopKind::While { condition } => extract_expr_dependees(condition, v),
-                            LoopKind::DoWhile { condition } => extract_expr_dependees(condition, v),
+                            LoopKind::While { condition } => {
+                                extract_eager_expr_dependees(condition, v)
+                            }
+                            LoopKind::DoWhile { condition } => {
+                                extract_eager_expr_dependees(condition, v)
+                            }
                         }
                         extract_impr_stmts_dependees(stmts, v)
                     }
@@ -156,12 +194,43 @@ impl Entity {
             }
         }
 
-        fn extract_expr_dependees(expr: &EagerExpr, v: &mut UniqVec<ScopePtr>) {
+        fn extract_lazy_expr_dependees(expr: &LazyExpr, v: &mut UniqVec<ScopePtr>) {
+            match expr.kind {
+                LazyExprKind::Variable(_) | LazyExprKind::PrimitiveLiteral(_) => (),
+                LazyExprKind::Scope { scope, .. } => v.push(scope),
+                LazyExprKind::EnumLiteral { scope, ref value } => todo!(),
+                LazyExprKind::Bracketed(_) => todo!(),
+                LazyExprKind::Opn {
+                    opn_kind,
+                    compiled,
+                    ref opds,
+                } => {
+                    match opn_kind {
+                        LazyOpnKind::Binary { .. }
+                        | LazyOpnKind::Prefix(_)
+                        | LazyOpnKind::MembAccess(_)
+                        | LazyOpnKind::MembCall { .. } => (),
+                        LazyOpnKind::RoutineCall(routine) => v.push(routine.scope),
+                        LazyOpnKind::TypeCall(ty) => v.push(ty.scope),
+                        LazyOpnKind::PatternCall => todo!(),
+                        LazyOpnKind::ElementAccess => todo!(),
+                    }
+                    for opd in opds {
+                        extract_lazy_expr_dependees(opd, v)
+                    }
+                }
+                LazyExprKind::Lambda(_, _) => todo!(),
+                LazyExprKind::This => todo!(),
+                LazyExprKind::ScopedFeature { scope } => todo!(),
+            }
+        }
+
+        fn extract_eager_expr_dependees(expr: &EagerExpr, v: &mut UniqVec<ScopePtr>) {
             match expr.kind {
                 EagerExprKind::Variable(_) => (),
                 EagerExprKind::Scope { scope, compiled } => v.push(scope),
                 EagerExprKind::PrimitiveLiteral(_) => (),
-                EagerExprKind::Bracketed(ref expr) => extract_expr_dependees(expr, v),
+                EagerExprKind::Bracketed(ref expr) => extract_eager_expr_dependees(expr, v),
                 EagerExprKind::Opn {
                     ref opn_kind,
                     ref opds,
@@ -179,7 +248,7 @@ impl Entity {
                         EagerOpnKind::PatternCall => todo!(),
                     }
                     for opd in opds {
-                        extract_expr_dependees(opd, v)
+                        extract_eager_expr_dependees(opd, v)
                     }
                 }
                 EagerExprKind::Lambda(_, _) => todo!(),
@@ -191,7 +260,7 @@ impl Entity {
             boundary
                 .opt_bound
                 .as_ref()
-                .map(|bound| extract_expr_dependees(bound, v));
+                .map(|bound| extract_eager_expr_dependees(bound, v));
         }
 
         fn extract_enum_variant_dependees(
@@ -213,7 +282,6 @@ impl Entity {
         range: TextRange,
         vc: &EntityVersionControl,
     ) -> Entity {
-        use std::borrow::Borrow;
         let kind = Arc::new(kind);
         vc.update(scope, kind.clone(), &Self::dependees(&kind));
         Self {

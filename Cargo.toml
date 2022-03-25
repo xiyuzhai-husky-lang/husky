@@ -9,12 +9,19 @@ members = [
     "crates/runtime/*",
     "crates/apps/*",
     "crates/try",
-    # "crates/domains/rl/*",
-    # "extra/ml/*",
-    # "extra/rl/*",
-
+    "rust-gen/*",
 ]
-exclude = ["projects/*"]
+default-members = [
+    "crates/utils/*",
+    "crates/abstraction/*",
+    "crates/syntax/*",
+    "crates/infer/*",
+    "crates/semantics/*",
+    "crates/compile-time/*",
+    "crates/runtime/*",
+    "crates/apps/*",
+    "crates/try",
+]
 
 [profile.dev]
 opt-level = 0

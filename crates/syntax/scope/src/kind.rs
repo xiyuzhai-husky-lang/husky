@@ -23,6 +23,7 @@ impl ScopeKind {
                 TokenKind::Special(Special::LCurl) => ScopeKind::Pattern,
                 _ => ScopeKind::Feature,
             }),
+            Keyword::Main => todo!(),
         }
     }
 }

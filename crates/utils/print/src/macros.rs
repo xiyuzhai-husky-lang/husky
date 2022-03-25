@@ -58,7 +58,16 @@ macro_rules! ep_once {
 macro_rules! msg_once {
     ($msg:expr) => {{
         static ONCE: std::sync::Once = std::sync::Once::new();
-        ONCE.call_once(|| eprintln!("[message] {}\n\t\tsrc: {}:{}", $msg, file!(), line!()))
+        ONCE.call_once(|| {
+            eprintln!(
+                "{}[message]{} {}, src: {}:{}\n",
+                print_utils::YELLOW,
+                print_utils::RESET,
+                $msg,
+                file!(),
+                line!()
+            )
+        })
     }};
 }
 

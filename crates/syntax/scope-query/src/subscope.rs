@@ -1,6 +1,6 @@
 use file::FilePtr;
 use scope::*;
-use word::CustomIdentifier;
+use word::{CustomIdentifier, Keyword};
 
 use crate::error::*;
 use crate::ScopeSalsaQueryGroup;
@@ -8,7 +8,6 @@ use crate::ScopeSalsaQueryGroup;
 use text::TextRanged;
 use token::{Token, TokenGroupIter, TokenKind};
 use word::Identifier;
-use word::RoutineKeyword;
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
@@ -48,7 +47,7 @@ impl Entry {
             }
         }
         if token_group.len() == 2 {
-            if token_group[0].kind == TokenKind::Keyword(RoutineKeyword::Main.into()) {
+            if token_group[0].kind == TokenKind::Keyword(Keyword::Main.into()) {
                 return (
                     Some(Entry {
                         ident: None,

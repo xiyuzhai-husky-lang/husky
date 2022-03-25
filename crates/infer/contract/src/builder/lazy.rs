@@ -3,14 +3,14 @@ use ast::*;
 use infer_error::*;
 use scope::{InputPlaceholder, ScopeKind, ScopePtr};
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
-use vm::{BinaryOpr, MembVarContract};
+use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;
 
 use super::*;
 use crate::*;
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(crate) fn infer_def(
+    pub(crate) fn infer_morphism(
         &mut self,
         output_ty: ScopePtr,
         ast_iter: AstIter,
@@ -68,11 +68,11 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprKind::Variable { .. }
             | RawExprKind::Unrecognized(_)
             | RawExprKind::Scope { .. }
-            | RawExprKind::PrimitiveLiteral(_) => Ok(()),
+            | RawExprKind::PrimitiveLiteral(_)
+            | RawExprKind::This { .. } => Ok(()),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.infer_lazy_opn(opr, opds, contract, arena),
             RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { .. } => todo!(),
         };
         should!(self
             .contract_sheet
@@ -108,7 +108,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
-                    LazyContract::Take => todo!(),
+                    LazyContract::Take => (),
                     LazyContract::Ref => todo!(),
                     LazyContract::Pure => (),
                 }
@@ -141,15 +141,20 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembVarAccess(ident) => {
+            SuffixOpr::MembAccess(ident) => {
                 let this_ty_signature = self.db.expr_ty_signature(self.file, opd)?;
-                let this_contract = match this_ty_signature.memb_var_signature(ident).contract {
-                    MembVarContract::Own => match contract {
+                let this_contract = match this_ty_signature.memb_access_signature(ident).contract {
+                    MembAccessContract::Own => match contract {
                         LazyContract::Take => LazyContract::Take,
                         LazyContract::Ref => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
                     },
-                    MembVarContract::Ref => todo!(),
+                    MembAccessContract::Ref => todo!(),
+                    MembAccessContract::LazyOwn => match contract {
+                        LazyContract::Take => todo!(),
+                        LazyContract::Ref => todo!(),
+                        LazyContract::Pure => LazyContract::Pure,
+                    },
                 };
                 self.infer_lazy_expr(opd, this_contract, arena);
                 Ok(())
@@ -206,7 +211,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembVarAccess(ident) => self.infer_lazy_memb_call(
+                    SuffixOpr::MembAccess(ident) => self.infer_lazy_memb_call(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,

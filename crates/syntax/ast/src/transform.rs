@@ -1,10 +1,13 @@
-mod impl_parse_enum;
-mod impl_parse_expr;
-mod impl_parse_func_decl;
-mod impl_parse_module;
-mod impl_parse_stmt;
-mod impl_parse_struct_item;
+mod impl_class_item;
+mod impl_enum_item;
+mod impl_expr;
+mod impl_module_item;
+mod impl_morphism_decl;
+mod impl_routine_decl;
+mod impl_stmt;
+mod impl_struct_item;
 mod impl_symbol_proxy;
+mod impl_ty_decl;
 mod impl_use_all;
 mod utils;
 
@@ -102,24 +105,30 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 Env::Package(_) | Env::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?
                 }
-                Env::DatasetConfig | Env::Main | Env::Def | Env::Func | Env::Proc | Env::Test => {
-                    match token_group[0].kind {
-                        TokenKind::Keyword(keyword) => match keyword {
-                            Keyword::Config(_) => todo!(),
-                            Keyword::Routine(_) => todo!(),
-                            Keyword::Type(_) => todo!(),
-                            Keyword::Stmt(keyword) => {
-                                self.parse_stmt_with_keyword(keyword, token_group)?.into()
-                            }
-                            Keyword::Def => todo!(),
-                            Keyword::Use => todo!(),
-                            Keyword::Mod => todo!(),
-                        },
-                        _ => self.parse_stmt_without_keyword(token_group)?.into(),
-                    }
-                }
+                Env::DatasetConfig
+                | Env::Main
+                | Env::Morphism
+                | Env::Func
+                | Env::Proc
+                | Env::Test => match token_group[0].kind {
+                    TokenKind::Keyword(keyword) => match keyword {
+                        Keyword::Config(_) => todo!(),
+                        Keyword::Routine(_) => todo!(),
+                        Keyword::Type(_) => todo!(),
+                        Keyword::Stmt(keyword) => {
+                            self.parse_stmt_with_keyword(keyword, token_group)?.into()
+                        }
+                        Keyword::Def => todo!(),
+                        Keyword::Use => todo!(),
+                        Keyword::Mod => todo!(),
+                        Keyword::Main => todo!(),
+                    },
+                    _ => self.parse_stmt_without_keyword(token_group)?.into(),
+                },
                 Env::Struct => self.parse_struct_item(token_group, enter_block)?,
                 Env::Enum => self.parse_enum_variant(token_group)?,
+                Env::Class => self.parse_class_item(token_group, enter_block)?,
+                Env::Props => todo!(),
             },
         })
     }

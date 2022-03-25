@@ -12,5 +12,3 @@ Cargo.lock
 node_modules
 
 _outdated
-
-**/.rust

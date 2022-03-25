@@ -1,4 +1,7 @@
-use vm::{EvalResult, EvalValue};
+use std::sync::Arc;
+
+use semantics_lazy::LazyStmt;
+use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, StackValue};
 
 use crate::{FeatureExpr, FeatureExprKind};
 
@@ -70,6 +73,35 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 ref instruction_sheet,
                 ref stmts,
             } => todo!(),
+            FeatureExprKind::ScopedFeature { ref stmts, .. } => self.eval_scoped_feature(stmts),
         }
+    }
+
+    fn eval_memb_routine_call(
+        &mut self,
+        instrns: &InstructionSheet,
+        maybe_compiled: Option<()>,
+        opds: &[Arc<FeatureExpr>],
+    ) -> EvalResult<'eval> {
+        let values = opds
+            .iter()
+            .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
+        eval_fast(values, instrns, maybe_compiled)
+    }
+
+    fn eval_routine_call(
+        &mut self,
+        instrns: &InstructionSheet,
+        maybe_compiled: Option<()>,
+        inputs: &[Arc<FeatureExpr>],
+    ) -> EvalResult<'eval> {
+        let values = inputs
+            .iter()
+            .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
+        eval_fast(values, instrns, maybe_compiled)
+    }
+
+    fn eval_scoped_feature(&mut self, stmts: &[Arc<LazyStmt>]) -> EvalResult<'eval> {
+        todo!()
     }
 }

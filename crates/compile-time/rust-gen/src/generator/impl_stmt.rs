@@ -1,10 +1,14 @@
-use semantics_eager::{Boundary, DeclStmtKind, FuncStmt, ImprStmt, ImprStmtKind, LoopKind};
+use scope::ScopePtr;
+use semantics_eager::{
+    Boundary, DeclStmt, DeclStmtKind, EagerExpr, ImprStmt, ImprStmtKind, LoopKind,
+};
 use vm::{BoundaryKind, InitKind};
+use word::BuiltinIdentifier;
 
 use super::*;
 
 impl<'a> RustGenerator<'a> {
-    pub(super) fn gen_decl_stmts(&mut self, stmts: &[Arc<FuncStmt>], indent: fold::Indent) {
+    pub(super) fn gen_decl_stmts(&mut self, stmts: &[Arc<DeclStmt>], indent: fold::Indent) {
         let indent_prev = self.indent;
         self.indent = indent;
         for stmt in stmts {
@@ -22,7 +26,7 @@ impl<'a> RustGenerator<'a> {
         self.indent = indent_prev;
     }
 
-    fn gen_decl_stmt(&mut self, stmt: &FuncStmt) {
+    fn gen_decl_stmt(&mut self, stmt: &DeclStmt) {
         self.write_indent();
         match stmt.kind {
             DeclStmtKind::Init {
@@ -146,7 +150,7 @@ impl<'a> RustGenerator<'a> {
                 }
                 LoopKind::While { condition } => {
                     self.write("while ");
-                    self.gen_expr(condition);
+                    self.gen_condition(condition);
                     self.write(" {\n");
                     self.gen_impr_stmts(stmts, self.indent + 4);
                     self.write_indent();
@@ -156,9 +160,13 @@ impl<'a> RustGenerator<'a> {
                     self.write("loop {\n");
                     self.gen_impr_stmts(stmts, self.indent + 4);
                     self.write_indent();
-                    self.write("!(");
-                    self.gen_expr(condition);
-                    self.write(") { break; }\n");
+                    self.write("    if !(");
+                    self.gen_condition(condition);
+                    self.write(") {\n");
+                    self.write_indent();
+                    self.write("        break;\n");
+                    self.write_indent();
+                    self.write("    }\n");
                     self.write_indent();
                     self.write("}\n")
                 }
@@ -204,6 +212,37 @@ impl<'a> RustGenerator<'a> {
                 BoundaryKind::LowerOpen => todo!(),
                 BoundaryKind::LowerClosed => todo!(),
             }
+        }
+    }
+
+    fn gen_condition(&mut self, condition: &EagerExpr) {
+        match condition.ty {
+            ScopePtr::Builtin(builtin_ident) => match builtin_ident {
+                BuiltinIdentifier::Void => todo!(),
+                BuiltinIdentifier::I32
+                | BuiltinIdentifier::F32
+                | BuiltinIdentifier::B32
+                | BuiltinIdentifier::B64 => {
+                    self.gen_expr(condition);
+                    self.write(" != 0");
+                }
+                BuiltinIdentifier::Bool => self.gen_expr(condition),
+                BuiltinIdentifier::True
+                | BuiltinIdentifier::False
+                | BuiltinIdentifier::Vector
+                | BuiltinIdentifier::Tuple
+                | BuiltinIdentifier::Debug
+                | BuiltinIdentifier::Std
+                | BuiltinIdentifier::Core
+                | BuiltinIdentifier::Fp
+                | BuiltinIdentifier::Fn
+                | BuiltinIdentifier::FnMut
+                | BuiltinIdentifier::FnOnce
+                | BuiltinIdentifier::Array
+                | BuiltinIdentifier::DatasetType
+                | BuiltinIdentifier::Type => panic!(),
+            },
+            ScopePtr::Custom(_) => panic!(),
         }
     }
 }

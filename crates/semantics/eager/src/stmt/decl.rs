@@ -15,7 +15,7 @@ use super::*;
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct FuncStmt {
+pub struct DeclStmt {
     pub file: FilePtr,
     pub range: TextRange,
     pub indent: fold::Indent,
@@ -23,7 +23,7 @@ pub struct FuncStmt {
     pub instruction_id: InstructionId,
 }
 
-impl InstructionSource for FuncStmt {
+impl InstructionSource for DeclStmt {
     fn instruction_id(&self) -> InstructionId {
         self.instruction_id
     }
@@ -53,6 +53,6 @@ pub fn parse_decl_stmts(
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     file: FilePtr,
-) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
+) -> SemanticResultArc<Vec<Arc<DeclStmt>>> {
     EagerStmtParser::new(input_placeholders, db, arena, file).parse_decl_stmts(iter)
 }

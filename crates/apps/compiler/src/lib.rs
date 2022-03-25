@@ -1,6 +1,7 @@
 mod flags;
 
 use compile_time_db::*;
+use compile_time_dir::{get_or_create_child_dir, get_rust_dir};
 use file::FilePtr;
 use io_utils::diff_write;
 use path_utils::collect_package_dirs;
@@ -18,7 +19,8 @@ pub fn compile_package(package_dir: PathBuf) {
     let mut compile_time = HuskyLangCompileTime::default();
     compile_time.load_package(package_dir.clone());
     let main_file = compile_time.unique_main_file();
-    let rust_dir = get_or_create_child_dir(&package_dir, ".rust");
+    let package = compile_time.package(main_file).unwrap();
+    let rust_dir = get_rust_dir(&package);
     let code_snapshot_dir = get_or_create_child_dir(&rust_dir, "snapshot");
     let src_dir = get_or_create_child_dir(&rust_dir, "src");
     let bin_dir = get_or_create_child_dir(&src_dir, "bin");
@@ -42,18 +44,6 @@ pub fn compile_package(package_dir: PathBuf) {
         &bin_dir.join("main.rs"),
         &compile_time.rust_bin_main_rs_content(main_file),
     );
-}
-
-fn get_or_create_child_dir(parent_dir: &Path, dirname: &str) -> PathBuf {
-    let child_dir = parent_dir.join(dirname);
-    if !child_dir.exists() {
-        std::fs::create_dir(&child_dir).unwrap();
-    } else {
-        if !child_dir.is_dir() {
-            panic!()
-        }
-    }
-    child_dir
 }
 
 fn save_code_snapshot(

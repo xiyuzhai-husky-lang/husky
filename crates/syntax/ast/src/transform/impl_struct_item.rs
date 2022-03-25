@@ -8,7 +8,7 @@ use crate::{
 };
 use text::TextRanged;
 use token::{Special, Token, TokenKind};
-use vm::{InputContract, MembVarContract};
+use vm::{InputContract, MembAccessContract};
 use word::RoutineKeyword;
 
 impl<'a> AstTransformer<'a> {
@@ -21,7 +21,6 @@ impl<'a> AstTransformer<'a> {
             TokenKind::Keyword(keyword) => match keyword {
                 Keyword::Config(_) => todo!(),
                 Keyword::Routine(routine_keyword) => match routine_keyword {
-                    RoutineKeyword::Main => todo!(),
                     RoutineKeyword::Test => todo!(),
                     RoutineKeyword::Proc => todo!(),
                     RoutineKeyword::Func => {
@@ -33,6 +32,7 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Def => todo!(),
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
+                Keyword::Main => todo!(),
             },
             TokenKind::Identifier(_) => self.parse_struct_memb_var(token_group),
             TokenKind::Special(_) => todo!(),
@@ -75,8 +75,8 @@ impl<'a> AstTransformer<'a> {
                 let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
                 AstKind::MembVar {
                     ident,
-                    signature: MembVarSignature {
-                        contract: MembVarContract::Own,
+                    signature: MembAccessSignature {
+                        contract: MembAccessContract::Own,
                         ty,
                     },
                 }

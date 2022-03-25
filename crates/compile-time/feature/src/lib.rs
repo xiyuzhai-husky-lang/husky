@@ -62,6 +62,10 @@ pub enum Feature {
         memb_ident: CustomIdentifier,
         opds: Vec<FeaturePtr>,
     },
+    ScopedFeature {
+        scope: ScopePtr,
+        uid: EntityUid,
+    },
 }
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]

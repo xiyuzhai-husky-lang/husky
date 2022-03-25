@@ -1,4 +1,5 @@
 mod impl_expr;
+mod impl_morphism;
 mod impl_routine;
 mod impl_stmt;
 
@@ -32,15 +33,14 @@ impl<'a> TySheetBuilder<'a> {
         for item in ast_iter {
             match item.value {
                 Ok(value) => match value.kind {
-                    AstKind::TypeDef { .. } | AstKind::EnumVariant { .. } => {
+                    AstKind::TypeDecl { .. } | AstKind::EnumVariant { .. } => {
                         item.children.map(|children| self.infer_all(children));
                     }
                     AstKind::MainDecl => {
                         let output_ty = self.db.package_output_ty(self.main_file).unwrap();
-                        self.infer_def(item.idx, &[], output_ty, item.children.unwrap(), &arena)
+                        self.infer_morphism(&[], output_ty, item.children.unwrap(), &arena)
                     }
                     AstKind::DatasetConfig => self.infer_routine(
-                        item.idx,
                         &[],
                         BuiltinIdentifier::DatasetType.into(),
                         item.children.unwrap(),
@@ -49,13 +49,12 @@ impl<'a> TySheetBuilder<'a> {
                     AstKind::RoutineDecl {
                         ref routine_head, ..
                     } => self.infer_routine(
-                        item.idx,
                         &routine_head.input_placeholders,
                         routine_head.output.scope,
                         item.children.unwrap(),
                         &arena,
                     ),
-                    AstKind::PatternDef => todo!(),
+                    AstKind::PatternDecl => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
                     AstKind::MembVar { .. } => (),
                     AstKind::Stmt(_) => todo!(),
@@ -63,28 +62,21 @@ impl<'a> TySheetBuilder<'a> {
                         ref memb_routine_head,
                         ..
                     } => self.infer_routine(
-                        item.idx,
                         &memb_routine_head.input_placeholders,
                         memb_routine_head.output.scope,
                         item.children.unwrap(),
                         &arena,
                     ),
+                    AstKind::FeatureDecl { ty, .. } => {
+                        self.infer_morphism(&[], ty.scope, item.children.unwrap(), &arena)
+                    }
+                    AstKind::MembFeatureDecl { ty, .. } => {
+                        self.infer_morphism(&[], ty, item.children.unwrap(), &arena)
+                    }
                 },
                 _ => (),
             }
         }
-    }
-
-    fn infer_def(
-        &mut self,
-        line_group_idx: usize,
-        inputs: &[InputPlaceholder],
-        output_ty: ScopePtr,
-        ast_iter: AstIter,
-        arena: &RawExprArena,
-    ) {
-        self.add_inputs(inputs);
-        self.infer_stmts(ast_iter.clone(), output_ty, arena);
     }
 
     fn add_inputs(&mut self, inputs: &[InputPlaceholder]) {

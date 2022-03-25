@@ -9,10 +9,7 @@ use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
 use text::TextRange;
-use vm::{
-    AnyValueDyn, BinaryOpr, EagerContract, EnumLiteralValue, InstructionSheet, LazyContract,
-    MembVarAccessCompiled,
-};
+use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled};
 use word::BuiltinIdentifier;
 
 use crate::{eval::FeatureEvalId, *};
@@ -52,7 +49,7 @@ pub enum FeatureExprKind {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<FuncStmt>>>,
+        stmts: Arc<Vec<Arc<DeclStmt>>>,
     },
     ProcCall {
         proc_ranged_scope: RangedScope,
@@ -75,7 +72,7 @@ pub enum FeatureExprKind {
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
         compiled: Option<()>,
-        stmts: Arc<Vec<Arc<FuncStmt>>>,
+        stmts: Arc<Vec<Arc<DeclStmt>>>,
     },
     MembProcCall {
         memb_ident: CustomIdentifier,
@@ -89,6 +86,10 @@ pub enum FeatureExprKind {
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ImprStmt>>>,
+    },
+    ScopedFeature {
+        scope: ScopePtr,
+        stmts: Arc<Vec<Arc<LazyStmt>>>,
     },
 }
 
@@ -154,6 +155,20 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.features.alloc(Feature::EnumLiteral(scope)),
             ),
+            LazyExprKind::This => todo!(),
+            LazyExprKind::ScopedFeature { scope } => {
+                let uid = self.db.entity_vc().uid(scope);
+                let entity = self.db.entity(scope).unwrap();
+                let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
+                let kind = match entity.kind() {
+                    EntityKind::Feature { ty, stmts } => FeatureExprKind::ScopedFeature {
+                        scope,
+                        stmts: stmts.clone(),
+                    },
+                    _ => todo!(),
+                };
+                (kind, feature)
+            }
         };
         Arc::new(FeatureExpr {
             kind,

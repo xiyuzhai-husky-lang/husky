@@ -3,7 +3,7 @@ use std::sync::Arc;
 use ast::AstKind;
 use fold::{FoldIterItem, FoldStorage};
 use infer_total::InferQueryGroup;
-use scope::ScopePtr;
+use scope::{ScopePtr, ScopeSource};
 use semantics_lazy::parse_lazy_stmts;
 use syntax_types::RoutineKind;
 use upcast::Upcast;
@@ -52,13 +52,14 @@ fn main(this: &dyn EntityQueryGroup, main_file: file::FilePtr) -> SemanticResult
 fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultArc<Entity> {
     let source = db.scope_source(entity_scope)?;
     match source {
-        scope::ScopeSource::Builtin(_) => todo!(),
-        scope::ScopeSource::WithinBuiltinModule => todo!(),
-        scope::ScopeSource::WithinModule {
+        ScopeSource::Builtin(_) => todo!(),
+        ScopeSource::WithinBuiltinModule => todo!(),
+        ScopeSource::WithinModule {
             file,
             token_group_index,
         } => {
             let ast_text = db.ast_text(file)?;
+            let arena = &ast_text.arena;
             let FoldIterItem {
                 value, children, ..
             } = ast_text
@@ -67,70 +68,40 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                 .next()
                 .unwrap();
             let ast_head = value.as_ref()?;
-            match ast_head.kind {
-                AstKind::TypeDef {
+
+            let (ident, entity_kind) = match ast_head.kind {
+                AstKind::TypeDecl {
                     ident,
                     kind,
                     ref generics,
                 } => {
                     let signature = try_infer!(db.ty_signature(entity_scope));
-                    Ok(Arc::new(Entity::new(
+                    (
                         ident,
-                        EntityKind::Ty(Ty::from_ast(
+                        EntityKind::Ty(TyDefn::from_ast(
                             db.upcast(),
                             ast_head,
                             not_none!(children),
-                            &ast_text.arena,
+                            arena,
                             file,
                         )?),
-                        Arc::new(Vec::new()),
-                        entity_scope,
-                        file,
-                        ast_head.range,
-                        db.entity_vc(),
-                    )))
+                    )
                 }
                 AstKind::RoutineDecl {
                     ref routine_kind,
                     ref routine_head,
-                } => {
-                    let entity_kind = match routine_kind {
-                        RoutineKind::Test => todo!(),
-                        RoutineKind::Proc => EntityKind::Proc {
-                            input_placeholders: routine_head.input_placeholders.clone(),
-                            output: routine_head.output,
-                            stmts: parse_impr_stmts(
-                                &routine_head.input_placeholders,
-                                db.upcast(),
-                                &ast_text.arena,
-                                not_none!(children),
-                                file,
-                            )?,
-                        },
-                        RoutineKind::Func => EntityKind::Func {
-                            input_placeholders: routine_head.input_placeholders.clone(),
-                            output: routine_head.output,
-                            stmts: parse_decl_stmts(
-                                &routine_head.input_placeholders,
-                                db.upcast(),
-                                &ast_text.arena,
-                                not_none!(children),
-                                file,
-                            )?,
-                        },
-                        RoutineKind::Def => todo!(),
-                    };
-                    Ok(Arc::new(Entity::new(
-                        routine_head.routine_name,
-                        entity_kind,
-                        Arc::new(Vec::new()),
-                        entity_scope,
+                } => (
+                    routine_head.routine_name,
+                    EntityKind::routine(
+                        db,
+                        routine_kind,
+                        routine_head,
+                        not_none!(children),
+                        arena,
                         file,
-                        ast_head.range,
-                        db.entity_vc(),
-                    )))
-                }
-                AstKind::PatternDef => todo!(),
+                    )?,
+                ),
+                AstKind::PatternDecl => todo!(),
                 AstKind::Use { ident, scope } => todo!(),
                 AstKind::MainDecl | AstKind::DatasetConfig | AstKind::Stmt(_) => panic!(),
                 AstKind::EnumVariant {
@@ -139,9 +110,23 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
                 AstKind::MembRoutineDecl { .. } => todo!(),
-            }
+                AstKind::FeatureDecl { ident, ty } => (
+                    ident,
+                    EntityKind::feature(db, ty, not_none!(children), arena, file)?,
+                ),
+                AstKind::MembFeatureDecl { ident, ty } => todo!(),
+            };
+            Ok(Arc::new(Entity::new(
+                ident,
+                entity_kind,
+                Arc::new(Vec::new()),
+                entity_scope,
+                file,
+                ast_head.range,
+                db.entity_vc(),
+            )))
         }
-        scope::ScopeSource::Module { file: file_id } => todo!(),
+        ScopeSource::Module { file: file_id } => todo!(),
     }
 }
 
@@ -163,7 +148,7 @@ fn scope_instruction_sheet(
     let entity = this.entity(scope)?;
     Ok(match entity.kind() {
         EntityKind::Module { .. } => todo!(),
-        EntityKind::Feature(_) => todo!(),
+        EntityKind::Feature { .. } => todo!(),
         EntityKind::Pattern { .. } => todo!(),
         EntityKind::Func {
             input_placeholders,
@@ -203,7 +188,7 @@ fn memb_routine_instruction_sheet(
     Ok(match entity.kind() {
         EntityKind::Main(_) => todo!(),
         EntityKind::Module {} => todo!(),
-        EntityKind::Feature(_) => todo!(),
+        EntityKind::Feature { .. } => todo!(),
         EntityKind::Pattern {} => todo!(),
         EntityKind::Func {
             input_placeholders,
@@ -216,8 +201,8 @@ fn memb_routine_instruction_sheet(
             stmts,
         } => todo!(),
         EntityKind::Ty(ty) => match ty.kind {
-            TyKind::Enum { ref variants } => todo!(),
-            TyKind::Struct {
+            TyDefnKind::Enum { ref variants } => todo!(),
+            TyDefnKind::Struct {
                 ref memb_vars,
                 ref memb_routines,
             } => {
@@ -236,6 +221,10 @@ fn memb_routine_instruction_sheet(
                     }
                 }
             }
+            TyDefnKind::Class {
+                ref memb_vars,
+                ref memb_features,
+            } => todo!(),
         },
     })
 }

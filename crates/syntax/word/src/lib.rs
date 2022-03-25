@@ -1,13 +1,13 @@
 mod intern;
 mod keyword;
+mod utils;
 
 pub use ident::{
     default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier,
 };
 pub use intern::{new_word_unique_allocator, InternWord, WordInterner};
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TypeKeyword};
-
-
+pub use utils::*;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum WordPtr {
