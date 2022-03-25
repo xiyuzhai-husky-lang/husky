@@ -7,9 +7,9 @@ use crate::*;
 impl<'eval> TraceFactory<'eval> {
     pub fn new_call_head(&self, entity: Arc<Entity>, text: &Text) -> Arc<Trace<'eval>> {
         let tokens = match entity.kind() {
-            EntityKind::Module{..}=> todo!(),
-            EntityKind::Feature(_) => todo!(),
-            EntityKind::Pattern{..} => todo!(),
+            EntityKind::Module { .. } => todo!(),
+            EntityKind::Feature { .. } => todo!(),
+            EntityKind::Pattern { .. } => todo!(),
             EntityKind::Func {
                 input_placeholders, ..
             } => routine_call_head_tokens("func ", entity.ident, input_placeholders, text),

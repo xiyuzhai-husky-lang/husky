@@ -3,7 +3,7 @@ use std::sync::Arc;
 use infer_signature::TySignature;
 use scope::{RangedScope, ScopePtr};
 use syntax_types::{PrefixOpr, SuffixOpr};
-use vm::{BinaryOpr, MembVarContract};
+use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -27,7 +27,7 @@ pub enum EagerOpnKind {
     },
     PatternCall,
     MembVarAccess {
-        memb_var_contract: MembVarContract,
+        memb_var_contract: MembAccessContract,
     },
     MembRoutineCall {
         memb_ident: CustomIdentifier,

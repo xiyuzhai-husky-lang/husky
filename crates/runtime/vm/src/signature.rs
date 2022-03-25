@@ -7,7 +7,7 @@ use crate::*;
 pub enum VMTySignature {
     Enum,
     Struct {
-        memb_vars: VecMap<CustomIdentifier, MembVarContract>,
+        memb_vars: VecMap<CustomIdentifier, MembAccessContract>,
     },
 }
 

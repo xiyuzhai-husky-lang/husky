@@ -5,7 +5,7 @@ use ast::{
 use infer_error::*;
 use scope::ScopePtr;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
-use vm::{BinaryOpr, MembVarContract};
+use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;
 
 use super::*;
@@ -189,11 +189,11 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembVarAccess(ident) => {
+            SuffixOpr::MembAccess(ident) => {
                 let this_ty_signature = self.db.expr_ty_signature(self.file, opd)?;
-                let memb_var_signature = this_ty_signature.memb_var_signature(ident);
+                let memb_var_signature = this_ty_signature.memb_access_signature(ident);
                 let this_contract = match memb_var_signature.contract {
-                    MembVarContract::Own => match contract {
+                    MembAccessContract::Own => match contract {
                         EagerContract::Pure => EagerContract::Pure,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
@@ -211,7 +211,8 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::LetInit => todo!(),
                         EagerContract::VarInit => todo!(),
                     },
-                    MembVarContract::Ref => todo!(),
+                    MembAccessContract::Ref => todo!(),
+                    MembAccessContract::LazyOwn => todo!(),
                 };
                 self.infer_eager_expr(opd, this_contract, arena);
                 Ok(())
@@ -275,7 +276,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembVarAccess(ident) => self.infer_eager_memb_call(
+                    SuffixOpr::MembAccess(ident) => self.infer_eager_memb_call(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,

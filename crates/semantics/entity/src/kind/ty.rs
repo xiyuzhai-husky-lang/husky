@@ -3,45 +3,47 @@ use std::sync::Arc;
 use ast::*;
 use file::FilePtr;
 use infer_total::InferQueryGroup;
-use scope::{InputPlaceholder, RangedScope};
-use semantics_eager::{FuncStmt, ImprStmt};
+use scope::{InputPlaceholder, RangedScope, ScopePtr};
+use semantics_eager::{DeclStmt, ImprStmt};
 use semantics_error::SemanticResult;
+use semantics_lazy::LazyStmt;
 use syntax_types::{
-    MembVarSignature, RawEnumVariantKind, RawMembRoutineKind, RawTyKind, RoutineKind,
+    MembAccessSignature, RawEnumVariantKind, RawMembRoutineKind, RawTyKind, RoutineKind,
 };
 use vec_map::VecMap;
 use vm::InputContract;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Ty {
-    pub kind: TyKind,
+pub struct TyDefn {
+    pub kind: TyDefnKind,
 }
 
-impl Ty {
+impl TyDefn {
     pub(crate) fn from_ast(
         db: &dyn InferQueryGroup,
         head: &Ast,
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResult<Ty> {
-        Ok(Ty {
+    ) -> SemanticResult<TyDefn> {
+        Ok(TyDefn {
             kind: match head.kind {
-                AstKind::TypeDef {
+                AstKind::TypeDecl {
                     ident,
                     kind,
                     ref generics,
                 } => match kind {
                     RawTyKind::Enum => Self::enum_from_ast(children)?,
                     RawTyKind::Struct => Self::struct_from_ast(db, children, arena, file)?,
+                    RawTyKind::Class => Self::class_from_ast(db, children, arena, file)?,
                 },
                 _ => panic!(),
             },
         })
     }
 
-    fn enum_from_ast(children: AstIter) -> SemanticResult<TyKind> {
+    fn enum_from_ast(children: AstIter) -> SemanticResult<TyDefnKind> {
         let mut variants = VecMap::default();
         for subitem in children {
             match subitem.value.as_ref()?.kind {
@@ -57,7 +59,7 @@ impl Ty {
                 _ => panic!(),
             }
         }
-        Ok(TyKind::Enum { variants })
+        Ok(TyDefnKind::Enum { variants })
     }
 
     fn struct_from_ast(
@@ -65,7 +67,7 @@ impl Ty {
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResult<TyKind> {
+    ) -> SemanticResult<TyDefnKind> {
         let mut memb_vars = VecMap::default();
         let mut memb_routines = VecMap::default();
         for subitem in children {
@@ -91,7 +93,7 @@ impl Ty {
                         )?;
                         memb_routines.insert_new(
                             memb_routine_head.routine_name,
-                            MembRoutine {
+                            MembRoutineDefn {
                                 kind: MembRoutineKind::Func { stmts },
                                 input_placeholders: memb_routine_head.input_placeholders.clone(),
                                 output: memb_routine_head.output,
@@ -103,26 +105,65 @@ impl Ty {
                 _ => panic!(),
             }
         }
-        Ok(TyKind::Struct {
+        Ok(TyDefnKind::Struct {
             memb_vars,
             memb_routines,
+        })
+    }
+
+    fn class_from_ast(
+        db: &dyn InferQueryGroup,
+        children: AstIter,
+        arena: &RawExprArena,
+        file: FilePtr,
+    ) -> SemanticResult<TyDefnKind> {
+        let mut memb_vars = VecMap::default();
+        let mut memb_features = VecMap::default();
+        for subitem in children {
+            match subitem.value.as_ref()?.kind {
+                AstKind::Use { ident, scope } => (),
+                AstKind::RoutineDecl {
+                    ref routine_kind,
+                    ref routine_head,
+                } => todo!(),
+                AstKind::MembVar { ident, signature } => memb_vars.insert_new(ident, signature),
+                AstKind::MembFeatureDecl { ident, ty } => {
+                    let stmts = semantics_lazy::parse_lazy_stmts(
+                        &[],
+                        db,
+                        arena,
+                        subitem.children.unwrap(),
+                        file,
+                    )?;
+                    memb_features.insert_new(ident, MembFeatureDefn { ty, stmts });
+                }
+                _ => panic!(),
+            }
+        }
+        Ok(TyDefnKind::Class {
+            memb_vars,
+            memb_features,
         })
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum TyKind {
+pub enum TyDefnKind {
     Enum {
         variants: VecMap<CustomIdentifier, EnumVariantKind>,
     },
     Struct {
-        memb_vars: VecMap<CustomIdentifier, MembVarSignature>,
-        memb_routines: VecMap<CustomIdentifier, MembRoutine>,
+        memb_vars: VecMap<CustomIdentifier, MembAccessSignature>,
+        memb_routines: VecMap<CustomIdentifier, MembRoutineDefn>,
+    },
+    Class {
+        memb_vars: VecMap<CustomIdentifier, MembAccessSignature>,
+        memb_features: VecMap<CustomIdentifier, MembFeatureDefn>,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MembRoutine {
+pub struct MembRoutineDefn {
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedScope,
     pub kind: MembRoutineKind,
@@ -130,8 +171,14 @@ pub struct MembRoutine {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+pub struct MembFeatureDefn {
+    pub ty: ScopePtr,
+    pub stmts: Arc<Vec<Arc<LazyStmt>>>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum MembRoutineKind {
-    Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
+    Func { stmts: Arc<Vec<Arc<DeclStmt>>> },
     Proc { stmts: Arc<Vec<Arc<ImprStmt>>> },
 }
 

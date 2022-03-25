@@ -9,7 +9,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: Arc<FuncStmt>,
+        stmt: Arc<DeclStmt>,
         history: Arc<History<'eval>>,
         text: &Text,
     ) -> Arc<Trace<'eval>> {

@@ -6,7 +6,7 @@ mod impl_ty_defn;
 mod impl_write;
 
 use crate::*;
-use semantics_entity::{Entity, EntityKind, TyKind};
+use semantics_entity::{Entity, EntityKind, TyDefnKind};
 use semantics_package::Package;
 use std::sync::Arc;
 use word::WordInterner;
@@ -31,8 +31,7 @@ impl<'a> RustGenerator<'a> {
             match entity.kind() {
                 EntityKind::Main(_) => todo!(),
                 EntityKind::Module {} => todo!(),
-                EntityKind::Feature(_) => todo!(),
-                EntityKind::Pattern {} => todo!(),
+                EntityKind::Feature { .. } | EntityKind::Pattern {} => (),
                 EntityKind::Func {
                     input_placeholders,
                     output,
@@ -44,11 +43,12 @@ impl<'a> RustGenerator<'a> {
                     stmts,
                 } => self.gen_proc_defn(entity.ident, input_placeholders, output.scope, stmts),
                 EntityKind::Ty(ty) => match ty.kind {
-                    TyKind::Enum { ref variants } => self.gen_enum_defn(entity.ident, variants),
-                    TyKind::Struct {
+                    TyDefnKind::Enum { ref variants } => self.gen_enum_defn(entity.ident, variants),
+                    TyDefnKind::Struct {
                         ref memb_vars,
                         ref memb_routines,
                     } => self.gen_struct_defn(entity.ident, memb_vars, memb_routines),
+                    TyDefnKind::Class { .. } => (),
                 },
             }
         }

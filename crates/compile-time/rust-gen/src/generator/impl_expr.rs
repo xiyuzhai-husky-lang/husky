@@ -26,7 +26,7 @@ impl<'a> RustGenerator<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembVarAccess(memb_ident) => {
+                    SuffixOpr::MembAccess(memb_ident) => {
                         self.gen_expr(&opds[0]);
                         self.write(".");
                         self.write(&memb_ident)

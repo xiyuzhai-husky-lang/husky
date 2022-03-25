@@ -26,7 +26,7 @@ impl InputContract {
         Ok(match self {
             InputContract::Pure => LazyContract::Pure,
             InputContract::GlobalRef => todo!(),
-            InputContract::Take => todo!(),
+            InputContract::Take => LazyContract::Take,
             InputContract::BorrowMut => todo!(),
             InputContract::TakeMut => todo!(),
             InputContract::Exec => todo!(),
@@ -55,22 +55,24 @@ pub enum LazyContract {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum MembVarContract {
+pub enum MembAccessContract {
     Own,
     Ref,
+    LazyOwn,
 }
 
-impl MembVarContract {
+impl MembAccessContract {
     pub fn constructor_input(&self) -> InputContract {
         match self {
-            MembVarContract::Own => InputContract::Take,
-            MembVarContract::Ref => InputContract::GlobalRef,
+            MembAccessContract::Own => InputContract::Take,
+            MembAccessContract::Ref => InputContract::GlobalRef,
+            MembAccessContract::LazyOwn => panic!(),
         }
     }
 
     pub fn this(&self, input_contract: EagerContract) -> VMResult<EagerContract> {
         match self {
-            MembVarContract::Own => match input_contract {
+            MembAccessContract::Own => match input_contract {
                 EagerContract::Pure => todo!(),
                 EagerContract::GlobalRef => todo!(),
                 EagerContract::Move => Ok(EagerContract::Move),
@@ -81,7 +83,8 @@ impl MembVarContract {
                 EagerContract::VarInit => todo!(),
                 EagerContract::Return => todo!(),
             },
-            MembVarContract::Ref => todo!(),
+            MembAccessContract::Ref => todo!(),
+            MembAccessContract::LazyOwn => todo!(),
         }
     }
 }

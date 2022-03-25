@@ -75,8 +75,8 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 (kind, feature)
             }
-            LazyOpnKind::PattCall => todo!(),
-            LazyOpnKind::MembVarAccess(memb_var_ident) => {
+            LazyOpnKind::PatternCall => todo!(),
+            LazyOpnKind::MembAccess(memb_var_ident) => {
                 let this = self.new_expr(&opds[0]);
                 let feature = self.features.alloc(Feature::MembVarAccess {
                     this: this.feature,
@@ -105,8 +105,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     _ => panic!(),
                 };
                 match ty.kind {
-                    TyKind::Enum { ref variants } => todo!(),
-                    TyKind::Struct {
+                    TyDefnKind::Enum { ref variants } => todo!(),
+                    TyDefnKind::Struct {
                         ref memb_vars,
                         ref memb_routines,
                     } => {
@@ -126,6 +126,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         };
                         (kind, feature)
                     }
+                    TyDefnKind::Class { .. } => todo!(),
                 }
             }
             LazyOpnKind::ElementAccess => todo!(),

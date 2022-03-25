@@ -1,6 +1,7 @@
 use crate::*;
 
 pub(crate) fn cargo_toml_content(db: &dyn RustGenQueryGroup, main_file: FilePtr) -> Arc<String> {
+    let package = db.package(main_file).unwrap();
     Arc::new(format!(
         r#"[package]
 name = "{}"
@@ -14,8 +15,7 @@ rust-version = "1.56"
 tokio = {{ version = "0.2", features = ["full"] }}
 husky-lang-debugger = {{ path = "/home/xiyuzhai/Documents/husky/crates/apps/debugger", version = "0.0.0" }}
 compile-time-db = {{ path = "/home/xiyuzhai/Documents/husky/crates/compile-time/db", version = "0.0.0" }}
-
-[workspace]"#,
-        "package-name-todo" // package name
+"#,
+        &package.ident // package name
     ))
 }

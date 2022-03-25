@@ -1,14 +1,17 @@
 use std::path::Path;
 
+use compile_time_dir::get_code_snapshot_dir;
+
 use crate::*;
 
 pub(crate) fn rust_bin_main_rs_content(
     db: &dyn RustGenQueryGroup,
     main_file: FilePtr,
 ) -> Arc<String> {
+    let package = db.package(main_file).unwrap();
     Arc::new(format!(
         r#"use husky_lang_debugger::*;
-use package_name_todo::__init__::link_entity_with_compiled;
+use {}::__init__::link_entity_with_compiled;
 use compile_time_db::*;
 
 #[tokio::main]
@@ -24,15 +27,7 @@ fn init_compile_time(compile_time: &mut HuskyLangCompileTime) {{
     link_entity_with_compiled(compile_time)
 }}
 "#,
-        &get_code_snapshot_dir(&main_file)
+        &package.ident,
+        &get_code_snapshot_dir(&package)
     ))
-}
-
-fn get_code_snapshot_dir(main_file_path: &Path) -> String {
-    let package_dir = main_file_path.parent().unwrap();
-    let rust_dir = package_dir.join(".rust");
-    assert!(rust_dir.exists());
-    let snapshot_dir = rust_dir.join("snapshot");
-    assert!(snapshot_dir.exists());
-    snapshot_dir.to_str().unwrap().into()
 }

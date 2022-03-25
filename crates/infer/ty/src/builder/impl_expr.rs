@@ -32,31 +32,11 @@ impl<'a> TySheetBuilder<'a> {
                 .get(&(varname, init_row))
                 .unwrap()
                 .clone())?),
-            RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::Scope { scope, kind } => Ok(match kind {
-                ScopeKind::Module => todo!(),
-                ScopeKind::Literal => match scope {
-                    ScopePtr::Builtin(BuiltinIdentifier::True)
-                    | ScopePtr::Builtin(BuiltinIdentifier::False) => BuiltinIdentifier::Bool.into(),
-                    ScopePtr::Custom(scope) => match scope.route {
-                        ScopeRoute::Builtin { ident } => todo!(),
-                        ScopeRoute::Package { main, ident } => todo!(),
-                        ScopeRoute::ChildScope { parent, ident } => parent,
-                        ScopeRoute::Implicit { main, ident } => todo!(),
-                    },
-                    _ => todo!(),
-                },
-                ScopeKind::Type => BuiltinIdentifier::Type.into(),
-                ScopeKind::Trait => todo!(),
-                ScopeKind::Routine => {
-                    msg_once!("todo: generics in fp");
-                    BuiltinIdentifier::Fp.into()
-                }
-                ScopeKind::Feature => {
-                    panic!("what")
-                }
-                ScopeKind::Pattern => todo!(),
-            }),
+            RawExprKind::Unrecognized(ident) => {
+                p!(ident);
+                todo!()
+            }
+            RawExprKind::Scope { scope, kind } => self.scope_ty_result(scope, kind),
             RawExprKind::PrimitiveLiteral(value) => Ok(value.ty().into()),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.opn_opt_ty(opr, opds, expr_idx, arena),
@@ -69,6 +49,31 @@ impl<'a> TySheetBuilder<'a> {
             }
         }
         Ok(ty)
+    }
+
+    fn scope_ty_result(&mut self, scope: ScopePtr, scope_kind: ScopeKind) -> InferResult<ScopePtr> {
+        Ok(match scope_kind {
+            ScopeKind::Module => todo!(),
+            ScopeKind::Literal => match scope {
+                ScopePtr::Builtin(BuiltinIdentifier::True)
+                | ScopePtr::Builtin(BuiltinIdentifier::False) => BuiltinIdentifier::Bool.into(),
+                ScopePtr::Custom(scope) => match scope.route {
+                    ScopeRoute::Builtin { ident } => todo!(),
+                    ScopeRoute::Package { main, ident } => todo!(),
+                    ScopeRoute::ChildScope { parent, ident } => parent,
+                    ScopeRoute::Implicit { main, ident } => todo!(),
+                },
+                _ => todo!(),
+            },
+            ScopeKind::Type => BuiltinIdentifier::Type.into(),
+            ScopeKind::Trait => todo!(),
+            ScopeKind::Routine => {
+                msg_once!("todo: generics in fp");
+                BuiltinIdentifier::Fp.into()
+            }
+            ScopeKind::Feature => self.db.feature_signature(scope)?.ty,
+            ScopeKind::Pattern => todo!(),
+        })
     }
 
     fn opn_opt_ty(
@@ -188,8 +193,8 @@ impl<'a> TySheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembVarAccess(ident) => {
-                self.db.ty_signature(opd_ty)?.memb_var_ty_result(ident)
+            SuffixOpr::MembAccess(ident) => {
+                self.db.ty_signature(opd_ty)?.memb_access_ty_result(ident)
             }
             SuffixOpr::WithType(_) => todo!(),
         }
@@ -235,7 +240,7 @@ impl<'a> TySheetBuilder<'a> {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
                 Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::MembVarAccess(ident) => self.memb_call_ty_result(
+                    SuffixOpr::MembAccess(ident) => self.memb_call_ty_result(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,

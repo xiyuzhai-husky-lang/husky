@@ -27,11 +27,11 @@ impl<'a> EagerStmtParser<'a> {
         while let Some(item) = iter.next() {
             let instruction_id = InstructionId::default();
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
-                AstKind::TypeDef { .. } => todo!(),
+                AstKind::TypeDecl { .. } => todo!(),
                 AstKind::MainDecl => todo!(),
                 AstKind::DatasetConfig => todo!(),
                 AstKind::RoutineDecl { .. } => todo!(),
-                AstKind::PatternDef => todo!(),
+                AstKind::PatternDecl => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => ImprStmt {
                     file: self.file,
@@ -46,6 +46,8 @@ impl<'a> EagerStmtParser<'a> {
                 } => todo!(),
                 AstKind::MembVar { .. } => todo!(),
                 AstKind::MembRoutineDecl { .. } => todo!(),
+                AstKind::FeatureDecl { .. } => todo!(),
+                AstKind::MembFeatureDecl { ident, ty } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

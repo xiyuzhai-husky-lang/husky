@@ -47,23 +47,14 @@ pub trait LazyExprParser<'a> {
                 ScopeKind::Type => todo!(),
                 ScopeKind::Trait => todo!(),
                 ScopeKind::Routine => todo!(),
-                ScopeKind::Feature => {
-                    (
-                        todo!()
-                        // try_syntax!(self.db().scope_ty(scope)?,
-                        // LazyExprKind::Scope {
-                        //     scope,
-                        //     compiled: None,
-                        // },
-                    )
-                }
+                ScopeKind::Feature => LazyExprKind::ScopedFeature { scope },
                 ScopeKind::Pattern => todo!(),
             },
             RawExprKind::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
             RawExprKind::Bracketed(_) => todo!(),
             RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
             RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { .. } => todo!(),
+            RawExprKind::This { .. } => LazyExprKind::This,
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
@@ -210,8 +201,8 @@ pub trait LazyExprParser<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembVarAccess(ident) => LazyExprKind::Opn {
-                opn_kind: LazyOpnKind::MembVarAccess(ident),
+            SuffixOpr::MembAccess(ident) => LazyExprKind::Opn {
+                opn_kind: LazyOpnKind::MembAccess(ident),
                 compiled: (),
                 opds: vec![opd],
             },
@@ -223,32 +214,31 @@ pub trait LazyExprParser<'a> {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.kind {
-            RawExprKind::Scope {
-                scope,
-                kind: ScopeKind::Routine,
-                ..
-            } => {
+            RawExprKind::Scope { scope, kind, .. } => {
                 let arguments: Vec<_> = ((opd_idx_range.start + 1)..opd_idx_range.end)
                     .map(|raw| self.parse_lazy_expr(raw))
                     .collect::<SemanticResult<_>>()?;
-                Ok(LazyExprKind::Opn {
-                    opn_kind: LazyOpnKind::RoutineCall(RangedScope {
+                let opn_kind = match kind {
+                    ScopeKind::Module => todo!(),
+                    ScopeKind::Type => LazyOpnKind::TypeCall(RangedScope {
                         scope,
                         range: call.range(),
                     }),
+                    ScopeKind::Trait => todo!(),
+                    ScopeKind::Routine => LazyOpnKind::RoutineCall(RangedScope {
+                        scope,
+                        range: call.range(),
+                    }),
+                    ScopeKind::Feature => todo!(),
+                    ScopeKind::Pattern => todo!(),
+                    ScopeKind::Literal => todo!(),
+                };
+                Ok(LazyExprKind::Opn {
+                    opn_kind,
                     compiled: (),
                     opds: arguments,
                 })
             }
-            RawExprKind::Scope {
-                scope,
-                kind: ScopeKind::Type,
-                ..
-            } => {
-                p!(scope);
-                todo!()
-            }
-            RawExprKind::Scope { .. } => todo!(),
             RawExprKind::Variable { .. } => todo!(),
             RawExprKind::Unrecognized(_) => todo!(),
             RawExprKind::PrimitiveLiteral(_) => todo!(),
@@ -263,7 +253,7 @@ pub trait LazyExprParser<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembVarAccess(memb_ident) => {
+                    SuffixOpr::MembAccess(memb_ident) => {
                         let this = self.parse_lazy_expr(memb_opds.start)?;
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_lazy_expr(idx))

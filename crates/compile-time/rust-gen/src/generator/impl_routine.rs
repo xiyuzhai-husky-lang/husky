@@ -1,5 +1,5 @@
 use scope::{InputPlaceholder, ScopePtr};
-use semantics_eager::{FuncStmt, ImprStmt};
+use semantics_eager::{DeclStmt, ImprStmt};
 use vm::InputContract;
 use word::CustomIdentifier;
 
@@ -48,7 +48,7 @@ impl<'a> RustGenerator<'a> {
         ident: CustomIdentifier,
         input_placeholders: &[InputPlaceholder],
         output: ScopePtr,
-        stmts: &[Arc<FuncStmt>],
+        stmts: &[Arc<DeclStmt>],
     ) {
         self.write("\npub(crate) fn ");
         self.write(&ident);

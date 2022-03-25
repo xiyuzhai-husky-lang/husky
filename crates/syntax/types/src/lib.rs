@@ -5,18 +5,19 @@ use std::sync::Arc;
 pub use opr::*;
 
 use scope::{InputPlaceholder, InputSignature, RangedScope, ScopeKind, ScopePtr};
-use vm::{EagerContract, InputContract, MembVarContract};
+use vm::{EagerContract, InputContract, MembAccessContract};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawTyKind {
     Enum,
     Struct,
+    Class,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct MembVarSignature {
-    pub contract: MembVarContract,
+pub struct MembAccessSignature {
+    pub contract: MembAccessContract,
     pub ty: ScopePtr,
 }
 
@@ -101,7 +102,7 @@ pub struct GenericPlaceholder {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembType {
-    pub contract: MembVarContract,
+    pub contract: MembAccessContract,
     pub ty: ScopePtr,
 }
 

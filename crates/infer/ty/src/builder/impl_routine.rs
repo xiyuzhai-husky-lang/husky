@@ -5,7 +5,6 @@ use super::*;
 impl<'a> TySheetBuilder<'a> {
     pub(super) fn infer_routine(
         &mut self,
-        line_group_idx: usize,
         inputs: &[InputPlaceholder],
         output_ty: ScopePtr,
         ast_iter: AstIter,

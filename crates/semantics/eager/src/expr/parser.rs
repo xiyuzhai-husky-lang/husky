@@ -173,7 +173,7 @@ pub trait EagerExprParser<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembVarAccess(memb_ident) => {
+                    SuffixOpr::MembAccess(memb_ident) => {
                         let this = self.parse_eager_expr(memb_opds.start)?;
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))

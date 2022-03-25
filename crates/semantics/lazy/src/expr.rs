@@ -7,7 +7,7 @@ use file::FilePtr;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use scope::{Scope, ScopePtr};
+use scope::{RangedScope, Scope, ScopePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::*;
@@ -48,4 +48,8 @@ pub enum LazyExprKind {
         opds: Vec<Arc<LazyExpr>>,
     },
     Lambda(Vec<(CustomIdentifier, Option<ScopePtr>)>, Box<LazyExpr>),
+    This,
+    ScopedFeature {
+        scope: ScopePtr,
+    },
 }

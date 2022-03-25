@@ -74,6 +74,7 @@ impl<'eval> TraceFactory<'eval> {
                 ref instruction_sheet,
                 ref stmts,
             } => todo!(),
+            FeatureExprKind::ScopedFeature { .. } => todo!(),
         };
     }
 

@@ -1,8 +1,6 @@
 mod id;
 mod impl_feature_expr;
 mod impl_feature_stmt;
-mod impl_memb_routine_call;
-mod impl_routine_call;
 mod indicator;
 
 pub(crate) use id::FeatureEvalId;

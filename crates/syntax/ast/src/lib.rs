@@ -17,7 +17,7 @@ use check_utils::*;
 use dev_utils::*;
 use env::Env;
 use print_utils::*;
-use scope::ScopePtr;
+use scope::{RangedScope, ScopePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::InitKind;
@@ -31,30 +31,38 @@ pub struct Ast {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstKind {
-    TypeDef {
+    TypeDecl {
         ident: CustomIdentifier,
         kind: RawTyKind,
         generics: Vec<GenericPlaceholder>,
     },
     MainDecl,
-    DatasetConfig,
     RoutineDecl {
         routine_kind: RoutineKind,
         routine_head: RoutineHead,
+    },
+    PatternDecl,
+    FeatureDecl {
+        ident: CustomIdentifier,
+        ty: RangedScope,
+    },
+    MembFeatureDecl {
+        ident: CustomIdentifier,
+        ty: ScopePtr,
     },
     MembRoutineDecl {
         routine_kind: RoutineKind,
         memb_routine_head: MembRoutineHead,
     },
-    PatternDef,
     Use {
         ident: CustomIdentifier,
         scope: ScopePtr,
     },
     MembVar {
         ident: CustomIdentifier,
-        signature: MembVarSignature,
+        signature: MembAccessSignature,
     },
+    DatasetConfig,
     Stmt(RawStmt),
     EnumVariant {
         ident: CustomIdentifier,

@@ -1,7 +1,10 @@
 mod bin_main_rs_content;
 mod cargo_toml_content;
+mod dir;
 mod generator;
 mod lib_rs_content;
+
+pub use dir::*;
 
 use bin_main_rs_content::*;
 use cargo_toml_content::*;

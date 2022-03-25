@@ -68,7 +68,7 @@ macro_rules! expect_len {
 }
 pub(super) use expect_len;
 
-macro_rules! trim {
+macro_rules! trim_colon {
     ($file: expr, $tokens:expr; keyword, colon) => {{
         expect_kind!($file, $tokens.last().unwrap(), Special::Colon);
         &$tokens[1..($tokens.len() - 1)]
@@ -80,7 +80,7 @@ macro_rules! trim {
         &$tokens[0..($tokens.len() - 1)]
     }};
 }
-pub(super) use trim;
+pub(super) use trim_colon;
 
 macro_rules! expect_head {
     ($file: expr, $tokens:expr) => {{

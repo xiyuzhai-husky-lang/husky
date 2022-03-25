@@ -3,13 +3,13 @@ use crate::*;
 use vm::{EagerContract, InitKind, Instruction, InstructionKind};
 
 impl InstructionSheetBuilder {
-    pub(super) fn compile_decl_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
+    pub(super) fn compile_decl_stmts(&mut self, stmts: &[Arc<DeclStmt>]) {
         stmts
             .iter()
             .for_each(|stmt| self.compile_decl_stmt(stmt.clone()));
     }
 
-    fn compile_decl_stmt(&mut self, stmt: Arc<FuncStmt>) {
+    fn compile_decl_stmt(&mut self, stmt: Arc<DeclStmt>) {
         match stmt.kind {
             DeclStmtKind::Init {
                 varname,
