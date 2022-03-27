@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+use semantics_entity::{Entity, EntityKind, TyDefnKind};
 use vm::{EvalResult, EvalValue};
 
 use super::*;
@@ -26,12 +27,40 @@ impl<'eval> FeatureSheet<'eval> {
         result
     }
 
-    // pub(super) fn value(
+    // pub(crate) fn resolve_class_call(
     //     &mut self,
-    //     feature: FeaturePtr,
-    //     compute_value: impl FnOnce() -> EvalValue<'eval, 'eval>,
-    // ) -> EvalValue<'eval, 'eval> {
-    //     unsafe { share_cached(self.values.entry(feature).or_insert_with(compute_value)) }
+    //     db: &dyn FeatureQueryGroup,
+    //     eval_id: FeatureEvalId,
+    //     entity: &Arc<Entity>,
+    //     opds: &[Arc<FeatureExpr>],
+    // ) -> Object {
+    //     if let Some(object) = self.resolved_class_calls.get(&eval_id) {
+    //         return object.clone();
+    //     }
+    //     let object = match entity.kind() {
+    //         EntityKind::Ty(ty) => match ty.kind {
+    //             TyDefnKind::Record {
+    //                 ref memb_vars,
+    //                 ref memb_features,
+    //             } => {
+    //                 assert!(memb_vars.len() == opds.len());
+    //                 let memb_features = memb_features
+    //                     .iter()
+    //                     .map(|(_ident, defn)| {
+    //                         FeatureBlock::new(db, &defn.stmts, &[], db.features())
+    //                     })
+    //                     .collect();
+    //                 Object {
+    //                     memb_vars: opds.to_vec(),
+    //                     memb_features,
+    //                 }
+    //             }
+    //             _ => panic!(),
+    //         },
+    //         _ => panic!(),
+    //     };
+    //     self.resolved_class_calls.insert(eval_id, object.clone());
+    //     object
     // }
 }
 

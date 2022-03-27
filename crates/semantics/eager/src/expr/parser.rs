@@ -39,7 +39,7 @@ pub trait EagerExprParser<'a> {
                     ScopePtr::Custom(_) => todo!(),
                     _ => todo!(),
                 },
-                ScopeKind::Type => todo!(),
+                ScopeKind::Type(_) => todo!(),
                 ScopeKind::Trait => todo!(),
                 ScopeKind::Routine => todo!(),
                 ScopeKind::Feature => {
@@ -138,7 +138,7 @@ pub trait EagerExprParser<'a> {
             }
             RawExprKind::Scope {
                 scope,
-                kind: ScopeKind::Type,
+                kind: ScopeKind::Type(_),
                 ..
             } => {
                 let signature = try_infer!(self.db().call_signature(scope));

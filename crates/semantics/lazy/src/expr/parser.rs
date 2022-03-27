@@ -4,6 +4,7 @@ use crate::*;
 use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 
 use file::FilePtr;
+use infer_signature::TySignature;
 use scope::{RangedScope, ScopeKind, ScopePtr, ScopeRoute};
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
@@ -44,7 +45,7 @@ pub trait LazyExprParser<'a> {
                     },
                     _ => todo!(),
                 },
-                ScopeKind::Type => todo!(),
+                ScopeKind::Type(_) => todo!(),
                 ScopeKind::Trait => todo!(),
                 ScopeKind::Routine => todo!(),
                 ScopeKind::Feature => LazyExprKind::ScopedFeature { scope },
@@ -196,16 +197,35 @@ pub trait LazyExprParser<'a> {
         opr: SuffixOpr,
         opds: &RawExprRange,
     ) -> SemanticResult<LazyExprKind> {
-        let opd = self.parse_lazy_expr(opds.start)?;
+        let this = self.parse_lazy_expr(opds.start)?;
         Ok(match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => LazyExprKind::Opn {
-                opn_kind: LazyOpnKind::MembAccess(ident),
-                compiled: (),
-                opds: vec![opd],
-            },
+            SuffixOpr::MembAccess(memb_ident) => {
+                let ty_signature = self.db().ty_signature(this.ty).unwrap();
+                LazyExprKind::Opn {
+                    opn_kind: LazyOpnKind::MembAccess {
+                        memb_ident,
+                        memb_access_kind: ty_signature.memb_access_kind(memb_ident),
+                    },
+                    compiled: (),
+                    opds: vec![this],
+                }
+                // match *ty_signature {
+                //     TySignature::Struct {
+                //         ref memb_vars,
+                //         ref memb_routines,
+                //     } => {
+                //         todo!()
+                //     }
+                //     TySignature::Enum { ref variants } => todo!(),
+                //     TySignature::Record {
+                //         ref memb_vars,
+                //         ref memb_features,
+                //     } => todo!(),
+                // }
+            }
             SuffixOpr::WithType(_) => todo!(),
         })
     }
@@ -220,10 +240,19 @@ pub trait LazyExprParser<'a> {
                     .collect::<SemanticResult<_>>()?;
                 let opn_kind = match kind {
                     ScopeKind::Module => todo!(),
-                    ScopeKind::Type => LazyOpnKind::TypeCall(RangedScope {
-                        scope,
-                        range: call.range(),
-                    }),
+                    ScopeKind::Type(ty_kind) => match ty_kind {
+                        scope::TyKind::Enum => todo!(),
+                        scope::TyKind::Record => LazyOpnKind::ClassCall(RangedScope {
+                            scope,
+                            range: call.range(),
+                        }),
+                        scope::TyKind::Struct => LazyOpnKind::StructCall(RangedScope {
+                            scope,
+                            range: call.range(),
+                        }),
+                        scope::TyKind::Primitive => todo!(),
+                        scope::TyKind::Other => todo!(),
+                    },
                     ScopeKind::Trait => todo!(),
                     ScopeKind::Routine => LazyOpnKind::RoutineCall(RangedScope {
                         scope,

@@ -12,7 +12,7 @@ use syntax_types::{
 };
 use vec_map::VecMap;
 use vm::InputContract;
-use word::CustomIdentifier;
+use word::{CustomIdentifier, IdentMap};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TyDefn {
@@ -36,7 +36,7 @@ impl TyDefn {
                 } => match kind {
                     RawTyKind::Enum => Self::enum_from_ast(children)?,
                     RawTyKind::Struct => Self::struct_from_ast(db, children, arena, file)?,
-                    RawTyKind::Class => Self::class_from_ast(db, children, arena, file)?,
+                    RawTyKind::Record => Self::class_from_ast(db, children, arena, file)?,
                 },
                 _ => panic!(),
             },
@@ -140,7 +140,7 @@ impl TyDefn {
                 _ => panic!(),
             }
         }
-        Ok(TyDefnKind::Class {
+        Ok(TyDefnKind::Record {
             memb_vars,
             memb_features,
         })
@@ -150,15 +150,15 @@ impl TyDefn {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TyDefnKind {
     Enum {
-        variants: VecMap<CustomIdentifier, EnumVariantKind>,
+        variants: IdentMap<EnumVariantKind>,
     },
     Struct {
-        memb_vars: VecMap<CustomIdentifier, MembAccessSignature>,
-        memb_routines: VecMap<CustomIdentifier, MembRoutineDefn>,
+        memb_vars: IdentMap<MembAccessSignature>,
+        memb_routines: IdentMap<MembRoutineDefn>,
     },
-    Class {
-        memb_vars: VecMap<CustomIdentifier, MembAccessSignature>,
-        memb_features: VecMap<CustomIdentifier, MembFeatureDefn>,
+    Record {
+        memb_vars: IdentMap<MembAccessSignature>,
+        memb_features: IdentMap<MembFeatureDefn>,
     },
 }
 

@@ -17,7 +17,8 @@ impl EntityKind {
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityKind> {
-        let stmts = semantics_lazy::parse_lazy_stmts(&[], db.upcast(), arena, children, file)?;
-        Ok(EntityKind::Feature { ty, stmts })
+        let lazy_stmts = semantics_lazy::parse_lazy_stmts(&[], db.upcast(), arena, children, file)?;
+        // let feature_block = FeatureBlock::new(db, lazy_stmts, &[], db.features());
+        Ok(EntityKind::Feature { ty, lazy_stmts })
     }
 }

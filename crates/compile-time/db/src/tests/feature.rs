@@ -25,5 +25,5 @@ main:
 
     let main_file_id = db.alloc_file("haha/main.hsk".into());
     let package = db.package(main_file_id).unwrap();
-    let main_block = db.main_block(main_file_id).unwrap();
+    let main_block = db.main_feature_block(main_file_id).unwrap();
 }

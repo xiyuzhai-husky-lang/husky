@@ -17,7 +17,7 @@ pub enum EntityKind {
     Module {},
     Feature {
         ty: RangedScope,
-        stmts: Arc<Vec<Arc<LazyStmt>>>,
+        lazy_stmts: Arc<Vec<Arc<LazyStmt>>>,
     },
     Pattern {},
     Func {

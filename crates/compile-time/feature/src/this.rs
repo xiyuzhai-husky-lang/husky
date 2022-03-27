@@ -1,13 +1,12 @@
 use std::sync::Arc;
 
 use file::FilePtr;
-use semantics_entity::*;
 use semantics_lazy::*;
 use text::TextRange;
 
 use crate::{eval::FeatureEvalId, unique_allocate::FeatureUniqueAllocator, *};
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, Clone)]
 pub struct FeatureBlock {
     pub symbols: Vec<FeatureSymbol>,
     pub stmts: Vec<Arc<FeatureStmt>>,
@@ -17,20 +16,35 @@ pub struct FeatureBlock {
     pub eval_id: FeatureEvalId,
 }
 
+impl std::hash::Hash for FeatureBlock {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.eval_id.hash(state)
+    }
+}
+
+impl PartialEq for FeatureBlock {
+    fn eq(&self, other: &Self) -> bool {
+        self.eval_id == other.eval_id
+    }
+}
+
+impl Eq for FeatureBlock {}
+
 impl FeatureBlock {
     pub(crate) fn new(
-        db: &dyn EntityQueryGroup,
+        db: &dyn FeatureQueryGroup,
+        this: Option<FeatureRepr>,
         lazy_stmts: &[Arc<LazyStmt>],
         externals: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
-    ) -> FeatureBlock {
+    ) -> Arc<FeatureBlock> {
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         let stmts: Vec<Arc<FeatureStmt>> = lazy_stmts
             .iter()
             .map(|feature_stmt| {
                 Arc::new(match feature_stmt.kind {
                     LazyStmtKind::Init { varname, ref value } => {
-                        let value = FeatureExpr::new(db, value, &symbols, features);
+                        let value = FeatureExpr::new(db, this.clone(), value, &symbols, features);
                         symbols.push(FeatureSymbol {
                             varname,
                             value: value.clone(),
@@ -46,7 +60,8 @@ impl FeatureBlock {
                         }
                     }
                     LazyStmtKind::Assert { ref condition } => {
-                        let condition = FeatureExpr::new(db, condition, &symbols, features);
+                        let condition =
+                            FeatureExpr::new(db, this.clone(), condition, &symbols, features);
                         let feature = Some(features.alloc(Feature::Assert {
                             condition: condition.feature,
                         }));
@@ -60,7 +75,7 @@ impl FeatureBlock {
                         }
                     }
                     LazyStmtKind::Return { ref result } => {
-                        let result = FeatureExpr::new(db, result, &symbols, features);
+                        let result = FeatureExpr::new(db, this.clone(), result, &symbols, features);
                         FeatureStmt {
                             file: feature_stmt.file,
                             range: feature_stmt.range,
@@ -75,19 +90,33 @@ impl FeatureBlock {
                             .iter()
                             .map(|branch| {
                                 Arc::new(FeatureBranch {
-                                    block: FeatureBlock::new(db, &branch.stmts, &symbols, features),
+                                    block: FeatureBlock::new(
+                                        db,
+                                        this.clone(),
+                                        &branch.stmts,
+                                        &symbols,
+                                        features,
+                                    ),
                                     kind: match branch.kind {
                                         LazyBranchKind::If { ref condition } => {
                                             FeatureBranchKind::If {
                                                 condition: FeatureExpr::new(
-                                                    db, condition, &symbols, features,
+                                                    db,
+                                                    this.clone(),
+                                                    condition,
+                                                    &symbols,
+                                                    features,
                                                 ),
                                             }
                                         }
                                         LazyBranchKind::Elif { ref condition } => {
                                             FeatureBranchKind::Elif {
                                                 condition: FeatureExpr::new(
-                                                    db, condition, &symbols, features,
+                                                    db,
+                                                    this.clone(),
+                                                    condition,
+                                                    &symbols,
+                                                    features,
                                                 ),
                                             }
                                         }
@@ -136,18 +165,20 @@ impl FeatureBlock {
                 })
             })
             .collect();
-        let feature = features.alloc(Feature::Block(
-            stmts.iter().filter_map(|stmt| stmt.feature).collect(),
-        ));
+        let feature = Feature::block(features, &stmts);
         let file = stmts[0].file;
         let range = (&stmts).into();
-        FeatureBlock {
+        Arc::new(FeatureBlock {
             symbols,
             stmts,
             feature,
             file,
             range,
             eval_id: Default::default(),
-        }
+        })
+    }
+
+    pub(crate) fn stmt_features(&self) -> Vec<FeaturePtr> {
+        self.stmts.iter().filter_map(|stmt| stmt.feature).collect()
     }
 }

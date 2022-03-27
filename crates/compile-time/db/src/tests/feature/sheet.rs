@@ -26,9 +26,9 @@ main:
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let main_block = db.main_block(main_file).unwrap();
+    let main_block = db.main_feature_block(main_file).unwrap();
     let mut sheet = FeatureSheet::default();
-    let result = eval_feature_block(&main_block, Arc::new(1), &mut sheet)
+    let result = eval_feature_block(&db, &main_block, Arc::new(1), &mut sheet)
         .unwrap()
         .as_primitive()
         .unwrap();

@@ -3,10 +3,9 @@ use scope::StaticScopeSignature;
 use syntax_types::{MembAccessSignature, MembCallSignature, RawEnumVariantKind};
 use vec_map::VecMap;
 use vm::{MembAccessContract, VMTySignature};
+use word::IdentMap;
 
 use crate::*;
-
-pub type IdentMap<T> = VecMap<CustomIdentifier, T>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TySignature {
@@ -17,10 +16,17 @@ pub enum TySignature {
     Enum {
         variants: IdentMap<EnumVariantSignature>,
     },
-    Class {
+    Record {
         memb_vars: IdentMap<MembAccessSignature>,
         memb_features: IdentMap<ScopePtr>,
     },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum MembAccessKind {
+    StructMembVar,
+    StructMembFeature,
+    RecordMemb,
 }
 
 impl TySignature {
@@ -32,7 +38,7 @@ impl TySignature {
             )
             .map(|signature| signature.ty),
             TySignature::Enum { ref variants } => todo!(),
-            TySignature::Class {
+            TySignature::Record {
                 memb_vars,
                 memb_features,
             } => {
@@ -51,7 +57,7 @@ impl TySignature {
         match self {
             TySignature::Struct { ref memb_vars, .. } => *memb_vars.get(ident).unwrap(),
             TySignature::Enum { ref variants } => todo!(),
-            TySignature::Class {
+            TySignature::Record {
                 ref memb_vars,
                 ref memb_features,
             } => {
@@ -62,6 +68,34 @@ impl TySignature {
                         contract: MembAccessContract::LazyOwn,
                         ty: *memb_feature,
                     }
+                } else {
+                    todo!()
+                }
+            }
+        }
+    }
+
+    pub fn memb_access_kind(&self, memb_ident: CustomIdentifier) -> MembAccessKind {
+        match self {
+            TySignature::Struct {
+                memb_vars,
+                memb_routines,
+            } => {
+                if memb_vars.get(memb_ident).is_some() {
+                    MembAccessKind::StructMembVar
+                } else {
+                    panic!("todo: memb feature of struct")
+                }
+            }
+            TySignature::Enum { variants } => todo!(),
+            TySignature::Record {
+                memb_vars,
+                memb_features,
+            } => {
+                if memb_vars.get(memb_ident).is_some() {
+                    MembAccessKind::RecordMemb
+                } else if memb_features.get(memb_ident).is_some() {
+                    MembAccessKind::RecordMemb
                 } else {
                     todo!()
                 }
@@ -81,7 +115,7 @@ impl TySignature {
                 }
             }
             TySignature::Enum { variants } => todo!(),
-            TySignature::Class {
+            TySignature::Record {
                 memb_vars,
                 memb_features,
             } => todo!(),
@@ -97,7 +131,7 @@ impl TySignature {
                 derived_not_none!(memb_calls.get(ident))
             }
             TySignature::Enum { variants } => todo!(),
-            TySignature::Class {
+            TySignature::Record {
                 memb_vars,
                 memb_features,
             } => todo!(),
@@ -137,7 +171,7 @@ pub(crate) fn ty_signature(
                 AstKind::TypeDecl { kind, .. } => match kind {
                     RawTyKind::Enum => enum_signature(derived_not_none!(item.children)?),
                     RawTyKind::Struct => struct_signature(item.children.unwrap()),
-                    RawTyKind::Class => class_signature(item.children.unwrap()),
+                    RawTyKind::Record => class_signature(item.children.unwrap()),
                 },
                 _ => panic!(),
             }
@@ -202,7 +236,7 @@ pub(crate) fn class_signature(children: AstIter) -> InferResultArc<TySignature> 
             _ => panic!(),
         }
     }
-    Ok(Arc::new(TySignature::Class {
+    Ok(Arc::new(TySignature::Record {
         memb_vars,
         memb_features,
     }))

@@ -1,5 +1,3 @@
-
-
 use file::FilePtr;
 use scope::{GenericArgument, ScopeKind};
 use word::BuiltinIdentifier;
@@ -79,7 +77,7 @@ impl AtomStack {
                 Some(Atom {
                     kind:
                         AtomKind::Scope {
-                            kind: ScopeKind::Type,
+                            kind: ScopeKind::Type(_),
                             ..
                         },
                     ..
@@ -157,7 +155,7 @@ impl AtomStack {
             AtomKind::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
             AtomKind::Scope {
                 scope,
-                kind: ScopeKind::Type,
+                kind: ScopeKind::Type(_),
             } => types.push(scope.into()),
             _ => err!(self.file, *tail, "left parenthesis or type")?,
         };
@@ -173,7 +171,7 @@ impl AtomStack {
             match self.pop(tail)?.kind {
                 AtomKind::Scope {
                     scope,
-                    kind: ScopeKind::Type,
+                    kind: ScopeKind::Type(_),
                 } => types.push(scope.into()),
                 _ => err!(self.file, *tail, "type")?,
             }

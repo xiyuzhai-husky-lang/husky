@@ -6,10 +6,8 @@ pub use alias::ScopeAliasTable;
 pub use allocate_unique::{
     new_scope_unique_allocator, AllocateUniqueScope, ScopePtr, UniqueScopeAllocator,
 };
-
 use file::FilePtr;
-pub use kind::ScopeKind;
-
+pub use kind::{ScopeKind, TyKind};
 use text::{TextRange, TextRanged};
 use vm::{Compiled, EagerContract, InputContract};
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};

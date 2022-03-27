@@ -1,4 +1,4 @@
-use scope::RangedScope;
+use scope::{RangedScope, TyKind};
 
 use super::symbol_proxy::SymbolKind;
 
@@ -13,7 +13,7 @@ impl<'a> AtomLRParser<'a> {
             if token.kind == Special::LBox.into() {
                 Some(AtomKind::Scope {
                     scope: self.symbolic_ty()?,
-                    kind: ScopeKind::Type,
+                    kind: ScopeKind::Type(TyKind::Other),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind =
@@ -77,7 +77,7 @@ impl<'a> AtomLRParser<'a> {
     pub(crate) fn ty(&mut self) -> AstResult<Option<ScopePtr>> {
         Ok(
             if let Some(AtomKind::Scope { scope, kind, .. }) = self.symbol()? {
-                if kind == ScopeKind::Type {
+                if let ScopeKind::Type(_) = kind {
                     Some(scope)
                 } else {
                     None
@@ -114,7 +114,7 @@ impl<'a> AtomLRParser<'a> {
             },
             _ => match self.scope_proxy.db.scope_kind_from_route(route) {
                 ScopeKind::Module | ScopeKind::Literal | ScopeKind::Feature => Ok(Vec::new()),
-                ScopeKind::Type | ScopeKind::Trait | ScopeKind::Routine | ScopeKind::Pattern => {
+                ScopeKind::Type(_) | ScopeKind::Trait | ScopeKind::Routine | ScopeKind::Pattern => {
                     self.angled_generics()
                 }
             },

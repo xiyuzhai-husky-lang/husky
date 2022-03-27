@@ -1,5 +1,5 @@
-use semantics_error::*;
-use vm::{Compiled, LazyContract};
+use infer_signature::{MembAccessKind, TySignature};
+use vm::LazyContract;
 
 use super::*;
 
@@ -76,22 +76,42 @@ impl<'a> FeatureExprBuilder<'a> {
                 (kind, feature)
             }
             LazyOpnKind::PatternCall => todo!(),
-            LazyOpnKind::MembAccess(memb_var_ident) => {
+            LazyOpnKind::MembAccess {
+                memb_ident,
+                memb_access_kind,
+            } => {
                 let this = self.new_expr(&opds[0]);
-                let feature = self.features.alloc(Feature::MembVarAccess {
-                    this: this.feature,
-                    memb_ident: memb_var_ident,
-                });
-                msg_once!("compiled memb var access");
-                (
-                    FeatureExprKind::MembVarAccess {
-                        this,
-                        memb_var_ident,
-                        contract,
-                        opt_compiled: None,
-                    },
-                    feature,
-                )
+                match memb_access_kind {
+                    MembAccessKind::StructMembVar => {
+                        let feature = self.features.alloc(Feature::StructMembVarAccess {
+                            this: this.feature,
+                            memb_ident,
+                        });
+                        msg_once!("compiled memb var access");
+                        (
+                            FeatureExprKind::StructMembVarAccess {
+                                this,
+                                memb_ident,
+                                contract,
+                                opt_compiled: None,
+                            },
+                            feature,
+                        )
+                    }
+                    MembAccessKind::StructMembFeature => todo!(),
+                    MembAccessKind::RecordMemb => {
+                        let repr = self.db.record_memb_repr(this.clone().into(), memb_ident);
+                        let feature = repr.feature();
+                        (
+                            FeatureExprKind::RecordMembAccess {
+                                this,
+                                memb_ident,
+                                repr,
+                            },
+                            feature,
+                        )
+                    }
+                }
             }
             LazyOpnKind::MembCall { memb_ident, .. } => {
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
@@ -126,11 +146,90 @@ impl<'a> FeatureExprBuilder<'a> {
                         };
                         (kind, feature)
                     }
-                    TyDefnKind::Class { .. } => todo!(),
+                    TyDefnKind::Record { .. } => todo!(),
                 }
             }
             LazyOpnKind::ElementAccess => todo!(),
-            LazyOpnKind::TypeCall(_) => todo!(),
+            LazyOpnKind::StructCall(_) => todo!(),
+            LazyOpnKind::ClassCall(ty) => {
+                let uid = self.db.entity_vc().uid(ty.scope);
+                let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
+                let feature = self.features.alloc(Feature::ClassCall {
+                    ty: ty.scope,
+                    uid,
+                    opds: opds.iter().map(|opd| opd.feature).collect(),
+                });
+                let kind = FeatureExprKind::ClassCall {
+                    ty,
+                    entity: self.db.entity(ty.scope).unwrap(),
+                    opds,
+                };
+                (kind, feature)
+            }
+        }
+    }
+
+    fn record_memb_var_value(
+        &self,
+        this: &FeatureExpr,
+        memb_ident: CustomIdentifier,
+    ) -> Arc<FeatureExpr> {
+        match this.kind {
+            FeatureExprKind::Variable { .. } => todo!(),
+            FeatureExprKind::RecordMembAccess { .. } => todo!(),
+            FeatureExprKind::MembPattCall { .. } => todo!(),
+            FeatureExprKind::ScopedFeature { ref block, .. } => {
+                self.derive_record_memb_var_value_from_block(block, memb_ident)
+            }
+            FeatureExprKind::ClassCall {
+                ref entity,
+                ref opds,
+                ..
+            } => match entity.kind() {
+                EntityKind::Ty(ty) => match ty.kind {
+                    TyDefnKind::Record { ref memb_vars, .. } => {
+                        p!(memb_ident, memb_vars);
+                        let idx = memb_vars.position(memb_ident).unwrap();
+                        opds[idx].clone()
+                    }
+                    _ => panic!(),
+                },
+                _ => panic!(),
+            },
+            FeatureExprKind::FuncCall { .. }
+            | FeatureExprKind::EnumLiteral { .. }
+            | FeatureExprKind::PrimitiveBinaryOpr { .. }
+            | FeatureExprKind::ProcCall { .. }
+            | FeatureExprKind::MembFuncCall { .. }
+            | FeatureExprKind::MembProcCall { .. }
+            | FeatureExprKind::StructMembVarAccess { .. }
+            | FeatureExprKind::PrimitiveLiteral(_) => {
+                panic!()
+            }
+            FeatureExprKind::This { ref repr } => todo!(),
+        }
+    }
+
+    // RecordMembExpr {
+    //     feature: result.feature,
+    //     kind: RecordMembExprKind::Expr(result.clone()),
+    // },
+    fn derive_record_memb_var_value_from_block(
+        &self,
+        block: &FeatureBlock,
+        memb_ident: CustomIdentifier,
+    ) -> Arc<FeatureExpr> {
+        let stmt_features = block.stmt_features();
+        if stmt_features.len() == 1 {
+            match block.stmts.last().unwrap().kind {
+                FeatureStmtKind::Return { ref result } => {
+                    self.record_memb_var_value(result, memb_ident)
+                }
+                FeatureStmtKind::BranchGroup { kind, ref branches } => todo!(),
+                _ => panic!(),
+            }
+        } else {
+            todo!()
         }
     }
 }

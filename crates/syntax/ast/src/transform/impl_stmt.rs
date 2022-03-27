@@ -113,7 +113,7 @@ impl<'a> AstTransformer<'a> {
             },
             Env::Test => todo!(),
             Env::Struct | Env::Enum => panic!(),
-            Env::Class => todo!(),
+            Env::Record => todo!(),
             Env::Props => todo!(),
         })
         // Ok(Stmt::Exec(expr.unwrap()).into())

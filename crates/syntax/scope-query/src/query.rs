@@ -72,12 +72,12 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
             | BuiltinIdentifier::F32
             | BuiltinIdentifier::B32
             | BuiltinIdentifier::B64
-            | BuiltinIdentifier::Bool
-            | BuiltinIdentifier::Vector
+            | BuiltinIdentifier::Bool => ScopeKind::Type(TyKind::Primitive),
+            BuiltinIdentifier::Vector
             | BuiltinIdentifier::Tuple
             | BuiltinIdentifier::Fp
             | BuiltinIdentifier::Array
-            | BuiltinIdentifier::DatasetType => ScopeKind::Type,
+            | BuiltinIdentifier::DatasetType => ScopeKind::Type(TyKind::Other),
             BuiltinIdentifier::True | BuiltinIdentifier::False => ScopeKind::Literal,
             BuiltinIdentifier::Fn | BuiltinIdentifier::FnMut | BuiltinIdentifier::FnOnce => {
                 ScopeKind::Trait

@@ -77,7 +77,7 @@ pub(crate) fn call_signature(
                             compiled: None,
                         }))
                     }
-                    RawTyKind::Class => {
+                    RawTyKind::Record => {
                         let mut inputs = vec![];
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;

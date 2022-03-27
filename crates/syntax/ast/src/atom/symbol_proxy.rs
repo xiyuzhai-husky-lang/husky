@@ -1,5 +1,3 @@
-
-
 use file::FilePtr;
 use scope::{ScopeRoute, *};
 use text::{Row, TextRange};
@@ -49,7 +47,28 @@ impl<'a> SymbolProxy<'a> {
         let scope = Scope::new_builtin(ident.into(), generics);
         let kind = AtomKind::Scope {
             scope: self.db.intern_scope(scope),
-            kind: ScopeKind::Type,
+            kind: ScopeKind::Type(match ident {
+                BuiltinIdentifier::Void
+                | BuiltinIdentifier::I32
+                | BuiltinIdentifier::F32
+                | BuiltinIdentifier::B32
+                | BuiltinIdentifier::B64
+                | BuiltinIdentifier::Bool => TyKind::Primitive,
+                BuiltinIdentifier::True => todo!(),
+                BuiltinIdentifier::False => todo!(),
+                BuiltinIdentifier::Vector => todo!(),
+                BuiltinIdentifier::Tuple => todo!(),
+                BuiltinIdentifier::Debug => todo!(),
+                BuiltinIdentifier::Std => todo!(),
+                BuiltinIdentifier::Core => todo!(),
+                BuiltinIdentifier::Fp => todo!(),
+                BuiltinIdentifier::Fn => todo!(),
+                BuiltinIdentifier::FnMut => todo!(),
+                BuiltinIdentifier::FnOnce => todo!(),
+                BuiltinIdentifier::Array => todo!(),
+                BuiltinIdentifier::DatasetType => todo!(),
+                BuiltinIdentifier::Type => todo!(),
+            }),
         };
         Atom::new(tail, kind)
     }

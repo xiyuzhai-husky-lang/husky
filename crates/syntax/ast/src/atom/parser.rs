@@ -194,7 +194,7 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr
         match result[0].kind {
             AtomKind::Scope {
                 scope,
-                kind: ScopeKind::Type,
+                kind: ScopeKind::Type(_),
                 ..
             } => Ok(scope),
             _ => err!(file, (&result).into(), "too many atoms")?,

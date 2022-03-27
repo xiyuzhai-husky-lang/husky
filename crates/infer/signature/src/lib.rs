@@ -1,5 +1,4 @@
 mod call;
-mod contract;
 mod feature;
 mod ty;
 
@@ -14,9 +13,9 @@ use infer_error::*;
 use scope::*;
 use scope_query::*;
 use std::sync::Arc;
-use syntax_types::{ListOpr, Opr, RawTyKind};
-use vm::{Compiled, EnumLiteralValue};
-use word::{BuiltinIdentifier, CustomIdentifier, ImplicitIdentifier};
+use syntax_types::RawTyKind;
+use vm::Compiled;
+use word::CustomIdentifier;
 
 #[salsa::query_group(InferSignatureQueryGroupStorage)]
 pub trait InferSignatureQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {

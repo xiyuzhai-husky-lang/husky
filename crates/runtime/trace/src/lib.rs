@@ -91,7 +91,7 @@ impl<'eval> Serialize for Trace<'eval> {
                         proc_ranged_scope: ranged_scope,
                         ..
                     } => !ranged_scope.scope.is_builtin(),
-                    FeatureExprKind::MembVarAccess { .. } => todo!(),
+                    FeatureExprKind::StructMembVarAccess { .. } => todo!(),
                     FeatureExprKind::EnumLiteral { .. } => todo!(),
                     FeatureExprKind::MembFuncCall {
                         memb_ident,
@@ -114,6 +114,13 @@ impl<'eval> Serialize for Trace<'eval> {
                         ref stmts,
                     } => todo!(),
                     FeatureExprKind::ScopedFeature { .. } => todo!(),
+                    FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
+                    FeatureExprKind::RecordMembAccess {
+                        ref this,
+                        memb_ident,
+                        ..
+                    } => todo!(),
+                    FeatureExprKind::This { ref repr } => todo!(),
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)

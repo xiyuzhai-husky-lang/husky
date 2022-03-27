@@ -221,7 +221,7 @@ fn memb_routine_instruction_sheet(
                     }
                 }
             }
-            TyDefnKind::Class {
+            TyDefnKind::Record {
                 ref memb_vars,
                 ref memb_features,
             } => todo!(),

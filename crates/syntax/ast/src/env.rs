@@ -13,7 +13,7 @@ pub enum Env {
     Proc,
     Test,
     Struct,
-    Class,
+    Record,
     Props,
     Enum,
 }
@@ -33,7 +33,7 @@ impl Env {
             Env::Test => todo!(),
             Env::Struct => todo!(),
             Env::Enum => todo!(),
-            Env::Class => todo!(),
+            Env::Record => todo!(),
             Env::Props => todo!(),
         }
     }
@@ -52,7 +52,7 @@ impl std::fmt::Display for Env {
             Env::Test => "test",
             Env::Struct => "struct",
             Env::Enum => "enum",
-            Env::Class => "class",
+            Env::Record => "record",
             Env::Props => "props",
         })
     }

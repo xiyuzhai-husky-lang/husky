@@ -48,7 +48,7 @@ impl<'a> RustGenerator<'a> {
                         ref memb_vars,
                         ref memb_routines,
                     } => self.gen_struct_defn(entity.ident, memb_vars, memb_routines),
-                    TyDefnKind::Class { .. } => (),
+                    TyDefnKind::Record { .. } => (),
                 },
             }
         }
