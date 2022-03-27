@@ -12,27 +12,28 @@ pub trait AskCompileTime {
 }
 
 pub trait EvalFeature {
+    fn feature_query_group(&self) -> &dyn FeatureQueryGroup;
     fn session(&self) -> &Arc<Mutex<Session<'static>>>;
 
     fn eval_feature_block(&self, block: &FeatureBlock, input_id: usize) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_feature_block(block, input, sheet)
+        eval_feature_block(self.feature_query_group(), block, input, sheet)
     }
 
     fn eval_feature_stmt(&self, stmt: &FeatureStmt, input_id: usize) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_feature_stmt(stmt, input, sheet)
+        eval_feature_stmt(self.feature_query_group(), stmt, input, sheet)
     }
 
     fn eval_feature_expr(&self, expr: &FeatureExpr, input_id: usize) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_feature_expr(expr, input, sheet)
+        eval_feature_expr(self.feature_query_group(), expr, input, sheet)
     }
 }
 
@@ -62,7 +63,7 @@ pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<TraceId>> {
             None,
             package_main,
             0,
-            TraceKind::Main(compile_time.main_block(package_main).unwrap()),
+            TraceKind::Main(compile_time.main_feature_block(package_main).unwrap()),
         )
         .id()])
 }
@@ -229,7 +230,7 @@ fn feature_expr_subtraces(
                 vec![]
             }
         }
-        FeatureExprKind::MembVarAccess { .. } => todo!(),
+        FeatureExprKind::StructMembVarAccess { .. } => todo!(),
         FeatureExprKind::EnumLiteral { .. } => todo!(),
         FeatureExprKind::MembFuncCall {
             memb_ident,
@@ -252,6 +253,13 @@ fn feature_expr_subtraces(
             ref stmts,
         } => todo!(),
         FeatureExprKind::ScopedFeature { .. } => todo!(),
+        FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
+        FeatureExprKind::RecordMembAccess {
+            ref this,
+            memb_ident,
+            ..
+        } => todo!(),
+        FeatureExprKind::This { ref repr } => todo!(),
     })
 }
 

@@ -3,7 +3,7 @@ use std::sync::Arc;
 use semantics_lazy::LazyStmt;
 use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, StackValue};
 
-use crate::{FeatureExpr, FeatureExprKind};
+use crate::{FeatureBlock, FeatureExpr, FeatureExprKind};
 
 use super::FeatureEvaluator;
 
@@ -24,10 +24,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     self.eval_feature_expr(ropd)?.as_primitive()?,
                 )?
                 .into()),
-            FeatureExprKind::Variable { ref value, .. } => self
-                .cache(expr.feature, |evaluator: &mut Self| {
-                    evaluator.eval_feature_expr(&value)
-                }),
             FeatureExprKind::FuncCall {
                 ref instruction_sheet,
                 compiled,
@@ -40,9 +36,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 ref inputs,
                 ..
             } => self.eval_routine_call(instruction_sheet, compiled, inputs),
-            FeatureExprKind::MembVarAccess {
+            FeatureExprKind::StructMembVarAccess {
                 ref this,
-                memb_var_ident,
+                memb_ident: memb_var_ident,
                 contract,
                 opt_compiled,
             } => {
@@ -73,7 +69,28 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 ref instruction_sheet,
                 ref stmts,
             } => todo!(),
-            FeatureExprKind::ScopedFeature { ref stmts, .. } => self.eval_scoped_feature(stmts),
+            FeatureExprKind::ScopedFeature { ref block, .. } => self.eval_feature_block(block),
+            FeatureExprKind::ClassCall {
+                ty,
+                ref entity,
+                ref opds,
+            } => {
+                // Ok(self
+                // .sheet
+                // .resolve_class_call(self.db, expr.eval_id, entity, opds)
+                // .into()),
+                todo!()
+            }
+            FeatureExprKind::Variable { ref value, .. } => self
+                .cache(expr.feature, |evaluator: &mut Self| {
+                    evaluator.eval_feature_expr(&value)
+                }),
+            FeatureExprKind::RecordMembAccess {
+                ref this,
+                memb_ident,
+                ref repr,
+            } => self.eval_feature_repr(repr),
+            FeatureExprKind::This { ref repr } => todo!(),
         }
     }
 
@@ -99,9 +116,5 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             .iter()
             .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
         eval_fast(values, instrns, maybe_compiled)
-    }
-
-    fn eval_scoped_feature(&mut self, stmts: &[Arc<LazyStmt>]) -> EvalResult<'eval> {
-        todo!()
     }
 }

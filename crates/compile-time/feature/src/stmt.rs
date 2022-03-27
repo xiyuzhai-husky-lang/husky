@@ -4,7 +4,7 @@ use text::TextRange;
 
 use crate::{eval::FeatureEvalId, *};
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, Clone)]
 pub struct FeatureStmt {
     pub indent: fold::Indent,
     pub kind: FeatureStmtKind,
@@ -13,6 +13,20 @@ pub struct FeatureStmt {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
 }
+
+impl std::hash::Hash for FeatureStmt {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.eval_id.hash(state)
+    }
+}
+
+impl PartialEq for FeatureStmt {
+    fn eq(&self, other: &Self) -> bool {
+        self.eval_id == other.eval_id
+    }
+}
+
+impl Eq for FeatureStmt {}
 
 impl text::TextRanged for FeatureStmt {
     fn text_range_ref(&self) -> &text::TextRange {

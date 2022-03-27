@@ -65,7 +65,7 @@ impl<'a> TySheetBuilder<'a> {
                 },
                 _ => todo!(),
             },
-            ScopeKind::Type => BuiltinIdentifier::Type.into(),
+            ScopeKind::Type(_) => BuiltinIdentifier::Type.into(),
             ScopeKind::Trait => todo!(),
             ScopeKind::Routine => {
                 msg_once!("todo: generics in fp");

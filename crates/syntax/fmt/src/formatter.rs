@@ -76,7 +76,7 @@ impl<'a> Formatter<'a> {
                 match kind {
                     RawTyKind::Enum => todo!(),
                     RawTyKind::Struct => self.write("struct "),
-                    RawTyKind::Class => todo!(),
+                    RawTyKind::Record => todo!(),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {

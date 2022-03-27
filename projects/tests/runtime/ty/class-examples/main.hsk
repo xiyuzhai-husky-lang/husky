@@ -1,4 +1,4 @@
-class A:
+record A:
     x: i32
 
     def y -> i32:

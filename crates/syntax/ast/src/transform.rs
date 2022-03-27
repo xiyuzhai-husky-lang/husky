@@ -127,7 +127,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 },
                 Env::Struct => self.parse_struct_item(token_group, enter_block)?,
                 Env::Enum => self.parse_enum_variant(token_group)?,
-                Env::Class => self.parse_class_item(token_group, enter_block)?,
+                Env::Record => self.parse_class_item(token_group, enter_block)?,
                 Env::Props => todo!(),
             },
         })

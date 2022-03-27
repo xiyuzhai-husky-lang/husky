@@ -1,23 +1,29 @@
-mod block;
 mod branch;
 mod eval;
 mod expr;
+mod object;
 mod query;
+mod record;
+mod repr;
 mod sheet;
 mod stmt;
+mod this;
 mod unique_allocate;
 
-pub use block::FeatureBlock;
 pub use branch::{FeatureBranch, FeatureBranchKind};
 pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt, FeatureEvalIndicator};
 pub use expr::{FeatureExpr, FeatureExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
+pub use repr::*;
 pub use sheet::FeatureSheet;
 pub use stmt::{FeatureStmt, FeatureStmtKind};
+pub use this::FeatureBlock;
 pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
 };
 
+use eval::*;
+use object::Object;
 use print_utils::*;
 use scope::ScopePtr;
 use semantics_entity::EntityUid;
@@ -40,7 +46,7 @@ pub enum Feature {
     Assert {
         condition: FeaturePtr,
     },
-    Block(Vec<FeaturePtr>),
+    Cascade(Vec<FeaturePtr>),
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
         lopd: FeaturePtr,
@@ -54,7 +60,7 @@ pub enum Feature {
     Branches {
         branches: Vec<BranchedFeature>,
     },
-    MembVarAccess {
+    StructMembVarAccess {
         this: FeaturePtr,
         memb_ident: CustomIdentifier,
     },
@@ -66,6 +72,22 @@ pub enum Feature {
         scope: ScopePtr,
         uid: EntityUid,
     },
+    ClassCall {
+        ty: ScopePtr,
+        uid: EntityUid,
+        opds: Vec<FeaturePtr>,
+    },
+}
+
+impl Feature {
+    pub fn block(features: &FeatureUniqueAllocator, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
+        let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.feature).collect();
+        if stmt_features.len() == 1 {
+            stmt_features[0]
+        } else {
+            features.alloc(Feature::Cascade(stmt_features))
+        }
+    }
 }
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]

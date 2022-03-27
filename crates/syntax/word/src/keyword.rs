@@ -4,7 +4,7 @@ use std::ops::Deref;
 pub enum Keyword {
     Config(ConfigKeyword),
     Routine(RoutineKeyword),
-    Type(TypeKeyword),
+    Type(TyKeyword),
     Stmt(StmtKeyword),
     Def,
     Main,
@@ -41,8 +41,8 @@ impl From<RoutineKeyword> for Keyword {
     }
 }
 
-impl From<TypeKeyword> for Keyword {
-    fn from(kw: TypeKeyword) -> Self {
+impl From<TyKeyword> for Keyword {
+    fn from(kw: TyKeyword) -> Self {
         Keyword::Type(kw)
     }
 }
@@ -88,24 +88,24 @@ impl Deref for RoutineKeyword {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TypeKeyword {
+pub enum TyKeyword {
     Struct,
     Rename,
     Enum,
     Props,
-    Class,
+    Record,
 }
 
-impl Deref for TypeKeyword {
+impl Deref for TyKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
         match self {
-            TypeKeyword::Struct => "struct",
-            TypeKeyword::Rename => "rename",
-            TypeKeyword::Enum => "enum",
-            TypeKeyword::Props => "props",
-            TypeKeyword::Class => "class",
+            TyKeyword::Struct => "struct",
+            TyKeyword::Rename => "rename",
+            TyKeyword::Enum => "enum",
+            TyKeyword::Props => "props",
+            TyKeyword::Record => "record",
         }
     }
 }

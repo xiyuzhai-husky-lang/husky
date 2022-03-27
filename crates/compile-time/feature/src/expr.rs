@@ -1,20 +1,19 @@
 mod impl_opn;
 
-use std::sync::Arc;
-
 use file::FilePtr;
 use scope::InputPlaceholder;
 use scope::{RangedScope, ScopePtr};
 use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
+use std::sync::Arc;
 use text::TextRange;
 use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled};
 use word::BuiltinIdentifier;
 
 use crate::{eval::FeatureEvalId, *};
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, Clone)]
 pub struct FeatureExpr {
     pub kind: FeatureExprKind,
     pub(crate) feature: FeaturePtr,
@@ -24,6 +23,20 @@ pub struct FeatureExpr {
     pub contract: LazyContract,
     pub ty: ScopePtr,
 }
+
+impl std::hash::Hash for FeatureExpr {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.eval_id.hash(state)
+    }
+}
+
+impl PartialEq for FeatureExpr {
+    fn eq(&self, other: &Self) -> bool {
+        self.eval_id == other.eval_id
+    }
+}
+
+impl Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureExprKind {
@@ -40,6 +53,9 @@ pub enum FeatureExprKind {
     Variable {
         varname: CustomIdentifier,
         value: Arc<FeatureExpr>,
+    },
+    This {
+        repr: FeatureRepr,
     },
     FuncCall {
         func_ranged_scope: RangedScope,
@@ -61,11 +77,16 @@ pub enum FeatureExprKind {
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ImprStmt>>>,
     },
-    MembVarAccess {
+    StructMembVarAccess {
         this: Arc<FeatureExpr>,
-        memb_var_ident: CustomIdentifier,
+        memb_ident: CustomIdentifier,
         contract: LazyContract,
         opt_compiled: Option<MembVarAccessCompiled>,
+    },
+    RecordMembAccess {
+        this: Arc<FeatureExpr>,
+        memb_ident: CustomIdentifier,
+        repr: FeatureRepr,
     },
     MembFuncCall {
         memb_ident: CustomIdentifier,
@@ -89,13 +110,19 @@ pub enum FeatureExprKind {
     },
     ScopedFeature {
         scope: ScopePtr,
-        stmts: Arc<Vec<Arc<LazyStmt>>>,
+        block: Arc<FeatureBlock>,
+    },
+    ClassCall {
+        ty: RangedScope,
+        entity: Arc<Entity>,
+        opds: Vec<Arc<FeatureExpr>>,
     },
 }
 
 impl FeatureExpr {
     pub fn new(
-        db: &dyn EntityQueryGroup,
+        db: &dyn FeatureQueryGroup,
+        this: Option<FeatureRepr>,
         expr: &LazyExpr,
         symbols: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
@@ -104,15 +131,17 @@ impl FeatureExpr {
             db,
             symbols,
             features,
+            this,
         }
         .new_expr(expr)
     }
 }
 
 struct FeatureExprBuilder<'a> {
-    db: &'a dyn EntityQueryGroup,
+    db: &'a dyn FeatureQueryGroup,
     symbols: &'a [FeatureSymbol],
     features: &'a FeatureUniqueAllocator,
+    this: Option<FeatureRepr>,
 }
 
 impl<'a> FeatureExprBuilder<'a> {
@@ -155,17 +184,19 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.features.alloc(Feature::EnumLiteral(scope)),
             ),
-            LazyExprKind::This => todo!(),
+            LazyExprKind::This => (
+                FeatureExprKind::This {
+                    repr: self.this.as_ref().unwrap().clone(),
+                },
+                self.this.as_ref().unwrap().feature(),
+            ),
             LazyExprKind::ScopedFeature { scope } => {
                 let uid = self.db.entity_vc().uid(scope);
                 let entity = self.db.entity(scope).unwrap();
                 let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
-                let kind = match entity.kind() {
-                    EntityKind::Feature { ty, stmts } => FeatureExprKind::ScopedFeature {
-                        scope,
-                        stmts: stmts.clone(),
-                    },
-                    _ => todo!(),
+                let kind = FeatureExprKind::ScopedFeature {
+                    scope,
+                    block: self.db.scoped_feature_block(scope).unwrap(),
                 };
                 (kind, feature)
             }

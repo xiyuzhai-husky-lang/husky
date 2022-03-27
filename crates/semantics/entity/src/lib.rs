@@ -47,10 +47,10 @@ impl Entity {
     fn dependees(kind: &EntityKind) -> UniqVec<ScopePtr> {
         return match kind {
             EntityKind::Module { .. } => Default::default(),
-            EntityKind::Feature { ty, stmts } => {
+            EntityKind::Feature { ty, lazy_stmts } => {
                 let mut v = UniqVec::new();
                 v.push(ty.scope);
-                extract_lazy_stmts_dependees(stmts, &mut v);
+                extract_lazy_stmts_dependees(lazy_stmts, &mut v);
                 v
             }
             EntityKind::Pattern { .. } => todo!(),
@@ -86,7 +86,7 @@ impl Entity {
                     .iter()
                     .map(|(_ident, memb_var)| memb_var.ty)
                     .into(),
-                TyDefnKind::Class {
+                TyDefnKind::Record {
                     ref memb_vars,
                     ref memb_features,
                 } => {
@@ -208,10 +208,11 @@ impl Entity {
                     match opn_kind {
                         LazyOpnKind::Binary { .. }
                         | LazyOpnKind::Prefix(_)
-                        | LazyOpnKind::MembAccess(_)
+                        | LazyOpnKind::MembAccess { .. }
                         | LazyOpnKind::MembCall { .. } => (),
                         LazyOpnKind::RoutineCall(routine) => v.push(routine.scope),
-                        LazyOpnKind::TypeCall(ty) => v.push(ty.scope),
+                        LazyOpnKind::StructCall(ty) => v.push(ty.scope),
+                        LazyOpnKind::ClassCall(ty) => v.push(ty.scope),
                         LazyOpnKind::PatternCall => todo!(),
                         LazyOpnKind::ElementAccess => todo!(),
                     }

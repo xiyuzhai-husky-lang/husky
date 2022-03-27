@@ -59,6 +59,10 @@ impl EvalFeature for HuskyLangRuntime {
     fn session(&self) -> &Arc<Mutex<Session<'static>>> {
         &self.session
     }
+
+    fn feature_query_group(&self) -> &dyn FeatureQueryGroup {
+        &self.compile_time
+    }
 }
 
 impl HuskyLangRuntime {

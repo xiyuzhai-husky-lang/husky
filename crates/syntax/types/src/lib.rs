@@ -12,7 +12,7 @@ use word::CustomIdentifier;
 pub enum RawTyKind {
     Enum,
     Struct,
-    Class,
+    Record,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

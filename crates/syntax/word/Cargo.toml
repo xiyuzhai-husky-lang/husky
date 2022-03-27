@@ -12,3 +12,4 @@ doctest = false
 text-size = "1.0.0"
 bimap = "0.6.1"
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
+vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }

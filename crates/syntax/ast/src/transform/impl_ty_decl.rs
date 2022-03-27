@@ -5,15 +5,15 @@ use word::*;
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_ty_defn(
         &mut self,
-        ty_kw: TypeKeyword,
+        ty_kw: TyKeyword,
         tokens: &[Token],
     ) -> AstResult<AstKind> {
         match ty_kw {
-            TypeKeyword::Struct => self.parse_struct(tokens),
-            TypeKeyword::Props => todo!(),
-            TypeKeyword::Class => self.parse_class(tokens),
-            TypeKeyword::Enum => self.parse_enum(tokens),
-            TypeKeyword::Rename => todo!(),
+            TyKeyword::Struct => self.parse_struct(tokens),
+            TyKeyword::Props => todo!(),
+            TyKeyword::Record => self.parse_class(tokens),
+            TyKeyword::Enum => self.parse_enum(tokens),
+            TyKeyword::Rename => todo!(),
         }
     }
 
@@ -53,12 +53,12 @@ impl<'a> AstTransformer<'a> {
                 _ => (),
             }
         };
-        self.env.set_value(Env::Class);
+        self.env.set_value(Env::Record);
         expect_len!(Some(self.file), tokens, 3);
         expect_head!(Some(self.file), tokens);
         Ok(AstKind::TypeDecl {
             ident: identify!(Some(self.file), tokens[1]),
-            kind: RawTyKind::Class,
+            kind: RawTyKind::Record,
             generics: Vec::new(),
         })
     }

@@ -19,6 +19,7 @@ salsa = "0.17.0-pre.2"
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
+sync-utils = { path = "../../utils/sync", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
@@ -35,3 +36,4 @@ semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 semantics-package = { path = "../../semantics/package", version = "0.0.0" }
+infer-signature = { path = "../../infer/signature", version = "0.0.0" }

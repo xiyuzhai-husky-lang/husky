@@ -6,8 +6,12 @@ pub use ident::{
     default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier,
 };
 pub use intern::{new_word_unique_allocator, InternWord, WordInterner};
-pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TypeKeyword};
+pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use utils::*;
+
+pub type IdentMap<T> = VecMap<CustomIdentifier, T>;
+
+use vec_map::VecMap;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum WordPtr {
@@ -39,8 +43,8 @@ impl From<Keyword> for WordPtr {
     }
 }
 
-impl From<TypeKeyword> for WordPtr {
-    fn from(ty: TypeKeyword) -> Self {
+impl From<TyKeyword> for WordPtr {
+    fn from(ty: TyKeyword) -> Self {
         Self::Keyword(ty.into())
     }
 }

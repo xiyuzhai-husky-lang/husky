@@ -20,7 +20,7 @@ impl<'eval> Trace<'eval> {
                 FeatureExprKind::FuncCall { .. } | FeatureExprKind::ProcCall { .. } => {
                     Some(SubtracesContainerClass::Call)
                 }
-                FeatureExprKind::MembVarAccess { .. } => todo!(),
+                FeatureExprKind::StructMembVarAccess { .. } => todo!(),
                 FeatureExprKind::EnumLiteral { .. } => todo!(),
                 FeatureExprKind::MembFuncCall {
                     memb_ident,
@@ -43,6 +43,13 @@ impl<'eval> Trace<'eval> {
                     ref stmts,
                 } => todo!(),
                 FeatureExprKind::ScopedFeature { .. } => todo!(),
+                FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
+                FeatureExprKind::RecordMembAccess {
+                    ref this,
+                    memb_ident,
+                    ..
+                } => todo!(),
+                FeatureExprKind::This { ref repr } => todo!(),
             },
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)

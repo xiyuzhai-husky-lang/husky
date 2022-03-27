@@ -37,6 +37,10 @@ where
             self.data.push((key, value))
         }
     }
+
+    pub fn position(&self, key: K) -> Option<usize> {
+        self.data.iter().position(|entry| entry.0 == key)
+    }
 }
 
 impl<K, V> Deref for VecMap<K, V>
@@ -56,5 +60,16 @@ where
 {
     fn default() -> Self {
         Self { data: vec![] }
+    }
+}
+
+impl<K, V> std::ops::Index<K> for VecMap<K, V>
+where
+    K: PartialEq + Eq,
+{
+    type Output = V;
+
+    fn index(&self, index: K) -> &Self::Output {
+        self.get(index).unwrap()
     }
 }
