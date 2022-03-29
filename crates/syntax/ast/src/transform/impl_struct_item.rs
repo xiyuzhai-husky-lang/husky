@@ -118,5 +118,5 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    pub(super) fn parse_struct_static_func() {}
+    // pub(super) fn parse_struct_static_func() {}
 }

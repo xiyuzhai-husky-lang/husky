@@ -1,3 +1,4 @@
+projects_dir=/home/xiyuzhai/Documents/husky/projects
 runtime_tests_dir=/home/xiyuzhai/Documents/husky/projects/tests/runtime
 compile_time_tests_dir=/home/xiyuzhai/Documents/husky/projects/tests/compile-time
 
@@ -17,3 +18,6 @@ test-compiler:
 
 test-compiler-with-backtrace:
 	RUST_BACKTRACE=1 cargo run --bin husky-lang-compiler $(runtime_tests_dir)
+
+mnist:
+	cargo run --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 1 --mode run

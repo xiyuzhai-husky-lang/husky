@@ -5,23 +5,11 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_morphism_decl(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         expect_at_least!(token_group, Some(self.file), token_group.into(), 3);
         expect_head!(Some(self.file), token_group);
-        if token_group.len() == 2 {
-            self.parse_feature_decl_with_implied_type(token_group)
-        } else {
-            expect_at_least!(token_group, Some(self.file), token_group.into(), 5);
-            match token_group[2].kind {
-                TokenKind::Special(Special::LightArrow) => self.parse_feature_decl(token_group),
-                _ => todo!(),
-            }
+        expect_at_least!(token_group, Some(self.file), token_group.into(), 5);
+        match token_group[2].kind {
+            TokenKind::Special(Special::LightArrow) => self.parse_feature_decl(token_group),
+            _ => todo!(),
         }
-    }
-
-    fn parse_feature_decl_with_implied_type(
-        &mut self,
-        token_group: &[Token],
-    ) -> AstResult<AstKind> {
-        let ident = identify!(Some(self.file), token_group[1]);
-        todo!()
     }
 
     fn parse_feature_decl(&mut self, token_group: &[Token]) -> AstResult<AstKind> {

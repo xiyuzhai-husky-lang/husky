@@ -1,3 +1,9 @@
+use crate::{synthetic::SimpleSyntheticDataset, *};
+use scope::StaticFuncSignature;
+use std::sync::Arc;
+use vm::{BoxedValue, Compiled, StackValue};
+use xrng::XRng;
+
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[
@@ -30,14 +36,6 @@ pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         }),
     }),
 };
-
-use std::sync::Arc;
-
-use scope::StaticFuncSignature;
-use vm::{BoxedValue, Compiled, StackValue};
-use xrng::XRng;
-
-use crate::{synthetic::SimpleSyntheticDataset, *};
 
 pub fn gen_sample1<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {
     let mut xrng = XRng::new(((seed + (idx as u64)) >> 32) & ((idx as u64) << 32));

@@ -1,3 +1,7 @@
+mod permutation;
+
+pub use permutation::*;
+
 use std::time::{SystemTime, UNIX_EPOCH};
 
 /// a wrapper for random generation
