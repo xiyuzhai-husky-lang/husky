@@ -29,6 +29,7 @@ impl From<Option<String>> for Mode {
             match s.as_str() {
                 "test-runtime" => Mode::TestRuntime,
                 "test-compile-time" => Mode::TestCompileTime,
+                "run" => Mode::Run,
                 _ => panic!(),
             }
         } else {

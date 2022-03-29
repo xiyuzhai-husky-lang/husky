@@ -6,6 +6,7 @@ edition = "2021"
 [lib]
 
 [dependencies]
+rand = "0.8.5"
 xrng = { path = "../../../utils/xrng" }
 word = { path = "../../../syntax/word", version = "0.0.0" }
 scope = { path = "../../../syntax/scope", version = "0.0.0" }

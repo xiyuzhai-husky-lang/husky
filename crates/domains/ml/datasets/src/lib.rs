@@ -1,3 +1,4 @@
+pub mod cv;
 mod iter;
 mod labeled;
 mod loader;
@@ -5,7 +6,7 @@ pub mod synthetic;
 
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
-    subscopes: &[("synthetic", synthetic::SCOPE_DATA)],
+    subscopes: &[("synthetic", synthetic::SCOPE_DATA), ("cv", cv::SCOPE_DATA)],
     signature: StaticScopeSignature::Module,
 };
 
@@ -13,10 +14,9 @@ use std::{borrow::Cow, sync::Arc};
 
 pub use iter::DataIter;
 pub use labeled::LabeledData;
-pub use loader::DataLoader;
+pub use loader::{DataLoader, LoadSample};
 
 use scope::{BuiltinScopeData, ScopeKind, StaticScopeSignature};
-use synthetic::SyntheticDataset;
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 
 pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
@@ -30,7 +30,7 @@ pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync 
 pub struct Dataset<'eval>(Arc<dyn DatasetDyn<'eval>>);
 
 impl<'eval> Dataset<'eval> {
-    pub fn new<T: SyntheticDataset<'eval>>(t: T) -> Self {
+    pub fn new<T: DatasetDyn<'eval>>(t: T) -> Self {
         Self(Arc::new(t))
     }
 

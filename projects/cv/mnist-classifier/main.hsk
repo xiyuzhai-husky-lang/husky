@@ -1,0 +1,5 @@
+dataset:
+    cv::mnist()
+
+main:
+    1
