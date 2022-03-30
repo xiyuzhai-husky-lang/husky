@@ -177,6 +177,7 @@ pub(crate) fn ty_signature(
             }
         }
         ScopeSource::Module { file } => todo!(),
+        ScopeSource::Implicit { .. } => todo!(),
     }
 }
 

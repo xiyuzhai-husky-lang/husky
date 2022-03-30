@@ -1,4 +1,6 @@
 mod dev;
+mod image;
+mod load;
 mod test;
 mod val;
 
@@ -7,6 +9,8 @@ use xrng::permutation_from_seed;
 use super::*;
 use crate::*;
 use dev::*;
+use image::*;
+use load::*;
 use test::*;
 use val::*;
 
@@ -28,15 +32,17 @@ pub fn mnist<'eval>() -> Dataset<'eval> {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MnistDataset {
+    images: Arc<Vec<Arc<BinaryImage28>>>,
+    labels: Arc<Vec<u8>>,
     permutation: Arc<Vec<u32>>,
 }
 
 impl MnistDataset {
     pub fn new(seed: u64) -> Self {
-        use rand::prelude::StdRng;
-        use rand::seq::SliceRandom;
-        use rand::SeedableRng;
+        let (images, labels) = load();
         Self {
+            images,
+            labels,
             permutation: Arc::new(permutation_from_seed(60000, seed)),
         }
     }
@@ -58,7 +64,11 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
 
 impl<'eval> DatasetDyn<'eval> for MnistDataset {
     fn dev_loader(&self) -> DataLoader<'eval> {
-        Box::new(MnistDevLoader::new(self.permutation.clone()))
+        Box::new(MnistDevLoader::new(
+            self.images.clone(),
+            self.labels.clone(),
+            self.permutation.clone(),
+        ))
     }
 
     fn val_loader(&self) -> DataLoader<'eval> {

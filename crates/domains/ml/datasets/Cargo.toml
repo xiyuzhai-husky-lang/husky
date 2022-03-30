@@ -11,3 +11,4 @@ xrng = { path = "../../../utils/xrng" }
 word = { path = "../../../syntax/word", version = "0.0.0" }
 scope = { path = "../../../syntax/scope", version = "0.0.0" }
 vm = { path = "../../../runtime/vm", version = "0.0.0" }
+print-utils = { path = "../../../utils/print", version = "0.0.0" }

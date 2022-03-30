@@ -2,12 +2,22 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MnistDevLoader {
+    images: Arc<Vec<Arc<BinaryImage28>>>,
+    labels: Arc<Vec<u8>>,
     permutation: Arc<Vec<u32>>,
 }
 
 impl MnistDevLoader {
-    pub fn new(permutation: Arc<Vec<u32>>) -> Self {
-        Self { permutation }
+    pub fn new(
+        images: Arc<Vec<Arc<BinaryImage28>>>,
+        labels: Arc<Vec<u8>>,
+        permutation: Arc<Vec<u32>>,
+    ) -> Self {
+        Self {
+            images,
+            labels,
+            permutation,
+        }
     }
 }
 

@@ -241,6 +241,10 @@ pub enum ScopeSource {
     Module {
         file: FilePtr,
     },
+    Implicit {
+        main: FilePtr,
+        ident: ImplicitIdentifier,
+    },
 }
 
 impl ScopeSource {

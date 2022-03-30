@@ -1,3 +1,5 @@
+use word::ImplicitIdentifier;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -32,5 +34,10 @@ pub(crate) fn feature_signature(
             }
         }
         ScopeSource::Module { file } => todo!(),
+        ScopeSource::Implicit { main, ident } => match ident {
+            ImplicitIdentifier::Input => Ok(Arc::new(FeatureSignature {
+                ty: db.package_input_ty(main)?,
+            })),
+        },
     }
 }

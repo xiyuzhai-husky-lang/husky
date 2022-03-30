@@ -102,6 +102,7 @@ pub(crate) fn call_signature(
             }
         }
         ScopeSource::Module { file: file_id } => todo!(),
+        ScopeSource::Implicit { .. } => todo!(),
     };
 
     fn func_call_signature_from_raw(
