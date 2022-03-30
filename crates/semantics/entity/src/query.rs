@@ -127,6 +127,7 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
             )))
         }
         ScopeSource::Module { file: file_id } => todo!(),
+        ScopeSource::Implicit { .. } => todo!(),
     }
 }
 

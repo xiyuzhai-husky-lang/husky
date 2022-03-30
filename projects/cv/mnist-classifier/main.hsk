@@ -2,4 +2,5 @@ dataset:
     cv::mnist()
 
 main:
+    a = input
     1

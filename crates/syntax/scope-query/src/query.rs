@@ -47,6 +47,7 @@ fn subscope_table(
             SubscopeTable::parse(file_id, text.fold_iter(0))
         }
         ScopeSource::WithinBuiltinModule => todo!(),
+        ScopeSource::Implicit { .. } => todo!(),
     }))
 }
 
@@ -128,7 +129,7 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
         ScopeRoute::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
-        ScopeRoute::Implicit { main, ident } => todo!(),
+        ScopeRoute::Implicit { main, ident } => ScopeSource::Implicit { main, ident },
     })
 }
 
@@ -241,6 +242,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
             ScopeSource::WithinModule { file: file_id, .. } => file_id,
             ScopeSource::Module { file: file_id } => file_id,
             ScopeSource::WithinBuiltinModule => todo!(),
+            ScopeSource::Implicit { .. } => todo!(),
         })
     }
 
