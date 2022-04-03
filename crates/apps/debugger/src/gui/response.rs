@@ -32,6 +32,7 @@ pub(super) enum Response<'a> {
     },
     LockFocus {
         focus: Focus,
+        opt_active_trace_id_for_figure: Option<TraceId>,
         opt_figure: Option<FigureProps>,
     },
     TraceStalk {

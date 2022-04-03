@@ -46,9 +46,11 @@ type DecodeFocusResponse = {
     focus_result: Result<Focus>;
 };
 
-type LockFocusResponse = {
+export type LockFocusResponse = {
     kind: "LockFocus";
     focus: Focus;
+    opt_active_trace_id_for_figure: number | null;
+    opt_figure: FigureProps | null;
 };
 
 type SetShownResponse = {
@@ -137,6 +139,14 @@ export function parse_debugger_response(text: string): DebuggerResponse {
             return {
                 kind: "LockFocus",
                 focus: new Focus(decode_member(props, "focus")),
+                opt_active_trace_id_for_figure: decode_opt(
+                    decode_member(props, "opt_active_trace_id_for_figure"),
+                    decode_number
+                ),
+                opt_figure: decode_opt(
+                    decode_member(props, "opt_figure"),
+                    decode_figure_props
+                ),
             };
         case "TraceStalk":
             return {

@@ -77,8 +77,20 @@ pub fn handle_message(
                         }
                         Query::LockFocus {
                             focus,
-                            opt_figure_trace_id,
-                        } => todo!(),
+                            opt_active_trace_id_for_figure,
+                        } => {
+                            let opt_figure = if let Some(trace_id) = opt_active_trace_id_for_figure
+                            {
+                                Some(debugger_.figure(trace_id, &focus).await)
+                            } else {
+                                None
+                            };
+                            Response::LockFocus {
+                                focus,
+                                opt_active_trace_id_for_figure,
+                                opt_figure,
+                            }
+                        }
                     })
                     .unwrap(),
                 ))) {
