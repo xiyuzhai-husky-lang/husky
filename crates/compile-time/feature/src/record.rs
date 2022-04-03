@@ -4,43 +4,6 @@ use sync_utils::ARwLock;
 use crate::*;
 use std::{collections::HashMap, sync::Arc};
 
-//     fn gen_block_memb_var(
-//         &mut self,
-//         db: &dyn FeatureQueryGroup,
-//         block: &FeatureBlock,
-//         memb_ident: CustomIdentifier,
-//     ) -> FeatureRepr {
-//         let stmt_features = block.stmt_features();
-//         if stmt_features.len() == 1 {
-//             match block.stmts.last().unwrap().kind {
-//                 FeatureStmtKind::Return { ref result } => self.memb_var(db, result, memb_ident),
-//                 FeatureStmtKind::BranchGroup { kind, ref branches } => todo!(),
-//                 _ => panic!(),
-//             }
-//         } else {
-//             todo!()
-//         }
-//     }
-
-//     fn gen_block_memb_feature(
-//         &mut self,
-//         db: &dyn FeatureQueryGroup,
-//         block: &FeatureBlock,
-//         memb_ident: CustomIdentifier,
-//     ) -> FeatureRepr {
-//         let stmt_features = block.stmt_features();
-//         if stmt_features.len() == 1 {
-//             match block.stmts.last().unwrap().kind {
-//                 FeatureStmtKind::Return { ref result } => self.memb_feature(db, result, memb_ident),
-//                 FeatureStmtKind::BranchGroup { kind, ref branches } => todo!(),
-//                 _ => panic!(),
-//             }
-//         } else {
-//             todo!()
-//         }
-//     }
-// }
-
 pub(crate) fn record_memb_repr(
     db: &dyn FeatureQueryGroup,
     this: FeatureRepr,
@@ -61,9 +24,7 @@ pub(crate) fn expr_record_memb(
         FeatureExprKind::Variable { .. } => todo!(),
         FeatureExprKind::RecordMembAccess { .. } => todo!(),
         FeatureExprKind::MembPattCall { .. } => todo!(),
-        FeatureExprKind::ScopedFeature { ref block, .. } => {
-            block_record_memb(db, block, memb_ident)
-        }
+        FeatureExprKind::FeatureBlock { ref block, .. } => block_record_memb(db, block, memb_ident),
         FeatureExprKind::ClassCall {
             ref entity,
             ref opds,
@@ -104,6 +65,7 @@ pub(crate) fn expr_record_memb(
             panic!()
         }
         FeatureExprKind::This { ref repr } => db.record_memb_repr(repr.clone(), memb_ident),
+        FeatureExprKind::GlobalInput => todo!(),
     }
 }
 

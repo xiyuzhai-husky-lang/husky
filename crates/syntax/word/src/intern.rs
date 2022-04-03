@@ -79,6 +79,7 @@ pub fn new_word_unique_allocator() -> WordInterner {
         BuiltinIdentifier::Fn.into(),
         BuiltinIdentifier::FnMut.into(),
         BuiltinIdentifier::FnOnce.into(),
+        BuiltinIdentifier::Datasets.into(),
         BuiltinIdentifier::DatasetType.into(),
         ImplicitIdentifier::Input.into(),
         Identifier::This.into(),

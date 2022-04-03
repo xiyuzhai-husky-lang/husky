@@ -103,7 +103,7 @@ export class DebuggerSingleton {
 
         this._panel.webview.html = this._getHtmlForWebview(webview);
         webview.onDidReceiveMessage(async (data) => {
-            switch (data.type) {
+            switch (data.kind) {
                 case "onInfo": {
                     if (!data.value) {
                         return;

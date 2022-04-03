@@ -2,25 +2,28 @@
     import TreeView from "./TreeView/TreeView.svelte";
     import Figure from "./Figure/Figure.svelte";
     import HSplitPane from "./SplitPane/HSplitPane.svelte";
-    import { request_lock_input } from "websocket/websocket_client";
+    import { request_lock_input } from "src/server/server";
     import {
-        get_active_figure_store,
-        get_active_trace_store,
-        get_input_id_store,
-        get_input_locked_store,
+        active_trace_store,
+        focus_store,
+        input_locked_store,
         get_subtraces,
         moveRight,
-        moveUp,
+        move_up,
         move_down,
         move_left,
-    } from "src/state/client";
+        get_figure,
+    } from "src/data/ui";
     import { onDestroy } from "svelte";
 
     let window_height: number;
-    $: figure_store = get_active_figure_store();
-    $: figure = $figure_store;
-    $: active_trace_store = get_active_trace_store();
+
+    $: focus = $focus_store;
+    $: opt_input_id = focus.opt_input_id;
     $: active_trace = $active_trace_store;
+    $: figure =
+        active_trace !== null ? get_figure(active_trace.id, focus) : null;
+
     function on_key_down(e: KeyboardEvent) {
         switch (e.code) {
             case "KeyH":
@@ -33,25 +36,28 @@
                 move_down();
                 break;
             case "KeyK":
-                moveUp();
+                move_up();
                 break;
             case "KeyT":
                 if (active_trace !== null) {
                     console.log("trace: ", active_trace);
-                    console.log("subtraces: ", get_subtraces(active_trace.id));
+                    console.log(
+                        "subtraces: ",
+                        get_subtraces(focus, active_trace.id)
+                    );
                 }
                 break;
             default:
         }
     }
 
-    let input_locked_store = get_input_locked_store();
-    let input_id_store = get_input_id_store();
-    $: input = $input_id_store;
-    let input_str: string = JSON.stringify(input);
+    let input_str: string = JSON.stringify(opt_input_id);
     $: is_input_locked = $input_locked_store;
-    const unsubscribe = input_id_store.subscribe((value) => {
-        input_str = value === null ? "" : JSON.stringify(value);
+    const unsubscribe = focus_store.subscribe((focus) => {
+        input_str =
+            focus.opt_input_id === null
+                ? ""
+                : JSON.stringify(focus.opt_input_id);
     });
 
     onDestroy(unsubscribe);
@@ -79,7 +85,7 @@
     </HSplitPane>
     <div class="Bottom">
         <div class="BottomItem">
-            locked on:
+            focus:
             <div on:click={on_input_clicked} class="BottomInputWrapper">
                 <input
                     class:is_input_locked
@@ -102,14 +108,14 @@
         padding-left: 10px;
         display: flex;
         flex-direction: row;
-        height: 25px;
+        height: 35px;
         background: rgb(0, 126, 126);
         display: flex;
         align-items: center;
     }
     input {
-        max-height: 16px;
-        max-width: 32px;
+        height: 20px;
+        min-width: 80%;
         background: rgb(0, 105, 105);
         border: none;
         outline: orange solid 1px;
@@ -124,11 +130,14 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        width: 100%;
+        padding-left: 5px;
     }
     .BottomInputWrapper {
         display: flex;
         align-items: center;
         padding-left: 10px;
         padding-right: 10px;
+        width: 50%;
     }
 </style>

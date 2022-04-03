@@ -9,7 +9,10 @@ mod state;
 #[cfg(test)]
 mod tests;
 
+use avec::Avec;
 pub use error::{DebuggerError, DebuggerResult};
+use focus::Focus;
+use json_result::JsonResult;
 pub use mode::Mode;
 
 use compile_time_db::HuskyLangCompileTime;
@@ -113,18 +116,15 @@ impl Debugger {
     pub async fn subtraces(
         &self,
         trace_id: TraceId,
-        effective_opt_input_id_for_subtraces: Option<usize>,
-    ) -> Arc<Vec<Arc<Trace<'static>>>> {
-        let subtraces = self
-            .runtime
+        effective_opt_input_id: Option<usize>,
+    ) -> Avec<Trace<'static>> {
+        let runtime = self.runtime.lock().unwrap();
+        let trace = runtime.trace(trace_id);
+        let subtraces = runtime.subtraces(trace_id, effective_opt_input_id);
+        self.state
             .lock()
             .unwrap()
-            .subtraces(trace_id, effective_opt_input_id_for_subtraces);
-        self.state.lock().unwrap().set_subtraces(
-            trace_id,
-            effective_opt_input_id_for_subtraces,
-            &subtraces,
-        );
+            .set_subtraces(&trace, effective_opt_input_id, &subtraces);
         subtraces
     }
 
@@ -136,8 +136,8 @@ impl Debugger {
         self.runtime.lock().unwrap().showns()
     }
 
-    pub async fn figure(&self, id: TraceId) -> Option<FigureProps> {
-        self.runtime.lock().unwrap().figure(id)
+    pub async fn figure(&self, id: TraceId, focus: &Focus) -> FigureProps {
+        self.runtime.lock().unwrap().figure(id, focus)
     }
 
     pub async fn activate(&self, id: TraceId) {
@@ -154,6 +154,10 @@ impl Debugger {
 
     pub async fn trace(&self, id: TraceId) -> Arc<Trace<'static>> {
         self.runtime.lock().unwrap().trace(id)
+    }
+
+    pub fn decode_focus(&self, command: &str) -> JsonResult<Focus> {
+        self.runtime.lock().unwrap().decode_focus(command)
     }
 
     pub async fn lock_input(&self, input_str: &str) -> (Option<Option<usize>>, Option<String>) {

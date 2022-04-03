@@ -69,7 +69,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 ref instruction_sheet,
                 ref stmts,
             } => todo!(),
-            FeatureExprKind::ScopedFeature { ref block, .. } => self.eval_feature_block(block),
+            FeatureExprKind::FeatureBlock { ref block, .. } => self.eval_feature_block(block),
             FeatureExprKind::ClassCall {
                 ty,
                 ref entity,
@@ -91,6 +91,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 ref repr,
             } => self.eval_feature_repr(repr),
             FeatureExprKind::This { ref repr } => todo!(),
+            FeatureExprKind::GlobalInput => Ok(EvalValue::GlobalPure(self.global_input.clone())),
         }
     }
 

@@ -27,6 +27,9 @@ impl<'eval> LoadSample<'eval> for MnistDevLoader {
     }
 
     fn load<'a>(&'a mut self, idx: usize) -> LabeledData<'eval> {
-        todo!()
+        let permuted_idx = self.permutation[idx] as usize;
+        let input = self.images[permuted_idx].clone();
+        let label = self.labels[permuted_idx];
+        LabeledData { input, label }
     }
 }

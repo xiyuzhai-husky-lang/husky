@@ -19,7 +19,7 @@ use vm::{InstructionSheet, LoopFrameSnapshot, StackSnapshot};
 use crate::*;
 
 #[derive(Debug, Clone, Deserialize, Copy, PartialEq, Eq, Hash)]
-pub struct TraceId(pub(crate) usize);
+pub struct TraceId(pub usize);
 
 impl Serialize for TraceId {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>

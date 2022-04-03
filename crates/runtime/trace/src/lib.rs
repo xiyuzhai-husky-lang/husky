@@ -113,7 +113,7 @@ impl<'eval> Serialize for Trace<'eval> {
                         ref instruction_sheet,
                         ref stmts,
                     } => todo!(),
-                    FeatureExprKind::ScopedFeature { .. } => todo!(),
+                    FeatureExprKind::FeatureBlock { .. } => todo!(),
                     FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
                     FeatureExprKind::RecordMembAccess {
                         ref this,
@@ -121,6 +121,7 @@ impl<'eval> Serialize for Trace<'eval> {
                         ..
                     } => todo!(),
                     FeatureExprKind::This { ref repr } => todo!(),
+                    FeatureExprKind::GlobalInput => false,
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)
@@ -162,26 +163,6 @@ impl<'eval> Trace<'eval> {
             range,
         }
     }
-
-    // pub(crate) fn new2(
-    //     parent: Option<TraceId>,
-    //     indent: Indent,
-    //     gen_kind: impl FnOnce(TraceId) -> TraceKind,
-    //     trace_allocator: &TraceFactory,
-    //     text: &Text,
-    // ) -> Self {
-    //     let id = trace_allocator.next_id();
-    //     let kind = gen_kind(id);
-    //     let (file, range) = kind.file_and_range();
-    //     Self {
-    //         id,
-    //         parent,
-    //         line: trace_allocator.tokens(id, indent, &kind, text),
-    //         kind,
-    //         file,
-    //         range,
-    //     }
-    // }
 
     pub fn id(&self) -> TraceId {
         self.id

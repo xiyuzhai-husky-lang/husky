@@ -101,7 +101,8 @@ impl<'a> AtomLRParser<'a> {
                 | BuiltinIdentifier::False
                 | BuiltinIdentifier::Debug
                 | BuiltinIdentifier::Std
-                | BuiltinIdentifier::Core => Ok(Vec::new()),
+                | BuiltinIdentifier::Core
+                | BuiltinIdentifier::Datasets => Ok(Vec::new()),
                 BuiltinIdentifier::Fp
                 | BuiltinIdentifier::Fn
                 | BuiltinIdentifier::FnMut

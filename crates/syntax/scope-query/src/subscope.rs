@@ -4,7 +4,7 @@ use word::{CustomIdentifier, Keyword};
 
 use crate::error::*;
 use crate::ScopeSalsaQueryGroup;
-
+use lazy_format::lazy_format;
 use text::TextRanged;
 use token::{Token, TokenGroupIter, TokenKind};
 use word::Identifier;
@@ -165,14 +165,13 @@ impl SubscopeTable {
     }
 
     pub fn scope_source(&self, ident: CustomIdentifier) -> ScopeResult<ScopeSource> {
-        self.entries
-            .iter()
-            .find(|entry| entry.ident == Some(ident))
-            .map(|entry| entry.source)
-            .ok_or(scope_error!(format!(
-                "No scope with ident: \"{}\" among {}",
-                ident, self
-            )))
+        not_none!(
+            self.entries
+                .iter()
+                .find(|entry| entry.ident == Some(ident))
+                .map(|entry| entry.source),
+            format!("No scope with ident: \"{}\" among {}", ident, self)
+        )
     }
 
     pub fn scope_kind(&self, ident: CustomIdentifier) -> Option<ScopeKind> {

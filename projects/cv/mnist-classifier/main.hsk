@@ -1,5 +1,5 @@
 dataset:
-    cv::mnist()
+    cv::mnist::new_binary_dataset()
 
 main:
     a = input

@@ -31,19 +31,23 @@ pub trait AnyValue<'eval>:
 {
     fn static_type_id() -> StaticTypeId;
     fn static_type_name() -> Cow<'static, str>;
+    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>>;
+
     fn boxed_any(&self) -> Box<dyn AnyValueDyn<'eval>> {
         Box::new(self.clone())
     }
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>>;
+
     fn from_stack<'stack>(stack_value: StackValue<'stack, 'eval>) -> Self {
         match stack_value {
             StackValue::Boxed(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
+
     fn as_primitive(&self) -> PrimitiveValue {
         panic!()
     }
+
     fn print_short(&self, _: u8) -> String {
         format!("{:?}", self)
     }
@@ -58,7 +62,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + 'eval {
     fn equal_any(&self, other: &dyn AnyValueDyn<'eval>) -> bool;
     fn assign<'stack>(&mut self, other: StackValue<'stack, 'eval>);
     fn as_primitive(&self) -> PrimitiveValue;
-    fn upcast_any(&self) -> &dyn AnyValueDyn<'eval>;
+    fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval> + 'eval);
     fn print_short(&self, max_length: u8) -> String;
 }
 

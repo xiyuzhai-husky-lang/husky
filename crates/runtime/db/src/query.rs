@@ -1,15 +1,12 @@
 use datasets::LabeledData;
 use feature::*;
 use semantics_eager::ImprStmtKind;
+use visual_runtime::VisualQueryGroup;
 use vm::{exec_debug, EvalResult, HistoryEntry};
 
 use trace::*;
 
 use crate::*;
-
-pub trait AskCompileTime {
-    fn compile_time(&self, version: usize) -> &HuskyLangCompileTime;
-}
 
 pub trait EvalFeature {
     fn feature_query_group(&self) -> &dyn FeatureQueryGroup;
@@ -38,7 +35,9 @@ pub trait EvalFeature {
 }
 
 #[salsa::query_group(RuntimeQueryGroupStorage)]
-pub trait RuntimeQueryGroup: AskCompileTime + CreateTrace<'static> + EvalFeature {
+pub trait RuntimeQueryGroup:
+    AskCompileTime + CreateTrace<'static> + EvalFeature + VisualQueryGroup
+{
     #[salsa::input]
     fn package_main(&self) -> FilePtr;
 
@@ -252,7 +251,7 @@ fn feature_expr_subtraces(
             ref instruction_sheet,
             ref stmts,
         } => todo!(),
-        FeatureExprKind::ScopedFeature { .. } => todo!(),
+        FeatureExprKind::FeatureBlock { .. } => todo!(),
         FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
         FeatureExprKind::RecordMembAccess {
             ref this,
@@ -260,6 +259,7 @@ fn feature_expr_subtraces(
             ..
         } => todo!(),
         FeatureExprKind::This { ref repr } => todo!(),
+        FeatureExprKind::GlobalInput => todo!(),
     })
 }
 

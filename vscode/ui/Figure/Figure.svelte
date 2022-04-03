@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { FigureProps, Plot2dProps } from "trace/figure/FigureProps";
+    import type FigureProps from "trace/figure/FigureProps";
     import Plot2d from "./Plot2d.svelte";
     import Graphics2d from "./Graphics2d.svelte";
-    export let figure: FigureProps;
+    export let figure: FigureProps | null;
     let windowHeight: number;
     let figureHeight: number;
     let figureWidth: number;
@@ -30,13 +30,13 @@
             class="FigureCanvas"
             style="width: {canvasWidth}px; height: {canvasHeight}px"
         >
-            {#if figure !== null}
-                {#if figure.type === "Plot2d"}
+            {#if figure !== null && figure.kind !== "Blank"}
+                {#if figure.kind === "Plot2d"}
                     <Plot2d {figure} />
-                {:else if figure.type === "Graphics2d"}
+                {:else if figure.kind === "Graphics2d"}
                     <Graphics2d {figure} />
                 {:else}
-                    <p class="error">{figure.type} not supported</p>
+                    <p class="error">{figure.kind} not supported</p>
                 {/if}
             {/if}
         </div>

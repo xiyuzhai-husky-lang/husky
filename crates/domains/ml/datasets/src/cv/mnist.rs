@@ -4,6 +4,8 @@ mod load;
 mod test;
 mod val;
 
+use scope::TyKind;
+use visual_syntax::BuiltinVisualizer;
 use xrng::permutation_from_seed;
 
 use super::*;
@@ -15,18 +17,37 @@ use test::*;
 use val::*;
 
 pub const MNIST_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+    scope_kind: ScopeKind::Module,
+    subscopes: &[
+        ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
+        ("BinaryImage28", BINARY_IMAGE_28_SCOPE_DATA),
+    ],
+    signature: BuiltinScopeSignature::Module,
+};
+
+const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Routine,
     subscopes: &[],
-    signature: StaticScopeSignature::Func(StaticFuncSignature {
+    signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
-        output: "Dataset<f32, i32>",
+        output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         compiled: Some(Compiled {
-            call: |_| Ok(StackValue::Boxed(BoxedValue::new(mnist()))),
+            call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
         }),
     }),
 };
 
-pub fn mnist<'eval>() -> Dataset<'eval> {
+const BINARY_IMAGE_28_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+    scope_kind: ScopeKind::Type(TyKind::Other),
+    subscopes: &[],
+    signature: BuiltinScopeSignature::Ty {
+        visualizer: BuiltinVisualizer {
+            compiled: BinaryImage28::visualize,
+        },
+    },
+};
+
+pub fn new_binary_dataset<'eval>() -> Dataset<'eval> {
     Dataset::new(MnistDataset::new(35016232u64))
 }
 

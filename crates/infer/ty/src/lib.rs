@@ -66,10 +66,11 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<Sco
             BuiltinIdentifier::Array => todo!(),
             BuiltinIdentifier::DatasetType => todo!(),
             BuiltinIdentifier::Type => todo!(),
+            BuiltinIdentifier::Datasets => todo!(),
         },
         ScopePtr::Custom(scope) => match scope.route {
             ScopeRoute::Implicit { main, ident } => match ident {
-                ImplicitIdentifier::Input => db.package_input_ty(main),
+                ImplicitIdentifier::Input => db.global_input_ty(main),
             },
             _ => todo!(),
         },
@@ -143,6 +144,7 @@ fn is_implicit_convertible(
                 _ => false,
             },
             BuiltinIdentifier::Type => todo!(),
+            BuiltinIdentifier::Datasets => panic!(),
         },
         ScopePtr::Custom(_) => todo!(),
     }

@@ -37,7 +37,7 @@ impl<'a> TySheetBuilder<'a> {
                         item.children.map(|children| self.infer_all(children));
                     }
                     AstKind::MainDecl => {
-                        let output_ty = self.db.package_output_ty(self.main_file).unwrap();
+                        let output_ty = self.db.global_output_ty(self.main_file).unwrap();
                         self.infer_morphism(&[], output_ty, item.children.unwrap(), &arena)
                     }
                     AstKind::DatasetConfig => self.infer_routine(

@@ -7,7 +7,7 @@ pub mod synthetic;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("synthetic", synthetic::SCOPE_DATA), ("cv", cv::SCOPE_DATA)],
-    signature: StaticScopeSignature::Module,
+    signature: BuiltinScopeSignature::Module,
 };
 
 use std::{borrow::Cow, sync::Arc};
@@ -16,7 +16,7 @@ pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
-use scope::{BuiltinScopeData, ScopeKind, StaticScopeSignature};
+use scope::{BuiltinScopeData, BuiltinScopeSignature, ScopeKind};
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 
 pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {

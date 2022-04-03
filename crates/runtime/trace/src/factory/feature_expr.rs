@@ -74,7 +74,7 @@ impl<'eval> TraceFactory<'eval> {
                 ref instruction_sheet,
                 ref stmts,
             } => todo!(),
-            FeatureExprKind::ScopedFeature { .. } => todo!(),
+            FeatureExprKind::FeatureBlock { .. } => todo!(),
             FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
             FeatureExprKind::RecordMembAccess {
                 ref this,
@@ -82,6 +82,7 @@ impl<'eval> TraceFactory<'eval> {
                 ..
             } => todo!(),
             FeatureExprKind::This { ref repr } => todo!(),
+            FeatureExprKind::GlobalInput => vec![keyword!("input")],
         };
     }
 

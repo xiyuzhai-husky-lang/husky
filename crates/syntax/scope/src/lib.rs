@@ -9,6 +9,7 @@ pub use allocate_unique::{
 use file::FilePtr;
 pub use kind::{ScopeKind, TyKind};
 use text::{TextRange, TextRanged};
+use visual_syntax::BuiltinVisualizer;
 use vm::{Compiled, EagerContract, InputContract};
 use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
 
@@ -118,13 +119,13 @@ pub enum ScopeRoute {
 pub struct BuiltinScopeData {
     pub scope_kind: ScopeKind,
     pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
-    pub signature: StaticScopeSignature,
+    pub signature: BuiltinScopeSignature,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum StaticScopeSignature {
+pub enum BuiltinScopeSignature {
     Func(StaticFuncSignature),
-    Ty(StaticTySignature),
+    Ty { visualizer: BuiltinVisualizer },
     Module,
 }
 
@@ -134,9 +135,6 @@ pub struct StaticFuncSignature {
     pub output: &'static str,
     pub compiled: Option<Compiled>,
 }
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct StaticTySignature {}
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StaticInputSignature {

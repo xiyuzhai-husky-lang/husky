@@ -1,20 +1,18 @@
+use focus::Focus;
+
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
-#[serde(tag = "type")]
+#[serde(tag = "kind")]
 pub(super) enum Query {
-    Subtraces {
-        trace_id: TraceId,
-        opt_input_id: Option<usize>,
-    },
-    Figure {
-        id: TraceId,
-    },
     Activate {
         id: TraceId,
+        opt_focus_for_figure: Option<Focus>,
     },
     ToggleExpansion {
         id: TraceId,
+        effective_opt_input_id: Option<usize>,
+        request_subtraces: bool,
     },
     ToggleShow {
         id: TraceId,
@@ -22,8 +20,12 @@ pub(super) enum Query {
     Trace {
         id: TraceId,
     },
-    LockInput {
-        input_str: String,
+    DecodeFocus {
+        command: String,
+    },
+    LockFocus {
+        focus: Focus,
+        opt_figure_trace_id: Option<TraceId>,
     },
     TraceStalk {
         trace_id: TraceId,

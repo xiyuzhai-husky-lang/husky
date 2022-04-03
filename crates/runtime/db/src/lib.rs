@@ -1,13 +1,16 @@
 #![allow(warnings)]
 mod error;
+mod impl_figure;
 mod query;
 mod session;
 mod tests;
 
 use datasets::LabeledData;
 pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
+use focus::Focus;
+use json_result::JsonResult;
 use query::EvalFeature;
-pub use query::{AskCompileTime, RuntimeQueryGroup, RuntimeQueryGroupStorage};
+pub use query::{RuntimeQueryGroup, RuntimeQueryGroupStorage};
 
 use check_utils::*;
 use compile_time_db::*;
@@ -21,17 +24,23 @@ use std::{
 };
 use text::{RawTextQueryGroup, TextQueryGroupStorage};
 use trace::{CreateTrace, FigureProps, Trace, TraceFactory, TraceId, TraceKind, TraceStalk};
+use visual_runtime::*;
 use vm::{AnyValueDyn, Instruction};
 
-#[salsa::database(RuntimeQueryGroupStorage, TextQueryGroupStorage)]
+#[salsa::database(
+    VisualQueryGroupStorage,
+    RuntimeQueryGroupStorage,
+    TextQueryGroupStorage
+)]
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
     traces: Arc<TraceFactory<'static>>,
     session: Arc<Mutex<Session<'static>>>,
-    opt_input_id: Option<usize>,
+    focus: Focus,
     expansions: HashMap<TraceId, bool>,
     showns: HashMap<TraceId, bool>,
+    package_main: FilePtr,
 }
 
 impl AskCompileTime for HuskyLangRuntime {
@@ -71,8 +80,8 @@ impl HuskyLangRuntime {
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
-        let current_package_main = all_main_files[0];
-        let package = match compile_time.package(current_package_main) {
+        let package_main = all_main_files[0];
+        let package = match compile_time.package(package_main) {
             Ok(package) => package,
             Err(error) => {
                 println!("{:?}", error);
@@ -84,12 +93,13 @@ impl HuskyLangRuntime {
             compile_time,
             traces: Default::default(),
             session: Arc::new(Mutex::new(Session::new(&package).unwrap())),
-            opt_input_id: None,
+            focus: Default::default(),
             expansions: Default::default(),
             showns: Default::default(),
+            package_main,
         };
         runtime.set_version(0);
-        runtime.set_package_main(current_package_main);
+        runtime.set_package_main(package_main);
         runtime
     }
 
@@ -99,11 +109,6 @@ impl HuskyLangRuntime {
 
     pub async fn change_text(&mut self) {
         self.set_version(self.version() + 1);
-    }
-
-    pub fn figure(&self, id: TraceId) -> Option<FigureProps> {
-        msg_once!("todo: figure");
-        None
     }
 
     pub fn toggle_expansion(&mut self, id: TraceId) {
@@ -128,17 +133,31 @@ impl HuskyLangRuntime {
         self.showns.clone()
     }
 
-    pub fn opt_input_id(&self) -> Option<usize> {
-        self.opt_input_id
+    pub fn focus(&self) -> &Focus {
+        &self.focus
     }
 
-    pub fn lock_input(&mut self, input_id_str: &str) -> (Option<Option<usize>>, Option<String>) {
-        if input_id_str.len() == 0 {
+    pub fn decode_focus(&self, command: &str) -> JsonResult<Focus> {
+        if command.len() == 0 {
+            return Ok(Focus::default());
+        }
+        match command.parse::<usize>() {
+            Ok(id) => Ok(Focus {
+                opt_input_id: Some(id),
+            }),
+            Err(e) => Err(format!("lock input failed due to error: {}", e)),
+        }
+    }
+
+    pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
+        if command.len() == 0 {
             return (Some(None), None);
         }
-        match input_id_str.parse::<usize>() {
+        match command.parse::<usize>() {
             Ok(id) => {
-                self.opt_input_id = Some(id);
+                self.focus = Focus {
+                    opt_input_id: Some(id),
+                };
                 (Some(Some(id)), None)
             }
             Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),

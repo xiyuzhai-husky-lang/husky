@@ -6,6 +6,6 @@
     export let lineWidth: number;
 </script>
 
-{#if shape.type === "Arrow"}
+{#if shape.kind === "Arrow"}
     <Arrow arrow={shape} {lineWidth} />
 {/if}

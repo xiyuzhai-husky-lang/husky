@@ -12,5 +12,5 @@ use xrng::XRng;
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Module,
     subscopes: &[("mnist", MNIST_SCOPE_DATA)],
-    signature: StaticScopeSignature::Module,
+    signature: BuiltinScopeSignature::Module,
 };

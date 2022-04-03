@@ -8,6 +8,10 @@ pub use diagnostic::DiagnosticQuery;
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
+pub use infer_contract::*;
+pub use infer_signature::*;
+pub use infer_total::*;
+pub use infer_ty::*;
 pub use rust_gen::RustGenQueryGroup;
 pub use scope::{AllocateUniqueScope, Scope};
 pub use scope_query::{ScopeQueryGroup, ScopeSalsaQueryGroup};
@@ -47,4 +51,8 @@ pub struct HuskyLangCompileTime {
     live_docs: ARwLock<HashMap<file::FilePtr, ARwLock<String>>>,
     vc: semantics_entity::EntityVersionControl,
     features: feature::FeatureUniqueAllocator,
+}
+
+pub trait AskCompileTime {
+    fn compile_time(&self, version: usize) -> &HuskyLangCompileTime;
 }

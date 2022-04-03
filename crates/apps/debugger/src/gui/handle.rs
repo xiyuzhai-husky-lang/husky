@@ -15,44 +15,54 @@ pub fn handle_message(
             let future = async move {
                 match client_sender_.send(Ok(Message::text(
                     serde_json::to_string(&match query {
-                        Query::Subtraces {
-                            trace_id: id,
-                            opt_input_id: input_locked_on,
+                        Query::Activate {
+                            id,
+                            opt_focus_for_figure,
                         } => {
-                            let subtraces = debugger_.subtraces(id, input_locked_on).await;
-                            Response::Subtraces {
+                            debugger_.activate(id).await;
+                            let opt_figure = if let Some(ref focus) = opt_focus_for_figure {
+                                Some(debugger_.figure(id, focus).await)
+                            } else {
+                                None
+                            };
+                            Response::Activate {
                                 id,
-                                input_locked_on,
-                                subtraces,
+                                opt_focus_for_figure,
+                                opt_figure,
                             }
                         }
-                        Query::Activate { id } => {
-                            debugger_.activate(id).await;
-                            Response::DidActivate { id }
-                        }
-                        Query::ToggleExpansion { id } => {
+                        Query::ToggleExpansion {
+                            id,
+                            effective_opt_input_id,
+                            request_subtraces,
+                        } => {
                             debugger_.toggle_expansion(id).await;
-                            Response::DidToggleExpansion { id }
+                            let opt_subtraces = if request_subtraces {
+                                Some(debugger_.subtraces(id, effective_opt_input_id).await)
+                            } else {
+                                None
+                            };
+                            Response::ToggleExpansion {
+                                id,
+                                effective_opt_input_id,
+                                opt_subtraces,
+                            }
                         }
                         Query::ToggleShow { id } => {
                             debugger_.toggle_show(id).await;
-                            Response::DidToggleShow { id }
+                            Response::ToggleShow { id }
                         }
-                        Query::Figure { id } => Response::Figure {
-                            id,
-                            figure: debugger_.figure(id).await,
-                        },
                         Query::Trace { id } => {
                             let trace = debugger_.trace(id).await;
                             Response::Trace { id, trace }
                         }
-                        Query::LockInput { ref input_str } => {
-                            let (input_locked_on, message) = debugger_.lock_input(input_str).await;
-                            Response::DidLockInput {
-                                input_locked_on,
-                                message,
-                            }
-                        }
+                        // Query::LockInput { ref input_str } => {
+                        //     let (input_locked_on, message) = debugger_.lock_input(input_str).await;
+                        //     Response::LockFocus {
+                        //         input_locked_on,
+                        //         message,
+                        //     }
+                        // }
                         Query::TraceStalk { trace_id, input_id } => {
                             let stalk = debugger_.trace_stalk(trace_id, input_id).await;
                             Response::TraceStalk {
@@ -61,6 +71,14 @@ pub fn handle_message(
                                 stalk,
                             }
                         }
+                        Query::DecodeFocus { ref command } => {
+                            let focus_result = debugger_.decode_focus(command);
+                            Response::DecodeFocus { focus_result }
+                        }
+                        Query::LockFocus {
+                            focus,
+                            opt_figure_trace_id,
+                        } => todo!(),
                     })
                     .unwrap(),
                 ))) {

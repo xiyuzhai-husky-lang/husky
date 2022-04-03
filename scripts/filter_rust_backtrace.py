@@ -21,6 +21,8 @@ for line in fileinput.input():
             mute = True
         elif "<DB" in stripped_line:
             mute = True
+        elif "<alloc::" in stripped_line:
+            mute = True
         else:
             mute = False
     if not mute:

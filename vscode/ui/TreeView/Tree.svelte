@@ -1,41 +1,33 @@
 <script lang="ts">
     import Node from "./Node.svelte";
     import {
-        get_trace_future,
+        get_trace,
         get_expansion_store,
         get_show_store,
-        get_subtraces_store,
-        get_active_trace_store,
+        get_subtraces,
+        active_trace_store,
         activate,
         toggle_expansion,
-    } from "src/state/client";
-    import {
-        tell_has_subtraces_store,
-        get_input_id_store,
-    } from "src/state/client";
-
+        focus_store,
+    } from "src/data/ui";
+    import { tell_has_subtraces_store } from "src/data/ui";
     export let trace_id: number;
 
-    $: trace_future = get_trace_future(trace_id);
-    $: trace = $trace_future;
+    $: trace = get_trace(trace_id);
     $: expanded_store = get_expansion_store(trace_id);
     $: expanded = $expanded_store;
-    $: shown_store = trace !== null ? get_show_store(trace) : null;
-    $: shown = shown_store !== null ? $shown_store : false;
-    $: opt_input_id_store = get_input_id_store();
-    $: subtraces_store = shown
-        ? get_subtraces_store(trace_id, $opt_input_id_store)
-        : null;
-    $: subtraces = shown ? $subtraces_store : null;
-    $: active_trace_store = get_active_trace_store();
+    $: shown_store = get_show_store(trace);
+    $: shown = $shown_store;
+    $: subtraces =
+        shown && expanded ? get_subtraces($focus_store, trace_id) : null;
     $: active_trace = $active_trace_store;
     $: active = active_trace !== null ? active_trace.id === trace_id : false;
-    $: locked = false;
+    let locked = false;
     $: has_subtraces_store = tell_has_subtraces_store(trace);
     $: has_subtraces = $has_subtraces_store;
     function toggle_expansion_locked() {
         if (!locked) {
-            toggle_expansion(trace_id);
+            toggle_expansion(trace);
             locked = true;
             setTimeout(() => {
                 locked = false;
@@ -54,9 +46,6 @@
                 toggle_expansion_locked();
             }}
             on_group_start_click={() => {
-                toggle_expansion_locked();
-            }}
-            on_indent_click={() => {
                 toggle_expansion_locked();
             }}
             {trace}
@@ -97,10 +86,5 @@
     .Call {
         border: white 2px solid;
         margin: 2px;
-    }
-    .CallTitle {
-        padding-left: 10px;
-        font-family: monospace;
-        font-size: 14px;
     }
 </style>

@@ -11,15 +11,23 @@ pub fn init_gui(debugger: &Debugger, sender: UnboundedSender<Result<Message, war
     let state = debugger.state.lock().unwrap();
     let runtime = debugger.runtime.lock().unwrap();
     let traces = runtime.traces();
+    let focus = runtime.focus();
+    let mut figures = HashMap::new();
+    let active_trace_id = state.active_trace_id;
+    if let Some(trace_id) = active_trace_id {
+        figures.insert(focus.figure_key(trace_id), runtime.figure(trace_id, focus));
+    }
+    msg_once!("init figures");
     let response = Response::Init {
-        init_state: InitState {
-            active_trace_id: state.active_trace_id,
-            opt_input_id: runtime.opt_input_id(),
+        init_state: InitData {
+            active_trace_id,
+            focus,
             traces,
             subtraces_list: &state.subtraces_map,
             root_traces: &root_traces,
             expansions: &expansions,
             showns: &showns,
+            figures,
         },
     };
     match sender.send(Ok(Message::text(serde_json::to_string(&response).unwrap()))) {
@@ -31,12 +39,13 @@ pub fn init_gui(debugger: &Debugger, sender: UnboundedSender<Result<Message, war
 }
 
 #[derive(Debug, Serialize, Clone)]
-pub struct InitState<'a> {
+pub struct InitData<'a> {
     pub active_trace_id: Option<TraceId>,
-    pub opt_input_id: Option<usize>,
+    pub focus: &'a Focus,
     pub traces: &'a TraceFactory<'static>,
     pub subtraces_list: &'a JsonMap<(TraceId, Option<usize>), Vec<TraceId>>,
     pub root_traces: &'a [TraceId],
     pub expansions: &'a HashMap<TraceId, bool>,
     pub showns: &'a HashMap<TraceId, bool>,
+    pub figures: HashMap<String, FigureProps>,
 }

@@ -26,7 +26,7 @@ impl<'a> AstTransformer<'a> {
                 ConfigKeyword::Dataset => {
                     self.env.set_value(Env::DatasetConfig);
                     self.use_all(
-                        BuiltinIdentifier::DatasetType.into(),
+                        BuiltinIdentifier::Datasets.into(),
                         token_group[0].text_range(),
                     )?;
                     AstKind::DatasetConfig

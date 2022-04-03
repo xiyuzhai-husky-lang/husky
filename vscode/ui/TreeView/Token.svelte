@@ -1,22 +1,15 @@
 <script lang="ts">
-    import {
-        get_show_store,
-        get_trace_future,
-        toggle_show,
-    } from "src/state/client";
-
+    import { get_show_store, get_trace, toggle_show } from "src/data/ui";
     import type { TokenProps } from "src/trace/Trace";
     export let token: TokenProps;
     export let within_active_node: boolean;
     $: spacesBeforeStyles = spacesStyle(countSpacesBefore(token.value));
     $: spacesAfterStyles = spacesStyle(countSpacesAfter(token.value));
     $: associated = token.associated_trace !== null;
-    $: associated_trace_store =
-        token.associated_trace !== null
-            ? get_trace_future(token.associated_trace)
-            : null;
     $: associated_trace =
-        associated_trace_store !== null ? $associated_trace_store : null;
+        token.associated_trace !== null
+            ? get_trace(token.associated_trace)
+            : null;
     $: associated_trace_shown_store =
         associated_trace !== null ? get_show_store(associated_trace) : null;
     $: associated_trace_shown =
