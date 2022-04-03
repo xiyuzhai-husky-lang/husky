@@ -20,3 +20,4 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 feature = { path = "../../compile-time/feature", version = "0.0.0" }
+visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }

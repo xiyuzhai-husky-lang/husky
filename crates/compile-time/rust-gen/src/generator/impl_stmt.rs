@@ -241,6 +241,7 @@ impl<'a> RustGenerator<'a> {
                 | BuiltinIdentifier::Array
                 | BuiltinIdentifier::DatasetType
                 | BuiltinIdentifier::Type => panic!(),
+                BuiltinIdentifier::Datasets => todo!(),
             },
             ScopePtr::Custom(_) => panic!(),
         }

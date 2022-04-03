@@ -16,7 +16,7 @@ pub(crate) fn call_signature(
     let source = db.scope_source(scope)?;
     return match source {
         ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
-            scope::StaticScopeSignature::Func(ref signature) => {
+            scope::BuiltinScopeSignature::Func(ref signature) => {
                 func_call_signature_from_raw(db, signature)
             }
             _ => panic!(),

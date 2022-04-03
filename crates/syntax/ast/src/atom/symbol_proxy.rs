@@ -68,6 +68,7 @@ impl<'a> SymbolProxy<'a> {
                 BuiltinIdentifier::Array => todo!(),
                 BuiltinIdentifier::DatasetType => todo!(),
                 BuiltinIdentifier::Type => todo!(),
+                BuiltinIdentifier::Datasets => todo!(),
             }),
         };
         Atom::new(tail, kind)

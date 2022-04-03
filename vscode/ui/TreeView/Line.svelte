@@ -1,12 +1,7 @@
 <script lang="ts">
     import type { TokenProps, LineProps } from "src/trace/Trace";
-    import type Trace from "src/trace/Trace";
     import Token from "./Token.svelte";
 
-    // export let trace: Trace;
-    // export let on_click: () => void;
-    // export let on_double_click: () => void;
-    // export let on_indent_click: () => void;
     export let on_group_start_click: () => void;
     export let has_subtraces: boolean;
     export let expanded: boolean;

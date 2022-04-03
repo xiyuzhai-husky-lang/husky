@@ -1,8 +1,6 @@
 <script lang="ts">
     import Tree from "./Tree.svelte";
-    import { get_root_traces_store } from "src/state/client";
-
-    let root_traces_store = get_root_traces_store();
+    import { root_traces_store } from "src/data/ui";
     $: root_traces = $root_traces_store;
 </script>
 

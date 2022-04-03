@@ -1,59 +1,54 @@
-<script>
+<script lang="ts">
     import { onMount } from "svelte";
+    import type ImageProps from "src/trace/figure/ImageProps";
+    import { ImageLoader } from "src/trace/figure/ImageProps";
+    import type Focus from "src/data/Focus";
+    import { focus_store } from "src/data/ui";
 
-    export let image;
+    export let image_props: ImageProps;
+    $: focus = $focus_store;
+    $: draw(canvas, image_props, focus);
 
-    let canvas;
+    let canvas: any;
 
-    onMount(() => {
-        const ctx = canvas.getContext("2d");
-        let frame = requestAnimationFrame(loop);
+    // onMount(() => {
+    //     draw(canvas, image_props);
+    // });
 
-        function loop(t) {
-            frame = requestAnimationFrame(loop);
+    function draw(canvas: any, image_props: ImageProps, focus: Focus) {
+        if (canvas === undefined) {
+            return;
+        }
+        let ctx = canvas.getContext("2d");
+        const imageData = ctx.getImageData(0, 0, 900, 900);
+        let image_loader = new ImageLoader(image_props);
 
-            const imageData = ctx.getImageData(
-                0,
-                0,
-                canvas.width,
-                canvas.height
-            );
+        const original_height = image_loader.height();
+        const original_width = image_loader.width();
 
-            for (let p = 0; p < imageData.data.length; p += 4) {
-                const i = p / 4;
-                const x = i % canvas.width;
-                const y = (i / canvas.width) >>> 0;
+        for (let p = 0; p < imageData.data.length; p += 4) {
+            const q = p / 4;
+            const x = q % canvas.width;
+            const y = (q / canvas.width) >>> 0;
 
-                const r =
-                    64 + (128 * x) / canvas.width + 64 * Math.sin(t / 1000);
-                const g =
-                    64 + (128 * y) / canvas.height + 64 * Math.cos(t / 1000);
-                const b = 128;
-
-                imageData.data[p + 0] = r;
-                imageData.data[p + 1] = g;
-                imageData.data[p + 2] = b;
-                imageData.data[p + 3] = 255;
-            }
-
-            ctx.putImageData(imageData, 0, 0);
+            const i = Math.floor((y / canvas.height) * original_height);
+            const j = Math.floor((x / canvas.width) * original_width);
+            imageData.data[p + 0] = image_loader.r(i, j);
+            imageData.data[p + 1] = image_loader.g(i, j);
+            imageData.data[p + 2] = image_loader.b(i, j);
+            imageData.data[p + 3] = 255;
         }
 
-        return () => {
-            cancelAnimationFrame(frame);
-        };
-    });
+        ctx.putImageData(imageData, 0, 0);
+    }
 </script>
 
-<canvas bind:this={canvas} />
+<canvas bind:this={canvas} width="900" height="900" />
 
-<!-- 
--webkit-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat; -->
 <style>
     canvas {
-        width: 100%;
-        height: 100%;
+        height: 900px;
+        width: 900px;
         background-color: #666;
     }
 </style>

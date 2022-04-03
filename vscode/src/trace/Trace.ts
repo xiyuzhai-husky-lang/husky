@@ -1,35 +1,31 @@
-import * as t from "io-ts";
 import {
     decode_array,
     decode_boolean,
-    decode_member,
+    decode_member_old,
     decode_number,
     decode_number_or_null,
     decode_string,
-} from "src/cast/cast";
+} from "src/decode/decode";
 
-export const tTokenProps = t.type({
-    kind: t.union([
-        t.literal("special"),
-        t.literal("scope"),
-        t.literal("keyword"),
-        t.literal("label"),
-        t.literal("ident"),
-        t.literal("literal"),
-        t.literal("fade"),
-        t.literal("error"),
-    ]),
-    value: t.string,
-    associated_trace: t.union([t.number, t.null]),
-});
-export type TokenProps = t.TypeOf<typeof tTokenProps>;
+export type TokenProps = {
+    kind:
+        | "special"
+        | "scope"
+        | "keyword"
+        | "label"
+        | "ident"
+        | "literal"
+        | "fade"
+        | "error";
+    value: string;
+    associated_trace: number | null;
+};
 
-export const tLineProps = t.type({
-    indent: t.number,
-    tokens: t.array(tTokenProps),
-    idx: t.number,
-});
-export type LineProps = t.TypeOf<typeof tLineProps>;
+export type LineProps = {
+    indent: number;
+    tokens: TokenProps[];
+    idx: number;
+};
 
 class Trace {
     id: number;
@@ -48,17 +44,17 @@ class Trace {
         | "StrictExpr";
     subtraces_container_class: "Call" | null;
     constructor(props: unknown) {
-        this.id = decode_member(props, "id", decode_number);
-        this.parent = decode_member(props, "parent", decode_number_or_null);
-        this.lines = decode_member(props, "lines", (data) =>
+        this.id = decode_member_old(props, "id", decode_number);
+        this.parent = decode_member_old(props, "parent", decode_number_or_null);
+        this.lines = decode_member_old(props, "lines", (data) =>
             decode_array(data, (element) => element as LineProps)
         );
-        this.has_subtraces = decode_member(
+        this.has_subtraces = decode_member_old(
             props,
             "has_subtraces",
             decode_boolean
         );
-        const kind = decode_member(props, "kind", decode_string);
+        const kind = decode_member_old(props, "kind", decode_string);
         switch (kind) {
             case "Main":
             case "CallHead":
@@ -72,9 +68,9 @@ class Trace {
                 this.kind = kind;
                 break;
             default:
-                throw new Error("Unknown kind");
+                throw new Error(`Unknown kind ${kind}`);
         }
-        this.subtraces_container_class = decode_member(
+        this.subtraces_container_class = decode_member_old(
             props,
             "subtraces_container_class",
             (data) => data as any

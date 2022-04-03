@@ -10,13 +10,13 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
-    signature: StaticScopeSignature::Module,
+    signature: BuiltinScopeSignature::Module,
 };
 
 pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Routine,
     subscopes: &[],
-    signature: StaticScopeSignature::Func(StaticFuncSignature {
+    signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: Some(Compiled {
@@ -28,7 +28,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     scope_kind: ScopeKind::Routine,
     subscopes: &[],
-    signature: StaticScopeSignature::Func(StaticFuncSignature {
+    signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: Some(Compiled {

@@ -1,7 +1,7 @@
 mod impl_opn;
 
 use file::FilePtr;
-use scope::InputPlaceholder;
+use scope::{InputPlaceholder, ScopeRoute};
 use scope::{RangedScope, ScopePtr};
 use semantics_eager::*;
 use semantics_entity::*;
@@ -9,7 +9,7 @@ use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
 use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled};
-use word::BuiltinIdentifier;
+use word::{BuiltinIdentifier, ImplicitIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
 
@@ -108,10 +108,11 @@ pub enum FeatureExprKind {
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ImprStmt>>>,
     },
-    ScopedFeature {
+    FeatureBlock {
         scope: ScopePtr,
         block: Arc<FeatureBlock>,
     },
+    GlobalInput,
     ClassCall {
         ty: RangedScope,
         entity: Arc<Entity>,
@@ -190,16 +191,25 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.this.as_ref().unwrap().feature(),
             ),
-            LazyExprKind::ScopedFeature { scope } => {
-                let uid = self.db.entity_vc().uid(scope);
-                let entity = self.db.entity(scope).unwrap();
-                let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
-                let kind = FeatureExprKind::ScopedFeature {
-                    scope,
-                    block: self.db.scoped_feature_block(scope).unwrap(),
-                };
-                (kind, feature)
-            }
+            LazyExprKind::ScopedFeature { scope } => match scope.route {
+                ScopeRoute::Builtin { .. } | ScopeRoute::Package { .. } => panic!(),
+                ScopeRoute::ChildScope { .. } => {
+                    let uid = self.db.entity_vc().uid(scope);
+                    let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
+                    let kind = FeatureExprKind::FeatureBlock {
+                        scope,
+                        block: self.db.scoped_feature_block(scope).unwrap(),
+                    };
+                    (kind, feature)
+                }
+                ScopeRoute::Implicit { main, ident } => match ident {
+                    ImplicitIdentifier::Input => {
+                        let feature = self.features.alloc(Feature::Input);
+                        let kind = FeatureExprKind::GlobalInput;
+                        (kind, feature)
+                    }
+                },
+            },
         };
         Arc::new(FeatureExpr {
             kind,

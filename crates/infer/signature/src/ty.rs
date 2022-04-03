@@ -1,5 +1,5 @@
 use ast::AstIter;
-use scope::StaticScopeSignature;
+use scope::BuiltinScopeSignature;
 use syntax_types::{MembAccessSignature, MembCallSignature, RawEnumVariantKind};
 use vec_map::VecMap;
 use vm::{MembAccessContract, VMTySignature};
@@ -151,9 +151,9 @@ pub(crate) fn ty_signature(
     let source = db.scope_source(scope)?;
     match source {
         ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
-            StaticScopeSignature::Func(_) => todo!(),
-            StaticScopeSignature::Module => todo!(),
-            StaticScopeSignature::Ty(_) => todo!(),
+            BuiltinScopeSignature::Func(_) => todo!(),
+            BuiltinScopeSignature::Module => todo!(),
+            BuiltinScopeSignature::Ty { .. } => todo!(),
         })),
         ScopeSource::WithinBuiltinModule => todo!(),
         ScopeSource::WithinModule {

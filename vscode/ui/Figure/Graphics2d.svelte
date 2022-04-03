@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Graphics2dProps } from "trace/figure";
+    import type Graphics2dProps from "src/trace/figure/Graphics2d";
     import Shape from "./Graphics2d/Shape.svelte";
     import Image from "./Graphics2d/Image.svelte";
     export let figure: Graphics2dProps;
@@ -12,7 +12,7 @@
 
 <div class="wrapper">
     {#if figure.image !== null}
-        <Image image={figure.image} />
+        <Image image_props={figure.image} />
     {/if}
 
     <svg viewBox="{svgXMin} {svgYMin} {svgWidth} {svgHeight}">
@@ -33,8 +33,8 @@
         position: relative;
     }
     svg {
-        min-height: 100%;
-        min-width: 100%;
+        height: 900px;
+        width: 900px;
         position: absolute;
         left: 0px;
         top: 0px;

@@ -23,7 +23,7 @@ impl From<FileError> for ScopeError {
 
 macro_rules! scope_error {
     ($msg: expr) => {{
-        crate::ScopeError::Message($msg.into())
+        crate::ScopeError::Message($msg)
     }};
 }
 pub(crate) use scope_error;
@@ -34,3 +34,13 @@ macro_rules! scope_err {
     }};
 }
 pub(crate) use scope_err;
+
+macro_rules! not_none {
+    ($result: expr, $msg: expr) => {{
+        match $result {
+            Some(value) => Ok(value),
+            None => Err(crate::ScopeError::Message($msg)),
+        }
+    }};
+}
+pub(crate) use not_none;

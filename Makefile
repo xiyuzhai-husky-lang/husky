@@ -20,7 +20,7 @@ test-compiler-with-backtrace:
 	RUST_BACKTRACE=1 cargo run --bin husky-lang-compiler $(runtime_tests_dir)
 
 mnist:
-	cargo run --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 1 --mode run
+	cargo run --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 11 --mode run
 
 mnist-with-backtrace:
-	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 1 --mode run 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 11 --mode test-runtime 2>&1 | python scripts/filter_rust_backtrace.py

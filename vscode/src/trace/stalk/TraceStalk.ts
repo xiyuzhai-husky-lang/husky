@@ -1,8 +1,6 @@
-import * as t from "io-ts";
-import { tTokenProps } from "../Trace";
+import type { TokenProps } from "../Trace";
 
-export const tTraceStalk = t.interface({
-    extra_tokens: t.array(tTokenProps),
-});
-type TraceStalk = t.TypeOf<typeof tTraceStalk>;
+type TraceStalk = {
+    extra_tokens: TokenProps[];
+};
 export default TraceStalk;

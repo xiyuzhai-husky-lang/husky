@@ -30,7 +30,7 @@ impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
             Ok(value) => match value {
                 EvalValue::Primitive(value) => fade!(value),
                 EvalValue::Boxed(_) => todo!(),
-                EvalValue::GlobalPure(_) => todo!(),
+                EvalValue::GlobalPure(value) => fade!(value.print_short(20)),
                 EvalValue::GlobalRef(value) => fade!(value.print_short(20)),
                 EvalValue::Undefined => fade!("undefined"),
             },

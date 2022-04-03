@@ -42,7 +42,7 @@ impl<'eval> Trace<'eval> {
                     ref instruction_sheet,
                     ref stmts,
                 } => todo!(),
-                FeatureExprKind::ScopedFeature { .. } => todo!(),
+                FeatureExprKind::FeatureBlock { .. } => todo!(),
                 FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
                 FeatureExprKind::RecordMembAccess {
                     ref this,
@@ -50,6 +50,7 @@ impl<'eval> Trace<'eval> {
                     ..
                 } => todo!(),
                 FeatureExprKind::This { ref repr } => todo!(),
+                FeatureExprKind::GlobalInput => None,
             },
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)

@@ -114,6 +114,7 @@ pub enum BuiltinIdentifier {
     FnMut,
     FnOnce,
     Array,
+    Datasets,
     DatasetType,
     Type,
 }
@@ -141,6 +142,7 @@ impl Deref for BuiltinIdentifier {
             BuiltinIdentifier::FnMut => "FnMut",
             BuiltinIdentifier::FnOnce => "FnOnce",
             BuiltinIdentifier::Array => "Array",
+            BuiltinIdentifier::Datasets => "datasets",
             BuiltinIdentifier::DatasetType => "Dataset",
             BuiltinIdentifier::Type => "type",
         }

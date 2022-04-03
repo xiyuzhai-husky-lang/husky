@@ -87,6 +87,7 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
                 ScopeKind::Module
             }
             BuiltinIdentifier::Type => todo!(),
+            BuiltinIdentifier::Datasets => ScopeKind::Module,
         },
         ScopeRoute::Package { .. } => ScopeKind::Module,
         ScopeRoute::ChildScope { parent, ident } => this
@@ -121,7 +122,8 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::FnMut => todo!(),
             BuiltinIdentifier::FnOnce => todo!(),
             BuiltinIdentifier::Array => todo!(),
-            BuiltinIdentifier::DatasetType => datasets::SCOPE_DATA,
+            BuiltinIdentifier::Datasets => datasets::SCOPE_DATA,
+            BuiltinIdentifier::DatasetType => todo!(),
             BuiltinIdentifier::Type => todo!(),
         }
         .into(),

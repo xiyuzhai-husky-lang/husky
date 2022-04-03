@@ -178,7 +178,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprKind::Variable { .. } => todo!(),
             FeatureExprKind::RecordMembAccess { .. } => todo!(),
             FeatureExprKind::MembPattCall { .. } => todo!(),
-            FeatureExprKind::ScopedFeature { ref block, .. } => {
+            FeatureExprKind::FeatureBlock { ref block, .. } => {
                 self.derive_record_memb_var_value_from_block(block, memb_ident)
             }
             FeatureExprKind::ClassCall {
@@ -207,6 +207,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 panic!()
             }
             FeatureExprKind::This { ref repr } => todo!(),
+            FeatureExprKind::GlobalInput => todo!(),
         }
     }
 

@@ -13,6 +13,7 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 arena = { path = "../../abstraction/arena", version = "0.0.0" }
+json-result = { path = "../../abstraction/json-result", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 trace = { path = "../trace", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
@@ -27,3 +28,5 @@ trivial-iter = { path = "../../abstraction/trivial-iter", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-package = { path = "../../semantics/package", version = "0.0.0" }
 feature = { path = "../../compile-time/feature", version = "0.0.0" }
+visual-runtime = { path = "../../runtime/visual", version = "0.0.0" }
+focus = { path = "../focus", version = "0.0.0" }

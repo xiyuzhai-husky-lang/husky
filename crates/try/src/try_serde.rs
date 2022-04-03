@@ -23,4 +23,6 @@ fn try_serialize_a() {
     let c = B::Hehe;
     p!(serde_json::to_string(&b).unwrap());
     p!(serde_json::to_string(&c).unwrap());
+    p!(serde_json::to_string(&Ok::<i32, String>(1i32)).unwrap());
+    p!(serde_json::to_string(&Err::<i32, String>("what".into())).unwrap());
 }

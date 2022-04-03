@@ -10,7 +10,7 @@ use crate::{
 };
 
 use futures::{task::SpawnExt, FutureExt, StreamExt};
-use init::InitState;
+use init::InitData;
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc::{self, UnboundedSender};
 use trace::{FigureProps, Trace, TraceId, TraceStalk};

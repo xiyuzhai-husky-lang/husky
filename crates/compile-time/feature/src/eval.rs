@@ -19,7 +19,11 @@ pub fn eval_feature_block<'eval>(
     input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
-    let mut evaluator = FeatureEvaluator { db, input, sheet };
+    let mut evaluator = FeatureEvaluator {
+        db,
+        global_input: input,
+        sheet,
+    };
     evaluator.eval_feature_block(block)
 }
 
@@ -29,7 +33,11 @@ pub fn eval_feature_stmt<'eval>(
     input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
-    let mut evaluator = FeatureEvaluator { db, input, sheet };
+    let mut evaluator = FeatureEvaluator {
+        db,
+        global_input: input,
+        sheet,
+    };
     evaluator.eval_feature_stmt(stmt)
 }
 
@@ -39,7 +47,11 @@ pub fn eval_feature_expr<'eval>(
     input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
-    let mut evaluator = FeatureEvaluator { db, input, sheet };
+    let mut evaluator = FeatureEvaluator {
+        db,
+        global_input: input,
+        sheet,
+    };
     evaluator.eval_feature_expr(expr)
 }
 
@@ -53,7 +65,7 @@ pub fn eval_feature_repr<'eval>(
 }
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
-    input: Arc<dyn AnyValueDyn<'eval>>,
+    global_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &'a mut FeatureSheet<'eval>,
     db: &'a dyn FeatureQueryGroup,
 }

@@ -1,8 +1,13 @@
+mod graphics2d;
+
 use crate::*;
+use graphics2d::*;
+use visual_syntax::VisualProps;
 
 #[derive(Debug, Serialize, Clone)]
-#[serde(tag = "type")]
+#[serde(tag = "kind")]
 pub enum FigureProps {
+    Blank,
     Plot2d {
         plot_kind: Plot2dKind,
         groups: Vec<PointGroup>,
@@ -11,17 +16,23 @@ pub enum FigureProps {
     },
     Graphics2d {
         image: Option<ImageProps>,
-        shape_groups: Vec<ShapeGroup>,
+        shape_groups: Vec<Shape2dGroup>,
         xrange: (f32, f32),
         yrange: (f32, f32),
     },
 }
 
-#[derive(Debug, Serialize, Clone)]
-pub struct ImageProps {
-    pub data: Vec<f32>,
-    pub original_height: usize,
-    pub original_width: usize,
+impl FigureProps {
+    pub fn new_specific(visual_props: VisualProps) -> FigureProps {
+        match visual_props {
+            VisualProps::BinaryImage28 { padded_rows } => FigureProps::Graphics2d {
+                image: Some(ImageProps::binary_image_28(&padded_rows)),
+                shape_groups: Vec::new(),
+                xrange: (0.0, 28.0),
+                yrange: (0.0, 28.0),
+            },
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Clone, Copy)]
@@ -33,19 +44,6 @@ pub enum Plot2dKind {
 pub struct PointGroup {
     pub points: Vec<Point2d>,
     pub color: Color,
-}
-
-#[derive(Debug, Serialize, Clone)]
-pub struct ShapeGroup {
-    pub shapes: Vec<Shape>,
-    pub line_width: f32,
-    pub color: Color,
-}
-
-#[derive(Debug, Serialize, Clone)]
-#[serde(tag = "type")]
-pub enum Shape {
-    Arrow { from: Point2d, to: Point2d },
 }
 
 #[derive(Debug, Serialize, Clone, Copy)]

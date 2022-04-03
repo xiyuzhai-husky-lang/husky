@@ -109,7 +109,7 @@ impl Deref for ScopePtr {
         match self {
             ScopePtr::Builtin(ident) => match_builtin!(
                 ident => Void, I32, F32, B32, B64, Bool, True, False, Vector, Tuple, Debug, Std, Core, Fp, Fn,
-                FnMut, FnOnce, Array, DatasetType, Type
+                FnMut, FnOnce, Array, Datasets, DatasetType, Type
             ),
             ScopePtr::Custom(scope) => scope,
         }

@@ -1,38 +1,38 @@
+use focus::Focus;
+use json_result::JsonResult;
+
 use super::*;
 use crate::*;
 
 #[derive(Debug, Serialize, Clone)]
-#[serde(tag = "type")]
+#[serde(tag = "kind")]
 pub(super) enum Response<'a> {
     Init {
-        init_state: InitState<'a>,
+        init_state: InitData<'a>,
     },
-    Subtraces {
+    Activate {
         id: TraceId,
-        input_locked_on: Option<usize>,
-        subtraces: Arc<Vec<Arc<Trace<'static>>>>,
+        opt_focus_for_figure: Option<Focus>,
+        opt_figure: Option<FigureProps>,
     },
-    Figure {
+    ToggleExpansion {
         id: TraceId,
-        figure: Option<FigureProps>,
+        effective_opt_input_id: Option<usize>,
+        opt_subtraces: Option<Avec<Trace<'static>>>,
     },
-    DidActivate {
-        id: TraceId,
-    },
-    DidToggleExpansion {
-        id: TraceId,
-    },
-    DidToggleShow {
+    ToggleShow {
         id: TraceId,
     },
     Trace {
         id: TraceId,
         trace: Arc<Trace<'static>>,
     },
-    DidLockInput {
-        #[serde(skip_serializing_if = "Option::is_none")]
-        input_locked_on: Option<Option<usize>>,
-        message: Option<String>,
+    DecodeFocus {
+        focus_result: JsonResult<Focus>,
+    },
+    LockFocus {
+        focus: Focus,
+        opt_figure: Option<FigureProps>,
     },
     TraceStalk {
         trace_id: TraceId,
