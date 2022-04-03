@@ -25,7 +25,7 @@ pub(super) enum Query {
     },
     LockFocus {
         focus: Focus,
-        opt_figure_trace_id: Option<TraceId>,
+        opt_active_trace_id_for_figure: Option<TraceId>,
     },
     TraceStalk {
         trace_id: TraceId,

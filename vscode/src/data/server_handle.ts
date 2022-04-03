@@ -1,6 +1,8 @@
+import type { LockFocusResponse } from "src/server/DebuggerResponse";
 import type FigureProps from "src/trace/figure/FigureProps";
 import type TraceStalk from "src/trace/stalk/TraceStalk";
 import type Trace from "src/trace/Trace";
+import { get } from "svelte/store";
 import type Focus from "./Focus";
 import global from "./global";
 import type InitData from "./InitData";
@@ -65,6 +67,26 @@ export function did_toggle_show(trace_id: number) {
     global.update_trace_listing();
 }
 
-export function did_lock_focus(focus: Focus) {
-    global.user_state.did_lock_focus(focus);
+export function did_lock_focus(response: LockFocusResponse) {
+    if (response.opt_figure !== null) {
+        if (response.opt_active_trace_id_for_figure === null) {
+            throw new Error("TODO");
+        }
+        global.figure_cache.set_figure(
+            response.opt_active_trace_id_for_figure,
+            response.focus,
+            response.opt_figure
+        );
+    }
+    global.user_state.did_lock_focus(response.focus);
+}
+
+export function opt_active_trace_id_for_figure(focus: Focus): number | null {
+    let active_trace = get(global.user_state.active_trace_store);
+    if (active_trace === null) {
+        return null;
+    }
+    return global.figure_cache.is_figure_cached(active_trace.id, focus)
+        ? null
+        : active_trace.id;
 }

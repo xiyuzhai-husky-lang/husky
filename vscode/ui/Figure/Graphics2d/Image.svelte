@@ -7,7 +7,7 @@
 
     export let image_props: ImageProps;
     $: focus = $focus_store;
-    $: draw(canvas, image_props, focus);
+    $: draw(canvas, image_props);
 
     let canvas: any;
 
@@ -15,10 +15,11 @@
     //     draw(canvas, image_props);
     // });
 
-    function draw(canvas: any, image_props: ImageProps, focus: Focus) {
+    function draw(canvas: any, image_props: ImageProps) {
         if (canvas === undefined) {
             return;
         }
+        console.log("draw");
         let ctx = canvas.getContext("2d");
         const imageData = ctx.getImageData(0, 0, 900, 900);
         let image_loader = new ImageLoader(image_props);

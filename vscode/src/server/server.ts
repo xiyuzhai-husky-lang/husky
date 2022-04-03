@@ -1,5 +1,5 @@
 import type DebuggerResponse from "./DebuggerResponse";
-import * as did_change_state from "src/data/did_change";
+import * as server_handle from "src/data/server_handle";
 import { parse_debugger_response } from "./DebuggerResponse";
 import type Focus from "src/data/Focus";
 
@@ -29,20 +29,20 @@ class Server {
     handle_response(response: DebuggerResponse) {
         switch (response.kind) {
             case "Init":
-                did_change_state.receive_init_response(response.init_state);
+                server_handle.receive_init_response(response.init_state);
                 break;
             case "Trace":
-                did_change_state.cache_trace(response.trace);
+                server_handle.cache_trace(response.trace);
                 break;
             case "TraceStalk":
-                did_change_state.set_trace_stalk(
+                server_handle.set_trace_stalk(
                     response.trace_id,
                     response.input_id,
                     response.stalk
                 );
                 break;
             case "Activate":
-                did_change_state.did_activate(
+                server_handle.did_activate(
                     response.id,
                     response.opt_focus_for_figure,
                     response.opt_figure
@@ -51,19 +51,37 @@ class Server {
             case "ToggleExpansion":
                 console.log("ToggleExpansionResponse: ", response);
                 if (response.opt_subtraces !== null) {
-                    did_change_state.receive_subtraces(
+                    server_handle.receive_subtraces(
                         response.id,
                         response.effective_opt_input_id,
                         response.opt_subtraces
                     );
                 }
-                did_change_state.did_toggle_expansion(response.id);
+                server_handle.did_toggle_expansion(response.id);
                 break;
             case "ToggleShow":
-                did_change_state.did_toggle_show(response.id);
+                server_handle.did_toggle_show(response.id);
+                break;
+            case "DecodeFocus":
+                switch (response.focus_result.kind) {
+                    case "Ok":
+                        const focus = response.focus_result.value;
+                        server_instance.try_send_request({
+                            kind: "LockFocus",
+                            focus,
+                            opt_active_trace_id_for_figure:
+                                server_handle.opt_active_trace_id_for_figure(
+                                    focus
+                                ),
+                        });
+                        break;
+                    case "Err":
+                        alert!(response.focus_result.message);
+                        break;
+                }
                 break;
             case "LockFocus":
-                did_change_state.did_lock_focus(response.focus);
+                server_handle.did_lock_focus(response);
                 break;
         }
     }
@@ -143,8 +161,11 @@ export function request_trace(id: number) {
     server_instance.try_send_request({ kind: "Trace", id });
 }
 
-export function request_lock_input(input_str: string) {
-    server_instance.try_send_request({ kind: "LockInput", input_str });
+export function request_lock_input(command: string) {
+    server_instance.try_send_request({
+        kind: "DecodeFocus",
+        command,
+    });
 }
 
 export function request_trace_stalk(trace_id: number, input_id: number) {
