@@ -1,5 +1,3 @@
-use scope::{RangedScope, TyKind};
-
 use super::symbol_proxy::SymbolKind;
 
 use super::*;
@@ -13,7 +11,7 @@ impl<'a> AtomLRParser<'a> {
             if token.kind == Special::LBox.into() {
                 Some(AtomKind::Scope {
                     scope: self.symbolic_ty()?,
-                    kind: ScopeKind::Type(TyKind::Other),
+                    kind: RawEntityKind::Type(RawTyKind::Other),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind =
@@ -22,12 +20,11 @@ impl<'a> AtomLRParser<'a> {
                 Some(match symbol_kind {
                     SymbolKind::Scope(route) => self.normal_scope(route)?,
                     SymbolKind::Variable { init_row } => match ident {
-                        Identifier::Builtin(_) | Identifier::Implicit(_) => panic!(),
+                        Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
                         Identifier::Custom(varname) => AtomKind::Variable { varname, init_row },
-                        Identifier::This => todo!(),
                     },
                     SymbolKind::Unrecognized(ident) => AtomKind::Unrecognized(ident),
-                    SymbolKind::This { ty } => AtomKind::This { ty },
+                    SymbolKind::ThisData { ty } => AtomKind::This { ty },
                 })
             } else {
                 None
@@ -59,7 +56,7 @@ impl<'a> AtomLRParser<'a> {
         Ok(Scope::array(element, size))
     }
 
-    fn normal_scope(&mut self, route: ScopeRoute) -> AstResult<AtomKind> {
+    fn normal_scope(&mut self, route: ScopeKind) -> AstResult<AtomKind> {
         let mut scope = self.scope_proxy.db.make_scope(route, self.generics(route)?);
         while next_matches!(self, Special::DoubleColon) {
             let ident = get!(self, custom_ident);
@@ -70,14 +67,14 @@ impl<'a> AtomLRParser<'a> {
         }
         return Ok(AtomKind::Scope {
             scope,
-            kind: self.scope_proxy.db.scope_kind(scope),
+            kind: self.scope_proxy.db.raw_entity_kind(scope),
         });
     }
 
     pub(crate) fn ty(&mut self) -> AstResult<Option<ScopePtr>> {
         Ok(
             if let Some(AtomKind::Scope { scope, kind, .. }) = self.symbol()? {
-                if let ScopeKind::Type(_) = kind {
+                if let RawEntityKind::Type(_) = kind {
                     Some(scope)
                 } else {
                     None
@@ -88,9 +85,9 @@ impl<'a> AtomLRParser<'a> {
         )
     }
 
-    fn generics(&mut self, route: ScopeRoute) -> AstResult<Vec<GenericArgument>> {
-        match route {
-            ScopeRoute::Builtin { ident } => match ident {
+    fn generics(&mut self, scope_kind: ScopeKind) -> AstResult<Vec<GenericArgument>> {
+        match scope_kind {
+            ScopeKind::Builtin { ident } => match ident {
                 BuiltinIdentifier::Void
                 | BuiltinIdentifier::I32
                 | BuiltinIdentifier::F32
@@ -113,11 +110,18 @@ impl<'a> AtomLRParser<'a> {
                 | BuiltinIdentifier::DatasetType => self.angled_generics(),
                 BuiltinIdentifier::Type => todo!(),
             },
-            _ => match self.scope_proxy.db.scope_kind_from_route(route) {
-                ScopeKind::Module | ScopeKind::Literal | ScopeKind::Feature => Ok(Vec::new()),
-                ScopeKind::Type(_) | ScopeKind::Trait | ScopeKind::Routine | ScopeKind::Pattern => {
-                    self.angled_generics()
+            _ => match self
+                .scope_proxy
+                .db
+                .raw_entity_kind_from_scope_kind(&scope_kind)
+            {
+                RawEntityKind::Module | RawEntityKind::Literal | RawEntityKind::Feature => {
+                    Ok(Vec::new())
                 }
+                RawEntityKind::Type(_)
+                | RawEntityKind::Trait
+                | RawEntityKind::Routine
+                | RawEntityKind::Pattern => self.angled_generics(),
             },
         }
     }

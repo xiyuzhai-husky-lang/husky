@@ -1,11 +1,11 @@
-mod intern;
+mod alloc;
 mod keyword;
 mod utils;
 
+pub use alloc::{new_word_unique_allocator, InternWord, WordAllocator};
 pub use ident::{
-    default_func_type, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier,
+    default_func_type, BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier,
 };
-pub use intern::{new_word_unique_allocator, InternWord, WordInterner};
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use utils::*;
 
@@ -30,7 +30,7 @@ impl WordPtr {
     pub fn custom(self) -> Option<CustomIdentifier> {
         self.ident()
             .map(|ident| match ident {
-                Identifier::Builtin(_) | Identifier::Implicit(_) | Identifier::This => None,
+                Identifier::Builtin(_) | Identifier::Contextual(_) => None,
                 Identifier::Custom(ident) => Some(ident),
             })
             .flatten()
@@ -85,9 +85,9 @@ impl From<CustomIdentifier> for WordPtr {
     }
 }
 
-impl From<ImplicitIdentifier> for WordPtr {
-    fn from(ident: ImplicitIdentifier) -> Self {
-        WordPtr::Identifier(Identifier::Implicit(ident))
+impl From<ContextualIdentifier> for WordPtr {
+    fn from(ident: ContextualIdentifier) -> Self {
+        WordPtr::Identifier(Identifier::Contextual(ident))
     }
 }
 

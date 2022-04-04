@@ -40,7 +40,7 @@ fn parse_ty(db: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<ScopeP
     let proxy = SymbolProxy {
         main: None,
         db,
-        this: None,
+        this_ty: None,
         symbols: &symbols,
     };
     atom::parser::parse_ty(proxy, &tokens, None)

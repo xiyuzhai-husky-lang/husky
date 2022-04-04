@@ -1,5 +1,6 @@
 use super::*;
 use crate::{transform::utils::*, *};
+use entity_syntax::RawTyKind;
 use word::*;
 
 impl<'a> AstTransformer<'a> {

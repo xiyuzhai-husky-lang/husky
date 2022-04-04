@@ -6,7 +6,7 @@ impl<'a> AstTransformer<'a> {
             db: self.db,
             symbols: &self.symbols,
             main: Some(self.main),
-            this: self.this.value(),
+            this_ty: self.this.value(),
         }
     }
 }

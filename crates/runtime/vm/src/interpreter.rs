@@ -67,10 +67,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         todo!()
     }
 
-    fn ty_call_interpreted(&mut self, signature: &VMTySignature) -> VMResult<()> {
+    fn ty_call_interpreted(&mut self, signature: &VMTySignatureKind) -> VMResult<()> {
         match signature {
-            VMTySignature::Enum => todo!(),
-            VMTySignature::Struct { ref memb_vars } => {
+            VMTySignatureKind::Enum => todo!(),
+            VMTySignatureKind::Struct { ref memb_vars } => {
                 let inputs = self.stack.drain(memb_vars.len().try_into().unwrap());
                 self.stack
                     .push(VirtualTy::new_struct(inputs, memb_vars).into());

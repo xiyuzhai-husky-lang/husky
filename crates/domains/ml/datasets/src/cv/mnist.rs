@@ -4,7 +4,7 @@ mod load;
 mod test;
 mod val;
 
-use scope::TyKind;
+use entity_syntax::RawTyKind;
 use visual_syntax::BuiltinVisualizer;
 use xrng::permutation_from_seed;
 
@@ -17,7 +17,6 @@ use test::*;
 use val::*;
 
 pub const MNIST_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Module,
     subscopes: &[
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
         ("BinaryImage28", BINARY_IMAGE_28_SCOPE_DATA),
@@ -26,7 +25,6 @@ pub const MNIST_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 };
 
 const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Routine,
     subscopes: &[],
     signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
@@ -38,12 +36,12 @@ const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 };
 
 const BINARY_IMAGE_28_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Type(TyKind::Other),
     subscopes: &[],
     signature: BuiltinScopeSignature::Ty {
         visualizer: BuiltinVisualizer {
             compiled: BinaryImage28::visualize,
         },
+        raw_ty_kind: RawTyKind::Other,
     },
 };
 

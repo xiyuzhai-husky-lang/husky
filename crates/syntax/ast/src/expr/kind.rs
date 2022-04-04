@@ -7,7 +7,7 @@ use vm::PrimitiveValue;
 use word::WordPtr;
 
 use crate::*;
-use scope::{RangedScope, ScopeKind, ScopePtr};
+use scope::{RangedScope, RawEntityKind, ScopeKind, ScopePtr};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprKind {
@@ -21,7 +21,7 @@ pub enum RawExprKind {
     Unrecognized(CustomIdentifier),
     Scope {
         scope: ScopePtr,
-        kind: ScopeKind,
+        kind: RawEntityKind,
     },
     PrimitiveLiteral(PrimitiveValue),
     Bracketed(RawExprIdx),

@@ -1,4 +1,4 @@
-use scope::{RangedScope, ScopeKind};
+use scope::{RangedScope, RawEntityKind, ScopeKind};
 use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
@@ -10,7 +10,7 @@ use super::*;
 pub enum AtomKind {
     Scope {
         scope: ScopePtr,
-        kind: ScopeKind,
+        kind: RawEntityKind,
     },
     Variable {
         varname: CustomIdentifier,

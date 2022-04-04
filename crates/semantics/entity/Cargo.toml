@@ -30,3 +30,4 @@ semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 infer-ty = { path = "../../infer/ty", version = "0.0.0" }
 infer-contract = { path = "../../infer/contract", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }
+entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }

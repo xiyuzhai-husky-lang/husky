@@ -1,13 +1,14 @@
 use std::ops::AddAssign;
 
 use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
+use entity_syntax::RawTyKind;
 use scope::{InputPlaceholder, ScopePtr};
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
-use word::{BuiltinIdentifier, WordInterner};
+use word::{BuiltinIdentifier, WordAllocator};
 
 pub struct Formatter<'a> {
-    word_unique_allocator: &'a WordInterner,
+    word_unique_allocator: &'a WordAllocator,
     arena: &'a ast::RawExprArena,
     indent: fold::Indent,
     result: String,
@@ -15,7 +16,7 @@ pub struct Formatter<'a> {
 
 impl<'a> Formatter<'a> {
     pub(crate) fn new(
-        word_unique_allocator: &'a WordInterner,
+        word_unique_allocator: &'a WordAllocator,
         arena: &'a ast::RawExprArena,
     ) -> Self {
         Self {
@@ -77,6 +78,10 @@ impl<'a> Formatter<'a> {
                     RawTyKind::Enum => todo!(),
                     RawTyKind::Struct => self.write("struct "),
                     RawTyKind::Record => todo!(),
+                    RawTyKind::Primitive => todo!(),
+                    RawTyKind::Vec => todo!(),
+                    RawTyKind::Array => todo!(),
+                    RawTyKind::Other => todo!(),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {

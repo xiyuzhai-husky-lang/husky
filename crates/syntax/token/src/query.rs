@@ -13,7 +13,7 @@ fn tokenized_text(
 ) -> FileResultArc<TokenizedText> {
     if let Some(text) = this.raw_text(id) {
         return Ok(Arc::new(TokenizedText::parse(
-            this.word_unique_allocator(),
+            this.word_allocator(),
             text.as_str(),
         )));
     } else {
@@ -24,7 +24,7 @@ fn tokenized_text(
 pub trait TokenQueryGroup: TokenSalsaQueryGroup {
     fn tokenize(&self, line: &'static str) -> Vec<Token> {
         LineTokenIter::new(
-            self.word_unique_allocator(),
+            self.word_allocator(),
             0,
             line.chars().enumerate().peekable(),
         )

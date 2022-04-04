@@ -1,4 +1,4 @@
-use scope::ScopeRoute;
+use scope::ScopeKind;
 use text::TextRange;
 
 use crate::{
@@ -17,7 +17,7 @@ impl<'a> AstTransformer<'a> {
                 .filter_map(|entry| {
                     entry.ident.map(|ident| Symbol {
                         ident: ident.into(),
-                        kind: SymbolKind::Scope(ScopeRoute::ChildScope { parent, ident }),
+                        kind: SymbolKind::Scope(ScopeKind::ChildScope { parent, ident }),
                     })
                 }),
         );

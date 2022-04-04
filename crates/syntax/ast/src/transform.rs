@@ -13,7 +13,7 @@ mod utils;
 
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
-use scope::ScopeRoute;
+use scope::ScopeKind;
 use token::*;
 
 use crate::{
@@ -44,10 +44,11 @@ impl<'a> AstTransformer<'a> {
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
-            env: LocalValue::new(match module.route {
-                ScopeRoute::Package { main, ident } => Env::Package(main),
-                ScopeRoute::ChildScope { .. } => Env::Module(module),
-                ScopeRoute::Builtin { .. } | ScopeRoute::Implicit { .. } => panic!(),
+            env: LocalValue::new(match module.kind {
+                ScopeKind::Package { main, ident } => Env::Package(main),
+                ScopeKind::ChildScope { .. } => Env::Module(module),
+                ScopeKind::Builtin { .. } | ScopeKind::Contextual { .. } => panic!(),
+                ScopeKind::Generic { ident } => todo!(),
             }),
             this: LocalValue::new(None),
         };
@@ -55,14 +56,15 @@ impl<'a> AstTransformer<'a> {
         fn module_symbols(db: &dyn AstSalsaQueryGroup, module: ScopePtr) -> LocalStack<Symbol> {
             let mut symbols = LocalStack::new();
             for scope in db.subscopes(module).iter() {
-                match scope.route {
-                    ScopeRoute::Builtin { .. }
-                    | ScopeRoute::Package { .. }
-                    | ScopeRoute::Implicit { .. } => panic!(),
-                    ScopeRoute::ChildScope { ident, .. } => symbols.push(Symbol {
+                match scope.kind {
+                    ScopeKind::Builtin { .. }
+                    | ScopeKind::Package { .. }
+                    | ScopeKind::Contextual { .. } => panic!(),
+                    ScopeKind::ChildScope { ident, .. } => symbols.push(Symbol {
                         ident,
-                        kind: SymbolKind::Scope(scope.route),
+                        kind: SymbolKind::Scope(scope.kind),
                     }),
+                    ScopeKind::Generic { ident } => todo!(),
                 }
             }
             symbols

@@ -5,8 +5,7 @@ use std::{borrow::Borrow, fmt::Display, ops::Deref};
 pub enum Identifier {
     Builtin(BuiltinIdentifier),
     Custom(CustomIdentifier),
-    Implicit(ImplicitIdentifier),
-    This,
+    Contextual(ContextualIdentifier),
 }
 
 impl Deref for Identifier {
@@ -16,8 +15,7 @@ impl Deref for Identifier {
         match self {
             Identifier::Builtin(ident) => ident.deref(),
             Identifier::Custom(ident) => ident.deref(),
-            Identifier::Implicit(ident) => ident.deref(),
-            Identifier::This => "this",
+            Identifier::Contextual(ident) => ident.deref(),
         }
     }
 }
@@ -88,9 +86,9 @@ impl From<CustomIdentifier> for Identifier {
     }
 }
 
-impl From<ImplicitIdentifier> for Identifier {
-    fn from(ident: ImplicitIdentifier) -> Self {
-        Self::Implicit(ident)
+impl From<ContextualIdentifier> for Identifier {
+    fn from(ident: ContextualIdentifier) -> Self {
+        Self::Contextual(ident)
     }
 }
 
@@ -156,21 +154,25 @@ impl Borrow<str> for BuiltinIdentifier {
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub enum ImplicitIdentifier {
+pub enum ContextualIdentifier {
     Input,
+    ThisData,
+    ThisType,
 }
 
-impl Deref for ImplicitIdentifier {
+impl Deref for ContextualIdentifier {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
         match self {
-            ImplicitIdentifier::Input => "input",
+            ContextualIdentifier::Input => "input",
+            ContextualIdentifier::ThisData => "this",
+            ContextualIdentifier::ThisType => "This",
         }
     }
 }
 
-impl Borrow<str> for ImplicitIdentifier {
+impl Borrow<str> for ContextualIdentifier {
     fn borrow(&self) -> &str {
         self.deref()
     }

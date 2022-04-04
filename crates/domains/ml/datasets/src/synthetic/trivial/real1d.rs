@@ -5,7 +5,6 @@ use vm::{BoxedValue, Compiled, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Module,
     subscopes: &[
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
@@ -14,7 +13,6 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 };
 
 pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Routine,
     subscopes: &[],
     signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
@@ -26,7 +24,6 @@ pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
 };
 
 pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Routine,
     subscopes: &[],
     signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],

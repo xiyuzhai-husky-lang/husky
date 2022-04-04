@@ -4,7 +4,7 @@ use word::CustomIdentifier;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum VMTySignature {
+pub enum VMTySignatureKind {
     Enum,
     Struct {
         memb_vars: VecMap<CustomIdentifier, MembAccessContract>,

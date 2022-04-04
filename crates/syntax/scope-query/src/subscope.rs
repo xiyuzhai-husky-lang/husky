@@ -12,7 +12,7 @@ use word::Identifier;
 #[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
     pub ident: Option<CustomIdentifier>,
-    pub kind: ScopeKind,
+    pub kind: RawEntityKind,
     pub source: ScopeSource,
 }
 
@@ -37,7 +37,7 @@ impl Entry {
                     return (
                         Some(Entry {
                             ident: Some(ident),
-                            kind: ScopeKind::Literal,
+                            kind: RawEntityKind::Literal,
                             source: ScopeSource::from_file(file_id, token_group_index),
                         }),
                         None,
@@ -51,7 +51,7 @@ impl Entry {
                 return (
                     Some(Entry {
                         ident: None,
-                        kind: ScopeKind::Routine,
+                        kind: RawEntityKind::Routine,
                         source: ScopeSource::from_file(file_id, token_group_index),
                     }),
                     None,
@@ -63,7 +63,7 @@ impl Entry {
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
-                    if let Some(kind) = ScopeKind::new(keyword, &token_group[2]) {
+                    if let Some(kind) = RawEntityKind::new(keyword, &token_group[2]) {
                         return match ident {
                             Identifier::Builtin(_) => (
                                 None,
@@ -80,14 +80,13 @@ impl Entry {
                                 }),
                                 None,
                             ),
-                            Identifier::Implicit(_) => (
+                            Identifier::Contextual(_) => (
                                 None,
                                 Some(ScopeDefError {
                                     range: token_group[1].text_range(),
-                                    rule_broken: ScopeDefRule::ImplicitIdentifierAreReserved,
+                                    rule_broken: ScopeDefRule::ContextualIdentifierAreReserved,
                                 }),
                             ),
-                            Identifier::This => todo!(),
                         };
                     }
                 }
@@ -154,7 +153,7 @@ impl SubscopeTable {
         self.entries
             .iter()
             .filter_map(|entry| {
-                if entry.kind == ScopeKind::Module {
+                if entry.kind == RawEntityKind::Module {
                     Some(entry.ident)
                 } else {
                     None
@@ -174,7 +173,7 @@ impl SubscopeTable {
         )
     }
 
-    pub fn scope_kind(&self, ident: CustomIdentifier) -> Option<ScopeKind> {
+    pub fn raw_entity_kind(&self, ident: CustomIdentifier) -> Option<RawEntityKind> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
@@ -222,7 +221,7 @@ impl SubscopeTable {
             .iter()
             .map(|(s, data)| Entry {
                 ident: Some(this.intern_word(s).custom().unwrap()),
-                kind: data.scope_kind,
+                kind: data.signature.raw_entity_kind(),
                 source: (*data).into(),
             })
             .collect();

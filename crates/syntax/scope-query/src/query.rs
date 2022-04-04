@@ -4,8 +4,10 @@ use file::FilePtr;
 use path_utils::*;
 use scope::*;
 
+use entity_syntax::RawTyKind;
+use upcast::Upcast;
 use word::{
-    dash_to_snake, BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier, WordPtr,
+    dash_to_snake, BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier, WordPtr,
 };
 
 use fold::FoldStorage;
@@ -17,9 +19,7 @@ pub trait ScopeSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
 
     fn subscopes(&self, scope: ScopePtr) -> Arc<Vec<ScopePtr>>;
 
-    fn scope_kind(&self, scope_id: ScopePtr) -> ScopeKind;
-
-    fn scope_kind_from_route(&self, route: ScopeRoute) -> ScopeKind;
+    fn raw_entity_kind(&self, scope_id: ScopePtr) -> RawEntityKind;
 
     fn scope_source(&self, scope_id: ScopePtr) -> ScopeResult<ScopeSource>;
 }
@@ -47,63 +47,69 @@ fn subscope_table(
             SubscopeTable::parse(file_id, text.fold_iter(0))
         }
         ScopeSource::WithinBuiltinModule => todo!(),
-        ScopeSource::Implicit { .. } => todo!(),
+        ScopeSource::Contextual { .. } => todo!(),
     }))
 }
 
-fn subscopes(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> Arc<Vec<ScopePtr>> {
-    Arc::new(this.subscope_table(scope).map_or(Vec::new(), |table| {
+fn subscopes(db: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> Arc<Vec<ScopePtr>> {
+    Arc::new(db.subscope_table(scope).map_or(Vec::new(), |table| {
         table
             .subscopes(scope)
             .into_iter()
-            .map(|scope| this.intern_scope(scope))
+            .map(|scope| db.intern_scope(scope))
             .collect()
     }))
 }
 
-fn scope_kind(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeKind {
-    this.scope_kind_from_route(scope.route)
+fn raw_entity_kind(db: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> RawEntityKind {
+    raw_entity_kind_from_scope_kind(db, &scope.kind)
 }
 
-fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> ScopeKind {
-    match route {
-        ScopeRoute::Builtin { ident } => match ident {
+fn raw_entity_kind_from_scope_kind(
+    db: &dyn ScopeSalsaQueryGroup,
+    scope_kind: &ScopeKind,
+) -> RawEntityKind {
+    match scope_kind {
+        ScopeKind::Builtin { ident } => match ident {
             BuiltinIdentifier::Void
             | BuiltinIdentifier::I32
             | BuiltinIdentifier::F32
             | BuiltinIdentifier::B32
             | BuiltinIdentifier::B64
-            | BuiltinIdentifier::Bool => ScopeKind::Type(TyKind::Primitive),
+            | BuiltinIdentifier::Bool => RawEntityKind::Type(RawTyKind::Primitive),
             BuiltinIdentifier::Vec
             | BuiltinIdentifier::Tuple
             | BuiltinIdentifier::Fp
             | BuiltinIdentifier::Array
-            | BuiltinIdentifier::DatasetType => ScopeKind::Type(TyKind::Other),
-            BuiltinIdentifier::True | BuiltinIdentifier::False => ScopeKind::Literal,
+            | BuiltinIdentifier::DatasetType => RawEntityKind::Type(RawTyKind::Other),
+            BuiltinIdentifier::True | BuiltinIdentifier::False => RawEntityKind::Literal,
             BuiltinIdentifier::Fn | BuiltinIdentifier::FnMut | BuiltinIdentifier::FnOnce => {
-                ScopeKind::Trait
+                RawEntityKind::Trait
             }
             BuiltinIdentifier::Debug | BuiltinIdentifier::Std | BuiltinIdentifier::Core => {
-                ScopeKind::Module
+                RawEntityKind::Module
             }
             BuiltinIdentifier::Type => todo!(),
-            BuiltinIdentifier::Datasets => ScopeKind::Module,
+            BuiltinIdentifier::Datasets => RawEntityKind::Module,
         },
-        ScopeRoute::Package { .. } => ScopeKind::Module,
-        ScopeRoute::ChildScope { parent, ident } => this
-            .subscope_table(parent)
+        ScopeKind::Package { .. } => RawEntityKind::Module,
+        ScopeKind::ChildScope { parent, ident } => db
+            .subscope_table(*parent)
             .unwrap()
-            .scope_kind(ident)
+            .raw_entity_kind(*ident)
             .unwrap(),
-        ScopeRoute::Implicit { ident, .. } => match ident {
-            ImplicitIdentifier::Input => ScopeKind::Feature,
+        ScopeKind::Contextual { ident, .. } => match ident {
+            ContextualIdentifier::Input => RawEntityKind::Feature,
+            ContextualIdentifier::ThisData => todo!(),
+            ContextualIdentifier::ThisType => todo!(),
         },
+        ScopeKind::Generic { ident } => todo!(),
     }
 }
 
 fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult<ScopeSource> {
-    Ok(match scope.route {
-        ScopeRoute::Builtin { ident } => match ident {
+    Ok(match scope.kind {
+        ScopeKind::Builtin { ident } => match ident {
             BuiltinIdentifier::Void => todo!(),
             BuiltinIdentifier::I32 => todo!(),
             BuiltinIdentifier::F32 => todo!(),
@@ -113,7 +119,6 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::True => todo!(),
             BuiltinIdentifier::False => todo!(),
             BuiltinIdentifier::Vec => &BuiltinScopeData {
-                scope_kind: ScopeKind::Type(TyKind::Vec),
                 subscopes: &[],
                 signature: BuiltinScopeSignature::Vec,
             },
@@ -131,11 +136,12 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::Type => todo!(),
         }
         .into(),
-        ScopeRoute::Package { main, .. } => ScopeSource::Module { file: main },
-        ScopeRoute::ChildScope { parent, ident } => {
+        ScopeKind::Package { main, .. } => ScopeSource::Module { file: main },
+        ScopeKind::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
-        ScopeRoute::Implicit { main, ident } => ScopeSource::Implicit { main, ident },
+        ScopeKind::Contextual { main, ident } => ScopeSource::Contextual { main, ident },
+        ScopeKind::Generic { ident } => todo!(),
     })
 }
 
@@ -150,7 +156,9 @@ pub enum ModuleFromFileRule {
     FileShouldHaveExtensionHSK,
 }
 
-pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
+pub trait ScopeQueryGroup:
+    ScopeSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn ScopeSalsaQueryGroup>
+{
     fn subscope(
         &self,
         parent_scope: ScopePtr,
@@ -215,7 +223,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
             if let Some(package_name) = path_parent_file_name_str(&path) {
                 let snake_name = dash_to_snake(&package_name);
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
-                    self.word_unique_allocator().alloc(snake_name)
+                    self.word_allocator().alloc(snake_name)
                 {
                     Ok(self.intern_scope(Scope::package(id, ident)))
                 } else {
@@ -248,7 +256,7 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
             ScopeSource::WithinModule { file: file_id, .. } => file_id,
             ScopeSource::Module { file: file_id } => file_id,
             ScopeSource::WithinBuiltinModule => todo!(),
-            ScopeSource::Implicit { .. } => todo!(),
+            ScopeSource::Contextual { .. } => todo!(),
         })
     }
 
@@ -272,5 +280,9 @@ pub trait ScopeQueryGroup: ScopeSalsaQueryGroup + AllocateUniqueScope {
         };
 
         module_path.map(|pth| self.alloc_file(pth))
+    }
+
+    fn raw_entity_kind_from_scope_kind(&self, scope_kind: &ScopeKind) -> RawEntityKind {
+        raw_entity_kind_from_scope_kind(self.upcast(), scope_kind)
     }
 }

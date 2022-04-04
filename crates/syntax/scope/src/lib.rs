@@ -1,21 +1,23 @@
 mod alias;
 mod allocate_unique;
+mod impl_instantiate;
 mod kind;
 
 pub use alias::ScopeAliasTable;
 pub use allocate_unique::{
     new_scope_unique_allocator, AllocateUniqueScope, ScopePtr, UniqueScopeAllocator,
 };
+use entity_syntax::RawTyKind;
 use file::FilePtr;
-pub use kind::{ScopeKind, TyKind};
+pub use kind::RawEntityKind;
 use text::{TextRange, TextRanged};
 use visual_syntax::BuiltinVisualizer;
 use vm::{Compiled, EagerContract, InputContract};
-use word::{BuiltinIdentifier, CustomIdentifier, Identifier, ImplicitIdentifier};
+use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct Scope {
-    pub route: ScopeRoute,
+    pub kind: ScopeKind,
     pub generics: Vec<GenericArgument>,
 }
 
@@ -33,21 +35,22 @@ impl TextRanged for RangedScope {
 
 impl std::fmt::Debug for Scope {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-        match self.route {
-            ScopeRoute::Builtin { ident } => ident.fmt(f)?,
-            ScopeRoute::Package { main, ident } => {
+        match self.kind {
+            ScopeKind::Builtin { ident } => ident.fmt(f)?,
+            ScopeKind::Package { main, ident } => {
                 // f.write_str("[package=")?;
                 // main.fmt(f)?;
                 // f.write_str("]")?;
                 // ident.fmt(f)?
                 f.write_str("package")?
             }
-            ScopeRoute::ChildScope { parent, ident } => {
+            ScopeKind::ChildScope { parent, ident } => {
                 parent.fmt(f)?;
                 f.write_str("::")?;
                 ident.fmt(f)?
             }
-            ScopeRoute::Implicit { main, ident } => todo!(),
+            ScopeKind::Contextual { main, ident } => todo!(),
+            ScopeKind::Generic { ident } => todo!(),
         };
         if self.generics.len() > 0 {
             f.write_str("<")?;
@@ -93,20 +96,20 @@ impl From<ScopePtr> for GenericArgument {
     }
 }
 
-impl From<BuiltinIdentifier> for ScopeRoute {
+impl From<BuiltinIdentifier> for ScopeKind {
     fn from(ident: BuiltinIdentifier) -> Self {
         Self::Builtin { ident }
     }
 }
 
-impl From<&BuiltinIdentifier> for ScopeRoute {
+impl From<&BuiltinIdentifier> for ScopeKind {
     fn from(ident: &BuiltinIdentifier) -> Self {
         Self::Builtin { ident: *ident }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ScopeRoute {
+pub enum ScopeKind {
     Builtin {
         ident: BuiltinIdentifier,
     },
@@ -118,15 +121,17 @@ pub enum ScopeRoute {
         parent: ScopePtr,
         ident: CustomIdentifier,
     },
-    Implicit {
+    Contextual {
         main: FilePtr,
-        ident: ImplicitIdentifier,
+        ident: ContextualIdentifier,
+    },
+    Generic {
+        ident: CustomIdentifier,
     },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BuiltinScopeData {
-    pub scope_kind: ScopeKind,
     pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
     pub signature: BuiltinScopeSignature,
 }
@@ -134,9 +139,23 @@ pub struct BuiltinScopeData {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum BuiltinScopeSignature {
     Func(StaticFuncSignature),
-    Ty { visualizer: BuiltinVisualizer },
+    Ty {
+        raw_ty_kind: RawTyKind,
+        visualizer: BuiltinVisualizer,
+    },
     Vec,
     Module,
+}
+
+impl BuiltinScopeSignature {
+    pub fn raw_entity_kind(&self) -> RawEntityKind {
+        match self {
+            BuiltinScopeSignature::Func(_) => RawEntityKind::Routine,
+            BuiltinScopeSignature::Ty { raw_ty_kind, .. } => RawEntityKind::Type(*raw_ty_kind),
+            BuiltinScopeSignature::Module => RawEntityKind::Module,
+            BuiltinScopeSignature::Vec => RawEntityKind::Type(RawTyKind::Vec),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -177,7 +196,7 @@ impl Into<InputSignature> for &InputPlaceholder {
 impl Scope {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         Scope {
-            route: ScopeRoute::Package { main, ident },
+            kind: ScopeKind::Package { main, ident },
             generics: Vec::new(),
         }
     }
@@ -187,14 +206,14 @@ impl Scope {
         generics: Vec<GenericArgument>,
     ) -> Scope {
         Scope {
-            route: ScopeRoute::ChildScope { parent, ident },
+            kind: ScopeKind::ChildScope { parent, ident },
             generics,
         }
     }
 
     pub fn new_builtin(ident: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
         Scope {
-            route: ScopeRoute::Builtin { ident },
+            kind: ScopeKind::Builtin { ident },
             generics: generic_arguments,
         }
     }
@@ -223,11 +242,12 @@ impl Scope {
     }
 
     pub fn is_builtin(&self) -> bool {
-        match self.route {
-            ScopeRoute::Builtin { .. } => true,
-            ScopeRoute::Package { .. } => false,
-            ScopeRoute::ChildScope { parent, .. } => parent.is_builtin(),
-            ScopeRoute::Implicit { .. } => false,
+        match self.kind {
+            ScopeKind::Builtin { .. } => true,
+            ScopeKind::Package { .. } => false,
+            ScopeKind::ChildScope { parent, .. } => parent.is_builtin(),
+            ScopeKind::Contextual { .. } => false,
+            ScopeKind::Generic { ident } => todo!(),
         }
     }
 }
@@ -249,9 +269,9 @@ pub enum ScopeSource {
     Module {
         file: FilePtr,
     },
-    Implicit {
+    Contextual {
         main: FilePtr,
-        ident: ImplicitIdentifier,
+        ident: ContextualIdentifier,
     },
 }
 

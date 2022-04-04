@@ -1,6 +1,6 @@
 use ast::{RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 use file::FilePtr;
-use scope::{ScopeKind, ScopePtr};
+use scope::{RawEntityKind, ScopeKind, ScopePtr};
 use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue};
 use word::BuiltinIdentifier;
@@ -28,8 +28,8 @@ pub trait EagerExprParser<'a> {
                 ))
             }
             RawExprKind::Scope { scope, kind } => match kind {
-                ScopeKind::Module => todo!(),
-                ScopeKind::Literal => match scope {
+                RawEntityKind::Module => todo!(),
+                RawEntityKind::Literal => match scope {
                     ScopePtr::Builtin(BuiltinIdentifier::True) => {
                         EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
@@ -39,13 +39,13 @@ pub trait EagerExprParser<'a> {
                     ScopePtr::Custom(_) => todo!(),
                     _ => todo!(),
                 },
-                ScopeKind::Type(_) => todo!(),
-                ScopeKind::Trait => todo!(),
-                ScopeKind::Routine => todo!(),
-                ScopeKind::Feature => {
+                RawEntityKind::Type(_) => todo!(),
+                RawEntityKind::Trait => todo!(),
+                RawEntityKind::Routine => todo!(),
+                RawEntityKind::Feature => {
                     panic!("what")
                 }
-                ScopeKind::Pattern => todo!(),
+                RawEntityKind::Pattern => todo!(),
             },
             RawExprKind::PrimitiveLiteral(value) => EagerExprKind::PrimitiveLiteral(value),
             RawExprKind::Bracketed(_) => todo!(),
@@ -117,7 +117,7 @@ pub trait EagerExprParser<'a> {
         match call.kind {
             RawExprKind::Scope {
                 scope,
-                kind: ScopeKind::Routine,
+                kind: RawEntityKind::Routine,
                 ..
             } => {
                 let signature = try_infer!(self.db().call_signature(scope));
@@ -138,7 +138,7 @@ pub trait EagerExprParser<'a> {
             }
             RawExprKind::Scope {
                 scope,
-                kind: ScopeKind::Type(_),
+                kind: RawEntityKind::Type(_),
                 ..
             } => {
                 let signature = try_infer!(self.db().call_signature(scope));

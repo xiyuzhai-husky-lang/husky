@@ -1,11 +1,11 @@
 use print_utils::p;
 use text::CharIter;
-use word::WordInterner;
+use word::WordAllocator;
 
 use crate::*;
 
 pub(crate) struct LineTokenIter<'token_line, 'lex: 'token_line> {
-    word_unique_allocator: &'lex WordInterner,
+    word_unique_allocator: &'lex WordAllocator,
     line_index: usize,
     buffer: String,
     char_iter: CharIter<'token_line>,
@@ -13,7 +13,7 @@ pub(crate) struct LineTokenIter<'token_line, 'lex: 'token_line> {
 
 impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     pub fn new(
-        word_unique_allocator: &'lex WordInterner,
+        word_unique_allocator: &'lex WordAllocator,
         line_index: usize,
         mut char_iter: CharIter<'token_line>,
     ) -> (TextIndent, Self) {

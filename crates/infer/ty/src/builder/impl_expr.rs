@@ -51,28 +51,33 @@ impl<'a> TySheetBuilder<'a> {
         Ok(ty)
     }
 
-    fn scope_ty_result(&mut self, scope: ScopePtr, scope_kind: ScopeKind) -> InferResult<ScopePtr> {
-        Ok(match scope_kind {
-            ScopeKind::Module => todo!(),
-            ScopeKind::Literal => match scope {
+    fn scope_ty_result(
+        &mut self,
+        scope: ScopePtr,
+        entity_kind: RawEntityKind,
+    ) -> InferResult<ScopePtr> {
+        Ok(match entity_kind {
+            RawEntityKind::Module => todo!(),
+            RawEntityKind::Literal => match scope {
                 ScopePtr::Builtin(BuiltinIdentifier::True)
                 | ScopePtr::Builtin(BuiltinIdentifier::False) => BuiltinIdentifier::Bool.into(),
-                ScopePtr::Custom(scope) => match scope.route {
-                    ScopeRoute::Builtin { ident } => todo!(),
-                    ScopeRoute::Package { main, ident } => todo!(),
-                    ScopeRoute::ChildScope { parent, ident } => parent,
-                    ScopeRoute::Implicit { main, ident } => todo!(),
+                ScopePtr::Custom(scope) => match scope.kind {
+                    ScopeKind::Builtin { ident } => todo!(),
+                    ScopeKind::Package { main, ident } => todo!(),
+                    ScopeKind::ChildScope { parent, ident } => parent,
+                    ScopeKind::Contextual { main, ident } => todo!(),
+                    ScopeKind::Generic { ident } => todo!(),
                 },
                 _ => todo!(),
             },
-            ScopeKind::Type(_) => BuiltinIdentifier::Type.into(),
-            ScopeKind::Trait => todo!(),
-            ScopeKind::Routine => {
+            RawEntityKind::Type(_) => BuiltinIdentifier::Type.into(),
+            RawEntityKind::Trait => todo!(),
+            RawEntityKind::Routine => {
                 msg_once!("todo: generics in fp");
                 BuiltinIdentifier::Fp.into()
             }
-            ScopeKind::Feature => self.db.feature_signature(scope)?.ty,
-            ScopeKind::Pattern => todo!(),
+            RawEntityKind::Feature => self.db.feature_signature(scope)?.ty,
+            RawEntityKind::Pattern => todo!(),
         })
     }
 

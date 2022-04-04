@@ -90,7 +90,7 @@ impl Deref for ScopePtr {
                  paste! {
                     $(
                         const [<$reserved:upper _SCOPE>]: &Scope = &Scope {
-                            route: ScopeRoute::Builtin {
+                            kind: ScopeKind::Builtin {
                                 ident: BuiltinIdentifier::$reserved,
                             },
                             generics: vec![],
@@ -155,8 +155,11 @@ pub trait AllocateUniqueScope {
     fn intern_scope(&self, scope: Scope) -> ScopePtr {
         self.scope_unique_allocator().alloc(scope)
     }
-    fn make_scope(&self, route: ScopeRoute, generics: Vec<GenericArgument>) -> ScopePtr {
-        self.intern_scope(Scope { route, generics })
+    fn make_scope(&self, route: ScopeKind, generics: Vec<GenericArgument>) -> ScopePtr {
+        self.intern_scope(Scope {
+            kind: route,
+            generics,
+        })
     }
     fn make_child_scope(
         &self,
@@ -165,7 +168,7 @@ pub trait AllocateUniqueScope {
         generics: Vec<GenericArgument>,
     ) -> ScopePtr {
         self.intern_scope(Scope {
-            route: ScopeRoute::ChildScope { parent, ident },
+            kind: ScopeKind::ChildScope { parent, ident },
             generics,
         })
     }
