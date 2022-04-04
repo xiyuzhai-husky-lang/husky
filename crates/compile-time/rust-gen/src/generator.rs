@@ -9,7 +9,7 @@ use crate::*;
 use semantics_entity::{Entity, EntityKind, TyDefnKind};
 use semantics_package::Package;
 use std::sync::Arc;
-use word::WordInterner;
+use word::WordAllocator;
 
 pub(crate) struct RustGenerator<'a> {
     db: &'a dyn RustGenQueryGroup,

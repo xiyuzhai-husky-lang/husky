@@ -20,13 +20,13 @@ fn global_input_ty_from_ast(
             } => match arena[opds][0].kind {
                 RawExprKind::Scope {
                     scope,
-                    kind: ScopeKind::Routine,
+                    kind: RawEntityKind::Routine,
                     ..
                 } => {
                     let signature = db.call_signature(scope)?;
                     let dataset_type = signature.output;
-                    match dataset_type.route {
-                        ScopeRoute::Builtin {
+                    match dataset_type.kind {
+                        ScopeKind::Builtin {
                             ident: BuiltinIdentifier::DatasetType,
                         } => match dataset_type.generics[0] {
                             GenericArgument::Const(_) => todo!(),
@@ -59,13 +59,13 @@ fn global_output_ty_from_ast(
             } => match arena[opds][0].kind {
                 RawExprKind::Scope {
                     scope,
-                    kind: ScopeKind::Routine,
+                    kind: RawEntityKind::Routine,
                     ..
                 } => {
                     let signature = db.call_signature(scope)?;
                     let dataset_type = signature.output;
-                    match dataset_type.route {
-                        ScopeRoute::Builtin {
+                    match dataset_type.kind {
+                        ScopeKind::Builtin {
                             ident: BuiltinIdentifier::DatasetType,
                         } => match dataset_type.generics[1] {
                             GenericArgument::Const(_) => todo!(),

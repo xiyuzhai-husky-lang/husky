@@ -1,4 +1,4 @@
-use word::ImplicitIdentifier;
+use word::ContextualIdentifier;
 
 use crate::*;
 
@@ -34,10 +34,12 @@ pub(crate) fn feature_signature(
             }
         }
         ScopeSource::Module { file } => todo!(),
-        ScopeSource::Implicit { main, ident } => match ident {
-            ImplicitIdentifier::Input => Ok(Arc::new(FeatureSignature {
+        ScopeSource::Contextual { main, ident } => match ident {
+            ContextualIdentifier::Input => Ok(Arc::new(FeatureSignature {
                 ty: db.global_input_ty(main)?,
             })),
+            ContextualIdentifier::ThisData => todo!(),
+            ContextualIdentifier::ThisType => todo!(),
         },
     }
 }

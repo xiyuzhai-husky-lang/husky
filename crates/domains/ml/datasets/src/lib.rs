@@ -5,7 +5,6 @@ mod loader;
 pub mod synthetic;
 
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Module,
     subscopes: &[("synthetic", synthetic::SCOPE_DATA), ("cv", cv::SCOPE_DATA)],
     signature: BuiltinScopeSignature::Module,
 };

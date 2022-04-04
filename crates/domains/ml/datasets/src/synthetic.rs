@@ -3,14 +3,12 @@ mod loader;
 pub mod trivial;
 
 pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
-    scope_kind: ScopeKind::Module,
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
     signature: BuiltinScopeSignature::Module,
 };
 
 use crate::{labeled::LabeledData, *};
 
-use iter::SyntheticSampleIter;
 use loader::SyntheticSampleLoader;
 use vm::BoxedValue;
 

@@ -19,6 +19,6 @@ fn visualizer(db: &dyn VisualQueryGroup, version: usize, ty: ScopePtr) -> Arc<Ru
             token_group_index,
         } => todo!(),
         ScopeSource::Module { file } => todo!(),
-        ScopeSource::Implicit { main, ident } => todo!(),
+        ScopeSource::Contextual { main, ident } => todo!(),
     }
 }

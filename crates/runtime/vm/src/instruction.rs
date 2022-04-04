@@ -7,8 +7,6 @@ use word::CustomIdentifier;
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
-
-
 use crate::*;
 
 #[derive(Debug, Clone)]
@@ -70,7 +68,7 @@ pub enum InstructionKind {
         nargs: u8,
     },
     TyCallInterpreted {
-        ty_signature: VMTySignature,
+        ty_signature: VMTySignatureKind,
     },
     PrimitiveOpn(PrimitiveOpn),
     Loop {

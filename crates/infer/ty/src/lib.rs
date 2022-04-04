@@ -14,7 +14,7 @@ use scope::{GenericArgument, *};
 use scope_query::{ScopeQueryGroup, ScopeResult, ScopeResultArc};
 use syntax_types::*;
 use vm::EnumLiteralValue;
-use word::{BuiltinIdentifier, ImplicitIdentifier};
+use word::{BuiltinIdentifier, ContextualIdentifier};
 
 #[salsa::query_group(InferTyQueryGroupStorage)]
 pub trait InferTySalsaQueryGroup:
@@ -68,9 +68,11 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<Sco
             BuiltinIdentifier::Type => todo!(),
             BuiltinIdentifier::Datasets => todo!(),
         },
-        ScopePtr::Custom(scope) => match scope.route {
-            ScopeRoute::Implicit { main, ident } => match ident {
-                ImplicitIdentifier::Input => db.global_input_ty(main),
+        ScopePtr::Custom(scope) => match scope.kind {
+            ScopeKind::Contextual { main, ident } => match ident {
+                ContextualIdentifier::Input => db.global_input_ty(main),
+                ContextualIdentifier::ThisData => todo!(),
+                ContextualIdentifier::ThisType => todo!(),
             },
             _ => todo!(),
         },
@@ -135,8 +137,8 @@ fn is_implicit_convertible(
             BuiltinIdentifier::Array => todo!(),
             BuiltinIdentifier::DatasetType => match src_ty {
                 ScopePtr::Builtin(BuiltinIdentifier::DatasetType) => true,
-                ScopePtr::Custom(scope) => match scope.route {
-                    ScopeRoute::Builtin {
+                ScopePtr::Custom(scope) => match scope.kind {
+                    ScopeKind::Builtin {
                         ident: BuiltinIdentifier::DatasetType,
                     } => true,
                     _ => false,

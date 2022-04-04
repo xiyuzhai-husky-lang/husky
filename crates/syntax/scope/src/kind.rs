@@ -1,10 +1,11 @@
+use entity_syntax::RawTyKind;
 use token::{Special, Token, TokenKind};
 use word::{Keyword, TyKeyword};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ScopeKind {
+pub enum RawEntityKind {
     Module,
-    Type(TyKind),
+    Type(RawTyKind),
     Trait,
     Routine,
     Feature,
@@ -12,39 +13,16 @@ pub enum ScopeKind {
     Literal,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum TyKind {
-    Enum,
-    Record,
-    Struct,
-    Primitive,
-    Vec,
-    Array,
-    Other,
-}
-
-impl From<TyKeyword> for TyKind {
-    fn from(keyword: TyKeyword) -> Self {
-        match keyword {
-            TyKeyword::Struct => TyKind::Struct,
-            TyKeyword::Rename => todo!(),
-            TyKeyword::Enum => TyKind::Enum,
-            TyKeyword::Props => todo!(),
-            TyKeyword::Record => TyKind::Record,
-        }
-    }
-}
-
-impl ScopeKind {
-    pub fn new(keyword: Keyword, third_token: &Token) -> Option<ScopeKind> {
+impl RawEntityKind {
+    pub fn new(keyword: Keyword, third_token: &Token) -> Option<RawEntityKind> {
         match keyword {
             Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) => None,
-            Keyword::Mod => Some(ScopeKind::Module),
-            Keyword::Routine(_) => Some(ScopeKind::Routine),
-            Keyword::Type(keyword) => Some(ScopeKind::Type(keyword.into())),
+            Keyword::Mod => Some(RawEntityKind::Module),
+            Keyword::Routine(_) => Some(RawEntityKind::Routine),
+            Keyword::Type(keyword) => Some(RawEntityKind::Type(keyword.into())),
             Keyword::Def => Some(match third_token.kind {
-                TokenKind::Special(Special::LCurl) => ScopeKind::Pattern,
-                _ => ScopeKind::Feature,
+                TokenKind::Special(Special::LCurl) => RawEntityKind::Pattern,
+                _ => RawEntityKind::Feature,
             }),
             Keyword::Main => todo!(),
         }

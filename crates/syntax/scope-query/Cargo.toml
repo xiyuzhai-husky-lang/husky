@@ -13,6 +13,7 @@ path-utils = { path = "../../utils/path", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
+upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
@@ -20,3 +21,4 @@ word = { path = "../word", version = "0.0.0" }
 token = { path = "../token", version = "0.0.0" }
 scope = { path = "../scope", version = "0.0.0" }
 datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }
+entity-syntax = { path = "../entity", version = "0.0.0" }

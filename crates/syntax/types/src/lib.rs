@@ -9,13 +9,6 @@ use vm::{EagerContract, InputContract, MembAccessContract};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RawTyKind {
-    Enum,
-    Struct,
-    Record,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembAccessSignature {
     pub contract: MembAccessContract,
     pub ty: ScopePtr,

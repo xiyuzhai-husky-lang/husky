@@ -12,7 +12,7 @@ use core::slice::Iter;
 use check_utils::should;
 use file::FilePtr;
 use print_utils::p;
-use scope::{GenericArgument, Scope, ScopeKind, ScopeRoute};
+use scope::{GenericArgument, Scope, ScopeKind, RawEntityKind};
 use text::TextRange;
 use token::{Special, Token, TokenKind};
 use vm::{BinaryOpr, PureBinaryOpr};
@@ -194,7 +194,7 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr
         match result[0].kind {
             AtomKind::Scope {
                 scope,
-                kind: ScopeKind::Type(_),
+                kind: RawEntityKind::Type(_),
                 ..
             } => Ok(scope),
             _ => err!(file, (&result).into(), "too many atoms")?,

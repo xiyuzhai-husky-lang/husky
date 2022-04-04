@@ -3,9 +3,10 @@ use std::sync::Arc;
 use crate::*;
 use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 
+use entity_syntax::RawTyKind;
 use file::FilePtr;
 use infer_signature::TySignature;
-use scope::{RangedScope, ScopeKind, ScopePtr, ScopeRoute, TyKind};
+use scope::{RangedScope, RawEntityKind, ScopeKind, ScopePtr};
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
 use word::{BuiltinIdentifier, CustomIdentifier};
@@ -31,8 +32,8 @@ pub trait LazyExprParser<'a> {
                 ))
             }
             RawExprKind::Scope { scope, kind, .. } => match kind {
-                ScopeKind::Module => todo!(),
-                ScopeKind::Literal => match scope {
+                RawEntityKind::Module => todo!(),
+                RawEntityKind::Literal => match scope {
                     ScopePtr::Builtin(BuiltinIdentifier::True) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
@@ -45,11 +46,11 @@ pub trait LazyExprParser<'a> {
                     },
                     _ => todo!(),
                 },
-                ScopeKind::Type(_) => todo!(),
-                ScopeKind::Trait => todo!(),
-                ScopeKind::Routine => todo!(),
-                ScopeKind::Feature => LazyExprKind::ScopedFeature { scope },
-                ScopeKind::Pattern => todo!(),
+                RawEntityKind::Type(_) => todo!(),
+                RawEntityKind::Trait => todo!(),
+                RawEntityKind::Routine => todo!(),
+                RawEntityKind::Feature => LazyExprKind::ScopedFeature { scope },
+                RawEntityKind::Pattern => todo!(),
             },
             RawExprKind::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
             RawExprKind::Bracketed(_) => todo!(),
@@ -239,30 +240,30 @@ pub trait LazyExprParser<'a> {
                     .map(|raw| self.parse_lazy_expr(raw))
                     .collect::<SemanticResult<_>>()?;
                 let opn_kind = match kind {
-                    ScopeKind::Module => todo!(),
-                    ScopeKind::Type(ty_kind) => match ty_kind {
-                        TyKind::Enum => todo!(),
-                        TyKind::Record => LazyOpnKind::ClassCall(RangedScope {
+                    RawEntityKind::Module => todo!(),
+                    RawEntityKind::Type(ty_kind) => match ty_kind {
+                        RawTyKind::Enum => todo!(),
+                        RawTyKind::Record => LazyOpnKind::ClassCall(RangedScope {
                             scope,
                             range: call.range(),
                         }),
-                        TyKind::Struct => LazyOpnKind::StructCall(RangedScope {
+                        RawTyKind::Struct => LazyOpnKind::StructCall(RangedScope {
                             scope,
                             range: call.range(),
                         }),
-                        TyKind::Primitive => todo!(),
-                        TyKind::Other => todo!(),
-                        TyKind::Vec => todo!(),
-                        TyKind::Array => todo!(),
+                        RawTyKind::Primitive => todo!(),
+                        RawTyKind::Other => todo!(),
+                        RawTyKind::Vec => todo!(),
+                        RawTyKind::Array => todo!(),
                     },
-                    ScopeKind::Trait => todo!(),
-                    ScopeKind::Routine => LazyOpnKind::RoutineCall(RangedScope {
+                    RawEntityKind::Trait => todo!(),
+                    RawEntityKind::Routine => LazyOpnKind::RoutineCall(RangedScope {
                         scope,
                         range: call.range(),
                     }),
-                    ScopeKind::Feature => todo!(),
-                    ScopeKind::Pattern => todo!(),
-                    ScopeKind::Literal => todo!(),
+                    RawEntityKind::Feature => todo!(),
+                    RawEntityKind::Pattern => todo!(),
+                    RawEntityKind::Literal => todo!(),
                 };
                 Ok(LazyExprKind::Opn {
                     opn_kind,

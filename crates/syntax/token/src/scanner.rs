@@ -2,7 +2,7 @@ use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 
 use file::URange;
 use text::TextIndent;
-use word::WordInterner;
+use word::WordAllocator;
 
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
@@ -21,7 +21,7 @@ impl std::fmt::Debug for TokenizedLine {
 }
 
 pub(crate) struct TokenScanner<'lex> {
-    word_unique_allocator: &'lex WordInterner,
+    word_unique_allocator: &'lex WordAllocator,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
@@ -34,7 +34,7 @@ impl<'lex> std::fmt::Debug for TokenScanner<'lex> {
 }
 
 impl<'token> TokenScanner<'token> {
-    pub(crate) fn new(word_unique_allocator: &'token WordInterner) -> Self {
+    pub(crate) fn new(word_unique_allocator: &'token WordAllocator) -> Self {
         Self {
             word_unique_allocator,
             tokens: vec![],

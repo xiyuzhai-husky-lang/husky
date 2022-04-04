@@ -1,5 +1,5 @@
 use file::URange;
-use word::WordInterner;
+use word::WordAllocator;
 
 use fold::FoldedList;
 
@@ -67,7 +67,7 @@ impl fold::ItemToFold<URange> for TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(word_unique_allocator: &WordInterner, text: &str) -> Self {
+    pub(crate) fn parse(word_unique_allocator: &WordAllocator, text: &str) -> Self {
         let mut token_scanner = TokenScanner::new(word_unique_allocator);
         text.lines()
             .enumerate()

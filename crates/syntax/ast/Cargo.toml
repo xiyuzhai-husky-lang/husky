@@ -22,3 +22,4 @@ scope = { path = "../scope", version = "0.0.0" }
 scope-query = { path = "../scope-query", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
+entity-syntax = { path = "../entity", version = "0.0.0" }

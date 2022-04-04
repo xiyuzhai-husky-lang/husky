@@ -12,7 +12,7 @@ pub enum ScopeDefRule {
     FirstTokenShouldBeKeyword,
     NonMainSecondTokenShouldBeIdentifier,
     BuiltinIdentifierAreReserved,
-    ImplicitIdentifierAreReserved,
+    ContextualIdentifierAreReserved,
 }
 
 macro_rules! build_error_code_gen {
@@ -31,7 +31,7 @@ impl ScopeDefError {
             FirstTokenShouldBeKeyword,
             NonMainSecondTokenShouldBeIdentifier,
             BuiltinIdentifierAreReserved,
-            ImplicitIdentifierAreReserved
+            ContextualIdentifierAreReserved
         )
     }
 }

@@ -1,15 +1,14 @@
 use std::sync::Arc;
 
 use ast::*;
+use entity_syntax::RawTyKind;
 use file::FilePtr;
 use infer_total::InferQueryGroup;
 use scope::{InputPlaceholder, RangedScope, ScopePtr};
 use semantics_eager::{DeclStmt, ImprStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
-use syntax_types::{
-    MembAccessSignature, RawEnumVariantKind, RawMembRoutineKind, RawTyKind, RoutineKind,
-};
+use syntax_types::{MembAccessSignature, RawEnumVariantKind, RawMembRoutineKind, RoutineKind};
 use vec_map::VecMap;
 use vm::InputContract;
 use word::{CustomIdentifier, IdentMap};
@@ -37,6 +36,10 @@ impl TyDefn {
                     RawTyKind::Enum => Self::enum_from_ast(children)?,
                     RawTyKind::Struct => Self::struct_from_ast(db, children, arena, file)?,
                     RawTyKind::Record => Self::class_from_ast(db, children, arena, file)?,
+                    RawTyKind::Primitive => todo!(),
+                    RawTyKind::Vec => todo!(),
+                    RawTyKind::Array => todo!(),
+                    RawTyKind::Other => todo!(),
                 },
                 _ => panic!(),
             },

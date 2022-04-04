@@ -1,14 +1,40 @@
+mod enum_ty;
+mod impl_instantiate;
+mod record;
+mod vec;
+
+pub use vec::*;
+
+use crate::*;
 use ast::AstIter;
+use enum_ty::*;
+use record::*;
 use scope::BuiltinScopeSignature;
 use syntax_types::{MembAccessSignature, MembCallSignature, RawEnumVariantKind};
 use vec_map::VecMap;
-use vm::{MembAccessContract, VMTySignature};
-use word::IdentMap;
-
-use crate::*;
+use vm::{MembAccessContract, VMTySignatureKind};
+use word::{IdentMap, WordAllocator};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum TySignature {
+pub struct TySignature {
+    generics: Vec<GenericArgument>,
+    traits: Vec<ScopePtr>,
+    members: IdentMap<MembSignature>,
+    kind: TySignatureKind,
+}
+
+impl TySignature {
+    fn new(
+        generics: Vec<GenericArgument>,
+        traits: Vec<ScopePtr>,
+        members: IdentMap<MembSignature>,
+    ) -> Self {
+        todo!()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum TySignatureKind {
     Struct {
         memb_vars: IdentMap<MembAccessSignature>,
         memb_routines: IdentMap<MembCallSignature>,
@@ -20,6 +46,9 @@ pub enum TySignature {
         memb_vars: IdentMap<MembAccessSignature>,
         memb_features: IdentMap<ScopePtr>,
     },
+    Vec {
+        element_ty: ScopePtr,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -30,17 +59,31 @@ pub enum MembAccessKind {
 }
 
 impl TySignature {
+    // fn vec(word_allocator: &WordAllocator, element_ty: ScopePtr) -> Self {
+    //     let mut members = IdentMap::default();
+    //     members.insert_new(
+    //         word_allocator.alloc_from_ref("push").custom().unwrap(),
+    //         MembSignature {
+    //             kind: MembSignatureKind::Routine,
+    //         },
+    //     );
+    //     Self {
+    //         members,
+    //         kind: TySignatureKind::Vec { element_ty },
+    //     }
+    // }
+
     pub fn memb_access_ty_result(&self, ident: CustomIdentifier) -> InferResult<ScopePtr> {
-        match self {
-            TySignature::Struct { ref memb_vars, .. } => ok_or!(
+        match self.kind {
+            TySignatureKind::Struct { ref memb_vars, .. } => ok_or!(
                 memb_vars.get(ident),
                 format!("no such member variable {}", ident.0)
             )
             .map(|signature| signature.ty),
-            TySignature::Enum { ref variants } => todo!(),
-            TySignature::Record {
-                memb_vars,
-                memb_features,
+            TySignatureKind::Enum { ref variants } => todo!(),
+            TySignatureKind::Record {
+                ref memb_vars,
+                ref memb_features,
             } => {
                 if let Some(memb_var) = memb_vars.get(ident) {
                     Ok(memb_var.ty)
@@ -50,14 +93,15 @@ impl TySignature {
                     todo!()
                 }
             }
+            TySignatureKind::Vec { element_ty } => todo!(),
         }
     }
 
     pub fn memb_access_signature(&self, ident: CustomIdentifier) -> MembAccessSignature {
-        match self {
-            TySignature::Struct { ref memb_vars, .. } => *memb_vars.get(ident).unwrap(),
-            TySignature::Enum { ref variants } => todo!(),
-            TySignature::Record {
+        match self.kind {
+            TySignatureKind::Struct { ref memb_vars, .. } => *memb_vars.get(ident).unwrap(),
+            TySignatureKind::Enum { ref variants } => todo!(),
+            TySignatureKind::Record {
                 ref memb_vars,
                 ref memb_features,
             } => {
@@ -72,14 +116,15 @@ impl TySignature {
                     todo!()
                 }
             }
+            TySignatureKind::Vec { element_ty } => todo!(),
         }
     }
 
     pub fn memb_access_kind(&self, memb_ident: CustomIdentifier) -> MembAccessKind {
-        match self {
-            TySignature::Struct {
-                memb_vars,
-                memb_routines,
+        match self.kind {
+            TySignatureKind::Struct {
+                ref memb_vars,
+                ref memb_routines,
             } => {
                 if memb_vars.get(memb_ident).is_some() {
                     MembAccessKind::StructMembVar
@@ -87,10 +132,10 @@ impl TySignature {
                     panic!("todo: memb feature of struct")
                 }
             }
-            TySignature::Enum { variants } => todo!(),
-            TySignature::Record {
-                memb_vars,
-                memb_features,
+            TySignatureKind::Enum { ref variants } => todo!(),
+            TySignatureKind::Record {
+                ref memb_vars,
+                ref memb_features,
             } => {
                 if memb_vars.get(memb_ident).is_some() {
                     MembAccessKind::RecordMemb
@@ -100,41 +145,43 @@ impl TySignature {
                     todo!()
                 }
             }
+            TySignatureKind::Vec { element_ty } => todo!(),
         }
     }
 
-    pub fn vm_ty_signature(&self) -> VMTySignature {
-        match self {
-            TySignature::Struct { memb_vars, .. } => {
+    pub fn vm_ty_signature(&self) -> VMTySignatureKind {
+        match self.kind {
+            TySignatureKind::Struct { ref memb_vars, .. } => {
                 let mut vm_memb_vars = IdentMap::<MembAccessContract>::default();
                 memb_vars.iter().for_each(|(ident, memb_var_sig)| {
                     vm_memb_vars.insert_new(*ident, memb_var_sig.contract)
                 });
-                VMTySignature::Struct {
+                VMTySignatureKind::Struct {
                     memb_vars: vm_memb_vars,
                 }
             }
-            TySignature::Enum { variants } => todo!(),
-            TySignature::Record {
-                memb_vars,
-                memb_features,
+            TySignatureKind::Enum { ref variants } => todo!(),
+            TySignatureKind::Record {
+                ref memb_vars,
+                ref memb_features,
             } => todo!(),
+            TySignatureKind::Vec { element_ty } => todo!(),
         }
     }
 
     pub fn memb_call_signature(&self, ident: CustomIdentifier) -> InferResult<&MembCallSignature> {
-        match self {
-            TySignature::Struct {
-                memb_routines: ref memb_calls,
-                ..
+        match self.kind {
+            TySignatureKind::Struct {
+                ref memb_routines, ..
             } => {
-                derived_not_none!(memb_calls.get(ident))
+                derived_not_none!(memb_routines.get(ident))
             }
-            TySignature::Enum { variants } => todo!(),
-            TySignature::Record {
-                memb_vars,
-                memb_features,
+            TySignatureKind::Enum { ref variants } => todo!(),
+            TySignatureKind::Record {
+                ref memb_vars,
+                ref memb_features,
             } => todo!(),
+            TySignatureKind::Vec { element_ty } => todo!(),
         }
     }
 }
@@ -154,7 +201,10 @@ pub(crate) fn ty_signature(
             BuiltinScopeSignature::Func(_) => todo!(),
             BuiltinScopeSignature::Module => todo!(),
             BuiltinScopeSignature::Ty { .. } => todo!(),
-            BuiltinScopeSignature::Vec => todo!(),
+            BuiltinScopeSignature::Vec => {
+                let vec_signature_template = db.vec_signature_template();
+                vec_signature_template.instantiate(&scope.generics)
+            }
         })),
         ScopeSource::WithinBuiltinModule => todo!(),
         ScopeSource::WithinModule {
@@ -170,38 +220,32 @@ pub(crate) fn ty_signature(
             let ast = item.value.as_ref()?;
             match ast.kind {
                 AstKind::TypeDecl { kind, .. } => match kind {
-                    RawTyKind::Enum => enum_signature(derived_not_none!(item.children)?),
-                    RawTyKind::Struct => struct_signature(item.children.unwrap()),
-                    RawTyKind::Record => class_signature(item.children.unwrap()),
+                    RawTyKind::Enum => {
+                        enum_signature(scope.generics.clone(), derived_not_none!(item.children)?)
+                    }
+                    RawTyKind::Struct => {
+                        struct_signature(scope.generics.clone(), item.children.unwrap())
+                    }
+                    RawTyKind::Record => {
+                        record_signature(scope.generics.clone(), item.children.unwrap())
+                    }
+                    RawTyKind::Primitive => todo!(),
+                    RawTyKind::Vec => todo!(),
+                    RawTyKind::Array => todo!(),
+                    RawTyKind::Other => todo!(),
                 },
                 _ => panic!(),
             }
         }
         ScopeSource::Module { file } => todo!(),
-        ScopeSource::Implicit { .. } => todo!(),
+        ScopeSource::Contextual { .. } => todo!(),
     }
 }
 
-pub(crate) fn enum_signature(children: AstIter) -> InferResultArc<TySignature> {
-    let mut variants = VecMap::default();
-    for subitem in children {
-        match subitem.value.as_ref()?.kind {
-            AstKind::EnumVariant {
-                ident,
-                ref raw_variant_kind,
-            } => {
-                let variant_sig = match raw_variant_kind {
-                    RawEnumVariantKind::Constant => EnumVariantSignature::Constant,
-                };
-                variants.insert_new(ident, variant_sig)
-            }
-            _ => panic!(),
-        }
-    }
-    Ok(Arc::new(TySignature::Enum { variants }))
-}
-
-pub(crate) fn struct_signature(children: AstIter) -> InferResultArc<TySignature> {
+pub(crate) fn struct_signature(
+    generics: Vec<GenericArgument>,
+    children: AstIter,
+) -> InferResultArc<TySignature> {
     let mut memb_vars = VecMap::default();
     let mut memb_routines = VecMap::default();
     for subitem in children {
@@ -218,28 +262,13 @@ pub(crate) fn struct_signature(children: AstIter) -> InferResultArc<TySignature>
             _ => panic!(),
         }
     }
-    Ok(Arc::new(TySignature::Struct {
-        memb_vars,
-        memb_routines,
-    }))
-}
-
-pub(crate) fn class_signature(children: AstIter) -> InferResultArc<TySignature> {
-    let mut memb_vars = VecMap::default();
-    let mut memb_features = VecMap::default();
-    for subitem in children {
-        let subast = subitem.value.as_ref()?;
-        match subast.kind {
-            AstKind::MembVar {
-                ident,
-                signature: MembAccessSignature { contract, ty },
-            } => memb_vars.insert_new(ident, MembAccessSignature { contract, ty }),
-            AstKind::MembFeatureDecl { ident, ty } => memb_features.insert_new(ident, ty),
-            _ => panic!(),
-        }
-    }
-    Ok(Arc::new(TySignature::Record {
-        memb_vars,
-        memb_features,
+    Ok(Arc::new(TySignature {
+        generics,
+        members: Default::default(),
+        traits: Default::default(),
+        kind: TySignatureKind::Struct {
+            memb_vars,
+            memb_routines,
+        },
     }))
 }

@@ -46,7 +46,7 @@ impl AllocateUniqueFile for HuskyLangCompileTime {
 }
 
 impl InternWord for HuskyLangCompileTime {
-    fn word_unique_allocator(&self) -> &word::WordInterner {
+    fn word_allocator(&self) -> &word::WordAllocator {
         &self.word_unique_allocator
     }
 }
@@ -96,6 +96,12 @@ impl ControlEntityVersion for HuskyLangCompileTime {
 impl AllocateUniqueFeature for HuskyLangCompileTime {
     fn features(&self) -> &feature::FeatureUniqueAllocator {
         &self.features
+    }
+}
+
+impl Upcast<dyn scope_query::ScopeSalsaQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn scope_query::ScopeSalsaQueryGroup + 'static) {
+        self
     }
 }
 

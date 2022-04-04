@@ -2,9 +2,9 @@ use std::{borrow::Borrow, ops::Deref};
 
 use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
 
-use crate::{ident::ImplicitIdentifier, *};
+use crate::{ident::ContextualIdentifier, *};
 
-pub type WordInterner = UniqueAllocator<str, String, WordPtr>;
+pub type WordAllocator = UniqueAllocator<str, String, WordPtr>;
 
 impl Deref for WordPtr {
     type Target = str;
@@ -33,8 +33,8 @@ impl UniqueAllocatorPtr for WordPtr {
     type Thing = str;
 }
 
-pub fn new_word_unique_allocator() -> WordInterner {
-    WordInterner::new(&[
+pub fn new_word_unique_allocator() -> WordAllocator {
+    WordAllocator::new(&[
         ConfigKeyword::Dataset.into(),
         Keyword::Use.into(),
         Keyword::Mod.into(),
@@ -81,14 +81,18 @@ pub fn new_word_unique_allocator() -> WordInterner {
         BuiltinIdentifier::FnOnce.into(),
         BuiltinIdentifier::Datasets.into(),
         BuiltinIdentifier::DatasetType.into(),
-        ImplicitIdentifier::Input.into(),
-        Identifier::This.into(),
+        ContextualIdentifier::Input.into(),
+        ContextualIdentifier::ThisData.into(),
+        ContextualIdentifier::ThisType.into(),
     ])
 }
 
 pub trait InternWord {
-    fn word_unique_allocator(&self) -> &WordInterner;
+    fn word_allocator(&self) -> &WordAllocator;
     fn intern_word(&self, word: &str) -> WordPtr {
-        self.word_unique_allocator().alloc_from_ref(word)
+        self.word_allocator().alloc_from_ref(word)
+    }
+    fn custom_ident(&self, word: &str) -> CustomIdentifier {
+        self.intern_word(word).custom().unwrap()
     }
 }

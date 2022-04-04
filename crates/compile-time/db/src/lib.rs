@@ -46,7 +46,7 @@ use sync_utils::ARwLock;
 pub struct HuskyLangCompileTime {
     storage: salsa::Storage<HuskyLangCompileTime>,
     file_unique_allocator: file::UniqueFileAllocator,
-    word_unique_allocator: word::WordInterner,
+    word_unique_allocator: word::WordAllocator,
     scope_unique_allocator: scope::UniqueScopeAllocator,
     live_docs: ARwLock<HashMap<file::FilePtr, ARwLock<String>>>,
     vc: semantics_entity::EntityVersionControl,

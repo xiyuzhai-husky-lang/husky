@@ -1,7 +1,7 @@
 mod impl_opn;
 
 use file::FilePtr;
-use scope::{InputPlaceholder, ScopeRoute};
+use scope::{InputPlaceholder, ScopeKind};
 use scope::{RangedScope, ScopePtr};
 use semantics_eager::*;
 use semantics_entity::*;
@@ -9,7 +9,7 @@ use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
 use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled};
-use word::{BuiltinIdentifier, ImplicitIdentifier};
+use word::{BuiltinIdentifier, ContextualIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
 
@@ -191,9 +191,9 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.this.as_ref().unwrap().feature(),
             ),
-            LazyExprKind::ScopedFeature { scope } => match scope.route {
-                ScopeRoute::Builtin { .. } | ScopeRoute::Package { .. } => panic!(),
-                ScopeRoute::ChildScope { .. } => {
+            LazyExprKind::ScopedFeature { scope } => match scope.kind {
+                ScopeKind::Builtin { .. } | ScopeKind::Package { .. } => panic!(),
+                ScopeKind::ChildScope { .. } => {
                     let uid = self.db.entity_vc().uid(scope);
                     let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
                     let kind = FeatureExprKind::FeatureBlock {
@@ -202,13 +202,16 @@ impl<'a> FeatureExprBuilder<'a> {
                     };
                     (kind, feature)
                 }
-                ScopeRoute::Implicit { main, ident } => match ident {
-                    ImplicitIdentifier::Input => {
+                ScopeKind::Contextual { main, ident } => match ident {
+                    ContextualIdentifier::Input => {
                         let feature = self.features.alloc(Feature::Input);
                         let kind = FeatureExprKind::GlobalInput;
                         (kind, feature)
                     }
+                    ContextualIdentifier::ThisData => todo!(),
+                    ContextualIdentifier::ThisType => todo!(),
                 },
+                ScopeKind::Generic { ident } => todo!(),
             },
         };
         Arc::new(FeatureExpr {

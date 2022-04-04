@@ -54,15 +54,10 @@ impl<'a> AstTransformer<'a> {
                             token_group[0].text_range(),
                             "expect custom identifier but got builtin"
                         )?,
-                        Identifier::Implicit(_) => err!(
+                        Identifier::Contextual(_) => err!(
                             Some(self.file),
                             token_group[0].text_range(),
-                            "expect custom identifier but got implicit"
-                        )?,
-                        Identifier::This => err!(
-                            Some(self.file),
-                            token_group[0].text_range(),
-                            "expect custom identifier but got this"
+                            "expect custom identifier but got contextual"
                         )?,
                         Identifier::Custom(custom_ident) => custom_ident,
                     },

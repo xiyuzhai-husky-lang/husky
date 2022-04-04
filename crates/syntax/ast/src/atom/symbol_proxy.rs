@@ -1,7 +1,7 @@
 use file::FilePtr;
-use scope::{ScopeRoute, *};
+use scope::{ScopeKind, *};
 use text::{Row, TextRange};
-use word::{BuiltinIdentifier, CustomIdentifier};
+use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier};
 
 use super::*;
 use crate::{query::AstSalsaQueryGroup, *};
@@ -23,17 +23,17 @@ impl Symbol {
 
 #[derive(Debug, Clone, Copy)]
 pub enum SymbolKind {
-    Scope(ScopeRoute),
+    Scope(ScopeKind),
     Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
-    This { ty: Option<ScopePtr> },
+    ThisData { ty: Option<ScopePtr> },
 }
 
 #[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
     pub(crate) main: Option<FilePtr>,
     pub(crate) db: &'a dyn AstSalsaQueryGroup,
-    pub(crate) this: Option<ScopePtr>,
+    pub(crate) this_ty: Option<ScopePtr>,
     pub(crate) symbols: &'a fold::LocalStack<Symbol>,
 }
 
@@ -47,13 +47,13 @@ impl<'a> SymbolProxy<'a> {
         let scope = Scope::new_builtin(ident.into(), generics);
         let kind = AtomKind::Scope {
             scope: self.db.intern_scope(scope),
-            kind: ScopeKind::Type(match ident {
+            kind: RawEntityKind::Type(match ident {
                 BuiltinIdentifier::Void
                 | BuiltinIdentifier::I32
                 | BuiltinIdentifier::F32
                 | BuiltinIdentifier::B32
                 | BuiltinIdentifier::B64
-                | BuiltinIdentifier::Bool => TyKind::Primitive,
+                | BuiltinIdentifier::Bool => RawTyKind::Primitive,
                 BuiltinIdentifier::True => todo!(),
                 BuiltinIdentifier::False => todo!(),
                 BuiltinIdentifier::Vec => todo!(),
@@ -82,12 +82,16 @@ impl<'a> SymbolProxy<'a> {
     ) -> AstResult<SymbolKind> {
         match ident {
             Identifier::Builtin(ident) => Ok(SymbolKind::Scope(ident.into())),
-            Identifier::Implicit(ident) => Ok(SymbolKind::Scope(ScopeRoute::Implicit {
-                main: self
-                    .main
-                    .ok_or(error!(file, range, "can't use implicit without main"))?,
-                ident,
-            })),
+            Identifier::Contextual(ident) => match ident {
+                ContextualIdentifier::Input => Ok(SymbolKind::Scope(ScopeKind::Contextual {
+                    main: self
+                        .main
+                        .ok_or(error!(file, range, "can't use implicit without main"))?,
+                    ident,
+                })),
+                ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData { ty: self.this_ty }),
+                ContextualIdentifier::ThisType => todo!(),
+            },
             Identifier::Custom(ident) => Ok(
                 if let Some(symbol) = self.symbols.find(|symbol| symbol.ident == ident.into()) {
                     symbol.kind
@@ -95,7 +99,6 @@ impl<'a> SymbolProxy<'a> {
                     SymbolKind::Unrecognized(ident)
                 },
             ),
-            Identifier::This => Ok(SymbolKind::This { ty: self.this }),
         }
     }
 

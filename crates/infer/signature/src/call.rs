@@ -110,12 +110,16 @@ pub(crate) fn call_signature(
                             compiled: None,
                         }))
                     }
+                    RawTyKind::Primitive => todo!(),
+                    RawTyKind::Vec => todo!(),
+                    RawTyKind::Array => todo!(),
+                    RawTyKind::Other => todo!(),
                 },
                 _ => panic!(),
             }
         }
         ScopeSource::Module { file: file_id } => todo!(),
-        ScopeSource::Implicit { .. } => todo!(),
+        ScopeSource::Contextual { .. } => todo!(),
     };
 
     fn func_call_signature_from_raw(

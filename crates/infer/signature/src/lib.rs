@@ -1,21 +1,25 @@
 mod call;
 mod feature;
 mod global;
+mod memb;
+mod traits;
 mod ty;
 
 pub use call::*;
-use file::FilePtr;
+pub use memb::*;
+pub use traits::*;
 pub use ty::*;
 
 use ast::*;
+use entity_syntax::RawTyKind;
 use feature::*;
+use file::FilePtr;
 use fold::FoldStorage;
 use global::*;
 use infer_error::*;
 use scope::*;
 use scope_query::*;
 use std::sync::Arc;
-use syntax_types::RawTyKind;
 use vm::Compiled;
 use word::CustomIdentifier;
 
@@ -26,4 +30,5 @@ pub trait InferSignatureQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
     fn feature_signature(&self, scope: ScopePtr) -> InferResultArc<FeatureSignature>;
     fn global_input_ty(&self, main_file: FilePtr) -> InferResult<ScopePtr>;
     fn global_output_ty(&self, main_file: FilePtr) -> InferResult<ScopePtr>;
+    fn vec_signature_template(&self) -> Arc<TySignature>;
 }

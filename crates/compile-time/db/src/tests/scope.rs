@@ -1,4 +1,4 @@
-use scope::ScopeRoute;
+use scope::ScopeKind;
 use word::BuiltinIdentifier;
 
 use crate::*;
@@ -87,7 +87,7 @@ main:
 fn datasets() {
     let db = HuskyLangCompileTime::default();
     let dataset_scope = db.intern_scope(Scope {
-        route: ScopeRoute::Builtin {
+        kind: ScopeKind::Builtin {
             ident: BuiltinIdentifier::DatasetType,
         },
         generics: vec![],
