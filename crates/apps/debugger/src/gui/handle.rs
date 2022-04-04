@@ -56,13 +56,6 @@ pub fn handle_message(
                             let trace = debugger_.trace(id).await;
                             Response::Trace { id, trace }
                         }
-                        // Query::LockInput { ref input_str } => {
-                        //     let (input_locked_on, message) = debugger_.lock_input(input_str).await;
-                        //     Response::LockFocus {
-                        //         input_locked_on,
-                        //         message,
-                        //     }
-                        // }
                         Query::TraceStalk { trace_id, input_id } => {
                             let stalk = debugger_.trace_stalk(trace_id, input_id).await;
                             Response::TraceStalk {

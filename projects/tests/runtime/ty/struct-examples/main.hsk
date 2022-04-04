@@ -1,3 +1,6 @@
+dataset:
+    synthetic::trivial::real1d::dataset1()
+    
 struct A:
     x: i32
 
@@ -19,9 +22,6 @@ proc f3():
 func g1() -> i32:
     a = A(2)
     return a.x
-
-dataset:
-    synthetic::trivial::real1d::dataset1()
 
 main:
     a = f1()

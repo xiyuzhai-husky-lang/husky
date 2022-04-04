@@ -54,7 +54,7 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<Sco
             BuiltinIdentifier::True | BuiltinIdentifier::False => {
                 Ok(ScopePtr::Builtin(BuiltinIdentifier::Bool))
             }
-            BuiltinIdentifier::Vector => todo!(),
+            BuiltinIdentifier::Vec => todo!(),
             BuiltinIdentifier::Tuple => todo!(),
             BuiltinIdentifier::Debug => todo!(),
             BuiltinIdentifier::Std => todo!(),
@@ -108,7 +108,7 @@ fn is_implicit_convertible(
                     | BuiltinIdentifier::B64
                     | BuiltinIdentifier::Bool => true,
                     BuiltinIdentifier::Void
-                    | BuiltinIdentifier::Vector
+                    | BuiltinIdentifier::Vec
                     | BuiltinIdentifier::Tuple
                     | BuiltinIdentifier::Fp
                     | BuiltinIdentifier::Fn
@@ -123,7 +123,7 @@ fn is_implicit_convertible(
             },
             BuiltinIdentifier::True => todo!(),
             BuiltinIdentifier::False => todo!(),
-            BuiltinIdentifier::Vector => todo!(),
+            BuiltinIdentifier::Vec => todo!(),
             BuiltinIdentifier::Tuple => todo!(),
             BuiltinIdentifier::Debug => todo!(),
             BuiltinIdentifier::Std => todo!(),

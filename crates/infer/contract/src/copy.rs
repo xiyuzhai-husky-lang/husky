@@ -13,7 +13,7 @@ pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: ScopePtr) -
             | BuiltinIdentifier::Bool => true,
             BuiltinIdentifier::True => todo!(),
             BuiltinIdentifier::False => todo!(),
-            BuiltinIdentifier::Vector => todo!(),
+            BuiltinIdentifier::Vec => todo!(),
             BuiltinIdentifier::Tuple => todo!(),
             BuiltinIdentifier::Debug => todo!(),
             BuiltinIdentifier::Std => todo!(),

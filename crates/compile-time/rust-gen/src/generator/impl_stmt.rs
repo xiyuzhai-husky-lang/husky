@@ -229,7 +229,7 @@ impl<'a> RustGenerator<'a> {
                 BuiltinIdentifier::Bool => self.gen_expr(condition),
                 BuiltinIdentifier::True
                 | BuiltinIdentifier::False
-                | BuiltinIdentifier::Vector
+                | BuiltinIdentifier::Vec
                 | BuiltinIdentifier::Tuple
                 | BuiltinIdentifier::Debug
                 | BuiltinIdentifier::Std

@@ -5,7 +5,7 @@ use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 
 use file::FilePtr;
 use infer_signature::TySignature;
-use scope::{RangedScope, ScopeKind, ScopePtr, ScopeRoute};
+use scope::{RangedScope, ScopeKind, ScopePtr, ScopeRoute, TyKind};
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
 use word::{BuiltinIdentifier, CustomIdentifier};
@@ -241,17 +241,19 @@ pub trait LazyExprParser<'a> {
                 let opn_kind = match kind {
                     ScopeKind::Module => todo!(),
                     ScopeKind::Type(ty_kind) => match ty_kind {
-                        scope::TyKind::Enum => todo!(),
-                        scope::TyKind::Record => LazyOpnKind::ClassCall(RangedScope {
+                        TyKind::Enum => todo!(),
+                        TyKind::Record => LazyOpnKind::ClassCall(RangedScope {
                             scope,
                             range: call.range(),
                         }),
-                        scope::TyKind::Struct => LazyOpnKind::StructCall(RangedScope {
+                        TyKind::Struct => LazyOpnKind::StructCall(RangedScope {
                             scope,
                             range: call.range(),
                         }),
-                        scope::TyKind::Primitive => todo!(),
-                        scope::TyKind::Other => todo!(),
+                        TyKind::Primitive => todo!(),
+                        TyKind::Other => todo!(),
+                        TyKind::Vec => todo!(),
+                        TyKind::Array => todo!(),
                     },
                     ScopeKind::Trait => todo!(),
                     ScopeKind::Routine => LazyOpnKind::RoutineCall(RangedScope {

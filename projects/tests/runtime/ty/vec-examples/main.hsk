@@ -1,0 +1,11 @@
+dataset:
+    synthetic::trivial::real1d::dataset1()
+
+proc f() -> i32:
+    var v = []i32()
+    v.push(2)
+    v.len()
+
+main:
+    assert f() == 1
+    1

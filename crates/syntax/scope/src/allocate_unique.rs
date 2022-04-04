@@ -108,7 +108,7 @@ impl Deref for ScopePtr {
 
         match self {
             ScopePtr::Builtin(ident) => match_builtin!(
-                ident => Void, I32, F32, B32, B64, Bool, True, False, Vector, Tuple, Debug, Std, Core, Fp, Fn,
+                ident => Void, I32, F32, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Fp, Fn,
                 FnMut, FnOnce, Array, Datasets, DatasetType, Type
             ),
             ScopePtr::Custom(scope) => scope,
@@ -181,7 +181,7 @@ pub fn new_scope_unique_allocator() -> UniqueScopeAllocator {
         BuiltinIdentifier::Bool,
         BuiltinIdentifier::True,
         BuiltinIdentifier::False,
-        BuiltinIdentifier::Vector,
+        BuiltinIdentifier::Vec,
         BuiltinIdentifier::Tuple,
         BuiltinIdentifier::Debug,
         BuiltinIdentifier::Std,
