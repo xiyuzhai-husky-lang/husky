@@ -66,10 +66,19 @@ impl std::fmt::Debug for Scope {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum GenericArgument {
     Const(usize),
     Scope(ScopePtr),
+}
+
+impl GenericArgument {
+    pub fn as_scope(&self) -> ScopePtr {
+        match self {
+            GenericArgument::Const(_) => panic!(),
+            GenericArgument::Scope(scope) => *scope,
+        }
+    }
 }
 
 impl From<usize> for GenericArgument {
@@ -126,6 +135,7 @@ pub struct BuiltinScopeData {
 pub enum BuiltinScopeSignature {
     Func(StaticFuncSignature),
     Ty { visualizer: BuiltinVisualizer },
+    Vec,
     Module,
 }
 
@@ -190,7 +200,7 @@ impl Scope {
     }
 
     pub fn vec(element: GenericArgument) -> Self {
-        Self::new_builtin(BuiltinIdentifier::Vector, vec![element])
+        Self::new_builtin(BuiltinIdentifier::Vec, vec![element])
     }
 
     pub fn array(element: GenericArgument, size: usize) -> Self {

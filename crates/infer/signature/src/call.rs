@@ -1,4 +1,5 @@
 use print_utils::msg_once;
+use scope::BuiltinScopeSignature;
 
 use crate::*;
 
@@ -9,6 +10,17 @@ pub struct CallSignature {
     pub compiled: Option<Compiled>,
 }
 
+impl CallSignature {
+    fn new_vec(ty: ScopePtr) -> Self {
+        msg_once!("new vec compiled");
+        Self {
+            inputs: Vec::new(),
+            output: ty,
+            compiled: None,
+        }
+    }
+}
+
 pub(crate) fn call_signature(
     db: &dyn InferSignatureQueryGroup,
     scope: ScopePtr,
@@ -16,9 +28,10 @@ pub(crate) fn call_signature(
     let source = db.scope_source(scope)?;
     return match source {
         ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
-            scope::BuiltinScopeSignature::Func(ref signature) => {
+            BuiltinScopeSignature::Func(ref signature) => {
                 func_call_signature_from_raw(db, signature)
             }
+            BuiltinScopeSignature::Vec => CallSignature::new_vec(scope),
             _ => panic!(),
         })),
         ScopeSource::WithinBuiltinModule => todo!(),

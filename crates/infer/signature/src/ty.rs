@@ -154,6 +154,7 @@ pub(crate) fn ty_signature(
             BuiltinScopeSignature::Func(_) => todo!(),
             BuiltinScopeSignature::Module => todo!(),
             BuiltinScopeSignature::Ty { .. } => todo!(),
+            BuiltinScopeSignature::Vec => todo!(),
         })),
         ScopeSource::WithinBuiltinModule => todo!(),
         ScopeSource::WithinModule {

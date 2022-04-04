@@ -18,6 +18,8 @@ pub enum TyKind {
     Record,
     Struct,
     Primitive,
+    Vec,
+    Array,
     Other,
 }
 

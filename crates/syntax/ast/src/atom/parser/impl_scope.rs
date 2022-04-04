@@ -107,7 +107,7 @@ impl<'a> AtomLRParser<'a> {
                 | BuiltinIdentifier::Fn
                 | BuiltinIdentifier::FnMut
                 | BuiltinIdentifier::FnOnce => Ok(self.func_args()?),
-                BuiltinIdentifier::Vector
+                BuiltinIdentifier::Vec
                 | BuiltinIdentifier::Array
                 | BuiltinIdentifier::Tuple
                 | BuiltinIdentifier::DatasetType => self.angled_generics(),

@@ -56,7 +56,7 @@ impl<'a> SymbolProxy<'a> {
                 | BuiltinIdentifier::Bool => TyKind::Primitive,
                 BuiltinIdentifier::True => todo!(),
                 BuiltinIdentifier::False => todo!(),
-                BuiltinIdentifier::Vector => todo!(),
+                BuiltinIdentifier::Vec => todo!(),
                 BuiltinIdentifier::Tuple => todo!(),
                 BuiltinIdentifier::Debug => todo!(),
                 BuiltinIdentifier::Std => todo!(),

@@ -11,6 +11,7 @@ fn visualizer(db: &dyn VisualQueryGroup, version: usize, ty: ScopePtr) -> Arc<Ru
             BuiltinScopeSignature::Func(_) => todo!(),
             BuiltinScopeSignature::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
             BuiltinScopeSignature::Module => todo!(),
+            BuiltinScopeSignature::Vec => todo!(),
         },
         ScopeSource::WithinBuiltinModule => todo!(),
         ScopeSource::WithinModule {

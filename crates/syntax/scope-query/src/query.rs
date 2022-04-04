@@ -74,7 +74,7 @@ fn scope_kind_from_route(this: &dyn ScopeSalsaQueryGroup, route: ScopeRoute) -> 
             | BuiltinIdentifier::B32
             | BuiltinIdentifier::B64
             | BuiltinIdentifier::Bool => ScopeKind::Type(TyKind::Primitive),
-            BuiltinIdentifier::Vector
+            BuiltinIdentifier::Vec
             | BuiltinIdentifier::Tuple
             | BuiltinIdentifier::Fp
             | BuiltinIdentifier::Array
@@ -112,7 +112,11 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::Bool => todo!(),
             BuiltinIdentifier::True => todo!(),
             BuiltinIdentifier::False => todo!(),
-            BuiltinIdentifier::Vector => todo!(),
+            BuiltinIdentifier::Vec => &BuiltinScopeData {
+                scope_kind: ScopeKind::Type(TyKind::Vec),
+                subscopes: &[],
+                signature: BuiltinScopeSignature::Vec,
+            },
             BuiltinIdentifier::Tuple => todo!(),
             BuiltinIdentifier::Debug => todo!(),
             BuiltinIdentifier::Std => todo!(),
