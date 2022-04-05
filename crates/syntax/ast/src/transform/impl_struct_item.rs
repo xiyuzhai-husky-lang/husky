@@ -68,7 +68,7 @@ impl<'a> AstTransformer<'a> {
                     )?,
                 };
                 let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
-                AstKind::MembVar {
+                AstKind::MembVarDefn {
                     ident,
                     signature: MembAccessSignature {
                         contract: MembAccessContract::Own,
@@ -107,7 +107,7 @@ impl<'a> AstTransformer<'a> {
                     },
                 }),
         );
-        Ok(AstKind::MembRoutineDecl {
+        Ok(AstKind::MembRoutineDefnHead {
             routine_kind: RoutineKind::Func,
             memb_routine_head: head,
         })

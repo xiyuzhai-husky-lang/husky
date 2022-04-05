@@ -1,6 +1,6 @@
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    signature: BuiltinScopeSignature::Module,
+    decl: BuiltinEntityDecl::Module,
 };
 
 use crate::*;

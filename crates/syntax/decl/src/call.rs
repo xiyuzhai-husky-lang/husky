@@ -1,4 +1,4 @@
-use entity_route::BuiltinScopeSignature;
+use entity_route::BuiltinEntityDecl;
 use print_utils::msg_once;
 
 use crate::*;
@@ -21,17 +21,15 @@ impl CallSignature {
     }
 }
 
-pub(crate) fn call_signature(
-    db: &dyn InferSignatureQueryGroup,
+pub(crate) fn call_decl(
+    db: &dyn DeclQueryGroup,
     scope: EntityRoutePtr,
 ) -> InferResultArc<CallSignature> {
     let source = db.entity_source(scope)?;
     return match source {
-        EntitySource::Builtin(data) => Ok(Arc::new(match data.signature {
-            BuiltinScopeSignature::Func(ref signature) => {
-                func_call_signature_from_raw(db, signature)
-            }
-            BuiltinScopeSignature::Vec => CallSignature::new_vec(scope),
+        EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
+            BuiltinEntityDecl::Func(ref signature) => func_call_decl_from_raw(db, signature),
+            BuiltinEntityDecl::Vec => CallSignature::new_vec(scope),
             _ => panic!(),
         })),
         EntitySource::WithinBuiltinModule => todo!(),
@@ -47,7 +45,7 @@ pub(crate) fn call_signature(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::RoutineDecl {
+                AstKind::RoutineDefnHead {
                     ref routine_kind,
                     routine_head: ref decl,
                 } => Ok(Arc::new(CallSignature {
@@ -63,7 +61,7 @@ pub(crate) fn call_signature(
                     compiled: None,
                 })),
                 // type constructor
-                AstKind::TypeDecl {
+                AstKind::TypeDefnHead {
                     ref kind,
                     generic_placeholders: ref generics,
                     ..
@@ -74,7 +72,7 @@ pub(crate) fn call_signature(
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
                             match subast.kind {
-                                AstKind::MembVar { ident, signature } => {
+                                AstKind::MembVarDefn { ident, signature } => {
                                     inputs.push(InputSignature {
                                         contract: signature.contract.constructor_input(),
                                         ty: signature.ty,
@@ -95,7 +93,7 @@ pub(crate) fn call_signature(
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
                             match subast.kind {
-                                AstKind::MembVar { ident, signature } => {
+                                AstKind::MembVarDefn { ident, signature } => {
                                     inputs.push(InputSignature {
                                         contract: signature.contract.constructor_input(),
                                         ty: signature.ty,
@@ -122,8 +120,8 @@ pub(crate) fn call_signature(
         EntitySource::Contextual { .. } => todo!(),
     };
 
-    fn func_call_signature_from_raw(
-        this: &dyn InferSignatureQueryGroup,
+    fn func_call_decl_from_raw(
+        this: &dyn DeclQueryGroup,
         signature: &StaticFuncSignature,
     ) -> CallSignature {
         let inputs = signature

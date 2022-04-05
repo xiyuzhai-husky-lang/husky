@@ -12,7 +12,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: Arc<ImprStmt>,
+        stmt: Arc<ProcStmt>,
         text: &Text,
         history: Arc<History<'eval>>,
     ) -> Arc<Trace<'eval>> {
@@ -26,7 +26,7 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn impr_stmt_lines(
         &self,
-        stmt: &ImprStmt,
+        stmt: &ProcStmt,
         text: &Text,
         history: &Arc<History<'eval>>,
     ) -> Vec<LineProps<'eval>> {
@@ -39,12 +39,12 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn impr_stmt_tokens(
         &self,
-        stmt: &ImprStmt,
+        stmt: &ProcStmt,
         text: &Text,
         history: &Arc<History<'eval>>,
     ) -> Vec<TokenProps<'eval>> {
         match stmt.kind {
-            ImprStmtKind::Init {
+            ProcStmtKind::Init {
                 varname,
                 ref initial_value,
                 init_kind,
@@ -65,7 +65,7 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens
             }
-            ImprStmtKind::Assert { ref condition } => {
+            ProcStmtKind::Assert { ref condition } => {
                 let mut tokens = vec![keyword!("assert ")];
                 tokens.extend(self.eager_expr_tokens(
                     condition,
@@ -75,10 +75,10 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens
             }
-            ImprStmtKind::Execute { ref expr } => {
+            ProcStmtKind::Execute { ref expr } => {
                 self.eager_expr_tokens(expr, text, history, ExprTokenConfig::exec())
             }
-            ImprStmtKind::Return { ref result } => {
+            ProcStmtKind::Return { ref result } => {
                 let mut tokens = vec![keyword!("return ")];
                 tokens.extend(self.eager_expr_tokens(
                     result,
@@ -88,8 +88,8 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens
             }
-            ImprStmtKind::BranchGroup { kind, ref branches } => todo!(),
-            ImprStmtKind::Loop {
+            ProcStmtKind::BranchGroup { kind, ref branches } => todo!(),
+            ProcStmtKind::Loop {
                 ref loop_kind,
                 ref stmts,
             } => match loop_kind {
@@ -195,7 +195,7 @@ impl<'eval> TraceFactory<'eval> {
         &'a self,
         parent_id: TraceId,
         indent: Indent,
-        stmts: &'a [Arc<ImprStmt>],
+        stmts: &'a [Arc<ProcStmt>],
         text: &'a Text,
         history: &'a Arc<History<'eval>>,
     ) -> impl Iterator<Item = Arc<Trace<'eval>>> + 'a {
@@ -208,8 +208,8 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         parent: &Trace,
         loop_kind: &LoopKind,
-        loop_stmt: &Arc<ImprStmt>,
-        body_stmts: &Arc<Vec<Arc<ImprStmt>>>,
+        loop_stmt: &Arc<ProcStmt>,
+        body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
         text: &Text,
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
@@ -240,7 +240,7 @@ impl<'eval> TraceFactory<'eval> {
         parent: &Trace,
         loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
         instruction_sheet: &InstructionSheet,
-        stmts: &[Arc<ImprStmt>],
+        stmts: &[Arc<ProcStmt>],
         text: &Text,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let history = exec_debug(&loop_frame_snapshot.stack, instruction_sheet);

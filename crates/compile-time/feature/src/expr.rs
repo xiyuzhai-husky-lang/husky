@@ -1,8 +1,8 @@
 mod impl_opn;
 
-use file::FilePtr;
+use entity_route::{EntityRoutePtr, RangedScope};
 use entity_route::{InputPlaceholder, ScopeKind};
-use entity_route::{RangedScope, EntityRoutePtr};
+use file::FilePtr;
 use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
@@ -65,7 +65,7 @@ pub enum FeatureExprKind {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<DeclStmt>>>,
+        stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     ProcCall {
         proc_ranged_scope: RangedScope,
@@ -75,7 +75,7 @@ pub enum FeatureExprKind {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         compiled: Option<()>,
         instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<ImprStmt>>>,
+        stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     StructMembVarAccess {
         this: Arc<FeatureExpr>,
@@ -93,20 +93,20 @@ pub enum FeatureExprKind {
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
         compiled: Option<()>,
-        stmts: Arc<Vec<Arc<DeclStmt>>>,
+        stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     MembProcCall {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
         compiled: Option<()>,
-        stmts: Arc<Vec<Arc<ImprStmt>>>,
+        stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     MembPattCall {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<ImprStmt>>>,
+        stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     FeatureBlock {
         scope: EntityRoutePtr,

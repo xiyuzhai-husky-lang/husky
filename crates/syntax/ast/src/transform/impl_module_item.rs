@@ -29,13 +29,13 @@ impl<'a> AstTransformer<'a> {
                         BuiltinIdentifier::Datasets.into(),
                         token_group[0].text_range(),
                     )?;
-                    AstKind::DatasetConfig
+                    AstKind::DatasetConfigDefnHead
                 }
             }),
             Keyword::Def => self.parse_morphism_decl(token_group),
             Keyword::Main => {
                 self.env.set_value(Env::Main);
-                Ok(AstKind::MainDecl)
+                Ok(AstKind::MainDefn)
             }
         }
     }

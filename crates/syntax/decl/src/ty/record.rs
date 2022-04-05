@@ -1,6 +1,6 @@
 use super::*;
 
-pub(crate) fn record_signature(
+pub(crate) fn record_decl(
     generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
 ) -> InferResultArc<TySignature> {
@@ -10,11 +10,11 @@ pub(crate) fn record_signature(
     for subitem in children {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
-            AstKind::MembVar {
+            AstKind::MembVarDefn {
                 ident,
                 signature: MembAccessSignature { contract, ty },
             } => memb_vars.insert_new(ident, MembAccessSignature { contract, ty }),
-            AstKind::MembFeatureDecl { ident, ty } => memb_features.insert_new(ident, ty),
+            AstKind::MembFeatureDefnHead { ident, ty } => memb_features.insert_new(ident, ty),
             _ => panic!(),
         }
     }

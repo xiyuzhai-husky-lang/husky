@@ -76,7 +76,7 @@ impl<'a> TySheetBuilder<'a> {
                 msg_once!("todo: generics in fp");
                 BuiltinIdentifier::Fp.into()
             }
-            RawEntityKind::Feature => self.db.feature_signature(scope)?.ty,
+            RawEntityKind::Feature => self.db.feature_decl(scope)?.ty,
             RawEntityKind::Pattern => todo!(),
         })
     }
@@ -199,7 +199,7 @@ impl<'a> TySheetBuilder<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ident) => {
-                self.db.ty_signature(opd_ty)?.memb_access_ty_result(ident)
+                self.db.ty_decl(opd_ty)?.memb_access_ty_result(ident)
             }
             SuffixOpr::WithType(_) => todo!(),
         }
@@ -230,12 +230,12 @@ impl<'a> TySheetBuilder<'a> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
             RawExprKind::Scope { scope, .. } => {
-                let call_signature = self.db.call_signature(scope)?;
-                for i in 0..call_signature.inputs.len() {
+                let call_decl = self.db.call_decl(scope)?;
+                for i in 0..call_decl.inputs.len() {
                     let input_expr_idx = all_opds.start + 1 + i;
-                    self.infer_expr(input_expr_idx, Some(call_signature.inputs[i].ty), arena);
+                    self.infer_expr(input_expr_idx, Some(call_decl.inputs[i].ty), arena);
                 }
-                Ok(call_signature.output)
+                Ok(call_decl.output)
             }
             RawExprKind::Variable { .. } => todo!(),
             RawExprKind::Unrecognized(_) => todo!(),
@@ -271,18 +271,18 @@ impl<'a> TySheetBuilder<'a> {
         arena: &RawExprArena,
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
-        let this_ty_signature = derived_ok!(self.db.ty_signature(this_ty));
-        let memb_call_signature = this_ty_signature.memb_call_signature(memb_ident)?;
-        if inputs.end - inputs.start != memb_call_signature.inputs.len() {
+        let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
+        let memb_call_decl = this_ty_decl.memb_call_decl(memb_ident)?;
+        if inputs.end - inputs.start != memb_call_decl.inputs.len() {
             todo!()
         }
-        for i in 0..memb_call_signature.inputs.len() {
+        for i in 0..memb_call_decl.inputs.len() {
             self.infer_expr(
                 inputs.start + i,
-                Some(memb_call_signature.inputs[i].ty),
+                Some(memb_call_decl.inputs[i].ty),
                 arena,
             );
         }
-        Ok(memb_call_signature.output)
+        Ok(memb_call_decl.output)
     }
 }

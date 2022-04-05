@@ -4,13 +4,13 @@ mod impl_necessary;
 mod tests;
 
 pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
+pub use decl::*;
 pub use diagnostic::DiagnosticQuery;
 pub use entity_route::{AllocateUniqueScope, Route};
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use infer_contract::*;
-pub use infer_signature::*;
 pub use infer_total::*;
 pub use infer_ty::*;
 pub use rust_gen::RustGenQueryGroup;
@@ -34,7 +34,7 @@ use sync_utils::ARwLock;
     scope_query::ScopeQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
-    infer_signature::InferSignatureQueryGroupStorage,
+    decl::DeclQueryGroupStorage,
     infer_ty::InferTyQueryGroupStorage,
     infer_contract::InferContractQueryGroupStorage,
     semantics_entity::EntityQueryGroupStorage,

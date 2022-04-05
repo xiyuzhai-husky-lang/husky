@@ -104,12 +104,12 @@ impl InstructionSheetBuilder {
             EagerOpnKind::ElementAccess => todo!(),
             EagerOpnKind::TypeCall {
                 ranged_ty,
-                ref ty_signature,
+                ref ty_decl,
             } => {
                 msg_once!("TypeCall compiled");
                 self.push_instruction(Instruction::new(
                     InstructionKind::TyCallInterpreted {
-                        ty_signature: ty_signature.vm_ty_signature(),
+                        ty_decl: ty_decl.vm_ty_decl(),
                     },
                     expr.clone(),
                 ))

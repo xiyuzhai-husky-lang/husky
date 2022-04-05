@@ -36,7 +36,7 @@ impl<'a> RustGenerator<'a> {
                 EagerOpnKind::RoutineCall(_) => todo!(),
                 EagerOpnKind::TypeCall {
                     ranged_ty,
-                    ty_signature,
+                    ty_decl,
                 } => {
                     self.gen_scope(ranged_ty.scope);
                     self.write("::");

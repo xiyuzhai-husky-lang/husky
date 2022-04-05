@@ -64,14 +64,14 @@ impl<'a> Instantiator<'a> {
             .collect()
     }
 
-    pub fn instantiate_memb_access_signature(
+    pub fn instantiate_memb_access_decl(
         &self,
         signature: &MembAccessSignature,
     ) -> MembAccessSignature {
         todo!()
     }
 
-    pub fn instantiate_memb_routine_signature(
+    pub fn instantiate_memb_routine_decl(
         &self,
         signature: &MembCallSignature,
     ) -> MembCallSignature {
@@ -80,14 +80,14 @@ impl<'a> Instantiator<'a> {
             inputs: signature
                 .inputs
                 .iter()
-                .map(|input| self.instantiate_input_signature(input))
+                .map(|input| self.instantiate_input_decl(input))
                 .collect(),
             output: self.instantiate_scope(signature.output).as_scope(),
             args: signature.args.clone(),
         }
     }
 
-    fn instantiate_input_signature(&self, input: &InputSignature) -> InputSignature {
+    fn instantiate_input_decl(&self, input: &InputSignature) -> InputSignature {
         InputSignature {
             contract: input.contract,
             ty: self.instantiate_scope(input.ty).as_scope(),

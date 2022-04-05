@@ -35,16 +35,16 @@ impl<'a> RustGenerator<'a> {
         self.result += "pub struct ";
         self.result += tyname.0;
         self.result += " {\n";
-        for (memb_var_ident, memb_var_signature) in memb_vars {
+        for (memb_var_ident, memb_var_decl) in memb_vars {
             self.result += "    pub(crate) ";
             self.result += memb_var_ident.0;
             self.result += ": ";
-            match memb_var_signature.contract {
+            match memb_var_decl.contract {
                 MembAccessContract::Own => (),
                 MembAccessContract::Ref => todo!(),
                 MembAccessContract::LazyOwn => todo!(),
             }
-            self.gen_scope(memb_var_signature.ty);
+            self.gen_scope(memb_var_decl.ty);
             self.result += ",\n";
         }
         self.result += "}\n";
@@ -59,18 +59,18 @@ impl<'a> RustGenerator<'a> {
 
     fn gen_struct_call(&mut self, memb_vars: &[(CustomIdentifier, MembAccessSignature)]) {
         self.write("    pub(crate) fn __call__(");
-        for (i, (memb_var_ident, memb_var_signature)) in memb_vars.iter().enumerate() {
+        for (i, (memb_var_ident, memb_var_decl)) in memb_vars.iter().enumerate() {
             if i > 0 {
                 self.write(", ")
             }
             self.write(&memb_var_ident);
             self.write(": ");
-            match memb_var_signature.contract {
+            match memb_var_decl.contract {
                 MembAccessContract::Own => (),
                 MembAccessContract::Ref => todo!(),
                 MembAccessContract::LazyOwn => todo!(),
             }
-            self.gen_scope(memb_var_signature.ty)
+            self.gen_scope(memb_var_decl.ty)
         }
         self.write(") -> Self {\n");
         self.write("        Self {");
@@ -119,7 +119,7 @@ impl<'a> RustGenerator<'a> {
             self.gen_scope(memb_routine.output.scope);
             self.write(" {\n");
             match memb_routine.kind {
-                MembRoutineKind::Func { ref stmts } => self.gen_decl_stmts(stmts, 8),
+                MembRoutineKind::Func { ref stmts } => self.gen_func_stmts(stmts, 8),
                 MembRoutineKind::Proc { ref stmts } => todo!(),
             }
             self.write("    }\n");

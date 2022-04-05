@@ -142,8 +142,8 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ident) => {
-                let this_ty_signature = self.db.expr_ty_signature(self.file, opd)?;
-                let this_contract = match this_ty_signature.memb_access_signature(ident).contract {
+                let this_ty_decl = self.db.expr_ty_decl(self.file, opd)?;
+                let this_contract = match this_ty_decl.memb_access_decl(ident).contract {
                     MembAccessContract::Own => match contract {
                         LazyContract::Take => LazyContract::Take,
                         LazyContract::Ref => todo!(),
@@ -190,11 +190,11 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
             RawExprKind::Scope { scope, .. } => {
-                let call_signature = self.db.call_signature(scope)?;
-                for i in 0..call_signature.inputs.len() {
+                let call_decl = self.db.call_decl(scope)?;
+                for i in 0..call_decl.inputs.len() {
                     self.infer_lazy_expr(
                         all_opds.start + 1 + i,
-                        call_signature.inputs[i].contract.lazy()?,
+                        call_decl.inputs[i].contract.lazy()?,
                         arena,
                     )
                 }
@@ -235,21 +235,21 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
         arena: &RawExprArena,
     ) -> InferResult<()> {
-        let this_ty_signature = derived_ok!(self.db.expr_ty_signature(self.file, this));
-        let memb_call_signature = this_ty_signature.memb_call_signature(ident)?;
+        let this_ty_decl = derived_ok!(self.db.expr_ty_decl(self.file, this));
+        let memb_call_decl = this_ty_decl.memb_call_decl(ident)?;
         match contract {
             LazyContract::Take => (),
             LazyContract::Ref => todo!(),
             LazyContract::Pure => (),
         }
-        self.infer_lazy_expr(this, memb_call_signature.this_contract.lazy()?, arena);
-        if inputs.end - inputs.start != memb_call_signature.inputs.len() {
+        self.infer_lazy_expr(this, memb_call_decl.this_contract.lazy()?, arena);
+        if inputs.end - inputs.start != memb_call_decl.inputs.len() {
             todo!()
         }
-        for i in 0..memb_call_signature.inputs.len() {
+        for i in 0..memb_call_decl.inputs.len() {
             self.infer_lazy_expr(
                 inputs.start + 1,
-                memb_call_signature.inputs[i].contract.lazy()?,
+                memb_call_decl.inputs[i].contract.lazy()?,
                 arena,
             )
         }

@@ -4,8 +4,8 @@ mod query;
 pub use kind::*;
 pub use query::{EntityQueryGroup, EntityQueryGroupStorage};
 
+use entity_route::{EntityRoutePtr, InputPlaceholder, RangedScope};
 use file::FilePtr;
-use entity_route::{InputPlaceholder, RangedScope, EntityRoutePtr};
 use semantics_eager::*;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
 use std::sync::Arc;
@@ -93,7 +93,7 @@ impl Entity {
                     let mut v = UniqVec::new();
                     memb_vars
                         .iter()
-                        .for_each(|(_ident, memb_var_signature)| v.push(memb_var_signature.ty));
+                        .for_each(|(_ident, memb_var_decl)| v.push(memb_var_decl.ty));
                     memb_features
                         .iter()
                         .for_each(|(_ident, memb_feature_defn)| v.push(memb_feature_defn.ty));
@@ -125,18 +125,18 @@ impl Entity {
             }
         }
 
-        fn extract_decl_stmts_dependees(stmts: &[Arc<DeclStmt>], v: &mut UniqVec<EntityRoutePtr>) {
+        fn extract_decl_stmts_dependees(stmts: &[Arc<FuncStmt>], v: &mut UniqVec<EntityRoutePtr>) {
             for stmt in stmts {
                 match stmt.kind {
-                    DeclStmtKind::Init {
+                    FuncStmtKind::Init {
                         varname,
                         initial_value: ref value,
                     } => extract_eager_expr_dependees(value, v),
-                    DeclStmtKind::Assert { ref condition } => {
+                    FuncStmtKind::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, v)
                     }
-                    DeclStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
-                    DeclStmtKind::Branches { kind, ref branches } => {
+                    FuncStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
+                    FuncStmtKind::Branches { kind, ref branches } => {
                         for branch in branches {
                             extract_decl_stmts_dependees(&branch.stmts, v)
                         }
@@ -145,25 +145,25 @@ impl Entity {
             }
         }
 
-        fn extract_impr_stmts_dependees(stmts: &[Arc<ImprStmt>], v: &mut UniqVec<EntityRoutePtr>) {
+        fn extract_impr_stmts_dependees(stmts: &[Arc<ProcStmt>], v: &mut UniqVec<EntityRoutePtr>) {
             for stmt in stmts {
                 match stmt.kind {
-                    ImprStmtKind::Init {
+                    ProcStmtKind::Init {
                         varname,
                         ref initial_value,
                         ..
                     } => extract_eager_expr_dependees(initial_value, v),
-                    ImprStmtKind::Assert { ref condition } => {
+                    ProcStmtKind::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, v)
                     }
-                    ImprStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
-                    ImprStmtKind::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
-                    ImprStmtKind::BranchGroup { kind, ref branches } => {
+                    ProcStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
+                    ProcStmtKind::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
+                    ProcStmtKind::BranchGroup { kind, ref branches } => {
                         for branch in branches {
                             extract_impr_stmts_dependees(&branch.stmts, v)
                         }
                     }
-                    ImprStmtKind::Loop {
+                    ProcStmtKind::Loop {
                         ref loop_kind,
                         ref stmts,
                     } => {

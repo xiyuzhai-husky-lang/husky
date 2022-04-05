@@ -135,7 +135,7 @@ fn entity_source(
             BuiltinIdentifier::False => todo!(),
             BuiltinIdentifier::Vec => &BuiltinEntityData {
                 subscopes: &[],
-                signature: BuiltinScopeSignature::Vec,
+                decl: BuiltinEntityDecl::Vec,
             },
             BuiltinIdentifier::Tuple => todo!(),
             BuiltinIdentifier::Debug => todo!(),

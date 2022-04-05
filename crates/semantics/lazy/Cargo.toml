@@ -23,5 +23,5 @@ syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 semantics-error = { path = "../error", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }
-infer-signature = { path = "../../infer/signature", version = "0.0.0" }
+decl = { path = "../../syntax/decl", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }

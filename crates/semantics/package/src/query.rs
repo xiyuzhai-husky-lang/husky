@@ -1,8 +1,8 @@
 use crate::*;
 use ast::{AstKind, AstText};
+use entity_route::ScopeKind;
 use file::FilePtr;
 use fold::FoldStorage;
-use entity_route::ScopeKind;
 use semantics_eager::parse_decl_stmts;
 use semantics_entity::EntityQueryGroup;
 use semantics_error::*;
@@ -49,7 +49,7 @@ fn dataset_config_from_ast_text(
 ) -> SemanticResult<DatasetConfig> {
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
-            AstKind::DatasetConfig => {
+            AstKind::DatasetConfigDefnHead => {
                 return Ok(DatasetConfig::new(parse_decl_stmts(
                     &[],
                     this.upcast(),

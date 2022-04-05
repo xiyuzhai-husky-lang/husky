@@ -23,12 +23,12 @@ pub enum EntityKind {
     Func {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedScope,
-        stmts: Arc<Vec<Arc<DeclStmt>>>,
+        stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     Proc {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedScope,
-        stmts: Arc<Vec<Arc<ImprStmt>>>,
+        stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     Ty(TyDefn),
 }

@@ -58,7 +58,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionKind::TyCallInterpreted {
-                    ty_signature: ref signature,
+                    ty_decl: ref signature,
                 } => {
                     let control = self.ty_call_interpreted(signature).into();
                     match mode {

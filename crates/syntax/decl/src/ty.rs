@@ -97,7 +97,7 @@ impl TySignature {
         }
     }
 
-    pub fn memb_access_signature(&self, ident: CustomIdentifier) -> MembAccessSignature {
+    pub fn memb_access_decl(&self, ident: CustomIdentifier) -> MembAccessSignature {
         match self.kind {
             TySignatureKind::Struct { ref memb_vars, .. } => *memb_vars.get(ident).unwrap(),
             TySignatureKind::Enum { ref variants } => todo!(),
@@ -149,7 +149,7 @@ impl TySignature {
         }
     }
 
-    pub fn vm_ty_signature(&self) -> VMTySignatureKind {
+    pub fn vm_ty_decl(&self) -> VMTySignatureKind {
         match self.kind {
             TySignatureKind::Struct { ref memb_vars, .. } => {
                 let mut vm_memb_vars = IdentMap::<MembAccessContract>::default();
@@ -169,9 +169,9 @@ impl TySignature {
         }
     }
 
-    pub fn memb_call_signature(&self, ident: CustomIdentifier) -> InferResult<&MembCallSignature> {
+    pub fn memb_call_decl(&self, ident: CustomIdentifier) -> InferResult<&MembCallSignature> {
         match self.members.get(ident) {
-            Some(memb_signature) => match memb_signature.kind {
+            Some(memb_decl) => match memb_decl.kind {
                 MembSignatureKind::Var(_) => todo!(),
                 MembSignatureKind::Routine(ref signature) => Ok(signature),
             },
@@ -185,19 +185,19 @@ pub enum EnumVariantSignature {
     Constant,
 }
 
-pub(crate) fn ty_signature(
-    db: &dyn InferSignatureQueryGroup,
+pub(crate) fn ty_decl(
+    db: &dyn DeclQueryGroup,
     scope: EntityRoutePtr,
 ) -> InferResultArc<TySignature> {
     let source = db.entity_source(scope)?;
     match source {
-        EntitySource::Builtin(data) => Ok(Arc::new(match data.signature {
-            BuiltinScopeSignature::Func(_) => todo!(),
-            BuiltinScopeSignature::Module => todo!(),
-            BuiltinScopeSignature::Ty { .. } => todo!(),
-            BuiltinScopeSignature::Vec => {
-                let vec_signature_template = db.vec_signature_template();
-                vec_signature_template.instantiate(db, &scope.generics)
+        EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
+            BuiltinEntityDecl::Func(_) => todo!(),
+            BuiltinEntityDecl::Module => todo!(),
+            BuiltinEntityDecl::Ty { .. } => todo!(),
+            BuiltinEntityDecl::Vec => {
+                let vec_decl_template = db.vec_decl_template();
+                vec_decl_template.instantiate(db, &scope.generics)
             }
         })),
         EntitySource::WithinBuiltinModule => todo!(),
@@ -213,20 +213,20 @@ pub(crate) fn ty_signature(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::TypeDecl {
+                AstKind::TypeDefnHead {
                     kind,
                     ref generic_placeholders,
                     ..
                 } => match kind {
-                    RawTyKind::Enum => enum_signature(
+                    RawTyKind::Enum => enum_decl(
                         generic_placeholders.clone(),
                         derived_not_none!(item.children)?,
                     ),
                     RawTyKind::Struct => {
-                        struct_signature(generic_placeholders.clone(), item.children.unwrap())
+                        struct_decl(generic_placeholders.clone(), item.children.unwrap())
                     }
                     RawTyKind::Record => {
-                        record_signature(generic_placeholders.clone(), item.children.unwrap())
+                        record_decl(generic_placeholders.clone(), item.children.unwrap())
                     }
                     RawTyKind::Primitive => todo!(),
                     RawTyKind::Vec => todo!(),
@@ -241,7 +241,7 @@ pub(crate) fn ty_signature(
     }
 }
 
-pub(crate) fn struct_signature(
+pub(crate) fn struct_decl(
     generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
 ) -> InferResultArc<TySignature> {
@@ -250,11 +250,11 @@ pub(crate) fn struct_signature(
     for subitem in children {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
-            AstKind::MembVar {
+            AstKind::MembVarDefn {
                 ident,
                 signature: MembAccessSignature { contract, ty },
             } => memb_vars.insert_new(ident, MembAccessSignature { contract, ty }),
-            AstKind::MembRoutineDecl {
+            AstKind::MembRoutineDefnHead {
                 ref memb_routine_head,
                 ..
             } => memb_routines.insert_new(memb_routine_head.routine_name, memb_routine_head.into()),

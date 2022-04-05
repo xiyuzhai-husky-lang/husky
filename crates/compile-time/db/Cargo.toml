@@ -35,7 +35,7 @@ entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 scope-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 husky-fmt = { path = "../../syntax/fmt", version = "0.0.0" }
-infer-signature = { path = "../../infer/signature", version = "0.0.0" }
+decl = { path = "../../syntax/decl", version = "0.0.0" }
 infer-ty = { path = "../../infer/ty", version = "0.0.0" }
 infer-contract = { path = "../../infer/contract", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }

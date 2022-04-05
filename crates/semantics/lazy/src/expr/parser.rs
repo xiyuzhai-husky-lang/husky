@@ -3,10 +3,10 @@ use std::sync::Arc;
 use crate::*;
 use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 
+use decl::TySignature;
+use entity_route::{EntityRoutePtr, RangedScope, RawEntityKind, ScopeKind};
 use entity_syntax::RawTyKind;
 use file::FilePtr;
-use infer_signature::TySignature;
-use entity_route::{RangedScope, RawEntityKind, ScopeKind, EntityRoutePtr};
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
 use word::{BuiltinIdentifier, CustomIdentifier};
@@ -130,11 +130,12 @@ pub trait LazyExprParser<'a> {
     ) -> SemanticResult<EntityRoutePtr> {
         match lopd_ty {
             EntityRoutePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
-                EntityRoutePtr::Builtin(ropd_builtin_ty) => self.infer_builtin_pure_binary_opr_type(
-                    pure_binary_opr,
-                    lopd_builtin_ty,
-                    ropd_builtin_ty,
-                ),
+                EntityRoutePtr::Builtin(ropd_builtin_ty) => self
+                    .infer_builtin_pure_binary_opr_type(
+                        pure_binary_opr,
+                        lopd_builtin_ty,
+                        ropd_builtin_ty,
+                    ),
                 EntityRoutePtr::Custom(_) => todo!(),
             },
             EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
@@ -204,16 +205,16 @@ pub trait LazyExprParser<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(memb_ident) => {
-                let ty_signature = self.db().ty_signature(this.ty).unwrap();
+                let ty_decl = self.db().ty_decl(this.ty).unwrap();
                 LazyExprKind::Opn {
                     opn_kind: LazyOpnKind::MembAccess {
                         memb_ident,
-                        memb_access_kind: ty_signature.memb_access_kind(memb_ident),
+                        memb_access_kind: ty_decl.memb_access_kind(memb_ident),
                     },
                     compiled: (),
                     opds: vec![this],
                 }
-                // match *ty_signature {
+                // match *ty_decl {
                 //     TySignature::Struct {
                 //         ref memb_vars,
                 //         ref memb_routines,

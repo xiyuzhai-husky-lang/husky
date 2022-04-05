@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
+use decl::TySignature;
 use entity_route::{EntityRoutePtr, RangedScope};
-use infer_signature::TySignature;
 use syntax_types::{PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;
@@ -23,7 +23,7 @@ pub enum EagerOpnKind {
     RoutineCall(RangedScope),
     TypeCall {
         ranged_ty: RangedScope,
-        ty_signature: Arc<TySignature>,
+        ty_decl: Arc<TySignature>,
     },
     PatternCall,
     MembVarAccess {

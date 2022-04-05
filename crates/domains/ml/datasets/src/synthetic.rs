@@ -4,7 +4,7 @@ pub mod trivial;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
-    signature: BuiltinScopeSignature::Module,
+    decl: BuiltinEntityDecl::Module,
 };
 
 use crate::{labeled::LabeledData, *};

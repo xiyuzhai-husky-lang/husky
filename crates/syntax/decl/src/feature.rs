@@ -7,8 +7,8 @@ pub struct FeatureSignature {
     pub ty: EntityRoutePtr,
 }
 
-pub(crate) fn feature_signature(
-    db: &dyn InferSignatureQueryGroup,
+pub(crate) fn feature_decl(
+    db: &dyn DeclQueryGroup,
     scope: EntityRoutePtr,
 ) -> InferResultArc<FeatureSignature> {
     let source = db.entity_source(scope)?;

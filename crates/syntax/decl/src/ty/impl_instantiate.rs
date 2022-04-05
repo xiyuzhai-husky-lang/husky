@@ -2,11 +2,7 @@ use super::*;
 use check_utils::should_eq;
 
 impl TySignature {
-    pub fn instantiate(
-        &self,
-        db: &dyn InferSignatureQueryGroup,
-        dst_generics: &[GenericArgument],
-    ) -> Self {
+    pub fn instantiate(&self, db: &dyn DeclQueryGroup, dst_generics: &[GenericArgument]) -> Self {
         should_eq!(self.generic_placeholders.len(), dst_generics.len());
         let instantiator = Instantiator {
             db: db.upcast(),

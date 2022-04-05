@@ -16,10 +16,10 @@ pub use transform::*;
 use crate::error::{err, error};
 use check_utils::*;
 use dev_utils::*;
+use entity_route::*;
+use entity_route::{EntityRoutePtr, RangedScope};
 use env::Env;
 use print_utils::*;
-use entity_route::*;
-use entity_route::{RangedScope, EntityRoutePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::InitKind;
@@ -33,26 +33,26 @@ pub struct Ast {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstKind {
-    TypeDecl {
+    TypeDefnHead {
         ident: CustomIdentifier,
         kind: RawTyKind,
         generic_placeholders: IdentMap<GenericPlaceholderKind>,
     },
-    MainDecl,
-    RoutineDecl {
+    MainDefn,
+    RoutineDefnHead {
         routine_kind: RoutineKind,
         routine_head: RoutineHead,
     },
-    PatternDecl,
+    PatternDefnHead,
     FeatureDecl {
         ident: CustomIdentifier,
         ty: RangedScope,
     },
-    MembFeatureDecl {
+    MembFeatureDefnHead {
         ident: CustomIdentifier,
         ty: EntityRoutePtr,
     },
-    MembRoutineDecl {
+    MembRoutineDefnHead {
         routine_kind: RoutineKind,
         memb_routine_head: MembRoutineHead,
     },
@@ -60,13 +60,13 @@ pub enum AstKind {
         ident: CustomIdentifier,
         scope: EntityRoutePtr,
     },
-    MembVar {
+    MembVarDefn {
         ident: CustomIdentifier,
         signature: MembAccessSignature,
     },
-    DatasetConfig,
+    DatasetConfigDefnHead,
     Stmt(RawStmt),
-    EnumVariant {
+    EnumVariantDefnHead {
         ident: CustomIdentifier,
         raw_variant_kind: RawEnumVariantKind,
     },

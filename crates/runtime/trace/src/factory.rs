@@ -168,8 +168,8 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         &self,
         parent: &Trace,
         loop_kind: &LoopKind,
-        loop_stmt: &Arc<ImprStmt>,
-        stmts: &Arc<Vec<Arc<ImprStmt>>>,
+        loop_stmt: &Arc<ProcStmt>,
+        stmts: &Arc<Vec<Arc<ProcStmt>>>,
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
@@ -190,7 +190,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         parent: &Trace,
         loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
         instruction_sheet: &InstructionSheet,
-        stmts: &[Arc<ImprStmt>],
+        stmts: &[Arc<ProcStmt>],
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(

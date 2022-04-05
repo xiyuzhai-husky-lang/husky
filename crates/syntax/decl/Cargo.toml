@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "infer-signature"
+name = "decl"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -27,5 +27,5 @@ entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 scope-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
-infer-error = { path = "../error", version = "0.0.0" }
+infer-error = { path = "../../infer/error", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }

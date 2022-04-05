@@ -1,5 +1,5 @@
-use entity_route::{InputPlaceholder, EntityRoutePtr};
-use semantics_eager::{DeclStmt, ImprStmt};
+use entity_route::{EntityRoutePtr, InputPlaceholder};
+use semantics_eager::{FuncStmt, ProcStmt};
 use vm::InputContract;
 use word::CustomIdentifier;
 
@@ -11,7 +11,7 @@ impl<'a> RustGenerator<'a> {
         ident: CustomIdentifier,
         input_placeholders: &[InputPlaceholder],
         output: EntityRoutePtr,
-        stmts: &[Arc<ImprStmt>],
+        stmts: &[Arc<ProcStmt>],
     ) {
         self.write("\npub(crate) fn ");
         self.write(&ident);
@@ -39,7 +39,7 @@ impl<'a> RustGenerator<'a> {
         self.write(") -> ");
         self.gen_scope(output);
         self.write(" {\n");
-        self.gen_impr_stmts(stmts, 4);
+        self.gen_proc_stmts(stmts, 4);
         self.write("}\n");
     }
 
@@ -48,7 +48,7 @@ impl<'a> RustGenerator<'a> {
         ident: CustomIdentifier,
         input_placeholders: &[InputPlaceholder],
         output: EntityRoutePtr,
-        stmts: &[Arc<DeclStmt>],
+        stmts: &[Arc<FuncStmt>],
     ) {
         self.write("\npub(crate) fn ");
         self.write(&ident);
@@ -76,7 +76,7 @@ impl<'a> RustGenerator<'a> {
         self.write(") -> ");
         self.gen_scope(output);
         self.write(" {\n");
-        self.gen_decl_stmts(stmts, 4);
+        self.gen_func_stmts(stmts, 4);
         self.write("}\n");
     }
 }

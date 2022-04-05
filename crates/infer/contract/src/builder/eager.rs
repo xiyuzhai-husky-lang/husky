@@ -195,15 +195,15 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ident) => {
-                let this_ty_signature = self.db.expr_ty_signature(self.file, opd)?;
-                let memb_var_signature = this_ty_signature.memb_access_signature(ident);
-                let this_contract = match memb_var_signature.contract {
+                let this_ty_decl = self.db.expr_ty_decl(self.file, opd)?;
+                let memb_var_decl = this_ty_decl.memb_access_decl(ident);
+                let this_contract = match memb_var_decl.contract {
                     MembAccessContract::Own => match contract {
                         EagerContract::Pure => EagerContract::Pure,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
                         EagerContract::Return => {
-                            let is_copyable = self.db.is_copyable(memb_var_signature.ty);
+                            let is_copyable = self.db.is_copyable(memb_var_decl.ty);
                             if is_copyable {
                                 EagerContract::Pure
                             } else {
@@ -253,7 +253,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
             RawExprKind::Scope { scope, .. } => {
-                let call_signature = self.db.call_signature(scope)?;
+                let call_decl = self.db.call_decl(scope)?;
                 match contract {
                     EagerContract::Pure => (),
                     EagerContract::Move => (),
@@ -265,10 +265,10 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::TakeMut => todo!(),
                     EagerContract::Exec => todo!(),
                 }
-                for i in 0..call_signature.inputs.len() {
+                for i in 0..call_decl.inputs.len() {
                     self.infer_eager_expr(
                         all_opds.start + 1 + i,
-                        call_signature.inputs[i].contract.eager()?,
+                        call_decl.inputs[i].contract.eager()?,
                         arena,
                     )
                 }
@@ -309,15 +309,15 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
     ) -> InferResult<()> {
-        let this_ty_signature = derived_ok!(self.db.expr_ty_signature(self.file, this));
-        let memb_call_signature = this_ty_signature.memb_call_signature(ident)?;
+        let this_ty_decl = derived_ok!(self.db.expr_ty_decl(self.file, this));
+        let memb_call_decl = this_ty_decl.memb_call_decl(ident)?;
         match contract {
             EagerContract::Pure => (),
             EagerContract::Move => (),
             EagerContract::GlobalRef => todo!(),
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
-            EagerContract::Exec => match memb_call_signature.output {
+            EagerContract::Exec => match memb_call_decl.output {
                 EntityRoutePtr::Builtin(BuiltinIdentifier::Void) => (),
                 _ => err!("no discard"),
             },
@@ -325,14 +325,14 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::VarInit => todo!(),
             EagerContract::Return => todo!(),
         }
-        self.infer_eager_expr(this, memb_call_signature.this_contract.eager()?, arena);
-        if inputs.end - inputs.start != memb_call_signature.inputs.len() {
+        self.infer_eager_expr(this, memb_call_decl.this_contract.eager()?, arena);
+        if inputs.end - inputs.start != memb_call_decl.inputs.len() {
             todo!()
         }
-        for i in 0..memb_call_signature.inputs.len() {
+        for i in 0..memb_call_decl.inputs.len() {
             self.infer_eager_expr(
                 inputs.start + 1,
-                memb_call_signature.inputs[i].contract.eager()?,
+                memb_call_decl.inputs[i].contract.eager()?,
                 arena,
             )
         }

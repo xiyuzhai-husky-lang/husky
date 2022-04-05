@@ -33,7 +33,7 @@ impl<'a> AstTransformer<'a> {
             }
             let ident = identify!(Some(self.file), &token_group[0]);
             let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
-            Ok(AstKind::MembVar {
+            Ok(AstKind::MembVarDefn {
                 ident,
                 signature: MembAccessSignature {
                     contract: MembAccessContract::Own,
@@ -55,6 +55,6 @@ impl<'a> AstTransformer<'a> {
         self.env.set_value(Env::Morphism);
         let ident = identify!(Some(self.file), &token_group[1]);
         let ty = atom::parse_ty(self.symbol_proxy(), &token_group[3..], Some(self.file))?;
-        Ok(AstKind::MembFeatureDecl { ident, ty })
+        Ok(AstKind::MembFeatureDefnHead { ident, ty })
     }
 }
