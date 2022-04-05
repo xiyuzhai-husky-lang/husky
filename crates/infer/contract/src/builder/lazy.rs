@@ -1,7 +1,7 @@
 use ast::*;
 
 use infer_error::*;
-use scope::{InputPlaceholder, ScopeKind, ScopePtr};
+use entity_route::{InputPlaceholder, ScopeKind, EntityRoutePtr};
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;
@@ -12,7 +12,7 @@ use crate::*;
 impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn infer_morphism(
         &mut self,
-        output_ty: ScopePtr,
+        output_ty: EntityRoutePtr,
         ast_iter: AstIter,
         arena: &RawExprArena,
     ) {
@@ -21,7 +21,7 @@ impl<'a> ContractSheetBuilder<'a> {
     pub(super) fn infer_lazy_stmts(
         &mut self,
         ast_iter: AstIter,
-        output_ty: ScopePtr,
+        output_ty: EntityRoutePtr,
         arena: &RawExprArena,
     ) {
         for item in ast_iter.clone() {
@@ -37,7 +37,7 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_lazy_stmt(&mut self, stmt: &RawStmt, output_ty: ScopePtr, arena: &RawExprArena) {
+    fn infer_lazy_stmt(&mut self, stmt: &RawStmt, output_ty: EntityRoutePtr, arena: &RawExprArena) {
         match stmt.kind {
             RawStmtKind::Loop(raw_loop_kind) => panic!(),
             RawStmtKind::Branch(_) => todo!(),

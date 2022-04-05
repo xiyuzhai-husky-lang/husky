@@ -25,7 +25,7 @@ pub use unique_allocate::{
 use eval::*;
 use object::Object;
 use print_utils::*;
-use scope::ScopePtr;
+use entity_route::EntityRoutePtr;
 use semantics_entity::EntityUid;
 use std::sync::Arc;
 use vm::{PrimitiveValue, PureBinaryOpr};
@@ -42,7 +42,7 @@ pub struct FeatureSymbol {
 pub enum Feature {
     Input,
     PrimitiveLiteral(PrimitiveValue),
-    EnumLiteral(ScopePtr),
+    EnumLiteral(EntityRoutePtr),
     Assert {
         condition: FeaturePtr,
     },
@@ -53,7 +53,7 @@ pub enum Feature {
         ropd: FeaturePtr,
     },
     FuncCall {
-        func: ScopePtr,
+        func: EntityRoutePtr,
         uid: EntityUid,
         inputs: Vec<FeaturePtr>,
     },
@@ -69,11 +69,11 @@ pub enum Feature {
         opds: Vec<FeaturePtr>,
     },
     ScopedFeature {
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         uid: EntityUid,
     },
     ClassCall {
-        ty: ScopePtr,
+        ty: EntityRoutePtr,
         uid: EntityUid,
         opds: Vec<FeaturePtr>,
     },

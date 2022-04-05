@@ -9,7 +9,7 @@ pub(crate) use kind::{AtomKind, LambdaHead};
 pub(crate) use parser::parse_ty;
 pub(crate) use syntax_types::*;
 
-use scope::ScopePtr;
+use entity_route::EntityRoutePtr;
 use text::TextRange;
 use text::TextRanged;
 use token::{Token, TokenKind};

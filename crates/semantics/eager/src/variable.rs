@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerVariable {
     pub ident: CustomIdentifier,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
     pub qual: Qual,
 }
 

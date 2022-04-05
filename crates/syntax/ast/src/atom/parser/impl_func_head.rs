@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use crate::*;
-use scope::*;
+use entity_route::*;
 use syntax_types::*;
 use vm::{EagerContract, InputContract};
 use word::IdentMap;
@@ -95,7 +95,7 @@ impl<'a> AtomLRParser<'a> {
             }
         } else {
             RangedScope {
-                scope: ScopePtr::Builtin(BuiltinIdentifier::Void),
+                scope: EntityRoutePtr::Builtin(BuiltinIdentifier::Void),
                 range: self.stream.pop_range(),
             }
         })

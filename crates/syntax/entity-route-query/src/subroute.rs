@@ -1,9 +1,9 @@
+use entity_route::*;
 use file::FilePtr;
-use scope::*;
 use word::{CustomIdentifier, Keyword};
 
 use crate::error::*;
-use crate::ScopeSalsaQueryGroup;
+use crate::EntityRouteSalsaQueryGroup;
 use lazy_format::lazy_format;
 use text::TextRanged;
 use token::{Token, TokenGroupIter, TokenKind};
@@ -13,7 +13,7 @@ use word::Identifier;
 pub struct Entry {
     pub ident: Option<CustomIdentifier>,
     pub kind: RawEntityKind,
-    pub source: ScopeSource,
+    pub source: EntitySource,
 }
 
 impl std::fmt::Debug for Entry {
@@ -38,7 +38,7 @@ impl Entry {
                         Some(Entry {
                             ident: Some(ident),
                             kind: RawEntityKind::Literal,
-                            source: ScopeSource::from_file(file_id, token_group_index),
+                            source: EntitySource::from_file(file_id, token_group_index),
                         }),
                         None,
                     )
@@ -52,7 +52,7 @@ impl Entry {
                     Some(Entry {
                         ident: None,
                         kind: RawEntityKind::Routine,
-                        source: ScopeSource::from_file(file_id, token_group_index),
+                        source: EntitySource::from_file(file_id, token_group_index),
                     }),
                     None,
                 );
@@ -76,7 +76,7 @@ impl Entry {
                                 Some(Entry {
                                     ident: Some(user_defined_ident),
                                     kind,
-                                    source: ScopeSource::from_file(file_id, token_group_index),
+                                    source: EntitySource::from_file(file_id, token_group_index),
                                 }),
                                 None,
                             ),
@@ -163,7 +163,7 @@ impl SubscopeTable {
             .collect()
     }
 
-    pub fn scope_source(&self, ident: CustomIdentifier) -> ScopeResult<ScopeSource> {
+    pub fn scope_source(&self, ident: CustomIdentifier) -> ScopeResult<EntitySource> {
         not_none!(
             self.entries
                 .iter()
@@ -202,20 +202,20 @@ impl SubscopeTable {
     pub fn error_iter(&self) -> core::slice::Iter<ScopeDefError> {
         self.errors.iter()
     }
-    pub fn subscopes(&self, parent_scope_id: ScopePtr) -> Vec<Scope> {
+    pub fn subscopes(&self, parent_scope_id: EntityRoutePtr) -> Vec<Route> {
         self.entries
             .iter()
             .filter_map(|entry| {
                 entry
                     .ident
-                    .map(|ident| Scope::child_scope(parent_scope_id, ident, Vec::new()))
+                    .map(|ident| Route::child_scope(parent_scope_id, ident, Vec::new()))
             })
             .collect()
     }
 }
 
 impl SubscopeTable {
-    pub(crate) fn builtin(this: &dyn ScopeSalsaQueryGroup, data: &BuiltinScopeData) -> Self {
+    pub(crate) fn builtin(this: &dyn EntityRouteSalsaQueryGroup, data: &BuiltinEntityData) -> Self {
         let entries = data
             .subscopes
             .iter()

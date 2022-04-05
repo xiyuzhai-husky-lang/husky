@@ -5,7 +5,7 @@ use word::BuiltinIdentifier;
 
 use crate::*;
 
-// use scope::ScopeId;
+// use entity_route::ScopeId;
 // use word::ReservedIdentifier;
 
 #[derive(Clone, Copy)]

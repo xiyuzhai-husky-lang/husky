@@ -1,9 +1,9 @@
 use std::sync::Arc;
 
 use ast::AstKind;
+use entity_route::{EntityRoutePtr, EntitySource};
 use fold::{FoldIterItem, FoldStorage};
 use infer_total::InferQueryGroup;
-use scope::{ScopePtr, ScopeSource};
 use semantics_lazy::parse_lazy_stmts;
 use syntax_types::RoutineKind;
 use upcast::Upcast;
@@ -18,12 +18,13 @@ pub trait EntityQueryGroup:
     InferQueryGroup + ast::AstQueryGroup + ControlEntityVersion + Upcast<dyn InferQueryGroup>
 {
     fn main(&self, main_file: file::FilePtr) -> SemanticResultArc<Main>;
-    fn entity(&self, scope: ScopePtr) -> SemanticResult<Arc<Entity>>;
-    fn subentities(&self, scope: ScopePtr) -> SemanticResultArc<Vec<Arc<Entity>>>;
-    fn scope_instruction_sheet(&self, scope: ScopePtr) -> SemanticResultArc<InstructionSheet>;
+    fn entity(&self, scope: EntityRoutePtr) -> SemanticResult<Arc<Entity>>;
+    fn subentities(&self, scope: EntityRoutePtr) -> SemanticResultArc<Vec<Arc<Entity>>>;
+    fn scope_instruction_sheet(&self, scope: EntityRoutePtr)
+        -> SemanticResultArc<InstructionSheet>;
     fn memb_routine_instruction_sheet(
         &self,
-        ty: ScopePtr,
+        ty: EntityRoutePtr,
         memb_ident: CustomIdentifier,
     ) -> SemanticResultArc<InstructionSheet>;
 }
@@ -49,12 +50,12 @@ fn main(this: &dyn EntityQueryGroup, main_file: file::FilePtr) -> SemanticResult
     err!("main not found")
 }
 
-fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultArc<Entity> {
-    let source = db.scope_source(entity_scope)?;
+fn entity(db: &dyn EntityQueryGroup, entity_scope: EntityRoutePtr) -> SemanticResultArc<Entity> {
+    let source = db.entity_source(entity_scope)?;
     match source {
-        ScopeSource::Builtin(_) => todo!(),
-        ScopeSource::WithinBuiltinModule => todo!(),
-        ScopeSource::WithinModule {
+        EntitySource::Builtin(_) => todo!(),
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => {
@@ -126,14 +127,14 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                 db.entity_vc(),
             )))
         }
-        ScopeSource::Module { file: file_id } => todo!(),
-        ScopeSource::Contextual { .. } => todo!(),
+        EntitySource::Module { file: file_id } => todo!(),
+        EntitySource::Contextual { .. } => todo!(),
     }
 }
 
 pub(crate) fn subentities(
     this: &dyn EntityQueryGroup,
-    scope_id: ScopePtr,
+    scope_id: EntityRoutePtr,
 ) -> SemanticResultArc<Vec<Arc<Entity>>> {
     this.subscopes(scope_id)
         .iter()
@@ -144,7 +145,7 @@ pub(crate) fn subentities(
 
 fn scope_instruction_sheet(
     this: &dyn EntityQueryGroup,
-    scope: ScopePtr,
+    scope: EntityRoutePtr,
 ) -> SemanticResultArc<InstructionSheet> {
     let entity = this.entity(scope)?;
     Ok(match entity.kind() {
@@ -182,7 +183,7 @@ fn scope_instruction_sheet(
 
 fn memb_routine_instruction_sheet(
     this: &dyn EntityQueryGroup,
-    ty: ScopePtr,
+    ty: EntityRoutePtr,
     memb_ident: CustomIdentifier,
 ) -> SemanticResultArc<InstructionSheet> {
     let entity = this.entity(ty)?;

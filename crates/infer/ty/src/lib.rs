@@ -10,7 +10,7 @@ use fold::FoldStorage;
 use infer_error::*;
 use infer_signature::{InferSignatureQueryGroup, TySignature};
 use print_utils::*;
-use scope::{GenericArgument, *};
+use entity_route::{GenericArgument, *};
 use scope_query::{ScopeQueryGroup, ScopeResult, ScopeResultArc};
 use syntax_types::*;
 use vm::EnumLiteralValue;
@@ -20,15 +20,15 @@ use word::{BuiltinIdentifier, ContextualIdentifier};
 pub trait InferTySalsaQueryGroup:
     ScopeQueryGroup + ast::AstQueryGroup + InferSignatureQueryGroup
 {
-    fn scope_ty(&self, scope: ScopePtr) -> InferResult<ScopePtr>;
-    fn enum_literal_value(&self, scope: ScopePtr) -> EnumLiteralValue;
+    fn scope_ty(&self, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr>;
+    fn enum_literal_value(&self, scope: EntityRoutePtr) -> EnumLiteralValue;
     fn ty_sheet(&self, file: FilePtr) -> ScopeResultArc<TySheet>;
 
-    fn is_implicit_convertible(&self, src_ty: ScopePtr, dst_ty: ScopePtr) -> bool;
+    fn is_implicit_convertible(&self, src_ty: EntityRoutePtr, dst_ty: EntityRoutePtr) -> bool;
 }
 
 pub trait InferTyQueryGroup: InferTySalsaQueryGroup {
-    fn expr_ty_result(&self, file: FilePtr, expr_idx: RawExprIdx) -> InferResult<ScopePtr> {
+    fn expr_ty_result(&self, file: FilePtr, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         self.ty_sheet(file)?.expr_ty_result(expr_idx)
     }
 
@@ -42,9 +42,9 @@ pub trait InferTyQueryGroup: InferTySalsaQueryGroup {
     }
 }
 
-fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<ScopePtr> {
+fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
     match scope {
-        ScopePtr::Builtin(ident) => match ident {
+        EntityRoutePtr::Builtin(ident) => match ident {
             BuiltinIdentifier::Void => todo!(),
             BuiltinIdentifier::I32 => todo!(),
             BuiltinIdentifier::F32 => todo!(),
@@ -52,7 +52,7 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<Sco
             BuiltinIdentifier::B64 => todo!(),
             BuiltinIdentifier::Bool => todo!(),
             BuiltinIdentifier::True | BuiltinIdentifier::False => {
-                Ok(ScopePtr::Builtin(BuiltinIdentifier::Bool))
+                Ok(EntityRoutePtr::Builtin(BuiltinIdentifier::Bool))
             }
             BuiltinIdentifier::Vec => todo!(),
             BuiltinIdentifier::Tuple => todo!(),
@@ -72,7 +72,7 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<Sco
             BuiltinIdentifier::PartialEqTrait => todo!(),
             BuiltinIdentifier::EqTrait => todo!(),
         },
-        ScopePtr::Custom(scope) => match scope.kind {
+        EntityRoutePtr::Custom(scope) => match scope.kind {
             ScopeKind::Contextual { main, ident } => match ident {
                 ContextualIdentifier::Input => db.global_input_ty(main),
                 ContextualIdentifier::ThisData => todo!(),
@@ -83,21 +83,21 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<Sco
     }
 }
 
-fn enum_literal_value(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> EnumLiteralValue {
+fn enum_literal_value(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
     msg_once!("todo: enum_literal_value");
     EnumLiteralValue::interpreted(scope)
 }
 
 fn is_implicit_convertible(
     db: &dyn InferTySalsaQueryGroup,
-    src_ty: ScopePtr,
-    dst_ty: ScopePtr,
+    src_ty: EntityRoutePtr,
+    dst_ty: EntityRoutePtr,
 ) -> bool {
     if src_ty == dst_ty {
         return true;
     }
     match dst_ty {
-        ScopePtr::Builtin(builtin_ident) => match builtin_ident {
+        EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
             BuiltinIdentifier::Void => todo!(),
             BuiltinIdentifier::I32 => {
                 p!(src_ty, dst_ty);
@@ -107,7 +107,7 @@ fn is_implicit_convertible(
             BuiltinIdentifier::B32 => todo!(),
             BuiltinIdentifier::B64 => todo!(),
             BuiltinIdentifier::Bool => match src_ty {
-                ScopePtr::Builtin(builtin_ident) => match builtin_ident {
+                EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
                     BuiltinIdentifier::I32
                     | BuiltinIdentifier::F32
                     | BuiltinIdentifier::B32
@@ -125,7 +125,7 @@ fn is_implicit_convertible(
                     | BuiltinIdentifier::Type => false,
                     _ => panic!(),
                 },
-                ScopePtr::Custom(_) => todo!(),
+                EntityRoutePtr::Custom(_) => todo!(),
             },
             BuiltinIdentifier::True => todo!(),
             BuiltinIdentifier::False => todo!(),
@@ -140,8 +140,8 @@ fn is_implicit_convertible(
             BuiltinIdentifier::FnOnce => todo!(),
             BuiltinIdentifier::Array => todo!(),
             BuiltinIdentifier::DatasetType => match src_ty {
-                ScopePtr::Builtin(BuiltinIdentifier::DatasetType) => true,
-                ScopePtr::Custom(scope) => match scope.kind {
+                EntityRoutePtr::Builtin(BuiltinIdentifier::DatasetType) => true,
+                EntityRoutePtr::Custom(scope) => match scope.kind {
                     ScopeKind::Builtin {
                         ident: BuiltinIdentifier::DatasetType,
                     } => true,
@@ -156,6 +156,6 @@ fn is_implicit_convertible(
             BuiltinIdentifier::PartialEqTrait => todo!(),
             BuiltinIdentifier::EqTrait => todo!(),
         },
-        ScopePtr::Custom(_) => todo!(),
+        EntityRoutePtr::Custom(_) => todo!(),
     }
 }

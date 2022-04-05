@@ -2,7 +2,7 @@ use std::ops::AddAssign;
 
 use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use entity_syntax::RawTyKind;
-use scope::{InputPlaceholder, ScopePtr};
+use entity_route::{InputPlaceholder, EntityRoutePtr};
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordAllocator};
@@ -111,7 +111,7 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_contracted_type(&input_placeholder);
                 }
                 self.write(")");
-                if decl.output.scope != ScopePtr::Builtin(BuiltinIdentifier::Void) {
+                if decl.output.scope != EntityRoutePtr::Builtin(BuiltinIdentifier::Void) {
                     self.write(" -> ");
                     self.fmt_ty(decl.output.scope);
                 }
@@ -143,7 +143,7 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_member_variable_contracted_type(&mut self, contract: MembAccessContract, ty: ScopePtr) {
+    fn fmt_member_variable_contracted_type(&mut self, contract: MembAccessContract, ty: EntityRoutePtr) {
         match contract {
             MembAccessContract::Own => (),
             MembAccessContract::Ref => self.write("&"),
@@ -164,10 +164,10 @@ impl<'a> Formatter<'a> {
         self.fmt_ty(ty.ranged_ty.scope);
     }
 
-    fn fmt_ty(&mut self, ty: ScopePtr) {
+    fn fmt_ty(&mut self, ty: EntityRoutePtr) {
         match ty {
-            ScopePtr::Builtin(ident) => self.write(&ident),
-            ScopePtr::Custom(_) => todo!(),
+            EntityRoutePtr::Builtin(ident) => self.write(&ident),
+            EntityRoutePtr::Custom(_) => todo!(),
         }
     }
 

@@ -1,5 +1,5 @@
+use entity_route::{ScopeKind, *};
 use file::FilePtr;
-use scope::{ScopeKind, *};
 use text::{Row, TextRange};
 use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier};
 
@@ -26,14 +26,14 @@ pub enum SymbolKind {
     Scope(ScopeKind),
     Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
-    ThisData { ty: Option<ScopePtr> },
+    ThisData { ty: Option<EntityRoutePtr> },
 }
 
 #[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
     pub(crate) main: Option<FilePtr>,
     pub(crate) db: &'a dyn AstSalsaQueryGroup,
-    pub(crate) this_ty: Option<ScopePtr>,
+    pub(crate) this_ty: Option<EntityRoutePtr>,
     pub(crate) symbols: &'a fold::LocalStack<Symbol>,
 }
 
@@ -44,7 +44,7 @@ impl<'a> SymbolProxy<'a> {
         generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
-        let scope = Scope::new_builtin(ident.into(), generics);
+        let scope = Route::new_builtin(ident.into(), generics);
         let kind = AtomKind::Scope {
             scope: self.db.intern_scope(scope),
             kind: RawEntityKind::Type(match ident {
@@ -108,9 +108,9 @@ impl<'a> SymbolProxy<'a> {
 
     fn resolve_subscope(
         &self,
-        parent_scope: Scope,
+        parent_scope: Route,
         subscope_ident: CustomIdentifier,
-    ) -> Option<ScopePtr> {
+    ) -> Option<EntityRoutePtr> {
         self.db.subscope(
             self.db.intern_scope(parent_scope),
             subscope_ident,

@@ -111,7 +111,7 @@ impl<'a> EagerStmtParser<'a> {
             }
             RawStmtKind::Exec(expr) => {
                 let expr = self.parse_eager_expr(expr)?;
-                if expr.ty != ScopePtr::Builtin(BuiltinIdentifier::Void) {
+                if expr.ty != EntityRoutePtr::Builtin(BuiltinIdentifier::Void) {
                     err!(format!(
                         "expect executed expression to be of type void, but got {:?} instead",
                         expr.ty
@@ -157,7 +157,7 @@ impl<'a> EagerStmtParser<'a> {
             } => {
                 self.def_variable(
                     frame_var,
-                    ScopePtr::Builtin(BuiltinIdentifier::I32),
+                    EntityRoutePtr::Builtin(BuiltinIdentifier::I32),
                     Qual::frame_var(),
                 );
                 ImprStmtKind::Loop {
@@ -189,11 +189,11 @@ impl<'a> EagerStmtParser<'a> {
             RawLoopKind::While { condition } => {
                 let condition = self.parse_eager_expr(condition)?;
                 match condition.ty {
-                    ScopePtr::Builtin(BuiltinIdentifier::Bool)
-                    | ScopePtr::Builtin(BuiltinIdentifier::I32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::F32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::B32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::B64) => (),
+                    EntityRoutePtr::Builtin(BuiltinIdentifier::Bool)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::I32)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::F32)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::B32)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
                 ImprStmtKind::Loop {
@@ -204,11 +204,11 @@ impl<'a> EagerStmtParser<'a> {
             RawLoopKind::DoWhile { condition } => {
                 let condition = self.parse_eager_expr(condition)?;
                 match condition.ty {
-                    ScopePtr::Builtin(BuiltinIdentifier::Bool)
-                    | ScopePtr::Builtin(BuiltinIdentifier::I32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::F32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::B32)
-                    | ScopePtr::Builtin(BuiltinIdentifier::B64) => (),
+                    EntityRoutePtr::Builtin(BuiltinIdentifier::Bool)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::I32)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::F32)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::B32)
+                    | EntityRoutePtr::Builtin(BuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
                 ImprStmtKind::Loop {

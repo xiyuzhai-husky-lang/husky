@@ -1,4 +1,4 @@
-use scope::RangedScope;
+use entity_route::RangedScope;
 
 use super::expr::ExprTokenConfig;
 use crate::*;

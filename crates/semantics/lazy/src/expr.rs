@@ -7,7 +7,7 @@ use file::FilePtr;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use scope::{RangedScope, Scope, ScopePtr};
+use entity_route::{RangedScope, Route, EntityRoutePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::*;
@@ -17,7 +17,7 @@ use word::{CustomIdentifier, Identifier};
 pub struct LazyExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
     pub kind: LazyExprKind,
     pub instruction_id: InstructionId,
     pub contract: LazyContract,
@@ -33,12 +33,12 @@ impl InstructionSource for LazyExpr {
 pub enum LazyExprKind {
     Variable(CustomIdentifier),
     Scope {
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         compiled: (),
     },
     PrimitiveLiteral(PrimitiveValue),
     EnumLiteral {
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         value: EnumLiteralValue,
     },
     Bracketed(Arc<LazyExpr>),
@@ -47,9 +47,9 @@ pub enum LazyExprKind {
         compiled: (),
         opds: Vec<Arc<LazyExpr>>,
     },
-    Lambda(Vec<(CustomIdentifier, Option<ScopePtr>)>, Box<LazyExpr>),
+    Lambda(Vec<(CustomIdentifier, Option<EntityRoutePtr>)>, Box<LazyExpr>),
     This,
     ScopedFeature {
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
     },
 }

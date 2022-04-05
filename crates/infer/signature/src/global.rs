@@ -8,7 +8,7 @@ fn global_input_ty_from_ast(
     db: &dyn InferSignatureQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
-) -> InferResult<ScopePtr> {
+) -> InferResult<EntityRoutePtr> {
     match ast.kind {
         AstKind::Stmt(RawStmt {
             kind: RawStmtKind::Return(idx),
@@ -47,7 +47,7 @@ fn global_output_ty_from_ast(
     db: &dyn InferSignatureQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
-) -> InferResult<ScopePtr> {
+) -> InferResult<EntityRoutePtr> {
     match ast.kind {
         AstKind::Stmt(RawStmt {
             kind: RawStmtKind::Return(idx),
@@ -85,7 +85,7 @@ fn global_output_ty_from_ast(
 pub(crate) fn global_input_ty(
     db: &dyn InferSignatureQueryGroup,
     main_file: FilePtr,
-) -> InferResult<ScopePtr> {
+) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
@@ -109,7 +109,7 @@ pub(crate) fn global_input_ty(
 pub(crate) fn global_output_ty(
     db: &dyn InferSignatureQueryGroup,
     main_file: FilePtr,
-) -> InferResult<ScopePtr> {
+) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {

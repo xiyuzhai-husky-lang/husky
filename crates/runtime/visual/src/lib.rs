@@ -3,7 +3,7 @@ mod query;
 pub use query::*;
 
 use compile_time_db::*;
-use scope::{BuiltinScopeSignature, ScopePtr, ScopeSource};
+use entity_route::{BuiltinScopeSignature, EntityRoutePtr, EntitySource};
 use std::sync::Arc;
 use visual_syntax::{BuiltinVisualizer, VisualProps};
 use vm::AnyValueDyn;

@@ -35,7 +35,7 @@ impl<'a> EagerStmtParser<'a> {
     pub(super) fn def_variable(
         &mut self,
         varname: CustomIdentifier,
-        ty: ScopePtr,
+        ty: EntityRoutePtr,
         qual: Qual,
     ) -> VMResult<StackIdx> {
         let varidx = StackIdx::new(self.variables.len())?;

@@ -2,7 +2,7 @@ mod iter;
 mod loader;
 pub mod trivial;
 
-pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
     signature: BuiltinScopeSignature::Module,
 };

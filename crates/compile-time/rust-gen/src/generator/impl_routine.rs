@@ -1,4 +1,4 @@
-use scope::{InputPlaceholder, ScopePtr};
+use entity_route::{InputPlaceholder, EntityRoutePtr};
 use semantics_eager::{DeclStmt, ImprStmt};
 use vm::InputContract;
 use word::CustomIdentifier;
@@ -10,7 +10,7 @@ impl<'a> RustGenerator<'a> {
         &mut self,
         ident: CustomIdentifier,
         input_placeholders: &[InputPlaceholder],
-        output: ScopePtr,
+        output: EntityRoutePtr,
         stmts: &[Arc<ImprStmt>],
     ) {
         self.write("\npub(crate) fn ");
@@ -47,7 +47,7 @@ impl<'a> RustGenerator<'a> {
         &mut self,
         ident: CustomIdentifier,
         input_placeholders: &[InputPlaceholder],
-        output: ScopePtr,
+        output: EntityRoutePtr,
         stmts: &[Arc<DeclStmt>],
     ) {
         self.write("\npub(crate) fn ");

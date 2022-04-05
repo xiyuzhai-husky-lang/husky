@@ -90,8 +90,8 @@
 //     }
 // }
 
-// impl From<scope::ModuleFromFileError> for AtomError {
-//     fn from(_: scope::ModuleFromFileError) -> Self {
+// impl From<entity_route::ModuleFromFileError> for AtomError {
+//     fn from(_: entity_route::ModuleFromFileError) -> Self {
 //         todo!()
 //     }
 // }

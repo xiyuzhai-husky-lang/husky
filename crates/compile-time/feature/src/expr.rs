@@ -1,8 +1,8 @@
 mod impl_opn;
 
 use file::FilePtr;
-use scope::{InputPlaceholder, ScopeKind};
-use scope::{RangedScope, ScopePtr};
+use entity_route::{InputPlaceholder, ScopeKind};
+use entity_route::{RangedScope, EntityRoutePtr};
 use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
@@ -21,7 +21,7 @@ pub struct FeatureExpr {
     pub range: TextRange,
     pub file: FilePtr,
     pub contract: LazyContract,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
 }
 
 impl std::hash::Hash for FeatureExpr {
@@ -109,7 +109,7 @@ pub enum FeatureExprKind {
         stmts: Arc<Vec<Arc<ImprStmt>>>,
     },
     FeatureBlock {
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         block: Arc<FeatureBlock>,
     },
     GlobalInput,

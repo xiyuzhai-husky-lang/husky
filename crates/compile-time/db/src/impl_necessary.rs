@@ -31,7 +31,7 @@ impl Default for HuskyLangCompileTime {
             storage: Default::default(),
             file_unique_allocator: file::new_file_unique_allocator(),
             word_unique_allocator: word::new_word_unique_allocator(),
-            scope_unique_allocator: scope::new_scope_unique_allocator(),
+            scope_unique_allocator: entity_route::new_scope_unique_allocator(),
             live_docs: Default::default(),
             vc: EntityVersionControl::new(),
             features: feature::new_feature_unique_allocator(),
@@ -64,7 +64,7 @@ impl LiveFiles for HuskyLangCompileTime {
 impl FileQueryGroup for HuskyLangCompileTime {}
 
 impl AllocateUniqueScope for HuskyLangCompileTime {
-    fn scope_unique_allocator(&self) -> &scope::ScopeInterner {
+    fn scope_unique_allocator(&self) -> &entity_route::ScopeInterner {
         &self.scope_unique_allocator
     }
 }
@@ -88,7 +88,7 @@ impl Upcast<dyn semantics_entity::EntityQueryGroup> for HuskyLangCompileTime {
 }
 
 impl ControlEntityVersion for HuskyLangCompileTime {
-    fn entity_vc(&self) -> &vc::VersionControl<ScopePtr, EntityKind> {
+    fn entity_vc(&self) -> &vc::VersionControl<EntityRoutePtr, EntityKind> {
         &self.vc
     }
 }
@@ -99,8 +99,8 @@ impl AllocateUniqueFeature for HuskyLangCompileTime {
     }
 }
 
-impl Upcast<dyn scope_query::ScopeSalsaQueryGroup> for HuskyLangCompileTime {
-    fn upcast(&self) -> &(dyn scope_query::ScopeSalsaQueryGroup + 'static) {
+impl Upcast<dyn scope_query::EntityRouteSalsaQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn scope_query::EntityRouteSalsaQueryGroup + 'static) {
         self
     }
 }

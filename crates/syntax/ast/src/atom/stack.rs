@@ -1,5 +1,5 @@
 use file::FilePtr;
-use scope::{GenericArgument, RawEntityKind, ScopeKind};
+use entity_route::{GenericArgument, RawEntityKind, ScopeKind};
 use word::BuiltinIdentifier;
 
 use crate::{
@@ -87,7 +87,7 @@ impl AtomStack {
                 let ident = match attr {
                     ListStartAttr::None => BuiltinIdentifier::Tuple,
                     ListStartAttr::Attach => {
-                        generics.push(ScopePtr::Builtin(BuiltinIdentifier::Void).into());
+                        generics.push(EntityRoutePtr::Builtin(BuiltinIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
                 };
@@ -122,7 +122,7 @@ impl AtomStack {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.kind {
                     AtomKind::Scope {
-                        scope: ScopePtr::Builtin(ident),
+                        scope: EntityRoutePtr::Builtin(ident),
                         ..
                     } => match ident {
                         BuiltinIdentifier::Fp
@@ -181,7 +181,7 @@ impl AtomStack {
     pub(crate) fn make_func_type(
         &mut self,
         scope_proxy: SymbolProxy,
-        output: ScopePtr,
+        output: EntityRoutePtr,
         mut tail: TextRange,
     ) -> AstResult<()> {
         let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;

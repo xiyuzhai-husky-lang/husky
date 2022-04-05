@@ -34,7 +34,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn symbolic_ty(&mut self) -> AstResult<ScopePtr> {
+    fn symbolic_ty(&mut self) -> AstResult<EntityRoutePtr> {
         Ok(self
             .scope_proxy
             .db
@@ -45,15 +45,15 @@ impl<'a> AtomLRParser<'a> {
             }?))
     }
 
-    fn vec_ty(&mut self) -> AstResult<Scope> {
-        Ok(Scope::vec(self.generic()?))
+    fn vec_ty(&mut self) -> AstResult<Route> {
+        Ok(Route::vec(self.generic()?))
     }
 
-    fn array_ty(&mut self) -> AstResult<Scope> {
+    fn array_ty(&mut self) -> AstResult<Route> {
         let size = get!(self, usize_literal);
         no_look_pass!(self, special, Special::RBox);
         let element = self.generic()?;
-        Ok(Scope::array(element, size))
+        Ok(Route::array(element, size))
     }
 
     fn normal_scope(&mut self, route: ScopeKind) -> AstResult<AtomKind> {
@@ -71,7 +71,7 @@ impl<'a> AtomLRParser<'a> {
         });
     }
 
-    pub(crate) fn ty(&mut self) -> AstResult<Option<ScopePtr>> {
+    pub(crate) fn ty(&mut self) -> AstResult<Option<EntityRoutePtr>> {
         Ok(
             if let Some(AtomKind::Scope { scope, kind, .. }) = self.symbol()? {
                 if let RawEntityKind::Type(_) = kind {
@@ -138,7 +138,7 @@ impl<'a> AtomLRParser<'a> {
         args.push(if next_matches!(self, "->") {
             self.generic()?
         } else {
-            ScopePtr::Builtin(BuiltinIdentifier::Void).into()
+            EntityRoutePtr::Builtin(BuiltinIdentifier::Void).into()
         });
         Ok(args)
     }
@@ -156,9 +156,9 @@ impl<'a> AtomLRParser<'a> {
             let mut args = comma_list!(self, generic!, ")");
             let scope = if next_matches!(self, "->") {
                 args.push(self.generic()?);
-                Scope::default_func_type(args)
+                Route::default_func_type(args)
             } else {
-                Scope::tuple_or_void(args)
+                Route::tuple_or_void(args)
             };
             self.intern(scope).into()
         } else {
@@ -166,7 +166,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn intern(&self, scope: Scope) -> ScopePtr {
+    fn intern(&self, scope: Route) -> EntityRoutePtr {
         self.scope_proxy.db.intern_scope(scope)
     }
 }

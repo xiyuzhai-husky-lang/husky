@@ -1,4 +1,4 @@
-use scope::ScopeKind;
+use entity_route::ScopeKind;
 use word::BuiltinIdentifier;
 
 use crate::*;
@@ -18,7 +18,7 @@ main:
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(Scope::package(
+    let package = db.intern_scope(Route::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
@@ -50,7 +50,7 @@ struct B {}
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(Scope::package(
+    let package = db.intern_scope(Route::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
@@ -74,7 +74,7 @@ main:
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(Scope::package(
+    let package = db.intern_scope(Route::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
@@ -86,7 +86,7 @@ main:
 #[test]
 fn datasets() {
     let db = HuskyLangCompileTime::default();
-    let dataset_scope = db.intern_scope(Scope {
+    let dataset_scope = db.intern_scope(Route {
         kind: ScopeKind::Builtin {
             ident: BuiltinIdentifier::DatasetType,
         },

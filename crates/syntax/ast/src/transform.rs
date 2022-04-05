@@ -13,7 +13,7 @@ mod utils;
 
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
-use scope::ScopeKind;
+use entity_route::ScopeKind;
 use token::*;
 
 use crate::{
@@ -32,11 +32,11 @@ pub struct AstTransformer<'a> {
     folded_results: FoldedList<AstResult<Ast>>,
     symbols: LocalStack<Symbol>,
     env: LocalValue<Env>,
-    this: LocalValue<Option<ScopePtr>>,
+    this: LocalValue<Option<EntityRoutePtr>>,
 }
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn new(db: &'a dyn AstSalsaQueryGroup, module: ScopePtr) -> Self {
+    pub(crate) fn new(db: &'a dyn AstSalsaQueryGroup, module: EntityRoutePtr) -> Self {
         return Self {
             db,
             main: db.main_file(db.module_file(module).unwrap()).unwrap(),
@@ -53,7 +53,7 @@ impl<'a> AstTransformer<'a> {
             this: LocalValue::new(None),
         };
 
-        fn module_symbols(db: &dyn AstSalsaQueryGroup, module: ScopePtr) -> LocalStack<Symbol> {
+        fn module_symbols(db: &dyn AstSalsaQueryGroup, module: EntityRoutePtr) -> LocalStack<Symbol> {
             let mut symbols = LocalStack::new();
             for scope in db.subscopes(module).iter() {
                 match scope.kind {

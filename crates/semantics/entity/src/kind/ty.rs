@@ -4,7 +4,7 @@ use ast::*;
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 use infer_total::InferQueryGroup;
-use scope::{InputPlaceholder, RangedScope, ScopePtr};
+use entity_route::{InputPlaceholder, RangedScope, EntityRoutePtr};
 use semantics_eager::{DeclStmt, ImprStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
@@ -175,7 +175,7 @@ pub struct MembRoutineDefn {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MembFeatureDefn {
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
     pub stmts: Arc<Vec<Arc<LazyStmt>>>,
 }
 

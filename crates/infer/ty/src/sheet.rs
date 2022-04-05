@@ -25,8 +25,8 @@ pub(crate) fn ty_sheet(db: &dyn InferTySalsaQueryGroup, file: FilePtr) -> ScopeR
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TySheet {
     pub ast_text: Arc<AstText>,
-    pub(crate) exprs: HashMap<RawExprIdx, InferResult<ScopePtr>>,
-    pub(crate) variables: HashMap<(CustomIdentifier, Row), Option<ScopePtr>>,
+    pub(crate) exprs: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
+    pub(crate) variables: HashMap<(CustomIdentifier, Row), Option<EntityRoutePtr>>,
 }
 
 impl TySheet {
@@ -38,7 +38,7 @@ impl TySheet {
         }
     }
 
-    pub(crate) fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<ScopePtr> {
+    pub(crate) fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         self.exprs[&expr_idx].clone()
     }
 }

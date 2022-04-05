@@ -8,7 +8,7 @@ impl<'a> TySheetBuilder<'a> {
     pub(super) fn infer_stmts(
         &mut self,
         ast_iter: AstIter,
-        output_ty: ScopePtr,
+        output_ty: EntityRoutePtr,
         arena: &RawExprArena,
     ) {
         for item in ast_iter.clone() {
@@ -24,7 +24,7 @@ impl<'a> TySheetBuilder<'a> {
         }
     }
 
-    fn infer_stmt(&mut self, stmt: &RawStmt, output_ty: ScopePtr, arena: &RawExprArena) {
+    fn infer_stmt(&mut self, stmt: &RawStmt, output_ty: EntityRoutePtr, arena: &RawExprArena) {
         match stmt.kind {
             RawStmtKind::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {

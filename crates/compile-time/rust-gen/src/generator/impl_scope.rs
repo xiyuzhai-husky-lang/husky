@@ -1,9 +1,9 @@
-use scope::*;
+use entity_route::*;
 
 use super::*;
 
 impl<'a> RustGenerator<'a> {
-    pub(super) fn gen_scope(&mut self, scope: ScopePtr) {
+    pub(super) fn gen_scope(&mut self, scope: EntityRoutePtr) {
         match scope.kind {
             ScopeKind::Builtin { ident } => self.result += &ident,
             ScopeKind::Package { .. } => self.write("crate"),

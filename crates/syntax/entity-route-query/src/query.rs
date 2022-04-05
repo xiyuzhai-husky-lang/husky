@@ -1,8 +1,8 @@
 use crate::{error::scope_err, *};
 use check_utils::should;
+use entity_route::*;
 use file::FilePtr;
 use path_utils::*;
-use scope::*;
 
 use entity_syntax::RawTyKind;
 use upcast::Upcast;
@@ -14,25 +14,25 @@ use fold::FoldStorage;
 
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
-pub trait ScopeSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
-    fn subscope_table(&self, scope_id: ScopePtr) -> ScopeResultArc<SubscopeTable>;
+pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
+    fn subscope_table(&self, scope_id: EntityRoutePtr) -> ScopeResultArc<SubscopeTable>;
 
-    fn subscopes(&self, scope: ScopePtr) -> Arc<Vec<ScopePtr>>;
+    fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
-    fn raw_entity_kind(&self, scope_id: ScopePtr) -> RawEntityKind;
+    fn raw_entity_kind(&self, scope_id: EntityRoutePtr) -> RawEntityKind;
 
-    fn scope_source(&self, scope_id: ScopePtr) -> ScopeResult<ScopeSource>;
+    fn entity_source(&self, scope_id: EntityRoutePtr) -> ScopeResult<EntitySource>;
 
-    fn scope_menu(&self) -> Arc<ScopeMenu>;
+    fn entity_route_menu(&self) -> Arc<EntityRouteMenu>;
 }
 
 fn subscope_table(
-    db: &dyn ScopeSalsaQueryGroup,
-    scope_id: ScopePtr,
+    db: &dyn EntityRouteSalsaQueryGroup,
+    scope_id: EntityRoutePtr,
 ) -> ScopeResultArc<SubscopeTable> {
-    Ok(Arc::new(match db.scope_source(scope_id)? {
-        ScopeSource::Builtin(data) => SubscopeTable::builtin(db, data),
-        ScopeSource::WithinModule {
+    Ok(Arc::new(match db.entity_source(scope_id)? {
+        EntitySource::Builtin(data) => SubscopeTable::builtin(db, data),
+        EntitySource::WithinModule {
             file: file_id,
             token_group_index,
         } => {
@@ -44,16 +44,19 @@ fn subscope_table(
                 SubscopeTable::empty()
             }
         }
-        ScopeSource::Module { file: file_id } => {
+        EntitySource::Module { file: file_id } => {
             let text = db.tokenized_text(file_id)?;
             SubscopeTable::parse(file_id, text.fold_iter(0))
         }
-        ScopeSource::WithinBuiltinModule => todo!(),
-        ScopeSource::Contextual { .. } => todo!(),
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::Contextual { .. } => todo!(),
     }))
 }
 
-fn subscopes(db: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> Arc<Vec<ScopePtr>> {
+fn subscopes(
+    db: &dyn EntityRouteSalsaQueryGroup,
+    scope: EntityRoutePtr,
+) -> Arc<Vec<EntityRoutePtr>> {
     Arc::new(db.subscope_table(scope).map_or(Vec::new(), |table| {
         table
             .subscopes(scope)
@@ -63,12 +66,12 @@ fn subscopes(db: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> Arc<Vec<ScopePtr
     }))
 }
 
-fn raw_entity_kind(db: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> RawEntityKind {
+fn raw_entity_kind(db: &dyn EntityRouteSalsaQueryGroup, scope: EntityRoutePtr) -> RawEntityKind {
     raw_entity_kind_from_scope_kind(db, &scope.kind)
 }
 
 fn raw_entity_kind_from_scope_kind(
-    db: &dyn ScopeSalsaQueryGroup,
+    db: &dyn EntityRouteSalsaQueryGroup,
     scope_kind: &ScopeKind,
 ) -> RawEntityKind {
     match scope_kind {
@@ -116,8 +119,11 @@ fn raw_entity_kind_from_scope_kind(
     }
 }
 
-fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult<ScopeSource> {
-    Ok(match scope.kind {
+fn entity_source(
+    this: &dyn EntityRouteSalsaQueryGroup,
+    entity_route: EntityRoutePtr,
+) -> ScopeResult<EntitySource> {
+    Ok(match entity_route.kind {
         ScopeKind::Builtin { ident } => match ident {
             BuiltinIdentifier::Void => todo!(),
             BuiltinIdentifier::I32 => todo!(),
@@ -127,7 +133,7 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::Bool => todo!(),
             BuiltinIdentifier::True => todo!(),
             BuiltinIdentifier::False => todo!(),
-            BuiltinIdentifier::Vec => &BuiltinScopeData {
+            BuiltinIdentifier::Vec => &BuiltinEntityData {
                 subscopes: &[],
                 signature: BuiltinScopeSignature::Vec,
             },
@@ -149,11 +155,11 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::EqTrait => todo!(),
         }
         .into(),
-        ScopeKind::Package { main, .. } => ScopeSource::Module { file: main },
+        ScopeKind::Package { main, .. } => EntitySource::Module { file: main },
         ScopeKind::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
-        ScopeKind::Contextual { main, ident } => ScopeSource::Contextual { main, ident },
+        ScopeKind::Contextual { main, ident } => EntitySource::Contextual { main, ident },
         ScopeKind::Generic { ident, .. } => todo!(),
     })
 }
@@ -170,23 +176,23 @@ pub enum ModuleFromFileRule {
 }
 
 pub trait ScopeQueryGroup:
-    ScopeSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn ScopeSalsaQueryGroup>
+    EntityRouteSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn EntityRouteSalsaQueryGroup>
 {
     fn subscope(
         &self,
-        parent_scope: ScopePtr,
+        parent_scope: EntityRoutePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
-    ) -> Option<ScopePtr> {
+    ) -> Option<EntityRoutePtr> {
         let parent_subscope_table = self.subscope_table(parent_scope);
         if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
-            Some(self.intern_scope(Scope::child_scope(parent_scope, ident, generics)))
+            Some(self.intern_scope(Route::child_scope(parent_scope, ident, generics)))
         } else {
             None
         }
     }
 
-    fn all_modules(&self) -> Vec<ScopePtr>
+    fn all_modules(&self) -> Vec<EntityRoutePtr>
     where
         Self: Sized,
     {
@@ -197,14 +203,14 @@ pub trait ScopeQueryGroup:
             .collect()
     }
 
-    fn module_iter(&self) -> std::vec::IntoIter<ScopePtr>
+    fn module_iter(&self) -> std::vec::IntoIter<EntityRoutePtr>
     where
         Self: Sized,
     {
         self.all_modules().into_iter()
     }
 
-    fn collect_modules(&self, id: FilePtr) -> Vec<ScopePtr>
+    fn collect_modules(&self, id: FilePtr) -> Vec<EntityRoutePtr>
     where
         Self: Sized,
     {
@@ -228,7 +234,7 @@ pub trait ScopeQueryGroup:
         }
     }
 
-    fn module(&self, id: FilePtr) -> ScopeResult<ScopePtr> {
+    fn module(&self, id: FilePtr) -> ScopeResult<EntityRoutePtr> {
         let path: PathBuf = (*id).into();
         if !self.file_exists(id) {
             scope_err!(format!("file didn't exist"))?
@@ -238,7 +244,7 @@ pub trait ScopeQueryGroup:
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
                     self.word_allocator().alloc(snake_name)
                 {
-                    Ok(self.intern_scope(Scope::package(id, ident)))
+                    Ok(self.intern_scope(Route::package(id, ident)))
                 } else {
                     scope_err!(format!("package name should be identifier"))?
                 }
@@ -263,13 +269,13 @@ pub trait ScopeQueryGroup:
         }
     }
 
-    fn module_file(&self, module: ScopePtr) -> ScopeResult<FilePtr> {
-        Ok(match self.scope_source(module)? {
-            ScopeSource::Builtin(_) => panic!(),
-            ScopeSource::WithinModule { file: file_id, .. } => file_id,
-            ScopeSource::Module { file: file_id } => file_id,
-            ScopeSource::WithinBuiltinModule => todo!(),
-            ScopeSource::Contextual { .. } => todo!(),
+    fn module_file(&self, module: EntityRoutePtr) -> ScopeResult<FilePtr> {
+        Ok(match self.entity_source(module)? {
+            EntitySource::Builtin(_) => panic!(),
+            EntitySource::WithinModule { file: file_id, .. } => file_id,
+            EntitySource::Module { file: file_id } => file_id,
+            EntitySource::WithinBuiltinModule => todo!(),
+            EntitySource::Contextual { .. } => todo!(),
         })
     }
 

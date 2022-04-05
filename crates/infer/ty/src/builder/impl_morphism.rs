@@ -4,7 +4,7 @@ impl<'a> TySheetBuilder<'a> {
     pub(super) fn infer_morphism(
         &mut self,
         inputs: &[InputPlaceholder],
-        output_ty: ScopePtr,
+        output_ty: EntityRoutePtr,
         ast_iter: AstIter,
         arena: &RawExprArena,
     ) {

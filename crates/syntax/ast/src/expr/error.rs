@@ -58,8 +58,8 @@
 //     }
 // }
 
-// impl From<scope::ModuleFromFileError> for ExprError {
-//     fn from(_: scope::ModuleFromFileError) -> Self {
+// impl From<entity_route::ModuleFromFileError> for ExprError {
+//     fn from(_: entity_route::ModuleFromFileError) -> Self {
 //         todo!()
 //     }
 // }

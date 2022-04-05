@@ -1,11 +1,11 @@
 use crate::*;
 use check_utils::should_eq;
-use scope::*;
+use entity_route::*;
 use syntax_types::{MembAccessSignature, MembCallSignature};
 use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
-    pub db: &'a dyn ScopeSalsaQueryGroup,
+    pub db: &'a dyn EntityRouteSalsaQueryGroup,
     pub src_generic_placeholders: &'a [(CustomIdentifier, GenericPlaceholderKind)],
     pub dst_generics: &'a [GenericArgument],
 }
@@ -17,7 +17,7 @@ impl<'a> Instantiator<'a> {
             .position(|p| p.0 == ident)
     }
 
-    pub fn instantiate_scope(&self, src_scope: ScopePtr) -> GenericArgument {
+    pub fn instantiate_scope(&self, src_scope: EntityRoutePtr) -> GenericArgument {
         match self.db.raw_entity_kind(src_scope) {
             RawEntityKind::Module => GenericArgument::Scope(src_scope),
             RawEntityKind::Type(_)
@@ -48,7 +48,7 @@ impl<'a> Instantiator<'a> {
                 };
                 // convention: A<B,C> = A<B><C>
                 generics.extend(self.instantiate_generics(&src_scope.generics));
-                GenericArgument::Scope(self.db.intern_scope(Scope { kind, generics }))
+                GenericArgument::Scope(self.db.intern_scope(Route { kind, generics }))
             }
             RawEntityKind::Literal => todo!(),
         }

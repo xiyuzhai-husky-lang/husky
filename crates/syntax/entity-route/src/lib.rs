@@ -5,7 +5,7 @@ mod kind;
 
 pub use alias::ScopeAliasTable;
 pub use allocate_unique::{
-    new_scope_unique_allocator, AllocateUniqueScope, ScopeInterner, ScopePtr,
+    new_scope_unique_allocator, AllocateUniqueScope, EntityRoutePtr, ScopeInterner,
 };
 use entity_syntax::RawTyKind;
 use file::FilePtr;
@@ -17,14 +17,14 @@ use vm::{Compiled, EagerContract, InputContract};
 use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
-pub struct Scope {
+pub struct Route {
     pub kind: ScopeKind,
     pub generics: Vec<GenericArgument>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct RangedScope {
-    pub scope: ScopePtr,
+    pub scope: EntityRoutePtr,
     pub range: TextRange,
 }
 
@@ -34,7 +34,7 @@ impl TextRanged for RangedScope {
     }
 }
 
-impl std::fmt::Debug for Scope {
+impl std::fmt::Debug for Route {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
             ScopeKind::Builtin { ident } => ident.fmt(f)?,
@@ -73,11 +73,11 @@ impl std::fmt::Debug for Scope {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum GenericArgument {
     Const(usize),
-    Scope(ScopePtr),
+    Scope(EntityRoutePtr),
 }
 
 impl GenericArgument {
-    pub fn as_scope(&self) -> ScopePtr {
+    pub fn as_scope(&self) -> EntityRoutePtr {
         match self {
             GenericArgument::Const(_) => panic!(),
             GenericArgument::Scope(scope) => *scope,
@@ -91,8 +91,8 @@ impl From<usize> for GenericArgument {
     }
 }
 
-impl From<ScopePtr> for GenericArgument {
-    fn from(scope: ScopePtr) -> Self {
+impl From<EntityRoutePtr> for GenericArgument {
+    fn from(scope: EntityRoutePtr) -> Self {
         GenericArgument::Scope(scope)
     }
 }
@@ -119,7 +119,7 @@ pub enum ScopeKind {
         ident: CustomIdentifier,
     },
     ChildScope {
-        parent: ScopePtr,
+        parent: EntityRoutePtr,
         ident: CustomIdentifier,
     },
     Contextual {
@@ -133,8 +133,8 @@ pub enum ScopeKind {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct BuiltinScopeData {
-    pub subscopes: &'static [(&'static str, &'static BuiltinScopeData)],
+pub struct BuiltinEntityData {
+    pub subscopes: &'static [(&'static str, &'static BuiltinEntityData)],
     pub signature: BuiltinScopeSignature,
 }
 
@@ -176,7 +176,7 @@ pub struct StaticInputSignature {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputSignature {
     pub contract: InputContract,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -195,26 +195,26 @@ impl Into<InputSignature> for &InputPlaceholder {
     }
 }
 
-impl Scope {
+impl Route {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
-        Scope {
+        Route {
             kind: ScopeKind::Package { main, ident },
             generics: Vec::new(),
         }
     }
     pub fn child_scope(
-        parent: ScopePtr,
+        parent: EntityRoutePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
-    ) -> Scope {
-        Scope {
+    ) -> Route {
+        Route {
             kind: ScopeKind::ChildScope { parent, ident },
             generics,
         }
     }
 
-    pub fn new_builtin(ident: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Scope {
-        Scope {
+    pub fn new_builtin(ident: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Route {
+        Route {
             kind: ScopeKind::Builtin { ident },
             generics: generic_arguments,
         }
@@ -229,7 +229,7 @@ impl Scope {
     }
 
     pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
-        Scope::new_builtin(
+        Route::new_builtin(
             if args.len() > 0 {
                 BuiltinIdentifier::Tuple
             } else {
@@ -240,7 +240,7 @@ impl Scope {
     }
 
     pub fn default_func_type(args: Vec<GenericArgument>) -> Self {
-        Scope::new_builtin(word::default_func_type(), args)
+        Route::new_builtin(word::default_func_type(), args)
     }
 
     pub fn is_builtin(&self) -> bool {
@@ -254,15 +254,15 @@ impl Scope {
     }
 }
 
-impl From<BuiltinIdentifier> for Scope {
+impl From<BuiltinIdentifier> for Route {
     fn from(ident: BuiltinIdentifier) -> Self {
         Self::new_builtin(ident, Vec::new())
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ScopeSource {
-    Builtin(&'static BuiltinScopeData),
+pub enum EntitySource {
+    Builtin(&'static BuiltinEntityData),
     WithinBuiltinModule,
     WithinModule {
         file: FilePtr,
@@ -277,17 +277,17 @@ pub enum ScopeSource {
     },
 }
 
-impl ScopeSource {
-    pub fn from_file(file_id: FilePtr, token_group_index: usize) -> ScopeSource {
-        ScopeSource::WithinModule {
+impl EntitySource {
+    pub fn from_file(file_id: FilePtr, token_group_index: usize) -> EntitySource {
+        EntitySource::WithinModule {
             file: file_id,
             token_group_index: token_group_index,
         }
     }
 }
 
-impl From<&'static BuiltinScopeData> for ScopeSource {
-    fn from(data: &'static BuiltinScopeData) -> Self {
+impl From<&'static BuiltinEntityData> for EntitySource {
+    fn from(data: &'static BuiltinEntityData) -> Self {
         Self::Builtin(data)
     }
 }

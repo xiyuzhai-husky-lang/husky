@@ -11,7 +11,7 @@ use crate::*;
 pub trait AstSalsaQueryGroup: scope_query::ScopeQueryGroup {
     fn ast_text(&self, file: FilePtr) -> ScopeResultArc<AstText>;
 
-    fn parse_ty(&self, code: &'static str) -> AstResult<ScopePtr>;
+    fn parse_ty(&self, code: &'static str) -> AstResult<EntityRoutePtr>;
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
@@ -34,7 +34,7 @@ fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> ScopeResultArc<AstTex
     Ok(Arc::new(parser.finish()))
 }
 
-fn parse_ty(db: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<ScopePtr> {
+fn parse_ty(db: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<EntityRoutePtr> {
     let tokens = db.tokenize(code);
     let symbols = fold::LocalStack::<Symbol>::new();
     let proxy = SymbolProxy {
