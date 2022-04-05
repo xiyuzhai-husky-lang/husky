@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 use ast::*;
 pub use branch::*;
-use scope::InputPlaceholder;
+use entity_route::InputPlaceholder;
 use semantics_error::SemanticResultArc;
 use vm::{InstructionId, InstructionSource};
 

@@ -1,24 +1,28 @@
 use crate::*;
 #[salsa::query_group(VisualQueryGroupStorage)]
 pub trait VisualQueryGroup: AskCompileTime {
-    fn visualizer(&self, version: usize, ty: ScopePtr) -> Arc<RuntimeVisualizer>;
+    fn visualizer(&self, version: usize, ty: EntityRoutePtr) -> Arc<RuntimeVisualizer>;
 }
 
-fn visualizer(db: &dyn VisualQueryGroup, version: usize, ty: ScopePtr) -> Arc<RuntimeVisualizer> {
-    let scope_source = db.compile_time(version).scope_source(ty).unwrap();
+fn visualizer(
+    db: &dyn VisualQueryGroup,
+    version: usize,
+    ty: EntityRoutePtr,
+) -> Arc<RuntimeVisualizer> {
+    let scope_source = db.compile_time(version).entity_source(ty).unwrap();
     match scope_source {
-        ScopeSource::Builtin(builtin_scope_data) => match builtin_scope_data.signature {
+        EntitySource::Builtin(builtin_scope_data) => match builtin_scope_data.signature {
             BuiltinScopeSignature::Func(_) => todo!(),
             BuiltinScopeSignature::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
             BuiltinScopeSignature::Module => todo!(),
             BuiltinScopeSignature::Vec => todo!(),
         },
-        ScopeSource::WithinBuiltinModule => todo!(),
-        ScopeSource::WithinModule {
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => todo!(),
-        ScopeSource::Module { file } => todo!(),
-        ScopeSource::Contextual { main, ident } => todo!(),
+        EntitySource::Module { file } => todo!(),
+        EntitySource::Contextual { main, ident } => todo!(),
     }
 }

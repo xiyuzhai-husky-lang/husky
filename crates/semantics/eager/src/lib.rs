@@ -13,10 +13,10 @@ pub use stmt::{
 };
 pub use variable::EagerVariable;
 
+use entity_route::InputPlaceholder;
+use entity_route::{RangedScope, EntityRoutePtr};
 use infer_total::InferQueryGroup;
 use print_utils::*;
-use scope::InputPlaceholder;
-use scope::{RangedScope, ScopePtr};
 use semantics_error::{SemanticError, SemanticResult, SemanticResultArc};
 use std::sync::Arc;
 use word::CustomIdentifier;

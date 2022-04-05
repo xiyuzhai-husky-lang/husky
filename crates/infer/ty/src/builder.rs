@@ -5,7 +5,7 @@ mod impl_stmt;
 
 use super::*;
 use ast::{AstIter, AstText};
-use scope::InputPlaceholder;
+use entity_route::InputPlaceholder;
 use std::sync::Arc;
 use text::TextRanged;
 

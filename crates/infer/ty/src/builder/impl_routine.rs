@@ -1,4 +1,4 @@
-use scope::RangedScope;
+use entity_route::RangedScope;
 
 use super::*;
 
@@ -6,7 +6,7 @@ impl<'a> TySheetBuilder<'a> {
     pub(super) fn infer_routine(
         &mut self,
         inputs: &[InputPlaceholder],
-        output_ty: ScopePtr,
+        output_ty: EntityRoutePtr,
         ast_iter: AstIter,
         arena: &RawExprArena,
     ) {

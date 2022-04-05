@@ -30,7 +30,7 @@ json-map = { path = "../../abstraction/json-map", version = "0.0.0" }
 json-result = { path = "../../abstraction/json-result", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
 compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
-scope = { path = "../../syntax/scope", version = "0.0.0" }
+entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
 trace = { path = "../../runtime/trace", version = "0.0.0" }

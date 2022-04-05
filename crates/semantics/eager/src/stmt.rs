@@ -12,7 +12,7 @@ use crate::*;
 use ast::*;
 use file::FilePtr;
 use print_utils::*;
-use scope::ScopePtr;
+use entity_route::EntityRoutePtr;
 use semantics_error::{err, not_none};
 use text::TextRange;
 use word::{BuiltinIdentifier, CustomIdentifier};

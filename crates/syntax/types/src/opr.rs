@@ -1,4 +1,4 @@
-use scope::ScopePtr;
+use entity_route::EntityRoutePtr;
 use vm::{BinaryOpr, PureBinaryOpr};
 use word::{CustomIdentifier, Identifier};
 
@@ -82,7 +82,7 @@ pub enum SuffixOpr {
     Decr,                         // --
     MayReturn,                    // ?
     MembAccess(CustomIdentifier), // .
-    WithType(ScopePtr),           // :
+    WithType(EntityRoutePtr),           // :
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]

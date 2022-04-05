@@ -2,9 +2,9 @@ use word::BuiltinIdentifier;
 
 use crate::*;
 
-pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: ScopePtr) -> bool {
+pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: EntityRoutePtr) -> bool {
     match ty {
-        ScopePtr::Builtin(builtin_ident) => match builtin_ident {
+        EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
             BuiltinIdentifier::Void
             | BuiltinIdentifier::I32
             | BuiltinIdentifier::F32
@@ -31,6 +31,6 @@ pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: ScopePtr) -
             BuiltinIdentifier::PartialEqTrait => todo!(),
             BuiltinIdentifier::EqTrait => todo!(),
         },
-        ScopePtr::Custom(_) => todo!(),
+        EntityRoutePtr::Custom(_) => todo!(),
     }
 }

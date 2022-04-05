@@ -1,11 +1,11 @@
-use scope::{InputPlaceholder, ScopePtr};
+use entity_route::{EntityRoutePtr, InputPlaceholder};
 use vm::InputContract;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyVariable {
     pub ident: CustomIdentifier,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
     pub is_reference: bool,
 }
 

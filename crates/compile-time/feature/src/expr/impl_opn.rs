@@ -13,11 +13,11 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> (FeatureExprKind, FeaturePtr) {
         match opn_kind {
             LazyOpnKind::Binary { opr, this } => match this {
-                ScopePtr::Builtin(BuiltinIdentifier::Void)
-                | ScopePtr::Builtin(BuiltinIdentifier::I32)
-                | ScopePtr::Builtin(BuiltinIdentifier::F32)
-                | ScopePtr::Builtin(BuiltinIdentifier::B32)
-                | ScopePtr::Builtin(BuiltinIdentifier::B64) => {
+                EntityRoutePtr::Builtin(BuiltinIdentifier::Void)
+                | EntityRoutePtr::Builtin(BuiltinIdentifier::I32)
+                | EntityRoutePtr::Builtin(BuiltinIdentifier::F32)
+                | EntityRoutePtr::Builtin(BuiltinIdentifier::B32)
+                | EntityRoutePtr::Builtin(BuiltinIdentifier::B64) => {
                     let lopd = self.new_expr(&opds[0]);
                     let ropd = self.new_expr(&opds[1]);
                     let feature = self.features.alloc(Feature::PrimitiveBinaryOpr {

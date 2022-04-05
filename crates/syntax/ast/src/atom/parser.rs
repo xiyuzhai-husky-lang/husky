@@ -12,7 +12,7 @@ use core::slice::Iter;
 use check_utils::should;
 use file::FilePtr;
 use print_utils::p;
-use scope::{GenericArgument, Scope, ScopeKind, RawEntityKind};
+use entity_route::{GenericArgument, Route, ScopeKind, RawEntityKind};
 use text::TextRange;
 use token::{Special, Token, TokenKind};
 use vm::{BinaryOpr, PureBinaryOpr};
@@ -182,7 +182,7 @@ impl<'a> AtomLRParser<'a> {
     }
 }
 
-pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr>) -> AstResult<ScopePtr> {
+pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr>) -> AstResult<EntityRoutePtr> {
     let result = AtomLRParser::new(file, scope_proxy, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()

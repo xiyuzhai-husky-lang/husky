@@ -1,4 +1,4 @@
-pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
     signature: BuiltinScopeSignature::Module,
 };

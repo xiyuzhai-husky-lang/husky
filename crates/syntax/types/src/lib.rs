@@ -4,8 +4,8 @@ use std::sync::Arc;
 
 pub use opr::*;
 
-use scope::{
-    GenericPlaceholderKind, InputPlaceholder, InputSignature, RangedScope, ScopeKind, ScopePtr,
+use entity_route::{
+    GenericPlaceholderKind, InputPlaceholder, InputSignature, RangedScope, ScopeKind, EntityRoutePtr,
 };
 use vm::{InputContract, MembAccessContract};
 use word::{CustomIdentifier, IdentMap};
@@ -13,14 +13,14 @@ use word::{CustomIdentifier, IdentMap};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembAccessSignature {
     pub contract: MembAccessContract,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MembCallSignature {
     pub this_contract: InputContract,
     pub inputs: Vec<InputSignature>,
-    pub output: ScopePtr,
+    pub output: EntityRoutePtr,
     pub args: IdentMap<GenericPlaceholderKind>,
 }
 // #[derive(Debug, PartialEq, Eq, Clone)]
@@ -86,7 +86,7 @@ impl Into<MembCallSignature> for &MembRoutineHead {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembType {
     pub contract: MembAccessContract,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
 }
 
 // #[derive(Debug, PartialEq, Eq, Clone, Copy)]

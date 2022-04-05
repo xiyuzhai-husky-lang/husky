@@ -1,4 +1,4 @@
-use scope::ScopePtr;
+use entity_route::EntityRoutePtr;
 use semantics_eager::{
     Boundary, DeclStmt, DeclStmtKind, EagerExpr, ImprStmt, ImprStmtKind, LoopKind,
 };
@@ -217,7 +217,7 @@ impl<'a> RustGenerator<'a> {
 
     fn gen_condition(&mut self, condition: &EagerExpr) {
         match condition.ty {
-            ScopePtr::Builtin(builtin_ident) => match builtin_ident {
+            EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
                 BuiltinIdentifier::Void => todo!(),
                 BuiltinIdentifier::I32
                 | BuiltinIdentifier::F32
@@ -247,7 +247,7 @@ impl<'a> RustGenerator<'a> {
                 BuiltinIdentifier::PartialEqTrait => todo!(),
                 BuiltinIdentifier::EqTrait => todo!(),
             },
-            ScopePtr::Custom(_) => panic!(),
+            EntityRoutePtr::Custom(_) => panic!(),
         }
     }
 }

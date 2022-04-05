@@ -6,7 +6,7 @@ use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 use infer_signature::TySignature;
-use scope::{RangedScope, RawEntityKind, ScopeKind, ScopePtr};
+use entity_route::{RangedScope, RawEntityKind, ScopeKind, EntityRoutePtr};
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
 use word::{BuiltinIdentifier, CustomIdentifier};
@@ -16,7 +16,7 @@ use semantics_error::*;
 
 pub trait LazyExprParser<'a> {
     fn arena(&self) -> &'a RawExprArena;
-    fn vartype(&self, varname: CustomIdentifier) -> ScopePtr;
+    fn vartype(&self, varname: CustomIdentifier) -> EntityRoutePtr;
     fn db(&self) -> &'a dyn InferQueryGroup;
     fn file(&self) -> FilePtr;
 
@@ -34,13 +34,13 @@ pub trait LazyExprParser<'a> {
             RawExprKind::Scope { scope, kind, .. } => match kind {
                 RawEntityKind::Module => todo!(),
                 RawEntityKind::Literal => match scope {
-                    ScopePtr::Builtin(BuiltinIdentifier::True) => {
+                    EntityRoutePtr::Builtin(BuiltinIdentifier::True) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
-                    ScopePtr::Builtin(BuiltinIdentifier::False) => {
+                    EntityRoutePtr::Builtin(BuiltinIdentifier::False) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false))
                     }
-                    ScopePtr::Custom(scope_ref) => LazyExprKind::EnumLiteral {
+                    EntityRoutePtr::Custom(scope_ref) => LazyExprKind::EnumLiteral {
                         scope,
                         value: self.db().enum_literal_value(scope),
                     },
@@ -125,19 +125,19 @@ pub trait LazyExprParser<'a> {
     fn infer_pure_binary_opr_type(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_ty: ScopePtr,
-        ropd_ty: ScopePtr,
-    ) -> SemanticResult<ScopePtr> {
+        lopd_ty: EntityRoutePtr,
+        ropd_ty: EntityRoutePtr,
+    ) -> SemanticResult<EntityRoutePtr> {
         match lopd_ty {
-            ScopePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
-                ScopePtr::Builtin(ropd_builtin_ty) => self.infer_builtin_pure_binary_opr_type(
+            EntityRoutePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
+                EntityRoutePtr::Builtin(ropd_builtin_ty) => self.infer_builtin_pure_binary_opr_type(
                     pure_binary_opr,
                     lopd_builtin_ty,
                     ropd_builtin_ty,
                 ),
-                ScopePtr::Custom(_) => todo!(),
+                EntityRoutePtr::Custom(_) => todo!(),
             },
-            ScopePtr::Custom(lopd_custom_ty) => todo!(),
+            EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
         }
     }
 
@@ -146,7 +146,7 @@ pub trait LazyExprParser<'a> {
         pure_binary_opr: PureBinaryOpr,
         lopd_builtin_ty: BuiltinIdentifier,
         ropd_builtin_ty: BuiltinIdentifier,
-    ) -> SemanticResult<ScopePtr> {
+    ) -> SemanticResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
             | PureBinaryOpr::Leq

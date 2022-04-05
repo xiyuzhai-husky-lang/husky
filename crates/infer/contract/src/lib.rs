@@ -5,11 +5,11 @@ mod sheet;
 use ast::RawExprIdx;
 use check_utils::*;
 use copy::is_copyable;
+use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use infer_error::InferResult;
 use infer_ty::InferTyQueryGroup;
 use print_utils::*;
-use scope::ScopePtr;
 use scope_query::{ScopeQueryGroup, ScopeResultArc};
 use sheet::*;
 use vm::{EagerContract, LazyContract};
@@ -20,7 +20,7 @@ pub trait InferContractSalsaQueryGroup:
 {
     fn contract_sheet(&self, file: FilePtr) -> ScopeResultArc<ContractSheet>;
 
-    fn is_copyable(&self, ty: ScopePtr) -> bool;
+    fn is_copyable(&self, ty: EntityRoutePtr) -> bool;
 }
 
 pub trait InferContractQueryGroup: InferContractSalsaQueryGroup {

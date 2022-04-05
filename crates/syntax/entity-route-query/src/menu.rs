@@ -1,17 +1,17 @@
 use crate::*;
-use scope::*;
+use entity_route::*;
 use std::sync::Arc;
 use word::BuiltinIdentifier;
 
-pub(crate) fn scope_menu(db: &dyn ScopeSalsaQueryGroup) -> Arc<ScopeMenu> {
-    Arc::new(ScopeMenu {
-        clone_trait: db.intern_scope(Scope {
+pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<EntityRouteMenu> {
+    Arc::new(EntityRouteMenu {
+        clone_trait: db.intern_scope(Route {
             kind: ScopeKind::Builtin {
                 ident: BuiltinIdentifier::CloneTrait,
             },
             generics: vec![],
         }),
-        void_type: db.intern_scope(Scope {
+        void_type: db.intern_scope(Route {
             kind: ScopeKind::Builtin {
                 ident: BuiltinIdentifier::Void,
             },
@@ -21,7 +21,7 @@ pub(crate) fn scope_menu(db: &dyn ScopeSalsaQueryGroup) -> Arc<ScopeMenu> {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ScopeMenu {
-    pub clone_trait: ScopePtr,
-    pub void_type: ScopePtr,
+pub struct EntityRouteMenu {
+    pub clone_trait: EntityRoutePtr,
+    pub void_type: EntityRoutePtr,
 }

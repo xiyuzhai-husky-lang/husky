@@ -35,7 +35,7 @@ pub enum Owner {
 
 pub struct QualifiedType {
     qual: Qual,
-    ty: ScopePtr,
+    ty: EntityRoutePtr,
 }
 
 impl Qual {

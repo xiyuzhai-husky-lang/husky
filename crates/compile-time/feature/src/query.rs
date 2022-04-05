@@ -1,4 +1,4 @@
-use scope::ScopePtr;
+use entity_route::EntityRoutePtr;
 use semantics_entity::{EntityKind, EntityQueryGroup};
 use semantics_error::SemanticResultArc;
 use semantics_package::*;
@@ -11,7 +11,7 @@ pub trait FeatureQueryGroup:
     AllocateUniqueFeature + PackageQueryGroup + Upcast<dyn EntityQueryGroup>
 {
     fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
-    fn scoped_feature_block(&self, scope: ScopePtr) -> SemanticResultArc<FeatureBlock>;
+    fn scoped_feature_block(&self, scope: EntityRoutePtr) -> SemanticResultArc<FeatureBlock>;
     fn record_memb_repr(&self, this: FeatureRepr, memb_ident: CustomIdentifier) -> FeatureRepr;
 }
 
@@ -26,7 +26,7 @@ fn main_feature_block(
 
 fn scoped_feature_block(
     db: &dyn FeatureQueryGroup,
-    scope: ScopePtr,
+    scope: EntityRoutePtr,
 ) -> SemanticResultArc<FeatureBlock> {
     let entity = db.entity(scope)?;
     match entity.kind() {

@@ -7,9 +7,9 @@ pub use vec::*;
 
 use crate::*;
 use ast::AstIter;
+use entity_route::*;
 use enum_ty::*;
 use record::*;
-use scope::*;
 use syntax_types::{MembAccessSignature, MembCallSignature, RawEnumVariantKind};
 use vec_map::VecMap;
 use vm::{MembAccessContract, VMTySignatureKind};
@@ -18,7 +18,7 @@ use word::{IdentMap, WordAllocator};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TySignature {
     generic_placeholders: IdentMap<GenericPlaceholderKind>,
-    traits: Vec<ScopePtr>,
+    traits: Vec<EntityRoutePtr>,
     members: IdentMap<MembSignature>,
     kind: TySignatureKind,
 }
@@ -26,7 +26,7 @@ pub struct TySignature {
 impl TySignature {
     fn new(
         generic_placeholders: Vec<GenericArgument>,
-        traits: Vec<ScopePtr>,
+        traits: Vec<EntityRoutePtr>,
         members: IdentMap<MembSignature>,
     ) -> Self {
         todo!()
@@ -44,10 +44,10 @@ pub enum TySignatureKind {
     },
     Record {
         memb_vars: IdentMap<MembAccessSignature>,
-        memb_features: IdentMap<ScopePtr>,
+        memb_features: IdentMap<EntityRoutePtr>,
     },
     Vec {
-        element_ty: ScopePtr,
+        element_ty: EntityRoutePtr,
     },
 }
 
@@ -73,7 +73,7 @@ impl TySignature {
     //     }
     // }
 
-    pub fn memb_access_ty_result(&self, ident: CustomIdentifier) -> InferResult<ScopePtr> {
+    pub fn memb_access_ty_result(&self, ident: CustomIdentifier) -> InferResult<EntityRoutePtr> {
         match self.kind {
             TySignatureKind::Struct { ref memb_vars, .. } => ok_or!(
                 memb_vars.get(ident),
@@ -187,11 +187,11 @@ pub enum EnumVariantSignature {
 
 pub(crate) fn ty_signature(
     db: &dyn InferSignatureQueryGroup,
-    scope: ScopePtr,
+    scope: EntityRoutePtr,
 ) -> InferResultArc<TySignature> {
-    let source = db.scope_source(scope)?;
+    let source = db.entity_source(scope)?;
     match source {
-        ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
+        EntitySource::Builtin(data) => Ok(Arc::new(match data.signature {
             BuiltinScopeSignature::Func(_) => todo!(),
             BuiltinScopeSignature::Module => todo!(),
             BuiltinScopeSignature::Ty { .. } => todo!(),
@@ -200,8 +200,8 @@ pub(crate) fn ty_signature(
                 vec_signature_template.instantiate(db, &scope.generics)
             }
         })),
-        ScopeSource::WithinBuiltinModule => todo!(),
-        ScopeSource::WithinModule {
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => {
@@ -236,8 +236,8 @@ pub(crate) fn ty_signature(
                 _ => panic!(),
             }
         }
-        ScopeSource::Module { file } => todo!(),
-        ScopeSource::Contextual { .. } => todo!(),
+        EntitySource::Module { file } => todo!(),
+        EntitySource::Contextual { .. } => todo!(),
     }
 }
 

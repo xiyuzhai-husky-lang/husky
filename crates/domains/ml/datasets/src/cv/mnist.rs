@@ -16,7 +16,7 @@ use load::*;
 use test::*;
 use val::*;
 
-pub const MNIST_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+pub const MNIST_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
         ("BinaryImage28", BINARY_IMAGE_28_SCOPE_DATA),
@@ -24,7 +24,7 @@ pub const MNIST_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     signature: BuiltinScopeSignature::Module,
 };
 
-const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
     signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
@@ -35,7 +35,7 @@ const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     }),
 };
 
-const BINARY_IMAGE_28_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+const BINARY_IMAGE_28_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
     signature: BuiltinScopeSignature::Ty {
         visualizer: BuiltinVisualizer {

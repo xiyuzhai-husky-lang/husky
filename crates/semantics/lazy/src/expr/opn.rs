@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use infer_signature::{MembAccessKind, TySignature};
-use scope::{RangedScope, ScopePtr};
+use entity_route::{RangedScope, EntityRoutePtr};
 use syntax_types::*;
 use vm::PureBinaryOpr;
 use word::CustomIdentifier;
@@ -10,7 +10,7 @@ use word::CustomIdentifier;
 pub enum LazyOpnKind {
     Binary {
         opr: PureBinaryOpr,
-        this: ScopePtr,
+        this: EntityRoutePtr,
     },
     Prefix(PrefixOpr),
     RoutineCall(RangedScope),

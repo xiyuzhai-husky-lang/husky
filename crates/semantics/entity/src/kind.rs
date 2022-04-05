@@ -8,8 +8,8 @@ use semantics_lazy::LazyStmt;
 pub use ty::*;
 
 use crate::*;
-use scope::InputPlaceholder;
-use scope::RangedScope;
+use entity_route::InputPlaceholder;
+use entity_route::RangedScope;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EntityKind {

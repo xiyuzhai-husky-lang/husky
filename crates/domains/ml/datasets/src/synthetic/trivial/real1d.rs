@@ -1,10 +1,10 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
-use scope::StaticFuncSignature;
+use entity_route::StaticFuncSignature;
 use std::sync::Arc;
 use vm::{BoxedValue, Compiled, StackValue};
 use xrng::XRng;
 
-pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
@@ -12,7 +12,7 @@ pub const SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     signature: BuiltinScopeSignature::Module,
 };
 
-pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
     signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],
@@ -23,7 +23,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
     }),
 };
 
-pub const DATASET2_SCOPE_DATA: &BuiltinScopeData = &BuiltinScopeData {
+pub const DATASET2_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
     signature: BuiltinScopeSignature::Func(StaticFuncSignature {
         inputs: vec![],

@@ -1,7 +1,7 @@
 use crate::*;
 use ast::*;
 use file::FilePtr;
-use scope::{InputPlaceholder, ScopePtr};
+use entity_route::{InputPlaceholder, EntityRoutePtr};
 use semantics_error::*;
 use std::sync::Arc;
 use vm::{InitKind, StackIdx, VMResult};
@@ -35,7 +35,7 @@ impl<'a> LazyStmtParser<'a> {
     pub(super) fn def_variable(
         &mut self,
         varname: CustomIdentifier,
-        ty: ScopePtr,
+        ty: EntityRoutePtr,
     ) -> VMResult<StackIdx> {
         let varidx = StackIdx::new(self.variables.len())?;
         msg_once!("todo: is reference variable");
@@ -194,7 +194,7 @@ impl<'a> LazyExprParser<'a> for LazyStmtParser<'a> {
         self.arena
     }
 
-    fn vartype(&self, varname: CustomIdentifier) -> ScopePtr {
+    fn vartype(&self, varname: CustomIdentifier) -> EntityRoutePtr {
         self.variables
             .iter()
             .find_map(|variable| {

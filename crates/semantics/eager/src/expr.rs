@@ -8,7 +8,7 @@ use file::FilePtr;
 pub use opn::*;
 pub(crate) use parser::EagerExprParser;
 
-use scope::ScopePtr;
+use entity_route::EntityRoutePtr;
 use text::TextRange;
 use vm::{Compiled, EagerContract, InstructionId, InstructionSource, PrimitiveValue};
 use word::CustomIdentifier;
@@ -17,7 +17,7 @@ use word::CustomIdentifier;
 pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
     pub kind: EagerExprKind,
     pub instruction_id: InstructionId,
     pub contract: EagerContract,
@@ -34,7 +34,7 @@ pub enum EagerExprKind {
     Variable(CustomIdentifier),
     This,
     Scope {
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         compiled: Option<Compiled>,
     },
     PrimitiveLiteral(PrimitiveValue),
@@ -44,5 +44,5 @@ pub enum EagerExprKind {
         compiled: Option<Compiled>,
         opds: Vec<Arc<EagerExpr>>,
     },
-    Lambda(Vec<(CustomIdentifier, Option<ScopePtr>)>, Box<EagerExpr>),
+    Lambda(Vec<(CustomIdentifier, Option<EntityRoutePtr>)>, Box<EagerExpr>),
 }

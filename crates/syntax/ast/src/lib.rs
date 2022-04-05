@@ -18,8 +18,8 @@ use check_utils::*;
 use dev_utils::*;
 use env::Env;
 use print_utils::*;
-use scope::*;
-use scope::{RangedScope, ScopePtr};
+use entity_route::*;
+use entity_route::{RangedScope, EntityRoutePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::InitKind;
@@ -50,7 +50,7 @@ pub enum AstKind {
     },
     MembFeatureDecl {
         ident: CustomIdentifier,
-        ty: ScopePtr,
+        ty: EntityRoutePtr,
     },
     MembRoutineDecl {
         routine_kind: RoutineKind,
@@ -58,7 +58,7 @@ pub enum AstKind {
     },
     Use {
         ident: CustomIdentifier,
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
     },
     MembVar {
         ident: CustomIdentifier,

@@ -33,7 +33,7 @@ impl ScopeAliasTable {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Entry {
     ident: Identifier,
-    scope_id: ScopePtr,
+    scope_id: EntityRoutePtr,
 }
 
 impl Entry {

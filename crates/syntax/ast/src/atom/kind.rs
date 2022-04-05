@@ -1,4 +1,4 @@
-use scope::{RangedScope, RawEntityKind, ScopeKind};
+use entity_route::{RangedScope, RawEntityKind, ScopeKind};
 use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
@@ -9,7 +9,7 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
     Scope {
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         kind: RawEntityKind,
     },
     Variable {
@@ -17,7 +17,7 @@ pub enum AtomKind {
         init_row: Row,
     },
     This {
-        ty: Option<ScopePtr>,
+        ty: Option<EntityRoutePtr>,
     },
     Unrecognized(CustomIdentifier),
     Literal(PrimitiveValue),

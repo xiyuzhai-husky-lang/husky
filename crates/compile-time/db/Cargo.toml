@@ -31,8 +31,8 @@ vm = { path = "../../runtime/vm", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 token = { path = "../../syntax/token", version = "0.0.0" }
-scope = { path = "../../syntax/scope", version = "0.0.0" }
-scope-query = { path = "../../syntax/scope-query", version = "0.0.0" }
+entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
+scope-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 husky-fmt = { path = "../../syntax/fmt", version = "0.0.0" }
 infer-signature = { path = "../../infer/signature", version = "0.0.0" }

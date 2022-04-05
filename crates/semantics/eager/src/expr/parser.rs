@@ -1,6 +1,6 @@
 use ast::{RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 use file::FilePtr;
-use scope::{RawEntityKind, ScopeKind, ScopePtr};
+use entity_route::{RawEntityKind, ScopeKind, EntityRoutePtr};
 use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue};
 use word::BuiltinIdentifier;
@@ -30,13 +30,13 @@ pub trait EagerExprParser<'a> {
             RawExprKind::Scope { scope, kind } => match kind {
                 RawEntityKind::Module => todo!(),
                 RawEntityKind::Literal => match scope {
-                    ScopePtr::Builtin(BuiltinIdentifier::True) => {
+                    EntityRoutePtr::Builtin(BuiltinIdentifier::True) => {
                         EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
-                    ScopePtr::Builtin(BuiltinIdentifier::False) => {
+                    EntityRoutePtr::Builtin(BuiltinIdentifier::False) => {
                         EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false))
                     }
-                    ScopePtr::Custom(_) => todo!(),
+                    EntityRoutePtr::Custom(_) => todo!(),
                     _ => todo!(),
                 },
                 RawEntityKind::Type(_) => todo!(),

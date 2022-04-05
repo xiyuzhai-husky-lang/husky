@@ -10,10 +10,10 @@ impl<'a> TySheetBuilder<'a> {
     pub(super) fn infer_expr(
         &mut self,
         expr_idx: RawExprIdx,
-        expectation: Option<ScopePtr>,
+        expectation: Option<EntityRoutePtr>,
         arena: &RawExprArena,
-    ) -> Option<ScopePtr> {
-        let ty_result: InferResult<ScopePtr> = self.expr_ty_result(expr_idx, expectation, arena);
+    ) -> Option<EntityRoutePtr> {
+        let ty_result: InferResult<EntityRoutePtr> = self.expr_ty_result(expr_idx, expectation, arena);
         let opt_ty = ty_result.as_ref().ok().map(|ty| *ty);
         insert_new!(self.ty_sheet.exprs, expr_idx, ty_result);
         opt_ty
@@ -22,9 +22,9 @@ impl<'a> TySheetBuilder<'a> {
     pub(super) fn expr_ty_result(
         &mut self,
         expr_idx: RawExprIdx,
-        expectation: Option<ScopePtr>,
+        expectation: Option<EntityRoutePtr>,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         let ty = match arena[expr_idx].kind {
             RawExprKind::Variable { varname, init_row } => Ok(derived_not_none!(self
                 .ty_sheet
@@ -53,15 +53,15 @@ impl<'a> TySheetBuilder<'a> {
 
     fn scope_ty_result(
         &mut self,
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         entity_kind: RawEntityKind,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         Ok(match entity_kind {
             RawEntityKind::Module => todo!(),
             RawEntityKind::Literal => match scope {
-                ScopePtr::Builtin(BuiltinIdentifier::True)
-                | ScopePtr::Builtin(BuiltinIdentifier::False) => BuiltinIdentifier::Bool.into(),
-                ScopePtr::Custom(scope) => match scope.kind {
+                EntityRoutePtr::Builtin(BuiltinIdentifier::True)
+                | EntityRoutePtr::Builtin(BuiltinIdentifier::False) => BuiltinIdentifier::Bool.into(),
+                EntityRoutePtr::Custom(scope) => match scope.kind {
                     ScopeKind::Builtin { ident } => todo!(),
                     ScopeKind::Package { main, ident } => todo!(),
                     ScopeKind::ChildScope { parent, ident } => parent,
@@ -87,7 +87,7 @@ impl<'a> TySheetBuilder<'a> {
         opds: &RawExprRange,
         expr_idx: RawExprIdx,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         match opr {
             Opr::Binary(opr) => self.binary_opn_ty_result(opr, opds.start, opds.start + 1, arena),
             Opr::Prefix(opr) => self.prefix_opn_ty_result(opr, opds.start, arena),
@@ -102,20 +102,20 @@ impl<'a> TySheetBuilder<'a> {
         lopd: RawExprIdx,
         ropd: RawExprIdx,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         let lopd_ty = derived_not_none!(self.infer_expr(lopd, None, arena))?;
         let ropd_ty = derived_not_none!(self.infer_expr(ropd, None, arena))?;
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => match lopd_ty {
-                ScopePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
-                    ScopePtr::Builtin(ropd_builtin_ty) => self.builtin_pure_binary_opn_ty_result(
+                EntityRoutePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
+                    EntityRoutePtr::Builtin(ropd_builtin_ty) => self.builtin_pure_binary_opn_ty_result(
                         pure_binary_opr,
                         lopd_builtin_ty,
                         ropd_builtin_ty,
                     ),
-                    ScopePtr::Custom(_) => todo!(),
+                    EntityRoutePtr::Custom(_) => todo!(),
                 },
-                ScopePtr::Custom(lopd_custom_ty) => todo!(),
+                EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
             },
             BinaryOpr::Assign(_) => {
                 if lopd_ty != ropd_ty {
@@ -131,7 +131,7 @@ impl<'a> TySheetBuilder<'a> {
         pure_binary_opr: PureBinaryOpr,
         lopd_builtin_ty: BuiltinIdentifier,
         ropd_builtin_ty: BuiltinIdentifier,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
             | PureBinaryOpr::Leq
@@ -183,7 +183,7 @@ impl<'a> TySheetBuilder<'a> {
         opr: PrefixOpr,
         opd: RawExprIdx,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         todo!()
     }
 
@@ -192,7 +192,7 @@ impl<'a> TySheetBuilder<'a> {
         opr: SuffixOpr,
         opd: RawExprIdx,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None, arena))?;
         match opr {
             SuffixOpr::Incr => todo!(),
@@ -210,7 +210,7 @@ impl<'a> TySheetBuilder<'a> {
         opr: ListOpr,
         opds: &RawExprRange,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         match opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
@@ -226,7 +226,7 @@ impl<'a> TySheetBuilder<'a> {
         &mut self,
         all_opds: &RawExprRange,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
             RawExprKind::Scope { scope, .. } => {
@@ -269,7 +269,7 @@ impl<'a> TySheetBuilder<'a> {
         memb_ident: CustomIdentifier,
         inputs: RawExprRange,
         arena: &RawExprArena,
-    ) -> InferResult<ScopePtr> {
+    ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_signature = derived_ok!(self.db.ty_signature(this_ty));
         let memb_call_signature = this_ty_signature.memb_call_signature(memb_ident)?;

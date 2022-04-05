@@ -1,7 +1,7 @@
 use atom::{Bracket, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 use check_utils::should;
 use file::FilePtr;
-use scope::RangedScope;
+use entity_route::RangedScope;
 use text::{TextPosition, TextRange};
 use vm::{BinaryOpr, PrimitiveValue};
 

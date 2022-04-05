@@ -11,6 +11,6 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
-scope = { path = "../../syntax/scope", version = "0.0.0" }
+entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }

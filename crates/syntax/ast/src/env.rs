@@ -5,7 +5,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Env {
     Package(FilePtr),
-    Module(ScopePtr),
+    Module(EntityRoutePtr),
     DatasetConfig,
     Main,
     Morphism,
@@ -19,7 +19,7 @@ pub enum Env {
 }
 
 impl Env {
-    pub fn subscope(&self, db: &dyn AstSalsaQueryGroup, ident: CustomIdentifier) -> ScopePtr {
+    pub fn subscope(&self, db: &dyn AstSalsaQueryGroup, ident: CustomIdentifier) -> EntityRoutePtr {
         match self {
             Env::Package(main) => db
                 .subscope(db.module(*main).unwrap(), ident, vec![])

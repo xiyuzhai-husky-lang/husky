@@ -1,4 +1,4 @@
-use scope::InputPlaceholder;
+use entity_route::InputPlaceholder;
 use text::TextRange;
 
 use super::*;
@@ -6,7 +6,7 @@ use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 pub struct TySheetVarEntry {
-    pub(super) opt_ty: Option<ScopePtr>,
+    pub(super) opt_ty: Option<EntityRoutePtr>,
     pub(super) errors: Vec<InferError>,
 }
 

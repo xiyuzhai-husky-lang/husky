@@ -1,4 +1,4 @@
-use scope::InputPlaceholder;
+use entity_route::InputPlaceholder;
 use word::CustomIdentifier;
 
 use super::*;

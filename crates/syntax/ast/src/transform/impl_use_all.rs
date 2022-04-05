@@ -1,4 +1,4 @@
-use scope::ScopeKind;
+use entity_route::ScopeKind;
 use text::TextRange;
 
 use crate::{
@@ -7,7 +7,7 @@ use crate::{
 };
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn use_all(&mut self, parent: ScopePtr, range: TextRange) -> AstResult<()> {
+    pub(super) fn use_all(&mut self, parent: EntityRoutePtr, range: TextRange) -> AstResult<()> {
         self.symbols.extend(
             self.db
                 .subscope_table(parent)

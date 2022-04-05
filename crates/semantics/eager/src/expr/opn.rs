@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
+use entity_route::{EntityRoutePtr, RangedScope};
 use infer_signature::TySignature;
-use scope::{RangedScope, ScopePtr};
 use syntax_types::{PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;
@@ -10,15 +10,15 @@ use word::CustomIdentifier;
 pub enum EagerOpnKind {
     Binary {
         opr: BinaryOpr,
-        this: ScopePtr,
+        this: EntityRoutePtr,
     },
     Prefix {
         opr: PrefixOpr,
-        this: ScopePtr,
+        this: EntityRoutePtr,
     },
     Suffix {
         opr: SuffixOpr,
-        this: ScopePtr,
+        this: EntityRoutePtr,
     },
     RoutineCall(RangedScope),
     TypeCall {

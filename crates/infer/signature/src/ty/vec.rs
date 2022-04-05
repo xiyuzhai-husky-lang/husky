@@ -4,7 +4,7 @@ use super::*;
 
 pub(crate) fn vec_signature_template(db: &dyn InferSignatureQueryGroup) -> Arc<TySignature> {
     let element_ty_ident = db.custom_ident("T");
-    let element_ty = db.intern_scope(Scope {
+    let element_ty = db.intern_scope(Route {
         kind: ScopeKind::Generic {
             ident: element_ty_ident,
             raw_entity_kind: RawEntityKind::Type(RawTyKind::Other),
@@ -21,7 +21,7 @@ pub(crate) fn vec_signature_template(db: &dyn InferSignatureQueryGroup) -> Arc<T
                     contract: InputContract::Move,
                     ty: element_ty,
                 }],
-                output: db.scope_menu().void_type,
+                output: db.entity_route_menu().void_type,
                 args: Default::default(),
             }),
         },
@@ -35,6 +35,6 @@ pub(crate) fn vec_signature_template(db: &dyn InferSignatureQueryGroup) -> Arc<T
         generic_placeholders,
         members,
         kind: TySignatureKind::Vec { element_ty },
-        traits: vec![db.scope_menu().clone_trait],
+        traits: vec![db.entity_route_menu().clone_trait],
     })
 }

@@ -2,8 +2,8 @@ use ast::{
     RawBoundary, RawExprArena, RawExprKind, RawExprRange, RawLoopKind, RawStmt, RawStmtKind,
 };
 
+use entity_route::EntityRoutePtr;
 use infer_error::*;
-use scope::ScopePtr;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;
@@ -14,7 +14,7 @@ use crate::*;
 impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn infer_routine(
         &mut self,
-        output_ty: ScopePtr,
+        output_ty: EntityRoutePtr,
         ast_iter: AstIter,
         arena: &RawExprArena,
     ) {
@@ -24,7 +24,7 @@ impl<'a> ContractSheetBuilder<'a> {
     pub(super) fn infer_eager_stmts(
         &mut self,
         ast_iter: AstIter,
-        output_ty: ScopePtr,
+        output_ty: EntityRoutePtr,
         arena: &RawExprArena,
     ) {
         for item in ast_iter.clone() {
@@ -40,7 +40,12 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_eager_stmt(&mut self, stmt: &RawStmt, output_ty: ScopePtr, arena: &RawExprArena) {
+    fn infer_eager_stmt(
+        &mut self,
+        stmt: &RawStmt,
+        output_ty: EntityRoutePtr,
+        arena: &RawExprArena,
+    ) {
         match stmt.kind {
             RawStmtKind::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
@@ -313,7 +318,7 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
             EagerContract::Exec => match memb_call_signature.output {
-                ScopePtr::Builtin(BuiltinIdentifier::Void) => (),
+                EntityRoutePtr::Builtin(BuiltinIdentifier::Void) => (),
                 _ => err!("no discard"),
             },
             EagerContract::LetInit => todo!(),

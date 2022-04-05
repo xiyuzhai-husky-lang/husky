@@ -18,7 +18,7 @@ file = { path = "../../syntax/file", version = "0.0.0" }
 trace = { path = "../trace", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
-scope = { path = "../../syntax/scope", version = "0.0.0" }
+entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }

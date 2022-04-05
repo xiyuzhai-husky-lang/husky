@@ -4,18 +4,18 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSignature {
-    pub ty: ScopePtr,
+    pub ty: EntityRoutePtr,
 }
 
 pub(crate) fn feature_signature(
     db: &dyn InferSignatureQueryGroup,
-    scope: ScopePtr,
+    scope: EntityRoutePtr,
 ) -> InferResultArc<FeatureSignature> {
-    let source = db.scope_source(scope)?;
+    let source = db.entity_source(scope)?;
     match source {
-        ScopeSource::Builtin(data) => todo!(),
-        ScopeSource::WithinBuiltinModule => todo!(),
-        ScopeSource::WithinModule {
+        EntitySource::Builtin(data) => todo!(),
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => {
@@ -33,8 +33,8 @@ pub(crate) fn feature_signature(
                 _ => todo!(),
             }
         }
-        ScopeSource::Module { file } => todo!(),
-        ScopeSource::Contextual { main, ident } => match ident {
+        EntitySource::Module { file } => todo!(),
+        EntitySource::Contextual { main, ident } => match ident {
             ContextualIdentifier::Input => Ok(Arc::new(FeatureSignature {
                 ty: db.global_input_ty(main)?,
             })),

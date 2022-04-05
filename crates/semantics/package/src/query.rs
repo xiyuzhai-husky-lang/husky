@@ -2,7 +2,7 @@ use crate::*;
 use ast::{AstKind, AstText};
 use file::FilePtr;
 use fold::FoldStorage;
-use scope::ScopeKind;
+use entity_route::ScopeKind;
 use semantics_eager::parse_decl_stmts;
 use semantics_entity::EntityQueryGroup;
 use semantics_error::*;

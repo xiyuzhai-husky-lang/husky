@@ -1,17 +1,17 @@
+use entity_route::BuiltinScopeSignature;
 use print_utils::msg_once;
-use scope::BuiltinScopeSignature;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct CallSignature {
     pub inputs: Vec<InputSignature>,
-    pub output: ScopePtr,
+    pub output: EntityRoutePtr,
     pub compiled: Option<Compiled>,
 }
 
 impl CallSignature {
-    fn new_vec(ty: ScopePtr) -> Self {
+    fn new_vec(ty: EntityRoutePtr) -> Self {
         msg_once!("new vec compiled");
         Self {
             inputs: Vec::new(),
@@ -23,19 +23,19 @@ impl CallSignature {
 
 pub(crate) fn call_signature(
     db: &dyn InferSignatureQueryGroup,
-    scope: ScopePtr,
+    scope: EntityRoutePtr,
 ) -> InferResultArc<CallSignature> {
-    let source = db.scope_source(scope)?;
+    let source = db.entity_source(scope)?;
     return match source {
-        ScopeSource::Builtin(data) => Ok(Arc::new(match data.signature {
+        EntitySource::Builtin(data) => Ok(Arc::new(match data.signature {
             BuiltinScopeSignature::Func(ref signature) => {
                 func_call_signature_from_raw(db, signature)
             }
             BuiltinScopeSignature::Vec => CallSignature::new_vec(scope),
             _ => panic!(),
         })),
-        ScopeSource::WithinBuiltinModule => todo!(),
-        ScopeSource::WithinModule {
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => {
@@ -118,8 +118,8 @@ pub(crate) fn call_signature(
                 _ => panic!(),
             }
         }
-        ScopeSource::Module { file: file_id } => todo!(),
-        ScopeSource::Contextual { .. } => todo!(),
+        EntitySource::Module { file: file_id } => todo!(),
+        EntitySource::Contextual { .. } => todo!(),
     };
 
     fn func_call_signature_from_raw(

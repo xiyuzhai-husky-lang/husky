@@ -5,7 +5,7 @@ pub use kind::*;
 pub use query::{EntityQueryGroup, EntityQueryGroupStorage};
 
 use file::FilePtr;
-use scope::{InputPlaceholder, RangedScope, ScopePtr};
+use entity_route::{InputPlaceholder, RangedScope, EntityRoutePtr};
 use semantics_eager::*;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
 use std::sync::Arc;
@@ -19,7 +19,7 @@ pub struct Entity {
     pub ident: CustomIdentifier,
     pub kind: Arc<EntityKind>,
     pub subentities: Arc<Vec<Arc<Entity>>>,
-    pub scope: ScopePtr,
+    pub scope: EntityRoutePtr,
     pub file: FilePtr,
     pub range: TextRange,
 }
@@ -29,12 +29,12 @@ pub struct EntityInnerId {
     raw: usize,
 }
 
-pub type EntityVersionControl = VersionControl<ScopePtr, EntityKind>;
+pub type EntityVersionControl = VersionControl<EntityRoutePtr, EntityKind>;
 pub type EntityUid = Uid;
 
 pub trait ControlEntityVersion {
     fn entity_vc(&self) -> &EntityVersionControl;
-    fn entity_uid(&self, scope: ScopePtr) -> Uid {
+    fn entity_uid(&self, scope: EntityRoutePtr) -> Uid {
         self.entity_vc().uid(scope)
     }
 }
@@ -44,7 +44,7 @@ impl Entity {
         &self.kind
     }
 
-    fn dependees(kind: &EntityKind) -> UniqVec<ScopePtr> {
+    fn dependees(kind: &EntityKind) -> UniqVec<EntityRoutePtr> {
         return match kind {
             EntityKind::Module { .. } => Default::default(),
             EntityKind::Feature { ty, lazy_stmts } => {
@@ -106,7 +106,7 @@ impl Entity {
         fn extract_routine_head_dependees(
             inputs: &[InputPlaceholder],
             output: &RangedScope,
-            v: &mut UniqVec<ScopePtr>,
+            v: &mut UniqVec<EntityRoutePtr>,
         ) {
             for input_placeholder in inputs.iter() {
                 v.push(input_placeholder.ranged_ty.scope)
@@ -114,7 +114,7 @@ impl Entity {
             v.push(output.scope);
         }
 
-        fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], v: &mut UniqVec<ScopePtr>) {
+        fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], v: &mut UniqVec<EntityRoutePtr>) {
             for stmt in stmts {
                 match stmt.kind {
                     LazyStmtKind::Init { varname, ref value } => todo!(),
@@ -125,7 +125,7 @@ impl Entity {
             }
         }
 
-        fn extract_decl_stmts_dependees(stmts: &[Arc<DeclStmt>], v: &mut UniqVec<ScopePtr>) {
+        fn extract_decl_stmts_dependees(stmts: &[Arc<DeclStmt>], v: &mut UniqVec<EntityRoutePtr>) {
             for stmt in stmts {
                 match stmt.kind {
                     DeclStmtKind::Init {
@@ -145,7 +145,7 @@ impl Entity {
             }
         }
 
-        fn extract_impr_stmts_dependees(stmts: &[Arc<ImprStmt>], v: &mut UniqVec<ScopePtr>) {
+        fn extract_impr_stmts_dependees(stmts: &[Arc<ImprStmt>], v: &mut UniqVec<EntityRoutePtr>) {
             for stmt in stmts {
                 match stmt.kind {
                     ImprStmtKind::Init {
@@ -194,7 +194,7 @@ impl Entity {
             }
         }
 
-        fn extract_lazy_expr_dependees(expr: &LazyExpr, v: &mut UniqVec<ScopePtr>) {
+        fn extract_lazy_expr_dependees(expr: &LazyExpr, v: &mut UniqVec<EntityRoutePtr>) {
             match expr.kind {
                 LazyExprKind::Variable(_) | LazyExprKind::PrimitiveLiteral(_) => (),
                 LazyExprKind::Scope { scope, .. } => v.push(scope),
@@ -226,7 +226,7 @@ impl Entity {
             }
         }
 
-        fn extract_eager_expr_dependees(expr: &EagerExpr, v: &mut UniqVec<ScopePtr>) {
+        fn extract_eager_expr_dependees(expr: &EagerExpr, v: &mut UniqVec<EntityRoutePtr>) {
             match expr.kind {
                 EagerExprKind::Variable(_) => (),
                 EagerExprKind::Scope { scope, compiled } => v.push(scope),
@@ -257,7 +257,7 @@ impl Entity {
             }
         }
 
-        fn extract_boundary_dependees(boundary: &Boundary, v: &mut UniqVec<ScopePtr>) {
+        fn extract_boundary_dependees(boundary: &Boundary, v: &mut UniqVec<EntityRoutePtr>) {
             boundary
                 .opt_bound
                 .as_ref()
@@ -266,7 +266,7 @@ impl Entity {
 
         fn extract_enum_variant_dependees(
             variant_kind: &EnumVariantKind,
-            v: &mut UniqVec<ScopePtr>,
+            v: &mut UniqVec<EntityRoutePtr>,
         ) {
             match variant_kind {
                 EnumVariantKind::Constant => (),
@@ -278,7 +278,7 @@ impl Entity {
         ident: CustomIdentifier,
         kind: EntityKind,
         subentities: Arc<Vec<Arc<Entity>>>,
-        scope: ScopePtr,
+        scope: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
         vc: &EntityVersionControl,
