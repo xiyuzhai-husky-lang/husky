@@ -34,10 +34,7 @@ impl<'a> RustGenerator<'a> {
                     SuffixOpr::WithType(_) => todo!(),
                 },
                 EagerOpnKind::RoutineCall(_) => todo!(),
-                EagerOpnKind::TypeCall {
-                    ranged_ty,
-                    ty_decl,
-                } => {
+                EagerOpnKind::TypeCall { ranged_ty, ty_decl } => {
                     self.gen_scope(ranged_ty.scope);
                     self.write("::");
                     self.write("__call__(");
@@ -46,7 +43,7 @@ impl<'a> RustGenerator<'a> {
                 }
                 EagerOpnKind::PatternCall => todo!(),
                 EagerOpnKind::MembVarAccess { memb_var_contract } => todo!(),
-                EagerOpnKind::MembRoutineCall { memb_ident } => {
+                EagerOpnKind::MembRoutineCall { memb_ident, .. } => {
                     self.gen_expr(&opds[0]);
                     self.write(".");
                     self.write(&memb_ident);

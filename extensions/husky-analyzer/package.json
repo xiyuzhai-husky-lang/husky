@@ -1,31 +1,31 @@
 {
-    "name": "husky_extension",
+    "name": "husky_analyzer",
     "version": "1.0.0",
     "repository": "https://github.com/xiyuzhai/husky",
     "author": "Xiyu Zhai",
     "license": "MIT",
     "scripts": {
-        "vscode:prepublish": "npm run esbuild-base -- --minify",
-        "build-base": "esbuild ./src/main.ts  --sourcemap --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --target=node14",
-        "build": "npm run build-base -- --sourcemap",
+        "vscode:prepublish": "npm run build-base -- --minify",
+        "build-base": "rollup -c && esbuild ./src/main.ts  --sourcemap --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --target=node14",
+        "build": "rollup -c && npm run build-base -- --sourcemap",
         "watch": "concurrently \"rollup -c -w\" \"npm run build-base -- --sourcemap --watch\"",
         "test": "jest"
     },
     "main": "./out/main",
     "activationEvents": [
         "onLanguage:husky",
-        "onCommand:husky_lang_analyzer.sayHello",
-        "onCommand:husky_lang_analyzer.refresh"
+        "onCommand:husky_analyzer.sayHello",
+        "onCommand:husky_analyzer.refresh"
     ],
     "contributes": {
         "commands": [
             {
-                "command": "husky_lang_analyzer.sayHello",
+                "command": "husky_analyzer.sayHello",
                 "title": "Say Hello",
                 "category": "Husky Language Server"
             },
             {
-                "command": "husky_lang_analyzer.refresh",
+                "command": "husky_analyzer.refresh",
                 "title": "Refresh",
                 "category": "Husky Language Server"
             }

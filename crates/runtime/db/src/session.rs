@@ -43,11 +43,11 @@ impl<'sess> Default for ValidationReport<'sess> {
 }
 
 impl<'sess> Session<'sess> {
-    pub(crate) fn new(package: &Package) -> VMResult<Self> {
+    pub(crate) fn new(package: &Package, compile_time: &HuskyLangCompileTime) -> VMResult<Self> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
             TrivialIter::default(),
-            &config.dataset.instruction_sheet,
+            &compile_time.dataset_config_instruction_sheet(package.main.file),
             None,
         )?
         .into_boxed()?

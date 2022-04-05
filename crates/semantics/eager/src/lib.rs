@@ -1,11 +1,9 @@
 mod expr;
-mod instruction;
 mod qual;
 mod stmt;
 mod variable;
 
 pub use expr::{EagerExpr, EagerExprKind, EagerOpnKind};
-pub use instruction::InstructionSheetBuilder;
 pub use qual::Qual;
 pub use stmt::{
     parse_decl_stmts, parse_impr_stmts, Boundary, DeclBranchGroupKind, DeclBranchKind, FuncStmt,

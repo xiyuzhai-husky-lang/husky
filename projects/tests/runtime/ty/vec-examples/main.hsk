@@ -4,7 +4,7 @@ dataset:
 proc f() -> i32:
     var v = []i32()
     v.push(2)
-    v.len()
+    return v.len()
 
 main:
     assert f() == 1

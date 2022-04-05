@@ -1,4 +1,4 @@
-use decl::{MembAccessKind, TySignature};
+use decl::{MembAccessKind, TyDecl};
 use vm::LazyContract;
 
 use super::*;
@@ -54,7 +54,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         callee_file: entity.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
-                        instruction_sheet: self.db.scope_instruction_sheet(routine.scope).unwrap(),
+                        instruction_sheet: self.db.scope_instruction_sheet(routine.scope),
                         stmts: stmts.clone(),
                     },
                     EntityKind::Proc {
@@ -68,7 +68,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         callee_file: entity.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
-                        instruction_sheet: self.db.scope_instruction_sheet(routine.scope).unwrap(),
+                        instruction_sheet: self.db.scope_instruction_sheet(routine.scope),
                         stmts: stmts.clone(),
                     },
                     _ => panic!(),
@@ -136,8 +136,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                 memb_ident,
                                 instruction_sheet: self
                                     .db
-                                    .memb_routine_instruction_sheet(opds[0].ty, memb_ident)
-                                    .unwrap(),
+                                    .memb_routine_instruction_sheet(opds[0].ty, memb_ident),
                                 stmts: stmts.clone(),
                                 opds,
                                 compiled: None,

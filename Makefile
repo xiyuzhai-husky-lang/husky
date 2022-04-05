@@ -11,7 +11,6 @@ test-runtime-with-backtrace:
 
 test-compile-time:
 	cargo run --bin husky-lang-debugger $(compile_time_tests_dir) --input-id 1 --mode test-compile-time
-	#cargo run --bin husky-lang-debugger $(compile_time_tests_dir) --input-id 1 --mode test-compile-time -c
 
 test-compiler:
 	cargo run --bin husky-lang-compiler $(runtime_tests_dir)
@@ -24,3 +23,10 @@ mnist:
 
 mnist-with-backtrace:
 	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 11 --mode test-runtime 2>&1 | python scripts/filter_rust_backtrace.py
+
+install:
+	scripts/vscode_prepublish.sh
+	rsync -a extensions/husky-analyzer ~/.vscode/extensions/
+	cargo install --path crates/apps/analyzer
+	cargo install --path crates/apps/compiler
+	cargo install --path crates/apps/debugger

@@ -4,11 +4,12 @@ use word::CustomIdentifier;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum VMTySignatureKind {
+pub enum TySignature {
     Enum,
     Struct {
         memb_vars: VecMap<CustomIdentifier, MembAccessContract>,
     },
+    Vec,
 }
 
 // #[derive(Debug, PartialEq, Eq, Clone)]

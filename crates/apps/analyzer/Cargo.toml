@@ -1,10 +1,10 @@
 [package]
-name = "husky-lang-analyzer"
+name = "husky-analyzer"
 version = "0.0.0"
 edition = "2021"
 
 [[bin]]
-name = "husky-lang-analyzer"
+name = "husky-analyzer-server"
 path = "src/bin/main.rs"
 
 [dependencies]

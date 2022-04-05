@@ -43,5 +43,6 @@ semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 semantics-package = { path = "../../semantics/package", version = "0.0.0" }
 feature = { path = "../feature", version = "0.0.0" }
+instruction-gen = { path = "../instruction-gen", version = "0.0.0" }
 rust-gen = { path = "../rust-gen", version = "0.0.0" }
 diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }

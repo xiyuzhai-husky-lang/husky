@@ -3,7 +3,7 @@ use super::*;
 pub(crate) fn record_decl(
     generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
-) -> InferResultArc<TySignature> {
+) -> InferResultArc<TyDecl> {
     let mut memb_vars = VecMap::default();
     let mut memb_features = VecMap::default();
     let mut traits = Vec::new();
@@ -18,10 +18,10 @@ pub(crate) fn record_decl(
             _ => panic!(),
         }
     }
-    Ok(Arc::new(TySignature {
+    Ok(Arc::new(TyDecl {
         generic_placeholders,
         members: Default::default(),
-        kind: TySignatureKind::Record {
+        kind: TyDeclKind::Record {
             memb_vars,
             memb_features,
         },

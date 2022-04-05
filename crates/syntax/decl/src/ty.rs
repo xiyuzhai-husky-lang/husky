@@ -12,35 +12,35 @@ use enum_ty::*;
 use record::*;
 use syntax_types::{MembAccessDecl, MembCallDecl, RawEnumVariantKind};
 use vec_map::VecMap;
-use vm::{MembAccessContract, VMTySignatureKind};
+use vm::{MembAccessContract, TySignature};
 use word::{IdentMap, WordAllocator};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct TySignature {
-    generic_placeholders: IdentMap<GenericPlaceholderKind>,
-    traits: Vec<EntityRoutePtr>,
-    members: IdentMap<MembSignature>,
-    kind: TySignatureKind,
+pub struct TyDecl {
+    pub generic_placeholders: IdentMap<GenericPlaceholderKind>,
+    pub traits: Vec<EntityRoutePtr>,
+    pub members: IdentMap<MembDecl>,
+    pub kind: TyDeclKind,
 }
 
-impl TySignature {
+impl TyDecl {
     fn new(
         generic_placeholders: Vec<GenericArgument>,
         traits: Vec<EntityRoutePtr>,
-        members: IdentMap<MembSignature>,
+        members: IdentMap<MembDecl>,
     ) -> Self {
         todo!()
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum TySignatureKind {
+pub enum TyDeclKind {
     Struct {
         memb_vars: IdentMap<MembAccessDecl>,
         memb_routines: IdentMap<MembCallDecl>,
     },
     Enum {
-        variants: IdentMap<EnumVariantSignature>,
+        variants: IdentMap<EnumVariantDecl>,
     },
     Record {
         memb_vars: IdentMap<MembAccessDecl>,
@@ -58,7 +58,7 @@ pub enum MembAccessKind {
     RecordMemb,
 }
 
-impl TySignature {
+impl TyDecl {
     // fn vec(word_allocator: &WordAllocator, element_ty: ScopePtr) -> Self {
     //     let mut members = IdentMap::default();
     //     members.insert_new(
@@ -69,19 +69,19 @@ impl TySignature {
     //     );
     //     Self {
     //         members,
-    //         kind: TySignatureKind::Vec { element_ty },
+    //         kind: TyDeclKind::Vec { element_ty },
     //     }
     // }
 
     pub fn memb_access_ty_result(&self, ident: CustomIdentifier) -> InferResult<EntityRoutePtr> {
         match self.kind {
-            TySignatureKind::Struct { ref memb_vars, .. } => ok_or!(
+            TyDeclKind::Struct { ref memb_vars, .. } => ok_or!(
                 memb_vars.get(ident),
                 format!("no such member variable {}", ident.0)
             )
             .map(|signature| signature.ty),
-            TySignatureKind::Enum { ref variants } => todo!(),
-            TySignatureKind::Record {
+            TyDeclKind::Enum { ref variants } => todo!(),
+            TyDeclKind::Record {
                 ref memb_vars,
                 ref memb_features,
             } => {
@@ -93,15 +93,15 @@ impl TySignature {
                     todo!()
                 }
             }
-            TySignatureKind::Vec { element_ty } => todo!(),
+            TyDeclKind::Vec { element_ty } => todo!(),
         }
     }
 
     pub fn memb_access_decl(&self, ident: CustomIdentifier) -> MembAccessDecl {
         match self.kind {
-            TySignatureKind::Struct { ref memb_vars, .. } => *memb_vars.get(ident).unwrap(),
-            TySignatureKind::Enum { ref variants } => todo!(),
-            TySignatureKind::Record {
+            TyDeclKind::Struct { ref memb_vars, .. } => *memb_vars.get(ident).unwrap(),
+            TyDeclKind::Enum { ref variants } => todo!(),
+            TyDeclKind::Record {
                 ref memb_vars,
                 ref memb_features,
             } => {
@@ -116,13 +116,13 @@ impl TySignature {
                     todo!()
                 }
             }
-            TySignatureKind::Vec { element_ty } => todo!(),
+            TyDeclKind::Vec { element_ty } => todo!(),
         }
     }
 
     pub fn memb_access_kind(&self, memb_ident: CustomIdentifier) -> MembAccessKind {
         match self.kind {
-            TySignatureKind::Struct {
+            TyDeclKind::Struct {
                 ref memb_vars,
                 ref memb_routines,
             } => {
@@ -132,8 +132,8 @@ impl TySignature {
                     panic!("todo: memb feature of struct")
                 }
             }
-            TySignatureKind::Enum { ref variants } => todo!(),
-            TySignatureKind::Record {
+            TyDeclKind::Enum { ref variants } => todo!(),
+            TyDeclKind::Record {
                 ref memb_vars,
                 ref memb_features,
             } => {
@@ -145,35 +145,35 @@ impl TySignature {
                     todo!()
                 }
             }
-            TySignatureKind::Vec { element_ty } => todo!(),
+            TyDeclKind::Vec { element_ty } => todo!(),
         }
     }
 
-    pub fn vm_ty_decl(&self) -> VMTySignatureKind {
+    pub fn signature(&self) -> TySignature {
         match self.kind {
-            TySignatureKind::Struct { ref memb_vars, .. } => {
+            TyDeclKind::Struct { ref memb_vars, .. } => {
                 let mut vm_memb_vars = IdentMap::<MembAccessContract>::default();
                 memb_vars.iter().for_each(|(ident, memb_var_sig)| {
                     vm_memb_vars.insert_new(*ident, memb_var_sig.contract)
                 });
-                VMTySignatureKind::Struct {
+                TySignature::Struct {
                     memb_vars: vm_memb_vars,
                 }
             }
-            TySignatureKind::Enum { ref variants } => todo!(),
-            TySignatureKind::Record {
+            TyDeclKind::Enum { ref variants } => todo!(),
+            TyDeclKind::Record {
                 ref memb_vars,
                 ref memb_features,
             } => todo!(),
-            TySignatureKind::Vec { element_ty } => todo!(),
+            TyDeclKind::Vec { element_ty } => TySignature::Vec,
         }
     }
 
     pub fn memb_call_decl(&self, ident: CustomIdentifier) -> InferResult<&MembCallDecl> {
         match self.members.get(ident) {
             Some(memb_decl) => match memb_decl.kind {
-                MembSignatureKind::Var(_) => todo!(),
-                MembSignatureKind::Routine(ref signature) => Ok(signature),
+                MembDeclKind::Var(_) => todo!(),
+                MembDeclKind::Routine(ref signature) => Ok(signature),
             },
             None => err!(format!("no member named {}", &ident)),
         }
@@ -181,14 +181,11 @@ impl TySignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum EnumVariantSignature {
+pub enum EnumVariantDecl {
     Constant,
 }
 
-pub(crate) fn ty_decl(
-    db: &dyn DeclQueryGroup,
-    scope: EntityRoutePtr,
-) -> InferResultArc<TySignature> {
+pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, scope: EntityRoutePtr) -> InferResultArc<TyDecl> {
     let source = db.entity_source(scope)?;
     match source {
         EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
@@ -196,7 +193,7 @@ pub(crate) fn ty_decl(
             BuiltinEntityDecl::Module => todo!(),
             BuiltinEntityDecl::Ty { .. } => todo!(),
             BuiltinEntityDecl::Vec => {
-                let vec_decl_template = db.vec_decl_template();
+                let vec_decl_template = db.vec_decl();
                 vec_decl_template.instantiate(db, &scope.generics)
             }
         })),
@@ -244,7 +241,7 @@ pub(crate) fn ty_decl(
 pub(crate) fn struct_decl(
     generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
-) -> InferResultArc<TySignature> {
+) -> InferResultArc<TyDecl> {
     let mut memb_vars = VecMap::default();
     let mut memb_routines = VecMap::default();
     for subitem in children {
@@ -261,11 +258,11 @@ pub(crate) fn struct_decl(
             _ => panic!(),
         }
     }
-    Ok(Arc::new(TySignature {
+    Ok(Arc::new(TyDecl {
         generic_placeholders,
         members: Default::default(),
         traits: Default::default(),
-        kind: TySignatureKind::Struct {
+        kind: TyDeclKind::Struct {
             memb_vars,
             memb_routines,
         },

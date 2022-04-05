@@ -1,5 +1,5 @@
 /**
- * This file mirrors `crates/husky-lang-server/src/lsp_ext.rs` declarations.
+ * This file mirrors `crates/husky-analyzer-server/src/lsp_ext.rs` declarations.
  */
 
 import * as lc from "vscode-languageclient";
@@ -11,9 +11,9 @@ export const analyzerStatus = new lc.RequestType<
     AnalyzerStatusParams,
     string,
     void
->("husky-lang-server/analyzerStatus");
+>("husky-analyzer-server/analyzerStatus");
 export const memoryUsage = new lc.RequestType0<string, void>(
-    "husky-lang-server/memoryUsage"
+    "husky-analyzer-server/memoryUsage"
 );
 
 export interface ServerStatusParams {
@@ -26,7 +26,7 @@ export const serverStatus = new lc.NotificationType<ServerStatusParams>(
 );
 
 export const reloadWorkspace = new lc.RequestType0<null, void>(
-    "husky-lang-server/reloadWorkspace"
+    "husky-analyzer-server/reloadWorkspace"
 );
 
 export const hover = new lc.RequestType<HoverParams, lc.Hover | null, void>(
@@ -43,14 +43,14 @@ export interface SyntaxTreeParams {
     range: lc.Range | null;
 }
 export const syntaxTree = new lc.RequestType<SyntaxTreeParams, string, void>(
-    "husky-lang-server/syntaxTree"
+    "husky-analyzer-server/syntaxTree"
 );
 
 export const viewHir = new lc.RequestType<
     lc.TextDocumentPositionParams,
     string,
     void
->("husky-lang-server/viewHir");
+>("husky-analyzer-server/viewHir");
 
 export interface ViewItemTreeParams {
     textDocument: lc.TextDocumentIdentifier;
@@ -60,7 +60,7 @@ export const viewItemTree = new lc.RequestType<
     ViewItemTreeParams,
     string,
     void
->("husky-lang-server/viewItemTree");
+>("husky-analyzer-server/viewItemTree");
 
 export interface ViewCrateGraphParams {
     full: boolean;
@@ -70,7 +70,7 @@ export const viewCrateGraph = new lc.RequestType<
     ViewCrateGraphParams,
     string,
     void
->("husky-lang-server/viewCrateGraph");
+>("husky-analyzer-server/viewCrateGraph");
 
 export interface ExpandMacroParams {
     textDocument: lc.TextDocumentIdentifier;
@@ -84,7 +84,7 @@ export const expandMacro = new lc.RequestType<
     ExpandMacroParams,
     ExpandedMacro | null,
     void
->("husky-lang-server/expandMacro");
+>("husky-analyzer-server/expandMacro");
 
 export interface MatchingBraceParams {
     textDocument: lc.TextDocumentIdentifier;
@@ -148,7 +148,7 @@ export const relatedTests = new lc.RequestType<
     lc.TextDocumentPositionParams,
     TestInfo[],
     void
->("husky-lang-server/relatedTests");
+>("husky-analyzer-server/relatedTests");
 
 export type InlayHint =
     | InlayHint.TypeHint
@@ -176,7 +176,7 @@ export const inlayHints = new lc.RequestType<
     InlayHintsParams,
     InlayHint[],
     void
->("husky-lang-server/inlayHints");
+>("husky-analyzer-server/inlayHints");
 
 export interface SsrParams {
     query: string;

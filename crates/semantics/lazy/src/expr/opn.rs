@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use decl::{MembAccessKind, TySignature};
+use decl::{MembAccessKind, TyDecl};
 use entity_route::{EntityRoutePtr, RangedScope};
 use syntax_types::*;
 use vm::PureBinaryOpr;

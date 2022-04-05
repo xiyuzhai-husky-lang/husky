@@ -27,9 +27,9 @@ use word::CustomIdentifier;
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
     fn call_decl(&self, scope: EntityRoutePtr) -> InferResultArc<CallSignature>;
-    fn ty_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TySignature>;
+    fn ty_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TyDecl>;
     fn feature_decl(&self, scope: EntityRoutePtr) -> InferResultArc<FeatureSignature>;
     fn global_input_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
     fn global_output_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
-    fn vec_decl_template(&self) -> Arc<TySignature>;
+    fn vec_decl(&self) -> Arc<TyDecl>;
 }

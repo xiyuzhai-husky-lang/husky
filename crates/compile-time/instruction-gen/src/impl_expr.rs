@@ -1,5 +1,6 @@
 use crate::*;
 
+use decl::TyDeclKind;
 use syntax_types::SuffixOpr;
 use vm::{BinaryOpr, Compiled, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
 
@@ -87,7 +88,7 @@ impl InstructionSheetBuilder {
                 if let Some(compiled) = compiled {
                     self.push_instruction(Instruction::new(
                         InstructionKind::CallCompiled {
-                            compiled,
+                            compiled: todo!(),
                             nargs: opds.len() as u8,
                         },
                         expr.clone(),
@@ -100,7 +101,26 @@ impl InstructionSheetBuilder {
             EagerOpnKind::MembVarAccess { memb_var_contract } => {
                 todo!()
             }
-            EagerOpnKind::MembRoutineCall { .. } => todo!(),
+            EagerOpnKind::MembRoutineCall {
+                ref this_ty_decl, ..
+            } => match this_ty_decl.kind {
+                TyDeclKind::Struct {
+                    ref memb_vars,
+                    ref memb_routines,
+                } => todo!(),
+                TyDeclKind::Enum { ref variants } => todo!(),
+                TyDeclKind::Record {
+                    ref memb_vars,
+                    ref memb_features,
+                } => todo!(),
+                TyDeclKind::Vec { element_ty } => self.push_instruction(Instruction::new(
+                    InstructionKind::CallCompiled {
+                        compiled: todo!(),
+                        nargs: opds.len() as u8,
+                    },
+                    expr.clone(),
+                )),
+            },
             EagerOpnKind::ElementAccess => todo!(),
             EagerOpnKind::TypeCall {
                 ranged_ty,
@@ -109,7 +129,7 @@ impl InstructionSheetBuilder {
                 msg_once!("TypeCall compiled");
                 self.push_instruction(Instruction::new(
                     InstructionKind::TyCallInterpreted {
-                        ty_decl: ty_decl.vm_ty_decl(),
+                        ty_signature: ty_decl.signature(),
                     },
                     expr.clone(),
                 ))

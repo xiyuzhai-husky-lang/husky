@@ -1,7 +1,7 @@
 use super::*;
 use check_utils::should_eq;
 
-impl TySignature {
+impl TyDecl {
     pub fn instantiate(&self, db: &dyn DeclQueryGroup, dst_generics: &[GenericArgument]) -> Self {
         should_eq!(self.generic_placeholders.len(), dst_generics.len());
         let instantiator = Instantiator {
@@ -10,16 +10,16 @@ impl TySignature {
             dst_generics,
         };
         let kind = match self.kind {
-            TySignatureKind::Struct {
+            TyDeclKind::Struct {
                 ref memb_vars,
                 ref memb_routines,
             } => todo!(),
-            TySignatureKind::Enum { ref variants } => todo!(),
-            TySignatureKind::Record {
+            TyDeclKind::Enum { ref variants } => todo!(),
+            TyDeclKind::Record {
                 ref memb_vars,
                 ref memb_features,
             } => todo!(),
-            TySignatureKind::Vec { element_ty } => TySignatureKind::Vec {
+            TyDeclKind::Vec { element_ty } => TyDeclKind::Vec {
                 element_ty: instantiator.instantiate_scope(element_ty).as_scope(),
             },
         };
