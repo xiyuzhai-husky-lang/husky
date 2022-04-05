@@ -8,10 +8,26 @@ where
     data: Vec<(K, V)>,
 }
 
+pub struct Repeat {
+    i: usize,
+    j: usize,
+}
+
 impl<K, V> VecMap<K, V>
 where
     K: PartialEq + Eq,
 {
+    pub fn from_vec(data: Vec<(K, V)>) -> Result<Self, Repeat> {
+        for i in 0..data.len() {
+            for j in (i + 1)..data.len() {
+                if data[i].0 == data[j].0 {
+                    return Err(Repeat { i, j });
+                }
+            }
+        }
+        Ok(Self { data })
+    }
+
     pub fn len(&self) -> usize {
         self.data.len()
     }
@@ -40,6 +56,19 @@ where
 
     pub fn position(&self, key: K) -> Option<usize> {
         self.data.iter().position(|entry| entry.0 == key)
+    }
+}
+
+impl<K, V> FromIterator<(K, V)> for VecMap<K, V>
+where
+    K: PartialEq + Eq,
+{
+    fn from_iter<T: IntoIterator<Item = (K, V)>>(iter: T) -> Self {
+        let mut map = Self::default();
+        for (k, v) in iter {
+            map.insert_new(k, v);
+        }
+        map
     }
 }
 

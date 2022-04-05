@@ -73,7 +73,7 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: ScopePtr) -> SemanticResultAr
                 AstKind::TypeDecl {
                     ident,
                     kind,
-                    ref generics,
+                    generic_placeholders: ref generics,
                 } => {
                     let signature = try_infer!(db.ty_signature(entity_scope));
                     (

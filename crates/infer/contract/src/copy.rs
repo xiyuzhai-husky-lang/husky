@@ -26,6 +26,10 @@ pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: ScopePtr) -
             BuiltinIdentifier::DatasetType => todo!(),
             BuiltinIdentifier::Type => todo!(),
             BuiltinIdentifier::Datasets => todo!(),
+            BuiltinIdentifier::CloneTrait => todo!(),
+            BuiltinIdentifier::CopyTrait => todo!(),
+            BuiltinIdentifier::PartialEqTrait => todo!(),
+            BuiltinIdentifier::EqTrait => todo!(),
         },
         ScopePtr::Custom(_) => todo!(),
     }

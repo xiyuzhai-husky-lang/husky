@@ -17,9 +17,9 @@ impl LazyVariable {
             is_reference: match input_placeholder.contract {
                 InputContract::Pure => false,
                 InputContract::GlobalRef => todo!(),
-                InputContract::Take => todo!(),
+                InputContract::Move => todo!(),
                 InputContract::BorrowMut => todo!(),
-                InputContract::TakeMut => todo!(),
+                InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
             },
         }

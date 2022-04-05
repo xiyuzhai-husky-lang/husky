@@ -1,14 +1,15 @@
 mod alias;
 mod allocate_unique;
-mod impl_instantiate;
+mod generic;
 mod kind;
 
 pub use alias::ScopeAliasTable;
 pub use allocate_unique::{
-    new_scope_unique_allocator, AllocateUniqueScope, ScopePtr, UniqueScopeAllocator,
+    new_scope_unique_allocator, AllocateUniqueScope, ScopeInterner, ScopePtr,
 };
 use entity_syntax::RawTyKind;
 use file::FilePtr;
+pub use generic::*;
 pub use kind::RawEntityKind;
 use text::{TextRange, TextRanged};
 use visual_syntax::BuiltinVisualizer;
@@ -50,7 +51,7 @@ impl std::fmt::Debug for Scope {
                 ident.fmt(f)?
             }
             ScopeKind::Contextual { main, ident } => todo!(),
-            ScopeKind::Generic { ident } => todo!(),
+            ScopeKind::Generic { ident, .. } => todo!(),
         };
         if self.generics.len() > 0 {
             f.write_str("<")?;
@@ -127,6 +128,7 @@ pub enum ScopeKind {
     },
     Generic {
         ident: CustomIdentifier,
+        raw_entity_kind: RawEntityKind,
     },
 }
 
@@ -247,7 +249,7 @@ impl Scope {
             ScopeKind::Package { .. } => false,
             ScopeKind::ChildScope { parent, .. } => parent.is_builtin(),
             ScopeKind::Contextual { .. } => false,
-            ScopeKind::Generic { ident } => todo!(),
+            ScopeKind::Generic { ident, .. } => todo!(),
         }
     }
 }

@@ -115,6 +115,10 @@ pub enum BuiltinIdentifier {
     Datasets,
     DatasetType,
     Type,
+    CloneTrait,
+    CopyTrait,
+    PartialEqTrait,
+    EqTrait,
 }
 
 impl Deref for BuiltinIdentifier {
@@ -143,6 +147,10 @@ impl Deref for BuiltinIdentifier {
             BuiltinIdentifier::Datasets => "datasets",
             BuiltinIdentifier::DatasetType => "Dataset",
             BuiltinIdentifier::Type => "type",
+            BuiltinIdentifier::CloneTrait => todo!(),
+            BuiltinIdentifier::CopyTrait => todo!(),
+            BuiltinIdentifier::PartialEqTrait => todo!(),
+            BuiltinIdentifier::EqTrait => todo!(),
         }
     }
 }

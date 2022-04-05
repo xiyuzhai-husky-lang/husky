@@ -66,7 +66,7 @@ impl<'a> TySheetBuilder<'a> {
                     ScopeKind::Package { main, ident } => todo!(),
                     ScopeKind::ChildScope { parent, ident } => parent,
                     ScopeKind::Contextual { main, ident } => todo!(),
-                    ScopeKind::Generic { ident } => todo!(),
+                    ScopeKind::Generic { ident, .. } => todo!(),
                 },
                 _ => todo!(),
             },

@@ -312,12 +312,15 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::GlobalRef => todo!(),
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
-            EagerContract::Exec => todo!(),
+            EagerContract::Exec => match memb_call_signature.output {
+                ScopePtr::Builtin(BuiltinIdentifier::Void) => (),
+                _ => err!("no discard"),
+            },
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),
             EagerContract::Return => todo!(),
         }
-        self.infer_eager_expr(this, memb_call_signature.this.eager()?, arena);
+        self.infer_eager_expr(this, memb_call_signature.this_contract.eager()?, arena);
         if inputs.end - inputs.start != memb_call_signature.inputs.len() {
             todo!()
         }

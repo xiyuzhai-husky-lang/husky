@@ -1,9 +1,10 @@
 use std::sync::Arc;
 
 use crate::*;
-use scope::{InputPlaceholder, RangedScope};
+use scope::*;
 use syntax_types::*;
 use vm::{EagerContract, InputContract};
+use word::IdentMap;
 
 use super::*;
 
@@ -16,7 +17,7 @@ impl<'a> AtomLRParser<'a> {
         let output = self.func_output_type()?;
         Ok(RoutineHead {
             routine_name,
-            generics: space_params,
+            generic_placeholders: space_params,
             input_placeholders: input_contracts,
             output,
         })
@@ -41,15 +42,18 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn placeholders(&mut self) -> AstResult<Vec<GenericPlaceholder>> {
+    fn placeholders(&mut self) -> AstResult<IdentMap<GenericPlaceholderKind>> {
         if next_matches!(self, "<") {
-            Ok(comma_list![self, placeholder!+, ">"])
+            match IdentMap::from_vec(comma_list![self, placeholder!+, ">"]) {
+                Ok(generic_placeholders) => Ok(generic_placeholders),
+                Err(repeat) => todo!(),
+            }
         } else {
-            Ok(Vec::new())
+            Ok(Default::default())
         }
     }
 
-    fn placeholder(&mut self) -> AstResult<GenericPlaceholder> {
+    fn placeholder(&mut self) -> AstResult<(CustomIdentifier, GenericPlaceholderKind)> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
@@ -61,10 +65,7 @@ impl<'a> AtomLRParser<'a> {
                 todo!()
             }
         }
-        Ok(GenericPlaceholder {
-            ident,
-            kind: GenericPlaceholderKind::Type { traits },
-        })
+        Ok((ident, GenericPlaceholderKind::Type { traits }))
     }
 
     fn func_input_placeholders(&mut self) -> AstResultArc<Vec<InputPlaceholder>> {

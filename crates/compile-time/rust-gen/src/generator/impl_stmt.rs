@@ -242,6 +242,10 @@ impl<'a> RustGenerator<'a> {
                 | BuiltinIdentifier::DatasetType
                 | BuiltinIdentifier::Type => panic!(),
                 BuiltinIdentifier::Datasets => todo!(),
+                BuiltinIdentifier::CloneTrait => todo!(),
+                BuiltinIdentifier::CopyTrait => todo!(),
+                BuiltinIdentifier::PartialEqTrait => todo!(),
+                BuiltinIdentifier::EqTrait => todo!(),
             },
             ScopePtr::Custom(_) => panic!(),
         }

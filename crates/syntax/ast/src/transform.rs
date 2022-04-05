@@ -48,7 +48,7 @@ impl<'a> AstTransformer<'a> {
                 ScopeKind::Package { main, ident } => Env::Package(main),
                 ScopeKind::ChildScope { .. } => Env::Module(module),
                 ScopeKind::Builtin { .. } | ScopeKind::Contextual { .. } => panic!(),
-                ScopeKind::Generic { ident } => todo!(),
+                ScopeKind::Generic { ident, .. } => todo!(),
             }),
             this: LocalValue::new(None),
         };
@@ -64,7 +64,7 @@ impl<'a> AstTransformer<'a> {
                         ident,
                         kind: SymbolKind::Scope(scope.kind),
                     }),
-                    ScopeKind::Generic { ident } => todo!(),
+                    ScopeKind::Generic { ident, .. } => todo!(),
                 }
             }
             symbols

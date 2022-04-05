@@ -9,7 +9,7 @@ use crate::*;
 use ast::AstIter;
 use enum_ty::*;
 use record::*;
-use scope::BuiltinScopeSignature;
+use scope::*;
 use syntax_types::{MembAccessSignature, MembCallSignature, RawEnumVariantKind};
 use vec_map::VecMap;
 use vm::{MembAccessContract, VMTySignatureKind};
@@ -17,7 +17,7 @@ use word::{IdentMap, WordAllocator};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TySignature {
-    generics: Vec<GenericArgument>,
+    generic_placeholders: IdentMap<GenericPlaceholderKind>,
     traits: Vec<ScopePtr>,
     members: IdentMap<MembSignature>,
     kind: TySignatureKind,
@@ -25,7 +25,7 @@ pub struct TySignature {
 
 impl TySignature {
     fn new(
-        generics: Vec<GenericArgument>,
+        generic_placeholders: Vec<GenericArgument>,
         traits: Vec<ScopePtr>,
         members: IdentMap<MembSignature>,
     ) -> Self {
@@ -170,18 +170,12 @@ impl TySignature {
     }
 
     pub fn memb_call_signature(&self, ident: CustomIdentifier) -> InferResult<&MembCallSignature> {
-        match self.kind {
-            TySignatureKind::Struct {
-                ref memb_routines, ..
-            } => {
-                derived_not_none!(memb_routines.get(ident))
-            }
-            TySignatureKind::Enum { ref variants } => todo!(),
-            TySignatureKind::Record {
-                ref memb_vars,
-                ref memb_features,
-            } => todo!(),
-            TySignatureKind::Vec { element_ty } => todo!(),
+        match self.members.get(ident) {
+            Some(memb_signature) => match memb_signature.kind {
+                MembSignatureKind::Var(_) => todo!(),
+                MembSignatureKind::Routine(ref signature) => Ok(signature),
+            },
+            None => err!(format!("no member named {}", &ident)),
         }
     }
 }
@@ -203,7 +197,7 @@ pub(crate) fn ty_signature(
             BuiltinScopeSignature::Ty { .. } => todo!(),
             BuiltinScopeSignature::Vec => {
                 let vec_signature_template = db.vec_signature_template();
-                vec_signature_template.instantiate(&scope.generics)
+                vec_signature_template.instantiate(db, &scope.generics)
             }
         })),
         ScopeSource::WithinBuiltinModule => todo!(),
@@ -219,15 +213,20 @@ pub(crate) fn ty_signature(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::TypeDecl { kind, .. } => match kind {
-                    RawTyKind::Enum => {
-                        enum_signature(scope.generics.clone(), derived_not_none!(item.children)?)
-                    }
+                AstKind::TypeDecl {
+                    kind,
+                    ref generic_placeholders,
+                    ..
+                } => match kind {
+                    RawTyKind::Enum => enum_signature(
+                        generic_placeholders.clone(),
+                        derived_not_none!(item.children)?,
+                    ),
                     RawTyKind::Struct => {
-                        struct_signature(scope.generics.clone(), item.children.unwrap())
+                        struct_signature(generic_placeholders.clone(), item.children.unwrap())
                     }
                     RawTyKind::Record => {
-                        record_signature(scope.generics.clone(), item.children.unwrap())
+                        record_signature(generic_placeholders.clone(), item.children.unwrap())
                     }
                     RawTyKind::Primitive => todo!(),
                     RawTyKind::Vec => todo!(),
@@ -243,7 +242,7 @@ pub(crate) fn ty_signature(
 }
 
 pub(crate) fn struct_signature(
-    generics: Vec<GenericArgument>,
+    generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
 ) -> InferResultArc<TySignature> {
     let mut memb_vars = VecMap::default();
@@ -263,7 +262,7 @@ pub(crate) fn struct_signature(
         }
     }
     Ok(Arc::new(TySignature {
-        generics,
+        generic_placeholders,
         members: Default::default(),
         traits: Default::default(),
         kind: TySignatureKind::Struct {

@@ -22,19 +22,21 @@ pub trait ScopeSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
     fn raw_entity_kind(&self, scope_id: ScopePtr) -> RawEntityKind;
 
     fn scope_source(&self, scope_id: ScopePtr) -> ScopeResult<ScopeSource>;
+
+    fn scope_menu(&self) -> Arc<ScopeMenu>;
 }
 
 fn subscope_table(
-    this: &dyn ScopeSalsaQueryGroup,
+    db: &dyn ScopeSalsaQueryGroup,
     scope_id: ScopePtr,
 ) -> ScopeResultArc<SubscopeTable> {
-    Ok(Arc::new(match this.scope_source(scope_id)? {
-        ScopeSource::Builtin(data) => SubscopeTable::builtin(this, data),
+    Ok(Arc::new(match db.scope_source(scope_id)? {
+        ScopeSource::Builtin(data) => SubscopeTable::builtin(db, data),
         ScopeSource::WithinModule {
             file: file_id,
             token_group_index,
         } => {
-            let text = this.tokenized_text(file_id)?;
+            let text = db.tokenized_text(file_id)?;
             let item = text.fold_iter(token_group_index).next().unwrap();
             if let Some(children) = item.children {
                 SubscopeTable::parse(file_id, children)
@@ -43,7 +45,7 @@ fn subscope_table(
             }
         }
         ScopeSource::Module { file: file_id } => {
-            let text = this.tokenized_text(file_id)?;
+            let text = db.tokenized_text(file_id)?;
             SubscopeTable::parse(file_id, text.fold_iter(0))
         }
         ScopeSource::WithinBuiltinModule => todo!(),
@@ -91,6 +93,10 @@ fn raw_entity_kind_from_scope_kind(
             }
             BuiltinIdentifier::Type => todo!(),
             BuiltinIdentifier::Datasets => RawEntityKind::Module,
+            BuiltinIdentifier::CloneTrait
+            | BuiltinIdentifier::CopyTrait
+            | BuiltinIdentifier::PartialEqTrait
+            | BuiltinIdentifier::EqTrait => RawEntityKind::Trait,
         },
         ScopeKind::Package { .. } => RawEntityKind::Module,
         ScopeKind::ChildScope { parent, ident } => db
@@ -103,7 +109,10 @@ fn raw_entity_kind_from_scope_kind(
             ContextualIdentifier::ThisData => todo!(),
             ContextualIdentifier::ThisType => todo!(),
         },
-        ScopeKind::Generic { ident } => todo!(),
+        ScopeKind::Generic {
+            ident,
+            raw_entity_kind,
+        } => *raw_entity_kind,
     }
 }
 
@@ -134,6 +143,10 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             BuiltinIdentifier::Datasets => datasets::SCOPE_DATA,
             BuiltinIdentifier::DatasetType => todo!(),
             BuiltinIdentifier::Type => todo!(),
+            BuiltinIdentifier::CloneTrait => todo!(),
+            BuiltinIdentifier::CopyTrait => todo!(),
+            BuiltinIdentifier::PartialEqTrait => todo!(),
+            BuiltinIdentifier::EqTrait => todo!(),
         }
         .into(),
         ScopeKind::Package { main, .. } => ScopeSource::Module { file: main },
@@ -141,7 +154,7 @@ fn scope_source(this: &dyn ScopeSalsaQueryGroup, scope: ScopePtr) -> ScopeResult
             this.subscope_table(parent)?.scope_source(ident)?
         }
         ScopeKind::Contextual { main, ident } => ScopeSource::Contextual { main, ident },
-        ScopeKind::Generic { ident } => todo!(),
+        ScopeKind::Generic { ident, .. } => todo!(),
     })
 }
 

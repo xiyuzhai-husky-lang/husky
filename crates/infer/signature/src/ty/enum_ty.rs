@@ -1,7 +1,7 @@
 use super::*;
 
 pub(crate) fn enum_signature(
-    generics: Vec<GenericArgument>,
+    generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
 ) -> InferResultArc<TySignature> {
     let mut variants = VecMap::default();
@@ -20,7 +20,7 @@ pub(crate) fn enum_signature(
         }
     }
     Ok(Arc::new(TySignature {
-        generics,
+        generic_placeholders,
         members: IdentMap::default(),
         kind: TySignatureKind::Enum { variants },
         traits: todo!(),

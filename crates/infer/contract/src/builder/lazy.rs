@@ -242,7 +242,7 @@ impl<'a> ContractSheetBuilder<'a> {
             LazyContract::Ref => todo!(),
             LazyContract::Pure => (),
         }
-        self.infer_lazy_expr(this, memb_call_signature.this.lazy()?, arena);
+        self.infer_lazy_expr(this, memb_call_signature.this_contract.lazy()?, arena);
         if inputs.end - inputs.start != memb_call_signature.inputs.len() {
             todo!()
         }

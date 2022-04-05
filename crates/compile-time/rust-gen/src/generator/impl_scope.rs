@@ -13,7 +13,7 @@ impl<'a> RustGenerator<'a> {
                 self.write(&ident)
             }
             ScopeKind::Contextual { main, ident } => todo!(),
-            ScopeKind::Generic { ident } => todo!(),
+            ScopeKind::Generic { ident, .. } => todo!(),
         }
         if scope.generics.len() > 0 {
             todo!()
