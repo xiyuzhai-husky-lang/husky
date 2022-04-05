@@ -121,7 +121,7 @@ impl<'a> Formatter<'a> {
             AstKind::Use { ident, scope } => todo!(),
             AstKind::MembVarDefn {
                 ident,
-                signature: MembAccessSignature { contract, ty },
+                signature: MembAccessDecl { contract, ty },
             } => {
                 self.fmt_ident(ident.into());
                 self.write(": ");

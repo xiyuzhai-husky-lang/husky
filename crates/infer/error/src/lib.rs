@@ -104,5 +104,5 @@ macro_rules! derived_ok {
 }
 
 use dev_utils::*;
-use scope_query::ScopeError;
+use entity_route_query::ScopeError;
 use vm::VMError;

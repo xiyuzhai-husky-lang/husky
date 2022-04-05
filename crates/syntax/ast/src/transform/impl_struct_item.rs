@@ -70,7 +70,7 @@ impl<'a> AstTransformer<'a> {
                 let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
                 AstKind::MembVarDefn {
                     ident,
-                    signature: MembAccessSignature {
+                    signature: MembAccessDecl {
                         contract: MembAccessContract::Own,
                         ty,
                     },

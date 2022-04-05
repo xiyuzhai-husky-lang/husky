@@ -1,7 +1,7 @@
-use crate::*;
 use check_utils::should_eq;
 use entity_route::*;
-use syntax_types::{MembAccessSignature, MembCallSignature};
+use entity_route_query::*;
+use syntax_types::{MembAccessDecl, MembCallDecl};
 use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
@@ -64,18 +64,12 @@ impl<'a> Instantiator<'a> {
             .collect()
     }
 
-    pub fn instantiate_memb_access_decl(
-        &self,
-        signature: &MembAccessSignature,
-    ) -> MembAccessSignature {
+    pub fn instantiate_memb_access_decl(&self, signature: &MembAccessDecl) -> MembAccessDecl {
         todo!()
     }
 
-    pub fn instantiate_memb_routine_decl(
-        &self,
-        signature: &MembCallSignature,
-    ) -> MembCallSignature {
-        MembCallSignature {
+    pub fn instantiate_memb_routine_decl(&self, signature: &MembCallDecl) -> MembCallDecl {
+        MembCallDecl {
             this_contract: signature.this_contract,
             inputs: signature
                 .inputs

@@ -1,5 +1,5 @@
-use scope_query::Instantiator;
-use syntax_types::{MembAccessSignature, MembCallSignature};
+use crate::*;
+use syntax_types::{MembAccessDecl, MembCallDecl};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MembSignature {
@@ -8,8 +8,8 @@ pub struct MembSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum MembSignatureKind {
-    Var(MembAccessSignature),
-    Routine(MembCallSignature),
+    Var(MembAccessDecl),
+    Routine(MembCallDecl),
 }
 
 impl MembSignature {

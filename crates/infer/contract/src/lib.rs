@@ -6,11 +6,11 @@ use ast::RawExprIdx;
 use check_utils::*;
 use copy::is_copyable;
 use entity_route::EntityRoutePtr;
+use entity_route_query::{ScopeQueryGroup, ScopeResultArc};
 use file::FilePtr;
 use infer_error::InferResult;
 use infer_ty::InferTyQueryGroup;
 use print_utils::*;
-use scope_query::{ScopeQueryGroup, ScopeResultArc};
 use sheet::*;
 use vm::{EagerContract, LazyContract};
 

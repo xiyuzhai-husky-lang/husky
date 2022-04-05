@@ -15,4 +15,4 @@ reserve = { path = "../../abstraction/reserve", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
-scope-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
+entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
