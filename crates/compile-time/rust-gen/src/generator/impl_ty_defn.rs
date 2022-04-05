@@ -92,9 +92,9 @@ impl<'a> RustGenerator<'a> {
             match memb_routine.this_contract {
                 InputContract::Pure => self.write("&self"),
                 InputContract::GlobalRef => todo!(),
-                InputContract::Take => todo!(),
+                InputContract::Move => todo!(),
                 InputContract::BorrowMut => todo!(),
-                InputContract::TakeMut => todo!(),
+                InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
             }
             for input_placeholder in memb_routine.input_placeholders.iter() {
@@ -108,9 +108,9 @@ impl<'a> RustGenerator<'a> {
                         }
                     }
                     InputContract::GlobalRef => todo!(),
-                    InputContract::Take => todo!(),
+                    InputContract::Move => todo!(),
                     InputContract::BorrowMut => todo!(),
-                    InputContract::TakeMut => todo!(),
+                    InputContract::MoveMut => todo!(),
                     InputContract::Exec => todo!(),
                 }
                 self.gen_scope(input_placeholder.ranged_ty.scope);

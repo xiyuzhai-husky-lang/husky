@@ -1,11 +1,12 @@
 use super::*;
 
 pub(crate) fn record_signature(
-    generics: Vec<GenericArgument>,
+    generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
 ) -> InferResultArc<TySignature> {
     let mut memb_vars = VecMap::default();
     let mut memb_features = VecMap::default();
+    let mut traits = Vec::new();
     for subitem in children {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
@@ -18,12 +19,12 @@ pub(crate) fn record_signature(
         }
     }
     Ok(Arc::new(TySignature {
-        generics: Default::default(),
+        generic_placeholders,
         members: Default::default(),
         kind: TySignatureKind::Record {
             memb_vars,
             memb_features,
         },
-        traits: todo!(),
+        traits,
     }))
 }

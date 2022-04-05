@@ -31,7 +31,7 @@ impl TyDefn {
                 AstKind::TypeDecl {
                     ident,
                     kind,
-                    ref generics,
+                    generic_placeholders: ref generics,
                 } => match kind {
                     RawTyKind::Enum => Self::enum_from_ast(children)?,
                     RawTyKind::Struct => Self::struct_from_ast(db, children, arena, file)?,

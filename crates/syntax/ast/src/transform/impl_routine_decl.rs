@@ -47,8 +47,8 @@ impl<'a> AstTransformer<'a> {
                         match input_placeholder.contract {
                             InputContract::Pure
                             | InputContract::GlobalRef
-                            | InputContract::Take => (),
-                            InputContract::BorrowMut | InputContract::TakeMut => {
+                            | InputContract::Move => (),
+                            InputContract::BorrowMut | InputContract::MoveMut => {
                                 todo!("report invalid input contract")
                             }
                             InputContract::Exec => todo!(),

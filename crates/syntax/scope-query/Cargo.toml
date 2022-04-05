@@ -22,3 +22,4 @@ token = { path = "../token", version = "0.0.0" }
 scope = { path = "../scope", version = "0.0.0" }
 datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }
 entity-syntax = { path = "../entity", version = "0.0.0" }
+syntax-types = { path = "../types", version = "0.0.0" }

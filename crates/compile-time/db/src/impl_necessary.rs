@@ -64,7 +64,7 @@ impl LiveFiles for HuskyLangCompileTime {
 impl FileQueryGroup for HuskyLangCompileTime {}
 
 impl AllocateUniqueScope for HuskyLangCompileTime {
-    fn scope_unique_allocator(&self) -> &scope::UniqueScopeAllocator {
+    fn scope_unique_allocator(&self) -> &scope::ScopeInterner {
         &self.scope_unique_allocator
     }
 }

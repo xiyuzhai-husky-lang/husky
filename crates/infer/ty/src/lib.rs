@@ -67,6 +67,10 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: ScopePtr) -> InferResult<Sco
             BuiltinIdentifier::DatasetType => todo!(),
             BuiltinIdentifier::Type => todo!(),
             BuiltinIdentifier::Datasets => todo!(),
+            BuiltinIdentifier::CloneTrait => todo!(),
+            BuiltinIdentifier::CopyTrait => todo!(),
+            BuiltinIdentifier::PartialEqTrait => todo!(),
+            BuiltinIdentifier::EqTrait => todo!(),
         },
         ScopePtr::Custom(scope) => match scope.kind {
             ScopeKind::Contextual { main, ident } => match ident {
@@ -147,6 +151,10 @@ fn is_implicit_convertible(
             },
             BuiltinIdentifier::Type => todo!(),
             BuiltinIdentifier::Datasets => panic!(),
+            BuiltinIdentifier::CloneTrait => todo!(),
+            BuiltinIdentifier::CopyTrait => todo!(),
+            BuiltinIdentifier::PartialEqTrait => todo!(),
+            BuiltinIdentifier::EqTrait => todo!(),
         },
         ScopePtr::Custom(_) => todo!(),
     }

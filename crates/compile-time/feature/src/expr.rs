@@ -211,7 +211,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     ContextualIdentifier::ThisData => todo!(),
                     ContextualIdentifier::ThisType => todo!(),
                 },
-                ScopeKind::Generic { ident } => todo!(),
+                ScopeKind::Generic { ident, .. } => todo!(),
             },
         };
         Arc::new(FeatureExpr {

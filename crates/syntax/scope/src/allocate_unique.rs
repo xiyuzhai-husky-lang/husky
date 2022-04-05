@@ -8,7 +8,7 @@ use vm::{AnyValue, AnyValueDyn, EnumLiteralValueDyn, StaticTypeId};
 
 use crate::*;
 
-pub type UniqueScopeAllocator = UniqueAllocator<Scope, Scope, ScopePtr>;
+pub type ScopeInterner = UniqueAllocator<Scope, Scope, ScopePtr>;
 
 #[derive(Clone, Copy)]
 pub enum ScopePtr {
@@ -109,7 +109,11 @@ impl Deref for ScopePtr {
         match self {
             ScopePtr::Builtin(ident) => match_builtin!(
                 ident => Void, I32, F32, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Fp, Fn,
-                FnMut, FnOnce, Array, Datasets, DatasetType, Type
+                FnMut, FnOnce, Array, Datasets, DatasetType, Type,
+                CloneTrait,
+                CopyTrait,
+                PartialEqTrait,
+                EqTrait
             ),
             ScopePtr::Custom(scope) => scope,
         }
@@ -151,7 +155,7 @@ impl From<&Scope> for Scope {
 }
 
 pub trait AllocateUniqueScope {
-    fn scope_unique_allocator(&self) -> &UniqueScopeAllocator;
+    fn scope_unique_allocator(&self) -> &ScopeInterner;
     fn intern_scope(&self, scope: Scope) -> ScopePtr {
         self.scope_unique_allocator().alloc(scope)
     }
@@ -174,8 +178,8 @@ pub trait AllocateUniqueScope {
     }
 }
 
-pub fn new_scope_unique_allocator() -> UniqueScopeAllocator {
-    UniqueScopeAllocator::new_from::<BuiltinIdentifier>(&[
+pub fn new_scope_unique_allocator() -> ScopeInterner {
+    ScopeInterner::new_from::<BuiltinIdentifier>(&[
         BuiltinIdentifier::Void,
         BuiltinIdentifier::I32,
         BuiltinIdentifier::F32,

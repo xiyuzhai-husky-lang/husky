@@ -65,7 +65,7 @@ pub(crate) fn call_signature(
                 // type constructor
                 AstKind::TypeDecl {
                     ref kind,
-                    ref generics,
+                    generic_placeholders: ref generics,
                     ..
                 } => match kind {
                     RawTyKind::Enum => todo!(),

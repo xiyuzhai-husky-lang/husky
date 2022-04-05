@@ -72,7 +72,7 @@ impl<'a> Formatter<'a> {
             AstKind::TypeDecl {
                 ident,
                 ref kind,
-                ref generics,
+                generic_placeholders: ref generics,
             } => {
                 match kind {
                     RawTyKind::Enum => todo!(),
@@ -156,9 +156,9 @@ impl<'a> Formatter<'a> {
         match ty.contract {
             InputContract::Pure => (),
             InputContract::GlobalRef => self.write("&"),
-            InputContract::Take => self.write("!"),
+            InputContract::Move => self.write("!"),
             InputContract::BorrowMut => self.write("mut &"),
-            InputContract::TakeMut => self.write("mut !"),
+            InputContract::MoveMut => self.write("mut !"),
             InputContract::Exec => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.scope);

@@ -18,11 +18,12 @@ use check_utils::*;
 use dev_utils::*;
 use env::Env;
 use print_utils::*;
+use scope::*;
 use scope::{RangedScope, ScopePtr};
 use syntax_types::*;
 use text::TextRange;
 use vm::InitKind;
-use word::{CustomIdentifier, Identifier, StmtKeyword};
+use word::{CustomIdentifier, IdentMap, Identifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
@@ -35,7 +36,7 @@ pub enum AstKind {
     TypeDecl {
         ident: CustomIdentifier,
         kind: RawTyKind,
-        generics: Vec<GenericPlaceholder>,
+        generic_placeholders: IdentMap<GenericPlaceholderKind>,
     },
     MainDecl,
     RoutineDecl {

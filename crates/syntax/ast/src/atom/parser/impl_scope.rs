@@ -109,6 +109,10 @@ impl<'a> AtomLRParser<'a> {
                 | BuiltinIdentifier::Tuple
                 | BuiltinIdentifier::DatasetType => self.angled_generics(),
                 BuiltinIdentifier::Type => todo!(),
+                BuiltinIdentifier::CloneTrait => todo!(),
+                BuiltinIdentifier::CopyTrait => todo!(),
+                BuiltinIdentifier::PartialEqTrait => todo!(),
+                BuiltinIdentifier::EqTrait => todo!(),
             },
             _ => match self
                 .scope_proxy

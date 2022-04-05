@@ -15,9 +15,9 @@ impl Qual {
         match contract {
             InputContract::Pure => Qual::PureInput,
             InputContract::GlobalRef => todo!(),
-            InputContract::Take => todo!(),
+            InputContract::Move => todo!(),
             InputContract::BorrowMut => todo!(),
-            InputContract::TakeMut => todo!(),
+            InputContract::MoveMut => todo!(),
             InputContract::Exec => todo!(),
         }
     }

@@ -4,9 +4,11 @@ use std::sync::Arc;
 
 pub use opr::*;
 
-use scope::{InputPlaceholder, InputSignature, RangedScope, ScopeKind, ScopePtr};
-use vm::{EagerContract, InputContract, MembAccessContract};
-use word::CustomIdentifier;
+use scope::{
+    GenericPlaceholderKind, InputPlaceholder, InputSignature, RangedScope, ScopeKind, ScopePtr,
+};
+use vm::{InputContract, MembAccessContract};
+use word::{CustomIdentifier, IdentMap};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembAccessSignature {
@@ -16,10 +18,10 @@ pub struct MembAccessSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MembCallSignature {
-    pub this: InputContract,
+    pub this_contract: InputContract,
     pub inputs: Vec<InputSignature>,
     pub output: ScopePtr,
-    pub args: Vec<GenericPlaceholder>,
+    pub args: IdentMap<GenericPlaceholderKind>,
 }
 // #[derive(Debug, PartialEq, Eq, Clone)]
 // pub struct MembFuncDecl {
@@ -45,7 +47,7 @@ pub enum RoutineKind {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RoutineHead {
     pub routine_name: CustomIdentifier,
-    pub generics: Vec<GenericPlaceholder>,
+    pub generic_placeholders: IdentMap<GenericPlaceholderKind>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedScope,
 }
@@ -55,7 +57,7 @@ pub struct MembRoutineHead {
     pub this_contract: InputContract,
     pub kind: RawMembRoutineKind,
     pub routine_name: CustomIdentifier,
-    pub generics: Vec<GenericPlaceholder>,
+    pub generics: IdentMap<GenericPlaceholderKind>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedScope,
 }
@@ -69,7 +71,7 @@ pub enum RawMembRoutineKind {
 impl Into<MembCallSignature> for &MembRoutineHead {
     fn into(self) -> MembCallSignature {
         MembCallSignature {
-            this: self.this_contract,
+            this_contract: self.this_contract,
             inputs: self
                 .input_placeholders
                 .iter()
@@ -79,18 +81,6 @@ impl Into<MembCallSignature> for &MembRoutineHead {
             args: self.generics.clone(),
         }
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum GenericPlaceholderKind {
-    Const,
-    Type { traits: Vec<RangedScope> },
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct GenericPlaceholder {
-    pub ident: CustomIdentifier,
-    pub kind: GenericPlaceholderKind,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

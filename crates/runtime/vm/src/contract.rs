@@ -4,9 +4,9 @@ use crate::*;
 pub enum InputContract {
     Pure,
     GlobalRef,
-    Take,
+    Move,
     BorrowMut,
-    TakeMut,
+    MoveMut,
     Exec,
 }
 
@@ -15,9 +15,9 @@ impl InputContract {
         Ok(match self {
             InputContract::Pure => EagerContract::Pure,
             InputContract::GlobalRef => EagerContract::GlobalRef,
-            InputContract::Take => EagerContract::Move,
-            InputContract::BorrowMut => todo!(),
-            InputContract::TakeMut => todo!(),
+            InputContract::Move => EagerContract::Move,
+            InputContract::BorrowMut => EagerContract::BorrowMut,
+            InputContract::MoveMut => todo!(),
             InputContract::Exec => todo!(),
         })
     }
@@ -26,9 +26,9 @@ impl InputContract {
         Ok(match self {
             InputContract::Pure => LazyContract::Pure,
             InputContract::GlobalRef => todo!(),
-            InputContract::Take => LazyContract::Take,
+            InputContract::Move => LazyContract::Take,
             InputContract::BorrowMut => todo!(),
-            InputContract::TakeMut => todo!(),
+            InputContract::MoveMut => todo!(),
             InputContract::Exec => todo!(),
         })
     }
@@ -64,7 +64,7 @@ pub enum MembAccessContract {
 impl MembAccessContract {
     pub fn constructor_input(&self) -> InputContract {
         match self {
-            MembAccessContract::Own => InputContract::Take,
+            MembAccessContract::Own => InputContract::Move,
             MembAccessContract::Ref => InputContract::GlobalRef,
             MembAccessContract::LazyOwn => panic!(),
         }
