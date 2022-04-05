@@ -2,12 +2,17 @@ mod impl_basic;
 mod impl_decl_stmt;
 mod impl_expr;
 mod impl_impr_stmt;
+mod query;
 
+pub use query::*;
+
+use entity_route::*;
+use print_utils::*;
+use semantics_eager::*;
+use semantics_entity::*;
 use std::sync::Arc;
-
 use vm::InstructionSheet;
-
-use crate::*;
+use word::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InstructionSheetBuilder {

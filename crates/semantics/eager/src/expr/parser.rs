@@ -178,11 +178,15 @@ pub trait EagerExprParser<'a> {
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))
                             .collect::<SemanticResult<Vec<_>>>()?;
+                        let this_ty_decl = self.db().ty_decl(this.ty).unwrap();
                         let mut opds = vec![this];
                         opds.extend(inputs);
                         msg_once!("todo: memb call compiled");
                         Ok(EagerExprKind::Opn {
-                            opn_kind: EagerOpnKind::MembRoutineCall { memb_ident },
+                            opn_kind: EagerOpnKind::MembRoutineCall {
+                                memb_ident,
+                                this_ty_decl,
+                            },
                             compiled: None,
                             opds,
                         })

@@ -90,9 +90,9 @@ impl HuskyLangRuntime {
         };
         let mut runtime = Self {
             storage: Default::default(),
+            session: Arc::new(Mutex::new(Session::new(&package, &compile_time).unwrap())),
             compile_time,
             traces: Default::default(),
-            session: Arc::new(Mutex::new(Session::new(&package).unwrap())),
             focus: Default::default(),
             expansions: Default::default(),
             showns: Default::default(),

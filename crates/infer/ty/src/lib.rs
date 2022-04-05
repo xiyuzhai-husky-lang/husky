@@ -5,7 +5,7 @@ pub use sheet::*;
 
 use ast::*;
 use check_utils::*;
-use decl::{DeclQueryGroup, TySignature};
+use decl::{DeclQueryGroup, TyDecl};
 use entity_route::{GenericArgument, *};
 use entity_route_query::{ScopeQueryGroup, ScopeResult, ScopeResultArc};
 use file::FilePtr;
@@ -30,7 +30,7 @@ pub trait InferTyQueryGroup: InferTySalsaQueryGroup {
         self.ty_sheet(file)?.expr_ty_result(expr_idx)
     }
 
-    fn expr_ty_decl(&self, file: FilePtr, expr_idx: RawExprIdx) -> InferResultArc<TySignature> {
+    fn expr_ty_decl(&self, file: FilePtr, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
         let ty = self.expr_ty_result(file, expr_idx)?;
         self.ty_decl(ty)
     }
@@ -92,7 +92,7 @@ fn is_implicit_convertible(
     }
     match dst_ty {
         EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
-            BuiltinIdentifier::Void => todo!(),
+            BuiltinIdentifier::Void => false,
             BuiltinIdentifier::I32 => {
                 p!(src_ty, dst_ty);
                 todo!()

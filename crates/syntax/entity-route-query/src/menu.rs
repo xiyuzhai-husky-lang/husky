@@ -17,6 +17,12 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
             },
             generics: vec![],
         }),
+        i32_type: db.intern_scope(Route {
+            kind: ScopeKind::Builtin {
+                ident: BuiltinIdentifier::I32,
+            },
+            generics: vec![],
+        }),
     })
 }
 
@@ -24,4 +30,5 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
 pub struct EntityRouteMenu {
     pub clone_trait: EntityRoutePtr,
     pub void_type: EntityRoutePtr,
+    pub i32_type: EntityRoutePtr,
 }

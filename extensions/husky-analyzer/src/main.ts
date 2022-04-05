@@ -2,18 +2,19 @@ import * as vscode from "vscode";
 import * as lc from "vscode-languageclient/node";
 import * as lsp_ext from "./ext/lsp_ext";
 import { DebuggerSingleton } from "./ext/DebuggerPanel";
+import { server_executable } from "./config";
 
 let client: lc.LanguageClient;
 
 export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.commands.registerCommand("husky_lang_analyzer.sayHello", () => {
+        vscode.commands.registerCommand("husky_analyzer.sayHello", () => {
             DebuggerSingleton.createOrShow(context.extensionUri);
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand("husky_lang_analyzer.refresh", () => {
+        vscode.commands.registerCommand("husky_analyzer.refresh", () => {
             DebuggerSingleton.kill();
             DebuggerSingleton.createOrShow(context.extensionUri);
             vscode.commands.executeCommand(
@@ -23,22 +24,22 @@ export async function activate(context: vscode.ExtensionContext) {
     );
 
     const run: lc.Executable = {
-        command: "husky_lang_analyzer",
+        command: server_executable,
     };
 
-    const serverOptions: lc.ServerOptions = {
+    const server_options: lc.ServerOptions = {
         run,
         debug: run,
     };
 
-    const traceOutputChannel = vscode.window.createOutputChannel(
+    const trace_output_channel = vscode.window.createOutputChannel(
         "Husky Language Server Trace"
     );
 
-    const clientOptions: lc.LanguageClientOptions = {
+    const client_options: lc.LanguageClientOptions = {
         documentSelector: [{ scheme: "file", language: "husky" }],
         diagnosticCollectionName: "huskyc",
-        traceOutputChannel,
+        traceOutputChannel: trace_output_channel,
         middleware: {
             async provideHover(
                 document: vscode.TextDocument,
@@ -90,10 +91,10 @@ export async function activate(context: vscode.ExtensionContext) {
     };
 
     const client = new lc.LanguageClient(
-        "husky_lang_analyzer",
+        server_executable,
         "Husky Language Server",
-        serverOptions,
-        clientOptions
+        server_options,
+        client_options
     );
 
     // To turn on all proposed features use: client.registerProposedFeatures();
@@ -133,10 +134,10 @@ class ExperimentalFeatures implements lc.StaticFeature {
         caps.serverStatusNotification = true;
         caps.commands = {
             commands: [
-                "husky-lang-server.runSingle",
-                "husky-lang-server.debugSingle",
-                "husky-lang-server.showReferences",
-                "husky-lang-server.gotoLocation",
+                "husky-analyzer-server.runSingle",
+                "husky-analyzer-server.debugSingle",
+                "husky-analyzer-server.showReferences",
+                "husky-analyzer-server.gotoLocation",
                 "editor.action.triggerParameterHints",
             ],
         };

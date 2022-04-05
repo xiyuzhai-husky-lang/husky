@@ -7,6 +7,7 @@ use std::sync::Arc;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Main {
     pub stmts: Arc<Vec<Arc<LazyStmt>>>,
+    pub file: FilePtr,
 }
 
 impl EntityKind {

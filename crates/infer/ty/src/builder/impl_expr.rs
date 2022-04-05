@@ -13,7 +13,8 @@ impl<'a> TySheetBuilder<'a> {
         expectation: Option<EntityRoutePtr>,
         arena: &RawExprArena,
     ) -> Option<EntityRoutePtr> {
-        let ty_result: InferResult<EntityRoutePtr> = self.expr_ty_result(expr_idx, expectation, arena);
+        let ty_result: InferResult<EntityRoutePtr> =
+            self.expr_ty_result(expr_idx, expectation, arena);
         let opt_ty = ty_result.as_ref().ok().map(|ty| *ty);
         insert_new!(self.ty_sheet.exprs, expr_idx, ty_result);
         opt_ty
@@ -45,7 +46,7 @@ impl<'a> TySheetBuilder<'a> {
         }?;
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicit_convertible(ty, expected_ty) {
-                todo!()
+                err!(format!("expect {:?} but get {:?} instead", expected_ty, ty))
             }
         }
         Ok(ty)
@@ -60,7 +61,9 @@ impl<'a> TySheetBuilder<'a> {
             RawEntityKind::Module => todo!(),
             RawEntityKind::Literal => match scope {
                 EntityRoutePtr::Builtin(BuiltinIdentifier::True)
-                | EntityRoutePtr::Builtin(BuiltinIdentifier::False) => BuiltinIdentifier::Bool.into(),
+                | EntityRoutePtr::Builtin(BuiltinIdentifier::False) => {
+                    BuiltinIdentifier::Bool.into()
+                }
                 EntityRoutePtr::Custom(scope) => match scope.kind {
                     ScopeKind::Builtin { ident } => todo!(),
                     ScopeKind::Package { main, ident } => todo!(),
@@ -108,11 +111,12 @@ impl<'a> TySheetBuilder<'a> {
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => match lopd_ty {
                 EntityRoutePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
-                    EntityRoutePtr::Builtin(ropd_builtin_ty) => self.builtin_pure_binary_opn_ty_result(
-                        pure_binary_opr,
-                        lopd_builtin_ty,
-                        ropd_builtin_ty,
-                    ),
+                    EntityRoutePtr::Builtin(ropd_builtin_ty) => self
+                        .builtin_pure_binary_opn_ty_result(
+                            pure_binary_opr,
+                            lopd_builtin_ty,
+                            ropd_builtin_ty,
+                        ),
                     EntityRoutePtr::Custom(_) => todo!(),
                 },
                 EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
@@ -198,9 +202,7 @@ impl<'a> TySheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => {
-                self.db.ty_decl(opd_ty)?.memb_access_ty_result(ident)
-            }
+            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.memb_access_ty_result(ident),
             SuffixOpr::WithType(_) => todo!(),
         }
     }
@@ -277,11 +279,7 @@ impl<'a> TySheetBuilder<'a> {
             todo!()
         }
         for i in 0..memb_call_decl.inputs.len() {
-            self.infer_expr(
-                inputs.start + i,
-                Some(memb_call_decl.inputs[i].ty),
-                arena,
-            );
+            self.infer_expr(inputs.start + i, Some(memb_call_decl.inputs[i].ty), arena);
         }
         Ok(memb_call_decl.output)
     }

@@ -7,14 +7,15 @@ pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use decl::*;
 pub use diagnostic::DiagnosticQuery;
 pub use entity_route::{AllocateUniqueScope, Route};
+pub use entity_route_query::{EntityRouteSalsaQueryGroup, ScopeQueryGroup};
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use infer_contract::*;
 pub use infer_total::*;
 pub use infer_ty::*;
+pub use instruction_gen::InstructionGenQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
-pub use entity_route_query::{EntityRouteSalsaQueryGroup, ScopeQueryGroup};
 pub use semantics_entity::ControlEntityVersion;
 pub use semantics_entity::EntityQueryGroup;
 pub use semantics_package::PackageQueryGroup;
@@ -41,6 +42,7 @@ use sync_utils::ARwLock;
     semantics_package::PackageQueryGroupStorage,
     feature::FeatureQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage,
+    instruction_gen::InstructionGenQueryGroupStorage,
     rust_gen::RustGenQueryStorage
 )]
 pub struct HuskyLangCompileTime {

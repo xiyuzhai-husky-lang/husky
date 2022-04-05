@@ -8,7 +8,7 @@ use lsp_types::{
 };
 
 use error_utils::Result;
-use husky_lang_analyzer::{event_loop, init_connection, utils::from_json};
+use husky_analyzer::{event_loop, init_connection, utils::from_json};
 
 fn main() {
     if let Err(e) = try_main() {

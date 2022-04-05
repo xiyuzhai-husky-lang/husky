@@ -27,4 +27,4 @@ default-members = [
 opt-level = 0
 
 [profile.release]
-opt-level = 0
+opt-level = 3

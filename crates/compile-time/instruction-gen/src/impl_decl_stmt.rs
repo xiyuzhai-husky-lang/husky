@@ -1,5 +1,4 @@
 use crate::*;
-
 use vm::{EagerContract, InitKind, Instruction, InstructionKind};
 
 impl InstructionSheetBuilder {

@@ -314,16 +314,13 @@ impl<'a> ContractSheetBuilder<'a> {
         match contract {
             EagerContract::Pure => (),
             EagerContract::Move => (),
+            EagerContract::Return => (),
+            EagerContract::Exec => (),
             EagerContract::GlobalRef => todo!(),
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
-            EagerContract::Exec => match memb_call_decl.output {
-                EntityRoutePtr::Builtin(BuiltinIdentifier::Void) => (),
-                _ => err!("no discard"),
-            },
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),
-            EagerContract::Return => todo!(),
         }
         self.infer_eager_expr(this, memb_call_decl.this_contract.eager()?, arena);
         if inputs.end - inputs.start != memb_call_decl.inputs.len() {
@@ -331,7 +328,7 @@ impl<'a> ContractSheetBuilder<'a> {
         }
         for i in 0..memb_call_decl.inputs.len() {
             self.infer_eager_expr(
-                inputs.start + 1,
+                inputs.start + i,
                 memb_call_decl.inputs[i].contract.eager()?,
                 arena,
             )

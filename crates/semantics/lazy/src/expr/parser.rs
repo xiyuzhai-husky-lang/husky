@@ -3,7 +3,7 @@ use std::sync::Arc;
 use crate::*;
 use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 
-use decl::TySignature;
+use decl::TyDecl;
 use entity_route::{EntityRoutePtr, RangedScope, RawEntityKind, ScopeKind};
 use entity_syntax::RawTyKind;
 use file::FilePtr;

@@ -68,7 +68,7 @@ pub enum InstructionKind {
         nargs: u8,
     },
     TyCallInterpreted {
-        ty_decl: VMTySignatureKind,
+        ty_signature: TySignature,
     },
     PrimitiveOpn(PrimitiveOpn),
     Loop {

@@ -94,6 +94,16 @@ macro_rules! derived_not_none {
 }
 
 #[macro_export]
+macro_rules! derived {
+    () => {{
+        InferError {
+            kind: InferErrorKind::Derived,
+            src: dev_utils::src!(),
+        }
+    }};
+}
+
+#[macro_export]
 macro_rules! derived_ok {
     ($opt_value: expr) => {{
         $opt_value.or(Err(InferError {

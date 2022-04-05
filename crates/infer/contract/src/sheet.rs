@@ -1,6 +1,7 @@
 use std::{collections::HashMap, sync::Arc};
 
 use fold::FoldStorage;
+use infer_error::*;
 use infer_ty::TySheet;
 
 use crate::{builder::ContractSheetBuilder, *};
@@ -32,7 +33,11 @@ impl ContractSheet {
         &self,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<EagerContract> {
-        self.eager_expr_contract_results[&raw_expr_idx].clone()
+        if let Some(contract_result) = self.eager_expr_contract_results.get(&raw_expr_idx) {
+            contract_result.clone()
+        } else {
+            Err(derived!())
+        }
     }
 }
 

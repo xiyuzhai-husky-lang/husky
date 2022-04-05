@@ -649,7 +649,7 @@
                 {
                     "comment": "control flow keywords",
                     "name": "keyword.control.husky",
-                    "match": "\\b(await|break|continue|do|else|for|ext|if|elif|loop|match|switch|case|default|return|try|do|while|yield)\\b"
+                    "match": "\\b(await|break|continue|for|forext|if|elif|else|loop|match|switch|case|default|return|try|do|while|yield)\\b"
                 },
                 {
                     "comment": "storage keywords",
