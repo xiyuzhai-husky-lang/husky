@@ -11,17 +11,17 @@ pub enum TraceKind<'eval> {
     FeatureExpr(Arc<FeatureExpr>),
     Input(Arc<FeatureExpr>),
     StrictDeclStmt {
-        stmt: Arc<DeclStmt>,
+        stmt: Arc<FuncStmt>,
         history: Arc<History<'eval>>,
     },
     ImprStmt {
-        stmt: Arc<ImprStmt>,
+        stmt: Arc<ProcStmt>,
         history: Arc<History<'eval>>,
     },
     LoopFrame {
-        loop_stmt: Arc<ImprStmt>,
+        loop_stmt: Arc<ProcStmt>,
         body_instruction_sheet: Arc<InstructionSheet>,
-        body_stmts: Arc<Vec<Arc<ImprStmt>>>,
+        body_stmts: Arc<Vec<Arc<ProcStmt>>>,
         loop_frame_snapshot: LoopFrameSnapshot<'eval>,
     },
     EagerExpr {

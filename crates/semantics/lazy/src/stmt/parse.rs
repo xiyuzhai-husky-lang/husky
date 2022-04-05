@@ -1,7 +1,7 @@
 use crate::*;
 use ast::*;
+use entity_route::{EntityRoutePtr, InputPlaceholder};
 use file::FilePtr;
-use entity_route::{InputPlaceholder, EntityRoutePtr};
 use semantics_error::*;
 use std::sync::Arc;
 use vm::{InitKind, StackIdx, VMResult};
@@ -69,11 +69,11 @@ impl<'a> LazyStmtParser<'a> {
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
-                AstKind::TypeDecl { .. } => todo!(),
-                AstKind::MainDecl => todo!(),
-                AstKind::DatasetConfig => todo!(),
-                AstKind::RoutineDecl { .. } => todo!(),
-                AstKind::PatternDecl => todo!(),
+                AstKind::TypeDefnHead { .. } => todo!(),
+                AstKind::MainDefn => todo!(),
+                AstKind::DatasetConfigDefnHead => todo!(),
+                AstKind::RoutineDefnHead { .. } => todo!(),
+                AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => match stmt.kind {
                     RawStmtKind::Loop(_) => todo!(),
@@ -175,14 +175,14 @@ impl<'a> LazyStmtParser<'a> {
                         instruction_id: Default::default(),
                     },
                 },
-                AstKind::EnumVariant {
+                AstKind::EnumVariantDefnHead {
                     ident,
                     raw_variant_kind: ref variant_kind,
                 } => todo!(),
-                AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl { .. } => todo!(),
+                AstKind::MembVarDefn { .. } => todo!(),
+                AstKind::MembRoutineDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
-                AstKind::MembFeatureDecl { ident, ty } => todo!(),
+                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

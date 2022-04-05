@@ -8,16 +8,16 @@ impl<'a> EagerStmtParser<'a> {
     pub(super) fn parse_decl_stmts(
         &mut self,
         iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
-    ) -> SemanticResultArc<Vec<Arc<DeclStmt>>> {
+    ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
-                AstKind::TypeDecl { .. } => todo!(),
-                AstKind::MainDecl => todo!(),
-                AstKind::DatasetConfig => todo!(),
-                AstKind::RoutineDecl { .. } => todo!(),
-                AstKind::PatternDecl => todo!(),
+                AstKind::TypeDefnHead { .. } => todo!(),
+                AstKind::MainDefn => todo!(),
+                AstKind::DatasetConfigDefnHead => todo!(),
+                AstKind::RoutineDefnHead { .. } => todo!(),
+                AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => match stmt.kind {
                     RawStmtKind::Loop(_) => todo!(),
@@ -67,11 +67,11 @@ impl<'a> EagerStmtParser<'a> {
                                 _ => break,
                             }
                         }
-                        DeclStmt {
+                        FuncStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
-                            kind: DeclStmtKind::Branches {
+                            kind: FuncStmtKind::Branches {
                                 kind: DeclBranchGroupKind::If,
                                 branches,
                             },
@@ -90,44 +90,44 @@ impl<'a> EagerStmtParser<'a> {
                         }
                         let qual = Qual::from_init(kind);
                         self.def_variable(varname, initial_value.ty, qual)?;
-                        DeclStmt {
+                        FuncStmt {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
-                            kind: DeclStmtKind::Init {
+                            kind: FuncStmtKind::Init {
                                 varname,
                                 initial_value,
                             },
                             instruction_id: Default::default(),
                         }
                     }
-                    RawStmtKind::Return(result) => DeclStmt {
+                    RawStmtKind::Return(result) => FuncStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
-                        kind: DeclStmtKind::Return {
+                        kind: FuncStmtKind::Return {
                             result: self.parse_eager_expr(result)?,
                         },
                         instruction_id: Default::default(),
                     },
-                    RawStmtKind::Assert(condition) => DeclStmt {
+                    RawStmtKind::Assert(condition) => FuncStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
-                        kind: DeclStmtKind::Assert {
+                        kind: FuncStmtKind::Assert {
                             condition: self.parse_eager_expr(condition)?,
                         },
                         instruction_id: Default::default(),
                     },
                 },
-                AstKind::EnumVariant {
+                AstKind::EnumVariantDefnHead {
                     ident,
                     ref raw_variant_kind,
                 } => todo!(),
-                AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl { .. } => todo!(),
+                AstKind::MembVarDefn { .. } => todo!(),
+                AstKind::MembRoutineDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
-                AstKind::MembFeatureDecl { ident, ty } => todo!(),
+                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

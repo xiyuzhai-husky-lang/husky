@@ -16,13 +16,11 @@ impl MembSignature {
     pub fn instantiate(&self, instantiator: &Instantiator) -> MembSignature {
         match self.kind {
             MembSignatureKind::Var(ref signature) => MembSignature {
-                kind: MembSignatureKind::Var(
-                    instantiator.instantiate_memb_access_signature(signature),
-                ),
+                kind: MembSignatureKind::Var(instantiator.instantiate_memb_access_decl(signature)),
             },
             MembSignatureKind::Routine(ref signature) => MembSignature {
                 kind: MembSignatureKind::Routine(
-                    instantiator.instantiate_memb_routine_signature(signature),
+                    instantiator.instantiate_memb_routine_decl(signature),
                 ),
             },
         }

@@ -2,7 +2,7 @@ use vm::InputContract;
 
 use super::*;
 
-pub(crate) fn vec_signature_template(db: &dyn InferSignatureQueryGroup) -> Arc<TySignature> {
+pub(crate) fn vec_decl_template(db: &dyn DeclQueryGroup) -> Arc<TySignature> {
     let element_ty_ident = db.custom_ident("T");
     let element_ty = db.intern_scope(Route {
         kind: ScopeKind::Generic {

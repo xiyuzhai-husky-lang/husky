@@ -1,6 +1,6 @@
 use entity_route::EntityRoutePtr;
 use semantics_eager::{
-    Boundary, DeclStmt, DeclStmtKind, EagerExpr, ImprStmt, ImprStmtKind, LoopKind,
+    Boundary, EagerExpr, FuncStmt, FuncStmtKind, LoopKind, ProcStmt, ProcStmtKind,
 };
 use vm::{BoundaryKind, InitKind};
 use word::BuiltinIdentifier;
@@ -8,28 +8,28 @@ use word::BuiltinIdentifier;
 use super::*;
 
 impl<'a> RustGenerator<'a> {
-    pub(super) fn gen_decl_stmts(&mut self, stmts: &[Arc<DeclStmt>], indent: fold::Indent) {
+    pub(super) fn gen_func_stmts(&mut self, stmts: &[Arc<FuncStmt>], indent: fold::Indent) {
         let indent_prev = self.indent;
         self.indent = indent;
         for stmt in stmts {
-            self.gen_decl_stmt(stmt);
+            self.gen_func_stmt(stmt);
         }
         self.indent = indent_prev;
     }
 
-    pub(super) fn gen_impr_stmts(&mut self, stmts: &[Arc<ImprStmt>], indent: fold::Indent) {
+    pub(super) fn gen_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>], indent: fold::Indent) {
         let indent_prev = self.indent;
         self.indent = indent;
         for stmt in stmts {
-            self.gen_impr_stmt(stmt);
+            self.gen_proc_stmt(stmt);
         }
         self.indent = indent_prev;
     }
 
-    fn gen_decl_stmt(&mut self, stmt: &DeclStmt) {
+    fn gen_func_stmt(&mut self, stmt: &FuncStmt) {
         self.write_indent();
         match stmt.kind {
-            DeclStmtKind::Init {
+            FuncStmtKind::Init {
                 varname,
                 ref initial_value,
             } => {
@@ -39,17 +39,17 @@ impl<'a> RustGenerator<'a> {
                 self.gen_expr(initial_value);
                 self.write(";\n");
             }
-            DeclStmtKind::Assert { ref condition } => todo!(),
-            DeclStmtKind::Return { ref result } => self.gen_expr(result),
-            DeclStmtKind::Branches { kind, ref branches } => todo!(),
+            FuncStmtKind::Assert { ref condition } => todo!(),
+            FuncStmtKind::Return { ref result } => self.gen_expr(result),
+            FuncStmtKind::Branches { kind, ref branches } => todo!(),
         }
         self.write_newline();
     }
 
-    fn gen_impr_stmt(&mut self, stmt: &ImprStmt) {
+    fn gen_proc_stmt(&mut self, stmt: &ProcStmt) {
         self.write_indent();
         match stmt.kind {
-            ImprStmtKind::Init {
+            ProcStmtKind::Init {
                 varname,
                 ref initial_value,
                 init_kind,
@@ -65,21 +65,21 @@ impl<'a> RustGenerator<'a> {
                 self.gen_expr(initial_value);
                 self.write(";\n");
             }
-            ImprStmtKind::Assert { ref condition } => {
+            ProcStmtKind::Assert { ref condition } => {
                 self.write("assert!(");
                 self.gen_expr(condition);
                 self.write(");\n");
             }
-            ImprStmtKind::Execute { ref expr } => {
+            ProcStmtKind::Execute { ref expr } => {
                 self.gen_expr(expr);
                 self.write(";\n");
             }
-            ImprStmtKind::Return { ref result } => {
+            ProcStmtKind::Return { ref result } => {
                 self.gen_expr(result);
                 self.write_newline();
             }
-            ImprStmtKind::BranchGroup { kind, ref branches } => todo!(),
-            ImprStmtKind::Loop {
+            ProcStmtKind::BranchGroup { kind, ref branches } => todo!(),
+            ProcStmtKind::Loop {
                 ref loop_kind,
                 ref stmts,
             } => match loop_kind {
@@ -107,7 +107,7 @@ impl<'a> RustGenerator<'a> {
                         todo!()
                     }
                     self.write(" {\n");
-                    self.gen_impr_stmts(stmts, self.indent + 4);
+                    self.gen_proc_stmts(stmts, self.indent + 4);
                     self.write_indent();
                     self.write("}\n")
                 }
@@ -131,7 +131,7 @@ impl<'a> RustGenerator<'a> {
                         self.write("0")
                     }
                     self.write(" {\n");
-                    self.gen_impr_stmts(stmts, self.indent + 4);
+                    self.gen_proc_stmts(stmts, self.indent + 4);
                     self.write_indent();
                     self.write("    ");
                     self.write(&frame_var);
@@ -152,13 +152,13 @@ impl<'a> RustGenerator<'a> {
                     self.write("while ");
                     self.gen_condition(condition);
                     self.write(" {\n");
-                    self.gen_impr_stmts(stmts, self.indent + 4);
+                    self.gen_proc_stmts(stmts, self.indent + 4);
                     self.write_indent();
                     self.write("}\n")
                 }
                 LoopKind::DoWhile { condition } => {
                     self.write("loop {\n");
-                    self.gen_impr_stmts(stmts, self.indent + 4);
+                    self.gen_proc_stmts(stmts, self.indent + 4);
                     self.write_indent();
                     self.write("    if !(");
                     self.gen_condition(condition);

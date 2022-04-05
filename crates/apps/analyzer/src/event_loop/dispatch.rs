@@ -59,7 +59,7 @@ fn dispatch_lsp_request(
         .on::<lsp_types::request::CodeLensRequest>(handle_code_lens)
         .on::<lsp_types::request::CodeLensResolve>(handle_code_lens_resolve)
         .on::<lsp_types::request::FoldingRangeRequest>(handle_folding_range)
-        .on::<lsp_types::request::SignatureHelpRequest>(handle_signature_help)
+        .on::<lsp_types::request::SignatureHelpRequest>(handle_decl_help)
         .on::<lsp_types::request::PrepareRenameRequest>(handle_prepare_rename)
         .on::<lsp_types::request::Rename>(handle_rename)
         .on::<lsp_types::request::References>(handle_references)

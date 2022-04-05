@@ -21,12 +21,12 @@ pub const MNIST_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
         ("BinaryImage28", BINARY_IMAGE_28_SCOPE_DATA),
     ],
-    signature: BuiltinScopeSignature::Module,
+    decl: BuiltinEntityDecl::Module,
 };
 
 const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    signature: BuiltinScopeSignature::Func(StaticFuncSignature {
+    decl: BuiltinEntityDecl::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         compiled: Some(Compiled {
@@ -37,7 +37,7 @@ const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
 
 const BINARY_IMAGE_28_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    signature: BuiltinScopeSignature::Ty {
+    decl: BuiltinEntityDecl::Ty {
         visualizer: BuiltinVisualizer {
             compiled: BinaryImage28::visualize,
         },

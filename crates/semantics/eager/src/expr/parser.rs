@@ -1,6 +1,6 @@
 use ast::{RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
+use entity_route::{EntityRoutePtr, RawEntityKind, ScopeKind};
 use file::FilePtr;
-use entity_route::{RawEntityKind, ScopeKind, EntityRoutePtr};
 use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue};
 use word::BuiltinIdentifier;
@@ -120,7 +120,7 @@ pub trait EagerExprParser<'a> {
                 kind: RawEntityKind::Routine,
                 ..
             } => {
-                let signature = try_infer!(self.db().call_signature(scope));
+                let signature = try_infer!(self.db().call_decl(scope));
                 let arguments: Vec<_> = input_opd_idx_range
                     .clone()
                     .enumerate()
@@ -141,7 +141,7 @@ pub trait EagerExprParser<'a> {
                 kind: RawEntityKind::Type(_),
                 ..
             } => {
-                let signature = try_infer!(self.db().call_signature(scope));
+                let signature = try_infer!(self.db().call_decl(scope));
                 let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw))
@@ -152,7 +152,7 @@ pub trait EagerExprParser<'a> {
                             scope,
                             range: call.range(),
                         },
-                        ty_signature: try_infer!(self.db().ty_signature(scope)),
+                        ty_decl: try_infer!(self.db().ty_decl(scope)),
                     },
                     compiled: signature.compiled,
                     opds: arguments,

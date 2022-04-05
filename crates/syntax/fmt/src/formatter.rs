@@ -1,8 +1,8 @@
 use std::ops::AddAssign;
 
 use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
+use entity_route::{EntityRoutePtr, InputPlaceholder};
 use entity_syntax::RawTyKind;
-use entity_route::{InputPlaceholder, EntityRoutePtr};
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
 use word::{BuiltinIdentifier, WordAllocator};
@@ -69,7 +69,7 @@ impl<'a> Formatter<'a> {
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &ast::Ast) {
         match ast.kind {
-            AstKind::TypeDecl {
+            AstKind::TypeDefnHead {
                 ident,
                 ref kind,
                 generic_placeholders: ref generics,
@@ -88,8 +88,8 @@ impl<'a> Formatter<'a> {
                     todo!()
                 }
             }
-            AstKind::MainDecl => self.write("main:"),
-            AstKind::RoutineDecl {
+            AstKind::MainDefn => self.write("main:"),
+            AstKind::RoutineDefnHead {
                 routine_kind: ref kind,
                 routine_head: ref decl,
             } => {
@@ -117,9 +117,9 @@ impl<'a> Formatter<'a> {
                 }
                 self.write(":");
             }
-            AstKind::PatternDecl => todo!(),
+            AstKind::PatternDefnHead => todo!(),
             AstKind::Use { ident, scope } => todo!(),
-            AstKind::MembVar {
+            AstKind::MembVarDefn {
                 ident,
                 signature: MembAccessSignature { contract, ty },
             } => {
@@ -128,14 +128,14 @@ impl<'a> Formatter<'a> {
                 self.fmt_member_variable_contracted_type(contract, ty)
             }
             AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
-            AstKind::DatasetConfig => todo!(),
-            AstKind::EnumVariant {
+            AstKind::DatasetConfigDefnHead => todo!(),
+            AstKind::EnumVariantDefnHead {
                 ident,
                 raw_variant_kind: ref variant_kind,
             } => todo!(),
-            AstKind::MembRoutineDecl { .. } => todo!(),
+            AstKind::MembRoutineDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),
-            AstKind::MembFeatureDecl { ident, ty } => todo!(),
+            AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
         }
     }
 
@@ -143,7 +143,11 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_member_variable_contracted_type(&mut self, contract: MembAccessContract, ty: EntityRoutePtr) {
+    fn fmt_member_variable_contracted_type(
+        &mut self,
+        contract: MembAccessContract,
+        ty: EntityRoutePtr,
+    ) {
         match contract {
             MembAccessContract::Own => (),
             MembAccessContract::Ref => self.write("&"),

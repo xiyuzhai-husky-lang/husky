@@ -11,11 +11,11 @@ fn visualizer(
 ) -> Arc<RuntimeVisualizer> {
     let scope_source = db.compile_time(version).entity_source(ty).unwrap();
     match scope_source {
-        EntitySource::Builtin(builtin_scope_data) => match builtin_scope_data.signature {
-            BuiltinScopeSignature::Func(_) => todo!(),
-            BuiltinScopeSignature::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
-            BuiltinScopeSignature::Module => todo!(),
-            BuiltinScopeSignature::Vec => todo!(),
+        EntitySource::Builtin(builtin_entity_data) => match builtin_entity_data.decl {
+            BuiltinEntityDecl::Func(_) => todo!(),
+            BuiltinEntityDecl::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
+            BuiltinEntityDecl::Module => todo!(),
+            BuiltinEntityDecl::Vec => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

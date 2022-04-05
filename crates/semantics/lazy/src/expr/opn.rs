@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
-use infer_signature::{MembAccessKind, TySignature};
-use entity_route::{RangedScope, EntityRoutePtr};
+use decl::{MembAccessKind, TySignature};
+use entity_route::{EntityRoutePtr, RangedScope};
 use syntax_types::*;
 use vm::PureBinaryOpr;
 use word::CustomIdentifier;

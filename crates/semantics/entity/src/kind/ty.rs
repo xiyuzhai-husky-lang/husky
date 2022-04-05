@@ -1,11 +1,11 @@
 use std::sync::Arc;
 
 use ast::*;
+use entity_route::{EntityRoutePtr, InputPlaceholder, RangedScope};
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 use infer_total::InferQueryGroup;
-use entity_route::{InputPlaceholder, RangedScope, EntityRoutePtr};
-use semantics_eager::{DeclStmt, ImprStmt};
+use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
 use syntax_types::{MembAccessSignature, RawEnumVariantKind, RawMembRoutineKind, RoutineKind};
@@ -28,7 +28,7 @@ impl TyDefn {
     ) -> SemanticResult<TyDefn> {
         Ok(TyDefn {
             kind: match head.kind {
-                AstKind::TypeDecl {
+                AstKind::TypeDefnHead {
                     ident,
                     kind,
                     generic_placeholders: ref generics,
@@ -50,7 +50,7 @@ impl TyDefn {
         let mut variants = VecMap::default();
         for subitem in children {
             match subitem.value.as_ref()?.kind {
-                AstKind::EnumVariant {
+                AstKind::EnumVariantDefnHead {
                     ident,
                     raw_variant_kind,
                 } => {
@@ -76,12 +76,12 @@ impl TyDefn {
         for subitem in children {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
-                AstKind::RoutineDecl {
+                AstKind::RoutineDefnHead {
                     ref routine_kind,
                     ref routine_head,
                 } => todo!(),
-                AstKind::MembVar { ident, signature } => memb_vars.insert_new(ident, signature),
-                AstKind::MembRoutineDecl {
+                AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
+                AstKind::MembRoutineDefnHead {
                     ref memb_routine_head,
                     ..
                 } => match memb_routine_head.kind {
@@ -125,12 +125,12 @@ impl TyDefn {
         for subitem in children {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
-                AstKind::RoutineDecl {
+                AstKind::RoutineDefnHead {
                     ref routine_kind,
                     ref routine_head,
                 } => todo!(),
-                AstKind::MembVar { ident, signature } => memb_vars.insert_new(ident, signature),
-                AstKind::MembFeatureDecl { ident, ty } => {
+                AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
+                AstKind::MembFeatureDefnHead { ident, ty } => {
                     let stmts = semantics_lazy::parse_lazy_stmts(
                         &[],
                         db,
@@ -181,8 +181,8 @@ pub struct MembFeatureDefn {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum MembRoutineKind {
-    Func { stmts: Arc<Vec<Arc<DeclStmt>>> },
-    Proc { stmts: Arc<Vec<Arc<ImprStmt>>> },
+    Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
+    Proc { stmts: Arc<Vec<Arc<ProcStmt>>> },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

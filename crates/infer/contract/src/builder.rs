@@ -35,30 +35,30 @@ impl<'a> ContractSheetBuilder<'a> {
         for item in ast_iter {
             match item.value {
                 Ok(value) => match value.kind {
-                    AstKind::TypeDecl { .. } | AstKind::EnumVariant { .. } => {
+                    AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
                         item.children.map(|children| self.infer_all(children));
                     }
-                    AstKind::MainDecl => {
+                    AstKind::MainDefn => {
                         let output_ty = self.db.global_output_ty(self.main_file).unwrap();
                         self.infer_morphism(output_ty, item.children.unwrap(), &arena)
                     }
-                    AstKind::DatasetConfig => self.infer_routine(
+                    AstKind::DatasetConfigDefnHead => self.infer_routine(
                         BuiltinIdentifier::DatasetType.into(),
                         item.children.unwrap(),
                         &arena,
                     ),
-                    AstKind::RoutineDecl {
+                    AstKind::RoutineDefnHead {
                         ref routine_head, ..
                     } => self.infer_routine(
                         routine_head.output.scope,
                         item.children.unwrap(),
                         &arena,
                     ),
-                    AstKind::PatternDecl => todo!(),
+                    AstKind::PatternDefnHead => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
-                    AstKind::MembVar { .. } => (),
+                    AstKind::MembVarDefn { .. } => (),
                     AstKind::Stmt(_) => todo!(),
-                    AstKind::MembRoutineDecl {
+                    AstKind::MembRoutineDefnHead {
                         ref memb_routine_head,
                         ..
                     } => self.infer_routine(
@@ -69,7 +69,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstKind::FeatureDecl { ty, .. } => {
                         self.infer_morphism(ty.scope, item.children.unwrap(), &arena)
                     }
-                    AstKind::MembFeatureDecl { ident, ty } => {
+                    AstKind::MembFeatureDefnHead { ident, ty } => {
                         self.infer_morphism(ty, item.children.unwrap(), &arena)
                     }
                 },

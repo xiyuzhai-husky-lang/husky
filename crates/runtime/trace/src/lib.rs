@@ -69,12 +69,12 @@ impl<'eval> Serialize for Trace<'eval> {
                 | TraceKind::Input(_)
                 | TraceKind::StrictDeclStmt { .. } => false,
                 TraceKind::ImprStmt { ref stmt, .. } => match stmt.kind {
-                    ImprStmtKind::Init { .. }
-                    | ImprStmtKind::Assert { .. }
-                    | ImprStmtKind::Execute { .. }
-                    | ImprStmtKind::Return { .. } => false,
-                    ImprStmtKind::Loop { .. } => true,
-                    ImprStmtKind::BranchGroup { .. } => panic!(),
+                    ProcStmtKind::Init { .. }
+                    | ProcStmtKind::Assert { .. }
+                    | ProcStmtKind::Execute { .. }
+                    | ProcStmtKind::Return { .. } => false,
+                    ProcStmtKind::Loop { .. } => true,
+                    ProcStmtKind::BranchGroup { .. } => panic!(),
                 },
                 TraceKind::LoopFrame { .. } | TraceKind::Main(_) | TraceKind::FeatureBranch(_) => {
                     true

@@ -1,6 +1,6 @@
 use datasets::LabeledData;
 use feature::*;
-use semantics_eager::ImprStmtKind;
+use semantics_eager::ProcStmtKind;
 use visual_runtime::VisualQueryGroup;
 use vm::{exec_debug, EvalResult, HistoryEntry};
 
@@ -83,12 +83,12 @@ pub fn subtraces(
             ref stmt,
             ref history,
         } => match stmt.kind {
-            ImprStmtKind::Init { .. }
-            | ImprStmtKind::Assert { .. }
-            | ImprStmtKind::Execute { .. }
-            | ImprStmtKind::Return { .. } => Arc::new(vec![]),
-            ImprStmtKind::BranchGroup { .. } => panic!(),
-            ImprStmtKind::Loop {
+            ProcStmtKind::Init { .. }
+            | ProcStmtKind::Assert { .. }
+            | ProcStmtKind::Execute { .. }
+            | ProcStmtKind::Return { .. } => Arc::new(vec![]),
+            ProcStmtKind::BranchGroup { .. } => panic!(),
+            ProcStmtKind::Loop {
                 ref loop_kind,
                 ref stmts,
             } => match history.entry(stmt) {

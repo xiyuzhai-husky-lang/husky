@@ -6,7 +6,7 @@ pub mod synthetic;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[("synthetic", synthetic::SCOPE_DATA), ("cv", cv::SCOPE_DATA)],
-    signature: BuiltinScopeSignature::Module,
+    decl: BuiltinEntityDecl::Module,
 };
 
 use std::{borrow::Cow, sync::Arc};
@@ -15,7 +15,7 @@ pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
-use entity_route::{BuiltinEntityData, BuiltinScopeSignature, ScopeKind};
+use entity_route::{BuiltinEntityData, BuiltinEntityDecl, ScopeKind};
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 
 pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {

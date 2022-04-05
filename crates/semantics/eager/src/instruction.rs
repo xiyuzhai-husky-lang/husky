@@ -17,7 +17,7 @@ pub struct InstructionSheetBuilder {
 impl InstructionSheetBuilder {
     pub fn new_decl(
         inputs: Vec<CustomIdentifier>,
-        stmts: &[Arc<DeclStmt>],
+        stmts: &[Arc<FuncStmt>],
         has_this: bool,
     ) -> Arc<InstructionSheet> {
         let mut builder = Self::new(inputs, has_this);
@@ -27,7 +27,7 @@ impl InstructionSheetBuilder {
 
     pub fn new_impr(
         inputs: Vec<CustomIdentifier>,
-        stmts: &[Arc<ImprStmt>],
+        stmts: &[Arc<ProcStmt>],
         has_this: bool,
     ) -> Arc<InstructionSheet> {
         let mut builder = Self::new(inputs, has_this);
@@ -47,7 +47,7 @@ impl InstructionSheetBuilder {
         }
     }
 
-    fn build_impr_block(&self, stmts: &[Arc<ImprStmt>]) -> Arc<InstructionSheet> {
+    fn build_impr_block(&self, stmts: &[Arc<ProcStmt>]) -> Arc<InstructionSheet> {
         let mut block_sheet_builder = self.subsheet_builder();
         block_sheet_builder.compile_impr_stmts(stmts);
         block_sheet_builder.finalize()

@@ -5,7 +5,7 @@ use word::BuiltinIdentifier;
 use crate::*;
 
 fn global_input_ty_from_ast(
-    db: &dyn InferSignatureQueryGroup,
+    db: &dyn DeclQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
 ) -> InferResult<EntityRoutePtr> {
@@ -23,7 +23,7 @@ fn global_input_ty_from_ast(
                     kind: RawEntityKind::Routine,
                     ..
                 } => {
-                    let signature = db.call_signature(scope)?;
+                    let signature = db.call_decl(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.kind {
                         ScopeKind::Builtin {
@@ -44,7 +44,7 @@ fn global_input_ty_from_ast(
 }
 
 fn global_output_ty_from_ast(
-    db: &dyn InferSignatureQueryGroup,
+    db: &dyn DeclQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
 ) -> InferResult<EntityRoutePtr> {
@@ -62,7 +62,7 @@ fn global_output_ty_from_ast(
                     kind: RawEntityKind::Routine,
                     ..
                 } => {
-                    let signature = db.call_signature(scope)?;
+                    let signature = db.call_decl(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.kind {
                         ScopeKind::Builtin {
@@ -83,13 +83,13 @@ fn global_output_ty_from_ast(
 }
 
 pub(crate) fn global_input_ty(
-    db: &dyn InferSignatureQueryGroup,
+    db: &dyn DeclQueryGroup,
     main_file: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
-            AstKind::DatasetConfig => {
+            AstKind::DatasetConfigDefnHead => {
                 return global_input_ty_from_ast(
                     db,
                     &ast_text.arena,
@@ -107,13 +107,13 @@ pub(crate) fn global_input_ty(
 }
 
 pub(crate) fn global_output_ty(
-    db: &dyn InferSignatureQueryGroup,
+    db: &dyn DeclQueryGroup,
     main_file: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
-            AstKind::DatasetConfig => {
+            AstKind::DatasetConfigDefnHead => {
                 return global_output_ty_from_ast(
                     db,
                     &ast_text.arena,

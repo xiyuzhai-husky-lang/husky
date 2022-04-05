@@ -5,21 +5,19 @@ pub use sheet::*;
 
 use ast::*;
 use check_utils::*;
+use decl::{DeclQueryGroup, TySignature};
+use entity_route::{GenericArgument, *};
 use file::FilePtr;
 use fold::FoldStorage;
 use infer_error::*;
-use infer_signature::{InferSignatureQueryGroup, TySignature};
 use print_utils::*;
-use entity_route::{GenericArgument, *};
 use scope_query::{ScopeQueryGroup, ScopeResult, ScopeResultArc};
 use syntax_types::*;
 use vm::EnumLiteralValue;
 use word::{BuiltinIdentifier, ContextualIdentifier};
 
 #[salsa::query_group(InferTyQueryGroupStorage)]
-pub trait InferTySalsaQueryGroup:
-    ScopeQueryGroup + ast::AstQueryGroup + InferSignatureQueryGroup
-{
+pub trait InferTySalsaQueryGroup: ScopeQueryGroup + ast::AstQueryGroup + DeclQueryGroup {
     fn scope_ty(&self, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr>;
     fn enum_literal_value(&self, scope: EntityRoutePtr) -> EnumLiteralValue;
     fn ty_sheet(&self, file: FilePtr) -> ScopeResultArc<TySheet>;
@@ -32,13 +30,9 @@ pub trait InferTyQueryGroup: InferTySalsaQueryGroup {
         self.ty_sheet(file)?.expr_ty_result(expr_idx)
     }
 
-    fn expr_ty_signature(
-        &self,
-        file: FilePtr,
-        expr_idx: RawExprIdx,
-    ) -> InferResultArc<TySignature> {
+    fn expr_ty_decl(&self, file: FilePtr, expr_idx: RawExprIdx) -> InferResultArc<TySignature> {
         let ty = self.expr_ty_result(file, expr_idx)?;
-        self.ty_signature(ty)
+        self.ty_decl(ty)
     }
 }
 

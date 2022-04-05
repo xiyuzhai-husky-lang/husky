@@ -15,22 +15,22 @@ use crate::*;
 use parser::EagerStmtParser;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ImprStmt {
-    pub kind: ImprStmtKind,
+pub struct ProcStmt {
+    pub kind: ProcStmtKind,
     pub file: FilePtr,
     pub range: TextRange,
     pub indent: Indent,
     pub instruction_id: InstructionId,
 }
 
-impl InstructionSource for ImprStmt {
+impl InstructionSource for ProcStmt {
     fn instruction_id(&self) -> InstructionId {
         self.instruction_id
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ImprStmtKind {
+pub enum ProcStmtKind {
     Init {
         varname: CustomIdentifier,
         initial_value: Arc<EagerExpr>,
@@ -52,7 +52,7 @@ pub enum ImprStmtKind {
     },
     Loop {
         loop_kind: LoopKind,
-        stmts: Arc<Vec<Arc<ImprStmt>>>,
+        stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
 }
 
@@ -62,6 +62,6 @@ pub fn parse_impr_stmts(
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     file: FilePtr,
-) -> SemanticResultArc<Vec<Arc<ImprStmt>>> {
+) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
     EagerStmtParser::new(input_placeholders, db, arena, file).parse_impr_stmts(iter)
 }

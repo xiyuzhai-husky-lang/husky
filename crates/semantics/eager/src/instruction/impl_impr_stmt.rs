@@ -3,15 +3,15 @@ use crate::*;
 use vm::{EagerContract, Instruction, InstructionKind, VMLoopKind};
 
 impl InstructionSheetBuilder {
-    pub(super) fn compile_impr_stmts(&mut self, stmts: &[Arc<ImprStmt>]) {
+    pub(super) fn compile_impr_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
         stmts
             .iter()
             .for_each(|stmt| self.compile_impr_stmt(stmt.clone()));
     }
 
-    fn compile_impr_stmt(&mut self, stmt: Arc<ImprStmt>) {
+    fn compile_impr_stmt(&mut self, stmt: Arc<ProcStmt>) {
         match stmt.kind {
-            ImprStmtKind::Init {
+            ProcStmtKind::Init {
                 varname,
                 ref initial_value,
                 init_kind,
@@ -20,16 +20,16 @@ impl InstructionSheetBuilder {
                 self.compile_expr(initial_value);
                 self.def_variable(varname, init_kind, stmt)
             }
-            ImprStmtKind::Assert { ref condition } => todo!(),
-            ImprStmtKind::Return { ref result } => {
+            ProcStmtKind::Assert { ref condition } => todo!(),
+            ProcStmtKind::Return { ref result } => {
                 self.compile_expr(result);
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
             }
-            ImprStmtKind::Execute { ref expr } => {
+            ProcStmtKind::Execute { ref expr } => {
                 self.compile_expr(expr);
             }
-            ImprStmtKind::BranchGroup { .. } => todo!(),
-            ImprStmtKind::Loop {
+            ProcStmtKind::BranchGroup { .. } => todo!(),
+            ProcStmtKind::Loop {
                 ref loop_kind,
                 ref stmts,
             } => self.compile_loop(loop_kind, stmt.clone(), stmts),
@@ -39,8 +39,8 @@ impl InstructionSheetBuilder {
     fn compile_loop(
         &mut self,
         loop_kind: &LoopKind,
-        loop_stmt: Arc<ImprStmt>,
-        body_stmts: &[Arc<ImprStmt>],
+        loop_stmt: Arc<ProcStmt>,
+        body_stmts: &[Arc<ProcStmt>],
     ) {
         match loop_kind {
             LoopKind::For {
@@ -113,7 +113,7 @@ impl InstructionSheetBuilder {
         }
     }
 
-    fn compile_boundary(&mut self, boundary: &Boundary, loop_stmt: &Arc<ImprStmt>) {
+    fn compile_boundary(&mut self, boundary: &Boundary, loop_stmt: &Arc<ProcStmt>) {
         if let Some(ref bound) = boundary.opt_bound {
             self.compile_expr(bound)
         } else {

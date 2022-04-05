@@ -5,7 +5,7 @@ pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
         ("real1d", real1d::SCOPE_DATA),
         ("real2d", real2d::SCOPE_DATA),
     ],
-    signature: BuiltinScopeSignature::Module,
+    decl: BuiltinEntityDecl::Module,
 };
 
 use crate::*;

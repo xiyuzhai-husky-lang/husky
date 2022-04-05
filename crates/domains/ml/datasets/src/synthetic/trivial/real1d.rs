@@ -9,12 +9,12 @@ pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
-    signature: BuiltinScopeSignature::Module,
+    decl: BuiltinEntityDecl::Module,
 };
 
 pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    signature: BuiltinScopeSignature::Func(StaticFuncSignature {
+    decl: BuiltinEntityDecl::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: Some(Compiled {
@@ -25,7 +25,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
 
 pub const DATASET2_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    signature: BuiltinScopeSignature::Func(StaticFuncSignature {
+    decl: BuiltinEntityDecl::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: Some(Compiled {

@@ -36,4 +36,4 @@ semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 semantics-package = { path = "../../semantics/package", version = "0.0.0" }
-infer-signature = { path = "../../infer/signature", version = "0.0.0" }
+decl = { path = "../../syntax/decl", version = "0.0.0" }

@@ -33,7 +33,7 @@ fn main(this: &dyn EntityQueryGroup, main_file: file::FilePtr) -> SemanticResult
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.fold_iter(0) {
         match item.value.as_ref()?.kind {
-            AstKind::MainDecl => {
+            AstKind::MainDefn => {
                 return Ok(Arc::new(Main {
                     stmts: parse_lazy_stmts(
                         &[],
@@ -71,12 +71,12 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: EntityRoutePtr) -> SemanticRe
             let ast_head = value.as_ref()?;
 
             let (ident, entity_kind) = match ast_head.kind {
-                AstKind::TypeDecl {
+                AstKind::TypeDefnHead {
                     ident,
                     kind,
                     generic_placeholders: ref generics,
                 } => {
-                    let signature = try_infer!(db.ty_signature(entity_scope));
+                    let signature = try_infer!(db.ty_decl(entity_scope));
                     (
                         ident,
                         EntityKind::Ty(TyDefn::from_ast(
@@ -88,7 +88,7 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: EntityRoutePtr) -> SemanticRe
                         )?),
                     )
                 }
-                AstKind::RoutineDecl {
+                AstKind::RoutineDefnHead {
                     ref routine_kind,
                     ref routine_head,
                 } => (
@@ -102,20 +102,20 @@ fn entity(db: &dyn EntityQueryGroup, entity_scope: EntityRoutePtr) -> SemanticRe
                         file,
                     )?,
                 ),
-                AstKind::PatternDecl => todo!(),
+                AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { ident, scope } => todo!(),
-                AstKind::MainDecl | AstKind::DatasetConfig | AstKind::Stmt(_) => panic!(),
-                AstKind::EnumVariant {
+                AstKind::MainDefn | AstKind::DatasetConfigDefnHead | AstKind::Stmt(_) => panic!(),
+                AstKind::EnumVariantDefnHead {
                     ident,
                     raw_variant_kind: ref variant_kind,
                 } => todo!(),
-                AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl { .. } => todo!(),
+                AstKind::MembVarDefn { .. } => todo!(),
+                AstKind::MembRoutineDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,
                     EntityKind::feature(db, ty, not_none!(children), arena, file)?,
                 ),
-                AstKind::MembFeatureDecl { ident, ty } => todo!(),
+                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             };
             Ok(Arc::new(Entity::new(
                 ident,

@@ -1,4 +1,4 @@
-use infer_signature::{MembAccessKind, TySignature};
+use decl::{MembAccessKind, TySignature};
 use vm::LazyContract;
 
 use super::*;

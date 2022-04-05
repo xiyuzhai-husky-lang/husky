@@ -11,5 +11,5 @@ use xrng::XRng;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[("mnist", MNIST_SCOPE_DATA)],
-    signature: BuiltinScopeSignature::Module,
+    decl: BuiltinEntityDecl::Module,
 };

@@ -21,33 +21,33 @@ impl<'a> EagerStmtParser<'a> {
     pub(super) fn parse_impr_stmts(
         &mut self,
         iter: IterType,
-    ) -> SemanticResultArc<Vec<Arc<ImprStmt>>> {
+    ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             let instruction_id = InstructionId::default();
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
-                AstKind::TypeDecl { .. } => todo!(),
-                AstKind::MainDecl => todo!(),
-                AstKind::DatasetConfig => todo!(),
-                AstKind::RoutineDecl { .. } => todo!(),
-                AstKind::PatternDecl => todo!(),
+                AstKind::TypeDefnHead { .. } => todo!(),
+                AstKind::MainDefn => todo!(),
+                AstKind::DatasetConfigDefnHead => todo!(),
+                AstKind::RoutineDefnHead { .. } => todo!(),
+                AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
-                AstKind::Stmt(ref stmt) => ImprStmt {
+                AstKind::Stmt(ref stmt) => ProcStmt {
                     file: self.file,
                     range: stmt.range,
                     indent: item.indent,
                     kind: self.parse_impr_stmt(stmt, item.children, &mut iter)?,
                     instruction_id,
                 },
-                AstKind::EnumVariant {
+                AstKind::EnumVariantDefnHead {
                     ident,
                     raw_variant_kind: ref variant_kind,
                 } => todo!(),
-                AstKind::MembVar { .. } => todo!(),
-                AstKind::MembRoutineDecl { .. } => todo!(),
+                AstKind::MembVarDefn { .. } => todo!(),
+                AstKind::MembRoutineDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
-                AstKind::MembFeatureDecl { ident, ty } => todo!(),
+                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))
@@ -58,7 +58,7 @@ impl<'a> EagerStmtParser<'a> {
         stmt: &RawStmt,
         children: Option<IterType>,
         iter: &mut Peekable<IterType>,
-    ) -> SemanticResult<ImprStmtKind> {
+    ) -> SemanticResult<ProcStmtKind> {
         Ok(match stmt.kind {
             RawStmtKind::Loop(loop_kind) => self.parse_loop_stmt(loop_kind, not_none!(children))?,
             RawStmtKind::Branch(branch_kind) => {
@@ -104,7 +104,7 @@ impl<'a> EagerStmtParser<'a> {
                         _ => break,
                     }
                 }
-                ImprStmtKind::BranchGroup {
+                ProcStmtKind::BranchGroup {
                     kind: ImprBranchGroupKind::If,
                     branches,
                 }
@@ -117,7 +117,7 @@ impl<'a> EagerStmtParser<'a> {
                         expr.ty
                     ))
                 }
-                ImprStmtKind::Execute { expr }
+                ProcStmtKind::Execute { expr }
             }
             RawStmtKind::Init {
                 varname,
@@ -127,17 +127,17 @@ impl<'a> EagerStmtParser<'a> {
                 let initial_value = self.parse_eager_expr(initial_value)?;
                 let qual = Qual::from_init(init_kind);
                 let varidx = self.def_variable(varname, initial_value.ty, qual)?;
-                ImprStmtKind::Init {
+                ProcStmtKind::Init {
                     varname,
                     initial_value,
                     init_kind,
                     varidx,
                 }
             }
-            RawStmtKind::Return(result) => ImprStmtKind::Return {
+            RawStmtKind::Return(result) => ProcStmtKind::Return {
                 result: self.parse_eager_expr(result)?,
             },
-            RawStmtKind::Assert(condition) => ImprStmtKind::Assert {
+            RawStmtKind::Assert(condition) => ProcStmtKind::Assert {
                 condition: self.parse_eager_expr(condition)?,
             },
         })
@@ -147,7 +147,7 @@ impl<'a> EagerStmtParser<'a> {
         &mut self,
         loop_kind: RawLoopKind,
         children: IterType,
-    ) -> SemanticResult<ImprStmtKind> {
+    ) -> SemanticResult<ProcStmtKind> {
         Ok(match loop_kind {
             RawLoopKind::For {
                 frame_var,
@@ -160,7 +160,7 @@ impl<'a> EagerStmtParser<'a> {
                     EntityRoutePtr::Builtin(BuiltinIdentifier::I32),
                     Qual::frame_var(),
                 );
-                ImprStmtKind::Loop {
+                ProcStmtKind::Loop {
                     loop_kind: LoopKind::For {
                         frame_var,
                         initial_boundary: self.parse_boundary(initial_boundary)?,
@@ -176,7 +176,7 @@ impl<'a> EagerStmtParser<'a> {
                 step,
             } => {
                 msg_once!("todo: change frame var qual in forext");
-                ImprStmtKind::Loop {
+                ProcStmtKind::Loop {
                     loop_kind: LoopKind::ForExt {
                         frame_var,
                         frame_varidx: self.varidx(frame_var),
@@ -196,7 +196,7 @@ impl<'a> EagerStmtParser<'a> {
                     | EntityRoutePtr::Builtin(BuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
-                ImprStmtKind::Loop {
+                ProcStmtKind::Loop {
                     loop_kind: LoopKind::While { condition },
                     stmts: self.parse_impr_stmts(children)?,
                 }
@@ -211,7 +211,7 @@ impl<'a> EagerStmtParser<'a> {
                     | EntityRoutePtr::Builtin(BuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
-                ImprStmtKind::Loop {
+                ProcStmtKind::Loop {
                     loop_kind: LoopKind::DoWhile { condition },
                     stmts: self.parse_impr_stmts(children)?,
                 }

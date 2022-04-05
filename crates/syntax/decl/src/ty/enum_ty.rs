@@ -1,13 +1,13 @@
 use super::*;
 
-pub(crate) fn enum_signature(
+pub(crate) fn enum_decl(
     generic_placeholders: IdentMap<GenericPlaceholderKind>,
     children: AstIter,
 ) -> InferResultArc<TySignature> {
     let mut variants = VecMap::default();
     for subitem in children {
         match subitem.value.as_ref()?.kind {
-            AstKind::EnumVariant {
+            AstKind::EnumVariantDefnHead {
                 ident,
                 ref raw_variant_kind,
             } => {

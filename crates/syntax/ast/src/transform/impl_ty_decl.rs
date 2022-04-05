@@ -35,7 +35,7 @@ impl<'a> AstTransformer<'a> {
         expect_len!(Some(self.file), tokens, 3);
         expect_head!(Some(self.file), tokens);
         msg_once!("struct generic placeholders");
-        Ok(AstKind::TypeDecl {
+        Ok(AstKind::TypeDefnHead {
             ident: identify!(Some(self.file), tokens[1]),
             kind: RawTyKind::Struct,
             generic_placeholders: Default::default(),
@@ -59,7 +59,7 @@ impl<'a> AstTransformer<'a> {
         expect_len!(Some(self.file), tokens, 3);
         expect_head!(Some(self.file), tokens);
         msg_once!("record generic placeholders");
-        Ok(AstKind::TypeDecl {
+        Ok(AstKind::TypeDefnHead {
             ident: identify!(Some(self.file), tokens[1]),
             kind: RawTyKind::Record,
             generic_placeholders: Default::default(),
@@ -71,7 +71,7 @@ impl<'a> AstTransformer<'a> {
         expect_len!(Some(self.file), tokens, 3);
         expect_head!(Some(self.file), tokens);
         msg_once!("record generic placeholders");
-        Ok(AstKind::TypeDecl {
+        Ok(AstKind::TypeDefnHead {
             ident: identify!(Some(self.file), tokens[1]),
             kind: RawTyKind::Enum,
             generic_placeholders: Default::default(),

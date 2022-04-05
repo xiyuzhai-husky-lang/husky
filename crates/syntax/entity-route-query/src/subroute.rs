@@ -221,7 +221,7 @@ impl SubscopeTable {
             .iter()
             .map(|(s, data)| Entry {
                 ident: Some(this.intern_word(s).custom().unwrap()),
-                kind: data.signature.raw_entity_kind(),
+                kind: data.decl.raw_entity_kind(),
                 source: (*data).into(),
             })
             .collect();

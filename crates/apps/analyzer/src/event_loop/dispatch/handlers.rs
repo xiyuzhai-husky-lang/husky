@@ -125,7 +125,7 @@ pub(crate) fn handle_folding_range(
     Ok(None)
 }
 
-pub(crate) fn handle_signature_help(
+pub(crate) fn handle_decl_help(
     _snapshot: HuskyLangDatabaseSnapshot,
     _params: lsp_types::SignatureHelpParams,
 ) -> Result<Option<lsp_types::SignatureHelp>> {

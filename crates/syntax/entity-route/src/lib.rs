@@ -135,11 +135,11 @@ pub enum ScopeKind {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BuiltinEntityData {
     pub subscopes: &'static [(&'static str, &'static BuiltinEntityData)],
-    pub signature: BuiltinScopeSignature,
+    pub decl: BuiltinEntityDecl,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum BuiltinScopeSignature {
+pub enum BuiltinEntityDecl {
     Func(StaticFuncSignature),
     Ty {
         raw_ty_kind: RawTyKind,
@@ -149,13 +149,13 @@ pub enum BuiltinScopeSignature {
     Module,
 }
 
-impl BuiltinScopeSignature {
+impl BuiltinEntityDecl {
     pub fn raw_entity_kind(&self) -> RawEntityKind {
         match self {
-            BuiltinScopeSignature::Func(_) => RawEntityKind::Routine,
-            BuiltinScopeSignature::Ty { raw_ty_kind, .. } => RawEntityKind::Type(*raw_ty_kind),
-            BuiltinScopeSignature::Module => RawEntityKind::Module,
-            BuiltinScopeSignature::Vec => RawEntityKind::Type(RawTyKind::Vec),
+            BuiltinEntityDecl::Func(_) => RawEntityKind::Routine,
+            BuiltinEntityDecl::Ty { raw_ty_kind, .. } => RawEntityKind::Type(*raw_ty_kind),
+            BuiltinEntityDecl::Module => RawEntityKind::Module,
+            BuiltinEntityDecl::Vec => RawEntityKind::Type(RawTyKind::Vec),
         }
     }
 }
