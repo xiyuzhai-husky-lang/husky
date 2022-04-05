@@ -11,6 +11,6 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
-scope-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
+entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 infer-error = { path = "../../infer/error", version = "0.0.0" }

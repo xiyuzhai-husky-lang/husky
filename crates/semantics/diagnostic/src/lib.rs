@@ -8,8 +8,8 @@ pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
 pub use severity::DiagnosticSeverity;
 
+use entity_route_query::ScopeDefError;
 use print_utils::*;
-use scope_query::ScopeDefError;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 use text::TextRange;

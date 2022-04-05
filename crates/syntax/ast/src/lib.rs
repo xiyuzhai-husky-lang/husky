@@ -62,7 +62,7 @@ pub enum AstKind {
     },
     MembVarDefn {
         ident: CustomIdentifier,
-        signature: MembAccessSignature,
+        signature: MembAccessDecl,
     },
     DatasetConfigDefnHead,
     Stmt(RawStmt),

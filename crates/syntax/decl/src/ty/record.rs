@@ -12,8 +12,8 @@ pub(crate) fn record_decl(
         match subast.kind {
             AstKind::MembVarDefn {
                 ident,
-                signature: MembAccessSignature { contract, ty },
-            } => memb_vars.insert_new(ident, MembAccessSignature { contract, ty }),
+                signature: MembAccessDecl { contract, ty },
+            } => memb_vars.insert_new(ident, MembAccessDecl { contract, ty }),
             AstKind::MembFeatureDefnHead { ident, ty } => memb_features.insert_new(ident, ty),
             _ => panic!(),
         }

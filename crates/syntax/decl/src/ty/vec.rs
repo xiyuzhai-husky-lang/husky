@@ -15,7 +15,7 @@ pub(crate) fn vec_decl_template(db: &dyn DeclQueryGroup) -> Arc<TySignature> {
     members.insert_new(
         db.custom_ident("push"),
         MembSignature {
-            kind: MembSignatureKind::Routine(MembCallSignature {
+            kind: MembSignatureKind::Routine(MembCallDecl {
                 this_contract: InputContract::BorrowMut,
                 inputs: vec![InputSignature {
                     contract: InputContract::Move,

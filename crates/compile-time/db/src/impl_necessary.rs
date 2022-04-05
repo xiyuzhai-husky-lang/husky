@@ -99,8 +99,8 @@ impl AllocateUniqueFeature for HuskyLangCompileTime {
     }
 }
 
-impl Upcast<dyn scope_query::EntityRouteSalsaQueryGroup> for HuskyLangCompileTime {
-    fn upcast(&self) -> &(dyn scope_query::EntityRouteSalsaQueryGroup + 'static) {
+impl Upcast<dyn entity_route_query::EntityRouteSalsaQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn entity_route_query::EntityRouteSalsaQueryGroup + 'static) {
         self
     }
 }

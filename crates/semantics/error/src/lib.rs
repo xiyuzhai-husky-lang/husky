@@ -81,6 +81,6 @@ macro_rules! try_infer {
 }
 
 use dev_utils::DevSource;
+use entity_route_query::ScopeError;
 use infer_error::InferError;
-use scope_query::ScopeError;
 use vm::VMError;

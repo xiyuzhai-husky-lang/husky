@@ -14,7 +14,7 @@ pub use infer_contract::*;
 pub use infer_total::*;
 pub use infer_ty::*;
 pub use rust_gen::RustGenQueryGroup;
-pub use scope_query::{EntityRouteSalsaQueryGroup, ScopeQueryGroup};
+pub use entity_route_query::{EntityRouteSalsaQueryGroup, ScopeQueryGroup};
 pub use semantics_entity::ControlEntityVersion;
 pub use semantics_entity::EntityQueryGroup;
 pub use semantics_package::PackageQueryGroup;
@@ -31,7 +31,7 @@ use sync_utils::ARwLock;
 #[salsa::database(
     file::FileQueryStorage,
     token::TokenQueryGroupStorage,
-    scope_query::ScopeQueryGroupStorage,
+    entity_route_query::ScopeQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
     decl::DeclQueryGroupStorage,

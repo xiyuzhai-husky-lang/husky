@@ -5,19 +5,20 @@ use std::sync::Arc;
 pub use opr::*;
 
 use entity_route::{
-    GenericPlaceholderKind, InputPlaceholder, InputSignature, RangedScope, ScopeKind, EntityRoutePtr,
+    EntityRoutePtr, GenericPlaceholderKind, InputPlaceholder, InputSignature, RangedScope,
+    ScopeKind,
 };
 use vm::{InputContract, MembAccessContract};
 use word::{CustomIdentifier, IdentMap};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct MembAccessSignature {
+pub struct MembAccessDecl {
     pub contract: MembAccessContract,
     pub ty: EntityRoutePtr,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MembCallSignature {
+pub struct MembCallDecl {
     pub this_contract: InputContract,
     pub inputs: Vec<InputSignature>,
     pub output: EntityRoutePtr,
@@ -68,9 +69,9 @@ pub enum RawMembRoutineKind {
     Func,
 }
 
-impl Into<MembCallSignature> for &MembRoutineHead {
-    fn into(self) -> MembCallSignature {
-        MembCallSignature {
+impl Into<MembCallDecl> for &MembRoutineHead {
+    fn into(self) -> MembCallDecl {
+        MembCallDecl {
             this_contract: self.this_contract,
             inputs: self
                 .input_placeholders

@@ -12,13 +12,14 @@ pub use ty::*;
 
 use ast::*;
 use entity_route::*;
+use entity_route_query::*;
 use entity_syntax::RawTyKind;
 use feature::*;
 use file::FilePtr;
 use fold::FoldStorage;
 use global::*;
 use infer_error::*;
-use scope_query::*;
+use instantiate::*;
 use std::sync::Arc;
 use vm::Compiled;
 use word::CustomIdentifier;

@@ -10,7 +10,7 @@ use ast::AstIter;
 use entity_route::*;
 use enum_ty::*;
 use record::*;
-use syntax_types::{MembAccessSignature, MembCallSignature, RawEnumVariantKind};
+use syntax_types::{MembAccessDecl, MembCallDecl, RawEnumVariantKind};
 use vec_map::VecMap;
 use vm::{MembAccessContract, VMTySignatureKind};
 use word::{IdentMap, WordAllocator};
@@ -36,14 +36,14 @@ impl TySignature {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TySignatureKind {
     Struct {
-        memb_vars: IdentMap<MembAccessSignature>,
-        memb_routines: IdentMap<MembCallSignature>,
+        memb_vars: IdentMap<MembAccessDecl>,
+        memb_routines: IdentMap<MembCallDecl>,
     },
     Enum {
         variants: IdentMap<EnumVariantSignature>,
     },
     Record {
-        memb_vars: IdentMap<MembAccessSignature>,
+        memb_vars: IdentMap<MembAccessDecl>,
         memb_features: IdentMap<EntityRoutePtr>,
     },
     Vec {
@@ -97,7 +97,7 @@ impl TySignature {
         }
     }
 
-    pub fn memb_access_decl(&self, ident: CustomIdentifier) -> MembAccessSignature {
+    pub fn memb_access_decl(&self, ident: CustomIdentifier) -> MembAccessDecl {
         match self.kind {
             TySignatureKind::Struct { ref memb_vars, .. } => *memb_vars.get(ident).unwrap(),
             TySignatureKind::Enum { ref variants } => todo!(),
@@ -108,7 +108,7 @@ impl TySignature {
                 if let Some(memb_var) = memb_vars.get(ident) {
                     *memb_var
                 } else if let Some(memb_feature) = memb_features.get(ident) {
-                    MembAccessSignature {
+                    MembAccessDecl {
                         contract: MembAccessContract::LazyOwn,
                         ty: *memb_feature,
                     }
@@ -169,7 +169,7 @@ impl TySignature {
         }
     }
 
-    pub fn memb_call_decl(&self, ident: CustomIdentifier) -> InferResult<&MembCallSignature> {
+    pub fn memb_call_decl(&self, ident: CustomIdentifier) -> InferResult<&MembCallDecl> {
         match self.members.get(ident) {
             Some(memb_decl) => match memb_decl.kind {
                 MembSignatureKind::Var(_) => todo!(),
@@ -252,8 +252,8 @@ pub(crate) fn struct_decl(
         match subast.kind {
             AstKind::MembVarDefn {
                 ident,
-                signature: MembAccessSignature { contract, ty },
-            } => memb_vars.insert_new(ident, MembAccessSignature { contract, ty }),
+                signature: MembAccessDecl { contract, ty },
+            } => memb_vars.insert_new(ident, MembAccessDecl { contract, ty }),
             AstKind::MembRoutineDefnHead {
                 ref memb_routine_head,
                 ..

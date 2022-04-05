@@ -8,7 +8,7 @@ use infer_total::InferQueryGroup;
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
-use syntax_types::{MembAccessSignature, RawEnumVariantKind, RawMembRoutineKind, RoutineKind};
+use syntax_types::{MembAccessDecl, RawEnumVariantKind, RawMembRoutineKind, RoutineKind};
 use vec_map::VecMap;
 use vm::InputContract;
 use word::{CustomIdentifier, IdentMap};
@@ -156,11 +156,11 @@ pub enum TyDefnKind {
         variants: IdentMap<EnumVariantKind>,
     },
     Struct {
-        memb_vars: IdentMap<MembAccessSignature>,
+        memb_vars: IdentMap<MembAccessDecl>,
         memb_routines: IdentMap<MembRoutineDefn>,
     },
     Record {
-        memb_vars: IdentMap<MembAccessSignature>,
+        memb_vars: IdentMap<MembAccessDecl>,
         memb_features: IdentMap<MembFeatureDefn>,
     },
 }
