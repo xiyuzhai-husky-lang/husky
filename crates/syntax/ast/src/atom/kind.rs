@@ -1,4 +1,4 @@
-use entity_route::{RangedScope, RawEntityKind, ScopeKind};
+use entity_route::{EntityRouteKind, RangedScope, RawEntityKind};
 use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};

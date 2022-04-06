@@ -1,5 +1,5 @@
+use entity_route::{EntityRouteKind, GenericArgument, RawEntityKind};
 use file::FilePtr;
-use entity_route::{GenericArgument, RawEntityKind, ScopeKind};
 use word::BuiltinIdentifier;
 
 use crate::{

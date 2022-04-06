@@ -29,7 +29,7 @@ pub enum TraceKind<'eval> {
         history: Arc<History<'eval>>,
     },
     CallHead {
-        entity: Arc<Entity>,
+        entity: Arc<EntityDefn>,
         tokens: Vec<TokenProps<'eval>>,
     },
 }

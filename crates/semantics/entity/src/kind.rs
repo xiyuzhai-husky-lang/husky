@@ -12,8 +12,8 @@ use entity_route::InputPlaceholder;
 use entity_route::RangedScope;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum EntityKind {
-    Main(Main),
+pub enum EntityDefnKind {
+    Main(MainDefn),
     Module {},
     Feature {
         ty: RangedScope,
@@ -31,4 +31,5 @@ pub enum EntityKind {
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     Ty(TyDefn),
+    Builtin,
 }

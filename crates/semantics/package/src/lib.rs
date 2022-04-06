@@ -12,7 +12,7 @@ use word::CustomIdentifier;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Package {
     pub ident: CustomIdentifier,
-    pub subentities: Arc<Vec<Arc<Entity>>>,
-    pub main: Arc<Main>,
+    pub subentity_defns: Arc<Vec<Arc<EntityDefn>>>,
+    pub main_defn: Arc<MainDefn>,
     pub config: Arc<Config>,
 }

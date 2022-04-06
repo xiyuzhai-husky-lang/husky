@@ -10,7 +10,7 @@ pub(crate) use parser::EagerExprParser;
 
 use entity_route::EntityRoutePtr;
 use text::TextRange;
-use vm::{Compiled, EagerContract, InstructionId, InstructionSource, PrimitiveValue};
+use vm::{CompiledRoutine, EagerContract, InstructionId, InstructionSource, PrimitiveValue};
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -35,14 +35,17 @@ pub enum EagerExprKind {
     This,
     Scope {
         scope: EntityRoutePtr,
-        compiled: Option<Compiled>,
+        compiled: Option<CompiledRoutine>,
     },
     PrimitiveLiteral(PrimitiveValue),
     Bracketed(Arc<EagerExpr>),
     Opn {
         opn_kind: EagerOpnKind,
-        compiled: Option<Compiled>,
+        compiled: Option<CompiledRoutine>,
         opds: Vec<Arc<EagerExpr>>,
     },
-    Lambda(Vec<(CustomIdentifier, Option<EntityRoutePtr>)>, Box<EagerExpr>),
+    Lambda(
+        Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
+        Box<EagerExpr>,
+    ),
 }

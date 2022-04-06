@@ -14,40 +14,48 @@ use std::sync::Arc;
 use vm::InstructionSheet;
 use word::*;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InstructionSheetBuilder {
+pub struct InstructionSheetBuilder<'a> {
+    db: &'a dyn InstructionGenQueryGroup,
     sheet: InstructionSheet,
 }
 
-impl InstructionSheetBuilder {
+impl<'a> InstructionSheetBuilder<'a> {
     pub fn new_decl(
+        db: &'a dyn InstructionGenQueryGroup,
         inputs: Vec<CustomIdentifier>,
         stmts: &[Arc<FuncStmt>],
         has_this: bool,
     ) -> Arc<InstructionSheet> {
-        let mut builder = Self::new(inputs, has_this);
+        let mut builder = Self::new(db, inputs, has_this);
         builder.compile_decl_stmts(stmts);
         builder.finalize()
     }
 
     pub fn new_impr(
+        db: &'a dyn InstructionGenQueryGroup,
         inputs: Vec<CustomIdentifier>,
         stmts: &[Arc<ProcStmt>],
         has_this: bool,
     ) -> Arc<InstructionSheet> {
-        let mut builder = Self::new(inputs, has_this);
+        let mut builder = Self::new(db, inputs, has_this);
         builder.compile_impr_stmts(stmts);
         builder.finalize()
     }
 
-    fn new(inputs: Vec<CustomIdentifier>, has_this: bool) -> Self {
+    fn new(
+        db: &'a dyn InstructionGenQueryGroup,
+        inputs: Vec<CustomIdentifier>,
+        has_this: bool,
+    ) -> Self {
         Self {
+            db,
             sheet: InstructionSheet::new(inputs, has_this),
         }
     }
 
     fn subsheet_builder(&self) -> Self {
         Self {
+            db: self.db,
             sheet: self.sheet.init_subsheet(),
         }
     }

@@ -1,14 +1,16 @@
 mod impl_opn;
 
+use entity_route::{EntityRouteKind, InputPlaceholder};
 use entity_route::{EntityRoutePtr, RangedScope};
-use entity_route::{InputPlaceholder, ScopeKind};
 use file::FilePtr;
 use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
-use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled};
+use vm::{
+    CompiledRoutine, EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled,
+};
 use word::{BuiltinIdentifier, ContextualIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
@@ -63,7 +65,7 @@ pub enum FeatureExprKind {
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        compiled: Option<()>,
+        compiled: Option<CompiledRoutine>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
@@ -73,7 +75,7 @@ pub enum FeatureExprKind {
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        compiled: Option<()>,
+        opt_compiled: Option<CompiledRoutine>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
@@ -92,14 +94,14 @@ pub enum FeatureExprKind {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        compiled: Option<()>,
+        opt_compiled: Option<CompiledRoutine>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     MembProcCall {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        compiled: Option<()>,
+        opt_compiled: Option<CompiledRoutine>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     MembPattCall {
@@ -115,7 +117,7 @@ pub enum FeatureExprKind {
     GlobalInput,
     ClassCall {
         ty: RangedScope,
-        entity: Arc<Entity>,
+        entity: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureExpr>>,
     },
 }
@@ -192,9 +194,9 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.this.as_ref().unwrap().feature(),
             ),
             LazyExprKind::ScopedFeature { scope } => match scope.kind {
-                ScopeKind::Builtin { .. } | ScopeKind::Package { .. } => panic!(),
-                ScopeKind::ChildScope { .. } => {
-                    let uid = self.db.entity_vc().uid(scope);
+                EntityRouteKind::Builtin { .. } | EntityRouteKind::Package { .. } => panic!(),
+                EntityRouteKind::ChildScope { .. } => {
+                    let uid = self.db.entity_uid(scope);
                     let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
                     let kind = FeatureExprKind::FeatureBlock {
                         scope,
@@ -202,7 +204,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     };
                     (kind, feature)
                 }
-                ScopeKind::Contextual { main, ident } => match ident {
+                EntityRouteKind::Contextual { main, ident } => match ident {
                     ContextualIdentifier::Input => {
                         let feature = self.features.alloc(Feature::Input);
                         let kind = FeatureExprKind::GlobalInput;
@@ -211,7 +213,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     ContextualIdentifier::ThisData => todo!(),
                     ContextualIdentifier::ThisType => todo!(),
                 },
-                ScopeKind::Generic { ident, .. } => todo!(),
+                EntityRouteKind::Generic { ident, .. } => todo!(),
             },
         };
         Arc::new(FeatureExpr {

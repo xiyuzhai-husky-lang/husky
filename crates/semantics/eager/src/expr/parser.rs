@@ -1,5 +1,5 @@
 use ast::{RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
-use entity_route::{EntityRoutePtr, RawEntityKind, ScopeKind};
+use entity_route::{EntityRouteKind, EntityRoutePtr, RawEntityKind};
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue};

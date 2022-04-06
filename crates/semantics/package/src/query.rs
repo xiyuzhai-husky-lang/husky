@@ -1,6 +1,6 @@
 use crate::*;
 use ast::{AstKind, AstText};
-use entity_route::ScopeKind;
+use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::FoldStorage;
 use semantics_eager::parse_decl_stmts;
@@ -13,17 +13,17 @@ pub trait PackageQueryGroup: EntityQueryGroup {
     fn config(&self, main_file: file::FilePtr) -> SemanticResultArc<Config>;
 }
 
-fn package(this: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Package> {
-    let module = this.module(main_file)?;
+fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Package> {
+    let module = db.module(main_file)?;
     let ident = match module.kind {
-        ScopeKind::Package { ident, .. } => ident,
+        EntityRouteKind::Package { ident, .. } => ident,
         _ => panic!(),
     };
     Ok(Arc::new(Package {
         ident,
-        subentities: this.subentities(module)?,
-        main: this.main(main_file)?,
-        config: this.config(main_file)?,
+        subentity_defns: db.subentity_defns(module)?,
+        main_defn: db.main_defn(main_file)?,
+        config: db.config(main_file)?,
     }))
 }
 

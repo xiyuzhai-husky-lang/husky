@@ -25,7 +25,6 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
-vc = { path = "../../abstraction/vc", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
@@ -46,3 +45,4 @@ feature = { path = "../feature", version = "0.0.0" }
 instruction-gen = { path = "../instruction-gen", version = "0.0.0" }
 rust-gen = { path = "../rust-gen", version = "0.0.0" }
 diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
+fp-table = { path = "../fp-table", version = "0.0.0" }

@@ -29,7 +29,7 @@ const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     decl: BuiltinEntityDecl::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
-        compiled: Some(Compiled {
+        compiled: Some(CompiledRoutine {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
         }),
     }),

@@ -47,7 +47,7 @@ impl<'sess> Session<'sess> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
             TrivialIter::default(),
-            &compile_time.dataset_config_instruction_sheet(package.main.file),
+            &compile_time.dataset_config_instruction_sheet(package.main_defn.file),
             None,
         )?
         .into_boxed()?

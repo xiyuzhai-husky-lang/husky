@@ -1,7 +1,7 @@
 use super::utils;
 use crate::*;
 use atom::AtomKind;
-use entity_route::{ScopeId, ScopeKind};
+use entity_route::{EntityRouteKind, ScopeId};
 use word::{BuiltinIdentifier, Identifier};
 
 #[test]

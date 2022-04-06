@@ -67,7 +67,7 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> InferResu
             BuiltinIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(scope) => match scope.kind {
-            ScopeKind::Contextual { main, ident } => match ident {
+            EntityRouteKind::Contextual { main, ident } => match ident {
                 ContextualIdentifier::Input => db.global_input_ty(main),
                 ContextualIdentifier::ThisData => todo!(),
                 ContextualIdentifier::ThisType => todo!(),
@@ -136,7 +136,7 @@ fn is_implicit_convertible(
             BuiltinIdentifier::DatasetType => match src_ty {
                 EntityRoutePtr::Builtin(BuiltinIdentifier::DatasetType) => true,
                 EntityRoutePtr::Custom(scope) => match scope.kind {
-                    ScopeKind::Builtin {
+                    EntityRouteKind::Builtin {
                         ident: BuiltinIdentifier::DatasetType,
                     } => true,
                     _ => false,

@@ -1,7 +1,7 @@
 use ast::*;
 
+use entity_route::{EntityRouteKind, EntityRoutePtr, InputPlaceholder};
 use infer_error::*;
-use entity_route::{InputPlaceholder, ScopeKind, EntityRoutePtr};
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembAccessContract};
 use word::CustomIdentifier;

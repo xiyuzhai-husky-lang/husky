@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use semantics_entity::{Entity, EntityKind, TyDefnKind};
+use semantics_entity::{EntityDefn, EntityDefnKind, TyDefnKind};
 use vm::{EvalResult, EvalValue};
 
 use super::*;

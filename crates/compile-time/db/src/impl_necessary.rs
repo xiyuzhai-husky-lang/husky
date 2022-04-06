@@ -1,3 +1,4 @@
+use fp_table::{FpTable, HasFpTable};
 use infer_total::InferQueryGroup;
 use upcast::Upcast;
 
@@ -19,8 +20,8 @@ impl salsa::ParallelDatabase for HuskyLangCompileTime {
             word_unique_allocator: self.word_unique_allocator.clone(),
             scope_unique_allocator: self.scope_unique_allocator.clone(),
             live_docs: self.live_docs.clone(),
-            vc: self.vc.clone(),
             features: self.features.clone(),
+            fp_table: self.fp_table.clone(),
         })
     }
 }
@@ -33,8 +34,8 @@ impl Default for HuskyLangCompileTime {
             word_unique_allocator: word::new_word_unique_allocator(),
             scope_unique_allocator: entity_route::new_scope_unique_allocator(),
             live_docs: Default::default(),
-            vc: EntityVersionControl::new(),
             features: feature::new_feature_unique_allocator(),
+            fp_table: Default::default(),
         }
     }
 }
@@ -87,12 +88,6 @@ impl Upcast<dyn semantics_entity::EntityQueryGroup> for HuskyLangCompileTime {
     }
 }
 
-impl ControlEntityVersion for HuskyLangCompileTime {
-    fn entity_vc(&self) -> &vc::VersionControl<EntityRoutePtr, EntityKind> {
-        &self.vc
-    }
-}
-
 impl AllocateUniqueFeature for HuskyLangCompileTime {
     fn features(&self) -> &feature::FeatureUniqueAllocator {
         &self.features
@@ -110,3 +105,9 @@ impl infer_ty::InferTyQueryGroup for HuskyLangCompileTime {}
 impl infer_contract::InferContractQueryGroup for HuskyLangCompileTime {}
 
 impl infer_total::InferQueryGroup for HuskyLangCompileTime {}
+
+impl HasFpTable for HuskyLangCompileTime {
+    fn fp_table(&self) -> &FpTable {
+        &self.fp_table
+    }
+}

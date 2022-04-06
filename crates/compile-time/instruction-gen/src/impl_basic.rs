@@ -2,7 +2,7 @@ use crate::*;
 
 use vm::{EagerContract, InitKind, Instruction, InstructionKind, InstructionSource, StackIdx};
 
-impl InstructionSheetBuilder {
+impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn push_instruction(&mut self, instr: Instruction) {
         self.sheet.instructions.push(instr);
     }

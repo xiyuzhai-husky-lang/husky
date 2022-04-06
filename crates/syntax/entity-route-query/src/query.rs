@@ -6,6 +6,7 @@ use path_utils::*;
 
 use entity_syntax::RawTyKind;
 use upcast::Upcast;
+use visual_syntax::{BuiltinVisualizer, TRIVIAL_VISUALIZER};
 use word::{
     dash_to_snake, BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier, WordPtr,
 };
@@ -72,10 +73,10 @@ fn raw_entity_kind(db: &dyn EntityRouteSalsaQueryGroup, scope: EntityRoutePtr) -
 
 fn raw_entity_kind_from_scope_kind(
     db: &dyn EntityRouteSalsaQueryGroup,
-    scope_kind: &ScopeKind,
+    scope_kind: &EntityRouteKind,
 ) -> RawEntityKind {
     match scope_kind {
-        ScopeKind::Builtin { ident } => match ident {
+        EntityRouteKind::Builtin { ident } => match ident {
             BuiltinIdentifier::Void
             | BuiltinIdentifier::I32
             | BuiltinIdentifier::F32
@@ -101,18 +102,18 @@ fn raw_entity_kind_from_scope_kind(
             | BuiltinIdentifier::PartialEqTrait
             | BuiltinIdentifier::EqTrait => RawEntityKind::Trait,
         },
-        ScopeKind::Package { .. } => RawEntityKind::Module,
-        ScopeKind::ChildScope { parent, ident } => db
+        EntityRouteKind::Package { .. } => RawEntityKind::Module,
+        EntityRouteKind::ChildScope { parent, ident } => db
             .subscope_table(*parent)
             .unwrap()
             .raw_entity_kind(*ident)
             .unwrap(),
-        ScopeKind::Contextual { ident, .. } => match ident {
+        EntityRouteKind::Contextual { ident, .. } => match ident {
             ContextualIdentifier::Input => RawEntityKind::Feature,
             ContextualIdentifier::ThisData => todo!(),
             ContextualIdentifier::ThisType => todo!(),
         },
-        ScopeKind::Generic {
+        EntityRouteKind::Generic {
             ident,
             raw_entity_kind,
         } => *raw_entity_kind,
@@ -124,13 +125,49 @@ fn entity_source(
     entity_route: EntityRoutePtr,
 ) -> ScopeResult<EntitySource> {
     Ok(match entity_route.kind {
-        ScopeKind::Builtin { ident } => match ident {
-            BuiltinIdentifier::Void => todo!(),
-            BuiltinIdentifier::I32 => todo!(),
-            BuiltinIdentifier::F32 => todo!(),
-            BuiltinIdentifier::B32 => todo!(),
-            BuiltinIdentifier::B64 => todo!(),
-            BuiltinIdentifier::Bool => todo!(),
+        EntityRouteKind::Builtin { ident } => match ident {
+            BuiltinIdentifier::Void => &BuiltinEntityData {
+                subscopes: &[],
+                decl: BuiltinEntityDecl::Ty {
+                    raw_ty_kind: RawTyKind::Primitive,
+                    visualizer: TRIVIAL_VISUALIZER,
+                },
+            },
+            BuiltinIdentifier::I32 => &BuiltinEntityData {
+                subscopes: &[],
+                decl: BuiltinEntityDecl::Ty {
+                    raw_ty_kind: RawTyKind::Primitive,
+                    visualizer: TRIVIAL_VISUALIZER,
+                },
+            },
+            BuiltinIdentifier::F32 => &BuiltinEntityData {
+                subscopes: &[],
+                decl: BuiltinEntityDecl::Ty {
+                    raw_ty_kind: RawTyKind::Primitive,
+                    visualizer: TRIVIAL_VISUALIZER,
+                },
+            },
+            BuiltinIdentifier::B32 => &BuiltinEntityData {
+                subscopes: &[],
+                decl: BuiltinEntityDecl::Ty {
+                    raw_ty_kind: RawTyKind::Primitive,
+                    visualizer: TRIVIAL_VISUALIZER,
+                },
+            },
+            BuiltinIdentifier::B64 => &BuiltinEntityData {
+                subscopes: &[],
+                decl: BuiltinEntityDecl::Ty {
+                    raw_ty_kind: RawTyKind::Primitive,
+                    visualizer: TRIVIAL_VISUALIZER,
+                },
+            },
+            BuiltinIdentifier::Bool => &BuiltinEntityData {
+                subscopes: &[],
+                decl: BuiltinEntityDecl::Ty {
+                    raw_ty_kind: RawTyKind::Primitive,
+                    visualizer: TRIVIAL_VISUALIZER,
+                },
+            },
             BuiltinIdentifier::True => todo!(),
             BuiltinIdentifier::False => todo!(),
             BuiltinIdentifier::Vec => &BuiltinEntityData {
@@ -155,12 +192,12 @@ fn entity_source(
             BuiltinIdentifier::EqTrait => todo!(),
         }
         .into(),
-        ScopeKind::Package { main, .. } => EntitySource::Module { file: main },
-        ScopeKind::ChildScope { parent, ident } => {
+        EntityRouteKind::Package { main, .. } => EntitySource::Module { file: main },
+        EntityRouteKind::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
-        ScopeKind::Contextual { main, ident } => EntitySource::Contextual { main, ident },
-        ScopeKind::Generic { ident, .. } => todo!(),
+        EntityRouteKind::Contextual { main, ident } => EntitySource::Contextual { main, ident },
+        EntityRouteKind::Generic { ident, .. } => todo!(),
     })
 }
 
@@ -186,7 +223,7 @@ pub trait ScopeQueryGroup:
     ) -> Option<EntityRoutePtr> {
         let parent_subscope_table = self.subscope_table(parent_scope);
         if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
-            Some(self.intern_scope(Route::child_scope(parent_scope, ident, generics)))
+            Some(self.intern_scope(EntityRoute::child_scope(parent_scope, ident, generics)))
         } else {
             None
         }
@@ -244,7 +281,7 @@ pub trait ScopeQueryGroup:
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
                     self.word_allocator().alloc(snake_name)
                 {
-                    Ok(self.intern_scope(Route::package(id, ident)))
+                    Ok(self.intern_scope(EntityRoute::package(id, ident)))
                 } else {
                     scope_err!(format!("package name should be identifier"))?
                 }
@@ -301,7 +338,7 @@ pub trait ScopeQueryGroup:
         module_path.map(|pth| self.alloc_file(pth))
     }
 
-    fn raw_entity_kind_from_scope_kind(&self, scope_kind: &ScopeKind) -> RawEntityKind {
+    fn raw_entity_kind_from_scope_kind(&self, scope_kind: &EntityRouteKind) -> RawEntityKind {
         raw_entity_kind_from_scope_kind(self.upcast(), scope_kind)
     }
 }

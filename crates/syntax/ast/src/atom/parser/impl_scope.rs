@@ -45,18 +45,18 @@ impl<'a> AtomLRParser<'a> {
             }?))
     }
 
-    fn vec_ty(&mut self) -> AstResult<Route> {
-        Ok(Route::vec(self.generic()?))
+    fn vec_ty(&mut self) -> AstResult<EntityRoute> {
+        Ok(EntityRoute::vec(self.generic()?))
     }
 
-    fn array_ty(&mut self) -> AstResult<Route> {
+    fn array_ty(&mut self) -> AstResult<EntityRoute> {
         let size = get!(self, usize_literal);
         no_look_pass!(self, special, Special::RBox);
         let element = self.generic()?;
-        Ok(Route::array(element, size))
+        Ok(EntityRoute::array(element, size))
     }
 
-    fn normal_scope(&mut self, route: ScopeKind) -> AstResult<AtomKind> {
+    fn normal_scope(&mut self, route: EntityRouteKind) -> AstResult<AtomKind> {
         let mut scope = self.scope_proxy.db.make_scope(route, self.generics(route)?);
         while next_matches!(self, Special::DoubleColon) {
             let ident = get!(self, custom_ident);
@@ -85,9 +85,9 @@ impl<'a> AtomLRParser<'a> {
         )
     }
 
-    fn generics(&mut self, scope_kind: ScopeKind) -> AstResult<Vec<GenericArgument>> {
+    fn generics(&mut self, scope_kind: EntityRouteKind) -> AstResult<Vec<GenericArgument>> {
         match scope_kind {
-            ScopeKind::Builtin { ident } => match ident {
+            EntityRouteKind::Builtin { ident } => match ident {
                 BuiltinIdentifier::Void
                 | BuiltinIdentifier::I32
                 | BuiltinIdentifier::F32
@@ -156,9 +156,9 @@ impl<'a> AtomLRParser<'a> {
             let mut args = comma_list!(self, generic!, ")");
             let scope = if next_matches!(self, "->") {
                 args.push(self.generic()?);
-                Route::default_func_type(args)
+                EntityRoute::default_func_type(args)
             } else {
-                Route::tuple_or_void(args)
+                EntityRoute::tuple_or_void(args)
             };
             self.intern(scope).into()
         } else {
@@ -166,7 +166,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn intern(&self, scope: Route) -> EntityRoutePtr {
+    fn intern(&self, scope: EntityRoute) -> EntityRoutePtr {
         self.scope_proxy.db.intern_scope(scope)
     }
 }

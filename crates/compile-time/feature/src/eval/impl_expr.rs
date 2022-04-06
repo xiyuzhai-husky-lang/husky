@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use semantics_lazy::LazyStmt;
-use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, StackValue};
+use vm::{eval_fast, CompiledRoutine, EvalResult, EvalValue, InstructionSheet, StackValue};
 
 use crate::{FeatureBlock, FeatureExpr, FeatureExprKind};
 
@@ -32,7 +32,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             } => self.eval_routine_call(instruction_sheet, compiled, inputs),
             FeatureExprKind::ProcCall {
                 ref instruction_sheet,
-                compiled,
+                opt_compiled: compiled,
                 ref inputs,
                 ..
             } => self.eval_routine_call(instruction_sheet, compiled, inputs),
@@ -54,15 +54,15 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 ref opds,
                 ref stmts,
                 ref instruction_sheet,
-                compiled,
-            } => self.eval_memb_routine_call(instruction_sheet, compiled, opds),
+                opt_compiled,
+            } => self.eval_memb_routine_call(instruction_sheet, opt_compiled, opds),
             FeatureExprKind::MembProcCall {
                 memb_ident,
                 ref opds,
                 ref stmts,
                 ref instruction_sheet,
-                compiled,
-            } => self.eval_memb_routine_call(instruction_sheet, compiled, opds),
+                opt_compiled,
+            } => self.eval_memb_routine_call(instruction_sheet, opt_compiled, opds),
             FeatureExprKind::MembPattCall {
                 memb_ident,
                 ref opds,
@@ -98,7 +98,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn eval_memb_routine_call(
         &mut self,
         instrns: &InstructionSheet,
-        maybe_compiled: Option<()>,
+        maybe_compiled: Option<CompiledRoutine>,
         opds: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
         let values = opds
@@ -110,7 +110,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn eval_routine_call(
         &mut self,
         instrns: &InstructionSheet,
-        maybe_compiled: Option<()>,
+        maybe_compiled: Option<CompiledRoutine>,
         inputs: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
         let values = inputs

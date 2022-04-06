@@ -3,7 +3,7 @@ mod props;
 pub use props::*;
 use vm::AnyValueDyn;
 
-#[derive(Clone)]
+#[derive(Clone, Copy)]
 pub struct BuiltinVisualizer {
     pub compiled: for<'eval> fn(&(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps,
 }
@@ -22,3 +22,11 @@ impl PartialEq for BuiltinVisualizer {
 }
 
 impl Eq for BuiltinVisualizer {}
+
+pub const TRIVIAL_VISUALIZER: BuiltinVisualizer = BuiltinVisualizer {
+    compiled: visualize_trivial,
+};
+
+fn visualize_trivial<'eval>(data: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
+    todo!()
+}

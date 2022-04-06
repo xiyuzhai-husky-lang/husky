@@ -15,7 +15,7 @@ pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
-use entity_route::{BuiltinEntityData, BuiltinEntityDecl, ScopeKind};
+use entity_route::{BuiltinEntityData, BuiltinEntityDecl, EntityRouteKind};
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 
 pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {

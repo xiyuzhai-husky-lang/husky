@@ -26,7 +26,7 @@ fn global_input_ty_from_ast(
                     let signature = db.call_decl(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.kind {
-                        ScopeKind::Builtin {
+                        EntityRouteKind::Builtin {
                             ident: BuiltinIdentifier::DatasetType,
                         } => match dataset_type.generics[0] {
                             GenericArgument::Const(_) => todo!(),
@@ -65,7 +65,7 @@ fn global_output_ty_from_ast(
                     let signature = db.call_decl(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.kind {
-                        ScopeKind::Builtin {
+                        EntityRouteKind::Builtin {
                             ident: BuiltinIdentifier::DatasetType,
                         } => match dataset_type.generics[1] {
                             GenericArgument::Const(_) => todo!(),

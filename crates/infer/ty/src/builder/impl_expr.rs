@@ -65,11 +65,11 @@ impl<'a> TySheetBuilder<'a> {
                     BuiltinIdentifier::Bool.into()
                 }
                 EntityRoutePtr::Custom(scope) => match scope.kind {
-                    ScopeKind::Builtin { ident } => todo!(),
-                    ScopeKind::Package { main, ident } => todo!(),
-                    ScopeKind::ChildScope { parent, ident } => parent,
-                    ScopeKind::Contextual { main, ident } => todo!(),
-                    ScopeKind::Generic { ident, .. } => todo!(),
+                    EntityRouteKind::Builtin { ident } => todo!(),
+                    EntityRouteKind::Package { main, ident } => todo!(),
+                    EntityRouteKind::ChildScope { parent, ident } => parent,
+                    EntityRouteKind::Contextual { main, ident } => todo!(),
+                    EntityRouteKind::Generic { ident, .. } => todo!(),
                 },
                 _ => todo!(),
             },

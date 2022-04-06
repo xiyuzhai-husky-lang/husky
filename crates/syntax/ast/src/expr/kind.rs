@@ -7,7 +7,7 @@ use vm::PrimitiveValue;
 use word::WordPtr;
 
 use crate::*;
-use entity_route::{RangedScope, RawEntityKind, ScopeKind, EntityRoutePtr};
+use entity_route::{EntityRouteKind, EntityRoutePtr, RangedScope, RawEntityKind};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprKind {

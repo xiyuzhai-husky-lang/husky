@@ -1,4 +1,4 @@
-use entity_route::ScopeKind;
+use entity_route::EntityRouteKind;
 use word::BuiltinIdentifier;
 
 use crate::*;
@@ -18,7 +18,7 @@ main:
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(Route::package(
+    let package = db.intern_scope(EntityRoute::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
@@ -50,7 +50,7 @@ struct B {}
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(Route::package(
+    let package = db.intern_scope(EntityRoute::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
@@ -74,7 +74,7 @@ main:
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(Route::package(
+    let package = db.intern_scope(EntityRoute::package(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
@@ -86,8 +86,8 @@ main:
 #[test]
 fn datasets() {
     let db = HuskyLangCompileTime::default();
-    let dataset_scope = db.intern_scope(Route {
-        kind: ScopeKind::Builtin {
+    let dataset_scope = db.intern_scope(EntityRoute {
+        kind: EntityRouteKind::Builtin {
             ident: BuiltinIdentifier::DatasetType,
         },
         generics: vec![],

@@ -16,7 +16,7 @@ mod ty;
 
 use std::sync::Arc;
 
-pub use compiled::{Compiled, MembVarAccessCompiled};
+pub use compiled::{CompiledRoutine, MembVarAccessCompiled};
 pub use contract::{EagerContract, InputContract, LazyContract, MembAccessContract};
 pub use control::{ControlSnapshot, VMControl};
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
@@ -37,11 +37,11 @@ use error::*;
 pub fn eval_fast<'a, 'eval: 'a>(
     iter: impl Iterator<Item = VMResult<StackValue<'a, 'eval>>>,
     sheet: &InstructionSheet,
-    maybe_compiled: Option<()>,
+    maybe_code: Option<CompiledRoutine>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(iter)?;
-    if let Some(compiled) = maybe_compiled {
-        interpreter.exec_compiled(compiled)
+    if let Some(code) = maybe_code {
+        interpreter.exec_code(code)
     } else {
         interpreter.eval_instructions(&sheet.instructions, Mode::Fast)
     }

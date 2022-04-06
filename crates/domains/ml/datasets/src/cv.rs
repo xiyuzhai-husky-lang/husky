@@ -6,7 +6,7 @@ use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_route::StaticFuncSignature;
 use mnist::*;
 use std::sync::Arc;
-use vm::{BoxedValue, Compiled, StackValue};
+use vm::{BoxedValue, CompiledRoutine, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {

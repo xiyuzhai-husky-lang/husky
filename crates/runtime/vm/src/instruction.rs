@@ -60,7 +60,7 @@ pub enum InstructionKind {
         contract: EagerContract,
     },
     CallCompiled {
-        compiled: Compiled,
+        compiled: CompiledRoutine,
         nargs: u8,
     },
     RoutineCallInterpreted {

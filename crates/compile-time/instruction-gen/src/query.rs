@@ -1,11 +1,12 @@
 use file::FilePtr;
+use fp_table::HasFpTable;
 use semantics_package::PackageQueryGroup;
 
 use crate::*;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
-pub trait InstructionGenQueryGroup: EntityQueryGroup + PackageQueryGroup {
-    fn scope_instruction_sheet(&self, scope: EntityRoutePtr) -> Arc<InstructionSheet>;
+pub trait InstructionGenQueryGroup: EntityQueryGroup + PackageQueryGroup + HasFpTable {
+    fn entity_instruction_sheet(&self, scope: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn memb_routine_instruction_sheet(
         &self,
         ty: EntityRoutePtr,
@@ -14,20 +15,21 @@ pub trait InstructionGenQueryGroup: EntityQueryGroup + PackageQueryGroup {
     fn dataset_config_instruction_sheet(&self, package_main: FilePtr) -> Arc<InstructionSheet>;
 }
 
-fn scope_instruction_sheet(
+fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     scope: EntityRoutePtr,
 ) -> Arc<InstructionSheet> {
-    let entity = db.entity(scope).unwrap();
-    match entity.kind() {
-        EntityKind::Module { .. } => todo!(),
-        EntityKind::Feature { .. } => todo!(),
-        EntityKind::Pattern { .. } => todo!(),
-        EntityKind::Func {
+    let entity_defn = db.entity_defn(scope).unwrap();
+    match entity_defn.kind() {
+        EntityDefnKind::Module { .. } => todo!(),
+        EntityDefnKind::Feature { .. } => todo!(),
+        EntityDefnKind::Pattern { .. } => todo!(),
+        EntityDefnKind::Func {
             input_placeholders,
             stmts,
             ..
         } => InstructionSheetBuilder::new_decl(
+            db,
             input_placeholders
                 .iter()
                 .map(|input_placeholder| input_placeholder.ident)
@@ -35,11 +37,12 @@ fn scope_instruction_sheet(
             stmts,
             false,
         ),
-        EntityKind::Proc {
+        EntityDefnKind::Proc {
             input_placeholders,
             stmts,
             ..
         } => InstructionSheetBuilder::new_impr(
+            db,
             input_placeholders
                 .iter()
                 .map(|input_placeholder| input_placeholder.ident)
@@ -47,8 +50,9 @@ fn scope_instruction_sheet(
             stmts,
             false,
         ),
-        EntityKind::Ty(_) => todo!(),
-        EntityKind::Main(_) => todo!(),
+        EntityDefnKind::Ty(_) => todo!(),
+        EntityDefnKind::Main(_) => todo!(),
+        EntityDefnKind::Builtin => todo!(),
     }
 }
 
@@ -57,23 +61,23 @@ fn memb_routine_instruction_sheet(
     ty: EntityRoutePtr,
     memb_ident: CustomIdentifier,
 ) -> Arc<InstructionSheet> {
-    let entity = db.entity(ty).unwrap();
-    match entity.kind() {
-        EntityKind::Main(_) => todo!(),
-        EntityKind::Module {} => todo!(),
-        EntityKind::Feature { .. } => todo!(),
-        EntityKind::Pattern {} => todo!(),
-        EntityKind::Func {
+    let entity_defn = db.entity_defn(ty).unwrap();
+    match entity_defn.kind() {
+        EntityDefnKind::Main(_) => todo!(),
+        EntityDefnKind::Module {} => todo!(),
+        EntityDefnKind::Feature { .. } => todo!(),
+        EntityDefnKind::Pattern {} => todo!(),
+        EntityDefnKind::Func {
             input_placeholders,
             output,
             stmts,
         } => todo!(),
-        EntityKind::Proc {
+        EntityDefnKind::Proc {
             input_placeholders,
             output,
             stmts,
         } => todo!(),
-        EntityKind::Ty(ty) => match ty.kind {
+        EntityDefnKind::Ty(ty) => match ty.kind {
             TyDefnKind::Enum { ref variants } => todo!(),
             TyDefnKind::Struct {
                 ref memb_vars,
@@ -87,10 +91,10 @@ fn memb_routine_instruction_sheet(
                     .collect();
                 match memb_routine.kind {
                     MembRoutineKind::Func { ref stmts } => {
-                        InstructionSheetBuilder::new_decl(inputs, stmts, true)
+                        InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
                     }
                     MembRoutineKind::Proc { ref stmts } => {
-                        InstructionSheetBuilder::new_impr(inputs, stmts, true)
+                        InstructionSheetBuilder::new_impr(db, inputs, stmts, true)
                     }
                 }
             }
@@ -99,6 +103,7 @@ fn memb_routine_instruction_sheet(
                 ref memb_features,
             } => todo!(),
         },
+        EntityDefnKind::Builtin => todo!(),
     }
 }
 
@@ -107,5 +112,5 @@ fn dataset_config_instruction_sheet(
     package_main: FilePtr,
 ) -> Arc<InstructionSheet> {
     let package = db.package(package_main).unwrap();
-    InstructionSheetBuilder::new_decl(vec![], &package.config.dataset.stmts, false)
+    InstructionSheetBuilder::new_decl(db, vec![], &package.config.dataset.stmts, false)
 }
