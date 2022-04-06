@@ -3,7 +3,7 @@ mod sheet;
 
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
-use word::CustomIdentifier;
+use word::{CustomIdentifier, IdentMap};
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -56,7 +56,7 @@ pub enum InstructionKind {
         compiled: (),
     },
     MembVarAccessInterpreted {
-        ident: CustomIdentifier,
+        memb_idx: u8,
         contract: EagerContract,
     },
     CallCompiled {
@@ -67,8 +67,8 @@ pub enum InstructionKind {
         instructions: Arc<Vec<Instruction>>,
         nargs: u8,
     },
-    TyCallInterpreted {
-        ty_signature: TySignature,
+    NewVirtualStruct {
+        memb_vars: Vec<MembAccessContract>,
     },
     PrimitiveOpn(PrimitiveOpn),
     Loop {

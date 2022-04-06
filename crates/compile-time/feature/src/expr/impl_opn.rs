@@ -92,6 +92,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             FeatureExprKind::StructMembVarAccess {
                                 this,
                                 memb_ident,
+                                memb_idx: todo!(),
                                 contract,
                                 opt_compiled: None,
                             },

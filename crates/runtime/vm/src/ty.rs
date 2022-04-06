@@ -5,52 +5,39 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VirtualTy<'eval> {
     Struct {
-        memb_vars: Vec<VirtualMembVar<'eval>>,
+        memb_vars: Vec<StructMembValue<'eval>>,
     },
 }
 
 impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
     pub fn new_struct(
         mut inputs: Vec<StackValue<'stack, 'eval>>,
-        memb_var_sigs: &[(CustomIdentifier, MembAccessContract)],
+        memb_var_contracts: &[MembAccessContract],
     ) -> Self {
         let mut memb_vars = vec![];
         for i in 0..inputs.len() {
-            memb_vars.push(VirtualMembVar {
-                ident: memb_var_sigs[i].0,
-                value: inputs[i].bind_move().into_eval(),
-            });
+            memb_vars.push(inputs[i].bind_move().into_struct_memb());
         }
         Self::Struct { memb_vars }
     }
 
-    pub fn eval_memb_var(&self, ident: CustomIdentifier) -> &EvalValue<'eval> {
+    pub fn eval_memb_var(&self, memb_idx: usize) -> &StructMembValue<'eval> {
         match self {
-            VirtualTy::Struct { memb_vars } => {
-                &memb_vars
-                    .iter()
-                    .find(|memb_var| memb_var.ident == ident)
-                    .unwrap()
-                    .value
-            }
+            VirtualTy::Struct { memb_vars } => &memb_vars[memb_idx],
         }
     }
 
-    pub fn take_memb_var(self, ident: CustomIdentifier) -> StackValue<'stack, 'eval> {
+    pub fn take_memb_var(&mut self, memb_idx: usize) -> StackValue<'stack, 'eval> {
         match self {
-            VirtualTy::Struct { memb_vars } => memb_vars
-                .into_iter()
-                .find(|memb_var| memb_var.ident == ident)
-                .unwrap()
-                .value
-                .into_stack()
-                .unwrap(),
+            VirtualTy::Struct { memb_vars } => {
+                std::mem::replace(&mut memb_vars[memb_idx], StructMembValue::Moved).into_stack()
+            }
         }
     }
 
     pub fn eager_memb_var(
         &self,
-        ident: CustomIdentifier,
+        memb_idx: usize,
         contract: EagerContract,
     ) -> StackValue<'stack, 'eval> {
         match contract {
@@ -60,17 +47,12 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),
             EagerContract::Return => match self {
-                VirtualTy::Struct { memb_vars } => match memb_vars
-                    .iter()
-                    .find(|memb_var| memb_var.ident == ident)
-                    .unwrap()
-                    .value
-                {
-                    EvalValue::Primitive(value) => StackValue::Primitive(value),
-                    EvalValue::Boxed(_) => todo!(),
-                    EvalValue::GlobalPure(_) => todo!(),
-                    EvalValue::GlobalRef(_) => todo!(),
-                    EvalValue::Undefined => todo!(),
+                VirtualTy::Struct { memb_vars } => match memb_vars[memb_idx] {
+                    StructMembValue::Primitive(value) => StackValue::Primitive(value),
+                    StructMembValue::Boxed(_) => todo!(),
+                    StructMembValue::GlobalPure(_) => todo!(),
+                    StructMembValue::GlobalRef(_) => todo!(),
+                    StructMembValue::Moved => todo!(),
                 },
             },
             EagerContract::BorrowMut => todo!(),
@@ -81,7 +63,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
 
     pub fn memb_var_mut(
         &mut self,
-        ident: CustomIdentifier,
+        memb_idx: usize,
         contract: EagerContract,
         owner: StackIdx,
     ) -> StackValue<'stack, 'eval> {
@@ -91,17 +73,13 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::Move => todo!(),
             EagerContract::BorrowMut => match self {
                 VirtualTy::Struct { memb_vars } => {
-                    let memb_var_value = &mut memb_vars
-                        .iter_mut()
-                        .find(|memb_var| memb_var.ident == ident)
-                        .unwrap()
-                        .value;
+                    let memb_var_value = &mut memb_vars[memb_idx];
                     let ptr: *mut dyn AnyValueDyn = match memb_var_value {
-                        EvalValue::Primitive(ref mut value) => value.any_mut(),
-                        EvalValue::Boxed(_) => todo!(),
-                        EvalValue::GlobalPure(_) => todo!(),
-                        EvalValue::GlobalRef(_) => todo!(),
-                        EvalValue::Undefined => todo!(),
+                        StructMembValue::Primitive(ref mut value) => value.any_mut(),
+                        StructMembValue::Boxed(_) => todo!(),
+                        StructMembValue::GlobalPure(_) => todo!(),
+                        StructMembValue::GlobalRef(_) => todo!(),
+                        StructMembValue::Moved => todo!(),
                     };
                     StackValue::MutLocalRef {
                         value: unsafe { &mut *ptr },

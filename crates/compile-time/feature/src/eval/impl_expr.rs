@@ -38,15 +38,16 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             } => self.eval_routine_call(instruction_sheet, compiled, inputs),
             FeatureExprKind::StructMembVarAccess {
                 ref this,
-                memb_ident: memb_var_ident,
+                memb_idx,
                 contract,
                 opt_compiled,
+                ..
             } => {
                 if let Some(compiled) = opt_compiled {
                     todo!()
                 } else {
                     let this_value = self.eval_feature_expr(this)?;
-                    Ok(unsafe { this_value.lazy_memb_var(memb_var_ident, contract) })
+                    Ok(unsafe { this_value.lazy_memb_var(memb_idx, contract) })
                 }
             }
             FeatureExprKind::MembFuncCall {
