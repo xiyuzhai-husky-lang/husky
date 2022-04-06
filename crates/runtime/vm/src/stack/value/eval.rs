@@ -73,22 +73,18 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn lazy_memb_var(
-        mut self,
-        ident: CustomIdentifier,
-        contract: LazyContract,
-    ) -> EvalValue<'eval> {
+    pub fn lazy_memb_var(mut self, memb_idx: usize, contract: LazyContract) -> EvalValue<'eval> {
         match self {
             EvalValue::Primitive(_) => panic!("primitive doesn't have member variables"),
             EvalValue::Boxed(value) => {
-                let value: VirtualTy = value.take().unwrap();
-                value.take_memb_var(ident).into_eval()
+                let mut value: VirtualTy = value.take().unwrap();
+                value.take_memb_var(memb_idx).into_eval()
             }
             EvalValue::GlobalPure(_) => panic!("expect global ref"),
             EvalValue::GlobalRef(value) => unsafe {
                 value
                     .downcast_ref::<VirtualTy<'eval>>()
-                    .eval_memb_var(ident)
+                    .eval_memb_var(memb_idx)
                     .share_globally()
             },
             EvalValue::Undefined => todo!(),

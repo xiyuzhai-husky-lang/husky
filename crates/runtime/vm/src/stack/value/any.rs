@@ -270,3 +270,31 @@ impl<'eval> AnyValue<'eval> for bool {
         Arc::new(*self)
     }
 }
+
+impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
+    fn static_type_id() -> StaticTypeId {
+        todo!()
+    }
+
+    fn static_type_name() -> Cow<'static, str> {
+        todo!()
+    }
+
+    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+        todo!()
+    }
+}
+
+impl<'eval> AnyValue<'eval> for Vec<EvalValue<'eval>> {
+    fn static_type_id() -> StaticTypeId {
+        todo!()
+    }
+
+    fn static_type_name() -> Cow<'static, str> {
+        todo!()
+    }
+
+    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+        todo!()
+    }
+}

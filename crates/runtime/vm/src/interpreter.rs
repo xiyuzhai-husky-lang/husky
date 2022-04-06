@@ -1,5 +1,7 @@
 mod exec;
 
+use word::CustomIdentifier;
+
 use crate::*;
 
 pub struct Interpreter<'stack, 'eval: 'stack> {
@@ -67,17 +69,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         todo!()
     }
 
-    fn ty_call_interpreted(&mut self, signature: &TySignature) -> VMResult<()> {
-        match signature {
-            TySignature::Enum => todo!(),
-            TySignature::Struct { ref memb_vars } => {
-                let inputs = self.stack.drain(memb_vars.len().try_into().unwrap());
-                self.stack
-                    .push(VirtualTy::new_struct(inputs, memb_vars).into());
-                Ok(())
-            }
-            TySignature::Vec => todo!("this is wrong, vec constructor shouldn't be interpreted"),
-        }
+    fn new_virtual_struct(&mut self, memb_vars: &[MembAccessContract]) -> VMResult<()> {
+        let inputs = self.stack.drain(memb_vars.len().try_into().unwrap());
+        self.stack
+            .push(VirtualTy::new_struct(inputs, memb_vars).into());
+        Ok(())
     }
 
     fn take_snapshot(&mut self) {

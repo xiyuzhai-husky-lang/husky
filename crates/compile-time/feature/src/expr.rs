@@ -82,6 +82,7 @@ pub enum FeatureExprKind {
     StructMembVarAccess {
         this: Arc<FeatureExpr>,
         memb_ident: CustomIdentifier,
+        memb_idx: usize,
         contract: LazyContract,
         opt_compiled: Option<MembVarAccessCompiled>,
     },

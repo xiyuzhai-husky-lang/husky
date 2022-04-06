@@ -2,12 +2,14 @@ mod any;
 mod boxed;
 mod eval;
 mod primitive;
+mod struct_memb;
 
 pub use any::*;
 pub use boxed::BoxedValue;
 pub use eval::{EvalResult, EvalValue};
 pub use primitive::PrimitiveValue;
 use std::sync::Arc;
+pub use struct_memb::*;
 use word::CustomIdentifier;
 
 use crate::*;
@@ -86,6 +88,18 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         match self {
             StackValue::Primitive(primitive_value) => EvalValue::Primitive(primitive_value),
             StackValue::Boxed(boxed_value) => EvalValue::Boxed(boxed_value),
+            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::LocalRef(_) | StackValue::MutLocalRef { .. } | StackValue::Moved => {
+                panic!()
+            }
+        }
+    }
+
+    pub fn into_struct_memb(self) -> StructMembValue<'eval> {
+        match self {
+            StackValue::Primitive(primitive_value) => StructMembValue::Primitive(primitive_value),
+            StackValue::Boxed(boxed_value) => StructMembValue::Boxed(boxed_value),
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef(_) | StackValue::MutLocalRef { .. } | StackValue::Moved => {
@@ -254,30 +268,26 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         self.any().static_type_id()
     }
 
-    pub fn memb_var(
-        mut self,
-        ident: CustomIdentifier,
-        contract: EagerContract,
-    ) -> StackValue<'stack, 'eval> {
+    pub fn memb_var(self, memb_idx: usize, contract: EagerContract) -> StackValue<'stack, 'eval> {
         match self {
             StackValue::Moved => todo!(),
             StackValue::Primitive(_) => todo!(),
             StackValue::Boxed(boxed_value) => {
-                let value: VirtualTy = boxed_value.take().unwrap();
-                value.take_memb_var(ident)
+                let mut value: VirtualTy = boxed_value.take().unwrap();
+                value.take_memb_var(memb_idx)
             }
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_memb_var(ident, contract)
+                value.eager_memb_var(memb_idx, contract)
             }
             StackValue::LocalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_memb_var(ident, contract)
+                value.eager_memb_var(memb_idx, contract)
             }
             StackValue::MutLocalRef { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
-                virtual_value.memb_var_mut(ident, contract, owner)
+                virtual_value.memb_var_mut(memb_idx, contract, owner)
             }
         }
     }

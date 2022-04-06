@@ -54,10 +54,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     control
                 }
-                InstructionKind::TyCallInterpreted {
-                    ty_signature: ref signature,
-                } => {
-                    let control = self.ty_call_interpreted(signature).into();
+                InstructionKind::NewVirtualStruct { ref memb_vars } => {
+                    let control = self.new_virtual_struct(memb_vars).into();
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => todo!(),
@@ -91,9 +89,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionKind::MembVarAccessCompiled { compiled } => todo!(),
-                InstructionKind::MembVarAccessInterpreted { ident, contract } => {
+                InstructionKind::MembVarAccessInterpreted { memb_idx, contract } => {
                     let this = self.stack.pop();
-                    self.stack.push(this.memb_var(ident, contract));
+                    self.stack.push(this.memb_var(memb_idx as usize, contract));
                     VMControl::None
                 }
             };

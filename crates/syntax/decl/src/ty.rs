@@ -36,7 +36,7 @@ impl TyDecl {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TyDeclKind {
     Struct {
-        memb_vars: IdentMap<MembAccessDecl>,
+        memb_vars: Arc<IdentMap<MembAccessDecl>>,
         memb_routines: IdentMap<MembCallDecl>,
     },
     Enum {
@@ -263,7 +263,7 @@ pub(crate) fn struct_decl(
         members: Default::default(),
         traits: Default::default(),
         kind: TyDeclKind::Struct {
-            memb_vars,
+            memb_vars: Arc::new(memb_vars),
             memb_routines,
         },
     }))

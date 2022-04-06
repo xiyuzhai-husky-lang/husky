@@ -74,7 +74,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         SuffixOpr::MembAccess(ident) => {
                             msg_once!("memb var access compiled");
                             InstructionKind::MembVarAccessInterpreted {
-                                ident: *ident,
+                                memb_idx: todo!(),
                                 contract: expr.contract,
                             }
                         }
@@ -130,12 +130,36 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref ty_decl,
             } => {
                 msg_once!("TypeCall compiled");
-                self.push_instruction(Instruction::new(
-                    InstructionKind::TyCallInterpreted {
-                        ty_signature: ty_decl.signature(),
-                    },
-                    expr.clone(),
-                ))
+                match ty_decl.kind {
+                    TyDeclKind::Struct {
+                        ref memb_vars,
+                        ref memb_routines,
+                    } => {
+                        if let Some(compiled_routine) = self
+                            .db
+                            .fp_table()
+                            .struct_constructor(self.db.entity_uid(ranged_ty.scope))
+                        {
+                            todo!()
+                        }
+                        self.push_instruction(Instruction::new(
+                            InstructionKind::NewVirtualStruct {
+                                memb_vars: memb_vars
+                                    .iter()
+                                    .map(|(_, decl)| decl.contract)
+                                    .collect(),
+                            },
+                            expr.clone(),
+                        ));
+                        todo!()
+                    }
+                    TyDeclKind::Enum { ref variants } => todo!(),
+                    TyDeclKind::Record {
+                        ref memb_vars,
+                        ref memb_features,
+                    } => todo!(),
+                    TyDeclKind::Vec { element_ty } => todo!(),
+                }
             }
         }
     }

@@ -76,6 +76,7 @@ impl HuskyLangRuntime {
                 memb_ident,
                 contract,
                 opt_compiled,
+                ..
             } => todo!(),
             FeatureExprKind::RecordMembAccess {
                 ref this,
