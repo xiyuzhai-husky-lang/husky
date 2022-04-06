@@ -22,12 +22,12 @@ pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
 };
 
+use entity_route::EntityRoutePtr;
 use eval::*;
 use object::Object;
 use print_utils::*;
-use entity_route::EntityRoutePtr;
-use semantics_entity::EntityUid;
 use std::sync::Arc;
+use vm::EntityUid;
 use vm::{PrimitiveValue, PureBinaryOpr};
 use word::CustomIdentifier;
 

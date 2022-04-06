@@ -4,19 +4,17 @@ use print_utils::msg_once;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct CallSignature {
+pub struct CallDecl {
     pub inputs: Vec<InputSignature>,
     pub output: EntityRoutePtr,
-    pub compiled: Option<CompiledRoutine>,
 }
 
-impl CallSignature {
+impl CallDecl {
     fn new_vec(ty: EntityRoutePtr) -> Self {
         msg_once!("new vec compiled");
         Self {
             inputs: Vec::new(),
             output: ty,
-            compiled: None,
         }
     }
 }
@@ -24,12 +22,12 @@ impl CallSignature {
 pub(crate) fn call_decl(
     db: &dyn DeclQueryGroup,
     scope: EntityRoutePtr,
-) -> InferResultArc<CallSignature> {
+) -> InferResultArc<CallDecl> {
     let source = db.entity_source(scope)?;
     return match source {
         EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
             BuiltinEntityDecl::Func(ref signature) => func_call_decl_from_raw(db, signature),
-            BuiltinEntityDecl::Vec => CallSignature::new_vec(scope),
+            BuiltinEntityDecl::Vec => CallDecl::new_vec(scope),
             _ => panic!(),
         })),
         EntitySource::WithinBuiltinModule => todo!(),
@@ -48,17 +46,16 @@ pub(crate) fn call_decl(
                 AstKind::RoutineDefnHead {
                     ref routine_kind,
                     routine_head: ref decl,
-                } => Ok(Arc::new(CallSignature {
+                } => Ok(Arc::new(CallDecl {
                     inputs: decl
                         .input_placeholders
                         .iter()
                         .map(|input_placeholder| InputSignature {
                             contract: input_placeholder.contract,
-                            ty: input_placeholder.ranged_ty.scope,
+                            ty: input_placeholder.ranged_ty.route,
                         })
                         .collect(),
-                    output: decl.output.scope,
-                    compiled: None,
+                    output: decl.output.route,
                 })),
                 // type constructor
                 AstKind::TypeDefnHead {
@@ -82,10 +79,9 @@ pub(crate) fn call_decl(
                             }
                         }
                         msg_once!("struct type call compiled");
-                        Ok(Arc::new(CallSignature {
+                        Ok(Arc::new(CallDecl {
                             inputs,
                             output: scope,
-                            compiled: None,
                         }))
                     }
                     RawTyKind::Record => {
@@ -102,10 +98,9 @@ pub(crate) fn call_decl(
                                 _ => (),
                             }
                         }
-                        Ok(Arc::new(CallSignature {
+                        Ok(Arc::new(CallDecl {
                             inputs,
                             output: scope,
-                            compiled: None,
                         }))
                     }
                     RawTyKind::Primitive => todo!(),
@@ -120,10 +115,7 @@ pub(crate) fn call_decl(
         EntitySource::Contextual { .. } => todo!(),
     };
 
-    fn func_call_decl_from_raw(
-        this: &dyn DeclQueryGroup,
-        signature: &StaticFuncSignature,
-    ) -> CallSignature {
+    fn func_call_decl_from_raw(this: &dyn DeclQueryGroup, signature: &StaticFuncDecl) -> CallDecl {
         let inputs = signature
             .inputs
             .iter()
@@ -136,10 +128,6 @@ pub(crate) fn call_decl(
             .collect::<AstResult<Vec<InputSignature>>>()
             .unwrap();
         let output = this.parse_ty(signature.output).unwrap();
-        CallSignature {
-            inputs,
-            output,
-            compiled: signature.compiled,
-        }
+        CallDecl { inputs, output }
     }
 }

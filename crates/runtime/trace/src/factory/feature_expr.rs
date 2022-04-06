@@ -1,4 +1,4 @@
-use entity_route::RangedScope;
+use entity_route::RangedEntityRoute;
 
 use super::expr::ExprTokenConfig;
 use crate::*;
@@ -88,7 +88,7 @@ impl<'eval> TraceFactory<'eval> {
 
     fn routine_call_tokens(
         &self,
-        ranged_scope: RangedScope,
+        ranged_scope: RangedEntityRoute,
         inputs: &[Arc<FeatureExpr>],
         associated_trace: Option<Arc<Trace<'eval>>>,
         text: &Text,

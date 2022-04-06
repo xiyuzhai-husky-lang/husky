@@ -1,13 +1,13 @@
 use std::sync::Arc;
 
 use semantics_lazy::LazyStmt;
-use vm::{eval_fast, CompiledRoutine, EvalResult, EvalValue, InstructionSheet, StackValue};
+use vm::{eval_fast, CompiledRustCall, EvalResult, EvalValue, InstructionSheet, StackValue};
 
 use crate::{FeatureBlock, FeatureExpr, FeatureExprKind};
 
 use super::FeatureEvaluator;
 
-impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
+impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
         match expr.kind {
             FeatureExprKind::PrimitiveLiteral(value) => Ok(value.into()),
@@ -99,24 +99,26 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn eval_memb_routine_call(
         &mut self,
         instrns: &InstructionSheet,
-        maybe_compiled: Option<CompiledRoutine>,
+        maybe_compiled: Option<CompiledRustCall>,
         opds: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
+        let db = self.db;
         let values = opds
             .iter()
             .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
-        eval_fast(values, instrns, maybe_compiled)
+        eval_fast(db.upcast(), values, instrns, maybe_compiled)
     }
 
     fn eval_routine_call(
         &mut self,
         instrns: &InstructionSheet,
-        maybe_compiled: Option<CompiledRoutine>,
+        maybe_compiled: Option<CompiledRustCall>,
         inputs: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
+        let db = self.db;
         let values = inputs
             .iter()
             .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
-        eval_fast(values, instrns, maybe_compiled)
+        eval_fast(db.upcast(), values, instrns, maybe_compiled)
     }
 }

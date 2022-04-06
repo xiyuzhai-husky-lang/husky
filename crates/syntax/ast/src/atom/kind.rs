@@ -1,4 +1,4 @@
-use entity_route::{EntityRouteKind, RangedScope, RawEntityKind};
+use entity_route::{EntityRouteKind, RangedEntityRoute, RawEntityKind};
 use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
@@ -27,10 +27,10 @@ pub enum AtomKind {
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
-    LambdaHead(Vec<(CustomIdentifier, Option<RangedScope>)>),
+    LambdaHead(Vec<(CustomIdentifier, Option<RangedEntityRoute>)>),
 }
 
-pub type LambdaHead = Vec<(Identifier, Option<RangedScope>)>;
+pub type LambdaHead = Vec<(Identifier, Option<RangedEntityRoute>)>;
 
 impl From<BinaryOpr> for AtomKind {
     fn from(opr: BinaryOpr) -> Self {

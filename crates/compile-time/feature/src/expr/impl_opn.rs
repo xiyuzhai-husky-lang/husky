@@ -34,14 +34,14 @@ impl<'a> FeatureExprBuilder<'a> {
             },
             LazyOpnKind::Prefix(_) => todo!(),
             LazyOpnKind::RoutineCall(routine) => {
-                let uid = self.db.entity_uid(routine.scope);
+                let uid = self.db.entity_uid(routine.route);
                 let inputs: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
                 let feature = self.features.alloc(Feature::FuncCall {
-                    func: routine.scope,
+                    func: routine.route,
                     uid,
                     inputs: inputs.iter().map(|expr| expr.feature).collect(),
                 });
-                let entity = self.db.entity_defn(routine.scope).unwrap();
+                let entity = self.db.entity_defn(routine.route).unwrap();
                 let kind = match entity.kind() {
                     EntityDefnKind::Func {
                         input_placeholders,
@@ -54,7 +54,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         callee_file: entity.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
-                        instruction_sheet: self.db.entity_instruction_sheet(routine.scope),
+                        instruction_sheet: self.db.entity_instruction_sheet(routine.route),
                         stmts: stmts.clone(),
                     },
                     EntityDefnKind::Proc {
@@ -68,7 +68,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         callee_file: entity.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
-                        instruction_sheet: self.db.entity_instruction_sheet(routine.scope),
+                        instruction_sheet: self.db.entity_instruction_sheet(routine.route),
                         stmts: stmts.clone(),
                     },
                     _ => panic!(),
@@ -152,16 +152,16 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::ElementAccess => todo!(),
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::ClassCall(ty) => {
-                let uid = self.db.entity_uid(ty.scope);
+                let uid = self.db.entity_uid(ty.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
                 let feature = self.features.alloc(Feature::ClassCall {
-                    ty: ty.scope,
+                    ty: ty.route,
                     uid,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
                 let kind = FeatureExprKind::ClassCall {
                     ty,
-                    entity: self.db.entity_defn(ty.scope).unwrap(),
+                    entity: self.db.entity_defn(ty.route).unwrap(),
                     opds,
                 };
                 (kind, feature)

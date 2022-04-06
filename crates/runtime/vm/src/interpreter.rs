@@ -1,10 +1,13 @@
 mod exec;
+mod query;
 
-use word::CustomIdentifier;
+pub use query::InterpreterQueryGroup;
 
 use crate::*;
+use word::CustomIdentifier;
 
 pub struct Interpreter<'stack, 'eval: 'stack> {
+    db: &'stack dyn InterpreterQueryGroup,
     stack: VMStack<'stack, 'eval>,
     pub(crate) history: History<'eval>,
     snapshot: Option<StackSnapshot<'eval>>,
@@ -13,9 +16,11 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn try_new(
+        db: &'stack dyn InterpreterQueryGroup,
         iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
     ) -> VMResult<Interpreter<'stack, 'eval>> {
         Ok(Self {
+            db,
             stack: VMStack::try_new(iter)?,
             history: Default::default(),
             snapshot: None,
@@ -24,8 +29,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     }
 
     // Vec<StackValue<'stack, 'eval>>
-    pub(crate) fn new(values: impl Into<VMStack<'stack, 'eval>>) -> Interpreter<'stack, 'eval> {
+    pub(crate) fn new(
+        db: &'stack dyn InterpreterQueryGroup,
+        values: impl Into<VMStack<'stack, 'eval>>,
+    ) -> Interpreter<'stack, 'eval> {
         Self {
+            db,
             stack: values.into(),
             history: Default::default(),
             snapshot: None,
@@ -55,7 +64,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     //     Ok(self.stack.pop())
     // }
 
-    fn call_compiled(&mut self, f: CompiledRoutine, nargs: u8) -> VMResult<()> {
+    fn call_compiled(&mut self, f: CompiledRustCall, nargs: u8) -> VMResult<()> {
         let result = (f.call)(self.stack.topk_mut(nargs))?;
         self.stack.push(result.into());
         Ok(())

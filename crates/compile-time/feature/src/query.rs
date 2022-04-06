@@ -1,15 +1,20 @@
 use entity_route::EntityRoutePtr;
 use instruction_gen::InstructionGenQueryGroup;
+use pack_semantics::*;
 use semantics_entity::{EntityDefnKind, EntityQueryGroup};
 use semantics_error::SemanticResultArc;
-use semantics_package::*;
 use upcast::Upcast;
+use vm::InterpreterQueryGroup;
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, *};
 
 #[salsa::query_group(FeatureQueryGroupStorage)]
 pub trait FeatureQueryGroup:
-    AllocateUniqueFeature + PackageQueryGroup + Upcast<dyn EntityQueryGroup> + InstructionGenQueryGroup
+    AllocateUniqueFeature
+    + PackQueryGroup
+    + Upcast<dyn EntityQueryGroup>
+    + InstructionGenQueryGroup
+    + Upcast<dyn InterpreterQueryGroup>
 {
     fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
     fn scoped_feature_block(&self, scope: EntityRoutePtr) -> SemanticResultArc<FeatureBlock>;
@@ -20,8 +25,8 @@ fn main_feature_block(
     db: &dyn FeatureQueryGroup,
     main_file: file::FilePtr,
 ) -> SemanticResultArc<FeatureBlock> {
-    let package = db.package(main_file)?;
-    let main = &*package.main_defn;
+    let pack = db.pack(main_file)?;
+    let main = &*pack.main_defn;
     Ok(FeatureBlock::new(db, None, &main.stmts, &[], db.features()))
 }
 

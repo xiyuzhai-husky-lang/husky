@@ -4,7 +4,7 @@ use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FileError {
-    NoSuchPackage,
+    NoSuchpack,
     FileNotFound,
     DuplicateModuleFiles,
 }

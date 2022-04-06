@@ -19,5 +19,5 @@ main:
     );
 
     let main_file_id = db.alloc_file("haha/main.hsk".into());
-    let package = db.package(main_file_id).unwrap();
+    let pack = db.pack(main_file_id).unwrap();
 }

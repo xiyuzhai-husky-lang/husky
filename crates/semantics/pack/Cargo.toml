@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "semantics-package"
+name = "pack-semantics"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"

@@ -22,4 +22,4 @@ compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 compile-time-dir = { path = "../../compile-time/dir", version = "0.0.0" }
 rust-gen = { path = "../../compile-time/rust-gen", version = "0.0.0" }
 semantics-error = { path = "../../semantics/error", version = "0.0.0" }
-semantics-package = { path = "../../semantics/package", version = "0.0.0" }
+pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }

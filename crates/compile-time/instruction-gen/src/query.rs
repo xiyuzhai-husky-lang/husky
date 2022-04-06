@@ -1,25 +1,25 @@
 use file::FilePtr;
 use fp_table::HasFpTable;
-use semantics_package::PackageQueryGroup;
+use pack_semantics::PackQueryGroup;
 
 use crate::*;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
-pub trait InstructionGenQueryGroup: EntityQueryGroup + PackageQueryGroup + HasFpTable {
-    fn entity_instruction_sheet(&self, scope: EntityRoutePtr) -> Arc<InstructionSheet>;
+pub trait InstructionGenQueryGroup: EntityQueryGroup + PackQueryGroup + HasFpTable {
+    fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn memb_routine_instruction_sheet(
         &self,
         ty: EntityRoutePtr,
         memb_ident: CustomIdentifier,
     ) -> Arc<InstructionSheet>;
-    fn dataset_config_instruction_sheet(&self, package_main: FilePtr) -> Arc<InstructionSheet>;
+    fn dataset_config_instruction_sheet(&self, pack_main: FilePtr) -> Arc<InstructionSheet>;
 }
 
 fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    scope: EntityRoutePtr,
+    route: EntityRoutePtr,
 ) -> Arc<InstructionSheet> {
-    let entity_defn = db.entity_defn(scope).unwrap();
+    let entity_defn = db.entity_defn(route).unwrap();
     match entity_defn.kind() {
         EntityDefnKind::Module { .. } => todo!(),
         EntityDefnKind::Feature { .. } => todo!(),
@@ -52,7 +52,10 @@ fn entity_instruction_sheet(
         ),
         EntityDefnKind::Ty(_) => todo!(),
         EntityDefnKind::Main(_) => todo!(),
-        EntityDefnKind::Builtin => todo!(),
+        EntityDefnKind::Builtin => {
+            p!(route.ident());
+            todo!()
+        }
     }
 }
 
@@ -109,8 +112,8 @@ fn memb_routine_instruction_sheet(
 
 fn dataset_config_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    package_main: FilePtr,
+    pack_main: FilePtr,
 ) -> Arc<InstructionSheet> {
-    let package = db.package(package_main).unwrap();
-    InstructionSheetBuilder::new_decl(db, vec![], &package.config.dataset.stmts, false)
+    let pack = db.pack(pack_main).unwrap();
+    InstructionSheetBuilder::new_decl(db, vec![], &pack.config.dataset.stmts, false)
 }

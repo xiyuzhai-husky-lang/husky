@@ -1,6 +1,7 @@
 mod compiled;
 mod contract;
 mod control;
+mod entity;
 mod enum_literal;
 mod error;
 mod frame;
@@ -14,17 +15,16 @@ mod snapshot;
 mod stack;
 mod ty;
 
-use std::sync::Arc;
-
-pub use compiled::{CompiledRoutine, MembVarAccessCompiled};
+pub use compiled::{CompiledRustCall, MembVarAccessCompiled};
 pub use contract::{EagerContract, InputContract, LazyContract, MembAccessContract};
 pub use control::{ControlSnapshot, VMControl};
+pub use entity::*;
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
 pub use frame::{FrameKind, LoopFrameSnapshot};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
-pub use interpreter::Interpreter;
+pub use interpreter::{Interpreter, InterpreterQueryGroup};
 pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
 pub use mode::Mode;
 pub use signature::*;
@@ -33,13 +33,15 @@ pub use stack::*;
 pub use ty::*;
 
 use error::*;
+use std::sync::Arc;
 
-pub fn eval_fast<'a, 'eval: 'a>(
-    iter: impl Iterator<Item = VMResult<StackValue<'a, 'eval>>>,
+pub fn eval_fast<'stack, 'eval: 'stack>(
+    db: &'stack dyn InterpreterQueryGroup,
+    iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
     sheet: &InstructionSheet,
-    maybe_code: Option<CompiledRoutine>,
+    maybe_code: Option<CompiledRustCall>,
 ) -> EvalResult<'eval> {
-    let mut interpreter = Interpreter::try_new(iter)?;
+    let mut interpreter = Interpreter::try_new(db, iter)?;
     if let Some(code) = maybe_code {
         interpreter.exec_code(code)
     } else {
@@ -48,20 +50,22 @@ pub fn eval_fast<'a, 'eval: 'a>(
 }
 
 pub fn exec_debug<'stack, 'eval: 'stack>(
+    db: &'stack dyn InterpreterQueryGroup,
     values: impl Into<VMStack<'stack, 'eval>>,
     sheet: &InstructionSheet,
 ) -> Arc<History<'eval>> {
-    let mut interpreter = Interpreter::new(values);
+    let mut interpreter = Interpreter::new(db, values);
     interpreter.exec_all(&sheet.instructions, Mode::Debug);
     Arc::new(interpreter.history)
 }
 
 pub fn exec_loop_debug<'stack, 'eval: 'stack>(
+    db: &'stack dyn InterpreterQueryGroup,
     values: impl Into<VMStack<'stack, 'eval>>,
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
 ) -> Vec<LoopFrameSnapshot<'eval>> {
-    let mut interpreter = Interpreter::new(values);
+    let mut interpreter = Interpreter::new(db, values);
     interpreter.exec_loop_debug(loop_kind, &sheet);
     interpreter.frames
 }

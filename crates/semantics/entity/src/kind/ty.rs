@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use ast::*;
-use entity_route::{EntityRoutePtr, InputPlaceholder, RangedScope};
+use entity_route::{EntityRoutePtr, InputPlaceholder, RangedEntityRoute};
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 use infer_total::InferQueryGroup;
@@ -168,7 +168,7 @@ pub enum TyDefnKind {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MembRoutineDefn {
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
-    pub output: RangedScope,
+    pub output: RangedEntityRoute,
     pub kind: MembRoutineKind,
     pub this_contract: InputContract,
 }

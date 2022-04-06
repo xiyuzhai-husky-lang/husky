@@ -13,7 +13,7 @@ pub use generic::*;
 pub use kind::RawEntityKind;
 use text::{TextRange, TextRanged};
 use visual_syntax::BuiltinVisualizer;
-use vm::{CompiledRoutine, EagerContract, InputContract};
+use vm::{CompiledRustCall, EagerContract, InputContract};
 use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -23,12 +23,12 @@ pub struct EntityRoute {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct RangedScope {
-    pub scope: EntityRoutePtr,
+pub struct RangedEntityRoute {
+    pub route: EntityRoutePtr,
     pub range: TextRange,
 }
 
-impl TextRanged for RangedScope {
+impl TextRanged for RangedEntityRoute {
     fn text_range_ref(&self) -> &TextRange {
         &self.range
     }
@@ -38,12 +38,12 @@ impl std::fmt::Debug for EntityRoute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
             EntityRouteKind::Builtin { ident } => ident.fmt(f)?,
-            EntityRouteKind::Package { main, ident } => {
-                // f.write_str("[package=")?;
+            EntityRouteKind::pack { main, ident } => {
+                // f.write_str("[pack=")?;
                 // main.fmt(f)?;
                 // f.write_str("]")?;
                 // ident.fmt(f)?
-                f.write_str("package")?
+                f.write_str("pack")?
             }
             EntityRouteKind::ChildScope { parent, ident } => {
                 parent.fmt(f)?;
@@ -114,7 +114,7 @@ pub enum EntityRouteKind {
     Builtin {
         ident: BuiltinIdentifier,
     },
-    Package {
+    pack {
         main: FilePtr,
         ident: CustomIdentifier,
     },
@@ -140,7 +140,7 @@ pub struct BuiltinEntityData {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum BuiltinEntityDecl {
-    Func(StaticFuncSignature),
+    Func(StaticFuncDecl),
     Ty {
         raw_ty_kind: RawTyKind,
         visualizer: BuiltinVisualizer,
@@ -161,10 +161,10 @@ impl BuiltinEntityDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct StaticFuncSignature {
+pub struct StaticFuncDecl {
     pub inputs: Vec<StaticInputSignature>,
     pub output: &'static str,
-    pub compiled: Option<CompiledRoutine>,
+    pub compiled: Option<CompiledRustCall>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -183,22 +183,22 @@ pub struct InputSignature {
 pub struct InputPlaceholder {
     pub ident: CustomIdentifier,
     pub contract: InputContract,
-    pub ranged_ty: RangedScope,
+    pub ranged_ty: RangedEntityRoute,
 }
 
 impl Into<InputSignature> for &InputPlaceholder {
     fn into(self) -> InputSignature {
         InputSignature {
             contract: self.contract,
-            ty: self.ranged_ty.scope,
+            ty: self.ranged_ty.route,
         }
     }
 }
 
 impl EntityRoute {
-    pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
+    pub fn pack(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
-            kind: EntityRouteKind::Package { main, ident },
+            kind: EntityRouteKind::pack { main, ident },
             generics: Vec::new(),
         }
     }
@@ -206,7 +206,7 @@ impl EntityRoute {
     pub fn ident(&self) -> Identifier {
         match self.kind {
             EntityRouteKind::Builtin { ident } => ident.into(),
-            EntityRouteKind::Package { main, ident } => ident.into(),
+            EntityRouteKind::pack { main, ident } => ident.into(),
             EntityRouteKind::ChildScope { parent, ident } => ident.into(),
             EntityRouteKind::Contextual { main, ident } => todo!(),
             EntityRouteKind::Generic {
@@ -263,7 +263,7 @@ impl EntityRoute {
     pub fn is_builtin(&self) -> bool {
         match self.kind {
             EntityRouteKind::Builtin { .. } => true,
-            EntityRouteKind::Package { .. } => false,
+            EntityRouteKind::pack { .. } => false,
             EntityRouteKind::ChildScope { parent, .. } => parent.is_builtin(),
             EntityRouteKind::Contextual { .. } => false,
             EntityRouteKind::Generic { ident, .. } => todo!(),

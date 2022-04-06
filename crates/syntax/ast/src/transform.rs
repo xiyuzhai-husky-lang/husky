@@ -45,7 +45,7 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.kind {
-                EntityRouteKind::Package { main, ident } => Env::Package(main),
+                EntityRouteKind::pack { main, ident } => Env::pack(main),
                 EntityRouteKind::ChildScope { .. } => Env::Module(module),
                 EntityRouteKind::Builtin { .. } | EntityRouteKind::Contextual { .. } => panic!(),
                 EntityRouteKind::Generic { ident, .. } => todo!(),
@@ -58,7 +58,7 @@ impl<'a> AstTransformer<'a> {
             for scope in db.subscopes(module).iter() {
                 match scope.kind {
                     EntityRouteKind::Builtin { .. }
-                    | EntityRouteKind::Package { .. }
+                    | EntityRouteKind::pack { .. }
                     | EntityRouteKind::Contextual { .. } => panic!(),
                     EntityRouteKind::ChildScope { ident, .. } => symbols.push(Symbol {
                         ident,
@@ -104,7 +104,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         Ok(Ast {
             range: token_group.into(),
             kind: match self.env() {
-                Env::Package(_) | Env::Module(_) => {
+                Env::pack(_) | Env::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?
                 }
                 Env::DatasetConfig

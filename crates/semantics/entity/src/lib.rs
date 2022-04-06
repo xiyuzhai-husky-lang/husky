@@ -2,15 +2,12 @@ mod defn;
 mod dependence;
 mod kind;
 mod query;
-mod uid;
 
 pub use defn::*;
 pub use kind::*;
-pub use query::{EntityQueryGroup, EntityQueryGroupStorage};
-pub use uid::*;
+pub use query::*;
 
-use defn::*;
-use entity_route::{EntityRoutePtr, InputPlaceholder, RangedScope};
+use entity_route::{EntityRoutePtr, InputPlaceholder, RangedEntityRoute};
 use file::FilePtr;
 use semantics_eager::*;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};

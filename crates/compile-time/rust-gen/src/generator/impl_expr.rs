@@ -8,12 +8,11 @@ impl<'a> RustGenerator<'a> {
         match expr.kind {
             EagerExprKind::Variable(varname) => self.write(&varname),
             EagerExprKind::This => self.write("self"),
-            EagerExprKind::Scope { scope, compiled } => todo!(),
+            EagerExprKind::Scope { scope } => todo!(),
             EagerExprKind::PrimitiveLiteral(value) => self.gen_primitive_literal(value),
             EagerExprKind::Bracketed(_) => todo!(),
             EagerExprKind::Opn {
                 ref opn_kind,
-                compiled,
                 ref opds,
             } => match opn_kind {
                 EagerOpnKind::Binary { opr, this } => {
@@ -35,7 +34,7 @@ impl<'a> RustGenerator<'a> {
                 },
                 EagerOpnKind::RoutineCall(_) => todo!(),
                 EagerOpnKind::TypeCall { ranged_ty, ty_decl } => {
-                    self.gen_scope(ranged_ty.scope);
+                    self.gen_scope(ranged_ty.route);
                     self.write("::");
                     self.write("__call__(");
                     self.gen_arguments(opds);

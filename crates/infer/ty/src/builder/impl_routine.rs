@@ -1,4 +1,4 @@
-use entity_route::RangedScope;
+use entity_route::RangedEntityRoute;
 
 use super::*;
 

@@ -23,9 +23,9 @@ impl<'a> DependeeMapBuilder<'a> {
     fn push(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.kind {
             EntityRouteKind::Builtin { .. } => return,
-            EntityRouteKind::Package { main, ident } => todo!(),
+            EntityRouteKind::pack { main, ident } => todo!(),
             EntityRouteKind::ChildScope { parent, ident } => {
-                msg_once!("dependences on entity from external packages should be merged");
+                msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
             EntityRouteKind::Contextual { main, ident } => todo!(),
@@ -89,7 +89,7 @@ impl EntityDefn {
         match self.kind() {
             EntityDefnKind::Module { .. } => Default::default(),
             EntityDefnKind::Feature { ty, lazy_stmts } => {
-                builder.push(ty.scope);
+                builder.push(ty.route);
                 extract_lazy_stmts_dependees(lazy_stmts, &mut builder);
             }
             EntityDefnKind::Pattern { .. } => todo!(),
@@ -139,13 +139,13 @@ impl EntityDefn {
 
         fn extract_routine_head_dependees(
             inputs: &[InputPlaceholder],
-            output: &RangedScope,
+            output: &RangedEntityRoute,
             builder: &mut DependeeMapBuilder,
         ) {
             for input_placeholder in inputs.iter() {
-                builder.push(input_placeholder.ranged_ty.scope)
+                builder.push(input_placeholder.ranged_ty.route)
             }
-            builder.push(output.scope);
+            builder.push(output.route);
         }
 
         fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], v: &mut DependeeMapBuilder) {
@@ -244,9 +244,9 @@ impl EntityDefn {
                         | LazyOpnKind::Prefix(_)
                         | LazyOpnKind::MembAccess { .. }
                         | LazyOpnKind::MembCall { .. } => (),
-                        LazyOpnKind::RoutineCall(routine) => v.push(routine.scope),
-                        LazyOpnKind::StructCall(ty) => v.push(ty.scope),
-                        LazyOpnKind::ClassCall(ty) => v.push(ty.scope),
+                        LazyOpnKind::RoutineCall(routine) => v.push(routine.route),
+                        LazyOpnKind::StructCall(ty) => v.push(ty.route),
+                        LazyOpnKind::ClassCall(ty) => v.push(ty.route),
                         LazyOpnKind::PatternCall => todo!(),
                         LazyOpnKind::ElementAccess => todo!(),
                     }
@@ -263,7 +263,7 @@ impl EntityDefn {
         fn extract_eager_expr_dependees(expr: &EagerExpr, builder: &mut DependeeMapBuilder) {
             match expr.kind {
                 EagerExprKind::Variable(_) => (),
-                EagerExprKind::Scope { scope, compiled } => builder.push(scope),
+                EagerExprKind::Scope { scope } => builder.push(scope),
                 EagerExprKind::PrimitiveLiteral(_) => (),
                 EagerExprKind::Bracketed(ref expr) => extract_eager_expr_dependees(expr, builder),
                 EagerExprKind::Opn {
@@ -278,8 +278,8 @@ impl EntityDefn {
                         | EagerOpnKind::MembVarAccess { .. }
                         | EagerOpnKind::MembRoutineCall { .. }
                         | EagerOpnKind::ElementAccess => (),
-                        EagerOpnKind::RoutineCall(routine) => builder.push(routine.scope),
-                        EagerOpnKind::TypeCall { ranged_ty, .. } => builder.push(ranged_ty.scope),
+                        EagerOpnKind::RoutineCall(routine) => builder.push(routine.route),
+                        EagerOpnKind::TypeCall { ranged_ty, .. } => builder.push(ranged_ty.route),
                         EagerOpnKind::PatternCall => todo!(),
                     }
                     for opd in opds {

@@ -6,10 +6,9 @@ mod impl_ty_defn;
 mod impl_write;
 
 use crate::*;
+use pack_semantics::Pack;
 use semantics_entity::{EntityDefn, EntityDefnKind, TyDefnKind};
-use semantics_package::Package;
 use std::sync::Arc;
-use word::WordAllocator;
 
 pub(crate) struct RustGenerator<'a> {
     db: &'a dyn RustGenQueryGroup,
@@ -26,8 +25,8 @@ impl<'a> RustGenerator<'a> {
         }
     }
 
-    pub(crate) fn gen_package_lib_rs(&mut self, package: &Package) {
-        for entity in package.subentity_defns.iter() {
+    pub(crate) fn gen_pack_lib_rs(&mut self, pack: &Pack) {
+        for entity in pack.subentity_defns.iter() {
             match entity.kind() {
                 EntityDefnKind::Main(_) => todo!(),
                 EntityDefnKind::Module {} => todo!(),
@@ -39,7 +38,7 @@ impl<'a> RustGenerator<'a> {
                 } => self.gen_func_defn(
                     entity.ident.custom(),
                     input_placeholders,
-                    output.scope,
+                    output.route,
                     stmts,
                 ),
                 EntityDefnKind::Proc {
@@ -49,7 +48,7 @@ impl<'a> RustGenerator<'a> {
                 } => self.gen_proc_defn(
                     entity.ident.custom(),
                     input_placeholders,
-                    output.scope,
+                    output.route,
                     stmts,
                 ),
                 EntityDefnKind::Ty(ty) => match ty.kind {
@@ -65,7 +64,7 @@ impl<'a> RustGenerator<'a> {
                 EntityDefnKind::Builtin => todo!(),
             }
         }
-        self.gen_init(&package.subentity_defns);
+        self.gen_init(&pack.subentity_defns);
     }
 
     pub(crate) fn finish(self) -> String {

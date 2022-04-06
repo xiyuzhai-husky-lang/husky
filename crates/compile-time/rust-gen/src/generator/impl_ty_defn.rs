@@ -103,7 +103,7 @@ impl<'a> RustGenerator<'a> {
                 self.write(": ");
                 match input_placeholder.contract {
                     InputContract::Pure => {
-                        if !self.db.is_copyable(input_placeholder.ranged_ty.scope) {
+                        if !self.db.is_copyable(input_placeholder.ranged_ty.route) {
                             self.write("&")
                         }
                     }
@@ -113,10 +113,10 @@ impl<'a> RustGenerator<'a> {
                     InputContract::MoveMut => todo!(),
                     InputContract::Exec => todo!(),
                 }
-                self.gen_scope(input_placeholder.ranged_ty.scope);
+                self.gen_scope(input_placeholder.ranged_ty.route);
             }
             self.write(") -> ");
-            self.gen_scope(memb_routine.output.scope);
+            self.gen_scope(memb_routine.output.route);
             self.write(" {\n");
             match memb_routine.kind {
                 MembRoutineKind::Func { ref stmts } => self.gen_func_stmts(stmts, 8),

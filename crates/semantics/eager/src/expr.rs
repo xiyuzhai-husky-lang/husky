@@ -1,4 +1,3 @@
-mod gen_instructions;
 mod opn;
 mod parser;
 
@@ -10,7 +9,7 @@ pub(crate) use parser::EagerExprParser;
 
 use entity_route::EntityRoutePtr;
 use text::TextRange;
-use vm::{CompiledRoutine, EagerContract, InstructionId, InstructionSource, PrimitiveValue};
+use vm::{CompiledRustCall, EagerContract, InstructionId, InstructionSource, PrimitiveValue};
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -35,13 +34,11 @@ pub enum EagerExprKind {
     This,
     Scope {
         scope: EntityRoutePtr,
-        compiled: Option<CompiledRoutine>,
     },
     PrimitiveLiteral(PrimitiveValue),
     Bracketed(Arc<EagerExpr>),
     Opn {
         opn_kind: EagerOpnKind,
-        compiled: Option<CompiledRoutine>,
         opds: Vec<Arc<EagerExpr>>,
     },
     Lambda(

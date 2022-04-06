@@ -13,11 +13,8 @@ impl EntityUid {
         let raw = ENTITY_NEXT_RAW_ID.fetch_add(1, Ordering::Relaxed);
         EntityUid { raw }
     }
-}
 
-pub(crate) fn entity_uid(db: &dyn EntityQueryGroup, entity_route: EntityRoutePtr) -> EntityUid {
-    // responds to changes in either defn or defns of dependees
-    let _defn = db.entity_defn(entity_route);
-    let _dependees = db.entity_dependees(entity_route);
-    EntityUid::new()
+    pub fn raw(&self) -> usize {
+        self.raw
+    }
 }

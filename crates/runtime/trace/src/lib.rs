@@ -86,11 +86,11 @@ impl<'eval> Serialize for Trace<'eval> {
                     FeatureExprKind::FuncCall {
                         func_ranged_scope: ranged_scope,
                         ..
-                    } => !ranged_scope.scope.is_builtin(),
+                    } => !ranged_scope.route.is_builtin(),
                     FeatureExprKind::ProcCall {
                         proc_ranged_scope: ranged_scope,
                         ..
-                    } => !ranged_scope.scope.is_builtin(),
+                    } => !ranged_scope.route.is_builtin(),
                     FeatureExprKind::StructMembVarAccess { .. } => todo!(),
                     FeatureExprKind::EnumLiteral { .. } => todo!(),
                     FeatureExprKind::MembFuncCall {
@@ -166,5 +166,9 @@ impl<'eval> Trace<'eval> {
 
     pub fn id(&self) -> TraceId {
         self.id
+    }
+
+    pub fn compile_time_version(&self) -> usize {
+        todo!()
     }
 }

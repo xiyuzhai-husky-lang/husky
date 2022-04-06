@@ -1,6 +1,6 @@
-use husky_lang_debugger::*;
-use enum_examples::__init__::link_entity_with_compiled;
 use compile_time_db::*;
+use enum_examples::__init__::link_entity_with_compiled;
+use husky_lang_debugger::*;
 
 #[tokio::main]
 async fn main() {
@@ -11,6 +11,6 @@ async fn main() {
 }
 
 fn init_compile_time(compile_time: &mut HuskyLangCompileTime) {
-    compile_time.load_package("/home/xiyuzhai/Documents/husky/rust-gen/enum-examples/snapshot".into());
+    compile_time.load_pack("/home/xiyuzhai/Documents/husky/rust-gen/enum-examples/snapshot".into());
     link_entity_with_compiled(compile_time)
 }

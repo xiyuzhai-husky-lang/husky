@@ -111,9 +111,9 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_contracted_type(&input_placeholder);
                 }
                 self.write(")");
-                if decl.output.scope != EntityRoutePtr::Builtin(BuiltinIdentifier::Void) {
+                if decl.output.route != EntityRoutePtr::Builtin(BuiltinIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_ty(decl.output.scope);
+                    self.fmt_ty(decl.output.route);
                 }
                 self.write(":");
             }
@@ -165,7 +165,7 @@ impl<'a> Formatter<'a> {
             InputContract::MoveMut => self.write("mut !"),
             InputContract::Exec => todo!(),
         }
-        self.fmt_ty(ty.ranged_ty.scope);
+        self.fmt_ty(ty.ranged_ty.route);
     }
 
     fn fmt_ty(&mut self, ty: EntityRoutePtr) {
@@ -267,7 +267,7 @@ impl<'a> Formatter<'a> {
                         this.fmt_ident((*ident).into());
                         if let Some(ty) = ty {
                             this.write(": ");
-                            this.fmt_ty(ty.scope)
+                            this.fmt_ty(ty.route)
                         }
                     },
                     ", ",

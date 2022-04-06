@@ -14,9 +14,9 @@ fn file_should_exists(dir: PathBuf, filename: &str) {
 }
 
 impl HuskyLangCompileTime {
-    pub fn load_package(&mut self, package_dir: PathBuf) {
-        self.load_dir(&package_dir);
-        file_should_exists(package_dir, "main.hsk")
+    pub fn load_pack(&mut self, pack_dir: PathBuf) {
+        self.load_dir(&pack_dir);
+        file_should_exists(pack_dir, "main.hsk")
     }
 
     fn load_dir(&mut self, dir: &Path) {

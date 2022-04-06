@@ -8,6 +8,7 @@ mod feature_branch;
 mod feature_expr;
 mod feature_stmt;
 
+use compile_time_db::HuskyLangCompileTime;
 use expr::ExprTokenConfig;
 use feature::*;
 use semantics_eager::*;
@@ -166,6 +167,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
 
     fn loop_subtraces(
         &self,
+        compile_time: &HuskyLangCompileTime,
         parent: &Trace,
         loop_kind: &LoopKind,
         loop_stmt: &Arc<ProcStmt>,
@@ -175,6 +177,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.text(parent.file).unwrap();
         self.trace_factory().loop_subtraces(
+            compile_time,
             parent,
             loop_kind,
             loop_stmt,
@@ -187,6 +190,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
 
     fn loop_frame_subtraces(
         &self,
+        compile_time: &HuskyLangCompileTime,
         parent: &Trace,
         loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
         instruction_sheet: &InstructionSheet,
@@ -194,6 +198,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(
+            compile_time,
             parent,
             loop_frame_snapshot,
             instruction_sheet,

@@ -20,20 +20,20 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
-pub fn collect_package_dirs(dir: PathBuf) -> Vec<PathBuf> {
+pub fn collect_pack_dirs(dir: PathBuf) -> Vec<PathBuf> {
     assert!(dir.is_dir());
     let main_path = dir.join("main.hsk");
     if main_path.exists() {
         return vec![dir];
     } else {
-        let mut package_paths = vec![];
+        let mut pack_paths = vec![];
         for entry in std::fs::read_dir(dir).unwrap() {
             let entry = entry.unwrap();
             let subpath = entry.path();
             if subpath.is_dir() {
-                package_paths.extend(collect_package_dirs(subpath))
+                pack_paths.extend(collect_pack_dirs(subpath))
             }
         }
-        package_paths
+        pack_paths
     }
 }

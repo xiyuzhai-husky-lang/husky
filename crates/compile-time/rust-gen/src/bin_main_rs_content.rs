@@ -8,7 +8,7 @@ pub(crate) fn rust_bin_main_rs_content(
     db: &dyn RustGenQueryGroup,
     main_file: FilePtr,
 ) -> Arc<String> {
-    let package = db.package(main_file).unwrap();
+    let pack = db.pack(main_file).unwrap();
     Arc::new(format!(
         r#"use husky_lang_debugger::*;
 use {}::__init__::link_entity_with_compiled;
@@ -23,11 +23,11 @@ async fn main() {{
 }}
 
 fn init_compile_time(compile_time: &mut HuskyLangCompileTime) {{
-    compile_time.load_package({:?}.into());
+    compile_time.load_pack({:?}.into());
     link_entity_with_compiled(compile_time)
 }}
 "#,
-        &package.ident,
-        &get_code_snapshot_dir(&package)
+        &pack.ident,
+        &get_code_snapshot_dir(&pack)
     ))
 }

@@ -93,7 +93,6 @@ pub trait EagerExprParser<'a> {
         Ok(EagerExprKind::Opn {
             opn_kind: EagerOpnKind::Binary { opr, this: lopd.ty },
             opds: vec![lopd, ropd],
-            compiled: None,
         })
     }
 
@@ -107,7 +106,6 @@ pub trait EagerExprParser<'a> {
         Ok(EagerExprKind::Opn {
             opn_kind: EagerOpnKind::Suffix { opr, this: opd.ty },
             opds: vec![opd],
-            compiled: None,
         })
     }
 
@@ -128,11 +126,10 @@ pub trait EagerExprParser<'a> {
                     .collect::<SemanticResult<_>>()?;
                 let output = signature.output;
                 Ok(EagerExprKind::Opn {
-                    opn_kind: EagerOpnKind::RoutineCall(RangedScope {
-                        scope,
+                    opn_kind: EagerOpnKind::RoutineCall(RangedEntityRoute {
+                        route: scope,
                         range: call.range(),
                     }),
-                    compiled: signature.compiled,
                     opds: arguments,
                 })
             }
@@ -148,13 +145,12 @@ pub trait EagerExprParser<'a> {
                     .collect::<SemanticResult<_>>()?;
                 Ok(EagerExprKind::Opn {
                     opn_kind: EagerOpnKind::TypeCall {
-                        ranged_ty: RangedScope {
-                            scope,
+                        ranged_ty: RangedEntityRoute {
+                            route: scope,
                             range: call.range(),
                         },
                         ty_decl: try_infer!(self.db().ty_decl(scope)),
                     },
-                    compiled: signature.compiled,
                     opds: arguments,
                 })
             }
@@ -187,7 +183,6 @@ pub trait EagerExprParser<'a> {
                                 memb_ident,
                                 this_ty_decl,
                             },
-                            compiled: None,
                             opds,
                         })
                     }
