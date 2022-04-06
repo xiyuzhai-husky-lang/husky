@@ -14,7 +14,7 @@ pub use kind::RawEntityKind;
 use text::{TextRange, TextRanged};
 use visual_syntax::BuiltinVisualizer;
 use vm::{CompiledRustCall, EagerContract, InputContract};
-use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier};
+use word::{ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
@@ -37,8 +37,8 @@ impl TextRanged for RangedEntityRoute {
 impl std::fmt::Debug for EntityRoute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
-            EntityRouteKind::Builtin { ident } => ident.fmt(f)?,
-            EntityRouteKind::pack { main, ident } => {
+            EntityRouteKind::Root { ident } => ident.fmt(f)?,
+            EntityRouteKind::Pack { main, ident } => {
                 // f.write_str("[pack=")?;
                 // main.fmt(f)?;
                 // f.write_str("]")?;
@@ -97,24 +97,24 @@ impl From<EntityRoutePtr> for GenericArgument {
     }
 }
 
-impl From<BuiltinIdentifier> for EntityRouteKind {
-    fn from(ident: BuiltinIdentifier) -> Self {
-        Self::Builtin { ident }
+impl From<RootIdentifier> for EntityRouteKind {
+    fn from(ident: RootIdentifier) -> Self {
+        Self::Root { ident }
     }
 }
 
-impl From<&BuiltinIdentifier> for EntityRouteKind {
-    fn from(ident: &BuiltinIdentifier) -> Self {
-        Self::Builtin { ident: *ident }
+impl From<&RootIdentifier> for EntityRouteKind {
+    fn from(ident: &RootIdentifier) -> Self {
+        Self::Root { ident: *ident }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityRouteKind {
-    Builtin {
-        ident: BuiltinIdentifier,
+    Root {
+        ident: RootIdentifier,
     },
-    pack {
+    Pack {
         main: FilePtr,
         ident: CustomIdentifier,
     },
@@ -198,15 +198,15 @@ impl Into<InputSignature> for &InputPlaceholder {
 impl EntityRoute {
     pub fn pack(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
-            kind: EntityRouteKind::pack { main, ident },
+            kind: EntityRouteKind::Pack { main, ident },
             generics: Vec::new(),
         }
     }
 
     pub fn ident(&self) -> Identifier {
         match self.kind {
-            EntityRouteKind::Builtin { ident } => ident.into(),
-            EntityRouteKind::pack { main, ident } => ident.into(),
+            EntityRouteKind::Root { ident } => ident.into(),
+            EntityRouteKind::Pack { main, ident } => ident.into(),
             EntityRouteKind::ChildScope { parent, ident } => ident.into(),
             EntityRouteKind::Contextual { main, ident } => todo!(),
             EntityRouteKind::Generic {
@@ -228,29 +228,29 @@ impl EntityRoute {
     }
 
     pub fn new_builtin(
-        ident: BuiltinIdentifier,
+        ident: RootIdentifier,
         generic_arguments: Vec<GenericArgument>,
     ) -> EntityRoute {
         EntityRoute {
-            kind: EntityRouteKind::Builtin { ident },
+            kind: EntityRouteKind::Root { ident },
             generics: generic_arguments,
         }
     }
 
     pub fn vec(element: GenericArgument) -> Self {
-        Self::new_builtin(BuiltinIdentifier::Vec, vec![element])
+        Self::new_builtin(RootIdentifier::Vec, vec![element])
     }
 
     pub fn array(element: GenericArgument, size: usize) -> Self {
-        Self::new_builtin(BuiltinIdentifier::Array, vec![element, size.into()])
+        Self::new_builtin(RootIdentifier::Array, vec![element, size.into()])
     }
 
     pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
         EntityRoute::new_builtin(
             if args.len() > 0 {
-                BuiltinIdentifier::Tuple
+                RootIdentifier::Tuple
             } else {
-                BuiltinIdentifier::Void
+                RootIdentifier::Void
             },
             args,
         )
@@ -262,8 +262,8 @@ impl EntityRoute {
 
     pub fn is_builtin(&self) -> bool {
         match self.kind {
-            EntityRouteKind::Builtin { .. } => true,
-            EntityRouteKind::pack { .. } => false,
+            EntityRouteKind::Root { .. } => true,
+            EntityRouteKind::Pack { .. } => false,
             EntityRouteKind::ChildScope { parent, .. } => parent.is_builtin(),
             EntityRouteKind::Contextual { .. } => false,
             EntityRouteKind::Generic { ident, .. } => todo!(),
@@ -271,8 +271,8 @@ impl EntityRoute {
     }
 }
 
-impl From<BuiltinIdentifier> for EntityRoute {
-    fn from(ident: BuiltinIdentifier) -> Self {
+impl From<RootIdentifier> for EntityRoute {
+    fn from(ident: RootIdentifier) -> Self {
         Self::new_builtin(ident, Vec::new())
     }
 }

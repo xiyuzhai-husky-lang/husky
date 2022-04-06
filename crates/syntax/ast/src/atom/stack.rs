@@ -1,6 +1,6 @@
 use entity_route::{EntityRouteKind, GenericArgument, RawEntityKind};
 use file::FilePtr;
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use crate::{
     atom::{convexity::Convexity, symbol_proxy::SymbolProxy, *},
@@ -85,9 +85,9 @@ impl AtomStack {
             ) => {
                 let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
                 let ident = match attr {
-                    ListStartAttr::None => BuiltinIdentifier::Tuple,
+                    ListStartAttr::None => RootIdentifier::Tuple,
                     ListStartAttr::Attach => {
-                        generics.push(EntityRoutePtr::Builtin(BuiltinIdentifier::Void).into());
+                        generics.push(EntityRoutePtr::Root(RootIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
                 };
@@ -113,7 +113,7 @@ impl AtomStack {
         .unwrap();
     }
 
-    fn func_generic(&mut self, attr: ListStartAttr) -> AstResult<BuiltinIdentifier> {
+    fn func_generic(&mut self, attr: ListStartAttr) -> AstResult<RootIdentifier> {
         let expectation = "expect Fp, Fn, FnMut, FnOnce";
 
         match attr {
@@ -122,13 +122,13 @@ impl AtomStack {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.kind {
                     AtomKind::Scope {
-                        scope: EntityRoutePtr::Builtin(ident),
+                        scope: EntityRoutePtr::Root(ident),
                         ..
                     } => match ident {
-                        BuiltinIdentifier::Fp
-                        | BuiltinIdentifier::Fn
-                        | BuiltinIdentifier::FnMut
-                        | BuiltinIdentifier::FnOnce => Ok(ident),
+                        RootIdentifier::Fp
+                        | RootIdentifier::Fn
+                        | RootIdentifier::FnMut
+                        | RootIdentifier::FnOnce => Ok(ident),
                         _ => err!(self.file, last_atom.text_range(), expectation),
                     },
                     _ => err!(self.file, last_atom.text_range(), expectation),

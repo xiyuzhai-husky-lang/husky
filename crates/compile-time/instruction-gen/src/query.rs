@@ -19,7 +19,10 @@ fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     route: EntityRoutePtr,
 ) -> Arc<InstructionSheet> {
-    let entity_defn = db.entity_defn(route).unwrap();
+    let entity_defn = db
+        .opt_entity_defn(route)
+        .unwrap()
+        .expect("expect no builtin");
     match entity_defn.kind() {
         EntityDefnKind::Module { .. } => todo!(),
         EntityDefnKind::Feature { .. } => todo!(),
@@ -64,7 +67,7 @@ fn memb_routine_instruction_sheet(
     ty: EntityRoutePtr,
     memb_ident: CustomIdentifier,
 ) -> Arc<InstructionSheet> {
-    let entity_defn = db.entity_defn(ty).unwrap();
+    let entity_defn = db.opt_entity_defn(ty).unwrap().unwrap();
     match entity_defn.kind() {
         EntityDefnKind::Main(_) => todo!(),
         EntityDefnKind::Module {} => todo!(),

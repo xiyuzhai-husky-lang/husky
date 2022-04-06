@@ -1,7 +1,7 @@
 use entity_route::{EntityRouteKind, *};
 use file::FilePtr;
 use text::{Row, TextRange};
-use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier};
+use word::{ContextualIdentifier, CustomIdentifier, RootIdentifier};
 
 use super::*;
 use crate::{query::AstSalsaQueryGroup, *};
@@ -40,7 +40,7 @@ pub struct SymbolProxy<'a> {
 impl<'a> SymbolProxy<'a> {
     pub fn builtin_type_atom(
         &self,
-        ident: BuiltinIdentifier,
+        ident: RootIdentifier,
         generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
@@ -48,31 +48,31 @@ impl<'a> SymbolProxy<'a> {
         let kind = AtomKind::Scope {
             scope: self.db.intern_scope(scope),
             kind: RawEntityKind::Type(match ident {
-                BuiltinIdentifier::Void
-                | BuiltinIdentifier::I32
-                | BuiltinIdentifier::F32
-                | BuiltinIdentifier::B32
-                | BuiltinIdentifier::B64
-                | BuiltinIdentifier::Bool => RawTyKind::Primitive,
-                BuiltinIdentifier::True => todo!(),
-                BuiltinIdentifier::False => todo!(),
-                BuiltinIdentifier::Vec => todo!(),
-                BuiltinIdentifier::Tuple => todo!(),
-                BuiltinIdentifier::Debug => todo!(),
-                BuiltinIdentifier::Std => todo!(),
-                BuiltinIdentifier::Core => todo!(),
-                BuiltinIdentifier::Fp => todo!(),
-                BuiltinIdentifier::Fn => todo!(),
-                BuiltinIdentifier::FnMut => todo!(),
-                BuiltinIdentifier::FnOnce => todo!(),
-                BuiltinIdentifier::Array => todo!(),
-                BuiltinIdentifier::DatasetType => todo!(),
-                BuiltinIdentifier::Type => todo!(),
-                BuiltinIdentifier::Datasets => todo!(),
-                BuiltinIdentifier::CloneTrait => todo!(),
-                BuiltinIdentifier::CopyTrait => todo!(),
-                BuiltinIdentifier::PartialEqTrait => todo!(),
-                BuiltinIdentifier::EqTrait => todo!(),
+                RootIdentifier::Void
+                | RootIdentifier::I32
+                | RootIdentifier::F32
+                | RootIdentifier::B32
+                | RootIdentifier::B64
+                | RootIdentifier::Bool => RawTyKind::Primitive,
+                RootIdentifier::True => todo!(),
+                RootIdentifier::False => todo!(),
+                RootIdentifier::Vec => todo!(),
+                RootIdentifier::Tuple => todo!(),
+                RootIdentifier::Debug => todo!(),
+                RootIdentifier::Std => todo!(),
+                RootIdentifier::Core => todo!(),
+                RootIdentifier::Fp => todo!(),
+                RootIdentifier::Fn => todo!(),
+                RootIdentifier::FnMut => todo!(),
+                RootIdentifier::FnOnce => todo!(),
+                RootIdentifier::Array => todo!(),
+                RootIdentifier::DatasetType => todo!(),
+                RootIdentifier::Type => todo!(),
+                RootIdentifier::Datasets => todo!(),
+                RootIdentifier::CloneTrait => todo!(),
+                RootIdentifier::CopyTrait => todo!(),
+                RootIdentifier::PartialEqTrait => todo!(),
+                RootIdentifier::EqTrait => todo!(),
             }),
         };
         Atom::new(tail, kind)

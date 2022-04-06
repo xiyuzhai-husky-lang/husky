@@ -15,4 +15,4 @@ use file::FilePtr;
 use print_utils::*;
 use semantics_error::{err, not_none};
 use text::TextRange;
-use word::{BuiltinIdentifier, CustomIdentifier};
+use word::{CustomIdentifier, RootIdentifier};

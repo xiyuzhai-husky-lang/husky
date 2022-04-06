@@ -3,7 +3,7 @@ use entity_route::{EntityRouteKind, EntityRoutePtr, RawEntityKind};
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue};
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use crate::*;
 use semantics_error::{err, try_infer};
@@ -30,10 +30,10 @@ pub trait EagerExprParser<'a> {
             RawExprKind::Scope { scope, kind } => match kind {
                 RawEntityKind::Module => todo!(),
                 RawEntityKind::Literal => match scope {
-                    EntityRoutePtr::Builtin(BuiltinIdentifier::True) => {
+                    EntityRoutePtr::Root(RootIdentifier::True) => {
                         EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
-                    EntityRoutePtr::Builtin(BuiltinIdentifier::False) => {
+                    EntityRoutePtr::Root(RootIdentifier::False) => {
                         EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false))
                     }
                     EntityRoutePtr::Custom(_) => todo!(),

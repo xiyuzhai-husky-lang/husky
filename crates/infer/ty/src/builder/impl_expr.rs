@@ -60,24 +60,22 @@ impl<'a> TySheetBuilder<'a> {
         Ok(match entity_kind {
             RawEntityKind::Module => todo!(),
             RawEntityKind::Literal => match scope {
-                EntityRoutePtr::Builtin(BuiltinIdentifier::True)
-                | EntityRoutePtr::Builtin(BuiltinIdentifier::False) => {
-                    BuiltinIdentifier::Bool.into()
-                }
+                EntityRoutePtr::Root(RootIdentifier::True)
+                | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
                 EntityRoutePtr::Custom(scope) => match scope.kind {
-                    EntityRouteKind::Builtin { ident } => todo!(),
-                    EntityRouteKind::pack { main, ident } => todo!(),
+                    EntityRouteKind::Root { ident } => todo!(),
+                    EntityRouteKind::Pack { main, ident } => todo!(),
                     EntityRouteKind::ChildScope { parent, ident } => parent,
                     EntityRouteKind::Contextual { main, ident } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
                 },
                 _ => todo!(),
             },
-            RawEntityKind::Type(_) => BuiltinIdentifier::Type.into(),
+            RawEntityKind::Type(_) => RootIdentifier::Type.into(),
             RawEntityKind::Trait => todo!(),
             RawEntityKind::Routine => {
                 msg_once!("todo: generics in fp");
-                BuiltinIdentifier::Fp.into()
+                RootIdentifier::Fp.into()
             }
             RawEntityKind::Feature => self.db.feature_decl(scope)?.ty,
             RawEntityKind::Pattern => todo!(),
@@ -110,8 +108,8 @@ impl<'a> TySheetBuilder<'a> {
         let ropd_ty = derived_not_none!(self.infer_expr(ropd, None, arena))?;
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => match lopd_ty {
-                EntityRoutePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
-                    EntityRoutePtr::Builtin(ropd_builtin_ty) => self
+                EntityRoutePtr::Root(lopd_builtin_ty) => match ropd_ty {
+                    EntityRoutePtr::Root(ropd_builtin_ty) => self
                         .builtin_pure_binary_opn_ty_result(
                             pure_binary_opr,
                             lopd_builtin_ty,
@@ -125,7 +123,7 @@ impl<'a> TySheetBuilder<'a> {
                 if lopd_ty != ropd_ty {
                     todo!()
                 }
-                Ok(BuiltinIdentifier::Void.into())
+                Ok(RootIdentifier::Void.into())
             }
         }
     }
@@ -133,8 +131,8 @@ impl<'a> TySheetBuilder<'a> {
     fn builtin_pure_binary_opn_ty_result(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_builtin_ty: BuiltinIdentifier,
-        ropd_builtin_ty: BuiltinIdentifier,
+        lopd_builtin_ty: RootIdentifier,
+        ropd_builtin_ty: RootIdentifier,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
@@ -145,16 +143,16 @@ impl<'a> TySheetBuilder<'a> {
                     err!("expect use of \"<, <=, >, >=\" on same types")
                 }
                 match lopd_builtin_ty {
-                    BuiltinIdentifier::I32 | BuiltinIdentifier::F32 => (),
+                    RootIdentifier::I32 | RootIdentifier::F32 => (),
                     _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
                 }
-                BuiltinIdentifier::Bool
+                RootIdentifier::Bool
             }
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_builtin_ty != ropd_builtin_ty {
                     err!("expect use of \"!=\" on same types")
                 }
-                BuiltinIdentifier::Bool
+                RootIdentifier::Bool
             }
             PureBinaryOpr::Shl => todo!(),
             PureBinaryOpr::Shr => todo!(),
@@ -167,7 +165,7 @@ impl<'a> TySheetBuilder<'a> {
                     err!("expect use of \"+, -, *, /, **\" on same types")
                 }
                 match lopd_builtin_ty {
-                    BuiltinIdentifier::I32 | BuiltinIdentifier::F32 => (),
+                    RootIdentifier::I32 | RootIdentifier::F32 => (),
                     _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
                 }
                 lopd_builtin_ty

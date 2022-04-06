@@ -3,7 +3,7 @@ use semantics_eager::{
     Boundary, EagerExpr, FuncStmt, FuncStmtKind, LoopKind, ProcStmt, ProcStmtKind,
 };
 use vm::{BoundaryKind, InitKind};
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use super::*;
 
@@ -217,35 +217,35 @@ impl<'a> RustGenerator<'a> {
 
     fn gen_condition(&mut self, condition: &EagerExpr) {
         match condition.ty {
-            EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
-                BuiltinIdentifier::Void => todo!(),
-                BuiltinIdentifier::I32
-                | BuiltinIdentifier::F32
-                | BuiltinIdentifier::B32
-                | BuiltinIdentifier::B64 => {
+            EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
+                RootIdentifier::Void => todo!(),
+                RootIdentifier::I32
+                | RootIdentifier::F32
+                | RootIdentifier::B32
+                | RootIdentifier::B64 => {
                     self.gen_expr(condition);
                     self.write(" != 0");
                 }
-                BuiltinIdentifier::Bool => self.gen_expr(condition),
-                BuiltinIdentifier::True
-                | BuiltinIdentifier::False
-                | BuiltinIdentifier::Vec
-                | BuiltinIdentifier::Tuple
-                | BuiltinIdentifier::Debug
-                | BuiltinIdentifier::Std
-                | BuiltinIdentifier::Core
-                | BuiltinIdentifier::Fp
-                | BuiltinIdentifier::Fn
-                | BuiltinIdentifier::FnMut
-                | BuiltinIdentifier::FnOnce
-                | BuiltinIdentifier::Array
-                | BuiltinIdentifier::DatasetType
-                | BuiltinIdentifier::Type => panic!(),
-                BuiltinIdentifier::Datasets => todo!(),
-                BuiltinIdentifier::CloneTrait => todo!(),
-                BuiltinIdentifier::CopyTrait => todo!(),
-                BuiltinIdentifier::PartialEqTrait => todo!(),
-                BuiltinIdentifier::EqTrait => todo!(),
+                RootIdentifier::Bool => self.gen_expr(condition),
+                RootIdentifier::True
+                | RootIdentifier::False
+                | RootIdentifier::Vec
+                | RootIdentifier::Tuple
+                | RootIdentifier::Debug
+                | RootIdentifier::Std
+                | RootIdentifier::Core
+                | RootIdentifier::Fp
+                | RootIdentifier::Fn
+                | RootIdentifier::FnMut
+                | RootIdentifier::FnOnce
+                | RootIdentifier::Array
+                | RootIdentifier::DatasetType
+                | RootIdentifier::Type => panic!(),
+                RootIdentifier::Datasets => todo!(),
+                RootIdentifier::CloneTrait => todo!(),
+                RootIdentifier::CopyTrait => todo!(),
+                RootIdentifier::PartialEqTrait => todo!(),
+                RootIdentifier::EqTrait => todo!(),
             },
             EntityRoutePtr::Custom(_) => panic!(),
         }

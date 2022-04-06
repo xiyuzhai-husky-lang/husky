@@ -5,7 +5,7 @@ use entity_route::{EntityRoutePtr, InputPlaceholder};
 use entity_syntax::RawTyKind;
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
-use word::{BuiltinIdentifier, WordAllocator};
+use word::{RootIdentifier, WordAllocator};
 
 pub struct Formatter<'a> {
     word_unique_allocator: &'a WordAllocator,
@@ -111,7 +111,7 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_contracted_type(&input_placeholder);
                 }
                 self.write(")");
-                if decl.output.route != EntityRoutePtr::Builtin(BuiltinIdentifier::Void) {
+                if decl.output.route != EntityRoutePtr::Root(RootIdentifier::Void) {
                     self.write(" -> ");
                     self.fmt_ty(decl.output.route);
                 }
@@ -170,7 +170,7 @@ impl<'a> Formatter<'a> {
 
     fn fmt_ty(&mut self, ty: EntityRoutePtr) {
         match ty {
-            EntityRoutePtr::Builtin(ident) => self.write(&ident),
+            EntityRoutePtr::Root(ident) => self.write(&ident),
             EntityRoutePtr::Custom(_) => todo!(),
         }
     }

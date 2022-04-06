@@ -36,7 +36,7 @@ impl<'a> TySheetBuilder<'a> {
                     should!(self
                         .ty_sheet
                         .variables
-                        .insert((frame_var, stmt.row()), Some(BuiltinIdentifier::I32.into()))
+                        .insert((frame_var, stmt.row()), Some(RootIdentifier::I32.into()))
                         .is_none());
                     self.infer_loop_bound(initial_boundary, arena);
                     self.infer_loop_bound(final_boundary, arena);
@@ -49,7 +49,7 @@ impl<'a> TySheetBuilder<'a> {
             },
             RawStmtKind::Branch(_) => todo!(),
             RawStmtKind::Exec(expr) => {
-                self.infer_expr(expr, Some(BuiltinIdentifier::Void.into()), arena);
+                self.infer_expr(expr, Some(RootIdentifier::Void.into()), arena);
             }
             RawStmtKind::Init {
                 varname,
@@ -68,11 +68,11 @@ impl<'a> TySheetBuilder<'a> {
 
     fn infer_loop_bound(&mut self, boundary: RawBoundary, arena: &RawExprArena) {
         if let Some(bound) = boundary.opt_bound {
-            self.infer_expr(bound, Some(BuiltinIdentifier::I32.into()), arena);
+            self.infer_expr(bound, Some(RootIdentifier::I32.into()), arena);
         }
     }
 
     fn infer_condition(&mut self, condition: RawExprIdx, arena: &RawExprArena) {
-        self.infer_expr(condition, Some(BuiltinIdentifier::Bool.into()), arena);
+        self.infer_expr(condition, Some(RootIdentifier::Bool.into()), arena);
     }
 }

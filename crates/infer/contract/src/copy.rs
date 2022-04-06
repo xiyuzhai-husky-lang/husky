@@ -1,35 +1,35 @@
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use crate::*;
 
 pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: EntityRoutePtr) -> bool {
     match ty {
-        EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
-            BuiltinIdentifier::Void
-            | BuiltinIdentifier::I32
-            | BuiltinIdentifier::F32
-            | BuiltinIdentifier::B32
-            | BuiltinIdentifier::B64
-            | BuiltinIdentifier::Bool => true,
-            BuiltinIdentifier::True => todo!(),
-            BuiltinIdentifier::False => todo!(),
-            BuiltinIdentifier::Vec => todo!(),
-            BuiltinIdentifier::Tuple => todo!(),
-            BuiltinIdentifier::Debug => todo!(),
-            BuiltinIdentifier::Std => todo!(),
-            BuiltinIdentifier::Core => todo!(),
-            BuiltinIdentifier::Fp => todo!(),
-            BuiltinIdentifier::Fn => todo!(),
-            BuiltinIdentifier::FnMut => todo!(),
-            BuiltinIdentifier::FnOnce => todo!(),
-            BuiltinIdentifier::Array => todo!(),
-            BuiltinIdentifier::DatasetType => todo!(),
-            BuiltinIdentifier::Type => todo!(),
-            BuiltinIdentifier::Datasets => todo!(),
-            BuiltinIdentifier::CloneTrait => todo!(),
-            BuiltinIdentifier::CopyTrait => todo!(),
-            BuiltinIdentifier::PartialEqTrait => todo!(),
-            BuiltinIdentifier::EqTrait => todo!(),
+        EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
+            RootIdentifier::Void
+            | RootIdentifier::I32
+            | RootIdentifier::F32
+            | RootIdentifier::B32
+            | RootIdentifier::B64
+            | RootIdentifier::Bool => true,
+            RootIdentifier::True => todo!(),
+            RootIdentifier::False => todo!(),
+            RootIdentifier::Vec => todo!(),
+            RootIdentifier::Tuple => todo!(),
+            RootIdentifier::Debug => todo!(),
+            RootIdentifier::Std => todo!(),
+            RootIdentifier::Core => todo!(),
+            RootIdentifier::Fp => todo!(),
+            RootIdentifier::Fn => todo!(),
+            RootIdentifier::FnMut => todo!(),
+            RootIdentifier::FnOnce => todo!(),
+            RootIdentifier::Array => todo!(),
+            RootIdentifier::DatasetType => todo!(),
+            RootIdentifier::Type => todo!(),
+            RootIdentifier::Datasets => todo!(),
+            RootIdentifier::CloneTrait => todo!(),
+            RootIdentifier::CopyTrait => todo!(),
+            RootIdentifier::PartialEqTrait => todo!(),
+            RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(_) => todo!(),
     }

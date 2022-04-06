@@ -13,8 +13,8 @@ use entity_route::EntityRoutePtr;
 use text::TextRange;
 use text::TextRanged;
 use token::{Token, TokenKind};
-use word::BuiltinIdentifier;
 use word::Identifier;
+use word::RootIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct Atom {

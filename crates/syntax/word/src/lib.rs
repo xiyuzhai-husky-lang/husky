@@ -4,7 +4,7 @@ mod utils;
 
 pub use alloc::{new_word_unique_allocator, InternWord, WordAllocator};
 pub use ident::{
-    default_func_type, BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier,
+    default_func_type, ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier,
 };
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use utils::*;
@@ -73,8 +73,8 @@ impl From<Identifier> for WordPtr {
     }
 }
 
-impl From<BuiltinIdentifier> for WordPtr {
-    fn from(ident: BuiltinIdentifier) -> Self {
+impl From<RootIdentifier> for WordPtr {
+    fn from(ident: RootIdentifier) -> Self {
         WordPtr::Identifier(Identifier::Builtin(ident))
     }
 }

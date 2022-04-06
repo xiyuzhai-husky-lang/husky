@@ -19,6 +19,8 @@ pub type SemanticResult<T> = Result<T, SemanticError>;
 
 pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
 
+pub type SemanticResultOptionArc<T> = Result<Option<Arc<T>>, SemanticError>;
+
 impl From<ScopeError> for SemanticError {
     fn from(error: ScopeError) -> Self {
         todo!()
