@@ -1,6 +1,6 @@
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr};
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use crate::*;
 
@@ -26,8 +26,8 @@ fn global_input_ty_from_ast(
                     let signature = db.call_decl(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.kind {
-                        EntityRouteKind::Builtin {
-                            ident: BuiltinIdentifier::DatasetType,
+                        EntityRouteKind::Root {
+                            ident: RootIdentifier::DatasetType,
                         } => match dataset_type.generics[0] {
                             GenericArgument::Const(_) => todo!(),
                             GenericArgument::Scope(input_ty) => Ok(input_ty),
@@ -65,8 +65,8 @@ fn global_output_ty_from_ast(
                     let signature = db.call_decl(scope)?;
                     let dataset_type = signature.output;
                     match dataset_type.kind {
-                        EntityRouteKind::Builtin {
-                            ident: BuiltinIdentifier::DatasetType,
+                        EntityRouteKind::Root {
+                            ident: RootIdentifier::DatasetType,
                         } => match dataset_type.generics[1] {
                             GenericArgument::Const(_) => todo!(),
                             GenericArgument::Scope(output_ty) => Ok(output_ty),

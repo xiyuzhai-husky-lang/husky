@@ -85,20 +85,13 @@ pub(crate) fn main_defn(
     err!("main not found")
 }
 
-pub(crate) fn entity_defn(
+pub(crate) fn opt_entity_defn(
     db: &dyn EntityQueryGroup,
     entity_scope: EntityRoutePtr,
-) -> SemanticResultArc<EntityDefn> {
+) -> SemanticResult<Option<Arc<EntityDefn>>> {
     let source = db.entity_source(entity_scope)?;
     match source {
-        EntitySource::Builtin(_) => Ok(Arc::new(EntityDefn::new(
-            entity_scope.ident(),
-            EntityDefnKind::Builtin,
-            Arc::new(Vec::new()),
-            entity_scope,
-            db.alloc_file("builtin".into()),
-            TextRange::default(),
-        ))),
+        EntitySource::Builtin(_) => Ok(None),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
             file,
@@ -162,14 +155,14 @@ pub(crate) fn entity_defn(
                 ),
                 AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             };
-            Ok(Arc::new(EntityDefn::new(
+            Ok(Some(Arc::new(EntityDefn::new(
                 ident.into(),
                 entity_kind,
                 Arc::new(Vec::new()),
                 entity_scope,
                 file,
                 ast_head.range,
-            )))
+            ))))
         }
         EntitySource::Module { file: file_id } => todo!(),
         EntitySource::Contextual { .. } => todo!(),
@@ -180,17 +173,24 @@ pub(crate) fn subentity_defns(
     this: &dyn EntityQueryGroup,
     scope_id: EntityRoutePtr,
 ) -> SemanticResultArc<Vec<Arc<EntityDefn>>> {
-    this.subscopes(scope_id)
+    let mut defns = Vec::new();
+    for opt_defn_result in this
+        .subscopes(scope_id)
         .iter()
-        .map(|scope| this.entity_defn(*scope))
-        .collect::<SemanticResult<Vec<Arc<EntityDefn>>>>()
-        .map(|v| Arc::new(v))
+        .map(|scope| this.opt_entity_defn(*scope))
+    {
+        let opt_defn = opt_defn_result?;
+        if let Some(defn) = opt_defn {
+            defns.push(defn);
+        }
+    }
+    Ok(Arc::new(defns))
 }
 
 pub(crate) fn entity_defn_uid(
     db: &dyn EntityQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntityDefnUid {
-    let _defn = db.entity_defn(entity_route);
+    let _defn = db.opt_entity_defn(entity_route);
     EntityDefnUid::new()
 }

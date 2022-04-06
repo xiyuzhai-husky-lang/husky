@@ -13,11 +13,11 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> (FeatureExprKind, FeaturePtr) {
         match opn_kind {
             LazyOpnKind::Binary { opr, this } => match this {
-                EntityRoutePtr::Builtin(BuiltinIdentifier::Void)
-                | EntityRoutePtr::Builtin(BuiltinIdentifier::I32)
-                | EntityRoutePtr::Builtin(BuiltinIdentifier::F32)
-                | EntityRoutePtr::Builtin(BuiltinIdentifier::B32)
-                | EntityRoutePtr::Builtin(BuiltinIdentifier::B64) => {
+                EntityRoutePtr::Root(RootIdentifier::Void)
+                | EntityRoutePtr::Root(RootIdentifier::I32)
+                | EntityRoutePtr::Root(RootIdentifier::F32)
+                | EntityRoutePtr::Root(RootIdentifier::B32)
+                | EntityRoutePtr::Root(RootIdentifier::B64) => {
                     let lopd = self.new_expr(&opds[0]);
                     let ropd = self.new_expr(&opds[1]);
                     let feature = self.features.alloc(Feature::PrimitiveBinaryOpr {
@@ -41,8 +41,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     uid,
                     inputs: inputs.iter().map(|expr| expr.feature).collect(),
                 });
-                let entity = self.db.entity_defn(routine.route).unwrap();
-                let kind = match entity.kind() {
+                let entity_defn = self.db.opt_entity_defn(routine.route).unwrap().unwrap();
+                let kind = match entity_defn.kind() {
                     EntityDefnKind::Func {
                         input_placeholders,
                         stmts,
@@ -51,7 +51,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         func_ranged_scope: routine,
                         uid,
                         compiled: None,
-                        callee_file: entity.file,
+                        callee_file: entity_defn.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
                         instruction_sheet: self.db.entity_instruction_sheet(routine.route),
@@ -65,7 +65,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         proc_ranged_scope: routine,
                         uid,
                         opt_compiled: None,
-                        callee_file: entity.file,
+                        callee_file: entity_defn.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
                         instruction_sheet: self.db.entity_instruction_sheet(routine.route),
@@ -120,8 +120,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     memb_ident,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
-                let ty_entity = self.db.entity_defn(opds[0].ty).unwrap();
-                let ty = match ty_entity.kind() {
+                let ty_entity_defn = self.db.opt_entity_defn(opds[0].ty).unwrap().unwrap();
+                let ty = match ty_entity_defn.kind() {
                     EntityDefnKind::Ty(ty) => ty,
                     _ => panic!(),
                 };
@@ -161,7 +161,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 let kind = FeatureExprKind::ClassCall {
                     ty,
-                    entity: self.db.entity_defn(ty.route).unwrap(),
+                    entity: self.db.opt_entity_defn(ty.route).unwrap().unwrap(),
                     opds,
                 };
                 (kind, feature)

@@ -25,10 +25,7 @@ impl<'a> AstTransformer<'a> {
             Keyword::Config(cfg) => Ok(match cfg {
                 ConfigKeyword::Dataset => {
                     self.env.set_value(Env::DatasetConfig);
-                    self.use_all(
-                        BuiltinIdentifier::Datasets.into(),
-                        token_group[0].text_range(),
-                    )?;
+                    self.use_all(RootIdentifier::Datasets.into(), token_group[0].text_range())?;
                     AstKind::DatasetConfigDefnHead
                 }
             }),

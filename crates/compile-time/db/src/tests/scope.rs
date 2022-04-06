@@ -1,5 +1,5 @@
 use entity_route::EntityRouteKind;
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use crate::*;
 
@@ -87,8 +87,8 @@ main:
 fn datasets() {
     let db = HuskyLangCompileTime::default();
     let dataset_scope = db.intern_scope(EntityRoute {
-        kind: EntityRouteKind::Builtin {
-            ident: BuiltinIdentifier::DatasetType,
+        kind: EntityRouteKind::Root {
+            ident: RootIdentifier::DatasetType,
         },
         generics: vec![],
     });

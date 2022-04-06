@@ -26,8 +26,8 @@ impl<'a> Instantiator<'a> {
             | RawEntityKind::Feature
             | RawEntityKind::Pattern => {
                 let (kind, mut generics) = match src_scope.kind {
-                    EntityRouteKind::pack { .. } => panic!(),
-                    EntityRouteKind::Builtin { ident } => (src_scope.kind, vec![]),
+                    EntityRouteKind::Pack { .. } => panic!(),
+                    EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
                     EntityRouteKind::ChildScope { parent, ident } => todo!(),
                     EntityRouteKind::Contextual { main, ident } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => {

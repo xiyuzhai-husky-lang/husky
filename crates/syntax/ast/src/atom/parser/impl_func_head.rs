@@ -95,7 +95,7 @@ impl<'a> AtomLRParser<'a> {
             }
         } else {
             RangedEntityRoute {
-                route: EntityRoutePtr::Builtin(BuiltinIdentifier::Void),
+                route: EntityRoutePtr::Root(RootIdentifier::Void),
                 range: self.stream.pop_range(),
             }
         })

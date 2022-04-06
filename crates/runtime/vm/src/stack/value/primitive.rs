@@ -1,7 +1,7 @@
 use core::hash::Hash;
 use std::borrow::Cow;
 
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use crate::*;
 
@@ -35,12 +35,12 @@ impl std::fmt::Debug for PrimitiveValue {
 }
 
 impl PrimitiveValue {
-    pub fn ty(&self) -> BuiltinIdentifier {
+    pub fn ty(&self) -> RootIdentifier {
         match self {
-            PrimitiveValue::I32(_) => BuiltinIdentifier::I32,
-            PrimitiveValue::F32(_) => BuiltinIdentifier::F32,
-            PrimitiveValue::B32(_) => BuiltinIdentifier::B32,
-            PrimitiveValue::B64(_) => BuiltinIdentifier::B64,
+            PrimitiveValue::I32(_) => RootIdentifier::I32,
+            PrimitiveValue::F32(_) => RootIdentifier::F32,
+            PrimitiveValue::B32(_) => RootIdentifier::B32,
+            PrimitiveValue::B64(_) => RootIdentifier::B64,
             PrimitiveValue::Bool(_) => todo!(),
             PrimitiveValue::Void => todo!(),
         }

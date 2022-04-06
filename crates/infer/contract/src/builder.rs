@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 use ast::{AstIter, AstKind};
 use infer_ty::TySheet;
-use word::BuiltinIdentifier;
+use word::RootIdentifier;
 
 use crate::*;
 
@@ -43,7 +43,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         self.infer_morphism(output_ty, item.children.unwrap(), &arena)
                     }
                     AstKind::DatasetConfigDefnHead => self.infer_routine(
-                        BuiltinIdentifier::DatasetType.into(),
+                        RootIdentifier::DatasetType.into(),
                         item.children.unwrap(),
                         &arena,
                     ),

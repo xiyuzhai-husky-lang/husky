@@ -11,7 +11,7 @@ use text::TextRange;
 use vm::{
     CompiledRustCall, EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled,
 };
-use word::{BuiltinIdentifier, ContextualIdentifier};
+use word::{ContextualIdentifier, RootIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
 
@@ -195,7 +195,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.this.as_ref().unwrap().feature(),
             ),
             LazyExprKind::ScopedFeature { scope } => match scope.kind {
-                EntityRouteKind::Builtin { .. } | EntityRouteKind::pack { .. } => panic!(),
+                EntityRouteKind::Root { .. } | EntityRouteKind::Pack { .. } => panic!(),
                 EntityRouteKind::ChildScope { .. } => {
                     let uid = self.db.entity_uid(scope);
                     let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });

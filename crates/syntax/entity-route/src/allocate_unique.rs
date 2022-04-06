@@ -12,7 +12,7 @@ pub type ScopeInterner = UniqueAllocator<EntityRoute, EntityRoute, EntityRoutePt
 
 #[derive(Clone, Copy)]
 pub enum EntityRoutePtr {
-    Builtin(BuiltinIdentifier),
+    Root(RootIdentifier),
     Custom(&'static EntityRoute),
 }
 
@@ -43,7 +43,7 @@ impl EnumLiteralValueDyn for EntityRoutePtr {
 impl EntityRoutePtr {
     pub fn custom(&self) -> Option<&'static EntityRoute> {
         match self {
-            EntityRoutePtr::Builtin(_) => None,
+            EntityRoutePtr::Root(_) => None,
             EntityRoutePtr::Custom(scope) => Some(scope),
         }
     }
@@ -62,7 +62,7 @@ impl std::fmt::Debug for EntityRoutePtr {
 impl PartialEq for EntityRoutePtr {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
-            (Self::Builtin(l), Self::Builtin(r)) => l == r,
+            (Self::Root(l), Self::Root(r)) => l == r,
             (Self::Custom(l), Self::Custom(r)) => {
                 (*l as *const EntityRoute) == (*r as *const EntityRoute)
             }
@@ -77,7 +77,7 @@ impl Hash for EntityRoutePtr {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
         match self {
-            EntityRoutePtr::Builtin(ident) => ident.hash(state),
+            EntityRoutePtr::Root(ident) => ident.hash(state),
             EntityRoutePtr::Custom(scope) => (*scope as *const EntityRoute).hash(state),
         }
     }
@@ -87,13 +87,13 @@ impl Deref for EntityRoutePtr {
     type Target = EntityRoute;
 
     fn deref(&self) -> &Self::Target {
-        macro_rules! match_builtin {
+        macro_rules! match_root {
             ($x:ident => $($reserved:ident),*) => {{
                  paste! {
                     $(
                         const [<$reserved:upper _ROUTE>]: &EntityRoute = &EntityRoute {
-                            kind: EntityRouteKind::Builtin {
-                                ident: BuiltinIdentifier::$reserved,
+                            kind: EntityRouteKind::Root {
+                                ident: RootIdentifier::$reserved,
                             },
                             generics: vec![],
                         };
@@ -101,7 +101,7 @@ impl Deref for EntityRoutePtr {
 
                     match $x {
                         $(
-                            BuiltinIdentifier::$reserved => [<$reserved:upper _ROUTE>],
+                            RootIdentifier::$reserved => [<$reserved:upper _ROUTE>],
                         )*
                     }
                 }
@@ -109,7 +109,7 @@ impl Deref for EntityRoutePtr {
         }
 
         match self {
-            EntityRoutePtr::Builtin(ident) => match_builtin!(
+            EntityRoutePtr::Root(ident) => match_root!(
                 ident => Void, I32, F32, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Fp, Fn,
                 FnMut, FnOnce, Array, Datasets, DatasetType, Type,
                 CloneTrait,
@@ -138,15 +138,15 @@ impl UniqueAllocatorPtr for EntityRoutePtr {
     type Thing = EntityRoute;
 }
 
-impl From<BuiltinIdentifier> for EntityRoutePtr {
-    fn from(ident: BuiltinIdentifier) -> Self {
-        Self::Builtin(ident)
+impl From<RootIdentifier> for EntityRoutePtr {
+    fn from(ident: RootIdentifier) -> Self {
+        Self::Root(ident)
     }
 }
 
-impl From<&BuiltinIdentifier> for EntityRoutePtr {
-    fn from(ident: &BuiltinIdentifier) -> Self {
-        Self::Builtin(*ident)
+impl From<&RootIdentifier> for EntityRoutePtr {
+    fn from(ident: &RootIdentifier) -> Self {
+        Self::Root(*ident)
     }
 }
 
@@ -181,24 +181,24 @@ pub trait AllocateUniqueScope {
 }
 
 pub fn new_scope_unique_allocator() -> ScopeInterner {
-    ScopeInterner::new_from::<BuiltinIdentifier>(&[
-        BuiltinIdentifier::Void,
-        BuiltinIdentifier::I32,
-        BuiltinIdentifier::F32,
-        BuiltinIdentifier::B32,
-        BuiltinIdentifier::B64,
-        BuiltinIdentifier::Bool,
-        BuiltinIdentifier::True,
-        BuiltinIdentifier::False,
-        BuiltinIdentifier::Vec,
-        BuiltinIdentifier::Tuple,
-        BuiltinIdentifier::Debug,
-        BuiltinIdentifier::Std,
-        BuiltinIdentifier::Core,
-        BuiltinIdentifier::Fp,
-        BuiltinIdentifier::Fn,
-        BuiltinIdentifier::FnMut,
-        BuiltinIdentifier::FnOnce,
-        BuiltinIdentifier::DatasetType,
+    ScopeInterner::new_from::<RootIdentifier>(&[
+        RootIdentifier::Void,
+        RootIdentifier::I32,
+        RootIdentifier::F32,
+        RootIdentifier::B32,
+        RootIdentifier::B64,
+        RootIdentifier::Bool,
+        RootIdentifier::True,
+        RootIdentifier::False,
+        RootIdentifier::Vec,
+        RootIdentifier::Tuple,
+        RootIdentifier::Debug,
+        RootIdentifier::Std,
+        RootIdentifier::Core,
+        RootIdentifier::Fp,
+        RootIdentifier::Fn,
+        RootIdentifier::FnMut,
+        RootIdentifier::FnOnce,
+        RootIdentifier::DatasetType,
     ])
 }

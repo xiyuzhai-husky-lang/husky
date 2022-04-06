@@ -34,7 +34,7 @@ fn scoped_feature_block(
     db: &dyn FeatureQueryGroup,
     scope: EntityRoutePtr,
 ) -> SemanticResultArc<FeatureBlock> {
-    let entity = db.entity_defn(scope)?;
+    let entity = db.opt_entity_defn(scope)?.unwrap();
     match entity.kind() {
         EntityDefnKind::Feature { ref lazy_stmts, .. } => {
             Ok(FeatureBlock::new(db, None, lazy_stmts, &[], db.features()))

@@ -22,8 +22,8 @@ impl<'a> DependeeMapBuilder<'a> {
 
     fn push(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.kind {
-            EntityRouteKind::Builtin { .. } => return,
-            EntityRouteKind::pack { main, ident } => todo!(),
+            EntityRouteKind::Root { .. } => return,
+            EntityRouteKind::Pack { main, ident } => todo!(),
             EntityRouteKind::ChildScope { parent, ident } => {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
@@ -49,7 +49,7 @@ pub(crate) fn entity_immediate_dependees(
     db: &dyn EntityQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<DependeeMap> {
-    let defn = db.entity_defn(entity_route)?;
+    let defn = db.opt_entity_defn(entity_route)?.expect("no builtin");
     Ok(Arc::new(defn.immediate_dependees(db)))
 }
 

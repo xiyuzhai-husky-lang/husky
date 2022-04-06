@@ -42,7 +42,7 @@ impl<'a> TySheetBuilder<'a> {
                     }
                     AstKind::DatasetConfigDefnHead => self.infer_routine(
                         &[],
-                        BuiltinIdentifier::DatasetType.into(),
+                        RootIdentifier::DatasetType.into(),
                         item.children.unwrap(),
                         &arena,
                     ),

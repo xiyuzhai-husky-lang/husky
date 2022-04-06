@@ -14,7 +14,7 @@ use infer_error::*;
 use print_utils::*;
 use syntax_types::*;
 use vm::EnumLiteralValue;
-use word::{BuiltinIdentifier, ContextualIdentifier};
+use word::{ContextualIdentifier, RootIdentifier};
 
 #[salsa::query_group(InferTyQueryGroupStorage)]
 pub trait InferTySalsaQueryGroup: ScopeQueryGroup + ast::AstQueryGroup + DeclQueryGroup {
@@ -38,33 +38,33 @@ pub trait InferTyQueryGroup: InferTySalsaQueryGroup {
 
 fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
     match scope {
-        EntityRoutePtr::Builtin(ident) => match ident {
-            BuiltinIdentifier::Void => todo!(),
-            BuiltinIdentifier::I32 => todo!(),
-            BuiltinIdentifier::F32 => todo!(),
-            BuiltinIdentifier::B32 => todo!(),
-            BuiltinIdentifier::B64 => todo!(),
-            BuiltinIdentifier::Bool => todo!(),
-            BuiltinIdentifier::True | BuiltinIdentifier::False => {
-                Ok(EntityRoutePtr::Builtin(BuiltinIdentifier::Bool))
+        EntityRoutePtr::Root(ident) => match ident {
+            RootIdentifier::Void => todo!(),
+            RootIdentifier::I32 => todo!(),
+            RootIdentifier::F32 => todo!(),
+            RootIdentifier::B32 => todo!(),
+            RootIdentifier::B64 => todo!(),
+            RootIdentifier::Bool => todo!(),
+            RootIdentifier::True | RootIdentifier::False => {
+                Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
             }
-            BuiltinIdentifier::Vec => todo!(),
-            BuiltinIdentifier::Tuple => todo!(),
-            BuiltinIdentifier::Debug => todo!(),
-            BuiltinIdentifier::Std => todo!(),
-            BuiltinIdentifier::Core => todo!(),
-            BuiltinIdentifier::Fp => todo!(),
-            BuiltinIdentifier::Fn => todo!(),
-            BuiltinIdentifier::FnMut => todo!(),
-            BuiltinIdentifier::FnOnce => todo!(),
-            BuiltinIdentifier::Array => todo!(),
-            BuiltinIdentifier::DatasetType => todo!(),
-            BuiltinIdentifier::Type => todo!(),
-            BuiltinIdentifier::Datasets => todo!(),
-            BuiltinIdentifier::CloneTrait => todo!(),
-            BuiltinIdentifier::CopyTrait => todo!(),
-            BuiltinIdentifier::PartialEqTrait => todo!(),
-            BuiltinIdentifier::EqTrait => todo!(),
+            RootIdentifier::Vec => todo!(),
+            RootIdentifier::Tuple => todo!(),
+            RootIdentifier::Debug => todo!(),
+            RootIdentifier::Std => todo!(),
+            RootIdentifier::Core => todo!(),
+            RootIdentifier::Fp => todo!(),
+            RootIdentifier::Fn => todo!(),
+            RootIdentifier::FnMut => todo!(),
+            RootIdentifier::FnOnce => todo!(),
+            RootIdentifier::Array => todo!(),
+            RootIdentifier::DatasetType => todo!(),
+            RootIdentifier::Type => todo!(),
+            RootIdentifier::Datasets => todo!(),
+            RootIdentifier::CloneTrait => todo!(),
+            RootIdentifier::CopyTrait => todo!(),
+            RootIdentifier::PartialEqTrait => todo!(),
+            RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(scope) => match scope.kind {
             EntityRouteKind::Contextual { main, ident } => match ident {
@@ -91,64 +91,64 @@ fn is_implicit_convertible(
         return true;
     }
     match dst_ty {
-        EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
-            BuiltinIdentifier::Void => false,
-            BuiltinIdentifier::I32 => {
+        EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
+            RootIdentifier::Void => false,
+            RootIdentifier::I32 => {
                 p!(src_ty, dst_ty);
                 todo!()
             }
-            BuiltinIdentifier::F32 => todo!(),
-            BuiltinIdentifier::B32 => todo!(),
-            BuiltinIdentifier::B64 => todo!(),
-            BuiltinIdentifier::Bool => match src_ty {
-                EntityRoutePtr::Builtin(builtin_ident) => match builtin_ident {
-                    BuiltinIdentifier::I32
-                    | BuiltinIdentifier::F32
-                    | BuiltinIdentifier::B32
-                    | BuiltinIdentifier::B64
-                    | BuiltinIdentifier::Bool => true,
-                    BuiltinIdentifier::Void
-                    | BuiltinIdentifier::Vec
-                    | BuiltinIdentifier::Tuple
-                    | BuiltinIdentifier::Fp
-                    | BuiltinIdentifier::Fn
-                    | BuiltinIdentifier::FnMut
-                    | BuiltinIdentifier::FnOnce
-                    | BuiltinIdentifier::Array
-                    | BuiltinIdentifier::DatasetType
-                    | BuiltinIdentifier::Type => false,
+            RootIdentifier::F32 => todo!(),
+            RootIdentifier::B32 => todo!(),
+            RootIdentifier::B64 => todo!(),
+            RootIdentifier::Bool => match src_ty {
+                EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
+                    RootIdentifier::I32
+                    | RootIdentifier::F32
+                    | RootIdentifier::B32
+                    | RootIdentifier::B64
+                    | RootIdentifier::Bool => true,
+                    RootIdentifier::Void
+                    | RootIdentifier::Vec
+                    | RootIdentifier::Tuple
+                    | RootIdentifier::Fp
+                    | RootIdentifier::Fn
+                    | RootIdentifier::FnMut
+                    | RootIdentifier::FnOnce
+                    | RootIdentifier::Array
+                    | RootIdentifier::DatasetType
+                    | RootIdentifier::Type => false,
                     _ => panic!(),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
             },
-            BuiltinIdentifier::True => todo!(),
-            BuiltinIdentifier::False => todo!(),
-            BuiltinIdentifier::Vec => todo!(),
-            BuiltinIdentifier::Tuple => todo!(),
-            BuiltinIdentifier::Debug => todo!(),
-            BuiltinIdentifier::Std => todo!(),
-            BuiltinIdentifier::Core => todo!(),
-            BuiltinIdentifier::Fp => todo!(),
-            BuiltinIdentifier::Fn => todo!(),
-            BuiltinIdentifier::FnMut => todo!(),
-            BuiltinIdentifier::FnOnce => todo!(),
-            BuiltinIdentifier::Array => todo!(),
-            BuiltinIdentifier::DatasetType => match src_ty {
-                EntityRoutePtr::Builtin(BuiltinIdentifier::DatasetType) => true,
+            RootIdentifier::True => todo!(),
+            RootIdentifier::False => todo!(),
+            RootIdentifier::Vec => todo!(),
+            RootIdentifier::Tuple => todo!(),
+            RootIdentifier::Debug => todo!(),
+            RootIdentifier::Std => todo!(),
+            RootIdentifier::Core => todo!(),
+            RootIdentifier::Fp => todo!(),
+            RootIdentifier::Fn => todo!(),
+            RootIdentifier::FnMut => todo!(),
+            RootIdentifier::FnOnce => todo!(),
+            RootIdentifier::Array => todo!(),
+            RootIdentifier::DatasetType => match src_ty {
+                EntityRoutePtr::Root(RootIdentifier::DatasetType) => true,
                 EntityRoutePtr::Custom(scope) => match scope.kind {
-                    EntityRouteKind::Builtin {
-                        ident: BuiltinIdentifier::DatasetType,
+                    EntityRouteKind::Root {
+                        ident: RootIdentifier::DatasetType,
                     } => true,
                     _ => false,
                 },
                 _ => false,
             },
-            BuiltinIdentifier::Type => todo!(),
-            BuiltinIdentifier::Datasets => panic!(),
-            BuiltinIdentifier::CloneTrait => todo!(),
-            BuiltinIdentifier::CopyTrait => todo!(),
-            BuiltinIdentifier::PartialEqTrait => todo!(),
-            BuiltinIdentifier::EqTrait => todo!(),
+            RootIdentifier::Type => todo!(),
+            RootIdentifier::Datasets => panic!(),
+            RootIdentifier::CloneTrait => todo!(),
+            RootIdentifier::CopyTrait => todo!(),
+            RootIdentifier::PartialEqTrait => todo!(),
+            RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(_) => todo!(),
     }

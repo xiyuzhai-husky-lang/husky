@@ -9,7 +9,7 @@ use entity_syntax::RawTyKind;
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
-use word::{BuiltinIdentifier, CustomIdentifier};
+use word::{RootIdentifier, CustomIdentifier};
 
 use super::*;
 use semantics_error::*;
@@ -34,10 +34,10 @@ pub trait LazyExprParser<'a> {
             RawExprKind::Scope { scope, kind, .. } => match kind {
                 RawEntityKind::Module => todo!(),
                 RawEntityKind::Literal => match scope {
-                    EntityRoutePtr::Builtin(BuiltinIdentifier::True) => {
+                    EntityRoutePtr::Root(RootIdentifier::True) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
-                    EntityRoutePtr::Builtin(BuiltinIdentifier::False) => {
+                    EntityRoutePtr::Root(RootIdentifier::False) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false))
                     }
                     EntityRoutePtr::Custom(scope_ref) => LazyExprKind::EnumLiteral {
@@ -108,7 +108,7 @@ pub trait LazyExprParser<'a> {
                         todo!()
                     }
                 }
-                BuiltinIdentifier::Void.into()
+                RootIdentifier::Void.into()
             }
         };
         let opr = match opr {
@@ -129,13 +129,12 @@ pub trait LazyExprParser<'a> {
         ropd_ty: EntityRoutePtr,
     ) -> SemanticResult<EntityRoutePtr> {
         match lopd_ty {
-            EntityRoutePtr::Builtin(lopd_builtin_ty) => match ropd_ty {
-                EntityRoutePtr::Builtin(ropd_builtin_ty) => self
-                    .infer_builtin_pure_binary_opr_type(
-                        pure_binary_opr,
-                        lopd_builtin_ty,
-                        ropd_builtin_ty,
-                    ),
+            EntityRoutePtr::Root(lopd_builtin_ty) => match ropd_ty {
+                EntityRoutePtr::Root(ropd_builtin_ty) => self.infer_builtin_pure_binary_opr_type(
+                    pure_binary_opr,
+                    lopd_builtin_ty,
+                    ropd_builtin_ty,
+                ),
                 EntityRoutePtr::Custom(_) => todo!(),
             },
             EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
@@ -145,8 +144,8 @@ pub trait LazyExprParser<'a> {
     fn infer_builtin_pure_binary_opr_type(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_builtin_ty: BuiltinIdentifier,
-        ropd_builtin_ty: BuiltinIdentifier,
+        lopd_builtin_ty: RootIdentifier,
+        ropd_builtin_ty: RootIdentifier,
     ) -> SemanticResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
@@ -157,16 +156,16 @@ pub trait LazyExprParser<'a> {
                     err!("expect use of \"<, <=, >, >=\" on same types")
                 }
                 match lopd_builtin_ty {
-                    BuiltinIdentifier::I32 | BuiltinIdentifier::F32 => (),
+                    RootIdentifier::I32 | RootIdentifier::F32 => (),
                     _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
                 }
-                BuiltinIdentifier::Bool
+                RootIdentifier::Bool
             }
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_builtin_ty != ropd_builtin_ty {
                     err!("expect use of \"!=\" on same types")
                 }
-                BuiltinIdentifier::Bool
+                RootIdentifier::Bool
             }
             PureBinaryOpr::Shl => todo!(),
             PureBinaryOpr::Shr => todo!(),
@@ -179,7 +178,7 @@ pub trait LazyExprParser<'a> {
                     err!("expect use of \"+, -, *, /, **\" on same types")
                 }
                 match lopd_builtin_ty {
-                    BuiltinIdentifier::I32 | BuiltinIdentifier::F32 => (),
+                    RootIdentifier::I32 | RootIdentifier::F32 => (),
                     _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
                 }
                 lopd_builtin_ty

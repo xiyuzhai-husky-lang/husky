@@ -16,7 +16,7 @@ pub trait PackQueryGroup: EntityQueryGroup {
 fn pack(db: &dyn PackQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Pack> {
     let module = db.module(main_file)?;
     let ident = match module.kind {
-        EntityRouteKind::pack { ident, .. } => ident,
+        EntityRouteKind::Pack { ident, .. } => ident,
         _ => panic!(),
     };
     Ok(Arc::new(Pack {

@@ -11,9 +11,9 @@ mod impl_ty_decl;
 mod impl_use_all;
 mod utils;
 
+use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
-use entity_route::EntityRouteKind;
 use token::*;
 
 use crate::{
@@ -45,20 +45,23 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.kind {
-                EntityRouteKind::pack { main, ident } => Env::pack(main),
+                EntityRouteKind::Pack { main, ident } => Env::pack(main),
                 EntityRouteKind::ChildScope { .. } => Env::Module(module),
-                EntityRouteKind::Builtin { .. } | EntityRouteKind::Contextual { .. } => panic!(),
+                EntityRouteKind::Root { .. } | EntityRouteKind::Contextual { .. } => panic!(),
                 EntityRouteKind::Generic { ident, .. } => todo!(),
             }),
             this: LocalValue::new(None),
         };
 
-        fn module_symbols(db: &dyn AstSalsaQueryGroup, module: EntityRoutePtr) -> LocalStack<Symbol> {
+        fn module_symbols(
+            db: &dyn AstSalsaQueryGroup,
+            module: EntityRoutePtr,
+        ) -> LocalStack<Symbol> {
             let mut symbols = LocalStack::new();
             for scope in db.subscopes(module).iter() {
                 match scope.kind {
-                    EntityRouteKind::Builtin { .. }
-                    | EntityRouteKind::pack { .. }
+                    EntityRouteKind::Root { .. }
+                    | EntityRouteKind::Pack { .. }
                     | EntityRouteKind::Contextual { .. } => panic!(),
                     EntityRouteKind::ChildScope { ident, .. } => symbols.push(Symbol {
                         ident,

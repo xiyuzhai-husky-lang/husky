@@ -3,7 +3,7 @@ use std::{borrow::Borrow, fmt::Display, ops::Deref};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
-    Builtin(BuiltinIdentifier),
+    Builtin(RootIdentifier),
     Custom(CustomIdentifier),
     Contextual(ContextualIdentifier),
 }
@@ -101,8 +101,8 @@ impl Borrow<str> for CustomIdentifier {
     }
 }
 
-impl From<BuiltinIdentifier> for Identifier {
-    fn from(ident: BuiltinIdentifier) -> Self {
+impl From<RootIdentifier> for Identifier {
+    fn from(ident: RootIdentifier) -> Self {
         Self::Builtin(ident)
     }
 }
@@ -120,7 +120,7 @@ impl From<ContextualIdentifier> for Identifier {
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub enum BuiltinIdentifier {
+pub enum RootIdentifier {
     Void,
     I32,
     F32,
@@ -148,7 +148,7 @@ pub enum BuiltinIdentifier {
     EqTrait,
 }
 
-impl Deref for BuiltinIdentifier {
+impl Deref for RootIdentifier {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
@@ -156,39 +156,39 @@ impl Deref for BuiltinIdentifier {
     }
 }
 
-impl BuiltinIdentifier {
+impl RootIdentifier {
     pub fn as_str(&self) -> &'static str {
         match self {
-            BuiltinIdentifier::Void => "()",
-            BuiltinIdentifier::I32 => "i32",
-            BuiltinIdentifier::F32 => "f32",
-            BuiltinIdentifier::B32 => "b32",
-            BuiltinIdentifier::B64 => "b64",
-            BuiltinIdentifier::Bool => "bool",
-            BuiltinIdentifier::True => "true",
-            BuiltinIdentifier::False => "false",
-            BuiltinIdentifier::Vec => "Vec",
-            BuiltinIdentifier::Tuple => "Tuple",
-            BuiltinIdentifier::Debug => "debug",
-            BuiltinIdentifier::Std => "std",
-            BuiltinIdentifier::Core => "core",
-            BuiltinIdentifier::Fp => "Fp",
-            BuiltinIdentifier::Fn => "Fn",
-            BuiltinIdentifier::FnMut => "FnMut",
-            BuiltinIdentifier::FnOnce => "FnOnce",
-            BuiltinIdentifier::Array => "Array",
-            BuiltinIdentifier::Datasets => "datasets",
-            BuiltinIdentifier::DatasetType => "Dataset",
-            BuiltinIdentifier::Type => "type",
-            BuiltinIdentifier::CloneTrait => todo!(),
-            BuiltinIdentifier::CopyTrait => todo!(),
-            BuiltinIdentifier::PartialEqTrait => todo!(),
-            BuiltinIdentifier::EqTrait => todo!(),
+            RootIdentifier::Void => "()",
+            RootIdentifier::I32 => "i32",
+            RootIdentifier::F32 => "f32",
+            RootIdentifier::B32 => "b32",
+            RootIdentifier::B64 => "b64",
+            RootIdentifier::Bool => "bool",
+            RootIdentifier::True => "true",
+            RootIdentifier::False => "false",
+            RootIdentifier::Vec => "Vec",
+            RootIdentifier::Tuple => "Tuple",
+            RootIdentifier::Debug => "debug",
+            RootIdentifier::Std => "std",
+            RootIdentifier::Core => "core",
+            RootIdentifier::Fp => "Fp",
+            RootIdentifier::Fn => "Fn",
+            RootIdentifier::FnMut => "FnMut",
+            RootIdentifier::FnOnce => "FnOnce",
+            RootIdentifier::Array => "Array",
+            RootIdentifier::Datasets => "datasets",
+            RootIdentifier::DatasetType => "Dataset",
+            RootIdentifier::Type => "type",
+            RootIdentifier::CloneTrait => todo!(),
+            RootIdentifier::CopyTrait => todo!(),
+            RootIdentifier::PartialEqTrait => todo!(),
+            RootIdentifier::EqTrait => todo!(),
         }
     }
 }
 
-impl Borrow<str> for BuiltinIdentifier {
+impl Borrow<str> for RootIdentifier {
     fn borrow(&self) -> &str {
         self.deref()
     }
@@ -225,6 +225,6 @@ impl Borrow<str> for ContextualIdentifier {
     }
 }
 
-pub fn default_func_type() -> BuiltinIdentifier {
-    BuiltinIdentifier::Fp
+pub fn default_func_type() -> RootIdentifier {
+    RootIdentifier::Fp
 }

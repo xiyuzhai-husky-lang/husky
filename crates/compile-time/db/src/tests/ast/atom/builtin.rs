@@ -2,13 +2,13 @@ use super::utils;
 use crate::*;
 use atom::AtomKind;
 use entity_route::{EntityRouteKind, ScopeId};
-use word::{BuiltinIdentifier, Identifier};
+use word::{Identifier, RootIdentifier};
 
 #[test]
 fn std_scope() {
     utils::check_atom_kind(
         "std",
-        AtomKind::Scope(BuiltinIdentifier::Std.into(), RawEntityKind::Module),
+        AtomKind::Scope(RootIdentifier::Std.into(), RawEntityKind::Module),
     );
 }
 
@@ -16,7 +16,7 @@ fn std_scope() {
 fn core_scope() {
     utils::check_atom_kind(
         "core",
-        AtomKind::Scope(BuiltinIdentifier::Core.into(), RawEntityKind::Module),
+        AtomKind::Scope(RootIdentifier::Core.into(), RawEntityKind::Module),
     );
 }
 
@@ -24,7 +24,7 @@ fn core_scope() {
 fn debug_scope() {
     utils::check_atom_kind(
         "debug",
-        AtomKind::Scope(BuiltinIdentifier::Debug.into(), RawEntityKind::Module),
+        AtomKind::Scope(RootIdentifier::Debug.into(), RawEntityKind::Module),
     );
 }
 
@@ -32,7 +32,7 @@ fn debug_scope() {
 fn i32_type() {
     utils::check_atom_kind(
         "i32",
-        AtomKind::Scope(BuiltinIdentifier::I32.into(), RawEntityKind::Type),
+        AtomKind::Scope(RootIdentifier::I32.into(), RawEntityKind::Type),
     );
 }
 
@@ -40,7 +40,7 @@ fn i32_type() {
 fn f32_type() {
     utils::check_atom_kind(
         "f32",
-        AtomKind::Scope(BuiltinIdentifier::F32.into(), RawEntityKind::Type),
+        AtomKind::Scope(RootIdentifier::F32.into(), RawEntityKind::Type),
     );
 }
 
@@ -48,7 +48,7 @@ fn f32_type() {
 fn vec_generics() {
     utils::check_atom_kind(
         "Vec",
-        AtomKind::Scope(BuiltinIdentifier::Vector.into(), RawEntityKind::Type),
+        AtomKind::Scope(RootIdentifier::Vector.into(), RawEntityKind::Type),
     );
 }
 
@@ -56,6 +56,6 @@ fn vec_generics() {
 fn tuple_generics() {
     utils::check_atom_kind(
         "Tuple",
-        AtomKind::Scope(BuiltinIdentifier::Tuple.into(), RawEntityKind::Type),
+        AtomKind::Scope(RootIdentifier::Tuple.into(), RawEntityKind::Type),
     );
 }

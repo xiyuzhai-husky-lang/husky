@@ -5,8 +5,8 @@ use super::*;
 impl<'a> RustGenerator<'a> {
     pub(super) fn gen_scope(&mut self, scope: EntityRoutePtr) {
         match scope.kind {
-            EntityRouteKind::Builtin { ident } => self.result += &ident,
-            EntityRouteKind::pack { .. } => self.write("crate"),
+            EntityRouteKind::Root { ident } => self.result += &ident,
+            EntityRouteKind::Pack { .. } => self.write("crate"),
             EntityRouteKind::ChildScope { parent, ident } => {
                 self.gen_scope(parent);
                 self.write("::");

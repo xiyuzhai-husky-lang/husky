@@ -87,32 +87,32 @@ impl<'a> AtomLRParser<'a> {
 
     fn generics(&mut self, scope_kind: EntityRouteKind) -> AstResult<Vec<GenericArgument>> {
         match scope_kind {
-            EntityRouteKind::Builtin { ident } => match ident {
-                BuiltinIdentifier::Void
-                | BuiltinIdentifier::I32
-                | BuiltinIdentifier::F32
-                | BuiltinIdentifier::B32
-                | BuiltinIdentifier::B64
-                | BuiltinIdentifier::Bool
-                | BuiltinIdentifier::True
-                | BuiltinIdentifier::False
-                | BuiltinIdentifier::Debug
-                | BuiltinIdentifier::Std
-                | BuiltinIdentifier::Core
-                | BuiltinIdentifier::Datasets => Ok(Vec::new()),
-                BuiltinIdentifier::Fp
-                | BuiltinIdentifier::Fn
-                | BuiltinIdentifier::FnMut
-                | BuiltinIdentifier::FnOnce => Ok(self.func_args()?),
-                BuiltinIdentifier::Vec
-                | BuiltinIdentifier::Array
-                | BuiltinIdentifier::Tuple
-                | BuiltinIdentifier::DatasetType => self.angled_generics(),
-                BuiltinIdentifier::Type => todo!(),
-                BuiltinIdentifier::CloneTrait => todo!(),
-                BuiltinIdentifier::CopyTrait => todo!(),
-                BuiltinIdentifier::PartialEqTrait => todo!(),
-                BuiltinIdentifier::EqTrait => todo!(),
+            EntityRouteKind::Root { ident } => match ident {
+                RootIdentifier::Void
+                | RootIdentifier::I32
+                | RootIdentifier::F32
+                | RootIdentifier::B32
+                | RootIdentifier::B64
+                | RootIdentifier::Bool
+                | RootIdentifier::True
+                | RootIdentifier::False
+                | RootIdentifier::Debug
+                | RootIdentifier::Std
+                | RootIdentifier::Core
+                | RootIdentifier::Datasets => Ok(Vec::new()),
+                RootIdentifier::Fp
+                | RootIdentifier::Fn
+                | RootIdentifier::FnMut
+                | RootIdentifier::FnOnce => Ok(self.func_args()?),
+                RootIdentifier::Vec
+                | RootIdentifier::Array
+                | RootIdentifier::Tuple
+                | RootIdentifier::DatasetType => self.angled_generics(),
+                RootIdentifier::Type => todo!(),
+                RootIdentifier::CloneTrait => todo!(),
+                RootIdentifier::CopyTrait => todo!(),
+                RootIdentifier::PartialEqTrait => todo!(),
+                RootIdentifier::EqTrait => todo!(),
             },
             _ => match self
                 .scope_proxy
@@ -138,7 +138,7 @@ impl<'a> AtomLRParser<'a> {
         args.push(if next_matches!(self, "->") {
             self.generic()?
         } else {
-            EntityRoutePtr::Builtin(BuiltinIdentifier::Void).into()
+            EntityRoutePtr::Root(RootIdentifier::Void).into()
         });
         Ok(args)
     }

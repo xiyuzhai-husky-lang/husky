@@ -151,7 +151,8 @@ fn feature_expr_subtraces(
                 let mut func_input_values = vec![];
                 let entity_defn = db
                     .compile_time(db.version())
-                    .entity_defn(ranged_scope.route)
+                    .opt_entity_defn(ranged_scope.route)
+                    .unwrap()
                     .unwrap();
                 subtraces.push(
                     db.trace_factory()
@@ -193,13 +194,14 @@ fn feature_expr_subtraces(
             if let Some(input_id) = opt_input_id {
                 let mut subtraces = vec![];
                 let mut func_input_values = vec![];
-                let entity = db
+                let entity_defn = db
                     .compile_time(db.version())
-                    .entity_defn(ranged_scope.route)
+                    .opt_entity_defn(ranged_scope.route)
+                    .unwrap()
                     .unwrap();
                 subtraces.push(
                     db.trace_factory()
-                        .new_call_head(entity.clone(), &db.text(callee_file).unwrap()),
+                        .new_call_head(entity_defn.clone(), &db.text(callee_file).unwrap()),
                 );
                 for func_input in inputs {
                     subtraces.push(db.new_trace(
