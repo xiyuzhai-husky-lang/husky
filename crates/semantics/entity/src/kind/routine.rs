@@ -3,7 +3,7 @@ use ast::{AstIter, RawExprArena};
 use semantics_error::*;
 use syntax_types::{RoutineHead, RoutineKind};
 
-impl EntityKind {
+impl EntityDefnKind {
     pub(crate) fn routine(
         db: &dyn EntityQueryGroup,
         routine_kind: &RoutineKind,
@@ -11,7 +11,7 @@ impl EntityKind {
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResult<EntityKind> {
+    ) -> SemanticResult<EntityDefnKind> {
         Ok(match routine_kind {
             RoutineKind::Test => todo!(),
             RoutineKind::Proc => {
@@ -22,7 +22,7 @@ impl EntityKind {
                     children,
                     file,
                 )?;
-                EntityKind::Proc {
+                EntityDefnKind::Proc {
                     input_placeholders: routine_head.input_placeholders.clone(),
                     output: routine_head.output,
                     stmts,
@@ -36,7 +36,7 @@ impl EntityKind {
                     children,
                     file,
                 )?;
-                EntityKind::Func {
+                EntityDefnKind::Func {
                     input_placeholders: routine_head.input_placeholders.clone(),
                     output: routine_head.output,
                     stmts,

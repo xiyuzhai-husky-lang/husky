@@ -32,10 +32,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.push(value.into());
                     VMControl::None
                 }
-                InstructionKind::CallCompiled {
-                    ref compiled,
-                    nargs,
-                } => {
+                InstructionKind::CallCompiled { compiled, nargs } => {
                     let control = self.call_compiled(compiled, nargs).into();
                     match mode {
                         Mode::Fast => (),
@@ -108,7 +105,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn exec_compiled(&mut self, compiled: ()) -> EvalResult<'eval> {
+    pub(crate) fn exec_code(&mut self, code: CompiledRoutine) -> EvalResult<'eval> {
         todo!()
     }
 

@@ -5,8 +5,8 @@ use std::sync::Arc;
 pub use opr::*;
 
 use entity_route::{
-    EntityRoutePtr, GenericPlaceholderKind, InputPlaceholder, InputSignature, RangedScope,
-    ScopeKind,
+    EntityRouteKind, EntityRoutePtr, GenericPlaceholderKind, InputPlaceholder, InputSignature,
+    RangedScope,
 };
 use vm::{InputContract, MembAccessContract};
 use word::{CustomIdentifier, IdentMap};
@@ -98,6 +98,6 @@ pub struct MembType {
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct BuiltinScopeData {
-    scope_kind: ScopeKind,
+    scope_kind: EntityRouteKind,
     subscopes: [(String, &'static BuiltinScopeData)],
 }

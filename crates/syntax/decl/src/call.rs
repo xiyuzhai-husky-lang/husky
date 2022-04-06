@@ -7,7 +7,7 @@ use crate::*;
 pub struct CallSignature {
     pub inputs: Vec<InputSignature>,
     pub output: EntityRoutePtr,
-    pub compiled: Option<Compiled>,
+    pub compiled: Option<CompiledRoutine>,
 }
 
 impl CallSignature {

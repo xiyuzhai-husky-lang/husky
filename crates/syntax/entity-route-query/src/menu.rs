@@ -5,20 +5,20 @@ use word::BuiltinIdentifier;
 
 pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<EntityRouteMenu> {
     Arc::new(EntityRouteMenu {
-        clone_trait: db.intern_scope(Route {
-            kind: ScopeKind::Builtin {
+        clone_trait: db.intern_scope(EntityRoute {
+            kind: EntityRouteKind::Builtin {
                 ident: BuiltinIdentifier::CloneTrait,
             },
             generics: vec![],
         }),
-        void_type: db.intern_scope(Route {
-            kind: ScopeKind::Builtin {
+        void_type: db.intern_scope(EntityRoute {
+            kind: EntityRouteKind::Builtin {
                 ident: BuiltinIdentifier::Void,
             },
             generics: vec![],
         }),
-        i32_type: db.intern_scope(Route {
-            kind: ScopeKind::Builtin {
+        i32_type: db.intern_scope(EntityRoute {
+            kind: EntityRouteKind::Builtin {
                 ident: BuiltinIdentifier::I32,
             },
             generics: vec![],

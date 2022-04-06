@@ -12,7 +12,7 @@ use core::slice::Iter;
 use check_utils::should;
 use file::FilePtr;
 use print_utils::p;
-use entity_route::{GenericArgument, Route, ScopeKind, RawEntityKind};
+use entity_route::{GenericArgument, EntityRoute, EntityRouteKind, RawEntityKind};
 use text::TextRange;
 use token::{Special, Token, TokenKind};
 use vm::{BinaryOpr, PureBinaryOpr};

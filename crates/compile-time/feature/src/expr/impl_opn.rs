@@ -34,16 +34,16 @@ impl<'a> FeatureExprBuilder<'a> {
             },
             LazyOpnKind::Prefix(_) => todo!(),
             LazyOpnKind::RoutineCall(routine) => {
-                let uid = self.db.entity_vc().uid(routine.scope);
+                let uid = self.db.entity_uid(routine.scope);
                 let inputs: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
                 let feature = self.features.alloc(Feature::FuncCall {
                     func: routine.scope,
                     uid,
                     inputs: inputs.iter().map(|expr| expr.feature).collect(),
                 });
-                let entity = self.db.entity(routine.scope).unwrap();
+                let entity = self.db.entity_defn(routine.scope).unwrap();
                 let kind = match entity.kind() {
-                    EntityKind::Func {
+                    EntityDefnKind::Func {
                         input_placeholders,
                         stmts,
                         ..
@@ -54,21 +54,21 @@ impl<'a> FeatureExprBuilder<'a> {
                         callee_file: entity.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
-                        instruction_sheet: self.db.scope_instruction_sheet(routine.scope),
+                        instruction_sheet: self.db.entity_instruction_sheet(routine.scope),
                         stmts: stmts.clone(),
                     },
-                    EntityKind::Proc {
+                    EntityDefnKind::Proc {
                         input_placeholders,
                         stmts,
                         ..
                     } => FeatureExprKind::ProcCall {
                         proc_ranged_scope: routine,
                         uid,
-                        compiled: None,
+                        opt_compiled: None,
                         callee_file: entity.file,
                         input_placeholders: input_placeholders.clone(),
                         inputs,
-                        instruction_sheet: self.db.scope_instruction_sheet(routine.scope),
+                        instruction_sheet: self.db.entity_instruction_sheet(routine.scope),
                         stmts: stmts.clone(),
                     },
                     _ => panic!(),
@@ -119,9 +119,9 @@ impl<'a> FeatureExprBuilder<'a> {
                     memb_ident,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
-                let ty_entity = self.db.entity(opds[0].ty).unwrap();
+                let ty_entity = self.db.entity_defn(opds[0].ty).unwrap();
                 let ty = match ty_entity.kind() {
-                    EntityKind::Ty(ty) => ty,
+                    EntityDefnKind::Ty(ty) => ty,
                     _ => panic!(),
                 };
                 match ty.kind {
@@ -139,7 +139,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                     .memb_routine_instruction_sheet(opds[0].ty, memb_ident),
                                 stmts: stmts.clone(),
                                 opds,
-                                compiled: None,
+                                opt_compiled: None,
                             },
                             MembRoutineKind::Proc { ref stmts } => todo!(),
                         };
@@ -151,7 +151,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::ElementAccess => todo!(),
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::ClassCall(ty) => {
-                let uid = self.db.entity_vc().uid(ty.scope);
+                let uid = self.db.entity_uid(ty.scope);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
                 let feature = self.features.alloc(Feature::ClassCall {
                     ty: ty.scope,
@@ -160,7 +160,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 let kind = FeatureExprKind::ClassCall {
                     ty,
-                    entity: self.db.entity(ty.scope).unwrap(),
+                    entity: self.db.entity_defn(ty.scope).unwrap(),
                     opds,
                 };
                 (kind, feature)
@@ -185,7 +185,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 ref opds,
                 ..
             } => match entity.kind() {
-                EntityKind::Ty(ty) => match ty.kind {
+                EntityDefnKind::Ty(ty) => match ty.kind {
                     TyDefnKind::Record { ref memb_vars, .. } => {
                         p!(memb_ident, memb_vars);
                         let idx = memb_vars.position(memb_ident).unwrap();

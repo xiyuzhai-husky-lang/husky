@@ -15,8 +15,13 @@ pub struct Repeat {
 
 impl<K, V> VecMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone + Copy,
+    V: Clone,
 {
+    pub fn data(&self) -> &[(K, V)] {
+        &self.data
+    }
+
     pub fn from_vec(data: Vec<(K, V)>) -> Result<Self, Repeat> {
         for i in 0..data.len() {
             for j in (i + 1)..data.len() {
@@ -39,6 +44,10 @@ where
             .map(|entry| &entry.1)
     }
 
+    pub fn has(&self, key: K) -> bool {
+        self.data.iter().find(|entry| entry.0 == key).is_some()
+    }
+
     pub fn get_mut(&mut self, key: K) -> Option<&mut V> {
         self.data
             .iter_mut()
@@ -47,8 +56,16 @@ where
     }
 
     pub fn insert_new(&mut self, key: K, value: V) {
-        if let Some(_) = self.data.iter_mut().find(|entry| entry.0 == key) {
+        if self.has(key) {
             panic!()
+        } else {
+            self.data.push((key, value))
+        }
+    }
+
+    pub fn insert(&mut self, key: K, value: V) {
+        if self.has(key) {
+            ()
         } else {
             self.data.push((key, value))
         }
@@ -57,11 +74,18 @@ where
     pub fn position(&self, key: K) -> Option<usize> {
         self.data.iter().position(|entry| entry.0 == key)
     }
+
+    pub fn extends(&mut self, other: &Self) {
+        for (k, v) in other.iter() {
+            self.insert(k.clone(), v.clone())
+        }
+    }
 }
 
 impl<K, V> FromIterator<(K, V)> for VecMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone + Copy,
+    V: Clone,
 {
     fn from_iter<T: IntoIterator<Item = (K, V)>>(iter: T) -> Self {
         let mut map = Self::default();
@@ -94,7 +118,8 @@ where
 
 impl<K, V> std::ops::Index<K> for VecMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone + Copy,
+    V: Clone,
 {
     type Output = V;
 

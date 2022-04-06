@@ -26,11 +26,11 @@ impl<'a> Instantiator<'a> {
             | RawEntityKind::Feature
             | RawEntityKind::Pattern => {
                 let (kind, mut generics) = match src_scope.kind {
-                    ScopeKind::Package { .. } => panic!(),
-                    ScopeKind::Builtin { ident } => (src_scope.kind, vec![]),
-                    ScopeKind::ChildScope { parent, ident } => todo!(),
-                    ScopeKind::Contextual { main, ident } => todo!(),
-                    ScopeKind::Generic { ident, .. } => {
+                    EntityRouteKind::Package { .. } => panic!(),
+                    EntityRouteKind::Builtin { ident } => (src_scope.kind, vec![]),
+                    EntityRouteKind::ChildScope { parent, ident } => todo!(),
+                    EntityRouteKind::Contextual { main, ident } => todo!(),
+                    EntityRouteKind::Generic { ident, .. } => {
                         if let Some(idx) = self.find_generic(ident) {
                             match self.dst_generics[idx] {
                                 GenericArgument::Const(value) => {
@@ -48,7 +48,7 @@ impl<'a> Instantiator<'a> {
                 };
                 // convention: A<B,C> = A<B><C>
                 generics.extend(self.instantiate_generics(&src_scope.generics));
-                GenericArgument::Scope(self.db.intern_scope(Route { kind, generics }))
+                GenericArgument::Scope(self.db.intern_scope(EntityRoute { kind, generics }))
             }
             RawEntityKind::Literal => todo!(),
         }

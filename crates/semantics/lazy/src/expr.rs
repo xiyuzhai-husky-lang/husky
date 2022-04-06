@@ -7,7 +7,7 @@ use file::FilePtr;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use entity_route::{RangedScope, Route, EntityRoutePtr};
+use entity_route::{EntityRoute, EntityRoutePtr, RangedScope};
 use syntax_types::*;
 use text::TextRange;
 use vm::*;
@@ -47,7 +47,10 @@ pub enum LazyExprKind {
         compiled: (),
         opds: Vec<Arc<LazyExpr>>,
     },
-    Lambda(Vec<(CustomIdentifier, Option<EntityRoutePtr>)>, Box<LazyExpr>),
+    Lambda(
+        Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
+        Box<LazyExpr>,
+    ),
     This,
     ScopedFeature {
         scope: EntityRoutePtr,

@@ -1,7 +1,7 @@
 use crate::*;
 use vm::{EagerContract, InitKind, Instruction, InstructionKind};
 
-impl InstructionSheetBuilder {
+impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_decl_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
         stmts
             .iter()

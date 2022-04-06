@@ -1,7 +1,7 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_route::StaticFuncSignature;
 use std::sync::Arc;
-use vm::{BoxedValue, Compiled, StackValue};
+use vm::{BoxedValue, CompiledRoutine, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
@@ -17,7 +17,7 @@ pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     decl: BuiltinEntityDecl::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32, i32>",
-        compiled: Some(Compiled {
+        compiled: Some(CompiledRoutine {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
         }),
     }),
@@ -28,7 +28,7 @@ pub const DATASET2_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     decl: BuiltinEntityDecl::Func(StaticFuncSignature {
         inputs: vec![],
         output: "Dataset<f32, i32>",
-        compiled: Some(Compiled {
+        compiled: Some(CompiledRoutine {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
         }),
     }),

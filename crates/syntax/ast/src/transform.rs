@@ -13,7 +13,7 @@ mod utils;
 
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
-use entity_route::ScopeKind;
+use entity_route::EntityRouteKind;
 use token::*;
 
 use crate::{
@@ -45,10 +45,10 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.kind {
-                ScopeKind::Package { main, ident } => Env::Package(main),
-                ScopeKind::ChildScope { .. } => Env::Module(module),
-                ScopeKind::Builtin { .. } | ScopeKind::Contextual { .. } => panic!(),
-                ScopeKind::Generic { ident, .. } => todo!(),
+                EntityRouteKind::Package { main, ident } => Env::Package(main),
+                EntityRouteKind::ChildScope { .. } => Env::Module(module),
+                EntityRouteKind::Builtin { .. } | EntityRouteKind::Contextual { .. } => panic!(),
+                EntityRouteKind::Generic { ident, .. } => todo!(),
             }),
             this: LocalValue::new(None),
         };
@@ -57,14 +57,14 @@ impl<'a> AstTransformer<'a> {
             let mut symbols = LocalStack::new();
             for scope in db.subscopes(module).iter() {
                 match scope.kind {
-                    ScopeKind::Builtin { .. }
-                    | ScopeKind::Package { .. }
-                    | ScopeKind::Contextual { .. } => panic!(),
-                    ScopeKind::ChildScope { ident, .. } => symbols.push(Symbol {
+                    EntityRouteKind::Builtin { .. }
+                    | EntityRouteKind::Package { .. }
+                    | EntityRouteKind::Contextual { .. } => panic!(),
+                    EntityRouteKind::ChildScope { ident, .. } => symbols.push(Symbol {
                         ident,
                         kind: SymbolKind::Scope(scope.kind),
                     }),
-                    ScopeKind::Generic { ident, .. } => todo!(),
+                    EntityRouteKind::Generic { ident, .. } => todo!(),
                 }
             }
             symbols

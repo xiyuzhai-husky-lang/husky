@@ -2,7 +2,7 @@ use crate::*;
 
 use vm::{EagerContract, Instruction, InstructionKind, VMLoopKind};
 
-impl InstructionSheetBuilder {
+impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_impr_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
         stmts
             .iter()

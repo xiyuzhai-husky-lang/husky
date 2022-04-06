@@ -135,13 +135,13 @@ fn feature_expr_subtraces(
             if let Some(input_id) = opt_input_id {
                 let mut subtraces = vec![];
                 let mut func_input_values = vec![];
-                let entity = this
+                let entity_defn = this
                     .compile_time(this.version())
-                    .entity(ranged_scope.scope)
+                    .entity_defn(ranged_scope.scope)
                     .unwrap();
                 subtraces.push(
                     this.trace_factory()
-                        .new_call_head(entity.clone(), &this.text(callee_file).unwrap()),
+                        .new_call_head(entity_defn.clone(), &this.text(callee_file).unwrap()),
                 );
                 for func_input in inputs {
                     subtraces.push(this.new_trace(
@@ -181,7 +181,7 @@ fn feature_expr_subtraces(
                 let mut func_input_values = vec![];
                 let entity = this
                     .compile_time(this.version())
-                    .entity(ranged_scope.scope)
+                    .entity_defn(ranged_scope.scope)
                     .unwrap();
                 subtraces.push(
                     this.trace_factory()

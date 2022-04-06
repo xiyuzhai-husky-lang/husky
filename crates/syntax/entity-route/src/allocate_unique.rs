@@ -8,12 +8,12 @@ use vm::{AnyValue, AnyValueDyn, EnumLiteralValueDyn, StaticTypeId};
 
 use crate::*;
 
-pub type ScopeInterner = UniqueAllocator<Route, Route, EntityRoutePtr>;
+pub type ScopeInterner = UniqueAllocator<EntityRoute, EntityRoute, EntityRoutePtr>;
 
 #[derive(Clone, Copy)]
 pub enum EntityRoutePtr {
     Builtin(BuiltinIdentifier),
-    Custom(&'static Route),
+    Custom(&'static EntityRoute),
 }
 
 impl<'eval> AnyValue<'eval> for EntityRoutePtr {
@@ -41,7 +41,7 @@ impl EnumLiteralValueDyn for EntityRoutePtr {
 }
 
 impl EntityRoutePtr {
-    pub fn custom(&self) -> Option<&'static Route> {
+    pub fn custom(&self) -> Option<&'static EntityRoute> {
         match self {
             EntityRoutePtr::Builtin(_) => None,
             EntityRoutePtr::Custom(scope) => Some(scope),
@@ -63,7 +63,9 @@ impl PartialEq for EntityRoutePtr {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
             (Self::Builtin(l), Self::Builtin(r)) => l == r,
-            (Self::Custom(l), Self::Custom(r)) => (*l as *const Route) == (*r as *const Route),
+            (Self::Custom(l), Self::Custom(r)) => {
+                (*l as *const EntityRoute) == (*r as *const EntityRoute)
+            }
             _ => false,
         }
     }
@@ -76,21 +78,21 @@ impl Hash for EntityRoutePtr {
         core::mem::discriminant(self).hash(state);
         match self {
             EntityRoutePtr::Builtin(ident) => ident.hash(state),
-            EntityRoutePtr::Custom(scope) => (*scope as *const Route).hash(state),
+            EntityRoutePtr::Custom(scope) => (*scope as *const EntityRoute).hash(state),
         }
     }
 }
 
 impl Deref for EntityRoutePtr {
-    type Target = Route;
+    type Target = EntityRoute;
 
     fn deref(&self) -> &Self::Target {
         macro_rules! match_builtin {
             ($x:ident => $($reserved:ident),*) => {{
                  paste! {
                     $(
-                        const [<$reserved:upper _ROUTE>]: &Route = &Route {
-                            kind: ScopeKind::Builtin {
+                        const [<$reserved:upper _ROUTE>]: &EntityRoute = &EntityRoute {
+                            kind: EntityRouteKind::Builtin {
                                 ident: BuiltinIdentifier::$reserved,
                             },
                             generics: vec![],
@@ -120,20 +122,20 @@ impl Deref for EntityRoutePtr {
     }
 }
 
-impl Borrow<Route> for EntityRoutePtr {
-    fn borrow(&self) -> &Route {
+impl Borrow<EntityRoute> for EntityRoutePtr {
+    fn borrow(&self) -> &EntityRoute {
         self.deref()
     }
 }
 
-impl From<&'static Route> for EntityRoutePtr {
-    fn from(target: &'static Route) -> Self {
+impl From<&'static EntityRoute> for EntityRoutePtr {
+    fn from(target: &'static EntityRoute) -> Self {
         Self::Custom(target)
     }
 }
 
 impl UniqueAllocatorPtr for EntityRoutePtr {
-    type Thing = Route;
+    type Thing = EntityRoute;
 }
 
 impl From<BuiltinIdentifier> for EntityRoutePtr {
@@ -148,19 +150,19 @@ impl From<&BuiltinIdentifier> for EntityRoutePtr {
     }
 }
 
-impl From<&Route> for Route {
-    fn from(other: &Route) -> Self {
+impl From<&EntityRoute> for EntityRoute {
+    fn from(other: &EntityRoute) -> Self {
         other.clone()
     }
 }
 
 pub trait AllocateUniqueScope {
     fn scope_unique_allocator(&self) -> &ScopeInterner;
-    fn intern_scope(&self, scope: Route) -> EntityRoutePtr {
+    fn intern_scope(&self, scope: EntityRoute) -> EntityRoutePtr {
         self.scope_unique_allocator().alloc(scope)
     }
-    fn make_scope(&self, route: ScopeKind, generics: Vec<GenericArgument>) -> EntityRoutePtr {
-        self.intern_scope(Route {
+    fn make_scope(&self, route: EntityRouteKind, generics: Vec<GenericArgument>) -> EntityRoutePtr {
+        self.intern_scope(EntityRoute {
             kind: route,
             generics,
         })
@@ -171,8 +173,8 @@ pub trait AllocateUniqueScope {
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
     ) -> EntityRoutePtr {
-        self.intern_scope(Route {
-            kind: ScopeKind::ChildScope { parent, ident },
+        self.intern_scope(EntityRoute {
+            kind: EntityRouteKind::ChildScope { parent, ident },
             generics,
         })
     }

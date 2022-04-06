@@ -127,7 +127,7 @@ pub fn get_server_capabilities() -> ServerCapabilities {
             "runnables": {
                 "kinds": [ "cargo" ],
             },
-            "workspaceSymbolScopeKindFiltering": true,
+            "workspaceSymbolEntityRouteKindFiltering": true,
         })),
     }
 }

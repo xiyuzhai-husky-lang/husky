@@ -19,7 +19,6 @@ pub trait InstructionSource: std::fmt::Debug + Send + Sync + RefUnwindSafe {
 impl Default for InstructionId {
     fn default() -> Self {
         let raw = NEXT_VM_INSTRUCTION_ID.fetch_add(1, Ordering::Relaxed);
-        let raw2 = NEXT_VM_INSTRUCTION_ID.fetch_add(1, Ordering::Relaxed);
         Self(raw)
     }
 }

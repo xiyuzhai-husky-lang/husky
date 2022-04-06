@@ -6,7 +6,7 @@ mod impl_ty_defn;
 mod impl_write;
 
 use crate::*;
-use semantics_entity::{Entity, EntityKind, TyDefnKind};
+use semantics_entity::{EntityDefn, EntityDefnKind, TyDefnKind};
 use semantics_package::Package;
 use std::sync::Arc;
 use word::WordAllocator;
@@ -27,39 +27,52 @@ impl<'a> RustGenerator<'a> {
     }
 
     pub(crate) fn gen_package_lib_rs(&mut self, package: &Package) {
-        for entity in package.subentities.iter() {
+        for entity in package.subentity_defns.iter() {
             match entity.kind() {
-                EntityKind::Main(_) => todo!(),
-                EntityKind::Module {} => todo!(),
-                EntityKind::Feature { .. } | EntityKind::Pattern {} => (),
-                EntityKind::Func {
+                EntityDefnKind::Main(_) => todo!(),
+                EntityDefnKind::Module {} => todo!(),
+                EntityDefnKind::Feature { .. } | EntityDefnKind::Pattern {} => (),
+                EntityDefnKind::Func {
                     input_placeholders,
                     output,
                     stmts,
-                } => self.gen_func_defn(entity.ident, input_placeholders, output.scope, stmts),
-                EntityKind::Proc {
+                } => self.gen_func_defn(
+                    entity.ident.custom(),
+                    input_placeholders,
+                    output.scope,
+                    stmts,
+                ),
+                EntityDefnKind::Proc {
                     input_placeholders,
                     output,
                     stmts,
-                } => self.gen_proc_defn(entity.ident, input_placeholders, output.scope, stmts),
-                EntityKind::Ty(ty) => match ty.kind {
-                    TyDefnKind::Enum { ref variants } => self.gen_enum_defn(entity.ident, variants),
+                } => self.gen_proc_defn(
+                    entity.ident.custom(),
+                    input_placeholders,
+                    output.scope,
+                    stmts,
+                ),
+                EntityDefnKind::Ty(ty) => match ty.kind {
+                    TyDefnKind::Enum { ref variants } => {
+                        self.gen_enum_defn(entity.ident.custom(), variants)
+                    }
                     TyDefnKind::Struct {
                         ref memb_vars,
                         ref memb_routines,
-                    } => self.gen_struct_defn(entity.ident, memb_vars, memb_routines),
+                    } => self.gen_struct_defn(entity.ident.custom(), memb_vars, memb_routines),
                     TyDefnKind::Record { .. } => (),
                 },
+                EntityDefnKind::Builtin => todo!(),
             }
         }
-        self.gen_init(&package.subentities);
+        self.gen_init(&package.subentity_defns);
     }
 
     pub(crate) fn finish(self) -> String {
         self.result
     }
 
-    fn gen_init(&mut self, subentities: &[Arc<Entity>]) {
+    fn gen_init(&mut self, subentities: &[Arc<EntityDefn>]) {
         msg_once!("link entity with compiled");
         self.result += r#"
 pub mod __init__ {

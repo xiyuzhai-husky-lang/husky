@@ -4,7 +4,7 @@ use crate::*;
 use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 
 use decl::TyDecl;
-use entity_route::{EntityRoutePtr, RangedScope, RawEntityKind, ScopeKind};
+use entity_route::{EntityRouteKind, EntityRoutePtr, RangedScope, RawEntityKind};
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr};

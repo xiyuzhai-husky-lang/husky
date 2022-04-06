@@ -4,8 +4,8 @@ use super::*;
 
 pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
     let element_ty_ident = db.custom_ident("T");
-    let element_ty = db.intern_scope(Route {
-        kind: ScopeKind::Generic {
+    let element_ty = db.intern_scope(EntityRoute {
+        kind: EntityRouteKind::Generic {
             ident: element_ty_ident,
             raw_entity_kind: RawEntityKind::Type(RawTyKind::Other),
         },

@@ -53,7 +53,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     //     Ok(self.stack.pop())
     // }
 
-    fn call_compiled(&mut self, f: &Compiled, nargs: u8) -> VMResult<()> {
+    fn call_compiled(&mut self, f: CompiledRoutine, nargs: u8) -> VMResult<()> {
         let result = (f.call)(self.stack.topk_mut(nargs))?;
         self.stack.push(result.into());
         Ok(())
@@ -76,7 +76,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     .push(VirtualTy::new_struct(inputs, memb_vars).into());
                 Ok(())
             }
-            TySignature::Vec => todo!(),
+            TySignature::Vec => todo!("this is wrong, vec constructor shouldn't be interpreted"),
         }
     }
 

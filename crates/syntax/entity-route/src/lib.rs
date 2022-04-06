@@ -13,12 +13,12 @@ pub use generic::*;
 pub use kind::RawEntityKind;
 use text::{TextRange, TextRanged};
 use visual_syntax::BuiltinVisualizer;
-use vm::{Compiled, EagerContract, InputContract};
+use vm::{CompiledRoutine, EagerContract, InputContract};
 use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier, Identifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
-pub struct Route {
-    pub kind: ScopeKind,
+pub struct EntityRoute {
+    pub kind: EntityRouteKind,
     pub generics: Vec<GenericArgument>,
 }
 
@@ -34,24 +34,24 @@ impl TextRanged for RangedScope {
     }
 }
 
-impl std::fmt::Debug for Route {
+impl std::fmt::Debug for EntityRoute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
-            ScopeKind::Builtin { ident } => ident.fmt(f)?,
-            ScopeKind::Package { main, ident } => {
+            EntityRouteKind::Builtin { ident } => ident.fmt(f)?,
+            EntityRouteKind::Package { main, ident } => {
                 // f.write_str("[package=")?;
                 // main.fmt(f)?;
                 // f.write_str("]")?;
                 // ident.fmt(f)?
                 f.write_str("package")?
             }
-            ScopeKind::ChildScope { parent, ident } => {
+            EntityRouteKind::ChildScope { parent, ident } => {
                 parent.fmt(f)?;
                 f.write_str("::")?;
                 ident.fmt(f)?
             }
-            ScopeKind::Contextual { main, ident } => todo!(),
-            ScopeKind::Generic { ident, .. } => todo!(),
+            EntityRouteKind::Contextual { main, ident } => todo!(),
+            EntityRouteKind::Generic { ident, .. } => todo!(),
         };
         if self.generics.len() > 0 {
             f.write_str("<")?;
@@ -97,20 +97,20 @@ impl From<EntityRoutePtr> for GenericArgument {
     }
 }
 
-impl From<BuiltinIdentifier> for ScopeKind {
+impl From<BuiltinIdentifier> for EntityRouteKind {
     fn from(ident: BuiltinIdentifier) -> Self {
         Self::Builtin { ident }
     }
 }
 
-impl From<&BuiltinIdentifier> for ScopeKind {
+impl From<&BuiltinIdentifier> for EntityRouteKind {
     fn from(ident: &BuiltinIdentifier) -> Self {
         Self::Builtin { ident: *ident }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ScopeKind {
+pub enum EntityRouteKind {
     Builtin {
         ident: BuiltinIdentifier,
     },
@@ -164,7 +164,7 @@ impl BuiltinEntityDecl {
 pub struct StaticFuncSignature {
     pub inputs: Vec<StaticInputSignature>,
     pub output: &'static str,
-    pub compiled: Option<Compiled>,
+    pub compiled: Option<CompiledRoutine>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -195,27 +195,44 @@ impl Into<InputSignature> for &InputPlaceholder {
     }
 }
 
-impl Route {
+impl EntityRoute {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
-        Route {
-            kind: ScopeKind::Package { main, ident },
+        EntityRoute {
+            kind: EntityRouteKind::Package { main, ident },
             generics: Vec::new(),
         }
     }
+
+    pub fn ident(&self) -> Identifier {
+        match self.kind {
+            EntityRouteKind::Builtin { ident } => ident.into(),
+            EntityRouteKind::Package { main, ident } => ident.into(),
+            EntityRouteKind::ChildScope { parent, ident } => ident.into(),
+            EntityRouteKind::Contextual { main, ident } => todo!(),
+            EntityRouteKind::Generic {
+                ident,
+                raw_entity_kind,
+            } => todo!(),
+        }
+    }
+
     pub fn child_scope(
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
-    ) -> Route {
-        Route {
-            kind: ScopeKind::ChildScope { parent, ident },
+    ) -> EntityRoute {
+        EntityRoute {
+            kind: EntityRouteKind::ChildScope { parent, ident },
             generics,
         }
     }
 
-    pub fn new_builtin(ident: BuiltinIdentifier, generic_arguments: Vec<GenericArgument>) -> Route {
-        Route {
-            kind: ScopeKind::Builtin { ident },
+    pub fn new_builtin(
+        ident: BuiltinIdentifier,
+        generic_arguments: Vec<GenericArgument>,
+    ) -> EntityRoute {
+        EntityRoute {
+            kind: EntityRouteKind::Builtin { ident },
             generics: generic_arguments,
         }
     }
@@ -229,7 +246,7 @@ impl Route {
     }
 
     pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
-        Route::new_builtin(
+        EntityRoute::new_builtin(
             if args.len() > 0 {
                 BuiltinIdentifier::Tuple
             } else {
@@ -240,21 +257,21 @@ impl Route {
     }
 
     pub fn default_func_type(args: Vec<GenericArgument>) -> Self {
-        Route::new_builtin(word::default_func_type(), args)
+        EntityRoute::new_builtin(word::default_func_type(), args)
     }
 
     pub fn is_builtin(&self) -> bool {
         match self.kind {
-            ScopeKind::Builtin { .. } => true,
-            ScopeKind::Package { .. } => false,
-            ScopeKind::ChildScope { parent, .. } => parent.is_builtin(),
-            ScopeKind::Contextual { .. } => false,
-            ScopeKind::Generic { ident, .. } => todo!(),
+            EntityRouteKind::Builtin { .. } => true,
+            EntityRouteKind::Package { .. } => false,
+            EntityRouteKind::ChildScope { parent, .. } => parent.is_builtin(),
+            EntityRouteKind::Contextual { .. } => false,
+            EntityRouteKind::Generic { ident, .. } => todo!(),
         }
     }
 }
 
-impl From<BuiltinIdentifier> for Route {
+impl From<BuiltinIdentifier> for EntityRoute {
     fn from(ident: BuiltinIdentifier) -> Self {
         Self::new_builtin(ident, Vec::new())
     }

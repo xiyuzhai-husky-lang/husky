@@ -21,7 +21,7 @@ use global::*;
 use infer_error::*;
 use instantiate::*;
 use std::sync::Arc;
-use vm::Compiled;
+use vm::CompiledRoutine;
 use word::CustomIdentifier;
 
 #[salsa::query_group(DeclQueryGroupStorage)]

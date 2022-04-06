@@ -202,13 +202,13 @@ impl SubscopeTable {
     pub fn error_iter(&self) -> core::slice::Iter<ScopeDefError> {
         self.errors.iter()
     }
-    pub fn subscopes(&self, parent_scope_id: EntityRoutePtr) -> Vec<Route> {
+    pub fn subscopes(&self, parent_scope_id: EntityRoutePtr) -> Vec<EntityRoute> {
         self.entries
             .iter()
             .filter_map(|entry| {
                 entry
                     .ident
-                    .map(|ident| Route::child_scope(parent_scope_id, ident, Vec::new()))
+                    .map(|ident| EntityRoute::child_scope(parent_scope_id, ident, Vec::new()))
             })
             .collect()
     }

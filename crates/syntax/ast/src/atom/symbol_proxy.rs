@@ -1,4 +1,4 @@
-use entity_route::{ScopeKind, *};
+use entity_route::{EntityRouteKind, *};
 use file::FilePtr;
 use text::{Row, TextRange};
 use word::{BuiltinIdentifier, ContextualIdentifier, CustomIdentifier};
@@ -23,7 +23,7 @@ impl Symbol {
 
 #[derive(Debug, Clone, Copy)]
 pub enum SymbolKind {
-    Scope(ScopeKind),
+    Scope(EntityRouteKind),
     Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
     ThisData { ty: Option<EntityRoutePtr> },
@@ -44,7 +44,7 @@ impl<'a> SymbolProxy<'a> {
         generics: Vec<GenericArgument>,
         tail: TextRange,
     ) -> Atom {
-        let scope = Route::new_builtin(ident.into(), generics);
+        let scope = EntityRoute::new_builtin(ident.into(), generics);
         let kind = AtomKind::Scope {
             scope: self.db.intern_scope(scope),
             kind: RawEntityKind::Type(match ident {
@@ -87,7 +87,7 @@ impl<'a> SymbolProxy<'a> {
         match ident {
             Identifier::Builtin(ident) => Ok(SymbolKind::Scope(ident.into())),
             Identifier::Contextual(ident) => match ident {
-                ContextualIdentifier::Input => Ok(SymbolKind::Scope(ScopeKind::Contextual {
+                ContextualIdentifier::Input => Ok(SymbolKind::Scope(EntityRouteKind::Contextual {
                     main: self
                         .main
                         .ok_or(error!(file, range, "can't use implicit without main"))?,
@@ -108,7 +108,7 @@ impl<'a> SymbolProxy<'a> {
 
     fn resolve_subscope(
         &self,
-        parent_scope: Route,
+        parent_scope: EntityRoute,
         subscope_ident: CustomIdentifier,
     ) -> Option<EntityRoutePtr> {
         self.db.subscope(

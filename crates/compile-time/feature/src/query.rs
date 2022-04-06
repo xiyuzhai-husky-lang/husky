@@ -1,6 +1,6 @@
 use entity_route::EntityRoutePtr;
 use instruction_gen::InstructionGenQueryGroup;
-use semantics_entity::{EntityKind, EntityQueryGroup};
+use semantics_entity::{EntityDefnKind, EntityQueryGroup};
 use semantics_error::SemanticResultArc;
 use semantics_package::*;
 use upcast::Upcast;
@@ -21,7 +21,7 @@ fn main_feature_block(
     main_file: file::FilePtr,
 ) -> SemanticResultArc<FeatureBlock> {
     let package = db.package(main_file)?;
-    let main = &*package.main;
+    let main = &*package.main_defn;
     Ok(FeatureBlock::new(db, None, &main.stmts, &[], db.features()))
 }
 
@@ -29,9 +29,9 @@ fn scoped_feature_block(
     db: &dyn FeatureQueryGroup,
     scope: EntityRoutePtr,
 ) -> SemanticResultArc<FeatureBlock> {
-    let entity = db.entity(scope)?;
+    let entity = db.entity_defn(scope)?;
     match entity.kind() {
-        EntityKind::Feature { ref lazy_stmts, .. } => {
+        EntityDefnKind::Feature { ref lazy_stmts, .. } => {
             Ok(FeatureBlock::new(db, None, lazy_stmts, &[], db.features()))
         }
         _ => todo!(),

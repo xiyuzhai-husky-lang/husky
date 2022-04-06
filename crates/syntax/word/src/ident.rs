@@ -8,6 +8,23 @@ pub enum Identifier {
     Contextual(ContextualIdentifier),
 }
 
+impl Identifier {
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            Identifier::Builtin(ident) => ident.as_str(),
+            Identifier::Custom(ident) => ident.as_str(),
+            Identifier::Contextual(ident) => ident.as_str(),
+        }
+    }
+
+    pub fn custom(&self) -> CustomIdentifier {
+        match self {
+            Identifier::Custom(ident) => *ident,
+            _ => panic!(""),
+        }
+    }
+}
+
 impl Deref for Identifier {
     type Target = str;
 
@@ -37,6 +54,10 @@ impl CustomIdentifier {
     }
     pub fn dash_name(&self) -> String {
         todo!()
+    }
+
+    pub fn as_str(&self) -> &'static str {
+        self.0
     }
 }
 
@@ -77,6 +98,12 @@ impl Deref for CustomIdentifier {
 impl Borrow<str> for CustomIdentifier {
     fn borrow(&self) -> &str {
         self.deref()
+    }
+}
+
+impl From<BuiltinIdentifier> for Identifier {
+    fn from(ident: BuiltinIdentifier) -> Self {
+        Self::Builtin(ident)
     }
 }
 
@@ -125,6 +152,12 @@ impl Deref for BuiltinIdentifier {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
+        self.as_str()
+    }
+}
+
+impl BuiltinIdentifier {
+    pub fn as_str(&self) -> &'static str {
         match self {
             BuiltinIdentifier::Void => "()",
             BuiltinIdentifier::I32 => "i32",
@@ -168,15 +201,21 @@ pub enum ContextualIdentifier {
     ThisType,
 }
 
-impl Deref for ContextualIdentifier {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
+impl ContextualIdentifier {
+    pub fn as_str(&self) -> &'static str {
         match self {
             ContextualIdentifier::Input => "input",
             ContextualIdentifier::ThisData => "this",
             ContextualIdentifier::ThisType => "This",
         }
+    }
+}
+
+impl Deref for ContextualIdentifier {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        self.as_str()
     }
 }
 

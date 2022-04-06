@@ -2,9 +2,9 @@ use crate::*;
 
 use decl::TyDeclKind;
 use syntax_types::SuffixOpr;
-use vm::{BinaryOpr, Compiled, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
+use vm::{BinaryOpr, CompiledRoutine, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
 
-impl InstructionSheetBuilder {
+impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
         match expr.kind {
             EagerExprKind::Variable(ident) => {
@@ -42,7 +42,7 @@ impl InstructionSheetBuilder {
     fn compile_opn(
         &mut self,
         opn_kind: &EagerOpnKind,
-        compiled: Option<Compiled>,
+        compiled: Option<CompiledRoutine>,
         opds: &[Arc<EagerExpr>],
         expr: &Arc<EagerExpr>,
     ) {
@@ -88,7 +88,7 @@ impl InstructionSheetBuilder {
                 if let Some(compiled) = compiled {
                     self.push_instruction(Instruction::new(
                         InstructionKind::CallCompiled {
-                            compiled: todo!(),
+                            compiled,
                             nargs: opds.len() as u8,
                         },
                         expr.clone(),
@@ -115,7 +115,10 @@ impl InstructionSheetBuilder {
                 } => todo!(),
                 TyDeclKind::Vec { element_ty } => self.push_instruction(Instruction::new(
                     InstructionKind::CallCompiled {
-                        compiled: todo!(),
+                        compiled: self
+                            .db
+                            .fp_table()
+                            .vec_constructor(self.db.entity_uid(element_ty)),
                         nargs: opds.len() as u8,
                     },
                     expr.clone(),
