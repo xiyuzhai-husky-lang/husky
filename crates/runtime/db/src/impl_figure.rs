@@ -111,10 +111,8 @@ impl HuskyLangRuntime {
                         let dev_division = &mut session.dev;
                         dev_division.loader.load(input_id).input.clone()
                     };
-                    let global_input_ty = self
-                        .compile_time
-                        .global_input_ty(self.package_main)
-                        .unwrap();
+                    let global_input_ty =
+                        self.compile_time.global_input_ty(self.pack_main).unwrap();
                     let visualizer = self.visualizer(self.version(), global_input_ty);
                     let global_input_ref = &*global_input;
                     let visual_props = visualizer.visualize(global_input_ref);

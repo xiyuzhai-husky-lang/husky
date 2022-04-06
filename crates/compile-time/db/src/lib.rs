@@ -17,16 +17,16 @@ pub use infer_contract::*;
 pub use infer_total::*;
 pub use infer_ty::*;
 pub use instruction_gen::InstructionGenQueryGroup;
+pub use pack_semantics::PackQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
 pub use semantics_entity::EntityQueryGroup;
-pub use semantics_package::PackageQueryGroup;
 pub use token::TokenQueryGroup;
 pub use word::InternWord;
 
 use check_utils::*;
 use entity_route::EntityRoutePtr;
 use print_utils::*;
-use semantics_entity::EntityDefnKind;
+use semantics_entity::{EntityDefnKind, EntityRouteStore};
 use std::{
     collections::HashMap,
     fmt,
@@ -44,7 +44,7 @@ use sync_utils::ARwLock;
     infer_ty::InferTyQueryGroupStorage,
     infer_contract::InferContractQueryGroupStorage,
     semantics_entity::EntityQueryGroupStorage,
-    semantics_package::PackageQueryGroupStorage,
+    pack_semantics::PackQueryGroupStorage,
     feature::FeatureQueryGroupStorage,
     diagnostic::DiagnosticQueryStorage,
     instruction_gen::InstructionGenQueryGroupStorage,
@@ -58,6 +58,7 @@ pub struct HuskyLangCompileTime {
     live_docs: ARwLock<HashMap<FilePtr, ARwLock<String>>>,
     features: feature::FeatureUniqueAllocator,
     fp_table: FpTable,
+    entity_route_store: EntityRouteStore,
 }
 
 pub trait AskCompileTime {

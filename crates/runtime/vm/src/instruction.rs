@@ -3,7 +3,6 @@ mod sheet;
 
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
-use word::{CustomIdentifier, IdentMap};
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -59,12 +58,12 @@ pub enum InstructionKind {
         memb_idx: u8,
         contract: EagerContract,
     },
-    CallCompiled {
-        compiled: CompiledRoutine,
+    RoutineCallCompiled {
+        compiled: CompiledRustCall,
         nargs: u8,
     },
     RoutineCallInterpreted {
-        instructions: Arc<Vec<Instruction>>,
+        routine: EntityUid,
         nargs: u8,
     },
     NewVirtualStruct {

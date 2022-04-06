@@ -26,10 +26,10 @@ pub const MNIST_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
 
 const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Func(StaticFuncSignature {
+    decl: BuiltinEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
-        compiled: Some(CompiledRoutine {
+        compiled: Some(CompiledRustCall {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
         }),
     }),

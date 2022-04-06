@@ -1,10 +1,9 @@
 use std::collections::HashMap;
 
 use check_utils::*;
-use entity_route::EntityRoutePtr;
-use semantics_entity::EntityUid;
 use sync_utils::ARwLock;
-use vm::{BoxedValue, CompiledRoutine, EvalValue, StackValue, VMResult};
+use vm::EntityUid;
+use vm::{BoxedValue, CompiledRustCall, EvalValue, StackValue, VMResult};
 
 pub trait HasFpTable {
     fn fp_table(&self) -> &FpTable;
@@ -12,33 +11,38 @@ pub trait HasFpTable {
 
 #[derive(Debug, Default, Clone)]
 pub struct FpTable {
-    compiled_routines: ARwLock<HashMap<RoutineKey, CompiledRoutine>>,
+    compiled_rust_calls: ARwLock<HashMap<CallKey, CompiledRustCall>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum RoutineKey {
+pub enum CallKey {
     VecConstructor { element_ty_uid: EntityUid },
     StructConstructor { ty_uid: EntityUid },
+    Routine { routine_uid: EntityUid },
 }
 
 impl FpTable {
-    pub fn vec_constructor(&self, element_ty_uid: EntityUid) -> CompiledRoutine {
-        let routine_key = RoutineKey::VecConstructor { element_ty_uid };
-        if let Some(compiled_routine) = self.compiled_routine(routine_key) {
+    pub fn vec_constructor(&self, element_ty_uid: EntityUid) -> CompiledRustCall {
+        let routine_key = CallKey::VecConstructor { element_ty_uid };
+        if let Some(compiled_routine) = self.compiled_rust_call(routine_key) {
             compiled_routine
         } else {
-            CompiledRoutine {
+            CompiledRustCall {
                 call: construct_virtual_vec,
             }
         }
     }
 
-    pub fn struct_constructor(&self, ty_uid: EntityUid) -> Option<CompiledRoutine> {
-        self.compiled_routine(RoutineKey::StructConstructor { ty_uid })
+    pub fn struct_constructor(&self, ty_uid: EntityUid) -> Option<CompiledRustCall> {
+        self.compiled_rust_call(CallKey::StructConstructor { ty_uid })
     }
 
-    fn compiled_routine(&self, key: RoutineKey) -> Option<CompiledRoutine> {
-        self.compiled_routines
+    pub fn routine(&self, routine_uid: EntityUid) -> Option<CompiledRustCall> {
+        self.compiled_rust_call(CallKey::Routine { routine_uid })
+    }
+
+    fn compiled_rust_call(&self, key: CallKey) -> Option<CompiledRustCall> {
+        self.compiled_rust_calls
             .read(|entries| entries.get(&key).map(|compiled_routine| *compiled_routine))
     }
 }

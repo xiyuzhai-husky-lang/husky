@@ -40,11 +40,12 @@ pub struct HuskyLangRuntime {
     focus: Focus,
     expansions: HashMap<TraceId, bool>,
     showns: HashMap<TraceId, bool>,
-    package_main: FilePtr,
+    pack_main: FilePtr,
 }
 
 impl AskCompileTime for HuskyLangRuntime {
     fn compile_time(&self, _version: usize) -> &HuskyLangCompileTime {
+        msg_once!("check version");
         &self.compile_time
     }
 }
@@ -80,9 +81,9 @@ impl HuskyLangRuntime {
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
-        let package_main = all_main_files[0];
-        let package = match compile_time.package(package_main) {
-            Ok(package) => package,
+        let pack_main = all_main_files[0];
+        let pack = match compile_time.pack(pack_main) {
+            Ok(pack) => pack,
             Err(error) => {
                 println!("{:?}", error);
                 panic!()
@@ -90,16 +91,16 @@ impl HuskyLangRuntime {
         };
         let mut runtime = Self {
             storage: Default::default(),
-            session: Arc::new(Mutex::new(Session::new(&package, &compile_time).unwrap())),
+            session: Arc::new(Mutex::new(Session::new(&pack, &compile_time).unwrap())),
             compile_time,
             traces: Default::default(),
             focus: Default::default(),
             expansions: Default::default(),
             showns: Default::default(),
-            package_main,
+            pack_main,
         };
         runtime.set_version(0);
-        runtime.set_package_main(package_main);
+        runtime.set_pack_main(pack_main);
         runtime
     }
 

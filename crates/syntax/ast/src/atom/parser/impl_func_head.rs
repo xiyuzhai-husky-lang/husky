@@ -57,8 +57,8 @@ impl<'a> AtomLRParser<'a> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
-            traits.push(RangedScope {
-                scope: get!(self, ty?),
+            traits.push(RangedEntityRoute {
+                route: get!(self, ty?),
                 range: self.stream.pop_range(),
             });
             if next_matches!(self, "+") {
@@ -76,8 +76,8 @@ impl<'a> AtomLRParser<'a> {
     fn func_input_placeholder(&mut self) -> AstResult<InputPlaceholder> {
         let ident = get!(self, custom_ident);
         no_look_pass!(self, ":");
-        let ty = RangedScope {
-            scope: get!(self, ty?),
+        let ty = RangedEntityRoute {
+            route: get!(self, ty?),
             range: self.stream.pop_range(),
         };
         Ok(InputPlaceholder {
@@ -87,15 +87,15 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn func_output_type(&mut self) -> AstResult<RangedScope> {
+    fn func_output_type(&mut self) -> AstResult<RangedEntityRoute> {
         Ok(if next_matches!(self, "->") {
-            RangedScope {
-                scope: get!(self, ty?),
+            RangedEntityRoute {
+                route: get!(self, ty?),
                 range: self.stream.pop_range(),
             }
         } else {
-            RangedScope {
-                scope: EntityRoutePtr::Builtin(BuiltinIdentifier::Void),
+            RangedEntityRoute {
+                route: EntityRoutePtr::Builtin(BuiltinIdentifier::Void),
                 range: self.stream.pop_range(),
             }
         })

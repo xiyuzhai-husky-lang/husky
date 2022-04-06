@@ -189,7 +189,7 @@ pub struct CargoRunnable {
     pub override_cargo: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub workspace_root: Option<PathBuf>,
-    // command, --package and --lib stuff
+    // command, --pack and --lib stuff
     pub cargo_args: Vec<String>,
     // user-specified additional cargo args, like `--release`.
     pub cargo_extra_args: Vec<String>,

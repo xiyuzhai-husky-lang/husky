@@ -39,7 +39,7 @@ pub trait RuntimeQueryGroup:
     AskCompileTime + CreateTrace<'static> + EvalFeature + VisualQueryGroup
 {
     #[salsa::input]
-    fn package_main(&self) -> FilePtr;
+    fn pack_main(&self) -> FilePtr;
 
     #[salsa::input]
     fn version(&self) -> usize;
@@ -56,25 +56,25 @@ pub trait RuntimeQueryGroup:
 
 pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<TraceId>> {
     let compile_time = this.compile_time(this.version());
-    let package_main = this.package_main();
+    let pack_main = this.pack_main();
     Arc::new(vec![this
         .new_trace(
             None,
-            package_main,
+            pack_main,
             0,
-            TraceKind::Main(compile_time.main_feature_block(package_main).unwrap()),
+            TraceKind::Main(compile_time.main_feature_block(pack_main).unwrap()),
         )
         .id()])
 }
 
 pub fn subtraces(
-    this: &dyn RuntimeQueryGroup,
+    db: &dyn RuntimeQueryGroup,
     trace_id: TraceId,
     opt_input_id: Option<usize>,
 ) -> Arc<Vec<Arc<Trace<'static>>>> {
-    let trace: &Trace = &this.trace(trace_id);
+    let trace: &Trace = &db.trace(trace_id);
     match trace.kind {
-        TraceKind::Main(ref block) => this.feature_block_subtraces(&trace, block),
+        TraceKind::Main(ref block) => db.feature_block_subtraces(&trace, block),
         TraceKind::FeatureStmt(_)
         | TraceKind::Input(_)
         | TraceKind::StrictDeclStmt { .. }
@@ -99,23 +99,37 @@ pub fn subtraces(
                     result,
                     ref stack_snapshot,
                     ref body,
-                } => this.loop_subtraces(trace, loop_kind, stmt, stmts, stack_snapshot, body),
+                } => db.loop_subtraces(
+                    db.compile_time(trace.compile_time_version()),
+                    trace,
+                    loop_kind,
+                    stmt,
+                    stmts,
+                    stack_snapshot,
+                    body,
+                ),
             },
         },
-        TraceKind::FeatureExpr(ref expr) => feature_expr_subtraces(this, trace, expr, opt_input_id),
-        TraceKind::FeatureBranch(ref branch) => this.feature_branch_subtraces(trace, branch),
+        TraceKind::FeatureExpr(ref expr) => feature_expr_subtraces(db, trace, expr, opt_input_id),
+        TraceKind::FeatureBranch(ref branch) => db.feature_branch_subtraces(trace, branch),
         TraceKind::EagerExpr { .. } => todo!(),
         TraceKind::LoopFrame {
             loop_frame_snapshot: ref vm_loop_frame,
             ref body_stmts,
             ref body_instruction_sheet,
             ..
-        } => this.loop_frame_subtraces(trace, vm_loop_frame, body_instruction_sheet, body_stmts),
+        } => db.loop_frame_subtraces(
+            db.compile_time(trace.compile_time_version()),
+            trace,
+            vm_loop_frame,
+            body_instruction_sheet,
+            body_stmts,
+        ),
     }
 }
 
 fn feature_expr_subtraces(
-    this: &dyn RuntimeQueryGroup,
+    db: &dyn RuntimeQueryGroup,
     parent: &Trace,
     expr: &FeatureExpr,
     opt_input_id: Option<usize>,
@@ -135,22 +149,22 @@ fn feature_expr_subtraces(
             if let Some(input_id) = opt_input_id {
                 let mut subtraces = vec![];
                 let mut func_input_values = vec![];
-                let entity_defn = this
-                    .compile_time(this.version())
-                    .entity_defn(ranged_scope.scope)
+                let entity_defn = db
+                    .compile_time(db.version())
+                    .entity_defn(ranged_scope.route)
                     .unwrap();
                 subtraces.push(
-                    this.trace_factory()
-                        .new_call_head(entity_defn.clone(), &this.text(callee_file).unwrap()),
+                    db.trace_factory()
+                        .new_call_head(entity_defn.clone(), &db.text(callee_file).unwrap()),
                 );
                 for func_input in inputs {
-                    subtraces.push(this.new_trace(
+                    subtraces.push(db.new_trace(
                         Some(parent.id()),
                         expr.file,
                         4,
                         TraceKind::Input(func_input.clone()),
                     ));
-                    match this.eval_feature_expr(func_input, input_id) {
+                    match db.eval_feature_expr(func_input, input_id) {
                         Ok(value) => func_input_values.push(value),
                         Err(_) => return Arc::new(subtraces),
                     }
@@ -179,22 +193,22 @@ fn feature_expr_subtraces(
             if let Some(input_id) = opt_input_id {
                 let mut subtraces = vec![];
                 let mut func_input_values = vec![];
-                let entity = this
-                    .compile_time(this.version())
-                    .entity_defn(ranged_scope.scope)
+                let entity = db
+                    .compile_time(db.version())
+                    .entity_defn(ranged_scope.route)
                     .unwrap();
                 subtraces.push(
-                    this.trace_factory()
-                        .new_call_head(entity.clone(), &this.text(callee_file).unwrap()),
+                    db.trace_factory()
+                        .new_call_head(entity.clone(), &db.text(callee_file).unwrap()),
                 );
                 for func_input in inputs {
-                    subtraces.push(this.new_trace(
+                    subtraces.push(db.new_trace(
                         Some(parent.id()),
                         expr.file,
                         4,
                         TraceKind::Input(func_input.clone()),
                     ));
-                    match this.eval_feature_expr(func_input, input_id) {
+                    match db.eval_feature_expr(func_input, input_id) {
                         Ok(value) => match value.into_stack() {
                             Ok(value) => func_input_values.push(value),
                             Err(_) => {
@@ -208,12 +222,16 @@ fn feature_expr_subtraces(
                         }
                     }
                 }
-                let history = exec_debug(func_input_values, instruction_sheet);
-                subtraces.extend(this.trace_factory().impr_stmts_traces(
+                let history = exec_debug(
+                    db.compile_time(parent.compile_time_version()),
+                    func_input_values,
+                    instruction_sheet,
+                );
+                subtraces.extend(db.trace_factory().impr_stmts_traces(
                     parent.id(),
                     4,
                     stmts,
-                    &this.text(callee_file).unwrap(),
+                    &db.text(callee_file).unwrap(),
                     &history,
                 ));
                 subtraces

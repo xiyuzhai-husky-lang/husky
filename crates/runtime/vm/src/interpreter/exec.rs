@@ -32,7 +32,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.push(value.into());
                     VMControl::None
                 }
-                InstructionKind::CallCompiled { compiled, nargs } => {
+                InstructionKind::RoutineCallCompiled { compiled, nargs } => {
                     let control = self.call_compiled(compiled, nargs).into();
                     match mode {
                         Mode::Fast => (),
@@ -43,11 +43,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::PrimitiveOpn(opn) => {
                     self.exec_primitive_opn(opn, mode, ins).into()
                 }
-                InstructionKind::RoutineCallInterpreted {
-                    ref instructions,
-                    nargs,
-                } => {
-                    let control = self.routine_call_interpreted(instructions, nargs).into();
+                InstructionKind::RoutineCallInterpreted { routine, nargs } => {
+                    let instruction_sheet = self.db.entity_instruction_sheet_by_uid(routine);
+                    let control = self
+                        .routine_call_interpreted(&instruction_sheet.instructions, nargs)
+                        .into();
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => todo!(),
@@ -103,7 +103,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn exec_code(&mut self, code: CompiledRoutine) -> EvalResult<'eval> {
+    pub(crate) fn exec_code(&mut self, code: CompiledRustCall) -> EvalResult<'eval> {
         todo!()
     }
 

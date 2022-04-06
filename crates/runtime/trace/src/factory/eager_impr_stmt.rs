@@ -1,4 +1,6 @@
+use compile_time_db::HuskyLangCompileTime;
 use text::Text;
+use upcast::Upcast;
 use vm::{
     exec_debug, exec_loop_debug, BoundaryKind, History, InstructionSheet, LoopFrameSnapshot,
     StackSnapshot, VMControl,
@@ -206,6 +208,7 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn loop_subtraces(
         &self,
+        compile_time: &HuskyLangCompileTime,
         parent: &Trace,
         loop_kind: &LoopKind,
         loop_stmt: &Arc<ProcStmt>,
@@ -214,7 +217,12 @@ impl<'eval> TraceFactory<'eval> {
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
-        let frames = exec_loop_debug(stack_snapshot, loop_kind.into(), &body_instruction_sheet);
+        let frames = exec_loop_debug(
+            compile_time.upcast(),
+            stack_snapshot,
+            loop_kind.into(),
+            &body_instruction_sheet,
+        );
         Arc::new(
             frames
                 .into_iter()
@@ -237,13 +245,18 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn loop_frame_subtraces(
         &self,
+        compile_time: &HuskyLangCompileTime,
         parent: &Trace,
         loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
         instruction_sheet: &InstructionSheet,
         stmts: &[Arc<ProcStmt>],
         text: &Text,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
-        let history = exec_debug(&loop_frame_snapshot.stack, instruction_sheet);
+        let history = exec_debug(
+            compile_time.upcast(),
+            &loop_frame_snapshot.stack,
+            instruction_sheet,
+        );
         Arc::new(
             self.impr_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history)
                 .collect(),

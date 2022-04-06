@@ -50,7 +50,7 @@ impl<'a> TySheetBuilder<'a> {
                         ref routine_head, ..
                     } => self.infer_routine(
                         &routine_head.input_placeholders,
-                        routine_head.output.scope,
+                        routine_head.output.route,
                         item.children.unwrap(),
                         &arena,
                     ),
@@ -63,12 +63,12 @@ impl<'a> TySheetBuilder<'a> {
                         ..
                     } => self.infer_routine(
                         &memb_routine_head.input_placeholders,
-                        memb_routine_head.output.scope,
+                        memb_routine_head.output.route,
                         item.children.unwrap(),
                         &arena,
                     ),
                     AstKind::FeatureDecl { ty, .. } => {
-                        self.infer_morphism(&[], ty.scope, item.children.unwrap(), &arena)
+                        self.infer_morphism(&[], ty.route, item.children.unwrap(), &arena)
                     }
                     AstKind::MembFeatureDefnHead { ty, .. } => {
                         self.infer_morphism(&[], ty, item.children.unwrap(), &arena)
@@ -92,7 +92,7 @@ impl<'a> TySheetBuilder<'a> {
                         .variables
                         .insert(
                             (input.ident, inputs[0].ranged_ty.row()),
-                            Some(input.ranged_ty.scope),
+                            Some(input.ranged_ty.route),
                         )
                         .is_none());
                 }

@@ -51,12 +51,12 @@ impl Debugger {
     }
 
     pub async fn serve_on_error(self, addr: impl ToSocketAddrs, input_id: usize) -> bool {
-        let package_main: &Path = &self.runtime.lock().unwrap().package_main();
+        let pack_main: &Path = &self.runtime.lock().unwrap().pack_main();
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,
             print_utils::RESET,
-            package_main.parent().unwrap().to_str().unwrap(),
+            pack_main.parent().unwrap().to_str().unwrap(),
         );
         let mut error_flag = false;
         for trace in self.root_traces().iter() {

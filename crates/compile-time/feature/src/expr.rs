@@ -1,7 +1,7 @@
 mod impl_opn;
 
 use entity_route::{EntityRouteKind, InputPlaceholder};
-use entity_route::{EntityRoutePtr, RangedScope};
+use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use semantics_eager::*;
 use semantics_entity::*;
@@ -9,7 +9,7 @@ use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
 use vm::{
-    CompiledRoutine, EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled,
+    CompiledRustCall, EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled,
 };
 use word::{BuiltinIdentifier, ContextualIdentifier};
 
@@ -60,22 +60,22 @@ pub enum FeatureExprKind {
         repr: FeatureRepr,
     },
     FuncCall {
-        func_ranged_scope: RangedScope,
+        func_ranged_scope: RangedEntityRoute,
         inputs: Vec<Arc<FeatureExpr>>,
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        compiled: Option<CompiledRoutine>,
+        compiled: Option<CompiledRustCall>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     ProcCall {
-        proc_ranged_scope: RangedScope,
+        proc_ranged_scope: RangedEntityRoute,
         inputs: Vec<Arc<FeatureExpr>>,
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        opt_compiled: Option<CompiledRoutine>,
+        opt_compiled: Option<CompiledRustCall>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
@@ -95,14 +95,14 @@ pub enum FeatureExprKind {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<CompiledRoutine>,
+        opt_compiled: Option<CompiledRustCall>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     MembProcCall {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<CompiledRoutine>,
+        opt_compiled: Option<CompiledRustCall>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     MembPattCall {
@@ -117,7 +117,7 @@ pub enum FeatureExprKind {
     },
     GlobalInput,
     ClassCall {
-        ty: RangedScope,
+        ty: RangedEntityRoute,
         entity: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureExpr>>,
     },
@@ -195,7 +195,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.this.as_ref().unwrap().feature(),
             ),
             LazyExprKind::ScopedFeature { scope } => match scope.kind {
-                EntityRouteKind::Builtin { .. } | EntityRouteKind::Package { .. } => panic!(),
+                EntityRouteKind::Builtin { .. } | EntityRouteKind::pack { .. } => panic!(),
                 EntityRouteKind::ChildScope { .. } => {
                     let uid = self.db.entity_uid(scope);
                     let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });

@@ -2,7 +2,7 @@ use crate::*;
 
 use decl::TyDeclKind;
 use syntax_types::SuffixOpr;
-use vm::{BinaryOpr, CompiledRoutine, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
+use vm::{BinaryOpr, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
@@ -17,7 +17,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     expr.clone(),
                 ))
             }
-            EagerExprKind::Scope { scope, compiled } => todo!(),
+            EagerExprKind::Scope { scope } => todo!(),
             EagerExprKind::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
                 InstructionKind::PushPrimitiveLiteral(value),
                 expr.clone(),
@@ -25,9 +25,8 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprKind::Bracketed(_) => todo!(),
             EagerExprKind::Opn {
                 ref opn_kind,
-                compiled,
                 ref opds,
-            } => self.compile_opn(opn_kind, compiled, opds, expr),
+            } => self.compile_opn(opn_kind, opds, expr),
             EagerExprKind::Lambda(_, _) => todo!(),
             EagerExprKind::This => self.push_instruction(Instruction::new(
                 InstructionKind::PushVariable {
@@ -42,7 +41,6 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_opn(
         &mut self,
         opn_kind: &EagerOpnKind,
-        compiled: Option<CompiledRoutine>,
         opds: &[Arc<EagerExpr>],
         expr: &Arc<EagerExpr>,
     ) {
@@ -85,16 +83,26 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(instruction)
             }
             EagerOpnKind::RoutineCall(routine) => {
-                if let Some(compiled) = compiled {
+                if let Some(compiled) = self
+                    .db
+                    .fp_table()
+                    .routine(self.db.entity_uid(routine.route))
+                {
                     self.push_instruction(Instruction::new(
-                        InstructionKind::CallCompiled {
+                        InstructionKind::RoutineCallCompiled {
                             compiled,
                             nargs: opds.len() as u8,
                         },
                         expr.clone(),
                     ))
                 } else {
-                    todo!()
+                    self.push_instruction(Instruction::new(
+                        InstructionKind::RoutineCallInterpreted {
+                            routine: self.db.entity_uid(routine.route),
+                            nargs: opds.len() as u8,
+                        },
+                        expr.clone(),
+                    ))
                 }
             }
             EagerOpnKind::PatternCall => todo!(),
@@ -114,7 +122,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ref memb_features,
                 } => todo!(),
                 TyDeclKind::Vec { element_ty } => self.push_instruction(Instruction::new(
-                    InstructionKind::CallCompiled {
+                    InstructionKind::RoutineCallCompiled {
                         compiled: self
                             .db
                             .fp_table()
@@ -138,7 +146,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         if let Some(compiled_routine) = self
                             .db
                             .fp_table()
-                            .struct_constructor(self.db.entity_uid(ranged_ty.scope))
+                            .struct_constructor(self.db.entity_uid(ranged_ty.route))
                         {
                             todo!()
                         }

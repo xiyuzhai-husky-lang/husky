@@ -13,6 +13,7 @@ sync-utils = { path = "../../utils/sync", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
+upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
@@ -21,3 +22,4 @@ semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 feature = { path = "../../compile-time/feature", version = "0.0.0" }
 visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }
+compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }

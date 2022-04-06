@@ -6,7 +6,7 @@ pub use opr::*;
 
 use entity_route::{
     EntityRouteKind, EntityRoutePtr, GenericPlaceholderKind, InputPlaceholder, InputSignature,
-    RangedScope,
+    RangedEntityRoute,
 };
 use vm::{InputContract, MembAccessContract};
 use word::{CustomIdentifier, IdentMap};
@@ -50,7 +50,7 @@ pub struct RoutineHead {
     pub routine_name: CustomIdentifier,
     pub generic_placeholders: IdentMap<GenericPlaceholderKind>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
-    pub output: RangedScope,
+    pub output: RangedEntityRoute,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -60,7 +60,7 @@ pub struct MembRoutineHead {
     pub routine_name: CustomIdentifier,
     pub generics: IdentMap<GenericPlaceholderKind>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
-    pub output: RangedScope,
+    pub output: RangedEntityRoute,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -78,7 +78,7 @@ impl Into<MembCallDecl> for &MembRoutineHead {
                 .iter()
                 .map(|input_placeholder| input_placeholder.into())
                 .collect(),
-            output: self.output.scope,
+            output: self.output.route,
             args: self.generics.clone(),
         }
     }

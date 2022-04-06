@@ -1,7 +1,7 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
-use entity_route::StaticFuncSignature;
+use entity_route::StaticFuncDecl;
 use std::sync::Arc;
-use vm::{BoxedValue, CompiledRoutine, StackValue};
+use vm::{BoxedValue, CompiledRustCall, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
@@ -14,10 +14,10 @@ pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
 
 pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Func(StaticFuncSignature {
+    decl: BuiltinEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<f32, i32>",
-        compiled: Some(CompiledRoutine {
+        compiled: Some(CompiledRustCall {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
         }),
     }),
@@ -25,10 +25,10 @@ pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
 
 pub const DATASET2_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Func(StaticFuncSignature {
+    decl: BuiltinEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<f32, i32>",
-        compiled: Some(CompiledRoutine {
+        compiled: Some(CompiledRustCall {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
         }),
     }),

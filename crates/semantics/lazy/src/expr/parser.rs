@@ -4,7 +4,7 @@ use crate::*;
 use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
 
 use decl::TyDecl;
-use entity_route::{EntityRouteKind, EntityRoutePtr, RangedScope, RawEntityKind};
+use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute, RawEntityKind};
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr};
@@ -244,12 +244,12 @@ pub trait LazyExprParser<'a> {
                     RawEntityKind::Module => todo!(),
                     RawEntityKind::Type(ty_kind) => match ty_kind {
                         RawTyKind::Enum => todo!(),
-                        RawTyKind::Record => LazyOpnKind::ClassCall(RangedScope {
-                            scope,
+                        RawTyKind::Record => LazyOpnKind::ClassCall(RangedEntityRoute {
+                            route: scope,
                             range: call.range(),
                         }),
-                        RawTyKind::Struct => LazyOpnKind::StructCall(RangedScope {
-                            scope,
+                        RawTyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
+                            route: scope,
                             range: call.range(),
                         }),
                         RawTyKind::Primitive => todo!(),
@@ -258,8 +258,8 @@ pub trait LazyExprParser<'a> {
                         RawTyKind::Array => todo!(),
                     },
                     RawEntityKind::Trait => todo!(),
-                    RawEntityKind::Routine => LazyOpnKind::RoutineCall(RangedScope {
-                        scope,
+                    RawEntityKind::Routine => LazyOpnKind::RoutineCall(RangedEntityRoute {
+                        route: scope,
                         range: call.range(),
                     }),
                     RawEntityKind::Feature => todo!(),

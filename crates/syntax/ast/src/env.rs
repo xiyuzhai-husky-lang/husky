@@ -4,7 +4,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Env {
-    Package(FilePtr),
+    pack(FilePtr),
     Module(EntityRoutePtr),
     DatasetConfig,
     Main,
@@ -21,7 +21,7 @@ pub enum Env {
 impl Env {
     pub fn subscope(&self, db: &dyn AstSalsaQueryGroup, ident: CustomIdentifier) -> EntityRoutePtr {
         match self {
-            Env::Package(main) => db
+            Env::pack(main) => db
                 .subscope(db.module(*main).unwrap(), ident, vec![])
                 .unwrap(),
             Env::Module(_) => todo!(),
@@ -42,7 +42,7 @@ impl Env {
 impl std::fmt::Display for Env {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str(match self {
-            Env::Package(_) => "package",
+            Env::pack(_) => "pack",
             Env::Module(_) => "module",
             Env::DatasetConfig => "dataset config",
             Env::Main => "main",

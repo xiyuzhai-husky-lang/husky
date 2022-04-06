@@ -1,8 +1,8 @@
 mod division;
 mod tests;
 
+use pack_semantics::{Config, Pack};
 use semantics_eager::FuncStmt;
-use semantics_package::{Config, Package};
 use trivial_iter::TrivialIter;
 use vm::{eval_fast, EvalResult, Mode, VMResult};
 
@@ -43,11 +43,12 @@ impl<'sess> Default for ValidationReport<'sess> {
 }
 
 impl<'sess> Session<'sess> {
-    pub(crate) fn new(package: &Package, compile_time: &HuskyLangCompileTime) -> VMResult<Self> {
-        let config = package.config.clone();
+    pub(crate) fn new(pack: &Pack, compile_time: &HuskyLangCompileTime) -> VMResult<Self> {
+        let config = pack.config.clone();
         let dataset: Dataset = eval_fast(
+            compile_time,
             TrivialIter::default(),
-            &compile_time.dataset_config_instruction_sheet(package.main_defn.file),
+            &compile_time.dataset_config_instruction_sheet(pack.main_defn.file),
             None,
         )?
         .into_boxed()?

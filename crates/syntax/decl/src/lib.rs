@@ -21,12 +21,12 @@ use global::*;
 use infer_error::*;
 use instantiate::*;
 use std::sync::Arc;
-use vm::CompiledRoutine;
+use vm::CompiledRustCall;
 use word::CustomIdentifier;
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
-    fn call_decl(&self, scope: EntityRoutePtr) -> InferResultArc<CallSignature>;
+    fn call_decl(&self, scope: EntityRoutePtr) -> InferResultArc<CallDecl>;
     fn ty_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TyDecl>;
     fn feature_decl(&self, scope: EntityRoutePtr) -> InferResultArc<FeatureSignature>;
     fn global_input_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;

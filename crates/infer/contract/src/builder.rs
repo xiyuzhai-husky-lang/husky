@@ -50,7 +50,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstKind::RoutineDefnHead {
                         ref routine_head, ..
                     } => self.infer_routine(
-                        routine_head.output.scope,
+                        routine_head.output.route,
                         item.children.unwrap(),
                         &arena,
                     ),
@@ -62,12 +62,12 @@ impl<'a> ContractSheetBuilder<'a> {
                         ref memb_routine_head,
                         ..
                     } => self.infer_routine(
-                        memb_routine_head.output.scope,
+                        memb_routine_head.output.route,
                         item.children.unwrap(),
                         &arena,
                     ),
                     AstKind::FeatureDecl { ty, .. } => {
-                        self.infer_morphism(ty.scope, item.children.unwrap(), &arena)
+                        self.infer_morphism(ty.route, item.children.unwrap(), &arena)
                     }
                     AstKind::MembFeatureDefnHead { ident, ty } => {
                         self.infer_morphism(ty, item.children.unwrap(), &arena)

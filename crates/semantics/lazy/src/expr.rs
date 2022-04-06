@@ -7,7 +7,7 @@ use file::FilePtr;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use entity_route::{EntityRoute, EntityRoutePtr, RangedScope};
+use entity_route::{EntityRoute, EntityRoutePtr, RangedEntityRoute};
 use syntax_types::*;
 use text::TextRange;
 use vm::*;

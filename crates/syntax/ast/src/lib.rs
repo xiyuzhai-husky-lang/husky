@@ -17,7 +17,7 @@ use crate::error::{err, error};
 use check_utils::*;
 use dev_utils::*;
 use entity_route::*;
-use entity_route::{EntityRoutePtr, RangedScope};
+use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use env::Env;
 use print_utils::*;
 use syntax_types::*;
@@ -46,7 +46,7 @@ pub enum AstKind {
     PatternDefnHead,
     FeatureDecl {
         ident: CustomIdentifier,
-        ty: RangedScope,
+        ty: RangedEntityRoute,
     },
     MembFeatureDefnHead {
         ident: CustomIdentifier,

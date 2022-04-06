@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use decl::{MembAccessKind, TyDecl};
-use entity_route::{EntityRoutePtr, RangedScope};
+use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use syntax_types::*;
 use vm::PureBinaryOpr;
 use word::CustomIdentifier;
@@ -13,9 +13,9 @@ pub enum LazyOpnKind {
         this: EntityRoutePtr,
     },
     Prefix(PrefixOpr),
-    RoutineCall(RangedScope),
-    StructCall(RangedScope),
-    ClassCall(RangedScope),
+    RoutineCall(RangedEntityRoute),
+    StructCall(RangedEntityRoute),
+    ClassCall(RangedEntityRoute),
     PatternCall,
     MembAccess {
         memb_ident: CustomIdentifier,

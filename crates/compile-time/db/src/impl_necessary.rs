@@ -1,6 +1,8 @@
 use fp_table::{FpTable, HasFpTable};
 use infer_total::InferQueryGroup;
+use semantics_entity::{EntityRouteStore, StoreEntityRoute};
 use upcast::Upcast;
+use vm::InterpreterQueryGroup;
 
 use crate::*;
 
@@ -22,6 +24,7 @@ impl salsa::ParallelDatabase for HuskyLangCompileTime {
             live_docs: self.live_docs.clone(),
             features: self.features.clone(),
             fp_table: self.fp_table.clone(),
+            entity_route_store: self.entity_route_store.clone(),
         })
     }
 }
@@ -36,6 +39,7 @@ impl Default for HuskyLangCompileTime {
             live_docs: Default::default(),
             features: feature::new_feature_unique_allocator(),
             fp_table: Default::default(),
+            entity_route_store: Default::default(),
         }
     }
 }
@@ -109,5 +113,24 @@ impl infer_total::InferQueryGroup for HuskyLangCompileTime {}
 impl HasFpTable for HuskyLangCompileTime {
     fn fp_table(&self) -> &FpTable {
         &self.fp_table
+    }
+}
+
+impl InterpreterQueryGroup for HuskyLangCompileTime {
+    fn entity_instruction_sheet_by_uid(&self, uid: vm::EntityUid) -> Arc<vm::InstructionSheet> {
+        let entity_route = self.entity_route_by_uid(uid);
+        self.entity_instruction_sheet(entity_route)
+    }
+}
+
+impl Upcast<dyn InterpreterQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn InterpreterQueryGroup + 'static) {
+        self
+    }
+}
+
+impl StoreEntityRoute for HuskyLangCompileTime {
+    fn entity_route_store(&self) -> &EntityRouteStore {
+        &self.entity_route_store
     }
 }

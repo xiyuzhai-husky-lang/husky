@@ -102,7 +102,7 @@ fn raw_entity_kind_from_scope_kind(
             | BuiltinIdentifier::PartialEqTrait
             | BuiltinIdentifier::EqTrait => RawEntityKind::Trait,
         },
-        EntityRouteKind::Package { .. } => RawEntityKind::Module,
+        EntityRouteKind::pack { .. } => RawEntityKind::Module,
         EntityRouteKind::ChildScope { parent, ident } => db
             .subscope_table(*parent)
             .unwrap()
@@ -192,7 +192,7 @@ fn entity_source(
             BuiltinIdentifier::EqTrait => todo!(),
         }
         .into(),
-        EntityRouteKind::Package { main, .. } => EntitySource::Module { file: main },
+        EntityRouteKind::pack { main, .. } => EntitySource::Module { file: main },
         EntityRouteKind::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
@@ -206,8 +206,8 @@ pub struct ModuleFromFileError {
 }
 
 pub enum ModuleFromFileRule {
-    PackageNameShouldBeIdentifier,
-    PackageRootShouldHaveFileName,
+    packNameShouldBeIdentifier,
+    packRootShouldHaveFileName,
     FileShouldExist,
     FileShouldHaveExtensionHSK,
 }
@@ -276,17 +276,17 @@ pub trait ScopeQueryGroup:
         if !self.file_exists(id) {
             scope_err!(format!("file didn't exist"))?
         } else if path_has_file_name(&path, "main.hsk") {
-            if let Some(package_name) = path_parent_file_name_str(&path) {
-                let snake_name = dash_to_snake(&package_name);
+            if let Some(pack_name) = path_parent_file_name_str(&path) {
+                let snake_name = dash_to_snake(&pack_name);
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
                     self.word_allocator().alloc(snake_name)
                 {
-                    Ok(self.intern_scope(EntityRoute::package(id, ident)))
+                    Ok(self.intern_scope(EntityRoute::pack(id, ident)))
                 } else {
-                    scope_err!(format!("package name should be identifier"))?
+                    scope_err!(format!("pack name should be identifier"))?
                 }
             } else {
-                scope_err!(format!("package root should have filename"))?
+                scope_err!(format!("pack root should have filename"))?
             }
         } else if path_has_file_name(&path, "mod.hsk") {
             todo!()

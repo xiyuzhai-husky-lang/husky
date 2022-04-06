@@ -18,11 +18,11 @@ main:
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(EntityRoute::package(
+    let pack = db.intern_scope(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
-    let subscope_table = db.subscope_table(package).ok().unwrap();
+    let subscope_table = db.subscope_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 2);
     should_eq!(subscope_table.errors.len(), 0);
 }
@@ -50,11 +50,11 @@ struct B {}
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(EntityRoute::package(
+    let pack = db.intern_scope(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
-    let subscope_table = db.subscope_table(package).ok().unwrap();
+    let subscope_table = db.subscope_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 3);
     should_eq!(subscope_table.errors.len(), 0);
 }
@@ -74,11 +74,11 @@ main:
     );
 
     let main_file = db.alloc_file("haha/main.hsk".into());
-    let package = db.intern_scope(EntityRoute::package(
+    let pack = db.intern_scope(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
     ));
-    let subscope_table = db.subscope_table(package).ok().unwrap();
+    let subscope_table = db.subscope_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 1);
     should_eq!(subscope_table.errors.len(), 1);
 }

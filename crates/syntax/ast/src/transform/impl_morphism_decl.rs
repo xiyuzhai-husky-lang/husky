@@ -18,8 +18,8 @@ impl<'a> AstTransformer<'a> {
         self.env.set_value(Env::Morphism);
         Ok(AstKind::FeatureDecl {
             ident,
-            ty: RangedScope {
-                scope,
+            ty: RangedEntityRoute {
+                route: scope,
                 range: token_group[3..(token_group.len() - 1)].into(),
             },
         })

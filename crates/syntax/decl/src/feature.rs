@@ -28,7 +28,7 @@ pub(crate) fn feature_decl(
             let ast = item.value.as_ref()?;
             match ast.kind {
                 AstKind::FeatureDecl { ident, ty } => {
-                    Ok(Arc::new(FeatureSignature { ty: ty.scope }))
+                    Ok(Arc::new(FeatureSignature { ty: ty.route }))
                 }
                 _ => todo!(),
             }

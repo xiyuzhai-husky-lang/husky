@@ -13,7 +13,7 @@ pub struct MainDefn {
 impl EntityDefnKind {
     pub(crate) fn feature(
         db: &dyn EntityQueryGroup,
-        ty: RangedScope,
+        ty: RangedEntityRoute,
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,

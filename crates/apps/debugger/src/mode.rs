@@ -4,7 +4,7 @@ use crate::*;
 
 use compile_time_db::HuskyLangCompileTime;
 use diagnostic::Diagnostic;
-use path_utils::collect_package_dirs;
+use path_utils::collect_pack_dirs;
 
 #[derive(Debug)]
 pub enum Mode {
@@ -47,16 +47,16 @@ async fn run(path: PathBuf) {
 
 async fn test_runtime(dir: PathBuf) {
     assert!(dir.is_dir());
-    let package_paths = collect_package_dirs(dir);
+    let pack_paths = collect_pack_dirs(dir);
     println!(
         "\n{}Running{} {} tests on runtime:",
         print_utils::CYAN,
         print_utils::RESET,
-        package_paths.len()
+        pack_paths.len()
     );
-    for package_path in package_paths {
+    for pack_path in pack_paths {
         let error_flag =
-            Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, package_path))
+            Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, pack_path))
                 .serve_on_error("localhost:51617", 0)
                 .await;
         if error_flag {
@@ -68,22 +68,22 @@ async fn test_runtime(dir: PathBuf) {
 async fn test_diagnostics(dir: PathBuf) {
     type DiagnosticsTable = HashMap<String, Vec<Diagnostic>>;
 
-    let package_paths = collect_package_dirs(dir);
+    let pack_paths = collect_pack_dirs(dir);
     println!(
         "\n{}Running{} {} tests on compile time:",
         print_utils::CYAN,
         print_utils::RESET,
-        package_paths.len()
+        pack_paths.len()
     );
-    for package_path in package_paths {
+    for pack_path in pack_paths {
         use compile_time_db::*;
         let mut compile_time = HuskyLangCompileTime::default();
-        init_compile_time_from_dir(&mut compile_time, package_path.clone());
+        init_compile_time_from_dir(&mut compile_time, pack_path.clone());
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,
             print_utils::RESET,
-            package_path.as_os_str().to_str().unwrap(),
+            pack_path.as_os_str().to_str().unwrap(),
         );
         let modules = compile_time.all_modules();
         let mut diagnostics_table = HashMap::<String, Vec<Diagnostic>>::new();
@@ -98,7 +98,7 @@ async fn test_diagnostics(dir: PathBuf) {
                     }
                 });
         }
-        compare_diagnostics_tables(diagnostics_table, package_path);
+        compare_diagnostics_tables(diagnostics_table, pack_path);
     }
 
     fn compare_diagnostics_tables(diagnostics_table: DiagnosticsTable, path: PathBuf) {
@@ -127,5 +127,5 @@ async fn test_diagnostics(dir: PathBuf) {
 }
 
 fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: PathBuf) {
-    compile_time.load_package(path)
+    compile_time.load_pack(path)
 }
