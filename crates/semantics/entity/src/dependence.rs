@@ -134,6 +134,9 @@ impl EntityDefn {
             },
             EntityDefnKind::Main(_) => todo!(),
             EntityDefnKind::Builtin => (),
+            EntityDefnKind::EnumVariant(variant) => match variant {
+                EnumVariant::Constant => (),
+            },
         };
         return builder.finish();
 
@@ -299,11 +302,11 @@ impl EntityDefn {
         }
 
         fn extract_enum_variant_dependees(
-            variant_kind: &EnumVariantKind,
+            variant_kind: &EnumVariant,
             builder: &mut DependeeMapBuilder,
         ) {
             match variant_kind {
-                EnumVariantKind::Constant => (),
+                EnumVariant::Constant => (),
             }
         }
     }

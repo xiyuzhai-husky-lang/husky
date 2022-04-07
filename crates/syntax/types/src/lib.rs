@@ -33,12 +33,12 @@ pub struct MembCallDecl {
 // }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RawEnumVariantKind {
+pub enum EnumVariantClass {
     Constant,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RoutineKind {
+pub enum RoutineClass {
     Test,
     Proc,
     Func,
@@ -57,7 +57,7 @@ pub struct RoutineHead {
 pub struct MembRoutineHead {
     pub this_contract: InputContract,
     pub kind: RawMembRoutineKind,
-    pub routine_name: CustomIdentifier,
+    pub ident: CustomIdentifier,
     pub generics: IdentMap<GenericPlaceholderKind>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedEntityRoute,

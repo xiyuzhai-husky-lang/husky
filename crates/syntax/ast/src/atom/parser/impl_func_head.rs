@@ -34,7 +34,7 @@ impl<'a> AtomLRParser<'a> {
         let output = self.func_output_type()?;
         Ok(MembRoutineHead {
             this_contract: this,
-            routine_name,
+            ident: routine_name,
             generics: space_params,
             input_placeholders: input_contracts,
             output,

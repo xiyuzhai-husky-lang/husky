@@ -127,13 +127,13 @@ pub(crate) fn opt_entity_defn(
                     )
                 }
                 AstKind::RoutineDefnHead {
-                    ref routine_kind,
+                    ref routine_class,
                     ref routine_head,
                 } => (
                     routine_head.routine_name,
                     EntityDefnKind::routine(
                         db,
-                        routine_kind,
+                        routine_class,
                         routine_head,
                         not_none!(children),
                         arena,
@@ -145,8 +145,11 @@ pub(crate) fn opt_entity_defn(
                 AstKind::MainDefn | AstKind::DatasetConfigDefnHead | AstKind::Stmt(_) => panic!(),
                 AstKind::EnumVariantDefnHead {
                     ident,
-                    ref raw_variant_kind,
-                } => todo!(),
+                    variant_class,
+                } => (
+                    ident,
+                    EntityDefnKind::enum_variant(db, variant_class, children),
+                ),
                 AstKind::MembVarDefn { .. } => todo!(),
                 AstKind::MembRoutineDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { ident, ty } => (

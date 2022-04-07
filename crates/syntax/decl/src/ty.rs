@@ -11,7 +11,7 @@ use ast::AstIter;
 use entity_route::*;
 use enum_ty::*;
 use record::*;
-use syntax_types::{MembAccessDecl, MembCallDecl, RawEnumVariantKind};
+use syntax_types::{EnumVariantClass, MembAccessDecl, MembCallDecl};
 use vec_map::VecMap;
 use vm::{MembAccessContract, TySignature};
 use word::{IdentMap, WordAllocator};
@@ -306,7 +306,7 @@ pub(crate) fn struct_decl(
             AstKind::MembRoutineDefnHead {
                 ref memb_routine_head,
                 ..
-            } => memb_routines.insert_new(memb_routine_head.routine_name, memb_routine_head.into()),
+            } => memb_routines.insert_new(memb_routine_head.ident, memb_routine_head.into()),
             _ => panic!(),
         }
     }

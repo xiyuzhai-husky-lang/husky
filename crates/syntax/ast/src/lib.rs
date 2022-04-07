@@ -40,7 +40,7 @@ pub enum AstKind {
     },
     MainDefn,
     RoutineDefnHead {
-        routine_kind: RoutineKind,
+        routine_class: RoutineClass,
         routine_head: RoutineHead,
     },
     PatternDefnHead,
@@ -53,7 +53,7 @@ pub enum AstKind {
         ty: EntityRoutePtr,
     },
     MembRoutineDefnHead {
-        routine_kind: RoutineKind,
+        routine_kind: RoutineClass,
         memb_routine_head: MembRoutineHead,
     },
     Use {
@@ -68,7 +68,7 @@ pub enum AstKind {
     Stmt(RawStmt),
     EnumVariantDefnHead {
         ident: CustomIdentifier,
-        raw_variant_kind: RawEnumVariantKind,
+        variant_class: EnumVariantClass,
     },
 }
 

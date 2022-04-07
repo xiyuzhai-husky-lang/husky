@@ -90,14 +90,14 @@ impl<'a> Formatter<'a> {
             }
             AstKind::MainDefn => self.write("main:"),
             AstKind::RoutineDefnHead {
-                routine_kind: ref kind,
+                routine_class: ref kind,
                 routine_head: ref decl,
             } => {
                 self.write(match kind {
-                    RoutineKind::Test => "test ",
-                    RoutineKind::Proc => todo!(),
-                    RoutineKind::Func => "func ",
-                    RoutineKind::Def => todo!(),
+                    RoutineClass::Test => "test ",
+                    RoutineClass::Proc => todo!(),
+                    RoutineClass::Func => "func ",
+                    RoutineClass::Def => todo!(),
                 });
                 self.write(&decl.routine_name);
                 self.write("(");
@@ -131,7 +131,7 @@ impl<'a> Formatter<'a> {
             AstKind::DatasetConfigDefnHead => todo!(),
             AstKind::EnumVariantDefnHead {
                 ident,
-                raw_variant_kind: ref variant_kind,
+                variant_class: ref variant_kind,
             } => todo!(),
             AstKind::MembRoutineDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),

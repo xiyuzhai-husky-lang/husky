@@ -35,7 +35,7 @@ impl<'a> AstTransformer<'a> {
                                 }),
                         );
                     AstKind::RoutineDefnHead {
-                        routine_kind: RoutineKind::Proc,
+                        routine_class: RoutineClass::Proc,
                         routine_head: head,
                     }
                 }
@@ -61,7 +61,7 @@ impl<'a> AstTransformer<'a> {
                         })
                     }
                     AstKind::RoutineDefnHead {
-                        routine_kind: RoutineKind::Func,
+                        routine_class: RoutineClass::Func,
                         routine_head: decl,
                     }
                 }

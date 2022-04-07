@@ -108,7 +108,7 @@ impl<'a> AstTransformer<'a> {
                 }),
         );
         Ok(AstKind::MembRoutineDefnHead {
-            routine_kind: RoutineKind::Func,
+            routine_kind: RoutineClass::Func,
             memb_routine_head: head,
         })
     }

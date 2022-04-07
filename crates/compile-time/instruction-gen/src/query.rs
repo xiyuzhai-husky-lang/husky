@@ -62,6 +62,7 @@ fn entity_instruction_sheet(
             p!(route.ident());
             todo!()
         }
+        EntityDefnKind::EnumVariant(_) => todo!(),
     }
 }
 
@@ -113,6 +114,7 @@ fn memb_routine_instruction_sheet(
             } => todo!(),
         },
         EntityDefnKind::Builtin => todo!(),
+        EntityDefnKind::EnumVariant(_) => todo!(),
     }
 }
 

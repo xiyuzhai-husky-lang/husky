@@ -122,7 +122,7 @@ impl<'a> EagerStmtParser<'a> {
                 },
                 AstKind::EnumVariantDefnHead {
                     ident,
-                    ref raw_variant_kind,
+                    variant_class: ref raw_variant_kind,
                 } => todo!(),
                 AstKind::MembVarDefn { .. } => todo!(),
                 AstKind::MembRoutineDefnHead { .. } => todo!(),
