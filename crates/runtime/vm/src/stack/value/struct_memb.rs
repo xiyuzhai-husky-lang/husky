@@ -25,10 +25,22 @@ impl<'eval> Eq for StructMembValue<'eval> {}
 
 impl<'stack, 'eval: 'stack> StructMembValue<'eval> {
     pub fn into_stack(self) -> StackValue<'stack, 'eval> {
-        todo!()
+        match self {
+            StructMembValue::Primitive(value) => StackValue::Primitive(value),
+            StructMembValue::Boxed(_) => todo!(),
+            StructMembValue::GlobalPure(_) => todo!(),
+            StructMembValue::GlobalRef(_) => todo!(),
+            StructMembValue::Moved => todo!(),
+        }
     }
 
     pub fn share_globally(&self) -> EvalValue<'eval> {
-        todo!()
+        match self {
+            StructMembValue::Primitive(value) => EvalValue::Primitive(*value),
+            StructMembValue::Boxed(_) => todo!(),
+            StructMembValue::GlobalPure(_) => todo!(),
+            StructMembValue::GlobalRef(_) => todo!(),
+            StructMembValue::Moved => todo!(),
+        }
     }
 }

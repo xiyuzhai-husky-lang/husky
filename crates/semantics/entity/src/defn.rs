@@ -145,7 +145,7 @@ pub(crate) fn opt_entity_defn(
                 AstKind::MainDefn | AstKind::DatasetConfigDefnHead | AstKind::Stmt(_) => panic!(),
                 AstKind::EnumVariantDefnHead {
                     ident,
-                    raw_variant_kind: ref variant_kind,
+                    ref raw_variant_kind,
                 } => todo!(),
                 AstKind::MembVarDefn { .. } => todo!(),
                 AstKind::MembRoutineDefnHead { .. } => todo!(),

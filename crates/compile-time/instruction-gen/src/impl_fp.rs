@@ -29,7 +29,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         this_ty: EntityRoutePtr,
         memb_ident: CustomIdentifier,
     ) -> Option<MembAccessFp> {
-        todo!()
+        self.db
+            .fp_table()
+            .memb_access(self.db.entity_uid(this_ty), memb_ident)
     }
 
     pub(crate) fn memb_routine_fp(

@@ -37,10 +37,11 @@ pub struct EntityRouteStore {
 }
 
 impl EntityRouteStore {
-    fn add(&self, uid: EntityUid, entity_route: EntityRoutePtr) {
+    fn add(&self, entity_route: EntityRoutePtr) -> EntityUid {
         self.internal.write(|internal: &mut Vec<EntityRoutePtr>| {
-            should_eq!(uid.raw(), internal.len());
-            internal.push(entity_route)
+            let raw = internal.len();
+            internal.push(entity_route);
+            EntityUid { raw }
         })
     }
 
@@ -66,7 +67,5 @@ pub(crate) fn entity_uid(db: &dyn EntityQueryGroup, entity_route: EntityRoutePtr
             let _dependees = db.entity_dependees(entity_route);
         }
     }
-    let uid = EntityUid::new();
-    db.entity_route_store().add(uid, entity_route);
-    uid
+    db.entity_route_store().add(entity_route)
 }

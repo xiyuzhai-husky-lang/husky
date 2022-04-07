@@ -88,11 +88,12 @@ impl<'a> FeatureExprBuilder<'a> {
                             memb_ident,
                         });
                         msg_once!("compiled memb var access");
+                        let this_ty_decl = self.db.ty_decl(this.ty).unwrap();
                         (
                             FeatureExprKind::StructMembVarAccess {
                                 this,
                                 memb_ident,
-                                memb_idx: todo!(),
+                                memb_idx: this_ty_decl.memb_idx(memb_ident),
                                 contract,
                                 opt_compiled: None,
                             },
