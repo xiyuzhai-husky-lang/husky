@@ -84,10 +84,13 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         })
     }
 
-    pub fn into_eval(self) -> EvalValue<'eval> {
+    pub fn into_eval(&mut self) -> EvalValue<'eval> {
         match self {
-            StackValue::Primitive(primitive_value) => EvalValue::Primitive(primitive_value),
-            StackValue::Boxed(boxed_value) => EvalValue::Boxed(boxed_value),
+            StackValue::Primitive(primitive_value) => EvalValue::Primitive(*primitive_value),
+            StackValue::Boxed(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
+                StackValue::Boxed(boxed_value) => EvalValue::Boxed(boxed_value),
+                _ => panic!(),
+            },
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef(_) | StackValue::MutLocalRef { .. } | StackValue::Moved => {
@@ -96,10 +99,13 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub fn into_struct_memb(self) -> StructMembValue<'eval> {
+    pub fn into_struct_memb(&mut self) -> StructMembValue<'eval> {
         match self {
-            StackValue::Primitive(primitive_value) => StructMembValue::Primitive(primitive_value),
-            StackValue::Boxed(boxed_value) => StructMembValue::Boxed(boxed_value),
+            StackValue::Primitive(primitive_value) => StructMembValue::Primitive(*primitive_value),
+            StackValue::Boxed(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
+                StackValue::Boxed(boxed_value) => StructMembValue::Boxed(boxed_value),
+                _ => panic!(),
+            },
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef(_) | StackValue::MutLocalRef { .. } | StackValue::Moved => {
@@ -120,15 +126,6 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             EagerContract::VarInit => todo!(),
             EagerContract::Return => self.bind_return(),
         }
-        // ,
-        //     match self {
-        //         StackValue::Primitive(value) => todo!(),
-        //         StackValue::Boxed(_) => todo!(),
-        //         StackValue::Volatile(_) => todo!(),
-        //         StackValue::GlobalRef(_) => todo!(),
-        //         StackValue::Ref(_) => todo!(),
-        //         StackValue::MutRef{..} => todo!(),
-        //     }
     }
 
     unsafe fn pure(&self) -> Self {
@@ -227,6 +224,36 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 StackValue::MutLocalRef { .. } => todo!(),
                 StackValue::Moved => todo!(),
             }
+        }
+    }
+
+    pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
+        match self {
+            StackValue::Moved => todo!(),
+            StackValue::Primitive(_) => todo!(),
+            StackValue::Boxed(_) => todo!(),
+            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::LocalRef(value) => value.downcast_ref(),
+            StackValue::MutLocalRef { value, owner, gen } => todo!(),
+        }
+    }
+
+    pub fn downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
+        match self {
+            StackValue::Moved => todo!(),
+            StackValue::Primitive(_) => todo!(),
+            StackValue::Boxed(_)
+            | StackValue::GlobalPure(_)
+            | StackValue::GlobalRef(_)
+            | StackValue::LocalRef(_) => {
+                panic!()
+            }
+            StackValue::MutLocalRef {
+                ref mut value,
+                owner,
+                gen,
+            } => value.downcast_mut(),
         }
     }
 

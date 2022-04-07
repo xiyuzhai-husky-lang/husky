@@ -13,7 +13,7 @@ pub use generic::*;
 pub use kind::RawEntityKind;
 use text::{TextRange, TextRanged};
 use visual_syntax::BuiltinVisualizer;
-use vm::{CompiledRustCall, EagerContract, InputContract};
+use vm::{EagerContract, InputContract, RoutineFp};
 use word::{ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -164,7 +164,7 @@ impl BuiltinEntityDecl {
 pub struct StaticFuncDecl {
     pub inputs: Vec<StaticInputSignature>,
     pub output: &'static str,
-    pub compiled: Option<CompiledRustCall>,
+    pub compiled: RoutineFp,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

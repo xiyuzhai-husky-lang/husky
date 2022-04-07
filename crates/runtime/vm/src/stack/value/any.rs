@@ -23,6 +23,7 @@ impl From<HuskyBuiltinStaticTypeId> for StaticTypeId {
 pub enum HuskyBuiltinStaticTypeId {
     Dataset,
     VirtualTy,
+    VirtualVec,
 }
 
 // type level trait
@@ -287,7 +288,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
 
 impl<'eval> AnyValue<'eval> for Vec<EvalValue<'eval>> {
     fn static_type_id() -> StaticTypeId {
-        todo!()
+        StaticTypeId::HuskyBuiltin(HuskyBuiltinStaticTypeId::VirtualVec)
     }
 
     fn static_type_name() -> Cow<'static, str> {

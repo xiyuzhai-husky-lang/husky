@@ -1,9 +1,9 @@
-mod compiled;
 mod contract;
 mod control;
 mod entity;
 mod enum_literal;
 mod error;
+mod fp;
 mod frame;
 mod history;
 mod instruction;
@@ -15,12 +15,12 @@ mod snapshot;
 mod stack;
 mod ty;
 
-pub use compiled::{CompiledRustCall, MembVarAccessCompiled};
 pub use contract::{EagerContract, InputContract, LazyContract, MembAccessContract};
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
+pub use fp::{MembAccessFp, RoutineFp};
 pub use frame::{FrameKind, LoopFrameSnapshot};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
@@ -39,7 +39,7 @@ pub fn eval_fast<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
     iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
     sheet: &InstructionSheet,
-    maybe_code: Option<CompiledRustCall>,
+    maybe_code: Option<RoutineFp>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, iter)?;
     if let Some(code) = maybe_code {

@@ -64,8 +64,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     //     Ok(self.stack.pop())
     // }
 
-    fn call_compiled(&mut self, f: CompiledRustCall, nargs: u8) -> VMResult<()> {
-        let result = (f.call)(self.stack.topk_mut(nargs))?;
+    fn call_compiled(&mut self, f: RoutineFp) -> VMResult<()> {
+        let result = (f.call)(self.stack.topk_mut(f.nargs))?;
         self.stack.push(result.into());
         Ok(())
     }

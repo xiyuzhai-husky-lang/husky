@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use semantics_lazy::LazyStmt;
-use vm::{eval_fast, CompiledRustCall, EvalResult, EvalValue, InstructionSheet, StackValue};
+use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, RoutineFp, StackValue};
 
 use crate::{FeatureBlock, FeatureExpr, FeatureExprKind};
 
@@ -99,7 +99,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
     fn eval_memb_routine_call(
         &mut self,
         instrns: &InstructionSheet,
-        maybe_compiled: Option<CompiledRustCall>,
+        maybe_compiled: Option<RoutineFp>,
         opds: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
         let db = self.db;
@@ -112,7 +112,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
     fn eval_routine_call(
         &mut self,
         instrns: &InstructionSheet,
-        maybe_compiled: Option<CompiledRustCall>,
+        maybe_compiled: Option<RoutineFp>,
         inputs: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
         let db = self.db;

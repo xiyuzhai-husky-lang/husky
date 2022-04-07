@@ -1,6 +1,6 @@
 use crate::*;
 
-use decl::TyDeclKind;
+use decl::{TyDecl, TyDeclKind};
 use syntax_types::SuffixOpr;
 use vm::{BinaryOpr, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
 
@@ -63,17 +63,36 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnKind::Prefix { opr, .. } => {
                 todo!()
             }
-            EagerOpnKind::Suffix { opr, .. } => {
+            EagerOpnKind::Suffix { opr, this: this_ty } => {
                 let instruction = Instruction::new(
                     match opr {
                         SuffixOpr::Incr => todo!(),
                         SuffixOpr::Decr => todo!(),
                         SuffixOpr::MayReturn => todo!(),
-                        SuffixOpr::MembAccess(ident) => {
-                            msg_once!("memb var access compiled");
-                            InstructionKind::MembVarAccessInterpreted {
-                                memb_idx: todo!(),
-                                contract: expr.contract,
+                        SuffixOpr::MembAccess(memb_ident) => {
+                            if let Some(memb_access_fp) = self.memb_access_fp(*this_ty, *memb_ident)
+                            {
+                                InstructionKind::MembAccessCompiled { memb_access_fp }
+                            } else {
+                                let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
+                                match this_ty_decl.kind {
+                                    TyDeclKind::Struct { ref memb_vars, .. } => {
+                                        InstructionKind::MembAccessInterpreted {
+                                            memb_idx: memb_vars
+                                                .position(*memb_ident)
+                                                .unwrap()
+                                                .try_into()
+                                                .unwrap(),
+                                            contract: expr.contract,
+                                        }
+                                    }
+                                    TyDeclKind::Enum { ref variants } => todo!(),
+                                    TyDeclKind::Record {
+                                        ref memb_vars,
+                                        ref memb_features,
+                                    } => todo!(),
+                                    TyDeclKind::Vec { element_ty } => todo!(),
+                                }
                             }
                         }
                         SuffixOpr::WithType(_) => todo!(),
@@ -83,16 +102,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(instruction)
             }
             EagerOpnKind::RoutineCall(routine) => {
-                if let Some(compiled) = self
-                    .db
-                    .fp_table()
-                    .routine(self.db.entity_uid(routine.route))
-                {
+                if let Some(fp) = self.routine_fp(routine.route) {
                     self.push_instruction(Instruction::new(
-                        InstructionKind::RoutineCallCompiled {
-                            compiled,
-                            nargs: opds.len() as u8,
-                        },
+                        InstructionKind::RoutineCallCompiled { fp },
                         expr.clone(),
                     ))
                 } else {
@@ -110,28 +122,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                 todo!()
             }
             EagerOpnKind::MembRoutineCall {
-                ref this_ty_decl, ..
-            } => match this_ty_decl.kind {
-                TyDeclKind::Struct {
-                    ref memb_vars,
-                    ref memb_routines,
-                } => todo!(),
-                TyDeclKind::Enum { ref variants } => todo!(),
-                TyDeclKind::Record {
-                    ref memb_vars,
-                    ref memb_features,
-                } => todo!(),
-                TyDeclKind::Vec { element_ty } => self.push_instruction(Instruction::new(
-                    InstructionKind::RoutineCallCompiled {
-                        compiled: self
-                            .db
-                            .fp_table()
-                            .vec_constructor(self.db.entity_uid(element_ty)),
-                        nargs: opds.len() as u8,
-                    },
-                    expr.clone(),
-                )),
-            },
+                memb_ident,
+                ref this_ty_decl,
+            } => self.push_instruction(Instruction::new(
+                self.memb_routine_call_instruction_kind(opds[0].ty, this_ty_decl, *memb_ident),
+                expr.clone(),
+            )),
             EagerOpnKind::ElementAccess => todo!(),
             EagerOpnKind::TypeCall {
                 ranged_ty,
@@ -149,24 +145,59 @@ impl<'a> InstructionSheetBuilder<'a> {
                             .struct_constructor(self.db.entity_uid(ranged_ty.route))
                         {
                             todo!()
+                        } else {
+                            self.push_instruction(Instruction::new(
+                                InstructionKind::NewVirtualStruct {
+                                    memb_vars: memb_vars
+                                        .iter()
+                                        .map(|(_, decl)| decl.contract)
+                                        .collect(),
+                                },
+                                expr.clone(),
+                            ));
                         }
-                        self.push_instruction(Instruction::new(
-                            InstructionKind::NewVirtualStruct {
-                                memb_vars: memb_vars
-                                    .iter()
-                                    .map(|(_, decl)| decl.contract)
-                                    .collect(),
-                            },
-                            expr.clone(),
-                        ));
-                        todo!()
                     }
                     TyDeclKind::Enum { ref variants } => todo!(),
                     TyDeclKind::Record {
                         ref memb_vars,
                         ref memb_features,
                     } => todo!(),
-                    TyDeclKind::Vec { element_ty } => todo!(),
+                    TyDeclKind::Vec { element_ty } => self.push_instruction(Instruction::new(
+                        InstructionKind::RoutineCallCompiled {
+                            fp: self
+                                .db
+                                .fp_table()
+                                .vec_constructor(self.db.entity_uid(element_ty)),
+                        },
+                        expr.clone(),
+                    )),
+                }
+            }
+        }
+    }
+
+    fn memb_routine_call_instruction_kind(
+        &self,
+        this_ty: EntityRoutePtr,
+        this_ty_decl: &TyDecl,
+        memb_ident: CustomIdentifier,
+    ) -> InstructionKind {
+        if let Some(routine_fp) = self.memb_routine_fp(this_ty, memb_ident) {
+            todo!()
+        } else {
+            match this_ty_decl.kind {
+                TyDeclKind::Struct {
+                    ref memb_vars,
+                    ref memb_routines,
+                } => todo!(),
+                TyDeclKind::Enum { ref variants } => todo!(),
+                TyDeclKind::Record {
+                    ref memb_vars,
+                    ref memb_features,
+                } => todo!(),
+                TyDeclKind::Vec { element_ty } => {
+                    let fp = self.db.virtual_vec_memb_routine_fps()[memb_ident];
+                    InstructionKind::RoutineCallCompiled { fp }
                 }
             }
         }

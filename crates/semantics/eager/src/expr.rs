@@ -9,7 +9,7 @@ pub(crate) use parser::EagerExprParser;
 
 use entity_route::EntityRoutePtr;
 use text::TextRange;
-use vm::{CompiledRustCall, EagerContract, InstructionId, InstructionSource, PrimitiveValue};
+use vm::{EagerContract, InstructionId, InstructionSource, PrimitiveValue, RoutineFp};
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
