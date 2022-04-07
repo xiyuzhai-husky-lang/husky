@@ -1,7 +1,7 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_route::StaticFuncDecl;
 use std::sync::Arc;
-use vm::{BoxedValue, CompiledRustCall, StackValue};
+use vm::{BoxedValue, RoutineFp, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
@@ -17,9 +17,10 @@ pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     decl: BuiltinEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<f32, i32>",
-        compiled: Some(CompiledRustCall {
+        compiled: RoutineFp {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
-        }),
+            nargs: 0,
+        },
     }),
 };
 
@@ -28,9 +29,10 @@ pub const DATASET2_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     decl: BuiltinEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<f32, i32>",
-        compiled: Some(CompiledRustCall {
+        compiled: RoutineFp {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
-        }),
+            nargs: 0,
+        },
     }),
 };
 

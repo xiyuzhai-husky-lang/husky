@@ -1,6 +1,8 @@
+use check_utils::should_eq;
 use file::FilePtr;
 use fp_table::HasFpTable;
 use pack_semantics::PackQueryGroup;
+use vm::{EvalValue, RoutineFp, StackValue, VMResult};
 
 use crate::*;
 
@@ -13,6 +15,7 @@ pub trait InstructionGenQueryGroup: EntityQueryGroup + PackQueryGroup + HasFpTab
         memb_ident: CustomIdentifier,
     ) -> Arc<InstructionSheet>;
     fn dataset_config_instruction_sheet(&self, pack_main: FilePtr) -> Arc<InstructionSheet>;
+    fn virtual_vec_memb_routine_fps(&self) -> Arc<IdentMap<RoutineFp>>;
 }
 
 fn entity_instruction_sheet(
@@ -119,4 +122,80 @@ fn dataset_config_instruction_sheet(
 ) -> Arc<InstructionSheet> {
     let pack = db.pack(pack_main).unwrap();
     InstructionSheetBuilder::new_decl(db, vec![], &pack.config.dataset.stmts, false)
+}
+
+fn virtual_vec_memb_routine_fps(db: &dyn InstructionGenQueryGroup) -> Arc<IdentMap<RoutineFp>> {
+    let mut memb_routine_fps = IdentMap::default();
+    memb_routine_fps.insert_new(
+        db.intern_word("len").custom().unwrap(),
+        RoutineFp {
+            call: virtual_vec_len,
+            nargs: 1,
+        },
+    );
+    memb_routine_fps.insert_new(
+        db.intern_word("push").custom().unwrap(),
+        RoutineFp {
+            call: virtual_vec_push,
+            nargs: 2,
+        },
+    );
+    memb_routine_fps.insert_new(
+        db.intern_word("pop").custom().unwrap(),
+        RoutineFp {
+            call: virtual_vec_pop,
+            nargs: 1,
+        },
+    );
+    memb_routine_fps.insert_new(
+        db.intern_word("first").custom().unwrap(),
+        RoutineFp {
+            call: virtual_vec_first,
+            nargs: 1,
+        },
+    );
+    memb_routine_fps.insert_new(
+        db.intern_word("last").custom().unwrap(),
+        RoutineFp {
+            call: virtual_vec_last,
+            nargs: 1,
+        },
+    );
+    Arc::new(memb_routine_fps)
+}
+
+fn virtual_vec_len<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    let virtual_vec: &Vec<EvalValue<'eval>> = values[0].downcast_ref();
+    let len: i32 = virtual_vec.len().try_into().unwrap();
+    Ok(StackValue::Primitive(len.into()))
+}
+
+fn virtual_vec_push<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    should_eq!(values.len(), 2);
+    let element = values[1].into_eval();
+    let virtual_vec: &mut Vec<EvalValue<'eval>> = values[0].downcast_mut();
+    virtual_vec.push(element);
+    Ok(StackValue::Primitive(().into()))
+}
+
+fn virtual_vec_pop<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn virtual_vec_first<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn virtual_vec_last<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
 }

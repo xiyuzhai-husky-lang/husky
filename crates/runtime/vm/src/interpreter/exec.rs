@@ -32,8 +32,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.push(value.into());
                     VMControl::None
                 }
-                InstructionKind::RoutineCallCompiled { compiled, nargs } => {
-                    let control = self.call_compiled(compiled, nargs).into();
+                InstructionKind::RoutineCallCompiled { fp } => {
+                    let control = self.call_compiled(fp).into();
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => todo!(),
@@ -88,8 +88,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.pop();
                     control
                 }
-                InstructionKind::MembVarAccessCompiled { compiled } => todo!(),
-                InstructionKind::MembVarAccessInterpreted { memb_idx, contract } => {
+                InstructionKind::MembAccessCompiled { memb_access_fp } => todo!(),
+                InstructionKind::MembAccessInterpreted { memb_idx, contract } => {
                     let this = self.stack.pop();
                     self.stack.push(this.memb_var(memb_idx as usize, contract));
                     VMControl::None
@@ -103,7 +103,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn exec_code(&mut self, code: CompiledRustCall) -> EvalResult<'eval> {
+    pub(crate) fn exec_code(&mut self, code: RoutineFp) -> EvalResult<'eval> {
         todo!()
     }
 

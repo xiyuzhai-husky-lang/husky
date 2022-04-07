@@ -8,9 +8,7 @@ use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
-use vm::{
-    CompiledRustCall, EnumLiteralValue, InstructionSheet, LazyContract, MembVarAccessCompiled,
-};
+use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembAccessFp, RoutineFp};
 use word::{ContextualIdentifier, RootIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
@@ -65,7 +63,7 @@ pub enum FeatureExprKind {
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        compiled: Option<CompiledRustCall>,
+        compiled: Option<RoutineFp>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
@@ -75,7 +73,7 @@ pub enum FeatureExprKind {
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        opt_compiled: Option<CompiledRustCall>,
+        opt_compiled: Option<RoutineFp>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
@@ -84,7 +82,7 @@ pub enum FeatureExprKind {
         memb_ident: CustomIdentifier,
         memb_idx: usize,
         contract: LazyContract,
-        opt_compiled: Option<MembVarAccessCompiled>,
+        opt_compiled: Option<MembAccessFp>,
     },
     RecordMembAccess {
         this: Arc<FeatureExpr>,
@@ -95,14 +93,14 @@ pub enum FeatureExprKind {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<CompiledRustCall>,
+        opt_compiled: Option<RoutineFp>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     MembProcCall {
         memb_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<CompiledRustCall>,
+        opt_compiled: Option<RoutineFp>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     MembPattCall {

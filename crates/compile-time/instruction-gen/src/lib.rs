@@ -1,6 +1,7 @@
 mod impl_basic;
 mod impl_decl_stmt;
 mod impl_expr;
+mod impl_fp;
 mod impl_impr_stmt;
 mod query;
 

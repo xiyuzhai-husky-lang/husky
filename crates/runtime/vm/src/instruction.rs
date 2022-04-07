@@ -51,16 +51,15 @@ pub enum InstructionKind {
         contract: EagerContract,
     },
     PushPrimitiveLiteral(PrimitiveValue),
-    MembVarAccessCompiled {
-        compiled: (),
+    MembAccessCompiled {
+        memb_access_fp: MembAccessFp,
     },
-    MembVarAccessInterpreted {
+    MembAccessInterpreted {
         memb_idx: u8,
         contract: EagerContract,
     },
     RoutineCallCompiled {
-        compiled: CompiledRustCall,
-        nargs: u8,
+        fp: RoutineFp,
     },
     RoutineCallInterpreted {
         routine: EntityUid,

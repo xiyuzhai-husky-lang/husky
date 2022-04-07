@@ -6,7 +6,7 @@ use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_route::StaticFuncDecl;
 use mnist::*;
 use std::sync::Arc;
-use vm::{BoxedValue, CompiledRustCall, StackValue};
+use vm::{BoxedValue, RoutineFp, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
