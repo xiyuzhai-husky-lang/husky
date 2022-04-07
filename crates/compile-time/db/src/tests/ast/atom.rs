@@ -7,7 +7,7 @@ use crate::*;
 
 #[test]
 fn no_error_single_file() {
-    let mut db = HuskyLangDatabase::default();
+    let mut db = HuskyLangCompileTime::default();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -20,7 +20,7 @@ main:
         .into(),
     );
 
-    let main_file_id = db.file_id("haha/main.hsk".into());
-    let atomized_main_file = db.atomized_text(main_file_id);
-    p!(atomized_main_file);
+    let main_file_id = db.intern_file("haha/main.hsk".into());
+    let ast_main_file = db.ast_text(main_file_id);
+    p!(ast_main_file);
 }

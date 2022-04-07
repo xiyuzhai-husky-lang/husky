@@ -18,6 +18,6 @@ main:
         .into(),
     );
 
-    let main_file_id = db.alloc_file("haha/main.hsk".into());
+    let main_file_id = db.intern_file("haha/main.hsk".into());
     let pack = db.pack(main_file_id).unwrap();
 }

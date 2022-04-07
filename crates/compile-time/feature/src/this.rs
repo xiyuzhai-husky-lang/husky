@@ -97,9 +97,9 @@ impl FeatureBlock {
                                         &symbols,
                                         features,
                                     ),
-                                    kind: match branch.kind {
+                                    variant: match branch.kind {
                                         LazyBranchKind::If { ref condition } => {
-                                            FeatureBranchKind::If {
+                                            FeatureBranchVariant::If {
                                                 condition: FeatureExpr::new(
                                                     db,
                                                     this.clone(),
@@ -110,7 +110,7 @@ impl FeatureBlock {
                                             }
                                         }
                                         LazyBranchKind::Elif { ref condition } => {
-                                            FeatureBranchKind::Elif {
+                                            FeatureBranchVariant::Elif {
                                                 condition: FeatureExpr::new(
                                                     db,
                                                     this.clone(),
@@ -120,7 +120,7 @@ impl FeatureBlock {
                                                 ),
                                             }
                                         }
-                                        LazyBranchKind::Else => FeatureBranchKind::Else,
+                                        LazyBranchKind::Else => FeatureBranchVariant::Else,
                                         LazyBranchKind::Case { ref pattern } => todo!(),
                                         LazyBranchKind::Default => todo!(),
                                     },
@@ -132,20 +132,20 @@ impl FeatureBlock {
                             features.alloc(Feature::Branches {
                                 branches: branches
                                     .iter()
-                                    .map(|branch| match branch.kind {
-                                        FeatureBranchKind::If { ref condition } => {
+                                    .map(|branch| match branch.variant {
+                                        FeatureBranchVariant::If { ref condition } => {
                                             BranchedFeature {
                                                 condition: Some(condition.feature),
                                                 block: branch.block.feature,
                                             }
                                         }
-                                        FeatureBranchKind::Elif { ref condition } => {
+                                        FeatureBranchVariant::Elif { ref condition } => {
                                             BranchedFeature {
                                                 condition: Some(condition.feature),
                                                 block: branch.block.feature,
                                             }
                                         }
-                                        FeatureBranchKind::Else => BranchedFeature {
+                                        FeatureBranchVariant::Else => BranchedFeature {
                                             condition: None,
                                             block: branch.block.feature,
                                         },

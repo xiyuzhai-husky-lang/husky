@@ -76,7 +76,7 @@ impl AtomStack {
                 Bracket::Par,
                 Some(Atom {
                     kind:
-                        AtomKind::Scope {
+                        AtomKind::EntityRoute {
                             kind: RawEntityKind::Type(_),
                             ..
                         },
@@ -121,8 +121,8 @@ impl AtomStack {
             ListStartAttr::Attach => {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.kind {
-                    AtomKind::Scope {
-                        scope: EntityRoutePtr::Root(ident),
+                    AtomKind::EntityRoute {
+                        route: EntityRoutePtr::Root(ident),
                         ..
                     } => match ident {
                         RootIdentifier::Fp
@@ -153,8 +153,8 @@ impl AtomStack {
         let mut types = Vec::new();
         match self.pop(tail)?.kind {
             AtomKind::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
-            AtomKind::Scope {
-                scope,
+            AtomKind::EntityRoute {
+                route: scope,
                 kind: RawEntityKind::Type(_),
             } => types.push(scope.into()),
             _ => err!(self.file, *tail, "left parenthesis or type")?,
@@ -169,8 +169,8 @@ impl AtomStack {
                 _ => err!(self.file, *tail, "left parenthesis or comma")?,
             }
             match self.pop(tail)?.kind {
-                AtomKind::Scope {
-                    scope,
+                AtomKind::EntityRoute {
+                    route: scope,
                     kind: RawEntityKind::Type(_),
                 } => types.push(scope.into()),
                 _ => err!(self.file, *tail, "type")?,

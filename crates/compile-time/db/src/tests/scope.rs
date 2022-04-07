@@ -17,7 +17,7 @@ main:
         .into(),
     );
 
-    let main_file = db.alloc_file("haha/main.hsk".into());
+    let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.intern_scope(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -49,7 +49,7 @@ struct B {}
         .into(),
     );
 
-    let main_file = db.alloc_file("haha/main.hsk".into());
+    let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.intern_scope(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),
@@ -73,7 +73,7 @@ main:
         .into(),
     );
 
-    let main_file = db.alloc_file("haha/main.hsk".into());
+    let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.intern_scope(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).custom().unwrap(),

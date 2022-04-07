@@ -87,13 +87,13 @@ impl EntityDefn {
     ) -> VecMap<EntityRoutePtr, EntityDefnUid> {
         let mut builder = DependeeMapBuilder::new(db);
         match self.kind() {
-            EntityDefnKind::Module { .. } => Default::default(),
-            EntityDefnKind::Feature { ty, lazy_stmts } => {
+            EntityDefnVariant::Module { .. } => Default::default(),
+            EntityDefnVariant::Feature { ty, lazy_stmts } => {
                 builder.push(ty.route);
                 extract_lazy_stmts_dependees(lazy_stmts, &mut builder);
             }
-            EntityDefnKind::Pattern { .. } => todo!(),
-            EntityDefnKind::Func {
+            EntityDefnVariant::Pattern { .. } => todo!(),
+            EntityDefnVariant::Func {
                 input_placeholders: inputs,
                 output,
                 stmts,
@@ -101,7 +101,7 @@ impl EntityDefn {
                 extract_routine_head_dependees(inputs, output, &mut builder);
                 extract_decl_stmts_dependees(stmts, &mut builder);
             }
-            EntityDefnKind::Proc {
+            EntityDefnVariant::Proc {
                 input_placeholders: inputs,
                 output,
                 stmts,
@@ -109,18 +109,18 @@ impl EntityDefn {
                 extract_routine_head_dependees(inputs, output, &mut builder);
                 extract_impr_stmts_dependees(stmts, &mut builder);
             }
-            EntityDefnKind::Ty(ty) => match ty.kind {
-                TyDefnKind::Enum { ref variants } => {
+            EntityDefnVariant::Ty(ty) => match ty.kind {
+                TyDefnVariant::Enum { ref variants } => {
                     variants.iter().for_each(|(_ident, variant_kind)| {
                         extract_enum_variant_dependees(variant_kind, &mut builder)
                     });
                 }
-                TyDefnKind::Struct { ref memb_vars, .. } => {
+                TyDefnVariant::Struct { ref memb_vars, .. } => {
                     for (_ident, memb_var) in memb_vars.iter() {
                         builder.push(memb_var.ty);
                     }
                 }
-                TyDefnKind::Record {
+                TyDefnVariant::Record {
                     ref memb_vars,
                     ref memb_features,
                 } => {
@@ -132,9 +132,9 @@ impl EntityDefn {
                         .for_each(|(_ident, memb_feature_defn)| builder.push(memb_feature_defn.ty));
                 }
             },
-            EntityDefnKind::Main(_) => todo!(),
-            EntityDefnKind::Builtin => (),
-            EntityDefnKind::EnumVariant(variant) => match variant {
+            EntityDefnVariant::Main(_) => todo!(),
+            EntityDefnVariant::Builtin => (),
+            EntityDefnVariant::EnumVariant(variant) => match variant {
                 EnumVariant::Constant => (),
             },
         };

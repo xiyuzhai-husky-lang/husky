@@ -15,7 +15,7 @@ fn test_diagnostics() {
     // {
     //     let diagnostic_reserve = db.diagnostic_reserve(the_module);
     //     ep!(diagnostic_reserve);
-    //     should_be!(diagnostic_reserve.diagnostics_ref().len(), 0);
+    //     should_eq!(diagnostic_reserve.diagnostics_ref().len(), 0);
     // }
     {
         let diagnostic_reserve = db.diagnostic_reserve(the_module);

@@ -27,10 +27,10 @@ fn entity_instruction_sheet(
         .unwrap()
         .expect("expect no builtin");
     match entity_defn.kind() {
-        EntityDefnKind::Module { .. } => todo!(),
-        EntityDefnKind::Feature { .. } => todo!(),
-        EntityDefnKind::Pattern { .. } => todo!(),
-        EntityDefnKind::Func {
+        EntityDefnVariant::Module { .. } => todo!(),
+        EntityDefnVariant::Feature { .. } => todo!(),
+        EntityDefnVariant::Pattern { .. } => todo!(),
+        EntityDefnVariant::Func {
             input_placeholders,
             stmts,
             ..
@@ -43,7 +43,7 @@ fn entity_instruction_sheet(
             stmts,
             false,
         ),
-        EntityDefnKind::Proc {
+        EntityDefnVariant::Proc {
             input_placeholders,
             stmts,
             ..
@@ -56,13 +56,13 @@ fn entity_instruction_sheet(
             stmts,
             false,
         ),
-        EntityDefnKind::Ty(_) => todo!(),
-        EntityDefnKind::Main(_) => todo!(),
-        EntityDefnKind::Builtin => {
+        EntityDefnVariant::Ty(_) => todo!(),
+        EntityDefnVariant::Main(_) => todo!(),
+        EntityDefnVariant::Builtin => {
             p!(route.ident());
             todo!()
         }
-        EntityDefnKind::EnumVariant(_) => todo!(),
+        EntityDefnVariant::EnumVariant(_) => todo!(),
     }
 }
 
@@ -73,23 +73,23 @@ fn memb_routine_instruction_sheet(
 ) -> Arc<InstructionSheet> {
     let entity_defn = db.opt_entity_defn(ty).unwrap().unwrap();
     match entity_defn.kind() {
-        EntityDefnKind::Main(_) => todo!(),
-        EntityDefnKind::Module {} => todo!(),
-        EntityDefnKind::Feature { .. } => todo!(),
-        EntityDefnKind::Pattern {} => todo!(),
-        EntityDefnKind::Func {
+        EntityDefnVariant::Main(_) => todo!(),
+        EntityDefnVariant::Module {} => todo!(),
+        EntityDefnVariant::Feature { .. } => todo!(),
+        EntityDefnVariant::Pattern {} => todo!(),
+        EntityDefnVariant::Func {
             input_placeholders,
             output,
             stmts,
         } => todo!(),
-        EntityDefnKind::Proc {
+        EntityDefnVariant::Proc {
             input_placeholders,
             output,
             stmts,
         } => todo!(),
-        EntityDefnKind::Ty(ty) => match ty.kind {
-            TyDefnKind::Enum { ref variants } => todo!(),
-            TyDefnKind::Struct {
+        EntityDefnVariant::Ty(ty) => match ty.kind {
+            TyDefnVariant::Enum { ref variants } => todo!(),
+            TyDefnVariant::Struct {
                 ref memb_vars,
                 ref memb_routines,
             } => {
@@ -108,13 +108,13 @@ fn memb_routine_instruction_sheet(
                     }
                 }
             }
-            TyDefnKind::Record {
+            TyDefnVariant::Record {
                 ref memb_vars,
                 ref memb_features,
             } => todo!(),
         },
-        EntityDefnKind::Builtin => todo!(),
-        EntityDefnKind::EnumVariant(_) => todo!(),
+        EntityDefnVariant::Builtin => todo!(),
+        EntityDefnVariant::EnumVariant(_) => todo!(),
     }
 }
 

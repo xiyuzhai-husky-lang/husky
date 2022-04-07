@@ -26,7 +26,7 @@ pub use word::InternWord;
 use check_utils::*;
 use entity_route::EntityRoutePtr;
 use print_utils::*;
-use semantics_entity::{EntityDefnKind, EntityRouteStore};
+use semantics_entity::{EntityDefnVariant, EntityRouteStore};
 use std::{
     collections::HashMap,
     fmt,

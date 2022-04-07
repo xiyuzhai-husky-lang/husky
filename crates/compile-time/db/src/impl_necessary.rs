@@ -8,7 +8,7 @@ use crate::*;
 
 impl fmt::Debug for HuskyLangCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("HuskyLangDatabase").finish()
+        f.debug_struct("HuskyLangCompileTime").finish()
     }
 }
 

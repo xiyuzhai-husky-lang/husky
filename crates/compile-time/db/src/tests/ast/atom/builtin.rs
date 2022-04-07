@@ -1,14 +1,18 @@
 use super::utils;
 use crate::*;
-use atom::AtomKind;
-use entity_route::{EntityRouteKind, ScopeId};
+use ast::AtomKind;
+use entity_route::{EntityRouteKind, EntityRoutePtr, RawEntityKind};
+use entity_syntax::RawTyKind;
 use word::{Identifier, RootIdentifier};
 
 #[test]
 fn std_scope() {
     utils::check_atom_kind(
         "std",
-        AtomKind::Scope(RootIdentifier::Std.into(), RawEntityKind::Module),
+        AtomKind::EntityRoute {
+            route: RootIdentifier::Std.into(),
+            kind: RawEntityKind::Module,
+        },
     );
 }
 
@@ -16,7 +20,10 @@ fn std_scope() {
 fn core_scope() {
     utils::check_atom_kind(
         "core",
-        AtomKind::Scope(RootIdentifier::Core.into(), RawEntityKind::Module),
+        AtomKind::EntityRoute {
+            route: RootIdentifier::Core.into(),
+            kind: RawEntityKind::Module,
+        },
     );
 }
 
@@ -24,7 +31,10 @@ fn core_scope() {
 fn debug_scope() {
     utils::check_atom_kind(
         "debug",
-        AtomKind::Scope(RootIdentifier::Debug.into(), RawEntityKind::Module),
+        AtomKind::EntityRoute {
+            route: RootIdentifier::Debug.into(),
+            kind: RawEntityKind::Module,
+        },
     );
 }
 
@@ -32,7 +42,10 @@ fn debug_scope() {
 fn i32_type() {
     utils::check_atom_kind(
         "i32",
-        AtomKind::Scope(RootIdentifier::I32.into(), RawEntityKind::Type),
+        AtomKind::EntityRoute {
+            route: RootIdentifier::I32.into(),
+            kind: RawEntityKind::Type(RawTyKind::Primitive),
+        },
     );
 }
 
@@ -40,7 +53,10 @@ fn i32_type() {
 fn f32_type() {
     utils::check_atom_kind(
         "f32",
-        AtomKind::Scope(RootIdentifier::F32.into(), RawEntityKind::Type),
+        AtomKind::EntityRoute {
+            route: RootIdentifier::F32.into(),
+            kind: RawEntityKind::Type(RawTyKind::Primitive),
+        },
     );
 }
 
@@ -48,7 +64,10 @@ fn f32_type() {
 fn vec_generics() {
     utils::check_atom_kind(
         "Vec",
-        AtomKind::Scope(RootIdentifier::Vector.into(), RawEntityKind::Type),
+        AtomKind::EntityRoute {
+            route: RootIdentifier::Vec.into(),
+            kind: RawEntityKind::Type(RawTyKind::Primitive),
+        },
     );
 }
 
@@ -56,6 +75,9 @@ fn vec_generics() {
 fn tuple_generics() {
     utils::check_atom_kind(
         "Tuple",
-        AtomKind::Scope(RootIdentifier::Tuple.into(), RawEntityKind::Type),
+        AtomKind::EntityRoute {
+            route: RootIdentifier::Tuple.into(),
+            kind: RawEntityKind::Type(RawTyKind::Primitive),
+        },
     );
 }

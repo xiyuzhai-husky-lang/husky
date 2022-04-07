@@ -18,10 +18,12 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureStmtKind::Return { ref result } => self.eval_feature_expr(result),
             FeatureStmtKind::BranchGroup { ref branches, .. } => {
                 for branch in branches {
-                    let execute_branch: bool = match branch.kind {
-                        FeatureBranchKind::If { ref condition } => self.satisfies(condition)?,
-                        FeatureBranchKind::Elif { ref condition } => self.satisfies(condition)?,
-                        FeatureBranchKind::Else => true,
+                    let execute_branch: bool = match branch.variant {
+                        FeatureBranchVariant::If { ref condition } => self.satisfies(condition)?,
+                        FeatureBranchVariant::Elif { ref condition } => {
+                            self.satisfies(condition)?
+                        }
+                        FeatureBranchVariant::Else => true,
                     };
                     if execute_branch {
                         return self.eval_feature_block(&branch.block);

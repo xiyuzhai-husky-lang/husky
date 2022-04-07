@@ -28,7 +28,7 @@ impl EntityDefnUid {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EntityDefn {
     pub ident: Identifier,
-    pub kind: Arc<EntityDefnKind>,
+    pub kind: Arc<EntityDefnVariant>,
     pub subentities: Arc<Vec<Arc<EntityDefn>>>,
     pub scope: EntityRoutePtr,
     pub file: FilePtr,
@@ -36,13 +36,13 @@ pub struct EntityDefn {
 }
 
 impl EntityDefn {
-    pub fn kind(&self) -> &EntityDefnKind {
+    pub fn kind(&self) -> &EntityDefnVariant {
         &self.kind
     }
 
     pub(crate) fn new(
         ident: Identifier,
-        kind: EntityDefnKind,
+        kind: EntityDefnVariant,
         subentities: Arc<Vec<Arc<EntityDefn>>>,
         scope: EntityRoutePtr,
         file: FilePtr,
@@ -117,7 +117,7 @@ pub(crate) fn opt_entity_defn(
                     let signature = try_infer!(db.ty_decl(entity_scope));
                     (
                         ident,
-                        EntityDefnKind::Ty(TyDefn::from_ast(
+                        EntityDefnVariant::Ty(TyDefn::from_ast(
                             db.upcast(),
                             ast_head,
                             not_none!(children),
@@ -131,7 +131,7 @@ pub(crate) fn opt_entity_defn(
                     ref routine_head,
                 } => (
                     routine_head.routine_name,
-                    EntityDefnKind::routine(
+                    EntityDefnVariant::routine(
                         db,
                         routine_class,
                         routine_head,
@@ -148,13 +148,13 @@ pub(crate) fn opt_entity_defn(
                     variant_class,
                 } => (
                     ident,
-                    EntityDefnKind::enum_variant(db, variant_class, children),
+                    EntityDefnVariant::enum_variant(db, variant_class, children),
                 ),
                 AstKind::MembVarDefn { .. } => todo!(),
                 AstKind::MembRoutineDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,
-                    EntityDefnKind::feature(db, ty, not_none!(children), arena, file)?,
+                    EntityDefnVariant::feature(db, ty, not_none!(children), arena, file)?,
                 ),
                 AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             };

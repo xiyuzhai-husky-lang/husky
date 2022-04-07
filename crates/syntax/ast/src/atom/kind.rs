@@ -8,8 +8,8 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomKind {
-    Scope {
-        scope: EntityRoutePtr,
+    EntityRoute {
+        route: EntityRoutePtr,
         kind: RawEntityKind,
     },
     Variable {

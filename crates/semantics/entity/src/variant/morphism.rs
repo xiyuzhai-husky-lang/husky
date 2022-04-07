@@ -10,16 +10,16 @@ pub struct MainDefn {
     pub file: FilePtr,
 }
 
-impl EntityDefnKind {
+impl EntityDefnVariant {
     pub(crate) fn feature(
         db: &dyn EntityQueryGroup,
         ty: RangedEntityRoute,
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResult<EntityDefnKind> {
+    ) -> SemanticResult<EntityDefnVariant> {
         let lazy_stmts = semantics_lazy::parse_lazy_stmts(&[], db.upcast(), arena, children, file)?;
         // let feature_block = FeatureBlock::new(db, lazy_stmts, &[], db.features());
-        Ok(EntityDefnKind::Feature { ty, lazy_stmts })
+        Ok(EntityDefnVariant::Feature { ty, lazy_stmts })
     }
 }

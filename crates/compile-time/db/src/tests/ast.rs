@@ -1,3 +1,5 @@
+mod atom;
+
 use crate::*;
 
 #[test]
@@ -18,7 +20,7 @@ main:
         .into(),
     );
 
-    let main_file_id = db.alloc_file("haha/main.hsk".into());
+    let main_file_id = db.intern_file("haha/main.hsk".into());
     let ast_text = db.ast_text(main_file_id).unwrap();
     should_eq!(ast_text.errors().len(), 0);
 }

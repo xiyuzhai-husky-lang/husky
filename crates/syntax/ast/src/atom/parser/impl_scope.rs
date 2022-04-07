@@ -9,8 +9,8 @@ impl<'a> AtomLRParser<'a> {
     pub(crate) fn symbol(&mut self) -> AstResult<Option<AtomKind>> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {
-                Some(AtomKind::Scope {
-                    scope: self.symbolic_ty()?,
+                Some(AtomKind::EntityRoute {
+                    route: self.symbolic_ty()?,
                     kind: RawEntityKind::Type(RawTyKind::Other),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
@@ -65,15 +65,18 @@ impl<'a> AtomLRParser<'a> {
                 .db
                 .make_child_scope(scope, ident, self.generics(route)?);
         }
-        return Ok(AtomKind::Scope {
-            scope,
+        return Ok(AtomKind::EntityRoute {
+            route: scope,
             kind: self.scope_proxy.db.raw_entity_kind(scope),
         });
     }
 
     pub(crate) fn ty(&mut self) -> AstResult<Option<EntityRoutePtr>> {
         Ok(
-            if let Some(AtomKind::Scope { scope, kind, .. }) = self.symbol()? {
+            if let Some(AtomKind::EntityRoute {
+                route: scope, kind, ..
+            }) = self.symbol()?
+            {
                 if let RawEntityKind::Type(_) = kind {
                     Some(scope)
                 } else {

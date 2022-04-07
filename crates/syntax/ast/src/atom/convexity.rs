@@ -9,7 +9,7 @@ pub enum Convexity {
 
 pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
-        AtomKind::Scope { .. }
+        AtomKind::EntityRoute { .. }
         | AtomKind::Variable { .. }
         | AtomKind::This { .. }
         | AtomKind::Unrecognized(_)
@@ -27,7 +27,7 @@ pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
 
 pub(super) fn right_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
-        AtomKind::Scope { .. }
+        AtomKind::EntityRoute { .. }
         | AtomKind::Variable { .. }
         | AtomKind::This { .. }
         | AtomKind::Unrecognized(_)

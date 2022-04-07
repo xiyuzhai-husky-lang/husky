@@ -43,7 +43,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 let entity_defn = self.db.opt_entity_defn(routine.route).unwrap().unwrap();
                 let kind = match entity_defn.kind() {
-                    EntityDefnKind::Func {
+                    EntityDefnVariant::Func {
                         input_placeholders,
                         stmts,
                         ..
@@ -57,7 +57,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         instruction_sheet: self.db.entity_instruction_sheet(routine.route),
                         stmts: stmts.clone(),
                     },
-                    EntityDefnKind::Proc {
+                    EntityDefnVariant::Proc {
                         input_placeholders,
                         stmts,
                         ..
@@ -123,12 +123,12 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 let ty_entity_defn = self.db.opt_entity_defn(opds[0].ty).unwrap().unwrap();
                 let ty = match ty_entity_defn.kind() {
-                    EntityDefnKind::Ty(ty) => ty,
+                    EntityDefnVariant::Ty(ty) => ty,
                     _ => panic!(),
                 };
                 match ty.kind {
-                    TyDefnKind::Enum { ref variants } => todo!(),
-                    TyDefnKind::Struct {
+                    TyDefnVariant::Enum { ref variants } => todo!(),
+                    TyDefnVariant::Struct {
                         ref memb_vars,
                         ref memb_routines,
                     } => {
@@ -147,7 +147,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         };
                         (kind, feature)
                     }
-                    TyDefnKind::Record { .. } => todo!(),
+                    TyDefnVariant::Record { .. } => todo!(),
                 }
             }
             LazyOpnKind::ElementAccess => todo!(),
@@ -187,8 +187,8 @@ impl<'a> FeatureExprBuilder<'a> {
                 ref opds,
                 ..
             } => match entity.kind() {
-                EntityDefnKind::Ty(ty) => match ty.kind {
-                    TyDefnKind::Record { ref memb_vars, .. } => {
+                EntityDefnVariant::Ty(ty) => match ty.kind {
+                    TyDefnVariant::Record { ref memb_vars, .. } => {
                         p!(memb_ident, memb_vars);
                         let idx = memb_vars.position(memb_ident).unwrap();
                         opds[idx].clone()

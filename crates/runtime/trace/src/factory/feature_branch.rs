@@ -36,18 +36,18 @@ impl<'eval> TraceFactory<'eval> {
         branch: &FeatureBranch,
         text: &Text,
     ) -> Vec<TokenProps<'eval>> {
-        match branch.kind {
-            FeatureBranchKind::If { ref condition } => {
+        match branch.variant {
+            FeatureBranchVariant::If { ref condition } => {
                 let mut tokens = vec![keyword!("if ")];
                 tokens.extend(self.feature_expr_tokens(condition, text, ExprTokenConfig::branch()));
                 tokens
             }
-            FeatureBranchKind::Elif { ref condition } => {
+            FeatureBranchVariant::Elif { ref condition } => {
                 let mut tokens = vec![keyword!("elif ")];
                 tokens.extend(self.feature_expr_tokens(condition, text, ExprTokenConfig::branch()));
                 tokens
             }
-            FeatureBranchKind::Else => vec![keyword!("else ")],
+            FeatureBranchVariant::Else => vec![keyword!("else ")],
         }
     }
 

@@ -293,7 +293,7 @@ pub trait ScopeQueryGroup:
         } else if path_has_extension(&path, "hsk") {
             let maybe_main_path = path.with_file_name("main.hsk");
             if maybe_main_path.exists() {
-                let _parent = self.module(self.alloc_file(path.with_file_name("mod.hsk")));
+                let _parent = self.module(self.intern_file(path.with_file_name("mod.hsk")));
                 todo!()
             } else {
                 todo!()
@@ -335,7 +335,7 @@ pub trait ScopeQueryGroup:
             Err(file::FileError::FileNotFound.into())
         };
 
-        module_path.map(|pth| self.alloc_file(pth))
+        module_path.map(|pth| self.intern_file(pth))
     }
 
     fn raw_entity_kind_from_scope_kind(&self, scope_kind: &EntityRouteKind) -> RawEntityKind {

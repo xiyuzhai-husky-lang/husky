@@ -1,7 +1,7 @@
 use entity_route::EntityRoutePtr;
 use instruction_gen::InstructionGenQueryGroup;
 use pack_semantics::*;
-use semantics_entity::{EntityDefnKind, EntityQueryGroup};
+use semantics_entity::{EntityDefnVariant, EntityQueryGroup};
 use semantics_error::SemanticResultArc;
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
@@ -36,7 +36,7 @@ fn scoped_feature_block(
 ) -> SemanticResultArc<FeatureBlock> {
     let entity = db.opt_entity_defn(scope)?.unwrap();
     match entity.kind() {
-        EntityDefnKind::Feature { ref lazy_stmts, .. } => {
+        EntityDefnVariant::Feature { ref lazy_stmts, .. } => {
             Ok(FeatureBlock::new(db, None, lazy_stmts, &[], db.features()))
         }
         _ => todo!(),
