@@ -7,7 +7,7 @@ mod impl_write;
 
 use crate::*;
 use pack_semantics::Pack;
-use semantics_entity::{EntityDefn, EntityDefnKind, TyDefnKind};
+use semantics_entity::{EntityDefn, EntityDefnVariant, TyDefnVariant};
 use std::sync::Arc;
 
 pub(crate) struct RustGenerator<'a> {
@@ -28,10 +28,10 @@ impl<'a> RustGenerator<'a> {
     pub(crate) fn gen_pack_lib_rs(&mut self, pack: &Pack) {
         for entity in pack.subentity_defns.iter() {
             match entity.kind() {
-                EntityDefnKind::Main(_) => todo!(),
-                EntityDefnKind::Module {} => todo!(),
-                EntityDefnKind::Feature { .. } | EntityDefnKind::Pattern {} => (),
-                EntityDefnKind::Func {
+                EntityDefnVariant::Main(_) => todo!(),
+                EntityDefnVariant::Module {} => todo!(),
+                EntityDefnVariant::Feature { .. } | EntityDefnVariant::Pattern {} => (),
+                EntityDefnVariant::Func {
                     input_placeholders,
                     output,
                     stmts,
@@ -41,7 +41,7 @@ impl<'a> RustGenerator<'a> {
                     output.route,
                     stmts,
                 ),
-                EntityDefnKind::Proc {
+                EntityDefnVariant::Proc {
                     input_placeholders,
                     output,
                     stmts,
@@ -51,18 +51,18 @@ impl<'a> RustGenerator<'a> {
                     output.route,
                     stmts,
                 ),
-                EntityDefnKind::Ty(ty) => match ty.kind {
-                    TyDefnKind::Enum { ref variants } => {
+                EntityDefnVariant::Ty(ty) => match ty.kind {
+                    TyDefnVariant::Enum { ref variants } => {
                         self.gen_enum_defn(entity.ident.custom(), variants)
                     }
-                    TyDefnKind::Struct {
+                    TyDefnVariant::Struct {
                         ref memb_vars,
                         ref memb_routines,
                     } => self.gen_struct_defn(entity.ident.custom(), memb_vars, memb_routines),
-                    TyDefnKind::Record { .. } => (),
+                    TyDefnVariant::Record { .. } => (),
                 },
-                EntityDefnKind::Builtin => todo!(),
-                EntityDefnKind::EnumVariant(_) => todo!(),
+                EntityDefnVariant::Builtin => todo!(),
+                EntityDefnVariant::EnumVariant(_) => todo!(),
             }
         }
         self.gen_init(&pack.subentity_defns);

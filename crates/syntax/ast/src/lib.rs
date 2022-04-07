@@ -7,6 +7,7 @@ mod stmt;
 mod transform;
 
 pub use crate::error::{AstError, AstResult, AstResultArc};
+pub use atom::*;
 use entity_syntax::RawTyKind;
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};

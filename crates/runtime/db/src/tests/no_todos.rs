@@ -3,7 +3,7 @@ use compile_time_db::*;
 fn walkthrough(main_source: &'static str) {
     let mut db = HuskyLangCompileTime::default();
     db.set_live_file_text("haha/main.hsk".into(), main_source.into());
-    let main_file = db.alloc_file("haha/main.hsk".into());
+    let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.pack(main_file).unwrap();
     // let sess = Session::new(&Pack);
 }

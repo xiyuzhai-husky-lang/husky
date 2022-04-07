@@ -16,7 +16,7 @@ use word::{CustomIdentifier, IdentMap};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TyDefn {
-    pub kind: TyDefnKind,
+    pub kind: TyDefnVariant,
 }
 
 impl TyDefn {
@@ -47,7 +47,7 @@ impl TyDefn {
         })
     }
 
-    fn enum_from_ast(children: AstIter) -> SemanticResult<TyDefnKind> {
+    fn enum_from_ast(children: AstIter) -> SemanticResult<TyDefnVariant> {
         let mut variants = VecMap::default();
         for subitem in children {
             match subitem.value.as_ref()?.kind {
@@ -63,7 +63,7 @@ impl TyDefn {
                 _ => panic!(),
             }
         }
-        Ok(TyDefnKind::Enum { variants })
+        Ok(TyDefnVariant::Enum { variants })
     }
 
     fn enum_variant_from_ast(children: Option<AstIter>) -> SemanticResult<EnumVariant> {
@@ -75,7 +75,7 @@ impl TyDefn {
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResult<TyDefnKind> {
+    ) -> SemanticResult<TyDefnVariant> {
         let mut memb_vars = VecMap::default();
         let mut memb_routines = VecMap::default();
         for subitem in children {
@@ -113,7 +113,7 @@ impl TyDefn {
                 _ => panic!(),
             }
         }
-        Ok(TyDefnKind::Struct {
+        Ok(TyDefnVariant::Struct {
             memb_vars,
             memb_routines,
         })
@@ -124,7 +124,7 @@ impl TyDefn {
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResult<TyDefnKind> {
+    ) -> SemanticResult<TyDefnVariant> {
         let mut memb_vars = VecMap::default();
         let mut memb_features = VecMap::default();
         for subitem in children {
@@ -148,7 +148,7 @@ impl TyDefn {
                 _ => panic!(),
             }
         }
-        Ok(TyDefnKind::Record {
+        Ok(TyDefnVariant::Record {
             memb_vars,
             memb_features,
         })
@@ -156,7 +156,7 @@ impl TyDefn {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum TyDefnKind {
+pub enum TyDefnVariant {
     Enum {
         variants: IdentMap<EnumVariant>,
     },
@@ -195,13 +195,13 @@ pub enum EnumVariant {
     Constant,
 }
 
-impl EntityDefnKind {
+impl EntityDefnVariant {
     pub fn enum_variant(
         db: &dyn EntityQueryGroup,
         enum_variant_class: EnumVariantClass,
         children: Option<AstIter>,
-    ) -> EntityDefnKind {
-        EntityDefnKind::EnumVariant(match enum_variant_class {
+    ) -> EntityDefnVariant {
+        EntityDefnVariant::EnumVariant(match enum_variant_class {
             EnumVariantClass::Constant => EnumVariant::Constant,
         })
     }

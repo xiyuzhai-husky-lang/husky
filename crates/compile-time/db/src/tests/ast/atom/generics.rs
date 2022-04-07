@@ -1,39 +1,38 @@
 use super::utils;
 use crate::*;
-use atom::AtomKind;
+use ast::AtomKind;
 
 #[test]
 fn vec_type() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("Vec<i32>");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn default_func_type() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("(i32) -> i32");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn default_func_type2() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("(i32, i32) -> i32");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn tuple_type() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("(i32, i32)");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn func_pointer_with_implicitly_void_return_type() {
     let (db, atoms) = utils::get_stmt_atoms_in_one_line_group("Fp(i32, i32)");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
     let atom = &atoms[0];
-    if let AtomKind::Scope(scope_id, _) = atom.kind {
-        let scope = db.id_to_scope(scope_id);
-        should_be!(scope.generics.len(), 3);
+    if let AtomKind::EntityRoute { route, .. } = atom.kind {
+        should_eq!(route.generics.len(), 3);
     } else {
         panic!()
     }
@@ -42,35 +41,35 @@ fn func_pointer_with_implicitly_void_return_type() {
 #[test]
 fn func_pointer_with_nonvoid_return_type() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("Fp(i32, i32) -> i32");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn func_trait() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("Fn(i32, i32)");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn vec_of_default_func_type_with_nonvoid_return_type() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("Vec<(i32, i32) -> i32>");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn vec_of_default_func_type_with_nonvoid_return_type2() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("Vec<() -> i32>");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn symbolized_vec_of_i32() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("[]i32");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }
 
 #[test]
 fn symbolized_array_of_i32() {
     let (_db, atoms) = utils::get_stmt_atoms_in_one_line_group("[3]i32");
-    should_be!(atoms.len(), 1);
+    should_eq!(atoms.len(), 1);
 }

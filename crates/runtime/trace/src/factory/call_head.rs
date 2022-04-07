@@ -7,19 +7,19 @@ use crate::*;
 impl<'eval> TraceFactory<'eval> {
     pub fn new_call_head(&self, entity: Arc<EntityDefn>, text: &Text) -> Arc<Trace<'eval>> {
         let tokens = match entity.kind() {
-            EntityDefnKind::Module { .. } => todo!(),
-            EntityDefnKind::Feature { .. } => todo!(),
-            EntityDefnKind::Pattern { .. } => todo!(),
-            EntityDefnKind::Func {
+            EntityDefnVariant::Module { .. } => todo!(),
+            EntityDefnVariant::Feature { .. } => todo!(),
+            EntityDefnVariant::Pattern { .. } => todo!(),
+            EntityDefnVariant::Func {
                 input_placeholders, ..
             } => routine_call_head_tokens("func ", entity.ident, input_placeholders, text),
-            EntityDefnKind::Proc {
+            EntityDefnVariant::Proc {
                 input_placeholders, ..
             } => routine_call_head_tokens("proc ", entity.ident, input_placeholders, text),
-            EntityDefnKind::Ty(_) => todo!(),
-            EntityDefnKind::Main(_) => todo!(),
-            EntityDefnKind::Builtin => todo!(),
-            EntityDefnKind::EnumVariant(_) => todo!(),
+            EntityDefnVariant::Ty(_) => todo!(),
+            EntityDefnVariant::Main(_) => todo!(),
+            EntityDefnVariant::Builtin => todo!(),
+            EntityDefnVariant::EnumVariant(_) => todo!(),
         };
         return self.new_trace(None, 0, TraceKind::CallHead { entity, tokens }, text);
 

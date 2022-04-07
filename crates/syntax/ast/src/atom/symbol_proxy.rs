@@ -45,8 +45,8 @@ impl<'a> SymbolProxy<'a> {
         tail: TextRange,
     ) -> Atom {
         let scope = EntityRoute::new_builtin(ident.into(), generics);
-        let kind = AtomKind::Scope {
-            scope: self.db.intern_scope(scope),
+        let kind = AtomKind::EntityRoute {
+            route: self.db.intern_scope(scope),
             kind: RawEntityKind::Type(match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32

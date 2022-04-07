@@ -5,12 +5,12 @@ use crate::{eval::FeatureEvalId, *};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureBranch {
     pub block: Arc<FeatureBlock>,
-    pub kind: FeatureBranchKind,
+    pub variant: FeatureBranchVariant,
     pub(crate) eval_id: FeatureEvalId,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureBranchKind {
+pub enum FeatureBranchVariant {
     If { condition: Arc<FeatureExpr> },
     Elif { condition: Arc<FeatureExpr> },
     Else,

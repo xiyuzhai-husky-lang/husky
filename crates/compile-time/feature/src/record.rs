@@ -1,4 +1,4 @@
-use semantics_entity::{EntityDefnKind, TyDefnKind};
+use semantics_entity::{EntityDefnVariant, TyDefnVariant};
 use sync_utils::ARwLock;
 
 use crate::*;
@@ -30,8 +30,8 @@ pub(crate) fn expr_record_memb(
             ref opds,
             ..
         } => match entity.kind() {
-            EntityDefnKind::Ty(ty) => match ty.kind {
-                TyDefnKind::Record {
+            EntityDefnVariant::Ty(ty) => match ty.kind {
+                TyDefnVariant::Record {
                     ref memb_vars,
                     ref memb_features,
                 } => {

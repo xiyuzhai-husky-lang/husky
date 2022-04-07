@@ -8,7 +8,7 @@ pub type FilePtr = unique_allocator::BasicUniqueAllocatorPtr<Path>;
 pub trait AllocateUniqueFile {
     fn file_unique_allocator(&self) -> &UniqueFileAllocator;
 
-    fn alloc_file(&self, path: PathBuf) -> FilePtr {
+    fn intern_file(&self, path: PathBuf) -> FilePtr {
         self.file_unique_allocator().alloc(path)
     }
 }

@@ -5,7 +5,7 @@ pub(crate) mod parser;
 mod stack;
 pub(crate) mod symbol_proxy;
 
-pub(crate) use kind::{AtomKind, LambdaHead};
+pub use kind::{AtomKind, LambdaHead};
 pub(crate) use parser::parse_ty;
 pub(crate) use syntax_types::*;
 

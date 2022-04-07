@@ -18,7 +18,7 @@ impl<'a> AstTransformer<'a> {
                     | AtomKind::This { .. }
                     | AtomKind::Unrecognized(_)
                     | AtomKind::Literal(_)
-                    | AtomKind::Scope { .. } => stack.accept_atom_expr(atom.into()),
+                    | AtomKind::EntityRoute { .. } => stack.accept_atom_expr(atom.into()),
                     AtomKind::Binary(opr) => stack.accept_binary(opr),
                     AtomKind::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_end()),
                     AtomKind::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),

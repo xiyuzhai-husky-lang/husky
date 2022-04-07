@@ -10,7 +10,7 @@ mod stmt;
 mod this;
 mod unique_allocate;
 
-pub use branch::{FeatureBranch, FeatureBranchKind};
+pub use branch::{FeatureBranch, FeatureBranchVariant};
 pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt, FeatureEvalIndicator};
 pub use expr::{FeatureExpr, FeatureExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};

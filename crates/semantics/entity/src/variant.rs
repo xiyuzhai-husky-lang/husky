@@ -12,7 +12,7 @@ use entity_route::InputPlaceholder;
 use entity_route::RangedEntityRoute;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum EntityDefnKind {
+pub enum EntityDefnVariant {
     Main(MainDefn),
     Module {},
     Feature {

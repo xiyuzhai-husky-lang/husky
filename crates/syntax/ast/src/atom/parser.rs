@@ -192,8 +192,8 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr
         err!(file, result[1..].into(), "too many atoms")?
     } else {
         match result[0].kind {
-            AtomKind::Scope {
-                scope,
+            AtomKind::EntityRoute {
+                route: scope,
                 kind: RawEntityKind::Type(_),
                 ..
             } => Ok(scope),
