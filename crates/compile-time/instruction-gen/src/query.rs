@@ -1,6 +1,6 @@
 use check_utils::should_eq;
 use file::FilePtr;
-use fp_table::HasFpTable;
+use linkage_table::HasFpTable;
 use pack_semantics::PackQueryGroup;
 use vm::{EvalValue, RoutineFp, StackValue, VMResult};
 

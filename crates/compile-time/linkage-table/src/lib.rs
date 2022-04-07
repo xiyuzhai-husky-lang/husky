@@ -7,7 +7,7 @@ use vm::{EntityUid, MembAccessFp};
 use word::CustomIdentifier;
 
 pub trait HasFpTable {
-    fn fp_table(&self) -> &FpTable;
+    fn linkage_table(&self) -> &FpTable;
 }
 
 #[derive(Debug, Default, Clone)]

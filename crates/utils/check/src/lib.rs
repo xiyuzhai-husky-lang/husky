@@ -17,7 +17,6 @@ macro_rules! repeat_less_than {
 #[macro_export]
 macro_rules! should_eq {
     ($a:expr, $b:expr) => {
-        #[cfg(debug_assertions)]
         match (&$a, &$b) {
             (left_val, right_val) => {
                 if !(*left_val == *right_val) {
@@ -41,7 +40,7 @@ macro_rules! should_eq {
                         &*right_val,
                         print_utils::RESET,
                     );
-                    std::process::exit(1)
+                    panic!("");
                 }
             }
         }
@@ -52,12 +51,11 @@ macro_rules! should_eq {
 macro_rules! should_ok {
     ($result:expr) => {
         let result = $result;
-        #[cfg(debug_assertions)]
         match result {
             Ok(v) => v,
             Err(should_ok_failed) => {
                 p!(should_ok_failed);
-                std::process::exit(1)
+                panic!()
             }
         }
     };
@@ -67,7 +65,6 @@ macro_rules! should_ok {
 macro_rules! should {
     ($result:expr) => {{
         let result = $result;
-        #[cfg(debug_assertions)]
         match result {
             true => (),
             false => {

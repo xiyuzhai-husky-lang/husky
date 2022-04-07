@@ -88,7 +88,7 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstKind> {
         enter_block(self);
-        self.env.set_value(Env::Func);
+        self.env.set_value(AstContext::Func);
         expect_at_least!(token_group, Some(self.file), token_group.into(), 5);
         expect_block_head!(Some(self.file), token_group);
         let head = AtomLRParser::new(
@@ -108,7 +108,7 @@ impl<'a> AstTransformer<'a> {
                 }),
         );
         Ok(AstKind::MembRoutineDefnHead {
-            routine_kind: RoutineClass::Func,
+            routine_kind: RoutineKind::Func,
             memb_routine_head: head,
         })
     }

@@ -7,7 +7,7 @@ pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
     let element_ty = db.intern_scope(EntityRoute {
         kind: EntityRouteKind::Generic {
             ident: element_ty_ident,
-            raw_entity_kind: RawEntityKind::Type(RawTyKind::Other),
+            raw_entity_kind: RawEntityKind::Type(RawTyKind::Vec),
         },
         generics: vec![],
     });

@@ -33,12 +33,12 @@ pub struct MembCallDecl {
 // }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EnumVariantClass {
+pub enum EnumVariantKind {
     Constant,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RoutineClass {
+pub enum RoutineKind {
     Test,
     Proc,
     Func,

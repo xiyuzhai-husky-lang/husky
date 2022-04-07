@@ -12,7 +12,7 @@ pub(crate) fn enum_decl(
                 variant_class: ref raw_variant_kind,
             } => {
                 let variant_sig = match raw_variant_kind {
-                    EnumVariantClass::Constant => EnumVariantDecl::Constant,
+                    EnumVariantKind::Constant => EnumVariantDecl::Constant,
                 };
                 variants.insert_new(ident, variant_sig)
             }

@@ -1,8 +1,9 @@
 use std::ops::AddAssign;
 
-use ast::{Ast, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
+use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
 use entity_route::{EntityRoutePtr, InputPlaceholder};
 use entity_syntax::RawTyKind;
+use fold::LocalValue;
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
 use word::{RootIdentifier, WordAllocator};
@@ -12,18 +13,21 @@ pub struct Formatter<'a> {
     arena: &'a ast::RawExprArena,
     indent: fold::Indent,
     result: String,
+    context: LocalValue<AstContext>,
 }
 
 impl<'a> Formatter<'a> {
     pub(crate) fn new(
         word_unique_allocator: &'a WordAllocator,
         arena: &'a ast::RawExprArena,
+        context: AstContext,
     ) -> Self {
         Self {
             word_unique_allocator,
             arena,
             indent: 0,
             result: String::new(),
+            context: LocalValue::new(context),
         }
     }
 
@@ -33,21 +37,25 @@ impl<'a> Formatter<'a> {
 }
 
 impl<'a> fold::Executor<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>> for Formatter<'a> {
-    fn _enter_block(&mut self) {}
+    fn _enter_block(&mut self) {
+        self.context.enter()
+    }
 
-    fn _exit_block(&mut self) {}
+    fn _exit_block(&mut self) {
+        self.context.exit()
+    }
 
     fn execute(
         &mut self,
         indent: fold::Indent,
-        input: &AstResult<Ast>,
+        ast_result: &AstResult<Ast>,
         enter_block: impl FnOnce(&mut Self),
     ) {
         self.indent = indent;
         if self.result.len() > 0 {
             self.newline();
         }
-        self.fmt(input.as_ref().unwrap());
+        self.fmt(ast_result.as_ref().unwrap(), enter_block);
     }
 }
 
@@ -67,16 +75,20 @@ impl<'a> Formatter<'a> {
 }
 
 impl<'a> Formatter<'a> {
-    fn fmt(&mut self, ast: &ast::Ast) {
+    fn fmt(&mut self, ast: &ast::Ast, enter_block: impl FnOnce(&mut Self)) {
         match ast.kind {
             AstKind::TypeDefnHead {
                 ident,
                 ref kind,
                 generic_placeholders: ref generics,
             } => {
+                enter_block(self);
                 match kind {
                     RawTyKind::Enum => todo!(),
-                    RawTyKind::Struct => self.write("struct "),
+                    RawTyKind::Struct => {
+                        self.context.set_value(AstContext::Struct);
+                        self.write("struct ")
+                    }
                     RawTyKind::Record => todo!(),
                     RawTyKind::Primitive => todo!(),
                     RawTyKind::Vec => todo!(),
@@ -88,16 +100,22 @@ impl<'a> Formatter<'a> {
                     todo!()
                 }
             }
-            AstKind::MainDefn => self.write("main:"),
+            AstKind::MainDefn => {
+                enter_block(self);
+                self.context.set_value(AstContext::Main);
+                self.write("main:")
+            }
             AstKind::RoutineDefnHead {
-                routine_class: ref kind,
+                ref routine_kind,
                 routine_head: ref decl,
             } => {
-                self.write(match kind {
-                    RoutineClass::Test => "test ",
-                    RoutineClass::Proc => todo!(),
-                    RoutineClass::Func => "func ",
-                    RoutineClass::Def => todo!(),
+                enter_block(self);
+                self.context.set_value((*routine_kind).into());
+                self.write(match routine_kind {
+                    RoutineKind::Test => "test ",
+                    RoutineKind::Proc => todo!(),
+                    RoutineKind::Func => "func ",
+                    RoutineKind::Def => todo!(),
                 });
                 self.write(&decl.routine_name);
                 self.write("(");
@@ -195,7 +213,18 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[initial_value]);
             }
             RawStmtKind::Return(expr) => {
-                self.write("return ");
+                match self.context.value() {
+                    AstContext::Func | AstContext::Morphism | AstContext::Main => (),
+                    AstContext::Proc => self.write("return "),
+                    AstContext::Package(_) => todo!(),
+                    AstContext::Module(_) => todo!(),
+                    AstContext::DatasetConfig => todo!(),
+                    AstContext::Test => todo!(),
+                    AstContext::Struct => todo!(),
+                    AstContext::Record => todo!(),
+                    AstContext::Props => todo!(),
+                    AstContext::Enum => todo!(),
+                }
                 self.fmt_expr(&self.arena[expr]);
             }
             RawStmtKind::Assert(expr) => {
@@ -208,7 +237,7 @@ impl<'a> Formatter<'a> {
     fn fmt_expr(&mut self, expr: &RawExpr) {
         match expr.kind {
             RawExprKind::Variable { varname, .. } => self.write(&varname),
-            RawExprKind::Unrecognized(_) => todo!(),
+            RawExprKind::Unrecognized(varname) => self.write(&varname),
             RawExprKind::PrimitiveLiteral(literal) => match literal {
                 PrimitiveValue::I32(i) => self.write(&i.to_string()),
                 PrimitiveValue::F32(f) => self.write(&f.to_string()),

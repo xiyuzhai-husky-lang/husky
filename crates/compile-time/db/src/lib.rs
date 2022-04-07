@@ -11,12 +11,12 @@ pub use entity_route_query::{EntityRouteSalsaQueryGroup, ScopeQueryGroup};
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 use file::FilePtr;
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
-use fp_table::FpTable;
 pub use husky_fmt::FmtQuery;
 pub use infer_contract::*;
 pub use infer_total::*;
 pub use infer_ty::*;
 pub use instruction_gen::InstructionGenQueryGroup;
+use linkage_table::FpTable;
 pub use pack_semantics::PackQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
 pub use semantics_entity::EntityQueryGroup;
@@ -57,7 +57,7 @@ pub struct HuskyLangCompileTime {
     scope_unique_allocator: entity_route::ScopeInterner,
     live_docs: ARwLock<HashMap<FilePtr, ARwLock<String>>>,
     features: feature::FeatureUniqueAllocator,
-    fp_table: FpTable,
+    linkage_table: FpTable,
     entity_route_store: EntityRouteStore,
 }
 

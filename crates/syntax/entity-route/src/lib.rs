@@ -145,7 +145,7 @@ pub enum BuiltinEntityDecl {
         raw_ty_kind: RawTyKind,
         visualizer: BuiltinVisualizer,
     },
-    Vec,
+    Template,
     Module,
 }
 
@@ -155,7 +155,7 @@ impl BuiltinEntityDecl {
             BuiltinEntityDecl::Func(_) => RawEntityKind::Routine,
             BuiltinEntityDecl::Ty { raw_ty_kind, .. } => RawEntityKind::Type(*raw_ty_kind),
             BuiltinEntityDecl::Module => RawEntityKind::Module,
-            BuiltinEntityDecl::Vec => RawEntityKind::Type(RawTyKind::Vec),
+            BuiltinEntityDecl::Template => RawEntityKind::Type(RawTyKind::Vec),
         }
     }
 }

@@ -31,7 +31,7 @@ pub struct AstTransformer<'a> {
     arena: RawExprArena,
     folded_results: FoldedList<AstResult<Ast>>,
     symbols: LocalStack<Symbol>,
-    env: LocalValue<Env>,
+    env: LocalValue<AstContext>,
     this: LocalValue<Option<EntityRoutePtr>>,
 }
 
@@ -45,8 +45,8 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.kind {
-                EntityRouteKind::Pack { main, ident } => Env::pack(main),
-                EntityRouteKind::ChildScope { .. } => Env::Module(module),
+                EntityRouteKind::Pack { main, ident } => AstContext::Package(main),
+                EntityRouteKind::ChildScope { .. } => AstContext::Module(module),
                 EntityRouteKind::Root { .. } | EntityRouteKind::Contextual { .. } => panic!(),
                 EntityRouteKind::Generic { ident, .. } => todo!(),
             }),
@@ -82,7 +82,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn env(&self) -> Env {
+    fn env(&self) -> AstContext {
         self.env.value()
     }
 }
@@ -107,15 +107,15 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         Ok(Ast {
             range: token_group.into(),
             kind: match self.env() {
-                Env::pack(_) | Env::Module(_) => {
+                AstContext::Package(_) | AstContext::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?
                 }
-                Env::DatasetConfig
-                | Env::Main
-                | Env::Morphism
-                | Env::Func
-                | Env::Proc
-                | Env::Test => match token_group[0].kind {
+                AstContext::DatasetConfig
+                | AstContext::Main
+                | AstContext::Morphism
+                | AstContext::Func
+                | AstContext::Proc
+                | AstContext::Test => match token_group[0].kind {
                     TokenKind::Keyword(keyword) => match keyword {
                         Keyword::Config(_) => todo!(),
                         Keyword::Routine(_) => todo!(),
@@ -130,10 +130,10 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                     },
                     _ => self.parse_stmt_without_keyword(token_group)?.into(),
                 },
-                Env::Struct => self.parse_struct_item(token_group, enter_block)?,
-                Env::Enum => self.parse_enum_variant(token_group)?,
-                Env::Record => self.parse_class_item(token_group, enter_block)?,
-                Env::Props => todo!(),
+                AstContext::Struct => self.parse_struct_item(token_group, enter_block)?,
+                AstContext::Enum => self.parse_enum_variant(token_group)?,
+                AstContext::Record => self.parse_class_item(token_group, enter_block)?,
+                AstContext::Props => todo!(),
             },
         })
     }

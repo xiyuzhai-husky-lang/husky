@@ -1,5 +1,5 @@
-use fp_table::{FpTable, HasFpTable};
 use infer_total::InferQueryGroup;
+use linkage_table::{FpTable, HasFpTable};
 use semantics_entity::{EntityRouteStore, StoreEntityRoute};
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
@@ -23,7 +23,7 @@ impl salsa::ParallelDatabase for HuskyLangCompileTime {
             scope_unique_allocator: self.scope_unique_allocator.clone(),
             live_docs: self.live_docs.clone(),
             features: self.features.clone(),
-            fp_table: self.fp_table.clone(),
+            linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
         })
     }
@@ -38,7 +38,7 @@ impl Default for HuskyLangCompileTime {
             scope_unique_allocator: entity_route::new_scope_unique_allocator(),
             live_docs: Default::default(),
             features: feature::new_feature_unique_allocator(),
-            fp_table: Default::default(),
+            linkage_table: Default::default(),
             entity_route_store: Default::default(),
         }
     }
@@ -111,8 +111,8 @@ impl infer_contract::InferContractQueryGroup for HuskyLangCompileTime {}
 impl infer_total::InferQueryGroup for HuskyLangCompileTime {}
 
 impl HasFpTable for HuskyLangCompileTime {
-    fn fp_table(&self) -> &FpTable {
-        &self.fp_table
+    fn linkage_table(&self) -> &FpTable {
+        &self.linkage_table
     }
 }
 

@@ -11,13 +11,13 @@ impl<'a> InstructionSheetBuilder<'a> {
                     raw_ty_kind,
                     visualizer,
                 } => todo!(),
-                BuiltinEntityDecl::Vec => todo!(),
+                BuiltinEntityDecl::Template => todo!(),
                 BuiltinEntityDecl::Module => todo!(),
             },
             EntitySource::WithinBuiltinModule => todo!(),
             EntitySource::WithinModule { .. } => self
                 .db
-                .fp_table()
+                .linkage_table()
                 .entity_routine(self.db.entity_uid(routine)),
             EntitySource::Module { file } => todo!(),
             EntitySource::Contextual { main, ident } => todo!(),
@@ -30,7 +30,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         memb_ident: CustomIdentifier,
     ) -> Option<MembAccessFp> {
         self.db
-            .fp_table()
+            .linkage_table()
             .memb_access(self.db.entity_uid(this_ty), memb_ident)
     }
 
@@ -40,7 +40,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         memb_ident: CustomIdentifier,
     ) -> Option<RoutineFp> {
         self.db
-            .fp_table()
+            .linkage_table()
             .memb_routine(self.db.entity_uid(this_ty), memb_ident)
     }
 }

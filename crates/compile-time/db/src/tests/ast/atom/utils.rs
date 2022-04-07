@@ -1,40 +1,28 @@
 use crate::*;
 
-use ast::{AstKind, Atom, AtomKind};
+use ast::{Atom, AtomKind, AtomLRParser, SymbolProxy};
 
-pub(super) fn check_atom_kind(source: &'static str, kind: AtomKind) {
-    todo!()
-    // let mut db = HuskyLangCompileTime::default();
-    // db.set_live_file_text("haha/main.hsk".into(), source.into());
-
-    // let main_file_id = db.intern_file("haha/main.hsk".into());
-    // let ast_text = db.ast_text(main_file_id).unwrap();
-    // let nodes = ast_text.folded_results.nodes();
-    // should_eq!(nodes.len(), 1);
-    // let node = &nodes[0];
-    // let atoms = match should_ok!(node.value().as_ref()) {
-    //     AstKind::Stmt(stmt) => stmt.atoms.clone(),
-    //     _ => panic!(),
-    // };
-    // should_eq!(atoms.len(), 1);
-    // let atom = &atoms[0];
-    // should_eq!(atom.kind, kind);
+pub(super) fn check_atom_kind(db: &mut HuskyLangCompileTime, line: &'static str, kind: AtomKind) {
+    let atoms = get_atoms_in_line(db, line);
+    let atom = &atoms[0];
+    should_eq!(atom.kind, kind);
 }
 
-pub(super) fn get_stmt_atoms_in_one_line_group(
-    source: &'static str,
-) -> (HuskyLangCompileTime, Vec<Atom>) {
-    todo!()
-    // let mut db = HuskyLangCompileTime::default();
-    // db.set_live_file_text("haha/main.hsk".into(), source.into());
-
-    // let main_file_id = db.intern_file("haha/main.hsk".into());
-    // let ast_text = db.ast_text(main_file_id).unwrap();
-    // let nodes = ast_text.folded_results.nodes();
-    // should_eq!(nodes.len(), 1);
-    // let node = &nodes[0];
-    // match node.value().as_ref().unwrap().kind {
-    //     AstKind::Stmt(stmt) => (db, stmt.atoms.clone()),
-    //     _ => panic!(),
-    // }
+pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static str) -> Vec<Atom> {
+    db.set_live_file_text("haha/main.hsk".into(), line.into());
+    let tokens = db.tokenize(line);
+    let main = db.intern_file("haha/main.hsk".into());
+    let symbols = fold::LocalStack::new();
+    AtomLRParser::new(
+        Some(main),
+        SymbolProxy {
+            main: Some(main),
+            db,
+            this_ty: None,
+            symbols: &symbols,
+        },
+        &tokens,
+    )
+    .parse_all()
+    .unwrap()
 }

@@ -127,7 +127,7 @@ pub(crate) fn opt_entity_defn(
                     )
                 }
                 AstKind::RoutineDefnHead {
-                    ref routine_class,
+                    routine_kind: ref routine_class,
                     ref routine_head,
                 } => (
                     routine_head.routine_name,

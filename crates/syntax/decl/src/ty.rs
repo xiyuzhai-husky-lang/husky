@@ -11,7 +11,7 @@ use ast::AstIter;
 use entity_route::*;
 use enum_ty::*;
 use record::*;
-use syntax_types::{EnumVariantClass, MembAccessDecl, MembCallDecl};
+use syntax_types::{EnumVariantKind, MembAccessDecl, MembCallDecl};
 use vec_map::VecMap;
 use vm::{MembAccessContract, TySignature};
 use word::{IdentMap, WordAllocator};
@@ -244,7 +244,7 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, scope: EntityRoutePtr) -> InferRe
             BuiltinEntityDecl::Func(_) => todo!(),
             BuiltinEntityDecl::Module => todo!(),
             BuiltinEntityDecl::Ty { .. } => todo!(),
-            BuiltinEntityDecl::Vec => {
+            BuiltinEntityDecl::Template => {
                 let vec_decl_template = db.vec_decl();
                 vec_decl_template.instantiate(db, &scope.generics)
             }

@@ -27,7 +27,7 @@ pub(crate) fn call_decl(
     return match source {
         EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
             BuiltinEntityDecl::Func(ref signature) => func_call_decl_from_raw(db, signature),
-            BuiltinEntityDecl::Vec => CallDecl::new_vec(scope),
+            BuiltinEntityDecl::Template => CallDecl::new_vec(scope),
             _ => panic!(),
         })),
         EntitySource::WithinBuiltinModule => todo!(),
@@ -44,7 +44,7 @@ pub(crate) fn call_decl(
             let ast = item.value.as_ref()?;
             match ast.kind {
                 AstKind::RoutineDefnHead {
-                    routine_class: ref routine_kind,
+                    ref routine_kind,
                     routine_head: ref decl,
                 } => Ok(Arc::new(CallDecl {
                     inputs: decl

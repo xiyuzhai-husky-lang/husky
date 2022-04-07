@@ -83,9 +83,12 @@ impl<'a> AstTransformer<'a> {
         token_group: &[Token],
     ) -> AstResult<RawStmt> {
         Ok(match self.env() {
-            Env::pack(_) => todo!(),
-            Env::Module(_) => todo!(),
-            Env::DatasetConfig | Env::Main | Env::Morphism | Env::Func => {
+            AstContext::Package(_) => todo!(),
+            AstContext::Module(_) => todo!(),
+            AstContext::DatasetConfig
+            | AstContext::Main
+            | AstContext::Morphism
+            | AstContext::Func => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
                     let varname = identify!(Some(self.file), token_group[0]);
@@ -107,14 +110,14 @@ impl<'a> AstTransformer<'a> {
                     }
                 }
             }
-            Env::Proc => RawStmt {
+            AstContext::Proc => RawStmt {
                 range: token_group.into(),
                 kind: RawStmtKind::Exec(self.parse_expr(token_group)?),
             },
-            Env::Test => todo!(),
-            Env::Struct | Env::Enum => panic!(),
-            Env::Record => todo!(),
-            Env::Props => todo!(),
+            AstContext::Test => todo!(),
+            AstContext::Struct | AstContext::Enum => panic!(),
+            AstContext::Record => todo!(),
+            AstContext::Props => todo!(),
         })
         // Ok(Stmt::Exec(expr.unwrap()).into())
     }
@@ -126,7 +129,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<RawStmtKind> {
         match kind {
             InitKind::Let | InitKind::Var => match self.env() {
-                Env::Proc | Env::Test => (),
+                AstContext::Proc | AstContext::Test => (),
                 _ => err!(
                     Some(self.file),
                     kw_range,

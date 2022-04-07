@@ -9,6 +9,9 @@ fn no_error_single_file() {
 struct A:
     a: i32
 
+dataset:
+    synthetic::trivial::real1d::dataset1()
+
 main:
     a = 1
     b = 1
