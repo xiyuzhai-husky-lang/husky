@@ -1,11 +1,11 @@
 pub mod real1d;
 pub mod real2d;
-pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[
         ("real1d", real1d::SCOPE_DATA),
         ("real2d", real2d::SCOPE_DATA),
     ],
-    decl: BuiltinEntityDecl::Module,
+    decl: StaticEntityDecl::Module,
 };
 
 use crate::*;

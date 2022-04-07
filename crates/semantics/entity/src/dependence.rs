@@ -1,15 +1,16 @@
+use ast::InputPlaceholder;
 use entity_route::EntityRouteKind;
 use print_utils::msg_once;
 use semantics_error::*;
-use vec_map::VecMap;
+use vec_map::VecDict;
 
 use crate::*;
 
-pub type DependeeMap = VecMap<EntityRoutePtr, EntityDefnUid>;
+pub type DependeeMap = VecDict<EntityRoutePtr, EntityDefnUid>;
 
 pub struct DependeeMapBuilder<'a> {
     db: &'a dyn EntityQueryGroup,
-    map: VecMap<EntityRoutePtr, EntityDefnUid>,
+    map: VecDict<EntityRoutePtr, EntityDefnUid>,
 }
 
 impl<'a> DependeeMapBuilder<'a> {
@@ -23,7 +24,7 @@ impl<'a> DependeeMapBuilder<'a> {
     fn push(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.kind {
             EntityRouteKind::Root { .. } => return,
-            EntityRouteKind::Pack { main, ident } => todo!(),
+            EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::ChildScope { parent, ident } => {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
@@ -33,6 +34,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 ident,
                 raw_entity_kind,
             } => todo!(),
+            EntityRouteKind::ThisType => todo!(),
         }
         if !self.map.has(entity_route) {
             self.map
@@ -84,7 +86,7 @@ impl EntityDefn {
     fn immediate_dependees(
         &self,
         db: &dyn EntityQueryGroup,
-    ) -> VecMap<EntityRoutePtr, EntityDefnUid> {
+    ) -> VecDict<EntityRoutePtr, EntityDefnUid> {
         let mut builder = DependeeMapBuilder::new(db);
         match self.kind() {
             EntityDefnVariant::Module { .. } => Default::default(),

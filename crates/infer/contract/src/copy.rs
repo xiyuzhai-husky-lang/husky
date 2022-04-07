@@ -32,5 +32,6 @@ pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: EntityRoute
             RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(_) => todo!(),
+        EntityRoutePtr::ThisType => todo!(),
     }
 }

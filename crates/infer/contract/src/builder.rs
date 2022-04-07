@@ -47,25 +47,16 @@ impl<'a> ContractSheetBuilder<'a> {
                         item.children.unwrap(),
                         &arena,
                     ),
-                    AstKind::RoutineDefnHead {
-                        ref routine_head, ..
-                    } => self.infer_routine(
-                        routine_head.output.route,
-                        item.children.unwrap(),
-                        &arena,
-                    ),
+                    AstKind::RoutineDefnHead(ref head) => {
+                        self.infer_routine(head.output.route, item.children.unwrap(), &arena)
+                    }
                     AstKind::PatternDefnHead => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
                     AstKind::MembVarDefn { .. } => (),
                     AstKind::Stmt(_) => todo!(),
-                    AstKind::MembRoutineDefnHead {
-                        ref memb_routine_head,
-                        ..
-                    } => self.infer_routine(
-                        memb_routine_head.output.route,
-                        item.children.unwrap(),
-                        &arena,
-                    ),
+                    AstKind::MembRoutineDefnHead(ref head) => {
+                        self.infer_routine(head.output.route, item.children.unwrap(), &arena)
+                    }
                     AstKind::FeatureDecl { ty, .. } => {
                         self.infer_morphism(ty.route, item.children.unwrap(), &arena)
                     }

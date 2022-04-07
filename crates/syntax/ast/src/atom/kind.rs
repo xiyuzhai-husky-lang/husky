@@ -16,7 +16,10 @@ pub enum AtomKind {
         varname: CustomIdentifier,
         init_row: Row,
     },
-    This {
+    ThisData {
+        ty: Option<EntityRoutePtr>,
+    },
+    ThisType {
         ty: Option<EntityRoutePtr>,
     },
     Unrecognized(CustomIdentifier),

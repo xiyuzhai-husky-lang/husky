@@ -3,9 +3,9 @@ mod query;
 pub use query::*;
 
 use compile_time_db::*;
-use entity_route::{BuiltinEntityDecl, EntityRoutePtr, EntitySource};
+use entity_route::{EntityRoutePtr, EntitySource, StaticEntityDecl};
 use std::sync::Arc;
-use visual_syntax::{BuiltinVisualizer, VisualProps};
+use visual_syntax::{StaticVisualizer, VisualProps};
 use vm::AnyValueDyn;
 
 #[derive(Clone)]
@@ -43,8 +43,8 @@ impl PartialEq for RuntimeVisualizer {
 
 impl Eq for RuntimeVisualizer {}
 
-impl From<&BuiltinVisualizer> for RuntimeVisualizer {
-    fn from(builtin_visualizer: &BuiltinVisualizer) -> Self {
+impl From<&StaticVisualizer> for RuntimeVisualizer {
+    fn from(builtin_visualizer: &StaticVisualizer) -> Self {
         RuntimeVisualizer::Compiled(builtin_visualizer.compiled)
     }
 }

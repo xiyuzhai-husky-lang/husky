@@ -248,6 +248,7 @@ impl<'a> RustGenerator<'a> {
                 RootIdentifier::EqTrait => todo!(),
             },
             EntityRoutePtr::Custom(_) => panic!(),
+            EntityRoutePtr::ThisType => todo!(),
         }
     }
 }

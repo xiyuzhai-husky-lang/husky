@@ -12,10 +12,11 @@ fn visualizer(
     let scope_source = db.compile_time(version).entity_source(ty).unwrap();
     match scope_source {
         EntitySource::Builtin(builtin_entity_data) => match builtin_entity_data.decl {
-            BuiltinEntityDecl::Func(_) => todo!(),
-            BuiltinEntityDecl::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
-            BuiltinEntityDecl::Module => todo!(),
-            BuiltinEntityDecl::Template => todo!(),
+            StaticEntityDecl::Func(_) => todo!(),
+            StaticEntityDecl::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
+            StaticEntityDecl::Module => todo!(),
+            StaticEntityDecl::TyTemplate => todo!(),
+            StaticEntityDecl::Trait { .. } => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

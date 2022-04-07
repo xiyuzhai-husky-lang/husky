@@ -15,32 +15,32 @@ pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
     members.insert_new(
         db.custom_ident("push"),
         MembDecl {
-            kind: MembDeclKind::Routine(MembCallDecl {
+            variant: MembDeclVariant::Routine(MembCallDecl {
                 this_contract: InputContract::BorrowMut,
-                inputs: vec![InputSignature {
+                inputs: vec![InputDecl {
                     contract: InputContract::Move,
                     ty: element_ty,
                 }],
                 output: db.entity_route_menu().void_type,
-                args: Default::default(),
+                generic_placeholders: Default::default(),
             }),
         },
     );
     members.insert_new(
         db.custom_ident("len"),
         MembDecl {
-            kind: MembDeclKind::Routine(MembCallDecl {
+            variant: MembDeclVariant::Routine(MembCallDecl {
                 this_contract: InputContract::Pure,
                 inputs: vec![],
                 output: db.entity_route_menu().i32_type,
-                args: Default::default(),
+                generic_placeholders: Default::default(),
             }),
         },
     );
     let mut generic_placeholders = IdentMap::default();
     generic_placeholders.insert_new(
         element_ty_ident,
-        GenericPlaceholderKind::Type { traits: vec![] },
+        GenericPlaceholder::Type { traits: vec![] },
     );
     Arc::new(TyDecl {
         generic_placeholders,

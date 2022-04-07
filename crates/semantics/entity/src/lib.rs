@@ -7,7 +7,7 @@ pub use defn::*;
 pub use query::*;
 pub use variant::*;
 
-use entity_route::{EntityRoutePtr, InputPlaceholder, RangedEntityRoute};
+use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use semantics_eager::*;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};

@@ -1,10 +1,10 @@
 use super::*;
 
 pub(crate) fn enum_decl(
-    generic_placeholders: IdentMap<GenericPlaceholderKind>,
+    generic_placeholders: IdentMap<GenericPlaceholder>,
     children: AstIter,
 ) -> InferResultArc<TyDecl> {
-    let mut variants = VecMap::default();
+    let mut variants = VecDict::default();
     for subitem in children {
         match subitem.value.as_ref()?.kind {
             AstKind::EnumVariantDefnHead {

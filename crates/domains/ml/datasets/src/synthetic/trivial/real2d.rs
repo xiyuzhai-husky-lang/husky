@@ -1,6 +1,6 @@
-pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Module,
+    decl: StaticEntityDecl::Module,
 };
 
 use crate::*;

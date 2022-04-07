@@ -27,6 +27,7 @@ pub enum SymbolKind {
     Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
     ThisData { ty: Option<EntityRoutePtr> },
+    ThisType { ty: Option<EntityRoutePtr> },
 }
 
 #[derive(Clone, Copy)]
@@ -94,7 +95,7 @@ impl<'a> SymbolProxy<'a> {
                     ident,
                 })),
                 ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData { ty: self.this_ty }),
-                ContextualIdentifier::ThisType => todo!(),
+                ContextualIdentifier::ThisType => Ok(SymbolKind::ThisType { ty: self.this_ty }),
             },
             Identifier::Custom(ident) => Ok(
                 if let Some(symbol) = self.symbols.find(|symbol| symbol.ident == ident.into()) {

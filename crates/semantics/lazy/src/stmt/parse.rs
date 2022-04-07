@@ -1,6 +1,6 @@
 use crate::*;
 use ast::*;
-use entity_route::{EntityRoutePtr, InputPlaceholder};
+use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use semantics_error::*;
 use std::sync::Arc;

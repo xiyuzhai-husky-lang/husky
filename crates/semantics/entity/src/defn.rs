@@ -126,19 +126,9 @@ pub(crate) fn opt_entity_defn(
                         )?),
                     )
                 }
-                AstKind::RoutineDefnHead {
-                    routine_kind: ref routine_class,
-                    ref routine_head,
-                } => (
-                    routine_head.routine_name,
-                    EntityDefnVariant::routine(
-                        db,
-                        routine_class,
-                        routine_head,
-                        not_none!(children),
-                        arena,
-                        file,
-                    )?,
+                AstKind::RoutineDefnHead(ref head) => (
+                    head.ident,
+                    EntityDefnVariant::routine(db, head, not_none!(children), arena, file)?,
                 ),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { ident, scope } => todo!(),

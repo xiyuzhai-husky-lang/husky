@@ -6,7 +6,7 @@ use path_utils::*;
 
 use entity_syntax::RawTyKind;
 use upcast::Upcast;
-use visual_syntax::{BuiltinVisualizer, TRIVIAL_VISUALIZER};
+use visual_syntax::{StaticVisualizer, TRIVIAL_VISUALIZER};
 use word::{
     dash_to_snake, ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier, WordPtr,
 };
@@ -102,7 +102,7 @@ fn raw_entity_kind_from_scope_kind(
             | RootIdentifier::PartialEqTrait
             | RootIdentifier::EqTrait => RawEntityKind::Trait,
         },
-        EntityRouteKind::Pack { .. } => RawEntityKind::Module,
+        EntityRouteKind::Package { .. } => RawEntityKind::Module,
         EntityRouteKind::ChildScope { parent, ident } => db
             .subscope_table(*parent)
             .unwrap()
@@ -117,6 +117,7 @@ fn raw_entity_kind_from_scope_kind(
             ident,
             raw_entity_kind,
         } => *raw_entity_kind,
+        EntityRouteKind::ThisType => todo!(),
     }
 }
 
@@ -126,53 +127,53 @@ fn entity_source(
 ) -> ScopeResult<EntitySource> {
     Ok(match entity_route.kind {
         EntityRouteKind::Root { ident } => match ident {
-            RootIdentifier::Void => &BuiltinEntityData {
+            RootIdentifier::Void => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Ty {
+                decl: StaticEntityDecl::Ty {
                     raw_ty_kind: RawTyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::I32 => &BuiltinEntityData {
+            RootIdentifier::I32 => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Ty {
+                decl: StaticEntityDecl::Ty {
                     raw_ty_kind: RawTyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::F32 => &BuiltinEntityData {
+            RootIdentifier::F32 => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Ty {
+                decl: StaticEntityDecl::Ty {
                     raw_ty_kind: RawTyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::B32 => &BuiltinEntityData {
+            RootIdentifier::B32 => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Ty {
+                decl: StaticEntityDecl::Ty {
                     raw_ty_kind: RawTyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::B64 => &BuiltinEntityData {
+            RootIdentifier::B64 => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Ty {
+                decl: StaticEntityDecl::Ty {
                     raw_ty_kind: RawTyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::Bool => &BuiltinEntityData {
+            RootIdentifier::Bool => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Ty {
+                decl: StaticEntityDecl::Ty {
                     raw_ty_kind: RawTyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => &BuiltinEntityData {
+            RootIdentifier::Vec => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Template,
+                decl: StaticEntityDecl::TyTemplate,
             },
             RootIdentifier::Tuple => todo!(),
             RootIdentifier::Debug => todo!(),
@@ -184,23 +185,37 @@ fn entity_source(
             RootIdentifier::FnOnce => todo!(),
             RootIdentifier::Array => todo!(),
             RootIdentifier::Datasets => datasets::SCOPE_DATA,
-            RootIdentifier::DatasetType => &BuiltinEntityData {
+            RootIdentifier::DatasetType => &StaticEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Template,
+                decl: StaticEntityDecl::TyTemplate,
             },
             RootIdentifier::Type => todo!(),
-            RootIdentifier::CloneTrait => todo!(),
+            RootIdentifier::CloneTrait => &StaticEntityData {
+                subscopes: &[],
+                decl: StaticEntityDecl::Trait {
+                    members: &[StaticMembDecl {
+                        name: "clone",
+                        variant: StaticMembDeclVariant::Routine {
+                            this_contract: vm::InputContract::Pure,
+                            inputs: &[],
+                            output_ty: "This",
+                            generic_placeholders: &[],
+                        },
+                    }],
+                },
+            },
             RootIdentifier::CopyTrait => todo!(),
             RootIdentifier::PartialEqTrait => todo!(),
             RootIdentifier::EqTrait => todo!(),
         }
         .into(),
-        EntityRouteKind::Pack { main, .. } => EntitySource::Module { file: main },
+        EntityRouteKind::Package { main, .. } => EntitySource::Module { file: main },
         EntityRouteKind::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
         EntityRouteKind::Contextual { main, ident } => EntitySource::Contextual { main, ident },
         EntityRouteKind::Generic { ident, .. } => todo!(),
+        EntityRouteKind::ThisType => todo!(),
     })
 }
 

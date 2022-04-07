@@ -1,7 +1,9 @@
 use std::ops::AddAssign;
 
-use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprKind, RawStmtKind};
-use entity_route::{EntityRoutePtr, InputPlaceholder};
+use ast::{
+    Ast, AstContext, AstKind, AstResult, InputPlaceholder, RawExpr, RawExprKind, RawStmtKind,
+};
+use entity_route::EntityRoutePtr;
 use entity_syntax::RawTyKind;
 use fold::LocalValue;
 use syntax_types::*;
@@ -105,45 +107,38 @@ impl<'a> Formatter<'a> {
                 self.context.set_value(AstContext::Main);
                 self.write("main:")
             }
-            AstKind::RoutineDefnHead {
-                ref routine_kind,
-                routine_head: ref decl,
-            } => {
+            AstKind::RoutineDefnHead(ref head) => {
                 enter_block(self);
-                self.context.set_value((*routine_kind).into());
-                self.write(match routine_kind {
+                self.context.set_value((head.routine_kind).into());
+                self.write(match head.routine_kind {
                     RoutineKind::Test => "test ",
-                    RoutineKind::Proc => todo!(),
+                    RoutineKind::Proc => "proc ",
                     RoutineKind::Func => "func ",
-                    RoutineKind::Def => todo!(),
                 });
-                self.write(&decl.routine_name);
+                self.write(&head.ident);
                 self.write("(");
-                for i in 0..decl.input_placeholders.len() {
+                for i in 0..head.input_placeholders.len() {
                     if i > 0 {
                         self.write(", ");
                     }
-                    let input_placeholder = &decl.input_placeholders[i];
+                    let input_placeholder = &head.input_placeholders[i];
                     self.fmt_ident(input_placeholder.ident.into());
                     self.write(": ");
-                    self.fmt_func_input_contracted_type(&input_placeholder);
+                    self.fmt_func_input_contracted_type(input_placeholder);
                 }
                 self.write(")");
-                if decl.output.route != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if head.output.route != EntityRoutePtr::Root(RootIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_ty(decl.output.route);
+                    self.fmt_ty(head.output.route);
                 }
                 self.write(":");
             }
             AstKind::PatternDefnHead => todo!(),
             AstKind::Use { ident, scope } => todo!(),
-            AstKind::MembVarDefn {
-                ident,
-                signature: MembAccessDecl { contract, ty },
-            } => {
-                self.fmt_ident(ident.into());
+            AstKind::MembVarDefn(ref memb_var) => {
+                self.fmt_ident(memb_var.ident.into());
                 self.write(": ");
-                self.fmt_member_variable_contracted_type(contract, ty)
+                self.fmt_member_variable_contracted_type(memb_var.contract, memb_var.ty)
             }
             AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstKind::DatasetConfigDefnHead => todo!(),
@@ -190,6 +185,7 @@ impl<'a> Formatter<'a> {
         match ty {
             EntityRoutePtr::Root(ident) => self.write(&ident),
             EntityRoutePtr::Custom(_) => todo!(),
+            EntityRoutePtr::ThisType => self.write("This"),
         }
     }
 

@@ -9,9 +9,9 @@ pub use ident::{
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use utils::*;
 
-pub type IdentMap<T> = VecMap<CustomIdentifier, T>;
+pub type IdentMap<T> = VecDict<CustomIdentifier, T>;
 
-use vec_map::VecMap;
+use vec_map::VecDict;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum WordPtr {
@@ -27,13 +27,17 @@ impl WordPtr {
         }
     }
 
-    pub fn custom(self) -> Option<CustomIdentifier> {
+    pub fn opt_custom(self) -> Option<CustomIdentifier> {
         self.ident()
             .map(|ident| match ident {
                 Identifier::Builtin(_) | Identifier::Contextual(_) => None,
                 Identifier::Custom(ident) => Some(ident),
             })
             .flatten()
+    }
+
+    pub fn custom(self) -> CustomIdentifier {
+        self.opt_custom().unwrap()
     }
 }
 

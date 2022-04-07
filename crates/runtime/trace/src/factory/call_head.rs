@@ -1,4 +1,4 @@
-use entity_route::InputPlaceholder;
+use ast::InputPlaceholder;
 use word::{CustomIdentifier, Identifier};
 
 use super::*;

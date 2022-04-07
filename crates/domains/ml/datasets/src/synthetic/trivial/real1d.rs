@@ -4,17 +4,17 @@ use std::sync::Arc;
 use vm::{BoxedValue, RoutineFp, StackValue};
 use xrng::XRng;
 
-pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
-    decl: BuiltinEntityDecl::Module,
+    decl: StaticEntityDecl::Module,
 };
 
-pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const DATASET1_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Func(StaticFuncDecl {
+    decl: StaticEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: RoutineFp {
@@ -24,9 +24,9 @@ pub const DATASET1_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     }),
 };
 
-pub const DATASET2_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const DATASET2_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Func(StaticFuncDecl {
+    decl: StaticEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: RoutineFp {

@@ -74,6 +74,7 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> InferResu
             },
             _ => todo!(),
         },
+        EntityRoutePtr::ThisType => todo!(),
     }
 }
 
@@ -120,6 +121,7 @@ fn is_implicit_convertible(
                     _ => panic!(),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
+                EntityRoutePtr::ThisType => todo!(),
             },
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
@@ -151,5 +153,6 @@ fn is_implicit_convertible(
             RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(_) => todo!(),
+        EntityRoutePtr::ThisType => todo!(),
     }
 }

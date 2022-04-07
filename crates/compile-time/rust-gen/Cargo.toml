@@ -22,3 +22,5 @@ syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 compile-time-dir = { path = "../../compile-time/dir", version = "0.0.0" }
+ast = { path = "../../syntax/ast", version = "0.0.0" }
+decl = { path = "../../syntax/decl", version = "0.0.0" }

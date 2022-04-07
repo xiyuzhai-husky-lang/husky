@@ -2,13 +2,13 @@ mod morphism;
 mod routine;
 mod ty;
 
+use ast::InputPlaceholder;
 pub use morphism::*;
 pub use routine::*;
 use semantics_lazy::LazyStmt;
 pub use ty::*;
 
 use crate::*;
-use entity_route::InputPlaceholder;
 use entity_route::RangedEntityRoute;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

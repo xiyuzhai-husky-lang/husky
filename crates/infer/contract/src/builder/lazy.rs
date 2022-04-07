@@ -1,6 +1,6 @@
 use ast::*;
 
-use entity_route::{EntityRouteKind, EntityRoutePtr, InputPlaceholder};
+use entity_route::{EntityRouteKind, EntityRoutePtr};
 use infer_error::*;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembAccessContract};

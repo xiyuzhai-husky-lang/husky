@@ -129,35 +129,35 @@ fn dataset_config_instruction_sheet(
 fn virtual_vec_memb_routine_fps(db: &dyn InstructionGenQueryGroup) -> Arc<IdentMap<RoutineFp>> {
     let mut memb_routine_fps = IdentMap::default();
     memb_routine_fps.insert_new(
-        db.intern_word("len").custom().unwrap(),
+        db.intern_word("len").opt_custom().unwrap(),
         RoutineFp {
             call: virtual_vec_len,
             nargs: 1,
         },
     );
     memb_routine_fps.insert_new(
-        db.intern_word("push").custom().unwrap(),
+        db.intern_word("push").opt_custom().unwrap(),
         RoutineFp {
             call: virtual_vec_push,
             nargs: 2,
         },
     );
     memb_routine_fps.insert_new(
-        db.intern_word("pop").custom().unwrap(),
+        db.intern_word("pop").opt_custom().unwrap(),
         RoutineFp {
             call: virtual_vec_pop,
             nargs: 1,
         },
     );
     memb_routine_fps.insert_new(
-        db.intern_word("first").custom().unwrap(),
+        db.intern_word("first").opt_custom().unwrap(),
         RoutineFp {
             call: virtual_vec_first,
             nargs: 1,
         },
     );
     memb_routine_fps.insert_new(
-        db.intern_word("last").custom().unwrap(),
+        db.intern_word("last").opt_custom().unwrap(),
         RoutineFp {
             call: virtual_vec_last,
             nargs: 1,

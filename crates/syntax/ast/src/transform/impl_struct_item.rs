@@ -68,13 +68,11 @@ impl<'a> AstTransformer<'a> {
                     )?,
                 };
                 let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
-                AstKind::MembVarDefn {
+                AstKind::MembVarDefn(MembVarDefn {
                     ident,
-                    signature: MembAccessDecl {
-                        contract: MembAccessContract::Own,
-                        ty,
-                    },
-                }
+                    contract: MembAccessContract::Own,
+                    ty,
+                })
             } else {
                 todo!()
             },
@@ -96,7 +94,7 @@ impl<'a> AstTransformer<'a> {
             self.symbol_proxy(),
             &token_group[funcname_idx..],
         )
-        .memb_routine_decl(InputContract::Pure, RawMembRoutineKind::Func)?;
+        .memb_routine_decl(InputContract::Pure, RoutineKind::Func)?;
         self.symbols.extend(
             head.input_placeholders
                 .iter()
@@ -107,10 +105,7 @@ impl<'a> AstTransformer<'a> {
                     },
                 }),
         );
-        Ok(AstKind::MembRoutineDefnHead {
-            routine_kind: RoutineKind::Func,
-            memb_routine_head: head,
-        })
+        Ok(AstKind::MembRoutineDefnHead(head))
     }
 
     // pub(super) fn parse_struct_static_func() {}

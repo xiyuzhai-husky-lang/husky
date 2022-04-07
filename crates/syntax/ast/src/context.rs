@@ -45,7 +45,6 @@ impl From<RoutineKind> for AstContext {
             RoutineKind::Test => AstContext::Test,
             RoutineKind::Proc => AstContext::Proc,
             RoutineKind::Func => AstContext::Func,
-            RoutineKind::Def => AstContext::Morphism,
         }
     }
 }

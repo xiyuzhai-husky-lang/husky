@@ -20,7 +20,7 @@ main:
     let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.intern_scope(EntityRoute::pack(
         main_file,
-        db.intern_word("haha".into()).custom().unwrap(),
+        db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
     let subscope_table = db.subscope_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 2);
@@ -52,7 +52,7 @@ struct B {}
     let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.intern_scope(EntityRoute::pack(
         main_file,
-        db.intern_word("haha".into()).custom().unwrap(),
+        db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
     let subscope_table = db.subscope_table(pack).ok().unwrap();
     p!(subscope_table.entries);
@@ -77,7 +77,7 @@ main:
     let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.intern_scope(EntityRoute::pack(
         main_file,
-        db.intern_word("haha".into()).custom().unwrap(),
+        db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
     let subscope_table = db.subscope_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 1);
@@ -96,21 +96,21 @@ fn datasets() {
     let synthetic_scope = db
         .subscope(
             dataset_scope,
-            db.intern_word("synthetic").custom().unwrap(),
+            db.intern_word("synthetic").opt_custom().unwrap(),
             vec![],
         )
         .unwrap();
     let synthetic_trivial_scope = db
         .subscope(
             synthetic_scope,
-            db.intern_word("trivial").custom().unwrap(),
+            db.intern_word("trivial").opt_custom().unwrap(),
             vec![],
         )
         .unwrap();
     let _synthetic_trivial_real1d_scope = db
         .subscope(
             synthetic_trivial_scope,
-            db.intern_word("real1d").custom().unwrap(),
+            db.intern_word("real1d").opt_custom().unwrap(),
             vec![],
         )
         .unwrap();
