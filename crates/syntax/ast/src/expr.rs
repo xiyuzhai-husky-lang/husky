@@ -87,7 +87,7 @@ impl From<&atom::Atom> for RawExpr {
                 AtomKind::Unrecognized(ident) => RawExprKind::Unrecognized(ident),
                 AtomKind::Literal(literal) => RawExprKind::PrimitiveLiteral(literal.clone()),
                 AtomKind::EntityRoute { route: scope, kind } => RawExprKind::Scope { scope, kind },
-                AtomKind::This { ty } => RawExprKind::This { ty },
+                AtomKind::ThisData { ty } => RawExprKind::This { ty },
                 _ => {
                     p!(atom.kind);
                     panic!()

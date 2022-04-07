@@ -2,15 +2,15 @@ use std::sync::Arc;
 
 use super::*;
 use ast::*;
-use entity_route::{EntityRoutePtr, InputPlaceholder, RangedEntityRoute};
+use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 use infer_total::InferQueryGroup;
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
-use syntax_types::{EnumVariantKind, MembAccessDecl, RawMembRoutineKind, RoutineKind};
-use vec_map::VecMap;
+use syntax_types::{EnumVariantKind, RawMembRoutineKind, RoutineKind};
+use vec_map::VecDict;
 use vm::InputContract;
 use word::{CustomIdentifier, IdentMap};
 
@@ -48,7 +48,7 @@ impl TyDefn {
     }
 
     fn enum_from_ast(children: AstIter) -> SemanticResult<TyDefnVariant> {
-        let mut variants = VecMap::default();
+        let mut variants = VecDict::default();
         for subitem in children {
             match subitem.value.as_ref()?.kind {
                 AstKind::EnumVariantDefnHead {
@@ -76,39 +76,36 @@ impl TyDefn {
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<TyDefnVariant> {
-        let mut memb_vars = VecMap::default();
-        let mut memb_routines = VecMap::default();
+        let mut memb_vars = VecDict::default();
+        let mut memb_routines = VecDict::default();
         for subitem in children {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
-                AstKind::RoutineDefnHead {
-                    ref routine_kind,
-                    ref routine_head,
-                } => todo!(),
-                AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
-                AstKind::MembRoutineDefnHead {
-                    ref memb_routine_head,
-                    ..
-                } => match memb_routine_head.kind {
-                    RawMembRoutineKind::Proc => todo!(),
-                    RawMembRoutineKind::Func => {
+                AstKind::RoutineDefnHead(_) => todo!(),
+                AstKind::MembVarDefn(ref memb_var_defn) => {
+                    memb_vars.insert_new(memb_var_defn.ident, memb_var_defn.clone())
+                }
+                AstKind::MembRoutineDefnHead(ref head) => match head.routine_kind {
+                    RoutineKind::Proc => todo!(),
+                    RoutineKind::Func => {
                         let stmts = semantics_eager::parse_decl_stmts(
-                            &memb_routine_head.input_placeholders,
+                            &head.input_placeholders,
                             db,
                             arena,
                             subitem.children.unwrap(),
                             file,
                         )?;
                         memb_routines.insert_new(
-                            memb_routine_head.ident,
+                            head.ident,
                             MembRoutineDefn {
                                 kind: MembRoutineKind::Func { stmts },
-                                input_placeholders: memb_routine_head.input_placeholders.clone(),
-                                output: memb_routine_head.output,
-                                this_contract: memb_routine_head.this_contract,
+                                input_placeholders: head.input_placeholders.clone(),
+                                output: head.output,
+                                this_contract: head.this_contract,
                             },
                         )
                     }
+                    RoutineKind::Test => todo!(),
                 },
                 _ => panic!(),
             }
@@ -125,16 +122,15 @@ impl TyDefn {
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<TyDefnVariant> {
-        let mut memb_vars = VecMap::default();
-        let mut memb_features = VecMap::default();
+        let mut memb_vars = VecDict::default();
+        let mut memb_features = VecDict::default();
         for subitem in children {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
-                AstKind::RoutineDefnHead {
-                    ref routine_kind,
-                    ref routine_head,
-                } => todo!(),
-                AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
+                AstKind::RoutineDefnHead(_) => todo!(),
+                AstKind::MembVarDefn(ref memb_var_defn) => {
+                    memb_vars.insert_new(memb_var_defn.ident, memb_var_defn.clone())
+                }
                 AstKind::MembFeatureDefnHead { ident, ty } => {
                     let stmts = semantics_lazy::parse_lazy_stmts(
                         &[],
@@ -161,11 +157,11 @@ pub enum TyDefnVariant {
         variants: IdentMap<EnumVariant>,
     },
     Struct {
-        memb_vars: IdentMap<MembAccessDecl>,
+        memb_vars: IdentMap<MembVarDefn>,
         memb_routines: IdentMap<MembRoutineDefn>,
     },
     Record {
-        memb_vars: IdentMap<MembAccessDecl>,
+        memb_vars: IdentMap<MembVarDefn>,
         memb_features: IdentMap<MembFeatureDefn>,
     },
 }

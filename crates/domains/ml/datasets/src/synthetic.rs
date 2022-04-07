@@ -2,9 +2,9 @@ mod iter;
 mod loader;
 pub mod trivial;
 
-pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
-    decl: BuiltinEntityDecl::Module,
+    decl: StaticEntityDecl::Module,
 };
 
 use crate::{labeled::LabeledData, *};

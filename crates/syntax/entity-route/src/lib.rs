@@ -5,15 +5,15 @@ mod kind;
 
 pub use alias::ScopeAliasTable;
 pub use allocate_unique::{
-    new_scope_unique_allocator, AllocateUniqueScope, EntityRoutePtr, ScopeInterner,
+    new_scope_unique_allocator, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
 };
 use entity_syntax::RawTyKind;
 use file::FilePtr;
 pub use generic::*;
 pub use kind::RawEntityKind;
 use text::{TextRange, TextRanged};
-use visual_syntax::BuiltinVisualizer;
-use vm::{EagerContract, InputContract, RoutineFp};
+use visual_syntax::StaticVisualizer;
+use vm::{InputContract, RoutineFp};
 use word::{ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -38,7 +38,7 @@ impl std::fmt::Debug for EntityRoute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
             EntityRouteKind::Root { ident } => ident.fmt(f)?,
-            EntityRouteKind::Pack { main, ident } => {
+            EntityRouteKind::Package { main, ident } => {
                 // f.write_str("[pack=")?;
                 // main.fmt(f)?;
                 // f.write_str("]")?;
@@ -52,6 +52,7 @@ impl std::fmt::Debug for EntityRoute {
             }
             EntityRouteKind::Contextual { main, ident } => todo!(),
             EntityRouteKind::Generic { ident, .. } => todo!(),
+            EntityRouteKind::ThisType => todo!(),
         };
         if self.generics.len() > 0 {
             f.write_str("<")?;
@@ -114,7 +115,7 @@ pub enum EntityRouteKind {
     Root {
         ident: RootIdentifier,
     },
-    Pack {
+    Package {
         main: FilePtr,
         ident: CustomIdentifier,
     },
@@ -130,32 +131,67 @@ pub enum EntityRouteKind {
         ident: CustomIdentifier,
         raw_entity_kind: RawEntityKind,
     },
+    ThisType,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct BuiltinEntityData {
-    pub subscopes: &'static [(&'static str, &'static BuiltinEntityData)],
-    pub decl: BuiltinEntityDecl,
+pub struct StaticEntityData {
+    pub subscopes: &'static [(&'static str, &'static StaticEntityData)],
+    pub decl: StaticEntityDecl,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum BuiltinEntityDecl {
+pub enum StaticEntityDecl {
     Func(StaticFuncDecl),
     Ty {
         raw_ty_kind: RawTyKind,
-        visualizer: BuiltinVisualizer,
+        visualizer: StaticVisualizer,
     },
-    Template,
+    TyTemplate,
+    Trait {
+        members: &'static [StaticMembDecl],
+    },
     Module,
 }
 
-impl BuiltinEntityDecl {
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct StaticMembDecl {
+    pub name: &'static str,
+    pub variant: StaticMembDeclVariant,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum StaticMembDeclVariant {
+    Var {
+        ty: &'static str,
+    },
+    Routine {
+        this_contract: InputContract,
+        inputs: &'static [StaticInputDecl],
+        output_ty: &'static str,
+        generic_placeholders: &'static [StaticGenericPlaceholder],
+    },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct StaticGenericPlaceholder {
+    pub ident: CustomIdentifier,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct StaticInputDecl {
+    pub contract: InputContract,
+    pub ty: &'static str,
+}
+
+impl StaticEntityDecl {
     pub fn raw_entity_kind(&self) -> RawEntityKind {
         match self {
-            BuiltinEntityDecl::Func(_) => RawEntityKind::Routine,
-            BuiltinEntityDecl::Ty { raw_ty_kind, .. } => RawEntityKind::Type(*raw_ty_kind),
-            BuiltinEntityDecl::Module => RawEntityKind::Module,
-            BuiltinEntityDecl::Template => RawEntityKind::Type(RawTyKind::Vec),
+            StaticEntityDecl::Func(_) => RawEntityKind::Routine,
+            StaticEntityDecl::Ty { raw_ty_kind, .. } => RawEntityKind::Type(*raw_ty_kind),
+            StaticEntityDecl::Module => RawEntityKind::Module,
+            StaticEntityDecl::TyTemplate => RawEntityKind::Type(RawTyKind::Vec),
+            StaticEntityDecl::Trait { .. } => todo!(),
         }
     }
 }
@@ -173,32 +209,10 @@ pub struct StaticInputSignature {
     pub ty: &'static str,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputSignature {
-    pub contract: InputContract,
-    pub ty: EntityRoutePtr,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputPlaceholder {
-    pub ident: CustomIdentifier,
-    pub contract: InputContract,
-    pub ranged_ty: RangedEntityRoute,
-}
-
-impl Into<InputSignature> for &InputPlaceholder {
-    fn into(self) -> InputSignature {
-        InputSignature {
-            contract: self.contract,
-            ty: self.ranged_ty.route,
-        }
-    }
-}
-
 impl EntityRoute {
     pub fn pack(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
-            kind: EntityRouteKind::Pack { main, ident },
+            kind: EntityRouteKind::Package { main, ident },
             generics: Vec::new(),
         }
     }
@@ -206,13 +220,14 @@ impl EntityRoute {
     pub fn ident(&self) -> Identifier {
         match self.kind {
             EntityRouteKind::Root { ident } => ident.into(),
-            EntityRouteKind::Pack { main, ident } => ident.into(),
+            EntityRouteKind::Package { main, ident } => ident.into(),
             EntityRouteKind::ChildScope { parent, ident } => ident.into(),
             EntityRouteKind::Contextual { main, ident } => todo!(),
             EntityRouteKind::Generic {
                 ident,
                 raw_entity_kind,
             } => todo!(),
+            EntityRouteKind::ThisType => todo!(),
         }
     }
 
@@ -263,10 +278,11 @@ impl EntityRoute {
     pub fn is_builtin(&self) -> bool {
         match self.kind {
             EntityRouteKind::Root { .. } => true,
-            EntityRouteKind::Pack { .. } => false,
+            EntityRouteKind::Package { .. } => false,
             EntityRouteKind::ChildScope { parent, .. } => parent.is_builtin(),
             EntityRouteKind::Contextual { .. } => false,
             EntityRouteKind::Generic { ident, .. } => todo!(),
+            EntityRouteKind::ThisType => todo!(),
         }
     }
 }
@@ -279,7 +295,7 @@ impl From<RootIdentifier> for EntityRoute {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntitySource {
-    Builtin(&'static BuiltinEntityData),
+    Builtin(&'static StaticEntityData),
     WithinBuiltinModule,
     WithinModule {
         file: FilePtr,
@@ -303,8 +319,8 @@ impl EntitySource {
     }
 }
 
-impl From<&'static BuiltinEntityData> for EntitySource {
-    fn from(data: &'static BuiltinEntityData) -> Self {
+impl From<&'static StaticEntityData> for EntitySource {
+    fn from(data: &'static StaticEntityData) -> Self {
         Self::Builtin(data)
     }
 }

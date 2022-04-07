@@ -64,10 +64,11 @@ impl<'a> TySheetBuilder<'a> {
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
                 EntityRoutePtr::Custom(scope) => match scope.kind {
                     EntityRouteKind::Root { ident } => todo!(),
-                    EntityRouteKind::Pack { main, ident } => todo!(),
+                    EntityRouteKind::Package { main, ident } => todo!(),
                     EntityRouteKind::ChildScope { parent, ident } => parent,
                     EntityRouteKind::Contextual { main, ident } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
+                    EntityRouteKind::ThisType => todo!(),
                 },
                 _ => todo!(),
             },
@@ -116,8 +117,10 @@ impl<'a> TySheetBuilder<'a> {
                             ropd_builtin_ty,
                         ),
                     EntityRoutePtr::Custom(_) => todo!(),
+                    EntityRoutePtr::ThisType => todo!(),
                 },
                 EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
+                EntityRoutePtr::ThisType => todo!(),
             },
             BinaryOpr::Assign(_) => {
                 if lopd_ty != ropd_ty {

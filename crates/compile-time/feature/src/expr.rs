@@ -1,6 +1,7 @@
 mod impl_opn;
 
-use entity_route::{EntityRouteKind, InputPlaceholder};
+use ast::InputPlaceholder;
+use entity_route::EntityRouteKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use semantics_eager::*;
@@ -193,7 +194,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.this.as_ref().unwrap().feature(),
             ),
             LazyExprKind::ScopedFeature { scope } => match scope.kind {
-                EntityRouteKind::Root { .. } | EntityRouteKind::Pack { .. } => panic!(),
+                EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
                 EntityRouteKind::ChildScope { .. } => {
                     let uid = self.db.entity_uid(scope);
                     let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
@@ -213,6 +214,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     ContextualIdentifier::ThisType => todo!(),
                 },
                 EntityRouteKind::Generic { ident, .. } => todo!(),
+                EntityRouteKind::ThisType => todo!(),
             },
         };
         Arc::new(FeatureExpr {

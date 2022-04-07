@@ -1,7 +1,7 @@
 use std::ops::Deref;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct VecMap<K, V>
+pub struct VecDict<K, V>
 where
     K: PartialEq + Eq,
 {
@@ -13,7 +13,7 @@ pub struct Repeat {
     j: usize,
 }
 
-impl<K, V> VecMap<K, V>
+impl<K, V> VecDict<K, V>
 where
     K: PartialEq + Eq + Clone + Copy,
     V: Clone,
@@ -82,7 +82,7 @@ where
     }
 }
 
-impl<K, V> FromIterator<(K, V)> for VecMap<K, V>
+impl<K, V> FromIterator<(K, V)> for VecDict<K, V>
 where
     K: PartialEq + Eq + Clone + Copy,
     V: Clone,
@@ -96,7 +96,7 @@ where
     }
 }
 
-impl<K, V> Deref for VecMap<K, V>
+impl<K, V> Deref for VecDict<K, V>
 where
     K: PartialEq + Eq,
 {
@@ -107,7 +107,7 @@ where
     }
 }
 
-impl<K, V> Default for VecMap<K, V>
+impl<K, V> Default for VecDict<K, V>
 where
     K: PartialEq + Eq,
 {
@@ -116,7 +116,7 @@ where
     }
 }
 
-impl<K, V> std::ops::Index<K> for VecMap<K, V>
+impl<K, V> std::ops::Index<K> for VecDict<K, V>
 where
     K: PartialEq + Eq + Clone + Copy,
     V: Clone,

@@ -11,14 +11,14 @@ use ast::AstIter;
 use entity_route::*;
 use enum_ty::*;
 use record::*;
-use syntax_types::{EnumVariantKind, MembAccessDecl, MembCallDecl};
-use vec_map::VecMap;
+use syntax_types::EnumVariantKind;
+use vec_map::VecDict;
 use vm::{MembAccessContract, TySignature};
 use word::{IdentMap, WordAllocator};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TyDecl {
-    pub generic_placeholders: IdentMap<GenericPlaceholderKind>,
+    pub generic_placeholders: IdentMap<GenericPlaceholder>,
     pub traits: Vec<EntityRoutePtr>,
     pub members: IdentMap<MembDecl>,
     pub kind: TyDeclKind,
@@ -26,12 +26,17 @@ pub struct TyDecl {
 
 impl TyDecl {
     fn new(
-        generic_placeholders: IdentMap<GenericPlaceholderKind>,
+        db: &dyn DeclQueryGroup,
+        generic_placeholders: IdentMap<GenericPlaceholder>,
         traits: Vec<EntityRoutePtr>,
         kind: TyDeclKind,
     ) -> Self {
         msg_once!("members from traits");
         let mut members = IdentMap::default();
+        for trait_route in &traits {
+            let trait_decl = db.trait_decl(*trait_route).unwrap();
+            members.extends(&trait_decl.members)
+        }
         match kind {
             TyDeclKind::Struct {
                 ref memb_vars,
@@ -41,7 +46,7 @@ impl TyDecl {
                     members.insert_new(
                         *memb_ident,
                         MembDecl {
-                            kind: MembDeclKind::Var(memb_access_decl.clone()),
+                            variant: MembDeclVariant::Var(memb_access_decl.clone()),
                         },
                     )
                 }
@@ -49,7 +54,7 @@ impl TyDecl {
                     members.insert_new(
                         *memb_ident,
                         MembDecl {
-                            kind: MembDeclKind::Routine(memb_call_decl.clone()),
+                            variant: MembDeclVariant::Routine(memb_call_decl.clone()),
                         },
                     )
                 }
@@ -223,9 +228,9 @@ impl TyDecl {
 
     pub fn memb_call_decl(&self, ident: CustomIdentifier) -> InferResult<&MembCallDecl> {
         match self.members.get(ident) {
-            Some(memb_decl) => match memb_decl.kind {
-                MembDeclKind::Var(_) => todo!(),
-                MembDeclKind::Routine(ref signature) => Ok(signature),
+            Some(memb_decl) => match memb_decl.variant {
+                MembDeclVariant::Var(_) => todo!(),
+                MembDeclVariant::Routine(ref signature) => Ok(signature),
             },
             None => err!(format!("no member named {}", &ident)),
         }
@@ -241,13 +246,14 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, scope: EntityRoutePtr) -> InferRe
     let source = db.entity_source(scope)?;
     match source {
         EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
-            BuiltinEntityDecl::Func(_) => todo!(),
-            BuiltinEntityDecl::Module => todo!(),
-            BuiltinEntityDecl::Ty { .. } => todo!(),
-            BuiltinEntityDecl::Template => {
+            StaticEntityDecl::Func(_) => todo!(),
+            StaticEntityDecl::Module => todo!(),
+            StaticEntityDecl::Ty { .. } => todo!(),
+            StaticEntityDecl::TyTemplate => {
                 let vec_decl_template = db.vec_decl();
                 vec_decl_template.instantiate(db, &scope.generics)
             }
+            StaticEntityDecl::Trait { .. } => todo!(),
         })),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
@@ -272,7 +278,7 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, scope: EntityRoutePtr) -> InferRe
                         derived_not_none!(item.children)?,
                     ),
                     RawTyKind::Struct => {
-                        struct_decl(generic_placeholders.clone(), item.children.unwrap())
+                        struct_decl(db, generic_placeholders.clone(), item.children.unwrap())
                     }
                     RawTyKind::Record => {
                         record_decl(generic_placeholders.clone(), item.children.unwrap())
@@ -291,28 +297,35 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, scope: EntityRoutePtr) -> InferRe
 }
 
 pub(crate) fn struct_decl(
-    generic_placeholders: IdentMap<GenericPlaceholderKind>,
+    db: &dyn DeclQueryGroup,
+    generic_placeholders: IdentMap<GenericPlaceholder>,
     children: AstIter,
 ) -> InferResultArc<TyDecl> {
-    let mut memb_vars = VecMap::default();
-    let mut memb_routines = VecMap::default();
+    let mut memb_vars = VecDict::default();
+    let mut memb_routines = VecDict::default();
+    let mut traits = vec![db.entity_route_menu().clone_trait];
+
     for subitem in children {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
-            AstKind::MembVarDefn {
-                ident,
-                signature: MembAccessDecl { contract, ty },
-            } => memb_vars.insert_new(ident, MembAccessDecl { contract, ty }),
-            AstKind::MembRoutineDefnHead {
-                ref memb_routine_head,
-                ..
-            } => memb_routines.insert_new(memb_routine_head.ident, memb_routine_head.into()),
+            AstKind::MembVarDefn(ref memb_var_defn) => memb_vars.insert_new(
+                memb_var_defn.ident,
+                MembAccessDecl {
+                    contract: memb_var_defn.contract,
+                    ty: memb_var_defn.ty,
+                },
+            ),
+            AstKind::MembRoutineDefnHead(ref memb_var_defn) => {
+                memb_routines.insert_new(memb_var_defn.ident, memb_var_defn.into())
+            }
             _ => panic!(),
         }
     }
+
     Ok(Arc::new(TyDecl::new(
+        db,
         generic_placeholders,
-        Default::default(),
+        traits,
         TyDeclKind::Struct {
             memb_vars: Arc::new(memb_vars),
             memb_routines,

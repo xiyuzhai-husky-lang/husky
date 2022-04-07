@@ -6,13 +6,14 @@ impl<'a> InstructionSheetBuilder<'a> {
     pub(crate) fn routine_fp(&self, routine: EntityRoutePtr) -> Option<RoutineFp> {
         match self.db.entity_source(routine).unwrap() {
             EntitySource::Builtin(builtin_entity_data) => match builtin_entity_data.decl {
-                BuiltinEntityDecl::Func(ref func_decl) => Some(func_decl.compiled),
-                BuiltinEntityDecl::Ty {
+                StaticEntityDecl::Func(ref func_decl) => Some(func_decl.compiled),
+                StaticEntityDecl::Ty {
                     raw_ty_kind,
                     visualizer,
                 } => todo!(),
-                BuiltinEntityDecl::Template => todo!(),
-                BuiltinEntityDecl::Module => todo!(),
+                StaticEntityDecl::TyTemplate => todo!(),
+                StaticEntityDecl::Module => todo!(),
+                StaticEntityDecl::Trait { .. } => todo!(),
             },
             EntitySource::WithinBuiltinModule => todo!(),
             EntitySource::WithinModule { .. } => self

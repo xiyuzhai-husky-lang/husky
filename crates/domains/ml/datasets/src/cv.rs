@@ -9,7 +9,7 @@ use std::sync::Arc;
 use vm::{BoxedValue, RoutineFp, StackValue};
 use xrng::XRng;
 
-pub const SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[("mnist", MNIST_SCOPE_DATA)],
-    decl: BuiltinEntityDecl::Module,
+    decl: StaticEntityDecl::Module,
 };

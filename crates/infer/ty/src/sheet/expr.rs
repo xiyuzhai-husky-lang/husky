@@ -1,4 +1,3 @@
-use entity_route::InputPlaceholder;
 use text::TextRange;
 
 use super::*;

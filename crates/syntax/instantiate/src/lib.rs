@@ -1,12 +1,11 @@
 use check_utils::should_eq;
 use entity_route::*;
 use entity_route_query::*;
-use syntax_types::{MembAccessDecl, MembCallDecl};
 use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
     pub db: &'a dyn EntityRouteSalsaQueryGroup,
-    pub src_generic_placeholders: &'a [(CustomIdentifier, GenericPlaceholderKind)],
+    pub src_generic_placeholders: &'a [(CustomIdentifier, GenericPlaceholder)],
     pub dst_generics: &'a [GenericArgument],
 }
 
@@ -26,7 +25,7 @@ impl<'a> Instantiator<'a> {
             | RawEntityKind::Feature
             | RawEntityKind::Pattern => {
                 let (kind, mut generics) = match src_scope.kind {
-                    EntityRouteKind::Pack { .. } => panic!(),
+                    EntityRouteKind::Package { .. } => panic!(),
                     EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
                     EntityRouteKind::ChildScope { parent, ident } => todo!(),
                     EntityRouteKind::Contextual { main, ident } => todo!(),
@@ -45,6 +44,7 @@ impl<'a> Instantiator<'a> {
                             todo!()
                         }
                     }
+                    EntityRouteKind::ThisType => todo!(),
                 };
                 // convention: A<B,C> = A<B><C>
                 generics.extend(self.instantiate_generics(&src_scope.generics));
@@ -64,27 +64,27 @@ impl<'a> Instantiator<'a> {
             .collect()
     }
 
-    pub fn instantiate_memb_access_decl(&self, signature: &MembAccessDecl) -> MembAccessDecl {
-        todo!()
-    }
+    // pub fn instantiate_memb_access_decl(&self, signature: &MembAccessDecl) -> MembAccessDecl {
+    //     todo!()
+    // }
 
-    pub fn instantiate_memb_routine_decl(&self, signature: &MembCallDecl) -> MembCallDecl {
-        MembCallDecl {
-            this_contract: signature.this_contract,
-            inputs: signature
-                .inputs
-                .iter()
-                .map(|input| self.instantiate_input_decl(input))
-                .collect(),
-            output: self.instantiate_scope(signature.output).as_scope(),
-            args: signature.args.clone(),
-        }
-    }
+    // pub fn instantiate_memb_routine_decl(&self, signature: &MembCallDecl) -> MembCallDecl {
+    //     MembCallDecl {
+    //         this_contract: signature.this_contract,
+    //         inputs: signature
+    //             .inputs
+    //             .iter()
+    //             .map(|input| self.instantiate_input_decl(input))
+    //             .collect(),
+    //         output: self.instantiate_scope(signature.output).as_scope(),
+    //         args: signature.args.clone(),
+    //     }
+    // }
 
-    fn instantiate_input_decl(&self, input: &InputSignature) -> InputSignature {
-        InputSignature {
-            contract: input.contract,
-            ty: self.instantiate_scope(input.ty).as_scope(),
-        }
-    }
+    // fn instantiate_input_decl(&self, input: &InputDecl) -> InputDecl {
+    //     InputDecl {
+    //         contract: input.contract,
+    //         ty: self.instantiate_scope(input.ty).as_scope(),
+    //     }
+    // }
 }

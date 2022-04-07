@@ -1,4 +1,5 @@
-use entity_route::{EntityRoutePtr, InputPlaceholder};
+use ast::InputPlaceholder;
+use entity_route::EntityRoutePtr;
 use semantics_eager::{FuncStmt, ProcStmt};
 use vm::InputContract;
 use word::CustomIdentifier;

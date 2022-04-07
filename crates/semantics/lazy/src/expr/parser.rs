@@ -9,7 +9,7 @@ use entity_syntax::RawTyKind;
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
-use word::{RootIdentifier, CustomIdentifier};
+use word::{CustomIdentifier, RootIdentifier};
 
 use super::*;
 use semantics_error::*;
@@ -136,8 +136,10 @@ pub trait LazyExprParser<'a> {
                     ropd_builtin_ty,
                 ),
                 EntityRoutePtr::Custom(_) => todo!(),
+                EntityRoutePtr::ThisType => todo!(),
             },
             EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
+            EntityRoutePtr::ThisType => todo!(),
         }
     }
 

@@ -33,13 +33,11 @@ impl<'a> AstTransformer<'a> {
             }
             let ident = identify!(Some(self.file), &token_group[0]);
             let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
-            Ok(AstKind::MembVarDefn {
+            Ok(AstKind::MembVarDefn(MembVarDefn {
                 ident,
-                signature: MembAccessDecl {
-                    contract: MembAccessContract::Own,
-                    ty,
-                },
-            })
+                contract: MembAccessContract::Own,
+                ty,
+            }))
         } else {
             p!(token_group);
             todo!()

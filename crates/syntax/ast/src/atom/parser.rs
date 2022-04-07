@@ -197,7 +197,8 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr
                 kind: RawEntityKind::Type(_),
                 ..
             } => Ok(scope),
-            _ => err!(file, (&result).into(), "too many atoms")?,
+            AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType), 
+            _ => err!(file, (&result).into(), "expect type")?,
         }
     }
 }

@@ -5,7 +5,7 @@ mod test;
 mod val;
 
 use entity_syntax::RawTyKind;
-use visual_syntax::BuiltinVisualizer;
+use visual_syntax::StaticVisualizer;
 use xrng::permutation_from_seed;
 
 use super::*;
@@ -16,17 +16,17 @@ use load::*;
 use test::*;
 use val::*;
 
-pub const MNIST_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+pub const MNIST_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
         ("BinaryImage28", BINARY_IMAGE_28_SCOPE_DATA),
     ],
-    decl: BuiltinEntityDecl::Module,
+    decl: StaticEntityDecl::Module,
 };
 
-const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+const NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Func(StaticFuncDecl {
+    decl: StaticEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         compiled: RoutineFp {
@@ -36,10 +36,10 @@ const NEW_BINARY_DATASET_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
     }),
 };
 
-const BINARY_IMAGE_28_SCOPE_DATA: &BuiltinEntityData = &BuiltinEntityData {
+const BINARY_IMAGE_28_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
-    decl: BuiltinEntityDecl::Ty {
-        visualizer: BuiltinVisualizer {
+    decl: StaticEntityDecl::Ty {
+        visualizer: StaticVisualizer {
             compiled: BinaryImage28::visualize,
         },
         raw_ty_kind: RawTyKind::Other,

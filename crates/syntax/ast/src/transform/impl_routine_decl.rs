@@ -1,9 +1,11 @@
 use super::utils::*;
-use crate::atom::symbol_proxy::{Symbol, SymbolKind};
-use crate::{atom::parser::AtomLRParser, *};
+use crate::{
+    atom::parser::AtomLRParser,
+    symbol_proxy::{Symbol, SymbolKind},
+    *,
+};
 use text::TextRanged;
 use token::*;
-use vm::InputContract;
 use word::RoutineKeyword;
 
 impl<'a> AstTransformer<'a> {
@@ -13,59 +15,32 @@ impl<'a> AstTransformer<'a> {
         token_group: &[Token],
     ) -> AstResult<AstKind> {
         let tokens = trim_colon!(Some(self.file), token_group; keyword, colon);
-        Ok({
-            match routine_keyword {
-                RoutineKeyword::Test => {
-                    self.env.set_value(AstContext::Test);
-                    todo!()
-                }
-                RoutineKeyword::Proc => {
-                    self.env.set_value(AstContext::Proc);
-                    let head = AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
-                        .routine_decl()?;
-                    self.symbols
-                        .extend(
-                            head.input_placeholders
-                                .iter()
-                                .map(|input_placeholder| Symbol {
-                                    ident: input_placeholder.ident,
-                                    kind: SymbolKind::Variable {
-                                        init_row: input_placeholder.ranged_ty.row(),
-                                    },
-                                }),
-                        );
-                    AstKind::RoutineDefnHead {
-                        routine_kind: RoutineKind::Proc,
-                        routine_head: head,
-                    }
-                }
-                RoutineKeyword::Func => {
-                    self.env.set_value(AstContext::Func);
-                    let decl = AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
-                        .routine_decl()?;
-                    for input_placeholder in decl.input_placeholders.iter() {
-                        match input_placeholder.contract {
-                            InputContract::Pure
-                            | InputContract::GlobalRef
-                            | InputContract::Move => (),
-                            InputContract::BorrowMut | InputContract::MoveMut => {
-                                todo!("report invalid input contract")
-                            }
-                            InputContract::Exec => todo!(),
-                        }
-                        self.symbols.push(Symbol {
-                            ident: input_placeholder.ident,
-                            kind: SymbolKind::Variable {
-                                init_row: input_placeholder.ranged_ty.row(),
-                            },
-                        })
-                    }
-                    AstKind::RoutineDefnHead {
-                        routine_kind: RoutineKind::Func,
-                        routine_head: decl,
-                    }
-                }
+        let head = match routine_keyword {
+            RoutineKeyword::Test => {
+                self.env.set_value(AstContext::Test);
+                todo!()
             }
-        })
+            RoutineKeyword::Proc => {
+                self.env.set_value(AstContext::Proc);
+                AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
+                    .routine_defn_head(RoutineKind::Proc)?
+            }
+            RoutineKeyword::Func => {
+                self.env.set_value(AstContext::Func);
+                AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
+                    .routine_defn_head(RoutineKind::Func)?
+            }
+        };
+        self.symbols.extend(
+            head.input_placeholders
+                .iter()
+                .map(|input_placeholder| Symbol {
+                    ident: input_placeholder.ident,
+                    kind: SymbolKind::Variable {
+                        init_row: input_placeholder.ranged_ty.row(),
+                    },
+                }),
+        );
+        Ok(AstKind::RoutineDefnHead(head))
     }
 }

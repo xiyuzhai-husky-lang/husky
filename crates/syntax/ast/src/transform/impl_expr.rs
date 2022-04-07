@@ -15,7 +15,8 @@ impl<'a> AstTransformer<'a> {
             while let Some(atom) = atom_iter.next() {
                 match atom.kind {
                     AtomKind::Variable { .. }
-                    | AtomKind::This { .. }
+                    | AtomKind::ThisData { .. }
+                    | AtomKind::ThisType { .. }
                     | AtomKind::Unrecognized(_)
                     | AtomKind::Literal(_)
                     | AtomKind::EntityRoute { .. } => stack.accept_atom_expr(atom.into()),

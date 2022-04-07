@@ -5,7 +5,6 @@ mod impl_stmt;
 
 use super::*;
 use ast::{AstIter, AstText};
-use entity_route::InputPlaceholder;
 use std::sync::Arc;
 use text::TextRanged;
 
@@ -46,11 +45,9 @@ impl<'a> TySheetBuilder<'a> {
                         item.children.unwrap(),
                         &arena,
                     ),
-                    AstKind::RoutineDefnHead {
-                        ref routine_head, ..
-                    } => self.infer_routine(
-                        &routine_head.input_placeholders,
-                        routine_head.output.route,
+                    AstKind::RoutineDefnHead(ref head) => self.infer_routine(
+                        &head.input_placeholders,
+                        head.output.route,
                         item.children.unwrap(),
                         &arena,
                     ),
@@ -58,12 +55,9 @@ impl<'a> TySheetBuilder<'a> {
                     AstKind::Use { ident, scope } => todo!(),
                     AstKind::MembVarDefn { .. } => (),
                     AstKind::Stmt(_) => todo!(),
-                    AstKind::MembRoutineDefnHead {
-                        ref memb_routine_head,
-                        ..
-                    } => self.infer_routine(
-                        &memb_routine_head.input_placeholders,
-                        memb_routine_head.output.route,
+                    AstKind::MembRoutineDefnHead(ref head) => self.infer_routine(
+                        &head.input_placeholders,
+                        head.output.route,
                         item.children.unwrap(),
                         &arena,
                     ),

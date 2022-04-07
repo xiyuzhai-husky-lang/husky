@@ -1,3 +1,5 @@
+use ast::InputPlaceholder;
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

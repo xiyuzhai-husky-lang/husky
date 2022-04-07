@@ -1,7 +1,11 @@
 use std::sync::Arc;
 
-use crate::*;
+use crate::{
+    symbol_proxy::{Symbol, SymbolKind},
+    *,
+};
 use entity_route::*;
+use fold::LocalStack;
 use syntax_types::*;
 use vm::{EagerContract, InputContract};
 use word::IdentMap;
@@ -10,15 +14,36 @@ use super::*;
 
 // inner ops
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn routine_decl(mut self) -> AstResult<RoutineHead> {
-        let routine_name = get!(self, custom_ident);
-        let space_params = self.placeholders()?;
-        let input_contracts = self.func_input_placeholders()?;
+    pub(crate) fn routine_defn_head(
+        mut self,
+        routine_kind: RoutineKind,
+    ) -> AstResult<RoutineDefnHead> {
+        let routine_ident = get!(self, custom_ident);
+        let generic_placeholders = self.placeholders()?;
+        let input_placeholders = self.func_input_placeholders()?;
         let output = self.func_output_type()?;
-        Ok(RoutineHead {
-            routine_name,
-            generic_placeholders: space_params,
-            input_placeholders: input_contracts,
+        match routine_kind {
+            RoutineKind::Proc => (),
+            RoutineKind::Test => {
+                todo!()
+            }
+            RoutineKind::Func => {
+                for input_placeholder in input_placeholders.iter() {
+                    match input_placeholder.contract {
+                        InputContract::Pure | InputContract::GlobalRef | InputContract::Move => (),
+                        InputContract::BorrowMut | InputContract::MoveMut => {
+                            todo!("report invalid input contract")
+                        }
+                        InputContract::Exec => todo!(),
+                    }
+                }
+            }
+        }
+        Ok(RoutineDefnHead {
+            ident: routine_ident,
+            routine_kind,
+            generic_placeholders,
+            input_placeholders,
             output,
         })
     }
@@ -26,23 +51,23 @@ impl<'a> AtomLRParser<'a> {
     pub(crate) fn memb_routine_decl(
         mut self,
         this: InputContract,
-        kind: RawMembRoutineKind,
-    ) -> AstResult<MembRoutineHead> {
+        routine_kind: RoutineKind,
+    ) -> AstResult<MembRoutineDefnHead> {
         let routine_name = get!(self, custom_ident);
-        let space_params = self.placeholders()?;
-        let input_contracts = self.func_input_placeholders()?;
+        let generics = self.placeholders()?;
+        let input_placeholders = self.func_input_placeholders()?;
         let output = self.func_output_type()?;
-        Ok(MembRoutineHead {
+        Ok(MembRoutineDefnHead {
             this_contract: this,
+            routine_kind,
             ident: routine_name,
-            generics: space_params,
-            input_placeholders: input_contracts,
+            generics,
+            input_placeholders,
             output,
-            kind,
         })
     }
 
-    fn placeholders(&mut self) -> AstResult<IdentMap<GenericPlaceholderKind>> {
+    fn placeholders(&mut self) -> AstResult<IdentMap<GenericPlaceholder>> {
         if next_matches!(self, "<") {
             match IdentMap::from_vec(comma_list![self, placeholder!+, ">"]) {
                 Ok(generic_placeholders) => Ok(generic_placeholders),
@@ -53,7 +78,7 @@ impl<'a> AtomLRParser<'a> {
         }
     }
 
-    fn placeholder(&mut self) -> AstResult<(CustomIdentifier, GenericPlaceholderKind)> {
+    fn placeholder(&mut self) -> AstResult<(CustomIdentifier, GenericPlaceholder)> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
@@ -65,7 +90,7 @@ impl<'a> AtomLRParser<'a> {
                 todo!()
             }
         }
-        Ok((ident, GenericPlaceholderKind::Type { traits }))
+        Ok((ident, GenericPlaceholder::Type { traits }))
     }
 
     fn func_input_placeholders(&mut self) -> AstResultArc<Vec<InputPlaceholder>> {

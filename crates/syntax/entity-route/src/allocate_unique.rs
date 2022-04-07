@@ -8,12 +8,13 @@ use vm::{AnyValue, AnyValueDyn, EnumLiteralValueDyn, StaticTypeId};
 
 use crate::*;
 
-pub type ScopeInterner = UniqueAllocator<EntityRoute, EntityRoute, EntityRoutePtr>;
+pub type EntityRouteInterner = UniqueAllocator<EntityRoute, EntityRoute, EntityRoutePtr>;
 
 #[derive(Clone, Copy)]
 pub enum EntityRoutePtr {
     Root(RootIdentifier),
     Custom(&'static EntityRoute),
+    ThisType,
 }
 
 impl<'eval> AnyValue<'eval> for EntityRoutePtr {
@@ -45,6 +46,7 @@ impl EntityRoutePtr {
         match self {
             EntityRoutePtr::Root(_) => None,
             EntityRoutePtr::Custom(scope) => Some(scope),
+            EntityRoutePtr::ThisType => todo!(),
         }
     }
 
@@ -79,6 +81,7 @@ impl Hash for EntityRoutePtr {
         match self {
             EntityRoutePtr::Root(ident) => ident.hash(state),
             EntityRoutePtr::Custom(scope) => (*scope as *const EntityRoute).hash(state),
+            EntityRoutePtr::ThisType => todo!(),
         }
     }
 }
@@ -118,6 +121,7 @@ impl Deref for EntityRoutePtr {
                 EqTrait
             ),
             EntityRoutePtr::Custom(scope) => scope,
+            EntityRoutePtr::ThisType => todo!(),
         }
     }
 }
@@ -157,7 +161,7 @@ impl From<&EntityRoute> for EntityRoute {
 }
 
 pub trait AllocateUniqueScope {
-    fn scope_unique_allocator(&self) -> &ScopeInterner;
+    fn scope_unique_allocator(&self) -> &EntityRouteInterner;
     fn intern_scope(&self, scope: EntityRoute) -> EntityRoutePtr {
         self.scope_unique_allocator().alloc(scope)
     }
@@ -180,8 +184,8 @@ pub trait AllocateUniqueScope {
     }
 }
 
-pub fn new_scope_unique_allocator() -> ScopeInterner {
-    ScopeInterner::new_from::<RootIdentifier>(&[
+pub fn new_scope_unique_allocator() -> EntityRouteInterner {
+    EntityRouteInterner::new_from::<RootIdentifier>(&[
         RootIdentifier::Void,
         RootIdentifier::I32,
         RootIdentifier::F32,

@@ -1,5 +1,6 @@
+use ast::MembVarDefn;
+use decl::MembAccessDecl;
 use semantics_entity::{EnumVariant, MembRoutineDefn, MembRoutineKind};
-use syntax_types::MembAccessDecl;
 use vm::{InputContract, MembAccessContract};
 use word::CustomIdentifier;
 
@@ -29,7 +30,7 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_struct_defn(
         &mut self,
         tyname: CustomIdentifier,
-        memb_vars: &[(CustomIdentifier, MembAccessDecl)],
+        memb_vars: &[(CustomIdentifier, MembVarDefn)],
         memb_routines: &[(CustomIdentifier, MembRoutineDefn)],
     ) {
         self.result += "pub struct ";
@@ -57,7 +58,7 @@ impl<'a> RustGenerator<'a> {
         self.write("}\n");
     }
 
-    fn gen_struct_call(&mut self, memb_vars: &[(CustomIdentifier, MembAccessDecl)]) {
+    fn gen_struct_call(&mut self, memb_vars: &[(CustomIdentifier, MembVarDefn)]) {
         self.write("    pub(crate) fn __call__(");
         for (i, (memb_var_ident, memb_var_decl)) in memb_vars.iter().enumerate() {
             if i > 0 {

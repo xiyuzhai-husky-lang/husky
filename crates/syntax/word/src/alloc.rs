@@ -93,6 +93,6 @@ pub trait InternWord {
         self.word_allocator().alloc_from_ref(word)
     }
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
-        self.intern_word(word).custom().unwrap()
+        self.intern_word(word).opt_custom().unwrap()
     }
 }

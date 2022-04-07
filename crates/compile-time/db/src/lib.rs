@@ -54,7 +54,7 @@ pub struct HuskyLangCompileTime {
     storage: salsa::Storage<HuskyLangCompileTime>,
     file_unique_allocator: file::UniqueFileAllocator,
     word_unique_allocator: word::WordAllocator,
-    scope_unique_allocator: entity_route::ScopeInterner,
+    scope_unique_allocator: entity_route::EntityRouteInterner,
     live_docs: ARwLock<HashMap<FilePtr, ARwLock<String>>>,
     features: feature::FeatureUniqueAllocator,
     linkage_table: FpTable,

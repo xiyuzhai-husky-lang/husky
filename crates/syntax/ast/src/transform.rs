@@ -45,10 +45,11 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.kind {
-                EntityRouteKind::Pack { main, ident } => AstContext::Package(main),
+                EntityRouteKind::Package { main, ident } => AstContext::Package(main),
                 EntityRouteKind::ChildScope { .. } => AstContext::Module(module),
                 EntityRouteKind::Root { .. } | EntityRouteKind::Contextual { .. } => panic!(),
                 EntityRouteKind::Generic { ident, .. } => todo!(),
+                EntityRouteKind::ThisType => todo!(),
             }),
             this: LocalValue::new(None),
         };
@@ -61,13 +62,14 @@ impl<'a> AstTransformer<'a> {
             for scope in db.subscopes(module).iter() {
                 match scope.kind {
                     EntityRouteKind::Root { .. }
-                    | EntityRouteKind::Pack { .. }
+                    | EntityRouteKind::Package { .. }
                     | EntityRouteKind::Contextual { .. } => panic!(),
                     EntityRouteKind::ChildScope { ident, .. } => symbols.push(Symbol {
                         ident,
                         kind: SymbolKind::Scope(scope.kind),
                     }),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
+                    EntityRouteKind::ThisType => todo!(),
                 }
             }
             symbols
