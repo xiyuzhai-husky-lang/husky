@@ -20,7 +20,7 @@ pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
-pub use fp::{MembAccessFp, RoutineFp};
+pub use fp::{ElemAccessFp, MembAccessFp, RoutineFp};
 pub use frame::{FrameKind, LoopFrameSnapshot};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;

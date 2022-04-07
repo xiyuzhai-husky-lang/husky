@@ -75,23 +75,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 InstructionKind::MembAccessCompiled { memb_access_fp }
                             } else {
                                 let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
-                                match this_ty_decl.kind {
-                                    TyDeclKind::Struct { ref memb_vars, .. } => {
-                                        InstructionKind::MembAccessInterpreted {
-                                            memb_idx: memb_vars
-                                                .position(*memb_ident)
-                                                .unwrap()
-                                                .try_into()
-                                                .unwrap(),
-                                            contract: expr.contract,
-                                        }
-                                    }
-                                    TyDeclKind::Enum { ref variants } => todo!(),
-                                    TyDeclKind::Record {
-                                        ref memb_vars,
-                                        ref memb_features,
-                                    } => todo!(),
-                                    TyDeclKind::Vec { element_ty } => todo!(),
+                                InstructionKind::MembAccessInterpreted {
+                                    memb_idx: this_ty_decl
+                                        .memb_idx(*memb_ident)
+                                        .try_into()
+                                        .unwrap(),
+                                    contract: expr.contract,
                                 }
                             }
                         }

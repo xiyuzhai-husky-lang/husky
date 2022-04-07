@@ -3,6 +3,7 @@ mod impl_instantiate;
 mod record;
 mod vec;
 
+use print_utils::msg_once;
 pub use vec::*;
 
 use crate::*;
@@ -25,11 +26,62 @@ pub struct TyDecl {
 
 impl TyDecl {
     fn new(
-        generic_placeholders: Vec<GenericArgument>,
+        generic_placeholders: IdentMap<GenericPlaceholderKind>,
         traits: Vec<EntityRoutePtr>,
-        members: IdentMap<MembDecl>,
+        kind: TyDeclKind,
     ) -> Self {
-        todo!()
+        msg_once!("members from traits");
+        let mut members = IdentMap::default();
+        match kind {
+            TyDeclKind::Struct {
+                ref memb_vars,
+                ref memb_routines,
+            } => {
+                for (memb_ident, memb_access_decl) in memb_vars.iter() {
+                    members.insert_new(
+                        *memb_ident,
+                        MembDecl {
+                            kind: MembDeclKind::Var(memb_access_decl.clone()),
+                        },
+                    )
+                }
+                for (memb_ident, memb_call_decl) in memb_routines.iter() {
+                    members.insert_new(
+                        *memb_ident,
+                        MembDecl {
+                            kind: MembDeclKind::Routine(memb_call_decl.clone()),
+                        },
+                    )
+                }
+            }
+            TyDeclKind::Enum { ref variants } => todo!(),
+            TyDeclKind::Record {
+                ref memb_vars,
+                ref memb_features,
+            } => todo!(),
+            TyDeclKind::Vec { element_ty } => todo!(),
+        };
+        TyDecl {
+            generic_placeholders,
+            traits,
+            members,
+            kind,
+        }
+    }
+
+    pub fn memb_idx(&self, memb_ident: CustomIdentifier) -> usize {
+        match self.kind {
+            TyDeclKind::Struct {
+                ref memb_vars,
+                ref memb_routines,
+            } => memb_vars.position(memb_ident).unwrap(),
+            TyDeclKind::Enum { ref variants } => todo!(),
+            TyDeclKind::Record {
+                ref memb_vars,
+                ref memb_features,
+            } => todo!(),
+            TyDeclKind::Vec { element_ty } => todo!(),
+        }
     }
 }
 
@@ -258,13 +310,12 @@ pub(crate) fn struct_decl(
             _ => panic!(),
         }
     }
-    Ok(Arc::new(TyDecl {
+    Ok(Arc::new(TyDecl::new(
         generic_placeholders,
-        members: Default::default(),
-        traits: Default::default(),
-        kind: TyDeclKind::Struct {
+        Default::default(),
+        TyDeclKind::Struct {
             memb_vars: Arc::new(memb_vars),
             memb_routines,
         },
-    }))
+    )))
 }

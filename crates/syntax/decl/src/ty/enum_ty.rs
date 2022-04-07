@@ -23,6 +23,6 @@ pub(crate) fn enum_decl(
         generic_placeholders,
         members: IdentMap::default(),
         kind: TyDeclKind::Enum { variants },
-        traits: todo!(),
+        traits: Default::default(),
     }))
 }
