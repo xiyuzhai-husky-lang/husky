@@ -6,7 +6,7 @@ use text::TextRanged;
 use token::Token;
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {
+    pub fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {
         let atoms = AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens).parse_all()?;
         should!(atoms.len() > 0);
         Ok({

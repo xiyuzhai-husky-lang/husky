@@ -52,7 +52,7 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstKind> {
         enter_block(self);
-        self.env.set_value(Env::Morphism);
+        self.env.set_value(AstContext::Morphism);
         let ident = identify!(Some(self.file), &token_group[1]);
         let ty = atom::parse_ty(self.symbol_proxy(), &token_group[3..], Some(self.file))?;
         Ok(AstKind::MembFeatureDefnHead { ident, ty })

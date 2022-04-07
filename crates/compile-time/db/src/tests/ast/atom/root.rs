@@ -7,7 +7,9 @@ use word::{Identifier, RootIdentifier};
 
 #[test]
 fn std_scope() {
+    let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
+        &mut db,
         "std",
         AtomKind::EntityRoute {
             route: RootIdentifier::Std.into(),
@@ -18,7 +20,9 @@ fn std_scope() {
 
 #[test]
 fn core_scope() {
+    let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
+        &mut db,
         "core",
         AtomKind::EntityRoute {
             route: RootIdentifier::Core.into(),
@@ -29,7 +33,9 @@ fn core_scope() {
 
 #[test]
 fn debug_scope() {
+    let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
+        &mut db,
         "debug",
         AtomKind::EntityRoute {
             route: RootIdentifier::Debug.into(),
@@ -40,7 +46,9 @@ fn debug_scope() {
 
 #[test]
 fn i32_type() {
+    let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
+        &mut db,
         "i32",
         AtomKind::EntityRoute {
             route: RootIdentifier::I32.into(),
@@ -51,7 +59,9 @@ fn i32_type() {
 
 #[test]
 fn f32_type() {
+    let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
+        &mut db,
         "f32",
         AtomKind::EntityRoute {
             route: RootIdentifier::F32.into(),
@@ -62,22 +72,26 @@ fn f32_type() {
 
 #[test]
 fn vec_generics() {
+    let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
+        &mut db,
         "Vec",
         AtomKind::EntityRoute {
             route: RootIdentifier::Vec.into(),
-            kind: RawEntityKind::Type(RawTyKind::Primitive),
+            kind: RawEntityKind::Type(RawTyKind::Vec),
         },
     );
 }
 
 #[test]
 fn tuple_generics() {
+    let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
+        &mut db,
         "Tuple",
         AtomKind::EntityRoute {
             route: RootIdentifier::Tuple.into(),
-            kind: RawEntityKind::Type(RawTyKind::Primitive),
+            kind: RawEntityKind::Type(RawTyKind::Other),
         },
     );
 }

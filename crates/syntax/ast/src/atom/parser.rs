@@ -56,7 +56,7 @@ impl<'a> From<&'a [Token]> for Stream<'a> {
     }
 }
 
-pub(crate) struct AtomLRParser<'a> {
+pub struct AtomLRParser<'a> {
     file:Option<FilePtr>,
     scope_proxy: SymbolProxy<'a>,
     pub(crate) stream: Stream<'a>,
@@ -64,7 +64,7 @@ pub(crate) struct AtomLRParser<'a> {
 }
 
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn new(
+    pub fn new(
         file:Option<FilePtr>,scope_proxy: SymbolProxy<'a>, tokens: &'a [Token]) -> Self {
         Self {
             file,
@@ -74,7 +74,7 @@ impl<'a> AtomLRParser<'a> {
         }
     }
 
-    pub(crate) fn parse_all(mut self) -> AstResult<Vec<Atom>> {
+    pub fn parse_all(mut self) -> AstResult<Vec<Atom>> {
         loop {
             if self.stack.is_concave() {
                 if let Some(kind) = try_get!(self, symbol?) {

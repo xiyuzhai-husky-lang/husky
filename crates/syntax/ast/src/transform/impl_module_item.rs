@@ -24,14 +24,14 @@ impl<'a> AstTransformer<'a> {
             Keyword::Stmt(_) => todo!("no stmt in module level"),
             Keyword::Config(cfg) => Ok(match cfg {
                 ConfigKeyword::Dataset => {
-                    self.env.set_value(Env::DatasetConfig);
+                    self.env.set_value(AstContext::DatasetConfig);
                     self.use_all(RootIdentifier::Datasets.into(), token_group[0].text_range())?;
                     AstKind::DatasetConfigDefnHead
                 }
             }),
             Keyword::Def => self.parse_morphism_decl(token_group),
             Keyword::Main => {
-                self.env.set_value(Env::Main);
+                self.env.set_value(AstContext::Main);
                 Ok(AstKind::MainDefn)
             }
         }

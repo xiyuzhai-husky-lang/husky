@@ -83,8 +83,8 @@ fn raw_entity_kind_from_scope_kind(
             | RootIdentifier::B32
             | RootIdentifier::B64
             | RootIdentifier::Bool => RawEntityKind::Type(RawTyKind::Primitive),
-            RootIdentifier::Vec
-            | RootIdentifier::Tuple
+            RootIdentifier::Vec => RawEntityKind::Type(RawTyKind::Vec),
+            RootIdentifier::Tuple
             | RootIdentifier::Fp
             | RootIdentifier::Array
             | RootIdentifier::DatasetType => RawEntityKind::Type(RawTyKind::Other),
@@ -172,7 +172,7 @@ fn entity_source(
             RootIdentifier::False => todo!(),
             RootIdentifier::Vec => &BuiltinEntityData {
                 subscopes: &[],
-                decl: BuiltinEntityDecl::Vec,
+                decl: BuiltinEntityDecl::Template,
             },
             RootIdentifier::Tuple => todo!(),
             RootIdentifier::Debug => todo!(),
@@ -184,7 +184,10 @@ fn entity_source(
             RootIdentifier::FnOnce => todo!(),
             RootIdentifier::Array => todo!(),
             RootIdentifier::Datasets => datasets::SCOPE_DATA,
-            RootIdentifier::DatasetType => todo!(),
+            RootIdentifier::DatasetType => &BuiltinEntityData {
+                subscopes: &[],
+                decl: BuiltinEntityDecl::Template,
+            },
             RootIdentifier::Type => todo!(),
             RootIdentifier::CloneTrait => todo!(),
             RootIdentifier::CopyTrait => todo!(),

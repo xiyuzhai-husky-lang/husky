@@ -27,7 +27,7 @@ impl std::fmt::Debug for Entry {
 
 impl Entry {
     pub fn from_token_group(
-        file_id: FilePtr,
+        file: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
     ) -> (Option<Entry>, Option<ScopeDefError>) {
@@ -38,7 +38,7 @@ impl Entry {
                         Some(Entry {
                             ident: Some(ident),
                             kind: RawEntityKind::Literal,
-                            source: EntitySource::from_file(file_id, token_group_index),
+                            source: EntitySource::from_file(file, token_group_index),
                         }),
                         None,
                     )
@@ -52,10 +52,28 @@ impl Entry {
                     Some(Entry {
                         ident: None,
                         kind: RawEntityKind::Routine,
-                        source: EntitySource::from_file(file_id, token_group_index),
+                        source: EntitySource::from_file(file, token_group_index),
                     }),
                     None,
                 );
+            } else if token_group[0].kind == TokenKind::Keyword(Keyword::Mod.into()) {
+                return match token_group[1].kind {
+                    TokenKind::Keyword(_) => todo!(),
+                    TokenKind::Identifier(ident) => (
+                        Some(Entry {
+                            ident: Some(ident.opt_custom().expect("todo")),
+                            kind: RawEntityKind::Module,
+                            source: EntitySource::WithinModule {
+                                file,
+                                token_group_index: token_group_index,
+                            },
+                        }),
+                        None,
+                    ),
+                    TokenKind::Special(_) => todo!(),
+                    TokenKind::I32Literal(_) => todo!(),
+                    TokenKind::F32Literal(_) => todo!(),
+                };
             } else {
                 return (None, None);
             }
@@ -76,7 +94,7 @@ impl Entry {
                                 Some(Entry {
                                     ident: Some(user_defined_ident),
                                     kind,
-                                    source: EntitySource::from_file(file_id, token_group_index),
+                                    source: EntitySource::from_file(file, token_group_index),
                                 }),
                                 None,
                             ),

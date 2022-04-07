@@ -130,7 +130,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     } => {
                         if let Some(compiled_routine) = self
                             .db
-                            .fp_table()
+                            .linkage_table()
                             .struct_constructor(self.db.entity_uid(ranged_ty.route))
                         {
                             todo!()
@@ -155,7 +155,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         InstructionKind::RoutineCallCompiled {
                             fp: self
                                 .db
-                                .fp_table()
+                                .linkage_table()
                                 .vec_constructor(self.db.entity_uid(element_ty)),
                         },
                         expr.clone(),

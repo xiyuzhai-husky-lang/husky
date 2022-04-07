@@ -16,11 +16,11 @@ impl<'a> AstTransformer<'a> {
         Ok({
             match routine_keyword {
                 RoutineKeyword::Test => {
-                    self.env.set_value(Env::Test);
+                    self.env.set_value(AstContext::Test);
                     todo!()
                 }
                 RoutineKeyword::Proc => {
-                    self.env.set_value(Env::Proc);
+                    self.env.set_value(AstContext::Proc);
                     let head = AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
                         .routine_decl()?;
                     self.symbols
@@ -35,12 +35,12 @@ impl<'a> AstTransformer<'a> {
                                 }),
                         );
                     AstKind::RoutineDefnHead {
-                        routine_class: RoutineClass::Proc,
+                        routine_kind: RoutineKind::Proc,
                         routine_head: head,
                     }
                 }
                 RoutineKeyword::Func => {
-                    self.env.set_value(Env::Func);
+                    self.env.set_value(AstContext::Func);
                     let decl = AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
                         .routine_decl()?;
                     for input_placeholder in decl.input_placeholders.iter() {
@@ -61,7 +61,7 @@ impl<'a> AstTransformer<'a> {
                         })
                     }
                     AstKind::RoutineDefnHead {
-                        routine_class: RoutineClass::Func,
+                        routine_kind: RoutineKind::Func,
                         routine_head: decl,
                     }
                 }

@@ -23,6 +23,13 @@ impl Identifier {
             _ => panic!(""),
         }
     }
+
+    pub fn opt_custom(&self) -> Option<CustomIdentifier> {
+        match self {
+            Identifier::Custom(ident) => Some(*ident),
+            _ => None,
+        }
+    }
 }
 
 impl Deref for Identifier {

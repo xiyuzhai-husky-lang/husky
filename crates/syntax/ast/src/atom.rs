@@ -7,6 +7,8 @@ pub(crate) mod symbol_proxy;
 
 pub use kind::{AtomKind, LambdaHead};
 pub(crate) use parser::parse_ty;
+pub use parser::AtomLRParser;
+pub use symbol_proxy::SymbolProxy;
 pub(crate) use syntax_types::*;
 
 use entity_route::EntityRoutePtr;

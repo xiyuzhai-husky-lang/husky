@@ -1,5 +1,5 @@
 mod atom;
-mod env;
+mod context;
 mod error;
 mod expr;
 mod query;
@@ -8,7 +8,7 @@ mod transform;
 
 pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use atom::*;
-use entity_syntax::RawTyKind;
+pub use context::AstContext;
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
@@ -19,7 +19,7 @@ use check_utils::*;
 use dev_utils::*;
 use entity_route::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use env::Env;
+use entity_syntax::RawTyKind;
 use print_utils::*;
 use syntax_types::*;
 use text::TextRange;
@@ -41,7 +41,7 @@ pub enum AstKind {
     },
     MainDefn,
     RoutineDefnHead {
-        routine_class: RoutineClass,
+        routine_kind: RoutineKind,
         routine_head: RoutineHead,
     },
     PatternDefnHead,
@@ -54,7 +54,7 @@ pub enum AstKind {
         ty: EntityRoutePtr,
     },
     MembRoutineDefnHead {
-        routine_kind: RoutineClass,
+        routine_kind: RoutineKind,
         memb_routine_head: MembRoutineHead,
     },
     Use {
@@ -69,7 +69,7 @@ pub enum AstKind {
     Stmt(RawStmt),
     EnumVariantDefnHead {
         ident: CustomIdentifier,
-        variant_class: EnumVariantClass,
+        variant_class: EnumVariantKind,
     },
 }
 

@@ -31,10 +31,10 @@ pub enum SymbolKind {
 
 #[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
-    pub(crate) main: Option<FilePtr>,
-    pub(crate) db: &'a dyn AstSalsaQueryGroup,
-    pub(crate) this_ty: Option<EntityRoutePtr>,
-    pub(crate) symbols: &'a fold::LocalStack<Symbol>,
+    pub main: Option<FilePtr>,
+    pub db: &'a dyn AstSalsaQueryGroup,
+    pub this_ty: Option<EntityRoutePtr>,
+    pub symbols: &'a fold::LocalStack<Symbol>,
 }
 
 impl<'a> SymbolProxy<'a> {
@@ -57,13 +57,13 @@ impl<'a> SymbolProxy<'a> {
                 RootIdentifier::True => todo!(),
                 RootIdentifier::False => todo!(),
                 RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => todo!(),
+                RootIdentifier::Tuple => RawTyKind::Other,
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Std => todo!(),
                 RootIdentifier::Core => todo!(),
-                RootIdentifier::Fp => todo!(),
-                RootIdentifier::Fn => todo!(),
-                RootIdentifier::FnMut => todo!(),
+                RootIdentifier::Fp => RawTyKind::Other,
+                RootIdentifier::Fn => RawTyKind::Other,
+                RootIdentifier::FnMut => RawTyKind::Other,
                 RootIdentifier::FnOnce => todo!(),
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::DatasetType => todo!(),

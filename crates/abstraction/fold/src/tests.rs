@@ -1,3 +1,5 @@
+use print_utils::p;
+
 use crate::*;
 
 impl ItemToFold<()> for Indent {
@@ -6,7 +8,7 @@ impl ItemToFold<()> for Indent {
     }
 
     fn indent(&self) -> Indent {
-        0
+        *self
     }
 }
 
@@ -15,6 +17,7 @@ fn fold_items1() {
     use check_utils::*;
     let items: Vec<Indent> = vec![0, 4, 0].into();
     let fold_items: FoldedList<()> = items.into();
+    p!(fold_items.nodes);
     should_eq!(fold_items.nodes[1].next_sibling, None);
 }
 

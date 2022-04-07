@@ -11,7 +11,7 @@ impl<'a> AtomLRParser<'a> {
             if token.kind == Special::LBox.into() {
                 Some(AtomKind::EntityRoute {
                     route: self.symbolic_ty()?,
-                    kind: RawEntityKind::Type(RawTyKind::Other),
+                    kind: RawEntityKind::Type(RawTyKind::Vec),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind =

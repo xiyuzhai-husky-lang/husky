@@ -55,6 +55,7 @@ struct B {}
         db.intern_word("haha".into()).custom().unwrap(),
     ));
     let subscope_table = db.subscope_table(pack).ok().unwrap();
+    p!(subscope_table.entries);
     should_eq!(subscope_table.entries.len(), 3);
     should_eq!(subscope_table.errors.len(), 0);
 }
@@ -88,7 +89,7 @@ fn datasets() {
     let db = HuskyLangCompileTime::default();
     let dataset_scope = db.intern_scope(EntityRoute {
         kind: EntityRouteKind::Root {
-            ident: RootIdentifier::DatasetType,
+            ident: RootIdentifier::Datasets,
         },
         generics: vec![],
     });
@@ -109,7 +110,7 @@ fn datasets() {
     let _synthetic_trivial_real1d_scope = db
         .subscope(
             synthetic_trivial_scope,
-            db.intern_word("trivial").custom().unwrap(),
+            db.intern_word("real1d").custom().unwrap(),
             vec![],
         )
         .unwrap();

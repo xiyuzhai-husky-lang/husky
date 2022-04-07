@@ -9,7 +9,7 @@ use infer_total::InferQueryGroup;
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
-use syntax_types::{EnumVariantClass, MembAccessDecl, RawMembRoutineKind, RoutineClass};
+use syntax_types::{EnumVariantKind, MembAccessDecl, RawMembRoutineKind, RoutineKind};
 use vec_map::VecMap;
 use vm::InputContract;
 use word::{CustomIdentifier, IdentMap};
@@ -56,7 +56,7 @@ impl TyDefn {
                     variant_class: raw_variant_kind,
                 } => {
                     let variant_kind = match raw_variant_kind {
-                        EnumVariantClass::Constant => EnumVariant::Constant,
+                        EnumVariantKind::Constant => EnumVariant::Constant,
                     };
                     variants.insert_new(ident, variant_kind);
                 }
@@ -82,7 +82,7 @@ impl TyDefn {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
                 AstKind::RoutineDefnHead {
-                    routine_class: ref routine_kind,
+                    ref routine_kind,
                     ref routine_head,
                 } => todo!(),
                 AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
@@ -131,7 +131,7 @@ impl TyDefn {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
                 AstKind::RoutineDefnHead {
-                    routine_class: ref routine_kind,
+                    ref routine_kind,
                     ref routine_head,
                 } => todo!(),
                 AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
@@ -198,11 +198,11 @@ pub enum EnumVariant {
 impl EntityDefnVariant {
     pub fn enum_variant(
         db: &dyn EntityQueryGroup,
-        enum_variant_class: EnumVariantClass,
+        enum_variant_class: EnumVariantKind,
         children: Option<AstIter>,
     ) -> EntityDefnVariant {
         EntityDefnVariant::EnumVariant(match enum_variant_class {
-            EnumVariantClass::Constant => EnumVariant::Constant,
+            EnumVariantKind::Constant => EnumVariant::Constant,
         })
     }
 }

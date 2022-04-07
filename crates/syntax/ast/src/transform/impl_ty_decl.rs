@@ -31,7 +31,7 @@ impl<'a> AstTransformer<'a> {
                 _ => (),
             }
         };
-        self.env.set_value(Env::Struct);
+        self.env.set_value(AstContext::Struct);
         expect_len!(Some(self.file), tokens, 3);
         expect_head!(Some(self.file), tokens);
         msg_once!("struct generic placeholders");
@@ -55,7 +55,7 @@ impl<'a> AstTransformer<'a> {
                 _ => (),
             }
         };
-        self.env.set_value(Env::Record);
+        self.env.set_value(AstContext::Record);
         expect_len!(Some(self.file), tokens, 3);
         expect_head!(Some(self.file), tokens);
         msg_once!("record generic placeholders");
@@ -67,7 +67,7 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_enum(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
-        self.env.set_value(Env::Enum);
+        self.env.set_value(AstContext::Enum);
         expect_len!(Some(self.file), tokens, 3);
         expect_head!(Some(self.file), tokens);
         msg_once!("record generic placeholders");

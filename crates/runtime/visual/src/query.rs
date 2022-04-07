@@ -15,7 +15,7 @@ fn visualizer(
             BuiltinEntityDecl::Func(_) => todo!(),
             BuiltinEntityDecl::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
             BuiltinEntityDecl::Module => todo!(),
-            BuiltinEntityDecl::Vec => todo!(),
+            BuiltinEntityDecl::Template => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
