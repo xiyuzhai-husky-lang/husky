@@ -1,20 +1,20 @@
 use crate::*;
 use ast::{AstIter, RawExprArena};
 use semantics_error::*;
-use syntax_types::{RoutineHead, RoutineKind};
+use syntax_types::{RoutineClass, RoutineHead};
 
 impl EntityDefnKind {
     pub(crate) fn routine(
         db: &dyn EntityQueryGroup,
-        routine_kind: &RoutineKind,
+        routine_kind: &RoutineClass,
         routine_head: &RoutineHead,
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityDefnKind> {
         Ok(match routine_kind {
-            RoutineKind::Test => todo!(),
-            RoutineKind::Proc => {
+            RoutineClass::Test => todo!(),
+            RoutineClass::Proc => {
                 let stmts = parse_impr_stmts(
                     &routine_head.input_placeholders,
                     db.upcast(),
@@ -28,7 +28,7 @@ impl EntityDefnKind {
                     stmts,
                 }
             }
-            RoutineKind::Func => {
+            RoutineClass::Func => {
                 let stmts = parse_decl_stmts(
                     &routine_head.input_placeholders,
                     db.upcast(),
@@ -42,7 +42,7 @@ impl EntityDefnKind {
                     stmts,
                 }
             }
-            RoutineKind::Def => todo!(),
+            RoutineClass::Def => todo!(),
         })
     }
 }

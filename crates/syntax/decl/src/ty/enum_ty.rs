@@ -9,10 +9,10 @@ pub(crate) fn enum_decl(
         match subitem.value.as_ref()?.kind {
             AstKind::EnumVariantDefnHead {
                 ident,
-                ref raw_variant_kind,
+                variant_class: ref raw_variant_kind,
             } => {
                 let variant_sig = match raw_variant_kind {
-                    RawEnumVariantKind::Constant => EnumVariantDecl::Constant,
+                    EnumVariantClass::Constant => EnumVariantDecl::Constant,
                 };
                 variants.insert_new(ident, variant_sig)
             }

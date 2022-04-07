@@ -1,5 +1,6 @@
 use std::sync::Arc;
 
+use super::*;
 use ast::*;
 use entity_route::{EntityRoutePtr, InputPlaceholder, RangedEntityRoute};
 use entity_syntax::RawTyKind;
@@ -8,7 +9,7 @@ use infer_total::InferQueryGroup;
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
-use syntax_types::{MembAccessDecl, RawEnumVariantKind, RawMembRoutineKind, RoutineKind};
+use syntax_types::{EnumVariantClass, MembAccessDecl, RawMembRoutineKind, RoutineClass};
 use vec_map::VecMap;
 use vm::InputContract;
 use word::{CustomIdentifier, IdentMap};
@@ -52,10 +53,10 @@ impl TyDefn {
             match subitem.value.as_ref()?.kind {
                 AstKind::EnumVariantDefnHead {
                     ident,
-                    raw_variant_kind,
+                    variant_class: raw_variant_kind,
                 } => {
                     let variant_kind = match raw_variant_kind {
-                        RawEnumVariantKind::Constant => EnumVariantKind::Constant,
+                        EnumVariantClass::Constant => EnumVariant::Constant,
                     };
                     variants.insert_new(ident, variant_kind);
                 }
@@ -63,6 +64,10 @@ impl TyDefn {
             }
         }
         Ok(TyDefnKind::Enum { variants })
+    }
+
+    fn enum_variant_from_ast(children: Option<AstIter>) -> SemanticResult<EnumVariant> {
+        todo!()
     }
 
     fn struct_from_ast(
@@ -77,7 +82,7 @@ impl TyDefn {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
                 AstKind::RoutineDefnHead {
-                    ref routine_kind,
+                    routine_class: ref routine_kind,
                     ref routine_head,
                 } => todo!(),
                 AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
@@ -95,7 +100,7 @@ impl TyDefn {
                             file,
                         )?;
                         memb_routines.insert_new(
-                            memb_routine_head.routine_name,
+                            memb_routine_head.ident,
                             MembRoutineDefn {
                                 kind: MembRoutineKind::Func { stmts },
                                 input_placeholders: memb_routine_head.input_placeholders.clone(),
@@ -126,7 +131,7 @@ impl TyDefn {
             match subitem.value.as_ref()?.kind {
                 AstKind::Use { ident, scope } => (),
                 AstKind::RoutineDefnHead {
-                    ref routine_kind,
+                    routine_class: ref routine_kind,
                     ref routine_head,
                 } => todo!(),
                 AstKind::MembVarDefn { ident, signature } => memb_vars.insert_new(ident, signature),
@@ -153,7 +158,7 @@ impl TyDefn {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TyDefnKind {
     Enum {
-        variants: IdentMap<EnumVariantKind>,
+        variants: IdentMap<EnumVariant>,
     },
     Struct {
         memb_vars: IdentMap<MembAccessDecl>,
@@ -186,6 +191,18 @@ pub enum MembRoutineKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum EnumVariantKind {
+pub enum EnumVariant {
     Constant,
+}
+
+impl EntityDefnKind {
+    pub fn enum_variant(
+        db: &dyn EntityQueryGroup,
+        enum_variant_class: EnumVariantClass,
+        children: Option<AstIter>,
+    ) -> EntityDefnKind {
+        EntityDefnKind::EnumVariant(match enum_variant_class {
+            EnumVariantClass::Constant => EnumVariant::Constant,
+        })
+    }
 }

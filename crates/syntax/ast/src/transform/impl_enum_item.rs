@@ -9,7 +9,7 @@ impl<'a> AstTransformer<'a> {
         Ok(if tokens.len() == 1 {
             AstKind::EnumVariantDefnHead {
                 ident: identify!(Some(self.file), tokens[0]),
-                raw_variant_kind: RawEnumVariantKind::Constant,
+                variant_class: EnumVariantClass::Constant,
             }
         } else {
             todo!()

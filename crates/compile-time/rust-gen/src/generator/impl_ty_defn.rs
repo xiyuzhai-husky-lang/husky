@@ -1,4 +1,4 @@
-use semantics_entity::{EnumVariantKind, MembRoutineDefn, MembRoutineKind};
+use semantics_entity::{EnumVariant, MembRoutineDefn, MembRoutineKind};
 use syntax_types::MembAccessDecl;
 use vm::{InputContract, MembAccessContract};
 use word::CustomIdentifier;
@@ -9,14 +9,14 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_enum_defn(
         &mut self,
         tyname: CustomIdentifier,
-        variants: &[(CustomIdentifier, EnumVariantKind)],
+        variants: &[(CustomIdentifier, EnumVariant)],
     ) {
         self.write("enum ");
         self.write(&tyname);
         self.write(" {\n");
         for (variant_ident, variant_kind) in variants {
             match variant_kind {
-                EnumVariantKind::Constant => {
+                EnumVariant::Constant => {
                     self.result += "    ";
                     self.result += variant_ident.0;
                     self.result += ",\n";

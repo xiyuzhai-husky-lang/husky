@@ -31,5 +31,6 @@ pub enum EntityDefnKind {
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     Ty(TyDefn),
+    EnumVariant(EnumVariant),
     Builtin,
 }

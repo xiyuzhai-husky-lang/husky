@@ -62,6 +62,7 @@ impl<'a> RustGenerator<'a> {
                     TyDefnKind::Record { .. } => (),
                 },
                 EntityDefnKind::Builtin => todo!(),
+                EntityDefnKind::EnumVariant(_) => todo!(),
             }
         }
         self.gen_init(&pack.subentity_defns);

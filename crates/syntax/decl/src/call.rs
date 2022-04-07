@@ -44,7 +44,7 @@ pub(crate) fn call_decl(
             let ast = item.value.as_ref()?;
             match ast.kind {
                 AstKind::RoutineDefnHead {
-                    ref routine_kind,
+                    routine_class: ref routine_kind,
                     routine_head: ref decl,
                 } => Ok(Arc::new(CallDecl {
                     inputs: decl

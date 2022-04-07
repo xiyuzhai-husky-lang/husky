@@ -19,6 +19,7 @@ impl<'eval> TraceFactory<'eval> {
             EntityDefnKind::Ty(_) => todo!(),
             EntityDefnKind::Main(_) => todo!(),
             EntityDefnKind::Builtin => todo!(),
+            EntityDefnKind::EnumVariant(_) => todo!(),
         };
         return self.new_trace(None, 0, TraceKind::CallHead { entity, tokens }, text);
 
