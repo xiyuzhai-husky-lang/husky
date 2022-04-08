@@ -13,6 +13,14 @@ pub struct AstError {
     pub src: DevSource,
 }
 
+impl AstError {
+    pub fn message(&self) -> String {
+        match self.kind {
+            AstErrorKind::Message(ref message) => format!("Syntax Error: {}", message),
+        }
+    }
+}
+
 pub type AstResultArc<T> = Result<Arc<T>, AstError>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

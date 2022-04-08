@@ -30,7 +30,7 @@ impl Entry {
         file: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
-    ) -> (Option<Entry>, Option<ScopeDefError>) {
+    ) -> (Option<Entry>, Option<EntityDefnError>) {
         if token_group.len() < 2 {
             match token_group[0].kind {
                 TokenKind::Identifier(Identifier::Custom(ident)) => {
@@ -85,7 +85,7 @@ impl Entry {
                         return match ident {
                             Identifier::Builtin(_) => (
                                 None,
-                                Some(ScopeDefError {
+                                Some(EntityDefnError {
                                     range: token_group[1].text_range(),
                                     rule_broken: ScopeDefRule::BuiltinIdentifierAreReserved,
                                 }),
@@ -100,7 +100,7 @@ impl Entry {
                             ),
                             Identifier::Contextual(_) => (
                                 None,
-                                Some(ScopeDefError {
+                                Some(EntityDefnError {
                                     range: token_group[1].text_range(),
                                     rule_broken: ScopeDefRule::ContextualIdentifierAreReserved,
                                 }),
@@ -110,7 +110,7 @@ impl Entry {
                 }
                 (
                     None,
-                    Some(ScopeDefError {
+                    Some(EntityDefnError {
                         range: token_group[1].text_range(),
                         rule_broken: ScopeDefRule::NonMainSecondTokenShouldBeIdentifier,
                     }),
@@ -118,7 +118,7 @@ impl Entry {
             }
             _ => (
                 None,
-                Some(ScopeDefError {
+                Some(EntityDefnError {
                     range: token_group[0].text_range(),
                     rule_broken: ScopeDefRule::FirstTokenShouldBeKeyword,
                 }),
@@ -130,7 +130,7 @@ impl Entry {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SubscopeTable {
     pub entries: Vec<Entry>,
-    pub errors: Vec<ScopeDefError>,
+    pub errors: Vec<EntityDefnError>,
 }
 
 impl std::fmt::Display for SubscopeTable {
@@ -217,7 +217,7 @@ impl SubscopeTable {
     pub fn entry_iter(&self) -> core::slice::Iter<Entry> {
         self.entries.iter()
     }
-    pub fn error_iter(&self) -> core::slice::Iter<ScopeDefError> {
+    pub fn error_iter(&self) -> core::slice::Iter<EntityDefnError> {
         self.errors.iter()
     }
     pub fn subscopes(&self, parent_scope_id: EntityRoutePtr) -> Vec<EntityRoute> {
