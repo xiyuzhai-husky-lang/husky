@@ -3,7 +3,7 @@ mod menu;
 mod query;
 mod subroute;
 
-pub use error::{def::ScopeDefError, ScopeError, ScopeResult, ScopeResultArc};
+pub use error::{def::EntityDefnError, ScopeError, ScopeResult, ScopeResultArc};
 pub use query::{
     EntityRouteSalsaQueryGroup, ModuleFromFileError, ScopeQueryGroup, ScopeQueryGroupStorage,
 };

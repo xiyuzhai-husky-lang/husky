@@ -32,7 +32,7 @@ avec = { path = "../../abstraction/avec", version = "0.0.0" }
 compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
-diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
+diagnostic = { path = "../../ide/diagnostic", version = "0.0.0" }
 trace = { path = "../../runtime/trace", version = "0.0.0" }
 runtime-db = { path = "../../runtime/db", version = "0.0.0" }
 focus = { path = "../../runtime/focus", version = "0.0.0" }

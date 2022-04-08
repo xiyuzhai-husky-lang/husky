@@ -1,7 +1,7 @@
 use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ScopeDefError {
+pub struct EntityDefnError {
     pub range: TextRange,
     pub rule_broken: ScopeDefRule,
 }
@@ -23,15 +23,17 @@ macro_rules! build_error_code_gen {
 }};
 }
 
-impl ScopeDefError {
-    pub fn code(&self) -> &'static str {
-        build_error_code_gen!(
-            self.rule_broken,
-            TokenGroupSizeAtLeastTwo,
-            FirstTokenShouldBeKeyword,
-            NonMainSecondTokenShouldBeIdentifier,
-            BuiltinIdentifierAreReserved,
-            ContextualIdentifierAreReserved
-        )
+impl EntityDefnError {
+    pub fn message(&self) -> String {
+        match self.rule_broken {
+            ScopeDefRule::TokenGroupSizeAtLeastTwo => todo!(),
+            ScopeDefRule::FirstTokenShouldBeKeyword => {
+                "Syntax Error: first token should be keyword"
+            }
+            ScopeDefRule::NonMainSecondTokenShouldBeIdentifier => todo!(),
+            ScopeDefRule::BuiltinIdentifierAreReserved => todo!(),
+            ScopeDefRule::ContextualIdentifierAreReserved => todo!(),
+        }
+        .into()
     }
 }

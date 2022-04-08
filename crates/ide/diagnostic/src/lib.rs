@@ -4,12 +4,12 @@ mod query;
 // mod reserve;
 mod severity;
 
+use ast::AstError;
 pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
 pub use severity::DiagnosticSeverity;
 
-use entity_route_query::ScopeDefError;
-use print_utils::*;
+use entity_route_query::EntityDefnError;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 use text::TextRange;
@@ -21,17 +21,26 @@ pub struct Diagnostic {
     severity: DiagnosticSeverity,
     range: TextRange,
     message: String,
-    code: String,
     kind: DiagnosticKind,
 }
 
-impl From<&ScopeDefError> for Diagnostic {
-    fn from(error: &ScopeDefError) -> Self {
+impl From<&EntityDefnError> for Diagnostic {
+    fn from(error: &EntityDefnError) -> Self {
         Self {
             severity: DiagnosticSeverity::Error,
             range: error.range.clone(),
-            message: "messagetodo".into(),
-            code: error.code().into(),
+            message: error.message(),
+            kind: DiagnosticKind::ScopeDefError,
+        }
+    }
+}
+
+impl From<&AstError> for Diagnostic {
+    fn from(error: &AstError) -> Self {
+        Self {
+            severity: DiagnosticSeverity::Error,
+            range: error.range.clone(),
+            message: error.message(),
             kind: DiagnosticKind::ScopeDefError,
         }
     }
@@ -42,9 +51,9 @@ impl Into<lsp_types::Diagnostic> for Diagnostic {
         lsp_types::Diagnostic {
             range: self.range.into(),
             severity: Some(self.severity.into()),
-            code: Some(lsp_types::NumberOrString::String(self.code.into())),
+            code: None,
             code_description: None,
-            source: Some("husky-lang-server".to_string()),
+            source: Some("husky-analyzer".to_string()),
             message: self.message,
             related_information: None,
             tags: None,

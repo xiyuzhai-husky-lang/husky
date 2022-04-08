@@ -8,7 +8,7 @@ use file::FileError;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ScopeError {
     FileError(FileError),
-    DefError(def::ScopeDefError),
+    DefError(def::EntityDefnError),
     Message(String),
 }
 
