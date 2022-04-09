@@ -1,5 +1,5 @@
 [package]
-name = "vec-map"
+name = "vec-dict"
 version = "0.0.0"
 description = "Vector-like Map for the Husky Programming Language"
 license = "MIT OR Apache-2.0"

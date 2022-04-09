@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum StaticEntityDecl {
     Func(StaticFuncDecl),
     Ty {

@@ -1,7 +1,7 @@
 use entity_route::EntityRouteKind;
 use print_utils::msg_once;
 use semantics_error::*;
-use vec_map::VecDict;
+use vec_dict::VecDict;
 
 use crate::*;
 

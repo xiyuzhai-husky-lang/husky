@@ -189,7 +189,30 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AtomResult<Entity
                 ..
             } => Ok(scope),
             AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
-            _ => err!("expect type", (&result).into())?,
+            _ => err!(
+                format!("expect type, but get `{:?}` instead", result[0]),
+                (&result).into()
+            )?,
+        }
+    }
+}
+
+pub fn parse_entity(scope_proxy: SymbolProxy, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
+    let result = AtomLRParser::new(scope_proxy, tokens.into()).parse_all()?;
+    if result.len() == 0 {
+        panic!()
+    }
+    if result.len() > 1 {
+        p!(result);
+        err!("too many atoms", result[1..].into())?
+    } else {
+        match result[0].kind {
+            AtomKind::EntityRoute { route: scope, .. } => Ok(scope),
+            AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
+            _ => err!(
+                format!("expect type, but get `{:?}` instead", result[0]),
+                (&result).into()
+            )?,
         }
     }
 }

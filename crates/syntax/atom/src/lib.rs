@@ -7,8 +7,8 @@ pub mod symbol_proxy;
 
 pub use error::*;
 pub use kind::{AtomKind, LambdaHead};
-pub use parser::parse_ty;
 pub use parser::AtomLRParser;
+pub use parser::*;
 pub use symbol_proxy::SymbolProxy;
 pub use syntax_types::*;
 

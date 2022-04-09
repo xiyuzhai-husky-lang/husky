@@ -132,7 +132,7 @@ pub enum EntityRouteKind {
     ThisType,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct StaticEntityData {
     pub subscopes: &'static [(&'static str, &'static StaticEntityData)],
     pub decl: StaticEntityDecl,

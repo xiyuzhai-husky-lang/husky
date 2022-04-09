@@ -48,3 +48,4 @@ rust-gen = { path = "../rust-gen", version = "0.0.0" }
 diagnostic = { path = "../../ide/diagnostic", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }
+atom = { path = "../../syntax/atom", version = "0.0.0" }

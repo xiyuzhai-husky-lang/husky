@@ -6,7 +6,6 @@ mod stmt;
 mod transform;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
-pub use atom::*;
 pub use context::AstContext;
 pub use expr::*;
 pub use instantiate::*;
@@ -14,6 +13,7 @@ pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
 pub use transform::*;
 
+use atom::*;
 use check_utils::*;
 use defn_head::*;
 use dev_utils::*;

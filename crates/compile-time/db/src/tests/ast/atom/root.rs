@@ -1,6 +1,6 @@
 use super::utils;
 use crate::*;
-use ast::AtomKind;
+use atom::*;
 use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use entity_syntax::TyKind;
 use word::{Identifier, RootIdentifier};

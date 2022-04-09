@@ -8,7 +8,7 @@ use infer_total::InferQueryGroup;
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
-use vec_map::{HasKey, VecDict};
+use vec_dict::{HasKey, VecDict};
 use vm::{InputContract, MembAccessContract};
 use word::{CustomIdentifier, IdentDict};
 

@@ -1,0 +1,6 @@
+[package]
+name = "map-vec"
+version = "0.0.0"
+description = "Vector-like Map for the Husky Programming Language"
+license = "MIT OR Apache-2.0"
+edition = "2021"
