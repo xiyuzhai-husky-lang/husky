@@ -1,4 +1,4 @@
-pub trait MapVec<T, S, V>
+pub trait MapCollect<T, S, V>
 where
     V: FromIterator<S>,
 {
@@ -6,7 +6,7 @@ where
     // fn map_into<S>(self, f: impl FnMut(T) -> S) -> Vec<S>;
 }
 
-impl<T, S, V> MapVec<T, S, V> for Vec<T>
+impl<T, S, V> MapCollect<T, S, V> for Vec<T>
 where
     V: FromIterator<S>,
 {
@@ -18,7 +18,7 @@ where
     // }
 }
 
-impl<T, S, V> MapVec<T, S, V> for [T]
+impl<T, S, V> MapCollect<T, S, V> for [T]
 where
     V: FromIterator<S>,
 {
