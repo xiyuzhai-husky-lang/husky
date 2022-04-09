@@ -11,7 +11,7 @@ impl<'a> AtomLRParser<'a> {
             if token.kind == Special::LBox.into() {
                 Some(AtomKind::EntityRoute {
                     route: self.symbolic_ty()?,
-                    kind: RawEntityKind::Type(RawTyKind::Vec),
+                    kind: EntityKind::Type(TyKind::Vec),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind =
@@ -78,7 +78,7 @@ impl<'a> AtomLRParser<'a> {
                 route: scope, kind, ..
             }) = self.symbol()?
             {
-                if let RawEntityKind::Type(_) = kind {
+                if let EntityKind::Type(_) = kind {
                     Some(scope)
                 } else {
                     None
@@ -123,13 +123,11 @@ impl<'a> AtomLRParser<'a> {
                 .db
                 .raw_entity_kind_from_scope_kind(&scope_kind)
             {
-                RawEntityKind::Module | RawEntityKind::Literal | RawEntityKind::Feature => {
-                    Ok(Vec::new())
-                }
-                RawEntityKind::Type(_)
-                | RawEntityKind::Trait
-                | RawEntityKind::Routine
-                | RawEntityKind::Pattern => self.angled_generics(),
+                EntityKind::Module | EntityKind::Literal | EntityKind::Feature => Ok(Vec::new()),
+                EntityKind::Type(_)
+                | EntityKind::Trait
+                | EntityKind::Routine
+                | EntityKind::Pattern => self.angled_generics(),
             },
         }
     }

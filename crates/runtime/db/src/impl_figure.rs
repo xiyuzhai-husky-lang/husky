@@ -73,32 +73,32 @@ impl HuskyLangRuntime {
             } => todo!(),
             FeatureExprKind::StructMembVarAccess {
                 ref this,
-                memb_ident,
+                field_ident,
                 contract,
                 opt_compiled,
                 ..
             } => todo!(),
             FeatureExprKind::RecordMembAccess {
                 ref this,
-                memb_ident,
+                field_ident,
                 ref repr,
             } => todo!(),
-            FeatureExprKind::MembFuncCall {
-                memb_ident,
+            FeatureExprKind::MethodCall {
+                field_ident,
                 ref opds,
                 ref instruction_sheet,
                 opt_compiled: compiled,
                 ref stmts,
             } => todo!(),
             FeatureExprKind::MembProcCall {
-                memb_ident,
+                field_ident,
                 ref opds,
                 ref instruction_sheet,
                 opt_compiled: compiled,
                 ref stmts,
             } => todo!(),
             FeatureExprKind::MembPattCall {
-                memb_ident,
+                field_ident,
                 ref opds,
                 ref instruction_sheet,
                 ref stmts,

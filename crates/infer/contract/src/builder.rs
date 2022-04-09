@@ -52,7 +52,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     }
                     AstKind::PatternDefnHead => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
-                    AstKind::MembVarDefn { .. } => (),
+                    AstKind::FieldDefn { .. } => (),
                     AstKind::Stmt(_) => todo!(),
                     AstKind::MembRoutineDefnHead(ref head) => {
                         self.infer_routine(head.output.route, item.children.unwrap(), &arena)

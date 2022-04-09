@@ -1,5 +1,5 @@
-use ast::{RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
-use entity_route::{EntityRouteKind, EntityRoutePtr, RawEntityKind};
+use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
+use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue};
@@ -18,8 +18,8 @@ pub trait EagerExprParser<'a> {
     fn parse_eager_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<EagerExpr>> {
         let raw_expr = &self.arena()[raw_expr_idx];
         let kind = match raw_expr.kind {
-            RawExprKind::Variable { varname, .. } => EagerExprKind::Variable(varname),
-            RawExprKind::Unrecognized(ident) => {
+            RawExprVariant::Variable { varname, .. } => EagerExprKind::Variable(varname),
+            RawExprVariant::Unrecognized(ident) => {
                 err!(format!(
                     "unrecognized identifier {} at {}:{:?}",
                     ident,
@@ -27,9 +27,9 @@ pub trait EagerExprParser<'a> {
                     raw_expr.range()
                 ))
             }
-            RawExprKind::Scope { scope, kind } => match kind {
-                RawEntityKind::Module => todo!(),
-                RawEntityKind::Literal => match scope {
+            RawExprVariant::Scope { scope, kind } => match kind {
+                EntityKind::Module => todo!(),
+                EntityKind::Literal => match scope {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
                         EagerExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
@@ -39,19 +39,19 @@ pub trait EagerExprParser<'a> {
                     EntityRoutePtr::Custom(_) => todo!(),
                     _ => todo!(),
                 },
-                RawEntityKind::Type(_) => todo!(),
-                RawEntityKind::Trait => todo!(),
-                RawEntityKind::Routine => todo!(),
-                RawEntityKind::Feature => {
+                EntityKind::Type(_) => todo!(),
+                EntityKind::Trait => todo!(),
+                EntityKind::Routine => todo!(),
+                EntityKind::Feature => {
                     panic!("what")
                 }
-                RawEntityKind::Pattern => todo!(),
+                EntityKind::Pattern => todo!(),
             },
-            RawExprKind::PrimitiveLiteral(value) => EagerExprKind::PrimitiveLiteral(value),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
-            RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { .. } => EagerExprKind::This,
+            RawExprVariant::PrimitiveLiteral(value) => EagerExprKind::PrimitiveLiteral(value),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
+            RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::This { .. } => EagerExprKind::This,
         };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
@@ -113,9 +113,9 @@ pub trait EagerExprParser<'a> {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.kind {
-            RawExprKind::Scope {
+            RawExprVariant::Scope {
                 scope,
-                kind: RawEntityKind::Routine,
+                kind: EntityKind::Routine,
                 ..
             } => {
                 let signature = try_infer!(self.db().call_decl(scope));
@@ -133,9 +133,9 @@ pub trait EagerExprParser<'a> {
                     opds: arguments,
                 })
             }
-            RawExprKind::Scope {
+            RawExprVariant::Scope {
                 scope,
-                kind: RawEntityKind::Type(_),
+                kind: EntityKind::Type(_),
                 ..
             } => {
                 let signature = try_infer!(self.db().call_decl(scope));
@@ -154,14 +154,14 @@ pub trait EagerExprParser<'a> {
                     opds: arguments,
                 })
             }
-            RawExprKind::Scope { .. } => todo!(),
-            RawExprKind::Variable { .. } => todo!(),
-            RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::PrimitiveLiteral(_) => todo!(),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn {
+            RawExprVariant::Scope { .. } => todo!(),
+            RawExprVariant::Variable { .. } => todo!(),
+            RawExprVariant::Unrecognized(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Opn {
                 opr,
-                opds: ref memb_opds,
+                opds: ref field_opds,
             } => match opr {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
@@ -169,8 +169,8 @@ pub trait EagerExprParser<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(memb_ident) => {
-                        let this = self.parse_eager_expr(memb_opds.start)?;
+                    SuffixOpr::MembAccess(field_ident) => {
+                        let this = self.parse_eager_expr(field_opds.start)?;
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))
                             .collect::<SemanticResult<Vec<_>>>()?;
@@ -180,7 +180,7 @@ pub trait EagerExprParser<'a> {
                         msg_once!("todo: memb call compiled");
                         Ok(EagerExprKind::Opn {
                             opn_kind: EagerOpnKind::MembRoutineCall {
-                                memb_ident,
+                                field_ident,
                                 this_ty_decl,
                             },
                             opds,
@@ -190,8 +190,8 @@ pub trait EagerExprParser<'a> {
                 },
                 Opr::List(_) => todo!(),
             },
-            RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { .. } => todo!(),
+            RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::This { .. } => todo!(),
         }
     }
 }

@@ -1,12 +1,13 @@
 use ast::AstQueryGroup;
 use entity_route::EntityRoutePtr;
-use entity_route_query::ScopeQueryGroup;
+use entity_route_query::EntityRouteQueryGroup;
+use infer_total::InferQueryGroup;
 use reserve::Reserve;
 
 use crate::*;
 
 #[salsa::query_group(DiagnosticQueryStorage)]
-pub trait DiagnosticQuery: ScopeQueryGroup + AstQueryGroup {
+pub trait DiagnosticQuery: EntityRouteQueryGroup + AstQueryGroup + InferQueryGroup {
     fn diagnostic_reserve(&self, module: EntityRoutePtr) -> Arc<DiagnosticReserve>;
 }
 

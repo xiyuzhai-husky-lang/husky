@@ -4,9 +4,9 @@ use std::sync::Arc;
 
 pub use opr::*;
 
-use entity_route::{EntityRouteKind, EntityRoutePtr, GenericPlaceholder, RangedEntityRoute};
+use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
 use vm::{InputContract, MembAccessContract};
-use word::{CustomIdentifier, IdentMap};
+use word::{CustomIdentifier, IdentDict};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EnumVariantKind {

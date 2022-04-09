@@ -1,7 +1,7 @@
 dataset:
     synthetic::trivial::real1d::dataset1()
 
-pr oc f() -> i32:
+proc f() -> i32:
     var v = []i32()
     let u = v.clone()
     v.push(2)

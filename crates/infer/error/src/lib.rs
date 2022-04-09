@@ -3,13 +3,13 @@ use std::sync::Arc;
 #[derive(Clone, PartialEq, Eq)]
 pub struct InferError {
     pub kind: InferErrorKind,
-    pub src: DevSource,
+    pub dev_src: DevSource,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum InferErrorKind {
     Derived,
-    Message(String),
+    Original { message: String, range: TextRange },
 }
 
 impl std::fmt::Debug for InferError {
@@ -23,7 +23,7 @@ impl std::fmt::Debug for InferError {
     src: {:?}\n\
     kind:\n\
 {:?}",
-            &self.src, &self.kind
+            &self.dev_src, &self.kind
         ))
     }
 }
@@ -51,8 +51,11 @@ impl From<ScopeError> for InferError {
 impl From<&ast::AstError> for InferError {
     fn from(error: &ast::AstError) -> Self {
         Self {
-            kind: InferErrorKind::Message(format!("AstError {:?}", error)),
-            src: error.src,
+            kind: InferErrorKind::Original {
+                message: format!("AstError {:?}", error),
+                range: error.range,
+            },
+            dev_src: error.dev_src.clone(),
         }
     }
 }
@@ -65,20 +68,26 @@ impl From<VMError> for InferError {
 
 #[macro_export]
 macro_rules! err {
-    ($msg:expr) => {{
+    ($msg:expr, $range: expr) => {{
         Err(InferError {
-            kind: InferErrorKind::Message($msg.into()),
-            src: dev_utils::src!(),
+            kind: InferErrorKind::Original {
+                message: $msg.into(),
+                range: $range,
+            },
+            dev_src: dev_utils::dev_src!(),
         })?
     }};
 }
 
 #[macro_export]
 macro_rules! ok_or {
-    ($opt_value: expr, $msg:expr) => {{
+    ($opt_value: expr, $msg:expr, $range: expr) => {{
         $opt_value.ok_or(InferError {
-            kind: InferErrorKind::Message($msg.into()),
-            src: dev_utils::src!(),
+            kind: InferErrorKind::Original {
+                message: $msg.into(),
+                range: $range,
+            },
+            dev_src: dev_utils::dev_src!(),
         })
     }};
 }
@@ -88,7 +97,7 @@ macro_rules! derived_not_none {
     ($opt_value: expr) => {{
         $opt_value.ok_or(InferError {
             kind: InferErrorKind::Derived,
-            src: dev_utils::src!(),
+            dev_src: dev_utils::dev_src!(),
         })
     }};
 }
@@ -98,7 +107,7 @@ macro_rules! derived {
     () => {{
         InferError {
             kind: InferErrorKind::Derived,
-            src: dev_utils::src!(),
+            dev_src: dev_utils::dev_src!(),
         }
     }};
 }
@@ -108,11 +117,12 @@ macro_rules! derived_ok {
     ($opt_value: expr) => {{
         $opt_value.or(Err(InferError {
             kind: InferErrorKind::Derived,
-            src: dev_utils::src!(),
+            dev_src: dev_utils::dev_src!(),
         }))?
     }};
 }
 
 use dev_utils::*;
 use entity_route_query::ScopeError;
+use text::TextRange;
 use vm::VMError;

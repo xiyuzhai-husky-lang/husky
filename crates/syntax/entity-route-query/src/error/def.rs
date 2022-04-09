@@ -1,9 +1,11 @@
+use dev_utils::DevSource;
 use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EntityDefnError {
     pub range: TextRange,
     pub rule_broken: ScopeDefRule,
+    pub dev_src: DevSource,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

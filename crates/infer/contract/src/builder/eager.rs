@@ -1,12 +1,13 @@
 use ast::{
-    RawBoundary, RawExprArena, RawExprKind, RawExprRange, RawLoopKind, RawStmt, RawStmtKind,
+    RawBoundary, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt, RawStmtKind,
 };
 
 use entity_route::EntityRoutePtr;
 use infer_error::*;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
+use text::TextRange;
 use vm::{BinaryOpr, MembAccessContract};
-use word::CustomIdentifier;
+use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;
 use crate::*;
@@ -97,14 +98,16 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
     ) {
         let infer_result = match arena[expr_idx].kind {
-            RawExprKind::Variable { .. }
-            | RawExprKind::Unrecognized(_)
-            | RawExprKind::Scope { .. }
-            | RawExprKind::PrimitiveLiteral(_)
-            | RawExprKind::This { .. } => Ok(()),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn { opr, ref opds } => self.infer_eager_opn(opr, opds, contract, arena),
-            RawExprKind::Lambda(_, _) => todo!(),
+            RawExprVariant::Variable { .. }
+            | RawExprVariant::Unrecognized(_)
+            | RawExprVariant::Scope { .. }
+            | RawExprVariant::PrimitiveLiteral(_)
+            | RawExprVariant::This { .. } => Ok(()),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Opn { opr, ref opds } => {
+                self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range)
+            }
+            RawExprVariant::Lambda(_, _) => todo!(),
         };
         match self.contract_sheet.eager_expr_contract_results.insert(
             expr_idx,
@@ -129,12 +132,13 @@ impl<'a> ContractSheetBuilder<'a> {
         opds: &RawExprRange,
         contract: EagerContract,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<()> {
         match opr {
             Opr::Binary(opr) => self.infer_eager_binary_opn(opr, opds, contract, arena),
             Opr::Prefix(opr) => self.infer_eager_prefix_opn(opr, opds.start, contract, arena),
             Opr::Suffix(opr) => self.infer_eager_suffix(opr, opds.start, contract, arena),
-            Opr::List(opr) => self.infer_eager_list_opn(opr, opds, contract, arena),
+            Opr::List(opr) => self.infer_eager_list_opn(opr, opds, contract, arena, range),
         }
     }
 
@@ -194,16 +198,16 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => {
+            SuffixOpr::MembAccess(ranged_ident) => {
                 let this_ty_decl = self.db.expr_ty_decl(self.file, opd)?;
-                let memb_var_decl = this_ty_decl.memb_access_decl(ident);
-                let this_contract = match memb_var_decl.contract {
+                let field_var_decl = this_ty_decl.field_decl(ranged_ident.ident);
+                let this_contract = match field_var_decl.contract {
                     MembAccessContract::Own => match contract {
                         EagerContract::Pure => EagerContract::Pure,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
                         EagerContract::Return => {
-                            let is_copyable = self.db.is_copyable(memb_var_decl.ty);
+                            let is_copyable = self.db.is_copyable(field_var_decl.ty);
                             if is_copyable {
                                 EagerContract::Pure
                             } else {
@@ -232,12 +236,13 @@ impl<'a> ContractSheetBuilder<'a> {
         opds: &RawExprRange,
         contract: EagerContract,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<()> {
         match opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_eager_list_call(opds, contract, arena),
+            ListOpr::Call => self.infer_eager_list_call(opds, contract, arena, range),
             ListOpr::Index => todo!(),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
@@ -249,10 +254,11 @@ impl<'a> ContractSheetBuilder<'a> {
         all_opds: &RawExprRange,
         contract: EagerContract,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<()> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
-            RawExprKind::Scope { scope, .. } => {
+            RawExprVariant::Scope { scope, .. } => {
                 let call_decl = self.db.call_decl(scope)?;
                 match contract {
                     EagerContract::Pure => (),
@@ -274,62 +280,64 @@ impl<'a> ContractSheetBuilder<'a> {
                 }
                 Ok(())
             }
-            RawExprKind::Opn { opr, ref opds } => match opr {
+            RawExprVariant::Opn { opr, ref opds } => match opr {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
                 Opr::Suffix(suffix_opr) => match suffix_opr {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ident) => self.infer_eager_memb_call(
+                    SuffixOpr::MembAccess(ident) => self.infer_eager_field_call(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,
                         contract,
                         arena,
+                        range,
                     ),
                     SuffixOpr::WithType(_) => todo!(),
                 },
                 Opr::List(_) => todo!(),
             },
-            RawExprKind::Variable { varname, init_row } => todo!(),
-            RawExprKind::This { ty } => todo!(),
-            RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::PrimitiveLiteral(_) => todo!(),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Lambda(_, _) => todo!(),
+            RawExprVariant::Variable { varname, init_row } => todo!(),
+            RawExprVariant::This { ty } => todo!(),
+            RawExprVariant::Unrecognized(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Lambda(_, _) => todo!(),
         }
     }
 
-    fn infer_eager_memb_call(
+    fn infer_eager_field_call(
         &mut self,
         this: RawExprIdx,
-        ident: CustomIdentifier,
+        ranged_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         contract: EagerContract,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<()> {
         let this_ty_decl = derived_ok!(self.db.expr_ty_decl(self.file, this));
-        let memb_call_decl = this_ty_decl.memb_call_decl(ident)?;
+        let method_call_decl = derived_ok!(this_ty_decl.method_decl(ranged_ident));
         match contract {
             EagerContract::Pure => (),
             EagerContract::Move => (),
             EagerContract::Return => (),
+            EagerContract::LetInit => (),
+            EagerContract::VarInit => (),
             EagerContract::Exec => (),
             EagerContract::GlobalRef => todo!(),
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
-            EagerContract::LetInit => todo!(),
-            EagerContract::VarInit => todo!(),
         }
-        self.infer_eager_expr(this, memb_call_decl.this_contract.eager()?, arena);
-        if inputs.end - inputs.start != memb_call_decl.inputs.len() {
+        self.infer_eager_expr(this, method_call_decl.this_contract.eager()?, arena);
+        if inputs.end - inputs.start != method_call_decl.inputs.len() {
             todo!()
         }
-        for i in 0..memb_call_decl.inputs.len() {
+        for i in 0..method_call_decl.inputs.len() {
             self.infer_eager_expr(
                 inputs.start + i,
-                memb_call_decl.inputs[i].contract.eager()?,
+                method_call_decl.inputs[i].contract.eager()?,
                 arena,
             )
         }

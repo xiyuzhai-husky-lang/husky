@@ -8,3 +8,5 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 word = { path = "../word", version = "0.0.0" }
+vm = { path = "../../runtime/vm", version = "0.0.0" }
+token = { path = "../token", version = "0.0.0" }

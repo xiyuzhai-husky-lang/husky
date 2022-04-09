@@ -1,3 +1,5 @@
+use static_decl::StaticEntityDecl;
+
 use crate::*;
 #[salsa::query_group(VisualQueryGroupStorage)]
 pub trait VisualQueryGroup: AskCompileTime {

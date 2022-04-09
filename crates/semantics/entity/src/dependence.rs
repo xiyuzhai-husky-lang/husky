@@ -6,11 +6,11 @@ use vec_map::VecDict;
 
 use crate::*;
 
-pub type DependeeMap = VecDict<EntityRoutePtr, EntityDefnUid>;
+pub type DependeeMap = VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>;
 
 pub struct DependeeMapBuilder<'a> {
     db: &'a dyn EntityQueryGroup,
-    map: VecDict<EntityRoutePtr, EntityDefnUid>,
+    map: VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>,
 }
 
 impl<'a> DependeeMapBuilder<'a> {
@@ -32,13 +32,13 @@ impl<'a> DependeeMapBuilder<'a> {
             EntityRouteKind::Contextual { main, ident } => todo!(),
             EntityRouteKind::Generic {
                 ident,
-                raw_entity_kind,
+                entity_kind: raw_entity_kind,
             } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         }
         if !self.map.has(entity_route) {
             self.map
-                .insert_new(entity_route, self.db.entity_defn_uid(entity_route));
+                .insert_new((entity_route, self.db.entity_defn_uid(entity_route)));
         }
     }
 
@@ -72,7 +72,7 @@ pub(crate) fn entity_dependees(
         for i in start..len0 {
             let (subroute, _) = map.data()[i];
             let submap = db.entity_immediate_dependees(subroute)?;
-            map.extends(&submap);
+            map.extends_from_ref(&submap);
         }
         if map.data().len() > len0 {
             visit_all(db, map, len0)
@@ -86,7 +86,7 @@ impl EntityDefn {
     fn immediate_dependees(
         &self,
         db: &dyn EntityQueryGroup,
-    ) -> VecDict<EntityRoutePtr, EntityDefnUid> {
+    ) -> VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)> {
         let mut builder = DependeeMapBuilder::new(db);
         match self.kind() {
             EntityDefnVariant::Module { .. } => Default::default(),
@@ -111,34 +111,42 @@ impl EntityDefn {
                 extract_routine_head_dependees(inputs, output, &mut builder);
                 extract_impr_stmts_dependees(stmts, &mut builder);
             }
-            EntityDefnVariant::Ty(ty) => match ty.kind {
-                TyDefnVariant::Enum { ref variants } => {
-                    variants.iter().for_each(|(_ident, variant_kind)| {
-                        extract_enum_variant_dependees(variant_kind, &mut builder)
-                    });
-                }
-                TyDefnVariant::Struct { ref memb_vars, .. } => {
-                    for (_ident, memb_var) in memb_vars.iter() {
-                        builder.push(memb_var.ty);
-                    }
-                }
-                TyDefnVariant::Record {
-                    ref memb_vars,
-                    ref memb_features,
-                } => {
-                    memb_vars
-                        .iter()
-                        .for_each(|(_ident, memb_var_decl)| builder.push(memb_var_decl.ty));
-                    memb_features
-                        .iter()
-                        .for_each(|(_ident, memb_feature_defn)| builder.push(memb_feature_defn.ty));
-                }
-            },
+            EntityDefnVariant::Ty(ty) => {
+                todo!()
+                //     match ty.kind {
+                //     TyDefnKind::Enum { ref variants } => {
+                //         variants.iter().for_each(|enum_variant| {
+                //             extract_enum_variant_dependees(enum_variant, &mut builder)
+                //         });
+                //     }
+                //     TyDefnKind::Struct { ref fields, .. } => {
+                //         for field in fields.iter() {
+                //             builder.push(field.ty);
+                //         }
+                //     }
+                //     TyDefnKind::Record {
+                //         fields: ref field_vars,
+                //         ref field_features,
+                //     } => {
+                //         field_vars
+                //             .iter()
+                //             .for_each(|(_ident, field_var_decl)| builder.push(field_var_decl.ty));
+                //         field_features
+                //             .iter()
+                //             .for_each(|(_ident, field_feature_defn)| {
+                //                 builder.push(field_feature_defn.ty)
+                //             });
+                //     }
+                // }
+            }
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Builtin => (),
-            EntityDefnVariant::EnumVariant(variant) => match variant {
-                EnumVariant::Constant => (),
-            },
+            EntityDefnVariant::EnumVariant(variant) => {
+                todo!()
+                //     match variant {
+                //     EnumVariantDefn::Constant => (),
+                // },
+            }
         };
         return builder.finish();
 
@@ -304,11 +312,11 @@ impl EntityDefn {
         }
 
         fn extract_enum_variant_dependees(
-            variant_kind: &EnumVariant,
+            variant_defn: &EnumVariantDefn,
             builder: &mut DependeeMapBuilder,
         ) {
-            match variant_kind {
-                EnumVariant::Constant => (),
+            match variant_defn.variant {
+                EnumVariantDefnVariant::Constant => (),
             }
         }
     }

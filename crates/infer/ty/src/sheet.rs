@@ -41,4 +41,18 @@ impl TySheet {
     pub(crate) fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         self.exprs[&expr_idx].clone()
     }
+
+    pub fn errors(&self) -> Vec<&InferError> {
+        let mut errors: Vec<&InferError> = Vec::new();
+        for (_, result) in self.exprs.iter() {
+            match result {
+                Ok(_) => (),
+                Err(error) => match error.kind {
+                    InferErrorKind::Derived => (),
+                    InferErrorKind::Original { .. } => errors.push(error),
+                },
+            }
+        }
+        errors
+    }
 }

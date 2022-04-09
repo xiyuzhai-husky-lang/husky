@@ -24,3 +24,4 @@ datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }
 entity-syntax = { path = "../entity", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
 entity-route-query = { path = "../entity-route-query", version = "0.0.0" }
+ast = { path = "../ast", version = "0.0.0" }

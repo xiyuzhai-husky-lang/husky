@@ -23,5 +23,7 @@ syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 compile-time-dir = { path = "../../compile-time/dir", version = "0.0.0" }
-decl = { path = "../../syntax/decl", version = "0.0.0" }
+infer-decl = { path = "../../infer/decl", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
+static-decl = { path = "../../syntax/static-decl", version = "0.0.0" }
+entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }

@@ -7,12 +7,10 @@ mod utils;
 
 use core::slice::Iter;
 
-
-
 use check_utils::should;
+use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument};
 use file::FilePtr;
 use print_utils::p;
-use entity_route::{GenericArgument, EntityRoute, EntityRouteKind, RawEntityKind};
 use text::TextRange;
 use token::{Special, Token, TokenKind};
 use vm::{BinaryOpr, PureBinaryOpr};
@@ -57,15 +55,14 @@ impl<'a> From<&'a [Token]> for Stream<'a> {
 }
 
 pub struct AtomLRParser<'a> {
-    file:Option<FilePtr>,
+    file: Option<FilePtr>,
     scope_proxy: SymbolProxy<'a>,
     pub(crate) stream: Stream<'a>,
     stack: AtomStack,
 }
 
 impl<'a> AtomLRParser<'a> {
-    pub fn new(
-        file:Option<FilePtr>,scope_proxy: SymbolProxy<'a>, tokens: &'a [Token]) -> Self {
+    pub fn new(file: Option<FilePtr>, scope_proxy: SymbolProxy<'a>, tokens: &'a [Token]) -> Self {
         Self {
             file,
             scope_proxy,
@@ -163,13 +160,9 @@ impl<'a> AtomLRParser<'a> {
                             }
                         }
                         Special::MemberAccess =>  {
-                            let memb_ident_token = self.stream.next().ok_or(error!(self.file,token.text_range(),"expect identifier after `.`"))?;
-                            let memb_ident =   match memb_ident_token.kind { 
-                                TokenKind::Identifier(Identifier::Custom(memb_ident)) => memb_ident,
-                                _=>todo!(),
-                            };
+                            let field_ident_token = self.stream.next().ok_or(error!(self.file,token.text_range(),"expect identifier after `.`"))?;
                             self.stack
-                        .push(Atom::new(token.text_range(), SuffixOpr::MembAccess(memb_ident).into()))?},
+                        .push(Atom::new(token.text_range(), SuffixOpr::MembAccess(field_ident_token.ranged_custom_ident().unwrap()).into()))?},
                         _ => self.stack.push(token.into())?,
                     },
                     _ => self.stack.push(token.into())?,
@@ -182,7 +175,11 @@ impl<'a> AtomLRParser<'a> {
     }
 }
 
-pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr>) -> AstResult<EntityRoutePtr> {
+pub fn parse_ty(
+    scope_proxy: SymbolProxy,
+    tokens: &[Token],
+    file: Option<FilePtr>,
+) -> AstResult<EntityRoutePtr> {
     let result = AtomLRParser::new(file, scope_proxy, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()
@@ -194,10 +191,10 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token], file: Option<FilePtr
         match result[0].kind {
             AtomKind::EntityRoute {
                 route: scope,
-                kind: RawEntityKind::Type(_),
+                kind: EntityKind::Type(_),
                 ..
             } => Ok(scope),
-            AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType), 
+            AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
             _ => err!(file, (&result).into(), "expect type")?,
         }
     }

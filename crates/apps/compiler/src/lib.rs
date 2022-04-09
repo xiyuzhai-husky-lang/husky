@@ -19,7 +19,7 @@ pub fn compile_pack(pack_dir: PathBuf) {
     let mut compile_time = HuskyLangCompileTime::default();
     compile_time.load_pack(pack_dir.clone());
     let main_file = compile_time.unique_main_file();
-    let pack = compile_time.pack(main_file).unwrap();
+    let pack = compile_time.package(main_file).unwrap();
     let rust_dir = get_rust_dir(&pack);
     let code_snapshot_dir = get_or_create_child_dir(&rust_dir, "snapshot");
     let src_dir = get_or_create_child_dir(&rust_dir, "src");

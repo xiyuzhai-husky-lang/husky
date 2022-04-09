@@ -1,8 +1,9 @@
 use ast::RawExprRange;
 use map_utils::insert_new;
 use syntax_types::{PrefixOpr, SuffixOpr};
+use text::TextRange;
 use vm::{BinaryOpr, PureBinaryOpr};
-use word::CustomIdentifier;
+use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;
 
@@ -27,26 +28,29 @@ impl<'a> TySheetBuilder<'a> {
         arena: &RawExprArena,
     ) -> InferResult<EntityRoutePtr> {
         let ty = match arena[expr_idx].kind {
-            RawExprKind::Variable { varname, init_row } => Ok(derived_not_none!(self
+            RawExprVariant::Variable { varname, init_row } => Ok(derived_not_none!(self
                 .ty_sheet
                 .variables
                 .get(&(varname, init_row))
                 .unwrap()
                 .clone())?),
-            RawExprKind::Unrecognized(ident) => {
+            RawExprVariant::Unrecognized(ident) => {
                 p!(ident);
                 todo!()
             }
-            RawExprKind::Scope { scope, kind } => self.scope_ty_result(scope, kind),
-            RawExprKind::PrimitiveLiteral(value) => Ok(value.ty().into()),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn { opr, ref opds } => self.opn_opt_ty(opr, opds, expr_idx, arena),
-            RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { ty } => derived_not_none!(ty),
+            RawExprVariant::Scope { scope, kind } => self.scope_ty_result(scope, kind),
+            RawExprVariant::PrimitiveLiteral(value) => Ok(value.ty().into()),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Opn { opr, ref opds } => self.opn_opt_ty(opr, opds, expr_idx, arena),
+            RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::This { ty } => derived_not_none!(ty),
         }?;
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicit_convertible(ty, expected_ty) {
-                err!(format!("expect {:?} but get {:?} instead", expected_ty, ty))
+                err!(
+                    format!("expect {:?} but get {:?} instead", expected_ty, ty),
+                    arena[expr_idx].range
+                )
             }
         }
         Ok(ty)
@@ -55,11 +59,11 @@ impl<'a> TySheetBuilder<'a> {
     fn scope_ty_result(
         &mut self,
         scope: EntityRoutePtr,
-        entity_kind: RawEntityKind,
+        entity_kind: EntityKind,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match entity_kind {
-            RawEntityKind::Module => todo!(),
-            RawEntityKind::Literal => match scope {
+            EntityKind::Module => todo!(),
+            EntityKind::Literal => match scope {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
                 EntityRoutePtr::Custom(scope) => match scope.kind {
@@ -72,14 +76,14 @@ impl<'a> TySheetBuilder<'a> {
                 },
                 _ => todo!(),
             },
-            RawEntityKind::Type(_) => RootIdentifier::Type.into(),
-            RawEntityKind::Trait => todo!(),
-            RawEntityKind::Routine => {
+            EntityKind::Type(_) => RootIdentifier::Type.into(),
+            EntityKind::Trait => todo!(),
+            EntityKind::Routine => {
                 msg_once!("todo: generics in fp");
                 RootIdentifier::Fp.into()
             }
-            RawEntityKind::Feature => self.db.feature_decl(scope)?.ty,
-            RawEntityKind::Pattern => todo!(),
+            EntityKind::Feature => self.db.feature_decl(scope)?.ty,
+            EntityKind::Pattern => todo!(),
         })
     }
 
@@ -90,11 +94,14 @@ impl<'a> TySheetBuilder<'a> {
         expr_idx: RawExprIdx,
         arena: &RawExprArena,
     ) -> InferResult<EntityRoutePtr> {
+        let range = arena[expr_idx].range;
         match opr {
-            Opr::Binary(opr) => self.binary_opn_ty_result(opr, opds.start, opds.start + 1, arena),
+            Opr::Binary(opr) => {
+                self.binary_opn_ty_result(opr, opds.start, opds.start + 1, arena, range)
+            }
             Opr::Prefix(opr) => self.prefix_opn_ty_result(opr, opds.start, arena),
-            Opr::Suffix(opr) => self.suffix_opn_ty_result(opr, opds.start, arena),
-            Opr::List(opr) => self.list_opn_ty_result(opr, opds, arena),
+            Opr::Suffix(opr) => self.suffix_opn_ty_result(opr, opds.start, arena, range),
+            Opr::List(opr) => self.list_opn_ty_result(opr, opds, arena, range),
         }
     }
 
@@ -104,6 +111,7 @@ impl<'a> TySheetBuilder<'a> {
         lopd: RawExprIdx,
         ropd: RawExprIdx,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let lopd_ty = derived_not_none!(self.infer_expr(lopd, None, arena))?;
         let ropd_ty = derived_not_none!(self.infer_expr(ropd, None, arena))?;
@@ -115,6 +123,7 @@ impl<'a> TySheetBuilder<'a> {
                             pure_binary_opr,
                             lopd_builtin_ty,
                             ropd_builtin_ty,
+                            range,
                         ),
                     EntityRoutePtr::Custom(_) => todo!(),
                     EntityRoutePtr::ThisType => todo!(),
@@ -136,6 +145,7 @@ impl<'a> TySheetBuilder<'a> {
         pure_binary_opr: PureBinaryOpr,
         lopd_builtin_ty: RootIdentifier,
         ropd_builtin_ty: RootIdentifier,
+        range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
@@ -143,17 +153,17 @@ impl<'a> TySheetBuilder<'a> {
             | PureBinaryOpr::Greater
             | PureBinaryOpr::Geq => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"<, <=, >, >=\" on same types")
+                    err!("expect use of \"<, <=, >, >=\" on same types", range)
                 }
                 match lopd_builtin_ty {
                     RootIdentifier::I32 | RootIdentifier::F32 => (),
-                    _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
+                    _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32", range),
                 }
                 RootIdentifier::Bool
             }
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"!=\" on same types")
+                    err!("expect use of \"!=\" on same types", range)
                 }
                 RootIdentifier::Bool
             }
@@ -165,11 +175,11 @@ impl<'a> TySheetBuilder<'a> {
             | PureBinaryOpr::Div
             | PureBinaryOpr::Power => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"+, -, *, /, **\" on same types")
+                    err!("expect use of \"+, -, *, /, **\" on same types", range)
                 }
                 match lopd_builtin_ty {
                     RootIdentifier::I32 | RootIdentifier::F32 => (),
-                    _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
+                    _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32", range),
                 }
                 lopd_builtin_ty
             }
@@ -197,13 +207,14 @@ impl<'a> TySheetBuilder<'a> {
         opr: SuffixOpr,
         opd: RawExprIdx,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None, arena))?;
         match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.memb_access_ty_result(ident),
+            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.field_access_ty_result(ident),
             SuffixOpr::WithType(_) => todo!(),
         }
     }
@@ -213,12 +224,13 @@ impl<'a> TySheetBuilder<'a> {
         opr: ListOpr,
         opds: &RawExprRange,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         match opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.list_call_ty_result(opds, arena),
+            ListOpr::Call => self.list_call_ty_result(opds, arena, range),
             ListOpr::Index => todo!(),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
@@ -229,10 +241,11 @@ impl<'a> TySheetBuilder<'a> {
         &mut self,
         all_opds: &RawExprRange,
         arena: &RawExprArena,
+        range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
-            RawExprKind::Scope { scope, .. } => {
+            RawExprVariant::Scope { scope, .. } => {
                 let call_decl = self.db.call_decl(scope)?;
                 for i in 0..call_decl.inputs.len() {
                     let input_expr_idx = all_opds.start + 1 + i;
@@ -240,15 +253,15 @@ impl<'a> TySheetBuilder<'a> {
                 }
                 Ok(call_decl.output)
             }
-            RawExprKind::Variable { .. } => todo!(),
-            RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::PrimitiveLiteral(_) => todo!(),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn { opr, ref opds } => match opr {
+            RawExprVariant::Variable { .. } => todo!(),
+            RawExprVariant::Unrecognized(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Opn { opr, ref opds } => match opr {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
                 Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::MembAccess(ident) => self.memb_call_ty_result(
+                    SuffixOpr::MembAccess(ident) => self.field_call_ty_result(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,
@@ -261,27 +274,27 @@ impl<'a> TySheetBuilder<'a> {
                 },
                 Opr::List(_) => todo!(),
             },
-            RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { .. } => todo!(),
+            RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::This { .. } => todo!(),
         }
     }
 
-    fn memb_call_ty_result(
+    fn field_call_ty_result(
         &mut self,
         this: RawExprIdx,
-        memb_ident: CustomIdentifier,
+        field_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         arena: &RawExprArena,
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
-        let memb_call_decl = this_ty_decl.memb_call_decl(memb_ident)?;
-        if inputs.end - inputs.start != memb_call_decl.inputs.len() {
+        let field_call_decl = this_ty_decl.method_decl(field_ident)?;
+        if inputs.end - inputs.start != field_call_decl.inputs.len() {
             todo!()
         }
-        for i in 0..memb_call_decl.inputs.len() {
-            self.infer_expr(inputs.start + i, Some(memb_call_decl.inputs[i].ty), arena);
+        for i in 0..field_call_decl.inputs.len() {
+            self.infer_expr(inputs.start + i, Some(field_call_decl.inputs[i].ty), arena);
         }
-        Ok(memb_call_decl.output)
+        Ok(field_call_decl.output)
     }
 }

@@ -15,28 +15,29 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Routine(_) => todo!(),
                 Keyword::Type(_) => todo!(),
                 Keyword::Stmt(_) => todo!(),
-                Keyword::Def => self.parse_class_memb_morphism(token_group, enter_block),
+                Keyword::Def => self.parse_class_field_morphism(token_group, enter_block),
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
                 Keyword::Main => todo!(),
             },
-            TokenKind::Identifier(_) => self.parse_class_memb_var(token_group),
+            TokenKind::Identifier(_) => self.parse_class_field_var(token_group),
             TokenKind::Special(_) => todo!(),
             TokenKind::I32Literal(_) => todo!(),
             TokenKind::F32Literal(_) => todo!(),
         }
     }
-    fn parse_class_memb_var(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    fn parse_class_field_var(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
             if token_group.len() == 2 {
                 todo!()
             }
             let ident = identify!(Some(self.file), &token_group[0]);
             let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
-            Ok(AstKind::MembVarDefn(MembVarDefn {
+            Ok(AstKind::FieldDefn(FieldDefnHead {
                 ident,
                 contract: MembAccessContract::Own,
                 ty,
+                kind: FieldKind::Original,
             }))
         } else {
             p!(token_group);
@@ -44,7 +45,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn parse_class_memb_morphism(
+    fn parse_class_field_morphism(
         &mut self,
         token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),

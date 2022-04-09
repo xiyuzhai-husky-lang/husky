@@ -8,7 +8,7 @@ use entity_route::*;
 use fold::LocalStack;
 use syntax_types::*;
 use vm::{EagerContract, InputContract};
-use word::IdentMap;
+use word::IdentDict;
 
 use super::*;
 
@@ -48,7 +48,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    pub(crate) fn memb_routine_decl(
+    pub(crate) fn field_routine_decl(
         mut self,
         this: InputContract,
         routine_kind: RoutineKind,
@@ -67,9 +67,9 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn placeholders(&mut self) -> AstResult<IdentMap<GenericPlaceholder>> {
+    fn placeholders(&mut self) -> AstResult<IdentDict<GenericPlaceholder>> {
         if next_matches!(self, "<") {
-            match IdentMap::from_vec(comma_list![self, placeholder!+, ">"]) {
+            match IdentDict::from_vec(comma_list![self, placeholder!+, ">"]) {
                 Ok(generic_placeholders) => Ok(generic_placeholders),
                 Err(repeat) => todo!(),
             }
@@ -78,7 +78,7 @@ impl<'a> AtomLRParser<'a> {
         }
     }
 
-    fn placeholder(&mut self) -> AstResult<(CustomIdentifier, GenericPlaceholder)> {
+    fn placeholder(&mut self) -> AstResult<GenericPlaceholder> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
@@ -90,7 +90,10 @@ impl<'a> AtomLRParser<'a> {
                 todo!()
             }
         }
-        Ok((ident, GenericPlaceholder::Type { traits }))
+        Ok(GenericPlaceholder {
+            ident,
+            variant: GenericPlaceholderVariant::Type { traits },
+        })
     }
 
     fn func_input_placeholders(&mut self) -> AstResultArc<Vec<InputPlaceholder>> {

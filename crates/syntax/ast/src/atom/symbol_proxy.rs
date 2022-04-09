@@ -48,23 +48,23 @@ impl<'a> SymbolProxy<'a> {
         let scope = EntityRoute::new_builtin(ident.into(), generics);
         let kind = AtomKind::EntityRoute {
             route: self.db.intern_scope(scope),
-            kind: RawEntityKind::Type(match ident {
+            kind: EntityKind::Type(match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32
                 | RootIdentifier::F32
                 | RootIdentifier::B32
                 | RootIdentifier::B64
-                | RootIdentifier::Bool => RawTyKind::Primitive,
+                | RootIdentifier::Bool => TyKind::Primitive,
                 RootIdentifier::True => todo!(),
                 RootIdentifier::False => todo!(),
                 RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => RawTyKind::Other,
+                RootIdentifier::Tuple => TyKind::Other,
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Std => todo!(),
                 RootIdentifier::Core => todo!(),
-                RootIdentifier::Fp => RawTyKind::Other,
-                RootIdentifier::Fn => RawTyKind::Other,
-                RootIdentifier::FnMut => RawTyKind::Other,
+                RootIdentifier::Fp => TyKind::Other,
+                RootIdentifier::Fn => TyKind::Other,
+                RootIdentifier::FnMut => TyKind::Other,
                 RootIdentifier::FnOnce => todo!(),
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::DatasetType => todo!(),

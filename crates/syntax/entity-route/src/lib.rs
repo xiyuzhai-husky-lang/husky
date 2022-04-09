@@ -7,13 +7,12 @@ pub use alias::ScopeAliasTable;
 pub use allocate_unique::{
     new_scope_unique_allocator, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
 };
-use entity_syntax::RawTyKind;
+pub use entity_syntax::EntityKind;
+use entity_syntax::TyKind;
 use file::FilePtr;
 pub use generic::*;
-pub use kind::RawEntityKind;
+use static_decl::StaticEntityDecl;
 use text::{TextRange, TextRanged};
-use visual_syntax::StaticVisualizer;
-use vm::{InputContract, RoutineFp};
 use word::{ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -129,7 +128,7 @@ pub enum EntityRouteKind {
     },
     Generic {
         ident: CustomIdentifier,
-        raw_entity_kind: RawEntityKind,
+        entity_kind: EntityKind,
     },
     ThisType,
 }
@@ -138,75 +137,6 @@ pub enum EntityRouteKind {
 pub struct StaticEntityData {
     pub subscopes: &'static [(&'static str, &'static StaticEntityData)],
     pub decl: StaticEntityDecl,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum StaticEntityDecl {
-    Func(StaticFuncDecl),
-    Ty {
-        raw_ty_kind: RawTyKind,
-        visualizer: StaticVisualizer,
-    },
-    TyTemplate,
-    Trait {
-        members: &'static [StaticMembDecl],
-    },
-    Module,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct StaticMembDecl {
-    pub name: &'static str,
-    pub variant: StaticMembDeclVariant,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum StaticMembDeclVariant {
-    Var {
-        ty: &'static str,
-    },
-    Routine {
-        this_contract: InputContract,
-        inputs: &'static [StaticInputDecl],
-        output_ty: &'static str,
-        generic_placeholders: &'static [StaticGenericPlaceholder],
-    },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct StaticGenericPlaceholder {
-    pub ident: CustomIdentifier,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct StaticInputDecl {
-    pub contract: InputContract,
-    pub ty: &'static str,
-}
-
-impl StaticEntityDecl {
-    pub fn raw_entity_kind(&self) -> RawEntityKind {
-        match self {
-            StaticEntityDecl::Func(_) => RawEntityKind::Routine,
-            StaticEntityDecl::Ty { raw_ty_kind, .. } => RawEntityKind::Type(*raw_ty_kind),
-            StaticEntityDecl::Module => RawEntityKind::Module,
-            StaticEntityDecl::TyTemplate => RawEntityKind::Type(RawTyKind::Vec),
-            StaticEntityDecl::Trait { .. } => todo!(),
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct StaticFuncDecl {
-    pub inputs: Vec<StaticInputSignature>,
-    pub output: &'static str,
-    pub compiled: RoutineFp,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct StaticInputSignature {
-    pub contract: InputContract,
-    pub ty: &'static str,
 }
 
 impl EntityRoute {
@@ -225,7 +155,7 @@ impl EntityRoute {
             EntityRouteKind::Contextual { main, ident } => todo!(),
             EntityRouteKind::Generic {
                 ident,
-                raw_entity_kind,
+                entity_kind: raw_entity_kind,
             } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         }

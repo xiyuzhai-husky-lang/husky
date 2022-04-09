@@ -25,10 +25,10 @@ impl<'a> RustGenerator<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(memb_ident) => {
+                    SuffixOpr::MembAccess(field_ident) => {
                         self.gen_expr(&opds[0]);
                         self.write(".");
-                        self.write(&memb_ident)
+                        self.write(&field_ident.ident)
                     }
                     SuffixOpr::WithType(_) => todo!(),
                 },
@@ -41,11 +41,11 @@ impl<'a> RustGenerator<'a> {
                     self.write(")");
                 }
                 EagerOpnKind::PatternCall => todo!(),
-                EagerOpnKind::MembVarAccess { memb_var_contract } => todo!(),
-                EagerOpnKind::MembRoutineCall { memb_ident, .. } => {
+                EagerOpnKind::MembVarAccess { field_var_contract } => todo!(),
+                EagerOpnKind::MembRoutineCall { field_ident, .. } => {
                     self.gen_expr(&opds[0]);
                     self.write(".");
-                    self.write(&memb_ident);
+                    self.write(&field_ident.ident);
                     self.write("(");
                     self.gen_arguments(&opds[1..]);
                     self.write(")");

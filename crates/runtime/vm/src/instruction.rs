@@ -52,21 +52,21 @@ pub enum InstructionKind {
     },
     PushPrimitiveLiteral(PrimitiveValue),
     MembAccessCompiled {
-        memb_access_fp: MembAccessFp,
+        field_access_fp: MembAccessFp,
     },
     MembAccessInterpreted {
-        memb_idx: u8,
+        field_idx: u8,
         contract: EagerContract,
     },
     RoutineCallCompiled {
-        fp: RoutineFp,
+        fp: RoutineLinkage,
     },
     RoutineCallInterpreted {
         routine: EntityUid,
         nargs: u8,
     },
     NewVirtualStruct {
-        memb_vars: Vec<MembAccessContract>,
+        fields: Vec<MembAccessContract>,
     },
     PrimitiveOpn(PrimitiveOpn),
     Loop {

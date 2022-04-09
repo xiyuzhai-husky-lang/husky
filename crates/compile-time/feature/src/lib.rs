@@ -29,7 +29,7 @@ use print_utils::*;
 use std::sync::Arc;
 use vm::EntityUid;
 use vm::{PrimitiveValue, PureBinaryOpr};
-use word::CustomIdentifier;
+use word::{CustomIdentifier, RangedCustomIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {
@@ -62,10 +62,10 @@ pub enum Feature {
     },
     StructMembVarAccess {
         this: FeaturePtr,
-        memb_ident: CustomIdentifier,
+        field_ident: CustomIdentifier,
     },
     MembCall {
-        memb_ident: CustomIdentifier,
+        field_ident: CustomIdentifier,
         opds: Vec<FeaturePtr>,
     },
     ScopedFeature {

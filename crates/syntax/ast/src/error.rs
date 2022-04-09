@@ -10,7 +10,7 @@ pub struct AstError {
     pub file: Option<FilePtr>,
     pub range: TextRange,
     pub kind: AstErrorKind,
-    pub src: DevSource,
+    pub dev_src: DevSource,
 }
 
 impl AstError {
@@ -48,19 +48,19 @@ macro_rules! error {
             file: $file,
             range: $range,
             kind: $kind.into(),
-            src: $src,
+            dev_src: $src,
         }
     }};
 
     ($file:expr, $range:expr, $kind: expr) => {{
-        error!($file, $range, $kind, src!())
+        error!($file, $range, $kind, dev_src!())
     }};
 }
 pub(crate) use error;
 
 macro_rules! err {
     ($file:expr, $range:expr, $kind: expr) => {{
-        Err(error!($file, $range, $kind, src!()))
+        Err(error!($file, $range, $kind, dev_src!()))
     }};
 }
 pub(crate) use err;

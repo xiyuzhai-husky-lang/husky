@@ -1,11 +1,9 @@
 mod defn;
 mod dependence;
 mod query;
-mod variant;
 
 pub use defn::*;
 pub use query::*;
-pub use variant::*;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;

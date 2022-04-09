@@ -1,7 +1,7 @@
 use crate::*;
 
 #[test]
-fn memb_access() {
+fn field_access() {
     let a: A = A { x: 0 };
     let ra: *const dyn Printable = &a;
     let rx: *const dyn Printable = &a.x;

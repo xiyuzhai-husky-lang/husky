@@ -1,4 +1,4 @@
-use entity_route::{EntityRouteKind, RangedEntityRoute, RawEntityKind};
+use entity_route::{EntityKind, EntityRouteKind, RangedEntityRoute};
 use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
@@ -10,7 +10,7 @@ use super::*;
 pub enum AtomKind {
     EntityRoute {
         route: EntityRoutePtr,
-        kind: RawEntityKind,
+        kind: EntityKind,
     },
     Variable {
         varname: CustomIdentifier,

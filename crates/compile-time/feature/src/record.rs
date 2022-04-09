@@ -1,54 +1,54 @@
-use semantics_entity::{EntityDefnVariant, TyDefnVariant};
+use semantics_entity::{EntityDefnVariant, TyDefnKind};
 use sync_utils::ARwLock;
 
 use crate::*;
 use std::{collections::HashMap, sync::Arc};
 
-pub(crate) fn record_memb_repr(
+pub(crate) fn record_field_repr(
     db: &dyn FeatureQueryGroup,
     this: FeatureRepr,
-    memb_ident: CustomIdentifier,
+    field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this {
-        FeatureRepr::Expr(ref expr) => expr_record_memb(db, expr, memb_ident),
-        FeatureRepr::Block(ref block) => block_record_memb(db, block, memb_ident),
+        FeatureRepr::Expr(ref expr) => expr_record_memb(db, expr, field_ident),
+        FeatureRepr::Block(ref block) => block_record_memb(db, block, field_ident),
     }
 }
 
 pub(crate) fn expr_record_memb(
     db: &dyn FeatureQueryGroup,
     this: &Arc<FeatureExpr>,
-    memb_ident: CustomIdentifier,
+    field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this.kind {
         FeatureExprKind::Variable { .. } => todo!(),
         FeatureExprKind::RecordMembAccess { .. } => todo!(),
         FeatureExprKind::MembPattCall { .. } => todo!(),
-        FeatureExprKind::FeatureBlock { ref block, .. } => block_record_memb(db, block, memb_ident),
+        FeatureExprKind::FeatureBlock { ref block, .. } => {
+            block_record_memb(db, block, field_ident)
+        }
         FeatureExprKind::ClassCall {
             ref entity,
             ref opds,
             ..
         } => match entity.kind() {
-            EntityDefnVariant::Ty(ty) => match ty.kind {
-                TyDefnVariant::Record {
-                    ref memb_vars,
-                    ref memb_features,
-                } => {
-                    if let Some(idx) = memb_vars.position(memb_ident) {
-                        opds[idx].clone().into()
-                    } else if let Some(memb_feature) = memb_features.get(memb_ident) {
-                        FeatureBlock::new(
-                            db,
-                            Some(this.clone().into()),
-                            &memb_feature.stmts,
-                            &[],
-                            db.features(),
-                        )
-                        .into()
-                    } else {
-                        todo!()
-                    }
+            EntityDefnVariant::Ty(ty_defn) => match ty_defn.kind {
+                TyDefnKind::Record => {
+                    todo!("make a difference between derived and original")
+                    // if let Some(idx) = ty_defn.fields.position(field_ident) {
+                    //     opds[idx].clone().into()
+                    // } else if let Some(field_feature) = fields.get(field_ident) {
+                    //     FeatureBlock::new(
+                    //         db,
+                    //         Some(this.clone().into()),
+                    //         &field_feature.stmts,
+                    //         &[],
+                    //         db.features(),
+                    //     )
+                    //     .into()
+                    // } else {
+                    //     todo!()
+                    // }
                 }
                 _ => panic!(),
             },
@@ -58,13 +58,13 @@ pub(crate) fn expr_record_memb(
         | FeatureExprKind::EnumLiteral { .. }
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
         | FeatureExprKind::ProcCall { .. }
-        | FeatureExprKind::MembFuncCall { .. }
+        | FeatureExprKind::MethodCall { .. }
         | FeatureExprKind::MembProcCall { .. }
         | FeatureExprKind::StructMembVarAccess { .. }
         | FeatureExprKind::PrimitiveLiteral(_) => {
             panic!()
         }
-        FeatureExprKind::This { ref repr } => db.record_memb_repr(repr.clone(), memb_ident),
+        FeatureExprKind::This { ref repr } => db.record_field_repr(repr.clone(), field_ident),
         FeatureExprKind::GlobalInput => todo!(),
     }
 }
@@ -72,13 +72,13 @@ pub(crate) fn expr_record_memb(
 pub(crate) fn block_record_memb(
     db: &dyn FeatureQueryGroup,
     this: &Arc<FeatureBlock>,
-    memb_ident: CustomIdentifier,
+    field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     let stmt_features = this.stmt_features();
     if stmt_features.len() == 1 {
         match this.stmts.last().unwrap().kind {
             FeatureStmtKind::Return { ref result } => {
-                db.record_memb_repr(result.clone().into(), memb_ident)
+                db.record_field_repr(result.clone().into(), field_ident)
             }
             FeatureStmtKind::BranchGroup { kind, ref branches } => todo!(),
             _ => panic!(),

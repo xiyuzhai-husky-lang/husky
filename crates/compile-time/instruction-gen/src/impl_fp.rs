@@ -1,9 +1,10 @@
-use vm::{MembAccessFp, RoutineFp};
+use static_decl::StaticEntityDecl;
+use vm::{MembAccessFp, RoutineLinkage};
 
 use crate::*;
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(crate) fn routine_fp(&self, routine: EntityRoutePtr) -> Option<RoutineFp> {
+    pub(crate) fn routine_fp(&self, routine: EntityRoutePtr) -> Option<RoutineLinkage> {
         match self.db.entity_source(routine).unwrap() {
             EntitySource::Builtin(builtin_entity_data) => match builtin_entity_data.decl {
                 StaticEntityDecl::Func(ref func_decl) => Some(func_decl.compiled),
@@ -25,23 +26,23 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    pub(crate) fn memb_access_fp(
+    pub(crate) fn field_access_fp(
         &self,
         this_ty: EntityRoutePtr,
-        memb_ident: CustomIdentifier,
+        field_ident: CustomIdentifier,
     ) -> Option<MembAccessFp> {
         self.db
             .linkage_table()
-            .memb_access(self.db.entity_uid(this_ty), memb_ident)
+            .field_access(self.db.entity_uid(this_ty), field_ident)
     }
 
-    pub(crate) fn memb_routine_fp(
+    pub(crate) fn field_routine_fp(
         &self,
         this_ty: EntityRoutePtr,
-        memb_ident: CustomIdentifier,
-    ) -> Option<RoutineFp> {
+        field_ident: CustomIdentifier,
+    ) -> Option<RoutineLinkage> {
         self.db
             .linkage_table()
-            .memb_routine(self.db.entity_uid(this_ty), memb_ident)
+            .field_routine(self.db.entity_uid(this_ty), field_ident)
     }
 }

@@ -250,16 +250,16 @@ impl<'a> ExprStack<'a> {
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
         let range = (start..self.exprs.last().unwrap().range.end).into();
         if prefix == PrefixOpr::Minus {
-            if let RawExprKind::PrimitiveLiteral(lit) = self.exprs.last().unwrap().kind {
+            if let RawExprVariant::PrimitiveLiteral(lit) = self.exprs.last().unwrap().kind {
                 self.exprs.pop();
                 match lit {
                     PrimitiveValue::I32(i) => self.exprs.push(RawExpr {
                         range,
-                        kind: RawExprKind::PrimitiveLiteral(PrimitiveValue::I32(-i)),
+                        kind: RawExprVariant::PrimitiveLiteral(PrimitiveValue::I32(-i)),
                     }),
                     PrimitiveValue::F32(f) => self.exprs.push(RawExpr {
                         range,
-                        kind: RawExprKind::PrimitiveLiteral(PrimitiveValue::F32(-f)),
+                        kind: RawExprVariant::PrimitiveLiteral(PrimitiveValue::F32(-f)),
                     }),
                     PrimitiveValue::Void
                     | PrimitiveValue::B32(_)
@@ -283,7 +283,7 @@ impl<'a> ExprStack<'a> {
         self.exprs.truncate(len - n_opds);
         self.exprs.push(RawExpr {
             range,
-            kind: RawExprKind::Opn { opr: opr, opds },
+            kind: RawExprVariant::Opn { opr: opr, opds },
         });
     }
 
@@ -295,7 +295,7 @@ impl<'a> ExprStack<'a> {
         let range = (start..self.exprs.last().unwrap().range.end).into();
         let lambda_expr = RawExpr {
             range,
-            kind: RawExprKind::Lambda(inputs, self.arena.alloc_one(self.exprs.pop().unwrap())),
+            kind: RawExprVariant::Lambda(inputs, self.arena.alloc_one(self.exprs.pop().unwrap())),
         };
         self.exprs.push(lambda_expr);
     }

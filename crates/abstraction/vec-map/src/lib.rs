@@ -1,96 +1,118 @@
-use std::ops::Deref;
+use std::{marker::PhantomData, ops::Deref};
+
+pub trait HasKey<K>: Clone
+where
+    K: PartialEq + Eq + Copy,
+{
+    fn key(&self) -> K;
+}
+
+impl<K, T> HasKey<K> for (K, T)
+where
+    K: PartialEq + Eq + Copy,
+    T: Clone,
+{
+    fn key(&self) -> K {
+        self.0
+    }
+}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VecDict<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Copy,
+    V: HasKey<K>,
 {
-    data: Vec<(K, V)>,
+    data: Vec<V>,
+    phantom: PhantomData<K>,
 }
 
 pub struct Repeat {
-    i: usize,
-    j: usize,
+    pub i: usize,
+    pub j: usize,
 }
 
-impl<K, V> VecDict<K, V>
+impl<K, Entry> VecDict<K, Entry>
 where
-    K: PartialEq + Eq + Clone + Copy,
-    V: Clone,
+    K: PartialEq + Eq + Copy,
+    Entry: HasKey<K>,
 {
-    pub fn data(&self) -> &[(K, V)] {
+    pub fn data(&self) -> &[Entry] {
         &self.data
     }
 
-    pub fn from_vec(data: Vec<(K, V)>) -> Result<Self, Repeat> {
+    pub fn from_vec(data: Vec<Entry>) -> Result<Self, Repeat> {
         for i in 0..data.len() {
             for j in (i + 1)..data.len() {
-                if data[i].0 == data[j].0 {
+                if data[i].key() == data[j].key() {
                     return Err(Repeat { i, j });
                 }
             }
         }
-        Ok(Self { data })
+        Ok(Self {
+            data,
+            phantom: PhantomData,
+        })
     }
 
     pub fn len(&self) -> usize {
         self.data.len()
     }
 
-    pub fn get(&self, key: K) -> Option<&V> {
-        self.data
-            .iter()
-            .find(|entry| entry.0 == key)
-            .map(|entry| &entry.1)
+    pub fn get(&self, key: K) -> Option<&Entry> {
+        self.data.iter().find(|entry| entry.key() == key)
     }
 
     pub fn has(&self, key: K) -> bool {
-        self.data.iter().find(|entry| entry.0 == key).is_some()
+        self.data.iter().find(|entry| entry.key() == key).is_some()
     }
 
-    pub fn get_mut(&mut self, key: K) -> Option<&mut V> {
-        self.data
-            .iter_mut()
-            .find(|entry| entry.0 == key)
-            .map(|entry| &mut entry.1)
+    pub fn get_mut(&mut self, key: K) -> Option<&mut Entry> {
+        self.data.iter_mut().find(|entry| entry.key() == key)
     }
 
-    pub fn insert_new(&mut self, key: K, value: V) {
-        if self.has(key) {
+    pub fn insert_new(&mut self, value: Entry) {
+        if self.has(value.key()) {
             panic!()
         } else {
-            self.data.push((key, value))
+            self.data.push(value)
         }
     }
 
-    pub fn insert(&mut self, key: K, value: V) {
+    pub fn insert(&mut self, key: K, value: Entry) {
         if self.has(key) {
             ()
         } else {
-            self.data.push((key, value))
+            self.data.push(value)
         }
     }
 
     pub fn position(&self, key: K) -> Option<usize> {
-        self.data.iter().position(|entry| entry.0 == key)
+        self.data.iter().position(|entry| entry.key() == key)
     }
 
-    pub fn extends(&mut self, other: &Self) {
-        for (k, v) in other.iter() {
-            self.insert(k.clone(), v.clone())
+    pub fn extends(&mut self, other: Self) {
+        for v in other.data {
+            self.insert_new(v)
+        }
+    }
+
+    pub fn extends_from_ref(&mut self, other: &Self) {
+        for v in &other.data {
+            self.insert_new(v.clone())
         }
     }
 }
 
 impl<K, V> FromIterator<(K, V)> for VecDict<K, V>
 where
-    K: PartialEq + Eq + Clone + Copy,
-    V: Clone,
+    K: PartialEq + Eq + Copy,
+    V: HasKey<K>,
 {
     fn from_iter<T: IntoIterator<Item = (K, V)>>(iter: T) -> Self {
         let mut map = Self::default();
         for (k, v) in iter {
-            map.insert_new(k, v);
+            map.insert_new(v);
         }
         map
     }
@@ -98,9 +120,10 @@ where
 
 impl<K, V> Deref for VecDict<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Copy,
+    V: HasKey<K>,
 {
-    type Target = [(K, V)];
+    type Target = [V];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -109,17 +132,21 @@ where
 
 impl<K, V> Default for VecDict<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Copy,
+    V: HasKey<K>,
 {
     fn default() -> Self {
-        Self { data: vec![] }
+        Self {
+            data: vec![],
+            phantom: PhantomData,
+        }
     }
 }
 
 impl<K, V> std::ops::Index<K> for VecDict<K, V>
 where
     K: PartialEq + Eq + Clone + Copy,
-    V: Clone,
+    V: HasKey<K>,
 {
     type Output = V;
 

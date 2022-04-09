@@ -14,3 +14,4 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
+static-decl = { path = "../../syntax/static-decl", version = "0.0.0" }

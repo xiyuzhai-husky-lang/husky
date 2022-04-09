@@ -1,5 +1,6 @@
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr};
+use text::TextRange;
 use word::RootIdentifier;
 
 use crate::*;
@@ -14,13 +15,13 @@ fn global_input_ty_from_ast(
             kind: RawStmtKind::Return(idx),
             ..
         }) => match arena[idx].kind {
-            RawExprKind::Opn {
+            RawExprVariant::Opn {
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
             } => match arena[opds][0].kind {
-                RawExprKind::Scope {
+                RawExprVariant::Scope {
                     scope,
-                    kind: RawEntityKind::Routine,
+                    kind: EntityKind::Routine,
                     ..
                 } => {
                     let signature = db.call_decl(scope)?;
@@ -53,13 +54,13 @@ fn global_output_ty_from_ast(
             kind: RawStmtKind::Return(idx),
             ..
         }) => match arena[idx].kind {
-            RawExprKind::Opn {
+            RawExprVariant::Opn {
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
             } => match arena[opds][0].kind {
-                RawExprKind::Scope {
+                RawExprVariant::Scope {
                     scope,
-                    kind: RawEntityKind::Routine,
+                    kind: EntityKind::Routine,
                     ..
                 } => {
                     let signature = db.call_decl(scope)?;
@@ -103,7 +104,10 @@ pub(crate) fn global_input_ty(
             _ => (),
         }
     }
-    err!("dataset config not found, so input type can't be inferred")
+    err!(
+        "dataset config not found, so input type can't be inferred",
+        todo!("whole main file range")
+    )
 }
 
 pub(crate) fn global_output_ty(
@@ -127,5 +131,11 @@ pub(crate) fn global_output_ty(
             _ => (),
         }
     }
-    err!("dataset config not found, so input type can't be inferred")
+    err!(
+        "dataset config not found in main, so input type can't be inferred",
+        TextRange {
+            start: (0u32, 0).into(),
+            end: (0u32, 4).into(),
+        }
+    )
 }

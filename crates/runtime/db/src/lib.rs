@@ -81,11 +81,11 @@ impl HuskyLangRuntime {
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
-        let pack_main = all_main_files[0];
-        let pack = match compile_time.pack(pack_main) {
+        let package_main = all_main_files[0];
+        let pack = match compile_time.package(package_main) {
             Ok(pack) => pack,
             Err(error) => {
-                println!("{:?}", error);
+                compile_time.print_diagnostics();
                 panic!()
             }
         };
@@ -97,10 +97,10 @@ impl HuskyLangRuntime {
             focus: Default::default(),
             expansions: Default::default(),
             showns: Default::default(),
-            pack_main,
+            pack_main: package_main,
         };
         runtime.set_version(0);
-        runtime.set_pack_main(pack_main);
+        runtime.set_pack_main(package_main);
         runtime
     }
 

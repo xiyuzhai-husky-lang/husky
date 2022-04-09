@@ -1,9 +1,26 @@
 use crate::*;
-use word::IdentMap;
+use static_decl::StaticMethodDecl;
+use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TraitDecl {
-    pub members: IdentMap<MembDecl>,
+    pub methods: IdentDict<MethodDecl>,
+}
+
+impl TraitDecl {
+    fn from_static(db: &dyn DeclQueryGroup, methods: &[StaticMethodDecl]) -> Self {
+        TraitDecl {
+            methods: methods
+                .iter()
+                .map(|member| {
+                    (
+                        db.intern_word(member.name).custom(),
+                        MethodDecl::from_static(db, member),
+                    )
+                })
+                .collect(),
+        }
+    }
 }
 
 pub(crate) fn trait_decl(
@@ -19,17 +36,9 @@ pub(crate) fn trait_decl(
                 visualizer,
             } => todo!(),
             StaticEntityDecl::TyTemplate => todo!(),
-            StaticEntityDecl::Trait { members } => Ok(Arc::new(TraitDecl {
-                members: members
-                    .iter()
-                    .map(|member| {
-                        (
-                            db.intern_word(member.name).custom(),
-                            MembDecl::from_static(db, &member.variant),
-                        )
-                    })
-                    .collect(),
-            })),
+            StaticEntityDecl::Trait { methods } => {
+                Ok(Arc::new(TraitDecl::from_static(db, methods)))
+            }
             StaticEntityDecl::Module => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),

@@ -63,6 +63,10 @@ where
             f(&self.data);
         }
     }
+
+    pub fn data(&self) -> &T {
+        &self.data
+    }
 }
 
 impl<T> Deref for Reserve<T>

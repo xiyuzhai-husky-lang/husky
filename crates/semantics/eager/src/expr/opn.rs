@@ -1,10 +1,10 @@
 use std::sync::Arc;
 
-use decl::TyDecl;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
+use infer_decl::TyDecl;
 use syntax_types::{PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, MembAccessContract};
-use word::CustomIdentifier;
+use word::RangedCustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerOpnKind {
@@ -27,10 +27,10 @@ pub enum EagerOpnKind {
     },
     PatternCall,
     MembVarAccess {
-        memb_var_contract: MembAccessContract,
+        field_var_contract: MembAccessContract,
     },
     MembRoutineCall {
-        memb_ident: CustomIdentifier,
+        field_ident: RangedCustomIdentifier,
         this_ty_decl: Arc<TyDecl>,
     },
     ElementAccess,

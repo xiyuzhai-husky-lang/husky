@@ -76,7 +76,7 @@ impl AllocateUniqueScope for HuskyLangCompileTime {
 
 impl TokenQueryGroup for HuskyLangCompileTime {}
 
-impl ScopeQueryGroup for HuskyLangCompileTime {}
+impl EntityRouteQueryGroup for HuskyLangCompileTime {}
 
 impl AstQueryGroup for HuskyLangCompileTime {}
 

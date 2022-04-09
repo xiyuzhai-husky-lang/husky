@@ -3,14 +3,14 @@ use std::sync::Arc;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct SemanticError {
     pub message: String,
-    pub src: DevSource,
+    pub dev_src: DevSource,
 }
 
 impl SemanticError {
-    pub fn from_infer_error(error: InferError, src: DevSource) -> SemanticError {
+    pub fn from_infer_error(error: InferError, dev_src: DevSource) -> SemanticError {
         Self {
             message: error.to_string(),
-            src,
+            dev_src,
         }
     }
 }
@@ -44,7 +44,7 @@ impl From<&ast::AstError> for SemanticError {
     fn from(error: &ast::AstError) -> Self {
         Self {
             message: format!("AstError {:?}", error),
-            src: error.src,
+            dev_src: error.dev_src.clone(),
         }
     }
 }
@@ -60,7 +60,7 @@ macro_rules! err {
     ($msg:expr) => {{
         Err(SemanticError {
             message: $msg.into(),
-            src: dev_utils::src!(),
+            dev_src: dev_utils::dev_src!(),
         })?
     }};
 }
@@ -70,7 +70,7 @@ macro_rules! not_none {
     ($option:expr) => {{
         $option.ok_or(SemanticError {
             message: "expect not none".into(),
-            src: dev_utils::src!(),
+            dev_src: dev_utils::dev_src!(),
         })?
     }};
 }
@@ -78,7 +78,7 @@ macro_rules! not_none {
 #[macro_export]
 macro_rules! try_infer {
     ($syntax_result: expr) => {{
-        $syntax_result.map_err(|e| SemanticError::from_infer_error(e, dev_utils::src!()))?
+        $syntax_result.map_err(|e| SemanticError::from_infer_error(e, dev_utils::dev_src!()))?
     }};
 }
 

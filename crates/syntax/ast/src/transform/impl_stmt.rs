@@ -159,7 +159,7 @@ impl<'a> AstTransformer<'a> {
         let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr];
         Ok(match expr.kind {
-            RawExprKind::Opn { opr, ref opds } => match opr {
+            RawExprVariant::Opn { opr, ref opds } => match opr {
                 Opr::Prefix(_) | Opr::Suffix(_) | Opr::List(_) => todo!(),
                 Opr::Binary(binary) => match binary {
                     BinaryOpr::Assign(_) => todo!(),
@@ -168,7 +168,7 @@ impl<'a> AstTransformer<'a> {
                         let ropd_idx = opds.end - 1;
                         let lopd = &self.arena[lopd_idx];
                         let ropd = &self.arena[ropd_idx];
-                        if let RawExprKind::Unrecognized(frame_var) = lopd.kind {
+                        if let RawExprVariant::Unrecognized(frame_var) = lopd.kind {
                             RawLoopKind::for_loop_with_default_initial(
                                 frame_var,
                                 pure_binary,
@@ -177,7 +177,7 @@ impl<'a> AstTransformer<'a> {
                                 expr.range(),
                             )?
                             .into()
-                        } else if let RawExprKind::Unrecognized(frame_var) = ropd.kind {
+                        } else if let RawExprVariant::Unrecognized(frame_var) = ropd.kind {
                             RawLoopKind::for_loop_with_default_final(
                                 opds.start,
                                 pure_binary,
@@ -189,7 +189,7 @@ impl<'a> AstTransformer<'a> {
                         } else {
                             let final_comparison = pure_binary;
                             match lopd.kind {
-                                RawExprKind::Opn { opr, ref opds } => {
+                                RawExprVariant::Opn { opr, ref opds } => {
                                     let llopd_idx = opds.start;
                                     let lropd_idx = opds.end - 1;
                                     let lropd = &self.arena[lropd_idx];
@@ -200,7 +200,7 @@ impl<'a> AstTransformer<'a> {
                                         },
                                         _ => todo!(),
                                     };
-                                    let frame_var = if let RawExprKind::Unrecognized(frame_var) =
+                                    let frame_var = if let RawExprVariant::Unrecognized(frame_var) =
                                         lropd.kind
                                     {
                                         frame_var
@@ -234,7 +234,7 @@ impl<'a> AstTransformer<'a> {
         let expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr_idx];
         Ok(match expr.kind {
-            RawExprKind::Opn {
+            RawExprVariant::Opn {
                 opr: Opr::Binary(BinaryOpr::Pure(comparison)),
                 ref opds,
             } => {
@@ -242,7 +242,7 @@ impl<'a> AstTransformer<'a> {
                 let ropd_idx = opds.end - 1;
                 let lopd = &self.arena[lopd_idx];
                 let frame_var = match lopd.kind {
-                    RawExprKind::Variable { varname, .. } => varname,
+                    RawExprVariant::Variable { varname, .. } => varname,
                     _ => todo!(),
                 };
                 RawLoopKind::forext_loop(frame_var, comparison, ropd_idx)?.into()

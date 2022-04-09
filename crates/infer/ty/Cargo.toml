@@ -29,4 +29,4 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 infer-error = { path = "../error", version = "0.0.0" }
-decl = { path = "../../syntax/decl", version = "0.0.0" }
+infer-decl = { path = "../decl", version = "0.0.0" }
