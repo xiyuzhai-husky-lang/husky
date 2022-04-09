@@ -21,7 +21,7 @@ pub(crate) fn record_decl(
         }
     }
     Ok(Arc::new(TyDecl {
-        this_type: todo!(),
+        this_ty: todo!(),
         generic_placeholders,
         traits,
         fields,

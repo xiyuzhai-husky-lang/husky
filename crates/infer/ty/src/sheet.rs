@@ -10,7 +10,7 @@ use fold::FoldStorage;
 use infer_error::ok_or;
 use text::Row;
 use var::TySheetVarEntry;
-use vec_map::VecDict;
+use vec_dict::VecDict;
 use word::CustomIdentifier;
 
 use super::*;

@@ -1,7 +1,8 @@
 use crate::*;
 
 pub struct StaticTyDecl {
-    pub route: &'static str,
+    pub base_ty: &'static str,
+    pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub traits: &'static [&'static str],
     pub fields: &'static [StaticFieldDecl],
     pub methods: &'static [StaticMethodDecl],
@@ -9,6 +10,11 @@ pub struct StaticTyDecl {
     pub kind: TyKind,
 }
 
-pub struct StaticFieldDecl {}
+pub struct StaticFieldDecl {
+    pub name: &'static str,
+    pub variant: StaticFieldVariant,
+}
+
+pub enum StaticFieldVariant {}
 
 pub struct StaticEnumVariantDecl {}

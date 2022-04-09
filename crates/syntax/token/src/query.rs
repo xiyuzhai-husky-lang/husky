@@ -22,7 +22,7 @@ fn tokenized_text(
 }
 
 pub trait TokenQueryGroup: TokenSalsaQueryGroup {
-    fn tokenize(&self, line: &'static str) -> Vec<Token> {
+    fn tokenize(&self, line: &str) -> Vec<Token> {
         LineTokenIter::new(
             self.word_allocator(),
             0,

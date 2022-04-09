@@ -103,7 +103,11 @@ impl<'a> AtomLRParser<'a> {
                 | RootIdentifier::Debug
                 | RootIdentifier::Std
                 | RootIdentifier::Core
-                | RootIdentifier::Datasets => Ok(Vec::new()),
+                | RootIdentifier::Datasets
+                | RootIdentifier::CloneTrait
+                | RootIdentifier::CopyTrait
+                | RootIdentifier::PartialEqTrait
+                | RootIdentifier::EqTrait => Ok(Vec::new()),
                 RootIdentifier::Fp
                 | RootIdentifier::Fn
                 | RootIdentifier::FnMut
@@ -113,10 +117,6 @@ impl<'a> AtomLRParser<'a> {
                 | RootIdentifier::Tuple
                 | RootIdentifier::DatasetType => self.angled_generics(),
                 RootIdentifier::Type => todo!(),
-                RootIdentifier::CloneTrait => todo!(),
-                RootIdentifier::CopyTrait => todo!(),
-                RootIdentifier::PartialEqTrait => todo!(),
-                RootIdentifier::EqTrait => todo!(),
             },
             _ => match self
                 .scope_proxy

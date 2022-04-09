@@ -2,13 +2,13 @@ use crate::*;
 use static_decl::StaticMethodDecl;
 use word::IdentDict;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TraitDecl {
     pub methods: IdentDict<MethodDecl>,
 }
 
 impl TraitDecl {
-    fn from_static(db: &dyn DeclQueryGroup, trait_decl: &StaticTraitDecl) -> Self {
+    pub fn from_static(db: &dyn DeclQueryGroup, trait_decl: &StaticTraitDecl) -> Self {
         TraitDecl {
             methods: trait_decl
                 .methods

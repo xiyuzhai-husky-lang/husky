@@ -1,45 +1,47 @@
 use vm::InputContract;
-use word::RootIdentifier;
 
 use super::*;
 
-pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
-    Arc::new(TyDecl::from_static(
-        db,
-        &StaticTyDecl {
-            route: "Vec",
-            traits: &["Clone"],
-            fields: &[],
-            methods: &[
-                StaticMethodDecl {
-                    name: "len",
-                    this_contract: InputContract::Pure,
-                    inputs: &[],
-                    output_ty: todo!(),
-                    generic_placeholders: &[],
-                },
-                StaticMethodDecl {
-                    name: "push",
-                    this_contract: InputContract::BorrowMut,
-                    inputs: &[StaticInputDecl {
-                        contract: InputContract::Move,
-                        ty: "E",
-                    }],
-                    output_ty: todo!(),
-                    generic_placeholders: &[],
-                },
-                StaticMethodDecl {
-                    name: todo!(),
-                    this_contract: todo!(),
-                    inputs: todo!(),
-                    output_ty: todo!(),
-                    generic_placeholders: &[],
-                },
-            ],
-            variants: todo!(),
-            kind: todo!(),
+static STATIC_VEC_DECL: &'static StaticTyDecl = &StaticTyDecl {
+    base_ty: "Vec",
+    generic_placeholders: &[StaticGenericPlaceholder {
+        name: "E",
+        variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+    }],
+    traits: &["Clone"],
+    fields: &[],
+    methods: &[
+        StaticMethodDecl {
+            name: "len",
+            this_contract: InputContract::Pure,
+            inputs: &[],
+            output_ty: "i32",
+            generic_placeholders: &[],
         },
-    ))
+        StaticMethodDecl {
+            name: "push",
+            this_contract: InputContract::BorrowMut,
+            inputs: &[StaticInputDecl {
+                contract: InputContract::Move,
+                ty: "E",
+            }],
+            output_ty: "void",
+            generic_placeholders: &[],
+        },
+        StaticMethodDecl {
+            name: "pop",
+            this_contract: InputContract::BorrowMut,
+            inputs: &[],
+            output_ty: "E",
+            generic_placeholders: &[],
+        },
+    ],
+    variants: &[],
+    kind: TyKind::Vec,
+};
+
+pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
+    Arc::new(TyDecl::from_static(db, STATIC_VEC_DECL))
     // let element_ty_ident = db.custom_ident("T");
     // let element_ty = db.intern_scope(EntityRoute {
     //     kind: EntityRouteKind::Generic {

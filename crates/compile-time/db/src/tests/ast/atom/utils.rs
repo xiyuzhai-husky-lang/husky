@@ -1,6 +1,6 @@
 use crate::*;
 
-use ast::{Atom, AtomKind, AtomLRParser, SymbolProxy};
+use atom::*;
 
 pub(super) fn check_atom_kind(db: &mut HuskyLangCompileTime, line: &'static str, kind: AtomKind) {
     let atoms = get_atoms_in_line(db, line);

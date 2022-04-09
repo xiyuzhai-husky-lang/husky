@@ -1,5 +1,5 @@
 use entity_syntax::EnumVariantKind;
-use vec_map::HasKey;
+use vec_dict::HasKey;
 
 use super::*;
 
@@ -26,7 +26,7 @@ pub(crate) fn enum_decl(
         }
     }
     Ok(Arc::new(TyDecl {
-        this_type: todo!(),
+        this_ty: todo!(),
         generic_placeholders,
         traits,
         fields: todo!(),

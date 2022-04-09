@@ -1,6 +1,6 @@
 use super::utils;
 use crate::*;
-use ast::AtomKind;
+use atom::AtomKind;
 
 #[test]
 fn vec_type() {

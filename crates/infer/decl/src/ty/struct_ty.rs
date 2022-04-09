@@ -1,5 +1,5 @@
 use crate::*;
-use vec_map::VecDict;
+use vec_dict::VecDict;
 use word::IdentDict;
 
 pub(crate) fn struct_decl(
@@ -28,7 +28,7 @@ pub(crate) fn struct_decl(
     }
 
     Ok(Arc::new(TyDecl {
-        this_type: todo!(),
+        this_ty: todo!(),
         generic_placeholders,
         traits,
         fields: todo!(),

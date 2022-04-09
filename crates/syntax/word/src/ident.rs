@@ -127,10 +127,10 @@ impl RootIdentifier {
             RootIdentifier::Datasets => "datasets",
             RootIdentifier::DatasetType => "Dataset",
             RootIdentifier::Type => "type",
-            RootIdentifier::CloneTrait => todo!(),
-            RootIdentifier::CopyTrait => todo!(),
-            RootIdentifier::PartialEqTrait => todo!(),
-            RootIdentifier::EqTrait => todo!(),
+            RootIdentifier::CloneTrait => "Clone",
+            RootIdentifier::CopyTrait => "Copy",
+            RootIdentifier::PartialEqTrait => "PartialEq",
+            RootIdentifier::EqTrait => "Eq",
         }
     }
 }

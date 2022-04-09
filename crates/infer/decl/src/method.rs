@@ -1,8 +1,9 @@
 use crate::*;
-use print_utils::p;
+use atom::*;
+use map_vec::MapVec;
 use static_decl::StaticMethodDecl;
-use vec_map::HasKey;
-use vm::{InputContract, MembAccessContract};
+use vec_dict::HasKey;
+use vm::InputContract;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -56,19 +57,11 @@ impl MethodDecl {
         Self {
             ident: db.intern_word(decl.name).custom(),
             this_contract: decl.this_contract,
-            inputs: decl
-                .inputs
-                .iter()
-                .map(|input| InputDecl::from_static(db, input))
-                .collect(),
+            inputs: decl.inputs.map(|input| InputDecl::from_static(db, input)),
             output,
-            generic_placeholders: decl
-                .generic_placeholders
-                .iter()
-                .map(|static_generic_placeholder| {
-                    GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
-                })
-                .collect(),
+            generic_placeholders: decl.generic_placeholders.map(|static_generic_placeholder| {
+                GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
+            }),
         }
     }
 }

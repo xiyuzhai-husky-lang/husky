@@ -5,6 +5,7 @@ mod struct_ty;
 mod vec;
 
 pub use enum_ty::*;
+use fold::LocalStack;
 pub use record::*;
 pub use struct_ty::*;
 pub use vec::*;
@@ -14,13 +15,13 @@ use ast::AstIter;
 use defn_head::*;
 use entity_route::*;
 use print_utils::msg_once;
-use vec_map::VecDict;
+use vec_dict::VecDict;
 use vm::{MembAccessContract, TySignature};
 use word::{IdentDict, RangedCustomIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TyDecl {
-    pub this_type: EntityRoutePtr,
+    pub this_ty: EntityRoutePtr,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub traits: Vec<EntityRoutePtr>,
     pub fields: IdentDict<FieldDecl>,
@@ -31,7 +32,51 @@ pub struct TyDecl {
 
 impl TyDecl {
     fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTyDecl) -> Self {
-        todo!()
+        let base_ty = db.parse_entity(static_decl.base_ty).unwrap();
+        let generic_placeholders: IdentDict<_> = static_decl
+            .generic_placeholders
+            .iter()
+            .map(|static_generic_placeholder| GenericPlaceholder {
+                ident: db.intern_word(static_generic_placeholder.name).custom(),
+                variant: GenericPlaceholderVariant::Type { traits: vec![] },
+            })
+            .collect();
+        let this_ty = db.intern_scope(EntityRoute {
+            kind: base_ty.kind,
+            generics: generic_placeholders
+                .iter()
+                .map(|generic_placeholder| {
+                    GenericArgument::Scope(db.intern_scope(EntityRoute {
+                        kind: EntityRouteKind::Generic {
+                            ident: generic_placeholder.ident,
+                            entity_kind: generic_placeholder.entity_kind(),
+                        },
+                        generics: vec![],
+                    }))
+                })
+                .collect(),
+        });
+        Self {
+            this_ty,
+            generic_placeholders,
+            traits: static_decl
+                .traits
+                .iter()
+                .map(|t| db.parse_entity(*t).unwrap())
+                .collect(),
+            fields: static_decl
+                .fields
+                .iter()
+                .map(|field| FieldDecl::from_static(db, field))
+                .collect(),
+            methods: static_decl
+                .methods
+                .iter()
+                .map(|method| MethodDecl::from_static(db, this_ty, (), method))
+                .collect(),
+            variants: todo!(),
+            kind: todo!(),
+        }
     }
 
     // fn new(
