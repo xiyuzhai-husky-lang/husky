@@ -7,7 +7,7 @@ pub use routine::*;
 pub use ty::*;
 
 use crate::*;
-use ast::{AstKind, InputPlaceholder};
+use ast::AstKind;
 use entity_route::EntityRoutePtr;
 use entity_route::EntitySource;
 use fold::{FoldIterItem, FoldStorage};
@@ -190,7 +190,7 @@ pub(crate) fn opt_entity_defn(
             ))))
         }
         EntitySource::Module { file: file_id } => todo!(),
-        EntitySource::Contextual { .. } => todo!(),
+        EntitySource::Input { .. } => todo!(),
     }
 }
 

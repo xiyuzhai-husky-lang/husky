@@ -1,6 +1,5 @@
 mod impl_opn;
 
-use ast::InputPlaceholder;
 use entity_route::EntityRouteKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
@@ -204,15 +203,11 @@ impl<'a> FeatureExprBuilder<'a> {
                     };
                     (kind, feature)
                 }
-                EntityRouteKind::Contextual { main, ident } => match ident {
-                    ContextualIdentifier::Input => {
-                        let feature = self.features.alloc(Feature::Input);
-                        let kind = FeatureExprKind::GlobalInput;
-                        (kind, feature)
-                    }
-                    ContextualIdentifier::ThisData => todo!(),
-                    ContextualIdentifier::ThisType => todo!(),
-                },
+                EntityRouteKind::Input { main } => {
+                    let feature = self.features.alloc(Feature::Input);
+                    let kind = FeatureExprKind::GlobalInput;
+                    (kind, feature)
+                }
                 EntityRouteKind::Generic { ident, .. } => todo!(),
                 EntityRouteKind::ThisType => todo!(),
             },

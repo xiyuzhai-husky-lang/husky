@@ -1,9 +1,9 @@
 use crate::{
-    atom::symbol_proxy::Symbol,
     stmt::{RawBranchKind, RawLoopKind, RawStmtKind},
     transform::utils::*,
     *,
 };
+use atom::symbol_proxy::Symbol;
 use text::{TextRange, TextRanged};
 use token::{Special, Token, TokenKind};
 use vm::BinaryOpr;
@@ -25,25 +25,19 @@ impl<'a> AstTransformer<'a> {
                     self.parse_init_stmt(InitKind::Var, kw_range, &token_group[1..])?
                 }
                 StmtKeyword::If => {
-                    expect_at_least!(token_group, Some(self.file), kw_range, 3);
-                    expect_block_head!(Some(self.file), token_group);
+                    expect_at_least!(token_group, kw_range, 3);
+                    expect_block_head!(token_group);
                     RawStmtKind::Branch(RawBranchKind::If {
                         condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
                     })
                 }
                 StmtKeyword::Elif => todo!(),
                 StmtKeyword::Else => {
-                    expect!(
-                        token_group.len() == 2,
-                        Some(self.file),
-                        kw_range,
-                        "expect one tokens after"
-                    );
+                    expect!(token_group.len() == 2, "expect one tokens after", kw_range);
                     expect!(
                         token_group[1].kind == TokenKind::Special(Special::Colon),
-                        Some(self.file),
-                        token_group[1].range,
-                        "expect `:`"
+                        "expect `:`",
+                        token_group[1].range
                     );
                     RawStmtKind::Branch(RawBranchKind::Else)
                 }
@@ -57,21 +51,11 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Do => self.parse_do_while_loop(token_group)?,
                 StmtKeyword::Break => todo!(),
                 StmtKeyword::Return => {
-                    expect!(
-                        token_group.len() >= 2,
-                        Some(self.file),
-                        kw_range,
-                        "expect some tokens after"
-                    );
+                    expect!(token_group.len() >= 2, "expect some tokens after", kw_range);
                     RawStmtKind::Return(self.parse_expr(&token_group[1..])?)
                 }
                 StmtKeyword::Assert => {
-                    expect!(
-                        token_group.len() >= 2,
-                        Some(self.file),
-                        kw_range,
-                        "expect some tokens after"
-                    );
+                    expect!(token_group.len() >= 2, "expect some tokens after", kw_range);
                     RawStmtKind::Assert(self.parse_expr(&token_group[1..])?)
                 }
             },
@@ -91,7 +75,7 @@ impl<'a> AstTransformer<'a> {
             | AstContext::Func => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
-                    let varname = identify!(Some(self.file), token_group[0]);
+                    let varname = identify!(token_group[0]);
                     self.symbols
                         .push(Symbol::var(varname, token_group[0].row()));
                     RawStmt {
@@ -131,21 +115,20 @@ impl<'a> AstTransformer<'a> {
             InitKind::Let | InitKind::Var => match self.env() {
                 AstContext::Proc | AstContext::Test => (),
                 _ => err!(
-                    Some(self.file),
-                    kw_range,
                     format!(
                         "`{}` statement requires env to be `proc` or `test`, but got `{}` instead",
                         kind,
                         self.env()
-                    )
+                    ),
+                    kw_range
                 )?,
             },
             InitKind::Decl => todo!(),
         }
-        expect_at_least!(tokens, Some(self.file), kw_range, 3);
-        let varname = identify!(Some(self.file), &tokens[0]);
+        expect_at_least!(tokens, kw_range, 3);
+        let varname = identify!(&tokens[0]);
         self.symbols.push(Symbol::var(varname, tokens[0].row()));
-        expect_kind!(Some(self.file), tokens[1], Special::Assign);
+        expect_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtKind::Init {
             init_kind: kind,
@@ -155,7 +138,7 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_for_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(Some(self.file), token_group);
+        expect_block_head!(token_group);
         let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr];
         Ok(match expr.kind {
@@ -205,7 +188,7 @@ impl<'a> AstTransformer<'a> {
                                     {
                                         frame_var
                                     } else {
-                                        err!(Some(self.file), expr.range(), "expect unrecognized")?
+                                        err!("expect unrecognized", expr.range())?
                                     };
                                     RawLoopKind::for_loop(
                                         llopd_idx,
@@ -230,7 +213,7 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_forext_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(Some(self.file), token_group);
+        expect_block_head!(token_group);
         let expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr_idx];
         Ok(match expr.kind {
@@ -252,13 +235,13 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(Some(self.file), token_group);
+        expect_block_head!(token_group);
         let expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         Ok(RawLoopKind::while_loop(expr_idx).into())
     }
 
     fn parse_do_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtKind> {
-        expect_block_head!(Some(self.file), token_group);
+        expect_block_head!(token_group);
         match token_group[1].kind {
             TokenKind::Keyword(Keyword::Stmt(StmtKeyword::While)) => (),
             _ => {

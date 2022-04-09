@@ -1,31 +1,28 @@
-mod atom;
 mod context;
 mod error;
 mod expr;
-mod generic;
 mod query;
 mod stmt;
 mod transform;
 
-use std::sync::Arc;
-
-pub use crate::error::{AstError, AstResult, AstResultArc};
+pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use atom::*;
 pub use context::AstContext;
 pub use expr::*;
-pub use generic::*;
+pub use instantiate::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
 pub use transform::*;
 
-use crate::error::{err, error};
 use check_utils::*;
+use defn_head::*;
 use dev_utils::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use entity_syntax::TyKind;
+use entity_syntax::*;
+use error::*;
 use print_utils::*;
 use text::TextRange;
-use vm::{InitKind, InputContract, MembAccessContract};
+use vm::InitKind;
 use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -64,46 +61,6 @@ pub enum AstKind {
         ident: CustomIdentifier,
         variant_class: EnumVariantKind,
     },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct RoutineDefnHead {
-    pub ident: CustomIdentifier,
-    pub routine_kind: RoutineKind,
-    pub generic_placeholders: IdentDict<GenericPlaceholder>,
-    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
-    pub output: RangedEntityRoute,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MembRoutineDefnHead {
-    pub ident: CustomIdentifier,
-    pub routine_kind: RoutineKind,
-    pub this_contract: InputContract,
-    pub generics: IdentDict<GenericPlaceholder>,
-    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
-    pub output: RangedEntityRoute,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FieldDefnHead {
-    pub ident: CustomIdentifier,
-    pub contract: MembAccessContract,
-    pub ty: EntityRoutePtr,
-    pub kind: FieldKind,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldKind {
-    Original,
-    Derived,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputPlaceholder {
-    pub ident: CustomIdentifier,
-    pub contract: InputContract,
-    pub ranged_ty: RangedEntityRoute,
 }
 
 impl From<RawStmt> for Ast {

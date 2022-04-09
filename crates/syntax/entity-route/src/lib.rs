@@ -49,7 +49,7 @@ impl std::fmt::Debug for EntityRoute {
                 f.write_str("::")?;
                 ident.fmt(f)?
             }
-            EntityRouteKind::Contextual { main, ident } => todo!(),
+            EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic { ident, .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         };
@@ -122,9 +122,8 @@ pub enum EntityRouteKind {
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
     },
-    Contextual {
+    Input {
         main: FilePtr,
-        ident: ContextualIdentifier,
     },
     Generic {
         ident: CustomIdentifier,
@@ -152,7 +151,7 @@ impl EntityRoute {
             EntityRouteKind::Root { ident } => ident.into(),
             EntityRouteKind::Package { main, ident } => ident.into(),
             EntityRouteKind::ChildScope { parent, ident } => ident.into(),
-            EntityRouteKind::Contextual { main, ident } => todo!(),
+            EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic {
                 ident,
                 entity_kind: raw_entity_kind,
@@ -210,7 +209,7 @@ impl EntityRoute {
             EntityRouteKind::Root { .. } => true,
             EntityRouteKind::Package { .. } => false,
             EntityRouteKind::ChildScope { parent, .. } => parent.is_builtin(),
-            EntityRouteKind::Contextual { .. } => false,
+            EntityRouteKind::Input { .. } => false,
             EntityRouteKind::Generic { ident, .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         }
@@ -234,9 +233,8 @@ pub enum EntitySource {
     Module {
         file: FilePtr,
     },
-    Contextual {
+    Input {
         main: FilePtr,
-        ident: ContextualIdentifier,
     },
 }
 

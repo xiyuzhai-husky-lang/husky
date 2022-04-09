@@ -1,17 +1,16 @@
-use entity_route_query::ScopeResultArc;
+use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
 use std::sync::Arc;
+use upcast::Upcast;
 
-use crate::atom::symbol_proxy::{Symbol, SymbolProxy};
 use crate::*;
+use atom::symbol_proxy::{Symbol, SymbolProxy};
 
 #[salsa::query_group(AstQueryGroupStorage)]
-pub trait AstSalsaQueryGroup: entity_route_query::EntityRouteQueryGroup {
+pub trait AstSalsaQueryGroup: EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> {
     fn ast_text(&self, file: FilePtr) -> ScopeResultArc<AstText>;
-
-    fn parse_ty(&self, code: &'static str) -> AstResult<EntityRoutePtr>;
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
@@ -34,17 +33,17 @@ fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> ScopeResultArc<AstTex
     Ok(Arc::new(parser.finish()))
 }
 
-fn parse_ty(db: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<EntityRoutePtr> {
-    let tokens = db.tokenize(code);
-    let symbols = fold::LocalStack::<Symbol>::new();
-    let proxy = SymbolProxy {
-        main: None,
-        db,
-        this_ty: None,
-        symbols: &symbols,
-    };
-    atom::parser::parse_ty(proxy, &tokens, None)
-}
+// fn parse_ty(db: &dyn AstSalsaQueryGroup, code: &'static str) -> AstResult<EntityRoutePtr> {
+//     let tokens = db.tokenize(code);
+//     let symbols = fold::LocalStack::<Symbol>::new();
+//     let proxy = SymbolProxy {
+//         main: None,
+//         db,
+//         this_ty: None,
+//         symbols: &symbols,
+//     };
+//     atom::parser::parse_ty(proxy, &tokens, None)
+// }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AstText {

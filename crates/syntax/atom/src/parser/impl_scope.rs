@@ -1,3 +1,5 @@
+use entity_syntax::TyKind;
+
 use super::symbol_proxy::SymbolKind;
 
 use super::*;
@@ -6,7 +8,7 @@ use super::*;
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn symbol(&mut self) -> AstResult<Option<AtomKind>> {
+    pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomKind>> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {
                 Some(AtomKind::EntityRoute {
@@ -14,9 +16,7 @@ impl<'a> AtomLRParser<'a> {
                     kind: EntityKind::Type(TyKind::Vec),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
-                let symbol_kind =
-                    self.scope_proxy
-                        .resolve_symbol_kind(ident, self.file, token.range)?;
+                let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, token.range)?;
                 Some(match symbol_kind {
                     SymbolKind::Scope(route) => self.normal_scope(route)?,
                     SymbolKind::Variable { init_row } => match ident {
@@ -35,7 +35,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn symbolic_ty(&mut self) -> AstResult<EntityRoutePtr> {
+    fn symbolic_ty(&mut self) -> AtomResult<EntityRoutePtr> {
         Ok(self
             .scope_proxy
             .db
@@ -46,18 +46,18 @@ impl<'a> AtomLRParser<'a> {
             }?))
     }
 
-    fn vec_ty(&mut self) -> AstResult<EntityRoute> {
+    fn vec_ty(&mut self) -> AtomResult<EntityRoute> {
         Ok(EntityRoute::vec(self.generic()?))
     }
 
-    fn array_ty(&mut self) -> AstResult<EntityRoute> {
+    fn array_ty(&mut self) -> AtomResult<EntityRoute> {
         let size = get!(self, usize_literal);
         no_look_pass!(self, special, Special::RBox);
         let element = self.generic()?;
         Ok(EntityRoute::array(element, size))
     }
 
-    fn normal_scope(&mut self, route: EntityRouteKind) -> AstResult<AtomKind> {
+    fn normal_scope(&mut self, route: EntityRouteKind) -> AtomResult<AtomKind> {
         let mut scope = self.scope_proxy.db.make_scope(route, self.generics(route)?);
         while next_matches!(self, Special::DoubleColon) {
             let ident = get!(self, custom_ident);
@@ -72,7 +72,7 @@ impl<'a> AtomLRParser<'a> {
         });
     }
 
-    pub(crate) fn ty(&mut self) -> AstResult<Option<EntityRoutePtr>> {
+    pub(crate) fn ty(&mut self) -> AtomResult<Option<EntityRoutePtr>> {
         Ok(
             if let Some(AtomKind::EntityRoute {
                 route: scope, kind, ..
@@ -89,7 +89,7 @@ impl<'a> AtomLRParser<'a> {
         )
     }
 
-    fn generics(&mut self, scope_kind: EntityRouteKind) -> AstResult<Vec<GenericArgument>> {
+    fn generics(&mut self, scope_kind: EntityRouteKind) -> AtomResult<Vec<GenericArgument>> {
         match scope_kind {
             EntityRouteKind::Root { ident } => match ident {
                 RootIdentifier::Void
@@ -132,9 +132,9 @@ impl<'a> AtomLRParser<'a> {
         }
     }
 
-    fn func_args(&mut self) -> AstResult<Vec<GenericArgument>> {
+    fn func_args(&mut self) -> AtomResult<Vec<GenericArgument>> {
         if !next_matches!(self, "(") {
-            return err!(self.file, self.stream.pop_range(), "args");
+            return err!("args", self.stream.pop_range());
         }
         let mut args = comma_list![self, generic!, RPar];
         args.push(if next_matches!(self, "->") {
@@ -145,7 +145,7 @@ impl<'a> AtomLRParser<'a> {
         Ok(args)
     }
 
-    fn angled_generics(&mut self) -> AstResult<Vec<GenericArgument>> {
+    fn angled_generics(&mut self) -> AtomResult<Vec<GenericArgument>> {
         Ok(if next_matches!(self, Special::LAngle) {
             comma_list![self, generic!+, ">"]
         } else {
@@ -153,7 +153,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn generic(&mut self) -> AstResult<GenericArgument> {
+    fn generic(&mut self) -> AtomResult<GenericArgument> {
         Ok(if next_matches!(self, "(") {
             let mut args = comma_list!(self, generic!, ")");
             let scope = if next_matches!(self, "->") {

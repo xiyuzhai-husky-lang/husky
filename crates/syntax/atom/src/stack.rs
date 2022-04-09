@@ -1,14 +1,9 @@
-use entity_route::{EntityKind, EntityRouteKind, GenericArgument};
-use file::FilePtr;
+use entity_route::{EntityKind, GenericArgument};
 use word::RootIdentifier;
 
-use crate::{
-    atom::{convexity::Convexity, symbol_proxy::SymbolProxy, *},
-    *,
-};
+use crate::{convexity::Convexity, symbol_proxy::SymbolProxy, *};
 
 pub(crate) struct AtomStack {
-    file: Option<FilePtr>,
     atoms: Vec<Atom>,
 }
 
@@ -20,11 +15,8 @@ impl Into<Vec<Atom>> for AtomStack {
 
 // get
 impl AtomStack {
-    pub fn new(file: Option<FilePtr>) -> Self {
-        Self {
-            file,
-            atoms: Vec::new(),
-        }
+    pub fn new() -> Self {
+        Self { atoms: Vec::new() }
     }
 
     pub(crate) fn convexity(&self) -> Convexity {
@@ -46,12 +38,12 @@ impl AtomStack {
 
 // push
 impl AtomStack {
-    pub(crate) fn push(&mut self, atom: Atom) -> AstResult<()> {
+    pub(crate) fn push(&mut self, atom: Atom) -> AtomResult<()> {
         if convexity::compatible(self.convexity(), convexity::left_side_convexity(&atom.kind)) {
             self.atoms.push(atom);
             Ok(())
         } else {
-            err!(self.file, atom.text_range(), "convexity not compatible")
+            err!("convexity not compatible", atom.text_range())
         }
     }
 
@@ -70,7 +62,7 @@ impl AtomStack {
         attr: ListEndAttr,
         mut tail: TextRange,
         scope_proxy: SymbolProxy,
-    ) -> AstResult<()> {
+    ) -> AtomResult<()> {
         match (ket, self.atoms.last()) {
             (
                 Bracket::Par,
@@ -113,7 +105,7 @@ impl AtomStack {
         .unwrap();
     }
 
-    fn func_generic(&mut self, attr: ListStartAttr) -> AstResult<RootIdentifier> {
+    fn func_generic(&mut self, attr: ListStartAttr) -> AtomResult<RootIdentifier> {
         let expectation = "expect Fp, Fn, FnMut, FnOnce";
 
         match attr {
@@ -129,19 +121,19 @@ impl AtomStack {
                         | RootIdentifier::Fn
                         | RootIdentifier::FnMut
                         | RootIdentifier::FnOnce => Ok(ident),
-                        _ => err!(self.file, last_atom.text_range(), expectation),
+                        _ => err!(expectation, last_atom.text_range()),
                     },
-                    _ => err!(self.file, last_atom.text_range(), expectation),
+                    _ => err!(expectation, last_atom.text_range()),
                 }
             }
         }
     }
 
-    fn pop(&mut self, follower: &mut TextRange) -> AstResult<Atom> {
-        let atom =
-            self.atoms
-                .pop()
-                .ok_or(error!(self.file, follower.clone(), "something before it"))?;
+    fn pop(&mut self, follower: &mut TextRange) -> AtomResult<Atom> {
+        let atom = self
+            .atoms
+            .pop()
+            .ok_or(error!("something before it", follower.clone()))?;
         *follower = atom.to(follower);
         Ok(atom)
     }
@@ -149,7 +141,7 @@ impl AtomStack {
     fn pop_par_list_of_types(
         &mut self,
         tail: &mut TextRange,
-    ) -> AstResult<(ListStartAttr, Vec<GenericArgument>)> {
+    ) -> AtomResult<(ListStartAttr, Vec<GenericArgument>)> {
         let mut types = Vec::new();
         match self.pop(tail)?.kind {
             AtomKind::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
@@ -157,7 +149,7 @@ impl AtomStack {
                 route: scope,
                 kind: EntityKind::Type(_),
             } => types.push(scope.into()),
-            _ => err!(self.file, *tail, "left parenthesis or type")?,
+            _ => err!("left parenthesis or type", *tail)?,
         };
         loop {
             match self.pop(tail)?.kind {
@@ -166,14 +158,14 @@ impl AtomStack {
                     return Ok((attr, types));
                 }
                 AtomKind::ListItem => (),
-                _ => err!(self.file, *tail, "left parenthesis or comma")?,
+                _ => err!("left parenthesis or comma", *tail)?,
             }
             match self.pop(tail)?.kind {
                 AtomKind::EntityRoute {
                     route: scope,
                     kind: EntityKind::Type(_),
                 } => types.push(scope.into()),
-                _ => err!(self.file, *tail, "type")?,
+                _ => err!("type", *tail)?,
             }
         }
     }
@@ -183,7 +175,7 @@ impl AtomStack {
         scope_proxy: SymbolProxy,
         output: EntityRoutePtr,
         mut tail: TextRange,
-    ) -> AstResult<()> {
+    ) -> AtomResult<()> {
         let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
         generics.push(output.into());
         let func_type = self.func_generic(attr)?;

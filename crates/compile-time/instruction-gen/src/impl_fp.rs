@@ -22,7 +22,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 .linkage_table()
                 .entity_routine(self.db.entity_uid(routine)),
             EntitySource::Module { file } => todo!(),
-            EntitySource::Contextual { main, ident } => todo!(),
+            EntitySource::Input { main } => todo!(),
         }
     }
 

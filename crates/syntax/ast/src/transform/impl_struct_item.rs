@@ -1,10 +1,8 @@
 use super::utils::*;
-use crate::{
-    atom::{
-        parser::AtomLRParser,
-        symbol_proxy::{Symbol, SymbolKind},
-    },
-    *,
+use crate::*;
+use atom::{
+    parser::AtomLRParser,
+    symbol_proxy::{Symbol, SymbolKind},
 };
 use text::TextRanged;
 use token::{Special, Token, TokenKind};
@@ -50,24 +48,18 @@ impl<'a> AstTransformer<'a> {
                 let ident = match token_group[0].kind {
                     TokenKind::Identifier(ident) => match ident {
                         Identifier::Builtin(_) => err!(
-                            Some(self.file),
-                            token_group[0].text_range(),
-                            "expect custom identifier but got builtin"
+                            "expect custom identifier but got builtin",
+                            token_group[0].text_range()
                         )?,
                         Identifier::Contextual(_) => err!(
-                            Some(self.file),
-                            token_group[0].text_range(),
-                            "expect custom identifier but got contextual"
+                            "expect custom identifier but got contextual",
+                            token_group[0].text_range()
                         )?,
                         Identifier::Custom(custom_ident) => custom_ident,
                     },
-                    _ => err!(
-                        Some(self.file),
-                        token_group[0].text_range(),
-                        "expect custom identifier"
-                    )?,
+                    _ => err!("expect custom identifier", token_group[0].text_range())?,
                 };
-                let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
+                let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..])?;
                 AstKind::FieldDefn(FieldDefnHead {
                     ident,
                     contract: MembAccessContract::Own,
@@ -88,14 +80,10 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         enter_block(self);
         self.env.set_value(AstContext::Func);
-        expect_at_least!(token_group, Some(self.file), token_group.into(), 5);
-        expect_block_head!(Some(self.file), token_group);
-        let head = AtomLRParser::new(
-            Some(self.file),
-            self.symbol_proxy(),
-            &token_group[funcname_idx..],
-        )
-        .field_routine_decl(InputContract::Pure, RoutineKind::Func)?;
+        expect_at_least!(token_group, token_group.into(), 5);
+        expect_block_head!(token_group);
+        let head = AtomLRParser::new(self.symbol_proxy(), &token_group[funcname_idx..])
+            .field_routine_decl(InputContract::Pure, RoutineKind::Func)?;
         self.symbols.extend(
             head.input_placeholders
                 .iter()

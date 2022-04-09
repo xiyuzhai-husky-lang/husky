@@ -1,10 +1,11 @@
 use entity_route::{EntityRouteKind, *};
+use entity_route_query::EntityRouteQueryGroup;
+use entity_syntax::TyKind;
 use file::FilePtr;
 use text::{Row, TextRange};
 use word::{ContextualIdentifier, CustomIdentifier, RootIdentifier};
 
 use super::*;
-use crate::{query::AstSalsaQueryGroup, *};
 
 #[derive(Debug, Clone)]
 pub struct Symbol {
@@ -32,8 +33,8 @@ pub enum SymbolKind {
 
 #[derive(Clone, Copy)]
 pub struct SymbolProxy<'a> {
-    pub main: Option<FilePtr>,
-    pub db: &'a dyn AstSalsaQueryGroup,
+    pub opt_package_main: Option<FilePtr>,
+    pub db: &'a dyn EntityRouteQueryGroup,
     pub this_ty: Option<EntityRoutePtr>,
     pub symbols: &'a fold::LocalStack<Symbol>,
 }
@@ -82,17 +83,15 @@ impl<'a> SymbolProxy<'a> {
     pub fn resolve_symbol_kind(
         &self,
         ident: Identifier,
-        file: Option<FilePtr>,
         range: TextRange,
-    ) -> AstResult<SymbolKind> {
+    ) -> AtomResult<SymbolKind> {
         match ident {
             Identifier::Builtin(ident) => Ok(SymbolKind::Scope(ident.into())),
             Identifier::Contextual(ident) => match ident {
-                ContextualIdentifier::Input => Ok(SymbolKind::Scope(EntityRouteKind::Contextual {
+                ContextualIdentifier::Input => Ok(SymbolKind::Scope(EntityRouteKind::Input {
                     main: self
-                        .main
-                        .ok_or(error!(file, range, "can't use implicit without main"))?,
-                    ident,
+                        .opt_package_main
+                        .ok_or(error!("can't use implicit without main", range))?,
                 })),
                 ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData { ty: self.this_ty }),
                 ContextualIdentifier::ThisType => Ok(SymbolKind::ThisType { ty: self.this_ty }),
@@ -107,15 +106,15 @@ impl<'a> SymbolProxy<'a> {
         }
     }
 
-    fn resolve_subscope(
-        &self,
-        parent_scope: EntityRoute,
-        subscope_ident: CustomIdentifier,
-    ) -> Option<EntityRoutePtr> {
-        self.db.subscope(
-            self.db.intern_scope(parent_scope),
-            subscope_ident,
-            Vec::new(),
-        )
-    }
+    // fn resolve_subscope(
+    //     &self,
+    //     parent_scope: EntityRoute,
+    //     subscope_ident: CustomIdentifier,
+    // ) -> Option<EntityRoutePtr> {
+    //     self.db.subscope(
+    //         self.db.intern_scope(parent_scope),
+    //         subscope_ident,
+    //         Vec::new(),
+    //     )
+    // }
 }

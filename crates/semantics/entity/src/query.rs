@@ -58,7 +58,7 @@ pub(crate) fn entity_uid(db: &dyn EntityQueryGroup, entity_route: EntityRoutePtr
         EntitySource::Builtin(_) => (),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Module { file } => todo!(),
-        EntitySource::Contextual { main, ident } => todo!(),
+        EntitySource::Input { main } => todo!(),
         EntitySource::WithinModule {
             file,
             token_group_index,

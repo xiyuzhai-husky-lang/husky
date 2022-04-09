@@ -26,6 +26,6 @@ fn visualizer(
             token_group_index,
         } => todo!(),
         EntitySource::Module { file } => todo!(),
-        EntitySource::Contextual { main, ident } => todo!(),
+        EntitySource::Input { main } => todo!(),
     }
 }

@@ -50,3 +50,20 @@ impl EntityKind {
         }
     }
 }
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum EnumVariantKind {
+    Constant,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum RoutineKind {
+    Test,
+    Proc,
+    Func,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum RawMembRoutineKind {
+    Proc,
+    Func,
+}

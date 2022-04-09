@@ -37,8 +37,22 @@ impl MethodDecl {
         }
     }
 
-    pub fn from_static(db: &dyn DeclQueryGroup, decl: &StaticMethodDecl) -> Self {
-        let output = db.parse_ty(decl.output_ty).unwrap();
+    pub fn from_static(
+        db: &dyn DeclQueryGroup,
+        this_ty: EntityRoutePtr,
+        generic_placeholders: (),
+        decl: &StaticMethodDecl,
+    ) -> Self {
+        let output = parse_ty(
+            SymbolProxy {
+                opt_package_main: None,
+                db: db.upcast(),
+                this_ty: Some(this_ty),
+                symbols: todo!(),
+            },
+            &db.tokenize(decl.output_ty),
+        )
+        .unwrap();
         Self {
             ident: db.intern_word(decl.name).custom(),
             this_contract: decl.this_contract,

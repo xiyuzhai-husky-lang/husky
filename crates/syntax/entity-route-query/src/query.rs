@@ -5,7 +5,7 @@ use file::FilePtr;
 use path_utils::*;
 
 use entity_syntax::TyKind;
-use static_decl::{StaticEntityDecl, StaticMethodDecl};
+use static_decl::{StaticEntityDecl, StaticMethodDecl, StaticTraitDecl};
 use upcast::Upcast;
 use visual_syntax::{StaticVisualizer, TRIVIAL_VISUALIZER};
 use word::{
@@ -51,7 +51,7 @@ fn subscope_table(
             SubscopeTable::parse(file_id, text.fold_iter(0))
         }
         EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::Contextual { .. } => todo!(),
+        EntitySource::Input { .. } => todo!(),
     }))
 }
 
@@ -109,11 +109,7 @@ fn entity_kind_from_scope_kind(
             .unwrap()
             .raw_entity_kind(*ident)
             .unwrap(),
-        EntityRouteKind::Contextual { ident, .. } => match ident {
-            ContextualIdentifier::Input => EntityKind::Feature,
-            ContextualIdentifier::ThisData => todo!(),
-            ContextualIdentifier::ThisType => todo!(),
-        },
+        EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic {
             ident,
             entity_kind: raw_entity_kind,
@@ -193,7 +189,7 @@ fn entity_source(
             RootIdentifier::Type => todo!(),
             RootIdentifier::CloneTrait => &StaticEntityData {
                 subscopes: &[],
-                decl: StaticEntityDecl::Trait {
+                decl: StaticEntityDecl::Trait(StaticTraitDecl {
                     methods: &[StaticMethodDecl {
                         name: "clone",
                         this_contract: vm::InputContract::Pure,
@@ -201,7 +197,8 @@ fn entity_source(
                         output_ty: "This",
                         generic_placeholders: &[],
                     }],
-                },
+                    generic_placeholders: (),
+                }),
             },
             RootIdentifier::CopyTrait => todo!(),
             RootIdentifier::PartialEqTrait => todo!(),
@@ -212,7 +209,7 @@ fn entity_source(
         EntityRouteKind::ChildScope { parent, ident } => {
             this.subscope_table(parent)?.scope_source(ident)?
         }
-        EntityRouteKind::Contextual { main, ident } => EntitySource::Contextual { main, ident },
+        EntityRouteKind::Input { main } => EntitySource::Input { main },
         EntityRouteKind::Generic { ident, .. } => todo!(),
         EntityRouteKind::ThisType => todo!(),
     })
@@ -329,7 +326,7 @@ pub trait EntityRouteQueryGroup:
             EntitySource::WithinModule { file: file_id, .. } => file_id,
             EntitySource::Module { file: file_id } => file_id,
             EntitySource::WithinBuiltinModule => todo!(),
-            EntitySource::Contextual { .. } => todo!(),
+            EntitySource::Input { .. } => todo!(),
         })
     }
 

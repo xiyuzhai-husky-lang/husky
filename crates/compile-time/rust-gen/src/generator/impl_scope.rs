@@ -12,7 +12,7 @@ impl<'a> RustGenerator<'a> {
                 self.write("::");
                 self.write(&ident)
             }
-            EntityRouteKind::Contextual { main, ident } => todo!(),
+            EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic { ident, .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         }

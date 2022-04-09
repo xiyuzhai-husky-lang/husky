@@ -76,9 +76,9 @@ impl RawLoopKind {
     ) -> AstResult<Self> {
         let final_boundary_kind = match comparison {
             // ill-formed: $frame_var >= $final_bound
-            PureBinaryOpr::Geq => err!(Some(file), range, "invalid form")?,
+            PureBinaryOpr::Geq => err!("invalid form", range)?,
             // ill-formed: $frame_var > $final_bound
-            PureBinaryOpr::Greater => err!(Some(file), range, "invalid form")?,
+            PureBinaryOpr::Greater => err!("invalid form", range)?,
             // well-formed: $frame_var <= $final_bound
             PureBinaryOpr::Leq => BoundaryKind::UpperClosed,
             // well-formed: $frame_var < $final_bound
@@ -109,9 +109,9 @@ impl RawLoopKind {
             // well-formed: $initial_bound > $frame_var
             PureBinaryOpr::Greater => BoundaryKind::LowerOpen,
             // ill-formed: $initial_bound <= $frame_var
-            PureBinaryOpr::Leq => err!(Some(file), range, "invalid form")?,
+            PureBinaryOpr::Leq => err!("invalid form", range)?,
             // ill-formed: $initial_bound < $frame_var
-            PureBinaryOpr::Less => err!(Some(file), range, "invalid form")?,
+            PureBinaryOpr::Less => err!("invalid form", range)?,
             _ => todo!(),
         };
         Ok(Self::For {

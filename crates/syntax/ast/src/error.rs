@@ -1,66 +1,64 @@
 use std::sync::Arc;
 
-use file::FilePtr;
 use text::TextRange;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct AstError {
-    pub file: Option<FilePtr>,
-    pub range: TextRange,
-    pub kind: AstErrorKind,
+    pub variant: AstErrorVariant,
     pub dev_src: DevSource,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum AstErrorVariant {
+    Original { message: String, range: TextRange },
+    Derived,
 }
 
 impl AstError {
     pub fn message(&self) -> String {
-        match self.kind {
-            AstErrorKind::Message(ref message) => format!("Syntax Error: {}", message),
+        match self.variant {
+            AstErrorVariant::Original { ref message, .. } => format!("Syntax Error: {}", message),
+            AstErrorVariant::Derived => todo!(),
         }
     }
 }
 
 pub type AstResultArc<T> = Result<Arc<T>, AstError>;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum AstErrorKind {
-    Message(String),
-}
-
-impl From<String> for AstErrorKind {
-    fn from(msg: String) -> Self {
-        Self::Message(msg)
-    }
-}
-
-impl From<&'static str> for AstErrorKind {
-    fn from(msg: &'static str) -> Self {
-        Self::Message(msg.into())
+impl From<AtomError> for AstError {
+    fn from(error: AtomError) -> Self {
+        Self {
+            variant: match error.variant {
+                AtomErrorVariant::Original { message, range } => {
+                    AstErrorVariant::Original { message, range }
+                }
+                AtomErrorVariant::Derived => AstErrorVariant::Derived,
+            },
+            dev_src: error.dev_src,
+        }
     }
 }
 
 pub type AstResult<T> = Result<T, AstError>;
 
 macro_rules! error {
-    ($file:expr, $range:expr, $kind: expr, $src: expr) => {{
+    ($message: expr, $range: expr) => {{
         AstError {
-            file: $file,
-            range: $range,
-            kind: $kind.into(),
-            dev_src: $src,
+            variant: AstErrorVariant::Original {
+                range: $range,
+                message: $message.into(),
+            },
+            dev_src: dev_utils::dev_src!(),
         }
-    }};
-
-    ($file:expr, $range:expr, $kind: expr) => {{
-        error!($file, $range, $kind, dev_src!())
     }};
 }
 pub(crate) use error;
 
 macro_rules! err {
-    ($file:expr, $range:expr, $kind: expr) => {{
-        Err(error!($file, $range, $kind, dev_src!()))
+    ($message: expr, $range:expr) => {{
+        Err(error!($message, $range))
     }};
 }
 pub(crate) use err;

@@ -5,6 +5,7 @@ pub use sheet::*;
 
 use ast::*;
 use check_utils::*;
+use defn_head::*;
 use entity_route::{GenericArgument, *};
 use entity_route_query::{EntityRouteQueryGroup, ScopeResult, ScopeResultArc};
 use file::FilePtr;
@@ -69,11 +70,7 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> InferResu
             RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(scope) => match scope.kind {
-            EntityRouteKind::Contextual { main, ident } => match ident {
-                ContextualIdentifier::Input => db.global_input_ty(main),
-                ContextualIdentifier::ThisData => todo!(),
-                ContextualIdentifier::ThisType => todo!(),
-            },
+            EntityRouteKind::Input { main } => db.global_input_ty(main),
             _ => todo!(),
         },
         EntityRoutePtr::ThisType => todo!(),

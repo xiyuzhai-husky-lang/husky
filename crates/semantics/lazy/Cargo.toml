@@ -24,3 +24,4 @@ semantics-error = { path = "../error", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }
 infer-decl = { path = "../../infer/decl", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }
+defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }

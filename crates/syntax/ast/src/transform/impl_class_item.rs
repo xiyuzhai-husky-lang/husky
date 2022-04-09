@@ -31,8 +31,8 @@ impl<'a> AstTransformer<'a> {
             if token_group.len() == 2 {
                 todo!()
             }
-            let ident = identify!(Some(self.file), &token_group[0]);
-            let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
+            let ident = identify!(&token_group[0]);
+            let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..])?;
             Ok(AstKind::FieldDefn(FieldDefnHead {
                 ident,
                 contract: MembAccessContract::Own,
@@ -52,8 +52,8 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         enter_block(self);
         self.env.set_value(AstContext::Morphism);
-        let ident = identify!(Some(self.file), &token_group[1]);
-        let ty = atom::parse_ty(self.symbol_proxy(), &token_group[3..], Some(self.file))?;
+        let ident = identify!(&token_group[1]);
+        let ty = atom::parse_ty(self.symbol_proxy(), &token_group[3..])?;
         Ok(AstKind::MembFeatureDefnHead { ident, ty })
     }
 }

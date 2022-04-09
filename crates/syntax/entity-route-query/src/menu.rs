@@ -1,7 +1,7 @@
 use crate::*;
 use entity_route::*;
 use std::sync::Arc;
-use word::RootIdentifier;
+use word::{ContextualIdentifier, RootIdentifier};
 
 pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<EntityRouteMenu> {
     Arc::new(EntityRouteMenu {
@@ -23,6 +23,10 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
             },
             generics: vec![],
         }),
+        this_type: db.intern_scope(EntityRoute {
+            kind: EntityRouteKind::ThisType,
+            generics: vec![],
+        }),
     })
 }
 
@@ -31,4 +35,5 @@ pub struct EntityRouteMenu {
     pub clone_trait: EntityRoutePtr,
     pub void_type: EntityRoutePtr,
     pub i32_type: EntityRoutePtr,
+    pub this_type: EntityRoutePtr,
 }

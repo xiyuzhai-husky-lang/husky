@@ -1,5 +1,5 @@
-use ast::GenericPlaceholder;
 use check_utils::should_eq;
+use defn_head::GenericPlaceholder;
 use entity_route::*;
 use entity_route_query::*;
 use word::CustomIdentifier;
@@ -29,7 +29,7 @@ impl<'a> Instantiator<'a> {
                     EntityRouteKind::Package { .. } => panic!(),
                     EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
                     EntityRouteKind::ChildScope { parent, ident } => todo!(),
-                    EntityRouteKind::Contextual { main, ident } => todo!(),
+                    EntityRouteKind::Input { main } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => {
                         if let Some(idx) = self.find_generic(ident) {
                             match self.dst_generics[idx] {

@@ -1,17 +1,19 @@
 mod convexity;
 mod error;
 mod kind;
-pub(crate) mod parser;
+pub mod parser;
 mod stack;
-pub(crate) mod symbol_proxy;
+pub mod symbol_proxy;
 
+pub use error::*;
 pub use kind::{AtomKind, LambdaHead};
-pub(crate) use parser::parse_ty;
+pub use parser::parse_ty;
 pub use parser::AtomLRParser;
 pub use symbol_proxy::SymbolProxy;
-pub(crate) use syntax_types::*;
+pub use syntax_types::*;
 
 use entity_route::EntityRoutePtr;
+use entity_syntax::*;
 use text::TextRange;
 use text::TextRanged;
 use token::{Token, TokenKind};

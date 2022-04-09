@@ -8,8 +8,8 @@ pub use kind::RawExprVariant;
 pub(crate) use stack::ExprStack;
 pub use word::Keyword;
 
-use crate::atom::AtomKind;
 use crate::*;
+use atom::AtomKind;
 
 use syntax_types::*;
 use text::TextRange;

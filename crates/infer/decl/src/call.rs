@@ -1,3 +1,4 @@
+use defn_head::*;
 use print_utils::msg_once;
 use static_decl::{StaticEntityDecl, StaticFuncDecl, StaticInputDecl};
 use vm::InputContract;
@@ -159,25 +160,28 @@ pub(crate) fn call_decl(
             }
         }
         EntitySource::Module { file: file_id } => todo!(),
-        EntitySource::Contextual { .. } => todo!(),
+        EntitySource::Input { .. } => todo!(),
     };
 
-    fn func_call_decl_from_raw(
-        this: &dyn DeclQueryGroup,
-        signature: &StaticFuncDecl,
-    ) -> RoutineDecl {
+    fn func_call_decl_from_raw(db: &dyn DeclQueryGroup, signature: &StaticFuncDecl) -> RoutineDecl {
+        let symbol_proxy = SymbolProxy {
+            opt_package_main: None,
+            db: db.upcast(),
+            this_ty: None,
+            symbols: todo!(),
+        };
         let inputs = signature
             .inputs
             .iter()
             .map(|sig| {
                 Ok(InputDecl {
-                    ty: this.parse_ty(sig.ty)?,
+                    ty: parse_ty(symbol_proxy, &db.tokenize(sig.ty))?,
                     contract: sig.contract,
                 })
             })
             .collect::<AstResult<Vec<InputDecl>>>()
             .unwrap();
-        let output = this.parse_ty(signature.output).unwrap();
+        let output = parse_ty(symbol_proxy, &db.tokenize(signature.output)).unwrap();
         RoutineDecl { inputs, output }
     }
 }

@@ -70,7 +70,7 @@ impl<'a> TySheetBuilder<'a> {
                     EntityRouteKind::Root { ident } => todo!(),
                     EntityRouteKind::Package { main, ident } => todo!(),
                     EntityRouteKind::ChildScope { parent, ident } => parent,
-                    EntityRouteKind::Contextual { main, ident } => todo!(),
+                    EntityRouteKind::Input { main } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
                     EntityRouteKind::ThisType => todo!(),
                 },

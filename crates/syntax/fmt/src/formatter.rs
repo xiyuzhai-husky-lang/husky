@@ -1,10 +1,9 @@
 use std::ops::AddAssign;
 
-use ast::{
-    Ast, AstContext, AstKind, AstResult, InputPlaceholder, RawExpr, RawExprVariant, RawStmtKind,
-};
+use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtKind};
+use defn_head::InputPlaceholder;
 use entity_route::EntityRoutePtr;
-use entity_syntax::TyKind;
+use entity_syntax::{RoutineKind, TyKind};
 use fold::LocalValue;
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
