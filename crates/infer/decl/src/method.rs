@@ -1,6 +1,6 @@
 use crate::*;
 use atom::*;
-use map_vec::MapVec;
+use map_collect::MapVec;
 use static_decl::StaticMethodDecl;
 use vec_dict::HasKey;
 use vm::InputContract;
