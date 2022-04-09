@@ -4,7 +4,7 @@ mod load;
 mod test;
 mod val;
 
-use entity_syntax::RawTyKind;
+use entity_syntax::TyKind;
 use visual_syntax::StaticVisualizer;
 use xrng::permutation_from_seed;
 
@@ -29,7 +29,7 @@ const NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     decl: StaticEntityDecl::Func(StaticFuncDecl {
         inputs: vec![],
         output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
-        compiled: RoutineFp {
+        compiled: RoutineLinkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
             nargs: 0,
         },
@@ -42,7 +42,7 @@ const BINARY_IMAGE_28_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
         visualizer: StaticVisualizer {
             compiled: BinaryImage28::visualize,
         },
-        raw_ty_kind: RawTyKind::Other,
+        raw_ty_kind: TyKind::Other,
     },
 };
 

@@ -1,25 +1,23 @@
-use ast::MembVarDefn;
-use decl::MembAccessDecl;
-use semantics_entity::{EnumVariant, MembRoutineDefn, MembRoutineKind};
+use ast::FieldDefnHead;
+use infer_decl::FieldDecl;
+use semantics_entity::{
+    EnumVariantDefn, EnumVariantDefnVariant, FieldDefn, MethodDefn, MethodKind,
+};
 use vm::{InputContract, MembAccessContract};
 use word::CustomIdentifier;
 
 use super::*;
 
 impl<'a> RustGenerator<'a> {
-    pub(super) fn gen_enum_defn(
-        &mut self,
-        tyname: CustomIdentifier,
-        variants: &[(CustomIdentifier, EnumVariant)],
-    ) {
+    pub(super) fn gen_enum_defn(&mut self, tyname: CustomIdentifier, variants: &[EnumVariantDefn]) {
         self.write("enum ");
         self.write(&tyname);
         self.write(" {\n");
-        for (variant_ident, variant_kind) in variants {
-            match variant_kind {
-                EnumVariant::Constant => {
+        for enum_variant_defn in variants {
+            match enum_variant_defn.variant {
+                EnumVariantDefnVariant::Constant => {
                     self.result += "    ";
-                    self.result += variant_ident.0;
+                    self.result += &enum_variant_defn.ident;
                     self.result += ",\n";
                 }
             }
@@ -30,22 +28,23 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_struct_defn(
         &mut self,
         tyname: CustomIdentifier,
-        memb_vars: &[(CustomIdentifier, MembVarDefn)],
-        memb_routines: &[(CustomIdentifier, MembRoutineDefn)],
+        fields: &[FieldDefn],
+        methods: &[MethodDefn],
     ) {
         self.result += "pub struct ";
         self.result += tyname.0;
         self.result += " {\n";
-        for (memb_var_ident, memb_var_decl) in memb_vars {
+        for field in fields {
             self.result += "    pub(crate) ";
-            self.result += memb_var_ident.0;
+            self.result += &field.ident;
             self.result += ": ";
-            match memb_var_decl.contract {
-                MembAccessContract::Own => (),
-                MembAccessContract::Ref => todo!(),
-                MembAccessContract::LazyOwn => todo!(),
-            }
-            self.gen_scope(memb_var_decl.ty);
+            todo!();
+            // match field.contract {
+            //     MembAccessContract::Own => (),
+            //     MembAccessContract::Ref => todo!(),
+            //     MembAccessContract::LazyOwn => todo!(),
+            // }
+            self.gen_scope(field.ty);
             self.result += ",\n";
         }
         self.result += "}\n";
@@ -53,44 +52,44 @@ impl<'a> RustGenerator<'a> {
         self.write("\nimpl ");
         self.write(&tyname);
         self.write(" {\n");
-        self.gen_struct_call(memb_vars);
-        self.gen_struct_memb_routines(memb_routines);
+        self.gen_struct_call(fields);
+        self.gen_struct_field_routines(methods);
         self.write("}\n");
     }
 
-    fn gen_struct_call(&mut self, memb_vars: &[(CustomIdentifier, MembVarDefn)]) {
+    fn gen_struct_call(&mut self, fields: &[FieldDefn]) {
         self.write("    pub(crate) fn __call__(");
-        for (i, (memb_var_ident, memb_var_decl)) in memb_vars.iter().enumerate() {
+        for (i, field) in fields.iter().enumerate() {
             if i > 0 {
                 self.write(", ")
             }
-            self.write(&memb_var_ident);
+            self.write(&field.ident);
             self.write(": ");
-            match memb_var_decl.contract {
+            match field.contract() {
                 MembAccessContract::Own => (),
                 MembAccessContract::Ref => todo!(),
                 MembAccessContract::LazyOwn => todo!(),
             }
-            self.gen_scope(memb_var_decl.ty)
+            self.gen_scope(field.ty)
         }
         self.write(") -> Self {\n");
         self.write("        Self {");
-        for (i, (memb_var_ident, _)) in memb_vars.iter().enumerate() {
+        for (i, field) in fields.iter().enumerate() {
             if i > 0 {
                 self.write(", ")
             }
-            self.write(&memb_var_ident)
+            self.write(&field.ident)
         }
         self.write("}\n");
         self.write("    }\n");
     }
 
-    fn gen_struct_memb_routines(&mut self, memb_routines: &[(CustomIdentifier, MembRoutineDefn)]) {
-        for (memb_routine_ident, memb_routine) in memb_routines {
+    fn gen_struct_field_routines(&mut self, methods: &[MethodDefn]) {
+        for method in methods {
             self.write("\n    pub(crate) fn ");
-            self.write(&memb_routine_ident);
+            self.write(&method.ident);
             self.write("(");
-            match memb_routine.this_contract {
+            match method.this_contract {
                 InputContract::Pure => self.write("&self"),
                 InputContract::GlobalRef => todo!(),
                 InputContract::Move => todo!(),
@@ -98,7 +97,7 @@ impl<'a> RustGenerator<'a> {
                 InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
             }
-            for input_placeholder in memb_routine.input_placeholders.iter() {
+            for input_placeholder in method.input_placeholders.iter() {
                 self.write(", ");
                 self.write(&input_placeholder.ident);
                 self.write(": ");
@@ -117,11 +116,11 @@ impl<'a> RustGenerator<'a> {
                 self.gen_scope(input_placeholder.ranged_ty.route);
             }
             self.write(") -> ");
-            self.gen_scope(memb_routine.output.route);
+            self.gen_scope(method.output.route);
             self.write(" {\n");
-            match memb_routine.kind {
-                MembRoutineKind::Func { ref stmts } => self.gen_func_stmts(stmts, 8),
-                MembRoutineKind::Proc { ref stmts } => todo!(),
+            match method.kind {
+                MethodKind::Func { ref stmts } => self.gen_func_stmts(stmts, 8),
+                MethodKind::Proc { ref stmts } => todo!(),
             }
             self.write("    }\n");
         }

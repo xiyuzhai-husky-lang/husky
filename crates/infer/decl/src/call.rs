@@ -1,5 +1,5 @@
-use entity_route::StaticEntityDecl;
 use print_utils::msg_once;
+use static_decl::{StaticEntityDecl, StaticFuncDecl, StaticInputDecl};
 use vm::InputContract;
 
 use crate::*;
@@ -26,9 +26,10 @@ impl From<&RoutineDefnHead> for RoutineDecl {
     }
 }
 
-impl From<&MembRoutineDefnHead> for MembCallDecl {
+impl From<&MembRoutineDefnHead> for MethodDecl {
     fn from(head: &MembRoutineDefnHead) -> Self {
         Self {
+            ident: head.ident,
             this_contract: head.this_contract,
             inputs: head
                 .input_placeholders
@@ -57,7 +58,7 @@ impl InputDecl {
 
     pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
         Self {
-            ty: instantiator.instantiate_scope(self.ty).as_scope(),
+            ty: instantiator.instantiate_entity_route(self.ty).as_scope(),
             contract: self.contract,
         }
     }
@@ -113,15 +114,15 @@ pub(crate) fn call_decl(
                     generic_placeholders: ref generics,
                     ..
                 } => match kind {
-                    RawTyKind::Enum => todo!(),
-                    RawTyKind::Struct => {
+                    TyKind::Enum => todo!(),
+                    TyKind::Struct => {
                         let mut inputs = vec![];
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
                             match subast.kind {
-                                AstKind::MembVarDefn(ref memb_var_defn) => inputs.push(InputDecl {
-                                    contract: memb_var_defn.contract.constructor_input(),
-                                    ty: memb_var_defn.ty,
+                                AstKind::FieldDefn(ref field_var_defn) => inputs.push(InputDecl {
+                                    contract: field_var_defn.contract.constructor_input(),
+                                    ty: field_var_defn.ty,
                                 }),
                                 _ => (),
                             }
@@ -132,14 +133,14 @@ pub(crate) fn call_decl(
                             output: scope,
                         }))
                     }
-                    RawTyKind::Record => {
+                    TyKind::Record => {
                         let mut inputs = vec![];
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
                             match subast.kind {
-                                AstKind::MembVarDefn(ref memb_var_defn) => inputs.push(InputDecl {
-                                    contract: memb_var_defn.contract.constructor_input(),
-                                    ty: memb_var_defn.ty,
+                                AstKind::FieldDefn(ref field_var_defn) => inputs.push(InputDecl {
+                                    contract: field_var_defn.contract.constructor_input(),
+                                    ty: field_var_defn.ty,
                                 }),
                                 _ => (),
                             }
@@ -149,10 +150,10 @@ pub(crate) fn call_decl(
                             output: scope,
                         }))
                     }
-                    RawTyKind::Primitive => todo!(),
-                    RawTyKind::Vec => todo!(),
-                    RawTyKind::Array => todo!(),
-                    RawTyKind::Other => todo!(),
+                    TyKind::Primitive => todo!(),
+                    TyKind::Vec => todo!(),
+                    TyKind::Array => todo!(),
+                    TyKind::Other => todo!(),
                 },
                 _ => panic!(),
             }

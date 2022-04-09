@@ -54,22 +54,22 @@ impl<'eval> TraceFactory<'eval> {
             } => self.routine_call_tokens(ranged_scope, inputs, associated_trace, text, &config),
             FeatureExprKind::StructMembVarAccess { .. } => todo!(),
             FeatureExprKind::EnumLiteral { .. } => todo!(),
-            FeatureExprKind::MembFuncCall {
-                memb_ident,
+            FeatureExprKind::MethodCall {
+                field_ident,
                 ref opds,
                 ref instruction_sheet,
                 ref stmts,
                 ..
             } => todo!(),
             FeatureExprKind::MembProcCall {
-                memb_ident,
+                field_ident,
                 ref opds,
                 ref instruction_sheet,
                 ref stmts,
                 ..
             } => todo!(),
             FeatureExprKind::MembPattCall {
-                memb_ident,
+                field_ident,
                 ref opds,
                 ref instruction_sheet,
                 ref stmts,
@@ -78,7 +78,7 @@ impl<'eval> TraceFactory<'eval> {
             FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
             FeatureExprKind::RecordMembAccess {
                 ref this,
-                memb_ident,
+                field_ident,
                 ..
             } => todo!(),
             FeatureExprKind::This { ref repr } => todo!(),

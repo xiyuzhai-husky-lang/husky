@@ -1,6 +1,8 @@
-#[derive(PartialEq, Eq, Clone, Copy)]
+use serde::{Deserialize, Serialize};
+
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct DevSource {
-    pub file: &'static str,
+    pub file: String,
     pub line: u32,
 }
 
@@ -11,10 +13,10 @@ impl std::fmt::Debug for DevSource {
 }
 
 #[macro_export]
-macro_rules! src {
+macro_rules! dev_src {
     () => {
         dev_utils::DevSource {
-            file: file!(),
+            file: file!().to_string(),
             line: line!(),
         }
     };

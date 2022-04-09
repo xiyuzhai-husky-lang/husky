@@ -1,7 +1,7 @@
 use crate::*;
 
 pub(crate) fn cargo_toml_content(db: &dyn RustGenQueryGroup, main_file: FilePtr) -> Arc<String> {
-    let pack = db.pack(main_file).unwrap();
+    let pack = db.package(main_file).unwrap();
     Arc::new(format!(
         r#"[pack]
 name = "{}"

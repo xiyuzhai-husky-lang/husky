@@ -8,7 +8,7 @@ use crate::atom::symbol_proxy::{Symbol, SymbolProxy};
 use crate::*;
 
 #[salsa::query_group(AstQueryGroupStorage)]
-pub trait AstSalsaQueryGroup: entity_route_query::ScopeQueryGroup {
+pub trait AstSalsaQueryGroup: entity_route_query::EntityRouteQueryGroup {
     fn ast_text(&self, file: FilePtr) -> ScopeResultArc<AstText>;
 
     fn parse_ty(&self, code: &'static str) -> AstResult<EntityRoutePtr>;

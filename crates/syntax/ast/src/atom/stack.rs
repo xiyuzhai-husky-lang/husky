@@ -1,4 +1,4 @@
-use entity_route::{EntityRouteKind, GenericArgument, RawEntityKind};
+use entity_route::{EntityKind, EntityRouteKind, GenericArgument};
 use file::FilePtr;
 use word::RootIdentifier;
 
@@ -77,7 +77,7 @@ impl AtomStack {
                 Some(Atom {
                     kind:
                         AtomKind::EntityRoute {
-                            kind: RawEntityKind::Type(_),
+                            kind: EntityKind::Type(_),
                             ..
                         },
                     ..
@@ -155,7 +155,7 @@ impl AtomStack {
             AtomKind::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
             AtomKind::EntityRoute {
                 route: scope,
-                kind: RawEntityKind::Type(_),
+                kind: EntityKind::Type(_),
             } => types.push(scope.into()),
             _ => err!(self.file, *tail, "left parenthesis or type")?,
         };
@@ -171,7 +171,7 @@ impl AtomStack {
             match self.pop(tail)?.kind {
                 AtomKind::EntityRoute {
                     route: scope,
-                    kind: RawEntityKind::Type(_),
+                    kind: EntityKind::Type(_),
                 } => types.push(scope.into()),
                 _ => err!(self.file, *tail, "type")?,
             }

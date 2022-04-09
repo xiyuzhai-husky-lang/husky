@@ -64,7 +64,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     //     Ok(self.stack.pop())
     // }
 
-    fn call_compiled(&mut self, f: RoutineFp) -> VMResult<()> {
+    fn call_compiled(&mut self, f: RoutineLinkage) -> VMResult<()> {
         let result = (f.call)(self.stack.topk_mut(f.nargs))?;
         self.stack.push(result.into());
         Ok(())
@@ -78,10 +78,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         todo!()
     }
 
-    fn new_virtual_struct(&mut self, memb_vars: &[MembAccessContract]) -> VMResult<()> {
-        let inputs = self.stack.drain(memb_vars.len().try_into().unwrap());
+    fn new_virtual_struct(&mut self, field_vars: &[MembAccessContract]) -> VMResult<()> {
+        let inputs = self.stack.drain(field_vars.len().try_into().unwrap());
         self.stack
-            .push(VirtualTy::new_struct(inputs, memb_vars).into());
+            .push(VirtualTy::new_struct(inputs, field_vars).into());
         Ok(())
     }
 

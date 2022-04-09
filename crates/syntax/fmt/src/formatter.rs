@@ -1,10 +1,10 @@
 use std::ops::AddAssign;
 
 use ast::{
-    Ast, AstContext, AstKind, AstResult, InputPlaceholder, RawExpr, RawExprKind, RawStmtKind,
+    Ast, AstContext, AstKind, AstResult, InputPlaceholder, RawExpr, RawExprVariant, RawStmtKind,
 };
 use entity_route::EntityRoutePtr;
-use entity_syntax::RawTyKind;
+use entity_syntax::TyKind;
 use fold::LocalValue;
 use syntax_types::*;
 use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
@@ -86,16 +86,16 @@ impl<'a> Formatter<'a> {
             } => {
                 enter_block(self);
                 match kind {
-                    RawTyKind::Enum => todo!(),
-                    RawTyKind::Struct => {
+                    TyKind::Enum => todo!(),
+                    TyKind::Struct => {
                         self.context.set_value(AstContext::Struct);
                         self.write("struct ")
                     }
-                    RawTyKind::Record => todo!(),
-                    RawTyKind::Primitive => todo!(),
-                    RawTyKind::Vec => todo!(),
-                    RawTyKind::Array => todo!(),
-                    RawTyKind::Other => todo!(),
+                    TyKind::Record => todo!(),
+                    TyKind::Primitive => todo!(),
+                    TyKind::Vec => todo!(),
+                    TyKind::Array => todo!(),
+                    TyKind::Other => todo!(),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {
@@ -135,10 +135,10 @@ impl<'a> Formatter<'a> {
             }
             AstKind::PatternDefnHead => todo!(),
             AstKind::Use { ident, scope } => todo!(),
-            AstKind::MembVarDefn(ref memb_var) => {
-                self.fmt_ident(memb_var.ident.into());
+            AstKind::FieldDefn(ref field_var) => {
+                self.fmt_ident(field_var.ident.into());
                 self.write(": ");
-                self.fmt_member_variable_contracted_type(memb_var.contract, memb_var.ty)
+                self.fmt_member_variable_contracted_type(field_var.contract, field_var.ty)
             }
             AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstKind::DatasetConfigDefnHead => todo!(),
@@ -232,9 +232,9 @@ impl<'a> Formatter<'a> {
 
     fn fmt_expr(&mut self, expr: &RawExpr) {
         match expr.kind {
-            RawExprKind::Variable { varname, .. } => self.write(&varname),
-            RawExprKind::Unrecognized(varname) => self.write(&varname),
-            RawExprKind::PrimitiveLiteral(literal) => match literal {
+            RawExprVariant::Variable { varname, .. } => self.write(&varname),
+            RawExprVariant::Unrecognized(varname) => self.write(&varname),
+            RawExprVariant::PrimitiveLiteral(literal) => match literal {
                 PrimitiveValue::I32(i) => self.write(&i.to_string()),
                 PrimitiveValue::F32(f) => self.write(&f.to_string()),
                 PrimitiveValue::Void => todo!(),
@@ -242,12 +242,12 @@ impl<'a> Formatter<'a> {
                 PrimitiveValue::Bool(_) => todo!(),
                 PrimitiveValue::B64(_) => todo!(),
             },
-            RawExprKind::Bracketed(expr_idx) => {
+            RawExprVariant::Bracketed(expr_idx) => {
                 self.write("(");
                 self.fmt_expr(&self.arena[expr_idx]);
                 self.write(")");
             }
-            RawExprKind::Opn { opr: opn, ref opds } => match opn {
+            RawExprVariant::Opn { opr: opn, ref opds } => match opn {
                 Opr::Binary(opr) => {
                     let opds = &self.arena[opds];
                     self.fmt_expr(&opds[0]);
@@ -283,8 +283,8 @@ impl<'a> Formatter<'a> {
                 // ast::Opr::Index => todo!(),
                 // ast::Opr::Opr(opr) => match opr {},
             },
-            RawExprKind::Scope { .. } => todo!(),
-            RawExprKind::Lambda(ref inputs, expr) => {
+            RawExprVariant::Scope { .. } => todo!(),
+            RawExprVariant::Lambda(ref inputs, expr) => {
                 self.write("|");
                 self.join(
                     inputs,
@@ -300,7 +300,7 @@ impl<'a> Formatter<'a> {
                 self.write("| ");
                 self.fmt_expr(&self.arena[expr])
             }
-            RawExprKind::This { .. } => todo!(),
+            RawExprVariant::This { .. } => todo!(),
         }
     }
 

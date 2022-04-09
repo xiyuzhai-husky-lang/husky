@@ -1,6 +1,6 @@
 use entity_route::EntityRoutePtr;
 use vm::{BinaryOpr, PureBinaryOpr};
-use word::{CustomIdentifier, Identifier};
+use word::{CustomIdentifier, Identifier, RangedCustomIdentifier};
 
 #[derive(PartialEq, Eq, Copy, Clone)]
 pub enum Opr {
@@ -78,10 +78,10 @@ impl From<ListOpr> for Opr {
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum SuffixOpr {
-    Incr,                         // ++
-    Decr,                         // --
-    MayReturn,                    // ?
-    MembAccess(CustomIdentifier), // .
+    Incr,                               // ++
+    Decr,                               // --
+    MayReturn,                          // ?
+    MembAccess(RangedCustomIdentifier), // .
     WithType(EntityRoutePtr),           // :
 }
 

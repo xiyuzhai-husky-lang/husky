@@ -24,6 +24,6 @@ main:
     );
 
     let main_file_id = db.intern_file("haha/main.hsk".into());
-    let pack = db.pack(main_file_id).unwrap();
+    let pack = db.package(main_file_id).unwrap();
     let main_block = db.main_feature_block(main_file_id).unwrap();
 }

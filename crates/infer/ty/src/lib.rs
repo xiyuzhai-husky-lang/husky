@@ -5,11 +5,11 @@ pub use sheet::*;
 
 use ast::*;
 use check_utils::*;
-use decl::{DeclQueryGroup, TyDecl};
 use entity_route::{GenericArgument, *};
-use entity_route_query::{ScopeQueryGroup, ScopeResult, ScopeResultArc};
+use entity_route_query::{EntityRouteQueryGroup, ScopeResult, ScopeResultArc};
 use file::FilePtr;
 use fold::FoldStorage;
+use infer_decl::{DeclQueryGroup, TyDecl};
 use infer_error::*;
 use print_utils::*;
 use syntax_types::*;
@@ -17,7 +17,9 @@ use vm::EnumLiteralValue;
 use word::{ContextualIdentifier, RootIdentifier};
 
 #[salsa::query_group(InferTyQueryGroupStorage)]
-pub trait InferTySalsaQueryGroup: ScopeQueryGroup + ast::AstQueryGroup + DeclQueryGroup {
+pub trait InferTySalsaQueryGroup:
+    EntityRouteQueryGroup + ast::AstQueryGroup + DeclQueryGroup
+{
     fn scope_ty(&self, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr>;
     fn enum_literal_value(&self, scope: EntityRoutePtr) -> EnumLiteralValue;
     fn ty_sheet(&self, file: FilePtr) -> ScopeResultArc<TySheet>;

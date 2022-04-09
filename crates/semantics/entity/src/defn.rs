@@ -1,5 +1,13 @@
+mod morphism;
+mod routine;
+mod ty;
+
+pub use morphism::*;
+pub use routine::*;
+pub use ty::*;
+
 use crate::*;
-use ast::AstKind;
+use ast::{AstKind, InputPlaceholder};
 use entity_route::EntityRoutePtr;
 use entity_route::EntitySource;
 use fold::{FoldIterItem, FoldStorage};
@@ -58,6 +66,30 @@ impl EntityDefn {
             range,
         }
     }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum EntityDefnVariant {
+    Main(MainDefn),
+    Module {},
+    Feature {
+        ty: RangedEntityRoute,
+        lazy_stmts: Arc<Vec<Arc<LazyStmt>>>,
+    },
+    Pattern {},
+    Func {
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        output: RangedEntityRoute,
+        stmts: Arc<Vec<Arc<FuncStmt>>>,
+    },
+    Proc {
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        output: RangedEntityRoute,
+        stmts: Arc<Vec<Arc<ProcStmt>>>,
+    },
+    Ty(TyDefn),
+    EnumVariant(EnumVariantDefn),
+    Builtin,
 }
 
 pub(crate) fn main_defn(
@@ -138,9 +170,9 @@ pub(crate) fn opt_entity_defn(
                     variant_class,
                 } => (
                     ident,
-                    EntityDefnVariant::enum_variant(db, variant_class, children),
+                    EntityDefnVariant::enum_variant(db, ident, variant_class, children),
                 ),
-                AstKind::MembVarDefn { .. } => todo!(),
+                AstKind::FieldDefn { .. } => todo!(),
                 AstKind::MembRoutineDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,

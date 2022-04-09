@@ -54,8 +54,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     control
                 }
-                InstructionKind::NewVirtualStruct { ref memb_vars } => {
-                    let control = self.new_virtual_struct(memb_vars).into();
+                InstructionKind::NewVirtualStruct {
+                    fields: ref field_vars,
+                } => {
+                    let control = self.new_virtual_struct(field_vars).into();
                     match mode {
                         Mode::Fast => (),
                         Mode::Debug => todo!(),
@@ -88,10 +90,14 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.pop();
                     control
                 }
-                InstructionKind::MembAccessCompiled { memb_access_fp } => todo!(),
-                InstructionKind::MembAccessInterpreted { memb_idx, contract } => {
+                InstructionKind::MembAccessCompiled { field_access_fp } => todo!(),
+                InstructionKind::MembAccessInterpreted {
+                    field_idx,
+                    contract,
+                } => {
                     let this = self.stack.pop();
-                    self.stack.push(this.memb_var(memb_idx as usize, contract));
+                    self.stack
+                        .push(this.field_var(field_idx as usize, contract));
                     VMControl::None
                 }
             };
@@ -103,7 +109,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn exec_code(&mut self, code: RoutineFp) -> EvalResult<'eval> {
+    pub(crate) fn exec_code(&mut self, code: RoutineLinkage) -> EvalResult<'eval> {
         todo!()
     }
 

@@ -1,3 +1,4 @@
+use dev_utils::dev_src;
 use entity_route::*;
 use file::FilePtr;
 use word::{CustomIdentifier, Keyword};
@@ -12,7 +13,7 @@ use word::Identifier;
 #[derive(PartialEq, Eq, Clone)]
 pub struct Entry {
     pub ident: Option<CustomIdentifier>,
-    pub kind: RawEntityKind,
+    pub kind: EntityKind,
     pub source: EntitySource,
 }
 
@@ -37,7 +38,7 @@ impl Entry {
                     return (
                         Some(Entry {
                             ident: Some(ident),
-                            kind: RawEntityKind::Literal,
+                            kind: EntityKind::Literal,
                             source: EntitySource::from_file(file, token_group_index),
                         }),
                         None,
@@ -51,7 +52,7 @@ impl Entry {
                 return (
                     Some(Entry {
                         ident: None,
-                        kind: RawEntityKind::Routine,
+                        kind: EntityKind::Routine,
                         source: EntitySource::from_file(file, token_group_index),
                     }),
                     None,
@@ -62,7 +63,7 @@ impl Entry {
                     TokenKind::Identifier(ident) => (
                         Some(Entry {
                             ident: Some(ident.opt_custom().expect("todo")),
-                            kind: RawEntityKind::Module,
+                            kind: EntityKind::Module,
                             source: EntitySource::WithinModule {
                                 file,
                                 token_group_index: token_group_index,
@@ -81,13 +82,14 @@ impl Entry {
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
-                    if let Some(kind) = RawEntityKind::new(keyword, &token_group[2]) {
+                    if let Some(kind) = EntityKind::new(keyword, &token_group[2]) {
                         return match ident {
                             Identifier::Builtin(_) => (
                                 None,
                                 Some(EntityDefnError {
                                     range: token_group[1].text_range(),
                                     rule_broken: ScopeDefRule::BuiltinIdentifierAreReserved,
+                                    dev_src: dev_src!(),
                                 }),
                             ),
                             Identifier::Custom(user_defined_ident) => (
@@ -103,6 +105,7 @@ impl Entry {
                                 Some(EntityDefnError {
                                     range: token_group[1].text_range(),
                                     rule_broken: ScopeDefRule::ContextualIdentifierAreReserved,
+                                    dev_src: dev_src!(),
                                 }),
                             ),
                         };
@@ -113,6 +116,7 @@ impl Entry {
                     Some(EntityDefnError {
                         range: token_group[1].text_range(),
                         rule_broken: ScopeDefRule::NonMainSecondTokenShouldBeIdentifier,
+                        dev_src: dev_src!(),
                     }),
                 )
             }
@@ -121,6 +125,7 @@ impl Entry {
                 Some(EntityDefnError {
                     range: token_group[0].text_range(),
                     rule_broken: ScopeDefRule::FirstTokenShouldBeKeyword,
+                    dev_src: dev_src!(),
                 }),
             ),
         }
@@ -171,7 +176,7 @@ impl SubscopeTable {
         self.entries
             .iter()
             .filter_map(|entry| {
-                if entry.kind == RawEntityKind::Module {
+                if entry.kind == EntityKind::Module {
                     Some(entry.ident)
                 } else {
                     None
@@ -191,7 +196,7 @@ impl SubscopeTable {
         )
     }
 
-    pub fn raw_entity_kind(&self, ident: CustomIdentifier) -> Option<RawEntityKind> {
+    pub fn raw_entity_kind(&self, ident: CustomIdentifier) -> Option<EntityKind> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))

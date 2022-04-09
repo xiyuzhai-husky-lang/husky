@@ -295,26 +295,26 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         self.any().static_type_id()
     }
 
-    pub fn memb_var(self, memb_idx: usize, contract: EagerContract) -> StackValue<'stack, 'eval> {
+    pub fn field_var(self, field_idx: usize, contract: EagerContract) -> StackValue<'stack, 'eval> {
         match self {
             StackValue::Moved => todo!(),
             StackValue::Primitive(_) => todo!(),
             StackValue::Boxed(boxed_value) => {
                 let mut value: VirtualTy = boxed_value.take().unwrap();
-                value.take_memb_var(memb_idx)
+                value.take_field_var(field_idx)
             }
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_memb_var(memb_idx, contract)
+                value.eager_field_var(field_idx, contract)
             }
             StackValue::LocalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_memb_var(memb_idx, contract)
+                value.eager_field_var(field_idx, contract)
             }
             StackValue::MutLocalRef { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
-                virtual_value.memb_var_mut(memb_idx, contract, owner)
+                virtual_value.field_var_mut(field_idx, contract, owner)
             }
         }
     }

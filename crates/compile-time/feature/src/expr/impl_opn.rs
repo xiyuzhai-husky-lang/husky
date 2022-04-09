@@ -1,4 +1,4 @@
-use decl::{MembAccessKind, TyDecl};
+use infer_decl::{FieldAccessKind, TyDecl};
 use vm::LazyContract;
 
 use super::*;
@@ -77,37 +77,39 @@ impl<'a> FeatureExprBuilder<'a> {
             }
             LazyOpnKind::PatternCall => todo!(),
             LazyOpnKind::MembAccess {
-                memb_ident,
-                memb_access_kind,
+                field_ident,
+                field_access_kind,
             } => {
                 let this = self.new_expr(&opds[0]);
-                match memb_access_kind {
-                    MembAccessKind::StructMembVar => {
+                match field_access_kind {
+                    FieldAccessKind::StructMembVar => {
                         let feature = self.features.alloc(Feature::StructMembVarAccess {
                             this: this.feature,
-                            memb_ident,
+                            field_ident: field_ident.ident,
                         });
                         msg_once!("compiled memb var access");
                         let this_ty_decl = self.db.ty_decl(this.ty).unwrap();
                         (
                             FeatureExprKind::StructMembVarAccess {
                                 this,
-                                memb_ident,
-                                memb_idx: this_ty_decl.memb_idx(memb_ident),
+                                field_ident,
+                                field_idx: this_ty_decl.field_idx(field_ident.ident),
                                 contract,
                                 opt_compiled: None,
                             },
                             feature,
                         )
                     }
-                    MembAccessKind::StructMembFeature => todo!(),
-                    MembAccessKind::RecordMemb => {
-                        let repr = self.db.record_memb_repr(this.clone().into(), memb_ident);
+                    FieldAccessKind::StructMembFeature => todo!(),
+                    FieldAccessKind::RecordMemb => {
+                        let repr = self
+                            .db
+                            .record_field_repr(this.clone().into(), field_ident.ident);
                         let feature = repr.feature();
                         (
                             FeatureExprKind::RecordMembAccess {
                                 this,
-                                memb_ident,
+                                field_ident,
                                 repr,
                             },
                             feature,
@@ -115,39 +117,36 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                 }
             }
-            LazyOpnKind::MembCall { memb_ident, .. } => {
+            LazyOpnKind::MembCall { field_ident, .. } => {
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
                 let feature = self.features.alloc(Feature::MembCall {
-                    memb_ident,
+                    field_ident: field_ident.ident,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
                 let ty_entity_defn = self.db.opt_entity_defn(opds[0].ty).unwrap().unwrap();
-                let ty = match ty_entity_defn.kind() {
+                let ty_defn = match ty_entity_defn.kind() {
                     EntityDefnVariant::Ty(ty) => ty,
                     _ => panic!(),
                 };
-                match ty.kind {
-                    TyDefnVariant::Enum { ref variants } => todo!(),
-                    TyDefnVariant::Struct {
-                        ref memb_vars,
-                        ref memb_routines,
-                    } => {
-                        let memb_routine = memb_routines.get(memb_ident).unwrap();
-                        let kind = match memb_routine.kind {
-                            MembRoutineKind::Func { ref stmts } => FeatureExprKind::MembFuncCall {
-                                memb_ident,
+                match ty_defn.kind {
+                    TyDefnKind::Enum => todo!(),
+                    TyDefnKind::Struct => {
+                        let method = ty_defn.methods.get(field_ident.ident).unwrap();
+                        let kind = match method.kind {
+                            MethodKind::Func { ref stmts } => FeatureExprKind::MethodCall {
+                                field_ident: field_ident.ident,
                                 instruction_sheet: self
                                     .db
-                                    .memb_routine_instruction_sheet(opds[0].ty, memb_ident),
+                                    .method_instruction_sheet(opds[0].ty, field_ident.ident),
                                 stmts: stmts.clone(),
                                 opds,
                                 opt_compiled: None,
                             },
-                            MembRoutineKind::Proc { ref stmts } => todo!(),
+                            MethodKind::Proc { ref stmts } => todo!(),
                         };
                         (kind, feature)
                     }
-                    TyDefnVariant::Record { .. } => todo!(),
+                    TyDefnKind::Record { .. } => todo!(),
                 }
             }
             LazyOpnKind::ElementAccess => todo!(),
@@ -170,17 +169,17 @@ impl<'a> FeatureExprBuilder<'a> {
         }
     }
 
-    fn record_memb_var_value(
+    fn record_field_var_value(
         &self,
         this: &FeatureExpr,
-        memb_ident: CustomIdentifier,
+        field_ident: CustomIdentifier,
     ) -> Arc<FeatureExpr> {
         match this.kind {
             FeatureExprKind::Variable { .. } => todo!(),
             FeatureExprKind::RecordMembAccess { .. } => todo!(),
             FeatureExprKind::MembPattCall { .. } => todo!(),
             FeatureExprKind::FeatureBlock { ref block, .. } => {
-                self.derive_record_memb_var_value_from_block(block, memb_ident)
+                self.derive_record_field_var_value_from_block(block, field_ident)
             }
             FeatureExprKind::ClassCall {
                 ref entity,
@@ -188,9 +187,9 @@ impl<'a> FeatureExprBuilder<'a> {
                 ..
             } => match entity.kind() {
                 EntityDefnVariant::Ty(ty) => match ty.kind {
-                    TyDefnVariant::Record { ref memb_vars, .. } => {
-                        p!(memb_ident, memb_vars);
-                        let idx = memb_vars.position(memb_ident).unwrap();
+                    TyDefnKind::Record => {
+                        p!(field_ident, ty.fields);
+                        let idx = ty.fields.position(field_ident).unwrap();
                         opds[idx].clone()
                     }
                     _ => panic!(),
@@ -201,7 +200,7 @@ impl<'a> FeatureExprBuilder<'a> {
             | FeatureExprKind::EnumLiteral { .. }
             | FeatureExprKind::PrimitiveBinaryOpr { .. }
             | FeatureExprKind::ProcCall { .. }
-            | FeatureExprKind::MembFuncCall { .. }
+            | FeatureExprKind::MethodCall { .. }
             | FeatureExprKind::MembProcCall { .. }
             | FeatureExprKind::StructMembVarAccess { .. }
             | FeatureExprKind::PrimitiveLiteral(_) => {
@@ -216,16 +215,16 @@ impl<'a> FeatureExprBuilder<'a> {
     //     feature: result.feature,
     //     kind: RecordMembExprKind::Expr(result.clone()),
     // },
-    fn derive_record_memb_var_value_from_block(
+    fn derive_record_field_var_value_from_block(
         &self,
         block: &FeatureBlock,
-        memb_ident: CustomIdentifier,
+        field_ident: CustomIdentifier,
     ) -> Arc<FeatureExpr> {
         let stmt_features = block.stmt_features();
         if stmt_features.len() == 1 {
             match block.stmts.last().unwrap().kind {
                 FeatureStmtKind::Return { ref result } => {
-                    self.record_memb_var_value(result, memb_ident)
+                    self.record_field_var_value(result, field_ident)
                 }
                 FeatureStmtKind::BranchGroup { kind, ref branches } => todo!(),
                 _ => panic!(),

@@ -4,7 +4,7 @@ mod precedence;
 mod stack;
 
 use arena::{Arena, ArenaIdx, ArenaRange};
-pub use kind::RawExprKind;
+pub use kind::RawExprVariant;
 pub(crate) use stack::ExprStack;
 pub use word::Keyword;
 
@@ -18,7 +18,7 @@ use text::TextRanged;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawExpr {
     pub range: TextRange,
-    pub kind: RawExprKind,
+    pub kind: RawExprVariant,
 }
 
 impl TextRanged for RawExpr {
@@ -42,7 +42,7 @@ impl RawExpr {
         if bracket == Bracket::Par && start_attr == ListStartAttr::None && arena::len(&opds) == 1 {
             return Self {
                 range,
-                kind: RawExprKind::Bracketed(opds.start),
+                kind: RawExprVariant::Bracketed(opds.start),
             };
         }
         let opr = match start_attr {
@@ -64,14 +64,14 @@ impl RawExpr {
         .into();
         Self {
             range,
-            kind: RawExprKind::Opn { opr, opds },
+            kind: RawExprVariant::Opn { opr, opds },
         }
     }
 
     pub fn opn(range: TextRange, opr: Opr, opds: RawExprRange) -> Self {
         Self {
             range,
-            kind: RawExprKind::Opn { opr, opds },
+            kind: RawExprVariant::Opn { opr, opds },
         }
     }
 }
@@ -82,12 +82,14 @@ impl From<&atom::Atom> for RawExpr {
             range: atom.text_range(),
             kind: match atom.kind {
                 AtomKind::Variable { varname, init_row } => {
-                    RawExprKind::Variable { varname, init_row }
+                    RawExprVariant::Variable { varname, init_row }
                 }
-                AtomKind::Unrecognized(ident) => RawExprKind::Unrecognized(ident),
-                AtomKind::Literal(literal) => RawExprKind::PrimitiveLiteral(literal.clone()),
-                AtomKind::EntityRoute { route: scope, kind } => RawExprKind::Scope { scope, kind },
-                AtomKind::ThisData { ty } => RawExprKind::This { ty },
+                AtomKind::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
+                AtomKind::Literal(literal) => RawExprVariant::PrimitiveLiteral(literal.clone()),
+                AtomKind::EntityRoute { route: scope, kind } => {
+                    RawExprVariant::Scope { scope, kind }
+                }
+                AtomKind::ThisData { ty } => RawExprVariant::This { ty },
                 _ => {
                     p!(atom.kind);
                     panic!()

@@ -18,14 +18,14 @@ pub trait FeatureQueryGroup:
 {
     fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
     fn scoped_feature_block(&self, scope: EntityRoutePtr) -> SemanticResultArc<FeatureBlock>;
-    fn record_memb_repr(&self, this: FeatureRepr, memb_ident: CustomIdentifier) -> FeatureRepr;
+    fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
 }
 
 fn main_feature_block(
     db: &dyn FeatureQueryGroup,
     main_file: file::FilePtr,
 ) -> SemanticResultArc<FeatureBlock> {
-    let pack = db.pack(main_file)?;
+    let pack = db.package(main_file)?;
     let main = &*pack.main_defn;
     Ok(FeatureBlock::new(db, None, &main.stmts, &[], db.features()))
 }

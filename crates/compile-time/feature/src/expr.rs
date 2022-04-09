@@ -9,7 +9,7 @@ use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
-use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembAccessFp, RoutineFp};
+use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembAccessFp, RoutineLinkage};
 use word::{ContextualIdentifier, RootIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
@@ -64,7 +64,7 @@ pub enum FeatureExprKind {
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        compiled: Option<RoutineFp>,
+        compiled: Option<RoutineLinkage>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
@@ -74,38 +74,38 @@ pub enum FeatureExprKind {
         uid: EntityUid,
         callee_file: FilePtr,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        opt_compiled: Option<RoutineFp>,
+        opt_compiled: Option<RoutineLinkage>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     StructMembVarAccess {
         this: Arc<FeatureExpr>,
-        memb_ident: CustomIdentifier,
-        memb_idx: usize,
+        field_ident: RangedCustomIdentifier,
+        field_idx: usize,
         contract: LazyContract,
         opt_compiled: Option<MembAccessFp>,
     },
     RecordMembAccess {
         this: Arc<FeatureExpr>,
-        memb_ident: CustomIdentifier,
+        field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
-    MembFuncCall {
-        memb_ident: CustomIdentifier,
+    MethodCall {
+        field_ident: CustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<RoutineFp>,
+        opt_compiled: Option<RoutineLinkage>,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     MembProcCall {
-        memb_ident: CustomIdentifier,
+        field_ident: RangedCustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<RoutineFp>,
+        opt_compiled: Option<RoutineLinkage>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
     MembPattCall {
-        memb_ident: CustomIdentifier,
+        field_ident: RangedCustomIdentifier,
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
         stmts: Arc<Vec<Arc<ProcStmt>>>,

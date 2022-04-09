@@ -81,7 +81,7 @@ impl Hash for EntityRoutePtr {
         match self {
             EntityRoutePtr::Root(ident) => ident.hash(state),
             EntityRoutePtr::Custom(scope) => (*scope as *const EntityRoute).hash(state),
-            EntityRoutePtr::ThisType => todo!(),
+            EntityRoutePtr::ThisType => (),
         }
     }
 }
@@ -111,6 +111,11 @@ impl Deref for EntityRoutePtr {
             }}
         }
 
+        const THIS_TYPE_ROUTE: &EntityRoute = &EntityRoute {
+            kind: EntityRouteKind::ThisType,
+            generics: vec![],
+        };
+
         match self {
             EntityRoutePtr::Root(ident) => match_root!(
                 ident => Void, I32, F32, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Fp, Fn,
@@ -121,7 +126,7 @@ impl Deref for EntityRoutePtr {
                 EqTrait
             ),
             EntityRoutePtr::Custom(scope) => scope,
-            EntityRoutePtr::ThisType => todo!(),
+            EntityRoutePtr::ThisType => THIS_TYPE_ROUTE,
         }
     }
 }

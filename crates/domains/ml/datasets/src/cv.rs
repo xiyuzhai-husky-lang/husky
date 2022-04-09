@@ -2,11 +2,10 @@ mod imagenet;
 mod mnist;
 
 use crate::{labeled::LabeledData, *};
-use crate::{synthetic::SimpleSyntheticDataset, *};
-use entity_route::StaticFuncDecl;
 use mnist::*;
+use static_decl::StaticFuncDecl;
 use std::sync::Arc;
-use vm::{BoxedValue, RoutineFp, StackValue};
+use vm::{BoxedValue, RoutineLinkage, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {

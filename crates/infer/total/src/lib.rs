@@ -1,4 +1,4 @@
-use infer_contract::InferContractQueryGroup;
-use infer_ty::InferTyQueryGroup;
+use infer_contract::*;
+use infer_ty::*;
 
 pub trait InferQueryGroup: InferContractQueryGroup + InferTyQueryGroup {}

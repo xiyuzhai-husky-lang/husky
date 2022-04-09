@@ -18,3 +18,4 @@ entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }
+infer-error = { path = "../../infer/error", version = "0.0.0" }

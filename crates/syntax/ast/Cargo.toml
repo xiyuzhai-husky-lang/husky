@@ -13,6 +13,7 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
+vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 arena = { path = "../../abstraction/arena", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
@@ -23,3 +24,4 @@ entity-route-query = { path = "../entity-route-query", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 entity-syntax = { path = "../entity", version = "0.0.0" }
+static-decl = { path = "../static-decl", version = "0.0.0" }

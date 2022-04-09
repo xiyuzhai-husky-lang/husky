@@ -7,7 +7,7 @@ mod impl_write;
 
 use crate::*;
 use pack_semantics::Pack;
-use semantics_entity::{EntityDefn, EntityDefnVariant, TyDefnVariant};
+use semantics_entity::{EntityDefn, EntityDefnVariant, TyDefnKind};
 use std::sync::Arc;
 
 pub(crate) struct RustGenerator<'a> {
@@ -52,14 +52,11 @@ impl<'a> RustGenerator<'a> {
                     stmts,
                 ),
                 EntityDefnVariant::Ty(ty) => match ty.kind {
-                    TyDefnVariant::Enum { ref variants } => {
-                        self.gen_enum_defn(entity.ident.custom(), variants)
+                    TyDefnKind::Enum => self.gen_enum_defn(entity.ident.custom(), &ty.variants),
+                    TyDefnKind::Struct => {
+                        self.gen_struct_defn(entity.ident.custom(), &ty.fields, &ty.methods)
                     }
-                    TyDefnVariant::Struct {
-                        ref memb_vars,
-                        ref memb_routines,
-                    } => self.gen_struct_defn(entity.ident.custom(), memb_vars, memb_routines),
-                    TyDefnVariant::Record { .. } => (),
+                    TyDefnKind::Record { .. } => (),
                 },
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::EnumVariant(_) => todo!(),

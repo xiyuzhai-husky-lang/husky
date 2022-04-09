@@ -7,10 +7,10 @@ use vm::PrimitiveValue;
 use word::WordPtr;
 
 use crate::*;
-use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute, RawEntityKind};
+use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum RawExprKind {
+pub enum RawExprVariant {
     Variable {
         varname: CustomIdentifier,
         init_row: Row,
@@ -21,7 +21,7 @@ pub enum RawExprKind {
     Unrecognized(CustomIdentifier),
     Scope {
         scope: EntityRoutePtr,
-        kind: RawEntityKind,
+        kind: EntityKind,
     },
     PrimitiveLiteral(PrimitiveValue),
     Bracketed(RawExprIdx),

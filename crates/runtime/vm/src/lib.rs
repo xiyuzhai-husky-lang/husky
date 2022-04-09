@@ -20,7 +20,7 @@ pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
-pub use fp::{ElemAccessFp, MembAccessFp, RoutineFp};
+pub use fp::{ElemAccessFp, MembAccessFp, RoutineLinkage};
 pub use frame::{FrameKind, LoopFrameSnapshot};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
@@ -39,7 +39,7 @@ pub fn eval_fast<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
     iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
     sheet: &InstructionSheet,
-    maybe_code: Option<RoutineFp>,
+    maybe_code: Option<RoutineLinkage>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, iter)?;
     if let Some(code) = maybe_code {

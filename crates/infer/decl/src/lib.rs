@@ -1,31 +1,33 @@
 mod call;
 mod feature;
+mod field;
 mod global;
-mod memb;
+mod method;
 mod traits;
 mod ty;
 
 pub use call::*;
-pub use memb::*;
+pub use field::*;
+pub use method::*;
 pub use traits::*;
 pub use ty::*;
 
 use ast::*;
 use entity_route::*;
 use entity_route_query::*;
-use entity_syntax::RawTyKind;
+use entity_syntax::TyKind;
 use feature::*;
 use file::FilePtr;
 use fold::FoldStorage;
 use global::*;
 use infer_error::*;
 use instantiate::*;
+use static_decl::*;
 use std::sync::Arc;
-use vm::RoutineFp;
 use word::CustomIdentifier;
 
 #[salsa::query_group(DeclQueryGroupStorage)]
-pub trait DeclQueryGroup: ScopeQueryGroup + ast::AstQueryGroup {
+pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
     fn call_decl(&self, scope: EntityRoutePtr) -> InferResultArc<RoutineDecl>;
     fn ty_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TyDecl>;
     fn trait_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TraitDecl>;

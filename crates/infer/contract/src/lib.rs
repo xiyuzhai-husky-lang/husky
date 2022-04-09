@@ -6,7 +6,7 @@ use ast::RawExprIdx;
 use check_utils::*;
 use copy::is_copyable;
 use entity_route::EntityRoutePtr;
-use entity_route_query::{ScopeQueryGroup, ScopeResultArc};
+use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
 use file::FilePtr;
 use infer_error::InferResult;
 use infer_ty::InferTyQueryGroup;
@@ -16,7 +16,7 @@ use vm::{EagerContract, LazyContract};
 
 #[salsa::query_group(InferContractQueryGroupStorage)]
 pub trait InferContractSalsaQueryGroup:
-    ScopeQueryGroup + ast::AstQueryGroup + InferTyQueryGroup
+    EntityRouteQueryGroup + ast::AstQueryGroup + InferTyQueryGroup
 {
     fn contract_sheet(&self, file: FilePtr) -> ScopeResultArc<ContractSheet>;
 

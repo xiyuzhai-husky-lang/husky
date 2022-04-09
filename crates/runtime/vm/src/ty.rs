@@ -5,39 +5,39 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VirtualTy<'eval> {
     Struct {
-        memb_vars: Vec<StructMembValue<'eval>>,
+        field_vars: Vec<StructMembValue<'eval>>,
     },
 }
 
 impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
     pub fn new_struct(
         mut inputs: Vec<StackValue<'stack, 'eval>>,
-        memb_var_contracts: &[MembAccessContract],
+        field_var_contracts: &[MembAccessContract],
     ) -> Self {
-        let mut memb_vars = vec![];
+        let mut field_vars = vec![];
         for i in 0..inputs.len() {
-            memb_vars.push(inputs[i].bind_move().into_struct_memb());
+            field_vars.push(inputs[i].bind_move().into_struct_memb());
         }
-        Self::Struct { memb_vars }
+        Self::Struct { field_vars }
     }
 
-    pub fn eval_memb_var(&self, memb_idx: usize) -> &StructMembValue<'eval> {
+    pub fn eval_field_var(&self, field_idx: usize) -> &StructMembValue<'eval> {
         match self {
-            VirtualTy::Struct { memb_vars } => &memb_vars[memb_idx],
+            VirtualTy::Struct { field_vars } => &field_vars[field_idx],
         }
     }
 
-    pub fn take_memb_var(&mut self, memb_idx: usize) -> StackValue<'stack, 'eval> {
+    pub fn take_field_var(&mut self, field_idx: usize) -> StackValue<'stack, 'eval> {
         match self {
-            VirtualTy::Struct { memb_vars } => {
-                std::mem::replace(&mut memb_vars[memb_idx], StructMembValue::Moved).into_stack()
+            VirtualTy::Struct { field_vars } => {
+                std::mem::replace(&mut field_vars[field_idx], StructMembValue::Moved).into_stack()
             }
         }
     }
 
-    pub fn eager_memb_var(
+    pub fn eager_field_var(
         &self,
-        memb_idx: usize,
+        field_idx: usize,
         contract: EagerContract,
     ) -> StackValue<'stack, 'eval> {
         match contract {
@@ -47,7 +47,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),
             EagerContract::Return => match self {
-                VirtualTy::Struct { memb_vars } => match memb_vars[memb_idx] {
+                VirtualTy::Struct { field_vars } => match field_vars[field_idx] {
                     StructMembValue::Primitive(value) => StackValue::Primitive(value),
                     StructMembValue::Boxed(_) => todo!(),
                     StructMembValue::GlobalPure(_) => todo!(),
@@ -61,9 +61,9 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
         }
     }
 
-    pub fn memb_var_mut(
+    pub fn field_var_mut(
         &mut self,
-        memb_idx: usize,
+        field_idx: usize,
         contract: EagerContract,
         owner: StackIdx,
     ) -> StackValue<'stack, 'eval> {
@@ -72,9 +72,9 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
             EagerContract::BorrowMut => match self {
-                VirtualTy::Struct { memb_vars } => {
-                    let memb_var_value = &mut memb_vars[memb_idx];
-                    let ptr: *mut dyn AnyValueDyn = match memb_var_value {
+                VirtualTy::Struct { field_vars } => {
+                    let field_var_value = &mut field_vars[field_idx];
+                    let ptr: *mut dyn AnyValueDyn = match field_var_value {
                         StructMembValue::Primitive(ref mut value) => value.any_mut(),
                         StructMembValue::Boxed(_) => todo!(),
                         StructMembValue::GlobalPure(_) => todo!(),

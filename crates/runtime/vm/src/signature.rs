@@ -1,5 +1,5 @@
 use vec_map::VecDict;
-use word::CustomIdentifier;
+use word::{CustomIdentifier, IdentDict};
 
 use crate::*;
 
@@ -7,7 +7,7 @@ use crate::*;
 pub enum TySignature {
     Enum,
     Struct {
-        memb_vars: VecDict<CustomIdentifier, MembAccessContract>,
+        field_vars: IdentDict<(CustomIdentifier, MembAccessContract)>,
     },
     Vec,
 }

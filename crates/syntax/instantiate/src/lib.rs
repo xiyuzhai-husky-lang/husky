@@ -1,3 +1,4 @@
+use ast::GenericPlaceholder;
 use check_utils::should_eq;
 use entity_route::*;
 use entity_route_query::*;
@@ -5,25 +6,25 @@ use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
     pub db: &'a dyn EntityRouteSalsaQueryGroup,
-    pub src_generic_placeholders: &'a [(CustomIdentifier, GenericPlaceholder)],
+    pub generic_placeholders: &'a [GenericPlaceholder],
     pub dst_generics: &'a [GenericArgument],
 }
 
 impl<'a> Instantiator<'a> {
     fn find_generic(&self, ident: CustomIdentifier) -> Option<usize> {
-        self.src_generic_placeholders
+        self.generic_placeholders
             .iter()
-            .position(|p| p.0 == ident)
+            .position(|p| p.ident == ident)
     }
 
-    pub fn instantiate_scope(&self, src_scope: EntityRoutePtr) -> GenericArgument {
+    pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> GenericArgument {
         match self.db.raw_entity_kind(src_scope) {
-            RawEntityKind::Module => GenericArgument::Scope(src_scope),
-            RawEntityKind::Type(_)
-            | RawEntityKind::Trait
-            | RawEntityKind::Routine
-            | RawEntityKind::Feature
-            | RawEntityKind::Pattern => {
+            EntityKind::Module => GenericArgument::Scope(src_scope),
+            EntityKind::Type(_)
+            | EntityKind::Trait
+            | EntityKind::Routine
+            | EntityKind::Feature
+            | EntityKind::Pattern => {
                 let (kind, mut generics) = match src_scope.kind {
                     EntityRouteKind::Package { .. } => panic!(),
                     EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
@@ -44,13 +45,13 @@ impl<'a> Instantiator<'a> {
                             todo!()
                         }
                     }
-                    EntityRouteKind::ThisType => todo!(),
+                    EntityRouteKind::ThisType => (EntityRouteKind::ThisType, vec![]),
                 };
                 // convention: A<B,C> = A<B><C>
                 generics.extend(self.instantiate_generics(&src_scope.generics));
                 GenericArgument::Scope(self.db.intern_scope(EntityRoute { kind, generics }))
             }
-            RawEntityKind::Literal => todo!(),
+            EntityKind::Literal => todo!(),
         }
     }
 
@@ -59,16 +60,16 @@ impl<'a> Instantiator<'a> {
             .iter()
             .map(|src_generic| match src_generic {
                 GenericArgument::Const(_) => *src_generic,
-                GenericArgument::Scope(scope) => self.instantiate_scope(*scope),
+                GenericArgument::Scope(scope) => self.instantiate_entity_route(*scope),
             })
             .collect()
     }
 
-    // pub fn instantiate_memb_access_decl(&self, signature: &MembAccessDecl) -> MembAccessDecl {
+    // pub fn instantiate_field_access_decl(&self, signature: &MembAccessDecl) -> MembAccessDecl {
     //     todo!()
     // }
 
-    // pub fn instantiate_memb_routine_decl(&self, signature: &MembCallDecl) -> MembCallDecl {
+    // pub fn instantiate_field_routine_decl(&self, signature: &MembCallDecl) -> MembCallDecl {
     //     MembCallDecl {
     //         this_contract: signature.this_contract,
     //         inputs: signature

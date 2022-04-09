@@ -16,6 +16,7 @@ pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
 use scanner::TokenScanner;
 use text::{TextIndent, TextRange, TextRanged};
+use word::{Identifier, RangedCustomIdentifier};
 
 #[derive(PartialEq, Eq)]
 pub struct Token {
@@ -34,6 +35,16 @@ impl Token {
         Token {
             range: text::new_same_line(i, start, end),
             kind,
+        }
+    }
+
+    pub fn ranged_custom_ident(&self) -> Option<RangedCustomIdentifier> {
+        match self.kind {
+            TokenKind::Identifier(Identifier::Custom(ident)) => Some(RangedCustomIdentifier {
+                ident: ident,
+                range: self.range,
+            }),
+            _ => todo!(),
         }
     }
 }

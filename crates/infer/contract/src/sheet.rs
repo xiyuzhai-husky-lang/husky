@@ -39,6 +39,29 @@ impl ContractSheet {
             Err(derived!())
         }
     }
+
+    pub fn errors(&self) -> Vec<&InferError> {
+        let mut errors: Vec<&InferError> = Vec::new();
+        for (_, result) in self.lazy_expr_contract_results.iter() {
+            match result {
+                Ok(_) => (),
+                Err(error) => match error.kind {
+                    InferErrorKind::Derived => (),
+                    InferErrorKind::Original { .. } => errors.push(error),
+                },
+            }
+        }
+        for (_, result) in self.eager_expr_contract_results.iter() {
+            match result {
+                Ok(_) => (),
+                Err(error) => match error.kind {
+                    InferErrorKind::Derived => (),
+                    InferErrorKind::Original { .. } => errors.push(error),
+                },
+            }
+        }
+        errors
+    }
 }
 
 pub(crate) fn contract_sheet(

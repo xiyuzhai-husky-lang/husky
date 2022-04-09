@@ -8,7 +8,7 @@ pub(crate) fn rust_bin_main_rs_content(
     db: &dyn RustGenQueryGroup,
     main_file: FilePtr,
 ) -> Arc<String> {
-    let pack = db.pack(main_file).unwrap();
+    let pack = db.package(main_file).unwrap();
     Arc::new(format!(
         r#"use husky_lang_debugger::*;
 use {}::__init__::link_entity_with_compiled;

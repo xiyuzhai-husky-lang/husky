@@ -1,8 +1,8 @@
 use super::utils;
 use crate::*;
 use ast::AtomKind;
-use entity_route::{EntityRouteKind, EntityRoutePtr, RawEntityKind};
-use entity_syntax::RawTyKind;
+use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
+use entity_syntax::TyKind;
 use word::{Identifier, RootIdentifier};
 
 #[test]
@@ -13,7 +13,7 @@ fn std_scope() {
         "std",
         AtomKind::EntityRoute {
             route: RootIdentifier::Std.into(),
-            kind: RawEntityKind::Module,
+            kind: EntityKind::Module,
         },
     );
 }
@@ -26,7 +26,7 @@ fn core_scope() {
         "core",
         AtomKind::EntityRoute {
             route: RootIdentifier::Core.into(),
-            kind: RawEntityKind::Module,
+            kind: EntityKind::Module,
         },
     );
 }
@@ -39,7 +39,7 @@ fn debug_scope() {
         "debug",
         AtomKind::EntityRoute {
             route: RootIdentifier::Debug.into(),
-            kind: RawEntityKind::Module,
+            kind: EntityKind::Module,
         },
     );
 }
@@ -52,7 +52,7 @@ fn i32_type() {
         "i32",
         AtomKind::EntityRoute {
             route: RootIdentifier::I32.into(),
-            kind: RawEntityKind::Type(RawTyKind::Primitive),
+            kind: EntityKind::Type(TyKind::Primitive),
         },
     );
 }
@@ -65,7 +65,7 @@ fn f32_type() {
         "f32",
         AtomKind::EntityRoute {
             route: RootIdentifier::F32.into(),
-            kind: RawEntityKind::Type(RawTyKind::Primitive),
+            kind: EntityKind::Type(TyKind::Primitive),
         },
     );
 }
@@ -78,7 +78,7 @@ fn vec_generics() {
         "Vec",
         AtomKind::EntityRoute {
             route: RootIdentifier::Vec.into(),
-            kind: RawEntityKind::Type(RawTyKind::Vec),
+            kind: EntityKind::Type(TyKind::Vec),
         },
     );
 }
@@ -91,7 +91,7 @@ fn tuple_generics() {
         "Tuple",
         AtomKind::EntityRoute {
             route: RootIdentifier::Tuple.into(),
-            kind: RawEntityKind::Type(RawTyKind::Other),
+            kind: EntityKind::Type(TyKind::Other),
         },
     );
 }

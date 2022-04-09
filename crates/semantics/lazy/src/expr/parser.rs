@@ -1,14 +1,12 @@
 use std::sync::Arc;
 
 use crate::*;
-use ast::{RawExpr, RawExprArena, RawExprIdx, RawExprKind, RawExprRange};
-
-use decl::TyDecl;
-use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute, RawEntityKind};
-use entity_syntax::RawTyKind;
+use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
+use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
+use entity_syntax::TyKind;
 use file::FilePtr;
 use syntax_types::{ListOpr, Opr};
-use vm::{BinaryOpr, EagerContract, PrimitiveValue, PureBinaryOpr};
+use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
 use word::{CustomIdentifier, RootIdentifier};
 
 use super::*;
@@ -23,17 +21,17 @@ pub trait LazyExprParser<'a> {
     fn parse_lazy_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<LazyExpr>> {
         let raw_expr = &self.arena()[raw_expr_idx];
         let kind: LazyExprKind = match raw_expr.kind {
-            RawExprKind::Variable { varname, .. } => LazyExprKind::Variable(varname),
-            RawExprKind::Unrecognized(ident) => {
+            RawExprVariant::Variable { varname, .. } => LazyExprKind::Variable(varname),
+            RawExprVariant::Unrecognized(ident) => {
                 err!(format!(
                     "unrecognized identifier {} at {:?}",
                     ident,
                     raw_expr.range()
                 ))
             }
-            RawExprKind::Scope { scope, kind, .. } => match kind {
-                RawEntityKind::Module => todo!(),
-                RawEntityKind::Literal => match scope {
+            RawExprVariant::Scope { scope, kind, .. } => match kind {
+                EntityKind::Module => todo!(),
+                EntityKind::Literal => match scope {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
@@ -46,17 +44,17 @@ pub trait LazyExprParser<'a> {
                     },
                     _ => todo!(),
                 },
-                RawEntityKind::Type(_) => todo!(),
-                RawEntityKind::Trait => todo!(),
-                RawEntityKind::Routine => todo!(),
-                RawEntityKind::Feature => LazyExprKind::ScopedFeature { scope },
-                RawEntityKind::Pattern => todo!(),
+                EntityKind::Type(_) => todo!(),
+                EntityKind::Trait => todo!(),
+                EntityKind::Routine => todo!(),
+                EntityKind::Feature => LazyExprKind::ScopedFeature { scope },
+                EntityKind::Pattern => todo!(),
             },
-            RawExprKind::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
-            RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { .. } => LazyExprKind::This,
+            RawExprVariant::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
+            RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::This { .. } => LazyExprKind::This,
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
@@ -205,27 +203,27 @@ pub trait LazyExprParser<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(memb_ident) => {
+            SuffixOpr::MembAccess(ranged_ident) => {
                 let ty_decl = self.db().ty_decl(this.ty).unwrap();
                 LazyExprKind::Opn {
                     opn_kind: LazyOpnKind::MembAccess {
-                        memb_ident,
-                        memb_access_kind: ty_decl.memb_access_kind(memb_ident),
+                        field_ident: ranged_ident,
+                        field_access_kind: ty_decl.field_access_kind(ranged_ident.ident),
                     },
                     compiled: (),
                     opds: vec![this],
                 }
                 // match *ty_decl {
                 //     TySignature::Struct {
-                //         ref memb_vars,
-                //         ref memb_routines,
+                //         ref field_vars,
+                //         ref field_routines,
                 //     } => {
                 //         todo!()
                 //     }
                 //     TySignature::Enum { ref variants } => todo!(),
                 //     TySignature::Record {
-                //         ref memb_vars,
-                //         ref memb_features,
+                //         ref field_vars,
+                //         ref field_features,
                 //     } => todo!(),
                 // }
             }
@@ -237,35 +235,35 @@ pub trait LazyExprParser<'a> {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.kind {
-            RawExprKind::Scope { scope, kind, .. } => {
+            RawExprVariant::Scope { scope, kind, .. } => {
                 let arguments: Vec<_> = ((opd_idx_range.start + 1)..opd_idx_range.end)
                     .map(|raw| self.parse_lazy_expr(raw))
                     .collect::<SemanticResult<_>>()?;
                 let opn_kind = match kind {
-                    RawEntityKind::Module => todo!(),
-                    RawEntityKind::Type(ty_kind) => match ty_kind {
-                        RawTyKind::Enum => todo!(),
-                        RawTyKind::Record => LazyOpnKind::ClassCall(RangedEntityRoute {
+                    EntityKind::Module => todo!(),
+                    EntityKind::Type(ty_kind) => match ty_kind {
+                        TyKind::Enum => todo!(),
+                        TyKind::Record => LazyOpnKind::ClassCall(RangedEntityRoute {
                             route: scope,
                             range: call.range(),
                         }),
-                        RawTyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
+                        TyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
                             route: scope,
                             range: call.range(),
                         }),
-                        RawTyKind::Primitive => todo!(),
-                        RawTyKind::Other => todo!(),
-                        RawTyKind::Vec => todo!(),
-                        RawTyKind::Array => todo!(),
+                        TyKind::Primitive => todo!(),
+                        TyKind::Other => todo!(),
+                        TyKind::Vec => todo!(),
+                        TyKind::Array => todo!(),
                     },
-                    RawEntityKind::Trait => todo!(),
-                    RawEntityKind::Routine => LazyOpnKind::RoutineCall(RangedEntityRoute {
+                    EntityKind::Trait => todo!(),
+                    EntityKind::Routine => LazyOpnKind::RoutineCall(RangedEntityRoute {
                         route: scope,
                         range: call.range(),
                     }),
-                    RawEntityKind::Feature => todo!(),
-                    RawEntityKind::Pattern => todo!(),
-                    RawEntityKind::Literal => todo!(),
+                    EntityKind::Feature => todo!(),
+                    EntityKind::Pattern => todo!(),
+                    EntityKind::Literal => todo!(),
                 };
                 Ok(LazyExprKind::Opn {
                     opn_kind,
@@ -273,13 +271,13 @@ pub trait LazyExprParser<'a> {
                     opds: arguments,
                 })
             }
-            RawExprKind::Variable { .. } => todo!(),
-            RawExprKind::Unrecognized(_) => todo!(),
-            RawExprKind::PrimitiveLiteral(_) => todo!(),
-            RawExprKind::Bracketed(_) => todo!(),
-            RawExprKind::Opn {
+            RawExprVariant::Variable { .. } => todo!(),
+            RawExprVariant::Unrecognized(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Opn {
                 opr,
-                opds: ref memb_opds,
+                opds: ref field_opds,
             } => match opr {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
@@ -287,8 +285,8 @@ pub trait LazyExprParser<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(memb_ident) => {
-                        let this = self.parse_lazy_expr(memb_opds.start)?;
+                    SuffixOpr::MembAccess(ranged_ident) => {
+                        let this = self.parse_lazy_expr(field_opds.start)?;
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_lazy_expr(idx))
                             .collect::<SemanticResult<Vec<_>>>()?;
@@ -296,7 +294,9 @@ pub trait LazyExprParser<'a> {
                         opds.extend(inputs);
                         msg_once!("todo: memb call compiled");
                         Ok(LazyExprKind::Opn {
-                            opn_kind: LazyOpnKind::MembCall { memb_ident },
+                            opn_kind: LazyOpnKind::MembCall {
+                                field_ident: ranged_ident,
+                            },
                             compiled: (),
                             opds,
                         })
@@ -305,8 +305,8 @@ pub trait LazyExprParser<'a> {
                 },
                 Opr::List(_) => todo!(),
             },
-            RawExprKind::Lambda(_, _) => todo!(),
-            RawExprKind::This { .. } => todo!(),
+            RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::This { .. } => todo!(),
         }
     }
 }

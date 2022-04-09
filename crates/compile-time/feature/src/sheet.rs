@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 
-use semantics_entity::{EntityDefn, EntityDefnVariant, TyDefnVariant};
 use vm::{EvalResult, EvalValue};
 
 use super::*;
@@ -40,19 +39,19 @@ impl<'eval> FeatureSheet<'eval> {
     //     let object = match entity.kind() {
     //         EntityKind::Ty(ty) => match ty.kind {
     //             TyDefnKind::Record {
-    //                 ref memb_vars,
-    //                 ref memb_features,
+    //                 ref field_vars,
+    //                 ref field_features,
     //             } => {
-    //                 assert!(memb_vars.len() == opds.len());
-    //                 let memb_features = memb_features
+    //                 assert!(field_vars.len() == opds.len());
+    //                 let field_features = field_features
     //                     .iter()
     //                     .map(|(_ident, defn)| {
     //                         FeatureBlock::new(db, &defn.stmts, &[], db.features())
     //                     })
     //                     .collect();
     //                 Object {
-    //                     memb_vars: opds.to_vec(),
-    //                     memb_features,
+    //                     field_vars: opds.to_vec(),
+    //                     field_features,
     //                 }
     //             }
     //             _ => panic!(),

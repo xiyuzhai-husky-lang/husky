@@ -2,6 +2,7 @@ mod atom;
 mod context;
 mod error;
 mod expr;
+mod generic;
 mod query;
 mod stmt;
 mod transform;
@@ -12,6 +13,7 @@ pub use crate::error::{AstError, AstResult, AstResultArc};
 pub use atom::*;
 pub use context::AstContext;
 pub use expr::*;
+pub use generic::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
 pub use transform::*;
@@ -19,13 +21,12 @@ pub use transform::*;
 use crate::error::{err, error};
 use check_utils::*;
 use dev_utils::*;
-use entity_route::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use entity_syntax::RawTyKind;
+use entity_syntax::TyKind;
 use print_utils::*;
 use text::TextRange;
 use vm::{InitKind, InputContract, MembAccessContract};
-use word::{CustomIdentifier, IdentMap, Identifier, StmtKeyword};
+use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
@@ -37,8 +38,8 @@ pub struct Ast {
 pub enum AstKind {
     TypeDefnHead {
         ident: CustomIdentifier,
-        kind: RawTyKind,
-        generic_placeholders: IdentMap<GenericPlaceholder>,
+        kind: TyKind,
+        generic_placeholders: IdentDict<GenericPlaceholder>,
     },
     MainDefn,
     RoutineDefnHead(RoutineDefnHead),
@@ -56,7 +57,7 @@ pub enum AstKind {
         ident: CustomIdentifier,
         scope: EntityRoutePtr,
     },
-    MembVarDefn(MembVarDefn),
+    FieldDefn(FieldDefnHead),
     DatasetConfigDefnHead,
     Stmt(RawStmt),
     EnumVariantDefnHead {
@@ -69,7 +70,7 @@ pub enum AstKind {
 pub struct RoutineDefnHead {
     pub ident: CustomIdentifier,
     pub routine_kind: RoutineKind,
-    pub generic_placeholders: IdentMap<GenericPlaceholder>,
+    pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedEntityRoute,
 }
@@ -79,16 +80,23 @@ pub struct MembRoutineDefnHead {
     pub ident: CustomIdentifier,
     pub routine_kind: RoutineKind,
     pub this_contract: InputContract,
-    pub generics: IdentMap<GenericPlaceholder>,
+    pub generics: IdentDict<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedEntityRoute,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MembVarDefn {
+pub struct FieldDefnHead {
     pub ident: CustomIdentifier,
     pub contract: MembAccessContract,
     pub ty: EntityRoutePtr,
+    pub kind: FieldKind,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum FieldKind {
+    Original,
+    Derived,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

@@ -24,7 +24,7 @@ impl<'a> AstTransformer<'a> {
                     RoutineKeyword::Test => todo!(),
                     RoutineKeyword::Proc => todo!(),
                     RoutineKeyword::Func => {
-                        self.parse_struct_memb_func(token_group, 1, enter_block)
+                        self.parse_struct_field_func(token_group, 1, enter_block)
                     }
                 },
                 Keyword::Type(_) => todo!(),
@@ -34,14 +34,14 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Mod => todo!(),
                 Keyword::Main => todo!(),
             },
-            TokenKind::Identifier(_) => self.parse_struct_memb_var(token_group),
+            TokenKind::Identifier(_) => self.parse_struct_field_var(token_group),
             TokenKind::Special(_) => todo!(),
             TokenKind::I32Literal(_) => todo!(),
             TokenKind::F32Literal(_) => todo!(),
         }
     }
 
-    pub(super) fn parse_struct_memb_var(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    pub(super) fn parse_struct_field_var(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         Ok(
             if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
                 if token_group.len() == 2 {
@@ -68,10 +68,11 @@ impl<'a> AstTransformer<'a> {
                     )?,
                 };
                 let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..], Some(self.file))?;
-                AstKind::MembVarDefn(MembVarDefn {
+                AstKind::FieldDefn(FieldDefnHead {
                     ident,
                     contract: MembAccessContract::Own,
                     ty,
+                    kind: FieldKind::Original,
                 })
             } else {
                 todo!()
@@ -79,7 +80,7 @@ impl<'a> AstTransformer<'a> {
         )
     }
 
-    pub(super) fn parse_struct_memb_func(
+    pub(super) fn parse_struct_field_func(
         &mut self,
         token_group: &[Token],
         funcname_idx: usize,
@@ -94,7 +95,7 @@ impl<'a> AstTransformer<'a> {
             self.symbol_proxy(),
             &token_group[funcname_idx..],
         )
-        .memb_routine_decl(InputContract::Pure, RoutineKind::Func)?;
+        .field_routine_decl(InputContract::Pure, RoutineKind::Func)?;
         self.symbols.extend(
             head.input_placeholders
                 .iter()

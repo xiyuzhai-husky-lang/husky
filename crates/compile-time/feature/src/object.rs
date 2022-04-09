@@ -1,11 +1,11 @@
 use super::*;
 use vm::EvalValue;
-use word::IdentMap;
+use word::IdentDict;
 
 #[derive(Debug, Clone)]
 pub struct Object {
-    pub memb_vars: Vec<Arc<FeatureExpr>>,
-    pub memb_features: Vec<Arc<FeatureBlock>>,
+    pub field_vars: Vec<Arc<FeatureExpr>>,
+    pub field_features: Vec<Arc<FeatureBlock>>,
 }
 
 impl<'eval> Into<EvalValue<'eval>> for Object {

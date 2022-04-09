@@ -3,13 +3,12 @@ mod keyword;
 mod utils;
 
 pub use alloc::{new_word_unique_allocator, InternWord, WordAllocator};
-pub use ident::{
-    default_func_type, ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier,
-};
+pub use ident::*;
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use utils::*;
 
-pub type IdentMap<T> = VecDict<CustomIdentifier, T>;
+pub type IdentDict<T> = VecDict<CustomIdentifier, T>;
+pub type IdentDict2<T> = VecDict<CustomIdentifier, (CustomIdentifier, T)>;
 
 use vec_map::VecDict;
 
