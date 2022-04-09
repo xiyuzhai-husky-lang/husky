@@ -34,12 +34,8 @@ pub(crate) fn feature_decl(
             }
         }
         EntitySource::Module { file } => todo!(),
-        EntitySource::Contextual { main, ident } => match ident {
-            ContextualIdentifier::Input => Ok(Arc::new(FeatureSignature {
-                ty: db.global_input_ty(main)?,
-            })),
-            ContextualIdentifier::ThisData => todo!(),
-            ContextualIdentifier::ThisType => todo!(),
-        },
+        EntitySource::Input { main } => Ok(Arc::new(FeatureSignature {
+            ty: db.global_input_ty(main)?,
+        })),
     }
 }

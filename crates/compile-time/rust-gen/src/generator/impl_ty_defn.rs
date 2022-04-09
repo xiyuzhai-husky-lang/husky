@@ -1,4 +1,3 @@
-use ast::FieldDefnHead;
 use infer_decl::FieldDecl;
 use semantics_entity::{
     EnumVariantDefn, EnumVariantDefnVariant, FieldDefn, MethodDefn, MethodKind,

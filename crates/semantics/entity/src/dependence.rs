@@ -1,4 +1,3 @@
-use ast::InputPlaceholder;
 use entity_route::EntityRouteKind;
 use print_utils::msg_once;
 use semantics_error::*;
@@ -29,7 +28,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
-            EntityRouteKind::Contextual { main, ident } => todo!(),
+            EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic {
                 ident,
                 entity_kind: raw_entity_kind,

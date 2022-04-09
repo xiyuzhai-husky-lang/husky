@@ -104,6 +104,12 @@ impl Upcast<dyn entity_route_query::EntityRouteSalsaQueryGroup> for HuskyLangCom
     }
 }
 
+impl Upcast<dyn entity_route_query::EntityRouteQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn entity_route_query::EntityRouteQueryGroup + 'static) {
+        self
+    }
+}
+
 impl infer_ty::InferTyQueryGroup for HuskyLangCompileTime {}
 
 impl infer_contract::InferContractQueryGroup for HuskyLangCompileTime {}

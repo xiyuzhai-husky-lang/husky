@@ -8,9 +8,7 @@ pub enum StaticEntityDecl {
         visualizer: StaticVisualizer,
     },
     TyTemplate,
-    Trait {
-        methods: &'static [StaticMethodDecl],
-    },
+    Trait(StaticTraitDecl),
     Module,
 }
 

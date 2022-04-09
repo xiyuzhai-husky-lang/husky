@@ -47,9 +47,9 @@ impl TySheet {
         for (_, result) in self.exprs.iter() {
             match result {
                 Ok(_) => (),
-                Err(error) => match error.kind {
-                    InferErrorKind::Derived => (),
-                    InferErrorKind::Original { .. } => errors.push(error),
+                Err(error) => match error.variant {
+                    InferErrorVariant::Derived => (),
+                    InferErrorVariant::Original { .. } => errors.push(error),
                 },
             }
         }

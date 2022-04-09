@@ -1,11 +1,12 @@
-use crate::{atom::symbol_proxy::SymbolProxy, *};
+use crate::*;
+use atom::symbol_proxy::SymbolProxy;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn symbol_proxy(&self) -> SymbolProxy {
         SymbolProxy {
-            db: self.db,
+            db: self.db.upcast(),
             symbols: &self.symbols,
-            main: Some(self.main),
+            opt_package_main: Some(self.main),
             this_ty: self.this.value(),
         }
     }

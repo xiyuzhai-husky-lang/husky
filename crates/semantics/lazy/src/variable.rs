@@ -1,4 +1,4 @@
-use ast::InputPlaceholder;
+use crate::*;
 use entity_route::EntityRoutePtr;
 use vm::InputContract;
 use word::CustomIdentifier;

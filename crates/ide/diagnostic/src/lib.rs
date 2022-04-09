@@ -4,9 +4,9 @@ mod query;
 // mod reserve;
 mod severity;
 
-use ast::AstError;
+use ast::{AstError, AstErrorVariant};
 use dev_utils::DevSource;
-use infer_error::{InferError, InferErrorKind};
+use infer_error::{InferError, InferErrorVariant};
 pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
 pub use severity::DiagnosticSeverity;
@@ -39,20 +39,23 @@ impl From<&EntityDefnError> for Diagnostic {
 
 impl From<&AstError> for Diagnostic {
     fn from(error: &AstError) -> Self {
-        Self {
-            severity: DiagnosticSeverity::Error,
-            range: error.range.clone(),
-            message: error.message(),
-            dev_src: error.dev_src.clone(),
+        match error.variant {
+            AstErrorVariant::Original { ref message, range } => Self {
+                severity: DiagnosticSeverity::Error,
+                range: range.clone(),
+                message: format!("Ast Error: {}", message),
+                dev_src: error.dev_src.clone(),
+            },
+            AstErrorVariant::Derived => todo!(),
         }
     }
 }
 
 impl From<&InferError> for Diagnostic {
     fn from(error: &InferError) -> Self {
-        match error.kind {
-            InferErrorKind::Derived => panic!(),
-            InferErrorKind::Original { ref message, range } => Self {
+        match error.variant {
+            InferErrorVariant::Derived => panic!(),
+            InferErrorVariant::Original { ref message, range } => Self {
                 severity: DiagnosticSeverity::Error,
                 range: range.clone(),
                 message: format!("Infer Error: {}", message),

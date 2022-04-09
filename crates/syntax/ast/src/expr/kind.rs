@@ -1,7 +1,6 @@
 use std::sync::Arc;
 
-use atom::AtomKind;
-
+use syntax_types::Opr;
 use text::Row;
 use vm::PrimitiveValue;
 use word::WordPtr;

@@ -11,9 +11,9 @@ pub use vec::*;
 
 use crate::*;
 use ast::AstIter;
+use defn_head::*;
 use entity_route::*;
 use print_utils::msg_once;
-use syntax_types::EnumVariantKind;
 use vec_map::VecDict;
 use vm::{MembAccessContract, TySignature};
 use word::{IdentDict, RangedCustomIdentifier};
@@ -310,6 +310,6 @@ pub(crate) fn ty_decl(
             }
         }
         EntitySource::Module { file } => todo!(),
-        EntitySource::Contextual { .. } => todo!(),
+        EntitySource::Input { .. } => todo!(),
     }
 }

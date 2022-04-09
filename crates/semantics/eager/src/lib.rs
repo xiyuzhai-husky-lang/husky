@@ -11,6 +11,7 @@ pub use stmt::{
 };
 pub use variable::EagerVariable;
 
+use defn_head::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use infer_total::InferQueryGroup;
 use print_utils::*;

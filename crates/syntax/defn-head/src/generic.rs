@@ -1,5 +1,6 @@
 use crate::*;
 use entity_route::{EntityKind, RangedEntityRoute};
+use entity_route_query::{EntityRouteQueryGroup, EntityRouteSalsaQueryGroup};
 use entity_syntax::TyKind;
 use static_decl::StaticGenericPlaceholder;
 use vec_map::HasKey;
@@ -24,7 +25,7 @@ pub enum GenericPlaceholderVariant {
 }
 
 impl GenericPlaceholder {
-    fn from_static(db: &dyn AstSalsaQueryGroup, _: &StaticGenericPlaceholder) -> Self {
+    pub fn from_static(db: &dyn EntityRouteQueryGroup, _: &StaticGenericPlaceholder) -> Self {
         todo!()
     }
 }

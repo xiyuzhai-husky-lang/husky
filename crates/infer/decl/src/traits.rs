@@ -8,14 +8,17 @@ pub struct TraitDecl {
 }
 
 impl TraitDecl {
-    fn from_static(db: &dyn DeclQueryGroup, methods: &[StaticMethodDecl]) -> Self {
+    fn from_static(db: &dyn DeclQueryGroup, trait_decl: &StaticTraitDecl) -> Self {
         TraitDecl {
-            methods: methods
+            methods: trait_decl
+                .methods
                 .iter()
-                .map(|member| {
-                    (
-                        db.intern_word(member.name).custom(),
-                        MethodDecl::from_static(db, member),
+                .map(|method| {
+                    MethodDecl::from_static(
+                        db,
+                        db.entity_route_menu().this_type,
+                        trait_decl.generic_placeholders,
+                        method,
                     )
                 })
                 .collect(),
@@ -36,8 +39,8 @@ pub(crate) fn trait_decl(
                 visualizer,
             } => todo!(),
             StaticEntityDecl::TyTemplate => todo!(),
-            StaticEntityDecl::Trait { methods } => {
-                Ok(Arc::new(TraitDecl::from_static(db, methods)))
+            StaticEntityDecl::Trait(ref trait_decl) => {
+                Ok(Arc::new(TraitDecl::from_static(db, trait_decl)))
             }
             StaticEntityDecl::Module => todo!(),
         },
@@ -47,6 +50,6 @@ pub(crate) fn trait_decl(
             token_group_index,
         } => todo!(),
         EntitySource::Module { file } => todo!(),
-        EntitySource::Contextual { main, ident } => todo!(),
+        EntitySource::Input { main } => todo!(),
     }
 }

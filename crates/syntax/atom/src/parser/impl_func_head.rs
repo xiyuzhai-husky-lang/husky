@@ -1,23 +1,19 @@
 use std::sync::Arc;
 
-use crate::{
-    symbol_proxy::{Symbol, SymbolKind},
-    *,
+use crate::*;
+use defn_head::{
+    GenericPlaceholder, GenericPlaceholderVariant, InputPlaceholder, MembRoutineDefnHead,
+    RoutineDefnHead,
 };
 use entity_route::*;
-use fold::LocalStack;
-use syntax_types::*;
-use vm::{EagerContract, InputContract};
+use vm::InputContract;
 use word::IdentDict;
 
 use super::*;
 
 // inner ops
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn routine_defn_head(
-        mut self,
-        routine_kind: RoutineKind,
-    ) -> AstResult<RoutineDefnHead> {
+    pub fn routine_defn_head(mut self, routine_kind: RoutineKind) -> AtomResult<RoutineDefnHead> {
         let routine_ident = get!(self, custom_ident);
         let generic_placeholders = self.placeholders()?;
         let input_placeholders = self.func_input_placeholders()?;
@@ -48,11 +44,11 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    pub(crate) fn field_routine_decl(
+    pub fn field_routine_decl(
         mut self,
         this: InputContract,
         routine_kind: RoutineKind,
-    ) -> AstResult<MembRoutineDefnHead> {
+    ) -> AtomResult<MembRoutineDefnHead> {
         let routine_name = get!(self, custom_ident);
         let generics = self.placeholders()?;
         let input_placeholders = self.func_input_placeholders()?;
@@ -67,7 +63,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn placeholders(&mut self) -> AstResult<IdentDict<GenericPlaceholder>> {
+    fn placeholders(&mut self) -> AtomResult<IdentDict<GenericPlaceholder>> {
         if next_matches!(self, "<") {
             match IdentDict::from_vec(comma_list![self, placeholder!+, ">"]) {
                 Ok(generic_placeholders) => Ok(generic_placeholders),
@@ -78,7 +74,7 @@ impl<'a> AtomLRParser<'a> {
         }
     }
 
-    fn placeholder(&mut self) -> AstResult<GenericPlaceholder> {
+    fn placeholder(&mut self) -> AtomResult<GenericPlaceholder> {
         let ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
@@ -96,12 +92,12 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn func_input_placeholders(&mut self) -> AstResultArc<Vec<InputPlaceholder>> {
+    fn func_input_placeholders(&mut self) -> AtomResultArc<Vec<InputPlaceholder>> {
         no_look_pass!(self, "(");
         Ok(Arc::new(comma_list!(self, func_input_placeholder!, ")")))
     }
 
-    fn func_input_placeholder(&mut self) -> AstResult<InputPlaceholder> {
+    fn func_input_placeholder(&mut self) -> AtomResult<InputPlaceholder> {
         let ident = get!(self, custom_ident);
         no_look_pass!(self, ":");
         let ty = RangedEntityRoute {
@@ -115,7 +111,7 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn func_output_type(&mut self) -> AstResult<RangedEntityRoute> {
+    fn func_output_type(&mut self) -> AtomResult<RangedEntityRoute> {
         Ok(if next_matches!(self, "->") {
             RangedEntityRoute {
                 route: get!(self, ty?),

@@ -132,14 +132,13 @@ macro_rules! get{
         if let Some(pattern) = $this.$patt() {
             pattern
         } else {
-            return Err(AstError{
-                file: $this.file,
-                range: $this.stream.pop_range(),
-                dev_src: dev_utils::dev_src!(),
-                kind: format!("expect {} after it, but get {{{:?}}} instead",
-                            stringify!($patt),
-                            saved_stream.next()).into()
-            })
+            return err!(
+                format!("expect {} after it, but get {{{:?}}} instead",
+                    stringify!($patt),
+                    saved_stream.next()
+                ),
+                $this.stream.pop_range()
+            )
         }
     }};
 
@@ -147,8 +146,7 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*) {
             pattern
         } else {
-            return Err(AstError{range:$this.stream.pop_range(),
-                    src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
         }
     }};
 
@@ -157,14 +155,13 @@ macro_rules! get{
         if let Some(pattern) = $this.$patt()? {
             pattern
         } else {
-            return Err(AstError{
-                file: $this.file,
-                range: $this.stream.pop_range(),
-                dev_src: dev_src!(),
-                kind: format!("expect {} after it, but get {{{:?}}} instead",
-                    stringify!($patt),
-                    saved_stream.next()
-                ).into()})
+            return err!(
+                    format!("expect {} after it, but get {{{:?}}} instead",
+                        stringify!($patt),
+                        saved_stream.next()
+                    ),
+                    $this.stream.pop_range()
+                )
         }
     }};
 
@@ -172,8 +169,7 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*)? {
             pattern
         } else {
-            return Err(AstError{range:$this.stream.pop_range(),
-                 src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
         }
     }};
 
@@ -182,10 +178,10 @@ macro_rules! get{
         if let Some(pattern) = $this.$patt()? {
             pattern
         } else {
-            return Err(AstError{
-                file: $this.file,
-                range: $this.stream.pop_range(),
-                dev_src: dev_src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return err!(
+                format!("expect {:?} after it", stringify!($patt)),
+                $this.stream.pop_range()
+            )
         }
     }};
 
@@ -193,42 +189,37 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*)? {
             pattern
         } else {
-            return Err(AstError{range:$this.stream.pop_range(),
-                 src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
         }
     }};
 }
 pub(crate) use get;
 
-macro_rules! no_look_pass{
+macro_rules! no_look_pass {
     ($this:expr, $patt:ident) => {{
         if $this.$patt().is_none() {
-            return Err(AstError{range:$this.stream.pop_range(),
-                 src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
         }
     }};
 
     ($this:expr, $patt:ident, $($args:expr),*) => {{
         if  $this.$patt($($args),*).is_none() {
-            return Err(AstError{
-                file: $this.file,
-                range: $this.stream.pop_range(),
-                dev_src: dev_src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
-            }
+            return err!(
+                format!("expect {:?} after it", stringify!($patt)),
+                $this.stream.pop_range()
+            )
         }
-    };
+    }};
 
     ($this:expr, $patt:ident?) => {{
         if $this.$patt()?.is_none() {
-            return Err(AstError{range:$this.stream.pop_range(),
-                 src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
         }
-       }};
+    }};
 
     ($this:expr, $patt:ident?, $($args:expr),*) => {{
         if  $this.$patt($($args),*)?.is_none() {
-            return Err(AstError{range:$this.stream.pop_range(),
-                    src: src!(), kind: format!("expect {:?} after it", stringify!($patt)).into()})
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
         }
     }};
 

@@ -13,6 +13,7 @@ pub use traits::*;
 pub use ty::*;
 
 use ast::*;
+use defn_head::*;
 use entity_route::*;
 use entity_route_query::*;
 use entity_syntax::TyKind;

@@ -1,3 +1,4 @@
+use entity_syntax::EnumVariantKind;
 use vec_map::HasKey;
 
 use super::*;

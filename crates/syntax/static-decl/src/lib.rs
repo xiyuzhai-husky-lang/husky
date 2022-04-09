@@ -7,7 +7,12 @@ pub use ty::*;
 use entity_syntax::{EntityKind, TyKind};
 use visual_syntax::StaticVisualizer;
 use vm::{InputContract, RoutineLinkage};
-use word::CustomIdentifier;
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct StaticTraitDecl {
+    pub generic_placeholders: (),
+    pub methods: &'static [StaticMethodDecl],
+}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct StaticMethodDecl {

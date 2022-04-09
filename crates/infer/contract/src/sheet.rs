@@ -45,18 +45,18 @@ impl ContractSheet {
         for (_, result) in self.lazy_expr_contract_results.iter() {
             match result {
                 Ok(_) => (),
-                Err(error) => match error.kind {
-                    InferErrorKind::Derived => (),
-                    InferErrorKind::Original { .. } => errors.push(error),
+                Err(error) => match error.variant {
+                    InferErrorVariant::Derived => (),
+                    InferErrorVariant::Original { .. } => errors.push(error),
                 },
             }
         }
         for (_, result) in self.eager_expr_contract_results.iter() {
             match result {
                 Ok(_) => (),
-                Err(error) => match error.kind {
-                    InferErrorKind::Derived => (),
-                    InferErrorKind::Original { .. } => errors.push(error),
+                Err(error) => match error.variant {
+                    InferErrorVariant::Derived => (),
+                    InferErrorVariant::Original { .. } => errors.push(error),
                 },
             }
         }

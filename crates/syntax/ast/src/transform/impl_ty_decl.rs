@@ -32,11 +32,11 @@ impl<'a> AstTransformer<'a> {
             }
         };
         self.env.set_value(AstContext::Struct);
-        expect_len!(Some(self.file), tokens, 3);
-        expect_head!(Some(self.file), tokens);
+        expect_len!(tokens, 3);
+        expect_head!(tokens);
         msg_once!("struct generic placeholders");
         Ok(AstKind::TypeDefnHead {
-            ident: identify!(Some(self.file), tokens[1]),
+            ident: identify!(tokens[1]),
             kind: TyKind::Struct,
             generic_placeholders: Default::default(),
         })
@@ -56,11 +56,11 @@ impl<'a> AstTransformer<'a> {
             }
         };
         self.env.set_value(AstContext::Record);
-        expect_len!(Some(self.file), tokens, 3);
-        expect_head!(Some(self.file), tokens);
+        expect_len!(tokens, 3);
+        expect_head!(tokens);
         msg_once!("record generic placeholders");
         Ok(AstKind::TypeDefnHead {
-            ident: identify!(Some(self.file), tokens[1]),
+            ident: identify!(tokens[1]),
             kind: TyKind::Record,
             generic_placeholders: Default::default(),
         })
@@ -68,11 +68,11 @@ impl<'a> AstTransformer<'a> {
 
     fn parse_enum(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
         self.env.set_value(AstContext::Enum);
-        expect_len!(Some(self.file), tokens, 3);
-        expect_head!(Some(self.file), tokens);
+        expect_len!(tokens, 3);
+        expect_head!(tokens);
         msg_once!("record generic placeholders");
         Ok(AstKind::TypeDefnHead {
-            ident: identify!(Some(self.file), tokens[1]),
+            ident: identify!(tokens[1]),
             kind: TyKind::Enum,
             generic_placeholders: Default::default(),
         })

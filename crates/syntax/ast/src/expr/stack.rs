@@ -1,14 +1,12 @@
 use atom::{Bracket, ListEndAttr, ListStartAttr, PrefixOpr, SuffixOpr};
 use check_utils::should;
 use entity_route::RangedEntityRoute;
-use file::FilePtr;
 use text::{TextPosition, TextRange};
 use vm::{BinaryOpr, PrimitiveValue};
 
 use crate::{expr::precedence::Precedence, *};
 
 pub(crate) struct ExprStack<'a> {
-    file: Option<FilePtr>,
     arena: &'a mut RawExprArena,
     oprs: Vec<ExprStackOpr>,
     exprs: Vec<RawExpr>,
@@ -90,9 +88,8 @@ impl<'a> std::fmt::Debug for ExprStack<'a> {
 }
 
 impl<'a> ExprStack<'a> {
-    pub(crate) fn new(file: Option<FilePtr>, arena: &'a mut RawExprArena) -> Self {
+    pub(crate) fn new(arena: &'a mut RawExprArena) -> Self {
         Self {
-            file,
             arena,
             oprs: Vec::new(),
             exprs: Vec::new(),
@@ -180,26 +177,24 @@ impl<'a> ExprStack<'a> {
                     ExprStackOprKind::ListStart { bra, attr, start } => {
                         if ket != bra {
                             err!(
-                                self.file,
-                                (self.exprs[0].range.start..end).into(),
                                 format!(
                                     "brackets should match but get bra = {}, ket = {}",
                                     bra.bra_code(),
                                     ket.ket_code(),
-                                )
+                                ),
+                                (self.exprs[0].range.start..end).into()
                             )?;
                         };
                         break (attr, start, i);
                     }
                     _ => {
                         err!(
-                            self.file,
-                            (self.exprs[0].range.start..end).into(),
                             format!(
                                 "expect {} but got {:?} instead",
                                 ket.bra_code(),
                                 self.oprs[i]
-                            )
+                            ),
+                            (self.exprs[0].range.start..end).into()
                         )?;
                     }
                 }

@@ -2,12 +2,12 @@ use std::sync::Arc;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct InferError {
-    pub kind: InferErrorKind,
+    pub variant: InferErrorVariant,
     pub dev_src: DevSource,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum InferErrorKind {
+pub enum InferErrorVariant {
     Derived,
     Original { message: String, range: TextRange },
 }
@@ -23,7 +23,7 @@ impl std::fmt::Debug for InferError {
     src: {:?}\n\
     kind:\n\
 {:?}",
-            &self.dev_src, &self.kind
+            &self.dev_src, &self.variant
         ))
     }
 }
@@ -51,10 +51,7 @@ impl From<ScopeError> for InferError {
 impl From<&ast::AstError> for InferError {
     fn from(error: &ast::AstError) -> Self {
         Self {
-            kind: InferErrorKind::Original {
-                message: format!("AstError {:?}", error),
-                range: error.range,
-            },
+            variant: InferErrorVariant::Derived,
             dev_src: error.dev_src.clone(),
         }
     }
@@ -70,7 +67,7 @@ impl From<VMError> for InferError {
 macro_rules! err {
     ($msg:expr, $range: expr) => {{
         Err(InferError {
-            kind: InferErrorKind::Original {
+            variant: InferErrorVariant::Original {
                 message: $msg.into(),
                 range: $range,
             },
@@ -83,7 +80,7 @@ macro_rules! err {
 macro_rules! ok_or {
     ($opt_value: expr, $msg:expr, $range: expr) => {{
         $opt_value.ok_or(InferError {
-            kind: InferErrorKind::Original {
+            kind: InferErrorVariant::Original {
                 message: $msg.into(),
                 range: $range,
             },
@@ -96,7 +93,7 @@ macro_rules! ok_or {
 macro_rules! derived_not_none {
     ($opt_value: expr) => {{
         $opt_value.ok_or(InferError {
-            kind: InferErrorKind::Derived,
+            variant: InferErrorVariant::Derived,
             dev_src: dev_utils::dev_src!(),
         })
     }};
@@ -106,7 +103,7 @@ macro_rules! derived_not_none {
 macro_rules! derived {
     () => {{
         InferError {
-            kind: InferErrorKind::Derived,
+            variant: InferErrorVariant::Derived,
             dev_src: dev_utils::dev_src!(),
         }
     }};
@@ -116,7 +113,7 @@ macro_rules! derived {
 macro_rules! derived_ok {
     ($opt_value: expr) => {{
         $opt_value.or(Err(InferError {
-            kind: InferErrorKind::Derived,
+            variant: InferErrorVariant::Derived,
             dev_src: dev_utils::dev_src!(),
         }))?
     }};

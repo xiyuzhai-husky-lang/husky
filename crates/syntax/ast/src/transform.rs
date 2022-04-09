@@ -11,16 +11,15 @@ mod impl_ty_decl;
 mod impl_use_all;
 mod utils;
 
+use crate::{
+    query::{AstSalsaQueryGroup, AstText},
+    *,
+};
+use atom::symbol_proxy::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use token::*;
-
-use crate::{
-    atom::symbol_proxy::{Symbol, SymbolKind},
-    query::{AstSalsaQueryGroup, AstText},
-    *,
-};
 
 pub type AstIter<'a> = FoldIter<'a, AstResult<Ast>, FoldedList<AstResult<Ast>>>;
 
@@ -47,7 +46,7 @@ impl<'a> AstTransformer<'a> {
             env: LocalValue::new(match module.kind {
                 EntityRouteKind::Package { main, ident } => AstContext::Package(main),
                 EntityRouteKind::ChildScope { .. } => AstContext::Module(module),
-                EntityRouteKind::Root { .. } | EntityRouteKind::Contextual { .. } => panic!(),
+                EntityRouteKind::Root { .. } | EntityRouteKind::Input { .. } => panic!(),
                 EntityRouteKind::Generic { ident, .. } => todo!(),
                 EntityRouteKind::ThisType => todo!(),
             }),
@@ -63,7 +62,7 @@ impl<'a> AstTransformer<'a> {
                 match scope.kind {
                     EntityRouteKind::Root { .. }
                     | EntityRouteKind::Package { .. }
-                    | EntityRouteKind::Contextual { .. } => panic!(),
+                    | EntityRouteKind::Input { .. } => panic!(),
                     EntityRouteKind::ChildScope { ident, .. } => symbols.push(Symbol {
                         ident,
                         kind: SymbolKind::Scope(scope.kind),

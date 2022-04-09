@@ -1,9 +1,9 @@
 use super::utils::*;
 use crate::{
-    atom::parser::AtomLRParser,
     symbol_proxy::{Symbol, SymbolKind},
     *,
 };
+use atom::parser::AtomLRParser;
 use text::TextRanged;
 use token::*;
 use word::RoutineKeyword;
@@ -14,7 +14,7 @@ impl<'a> AstTransformer<'a> {
         routine_keyword: RoutineKeyword,
         token_group: &[Token],
     ) -> AstResult<AstKind> {
-        let tokens = trim_colon!(Some(self.file), token_group; keyword, colon);
+        let tokens = trim_colon!(token_group; keyword, colon);
         let head = match routine_keyword {
             RoutineKeyword::Test => {
                 self.env.set_value(AstContext::Test);
@@ -22,12 +22,12 @@ impl<'a> AstTransformer<'a> {
             }
             RoutineKeyword::Proc => {
                 self.env.set_value(AstContext::Proc);
-                AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
+                AtomLRParser::new(self.symbol_proxy(), tokens)
                     .routine_defn_head(RoutineKind::Proc)?
             }
             RoutineKeyword::Func => {
                 self.env.set_value(AstContext::Func);
-                AtomLRParser::new(Some(self.file), self.symbol_proxy(), tokens)
+                AtomLRParser::new(self.symbol_proxy(), tokens)
                     .routine_defn_head(RoutineKind::Func)?
             }
         };

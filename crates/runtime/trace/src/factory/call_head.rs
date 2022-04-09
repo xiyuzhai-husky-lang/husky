@@ -1,4 +1,4 @@
-use ast::InputPlaceholder;
+use defn_head::InputPlaceholder;
 use word::{CustomIdentifier, Identifier};
 
 use super::*;

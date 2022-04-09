@@ -1,7 +1,6 @@
 use crate::*;
-use ast::{AstIter, RawExprArena, RoutineDefnHead};
+use ast::{AstIter, RawExprArena};
 use semantics_error::*;
-use syntax_types::RoutineKind;
 
 impl EntityDefnVariant {
     pub(crate) fn routine(

@@ -104,14 +104,14 @@ where
     }
 }
 
-impl<K, V> FromIterator<(K, V)> for VecDict<K, V>
+impl<K, V> FromIterator<V> for VecDict<K, V>
 where
     K: PartialEq + Eq + Copy,
     V: HasKey<K>,
 {
-    fn from_iter<T: IntoIterator<Item = (K, V)>>(iter: T) -> Self {
+    fn from_iter<T: IntoIterator<Item = V>>(iter: T) -> Self {
         let mut map = Self::default();
-        for (k, v) in iter {
+        for v in iter {
             map.insert_new(v);
         }
         map
