@@ -288,7 +288,7 @@ impl<'a> TySheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
-        let method_decl = this_ty_decl.method_decl(field_ident)?;
+        let method_decl = this_ty_decl.method_decl(field_ident, &self.trait_uses)?;
         if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
         }

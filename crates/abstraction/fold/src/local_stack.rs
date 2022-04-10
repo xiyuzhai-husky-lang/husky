@@ -1,3 +1,5 @@
+use std::ops::Deref;
+
 #[derive(Debug)]
 pub struct LocalStack<T> {
     stack: Vec<T>,
@@ -43,5 +45,13 @@ impl<T> LocalStack<T> {
 
     pub fn find(&self, f: impl Fn(&T) -> bool) -> Option<&T> {
         self.stack.iter().rev().find(|item| f(*item))
+    }
+}
+
+impl<T> Deref for LocalStack<T> {
+    type Target = [T];
+
+    fn deref(&self) -> &Self::Target {
+        &self.stack
     }
 }

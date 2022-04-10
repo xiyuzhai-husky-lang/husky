@@ -11,6 +11,7 @@ impl<'a> TySheetBuilder<'a> {
         output_ty: EntityRoutePtr,
         arena: &RawExprArena,
     ) {
+        self.enter_block();
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.kind {
@@ -22,6 +23,7 @@ impl<'a> TySheetBuilder<'a> {
                 self.infer_stmts(children, output_ty, arena)
             }
         }
+        self.exit_block()
     }
 
     fn infer_stmt(&mut self, stmt: &RawStmt, output_ty: EntityRoutePtr, arena: &RawExprArena) {
