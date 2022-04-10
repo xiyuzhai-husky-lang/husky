@@ -1,5 +1,6 @@
 use crate::*;
-use atom::*;
+use atom::{symbol_proxy::Symbol, *};
+use fold::LocalStack;
 use map_collect::MapCollect;
 use static_decl::StaticMethodDecl;
 use vec_dict::HasKey;
@@ -40,16 +41,16 @@ impl MethodDecl {
 
     pub fn from_static(
         db: &dyn DeclQueryGroup,
-        this_ty: EntityRoutePtr,
-        generic_placeholders: (),
         decl: &StaticMethodDecl,
+        this_ty: EntityRoutePtr,
+        symbols: &LocalStack<Symbol>,
     ) -> Self {
         let output = parse_ty(
             SymbolProxy {
                 opt_package_main: None,
                 db: db.upcast(),
-                this_ty: Some(this_ty),
-                symbols: todo!(),
+                opt_this_ty: Some(this_ty),
+                symbols,
             },
             &db.tokenize(decl.output_ty),
         )
@@ -57,7 +58,9 @@ impl MethodDecl {
         Self {
             ident: db.intern_word(decl.name).custom(),
             this_contract: decl.this_contract,
-            inputs: decl.inputs.map(|input| InputDecl::from_static(db, input)),
+            inputs: decl
+                .inputs
+                .map(|input| InputDecl::from_static(db, input, Some(this_ty), symbols)),
             output,
             generic_placeholders: decl.generic_placeholders.map(|static_generic_placeholder| {
                 GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)

@@ -63,8 +63,8 @@ fn global_output_ty_from_ast(
                     kind: EntityKind::Routine,
                     ..
                 } => {
-                    let signature = db.call_decl(scope)?;
-                    let dataset_type = signature.output;
+                    let call_decl = db.call_decl(scope)?;
+                    let dataset_type = call_decl.output;
                     match dataset_type.kind {
                         EntityRouteKind::Root {
                             ident: RootIdentifier::DatasetType,

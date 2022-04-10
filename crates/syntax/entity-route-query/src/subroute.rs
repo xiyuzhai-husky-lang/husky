@@ -5,7 +5,6 @@ use word::{CustomIdentifier, Keyword};
 
 use crate::error::*;
 use crate::EntityRouteSalsaQueryGroup;
-use lazy_format::lazy_format;
 use text::TextRanged;
 use token::{Token, TokenGroupIter, TokenKind};
 use word::Identifier;

@@ -7,10 +7,8 @@ use path_utils::*;
 use entity_syntax::TyKind;
 use static_decl::{StaticEntityDecl, StaticMethodDecl, StaticTraitDecl};
 use upcast::Upcast;
-use visual_syntax::{StaticVisualizer, TRIVIAL_VISUALIZER};
-use word::{
-    dash_to_snake, ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier, WordPtr,
-};
+use visual_syntax::TRIVIAL_VISUALIZER;
+use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 
 use fold::FoldStorage;
 
@@ -69,12 +67,12 @@ fn subscopes(
 }
 
 fn raw_entity_kind(db: &dyn EntityRouteSalsaQueryGroup, scope: EntityRoutePtr) -> EntityKind {
-    entity_kind_from_scope_kind(db, &scope.kind)
+    entity_kind_from_scope_kind(db, scope.kind)
 }
 
 fn entity_kind_from_scope_kind(
     db: &dyn EntityRouteSalsaQueryGroup,
-    scope_kind: &EntityRouteKind,
+    scope_kind: EntityRouteKind,
 ) -> EntityKind {
     match scope_kind {
         EntityRouteKind::Root { ident } => match ident {
@@ -105,15 +103,12 @@ fn entity_kind_from_scope_kind(
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
         EntityRouteKind::ChildScope { parent, ident } => db
-            .subscope_table(*parent)
+            .subscope_table(parent)
             .unwrap()
-            .raw_entity_kind(*ident)
+            .raw_entity_kind(ident)
             .unwrap(),
         EntityRouteKind::Input { .. } => EntityKind::Feature,
-        EntityRouteKind::Generic {
-            ident,
-            entity_kind: raw_entity_kind,
-        } => *raw_entity_kind,
+        EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
         EntityRouteKind::ThisType => EntityKind::Type(TyKind::Other),
     }
 }
@@ -197,7 +192,7 @@ fn entity_source(
                         output_ty: "This",
                         generic_placeholders: &[],
                     }],
-                    generic_placeholders: (),
+                    generic_placeholders: &[],
                 }),
             },
             RootIdentifier::CopyTrait => todo!(),
@@ -210,7 +205,7 @@ fn entity_source(
             this.subscope_table(parent)?.scope_source(ident)?
         }
         EntityRouteKind::Input { main } => EntitySource::Input { main },
-        EntityRouteKind::Generic { ident, .. } => todo!(),
+        EntityRouteKind::Generic { .. } => todo!(),
         EntityRouteKind::ThisType => todo!(),
     })
 }
@@ -220,8 +215,8 @@ pub struct ModuleFromFileError {
 }
 
 pub enum ModuleFromFileRule {
-    packNameShouldBeIdentifier,
-    packRootShouldHaveFileName,
+    PackageNameShouldBeIdentifier,
+    PackageRootShouldHaveFileName,
     FileShouldExist,
     FileShouldHaveExtensionHSK,
 }
@@ -352,7 +347,7 @@ pub trait EntityRouteQueryGroup:
         module_path.map(|pth| self.intern_file(pth))
     }
 
-    fn raw_entity_kind_from_scope_kind(&self, scope_kind: &EntityRouteKind) -> EntityKind {
+    fn raw_entity_kind_from_scope_kind(&self, scope_kind: EntityRouteKind) -> EntityKind {
         entity_kind_from_scope_kind(self.upcast(), scope_kind)
     }
 }

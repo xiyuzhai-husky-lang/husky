@@ -49,6 +49,21 @@ pub struct EnumVariantDecl {
     variant: EnumVariantDeclVariant,
 }
 
+impl EnumVariantDecl {
+    pub fn from_static(
+        db: &dyn DeclQueryGroup,
+        static_decl: &StaticEnumVariantDecl,
+        this_ty: EntityRoutePtr,
+        symbols: &LocalStack<Symbol>,
+    ) -> Self {
+        todo!()
+    }
+
+    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EnumVariantDeclVariant {
     Constant,

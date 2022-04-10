@@ -27,6 +27,7 @@ pub const MNIST_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
 const NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
     decl: StaticEntityDecl::Func(StaticFuncDecl {
+        generic_placeholders: &[],
         inputs: vec![],
         output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         compiled: RoutineLinkage {

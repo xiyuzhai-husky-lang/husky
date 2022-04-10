@@ -80,7 +80,7 @@ macro_rules! err {
 macro_rules! ok_or {
     ($opt_value: expr, $msg:expr, $range: expr) => {{
         $opt_value.ok_or(InferError {
-            kind: InferErrorVariant::Original {
+            variant: InferErrorVariant::Original {
                 message: $msg.into(),
                 range: $range,
             },

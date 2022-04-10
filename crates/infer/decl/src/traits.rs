@@ -1,5 +1,5 @@
 use crate::*;
-use static_decl::StaticMethodDecl;
+use fold::LocalStack;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -9,17 +9,16 @@ pub struct TraitDecl {
 
 impl TraitDecl {
     pub fn from_static(db: &dyn DeclQueryGroup, trait_decl: &StaticTraitDecl) -> Self {
+        let symbols = LocalStack::new();
+        for generic_placeholder in trait_decl.generic_placeholders.iter() {
+            todo!()
+        }
         TraitDecl {
             methods: trait_decl
                 .methods
                 .iter()
                 .map(|method| {
-                    MethodDecl::from_static(
-                        db,
-                        db.entity_route_menu().this_type,
-                        trait_decl.generic_placeholders,
-                        method,
-                    )
+                    MethodDecl::from_static(db, method, db.entity_route_menu().this_type, &symbols)
                 })
                 .collect(),
         }

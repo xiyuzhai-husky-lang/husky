@@ -24,7 +24,7 @@ impl Symbol {
 
 #[derive(Debug, Clone, Copy)]
 pub enum SymbolKind {
-    Scope(EntityRouteKind),
+    EntityRoute(EntityRoutePtr),
     Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
     ThisData { ty: Option<EntityRoutePtr> },
@@ -35,7 +35,7 @@ pub enum SymbolKind {
 pub struct SymbolProxy<'a> {
     pub opt_package_main: Option<FilePtr>,
     pub db: &'a dyn EntityRouteQueryGroup,
-    pub this_ty: Option<EntityRoutePtr>,
+    pub opt_this_ty: Option<EntityRoutePtr>,
     pub symbols: &'a fold::LocalStack<Symbol>,
 }
 
@@ -86,15 +86,24 @@ impl<'a> SymbolProxy<'a> {
         range: TextRange,
     ) -> AtomResult<SymbolKind> {
         match ident {
-            Identifier::Builtin(ident) => Ok(SymbolKind::Scope(ident.into())),
+            Identifier::Builtin(ident) => Ok(SymbolKind::EntityRoute(ident.into())),
             Identifier::Contextual(ident) => match ident {
-                ContextualIdentifier::Input => Ok(SymbolKind::Scope(EntityRouteKind::Input {
-                    main: self
-                        .opt_package_main
-                        .ok_or(error!("can't use implicit without main", range))?,
-                })),
-                ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData { ty: self.this_ty }),
-                ContextualIdentifier::ThisType => Ok(SymbolKind::ThisType { ty: self.this_ty }),
+                ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
+                    self.db.intern_scope(EntityRoute {
+                        kind: EntityRouteKind::Input {
+                            main: self
+                                .opt_package_main
+                                .ok_or(error!("can't use implicit without main", range))?,
+                        },
+                        generics: vec![],
+                    }),
+                )),
+                ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData {
+                    ty: self.opt_this_ty,
+                }),
+                ContextualIdentifier::ThisType => Ok(SymbolKind::ThisType {
+                    ty: self.opt_this_ty,
+                }),
             },
             Identifier::Custom(ident) => Ok(
                 if let Some(symbol) = self.symbols.find(|symbol| symbol.ident == ident.into()) {

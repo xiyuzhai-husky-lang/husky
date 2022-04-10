@@ -31,6 +31,7 @@ impl FigureProps {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
+            VisualProps::Empty => todo!(),
         }
     }
 }

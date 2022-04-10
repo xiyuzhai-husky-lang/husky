@@ -1,19 +1,16 @@
 mod alias;
-mod allocate_unique;
-mod generic;
+mod alloc;
 mod kind;
 
 pub use alias::ScopeAliasTable;
-pub use allocate_unique::{
+pub use alloc::{
     new_scope_unique_allocator, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
 };
 pub use entity_syntax::EntityKind;
-use entity_syntax::TyKind;
 use file::FilePtr;
-pub use generic::*;
 use static_decl::StaticEntityDecl;
 use text::{TextRange, TextRanged};
-use word::{ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier};
+use word::{CustomIdentifier, Identifier, RootIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
@@ -36,21 +33,15 @@ impl TextRanged for RangedEntityRoute {
 impl std::fmt::Debug for EntityRoute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
-            EntityRouteKind::Root { ident } => ident.fmt(f)?,
-            EntityRouteKind::Package { main, ident } => {
-                // f.write_str("[pack=")?;
-                // main.fmt(f)?;
-                // f.write_str("]")?;
-                // ident.fmt(f)?
-                f.write_str("pack")?
-            }
+            EntityRouteKind::Root { ident } => f.write_str(&ident)?,
+            EntityRouteKind::Package { .. } => f.write_str("package")?,
             EntityRouteKind::ChildScope { parent, ident } => {
                 parent.fmt(f)?;
                 f.write_str("::")?;
-                ident.fmt(f)?
+                f.write_str(&ident)?
             }
-            EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic { ident, .. } => todo!(),
+            EntityRouteKind::Input { .. } => f.write_str("input")?,
+            EntityRouteKind::Generic { ident, .. } => f.write_str(&ident)?,
             EntityRouteKind::ThisType => todo!(),
         };
         if self.generics.len() > 0 {
@@ -149,13 +140,10 @@ impl EntityRoute {
     pub fn ident(&self) -> Identifier {
         match self.kind {
             EntityRouteKind::Root { ident } => ident.into(),
-            EntityRouteKind::Package { main, ident } => ident.into(),
-            EntityRouteKind::ChildScope { parent, ident } => ident.into(),
-            EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic {
-                ident,
-                entity_kind: raw_entity_kind,
-            } => todo!(),
+            EntityRouteKind::Package { ident, .. } => ident.into(),
+            EntityRouteKind::ChildScope { ident, .. } => ident.into(),
+            EntityRouteKind::Input { .. } => todo!(),
+            EntityRouteKind::Generic { ident, .. } => ident.into(),
             EntityRouteKind::ThisType => todo!(),
         }
     }
@@ -210,7 +198,7 @@ impl EntityRoute {
             EntityRouteKind::Package { .. } => false,
             EntityRouteKind::ChildScope { parent, .. } => parent.is_builtin(),
             EntityRouteKind::Input { .. } => false,
-            EntityRouteKind::Generic { ident, .. } => todo!(),
+            EntityRouteKind::Generic { .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         }
     }
