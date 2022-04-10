@@ -26,28 +26,35 @@ impl<'a> dyn DeclQueryGroup + 'a {
         )
     }
 
-    pub(crate) fn parse_generics(
+    pub(crate) fn parse_generic_placeholders_from_static(
         &self,
         static_generic_placeholders: &[StaticGenericPlaceholder],
-    ) -> (
-        IdentDict<GenericPlaceholder>,
-        Vec<GenericArgument>,
-        LocalStack<Symbol>,
-    ) {
-        let generic_placeholders: IdentDict<_> =
-            static_generic_placeholders.map(|static_generic_placeholder| GenericPlaceholder {
-                ident: self.intern_word(static_generic_placeholder.name).custom(),
-                variant: GenericPlaceholderVariant::Type { traits: vec![] },
-            });
-        let generic_arguments: Vec<_> = generic_placeholders.map(|generic_placeholder| {
+    ) -> IdentDict<GenericPlaceholder> {
+        static_generic_placeholders.map(|static_generic_placeholder| GenericPlaceholder {
+            ident: self.intern_word(static_generic_placeholder.name).custom(),
+            variant: GenericPlaceholderVariant::Type { traits: vec![] },
+        })
+    }
+
+    pub(crate) fn generic_arguments_from_generic_placeholders(
+        &self,
+        generic_placeholders: &[GenericPlaceholder],
+    ) -> Vec<GenericArgument> {
+        generic_placeholders.map(|generic_placeholder| {
             GenericArgument::Scope(self.intern_scope(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
-                generics: vec![],
+                generic_arguments: vec![],
             }))
-        });
+        })
+    }
+
+    pub(crate) fn symbols_from_generic_placeholders(
+        &self,
+        generic_placeholders: &[GenericPlaceholder],
+    ) -> LocalStack<Symbol> {
         let mut symbols = LocalStack::new();
         for generic_placeholder in generic_placeholders.iter() {
             symbols.push(Symbol {
@@ -57,10 +64,10 @@ impl<'a> dyn DeclQueryGroup + 'a {
                         ident: generic_placeholder.ident,
                         entity_kind: generic_placeholder.entity_kind(),
                     },
-                    generics: vec![],
+                    generic_arguments: vec![],
                 })),
             })
         }
-        (generic_placeholders, generic_arguments, symbols)
+        symbols
     }
 }

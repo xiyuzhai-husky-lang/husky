@@ -11,7 +11,7 @@ use vm::{InputContract, RoutineLinkage};
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitDecl {
     pub generic_placeholders: &'static [StaticGenericPlaceholder],
-    pub methods: &'static [StaticMethodDecl],
+    pub members: &'static [StaticTraitMemberDecl],
 }
 
 #[derive(Debug, PartialEq, Eq)]

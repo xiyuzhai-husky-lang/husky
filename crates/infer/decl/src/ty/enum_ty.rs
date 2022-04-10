@@ -5,12 +5,12 @@ use super::*;
 
 pub(crate) fn enum_decl(
     db: &dyn DeclQueryGroup,
-    entity_route_kind: EntityRouteKind,
+    this_ty: EntityRoutePtr,
     generic_placeholders: IdentDict<GenericPlaceholder>,
     children: AstIter,
 ) -> InferResultArc<TyDecl> {
     let mut variants = VecDict::default();
-    let mut traits = Vec::new();
+    let mut trait_impls = Vec::new();
     for subitem in children {
         match subitem.value.as_ref()?.kind {
             AstKind::EnumVariantDefnHead {
@@ -25,22 +25,15 @@ pub(crate) fn enum_decl(
             _ => panic!(),
         }
     }
-    Ok(Arc::new(TyDecl {
-        this_ty: todo!(),
+    Ok(Arc::new(TyDecl::new(
+        db,
+        this_ty,
         generic_placeholders,
-        traits,
-        fields: todo!(),
-        methods: todo!(),
+        Default::default(), // type_methods
         variants,
-        kind: TyKind::Enum,
-    }))
-    // Ok(Arc::new(TyDecl::new(
-    //     db,
-    //     entity_route_kind,
-    //     generic_placeholders,
-    //     traits,
-    //     TyKind::Enum { variants },
-    // )))
+        TyKind::Enum,
+        trait_impls,
+    )))
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

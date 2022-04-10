@@ -8,17 +8,17 @@ static STATIC_VEC_DECL: &'static StaticTyDecl = &StaticTyDecl {
         name: "E",
         variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
     }],
-    traits: &["Clone"],
+    trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
     fields: &[],
-    methods: &[
-        StaticMethodDecl {
+    members: &[
+        StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "len",
             this_contract: InputContract::Pure,
             inputs: &[],
             output_ty: "i32",
             generic_placeholders: &[],
-        },
-        StaticMethodDecl {
+        }),
+        StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "push",
             this_contract: InputContract::BorrowMut,
             inputs: &[StaticInputDecl {
@@ -27,14 +27,14 @@ static STATIC_VEC_DECL: &'static StaticTyDecl = &StaticTyDecl {
             }],
             output_ty: "void",
             generic_placeholders: &[],
-        },
-        StaticMethodDecl {
+        }),
+        StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "pop",
             this_contract: InputContract::BorrowMut,
             inputs: &[],
             output_ty: "E",
             generic_placeholders: &[],
-        },
+        }),
     ],
     variants: &[],
     kind: TyKind::Vec,

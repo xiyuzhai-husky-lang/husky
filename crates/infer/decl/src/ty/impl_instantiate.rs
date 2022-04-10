@@ -9,22 +9,18 @@ impl TyDecl {
             generic_placeholders: &self.generic_placeholders,
             dst_generics,
         };
-        Self {
-            this_ty: instantiator
+        Self::new(
+            db,
+            instantiator
                 .instantiate_entity_route(self.this_ty)
                 .as_scope(),
-            generic_placeholders: Default::default(),
-            traits: self
-                .traits
-                .iter()
-                .map(|t| instantiator.instantiate_entity_route(*t).as_scope())
-                .collect(),
-            methods: self.methods.map(|method| method.instantiate(&instantiator)),
-            kind: self.kind,
-            fields: self.fields.map(|field| field.instantiate(&instantiator)),
-            variants: self
-                .variants
-                .map(|variant| variant.instantiate(&instantiator)),
-        }
+            Default::default(), // generic_placeholders
+            self.type_members
+                .map(|member| member.instantiate(&instantiator)), //   type_methods
+            self.variants
+                .map(|variant| variant.instantiate(&instantiator)), //   variants
+            self.kind,          //      kind
+            self.trait_impls.map(|t| t.instantiate(&instantiator)), //   trait_impls
+        )
     }
 }

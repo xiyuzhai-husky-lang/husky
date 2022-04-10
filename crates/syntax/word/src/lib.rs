@@ -2,12 +2,15 @@ mod alloc;
 mod keyword;
 mod utils;
 
+use std::sync::Arc;
+
 pub use alloc::{new_word_unique_allocator, InternWord, WordAllocator};
 pub use ident::*;
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use utils::*;
 
 pub type IdentDict<T> = VecDict<CustomIdentifier, T>;
+pub type IdentArcDict<T> = VecDict<CustomIdentifier, Arc<T>>;
 pub type IdentDict2<T> = VecDict<CustomIdentifier, (CustomIdentifier, T)>;
 
 use vec_dict::VecDict;

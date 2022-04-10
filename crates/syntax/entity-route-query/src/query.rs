@@ -5,7 +5,7 @@ use file::FilePtr;
 use path_utils::*;
 
 use entity_syntax::TyKind;
-use static_decl::{StaticEntityDecl, StaticMethodDecl, StaticTraitDecl};
+use static_decl::{StaticEntityDecl, StaticMethodDecl, StaticTraitDecl, StaticTraitMemberDecl};
 use upcast::Upcast;
 use visual_syntax::TRIVIAL_VISUALIZER;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
@@ -185,13 +185,13 @@ fn entity_source(
             RootIdentifier::CloneTrait => &StaticEntityData {
                 subscopes: &[],
                 decl: StaticEntityDecl::Trait(StaticTraitDecl {
-                    methods: &[StaticMethodDecl {
+                    members: &[StaticTraitMemberDecl::Method(StaticMethodDecl {
                         name: "clone",
                         this_contract: vm::InputContract::Pure,
                         inputs: &[],
                         output_ty: "This",
                         generic_placeholders: &[],
-                    }],
+                    })],
                     generic_placeholders: &[],
                 }),
             },

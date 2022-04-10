@@ -34,11 +34,11 @@ impl<'a> Instantiator<'a> {
                         if let Some(idx) = self.find_generic(ident) {
                             match self.dst_generics[idx] {
                                 GenericArgument::Const(value) => {
-                                    should_eq!(src_scope.generics.len(), 0);
+                                    should_eq!(src_scope.generic_arguments.len(), 0);
                                     return GenericArgument::Const(value);
                                 }
                                 GenericArgument::Scope(scope) => {
-                                    (scope.kind, scope.generics.clone())
+                                    (scope.kind, scope.generic_arguments.clone())
                                 }
                             }
                         } else {
@@ -48,8 +48,11 @@ impl<'a> Instantiator<'a> {
                     EntityRouteKind::ThisType => (EntityRouteKind::ThisType, vec![]),
                 };
                 // convention: A<B,C> = A<B><C>
-                generics.extend(self.instantiate_generics(&src_scope.generics));
-                GenericArgument::Scope(self.db.intern_scope(EntityRoute { kind, generics }))
+                generics.extend(self.instantiate_generics(&src_scope.generic_arguments));
+                GenericArgument::Scope(self.db.intern_scope(EntityRoute {
+                    kind,
+                    generic_arguments: generics,
+                }))
             }
             EntityKind::Literal => todo!(),
         }

@@ -15,7 +15,7 @@ use word::{CustomIdentifier, Identifier, RootIdentifier};
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
     pub kind: EntityRouteKind,
-    pub generics: Vec<GenericArgument>,
+    pub generic_arguments: Vec<GenericArgument>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -44,9 +44,9 @@ impl std::fmt::Debug for EntityRoute {
             EntityRouteKind::Generic { ident, .. } => f.write_str(&ident)?,
             EntityRouteKind::ThisType => todo!(),
         };
-        if self.generics.len() > 0 {
+        if self.generic_arguments.len() > 0 {
             f.write_str("<")?;
-            for (i, generic) in self.generics.iter().enumerate() {
+            for (i, generic) in self.generic_arguments.iter().enumerate() {
                 if i > 0 {
                     f.write_str(", ")?;
                 }
@@ -133,7 +133,7 @@ impl EntityRoute {
     pub fn pack(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
             kind: EntityRouteKind::Package { main, ident },
-            generics: Vec::new(),
+            generic_arguments: Vec::new(),
         }
     }
 
@@ -155,7 +155,7 @@ impl EntityRoute {
     ) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::ChildScope { parent, ident },
-            generics,
+            generic_arguments: generics,
         }
     }
 
@@ -165,7 +165,7 @@ impl EntityRoute {
     ) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::Root { ident },
-            generics: generic_arguments,
+            generic_arguments,
         }
     }
 

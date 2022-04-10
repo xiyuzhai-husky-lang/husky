@@ -7,7 +7,7 @@ use vec_dict::HasKey;
 use vm::InputContract;
 use word::IdentDict;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct MethodDecl {
     pub ident: CustomIdentifier,
     pub this_contract: InputContract,
@@ -23,8 +23,8 @@ impl HasKey<CustomIdentifier> for MethodDecl {
 }
 
 impl MethodDecl {
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
-        Self {
+    pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
+        Arc::new(Self {
             ident: self.ident,
             this_contract: self.this_contract,
             inputs: self
@@ -36,7 +36,7 @@ impl MethodDecl {
                 .instantiate_entity_route(self.output)
                 .as_scope(),
             generic_placeholders: Default::default(),
-        }
+        })
     }
 
     pub fn from_static(
@@ -44,7 +44,7 @@ impl MethodDecl {
         decl: &StaticMethodDecl,
         this_ty: EntityRoutePtr,
         symbols: &LocalStack<Symbol>,
-    ) -> Self {
+    ) -> Arc<Self> {
         let output = parse_ty(
             SymbolProxy {
                 opt_package_main: None,
@@ -55,7 +55,7 @@ impl MethodDecl {
             &db.tokenize(decl.output_ty),
         )
         .unwrap();
-        Self {
+        Arc::new(Self {
             ident: db.intern_word(decl.name).custom(),
             this_contract: decl.this_contract,
             inputs: decl
@@ -65,7 +65,7 @@ impl MethodDecl {
             generic_placeholders: decl.generic_placeholders.map(|static_generic_placeholder| {
                 GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
             }),
-        }
+        })
     }
 }
 

@@ -164,8 +164,9 @@ pub(crate) fn call_decl(
         db: &dyn DeclQueryGroup,
         static_decl: &StaticFuncDecl,
     ) -> CallDecl {
-        let (generic_placeholders, _, symbols) =
-            db.parse_generics(static_decl.generic_placeholders);
+        let generic_placeholders =
+            db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
+        let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
         let inputs = static_decl.inputs.map(|input| InputDecl {
             ty: db.parse_entity(input.ty, None, &symbols).unwrap(),
             contract: input.contract,
