@@ -1,6 +1,6 @@
 use crate::*;
 use atom::symbol_proxy::{Symbol, SymbolKind};
-use entity_route::EntityRouteKind;
+use entity_route::{EntityRoute, EntityRouteKind};
 use text::TextRange;
 
 impl<'a> AstTransformer<'a> {
@@ -14,7 +14,10 @@ impl<'a> AstTransformer<'a> {
                 .filter_map(|entry| {
                     entry.ident.map(|ident| Symbol {
                         ident: ident.into(),
-                        kind: SymbolKind::Scope(EntityRouteKind::ChildScope { parent, ident }),
+                        kind: SymbolKind::EntityRoute(self.db.intern_scope(EntityRoute {
+                            kind: EntityRouteKind::ChildScope { parent, ident },
+                            generics: vec![],
+                        })),
                     })
                 }),
         );

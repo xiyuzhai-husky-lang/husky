@@ -21,12 +21,12 @@ impl From<FileError> for ScopeError {
     }
 }
 
-macro_rules! scope_error {
-    ($msg: expr) => {{
-        crate::ScopeError::Message($msg)
-    }};
-}
-pub(crate) use scope_error;
+// macro_rules! scope_error {
+//     ($msg: expr) => {{
+//         crate::ScopeError::Message($msg)
+//     }};
+// }
+// pub(crate) use scope_error;
 
 macro_rules! scope_err {
     ($msg: expr) => {{

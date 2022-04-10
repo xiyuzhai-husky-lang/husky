@@ -3,7 +3,7 @@ mod custom;
 pub use custom::*;
 
 use core::hash::Hash;
-use std::{borrow::Borrow, fmt::Display, ops::Deref};
+use std::{borrow::Borrow, ops::Deref};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
@@ -106,7 +106,7 @@ impl Deref for RootIdentifier {
 impl RootIdentifier {
     pub fn as_str(&self) -> &'static str {
         match self {
-            RootIdentifier::Void => "()",
+            RootIdentifier::Void => "void",
             RootIdentifier::I32 => "i32",
             RootIdentifier::F32 => "f32",
             RootIdentifier::B32 => "b32",

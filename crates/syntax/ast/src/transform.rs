@@ -58,14 +58,14 @@ impl<'a> AstTransformer<'a> {
             module: EntityRoutePtr,
         ) -> LocalStack<Symbol> {
             let mut symbols = LocalStack::new();
-            for scope in db.subscopes(module).iter() {
-                match scope.kind {
+            for route in db.subscopes(module).iter() {
+                match route.kind {
                     EntityRouteKind::Root { .. }
                     | EntityRouteKind::Package { .. }
                     | EntityRouteKind::Input { .. } => panic!(),
                     EntityRouteKind::ChildScope { ident, .. } => symbols.push(Symbol {
                         ident,
-                        kind: SymbolKind::Scope(scope.kind),
+                        kind: SymbolKind::EntityRoute(*route),
                     }),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
                     EntityRouteKind::ThisType => todo!(),

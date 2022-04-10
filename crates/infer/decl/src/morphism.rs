@@ -10,103 +10,19 @@ use word::IdentDict;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct CallDecl {
+pub struct MorphismDecl {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub inputs: Vec<InputDecl>,
     pub output: EntityRoutePtr,
 }
 
-impl From<&RoutineDefnHead> for CallDecl {
-    fn from(head: &RoutineDefnHead) -> Self {
-        CallDecl {
-            generic_placeholders: head.generic_placeholders.clone(),
-            inputs: head
-                .input_placeholders
-                .iter()
-                .map(|input_placeholder| InputDecl {
-                    contract: input_placeholder.contract,
-                    ty: input_placeholder.ranged_ty.route,
-                })
-                .collect(),
-            output: head.output.route,
-        }
-    }
-}
-
-impl From<&MembRoutineDefnHead> for MethodDecl {
-    fn from(head: &MembRoutineDefnHead) -> Self {
-        Self {
-            ident: head.ident,
-            this_contract: head.this_contract,
-            inputs: head
-                .input_placeholders
-                .iter()
-                .map(|input_placeholder| input_placeholder.into())
-                .collect(),
-            output: head.output.route,
-            generic_placeholders: head.generics.clone(),
-        }
-    }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputDecl {
-    pub contract: InputContract,
-    pub ty: EntityRoutePtr,
-}
-
-impl InputDecl {
-    pub fn from_static(
-        db: &dyn DeclQueryGroup,
-        input: &StaticInputDecl,
-        opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &LocalStack<Symbol>,
-    ) -> Self {
-        Self {
-            ty: db.parse_entity(input.ty, opt_this_ty, symbols).unwrap(),
-            contract: input.contract,
-        }
-    }
-
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
-        Self {
-            ty: instantiator.instantiate_entity_route(self.ty).as_scope(),
-            contract: self.contract,
-        }
-    }
-}
-
-impl Into<InputDecl> for &InputPlaceholder {
-    fn into(self) -> InputDecl {
-        InputDecl {
-            contract: self.contract,
-            ty: self.ranged_ty.route,
-        }
-    }
-}
-
-impl CallDecl {
-    fn new_vec(ty: EntityRoutePtr) -> Self {
-        msg_once!("new vec compiled");
-        Self {
-            inputs: Vec::new(),
-            output: ty,
-            generic_placeholders: Default::default(),
-        }
-    }
-}
-
-pub(crate) fn call_decl(
+pub(crate) fn morphism_decl(
     db: &dyn DeclQueryGroup,
     scope: EntityRoutePtr,
-) -> InferResultArc<CallDecl> {
+) -> InferResultArc<MorphismDecl> {
     let source = db.entity_source(scope)?;
     return match source {
-        EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
-            StaticEntityDecl::Func(ref signature) => func_call_decl_from_static(db, signature),
-            StaticEntityDecl::TyTemplate => CallDecl::new_vec(scope),
-            _ => panic!(),
-        })),
+        EntitySource::Builtin(data) => Ok(Arc::new(todo!())),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
             file,
@@ -120,7 +36,7 @@ pub(crate) fn call_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::RoutineDefnHead(ref head) => Ok(Arc::new(head.into())),
+                AstKind::RoutineDefnHead(ref head) => todo!(),
                 // type constructor
                 AstKind::TypeDefnHead {
                     ref kind,
@@ -128,7 +44,8 @@ pub(crate) fn call_decl(
                     ..
                 } => match kind {
                     TyKind::Enum => todo!(),
-                    TyKind::Struct => {
+                    TyKind::Struct => todo!(),
+                    TyKind::Record => {
                         let mut inputs = vec![];
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
@@ -140,14 +57,12 @@ pub(crate) fn call_decl(
                                 _ => (),
                             }
                         }
-                        msg_once!("struct type call compiled");
-                        Ok(Arc::new(CallDecl {
+                        Ok(Arc::new(MorphismDecl {
                             inputs,
                             output: scope,
                             generic_placeholders: generic_placeholders.clone(),
                         }))
                     }
-                    TyKind::Record => todo!(),
                     TyKind::Primitive => todo!(),
                     TyKind::Vec => todo!(),
                     TyKind::Array => todo!(),

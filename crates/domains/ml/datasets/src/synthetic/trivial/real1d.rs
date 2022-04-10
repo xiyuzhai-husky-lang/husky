@@ -14,6 +14,7 @@ pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
 pub const DATASET1_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
     decl: StaticEntityDecl::Func(StaticFuncDecl {
+        generic_placeholders: &[],
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: RoutineLinkage {
@@ -26,6 +27,7 @@ pub const DATASET1_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
 pub const DATASET2_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     subscopes: &[],
     decl: StaticEntityDecl::Func(StaticFuncDecl {
+        generic_placeholders: &[],
         inputs: vec![],
         output: "Dataset<f32, i32>",
         compiled: RoutineLinkage {

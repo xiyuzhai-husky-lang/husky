@@ -17,13 +17,13 @@ pub enum ScopeDefRule {
     ContextualIdentifierAreReserved,
 }
 
-macro_rules! build_error_code_gen {
-($grammar_failed: expr, $($item:ident), *) => {{
-    match $grammar_failed {
-        $(ScopeDefRule::$item => concat!("rule broken: ScopeDefRule::", stringify!($item))),*
-    }
-}};
-}
+// macro_rules! build_error_code_gen {
+// ($grammar_failed: expr, $($item:ident), *) => {{
+//     match $grammar_failed {
+//         $(ScopeDefRule::$item => concat!("rule broken: ScopeDefRule::", stringify!($item))),*
+//     }
+// }};
+// }
 
 impl EntityDefnError {
     pub fn message(&self) -> String {

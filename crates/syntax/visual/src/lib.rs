@@ -10,8 +10,7 @@ pub struct StaticVisualizer {
 
 impl std::fmt::Debug for StaticVisualizer {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-        // f.write_str("BuiltinVisualizer")
+        f.write_str("StaticVisualizer")
     }
 }
 
@@ -27,6 +26,6 @@ pub const TRIVIAL_VISUALIZER: StaticVisualizer = StaticVisualizer {
     compiled: visualize_trivial,
 };
 
-fn visualize_trivial<'eval>(data: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
-    todo!()
+fn visualize_trivial<'eval>(_data: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
+    VisualProps::Empty
 }

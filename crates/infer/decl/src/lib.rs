@@ -3,12 +3,15 @@ mod feature;
 mod field;
 mod global;
 mod impl_parse;
+mod input;
 mod method;
 mod traits;
 mod ty;
 
 pub use call::*;
+pub use call::*;
 pub use field::*;
+pub use input::*;
 pub use method::*;
 pub use traits::*;
 pub use ty::*;
@@ -31,7 +34,7 @@ use word::CustomIdentifier;
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
-    fn call_decl(&self, scope: EntityRoutePtr) -> InferResultArc<RoutineDecl>;
+    fn call_decl(&self, scope: EntityRoutePtr) -> InferResultArc<CallDecl>;
     fn ty_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TyDecl>;
     fn trait_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TraitDecl>;
     fn feature_decl(&self, scope: EntityRoutePtr) -> InferResultArc<FeatureSignature>;

@@ -7,7 +7,7 @@ impl<'a> AstTransformer<'a> {
             db: self.db.upcast(),
             symbols: &self.symbols,
             opt_package_main: Some(self.main),
-            this_ty: self.this.value(),
+            opt_this_ty: self.this.value(),
         }
     }
 }

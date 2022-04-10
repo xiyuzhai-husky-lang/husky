@@ -245,7 +245,7 @@ impl<'a> TySheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
-            RawExprVariant::Scope { scope, .. } => {
+            RawExprVariant::Scope { scope, kind, .. } => {
                 let call_decl = self.db.call_decl(scope)?;
                 for i in 0..call_decl.inputs.len() {
                     let input_expr_idx = all_opds.start + 1 + i;

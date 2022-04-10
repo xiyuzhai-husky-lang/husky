@@ -18,7 +18,7 @@ impl<'a> AtomLRParser<'a> {
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, token.range)?;
                 Some(match symbol_kind {
-                    SymbolKind::Scope(route) => self.normal_scope(route)?,
+                    SymbolKind::EntityRoute(route) => self.normal_scope(route)?,
                     SymbolKind::Variable { init_row } => match ident {
                         Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
                         Identifier::Custom(varname) => AtomKind::Variable { varname, init_row },
@@ -57,7 +57,7 @@ impl<'a> AtomLRParser<'a> {
         Ok(EntityRoute::array(element, size))
     }
 
-    fn normal_scope(&mut self, route: EntityRouteKind) -> AtomResult<AtomKind> {
+    fn normal_scope(&mut self, route: EntityRoutePtr) -> AtomResult<AtomKind> {
         let mut scope = self.scope_proxy.db.make_scope(route, self.generics(route)?);
         while next_matches!(self, Special::DoubleColon) {
             let ident = get!(self, custom_ident);
@@ -89,8 +89,11 @@ impl<'a> AtomLRParser<'a> {
         )
     }
 
-    fn generics(&mut self, scope_kind: EntityRouteKind) -> AtomResult<Vec<GenericArgument>> {
-        match scope_kind {
+    fn generics(&mut self, route: EntityRoutePtr) -> AtomResult<Vec<GenericArgument>> {
+        if route.generics.len() > 0 {
+            todo!()
+        }
+        match route.kind {
             EntityRouteKind::Root { ident } => match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32
@@ -121,7 +124,7 @@ impl<'a> AtomLRParser<'a> {
             _ => match self
                 .scope_proxy
                 .db
-                .raw_entity_kind_from_scope_kind(&scope_kind)
+                .raw_entity_kind_from_scope_kind(route.kind)
             {
                 EntityKind::Module | EntityKind::Literal | EntityKind::Feature => Ok(Vec::new()),
                 EntityKind::Type(_)

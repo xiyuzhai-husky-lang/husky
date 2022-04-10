@@ -4,8 +4,10 @@ mod record;
 mod struct_ty;
 mod vec;
 
+use atom::symbol_proxy::{Symbol, SymbolKind};
 pub use enum_ty::*;
 use fold::LocalStack;
+use map_collect::MapCollect;
 pub use record::*;
 pub use struct_ty::*;
 pub use vec::*;
@@ -14,9 +16,8 @@ use crate::*;
 use ast::AstIter;
 use defn_head::*;
 use entity_route::*;
-use print_utils::msg_once;
 use vec_dict::VecDict;
-use vm::{MembAccessContract, TySignature};
+use vm::TySignature;
 use word::{IdentDict, RangedCustomIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -32,38 +33,21 @@ pub struct TyDecl {
 
 impl TyDecl {
     fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTyDecl) -> Self {
-        let base_ty = db.parse_entity(static_decl.base_ty).unwrap();
-        let generic_placeholders: IdentDict<_> = static_decl
-            .generic_placeholders
-            .iter()
-            .map(|static_generic_placeholder| GenericPlaceholder {
-                ident: db.intern_word(static_generic_placeholder.name).custom(),
-                variant: GenericPlaceholderVariant::Type { traits: vec![] },
-            })
-            .collect();
+        let (generic_placeholders, generics, symbols) =
+            db.parse_generics(static_decl.generic_placeholders);
+        let base_ty = db
+            .parse_entity(static_decl.base_ty, None, &symbols)
+            .unwrap();
         let this_ty = db.intern_scope(EntityRoute {
             kind: base_ty.kind,
-            generics: generic_placeholders
-                .iter()
-                .map(|generic_placeholder| {
-                    GenericArgument::Scope(db.intern_scope(EntityRoute {
-                        kind: EntityRouteKind::Generic {
-                            ident: generic_placeholder.ident,
-                            entity_kind: generic_placeholder.entity_kind(),
-                        },
-                        generics: vec![],
-                    }))
-                })
-                .collect(),
+            generics,
         });
         Self {
             this_ty,
             generic_placeholders,
             traits: static_decl
                 .traits
-                .iter()
-                .map(|t| db.parse_entity(*t).unwrap())
-                .collect(),
+                .map(|t| db.parse_entity(*t, Some(this_ty), &symbols).unwrap()),
             fields: static_decl
                 .fields
                 .iter()
@@ -72,83 +56,14 @@ impl TyDecl {
             methods: static_decl
                 .methods
                 .iter()
-                .map(|method| MethodDecl::from_static(db, this_ty, (), method))
+                .map(|method| MethodDecl::from_static(db, method, this_ty, &symbols))
                 .collect(),
-            variants: todo!(),
-            kind: todo!(),
+            variants: static_decl.variants.map(|static_decl| {
+                EnumVariantDecl::from_static(db, static_decl, this_ty, &symbols)
+            }),
+            kind: static_decl.kind,
         }
     }
-
-    // fn new(
-    //     db: &dyn DeclQueryGroup,
-    //     entity_route_kind: EntityRouteKind,
-    //     generic_placeholders: IdentDict<GenericPlaceholder>,
-    //     traits: Vec<EntityRoutePtr>,
-    //     decl_kind: TyDeclKind,
-    // ) -> Self {
-    //     let mut methods = IdentDict::default();
-    //     for trait_route in &traits {
-    //         let trait_decl = db.trait_decl(*trait_route).unwrap();
-    //         methods.extends(&trait_decl.members)
-    //     }
-    //     match decl_kind {
-    //         TyKind::Struct {
-    //             fields: ref field_vars,
-    //             methods: ref field_routines,
-    //         } => {
-    //             for (field_ident, field_access_decl) in field_vars.iter() {
-    //                 methods.insert_new(
-    //                     *field_ident,
-    //                     MembDecl {
-    //                         variant: FieldDeclVariant::Var(field_access_decl.clone()),
-    //                     },
-    //                 )
-    //             }
-    //             for (field_ident, field_call_decl) in field_routines.iter() {
-    //                 methods.insert_new(
-    //                     *field_ident,
-    //                     MembDecl {
-    //                         variant: FieldDeclVariant::Routine(field_call_decl.clone()),
-    //                     },
-    //                 )
-    //             }
-    //         }
-    //         TyKind::Enum { ref variants } => todo!(),
-    //         TyKind::Record {
-    //             ref fields,
-    //             ref derived_fields,
-    //         } => {
-    //             for field in fields.iter() {
-    //                 todo!()
-    //             }
-    //             for derived_field in derived_fields.iter() {
-    //                 todo!()
-    //             }
-    //         }
-    //         TyKind::Vec { element_ty } => add_vec_methods(db, element_ty, &mut methods),
-    //     };
-    //     TyDecl {
-    //         traits,
-    //         members: methods,
-    //         kind: decl_kind,
-    //         this_type: db.intern_scope(EntityRoute {
-    //             kind: entity_route_kind,
-    //             generics: generic_placeholders
-    //                 .iter()
-    //                 .map(|(ident, placeholder)| {
-    //                     GenericArgument::Scope(db.intern_scope(EntityRoute {
-    //                         kind: EntityRouteKind::Generic {
-    //                             ident: *ident,
-    //                             entity_kind: placeholder.entity_kind(),
-    //                         },
-    //                         generics: Vec::new(),
-    //                     }))
-    //                 })
-    //                 .collect(),
-    //         }),
-    //         generic_placeholders,
-    //     }
-    // }
 
     pub fn field_idx(&self, field_ident: CustomIdentifier) -> usize {
         self.fields.position(field_ident).unwrap()
@@ -277,20 +192,14 @@ impl TyDecl {
     }
 
     pub fn method_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResult<&MethodDecl> {
-        todo!()
-        // match self.members.get(ranged_ident.ident) {
-        //     Some(field_decl) => match field_decl.variant {
-        //         FieldDeclVariant::Var(_) => todo!(),
-        //         FieldDeclVariant::Routine(ref signature) => Ok(signature),
-        //     },
-        //     None => err!(
-        //         format!(
-        //             "no method named `{}` found in type `{:?}`",
-        //             &ranged_ident.ident, self.this_type
-        //         ),
-        //         ranged_ident.range
-        //     ),
-        // }
+        ok_or!(
+            self.methods.get(ranged_ident.ident),
+            format!(
+                "no method named `{}` found in type `{:?}`",
+                &ranged_ident.ident, self.this_ty
+            ),
+            ranged_ident.range
+        )
     }
 }
 

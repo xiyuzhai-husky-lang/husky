@@ -1,7 +1,7 @@
 use crate::*;
 use entity_route::*;
 use std::sync::Arc;
-use word::{ContextualIdentifier, RootIdentifier};
+use word::RootIdentifier;
 
 pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<EntityRouteMenu> {
     Arc::new(EntityRouteMenu {

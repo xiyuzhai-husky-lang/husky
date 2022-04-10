@@ -10,7 +10,7 @@ use vm::{InputContract, RoutineLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitDecl {
-    pub generic_placeholders: (),
+    pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub methods: &'static [StaticMethodDecl],
 }
 
@@ -43,6 +43,7 @@ pub enum StaticGenericPlaceholderVariant {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticFuncDecl {
+    pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub inputs: Vec<StaticInputSignature>,
     pub output: &'static str,
     pub compiled: RoutineLinkage,

@@ -170,9 +170,15 @@ pub trait AllocateUniqueScope {
     fn intern_scope(&self, scope: EntityRoute) -> EntityRoutePtr {
         self.scope_unique_allocator().alloc(scope)
     }
-    fn make_scope(&self, route: EntityRouteKind, generics: Vec<GenericArgument>) -> EntityRoutePtr {
+    fn make_scope(
+        &self,
+        route: EntityRoutePtr,
+        generic_arguments: Vec<GenericArgument>,
+    ) -> EntityRoutePtr {
+        let mut generics = route.generics.clone();
+        generics.extend(generic_arguments);
         self.intern_scope(EntityRoute {
-            kind: route,
+            kind: route.kind,
             generics,
         })
     }
