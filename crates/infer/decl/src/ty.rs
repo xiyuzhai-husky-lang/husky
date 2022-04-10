@@ -227,6 +227,13 @@ impl TyDecl {
     }
 
     pub fn method_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResult<&MethodDecl> {
+        if let Some(member_decl) = self.type_members.get(ranged_ident.ident) {
+            match member_decl {
+                TypeMemberDecl::Field(_) => todo!(),
+                TypeMemberDecl::Method(_) => todo!(),
+                TypeMemberDecl::Call => todo!(),
+            }
+        }
         todo!()
         // ok_or!(
         //     self.type_members.get(ranged_ident.ident),

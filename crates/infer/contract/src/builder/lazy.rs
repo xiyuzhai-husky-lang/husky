@@ -217,7 +217,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ranged_ident) => self.infer_lazy_field_call(
+                    SuffixOpr::MembAccess(ranged_ident) => self.infer_lazy_method(
                         opds.start,
                         ranged_ident,
                         (all_opds.start + 1)..all_opds.end,
@@ -233,7 +233,7 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_lazy_field_call(
+    fn infer_lazy_method(
         &mut self,
         this: RawExprIdx,
         ranged_ident: RangedCustomIdentifier,
