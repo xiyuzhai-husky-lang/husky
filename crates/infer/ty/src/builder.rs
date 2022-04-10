@@ -1,10 +1,12 @@
 mod impl_expr;
+mod impl_locality;
 mod impl_morphism;
 mod impl_routine;
 mod impl_stmt;
 
 use super::*;
 use ast::{AstIter, AstText};
+use fold::LocalStack;
 use std::sync::Arc;
 use text::TextRanged;
 
@@ -12,6 +14,7 @@ pub struct TySheetBuilder<'a> {
     db: &'a dyn InferTySalsaQueryGroup,
     main_file: FilePtr,
     ty_sheet: TySheet,
+    trait_uses: LocalStack<EntityRouteKind>,
 }
 
 impl<'a> TySheetBuilder<'a> {
@@ -20,6 +23,7 @@ impl<'a> TySheetBuilder<'a> {
             db,
             main_file: db.main_file(ast_text.file).unwrap(),
             ty_sheet: TySheet::new(ast_text),
+            trait_uses: LocalStack::new(),
         }
     }
 
@@ -28,6 +32,7 @@ impl<'a> TySheetBuilder<'a> {
     }
 
     pub(super) fn infer_all(&mut self, ast_iter: AstIter) {
+        self.enter_block();
         let arena = self.ty_sheet.ast_text.arena.clone();
         for item in ast_iter {
             match item.value {
@@ -71,6 +76,7 @@ impl<'a> TySheetBuilder<'a> {
                 _ => (),
             }
         }
+        self.exit_block()
     }
 
     fn add_inputs(&mut self, inputs: &[InputPlaceholder]) {

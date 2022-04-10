@@ -29,3 +29,4 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 infer-error = { path = "../error", version = "0.0.0" }
 infer-ty = { path = "../ty", version = "0.0.0" }
+atom = { path = "../../syntax/atom", version = "0.0.0" }

@@ -226,15 +226,54 @@ impl TyDecl {
         // }
     }
 
-    pub fn method_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResult<&MethodDecl> {
+    pub fn method_decl(
+        &self,
+        ranged_ident: RangedCustomIdentifier,
+        trait_uses: &[EntityRouteKind],
+    ) -> InferResult<&Arc<MethodDecl>> {
+        // the rule is:
+        // first look in the type members,
+        // then look in the trait members,
+        // if multiple are found in the trait members,
+        // report an infer error.
         if let Some(member_decl) = self.type_members.get(ranged_ident.ident) {
             match member_decl {
                 TypeMemberDecl::Field(_) => todo!(),
-                TypeMemberDecl::Method(_) => todo!(),
+                TypeMemberDecl::Method(method) => return Ok(method),
                 TypeMemberDecl::Call => todo!(),
             }
         }
-        todo!()
+        let matched_methods: Vec<&Arc<MethodDecl>> = self
+            .members
+            .iter()
+            .filter_map(|member| {
+                if member.ident() == ranged_ident.ident {
+                    match member {
+                        MemberDecl::AssociatedType => todo!(),
+                        MemberDecl::AssociatedCall => todo!(),
+                        MemberDecl::Field => todo!(),
+                        MemberDecl::TypeMethod(_) => todo!(),
+                        MemberDecl::TraitMethod {
+                            trait_route,
+                            method,
+                        } => {
+                            if is_trait_availabe(*trait_route, trait_uses) {
+                                Some(method)
+                            } else {
+                                None
+                            }
+                        }
+                    }
+                } else {
+                    None
+                }
+            })
+            .collect();
+        if matched_methods.len() == 1 {
+            return Ok(matched_methods[0]);
+        } else {
+            todo!()
+        }
         // ok_or!(
         //     self.type_members.get(ranged_ident.ident),
         //     format!(
@@ -320,5 +359,16 @@ pub(crate) fn ty_decl(
         }
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { .. } => todo!(),
+    }
+}
+
+fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteKind]) -> bool {
+    match trait_route.kind {
+        EntityRouteKind::Root { ident } => true,
+        EntityRouteKind::Package { main, ident } => todo!(),
+        EntityRouteKind::ChildScope { parent, ident } => todo!(),
+        EntityRouteKind::Input { main } => todo!(),
+        EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+        EntityRouteKind::ThisType => todo!(),
     }
 }

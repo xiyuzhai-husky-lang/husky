@@ -12,13 +12,31 @@ pub enum MemberDecl {
     AssociatedCall,
     Field,
     TypeMethod(Arc<MethodDecl>),
-    TraitMethod { trait_route: EntityRoutePtr },
+    TraitMethod {
+        trait_route: EntityRoutePtr,
+        method: Arc<MethodDecl>,
+    },
+}
+
+impl MemberDecl {
+    pub fn ident(&self) -> CustomIdentifier {
+        match self {
+            MemberDecl::AssociatedType => todo!(),
+            MemberDecl::AssociatedCall => todo!(),
+            MemberDecl::Field => todo!(),
+            MemberDecl::TypeMethod(method) => method.ident,
+            MemberDecl::TraitMethod { method, .. } => method.ident,
+        }
+    }
 }
 
 impl MemberDecl {
     pub(crate) fn from_trait(trait_route: EntityRoutePtr, trait_member: &TraitMemberDecl) -> Self {
         match trait_member {
-            TraitMemberDecl::Method(_) => MemberDecl::TraitMethod { trait_route },
+            TraitMemberDecl::Method(method) => MemberDecl::TraitMethod {
+                trait_route,
+                method: method.clone(),
+            },
         }
     }
 }

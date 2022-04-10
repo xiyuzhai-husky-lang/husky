@@ -28,6 +28,7 @@ impl<'a> ContractSheetBuilder<'a> {
         output_ty: EntityRoutePtr,
         arena: &RawExprArena,
     ) {
+        self.enter_block();
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.kind {
@@ -39,6 +40,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_stmts(children, output_ty, arena)
             }
         }
+        self.exit_block()
     }
 
     fn infer_eager_stmt(
@@ -318,7 +320,8 @@ impl<'a> ContractSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<()> {
         let this_ty_decl = derived_ok!(self.db.expr_ty_decl(self.file, this));
-        let method_call_decl = derived_ok!(this_ty_decl.method_decl(ranged_ident));
+        let method_call_decl =
+            derived_ok!(this_ty_decl.method_decl(ranged_ident, &self.trait_uses));
         match contract {
             EagerContract::Pure => (),
             EagerContract::Move => (),

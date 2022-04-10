@@ -1,9 +1,12 @@
 mod eager;
+mod impl_locality;
 mod lazy;
 
 use std::sync::Arc;
 
 use ast::{AstIter, AstKind};
+use entity_route::EntityRouteKind;
+use fold::LocalStack;
 use infer_ty::TySheet;
 use word::RootIdentifier;
 
@@ -14,6 +17,7 @@ pub struct ContractSheetBuilder<'a> {
     file: FilePtr,
     main_file: FilePtr,
     contract_sheet: ContractSheet,
+    trait_uses: LocalStack<EntityRouteKind>,
 }
 
 impl<'a> ContractSheetBuilder<'a> {
@@ -27,11 +31,13 @@ impl<'a> ContractSheetBuilder<'a> {
             file,
             main_file: db.main_file(file).unwrap(),
             contract_sheet: ContractSheet::new(ty_sheet),
+            trait_uses: LocalStack::new(),
         }
     }
 
     pub(crate) fn infer_all(&mut self, ast_iter: AstIter) {
         let arena = self.contract_sheet.ty_sheet.ast_text.arena.clone();
+        self.enter_block();
         for item in ast_iter {
             match item.value {
                 Ok(value) => match value.kind {
@@ -67,6 +73,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 _ => (),
             }
         }
+        self.exit_block()
     }
 
     pub(crate) fn finish(self) -> ContractSheet {
