@@ -287,7 +287,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ident) => self.infer_eager_field_call(
+                    SuffixOpr::MembAccess(ident) => self.infer_eager_method(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,
@@ -308,7 +308,7 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_eager_field_call(
+    fn infer_eager_method(
         &mut self,
         this: RawExprIdx,
         ranged_ident: RangedCustomIdentifier,

@@ -261,7 +261,7 @@ impl<'a> TySheetBuilder<'a> {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
                 Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::MembAccess(ident) => self.field_call_ty_result(
+                    SuffixOpr::MembAccess(ident) => self.method_ty_result(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,
@@ -279,7 +279,7 @@ impl<'a> TySheetBuilder<'a> {
         }
     }
 
-    fn field_call_ty_result(
+    fn method_ty_result(
         &mut self,
         this: RawExprIdx,
         field_ident: RangedCustomIdentifier,
@@ -288,13 +288,13 @@ impl<'a> TySheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
-        let field_call_decl = this_ty_decl.method_decl(field_ident)?;
-        if inputs.end - inputs.start != field_call_decl.inputs.len() {
+        let method_decl = this_ty_decl.method_decl(field_ident)?;
+        if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
         }
-        for i in 0..field_call_decl.inputs.len() {
-            self.infer_expr(inputs.start + i, Some(field_call_decl.inputs[i].ty), arena);
+        for i in 0..method_decl.inputs.len() {
+            self.infer_expr(inputs.start + i, Some(method_decl.inputs[i].ty), arena);
         }
-        Ok(field_call_decl.output)
+        Ok(method_decl.output)
     }
 }
