@@ -90,7 +90,7 @@ impl<'a> AtomLRParser<'a> {
     }
 
     fn generics(&mut self, route: EntityRoutePtr) -> AtomResult<Vec<GenericArgument>> {
-        if route.generics.len() > 0 {
+        if route.generic_arguments.len() > 0 {
             todo!()
         }
         match route.kind {

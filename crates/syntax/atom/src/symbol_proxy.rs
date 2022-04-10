@@ -95,7 +95,7 @@ impl<'a> SymbolProxy<'a> {
                                 .opt_package_main
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
-                        generics: vec![],
+                        generic_arguments: vec![],
                     }),
                 )),
                 ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData {

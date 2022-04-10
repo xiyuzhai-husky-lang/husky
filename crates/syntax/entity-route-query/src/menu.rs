@@ -9,23 +9,23 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
             kind: EntityRouteKind::Root {
                 ident: RootIdentifier::CloneTrait,
             },
-            generics: vec![],
+            generic_arguments: vec![],
         }),
         void_type: db.intern_scope(EntityRoute {
             kind: EntityRouteKind::Root {
                 ident: RootIdentifier::Void,
             },
-            generics: vec![],
+            generic_arguments: vec![],
         }),
         i32_type: db.intern_scope(EntityRoute {
             kind: EntityRouteKind::Root {
                 ident: RootIdentifier::I32,
             },
-            generics: vec![],
+            generic_arguments: vec![],
         }),
         this_type: db.intern_scope(EntityRoute {
             kind: EntityRouteKind::ThisType,
-            generics: vec![],
+            generic_arguments: vec![],
         }),
     })
 }

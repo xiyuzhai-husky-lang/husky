@@ -16,7 +16,7 @@ impl<'a> RustGenerator<'a> {
             EntityRouteKind::Generic { ident, .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         }
-        if scope.generics.len() > 0 {
+        if scope.generic_arguments.len() > 0 {
             todo!()
         }
     }

@@ -4,47 +4,44 @@ use word::IdentDict;
 
 pub(crate) fn struct_decl(
     db: &dyn DeclQueryGroup,
-    entity_route_kind: EntityRouteKind,
+    this_ty: EntityRoutePtr,
     generic_placeholders: IdentDict<GenericPlaceholder>,
-    children: AstIter,
+    mut children: AstIter,
 ) -> InferResultArc<TyDecl> {
-    let mut field_vars = VecDict::default();
-    let mut methods = VecDict::default();
-    let mut traits = vec![db.entity_route_menu().clone_trait];
-
-    for subitem in children {
+    let mut type_members = VecDict::default();
+    let mut trait_impls = vec![TraitImplDecl::clone_trait_impl(db, this_ty)];
+    // add fields
+    while let Some(subitem) = children.next() {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
-            AstKind::FieldDefn(ref field_var_defn) => field_vars.insert_new(FieldDecl {
-                ident: field_var_defn.ident,
-                contract: field_var_defn.contract,
-                ty: field_var_defn.ty,
-            }),
+            AstKind::FieldDefn(ref field_var_defn) => {
+                type_members.insert_new(TypeMemberDecl::Field(Arc::new(FieldDecl {
+                    ident: field_var_defn.ident,
+                    contract: field_var_defn.contract,
+                    ty: field_var_defn.ty,
+                })))
+            }
+            _ => break,
+        }
+    }
+    // add other members
+    while let Some(subitem) = children.next() {
+        let subast = subitem.value.as_ref()?;
+        match subast.kind {
+            AstKind::FieldDefn(ref field_var_defn) => panic!("expect fields to be defined first"),
             AstKind::MembRoutineDefnHead(ref field_var_defn) => {
-                methods.insert_new(field_var_defn.into())
+                type_members.insert_new(TypeMemberDecl::Method(Arc::new(field_var_defn.into())))
             }
             _ => panic!(),
         }
     }
-
-    Ok(Arc::new(TyDecl {
-        this_ty: todo!(),
+    Ok(Arc::new(TyDecl::new(
+        db,
+        this_ty,
         generic_placeholders,
-        traits,
-        fields: todo!(),
-        methods,
-        variants: todo!(),
-        kind: todo!(),
-    }))
-
-    //     ::new(
-    //     db,
-    //     entity_route_kind,
-    //     generic_placeholders,
-    //     traits,
-    //     TyKind::Struct {
-    //         fields: Arc::new(field_vars),
-    //         methods: field_routines,
-    //     },
-    // )))
+        type_members,
+        Default::default(),
+        TyKind::Struct,
+        trait_impls,
+    )))
 }

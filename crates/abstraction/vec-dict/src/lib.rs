@@ -1,6 +1,6 @@
-use std::{marker::PhantomData, ops::Deref};
+use std::{marker::PhantomData, ops::Deref, sync::Arc};
 
-pub trait HasKey<K>: Clone
+pub trait HasKey<K>
 where
     K: PartialEq + Eq + Copy,
 {
@@ -10,10 +10,19 @@ where
 impl<K, T> HasKey<K> for (K, T)
 where
     K: PartialEq + Eq + Copy,
-    T: Clone,
 {
     fn key(&self) -> K {
         self.0
+    }
+}
+
+impl<K, T> HasKey<K> for Arc<T>
+where
+    K: PartialEq + Eq + Copy,
+    T: HasKey<K>,
+{
+    fn key(&self) -> K {
+        (**self).key()
     }
 }
 
@@ -23,7 +32,7 @@ where
     K: PartialEq + Eq + Copy,
     V: HasKey<K>,
 {
-    data: Vec<V>,
+    entries: Vec<V>,
     phantom: PhantomData<K>,
 }
 
@@ -38,7 +47,7 @@ where
     Entry: HasKey<K>,
 {
     pub fn data(&self) -> &[Entry] {
-        &self.data
+        &self.entries
     }
 
     pub fn from_vec(data: Vec<Entry>) -> Result<Self, Repeat> {
@@ -50,32 +59,35 @@ where
             }
         }
         Ok(Self {
-            data,
+            entries: data,
             phantom: PhantomData,
         })
     }
 
     pub fn len(&self) -> usize {
-        self.data.len()
+        self.entries.len()
     }
 
     pub fn get(&self, key: K) -> Option<&Entry> {
-        self.data.iter().find(|entry| entry.key() == key)
+        self.entries.iter().find(|entry| entry.key() == key)
     }
 
     pub fn has(&self, key: K) -> bool {
-        self.data.iter().find(|entry| entry.key() == key).is_some()
+        self.entries
+            .iter()
+            .find(|entry| entry.key() == key)
+            .is_some()
     }
 
     pub fn get_mut(&mut self, key: K) -> Option<&mut Entry> {
-        self.data.iter_mut().find(|entry| entry.key() == key)
+        self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
     pub fn insert_new(&mut self, value: Entry) {
         if self.has(value.key()) {
             panic!()
         } else {
-            self.data.push(value)
+            self.entries.push(value)
         }
     }
 
@@ -83,23 +95,26 @@ where
         if self.has(key) {
             ()
         } else {
-            self.data.push(value)
+            self.entries.push(value)
         }
     }
 
     pub fn position(&self, key: K) -> Option<usize> {
-        self.data.iter().position(|entry| entry.key() == key)
+        self.entries.iter().position(|entry| entry.key() == key)
     }
 
     pub fn extends(&mut self, other: Self) {
-        for v in other.data {
+        for v in other.entries {
             self.insert_new(v)
         }
     }
 
-    pub fn extends_from_ref(&mut self, other: &Self) {
-        for v in &other.data {
-            self.insert_new(v.clone())
+    pub fn extends_from_ref(&mut self, other: &Self)
+    where
+        Entry: Clone,
+    {
+        for entry in &other.entries {
+            self.insert_new(entry.clone())
         }
     }
 }
@@ -126,7 +141,7 @@ where
     type Target = [V];
 
     fn deref(&self) -> &Self::Target {
-        &self.data
+        &self.entries
     }
 }
 
@@ -137,7 +152,7 @@ where
 {
     fn default() -> Self {
         Self {
-            data: vec![],
+            entries: vec![],
             phantom: PhantomData,
         }
     }

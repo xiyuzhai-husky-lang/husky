@@ -1,72 +1,106 @@
 mod enum_ty;
 mod impl_instantiate;
+mod member;
+mod method;
 mod record;
 mod struct_ty;
+mod trait_impl;
 mod vec;
 
-use atom::symbol_proxy::{Symbol, SymbolKind};
-pub use enum_ty::*;
-use fold::LocalStack;
-use map_collect::MapCollect;
+pub use member::*;
+pub use method::*;
 pub use record::*;
 pub use struct_ty::*;
+pub use trait_impl::*;
 pub use vec::*;
 
 use crate::*;
 use ast::AstIter;
+use atom::symbol_proxy::{Symbol, SymbolKind};
 use defn_head::*;
 use entity_route::*;
+pub use enum_ty::*;
+use fold::LocalStack;
+use map_collect::MapCollect;
 use vec_dict::VecDict;
 use vm::TySignature;
-use word::{IdentDict, RangedCustomIdentifier};
+use word::{IdentArcDict, IdentDict, RangedCustomIdentifier};
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {
     pub this_ty: EntityRoutePtr,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
-    pub traits: Vec<EntityRoutePtr>,
-    pub fields: IdentDict<FieldDecl>,
-    pub methods: IdentDict<MethodDecl>,
+    pub type_members: IdentDict<TypeMemberDecl>,
     pub variants: IdentDict<EnumVariantDecl>,
     pub kind: TyKind,
+    pub trait_impls: Vec<Arc<TraitImplDecl>>,
+    pub members: Vec<MemberDecl>,
 }
 
 impl TyDecl {
     fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTyDecl) -> Self {
-        let (generic_placeholders, generics, symbols) =
-            db.parse_generics(static_decl.generic_placeholders);
+        let generic_placeholders =
+            db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
+        let generic_arguments =
+            db.generic_arguments_from_generic_placeholders(&generic_placeholders);
+        let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
         let base_ty = db
             .parse_entity(static_decl.base_ty, None, &symbols)
             .unwrap();
         let this_ty = db.intern_scope(EntityRoute {
             kind: base_ty.kind,
-            generics,
+            generic_arguments,
         });
+        Self::new(
+            db,
+            this_ty,
+            generic_placeholders,
+            static_decl
+                .members
+                .iter()
+                .map(|member| TypeMemberDecl::from_static(db, member, this_ty, &symbols))
+                .collect(),
+            static_decl.variants.map(|static_decl| {
+                EnumVariantDecl::from_static(db, static_decl, this_ty, &symbols)
+            }),
+            static_decl.kind,
+            static_decl
+                .trait_impls
+                .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, this_ty, &symbols)),
+        )
+    }
+
+    pub(crate) fn new(
+        db: &dyn DeclQueryGroup,
+        this_ty: EntityRoutePtr,
+        generic_placeholders: IdentDict<GenericPlaceholder>,
+        type_members: IdentDict<TypeMemberDecl>,
+        variants: IdentDict<EnumVariantDecl>,
+        kind: TyKind,
+        trait_impls: Vec<Arc<TraitImplDecl>>,
+    ) -> Self {
+        let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
         Self {
             this_ty,
             generic_placeholders,
-            traits: static_decl
-                .traits
-                .map(|t| db.parse_entity(*t, Some(this_ty), &symbols).unwrap()),
-            fields: static_decl
-                .fields
-                .iter()
-                .map(|field| FieldDecl::from_static(db, field))
-                .collect(),
-            methods: static_decl
-                .methods
-                .iter()
-                .map(|method| MethodDecl::from_static(db, method, this_ty, &symbols))
-                .collect(),
-            variants: static_decl.variants.map(|static_decl| {
-                EnumVariantDecl::from_static(db, static_decl, this_ty, &symbols)
-            }),
-            kind: static_decl.kind,
+            type_members,
+            variants,
+            kind,
+            trait_impls,
+            members,
         }
     }
 
     pub fn field_idx(&self, field_ident: CustomIdentifier) -> usize {
-        self.fields.position(field_ident).unwrap()
+        todo!()
+        // self.fields.position(field_ident).unwrap()
+    }
+
+    pub fn fields(&self) -> impl Iterator<Item = &FieldDecl> {
+        self.type_members.iter().filter_map(|member| match member {
+            TypeMemberDecl::Field(field_decl) => Some(field_decl as &FieldDecl),
+            _ => None,
+        })
     }
 }
 
@@ -111,7 +145,8 @@ impl TyDecl {
     }
 
     pub fn field_decl(&self, field_ident: CustomIdentifier) -> FieldDecl {
-        self.fields[field_ident]
+        todo!()
+        // self.fields[field_ident]
         // match self.kind {
         //     TyKind::Struct {
         //         fields: ref field_vars,
@@ -192,14 +227,15 @@ impl TyDecl {
     }
 
     pub fn method_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResult<&MethodDecl> {
-        ok_or!(
-            self.methods.get(ranged_ident.ident),
-            format!(
-                "no method named `{}` found in type `{:?}`",
-                &ranged_ident.ident, self.this_ty
-            ),
-            ranged_ident.range
-        )
+        todo!()
+        // ok_or!(
+        //     self.type_members.get(ranged_ident.ident),
+        //     format!(
+        //         "no method named `{}` found in type `{:?}`",
+        //         &ranged_ident.ident, self.this_ty
+        //     ),
+        //     ranged_ident.range
+        // )
     }
 }
 
@@ -215,7 +251,7 @@ pub(crate) fn ty_decl(
             StaticEntityDecl::Ty { .. } => todo!(),
             StaticEntityDecl::TyTemplate => {
                 let vec_decl_template = db.vec_decl();
-                vec_decl_template.instantiate(db, &entity_route.generics)
+                vec_decl_template.instantiate(db, &entity_route.generic_arguments)
             }
             StaticEntityDecl::Trait { .. } => todo!(),
         })),
@@ -236,30 +272,42 @@ pub(crate) fn ty_decl(
                     kind,
                     ref generic_placeholders,
                     ..
-                } => match kind {
-                    TyKind::Enum => enum_decl(
-                        db,
-                        entity_route.kind.clone(),
-                        generic_placeholders.clone(),
-                        derived_not_none!(item.children)?,
-                    ),
-                    TyKind::Struct => struct_decl(
-                        db,
-                        entity_route.kind.clone(),
-                        generic_placeholders.clone(),
-                        item.children.unwrap(),
-                    ),
-                    TyKind::Record => record_decl(
-                        db,
-                        entity_route.kind.clone(),
-                        generic_placeholders.clone(),
-                        item.children.unwrap(),
-                    ),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
-                    TyKind::Array => todo!(),
-                    TyKind::Other => todo!(),
-                },
+                } => {
+                    if entity_route.generic_arguments.len() > 0 {
+                        todo!()
+                    } else {
+                        let generics =
+                            db.generic_arguments_from_generic_placeholders(&generic_placeholders);
+                        let this_ty = db.intern_scope(EntityRoute {
+                            kind: entity_route.kind,
+                            generic_arguments: generics,
+                        });
+                        match kind {
+                            TyKind::Enum => enum_decl(
+                                db,
+                                this_ty,
+                                generic_placeholders.clone(),
+                                derived_not_none!(item.children)?,
+                            ),
+                            TyKind::Struct => struct_decl(
+                                db,
+                                this_ty,
+                                generic_placeholders.clone(),
+                                item.children.unwrap(),
+                            ),
+                            TyKind::Record => record_decl(
+                                db,
+                                entity_route.kind.clone(),
+                                generic_placeholders.clone(),
+                                item.children.unwrap(),
+                            ),
+                            TyKind::Primitive => todo!(),
+                            TyKind::Vec => todo!(),
+                            TyKind::Array => todo!(),
+                            TyKind::Other => todo!(),
+                        }
+                    }
+                }
                 _ => panic!(),
             }
         }

@@ -91,7 +91,7 @@ fn datasets() {
         kind: EntityRouteKind::Root {
             ident: RootIdentifier::Datasets,
         },
-        generics: vec![],
+        generic_arguments: vec![],
     });
     let synthetic_scope = db
         .subscope(

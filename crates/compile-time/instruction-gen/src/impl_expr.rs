@@ -136,11 +136,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         } else {
                             self.push_instruction(Instruction::new(
                                 InstructionKind::NewVirtualStruct {
-                                    fields: ty_decl
-                                        .fields
-                                        .iter()
-                                        .map(|decl| decl.contract)
-                                        .collect(),
+                                    fields: ty_decl.fields().map(|decl| decl.contract).collect(),
                                 },
                                 expr.clone(),
                             ));
@@ -151,7 +147,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                     TyKind::Vec => self.push_instruction(Instruction::new(
                         InstructionKind::RoutineCallCompiled {
                             fp: self.db.linkage_table().vec_constructor(
-                                self.db.entity_uid(ranged_ty.route.generics[0].as_scope()),
+                                self.db
+                                    .entity_uid(ranged_ty.route.generic_arguments[0].as_scope()),
                             ),
                         },
                         expr.clone(),

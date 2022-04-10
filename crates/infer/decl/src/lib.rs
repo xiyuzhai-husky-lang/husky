@@ -4,7 +4,6 @@ mod field;
 mod global;
 mod impl_parse;
 mod input;
-mod method;
 mod traits;
 mod ty;
 
@@ -12,7 +11,6 @@ pub use call::*;
 pub use call::*;
 pub use field::*;
 pub use input::*;
-pub use method::*;
 pub use traits::*;
 pub use ty::*;
 
