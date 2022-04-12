@@ -19,7 +19,7 @@ impl<'a> Instantiator<'a> {
 
     pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> GenericArgument {
         match self.db.raw_entity_kind(src_scope) {
-            EntityKind::Module => GenericArgument::Scope(src_scope),
+            EntityKind::Module => GenericArgument::EntityRoute(src_scope),
             EntityKind::Type(_)
             | EntityKind::Trait
             | EntityKind::Routine
@@ -37,7 +37,7 @@ impl<'a> Instantiator<'a> {
                                     should_eq!(src_scope.generic_arguments.len(), 0);
                                     return GenericArgument::Const(value);
                                 }
-                                GenericArgument::Scope(scope) => {
+                                GenericArgument::EntityRoute(scope) => {
                                     (scope.kind, scope.generic_arguments.clone())
                                 }
                             }
@@ -49,7 +49,7 @@ impl<'a> Instantiator<'a> {
                 };
                 // convention: A<B,C> = A<B><C>
                 generics.extend(self.instantiate_generics(&src_scope.generic_arguments));
-                GenericArgument::Scope(self.db.intern_scope(EntityRoute {
+                GenericArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
                     kind,
                     generic_arguments: generics,
                 }))
@@ -63,7 +63,7 @@ impl<'a> Instantiator<'a> {
             .iter()
             .map(|src_generic| match src_generic {
                 GenericArgument::Const(_) => *src_generic,
-                GenericArgument::Scope(scope) => self.instantiate_entity_route(*scope),
+                GenericArgument::EntityRoute(scope) => self.instantiate_entity_route(*scope),
             })
             .collect()
     }

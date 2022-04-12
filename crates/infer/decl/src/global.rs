@@ -31,7 +31,7 @@ fn global_input_ty_from_ast(
                             ident: RootIdentifier::DatasetType,
                         } => match dataset_type.generic_arguments[0] {
                             GenericArgument::Const(_) => todo!(),
-                            GenericArgument::Scope(input_ty) => Ok(input_ty),
+                            GenericArgument::EntityRoute(input_ty) => Ok(input_ty),
                         },
                         _ => panic!(),
                     }
@@ -70,7 +70,7 @@ fn global_output_ty_from_ast(
                             ident: RootIdentifier::DatasetType,
                         } => match dataset_type.generic_arguments[1] {
                             GenericArgument::Const(_) => todo!(),
-                            GenericArgument::Scope(output_ty) => Ok(output_ty),
+                            GenericArgument::EntityRoute(output_ty) => Ok(output_ty),
                         },
                         _ => panic!(),
                     }

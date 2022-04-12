@@ -13,6 +13,7 @@ dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 vec-dict = { path = "../../abstraction/vec-dict", version = "0.0.0" }
+avec = { path = "../../abstraction/avec", version = "0.0.0" }
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }

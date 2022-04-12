@@ -38,7 +38,7 @@ impl<'eval> FeatureSheet<'eval> {
     //     }
     //     let object = match entity.kind() {
     //         EntityKind::Ty(ty) => match ty.kind {
-    //             TyDefnKind::Record {
+    //             TyKind::Record {
     //                 ref field_vars,
     //                 ref field_features,
     //             } => {

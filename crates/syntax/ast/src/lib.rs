@@ -8,7 +8,6 @@ mod transform;
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::AstContext;
 pub use expr::*;
-pub use instantiate::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
 pub use transform::*;
@@ -49,7 +48,7 @@ pub enum AstKind {
         ident: CustomIdentifier,
         ty: EntityRoutePtr,
     },
-    MembRoutineDefnHead(MembRoutineDefnHead),
+    MethodDefnHead(MethodDefnHead),
     Use {
         ident: CustomIdentifier,
         scope: EntityRoutePtr,

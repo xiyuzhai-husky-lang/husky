@@ -1,4 +1,5 @@
-use semantics_entity::{EntityDefnVariant, TyDefnKind};
+use entity_syntax::TyKind;
+use semantics_entity::EntityDefnVariant;
 use sync_utils::ARwLock;
 
 use crate::*;
@@ -21,7 +22,7 @@ pub(crate) fn expr_record_memb(
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this.kind {
-        FeatureExprKind::Variable { .. } => todo!(),
+        FeatureExprKind::Variable { ref value, .. } => expr_record_memb(db, value, field_ident),
         FeatureExprKind::RecordMembAccess { .. } => todo!(),
         FeatureExprKind::MembPattCall { .. } => todo!(),
         FeatureExprKind::FeatureBlock { ref block, .. } => {
@@ -33,7 +34,7 @@ pub(crate) fn expr_record_memb(
             ..
         } => match entity.kind() {
             EntityDefnVariant::Ty(ty_defn) => match ty_defn.kind {
-                TyDefnKind::Record => {
+                TyKind::Record => {
                     todo!("make a difference between derived and original")
                     // if let Some(idx) = ty_defn.fields.position(field_ident) {
                     //     opds[idx].clone().into()
@@ -51,6 +52,12 @@ pub(crate) fn expr_record_memb(
                     // }
                 }
                 _ => panic!(),
+                TyKind::Enum => todo!(),
+                TyKind::Struct => todo!(),
+                TyKind::Primitive => todo!(),
+                TyKind::Vec => todo!(),
+                TyKind::Array => todo!(),
+                TyKind::Other => todo!(),
             },
             _ => panic!(),
         },

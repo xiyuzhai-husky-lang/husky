@@ -6,7 +6,7 @@ use entity_route::EntityRoutePtr;
 use entity_syntax::{RoutineKind, TyKind};
 use fold::LocalValue;
 use syntax_types::*;
-use vm::{InitKind, InputContract, MembAccessContract, PrimitiveValue};
+use vm::{FieldContract, InitKind, InputContract, PrimitiveValue};
 use word::{RootIdentifier, WordAllocator};
 
 pub struct Formatter<'a> {
@@ -145,7 +145,7 @@ impl<'a> Formatter<'a> {
                 ident,
                 variant_class: ref variant_kind,
             } => todo!(),
-            AstKind::MembRoutineDefnHead { .. } => todo!(),
+            AstKind::MethodDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),
             AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
         }
@@ -155,15 +155,11 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_member_variable_contracted_type(
-        &mut self,
-        contract: MembAccessContract,
-        ty: EntityRoutePtr,
-    ) {
+    fn fmt_member_variable_contracted_type(&mut self, contract: FieldContract, ty: EntityRoutePtr) {
         match contract {
-            MembAccessContract::Own => (),
-            MembAccessContract::Ref => self.write("&"),
-            MembAccessContract::LazyOwn => todo!(),
+            FieldContract::Own => (),
+            FieldContract::Ref => self.write("&"),
+            FieldContract::LazyOwn => todo!(),
         }
         self.fmt_ty(ty);
     }

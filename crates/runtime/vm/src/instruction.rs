@@ -66,7 +66,7 @@ pub enum InstructionKind {
         nargs: u8,
     },
     NewVirtualStruct {
-        fields: Vec<MembAccessContract>,
+        fields: Vec<FieldContract>,
     },
     PrimitiveOpn(PrimitiveOpn),
     Loop {

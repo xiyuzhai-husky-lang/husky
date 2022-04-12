@@ -37,6 +37,7 @@ impl InferError {
 pub type InferResult<T> = Result<T, InferError>;
 
 pub type InferResultArc<T> = Result<Arc<T>, InferError>;
+pub type InferResultArcRef<'a, T> = Result<&'a Arc<T>, InferError>;
 
 impl From<ScopeError> for InferError {
     fn from(error: ScopeError) -> Self {

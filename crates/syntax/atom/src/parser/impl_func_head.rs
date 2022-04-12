@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::*;
 use defn_head::{
-    GenericPlaceholder, GenericPlaceholderVariant, InputPlaceholder, MembRoutineDefnHead,
+    GenericPlaceholder, GenericPlaceholderVariant, InputPlaceholder, MethodDefnHead,
     RoutineDefnHead,
 };
 use entity_route::*;
@@ -48,16 +48,16 @@ impl<'a> AtomLRParser<'a> {
         mut self,
         this: InputContract,
         routine_kind: RoutineKind,
-    ) -> AtomResult<MembRoutineDefnHead> {
+    ) -> AtomResult<MethodDefnHead> {
         let routine_name = get!(self, custom_ident);
         let generics = self.placeholders()?;
         let input_placeholders = self.func_input_placeholders()?;
         let output = self.func_output_type()?;
-        Ok(MembRoutineDefnHead {
+        Ok(MethodDefnHead {
             this_contract: this,
             routine_kind,
             ident: routine_name,
-            generics,
+            generic_placeholders: generics,
             input_placeholders,
             output,
         })

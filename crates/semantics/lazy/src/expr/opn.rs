@@ -1,10 +1,8 @@
-use std::sync::Arc;
-
+use defn_head::FieldKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use infer_decl::{FieldAccessKind, TyDecl};
 use syntax_types::*;
 use vm::PureBinaryOpr;
-use word::{CustomIdentifier, RangedCustomIdentifier};
+use word::RangedCustomIdentifier;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LazyOpnKind {
@@ -19,7 +17,7 @@ pub enum LazyOpnKind {
     PatternCall,
     MembAccess {
         field_ident: RangedCustomIdentifier,
-        field_access_kind: FieldAccessKind,
+        field_kind: FieldKind,
     },
     MembCall {
         field_ident: RangedCustomIdentifier,

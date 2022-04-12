@@ -8,7 +8,7 @@ pub use alloc::{
 };
 pub use entity_syntax::EntityKind;
 use file::FilePtr;
-use static_decl::StaticEntityDecl;
+use static_decl::{StaticEntityDecl, CLONE_TRAIT_DECL};
 use text::{TextRange, TextRanged};
 use word::{CustomIdentifier, Identifier, RootIdentifier};
 
@@ -52,7 +52,7 @@ impl std::fmt::Debug for EntityRoute {
                 }
                 match generic {
                     GenericArgument::Const(_) => todo!(),
-                    GenericArgument::Scope(scope) => scope.fmt(f)?,
+                    GenericArgument::EntityRoute(scope) => scope.fmt(f)?,
                 }
             }
             f.write_str(">")?;
@@ -64,14 +64,14 @@ impl std::fmt::Debug for EntityRoute {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum GenericArgument {
     Const(usize),
-    Scope(EntityRoutePtr),
+    EntityRoute(EntityRoutePtr),
 }
 
 impl GenericArgument {
     pub fn as_scope(&self) -> EntityRoutePtr {
         match self {
             GenericArgument::Const(_) => panic!(),
-            GenericArgument::Scope(scope) => *scope,
+            GenericArgument::EntityRoute(scope) => *scope,
         }
     }
 }
@@ -84,7 +84,7 @@ impl From<usize> for GenericArgument {
 
 impl From<EntityRoutePtr> for GenericArgument {
     fn from(scope: EntityRoutePtr) -> Self {
-        GenericArgument::Scope(scope)
+        GenericArgument::EntityRoute(scope)
     }
 }
 
@@ -128,6 +128,11 @@ pub struct StaticEntityData {
     pub subscopes: &'static [(&'static str, &'static StaticEntityData)],
     pub decl: StaticEntityDecl,
 }
+
+pub static CLONE_TRAIT_ENTITY_DATA: StaticEntityData = StaticEntityData {
+    subscopes: &[],
+    decl: StaticEntityDecl::Trait(&CLONE_TRAIT_DECL),
+};
 
 impl EntityRoute {
     pub fn pack(main: FilePtr, ident: CustomIdentifier) -> Self {

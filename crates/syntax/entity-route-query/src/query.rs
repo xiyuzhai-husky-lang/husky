@@ -5,7 +5,9 @@ use file::FilePtr;
 use path_utils::*;
 
 use entity_syntax::TyKind;
-use static_decl::{StaticEntityDecl, StaticMethodDecl, StaticTraitDecl, StaticTraitMemberDecl};
+use static_decl::{
+    StaticEntityDecl, StaticMethodDecl, StaticTraitDecl, StaticTraitMemberDecl, CLONE_TRAIT_DECL,
+};
 use upcast::Upcast;
 use visual_syntax::TRIVIAL_VISUALIZER;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
@@ -61,7 +63,7 @@ fn subscopes(
         table
             .subscopes(scope)
             .into_iter()
-            .map(|scope| db.intern_scope(scope))
+            .map(|scope| db.intern_entity_route(scope))
             .collect()
     }))
 }
@@ -182,19 +184,7 @@ fn entity_source(
                 decl: StaticEntityDecl::TyTemplate,
             },
             RootIdentifier::Type => todo!(),
-            RootIdentifier::CloneTrait => &StaticEntityData {
-                subscopes: &[],
-                decl: StaticEntityDecl::Trait(StaticTraitDecl {
-                    members: &[StaticTraitMemberDecl::Method(StaticMethodDecl {
-                        name: "clone",
-                        this_contract: vm::InputContract::Pure,
-                        inputs: &[],
-                        output_ty: "This",
-                        generic_placeholders: &[],
-                    })],
-                    generic_placeholders: &[],
-                }),
-            },
+            RootIdentifier::CloneTrait => &CLONE_TRAIT_ENTITY_DATA,
             RootIdentifier::CopyTrait => todo!(),
             RootIdentifier::PartialEqTrait => todo!(),
             RootIdentifier::EqTrait => todo!(),
@@ -232,7 +222,7 @@ pub trait EntityRouteQueryGroup:
     ) -> Option<EntityRoutePtr> {
         let parent_subscope_table = self.subscope_table(parent_scope);
         if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
-            Some(self.intern_scope(EntityRoute::child_scope(parent_scope, ident, generics)))
+            Some(self.intern_entity_route(EntityRoute::child_scope(parent_scope, ident, generics)))
         } else {
             None
         }
@@ -290,7 +280,7 @@ pub trait EntityRouteQueryGroup:
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
                     self.word_allocator().alloc(snake_name)
                 {
-                    Ok(self.intern_scope(EntityRoute::pack(id, ident)))
+                    Ok(self.intern_entity_route(EntityRoute::pack(id, ident)))
                 } else {
                     scope_err!(format!("pack name should be identifier"))?
                 }

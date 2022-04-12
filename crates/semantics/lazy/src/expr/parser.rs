@@ -208,7 +208,7 @@ pub trait LazyExprParser<'a> {
                 LazyExprKind::Opn {
                     opn_kind: LazyOpnKind::MembAccess {
                         field_ident: ranged_ident,
-                        field_access_kind: ty_decl.field_access_kind(ranged_ident.ident),
+                        field_kind: ty_decl.field_kind(ranged_ident.ident),
                     },
                     compiled: (),
                     opds: vec![this],

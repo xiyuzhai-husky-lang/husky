@@ -12,7 +12,7 @@ pub enum VirtualTy<'eval> {
 impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
     pub fn new_struct(
         mut inputs: Vec<StackValue<'stack, 'eval>>,
-        field_var_contracts: &[MembAccessContract],
+        field_var_contracts: &[FieldContract],
     ) -> Self {
         let mut field_vars = vec![];
         for i in 0..inputs.len() {

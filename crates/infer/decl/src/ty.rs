@@ -1,16 +1,16 @@
-mod enum_ty;
+mod enum_variant;
 mod impl_instantiate;
 mod member;
 mod method;
-mod record;
-mod struct_ty;
 mod trait_impl;
 mod vec;
 
+use std::iter::Peekable;
+
+use entity_syntax::{EnumVariantKind, RoutineKind};
 pub use member::*;
 pub use method::*;
-pub use record::*;
-pub use struct_ty::*;
+use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
 
@@ -19,7 +19,7 @@ use ast::AstIter;
 use atom::symbol_proxy::{Symbol, SymbolKind};
 use defn_head::*;
 use entity_route::*;
-pub use enum_ty::*;
+pub use enum_variant::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
 use vec_dict::VecDict;
@@ -38,7 +38,7 @@ pub struct TyDecl {
 }
 
 impl TyDecl {
-    fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTyDecl) -> Self {
+    fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTyDecl) -> Arc<Self> {
         let generic_placeholders =
             db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
         let generic_arguments =
@@ -47,7 +47,7 @@ impl TyDecl {
         let base_ty = db
             .parse_entity(static_decl.base_ty, None, &symbols)
             .unwrap();
-        let this_ty = db.intern_scope(EntityRoute {
+        let this_ty = db.intern_entity_route(EntityRoute {
             kind: base_ty.kind,
             generic_arguments,
         });
@@ -70,6 +70,114 @@ impl TyDecl {
         )
     }
 
+    fn from_ast(
+        db: &dyn DeclQueryGroup,
+        arena: &RawExprArena,
+        ty_route: EntityRoutePtr,
+        kind: TyKind,
+        generic_placeholders: IdentDict<GenericPlaceholder>,
+        children: AstIter,
+    ) -> InferResultArc<Self> {
+        let generic_arguments =
+            db.generic_arguments_from_generic_placeholders(&generic_placeholders);
+        let this_ty = db.intern_entity_route(EntityRoute {
+            kind: ty_route.kind,
+            generic_arguments,
+        });
+        let mut children = children.peekable();
+        let mut type_members = IdentDict::default();
+        let mut trait_impls = Vec::default();
+        Self::collect_fields(&mut children, &mut type_members)?;
+        Self::collect_member_calls(db, arena, &mut children, &mut type_members)?;
+        let variants = Self::collect_variants(children)?;
+        Ok(TyDecl::new(
+            db,
+            this_ty,
+            generic_placeholders,
+            type_members,
+            variants,
+            kind,
+            trait_impls,
+        ))
+    }
+
+    fn collect_fields(
+        children: &mut Peekable<AstIter>,
+        members: &mut IdentDict<TypeMemberDecl>,
+    ) -> InferResult<()> {
+        while let Some(child) = children.peek() {
+            match child.value.as_ref()?.kind {
+                AstKind::FieldDefn(ref field_defn_head) => {
+                    children.next();
+                    members.insert_new(TypeMemberDecl::Field(FieldDecl::from_ast(field_defn_head)))
+                }
+                _ => break,
+            }
+        }
+        Ok(())
+    }
+
+    fn collect_member_calls(
+        db: &dyn DeclQueryGroup,
+        arena: &RawExprArena,
+        children: &mut Peekable<AstIter>,
+        members: &mut IdentDict<TypeMemberDecl>,
+    ) -> InferResult<()> {
+        while let Some(child) = children.next() {
+            match child.value.as_ref()?.kind {
+                AstKind::TypeDefnHead {
+                    ident,
+                    kind,
+                    ref generic_placeholders,
+                } => todo!(),
+                AstKind::MainDefn => todo!(),
+                AstKind::RoutineDefnHead(_) => todo!(),
+                AstKind::PatternDefnHead => todo!(),
+                AstKind::FeatureDecl { ident, ty } => todo!(),
+                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
+                AstKind::MethodDefnHead(ref method_defn_head) => {
+                    match method_defn_head.routine_kind {
+                        RoutineKind::Proc => todo!(),
+                        RoutineKind::Func => members.insert_new(TypeMemberDecl::Method(
+                            MethodDecl::from_ast(method_defn_head),
+                        )),
+                        RoutineKind::Test => todo!(),
+                    }
+                }
+                AstKind::Use { ident, scope } => todo!(),
+                AstKind::FieldDefn(_) => todo!(),
+                AstKind::DatasetConfigDefnHead => todo!(),
+                AstKind::Stmt(_) => todo!(),
+                AstKind::EnumVariantDefnHead {
+                    ident,
+                    variant_class,
+                } => todo!(),
+            }
+        }
+        Ok(())
+    }
+
+    fn collect_variants(
+        mut children: Peekable<AstIter>,
+    ) -> InferResult<IdentDict<EnumVariantDecl>> {
+        let mut variants = VecDict::default();
+        for subitem in children {
+            match subitem.value.as_ref()?.kind {
+                AstKind::EnumVariantDefnHead {
+                    ident,
+                    variant_class: ref raw_variant_kind,
+                } => variants.insert_new(EnumVariantDecl {
+                    ident,
+                    variant: match raw_variant_kind {
+                        EnumVariantKind::Constant => EnumVariantDeclVariant::Constant,
+                    },
+                }),
+                _ => panic!(),
+            }
+        }
+        Ok(variants)
+    }
+
     pub(crate) fn new(
         db: &dyn DeclQueryGroup,
         this_ty: EntityRoutePtr,
@@ -78,9 +186,9 @@ impl TyDecl {
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDecl>>,
-    ) -> Self {
+    ) -> Arc<Self> {
         let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
-        Self {
+        Arc::new(Self {
             this_ty,
             generic_placeholders,
             type_members,
@@ -88,7 +196,7 @@ impl TyDecl {
             kind,
             trait_impls,
             members,
-        }
+        })
     }
 
     pub fn field_idx(&self, field_ident: CustomIdentifier) -> usize {
@@ -104,19 +212,19 @@ impl TyDecl {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldAccessKind {
-    StructMembVar,
-    StructMembFeature,
-    RecordMemb,
-}
-
 impl TyDecl {
-    pub fn field_access_ty_result(
+    pub fn field_ty_result(
         &self,
         ranged_ident: RangedCustomIdentifier,
     ) -> InferResult<EntityRoutePtr> {
-        todo!()
+        match self.type_members.get(ranged_ident.ident) {
+            Some(type_member_decl) => match type_member_decl {
+                TypeMemberDecl::Field(field) => Ok(field.ty),
+                TypeMemberDecl::Method(_) => todo!(),
+                TypeMemberDecl::Call => todo!(),
+            },
+            None => todo!(),
+        }
         // match self.kind {
         //     TyKind::Struct {
         //         fields: ref field_vars,
@@ -144,8 +252,15 @@ impl TyDecl {
         // }
     }
 
-    pub fn field_decl(&self, field_ident: CustomIdentifier) -> FieldDecl {
-        todo!()
+    pub fn field_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResultArcRef<FieldDecl> {
+        match self.type_members.get(ranged_ident.ident) {
+            Some(member_decl) => match member_decl {
+                TypeMemberDecl::Field(field) => Ok(field),
+                TypeMemberDecl::Method(_) => todo!(),
+                TypeMemberDecl::Call => todo!(),
+            },
+            None => todo!(),
+        }
         // self.fields[field_ident]
         // match self.kind {
         //     TyKind::Struct {
@@ -172,8 +287,11 @@ impl TyDecl {
         // }
     }
 
-    pub fn field_access_kind(&self, field_ident: CustomIdentifier) -> FieldAccessKind {
-        todo!()
+    pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind {
+        match self.type_members.get(field_ident).unwrap() {
+            TypeMemberDecl::Field(field) => field.kind,
+            _ => panic!(""),
+        }
         // match self.kind {
         //     TyKind::Struct {
         //         fields: ref field_vars,
@@ -251,7 +369,7 @@ impl TyDecl {
                     match member {
                         MemberDecl::AssociatedType => todo!(),
                         MemberDecl::AssociatedCall => todo!(),
-                        MemberDecl::Field => todo!(),
+                        MemberDecl::TypeField(_) => todo!(),
                         MemberDecl::TypeMethod(_) => todo!(),
                         MemberDecl::TraitMethod {
                             trait_route,
@@ -272,6 +390,9 @@ impl TyDecl {
         if matched_methods.len() == 1 {
             return Ok(matched_methods[0]);
         } else {
+            p!(ranged_ident);
+            p!(self.type_members);
+            p!(matched_methods.len());
             todo!()
         }
         // ok_or!(
@@ -285,22 +406,19 @@ impl TyDecl {
     }
 }
 
-pub(crate) fn ty_decl(
-    db: &dyn DeclQueryGroup,
-    entity_route: EntityRoutePtr,
-) -> InferResultArc<TyDecl> {
-    let source = db.entity_source(entity_route)?;
+pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty_route: EntityRoutePtr) -> InferResultArc<TyDecl> {
+    let source = db.entity_source(ty_route)?;
     match source {
-        EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
+        EntitySource::Builtin(data) => Ok(match data.decl {
             StaticEntityDecl::Func(_) => todo!(),
             StaticEntityDecl::Module => todo!(),
             StaticEntityDecl::Ty { .. } => todo!(),
             StaticEntityDecl::TyTemplate => {
                 let vec_decl_template = db.vec_decl();
-                vec_decl_template.instantiate(db, &entity_route.generic_arguments)
+                vec_decl_template.instantiate(db, &ty_route.generic_arguments)
             }
             StaticEntityDecl::Trait { .. } => todo!(),
-        })),
+        }),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
             file,
@@ -319,39 +437,17 @@ pub(crate) fn ty_decl(
                     ref generic_placeholders,
                     ..
                 } => {
-                    if entity_route.generic_arguments.len() > 0 {
+                    if ty_route.generic_arguments.len() > 0 {
                         todo!()
                     } else {
-                        let generics =
-                            db.generic_arguments_from_generic_placeholders(&generic_placeholders);
-                        let this_ty = db.intern_scope(EntityRoute {
-                            kind: entity_route.kind,
-                            generic_arguments: generics,
-                        });
-                        match kind {
-                            TyKind::Enum => enum_decl(
-                                db,
-                                this_ty,
-                                generic_placeholders.clone(),
-                                derived_not_none!(item.children)?,
-                            ),
-                            TyKind::Struct => struct_decl(
-                                db,
-                                this_ty,
-                                generic_placeholders.clone(),
-                                item.children.unwrap(),
-                            ),
-                            TyKind::Record => record_decl(
-                                db,
-                                entity_route.kind.clone(),
-                                generic_placeholders.clone(),
-                                item.children.unwrap(),
-                            ),
-                            TyKind::Primitive => todo!(),
-                            TyKind::Vec => todo!(),
-                            TyKind::Array => todo!(),
-                            TyKind::Other => todo!(),
-                        }
+                        TyDecl::from_ast(
+                            db,
+                            &ast_text.arena,
+                            ty_route,
+                            kind,
+                            generic_placeholders.clone(),
+                            item.children.unwrap(),
+                        )
                     }
                 }
                 _ => panic!(),

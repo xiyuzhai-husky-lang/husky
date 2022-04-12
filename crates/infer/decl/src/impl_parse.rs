@@ -41,7 +41,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
         generic_placeholders: &[GenericPlaceholder],
     ) -> Vec<GenericArgument> {
         generic_placeholders.map(|generic_placeholder| {
-            GenericArgument::Scope(self.intern_scope(EntityRoute {
+            GenericArgument::EntityRoute(self.intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident,
                     entity_kind: generic_placeholder.entity_kind(),
@@ -59,7 +59,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
         for generic_placeholder in generic_placeholders.iter() {
             symbols.push(Symbol {
                 ident: generic_placeholder.ident,
-                kind: SymbolKind::EntityRoute(self.intern_scope(EntityRoute {
+                kind: SymbolKind::EntityRoute(self.intern_entity_route(EntityRoute {
                     kind: EntityRouteKind::Generic {
                         ident: generic_placeholder.ident,
                         entity_kind: generic_placeholder.entity_kind(),

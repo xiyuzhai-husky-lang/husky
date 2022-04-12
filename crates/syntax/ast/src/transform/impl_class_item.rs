@@ -1,7 +1,7 @@
 use super::utils::*;
 use crate::*;
 use token::{Special, Token, TokenKind};
-use vm::MembAccessContract;
+use vm::FieldContract;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_class_item(
@@ -20,13 +20,13 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Mod => todo!(),
                 Keyword::Main => todo!(),
             },
-            TokenKind::Identifier(_) => self.parse_class_field_var(token_group),
+            TokenKind::Identifier(_) => self.parse_record_field_var(token_group),
             TokenKind::Special(_) => todo!(),
             TokenKind::I32Literal(_) => todo!(),
             TokenKind::F32Literal(_) => todo!(),
         }
     }
-    fn parse_class_field_var(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    fn parse_record_field_var(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
             if token_group.len() == 2 {
                 todo!()
@@ -35,9 +35,9 @@ impl<'a> AstTransformer<'a> {
             let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..])?;
             Ok(AstKind::FieldDefn(FieldDefnHead {
                 ident,
-                contract: MembAccessContract::Own,
+                contract: FieldContract::Own,
                 ty,
-                kind: FieldKind::Original,
+                kind: FieldKind::RecordOriginal,
             }))
         } else {
             p!(token_group);
