@@ -1,8 +1,9 @@
 use infer_decl::FieldDecl;
 use semantics_entity::{
-    EnumVariantDefn, EnumVariantDefnVariant, FieldDefn, MethodDefn, MethodKind,
+    EnumVariantDefn, EnumVariantDefnVariant, FieldDefn, FieldDefnVariant, MethodDefn,
+    MethodDefnVariant, MethodKind,
 };
-use vm::{InputContract, MembAccessContract};
+use vm::{FieldContract, InputContract};
 use word::CustomIdentifier;
 
 use super::*;
@@ -37,14 +38,16 @@ impl<'a> RustGenerator<'a> {
             self.result += "    pub(crate) ";
             self.result += &field.ident;
             self.result += ": ";
-            todo!();
-            // match field.contract {
-            //     MembAccessContract::Own => (),
-            //     MembAccessContract::Ref => todo!(),
-            //     MembAccessContract::LazyOwn => todo!(),
-            // }
+            match field.contract {
+                FieldContract::Own => (),
+                FieldContract::Ref => todo!(),
+                FieldContract::LazyOwn => todo!(),
+            }
             self.gen_scope(field.ty);
-            self.result += ",\n";
+            match field.variant {
+                FieldDefnVariant::Original => (),
+                FieldDefnVariant::Derived { ref stmts } => todo!(),
+            }
         }
         self.result += "}\n";
         // impl member routines
@@ -64,10 +67,10 @@ impl<'a> RustGenerator<'a> {
             }
             self.write(&field.ident);
             self.write(": ");
-            match field.contract() {
-                MembAccessContract::Own => (),
-                MembAccessContract::Ref => todo!(),
-                MembAccessContract::LazyOwn => todo!(),
+            match field.contract {
+                FieldContract::Own => (),
+                FieldContract::Ref => todo!(),
+                FieldContract::LazyOwn => todo!(),
             }
             self.gen_scope(field.ty)
         }
@@ -117,9 +120,10 @@ impl<'a> RustGenerator<'a> {
             self.write(") -> ");
             self.gen_scope(method.output.route);
             self.write(" {\n");
-            match method.kind {
-                MethodKind::Func { ref stmts } => self.gen_func_stmts(stmts, 8),
-                MethodKind::Proc { ref stmts } => todo!(),
+            match method.variant {
+                MethodDefnVariant::Func { ref stmts } => self.gen_func_stmts(stmts, 8),
+                MethodDefnVariant::Proc { ref stmts } => todo!(),
+                MethodDefnVariant::Pattern { ref stmts } => todo!(),
             }
             self.write("    }\n");
         }

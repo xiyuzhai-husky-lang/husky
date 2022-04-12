@@ -1,4 +1,5 @@
 use check_utils::should_eq;
+use entity_syntax::TyKind;
 use file::FilePtr;
 use linkage_table::HasFpTable;
 use pack_semantics::PackQueryGroup;
@@ -88,24 +89,29 @@ fn method_instruction_sheet(
             stmts,
         } => todo!(),
         EntityDefnVariant::Ty(ty_defn) => match ty_defn.kind {
-            TyDefnKind::Enum => todo!(),
-            TyDefnKind::Struct => {
-                let field_routine = ty_defn.methods.get(method_ident).unwrap();
-                let inputs = field_routine
-                    .input_placeholders
-                    .iter()
-                    .map(|input_placeholder| input_placeholder.ident)
-                    .collect();
-                match field_routine.kind {
-                    MethodKind::Func { ref stmts } => {
-                        InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
-                    }
-                    MethodKind::Proc { ref stmts } => {
-                        InstructionSheetBuilder::new_impr(db, inputs, stmts, true)
-                    }
-                }
+            TyKind::Enum => todo!(),
+            TyKind::Struct => {
+                todo!()
+                // let field_routine = ty_defn.methods.get(method_ident).unwrap();
+                // let inputs = field_routine
+                //     .input_placeholders
+                //     .iter()
+                //     .map(|input_placeholder| input_placeholder.ident)
+                //     .collect();
+                // match field_routine.kind {
+                //     MethodKind::Func { ref stmts } => {
+                //         InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
+                //     }
+                //     MethodKind::Proc { ref stmts } => {
+                //         InstructionSheetBuilder::new_impr(db, inputs, stmts, true)
+                //     }
+                // }
             }
-            TyDefnKind::Record => todo!(),
+            TyKind::Record => todo!(),
+            TyKind::Primitive => todo!(),
+            TyKind::Vec => todo!(),
+            TyKind::Array => todo!(),
+            TyKind::Other => todo!(),
         },
         EntityDefnVariant::Builtin => todo!(),
         EntityDefnVariant::EnumVariant(_) => todo!(),

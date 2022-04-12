@@ -1,6 +1,7 @@
 use atom::symbol_proxy::Symbol;
 use defn_head::*;
 use fold::LocalStack;
+use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::msg_once;
 use static_decl::{StaticEntityDecl, StaticFuncDecl, StaticInputDecl};
@@ -23,18 +24,15 @@ impl From<&RoutineDefnHead> for CallDecl {
             inputs: head
                 .input_placeholders
                 .iter()
-                .map(|input_placeholder| InputDecl {
-                    contract: input_placeholder.contract,
-                    ty: input_placeholder.ranged_ty.route,
-                })
+                .map(|input_placeholder| input_placeholder.into())
                 .collect(),
             output: head.output.route,
         }
     }
 }
 
-impl From<&MembRoutineDefnHead> for MethodDecl {
-    fn from(head: &MembRoutineDefnHead) -> Self {
+impl From<&MethodDefnHead> for MethodDecl {
+    fn from(head: &MethodDefnHead) -> Self {
         Self {
             ident: head.ident,
             this_contract: head.this_contract,
@@ -44,7 +42,7 @@ impl From<&MembRoutineDefnHead> for MethodDecl {
                 .map(|input_placeholder| input_placeholder.into())
                 .collect(),
             output: head.output.route,
-            generic_placeholders: head.generics.clone(),
+            generic_placeholders: head.generic_placeholders.clone(),
         }
     }
 }
@@ -53,6 +51,7 @@ impl From<&MembRoutineDefnHead> for MethodDecl {
 pub struct InputDecl {
     pub contract: InputContract,
     pub ty: EntityRoutePtr,
+    pub ident: CustomIdentifier,
 }
 
 impl InputDecl {
@@ -65,6 +64,7 @@ impl InputDecl {
         Self {
             ty: db.parse_entity(input.ty, opt_this_ty, symbols).unwrap(),
             contract: input.contract,
+            ident: db.custom_ident(input.name),
         }
     }
 
@@ -72,7 +72,12 @@ impl InputDecl {
         Self {
             ty: instantiator.instantiate_entity_route(self.ty).as_scope(),
             contract: self.contract,
+            ident: self.ident,
         }
+    }
+
+    pub fn implement(&self, implementor: &Implementor) -> Self {
+        todo!()
     }
 }
 
@@ -81,6 +86,7 @@ impl Into<InputDecl> for &InputPlaceholder {
         InputDecl {
             contract: self.contract,
             ty: self.ranged_ty.route,
+            ident: self.ident,
         }
     }
 }
@@ -133,9 +139,10 @@ pub(crate) fn call_decl(
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
                             match subast.kind {
-                                AstKind::FieldDefn(ref field_var_defn) => inputs.push(InputDecl {
-                                    contract: field_var_defn.contract.constructor_input(),
-                                    ty: field_var_defn.ty,
+                                AstKind::FieldDefn(ref field_defn) => inputs.push(InputDecl {
+                                    contract: field_defn.contract.constructor_input(),
+                                    ty: field_defn.ty,
+                                    ident: field_defn.ident,
                                 }),
                                 _ => (),
                             }
@@ -170,6 +177,7 @@ pub(crate) fn call_decl(
         let inputs = static_decl.inputs.map(|input| InputDecl {
             ty: db.parse_entity(input.ty, None, &symbols).unwrap(),
             contract: input.contract,
+            ident: db.custom_ident(input.name),
         });
         let output = db.parse_entity(static_decl.output, None, &symbols).unwrap();
         CallDecl {

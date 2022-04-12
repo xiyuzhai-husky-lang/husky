@@ -2,7 +2,11 @@ use super::*;
 use check_utils::should_eq;
 
 impl TyDecl {
-    pub fn instantiate(&self, db: &dyn DeclQueryGroup, dst_generics: &[GenericArgument]) -> Self {
+    pub fn instantiate(
+        &self,
+        db: &dyn DeclQueryGroup,
+        dst_generics: &[GenericArgument],
+    ) -> Arc<Self> {
         should_eq!(self.generic_placeholders.len(), dst_generics.len());
         let instantiator = Instantiator {
             db: db.upcast(),

@@ -6,7 +6,7 @@ use entity_route::EntityRoutePtr;
 use infer_error::*;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use text::TextRange;
-use vm::{BinaryOpr, MembAccessContract};
+use vm::{BinaryOpr, FieldContract};
 use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;
@@ -202,9 +202,9 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
                 let this_ty_decl = self.db.expr_ty_decl(self.file, opd)?;
-                let field_var_decl = this_ty_decl.field_decl(ranged_ident.ident);
+                let field_var_decl = this_ty_decl.field_decl(ranged_ident)?;
                 let this_contract = match field_var_decl.contract {
-                    MembAccessContract::Own => match contract {
+                    FieldContract::Own => match contract {
                         EagerContract::Pure => EagerContract::Pure,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
@@ -222,8 +222,8 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::LetInit => todo!(),
                         EagerContract::VarInit => todo!(),
                     },
-                    MembAccessContract::Ref => todo!(),
-                    MembAccessContract::LazyOwn => todo!(),
+                    FieldContract::Ref => todo!(),
+                    FieldContract::LazyOwn => todo!(),
                 };
                 self.infer_eager_expr(opd, this_contract, arena);
                 Ok(())

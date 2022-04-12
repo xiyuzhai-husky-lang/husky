@@ -1,9 +1,11 @@
 mod morphism;
 mod routine;
+mod trai;
 mod ty;
 
 pub use morphism::*;
 pub use routine::*;
+pub use trai::*;
 pub use ty::*;
 
 use crate::*;
@@ -87,7 +89,7 @@ pub enum EntityDefnVariant {
         output: RangedEntityRoute,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
-    Ty(TyDefn),
+    Ty(Arc<TyDefn>),
     EnumVariant(EnumVariantDefn),
     Builtin,
 }
@@ -173,7 +175,7 @@ pub(crate) fn opt_entity_defn(
                     EntityDefnVariant::enum_variant(db, ident, variant_class, children),
                 ),
                 AstKind::FieldDefn { .. } => todo!(),
-                AstKind::MembRoutineDefnHead { .. } => todo!(),
+                AstKind::MethodDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,
                     EntityDefnVariant::feature(db, ty, not_none!(children), arena, file)?,

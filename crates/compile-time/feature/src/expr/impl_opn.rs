@@ -1,4 +1,4 @@
-use infer_decl::{FieldAccessKind, TyDecl};
+use entity_syntax::TyKind;
 use vm::LazyContract;
 
 use super::*;
@@ -78,12 +78,12 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::PatternCall => todo!(),
             LazyOpnKind::MembAccess {
                 field_ident,
-                field_access_kind,
+                field_kind: field_access_kind,
             } => {
                 let this = self.new_expr(&opds[0]);
                 match field_access_kind {
-                    FieldAccessKind::StructMembVar => {
-                        let feature = self.features.alloc(Feature::StructMembVarAccess {
+                    FieldKind::StructOriginal => {
+                        let feature = self.features.alloc(Feature::StructFieldAccess {
                             this: this.feature,
                             field_ident: field_ident.ident,
                         });
@@ -100,8 +100,8 @@ impl<'a> FeatureExprBuilder<'a> {
                             feature,
                         )
                     }
-                    FieldAccessKind::StructMembFeature => todo!(),
-                    FieldAccessKind::RecordMemb => {
+                    FieldKind::StructDerived => todo!(),
+                    FieldKind::RecordOriginal => {
                         let repr = self
                             .db
                             .record_field_repr(this.clone().into(), field_ident.ident);
@@ -115,6 +115,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             feature,
                         )
                     }
+                    FieldKind::RecordDerived => todo!(),
                 }
             }
             LazyOpnKind::MembCall { field_ident, .. } => {
@@ -129,24 +130,29 @@ impl<'a> FeatureExprBuilder<'a> {
                     _ => panic!(),
                 };
                 match ty_defn.kind {
-                    TyDefnKind::Enum => todo!(),
-                    TyDefnKind::Struct => {
-                        let method = ty_defn.methods.get(field_ident.ident).unwrap();
-                        let kind = match method.kind {
-                            MethodKind::Func { ref stmts } => FeatureExprKind::MethodCall {
-                                field_ident: field_ident.ident,
-                                instruction_sheet: self
-                                    .db
-                                    .method_instruction_sheet(opds[0].ty, field_ident.ident),
-                                stmts: stmts.clone(),
-                                opds,
-                                opt_compiled: None,
-                            },
-                            MethodKind::Proc { ref stmts } => todo!(),
-                        };
-                        (kind, feature)
+                    TyKind::Enum => todo!(),
+                    TyKind::Struct => {
+                        todo!()
+                        // let method = ty_defn.methods.get(field_ident.ident).unwrap();
+                        // let kind = match method.kind {
+                        //     MethodKind::Func { ref stmts } => FeatureExprKind::MethodCall {
+                        //         field_ident: field_ident.ident,
+                        //         instruction_sheet: self
+                        //             .db
+                        //             .method_instruction_sheet(opds[0].ty, field_ident.ident),
+                        //         stmts: stmts.clone(),
+                        //         opds,
+                        //         opt_compiled: None,
+                        //     },
+                        //     MethodKind::Proc { ref stmts } => todo!(),
+                        // };
+                        // (kind, feature)
                     }
-                    TyDefnKind::Record { .. } => todo!(),
+                    TyKind::Record { .. } => todo!(),
+                    TyKind::Primitive => todo!(),
+                    TyKind::Vec => todo!(),
+                    TyKind::Array => todo!(),
+                    TyKind::Other => todo!(),
                 }
             }
             LazyOpnKind::ElementAccess => todo!(),
@@ -187,10 +193,11 @@ impl<'a> FeatureExprBuilder<'a> {
                 ..
             } => match entity.kind() {
                 EntityDefnVariant::Ty(ty) => match ty.kind {
-                    TyDefnKind::Record => {
-                        p!(field_ident, ty.fields);
-                        let idx = ty.fields.position(field_ident).unwrap();
-                        opds[idx].clone()
+                    TyKind::Record => {
+                        todo!()
+                        // p!(field_ident, ty.fields);
+                        // let idx = ty.fields.position(field_ident).unwrap();
+                        // opds[idx].clone()
                     }
                     _ => panic!(),
                 },

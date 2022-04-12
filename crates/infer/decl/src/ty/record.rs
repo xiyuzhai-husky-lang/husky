@@ -33,7 +33,7 @@ pub(crate) fn record_decl(
     }
     let generics = db.generic_arguments_from_generic_placeholders(&generic_placeholders);
     let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
-    let this_ty = db.intern_scope(EntityRoute {
+    let this_ty = db.intern_entity_route(EntityRoute {
         kind: entity_route_kind,
         generic_arguments: generics,
     });

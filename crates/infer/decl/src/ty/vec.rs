@@ -2,46 +2,8 @@ use vm::InputContract;
 
 use super::*;
 
-static STATIC_VEC_DECL: &'static StaticTyDecl = &StaticTyDecl {
-    base_ty: "Vec",
-    generic_placeholders: &[StaticGenericPlaceholder {
-        name: "E",
-        variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
-    }],
-    trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
-    fields: &[],
-    members: &[
-        StaticTypeMemberDecl::Method(StaticMethodDecl {
-            name: "len",
-            this_contract: InputContract::Pure,
-            inputs: &[],
-            output_ty: "i32",
-            generic_placeholders: &[],
-        }),
-        StaticTypeMemberDecl::Method(StaticMethodDecl {
-            name: "push",
-            this_contract: InputContract::BorrowMut,
-            inputs: &[StaticInputDecl {
-                contract: InputContract::Move,
-                ty: "E",
-            }],
-            output_ty: "void",
-            generic_placeholders: &[],
-        }),
-        StaticTypeMemberDecl::Method(StaticMethodDecl {
-            name: "pop",
-            this_contract: InputContract::BorrowMut,
-            inputs: &[],
-            output_ty: "E",
-            generic_placeholders: &[],
-        }),
-    ],
-    variants: &[],
-    kind: TyKind::Vec,
-};
-
 pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
-    Arc::new(TyDecl::from_static(db, STATIC_VEC_DECL))
+    TyDecl::from_static(db, &STATIC_VEC_DECL)
     // let element_ty_ident = db.custom_ident("T");
     // let element_ty = db.intern_scope(EntityRoute {
     //     kind: EntityRouteKind::Generic {

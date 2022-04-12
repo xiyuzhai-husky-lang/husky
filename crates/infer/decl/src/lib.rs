@@ -39,4 +39,5 @@ pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
     fn global_input_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
     fn global_output_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
     fn vec_decl(&self) -> Arc<TyDecl>;
+    fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
 }

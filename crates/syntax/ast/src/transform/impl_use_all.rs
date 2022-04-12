@@ -14,7 +14,7 @@ impl<'a> AstTransformer<'a> {
                 .filter_map(|entry| {
                     entry.ident.map(|ident| Symbol {
                         ident: ident.into(),
-                        kind: SymbolKind::EntityRoute(self.db.intern_scope(EntityRoute {
+                        kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::ChildScope { parent, ident },
                             generic_arguments: vec![],
                         })),

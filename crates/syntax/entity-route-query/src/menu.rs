@@ -5,25 +5,25 @@ use word::RootIdentifier;
 
 pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<EntityRouteMenu> {
     Arc::new(EntityRouteMenu {
-        clone_trait: db.intern_scope(EntityRoute {
+        clone_trait: db.intern_entity_route(EntityRoute {
             kind: EntityRouteKind::Root {
                 ident: RootIdentifier::CloneTrait,
             },
             generic_arguments: vec![],
         }),
-        void_type: db.intern_scope(EntityRoute {
+        void_type: db.intern_entity_route(EntityRoute {
             kind: EntityRouteKind::Root {
                 ident: RootIdentifier::Void,
             },
             generic_arguments: vec![],
         }),
-        i32_type: db.intern_scope(EntityRoute {
+        i32_type: db.intern_entity_route(EntityRoute {
             kind: EntityRouteKind::Root {
                 ident: RootIdentifier::I32,
             },
             generic_arguments: vec![],
         }),
-        this_type: db.intern_scope(EntityRoute {
+        this_type: db.intern_entity_route(EntityRoute {
             kind: EntityRouteKind::ThisType,
             generic_arguments: vec![],
         }),

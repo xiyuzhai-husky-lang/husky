@@ -5,7 +5,7 @@ pub use generic::*;
 use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use vm::{InputContract, MembAccessContract};
+use vm::{FieldContract, InputContract};
 use word::{CustomIdentifier, IdentDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -18,11 +18,11 @@ pub struct RoutineDefnHead {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MembRoutineDefnHead {
+pub struct MethodDefnHead {
     pub ident: CustomIdentifier,
     pub routine_kind: RoutineKind,
     pub this_contract: InputContract,
-    pub generics: IdentDict<GenericPlaceholder>,
+    pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output: RangedEntityRoute,
 }
@@ -30,15 +30,17 @@ pub struct MembRoutineDefnHead {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FieldDefnHead {
     pub ident: CustomIdentifier,
-    pub contract: MembAccessContract,
     pub ty: EntityRoutePtr,
     pub kind: FieldKind,
+    pub contract: FieldContract,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FieldKind {
-    Original,
-    Derived,
+    StructOriginal,
+    StructDerived,
+    RecordOriginal,
+    RecordDerived,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

@@ -36,7 +36,7 @@ pub struct SymbolProxy<'a> {
     pub opt_package_main: Option<FilePtr>,
     pub db: &'a dyn EntityRouteQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
-    pub symbols: &'a fold::LocalStack<Symbol>,
+    pub symbols: &'a [Symbol],
 }
 
 impl<'a> SymbolProxy<'a> {
@@ -48,7 +48,7 @@ impl<'a> SymbolProxy<'a> {
     ) -> Atom {
         let scope = EntityRoute::new_builtin(ident.into(), generics);
         let kind = AtomKind::EntityRoute {
-            route: self.db.intern_scope(scope),
+            route: self.db.intern_entity_route(scope),
             kind: EntityKind::Type(match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32
@@ -89,7 +89,7 @@ impl<'a> SymbolProxy<'a> {
             Identifier::Builtin(ident) => Ok(SymbolKind::EntityRoute(ident.into())),
             Identifier::Contextual(ident) => match ident {
                 ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
-                    self.db.intern_scope(EntityRoute {
+                    self.db.intern_entity_route(EntityRoute {
                         kind: EntityRouteKind::Input {
                             main: self
                                 .opt_package_main
@@ -105,14 +105,16 @@ impl<'a> SymbolProxy<'a> {
                     ty: self.opt_this_ty,
                 }),
             },
-            Identifier::Custom(ident) => Ok(
-                if let Some(symbol) = self.symbols.find(|symbol| symbol.ident == ident.into()) {
-                    symbol.kind
-                } else {
-                    SymbolKind::Unrecognized(ident)
-                },
-            ),
+            Identifier::Custom(ident) => Ok(if let Some(symbol) = self.find_symbol(ident) {
+                symbol.kind
+            } else {
+                SymbolKind::Unrecognized(ident)
+            }),
         }
+    }
+
+    fn find_symbol(&self, ident: CustomIdentifier) -> Option<&Symbol> {
+        self.symbols.iter().find(|symbol| symbol.ident == ident)
     }
 
     // fn resolve_subscope(

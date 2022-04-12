@@ -6,7 +6,7 @@ use atom::{
 };
 use text::TextRanged;
 use token::{Special, Token, TokenKind};
-use vm::{InputContract, MembAccessContract};
+use vm::{FieldContract, InputContract};
 use word::RoutineKeyword;
 
 impl<'a> AstTransformer<'a> {
@@ -62,9 +62,9 @@ impl<'a> AstTransformer<'a> {
                 let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..])?;
                 AstKind::FieldDefn(FieldDefnHead {
                     ident,
-                    contract: MembAccessContract::Own,
+                    contract: FieldContract::Own,
                     ty,
-                    kind: FieldKind::Original,
+                    kind: FieldKind::RecordOriginal,
                 })
             } else {
                 todo!()
@@ -94,7 +94,7 @@ impl<'a> AstTransformer<'a> {
                     },
                 }),
         );
-        Ok(AstKind::MembRoutineDefnHead(head))
+        Ok(AstKind::MethodDefnHead(head))
     }
 
     // pub(super) fn parse_struct_static_func() {}

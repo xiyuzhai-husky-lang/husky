@@ -25,5 +25,4 @@ syntax-types = { path = "../types", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 entity-syntax = { path = "../entity", version = "0.0.0" }
 static-decl = { path = "../static-decl", version = "0.0.0" }
-instantiate = { path = "../instantiate", version = "0.0.0" }
 defn-head = { path = "../defn-head", version = "0.0.0" }

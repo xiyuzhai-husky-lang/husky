@@ -18,7 +18,7 @@ main:
     );
 
     let main_file = db.intern_file("haha/main.hsk".into());
-    let pack = db.intern_scope(EntityRoute::pack(
+    let pack = db.intern_entity_route(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
@@ -50,7 +50,7 @@ struct B {}
     );
 
     let main_file = db.intern_file("haha/main.hsk".into());
-    let pack = db.intern_scope(EntityRoute::pack(
+    let pack = db.intern_entity_route(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
@@ -75,7 +75,7 @@ main:
     );
 
     let main_file = db.intern_file("haha/main.hsk".into());
-    let pack = db.intern_scope(EntityRoute::pack(
+    let pack = db.intern_entity_route(EntityRoute::pack(
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
@@ -87,7 +87,7 @@ main:
 #[test]
 fn datasets() {
     let db = HuskyLangCompileTime::default();
-    let dataset_scope = db.intern_scope(EntityRoute {
+    let dataset_scope = db.intern_entity_route(EntityRoute {
         kind: EntityRouteKind::Root {
             ident: RootIdentifier::Datasets,
         },

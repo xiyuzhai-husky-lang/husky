@@ -45,7 +45,7 @@ impl<'a> EagerStmtParser<'a> {
                     variant_class: ref variant_kind,
                 } => todo!(),
                 AstKind::FieldDefn { .. } => todo!(),
-                AstKind::MembRoutineDefnHead { .. } => todo!(),
+                AstKind::MethodDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
                 AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             }))

@@ -40,3 +40,4 @@ infer-decl = { path = "../../infer/decl", version = "0.0.0" }
 instruction-gen = { path = "../instruction-gen", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
+entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }

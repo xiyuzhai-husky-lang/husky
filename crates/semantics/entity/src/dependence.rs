@@ -100,7 +100,7 @@ impl EntityDefn {
                 stmts,
             } => {
                 extract_routine_head_dependees(inputs, output, &mut builder);
-                extract_decl_stmts_dependees(stmts, &mut builder);
+                extract_func_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Proc {
                 input_placeholders: inputs,
@@ -108,35 +108,16 @@ impl EntityDefn {
                 stmts,
             } => {
                 extract_routine_head_dependees(inputs, output, &mut builder);
-                extract_impr_stmts_dependees(stmts, &mut builder);
+                extract_proc_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Ty(ty) => {
-                todo!()
-                //     match ty.kind {
-                //     TyDefnKind::Enum { ref variants } => {
-                //         variants.iter().for_each(|enum_variant| {
-                //             extract_enum_variant_dependees(enum_variant, &mut builder)
-                //         });
-                //     }
-                //     TyDefnKind::Struct { ref fields, .. } => {
-                //         for field in fields.iter() {
-                //             builder.push(field.ty);
-                //         }
-                //     }
-                //     TyDefnKind::Record {
-                //         fields: ref field_vars,
-                //         ref field_features,
-                //     } => {
-                //         field_vars
-                //             .iter()
-                //             .for_each(|(_ident, field_var_decl)| builder.push(field_var_decl.ty));
-                //         field_features
-                //             .iter()
-                //             .for_each(|(_ident, field_feature_defn)| {
-                //                 builder.push(field_feature_defn.ty)
-                //             });
-                //     }
-                // }
+                ty.type_members
+                    .iter()
+                    .for_each(|member| extract_member_dependees(member, &mut builder));
+                ty.variants.iter().for_each(|enum_variant| {
+                    extract_enum_variant_dependees(enum_variant, &mut builder)
+                });
+                ty.trait_impls.iter().for_each(|trait_impl| todo!())
             }
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Builtin => (),
@@ -171,7 +152,7 @@ impl EntityDefn {
             }
         }
 
-        fn extract_decl_stmts_dependees(stmts: &[Arc<FuncStmt>], v: &mut DependeeMapBuilder) {
+        fn extract_func_stmts_dependees(stmts: &[Arc<FuncStmt>], v: &mut DependeeMapBuilder) {
             for stmt in stmts {
                 match stmt.kind {
                     FuncStmtKind::Init {
@@ -184,14 +165,14 @@ impl EntityDefn {
                     FuncStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
                     FuncStmtKind::Branches { kind, ref branches } => {
                         for branch in branches {
-                            extract_decl_stmts_dependees(&branch.stmts, v)
+                            extract_func_stmts_dependees(&branch.stmts, v)
                         }
                     }
                 }
             }
         }
 
-        fn extract_impr_stmts_dependees(stmts: &[Arc<ProcStmt>], v: &mut DependeeMapBuilder) {
+        fn extract_proc_stmts_dependees(stmts: &[Arc<ProcStmt>], v: &mut DependeeMapBuilder) {
             for stmt in stmts {
                 match stmt.kind {
                     ProcStmtKind::Init {
@@ -206,7 +187,7 @@ impl EntityDefn {
                     ProcStmtKind::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
                     ProcStmtKind::BranchGroup { kind, ref branches } => {
                         for branch in branches {
-                            extract_impr_stmts_dependees(&branch.stmts, v)
+                            extract_proc_stmts_dependees(&branch.stmts, v)
                         }
                     }
                     ProcStmtKind::Loop {
@@ -234,7 +215,7 @@ impl EntityDefn {
                                 extract_eager_expr_dependees(condition, v)
                             }
                         }
-                        extract_impr_stmts_dependees(stmts, v)
+                        extract_proc_stmts_dependees(stmts, v)
                     }
                 }
             }
@@ -299,7 +280,7 @@ impl EntityDefn {
                     }
                 }
                 EagerExprKind::Lambda(_, _) => todo!(),
-                EagerExprKind::This => todo!(),
+                EagerExprKind::This => builder.push(expr.ty),
             }
         }
 
@@ -316,6 +297,30 @@ impl EntityDefn {
         ) {
             match variant_defn.variant {
                 EnumVariantDefnVariant::Constant => (),
+            }
+        }
+
+        fn extract_member_dependees(
+            member_defn: &TypeMemberDefn,
+            builder: &mut DependeeMapBuilder,
+        ) {
+            match member_defn {
+                TypeMemberDefn::Field(field) => builder.push(field.ty),
+                TypeMemberDefn::Method(method) => extract_method_dependees(method, builder),
+            }
+        }
+
+        fn extract_method_dependees(method_defn: &MethodDefn, builder: &mut DependeeMapBuilder) {
+            for input_placeholder in method_defn.input_placeholders.iter() {
+                builder.push(input_placeholder.ranged_ty.route)
+            }
+            builder.push(method_defn.output.route);
+            match method_defn.variant {
+                MethodDefnVariant::Func { ref stmts } => {
+                    extract_func_stmts_dependees(stmts, builder)
+                }
+                MethodDefnVariant::Proc { ref stmts } => todo!(),
+                MethodDefnVariant::Pattern { ref stmts } => todo!(),
             }
         }
     }

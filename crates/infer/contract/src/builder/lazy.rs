@@ -4,7 +4,7 @@ use entity_route::{EntityRouteKind, EntityRoutePtr};
 use infer_error::*;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use text::TextRange;
-use vm::{BinaryOpr, MembAccessContract};
+use vm::{BinaryOpr, FieldContract};
 use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;
@@ -149,14 +149,14 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
                 let this_ty_decl = self.db.expr_ty_decl(self.file, opd)?;
-                let this_contract = match this_ty_decl.field_decl(ranged_ident.ident).contract {
-                    MembAccessContract::Own => match contract {
+                let this_contract = match this_ty_decl.field_decl(ranged_ident)?.contract {
+                    FieldContract::Own => match contract {
                         LazyContract::Take => LazyContract::Take,
                         LazyContract::Ref => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
                     },
-                    MembAccessContract::Ref => todo!(),
-                    MembAccessContract::LazyOwn => match contract {
+                    FieldContract::Ref => todo!(),
+                    FieldContract::LazyOwn => match contract {
                         LazyContract::Take => todo!(),
                         LazyContract::Ref => todo!(),
                         LazyContract::Pure => LazyContract::Pure,

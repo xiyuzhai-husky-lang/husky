@@ -214,7 +214,7 @@ impl<'a> TySheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.field_access_ty_result(ident),
+            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.field_ty_result(ident),
             SuffixOpr::WithType(_) => todo!(),
         }
     }

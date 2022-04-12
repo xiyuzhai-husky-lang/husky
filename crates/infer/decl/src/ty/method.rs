@@ -1,6 +1,7 @@
 use crate::*;
 use atom::{symbol_proxy::Symbol, *};
 use fold::LocalStack;
+use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use static_decl::StaticMethodDecl;
 use vec_dict::HasKey;
@@ -39,6 +40,16 @@ impl MethodDecl {
         })
     }
 
+    pub fn implement(&self, implementor: &Implementor) -> Arc<Self> {
+        Arc::new(Self {
+            ident: self.ident,
+            this_contract: self.this_contract,
+            inputs: self.inputs.map(|input| input.implement(implementor)),
+            output: self.output.implement(implementor),
+            generic_placeholders: self.generic_placeholders.clone(),
+        })
+    }
+
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         decl: &StaticMethodDecl,
@@ -65,6 +76,18 @@ impl MethodDecl {
             generic_placeholders: decl.generic_placeholders.map(|static_generic_placeholder| {
                 GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
             }),
+        })
+    }
+
+    pub fn from_ast(method_defn_head: &MethodDefnHead) -> Arc<Self> {
+        Arc::new(MethodDecl {
+            ident: method_defn_head.ident,
+            inputs: method_defn_head
+                .input_placeholders
+                .map(|input_placeholder| input_placeholder.into()),
+            output: method_defn_head.output.route,
+            this_contract: method_defn_head.this_contract,
+            generic_placeholders: method_defn_head.generic_placeholders.clone(),
         })
     }
 }

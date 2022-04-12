@@ -91,11 +91,21 @@ where
         }
     }
 
-    pub fn insert(&mut self, key: K, value: Entry) {
-        if self.has(key) {
+    pub fn insert(&mut self, value: Entry) {
+        if self.has(value.key()) {
             ()
         } else {
             self.entries.push(value)
+        }
+    }
+    pub fn insert_from_ref(&mut self, value: &Entry)
+    where
+        Entry: Clone,
+    {
+        if self.has(value.key()) {
+            ()
+        } else {
+            self.entries.push(value.clone())
         }
     }
 
@@ -114,7 +124,7 @@ where
         Entry: Clone,
     {
         for entry in &other.entries {
-            self.insert_new(entry.clone())
+            self.insert_from_ref(entry)
         }
     }
 }

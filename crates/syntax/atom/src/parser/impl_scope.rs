@@ -39,7 +39,7 @@ impl<'a> AtomLRParser<'a> {
         Ok(self
             .scope_proxy
             .db
-            .intern_scope(if next_matches!(self, Special::RBox) {
+            .intern_entity_route(if next_matches!(self, Special::RBox) {
                 self.vec_ty()
             } else {
                 self.array_ty()
@@ -172,6 +172,6 @@ impl<'a> AtomLRParser<'a> {
     }
 
     fn intern(&self, scope: EntityRoute) -> EntityRoutePtr {
-        self.scope_proxy.db.intern_scope(scope)
+        self.scope_proxy.db.intern_entity_route(scope)
     }
 }

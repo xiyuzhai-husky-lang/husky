@@ -61,7 +61,7 @@ pub enum Feature {
     Branches {
         branches: Vec<BranchedFeature>,
     },
-    StructMembVarAccess {
+    StructFieldAccess {
         this: FeaturePtr,
         field_ident: CustomIdentifier,
     },
