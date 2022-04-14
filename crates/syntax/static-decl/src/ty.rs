@@ -5,7 +5,7 @@ pub struct StaticTyDecl {
     pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub trait_impls: &'static [StaticTraitImplDecl],
     pub fields: &'static [StaticFieldDecl],
-    pub members: &'static [StaticTypeMemberDecl],
+    pub type_members: &'static [StaticTypeMemberDecl],
     pub variants: &'static [StaticEnumVariantDecl],
     pub kind: TyKind,
 }

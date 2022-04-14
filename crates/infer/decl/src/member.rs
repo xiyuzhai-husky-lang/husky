@@ -1,7 +1,12 @@
+mod field;
+mod method;
+
+pub use field::*;
+pub use method::*;
+
 use atom::symbol_proxy::Symbol;
 use fold::LocalStack;
 use map_collect::MapCollect;
-use print_utils::msg_once;
 use vec_dict::HasKey;
 
 use crate::*;
@@ -80,9 +85,9 @@ impl TypeMemberDecl {
     ) -> Self {
         match member_decl {
             StaticTypeMemberDecl::Field => todo!(),
-            StaticTypeMemberDecl::Method(method_decl) => {
-                TypeMemberDecl::Method(MethodDecl::from_static(db, method_decl, this_ty, symbols))
-            }
+            StaticTypeMemberDecl::Method(method_decl) => TypeMemberDecl::Method(
+                MethodDecl::from_static(db, method_decl, Some(this_ty), symbols),
+            ),
             StaticTypeMemberDecl::Call => todo!(),
         }
     }

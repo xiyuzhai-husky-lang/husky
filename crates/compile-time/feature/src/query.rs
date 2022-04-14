@@ -1,7 +1,7 @@
 use entity_route::EntityRoutePtr;
 use instruction_gen::InstructionGenQueryGroup;
 use pack_semantics::*;
-use semantics_entity::{EntityDefnVariant, EntityQueryGroup};
+use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant};
 use semantics_error::SemanticResultArc;
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
@@ -12,7 +12,7 @@ use crate::{record::*, unique_allocate::AllocateUniqueFeature, *};
 pub trait FeatureQueryGroup:
     AllocateUniqueFeature
     + PackQueryGroup
-    + Upcast<dyn EntityQueryGroup>
+    + Upcast<dyn EntityDefnQueryGroup>
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
 {
@@ -34,7 +34,7 @@ fn scoped_feature_block(
     db: &dyn FeatureQueryGroup,
     scope: EntityRoutePtr,
 ) -> SemanticResultArc<FeatureBlock> {
-    let entity = db.opt_entity_defn(scope)?.unwrap();
+    let entity = db.entity_defn(scope)?;
     match entity.kind() {
         EntityDefnVariant::Feature { ref lazy_stmts, .. } => {
             Ok(FeatureBlock::new(db, None, lazy_stmts, &[], db.features()))

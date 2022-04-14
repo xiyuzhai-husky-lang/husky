@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "infer-ty"
+name = "infer-entity-route"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -17,6 +17,7 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 map-utils = { path = "../../utils/map", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
+upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 arena = { path = "../../abstraction/arena", version = "0.0.0" }
 vec-dict = { path = "../../abstraction/vec-dict", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }

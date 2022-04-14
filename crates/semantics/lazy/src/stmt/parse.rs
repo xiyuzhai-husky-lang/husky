@@ -2,6 +2,8 @@ use crate::*;
 use ast::*;
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
+use infer_contract::{ContractSheet, InferContract};
+use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use semantics_error::*;
 use std::sync::Arc;
 use vm::{InitKind, StackIdx, VMResult};
@@ -12,6 +14,8 @@ pub(super) struct LazyStmtParser<'a> {
     pub(super) arena: &'a RawExprArena,
     pub(super) variables: Vec<LazyVariable>,
     pub(super) file: FilePtr,
+    entity_route_sheet: Arc<EntityRouteSheet>,
+    contract_sheet: Arc<ContractSheet>,
 }
 
 impl<'a> LazyStmtParser<'a> {
@@ -29,6 +33,8 @@ impl<'a> LazyStmtParser<'a> {
                 .map(|input_placeholder| LazyVariable::from_input(input_placeholder))
                 .collect(),
             file,
+            entity_route_sheet: db.entity_route_sheet(file).unwrap(),
+            contract_sheet: db.contract_sheet(file).unwrap(),
         }
     }
 
@@ -186,6 +192,22 @@ impl<'a> LazyStmtParser<'a> {
             }))
         }
         Ok(Arc::new(stmts))
+    }
+}
+
+impl<'a> InferEntityRoute for LazyStmtParser<'a> {
+    fn decl_db(&self) -> &dyn infer_decl::DeclQueryGroup {
+        self.db.upcast()
+    }
+
+    fn entity_route_sheet(&self) -> &EntityRouteSheet {
+        &self.entity_route_sheet
+    }
+}
+
+impl<'a> InferContract for LazyStmtParser<'a> {
+    fn contract_sheet(&self) -> &ContractSheet {
+        &self.contract_sheet
     }
 }
 

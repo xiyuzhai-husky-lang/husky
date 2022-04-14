@@ -41,7 +41,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     uid,
                     inputs: inputs.iter().map(|expr| expr.feature).collect(),
                 });
-                let entity_defn = self.db.opt_entity_defn(routine.route).unwrap().unwrap();
+                let entity_defn = self.db.entity_defn(routine.route).unwrap();
                 let kind = match entity_defn.kind() {
                     EntityDefnVariant::Func {
                         input_placeholders,
@@ -118,42 +118,36 @@ impl<'a> FeatureExprBuilder<'a> {
                     FieldKind::RecordDerived => todo!(),
                 }
             }
-            LazyOpnKind::MembCall { field_ident, .. } => {
+            LazyOpnKind::MethodCall {
+                method_ident,
+                method_route,
+                ..
+            } => {
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd)).collect();
-                let feature = self.features.alloc(Feature::MembCall {
-                    field_ident: field_ident.ident,
+                let feature = self.features.alloc(Feature::MethodCall {
+                    method_ident: method_ident.ident,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
-                let ty_entity_defn = self.db.opt_entity_defn(opds[0].ty).unwrap().unwrap();
-                let ty_defn = match ty_entity_defn.kind() {
-                    EntityDefnVariant::Ty(ty) => ty,
-                    _ => panic!(),
-                };
-                match ty_defn.kind {
-                    TyKind::Enum => todo!(),
-                    TyKind::Struct => {
-                        todo!()
-                        // let method = ty_defn.methods.get(field_ident.ident).unwrap();
-                        // let kind = match method.kind {
-                        //     MethodKind::Func { ref stmts } => FeatureExprKind::MethodCall {
-                        //         field_ident: field_ident.ident,
-                        //         instruction_sheet: self
-                        //             .db
-                        //             .method_instruction_sheet(opds[0].ty, field_ident.ident),
-                        //         stmts: stmts.clone(),
-                        //         opds,
-                        //         opt_compiled: None,
-                        //     },
-                        //     MethodKind::Proc { ref stmts } => todo!(),
-                        // };
-                        // (kind, feature)
-                    }
-                    TyKind::Record { .. } => todo!(),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
-                    TyKind::Array => todo!(),
-                    TyKind::Other => todo!(),
-                }
+                // let this_ty_defn = self.db.opt_entity_defn(opds[0].ty).unwrap().unwrap();
+                // let ty_defn = match this_ty_defn.kind() {
+                //     EntityDefnVariant::Ty(ty) => ty,
+                //     _ => panic!(),
+                // };
+                let method_defn = self.db.method_defn(method_route);
+                // let kind = match method.kind {
+                //     MethodKind::Func { ref stmts } => FeatureExprKind::MethodCall {
+                //         field_ident: field_ident.ident,
+                //         instruction_sheet: self
+                //             .db
+                //             .method_instruction_sheet(opds[0].ty, field_ident.ident),
+                //         stmts: stmts.clone(),
+                //         opds,
+                //         opt_compiled: None,
+                //     },
+                //     MethodKind::Proc { ref stmts } => todo!(),
+                // };
+                // (kind, feature)
+                todo!()
             }
             LazyOpnKind::ElementAccess => todo!(),
             LazyOpnKind::StructCall(_) => todo!(),
@@ -165,9 +159,9 @@ impl<'a> FeatureExprBuilder<'a> {
                     uid,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
-                let kind = FeatureExprKind::ClassCall {
+                let kind = FeatureExprKind::NewRecord {
                     ty,
-                    entity: self.db.opt_entity_defn(ty.route).unwrap().unwrap(),
+                    entity: self.db.entity_defn(ty.route).unwrap(),
                     opds,
                 };
                 (kind, feature)
@@ -187,7 +181,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprKind::FeatureBlock { ref block, .. } => {
                 self.derive_record_field_var_value_from_block(block, field_ident)
             }
-            FeatureExprKind::ClassCall {
+            FeatureExprKind::NewRecord {
                 ref entity,
                 ref opds,
                 ..

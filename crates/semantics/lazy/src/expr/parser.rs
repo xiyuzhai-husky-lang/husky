@@ -5,6 +5,8 @@ use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use entity_syntax::TyKind;
 use file::FilePtr;
+use infer_contract::InferContract;
+use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use syntax_types::{ListOpr, Opr};
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
 use word::{CustomIdentifier, RootIdentifier};
@@ -12,11 +14,11 @@ use word::{CustomIdentifier, RootIdentifier};
 use super::*;
 use semantics_error::*;
 
-pub trait LazyExprParser<'a> {
+pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
     fn arena(&self) -> &'a RawExprArena;
     fn vartype(&self, varname: CustomIdentifier) -> EntityRoutePtr;
-    fn db(&self) -> &'a dyn InferQueryGroup;
     fn file(&self) -> FilePtr;
+    fn db(&self) -> &dyn InferQueryGroup;
 
     fn parse_lazy_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<LazyExpr>> {
         let raw_expr = &self.arena()[raw_expr_idx];
@@ -52,24 +54,26 @@ pub trait LazyExprParser<'a> {
             },
             RawExprVariant::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
+            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => LazyExprKind::This,
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
-            ty: self.db().expr_ty_result(self.file(), raw_expr_idx).unwrap(),
+            ty: self.expr_ty_result(raw_expr_idx).unwrap(),
             kind,
             file: self.file(),
             instruction_id: Default::default(),
-            contract: self
-                .db()
-                .lazy_expr_contract_result(self.file(), raw_expr_idx)
-                .unwrap(),
+            contract: self.lazy_expr_contract_result(raw_expr_idx).unwrap(),
         }))
     }
 
-    fn parse_opn(&mut self, opr: Opr, opds: &RawExprRange) -> SemanticResult<LazyExprKind> {
+    fn parse_opn(
+        &mut self,
+        opr: Opr,
+        opds: &RawExprRange,
+        raw_expr_idx: RawExprIdx,
+    ) -> SemanticResult<LazyExprKind> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
@@ -78,7 +82,7 @@ pub trait LazyExprParser<'a> {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_call(opds),
+                ListOpr::Call => self.parse_call(opds, raw_expr_idx),
                 ListOpr::Index => todo!(),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
@@ -204,7 +208,7 @@ pub trait LazyExprParser<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
-                let ty_decl = self.db().ty_decl(this.ty).unwrap();
+                let ty_decl = self.expr_ty_decl(opds.start).unwrap();
                 LazyExprKind::Opn {
                     opn_kind: LazyOpnKind::MembAccess {
                         field_ident: ranged_ident,
@@ -231,7 +235,11 @@ pub trait LazyExprParser<'a> {
         })
     }
 
-    fn parse_call(&mut self, opd_idx_range: &RawExprRange) -> SemanticResult<LazyExprKind> {
+    fn parse_call(
+        &mut self,
+        opd_idx_range: &RawExprRange,
+        raw_expr_idx: RawExprIdx,
+    ) -> SemanticResult<LazyExprKind> {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.kind {
@@ -294,8 +302,12 @@ pub trait LazyExprParser<'a> {
                         opds.extend(inputs);
                         msg_once!("todo: memb call compiled");
                         Ok(LazyExprKind::Opn {
-                            opn_kind: LazyOpnKind::MembCall {
-                                field_ident: ranged_ident,
+                            opn_kind: LazyOpnKind::MethodCall {
+                                method_ident: ranged_ident,
+                                method_route: self
+                                    .entity_route_sheet()
+                                    .call_route_result(raw_expr_idx)
+                                    .unwrap(),
                             },
                             compiled: (),
                             opds,

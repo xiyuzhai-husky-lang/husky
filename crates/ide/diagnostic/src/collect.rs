@@ -40,7 +40,7 @@ fn collect_infer_ty_errors(
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let ty_sheet = db.ty_sheet(file).unwrap();
+    let ty_sheet = db.entity_route_sheet(file).unwrap();
     p!(ty_sheet.errors());
     for error in ty_sheet.errors() {
         diagnostics.push(error.into());

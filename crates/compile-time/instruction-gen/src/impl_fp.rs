@@ -6,7 +6,7 @@ use crate::*;
 impl<'a> InstructionSheetBuilder<'a> {
     pub(crate) fn routine_fp(&self, routine: EntityRoutePtr) -> Option<RoutineLinkage> {
         match self.db.entity_source(routine).unwrap() {
-            EntitySource::Builtin(builtin_entity_data) => match builtin_entity_data.decl {
+            EntitySource::Static(builtin_entity_data) => match builtin_entity_data.decl {
                 StaticEntityDecl::Func(ref func_decl) => Some(func_decl.compiled),
                 StaticEntityDecl::Ty {
                     raw_ty_kind,

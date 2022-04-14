@@ -1,15 +1,11 @@
 mod enum_variant;
 mod impl_instantiate;
-mod member;
-mod method;
 mod trait_impl;
 mod vec;
 
 use std::iter::Peekable;
 
 use entity_syntax::{EnumVariantKind, RoutineKind};
-pub use member::*;
-pub use method::*;
 use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
@@ -56,7 +52,7 @@ impl TyDecl {
             this_ty,
             generic_placeholders,
             static_decl
-                .members
+                .type_members
                 .iter()
                 .map(|member| TypeMemberDecl::from_static(db, member, this_ty, &symbols))
                 .collect(),
@@ -88,7 +84,7 @@ impl TyDecl {
         let mut type_members = IdentDict::default();
         let mut trait_impls = Vec::default();
         Self::collect_fields(&mut children, &mut type_members)?;
-        Self::collect_member_calls(db, arena, &mut children, &mut type_members)?;
+        Self::collect_member_calls(&mut children, &mut type_members)?;
         let variants = Self::collect_variants(children)?;
         Ok(TyDecl::new(
             db,
@@ -118,8 +114,6 @@ impl TyDecl {
     }
 
     fn collect_member_calls(
-        db: &dyn DeclQueryGroup,
-        arena: &RawExprArena,
         children: &mut Peekable<AstIter>,
         members: &mut IdentDict<TypeMemberDecl>,
     ) -> InferResult<()> {
@@ -139,7 +133,7 @@ impl TyDecl {
                     match method_defn_head.routine_kind {
                         RoutineKind::Proc => todo!(),
                         RoutineKind::Func => members.insert_new(TypeMemberDecl::Method(
-                            MethodDecl::from_ast(method_defn_head),
+                            MethodDecl::from_ast(method_defn_head, MethodKind::Type),
                         )),
                         RoutineKind::Test => todo!(),
                     }
@@ -157,9 +151,7 @@ impl TyDecl {
         Ok(())
     }
 
-    fn collect_variants(
-        mut children: Peekable<AstIter>,
-    ) -> InferResult<IdentDict<EnumVariantDecl>> {
+    fn collect_variants(children: Peekable<AstIter>) -> InferResult<IdentDict<EnumVariantDecl>> {
         let mut variants = VecDict::default();
         for subitem in children {
             match subitem.value.as_ref()?.kind {
@@ -200,8 +192,7 @@ impl TyDecl {
     }
 
     pub fn field_idx(&self, field_ident: CustomIdentifier) -> usize {
-        todo!()
-        // self.fields.position(field_ident).unwrap()
+        self.type_members.position(field_ident).unwrap()
     }
 
     pub fn fields(&self) -> impl Iterator<Item = &FieldDecl> {
@@ -409,7 +400,7 @@ impl TyDecl {
 pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty_route: EntityRoutePtr) -> InferResultArc<TyDecl> {
     let source = db.entity_source(ty_route)?;
     match source {
-        EntitySource::Builtin(data) => Ok(match data.decl {
+        EntitySource::Static(data) => Ok(match data.decl {
             StaticEntityDecl::Func(_) => todo!(),
             StaticEntityDecl::Module => todo!(),
             StaticEntityDecl::Ty { .. } => todo!(),

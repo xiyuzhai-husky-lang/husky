@@ -45,8 +45,10 @@ impl<'a> RustGenerator<'a> {
             }
             self.gen_scope(field.ty);
             match field.variant {
-                FieldDefnVariant::Original => (),
-                FieldDefnVariant::Derived { ref stmts } => todo!(),
+                FieldDefnVariant::StructOriginal => (),
+                FieldDefnVariant::RecordOriginal => (),
+                FieldDefnVariant::StructDerived { ref stmts } => todo!(),
+                FieldDefnVariant::RecordDerived { ref stmts } => todo!(),
             }
         }
         self.result += "}\n";

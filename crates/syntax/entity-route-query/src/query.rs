@@ -33,7 +33,7 @@ fn subscope_table(
     scope_id: EntityRoutePtr,
 ) -> ScopeResultArc<SubscopeTable> {
     Ok(Arc::new(match db.entity_source(scope_id)? {
-        EntitySource::Builtin(data) => SubscopeTable::builtin(db, data),
+        EntitySource::Static(data) => SubscopeTable::builtin(db, data),
         EntitySource::WithinModule {
             file: file_id,
             token_group_index,
@@ -121,42 +121,42 @@ fn entity_source(
 ) -> ScopeResult<EntitySource> {
     Ok(match entity_route.kind {
         EntityRouteKind::Root { ident } => match ident {
-            RootIdentifier::Void => &StaticEntityData {
+            RootIdentifier::Void => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::Ty {
                     raw_ty_kind: TyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::I32 => &StaticEntityData {
+            RootIdentifier::I32 => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::Ty {
                     raw_ty_kind: TyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::F32 => &StaticEntityData {
+            RootIdentifier::F32 => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::Ty {
                     raw_ty_kind: TyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::B32 => &StaticEntityData {
+            RootIdentifier::B32 => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::Ty {
                     raw_ty_kind: TyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::B64 => &StaticEntityData {
+            RootIdentifier::B64 => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::Ty {
                     raw_ty_kind: TyKind::Primitive,
                     visualizer: TRIVIAL_VISUALIZER,
                 },
             },
-            RootIdentifier::Bool => &StaticEntityData {
+            RootIdentifier::Bool => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::Ty {
                     raw_ty_kind: TyKind::Primitive,
@@ -165,7 +165,7 @@ fn entity_source(
             },
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => &StaticEntityData {
+            RootIdentifier::Vec => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::TyTemplate,
             },
@@ -179,7 +179,7 @@ fn entity_source(
             RootIdentifier::FnOnce => todo!(),
             RootIdentifier::Array => todo!(),
             RootIdentifier::Datasets => datasets::SCOPE_DATA,
-            RootIdentifier::DatasetType => &StaticEntityData {
+            RootIdentifier::DatasetType => &StaticEntityDefn {
                 subscopes: &[],
                 decl: StaticEntityDecl::TyTemplate,
             },
@@ -307,7 +307,7 @@ pub trait EntityRouteQueryGroup:
 
     fn module_file(&self, module: EntityRoutePtr) -> ScopeResult<FilePtr> {
         Ok(match self.entity_source(module)? {
-            EntitySource::Builtin(_) => panic!(),
+            EntitySource::Static(_) => panic!(),
             EntitySource::WithinModule { file: file_id, .. } => file_id,
             EntitySource::Module { file: file_id } => file_id,
             EntitySource::WithinBuiltinModule => todo!(),

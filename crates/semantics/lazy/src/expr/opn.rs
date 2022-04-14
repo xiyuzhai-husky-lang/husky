@@ -19,8 +19,9 @@ pub enum LazyOpnKind {
         field_ident: RangedCustomIdentifier,
         field_kind: FieldKind,
     },
-    MembCall {
-        field_ident: RangedCustomIdentifier,
+    MethodCall {
+        method_ident: RangedCustomIdentifier,
+        method_route: EntityRoutePtr,
     },
     ElementAccess,
 }

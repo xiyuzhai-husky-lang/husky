@@ -114,7 +114,7 @@ pub enum FeatureExprKind {
         block: Arc<FeatureBlock>,
     },
     GlobalInput,
-    ClassCall {
+    NewRecord {
         ty: RangedEntityRoute,
         entity: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureExpr>>,

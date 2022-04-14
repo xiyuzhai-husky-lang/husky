@@ -65,8 +65,8 @@ pub enum Feature {
         this: FeaturePtr,
         field_ident: CustomIdentifier,
     },
-    MembCall {
-        field_ident: CustomIdentifier,
+    MethodCall {
+        method_ident: CustomIdentifier,
         opds: Vec<FeaturePtr>,
     },
     ScopedFeature {

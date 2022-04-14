@@ -28,7 +28,7 @@ pub(crate) fn expr_record_memb(
         FeatureExprKind::FeatureBlock { ref block, .. } => {
             block_record_memb(db, block, field_ident)
         }
-        FeatureExprKind::ClassCall {
+        FeatureExprKind::NewRecord {
             ref entity,
             ref opds,
             ..
@@ -69,6 +69,7 @@ pub(crate) fn expr_record_memb(
         | FeatureExprKind::MembProcCall { .. }
         | FeatureExprKind::StructMembVarAccess { .. }
         | FeatureExprKind::PrimitiveLiteral(_) => {
+            p!(this.kind);
             panic!()
         }
         FeatureExprKind::This { ref repr } => db.record_field_repr(repr.clone(), field_ident),

@@ -71,7 +71,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 ref stmts,
             } => todo!(),
             FeatureExprKind::FeatureBlock { ref block, .. } => self.eval_feature_block(block),
-            FeatureExprKind::ClassCall {
+            FeatureExprKind::NewRecord {
                 ty,
                 ref entity,
                 ref opds,

@@ -1,45 +1,37 @@
 mod builder;
+mod query;
 mod sheet;
 
+pub use query::*;
 pub use sheet::*;
 
 use ast::*;
 use check_utils::*;
 use defn_head::*;
-use entity_route::{GenericArgument, *};
-use entity_route_query::{EntityRouteQueryGroup, ScopeResult, ScopeResultArc};
+use entity_route::*;
+use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
 use file::FilePtr;
-use fold::FoldStorage;
 use infer_decl::{DeclQueryGroup, TyDecl};
 use infer_error::*;
 use print_utils::*;
 use syntax_types::*;
 use vm::EnumLiteralValue;
-use word::{ContextualIdentifier, RootIdentifier};
+use word::RootIdentifier;
 
-#[salsa::query_group(InferTyQueryGroupStorage)]
-pub trait InferTySalsaQueryGroup:
-    EntityRouteQueryGroup + ast::AstQueryGroup + DeclQueryGroup
-{
-    fn scope_ty(&self, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr>;
-    fn enum_literal_value(&self, scope: EntityRoutePtr) -> EnumLiteralValue;
-    fn ty_sheet(&self, file: FilePtr) -> ScopeResultArc<TySheet>;
-
-    fn is_implicit_convertible(&self, src_ty: EntityRoutePtr, dst_ty: EntityRoutePtr) -> bool;
-}
-
-pub trait InferTyQueryGroup: InferTySalsaQueryGroup {
-    fn expr_ty_result(&self, file: FilePtr, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        self.ty_sheet(file)?.expr_ty_result(expr_idx)
+pub trait InferEntityRoute {
+    fn decl_db(&self) -> &dyn DeclQueryGroup;
+    fn entity_route_sheet(&self) -> &EntityRouteSheet;
+    fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+        msg_once!("deprecated");
+        self.entity_route_sheet().expr_ty_result(expr_idx)
     }
-
-    fn expr_ty_decl(&self, file: FilePtr, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
-        let ty = self.expr_ty_result(file, expr_idx)?;
-        self.ty_decl(ty)
+    fn expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
+        let ty = self.expr_ty_result(expr_idx)?;
+        self.decl_db().ty_decl(ty)
     }
 }
 
-fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
+fn scope_ty(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
     match scope {
         EntityRoutePtr::Root(ident) => match ident {
             RootIdentifier::Void => todo!(),
@@ -77,13 +69,13 @@ fn scope_ty(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> InferResu
     }
 }
 
-fn enum_literal_value(db: &dyn InferTySalsaQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
+fn enum_literal_value(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
     msg_once!("todo: enum_literal_value");
     EnumLiteralValue::interpreted(scope)
 }
 
 fn is_implicit_convertible(
-    db: &dyn InferTySalsaQueryGroup,
+    db: &dyn InferTyQueryGroup,
     src_ty: EntityRoutePtr,
     dst_ty: EntityRoutePtr,
 ) -> bool {

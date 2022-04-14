@@ -5,7 +5,6 @@ use implement::Implementor;
 use map_collect::MapCollect;
 use static_decl::StaticTraitMemberDecl;
 use vec_dict::HasKey;
-use vm::InputContract;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -37,12 +36,11 @@ impl TraitMemberDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         static_member_decl: &StaticTraitMemberDecl,
-        this_ty: EntityRoutePtr,
         symbols: &LocalStack<Symbol>,
     ) -> Self {
         match static_member_decl {
             StaticTraitMemberDecl::Method(static_method_decl) => TraitMemberDecl::Method(
-                MethodDecl::from_static(db, static_method_decl, this_ty, symbols),
+                MethodDecl::from_static(db, static_method_decl, None, symbols),
             ),
             StaticTraitMemberDecl::Call => todo!(),
             StaticTraitMemberDecl::Type => todo!(),
@@ -93,14 +91,7 @@ impl TraitDecl {
             members: trait_decl
                 .members
                 .iter()
-                .map(|member| {
-                    TraitMemberDecl::from_static(
-                        db,
-                        member,
-                        db.entity_route_menu().this_type,
-                        &symbols,
-                    )
-                })
+                .map(|member| TraitMemberDecl::from_static(db, member, &symbols))
                 .collect(),
         })
     }
@@ -119,7 +110,7 @@ pub(crate) fn trait_decl(
 ) -> InferResultArc<TraitDecl> {
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
-        EntitySource::Builtin(builtin_entity_data) => match builtin_entity_data.decl {
+        EntitySource::Static(builtin_entity_data) => match builtin_entity_data.decl {
             StaticEntityDecl::Func(_) => todo!(),
             StaticEntityDecl::Ty {
                 raw_ty_kind,

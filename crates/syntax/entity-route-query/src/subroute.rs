@@ -237,7 +237,7 @@ impl SubscopeTable {
 }
 
 impl SubscopeTable {
-    pub(crate) fn builtin(this: &dyn EntityRouteSalsaQueryGroup, data: &StaticEntityData) -> Self {
+    pub(crate) fn builtin(this: &dyn EntityRouteSalsaQueryGroup, data: &StaticEntityDefn) -> Self {
         let entries = data
             .subscopes
             .iter()

@@ -3,7 +3,7 @@ use std::sync::Arc;
 use vm::{BoxedValue, RoutineLinkage, StackValue};
 use xrng::XRng;
 
-pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
@@ -11,7 +11,7 @@ pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     decl: StaticEntityDecl::Module,
 };
 
-pub const DATASET1_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+pub const DATASET1_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[],
     decl: StaticEntityDecl::Func(StaticFuncDecl {
         generic_placeholders: &[],
@@ -24,7 +24,7 @@ pub const DATASET1_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     }),
 };
 
-pub const DATASET2_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+pub const DATASET2_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[],
     decl: StaticEntityDecl::Func(StaticFuncDecl {
         generic_placeholders: &[],

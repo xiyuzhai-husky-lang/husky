@@ -12,7 +12,7 @@ pub struct MainDefn {
 
 impl EntityDefnVariant {
     pub(crate) fn feature(
-        db: &dyn EntityQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         ty: RangedEntityRoute,
         children: AstIter,
         arena: &RawExprArena,

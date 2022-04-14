@@ -2,7 +2,6 @@ use std::sync::{Arc, Mutex};
 
 use crate::dependence::*;
 use crate::*;
-use check_utils::should_eq;
 use entity_route::{EntityRoutePtr, EntitySource};
 use infer_total::InferQueryGroup;
 use semantics_error::*;
@@ -11,16 +10,17 @@ use upcast::Upcast;
 use vm::EntityUid;
 
 #[salsa::query_group(EntityQueryGroupStorage)]
-pub trait EntityQueryGroup:
+pub trait EntityDefnQueryGroup:
     InferQueryGroup + ast::AstQueryGroup + Upcast<dyn InferQueryGroup> + StoreEntityRoute
 {
     fn main_defn(&self, main_file: file::FilePtr) -> SemanticResultArc<MainDefn>;
-    fn opt_entity_defn(&self, scope: EntityRoutePtr) -> SemanticResult<Option<Arc<EntityDefn>>>;
+    fn entity_defn(&self, scope: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;
     fn entity_immediate_dependees(&self, scope: EntityRoutePtr) -> SemanticResultArc<DependeeMap>;
     fn entity_dependees(&self, scope: EntityRoutePtr) -> SemanticResultArc<DependeeMap>;
     fn subentity_defns(&self, scope: EntityRoutePtr) -> SemanticResultArc<Vec<Arc<EntityDefn>>>;
     fn entity_defn_uid(&self, scope: EntityRoutePtr) -> EntityDefnUid;
     fn entity_uid(&self, scope: EntityRoutePtr) -> EntityUid;
+    fn method_defn(&self, route: EntityRoutePtr) -> Arc<MethodDefn>;
 }
 
 pub trait StoreEntityRoute {
@@ -50,12 +50,12 @@ impl EntityRouteStore {
     }
 }
 
-pub(crate) fn entity_uid(db: &dyn EntityQueryGroup, entity_route: EntityRoutePtr) -> EntityUid {
+pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRoutePtr) -> EntityUid {
     // responds to changes in either defn or defns of dependees
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
         // in the future, we should make a difference between entity in current pack and depending packs
-        EntitySource::Builtin(_) => (),
+        EntitySource::Static(_) => (),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main } => todo!(),
@@ -63,7 +63,7 @@ pub(crate) fn entity_uid(db: &dyn EntityQueryGroup, entity_route: EntityRoutePtr
             file,
             token_group_index,
         } => {
-            let _defn = db.opt_entity_defn(entity_route);
+            let _defn = db.entity_defn(entity_route);
             let _dependees = db.entity_dependees(entity_route);
         }
     }

@@ -17,7 +17,7 @@ impl<'a> TySheetBuilder<'a> {
         let ty_result: InferResult<EntityRoutePtr> =
             self.expr_ty_result(expr_idx, expectation, arena);
         let opt_ty = ty_result.as_ref().ok().map(|ty| *ty);
-        insert_new!(self.ty_sheet.exprs, expr_idx, ty_result);
+        insert_new!(self.ty_sheet.expr_tys, expr_idx, ty_result);
         opt_ty
     }
 
@@ -30,7 +30,7 @@ impl<'a> TySheetBuilder<'a> {
         let ty = match arena[expr_idx].kind {
             RawExprVariant::Variable { varname, init_row } => Ok(derived_not_none!(self
                 .ty_sheet
-                .variables
+                .variable_tys
                 .get(&(varname, init_row))
                 .unwrap()
                 .clone())?),
@@ -101,7 +101,7 @@ impl<'a> TySheetBuilder<'a> {
             }
             Opr::Prefix(opr) => self.prefix_opn_ty_result(opr, opds.start, arena),
             Opr::Suffix(opr) => self.suffix_opn_ty_result(opr, opds.start, arena, range),
-            Opr::List(opr) => self.list_opn_ty_result(opr, opds, arena, range),
+            Opr::List(opr) => self.list_opn_ty_result(opr, opds, arena, range, expr_idx),
         }
     }
 
@@ -225,12 +225,13 @@ impl<'a> TySheetBuilder<'a> {
         opds: &RawExprRange,
         arena: &RawExprArena,
         range: TextRange,
+        expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         match opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.list_call_ty_result(opds, arena, range),
+            ListOpr::Call => self.list_call_ty_result(opds, arena, range, expr_idx),
             ListOpr::Index => todo!(),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
@@ -242,6 +243,7 @@ impl<'a> TySheetBuilder<'a> {
         all_opds: &RawExprRange,
         arena: &RawExprArena,
         range: TextRange,
+        expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
@@ -266,6 +268,7 @@ impl<'a> TySheetBuilder<'a> {
                         ident,
                         (all_opds.start + 1)..all_opds.end,
                         arena,
+                        expr_idx,
                     ),
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
@@ -282,19 +285,35 @@ impl<'a> TySheetBuilder<'a> {
     fn method_ty_result(
         &mut self,
         this: RawExprIdx,
-        field_ident: RangedCustomIdentifier,
+        method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         arena: &RawExprArena,
+        expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
-        let method_decl = this_ty_decl.method_decl(field_ident, &self.trait_uses)?;
+        let method_decl = this_ty_decl.method_decl(method_ident, &self.trait_uses)?;
         if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
         }
         for i in 0..method_decl.inputs.len() {
             self.infer_expr(inputs.start + i, Some(method_decl.inputs[i].ty), arena);
         }
+        let generic_arguments = if method_decl.generic_placeholders.len() > 0 {
+            todo!()
+        } else {
+            vec![]
+        };
+        self.ty_sheet.call_routes.insert(
+            expr_idx,
+            Ok(self.db.intern_entity_route(EntityRoute {
+                kind: EntityRouteKind::ChildScope {
+                    parent: this_ty,
+                    ident: method_decl.ident,
+                },
+                generic_arguments,
+            })),
+        );
         Ok(method_decl.output)
     }
 }

@@ -14,13 +14,13 @@ pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use infer_contract::*;
 pub use infer_decl::*;
+pub use infer_entity_route::*;
 pub use infer_total::*;
-pub use infer_ty::*;
 pub use instruction_gen::InstructionGenQueryGroup;
 use linkage_table::FpTable;
 pub use pack_semantics::PackQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
-pub use semantics_entity::EntityQueryGroup;
+pub use semantics_entity::EntityDefnQueryGroup;
 pub use token::TokenQueryGroup;
 pub use word::InternWord;
 
@@ -42,7 +42,7 @@ use sync_utils::ARwLock;
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
     infer_decl::DeclQueryGroupStorage,
-    infer_ty::InferTyQueryGroupStorage,
+    infer_entity_route::InferTyQueryGroupStorage,
     infer_contract::InferContractQueryGroupStorage,
     semantics_entity::EntityQueryGroupStorage,
     pack_semantics::PackQueryGroupStorage,

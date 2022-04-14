@@ -1,6 +1,8 @@
 use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
+use infer_contract::InferContract;
+use infer_entity_route::InferEntityRoute;
 use syntax_types::{ListOpr, Opr, SuffixOpr};
 use vm::{BinaryOpr, EagerContract, PrimitiveValue};
 use word::RootIdentifier;
@@ -10,10 +12,10 @@ use semantics_error::{err, try_infer};
 
 use super::EagerOpnKind;
 
-pub trait EagerExprParser<'a> {
+pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
     fn arena(&self) -> &'a RawExprArena;
-    fn db(&self) -> &'a dyn InferQueryGroup;
     fn file(&self) -> FilePtr;
+    // fn db(&self) -> &'a dyn InferQueryGroup;
 
     fn parse_eager_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<EagerExpr>> {
         let raw_expr = &self.arena()[raw_expr_idx];
@@ -55,13 +57,11 @@ pub trait EagerExprParser<'a> {
         };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
-            ty: try_infer!(self.db().expr_ty_result(self.file(), raw_expr_idx)),
+            ty: try_infer!(self.expr_ty_result(raw_expr_idx)),
             kind,
             file: self.file(),
             instruction_id: Default::default(),
-            contract: try_infer!(self
-                .db()
-                .eager_expr_contract_result(self.file(), raw_expr_idx)),
+            contract: try_infer!(self.eager_expr_contract_result(raw_expr_idx)),
         }))
     }
 
@@ -118,7 +118,7 @@ pub trait EagerExprParser<'a> {
                 kind: EntityKind::Routine,
                 ..
             } => {
-                let signature = try_infer!(self.db().call_decl(scope));
+                let signature = try_infer!(self.decl_db().call_decl(scope));
                 let arguments: Vec<_> = input_opd_idx_range
                     .clone()
                     .enumerate()
@@ -138,7 +138,7 @@ pub trait EagerExprParser<'a> {
                 kind: EntityKind::Type(_),
                 ..
             } => {
-                let signature = try_infer!(self.db().call_decl(scope));
+                let signature = try_infer!(self.decl_db().call_decl(scope));
                 let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw))
@@ -149,7 +149,7 @@ pub trait EagerExprParser<'a> {
                             route: scope,
                             range: call.range(),
                         },
-                        ty_decl: try_infer!(self.db().ty_decl(scope)),
+                        ty_decl: try_infer!(self.decl_db().ty_decl(scope)),
                     },
                     opds: arguments,
                 })
@@ -174,7 +174,7 @@ pub trait EagerExprParser<'a> {
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))
                             .collect::<SemanticResult<Vec<_>>>()?;
-                        let this_ty_decl = self.db().ty_decl(this.ty).unwrap();
+                        let this_ty_decl = self.decl_db().ty_decl(this.ty).unwrap();
                         let mut opds = vec![this];
                         opds.extend(inputs);
                         msg_once!("todo: memb call compiled");

@@ -7,7 +7,8 @@ use std::sync::Arc;
 use ast::{AstIter, AstKind};
 use entity_route::EntityRouteKind;
 use fold::LocalStack;
-use infer_ty::TySheet;
+use infer_decl::DeclQueryGroup;
+use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use word::RootIdentifier;
 
 use crate::*;
@@ -16,15 +17,26 @@ pub struct ContractSheetBuilder<'a> {
     db: &'a dyn InferContractSalsaQueryGroup,
     file: FilePtr,
     main_file: FilePtr,
+    entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: ContractSheet,
     trait_uses: LocalStack<EntityRouteKind>,
+}
+
+impl<'a> InferEntityRoute for ContractSheetBuilder<'a> {
+    fn decl_db(&self) -> &dyn DeclQueryGroup {
+        self.db.upcast()
+    }
+
+    fn entity_route_sheet(&self) -> &EntityRouteSheet {
+        &self.entity_route_sheet
+    }
 }
 
 impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn new(
         db: &'a dyn InferContractSalsaQueryGroup,
         file: FilePtr,
-        ty_sheet: Arc<TySheet>,
+        ty_sheet: Arc<EntityRouteSheet>,
     ) -> Self {
         Self {
             db,
@@ -32,6 +44,7 @@ impl<'a> ContractSheetBuilder<'a> {
             main_file: db.main_file(file).unwrap(),
             contract_sheet: ContractSheet::new(ty_sheet),
             trait_uses: LocalStack::new(),
+            entity_route_sheet: db.entity_route_sheet(file).unwrap(),
         }
     }
 

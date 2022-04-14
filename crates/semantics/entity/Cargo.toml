@@ -14,6 +14,7 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 vec-dict = { path = "../../abstraction/vec-dict", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
+map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
@@ -27,7 +28,7 @@ syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 semantics-error = { path = "../../semantics/error", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
-infer-ty = { path = "../../infer/ty", version = "0.0.0" }
+infer-entity-route = { path = "../../infer/entity-route", version = "0.0.0" }
 infer-contract = { path = "../../infer/contract", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }

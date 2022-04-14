@@ -13,7 +13,7 @@ pub(crate) fn feature_decl(
 ) -> InferResultArc<FeatureSignature> {
     let source = db.entity_source(scope)?;
     match source {
-        EntitySource::Builtin(data) => todo!(),
+        EntitySource::Static(data) => todo!(),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
             file,
