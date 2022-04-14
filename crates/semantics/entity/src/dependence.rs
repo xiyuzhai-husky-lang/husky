@@ -8,12 +8,12 @@ use crate::*;
 pub type DependeeMap = VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>;
 
 pub struct DependeeMapBuilder<'a> {
-    db: &'a dyn EntityQueryGroup,
+    db: &'a dyn EntityDefnQueryGroup,
     map: VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>,
 }
 
 impl<'a> DependeeMapBuilder<'a> {
-    fn new(db: &'a dyn EntityQueryGroup) -> DependeeMapBuilder<'a> {
+    fn new(db: &'a dyn EntityDefnQueryGroup) -> DependeeMapBuilder<'a> {
         Self {
             db,
             map: Default::default(),
@@ -47,15 +47,15 @@ impl<'a> DependeeMapBuilder<'a> {
 }
 
 pub(crate) fn entity_immediate_dependees(
-    db: &dyn EntityQueryGroup,
+    db: &dyn EntityDefnQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<DependeeMap> {
-    let defn = db.opt_entity_defn(entity_route)?.expect("no builtin");
+    let defn = db.entity_defn(entity_route)?;
     Ok(Arc::new(defn.immediate_dependees(db)))
 }
 
 pub(crate) fn entity_dependees(
-    db: &dyn EntityQueryGroup,
+    db: &dyn EntityDefnQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<DependeeMap> {
     let mut immediate_dependees = (*db.entity_immediate_dependees(entity_route)?).clone();
@@ -63,7 +63,7 @@ pub(crate) fn entity_dependees(
     return Ok(Arc::new(immediate_dependees));
 
     fn visit_all(
-        db: &dyn EntityQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         map: &mut DependeeMap,
         start: usize,
     ) -> SemanticResult<()> {
@@ -84,7 +84,7 @@ pub(crate) fn entity_dependees(
 impl EntityDefn {
     fn immediate_dependees(
         &self,
-        db: &dyn EntityQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
     ) -> VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)> {
         let mut builder = DependeeMapBuilder::new(db);
         match self.kind() {
@@ -236,7 +236,7 @@ impl EntityDefn {
                         LazyOpnKind::Binary { .. }
                         | LazyOpnKind::Prefix(_)
                         | LazyOpnKind::MembAccess { .. }
-                        | LazyOpnKind::MembCall { .. } => (),
+                        | LazyOpnKind::MethodCall { .. } => (),
                         LazyOpnKind::RoutineCall(routine) => v.push(routine.route),
                         LazyOpnKind::StructCall(ty) => v.push(ty.route),
                         LazyOpnKind::ClassCall(ty) => v.push(ty.route),

@@ -64,7 +64,7 @@ impl<'a> AstTransformer<'a> {
                     ident,
                     contract: FieldContract::Own,
                     ty,
-                    kind: FieldKind::RecordOriginal,
+                    kind: FieldKind::StructOriginal,
                 })
             } else {
                 todo!()

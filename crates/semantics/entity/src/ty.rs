@@ -22,7 +22,8 @@ pub struct TyDefn {
     pub type_members: IdentDict<TypeMemberDefn>,
     pub variants: IdentDict<EnumVariantDefn>,
     pub kind: TyKind,
-    pub trait_impls: Vec<()>,
+    pub trait_impls: Vec<Arc<TraitImplDefn>>,
+    pub members: Vec<MemberDefn>,
 }
 
 impl TyDefn {
@@ -48,12 +49,23 @@ impl TyDefn {
         Self::collect_fields(&mut children, &mut type_members)?;
         Self::collect_member_calls(db, arena, file, &mut children, &mut type_members)?;
         let variants = Self::collect_variants(children)?;
-        Ok(Arc::new(TyDefn {
+        Ok(TyDefn::new(type_members, variants, kind, trait_impls))
+    }
+
+    fn new(
+        type_members: IdentDict<TypeMemberDefn>,
+        variants: IdentDict<EnumVariantDefn>,
+        kind: TyKind,
+        trait_impls: Vec<Arc<TraitImplDefn>>,
+    ) -> Arc<Self> {
+        let members = MemberDefn::collect_all(&type_members, &trait_impls);
+        Arc::new(Self {
             type_members,
             variants,
             kind,
             trait_impls,
-        }))
+            members,
+        })
     }
 
     fn collect_fields(
@@ -182,6 +194,13 @@ impl TyDefn {
         // }
         // Ok(TyKind::Record { fields })
     }
+
+    pub fn method(&self, member_idx: usize) -> &Arc<MethodDefn> {
+        match self.members[member_idx] {
+            MemberDefn::TypeField(_) => todo!(),
+            MemberDefn::TypeMethod(_) => todo!(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -209,7 +228,7 @@ pub enum EnumVariantDefnVariant {
 
 impl EntityDefnVariant {
     pub fn enum_variant(
-        db: &dyn EntityQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         ident: CustomIdentifier,
         enum_variant_kind: EnumVariantKind,
         children: Option<AstIter>,

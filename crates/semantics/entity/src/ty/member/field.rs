@@ -11,10 +11,10 @@ pub struct FieldDefn {
 impl FieldDefn {
     pub(crate) fn from_ast(field_defn_head: &FieldDefnHead) -> SemanticResultArc<Self> {
         let variant = match field_defn_head.kind {
-            FieldKind::StructOriginal => FieldDefnVariant::Original,
-            FieldKind::StructDerived => FieldDefnVariant::Derived { stmts: todo!() },
-            FieldKind::RecordOriginal => FieldDefnVariant::Original,
-            FieldKind::RecordDerived => FieldDefnVariant::Derived { stmts: todo!() },
+            FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
+            FieldKind::StructDerived => FieldDefnVariant::StructDerived { stmts: todo!() },
+            FieldKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
+            FieldKind::RecordDerived => FieldDefnVariant::RecordDerived { stmts: todo!() },
         };
         Ok(Arc::new(Self {
             ident: field_defn_head.ident,
@@ -27,8 +27,10 @@ impl FieldDefn {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FieldDefnVariant {
-    Original,
-    Derived { stmts: Arc<Vec<Arc<LazyStmt>>> },
+    StructOriginal,
+    RecordOriginal,
+    StructDerived { stmts: Arc<Vec<Arc<LazyStmt>>> },
+    RecordDerived { stmts: Arc<Vec<Arc<LazyStmt>>> },
 }
 
 impl HasKey<CustomIdentifier> for FieldDefn {

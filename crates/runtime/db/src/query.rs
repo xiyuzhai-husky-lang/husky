@@ -151,8 +151,7 @@ fn feature_expr_subtraces(
                 let mut func_input_values = vec![];
                 let entity_defn = db
                     .compile_time(db.version())
-                    .opt_entity_defn(ranged_scope.route)
-                    .unwrap()
+                    .entity_defn(ranged_scope.route)
                     .unwrap();
                 subtraces.push(
                     db.trace_factory()
@@ -196,8 +195,7 @@ fn feature_expr_subtraces(
                 let mut func_input_values = vec![];
                 let entity_defn = db
                     .compile_time(db.version())
-                    .opt_entity_defn(ranged_scope.route)
-                    .unwrap()
+                    .entity_defn(ranged_scope.route)
                     .unwrap();
                 subtraces.push(
                     db.trace_factory()
@@ -272,7 +270,7 @@ fn feature_expr_subtraces(
             ref stmts,
         } => todo!(),
         FeatureExprKind::FeatureBlock { .. } => todo!(),
-        FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
+        FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
         FeatureExprKind::RecordMembAccess {
             ref this,
             field_ident,

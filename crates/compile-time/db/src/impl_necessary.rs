@@ -86,8 +86,8 @@ impl Upcast<dyn InferQueryGroup> for HuskyLangCompileTime {
     }
 }
 
-impl Upcast<dyn semantics_entity::EntityQueryGroup> for HuskyLangCompileTime {
-    fn upcast(&self) -> &(dyn semantics_entity::EntityQueryGroup + 'static) {
+impl Upcast<dyn semantics_entity::EntityDefnQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn semantics_entity::EntityDefnQueryGroup + 'static) {
         self
     }
 }
@@ -110,7 +110,11 @@ impl Upcast<dyn entity_route_query::EntityRouteQueryGroup> for HuskyLangCompileT
     }
 }
 
-impl infer_ty::InferTyQueryGroup for HuskyLangCompileTime {}
+impl Upcast<dyn DeclQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn DeclQueryGroup + 'static) {
+        self
+    }
+}
 
 impl infer_contract::InferContractQueryGroup for HuskyLangCompileTime {}
 

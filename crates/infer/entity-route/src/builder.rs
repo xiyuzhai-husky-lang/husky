@@ -11,23 +11,23 @@ use std::sync::Arc;
 use text::TextRanged;
 
 pub struct TySheetBuilder<'a> {
-    db: &'a dyn InferTySalsaQueryGroup,
+    db: &'a dyn InferTyQueryGroup,
     main_file: FilePtr,
-    ty_sheet: TySheet,
+    ty_sheet: EntityRouteSheet,
     trait_uses: LocalStack<EntityRouteKind>,
 }
 
 impl<'a> TySheetBuilder<'a> {
-    pub(super) fn new(db: &'a dyn InferTySalsaQueryGroup, ast_text: Arc<AstText>) -> Self {
+    pub(super) fn new(db: &'a dyn InferTyQueryGroup, ast_text: Arc<AstText>) -> Self {
         Self {
             db,
             main_file: db.main_file(ast_text.file).unwrap(),
-            ty_sheet: TySheet::new(ast_text),
+            ty_sheet: EntityRouteSheet::new(ast_text),
             trait_uses: LocalStack::new(),
         }
     }
 
-    pub(super) fn finish(self) -> TySheet {
+    pub(super) fn finish(self) -> EntityRouteSheet {
         self.ty_sheet
     }
 
@@ -83,13 +83,13 @@ impl<'a> TySheetBuilder<'a> {
         if inputs.len() > 0 {
             if let None = self
                 .ty_sheet
-                .variables
+                .variable_tys
                 .get(&(inputs[0].ident, inputs[0].ranged_ty.row()))
             {
                 for input in inputs {
                     should!(self
                         .ty_sheet
-                        .variables
+                        .variable_tys
                         .insert(
                             (input.ident, inputs[0].ranged_ty.row()),
                             Some(input.ranged_ty.route),

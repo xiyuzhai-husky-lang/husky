@@ -16,7 +16,7 @@ use load::*;
 use test::*;
 use val::*;
 
-pub const MNIST_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+pub const MNIST_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
         ("BinaryImage28", BINARY_IMAGE_28_SCOPE_DATA),
@@ -24,7 +24,7 @@ pub const MNIST_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     decl: StaticEntityDecl::Module,
 };
 
-const NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+const NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[],
     decl: StaticEntityDecl::Func(StaticFuncDecl {
         generic_placeholders: &[],
@@ -37,7 +37,7 @@ const NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
     }),
 };
 
-const BINARY_IMAGE_28_SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+const BINARY_IMAGE_28_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[],
     decl: StaticEntityDecl::Ty {
         visualizer: StaticVisualizer {

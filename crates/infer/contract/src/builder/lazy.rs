@@ -148,7 +148,7 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
-                let this_ty_decl = self.db.expr_ty_decl(self.file, opd)?;
+                let this_ty_decl = self.expr_ty_decl(opd)?;
                 let this_contract = match this_ty_decl.field_decl(ranged_ident)?.contract {
                     FieldContract::Own => match contract {
                         LazyContract::Take => LazyContract::Take,
@@ -243,7 +243,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
         arena: &RawExprArena,
     ) -> InferResult<()> {
-        let this_ty_decl = derived_ok!(self.db.expr_ty_decl(self.file, this));
+        let this_ty_decl = derived_ok!(self.expr_ty_decl(this));
         let method_call_decl =
             derived_ok!(this_ty_decl.method_decl(ranged_ident, &self.trait_uses));
         match contract {

@@ -4,7 +4,7 @@ use semantics_error::*;
 
 impl EntityDefnVariant {
     pub(crate) fn routine(
-        db: &dyn EntityQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         routine_defn_head: &RoutineDefnHead,
         children: AstIter,
         arena: &RawExprArena,

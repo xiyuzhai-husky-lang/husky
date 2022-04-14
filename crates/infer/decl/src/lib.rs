@@ -1,21 +1,20 @@
 mod call;
 mod feature;
-mod field;
 mod global;
 mod impl_parse;
 mod input;
-mod traits;
+mod member;
+mod trai;
 mod ty;
 
 pub use call::*;
 pub use call::*;
-pub use field::*;
 pub use input::*;
-pub use traits::*;
+pub use member::*;
+pub use trai::*;
 pub use ty::*;
 
 use ast::*;
-use atom::*;
 use defn_head::*;
 use entity_route::*;
 use entity_route_query::*;

@@ -8,7 +8,7 @@ use vm::{BoxedValue, EvalValue, RoutineLinkage, StackValue, VMResult};
 use crate::*;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
-pub trait InstructionGenQueryGroup: EntityQueryGroup + PackQueryGroup + HasFpTable {
+pub trait InstructionGenQueryGroup: EntityDefnQueryGroup + PackQueryGroup + HasFpTable {
     fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn method_instruction_sheet(
         &self,
@@ -23,10 +23,7 @@ fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     route: EntityRoutePtr,
 ) -> Arc<InstructionSheet> {
-    let entity_defn = db
-        .opt_entity_defn(route)
-        .unwrap()
-        .expect("expect no builtin");
+    let entity_defn = db.entity_defn(route).unwrap();
     match entity_defn.kind() {
         EntityDefnVariant::Module { .. } => todo!(),
         EntityDefnVariant::Feature { .. } => todo!(),
@@ -72,7 +69,7 @@ fn method_instruction_sheet(
     ty: EntityRoutePtr,
     method_ident: CustomIdentifier,
 ) -> Arc<InstructionSheet> {
-    let entity_defn = db.opt_entity_defn(ty).unwrap().unwrap();
+    let entity_defn = db.entity_defn(ty).unwrap();
     match entity_defn.kind() {
         EntityDefnVariant::Main(_) => todo!(),
         EntityDefnVariant::Module {} => todo!(),

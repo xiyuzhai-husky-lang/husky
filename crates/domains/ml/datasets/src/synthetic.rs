@@ -2,7 +2,7 @@ mod iter;
 mod loader;
 pub mod trivial;
 
-pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[("trivial", trivial::SCOPE_DATA)],
     decl: StaticEntityDecl::Module,
 };

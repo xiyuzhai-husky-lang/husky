@@ -6,6 +6,15 @@ pub struct InferError {
     pub dev_src: DevSource,
 }
 
+impl InferError {
+    pub fn derived(&self) -> Self {
+        Self {
+            variant: InferErrorVariant::Derived,
+            dev_src: self.dev_src.clone(),
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum InferErrorVariant {
     Derived,

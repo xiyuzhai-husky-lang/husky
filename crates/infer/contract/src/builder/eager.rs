@@ -7,7 +7,7 @@ use infer_error::*;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use text::TextRange;
 use vm::{BinaryOpr, FieldContract};
-use word::{CustomIdentifier, RangedCustomIdentifier};
+use word::RangedCustomIdentifier;
 
 use super::*;
 use crate::*;
@@ -201,7 +201,7 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
-                let this_ty_decl = self.db.expr_ty_decl(self.file, opd)?;
+                let this_ty_decl = self.expr_ty_decl(opd)?;
                 let field_var_decl = this_ty_decl.field_decl(ranged_ident)?;
                 let this_contract = match field_var_decl.contract {
                     FieldContract::Own => match contract {
@@ -319,7 +319,7 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
         range: TextRange,
     ) -> InferResult<()> {
-        let this_ty_decl = derived_ok!(self.db.expr_ty_decl(self.file, this));
+        let this_ty_decl = derived_ok!(self.expr_ty_decl(this));
         let method_call_decl =
             derived_ok!(this_ty_decl.method_decl(ranged_ident, &self.trait_uses));
         match contract {

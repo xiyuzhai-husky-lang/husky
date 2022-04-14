@@ -22,6 +22,13 @@ pub struct StaticMethodDecl {
     pub inputs: &'static [StaticInputDecl],
     pub output_ty: &'static str,
     pub generic_placeholders: &'static [StaticGenericPlaceholder],
+    pub kind: StaticMethodKind,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum StaticMethodKind {
+    Type,
+    Trait(&'static str),
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -59,6 +66,7 @@ pub static CLONE_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
         inputs: &[],
         output_ty: "This",
         generic_placeholders: &[],
+        kind: StaticMethodKind::Trait("Clone"),
     })],
     generic_placeholders: &[],
 };
@@ -71,13 +79,14 @@ pub static STATIC_VEC_DECL: StaticTyDecl = StaticTyDecl {
     }],
     trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
     fields: &[],
-    members: &[
+    type_members: &[
         StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "len",
             this_contract: InputContract::Pure,
             inputs: &[],
             output_ty: "i32",
             generic_placeholders: &[],
+            kind: StaticMethodKind::Type,
         }),
         StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "push",
@@ -89,6 +98,7 @@ pub static STATIC_VEC_DECL: StaticTyDecl = StaticTyDecl {
             }],
             output_ty: "void",
             generic_placeholders: &[],
+            kind: StaticMethodKind::Type,
         }),
         StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "pop",
@@ -96,6 +106,7 @@ pub static STATIC_VEC_DECL: StaticTyDecl = StaticTyDecl {
             inputs: &[],
             output_ty: "E",
             generic_placeholders: &[],
+            kind: StaticMethodKind::Type,
         }),
     ],
     variants: &[],

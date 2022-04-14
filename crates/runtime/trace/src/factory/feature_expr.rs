@@ -75,7 +75,7 @@ impl<'eval> TraceFactory<'eval> {
                 ref stmts,
             } => todo!(),
             FeatureExprKind::FeatureBlock { .. } => todo!(),
-            FeatureExprKind::ClassCall { ty, ref opds, .. } => todo!(),
+            FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
             FeatureExprKind::RecordMembAccess {
                 ref this,
                 field_ident,

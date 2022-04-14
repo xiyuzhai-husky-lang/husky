@@ -4,7 +4,7 @@ mod labeled;
 mod loader;
 pub mod synthetic;
 
-pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[("synthetic", synthetic::SCOPE_DATA), ("cv", cv::SCOPE_DATA)],
     decl: StaticEntityDecl::Module,
 };
@@ -15,7 +15,7 @@ pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
-use entity_route::{EntityRouteKind, StaticEntityData};
+use entity_route::{EntityRouteKind, StaticEntityDefn};
 use static_decl::*;
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 

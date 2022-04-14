@@ -1,4 +1,4 @@
-pub const SCOPE_DATA: &StaticEntityData = &StaticEntityData {
+pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[],
     decl: StaticEntityDecl::Module,
 };

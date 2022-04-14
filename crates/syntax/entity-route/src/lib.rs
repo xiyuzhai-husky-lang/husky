@@ -124,12 +124,12 @@ pub enum EntityRouteKind {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct StaticEntityData {
-    pub subscopes: &'static [(&'static str, &'static StaticEntityData)],
+pub struct StaticEntityDefn {
+    pub subscopes: &'static [(&'static str, &'static StaticEntityDefn)],
     pub decl: StaticEntityDecl,
 }
 
-pub static CLONE_TRAIT_ENTITY_DATA: StaticEntityData = StaticEntityData {
+pub static CLONE_TRAIT_ENTITY_DATA: StaticEntityDefn = StaticEntityDefn {
     subscopes: &[],
     decl: StaticEntityDecl::Trait(&CLONE_TRAIT_DECL),
 };
@@ -217,7 +217,7 @@ impl From<RootIdentifier> for EntityRoute {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntitySource {
-    Builtin(&'static StaticEntityData),
+    Static(&'static StaticEntityDefn),
     WithinBuiltinModule,
     WithinModule {
         file: FilePtr,
@@ -240,8 +240,8 @@ impl EntitySource {
     }
 }
 
-impl From<&'static StaticEntityData> for EntitySource {
-    fn from(data: &'static StaticEntityData) -> Self {
-        Self::Builtin(data)
+impl From<&'static StaticEntityDefn> for EntitySource {
+    fn from(data: &'static StaticEntityDefn) -> Self {
+        Self::Static(data)
     }
 }

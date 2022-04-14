@@ -31,21 +31,21 @@ impl From<&RoutineDefnHead> for CallDecl {
     }
 }
 
-impl From<&MethodDefnHead> for MethodDecl {
-    fn from(head: &MethodDefnHead) -> Self {
-        Self {
-            ident: head.ident,
-            this_contract: head.this_contract,
-            inputs: head
-                .input_placeholders
-                .iter()
-                .map(|input_placeholder| input_placeholder.into())
-                .collect(),
-            output: head.output.route,
-            generic_placeholders: head.generic_placeholders.clone(),
-        }
-    }
-}
+// impl From<&MethodDefnHead> for MethodDecl {
+//     fn from(head: &MethodDefnHead) -> Self {
+//         Self {
+//             ident: head.ident,
+//             this_contract: head.this_contract,
+//             inputs: head
+//                 .input_placeholders
+//                 .iter()
+//                 .map(|input_placeholder| input_placeholder.into())
+//                 .collect(),
+//             output: head.output.route,
+//             generic_placeholders: head.generic_placeholders.clone(),
+//         }
+//     }
+// }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputDecl {
@@ -108,7 +108,7 @@ pub(crate) fn call_decl(
 ) -> InferResultArc<CallDecl> {
     let source = db.entity_source(scope)?;
     return match source {
-        EntitySource::Builtin(data) => Ok(Arc::new(match data.decl {
+        EntitySource::Static(data) => Ok(Arc::new(match data.decl {
             StaticEntityDecl::Func(ref signature) => func_call_decl_from_static(db, signature),
             StaticEntityDecl::TyTemplate => CallDecl::new_vec(scope),
             _ => panic!(),

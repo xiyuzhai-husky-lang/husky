@@ -4,11 +4,11 @@ use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::FoldStorage;
 use semantics_eager::parse_decl_stmts;
-use semantics_entity::EntityQueryGroup;
+use semantics_entity::EntityDefnQueryGroup;
 use semantics_error::*;
 
 #[salsa::query_group(PackQueryGroupStorage)]
-pub trait PackQueryGroup: EntityQueryGroup {
+pub trait PackQueryGroup: EntityDefnQueryGroup {
     fn package(&self, main_file: file::FilePtr) -> SemanticResultArc<Pack>;
     fn config(&self, main_file: file::FilePtr) -> SemanticResultArc<Config>;
 }

@@ -120,7 +120,7 @@ impl HuskyLangRuntime {
                 }
                 None => todo!(),
             },
-            FeatureExprKind::ClassCall {
+            FeatureExprKind::NewRecord {
                 ty,
                 ref entity,
                 ref opds,

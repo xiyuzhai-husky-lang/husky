@@ -15,6 +15,38 @@ pub struct MethodDecl {
     pub inputs: Vec<InputDecl>,
     pub output: EntityRoutePtr,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
+    pub kind: MethodKind,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum MethodKind {
+    Type,
+    Trait(EntityRoutePtr),
+}
+
+impl MethodKind {
+    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
+        match self {
+            MethodKind::Type => MethodKind::Type,
+            MethodKind::Trait(trai) => {
+                MethodKind::Trait(instantiator.instantiate_entity_route(*trai).as_scope())
+            }
+        }
+    }
+
+    pub fn from_static(
+        db: &dyn DeclQueryGroup,
+        static_kind: &StaticMethodKind,
+        opt_this_ty: Option<EntityRoutePtr>,
+        symbols: &LocalStack<Symbol>,
+    ) -> Self {
+        match static_kind {
+            StaticMethodKind::Type => Self::Type,
+            StaticMethodKind::Trait(trai) => {
+                Self::Trait(db.parse_entity(trai, opt_this_ty, symbols).unwrap())
+            }
+        }
+    }
 }
 
 impl HasKey<CustomIdentifier> for MethodDecl {
@@ -37,6 +69,7 @@ impl MethodDecl {
                 .instantiate_entity_route(self.output)
                 .as_scope(),
             generic_placeholders: Default::default(),
+            kind: self.kind.instantiate(instantiator),
         })
     }
 
@@ -47,20 +80,21 @@ impl MethodDecl {
             inputs: self.inputs.map(|input| input.implement(implementor)),
             output: self.output.implement(implementor),
             generic_placeholders: self.generic_placeholders.clone(),
+            kind: self.kind,
         })
     }
 
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         decl: &StaticMethodDecl,
-        this_ty: EntityRoutePtr,
+        opt_this_ty: Option<EntityRoutePtr>,
         symbols: &LocalStack<Symbol>,
     ) -> Arc<Self> {
         let output = parse_ty(
             SymbolProxy {
                 opt_package_main: None,
                 db: db.upcast(),
-                opt_this_ty: Some(this_ty),
+                opt_this_ty: opt_this_ty,
                 symbols,
             },
             &db.tokenize(decl.output_ty),
@@ -71,15 +105,16 @@ impl MethodDecl {
             this_contract: decl.this_contract,
             inputs: decl
                 .inputs
-                .map(|input| InputDecl::from_static(db, input, Some(this_ty), symbols)),
+                .map(|input| InputDecl::from_static(db, input, opt_this_ty, symbols)),
             output,
             generic_placeholders: decl.generic_placeholders.map(|static_generic_placeholder| {
                 GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
             }),
+            kind: MethodKind::from_static(db, &decl.kind, opt_this_ty, symbols),
         })
     }
 
-    pub fn from_ast(method_defn_head: &MethodDefnHead) -> Arc<Self> {
+    pub fn from_ast(method_defn_head: &MethodDefnHead, kind: MethodKind) -> Arc<Self> {
         Arc::new(MethodDecl {
             ident: method_defn_head.ident,
             inputs: method_defn_head
@@ -88,6 +123,7 @@ impl MethodDecl {
             output: method_defn_head.output.route,
             this_contract: method_defn_head.this_contract,
             generic_placeholders: method_defn_head.generic_placeholders.clone(),
+            kind,
         })
     }
 }
