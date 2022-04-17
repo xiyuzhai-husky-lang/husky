@@ -2,33 +2,35 @@ mod dependence;
 mod morphism;
 mod query;
 mod routine;
+mod subentities;
 mod trai;
 mod ty;
 
+use avec::Avec;
 pub use morphism::*;
 pub use query::*;
 pub use routine::*;
+use static_defn::StaticEntityDefn;
 pub use trai::*;
 pub use ty::*;
 
 use ast::AstKind;
 use defn_head::*;
+use entity_kind::*;
+use entity_route::{EntityRouteKind, EntitySource};
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use entity_route::{EntitySource, StaticEntityDefn};
-use entity_syntax::*;
 use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
 use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
+use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
-use std::{
-    f32::consts::E,
-    sync::atomic::{AtomicUsize, Ordering},
-};
 use text::TextRange;
-use word::Identifier;
+use vec_dict::HasKey;
+use vm::{FieldContract, InputContract};
+use word::{CustomIdentifier, IdentDict, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
 pub struct EntityDefnUid {
@@ -44,14 +46,20 @@ impl EntityDefnUid {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct EntityDefn {
     pub ident: Identifier,
-    pub kind: Arc<EntityDefnVariant>,
+    pub variant: EntityDefnVariant,
     pub subentities: Arc<Vec<Arc<EntityDefn>>>,
-    pub scope: EntityRoutePtr,
+    pub route: EntityRoutePtr,
     pub file: FilePtr,
     pub range: TextRange,
+}
+
+impl HasKey<CustomIdentifier> for EntityDefn {
+    fn key(&self) -> CustomIdentifier {
+        self.ident.custom()
+    }
 }
 
 impl EntityDefn {
@@ -60,30 +68,35 @@ impl EntityDefn {
     }
 
     pub fn kind(&self) -> &EntityDefnVariant {
-        &self.kind
+        &self.variant
     }
 
     pub(crate) fn new(
         ident: Identifier,
         kind: EntityDefnVariant,
-        subentities: Arc<Vec<Arc<EntityDefn>>>,
-        scope: EntityRoutePtr,
+        route: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
-    ) -> EntityDefn {
-        let kind = Arc::new(kind);
-        Self {
+    ) -> Arc<EntityDefn> {
+        Arc::new(Self {
             ident,
-            kind,
-            subentities,
-            scope,
+            subentities: kind.subentities(),
+            variant: kind,
+            route,
             file,
             range,
+        })
+    }
+
+    pub fn is_builtin(&self) -> bool {
+        match self.variant {
+            EntityDefnVariant::Builtin => true,
+            _ => false,
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum EntityDefnVariant {
     Main(MainDefn),
     Module {},
@@ -100,11 +113,49 @@ pub enum EntityDefnVariant {
     Proc {
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedEntityRoute,
-        stmts: Arc<Vec<Arc<ProcStmt>>>,
+        stmts: Avec<ProcStmt>,
     },
-    Ty(Arc<TyDefn>),
-    EnumVariant(EnumVariantDefn),
+    Type {
+        type_members: IdentDict<Arc<EntityDefn>>,
+        variants: IdentDict<Arc<EntityDefn>>,
+        kind: TypeKind,
+        trait_impls: Vec<Arc<EntityDefn>>,
+        members: Avec<EntityDefn>,
+    },
+    EnumVariant {
+        ident: CustomIdentifier,
+        variant: EnumVariantDefnVariant,
+    },
     Builtin,
+    TypeField {
+        ident: CustomIdentifier,
+        ty: EntityRoutePtr,
+        field_variant: FieldDefnVariant,
+        contract: FieldContract,
+    },
+    TypeMethod {
+        ident: CustomIdentifier,
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        output: RangedEntityRoute,
+        this_contract: InputContract,
+        method_variant: MethodDefnVariant,
+    },
+    TraitMethod {
+        trai: EntityRoutePtr,
+        ident: CustomIdentifier,
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        output: RangedEntityRoute,
+        this_contract: InputContract,
+        method_variant: MethodDefnVariant,
+    },
+    TraitMethodImpl {
+        trai: EntityRoutePtr,
+        ident: CustomIdentifier,
+        input_placeholders: Arc<Vec<InputPlaceholder>>,
+        output: RangedEntityRoute,
+        this_contract: InputContract,
+        method_variant: MethodDefnVariant,
+    },
 }
 
 pub(crate) fn main_defn(
@@ -134,11 +185,11 @@ pub(crate) fn main_defn(
 
 pub(crate) fn entity_defn(
     db: &dyn EntityDefnQueryGroup,
-    entity_scope: EntityRoutePtr,
+    entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<EntityDefn> {
-    let source = db.entity_source(entity_scope)?;
+    let source = db.entity_source(entity_route)?;
     match source {
-        EntitySource::Static(static_entity_defn) => {
+        EntitySource::StaticModuleItem(static_entity_defn) => {
             Ok(Arc::new(EntityDefn::from_static(static_entity_defn)))
         }
         EntitySource::WithinBuiltinModule => todo!(),
@@ -163,16 +214,17 @@ pub(crate) fn entity_defn(
                     kind,
                     generic_placeholders: ref generics,
                 } => {
-                    let signature = try_infer!(db.ty_decl(entity_scope));
+                    let signature = try_infer!(db.type_decl(entity_route));
                     (
                         ident,
-                        EntityDefnVariant::Ty(TyDefn::from_ast(
+                        EntityDefnVariant::ty_from_ast(
                             db.upcast(),
+                            entity_route,
                             ast_head,
                             not_none!(children),
                             arena,
                             file,
-                        )?),
+                        )?,
                     )
                 }
                 AstKind::RoutineDefnHead(ref head) => (
@@ -190,24 +242,40 @@ pub(crate) fn entity_defn(
                     EntityDefnVariant::enum_variant(db, ident, variant_class, children),
                 ),
                 AstKind::FieldDefn { .. } => todo!(),
-                AstKind::MethodDefnHead { .. } => todo!(),
+                AstKind::TypeMethodDefnHead(ref head) => match entity_route.kind {
+                    EntityRouteKind::Root { ident } => todo!(),
+                    EntityRouteKind::Package { main, ident } => todo!(),
+                    EntityRouteKind::Child { parent: ty, ident } => {
+                        let ty_defn = db.entity_defn(ty)?;
+                        match ty_defn.variant {
+                            EntityDefnVariant::Type {
+                                ref type_members, ..
+                            } => return Ok(type_members.get(ident).unwrap().clone()),
+                            _ => panic!(),
+                        }
+                    }
+                    EntityRouteKind::TraitMember { ty, trai, ident } => todo!(),
+                    EntityRouteKind::Input { main } => todo!(),
+                    EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+                    EntityRouteKind::ThisType => todo!(),
+                },
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,
                     EntityDefnVariant::feature(db, ty, not_none!(children), arena, file)?,
                 ),
                 AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             };
-            Ok(Arc::new(EntityDefn::new(
+            Ok(EntityDefn::new(
                 ident.into(),
                 entity_kind,
-                todo!(),
-                entity_scope,
+                entity_route,
                 file,
                 ast_head.range,
-            )))
+            ))
         }
         EntitySource::Module { file: file_id } => todo!(),
         EntitySource::Input { .. } => todo!(),
+        EntitySource::StaticTypeMember => todo!(),
     }
 }
 

@@ -11,9 +11,9 @@ pub use utils::*;
 
 pub type IdentDict<T> = VecDict<CustomIdentifier, T>;
 pub type IdentArcDict<T> = VecDict<CustomIdentifier, Arc<T>>;
-pub type IdentDict2<T> = VecDict<CustomIdentifier, (CustomIdentifier, T)>;
+pub type IdentPairDict<T> = VecPairDict<CustomIdentifier, T>;
 
-use vec_dict::VecDict;
+use vec_dict::{VecDict, VecPairDict};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum WordPtr {

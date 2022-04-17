@@ -3,12 +3,12 @@ mod mnist;
 
 use crate::{labeled::LabeledData, *};
 use mnist::*;
-use static_decl::StaticFuncDecl;
+use static_decl::StaticCallDecl;
 use std::sync::Arc;
-use vm::{BoxedValue, RoutineLinkage, StackValue};
+use vm::{BoxedValue, Linkage, StackValue};
 use xrng::XRng;
 
-pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+pub static SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[("mnist", MNIST_SCOPE_DATA)],
     decl: StaticEntityDecl::Module,
 };

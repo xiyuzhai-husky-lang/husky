@@ -38,7 +38,7 @@ impl MethodKind {
         db: &dyn DeclQueryGroup,
         static_kind: &StaticMethodKind,
         opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &LocalStack<Symbol>,
+        symbols: &[Symbol],
     ) -> Self {
         match static_kind {
             StaticMethodKind::Type => Self::Type,
@@ -88,7 +88,7 @@ impl MethodDecl {
         db: &dyn DeclQueryGroup,
         decl: &StaticMethodDecl,
         opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &LocalStack<Symbol>,
+        symbols: &[Symbol],
     ) -> Arc<Self> {
         let output = parse_ty(
             SymbolProxy {
@@ -114,7 +114,7 @@ impl MethodDecl {
         })
     }
 
-    pub fn from_ast(method_defn_head: &MethodDefnHead, kind: MethodKind) -> Arc<Self> {
+    pub fn from_ast(method_defn_head: &TypeMethodDefnHead, kind: MethodKind) -> Arc<Self> {
         Arc::new(MethodDecl {
             ident: method_defn_head.ident,
             inputs: method_defn_head

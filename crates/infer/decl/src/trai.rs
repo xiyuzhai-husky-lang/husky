@@ -110,13 +110,9 @@ pub(crate) fn trait_decl(
 ) -> InferResultArc<TraitDecl> {
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
-        EntitySource::Static(builtin_entity_data) => match builtin_entity_data.decl {
+        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.decl {
             StaticEntityDecl::Func(_) => todo!(),
-            StaticEntityDecl::Ty {
-                raw_ty_kind,
-                visualizer,
-            } => todo!(),
-            StaticEntityDecl::TyTemplate => todo!(),
+            StaticEntityDecl::Type(_) => todo!(),
             StaticEntityDecl::Trait(ref trait_decl) => Ok(TraitDecl::from_static(db, trait_decl)),
             StaticEntityDecl::Module => todo!(),
         },
@@ -127,6 +123,7 @@ pub(crate) fn trait_decl(
         } => todo!(),
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main } => todo!(),
+        EntitySource::StaticTypeMember => todo!(),
     }
 }
 

@@ -29,7 +29,7 @@ entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.
 word = { path = "../../syntax/word", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 infer-error = { path = "../../infer/error", version = "0.0.0" }
-entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }
+entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 instantiate = { path = "../instantiate", version = "0.0.0" }
 implement = { path = "../implement", version = "0.0.0" }
 static-decl = { path = "../../syntax/static-decl", version = "0.0.0" }

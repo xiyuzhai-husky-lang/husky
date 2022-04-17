@@ -2,8 +2,8 @@ use std::ops::AddAssign;
 
 use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtKind};
 use defn_head::InputPlaceholder;
+use entity_kind::{RoutineKind, TypeKind};
 use entity_route::EntityRoutePtr;
-use entity_syntax::{RoutineKind, TyKind};
 use fold::LocalValue;
 use syntax_types::*;
 use vm::{FieldContract, InitKind, InputContract, PrimitiveValue};
@@ -85,16 +85,16 @@ impl<'a> Formatter<'a> {
             } => {
                 enter_block(self);
                 match kind {
-                    TyKind::Enum => todo!(),
-                    TyKind::Struct => {
+                    TypeKind::Enum => todo!(),
+                    TypeKind::Struct => {
                         self.context.set_value(AstContext::Struct);
                         self.write("struct ")
                     }
-                    TyKind::Record => todo!(),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
-                    TyKind::Array => todo!(),
-                    TyKind::Other => todo!(),
+                    TypeKind::Record => todo!(),
+                    TypeKind::Primitive => todo!(),
+                    TypeKind::Vec => todo!(),
+                    TypeKind::Array => todo!(),
+                    TypeKind::Other => todo!(),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {
@@ -145,7 +145,7 @@ impl<'a> Formatter<'a> {
                 ident,
                 variant_class: ref variant_kind,
             } => todo!(),
-            AstKind::MethodDefnHead { .. } => todo!(),
+            AstKind::TypeMethodDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),
             AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
         }

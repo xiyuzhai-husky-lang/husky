@@ -24,7 +24,7 @@ impl<'a> DependeeMapBuilder<'a> {
         match entity_route.kind {
             EntityRouteKind::Root { .. } => return,
             EntityRouteKind::Package { main, ident } => todo!(),
-            EntityRouteKind::ChildScope { parent, ident } => {
+            EntityRouteKind::Child { parent, ident } => {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
@@ -34,6 +34,11 @@ impl<'a> DependeeMapBuilder<'a> {
                 entity_kind: raw_entity_kind,
             } => todo!(),
             EntityRouteKind::ThisType => todo!(),
+            EntityRouteKind::TraitMember {
+                ty: parent,
+                trai,
+                ident,
+            } => todo!(),
         }
         if !self.map.has(entity_route) {
             self.map
@@ -87,52 +92,82 @@ impl EntityDefn {
         db: &dyn EntityDefnQueryGroup,
     ) -> VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)> {
         let mut builder = DependeeMapBuilder::new(db);
-        match self.kind() {
+        match self.variant {
             EntityDefnVariant::Module { .. } => Default::default(),
-            EntityDefnVariant::Feature { ty, lazy_stmts } => {
+            EntityDefnVariant::Feature { ty, ref lazy_stmts } => {
                 builder.push(ty.route);
                 extract_lazy_stmts_dependees(lazy_stmts, &mut builder);
             }
             EntityDefnVariant::Pattern { .. } => todo!(),
             EntityDefnVariant::Func {
-                input_placeholders: inputs,
+                ref input_placeholders,
                 output,
-                stmts,
+                ref stmts,
             } => {
-                extract_routine_head_dependees(inputs, output, &mut builder);
+                extract_call_head_dependees(input_placeholders, output, &mut builder);
                 extract_func_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Proc {
-                input_placeholders: inputs,
+                ref input_placeholders,
                 output,
-                stmts,
+                ref stmts,
             } => {
-                extract_routine_head_dependees(inputs, output, &mut builder);
+                extract_call_head_dependees(input_placeholders, output, &mut builder);
                 extract_proc_stmts_dependees(stmts, &mut builder);
             }
-            EntityDefnVariant::Ty(ty) => {
-                ty.type_members
-                    .iter()
-                    .for_each(|member| extract_member_dependees(member, &mut builder));
-                ty.variants.iter().for_each(|enum_variant| {
+            EntityDefnVariant::Type {
+                ref type_members,
+                ref variants,
+                kind,
+                ref trait_impls,
+                ref members,
+            } => {
+                type_members.iter().for_each(|member| match member.variant {
+                    EntityDefnVariant::TypeField { ty, .. } => builder.push(ty),
+                    _ => (),
+                });
+                variants.iter().for_each(|enum_variant| {
                     extract_enum_variant_dependees(enum_variant, &mut builder)
                 });
-                ty.trait_impls.iter().for_each(|trait_impl| todo!())
+                // trait_impls.iter().for_each(|trait_impl| todo!())
             }
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Builtin => (),
-            EntityDefnVariant::EnumVariant(variant) => {
+            EntityDefnVariant::EnumVariant { .. } => {
                 todo!()
                 //     match variant {
                 //     EnumVariantDefn::Constant => (),
                 // },
             }
+            EntityDefnVariant::TypeField {
+                ident,
+                ty,
+                ref field_variant,
+                contract,
+            } => todo!(),
+            EntityDefnVariant::TypeMethod {
+                ref input_placeholders,
+                output,
+                ref method_variant,
+                ..
+            } => {
+                extract_call_head_dependees(input_placeholders, output, &mut builder);
+                match method_variant {
+                    MethodDefnVariant::Func { stmts } => {
+                        extract_func_stmts_dependees(stmts, &mut builder)
+                    }
+                    MethodDefnVariant::Proc { stmts } => todo!(),
+                    MethodDefnVariant::Pattern { stmts } => todo!(),
+                }
+            }
+            EntityDefnVariant::TraitMethod { .. } => todo!(),
+            EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
         };
         return builder.finish();
 
-        fn extract_routine_head_dependees(
+        fn extract_call_head_dependees(
             inputs: &[InputPlaceholder],
-            output: &RangedEntityRoute,
+            output: RangedEntityRoute,
             builder: &mut DependeeMapBuilder,
         ) {
             for input_placeholder in inputs.iter() {
@@ -235,11 +270,11 @@ impl EntityDefn {
                     match opn_kind {
                         LazyOpnKind::Binary { .. }
                         | LazyOpnKind::Prefix(_)
-                        | LazyOpnKind::MembAccess { .. }
+                        | LazyOpnKind::FieldAccess { .. }
                         | LazyOpnKind::MethodCall { .. } => (),
                         LazyOpnKind::RoutineCall(routine) => v.push(routine.route),
                         LazyOpnKind::StructCall(ty) => v.push(ty.route),
-                        LazyOpnKind::ClassCall(ty) => v.push(ty.route),
+                        LazyOpnKind::RecordCall(ty) => v.push(ty.route),
                         LazyOpnKind::PatternCall => todo!(),
                         LazyOpnKind::ElementAccess => todo!(),
                     }
@@ -249,7 +284,7 @@ impl EntityDefn {
                 }
                 LazyExprKind::Lambda(_, _) => todo!(),
                 LazyExprKind::This => todo!(),
-                LazyExprKind::ScopedFeature { scope } => todo!(),
+                LazyExprKind::EntityFeature { route: scope } => todo!(),
             }
         }
 
@@ -268,8 +303,8 @@ impl EntityDefn {
                         EagerOpnKind::Binary { .. }
                         | EagerOpnKind::Prefix { .. }
                         | EagerOpnKind::Suffix { .. }
-                        | EagerOpnKind::MembVarAccess { .. }
-                        | EagerOpnKind::MembRoutineCall { .. }
+                        | EagerOpnKind::FieldAccess { .. }
+                        | EagerOpnKind::MethodCall { .. }
                         | EagerOpnKind::ElementAccess => (),
                         EagerOpnKind::RoutineCall(routine) => builder.push(routine.route),
                         EagerOpnKind::TypeCall { ranged_ty, .. } => builder.push(ranged_ty.route),
@@ -292,36 +327,67 @@ impl EntityDefn {
         }
 
         fn extract_enum_variant_dependees(
-            variant_defn: &EnumVariantDefn,
+            variant_defn: &EntityDefn,
             builder: &mut DependeeMapBuilder,
         ) {
             match variant_defn.variant {
-                EnumVariantDefnVariant::Constant => (),
+                EntityDefnVariant::EnumVariant { .. } => todo!(),
+                _ => panic!(),
             }
         }
 
-        fn extract_member_dependees(
-            member_defn: &TypeMemberDefn,
-            builder: &mut DependeeMapBuilder,
-        ) {
-            match member_defn {
-                TypeMemberDefn::Field(field) => builder.push(field.ty),
-                TypeMemberDefn::Method(method) => extract_method_dependees(method, builder),
+        fn extract_member_dependees(member_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
+            match member_defn.variant {
+                EntityDefnVariant::Main(_) => todo!(),
+                EntityDefnVariant::Module {} => todo!(),
+                EntityDefnVariant::Feature { ty, ref lazy_stmts } => todo!(),
+                EntityDefnVariant::Pattern {} => todo!(),
+                EntityDefnVariant::Func {
+                    ref input_placeholders,
+                    output,
+                    ref stmts,
+                } => todo!(),
+                EntityDefnVariant::Proc {
+                    ref input_placeholders,
+                    output,
+                    ref stmts,
+                } => todo!(),
+                EntityDefnVariant::Type {
+                    ref type_members,
+                    ref variants,
+                    kind,
+                    ref trait_impls,
+                    ref members,
+                } => todo!(),
+                EntityDefnVariant::EnumVariant { .. } => todo!(),
+                EntityDefnVariant::Builtin => todo!(),
+                EntityDefnVariant::TypeField {
+                    ident,
+                    ty,
+                    ref field_variant,
+                    contract,
+                } => todo!(),
+                EntityDefnVariant::TypeMethod { .. } => todo!(),
+                EntityDefnVariant::TraitMethod { .. } => todo!(),
+                // TypeMemberDefn::Field(field) => builder.push(field.ty),
+                // TypeMemberDefn::Method(method) => extract_method_dependees(method, builder),
+                EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
             }
         }
 
-        fn extract_method_dependees(method_defn: &MethodDefn, builder: &mut DependeeMapBuilder) {
-            for input_placeholder in method_defn.input_placeholders.iter() {
-                builder.push(input_placeholder.ranged_ty.route)
-            }
-            builder.push(method_defn.output.route);
-            match method_defn.variant {
-                MethodDefnVariant::Func { ref stmts } => {
-                    extract_func_stmts_dependees(stmts, builder)
-                }
-                MethodDefnVariant::Proc { ref stmts } => todo!(),
-                MethodDefnVariant::Pattern { ref stmts } => todo!(),
-            }
+        fn extract_method_dependees(method_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
+            todo!()
+            // for input_placeholder in method_defn.input_placeholders.iter() {
+            //     builder.push(input_placeholder.ranged_ty.route)
+            // }
+            // builder.push(method_defn.output.route);
+            // match method_defn.variant {
+            //     MethodDefnVariant::Func { ref stmts } => {
+            //         extract_func_stmts_dependees(stmts, builder)
+            //     }
+            //     MethodDefnVariant::Proc { ref stmts } => todo!(),
+            //     MethodDefnVariant::Pattern { ref stmts } => todo!(),
+            // }
         }
     }
 }

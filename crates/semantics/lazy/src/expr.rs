@@ -52,7 +52,7 @@ pub enum LazyExprKind {
         Box<LazyExpr>,
     ),
     This,
-    ScopedFeature {
-        scope: EntityRoutePtr,
+    EntityFeature {
+        route: EntityRoutePtr,
     },
 }

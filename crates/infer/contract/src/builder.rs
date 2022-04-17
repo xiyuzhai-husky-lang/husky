@@ -73,7 +73,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstKind::Use { ident, scope } => todo!(),
                     AstKind::FieldDefn { .. } => (),
                     AstKind::Stmt(_) => todo!(),
-                    AstKind::MethodDefnHead(ref head) => {
+                    AstKind::TypeMethodDefnHead(ref head) => {
                         self.infer_routine(head.output.route, item.children.unwrap(), &arena)
                     }
                     AstKind::FeatureDecl { ty, .. } => {

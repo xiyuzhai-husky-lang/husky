@@ -51,57 +51,18 @@ impl HuskyLangRuntime {
             } => todo!(),
             FeatureExprKind::Variable { varname, ref value } => todo!(),
             FeatureExprKind::This { ref repr } => todo!(),
-            FeatureExprKind::FuncCall {
-                func_ranged_scope,
-                ref inputs,
-                uid,
-                callee_file,
-                ref input_placeholders,
-                compiled,
-                ref instruction_sheet,
-                ref stmts,
-            } => todo!(),
-            FeatureExprKind::ProcCall {
-                proc_ranged_scope,
-                ref inputs,
-                uid,
-                callee_file,
-                ref input_placeholders,
-                opt_compiled: compiled,
-                ref instruction_sheet,
-                ref stmts,
-            } => todo!(),
-            FeatureExprKind::StructMembVarAccess {
+            FeatureExprKind::RoutineCall { .. } => todo!(),
+            FeatureExprKind::StructFieldAccess {
                 ref this,
                 field_ident,
                 contract,
-                opt_compiled,
+                opt_linkage: opt_compiled,
                 ..
             } => todo!(),
-            FeatureExprKind::RecordMembAccess {
+            FeatureExprKind::RecordFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
-            } => todo!(),
-            FeatureExprKind::MethodCall {
-                field_ident,
-                ref opds,
-                ref instruction_sheet,
-                opt_compiled: compiled,
-                ref stmts,
-            } => todo!(),
-            FeatureExprKind::MembProcCall {
-                field_ident,
-                ref opds,
-                ref instruction_sheet,
-                opt_compiled: compiled,
-                ref stmts,
-            } => todo!(),
-            FeatureExprKind::MembPattCall {
-                field_ident,
-                ref opds,
-                ref instruction_sheet,
-                ref stmts,
             } => todo!(),
             FeatureExprKind::FeatureBlock { scope, ref block } => todo!(),
             FeatureExprKind::GlobalInput => match focus.opt_input_id {
@@ -125,6 +86,7 @@ impl HuskyLangRuntime {
                 ref entity,
                 ref opds,
             } => todo!(),
+            FeatureExprKind::PatternCall {} => todo!(),
         }
     }
 }

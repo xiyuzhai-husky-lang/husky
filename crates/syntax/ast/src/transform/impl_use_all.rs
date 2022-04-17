@@ -15,7 +15,7 @@ impl<'a> AstTransformer<'a> {
                     entry.ident.map(|ident| Symbol {
                         ident: ident.into(),
                         kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteKind::ChildScope { parent, ident },
+                            kind: EntityRouteKind::Child { parent, ident },
                             generic_arguments: vec![],
                         })),
                     })

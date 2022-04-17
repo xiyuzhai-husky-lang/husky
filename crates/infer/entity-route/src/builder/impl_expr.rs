@@ -1,4 +1,5 @@
 use ast::RawExprRange;
+use infer_decl::MethodKind;
 use map_utils::insert_new;
 use syntax_types::{PrefixOpr, SuffixOpr};
 use text::TextRange;
@@ -69,10 +70,15 @@ impl<'a> TySheetBuilder<'a> {
                 EntityRoutePtr::Custom(scope) => match scope.kind {
                     EntityRouteKind::Root { ident } => todo!(),
                     EntityRouteKind::Package { main, ident } => todo!(),
-                    EntityRouteKind::ChildScope { parent, ident } => parent,
+                    EntityRouteKind::Child { parent, ident } => parent,
                     EntityRouteKind::Input { main } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
                     EntityRouteKind::ThisType => todo!(),
+                    EntityRouteKind::TraitMember {
+                        ty: parent,
+                        trai,
+                        ident,
+                    } => todo!(),
                 },
                 _ => todo!(),
             },
@@ -84,6 +90,7 @@ impl<'a> TySheetBuilder<'a> {
             }
             EntityKind::Feature => self.db.feature_decl(scope)?.ty,
             EntityKind::Pattern => todo!(),
+            EntityKind::TypeMember => todo!(),
         })
     }
 
@@ -214,7 +221,7 @@ impl<'a> TySheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.field_ty_result(ident),
+            SuffixOpr::MembAccess(ident) => self.db.type_decl(opd_ty)?.field_ty_result(ident),
             SuffixOpr::WithType(_) => todo!(),
         }
     }
@@ -291,8 +298,8 @@ impl<'a> TySheetBuilder<'a> {
         expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
-        let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
-        let method_decl = this_ty_decl.method_decl(method_ident, &self.trait_uses)?;
+        let this_ty_decl = derived_ok!(self.db.type_decl(this_ty));
+        let (member_idx, method_decl) = this_ty_decl.method(method_ident, &self.trait_uses)?;
         if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
         }
@@ -307,13 +314,23 @@ impl<'a> TySheetBuilder<'a> {
         self.ty_sheet.call_routes.insert(
             expr_idx,
             Ok(self.db.intern_entity_route(EntityRoute {
-                kind: EntityRouteKind::ChildScope {
-                    parent: this_ty,
-                    ident: method_decl.ident,
+                kind: match method_decl.kind {
+                    MethodKind::Type => EntityRouteKind::Child {
+                        parent: this_ty,
+                        ident: method_decl.ident,
+                    },
+                    MethodKind::Trait(trai) => EntityRouteKind::TraitMember {
+                        ty: this_ty,
+                        ident: method_decl.ident,
+                        trai,
+                    },
                 },
                 generic_arguments,
             })),
         );
+        self.ty_sheet
+            .member_indices
+            .insert(expr_idx, Ok(member_idx));
         Ok(method_decl.output)
     }
 }

@@ -20,7 +20,6 @@ pub trait EntityDefnQueryGroup:
     fn subentity_defns(&self, scope: EntityRoutePtr) -> SemanticResultArc<Vec<Arc<EntityDefn>>>;
     fn entity_defn_uid(&self, scope: EntityRoutePtr) -> EntityDefnUid;
     fn entity_uid(&self, scope: EntityRoutePtr) -> EntityUid;
-    fn method_defn(&self, route: EntityRoutePtr) -> Arc<MethodDefn>;
 }
 
 pub trait StoreEntityRoute {
@@ -55,7 +54,7 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
         // in the future, we should make a difference between entity in current pack and depending packs
-        EntitySource::Static(_) => (),
+        EntitySource::StaticModuleItem(_) | EntitySource::StaticTypeMember => (),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main } => todo!(),

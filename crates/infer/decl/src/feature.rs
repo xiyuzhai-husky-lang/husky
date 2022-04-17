@@ -13,7 +13,7 @@ pub(crate) fn feature_decl(
 ) -> InferResultArc<FeatureSignature> {
     let source = db.entity_source(scope)?;
     match source {
-        EntitySource::Static(data) => todo!(),
+        EntitySource::StaticModuleItem(data) => todo!(),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
             file,
@@ -37,5 +37,6 @@ pub(crate) fn feature_decl(
         EntitySource::Input { main } => Ok(Arc::new(FeatureSignature {
             ty: db.global_input_ty(main)?,
         })),
+        EntitySource::StaticTypeMember => todo!(),
     }
 }

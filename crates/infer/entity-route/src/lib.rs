@@ -11,7 +11,7 @@ use defn_head::*;
 use entity_route::*;
 use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
 use file::FilePtr;
-use infer_decl::{DeclQueryGroup, TyDecl};
+use infer_decl::{DeclQueryGroup, TypeDecl};
 use infer_error::*;
 use print_utils::*;
 use syntax_types::*;
@@ -25,9 +25,9 @@ pub trait InferEntityRoute {
         msg_once!("deprecated");
         self.entity_route_sheet().expr_ty_result(expr_idx)
     }
-    fn expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
+    fn expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TypeDecl> {
         let ty = self.expr_ty_result(expr_idx)?;
-        self.decl_db().ty_decl(ty)
+        self.decl_db().type_decl(ty)
     }
 }
 
@@ -143,7 +143,10 @@ fn is_implicit_convertible(
             RootIdentifier::PartialEqTrait => todo!(),
             RootIdentifier::EqTrait => todo!(),
         },
-        EntityRoutePtr::Custom(_) => todo!(),
+        EntityRoutePtr::Custom(_) => {
+            p!(src_ty, dst_ty);
+            todo!()
+        }
         EntityRoutePtr::ThisType => todo!(),
     }
 }

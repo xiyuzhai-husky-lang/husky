@@ -4,9 +4,9 @@ mod ty;
 pub use entity::*;
 pub use ty::*;
 
-use entity_syntax::{EntityKind, TyKind};
-use visual_syntax::StaticVisualizer;
-use vm::{InputContract, RoutineLinkage};
+use entity_kind::{EntityKind, TypeKind};
+use visual_syntax::{StaticVisualizer, TRIVIAL_VISUALIZER};
+use vm::{BoxedValue, InputContract, Linkage, StackValue, VirtualTy};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitDecl {
@@ -51,11 +51,11 @@ pub enum StaticGenericPlaceholderVariant {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct StaticFuncDecl {
+pub struct StaticCallDecl {
     pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub inputs: Vec<StaticInputDecl>,
     pub output: &'static str,
-    pub compiled: RoutineLinkage,
+    pub linkage: Linkage,
 }
 
 pub static CLONE_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
@@ -71,14 +71,13 @@ pub static CLONE_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
     generic_placeholders: &[],
 };
 
-pub static STATIC_VEC_DECL: StaticTyDecl = StaticTyDecl {
-    base_ty: "Vec",
+pub static VEC_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
+    base_route: "Vec",
     generic_placeholders: &[StaticGenericPlaceholder {
         name: "E",
         variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
     }],
     trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
-    fields: &[],
     type_members: &[
         StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "len",
@@ -110,5 +109,17 @@ pub static STATIC_VEC_DECL: StaticTyDecl = StaticTyDecl {
         }),
     ],
     variants: &[],
-    kind: TyKind::Vec,
+    kind: TypeKind::Vec,
+    visualizer: TRIVIAL_VISUALIZER,
+    opt_type_call: Some(&NEW_VEC_DECL),
+};
+
+static NEW_VEC_DECL: StaticCallDecl = StaticCallDecl {
+    generic_placeholders: &[],
+    inputs: vec![],
+    output: "Vec<E>",
+    linkage: Linkage {
+        call: |values| Ok(StackValue::Boxed(BoxedValue::new(Vec::<VirtualTy>::new()))),
+        nargs: 0,
+    },
 };

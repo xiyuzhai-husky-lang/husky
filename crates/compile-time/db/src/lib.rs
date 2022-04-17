@@ -17,7 +17,7 @@ pub use infer_decl::*;
 pub use infer_entity_route::*;
 pub use infer_total::*;
 pub use instruction_gen::InstructionGenQueryGroup;
-use linkage_table::FpTable;
+use linkage_table::LinkageTable;
 pub use pack_semantics::PackQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
 pub use semantics_entity::EntityDefnQueryGroup;
@@ -58,7 +58,7 @@ pub struct HuskyLangCompileTime {
     scope_unique_allocator: entity_route::EntityRouteInterner,
     live_docs: ARwLock<HashMap<FilePtr, ARwLock<String>>>,
     features: feature::FeatureUniqueAllocator,
-    linkage_table: FpTable,
+    linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
 }
 

@@ -1,5 +1,6 @@
 mod member;
 
+use infer_decl::MemberIdx;
 pub use member::*;
 use print_utils::msg_once;
 
@@ -7,7 +8,7 @@ use std::{iter::Peekable, sync::Arc};
 
 use super::*;
 use ast::*;
-use entity_route::{EntityRoutePtr, RangedEntityRoute};
+use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use infer_total::InferQueryGroup;
 use semantics_eager::{FuncStmt, ProcStmt};
@@ -17,23 +18,15 @@ use vec_dict::{HasKey, VecDict};
 use vm::{FieldContract, InputContract};
 use word::{CustomIdentifier, IdentDict};
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct TyDefn {
-    pub type_members: IdentDict<TypeMemberDefn>,
-    pub variants: IdentDict<EnumVariantDefn>,
-    pub kind: TyKind,
-    pub trait_impls: Vec<Arc<TraitImplDefn>>,
-    pub members: Vec<MemberDefn>,
-}
-
-impl TyDefn {
-    pub(crate) fn from_ast(
+impl EntityDefnVariant {
+    pub(crate) fn ty_from_ast(
         db: &dyn InferQueryGroup,
+        entity_route: EntityRoutePtr,
         head: &Ast,
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResultArc<TyDefn> {
+    ) -> SemanticResult<EntityDefnVariant> {
         let (ident, kind, generic_placeholders) = match head.kind {
             AstKind::TypeDefnHead {
                 ident,
@@ -46,115 +39,68 @@ impl TyDefn {
         let mut type_members = IdentDict::default();
         let mut trait_impls = Vec::new();
         msg_once!("todo");
-        Self::collect_fields(&mut children, &mut type_members)?;
-        Self::collect_member_calls(db, arena, file, &mut children, &mut type_members)?;
-        let variants = Self::collect_variants(children)?;
-        Ok(TyDefn::new(type_members, variants, kind, trait_impls))
+        Self::collect_fields(db, &mut children, &mut type_members, entity_route, file)?;
+        Self::collect_member_calls(
+            db,
+            arena,
+            file,
+            entity_route,
+            &mut children,
+            &mut type_members,
+        )?;
+        let variants = Self::collect_variants(db, file, children)?;
+        Ok(EntityDefnVariant::new_ty(
+            type_members,
+            variants,
+            kind,
+            trait_impls,
+        ))
     }
 
-    fn new(
-        type_members: IdentDict<TypeMemberDefn>,
-        variants: IdentDict<EnumVariantDefn>,
-        kind: TyKind,
-        trait_impls: Vec<Arc<TraitImplDefn>>,
-    ) -> Arc<Self> {
-        let members = MemberDefn::collect_all(&type_members, &trait_impls);
-        Arc::new(Self {
+    fn new_ty(
+        type_members: IdentDict<Arc<EntityDefn>>,
+        variants: IdentDict<Arc<EntityDefn>>,
+        kind: TypeKind,
+        trait_impls: Vec<Arc<EntityDefn>>,
+    ) -> Self {
+        let members = collect_all_members(&type_members, &trait_impls);
+        EntityDefnVariant::Type {
             type_members,
             variants,
             kind,
             trait_impls,
             members,
-        })
-    }
-
-    fn collect_fields(
-        children: &mut Peekable<AstIter>,
-        members: &mut IdentDict<TypeMemberDefn>,
-    ) -> SemanticResult<()> {
-        while let Some(child) = children.peek() {
-            match child.value.as_ref()?.kind {
-                AstKind::FieldDefn(ref field_defn_head) => {
-                    children.next();
-                    members.insert_new(TypeMemberDefn::Field(FieldDefn::from_ast(field_defn_head)?))
-                }
-                _ => break,
-            }
         }
-        Ok(())
-    }
-
-    fn collect_member_calls(
-        db: &dyn InferQueryGroup,
-        arena: &RawExprArena,
-        file: FilePtr,
-        children: &mut Peekable<AstIter>,
-        members: &mut IdentDict<TypeMemberDefn>,
-    ) -> SemanticResult<()> {
-        while let Some(child) = children.next() {
-            match child.value.as_ref()?.kind {
-                AstKind::TypeDefnHead {
-                    ident,
-                    kind,
-                    ref generic_placeholders,
-                } => todo!(),
-                AstKind::MainDefn => todo!(),
-                AstKind::RoutineDefnHead(_) => todo!(),
-                AstKind::PatternDefnHead => todo!(),
-                AstKind::FeatureDecl { ident, ty } => todo!(),
-                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
-                AstKind::MethodDefnHead(ref head) => {
-                    let variant = match head.routine_kind {
-                        RoutineKind::Proc => todo!(),
-                        RoutineKind::Func => {
-                            let stmts = semantics_eager::parse_decl_stmts(
-                                &head.input_placeholders,
-                                db,
-                                arena,
-                                child.children.unwrap(),
-                                file,
-                            )?;
-                            MethodDefnVariant::Func { stmts }
-                        }
-                        RoutineKind::Test => todo!(),
-                    };
-                    members.insert_new(TypeMemberDefn::Method(Arc::new(MethodDefn {
-                        ident: head.ident,
-                        input_placeholders: head.input_placeholders.clone(),
-                        output: head.output,
-                        this_contract: head.this_contract,
-                        variant,
-                    })))
-                }
-                AstKind::Use { ident, scope } => todo!(),
-                AstKind::FieldDefn(_) => todo!(),
-                AstKind::DatasetConfigDefnHead => todo!(),
-                AstKind::Stmt(_) => todo!(),
-                AstKind::EnumVariantDefnHead {
-                    ident,
-                    variant_class,
-                } => todo!(),
-            }
-        }
-        Ok(())
     }
 
     fn collect_variants(
+        db: &dyn InferQueryGroup,
+        file: FilePtr,
         mut children: Peekable<AstIter>,
-    ) -> SemanticResult<IdentDict<EnumVariantDefn>> {
+    ) -> SemanticResult<IdentDict<Arc<EntityDefn>>> {
         let mut variants = VecDict::default();
         for child in children {
-            match child.value.as_ref()?.kind {
+            let ast = child.value.as_ref()?;
+            match ast.kind {
                 AstKind::EnumVariantDefnHead {
                     ident,
                     variant_class: raw_variant_kind,
                 } => {
-                    variants.insert_new(EnumVariantDefn {
-                        ident,
-                        variant: match raw_variant_kind {
-                            EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
+                    variants.insert_new(EntityDefn::new(
+                        ident.into(),
+                        EntityDefnVariant::EnumVariant {
+                            ident,
+                            variant: match raw_variant_kind {
+                                EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
+                            },
                         },
-                    });
+                        db.intern_entity_route(EntityRoute {
+                            kind: todo!(),
+                            generic_arguments: todo!(),
+                        }),
+                        file,
+                        ast.range,
+                    ));
                 }
                 _ => panic!(),
             }
@@ -167,7 +113,7 @@ impl TyDefn {
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
-    ) -> SemanticResult<TyDefn> {
+    ) -> SemanticResult<EntityDefnVariant> {
         todo!()
         // let mut fields = VecDict::default();
         // for subitem in children {
@@ -195,10 +141,22 @@ impl TyDefn {
         // Ok(TyKind::Record { fields })
     }
 
-    pub fn method(&self, member_idx: usize) -> &Arc<MethodDefn> {
-        match self.members[member_idx] {
-            MemberDefn::TypeField(_) => todo!(),
-            MemberDefn::TypeMethod(_) => todo!(),
+    pub fn method(&self, member_idx: usize) -> &Arc<EntityDefn> {
+        todo!()
+        // match self.members[member_idx] {
+        //     MemberDefn::TypeField(_) => todo!(),
+        //     MemberDefn::TypeMethod(_) => todo!(),
+        // }
+    }
+}
+
+impl EntityDefn {
+    pub fn method(&self, member_idx: MemberIdx) -> &Arc<EntityDefn> {
+        match self.variant {
+            EntityDefnVariant::Type { ref members, .. } => &members[member_idx.0 as usize],
+            EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
+            EntityDefnVariant::Builtin => todo!(),
+            _ => panic!(),
         }
     }
 }
@@ -207,18 +165,6 @@ impl TyDefn {
 pub enum MethodKind {
     Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
     Proc { stmts: Arc<Vec<Arc<ProcStmt>>> },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct EnumVariantDefn {
-    pub ident: CustomIdentifier,
-    pub variant: EnumVariantDefnVariant,
-}
-
-impl HasKey<CustomIdentifier> for EnumVariantDefn {
-    fn key(&self) -> CustomIdentifier {
-        self.ident
-    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -233,11 +179,11 @@ impl EntityDefnVariant {
         enum_variant_kind: EnumVariantKind,
         children: Option<AstIter>,
     ) -> EntityDefnVariant {
-        EntityDefnVariant::EnumVariant(EnumVariantDefn {
+        EntityDefnVariant::EnumVariant {
             ident,
             variant: match enum_variant_kind {
                 EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
             },
-        })
+        }
     }
 }

@@ -4,10 +4,9 @@ use entity_route::*;
 use file::FilePtr;
 use path_utils::*;
 
-use entity_syntax::TyKind;
-use static_decl::{
-    StaticEntityDecl, StaticMethodDecl, StaticTraitDecl, StaticTraitMemberDecl, CLONE_TRAIT_DECL,
-};
+use entity_kind::TypeKind;
+use static_decl::StaticEntityDecl;
+use static_defn::*;
 use upcast::Upcast;
 use visual_syntax::TRIVIAL_VISUALIZER;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
@@ -33,7 +32,7 @@ fn subscope_table(
     scope_id: EntityRoutePtr,
 ) -> ScopeResultArc<SubscopeTable> {
     Ok(Arc::new(match db.entity_source(scope_id)? {
-        EntitySource::Static(data) => SubscopeTable::builtin(db, data),
+        EntitySource::StaticModuleItem(data) => SubscopeTable::from_static(db, data),
         EntitySource::WithinModule {
             file: file_id,
             token_group_index,
@@ -52,6 +51,7 @@ fn subscope_table(
         }
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Input { .. } => todo!(),
+        EntitySource::StaticTypeMember => todo!(),
     }))
 }
 
@@ -83,12 +83,12 @@ fn entity_kind_from_scope_kind(
             | RootIdentifier::F32
             | RootIdentifier::B32
             | RootIdentifier::B64
-            | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
-            RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
+            | RootIdentifier::Bool => EntityKind::Type(TypeKind::Primitive),
+            RootIdentifier::Vec => EntityKind::Type(TypeKind::Vec),
             RootIdentifier::Tuple
             | RootIdentifier::Fp
             | RootIdentifier::Array
-            | RootIdentifier::DatasetType => EntityKind::Type(TyKind::Other),
+            | RootIdentifier::DatasetType => EntityKind::Type(TypeKind::Other),
             RootIdentifier::True | RootIdentifier::False => EntityKind::Literal,
             RootIdentifier::Fn | RootIdentifier::FnMut | RootIdentifier::FnOnce => {
                 EntityKind::Trait
@@ -104,14 +104,19 @@ fn entity_kind_from_scope_kind(
             | RootIdentifier::EqTrait => EntityKind::Trait,
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
-        EntityRouteKind::ChildScope { parent, ident } => db
+        EntityRouteKind::Child { parent, ident } => db
             .subscope_table(parent)
             .unwrap()
             .raw_entity_kind(ident)
             .unwrap(),
         EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
-        EntityRouteKind::ThisType => EntityKind::Type(TyKind::Other),
+        EntityRouteKind::ThisType => EntityKind::Type(TypeKind::Other),
+        EntityRouteKind::TraitMember {
+            ty: parent,
+            trai,
+            ident,
+        } => todo!(),
     }
 }
 
@@ -119,85 +124,63 @@ fn entity_source(
     this: &dyn EntityRouteSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> ScopeResult<EntitySource> {
-    Ok(match entity_route.kind {
-        EntityRouteKind::Root { ident } => match ident {
-            RootIdentifier::Void => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::Ty {
-                    raw_ty_kind: TyKind::Primitive,
-                    visualizer: TRIVIAL_VISUALIZER,
-                },
-            },
-            RootIdentifier::I32 => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::Ty {
-                    raw_ty_kind: TyKind::Primitive,
-                    visualizer: TRIVIAL_VISUALIZER,
-                },
-            },
-            RootIdentifier::F32 => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::Ty {
-                    raw_ty_kind: TyKind::Primitive,
-                    visualizer: TRIVIAL_VISUALIZER,
-                },
-            },
-            RootIdentifier::B32 => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::Ty {
-                    raw_ty_kind: TyKind::Primitive,
-                    visualizer: TRIVIAL_VISUALIZER,
-                },
-            },
-            RootIdentifier::B64 => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::Ty {
-                    raw_ty_kind: TyKind::Primitive,
-                    visualizer: TRIVIAL_VISUALIZER,
-                },
-            },
-            RootIdentifier::Bool => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::Ty {
-                    raw_ty_kind: TyKind::Primitive,
-                    visualizer: TRIVIAL_VISUALIZER,
-                },
-            },
-            RootIdentifier::True => todo!(),
-            RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::TyTemplate,
-            },
-            RootIdentifier::Tuple => todo!(),
-            RootIdentifier::Debug => todo!(),
-            RootIdentifier::Std => todo!(),
-            RootIdentifier::Core => todo!(),
-            RootIdentifier::Fp => todo!(),
-            RootIdentifier::Fn => todo!(),
-            RootIdentifier::FnMut => todo!(),
-            RootIdentifier::FnOnce => todo!(),
-            RootIdentifier::Array => todo!(),
-            RootIdentifier::Datasets => datasets::SCOPE_DATA,
-            RootIdentifier::DatasetType => &StaticEntityDefn {
-                subscopes: &[],
-                decl: StaticEntityDecl::TyTemplate,
-            },
-            RootIdentifier::Type => todo!(),
-            RootIdentifier::CloneTrait => &CLONE_TRAIT_ENTITY_DATA,
-            RootIdentifier::CopyTrait => todo!(),
-            RootIdentifier::PartialEqTrait => todo!(),
-            RootIdentifier::EqTrait => todo!(),
+    match entity_route.kind {
+        EntityRouteKind::Root { ident } => {
+            Ok(EntitySource::StaticModuleItem(static_root_defn(ident)))
         }
-        .into(),
-        EntityRouteKind::Package { main, .. } => EntitySource::Module { file: main },
-        EntityRouteKind::ChildScope { parent, ident } => {
-            this.subscope_table(parent)?.scope_source(ident)?
+        EntityRouteKind::Package { main, .. } => Ok(EntitySource::Module { file: main }),
+        EntityRouteKind::Child { parent, ident } => {
+            this.subscope_table(parent)?.scope_source(ident)
         }
-        EntityRouteKind::Input { main } => EntitySource::Input { main },
+        EntityRouteKind::Input { main } => Ok(EntitySource::Input { main }),
         EntityRouteKind::Generic { .. } => todo!(),
         EntityRouteKind::ThisType => todo!(),
-    })
+        EntityRouteKind::TraitMember { ty, trai, ident } => {
+            let ty_source = this.entity_source(ty).unwrap();
+            match ty_source {
+                EntitySource::StaticModuleItem(_) => Ok(ty_source),
+                EntitySource::WithinBuiltinModule => todo!(),
+                EntitySource::WithinModule {
+                    file,
+                    token_group_index,
+                } => todo!(),
+                EntitySource::Module { file } => todo!(),
+                EntitySource::Input { main } => todo!(),
+                EntitySource::StaticTypeMember => todo!(),
+            }
+        }
+    }
+}
+
+pub fn static_root_defn(ident: RootIdentifier) -> &'static StaticEntityDefn {
+    match ident {
+        RootIdentifier::Void => &VOID_TYPE_DEFN,
+        RootIdentifier::I32 => &I32_TYPE_DEFN,
+        RootIdentifier::F32 => &F32_TYPE_DEFN,
+        RootIdentifier::B32 => &B32_TYPE_DEFN,
+        RootIdentifier::B64 => &B64_TYPE_DEFN,
+        RootIdentifier::Bool => &BOOL_TYPE_DEFN,
+        RootIdentifier::True => todo!(),
+        RootIdentifier::False => todo!(),
+        RootIdentifier::Vec => &VEC_TYPE_DEFN,
+        RootIdentifier::Tuple => todo!(),
+        RootIdentifier::Debug => todo!(),
+        RootIdentifier::Std => todo!(),
+        RootIdentifier::Core => todo!(),
+        RootIdentifier::Fp => todo!(),
+        RootIdentifier::Fn => todo!(),
+        RootIdentifier::FnMut => todo!(),
+        RootIdentifier::FnOnce => todo!(),
+        RootIdentifier::Array => todo!(),
+        RootIdentifier::Datasets => datasets::DATASETS_MODULE_DEFN,
+        RootIdentifier::DatasetType => &datasets::DATASET_TYPE_DEFN,
+        RootIdentifier::Type => todo!(),
+        RootIdentifier::CloneTrait => &CLONE_TRAIT_DEFN,
+        RootIdentifier::CopyTrait => todo!(),
+        RootIdentifier::PartialEqTrait => todo!(),
+        RootIdentifier::EqTrait => todo!(),
+    }
+    .into()
 }
 
 pub struct ModuleFromFileError {
@@ -307,11 +290,12 @@ pub trait EntityRouteQueryGroup:
 
     fn module_file(&self, module: EntityRoutePtr) -> ScopeResult<FilePtr> {
         Ok(match self.entity_source(module)? {
-            EntitySource::Static(_) => panic!(),
+            EntitySource::StaticModuleItem(_) => panic!(),
             EntitySource::WithinModule { file: file_id, .. } => file_id,
             EntitySource::Module { file: file_id } => file_id,
             EntitySource::WithinBuiltinModule => todo!(),
             EntitySource::Input { .. } => todo!(),
+            EntitySource::StaticTypeMember => todo!(),
         })
     }
 

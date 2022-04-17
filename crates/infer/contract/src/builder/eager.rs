@@ -319,9 +319,8 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
         range: TextRange,
     ) -> InferResult<()> {
-        let this_ty_decl = derived_ok!(self.expr_ty_decl(this));
-        let method_call_decl =
-            derived_ok!(this_ty_decl.method_decl(ranged_ident, &self.trait_uses));
+        let this_ty_decl = self.expr_ty_decl(this)?;
+        let (_, method_call_decl) = this_ty_decl.method(ranged_ident, &self.trait_uses)?;
         match contract {
             EagerContract::Pure => (),
             EagerContract::Move => (),

@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "entity-syntax"
+name = "static-defn"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -9,4 +9,6 @@ description = "Generic LSP server scaffold."
 [dependencies]
 word = { path = "../word", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
-token = { path = "../token", version = "0.0.0" }
+entity-kind = { path = "../entity-kind", version = "0.0.0" }
+visual-syntax = { path = "../visual", version = "0.0.0" }
+static-decl = { path = "../static-decl", version = "0.0.0" }

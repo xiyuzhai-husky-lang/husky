@@ -41,8 +41,13 @@ impl<'a> RustGenerator<'a> {
                     self.write(")");
                 }
                 EagerOpnKind::PatternCall => todo!(),
-                EagerOpnKind::MembVarAccess { field_var_contract } => todo!(),
-                EagerOpnKind::MembRoutineCall { field_ident, .. } => {
+                EagerOpnKind::FieldAccess {
+                    field_contract: field_var_contract,
+                } => todo!(),
+                EagerOpnKind::MethodCall {
+                    method_ident: field_ident,
+                    ..
+                } => {
                     self.gen_expr(&opds[0]);
                     self.write(".");
                     self.write(&field_ident.ident);

@@ -3,8 +3,8 @@ use defn_head::*;
 use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
-use print_utils::msg_once;
-use static_decl::{StaticEntityDecl, StaticFuncDecl, StaticInputDecl};
+use print_utils::{msg_once, p};
+use static_decl::{StaticCallDecl, StaticEntityDecl, StaticInputDecl};
 use vm::InputContract;
 use word::IdentDict;
 
@@ -15,6 +15,22 @@ pub struct CallDecl {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub inputs: Vec<InputDecl>,
     pub output: EntityRoutePtr,
+}
+
+impl CallDecl {
+    pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
+        Arc::new(Self {
+            generic_placeholders: self
+                .generic_placeholders
+                .iter()
+                .filter_map(|placeholder| instantiator.instantiate_generic_placeholder(placeholder))
+                .collect(),
+            inputs: self.inputs.map(|input| input.instantiate(instantiator)),
+            output: instantiator
+                .instantiate_entity_route(self.output)
+                .as_scope(),
+        })
+    }
 }
 
 impl From<&RoutineDefnHead> for CallDecl {
@@ -31,22 +47,6 @@ impl From<&RoutineDefnHead> for CallDecl {
     }
 }
 
-// impl From<&MethodDefnHead> for MethodDecl {
-//     fn from(head: &MethodDefnHead) -> Self {
-//         Self {
-//             ident: head.ident,
-//             this_contract: head.this_contract,
-//             inputs: head
-//                 .input_placeholders
-//                 .iter()
-//                 .map(|input_placeholder| input_placeholder.into())
-//                 .collect(),
-//             output: head.output.route,
-//             generic_placeholders: head.generic_placeholders.clone(),
-//         }
-//     }
-// }
-
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputDecl {
     pub contract: InputContract,
@@ -59,7 +59,7 @@ impl InputDecl {
         db: &dyn DeclQueryGroup,
         input: &StaticInputDecl,
         opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &LocalStack<Symbol>,
+        symbols: &[Symbol],
     ) -> Self {
         Self {
             ty: db.parse_entity(input.ty, opt_this_ty, symbols).unwrap(),
@@ -91,28 +91,17 @@ impl Into<InputDecl> for &InputPlaceholder {
     }
 }
 
-impl CallDecl {
-    fn new_vec(ty: EntityRoutePtr) -> Self {
-        msg_once!("new vec compiled");
-        Self {
-            inputs: Vec::new(),
-            output: ty,
-            generic_placeholders: Default::default(),
-        }
-    }
-}
-
 pub(crate) fn call_decl(
     db: &dyn DeclQueryGroup,
-    scope: EntityRoutePtr,
+    route: EntityRoutePtr,
 ) -> InferResultArc<CallDecl> {
-    let source = db.entity_source(scope)?;
+    let source = db.entity_source(route)?;
     return match source {
-        EntitySource::Static(data) => Ok(Arc::new(match data.decl {
-            StaticEntityDecl::Func(ref signature) => func_call_decl_from_static(db, signature),
-            StaticEntityDecl::TyTemplate => CallDecl::new_vec(scope),
+        EntitySource::StaticModuleItem(data) => Ok(match data.decl {
+            StaticEntityDecl::Func(ref signature) => call_decl_from_static(db, signature),
+            StaticEntityDecl::Type(_) => db.type_decl(route)?.opt_type_call.clone().expect("todo"),
             _ => panic!(),
-        })),
+        }),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
             file,
@@ -133,8 +122,8 @@ pub(crate) fn call_decl(
                     ref generic_placeholders,
                     ..
                 } => match kind {
-                    TyKind::Enum => todo!(),
-                    TyKind::Struct => {
+                    TypeKind::Enum => todo!(),
+                    TypeKind::Struct => {
                         let mut inputs = vec![];
                         for subitem in item.children.unwrap() {
                             let subast = subitem.value.as_ref()?;
@@ -150,40 +139,41 @@ pub(crate) fn call_decl(
                         msg_once!("struct type call compiled");
                         Ok(Arc::new(CallDecl {
                             inputs,
-                            output: scope,
+                            output: route,
                             generic_placeholders: generic_placeholders.clone(),
                         }))
                     }
-                    TyKind::Record => todo!(),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
-                    TyKind::Array => todo!(),
-                    TyKind::Other => todo!(),
+                    TypeKind::Record => todo!(),
+                    TypeKind::Primitive => todo!(),
+                    TypeKind::Vec => todo!(),
+                    TypeKind::Array => todo!(),
+                    TypeKind::Other => todo!(),
                 },
                 _ => panic!(),
             }
         }
         EntitySource::Module { file: file_id } => todo!(),
         EntitySource::Input { .. } => todo!(),
+        EntitySource::StaticTypeMember => todo!(),
     };
+}
 
-    fn func_call_decl_from_static(
-        db: &dyn DeclQueryGroup,
-        static_decl: &StaticFuncDecl,
-    ) -> CallDecl {
-        let generic_placeholders =
-            db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
-        let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
-        let inputs = static_decl.inputs.map(|input| InputDecl {
-            ty: db.parse_entity(input.ty, None, &symbols).unwrap(),
-            contract: input.contract,
-            ident: db.custom_ident(input.name),
-        });
-        let output = db.parse_entity(static_decl.output, None, &symbols).unwrap();
-        CallDecl {
-            generic_placeholders,
-            inputs,
-            output,
-        }
-    }
+pub(crate) fn call_decl_from_static(
+    db: &dyn DeclQueryGroup,
+    static_decl: &StaticCallDecl,
+) -> Arc<CallDecl> {
+    let generic_placeholders =
+        db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
+    let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+    let inputs = static_decl.inputs.map(|input| InputDecl {
+        ty: db.parse_entity(input.ty, None, &symbols).unwrap(),
+        contract: input.contract,
+        ident: db.custom_ident(input.name),
+    });
+    let output = db.parse_entity(static_decl.output, None, &symbols).unwrap();
+    Arc::new(CallDecl {
+        generic_placeholders,
+        inputs,
+        output,
+    })
 }

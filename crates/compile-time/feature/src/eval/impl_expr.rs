@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use semantics_lazy::LazyStmt;
-use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, RoutineLinkage, StackValue};
+use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, Linkage, StackValue};
 
 use crate::{FeatureBlock, FeatureExpr, FeatureExprKind};
 
@@ -24,23 +24,11 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                     self.eval_feature_expr(ropd)?.as_primitive()?,
                 )?
                 .into()),
-            FeatureExprKind::FuncCall {
-                ref instruction_sheet,
-                compiled,
-                ref inputs,
-                ..
-            } => self.eval_routine_call(instruction_sheet, compiled, inputs),
-            FeatureExprKind::ProcCall {
-                ref instruction_sheet,
-                opt_compiled: compiled,
-                ref inputs,
-                ..
-            } => self.eval_routine_call(instruction_sheet, compiled, inputs),
-            FeatureExprKind::StructMembVarAccess {
+            FeatureExprKind::StructFieldAccess {
                 ref this,
                 field_idx,
                 contract,
-                opt_compiled,
+                opt_linkage: opt_compiled,
                 ..
             } => {
                 if let Some(compiled) = opt_compiled {
@@ -50,26 +38,12 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                     Ok(unsafe { this_value.lazy_field_var(field_idx, contract) })
                 }
             }
-            FeatureExprKind::MethodCall {
-                field_ident,
-                ref opds,
-                ref stmts,
-                ref instruction_sheet,
-                opt_compiled,
-            } => self.eval_field_routine_call(instruction_sheet, opt_compiled, opds),
-            FeatureExprKind::MembProcCall {
-                field_ident,
-                ref opds,
-                ref stmts,
-                ref instruction_sheet,
-                opt_compiled,
-            } => self.eval_field_routine_call(instruction_sheet, opt_compiled, opds),
-            FeatureExprKind::MembPattCall {
-                field_ident,
+            FeatureExprKind::RoutineCall {
                 ref opds,
                 ref instruction_sheet,
-                ref stmts,
-            } => todo!(),
+                opt_linkage: opt_compiled,
+                ..
+            } => self.eval_routine_call(instruction_sheet, opt_compiled, opds),
             FeatureExprKind::FeatureBlock { ref block, .. } => self.eval_feature_block(block),
             FeatureExprKind::NewRecord {
                 ty,
@@ -86,33 +60,21 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 .cache(expr.feature, |evaluator: &mut Self| {
                     evaluator.eval_feature_expr(&value)
                 }),
-            FeatureExprKind::RecordMembAccess {
+            FeatureExprKind::RecordFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
             } => self.eval_feature_repr(repr),
             FeatureExprKind::This { ref repr } => todo!(),
             FeatureExprKind::GlobalInput => Ok(EvalValue::GlobalPure(self.global_input.clone())),
+            FeatureExprKind::PatternCall {} => todo!(),
         }
-    }
-
-    fn eval_field_routine_call(
-        &mut self,
-        instrns: &InstructionSheet,
-        maybe_compiled: Option<RoutineLinkage>,
-        opds: &[Arc<FeatureExpr>],
-    ) -> EvalResult<'eval> {
-        let db = self.db;
-        let values = opds
-            .iter()
-            .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
-        eval_fast(db.upcast(), values, instrns, maybe_compiled)
     }
 
     fn eval_routine_call(
         &mut self,
         instrns: &InstructionSheet,
-        maybe_compiled: Option<RoutineLinkage>,
+        maybe_compiled: Option<Linkage>,
         inputs: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
         let db = self.db;

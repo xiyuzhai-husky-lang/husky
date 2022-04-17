@@ -1,6 +1,6 @@
 mod generic;
 
-use entity_syntax::RoutineKind;
+use entity_kind::RoutineKind;
 pub use generic::*;
 use std::sync::Arc;
 
@@ -18,7 +18,7 @@ pub struct RoutineDefnHead {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MethodDefnHead {
+pub struct TypeMethodDefnHead {
     pub ident: CustomIdentifier,
     pub routine_kind: RoutineKind,
     pub this_contract: InputContract,

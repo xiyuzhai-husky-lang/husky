@@ -5,36 +5,79 @@ use print_utils::p;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct MethodDefn {
-    pub ident: CustomIdentifier,
-    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
-    pub output: RangedEntityRoute,
-    pub this_contract: InputContract,
-    pub variant: MethodDefnVariant,
-}
-
-#[derive(Debug, PartialEq, Eq)]
 pub enum MethodDefnVariant {
     Func { stmts: Avec<FuncStmt> },
     Proc { stmts: Avec<ProcStmt> },
     Pattern { stmts: Avec<LazyStmt> },
 }
 
-impl HasKey<CustomIdentifier> for MethodDefn {
-    fn key(&self) -> CustomIdentifier {
-        self.ident
-    }
-}
-
-pub(crate) fn method_defn(db: &dyn EntityDefnQueryGroup, route: EntityRoutePtr) -> Arc<MethodDefn> {
-    let (parent, method_ident) = match route.kind {
-        EntityRouteKind::ChildScope { parent, ident } => (parent, ident),
-        _ => {
-            p!(route.kind);
-            panic!("")
+impl EntityDefnVariant {
+    pub(crate) fn collect_member_calls(
+        db: &dyn InferQueryGroup,
+        arena: &RawExprArena,
+        file: FilePtr,
+        ty_route: EntityRoutePtr,
+        children: &mut Peekable<AstIter>,
+        members: &mut IdentDict<Arc<EntityDefn>>,
+    ) -> SemanticResult<()> {
+        while let Some(child) = children.next() {
+            let ast = child.value.as_ref()?;
+            match ast.kind {
+                AstKind::TypeDefnHead {
+                    ident,
+                    kind,
+                    ref generic_placeholders,
+                } => todo!(),
+                AstKind::MainDefn => todo!(),
+                AstKind::RoutineDefnHead(_) => todo!(),
+                AstKind::PatternDefnHead => todo!(),
+                AstKind::FeatureDecl { ident, ty } => todo!(),
+                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
+                AstKind::TypeMethodDefnHead(ref head) => {
+                    let variant = match head.routine_kind {
+                        RoutineKind::Proc => todo!(),
+                        RoutineKind::Func => {
+                            let stmts = semantics_eager::parse_decl_stmts(
+                                &head.input_placeholders,
+                                db,
+                                arena,
+                                child.children.unwrap(),
+                                file,
+                            )?;
+                            MethodDefnVariant::Func { stmts }
+                        }
+                        RoutineKind::Test => todo!(),
+                    };
+                    members.insert_new(EntityDefn::new(
+                        head.ident.into(),
+                        EntityDefnVariant::TypeMethod {
+                            ident: head.ident,
+                            input_placeholders: head.input_placeholders.clone(),
+                            output: head.output,
+                            this_contract: head.this_contract,
+                            method_variant: variant,
+                        },
+                        db.intern_entity_route(EntityRoute {
+                            kind: EntityRouteKind::Child {
+                                parent: ty_route,
+                                ident: head.ident,
+                            },
+                            generic_arguments: vec![],
+                        }),
+                        file,
+                        ast.range,
+                    ))
+                }
+                AstKind::Use { ident, scope } => todo!(),
+                AstKind::FieldDefn(_) => todo!(),
+                AstKind::DatasetConfigDefnHead => todo!(),
+                AstKind::Stmt(_) => todo!(),
+                AstKind::EnumVariantDefnHead {
+                    ident,
+                    variant_class,
+                } => todo!(),
+            }
         }
-    };
-    let ty_defn = db.entity_defn(parent).unwrap();
-    let method = ty_defn.method(method_ident);
-    todo!()
+        Ok(())
+    }
 }

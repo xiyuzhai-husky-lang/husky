@@ -138,37 +138,33 @@ fn feature_expr_subtraces(
         FeatureExprKind::PrimitiveLiteral(_)
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
         | FeatureExprKind::Variable { .. } => vec![],
-        FeatureExprKind::FuncCall {
-            func_ranged_scope: ranged_scope,
-            ref inputs,
-            ref stmts,
+        FeatureExprKind::RoutineCall {
             ref instruction_sheet,
-            callee_file,
             ..
         } => {
             if let Some(input_id) = opt_input_id {
-                let mut subtraces = vec![];
-                let mut func_input_values = vec![];
-                let entity_defn = db
-                    .compile_time(db.version())
-                    .entity_defn(ranged_scope.route)
-                    .unwrap();
-                subtraces.push(
-                    db.trace_factory()
-                        .new_call_head(entity_defn.clone(), &db.text(callee_file).unwrap()),
-                );
-                for func_input in inputs {
-                    subtraces.push(db.new_trace(
-                        Some(parent.id()),
-                        expr.file,
-                        4,
-                        TraceKind::Input(func_input.clone()),
-                    ));
-                    match db.eval_feature_expr(func_input, input_id) {
-                        Ok(value) => func_input_values.push(value),
-                        Err(_) => return Arc::new(subtraces),
-                    }
-                }
+                // let mut subtraces = vec![];
+                // let mut func_input_values = vec![];
+                // let entity_defn = db
+                //     .compile_time(db.version())
+                //     .entity_defn(expr.expr.ranged_scope.route)
+                //     .unwrap();
+                // subtraces.push(
+                //     db.trace_factory()
+                //         .new_call_head(entity_defn.clone(), &db.text(callee_file).unwrap()),
+                // );
+                // for func_input in inputs {
+                //     subtraces.push(db.new_trace(
+                //         Some(parent.id()),
+                //         expr.expr.file,
+                //         4,
+                //         TraceKind::Input(func_input.clone()),
+                //     ));
+                //     match db.eval_feature_expr(func_input, input_id) {
+                //         Ok(value) => func_input_values.push(value),
+                //         Err(_) => return Arc::new(subtraces),
+                //     }
+                // }
                 todo!()
                 // let interpreter = TraceInterpreter::new(
                 //     func_input_values,
@@ -182,102 +178,84 @@ fn feature_expr_subtraces(
                 vec![]
             }
         }
-        FeatureExprKind::ProcCall {
-            proc_ranged_scope: ranged_scope,
-            ref inputs,
-            ref stmts,
-            ref instruction_sheet,
-            callee_file,
-            ..
-        } => {
-            if let Some(input_id) = opt_input_id {
-                let mut subtraces = vec![];
-                let mut func_input_values = vec![];
-                let entity_defn = db
-                    .compile_time(db.version())
-                    .entity_defn(ranged_scope.route)
-                    .unwrap();
-                subtraces.push(
-                    db.trace_factory()
-                        .new_call_head(entity_defn.clone(), &db.text(callee_file).unwrap()),
-                );
-                for func_input in inputs {
-                    subtraces.push(db.new_trace(
-                        Some(parent.id()),
-                        expr.file,
-                        4,
-                        TraceKind::Input(func_input.clone()),
-                    ));
-                    match db.eval_feature_expr(func_input, input_id) {
-                        Ok(value) => match value.into_stack() {
-                            Ok(value) => func_input_values.push(value),
-                            Err(_) => {
-                                todo!();
-                                return Arc::new(subtraces);
-                            }
-                        },
-                        Err(_) => {
-                            todo!();
-                            return Arc::new(subtraces);
-                        }
-                    }
-                }
-                let history = exec_debug(
-                    db.compile_time(parent.compile_time_version()),
-                    func_input_values,
-                    instruction_sheet,
-                );
-                subtraces.extend(db.trace_factory().impr_stmts_traces(
-                    parent.id(),
-                    4,
-                    stmts,
-                    &db.text(callee_file).unwrap(),
-                    &history,
-                ));
-                subtraces
-                // let interpreter = TraceInterpreter::new(
-                //     func_input_values,
-                //     instruction_sheet.clone(),
-                //     this.trace_allocator_arc(),
-                //     this.text(callee_file).unwrap(),
-                // );
-                // subtraces.extend(interpreter.impr_stmt_traces(parent, stmts, 4));
-                // subtraces
-            } else {
-                vec![]
-            }
-        }
-        FeatureExprKind::StructMembVarAccess { .. } => todo!(),
+        // FeatureExprKind::ProcCall {
+        //     proc_ranged_scope: ranged_scope,
+        //     ref inputs,
+        //     ref stmts,
+        //     ref instruction_sheet,
+        //     callee_file,
+        //     ..
+        // } => {
+        //     if let Some(input_id) = opt_input_id {
+        //         //     let mut subtraces = vec![];
+        //         //     let mut func_input_values = vec![];
+        //         //     let entity_defn = db
+        //         //         .compile_time(db.version())
+        //         //         .entity_defn(ranged_scope.route)
+        //         //         .unwrap();
+        //         //     subtraces.push(
+        //         //         db.trace_factory()
+        //         //             .new_call_head(entity_defn.clone(), &db.text(callee_file).unwrap()),
+        //         //     );
+        //         //     for func_input in inputs {
+        //         //         subtraces.push(db.new_trace(
+        //         //             Some(parent.id()),
+        //         //             expr.file,
+        //         //             4,
+        //         //             TraceKind::Input(func_input.clone()),
+        //         //         ));
+        //         //         match db.eval_feature_expr(func_input, input_id) {
+        //         //             Ok(value) => match value.into_stack() {
+        //         //                 Ok(value) => func_input_values.push(value),
+        //         //                 Err(_) => {
+        //         //                     todo!();
+        //         //                     return Arc::new(subtraces);
+        //         //                 }
+        //         //             },
+        //         //             Err(_) => {
+        //         //                 todo!();
+        //         //                 return Arc::new(subtraces);
+        //         //             }
+        //         //         }
+        //         //     }
+        //         //     let history = exec_debug(
+        //         //         db.compile_time(parent.compile_time_version()),
+        //         //         func_input_values,
+        //         //         instruction_sheet,
+        //         //     );
+        //         //     subtraces.extend(db.trace_factory().impr_stmts_traces(
+        //         //         parent.id(),
+        //         //         4,
+        //         //         stmts,
+        //         //         &db.text(callee_file).unwrap(),
+        //         //         &history,
+        //         //     ));
+        //         //     subtraces
+        //         todo!()
+        //         // let interpreter = TraceInterpreter::new(
+        //         //     func_input_values,
+        //         //     instruction_sheet.clone(),
+        //         //     this.trace_allocator_arc(),
+        //         //     this.text(callee_file).unwrap(),
+        //         // );
+        //         // subtraces.extend(interpreter.impr_stmt_traces(parent, stmts, 4));
+        //         // subtraces
+        //     } else {
+        //         vec![]
+        //     }
+        // }
+        FeatureExprKind::StructFieldAccess { .. } => todo!(),
         FeatureExprKind::EnumLiteral { .. } => todo!(),
-        FeatureExprKind::MethodCall {
-            field_ident,
-            ref opds,
-            ref instruction_sheet,
-            ref stmts,
-            ..
-        } => todo!(),
-        FeatureExprKind::MembProcCall {
-            field_ident,
-            ref opds,
-            ref instruction_sheet,
-            ref stmts,
-            ..
-        } => todo!(),
-        FeatureExprKind::MembPattCall {
-            field_ident,
-            ref opds,
-            ref instruction_sheet,
-            ref stmts,
-        } => todo!(),
         FeatureExprKind::FeatureBlock { .. } => todo!(),
         FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-        FeatureExprKind::RecordMembAccess {
+        FeatureExprKind::RecordFieldAccess {
             ref this,
             field_ident,
             ..
         } => todo!(),
         FeatureExprKind::This { ref repr } => todo!(),
         FeatureExprKind::GlobalInput => todo!(),
+        FeatureExprKind::PatternCall {} => todo!(),
     })
 }
 

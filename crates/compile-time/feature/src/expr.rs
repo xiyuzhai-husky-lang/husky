@@ -8,7 +8,7 @@ use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
-use vm::{EnumLiteralValue, InstructionSheet, LazyContract, MembAccessFp, RoutineLinkage};
+use vm::{EnumLiteralValue, InstructionSheet, LazyContract, Linkage};
 use word::{ContextualIdentifier, RootIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
@@ -18,10 +18,7 @@ pub struct FeatureExpr {
     pub kind: FeatureExprKind,
     pub(crate) feature: FeaturePtr,
     pub(crate) eval_id: FeatureEvalId,
-    pub range: TextRange,
-    pub file: FilePtr,
-    pub contract: LazyContract,
-    pub ty: EntityRoutePtr,
+    pub expr: Arc<LazyExpr>,
 }
 
 impl std::hash::Hash for FeatureExpr {
@@ -57,58 +54,25 @@ pub enum FeatureExprKind {
     This {
         repr: FeatureRepr,
     },
-    FuncCall {
-        func_ranged_scope: RangedEntityRoute,
-        inputs: Vec<Arc<FeatureExpr>>,
-        uid: EntityUid,
-        callee_file: FilePtr,
-        input_placeholders: Arc<Vec<InputPlaceholder>>,
-        compiled: Option<RoutineLinkage>,
-        instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<FuncStmt>>>,
-    },
-    ProcCall {
-        proc_ranged_scope: RangedEntityRoute,
-        inputs: Vec<Arc<FeatureExpr>>,
-        uid: EntityUid,
-        callee_file: FilePtr,
-        input_placeholders: Arc<Vec<InputPlaceholder>>,
-        opt_compiled: Option<RoutineLinkage>,
-        instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<ProcStmt>>>,
-    },
-    StructMembVarAccess {
+    StructFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
         field_idx: usize,
         contract: LazyContract,
-        opt_compiled: Option<MembAccessFp>,
+        opt_linkage: Option<Linkage>,
     },
-    RecordMembAccess {
+    RecordFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
-    MethodCall {
-        field_ident: CustomIdentifier,
+    RoutineCall {
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<RoutineLinkage>,
-        stmts: Arc<Vec<Arc<FuncStmt>>>,
+        opt_linkage: Option<Linkage>,
+        routine_defn: Arc<EntityDefn>,
     },
-    MembProcCall {
-        field_ident: RangedCustomIdentifier,
-        opds: Vec<Arc<FeatureExpr>>,
-        instruction_sheet: Arc<InstructionSheet>,
-        opt_compiled: Option<RoutineLinkage>,
-        stmts: Arc<Vec<Arc<ProcStmt>>>,
-    },
-    MembPattCall {
-        field_ident: RangedCustomIdentifier,
-        opds: Vec<Arc<FeatureExpr>>,
-        instruction_sheet: Arc<InstructionSheet>,
-        stmts: Arc<Vec<Arc<ProcStmt>>>,
-    },
+    PatternCall {},
     FeatureBlock {
         scope: EntityRoutePtr,
         block: Arc<FeatureBlock>,
@@ -125,7 +89,7 @@ impl FeatureExpr {
     pub fn new(
         db: &dyn FeatureQueryGroup,
         this: Option<FeatureRepr>,
-        expr: &LazyExpr,
+        expr: Arc<LazyExpr>,
         symbols: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
     ) -> Arc<Self> {
@@ -147,7 +111,7 @@ struct FeatureExprBuilder<'a> {
 }
 
 impl<'a> FeatureExprBuilder<'a> {
-    fn new_expr(&self, expr: &LazyExpr) -> Arc<FeatureExpr> {
+    fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureExpr> {
         let (kind, feature) = match expr.kind {
             LazyExprKind::Variable(varname) => self
                 .symbols
@@ -192,14 +156,14 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.this.as_ref().unwrap().feature(),
             ),
-            LazyExprKind::ScopedFeature { scope } => match scope.kind {
+            LazyExprKind::EntityFeature { route } => match route.kind {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
-                EntityRouteKind::ChildScope { .. } => {
-                    let uid = self.db.entity_uid(scope);
-                    let feature = self.features.alloc(Feature::ScopedFeature { scope, uid });
+                EntityRouteKind::Child { .. } => {
+                    let uid = self.db.entity_uid(route);
+                    let feature = self.features.alloc(Feature::EntityFeature { route, uid });
                     let kind = FeatureExprKind::FeatureBlock {
-                        scope,
-                        block: self.db.scoped_feature_block(scope).unwrap(),
+                        scope: route,
+                        block: self.db.scoped_feature_block(route).unwrap(),
                     };
                     (kind, feature)
                 }
@@ -210,16 +174,18 @@ impl<'a> FeatureExprBuilder<'a> {
                 }
                 EntityRouteKind::Generic { ident, .. } => todo!(),
                 EntityRouteKind::ThisType => todo!(),
+                EntityRouteKind::TraitMember {
+                    ty: parent,
+                    trai,
+                    ident,
+                } => todo!(),
             },
         };
         Arc::new(FeatureExpr {
             kind,
             feature,
             eval_id: Default::default(),
-            range: expr.range,
-            file: expr.file,
-            contract: expr.contract,
-            ty: expr.ty,
+            expr,
         })
     }
 }

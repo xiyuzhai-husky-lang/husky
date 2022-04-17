@@ -2,8 +2,8 @@ use vm::InputContract;
 
 use super::*;
 
-pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
-    TyDecl::from_static(db, &STATIC_VEC_DECL)
+pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TypeDecl> {
+    TypeDecl::from_static(db, &VEC_TYPE_DECL)
     // let element_ty_ident = db.custom_ident("T");
     // let element_ty = db.intern_scope(EntityRoute {
     //     kind: EntityRouteKind::Generic {

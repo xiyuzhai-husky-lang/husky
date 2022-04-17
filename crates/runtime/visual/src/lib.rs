@@ -48,3 +48,9 @@ impl From<&StaticVisualizer> for RuntimeVisualizer {
         RuntimeVisualizer::Compiled(builtin_visualizer.compiled)
     }
 }
+
+impl From<StaticVisualizer> for RuntimeVisualizer {
+    fn from(builtin_visualizer: StaticVisualizer) -> Self {
+        RuntimeVisualizer::Compiled(builtin_visualizer.compiled)
+    }
+}

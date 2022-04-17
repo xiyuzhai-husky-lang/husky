@@ -1,4 +1,4 @@
-use entity_syntax::TyKind;
+use entity_kind::TypeKind;
 use semantics_entity::EntityDefnVariant;
 use sync_utils::ARwLock;
 
@@ -23,8 +23,7 @@ pub(crate) fn expr_record_memb(
 ) -> FeatureRepr {
     match this.kind {
         FeatureExprKind::Variable { ref value, .. } => expr_record_memb(db, value, field_ident),
-        FeatureExprKind::RecordMembAccess { .. } => todo!(),
-        FeatureExprKind::MembPattCall { .. } => todo!(),
+        FeatureExprKind::RecordFieldAccess { .. } => todo!(),
         FeatureExprKind::FeatureBlock { ref block, .. } => {
             block_record_memb(db, block, field_ident)
         }
@@ -33,8 +32,14 @@ pub(crate) fn expr_record_memb(
             ref opds,
             ..
         } => match entity.kind() {
-            EntityDefnVariant::Ty(ty_defn) => match ty_defn.kind {
-                TyKind::Record => {
+            EntityDefnVariant::Type {
+                kind,
+                ref type_members,
+                ref variants,
+                ref trait_impls,
+                ref members,
+            } => match kind {
+                TypeKind::Record => {
                     todo!("make a difference between derived and original")
                     // if let Some(idx) = ty_defn.fields.position(field_ident) {
                     //     opds[idx].clone().into()
@@ -52,28 +57,26 @@ pub(crate) fn expr_record_memb(
                     // }
                 }
                 _ => panic!(),
-                TyKind::Enum => todo!(),
-                TyKind::Struct => todo!(),
-                TyKind::Primitive => todo!(),
-                TyKind::Vec => todo!(),
-                TyKind::Array => todo!(),
-                TyKind::Other => todo!(),
+                TypeKind::Enum => todo!(),
+                TypeKind::Struct => todo!(),
+                TypeKind::Primitive => todo!(),
+                TypeKind::Vec => todo!(),
+                TypeKind::Array => todo!(),
+                TypeKind::Other => todo!(),
             },
             _ => panic!(),
         },
-        FeatureExprKind::FuncCall { .. }
-        | FeatureExprKind::EnumLiteral { .. }
+        FeatureExprKind::EnumLiteral { .. }
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
-        | FeatureExprKind::ProcCall { .. }
-        | FeatureExprKind::MethodCall { .. }
-        | FeatureExprKind::MembProcCall { .. }
-        | FeatureExprKind::StructMembVarAccess { .. }
+        | FeatureExprKind::StructFieldAccess { .. }
         | FeatureExprKind::PrimitiveLiteral(_) => {
             p!(this.kind);
             panic!()
         }
         FeatureExprKind::This { ref repr } => db.record_field_repr(repr.clone(), field_ident),
         FeatureExprKind::GlobalInput => todo!(),
+        FeatureExprKind::RoutineCall { .. } => todo!(),
+        FeatureExprKind::PatternCall {} => todo!(),
     }
 }
 

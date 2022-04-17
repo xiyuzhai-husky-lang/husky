@@ -16,7 +16,7 @@ impl TraitImplDecl {
         db: &dyn DeclQueryGroup,
         static_trait_impl: &StaticTraitImplDecl,
         this_ty: EntityRoutePtr,
-        symbols: &LocalStack<Symbol>,
+        symbols: &[Symbol],
     ) -> Arc<Self> {
         let route = db
             .parse_entity(static_trait_impl.route, Some(this_ty), symbols)

@@ -4,7 +4,7 @@ mod load;
 mod test;
 mod val;
 
-use entity_syntax::TyKind;
+use entity_kind::TypeKind;
 use visual_syntax::StaticVisualizer;
 use xrng::permutation_from_seed;
 
@@ -16,34 +16,52 @@ use load::*;
 use test::*;
 use val::*;
 
-pub const MNIST_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+pub static MNIST_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
-        ("BinaryImage28", BINARY_IMAGE_28_SCOPE_DATA),
+        ("BinaryImage28", &BINARY_IMAGE_28_TYPE_DEFN),
     ],
     decl: StaticEntityDecl::Module,
 };
 
-const NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+static NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[],
-    decl: StaticEntityDecl::Func(StaticFuncDecl {
+    decl: StaticEntityDecl::Func(StaticCallDecl {
         generic_placeholders: &[],
         inputs: vec![],
         output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
-        compiled: RoutineLinkage {
+        linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
             nargs: 0,
         },
     }),
 };
 
-const BINARY_IMAGE_28_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+static BINARY_IMAGE_28_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
     subscopes: &[],
-    decl: StaticEntityDecl::Ty {
-        visualizer: StaticVisualizer {
-            compiled: BinaryImage28::visualize,
-        },
-        raw_ty_kind: TyKind::Other,
+    decl: StaticEntityDecl::Type(&BINARY_IMAGE28_TYPE_DECL),
+};
+
+static BINARY_IMAGE28_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
+    base_route: "datasets::cv::mnist::BinaryImage28",
+    generic_placeholders: &[],
+    trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
+    type_members: &[],
+    variants: &[],
+    kind: TypeKind::Array,
+    visualizer: StaticVisualizer {
+        compiled: BinaryImage28::visualize,
+    },
+    opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DECL),
+};
+
+static BINARY_IMAGE28_TYPE_CALL_DECL: StaticCallDecl = StaticCallDecl {
+    generic_placeholders: &[],
+    inputs: vec![],
+    output: "datasets::cv::mnist::BinaryImage28",
+    linkage: Linkage {
+        call: |_values| Ok(StackValue::Boxed(BoxedValue::new(BinaryImage28::default()))),
+        nargs: 0,
     },
 };
 
