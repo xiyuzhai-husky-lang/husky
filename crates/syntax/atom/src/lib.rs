@@ -12,8 +12,8 @@ pub use parser::*;
 pub use symbol_proxy::SymbolProxy;
 pub use syntax_types::*;
 
+use entity_kind::*;
 use entity_route::EntityRoutePtr;
-use entity_syntax::*;
 use text::TextRange;
 use text::TextRanged;
 use token::{Token, TokenKind};

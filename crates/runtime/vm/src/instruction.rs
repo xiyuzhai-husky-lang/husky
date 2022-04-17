@@ -51,15 +51,15 @@ pub enum InstructionKind {
         contract: EagerContract,
     },
     PushPrimitiveLiteral(PrimitiveValue),
-    MembAccessCompiled {
-        field_access_fp: MembAccessFp,
+    FieldAccessCompiled {
+        linkage: Linkage,
     },
-    MembAccessInterpreted {
+    FieldAccessInterpreted {
         field_idx: u8,
         contract: EagerContract,
     },
     RoutineCallCompiled {
-        fp: RoutineLinkage,
+        linkage: Linkage,
     },
     RoutineCallInterpreted {
         routine: EntityUid,

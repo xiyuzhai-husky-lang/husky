@@ -16,9 +16,9 @@ pub use ty::*;
 
 use ast::*;
 use defn_head::*;
+use entity_kind::TypeKind;
 use entity_route::*;
 use entity_route_query::*;
-use entity_syntax::TyKind;
 use feature::*;
 use file::FilePtr;
 use fold::FoldStorage;
@@ -32,11 +32,11 @@ use word::CustomIdentifier;
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
     fn call_decl(&self, scope: EntityRoutePtr) -> InferResultArc<CallDecl>;
-    fn ty_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TyDecl>;
+    fn type_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TypeDecl>;
     fn trait_decl(&self, scope: EntityRoutePtr) -> InferResultArc<TraitDecl>;
     fn feature_decl(&self, scope: EntityRoutePtr) -> InferResultArc<FeatureSignature>;
     fn global_input_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
     fn global_output_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
-    fn vec_decl(&self) -> Arc<TyDecl>;
+    fn vec_decl(&self) -> Arc<TypeDecl>;
     fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
 }

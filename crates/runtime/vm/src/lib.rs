@@ -3,11 +3,11 @@ mod control;
 mod entity;
 mod enum_literal;
 mod error;
-mod fp;
 mod frame;
 mod history;
 mod instruction;
 mod interpreter;
+mod linkage;
 mod loop_kind;
 mod mode;
 mod signature;
@@ -20,11 +20,11 @@ pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
-pub use fp::{ElemAccessFp, MembAccessFp, RoutineLinkage};
 pub use frame::{FrameKind, LoopFrameSnapshot};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
+pub use linkage::Linkage;
 pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
 pub use mode::Mode;
 pub use signature::*;
@@ -39,7 +39,7 @@ pub fn eval_fast<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
     iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
     sheet: &InstructionSheet,
-    maybe_code: Option<RoutineLinkage>,
+    maybe_code: Option<Linkage>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, iter)?;
     if let Some(code) = maybe_code {

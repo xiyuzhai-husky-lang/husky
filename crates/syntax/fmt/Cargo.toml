@@ -20,5 +20,5 @@ entity-route-query = { path = "../entity-route-query", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
 ast = { path = "../ast", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
-entity-syntax = { path = "../entity", version = "0.0.0" }
+entity-kind = { path = "../entity-kind", version = "0.0.0" }
 defn-head = { path = "../defn-head", version = "0.0.0" }

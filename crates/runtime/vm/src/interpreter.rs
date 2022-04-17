@@ -64,7 +64,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     //     Ok(self.stack.pop())
     // }
 
-    fn call_compiled(&mut self, f: RoutineLinkage) -> VMResult<()> {
+    fn call_compiled(&mut self, f: Linkage) -> VMResult<()> {
         let result = (f.call)(self.stack.topk_mut(f.nargs))?;
         self.stack.push(result.into());
         Ok(())

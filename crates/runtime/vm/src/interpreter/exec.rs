@@ -32,7 +32,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.push(value.into());
                     VMControl::None
                 }
-                InstructionKind::RoutineCallCompiled { fp } => {
+                InstructionKind::RoutineCallCompiled { linkage: fp } => {
                     let control = self.call_compiled(fp).into();
                     match mode {
                         Mode::Fast => (),
@@ -90,8 +90,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.pop();
                     control
                 }
-                InstructionKind::MembAccessCompiled { field_access_fp } => todo!(),
-                InstructionKind::MembAccessInterpreted {
+                InstructionKind::FieldAccessCompiled {
+                    linkage: field_access_fp,
+                } => todo!(),
+                InstructionKind::FieldAccessInterpreted {
                     field_idx,
                     contract,
                 } => {
@@ -109,7 +111,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn exec_code(&mut self, code: RoutineLinkage) -> EvalResult<'eval> {
+    pub(crate) fn exec_code(&mut self, code: Linkage) -> EvalResult<'eval> {
         todo!()
     }
 

@@ -1,4 +1,4 @@
-use entity_syntax::RoutineKind;
+use entity_kind::RoutineKind;
 use file::FilePtr;
 
 use crate::*;

@@ -1,6 +1,6 @@
+use entity_kind::TypeKind;
 use entity_route::{EntityRouteKind, *};
 use entity_route_query::EntityRouteQueryGroup;
-use entity_syntax::TyKind;
 use file::FilePtr;
 use text::{Row, TextRange};
 use word::{ContextualIdentifier, CustomIdentifier, RootIdentifier};
@@ -55,17 +55,17 @@ impl<'a> SymbolProxy<'a> {
                 | RootIdentifier::F32
                 | RootIdentifier::B32
                 | RootIdentifier::B64
-                | RootIdentifier::Bool => TyKind::Primitive,
+                | RootIdentifier::Bool => TypeKind::Primitive,
                 RootIdentifier::True => todo!(),
                 RootIdentifier::False => todo!(),
                 RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => TyKind::Other,
+                RootIdentifier::Tuple => TypeKind::Other,
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Std => todo!(),
                 RootIdentifier::Core => todo!(),
-                RootIdentifier::Fp => TyKind::Other,
-                RootIdentifier::Fn => TyKind::Other,
-                RootIdentifier::FnMut => TyKind::Other,
+                RootIdentifier::Fp => TypeKind::Other,
+                RootIdentifier::Fn => TypeKind::Other,
+                RootIdentifier::FnMut => TypeKind::Other,
                 RootIdentifier::FnOnce => todo!(),
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::DatasetType => todo!(),

@@ -1,9 +1,9 @@
 use crate::*;
 
-use entity_syntax::TyKind;
-use infer_decl::TyDecl;
+use entity_kind::TypeKind;
+use infer_decl::TypeDecl;
 use syntax_types::SuffixOpr;
-use vm::{BinaryOpr, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
+use vm::{BinaryOpr, EntityUid, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
@@ -74,10 +74,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                             if let Some(field_access_fp) =
                                 self.field_access_fp(*this_ty, ranged_ident.ident)
                             {
-                                InstructionKind::MembAccessCompiled { field_access_fp }
+                                InstructionKind::FieldAccessCompiled {
+                                    linkage: field_access_fp,
+                                }
                             } else {
-                                let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
-                                InstructionKind::MembAccessInterpreted {
+                                let this_ty_decl = self.db.type_decl(*this_ty).unwrap();
+                                InstructionKind::FieldAccessInterpreted {
                                     field_idx: this_ty_decl
                                         .field_idx(ranged_ident.ident)
                                         .try_into()
@@ -95,7 +97,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnKind::RoutineCall(routine) => {
                 if let Some(fp) = self.routine_fp(routine.route) {
                     self.push_instruction(Instruction::new(
-                        InstructionKind::RoutineCallCompiled { fp },
+                        InstructionKind::RoutineCallCompiled { linkage: fp },
                         expr.clone(),
                     ))
                 } else {
@@ -109,14 +111,20 @@ impl<'a> InstructionSheetBuilder<'a> {
                 }
             }
             EagerOpnKind::PatternCall => todo!(),
-            EagerOpnKind::MembVarAccess { field_var_contract } => {
+            EagerOpnKind::FieldAccess { field_contract } => {
                 todo!()
             }
-            EagerOpnKind::MembRoutineCall {
-                field_ident,
+            EagerOpnKind::MethodCall {
+                method_ident,
                 ref this_ty_decl,
+                method_route,
             } => self.push_instruction(Instruction::new(
-                self.method_call_instruction_kind(opds[0].ty, this_ty_decl, field_ident.ident),
+                self.method_call_instruction_kind(
+                    opds[0].ty,
+                    this_ty_decl,
+                    self.db.entity_uid(*method_route),
+                    method_ident.ident,
+                ),
                 expr.clone(),
             )),
             EagerOpnKind::ElementAccess => todo!(),
@@ -126,7 +134,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => {
                 msg_once!("TypeCall compiled");
                 match ty_decl.kind {
-                    TyKind::Struct => {
+                    TypeKind::Struct => {
                         if let Some(compiled_routine) = self
                             .db
                             .linkage_table()
@@ -142,11 +150,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                             ));
                         }
                     }
-                    TyKind::Enum => todo!(),
-                    TyKind::Record => todo!(),
-                    TyKind::Vec => self.push_instruction(Instruction::new(
+                    TypeKind::Enum => todo!(),
+                    TypeKind::Record => todo!(),
+                    TypeKind::Vec => self.push_instruction(Instruction::new(
                         InstructionKind::RoutineCallCompiled {
-                            fp: self.db.linkage_table().vec_constructor(
+                            linkage: self.db.linkage_table().vec_constructor(
                                 self.db
                                     .entity_uid(ranged_ty.route.generic_arguments[0].as_scope()),
                             ),
@@ -162,19 +170,20 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn method_call_instruction_kind(
         &self,
         this_ty: EntityRoutePtr,
-        this_ty_decl: &TyDecl,
+        this_ty_decl: &TypeDecl,
+        method_uid: EntityUid,
         method_ident: CustomIdentifier,
     ) -> InstructionKind {
-        if let Some(routine_fp) = self.field_routine_fp(this_ty, method_ident) {
+        if let Some(routine_fp) = self.db.linkage_table().routine(method_uid) {
             todo!()
         } else {
             match this_ty_decl.kind {
-                TyKind::Struct => todo!(),
-                TyKind::Enum => todo!(),
-                TyKind::Record => todo!(),
-                TyKind::Vec => {
-                    let fp = self.db.virtual_vec_method_linkages()[method_ident].1;
-                    InstructionKind::RoutineCallCompiled { fp }
+                TypeKind::Struct => todo!(),
+                TypeKind::Enum => todo!(),
+                TypeKind::Record => todo!(),
+                TypeKind::Vec => {
+                    let linkage = self.db.virtual_vec_method_linkages()[method_ident].1;
+                    InstructionKind::RoutineCallCompiled { linkage }
                 }
                 _ => todo!(),
             }

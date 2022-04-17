@@ -48,10 +48,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                     panic!("what")
                 }
                 EntityKind::Pattern => todo!(),
+                EntityKind::TypeMember => todo!(),
             },
             RawExprVariant::PrimitiveLiteral(value) => EagerExprKind::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds)?,
+            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => EagerExprKind::This,
         };
@@ -65,7 +66,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
         }))
     }
 
-    fn parse_opn(&mut self, opr: Opr, opds: &RawExprRange) -> SemanticResult<EagerExprKind> {
+    fn parse_opn(
+        &mut self,
+        opr: Opr,
+        opds: &RawExprRange,
+        raw_expr_idx: RawExprIdx,
+    ) -> SemanticResult<EagerExprKind> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
             Opr::Prefix(_) => todo!(),
@@ -74,7 +80,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_call(opds.clone()),
+                ListOpr::Call => self.parse_call(opds.clone(), raw_expr_idx),
                 ListOpr::Index => todo!(),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
@@ -109,7 +115,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
         })
     }
 
-    fn parse_call(&mut self, opd_idx_range: RawExprRange) -> SemanticResult<EagerExprKind> {
+    fn parse_call(
+        &mut self,
+        opd_idx_range: RawExprRange,
+        raw_expr_idx: RawExprIdx,
+    ) -> SemanticResult<EagerExprKind> {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.kind {
@@ -149,7 +159,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                             route: scope,
                             range: call.range(),
                         },
-                        ty_decl: try_infer!(self.decl_db().ty_decl(scope)),
+                        ty_decl: try_infer!(self.decl_db().type_decl(scope)),
                     },
                     opds: arguments,
                 })
@@ -174,14 +184,18 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))
                             .collect::<SemanticResult<Vec<_>>>()?;
-                        let this_ty_decl = self.decl_db().ty_decl(this.ty).unwrap();
+                        let this_ty_decl = self.decl_db().type_decl(this.ty).unwrap();
                         let mut opds = vec![this];
                         opds.extend(inputs);
                         msg_once!("todo: memb call compiled");
                         Ok(EagerExprKind::Opn {
-                            opn_kind: EagerOpnKind::MembRoutineCall {
-                                field_ident,
+                            opn_kind: EagerOpnKind::MethodCall {
+                                method_ident: field_ident,
                                 this_ty_decl,
+                                method_route: self
+                                    .entity_route_sheet()
+                                    .call_route_result(raw_expr_idx)
+                                    .unwrap(),
                             },
                             opds,
                         })

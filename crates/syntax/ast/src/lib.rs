@@ -16,8 +16,8 @@ use atom::*;
 use check_utils::*;
 use defn_head::*;
 use dev_utils::*;
+use entity_kind::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use entity_syntax::*;
 use error::*;
 use print_utils::*;
 use text::TextRange;
@@ -34,7 +34,7 @@ pub struct Ast {
 pub enum AstKind {
     TypeDefnHead {
         ident: CustomIdentifier,
-        kind: TyKind,
+        kind: TypeKind,
         generic_placeholders: IdentDict<GenericPlaceholder>,
     },
     MainDefn,
@@ -48,7 +48,7 @@ pub enum AstKind {
         ident: CustomIdentifier,
         ty: EntityRoutePtr,
     },
-    MethodDefnHead(MethodDefnHead),
+    TypeMethodDefnHead(TypeMethodDefnHead),
     Use {
         ident: CustomIdentifier,
         scope: EntityRoutePtr,

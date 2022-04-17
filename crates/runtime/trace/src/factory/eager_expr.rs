@@ -85,8 +85,8 @@ impl<'eval> TraceFactory<'eval> {
                     EagerOpnKind::Suffix { .. } => todo!(),
                     EagerOpnKind::RoutineCall(_) => todo!(),
                     EagerOpnKind::PatternCall => todo!(),
-                    EagerOpnKind::MembVarAccess { .. } => todo!(),
-                    EagerOpnKind::MembRoutineCall { .. } => todo!(),
+                    EagerOpnKind::FieldAccess { .. } => todo!(),
+                    EagerOpnKind::MethodCall { .. } => todo!(),
                     EagerOpnKind::ElementAccess => todo!(),
                     EagerOpnKind::TypeCall { .. } => todo!(),
                 }

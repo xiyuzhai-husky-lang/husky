@@ -45,10 +45,15 @@ impl<'a> AstTransformer<'a> {
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.kind {
                 EntityRouteKind::Package { main, ident } => AstContext::Package(main),
-                EntityRouteKind::ChildScope { .. } => AstContext::Module(module),
+                EntityRouteKind::Child { .. } => AstContext::Module(module),
                 EntityRouteKind::Root { .. } | EntityRouteKind::Input { .. } => panic!(),
                 EntityRouteKind::Generic { ident, .. } => todo!(),
                 EntityRouteKind::ThisType => todo!(),
+                EntityRouteKind::TraitMember {
+                    ty: parent,
+                    trai,
+                    ident,
+                } => todo!(),
             }),
             this: LocalValue::new(None),
         };
@@ -63,12 +68,17 @@ impl<'a> AstTransformer<'a> {
                     EntityRouteKind::Root { .. }
                     | EntityRouteKind::Package { .. }
                     | EntityRouteKind::Input { .. } => panic!(),
-                    EntityRouteKind::ChildScope { ident, .. } => symbols.push(Symbol {
+                    EntityRouteKind::Child { ident, .. } => symbols.push(Symbol {
                         ident,
                         kind: SymbolKind::EntityRoute(*route),
                     }),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
                     EntityRouteKind::ThisType => todo!(),
+                    EntityRouteKind::TraitMember {
+                        ty: parent,
+                        trai,
+                        ident,
+                    } => todo!(),
                 }
             }
             symbols

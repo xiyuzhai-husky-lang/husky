@@ -36,6 +36,8 @@ where
     phantom: PhantomData<K>,
 }
 
+pub type VecPairDict<K, V> = VecDict<K, (K, V)>;
+
 pub struct Repeat {
     pub i: usize,
     pub j: usize,

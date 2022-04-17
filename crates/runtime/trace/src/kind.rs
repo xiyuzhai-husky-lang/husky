@@ -39,7 +39,7 @@ impl<'eval> TraceKind<'eval> {
         match self {
             TraceKind::Main(ref block) => (block.file, block.range),
             TraceKind::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
-            TraceKind::FeatureExpr(ref expr) => (expr.file, expr.range),
+            TraceKind::FeatureExpr(ref expr) => (expr.expr.file, expr.expr.range),
             TraceKind::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
             TraceKind::Input(_) => todo!(),
             TraceKind::StrictDeclStmt { ref stmt, .. } => (stmt.file, stmt.range),

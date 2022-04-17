@@ -42,47 +42,22 @@ impl<'eval> TraceFactory<'eval> {
                 tokens
             }
             FeatureExprKind::Variable { varname, .. } => vec![ident!(varname.0, associated_trace)],
-            FeatureExprKind::FuncCall {
-                func_ranged_scope: ranged_scope,
-                ref inputs,
-                ..
-            } => self.routine_call_tokens(ranged_scope, inputs, associated_trace, text, &config),
-            FeatureExprKind::ProcCall {
-                proc_ranged_scope: ranged_scope,
-                ref inputs,
-                ..
-            } => self.routine_call_tokens(ranged_scope, inputs, associated_trace, text, &config),
-            FeatureExprKind::StructMembVarAccess { .. } => todo!(),
+            FeatureExprKind::RoutineCall { .. } => {
+                todo!()
+                // self.routine_call_tokens(ranged_scope, inputs, associated_trace, text, &config)
+            }
+            FeatureExprKind::StructFieldAccess { .. } => todo!(),
             FeatureExprKind::EnumLiteral { .. } => todo!(),
-            FeatureExprKind::MethodCall {
-                field_ident,
-                ref opds,
-                ref instruction_sheet,
-                ref stmts,
-                ..
-            } => todo!(),
-            FeatureExprKind::MembProcCall {
-                field_ident,
-                ref opds,
-                ref instruction_sheet,
-                ref stmts,
-                ..
-            } => todo!(),
-            FeatureExprKind::MembPattCall {
-                field_ident,
-                ref opds,
-                ref instruction_sheet,
-                ref stmts,
-            } => todo!(),
             FeatureExprKind::FeatureBlock { .. } => todo!(),
             FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprKind::RecordMembAccess {
+            FeatureExprKind::RecordFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => todo!(),
             FeatureExprKind::This { ref repr } => todo!(),
             FeatureExprKind::GlobalInput => vec![keyword!("input")],
+            FeatureExprKind::PatternCall {} => todo!(),
         };
     }
 

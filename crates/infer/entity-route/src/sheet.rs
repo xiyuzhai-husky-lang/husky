@@ -6,6 +6,7 @@ use std::{collections::HashMap, sync::Arc};
 use ast::{AstText, RawExpr};
 use builder::TySheetBuilder;
 use fold::FoldStorage;
+use infer_decl::MemberIdx;
 use text::Row;
 use word::CustomIdentifier;
 
@@ -26,6 +27,7 @@ pub struct EntityRouteSheet {
     pub ast_text: Arc<AstText>,
     pub(crate) expr_tys: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
     pub(crate) call_routes: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
+    pub(crate) member_indices: HashMap<RawExprIdx, InferResult<MemberIdx>>,
     pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), Option<EntityRoutePtr>>,
 }
 
@@ -35,6 +37,7 @@ impl EntityRouteSheet {
             expr_tys: Default::default(),
             variable_tys: Default::default(),
             call_routes: Default::default(),
+            member_indices: Default::default(),
             ast_text,
         }
     }
@@ -49,6 +52,13 @@ impl EntityRouteSheet {
     pub fn call_route_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         match &self.call_routes[&expr_idx] {
             Ok(call_route) => Ok(*call_route),
+            Err(e) => Err(e.derived()),
+        }
+    }
+
+    pub fn member_idx_result(&self, expr_idx: RawExprIdx) -> InferResult<MemberIdx> {
+        match &self.member_indices[&expr_idx] {
+            Ok(member_idx) => Ok(*member_idx),
             Err(e) => Err(e.derived()),
         }
     }

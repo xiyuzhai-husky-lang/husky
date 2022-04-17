@@ -2,33 +2,34 @@ use std::collections::HashMap;
 
 use check_utils::*;
 use sync_utils::ARwLock;
-use vm::{BoxedValue, ElemAccessFp, EvalValue, RoutineLinkage, StackValue, VMResult};
-use vm::{EntityUid, MembAccessFp};
+use vm::EntityUid;
+use vm::{BoxedValue, EvalValue, Linkage, StackValue, VMResult};
 use word::CustomIdentifier;
 
-pub trait HasFpTable {
-    fn linkage_table(&self) -> &FpTable;
+pub trait SearchLinkage {
+    fn linkage_table(&self) -> &LinkageTable;
 }
 
 #[derive(Debug, Default, Clone)]
-pub struct FpTable {
-    routine_fps: ARwLock<HashMap<RoutineKey, RoutineLinkage>>,
-    field_access_fps: ARwLock<HashMap<MembAccessKey, MembAccessFp>>,
-    elem_access_fps: ARwLock<HashMap<EntityUid, ElemAccessFp>>,
+pub struct LinkageTable {
+    linkages: ARwLock<HashMap<LinkageKey, Linkage>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum RoutineKey {
+pub enum LinkageKey {
     VecConstructor {
         element_ty_uid: EntityUid,
     },
     StructConstructor {
         ty_uid: EntityUid,
     },
-    EntityRoutine {
+    Routine {
         routine_uid: EntityUid,
     },
-    MembRoutine {
+    ElemAccess {
+        this_ty_uid: EntityUid,
+    },
+    StructFieldAccess {
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
     },
@@ -40,62 +41,45 @@ pub struct MembAccessKey {
     field_ident: CustomIdentifier,
 }
 
-impl FpTable {
-    pub fn vec_constructor(&self, element_ty_uid: EntityUid) -> RoutineLinkage {
-        let routine_key = RoutineKey::VecConstructor { element_ty_uid };
-        if let Some(compiled_routine) = self.routine_fp(routine_key) {
+impl LinkageTable {
+    pub fn vec_constructor(&self, element_ty_uid: EntityUid) -> Linkage {
+        let routine_key = LinkageKey::VecConstructor { element_ty_uid };
+        if let Some(compiled_routine) = self.linkage(routine_key) {
             compiled_routine
         } else {
-            RoutineLinkage {
+            Linkage {
                 call: construct_virtual_vec,
                 nargs: 0,
             }
         }
     }
 
-    pub fn struct_constructor(&self, ty_uid: EntityUid) -> Option<RoutineLinkage> {
-        self.routine_fp(RoutineKey::StructConstructor { ty_uid })
+    pub fn struct_constructor(&self, ty_uid: EntityUid) -> Option<Linkage> {
+        self.linkage(LinkageKey::StructConstructor { ty_uid })
     }
 
-    pub fn entity_routine(&self, routine_uid: EntityUid) -> Option<RoutineLinkage> {
-        self.routine_fp(RoutineKey::EntityRoutine { routine_uid })
+    pub fn routine(&self, routine_uid: EntityUid) -> Option<Linkage> {
+        self.linkage(LinkageKey::Routine { routine_uid })
     }
 
-    pub fn field_access(
+    pub fn struct_field_access(
         &self,
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
-    ) -> Option<MembAccessFp> {
-        self.field_access_fp(MembAccessKey {
+    ) -> Option<Linkage> {
+        self.linkage(LinkageKey::StructFieldAccess {
             this_ty_uid,
             field_ident,
         })
     }
 
-    pub fn field_routine(
-        &self,
-        this_ty_uid: EntityUid,
-        field_ident: CustomIdentifier,
-    ) -> Option<RoutineLinkage> {
-        self.routine_fp(RoutineKey::MembRoutine {
-            this_ty_uid,
-            field_ident,
-        })
-    }
-
-    fn routine_fp(&self, key: RoutineKey) -> Option<RoutineLinkage> {
-        self.routine_fps
+    fn linkage(&self, key: LinkageKey) -> Option<Linkage> {
+        self.linkages
             .read(|entries| entries.get(&key).map(|compiled_routine| *compiled_routine))
     }
 
-    fn field_access_fp(&self, key: MembAccessKey) -> Option<MembAccessFp> {
-        self.field_access_fps
-            .read(|entries| entries.get(&key).map(|compiled_routine| *compiled_routine))
-    }
-
-    fn elem_access_fp(&self, key: EntityUid) -> Option<ElemAccessFp> {
-        self.elem_access_fps
-            .read(|entries| entries.get(&key).map(|compiled_routine| *compiled_routine))
+    fn elem_access_fp(&self, this_ty_uid: EntityUid) -> Option<Linkage> {
+        self.linkage(LinkageKey::ElemAccess { this_ty_uid })
     }
 }
 

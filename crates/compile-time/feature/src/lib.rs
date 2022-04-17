@@ -69,8 +69,8 @@ pub enum Feature {
         method_ident: CustomIdentifier,
         opds: Vec<FeaturePtr>,
     },
-    ScopedFeature {
-        scope: EntityRoutePtr,
+    EntityFeature {
+        route: EntityRoutePtr,
         uid: EntityUid,
     },
     ClassCall {

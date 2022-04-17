@@ -26,4 +26,4 @@ compile-time-dir = { path = "../../compile-time/dir", version = "0.0.0" }
 infer-decl = { path = "../../infer/decl", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 static-decl = { path = "../../syntax/static-decl", version = "0.0.0" }
-entity-syntax = { path = "../../syntax/entity", version = "0.0.0" }
+entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }

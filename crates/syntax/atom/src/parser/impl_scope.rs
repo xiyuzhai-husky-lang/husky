@@ -1,4 +1,4 @@
-use entity_syntax::TyKind;
+use entity_kind::TypeKind;
 
 use super::symbol_proxy::SymbolKind;
 
@@ -13,7 +13,7 @@ impl<'a> AtomLRParser<'a> {
             if token.kind == Special::LBox.into() {
                 Some(AtomKind::EntityRoute {
                     route: self.symbolic_ty()?,
-                    kind: EntityKind::Type(TyKind::Vec),
+                    kind: EntityKind::Type(TypeKind::Vec),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind = self.scope_proxy.resolve_symbol_kind(ident, token.range)?;
@@ -131,6 +131,7 @@ impl<'a> AtomLRParser<'a> {
                 | EntityKind::Trait
                 | EntityKind::Routine
                 | EntityKind::Pattern => self.angled_generics(),
+                EntityKind::TypeMember => todo!(),
             },
         }
     }

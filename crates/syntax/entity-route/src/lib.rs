@@ -6,9 +6,10 @@ pub use alias::ScopeAliasTable;
 pub use alloc::{
     new_scope_unique_allocator, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
 };
-pub use entity_syntax::EntityKind;
+pub use entity_kind::EntityKind;
 use file::FilePtr;
 use static_decl::{StaticEntityDecl, CLONE_TRAIT_DECL};
+use static_defn::StaticEntityDefn;
 use text::{TextRange, TextRanged};
 use word::{CustomIdentifier, Identifier, RootIdentifier};
 
@@ -35,7 +36,7 @@ impl std::fmt::Debug for EntityRoute {
         match self.kind {
             EntityRouteKind::Root { ident } => f.write_str(&ident)?,
             EntityRouteKind::Package { .. } => f.write_str("package")?,
-            EntityRouteKind::ChildScope { parent, ident } => {
+            EntityRouteKind::Child { parent, ident } => {
                 parent.fmt(f)?;
                 f.write_str("::")?;
                 f.write_str(&ident)?
@@ -43,6 +44,11 @@ impl std::fmt::Debug for EntityRoute {
             EntityRouteKind::Input { .. } => f.write_str("input")?,
             EntityRouteKind::Generic { ident, .. } => f.write_str(&ident)?,
             EntityRouteKind::ThisType => todo!(),
+            EntityRouteKind::TraitMember {
+                ty: parent,
+                trai,
+                ident,
+            } => todo!(),
         };
         if self.generic_arguments.len() > 0 {
             f.write_str("<")?;
@@ -109,8 +115,13 @@ pub enum EntityRouteKind {
         main: FilePtr,
         ident: CustomIdentifier,
     },
-    ChildScope {
+    Child {
         parent: EntityRoutePtr,
+        ident: CustomIdentifier,
+    },
+    TraitMember {
+        ty: EntityRoutePtr,
+        trai: EntityRoutePtr,
         ident: CustomIdentifier,
     },
     Input {
@@ -122,17 +133,6 @@ pub enum EntityRouteKind {
     },
     ThisType,
 }
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct StaticEntityDefn {
-    pub subscopes: &'static [(&'static str, &'static StaticEntityDefn)],
-    pub decl: StaticEntityDecl,
-}
-
-pub static CLONE_TRAIT_ENTITY_DATA: StaticEntityDefn = StaticEntityDefn {
-    subscopes: &[],
-    decl: StaticEntityDecl::Trait(&CLONE_TRAIT_DECL),
-};
 
 impl EntityRoute {
     pub fn pack(main: FilePtr, ident: CustomIdentifier) -> Self {
@@ -146,10 +146,11 @@ impl EntityRoute {
         match self.kind {
             EntityRouteKind::Root { ident } => ident.into(),
             EntityRouteKind::Package { ident, .. } => ident.into(),
-            EntityRouteKind::ChildScope { ident, .. } => ident.into(),
+            EntityRouteKind::Child { ident, .. } => ident.into(),
             EntityRouteKind::Input { .. } => todo!(),
             EntityRouteKind::Generic { ident, .. } => ident.into(),
             EntityRouteKind::ThisType => todo!(),
+            EntityRouteKind::TraitMember { ident, .. } => ident.into(),
         }
     }
 
@@ -159,7 +160,7 @@ impl EntityRoute {
         generics: Vec<GenericArgument>,
     ) -> EntityRoute {
         EntityRoute {
-            kind: EntityRouteKind::ChildScope { parent, ident },
+            kind: EntityRouteKind::Child { parent, ident },
             generic_arguments: generics,
         }
     }
@@ -201,10 +202,27 @@ impl EntityRoute {
         match self.kind {
             EntityRouteKind::Root { .. } => true,
             EntityRouteKind::Package { .. } => false,
-            EntityRouteKind::ChildScope { parent, .. } => parent.is_builtin(),
+            EntityRouteKind::Child { parent, .. } => parent.is_builtin(),
             EntityRouteKind::Input { .. } => false,
             EntityRouteKind::Generic { .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
+            EntityRouteKind::TraitMember {
+                ty: parent,
+                trai,
+                ident,
+            } => todo!(),
+        }
+    }
+
+    pub fn parent(&self) -> EntityRoutePtr {
+        match self.kind {
+            EntityRouteKind::Root { .. }
+            | EntityRouteKind::Input { .. }
+            | EntityRouteKind::Package { .. }
+            | EntityRouteKind::Generic { .. }
+            | EntityRouteKind::ThisType => panic!(),
+            EntityRouteKind::Child { parent, .. } => parent,
+            EntityRouteKind::TraitMember { ty: parent, .. } => parent,
         }
     }
 }
@@ -217,7 +235,8 @@ impl From<RootIdentifier> for EntityRoute {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntitySource {
-    Static(&'static StaticEntityDefn),
+    StaticModuleItem(&'static StaticEntityDefn),
+    StaticTypeMember,
     WithinBuiltinModule,
     WithinModule {
         file: FilePtr,
@@ -242,6 +261,6 @@ impl EntitySource {
 
 impl From<&'static StaticEntityDefn> for EntitySource {
     fn from(data: &'static StaticEntityDefn) -> Self {
-        Self::Static(data)
+        Self::StaticModuleItem(data)
     }
 }

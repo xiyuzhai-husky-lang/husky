@@ -23,6 +23,15 @@ pub enum MemberDecl {
     },
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct MemberIdx(pub u8);
+
+impl From<usize> for MemberIdx {
+    fn from(raw: usize) -> Self {
+        Self(raw.try_into().unwrap())
+    }
+}
+
 impl MemberDecl {
     pub fn ident(&self) -> CustomIdentifier {
         match self {
@@ -81,7 +90,7 @@ impl TypeMemberDecl {
         db: &dyn DeclQueryGroup,
         member_decl: &StaticTypeMemberDecl,
         this_ty: EntityRoutePtr,
-        symbols: &LocalStack<Symbol>,
+        symbols: &[Symbol],
     ) -> Self {
         match member_decl {
             StaticTypeMemberDecl::Field => todo!(),

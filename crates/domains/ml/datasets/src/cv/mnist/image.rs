@@ -3,7 +3,7 @@ use std::any::TypeId;
 use visual_syntax::VisualProps;
 use vm::{AnyValue, AnyValueDyn, StaticTypeId};
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Default, Debug, Clone, PartialEq, Eq)]
 pub struct BinaryImage28 {
     padded_rows: [u32; 30],
 }

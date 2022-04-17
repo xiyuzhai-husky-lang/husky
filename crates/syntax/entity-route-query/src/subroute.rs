@@ -1,6 +1,8 @@
 use dev_utils::dev_src;
 use entity_route::*;
 use file::FilePtr;
+use static_decl::StaticEntityDecl;
+use static_defn::StaticEntityDefn;
 use word::{CustomIdentifier, Keyword};
 
 use crate::error::*;
@@ -144,7 +146,7 @@ impl std::fmt::Display for SubscopeTable {
             .iter()
             .map(|entry| f.write_fmt(format_args!("{:?},", entry)))
             .collect::<std::fmt::Result>()?;
-        f.write_str("[")?;
+        f.write_str("]")?;
         Ok(())
     }
 }
@@ -191,7 +193,7 @@ impl SubscopeTable {
                 .iter()
                 .find(|entry| entry.ident == Some(ident))
                 .map(|entry| entry.source),
-            format!("No scope with ident: \"{}\" among {}", ident, self)
+            format!("No entity route with ident: \"{}\" among {}", ident, self)
         )
     }
 
@@ -237,16 +239,35 @@ impl SubscopeTable {
 }
 
 impl SubscopeTable {
-    pub(crate) fn builtin(this: &dyn EntityRouteSalsaQueryGroup, data: &StaticEntityDefn) -> Self {
-        let entries = data
+    pub(crate) fn from_static(
+        db: &dyn EntityRouteSalsaQueryGroup,
+        data: &StaticEntityDefn,
+    ) -> Self {
+        let mut entries: Vec<Entry> = data
             .subscopes
             .iter()
             .map(|(s, data)| Entry {
-                ident: Some(this.intern_word(s).opt_custom().unwrap()),
+                ident: Some(db.intern_word(s).opt_custom().unwrap()),
                 kind: data.decl.raw_entity_kind(),
                 source: (*data).into(),
             })
             .collect();
+        match data.decl {
+            StaticEntityDecl::Func(_) | StaticEntityDecl::Module => (),
+            StaticEntityDecl::Type(ty_decl) => {
+                for type_member in ty_decl.type_members {
+                    entries.push(Entry {
+                        ident: Some(db.intern_word(type_member.name()).custom()),
+                        kind: EntityKind::TypeMember,
+                        source: EntitySource::StaticTypeMember,
+                    })
+                }
+                for variant in ty_decl.variants {
+                    todo!()
+                }
+            }
+            StaticEntityDecl::Trait(_) => todo!(),
+        }
         Self {
             entries,
             errors: vec![],

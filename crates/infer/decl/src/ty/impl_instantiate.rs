@@ -1,7 +1,7 @@
 use super::*;
 use check_utils::should_eq;
 
-impl TyDecl {
+impl TypeDecl {
     pub fn instantiate(
         &self,
         db: &dyn DeclQueryGroup,
@@ -25,6 +25,9 @@ impl TyDecl {
                 .map(|variant| variant.instantiate(&instantiator)), //   variants
             self.kind,          //      kind
             self.trait_impls.map(|t| t.instantiate(&instantiator)), //   trait_impls
+            self.opt_type_call
+                .as_ref()
+                .map(|type_call| type_call.instantiate(&instantiator)),
         )
     }
 }

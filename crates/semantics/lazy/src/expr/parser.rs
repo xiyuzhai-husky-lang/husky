@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use crate::*;
 use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
+use entity_kind::TypeKind;
 use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
-use entity_syntax::TyKind;
 use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
@@ -49,8 +49,9 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 EntityKind::Type(_) => todo!(),
                 EntityKind::Trait => todo!(),
                 EntityKind::Routine => todo!(),
-                EntityKind::Feature => LazyExprKind::ScopedFeature { scope },
+                EntityKind::Feature => LazyExprKind::EntityFeature { route: scope },
                 EntityKind::Pattern => todo!(),
+                EntityKind::TypeMember => todo!(),
             },
             RawExprVariant::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(_) => todo!(),
@@ -210,7 +211,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             SuffixOpr::MembAccess(ranged_ident) => {
                 let ty_decl = self.expr_ty_decl(opds.start).unwrap();
                 LazyExprKind::Opn {
-                    opn_kind: LazyOpnKind::MembAccess {
+                    opn_kind: LazyOpnKind::FieldAccess {
                         field_ident: ranged_ident,
                         field_kind: ty_decl.field_kind(ranged_ident.ident),
                     },
@@ -250,19 +251,19 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 let opn_kind = match kind {
                     EntityKind::Module => todo!(),
                     EntityKind::Type(ty_kind) => match ty_kind {
-                        TyKind::Enum => todo!(),
-                        TyKind::Record => LazyOpnKind::ClassCall(RangedEntityRoute {
+                        TypeKind::Enum => todo!(),
+                        TypeKind::Record => LazyOpnKind::RecordCall(RangedEntityRoute {
                             route: scope,
                             range: call.range(),
                         }),
-                        TyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
+                        TypeKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
                             route: scope,
                             range: call.range(),
                         }),
-                        TyKind::Primitive => todo!(),
-                        TyKind::Other => todo!(),
-                        TyKind::Vec => todo!(),
-                        TyKind::Array => todo!(),
+                        TypeKind::Primitive => todo!(),
+                        TypeKind::Other => todo!(),
+                        TypeKind::Vec => todo!(),
+                        TypeKind::Array => todo!(),
                     },
                     EntityKind::Trait => todo!(),
                     EntityKind::Routine => LazyOpnKind::RoutineCall(RangedEntityRoute {
@@ -272,6 +273,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                     EntityKind::Feature => todo!(),
                     EntityKind::Pattern => todo!(),
                     EntityKind::Literal => todo!(),
+                    EntityKind::TypeMember => todo!(),
                 };
                 Ok(LazyExprKind::Opn {
                     opn_kind,
@@ -307,6 +309,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                                 method_route: self
                                     .entity_route_sheet()
                                     .call_route_result(raw_expr_idx)
+                                    .unwrap(),
+                                member_idx: self
+                                    .entity_route_sheet()
+                                    .member_idx_result(raw_expr_idx)
                                     .unwrap(),
                             },
                             compiled: (),

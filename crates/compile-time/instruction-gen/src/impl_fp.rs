@@ -1,28 +1,24 @@
 use static_decl::StaticEntityDecl;
-use vm::{MembAccessFp, RoutineLinkage};
+use vm::Linkage;
 
 use crate::*;
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(crate) fn routine_fp(&self, routine: EntityRoutePtr) -> Option<RoutineLinkage> {
+    pub(crate) fn routine_fp(&self, routine: EntityRoutePtr) -> Option<Linkage> {
         match self.db.entity_source(routine).unwrap() {
-            EntitySource::Static(builtin_entity_data) => match builtin_entity_data.decl {
-                StaticEntityDecl::Func(ref func_decl) => Some(func_decl.compiled),
-                StaticEntityDecl::Ty {
-                    raw_ty_kind,
-                    visualizer,
-                } => todo!(),
-                StaticEntityDecl::TyTemplate => todo!(),
+            EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.decl {
+                StaticEntityDecl::Func(ref func_decl) => Some(func_decl.linkage),
+                StaticEntityDecl::Type(_) => todo!(),
                 StaticEntityDecl::Module => todo!(),
                 StaticEntityDecl::Trait { .. } => todo!(),
             },
             EntitySource::WithinBuiltinModule => todo!(),
-            EntitySource::WithinModule { .. } => self
-                .db
-                .linkage_table()
-                .entity_routine(self.db.entity_uid(routine)),
+            EntitySource::WithinModule { .. } => {
+                self.db.linkage_table().routine(self.db.entity_uid(routine))
+            }
             EntitySource::Module { file } => todo!(),
             EntitySource::Input { main } => todo!(),
+            EntitySource::StaticTypeMember => todo!(),
         }
     }
 
@@ -30,19 +26,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         &self,
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
-    ) -> Option<MembAccessFp> {
+    ) -> Option<Linkage> {
         self.db
             .linkage_table()
-            .field_access(self.db.entity_uid(this_ty), field_ident)
-    }
-
-    pub(crate) fn field_routine_fp(
-        &self,
-        this_ty: EntityRoutePtr,
-        field_ident: CustomIdentifier,
-    ) -> Option<RoutineLinkage> {
-        self.db
-            .linkage_table()
-            .field_routine(self.db.entity_uid(this_ty), field_ident)
+            .struct_field_access(self.db.entity_uid(this_ty), field_ident)
     }
 }

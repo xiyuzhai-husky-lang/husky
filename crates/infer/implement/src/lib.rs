@@ -21,13 +21,18 @@ impl Implementable for EntityRoutePtr {
         let (kind, mut generic_arguments) = match self.kind {
             EntityRouteKind::Root { ident } => todo!(),
             EntityRouteKind::Package { main, ident } => todo!(),
-            EntityRouteKind::ChildScope { parent, ident } => todo!(),
+            EntityRouteKind::Child { parent, ident } => todo!(),
             EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
             EntityRouteKind::ThisType => (
                 implementor.this_ty.kind,
                 implementor.this_ty.generic_arguments.clone(),
             ),
+            EntityRouteKind::TraitMember {
+                ty: parent,
+                trai,
+                ident,
+            } => todo!(),
         };
         for generic_argument in self.generic_arguments.iter() {
             generic_arguments.push(generic_argument.implement(implementor))

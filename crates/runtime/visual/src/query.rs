@@ -13,11 +13,10 @@ fn visualizer(
 ) -> Arc<RuntimeVisualizer> {
     let scope_source = db.compile_time(version).entity_source(ty).unwrap();
     match scope_source {
-        EntitySource::Static(builtin_entity_data) => match builtin_entity_data.decl {
+        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.decl {
             StaticEntityDecl::Func(_) => todo!(),
-            StaticEntityDecl::Ty { ref visualizer, .. } => Arc::new(visualizer.into()),
+            StaticEntityDecl::Type(ty_decl) => Arc::new(ty_decl.visualizer.into()),
             StaticEntityDecl::Module => todo!(),
-            StaticEntityDecl::TyTemplate => todo!(),
             StaticEntityDecl::Trait { .. } => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
@@ -27,5 +26,6 @@ fn visualizer(
         } => todo!(),
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main } => todo!(),
+        EntitySource::StaticTypeMember => todo!(),
     }
 }

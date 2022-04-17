@@ -17,40 +17,19 @@ impl<'eval> Trace<'eval> {
                 FeatureExprKind::PrimitiveLiteral(_)
                 | FeatureExprKind::PrimitiveBinaryOpr { .. }
                 | FeatureExprKind::Variable { .. } => None,
-                FeatureExprKind::FuncCall { .. } | FeatureExprKind::ProcCall { .. } => {
-                    Some(SubtracesContainerClass::Call)
-                }
-                FeatureExprKind::StructMembVarAccess { .. } => todo!(),
+                FeatureExprKind::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
+                FeatureExprKind::StructFieldAccess { .. } => todo!(),
                 FeatureExprKind::EnumLiteral { .. } => todo!(),
-                FeatureExprKind::MethodCall {
-                    field_ident,
-                    ref opds,
-                    ref instruction_sheet,
-                    ref stmts,
-                    ..
-                } => todo!(),
-                FeatureExprKind::MembProcCall {
-                    field_ident,
-                    ref opds,
-                    ref instruction_sheet,
-                    ref stmts,
-                    ..
-                } => todo!(),
-                FeatureExprKind::MembPattCall {
-                    field_ident,
-                    ref opds,
-                    ref instruction_sheet,
-                    ref stmts,
-                } => todo!(),
                 FeatureExprKind::FeatureBlock { .. } => todo!(),
                 FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureExprKind::RecordMembAccess {
+                FeatureExprKind::RecordFieldAccess {
                     ref this,
                     field_ident,
                     ..
                 } => todo!(),
                 FeatureExprKind::This { ref repr } => todo!(),
                 FeatureExprKind::GlobalInput => None,
+                FeatureExprKind::PatternCall {} => todo!(),
             },
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)
@@ -61,7 +40,7 @@ impl<'eval> Trace<'eval> {
                     ref opds,
                     ..
                 } => match opn_kind {
-                    EagerOpnKind::MembVarAccess { .. } | EagerOpnKind::ElementAccess => None,
+                    EagerOpnKind::FieldAccess { .. } | EagerOpnKind::ElementAccess => None,
                     EagerOpnKind::Binary { .. }
                     | EagerOpnKind::Prefix { .. }
                     | EagerOpnKind::Suffix { .. } => {
@@ -71,7 +50,7 @@ impl<'eval> Trace<'eval> {
                             Some(SubtracesContainerClass::Call)
                         }
                     }
-                    EagerOpnKind::RoutineCall { .. } | EagerOpnKind::MembRoutineCall { .. } => {
+                    EagerOpnKind::RoutineCall { .. } | EagerOpnKind::MethodCall { .. } => {
                         Some(SubtracesContainerClass::Call)
                     }
                     EagerOpnKind::PatternCall => panic!(),

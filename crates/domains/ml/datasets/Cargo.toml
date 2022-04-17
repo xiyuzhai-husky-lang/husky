@@ -13,5 +13,6 @@ entity-route = { path = "../../../syntax/entity-route", version = "0.0.0" }
 vm = { path = "../../../runtime/vm", version = "0.0.0" }
 print-utils = { path = "../../../utils/print", version = "0.0.0" }
 visual-syntax = { path = "../../../syntax/visual", version = "0.0.0" }
-entity-syntax = { path = "../../../syntax/entity", version = "0.0.0" }
+entity-kind = { path = "../../../syntax/entity-kind", version = "0.0.0" }
 static-decl = { path = "../../../syntax/static-decl", version = "0.0.0" }
+static-defn = { path = "../../../syntax/static-defn", version = "0.0.0" }

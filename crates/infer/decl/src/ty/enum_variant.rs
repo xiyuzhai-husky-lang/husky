@@ -1,4 +1,4 @@
-use entity_syntax::EnumVariantKind;
+use entity_kind::EnumVariantKind;
 use vec_dict::HasKey;
 
 use super::*;
@@ -47,7 +47,7 @@ impl EnumVariantDecl {
         db: &dyn DeclQueryGroup,
         static_decl: &StaticEnumVariantDecl,
         this_ty: EntityRoutePtr,
-        symbols: &LocalStack<Symbol>,
+        symbols: &[Symbol],
     ) -> Self {
         todo!()
     }

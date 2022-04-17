@@ -189,7 +189,7 @@ pub trait AllocateUniqueScope {
         generics: Vec<GenericArgument>,
     ) -> EntityRoutePtr {
         self.intern_entity_route(EntityRoute {
-            kind: EntityRouteKind::ChildScope { parent, ident },
+            kind: EntityRouteKind::Child { parent, ident },
             generic_arguments: generics,
         })
     }

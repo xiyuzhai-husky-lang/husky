@@ -4,19 +4,48 @@ mod labeled;
 mod loader;
 pub mod synthetic;
 
-pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
-    subscopes: &[("synthetic", synthetic::SCOPE_DATA), ("cv", cv::SCOPE_DATA)],
+pub static DATASETS_MODULE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    subscopes: &[
+        ("synthetic", synthetic::SCOPE_DATA),
+        ("cv", &cv::SCOPE_DATA),
+    ],
     decl: StaticEntityDecl::Module,
+};
+
+pub static DATASET_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    subscopes: &[],
+    decl: StaticEntityDecl::Type(&StaticTypeDecl {
+        base_route: "Dataset",
+        generic_placeholders: &[
+            StaticGenericPlaceholder {
+                name: "Input",
+                variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+            },
+            StaticGenericPlaceholder {
+                name: "Output",
+                variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+            },
+        ],
+        trait_impls: &[],
+        type_members: &[],
+        variants: &[],
+        kind: TypeKind::Other,
+        visualizer: TRIVIAL_VISUALIZER,
+        opt_type_call: None,
+    }),
 };
 
 use std::{borrow::Cow, sync::Arc};
 
+use entity_kind::TypeKind;
 pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
-use entity_route::{EntityRouteKind, StaticEntityDefn};
+use entity_route::EntityRouteKind;
 use static_decl::*;
+use static_defn::StaticEntityDefn;
+use visual_syntax::TRIVIAL_VISUALIZER;
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 
 pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {

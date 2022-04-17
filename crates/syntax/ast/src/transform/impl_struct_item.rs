@@ -94,7 +94,7 @@ impl<'a> AstTransformer<'a> {
                     },
                 }),
         );
-        Ok(AstKind::MethodDefnHead(head))
+        Ok(AstKind::TypeMethodDefnHead(head))
     }
 
     // pub(super) fn parse_struct_static_func() {}

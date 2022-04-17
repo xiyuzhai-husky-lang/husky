@@ -83,45 +83,21 @@ impl<'eval> Serialize for Trace<'eval> {
                     FeatureExprKind::PrimitiveLiteral(_)
                     | FeatureExprKind::PrimitiveBinaryOpr { .. }
                     | FeatureExprKind::Variable { .. } => false,
-                    FeatureExprKind::FuncCall {
-                        func_ranged_scope: ranged_scope,
-                        ..
-                    } => !ranged_scope.route.is_builtin(),
-                    FeatureExprKind::ProcCall {
-                        proc_ranged_scope: ranged_scope,
-                        ..
-                    } => !ranged_scope.route.is_builtin(),
-                    FeatureExprKind::StructMembVarAccess { .. } => todo!(),
+                    FeatureExprKind::StructFieldAccess { .. } => todo!(),
                     FeatureExprKind::EnumLiteral { .. } => todo!(),
-                    FeatureExprKind::MethodCall {
-                        field_ident,
-                        ref opds,
-                        ref instruction_sheet,
-                        ref stmts,
-                        ..
-                    } => todo!(),
-                    FeatureExprKind::MembProcCall {
-                        field_ident,
-                        ref opds,
-                        ref instruction_sheet,
-                        ref stmts,
-                        ..
-                    } => todo!(),
-                    FeatureExprKind::MembPattCall {
-                        field_ident,
-                        ref opds,
-                        ref instruction_sheet,
-                        ref stmts,
-                    } => todo!(),
                     FeatureExprKind::FeatureBlock { .. } => todo!(),
                     FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-                    FeatureExprKind::RecordMembAccess {
+                    FeatureExprKind::RecordFieldAccess {
                         ref this,
                         field_ident,
                         ..
                     } => todo!(),
                     FeatureExprKind::This { ref repr } => todo!(),
                     FeatureExprKind::GlobalInput => false,
+                    FeatureExprKind::RoutineCall {
+                        ref routine_defn, ..
+                    } => !routine_defn.is_builtin(),
+                    FeatureExprKind::PatternCall {} => true,
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)

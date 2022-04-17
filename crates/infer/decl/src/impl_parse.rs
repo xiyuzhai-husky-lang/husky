@@ -13,7 +13,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
         &self,
         text: &str,
         opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &LocalStack<Symbol>,
+        symbols: &[Symbol],
     ) -> AtomResult<EntityRoutePtr> {
         parse_entity(
             SymbolProxy {
@@ -54,8 +54,8 @@ impl<'a> dyn DeclQueryGroup + 'a {
     pub(crate) fn symbols_from_generic_placeholders(
         &self,
         generic_placeholders: &[GenericPlaceholder],
-    ) -> LocalStack<Symbol> {
-        let mut symbols = LocalStack::new();
+    ) -> Vec<Symbol> {
+        let mut symbols = Vec::new();
         for generic_placeholder in generic_placeholders.iter() {
             symbols.push(Symbol {
                 ident: generic_placeholder.ident,

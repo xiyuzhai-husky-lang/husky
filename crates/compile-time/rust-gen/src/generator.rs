@@ -6,7 +6,7 @@ mod impl_ty_defn;
 mod impl_write;
 
 use crate::*;
-use entity_syntax::TyKind;
+use entity_kind::TypeKind;
 use pack_semantics::Pack;
 use semantics_entity::{EntityDefn, EntityDefnVariant};
 use std::sync::Arc;
@@ -28,14 +28,14 @@ impl<'a> RustGenerator<'a> {
 
     pub(crate) fn gen_pack_lib_rs(&mut self, pack: &Pack) {
         for entity in pack.subentity_defns.iter() {
-            match entity.kind() {
+            match entity.variant {
                 EntityDefnVariant::Main(_) => todo!(),
                 EntityDefnVariant::Module {} => todo!(),
                 EntityDefnVariant::Feature { .. } | EntityDefnVariant::Pattern {} => (),
                 EntityDefnVariant::Func {
-                    input_placeholders,
+                    ref input_placeholders,
                     output,
-                    stmts,
+                    ref stmts,
                 } => self.gen_func_defn(
                     entity.ident.custom(),
                     input_placeholders,
@@ -43,29 +43,44 @@ impl<'a> RustGenerator<'a> {
                     stmts,
                 ),
                 EntityDefnVariant::Proc {
-                    input_placeholders,
+                    ref input_placeholders,
                     output,
-                    stmts,
+                    ref stmts,
                 } => self.gen_proc_defn(
                     entity.ident.custom(),
                     input_placeholders,
                     output.route,
                     stmts,
                 ),
-                EntityDefnVariant::Ty(ty) => match ty.kind {
-                    TyKind::Enum => self.gen_enum_defn(entity.ident.custom(), &ty.variants),
-                    TyKind::Struct => {
+                EntityDefnVariant::Type {
+                    ref type_members,
+                    ref variants,
+                    kind,
+                    ref trait_impls,
+                    ref members,
+                } => match kind {
+                    TypeKind::Enum => self.gen_enum_defn(entity.ident.custom(), variants),
+                    TypeKind::Struct => {
                         todo!()
                         // self.gen_struct_defn(entity.ident.custom(), &ty.fields, &ty.methods)
                     }
-                    TyKind::Record { .. } => (),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
-                    TyKind::Array => todo!(),
-                    TyKind::Other => todo!(),
+                    TypeKind::Record { .. } => (),
+                    TypeKind::Primitive => todo!(),
+                    TypeKind::Vec => todo!(),
+                    TypeKind::Array => todo!(),
+                    TypeKind::Other => todo!(),
                 },
                 EntityDefnVariant::Builtin => todo!(),
-                EntityDefnVariant::EnumVariant(_) => todo!(),
+                EntityDefnVariant::EnumVariant { .. } => todo!(),
+                EntityDefnVariant::TypeField {
+                    ident,
+                    ty,
+                    ref field_variant,
+                    contract,
+                } => todo!(),
+                EntityDefnVariant::TypeMethod { .. } => todo!(),
+                EntityDefnVariant::TraitMethod { .. } => todo!(),
+                EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
             }
         }
         self.gen_init(&pack.subentity_defns);

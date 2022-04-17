@@ -44,7 +44,8 @@ impl FeatureBlock {
             .map(|feature_stmt| {
                 Arc::new(match feature_stmt.kind {
                     LazyStmtKind::Init { varname, ref value } => {
-                        let value = FeatureExpr::new(db, this.clone(), value, &symbols, features);
+                        let value =
+                            FeatureExpr::new(db, this.clone(), value.clone(), &symbols, features);
                         symbols.push(FeatureSymbol {
                             varname,
                             value: value.clone(),
@@ -60,8 +61,13 @@ impl FeatureBlock {
                         }
                     }
                     LazyStmtKind::Assert { ref condition } => {
-                        let condition =
-                            FeatureExpr::new(db, this.clone(), condition, &symbols, features);
+                        let condition = FeatureExpr::new(
+                            db,
+                            this.clone(),
+                            condition.clone(),
+                            &symbols,
+                            features,
+                        );
                         let feature = Some(features.alloc(Feature::Assert {
                             condition: condition.feature,
                         }));
@@ -75,7 +81,8 @@ impl FeatureBlock {
                         }
                     }
                     LazyStmtKind::Return { ref result } => {
-                        let result = FeatureExpr::new(db, this.clone(), result, &symbols, features);
+                        let result =
+                            FeatureExpr::new(db, this.clone(), result.clone(), &symbols, features);
                         FeatureStmt {
                             file: feature_stmt.file,
                             range: feature_stmt.range,
@@ -103,7 +110,7 @@ impl FeatureBlock {
                                                 condition: FeatureExpr::new(
                                                     db,
                                                     this.clone(),
-                                                    condition,
+                                                    condition.clone(),
                                                     &symbols,
                                                     features,
                                                 ),
@@ -114,7 +121,7 @@ impl FeatureBlock {
                                                 condition: FeatureExpr::new(
                                                     db,
                                                     this.clone(),
-                                                    condition,
+                                                    condition.clone(),
                                                     &symbols,
                                                     features,
                                                 ),

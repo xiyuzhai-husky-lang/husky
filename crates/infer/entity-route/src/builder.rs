@@ -60,7 +60,7 @@ impl<'a> TySheetBuilder<'a> {
                     AstKind::Use { ident, scope } => todo!(),
                     AstKind::FieldDefn { .. } => (),
                     AstKind::Stmt(_) => todo!(),
-                    AstKind::MethodDefnHead(ref head) => self.infer_routine(
+                    AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
                         &head.input_placeholders,
                         head.output.route,
                         item.children.unwrap(),

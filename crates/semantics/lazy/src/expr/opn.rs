@@ -1,5 +1,6 @@
 use defn_head::FieldKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
+use infer_decl::MemberIdx;
 use syntax_types::*;
 use vm::PureBinaryOpr;
 use word::RangedCustomIdentifier;
@@ -13,15 +14,16 @@ pub enum LazyOpnKind {
     Prefix(PrefixOpr),
     RoutineCall(RangedEntityRoute),
     StructCall(RangedEntityRoute),
-    ClassCall(RangedEntityRoute),
+    RecordCall(RangedEntityRoute),
     PatternCall,
-    MembAccess {
+    FieldAccess {
         field_ident: RangedCustomIdentifier,
         field_kind: FieldKind,
     },
     MethodCall {
         method_ident: RangedCustomIdentifier,
         method_route: EntityRoutePtr,
+        member_idx: MemberIdx,
     },
     ElementAccess,
 }
