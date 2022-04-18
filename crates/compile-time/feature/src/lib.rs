@@ -61,9 +61,13 @@ pub enum Feature {
     Branches {
         branches: Vec<BranchedFeature>,
     },
-    StructFieldAccess {
+    StructOriginalFieldAccess {
         this: FeaturePtr,
         field_ident: CustomIdentifier,
+    },
+    RecordDerivedFieldAccess {
+        this: FeaturePtr,
+        field_uid: EntityUid,
     },
     MethodCall {
         method_ident: CustomIdentifier,
@@ -73,7 +77,7 @@ pub enum Feature {
         route: EntityRoutePtr,
         uid: EntityUid,
     },
-    ClassCall {
+    RecordTypeCall {
         ty: EntityRoutePtr,
         uid: EntityUid,
         opds: Vec<FeaturePtr>,

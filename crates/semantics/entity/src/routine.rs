@@ -22,7 +22,7 @@ impl EntityDefnVariant {
                 )?;
                 EntityDefnVariant::Proc {
                     input_placeholders: routine_defn_head.input_placeholders.clone(),
-                    output: routine_defn_head.output,
+                    output: routine_defn_head.output_ty,
                     stmts,
                 }
             }
@@ -36,7 +36,7 @@ impl EntityDefnVariant {
                 )?;
                 EntityDefnVariant::Func {
                     input_placeholders: routine_defn_head.input_placeholders.clone(),
-                    output: routine_defn_head.output,
+                    output: routine_defn_head.output_ty,
                     stmts,
                 }
             }

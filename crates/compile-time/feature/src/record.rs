@@ -1,9 +1,8 @@
-use entity_kind::TypeKind;
-use semantics_entity::EntityDefnVariant;
-use sync_utils::ARwLock;
+use entity_kind::TyKind;
+use semantics_entity::{EntityDefnVariant, FieldDefnVariant};
 
 use crate::*;
-use std::{collections::HashMap, sync::Arc};
+use std::sync::Arc;
 
 pub(crate) fn record_field_repr(
     db: &dyn FeatureQueryGroup,
@@ -11,27 +10,27 @@ pub(crate) fn record_field_repr(
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this {
-        FeatureRepr::Expr(ref expr) => expr_record_memb(db, expr, field_ident),
+        FeatureRepr::Expr(ref expr) => expr_record_field(db, expr, field_ident),
         FeatureRepr::Block(ref block) => block_record_memb(db, block, field_ident),
     }
 }
 
-pub(crate) fn expr_record_memb(
+pub(crate) fn expr_record_field(
     db: &dyn FeatureQueryGroup,
     this: &Arc<FeatureExpr>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this.kind {
-        FeatureExprKind::Variable { ref value, .. } => expr_record_memb(db, value, field_ident),
-        FeatureExprKind::RecordFieldAccess { .. } => todo!(),
-        FeatureExprKind::FeatureBlock { ref block, .. } => {
+        FeatureExprKind::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
+        FeatureExprKind::RecordOriginalFieldAccess { .. } => todo!(),
+        FeatureExprKind::EntityFeature { ref block, .. } => {
             block_record_memb(db, block, field_ident)
         }
         FeatureExprKind::NewRecord {
             ref entity,
             ref opds,
             ..
-        } => match entity.kind() {
+        } => match entity.variant {
             EntityDefnVariant::Type {
                 kind,
                 ref type_members,
@@ -39,36 +38,42 @@ pub(crate) fn expr_record_memb(
                 ref trait_impls,
                 ref members,
             } => match kind {
-                TypeKind::Record => {
-                    todo!("make a difference between derived and original")
-                    // if let Some(idx) = ty_defn.fields.position(field_ident) {
-                    //     opds[idx].clone().into()
-                    // } else if let Some(field_feature) = fields.get(field_ident) {
-                    //     FeatureBlock::new(
-                    //         db,
-                    //         Some(this.clone().into()),
-                    //         &field_feature.stmts,
-                    //         &[],
-                    //         db.features(),
-                    //     )
-                    //     .into()
-                    // } else {
-                    //     todo!()
-                    // }
+                TyKind::Record => {
+                    if let Some((idx, type_member)) = type_members.iget(field_ident) {
+                        match type_member.variant {
+                            EntityDefnVariant::TypeField {
+                                ty,
+                                ref field_variant,
+                                contract,
+                            } => match field_variant {
+                                FieldDefnVariant::StructOriginal => panic!(),
+                                FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),
+                                FieldDefnVariant::StructDerived { stmts } => {
+                                    todo!()
+                                }
+                                FieldDefnVariant::RecordDerived { stmts } => {
+                                    todo!()
+                                }
+                            },
+                            _ => panic!(),
+                        }
+                    } else {
+                        todo!()
+                    }
                 }
                 _ => panic!(),
-                TypeKind::Enum => todo!(),
-                TypeKind::Struct => todo!(),
-                TypeKind::Primitive => todo!(),
-                TypeKind::Vec => todo!(),
-                TypeKind::Array => todo!(),
-                TypeKind::Other => todo!(),
+                TyKind::Enum => todo!(),
+                TyKind::Struct => todo!(),
+                TyKind::Primitive => todo!(),
+                TyKind::Vec => todo!(),
+                TyKind::Array => todo!(),
+                TyKind::Other => todo!(),
             },
             _ => panic!(),
         },
         FeatureExprKind::EnumLiteral { .. }
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
-        | FeatureExprKind::StructFieldAccess { .. }
+        | FeatureExprKind::StructOriginalFieldAccess { .. }
         | FeatureExprKind::PrimitiveLiteral(_) => {
             p!(this.kind);
             panic!()
@@ -77,6 +82,7 @@ pub(crate) fn expr_record_memb(
         FeatureExprKind::GlobalInput => todo!(),
         FeatureExprKind::RoutineCall { .. } => todo!(),
         FeatureExprKind::PatternCall {} => todo!(),
+        FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
     }
 }
 

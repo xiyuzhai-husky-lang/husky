@@ -22,12 +22,11 @@ pub(crate) fn entity_route_sheet(
     Ok(Arc::new(ty_sheet_builder.finish()))
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct EntityRouteSheet {
     pub ast_text: Arc<AstText>,
     pub(crate) expr_tys: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
     pub(crate) call_routes: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
-    pub(crate) member_indices: HashMap<RawExprIdx, InferResult<MemberIdx>>,
     pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), Option<EntityRoutePtr>>,
 }
 
@@ -37,28 +36,27 @@ impl EntityRouteSheet {
             expr_tys: Default::default(),
             variable_tys: Default::default(),
             call_routes: Default::default(),
-            member_indices: Default::default(),
             ast_text,
         }
     }
 
     pub fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        match &self.expr_tys[&expr_idx] {
-            Ok(ty) => Ok(*ty),
-            Err(e) => Err(e.derived()),
+        if let Some(ref expr_ty) = self.expr_tys.get(&expr_idx) {
+            match expr_ty {
+                Ok(ty) => Ok(*ty),
+                Err(e) => Err(e.derived()),
+            }
+        } else {
+            p!(self.expr_tys);
+            p!(self.ast_text.arena);
+            p!(expr_idx);
+            panic!()
         }
     }
 
     pub fn call_route_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         match &self.call_routes[&expr_idx] {
             Ok(call_route) => Ok(*call_route),
-            Err(e) => Err(e.derived()),
-        }
-    }
-
-    pub fn member_idx_result(&self, expr_idx: RawExprIdx) -> InferResult<MemberIdx> {
-        match &self.member_indices[&expr_idx] {
-            Ok(member_idx) => Ok(*member_idx),
             Err(e) => Err(e.derived()),
         }
     }

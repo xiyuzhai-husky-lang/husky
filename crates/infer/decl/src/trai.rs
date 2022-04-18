@@ -43,7 +43,7 @@ impl TraitMemberDecl {
                 MethodDecl::from_static(db, static_method_decl, None, symbols),
             ),
             StaticTraitMemberDecl::Call => todo!(),
-            StaticTraitMemberDecl::Type => todo!(),
+            StaticTraitMemberDecl::Type { .. } => todo!(),
         }
     }
 

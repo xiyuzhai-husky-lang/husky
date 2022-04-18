@@ -1,7 +1,7 @@
 use super::utils;
 use crate::*;
 use atom::*;
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use word::{Identifier, RootIdentifier};
 
@@ -52,7 +52,7 @@ fn i32_type() {
         "i32",
         AtomKind::EntityRoute {
             route: RootIdentifier::I32.into(),
-            kind: EntityKind::Type(TypeKind::Primitive),
+            kind: EntityKind::Type(TyKind::Primitive),
         },
     );
 }
@@ -65,7 +65,7 @@ fn f32_type() {
         "f32",
         AtomKind::EntityRoute {
             route: RootIdentifier::F32.into(),
-            kind: EntityKind::Type(TypeKind::Primitive),
+            kind: EntityKind::Type(TyKind::Primitive),
         },
     );
 }
@@ -78,7 +78,7 @@ fn vec_generics() {
         "Vec",
         AtomKind::EntityRoute {
             route: RootIdentifier::Vec.into(),
-            kind: EntityKind::Type(TypeKind::Vec),
+            kind: EntityKind::Type(TyKind::Vec),
         },
     );
 }
@@ -91,7 +91,7 @@ fn tuple_generics() {
         "Tuple",
         AtomKind::EntityRoute {
             route: RootIdentifier::Tuple.into(),
-            kind: EntityKind::Type(TypeKind::Other),
+            kind: EntityKind::Type(TyKind::Other),
         },
     );
 }

@@ -8,12 +8,12 @@ use semantics_entity::EntityDefnQueryGroup;
 use semantics_error::*;
 
 #[salsa::query_group(PackQueryGroupStorage)]
-pub trait PackQueryGroup: EntityDefnQueryGroup {
+pub trait PackageQueryGroup: EntityDefnQueryGroup {
     fn package(&self, main_file: file::FilePtr) -> SemanticResultArc<Pack>;
     fn config(&self, main_file: file::FilePtr) -> SemanticResultArc<Config>;
 }
 
-fn package(db: &dyn PackQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Pack> {
+fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Pack> {
     let module = db.module(main_file)?;
     let ident = match module.kind {
         EntityRouteKind::Package { ident, .. } => ident,
@@ -27,13 +27,13 @@ fn package(db: &dyn PackQueryGroup, main_file: file::FilePtr) -> SemanticResultA
     }))
 }
 
-fn config(this: &dyn PackQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Config> {
+fn config(this: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Config> {
     let ast_text = this.ast_text(main_file)?;
     config_from_ast(this, &ast_text, main_file)
 }
 
 fn config_from_ast(
-    this: &dyn PackQueryGroup,
+    this: &dyn PackageQueryGroup,
     ast_text: &AstText,
     file: FilePtr,
 ) -> SemanticResultArc<Config> {
@@ -43,7 +43,7 @@ fn config_from_ast(
 }
 
 fn dataset_config_from_ast_text(
-    this: &dyn PackQueryGroup,
+    this: &dyn PackageQueryGroup,
     ast_text: &AstText,
     file: FilePtr,
 ) -> SemanticResult<DatasetConfig> {

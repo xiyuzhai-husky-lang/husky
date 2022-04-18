@@ -2,7 +2,7 @@ use token::{Special, Token, TokenKind};
 use word::{Keyword, TyKeyword};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum TypeKind {
+pub enum TyKind {
     Enum,
     Record,
     Struct,
@@ -12,14 +12,14 @@ pub enum TypeKind {
     Other,
 }
 
-impl From<TyKeyword> for TypeKind {
+impl From<TyKeyword> for TyKind {
     fn from(keyword: TyKeyword) -> Self {
         match keyword {
-            TyKeyword::Struct => TypeKind::Struct,
+            TyKeyword::Struct => TyKind::Struct,
             TyKeyword::Rename => todo!(),
-            TyKeyword::Enum => TypeKind::Enum,
+            TyKeyword::Enum => TyKind::Enum,
             TyKeyword::Props => todo!(),
-            TyKeyword::Record => TypeKind::Record,
+            TyKeyword::Record => TyKind::Record,
         }
     }
 }
@@ -27,7 +27,7 @@ impl From<TyKeyword> for TypeKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
     Module,
-    Type(TypeKind),
+    Type(TyKind),
     Trait,
     TypeMember,
     Routine,

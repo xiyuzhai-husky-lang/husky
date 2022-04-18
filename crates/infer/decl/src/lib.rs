@@ -16,7 +16,7 @@ pub use ty::*;
 
 use ast::*;
 use defn_head::*;
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use entity_route::*;
 use entity_route_query::*;
 use feature::*;
@@ -39,4 +39,5 @@ pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
     fn global_output_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
     fn vec_decl(&self) -> Arc<TypeDecl>;
     fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
+    fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;
 }

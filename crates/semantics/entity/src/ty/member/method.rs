@@ -12,12 +12,12 @@ pub enum MethodDefnVariant {
 }
 
 impl EntityDefnVariant {
-    pub(crate) fn collect_member_calls(
+    pub(crate) fn collect_other_members(
         db: &dyn InferQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
         ty_route: EntityRoutePtr,
-        children: &mut Peekable<AstIter>,
+        mut children: Peekable<AstIter>,
         members: &mut IdentDict<Arc<EntityDefn>>,
     ) -> SemanticResult<()> {
         while let Some(child) = children.next() {
@@ -32,9 +32,8 @@ impl EntityDefnVariant {
                 AstKind::RoutineDefnHead(_) => todo!(),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::FeatureDecl { ident, ty } => todo!(),
-                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
                 AstKind::TypeMethodDefnHead(ref head) => {
-                    let variant = match head.routine_kind {
+                    let method_variant = match head.routine_kind {
                         RoutineKind::Proc => todo!(),
                         RoutineKind::Func => {
                             let stmts = semantics_eager::parse_decl_stmts(
@@ -51,11 +50,10 @@ impl EntityDefnVariant {
                     members.insert_new(EntityDefn::new(
                         head.ident.into(),
                         EntityDefnVariant::TypeMethod {
-                            ident: head.ident,
                             input_placeholders: head.input_placeholders.clone(),
-                            output: head.output,
+                            output: head.output_ty,
                             this_contract: head.this_contract,
-                            method_variant: variant,
+                            method_variant,
                         },
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {
@@ -69,7 +67,7 @@ impl EntityDefnVariant {
                     ))
                 }
                 AstKind::Use { ident, scope } => todo!(),
-                AstKind::FieldDefn(_) => todo!(),
+                AstKind::FieldDefnHead(_) => todo!(),
                 AstKind::DatasetConfigDefnHead => todo!(),
                 AstKind::Stmt(_) => todo!(),
                 AstKind::EnumVariantDefnHead {

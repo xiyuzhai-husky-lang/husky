@@ -1,3 +1,9 @@
+mod input;
+mod output;
+
+pub use input::*;
+pub use output::*;
+
 use atom::symbol_proxy::Symbol;
 use defn_head::*;
 use fold::LocalStack;
@@ -5,7 +11,7 @@ use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
 use static_decl::{StaticCallDecl, StaticEntityDecl, StaticInputDecl};
-use vm::InputContract;
+use vm::{InputContract, OutputContract};
 use word::IdentDict;
 
 use crate::*;
@@ -14,7 +20,7 @@ use crate::*;
 pub struct CallDecl {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub inputs: Vec<InputDecl>,
-    pub output: EntityRoutePtr,
+    pub output: OutputDecl,
 }
 
 impl CallDecl {
@@ -26,9 +32,7 @@ impl CallDecl {
                 .filter_map(|placeholder| instantiator.instantiate_generic_placeholder(placeholder))
                 .collect(),
             inputs: self.inputs.map(|input| input.instantiate(instantiator)),
-            output: instantiator
-                .instantiate_entity_route(self.output)
-                .as_scope(),
+            output: self.output.instantiate(instantiator),
         })
     }
 }
@@ -42,51 +46,10 @@ impl From<&RoutineDefnHead> for CallDecl {
                 .iter()
                 .map(|input_placeholder| input_placeholder.into())
                 .collect(),
-            output: head.output.route,
-        }
-    }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputDecl {
-    pub contract: InputContract,
-    pub ty: EntityRoutePtr,
-    pub ident: CustomIdentifier,
-}
-
-impl InputDecl {
-    pub fn from_static(
-        db: &dyn DeclQueryGroup,
-        input: &StaticInputDecl,
-        opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &[Symbol],
-    ) -> Self {
-        Self {
-            ty: db.parse_entity(input.ty, opt_this_ty, symbols).unwrap(),
-            contract: input.contract,
-            ident: db.custom_ident(input.name),
-        }
-    }
-
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
-        Self {
-            ty: instantiator.instantiate_entity_route(self.ty).as_scope(),
-            contract: self.contract,
-            ident: self.ident,
-        }
-    }
-
-    pub fn implement(&self, implementor: &Implementor) -> Self {
-        todo!()
-    }
-}
-
-impl Into<InputDecl> for &InputPlaceholder {
-    fn into(self) -> InputDecl {
-        InputDecl {
-            contract: self.contract,
-            ty: self.ranged_ty.route,
-            ident: self.ident,
+            output: OutputDecl {
+                ty: head.output_ty.route,
+                contract: head.output_contract,
+            },
         }
     }
 }
@@ -117,38 +80,18 @@ pub(crate) fn call_decl(
             match ast.kind {
                 AstKind::RoutineDefnHead(ref head) => Ok(Arc::new(head.into())),
                 // type constructor
-                AstKind::TypeDefnHead {
-                    ref kind,
-                    ref generic_placeholders,
-                    ..
-                } => match kind {
-                    TypeKind::Enum => todo!(),
-                    TypeKind::Struct => {
-                        let mut inputs = vec![];
-                        for subitem in item.children.unwrap() {
-                            let subast = subitem.value.as_ref()?;
-                            match subast.kind {
-                                AstKind::FieldDefn(ref field_defn) => inputs.push(InputDecl {
-                                    contract: field_defn.contract.constructor_input(),
-                                    ty: field_defn.ty,
-                                    ident: field_defn.ident,
-                                }),
-                                _ => (),
-                            }
-                        }
-                        msg_once!("struct type call compiled");
-                        Ok(Arc::new(CallDecl {
-                            inputs,
-                            output: route,
-                            generic_placeholders: generic_placeholders.clone(),
-                        }))
-                    }
-                    TypeKind::Record => todo!(),
-                    TypeKind::Primitive => todo!(),
-                    TypeKind::Vec => todo!(),
-                    TypeKind::Array => todo!(),
-                    TypeKind::Other => todo!(),
-                },
+                AstKind::TypeDefnHead { .. } => {
+                    let ty_decl = db.type_decl(route)?;
+                    Ok(ty_decl.opt_type_call.clone().expect("todo"))
+
+                    // ok_or(InferError {
+                    //     variant: InferErrorVariant::Original {
+                    //         message: format!("no type call for {:?}", route),
+                    //         range: todo!(),
+                    //     },
+                    //     dev_src: todo!(),
+                    // })
+                }
                 _ => panic!(),
             }
         }
@@ -170,10 +113,15 @@ pub(crate) fn call_decl_from_static(
         contract: input.contract,
         ident: db.custom_ident(input.name),
     });
-    let output = db.parse_entity(static_decl.output, None, &symbols).unwrap();
+    let output_ty = db
+        .parse_entity(static_decl.output_ty, None, &symbols)
+        .unwrap();
     Arc::new(CallDecl {
         generic_placeholders,
         inputs,
-        output,
+        output: OutputDecl {
+            contract: static_decl.output_contract,
+            ty: output_ty,
+        },
     })
 }

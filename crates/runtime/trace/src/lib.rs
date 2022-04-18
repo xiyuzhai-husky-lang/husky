@@ -83,11 +83,11 @@ impl<'eval> Serialize for Trace<'eval> {
                     FeatureExprKind::PrimitiveLiteral(_)
                     | FeatureExprKind::PrimitiveBinaryOpr { .. }
                     | FeatureExprKind::Variable { .. } => false,
-                    FeatureExprKind::StructFieldAccess { .. } => todo!(),
+                    FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
                     FeatureExprKind::EnumLiteral { .. } => todo!(),
-                    FeatureExprKind::FeatureBlock { .. } => todo!(),
+                    FeatureExprKind::EntityFeature { .. } => todo!(),
                     FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-                    FeatureExprKind::RecordFieldAccess {
+                    FeatureExprKind::RecordOriginalFieldAccess {
                         ref this,
                         field_ident,
                         ..
@@ -98,6 +98,7 @@ impl<'eval> Serialize for Trace<'eval> {
                         ref routine_defn, ..
                     } => !routine_defn.is_builtin(),
                     FeatureExprKind::PatternCall {} => true,
+                    FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)

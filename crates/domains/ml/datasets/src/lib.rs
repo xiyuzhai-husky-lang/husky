@@ -29,7 +29,7 @@ pub static DATASET_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
         trait_impls: &[],
         type_members: &[],
         variants: &[],
-        kind: TypeKind::Other,
+        kind: TyKind::Other,
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),
@@ -37,7 +37,7 @@ pub static DATASET_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
 
 use std::{borrow::Cow, sync::Arc};
 
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};

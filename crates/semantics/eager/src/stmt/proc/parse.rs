@@ -44,10 +44,9 @@ impl<'a> EagerStmtParser<'a> {
                     ident,
                     variant_class: ref variant_kind,
                 } => todo!(),
-                AstKind::FieldDefn { .. } => todo!(),
+                AstKind::FieldDefnHead { .. } => todo!(),
                 AstKind::TypeMethodDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
-                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

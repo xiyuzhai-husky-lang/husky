@@ -46,11 +46,11 @@ impl<'eval> TraceFactory<'eval> {
                 todo!()
                 // self.routine_call_tokens(ranged_scope, inputs, associated_trace, text, &config)
             }
-            FeatureExprKind::StructFieldAccess { .. } => todo!(),
+            FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
             FeatureExprKind::EnumLiteral { .. } => todo!(),
-            FeatureExprKind::FeatureBlock { .. } => todo!(),
+            FeatureExprKind::EntityFeature { .. } => todo!(),
             FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprKind::RecordFieldAccess {
+            FeatureExprKind::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
@@ -58,6 +58,7 @@ impl<'eval> TraceFactory<'eval> {
             FeatureExprKind::This { ref repr } => todo!(),
             FeatureExprKind::GlobalInput => vec![keyword!("input")],
             FeatureExprKind::PatternCall {} => todo!(),
+            FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
         };
     }
 

@@ -1,5 +1,9 @@
+mod static_std;
+
+pub use static_std::*;
+
 use crate::*;
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use visual_syntax::TRIVIAL_VISUALIZER;
 
 pub static CLONE_TRAIT_DEFN: StaticEntityDefn = StaticEntityDefn {
@@ -15,7 +19,7 @@ pub static VOID_TYPE_DEFN: StaticEntityDefn = StaticEntityDefn {
         trait_impls: &[],
         type_members: &[],
         variants: &[],
-        kind: TypeKind::Primitive,
+        kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),
@@ -29,7 +33,7 @@ pub static I32_TYPE_DEFN: StaticEntityDefn = StaticEntityDefn {
         trait_impls: &[],
         type_members: &[],
         variants: &[],
-        kind: TypeKind::Primitive,
+        kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),
@@ -43,7 +47,7 @@ pub static F32_TYPE_DEFN: StaticEntityDefn = StaticEntityDefn {
         trait_impls: &[],
         type_members: &[],
         variants: &[],
-        kind: TypeKind::Primitive,
+        kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),
@@ -57,7 +61,7 @@ pub static B32_TYPE_DEFN: StaticEntityDefn = StaticEntityDefn {
         trait_impls: &[],
         type_members: &[],
         variants: &[],
-        kind: TypeKind::Primitive,
+        kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),
@@ -71,7 +75,7 @@ pub static B64_TYPE_DEFN: StaticEntityDefn = StaticEntityDefn {
         trait_impls: &[],
         type_members: &[],
         variants: &[],
-        kind: TypeKind::Primitive,
+        kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),
@@ -85,7 +89,7 @@ pub static BOOL_TYPE_DEFN: StaticEntityDefn = StaticEntityDefn {
         trait_impls: &[],
         type_members: &[],
         variants: &[],
-        kind: TypeKind::Primitive,
+        kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),

@@ -39,16 +39,20 @@ impl EntityDefnVariant {
         let mut type_members = IdentDict::default();
         let mut trait_impls = Vec::new();
         msg_once!("todo");
-        Self::collect_fields(db, &mut children, &mut type_members, entity_route, file)?;
-        Self::collect_member_calls(
+
+        let variants = match kind {
+            TyKind::Enum => Self::collect_variants(db, file, entity_route, &mut children)?,
+            _ => Default::default(),
+        };
+        Self::collect_fields(
             db,
             arena,
             file,
-            entity_route,
             &mut children,
             &mut type_members,
+            entity_route,
         )?;
-        let variants = Self::collect_variants(db, file, children)?;
+        Self::collect_other_members(db, arena, file, entity_route, children, &mut type_members)?;
         Ok(EntityDefnVariant::new_ty(
             type_members,
             variants,
@@ -60,7 +64,7 @@ impl EntityDefnVariant {
     fn new_ty(
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
-        kind: TypeKind,
+        kind: TyKind,
         trait_impls: Vec<Arc<EntityDefn>>,
     ) -> Self {
         let members = collect_all_members(&type_members, &trait_impls);
@@ -76,10 +80,11 @@ impl EntityDefnVariant {
     fn collect_variants(
         db: &dyn InferQueryGroup,
         file: FilePtr,
-        mut children: Peekable<AstIter>,
+        ty_route: EntityRoutePtr,
+        children: &mut Peekable<AstIter>,
     ) -> SemanticResult<IdentDict<Arc<EntityDefn>>> {
         let mut variants = VecDict::default();
-        for child in children {
+        while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
             match ast.kind {
                 AstKind::EnumVariantDefnHead {
@@ -95,14 +100,18 @@ impl EntityDefnVariant {
                             },
                         },
                         db.intern_entity_route(EntityRoute {
-                            kind: todo!(),
-                            generic_arguments: todo!(),
+                            kind: EntityRouteKind::Child {
+                                parent: ty_route,
+                                ident,
+                            },
+                            generic_arguments: vec![],
                         }),
                         file,
                         ast.range,
                     ));
+                    children.next();
                 }
-                _ => panic!(),
+                _ => break,
             }
         }
         Ok(variants)

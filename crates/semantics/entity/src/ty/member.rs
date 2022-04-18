@@ -26,3 +26,13 @@ pub fn collect_all_members(
     }
     Arc::new(members)
 }
+
+pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRoutePtr) -> Arc<EntityDefn> {
+    let ty = member_route.parent();
+    let ty_defn = db.entity_defn(ty).unwrap();
+    let member_idx = db.member_idx(member_route);
+    match ty_defn.variant {
+        EntityDefnVariant::Type { ref members, .. } => members[member_idx.0 as usize].clone(),
+        _ => panic!(),
+    }
+}

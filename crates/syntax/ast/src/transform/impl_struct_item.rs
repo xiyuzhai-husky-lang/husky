@@ -60,7 +60,7 @@ impl<'a> AstTransformer<'a> {
                     _ => err!("expect custom identifier", token_group[0].text_range())?,
                 };
                 let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..])?;
-                AstKind::FieldDefn(FieldDefnHead {
+                AstKind::FieldDefnHead(FieldDefnHead {
                     ident,
                     contract: FieldContract::Own,
                     ty,
@@ -83,7 +83,7 @@ impl<'a> AstTransformer<'a> {
         expect_at_least!(token_group, token_group.into(), 5);
         expect_block_head!(token_group);
         let head = AtomLRParser::new(self.symbol_proxy(), &token_group[funcname_idx..])
-            .field_routine_decl(InputContract::Pure, RoutineKind::Func)?;
+            .method_decl(InputContract::Pure, RoutineKind::Func)?;
         self.symbols.extend(
             head.input_placeholders
                 .iter()

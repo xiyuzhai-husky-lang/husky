@@ -1,6 +1,6 @@
 use super::*;
 use crate::{transform::utils::*, *};
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use word::*;
 
 impl<'a> AstTransformer<'a> {
@@ -37,7 +37,7 @@ impl<'a> AstTransformer<'a> {
         msg_once!("struct generic placeholders");
         Ok(AstKind::TypeDefnHead {
             ident: identify!(tokens[1]),
-            kind: TypeKind::Struct,
+            kind: TyKind::Struct,
             generic_placeholders: Default::default(),
         })
     }
@@ -61,7 +61,7 @@ impl<'a> AstTransformer<'a> {
         msg_once!("record generic placeholders");
         Ok(AstKind::TypeDefnHead {
             ident: identify!(tokens[1]),
-            kind: TypeKind::Record,
+            kind: TyKind::Record,
             generic_placeholders: Default::default(),
         })
     }
@@ -73,7 +73,7 @@ impl<'a> AstTransformer<'a> {
         msg_once!("record generic placeholders");
         Ok(AstKind::TypeDefnHead {
             ident: identify!(tokens[1]),
-            kind: TypeKind::Enum,
+            kind: TyKind::Enum,
             generic_placeholders: Default::default(),
         })
     }

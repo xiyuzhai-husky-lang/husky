@@ -13,7 +13,7 @@ pub struct MethodDecl {
     pub ident: CustomIdentifier,
     pub this_contract: InputContract,
     pub inputs: Vec<InputDecl>,
-    pub output: EntityRoutePtr,
+    pub output: OutputDecl,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub kind: MethodKind,
 }
@@ -41,8 +41,8 @@ impl MethodKind {
         symbols: &[Symbol],
     ) -> Self {
         match static_kind {
-            StaticMethodKind::Type => Self::Type,
-            StaticMethodKind::Trait(trai) => {
+            StaticMethodKind::TypeMethod => Self::Type,
+            StaticMethodKind::TraitMethod(trai) => {
                 Self::Trait(db.parse_entity(trai, opt_this_ty, symbols).unwrap())
             }
         }
@@ -65,9 +65,7 @@ impl MethodDecl {
                 .iter()
                 .map(|input| input.instantiate(instantiator))
                 .collect(),
-            output: instantiator
-                .instantiate_entity_route(self.output)
-                .as_scope(),
+            output: self.output.instantiate(instantiator),
             generic_placeholders: Default::default(),
             kind: self.kind.instantiate(instantiator),
         })
@@ -90,7 +88,7 @@ impl MethodDecl {
         opt_this_ty: Option<EntityRoutePtr>,
         symbols: &[Symbol],
     ) -> Arc<Self> {
-        let output = parse_ty(
+        let output_ty = parse_ty(
             SymbolProxy {
                 opt_package_main: None,
                 db: db.upcast(),
@@ -106,7 +104,10 @@ impl MethodDecl {
             inputs: decl
                 .inputs
                 .map(|input| InputDecl::from_static(db, input, opt_this_ty, symbols)),
-            output,
+            output: OutputDecl {
+                contract: decl.output_contract,
+                ty: output_ty,
+            },
             generic_placeholders: decl.generic_placeholders.map(|static_generic_placeholder| {
                 GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
             }),
@@ -120,7 +121,10 @@ impl MethodDecl {
             inputs: method_defn_head
                 .input_placeholders
                 .map(|input_placeholder| input_placeholder.into()),
-            output: method_defn_head.output.route,
+            output: OutputDecl {
+                contract: method_defn_head.output_contract,
+                ty: method_defn_head.output_ty.route,
+            },
             this_contract: method_defn_head.this_contract,
             generic_placeholders: method_defn_head.generic_placeholders.clone(),
             kind,

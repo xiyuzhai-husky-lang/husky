@@ -2,7 +2,7 @@ use std::ops::AddAssign;
 
 use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtKind};
 use defn_head::InputPlaceholder;
-use entity_kind::{RoutineKind, TypeKind};
+use entity_kind::{RoutineKind, TyKind};
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
 use syntax_types::*;
@@ -85,16 +85,16 @@ impl<'a> Formatter<'a> {
             } => {
                 enter_block(self);
                 match kind {
-                    TypeKind::Enum => todo!(),
-                    TypeKind::Struct => {
+                    TyKind::Enum => todo!(),
+                    TyKind::Struct => {
                         self.context.set_value(AstContext::Struct);
                         self.write("struct ")
                     }
-                    TypeKind::Record => todo!(),
-                    TypeKind::Primitive => todo!(),
-                    TypeKind::Vec => todo!(),
-                    TypeKind::Array => todo!(),
-                    TypeKind::Other => todo!(),
+                    TyKind::Record => todo!(),
+                    TyKind::Primitive => todo!(),
+                    TyKind::Vec => todo!(),
+                    TyKind::Array => todo!(),
+                    TyKind::Other => todo!(),
                 }
                 self.fmt_ident(ident.into());
                 if generics.len() > 0 {
@@ -126,15 +126,15 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_contracted_type(input_placeholder);
                 }
                 self.write(")");
-                if head.output.route != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if head.output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_ty(head.output.route);
+                    self.fmt_ty(head.output_ty.route);
                 }
                 self.write(":");
             }
             AstKind::PatternDefnHead => todo!(),
             AstKind::Use { ident, scope } => todo!(),
-            AstKind::FieldDefn(ref field_var) => {
+            AstKind::FieldDefnHead(ref field_var) => {
                 self.fmt_ident(field_var.ident.into());
                 self.write(": ");
                 self.fmt_member_variable_contracted_type(field_var.contract, field_var.ty)
@@ -147,7 +147,6 @@ impl<'a> Formatter<'a> {
             } => todo!(),
             AstKind::TypeMethodDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),
-            AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
         }
     }
 
@@ -172,6 +171,7 @@ impl<'a> Formatter<'a> {
             InputContract::BorrowMut => self.write("mut &"),
             InputContract::MoveMut => self.write("mut !"),
             InputContract::Exec => todo!(),
+            InputContract::MemberAccess => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.route);
     }
@@ -278,7 +278,7 @@ impl<'a> Formatter<'a> {
                 // ast::Opr::Index => todo!(),
                 // ast::Opr::Opr(opr) => match opr {},
             },
-            RawExprVariant::Scope { .. } => todo!(),
+            RawExprVariant::Entity { .. } => todo!(),
             RawExprVariant::Lambda(ref inputs, expr) => {
                 self.write("|");
                 self.join(

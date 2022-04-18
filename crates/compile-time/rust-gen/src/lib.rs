@@ -11,12 +11,12 @@ use cargo_toml_content::*;
 use defn_head::*;
 use file::FilePtr;
 use lib_rs_content::*;
-use pack_semantics::PackQueryGroup;
+use pack_semantics::PackageQueryGroup;
 use print_utils::*;
 use std::sync::Arc;
 
 #[salsa::query_group(RustGenQueryStorage)]
-pub trait RustGenQueryGroup: PackQueryGroup {
+pub trait RustGenQueryGroup: PackageQueryGroup {
     fn cargo_toml_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_lib_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_bin_main_rs_content(&self, main_file: FilePtr) -> Arc<String>;

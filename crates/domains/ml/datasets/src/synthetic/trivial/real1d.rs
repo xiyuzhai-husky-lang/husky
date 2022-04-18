@@ -1,6 +1,6 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
 use std::sync::Arc;
-use vm::{BoxedValue, Linkage, StackValue};
+use vm::{BoxedValue, Linkage, OutputContract, StackValue};
 use xrng::XRng;
 
 pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
@@ -16,7 +16,8 @@ pub const DATASET1_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     decl: StaticEntityDecl::Func(StaticCallDecl {
         generic_placeholders: &[],
         inputs: vec![],
-        output: "Dataset<f32, i32>",
+        output_ty: "Dataset<f32, i32>",
+        output_contract: OutputContract::Pure,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
             nargs: 0,
@@ -29,7 +30,8 @@ pub const DATASET2_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     decl: StaticEntityDecl::Func(StaticCallDecl {
         generic_placeholders: &[],
         inputs: vec![],
-        output: "Dataset<f32, i32>",
+        output_ty: "Dataset<f32, i32>",
+        output_contract: OutputContract::Pure,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
             nargs: 0,

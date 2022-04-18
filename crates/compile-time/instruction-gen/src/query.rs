@@ -1,14 +1,16 @@
 use check_utils::should_eq;
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use file::FilePtr;
 use linkage_table::SearchLinkage;
-use pack_semantics::PackQueryGroup;
+use pack_semantics::PackageQueryGroup;
 use vm::{BoxedValue, EvalValue, Linkage, StackValue, VMResult};
 
 use crate::*;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
-pub trait InstructionGenQueryGroup: EntityDefnQueryGroup + PackQueryGroup + SearchLinkage {
+pub trait InstructionGenQueryGroup:
+    EntityDefnQueryGroup + PackageQueryGroup + SearchLinkage
+{
     fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn method_instruction_sheet(&self, member_route: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn dataset_config_instruction_sheet(&self, pack_main: FilePtr) -> Arc<InstructionSheet>;
@@ -83,31 +85,30 @@ fn method_instruction_sheet(
             kind,
             ref trait_impls,
             ref members,
-        } => match kind {
-            TypeKind::Enum => todo!(),
-            TypeKind::Struct => {
-                todo!()
-                // let field_routine = ty_defn.methods.get(method_ident).unwrap();
-                // let inputs = field_routine
-                //     .input_placeholders
-                //     .iter()
-                //     .map(|input_placeholder| input_placeholder.ident)
-                //     .collect();
-                // match field_routine.kind {
-                //     MethodKind::Func { ref stmts } => {
-                //         InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
-                //     }
-                //     MethodKind::Proc { ref stmts } => {
-                //         InstructionSheetBuilder::new_impr(db, inputs, stmts, true)
-                //     }
-                // }
+        } => {
+            let method_defn = db.member_defn(member_route);
+            match method_defn.variant {
+                EntityDefnVariant::TypeMethod {
+                    ref method_variant,
+                    ref input_placeholders,
+                    ..
+                } => {
+                    let inputs = input_placeholders
+                        .iter()
+                        .map(|input_placeholder| input_placeholder.ident)
+                        .collect();
+                    match method_variant {
+                        MethodDefnVariant::Func { stmts } => {
+                            InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
+                        }
+                        MethodDefnVariant::Proc { stmts } => todo!(),
+                        MethodDefnVariant::Pattern { stmts } => todo!(),
+                    }
+                }
+                EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+                _ => panic!(),
             }
-            TypeKind::Record => todo!(),
-            TypeKind::Primitive => todo!(),
-            TypeKind::Vec => todo!(),
-            TypeKind::Array => todo!(),
-            TypeKind::Other => todo!(),
-        },
+        }
         EntityDefnVariant::Builtin => todo!(),
         EntityDefnVariant::EnumVariant { .. } => todo!(),
         EntityDefnVariant::TypeField { .. } => todo!(),

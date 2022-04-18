@@ -6,15 +6,14 @@ mod subentities;
 mod trai;
 mod ty;
 
-use avec::Avec;
 pub use morphism::*;
 pub use query::*;
 pub use routine::*;
-use static_defn::StaticEntityDefn;
 pub use trai::*;
 pub use ty::*;
 
 use ast::AstKind;
+use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
 use entity_route::{EntityRouteKind, EntitySource};
@@ -25,6 +24,7 @@ use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
+use static_defn::StaticEntityDefn;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::TextRange;
@@ -65,10 +65,6 @@ impl HasKey<CustomIdentifier> for EntityDefn {
 impl EntityDefn {
     pub fn from_static(static_entity_defn: &StaticEntityDefn) -> Self {
         todo!()
-    }
-
-    pub fn kind(&self) -> &EntityDefnVariant {
-        &self.variant
     }
 
     pub(crate) fn new(
@@ -118,7 +114,7 @@ pub enum EntityDefnVariant {
     Type {
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
-        kind: TypeKind,
+        kind: TyKind,
         trait_impls: Vec<Arc<EntityDefn>>,
         members: Avec<EntityDefn>,
     },
@@ -128,13 +124,11 @@ pub enum EntityDefnVariant {
     },
     Builtin,
     TypeField {
-        ident: CustomIdentifier,
         ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
         contract: FieldContract,
     },
     TypeMethod {
-        ident: CustomIdentifier,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedEntityRoute,
         this_contract: InputContract,
@@ -150,7 +144,6 @@ pub enum EntityDefnVariant {
     },
     TraitMethodImpl {
         trai: EntityRoutePtr,
-        ident: CustomIdentifier,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedEntityRoute,
         this_contract: InputContract,
@@ -241,29 +234,13 @@ pub(crate) fn entity_defn(
                     ident,
                     EntityDefnVariant::enum_variant(db, ident, variant_class, children),
                 ),
-                AstKind::FieldDefn { .. } => todo!(),
-                AstKind::TypeMethodDefnHead(ref head) => match entity_route.kind {
-                    EntityRouteKind::Root { ident } => todo!(),
-                    EntityRouteKind::Package { main, ident } => todo!(),
-                    EntityRouteKind::Child { parent: ty, ident } => {
-                        let ty_defn = db.entity_defn(ty)?;
-                        match ty_defn.variant {
-                            EntityDefnVariant::Type {
-                                ref type_members, ..
-                            } => return Ok(type_members.get(ident).unwrap().clone()),
-                            _ => panic!(),
-                        }
-                    }
-                    EntityRouteKind::TraitMember { ty, trai, ident } => todo!(),
-                    EntityRouteKind::Input { main } => todo!(),
-                    EntityRouteKind::Generic { ident, entity_kind } => todo!(),
-                    EntityRouteKind::ThisType => todo!(),
-                },
+                AstKind::FieldDefnHead { .. } | AstKind::TypeMethodDefnHead(_) => {
+                    return Ok(db.member_defn(entity_route))
+                }
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,
                     EntityDefnVariant::feature(db, ty, not_none!(children), arena, file)?,
                 ),
-                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
             };
             Ok(EntityDefn::new(
                 ident.into(),

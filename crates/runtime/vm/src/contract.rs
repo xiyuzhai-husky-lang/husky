@@ -8,29 +8,44 @@ pub enum InputContract {
     BorrowMut,
     MoveMut,
     Exec,
+    MemberAccess,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum OutputContract {
+    Pure,
+    MemberAccess,
 }
 
 impl InputContract {
-    pub fn eager(&self) -> VMResult<EagerContract> {
-        Ok(match self {
-            InputContract::Pure => EagerContract::Pure,
-            InputContract::GlobalRef => EagerContract::GlobalRef,
-            InputContract::Move => EagerContract::Move,
-            InputContract::BorrowMut => EagerContract::BorrowMut,
-            InputContract::MoveMut => todo!(),
-            InputContract::Exec => todo!(),
-        })
+    pub fn eager(&self, output: OutputContract) -> VMResult<EagerContract> {
+        match output {
+            OutputContract::Pure => Ok(match self {
+                InputContract::Pure => EagerContract::Pure,
+                InputContract::GlobalRef => EagerContract::GlobalRef,
+                InputContract::Move => EagerContract::Move,
+                InputContract::BorrowMut => EagerContract::BorrowMut,
+                InputContract::MoveMut => todo!(),
+                InputContract::Exec => todo!(),
+                InputContract::MemberAccess => panic!(),
+            }),
+            OutputContract::MemberAccess => todo!(),
+        }
     }
 
-    pub fn lazy(&self) -> VMResult<LazyContract> {
-        Ok(match self {
-            InputContract::Pure => LazyContract::Pure,
-            InputContract::GlobalRef => todo!(),
-            InputContract::Move => LazyContract::Take,
-            InputContract::BorrowMut => todo!(),
-            InputContract::MoveMut => todo!(),
-            InputContract::Exec => todo!(),
-        })
+    pub fn lazy(&self, output: OutputContract) -> VMResult<LazyContract> {
+        match output {
+            OutputContract::Pure => Ok(match self {
+                InputContract::Pure => LazyContract::Pure,
+                InputContract::GlobalRef => todo!(),
+                InputContract::Move => LazyContract::Take,
+                InputContract::BorrowMut => todo!(),
+                InputContract::MoveMut => todo!(),
+                InputContract::Exec => todo!(),
+                InputContract::MemberAccess => todo!(),
+            }),
+            OutputContract::MemberAccess => todo!(),
+        }
     }
 }
 

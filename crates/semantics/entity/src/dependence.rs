@@ -133,18 +133,24 @@ impl EntityDefn {
             }
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Builtin => (),
-            EntityDefnVariant::EnumVariant { .. } => {
-                todo!()
-                //     match variant {
-                //     EnumVariantDefn::Constant => (),
-                // },
-            }
+            EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
+                EnumVariantDefnVariant::Constant => (),
+            },
             EntityDefnVariant::TypeField {
-                ident,
                 ty,
                 ref field_variant,
-                contract,
-            } => todo!(),
+                ..
+            } => {
+                builder.push(ty);
+                match field_variant {
+                    FieldDefnVariant::StructOriginal => todo!(),
+                    FieldDefnVariant::RecordOriginal => todo!(),
+                    FieldDefnVariant::StructDerived { stmts } => todo!(),
+                    FieldDefnVariant::RecordDerived { stmts } => {
+                        extract_lazy_stmts_dependees(stmts, &mut builder)
+                    }
+                }
+            }
             EntityDefnVariant::TypeMethod {
                 ref input_placeholders,
                 output,
@@ -283,7 +289,7 @@ impl EntityDefn {
                     }
                 }
                 LazyExprKind::Lambda(_, _) => todo!(),
-                LazyExprKind::This => todo!(),
+                LazyExprKind::This => (),
                 LazyExprKind::EntityFeature { route: scope } => todo!(),
             }
         }
@@ -362,7 +368,6 @@ impl EntityDefn {
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TypeField {
-                    ident,
                     ty,
                     ref field_variant,
                     contract,

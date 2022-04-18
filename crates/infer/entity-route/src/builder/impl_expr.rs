@@ -39,10 +39,10 @@ impl<'a> TySheetBuilder<'a> {
                 p!(ident);
                 todo!()
             }
-            RawExprVariant::Scope { scope, kind } => self.scope_ty_result(scope, kind),
+            RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind),
             RawExprVariant::PrimitiveLiteral(value) => Ok(value.ty().into()),
             RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => self.opn_opt_ty(opr, opds, expr_idx, arena),
+            RawExprVariant::Opn { opr, ref opds } => self.infer_opn(opr, opds, expr_idx, arena),
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { ty } => derived_not_none!(ty),
         }?;
@@ -57,7 +57,7 @@ impl<'a> TySheetBuilder<'a> {
         Ok(ty)
     }
 
-    fn scope_ty_result(
+    fn infer_entity(
         &mut self,
         scope: EntityRoutePtr,
         entity_kind: EntityKind,
@@ -94,7 +94,7 @@ impl<'a> TySheetBuilder<'a> {
         })
     }
 
-    fn opn_opt_ty(
+    fn infer_opn(
         &mut self,
         opr: Opr,
         opds: &RawExprRange,
@@ -106,8 +106,8 @@ impl<'a> TySheetBuilder<'a> {
             Opr::Binary(opr) => {
                 self.binary_opn_ty_result(opr, opds.start, opds.start + 1, arena, range)
             }
-            Opr::Prefix(opr) => self.prefix_opn_ty_result(opr, opds.start, arena),
-            Opr::Suffix(opr) => self.suffix_opn_ty_result(opr, opds.start, arena, range),
+            Opr::Prefix(opr) => self.infer_prefix(opr, opds.start, arena),
+            Opr::Suffix(opr) => self.infer_suffix(opr, opds.start, arena, range),
             Opr::List(opr) => self.list_opn_ty_result(opr, opds, arena, range, expr_idx),
         }
     }
@@ -200,7 +200,7 @@ impl<'a> TySheetBuilder<'a> {
         .into())
     }
 
-    fn prefix_opn_ty_result(
+    fn infer_prefix(
         &mut self,
         opr: PrefixOpr,
         opd: RawExprIdx,
@@ -209,7 +209,7 @@ impl<'a> TySheetBuilder<'a> {
         todo!()
     }
 
-    fn suffix_opn_ty_result(
+    fn infer_suffix(
         &mut self,
         opr: SuffixOpr,
         opd: RawExprIdx,
@@ -238,29 +238,31 @@ impl<'a> TySheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.list_call_ty_result(opds, arena, range, expr_idx),
-            ListOpr::Index => todo!(),
+            ListOpr::Call => self.infer_list_call(opds, arena, range, expr_idx),
+            ListOpr::Index => self.infer_index(arena, opds),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
     }
 
-    fn list_call_ty_result(
+    fn infer_list_call(
         &mut self,
-        all_opds: &RawExprRange,
+        total_opds: &RawExprRange,
         arena: &RawExprArena,
         range: TextRange,
         expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
-        let call_expr = &arena[all_opds.start];
+        let call_expr = &arena[total_opds.start];
         match call_expr.kind {
-            RawExprVariant::Scope { scope, kind, .. } => {
+            RawExprVariant::Entity {
+                route: scope, kind, ..
+            } => {
                 let call_decl = self.db.call_decl(scope)?;
                 for i in 0..call_decl.inputs.len() {
-                    let input_expr_idx = all_opds.start + 1 + i;
+                    let input_expr_idx = total_opds.start + 1 + i;
                     self.infer_expr(input_expr_idx, Some(call_decl.inputs[i].ty), arena);
                 }
-                Ok(call_decl.output)
+                Ok(call_decl.output.ty)
             }
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => todo!(),
@@ -270,10 +272,10 @@ impl<'a> TySheetBuilder<'a> {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
                 Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::MembAccess(ident) => self.method_ty_result(
+                    SuffixOpr::MembAccess(ident) => self.infer_method(
                         opds.start,
                         ident,
-                        (all_opds.start + 1)..all_opds.end,
+                        (total_opds.start + 1)..total_opds.end,
                         arena,
                         expr_idx,
                     ),
@@ -289,7 +291,7 @@ impl<'a> TySheetBuilder<'a> {
         }
     }
 
-    fn method_ty_result(
+    fn infer_method(
         &mut self,
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
@@ -299,7 +301,7 @@ impl<'a> TySheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_decl = derived_ok!(self.db.type_decl(this_ty));
-        let (member_idx, method_decl) = this_ty_decl.method(method_ident, &self.trait_uses)?;
+        let method_decl = this_ty_decl.method(method_ident, &self.trait_uses)?;
         if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
         }
@@ -328,9 +330,19 @@ impl<'a> TySheetBuilder<'a> {
                 generic_arguments,
             })),
         );
-        self.ty_sheet
-            .member_indices
-            .insert(expr_idx, Ok(member_idx));
-        Ok(method_decl.output)
+        Ok(method_decl.output.ty)
+    }
+
+    fn infer_index(
+        &mut self,
+        arena: &RawExprArena,
+        total_opds: &RawExprRange,
+    ) -> InferResult<EntityRoutePtr> {
+        if total_opds.end - total_opds.start != 2 {
+            todo!()
+        }
+        let this_ty = derived_not_none!(self.infer_expr(total_opds.start, None, arena))?;
+        p!(this_ty);
+        todo!()
     }
 }

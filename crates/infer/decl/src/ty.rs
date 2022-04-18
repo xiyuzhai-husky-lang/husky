@@ -5,6 +5,7 @@ mod vec;
 
 use std::iter::Peekable;
 
+use check_utils::should_eq;
 use entity_kind::{EnumVariantKind, RoutineKind};
 use print_utils::p;
 pub use trait_impl::*;
@@ -19,17 +20,17 @@ pub use enum_variant::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
 use vec_dict::VecDict;
-use vm::TySignature;
+use vm::{OutputContract, TySignature};
 use word::{IdentArcDict, IdentDict, RangedCustomIdentifier};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TypeDecl {
     pub this_ty: EntityRoutePtr,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
-    pub type_members: IdentDict<TypeMemberDecl>,
+    pub ty_members: IdentDict<TyMemberDecl>,
     pub variants: IdentDict<EnumVariantDecl>,
-    pub kind: TypeKind,
-    pub trait_impls: Vec<Arc<TraitImplDecl>>,
+    pub kind: TyKind,
+    pub trai_impls: Vec<Arc<TraiImplDecl>>,
     pub members: Vec<MemberDecl>,
     pub opt_type_call: Option<Arc<CallDecl>>,
 }
@@ -58,7 +59,7 @@ impl TypeDecl {
             static_decl
                 .type_members
                 .iter()
-                .map(|member| TypeMemberDecl::from_static(db, member, this_ty, &symbols))
+                .map(|member| TyMemberDecl::from_static(db, member, this_ty, &symbols))
                 .collect(),
             static_decl.variants.map(|static_decl| {
                 EnumVariantDecl::from_static(db, static_decl, this_ty, &symbols)
@@ -66,7 +67,7 @@ impl TypeDecl {
             static_decl.kind,
             static_decl
                 .trait_impls
-                .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, this_ty, &symbols)),
+                .map(|trait_impl| TraiImplDecl::from_static(db, trait_impl, this_ty, &symbols)),
             opt_type_call,
         )
     }
@@ -75,7 +76,7 @@ impl TypeDecl {
         db: &dyn DeclQueryGroup,
         arena: &RawExprArena,
         ty_route: EntityRoutePtr,
-        kind: TypeKind,
+        kind: TyKind,
         generic_placeholders: IdentDict<GenericPlaceholder>,
         children: AstIter,
     ) -> InferResultArc<Self> {
@@ -86,41 +87,96 @@ impl TypeDecl {
             generic_arguments,
         });
         let mut children = children.peekable();
-        let mut type_members = IdentDict::default();
-        let mut trait_impls = Vec::default();
-        Self::collect_fields(&mut children, &mut type_members)?;
-        Self::collect_member_calls(&mut children, &mut type_members)?;
-        let variants = Self::collect_variants(children)?;
+        let mut ty_members = IdentDict::default();
+        let mut trai_impls = Vec::default();
+        let variants = match kind {
+            TyKind::Enum => Self::collect_variants(&mut children)?,
+            _ => Default::default(),
+        };
+        Self::collect_original_fields(&mut children, &mut ty_members)?;
+        Self::collect_other_members(children, &mut ty_members)?;
         let opt_type_call = match kind {
-            TypeKind::Enum => None,
-            TypeKind::Record => todo!(),
-            TypeKind::Struct => Some(db.call_decl(ty_route)?),
-            TypeKind::Primitive => todo!(),
-            TypeKind::Vec => panic!(),
-            TypeKind::Array => todo!(),
-            TypeKind::Other => todo!(),
+            TyKind::Enum => None,
+            TyKind::Record | TyKind::Struct => {
+                let mut inputs = vec![];
+                for ty_member in ty_members.iter() {
+                    match ty_member {
+                        TyMemberDecl::Field(ref field_decl) => match field_decl.kind {
+                            FieldKind::StructOriginal | FieldKind::RecordOriginal => {
+                                inputs.push(InputDecl {
+                                    contract: field_decl.contract.constructor_input(),
+                                    ty: field_decl.ty,
+                                    ident: field_decl.ident,
+                                })
+                            }
+                            FieldKind::StructDerived | FieldKind::RecordDerived => break,
+                        },
+                        TyMemberDecl::Method(_) | TyMemberDecl::Call => break,
+                    }
+                }
+                Some(Arc::new(CallDecl {
+                    inputs,
+                    output: OutputDecl {
+                        ty: ty_route,
+                        contract: OutputContract::Pure,
+                    },
+                    generic_placeholders: generic_placeholders.clone(),
+                }))
+            }
+            TyKind::Primitive => todo!(),
+            TyKind::Vec => panic!(),
+            TyKind::Array => todo!(),
+            TyKind::Other => todo!(),
         };
         Ok(TypeDecl::new(
             db,
             this_ty,
             generic_placeholders,
-            type_members,
+            ty_members,
             variants,
             kind,
-            trait_impls,
+            trai_impls,
             opt_type_call,
         ))
     }
 
-    fn collect_fields(
+    fn collect_variants(
         children: &mut Peekable<AstIter>,
-        members: &mut IdentDict<TypeMemberDecl>,
+    ) -> InferResult<IdentDict<EnumVariantDecl>> {
+        let mut variants = VecDict::default();
+        while let Some(child) = children.peek() {
+            match child.value.as_ref()?.kind {
+                AstKind::EnumVariantDefnHead {
+                    ident,
+                    variant_class: ref raw_variant_kind,
+                } => {
+                    variants.insert_new(EnumVariantDecl {
+                        ident,
+                        variant: match raw_variant_kind {
+                            EnumVariantKind::Constant => EnumVariantDeclVariant::Constant,
+                        },
+                    });
+                    children.next();
+                }
+                _ => panic!(),
+            }
+        }
+        Ok(variants)
+    }
+
+    fn collect_original_fields(
+        children: &mut Peekable<AstIter>,
+        members: &mut IdentDict<TyMemberDecl>,
     ) -> InferResult<()> {
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.kind {
-                AstKind::FieldDefn(ref field_defn_head) => {
+                AstKind::FieldDefnHead(ref field_defn_head) => {
+                    match field_defn_head.kind {
+                        FieldKind::StructOriginal | FieldKind::RecordOriginal => (),
+                        FieldKind::StructDerived | FieldKind::RecordDerived => break,
+                    }
                     children.next();
-                    members.insert_new(TypeMemberDecl::Field(FieldDecl::from_ast(field_defn_head)))
+                    members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(field_defn_head)))
                 }
                 _ => break,
             }
@@ -128,9 +184,9 @@ impl TypeDecl {
         Ok(())
     }
 
-    fn collect_member_calls(
-        children: &mut Peekable<AstIter>,
-        members: &mut IdentDict<TypeMemberDecl>,
+    fn collect_other_members(
+        mut children: Peekable<AstIter>,
+        members: &mut IdentDict<TyMemberDecl>,
     ) -> InferResult<()> {
         while let Some(child) = children.next() {
             match child.value.as_ref()?.kind {
@@ -143,18 +199,22 @@ impl TypeDecl {
                 AstKind::RoutineDefnHead(_) => todo!(),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::FeatureDecl { ident, ty } => todo!(),
-                AstKind::MembFeatureDefnHead { ident, ty } => todo!(),
                 AstKind::TypeMethodDefnHead(ref method_defn_head) => {
                     match method_defn_head.routine_kind {
                         RoutineKind::Proc => todo!(),
-                        RoutineKind::Func => members.insert_new(TypeMemberDecl::Method(
+                        RoutineKind::Func => members.insert_new(TyMemberDecl::Method(
                             MethodDecl::from_ast(method_defn_head, MethodKind::Type),
                         )),
                         RoutineKind::Test => todo!(),
                     }
                 }
                 AstKind::Use { ident, scope } => todo!(),
-                AstKind::FieldDefn(_) => todo!(),
+                AstKind::FieldDefnHead(ref field_defn_head) => match field_defn_head.kind {
+                    FieldKind::StructOriginal => todo!("no original at this point"),
+                    FieldKind::RecordOriginal => todo!("no original at this point"),
+                    FieldKind::StructDerived | FieldKind::RecordDerived => members
+                        .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(field_defn_head))),
+                },
                 AstKind::DatasetConfigDefnHead => todo!(),
                 AstKind::Stmt(_) => todo!(),
                 AstKind::EnumVariantDefnHead {
@@ -166,55 +226,36 @@ impl TypeDecl {
         Ok(())
     }
 
-    fn collect_variants(children: Peekable<AstIter>) -> InferResult<IdentDict<EnumVariantDecl>> {
-        let mut variants = VecDict::default();
-        for subitem in children {
-            match subitem.value.as_ref()?.kind {
-                AstKind::EnumVariantDefnHead {
-                    ident,
-                    variant_class: ref raw_variant_kind,
-                } => variants.insert_new(EnumVariantDecl {
-                    ident,
-                    variant: match raw_variant_kind {
-                        EnumVariantKind::Constant => EnumVariantDeclVariant::Constant,
-                    },
-                }),
-                _ => panic!(),
-            }
-        }
-        Ok(variants)
-    }
-
     pub(crate) fn new(
         db: &dyn DeclQueryGroup,
         this_ty: EntityRoutePtr,
         generic_placeholders: IdentDict<GenericPlaceholder>,
-        type_members: IdentDict<TypeMemberDecl>,
+        type_members: IdentDict<TyMemberDecl>,
         variants: IdentDict<EnumVariantDecl>,
-        kind: TypeKind,
-        trait_impls: Vec<Arc<TraitImplDecl>>,
+        kind: TyKind,
+        trait_impls: Vec<Arc<TraiImplDecl>>,
         opt_type_call: Option<Arc<CallDecl>>,
     ) -> Arc<Self> {
         let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
         Arc::new(Self {
             this_ty,
             generic_placeholders,
-            type_members,
+            ty_members: type_members,
             variants,
             kind,
-            trait_impls,
+            trai_impls: trait_impls,
             members,
             opt_type_call,
         })
     }
 
     pub fn field_idx(&self, field_ident: CustomIdentifier) -> usize {
-        self.type_members.position(field_ident).unwrap()
+        self.ty_members.position(field_ident).unwrap()
     }
 
     pub fn fields(&self) -> impl Iterator<Item = &FieldDecl> {
-        self.type_members.iter().filter_map(|member| match member {
-            TypeMemberDecl::Field(field_decl) => Some(field_decl as &FieldDecl),
+        self.ty_members.iter().filter_map(|member| match member {
+            TyMemberDecl::Field(field_decl) => Some(field_decl as &FieldDecl),
             _ => None,
         })
     }
@@ -223,13 +264,17 @@ impl TypeDecl {
         &self,
         ranged_ident: RangedCustomIdentifier,
     ) -> InferResult<EntityRoutePtr> {
-        match self.type_members.get(ranged_ident.ident) {
+        match self.ty_members.get(ranged_ident.ident) {
             Some(type_member_decl) => match type_member_decl {
-                TypeMemberDecl::Field(field) => Ok(field.ty),
-                TypeMemberDecl::Method(_) => todo!(),
-                TypeMemberDecl::Call => todo!(),
+                TyMemberDecl::Field(field) => Ok(field.ty),
+                TyMemberDecl::Method(_) => todo!(),
+                TyMemberDecl::Call => todo!(),
             },
-            None => todo!(),
+            None => {
+                p!(self);
+                p!(ranged_ident);
+                todo!()
+            }
         }
         // match self.kind {
         //     TyKind::Struct {
@@ -259,11 +304,11 @@ impl TypeDecl {
     }
 
     pub fn field_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResultArcRef<FieldDecl> {
-        match self.type_members.get(ranged_ident.ident) {
+        match self.ty_members.get(ranged_ident.ident) {
             Some(member_decl) => match member_decl {
-                TypeMemberDecl::Field(field) => Ok(field),
-                TypeMemberDecl::Method(_) => todo!(),
-                TypeMemberDecl::Call => todo!(),
+                TyMemberDecl::Field(field) => Ok(field),
+                TyMemberDecl::Method(_) => todo!(),
+                TyMemberDecl::Call => todo!(),
             },
             None => todo!(),
         }
@@ -294,8 +339,8 @@ impl TypeDecl {
     }
 
     pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind {
-        match self.type_members.get(field_ident).unwrap() {
-            TypeMemberDecl::Field(field) => field.kind,
+        match self.ty_members.get(field_ident).unwrap() {
+            TyMemberDecl::Field(field) => field.kind,
             _ => panic!(""),
         }
         // match self.kind {
@@ -354,21 +399,20 @@ impl TypeDecl {
         &self,
         ranged_ident: RangedCustomIdentifier,
         trait_uses: &[EntityRouteKind],
-    ) -> InferResult<(MemberIdx, &Arc<MethodDecl>)> {
+    ) -> InferResult<&Arc<MethodDecl>> {
         // the rule is:
         // first look in the type members,
         // then look in the trait members,
         // if multiple are found in the trait members,
         // report an infer error.
-        if let Some(member_idx) = self.type_members.position(ranged_ident.ident) {
-            let member = &self.type_members.data()[member_idx];
+        if let Some(member) = self.ty_members.get(ranged_ident.ident) {
             match member {
-                TypeMemberDecl::Field(_) => todo!(),
-                TypeMemberDecl::Method(method) => return Ok((member_idx.into(), method)),
-                TypeMemberDecl::Call => todo!(),
+                TyMemberDecl::Field(_) => todo!(),
+                TyMemberDecl::Method(method) => return Ok(method),
+                TyMemberDecl::Call => todo!(),
             }
         }
-        let matched_methods: Vec<(MemberIdx, &Arc<MethodDecl>)> = self
+        let matched_methods: Vec<&Arc<MethodDecl>> = self
             .members
             .iter()
             .enumerate()
@@ -384,7 +428,7 @@ impl TypeDecl {
                             method,
                         } => {
                             if is_trait_availabe(*trait_route, trait_uses) {
-                                Some((member_idx.into(), method))
+                                Some(method)
                             } else {
                                 None
                             }
@@ -399,7 +443,7 @@ impl TypeDecl {
             return Ok(matched_methods[0]);
         } else {
             p!(ranged_ident);
-            p!(self.type_members);
+            p!(self.ty_members);
             p!(matched_methods.len());
             todo!()
         }
@@ -411,6 +455,20 @@ impl TypeDecl {
         //     ),
         //     ranged_ident.range
         // )
+    }
+
+    pub fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx {
+        match member_route.kind {
+            EntityRouteKind::Child { parent, ident } => {
+                should_eq!(self.this_ty, parent);
+                self.ty_members.position(ident).unwrap().into()
+            }
+            EntityRouteKind::TraitMember { ty, trai, ident } => {
+                should_eq!(self.this_ty, ty);
+                todo!()
+            }
+            _ => panic!(),
+        }
     }
 }
 
@@ -506,10 +564,15 @@ pub(crate) fn member_call_decl_from_static(
         contract: input.contract,
         ident: db.custom_ident(input.name),
     });
-    let output = db.parse_entity(static_decl.output, None, &symbols).unwrap();
+    let output_ty = db
+        .parse_entity(static_decl.output_ty, None, &symbols)
+        .unwrap();
     Arc::new(CallDecl {
         generic_placeholders,
         inputs,
-        output,
+        output: OutputDecl {
+            contract: static_decl.output_contract,
+            ty: output_ty,
+        },
     })
 }

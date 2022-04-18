@@ -18,8 +18,8 @@ pub enum RawExprVariant {
         ty: Option<EntityRoutePtr>,
     },
     Unrecognized(CustomIdentifier),
-    Scope {
-        scope: EntityRoutePtr,
+    Entity {
+        route: EntityRoutePtr,
         kind: EntityKind,
     },
     PrimitiveLiteral(PrimitiveValue),

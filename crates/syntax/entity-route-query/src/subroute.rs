@@ -232,7 +232,7 @@ impl SubscopeTable {
             .filter_map(|entry| {
                 entry
                     .ident
-                    .map(|ident| EntityRoute::child_scope(parent_scope_id, ident, Vec::new()))
+                    .map(|ident| EntityRoute::child_route(parent_scope_id, ident, Vec::new()))
             })
             .collect()
     }

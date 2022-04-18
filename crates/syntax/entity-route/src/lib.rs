@@ -35,7 +35,7 @@ impl std::fmt::Debug for EntityRoute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
             EntityRouteKind::Root { ident } => f.write_str(&ident)?,
-            EntityRouteKind::Package { .. } => f.write_str("package")?,
+            EntityRouteKind::Package { ident, .. } => f.write_str(&ident)?,
             EntityRouteKind::Child { parent, ident } => {
                 parent.fmt(f)?;
                 f.write_str("::")?;
@@ -154,7 +154,7 @@ impl EntityRoute {
         }
     }
 
-    pub fn child_scope(
+    pub fn child_route(
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,

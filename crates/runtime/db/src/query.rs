@@ -244,11 +244,11 @@ fn feature_expr_subtraces(
         //         vec![]
         //     }
         // }
-        FeatureExprKind::StructFieldAccess { .. } => todo!(),
+        FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
         FeatureExprKind::EnumLiteral { .. } => todo!(),
-        FeatureExprKind::FeatureBlock { .. } => todo!(),
+        FeatureExprKind::EntityFeature { .. } => todo!(),
         FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-        FeatureExprKind::RecordFieldAccess {
+        FeatureExprKind::RecordOriginalFieldAccess {
             ref this,
             field_ident,
             ..
@@ -256,6 +256,7 @@ fn feature_expr_subtraces(
         FeatureExprKind::This { ref repr } => todo!(),
         FeatureExprKind::GlobalInput => todo!(),
         FeatureExprKind::PatternCall {} => todo!(),
+        FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
     })
 }
 

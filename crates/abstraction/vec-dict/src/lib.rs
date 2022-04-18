@@ -74,6 +74,13 @@ where
         self.entries.iter().find(|entry| entry.key() == key)
     }
 
+    pub fn iget(&self, key: K) -> Option<(usize, &Entry)> {
+        self.entries
+            .iter()
+            .enumerate()
+            .find(|(_, entry)| entry.key() == key)
+    }
+
     pub fn has(&self, key: K) -> bool {
         self.entries
             .iter()

@@ -24,7 +24,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                     self.eval_feature_expr(ropd)?.as_primitive()?,
                 )?
                 .into()),
-            FeatureExprKind::StructFieldAccess {
+            FeatureExprKind::StructOriginalFieldAccess {
                 ref this,
                 field_idx,
                 contract,
@@ -44,7 +44,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 opt_linkage: opt_compiled,
                 ..
             } => self.eval_routine_call(instruction_sheet, opt_compiled, opds),
-            FeatureExprKind::FeatureBlock { ref block, .. } => self.eval_feature_block(block),
+            FeatureExprKind::EntityFeature { ref block, .. } => self.eval_feature_block(block),
             FeatureExprKind::NewRecord {
                 ty,
                 ref entity,
@@ -60,7 +60,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 .cache(expr.feature, |evaluator: &mut Self| {
                     evaluator.eval_feature_expr(&value)
                 }),
-            FeatureExprKind::RecordFieldAccess {
+            FeatureExprKind::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
@@ -68,6 +68,9 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
             FeatureExprKind::This { ref repr } => todo!(),
             FeatureExprKind::GlobalInput => Ok(EvalValue::GlobalPure(self.global_input.clone())),
             FeatureExprKind::PatternCall {} => todo!(),
+            FeatureExprKind::RecordDerivedFieldAccess { ref block, .. } => {
+                self.eval_feature_block(block)
+            }
         }
     }
 

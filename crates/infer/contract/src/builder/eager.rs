@@ -102,7 +102,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let infer_result = match arena[expr_idx].kind {
             RawExprVariant::Variable { .. }
             | RawExprVariant::Unrecognized(_)
-            | RawExprVariant::Scope { .. }
+            | RawExprVariant::Entity { .. }
             | RawExprVariant::PrimitiveLiteral(_)
             | RawExprVariant::This { .. } => Ok(()),
             RawExprVariant::Bracketed(_) => todo!(),
@@ -260,7 +260,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
-            RawExprVariant::Scope { scope, .. } => {
+            RawExprVariant::Entity { route: scope, .. } => {
                 let call_decl = self.db.call_decl(scope)?;
                 match contract {
                     EagerContract::Pure => (),
@@ -276,7 +276,9 @@ impl<'a> ContractSheetBuilder<'a> {
                 for i in 0..call_decl.inputs.len() {
                     self.infer_eager_expr(
                         all_opds.start + 1 + i,
-                        call_decl.inputs[i].contract.eager()?,
+                        call_decl.inputs[i]
+                            .contract
+                            .eager(call_decl.output.contract)?,
                         arena,
                     )
                 }
@@ -320,7 +322,7 @@ impl<'a> ContractSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<()> {
         let this_ty_decl = self.expr_ty_decl(this)?;
-        let (_, method_call_decl) = this_ty_decl.method(ranged_ident, &self.trait_uses)?;
+        let method_call_decl = this_ty_decl.method(ranged_ident, &self.trait_uses)?;
         match contract {
             EagerContract::Pure => (),
             EagerContract::Move => (),
@@ -332,14 +334,22 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
         }
-        self.infer_eager_expr(this, method_call_decl.this_contract.eager()?, arena);
+        self.infer_eager_expr(
+            this,
+            method_call_decl
+                .this_contract
+                .eager(method_call_decl.output.contract)?,
+            arena,
+        );
         if inputs.end - inputs.start != method_call_decl.inputs.len() {
             todo!()
         }
         for i in 0..method_call_decl.inputs.len() {
             self.infer_eager_expr(
                 inputs.start + i,
-                method_call_decl.inputs[i].contract.eager()?,
+                method_call_decl.inputs[i]
+                    .contract
+                    .eager(method_call_decl.output.contract)?,
                 arena,
             )
         }

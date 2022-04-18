@@ -6,7 +6,8 @@ use defn_head::{
     TypeMethodDefnHead,
 };
 use entity_route::*;
-use vm::InputContract;
+use print_utils::msg_once;
+use vm::{InputContract, OutputContract};
 use word::IdentDict;
 
 use super::*;
@@ -17,7 +18,7 @@ impl<'a> AtomLRParser<'a> {
         let routine_ident = get!(self, custom_ident);
         let generic_placeholders = self.placeholders()?;
         let input_placeholders = self.func_input_placeholders()?;
-        let output = self.func_output_type()?;
+        let output_ty = self.func_output_type()?;
         match routine_kind {
             RoutineKind::Proc => (),
             RoutineKind::Test => {
@@ -31,20 +32,23 @@ impl<'a> AtomLRParser<'a> {
                             todo!("report invalid input contract")
                         }
                         InputContract::Exec => todo!(),
+                        InputContract::MemberAccess => todo!(),
                     }
                 }
             }
         }
+        msg_once!("output contract");
         Ok(RoutineDefnHead {
             ident: routine_ident,
             routine_kind,
             generic_placeholders,
             input_placeholders,
-            output,
+            output_ty,
+            output_contract: OutputContract::Pure,
         })
     }
 
-    pub fn field_routine_decl(
+    pub fn method_decl(
         mut self,
         this: InputContract,
         routine_kind: RoutineKind,
@@ -52,14 +56,15 @@ impl<'a> AtomLRParser<'a> {
         let routine_name = get!(self, custom_ident);
         let generics = self.placeholders()?;
         let input_placeholders = self.func_input_placeholders()?;
-        let output = self.func_output_type()?;
+        let output_ty = self.func_output_type()?;
         Ok(TypeMethodDefnHead {
             this_contract: this,
             routine_kind,
             ident: routine_name,
             generic_placeholders: generics,
             input_placeholders,
-            output,
+            output_ty,
+            output_contract: OutputContract::Pure,
         })
     }
 

@@ -4,8 +4,9 @@ mod load;
 mod test;
 mod val;
 
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use visual_syntax::StaticVisualizer;
+use vm::OutputContract;
 use xrng::permutation_from_seed;
 
 use super::*;
@@ -29,7 +30,8 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
     decl: StaticEntityDecl::Func(StaticCallDecl {
         generic_placeholders: &[],
         inputs: vec![],
-        output: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
+        output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
+        output_contract: OutputContract::Pure,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
             nargs: 0,
@@ -48,7 +50,7 @@ static BINARY_IMAGE28_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
     trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
     type_members: &[],
     variants: &[],
-    kind: TypeKind::Array,
+    kind: TyKind::Array,
     visualizer: StaticVisualizer {
         compiled: BinaryImage28::visualize,
     },
@@ -58,7 +60,8 @@ static BINARY_IMAGE28_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
 static BINARY_IMAGE28_TYPE_CALL_DECL: StaticCallDecl = StaticCallDecl {
     generic_placeholders: &[],
     inputs: vec![],
-    output: "datasets::cv::mnist::BinaryImage28",
+    output_ty: "datasets::cv::mnist::BinaryImage28",
+    output_contract: OutputContract::Pure,
     linkage: Linkage {
         call: |_values| Ok(StackValue::Boxed(BoxedValue::new(BinaryImage28::default()))),
         nargs: 0,

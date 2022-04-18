@@ -23,7 +23,6 @@ pub enum LazyOpnKind {
     MethodCall {
         method_ident: RangedCustomIdentifier,
         method_route: EntityRoutePtr,
-        member_idx: MemberIdx,
     },
     ElementAccess,
 }

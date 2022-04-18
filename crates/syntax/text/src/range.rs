@@ -2,10 +2,18 @@ use serde::{Deserialize, Serialize};
 
 use crate::*;
 
-#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {
     pub start: TextPosition,
     pub end: TextPosition,
+}
+
+impl std::fmt::Debug for TextRange {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.start.fmt(f)?;
+        f.write_str("..")?;
+        self.end.fmt(f)
+    }
 }
 
 impl From<std::ops::Range<(i32, i32)>> for TextRange {
