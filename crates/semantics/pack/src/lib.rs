@@ -2,7 +2,7 @@ mod cfg;
 mod query;
 
 pub use cfg::*;
-pub use query::{PackQueryGroup, PackQueryGroupStorage};
+pub use query::{PackQueryGroupStorage, PackageQueryGroup};
 
 use std::sync::Arc;
 

@@ -7,7 +7,7 @@ pub struct StaticTypeDecl {
     pub trait_impls: &'static [StaticTraitImplDecl],
     pub type_members: &'static [StaticTypeMemberDecl],
     pub variants: &'static [StaticEnumVariantDecl],
-    pub kind: TypeKind,
+    pub kind: TyKind,
     pub visualizer: StaticVisualizer,
     pub opt_type_call: Option<&'static StaticCallDecl>,
 }
@@ -50,5 +50,8 @@ impl StaticTypeMemberDecl {
 pub enum StaticTraitMemberDecl {
     Method(StaticMethodDecl),
     Call,
-    Type,
+    Type {
+        name: &'static str,
+        traits: &'static [&'static str],
+    },
 }

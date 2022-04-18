@@ -1,4 +1,5 @@
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
+use entity_route::EntityRoute;
 use vm::LazyContract;
 
 use super::*;
@@ -54,54 +55,11 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::PatternCall => todo!(),
             LazyOpnKind::FieldAccess {
                 field_ident,
-                field_kind: field_access_kind,
-            } => {
-                let this = self.new_expr(opds[0].clone());
-                match field_access_kind {
-                    FieldKind::StructOriginal => {
-                        let feature = self.features.alloc(Feature::StructFieldAccess {
-                            this: this.feature,
-                            field_ident: field_ident.ident,
-                        });
-                        msg_once!("compiled memb var access");
-                        let this_ty_decl = self.db.type_decl(this.expr.ty).unwrap();
-                        let this_ty_uid = self.db.entity_uid(this.expr.ty);
-                        (
-                            FeatureExprKind::StructFieldAccess {
-                                this,
-                                field_ident,
-                                field_idx: this_ty_decl.field_idx(field_ident.ident),
-                                contract,
-                                opt_linkage: self
-                                    .db
-                                    .linkage_table()
-                                    .struct_field_access(this_ty_uid, field_ident.ident),
-                            },
-                            feature,
-                        )
-                    }
-                    FieldKind::StructDerived => todo!(),
-                    FieldKind::RecordOriginal => {
-                        let repr = self
-                            .db
-                            .record_field_repr(this.clone().into(), field_ident.ident);
-                        let feature = repr.feature();
-                        (
-                            FeatureExprKind::RecordFieldAccess {
-                                this,
-                                field_ident,
-                                repr,
-                            },
-                            feature,
-                        )
-                    }
-                    FieldKind::RecordDerived => todo!(),
-                }
-            }
+                field_kind,
+            } => self.new_field_access(field_ident, field_kind, opds, contract),
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,
-                member_idx,
                 ..
             } => {
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
@@ -110,10 +68,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
                 let this_ty_defn = self.db.entity_defn(opds[0].expr.ty).unwrap();
-                // let ty_defn = match this_ty_defn.kind() {
-                //     EntityDefnVariant::Ty(ty) => ty,
-                //     _ => panic!(),
-                // };
+                let member_idx = self.db.member_idx(method_route);
                 let method_defn = this_ty_defn.method(member_idx);
                 let method_uid = self.db.entity_uid(method_route);
                 let kind = match method_defn.variant {
@@ -138,13 +93,6 @@ impl<'a> FeatureExprBuilder<'a> {
                     },
                     _ => panic!(),
                 };
-                //  FeatureExprKind::MethodCall {
-                //     field_ident: method_ident,
-                //     // instruction_sheet: self.db.method_instruction_sheet(opds[0].ty, member_ident),
-                //     // stmts: stmts.clone(),
-                //     opds,
-                //     // opt_compiled: None,
-                // };
                 (kind, feature)
             }
             LazyOpnKind::ElementAccess => todo!(),
@@ -152,7 +100,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::RecordCall(ty) => {
                 let uid = self.db.entity_uid(ty.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-                let feature = self.features.alloc(Feature::ClassCall {
+                let feature = self.features.alloc(Feature::RecordTypeCall {
                     ty: ty.route,
                     uid,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
@@ -167,6 +115,100 @@ impl<'a> FeatureExprBuilder<'a> {
         }
     }
 
+    fn new_field_access(
+        &self,
+        field_ident: RangedCustomIdentifier,
+        field_access_kind: FieldKind,
+        opds: &[Arc<LazyExpr>],
+        contract: LazyContract,
+    ) -> (FeatureExprKind, FeaturePtr) {
+        let this = self.new_expr(opds[0].clone());
+        let this_ty_decl = self.db.type_decl(this.expr.ty).unwrap();
+        let this_ty_uid = self.db.entity_uid(this.expr.ty);
+        match field_access_kind {
+            FieldKind::StructOriginal => {
+                let feature = self.features.alloc(Feature::StructOriginalFieldAccess {
+                    this: this.feature,
+                    field_ident: field_ident.ident,
+                });
+                (
+                    FeatureExprKind::StructOriginalFieldAccess {
+                        this,
+                        field_ident,
+                        field_idx: this_ty_decl.field_idx(field_ident.ident),
+                        contract,
+                        opt_linkage: self
+                            .db
+                            .linkage_table()
+                            .struct_field_access(this_ty_uid, field_ident.ident),
+                    },
+                    feature,
+                )
+            }
+            FieldKind::StructDerived => todo!(),
+            FieldKind::RecordOriginal => {
+                let repr = self
+                    .db
+                    .record_field_repr(this.clone().into(), field_ident.ident);
+                let feature = repr.feature();
+                (
+                    FeatureExprKind::RecordOriginalFieldAccess {
+                        this,
+                        field_ident,
+                        repr,
+                    },
+                    feature,
+                )
+            }
+            FieldKind::RecordDerived => {
+                let this_ty_defn = self.db.entity_defn(this.expr.ty).unwrap();
+                let field_uid =
+                    self.db
+                        .entity_uid(self.db.intern_entity_route(EntityRoute::child_route(
+                            this.expr.ty,
+                            field_ident.ident,
+                            vec![],
+                        )));
+                match this_ty_defn.variant {
+                    EntityDefnVariant::Type {
+                        ref type_members, ..
+                    } => match type_members.get(field_ident.ident).unwrap().variant {
+                        EntityDefnVariant::TypeField {
+                            ref field_variant, ..
+                        } => match field_variant {
+                            FieldDefnVariant::StructOriginal | FieldDefnVariant::RecordOriginal => {
+                                panic!()
+                            }
+                            FieldDefnVariant::StructDerived { stmts } => todo!(),
+                            FieldDefnVariant::RecordDerived { stmts } => {
+                                let block = FeatureBlock::new(
+                                    self.db,
+                                    Some(this.clone().into()),
+                                    stmts,
+                                    &[],
+                                    self.db.features(),
+                                );
+                                let feature =
+                                    self.db.features().alloc(Feature::RecordDerivedFieldAccess {
+                                        this: this.feature,
+                                        field_uid,
+                                    });
+                                let feature_expr_kind = FeatureExprKind::RecordDerivedFieldAccess {
+                                    this,
+                                    field_ident,
+                                    block,
+                                };
+                                (feature_expr_kind, feature)
+                            }
+                        },
+                        _ => panic!(),
+                    },
+                    _ => panic!(),
+                }
+            }
+        }
+    }
+
     fn record_field_var_value(
         &self,
         this: &FeatureExpr,
@@ -174,17 +216,17 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> Arc<FeatureExpr> {
         match this.kind {
             FeatureExprKind::Variable { .. } => todo!(),
-            FeatureExprKind::RecordFieldAccess { .. } => todo!(),
-            FeatureExprKind::FeatureBlock { ref block, .. } => {
+            FeatureExprKind::RecordOriginalFieldAccess { .. } => todo!(),
+            FeatureExprKind::EntityFeature { ref block, .. } => {
                 self.derive_record_field_var_value_from_block(block, field_ident)
             }
             FeatureExprKind::NewRecord {
                 ref entity,
                 ref opds,
                 ..
-            } => match entity.kind() {
+            } => match entity.variant {
                 EntityDefnVariant::Type { kind, .. } => match kind {
-                    TypeKind::Record => {
+                    TyKind::Record => {
                         todo!()
                         // p!(field_ident, ty.fields);
                         // let idx = ty.fields.position(field_ident).unwrap();
@@ -197,13 +239,14 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprKind::RoutineCall { .. }
             | FeatureExprKind::EnumLiteral { .. }
             | FeatureExprKind::PrimitiveBinaryOpr { .. }
-            | FeatureExprKind::StructFieldAccess { .. }
+            | FeatureExprKind::StructOriginalFieldAccess { .. }
             | FeatureExprKind::PrimitiveLiteral(_) => {
                 panic!()
             }
             FeatureExprKind::This { ref repr } => todo!(),
             FeatureExprKind::GlobalInput => todo!(),
             FeatureExprKind::PatternCall {} => todo!(),
+            FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
         }
     }
 

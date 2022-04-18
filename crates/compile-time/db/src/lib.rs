@@ -18,7 +18,7 @@ pub use infer_entity_route::*;
 pub use infer_total::*;
 pub use instruction_gen::InstructionGenQueryGroup;
 use linkage_table::LinkageTable;
-pub use pack_semantics::PackQueryGroup;
+pub use pack_semantics::PackageQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
 pub use semantics_entity::EntityDefnQueryGroup;
 pub use token::TokenQueryGroup;

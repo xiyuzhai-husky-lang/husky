@@ -1,6 +1,6 @@
 use crate::*;
 
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use infer_decl::TypeDecl;
 use syntax_types::SuffixOpr;
 use vm::{BinaryOpr, EntityUid, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
@@ -134,7 +134,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => {
                 msg_once!("TypeCall compiled");
                 match ty_decl.kind {
-                    TypeKind::Struct => {
+                    TyKind::Struct => {
                         if let Some(compiled_routine) = self
                             .db
                             .linkage_table()
@@ -150,9 +150,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                             ));
                         }
                     }
-                    TypeKind::Enum => todo!(),
-                    TypeKind::Record => todo!(),
-                    TypeKind::Vec => self.push_instruction(Instruction::new(
+                    TyKind::Enum => todo!(),
+                    TyKind::Record => todo!(),
+                    TyKind::Vec => self.push_instruction(Instruction::new(
                         InstructionKind::RoutineCallCompiled {
                             linkage: self.db.linkage_table().vec_constructor(
                                 self.db
@@ -178,10 +178,10 @@ impl<'a> InstructionSheetBuilder<'a> {
             todo!()
         } else {
             match this_ty_decl.kind {
-                TypeKind::Struct => todo!(),
-                TypeKind::Enum => todo!(),
-                TypeKind::Record => todo!(),
-                TypeKind::Vec => {
+                TyKind::Struct => todo!(),
+                TyKind::Enum => todo!(),
+                TyKind::Record => todo!(),
+                TyKind::Vec => {
                     let linkage = self.db.virtual_vec_method_linkages()[method_ident].1;
                     InstructionKind::RoutineCallCompiled { linkage }
                 }

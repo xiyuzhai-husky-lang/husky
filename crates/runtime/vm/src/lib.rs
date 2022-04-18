@@ -15,7 +15,7 @@ mod snapshot;
 mod stack;
 mod ty;
 
-pub use contract::{EagerContract, FieldContract, InputContract, LazyContract};
+pub use contract::{EagerContract, FieldContract, InputContract, LazyContract, OutputContract};
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};

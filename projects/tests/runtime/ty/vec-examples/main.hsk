@@ -5,6 +5,7 @@ proc f() -> i32:
     var v = []i32()
     let u = v.clone()
     v.push(2)
+    assert v[0] == 2
     return v.len()
 
 main:

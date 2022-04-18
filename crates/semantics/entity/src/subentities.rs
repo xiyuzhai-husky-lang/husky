@@ -6,9 +6,9 @@ impl EntityDefnVariant {
         match self {
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module {} => todo!(),
-            EntityDefnVariant::Feature { ty, lazy_stmts } => todo!(),
-            EntityDefnVariant::Pattern {} => todo!(),
-            EntityDefnVariant::TypeField { .. }
+            EntityDefnVariant::Feature { .. }
+            | EntityDefnVariant::Pattern {}
+            | EntityDefnVariant::TypeField { .. }
             | EntityDefnVariant::TypeMethod { .. }
             | EntityDefnVariant::TraitMethod { .. }
             | EntityDefnVariant::Func { .. }
@@ -20,7 +20,9 @@ impl EntityDefnVariant {
                 trait_impls,
                 members,
             } => members.clone(),
-            EntityDefnVariant::EnumVariant { .. } => todo!(),
+            EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
+                EnumVariantDefnVariant::Constant => Default::default(),
+            },
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
         }

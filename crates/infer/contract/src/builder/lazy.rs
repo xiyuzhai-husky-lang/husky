@@ -70,7 +70,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let infer_result = match arena[expr_idx].kind {
             RawExprVariant::Variable { .. }
             | RawExprVariant::Unrecognized(_)
-            | RawExprVariant::Scope { .. }
+            | RawExprVariant::Entity { .. }
             | RawExprVariant::PrimitiveLiteral(_)
             | RawExprVariant::This { .. } => Ok(()),
             RawExprVariant::Bracketed(_) => todo!(),
@@ -197,12 +197,14 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let call_expr = &arena[all_opds.start];
         match call_expr.kind {
-            RawExprVariant::Scope { scope, .. } => {
+            RawExprVariant::Entity { route: scope, .. } => {
                 let call_decl = self.db.call_decl(scope)?;
                 for i in 0..call_decl.inputs.len() {
                     self.infer_lazy_expr(
                         all_opds.start + 1 + i,
-                        call_decl.inputs[i].contract.lazy()?,
+                        call_decl.inputs[i]
+                            .contract
+                            .lazy(call_decl.output.contract)?,
                         arena,
                     )
                 }
@@ -244,21 +246,28 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
     ) -> InferResult<()> {
         let this_ty_decl = derived_ok!(self.expr_ty_decl(this));
-        let (_, method_call_decl) =
-            derived_ok!(this_ty_decl.method(ranged_ident, &self.trait_uses));
+        let method_call_decl = derived_ok!(this_ty_decl.method(ranged_ident, &self.trait_uses));
         match contract {
             LazyContract::Take => (),
             LazyContract::Ref => todo!(),
             LazyContract::Pure => (),
         }
-        self.infer_lazy_expr(this, method_call_decl.this_contract.lazy()?, arena);
+        self.infer_lazy_expr(
+            this,
+            method_call_decl
+                .this_contract
+                .lazy(method_call_decl.output.contract)?,
+            arena,
+        );
         if inputs.end - inputs.start != method_call_decl.inputs.len() {
             todo!()
         }
         for i in 0..method_call_decl.inputs.len() {
             self.infer_lazy_expr(
                 inputs.start + 1,
-                method_call_decl.inputs[i].contract.lazy()?,
+                method_call_decl.inputs[i]
+                    .contract
+                    .lazy(method_call_decl.output.contract)?,
                 arena,
             )
         }

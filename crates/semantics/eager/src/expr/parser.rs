@@ -29,7 +29,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                     raw_expr.range()
                 ))
             }
-            RawExprVariant::Scope { scope, kind } => match kind {
+            RawExprVariant::Entity { route: scope, kind } => match kind {
                 EntityKind::Module => todo!(),
                 EntityKind::Literal => match scope {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
@@ -123,18 +123,16 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.kind {
-            RawExprVariant::Scope {
-                scope,
+            RawExprVariant::Entity {
+                route: scope,
                 kind: EntityKind::Routine,
                 ..
             } => {
-                let signature = try_infer!(self.decl_db().call_decl(scope));
                 let arguments: Vec<_> = input_opd_idx_range
                     .clone()
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw))
                     .collect::<SemanticResult<_>>()?;
-                let output = signature.output;
                 Ok(EagerExprKind::Opn {
                     opn_kind: EagerOpnKind::RoutineCall(RangedEntityRoute {
                         route: scope,
@@ -143,8 +141,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                     opds: arguments,
                 })
             }
-            RawExprVariant::Scope {
-                scope,
+            RawExprVariant::Entity {
+                route: scope,
                 kind: EntityKind::Type(_),
                 ..
             } => {
@@ -164,7 +162,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                     opds: arguments,
                 })
             }
-            RawExprVariant::Scope { .. } => todo!(),
+            RawExprVariant::Entity { .. } => todo!(),
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::PrimitiveLiteral(_) => todo!(),

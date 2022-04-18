@@ -58,31 +58,31 @@ impl MemberDecl {
     }
 }
 
-impl From<&TypeMemberDecl> for MemberDecl {
-    fn from(decl: &TypeMemberDecl) -> Self {
+impl From<&TyMemberDecl> for MemberDecl {
+    fn from(decl: &TyMemberDecl) -> Self {
         match decl {
-            TypeMemberDecl::Field(field_decl) => MemberDecl::TypeField(field_decl.clone()),
-            TypeMemberDecl::Method(method_decl) => MemberDecl::TypeMethod(method_decl.clone()),
-            TypeMemberDecl::Call => todo!(),
+            TyMemberDecl::Field(field_decl) => MemberDecl::TypeField(field_decl.clone()),
+            TyMemberDecl::Method(method_decl) => MemberDecl::TypeMethod(method_decl.clone()),
+            TyMemberDecl::Call => todo!(),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum TypeMemberDecl {
+pub enum TyMemberDecl {
     Field(Arc<FieldDecl>),
     Method(Arc<MethodDecl>),
     Call,
 }
 
-impl TypeMemberDecl {
+impl TyMemberDecl {
     pub(crate) fn instantiate(&self, instantiator: &Instantiator) -> Self {
         match self {
-            TypeMemberDecl::Field(_) => todo!(),
-            TypeMemberDecl::Method(method_decl) => {
-                TypeMemberDecl::Method(method_decl.instantiate(instantiator))
+            TyMemberDecl::Field(_) => todo!(),
+            TyMemberDecl::Method(method_decl) => {
+                TyMemberDecl::Method(method_decl.instantiate(instantiator))
             }
-            TypeMemberDecl::Call => todo!(),
+            TyMemberDecl::Call => todo!(),
         }
     }
 
@@ -94,7 +94,7 @@ impl TypeMemberDecl {
     ) -> Self {
         match member_decl {
             StaticTypeMemberDecl::Field => todo!(),
-            StaticTypeMemberDecl::Method(method_decl) => TypeMemberDecl::Method(
+            StaticTypeMemberDecl::Method(method_decl) => TyMemberDecl::Method(
                 MethodDecl::from_static(db, method_decl, Some(this_ty), symbols),
             ),
             StaticTypeMemberDecl::Call => todo!(),
@@ -102,12 +102,12 @@ impl TypeMemberDecl {
     }
 }
 
-impl HasKey<CustomIdentifier> for TypeMemberDecl {
+impl HasKey<CustomIdentifier> for TyMemberDecl {
     fn key(&self) -> CustomIdentifier {
         match self {
-            TypeMemberDecl::Method(method_decl) => method_decl.ident,
-            TypeMemberDecl::Field(field_decl) => field_decl.ident,
-            TypeMemberDecl::Call => todo!(),
+            TyMemberDecl::Method(method_decl) => method_decl.ident,
+            TyMemberDecl::Field(field_decl) => field_decl.ident,
+            TyMemberDecl::Call => todo!(),
         }
     }
 }
@@ -115,8 +115,8 @@ impl HasKey<CustomIdentifier> for TypeMemberDecl {
 impl MemberDecl {
     pub(crate) fn collect_all(
         db: &dyn DeclQueryGroup,
-        type_members: &[TypeMemberDecl],
-        trait_impls: &[Arc<TraitImplDecl>],
+        type_members: &[TyMemberDecl],
+        trait_impls: &[Arc<TraiImplDecl>],
     ) -> Vec<MemberDecl> {
         let mut members: Vec<MemberDecl> = type_members.map(|decl| decl.into());
         for trait_impl in trait_impls {
@@ -126,4 +126,10 @@ impl MemberDecl {
         }
         members
     }
+}
+
+pub(crate) fn member_idx(db: &dyn DeclQueryGroup, member_route: EntityRoutePtr) -> MemberIdx {
+    let this_ty = member_route.parent();
+    let this_ty_decl = db.type_decl(this_ty).unwrap();
+    this_ty_decl.member_idx(member_route)
 }

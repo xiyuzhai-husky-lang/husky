@@ -22,6 +22,7 @@ impl LazyVariable {
                 InputContract::BorrowMut => todo!(),
                 InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
+                InputContract::MemberAccess => todo!(),
             },
         }
     }

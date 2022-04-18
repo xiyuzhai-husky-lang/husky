@@ -52,25 +52,28 @@ impl<'a> TySheetBuilder<'a> {
                     ),
                     AstKind::RoutineDefnHead(ref head) => self.infer_routine(
                         &head.input_placeholders,
-                        head.output.route,
+                        head.output_ty.route,
                         item.children.unwrap(),
                         &arena,
                     ),
                     AstKind::PatternDefnHead => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
-                    AstKind::FieldDefn { .. } => (),
+                    AstKind::FieldDefnHead(ref head) => match head.kind {
+                        FieldKind::StructOriginal => (),
+                        FieldKind::RecordOriginal => (),
+                        FieldKind::StructDerived | FieldKind::RecordDerived => {
+                            self.infer_morphism(&[], head.ty, item.children.unwrap(), &arena)
+                        }
+                    },
                     AstKind::Stmt(_) => todo!(),
                     AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
                         &head.input_placeholders,
-                        head.output.route,
+                        head.output_ty.route,
                         item.children.unwrap(),
                         &arena,
                     ),
                     AstKind::FeatureDecl { ty, .. } => {
                         self.infer_morphism(&[], ty.route, item.children.unwrap(), &arena)
-                    }
-                    AstKind::MembFeatureDefnHead { ty, .. } => {
-                        self.infer_morphism(&[], ty, item.children.unwrap(), &arena)
                     }
                 },
                 _ => (),

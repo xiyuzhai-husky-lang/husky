@@ -4,7 +4,7 @@ use entity_route::*;
 use file::FilePtr;
 use path_utils::*;
 
-use entity_kind::TypeKind;
+use entity_kind::TyKind;
 use static_decl::StaticEntityDecl;
 use static_defn::*;
 use upcast::Upcast;
@@ -83,12 +83,12 @@ fn entity_kind_from_scope_kind(
             | RootIdentifier::F32
             | RootIdentifier::B32
             | RootIdentifier::B64
-            | RootIdentifier::Bool => EntityKind::Type(TypeKind::Primitive),
-            RootIdentifier::Vec => EntityKind::Type(TypeKind::Vec),
+            | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
+            RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
             RootIdentifier::Tuple
             | RootIdentifier::Fp
             | RootIdentifier::Array
-            | RootIdentifier::DatasetType => EntityKind::Type(TypeKind::Other),
+            | RootIdentifier::DatasetType => EntityKind::Type(TyKind::Other),
             RootIdentifier::True | RootIdentifier::False => EntityKind::Literal,
             RootIdentifier::Fn | RootIdentifier::FnMut | RootIdentifier::FnOnce => {
                 EntityKind::Trait
@@ -111,7 +111,7 @@ fn entity_kind_from_scope_kind(
             .unwrap(),
         EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
-        EntityRouteKind::ThisType => EntityKind::Type(TypeKind::Other),
+        EntityRouteKind::ThisType => EntityKind::Type(TyKind::Other),
         EntityRouteKind::TraitMember {
             ty: parent,
             trai,
@@ -205,7 +205,7 @@ pub trait EntityRouteQueryGroup:
     ) -> Option<EntityRoutePtr> {
         let parent_subscope_table = self.subscope_table(parent_scope);
         if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
-            Some(self.intern_entity_route(EntityRoute::child_scope(parent_scope, ident, generics)))
+            Some(self.intern_entity_route(EntityRoute::child_route(parent_scope, ident, generics)))
         } else {
             None
         }

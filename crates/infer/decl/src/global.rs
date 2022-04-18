@@ -19,13 +19,13 @@ fn global_input_ty_from_ast(
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
             } => match arena[opds][0].kind {
-                RawExprVariant::Scope {
-                    scope,
+                RawExprVariant::Entity {
+                    route: scope,
                     kind: EntityKind::Routine,
                     ..
                 } => {
                     let signature = db.call_decl(scope)?;
-                    let dataset_type = signature.output;
+                    let dataset_type = signature.output.ty;
                     match dataset_type.kind {
                         EntityRouteKind::Root {
                             ident: RootIdentifier::DatasetType,
@@ -58,13 +58,13 @@ fn global_output_ty_from_ast(
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
             } => match arena[opds][0].kind {
-                RawExprVariant::Scope {
-                    scope,
+                RawExprVariant::Entity {
+                    route: scope,
                     kind: EntityKind::Routine,
                     ..
                 } => {
                     let call_decl = db.call_decl(scope)?;
-                    let dataset_type = call_decl.output;
+                    let dataset_type = call_decl.output.ty;
                     match dataset_type.kind {
                         EntityRouteKind::Root {
                             ident: RootIdentifier::DatasetType,

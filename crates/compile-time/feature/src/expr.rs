@@ -54,17 +54,22 @@ pub enum FeatureExprKind {
     This {
         repr: FeatureRepr,
     },
-    StructFieldAccess {
+    StructOriginalFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
         field_idx: usize,
         contract: LazyContract,
         opt_linkage: Option<Linkage>,
     },
-    RecordFieldAccess {
+    RecordOriginalFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
+    },
+    RecordDerivedFieldAccess {
+        this: Arc<FeatureExpr>,
+        field_ident: RangedCustomIdentifier,
+        block: Arc<FeatureBlock>,
     },
     RoutineCall {
         opds: Vec<Arc<FeatureExpr>>,
@@ -73,8 +78,8 @@ pub enum FeatureExprKind {
         routine_defn: Arc<EntityDefn>,
     },
     PatternCall {},
-    FeatureBlock {
-        scope: EntityRoutePtr,
+    EntityFeature {
+        route: EntityRoutePtr,
         block: Arc<FeatureBlock>,
     },
     GlobalInput,
@@ -161,8 +166,8 @@ impl<'a> FeatureExprBuilder<'a> {
                 EntityRouteKind::Child { .. } => {
                     let uid = self.db.entity_uid(route);
                     let feature = self.features.alloc(Feature::EntityFeature { route, uid });
-                    let kind = FeatureExprKind::FeatureBlock {
-                        scope: route,
+                    let kind = FeatureExprKind::EntityFeature {
+                        route,
                         block: self.db.scoped_feature_block(route).unwrap(),
                     };
                     (kind, feature)

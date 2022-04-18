@@ -5,13 +5,13 @@ use map_collect::MapCollect;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TraitImplDecl {
+pub struct TraiImplDecl {
     pub trait_decl: Arc<TraitDecl>,
     pub this_ty: EntityRoutePtr,
     pub members: Vec<TraitMemberImplDecl>,
 }
 
-impl TraitImplDecl {
+impl TraiImplDecl {
     pub(crate) fn from_static(
         db: &dyn DeclQueryGroup,
         static_trait_impl: &StaticTraitImplDecl,

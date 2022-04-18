@@ -34,7 +34,7 @@ pub struct Ast {
 pub enum AstKind {
     TypeDefnHead {
         ident: CustomIdentifier,
-        kind: TypeKind,
+        kind: TyKind,
         generic_placeholders: IdentDict<GenericPlaceholder>,
     },
     MainDefn,
@@ -44,16 +44,12 @@ pub enum AstKind {
         ident: CustomIdentifier,
         ty: RangedEntityRoute,
     },
-    MembFeatureDefnHead {
-        ident: CustomIdentifier,
-        ty: EntityRoutePtr,
-    },
     TypeMethodDefnHead(TypeMethodDefnHead),
     Use {
         ident: CustomIdentifier,
         scope: EntityRoutePtr,
     },
-    FieldDefn(FieldDefnHead),
+    FieldDefnHead(FieldDefnHead),
     DatasetConfigDefnHead,
     Stmt(RawStmt),
     EnumVariantDefnHead {

@@ -52,19 +52,22 @@ impl HuskyLangRuntime {
             FeatureExprKind::Variable { varname, ref value } => todo!(),
             FeatureExprKind::This { ref repr } => todo!(),
             FeatureExprKind::RoutineCall { .. } => todo!(),
-            FeatureExprKind::StructFieldAccess {
+            FeatureExprKind::StructOriginalFieldAccess {
                 ref this,
                 field_ident,
                 contract,
                 opt_linkage: opt_compiled,
                 ..
             } => todo!(),
-            FeatureExprKind::RecordFieldAccess {
+            FeatureExprKind::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
             } => todo!(),
-            FeatureExprKind::FeatureBlock { scope, ref block } => todo!(),
+            FeatureExprKind::EntityFeature {
+                route: scope,
+                ref block,
+            } => todo!(),
             FeatureExprKind::GlobalInput => match focus.opt_input_id {
                 Some(input_id) => {
                     let global_input: Arc<dyn AnyValueDyn<'static> + 'static> = {
@@ -87,6 +90,7 @@ impl HuskyLangRuntime {
                 ref opds,
             } => todo!(),
             FeatureExprKind::PatternCall {} => todo!(),
+            FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
         }
     }
 }

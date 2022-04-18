@@ -38,6 +38,7 @@ impl FeatureBlock {
         externals: &[FeatureSymbol],
         features: &FeatureUniqueAllocator,
     ) -> Arc<FeatureBlock> {
+        msg_once!("generics for feature block");
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         let stmts: Vec<Arc<FeatureStmt>> = lazy_stmts
             .iter()

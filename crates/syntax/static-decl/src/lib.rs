@@ -4,9 +4,9 @@ mod ty;
 pub use entity::*;
 pub use ty::*;
 
-use entity_kind::{EntityKind, TypeKind};
+use entity_kind::{EntityKind, TyKind};
 use visual_syntax::{StaticVisualizer, TRIVIAL_VISUALIZER};
-use vm::{BoxedValue, InputContract, Linkage, StackValue, VirtualTy};
+use vm::{BoxedValue, InputContract, Linkage, OutputContract, StackValue, VirtualTy};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitDecl {
@@ -21,14 +21,15 @@ pub struct StaticMethodDecl {
     pub this_contract: InputContract,
     pub inputs: &'static [StaticInputDecl],
     pub output_ty: &'static str,
+    pub output_contract: OutputContract,
     pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub kind: StaticMethodKind,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum StaticMethodKind {
-    Type,
-    Trait(&'static str),
+    TypeMethod,
+    TraitMethod(&'static str),
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -54,7 +55,8 @@ pub enum StaticGenericPlaceholderVariant {
 pub struct StaticCallDecl {
     pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub inputs: Vec<StaticInputDecl>,
-    pub output: &'static str,
+    pub output_ty: &'static str,
+    pub output_contract: OutputContract,
     pub linkage: Linkage,
 }
 
@@ -66,7 +68,8 @@ pub static CLONE_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
         inputs: &[],
         output_ty: "This",
         generic_placeholders: &[],
-        kind: StaticMethodKind::Trait("Clone"),
+        kind: StaticMethodKind::TraitMethod("Clone"),
+        output_contract: OutputContract::Pure,
     })],
     generic_placeholders: &[],
 };
@@ -85,7 +88,8 @@ pub static VEC_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
             inputs: &[],
             output_ty: "i32",
             generic_placeholders: &[],
-            kind: StaticMethodKind::Type,
+            kind: StaticMethodKind::TypeMethod,
+            output_contract: OutputContract::Pure,
         }),
         StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "push",
@@ -97,7 +101,8 @@ pub static VEC_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
             }],
             output_ty: "void",
             generic_placeholders: &[],
-            kind: StaticMethodKind::Type,
+            kind: StaticMethodKind::TypeMethod,
+            output_contract: OutputContract::Pure,
         }),
         StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "pop",
@@ -105,11 +110,12 @@ pub static VEC_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
             inputs: &[],
             output_ty: "E",
             generic_placeholders: &[],
-            kind: StaticMethodKind::Type,
+            kind: StaticMethodKind::TypeMethod,
+            output_contract: OutputContract::Pure,
         }),
     ],
     variants: &[],
-    kind: TypeKind::Vec,
+    kind: TyKind::Vec,
     visualizer: TRIVIAL_VISUALIZER,
     opt_type_call: Some(&NEW_VEC_DECL),
 };
@@ -117,7 +123,8 @@ pub static VEC_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
 static NEW_VEC_DECL: StaticCallDecl = StaticCallDecl {
     generic_placeholders: &[],
     inputs: vec![],
-    output: "Vec<E>",
+    output_ty: "Vec<E>",
+    output_contract: OutputContract::Pure,
     linkage: Linkage {
         call: |values| Ok(StackValue::Boxed(BoxedValue::new(Vec::<VirtualTy>::new()))),
         nargs: 0,

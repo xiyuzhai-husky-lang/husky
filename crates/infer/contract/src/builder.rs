@@ -5,6 +5,7 @@ mod lazy;
 use std::sync::Arc;
 
 use ast::{AstIter, AstKind};
+use defn_head::FieldKind;
 use entity_route::EntityRouteKind;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
@@ -67,20 +68,23 @@ impl<'a> ContractSheetBuilder<'a> {
                         &arena,
                     ),
                     AstKind::RoutineDefnHead(ref head) => {
-                        self.infer_routine(head.output.route, item.children.unwrap(), &arena)
+                        self.infer_routine(head.output_ty.route, item.children.unwrap(), &arena)
                     }
                     AstKind::PatternDefnHead => todo!(),
                     AstKind::Use { ident, scope } => todo!(),
-                    AstKind::FieldDefn { .. } => (),
+                    AstKind::FieldDefnHead(ref head) => match head.kind {
+                        FieldKind::StructOriginal => (),
+                        FieldKind::RecordOriginal => (),
+                        FieldKind::StructDerived | FieldKind::RecordDerived => {
+                            self.infer_morphism(head.ty, item.children.unwrap(), &arena)
+                        }
+                    },
                     AstKind::Stmt(_) => todo!(),
                     AstKind::TypeMethodDefnHead(ref head) => {
-                        self.infer_routine(head.output.route, item.children.unwrap(), &arena)
+                        self.infer_routine(head.output_ty.route, item.children.unwrap(), &arena)
                     }
                     AstKind::FeatureDecl { ty, .. } => {
                         self.infer_morphism(ty.route, item.children.unwrap(), &arena)
-                    }
-                    AstKind::MembFeatureDefnHead { ident, ty } => {
-                        self.infer_morphism(ty, item.children.unwrap(), &arena)
                     }
                 },
                 _ => (),

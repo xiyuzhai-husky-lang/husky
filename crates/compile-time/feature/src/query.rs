@@ -12,7 +12,7 @@ use crate::{record::*, unique_allocate::AllocateUniqueFeature, *};
 #[salsa::query_group(FeatureQueryGroupStorage)]
 pub trait FeatureQueryGroup:
     AllocateUniqueFeature
-    + PackQueryGroup
+    + PackageQueryGroup
     + Upcast<dyn EntityDefnQueryGroup>
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
@@ -37,7 +37,7 @@ fn scoped_feature_block(
     scope: EntityRoutePtr,
 ) -> SemanticResultArc<FeatureBlock> {
     let entity = db.entity_defn(scope)?;
-    match entity.kind() {
+    match entity.variant {
         EntityDefnVariant::Feature { ref lazy_stmts, .. } => {
             Ok(FeatureBlock::new(db, None, lazy_stmts, &[], db.features()))
         }

@@ -23,7 +23,6 @@ impl<'eval> TraceFactory<'eval> {
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::TypeField {
-                ident,
                 ty,
                 ref field_variant,
                 contract,

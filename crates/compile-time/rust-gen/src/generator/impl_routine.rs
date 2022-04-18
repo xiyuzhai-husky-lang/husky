@@ -33,6 +33,7 @@ impl<'a> RustGenerator<'a> {
                 InputContract::BorrowMut => todo!(),
                 InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
+                InputContract::MemberAccess => todo!(),
             }
             self.gen_scope(input_placeholder.ranged_ty.route);
         }
@@ -70,6 +71,7 @@ impl<'a> RustGenerator<'a> {
                 InputContract::BorrowMut => todo!(),
                 InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
+                InputContract::MemberAccess => todo!(),
             }
             self.gen_scope(input_placeholder.ranged_ty.route);
         }

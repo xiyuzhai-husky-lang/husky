@@ -14,7 +14,8 @@ pub trait EntityDefnQueryGroup:
     InferQueryGroup + ast::AstQueryGroup + Upcast<dyn InferQueryGroup> + StoreEntityRoute
 {
     fn main_defn(&self, main_file: file::FilePtr) -> SemanticResultArc<MainDefn>;
-    fn entity_defn(&self, scope: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;
+    fn entity_defn(&self, route: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;
+    fn member_defn(&self, route: EntityRoutePtr) -> Arc<EntityDefn>;
     fn entity_immediate_dependees(&self, scope: EntityRoutePtr) -> SemanticResultArc<DependeeMap>;
     fn entity_dependees(&self, scope: EntityRoutePtr) -> SemanticResultArc<DependeeMap>;
     fn subentity_defns(&self, scope: EntityRoutePtr) -> SemanticResultArc<Vec<Arc<EntityDefn>>>;

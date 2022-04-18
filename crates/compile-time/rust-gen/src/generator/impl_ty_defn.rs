@@ -35,7 +35,6 @@ impl<'a> RustGenerator<'a> {
             self.result += ": ";
             match member.variant {
                 EntityDefnVariant::TypeField {
-                    ident,
                     ty,
                     ref field_variant,
                     contract,
