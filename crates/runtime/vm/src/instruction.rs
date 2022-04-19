@@ -75,6 +75,7 @@ pub enum InstructionKind {
     },
     Return,
     BreakIfFalse,
+    Assert,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

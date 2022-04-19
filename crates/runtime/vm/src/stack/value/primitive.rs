@@ -52,7 +52,7 @@ impl PrimitiveValue {
         }
     }
 
-    pub(crate) fn as_i32(&self) -> VMResult<i32> {
+    pub fn as_i32(&self) -> VMResult<i32> {
         if let PrimitiveValue::I32(i) = self {
             Ok(*i)
         } else {
@@ -63,7 +63,7 @@ impl PrimitiveValue {
         }
     }
 
-    pub(crate) fn as_f32(&self) -> VMResult<f32> {
+    pub fn as_f32(&self) -> VMResult<f32> {
         if let PrimitiveValue::F32(f) = self {
             Ok(*f)
         } else {
@@ -71,7 +71,7 @@ impl PrimitiveValue {
         }
     }
 
-    pub(crate) fn as_b32(&self) -> VMResult<u32> {
+    pub fn as_b32(&self) -> VMResult<u32> {
         if let PrimitiveValue::B32(b) = self {
             Ok(*b)
         } else {

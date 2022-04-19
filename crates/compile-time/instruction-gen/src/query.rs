@@ -1,15 +1,15 @@
 use check_utils::should_eq;
 use entity_kind::TyKind;
 use file::FilePtr;
-use linkage_table::SearchLinkage;
+use linkage_table::ResolveLinkage;
 use pack_semantics::PackageQueryGroup;
-use vm::{BoxedValue, EvalValue, Linkage, StackValue, VMResult};
+use vm::{BoxedValue, EvalValue, Linkage, MemberValue, StackValue, VMResult};
 
 use crate::*;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup:
-    EntityDefnQueryGroup + PackageQueryGroup + SearchLinkage
+    EntityDefnQueryGroup + PackageQueryGroup + ResolveLinkage
 {
     fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn method_instruction_sheet(&self, member_route: EntityRoutePtr) -> Arc<InstructionSheet>;
@@ -176,15 +176,15 @@ fn virtual_vec_method_linkages(db: &dyn InstructionGenQueryGroup) -> Arc<IdentPa
 fn virtual_vec_clone<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMResult<StackValue<'stack, 'eval>> {
-    let virtual_vec: &Vec<EvalValue<'eval>> = values[0].downcast_ref();
-    let virtual_vec_cloned: Vec<EvalValue<'eval>> = virtual_vec.clone();
+    let virtual_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let virtual_vec_cloned: Vec<MemberValue<'eval>> = virtual_vec.clone();
     Ok(StackValue::Boxed(BoxedValue::new(virtual_vec_cloned)))
 }
 
 fn virtual_vec_len<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMResult<StackValue<'stack, 'eval>> {
-    let virtual_vec: &Vec<EvalValue<'eval>> = values[0].downcast_ref();
+    let virtual_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let len: i32 = virtual_vec.len().try_into().unwrap();
     Ok(StackValue::Primitive(len.into()))
 }
@@ -193,8 +193,8 @@ fn virtual_vec_push<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMResult<StackValue<'stack, 'eval>> {
     should_eq!(values.len(), 2);
-    let element = values[1].into_eval();
-    let virtual_vec: &mut Vec<EvalValue<'eval>> = values[0].downcast_mut();
+    let element = values[1].into_member();
+    let virtual_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
     virtual_vec.push(element);
     Ok(StackValue::Primitive(().into()))
 }

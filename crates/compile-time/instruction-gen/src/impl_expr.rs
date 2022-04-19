@@ -2,8 +2,12 @@ use crate::*;
 
 use entity_kind::TyKind;
 use infer_decl::TypeDecl;
+use linkage_table::MemberAccessKind;
+use map_collect::MapCollect;
 use syntax_types::SuffixOpr;
-use vm::{BinaryOpr, EntityUid, Instruction, InstructionKind, PrimitiveOpn, StackIdx};
+use vm::{
+    BinaryOpr, EagerContract, EntityUid, Instruction, InstructionKind, PrimitiveOpn, StackIdx,
+};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
@@ -127,7 +131,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ),
                 expr.clone(),
             )),
-            EagerOpnKind::ElementAccess => todo!(),
+            EagerOpnKind::ElementAccess => self.compile_element_access(expr.clone(), opds),
             EagerOpnKind::TypeCall {
                 ranged_ty,
                 ref ty_decl,
@@ -165,6 +169,28 @@ impl<'a> InstructionSheetBuilder<'a> {
                 }
             }
         }
+    }
+
+    fn compile_element_access(&mut self, expr: Arc<EagerExpr>, opds: &[Arc<EagerExpr>]) {
+        self.push_instruction(Instruction::new(
+            InstructionKind::RoutineCallCompiled {
+                linkage: self.db.element_access_linkage(
+                    opds.map(|opd| opd.ty),
+                    match expr.contract {
+                        EagerContract::Pure => MemberAccessKind::Ref,
+                        EagerContract::GlobalRef => todo!(),
+                        EagerContract::Move => todo!(),
+                        EagerContract::LetInit => todo!(),
+                        EagerContract::VarInit => todo!(),
+                        EagerContract::Return => todo!(),
+                        EagerContract::BorrowMut => todo!(),
+                        EagerContract::TakeMut => todo!(),
+                        EagerContract::Exec => todo!(),
+                    },
+                ),
+            },
+            expr,
+        ))
     }
 
     fn method_call_instruction_kind(

@@ -245,7 +245,7 @@ impl<'a> ContractSheetBuilder<'a> {
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_eager_list_call(opds, contract, arena, range),
-            ListOpr::Index => todo!(),
+            ListOpr::Index => self.infer_element_access(arena, opds, contract),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
@@ -352,6 +352,31 @@ impl<'a> ContractSheetBuilder<'a> {
                     .eager(method_call_decl.output.contract)?,
                 arena,
             )
+        }
+        Ok(())
+    }
+
+    fn infer_element_access(
+        &mut self,
+        arena: &RawExprArena,
+        total_opds: &RawExprRange,
+        contract: EagerContract,
+    ) -> InferResult<()> {
+        match contract {
+            EagerContract::Pure => {
+                self.infer_eager_expr(total_opds.start, EagerContract::Pure, arena)
+            }
+            EagerContract::GlobalRef => todo!(),
+            EagerContract::Move => todo!(),
+            EagerContract::LetInit => todo!(),
+            EagerContract::VarInit => todo!(),
+            EagerContract::Return => todo!(),
+            EagerContract::BorrowMut => todo!(),
+            EagerContract::TakeMut => todo!(),
+            EagerContract::Exec => todo!(),
+        }
+        for opd in (total_opds.start + 1)..total_opds.end {
+            self.infer_eager_expr(opd, EagerContract::Pure, arena)
         }
         Ok(())
     }

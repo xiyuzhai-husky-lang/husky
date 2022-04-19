@@ -1,93 +1,50 @@
-use std::collections::HashMap;
+mod table;
+mod vec;
+
+pub use table::*;
 
 use check_utils::*;
+use entity_route::{EntityRouteKind, EntityRoutePtr};
+use map_collect::MapCollect;
+use print_utils::p;
+use semantics_entity::EntityDefnQueryGroup;
+use std::collections::HashMap;
 use sync_utils::ARwLock;
+use vec::*;
 use vm::EntityUid;
 use vm::{BoxedValue, EvalValue, Linkage, StackValue, VMResult};
-use word::CustomIdentifier;
+use word::{CustomIdentifier, RootIdentifier};
 
-pub trait SearchLinkage {
+pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn linkage_table(&self) -> &LinkageTable;
-}
 
-#[derive(Debug, Default, Clone)]
-pub struct LinkageTable {
-    linkages: ARwLock<HashMap<LinkageKey, Linkage>>,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum LinkageKey {
-    VecConstructor {
-        element_ty_uid: EntityUid,
-    },
-    StructConstructor {
-        ty_uid: EntityUid,
-    },
-    Routine {
-        routine_uid: EntityUid,
-    },
-    ElemAccess {
-        this_ty_uid: EntityUid,
-    },
-    StructFieldAccess {
-        this_ty_uid: EntityUid,
-        field_ident: CustomIdentifier,
-    },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct MembAccessKey {
-    this_ty_uid: EntityUid,
-    field_ident: CustomIdentifier,
-}
-
-impl LinkageTable {
-    pub fn vec_constructor(&self, element_ty_uid: EntityUid) -> Linkage {
-        let routine_key = LinkageKey::VecConstructor { element_ty_uid };
-        if let Some(compiled_routine) = self.linkage(routine_key) {
-            compiled_routine
+    fn element_access_linkage(
+        &self,
+        opd_tys: Vec<EntityRoutePtr>,
+        access_kind: MemberAccessKind,
+    ) -> Linkage {
+        if let Some(linkage) = self
+            .linkage_table()
+            .element_access(opd_tys.map(|ty| self.entity_uid(*ty)), access_kind)
+        {
+            linkage
         } else {
-            Linkage {
-                call: construct_virtual_vec,
-                nargs: 0,
+            match opd_tys[0].kind {
+                EntityRouteKind::Root {
+                    ident: RootIdentifier::Vec,
+                } => {
+                    should_eq!(opd_tys.len(), 2);
+                    Linkage {
+                        call: match access_kind {
+                            MemberAccessKind::Move => virtual_vec_element_move_access,
+                            MemberAccessKind::Ref => virtual_vec_element_ref_access,
+                            MemberAccessKind::BorrowMut => todo!(),
+                        },
+                        nargs: 2,
+                    }
+                }
+                _ => todo!(),
             }
         }
     }
-
-    pub fn struct_constructor(&self, ty_uid: EntityUid) -> Option<Linkage> {
-        self.linkage(LinkageKey::StructConstructor { ty_uid })
-    }
-
-    pub fn routine(&self, routine_uid: EntityUid) -> Option<Linkage> {
-        self.linkage(LinkageKey::Routine { routine_uid })
-    }
-
-    pub fn struct_field_access(
-        &self,
-        this_ty_uid: EntityUid,
-        field_ident: CustomIdentifier,
-    ) -> Option<Linkage> {
-        self.linkage(LinkageKey::StructFieldAccess {
-            this_ty_uid,
-            field_ident,
-        })
-    }
-
-    fn linkage(&self, key: LinkageKey) -> Option<Linkage> {
-        self.linkages
-            .read(|entries| entries.get(&key).map(|compiled_routine| *compiled_routine))
-    }
-
-    fn elem_access_fp(&self, this_ty_uid: EntityUid) -> Option<Linkage> {
-        self.linkage(LinkageKey::ElemAccess { this_ty_uid })
-    }
-}
-
-fn construct_virtual_vec<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    should_eq!(values.len(), 0);
-    Ok(StackValue::Boxed(BoxedValue::new(
-        Vec::<EvalValue<'eval>>::new(),
-    )))
 }

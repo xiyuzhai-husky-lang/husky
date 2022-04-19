@@ -102,6 +102,15 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         .push(this.field_var(field_idx as usize, contract));
                     VMControl::None
                 }
+                InstructionKind::Assert => {
+                    let is_condition_satisfied =
+                        self.stack.pop().as_primitive().unwrap().to_bool().unwrap();
+                    if !is_condition_satisfied {
+                        todo!()
+                    } else {
+                        VMControl::None
+                    }
+                }
             };
             match control {
                 VMControl::None => (),
