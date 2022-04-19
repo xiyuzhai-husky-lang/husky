@@ -1,8 +1,8 @@
 mod impl_basic;
-mod impl_decl_stmt;
 mod impl_expr;
 mod impl_fp;
-mod impl_impr_stmt;
+mod impl_func_stmt;
+mod impl_proc_stmt;
 mod query;
 
 pub use query::*;
@@ -28,7 +28,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         has_this: bool,
     ) -> Arc<InstructionSheet> {
         let mut builder = Self::new(db, inputs, has_this);
-        builder.compile_decl_stmts(stmts);
+        builder.compile_func_stmts(stmts);
         builder.finalize()
     }
 
@@ -39,7 +39,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         has_this: bool,
     ) -> Arc<InstructionSheet> {
         let mut builder = Self::new(db, inputs, has_this);
-        builder.compile_impr_stmts(stmts);
+        builder.compile_proc_stmts(stmts);
         builder.finalize()
     }
 
@@ -63,7 +63,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn build_impr_block(&self, stmts: &[Arc<ProcStmt>]) -> Arc<InstructionSheet> {
         let mut block_sheet_builder = self.subsheet_builder();
-        block_sheet_builder.compile_impr_stmts(stmts);
+        block_sheet_builder.compile_proc_stmts(stmts);
         block_sheet_builder.finalize()
     }
 

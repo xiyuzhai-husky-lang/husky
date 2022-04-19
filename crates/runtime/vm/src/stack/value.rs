@@ -1,15 +1,15 @@
 mod any;
 mod boxed;
 mod eval;
+mod member;
 mod primitive;
-mod struct_memb;
 
 pub use any::*;
 pub use boxed::BoxedValue;
 pub use eval::{EvalResult, EvalValue};
+pub use member::*;
 pub use primitive::PrimitiveValue;
 use std::sync::Arc;
-pub use struct_memb::*;
 use word::CustomIdentifier;
 
 use crate::*;
@@ -99,11 +99,11 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub fn into_struct_memb(&mut self) -> StructMembValue<'eval> {
+    pub fn into_member(&mut self) -> MemberValue<'eval> {
         match self {
-            StackValue::Primitive(primitive_value) => StructMembValue::Primitive(*primitive_value),
+            StackValue::Primitive(primitive_value) => MemberValue::Primitive(*primitive_value),
             StackValue::Boxed(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
-                StackValue::Boxed(boxed_value) => StructMembValue::Boxed(boxed_value),
+                StackValue::Boxed(boxed_value) => MemberValue::Boxed(boxed_value),
                 _ => panic!(),
             },
             StackValue::GlobalPure(_) => todo!(),

@@ -3,13 +3,13 @@ use crate::*;
 use vm::{EagerContract, Instruction, InstructionKind, VMLoopKind};
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(super) fn compile_impr_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
+    pub(super) fn compile_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
         stmts
             .iter()
-            .for_each(|stmt| self.compile_impr_stmt(stmt.clone()));
+            .for_each(|stmt| self.compile_proc_stmt(stmt.clone()));
     }
 
-    fn compile_impr_stmt(&mut self, stmt: Arc<ProcStmt>) {
+    fn compile_proc_stmt(&mut self, stmt: Arc<ProcStmt>) {
         match stmt.kind {
             ProcStmtKind::Init {
                 varname,
@@ -20,7 +20,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_expr(initial_value);
                 self.def_variable(varname, init_kind, stmt)
             }
-            ProcStmtKind::Assert { ref condition } => todo!(),
+            ProcStmtKind::Assert { ref condition } => {
+                self.compile_expr(condition);
+                self.push_instruction(Instruction::new(InstructionKind::Assert, stmt))
+            }
             ProcStmtKind::Return { ref result } => {
                 self.compile_expr(result);
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
@@ -83,7 +86,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     InstructionKind::BreakIfFalse,
                     loop_stmt.clone(),
                 ));
-                block_sheet_builder.compile_impr_stmts(body_stmts);
+                block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
                     InstructionKind::Loop {
@@ -95,7 +98,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             LoopKind::DoWhile { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
-                block_sheet_builder.compile_impr_stmts(body_stmts);
+                block_sheet_builder.compile_proc_stmts(body_stmts);
                 block_sheet_builder.compile_expr(condition);
                 block_sheet_builder.push_instruction(Instruction::new(
                     InstructionKind::BreakIfFalse,

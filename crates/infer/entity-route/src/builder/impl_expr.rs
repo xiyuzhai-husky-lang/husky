@@ -1,5 +1,5 @@
 use ast::RawExprRange;
-use infer_decl::MethodKind;
+use infer_decl::{MethodKind, TraitMemberImplDecl};
 use map_utils::insert_new;
 use syntax_types::{PrefixOpr, SuffixOpr};
 use text::TextRange;
@@ -350,10 +350,11 @@ impl<'a> TySheetBuilder<'a> {
             generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],
         });
         let trai_impl = this_ty_decl.trai_impl(index_trai).unwrap();
-        let associated_ty = trai_impl.associated_ty("Output");
-        p!(index_ty);
-        p!(index_trai);
-        p!(trai_impl);
-        todo!()
+        Ok(match trai_impl.member_impls[0] {
+            TraitMemberImplDecl::Method(_) => todo!(),
+            TraitMemberImplDecl::AssociatedType { ty, .. } => ty,
+            TraitMemberImplDecl::Call {} => todo!(),
+            TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
+        })
     }
 }

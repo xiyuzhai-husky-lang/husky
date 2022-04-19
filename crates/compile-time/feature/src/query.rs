@@ -1,6 +1,6 @@
 use entity_route::EntityRoutePtr;
 use instruction_gen::InstructionGenQueryGroup;
-use linkage_table::SearchLinkage;
+use linkage_table::ResolveLinkage;
 use pack_semantics::*;
 use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant};
 use semantics_error::SemanticResultArc;
@@ -16,7 +16,7 @@ pub trait FeatureQueryGroup:
     + Upcast<dyn EntityDefnQueryGroup>
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
-    + SearchLinkage
+    + ResolveLinkage
 {
     fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
     fn scoped_feature_block(&self, scope: EntityRoutePtr) -> SemanticResultArc<FeatureBlock>;

@@ -286,7 +286,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
     }
 }
 
-impl<'eval> AnyValue<'eval> for Vec<EvalValue<'eval>> {
+impl<'eval> AnyValue<'eval> for Vec<MemberValue<'eval>> {
     fn static_type_id() -> StaticTypeId {
         StaticTypeId::HuskyBuiltin(HuskyBuiltinStaticTypeId::VirtualVec)
     }

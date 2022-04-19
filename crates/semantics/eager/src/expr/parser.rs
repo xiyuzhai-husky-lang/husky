@@ -82,7 +82,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
                 ListOpr::Call => self.parse_call(opds.clone(), raw_expr_idx),
-                ListOpr::Index => todo!(),
+                ListOpr::Index => self.parse_element_access(opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
             },
@@ -118,11 +118,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
 
     fn parse_call(
         &mut self,
-        opd_idx_range: RawExprRange,
+        opds: RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<EagerExprKind> {
-        let call = &self.arena()[opd_idx_range.start];
-        let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
+        let call = &self.arena()[opds.start];
+        let input_opd_idx_range = (opds.start + 1)..opds.end;
         match call.kind {
             RawExprVariant::Entity {
                 route: scope,
@@ -131,8 +131,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
             } => {
                 let arguments: Vec<_> = input_opd_idx_range
                     .clone()
-                    .enumerate()
-                    .map(|(i, raw)| self.parse_eager_expr(raw))
+                    .map(|raw| self.parse_eager_expr(raw))
                     .collect::<SemanticResult<_>>()?;
                 Ok(EagerExprKind::Opn {
                     opn_kind: EagerOpnKind::RoutineCall(RangedEntityRoute {
@@ -206,5 +205,14 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
         }
+    }
+
+    fn parse_element_access(&mut self, opds: RawExprRange) -> SemanticResult<EagerExprKind> {
+        Ok(EagerExprKind::Opn {
+            opn_kind: EagerOpnKind::ElementAccess,
+            opds: opds
+                .map(|raw| self.parse_eager_expr(raw))
+                .collect::<SemanticResult<_>>()?,
+        })
     }
 }
