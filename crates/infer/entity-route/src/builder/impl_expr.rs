@@ -349,8 +349,11 @@ impl<'a> TySheetBuilder<'a> {
             kind: self.db.entity_route_menu().std_ops_index_trai.kind,
             generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],
         });
+        let trai_impl = this_ty_decl.trai_impl(index_trai).unwrap();
+        let associated_ty = trai_impl.associated_ty("Output");
         p!(index_ty);
         p!(index_trai);
+        p!(trai_impl);
         todo!()
     }
 }

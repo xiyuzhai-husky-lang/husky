@@ -484,6 +484,12 @@ impl TypeDecl {
             _ => panic!(),
         }
     }
+
+    pub fn trai_impl(&self, trai_route: EntityRoutePtr) -> Option<&Arc<TraitImplDecl>> {
+        self.trai_impls
+            .iter()
+            .find(|trai_impl| trai_impl.trait_route == trai_route)
+    }
 }
 
 pub(crate) fn type_decl(
