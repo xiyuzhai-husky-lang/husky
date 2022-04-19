@@ -1,3 +1,5 @@
+use entity_kind::MemberKind;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -21,6 +23,13 @@ pub struct StaticFieldDecl {
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitImplDecl {
     pub route: &'static str,
+    pub member_impls: &'static [StaticTraitMemberImplDecl],
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum StaticGenericArgument {
+    EntityRoute(&'static str),
+    ConstUsize(usize),
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -53,5 +62,31 @@ pub enum StaticTraitMemberDecl {
     Type {
         name: &'static str,
         traits: &'static [&'static str],
+    },
+}
+
+impl StaticTraitMemberDecl {
+    pub fn name(&self) -> &'static str {
+        match self {
+            StaticTraitMemberDecl::Method(method_decl) => method_decl.name,
+            StaticTraitMemberDecl::Call => todo!(),
+            StaticTraitMemberDecl::Type { name, traits } => name,
+        }
+    }
+
+    pub fn kind(&self) -> MemberKind {
+        match self {
+            StaticTraitMemberDecl::Method(_) => MemberKind::Method,
+            StaticTraitMemberDecl::Call => MemberKind::Call,
+            StaticTraitMemberDecl::Type { .. } => MemberKind::AssociatedType,
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum StaticTraitMemberImplDecl {
+    Type {
+        name: &'static str,
+        route: &'static str,
     },
 }

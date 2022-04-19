@@ -26,7 +26,7 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct VecDict<K, V>
 where
     K: PartialEq + Eq + Copy,
@@ -34,6 +34,16 @@ where
 {
     entries: Vec<V>,
     phantom: PhantomData<K>,
+}
+
+impl<K, V> std::fmt::Debug for VecDict<K, V>
+where
+    K: PartialEq + Eq + Copy,
+    V: HasKey<K> + std::fmt::Debug,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.entries.fmt(f)
+    }
 }
 
 pub type VecPairDict<K, V> = VecDict<K, (K, V)>;

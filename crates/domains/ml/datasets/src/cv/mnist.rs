@@ -47,7 +47,10 @@ static BINARY_IMAGE_28_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
 static BINARY_IMAGE28_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
     base_route: "datasets::cv::mnist::BinaryImage28",
     generic_placeholders: &[],
-    trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
+    trait_impls: &[StaticTraitImplDecl {
+        route: "Clone",
+        member_impls: &[],
+    }],
     type_members: &[],
     variants: &[],
     kind: TyKind::Array,

@@ -12,7 +12,7 @@ impl<'a> AstTransformer<'a> {
         let keyword = if let TokenKind::Keyword(keyword) = token_group[0].kind {
             keyword
         } else {
-            todo!()
+            return err_derived!();
         };
         enter_block(self);
         match keyword {

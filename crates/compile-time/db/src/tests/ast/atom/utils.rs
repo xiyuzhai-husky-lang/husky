@@ -1,6 +1,6 @@
 use crate::*;
 
-use atom::*;
+use atom::{symbol::SymbolContextKind, *};
 
 pub(super) fn check_atom_kind(db: &mut HuskyLangCompileTime, line: &'static str, kind: AtomKind) {
     let atoms = get_atoms_in_line(db, line);
@@ -14,11 +14,12 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static st
     let main = db.intern_file("haha/main.hsk".into());
     let symbols = fold::LocalStack::new();
     AtomLRParser::new(
-        SymbolProxy {
+        &SymbolContext {
             opt_package_main: Some(main),
             db,
             opt_this_ty: None,
             symbols: &symbols,
+            kind: SymbolContextKind::Normal,
         },
         &tokens,
     )

@@ -46,7 +46,7 @@ impl From<&AstError> for Diagnostic {
                 message: format!("Ast Error: {}", message),
                 dev_src: error.dev_src.clone(),
             },
-            AstErrorVariant::Derived => todo!(),
+            AstErrorVariant::Derived => panic!(),
         }
     }
 }

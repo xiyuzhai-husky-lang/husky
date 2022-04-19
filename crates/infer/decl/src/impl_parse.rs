@@ -1,6 +1,6 @@
 use crate::*;
 use atom::{
-    symbol_proxy::{Symbol, SymbolKind},
+    symbol::{Symbol, SymbolContextKind, SymbolKind},
     *,
 };
 use entity_route::*;
@@ -9,22 +9,13 @@ use map_collect::MapCollect;
 use word::IdentDict;
 
 impl<'a> dyn DeclQueryGroup + 'a {
-    pub(crate) fn parse_entity(
-        &self,
-        text: &str,
-        opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &[Symbol],
-    ) -> AtomResult<EntityRoutePtr> {
-        parse_entity(
-            SymbolProxy {
-                opt_package_main: None,
-                db: self.upcast(),
-                opt_this_ty,
-                symbols,
-            },
-            &self.tokenize(text),
-        )
-    }
+    // pub fn parse_entity(
+    //     &self,
+    //     text: &str,
+    //     symbol_context: &SymbolContext,
+    // ) -> AtomResult<EntityRoutePtr> {
+    //     parse_entity(symbol_context, &self.tokenize(text))
+    // }
 
     pub(crate) fn parse_generic_placeholders_from_static(
         &self,

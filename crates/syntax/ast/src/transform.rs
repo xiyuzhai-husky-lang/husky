@@ -15,7 +15,7 @@ use crate::{
     query::{AstSalsaQueryGroup, AstText},
     *,
 };
-use atom::symbol_proxy::{Symbol, SymbolKind};
+use atom::symbol::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};

@@ -16,7 +16,7 @@ use token::{Special, Token, TokenKind};
 use vm::{BinaryOpr, PureBinaryOpr};
 use word::CustomIdentifier;
 
-use super::{stack::AtomStack, symbol_proxy::SymbolProxy, *};
+use super::{stack::AtomStack, symbol::SymbolContext, *};
 use crate::*;
 
 use utils::*;
@@ -55,15 +55,15 @@ impl<'a> From<&'a [Token]> for Stream<'a> {
 }
 
 pub struct AtomLRParser<'a> {
-    scope_proxy: SymbolProxy<'a>,
+    symbol_context: &'a SymbolContext<'a>,
     pub(crate) stream: Stream<'a>,
     stack: AtomStack,
 }
 
 impl<'a> AtomLRParser<'a> {
-    pub fn new(scope_proxy: SymbolProxy<'a>, tokens: &'a [Token]) -> Self {
+    pub fn new(symbol_context: &'a SymbolContext<'a>, tokens: &'a [Token]) -> Self {
         Self {
-            scope_proxy,
+            symbol_context,
             stream: tokens.into(),
             stack: AtomStack::new(),
         }
@@ -84,6 +84,9 @@ impl<'a> AtomLRParser<'a> {
                     }
                     TokenKind::Special(special) => match special {
                         Special::DoubleColon => {
+                            p!(self.stream);
+                            p!(self.stack);
+                            panic!();
                             err!("unexpected double colon, maybe the identifier before is not recognized as scope", token.text_range())?
                         }
                         Special::Colon => {
@@ -123,7 +126,7 @@ impl<'a> AtomLRParser<'a> {
                             if next_matches!(self, Special::LightArrow) {
                                 let output = get!(self, ty?);
                                 self.stack.make_func_type(
-                                    self.scope_proxy,
+                                    &self.symbol_context,
                                     output,
                                     self.stream.pop_range(),
                                 )?;
@@ -132,7 +135,7 @@ impl<'a> AtomLRParser<'a> {
                                     Bracket::Par,
                                     ListEndAttr::None,
                                     token.text_range(),
-                                    self.scope_proxy,
+                                    &self.symbol_context,
                                 )?
                             }
                         }
@@ -140,27 +143,38 @@ impl<'a> AtomLRParser<'a> {
                             Bracket::Box,
                             ListEndAttr::None,
                             token.text_range(),
-                            self.scope_proxy,
+                            &self.symbol_context,
                         )?,
                         Special::RCurl => self.stack.end_list_or_make_type(
                             Bracket::Curl,
                             ListEndAttr::None,
                             token.text_range(),
-                            self.scope_proxy,
+                            &self.symbol_context,
                         )?,
                         Special::SubOrMinus => {
                             if self.stack.is_convex() {
-                                self.stack
-                                    .push(Atom::new(token.text_range(), BinaryOpr::Pure(PureBinaryOpr::Sub).into()))?
+                                self.stack.push(Atom::new(
+                                    token.text_range(),
+                                    BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
+                                ))?
                             } else {
                                 self.stack
                                     .push(Atom::new(token.text_range(), PrefixOpr::Minus.into()))?
                             }
                         }
-                        Special::MemberAccess =>  {
-                            let field_ident_token = self.stream.next().ok_or(error!("expect identifier after `.`", token.text_range()))?;
-                            self.stack
-                        .push(Atom::new(token.text_range(), SuffixOpr::MembAccess(field_ident_token.ranged_custom_ident().unwrap()).into()))?},
+                        Special::MemberAccess => {
+                            let field_ident_token = self
+                                .stream
+                                .next()
+                                .ok_or(error!("expect identifier after `.`", token.text_range()))?;
+                            self.stack.push(Atom::new(
+                                token.text_range(),
+                                SuffixOpr::MembAccess(
+                                    field_ident_token.ranged_custom_ident().unwrap(),
+                                )
+                                .into(),
+                            ))?
+                        }
                         _ => self.stack.push(token.into())?,
                     },
                     _ => self.stack.push(token.into())?,
@@ -173,8 +187,8 @@ impl<'a> AtomLRParser<'a> {
     }
 }
 
-pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
-    let result = AtomLRParser::new(scope_proxy, tokens.into()).parse_all()?;
+pub fn parse_ty(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
+    let result = AtomLRParser::new(symbol_context, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()
     }
@@ -188,7 +202,7 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AtomResult<Entity
                 kind: EntityKind::Type(_),
                 ..
             } => Ok(scope),
-            AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
+            // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
             _ => err!(
                 format!("expect type, but get `{:?}` instead", result[0]),
                 (&result).into()
@@ -197,22 +211,25 @@ pub fn parse_ty(scope_proxy: SymbolProxy, tokens: &[Token]) -> AtomResult<Entity
     }
 }
 
-pub fn parse_entity(scope_proxy: SymbolProxy, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
-    let result = AtomLRParser::new(scope_proxy, tokens.into()).parse_all()?;
-    if result.len() == 0 {
-        panic!()
-    }
-    if result.len() > 1 {
-        p!(result);
-        err!("too many atoms", result[1..].into())?
-    } else {
-        match result[0].kind {
-            AtomKind::EntityRoute { route: scope, .. } => Ok(scope),
-            AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
-            _ => err!(
-                format!("expect type, but get `{:?}` instead", result[0]),
-                (&result).into()
-            )?,
-        }
-    }
-}
+// pub fn parse_entity(
+//     symbol_context: &SymbolContext,
+//     tokens: &[Token],
+// ) -> AtomResult<EntityRoutePtr> {
+//     let result = AtomLRParser::new(symbol_context, tokens.into()).parse_all()?;
+//     if result.len() == 0 {
+//         panic!()
+//     }
+//     if result.len() > 1 {
+//         p!(result);
+//         err!("too many atoms", result[1..].into())?
+//     } else {
+//         match result[0].kind {
+//             AtomKind::EntityRoute { route: scope, .. } => Ok(scope),
+//             // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
+//             _ => err!(
+//                 format!("expect type, but get `{:?}` instead", result[0]),
+//                 (&result).into()
+//             )?,
+//         }
+//     }
+// }

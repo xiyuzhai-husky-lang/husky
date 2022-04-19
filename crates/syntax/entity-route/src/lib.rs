@@ -4,7 +4,7 @@ mod kind;
 
 pub use alias::ScopeAliasTable;
 pub use alloc::{
-    new_scope_unique_allocator, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
+    new_entity_route_interner, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
 };
 pub use entity_kind::EntityKind;
 use file::FilePtr;
@@ -43,7 +43,7 @@ impl std::fmt::Debug for EntityRoute {
             }
             EntityRouteKind::Input { .. } => f.write_str("input")?,
             EntityRouteKind::Generic { ident, .. } => f.write_str(&ident)?,
-            EntityRouteKind::ThisType => todo!(),
+            EntityRouteKind::ThisType => f.write_str("This")?,
             EntityRouteKind::TraitMember {
                 ty: parent,
                 trai,

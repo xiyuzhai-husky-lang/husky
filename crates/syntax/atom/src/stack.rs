@@ -1,8 +1,9 @@
 use entity_route::{EntityKind, GenericArgument};
 use word::RootIdentifier;
 
-use crate::{convexity::Convexity, symbol_proxy::SymbolProxy, *};
+use crate::{convexity::Convexity, symbol::SymbolContext, *};
 
+#[derive(Debug)]
 pub(crate) struct AtomStack {
     atoms: Vec<Atom>,
 }
@@ -61,7 +62,7 @@ impl AtomStack {
         ket: Bracket,
         attr: ListEndAttr,
         mut tail: TextRange,
-        scope_proxy: SymbolProxy,
+        symbol_context: &SymbolContext,
     ) -> AtomResult<()> {
         match (ket, self.atoms.last()) {
             (
@@ -83,7 +84,7 @@ impl AtomStack {
                         self.func_generic(attr)?
                     }
                 };
-                self.push(scope_proxy.builtin_type_atom(ident, generics, tail))
+                self.push(symbol_context.builtin_type_atom(ident, generics, tail))
             }
             _ => Ok(self.end_list(ket, attr, tail)),
         }
@@ -172,13 +173,13 @@ impl AtomStack {
 
     pub(crate) fn make_func_type(
         &mut self,
-        scope_proxy: SymbolProxy,
+        symbol_context: &SymbolContext,
         output: EntityRoutePtr,
         mut tail: TextRange,
     ) -> AtomResult<()> {
         let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
         generics.push(output.into());
         let func_type = self.func_generic(attr)?;
-        self.push(scope_proxy.builtin_type_atom(func_type, generics, tail))
+        self.push(symbol_context.builtin_type_atom(func_type, generics, tail))
     }
 }

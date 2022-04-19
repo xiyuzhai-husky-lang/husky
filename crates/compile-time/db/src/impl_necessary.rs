@@ -31,15 +31,20 @@ impl salsa::ParallelDatabase for HuskyLangCompileTime {
 
 impl Default for HuskyLangCompileTime {
     fn default() -> Self {
+        let live_docs = Default::default();
+        let scope_unique_allocator = entity_route::new_entity_route_interner();
+        let features = feature::new_feature_unique_allocator();
+        let entity_route_store = Default::default();
+        let linkage_table = Default::default();
         Self {
             storage: Default::default(),
             file_unique_allocator: file::new_file_unique_allocator(),
             word_unique_allocator: word::new_word_unique_allocator(),
-            scope_unique_allocator: entity_route::new_scope_unique_allocator(),
-            live_docs: Default::default(),
-            features: feature::new_feature_unique_allocator(),
-            linkage_table: Default::default(),
-            entity_route_store: Default::default(),
+            scope_unique_allocator,
+            live_docs,
+            features,
+            linkage_table,
+            entity_route_store,
         }
     }
 }

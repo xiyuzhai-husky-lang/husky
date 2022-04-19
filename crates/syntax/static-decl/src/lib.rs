@@ -10,7 +10,7 @@ use vm::{BoxedValue, InputContract, Linkage, OutputContract, StackValue, Virtual
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitDecl {
-    pub route: &'static str,
+    pub base_route: &'static str,
     pub generic_placeholders: &'static [StaticGenericPlaceholder],
     pub members: &'static [StaticTraitMemberDecl],
 }
@@ -61,7 +61,7 @@ pub struct StaticCallDecl {
 }
 
 pub static CLONE_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
-    route: "Clone",
+    base_route: "Clone",
     members: &[StaticTraitMemberDecl::Method(StaticMethodDecl {
         name: "clone",
         this_contract: vm::InputContract::Pure,
@@ -80,7 +80,19 @@ pub static VEC_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
         name: "E",
         variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
     }],
-    trait_impls: &[StaticTraitImplDecl { route: "Clone" }],
+    trait_impls: &[
+        StaticTraitImplDecl {
+            route: "Clone",
+            member_impls: &[],
+        },
+        StaticTraitImplDecl {
+            route: "std::ops::Index<i32>",
+            member_impls: &[StaticTraitMemberImplDecl::Type {
+                name: "Output",
+                route: "E",
+            }],
+        },
+    ],
     type_members: &[
         StaticTypeMemberDecl::Method(StaticMethodDecl {
             name: "len",

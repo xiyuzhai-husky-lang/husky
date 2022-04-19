@@ -14,7 +14,7 @@ impl StaticEntityDecl {
             StaticEntityDecl::Func(_) => EntityKind::Routine,
             StaticEntityDecl::Type(ty_decl) => EntityKind::Type(ty_decl.kind),
             StaticEntityDecl::Module => EntityKind::Module,
-            StaticEntityDecl::Trait { .. } => todo!(),
+            StaticEntityDecl::Trait(trait_decl) => EntityKind::Trait,
         }
     }
 }

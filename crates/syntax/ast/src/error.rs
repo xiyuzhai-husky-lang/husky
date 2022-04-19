@@ -62,3 +62,13 @@ macro_rules! err {
     }};
 }
 pub(crate) use err;
+
+macro_rules! err_derived {
+    () => {{
+        Err(AstError {
+            variant: AstErrorVariant::Derived,
+            dev_src: dev_src!(),
+        })
+    }};
+}
+pub(crate) use err_derived;

@@ -1,5 +1,5 @@
 use crate::*;
-use atom::symbol_proxy::{Symbol, SymbolKind};
+use atom::symbol::{Symbol, SymbolKind};
 use entity_route::{EntityRoute, EntityRouteKind};
 use text::TextRange;
 

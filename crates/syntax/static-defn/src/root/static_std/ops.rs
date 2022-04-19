@@ -16,7 +16,7 @@ pub static INDEX_TRAIT_DEFN: StaticEntityDefn = StaticEntityDefn {
 };
 
 pub static INDEX_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
-    route: "std::ops::Index",
+    base_route: "std::ops::Index",
     generic_placeholders: &[StaticGenericPlaceholder {
         name: "Idx",
         variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
@@ -30,7 +30,7 @@ pub static INDEX_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
             name: "index",
             this_contract: InputContract::MemberAccess,
             inputs: &[],
-            output_ty: "Self::Output",
+            output_ty: "This::Output",
             output_contract: OutputContract::MemberAccess,
             generic_placeholders: &[],
             kind: StaticMethodKind::TraitMethod("std::ops::Index"),

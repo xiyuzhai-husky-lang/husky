@@ -2,6 +2,7 @@ use std::{borrow::Borrow, fmt::Debug, hash::Hash, ops::Deref};
 
 pub trait UniqueAllocatorPtr:
     'static
+    + Debug
     + Hash
     + PartialEq
     + Eq
@@ -78,6 +79,9 @@ impl<T: 'static + ?Sized> From<&'static T> for BasicUniqueAllocatorPtr<T> {
     }
 }
 
-impl<T: 'static + ?Sized> UniqueAllocatorPtr for BasicUniqueAllocatorPtr<T> {
+impl<T: 'static + ?Sized> UniqueAllocatorPtr for BasicUniqueAllocatorPtr<T>
+where
+    T: Debug,
+{
     type Thing = T;
 }

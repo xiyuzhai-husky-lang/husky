@@ -1,3 +1,4 @@
+#![feature(box_syntax)]
 mod internal;
 mod pool;
 mod ptr;

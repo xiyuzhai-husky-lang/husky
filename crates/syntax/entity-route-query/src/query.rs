@@ -104,11 +104,14 @@ fn entity_kind_from_scope_kind(
             | RootIdentifier::EqTrait => EntityKind::Trait,
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
-        EntityRouteKind::Child { parent, ident } => db
-            .subscope_table(parent)
-            .unwrap()
-            .raw_entity_kind(ident)
-            .unwrap(),
+        EntityRouteKind::Child { parent, ident } => match parent.kind {
+            EntityRouteKind::ThisType => EntityKind::Member,
+            _ => db
+                .subscope_table(parent)
+                .unwrap()
+                .raw_entity_kind(ident)
+                .unwrap(),
+        },
         EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
         EntityRouteKind::ThisType => EntityKind::Type(TyKind::Other),
@@ -134,7 +137,7 @@ fn entity_source(
         }
         EntityRouteKind::Input { main } => Ok(EntitySource::Input { main }),
         EntityRouteKind::Generic { .. } => todo!(),
-        EntityRouteKind::ThisType => todo!(),
+        EntityRouteKind::ThisType => panic!(),
         EntityRouteKind::TraitMember { ty, trai, ident } => {
             let ty_source = this.entity_source(ty).unwrap();
             match ty_source {
@@ -165,7 +168,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static StaticEntityDefn {
         RootIdentifier::Vec => &VEC_TYPE_DEFN,
         RootIdentifier::Tuple => todo!(),
         RootIdentifier::Debug => todo!(),
-        RootIdentifier::Std => todo!(),
+        RootIdentifier::Std => &STD_MODULE_DEFN,
         RootIdentifier::Core => todo!(),
         RootIdentifier::Fp => todo!(),
         RootIdentifier::Fn => todo!(),

@@ -1,3 +1,4 @@
+use check_utils::should_eq;
 use implement::Implementable;
 
 use super::*;
@@ -21,6 +22,9 @@ impl Implementable for OutputDecl {
     type Target = Self;
 
     fn implement(&self, implementor: &Implementor) -> Self::Target {
-        todo!()
+        Self {
+            contract: self.contract,
+            ty: self.ty.implement(implementor),
+        }
     }
 }

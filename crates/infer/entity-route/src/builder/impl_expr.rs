@@ -91,6 +91,7 @@ impl<'a> TySheetBuilder<'a> {
             EntityKind::Feature => self.db.feature_decl(scope)?.ty,
             EntityKind::Pattern => todo!(),
             EntityKind::TypeMember => todo!(),
+            EntityKind::Member => todo!(),
         })
     }
 
@@ -342,7 +343,14 @@ impl<'a> TySheetBuilder<'a> {
             todo!()
         }
         let this_ty = derived_not_none!(self.infer_expr(total_opds.start, None, arena))?;
-        p!(this_ty);
+        let index_ty = derived_not_none!(self.infer_expr(total_opds.start + 1, None, arena))?;
+        let this_ty_decl = self.db.type_decl(this_ty)?;
+        let index_trai = self.db.intern_entity_route(EntityRoute {
+            kind: self.db.entity_route_menu().std_ops_index_trai.kind,
+            generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],
+        });
+        p!(index_ty);
+        p!(index_trai);
         todo!()
     }
 }

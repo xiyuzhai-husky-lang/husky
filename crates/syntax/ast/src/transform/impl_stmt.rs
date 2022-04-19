@@ -3,7 +3,7 @@ use crate::{
     transform::utils::*,
     *,
 };
-use atom::symbol_proxy::Symbol;
+use atom::symbol::Symbol;
 use text::{TextRange, TextRanged};
 use token::{Special, Token, TokenKind};
 use vm::BinaryOpr;

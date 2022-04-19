@@ -3,13 +3,13 @@ mod error;
 mod kind;
 pub mod parser;
 mod stack;
-pub mod symbol_proxy;
+pub mod symbol;
 
 pub use error::*;
 pub use kind::{AtomKind, LambdaHead};
 pub use parser::AtomLRParser;
 pub use parser::*;
-pub use symbol_proxy::SymbolProxy;
+pub use symbol::SymbolContext;
 pub use syntax_types::*;
 
 use entity_kind::*;
@@ -40,7 +40,10 @@ impl TextRanged for Atom {
 
 impl std::fmt::Debug for Atom {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("Atom{{{:?}, {:?}}}", &self.range, &self.kind))
+        f.write_fmt(format_args!(
+            "Atom{{range: {:?}, kind: {:?}}}",
+            &self.range, &self.kind
+        ))
     }
 }
 

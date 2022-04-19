@@ -4,7 +4,10 @@ mod output;
 pub use input::*;
 pub use output::*;
 
-use atom::symbol_proxy::Symbol;
+use atom::{
+    symbol::{Symbol, SymbolContextKind},
+    SymbolContext,
+};
 use defn_head::*;
 use fold::LocalStack;
 use implement::Implementor;
@@ -61,7 +64,7 @@ pub(crate) fn call_decl(
     let source = db.entity_source(route)?;
     return match source {
         EntitySource::StaticModuleItem(data) => Ok(match data.decl {
-            StaticEntityDecl::Func(ref signature) => call_decl_from_static(db, signature),
+            StaticEntityDecl::Func(ref decl) => call_decl_from_static(db, decl),
             StaticEntityDecl::Type(_) => db.type_decl(route)?.opt_type_call.clone().expect("todo"),
             _ => panic!(),
         }),
@@ -108,13 +111,20 @@ pub(crate) fn call_decl_from_static(
     let generic_placeholders =
         db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
     let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+    let symbol_context = SymbolContext {
+        opt_package_main: None,
+        db: db.upcast(),
+        opt_this_ty: None,
+        symbols: &symbols,
+        kind: SymbolContextKind::Normal,
+    };
     let inputs = static_decl.inputs.map(|input| InputDecl {
-        ty: db.parse_entity(input.ty, None, &symbols).unwrap(),
+        ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
         contract: input.contract,
         ident: db.custom_ident(input.name),
     });
-    let output_ty = db
-        .parse_entity(static_decl.output_ty, None, &symbols)
+    let output_ty = symbol_context
+        .entity_route_from_str(static_decl.output_ty)
         .unwrap();
     Arc::new(CallDecl {
         generic_placeholders,
