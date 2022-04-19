@@ -3,6 +3,7 @@ use defn_head::{GenericPlaceholder, GenericPlaceholderVariant};
 use entity_route::*;
 use entity_route_query::*;
 use map_collect::MapCollect;
+use print_utils::p;
 use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
@@ -29,7 +30,13 @@ impl<'a> Instantiator<'a> {
                 let (kind, mut generics) = match src_scope.kind {
                     EntityRouteKind::Package { .. } => panic!(),
                     EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
-                    EntityRouteKind::Child { parent, ident } => todo!(),
+                    EntityRouteKind::Child { parent, ident } => (
+                        EntityRouteKind::Child {
+                            parent: self.instantiate_entity_route(parent).as_scope(),
+                            ident,
+                        },
+                        vec![],
+                    ),
                     EntityRouteKind::Input { main } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => {
                         if let Some(idx) = self.find_generic(ident) {
@@ -62,6 +69,7 @@ impl<'a> Instantiator<'a> {
             }
             EntityKind::Literal => todo!(),
             EntityKind::TypeMember => todo!(),
+            EntityKind::Member => todo!(),
         }
     }
 

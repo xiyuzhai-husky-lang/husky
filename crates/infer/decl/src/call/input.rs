@@ -1,3 +1,5 @@
+use atom::SymbolContext;
+
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -11,11 +13,11 @@ impl InputDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         input: &StaticInputDecl,
-        opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &[Symbol],
+        symbol_context: &SymbolContext,
     ) -> Self {
+        // opt_this_ty,
         Self {
-            ty: db.parse_entity(input.ty, opt_this_ty, symbols).unwrap(),
+            ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
             contract: input.contract,
             ident: db.custom_ident(input.name),
         }

@@ -8,3 +8,4 @@ doctest = false
 
 [dependencies]
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }

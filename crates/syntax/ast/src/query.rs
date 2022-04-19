@@ -6,7 +6,7 @@ use std::sync::Arc;
 use upcast::Upcast;
 
 use crate::*;
-use atom::symbol_proxy::{Symbol, SymbolProxy};
+use atom::symbol::{Symbol, SymbolContext};
 
 #[salsa::query_group(AstQueryGroupStorage)]
 pub trait AstSalsaQueryGroup: EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> {

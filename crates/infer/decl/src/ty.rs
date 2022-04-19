@@ -13,7 +13,10 @@ pub use vec::*;
 
 use crate::*;
 use ast::AstIter;
-use atom::symbol_proxy::{Symbol, SymbolKind};
+use atom::{
+    symbol::{Symbol, SymbolContextKind, SymbolKind},
+    SymbolContext,
+};
 use defn_head::*;
 use entity_route::*;
 pub use enum_variant::*;
@@ -30,7 +33,7 @@ pub struct TypeDecl {
     pub ty_members: IdentDict<TyMemberDecl>,
     pub variants: IdentDict<EnumVariantDecl>,
     pub kind: TyKind,
-    pub trai_impls: Vec<Arc<TraiImplDecl>>,
+    pub trai_impls: Vec<Arc<TraitImplDecl>>,
     pub members: Vec<MemberDecl>,
     pub opt_type_call: Option<Arc<CallDecl>>,
 }
@@ -42,16 +45,27 @@ impl TypeDecl {
         let generic_arguments =
             db.generic_arguments_from_generic_placeholders(&generic_placeholders);
         let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
-        let base_ty = db
-            .parse_entity(static_decl.base_route, None, &symbols)
+        let mut symbol_context = SymbolContext {
+            opt_package_main: None,
+            db: db.upcast(),
+            opt_this_ty: None,
+            symbols: &symbols,
+            kind: SymbolContextKind::Normal,
+        };
+        let base_ty = symbol_context
+            .entity_route_from_str(static_decl.base_route)
             .unwrap();
         let this_ty = db.intern_entity_route(EntityRoute {
             kind: base_ty.kind,
             generic_arguments,
         });
+        symbol_context.opt_this_ty = Some(this_ty);
         let opt_type_call = static_decl
             .opt_type_call
             .map(|type_call| member_call_decl_from_static(db, symbols.clone(), type_call));
+        let trait_impls = static_decl
+            .trait_impls
+            .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, &symbol_context));
         Self::new(
             db,
             this_ty,
@@ -59,15 +73,13 @@ impl TypeDecl {
             static_decl
                 .type_members
                 .iter()
-                .map(|member| TyMemberDecl::from_static(db, member, this_ty, &symbols))
+                .map(|member| TyMemberDecl::from_static(db, member, &symbol_context))
                 .collect(),
-            static_decl.variants.map(|static_decl| {
-                EnumVariantDecl::from_static(db, static_decl, this_ty, &symbols)
-            }),
-            static_decl.kind,
             static_decl
-                .trait_impls
-                .map(|trait_impl| TraiImplDecl::from_static(db, trait_impl, this_ty, &symbols)),
+                .variants
+                .map(|static_decl| EnumVariantDecl::from_static(db, static_decl, &symbol_context)),
+            static_decl.kind,
+            trait_impls,
             opt_type_call,
         )
     }
@@ -233,7 +245,7 @@ impl TypeDecl {
         type_members: IdentDict<TyMemberDecl>,
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
-        trait_impls: Vec<Arc<TraiImplDecl>>,
+        trait_impls: Vec<Arc<TraitImplDecl>>,
         opt_type_call: Option<Arc<CallDecl>>,
     ) -> Arc<Self> {
         let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
@@ -423,7 +435,7 @@ impl TypeDecl {
                         MemberDecl::AssociatedCall => todo!(),
                         MemberDecl::TypeField(_) => todo!(),
                         MemberDecl::TypeMethod(_) => todo!(),
-                        MemberDecl::TraitMethod {
+                        MemberDecl::TraitMethodImpl {
                             trait_route,
                             method,
                         } => {
@@ -433,6 +445,8 @@ impl TypeDecl {
                                 None
                             }
                         }
+                        MemberDecl::TraitAssociatedTypeImpl { .. } => todo!(),
+                        MemberDecl::TraitAssociatedConstSizeImpl { .. } => todo!(),
                     }
                 } else {
                     None
@@ -483,11 +497,11 @@ pub(crate) fn type_decl(
             StaticEntityDecl::Module => todo!(),
             StaticEntityDecl::Type(type_decl) => {
                 let base_decl = TypeDecl::from_static(db, type_decl);
-                assert_eq!(
-                    ty_route.generic_arguments.len(),
-                    base_decl.generic_placeholders.len()
-                );
                 if ty_route.generic_arguments.len() > 0 {
+                    assert_eq!(
+                        ty_route.generic_arguments.len(),
+                        base_decl.generic_placeholders.len()
+                    );
                     base_decl.instantiate(db, &ty_route.generic_arguments)
                 } else {
                     base_decl
@@ -559,13 +573,20 @@ pub(crate) fn member_call_decl_from_static(
     let generic_placeholders =
         db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
     symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
+    let symbol_context = SymbolContext {
+        opt_package_main: None,
+        db: db.upcast(),
+        opt_this_ty: None,
+        symbols: &symbols,
+        kind: SymbolContextKind::Normal,
+    };
     let inputs = static_decl.inputs.map(|input| InputDecl {
-        ty: db.parse_entity(input.ty, None, &symbols).unwrap(),
+        ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
         contract: input.contract,
         ident: db.custom_ident(input.name),
     });
-    let output_ty = db
-        .parse_entity(static_decl.output_ty, None, &symbols)
+    let output_ty = symbol_context
+        .entity_route_from_str(static_decl.output_ty)
         .unwrap();
     Arc::new(CallDecl {
         generic_placeholders,

@@ -1,14 +1,17 @@
 use std::mem::MaybeUninit;
 
+use print_utils::{epin, p};
+
 pub struct Pool<T, const BLOCK_SIZE: usize> {
     blocks: Vec<Block<T, BLOCK_SIZE>>,
 }
 
 impl<T, const BLOCK_SIZE: usize> Default for Pool<T, BLOCK_SIZE> {
     fn default() -> Self {
-        Self {
+        let result = Self {
             blocks: vec![Block::new()],
-        }
+        };
+        result
     }
 }
 
@@ -26,32 +29,33 @@ impl<T, const BLOCK_SIZE: usize> Pool<T, BLOCK_SIZE> {
 }
 
 pub struct Block<T, const BLOCK_SIZE: usize> {
-    storage: Box<[MaybeUninit<T>; BLOCK_SIZE]>,
-    len: usize,
+    storage: Vec<T>,
 }
 
 impl<T, const BLOCK_SIZE: usize> Block<T, BLOCK_SIZE> {
     fn new() -> Self {
-        Self {
-            storage: Box::new(unsafe { MaybeUninit::uninit().assume_init() }),
-            len: 0,
-        }
+        let mut storage = Vec::new();
+        storage.reserve(BLOCK_SIZE);
+        let result = Self { storage };
+        result
     }
 
     fn is_full(&self) -> bool {
-        self.len >= BLOCK_SIZE
+        self.len() >= BLOCK_SIZE
     }
 
     fn alloc(&mut self, t: T) -> &T {
         assert!(!self.is_full());
-        let res = self.storage[self.len].write(t);
-        self.len += 1;
-        res
+        self.storage.push(t);
+        self.storage.last().unwrap()
+    }
+
+    fn len(&self) -> usize {
+        self.storage.len()
     }
 }
 
 #[test]
-
 fn test_pool() {
     let mut pool = Pool::<i32, 2>::default();
     unsafe {
@@ -62,5 +66,20 @@ fn test_pool() {
         let _e = &*pool.alloc(1);
         let _f = &*pool.alloc(1);
         assert_eq!(pool.blocks.len(), 3);
+    }
+}
+
+#[test]
+fn test_pool2() {
+    let mut pool = Pool::<i32, 10000>::default();
+    p!(std::mem::size_of::<Pool<i32, 10000>>());
+    unsafe {
+        let _a = &*pool.alloc(1);
+        let _b = &*pool.alloc(1);
+        let _c = &*pool.alloc(1);
+        let _d = &*pool.alloc(1);
+        let _e = &*pool.alloc(1);
+        let _f = &*pool.alloc(1);
+        assert_eq!(pool.blocks.len(), 1);
     }
 }

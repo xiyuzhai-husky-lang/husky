@@ -4,6 +4,7 @@ mod try_atomic;
 mod try_control_flow;
 mod try_random;
 mod try_rayon;
+mod try_ref;
 #[cfg(test)]
 mod try_salsa;
 mod try_serde;

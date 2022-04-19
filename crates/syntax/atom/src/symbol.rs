@@ -2,6 +2,7 @@ use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
 use entity_route_query::EntityRouteQueryGroup;
 use file::FilePtr;
+use print_utils::p;
 use text::{Row, TextRange};
 use word::{ContextualIdentifier, CustomIdentifier, RootIdentifier};
 
@@ -28,18 +29,27 @@ pub enum SymbolKind {
     Variable { init_row: Row },
     Unrecognized(CustomIdentifier),
     ThisData { ty: Option<EntityRoutePtr> },
-    ThisType { ty: Option<EntityRoutePtr> },
 }
 
-#[derive(Clone, Copy)]
-pub struct SymbolProxy<'a> {
+#[derive(Clone)]
+pub struct SymbolContext<'a> {
     pub opt_package_main: Option<FilePtr>,
     pub db: &'a dyn EntityRouteQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
+    // pub this_ty_members: Option<EntityRoute>,
     pub symbols: &'a [Symbol],
+    pub kind: SymbolContextKind<'a>,
 }
 
-impl<'a> SymbolProxy<'a> {
+#[derive(Clone, Copy)]
+pub enum SymbolContextKind<'a> {
+    Normal,
+    Trait {
+        members: &'a [(CustomIdentifier, MemberKind)],
+    },
+}
+
+impl<'a> SymbolContext<'a> {
     pub fn builtin_type_atom(
         &self,
         ident: RootIdentifier,
@@ -101,9 +111,9 @@ impl<'a> SymbolProxy<'a> {
                 ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData {
                     ty: self.opt_this_ty,
                 }),
-                ContextualIdentifier::ThisType => Ok(SymbolKind::ThisType {
-                    ty: self.opt_this_ty,
-                }),
+                ContextualIdentifier::ThisType => {
+                    Ok(SymbolKind::EntityRoute(self.db.entity_route_menu().this_ty))
+                }
             },
             Identifier::Custom(ident) => Ok(if let Some(symbol) = self.find_symbol(ident) {
                 symbol.kind
@@ -117,15 +127,53 @@ impl<'a> SymbolProxy<'a> {
         self.symbols.iter().find(|symbol| symbol.ident == ident)
     }
 
-    // fn resolve_subscope(
-    //     &self,
-    //     parent_scope: EntityRoute,
-    //     subscope_ident: CustomIdentifier,
-    // ) -> Option<EntityRoutePtr> {
-    //     self.db.subscope(
-    //         self.db.intern_scope(parent_scope),
-    //         subscope_ident,
-    //         Vec::new(),
-    //     )
-    // }
+    pub fn entity_kind(&self, route: EntityRoutePtr) -> EntityKind {
+        match route.kind {
+            EntityRouteKind::Child {
+                parent,
+                ident: ident0,
+            } => match parent.kind {
+                EntityRouteKind::ThisType => match self.kind {
+                    SymbolContextKind::Normal => todo!(),
+                    SymbolContextKind::Trait { members } => {
+                        match members
+                            .iter()
+                            .find(|(ident, _)| *ident == ident0)
+                            .unwrap()
+                            .1
+                        {
+                            MemberKind::Method => todo!(),
+                            MemberKind::Call => todo!(),
+                            MemberKind::AssociatedType => EntityKind::Type(TyKind::Other),
+                            MemberKind::AssociatedConstSize => todo!(),
+                        }
+                    }
+                },
+                _ => self.db.raw_entity_kind(route),
+            },
+            EntityRouteKind::TraitMember { ty, trai, ident } => todo!(),
+            _ => self.db.raw_entity_kind(route),
+        }
+    }
+
+    pub fn entity_route_from_str(&self, text: &str) -> AtomResult<EntityRoutePtr> {
+        let tokens = self.db.tokenize(text);
+        let result = AtomLRParser::new(self, &tokens).parse_all()?;
+        if result.len() == 0 {
+            panic!()
+        }
+        if result.len() > 1 {
+            p!(result);
+            err!("too many atoms", result[1..].into())?
+        } else {
+            match result[0].kind {
+                AtomKind::EntityRoute { route: scope, .. } => Ok(scope),
+                // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
+                _ => err!(
+                    format!("expect type, but get `{:?}` instead", result[0]),
+                    (&result).into()
+                )?,
+            }
+        }
+    }
 }

@@ -1,49 +1,48 @@
 use crate::*;
-use atom::symbol_proxy::Symbol;
+use atom::{
+    symbol::{Symbol, SymbolContextKind},
+    SymbolContext,
+};
 use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
+use print_utils::p;
 use static_decl::StaticTraitMemberDecl;
 use vec_dict::HasKey;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitDecl {
-    pub route: EntityRoutePtr,
+    pub base_route: EntityRoutePtr,
     pub members: IdentDict<TraitMemberDecl>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TraitMemberDecl {
     Method(Arc<MethodDecl>),
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum TraitMemberImplDecl {
-    Method(Arc<MethodDecl>),
-}
-impl TraitMemberImplDecl {
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
-        match self {
-            TraitMemberImplDecl::Method(method_decl) => {
-                TraitMemberImplDecl::Method(method_decl.instantiate(instantiator))
-            }
-        }
-    }
+    Type {
+        ident: CustomIdentifier,
+        traits: Vec<EntityRoutePtr>,
+    },
+    ConstSize(usize),
+    Call {},
 }
 
 impl TraitMemberDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         static_member_decl: &StaticTraitMemberDecl,
-        symbols: &LocalStack<Symbol>,
+        symbol_context: &SymbolContext,
     ) -> Self {
         match static_member_decl {
             StaticTraitMemberDecl::Method(static_method_decl) => TraitMemberDecl::Method(
-                MethodDecl::from_static(db, static_method_decl, None, symbols),
+                MethodDecl::from_static(db, static_method_decl, symbol_context),
             ),
             StaticTraitMemberDecl::Call => todo!(),
-            StaticTraitMemberDecl::Type { .. } => todo!(),
+            StaticTraitMemberDecl::Type { name, traits } => TraitMemberDecl::Type {
+                ident: db.intern_word(name).custom(),
+                traits: traits.map(|trai| symbol_context.entity_route_from_str(trai).unwrap()),
+            },
         }
     }
 
@@ -52,22 +51,35 @@ impl TraitMemberDecl {
             TraitMemberDecl::Method(method_decl) => {
                 TraitMemberDecl::Method(method_decl.instantiate(instantiator))
             }
+            TraitMemberDecl::Type { ident, traits } => TraitMemberDecl::Type {
+                ident: *ident,
+                traits: traits.map(|trai| instantiator.instantiate_entity_route(*trai).as_scope()),
+            },
+            TraitMemberDecl::ConstSize(_) => todo!(),
+            TraitMemberDecl::Call {} => todo!(),
         }
     }
 
     pub fn implement(
         &self,
         db: &dyn DeclQueryGroup,
-        this_ty: EntityRoutePtr,
+        implementor: &Implementor,
+        // member_impls: &[(CustomIdentifier, GenericArgument)],
     ) -> TraitMemberImplDecl {
-        let implementor = Implementor {
-            db: db.upcast(),
-            this_ty,
-        };
+        // let implementor = Implementor::new(db.upcast(), this_ty, member_impls);
         match self {
             TraitMemberDecl::Method(method_decl) => {
                 TraitMemberImplDecl::Method(method_decl.implement(&implementor))
             }
+            TraitMemberDecl::Type { ident, traits } => {
+                if traits.len() > 0 {
+                    todo!("verify traits are satisfied")
+                }
+                let ty = implementor.generic_argument(*ident).as_scope();
+                TraitMemberImplDecl::AssociatedType { ident: *ident, ty }
+            }
+            TraitMemberDecl::ConstSize(_) => todo!(),
+            TraitMemberDecl::Call {} => todo!(),
         }
     }
 }
@@ -76,29 +88,46 @@ impl HasKey<CustomIdentifier> for TraitMemberDecl {
     fn key(&self) -> CustomIdentifier {
         match self {
             TraitMemberDecl::Method(method_decl) => method_decl.ident,
+            TraitMemberDecl::Type { ident, .. } => *ident,
+            TraitMemberDecl::ConstSize(_) => todo!(),
+            TraitMemberDecl::Call {} => todo!(),
         }
     }
 }
 
 impl TraitDecl {
     pub fn from_static(db: &dyn DeclQueryGroup, trait_decl: &StaticTraitDecl) -> Arc<Self> {
-        let symbols = LocalStack::new();
-        for generic_placeholder in trait_decl.generic_placeholders.iter() {
-            todo!()
-        }
+        let generic_placeholders =
+            db.parse_generic_placeholders_from_static(trait_decl.generic_placeholders);
+        let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+        let members: Vec<_> = trait_decl
+            .members
+            .map(|member| (db.intern_word(member.name()).custom(), member.kind()));
+        let symbol_context_kind = SymbolContextKind::Trait { members: &members };
+        let symbol_context = SymbolContext {
+            opt_package_main: None,
+            db: db.upcast(),
+            opt_this_ty: None,
+            symbols: &symbols,
+            kind: symbol_context_kind,
+        };
         Arc::new(TraitDecl {
-            route: db.parse_entity(trait_decl.route, None, &symbols).unwrap(),
+            base_route: symbol_context
+                .entity_route_from_str(trait_decl.base_route)
+                .unwrap(),
             members: trait_decl
                 .members
                 .iter()
-                .map(|member| TraitMemberDecl::from_static(db, member, &symbols))
+                .map(|member| TraitMemberDecl::from_static(db, member, &symbol_context))
                 .collect(),
         })
     }
 
     pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
         Arc::new(Self {
-            route: instantiator.instantiate_entity_route(self.route).as_scope(),
+            base_route: instantiator
+                .instantiate_entity_route(self.base_route)
+                .as_scope(),
             members: self.members.map(|member| member.instantiate(instantiator)),
         })
     }

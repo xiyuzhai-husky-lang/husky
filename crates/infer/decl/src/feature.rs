@@ -3,14 +3,14 @@ use word::ContextualIdentifier;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureSignature {
+pub struct FeatureDecl {
     pub ty: EntityRoutePtr,
 }
 
 pub(crate) fn feature_decl(
     db: &dyn DeclQueryGroup,
     scope: EntityRoutePtr,
-) -> InferResultArc<FeatureSignature> {
+) -> InferResultArc<FeatureDecl> {
     let source = db.entity_source(scope)?;
     match source {
         EntitySource::StaticModuleItem(data) => todo!(),
@@ -27,14 +27,12 @@ pub(crate) fn feature_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::FeatureDecl { ident, ty } => {
-                    Ok(Arc::new(FeatureSignature { ty: ty.route }))
-                }
+                AstKind::FeatureDecl { ident, ty } => Ok(Arc::new(FeatureDecl { ty: ty.route })),
                 _ => todo!(),
             }
         }
         EntitySource::Module { file } => todo!(),
-        EntitySource::Input { main } => Ok(Arc::new(FeatureSignature {
+        EntitySource::Input { main } => Ok(Arc::new(FeatureDecl {
             ty: db.global_input_ty(main)?,
         })),
         EntitySource::StaticTypeMember => todo!(),

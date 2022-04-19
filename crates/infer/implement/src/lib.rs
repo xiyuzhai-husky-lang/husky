@@ -1,11 +1,47 @@
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, GenericArgument};
 use entity_route_query::EntityRouteSalsaQueryGroup;
+use print_utils::p;
+use word::CustomIdentifier;
 
 pub struct Implementor<'a> {
-    pub db: &'a dyn EntityRouteSalsaQueryGroup,
-    pub this_ty: EntityRoutePtr,
-    // pub associated_type_placeholders,
-    // pub dst_types
+    db: &'a dyn EntityRouteSalsaQueryGroup,
+    this_ty: EntityRoutePtr,
+    member_impls: &'a [(CustomIdentifier, GenericArgument)],
+}
+
+impl<'a> Implementor<'a> {
+    pub fn new(
+        db: &'a dyn EntityRouteSalsaQueryGroup,
+        this_ty: EntityRoutePtr,
+        member_impls: &'a [(CustomIdentifier, GenericArgument)],
+    ) -> Self {
+        Self {
+            db,
+            this_ty,
+            member_impls,
+        }
+    }
+
+    pub fn generic_argument(&self, ident0: CustomIdentifier) -> GenericArgument {
+        self.member_impls
+            .iter()
+            .find_map(|(ident, generic_argument)| {
+                if *ident == ident0 {
+                    Some(*generic_argument)
+                } else {
+                    None
+                }
+            })
+            .unwrap()
+    }
+}
+
+impl<'a> std::fmt::Debug for Implementor<'a> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Implementor")
+            .field("this_ty", &self.this_ty)
+            .finish()
+    }
 }
 
 pub trait Implementable {
@@ -21,7 +57,13 @@ impl Implementable for EntityRoutePtr {
         let (kind, mut generic_arguments) = match self.kind {
             EntityRouteKind::Root { ident } => todo!(),
             EntityRouteKind::Package { main, ident } => todo!(),
-            EntityRouteKind::Child { parent, ident } => todo!(),
+            EntityRouteKind::Child { parent, ident } => match parent.kind {
+                EntityRouteKind::ThisType => {
+                    let ty = implementor.generic_argument(ident).as_scope();
+                    (ty.kind, ty.generic_arguments.clone())
+                }
+                _ => todo!(),
+            },
             EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
             EntityRouteKind::ThisType => (

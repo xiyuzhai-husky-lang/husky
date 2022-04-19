@@ -1,6 +1,7 @@
 use core::hash::Hash;
 use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
 
+use print_utils::epin;
 use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
 
 use paste::paste;
@@ -195,7 +196,7 @@ pub trait AllocateUniqueScope {
     }
 }
 
-pub fn new_scope_unique_allocator() -> EntityRouteInterner {
+pub fn new_entity_route_interner() -> EntityRouteInterner {
     EntityRouteInterner::new_from::<RootIdentifier>(&[
         RootIdentifier::Void,
         RootIdentifier::I32,
@@ -216,4 +217,9 @@ pub fn new_scope_unique_allocator() -> EntityRouteInterner {
         RootIdentifier::FnOnce,
         RootIdentifier::DatasetType,
     ])
+}
+
+#[test]
+fn test_new_entity_route_interner() {
+    let interner = new_entity_route_interner();
 }

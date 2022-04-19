@@ -1,8 +1,12 @@
 use crate::*;
-use atom::{symbol_proxy::Symbol, *};
+use atom::{
+    symbol::{Symbol, SymbolContextKind},
+    *,
+};
 use fold::LocalStack;
 use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
+use print_utils::p;
 use static_decl::StaticMethodDecl;
 use vec_dict::HasKey;
 use vm::InputContract;
@@ -37,13 +41,13 @@ impl MethodKind {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         static_kind: &StaticMethodKind,
-        opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &[Symbol],
+        symbol_context: &SymbolContext,
     ) -> Self {
         match static_kind {
             StaticMethodKind::TypeMethod => Self::Type,
             StaticMethodKind::TraitMethod(trai) => {
-                Self::Trait(db.parse_entity(trai, opt_this_ty, symbols).unwrap())
+                // opt_this_ty,
+                Self::Trait(symbol_context.entity_route_from_str(trai).unwrap())
             }
         }
     }
@@ -85,25 +89,22 @@ impl MethodDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         decl: &StaticMethodDecl,
-        opt_this_ty: Option<EntityRoutePtr>,
-        symbols: &[Symbol],
+        symbol_context: &SymbolContext,
     ) -> Arc<Self> {
-        let output_ty = parse_ty(
-            SymbolProxy {
-                opt_package_main: None,
-                db: db.upcast(),
-                opt_this_ty: opt_this_ty,
-                symbols,
-            },
-            &db.tokenize(decl.output_ty),
-        )
-        .unwrap();
+        // SymbolContext {
+        //     opt_package_main: None,
+        //     db: db.upcast(),
+        //     opt_this_ty: opt_this_ty,
+        //     symbols,
+        //     variant: SymbolContextKind::Normal,
+        // },
+        let output_ty = parse_ty(symbol_context, &db.tokenize(decl.output_ty)).unwrap();
         Arc::new(Self {
             ident: db.intern_word(decl.name).custom(),
             this_contract: decl.this_contract,
             inputs: decl
                 .inputs
-                .map(|input| InputDecl::from_static(db, input, opt_this_ty, symbols)),
+                .map(|input| InputDecl::from_static(db, input, symbol_context)),
             output: OutputDecl {
                 contract: decl.output_contract,
                 ty: output_ty,
@@ -111,7 +112,7 @@ impl MethodDecl {
             generic_placeholders: decl.generic_placeholders.map(|static_generic_placeholder| {
                 GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
             }),
-            kind: MethodKind::from_static(db, &decl.kind, opt_this_ty, symbols),
+            kind: MethodKind::from_static(db, &decl.kind, symbol_context),
         })
     }
 

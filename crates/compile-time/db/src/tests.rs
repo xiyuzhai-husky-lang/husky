@@ -1,9 +1,10 @@
 mod ast;
+mod decl;
 mod diagnostic;
+mod entity_route;
 mod feature;
 mod fmt;
 mod ml;
 mod salsa;
-mod scope;
 mod semantics;
 mod token;

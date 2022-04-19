@@ -19,9 +19,9 @@ pub enum AtomKind {
     ThisData {
         ty: Option<EntityRoutePtr>,
     },
-    ThisType {
-        ty: Option<EntityRoutePtr>,
-    },
+    // ThisType {
+    //     ty: Option<EntityRoutePtr>,
+    // },
     Unrecognized(CustomIdentifier),
     Literal(PrimitiveValue),
     Binary(BinaryOpr),

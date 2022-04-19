@@ -30,7 +30,10 @@ fn collect_ast_errors(db: &dyn DiagnosticQuery, file: FilePtr, diagnostics: &mut
     for node in ast_text.folded_results.nodes() {
         match node.value {
             Ok(_) => (),
-            Err(ref error) => diagnostics.push(error.into()),
+            Err(ref error) => match error.variant {
+                AstErrorVariant::Original { .. } => diagnostics.push(error.into()),
+                AstErrorVariant::Derived => (),
+            },
         }
     }
 }

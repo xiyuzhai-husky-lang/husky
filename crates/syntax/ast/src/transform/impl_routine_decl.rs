@@ -1,6 +1,6 @@
 use super::utils::*;
 use crate::{
-    symbol_proxy::{Symbol, SymbolKind},
+    symbol::{Symbol, SymbolKind},
     *,
 };
 use atom::parser::AtomLRParser;
@@ -22,12 +22,12 @@ impl<'a> AstTransformer<'a> {
             }
             RoutineKeyword::Proc => {
                 self.env.set_value(AstContext::Proc);
-                AtomLRParser::new(self.symbol_proxy(), tokens)
+                AtomLRParser::new(&self.symbol_context(), tokens)
                     .routine_defn_head(RoutineKind::Proc)?
             }
             RoutineKeyword::Func => {
                 self.env.set_value(AstContext::Func);
-                AtomLRParser::new(self.symbol_proxy(), tokens)
+                AtomLRParser::new(&self.symbol_context(), tokens)
                     .routine_defn_head(RoutineKind::Func)?
             }
         };

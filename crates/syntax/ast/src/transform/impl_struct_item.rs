@@ -2,7 +2,7 @@ use super::utils::*;
 use crate::*;
 use atom::{
     parser::AtomLRParser,
-    symbol_proxy::{Symbol, SymbolKind},
+    symbol::{Symbol, SymbolKind},
 };
 use text::TextRanged;
 use token::{Special, Token, TokenKind};
@@ -59,7 +59,7 @@ impl<'a> AstTransformer<'a> {
                     },
                     _ => err!("expect custom identifier", token_group[0].text_range())?,
                 };
-                let ty = atom::parse_ty(self.symbol_proxy(), &token_group[2..])?;
+                let ty = atom::parse_ty(&self.symbol_context(), &token_group[2..])?;
                 AstKind::FieldDefnHead(FieldDefnHead {
                     ident,
                     contract: FieldContract::Own,
@@ -82,7 +82,7 @@ impl<'a> AstTransformer<'a> {
         self.env.set_value(AstContext::Func);
         expect_at_least!(token_group, token_group.into(), 5);
         expect_block_head!(token_group);
-        let head = AtomLRParser::new(self.symbol_proxy(), &token_group[funcname_idx..])
+        let head = AtomLRParser::new(&self.symbol_context(), &token_group[funcname_idx..])
             .method_decl(InputContract::Pure, RoutineKind::Func)?;
         self.symbols.extend(
             head.input_placeholders

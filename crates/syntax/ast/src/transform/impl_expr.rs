@@ -5,7 +5,7 @@ use token::Token;
 
 impl<'a> AstTransformer<'a> {
     pub fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {
-        let atoms = AtomLRParser::new(self.symbol_proxy(), tokens).parse_all()?;
+        let atoms = AtomLRParser::new(&self.symbol_context(), tokens).parse_all()?;
         should!(atoms.len() > 0);
         Ok({
             let mut atom_iter = atoms.iter().peekable();
@@ -14,7 +14,6 @@ impl<'a> AstTransformer<'a> {
                 match atom.kind {
                     AtomKind::Variable { .. }
                     | AtomKind::ThisData { .. }
-                    | AtomKind::ThisType { .. }
                     | AtomKind::Unrecognized(_)
                     | AtomKind::Literal(_)
                     | AtomKind::EntityRoute { .. } => stack.accept_atom_expr(atom.into()),

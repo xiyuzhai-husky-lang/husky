@@ -34,6 +34,7 @@ pub enum EntityKind {
     Feature,
     Pattern,
     Literal,
+    Member,
 }
 
 impl EntityKind {
@@ -67,4 +68,11 @@ pub enum RoutineKind {
 pub enum RawMembRoutineKind {
     Proc,
     Func,
+}
+
+pub enum MemberKind {
+    Method,
+    Call,
+    AssociatedType,
+    AssociatedConstSize,
 }

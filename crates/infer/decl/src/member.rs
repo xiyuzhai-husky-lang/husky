@@ -4,7 +4,7 @@ mod method;
 pub use field::*;
 pub use method::*;
 
-use atom::symbol_proxy::Symbol;
+use atom::{symbol::Symbol, SymbolContext};
 use fold::LocalStack;
 use map_collect::MapCollect;
 use vec_dict::HasKey;
@@ -17,9 +17,17 @@ pub enum MemberDecl {
     AssociatedCall,
     TypeField(Arc<FieldDecl>),
     TypeMethod(Arc<MethodDecl>),
-    TraitMethod {
+    TraitMethodImpl {
         trait_route: EntityRoutePtr,
         method: Arc<MethodDecl>,
+    },
+    TraitAssociatedTypeImpl {
+        ident: CustomIdentifier,
+        ty: EntityRoutePtr,
+    },
+    TraitAssociatedConstSizeImpl {
+        ident: CustomIdentifier,
+        value: usize,
     },
 }
 
@@ -39,21 +47,31 @@ impl MemberDecl {
             MemberDecl::AssociatedCall => todo!(),
             MemberDecl::TypeField(field) => field.ident,
             MemberDecl::TypeMethod(method) => method.ident,
-            MemberDecl::TraitMethod { method, .. } => method.ident,
+            MemberDecl::TraitMethodImpl { method, .. } => method.ident,
+            MemberDecl::TraitAssociatedTypeImpl { ident, .. } => *ident,
+            MemberDecl::TraitAssociatedConstSizeImpl { ident, .. } => *ident,
         }
     }
 }
 
 impl MemberDecl {
-    pub(crate) fn from_trait(
+    pub(crate) fn from_trait_member_impl(
         trait_route: EntityRoutePtr,
         trait_member_impl: &TraitMemberImplDecl,
     ) -> Self {
         match trait_member_impl {
-            TraitMemberImplDecl::Method(method) => MemberDecl::TraitMethod {
+            TraitMemberImplDecl::Method(method) => MemberDecl::TraitMethodImpl {
                 trait_route,
                 method: method.clone(),
             },
+            TraitMemberImplDecl::AssociatedType { ident, ty } => {
+                MemberDecl::TraitAssociatedTypeImpl {
+                    ident: *ident,
+                    ty: *ty,
+                }
+            }
+            TraitMemberImplDecl::Call {} => todo!(),
+            TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
         }
     }
 }
@@ -89,14 +107,13 @@ impl TyMemberDecl {
     pub(crate) fn from_static(
         db: &dyn DeclQueryGroup,
         member_decl: &StaticTypeMemberDecl,
-        this_ty: EntityRoutePtr,
-        symbols: &[Symbol],
+        symbol_context: &SymbolContext,
     ) -> Self {
         match member_decl {
             StaticTypeMemberDecl::Field => todo!(),
-            StaticTypeMemberDecl::Method(method_decl) => TyMemberDecl::Method(
-                MethodDecl::from_static(db, method_decl, Some(this_ty), symbols),
-            ),
+            StaticTypeMemberDecl::Method(method_decl) => {
+                TyMemberDecl::Method(MethodDecl::from_static(db, method_decl, symbol_context))
+            }
             StaticTypeMemberDecl::Call => todo!(),
         }
     }
@@ -116,12 +133,15 @@ impl MemberDecl {
     pub(crate) fn collect_all(
         db: &dyn DeclQueryGroup,
         type_members: &[TyMemberDecl],
-        trait_impls: &[Arc<TraiImplDecl>],
+        trait_impls: &[Arc<TraitImplDecl>],
     ) -> Vec<MemberDecl> {
         let mut members: Vec<MemberDecl> = type_members.map(|decl| decl.into());
         for trait_impl in trait_impls {
-            for member in trait_impl.members.iter() {
-                members.push(MemberDecl::from_trait(trait_impl.trait_decl.route, member))
+            for member in trait_impl.member_impls.iter() {
+                members.push(MemberDecl::from_trait_member_impl(
+                    trait_impl.trait_route,
+                    member,
+                ))
             }
         }
         members
