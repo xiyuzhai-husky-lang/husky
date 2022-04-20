@@ -34,6 +34,7 @@ type ToggleExpansionResponse = {
     id: number;
     effective_opt_input_id: number | null;
     opt_subtraces: Trace[] | null;
+    associated_traces: Trace[];
 };
 
 type ToggleShowResponse = {
@@ -118,8 +119,11 @@ export function parse_debugger_response(text: string): DebuggerResponse {
                 ),
                 opt_subtraces: decode_opt(
                     decode_member(props, "opt_subtraces"),
-                    (data: unknown) =>
-                        decode_array(data, (data: unknown) => new Trace(data))
+                    (data: unknown) => decode_array(data, decode_trace)
+                ),
+                associated_traces: decode_array(
+                    decode_member(props, "associated_traces"),
+                    decode_trace
                 ),
             };
         case "ToggleShow":

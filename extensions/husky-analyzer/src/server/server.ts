@@ -56,6 +56,7 @@ class Server {
                         response.effective_opt_input_id,
                         response.opt_subtraces
                     );
+                    server_handle.cache_traces(response.associated_traces);
                 }
                 server_handle.did_toggle_expansion(response.id);
                 break;

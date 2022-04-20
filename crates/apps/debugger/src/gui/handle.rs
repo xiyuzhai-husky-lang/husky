@@ -37,15 +37,22 @@ pub fn handle_message(
                             request_subtraces,
                         } => {
                             debugger_.toggle_expansion(id).await;
-                            let opt_subtraces = if request_subtraces {
-                                Some(debugger_.subtraces(id, effective_opt_input_id).await)
+                            let (opt_subtraces, associated_traces) = if request_subtraces {
+                                let subtraces =
+                                    debugger_.subtraces(id, effective_opt_input_id).await;
+                                let mut associated_traces = vec![];
+                                subtraces.iter().for_each(|trace| {
+                                    trace.collect_associated_traces(&mut associated_traces)
+                                });
+                                (Some(subtraces), associated_traces)
                             } else {
-                                None
+                                (None, vec![])
                             };
                             Response::ToggleExpansion {
                                 id,
                                 effective_opt_input_id,
                                 opt_subtraces,
+                                associated_traces,
                             }
                         }
                         Query::ToggleShow { id } => {

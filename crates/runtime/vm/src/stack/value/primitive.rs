@@ -98,6 +98,17 @@ impl PrimitiveValue {
         })
     }
 
+    pub fn any_ref<'eval>(&self) -> &dyn AnyValueDyn<'eval> {
+        match self {
+            PrimitiveValue::I32(value) => value,
+            PrimitiveValue::F32(value) => value,
+            PrimitiveValue::B32(value) => value,
+            PrimitiveValue::B64(value) => value,
+            PrimitiveValue::Bool(value) => value,
+            PrimitiveValue::Void => panic!(),
+        }
+    }
+
     pub fn any_mut<'eval>(&mut self) -> &mut dyn AnyValueDyn<'eval> {
         match self {
             PrimitiveValue::I32(value) => value,

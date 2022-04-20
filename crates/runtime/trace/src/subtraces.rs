@@ -16,7 +16,9 @@ impl<'eval> Trace<'eval> {
             TraceKind::FeatureExpr(ref expr) => match expr.kind {
                 FeatureExprKind::PrimitiveLiteral(_)
                 | FeatureExprKind::PrimitiveBinaryOpr { .. }
-                | FeatureExprKind::Variable { .. } => None,
+                | FeatureExprKind::Variable { .. }
+                | FeatureExprKind::ElementAccess { .. }
+                | FeatureExprKind::GlobalInput => None,
                 FeatureExprKind::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
                 FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
                 FeatureExprKind::EnumLiteral { .. } => todo!(),
@@ -28,10 +30,8 @@ impl<'eval> Trace<'eval> {
                     ..
                 } => todo!(),
                 FeatureExprKind::This { ref repr } => todo!(),
-                FeatureExprKind::GlobalInput => None,
                 FeatureExprKind::PatternCall {} => todo!(),
                 FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
-                FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
             },
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)
