@@ -1,10 +1,7 @@
 use core::hash::Hash;
-use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
-
-use print_utils::epin;
-use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
-
 use paste::paste;
+use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
+use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
 use vm::{AnyValue, AnyValueDyn, EnumLiteralValueDyn, StaticTypeId};
 
 use crate::*;
@@ -221,5 +218,5 @@ pub fn new_entity_route_interner() -> EntityRouteInterner {
 
 #[test]
 fn test_new_entity_route_interner() {
-    let interner = new_entity_route_interner();
+    let _interner = new_entity_route_interner();
 }

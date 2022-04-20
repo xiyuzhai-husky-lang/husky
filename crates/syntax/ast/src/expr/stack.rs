@@ -202,6 +202,10 @@ impl<'a> ExprStack<'a> {
             }
         };
         self.oprs.truncate(self.oprs.len() - list_len - 1);
+        let true_start = match start_attr {
+            ListStartAttr::None => start,
+            ListStartAttr::Attach => self.exprs[self.exprs.len() - list_len].range.start,
+        };
         let opds = self
             .arena
             .alloc(self.exprs[self.exprs.len() - list_len..].into());
@@ -210,7 +214,7 @@ impl<'a> ExprStack<'a> {
             ket,
             start_attr,
             end_attr,
-            (start..end).into(),
+            (true_start..end).into(),
             opds,
         ));
         Ok(())

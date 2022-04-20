@@ -22,6 +22,7 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
+map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }

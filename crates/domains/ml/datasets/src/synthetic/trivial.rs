@@ -1,11 +1,13 @@
 pub mod real1d;
 pub mod real2d;
-pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+pub const TRIVIAL_MODULE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    name: "trivial",
     subscopes: &[
-        ("real1d", real1d::SCOPE_DATA),
-        ("real2d", real2d::SCOPE_DATA),
+        ("real1d", real1d::REAL_1D_SCOPE_DATA),
+        ("real2d", real2d::REAL_2D_MOD_DEFN),
     ],
-    decl: StaticEntityDecl::Module,
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 use crate::*;

@@ -50,9 +50,9 @@ impl<'a> ContractSheetBuilder<'a> {
                 initial_value,
                 ..
             } => {
-                self.infer_lazy_expr(initial_value, LazyContract::Take, arena);
+                self.infer_lazy_expr(initial_value, LazyContract::Move, arena);
             }
-            RawStmtKind::Return(result) => self.infer_lazy_expr(result, LazyContract::Take, arena),
+            RawStmtKind::Return(result) => self.infer_lazy_expr(result, LazyContract::Move, arena),
             RawStmtKind::Assert(condition) => self.infer_lazy_condition(condition, arena),
         }
     }
@@ -75,7 +75,7 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::This { .. } => Ok(()),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { opr, ref opds } => {
-                self.infer_lazy_opn(opr, opds, contract, arena, arena[expr_idx].range)
+                self.infer_lazy_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
         };
@@ -93,12 +93,15 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
         arena: &RawExprArena,
         range: TextRange,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
             Opr::Binary(opr) => self.infer_lazy_binary_opn(opr, opds, contract, arena),
             Opr::Prefix(opr) => self.infer_lazy_prefix_opn(opr, opds.start, contract, arena),
             Opr::Suffix(opr) => self.infer_lazy_suffix(opr, opds.start, contract, arena),
-            Opr::List(opr) => self.infer_lazy_list_opn(opr, opds, contract, arena, range),
+            Opr::List(opr) => {
+                self.infer_lazy_list_opn(opr, opds, contract, arena, range, raw_expr_idx)
+            }
         }
     }
 
@@ -114,7 +117,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
-                    LazyContract::Take => (),
+                    LazyContract::Move => (),
                     LazyContract::Ref => todo!(),
                     LazyContract::Pure => (),
                 }
@@ -151,13 +154,13 @@ impl<'a> ContractSheetBuilder<'a> {
                 let this_ty_decl = self.expr_ty_decl(opd)?;
                 let this_contract = match this_ty_decl.field_decl(ranged_ident)?.contract {
                     FieldContract::Own => match contract {
-                        LazyContract::Take => LazyContract::Take,
+                        LazyContract::Move => LazyContract::Move,
                         LazyContract::Ref => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
                     },
                     FieldContract::Ref => todo!(),
                     FieldContract::LazyOwn => match contract {
-                        LazyContract::Take => todo!(),
+                        LazyContract::Move => todo!(),
                         LazyContract::Ref => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
                     },
@@ -176,13 +179,14 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
         arena: &RawExprArena,
         range: TextRange,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_lazy_list_call(opds, contract, arena, range),
-            ListOpr::Index => todo!(),
+            ListOpr::Index => self.infer_lazy_element_access(arena, opds, contract, raw_expr_idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
@@ -248,7 +252,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let this_ty_decl = derived_ok!(self.expr_ty_decl(this));
         let method_call_decl = derived_ok!(this_ty_decl.method(ranged_ident, &self.trait_uses));
         match contract {
-            LazyContract::Take => (),
+            LazyContract::Move => (),
             LazyContract::Ref => todo!(),
             LazyContract::Pure => (),
         }
@@ -270,6 +274,32 @@ impl<'a> ContractSheetBuilder<'a> {
                     .lazy(method_call_decl.output.contract)?,
                 arena,
             )
+        }
+        Ok(())
+    }
+
+    fn infer_lazy_element_access(
+        &mut self,
+        arena: &RawExprArena,
+        total_opds: &RawExprRange,
+        contract: LazyContract,
+        raw_expr_idx: RawExprIdx,
+    ) -> InferResult<()> {
+        match contract {
+            LazyContract::Move => {
+                let ty = self.expr_ty_result(raw_expr_idx)?;
+                let this_contract = if self.db.is_copy_constructible(ty) {
+                    LazyContract::Pure
+                } else {
+                    LazyContract::Move
+                };
+                self.infer_lazy_expr(total_opds.start, this_contract, arena)
+            }
+            LazyContract::Ref => todo!(),
+            LazyContract::Pure => todo!(),
+        }
+        for opd in (total_opds.start + 1)..total_opds.end {
+            self.infer_lazy_expr(opd, LazyContract::Pure, arena)
         }
         Ok(())
     }

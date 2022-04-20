@@ -7,7 +7,7 @@ use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::p;
-use static_decl::StaticTraitMemberDecl;
+use static_defn::StaticTraitMemberDecl;
 use vec_dict::HasKey;
 use word::IdentDict;
 
@@ -139,11 +139,13 @@ pub(crate) fn trait_decl(
 ) -> InferResultArc<TraitDecl> {
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
-        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.decl {
-            StaticEntityDecl::Func(_) => todo!(),
-            StaticEntityDecl::Type(_) => todo!(),
-            StaticEntityDecl::Trait(ref trait_decl) => Ok(TraitDecl::from_static(db, trait_decl)),
-            StaticEntityDecl::Module => todo!(),
+        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.variant {
+            StaticEntityDefnVariant::Func(_) => todo!(),
+            StaticEntityDefnVariant::Type(_) => todo!(),
+            StaticEntityDefnVariant::Trait(ref trait_decl) => {
+                Ok(TraitDecl::from_static(db, trait_decl))
+            }
+            StaticEntityDefnVariant::Module => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

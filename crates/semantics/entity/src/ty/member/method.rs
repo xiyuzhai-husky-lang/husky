@@ -6,9 +6,20 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum MethodDefnVariant {
-    Func { stmts: Avec<FuncStmt> },
-    Proc { stmts: Avec<ProcStmt> },
-    Pattern { stmts: Avec<LazyStmt> },
+    Func {
+        stmts: Avec<FuncStmt>,
+    },
+    Proc {
+        stmts: Avec<ProcStmt>,
+    },
+    Pattern {
+        stmts: Avec<LazyStmt>,
+    },
+    StaticMemberAccess {
+        ref_access: Linkage,
+        move_access: Linkage,
+        borrow_mut_access: Linkage,
+    },
 }
 
 impl EntityDefnVariant {

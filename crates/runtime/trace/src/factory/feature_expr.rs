@@ -59,6 +59,17 @@ impl<'eval> TraceFactory<'eval> {
             FeatureExprKind::GlobalInput => vec![keyword!("input")],
             FeatureExprKind::PatternCall {} => todo!(),
             FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
+            FeatureExprKind::ElementAccess { ref opds, .. } => {
+                let mut tokens = vec![];
+                tokens.extend(self.feature_expr_tokens(&opds[0], text, config.subexpr()));
+                tokens.push(special!("[", associated_trace.clone()));
+                for i in 1..opds.len() {
+                    let index_opd = &opds[i];
+                    tokens.extend(self.feature_expr_tokens(index_opd, text, config.subexpr()));
+                }
+                tokens.push(special!("]", associated_trace));
+                tokens
+            }
         };
     }
 

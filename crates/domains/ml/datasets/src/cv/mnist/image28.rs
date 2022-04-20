@@ -28,6 +28,10 @@ impl BinaryImage28 {
             padded_rows: value.padded_rows.clone(),
         }
     }
+
+    pub(crate) fn get(&self, index: usize) -> Option<u32> {
+        self.padded_rows.get(index).map(|x| *x)
+    }
 }
 
 impl<'eval> AnyValue<'eval> for BinaryImage28 {

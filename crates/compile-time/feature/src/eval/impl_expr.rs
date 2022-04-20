@@ -71,6 +71,18 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
             FeatureExprKind::RecordDerivedFieldAccess { ref block, .. } => {
                 self.eval_feature_block(block)
             }
+            FeatureExprKind::ElementAccess {
+                ref opds, linkage, ..
+            } => {
+                if opds.len() > 2 {
+                    todo!()
+                }
+                let mut values = vec![
+                    self.eval_feature_expr(&opds[0])?.into_stack().unwrap(),
+                    self.eval_feature_expr(&opds[1])?.into_stack().unwrap(),
+                ];
+                (linkage.call)(&mut values).map(|mut value| value.into_eval())
+            }
         }
     }
 

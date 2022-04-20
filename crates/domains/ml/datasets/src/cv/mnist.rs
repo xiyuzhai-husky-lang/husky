@@ -1,33 +1,36 @@
 mod dev;
-mod image;
+mod image28;
 mod load;
 mod test;
 mod val;
 
 use entity_kind::TyKind;
 use visual_syntax::StaticVisualizer;
-use vm::OutputContract;
+use vm::{InputContract, OutputContract, VMError, VMResult};
 use xrng::permutation_from_seed;
 
 use super::*;
 use crate::*;
 use dev::*;
-use image::*;
+use image28::*;
 use load::*;
 use test::*;
 use val::*;
 
 pub static MNIST_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+    name: "mnist",
     subscopes: &[
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
         ("BinaryImage28", &BINARY_IMAGE_28_TYPE_DEFN),
     ],
-    decl: StaticEntityDecl::Module,
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 static NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+    name: "new_binary_dataset",
     subscopes: &[],
-    decl: StaticEntityDecl::Func(StaticCallDecl {
+    variant: StaticEntityDefnVariant::Func(StaticCallDefn {
         generic_placeholders: &[],
         inputs: vec![],
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
@@ -37,20 +40,81 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
             nargs: 0,
         },
     }),
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 static BINARY_IMAGE_28_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    name: "BinaryImage28",
     subscopes: &[],
-    decl: StaticEntityDecl::Type(&BINARY_IMAGE28_TYPE_DECL),
+    variant: StaticEntityDefnVariant::Type(&BINARY_IMAGE28_DEFN_VARIANT),
+    dev_src: dev_utils::static_dev_src!(),
 };
 
-static BINARY_IMAGE28_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
+static BINARY_IMAGE28_DEFN_VARIANT: StaticTypeDefn = StaticTypeDefn {
     base_route: "datasets::cv::mnist::BinaryImage28",
     generic_placeholders: &[],
-    trait_impls: &[StaticTraitImplDecl {
-        route: "Clone",
-        member_impls: &[],
-    }],
+    trait_impls: &[
+        StaticTraitImplDefn {
+            route: "Clone",
+            member_impls: &[],
+        },
+        StaticTraitImplDefn {
+            route: "std::ops::Index<i32>",
+            member_impls: &[
+                associated_type!("Output", "b32"),
+                StaticTraitMemberImplDefn {
+                    dev_src: dev_utils::static_dev_src!(),
+                    name: "index",
+                    variant: StaticTraitMemberImplDefnVariant::Method {
+                        this_contract: InputContract::MemberAccess,
+                        input_placeholders: &[StaticInputPlaceholder {
+                            contract: InputContract::Pure,
+                            ty: "i32",
+                            name: "todo!()",
+                        }],
+                        output: "b32",
+                        ref_access: Linkage {
+                            call: |values| -> VMResult<StackValue> {
+                                let this_value: &BinaryImage28 = match values[0] {
+                                    StackValue::Moved => todo!(),
+                                    StackValue::Primitive(_) => todo!(),
+                                    StackValue::Boxed(_) => todo!(),
+                                    StackValue::GlobalPure(ref value) => value.downcast_ref(),
+                                    StackValue::GlobalRef(_) => todo!(),
+                                    StackValue::LocalRef(_) => todo!(),
+                                    StackValue::MutLocalRef { .. } => todo!(),
+                                };
+                                let index_value: usize = match values[1] {
+                                    StackValue::Moved => todo!(),
+                                    StackValue::Primitive(value) => {
+                                        value.as_i32().unwrap().try_into().expect("todo")
+                                    }
+                                    StackValue::Boxed(_) => todo!(),
+                                    StackValue::GlobalPure(_) => todo!(),
+                                    StackValue::GlobalRef(_) => todo!(),
+                                    StackValue::LocalRef(_) => todo!(),
+                                    StackValue::MutLocalRef { .. } => todo!(),
+                                };
+                                this_value
+                                    .get(index_value)
+                                    .map(|v| StackValue::Primitive(v.into()))
+                                    .ok_or(VMError::Message("todo".into()))
+                            },
+                            nargs: 2,
+                        },
+                        move_access: Linkage {
+                            call: |_| todo!(),
+                            nargs: 2,
+                        },
+                        borrow_mut_access: Linkage {
+                            call: |_| todo!(),
+                            nargs: 2,
+                        },
+                    },
+                },
+            ],
+        },
+    ],
     type_members: &[],
     variants: &[],
     kind: TyKind::Array,
@@ -60,7 +124,7 @@ static BINARY_IMAGE28_TYPE_DECL: StaticTypeDecl = StaticTypeDecl {
     opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DECL),
 };
 
-static BINARY_IMAGE28_TYPE_CALL_DECL: StaticCallDecl = StaticCallDecl {
+static BINARY_IMAGE28_TYPE_CALL_DECL: StaticCallDefn = StaticCallDefn {
     generic_placeholders: &[],
     inputs: vec![],
     output_ty: "datasets::cv::mnist::BinaryImage28",

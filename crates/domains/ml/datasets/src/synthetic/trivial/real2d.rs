@@ -1,6 +1,8 @@
-pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+pub const REAL_2D_MOD_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    name: "real2d",
     subscopes: &[],
-    decl: StaticEntityDecl::Module,
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 use crate::*;

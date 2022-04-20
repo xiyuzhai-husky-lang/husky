@@ -13,18 +13,14 @@ impl EntityDefnVariant {
             | EntityDefnVariant::TraitMethod { .. }
             | EntityDefnVariant::Func { .. }
             | EntityDefnVariant::Proc { .. } => Arc::new(Vec::new()),
-            EntityDefnVariant::Type {
-                type_members,
-                variants,
-                kind,
-                trait_impls,
-                members,
-            } => members.clone(),
+            EntityDefnVariant::Type { members, .. } => members.clone(),
             EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
                 EnumVariantDefnVariant::Constant => Default::default(),
             },
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+            EntityDefnVariant::TraitMethodImpl { .. } => Default::default(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => Arc::new(Vec::new()),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         }
     }
 }

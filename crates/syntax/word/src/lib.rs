@@ -22,15 +22,18 @@ pub enum WordPtr {
 }
 
 impl WordPtr {
-    pub fn ident(self) -> Option<Identifier> {
+    pub fn opt_ident(self) -> Option<Identifier> {
         match self {
             WordPtr::Keyword(_) => None,
             WordPtr::Identifier(ident) => Some(ident),
         }
     }
+    pub fn ident(self) -> Identifier {
+        self.opt_ident().unwrap()
+    }
 
     pub fn opt_custom(self) -> Option<CustomIdentifier> {
-        self.ident()
+        self.opt_ident()
             .map(|ident| match ident {
                 Identifier::Builtin(_) | Identifier::Contextual(_) => None,
                 Identifier::Custom(ident) => Some(ident),

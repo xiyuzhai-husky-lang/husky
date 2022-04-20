@@ -209,8 +209,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
                         EagerContract::Return => {
-                            let is_copyable = self.db.is_copyable(field_var_decl.ty);
-                            if is_copyable {
+                            if self.db.is_copy_constructible(field_var_decl.ty) {
                                 EagerContract::Pure
                             } else {
                                 todo!()
@@ -245,7 +244,7 @@ impl<'a> ContractSheetBuilder<'a> {
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_eager_list_call(opds, contract, arena, range),
-            ListOpr::Index => self.infer_element_access(arena, opds, contract),
+            ListOpr::Index => self.infer_eager_element_access(arena, opds, contract),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
@@ -356,7 +355,7 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_element_access(
+    fn infer_eager_element_access(
         &mut self,
         arena: &RawExprArena,
         total_opds: &RawExprRange,

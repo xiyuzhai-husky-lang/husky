@@ -63,6 +63,8 @@ fn entity_instruction_sheet(
         EntityDefnVariant::TypeMethod { .. } => todo!(),
         EntityDefnVariant::TraitMethod { .. } => todo!(),
         EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+        EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
+        EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
     }
 }
 
@@ -103,6 +105,7 @@ fn method_instruction_sheet(
                         }
                         MethodDefnVariant::Proc { stmts } => todo!(),
                         MethodDefnVariant::Pattern { stmts } => todo!(),
+                        MethodDefnVariant::StaticMemberAccess { .. } => todo!(),
                     }
                 }
                 EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
@@ -115,6 +118,8 @@ fn method_instruction_sheet(
         EntityDefnVariant::TypeMethod { .. } => todo!(),
         EntityDefnVariant::TraitMethod { .. } => todo!(),
         EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+        EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
+        EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
     }
 }
 

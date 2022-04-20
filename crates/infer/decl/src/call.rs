@@ -13,7 +13,7 @@ use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
-use static_decl::{StaticCallDecl, StaticEntityDecl, StaticInputDecl};
+use static_defn::{StaticCallDefn, StaticEntityDefnVariant, StaticInputPlaceholder};
 use vm::{InputContract, OutputContract};
 use word::IdentDict;
 
@@ -63,9 +63,11 @@ pub(crate) fn call_decl(
 ) -> InferResultArc<CallDecl> {
     let source = db.entity_source(route)?;
     return match source {
-        EntitySource::StaticModuleItem(data) => Ok(match data.decl {
-            StaticEntityDecl::Func(ref decl) => call_decl_from_static(db, decl),
-            StaticEntityDecl::Type(_) => db.type_decl(route)?.opt_type_call.clone().expect("todo"),
+        EntitySource::StaticModuleItem(data) => Ok(match data.variant {
+            StaticEntityDefnVariant::Func(ref decl) => call_decl_from_static(db, decl),
+            StaticEntityDefnVariant::Type(_) => {
+                db.type_decl(route)?.opt_type_call.clone().expect("todo")
+            }
             _ => panic!(),
         }),
         EntitySource::WithinBuiltinModule => todo!(),
@@ -106,7 +108,7 @@ pub(crate) fn call_decl(
 
 pub(crate) fn call_decl_from_static(
     db: &dyn DeclQueryGroup,
-    static_decl: &StaticCallDecl,
+    static_decl: &StaticCallDefn,
 ) -> Arc<CallDecl> {
     let generic_placeholders =
         db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);

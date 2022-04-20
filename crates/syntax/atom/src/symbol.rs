@@ -1,8 +1,10 @@
+use defn_head::InputPlaceholder;
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
 use entity_route_query::EntityRouteQueryGroup;
 use file::FilePtr;
 use print_utils::p;
+use static_defn::StaticInputPlaceholder;
 use text::{Row, TextRange};
 use word::{ContextualIdentifier, CustomIdentifier, RootIdentifier};
 
@@ -174,6 +176,22 @@ impl<'a> SymbolContext<'a> {
                     (&result).into()
                 )?,
             }
+        }
+    }
+
+    pub fn input_placeholder(
+        &self,
+        static_input_placeholder: &StaticInputPlaceholder,
+    ) -> InputPlaceholder {
+        InputPlaceholder {
+            ident: self.db.intern_word(static_input_placeholder.name).custom(),
+            contract: static_input_placeholder.contract,
+            ranged_ty: RangedEntityRoute {
+                route: self
+                    .entity_route_from_str(static_input_placeholder.ty)
+                    .unwrap(),
+                range: Default::default(),
+            },
         }
     }
 }

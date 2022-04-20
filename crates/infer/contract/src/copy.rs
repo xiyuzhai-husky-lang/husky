@@ -2,7 +2,10 @@ use word::RootIdentifier;
 
 use crate::*;
 
-pub(crate) fn is_copyable(db: &dyn InferContractSalsaQueryGroup, ty: EntityRoutePtr) -> bool {
+pub(crate) fn is_copy_constructible(
+    db: &dyn InferContractSalsaQueryGroup,
+    ty: EntityRoutePtr,
+) -> bool {
     match ty {
         EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
             RootIdentifier::Void

@@ -5,16 +5,19 @@ mod loader;
 pub mod synthetic;
 
 pub static DATASETS_MODULE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    name: "datasets",
     subscopes: &[
         ("synthetic", synthetic::SCOPE_DATA),
-        ("cv", &cv::SCOPE_DATA),
+        ("cv", &cv::CV_MOD_DEFN),
     ],
-    decl: StaticEntityDecl::Module,
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 pub static DATASET_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    name: "Dataset",
     subscopes: &[],
-    decl: StaticEntityDecl::Type(&StaticTypeDecl {
+    variant: StaticEntityDefnVariant::Type(&StaticTypeDefn {
         base_route: "Dataset",
         generic_placeholders: &[
             StaticGenericPlaceholder {
@@ -33,6 +36,7 @@ pub static DATASET_TYPE_DEFN: &StaticEntityDefn = &StaticEntityDefn {
         visualizer: TRIVIAL_VISUALIZER,
         opt_type_call: None,
     }),
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 use std::{borrow::Cow, sync::Arc};
@@ -43,8 +47,8 @@ pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
 use entity_route::EntityRouteKind;
-use static_decl::*;
-use static_defn::StaticEntityDefn;
+use static_defn::*;
+use static_defn::{StaticEntityDefn, StaticEntityDefnVariant};
 use visual_syntax::TRIVIAL_VISUALIZER;
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 

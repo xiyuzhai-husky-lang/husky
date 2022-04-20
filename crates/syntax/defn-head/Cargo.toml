@@ -25,5 +25,5 @@ datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
 entity-route-query = { path = "../entity-route-query", version = "0.0.0" }
-static-decl = { path = "../static-decl", version = "0.0.0" }
+static-defn = { path = "../static-defn", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }

@@ -2,27 +2,22 @@ mod field;
 mod method;
 
 pub use field::*;
-use map_collect::MapCollect;
 pub use method::*;
 
 use super::*;
 
-// impl HasKey<CustomIdentifier> for TypeMemberDefn {
-//     fn key(&self) -> CustomIdentifier {
-//         match self {
-//             TypeMemberDefn::Field(field) => field.ident,
-//             TypeMemberDefn::Method(method) => method.ident,
-//         }
-//     }
-// }
-
 pub fn collect_all_members(
     type_members: &[Arc<EntityDefn>],
-    trait_impls: &[Arc<EntityDefn>],
+    trait_impls: &[Arc<TraitImplDefn>],
 ) -> Avec<EntityDefn> {
     let mut members = type_members.to_vec();
     for trait_impl in trait_impls {
-        todo!()
+        members.extend(
+            trait_impl
+                .member_impls
+                .iter()
+                .map(|member_impl| member_impl.clone()),
+        );
     }
     Arc::new(members)
 }

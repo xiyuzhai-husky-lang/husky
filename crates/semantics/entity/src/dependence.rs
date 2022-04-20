@@ -164,10 +164,13 @@ impl EntityDefn {
                     }
                     MethodDefnVariant::Proc { stmts } => todo!(),
                     MethodDefnVariant::Pattern { stmts } => todo!(),
+                    MethodDefnVariant::StaticMemberAccess { .. } => (),
                 }
             }
             EntityDefnVariant::TraitMethod { .. } => todo!(),
             EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         };
         return builder.finish();
 
@@ -268,11 +271,7 @@ impl EntityDefn {
                 LazyExprKind::Scope { scope, .. } => v.push(scope),
                 LazyExprKind::EnumLiteral { scope, ref value } => todo!(),
                 LazyExprKind::Bracketed(_) => todo!(),
-                LazyExprKind::Opn {
-                    opn_kind,
-                    compiled,
-                    ref opds,
-                } => {
+                LazyExprKind::Opn { opn_kind, ref opds } => {
                     match opn_kind {
                         LazyOpnKind::Binary { .. }
                         | LazyOpnKind::Prefix(_)
@@ -377,6 +376,8 @@ impl EntityDefn {
                 // TypeMemberDefn::Field(field) => builder.push(field.ty),
                 // TypeMemberDefn::Method(method) => extract_method_dependees(method, builder),
                 EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+                EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
+                EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             }
         }
 

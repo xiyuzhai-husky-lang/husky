@@ -1,21 +1,22 @@
 mod member;
 
+use atom::{symbol::SymbolContextKind, SymbolContext};
 use infer_decl::MemberIdx;
 pub use member::*;
 use print_utils::msg_once;
+use static_defn::StaticTypeDefn;
 
 use std::{iter::Peekable, sync::Arc};
 
 use super::*;
 use ast::*;
-use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
+use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use infer_total::InferQueryGroup;
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
-use vec_dict::{HasKey, VecDict};
-use vm::{FieldContract, InputContract};
+use vec_dict::VecDict;
 use word::{CustomIdentifier, IdentDict};
 
 impl EntityDefnVariant {
@@ -65,7 +66,7 @@ impl EntityDefnVariant {
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
-        trait_impls: Vec<Arc<EntityDefn>>,
+        trait_impls: Vec<Arc<TraitImplDefn>>,
     ) -> Self {
         let members = collect_all_members(&type_members, &trait_impls);
         EntityDefnVariant::Type {
@@ -75,6 +76,27 @@ impl EntityDefnVariant {
             trait_impls,
             members,
         }
+    }
+
+    pub(crate) fn ty_from_static(
+        db: &dyn EntityDefnQueryGroup,
+        ty: EntityRoutePtr,
+        type_defn: &StaticTypeDefn,
+    ) -> Self {
+        let type_members = type_defn.type_members.map(|_| todo!());
+        let variants = type_defn.variants.map(|_| todo!());
+        let kind = type_defn.kind;
+        let symbol_context = SymbolContext {
+            opt_package_main: None,
+            db: db.upcast(),
+            opt_this_ty: Some(ty),
+            symbols: &[],
+            kind: SymbolContextKind::Normal,
+        };
+        let trait_impls = type_defn
+            .trait_impls
+            .map(|trait_impl| TraitImplDefn::from_static(&symbol_context, trait_impl));
+        Self::new_ty(type_members, variants, kind, trait_impls)
     }
 
     fn collect_variants(

@@ -8,7 +8,7 @@ pub use sheet::*;
 
 use ast::RawExprIdx;
 use check_utils::*;
-use copy::is_copyable;
+use copy::*;
 use entity_route::EntityRoutePtr;
 use entity_route_query::ScopeResultArc;
 use file::FilePtr;

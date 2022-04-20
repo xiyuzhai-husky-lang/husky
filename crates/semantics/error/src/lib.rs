@@ -2,15 +2,30 @@ use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct SemanticError {
-    pub message: String,
+    pub variant: SemanticErrorVariant,
     pub dev_src: DevSource,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum SemanticErrorVariant {
+    Derived,
+    Original,
 }
 
 impl SemanticError {
     pub fn from_infer_error(error: InferError, dev_src: DevSource) -> SemanticError {
         Self {
-            message: error.to_string(),
+            variant: SemanticErrorVariant::Derived,
             dev_src,
+        }
+    }
+}
+
+impl From<InferError> for SemanticError {
+    fn from(e: InferError) -> Self {
+        Self {
+            variant: SemanticErrorVariant::Derived,
+            dev_src: e.dev_src,
         }
     }
 }
@@ -43,7 +58,7 @@ impl From<ScopeError> for SemanticError {
 impl From<&ast::AstError> for SemanticError {
     fn from(error: &ast::AstError) -> Self {
         Self {
-            message: format!("AstError {:?}", error),
+            variant: SemanticErrorVariant::Derived,
             dev_src: error.dev_src.clone(),
         }
     }
@@ -59,7 +74,7 @@ impl From<VMError> for SemanticError {
 macro_rules! err {
     ($msg:expr) => {{
         Err(SemanticError {
-            message: $msg.into(),
+            variant: SemanticErrorVariant::Derived,
             dev_src: dev_utils::dev_src!(),
         })?
     }};
@@ -69,7 +84,7 @@ macro_rules! err {
 macro_rules! not_none {
     ($option:expr) => {{
         $option.ok_or(SemanticError {
-            message: "expect not none".into(),
+            variant: SemanticErrorVariant::Derived,
             dev_src: dev_utils::dev_src!(),
         })?
     }};

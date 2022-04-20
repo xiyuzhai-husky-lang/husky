@@ -69,6 +69,9 @@ pub enum Feature {
         this: FeaturePtr,
         field_uid: EntityUid,
     },
+    ElementAccess {
+        opds: Vec<FeaturePtr>,
+    },
     MethodCall {
         method_ident: CustomIdentifier,
         opds: Vec<FeaturePtr>,

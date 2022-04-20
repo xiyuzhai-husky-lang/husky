@@ -99,6 +99,7 @@ impl<'eval> Serialize for Trace<'eval> {
                     } => !routine_defn.is_builtin(),
                     FeatureExprKind::PatternCall {} => true,
                     FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
+                    FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)
