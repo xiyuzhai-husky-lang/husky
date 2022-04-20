@@ -31,8 +31,6 @@ impl RawLoopKind {
         frame_var: CustomIdentifier,
         final_comparison: PureBinaryOpr,
         final_bound: RawExprIdx,
-        file: FilePtr,
-        range: TextRange,
     ) -> AstResult<Self> {
         let (initial_boundary_kind, step) = match initial_comparison {
             PureBinaryOpr::Geq => (BoundaryKind::UpperClosed, LoopStep(-1)),

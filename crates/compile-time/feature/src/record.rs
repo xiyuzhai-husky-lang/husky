@@ -83,6 +83,7 @@ pub(crate) fn expr_record_field(
         FeatureExprKind::RoutineCall { .. } => todo!(),
         FeatureExprKind::PatternCall {} => todo!(),
         FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
+        FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
     }
 }
 

@@ -3,16 +3,20 @@ use vm::{InputContract, OutputContract};
 use crate::*;
 
 pub static STD_OPS_MODULE_DEFN: StaticEntityDefn = StaticEntityDefn {
+    name: "ops",
     subscopes: &[
         ("Index", &INDEX_TRAIT_DEFN),
         ("IndexMut", &INDEX_TRAIT_DEFN),
     ],
-    decl: StaticEntityDecl::Module,
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 pub static INDEX_TRAIT_DEFN: StaticEntityDefn = StaticEntityDefn {
+    name: "Index",
     subscopes: &[],
-    decl: StaticEntityDecl::Trait(&INDEX_TRAIT_DECL),
+    variant: StaticEntityDefnVariant::Trait(&INDEX_TRAIT_DECL),
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 pub static INDEX_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
@@ -26,7 +30,7 @@ pub static INDEX_TRAIT_DECL: StaticTraitDecl = StaticTraitDecl {
             name: "Output",
             traits: &[],
         },
-        StaticTraitMemberDecl::Method(StaticMethodDecl {
+        StaticTraitMemberDecl::Method(StaticMethodDefn {
             name: "index",
             this_contract: InputContract::MemberAccess,
             inputs: &[],

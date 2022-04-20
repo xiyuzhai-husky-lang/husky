@@ -12,4 +12,5 @@ lsp-types = { version = "0.91", features = ["proposed"] }
 serde = { version = "1.0.106", features = ["derive"] }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
+dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 file = { path = "../file", version = "0.0.0" }

@@ -3,8 +3,10 @@ mod loader;
 pub mod trivial;
 
 pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
-    subscopes: &[("trivial", trivial::SCOPE_DATA)],
-    decl: StaticEntityDecl::Module,
+    name: "synthetic",
+    subscopes: &[("trivial", trivial::TRIVIAL_MODULE_DEFN)],
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 use crate::{labeled::LabeledData, *};

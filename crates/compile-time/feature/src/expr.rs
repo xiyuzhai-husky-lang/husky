@@ -71,6 +71,10 @@ pub enum FeatureExprKind {
         field_ident: RangedCustomIdentifier,
         block: Arc<FeatureBlock>,
     },
+    ElementAccess {
+        opds: Vec<Arc<FeatureExpr>>,
+        linkage: Linkage,
+    },
     RoutineCall {
         opds: Vec<Arc<FeatureExpr>>,
         instruction_sheet: Arc<InstructionSheet>,
@@ -142,11 +146,9 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.features.alloc(Feature::PrimitiveLiteral(value)),
             ),
             LazyExprKind::Bracketed(_) => todo!(),
-            LazyExprKind::Opn {
-                opn_kind,
-                compiled,
-                ref opds,
-            } => self.new_opn(opn_kind, compiled, opds, expr.contract),
+            LazyExprKind::Opn { opn_kind, ref opds } => {
+                self.compile_opn(opn_kind, opds, expr.contract)
+            }
             LazyExprKind::Lambda(_, _) => todo!(),
             LazyExprKind::EnumLiteral { scope, ref value } => (
                 FeatureExprKind::EnumLiteral {

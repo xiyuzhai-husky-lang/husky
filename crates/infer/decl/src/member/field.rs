@@ -18,7 +18,7 @@ impl FieldDecl {
         todo!()
     }
 
-    pub fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticFieldDecl) -> Self {
+    pub fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticFieldDefn) -> Self {
         Self {
             ident: db.intern_word(static_decl.name).custom(),
             contract: todo!(),

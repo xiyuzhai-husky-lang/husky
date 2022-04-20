@@ -1,4 +1,4 @@
-use static_decl::StaticEntityDecl;
+use static_defn::StaticEntityDefnVariant;
 
 use crate::*;
 #[salsa::query_group(VisualQueryGroupStorage)]
@@ -13,11 +13,11 @@ fn visualizer(
 ) -> Arc<RuntimeVisualizer> {
     let scope_source = db.compile_time(version).entity_source(ty).unwrap();
     match scope_source {
-        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.decl {
-            StaticEntityDecl::Func(_) => todo!(),
-            StaticEntityDecl::Type(ty_decl) => Arc::new(ty_decl.visualizer.into()),
-            StaticEntityDecl::Module => todo!(),
-            StaticEntityDecl::Trait { .. } => todo!(),
+        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.variant {
+            StaticEntityDefnVariant::Func(_) => todo!(),
+            StaticEntityDefnVariant::Type(ty_decl) => Arc::new(ty_decl.visualizer.into()),
+            StaticEntityDefnVariant::Module => todo!(),
+            StaticEntityDefnVariant::Trait { .. } => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

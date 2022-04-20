@@ -3,7 +3,7 @@ use defn_head::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
 use print_utils::msg_once;
-use static_decl::{StaticEntityDecl, StaticFuncDecl, StaticInputDecl};
+use static_defn::{StaticEntityDecl, StaticFuncDecl, StaticInputDecl};
 use vm::InputContract;
 use word::IdentDict;
 

@@ -64,11 +64,11 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
-            ty: self.expr_ty_result(raw_expr_idx).unwrap(),
+            ty: self.expr_ty_result(raw_expr_idx)?,
             kind,
             file: self.file(),
             instruction_id: Default::default(),
-            contract: self.lazy_expr_contract_result(raw_expr_idx).unwrap(),
+            contract: self.lazy_expr_contract_result(raw_expr_idx)?,
         }))
     }
 
@@ -87,7 +87,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
                 ListOpr::Call => self.parse_call(opds, raw_expr_idx),
-                ListOpr::Index => todo!(),
+                ListOpr::Index => self.parse_element_access(opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
             },
@@ -124,7 +124,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
         Ok(LazyExprKind::Opn {
             opn_kind: LazyOpnKind::Binary { opr, this: lopd.ty },
             opds: vec![lopd, ropd],
-            compiled: (),
         })
     }
 
@@ -218,7 +217,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                         field_ident: ranged_ident,
                         field_kind: ty_decl.field_kind(ranged_ident.ident),
                     },
-                    compiled: (),
                     opds: vec![this],
                 }
                 // match *ty_decl {
@@ -283,7 +281,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 };
                 Ok(LazyExprKind::Opn {
                     opn_kind,
-                    compiled: (),
                     opds: arguments,
                 })
             }
@@ -317,7 +314,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                                     .call_route_result(raw_expr_idx)
                                     .unwrap(),
                             },
-                            compiled: (),
                             opds,
                         })
                     }
@@ -328,5 +324,14 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
         }
+    }
+
+    fn parse_element_access(&mut self, opds: RawExprRange) -> SemanticResult<LazyExprKind> {
+        Ok(LazyExprKind::Opn {
+            opn_kind: LazyOpnKind::ElementAccess,
+            opds: opds
+                .map(|raw| self.parse_lazy_expr(raw))
+                .collect::<SemanticResult<_>>()?,
+        })
     }
 }

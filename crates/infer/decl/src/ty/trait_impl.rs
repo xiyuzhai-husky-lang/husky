@@ -19,7 +19,7 @@ pub struct TraitImplDecl {
 impl TraitImplDecl {
     pub(crate) fn from_static(
         db: &dyn DeclQueryGroup,
-        static_trait_impl: &StaticTraitImplDecl,
+        static_trait_impl: &StaticTraitImplDefn,
         symbol_context: &SymbolContext,
     ) -> Arc<Self> {
         let trait_route = symbol_context
@@ -118,17 +118,20 @@ impl TraitMemberImplDecl {
         db: &dyn DeclQueryGroup,
         symbol_context: &SymbolContext,
         trait_decl: &TraitDecl,
-        static_member_impls: &[StaticTraitMemberImplDecl],
+        static_member_impls: &[StaticTraitMemberImplDefn],
     ) -> Vec<Self> {
-        let member_impl_context: Vec<_> =
-            static_member_impls.map(|static_member_impl| match static_member_impl {
-                StaticTraitMemberImplDecl::Type { name, route } => (
-                    db.intern_word(name).custom(),
+        let member_impl_context: Vec<_> = static_member_impls
+            .iter()
+            .filter_map(|static_member_impl| match static_member_impl.variant {
+                StaticTraitMemberImplDefnVariant::Type { route } => Some((
+                    db.intern_word(static_member_impl.name).custom(),
                     GenericArgument::EntityRoute(
                         symbol_context.entity_route_from_str(route).unwrap(),
                     ),
-                ),
-            });
+                )),
+                StaticTraitMemberImplDefnVariant::Method { .. } => None,
+            })
+            .collect();
         // let member_impl_context: Vec<_> =
         //     member_impls.map(|member_impl| (member_impl.ident(), member_impl.generic_argument()));
         let this_ty = symbol_context.opt_this_ty.unwrap();

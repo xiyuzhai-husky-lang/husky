@@ -1,11 +1,17 @@
-use serde::{Deserialize, Serialize};
-
 use crate::*;
+use dev_utils::StaticDevSource;
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {
     pub start: TextPosition,
     pub end: TextPosition,
+}
+
+impl From<StaticDevSource> for TextRange {
+    fn from(dev_src: StaticDevSource) -> Self {
+        ((dev_src.line, 0)..(dev_src.line, 10)).into()
+    }
 }
 
 impl std::fmt::Debug for TextRange {

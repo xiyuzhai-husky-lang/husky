@@ -25,7 +25,7 @@ use fold::FoldStorage;
 use global::*;
 use infer_error::*;
 use instantiate::*;
-use static_decl::*;
+use static_defn::*;
 use std::sync::Arc;
 use word::CustomIdentifier;
 

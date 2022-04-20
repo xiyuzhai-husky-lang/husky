@@ -30,6 +30,8 @@ impl<'eval> TraceFactory<'eval> {
             EntityDefnVariant::TypeMethod { .. } => todo!(),
             EntityDefnVariant::TraitMethod { .. } => todo!(),
             EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         };
         return self.new_trace(None, 0, TraceKind::CallHead { entity, tokens }, text);
 

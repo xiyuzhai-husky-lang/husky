@@ -31,6 +31,7 @@ impl<'eval> Trace<'eval> {
                 FeatureExprKind::GlobalInput => None,
                 FeatureExprKind::PatternCall {} => todo!(),
                 FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
+                FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
             },
             TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                 EagerExprKind::Variable(_)

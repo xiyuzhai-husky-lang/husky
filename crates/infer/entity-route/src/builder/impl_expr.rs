@@ -240,7 +240,7 @@ impl<'a> TySheetBuilder<'a> {
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_list_call(opds, arena, range, expr_idx),
-            ListOpr::Index => self.infer_index(arena, opds),
+            ListOpr::Index => self.infer_index(arena, opds, range),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
@@ -338,6 +338,7 @@ impl<'a> TySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         total_opds: &RawExprRange,
+        total_range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         if total_opds.end - total_opds.start != 2 {
             todo!()
@@ -349,7 +350,14 @@ impl<'a> TySheetBuilder<'a> {
             kind: self.db.entity_route_menu().std_ops_index_trai.kind,
             generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],
         });
-        let trai_impl = this_ty_decl.trai_impl(index_trai).unwrap();
+        let trai_impl = ok_or!(
+            this_ty_decl.trai_impl(index_trai),
+            format!(
+                "can't index by `{:?}` into type `{:?}`,\nit doesn't satisfy trait `{:?}`",
+                index_ty, this_ty, index_trai
+            ),
+            total_range
+        )?;
         Ok(match trai_impl.member_impls[0] {
             TraitMemberImplDecl::Method(_) => todo!(),
             TraitMemberImplDecl::AssociatedType { ty, .. } => ty,

@@ -3,4 +3,5 @@ dataset:
 
 main:
     a = input
+    b = a[1]
     1

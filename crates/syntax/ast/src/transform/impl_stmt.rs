@@ -196,8 +196,6 @@ impl<'a> AstTransformer<'a> {
                                         frame_var,
                                         final_comparison,
                                         ropd_idx,
-                                        self.file,
-                                        expr.range(),
                                     )?
                                     .into()
                                 }

@@ -3,17 +3,20 @@ use std::sync::Arc;
 use vm::{BoxedValue, Linkage, OutputContract, StackValue};
 use xrng::XRng;
 
-pub const SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+pub const REAL_1D_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+    name: "real1d",
     subscopes: &[
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
-    decl: StaticEntityDecl::Module,
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 pub const DATASET1_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+    name: "dataset1",
     subscopes: &[],
-    decl: StaticEntityDecl::Func(StaticCallDecl {
+    variant: StaticEntityDefnVariant::Func(StaticCallDefn {
         generic_placeholders: &[],
         inputs: vec![],
         output_ty: "Dataset<f32, i32>",
@@ -23,11 +26,13 @@ pub const DATASET1_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
             nargs: 0,
         },
     }),
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 pub const DATASET2_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+    name: "dataset2",
     subscopes: &[],
-    decl: StaticEntityDecl::Func(StaticCallDecl {
+    variant: StaticEntityDefnVariant::Func(StaticCallDefn {
         generic_placeholders: &[],
         inputs: vec![],
         output_ty: "Dataset<f32, i32>",
@@ -37,6 +42,7 @@ pub const DATASET2_SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
             nargs: 0,
         },
     }),
+    dev_src: dev_utils::static_dev_src!(),
 };
 
 pub fn gen_sample1<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {

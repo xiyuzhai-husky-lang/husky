@@ -39,7 +39,7 @@ pub struct TypeDecl {
 }
 
 impl TypeDecl {
-    fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTypeDecl) -> Arc<Self> {
+    fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTypeDefn) -> Arc<Self> {
         let generic_placeholders =
             db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
         let generic_arguments =
@@ -498,10 +498,10 @@ pub(crate) fn type_decl(
 ) -> InferResultArc<TypeDecl> {
     let source = db.entity_source(ty_route)?;
     match source {
-        EntitySource::StaticModuleItem(data) => Ok(match data.decl {
-            StaticEntityDecl::Func(_) => todo!(),
-            StaticEntityDecl::Module => todo!(),
-            StaticEntityDecl::Type(type_decl) => {
+        EntitySource::StaticModuleItem(data) => Ok(match data.variant {
+            StaticEntityDefnVariant::Func(_) => todo!(),
+            StaticEntityDefnVariant::Module => todo!(),
+            StaticEntityDefnVariant::Type(type_decl) => {
                 let base_decl = TypeDecl::from_static(db, type_decl);
                 if ty_route.generic_arguments.len() > 0 {
                     assert_eq!(
@@ -513,7 +513,7 @@ pub(crate) fn type_decl(
                     base_decl
                 }
             }
-            StaticEntityDecl::Trait { .. } => todo!(),
+            StaticEntityDefnVariant::Trait { .. } => todo!(),
         }),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
@@ -574,7 +574,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteKind]
 pub(crate) fn member_call_decl_from_static(
     db: &dyn DeclQueryGroup,
     mut symbols: Vec<Symbol>,
-    static_decl: &StaticCallDecl,
+    static_decl: &StaticCallDefn,
 ) -> Arc<CallDecl> {
     let generic_placeholders =
         db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);

@@ -1,14 +1,15 @@
 use entity_kind::TyKind;
 use entity_route::EntityRoute;
+use linkage_table::MemberAccessKind;
+use map_collect::MapCollect;
 use vm::LazyContract;
 
 use super::*;
 
 impl<'a> FeatureExprBuilder<'a> {
-    pub(super) fn new_opn(
+    pub(super) fn compile_opn(
         &self,
         opn_kind: LazyOpnKind,
-        compiled: (),
         opds: &[Arc<LazyExpr>],
         contract: LazyContract,
     ) -> (FeatureExprKind, FeaturePtr) {
@@ -56,46 +57,13 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::FieldAccess {
                 field_ident,
                 field_kind,
-            } => self.new_field_access(field_ident, field_kind, opds, contract),
+            } => self.compile_field_access(field_ident, field_kind, opds, contract),
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,
                 ..
-            } => {
-                let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-                let feature = self.features.alloc(Feature::MethodCall {
-                    method_ident: method_ident.ident,
-                    opds: opds.iter().map(|opd| opd.feature).collect(),
-                });
-                let this_ty_defn = self.db.entity_defn(opds[0].expr.ty).unwrap();
-                let member_idx = self.db.member_idx(method_route);
-                let method_defn = this_ty_defn.method(member_idx);
-                let method_uid = self.db.entity_uid(method_route);
-                let kind = match method_defn.variant {
-                    EntityDefnVariant::Main(_) => todo!(),
-                    EntityDefnVariant::Module {} => todo!(),
-                    EntityDefnVariant::Feature { .. } => todo!(),
-                    EntityDefnVariant::Pattern {} => todo!(),
-                    EntityDefnVariant::EnumVariant { .. } => todo!(),
-                    EntityDefnVariant::Builtin => todo!(),
-                    EntityDefnVariant::TypeMethod {
-                        ref method_variant, ..
-                    } => match method_variant {
-                        MethodDefnVariant::Func { .. } | MethodDefnVariant::Proc { .. } => {
-                            FeatureExprKind::RoutineCall {
-                                opds,
-                                instruction_sheet: self.db.method_instruction_sheet(method_route),
-                                opt_linkage: self.db.linkage_table().routine(method_uid),
-                                routine_defn: method_defn.clone(),
-                            }
-                        }
-                        MethodDefnVariant::Pattern { stmts } => todo!(),
-                    },
-                    _ => panic!(),
-                };
-                (kind, feature)
-            }
-            LazyOpnKind::ElementAccess => todo!(),
+            } => self.compile_method_call(method_ident, method_route, opds),
+            LazyOpnKind::ElementAccess => self.compile_element_access(opds),
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::RecordCall(ty) => {
                 let uid = self.db.entity_uid(ty.route);
@@ -115,7 +83,52 @@ impl<'a> FeatureExprBuilder<'a> {
         }
     }
 
-    fn new_field_access(
+    fn compile_method_call(
+        &self,
+        method_ident: RangedCustomIdentifier,
+        method_route: EntityRoutePtr,
+        opds: &[Arc<LazyExpr>],
+    ) -> (FeatureExprKind, FeaturePtr) {
+        let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
+        let feature = self.features.alloc(Feature::MethodCall {
+            method_ident: method_ident.ident,
+            opds: opds.iter().map(|opd| opd.feature).collect(),
+        });
+        let this_ty_defn = self.db.entity_defn(opds[0].expr.ty).unwrap();
+        let member_idx = self.db.member_idx(method_route);
+        let method_defn = this_ty_defn.method(member_idx);
+        let method_uid = self.db.entity_uid(method_route);
+        let kind = match method_defn.variant {
+            EntityDefnVariant::Main(_) => todo!(),
+            EntityDefnVariant::Module {} => todo!(),
+            EntityDefnVariant::Feature { .. } => todo!(),
+            EntityDefnVariant::Pattern {} => todo!(),
+            EntityDefnVariant::EnumVariant { .. } => todo!(),
+            EntityDefnVariant::Builtin => todo!(),
+            EntityDefnVariant::TypeMethod {
+                ref method_variant, ..
+            } => match method_variant {
+                MethodDefnVariant::Func { .. } | MethodDefnVariant::Proc { .. } => {
+                    FeatureExprKind::RoutineCall {
+                        opds,
+                        instruction_sheet: self.db.method_instruction_sheet(method_route),
+                        opt_linkage: self.db.linkage_table().routine(method_uid),
+                        routine_defn: method_defn.clone(),
+                    }
+                }
+                MethodDefnVariant::Pattern { stmts } => todo!(),
+                MethodDefnVariant::StaticMemberAccess {
+                    ref_access,
+                    move_access,
+                    borrow_mut_access,
+                } => todo!(),
+            },
+            _ => panic!(),
+        };
+        (kind, feature)
+    }
+
+    fn compile_field_access(
         &self,
         field_ident: RangedCustomIdentifier,
         field_access_kind: FieldKind,
@@ -209,6 +222,25 @@ impl<'a> FeatureExprBuilder<'a> {
         }
     }
 
+    fn compile_element_access(&self, opds: &[Arc<LazyExpr>]) -> (FeatureExprKind, FeaturePtr) {
+        let opds: Vec<_> = opds.map(|opd| self.new_expr(opd.clone()));
+        let feature = self.features.alloc(Feature::ElementAccess {
+            opds: opds.map(|opd| opd.feature),
+        });
+        let feature_expr_kind = FeatureExprKind::ElementAccess {
+            linkage: self.db.element_access_linkage(
+                opds.map(|opd| opd.expr.ty),
+                match opds[0].expr.contract {
+                    LazyContract::Move => todo!(),
+                    LazyContract::Ref => todo!(),
+                    LazyContract::Pure => MemberAccessKind::Ref,
+                },
+            ),
+            opds,
+        };
+        (feature_expr_kind, feature)
+    }
+
     fn record_field_var_value(
         &self,
         this: &FeatureExpr,
@@ -247,6 +279,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprKind::GlobalInput => todo!(),
             FeatureExprKind::PatternCall {} => todo!(),
             FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
+            FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
         }
     }
 

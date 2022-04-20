@@ -8,7 +8,6 @@ pub use alloc::{
 };
 pub use entity_kind::EntityKind;
 use file::FilePtr;
-use static_decl::{StaticEntityDecl, CLONE_TRAIT_DECL};
 use static_defn::StaticEntityDefn;
 use text::{TextRange, TextRanged};
 use word::{CustomIdentifier, Identifier, RootIdentifier};
@@ -44,11 +43,7 @@ impl std::fmt::Debug for EntityRoute {
             EntityRouteKind::Input { .. } => f.write_str("input")?,
             EntityRouteKind::Generic { ident, .. } => f.write_str(&ident)?,
             EntityRouteKind::ThisType => f.write_str("This")?,
-            EntityRouteKind::TraitMember {
-                ty: parent,
-                trai,
-                ident,
-            } => todo!(),
+            EntityRouteKind::TraitMember { .. } => todo!(),
         };
         if self.generic_arguments.len() > 0 {
             f.write_str("<")?;
@@ -206,11 +201,7 @@ impl EntityRoute {
             EntityRouteKind::Input { .. } => false,
             EntityRouteKind::Generic { .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TraitMember {
-                ty: parent,
-                trai,
-                ident,
-            } => todo!(),
+            EntityRouteKind::TraitMember { .. } => todo!(),
         }
     }
 

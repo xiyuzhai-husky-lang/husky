@@ -24,7 +24,10 @@ impl<'a> RustGenerator<'a> {
             self.write(": ");
             match input_placeholder.contract {
                 InputContract::Pure => {
-                    if !self.db.is_copyable(input_placeholder.ranged_ty.route) {
+                    if !self
+                        .db
+                        .is_copy_constructible(input_placeholder.ranged_ty.route)
+                    {
                         self.write("&")
                     }
                 }
@@ -62,7 +65,10 @@ impl<'a> RustGenerator<'a> {
             self.write(": ");
             match input_placeholder.contract {
                 InputContract::Pure => {
-                    if !self.db.is_copyable(input_placeholder.ranged_ty.route) {
+                    if !self
+                        .db
+                        .is_copy_constructible(input_placeholder.ranged_ty.route)
+                    {
                         self.write("&")
                     }
                 }

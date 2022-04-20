@@ -1,4 +1,4 @@
-use static_decl::StaticEntityDecl;
+use static_defn::StaticEntityDefnVariant;
 use vm::Linkage;
 
 use crate::*;
@@ -6,12 +6,14 @@ use crate::*;
 impl<'a> InstructionSheetBuilder<'a> {
     pub(crate) fn routine_fp(&self, routine: EntityRoutePtr) -> Option<Linkage> {
         match self.db.entity_source(routine).unwrap() {
-            EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.decl {
-                StaticEntityDecl::Func(ref func_decl) => Some(func_decl.linkage),
-                StaticEntityDecl::Type(_) => todo!(),
-                StaticEntityDecl::Module => todo!(),
-                StaticEntityDecl::Trait { .. } => todo!(),
-            },
+            EntitySource::StaticModuleItem(builtin_entity_data) => {
+                match builtin_entity_data.variant {
+                    StaticEntityDefnVariant::Func(ref func_decl) => Some(func_decl.linkage),
+                    StaticEntityDefnVariant::Type(_) => todo!(),
+                    StaticEntityDefnVariant::Module => todo!(),
+                    StaticEntityDefnVariant::Trait { .. } => todo!(),
+                }
+            }
             EntitySource::WithinBuiltinModule => todo!(),
             EntitySource::WithinModule { .. } => {
                 self.db.linkage_table().routine(self.db.entity_uid(routine))

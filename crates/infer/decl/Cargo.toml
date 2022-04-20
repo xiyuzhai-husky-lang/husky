@@ -32,6 +32,6 @@ infer-error = { path = "../../infer/error", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 instantiate = { path = "../instantiate", version = "0.0.0" }
 implement = { path = "../implement", version = "0.0.0" }
-static-decl = { path = "../../syntax/static-decl", version = "0.0.0" }
+static-defn = { path = "../../syntax/static-defn", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
 atom = { path = "../../syntax/atom", version = "0.0.0" }

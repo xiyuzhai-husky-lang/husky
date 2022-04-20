@@ -5,10 +5,8 @@ use file::FilePtr;
 use path_utils::*;
 
 use entity_kind::TyKind;
-use static_decl::StaticEntityDecl;
 use static_defn::*;
 use upcast::Upcast;
-use visual_syntax::TRIVIAL_VISUALIZER;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 
 use fold::FoldStorage;
@@ -138,17 +136,14 @@ fn entity_source(
         EntityRouteKind::Input { main } => Ok(EntitySource::Input { main }),
         EntityRouteKind::Generic { .. } => todo!(),
         EntityRouteKind::ThisType => panic!(),
-        EntityRouteKind::TraitMember { ty, trai, ident } => {
+        EntityRouteKind::TraitMember { ty, .. } => {
             let ty_source = this.entity_source(ty).unwrap();
             match ty_source {
                 EntitySource::StaticModuleItem(_) => Ok(ty_source),
                 EntitySource::WithinBuiltinModule => todo!(),
-                EntitySource::WithinModule {
-                    file,
-                    token_group_index,
-                } => todo!(),
-                EntitySource::Module { file } => todo!(),
-                EntitySource::Input { main } => todo!(),
+                EntitySource::WithinModule { .. } => todo!(),
+                EntitySource::Module { .. } => todo!(),
+                EntitySource::Input { .. } => todo!(),
                 EntitySource::StaticTypeMember => todo!(),
             }
         }

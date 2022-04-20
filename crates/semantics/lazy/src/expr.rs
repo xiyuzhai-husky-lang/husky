@@ -44,7 +44,6 @@ pub enum LazyExprKind {
     Bracketed(Arc<LazyExpr>),
     Opn {
         opn_kind: LazyOpnKind,
-        compiled: (),
         opds: Vec<Arc<LazyExpr>>,
     },
     Lambda(

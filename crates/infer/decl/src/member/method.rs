@@ -7,7 +7,7 @@ use fold::LocalStack;
 use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use print_utils::p;
-use static_decl::StaticMethodDecl;
+use static_defn::StaticMethodDefn;
 use vec_dict::HasKey;
 use vm::InputContract;
 use word::IdentDict;
@@ -88,7 +88,7 @@ impl MethodDecl {
 
     pub fn from_static(
         db: &dyn DeclQueryGroup,
-        decl: &StaticMethodDecl,
+        decl: &StaticMethodDefn,
         symbol_context: &SymbolContext,
     ) -> Arc<Self> {
         // SymbolContext {

@@ -1,8 +1,7 @@
-use crate::*;
 use entity_kind::TyKind;
 use entity_route::{EntityKind, RangedEntityRoute};
-use entity_route_query::{EntityRouteQueryGroup, EntityRouteSalsaQueryGroup};
-use static_decl::StaticGenericPlaceholder;
+use entity_route_query::EntityRouteQueryGroup;
+use static_defn::StaticGenericPlaceholder;
 use vec_dict::HasKey;
 use word::CustomIdentifier;
 
@@ -34,7 +33,7 @@ impl GenericPlaceholder {
     pub fn entity_kind(&self) -> EntityKind {
         match self.variant {
             GenericPlaceholderVariant::Const => todo!(),
-            GenericPlaceholderVariant::Type { ref traits } => EntityKind::Type(TyKind::Other),
+            GenericPlaceholderVariant::Type { .. } => EntityKind::Type(TyKind::Other),
         }
     }
 }

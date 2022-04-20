@@ -1,8 +1,7 @@
 use dev_utils::dev_src;
 use entity_route::*;
 use file::FilePtr;
-use static_decl::StaticEntityDecl;
-use static_defn::StaticEntityDefn;
+use static_defn::*;
 use word::{CustomIdentifier, Keyword};
 
 use crate::error::*;
@@ -248,13 +247,13 @@ impl SubscopeTable {
             .iter()
             .map(|(s, data)| Entry {
                 ident: Some(db.intern_word(s).opt_custom().unwrap()),
-                kind: data.decl.raw_entity_kind(),
+                kind: data.variant.raw_entity_kind(),
                 source: (*data).into(),
             })
             .collect();
-        match data.decl {
-            StaticEntityDecl::Func(_) | StaticEntityDecl::Module => (),
-            StaticEntityDecl::Type(ty_decl) => {
+        match data.variant {
+            StaticEntityDefnVariant::Func(_) | StaticEntityDefnVariant::Module => (),
+            StaticEntityDefnVariant::Type(ty_decl) => {
                 for type_member in ty_decl.type_members {
                     entries.push(Entry {
                         ident: Some(db.intern_word(type_member.name()).custom()),
@@ -266,7 +265,7 @@ impl SubscopeTable {
                     todo!()
                 }
             }
-            StaticEntityDecl::Trait(_) => todo!(),
+            StaticEntityDefnVariant::Trait(_) => todo!(),
         }
         Self {
             entries,

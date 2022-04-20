@@ -3,12 +3,13 @@ mod mnist;
 
 use crate::{labeled::LabeledData, *};
 use mnist::*;
-use static_decl::StaticCallDecl;
+use static_defn::StaticCallDefn;
 use std::sync::Arc;
 use vm::{BoxedValue, Linkage, StackValue};
-use xrng::XRng;
 
-pub static SCOPE_DATA: &StaticEntityDefn = &StaticEntityDefn {
+pub static CV_MOD_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+    name: "cv",
     subscopes: &[("mnist", MNIST_SCOPE_DATA)],
-    decl: StaticEntityDecl::Module,
+    variant: StaticEntityDefnVariant::Module,
+    dev_src: dev_utils::static_dev_src!(),
 };

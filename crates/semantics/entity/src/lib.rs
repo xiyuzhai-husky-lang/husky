@@ -6,6 +6,7 @@ mod subentities;
 mod trai;
 mod ty;
 
+use map_collect::MapCollect;
 pub use morphism::*;
 pub use query::*;
 pub use routine::*;
@@ -16,7 +17,7 @@ use ast::AstKind;
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
-use entity_route::{EntityRouteKind, EntitySource};
+use entity_route::EntitySource;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
@@ -24,12 +25,12 @@ use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
-use static_defn::StaticEntityDefn;
+use static_defn::{StaticEntityDefn, StaticEntityDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::TextRange;
 use vec_dict::HasKey;
-use vm::{FieldContract, InputContract};
+use vm::{FieldContract, InputContract, Linkage};
 use word::{CustomIdentifier, IdentDict, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -63,21 +64,32 @@ impl HasKey<CustomIdentifier> for EntityDefn {
 }
 
 impl EntityDefn {
-    pub fn from_static(static_entity_defn: &StaticEntityDefn) -> Self {
-        todo!()
+    pub fn from_static(
+        db: &dyn EntityDefnQueryGroup,
+        route: EntityRoutePtr,
+        static_entity_defn: &StaticEntityDefn,
+    ) -> Arc<Self> {
+        let variant = EntityDefnVariant::from_static(db, route, &static_entity_defn.variant);
+        Self::new(
+            db.intern_word(static_entity_defn.name).ident(),
+            variant,
+            route,
+            db.intern_file(static_entity_defn.dev_src.file.into()),
+            static_entity_defn.dev_src.into(),
+        )
     }
 
     pub(crate) fn new(
         ident: Identifier,
-        kind: EntityDefnVariant,
+        variant: EntityDefnVariant,
         route: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
     ) -> Arc<EntityDefn> {
         Arc::new(Self {
             ident,
-            subentities: kind.subentities(),
-            variant: kind,
+            subentities: variant.subentities(),
+            variant,
             route,
             file,
             range,
@@ -88,6 +100,17 @@ impl EntityDefn {
         match self.variant {
             EntityDefnVariant::Builtin => true,
             _ => false,
+        }
+    }
+
+    pub fn trait_impl(&self, trai: EntityRoutePtr) -> Option<&Arc<TraitImplDefn>> {
+        match self.variant {
+            EntityDefnVariant::Type {
+                ref trait_impls, ..
+            } => trait_impls
+                .iter()
+                .find(|trait_impl| trait_impl.trai == trai),
+            _ => panic!(""),
         }
     }
 }
@@ -115,7 +138,7 @@ pub enum EntityDefnVariant {
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
-        trait_impls: Vec<Arc<EntityDefn>>,
+        trait_impls: Vec<Arc<TraitImplDefn>>,
         members: Avec<EntityDefn>,
     },
     EnumVariant {
@@ -149,6 +172,28 @@ pub enum EntityDefnVariant {
         this_contract: InputContract,
         method_variant: MethodDefnVariant,
     },
+    TraitAssociatedTypeImpl {
+        trai: EntityRoutePtr,
+        ty: EntityRoutePtr,
+    },
+    TraitAssociatedConstSizeImpl {
+        value: usize,
+    },
+}
+
+impl EntityDefnVariant {
+    pub fn from_static(
+        db: &dyn EntityDefnQueryGroup,
+        ty: EntityRoutePtr,
+        variant: &StaticEntityDefnVariant,
+    ) -> Self {
+        match variant {
+            StaticEntityDefnVariant::Func(_) => todo!(),
+            StaticEntityDefnVariant::Type(type_defn) => Self::ty_from_static(db, ty, type_defn),
+            StaticEntityDefnVariant::Trait(_) => todo!(),
+            StaticEntityDefnVariant::Module => todo!(),
+        }
+    }
 }
 
 pub(crate) fn main_defn(
@@ -182,8 +227,8 @@ pub(crate) fn entity_defn(
 ) -> SemanticResultArc<EntityDefn> {
     let source = db.entity_source(entity_route)?;
     match source {
-        EntitySource::StaticModuleItem(static_entity_defn) => {
-            Ok(Arc::new(EntityDefn::from_static(static_entity_defn)))
+        EntitySource::StaticModuleItem(static_defn) => {
+            Ok(EntityDefn::from_static(db, entity_route, static_defn))
         }
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

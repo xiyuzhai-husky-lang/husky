@@ -257,6 +257,7 @@ fn feature_expr_subtraces(
         FeatureExprKind::GlobalInput => todo!(),
         FeatureExprKind::PatternCall {} => todo!(),
         FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
+        FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
     })
 }
 
