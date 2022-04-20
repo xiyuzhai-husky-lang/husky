@@ -6,9 +6,9 @@ impl HuskyLangRuntime {
     pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureProps {
         let trace = self.trace(trace_id);
         match trace.kind {
-            TraceKind::Main(_) => FigureProps::Blank,
+            TraceKind::Main(_) => FigureProps::Void,
             TraceKind::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, focus),
-            TraceKind::FeatureBranch(_) => FigureProps::Blank,
+            TraceKind::FeatureBranch(_) => FigureProps::Void,
             TraceKind::FeatureExpr(ref expr) => self.feature_expr_figure(expr, focus),
             TraceKind::Input(_) => todo!(),
             TraceKind::StrictDeclStmt {
@@ -34,64 +34,24 @@ impl HuskyLangRuntime {
     fn feature_stmt_figure(&self, stmt: &FeatureStmt, focus: &Focus) -> FigureProps {
         match stmt.kind {
             FeatureStmtKind::Init { varname, ref value } => self.feature_expr_figure(value, focus),
-            FeatureStmtKind::Assert { .. } => FigureProps::Blank,
+            FeatureStmtKind::Assert { .. } => FigureProps::Void,
             FeatureStmtKind::Return { ref result } => self.feature_expr_figure(result, focus),
-            FeatureStmtKind::BranchGroup { kind, ref branches } => FigureProps::Blank,
+            FeatureStmtKind::BranchGroup { kind, ref branches } => FigureProps::Void,
         }
     }
 
     fn feature_expr_figure(&self, expr: &FeatureExpr, focus: &Focus) -> FigureProps {
-        match expr.kind {
-            FeatureExprKind::PrimitiveLiteral(_) => FigureProps::Blank,
-            FeatureExprKind::EnumLiteral { ref value, uid } => todo!(),
-            FeatureExprKind::PrimitiveBinaryOpr {
-                opr,
-                ref lopd,
-                ref ropd,
-            } => todo!(),
-            FeatureExprKind::Variable { varname, ref value } => todo!(),
-            FeatureExprKind::This { ref repr } => todo!(),
-            FeatureExprKind::RoutineCall { .. } => todo!(),
-            FeatureExprKind::StructOriginalFieldAccess {
-                ref this,
-                field_ident,
-                contract,
-                opt_linkage: opt_compiled,
-                ..
-            } => todo!(),
-            FeatureExprKind::RecordOriginalFieldAccess {
-                ref this,
-                field_ident,
-                ref repr,
-            } => todo!(),
-            FeatureExprKind::EntityFeature {
-                route: scope,
-                ref block,
-            } => todo!(),
-            FeatureExprKind::GlobalInput => match focus.opt_input_id {
-                Some(input_id) => {
-                    let global_input: Arc<dyn AnyValueDyn<'static> + 'static> = {
-                        let session: &mut Session = &mut self.session.lock().unwrap();
-                        let dev_division = &mut session.dev;
-                        dev_division.loader.load(input_id).input.clone()
-                    };
-                    let global_input_ty =
-                        self.compile_time.global_input_ty(self.pack_main).unwrap();
-                    let visualizer = self.visualizer(self.version(), global_input_ty);
-                    let global_input_ref = &*global_input;
-                    let visual_props = visualizer.visualize(global_input_ref);
+        match focus.opt_input_id {
+            Some(input_id) => {
+                if let Ok(value) = self.eval_feature_expr(expr, input_id) {
+                    let visualizer = self.visualizer(self.version(), expr.expr.ty);
+                    let visual_props = visualizer.visualize(value.any_ref());
                     FigureProps::new_specific(visual_props)
+                } else {
+                    FigureProps::Void
                 }
-                None => todo!(),
-            },
-            FeatureExprKind::NewRecord {
-                ty,
-                ref entity,
-                ref opds,
-            } => todo!(),
-            FeatureExprKind::PatternCall {} => todo!(),
-            FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
-            FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
+            }
+            None => todo!(),
         }
     }
 }

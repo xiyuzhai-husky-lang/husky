@@ -25,6 +25,12 @@ export function cache_trace(trace: Trace) {
     global.trace_cache.cache_trace(trace);
     global.update_trace_listing();
 }
+export function cache_traces(traces: Trace[]) {
+    for (const trace of traces) {
+        global.trace_cache.cache_trace(trace);
+    }
+    global.update_trace_listing();
+}
 
 export function set_trace_stalk(
     trace_id: number,

@@ -19,6 +19,7 @@ pub(super) enum Response<'a> {
         id: TraceId,
         effective_opt_input_id: Option<usize>,
         opt_subtraces: Option<Avec<Trace<'static>>>,
+        associated_traces: Vec<Arc<Trace<'static>>>,
     },
     ToggleShow {
         id: TraceId,

@@ -232,8 +232,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::Moved => todo!(),
             StackValue::Primitive(_) => todo!(),
             StackValue::Boxed(_) => todo!(),
-            StackValue::GlobalPure(_) => todo!(),
-            StackValue::GlobalRef(_) => todo!(),
+            StackValue::GlobalPure(value) => value.downcast_ref(),
+            StackValue::GlobalRef(value) => value.downcast_ref(),
             StackValue::LocalRef(value) => value.downcast_ref(),
             StackValue::MutLocalRef { value, owner, gen } => todo!(),
         }

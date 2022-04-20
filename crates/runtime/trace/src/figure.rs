@@ -7,7 +7,7 @@ use visual_syntax::VisualProps;
 #[derive(Debug, Serialize, Clone)]
 #[serde(tag = "kind")]
 pub enum FigureProps {
-    Blank,
+    Void,
     Plot2d {
         plot_kind: Plot2dKind,
         groups: Vec<PointGroup>,
@@ -31,7 +31,7 @@ impl FigureProps {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
-            VisualProps::Empty => todo!(),
+            VisualProps::Void => FigureProps::Void,
         }
     }
 }

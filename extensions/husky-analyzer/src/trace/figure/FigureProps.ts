@@ -17,9 +17,9 @@ export type Plot2dProps = {
     yrange: [number, number];
 };
 
-export type BlankProps = { kind: "Blank" };
+export type VoidProps = { kind: "Void" };
 
-type FigureProps = GalleryProps | Graphics2dProps | Plot2dProps | BlankProps;
+type FigureProps = GalleryProps | Graphics2dProps | Plot2dProps | VoidProps;
 export default FigureProps;
 
 export function decode_figure_props(data: unknown): FigureProps {
@@ -27,8 +27,8 @@ export function decode_figure_props(data: unknown): FigureProps {
     switch (type) {
         case "Graphics2d":
             return decode_graphics2d(data);
-        case "Blank":
-            return { kind: "Blank" };
+        case "Void":
+            return { kind: "Void" };
         default:
             console.log(type);
             throw new Error("Todo");

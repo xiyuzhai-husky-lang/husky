@@ -1,3 +1,4 @@
+mod associated_traces;
 mod factory;
 mod figure;
 mod kind;
@@ -99,7 +100,7 @@ impl<'eval> Serialize for Trace<'eval> {
                     } => !routine_defn.is_builtin(),
                     FeatureExprKind::PatternCall {} => true,
                     FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
-                    FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
+                    FeatureExprKind::ElementAccess { ref opds, .. } => false,
                 },
                 TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
                     EagerExprKind::Variable(_)
