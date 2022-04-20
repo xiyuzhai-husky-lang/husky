@@ -75,15 +75,7 @@ static BINARY_IMAGE28_DEFN_VARIANT: StaticTypeDefn = StaticTypeDefn {
                         output: "b32",
                         ref_access: Linkage {
                             call: |values| -> VMResult<StackValue> {
-                                let this_value: &BinaryImage28 = match values[0] {
-                                    StackValue::Moved => todo!(),
-                                    StackValue::Primitive(_) => todo!(),
-                                    StackValue::Boxed(_) => todo!(),
-                                    StackValue::GlobalPure(ref value) => value.downcast_ref(),
-                                    StackValue::GlobalRef(_) => todo!(),
-                                    StackValue::LocalRef(_) => todo!(),
-                                    StackValue::MutLocalRef { .. } => todo!(),
-                                };
+                                let this_value: &BinaryImage28 = values[0].downcast_ref();
                                 let index_value: usize = match values[1] {
                                     StackValue::Moved => todo!(),
                                     StackValue::Primitive(value) => {
