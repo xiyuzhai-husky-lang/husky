@@ -182,8 +182,14 @@ impl<'a> InstructionSheetBuilder<'a> {
                         EagerContract::Move => todo!(),
                         EagerContract::LetInit => todo!(),
                         EagerContract::VarInit => todo!(),
-                        EagerContract::Return => todo!(),
-                        EagerContract::BorrowMut => todo!(),
+                        EagerContract::Return => {
+                            if self.db.is_copy_constructible(expr.ty) {
+                                MemberAccessKind::Ref
+                            } else {
+                                MemberAccessKind::Move
+                            }
+                        }
+                        EagerContract::BorrowMut => MemberAccessKind::BorrowMut,
                         EagerContract::TakeMut => todo!(),
                         EagerContract::Exec => todo!(),
                     },

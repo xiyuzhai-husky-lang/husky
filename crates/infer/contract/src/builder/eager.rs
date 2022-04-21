@@ -107,7 +107,7 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::This { .. } => Ok(()),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { opr, ref opds } => {
-                self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range)
+                self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
         };
@@ -135,12 +135,15 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
         range: TextRange,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
             Opr::Binary(opr) => self.infer_eager_binary_opn(opr, opds, contract, arena),
             Opr::Prefix(opr) => self.infer_eager_prefix_opn(opr, opds.start, contract, arena),
             Opr::Suffix(opr) => self.infer_eager_suffix(opr, opds.start, contract, arena),
-            Opr::List(opr) => self.infer_eager_list_opn(opr, opds, contract, arena, range),
+            Opr::List(opr) => {
+                self.infer_eager_list_opn(opr, opds, contract, arena, range, raw_expr_idx)
+            }
         }
     }
 
@@ -238,13 +241,14 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
         range: TextRange,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_eager_list_call(opds, contract, arena, range),
-            ListOpr::Index => self.infer_eager_element_access(arena, opds, contract),
+            ListOpr::Index => self.infer_eager_element_access(arena, opds, contract, raw_expr_idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
@@ -360,20 +364,27 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
         total_opds: &RawExprRange,
         contract: EagerContract,
+        expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        match contract {
-            EagerContract::Pure => {
-                self.infer_eager_expr(total_opds.start, EagerContract::Pure, arena)
-            }
+        let this_contract = match contract {
+            EagerContract::Pure => EagerContract::Pure,
             EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),
-            EagerContract::Return => todo!(),
-            EagerContract::BorrowMut => todo!(),
+            EagerContract::Return => {
+                let ty = self.expr_ty_result(expr_idx)?;
+                if self.db.is_copy_constructible(ty) {
+                    EagerContract::Pure
+                } else {
+                    EagerContract::Move
+                }
+            }
+            EagerContract::BorrowMut => EagerContract::BorrowMut,
             EagerContract::TakeMut => todo!(),
             EagerContract::Exec => todo!(),
-        }
+        };
+        self.infer_eager_expr(total_opds.start, this_contract, arena);
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_eager_expr(opd, EagerContract::Pure, arena)
         }

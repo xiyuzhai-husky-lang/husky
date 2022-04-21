@@ -20,28 +20,30 @@ pub(crate) fn virtual_vec_element_move_access<'stack, 'eval>(
 pub(crate) fn virtual_vec_element_ref_access<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMResult<StackValue<'stack, 'eval>> {
-    let this_value: &Vec<MemberValue<'eval>> = match values[0] {
-        StackValue::Moved => todo!(),
-        StackValue::Primitive(_) => todo!(),
-        StackValue::Boxed(_) => todo!(),
-        StackValue::GlobalPure(_) => todo!(),
-        StackValue::GlobalRef(_) => todo!(),
-        StackValue::LocalRef(this_value) => this_value.downcast_ref(),
-        StackValue::MutLocalRef { .. } => todo!(),
-    };
+    let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let i: usize = match values[1] {
-        StackValue::Moved => todo!(),
         StackValue::Primitive(value) => value.as_i32().unwrap().try_into().unwrap(),
-        StackValue::Boxed(_) => todo!(),
-        StackValue::GlobalPure(_) => todo!(),
-        StackValue::GlobalRef(_) => todo!(),
-        StackValue::LocalRef(_) => todo!(),
-        StackValue::MutLocalRef { .. } => todo!(),
+        _ => panic!(),
     };
     if i > this_value.len() {
         todo!()
     }
     Ok(this_value[i].stack_ref())
+}
+
+pub(crate) fn virtual_vec_element_borrow_mut_access<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    let i: usize = match values[1] {
+        StackValue::Primitive(value) => value.as_i32().unwrap().try_into().unwrap(),
+        _ => panic!(),
+    };
+    let (this_value, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
+        values[0].downcast_mut_full();
+    if i > this_value.len() {
+        todo!()
+    }
+    Ok(this_value[i].stack_mut(stack_idx))
 }
 
 #[test]
