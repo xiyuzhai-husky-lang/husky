@@ -129,5 +129,6 @@ pub fn get_server_capabilities() -> ServerCapabilities {
             },
             "workspaceSymbolEntityRouteKindFiltering": true,
         })),
+        inlay_hint_provider: None,
     }
 }

@@ -107,7 +107,7 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
             use file::LiveFiles;
-            if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
+            if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 server
                     .db
                     .set_live_file_text(path, params.text_document.text);
@@ -116,7 +116,7 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
             use file::LiveFiles;
-            if let Ok(path) = from_lsp_types::path(&params.text_document.uri) {
+            if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 server
                     .db
                     .apply_live_file_changes(path, params.content_changes);
@@ -128,7 +128,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::SendUpdates)
         })?
         .on_sync::<lsp_types::notification::DidSaveTextDocument>(|_server, params| {
-            if let Ok(_path) = from_lsp_types::path(&params.text_document.uri) {
+            if let Ok(_path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 if let Some(_text) = params.text {
                     todo!()
                 }
