@@ -58,7 +58,7 @@
 
 <style>
     .TraceNode {
-        height: 24px;
+        height: 18px;
         padding: 2px;
         padding-right: 3px;
     }

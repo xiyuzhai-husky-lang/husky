@@ -249,11 +249,25 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             | StackValue::LocalRef(_) => {
                 panic!()
             }
+            StackValue::MutLocalRef { ref mut value, .. } => value.downcast_mut(),
+        }
+    }
+
+    pub fn downcast_mut_full<T: AnyValue<'eval>>(&mut self) -> (&mut T, StackIdx, ()) {
+        match self {
+            StackValue::Moved => todo!(),
+            StackValue::Primitive(_) => todo!(),
+            StackValue::Boxed(_)
+            | StackValue::GlobalPure(_)
+            | StackValue::GlobalRef(_)
+            | StackValue::LocalRef(_) => {
+                panic!()
+            }
             StackValue::MutLocalRef {
                 ref mut value,
                 owner,
                 gen,
-            } => value.downcast_mut(),
+            } => (value.downcast_mut(), *owner, *gen),
         }
     }
 

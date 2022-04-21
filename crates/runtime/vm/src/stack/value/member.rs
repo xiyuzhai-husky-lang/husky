@@ -44,6 +44,21 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
         }
     }
 
+    pub fn stack_mut(&mut self, owner: StackIdx) -> StackValue<'stack, 'eval> {
+        let value_mut: *mut (dyn AnyValueDyn<'eval> + 'eval) = match self {
+            MemberValue::Primitive(value) => value.any_mut(),
+            MemberValue::Boxed(_) => todo!(),
+            MemberValue::GlobalPure(_) => todo!(),
+            MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::Moved => todo!(),
+        };
+        StackValue::MutLocalRef {
+            value: unsafe { &mut *value_mut },
+            owner,
+            gen: (),
+        }
+    }
+
     pub fn share_globally(&self) -> EvalValue<'eval> {
         match self {
             MemberValue::Primitive(value) => EvalValue::Primitive(*value),

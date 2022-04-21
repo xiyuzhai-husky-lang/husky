@@ -39,7 +39,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         call: match access_kind {
                             MemberAccessKind::Move => virtual_vec_element_move_access,
                             MemberAccessKind::Ref => virtual_vec_element_ref_access,
-                            MemberAccessKind::BorrowMut => todo!(),
+                            MemberAccessKind::BorrowMut => virtual_vec_element_borrow_mut_access,
                         },
                         nargs: 2,
                     }
