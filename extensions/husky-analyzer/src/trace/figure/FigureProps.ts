@@ -1,4 +1,8 @@
-import { decode_member_old, decode_string } from "src/decode/decode";
+import {
+    decode_member,
+    decode_member_old,
+    decode_string,
+} from "src/decode/decode";
 import type { Point2d } from "src/geom2d/geom2d";
 import type Graphics2dProps from "./Graphics2d";
 import type Color from "./Color";
@@ -17,9 +21,36 @@ export type Plot2dProps = {
     yrange: [number, number];
 };
 
-export type VoidProps = { kind: "Void" };
+export type PrimitiveValueFigureProps = {
+    kind: "Primitive";
+    value: PrimitiveValue;
+};
 
-type FigureProps = GalleryProps | Graphics2dProps | Plot2dProps | VoidProps;
+type PrimitiveValue = {
+    kind: "I32" | "B32" | "B64" | "Bool" | "Void";
+    value: String;
+};
+
+function decode_primitive_value(data: unknown): PrimitiveValue {
+    let kind = decode_member_old(data, "kind", decode_string);
+    let value = decode_member_old(data, "value", decode_string);
+    switch (kind) {
+        case "I32":
+        case "B32":
+        case "B64":
+        case "Bool":
+        case "Void":
+            return { kind, value };
+        default:
+            throw new Error();
+    }
+}
+
+type FigureProps =
+    | GalleryProps
+    | Graphics2dProps
+    | Plot2dProps
+    | PrimitiveValueFigureProps;
 export default FigureProps;
 
 export function decode_figure_props(data: unknown): FigureProps {
@@ -27,8 +58,11 @@ export function decode_figure_props(data: unknown): FigureProps {
     switch (type) {
         case "Graphics2d":
             return decode_graphics2d(data);
-        case "Void":
-            return { kind: "Void" };
+        case "Primitive":
+            return {
+                kind: "Primitive",
+                value: decode_primitive_value(decode_member(data, "value")),
+            };
         default:
             console.log(type);
             throw new Error("Todo");

@@ -27,5 +27,5 @@ pub const TRIVIAL_VISUALIZER: StaticVisualizer = StaticVisualizer {
 };
 
 fn visualize_trivial<'eval>(_data: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
-    VisualProps::Void
+    VisualProps::Primitive { value: ().into() }
 }

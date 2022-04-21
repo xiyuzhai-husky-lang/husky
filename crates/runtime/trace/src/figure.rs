@@ -3,11 +3,15 @@ mod graphics2d;
 use crate::*;
 use graphics2d::*;
 use visual_syntax::VisualProps;
+use vm::PrimitiveValue;
 
 #[derive(Debug, Serialize, Clone)]
 #[serde(tag = "kind")]
 pub enum FigureProps {
     Void,
+    Primitive {
+        value: PrimitiveValue,
+    },
     Plot2d {
         plot_kind: Plot2dKind,
         groups: Vec<PointGroup>,
@@ -31,7 +35,7 @@ impl FigureProps {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
-            VisualProps::Void => FigureProps::Void,
+            VisualProps::Primitive { value } => FigureProps::Primitive { value },
         }
     }
 }

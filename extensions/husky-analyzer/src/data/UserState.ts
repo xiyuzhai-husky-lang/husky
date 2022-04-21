@@ -54,6 +54,14 @@ class UserState {
         this.focus_store.set(focus);
         this.focus_locked_store.set(true);
     }
+
+    print_state() {
+        console.log("user state:");
+        console.log("    shown_stores:");
+        this.shown_stores.print_state(8);
+        console.log("    expansion_stores:");
+        this.expansion_stores.print_state(8);
+    }
 }
 
 export default UserState;

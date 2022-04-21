@@ -2,6 +2,7 @@
     import type FigureProps from "trace/figure/FigureProps";
     import Plot2d from "./Plot2d.svelte";
     import Graphics2d from "./Graphics2d.svelte";
+    import PrimitiveValueFigure from "./PrimitiveValueFigure.svelte";
     export let figure: FigureProps | null;
     let windowHeight: number;
     let figureHeight: number;
@@ -30,8 +31,10 @@
             class="FigureCanvas"
             style="width: {canvasWidth}px; height: {canvasHeight}px"
         >
-            {#if figure !== null && figure.kind !== "Void"}
-                {#if figure.kind === "Plot2d"}
+            {#if figure !== null}
+                {#if figure.kind === "Primitive"}
+                    <PrimitiveValueFigure {figure} />
+                {:else if figure.kind === "Plot2d"}
                     <Plot2d {figure} />
                 {:else if figure.kind === "Graphics2d"}
                     <Graphics2d {figure} />

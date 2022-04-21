@@ -64,9 +64,11 @@
 <style>
     code {
         font-size: 16px;
+        height: 100%;
     }
     code.associated_trace_shown {
         text-decoration: underline cyan;
+        text-underline-position: under;
     }
     code.associated:hover {
         background: rgb(78, 78, 78);

@@ -58,12 +58,13 @@
 
 <style>
     .TraceNode {
-        height: 20px;
+        height: 24px;
         padding: 2px;
         padding-right: 3px;
     }
     .inner {
         padding: 0px;
+        height: 100%;
     }
     .active {
         outline: rgb(202, 132, 2) solid 2px;

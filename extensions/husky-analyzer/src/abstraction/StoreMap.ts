@@ -51,6 +51,14 @@ class StoreMap<T> {
         }
         this.stores[id].update(f);
     }
+
+    print_state(indent: number) {
+        console.log(" ".repeat(indent), "{");
+        for (const [key, value] of Object.entries(this.stores)) {
+            console.log(" ".repeat(indent + 4), key, ": ", get(value));
+        }
+        console.log(" ".repeat(indent), "}");
+    }
 }
 
 export default StoreMap;

@@ -114,6 +114,12 @@ class TraceCache {
             make_request
         );
     }
+
+    print_state() {
+        console.log("trace cache:");
+        console.log("    traces");
+        this.traces.print_state(8);
+    }
 }
 
 export default TraceCache;
