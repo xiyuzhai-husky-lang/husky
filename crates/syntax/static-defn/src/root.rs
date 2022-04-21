@@ -4,7 +4,7 @@ pub use static_std::*;
 
 use crate::*;
 use entity_kind::TyKind;
-use visual_syntax::TRIVIAL_VISUALIZER;
+use visual_syntax::{StaticVisualizer, VisualProps, TRIVIAL_VISUALIZER};
 use vm::*;
 
 pub static CLONE_TRAIT_DEFN: StaticEntityDefn = StaticEntityDefn {
@@ -72,7 +72,14 @@ pub static B32_TYPE_DEFN: StaticEntityDefn = StaticEntityDefn {
         type_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: TRIVIAL_VISUALIZER,
+        visualizer: StaticVisualizer {
+            compiled: |value| {
+                let value: &u32 = value.downcast_ref();
+                VisualProps::Primitive {
+                    value: (*value).into(),
+                }
+            },
+        },
         opt_type_call: None,
     }),
     dev_src: dev_utils::static_dev_src!(),

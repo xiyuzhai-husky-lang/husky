@@ -55,7 +55,7 @@
         />
         {#each trace.lines as line}
             {#each line.tokens as token}
-                {#if token.associated_trace !== null}
+                {#if token.value != "]" && token.associated_trace !== null}
                     <svelte:self trace_id={token.associated_trace} />
                 {/if}
             {/each}

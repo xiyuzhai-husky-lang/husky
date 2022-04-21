@@ -1,6 +1,7 @@
 use core::hash::Hash;
 use std::borrow::Cow;
 
+use serde::{ser::SerializeStruct, Serialize};
 use word::RootIdentifier;
 
 use crate::*;
@@ -16,6 +17,28 @@ pub enum PrimitiveValue {
     B64(u64),
     Bool(bool),
     Void,
+}
+
+impl Serialize for PrimitiveValue {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        // 3 is the number of fields in the struct.
+        let mut state = serializer.serialize_struct("PrimitiveValue", 3)?;
+        let kind = match self {
+            PrimitiveValue::I32(value) => "I32",
+            PrimitiveValue::F32(_) => "F32",
+            PrimitiveValue::B32(_) => "B32",
+            PrimitiveValue::B64(_) => "B64",
+            PrimitiveValue::Bool(_) => "Bool",
+            PrimitiveValue::Void => "Void",
+        };
+        let value: Cow<'static, str> = (*self).into();
+        state.serialize_field("kind", &kind)?;
+        state.serialize_field("value", &value)?;
+        state.end()
+    }
 }
 
 impl From<()> for PrimitiveValue {
@@ -213,8 +236,8 @@ impl Into<Cow<'static, str>> for PrimitiveValue {
         match self {
             PrimitiveValue::I32(i) => format!("{}", i).into(),
             PrimitiveValue::F32(f) => format!("{}", f).into(),
-            PrimitiveValue::B32(b) => format!("{}", b).into(),
-            PrimitiveValue::B64(b) => format!("{}", b).into(),
+            PrimitiveValue::B32(b) => format!("{:#032b}", b).into(),
+            PrimitiveValue::B64(b) => format!("{:#064b}", b).into(),
             PrimitiveValue::Bool(b) => format!("{}", b).into(),
             PrimitiveValue::Void => "()".into(),
         }

@@ -64,6 +64,11 @@ class AppData {
             }
         }
     }
+
+    print_state() {
+        this.user_state.print_state();
+        this.trace_cache.print_state();
+    }
 }
 export default AppData;
 

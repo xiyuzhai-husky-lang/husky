@@ -183,3 +183,7 @@ export function tell_has_subtraces_store(
             );
     }
 }
+
+export function print_state() {
+    global.print_state();
+}

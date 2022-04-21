@@ -13,6 +13,7 @@
         move_down,
         move_left,
         get_figure,
+        print_state,
     } from "src/data/ui";
     import { onDestroy } from "svelte";
 
@@ -46,6 +47,9 @@
                         get_subtraces(focus, active_trace.id)
                     );
                 }
+                break;
+            case "KeyS":
+                print_state();
                 break;
             default:
         }
