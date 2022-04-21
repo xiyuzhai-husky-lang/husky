@@ -1,7 +1,8 @@
-use crate::*;
+use crate::{convert::from_lsp_types, *};
 
 type HuskyLangDatabaseSnapshot = salsa::Snapshot<compile_time_db::HuskyLangCompileTime>;
 
+use compile_time_db::{AllocateUniqueFile, AstSalsaQueryGroup};
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
     CallHierarchyOutgoingCall, CallHierarchyOutgoingCallsParams, CallHierarchyPrepareParams,
@@ -118,10 +119,15 @@ pub(crate) fn handle_completion_resolve(
 }
 
 pub(crate) fn handle_folding_range(
-    _snapshot: HuskyLangDatabaseSnapshot,
-    _params: FoldingRangeParams,
+    snapshot: HuskyLangDatabaseSnapshot,
+    params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
-    msg_once!("todo handle folding range");
+    if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+        let file = snapshot.intern_file(path);
+        if let Ok(ast_text) = snapshot.ast_text(file) {
+            return Ok(Some(ast_text.folding_ranges()));
+        }
+    }
     Ok(None)
 }
 

@@ -36,11 +36,11 @@ impl From<(i32, i32)> for TextPosition {
 }
 
 impl TextPosition {
-    pub fn i(&self) -> usize {
-        (self.row.0) as usize
+    pub fn i(&self) -> u32 {
+        self.row.0
     }
-    pub fn j(&self) -> usize {
-        (self.col.0) as usize
+    pub fn j(&self) -> u32 {
+        self.col.0
     }
 
     pub fn to_left(&self, x: u32) -> TextPosition {

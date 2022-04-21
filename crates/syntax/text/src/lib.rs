@@ -32,20 +32,20 @@ impl Text {
     pub fn ranged(&self, range: TextRange) -> String {
         if range.end.i() > range.start.i() {
             let mut result = String::new();
-            for c in &self.lines[range.start.i()][(range.start.j())..] {
+            for c in &self.lines[range.start.i() as usize][(range.start.j() as usize)..] {
                 result.push(*c);
             }
             for i in (range.start.i() + 1)..range.end.i() {
-                for c in &self.lines[i] {
+                for c in &self.lines[i as usize] {
                     result.push(*c);
                 }
             }
-            for c in &self.lines[range.end.i()][..(range.end.j())] {
+            for c in &self.lines[range.end.i() as usize][..(range.end.j() as usize)] {
                 result.push(*c);
             }
             result
         } else if range.end.i() == range.start.i() {
-            self.lines[range.start.i()][(range.start.j())..range.end.j()]
+            self.lines[range.start.i() as usize][(range.start.j() as usize)..range.end.j() as usize]
                 .iter()
                 .collect()
         } else {
