@@ -83,7 +83,7 @@ impl EntityDefnVariant {
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
-            StaticEntityDefnVariant::Type {
+            EntityStaticDefnVariant::Type {
                 base_route,
                 generic_placeholders,
                 ref trait_impls,
@@ -93,8 +93,17 @@ impl EntityDefnVariant {
                 visualizer,
                 opt_type_call,
             } => {
-                let type_members = type_members
-                    .map(|type_member| EntityDefn::type_member_from_static(db, type_member));
+                let type_members = type_members.map(|type_member| {
+                    EntityDefn::from_static(
+                        db,
+                        db.intern_entity_route(EntityRoute::child_route(
+                            ty,
+                            db.intern_word(type_member.name).custom(),
+                            vec![],
+                        )),
+                        type_member,
+                    )
+                });
                 let variants = variants.map(|_| todo!());
                 let kind = kind;
                 let symbol_context = SymbolContext {
@@ -205,11 +214,11 @@ impl EntityDefn {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum MethodKind {
-    Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
-    Proc { stmts: Arc<Vec<Arc<ProcStmt>>> },
-}
+// #[derive(Debug, PartialEq, Eq, Clone)]
+// pub enum MethodKind {
+//     Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
+//     Proc { stmts: Arc<Vec<Arc<ProcStmt>>> },
+// }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EnumVariantDefnVariant {

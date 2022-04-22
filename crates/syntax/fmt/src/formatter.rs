@@ -2,7 +2,7 @@ use std::ops::AddAssign;
 
 use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtKind};
 use defn_head::InputPlaceholder;
-use entity_kind::{RoutineKind, TyKind};
+use entity_kind::{RoutineContextKind, TyKind};
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
 use syntax_types::*;
@@ -110,9 +110,9 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set_value((head.routine_kind).into());
                 self.write(match head.routine_kind {
-                    RoutineKind::Test => "test ",
-                    RoutineKind::Proc => "proc ",
-                    RoutineKind::Func => "func ",
+                    RoutineContextKind::Test => "test ",
+                    RoutineContextKind::Proc => "proc ",
+                    RoutineContextKind::Func => "func ",
                 });
                 self.write(&head.ident);
                 self.write("(");

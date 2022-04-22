@@ -25,12 +25,12 @@ use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
-use static_defn::{EntityStaticDefn, StaticEntityDefnVariant};
+use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::TextRange;
 use vec_dict::HasKey;
-use vm::{FieldContract, InputContract, Linkage};
+use vm::{FieldContract, InputContract, Linkage, OutputContract};
 use word::{CustomIdentifier, IdentDict, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -151,25 +151,11 @@ pub enum EntityDefnVariant {
         field_variant: FieldDefnVariant,
         contract: FieldContract,
     },
-    TypeMethod {
-        input_placeholders: Arc<Vec<InputPlaceholder>>,
-        output: RangedEntityRoute,
+    Method {
         this_contract: InputContract,
-        method_variant: MethodDefnVariant,
-    },
-    TraitMethod {
-        trai: EntityRoutePtr,
-        ident: CustomIdentifier,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
-        output: RangedEntityRoute,
-        this_contract: InputContract,
-        method_variant: MethodDefnVariant,
-    },
-    TraitMethodImpl {
-        trai: EntityRoutePtr,
-        input_placeholders: Arc<Vec<InputPlaceholder>>,
-        output: RangedEntityRoute,
-        this_contract: InputContract,
+        output_ty: RangedEntityRoute,
+        output_contract: OutputContract,
         method_variant: MethodDefnVariant,
     },
     TraitAssociatedTypeImpl {
@@ -188,10 +174,28 @@ impl EntityDefnVariant {
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
-            StaticEntityDefnVariant::Func(_) => todo!(),
-            StaticEntityDefnVariant::Type { .. } => Self::ty_from_static(db, ty, static_defn),
-            StaticEntityDefnVariant::Trait { .. } => todo!(),
-            StaticEntityDefnVariant::Module => todo!(),
+            EntityStaticDefnVariant::Routine { .. } => todo!(),
+            EntityStaticDefnVariant::Type { .. } => Self::ty_from_static(db, ty, static_defn),
+            EntityStaticDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Module => todo!(),
+            EntityStaticDefnVariant::Method {
+                this_contract,
+                inputs,
+                output_ty,
+                output_contract,
+                generic_placeholders,
+                kind,
+            } => EntityDefnVariant::Method {
+                this_contract,
+                input_placeholders: todo!(),
+                output_ty: todo!(),
+                output_contract,
+                method_variant: todo!(),
+            },
+            EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
+            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }
     }
 }

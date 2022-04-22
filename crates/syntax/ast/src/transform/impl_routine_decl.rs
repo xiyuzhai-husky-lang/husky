@@ -23,12 +23,12 @@ impl<'a> AstTransformer<'a> {
             RoutineKeyword::Proc => {
                 self.env.set_value(AstContext::Proc);
                 AtomLRParser::new(&self.symbol_context(), tokens)
-                    .routine_defn_head(RoutineKind::Proc)?
+                    .routine_defn_head(RoutineContextKind::Proc)?
             }
             RoutineKeyword::Func => {
                 self.env.set_value(AstContext::Func);
                 AtomLRParser::new(&self.symbol_context(), tokens)
-                    .routine_defn_head(RoutineKind::Func)?
+                    .routine_defn_head(RoutineContextKind::Func)?
             }
         };
         self.symbols.extend(

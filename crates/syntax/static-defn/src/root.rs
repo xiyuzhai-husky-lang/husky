@@ -1,26 +1,39 @@
 mod static_std;
+mod vec;
 
 pub use static_std::*;
+pub use vec::*;
+
+use dev_utils::{dev_src, static_dev_src};
 
 use crate::*;
-use entity_kind::TyKind;
+use entity_kind::{RoutineKind, TyKind};
 use visual_syntax::{StaticVisualizer, VisualProps, TRIVIAL_VISUALIZER};
 use vm::*;
 
 pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Clone",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Trait {
+    variant: EntityStaticDefnVariant::Trait {
         base_route: "Clone",
-        members: &[TraitMemberStaticDefn::Method(StaticMethodDefn {
+        members: &[EntityStaticDefn {
             name: "clone",
-            this_contract: vm::InputContract::Pure,
-            inputs: &[],
-            output_ty: "This",
-            generic_placeholders: &[],
-            kind: StaticMethodKind::TraitMethod("Clone"),
-            output_contract: OutputContract::Pure,
-        })],
+            subscopes: &[],
+            variant: EntityStaticDefnVariant::Method {
+                this_contract: vm::InputContract::Pure,
+                inputs: &[],
+                output_ty: "This",
+                generic_placeholders: &[],
+                kind: MethodStaticDefnKind::TraitMethod {
+                    opt_default_source: Some(LinkageSource::PureOutput(Linkage {
+                        call: |values| Ok(values[0].clone_into_stack()),
+                        nargs: 1,
+                    })),
+                },
+                output_contract: OutputContract::Pure,
+            },
+            dev_src: static_dev_src!(),
+        }],
         generic_placeholders: &[],
     },
     dev_src: dev_utils::static_dev_src!(),
@@ -29,7 +42,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "void",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Type {
         base_route: "void",
         generic_placeholders: &[],
         trait_impls: &[],
@@ -45,7 +58,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "i32",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Type {
         base_route: "i32",
         generic_placeholders: &[],
         trait_impls: &[],
@@ -61,7 +74,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "f32",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Type {
         base_route: "f32",
         generic_placeholders: &[],
         trait_impls: &[],
@@ -77,7 +90,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "b32",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Type {
         base_route: "b32",
         generic_placeholders: &[],
         trait_impls: &[],
@@ -100,7 +113,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "b64",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Type {
         base_route: "b64",
         generic_placeholders: &[],
         trait_impls: &[],
@@ -116,7 +129,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "bool",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Type {
         base_route: "bool",
         generic_placeholders: &[],
         trait_impls: &[],
@@ -127,75 +140,4 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         opt_type_call: None,
     },
     dev_src: dev_utils::static_dev_src!(),
-};
-
-pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "Vec",
-    subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
-        base_route: "Vec",
-        generic_placeholders: &[StaticGenericPlaceholder {
-            name: "E",
-            variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
-        }],
-        trait_impls: &[
-            StaticTraitImplDefn {
-                route: "Clone",
-                member_impls: &[],
-            },
-            StaticTraitImplDefn {
-                route: "std::ops::Index<i32>",
-                member_impls: &[associated_type!("Output", "E")],
-            },
-        ],
-        type_members: &[
-            TypeMemberStaticDefn::Method(StaticMethodDefn {
-                name: "len",
-                this_contract: InputContract::Pure,
-                inputs: &[],
-                output_ty: "i32",
-                generic_placeholders: &[],
-                kind: StaticMethodKind::TypeMethod,
-                output_contract: OutputContract::Pure,
-            }),
-            TypeMemberStaticDefn::Method(StaticMethodDefn {
-                name: "push",
-                this_contract: InputContract::BorrowMut,
-                inputs: &[StaticInputPlaceholder {
-                    contract: InputContract::Move,
-                    ty: "E",
-                    name: "element",
-                }],
-                output_ty: "void",
-                generic_placeholders: &[],
-                kind: StaticMethodKind::TypeMethod,
-                output_contract: OutputContract::Pure,
-            }),
-            TypeMemberStaticDefn::Method(StaticMethodDefn {
-                name: "pop",
-                this_contract: InputContract::BorrowMut,
-                inputs: &[],
-                output_ty: "E",
-                generic_placeholders: &[],
-                kind: StaticMethodKind::TypeMethod,
-                output_contract: OutputContract::Pure,
-            }),
-        ],
-        variants: &[],
-        kind: TyKind::Vec,
-        visualizer: TRIVIAL_VISUALIZER,
-        opt_type_call: Some(&NEW_VEC_DECL),
-    },
-    dev_src: dev_utils::static_dev_src!(),
-};
-
-static NEW_VEC_DECL: StaticCallDefn = StaticCallDefn {
-    generic_placeholders: &[],
-    inputs: vec![],
-    output_ty: "Vec<E>",
-    output_contract: OutputContract::Pure,
-    linkage: Linkage {
-        call: |values| Ok(StackValue::Boxed(BoxedValue::new(Vec::<VirtualTy>::new()))),
-        nargs: 0,
-    },
 };

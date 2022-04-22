@@ -23,7 +23,7 @@ impl TraitImplDecl {
         symbol_context: &SymbolContext,
     ) -> Arc<Self> {
         let trait_route = symbol_context
-            .entity_route_from_str(static_trait_impl.route)
+            .entity_route_from_str(static_trait_impl.trai)
             .unwrap();
         let trait_decl = db.trait_decl(trait_route).unwrap();
         let member_impls = TraitMemberImplDecl::collect_from_static(
@@ -118,18 +118,30 @@ impl TraitMemberImplDecl {
         db: &dyn DeclQueryGroup,
         symbol_context: &SymbolContext,
         trait_decl: &TraitDecl,
-        static_member_impls: &[TraitMemberImplStaticDefn],
+        static_member_impls: &[EntityStaticDefn],
     ) -> Vec<Self> {
         let member_impl_context: Vec<_> = static_member_impls
             .iter()
             .filter_map(|static_member_impl| match static_member_impl.variant {
-                StaticTraitMemberImplDefnVariant::Type { route } => Some((
-                    db.intern_word(static_member_impl.name).custom(),
-                    GenericArgument::EntityRoute(
-                        symbol_context.entity_route_from_str(route).unwrap(),
-                    ),
-                )),
-                StaticTraitMemberImplDefnVariant::Method { .. } => None,
+                EntityStaticDefnVariant::Method {
+                    this_contract,
+                    inputs,
+                    output_ty,
+                    output_contract,
+                    generic_placeholders,
+                    kind,
+                } => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+                _ => panic!(),
+                // StaticTraitMemberImplDefnVariant::Type { route } => Some((
+                //     db.intern_word(static_member_impl.name).custom(),
+                //     GenericArgument::EntityRoute(
+                //         symbol_context.entity_route_from_str(route).unwrap(),
+                //     ),
+                // )),
+                // StaticTraitMemberImplDefnVariant::Method { .. } => None,
             })
             .collect();
         // let member_impl_context: Vec<_> =

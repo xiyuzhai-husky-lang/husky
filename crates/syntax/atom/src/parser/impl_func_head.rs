@@ -14,17 +14,20 @@ use super::*;
 
 // inner ops
 impl<'a> AtomLRParser<'a> {
-    pub fn routine_defn_head(mut self, routine_kind: RoutineKind) -> AtomResult<RoutineDefnHead> {
+    pub fn routine_defn_head(
+        mut self,
+        routine_kind: RoutineContextKind,
+    ) -> AtomResult<RoutineDefnHead> {
         let routine_ident = get!(self, custom_ident);
         let generic_placeholders = self.placeholders()?;
         let input_placeholders = self.func_input_placeholders()?;
         let output_ty = self.func_output_type()?;
         match routine_kind {
-            RoutineKind::Proc => (),
-            RoutineKind::Test => {
+            RoutineContextKind::Proc => (),
+            RoutineContextKind::Test => {
                 todo!()
             }
-            RoutineKind::Func => {
+            RoutineContextKind::Func => {
                 for input_placeholder in input_placeholders.iter() {
                     match input_placeholder.contract {
                         InputContract::Pure | InputContract::GlobalRef | InputContract::Move => (),
@@ -51,7 +54,7 @@ impl<'a> AtomLRParser<'a> {
     pub fn method_decl(
         mut self,
         this: InputContract,
-        routine_kind: RoutineKind,
+        routine_kind: RoutineContextKind,
     ) -> AtomResult<TypeMethodDefnHead> {
         let routine_name = get!(self, custom_ident);
         let generics = self.placeholders()?;

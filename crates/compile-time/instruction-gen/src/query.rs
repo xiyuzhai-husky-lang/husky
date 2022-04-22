@@ -14,7 +14,6 @@ pub trait InstructionGenQueryGroup:
     fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn method_instruction_sheet(&self, member_route: EntityRoutePtr) -> Arc<InstructionSheet>;
     fn dataset_config_instruction_sheet(&self, pack_main: FilePtr) -> Arc<InstructionSheet>;
-    fn virtual_vec_method_linkages(&self) -> Arc<IdentPairDict<Linkage>>;
 }
 
 fn entity_instruction_sheet(
@@ -60,11 +59,9 @@ fn entity_instruction_sheet(
         }
         EntityDefnVariant::EnumVariant { .. } => todo!(),
         EntityDefnVariant::TypeField { .. } => todo!(),
-        EntityDefnVariant::TypeMethod { .. } => todo!(),
-        EntityDefnVariant::TraitMethod { .. } => todo!(),
-        EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
         EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
         EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+        EntityDefnVariant::Method { .. } => todo!(),
     }
 }
 
@@ -90,36 +87,39 @@ fn method_instruction_sheet(
         } => {
             let method_defn = db.member_defn(member_route);
             match method_defn.variant {
-                EntityDefnVariant::TypeMethod {
+                EntityDefnVariant::Method {
                     ref method_variant,
                     ref input_placeholders,
                     ..
                 } => {
-                    let inputs = input_placeholders
-                        .iter()
-                        .map(|input_placeholder| input_placeholder.ident)
-                        .collect();
+                    // let inputs = input_placeholders
+                    //     .iter()
+                    //     .map(|input_placeholder| input_placeholder.ident)
+                    //     .collect();
                     match method_variant {
-                        MethodDefnVariant::Func { stmts } => {
-                            InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
-                        }
-                        MethodDefnVariant::Proc { stmts } => todo!(),
-                        MethodDefnVariant::Pattern { stmts } => todo!(),
-                        MethodDefnVariant::StaticMemberAccess { .. } => todo!(),
+                        MethodDefnVariant::TypeMethod { ty, method_source } => todo!(),
+                        MethodDefnVariant::TraitMethod {
+                            trai,
+                            opt_default_source,
+                        } => todo!(),
+                        MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
                     }
+                    // MethodSource::Func { stmts } => {
+                    //     InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
+                    // }
+                    // MethodSource::Proc { stmts } => todo!(),
+                    // MethodSource::Pattern { stmts } => todo!(),
+                    // MethodSource::StaticMemberAccess { .. } => todo!(),
                 }
-                EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
                 _ => panic!(),
             }
         }
         EntityDefnVariant::Builtin => todo!(),
         EntityDefnVariant::EnumVariant { .. } => todo!(),
         EntityDefnVariant::TypeField { .. } => todo!(),
-        EntityDefnVariant::TypeMethod { .. } => todo!(),
-        EntityDefnVariant::TraitMethod { .. } => todo!(),
-        EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
         EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
         EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+        EntityDefnVariant::Method { .. } => todo!(),
     }
 }
 
@@ -131,93 +131,49 @@ fn dataset_config_instruction_sheet(
     InstructionSheetBuilder::new_decl(db, vec![], &pack.config.dataset.stmts, false)
 }
 
-fn virtual_vec_method_linkages(db: &dyn InstructionGenQueryGroup) -> Arc<IdentPairDict<Linkage>> {
-    let mut field_routine_linkages = IdentDict::default();
-    field_routine_linkages.insert_new((
-        db.intern_word("clone").opt_custom().unwrap(),
-        Linkage {
-            call: virtual_vec_clone,
-            nargs: 1,
-        },
-    ));
-    field_routine_linkages.insert_new((
-        db.intern_word("len").opt_custom().unwrap(),
-        Linkage {
-            call: virtual_vec_len,
-            nargs: 1,
-        },
-    ));
-    field_routine_linkages.insert_new((
-        db.intern_word("push").opt_custom().unwrap(),
-        Linkage {
-            call: virtual_vec_push,
-            nargs: 2,
-        },
-    ));
-    field_routine_linkages.insert_new((
-        db.intern_word("pop").opt_custom().unwrap(),
-        Linkage {
-            call: virtual_vec_pop,
-            nargs: 1,
-        },
-    ));
-    field_routine_linkages.insert_new((
-        db.intern_word("first").opt_custom().unwrap(),
-        Linkage {
-            call: virtual_vec_first,
-            nargs: 1,
-        },
-    ));
-    field_routine_linkages.insert_new((
-        db.intern_word("last").opt_custom().unwrap(),
-        Linkage {
-            call: virtual_vec_last,
-            nargs: 1,
-        },
-    ));
-    Arc::new(field_routine_linkages)
-}
-
-fn virtual_vec_clone<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    let virtual_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
-    let virtual_vec_cloned: Vec<MemberValue<'eval>> = virtual_vec.clone();
-    Ok(StackValue::Boxed(BoxedValue::new(virtual_vec_cloned)))
-}
-
-fn virtual_vec_len<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    let virtual_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
-    let len: i32 = virtual_vec.len().try_into().unwrap();
-    Ok(StackValue::Primitive(len.into()))
-}
-
-fn virtual_vec_push<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    should_eq!(values.len(), 2);
-    let element = values[1].into_member();
-    let virtual_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
-    virtual_vec.push(element);
-    Ok(StackValue::Primitive(().into()))
-}
-
-fn virtual_vec_pop<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    todo!()
-}
-
-fn virtual_vec_first<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    todo!()
-}
-
-fn virtual_vec_last<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    todo!()
-}
+// fn virtual_vec_method_linkages(db: &dyn InstructionGenQueryGroup) -> Arc<IdentPairDict<Linkage>> {
+//     let mut field_routine_linkages = IdentDict::default();
+//     field_routine_linkages.insert_new((
+//         db.intern_word("clone").opt_custom().unwrap(),
+//         Linkage {
+//             call: virtual_vec_clone,
+//             nargs: 1,
+//         },
+//     ));
+//     field_routine_linkages.insert_new((
+//         db.intern_word("len").opt_custom().unwrap(),
+//         Linkage {
+//             call: virtual_vec_len,
+//             nargs: 1,
+//         },
+//     ));
+//     field_routine_linkages.insert_new((
+//         db.intern_word("push").opt_custom().unwrap(),
+//         Linkage {
+//             call: virtual_vec_push,
+//             nargs: 2,
+//         },
+//     ));
+//     field_routine_linkages.insert_new((
+//         db.intern_word("pop").opt_custom().unwrap(),
+//         Linkage {
+//             call: virtual_vec_pop,
+//             nargs: 1,
+//         },
+//     ));
+//     field_routine_linkages.insert_new((
+//         db.intern_word("first").opt_custom().unwrap(),
+//         Linkage {
+//             call: virtual_vec_first,
+//             nargs: 1,
+//         },
+//     ));
+//     field_routine_linkages.insert_new((
+//         db.intern_word("last").opt_custom().unwrap(),
+//         Linkage {
+//             call: virtual_vec_last,
+//             nargs: 1,
+//         },
+//     ));
+//     Arc::new(field_routine_linkages)
+// }

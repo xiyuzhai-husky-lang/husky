@@ -213,8 +213,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                 TyKind::Enum => todo!(),
                 TyKind::Record => todo!(),
                 TyKind::Vec => {
-                    let linkage = self.db.virtual_vec_method_linkages()[method_ident].1;
-                    InstructionKind::RoutineCallCompiled { linkage }
+                    todo!()
+                    // let linkage = self.db.virtual_vec_method_linkages()[method_ident].1;
+                    // InstructionKind::RoutineCallCompiled { linkage }
                 }
                 _ => {
                     p!(this_ty_decl.kind, method_ident);

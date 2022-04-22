@@ -1,6 +1,6 @@
 use infer_decl::FieldDecl;
-use semantics_entity::{EnumVariantDefnVariant, FieldDefnVariant, MethodDefnVariant, MethodKind};
-use vm::{FieldContract, InputContract};
+use semantics_entity::{EnumVariantDefnVariant, FieldDefnVariant};
+use vm::FieldContract;
 use word::CustomIdentifier;
 
 use super::*;

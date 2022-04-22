@@ -103,24 +103,27 @@ impl<'a> FeatureExprBuilder<'a> {
             EntityDefnVariant::Pattern {} => todo!(),
             EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TypeMethod {
+            EntityDefnVariant::Method {
                 ref method_variant, ..
-            } => match method_variant {
-                MethodDefnVariant::Func { .. } | MethodDefnVariant::Proc { .. } => {
-                    FeatureExprKind::RoutineCall {
-                        opds,
-                        instruction_sheet: self.db.method_instruction_sheet(method_route),
-                        opt_linkage: self.db.method_linkage(method_route),
-                        routine_defn: method_defn.clone(),
-                    }
-                }
-                MethodDefnVariant::Pattern { stmts } => todo!(),
-                MethodDefnVariant::StaticMemberAccess {
-                    ref_access,
-                    move_access,
-                    borrow_mut_access,
-                } => todo!(),
-            },
+            } => {
+                todo!()
+                //     match method_variant {
+                //     MethodSource::Func { .. } | MethodSource::Proc { .. } => {
+                //         FeatureExprKind::RoutineCall {
+                //             opds,
+                //             instruction_sheet: self.db.method_instruction_sheet(method_route),
+                //             opt_linkage: self.db.method_linkage(method_route),
+                //             routine_defn: method_defn.clone(),
+                //         }
+                //     }
+                //     MethodSource::Pattern { stmts } => todo!(),
+                //     MethodSource::StaticMemberAccess {
+                //         ref_access,
+                //         move_access,
+                //         borrow_mut_access,
+                //     } => todo!(),
+                // }
+            }
             _ => panic!(),
         };
         (kind, feature)

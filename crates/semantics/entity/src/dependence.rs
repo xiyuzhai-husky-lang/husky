@@ -151,24 +151,23 @@ impl EntityDefn {
                     }
                 }
             }
-            EntityDefnVariant::TypeMethod {
+            EntityDefnVariant::Method {
                 ref input_placeholders,
-                output,
+                output_ty,
                 ref method_variant,
                 ..
             } => {
-                extract_call_head_dependees(input_placeholders, output, &mut builder);
-                match method_variant {
-                    MethodDefnVariant::Func { stmts } => {
-                        extract_func_stmts_dependees(stmts, &mut builder)
-                    }
-                    MethodDefnVariant::Proc { stmts } => todo!(),
-                    MethodDefnVariant::Pattern { stmts } => todo!(),
-                    MethodDefnVariant::StaticMemberAccess { .. } => (),
-                }
+                extract_call_head_dependees(input_placeholders, output_ty, &mut builder);
+                todo!()
+                // match method_variant {
+                //     MethodSource::Func { stmts } => {
+                //         extract_func_stmts_dependees(stmts, &mut builder)
+                //     }
+                //     MethodSource::Proc { stmts } => todo!(),
+                //     MethodSource::Pattern { stmts } => todo!(),
+                //     MethodSource::StaticMemberAccess { .. } => (),
+                // }
             }
-            EntityDefnVariant::TraitMethod { .. } => todo!(),
-            EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         };
@@ -371,13 +370,9 @@ impl EntityDefn {
                     ref field_variant,
                     contract,
                 } => todo!(),
-                EntityDefnVariant::TypeMethod { .. } => todo!(),
-                EntityDefnVariant::TraitMethod { .. } => todo!(),
-                // TypeMemberDefn::Field(field) => builder.push(field.ty),
-                // TypeMemberDefn::Method(method) => extract_method_dependees(method, builder),
-                EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+                EntityDefnVariant::Method { .. } => todo!(),
             }
         }
 

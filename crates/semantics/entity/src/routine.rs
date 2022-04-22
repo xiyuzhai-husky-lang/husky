@@ -11,8 +11,8 @@ impl EntityDefnVariant {
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
         Ok(match routine_defn_head.routine_kind {
-            RoutineKind::Test => todo!(),
-            RoutineKind::Proc => {
+            RoutineContextKind::Test => todo!(),
+            RoutineContextKind::Proc => {
                 let stmts = parse_impr_stmts(
                     &routine_defn_head.input_placeholders,
                     db.upcast(),
@@ -26,7 +26,7 @@ impl EntityDefnVariant {
                     stmts,
                 }
             }
-            RoutineKind::Func => {
+            RoutineContextKind::Func => {
                 let stmts = parse_decl_stmts(
                     &routine_defn_head.input_placeholders,
                     db.upcast(),

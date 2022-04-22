@@ -1,4 +1,4 @@
-use entity_kind::RoutineKind;
+use entity_kind::RoutineContextKind;
 use file::FilePtr;
 
 use crate::*;
@@ -40,12 +40,12 @@ impl AstContext {
     }
 }
 
-impl From<RoutineKind> for AstContext {
-    fn from(routine_kind: RoutineKind) -> Self {
+impl From<RoutineContextKind> for AstContext {
+    fn from(routine_kind: RoutineContextKind) -> Self {
         match routine_kind {
-            RoutineKind::Test => AstContext::Test,
-            RoutineKind::Proc => AstContext::Proc,
-            RoutineKind::Func => AstContext::Func,
+            RoutineContextKind::Test => AstContext::Test,
+            RoutineContextKind::Proc => AstContext::Proc,
+            RoutineContextKind::Func => AstContext::Func,
         }
     }
 }

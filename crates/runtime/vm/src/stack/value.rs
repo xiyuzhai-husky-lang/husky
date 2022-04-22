@@ -283,7 +283,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub fn clone_any(&self) -> Option<Box<dyn AnyValueDyn>> {
+    pub fn clone_into_stack(&self) -> StackValue<'stack, 'eval> {
         todo!()
     }
 

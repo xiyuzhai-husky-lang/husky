@@ -1,4 +1,5 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
+use entity_kind::RoutineKind;
 use std::sync::Arc;
 use vm::{BoxedValue, Linkage, OutputContract, StackValue};
 use xrng::XRng;
@@ -9,14 +10,14 @@ pub const REAL_1D_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         ("dataset1", DATASET1_SCOPE_DATA),
         ("dataset2", DATASET2_SCOPE_DATA),
     ],
-    variant: StaticEntityDefnVariant::Module,
+    variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 
 pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset1",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Func(StaticCallDefn {
+    variant: EntityStaticDefnVariant::Routine {
         generic_placeholders: &[],
         inputs: vec![],
         output_ty: "Dataset<f32, i32>",
@@ -25,14 +26,15 @@ pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
             nargs: 0,
         },
-    }),
+        routine_kind: RoutineKind::Normal,
+    },
     dev_src: dev_utils::static_dev_src!(),
 };
 
 pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset2",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Func(StaticCallDefn {
+    variant: EntityStaticDefnVariant::Routine {
         generic_placeholders: &[],
         inputs: vec![],
         output_ty: "Dataset<f32, i32>",
@@ -41,7 +43,8 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
             nargs: 0,
         },
-    }),
+        routine_kind: RoutineKind::Normal,
+    },
     dev_src: dev_utils::static_dev_src!(),
 };
 

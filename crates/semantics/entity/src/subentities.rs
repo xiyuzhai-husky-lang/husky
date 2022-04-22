@@ -9,8 +9,6 @@ impl EntityDefnVariant {
             EntityDefnVariant::Feature { .. }
             | EntityDefnVariant::Pattern {}
             | EntityDefnVariant::TypeField { .. }
-            | EntityDefnVariant::TypeMethod { .. }
-            | EntityDefnVariant::TraitMethod { .. }
             | EntityDefnVariant::Func { .. }
             | EntityDefnVariant::Proc { .. } => Arc::new(Vec::new()),
             EntityDefnVariant::Type { members, .. } => members.clone(),
@@ -18,9 +16,9 @@ impl EntityDefnVariant {
                 EnumVariantDefnVariant::Constant => Default::default(),
             },
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TraitMethodImpl { .. } => Default::default(),
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => Arc::new(Vec::new()),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::Method { .. } => todo!(),
         }
     }
 }

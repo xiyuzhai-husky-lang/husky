@@ -6,7 +6,7 @@ mod vec;
 use std::iter::Peekable;
 
 use check_utils::should_eq;
-use entity_kind::{EnumVariantKind, RoutineKind};
+use entity_kind::{EnumVariantKind, RoutineContextKind};
 use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
@@ -35,13 +35,13 @@ pub struct TypeDecl {
     pub kind: TyKind,
     pub trai_impls: Vec<Arc<TraitImplDecl>>,
     pub members: Vec<MemberDecl>,
-    pub opt_type_call: Option<Arc<CallDecl>>,
+    pub opt_type_call: Option<Arc<RoutineDecl>>,
 }
 
 impl TypeDecl {
     fn from_static(db: &dyn DeclQueryGroup, static_defn: &EntityStaticDefn) -> Arc<Self> {
         match static_defn.variant {
-            StaticEntityDefnVariant::Type {
+            EntityStaticDefnVariant::Type {
                 base_route,
                 generic_placeholders,
                 trait_impls,
@@ -70,7 +70,7 @@ impl TypeDecl {
                 });
                 symbol_context.opt_this_ty = Some(this_ty);
                 let opt_type_call = opt_type_call
-                    .map(|type_call| member_call_decl_from_static(db, symbols.clone(), type_call));
+                    .map(|type_call| routine_decl_from_static(db, symbols.clone(), type_call));
                 let trait_impls = trait_impls
                     .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, &symbol_context));
                 Self::new(
@@ -135,7 +135,7 @@ impl TypeDecl {
                         TyMemberDecl::Method(_) | TyMemberDecl::Call => break,
                     }
                 }
-                Some(Arc::new(CallDecl {
+                Some(Arc::new(RoutineDecl {
                     inputs,
                     output: OutputDecl {
                         ty: ty_route,
@@ -222,11 +222,11 @@ impl TypeDecl {
                 AstKind::FeatureDecl { ident, ty } => todo!(),
                 AstKind::TypeMethodDefnHead(ref method_defn_head) => {
                     match method_defn_head.routine_kind {
-                        RoutineKind::Proc => todo!(),
-                        RoutineKind::Func => members.insert_new(TyMemberDecl::Method(
+                        RoutineContextKind::Proc => todo!(),
+                        RoutineContextKind::Func => members.insert_new(TyMemberDecl::Method(
                             MethodDecl::from_ast(method_defn_head, MethodKind::Type),
                         )),
-                        RoutineKind::Test => todo!(),
+                        RoutineContextKind::Test => todo!(),
                     }
                 }
                 AstKind::Use { .. } => todo!(),
@@ -255,7 +255,7 @@ impl TypeDecl {
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDecl>>,
-        opt_type_call: Option<Arc<CallDecl>>,
+        opt_type_call: Option<Arc<RoutineDecl>>,
     ) -> Arc<Self> {
         let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
         Arc::new(Self {
@@ -508,9 +508,9 @@ pub(crate) fn type_decl(
     let source = db.entity_source(ty_route)?;
     match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
-            StaticEntityDefnVariant::Func(_) => todo!(),
-            StaticEntityDefnVariant::Module => todo!(),
-            StaticEntityDefnVariant::Type { .. } => {
+            EntityStaticDefnVariant::Routine { .. } => todo!(),
+            EntityStaticDefnVariant::Module => todo!(),
+            EntityStaticDefnVariant::Type { .. } => {
                 let base_decl = TypeDecl::from_static(db, static_defn);
                 if ty_route.generic_arguments.len() > 0 {
                     assert_eq!(
@@ -522,7 +522,12 @@ pub(crate) fn type_decl(
                     base_decl
                 }
             }
-            StaticEntityDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Method { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
@@ -580,35 +585,49 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteKind]
     }
 }
 
-pub(crate) fn member_call_decl_from_static(
+pub(crate) fn method_decl_from_static(
     db: &dyn DeclQueryGroup,
     mut symbols: Vec<Symbol>,
-    static_decl: &StaticCallDefn,
-) -> Arc<CallDecl> {
-    let generic_placeholders =
-        db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
-    symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
-    let symbol_context = SymbolContext {
-        opt_package_main: None,
-        db: db.upcast(),
-        opt_this_ty: None,
-        symbols: &symbols,
-        kind: SymbolContextKind::Normal,
-    };
-    let inputs = static_decl.inputs.map(|input| InputDecl {
-        ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
-        contract: input.contract,
-        ident: db.custom_ident(input.name),
-    });
-    let output_ty = symbol_context
-        .entity_route_from_str(static_decl.output_ty)
-        .unwrap();
-    Arc::new(CallDecl {
-        generic_placeholders,
-        inputs,
-        output: OutputDecl {
-            contract: static_decl.output_contract,
-            ty: output_ty,
-        },
-    })
+    static_defn: &EntityStaticDefn,
+) -> Arc<MethodDecl> {
+    match static_defn.variant {
+        EntityStaticDefnVariant::Method {
+            this_contract,
+            inputs,
+            output_ty,
+            output_contract,
+            generic_placeholders,
+            kind,
+        } => {
+            let generic_placeholders =
+                db.parse_generic_placeholders_from_static(generic_placeholders);
+            symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
+            let symbol_context = SymbolContext {
+                opt_package_main: None,
+                db: db.upcast(),
+                opt_this_ty: None,
+                symbols: &symbols,
+                kind: SymbolContextKind::Normal,
+            };
+            let inputs = inputs.map(|input| InputDecl {
+                ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
+                contract: input.contract,
+                ident: db.custom_ident(input.name),
+            });
+            let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
+            assert!(matches!(kind, MethodStaticDefnKind::TypeMethod { .. }));
+            Arc::new(MethodDecl {
+                generic_placeholders,
+                inputs,
+                output: OutputDecl {
+                    contract: output_contract,
+                    ty: output_ty,
+                },
+                this_contract,
+                ident: db.intern_word(static_defn.name).custom(),
+                kind: MethodKind::Type,
+            })
+        }
+        _ => panic!(""),
+    }
 }
