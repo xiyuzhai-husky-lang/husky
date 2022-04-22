@@ -48,15 +48,15 @@ impl LinkageTable {
         }
     }
 
-    pub fn struct_constructor(&self, ty_uid: EntityUid) -> Option<Linkage> {
+    pub(crate) fn struct_constructor(&self, ty_uid: EntityUid) -> Option<Linkage> {
         self.linkage(LinkageKey::StructConstructor { ty_uid })
     }
 
-    pub fn routine(&self, routine_uid: EntityUid) -> Option<Linkage> {
+    pub(crate) fn routine(&self, routine_uid: EntityUid) -> Option<Linkage> {
         self.linkage(LinkageKey::Routine { routine_uid })
     }
 
-    pub fn struct_field_access(
+    pub(crate) fn struct_field_access(
         &self,
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,

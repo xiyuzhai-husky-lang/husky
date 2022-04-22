@@ -150,7 +150,7 @@ fn entity_source(
     }
 }
 
-pub fn static_root_defn(ident: RootIdentifier) -> &'static StaticEntityDefn {
+pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
     match ident {
         RootIdentifier::Void => &VOID_TYPE_DEFN,
         RootIdentifier::I32 => &I32_TYPE_DEFN,

@@ -2,7 +2,7 @@ use crate::EntityDefn;
 use crate::*;
 use atom::SymbolContext;
 use map_collect::MapCollect;
-use static_defn::{StaticTraitMemberImplDefn, StaticTraitMemberImplDefnVariant};
+use static_defn::{StaticTraitMemberImplDefnVariant, TraitMemberImplStaticDefn};
 use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -39,7 +39,7 @@ impl EntityDefn {
     pub fn trait_member_impl_from_static(
         symbol_context: &SymbolContext,
         trai: EntityRoutePtr,
-        static_trait_impl: &StaticTraitMemberImplDefn,
+        static_trait_impl: &TraitMemberImplStaticDefn,
     ) -> Arc<Self> {
         let variant = EntityDefnVariant::trait_member_impl_from_static(
             symbol_context,
@@ -66,7 +66,7 @@ impl EntityDefnVariant {
     pub fn trait_member_impl_from_static(
         symbol_context: &SymbolContext,
         trai: EntityRoutePtr,
-        static_trait_impl: &StaticTraitMemberImplDefn,
+        static_trait_impl: &TraitMemberImplStaticDefn,
     ) -> Self {
         match static_trait_impl.variant {
             StaticTraitMemberImplDefnVariant::Type { route } => Self::TraitAssociatedTypeImpl {

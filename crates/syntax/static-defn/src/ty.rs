@@ -6,18 +6,6 @@ use vm::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct StaticTypeDefn {
-    pub base_route: &'static str,
-    pub generic_placeholders: &'static [StaticGenericPlaceholder],
-    pub trait_impls: &'static [StaticTraitImplDefn],
-    pub type_members: &'static [StaticTypeMemberDefn],
-    pub variants: &'static [StaticEnumVariantDecl],
-    pub kind: TyKind,
-    pub visualizer: StaticVisualizer,
-    pub opt_type_call: Option<&'static StaticCallDefn>,
-}
-
-#[derive(Debug, PartialEq, Eq)]
 pub struct StaticFieldDefn {
     pub name: &'static str,
     pub variant: StaticFieldVariant,
@@ -26,7 +14,7 @@ pub struct StaticFieldDefn {
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitImplDefn {
     pub route: &'static str,
-    pub member_impls: &'static [StaticTraitMemberImplDefn],
+    pub member_impls: &'static [TraitMemberImplStaticDefn],
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -42,24 +30,24 @@ pub enum StaticFieldVariant {}
 pub struct StaticEnumVariantDecl {}
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum StaticTypeMemberDefn {
+pub enum TypeMemberStaticDefn {
     Field,
     Method(StaticMethodDefn),
     Call,
 }
 
-impl StaticTypeMemberDefn {
+impl TypeMemberStaticDefn {
     pub fn name(&self) -> &'static str {
         match self {
-            StaticTypeMemberDefn::Field => todo!(),
-            StaticTypeMemberDefn::Method(method) => method.name,
-            StaticTypeMemberDefn::Call => todo!(),
+            TypeMemberStaticDefn::Field => todo!(),
+            TypeMemberStaticDefn::Method(method) => method.name,
+            TypeMemberStaticDefn::Call => todo!(),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum StaticTraitMemberDecl {
+pub enum TraitMemberStaticDefn {
     Method(StaticMethodDefn),
     Call,
     Type {
@@ -68,26 +56,26 @@ pub enum StaticTraitMemberDecl {
     },
 }
 
-impl StaticTraitMemberDecl {
+impl TraitMemberStaticDefn {
     pub fn name(&self) -> &'static str {
         match self {
-            StaticTraitMemberDecl::Method(method_decl) => method_decl.name,
-            StaticTraitMemberDecl::Call => todo!(),
-            StaticTraitMemberDecl::Type { name, traits } => name,
+            TraitMemberStaticDefn::Method(method_decl) => method_decl.name,
+            TraitMemberStaticDefn::Call => todo!(),
+            TraitMemberStaticDefn::Type { name, traits } => name,
         }
     }
 
     pub fn kind(&self) -> MemberKind {
         match self {
-            StaticTraitMemberDecl::Method(_) => MemberKind::Method,
-            StaticTraitMemberDecl::Call => MemberKind::Call,
-            StaticTraitMemberDecl::Type { .. } => MemberKind::AssociatedType,
+            TraitMemberStaticDefn::Method(_) => MemberKind::Method,
+            TraitMemberStaticDefn::Call => MemberKind::Call,
+            TraitMemberStaticDefn::Type { .. } => MemberKind::AssociatedType,
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct StaticTraitMemberImplDefn {
+pub struct TraitMemberImplStaticDefn {
     pub dev_src: StaticDevSource,
     pub name: &'static str,
     pub variant: StaticTraitMemberImplDefnVariant,
@@ -111,7 +99,7 @@ pub enum StaticTraitMemberImplDefnVariant {
 #[macro_export]
 macro_rules! associated_type {
     ($name: expr, $route: expr) => {
-        StaticTraitMemberImplDefn {
+        TraitMemberImplStaticDefn {
             dev_src: dev_utils::static_dev_src!(),
             name: $name,
             variant: StaticTraitMemberImplDefnVariant::Type { route: $route },

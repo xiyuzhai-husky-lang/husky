@@ -7,7 +7,7 @@ use static_defn::StaticCallDefn;
 use std::sync::Arc;
 use vm::{BoxedValue, Linkage, StackValue};
 
-pub static CV_MOD_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+pub static CV_MOD_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "cv",
     subscopes: &[("mnist", MNIST_SCOPE_DATA)],
     variant: StaticEntityDefnVariant::Module,

@@ -1,4 +1,4 @@
-pub const REAL_2D_MOD_DEFN: &StaticEntityDefn = &StaticEntityDefn {
+pub const REAL_2D_MOD_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "real2d",
     subscopes: &[],
     variant: StaticEntityDefnVariant::Module,

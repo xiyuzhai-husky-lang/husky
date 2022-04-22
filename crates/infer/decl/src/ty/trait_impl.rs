@@ -118,7 +118,7 @@ impl TraitMemberImplDecl {
         db: &dyn DeclQueryGroup,
         symbol_context: &SymbolContext,
         trait_decl: &TraitDecl,
-        static_member_impls: &[StaticTraitMemberImplDefn],
+        static_member_impls: &[TraitMemberImplStaticDefn],
     ) -> Vec<Self> {
         let member_impl_context: Vec<_> = static_member_impls
             .iter()

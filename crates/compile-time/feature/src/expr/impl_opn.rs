@@ -44,9 +44,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
                 });
                 let routine_defn = self.db.entity_defn(routine.route).unwrap();
-                let routine_uid = self.db.entity_uid(routine.route);
                 let kind = FeatureExprKind::RoutineCall {
-                    opt_linkage: self.db.linkage_table().routine(routine_uid),
+                    opt_linkage: self.db.routine_linkage(routine.route),
                     opds,
                     instruction_sheet: self.db.entity_instruction_sheet(routine.route),
                     routine_defn,
@@ -97,7 +96,6 @@ impl<'a> FeatureExprBuilder<'a> {
         let this_ty_defn = self.db.entity_defn(opds[0].expr.ty).unwrap();
         let member_idx = self.db.member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
-        let method_uid = self.db.entity_uid(method_route);
         let kind = match method_defn.variant {
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module {} => todo!(),
@@ -112,7 +110,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     FeatureExprKind::RoutineCall {
                         opds,
                         instruction_sheet: self.db.method_instruction_sheet(method_route),
-                        opt_linkage: self.db.linkage_table().routine(method_uid),
+                        opt_linkage: self.db.method_linkage(method_route),
                         routine_defn: method_defn.clone(),
                     }
                 }
@@ -137,7 +135,6 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> (FeatureExprKind, FeaturePtr) {
         let this = self.new_expr(opds[0].clone());
         let this_ty_decl = self.db.type_decl(this.expr.ty).unwrap();
-        let this_ty_uid = self.db.entity_uid(this.expr.ty);
         match field_access_kind {
             FieldKind::StructOriginal => {
                 let feature = self.features.alloc(Feature::StructOriginalFieldAccess {
@@ -146,14 +143,11 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 (
                     FeatureExprKind::StructOriginalFieldAccess {
-                        this,
                         field_ident,
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
                         contract,
-                        opt_linkage: self
-                            .db
-                            .linkage_table()
-                            .struct_field_access(this_ty_uid, field_ident.ident),
+                        opt_linkage: self.db.struct_field_access(this.expr.ty, field_ident.ident),
+                        this,
                     },
                     feature,
                 )

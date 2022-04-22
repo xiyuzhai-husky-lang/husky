@@ -7,7 +7,7 @@ use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::p;
-use static_defn::StaticTraitMemberDecl;
+use static_defn::TraitMemberStaticDefn;
 use vec_dict::HasKey;
 use word::IdentDict;
 
@@ -31,15 +31,15 @@ pub enum TraitMemberDecl {
 impl TraitMemberDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
-        static_member_decl: &StaticTraitMemberDecl,
+        static_member_decl: &TraitMemberStaticDefn,
         symbol_context: &SymbolContext,
     ) -> Self {
         match static_member_decl {
-            StaticTraitMemberDecl::Method(static_method_decl) => TraitMemberDecl::Method(
+            TraitMemberStaticDefn::Method(static_method_decl) => TraitMemberDecl::Method(
                 MethodDecl::from_static(db, static_method_decl, symbol_context),
             ),
-            StaticTraitMemberDecl::Call => todo!(),
-            StaticTraitMemberDecl::Type { name, traits } => TraitMemberDecl::Type {
+            TraitMemberStaticDefn::Call => todo!(),
+            TraitMemberStaticDefn::Type { name, traits } => TraitMemberDecl::Type {
                 ident: db.intern_word(name).custom(),
                 traits: traits.map(|trai| symbol_context.entity_route_from_str(trai).unwrap()),
             },
@@ -96,31 +96,38 @@ impl HasKey<CustomIdentifier> for TraitMemberDecl {
 }
 
 impl TraitDecl {
-    pub fn from_static(db: &dyn DeclQueryGroup, trait_decl: &StaticTraitDecl) -> Arc<Self> {
-        let generic_placeholders =
-            db.parse_generic_placeholders_from_static(trait_decl.generic_placeholders);
-        let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
-        let members: Vec<_> = trait_decl
-            .members
-            .map(|member| (db.intern_word(member.name()).custom(), member.kind()));
-        let symbol_context_kind = SymbolContextKind::Trait { members: &members };
-        let symbol_context = SymbolContext {
-            opt_package_main: None,
-            db: db.upcast(),
-            opt_this_ty: None,
-            symbols: &symbols,
-            kind: symbol_context_kind,
-        };
-        Arc::new(TraitDecl {
-            base_route: symbol_context
-                .entity_route_from_str(trait_decl.base_route)
-                .unwrap(),
-            members: trait_decl
-                .members
-                .iter()
-                .map(|member| TraitMemberDecl::from_static(db, member, &symbol_context))
-                .collect(),
-        })
+    pub fn from_static(db: &dyn DeclQueryGroup, static_defn: &EntityStaticDefn) -> Arc<Self> {
+        match static_defn.variant {
+            StaticEntityDefnVariant::Trait {
+                base_route,
+                ref generic_placeholders,
+                ref members,
+            } => {
+                let generic_placeholders =
+                    db.parse_generic_placeholders_from_static(generic_placeholders);
+                let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+                let member_context: Vec<_> =
+                    members.map(|member| (db.intern_word(member.name()).custom(), member.kind()));
+                let symbol_context_kind = SymbolContextKind::Trait {
+                    members: &member_context,
+                };
+                let symbol_context = SymbolContext {
+                    opt_package_main: None,
+                    db: db.upcast(),
+                    opt_this_ty: None,
+                    symbols: &symbols,
+                    kind: symbol_context_kind,
+                };
+                Arc::new(TraitDecl {
+                    base_route: symbol_context.entity_route_from_str(base_route).unwrap(),
+                    members: members
+                        .iter()
+                        .map(|member| TraitMemberDecl::from_static(db, member, &symbol_context))
+                        .collect(),
+                })
+            }
+            _ => panic!(),
+        }
     }
 
     pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
@@ -139,12 +146,10 @@ pub(crate) fn trait_decl(
 ) -> InferResultArc<TraitDecl> {
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
-        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.variant {
+        EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
             StaticEntityDefnVariant::Func(_) => todo!(),
-            StaticEntityDefnVariant::Type(_) => todo!(),
-            StaticEntityDefnVariant::Trait(ref trait_decl) => {
-                Ok(TraitDecl::from_static(db, trait_decl))
-            }
+            StaticEntityDefnVariant::Type { .. } => todo!(),
+            StaticEntityDefnVariant::Trait { .. } => Ok(TraitDecl::from_static(db, static_defn)),
             StaticEntityDefnVariant::Module => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
@@ -160,7 +165,7 @@ pub(crate) fn trait_decl(
 
 pub(crate) fn trait_decl_menu(db: &dyn DeclQueryGroup) -> Arc<TraitDeclMenu> {
     Arc::new(TraitDeclMenu {
-        clone_trait: TraitDecl::from_static(db, &CLONE_TRAIT_DECL),
+        clone_trait: TraitDecl::from_static(db, &CLONE_TRAIT_DEFN),
     })
 }
 

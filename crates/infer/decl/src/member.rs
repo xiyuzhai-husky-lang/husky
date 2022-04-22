@@ -106,15 +106,15 @@ impl TyMemberDecl {
 
     pub(crate) fn from_static(
         db: &dyn DeclQueryGroup,
-        member_decl: &StaticTypeMemberDefn,
+        member_decl: &TypeMemberStaticDefn,
         symbol_context: &SymbolContext,
     ) -> Self {
         match member_decl {
-            StaticTypeMemberDefn::Field => todo!(),
-            StaticTypeMemberDefn::Method(method_decl) => {
+            TypeMemberStaticDefn::Field => todo!(),
+            TypeMemberStaticDefn::Method(method_decl) => {
                 TyMemberDecl::Method(MethodDecl::from_static(db, method_decl, symbol_context))
             }
-            StaticTypeMemberDefn::Call => todo!(),
+            TypeMemberStaticDefn::Call => todo!(),
         }
     }
 }
