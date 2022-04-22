@@ -1,8 +1,15 @@
+use datasets::cv::mnist::BinaryImage28
+
 dataset:
     cv::mnist::new_binary_dataset()
+
+proc find_connected_components(binary_image: BinaryImage28) -> []i32:
+    let b = binary_image.clone()
+    return []i32()
 
 main:
     a = input
     b = a[1]
     c = a[12]
+    d = find_connected_components(input)
     1

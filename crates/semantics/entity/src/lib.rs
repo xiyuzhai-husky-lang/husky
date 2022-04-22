@@ -270,7 +270,7 @@ pub(crate) fn entity_defn(
                     EntityDefnVariant::routine(db, head, not_none!(children), arena, file)?,
                 ),
                 AstKind::PatternDefnHead => todo!(),
-                AstKind::Use { ident, scope } => todo!(),
+                AstKind::Use { .. } => todo!(),
                 AstKind::MainDefn | AstKind::DatasetConfigDefnHead | AstKind::Stmt(_) => panic!(),
                 AstKind::EnumVariantDefnHead {
                     ident,

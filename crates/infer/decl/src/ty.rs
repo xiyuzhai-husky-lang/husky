@@ -220,7 +220,7 @@ impl TypeDecl {
                         RoutineKind::Test => todo!(),
                     }
                 }
-                AstKind::Use { ident, scope } => todo!(),
+                AstKind::Use { .. } => todo!(),
                 AstKind::FieldDefnHead(ref field_defn_head) => match field_defn_head.kind {
                     FieldKind::StructOriginal => todo!("no original at this point"),
                     FieldKind::RecordOriginal => todo!("no original at this point"),

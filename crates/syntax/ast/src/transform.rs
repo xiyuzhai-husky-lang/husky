@@ -6,7 +6,7 @@ mod impl_morphism_decl;
 mod impl_routine_decl;
 mod impl_stmt;
 mod impl_struct_item;
-mod impl_symbol_proxy;
+mod impl_symbol_context;
 mod impl_ty_decl;
 mod impl_use_all;
 mod utils;

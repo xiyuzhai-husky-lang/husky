@@ -23,4 +23,15 @@ impl<'a> AstTransformer<'a> {
         );
         Ok(())
     }
+
+    pub(super) fn use_route(&mut self, route: EntityRoutePtr) -> AstResult<()> {
+        if route.generic_arguments.len() != 0 {
+            todo!()
+        }
+        self.symbols.push(Symbol {
+            ident: route.ident().custom(),
+            kind: SymbolKind::EntityRoute(route),
+        });
+        Ok(())
+    }
 }
