@@ -149,7 +149,7 @@ impl EntityDefnVariant {
         // let mut fields = VecDict::default();
         // for subitem in children {
         //     match subitem.value.as_ref()?.kind {
-        //         AstKind::Use { ident, scope } => (),
+        //         AstKind::Use { .. } => (),
         //         AstKind::RoutineDefnHead(_) => todo!(),
         //         AstKind::FieldDefn(ref field_var_defn) => fields.insert_new(field_var_defn.clone()),
         //         AstKind::MembFeatureDefnHead { ident, ty } => {

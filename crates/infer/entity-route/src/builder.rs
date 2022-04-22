@@ -57,7 +57,7 @@ impl<'a> TySheetBuilder<'a> {
                         &arena,
                     ),
                     AstKind::PatternDefnHead => todo!(),
-                    AstKind::Use { ident, scope } => todo!(),
+                    AstKind::Use { .. } => (),
                     AstKind::FieldDefnHead(ref head) => match head.kind {
                         FieldKind::StructOriginal => (),
                         FieldKind::RecordOriginal => (),

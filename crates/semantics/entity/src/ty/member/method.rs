@@ -77,7 +77,7 @@ impl EntityDefnVariant {
                         ast.range,
                     ))
                 }
-                AstKind::Use { ident, scope } => todo!(),
+                AstKind::Use { .. } => todo!(),
                 AstKind::FieldDefnHead(_) => todo!(),
                 AstKind::DatasetConfigDefnHead => todo!(),
                 AstKind::Stmt(_) => todo!(),

@@ -133,7 +133,6 @@ impl<'a> Formatter<'a> {
                 self.write(":");
             }
             AstKind::PatternDefnHead => todo!(),
-            AstKind::Use { ident, scope } => todo!(),
             AstKind::FieldDefnHead(ref field_var) => {
                 self.fmt_ident(field_var.ident.into());
                 self.write(": ");
@@ -147,6 +146,7 @@ impl<'a> Formatter<'a> {
             } => todo!(),
             AstKind::TypeMethodDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),
+            AstKind::Use { ref use_variant } => todo!(),
         }
     }
 

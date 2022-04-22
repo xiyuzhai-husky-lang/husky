@@ -45,10 +45,6 @@ pub enum AstKind {
         ty: RangedEntityRoute,
     },
     TypeMethodDefnHead(TypeMethodDefnHead),
-    Use {
-        ident: CustomIdentifier,
-        scope: EntityRoutePtr,
-    },
     FieldDefnHead(FieldDefnHead),
     DatasetConfigDefnHead,
     Stmt(RawStmt),
@@ -56,6 +52,15 @@ pub enum AstKind {
         ident: CustomIdentifier,
         variant_class: EnumVariantKind,
     },
+    Use {
+        use_variant: UseVariant,
+    },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum UseVariant {
+    Route { route: EntityRoutePtr },
+    All { parent: EntityRoutePtr },
 }
 
 impl From<RawStmt> for Ast {

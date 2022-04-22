@@ -71,7 +71,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         self.infer_routine(head.output_ty.route, item.children.unwrap(), &arena)
                     }
                     AstKind::PatternDefnHead => todo!(),
-                    AstKind::Use { ident, scope } => todo!(),
+                    AstKind::Use { .. } => (),
                     AstKind::FieldDefnHead(ref head) => match head.kind {
                         FieldKind::StructOriginal => (),
                         FieldKind::RecordOriginal => (),
