@@ -133,12 +133,12 @@ impl Entry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct SubscopeTable {
+pub struct ChildRouteTable {
     pub entries: Vec<Entry>,
     pub errors: Vec<EntityDefnError>,
 }
 
-impl std::fmt::Display for SubscopeTable {
+impl std::fmt::Display for ChildRouteTable {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("[")?;
         self.entries
@@ -150,7 +150,7 @@ impl std::fmt::Display for SubscopeTable {
     }
 }
 
-impl SubscopeTable {
+impl ChildRouteTable {
     pub fn empty() -> Self {
         Self {
             entries: Vec::new(),
@@ -171,7 +171,7 @@ impl SubscopeTable {
     }
 }
 
-impl SubscopeTable {
+impl ChildRouteTable {
     pub fn submodule_idents(&self) -> Vec<CustomIdentifier> {
         self.entries
             .iter()
@@ -218,7 +218,7 @@ impl SubscopeTable {
     }
 }
 
-impl SubscopeTable {
+impl ChildRouteTable {
     pub fn entry_iter(&self) -> core::slice::Iter<Entry> {
         self.entries.iter()
     }
@@ -237,7 +237,7 @@ impl SubscopeTable {
     }
 }
 
-impl SubscopeTable {
+impl ChildRouteTable {
     pub(crate) fn from_static(
         db: &dyn EntityRouteSalsaQueryGroup,
         data: &EntityStaticDefn,
@@ -252,15 +252,15 @@ impl SubscopeTable {
             })
             .collect();
         match data.variant {
-            StaticEntityDefnVariant::Func(_) | StaticEntityDefnVariant::Module => (),
-            StaticEntityDefnVariant::Type {
+            EntityStaticDefnVariant::Routine { .. } | EntityStaticDefnVariant::Module => (),
+            EntityStaticDefnVariant::Type {
                 type_members,
                 variants,
                 ..
             } => {
                 for type_member in type_members {
                     entries.push(Entry {
-                        ident: Some(db.intern_word(type_member.name()).custom()),
+                        ident: Some(db.intern_word(type_member.name).custom()),
                         kind: EntityKind::TypeMember,
                         source: EntitySource::StaticTypeMember,
                     })
@@ -269,7 +269,12 @@ impl SubscopeTable {
                     todo!()
                 }
             }
-            StaticEntityDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Method { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
         }
         Self {
             entries,

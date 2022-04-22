@@ -10,14 +10,14 @@ pub static DATASETS_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         ("synthetic", synthetic::SCOPE_DATA),
         ("cv", &cv::CV_MOD_DEFN),
     ],
-    variant: StaticEntityDefnVariant::Module,
+    variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 
 pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "Dataset",
     subscopes: &[],
-    variant: StaticEntityDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Type {
         base_route: "Dataset",
         generic_placeholders: &[
             StaticGenericPlaceholder {
@@ -48,7 +48,7 @@ pub use loader::{DataLoader, LoadSample};
 
 use entity_route::EntityRouteKind;
 use static_defn::*;
-use static_defn::{EntityStaticDefn, StaticEntityDefnVariant};
+use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use visual_syntax::TRIVIAL_VISUALIZER;
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 

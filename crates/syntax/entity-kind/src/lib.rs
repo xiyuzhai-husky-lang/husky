@@ -58,10 +58,19 @@ pub enum EnumVariantKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RoutineKind {
+pub enum RoutineContextKind {
     Test,
     Proc,
     Func,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RoutineKind {
+    Normal,
+    TypeCall,
+    Method,
+    TypeAssociated,
+    TraitAssociated,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

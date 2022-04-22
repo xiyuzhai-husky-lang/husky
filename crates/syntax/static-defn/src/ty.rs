@@ -5,121 +5,83 @@ use vm::*;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct StaticFieldDefn {
-    pub name: &'static str,
-    pub variant: StaticFieldVariant,
-}
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct StaticFieldDefn {
+//     pub name: &'static str,
+//     pub variant: StaticFieldVariant,
+// }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticTraitImplDefn {
-    pub route: &'static str,
-    pub member_impls: &'static [TraitMemberImplStaticDefn],
+    pub trai: &'static str,
+    pub member_impls: &'static [EntityStaticDefn],
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum StaticGenericArgument {
-    EntityRoute(&'static str),
-    ConstUsize(usize),
-}
+// #[derive(Debug, PartialEq, Eq)]
+// pub enum StaticGenericArgument {
+//     EntityRoute(&'static str),
+//     ConstUsize(usize),
+// }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum StaticFieldVariant {}
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct StaticEnumVariantDecl {}
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct StaticEnumVariantDecl {}
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum TypeMemberStaticDefn {
-    Field,
-    Method(StaticMethodDefn),
-    Call,
-}
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct EntityStaticDefn {
+//     pub dev_src: StaticDevSource,
+//     pub name: &'static str,
+//     pub variant: StaticTraitMemberImplDefnVariant,
+// }
 
-impl TypeMemberStaticDefn {
-    pub fn name(&self) -> &'static str {
-        match self {
-            TypeMemberStaticDefn::Field => todo!(),
-            TypeMemberStaticDefn::Method(method) => method.name,
-            TypeMemberStaticDefn::Call => todo!(),
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum TraitMemberStaticDefn {
-    Method(StaticMethodDefn),
-    Call,
-    Type {
-        name: &'static str,
-        traits: &'static [&'static str],
-    },
-}
-
-impl TraitMemberStaticDefn {
-    pub fn name(&self) -> &'static str {
-        match self {
-            TraitMemberStaticDefn::Method(method_decl) => method_decl.name,
-            TraitMemberStaticDefn::Call => todo!(),
-            TraitMemberStaticDefn::Type { name, traits } => name,
-        }
-    }
-
-    pub fn kind(&self) -> MemberKind {
-        match self {
-            TraitMemberStaticDefn::Method(_) => MemberKind::Method,
-            TraitMemberStaticDefn::Call => MemberKind::Call,
-            TraitMemberStaticDefn::Type { .. } => MemberKind::AssociatedType,
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct TraitMemberImplStaticDefn {
-    pub dev_src: StaticDevSource,
-    pub name: &'static str,
-    pub variant: StaticTraitMemberImplDefnVariant,
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum StaticTraitMemberImplDefnVariant {
-    Type {
-        route: &'static str,
-    },
-    Method {
-        this_contract: InputContract,
-        input_placeholders: &'static [StaticInputPlaceholder],
-        output: &'static str,
-        ref_access: Linkage,
-        move_access: Linkage,
-        borrow_mut_access: Linkage,
-    },
-}
+// #[derive(Debug, PartialEq, Eq)]
+// pub enum StaticTraitMemberImplDefnVariant {
+//     Type {
+//         route: &'static str,
+//     },
+//     Method {
+//         this_contract: InputContract,
+//         input_placeholders: &'static [StaticInputPlaceholder],
+//         output: &'static str,
+//         ref_access: Linkage,
+//         move_access: Linkage,
+//         borrow_mut_access: Linkage,
+//     },
+// }
 
 #[macro_export]
-macro_rules! associated_type {
-    ($name: expr, $route: expr) => {
-        TraitMemberImplStaticDefn {
+macro_rules! associated_type_impl {
+    ($name: expr, $ty: expr) => {
+        EntityStaticDefn {
             dev_src: dev_utils::static_dev_src!(),
             name: $name,
-            variant: StaticTraitMemberImplDefnVariant::Type { route: $route },
+            subscopes: &[],
+            variant: EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: $ty },
         }
     };
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct StaticMethodDefn {
-    pub name: &'static str,
-    pub this_contract: InputContract,
-    pub inputs: &'static [StaticInputPlaceholder],
-    pub output_ty: &'static str,
-    pub output_contract: OutputContract,
-    pub generic_placeholders: &'static [StaticGenericPlaceholder],
-    pub kind: StaticMethodKind,
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum MethodStaticDefnKind {
+    TypeMethod {
+        source: LinkageSource,
+    },
+    TraitMethod {
+        opt_default_source: Option<LinkageSource>,
+    },
+    TraitMethodImpl {
+        opt_source: Option<LinkageSource>,
+    },
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum StaticMethodKind {
-    TypeMethod,
-    TraitMethod(&'static str),
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum LinkageSource {
+    MemberAccess {
+        ref_access: Linkage,
+        move_access: Linkage,
+        borrow_mut_access: Linkage,
+    },
+    PureOutput(Linkage),
 }

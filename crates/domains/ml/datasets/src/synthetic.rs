@@ -5,7 +5,7 @@ pub mod trivial;
 pub const SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "synthetic",
     subscopes: &[("trivial", trivial::TRIVIAL_MODULE_DEFN)],
-    variant: StaticEntityDefnVariant::Module,
+    variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 

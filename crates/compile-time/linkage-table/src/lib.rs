@@ -1,14 +1,14 @@
 mod table;
 mod vec;
 
-use static_defn::StaticEntityDefnVariant;
+use static_defn::EntityStaticDefnVariant;
 pub use table::*;
 
 use check_utils::*;
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, EntitySource, GenericArgument};
 use map_collect::MapCollect;
 use print_utils::p;
-use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant, MethodDefnVariant};
+use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant, MethodDefnVariant, MethodSource};
 use std::collections::HashMap;
 use sync_utils::ARwLock;
 use vec::*;
@@ -52,18 +52,30 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                 });
                 let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
                 match index_trai_impl.member_impls[1].variant {
-                    EntityDefnVariant::TraitMethodImpl {
-                        method_variant:
-                            MethodDefnVariant::StaticMemberAccess {
-                                ref_access,
-                                move_access,
-                                borrow_mut_access,
-                            },
-                        ..
-                    } => match access_kind {
-                        MemberAccessKind::Move => move_access,
-                        MemberAccessKind::Ref => ref_access,
-                        MemberAccessKind::BorrowMut => borrow_mut_access,
+                    EntityDefnVariant::Method {
+                        ref method_variant, ..
+                    } => match method_variant {
+                        MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
+                            if let Some(source) = opt_source {
+                                match source {
+                                    MethodSource::Func { stmts } => todo!(),
+                                    MethodSource::Proc { stmts } => todo!(),
+                                    MethodSource::Pattern { stmts } => todo!(),
+                                    MethodSource::StaticMemberAccess {
+                                        ref_access,
+                                        move_access,
+                                        borrow_mut_access,
+                                    } => match access_kind {
+                                        MemberAccessKind::Move => *move_access,
+                                        MemberAccessKind::Ref => *ref_access,
+                                        MemberAccessKind::BorrowMut => *borrow_mut_access,
+                                    },
+                                }
+                            } else {
+                                todo!()
+                            }
+                        }
+                        _ => panic!(""),
                     },
                     _ => panic!(""),
                 }
@@ -86,23 +98,24 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         let method_defn = self.entity_defn(method_route).unwrap();
         match method_defn.variant {
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TypeMethod { .. } => todo!(),
-            EntityDefnVariant::TraitMethod { .. } => todo!(),
-            EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+            EntityDefnVariant::Method { .. } => todo!(),
             _ => panic!(),
         }
     }
 
     fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<Linkage> {
         match self.entity_source(routine).unwrap() {
-            EntitySource::StaticModuleItem(builtin_entity_data) => {
-                match builtin_entity_data.variant {
-                    StaticEntityDefnVariant::Func(ref func_decl) => Some(func_decl.linkage),
-                    StaticEntityDefnVariant::Type { .. } => todo!(),
-                    StaticEntityDefnVariant::Module => todo!(),
-                    StaticEntityDefnVariant::Trait { .. } => todo!(),
-                }
-            }
+            EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+                EntityStaticDefnVariant::Routine { linkage, .. } => Some(linkage),
+                EntityStaticDefnVariant::Type { .. } => todo!(),
+                EntityStaticDefnVariant::Module => todo!(),
+                EntityStaticDefnVariant::Trait { .. } => todo!(),
+                EntityStaticDefnVariant::TypeField { .. } => todo!(),
+                EntityStaticDefnVariant::Method { .. } => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+            },
             EntitySource::WithinBuiltinModule => todo!(),
             EntitySource::WithinModule { .. } => {
                 self.linkage_table().routine(self.entity_uid(routine))

@@ -4,7 +4,7 @@ use entity_route::EntityRouteKind;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum MethodDefnVariant {
+pub enum MethodSource {
     Func {
         stmts: Avec<FuncStmt>,
     },
@@ -18,6 +18,22 @@ pub enum MethodDefnVariant {
         ref_access: Linkage,
         move_access: Linkage,
         borrow_mut_access: Linkage,
+    },
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum MethodDefnVariant {
+    TypeMethod {
+        ty: EntityRoutePtr,
+        method_source: MethodSource,
+    },
+    TraitMethod {
+        trai: EntityRoutePtr,
+        opt_default_source: Option<MethodSource>,
+    },
+    TraitMethodImpl {
+        trai: EntityRoutePtr,
+        opt_source: Option<MethodSource>,
     },
 }
 
@@ -43,9 +59,9 @@ impl EntityDefnVariant {
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::FeatureDecl { ident, ty } => todo!(),
                 AstKind::TypeMethodDefnHead(ref head) => {
-                    let method_variant = match head.routine_kind {
-                        RoutineKind::Proc => todo!(),
-                        RoutineKind::Func => {
+                    let method_source = match head.routine_kind {
+                        RoutineContextKind::Proc => todo!(),
+                        RoutineContextKind::Func => {
                             let stmts = semantics_eager::parse_decl_stmts(
                                 &head.input_placeholders,
                                 db,
@@ -53,17 +69,22 @@ impl EntityDefnVariant {
                                 child.children.unwrap(),
                                 file,
                             )?;
-                            MethodDefnVariant::Func { stmts }
+                            MethodSource::Func { stmts }
                         }
-                        RoutineKind::Test => todo!(),
+                        RoutineContextKind::Test => todo!(),
+                    };
+                    let method_variant = MethodDefnVariant::TypeMethod {
+                        ty: ty_route,
+                        method_source,
                     };
                     members.insert_new(EntityDefn::new(
                         head.ident.into(),
-                        EntityDefnVariant::TypeMethod {
+                        EntityDefnVariant::Method {
                             input_placeholders: head.input_placeholders.clone(),
-                            output: head.output_ty,
+                            output_ty: head.output_ty,
                             this_contract: head.this_contract,
                             method_variant,
+                            output_contract: OutputContract::Pure,
                         },
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {

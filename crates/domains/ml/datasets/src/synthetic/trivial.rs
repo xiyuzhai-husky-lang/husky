@@ -6,7 +6,7 @@ pub const TRIVIAL_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         ("real1d", real1d::REAL_1D_SCOPE_DATA),
         ("real2d", real2d::REAL_2D_MOD_DEFN),
     ],
-    variant: StaticEntityDefnVariant::Module,
+    variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 

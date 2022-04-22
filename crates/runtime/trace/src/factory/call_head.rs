@@ -27,9 +27,7 @@ impl<'eval> TraceFactory<'eval> {
                 ref field_variant,
                 contract,
             } => todo!(),
-            EntityDefnVariant::TypeMethod { .. } => todo!(),
-            EntityDefnVariant::TraitMethod { .. } => todo!(),
-            EntityDefnVariant::TraitMethodImpl { .. } => todo!(),
+            EntityDefnVariant::Method { .. } => todo!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         };

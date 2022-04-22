@@ -13,20 +13,20 @@ use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
-use static_defn::{StaticCallDefn, StaticEntityDefnVariant, StaticInputPlaceholder};
+use static_defn::{EntityStaticDefnVariant, StaticInputPlaceholder};
 use vm::{InputContract, OutputContract};
 use word::IdentDict;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct CallDecl {
+pub struct RoutineDecl {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub inputs: Vec<InputDecl>,
     pub output: OutputDecl,
 }
 
-impl CallDecl {
+impl RoutineDecl {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
         Arc::new(Self {
             generic_placeholders: self
@@ -40,9 +40,9 @@ impl CallDecl {
     }
 }
 
-impl From<&RoutineDefnHead> for CallDecl {
+impl From<&RoutineDefnHead> for RoutineDecl {
     fn from(head: &RoutineDefnHead) -> Self {
-        CallDecl {
+        RoutineDecl {
             generic_placeholders: head.generic_placeholders.clone(),
             inputs: head
                 .input_placeholders
@@ -60,12 +60,14 @@ impl From<&RoutineDefnHead> for CallDecl {
 pub(crate) fn call_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
-) -> InferResultArc<CallDecl> {
+) -> InferResultArc<RoutineDecl> {
     let source = db.entity_source(route)?;
     return match source {
-        EntitySource::StaticModuleItem(data) => Ok(match data.variant {
-            StaticEntityDefnVariant::Func(ref decl) => call_decl_from_static(db, decl),
-            StaticEntityDefnVariant::Type { .. } => {
+        EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
+            EntityStaticDefnVariant::Routine { .. } => {
+                routine_decl_from_static(db, vec![], static_defn)
+            }
+            EntityStaticDefnVariant::Type { .. } => {
                 db.type_decl(route)?.opt_type_call.clone().expect("todo")
             }
             _ => panic!(),
@@ -106,34 +108,45 @@ pub(crate) fn call_decl(
     };
 }
 
-pub(crate) fn call_decl_from_static(
+pub(crate) fn routine_decl_from_static(
     db: &dyn DeclQueryGroup,
-    static_decl: &StaticCallDefn,
-) -> Arc<CallDecl> {
-    let generic_placeholders =
-        db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
-    let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
-    let symbol_context = SymbolContext {
-        opt_package_main: None,
-        db: db.upcast(),
-        opt_this_ty: None,
-        symbols: &symbols,
-        kind: SymbolContextKind::Normal,
-    };
-    let inputs = static_decl.inputs.map(|input| InputDecl {
-        ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
-        contract: input.contract,
-        ident: db.custom_ident(input.name),
-    });
-    let output_ty = symbol_context
-        .entity_route_from_str(static_decl.output_ty)
-        .unwrap();
-    Arc::new(CallDecl {
-        generic_placeholders,
-        inputs,
-        output: OutputDecl {
-            contract: static_decl.output_contract,
-            ty: output_ty,
-        },
-    })
+    mut symbols: Vec<Symbol>,
+    static_defn: &EntityStaticDefn,
+) -> Arc<RoutineDecl> {
+    match static_defn.variant {
+        EntityStaticDefnVariant::Routine {
+            ref generic_placeholders,
+            ref inputs,
+            output_ty,
+            output_contract,
+            linkage,
+            routine_kind,
+        } => {
+            let generic_placeholders =
+                db.parse_generic_placeholders_from_static(generic_placeholders);
+            symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
+            let symbol_context = SymbolContext {
+                opt_package_main: None,
+                db: db.upcast(),
+                opt_this_ty: None,
+                symbols: &symbols,
+                kind: SymbolContextKind::Normal,
+            };
+            let inputs = inputs.map(|input| InputDecl {
+                ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
+                contract: input.contract,
+                ident: db.custom_ident(input.name),
+            });
+            let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
+            Arc::new(RoutineDecl {
+                generic_placeholders,
+                inputs,
+                output: OutputDecl {
+                    contract: output_contract,
+                    ty: output_ty,
+                },
+            })
+        }
+        _ => panic!(),
+    }
 }

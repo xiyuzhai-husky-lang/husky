@@ -2,7 +2,7 @@ use crate::EntityDefn;
 use crate::*;
 use atom::SymbolContext;
 use map_collect::MapCollect;
-use static_defn::{StaticTraitMemberImplDefnVariant, TraitMemberImplStaticDefn};
+use static_defn::{EntityStaticDefn, MethodStaticDefnKind};
 use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -20,7 +20,7 @@ impl TraitImplDefn {
         static_trait_impl: &static_defn::StaticTraitImplDefn,
     ) -> Arc<Self> {
         let trai = symbol_context
-            .entity_route_from_str(static_trait_impl.route)
+            .entity_route_from_str(static_trait_impl.trai)
             .unwrap();
         Arc::new(Self {
             trai,
@@ -39,7 +39,7 @@ impl EntityDefn {
     pub fn trait_member_impl_from_static(
         symbol_context: &SymbolContext,
         trai: EntityRoutePtr,
-        static_trait_impl: &TraitMemberImplStaticDefn,
+        static_trait_impl: &EntityStaticDefn,
     ) -> Arc<Self> {
         let variant = EntityDefnVariant::trait_member_impl_from_static(
             symbol_context,
@@ -66,38 +66,50 @@ impl EntityDefnVariant {
     pub fn trait_member_impl_from_static(
         symbol_context: &SymbolContext,
         trai: EntityRoutePtr,
-        static_trait_impl: &TraitMemberImplStaticDefn,
+        static_defn: &EntityStaticDefn,
     ) -> Self {
-        match static_trait_impl.variant {
-            StaticTraitMemberImplDefnVariant::Type { route } => Self::TraitAssociatedTypeImpl {
-                trai,
-                ty: symbol_context.entity_route_from_str(route).unwrap(),
-            },
-            StaticTraitMemberImplDefnVariant::Method {
-                this_contract,
-                input_placeholders,
-                output,
-                ref_access,
-                move_access,
-                borrow_mut_access,
-            } => {
-                Self::TraitMethodImpl {
+        match static_defn.variant {
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => {
+                Self::TraitAssociatedTypeImpl {
                     trai,
-                    input_placeholders: Arc::new(input_placeholders.map(|input_placeholder| {
+                    ty: symbol_context.entity_route_from_str(ty).unwrap(),
+                }
+            }
+            EntityStaticDefnVariant::Method {
+                this_contract,
+                inputs,
+                output_ty,
+                output_contract,
+                generic_placeholders,
+                kind,
+            } => {
+                let method_variant = match kind {
+                    MethodStaticDefnKind::TypeMethod { source } => todo!(),
+                    MethodStaticDefnKind::TraitMethod { opt_default_source } => todo!(),
+                    MethodStaticDefnKind::TraitMethodImpl { opt_source } => todo!(),
+                };
+                // MethodDefnVariant::TraitMethodImpl {
+                //             trai,
+                //             opt_source: Some(MethodSource::StaticMemberAccess {
+                //                 ref_access,
+                //                 move_access,
+                //                 borrow_mut_access,
+                //             }),
+                //         };
+                Self::Method {
+                    input_placeholders: Arc::new(inputs.map(|input_placeholder| {
                         symbol_context.input_placeholder(input_placeholder)
                     })),
-                    output: RangedEntityRoute {
-                        route: symbol_context.entity_route_from_str(output).unwrap(),
+                    output_ty: RangedEntityRoute {
+                        route: symbol_context.entity_route_from_str(output_ty).unwrap(),
                         range: Default::default(),
                     },
                     this_contract,
-                    method_variant: MethodDefnVariant::StaticMemberAccess {
-                        ref_access,
-                        move_access,
-                        borrow_mut_access,
-                    },
+                    output_contract,
+                    method_variant,
                 }
             }
+            _ => panic!(),
         }
     }
 }

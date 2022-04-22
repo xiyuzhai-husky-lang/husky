@@ -7,45 +7,77 @@ use dev_utils::StaticDevSource;
 pub use root::*;
 pub use ty::*;
 
-use entity_kind::{EntityKind, TyKind};
+use entity_kind::{EntityKind, RoutineContextKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
+use vm::{InputContract, Linkage, OutputContract};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
     pub name: &'static str,
     pub subscopes: &'static [(&'static str, &'static EntityStaticDefn)],
-    pub variant: StaticEntityDefnVariant,
+    pub variant: EntityStaticDefnVariant,
     pub dev_src: StaticDevSource,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum StaticEntityDefnVariant {
-    Func(StaticCallDefn),
+pub enum EntityStaticDefnVariant {
+    Routine {
+        generic_placeholders: &'static [StaticGenericPlaceholder],
+        inputs: Vec<StaticInputPlaceholder>,
+        output_ty: &'static str,
+        output_contract: OutputContract,
+        linkage: Linkage,
+        routine_kind: RoutineKind,
+    },
     Type {
         base_route: &'static str,
         generic_placeholders: &'static [StaticGenericPlaceholder],
         trait_impls: &'static [StaticTraitImplDefn],
-        type_members: &'static [TypeMemberStaticDefn],
-        variants: &'static [StaticEnumVariantDecl],
+        type_members: &'static [EntityStaticDefn],
+        variants: &'static [EntityStaticDefn],
         kind: TyKind,
         visualizer: StaticVisualizer,
-        opt_type_call: Option<&'static StaticCallDefn>,
+        opt_type_call: Option<&'static EntityStaticDefn>,
     },
     Trait {
         base_route: &'static str,
         generic_placeholders: &'static [StaticGenericPlaceholder],
-        members: &'static [TraitMemberStaticDefn],
+        members: &'static [EntityStaticDefn],
     },
     Module,
+    TypeField {
+        field_variant: StaticFieldVariant,
+    },
+    Method {
+        this_contract: InputContract,
+        inputs: &'static [StaticInputPlaceholder],
+        output_ty: &'static str,
+        output_contract: OutputContract,
+        generic_placeholders: &'static [StaticGenericPlaceholder],
+        kind: MethodStaticDefnKind,
+    },
+    TraitAssociatedType {
+        trai: &'static str,
+        traits: &'static [&'static str],
+    },
+    TraitAssociatedTypeImpl {
+        ty: &'static str,
+    },
+    TraitAssociatedConstSize,
 }
 
-impl StaticEntityDefnVariant {
+impl EntityStaticDefnVariant {
     pub fn raw_entity_kind(&self) -> EntityKind {
         match self {
-            StaticEntityDefnVariant::Func(_) => EntityKind::Routine,
-            StaticEntityDefnVariant::Type { kind, .. } => EntityKind::Type(*kind),
-            StaticEntityDefnVariant::Module => EntityKind::Module,
-            StaticEntityDefnVariant::Trait { .. } => EntityKind::Trait,
+            EntityStaticDefnVariant::Routine { .. } => EntityKind::Routine,
+            EntityStaticDefnVariant::Type { kind, .. } => EntityKind::Type(*kind),
+            EntityStaticDefnVariant::Module => EntityKind::Module,
+            EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
+            EntityStaticDefnVariant::Method { .. } => EntityKind::TypeMember,
+            EntityStaticDefnVariant::TraitAssociatedType { .. } => EntityKind::Type(TyKind::Other),
+            EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }
     }
 }

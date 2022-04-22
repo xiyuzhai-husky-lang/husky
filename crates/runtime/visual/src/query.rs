@@ -1,4 +1,4 @@
-use static_defn::StaticEntityDefnVariant;
+use static_defn::EntityStaticDefnVariant;
 
 use crate::*;
 #[salsa::query_group(VisualQueryGroupStorage)]
@@ -13,11 +13,23 @@ fn visualizer(
 ) -> Arc<RuntimeVisualizer> {
     let scope_source = db.compile_time(version).entity_source(ty).unwrap();
     match scope_source {
-        EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.variant {
-            StaticEntityDefnVariant::Func(_) => todo!(),
-            StaticEntityDefnVariant::Type { visualizer, .. } => Arc::new(visualizer.into()),
-            StaticEntityDefnVariant::Module => todo!(),
-            StaticEntityDefnVariant::Trait { .. } => todo!(),
+        EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+            EntityStaticDefnVariant::Routine { .. } => todo!(),
+            EntityStaticDefnVariant::Type { visualizer, .. } => Arc::new(visualizer.into()),
+            EntityStaticDefnVariant::Module => todo!(),
+            EntityStaticDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Method {
+                this_contract,
+                inputs,
+                output_ty,
+                output_contract,
+                generic_placeholders,
+                kind,
+            } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
+            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

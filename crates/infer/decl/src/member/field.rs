@@ -18,12 +18,15 @@ impl FieldDecl {
         todo!()
     }
 
-    pub fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticFieldDefn) -> Self {
-        Self {
-            ident: db.intern_word(static_decl.name).custom(),
-            contract: todo!(),
-            ty: todo!(),
-            kind: match static_decl.variant {},
+    pub fn from_static(db: &dyn DeclQueryGroup, static_decl: &EntityStaticDefn) -> Self {
+        match static_decl.variant {
+            EntityStaticDefnVariant::TypeField { ref field_variant } => Self {
+                ident: db.intern_word(static_decl.name).custom(),
+                contract: todo!(),
+                ty: todo!(),
+                kind: match *field_variant {},
+            },
+            _ => panic!(""),
         }
     }
 

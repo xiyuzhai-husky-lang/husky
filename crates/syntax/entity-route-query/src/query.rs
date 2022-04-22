@@ -14,7 +14,7 @@ use fold::FoldStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
-    fn subscope_table(&self, scope_id: EntityRoutePtr) -> ScopeResultArc<SubscopeTable>;
+    fn subscope_table(&self, scope_id: EntityRoutePtr) -> ScopeResultArc<ChildRouteTable>;
 
     fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
@@ -28,9 +28,9 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 fn subscope_table(
     db: &dyn EntityRouteSalsaQueryGroup,
     scope_id: EntityRoutePtr,
-) -> ScopeResultArc<SubscopeTable> {
+) -> ScopeResultArc<ChildRouteTable> {
     Ok(Arc::new(match db.entity_source(scope_id)? {
-        EntitySource::StaticModuleItem(data) => SubscopeTable::from_static(db, data),
+        EntitySource::StaticModuleItem(data) => ChildRouteTable::from_static(db, data),
         EntitySource::WithinModule {
             file: file_id,
             token_group_index,
@@ -38,14 +38,14 @@ fn subscope_table(
             let text = db.tokenized_text(file_id)?;
             let item = text.fold_iter(token_group_index).next().unwrap();
             if let Some(children) = item.children {
-                SubscopeTable::parse(file_id, children)
+                ChildRouteTable::parse(file_id, children)
             } else {
-                SubscopeTable::empty()
+                ChildRouteTable::empty()
             }
         }
         EntitySource::Module { file: file_id } => {
             let text = db.tokenized_text(file_id)?;
-            SubscopeTable::parse(file_id, text.fold_iter(0))
+            ChildRouteTable::parse(file_id, text.fold_iter(0))
         }
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Input { .. } => todo!(),
