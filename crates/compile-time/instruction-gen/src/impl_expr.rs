@@ -76,7 +76,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         SuffixOpr::MayReturn => todo!(),
                         SuffixOpr::MembAccess(ranged_ident) => {
                             if let Some(field_access_fp) =
-                                self.field_access_fp(*this_ty, ranged_ident.ident)
+                                self.db.field_access_fp(*this_ty, ranged_ident.ident)
                             {
                                 InstructionKind::FieldAccessCompiled {
                                     linkage: field_access_fp,
@@ -99,7 +99,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(instruction)
             }
             EagerOpnKind::RoutineCall(routine) => {
-                if let Some(fp) = self.routine_fp(routine.route) {
+                if let Some(fp) = self.db.routine_linkage(routine.route) {
                     self.push_instruction(Instruction::new(
                         InstructionKind::RoutineCallCompiled { linkage: fp },
                         expr.clone(),
@@ -126,7 +126,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.method_call_instruction_kind(
                     opds[0].ty,
                     this_ty_decl,
-                    self.db.entity_uid(*method_route),
+                    *method_route,
                     method_ident.ident,
                 ),
                 expr.clone(),
@@ -141,7 +141,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                     TyKind::Struct => {
                         if let Some(compiled_routine) = self
                             .db
-                            .linkage_table()
                             .struct_constructor(self.db.entity_uid(ranged_ty.route))
                         {
                             todo!()
@@ -203,10 +202,10 @@ impl<'a> InstructionSheetBuilder<'a> {
         &self,
         this_ty: EntityRoutePtr,
         this_ty_decl: &TypeDecl,
-        method_uid: EntityUid,
+        method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
     ) -> InstructionKind {
-        if let Some(routine_fp) = self.db.linkage_table().routine(method_uid) {
+        if let Some(routine_fp) = self.db.method_linkage(method_route) {
             todo!()
         } else {
             match this_ty_decl.kind {

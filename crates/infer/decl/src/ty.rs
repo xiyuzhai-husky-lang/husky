@@ -39,49 +39,58 @@ pub struct TypeDecl {
 }
 
 impl TypeDecl {
-    fn from_static(db: &dyn DeclQueryGroup, static_decl: &StaticTypeDefn) -> Arc<Self> {
-        let generic_placeholders =
-            db.parse_generic_placeholders_from_static(static_decl.generic_placeholders);
-        let generic_arguments =
-            db.generic_arguments_from_generic_placeholders(&generic_placeholders);
-        let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
-        let mut symbol_context = SymbolContext {
-            opt_package_main: None,
-            db: db.upcast(),
-            opt_this_ty: None,
-            symbols: &symbols,
-            kind: SymbolContextKind::Normal,
-        };
-        let base_ty = symbol_context
-            .entity_route_from_str(static_decl.base_route)
-            .unwrap();
-        let this_ty = db.intern_entity_route(EntityRoute {
-            kind: base_ty.kind,
-            generic_arguments,
-        });
-        symbol_context.opt_this_ty = Some(this_ty);
-        let opt_type_call = static_decl
-            .opt_type_call
-            .map(|type_call| member_call_decl_from_static(db, symbols.clone(), type_call));
-        let trait_impls = static_decl
-            .trait_impls
-            .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, &symbol_context));
-        Self::new(
-            db,
-            this_ty,
-            generic_placeholders,
-            static_decl
-                .type_members
-                .iter()
-                .map(|member| TyMemberDecl::from_static(db, member, &symbol_context))
-                .collect(),
-            static_decl
-                .variants
-                .map(|static_decl| EnumVariantDecl::from_static(db, static_decl, &symbol_context)),
-            static_decl.kind,
-            trait_impls,
-            opt_type_call,
-        )
+    fn from_static(db: &dyn DeclQueryGroup, static_defn: &EntityStaticDefn) -> Arc<Self> {
+        match static_defn.variant {
+            StaticEntityDefnVariant::Type {
+                base_route,
+                generic_placeholders,
+                trait_impls,
+                type_members,
+                variants,
+                kind,
+                visualizer,
+                opt_type_call,
+            } => {
+                let generic_placeholders =
+                    db.parse_generic_placeholders_from_static(generic_placeholders);
+                let generic_arguments =
+                    db.generic_arguments_from_generic_placeholders(&generic_placeholders);
+                let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+                let mut symbol_context = SymbolContext {
+                    opt_package_main: None,
+                    db: db.upcast(),
+                    opt_this_ty: None,
+                    symbols: &symbols,
+                    kind: SymbolContextKind::Normal,
+                };
+                let base_ty = symbol_context.entity_route_from_str(base_route).unwrap();
+                let this_ty = db.intern_entity_route(EntityRoute {
+                    kind: base_ty.kind,
+                    generic_arguments,
+                });
+                symbol_context.opt_this_ty = Some(this_ty);
+                let opt_type_call = opt_type_call
+                    .map(|type_call| member_call_decl_from_static(db, symbols.clone(), type_call));
+                let trait_impls = trait_impls
+                    .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, &symbol_context));
+                Self::new(
+                    db,
+                    this_ty,
+                    generic_placeholders,
+                    type_members
+                        .iter()
+                        .map(|member| TyMemberDecl::from_static(db, member, &symbol_context))
+                        .collect(),
+                    variants.map(|static_decl| {
+                        EnumVariantDecl::from_static(db, static_decl, &symbol_context)
+                    }),
+                    kind,
+                    trait_impls,
+                    opt_type_call,
+                )
+            }
+            _ => panic!(""),
+        }
     }
 
     fn from_ast(
@@ -498,11 +507,11 @@ pub(crate) fn type_decl(
 ) -> InferResultArc<TypeDecl> {
     let source = db.entity_source(ty_route)?;
     match source {
-        EntitySource::StaticModuleItem(data) => Ok(match data.variant {
+        EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             StaticEntityDefnVariant::Func(_) => todo!(),
             StaticEntityDefnVariant::Module => todo!(),
-            StaticEntityDefnVariant::Type(type_decl) => {
-                let base_decl = TypeDecl::from_static(db, type_decl);
+            StaticEntityDefnVariant::Type { .. } => {
+                let base_decl = TypeDecl::from_static(db, static_defn);
                 if ty_route.generic_arguments.len() > 0 {
                     assert_eq!(
                         ty_route.generic_arguments.len(),

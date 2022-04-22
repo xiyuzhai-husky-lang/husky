@@ -8,7 +8,7 @@ pub use alloc::{
 };
 pub use entity_kind::EntityKind;
 use file::FilePtr;
-use static_defn::StaticEntityDefn;
+use static_defn::EntityStaticDefn;
 use text::{TextRange, TextRanged};
 use word::{CustomIdentifier, Identifier, RootIdentifier};
 
@@ -226,7 +226,7 @@ impl From<RootIdentifier> for EntityRoute {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntitySource {
-    StaticModuleItem(&'static StaticEntityDefn),
+    StaticModuleItem(&'static EntityStaticDefn),
     StaticTypeMember,
     WithinBuiltinModule,
     WithinModule {
@@ -250,8 +250,8 @@ impl EntitySource {
     }
 }
 
-impl From<&'static StaticEntityDefn> for EntitySource {
-    fn from(data: &'static StaticEntityDefn) -> Self {
+impl From<&'static EntityStaticDefn> for EntitySource {
+    fn from(data: &'static EntityStaticDefn) -> Self {
         Self::StaticModuleItem(data)
     }
 }

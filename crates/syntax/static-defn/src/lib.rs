@@ -1,20 +1,19 @@
 mod call;
 mod root;
-mod trai;
 mod ty;
 
 pub use call::*;
 use dev_utils::StaticDevSource;
 pub use root::*;
-pub use trai::*;
 pub use ty::*;
 
-use entity_kind::EntityKind;
+use entity_kind::{EntityKind, TyKind};
+use visual_syntax::StaticVisualizer;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct StaticEntityDefn {
+pub struct EntityStaticDefn {
     pub name: &'static str,
-    pub subscopes: &'static [(&'static str, &'static StaticEntityDefn)],
+    pub subscopes: &'static [(&'static str, &'static EntityStaticDefn)],
     pub variant: StaticEntityDefnVariant,
     pub dev_src: StaticDevSource,
 }
@@ -22,8 +21,21 @@ pub struct StaticEntityDefn {
 #[derive(Debug, PartialEq, Eq)]
 pub enum StaticEntityDefnVariant {
     Func(StaticCallDefn),
-    Type(&'static StaticTypeDefn),
-    Trait(&'static StaticTraitDecl),
+    Type {
+        base_route: &'static str,
+        generic_placeholders: &'static [StaticGenericPlaceholder],
+        trait_impls: &'static [StaticTraitImplDefn],
+        type_members: &'static [TypeMemberStaticDefn],
+        variants: &'static [StaticEnumVariantDecl],
+        kind: TyKind,
+        visualizer: StaticVisualizer,
+        opt_type_call: Option<&'static StaticCallDefn>,
+    },
+    Trait {
+        base_route: &'static str,
+        generic_placeholders: &'static [StaticGenericPlaceholder],
+        members: &'static [TraitMemberStaticDefn],
+    },
     Module,
 }
 
@@ -31,9 +43,9 @@ impl StaticEntityDefnVariant {
     pub fn raw_entity_kind(&self) -> EntityKind {
         match self {
             StaticEntityDefnVariant::Func(_) => EntityKind::Routine,
-            StaticEntityDefnVariant::Type(ty_decl) => EntityKind::Type(ty_decl.kind),
+            StaticEntityDefnVariant::Type { kind, .. } => EntityKind::Type(*kind),
             StaticEntityDefnVariant::Module => EntityKind::Module,
-            StaticEntityDefnVariant::Trait(trait_decl) => EntityKind::Trait,
+            StaticEntityDefnVariant::Trait { .. } => EntityKind::Trait,
         }
     }
 }

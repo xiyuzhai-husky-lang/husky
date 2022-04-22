@@ -25,7 +25,7 @@ use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
-use static_defn::{StaticEntityDefn, StaticEntityDefnVariant};
+use static_defn::{EntityStaticDefn, StaticEntityDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::TextRange;
@@ -67,9 +67,9 @@ impl EntityDefn {
     pub fn from_static(
         db: &dyn EntityDefnQueryGroup,
         route: EntityRoutePtr,
-        static_entity_defn: &StaticEntityDefn,
+        static_entity_defn: &EntityStaticDefn,
     ) -> Arc<Self> {
-        let variant = EntityDefnVariant::from_static(db, route, &static_entity_defn.variant);
+        let variant = EntityDefnVariant::from_static(db, route, static_entity_defn);
         Self::new(
             db.intern_word(static_entity_defn.name).ident(),
             variant,
@@ -185,12 +185,12 @@ impl EntityDefnVariant {
     pub fn from_static(
         db: &dyn EntityDefnQueryGroup,
         ty: EntityRoutePtr,
-        variant: &StaticEntityDefnVariant,
+        static_defn: &EntityStaticDefn,
     ) -> Self {
-        match variant {
+        match static_defn.variant {
             StaticEntityDefnVariant::Func(_) => todo!(),
-            StaticEntityDefnVariant::Type(type_defn) => Self::ty_from_static(db, ty, type_defn),
-            StaticEntityDefnVariant::Trait(_) => todo!(),
+            StaticEntityDefnVariant::Type { .. } => Self::ty_from_static(db, ty, static_defn),
+            StaticEntityDefnVariant::Trait { .. } => todo!(),
             StaticEntityDefnVariant::Module => todo!(),
         }
     }

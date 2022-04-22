@@ -65,7 +65,7 @@ pub(crate) fn call_decl(
     return match source {
         EntitySource::StaticModuleItem(data) => Ok(match data.variant {
             StaticEntityDefnVariant::Func(ref decl) => call_decl_from_static(db, decl),
-            StaticEntityDefnVariant::Type(_) => {
+            StaticEntityDefnVariant::Type { .. } => {
                 db.type_decl(route)?.opt_type_call.clone().expect("todo")
             }
             _ => panic!(),

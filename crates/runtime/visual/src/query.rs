@@ -15,7 +15,7 @@ fn visualizer(
     match scope_source {
         EntitySource::StaticModuleItem(builtin_entity_data) => match builtin_entity_data.variant {
             StaticEntityDefnVariant::Func(_) => todo!(),
-            StaticEntityDefnVariant::Type(ty_decl) => Arc::new(ty_decl.visualizer.into()),
+            StaticEntityDefnVariant::Type { visualizer, .. } => Arc::new(visualizer.into()),
             StaticEntityDefnVariant::Module => todo!(),
             StaticEntityDefnVariant::Trait { .. } => todo!(),
         },

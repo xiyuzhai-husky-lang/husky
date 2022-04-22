@@ -240,7 +240,7 @@ impl SubscopeTable {
 impl SubscopeTable {
     pub(crate) fn from_static(
         db: &dyn EntityRouteSalsaQueryGroup,
-        data: &StaticEntityDefn,
+        data: &EntityStaticDefn,
     ) -> Self {
         let mut entries: Vec<Entry> = data
             .subscopes
@@ -253,19 +253,23 @@ impl SubscopeTable {
             .collect();
         match data.variant {
             StaticEntityDefnVariant::Func(_) | StaticEntityDefnVariant::Module => (),
-            StaticEntityDefnVariant::Type(ty_decl) => {
-                for type_member in ty_decl.type_members {
+            StaticEntityDefnVariant::Type {
+                type_members,
+                variants,
+                ..
+            } => {
+                for type_member in type_members {
                     entries.push(Entry {
                         ident: Some(db.intern_word(type_member.name()).custom()),
                         kind: EntityKind::TypeMember,
                         source: EntitySource::StaticTypeMember,
                     })
                 }
-                for variant in ty_decl.variants {
+                for variant in variants {
                     todo!()
                 }
             }
-            StaticEntityDefnVariant::Trait(_) => todo!(),
+            StaticEntityDefnVariant::Trait { .. } => todo!(),
         }
         Self {
             entries,

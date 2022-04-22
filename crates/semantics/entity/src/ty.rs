@@ -3,8 +3,7 @@ mod member;
 use atom::{symbol::SymbolContextKind, SymbolContext};
 use infer_decl::MemberIdx;
 pub use member::*;
-use print_utils::msg_once;
-use static_defn::StaticTypeDefn;
+use print_utils::{msg_once, p};
 
 use std::{iter::Peekable, sync::Arc};
 
@@ -81,22 +80,36 @@ impl EntityDefnVariant {
     pub(crate) fn ty_from_static(
         db: &dyn EntityDefnQueryGroup,
         ty: EntityRoutePtr,
-        type_defn: &StaticTypeDefn,
+        static_defn: &EntityStaticDefn,
     ) -> Self {
-        let type_members = type_defn.type_members.map(|_| todo!());
-        let variants = type_defn.variants.map(|_| todo!());
-        let kind = type_defn.kind;
-        let symbol_context = SymbolContext {
-            opt_package_main: None,
-            db: db.upcast(),
-            opt_this_ty: Some(ty),
-            symbols: &[],
-            kind: SymbolContextKind::Normal,
-        };
-        let trait_impls = type_defn
-            .trait_impls
-            .map(|trait_impl| TraitImplDefn::from_static(&symbol_context, trait_impl));
-        Self::new_ty(type_members, variants, kind, trait_impls)
+        match static_defn.variant {
+            StaticEntityDefnVariant::Type {
+                base_route,
+                generic_placeholders,
+                ref trait_impls,
+                ref type_members,
+                ref variants,
+                kind,
+                visualizer,
+                opt_type_call,
+            } => {
+                let type_members = type_members
+                    .map(|type_member| EntityDefn::type_member_from_static(db, type_member));
+                let variants = variants.map(|_| todo!());
+                let kind = kind;
+                let symbol_context = SymbolContext {
+                    opt_package_main: None,
+                    db: db.upcast(),
+                    opt_this_ty: Some(ty),
+                    symbols: &[],
+                    kind: SymbolContextKind::Normal,
+                };
+                let trait_impls = trait_impls
+                    .map(|trait_impl| TraitImplDefn::from_static(&symbol_context, trait_impl));
+                Self::new_ty(type_members, variants, kind, trait_impls)
+            }
+            _ => panic!(),
+        }
     }
 
     fn collect_variants(

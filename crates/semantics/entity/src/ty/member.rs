@@ -3,6 +3,7 @@ mod method;
 
 pub use field::*;
 pub use method::*;
+use static_defn::TypeMemberStaticDefn;
 
 use super::*;
 
@@ -29,5 +30,14 @@ pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRoutePtr) 
     match ty_defn.variant {
         EntityDefnVariant::Type { ref members, .. } => members[member_idx.0 as usize].clone(),
         _ => panic!(),
+    }
+}
+
+impl EntityDefn {
+    pub(crate) fn type_member_from_static(
+        db: &dyn EntityDefnQueryGroup,
+        type_member: &TypeMemberStaticDefn,
+    ) -> Arc<EntityDefn> {
+        todo!()
     }
 }
