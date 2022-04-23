@@ -117,7 +117,7 @@ pub(crate) fn routine_decl_from_static(
     match static_defn.variant {
         EntityStaticDefnVariant::Routine {
             ref generic_placeholders,
-            ref inputs,
+            input_placeholders: ref inputs,
             output_ty,
             output_contract,
             linkage,

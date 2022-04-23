@@ -118,7 +118,7 @@ impl<'a> ContractSheetBuilder<'a> {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
                     LazyContract::Move => (),
-                    LazyContract::Ref => todo!(),
+                    LazyContract::GlobalRef => todo!(),
                     LazyContract::Pure => (),
                 }
                 self.infer_lazy_expr(lopd, LazyContract::Pure, arena);
@@ -155,13 +155,13 @@ impl<'a> ContractSheetBuilder<'a> {
                 let this_contract = match this_ty_decl.field_decl(ranged_ident)?.contract {
                     FieldContract::Own => match contract {
                         LazyContract::Move => LazyContract::Move,
-                        LazyContract::Ref => todo!(),
+                        LazyContract::GlobalRef => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
                     },
-                    FieldContract::Ref => todo!(),
+                    FieldContract::GlobalRef => todo!(),
                     FieldContract::LazyOwn => match contract {
                         LazyContract::Move => todo!(),
-                        LazyContract::Ref => todo!(),
+                        LazyContract::GlobalRef => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
                     },
                 };
@@ -253,7 +253,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let method_call_decl = derived_ok!(this_ty_decl.method(ranged_ident, &self.trait_uses));
         match contract {
             LazyContract::Move => (),
-            LazyContract::Ref => todo!(),
+            LazyContract::GlobalRef => todo!(),
             LazyContract::Pure => (),
         }
         self.infer_lazy_expr(
@@ -295,7 +295,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 };
                 self.infer_lazy_expr(total_opds.start, this_contract, arena)
             }
-            LazyContract::Ref => todo!(),
+            LazyContract::GlobalRef => todo!(),
             LazyContract::Pure => todo!(),
         }
         for opd in (total_opds.start + 1)..total_opds.end {

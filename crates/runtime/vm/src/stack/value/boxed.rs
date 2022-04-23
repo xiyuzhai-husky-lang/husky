@@ -32,6 +32,12 @@ impl<'eval> BoxedValue<'eval> {
         }
     }
 
+    pub fn clone_from(value: &dyn AnyValueDyn<'eval>) -> BoxedValue<'eval> {
+        Self {
+            inner: value.clone_any(),
+        }
+    }
+
     pub fn take<T: AnyValue<'eval>>(self) -> VMResult<T> {
         // check type
         if (*self.inner).static_type_id() != T::static_type_id() {

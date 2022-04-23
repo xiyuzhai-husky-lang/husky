@@ -37,33 +37,38 @@ impl TraitImplDefn {
         })
     }
 
-    pub fn member_impl(&self, ident: CustomIdentifier) -> Option<&Arc<EntityDefn>> {
+    pub fn member_impl(&self, ident: CustomIdentifier) -> &Arc<EntityDefn> {
         self.member_impls
             .iter()
             .find(|member_impl| member_impl.ident.custom() == ident)
+            .unwrap()
+        //     format!(
+        //     "no member `{:?}` in trait `{:?}`, available members are {:?}, trait impl src: {:?}",
+        //     ident,
+        //     self.trai,
+        //     self.member_impls
+        //         .iter()
+        //         .map(|member_impl| member_impl.ident)
+        //         .collect::<Vec<_>>(),
+        //     self.dev_src
+        // )
     }
 }
 
 impl EntityDefn {
     pub fn trait_member_impl_from_static(
-        symbol_context: &SymbolContext,
+        context: &SymbolContext,
         trai: EntityRoutePtr,
         static_trait_impl: &EntityStaticDefn,
     ) -> Arc<Self> {
-        let variant = EntityDefnVariant::trait_member_impl_from_static(
-            symbol_context,
-            trai,
-            static_trait_impl,
-        );
-        let ident = symbol_context
-            .db
-            .intern_word(static_trait_impl.name)
-            .ident();
+        let variant =
+            EntityDefnVariant::trait_member_impl_from_static(context, trai, static_trait_impl);
+        let ident = context.db.intern_word(static_trait_impl.name).ident();
         Self::new(
             ident,
             variant,
-            symbol_context.opt_this_ty.unwrap(),
-            symbol_context
+            context.opt_this_ty.unwrap(),
+            context
                 .db
                 .intern_file(static_trait_impl.dev_src.file.into()),
             static_trait_impl.dev_src.into(),
@@ -73,7 +78,7 @@ impl EntityDefn {
 
 impl EntityDefnVariant {
     pub fn trait_member_impl_from_static(
-        symbol_context: &SymbolContext,
+        context: &SymbolContext,
         trai: EntityRoutePtr,
         static_defn: &EntityStaticDefn,
     ) -> Self {
@@ -81,7 +86,7 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => {
                 Self::TraitAssociatedTypeImpl {
                     trai,
-                    ty: symbol_context.entity_route_from_str(ty).unwrap(),
+                    ty: context.entity_route_from_str(ty).unwrap(),
                 }
             }
             EntityStaticDefnVariant::Method {
@@ -95,7 +100,12 @@ impl EntityDefnVariant {
                 let method_variant = match kind {
                     MethodStaticDefnKind::TypeMethod { source } => todo!(),
                     MethodStaticDefnKind::TraitMethod { opt_default_source } => todo!(),
-                    MethodStaticDefnKind::TraitMethodImpl { opt_source } => todo!(),
+                    MethodStaticDefnKind::TraitMethodImpl { opt_source } => {
+                        MethodDefnVariant::TraitMethodImpl {
+                            trai,
+                            opt_source: opt_source.map(|source| MethodSource::Static(source)),
+                        }
+                    }
                 };
                 // MethodDefnVariant::TraitMethodImpl {
                 //             trai,
@@ -106,17 +116,20 @@ impl EntityDefnVariant {
                 //             }),
                 //         };
                 Self::Method {
-                    input_placeholders: Arc::new(inputs.map(|input_placeholder| {
-                        symbol_context.input_placeholder(input_placeholder)
-                    })),
+                    input_placeholders: Arc::new(
+                        inputs
+                            .map(|input_placeholder| context.input_placeholder(input_placeholder)),
+                    ),
                     output_ty: RangedEntityRoute {
-                        route: symbol_context.entity_route_from_str(output_ty).unwrap(),
+                        route: context.entity_route_from_str(output_ty).unwrap(),
                         range: Default::default(),
                     },
                     this_contract,
                     output_contract,
                     method_variant,
-                    generic_placeholders: todo!(),
+                    generic_placeholders: generic_placeholders.map(|generic_placeholder| {
+                        GenericPlaceholder::from_static(context.db, generic_placeholder)
+                    }),
                 }
             }
             _ => panic!(),

@@ -12,7 +12,7 @@ pub enum LinkageKey {
     VecConstructor {
         element_ty_uid: EntityUid,
     },
-    StructConstructor {
+    TypeCall {
         ty_uid: EntityUid,
     },
     Routine {
@@ -36,8 +36,8 @@ pub enum MemberAccessKind {
 }
 
 impl LinkageTable {
-    pub(crate) fn struct_constructor(&self, ty_uid: EntityUid) -> Option<Linkage> {
-        self.linkage(LinkageKey::StructConstructor { ty_uid })
+    pub(crate) fn type_call(&self, ty_uid: EntityUid) -> Option<Linkage> {
+        self.linkage(LinkageKey::TypeCall { ty_uid })
     }
 
     pub(crate) fn routine(&self, routine_uid: EntityUid) -> Option<Linkage> {

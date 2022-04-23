@@ -1,30 +1,31 @@
 mod member;
+mod type_call;
 
+pub use member::*;
+pub use type_call::*;
+
+use super::*;
+use ast::*;
 use atom::{
     symbol::{Symbol, SymbolContextKind},
     SymbolContext,
 };
-use infer_decl::{DeclQueryGroup, MemberIdx};
-pub use member::*;
-use print_utils::{msg_once, p};
-
-use std::{iter::Peekable, sync::Arc};
-
-use super::*;
-use ast::*;
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
+use infer_decl::{DeclQueryGroup, MemberIdx};
 use infer_total::InferQueryGroup;
+use print_utils::{msg_once, p};
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
+use std::{iter::Peekable, sync::Arc};
 use vec_dict::VecDict;
 use word::{CustomIdentifier, IdentDict};
 
 impl EntityDefnVariant {
     pub(crate) fn ty_from_ast(
         db: &dyn InferQueryGroup,
-        entity_route: EntityRoutePtr,
+        ty: EntityRoutePtr,
         head: &Ast,
         children: AstIter,
         arena: &RawExprArena,
@@ -39,29 +40,88 @@ impl EntityDefnVariant {
             _ => panic!(),
         };
         let mut children = children.peekable();
-        let mut type_members = IdentDict::default();
+        let mut ty_members = IdentDict::default();
         let mut trait_impls = Vec::new();
         msg_once!("todo");
 
         let variants = match kind {
-            TyKind::Enum => Self::collect_variants(db, file, entity_route, &mut children)?,
+            TyKind::Enum => Self::collect_variants(db, file, ty, &mut children)?,
             _ => Default::default(),
         };
-        Self::collect_fields(
-            db,
-            arena,
-            file,
-            &mut children,
-            &mut type_members,
-            entity_route,
-        )?;
-        Self::collect_other_members(db, arena, file, entity_route, children, &mut type_members)?;
+
+        Self::collect_original_fields(db, arena, file, &mut children, &mut ty_members, ty)?;
+
+        let opt_type_call = match kind {
+            TyKind::Enum => None,
+            TyKind::Record => Some(Arc::new(TyCallDefn {
+                input_placeholders: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
+                    EntityDefnVariant::TypeField {
+                        ty,
+                        ref field_variant,
+                        contract,
+                    } => match field_variant {
+                        FieldDefnVariant::RecordOriginal => InputPlaceholder {
+                            ident,
+                            contract:
+                                contract.constructor_input_contract(db.is_copy_constructible(ty)),
+                            ranged_ty: RangedEntityRoute {
+                                route: ty,
+                                range: Default::default(),
+                            },
+                        },
+                        _ => {
+                            p!(field_variant);
+                            panic!()
+                        }
+                    },
+                    _ => panic!(),
+                })),
+                output_ty: RangedEntityRoute {
+                    route: ty,
+                    range: Default::default(),
+                },
+                source: TyCallSource::GenericRecord,
+            })),
+            TyKind::Struct => Some(Arc::new(TyCallDefn {
+                input_placeholders: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
+                    EntityDefnVariant::TypeField {
+                        ty,
+                        ref field_variant,
+                        contract,
+                    } => match field_variant {
+                        FieldDefnVariant::StructOriginal => InputPlaceholder {
+                            ident,
+                            contract:
+                                contract.constructor_input_contract(db.is_copy_constructible(ty)),
+                            ranged_ty: RangedEntityRoute {
+                                route: ty,
+                                range: Default::default(),
+                            },
+                        },
+                        _ => panic!(),
+                    },
+                    _ => panic!(),
+                })),
+                output_ty: RangedEntityRoute {
+                    route: ty,
+                    range: Default::default(),
+                },
+                source: TyCallSource::GenericStruct,
+            })),
+            TyKind::Primitive => todo!(),
+            TyKind::Vec => todo!(),
+            TyKind::Array => todo!(),
+            TyKind::Other => todo!(),
+        };
+
+        Self::collect_other_members(db, arena, file, ty, children, &mut ty_members)?;
         Ok(EntityDefnVariant::new_ty(
             generic_placeholders,
-            type_members,
+            ty_members,
             variants,
             kind,
             trait_impls,
+            opt_type_call,
         ))
     }
 
@@ -71,6 +131,7 @@ impl EntityDefnVariant {
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
+        opt_type_call: Option<Arc<TyCallDefn>>,
     ) -> Self {
         let members = collect_all_members(&type_members, &trait_impls);
         EntityDefnVariant::Type {
@@ -80,12 +141,12 @@ impl EntityDefnVariant {
             kind,
             trait_impls,
             members,
+            opt_type_call,
         }
     }
 
     pub(crate) fn ty_from_static(
         symbol_context: &SymbolContext,
-        ty0: EntityRoutePtr,
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
@@ -125,7 +186,7 @@ impl EntityDefnVariant {
                         symbol_context
                             .db
                             .intern_entity_route(EntityRoute::child_route(
-                                base_route,
+                                this_ty,
                                 symbol_context.db.intern_word(type_member.name).custom(),
                                 vec![],
                             )),
@@ -142,6 +203,8 @@ impl EntityDefnVariant {
                     variants,
                     kind,
                     trait_impls,
+                    opt_type_call
+                        .map(|type_call| TyCallDefn::from_static(&symbol_context, type_call)),
                 )
             }
             _ => panic!(),

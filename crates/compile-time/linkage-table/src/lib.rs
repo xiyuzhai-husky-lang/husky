@@ -1,14 +1,16 @@
 mod table;
 mod vec;
 
-use static_defn::{EntityStaticDefnVariant, StaticLinkageSource};
+use static_defn::{EntityStaticDefnVariant, LinkageSource};
 pub use table::*;
 
 use check_utils::*;
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, EntitySource, GenericArgument};
 use map_collect::MapCollect;
 use print_utils::p;
-use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant, MethodDefnVariant, MethodSource};
+use semantics_entity::{
+    EntityDefnQueryGroup, EntityDefnVariant, MethodDefnVariant, MethodSource, TyCallSource,
+};
 use std::collections::HashMap;
 use sync_utils::ARwLock;
 use vec::*;
@@ -48,7 +50,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                             MethodSource::Pattern { stmts } => todo!(),
                             MethodSource::Static(static_linkage_source) => {
                                 match static_linkage_source {
-                                    StaticLinkageSource::MemberAccess {
+                                    LinkageSource::MemberAccess {
                                         ref_access,
                                         move_access,
                                         borrow_mut_access,
@@ -57,7 +59,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                         MemberAccessKind::Ref => *ref_access,
                                         MemberAccessKind::BorrowMut => *borrow_mut_access,
                                     },
-                                    StaticLinkageSource::PureOutput(_) => todo!(),
+                                    LinkageSource::PureOutput(_) => todo!(),
                                 }
                             }
                         }
@@ -75,19 +77,77 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         &self,
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
-    ) -> Option<Linkage> {
-        todo!()
+    ) -> Option<LinkageSource> {
+        if let Some(linkage) = self
+            .linkage_table()
+            .struct_field_access(self.entity_uid(this_ty), field_ident)
+        {
+            return Some(LinkageSource::PureOutput(linkage));
+        } else {
+            None
+        }
     }
 
-    fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<Linkage> {
+    fn method_linkage_source(&self, method_route: EntityRoutePtr) -> Option<LinkageSource> {
         if let Some(linkage) = self.linkage_table().routine(self.entity_uid(method_route)) {
-            return Some(linkage);
+            return Some(LinkageSource::PureOutput(linkage));
         }
-        p!(method_route);
         let method_defn = self.entity_defn(method_route).unwrap();
         match method_defn.variant {
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::Method { .. } => todo!(),
+            EntityDefnVariant::Method {
+                ref method_variant, ..
+            } => match method_variant {
+                MethodDefnVariant::TypeMethod { method_source, .. } => match method_source {
+                    MethodSource::Func { .. }
+                    | MethodSource::Proc { .. }
+                    | MethodSource::Pattern { .. } => None,
+                    MethodSource::Static(linkage) => Some(*linkage),
+                },
+                MethodDefnVariant::TraitMethod {
+                    trai,
+                    opt_default_source,
+                } => todo!(),
+                MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
+                    if let Some(source) = opt_source {
+                        return match source {
+                            MethodSource::Func { ref stmts } => todo!(),
+                            MethodSource::Proc { ref stmts } => todo!(),
+                            MethodSource::Pattern { ref stmts } => todo!(),
+                            MethodSource::Static(linkage_source) => Some(*linkage_source),
+                        };
+                    }
+                    let trai_defn = self.entity_defn(*trai).unwrap();
+                    match trai_defn.variant {
+                        EntityDefnVariant::Trait {
+                            ref generic_placeholders,
+                            ref members,
+                        } => {
+                            let member = members
+                                .iter()
+                                .find(|member| member.ident == method_defn.ident)
+                                .unwrap();
+                            match member.variant {
+                                EntityDefnVariant::Method {
+                                    method_variant:
+                                        MethodDefnVariant::TraitMethod {
+                                            trai,
+                                            ref opt_default_source,
+                                        },
+                                    ..
+                                } => match opt_default_source.as_ref().unwrap() {
+                                    MethodSource::Func { ref stmts } => todo!(),
+                                    MethodSource::Proc { ref stmts } => todo!(),
+                                    MethodSource::Pattern { ref stmts } => todo!(),
+                                    MethodSource::Static(linkage_source) => Some(*linkage_source),
+                                },
+                                _ => panic!(),
+                            }
+                        }
+                        _ => panic!(),
+                    }
+                }
+            },
             _ => {
                 panic!()
             }
@@ -127,7 +187,23 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             .struct_field_access(self.entity_uid(this_ty), field_ident)
     }
 
-    fn struct_constructor(&self, ty_uid: EntityUid) -> Option<Linkage> {
-        todo!()
+    fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<Linkage> {
+        if let Some(linkage) = self.linkage_table().type_call(self.entity_uid(ty)) {
+            return Some(linkage);
+        }
+        let ty_defn = self.entity_defn(ty).unwrap();
+        match ty_defn.variant {
+            EntityDefnVariant::Type {
+                ref opt_type_call, ..
+            } => opt_type_call
+                .as_ref()
+                .map(|type_call| match type_call.source {
+                    TyCallSource::GenericStruct => None,
+                    TyCallSource::Static(linkage) => Some(linkage),
+                    TyCallSource::GenericRecord => todo!(),
+                })
+                .flatten(),
+            _ => panic!(),
+        }
     }
 }

@@ -50,8 +50,8 @@ pub struct SymbolContext<'a> {
 pub enum SymbolContextKind<'a> {
     Normal,
     Trait {
-        trai: EntityRoutePtr,
-        members: &'a [(CustomIdentifier, MemberKind)],
+        this_trai: EntityRoutePtr,
+        member_kinds: &'a [(CustomIdentifier, MemberKind)],
     },
 }
 
@@ -141,7 +141,10 @@ impl<'a> SymbolContext<'a> {
             } => match parent.kind {
                 EntityRouteKind::ThisType => match self.kind {
                     SymbolContextKind::Normal => todo!(),
-                    SymbolContextKind::Trait { members, .. } => {
+                    SymbolContextKind::Trait {
+                        member_kinds: members,
+                        ..
+                    } => {
                         match members
                             .iter()
                             .find(|(ident, _)| *ident == ident0)
@@ -150,8 +153,8 @@ impl<'a> SymbolContext<'a> {
                         {
                             MemberKind::Method => todo!(),
                             MemberKind::Call => todo!(),
-                            MemberKind::AssociatedType => EntityKind::Type(TyKind::Other),
-                            MemberKind::AssociatedConstSize => todo!(),
+                            MemberKind::TraitAssociatedType => EntityKind::Type(TyKind::Other),
+                            MemberKind::TraitAssociatedConstSize => todo!(),
                         }
                     }
                 },
@@ -202,7 +205,9 @@ impl<'a> SymbolContext<'a> {
     pub fn trai(&self) -> EntityRoutePtr {
         match self.kind {
             SymbolContextKind::Normal => panic!(),
-            SymbolContextKind::Trait { trai, .. } => trai,
+            SymbolContextKind::Trait {
+                this_trai: trai, ..
+            } => trai,
         }
     }
 

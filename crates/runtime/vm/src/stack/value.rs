@@ -235,7 +235,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::GlobalPure(value) => value.downcast_ref(),
             StackValue::GlobalRef(value) => value.downcast_ref(),
             StackValue::LocalRef(value) => value.downcast_ref(),
-            StackValue::MutLocalRef { value, owner, gen } => todo!(),
+            StackValue::MutLocalRef { value, .. } => value.downcast_ref(),
         }
     }
 
@@ -284,7 +284,15 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     }
 
     pub fn clone_into_stack(&self) -> StackValue<'stack, 'eval> {
-        todo!()
+        match self {
+            StackValue::Moved => todo!(),
+            StackValue::Primitive(_) => todo!(),
+            StackValue::Boxed(_) => todo!(),
+            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::LocalRef(value) => Self::Boxed(BoxedValue::clone_from(*value)),
+            StackValue::MutLocalRef { value, owner, gen } => todo!(),
+        }
     }
 
     pub(crate) fn snapshot(&mut self) -> StackValueSnapshot<'eval> {

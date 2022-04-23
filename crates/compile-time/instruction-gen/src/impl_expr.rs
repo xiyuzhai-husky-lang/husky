@@ -4,6 +4,7 @@ use entity_kind::TyKind;
 use infer_decl::TyDecl;
 use linkage_table::MemberAccessKind;
 use map_collect::MapCollect;
+use static_defn::LinkageSource;
 use syntax_types::SuffixOpr;
 use vm::{
     BinaryOpr, EagerContract, EntityUid, Instruction, InstructionKind, PrimitiveOpn, StackIdx,
@@ -137,35 +138,30 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref ty_decl,
             } => {
                 msg_once!("TypeCall compiled");
-                match ty_decl.kind {
-                    TyKind::Struct => {
-                        if let Some(compiled_routine) = self
-                            .db
-                            .struct_constructor(self.db.entity_uid(ranged_ty.route))
-                        {
-                            todo!()
-                        } else {
-                            self.push_instruction(Instruction::new(
-                                InstructionKind::NewVirtualStruct {
-                                    fields: ty_decl.fields().map(|decl| decl.contract).collect(),
-                                },
-                                expr.clone(),
-                            ));
-                        }
-                    }
-                    TyKind::Enum => todo!(),
-                    TyKind::Record => todo!(),
-                    TyKind::Vec => self.push_instruction(Instruction::new(
-                        InstructionKind::RoutineCallCompiled {
-                            linkage: todo!(),
-                            // self.db.linkage_table().vec_constructor(self.db.entity_uid(
-                            //     ranged_ty.route.generic_arguments[0].as_entity_route(),
+                let instruction_kind =
+                    if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
+                        InstructionKind::RoutineCallCompiled { linkage }
+                    } else {
+                        match ty_decl.kind {
+                            TyKind::Struct => InstructionKind::NewVirtualStruct {
+                                fields: ty_decl.fields().map(|decl| decl.contract).collect(),
+                            },
+                            TyKind::Enum => todo!(),
+                            TyKind::Record => todo!(),
+                            TyKind::Vec => panic!(),
+                            // self.push_instruction(Instruction::new(
+                            //     InstructionKind::RoutineCallCompiled {
+                            //         linkage: todo!(),
+                            //         // self.db.linkage_table().vec_constructor(self.db.entity_uid(
+                            //         //     ranged_ty.route.generic_arguments[0].as_entity_route(),
+                            //         // )),
+                            //     },
+                            //     expr.clone(),
                             // )),
-                        },
-                        expr.clone(),
-                    )),
-                    _ => todo!(),
-                }
+                            _ => todo!(),
+                        }
+                    };
+                self.push_instruction(Instruction::new(instruction_kind, expr.clone()))
             }
         }
     }
@@ -205,8 +201,17 @@ impl<'a> InstructionSheetBuilder<'a> {
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
     ) -> InstructionKind {
-        if let Some(routine_fp) = self.db.method_linkage(method_route) {
-            todo!()
+        if let Some(routine_source) = self.db.method_linkage_source(method_route) {
+            match routine_source {
+                LinkageSource::MemberAccess {
+                    ref_access,
+                    move_access,
+                    borrow_mut_access,
+                } => todo!(),
+                LinkageSource::PureOutput(linkage) => {
+                    InstructionKind::RoutineCallCompiled { linkage }
+                }
+            }
         } else {
             match this_ty_decl.kind {
                 TyKind::Struct => todo!(),

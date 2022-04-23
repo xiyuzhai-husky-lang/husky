@@ -23,7 +23,7 @@ impl EntityDefnVariant {
         })
     }
 
-    pub(crate) fn collect_fields(
+    pub(crate) fn collect_original_fields(
         db: &dyn InferQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
@@ -35,6 +35,12 @@ impl EntityDefnVariant {
             let ast = child.value.as_ref()?;
             match ast.kind {
                 AstKind::FieldDefnHead(ref field_defn_head) => {
+                    match field_defn_head.kind {
+                        FieldKind::StructOriginal => (),
+                        FieldKind::StructDerived => break,
+                        FieldKind::RecordOriginal => (),
+                        FieldKind::RecordDerived => break,
+                    }
                     members.insert_new(EntityDefn::new(
                         field_defn_head.ident.into(),
                         EntityDefnVariant::type_field_from_ast(

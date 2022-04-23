@@ -157,7 +157,7 @@ impl<'a> Formatter<'a> {
     fn fmt_member_variable_contracted_type(&mut self, contract: FieldContract, ty: EntityRoutePtr) {
         match contract {
             FieldContract::Own => (),
-            FieldContract::Ref => self.write("&"),
+            FieldContract::GlobalRef => self.write("&"),
             FieldContract::LazyOwn => todo!(),
         }
         self.fmt_ty(ty);

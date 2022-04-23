@@ -224,7 +224,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::LetInit => todo!(),
                         EagerContract::VarInit => todo!(),
                     },
-                    FieldContract::Ref => todo!(),
+                    FieldContract::GlobalRef => todo!(),
                     FieldContract::LazyOwn => todo!(),
                 };
                 self.infer_eager_expr(opd, this_contract, arena);
