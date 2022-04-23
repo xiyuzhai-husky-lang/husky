@@ -12,7 +12,7 @@ pub enum ScopeError {
     Message(String),
 }
 
-pub type ScopeResult<T> = Result<T, ScopeError>;
+pub type EntityRouteResult<T> = Result<T, ScopeError>;
 pub type ScopeResultArc<T> = Result<Arc<T>, ScopeError>;
 
 impl From<FileError> for ScopeError {

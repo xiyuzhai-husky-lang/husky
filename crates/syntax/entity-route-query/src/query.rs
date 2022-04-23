@@ -20,7 +20,7 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 
     fn raw_entity_kind(&self, scope_id: EntityRoutePtr) -> EntityKind;
 
-    fn entity_source(&self, scope_id: EntityRoutePtr) -> ScopeResult<EntitySource>;
+    fn entity_source(&self, scope_id: EntityRoutePtr) -> EntityRouteResult<EntitySource>;
 
     fn entity_route_menu(&self) -> Arc<EntityRouteMenu>;
 }
@@ -50,6 +50,7 @@ fn subscope_table(
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Input { .. } => todo!(),
         EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeAsTraitMember => todo!(),
     }))
 }
 
@@ -59,7 +60,7 @@ fn subscopes(
 ) -> Arc<Vec<EntityRoutePtr>> {
     Arc::new(db.subscope_table(scope).map_or(Vec::new(), |table| {
         table
-            .subscopes(scope)
+            .child_routes(scope)
             .into_iter()
             .map(|scope| db.intern_entity_route(scope))
             .collect()
@@ -113,7 +114,7 @@ fn entity_kind_from_scope_kind(
         EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
         EntityRouteKind::ThisType => EntityKind::Type(TyKind::Other),
-        EntityRouteKind::TraitMember {
+        EntityRouteKind::TypeAsTraitMember {
             ty: parent,
             trai,
             ident,
@@ -124,27 +125,33 @@ fn entity_kind_from_scope_kind(
 fn entity_source(
     this: &dyn EntityRouteSalsaQueryGroup,
     entity_route: EntityRoutePtr,
-) -> ScopeResult<EntitySource> {
+) -> EntityRouteResult<EntitySource> {
     match entity_route.kind {
         EntityRouteKind::Root { ident } => {
             Ok(EntitySource::StaticModuleItem(static_root_defn(ident)))
         }
         EntityRouteKind::Package { main, .. } => Ok(EntitySource::Module { file: main }),
         EntityRouteKind::Child { parent, ident } => {
-            this.subscope_table(parent)?.scope_source(ident)
+            this.subscope_table(parent)?.entity_source(ident)
         }
         EntityRouteKind::Input { main } => Ok(EntitySource::Input { main }),
         EntityRouteKind::Generic { .. } => todo!(),
         EntityRouteKind::ThisType => panic!(),
-        EntityRouteKind::TraitMember { ty, .. } => {
+        EntityRouteKind::TypeAsTraitMember { ty, .. } => {
             let ty_source = this.entity_source(ty).unwrap();
             match ty_source {
-                EntitySource::StaticModuleItem(_) => Ok(ty_source),
+                EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+                    EntityStaticDefnVariant::Type { .. } => {
+                        Ok(EntitySource::StaticTypeAsTraitMember)
+                    }
+                    _ => panic!(),
+                },
                 EntitySource::WithinBuiltinModule => todo!(),
                 EntitySource::WithinModule { .. } => todo!(),
                 EntitySource::Module { .. } => todo!(),
                 EntitySource::Input { .. } => todo!(),
                 EntitySource::StaticTypeMember => todo!(),
+                EntitySource::StaticTypeAsTraitMember => todo!(),
             }
         }
     }
@@ -251,7 +258,7 @@ pub trait EntityRouteQueryGroup:
         }
     }
 
-    fn module(&self, id: FilePtr) -> ScopeResult<EntityRoutePtr> {
+    fn module(&self, id: FilePtr) -> EntityRouteResult<EntityRoutePtr> {
         let path: PathBuf = (*id).into();
         if !self.file_exists(id) {
             scope_err!(format!("file didn't exist"))?
@@ -286,7 +293,7 @@ pub trait EntityRouteQueryGroup:
         }
     }
 
-    fn module_file(&self, module: EntityRoutePtr) -> ScopeResult<FilePtr> {
+    fn module_file(&self, module: EntityRoutePtr) -> EntityRouteResult<FilePtr> {
         Ok(match self.entity_source(module)? {
             EntitySource::StaticModuleItem(_) => panic!(),
             EntitySource::WithinModule { file: file_id, .. } => file_id,
@@ -294,10 +301,15 @@ pub trait EntityRouteQueryGroup:
             EntitySource::WithinBuiltinModule => todo!(),
             EntitySource::Input { .. } => todo!(),
             EntitySource::StaticTypeMember => todo!(),
+            EntitySource::StaticTypeAsTraitMember => todo!(),
         })
     }
 
-    fn submodule_file_id(&self, parent_id: FilePtr, ident: CustomIdentifier) -> ScopeResult<FilePtr>
+    fn submodule_file_id(
+        &self,
+        parent_id: FilePtr,
+        ident: CustomIdentifier,
+    ) -> EntityRouteResult<FilePtr>
     where
         Self: Sized,
     {

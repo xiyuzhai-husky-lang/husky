@@ -74,7 +74,7 @@ impl<'a> TySheetBuilder<'a> {
                     EntityRouteKind::Input { main } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
                     EntityRouteKind::ThisType => todo!(),
-                    EntityRouteKind::TraitMember {
+                    EntityRouteKind::TypeAsTraitMember {
                         ty: parent,
                         trai,
                         ident,
@@ -322,7 +322,7 @@ impl<'a> TySheetBuilder<'a> {
                         parent: this_ty,
                         ident: method_decl.ident,
                     },
-                    MethodKind::Trait(trai) => EntityRouteKind::TraitMember {
+                    MethodKind::Trait { trai } => EntityRouteKind::TypeAsTraitMember {
                         ty: this_ty,
                         ident: method_decl.ident,
                         trai,

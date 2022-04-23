@@ -43,7 +43,14 @@ impl std::fmt::Debug for EntityRoute {
             EntityRouteKind::Input { .. } => f.write_str("input")?,
             EntityRouteKind::Generic { ident, .. } => f.write_str(&ident)?,
             EntityRouteKind::ThisType => f.write_str("This")?,
-            EntityRouteKind::TraitMember { .. } => todo!(),
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                f.write_str("<")?;
+                ty.fmt(f)?;
+                f.write_str(" as ")?;
+                trai.fmt(f)?;
+                f.write_str(">::")?;
+                ident.fmt(f)?
+            }
         };
         if self.generic_arguments.len() > 0 {
             f.write_str("<")?;
@@ -69,7 +76,7 @@ pub enum GenericArgument {
 }
 
 impl GenericArgument {
-    pub fn as_scope(&self) -> EntityRoutePtr {
+    pub fn as_entity_route(&self) -> EntityRoutePtr {
         match self {
             GenericArgument::Const(_) => panic!(),
             GenericArgument::EntityRoute(scope) => *scope,
@@ -114,7 +121,7 @@ pub enum EntityRouteKind {
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
     },
-    TraitMember {
+    TypeAsTraitMember {
         ty: EntityRoutePtr,
         trai: EntityRoutePtr,
         ident: CustomIdentifier,
@@ -145,7 +152,7 @@ impl EntityRoute {
             EntityRouteKind::Input { .. } => todo!(),
             EntityRouteKind::Generic { ident, .. } => ident.into(),
             EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TraitMember { ident, .. } => ident.into(),
+            EntityRouteKind::TypeAsTraitMember { ident, .. } => ident.into(),
         }
     }
 
@@ -201,7 +208,7 @@ impl EntityRoute {
             EntityRouteKind::Input { .. } => false,
             EntityRouteKind::Generic { .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TraitMember { .. } => todo!(),
+            EntityRouteKind::TypeAsTraitMember { .. } => todo!(),
         }
     }
 
@@ -213,7 +220,7 @@ impl EntityRoute {
             | EntityRouteKind::Generic { .. }
             | EntityRouteKind::ThisType => panic!(),
             EntityRouteKind::Child { parent, .. } => parent,
-            EntityRouteKind::TraitMember { ty: parent, .. } => parent,
+            EntityRouteKind::TypeAsTraitMember { ty: parent, .. } => parent,
         }
     }
 }
@@ -228,6 +235,7 @@ impl From<RootIdentifier> for EntityRoute {
 pub enum EntitySource {
     StaticModuleItem(&'static EntityStaticDefn),
     StaticTypeMember,
+    StaticTypeAsTraitMember,
     WithinBuiltinModule,
     WithinModule {
         file: FilePtr,

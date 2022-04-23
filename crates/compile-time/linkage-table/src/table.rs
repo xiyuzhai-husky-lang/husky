@@ -36,18 +36,6 @@ pub enum MemberAccessKind {
 }
 
 impl LinkageTable {
-    pub fn vec_constructor(&self, element_ty_uid: EntityUid) -> Linkage {
-        let routine_key = LinkageKey::VecConstructor { element_ty_uid };
-        if let Some(compiled_routine) = self.linkage(routine_key) {
-            compiled_routine
-        } else {
-            Linkage {
-                call: construct_virtual_vec,
-                nargs: 0,
-            }
-        }
-    }
-
     pub(crate) fn struct_constructor(&self, ty_uid: EntityUid) -> Option<Linkage> {
         self.linkage(LinkageKey::StructConstructor { ty_uid })
     }

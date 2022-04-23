@@ -6,8 +6,13 @@ mod subentities;
 mod trai;
 mod ty;
 
+use atom::{
+    symbol::{Symbol, SymbolContextKind},
+    SymbolContext,
+};
 use map_collect::MapCollect;
 pub use morphism::*;
+use print_utils::p;
 pub use query::*;
 pub use routine::*;
 pub use trai::*;
@@ -17,7 +22,7 @@ use ast::AstKind;
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
-use entity_route::EntitySource;
+use entity_route::{EntityRouteKind, EntitySource};
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
@@ -52,7 +57,7 @@ pub struct EntityDefn {
     pub ident: Identifier,
     pub variant: EntityDefnVariant,
     pub subentities: Arc<Vec<Arc<EntityDefn>>>,
-    pub route: EntityRoutePtr,
+    pub base_route: EntityRoutePtr,
     pub file: FilePtr,
     pub range: TextRange,
 }
@@ -65,16 +70,21 @@ impl HasKey<CustomIdentifier> for EntityDefn {
 
 impl EntityDefn {
     pub fn from_static(
-        db: &dyn EntityDefnQueryGroup,
+        symbol_context: &SymbolContext,
         route: EntityRoutePtr,
         static_entity_defn: &EntityStaticDefn,
     ) -> Arc<Self> {
-        let variant = EntityDefnVariant::from_static(db, route, static_entity_defn);
+        let variant = EntityDefnVariant::from_static(symbol_context, route, static_entity_defn);
         Self::new(
-            db.intern_word(static_entity_defn.name).ident(),
+            symbol_context
+                .db
+                .intern_word(static_entity_defn.name)
+                .ident(),
             variant,
             route,
-            db.intern_file(static_entity_defn.dev_src.file.into()),
+            symbol_context
+                .db
+                .intern_file(static_entity_defn.dev_src.file.into()),
             static_entity_defn.dev_src.into(),
         )
     }
@@ -90,7 +100,7 @@ impl EntityDefn {
             ident,
             subentities: variant.subentities(),
             variant,
-            route,
+            base_route: route,
             file,
             range,
         })
@@ -125,16 +135,19 @@ pub enum EntityDefnVariant {
     },
     Pattern {},
     Func {
+        generic_placeholders: IdentDict<GenericPlaceholder>,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedEntityRoute,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     Proc {
+        generic_placeholders: IdentDict<GenericPlaceholder>,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output: RangedEntityRoute,
         stmts: Avec<ProcStmt>,
     },
     Type {
+        generic_placeholders: IdentDict<GenericPlaceholder>,
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
@@ -152,6 +165,7 @@ pub enum EntityDefnVariant {
         contract: FieldContract,
     },
     Method {
+        generic_placeholders: IdentDict<GenericPlaceholder>,
         this_contract: InputContract,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output_ty: RangedEntityRoute,
@@ -169,28 +183,40 @@ pub enum EntityDefnVariant {
 
 impl EntityDefnVariant {
     pub fn from_static(
-        db: &dyn EntityDefnQueryGroup,
+        symbol_context: &SymbolContext,
         ty: EntityRoutePtr,
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Type { .. } => Self::ty_from_static(db, ty, static_defn),
+            EntityStaticDefnVariant::Type { .. } => {
+                Self::ty_from_static(symbol_context, ty, static_defn)
+            }
             EntityStaticDefnVariant::Trait { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
-                inputs,
+                input_placeholders,
                 output_ty,
                 output_contract,
                 generic_placeholders,
                 kind,
             } => EntityDefnVariant::Method {
                 this_contract,
-                input_placeholders: todo!(),
-                output_ty: todo!(),
+                input_placeholders: Arc::new(
+                    input_placeholders.map(|input_placeholder| {
+                        symbol_context.input_placeholder(input_placeholder)
+                    }),
+                ),
+                output_ty: RangedEntityRoute {
+                    route: symbol_context.entity_route_from_str(output_ty).unwrap(),
+                    range: Default::default(),
+                },
                 output_contract,
-                method_variant: todo!(),
+                method_variant: MethodDefnVariant::from_static(symbol_context, kind),
+                generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
+                    GenericPlaceholder::from_static(symbol_context.db, static_generic_placeholder)
+                }),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TypeField { .. } => todo!(),
@@ -231,9 +257,17 @@ pub(crate) fn entity_defn(
 ) -> SemanticResultArc<EntityDefn> {
     let source = db.entity_source(entity_route)?;
     match source {
-        EntitySource::StaticModuleItem(static_defn) => {
-            Ok(EntityDefn::from_static(db, entity_route, static_defn))
-        }
+        EntitySource::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
+            &SymbolContext {
+                opt_package_main: None,
+                db: db.upcast(),
+                opt_this_ty: None,
+                symbols: (&[] as &[Symbol]).into(),
+                kind: SymbolContextKind::Normal,
+            },
+            entity_route,
+            static_defn,
+        )),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {
             file,
@@ -302,6 +336,29 @@ pub(crate) fn entity_defn(
         EntitySource::Module { file: file_id } => todo!(),
         EntitySource::Input { .. } => todo!(),
         EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeAsTraitMember => match entity_route.kind {
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                let ty_defn = db.entity_defn(ty)?;
+                let trai_impl_defn = ty_defn
+                    .trait_impl(trai)
+                    .expect("todo: trait_impl not found");
+                trai_impl_defn
+                    .member_impl(ident)
+                    .map(|a| a.clone())
+                    .ok_or(err!(format!(
+                        "no member `{}` in ty `{:?}` as trait `{:?}`, available members are {:?}, trait impl src: {:?}",
+                        &ident,
+                        ty,
+                        trai,
+                        trai_impl_defn
+                            .member_impls
+                            .iter()
+                            .map(|member_impl| member_impl.ident)
+                            .collect::<Vec<_>>(), trai_impl_defn.dev_src
+                    )))
+            }
+            _ => panic!(),
+        },
     }
 }
 

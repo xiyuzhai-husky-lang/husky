@@ -25,6 +25,7 @@ impl TraitImplDecl {
         let trait_route = symbol_context
             .entity_route_from_str(static_trait_impl.trai)
             .unwrap();
+        p!(trait_route);
         let trait_decl = db.trait_decl(trait_route).unwrap();
         let member_impls = TraitMemberImplDecl::collect_from_static(
             db,
@@ -40,21 +41,6 @@ impl TraitImplDecl {
         // Self::from_trait_decl(db, trait_decl, symbol_context.opt_this_ty.unwrap())
     }
 
-    // pub(crate) fn from_trait_decl(
-    //     db: &dyn DeclQueryGroup,
-    //     trait_decl: Arc<TraitDecl>,
-    //     this_ty: EntityRoutePtr,
-    // ) -> Arc<Self> {
-    //     let memb_impls = trait_decl
-    //         .members
-    //         .map(|member| member.implement(db, this_ty));
-    //     Arc::new(Self {
-    //         trait_decl,
-    //         this_ty,
-    //         members: memb_impls,
-    //     })
-    // }
-
     pub(crate) fn clone_trait_impl(db: &dyn DeclQueryGroup, this_ty: EntityRoutePtr) -> Arc<Self> {
         todo!()
         // Self::from_trait_decl(db, db.trait_decl_menu().clone_trait.clone(), this_ty)
@@ -64,10 +50,10 @@ impl TraitImplDecl {
         Arc::new(Self {
             trait_route: instantiator
                 .instantiate_entity_route(self.trait_route)
-                .as_scope(),
+                .as_entity_route(),
             this_ty: instantiator
                 .instantiate_entity_route(self.this_ty)
-                .as_scope(),
+                .as_entity_route(),
             member_impls: self
                 .member_impls
                 .map(|member| member.instantiate(instantiator)),
@@ -120,34 +106,26 @@ impl TraitMemberImplDecl {
         trait_decl: &TraitDecl,
         static_member_impls: &[EntityStaticDefn],
     ) -> Vec<Self> {
-        let member_impl_context: Vec<_> = static_member_impls
+        let member_symbol_impls: Vec<_> = static_member_impls
             .iter()
             .filter_map(|static_member_impl| match static_member_impl.variant {
-                EntityStaticDefnVariant::Method {
-                    this_contract,
-                    inputs,
-                    output_ty,
-                    output_contract,
-                    generic_placeholders,
-                    kind,
-                } => todo!(),
+                EntityStaticDefnVariant::Method { .. } => None,
                 EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => todo!(),
-                EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => Some((
+                    db.intern_word(static_member_impl.name).custom(),
+                    GenericArgument::EntityRoute(symbol_context.entity_route_from_str(ty).unwrap()),
+                )),
                 EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
                 _ => panic!(),
-                // StaticTraitMemberImplDefnVariant::Type { route } => Some((
-                //     db.intern_word(static_member_impl.name).custom(),
-                //     GenericArgument::EntityRoute(
-                //         symbol_context.entity_route_from_str(route).unwrap(),
-                //     ),
-                // )),
+                // StaticTraitMemberImplDefnVariant::Type { route } =>
+
                 // StaticTraitMemberImplDefnVariant::Method { .. } => None,
             })
             .collect();
         // let member_impl_context: Vec<_> =
         //     member_impls.map(|member_impl| (member_impl.ident(), member_impl.generic_argument()));
         let this_ty = symbol_context.opt_this_ty.unwrap();
-        let implementor = Implementor::new(db.upcast(), this_ty, &member_impl_context);
+        let implementor = Implementor::new(db.upcast(), this_ty, &member_symbol_impls);
 
         trait_decl
             .members
@@ -167,12 +145,13 @@ impl TraitMemberImplDecl {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
         match self {
             TraitMemberImplDecl::Method(method_decl) => {
+                p!(method_decl);
                 TraitMemberImplDecl::Method(method_decl.instantiate(instantiator))
             }
             TraitMemberImplDecl::AssociatedType { ident, ty } => {
                 TraitMemberImplDecl::AssociatedType {
                     ident: *ident,
-                    ty: instantiator.instantiate_entity_route(*ty).as_scope(),
+                    ty: instantiator.instantiate_entity_route(*ty).as_entity_route(),
                 }
             }
             TraitMemberImplDecl::Call {} => todo!(),

@@ -84,6 +84,7 @@ fn method_instruction_sheet(
             kind,
             ref trait_impls,
             ref members,
+            ..
         } => {
             let method_defn = db.member_defn(member_route);
             match method_defn.variant {

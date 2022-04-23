@@ -12,7 +12,9 @@ pub struct OutputDecl {
 impl OutputDecl {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
         Self {
-            ty: instantiator.instantiate_entity_route(self.ty).as_scope(),
+            ty: instantiator
+                .instantiate_entity_route(self.ty)
+                .as_entity_route(),
             contract: self.contract,
         }
     }

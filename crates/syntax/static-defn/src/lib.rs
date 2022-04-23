@@ -50,7 +50,7 @@ pub enum EntityStaticDefnVariant {
     },
     Method {
         this_contract: InputContract,
-        inputs: &'static [StaticInputPlaceholder],
+        input_placeholders: &'static [StaticInputPlaceholder],
         output_ty: &'static str,
         output_contract: OutputContract,
         generic_placeholders: &'static [StaticGenericPlaceholder],

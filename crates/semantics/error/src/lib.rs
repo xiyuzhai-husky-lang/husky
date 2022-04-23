@@ -8,14 +8,16 @@ pub struct SemanticError {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum SemanticErrorVariant {
-    Derived,
-    Original,
+    Derived { message: String },
+    Original { message: String },
 }
 
 impl SemanticError {
     pub fn from_infer_error(error: InferError, dev_src: DevSource) -> SemanticError {
         Self {
-            variant: SemanticErrorVariant::Derived,
+            variant: SemanticErrorVariant::Derived {
+                message: format!("{:?}", error),
+            },
             dev_src,
         }
     }
@@ -24,7 +26,9 @@ impl SemanticError {
 impl From<InferError> for SemanticError {
     fn from(e: InferError) -> Self {
         Self {
-            variant: SemanticErrorVariant::Derived,
+            variant: SemanticErrorVariant::Derived {
+                message: format!("{:?}", e),
+            },
             dev_src: e.dev_src,
         }
     }
@@ -58,7 +62,9 @@ impl From<ScopeError> for SemanticError {
 impl From<&ast::AstError> for SemanticError {
     fn from(error: &ast::AstError) -> Self {
         Self {
-            variant: SemanticErrorVariant::Derived,
+            variant: SemanticErrorVariant::Derived {
+                message: format!("{:?}", error),
+            },
             dev_src: error.dev_src.clone(),
         }
     }
@@ -74,7 +80,9 @@ impl From<VMError> for SemanticError {
 macro_rules! err {
     ($msg:expr) => {{
         Err(SemanticError {
-            variant: SemanticErrorVariant::Derived,
+            variant: SemanticErrorVariant::Original {
+                message: $msg.into(),
+            },
             dev_src: dev_utils::dev_src!(),
         })?
     }};
@@ -84,7 +92,9 @@ macro_rules! err {
 macro_rules! not_none {
     ($option:expr) => {{
         $option.ok_or(SemanticError {
-            variant: SemanticErrorVariant::Derived,
+            variant: SemanticErrorVariant::Derived {
+                message: "not none".into(),
+            },
             dev_src: dev_utils::dev_src!(),
         })?
     }};

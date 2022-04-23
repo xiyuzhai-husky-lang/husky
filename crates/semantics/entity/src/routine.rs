@@ -21,6 +21,7 @@ impl EntityDefnVariant {
                     file,
                 )?;
                 EntityDefnVariant::Proc {
+                    generic_placeholders: routine_defn_head.generic_placeholders.clone(),
                     input_placeholders: routine_defn_head.input_placeholders.clone(),
                     output: routine_defn_head.output_ty,
                     stmts,
@@ -35,6 +36,7 @@ impl EntityDefnVariant {
                     file,
                 )?;
                 EntityDefnVariant::Func {
+                    generic_placeholders: routine_defn_head.generic_placeholders.clone(),
                     input_placeholders: routine_defn_head.input_placeholders.clone(),
                     output: routine_defn_head.output_ty,
                     stmts,

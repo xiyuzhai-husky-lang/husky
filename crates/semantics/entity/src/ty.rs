@@ -1,7 +1,10 @@
 mod member;
 
-use atom::{symbol::SymbolContextKind, SymbolContext};
-use infer_decl::MemberIdx;
+use atom::{
+    symbol::{Symbol, SymbolContextKind},
+    SymbolContext,
+};
+use infer_decl::{DeclQueryGroup, MemberIdx};
 pub use member::*;
 use print_utils::{msg_once, p};
 
@@ -54,6 +57,7 @@ impl EntityDefnVariant {
         )?;
         Self::collect_other_members(db, arena, file, entity_route, children, &mut type_members)?;
         Ok(EntityDefnVariant::new_ty(
+            generic_placeholders,
             type_members,
             variants,
             kind,
@@ -62,6 +66,7 @@ impl EntityDefnVariant {
     }
 
     fn new_ty(
+        generic_placeholders: IdentDict<GenericPlaceholder>,
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
@@ -69,6 +74,7 @@ impl EntityDefnVariant {
     ) -> Self {
         let members = collect_all_members(&type_members, &trait_impls);
         EntityDefnVariant::Type {
+            generic_placeholders,
             type_members,
             variants,
             kind,
@@ -78,8 +84,8 @@ impl EntityDefnVariant {
     }
 
     pub(crate) fn ty_from_static(
-        db: &dyn EntityDefnQueryGroup,
-        ty: EntityRoutePtr,
+        symbol_context: &SymbolContext,
+        ty0: EntityRoutePtr,
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
@@ -93,29 +99,50 @@ impl EntityDefnVariant {
                 visualizer,
                 opt_type_call,
             } => {
+                let mut symbol_context = SymbolContext {
+                    opt_package_main: symbol_context.opt_package_main,
+                    db: symbol_context.db,
+                    opt_this_ty: None,
+                    symbols: (&[] as &[Symbol]).into(),
+                    kind: SymbolContextKind::Normal,
+                };
+                let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
+                let generic_placeholders =
+                    symbol_context.generic_placeholders_from_static(generic_placeholders);
+                let generic_arguments = symbol_context
+                    .generic_arguments_from_generic_placeholders(&generic_placeholders);
+                let this_ty = symbol_context.db.intern_entity_route(EntityRoute {
+                    kind: base_route.kind,
+                    generic_arguments,
+                });
+                let symbols =
+                    symbol_context.symbols_from_generic_placeholders(&generic_placeholders);
+                symbol_context.symbols = symbols.into();
+                symbol_context.opt_this_ty = Some(this_ty);
                 let type_members = type_members.map(|type_member| {
                     EntityDefn::from_static(
-                        db,
-                        db.intern_entity_route(EntityRoute::child_route(
-                            ty,
-                            db.intern_word(type_member.name).custom(),
-                            vec![],
-                        )),
+                        &symbol_context,
+                        symbol_context
+                            .db
+                            .intern_entity_route(EntityRoute::child_route(
+                                base_route,
+                                symbol_context.db.intern_word(type_member.name).custom(),
+                                vec![],
+                            )),
                         type_member,
                     )
                 });
                 let variants = variants.map(|_| todo!());
                 let kind = kind;
-                let symbol_context = SymbolContext {
-                    opt_package_main: None,
-                    db: db.upcast(),
-                    opt_this_ty: Some(ty),
-                    symbols: &[],
-                    kind: SymbolContextKind::Normal,
-                };
                 let trait_impls = trait_impls
                     .map(|trait_impl| TraitImplDefn::from_static(&symbol_context, trait_impl));
-                Self::new_ty(type_members, variants, kind, trait_impls)
+                Self::new_ty(
+                    generic_placeholders,
+                    type_members,
+                    variants,
+                    kind,
+                    trait_impls,
+                )
             }
             _ => panic!(),
         }

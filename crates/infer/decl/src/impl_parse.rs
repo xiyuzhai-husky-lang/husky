@@ -17,7 +17,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
     //     parse_entity(symbol_context, &self.tokenize(text))
     // }
 
-    pub(crate) fn parse_generic_placeholders_from_static(
+    pub fn generic_placeholders_from_static(
         &self,
         static_generic_placeholders: &[StaticGenericPlaceholder],
     ) -> IdentDict<GenericPlaceholder> {
@@ -27,7 +27,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
         })
     }
 
-    pub(crate) fn generic_arguments_from_generic_placeholders(
+    pub fn generic_arguments_from_generic_placeholders(
         &self,
         generic_placeholders: &[GenericPlaceholder],
     ) -> Vec<GenericArgument> {
@@ -42,7 +42,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
         })
     }
 
-    pub(crate) fn symbols_from_generic_placeholders(
+    pub fn symbols_from_generic_placeholders(
         &self,
         generic_placeholders: &[GenericPlaceholder],
     ) -> Vec<Symbol> {

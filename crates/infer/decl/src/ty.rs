@@ -27,7 +27,7 @@ use vm::{OutputContract, TySignature};
 use word::{IdentArcDict, IdentDict, RangedCustomIdentifier};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TypeDecl {
+pub struct TyDecl {
     pub this_ty: EntityRoutePtr,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub ty_members: IdentDict<TyMemberDecl>,
@@ -38,7 +38,7 @@ pub struct TypeDecl {
     pub opt_type_call: Option<Arc<RoutineDecl>>,
 }
 
-impl TypeDecl {
+impl TyDecl {
     fn from_static(db: &dyn DeclQueryGroup, static_defn: &EntityStaticDefn) -> Arc<Self> {
         match static_defn.variant {
             EntityStaticDefnVariant::Type {
@@ -48,11 +48,11 @@ impl TypeDecl {
                 type_members,
                 variants,
                 kind,
-                visualizer,
                 opt_type_call,
+                ..
             } => {
                 let generic_placeholders =
-                    db.parse_generic_placeholders_from_static(generic_placeholders);
+                    db.generic_placeholders_from_static(generic_placeholders);
                 let generic_arguments =
                     db.generic_arguments_from_generic_placeholders(&generic_placeholders);
                 let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
@@ -60,7 +60,7 @@ impl TypeDecl {
                     opt_package_main: None,
                     db: db.upcast(),
                     opt_this_ty: None,
-                    symbols: &symbols,
+                    symbols: (&symbols as &[Symbol]).into(),
                     kind: SymbolContextKind::Normal,
                 };
                 let base_ty = symbol_context.entity_route_from_str(base_route).unwrap();
@@ -149,7 +149,7 @@ impl TypeDecl {
             TyKind::Array => todo!(),
             TyKind::Other => todo!(),
         };
-        Ok(TypeDecl::new(
+        Ok(TyDecl::new(
             db,
             this_ty,
             generic_placeholders,
@@ -486,7 +486,7 @@ impl TypeDecl {
                 should_eq!(self.this_ty, parent);
                 self.ty_members.position(ident).unwrap().into()
             }
-            EntityRouteKind::TraitMember { ty, trai, ident } => {
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
                 should_eq!(self.this_ty, ty);
                 todo!()
             }
@@ -504,14 +504,14 @@ impl TypeDecl {
 pub(crate) fn type_decl(
     db: &dyn DeclQueryGroup,
     ty_route: EntityRoutePtr,
-) -> InferResultArc<TypeDecl> {
+) -> InferResultArc<TyDecl> {
     let source = db.entity_source(ty_route)?;
     match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Type { .. } => {
-                let base_decl = TypeDecl::from_static(db, static_defn);
+                let base_decl = TyDecl::from_static(db, static_defn);
                 if ty_route.generic_arguments.len() > 0 {
                     assert_eq!(
                         ty_route.generic_arguments.len(),
@@ -550,7 +550,7 @@ pub(crate) fn type_decl(
                     if ty_route.generic_arguments.len() > 0 {
                         todo!()
                     } else {
-                        TypeDecl::from_ast(
+                        TyDecl::from_ast(
                             db,
                             &ast_text.arena,
                             ty_route,
@@ -566,6 +566,7 @@ pub(crate) fn type_decl(
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { .. } => todo!(),
         EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeAsTraitMember => todo!(),
     }
 }
 
@@ -577,7 +578,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteKind]
         EntityRouteKind::Input { main } => todo!(),
         EntityRouteKind::Generic { ident, entity_kind } => todo!(),
         EntityRouteKind::ThisType => todo!(),
-        EntityRouteKind::TraitMember {
+        EntityRouteKind::TypeAsTraitMember {
             ty: parent,
             trai,
             ident,
@@ -593,20 +594,19 @@ pub(crate) fn method_decl_from_static(
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
             this_contract,
-            inputs,
+            input_placeholders: inputs,
             output_ty,
             output_contract,
             generic_placeholders,
             kind,
         } => {
-            let generic_placeholders =
-                db.parse_generic_placeholders_from_static(generic_placeholders);
+            let generic_placeholders = db.generic_placeholders_from_static(generic_placeholders);
             symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
             let symbol_context = SymbolContext {
                 opt_package_main: None,
                 db: db.upcast(),
                 opt_this_ty: None,
-                symbols: &symbols,
+                symbols: symbols.into(),
                 kind: SymbolContextKind::Normal,
             };
             let inputs = inputs.map(|input| InputDecl {

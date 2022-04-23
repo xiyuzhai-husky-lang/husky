@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use infer_decl::TypeDecl;
+use infer_decl::TyDecl;
 use syntax_types::{PrefixOpr, SuffixOpr};
 use vm::{BinaryOpr, FieldContract};
 use word::RangedCustomIdentifier;
@@ -23,7 +23,7 @@ pub enum EagerOpnKind {
     RoutineCall(RangedEntityRoute),
     TypeCall {
         ranged_ty: RangedEntityRoute,
-        ty_decl: Arc<TypeDecl>,
+        ty_decl: Arc<TyDecl>,
     },
     PatternCall,
     FieldAccess {
@@ -31,7 +31,7 @@ pub enum EagerOpnKind {
     },
     MethodCall {
         method_ident: RangedCustomIdentifier,
-        this_ty_decl: Arc<TypeDecl>,
+        this_ty_decl: Arc<TyDecl>,
         method_route: EntityRoutePtr,
     },
     ElementAccess,

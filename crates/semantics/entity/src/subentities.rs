@@ -10,7 +10,8 @@ impl EntityDefnVariant {
             | EntityDefnVariant::Pattern {}
             | EntityDefnVariant::TypeField { .. }
             | EntityDefnVariant::Func { .. }
-            | EntityDefnVariant::Proc { .. } => Arc::new(Vec::new()),
+            | EntityDefnVariant::Proc { .. }
+            | EntityDefnVariant::Method { .. } => Arc::new(Vec::new()),
             EntityDefnVariant::Type { members, .. } => members.clone(),
             EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
                 EnumVariantDefnVariant::Constant => Default::default(),
@@ -18,7 +19,6 @@ impl EntityDefnVariant {
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => Arc::new(Vec::new()),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
-            EntityDefnVariant::Method { .. } => todo!(),
         }
     }
 }

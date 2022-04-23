@@ -20,7 +20,7 @@ fn visualizer(
             EntityStaticDefnVariant::Trait { .. } => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
-                inputs,
+                input_placeholders: inputs,
                 output_ty,
                 output_contract,
                 generic_placeholders,
@@ -39,5 +39,6 @@ fn visualizer(
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main } => todo!(),
         EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeAsTraitMember => todo!(),
     }
 }

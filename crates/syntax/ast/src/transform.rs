@@ -49,7 +49,7 @@ impl<'a> AstTransformer<'a> {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Input { .. } => panic!(),
                 EntityRouteKind::Generic { ident, .. } => todo!(),
                 EntityRouteKind::ThisType => todo!(),
-                EntityRouteKind::TraitMember {
+                EntityRouteKind::TypeAsTraitMember {
                     ty: parent,
                     trai,
                     ident,
@@ -74,7 +74,7 @@ impl<'a> AstTransformer<'a> {
                     }),
                     EntityRouteKind::Generic { ident, .. } => todo!(),
                     EntityRouteKind::ThisType => todo!(),
-                    EntityRouteKind::TraitMember {
+                    EntityRouteKind::TypeAsTraitMember {
                         ty: parent,
                         trai,
                         ident,

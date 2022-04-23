@@ -37,6 +37,7 @@ pub(crate) fn expr_record_field(
                 ref variants,
                 ref trait_impls,
                 ref members,
+                ..
             } => match kind {
                 TyKind::Record => {
                     if let Some((idx, type_member)) = type_members.iget(field_ident) {

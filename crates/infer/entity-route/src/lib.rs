@@ -11,7 +11,7 @@ use defn_head::*;
 use entity_route::*;
 use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
 use file::FilePtr;
-use infer_decl::{DeclQueryGroup, TypeDecl};
+use infer_decl::{DeclQueryGroup, TyDecl};
 use infer_error::*;
 use print_utils::*;
 use syntax_types::*;
@@ -25,7 +25,7 @@ pub trait InferEntityRoute {
         msg_once!("deprecated");
         self.entity_route_sheet().expr_ty_result(expr_idx)
     }
-    fn expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TypeDecl> {
+    fn expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
         let ty = self.expr_ty_result(expr_idx)?;
         self.decl_db().type_decl(ty)
     }

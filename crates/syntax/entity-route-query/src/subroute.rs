@@ -186,7 +186,7 @@ impl ChildRouteTable {
             .collect()
     }
 
-    pub fn scope_source(&self, ident: CustomIdentifier) -> ScopeResult<EntitySource> {
+    pub fn entity_source(&self, ident: CustomIdentifier) -> EntityRouteResult<EntitySource> {
         not_none!(
             self.entries
                 .iter()
@@ -225,7 +225,7 @@ impl ChildRouteTable {
     pub fn error_iter(&self) -> core::slice::Iter<EntityDefnError> {
         self.errors.iter()
     }
-    pub fn subscopes(&self, parent_scope_id: EntityRoutePtr) -> Vec<EntityRoute> {
+    pub fn child_routes(&self, parent_scope_id: EntityRoutePtr) -> Vec<EntityRoute> {
         self.entries
             .iter()
             .filter_map(|entry| {

@@ -24,16 +24,18 @@ pub struct MethodDecl {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum MethodKind {
     Type,
-    Trait(EntityRoutePtr),
+    Trait { trai: EntityRoutePtr },
 }
 
 impl MethodKind {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
         match self {
             MethodKind::Type => MethodKind::Type,
-            MethodKind::Trait(trai) => {
-                MethodKind::Trait(instantiator.instantiate_entity_route(*trai).as_scope())
-            }
+            MethodKind::Trait { trai } => MethodKind::Trait {
+                trai: instantiator
+                    .instantiate_entity_route(*trai)
+                    .as_entity_route(),
+            },
         }
     }
 
@@ -46,7 +48,9 @@ impl MethodKind {
             MethodStaticDefnKind::TypeMethod { .. } => Self::Type,
             MethodStaticDefnKind::TraitMethod { .. } => {
                 // opt_this_ty,
-                Self::Trait(symbol_context.trai())
+                Self::Trait {
+                    trai: symbol_context.trai(),
+                }
             }
             MethodStaticDefnKind::TraitMethodImpl { opt_source } => todo!(),
         }
@@ -94,7 +98,7 @@ impl MethodDecl {
         match defn.variant {
             EntityStaticDefnVariant::Method {
                 this_contract,
-                inputs,
+                input_placeholders: inputs,
                 output_ty,
                 output_contract,
                 generic_placeholders,

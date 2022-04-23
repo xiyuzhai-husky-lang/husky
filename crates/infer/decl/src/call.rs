@@ -105,6 +105,7 @@ pub(crate) fn call_decl(
         EntitySource::Module { file: file_id } => todo!(),
         EntitySource::Input { .. } => todo!(),
         EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeAsTraitMember => todo!(),
     };
 }
 
@@ -122,14 +123,13 @@ pub(crate) fn routine_decl_from_static(
             linkage,
             routine_kind,
         } => {
-            let generic_placeholders =
-                db.parse_generic_placeholders_from_static(generic_placeholders);
+            let generic_placeholders = db.generic_placeholders_from_static(generic_placeholders);
             symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
             let symbol_context = SymbolContext {
                 opt_package_main: None,
                 db: db.upcast(),
                 opt_this_ty: None,
-                symbols: &symbols,
+                symbols: (&symbols as &[Symbol]).into(),
                 kind: SymbolContextKind::Normal,
             };
             let inputs = inputs.map(|input| InputDecl {

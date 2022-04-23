@@ -34,7 +34,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 entity_kind: raw_entity_kind,
             } => todo!(),
             EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TraitMember {
+            EntityRouteKind::TypeAsTraitMember {
                 ty: parent,
                 trai,
                 ident,
@@ -103,6 +103,7 @@ impl EntityDefn {
                 ref input_placeholders,
                 output,
                 ref stmts,
+                ..
             } => {
                 extract_call_head_dependees(input_placeholders, output, &mut builder);
                 extract_func_stmts_dependees(stmts, &mut builder);
@@ -111,6 +112,7 @@ impl EntityDefn {
                 ref input_placeholders,
                 output,
                 ref stmts,
+                ..
             } => {
                 extract_call_head_dependees(input_placeholders, output, &mut builder);
                 extract_proc_stmts_dependees(stmts, &mut builder);
@@ -121,6 +123,7 @@ impl EntityDefn {
                 kind,
                 ref trait_impls,
                 ref members,
+                ..
             } => {
                 type_members.iter().for_each(|member| match member.variant {
                     EntityDefnVariant::TypeField { ty, .. } => builder.push(ty),
@@ -346,23 +349,9 @@ impl EntityDefn {
                 EntityDefnVariant::Module {} => todo!(),
                 EntityDefnVariant::Feature { ty, ref lazy_stmts } => todo!(),
                 EntityDefnVariant::Pattern {} => todo!(),
-                EntityDefnVariant::Func {
-                    ref input_placeholders,
-                    output,
-                    ref stmts,
-                } => todo!(),
-                EntityDefnVariant::Proc {
-                    ref input_placeholders,
-                    output,
-                    ref stmts,
-                } => todo!(),
-                EntityDefnVariant::Type {
-                    ref type_members,
-                    ref variants,
-                    kind,
-                    ref trait_impls,
-                    ref members,
-                } => todo!(),
+                EntityDefnVariant::Func { .. } => todo!(),
+                EntityDefnVariant::Proc { .. } => todo!(),
+                EntityDefnVariant::Type { .. } => todo!(),
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TypeField {

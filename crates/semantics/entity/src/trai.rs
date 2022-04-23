@@ -1,8 +1,9 @@
 use crate::EntityDefn;
 use crate::*;
 use atom::SymbolContext;
+use dev_utils::DevSource;
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefn, MethodStaticDefnKind};
+use static_defn::{EntityStaticDefn, MethodStaticDefnKind, StaticTraitImplDefn};
 use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -12,12 +13,13 @@ pub struct TraitDefn {}
 pub struct TraitImplDefn {
     pub trai: EntityRoutePtr,
     pub member_impls: Vec<Arc<EntityDefn>>,
+    pub dev_src: DevSource,
 }
 
 impl TraitImplDefn {
     pub fn from_static(
         symbol_context: &SymbolContext,
-        static_trait_impl: &static_defn::StaticTraitImplDefn,
+        static_trait_impl: &StaticTraitImplDefn,
     ) -> Arc<Self> {
         let trai = symbol_context
             .entity_route_from_str(static_trait_impl.trai)
@@ -31,7 +33,14 @@ impl TraitImplDefn {
                 //     }
                 // }
             }),
+            dev_src: static_trait_impl.dev_src.into(),
         })
+    }
+
+    pub fn member_impl(&self, ident: CustomIdentifier) -> Option<&Arc<EntityDefn>> {
+        self.member_impls
+            .iter()
+            .find(|member_impl| member_impl.ident.custom() == ident)
     }
 }
 
@@ -77,7 +86,7 @@ impl EntityDefnVariant {
             }
             EntityStaticDefnVariant::Method {
                 this_contract,
-                inputs,
+                input_placeholders: inputs,
                 output_ty,
                 output_contract,
                 generic_placeholders,
@@ -107,6 +116,7 @@ impl EntityDefnVariant {
                     this_contract,
                     output_contract,
                     method_variant,
+                    generic_placeholders: todo!(),
                 }
             }
             _ => panic!(),
