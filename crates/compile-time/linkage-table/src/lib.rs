@@ -67,7 +67,10 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         todo!()
                     }
                 }
-                _ => panic!(""),
+                _ => {
+                    p!(method_variant, this_ty_defn.file, this_ty_defn.range);
+                    panic!("")
+                }
             },
             _ => panic!(""),
         }

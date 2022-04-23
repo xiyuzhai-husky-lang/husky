@@ -78,7 +78,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         Ok(match eval_value {
             EvalValue::Primitive(value) => Self::Primitive(value),
             EvalValue::Boxed(_) => todo!(),
-            EvalValue::GlobalPure(_) => todo!(),
+            EvalValue::GlobalPure(value) => StackValue::GlobalPure(value),
             EvalValue::GlobalRef(value) => Self::GlobalRef(value),
             EvalValue::Undefined => todo!(),
         })
@@ -135,7 +135,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 let ptr: *const dyn AnyValueDyn = &*value.inner;
                 StackValue::LocalRef(&*ptr)
             }
-            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
             StackValue::GlobalRef(value) => StackValue::GlobalRef(*value),
             StackValue::LocalRef(_) => todo!(),
             StackValue::MutLocalRef { .. } => todo!(),
@@ -288,7 +288,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::Moved => todo!(),
             StackValue::Primitive(_) => todo!(),
             StackValue::Boxed(_) => todo!(),
-            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalPure(value) => StackValue::Boxed(BoxedValue::clone_from(&**value)),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef(value) => Self::Boxed(BoxedValue::clone_from(*value)),
             StackValue::MutLocalRef { value, owner, gen } => todo!(),
