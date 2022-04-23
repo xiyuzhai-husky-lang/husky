@@ -114,7 +114,7 @@ impl<'eval> EvalValue<'eval> {
     pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         match self {
             EvalValue::Primitive(value) => value.any_ref(),
-            EvalValue::Boxed(_) => todo!(),
+            EvalValue::Boxed(value) => value.as_ref(),
             EvalValue::GlobalPure(value) => &**value,
             EvalValue::GlobalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),

@@ -99,7 +99,13 @@ impl EntityDefnVariant {
             } => {
                 let method_variant = match kind {
                     MethodStaticDefnKind::TypeMethod { source } => todo!(),
-                    MethodStaticDefnKind::TraitMethod { opt_default_source } => todo!(),
+                    MethodStaticDefnKind::TraitMethod { opt_default_source } => {
+                        MethodDefnVariant::TraitMethod {
+                            trai,
+                            opt_default_source: opt_default_source
+                                .map(|source| MethodSource::Static(source)),
+                        }
+                    }
                     MethodStaticDefnKind::TraitMethodImpl { opt_source } => {
                         MethodDefnVariant::TraitMethodImpl {
                             trai,
@@ -107,14 +113,6 @@ impl EntityDefnVariant {
                         }
                     }
                 };
-                // MethodDefnVariant::TraitMethodImpl {
-                //             trai,
-                //             opt_source: Some(MethodSource::StaticMemberAccess {
-                //                 ref_access,
-                //                 move_access,
-                //                 borrow_mut_access,
-                //             }),
-                //         };
                 Self::Method {
                     input_placeholders: Arc::new(
                         inputs

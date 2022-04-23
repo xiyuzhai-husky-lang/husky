@@ -62,7 +62,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                     variant: EntityStaticDefnVariant::Method {
                         this_contract: InputContract::Pure,
                         input_placeholders: &[],
-                        output_ty: "Vec<E>",
+                        output_ty: "datasets::cv::mnist::BinaryImage28",
                         output_contract: OutputContract::Pure,
                         generic_placeholders: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
@@ -88,8 +88,8 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                             output_ty: "b32",
                             output_contract: OutputContract::MemberAccess,
                             generic_placeholders: &[],
-                            kind: MethodStaticDefnKind::TraitMethod {
-                                opt_default_source: Some(LinkageSource::MemberAccess {
+                            kind: MethodStaticDefnKind::TraitMethodImpl {
+                                opt_source: Some(LinkageSource::MemberAccess {
                                     ref_access: Linkage {
                                         call: |values| -> VMResult<StackValue> {
                                             let this_value: &BinaryImage28 =

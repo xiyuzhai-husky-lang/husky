@@ -25,7 +25,6 @@ impl TraitImplDecl {
         let trait_route = symbol_context
             .entity_route_from_str(static_trait_impl.trai)
             .unwrap();
-        p!(trait_route);
         let trait_decl = db.trait_decl(trait_route).unwrap();
         let member_impls = TraitMemberImplDecl::collect_from_static(
             db,
@@ -145,7 +144,6 @@ impl TraitMemberImplDecl {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
         match self {
             TraitMemberImplDecl::Method(method_decl) => {
-                p!(method_decl);
                 TraitMemberImplDecl::Method(method_decl.instantiate(instantiator))
             }
             TraitMemberImplDecl::AssociatedType { ident, ty } => {
