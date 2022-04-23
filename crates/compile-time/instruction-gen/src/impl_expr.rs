@@ -1,7 +1,7 @@
 use crate::*;
 
 use entity_kind::TyKind;
-use infer_decl::TypeDecl;
+use infer_decl::TyDecl;
 use linkage_table::MemberAccessKind;
 use map_collect::MapCollect;
 use syntax_types::SuffixOpr;
@@ -157,10 +157,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                     TyKind::Record => todo!(),
                     TyKind::Vec => self.push_instruction(Instruction::new(
                         InstructionKind::RoutineCallCompiled {
-                            linkage: self.db.linkage_table().vec_constructor(
-                                self.db
-                                    .entity_uid(ranged_ty.route.generic_arguments[0].as_scope()),
-                            ),
+                            linkage: todo!(),
+                            // self.db.linkage_table().vec_constructor(self.db.entity_uid(
+                            //     ranged_ty.route.generic_arguments[0].as_entity_route(),
+                            // )),
                         },
                         expr.clone(),
                     )),
@@ -201,7 +201,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn method_call_instruction_kind(
         &self,
         this_ty: EntityRoutePtr,
-        this_ty_decl: &TypeDecl,
+        this_ty_decl: &TyDecl,
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
     ) -> InstructionKind {

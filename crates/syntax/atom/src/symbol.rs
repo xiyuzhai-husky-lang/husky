@@ -1,12 +1,15 @@
-use defn_head::InputPlaceholder;
+use std::borrow::Cow;
+
+use defn_head::{GenericPlaceholder, GenericPlaceholderVariant, InputPlaceholder};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
 use entity_route_query::EntityRouteQueryGroup;
 use file::FilePtr;
+use map_collect::MapCollect;
 use print_utils::p;
-use static_defn::StaticInputPlaceholder;
+use static_defn::{StaticGenericPlaceholder, StaticInputPlaceholder};
 use text::{Row, TextRange};
-use word::{ContextualIdentifier, CustomIdentifier, RootIdentifier};
+use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
 use super::*;
 
@@ -39,7 +42,7 @@ pub struct SymbolContext<'a> {
     pub db: &'a dyn EntityRouteQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
     // pub this_ty_members: Option<EntityRoute>,
-    pub symbols: &'a [Symbol],
+    pub symbols: Cow<'a, [Symbol]>,
     pub kind: SymbolContextKind<'a>,
 }
 
@@ -154,7 +157,7 @@ impl<'a> SymbolContext<'a> {
                 },
                 _ => self.db.raw_entity_kind(route),
             },
-            EntityRouteKind::TraitMember { ty, trai, ident } => todo!(),
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
             _ => self.db.raw_entity_kind(route),
         }
     }
@@ -201,5 +204,53 @@ impl<'a> SymbolContext<'a> {
             SymbolContextKind::Normal => panic!(),
             SymbolContextKind::Trait { trai, .. } => trai,
         }
+    }
+
+    pub fn generic_placeholders_from_static(
+        &self,
+        static_generic_placeholders: &[StaticGenericPlaceholder],
+    ) -> IdentDict<GenericPlaceholder> {
+        static_generic_placeholders.map(|static_generic_placeholder| GenericPlaceholder {
+            ident: self
+                .db
+                .intern_word(static_generic_placeholder.name)
+                .custom(),
+            variant: GenericPlaceholderVariant::Type { traits: vec![] },
+        })
+    }
+
+    pub fn generic_arguments_from_generic_placeholders(
+        &self,
+        generic_placeholders: &[GenericPlaceholder],
+    ) -> Vec<GenericArgument> {
+        generic_placeholders.map(|generic_placeholder| {
+            GenericArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
+                kind: EntityRouteKind::Generic {
+                    ident: generic_placeholder.ident,
+                    entity_kind: generic_placeholder.entity_kind(),
+                },
+                generic_arguments: vec![],
+            }))
+        })
+    }
+
+    pub fn symbols_from_generic_placeholders(
+        &self,
+        generic_placeholders: &[GenericPlaceholder],
+    ) -> Vec<Symbol> {
+        let mut symbols = Vec::new();
+        for generic_placeholder in generic_placeholders.iter() {
+            symbols.push(Symbol {
+                ident: generic_placeholder.ident,
+                kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
+                    kind: EntityRouteKind::Generic {
+                        ident: generic_placeholder.ident,
+                        entity_kind: generic_placeholder.entity_kind(),
+                    },
+                    generic_arguments: vec![],
+                })),
+            })
+        }
+        symbols
     }
 }

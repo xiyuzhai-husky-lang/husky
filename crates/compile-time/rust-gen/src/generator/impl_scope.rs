@@ -15,7 +15,7 @@ impl<'a> RustGenerator<'a> {
             EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic { ident, .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TraitMember {
+            EntityRouteKind::TypeAsTraitMember {
                 ty: parent,
                 trai,
                 ident,

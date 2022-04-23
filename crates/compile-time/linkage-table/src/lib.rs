@@ -1,7 +1,7 @@
 mod table;
 mod vec;
 
-use static_defn::EntityStaticDefnVariant;
+use static_defn::{EntityStaticDefnVariant, StaticLinkageSource};
 pub use table::*;
 
 use check_utils::*;
@@ -30,38 +30,25 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         {
             return linkage;
         }
-        match opd_tys[0].kind {
-            EntityRouteKind::Root {
-                ident: RootIdentifier::Vec,
-            } => {
-                should_eq!(opd_tys.len(), 2);
-                Linkage {
-                    call: match access_kind {
-                        MemberAccessKind::Move => virtual_vec_element_move_access,
-                        MemberAccessKind::Ref => virtual_vec_element_ref_access,
-                        MemberAccessKind::BorrowMut => virtual_vec_element_borrow_mut_access,
-                    },
-                    nargs: 2,
-                }
-            }
-            _ => {
-                let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
-                let std_ops_index_trai = self.intern_entity_route(EntityRoute {
-                    kind: self.entity_route_menu().std_ops_index_trai.kind,
-                    generic_arguments: vec![GenericArgument::EntityRoute(opd_tys[1])],
-                });
-                let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
-                match index_trai_impl.member_impls[1].variant {
-                    EntityDefnVariant::Method {
-                        ref method_variant, ..
-                    } => match method_variant {
-                        MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
-                            if let Some(source) = opt_source {
-                                match source {
-                                    MethodSource::Func { stmts } => todo!(),
-                                    MethodSource::Proc { stmts } => todo!(),
-                                    MethodSource::Pattern { stmts } => todo!(),
-                                    MethodSource::StaticMemberAccess {
+        let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
+        let std_ops_index_trai = self.intern_entity_route(EntityRoute {
+            kind: self.entity_route_menu().std_ops_index_trai.kind,
+            generic_arguments: vec![GenericArgument::EntityRoute(opd_tys[1])],
+        });
+        let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
+        match index_trai_impl.member_impls[1].variant {
+            EntityDefnVariant::Method {
+                ref method_variant, ..
+            } => match method_variant {
+                MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
+                    if let Some(source) = opt_source {
+                        match source {
+                            MethodSource::Func { stmts } => todo!(),
+                            MethodSource::Proc { stmts } => todo!(),
+                            MethodSource::Pattern { stmts } => todo!(),
+                            MethodSource::Static(static_linkage_source) => {
+                                match static_linkage_source {
+                                    StaticLinkageSource::MemberAccess {
                                         ref_access,
                                         move_access,
                                         borrow_mut_access,
@@ -70,16 +57,17 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                         MemberAccessKind::Ref => *ref_access,
                                         MemberAccessKind::BorrowMut => *borrow_mut_access,
                                     },
+                                    StaticLinkageSource::PureOutput(_) => todo!(),
                                 }
-                            } else {
-                                todo!()
                             }
                         }
-                        _ => panic!(""),
-                    },
-                    _ => panic!(""),
+                    } else {
+                        todo!()
+                    }
                 }
-            }
+                _ => panic!(""),
+            },
+            _ => panic!(""),
         }
     }
 
@@ -95,11 +83,14 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         if let Some(linkage) = self.linkage_table().routine(self.entity_uid(method_route)) {
             return Some(linkage);
         }
+        p!(method_route);
         let method_defn = self.entity_defn(method_route).unwrap();
         match method_defn.variant {
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::Method { .. } => todo!(),
-            _ => panic!(),
+            _ => {
+                panic!()
+            }
         }
     }
 
@@ -123,6 +114,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             EntitySource::Module { file } => todo!(),
             EntitySource::Input { main } => todo!(),
             EntitySource::StaticTypeMember => todo!(),
+            EntitySource::StaticTypeAsTraitMember => todo!(),
         }
     }
 

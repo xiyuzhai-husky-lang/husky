@@ -53,10 +53,24 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         trait_impls: &[
             StaticTraitImplDefn {
+                dev_src: static_dev_src!(),
                 trai: "Clone",
-                member_impls: &[],
+                member_impls: &[EntityStaticDefn {
+                    dev_src: static_dev_src!(),
+                    name: "clone",
+                    subscopes: &[],
+                    variant: EntityStaticDefnVariant::Method {
+                        this_contract: InputContract::Pure,
+                        input_placeholders: &[],
+                        output_ty: "Vec<E>",
+                        output_contract: OutputContract::Pure,
+                        generic_placeholders: &[],
+                        kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
+                    },
+                }],
             },
             StaticTraitImplDefn {
+                dev_src: static_dev_src!(),
                 trai: "std::ops::Index<i32>",
                 member_impls: &[
                     associated_type_impl!("Output", "b32"),
@@ -66,7 +80,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         subscopes: &[],
                         variant: EntityStaticDefnVariant::Method {
                             this_contract: InputContract::MemberAccess,
-                            inputs: &[StaticInputPlaceholder {
+                            input_placeholders: &[StaticInputPlaceholder {
                                 contract: InputContract::Pure,
                                 ty: "i32",
                                 name: "todo!()",
@@ -75,7 +89,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                             output_contract: OutputContract::MemberAccess,
                             generic_placeholders: &[],
                             kind: MethodStaticDefnKind::TraitMethod {
-                                opt_default_source: Some(LinkageSource::MemberAccess {
+                                opt_default_source: Some(StaticLinkageSource::MemberAccess {
                                     ref_access: Linkage {
                                         call: |values| -> VMResult<StackValue> {
                                             let this_value: &BinaryImage28 =

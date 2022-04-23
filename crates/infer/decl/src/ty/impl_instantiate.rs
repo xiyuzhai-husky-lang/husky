@@ -1,7 +1,7 @@
 use super::*;
 use check_utils::should_eq;
 
-impl TypeDecl {
+impl TyDecl {
     pub fn instantiate(
         &self,
         db: &dyn DeclQueryGroup,
@@ -17,7 +17,7 @@ impl TypeDecl {
             db,
             instantiator
                 .instantiate_entity_route(self.this_ty)
-                .as_scope(),
+                .as_entity_route(),
             Default::default(), // generic_placeholders
             self.ty_members
                 .map(|member| member.instantiate(&instantiator)), //   type_methods

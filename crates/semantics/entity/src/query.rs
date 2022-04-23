@@ -55,7 +55,9 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
         // in the future, we should make a difference between entity in current pack and depending packs
-        EntitySource::StaticModuleItem(_) | EntitySource::StaticTypeMember => (),
+        EntitySource::StaticModuleItem(_)
+        | EntitySource::StaticTypeMember
+        | EntitySource::StaticTypeAsTraitMember => (),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main } => todo!(),

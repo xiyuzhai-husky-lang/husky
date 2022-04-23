@@ -36,5 +36,6 @@ pub(crate) fn feature_decl(
             ty: db.global_input_ty(main)?,
         })),
         EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeAsTraitMember => todo!(),
     }
 }

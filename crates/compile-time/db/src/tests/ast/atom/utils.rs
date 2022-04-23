@@ -1,6 +1,9 @@
 use crate::*;
 
-use atom::{symbol::SymbolContextKind, *};
+use atom::{
+    symbol::{Symbol, SymbolContextKind},
+    *,
+};
 
 pub(super) fn check_atom_kind(db: &mut HuskyLangCompileTime, line: &'static str, kind: AtomKind) {
     let atoms = get_atoms_in_line(db, line);
@@ -18,7 +21,7 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static st
             opt_package_main: Some(main),
             db,
             opt_this_ty: None,
-            symbols: &symbols,
+            symbols: (&symbols as &[Symbol]).into(),
             kind: SymbolContextKind::Normal,
         },
         &tokens,

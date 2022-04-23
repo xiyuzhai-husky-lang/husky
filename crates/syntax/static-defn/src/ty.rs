@@ -15,6 +15,7 @@ use crate::*;
 pub struct StaticTraitImplDefn {
     pub trai: &'static str,
     pub member_impls: &'static [EntityStaticDefn],
+    pub dev_src: StaticDevSource,
 }
 
 // #[derive(Debug, PartialEq, Eq)]
@@ -66,18 +67,18 @@ macro_rules! associated_type_impl {
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum MethodStaticDefnKind {
     TypeMethod {
-        source: LinkageSource,
+        source: StaticLinkageSource,
     },
     TraitMethod {
-        opt_default_source: Option<LinkageSource>,
+        opt_default_source: Option<StaticLinkageSource>,
     },
     TraitMethodImpl {
-        opt_source: Option<LinkageSource>,
+        opt_source: Option<StaticLinkageSource>,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LinkageSource {
+pub enum StaticLinkageSource {
     MemberAccess {
         ref_access: Linkage,
         move_access: Linkage,

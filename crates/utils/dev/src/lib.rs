@@ -12,6 +12,15 @@ pub struct StaticDevSource {
     pub line: u32,
 }
 
+impl From<StaticDevSource> for DevSource {
+    fn from(static_dev_src: StaticDevSource) -> Self {
+        Self {
+            file: static_dev_src.file.into(),
+            line: static_dev_src.line,
+        }
+    }
+}
+
 impl std::fmt::Debug for DevSource {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("{}:{}", &self.file, &self.line))

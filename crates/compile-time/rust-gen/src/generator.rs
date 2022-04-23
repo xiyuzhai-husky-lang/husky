@@ -36,6 +36,7 @@ impl<'a> RustGenerator<'a> {
                     ref input_placeholders,
                     output,
                     ref stmts,
+                    ..
                 } => self.gen_func_defn(
                     entity.ident.custom(),
                     input_placeholders,
@@ -46,6 +47,7 @@ impl<'a> RustGenerator<'a> {
                     ref input_placeholders,
                     output,
                     ref stmts,
+                    ..
                 } => self.gen_proc_defn(
                     entity.ident.custom(),
                     input_placeholders,
@@ -58,6 +60,7 @@ impl<'a> RustGenerator<'a> {
                     kind,
                     ref trait_impls,
                     ref members,
+                    ..
                 } => match kind {
                     TyKind::Enum => self.gen_enum_defn(entity.ident.custom(), variants),
                     TyKind::Struct => {

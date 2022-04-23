@@ -13,6 +13,7 @@ use word::IdentDict;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitDecl {
     pub trai: EntityRoutePtr,
+    pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub members: IdentDict<TraitMemberDecl>,
 }
 
@@ -55,7 +56,11 @@ impl TraitMemberDecl {
             }
             TraitMemberDecl::Type { ident, traits } => TraitMemberDecl::Type {
                 ident: *ident,
-                traits: traits.map(|trai| instantiator.instantiate_entity_route(*trai).as_scope()),
+                traits: traits.map(|trai| {
+                    instantiator
+                        .instantiate_entity_route(*trai)
+                        .as_entity_route()
+                }),
             },
             TraitMemberDecl::ConstSize(_) => todo!(),
             TraitMemberDecl::Call {} => todo!(),
@@ -77,7 +82,7 @@ impl TraitMemberDecl {
                 if traits.len() > 0 {
                     todo!("verify traits are satisfied")
                 }
-                let ty = implementor.generic_argument(*ident).as_scope();
+                let ty = implementor.generic_argument(*ident).as_entity_route();
                 TraitMemberImplDecl::AssociatedType { ident: *ident, ty }
             }
             TraitMemberDecl::ConstSize(_) => todo!(),
@@ -106,7 +111,7 @@ impl TraitDecl {
                 ref members,
             } => {
                 let generic_placeholders =
-                    db.parse_generic_placeholders_from_static(generic_placeholders);
+                    db.generic_placeholders_from_static(generic_placeholders);
                 let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
                 let member_context: Vec<_> = members.map(|member| {
                     (
@@ -124,7 +129,7 @@ impl TraitDecl {
                     opt_package_main: None,
                     db: db.upcast(),
                     opt_this_ty: None,
-                    symbols: &symbols,
+                    symbols: symbols.into(),
                     kind: SymbolContextKind::Normal,
                 };
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
@@ -141,6 +146,7 @@ impl TraitDecl {
                 };
                 Arc::new(TraitDecl {
                     trai,
+                    generic_placeholders,
                     members: members
                         .iter()
                         .map(|member| TraitMemberDecl::from_static(db, member, &symbol_context))
@@ -151,10 +157,27 @@ impl TraitDecl {
         }
     }
 
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
-        Arc::new(Self {
-            trai: instantiator.instantiate_entity_route(self.trai).as_scope(),
-            members: self.members.map(|member| member.instantiate(instantiator)),
+    pub fn instantiate(
+        &self,
+        db: &dyn DeclQueryGroup,
+        dst_generics: &[GenericArgument],
+    ) -> Arc<Self> {
+        should_eq!(self.generic_placeholders.len(), dst_generics.len());
+        let instantiator = Instantiator {
+            db: db.upcast(),
+            generic_placeholders: &self.generic_placeholders,
+            dst_generics,
+        };
+        Arc::new(TraitDecl {
+            trai: instantiator
+                .instantiate_entity_route(self.trai)
+                .as_entity_route(),
+            generic_placeholders: Default::default(),
+            members: self
+                .members
+                .iter()
+                .map(|member| member.instantiate(&instantiator))
+                .collect(),
         })
     }
 }
@@ -168,11 +191,18 @@ pub(crate) fn trait_decl(
         EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
             EntityStaticDefnVariant::Type { .. } => todo!(),
-            EntityStaticDefnVariant::Trait { .. } => Ok(TraitDecl::from_static(db, static_defn)),
+            EntityStaticDefnVariant::Trait { .. } => {
+                let base_decl = TraitDecl::from_static(db, static_defn);
+                if entity_route.generic_arguments.len() > 0 {
+                    Ok(base_decl.instantiate(db, &entity_route.generic_arguments))
+                } else {
+                    Ok(base_decl)
+                }
+            }
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
-                inputs,
+                input_placeholders: inputs,
                 output_ty,
                 output_contract,
                 generic_placeholders,
@@ -191,6 +221,7 @@ pub(crate) fn trait_decl(
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main } => todo!(),
         EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeAsTraitMember => todo!(),
     }
 }
 

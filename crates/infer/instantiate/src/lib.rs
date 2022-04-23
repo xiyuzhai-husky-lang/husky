@@ -22,17 +22,14 @@ impl<'a> Instantiator<'a> {
     pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> GenericArgument {
         match self.db.raw_entity_kind(src_scope) {
             EntityKind::Module => GenericArgument::EntityRoute(src_scope),
-            EntityKind::Type(_)
-            | EntityKind::Trait
-            | EntityKind::Routine
-            | EntityKind::Feature
-            | EntityKind::Pattern => {
+            EntityKind::Literal => todo!(),
+            _ => {
                 let (kind, mut generics) = match src_scope.kind {
                     EntityRouteKind::Package { .. } => panic!(),
                     EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
                     EntityRouteKind::Child { parent, ident } => (
                         EntityRouteKind::Child {
-                            parent: self.instantiate_entity_route(parent).as_scope(),
+                            parent: self.instantiate_entity_route(parent).as_entity_route(),
                             ident,
                         },
                         vec![],
@@ -50,11 +47,12 @@ impl<'a> Instantiator<'a> {
                                 }
                             }
                         } else {
+                            p!(ident, self.generic_placeholders);
                             todo!()
                         }
                     }
                     EntityRouteKind::ThisType => (EntityRouteKind::ThisType, vec![]),
-                    EntityRouteKind::TraitMember {
+                    EntityRouteKind::TypeAsTraitMember {
                         ty: parent,
                         trai,
                         ident,
@@ -67,9 +65,6 @@ impl<'a> Instantiator<'a> {
                     generic_arguments: generics,
                 }))
             }
-            EntityKind::Literal => todo!(),
-            EntityKind::TypeMember => todo!(),
-            EntityKind::Member => todo!(),
         }
     }
 
