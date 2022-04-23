@@ -1,3 +1,5 @@
+use print_utils::p;
+
 use crate::*;
 use std::{any::TypeId, borrow::Cow, fmt::Debug, panic::RefUnwindSafe, sync::Arc};
 
@@ -5,6 +7,7 @@ use std::{any::TypeId, borrow::Cow, fmt::Debug, panic::RefUnwindSafe, sync::Arc}
 pub enum StaticTypeId {
     RustBuiltin(TypeId),
     HuskyBuiltin(HuskyBuiltinStaticTypeId),
+    VecOf(Box<StaticTypeId>),
 }
 
 impl From<TypeId> for StaticTypeId {
@@ -81,6 +84,7 @@ impl<'eval> dyn AnyValueDyn<'eval> {
     #[inline]
     pub fn downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
         if T::static_type_id() != self.static_type_id() {
+            p!(T::static_type_id(), self.static_type_id());
             panic!()
         }
         let ptr: *mut dyn AnyValueDyn = &mut *self;
@@ -274,7 +278,7 @@ impl<'eval> AnyValue<'eval> for bool {
 
 impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
     fn static_type_id() -> StaticTypeId {
-        todo!()
+        StaticTypeId::VecOf(Box::new(T::static_type_id()))
     }
 
     fn static_type_name() -> Cow<'static, str> {

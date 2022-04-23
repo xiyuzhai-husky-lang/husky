@@ -20,7 +20,7 @@ pub struct InstructionSheetBuilder<'a> {
 }
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub fn new_decl(
+    pub fn new_func(
         db: &'a dyn InstructionGenQueryGroup,
         inputs: Vec<CustomIdentifier>,
         stmts: &[Arc<FuncStmt>],

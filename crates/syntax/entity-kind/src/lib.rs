@@ -82,6 +82,6 @@ pub enum RawMembRoutineKind {
 pub enum MemberKind {
     Method,
     Call,
-    AssociatedType,
-    AssociatedConstSize,
+    TraitAssociatedType,
+    TraitAssociatedConstSize,
 }

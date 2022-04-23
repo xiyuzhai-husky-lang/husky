@@ -1,5 +1,4 @@
 mod builder;
-mod copy;
 mod query;
 mod sheet;
 
@@ -8,8 +7,6 @@ pub use sheet::*;
 
 use ast::RawExprIdx;
 use check_utils::*;
-use copy::*;
-use entity_route::EntityRoutePtr;
 use entity_route_query::ScopeResultArc;
 use file::FilePtr;
 use infer_entity_route::InferTyQueryGroup;

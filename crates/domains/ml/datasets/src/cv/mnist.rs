@@ -33,7 +33,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_placeholders: &[],
-        inputs: vec![],
+        input_placeholders: vec![],
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         output_contract: OutputContract::Pure,
         linkage: Linkage {
@@ -89,7 +89,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                             output_contract: OutputContract::MemberAccess,
                             generic_placeholders: &[],
                             kind: MethodStaticDefnKind::TraitMethod {
-                                opt_default_source: Some(StaticLinkageSource::MemberAccess {
+                                opt_default_source: Some(LinkageSource::MemberAccess {
                                     ref_access: Linkage {
                                         call: |values| -> VMResult<StackValue> {
                                             let this_value: &BinaryImage28 =
@@ -139,7 +139,7 @@ static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_placeholders: &[],
-        inputs: vec![],
+        input_placeholders: vec![],
         output_ty: "datasets::cv::mnist::BinaryImage28",
         output_contract: OutputContract::Pure,
         linkage: Linkage {

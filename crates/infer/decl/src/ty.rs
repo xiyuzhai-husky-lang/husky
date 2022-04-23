@@ -96,7 +96,7 @@ impl TyDecl {
     fn from_ast(
         db: &dyn DeclQueryGroup,
         arena: &RawExprArena,
-        ty_route: EntityRoutePtr,
+        ty: EntityRoutePtr,
         kind: TyKind,
         generic_placeholders: IdentDict<GenericPlaceholder>,
         children: AstIter,
@@ -104,7 +104,7 @@ impl TyDecl {
         let generic_arguments =
             db.generic_arguments_from_generic_placeholders(&generic_placeholders);
         let this_ty = db.intern_entity_route(EntityRoute {
-            kind: ty_route.kind,
+            kind: ty.kind,
             generic_arguments,
         });
         let mut children = children.peekable();
@@ -125,7 +125,9 @@ impl TyDecl {
                         TyMemberDecl::Field(ref field_decl) => match field_decl.kind {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
                                 inputs.push(InputDecl {
-                                    contract: field_decl.contract.constructor_input(),
+                                    contract: field_decl.contract.constructor_input_contract(
+                                        db.is_copy_constructible(field_decl.ty),
+                                    ),
                                     ty: field_decl.ty,
                                     ident: field_decl.ident,
                                 })
@@ -138,7 +140,7 @@ impl TyDecl {
                 Some(Arc::new(RoutineDecl {
                     inputs,
                     output: OutputDecl {
-                        ty: ty_route,
+                        ty,
                         contract: OutputContract::Pure,
                     },
                     generic_placeholders: generic_placeholders.clone(),

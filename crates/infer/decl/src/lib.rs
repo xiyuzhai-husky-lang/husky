@@ -1,4 +1,5 @@
 mod call;
+mod copy;
 mod feature;
 mod global;
 mod impl_parse;
@@ -8,13 +9,13 @@ mod trai;
 mod ty;
 
 pub use call::*;
-pub use call::*;
 pub use input::*;
 pub use member::*;
 pub use trai::*;
 pub use ty::*;
 
 use ast::*;
+use copy::*;
 use defn_head::*;
 use entity_kind::TyKind;
 use entity_route::*;
@@ -40,4 +41,6 @@ pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
     fn vec_decl(&self) -> Arc<TyDecl>;
     fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
     fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;
+
+    fn is_copy_constructible(&self, ty: EntityRoutePtr) -> bool;
 }

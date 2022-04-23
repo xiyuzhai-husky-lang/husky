@@ -44,7 +44,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             output_contract: OutputContract::MemberAccess,
                             generic_placeholders: &[],
                             kind: MethodStaticDefnKind::TraitMethodImpl {
-                                opt_source: Some(StaticLinkageSource::MemberAccess {
+                                opt_source: Some(LinkageSource::MemberAccess {
                                     ref_access: Linkage {
                                         call: generic_vec_element_ref_access,
                                         nargs: 2,
@@ -54,7 +54,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                         nargs: 2,
                                     },
                                     borrow_mut_access: Linkage {
-                                        call: generic_vec_element_ref_access,
+                                        call: generic_vec_element_borrow_mut_access,
                                         nargs: 2,
                                     },
                                 }),
@@ -75,9 +75,9 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     output_ty: "i32",
                     generic_placeholders: &[],
                     kind: MethodStaticDefnKind::TypeMethod {
-                        source: StaticLinkageSource::PureOutput(Linkage {
+                        source: LinkageSource::PureOutput(Linkage {
                             call: generic_vec_len,
-                            nargs: 0,
+                            nargs: 1,
                         }),
                     },
                     output_contract: OutputContract::Pure,
@@ -97,9 +97,9 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     output_ty: "void",
                     generic_placeholders: &[],
                     kind: MethodStaticDefnKind::TypeMethod {
-                        source: StaticLinkageSource::PureOutput(Linkage {
+                        source: LinkageSource::PureOutput(Linkage {
                             call: generic_vec_push,
-                            nargs: 0,
+                            nargs: 2,
                         }),
                     },
                     output_contract: OutputContract::Pure,
@@ -115,9 +115,9 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     output_ty: "E",
                     generic_placeholders: &[],
                     kind: MethodStaticDefnKind::TypeMethod {
-                        source: StaticLinkageSource::PureOutput(Linkage {
+                        source: LinkageSource::PureOutput(Linkage {
                             call: generic_vec_pop,
-                            nargs: 0,
+                            nargs: 1,
                         }),
                     },
                     output_contract: OutputContract::Pure,
@@ -138,17 +138,29 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_placeholders: &[],
-        inputs: vec![],
+        input_placeholders: vec![],
         output_ty: "Vec<E>",
         output_contract: OutputContract::Pure,
         linkage: Linkage {
-            call: |values| Ok(StackValue::Boxed(BoxedValue::new(Vec::<VirtualTy>::new()))),
+            call: |values| {
+                Ok(StackValue::Boxed(
+                    BoxedValue::new(Vec::<MemberValue>::new()),
+                ))
+            },
             nargs: 0,
         },
         routine_kind: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),
 };
+
+fn vec_type_call<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    Ok(StackValue::Boxed(BoxedValue::new(
+        Vec::<MemberValue<'eval>>::new(),
+    )))
+}
 
 // fn generic_vec_clone<'stack, 'eval>(
 //     values: &mut [StackValue<'stack, 'eval>],

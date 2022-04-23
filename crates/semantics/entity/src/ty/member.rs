@@ -31,3 +31,98 @@ pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRoutePtr) 
         _ => panic!(),
     }
 }
+
+impl EntityDefnVariant {
+    pub(crate) fn collect_other_members(
+        db: &dyn InferQueryGroup,
+        arena: &RawExprArena,
+        file: FilePtr,
+        ty_route: EntityRoutePtr,
+        mut children: Peekable<AstIter>,
+        members: &mut IdentDict<Arc<EntityDefn>>,
+    ) -> SemanticResult<()> {
+        while let Some(child) = children.next() {
+            let ast = child.value.as_ref()?;
+            match ast.kind {
+                AstKind::TypeDefnHead {
+                    ident,
+                    kind,
+                    ref generic_placeholders,
+                } => todo!(),
+                AstKind::MainDefn => todo!(),
+                AstKind::RoutineDefnHead(_) => todo!(),
+                AstKind::PatternDefnHead => todo!(),
+                AstKind::FeatureDecl { ident, ty } => todo!(),
+                AstKind::TypeMethodDefnHead(ref head) => {
+                    let method_source = match head.routine_kind {
+                        RoutineContextKind::Proc => todo!(),
+                        RoutineContextKind::Func => {
+                            let stmts = semantics_eager::parse_decl_stmts(
+                                &head.input_placeholders,
+                                db,
+                                arena,
+                                child.children.unwrap(),
+                                file,
+                            )?;
+                            MethodSource::Func { stmts }
+                        }
+                        RoutineContextKind::Test => todo!(),
+                    };
+                    let method_variant = MethodDefnVariant::TypeMethod {
+                        ty: ty_route,
+                        method_source,
+                    };
+                    members.insert_new(EntityDefn::new(
+                        head.ident.into(),
+                        EntityDefnVariant::Method {
+                            input_placeholders: head.input_placeholders.clone(),
+                            output_ty: head.output_ty,
+                            this_contract: head.this_contract,
+                            method_variant,
+                            output_contract: OutputContract::Pure,
+                            generic_placeholders: head.generic_placeholders.clone(),
+                        },
+                        db.intern_entity_route(EntityRoute {
+                            kind: EntityRouteKind::Child {
+                                parent: ty_route,
+                                ident: head.ident,
+                            },
+                            generic_arguments: vec![],
+                        }),
+                        file,
+                        ast.range,
+                    ))
+                }
+                AstKind::Use { .. } => todo!(),
+                AstKind::FieldDefnHead(ref field_defn_head) => {
+                    members.insert_new(EntityDefn::new(
+                        field_defn_head.ident.into(),
+                        EntityDefnVariant::type_field_from_ast(
+                            db,
+                            arena,
+                            file,
+                            field_defn_head,
+                            child.children.clone(),
+                        )?,
+                        db.intern_entity_route(EntityRoute {
+                            kind: EntityRouteKind::Child {
+                                parent: ty_route,
+                                ident: field_defn_head.ident,
+                            },
+                            generic_arguments: vec![],
+                        }),
+                        file,
+                        ast.range,
+                    ));
+                }
+                AstKind::DatasetConfigDefnHead => todo!(),
+                AstKind::Stmt(_) => todo!(),
+                AstKind::EnumVariantDefnHead {
+                    ident,
+                    variant_class,
+                } => todo!(),
+            }
+        }
+        Ok(())
+    }
+}

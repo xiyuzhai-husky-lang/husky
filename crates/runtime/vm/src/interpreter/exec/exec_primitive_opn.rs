@@ -1,3 +1,5 @@
+use print_utils::p;
+
 use crate::*;
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -41,6 +43,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         });
                     }
                     _ => {
+                        p!(lopd);
                         panic!()
                     }
                 }

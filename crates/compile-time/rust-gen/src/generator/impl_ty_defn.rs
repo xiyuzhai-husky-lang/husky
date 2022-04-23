@@ -41,7 +41,7 @@ impl<'a> RustGenerator<'a> {
                 } => {
                     match contract {
                         FieldContract::Own => (),
-                        FieldContract::Ref => todo!(),
+                        FieldContract::GlobalRef => todo!(),
                         FieldContract::LazyOwn => todo!(),
                     }
 

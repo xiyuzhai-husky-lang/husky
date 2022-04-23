@@ -85,9 +85,9 @@ impl TraitMemberImplDecl {
     pub fn kind(&self) -> MemberKind {
         match self {
             TraitMemberImplDecl::Method(_) => MemberKind::Method,
-            TraitMemberImplDecl::AssociatedType { .. } => MemberKind::AssociatedType,
+            TraitMemberImplDecl::AssociatedType { .. } => MemberKind::TraitAssociatedType,
             TraitMemberImplDecl::Call {} => todo!(),
-            TraitMemberImplDecl::AssociatedConstSize {} => MemberKind::AssociatedConstSize,
+            TraitMemberImplDecl::AssociatedConstSize {} => MemberKind::TraitAssociatedConstSize,
         }
     }
 

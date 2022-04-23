@@ -1,11 +1,9 @@
+use print_utils::msg_once;
 use word::RootIdentifier;
 
 use crate::*;
 
-pub(crate) fn is_copy_constructible(
-    db: &dyn InferContractSalsaQueryGroup,
-    ty: EntityRoutePtr,
-) -> bool {
+pub(crate) fn is_copy_constructible(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> bool {
     match ty {
         EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
             RootIdentifier::Void
@@ -34,7 +32,11 @@ pub(crate) fn is_copy_constructible(
             RootIdentifier::PartialEqTrait => todo!(),
             RootIdentifier::EqTrait => todo!(),
         },
-        EntityRoutePtr::Custom(_) => todo!(),
+        EntityRoutePtr::Custom(_) => {
+            msg_once!("handle reference to prevent looping");
+            let ty_decl = db.type_decl(ty).unwrap();
+            todo!()
+        }
         EntityRoutePtr::ThisType => todo!(),
     }
 }

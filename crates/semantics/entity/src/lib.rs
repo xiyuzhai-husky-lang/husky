@@ -22,7 +22,7 @@ use ast::AstKind;
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
-use entity_route::{EntityRouteKind, EntitySource};
+use entity_route::{EntityRoute, EntityRouteKind, EntitySource};
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};
@@ -74,7 +74,7 @@ impl EntityDefn {
         route: EntityRoutePtr,
         static_entity_defn: &EntityStaticDefn,
     ) -> Arc<Self> {
-        let variant = EntityDefnVariant::from_static(symbol_context, route, static_entity_defn);
+        let variant = EntityDefnVariant::from_static(symbol_context, static_entity_defn);
         Self::new(
             symbol_context
                 .db
@@ -92,7 +92,7 @@ impl EntityDefn {
     pub(crate) fn new(
         ident: Identifier,
         variant: EntityDefnVariant,
-        route: EntityRoutePtr,
+        base_route: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
     ) -> Arc<EntityDefn> {
@@ -100,7 +100,7 @@ impl EntityDefn {
             ident,
             subentities: variant.subentities(),
             variant,
-            base_route: route,
+            base_route,
             file,
             range,
         })
@@ -153,6 +153,11 @@ pub enum EntityDefnVariant {
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
         members: Avec<EntityDefn>,
+        opt_type_call: Option<Arc<TyCallDefn>>,
+    },
+    Trait {
+        generic_placeholders: IdentDict<GenericPlaceholder>,
+        members: IdentDict<Arc<EntityDefn>>,
     },
     EnumVariant {
         ident: CustomIdentifier,
@@ -182,17 +187,69 @@ pub enum EntityDefnVariant {
 }
 
 impl EntityDefnVariant {
-    pub fn from_static(
-        symbol_context: &SymbolContext,
-        ty: EntityRoutePtr,
-        static_defn: &EntityStaticDefn,
-    ) -> Self {
+    pub fn from_static(symbol_context: &SymbolContext, static_defn: &EntityStaticDefn) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
             EntityStaticDefnVariant::Type { .. } => {
-                Self::ty_from_static(symbol_context, ty, static_defn)
+                Self::ty_from_static(symbol_context, static_defn)
             }
-            EntityStaticDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Trait {
+                base_route,
+                generic_placeholders,
+                members,
+            } => {
+                let mut symbol_context = SymbolContext {
+                    opt_package_main: symbol_context.opt_package_main,
+                    db: symbol_context.db,
+                    opt_this_ty: None,
+                    symbols: (&[] as &[Symbol]).into(),
+                    kind: SymbolContextKind::Normal,
+                };
+                let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
+                let generic_placeholders =
+                    symbol_context.generic_placeholders_from_static(generic_placeholders);
+                let generic_arguments = symbol_context
+                    .generic_arguments_from_generic_placeholders(&generic_placeholders);
+                let this_trai = symbol_context.db.intern_entity_route(EntityRoute {
+                    kind: base_route.kind,
+                    generic_arguments,
+                });
+                let member_kinds: Vec<_> = members.map(|member| {
+                    (
+                        symbol_context.db.intern_word(member.name).custom(),
+                        match member.variant {
+                            EntityStaticDefnVariant::Method { .. } => MemberKind::Method,
+                            EntityStaticDefnVariant::TraitAssociatedType { .. } => {
+                                MemberKind::TraitAssociatedType
+                            }
+                            EntityStaticDefnVariant::TraitAssociatedConstSize => {
+                                MemberKind::TraitAssociatedConstSize
+                            }
+                            _ => panic!(),
+                        },
+                    )
+                });
+                symbol_context.kind = SymbolContextKind::Trait {
+                    this_trai,
+                    member_kinds: &member_kinds,
+                };
+                EntityDefnVariant::Trait {
+                    generic_placeholders,
+                    members: members.map(|member| {
+                        EntityDefn::from_static(
+                            &symbol_context,
+                            symbol_context
+                                .db
+                                .intern_entity_route(EntityRoute::child_route(
+                                    this_trai,
+                                    symbol_context.db.intern_word(member.name).custom(),
+                                    vec![],
+                                )),
+                            member,
+                        )
+                    }),
+                }
+            }
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
@@ -202,6 +259,9 @@ impl EntityDefnVariant {
                 generic_placeholders,
                 kind,
             } => EntityDefnVariant::Method {
+                generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
+                    GenericPlaceholder::from_static(symbol_context.db, static_generic_placeholder)
+                }),
                 this_contract,
                 input_placeholders: Arc::new(
                     input_placeholders.map(|input_placeholder| {
@@ -214,9 +274,6 @@ impl EntityDefnVariant {
                 },
                 output_contract,
                 method_variant: MethodDefnVariant::from_static(symbol_context, kind),
-                generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
-                    GenericPlaceholder::from_static(symbol_context.db, static_generic_placeholder)
-                }),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TypeField { .. } => todo!(),
@@ -333,29 +390,27 @@ pub(crate) fn entity_defn(
                 ast_head.range,
             ))
         }
-        EntitySource::Module { file: file_id } => todo!(),
+        EntitySource::Module { file } => todo!(),
         EntitySource::Input { .. } => todo!(),
-        EntitySource::StaticTypeMember => todo!(),
+        EntitySource::StaticTypeMember => match entity_route.kind {
+            EntityRouteKind::Child { parent: ty, ident } => {
+                let ty_defn = db.entity_defn(ty).unwrap();
+                match ty_defn.variant {
+                    EntityDefnVariant::Type {
+                        ref type_members, ..
+                    } => Ok(type_members[ident].clone()),
+                    _ => panic!(),
+                }
+            }
+            _ => panic!(),
+        },
         EntitySource::StaticTypeAsTraitMember => match entity_route.kind {
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
                 let ty_defn = db.entity_defn(ty)?;
                 let trai_impl_defn = ty_defn
                     .trait_impl(trai)
                     .expect("todo: trait_impl not found");
-                trai_impl_defn
-                    .member_impl(ident)
-                    .map(|a| a.clone())
-                    .ok_or(err!(format!(
-                        "no member `{}` in ty `{:?}` as trait `{:?}`, available members are {:?}, trait impl src: {:?}",
-                        &ident,
-                        ty,
-                        trai,
-                        trai_impl_defn
-                            .member_impls
-                            .iter()
-                            .map(|member_impl| member_impl.ident)
-                            .collect::<Vec<_>>(), trai_impl_defn.dev_src
-                    )))
+                Ok(trai_impl_defn.member_impl(ident).clone())
             }
             _ => panic!(),
         },

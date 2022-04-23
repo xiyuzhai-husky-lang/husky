@@ -29,7 +29,7 @@ fn entity_instruction_sheet(
             ref input_placeholders,
             ref stmts,
             ..
-        } => InstructionSheetBuilder::new_decl(
+        } => InstructionSheetBuilder::new_func(
             db,
             input_placeholders
                 .iter()
@@ -62,6 +62,7 @@ fn entity_instruction_sheet(
         EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
         EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         EntityDefnVariant::Method { .. } => todo!(),
+        EntityDefnVariant::Trait { .. } => todo!(),
     }
 }
 
@@ -93,24 +94,26 @@ fn method_instruction_sheet(
                     ref input_placeholders,
                     ..
                 } => {
-                    // let inputs = input_placeholders
-                    //     .iter()
-                    //     .map(|input_placeholder| input_placeholder.ident)
-                    //     .collect();
-                    match method_variant {
-                        MethodDefnVariant::TypeMethod { ty, method_source } => todo!(),
+                    let inputs = input_placeholders
+                        .iter()
+                        .map(|input_placeholder| input_placeholder.ident)
+                        .collect();
+                    let source = match method_variant {
+                        MethodDefnVariant::TypeMethod { ty, method_source } => method_source,
                         MethodDefnVariant::TraitMethod {
                             trai,
                             opt_default_source,
                         } => todo!(),
                         MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
+                    };
+                    match source {
+                        MethodSource::Func { stmts } => {
+                            InstructionSheetBuilder::new_func(db, inputs, stmts, true)
+                        }
+                        MethodSource::Proc { stmts } => todo!(),
+                        MethodSource::Pattern { stmts } => todo!(),
+                        MethodSource::Static(_) => todo!(),
                     }
-                    // MethodSource::Func { stmts } => {
-                    //     InstructionSheetBuilder::new_decl(db, inputs, stmts, true)
-                    // }
-                    // MethodSource::Proc { stmts } => todo!(),
-                    // MethodSource::Pattern { stmts } => todo!(),
-                    // MethodSource::StaticMemberAccess { .. } => todo!(),
                 }
                 _ => panic!(),
             }
@@ -121,6 +124,7 @@ fn method_instruction_sheet(
         EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
         EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         EntityDefnVariant::Method { .. } => todo!(),
+        EntityDefnVariant::Trait { .. } => todo!(),
     }
 }
 
@@ -129,7 +133,7 @@ fn dataset_config_instruction_sheet(
     pack_main: FilePtr,
 ) -> Arc<InstructionSheet> {
     let pack = db.package(pack_main).unwrap();
-    InstructionSheetBuilder::new_decl(db, vec![], &pack.config.dataset.stmts, false)
+    InstructionSheetBuilder::new_func(db, vec![], &pack.config.dataset.stmts, false)
 }
 
 // fn virtual_vec_method_linkages(db: &dyn InstructionGenQueryGroup) -> Arc<IdentPairDict<Linkage>> {

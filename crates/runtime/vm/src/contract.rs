@@ -65,22 +65,28 @@ pub enum EagerContract {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LazyContract {
     Move,
-    Ref,
+    GlobalRef,
     Pure,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum FieldContract {
     Own,
-    Ref,
+    GlobalRef,
     LazyOwn,
 }
 
 impl FieldContract {
-    pub fn constructor_input(&self) -> InputContract {
+    pub fn constructor_input_contract(&self, is_copy_constructible: bool) -> InputContract {
         match self {
-            FieldContract::Own => InputContract::Move,
-            FieldContract::Ref => InputContract::GlobalRef,
+            FieldContract::Own => {
+                if is_copy_constructible {
+                    InputContract::Pure
+                } else {
+                    InputContract::Move
+                }
+            }
+            FieldContract::GlobalRef => InputContract::GlobalRef,
             FieldContract::LazyOwn => panic!(),
         }
     }
@@ -98,7 +104,7 @@ impl FieldContract {
                 EagerContract::VarInit => todo!(),
                 EagerContract::Return => todo!(),
             },
-            FieldContract::Ref => todo!(),
+            FieldContract::GlobalRef => todo!(),
             FieldContract::LazyOwn => todo!(),
         }
     }

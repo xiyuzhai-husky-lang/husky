@@ -23,7 +23,7 @@ pub struct EntityStaticDefn {
 pub enum EntityStaticDefnVariant {
     Routine {
         generic_placeholders: &'static [StaticGenericPlaceholder],
-        inputs: Vec<StaticInputPlaceholder>,
+        input_placeholders: Vec<StaticInputPlaceholder>,
         output_ty: &'static str,
         output_contract: OutputContract,
         linkage: Linkage,

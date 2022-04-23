@@ -2,6 +2,7 @@ use entity_kind::TyKind;
 use entity_route::EntityRoute;
 use linkage_table::MemberAccessKind;
 use map_collect::MapCollect;
+use static_defn::LinkageSource;
 use vm::LazyContract;
 
 use super::*;
@@ -97,16 +98,43 @@ impl<'a> FeatureExprBuilder<'a> {
         let member_idx = self.db.member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
         let kind = match method_defn.variant {
-            EntityDefnVariant::Main(_) => todo!(),
-            EntityDefnVariant::Module {} => todo!(),
-            EntityDefnVariant::Feature { .. } => todo!(),
-            EntityDefnVariant::Pattern {} => todo!(),
-            EntityDefnVariant::EnumVariant { .. } => todo!(),
-            EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::Method {
                 ref method_variant, ..
             } => {
-                todo!()
+                let source = match method_variant {
+                    MethodDefnVariant::TypeMethod { method_source, .. } => method_source,
+                    MethodDefnVariant::TraitMethod {
+                        trai,
+                        opt_default_source,
+                    } => todo!(),
+                    MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
+                };
+                let opt_instruction_sheet = match source {
+                    MethodSource::Func { .. } | MethodSource::Proc { .. } => {
+                        self.db.method_instruction_sheet(method_route)
+                    }
+                    MethodSource::Pattern { stmts } => todo!(),
+                    MethodSource::Static(_) => todo!(),
+                };
+                FeatureExprKind::RoutineCall {
+                    instruction_sheet: self.db.method_instruction_sheet(method_route),
+                    opt_linkage: self.db.method_linkage_source(method_route).as_ref().map(
+                        |linkage_source| match linkage_source {
+                            LinkageSource::MemberAccess {
+                                ref_access,
+                                move_access,
+                                ..
+                            } => match opds[0].expr.contract {
+                                LazyContract::Move => *move_access,
+                                LazyContract::GlobalRef => *ref_access,
+                                LazyContract::Pure => *ref_access,
+                            },
+                            LinkageSource::PureOutput(_) => todo!(),
+                        },
+                    ),
+                    opds,
+                    routine_defn: method_defn.clone(),
+                }
                 //     match method_variant {
                 //     MethodSource::Func { .. } | MethodSource::Proc { .. } => {
                 //         FeatureExprKind::RoutineCall {
@@ -149,7 +177,17 @@ impl<'a> FeatureExprBuilder<'a> {
                         field_ident,
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
                         contract,
-                        opt_linkage: self.db.struct_field_access(this.expr.ty, field_ident.ident),
+                        opt_linkage: self
+                            .db
+                            .struct_field_access(this.expr.ty, field_ident.ident)
+                            .map(|linkage_source| match linkage_source {
+                                LinkageSource::MemberAccess {
+                                    ref_access,
+                                    move_access,
+                                    borrow_mut_access,
+                                } => todo!(),
+                                LinkageSource::PureOutput(_) => todo!(),
+                            }),
                         this,
                     },
                     feature,
@@ -229,7 +267,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 opds.map(|opd| opd.expr.ty),
                 match opds[0].expr.contract {
                     LazyContract::Move => todo!(),
-                    LazyContract::Ref => todo!(),
+                    LazyContract::GlobalRef => todo!(),
                     LazyContract::Pure => MemberAccessKind::Ref,
                 },
             ),

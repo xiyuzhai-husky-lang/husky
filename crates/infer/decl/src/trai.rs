@@ -119,7 +119,7 @@ impl TraitDecl {
                         match member.variant {
                             EntityStaticDefnVariant::Method { kind, .. } => MemberKind::Method,
                             EntityStaticDefnVariant::TraitAssociatedType { .. } => {
-                                MemberKind::AssociatedType
+                                MemberKind::TraitAssociatedType
                             }
                             _ => panic!(),
                         },
@@ -141,8 +141,8 @@ impl TraitDecl {
                     generic_arguments,
                 });
                 symbol_context.kind = SymbolContextKind::Trait {
-                    trai,
-                    members: &member_context,
+                    this_trai: trai,
+                    member_kinds: &member_context,
                 };
                 Arc::new(TraitDecl {
                     trai,

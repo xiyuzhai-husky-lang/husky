@@ -83,6 +83,7 @@ impl<'a> RustGenerator<'a> {
                 EntityDefnVariant::Method { .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+                EntityDefnVariant::Trait { .. } => todo!(),
             }
         }
         self.gen_init(&pack.subentity_defns);

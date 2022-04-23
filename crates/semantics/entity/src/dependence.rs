@@ -161,7 +161,31 @@ impl EntityDefn {
                 ..
             } => {
                 extract_call_head_dependees(input_placeholders, output_ty, &mut builder);
-                todo!()
+                let opt_source = match method_variant {
+                    MethodDefnVariant::TypeMethod { ty, method_source } => {
+                        builder.push(*ty);
+                        Some(method_source)
+                    }
+                    MethodDefnVariant::TraitMethod {
+                        trai,
+                        opt_default_source,
+                    } => todo!(),
+                    MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
+                };
+                if let Some(source) = opt_source {
+                    match source {
+                        MethodSource::Func { stmts } => {
+                            extract_func_stmts_dependees(stmts, &mut builder)
+                        }
+                        MethodSource::Proc { stmts } => {
+                            extract_proc_stmts_dependees(stmts, &mut builder)
+                        }
+                        MethodSource::Pattern { stmts } => {
+                            extract_lazy_stmts_dependees(stmts, &mut builder)
+                        }
+                        MethodSource::Static(_) => todo!(),
+                    }
+                }
                 // match method_variant {
                 //     MethodSource::Func { stmts } => {
                 //         extract_func_stmts_dependees(stmts, &mut builder)
@@ -173,6 +197,10 @@ impl EntityDefn {
             }
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::Trait {
+                ref generic_placeholders,
+                ref members,
+            } => todo!(),
         };
         return builder.finish();
 
@@ -362,6 +390,10 @@ impl EntityDefn {
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
                 EntityDefnVariant::Method { .. } => todo!(),
+                EntityDefnVariant::Trait {
+                    ref generic_placeholders,
+                    ref members,
+                } => todo!(),
             }
         }
 

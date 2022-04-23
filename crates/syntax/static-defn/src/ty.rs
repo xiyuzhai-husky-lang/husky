@@ -67,18 +67,18 @@ macro_rules! associated_type_impl {
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum MethodStaticDefnKind {
     TypeMethod {
-        source: StaticLinkageSource,
+        source: LinkageSource,
     },
     TraitMethod {
-        opt_default_source: Option<StaticLinkageSource>,
+        opt_default_source: Option<LinkageSource>,
     },
     TraitMethodImpl {
-        opt_source: Option<StaticLinkageSource>,
+        opt_source: Option<LinkageSource>,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum StaticLinkageSource {
+pub enum LinkageSource {
     MemberAccess {
         ref_access: Linkage,
         move_access: Linkage,
