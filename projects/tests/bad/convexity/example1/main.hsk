@@ -4,9 +4,7 @@ dataset:
     cv::mnist::new_binary_dataset()
 
 proc find_connected_components(binary_image: BinaryImage28) -> []i32:
-    var b = binary_image.clone()
-    for 0 < i < 5:
-    return []i32()
+    va b
 
 main:
     a = input
