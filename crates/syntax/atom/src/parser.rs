@@ -180,6 +180,9 @@ impl<'a> AtomLRParser<'a> {
                         }
                         _ => self.stack.push(token.into())?,
                     },
+                    TokenKind::Identifier(_) => {
+                        err!("unexpected identifier here", token.text_range())?
+                    }
                     _ => self.stack.push(token.into())?,
                 }
             } else {
