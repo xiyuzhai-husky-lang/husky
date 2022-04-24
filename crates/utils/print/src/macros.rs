@@ -74,6 +74,6 @@ macro_rules! msg_once {
 #[macro_export]
 macro_rules! epin {
     () => {
-        eprintln!("[pin] src: {}:{}.", file!(), line!());
+        eprintln!("[pin] src: {}:{}", file!(), line!());
     };
 }

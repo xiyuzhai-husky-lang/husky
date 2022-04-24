@@ -8,7 +8,6 @@ use vm::PrimitiveValue;
 #[derive(Debug, Serialize, Clone)]
 #[serde(tag = "kind")]
 pub enum FigureProps {
-    Void,
     Primitive {
         value: PrimitiveValue,
     },
@@ -36,6 +35,12 @@ impl FigureProps {
                 yrange: (0.0, 28.0),
             },
             VisualProps::Primitive { value } => FigureProps::Primitive { value },
+        }
+    }
+
+    pub fn void() -> FigureProps {
+        Self::Primitive {
+            value: PrimitiveValue::Void,
         }
     }
 }
