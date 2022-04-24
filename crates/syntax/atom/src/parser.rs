@@ -22,15 +22,19 @@ use crate::*;
 use utils::*;
 
 #[derive(Debug, Clone)]
-pub(crate) struct Stream<'a> {
+pub(crate) struct TokenStream<'a> {
     pub(crate) iter: Iter<'a, Token>,
-    pub(crate) range: TextRange,
+    opt_range: Option<TextRange>,
 }
 
-impl<'a> Stream<'a> {
+impl<'a> TokenStream<'a> {
     pub(crate) fn next(&mut self) -> Option<&'a Token> {
         if let Some(token) = self.iter.next() {
-            self.range.end = token.text_end();
+            if let Some(range) = &mut self.opt_range {
+                range.end = token.text_end()
+            } else {
+                self.opt_range = Some(token.range)
+            }
             Some(token)
         } else {
             None
@@ -38,25 +42,24 @@ impl<'a> Stream<'a> {
     }
 
     pub(crate) fn pop_range(&mut self) -> TextRange {
-        should!(self.range.start != self.range.end);
-        let range = self.range.clone();
-        self.range = ((self.range.end)..(self.range.end)).into();
+        let range = self.opt_range.unwrap();
+        self.opt_range = None;
         range
     }
 }
 
-impl<'a> From<&'a [Token]> for Stream<'a> {
+impl<'a> From<&'a [Token]> for TokenStream<'a> {
     fn from(tokens: &'a [Token]) -> Self {
         Self {
             iter: tokens.iter(),
-            range: tokens.into(),
+            opt_range: Some(tokens.into()),
         }
     }
 }
 
 pub struct AtomLRParser<'a> {
     symbol_context: &'a SymbolContext<'a>,
-    pub(crate) stream: Stream<'a>,
+    pub(crate) stream: TokenStream<'a>,
     stack: AtomStack,
 }
 
@@ -107,7 +110,7 @@ impl<'a> AtomLRParser<'a> {
                         Special::Vertical => {
                             let lambda_head = self.lambda_head()?;
                             self.stack.push(Atom::new(
-                                (token.text_start()..self.stream.range.end).into(),
+                                (token.text_start()..self.stream.opt_range.unwrap().end).into(),
                                 AtomKind::LambdaHead(lambda_head),
                             ))?;
                         }
