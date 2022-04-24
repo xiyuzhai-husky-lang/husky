@@ -9,6 +9,7 @@ pub use error::*;
 pub use kind::{AtomKind, LambdaHead};
 pub use parser::AtomLRParser;
 pub use parser::*;
+use print_utils::p;
 pub use symbol::SymbolContext;
 pub use syntax_types::*;
 
@@ -50,7 +51,10 @@ impl std::fmt::Debug for Atom {
 impl From<&Token> for Atom {
     fn from(token: &Token) -> Self {
         match token.kind {
-            TokenKind::Keyword(_) | TokenKind::Identifier(_) => panic!(),
+            TokenKind::Keyword(_) | TokenKind::Identifier(_) => {
+                p!(token.kind);
+                panic!()
+            }
             TokenKind::Special(special) => Atom::new(token.text_range(), special.into()),
             TokenKind::I32Literal(i) => Atom::new(token.text_range(), i.into()),
             TokenKind::F32Literal(f) => Atom::new(token.text_range(), f.into()),
