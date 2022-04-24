@@ -129,6 +129,7 @@ export function request_subtraces(
 
 export function request_toggle_expansion(
     id: number,
+    effective_opt_input_id: number | null,
     request_subtraces: boolean
 ) {
     console.log("request toggle expansion", {
@@ -139,6 +140,7 @@ export function request_toggle_expansion(
     server_instance.try_send_request({
         kind: "ToggleExpansion",
         id,
+        effective_opt_input_id,
         request_subtraces,
     });
 }

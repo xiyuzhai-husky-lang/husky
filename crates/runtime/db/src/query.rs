@@ -47,7 +47,7 @@ pub trait RuntimeQueryGroup:
     fn subtraces(
         &self,
         trace_id: TraceId,
-        opt_input_id: Option<usize>,
+        effective_opt_input_id: Option<usize>,
     ) -> Arc<Vec<Arc<Trace<'static>>>>;
     fn root_traces(&self) -> Arc<Vec<TraceId>>;
 
@@ -70,8 +70,9 @@ pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<TraceId>> {
 pub fn subtraces(
     db: &dyn RuntimeQueryGroup,
     trace_id: TraceId,
-    opt_input_id: Option<usize>,
+    effective_opt_input_id: Option<usize>,
 ) -> Arc<Vec<Arc<Trace<'static>>>> {
+    epin!();
     let trace: &Trace = &db.trace(trace_id);
     match trace.kind {
         TraceKind::Main(ref block) => db.feature_block_subtraces(&trace, block),
@@ -110,7 +111,9 @@ pub fn subtraces(
                 ),
             },
         },
-        TraceKind::FeatureExpr(ref expr) => feature_expr_subtraces(db, trace, expr, opt_input_id),
+        TraceKind::FeatureExpr(ref expr) => {
+            feature_expr_subtraces(db, trace, expr, effective_opt_input_id)
+        }
         TraceKind::FeatureBranch(ref branch) => db.feature_branch_subtraces(trace, branch),
         TraceKind::EagerExpr { .. } => todo!(),
         TraceKind::LoopFrame {
@@ -134,6 +137,7 @@ fn feature_expr_subtraces(
     expr: &FeatureExpr,
     opt_input_id: Option<usize>,
 ) -> Arc<Vec<Arc<Trace<'static>>>> {
+    epin!();
     Arc::new(match expr.kind {
         FeatureExprKind::PrimitiveLiteral(_)
         | FeatureExprKind::PrimitiveBinaryOpr { .. }

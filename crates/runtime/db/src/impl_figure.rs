@@ -6,9 +6,9 @@ impl HuskyLangRuntime {
     pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureProps {
         let trace = self.trace(trace_id);
         match trace.kind {
-            TraceKind::Main(_) => FigureProps::Void,
+            TraceKind::Main(_) => FigureProps::void(),
             TraceKind::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, focus),
-            TraceKind::FeatureBranch(_) => FigureProps::Void,
+            TraceKind::FeatureBranch(_) => FigureProps::void(),
             TraceKind::FeatureExpr(ref expr) => self.feature_expr_figure(expr, focus),
             TraceKind::Input(_) => todo!(),
             TraceKind::StrictDeclStmt {
@@ -34,9 +34,9 @@ impl HuskyLangRuntime {
     fn feature_stmt_figure(&self, stmt: &FeatureStmt, focus: &Focus) -> FigureProps {
         match stmt.kind {
             FeatureStmtKind::Init { varname, ref value } => self.feature_expr_figure(value, focus),
-            FeatureStmtKind::Assert { .. } => FigureProps::Void,
+            FeatureStmtKind::Assert { .. } => FigureProps::void(),
             FeatureStmtKind::Return { ref result } => self.feature_expr_figure(result, focus),
-            FeatureStmtKind::BranchGroup { kind, ref branches } => FigureProps::Void,
+            FeatureStmtKind::BranchGroup { kind, ref branches } => FigureProps::void(),
         }
     }
 
@@ -48,7 +48,7 @@ impl HuskyLangRuntime {
                     let visual_props = visualizer.visualize(value.any_ref());
                     FigureProps::new_specific(visual_props)
                 } else {
-                    FigureProps::Void
+                    FigureProps::void()
                 }
             }
             None => todo!(),

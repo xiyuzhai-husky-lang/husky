@@ -105,7 +105,13 @@ export function toggle_expansion(trace: Trace) {
     const request_subtraces = !expanded
         ? !global.trace_cache.is_subtraces_cached(get(focus_store), trace)
         : false;
-    server.request_toggle_expansion(trace.id, request_subtraces);
+    server.request_toggle_expansion(
+        trace.id,
+        get(global.user_state.focus_store).gen_subtraces_effective_opt_input_id(
+            trace
+        ),
+        request_subtraces
+    );
 }
 
 export function toggle_show(trace_id: number) {

@@ -17,6 +17,7 @@ export function receive_subtraces(
     subtraces: Trace[]
 ) {
     console.log("receive subtraces for trace id = ", trace_id);
+    console.log("subtraces: ", subtraces);
     global.trace_cache.receive_subtraces(trace_id, eff_opt_input_id, subtraces);
     global.update_trace_listing();
 }
