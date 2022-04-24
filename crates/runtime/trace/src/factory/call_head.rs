@@ -32,7 +32,7 @@ impl<'eval> TraceFactory<'eval> {
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             EntityDefnVariant::Trait { .. } => todo!(),
         };
-        return self.new_trace(None, 0, TraceKind::CallHead { entity, tokens }, text);
+        return self.new_trace(None, 0, TraceVariant::CallHead { entity, tokens }, text);
 
         fn routine_call_head_tokens<'eval>(
             routine_keyword: &'static str,

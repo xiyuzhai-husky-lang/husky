@@ -228,16 +228,18 @@ impl EntityDefn {
 
         fn extract_func_stmts_dependees(stmts: &[Arc<FuncStmt>], v: &mut DependeeMapBuilder) {
             for stmt in stmts {
-                match stmt.kind {
-                    FuncStmtKind::Init {
+                match stmt.variant {
+                    FuncStmtVariant::Init {
                         varname,
                         initial_value: ref value,
                     } => extract_eager_expr_dependees(value, v),
-                    FuncStmtKind::Assert { ref condition } => {
+                    FuncStmtVariant::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, v)
                     }
-                    FuncStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
-                    FuncStmtKind::Branches { kind, ref branches } => {
+                    FuncStmtVariant::Return { ref result } => {
+                        extract_eager_expr_dependees(result, v)
+                    }
+                    FuncStmtVariant::Branches { kind, ref branches } => {
                         for branch in branches {
                             extract_func_stmts_dependees(&branch.stmts, v)
                         }
@@ -248,28 +250,30 @@ impl EntityDefn {
 
         fn extract_proc_stmts_dependees(stmts: &[Arc<ProcStmt>], v: &mut DependeeMapBuilder) {
             for stmt in stmts {
-                match stmt.kind {
-                    ProcStmtKind::Init {
+                match stmt.variant {
+                    ProcStmtVariant::Init {
                         varname,
                         ref initial_value,
                         ..
                     } => extract_eager_expr_dependees(initial_value, v),
-                    ProcStmtKind::Assert { ref condition } => {
+                    ProcStmtVariant::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, v)
                     }
-                    ProcStmtKind::Return { ref result } => extract_eager_expr_dependees(result, v),
-                    ProcStmtKind::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
-                    ProcStmtKind::BranchGroup { kind, ref branches } => {
+                    ProcStmtVariant::Return { ref result } => {
+                        extract_eager_expr_dependees(result, v)
+                    }
+                    ProcStmtVariant::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
+                    ProcStmtVariant::BranchGroup { kind, ref branches } => {
                         for branch in branches {
                             extract_proc_stmts_dependees(&branch.stmts, v)
                         }
                     }
-                    ProcStmtKind::Loop {
-                        ref loop_kind,
+                    ProcStmtVariant::Loop {
+                        loop_variant: ref loop_kind,
                         ref stmts,
                     } => {
                         match loop_kind {
-                            LoopKind::For {
+                            LoopVariant::For {
                                 ref initial_boundary,
                                 ref final_boundary,
                                 ..
@@ -277,15 +281,15 @@ impl EntityDefn {
                                 extract_boundary_dependees(initial_boundary, v);
                                 extract_boundary_dependees(final_boundary, v);
                             }
-                            LoopKind::ForExt {
+                            LoopVariant::ForExt {
                                 ref final_boundary, ..
                             } => {
                                 extract_boundary_dependees(final_boundary, v);
                             }
-                            LoopKind::While { condition } => {
+                            LoopVariant::While { condition } => {
                                 extract_eager_expr_dependees(condition, v)
                             }
-                            LoopKind::DoWhile { condition } => {
+                            LoopVariant::DoWhile { condition } => {
                                 extract_eager_expr_dependees(condition, v)
                             }
                         }
@@ -324,12 +328,14 @@ impl EntityDefn {
         }
 
         fn extract_eager_expr_dependees(expr: &EagerExpr, builder: &mut DependeeMapBuilder) {
-            match expr.kind {
-                EagerExprKind::Variable(_) => (),
-                EagerExprKind::Scope { scope } => builder.push(scope),
-                EagerExprKind::PrimitiveLiteral(_) => (),
-                EagerExprKind::Bracketed(ref expr) => extract_eager_expr_dependees(expr, builder),
-                EagerExprKind::Opn {
+            match expr.variant {
+                EagerExprVariant::Variable(_) => (),
+                EagerExprVariant::Scope { scope } => builder.push(scope),
+                EagerExprVariant::PrimitiveLiteral(_) => (),
+                EagerExprVariant::Bracketed(ref expr) => {
+                    extract_eager_expr_dependees(expr, builder)
+                }
+                EagerExprVariant::Opn {
                     ref opn_kind,
                     ref opds,
                     ..
@@ -349,8 +355,8 @@ impl EntityDefn {
                         extract_eager_expr_dependees(opd, builder)
                     }
                 }
-                EagerExprKind::Lambda(_, _) => todo!(),
-                EagerExprKind::This => builder.push(expr.ty),
+                EagerExprVariant::Lambda(_, _) => todo!(),
+                EagerExprVariant::This => builder.push(expr.ty),
             }
         }
 

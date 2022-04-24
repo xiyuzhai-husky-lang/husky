@@ -38,10 +38,11 @@ class Trace {
         | "FeatureStmt"
         | "FeatureBranch"
         | "FeatureExpr"
-        | "StrictDeclStmt"
-        | "ImprStmt"
+        | "FeatureCallInput"
+        | "FuncStmt"
+        | "ProcStmt"
         | "LoopFrame"
-        | "StrictExpr";
+        | "EagerExpr";
     subtraces_container_class: "Call" | null;
     constructor(props: unknown) {
         this.id = decode_member_old(props, "id", decode_number);
@@ -61,10 +62,11 @@ class Trace {
             case "FeatureStmt":
             case "FeatureBranch":
             case "FeatureExpr":
-            case "StrictDeclStmt":
-            case "ImprStmt":
+            case "FeatureCallInput":
+            case "FuncStmt":
+            case "ProcStmt":
             case "LoopFrame":
-            case "StrictExpr":
+            case "EagerExpr":
                 this.kind = kind;
                 break;
             default:

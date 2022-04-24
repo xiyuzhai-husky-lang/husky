@@ -121,6 +121,10 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     pub(crate) fn top_mut(&mut self, mode: Mode) -> &mut StackValue<'stack, 'eval> {
         self.values.last_mut().unwrap()
     }
+
+    pub(crate) fn top_snapshot(&mut self) -> StackValueSnapshot<'eval> {
+        self.values.last_mut().unwrap().snapshot()
+    }
 }
 
 impl<'stack, 'eval: 'stack> From<Vec<StackValue<'stack, 'eval>>> for VMStack<'stack, 'eval> {

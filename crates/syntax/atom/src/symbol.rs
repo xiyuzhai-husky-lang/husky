@@ -186,7 +186,7 @@ impl<'a> SymbolContext<'a> {
         }
     }
 
-    pub fn input_placeholder(
+    pub fn input_placeholder_from_static(
         &self,
         static_input_placeholder: &StaticInputPlaceholder,
     ) -> InputPlaceholder {

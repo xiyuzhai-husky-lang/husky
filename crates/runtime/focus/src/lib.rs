@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use trace::{Trace, TraceId, TraceKind};
+use trace::{Trace, TraceId, TraceVariant};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub struct Focus {
@@ -14,17 +14,17 @@ impl Default for Focus {
 
 impl Focus {
     pub fn effective_opt_input_id_for_subtraces(&self, trace: &Trace) -> Option<usize> {
-        match trace.kind {
-            TraceKind::Main(_) => todo!(),
-            TraceKind::FeatureStmt(_) => todo!(),
-            TraceKind::FeatureBranch(_) => todo!(),
-            TraceKind::FeatureExpr(_) => todo!(),
-            TraceKind::Input(_) => todo!(),
-            TraceKind::StrictDeclStmt { .. } => todo!(),
-            TraceKind::ImprStmt { .. } => todo!(),
-            TraceKind::LoopFrame { .. } => todo!(),
-            TraceKind::EagerExpr { .. } => todo!(),
-            TraceKind::CallHead { .. } => todo!(),
+        match trace.variant {
+            TraceVariant::Main(_) => todo!(),
+            TraceVariant::FeatureStmt(_) => todo!(),
+            TraceVariant::FeatureBranch(_) => todo!(),
+            TraceVariant::FeatureExpr(_) => todo!(),
+            TraceVariant::FeatureCallInput { .. } => todo!(),
+            TraceVariant::FuncStmt { .. } => todo!(),
+            TraceVariant::ProcStmt { .. } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
+            TraceVariant::EagerExpr { .. } => todo!(),
+            TraceVariant::CallHead { .. } => todo!(),
         }
     }
 

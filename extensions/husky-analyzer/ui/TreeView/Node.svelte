@@ -18,10 +18,10 @@
             case "FeatureBranch":
             case "FeatureExpr":
                 return input_id !== null;
-            case "StrictDeclStmt":
+            case "FuncStmt":
             case "LoopFrame":
-            case "ImprStmt":
-            case "StrictExpr":
+            case "ProcStmt":
+            case "EagerExpr":
             case "CallHead":
                 return false;
         }

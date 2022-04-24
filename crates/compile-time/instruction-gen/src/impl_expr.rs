@@ -12,8 +12,8 @@ use vm::{
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
-        match expr.kind {
-            EagerExprKind::Variable(ident) => {
+        match expr.variant {
+            EagerExprVariant::Variable(ident) => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(ident);
                 self.push_instruction(Instruction::new(
                     InstructionKind::PushVariable {
@@ -23,18 +23,18 @@ impl<'a> InstructionSheetBuilder<'a> {
                     expr.clone(),
                 ))
             }
-            EagerExprKind::Scope { scope } => todo!(),
-            EagerExprKind::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
+            EagerExprVariant::Scope { scope } => todo!(),
+            EagerExprVariant::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
                 InstructionKind::PushPrimitiveLiteral(value),
                 expr.clone(),
             )),
-            EagerExprKind::Bracketed(_) => todo!(),
-            EagerExprKind::Opn {
+            EagerExprVariant::Bracketed(_) => todo!(),
+            EagerExprVariant::Opn {
                 ref opn_kind,
                 ref opds,
             } => self.compile_opn(opn_kind, opds, expr),
-            EagerExprKind::Lambda(_, _) => todo!(),
-            EagerExprKind::This => self.push_instruction(Instruction::new(
+            EagerExprVariant::Lambda(_, _) => todo!(),
+            EagerExprVariant::This => self.push_instruction(Instruction::new(
                 InstructionKind::PushVariable {
                     stack_idx: StackIdx::this(),
                     contract: expr.contract,

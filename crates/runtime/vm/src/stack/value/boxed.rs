@@ -53,7 +53,7 @@ impl<'eval> BoxedValue<'eval> {
         &*(self.inner)
     }
 
-    pub fn as_ref(&self) -> &dyn AnyValueDyn<'eval> {
+    pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         &*self.inner
     }
 

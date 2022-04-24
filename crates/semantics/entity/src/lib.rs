@@ -263,11 +263,9 @@ impl EntityDefnVariant {
                     GenericPlaceholder::from_static(symbol_context.db, static_generic_placeholder)
                 }),
                 this_contract,
-                input_placeholders: Arc::new(
-                    input_placeholders.map(|input_placeholder| {
-                        symbol_context.input_placeholder(input_placeholder)
-                    }),
-                ),
+                input_placeholders: Arc::new(input_placeholders.map(|input_placeholder| {
+                    symbol_context.input_placeholder_from_static(input_placeholder)
+                })),
                 output_ty: RangedEntityRoute {
                     route: symbol_context.entity_route_from_str(output_ty).unwrap(),
                     range: Default::default(),

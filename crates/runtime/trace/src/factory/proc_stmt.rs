@@ -10,7 +10,7 @@ use super::{expr::ExprTokenConfig, *};
 use crate::*;
 
 impl<'eval> TraceFactory<'eval> {
-    fn new_impr_stmt_trace(
+    fn new_proc_stmt_trace(
         &self,
         parent_id: TraceId,
         indent: Indent,
@@ -21,12 +21,12 @@ impl<'eval> TraceFactory<'eval> {
         self.new_trace(
             Some(parent_id),
             indent,
-            TraceKind::ImprStmt { stmt, history },
+            TraceVariant::ProcStmt { stmt, history },
             text,
         )
     }
 
-    pub(super) fn impr_stmt_lines(
+    pub(super) fn proc_stmt_lines(
         &self,
         stmt: &ProcStmt,
         text: &Text,
@@ -34,19 +34,19 @@ impl<'eval> TraceFactory<'eval> {
     ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent: stmt.indent,
-            tokens: self.impr_stmt_tokens(stmt, text, history),
+            tokens: self.proc_stmt_tokens(stmt, text, history),
             idx: 0,
         }]
     }
 
-    pub(super) fn impr_stmt_tokens(
+    pub(super) fn proc_stmt_tokens(
         &self,
         stmt: &ProcStmt,
         text: &Text,
         history: &Arc<History<'eval>>,
     ) -> Vec<TokenProps<'eval>> {
-        match stmt.kind {
-            ProcStmtKind::Init {
+        match stmt.variant {
+            ProcStmtVariant::Init {
                 varname,
                 ref initial_value,
                 init_kind,
@@ -67,7 +67,7 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens
             }
-            ProcStmtKind::Assert { ref condition } => {
+            ProcStmtVariant::Assert { ref condition } => {
                 let mut tokens = vec![keyword!("assert ")];
                 tokens.extend(self.eager_expr_tokens(
                     condition,
@@ -77,10 +77,10 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens
             }
-            ProcStmtKind::Execute { ref expr } => {
+            ProcStmtVariant::Execute { ref expr } => {
                 self.eager_expr_tokens(expr, text, history, ExprTokenConfig::exec())
             }
-            ProcStmtKind::Return { ref result } => {
+            ProcStmtVariant::Return { ref result } => {
                 let mut tokens = vec![keyword!("return ")];
                 tokens.extend(self.eager_expr_tokens(
                     result,
@@ -90,12 +90,12 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens
             }
-            ProcStmtKind::BranchGroup { kind, ref branches } => todo!(),
-            ProcStmtKind::Loop {
-                ref loop_kind,
+            ProcStmtVariant::BranchGroup { kind, ref branches } => todo!(),
+            ProcStmtVariant::Loop {
+                loop_variant: ref loop_kind,
                 ref stmts,
             } => match loop_kind {
-                LoopKind::For {
+                LoopVariant::For {
                     frame_var,
                     ref initial_boundary,
                     ref final_boundary,
@@ -108,7 +108,7 @@ impl<'eval> TraceFactory<'eval> {
                     tokens.push(special!(":"));
                     tokens
                 }
-                LoopKind::ForExt {
+                LoopVariant::ForExt {
                     frame_var,
                     ref final_boundary,
                     ..
@@ -119,7 +119,7 @@ impl<'eval> TraceFactory<'eval> {
                     tokens.push(special!(":"));
                     tokens
                 }
-                LoopKind::While { ref condition } => {
+                LoopVariant::While { ref condition } => {
                     let mut tokens = vec![keyword!("while ")];
                     tokens.extend(self.eager_expr_tokens(
                         condition,
@@ -130,7 +130,7 @@ impl<'eval> TraceFactory<'eval> {
                     tokens.push(special!(":"));
                     tokens
                 }
-                LoopKind::DoWhile { condition } => {
+                LoopVariant::DoWhile { condition } => {
                     let mut tokens = vec![keyword!("do while ")];
                     tokens.extend(self.eager_expr_tokens(
                         condition,
@@ -193,7 +193,7 @@ impl<'eval> TraceFactory<'eval> {
         }
     }
 
-    pub fn impr_stmts_traces<'a>(
+    pub fn proc_stmts_traces<'a>(
         &'a self,
         parent_id: TraceId,
         indent: Indent,
@@ -202,7 +202,7 @@ impl<'eval> TraceFactory<'eval> {
         history: &'a Arc<History<'eval>>,
     ) -> impl Iterator<Item = Arc<Trace<'eval>>> + 'a {
         stmts.iter().map(move |stmt| {
-            self.new_impr_stmt_trace(parent_id, indent, stmt.clone(), text, history.clone())
+            self.new_proc_stmt_trace(parent_id, indent, stmt.clone(), text, history.clone())
         })
     }
 
@@ -210,7 +210,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         compile_time: &HuskyLangCompileTime,
         parent: &Trace,
-        loop_kind: &LoopKind,
+        loop_kind: &LoopVariant,
         loop_stmt: &Arc<ProcStmt>,
         body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
         text: &Text,
@@ -230,7 +230,7 @@ impl<'eval> TraceFactory<'eval> {
                     self.new_trace(
                         Some(parent.id),
                         parent.indent + 2,
-                        TraceKind::LoopFrame {
+                        TraceVariant::LoopFrame {
                             loop_stmt: loop_stmt.clone(),
                             body_stmts: body_stmts.clone(),
                             body_instruction_sheet: body_instruction_sheet.clone(),
@@ -258,7 +258,7 @@ impl<'eval> TraceFactory<'eval> {
             instruction_sheet,
         );
         Arc::new(
-            self.impr_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history)
+            self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history)
                 .collect(),
         )
     }

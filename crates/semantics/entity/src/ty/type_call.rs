@@ -29,10 +29,9 @@ impl TyCallDefn {
                 linkage,
                 ..
             } => TyCallDefn {
-                input_placeholders: Arc::new(
-                    input_placeholders
-                        .map(|input_placeholder| context.input_placeholder(input_placeholder)),
-                ),
+                input_placeholders: Arc::new(input_placeholders.map(|input_placeholder| {
+                    context.input_placeholder_from_static(input_placeholder)
+                })),
                 output_ty: RangedEntityRoute {
                     route: context.entity_route_from_str(output_ty).unwrap(),
                     range: Default::default(),

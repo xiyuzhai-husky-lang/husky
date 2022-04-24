@@ -17,7 +17,7 @@ pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
     pub ty: EntityRoutePtr,
-    pub kind: EagerExprKind,
+    pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
     pub contract: EagerContract,
 }
@@ -29,7 +29,7 @@ impl InstructionSource for EagerExpr {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum EagerExprKind {
+pub enum EagerExprVariant {
     Variable(CustomIdentifier),
     This,
     Scope {

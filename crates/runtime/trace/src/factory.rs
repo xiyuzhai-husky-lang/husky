@@ -1,12 +1,12 @@
 mod call_head;
-mod eager_decl_stmt;
 mod eager_expr;
-mod eager_impr_stmt;
 mod expr;
 mod feature_block;
 mod feature_branch;
 mod feature_expr;
 mod feature_stmt;
+mod func_stmt;
+mod proc_stmt;
 
 use compile_time_db::HuskyLangCompileTime;
 use expr::ExprTokenConfig;
@@ -41,6 +41,7 @@ fn test_trace_id_deserialize() {
 #[derive(Debug, Default)]
 pub struct TraceFactory<'eval> {
     traces: ARwLock<Vec<Option<Arc<Trace<'eval>>>>>,
+    compile_time_version: usize,
 }
 
 impl<'eval> Serialize for TraceFactory<'eval> {
@@ -68,11 +69,11 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         id: TraceId,
         indent: Indent,
-        kind: &TraceKind<'eval>,
+        kind: &TraceVariant<'eval>,
         text: &Text,
     ) -> Vec<LineProps<'eval>> {
         match kind {
-            TraceKind::Main(feature_block) => vec![LineProps {
+            TraceVariant::Main(feature_block) => vec![LineProps {
                 indent,
                 idx: 0,
                 tokens: vec![TokenProps {
@@ -81,27 +82,32 @@ impl<'eval> TraceFactory<'eval> {
                     associated_trace: None,
                 }],
             }],
-            TraceKind::FeatureStmt(stmt) => self.feature_stmt_lines(stmt, text),
-            TraceKind::FeatureExpr(expr) => {
+            TraceVariant::FeatureStmt(stmt) => self.feature_stmt_lines(stmt, text),
+            TraceVariant::FeatureExpr(expr) => {
                 self.feature_expr_lines(expr, text, ExprTokenConfig::expr())
             }
-            TraceKind::FeatureBranch(branch) => self.feature_branch_lines(indent, branch, text),
-            TraceKind::Input(_) => todo!(),
-            TraceKind::StrictDeclStmt { .. } => todo!(),
-            TraceKind::ImprStmt {
+            TraceVariant::FeatureBranch(branch) => self.feature_branch_lines(indent, branch, text),
+            TraceVariant::FeatureCallInput { ident, input } => {
+                let mut lines = self.feature_expr_lines(input, text, ExprTokenConfig::expr());
+                lines[0].tokens.insert(0, special!(" = "));
+                lines[0].tokens.insert(0, ident!(ident.0));
+                lines
+            }
+            TraceVariant::FuncStmt { .. } => todo!(),
+            TraceVariant::ProcStmt {
                 ref stmt,
                 ref history,
-            } => self.impr_stmt_lines(stmt, text, history),
-            TraceKind::EagerExpr {
+            } => self.proc_stmt_lines(stmt, text, history),
+            TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
             } => self.eager_expr_lines(expr, text, history, ExprTokenConfig::expr()),
-            TraceKind::CallHead { ref tokens, .. } => vec![LineProps {
+            TraceVariant::CallHead { ref tokens, .. } => vec![LineProps {
                 indent: 0,
                 idx: 0,
                 tokens: tokens.clone(),
             }],
-            TraceKind::LoopFrame {
+            TraceVariant::LoopFrame {
                 loop_frame_snapshot: ref vm_loop_frame,
                 ..
             } => self.loop_frame_lines(indent, vm_loop_frame),
@@ -112,10 +118,17 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         parent_id: Option<TraceId>,
         indent: Indent,
-        kind: TraceKind<'eval>,
+        kind: TraceVariant<'eval>,
         text: &Text,
     ) -> Arc<Trace<'eval>> {
-        let trace = Arc::new(Trace::new(parent_id, indent, kind, self, text));
+        let trace = Arc::new(Trace::new(
+            parent_id,
+            indent,
+            kind,
+            self,
+            text,
+            self.compile_time_version,
+        ));
         self.traces.write(|traces| {
             assert!(traces[trace.id.0].is_none());
             traces[trace.id.0] = Some(trace.clone())
@@ -141,7 +154,6 @@ impl<'eval> TraceFactory<'eval> {
 
 pub trait CreateTrace<'eval>: TextQueryGroup {
     fn trace_factory(&self) -> &TraceFactory<'eval>;
-    fn trace_factory_arc(&self) -> Arc<TraceFactory<'eval>>;
 
     fn feature_block_subtraces(
         &self,
@@ -169,7 +181,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         &self,
         compile_time: &HuskyLangCompileTime,
         parent: &Trace,
-        loop_kind: &LoopKind,
+        loop_kind: &LoopVariant,
         loop_stmt: &Arc<ProcStmt>,
         stmts: &Arc<Vec<Arc<ProcStmt>>>,
         stack_snapshot: &StackSnapshot<'eval>,
@@ -212,7 +224,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         parent_id: Option<TraceId>,
         file: FilePtr,
         indent: Indent,
-        kind: TraceKind<'eval>,
+        kind: TraceVariant<'eval>,
     ) -> Arc<Trace<'eval>> {
         self.trace_factory()
             .new_trace(parent_id, indent, kind, &self.text(file).unwrap())

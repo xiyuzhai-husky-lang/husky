@@ -9,20 +9,20 @@ impl<'a> InstructionSheetBuilder<'a> {
     }
 
     fn compile_func_stmt(&mut self, stmt: Arc<FuncStmt>) {
-        match stmt.kind {
-            FuncStmtKind::Init {
+        match stmt.variant {
+            FuncStmtVariant::Init {
                 varname,
                 ref initial_value,
             } => {
                 self.compile_expr(initial_value);
                 self.def_variable(varname, InitKind::Decl, stmt)
             }
-            FuncStmtKind::Assert { ref condition } => todo!(),
-            FuncStmtKind::Return { ref result } => {
+            FuncStmtVariant::Assert { ref condition } => todo!(),
+            FuncStmtVariant::Return { ref result } => {
                 self.compile_expr(result);
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
             }
-            FuncStmtKind::Branches { .. } => todo!(),
+            FuncStmtVariant::Branches { .. } => todo!(),
         }
     }
 }

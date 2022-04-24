@@ -37,7 +37,7 @@ impl<'a> EagerStmtParser<'a> {
                     file: self.file,
                     range: stmt.range,
                     indent: item.indent,
-                    kind: self.parse_impr_stmt(stmt, item.children, &mut iter)?,
+                    variant: self.parse_impr_stmt(stmt, item.children, &mut iter)?,
                     instruction_id,
                 },
                 AstKind::EnumVariantDefnHead {
@@ -57,7 +57,7 @@ impl<'a> EagerStmtParser<'a> {
         stmt: &RawStmt,
         children: Option<IterType>,
         iter: &mut Peekable<IterType>,
-    ) -> SemanticResult<ProcStmtKind> {
+    ) -> SemanticResult<ProcStmtVariant> {
         Ok(match stmt.kind {
             RawStmtKind::Loop(loop_kind) => self.parse_loop_stmt(loop_kind, not_none!(children))?,
             RawStmtKind::Branch(branch_kind) => {
@@ -103,7 +103,7 @@ impl<'a> EagerStmtParser<'a> {
                         _ => break,
                     }
                 }
-                ProcStmtKind::BranchGroup {
+                ProcStmtVariant::BranchGroup {
                     kind: ImprBranchGroupKind::If,
                     branches,
                 }
@@ -116,7 +116,7 @@ impl<'a> EagerStmtParser<'a> {
                         expr.ty
                     ))
                 }
-                ProcStmtKind::Execute { expr }
+                ProcStmtVariant::Execute { expr }
             }
             RawStmtKind::Init {
                 varname,
@@ -126,17 +126,17 @@ impl<'a> EagerStmtParser<'a> {
                 let initial_value = self.parse_eager_expr(initial_value)?;
                 let qual = Qual::from_init(init_kind);
                 let varidx = self.def_variable(varname, initial_value.ty, qual)?;
-                ProcStmtKind::Init {
+                ProcStmtVariant::Init {
                     varname,
                     initial_value,
                     init_kind,
                     varidx,
                 }
             }
-            RawStmtKind::Return(result) => ProcStmtKind::Return {
+            RawStmtKind::Return(result) => ProcStmtVariant::Return {
                 result: self.parse_eager_expr(result)?,
             },
-            RawStmtKind::Assert(condition) => ProcStmtKind::Assert {
+            RawStmtKind::Assert(condition) => ProcStmtVariant::Assert {
                 condition: self.parse_eager_expr(condition)?,
             },
         })
@@ -146,7 +146,7 @@ impl<'a> EagerStmtParser<'a> {
         &mut self,
         loop_kind: RawLoopKind,
         children: IterType,
-    ) -> SemanticResult<ProcStmtKind> {
+    ) -> SemanticResult<ProcStmtVariant> {
         Ok(match loop_kind {
             RawLoopKind::For {
                 frame_var,
@@ -159,8 +159,8 @@ impl<'a> EagerStmtParser<'a> {
                     EntityRoutePtr::Root(RootIdentifier::I32),
                     Qual::frame_var(),
                 );
-                ProcStmtKind::Loop {
-                    loop_kind: LoopKind::For {
+                ProcStmtVariant::Loop {
+                    loop_variant: LoopVariant::For {
                         frame_var,
                         initial_boundary: self.parse_boundary(initial_boundary)?,
                         final_boundary: self.parse_boundary(final_boundary)?,
@@ -175,8 +175,8 @@ impl<'a> EagerStmtParser<'a> {
                 step,
             } => {
                 msg_once!("todo: change frame var qual in forext");
-                ProcStmtKind::Loop {
-                    loop_kind: LoopKind::ForExt {
+                ProcStmtVariant::Loop {
+                    loop_variant: LoopVariant::ForExt {
                         frame_var,
                         frame_varidx: self.varidx(frame_var),
                         final_boundary: self.parse_boundary(final_boundary)?,
@@ -195,8 +195,8 @@ impl<'a> EagerStmtParser<'a> {
                     | EntityRoutePtr::Root(RootIdentifier::B64) => (),
                     _ => todo!(),
                 }
-                ProcStmtKind::Loop {
-                    loop_kind: LoopKind::While { condition },
+                ProcStmtVariant::Loop {
+                    loop_variant: LoopVariant::While { condition },
                     stmts: self.parse_impr_stmts(children)?,
                 }
             }
@@ -210,8 +210,8 @@ impl<'a> EagerStmtParser<'a> {
                     | EntityRoutePtr::Root(RootIdentifier::B64) => (),
                     _ => todo!(),
                 }
-                ProcStmtKind::Loop {
-                    loop_kind: LoopKind::DoWhile { condition },
+                ProcStmtVariant::Loop {
+                    loop_variant: LoopVariant::DoWhile { condition },
                     stmts: self.parse_impr_stmts(children)?,
                 }
             }

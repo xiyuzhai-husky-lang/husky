@@ -9,12 +9,11 @@ mod tests;
 mod token;
 
 pub use factory::{CreateTrace, TraceFactory, TraceId};
+use feature::*;
 pub use figure::FigureProps;
 use file::FilePtr;
-// use interpreter::VMControl;
-// pub use interpreter::{TraceInterpreter, VMValueSnapshot};
-use feature::*;
-pub use kind::TraceKind;
+pub use kind::TraceVariant;
+use print_utils::p;
 use semantics_eager::*;
 use semantics_entity::*;
 pub use stalk::TraceStalk;
@@ -22,7 +21,6 @@ use text::{Text, TextRange};
 pub use token::{TokenProps, TraceTokenKind};
 
 use fold::Indent;
-use print_utils::*;
 use serde::{ser::SerializeStruct, Serialize};
 use std::{borrow::Cow, sync::Arc};
 
@@ -31,11 +29,12 @@ use std::{borrow::Cow, sync::Arc};
 pub struct Trace<'eval> {
     parent: Option<TraceId>,
     pub(crate) id: TraceId,
-    pub kind: TraceKind<'eval>,
+    pub variant: TraceVariant<'eval>,
     pub indent: Indent,
     pub lines: Vec<LineProps<'eval>>,
     pub range: TextRange,
     pub file: FilePtr,
+    pub compile_time_version: usize,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -62,25 +61,25 @@ impl<'eval> Serialize for Trace<'eval> {
         state.serialize_field("id", &self.id)?;
         state.serialize_field("parent", &self.parent)?;
         state.serialize_field("lines", &self.lines)?;
-        state.serialize_field("kind", &self.kind)?;
+        state.serialize_field("kind", &self.variant)?;
         state.serialize_field(
             "has_subtraces",
-            &match self.kind {
-                TraceKind::FeatureStmt(_)
-                | TraceKind::Input(_)
-                | TraceKind::StrictDeclStmt { .. } => false,
-                TraceKind::ImprStmt { ref stmt, .. } => match stmt.kind {
-                    ProcStmtKind::Init { .. }
-                    | ProcStmtKind::Assert { .. }
-                    | ProcStmtKind::Execute { .. }
-                    | ProcStmtKind::Return { .. } => false,
-                    ProcStmtKind::Loop { .. } => true,
-                    ProcStmtKind::BranchGroup { .. } => panic!(),
+            &match self.variant {
+                TraceVariant::FeatureStmt(_)
+                | TraceVariant::FeatureCallInput { .. }
+                | TraceVariant::FuncStmt { .. } => false,
+                TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
+                    ProcStmtVariant::Init { .. }
+                    | ProcStmtVariant::Assert { .. }
+                    | ProcStmtVariant::Execute { .. }
+                    | ProcStmtVariant::Return { .. } => false,
+                    ProcStmtVariant::Loop { .. } => true,
+                    ProcStmtVariant::BranchGroup { .. } => panic!(),
                 },
-                TraceKind::LoopFrame { .. } | TraceKind::Main(_) | TraceKind::FeatureBranch(_) => {
-                    true
-                }
-                TraceKind::FeatureExpr(ref expr) => match expr.kind {
+                TraceVariant::LoopFrame { .. }
+                | TraceVariant::Main(_)
+                | TraceVariant::FeatureBranch(_) => true,
+                TraceVariant::FeatureExpr(ref expr) => match expr.kind {
                     FeatureExprKind::PrimitiveLiteral(_)
                     | FeatureExprKind::PrimitiveBinaryOpr { .. }
                     | FeatureExprKind::Variable { .. } => false,
@@ -102,16 +101,19 @@ impl<'eval> Serialize for Trace<'eval> {
                     FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
                     FeatureExprKind::ElementAccess { ref opds, .. } => false,
                 },
-                TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
-                    EagerExprKind::Variable(_)
-                    | EagerExprKind::Scope { .. }
-                    | EagerExprKind::PrimitiveLiteral(_) => false,
-                    EagerExprKind::Bracketed(_) => todo!(),
-                    EagerExprKind::Opn { ref opds, .. } => !opds[0].ty.is_builtin(),
-                    EagerExprKind::Lambda(_, _) => todo!(),
-                    EagerExprKind::This => todo!(),
+                TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
+                    EagerExprVariant::Variable(_)
+                    | EagerExprVariant::Scope { .. }
+                    | EagerExprVariant::PrimitiveLiteral(_) => false,
+                    EagerExprVariant::Bracketed(_) => todo!(),
+                    EagerExprVariant::Opn { ref opds, .. } => {
+                        p!(expr.file, expr.range);
+                        !opds[0].ty.is_builtin()
+                    }
+                    EagerExprVariant::Lambda(_, _) => todo!(),
+                    EagerExprVariant::This => todo!(),
                 },
-                TraceKind::CallHead { .. } => false,
+                TraceVariant::CallHead { .. } => false,
             },
         )?;
         state.serialize_field(
@@ -126,9 +128,10 @@ impl<'eval> Trace<'eval> {
     pub(crate) fn new(
         parent: Option<TraceId>,
         indent: Indent,
-        kind: TraceKind<'eval>,
+        kind: TraceVariant<'eval>,
         trace_allocator: &TraceFactory<'eval>,
         text: &Text,
+        compile_time_version: usize,
     ) -> Self {
         let id = trace_allocator.next_id();
         let (file, range) = kind.file_and_range();
@@ -137,17 +140,14 @@ impl<'eval> Trace<'eval> {
             parent,
             indent,
             lines: trace_allocator.lines(id, indent, &kind, text),
-            kind,
+            variant: kind,
             file,
             range,
+            compile_time_version,
         }
     }
 
     pub fn id(&self) -> TraceId {
         self.id
-    }
-
-    pub fn compile_time_version(&self) -> usize {
-        todo!()
     }
 }

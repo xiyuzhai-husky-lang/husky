@@ -23,7 +23,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use text::{RawTextQueryGroup, TextQueryGroupStorage};
-use trace::{CreateTrace, FigureProps, Trace, TraceFactory, TraceId, TraceKind, TraceStalk};
+use trace::{CreateTrace, FigureProps, Trace, TraceFactory, TraceId, TraceStalk, TraceVariant};
 use visual_runtime::*;
 use vm::{AnyValueDyn, Instruction};
 
@@ -35,12 +35,13 @@ use vm::{AnyValueDyn, Instruction};
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
-    traces: Arc<TraceFactory<'static>>,
+    compile_time_version: usize,
+    traces: TraceFactory<'static>,
     session: Arc<Mutex<Session<'static>>>,
     focus: Focus,
     expansions: HashMap<TraceId, bool>,
     showns: HashMap<TraceId, bool>,
-    pack_main: FilePtr,
+    package_main: FilePtr,
 }
 
 impl AskCompileTime for HuskyLangRuntime {
@@ -59,9 +60,6 @@ impl RawTextQueryGroup for HuskyLangRuntime {
 impl CreateTrace<'static> for HuskyLangRuntime {
     fn trace_factory(&self) -> &trace::TraceFactory<'static> {
         &self.traces
-    }
-    fn trace_factory_arc(&self) -> Arc<trace::TraceFactory<'static>> {
-        self.traces.clone()
     }
 }
 
@@ -93,11 +91,12 @@ impl HuskyLangRuntime {
             storage: Default::default(),
             session: Arc::new(Mutex::new(Session::new(&pack, &compile_time).unwrap())),
             compile_time,
+            compile_time_version: 0,
             traces: Default::default(),
             focus: Default::default(),
             expansions: Default::default(),
             showns: Default::default(),
-            pack_main: package_main,
+            package_main,
         };
         runtime.set_version(0);
         runtime.set_pack_main(package_main);

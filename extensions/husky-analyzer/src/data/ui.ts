@@ -30,14 +30,15 @@ export function get_show_store(trace: Trace) {
         switch (trace.kind) {
             case "Main":
             case "FeatureStmt":
-            case "StrictDeclStmt":
-            case "ImprStmt":
+            case "FuncStmt":
+            case "ProcStmt":
             case "FeatureBranch":
             case "CallHead":
             case "LoopFrame":
+            case "FeatureCallInput":
                 return true;
             case "FeatureExpr":
-            case "StrictExpr":
+            case "EagerExpr":
                 return false;
         }
     }
@@ -87,6 +88,9 @@ export function get_figure(active_trace_id: number, focus: Focus): FigureProps {
 export function get_subtraces(focus: Focus, trace_id: number): Trace[] | null {
     let trace = global.trace_cache.get_trace(trace_id);
     if (trace === null) {
+        return null;
+    }
+    if (!trace.has_subtraces) {
         return null;
     }
     return global.trace_cache.get_subtraces(focus, trace);
@@ -174,13 +178,14 @@ export function tell_has_subtraces_store(
         case "LoopFrame":
             return readable(true);
         case "CallHead":
+        case "FeatureCallInput":
         case "FeatureStmt":
-        case "StrictDeclStmt":
+        case "FuncStmt":
             return readable(false);
-        case "ImprStmt":
+        case "ProcStmt":
             return readable(trace.has_subtraces);
         case "FeatureExpr":
-        case "StrictExpr":
+        case "EagerExpr":
             let opt_input_id_store = global.user_state.focus_store;
             return derived(
                 opt_input_id_store,
