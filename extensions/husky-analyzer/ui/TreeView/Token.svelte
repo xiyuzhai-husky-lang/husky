@@ -65,6 +65,8 @@
     code {
         font-size: 14px;
         height: 100%;
+        display: flex;
+        align-items: center;
     }
     code.associated_trace_shown {
         text-decoration: underline cyan;

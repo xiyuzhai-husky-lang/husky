@@ -41,6 +41,10 @@
         display: flex;
         justify-content: flex-start;
     }
+    span {
+        display: flex;
+        align-items: center;
+    }
     .GroupStart {
         /* cursor: pointer; */
         display: flex;

@@ -23,6 +23,7 @@
             case "ProcStmt":
             case "EagerExpr":
             case "CallHead":
+            case "FeatureCallInput":
                 return false;
         }
     }
@@ -58,7 +59,7 @@
 
 <style>
     .TraceNode {
-        height: 18px;
+        height: 20px;
         padding: 2px;
         padding-right: 3px;
     }
