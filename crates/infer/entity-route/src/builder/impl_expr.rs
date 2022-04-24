@@ -1,4 +1,5 @@
 use ast::RawExprRange;
+use dev_utils::dev_src;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
 use map_utils::insert_new;
 use syntax_types::{PrefixOpr, SuffixOpr};
@@ -35,10 +36,13 @@ impl<'a> TySheetBuilder<'a> {
                 .get(&(varname, init_row))
                 .unwrap()
                 .clone())?),
-            RawExprVariant::Unrecognized(ident) => {
-                p!(ident);
-                todo!()
-            }
+            RawExprVariant::Unrecognized(ident) => Err(InferError {
+                variant: InferErrorVariant::Original {
+                    message: format!("Unrecognized identifier `{}`", &ident),
+                    range: arena[expr_idx].range,
+                },
+                dev_src: dev_src!(),
+            }),
             RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind),
             RawExprVariant::PrimitiveLiteral(value) => Ok(value.ty().into()),
             RawExprVariant::Bracketed(_) => todo!(),
