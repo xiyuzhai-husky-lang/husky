@@ -12,29 +12,21 @@ pub struct EntityDefnError {
 pub enum ScopeDefRule {
     TokenGroupSizeAtLeastTwo,
     FirstTokenShouldBeKeyword,
-    NonMainSecondTokenShouldBeIdentifier,
+    SecondTokenShouldBeIdentifier,
     BuiltinIdentifierAreReserved,
     ContextualIdentifierAreReserved,
 }
 
-// macro_rules! build_error_code_gen {
-// ($grammar_failed: expr, $($item:ident), *) => {{
-//     match $grammar_failed {
-//         $(ScopeDefRule::$item => concat!("rule broken: ScopeDefRule::", stringify!($item))),*
-//     }
-// }};
-// }
-
 impl EntityDefnError {
     pub fn message(&self) -> String {
         match self.rule_broken {
-            ScopeDefRule::TokenGroupSizeAtLeastTwo => todo!(),
-            ScopeDefRule::FirstTokenShouldBeKeyword => {
-                "Syntax Error: first token should be keyword"
+            ScopeDefRule::TokenGroupSizeAtLeastTwo => "token group size at least two",
+            ScopeDefRule::FirstTokenShouldBeKeyword => "first token should be keyword",
+            ScopeDefRule::SecondTokenShouldBeIdentifier => {
+                "non main second token should be identifier"
             }
-            ScopeDefRule::NonMainSecondTokenShouldBeIdentifier => todo!(),
-            ScopeDefRule::BuiltinIdentifierAreReserved => todo!(),
-            ScopeDefRule::ContextualIdentifierAreReserved => todo!(),
+            ScopeDefRule::BuiltinIdentifierAreReserved => "builtin identifiers are reserved",
+            ScopeDefRule::ContextualIdentifierAreReserved => "contextual identifiers are reserved",
         }
         .into()
     }

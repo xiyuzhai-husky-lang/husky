@@ -32,6 +32,9 @@ impl Entry {
         token_group_index: usize,
         token_group: &[Token],
     ) -> (Option<Entry>, Option<EntityDefnError>) {
+        if token_group[0].kind == TokenKind::Keyword(Keyword::Use.into()) {
+            return (None, None);
+        }
         if token_group.len() < 2 {
             match token_group[0].kind {
                 TokenKind::Identifier(Identifier::Custom(ident)) => {
@@ -115,7 +118,7 @@ impl Entry {
                     None,
                     Some(EntityDefnError {
                         range: token_group[1].text_range(),
-                        rule_broken: ScopeDefRule::NonMainSecondTokenShouldBeIdentifier,
+                        rule_broken: ScopeDefRule::SecondTokenShouldBeIdentifier,
                         dev_src: dev_src!(),
                     }),
                 )
