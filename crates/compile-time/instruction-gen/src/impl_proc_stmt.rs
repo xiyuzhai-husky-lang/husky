@@ -10,8 +10,8 @@ impl<'a> InstructionSheetBuilder<'a> {
     }
 
     fn compile_proc_stmt(&mut self, stmt: Arc<ProcStmt>) {
-        match stmt.kind {
-            ProcStmtKind::Init {
+        match stmt.variant {
+            ProcStmtVariant::Init {
                 varname,
                 ref initial_value,
                 init_kind,
@@ -20,20 +20,20 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_expr(initial_value);
                 self.def_variable(varname, init_kind, stmt)
             }
-            ProcStmtKind::Assert { ref condition } => {
+            ProcStmtVariant::Assert { ref condition } => {
                 self.compile_expr(condition);
                 self.push_instruction(Instruction::new(InstructionKind::Assert, stmt))
             }
-            ProcStmtKind::Return { ref result } => {
+            ProcStmtVariant::Return { ref result } => {
                 self.compile_expr(result);
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
             }
-            ProcStmtKind::Execute { ref expr } => {
+            ProcStmtVariant::Execute { ref expr } => {
                 self.compile_expr(expr);
             }
-            ProcStmtKind::BranchGroup { .. } => todo!(),
-            ProcStmtKind::Loop {
-                ref loop_kind,
+            ProcStmtVariant::BranchGroup { .. } => todo!(),
+            ProcStmtVariant::Loop {
+                loop_variant: ref loop_kind,
                 ref stmts,
             } => self.compile_loop(loop_kind, stmt.clone(), stmts),
         }
@@ -41,12 +41,12 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_loop(
         &mut self,
-        loop_kind: &LoopKind,
+        loop_kind: &LoopVariant,
         loop_stmt: Arc<ProcStmt>,
         body_stmts: &[Arc<ProcStmt>],
     ) {
         match loop_kind {
-            LoopKind::For {
+            LoopVariant::For {
                 frame_var,
                 initial_boundary,
                 final_boundary,
@@ -63,7 +63,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     loop_stmt,
                 ));
             }
-            LoopKind::ForExt {
+            LoopVariant::ForExt {
                 frame_var,
                 frame_varidx,
                 final_boundary,
@@ -79,7 +79,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     loop_stmt,
                 ));
             }
-            LoopKind::While { condition } => {
+            LoopVariant::While { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
                 block_sheet_builder.compile_expr(condition);
                 block_sheet_builder.push_instruction(Instruction::new(
@@ -96,7 +96,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     loop_stmt,
                 ));
             }
-            LoopKind::DoWhile { condition } => {
+            LoopVariant::DoWhile { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 block_sheet_builder.compile_expr(condition);

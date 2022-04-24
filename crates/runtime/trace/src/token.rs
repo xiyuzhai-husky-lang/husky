@@ -29,7 +29,7 @@ impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
         match result {
             Ok(value) => match value {
                 EvalValue::Primitive(value) => fade!(value),
-                EvalValue::Boxed(value) => fade!(value.as_ref().print_short(20)),
+                EvalValue::Boxed(value) => fade!(value.any_ref().print_short(20)),
                 EvalValue::GlobalPure(value) => fade!(value.print_short(20)),
                 EvalValue::GlobalRef(value) => fade!(value.print_short(20)),
                 EvalValue::Undefined => fade!("undefined"),
@@ -50,6 +50,8 @@ impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
             StackValueSnapshot::MutRef {
                 value, owner, gen, ..
             } => fade!(format!("{:?}", value)),
+            StackValueSnapshot::GlobalPure(_) => todo!(),
+            StackValueSnapshot::Boxed(value) => fade!(value.any_ref().print_short(20)),
         }
     }
 }

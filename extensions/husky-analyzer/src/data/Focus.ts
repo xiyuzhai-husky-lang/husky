@@ -37,14 +37,15 @@ export default class Focus {
         switch (trace.kind) {
             case "Main":
             case "FeatureStmt":
-            case "StrictDeclStmt":
-            case "ImprStmt":
+            case "FuncStmt":
+            case "ProcStmt":
             case "LoopFrame":
             case "FeatureBranch":
+            case "FeatureCallInput":
                 return null;
             case "FeatureExpr":
             case "CallHead":
-            case "StrictExpr":
+            case "EagerExpr":
                 return this.opt_input_id;
         }
     }

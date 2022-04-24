@@ -20,11 +20,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let value = self.stack.push_variable(stack_idx, contract);
                     match mode {
                         Mode::Fast => (),
-                        Mode::Debug => {
-                            let snapshot = value.snapshot();
-                            self.history
-                                .write(ins, HistoryEntry::NonVoidExpr { output: snapshot })
-                        }
+                        Mode::Debug => self.history.write(
+                            ins,
+                            HistoryEntry::NonVoidExpr {
+                                output: value.snapshot(),
+                            },
+                        ),
                     }
                     VMControl::None
                 }
@@ -32,11 +33,16 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.stack.push(value.into());
                     VMControl::None
                 }
-                InstructionKind::RoutineCallCompiled { linkage: fp } => {
-                    let control = self.call_compiled(fp).into();
+                InstructionKind::RoutineCallCompiled { linkage } => {
+                    let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast => (),
-                        Mode::Debug => todo!(),
+                        Mode::Debug => self.history.write(
+                            ins,
+                            HistoryEntry::NonVoidExpr {
+                                output: self.stack.top_snapshot(),
+                            },
+                        ),
                     }
                     control
                 }

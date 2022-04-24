@@ -36,7 +36,6 @@ pub fn handle_message(
                             effective_opt_input_id,
                             request_subtraces,
                         } => {
-                            p!(effective_opt_input_id);
                             debugger_.toggle_expansion(id).await;
                             let (opt_subtraces, associated_traces) = if request_subtraces {
                                 let subtraces =

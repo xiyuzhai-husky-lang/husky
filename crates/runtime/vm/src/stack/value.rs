@@ -298,10 +298,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub(crate) fn snapshot(&mut self) -> StackValueSnapshot<'eval> {
         match self {
             StackValue::Primitive(value) => StackValueSnapshot::Primitive(*value),
-            StackValue::Boxed(value) => {
-                todo!()
-            }
-            StackValue::GlobalPure(_) => todo!(),
+            StackValue::Boxed(value) => StackValueSnapshot::Boxed(value.clone()),
+            StackValue::GlobalPure(value) => StackValueSnapshot::GlobalPure(value.clone()),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef(_) => todo!(),
             StackValue::MutLocalRef { value, owner, gen } => StackValueSnapshot::MutRef {

@@ -19,7 +19,7 @@ pub struct FuncStmt {
     pub file: FilePtr,
     pub range: TextRange,
     pub indent: fold::Indent,
-    pub kind: FuncStmtKind,
+    pub variant: FuncStmtVariant,
     pub instruction_id: InstructionId,
 }
 
@@ -30,7 +30,7 @@ impl InstructionSource for FuncStmt {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum FuncStmtKind {
+pub enum FuncStmtVariant {
     Init {
         varname: CustomIdentifier,
         initial_value: Arc<EagerExpr>,

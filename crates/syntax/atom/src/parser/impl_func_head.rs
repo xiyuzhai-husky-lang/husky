@@ -108,6 +108,7 @@ impl<'a> AtomLRParser<'a> {
     fn func_input_placeholder(&mut self) -> AtomResult<InputPlaceholder> {
         let ident = get!(self, custom_ident);
         no_look_pass!(self, ":");
+        self.stream.pop_range();
         let ty = RangedEntityRoute {
             route: get!(self, ty?),
             range: self.stream.pop_range(),

@@ -13,7 +13,7 @@ impl<'eval> TraceFactory<'eval> {
         self.new_trace(
             Some(parent.id),
             indent,
-            TraceKind::FeatureBranch(branch),
+            TraceVariant::FeatureBranch(branch),
             text,
         )
     }

@@ -25,7 +25,7 @@ impl<'eval> TraceFactory<'eval> {
         config: ExprTokenConfig,
     ) -> Vec<TokenProps<'eval>> {
         let associated_trace = if config.associated {
-            Some(self.new_trace(None, 0, TraceKind::FeatureExpr(expr.clone()), text))
+            Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone()), text))
         } else {
             None
         };

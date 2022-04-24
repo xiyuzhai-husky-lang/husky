@@ -16,7 +16,7 @@ use parser::EagerStmtParser;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ProcStmt {
-    pub kind: ProcStmtKind,
+    pub variant: ProcStmtVariant,
     pub file: FilePtr,
     pub range: TextRange,
     pub indent: Indent,
@@ -30,7 +30,7 @@ impl InstructionSource for ProcStmt {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ProcStmtKind {
+pub enum ProcStmtVariant {
     Init {
         varname: CustomIdentifier,
         initial_value: Arc<EagerExpr>,
@@ -51,7 +51,7 @@ pub enum ProcStmtKind {
         branches: Vec<Arc<ImprBranch>>,
     },
     Loop {
-        loop_kind: LoopKind,
+        loop_variant: LoopVariant,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
     },
 }

@@ -5,7 +5,7 @@ use vm::{BoundaryKind, LoopStep, StackIdx, VMLoopKind};
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LoopKind {
+pub enum LoopVariant {
     For {
         frame_var: CustomIdentifier,
         initial_boundary: Boundary,
@@ -32,10 +32,10 @@ pub struct Boundary {
     pub kind: BoundaryKind,
 }
 
-impl Into<VMLoopKind> for &LoopKind {
+impl Into<VMLoopKind> for &LoopVariant {
     fn into(self) -> VMLoopKind {
         match self {
-            LoopKind::For {
+            LoopVariant::For {
                 frame_var,
                 initial_boundary,
                 final_boundary,
@@ -46,7 +46,7 @@ impl Into<VMLoopKind> for &LoopKind {
                 step: *step,
                 frame_var: *frame_var,
             },
-            LoopKind::ForExt {
+            LoopVariant::ForExt {
                 frame_var,
                 final_boundary,
                 frame_varidx,
@@ -57,7 +57,7 @@ impl Into<VMLoopKind> for &LoopKind {
                 frame_var: *frame_var,
                 frame_varidx: *frame_varidx,
             },
-            LoopKind::While { .. } | LoopKind::DoWhile { .. } => VMLoopKind::Loop,
+            LoopVariant::While { .. } | LoopVariant::DoWhile { .. } => VMLoopKind::Loop,
         }
     }
 }

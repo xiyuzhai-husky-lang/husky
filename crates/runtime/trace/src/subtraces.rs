@@ -4,16 +4,16 @@ use crate::*;
 
 impl<'eval> Trace<'eval> {
     pub fn subtraces_container_class(&self) -> Option<SubtracesContainerClass> {
-        match self.kind {
-            TraceKind::Main(_)
-            | TraceKind::FeatureStmt(_)
-            | TraceKind::FeatureBranch(_)
-            | TraceKind::Input(_)
-            | TraceKind::StrictDeclStmt { .. }
-            | TraceKind::ImprStmt { .. }
-            | TraceKind::LoopFrame { .. }
-            | TraceKind::CallHead { .. } => None,
-            TraceKind::FeatureExpr(ref expr) => match expr.kind {
+        match self.variant {
+            TraceVariant::Main(_)
+            | TraceVariant::FeatureStmt(_)
+            | TraceVariant::FeatureBranch(_)
+            | TraceVariant::FeatureCallInput { .. }
+            | TraceVariant::FuncStmt { .. }
+            | TraceVariant::ProcStmt { .. }
+            | TraceVariant::LoopFrame { .. }
+            | TraceVariant::CallHead { .. } => None,
+            TraceVariant::FeatureExpr(ref expr) => match expr.kind {
                 FeatureExprKind::PrimitiveLiteral(_)
                 | FeatureExprKind::PrimitiveBinaryOpr { .. }
                 | FeatureExprKind::Variable { .. }
@@ -33,11 +33,11 @@ impl<'eval> Trace<'eval> {
                 FeatureExprKind::PatternCall {} => todo!(),
                 FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
             },
-            TraceKind::EagerExpr { ref expr, .. } => match expr.kind {
-                EagerExprKind::Variable(_)
-                | EagerExprKind::Scope { .. }
-                | EagerExprKind::PrimitiveLiteral(_) => None,
-                EagerExprKind::Opn {
+            TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
+                EagerExprVariant::Variable(_)
+                | EagerExprVariant::Scope { .. }
+                | EagerExprVariant::PrimitiveLiteral(_) => None,
+                EagerExprVariant::Opn {
                     ref opn_kind,
                     ref opds,
                     ..
@@ -58,9 +58,9 @@ impl<'eval> Trace<'eval> {
                     EagerOpnKind::PatternCall => panic!(),
                     EagerOpnKind::TypeCall { .. } => todo!(),
                 },
-                EagerExprKind::Lambda(_, _) => todo!(),
-                EagerExprKind::Bracketed(_) => panic!(),
-                EagerExprKind::This => todo!(),
+                EagerExprVariant::Lambda(_, _) => todo!(),
+                EagerExprVariant::Bracketed(_) => panic!(),
+                EagerExprVariant::This => todo!(),
             },
         }
     }

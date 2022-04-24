@@ -16,7 +16,7 @@ impl<'eval> TraceFactory<'eval> {
                 vec![self.new_trace(
                     Some(parent.id),
                     stmt.indent,
-                    TraceKind::FeatureStmt(stmt),
+                    TraceVariant::FeatureStmt(stmt),
                     text,
                 )]
             }

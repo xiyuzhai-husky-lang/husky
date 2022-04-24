@@ -1,17 +1,17 @@
 use super::*;
-use semantics_eager::{EagerExpr, EagerExprKind, EagerOpnKind};
+use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnKind};
 use syntax_types::SuffixOpr;
 use vm::PrimitiveValue;
 
 impl<'a> RustGenerator<'a> {
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
-        match expr.kind {
-            EagerExprKind::Variable(varname) => self.write(&varname),
-            EagerExprKind::This => self.write("self"),
-            EagerExprKind::Scope { scope } => todo!(),
-            EagerExprKind::PrimitiveLiteral(value) => self.gen_primitive_literal(value),
-            EagerExprKind::Bracketed(_) => todo!(),
-            EagerExprKind::Opn {
+        match expr.variant {
+            EagerExprVariant::Variable(varname) => self.write(&varname),
+            EagerExprVariant::This => self.write("self"),
+            EagerExprVariant::Scope { scope } => todo!(),
+            EagerExprVariant::PrimitiveLiteral(value) => self.gen_primitive_literal(value),
+            EagerExprVariant::Bracketed(_) => todo!(),
+            EagerExprVariant::Opn {
                 ref opn_kind,
                 ref opds,
             } => match opn_kind {
@@ -57,7 +57,7 @@ impl<'a> RustGenerator<'a> {
                 }
                 EagerOpnKind::ElementAccess => todo!(),
             },
-            EagerExprKind::Lambda(_, _) => todo!(),
+            EagerExprVariant::Lambda(_, _) => todo!(),
         }
     }
 

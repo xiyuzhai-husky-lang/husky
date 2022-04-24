@@ -16,7 +16,7 @@ impl<'eval> TraceFactory<'eval> {
         self.new_trace(
             Some(parent_id),
             0,
-            TraceKind::EagerExpr { expr, history },
+            TraceVariant::EagerExpr { expr, history },
             text,
         )
     }
@@ -46,7 +46,7 @@ impl<'eval> TraceFactory<'eval> {
             Some(self.new_trace(
                 None,
                 0,
-                TraceKind::EagerExpr {
+                TraceVariant::EagerExpr {
                     expr: expr.clone(),
                     history: history.clone(),
                 },
@@ -55,12 +55,12 @@ impl<'eval> TraceFactory<'eval> {
         } else {
             None
         };
-        match expr.kind {
-            EagerExprKind::Variable(ident) => vec![ident!(ident.0, associated_trace)],
-            EagerExprKind::Scope { scope } => todo!(),
-            EagerExprKind::PrimitiveLiteral(value) => vec![literal!(value)],
-            EagerExprKind::Bracketed(_) => todo!(),
-            EagerExprKind::Opn {
+        match expr.variant {
+            EagerExprVariant::Variable(ident) => vec![ident!(ident.0, associated_trace)],
+            EagerExprVariant::Scope { scope } => todo!(),
+            EagerExprVariant::PrimitiveLiteral(value) => vec![literal!(value)],
+            EagerExprVariant::Bracketed(_) => todo!(),
+            EagerExprVariant::Opn {
                 ref opn_kind,
                 ref opds,
             } => {
@@ -86,9 +86,46 @@ impl<'eval> TraceFactory<'eval> {
                     EagerOpnKind::RoutineCall(_) => todo!(),
                     EagerOpnKind::PatternCall => todo!(),
                     EagerOpnKind::FieldAccess { .. } => todo!(),
-                    EagerOpnKind::MethodCall { .. } => todo!(),
+                    EagerOpnKind::MethodCall { method_ident, .. } => {
+                        tokens.extend(self.eager_expr_tokens(
+                            &opds[0],
+                            text,
+                            history,
+                            config.subexpr(),
+                        ));
+                        tokens.push(special!("."));
+                        tokens.push(ident!(method_ident.ident.0));
+                        tokens.push(special!("("));
+                        for i in 1..opds.len() {
+                            if i > 1 {
+                                tokens.push(special!(", "))
+                            }
+                            tokens.extend(self.eager_expr_tokens(
+                                &opds[i],
+                                text,
+                                history,
+                                config.subexpr(),
+                            ));
+                        }
+                        tokens.push(special!(")"));
+                    }
                     EagerOpnKind::ElementAccess => todo!(),
-                    EagerOpnKind::TypeCall { .. } => todo!(),
+                    EagerOpnKind::TypeCall { ranged_ty, .. } => {
+                        tokens.push(scope!(text.ranged(ranged_ty.range)));
+                        tokens.push(special!("("));
+                        for i in 0..opds.len() {
+                            if i > 0 {
+                                tokens.push(special!(", "))
+                            }
+                            tokens.extend(self.eager_expr_tokens(
+                                &opds[i],
+                                text,
+                                history,
+                                config.subexpr(),
+                            ));
+                        }
+                        tokens.push(special!(")"));
+                    }
                 }
                 if config.appended {
                     tokens.push(fade!(" = "));
@@ -96,8 +133,8 @@ impl<'eval> TraceFactory<'eval> {
                 }
                 tokens
             }
-            EagerExprKind::Lambda(_, _) => todo!(),
-            EagerExprKind::This => todo!(),
+            EagerExprVariant::Lambda(_, _) => todo!(),
+            EagerExprVariant::This => todo!(),
         }
     }
 }

@@ -71,7 +71,7 @@ impl<'a> EagerStmtParser<'a> {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
-                            kind: FuncStmtKind::Branches {
+                            variant: FuncStmtVariant::Branches {
                                 kind: DeclBranchGroupKind::If,
                                 branches,
                             },
@@ -94,7 +94,7 @@ impl<'a> EagerStmtParser<'a> {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
-                            kind: FuncStmtKind::Init {
+                            variant: FuncStmtVariant::Init {
                                 varname,
                                 initial_value,
                             },
@@ -105,7 +105,7 @@ impl<'a> EagerStmtParser<'a> {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
-                        kind: FuncStmtKind::Return {
+                        variant: FuncStmtVariant::Return {
                             result: self.parse_eager_expr(result)?,
                         },
                         instruction_id: Default::default(),
@@ -114,7 +114,7 @@ impl<'a> EagerStmtParser<'a> {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
-                        kind: FuncStmtKind::Assert {
+                        variant: FuncStmtVariant::Assert {
                             condition: self.parse_eager_expr(condition)?,
                         },
                         instruction_id: Default::default(),

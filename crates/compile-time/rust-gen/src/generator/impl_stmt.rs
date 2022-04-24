@@ -1,6 +1,6 @@
 use entity_route::EntityRoutePtr;
 use semantics_eager::{
-    Boundary, EagerExpr, FuncStmt, FuncStmtKind, LoopKind, ProcStmt, ProcStmtKind,
+    Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
 use vm::{BoundaryKind, InitKind};
 use word::RootIdentifier;
@@ -28,8 +28,8 @@ impl<'a> RustGenerator<'a> {
 
     fn gen_func_stmt(&mut self, stmt: &FuncStmt) {
         self.write_indent();
-        match stmt.kind {
-            FuncStmtKind::Init {
+        match stmt.variant {
+            FuncStmtVariant::Init {
                 varname,
                 ref initial_value,
             } => {
@@ -39,17 +39,17 @@ impl<'a> RustGenerator<'a> {
                 self.gen_expr(initial_value);
                 self.write(";\n");
             }
-            FuncStmtKind::Assert { ref condition } => todo!(),
-            FuncStmtKind::Return { ref result } => self.gen_expr(result),
-            FuncStmtKind::Branches { kind, ref branches } => todo!(),
+            FuncStmtVariant::Assert { ref condition } => todo!(),
+            FuncStmtVariant::Return { ref result } => self.gen_expr(result),
+            FuncStmtVariant::Branches { kind, ref branches } => todo!(),
         }
         self.write_newline();
     }
 
     fn gen_proc_stmt(&mut self, stmt: &ProcStmt) {
         self.write_indent();
-        match stmt.kind {
-            ProcStmtKind::Init {
+        match stmt.variant {
+            ProcStmtVariant::Init {
                 varname,
                 ref initial_value,
                 init_kind,
@@ -65,25 +65,25 @@ impl<'a> RustGenerator<'a> {
                 self.gen_expr(initial_value);
                 self.write(";\n");
             }
-            ProcStmtKind::Assert { ref condition } => {
+            ProcStmtVariant::Assert { ref condition } => {
                 self.write("assert!(");
                 self.gen_expr(condition);
                 self.write(");\n");
             }
-            ProcStmtKind::Execute { ref expr } => {
+            ProcStmtVariant::Execute { ref expr } => {
                 self.gen_expr(expr);
                 self.write(";\n");
             }
-            ProcStmtKind::Return { ref result } => {
+            ProcStmtVariant::Return { ref result } => {
                 self.gen_expr(result);
                 self.write_newline();
             }
-            ProcStmtKind::BranchGroup { kind, ref branches } => todo!(),
-            ProcStmtKind::Loop {
-                ref loop_kind,
+            ProcStmtVariant::BranchGroup { kind, ref branches } => todo!(),
+            ProcStmtVariant::Loop {
+                loop_variant: ref loop_kind,
                 ref stmts,
             } => match loop_kind {
-                LoopKind::For {
+                LoopVariant::For {
                     frame_var,
                     initial_boundary,
                     final_boundary,
@@ -111,7 +111,7 @@ impl<'a> RustGenerator<'a> {
                     self.write_indent();
                     self.write("}\n")
                 }
-                LoopKind::ForExt {
+                LoopVariant::ForExt {
                     frame_var,
                     frame_varidx,
                     final_boundary,
@@ -148,7 +148,7 @@ impl<'a> RustGenerator<'a> {
                     self.write_indent();
                     self.write("}\n")
                 }
-                LoopKind::While { condition } => {
+                LoopVariant::While { condition } => {
                     self.write("while ");
                     self.gen_condition(condition);
                     self.write(" {\n");
@@ -156,7 +156,7 @@ impl<'a> RustGenerator<'a> {
                     self.write_indent();
                     self.write("}\n")
                 }
-                LoopKind::DoWhile { condition } => {
+                LoopVariant::DoWhile { condition } => {
                     self.write("loop {\n");
                     self.gen_proc_stmts(stmts, self.indent + 4);
                     self.write_indent();
