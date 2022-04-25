@@ -87,9 +87,6 @@ impl<'a> AtomLRParser<'a> {
                     }
                     TokenKind::Special(special) => match special {
                         Special::DoubleColon => {
-                            p!(self.stream);
-                            p!(self.stack);
-                            panic!();
                             err!("unexpected double colon, maybe the identifier before is not recognized as scope", token.text_range())?
                         }
                         Special::Colon => {
@@ -108,11 +105,16 @@ impl<'a> AtomLRParser<'a> {
                             },
                         ))?,
                         Special::Vertical => {
-                            let lambda_head = self.lambda_head()?;
-                            self.stack.push(Atom::new(
-                                (token.text_start()..self.stream.opt_range.unwrap().end).into(),
-                                AtomKind::LambdaHead(lambda_head),
-                            ))?;
+                            if self.stack.is_concave() {
+                                let lambda_head = self.lambda_head()?;
+                                self.stack.push(Atom::new(
+                                    (token.text_start()..self.stream.opt_range.unwrap().end).into(),
+                                    AtomKind::LambdaHead(lambda_head),
+                                ))?;
+                            } else {
+                                self.stack.push(Atom::new(
+                                    token.text_range(),BinaryOpr::Pure(PureBinaryOpr::BitOr).into()))?
+                            }
                         }
                         Special::Ambersand => self.stack.push(Atom::new(
                             token.text_range(),
