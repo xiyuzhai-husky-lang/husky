@@ -1,5 +1,8 @@
-use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
+use std::sync::Arc;
 
+use crate::{error::LexResult, line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
+
+use dev_utils::dev_src;
 use file::URange;
 use text::TextIndent;
 use word::WordAllocator;
@@ -80,7 +83,18 @@ impl<'token> TokenScanner<'token> {
                 TokenGroup {
                     indent: group_indent,
                     tokens: first_line.tokens.start..{
-                        if self.last_token(first_line).kind != TokenKind::Special(Special::Colon) {
+                        if self.last_token(first_line).kind == TokenKind::Special(Special::Colon) {
+                            if let Some(line) = line_iter.peek() {
+                                if !line.indent.within(group_indent).expect("todo") {
+                                    self.errors.push(LexError {
+                                        message: format!("expect indentated lines after `:`"),
+                                        range: self.last_token(first_line).range,
+                                        dev_src: dev_src!(),
+                                    });
+                                }
+                            }
+                            first_line.tokens.end
+                        } else {
                             loop {
                                 if let Some(line) = line_iter.peek().map(|e| *e) {
                                     if line.indent.within(group_indent).expect("todo") {
@@ -109,13 +123,6 @@ impl<'token> TokenScanner<'token> {
                                     break self.tokens.len();
                                 }
                             }
-                        } else {
-                            if let Some(line) = line_iter.peek() {
-                                if !line.indent.within(group_indent).expect("todo") {
-                                    todo!()
-                                }
-                            }
-                            first_line.tokens.end
                         }
                     },
                 }
@@ -123,10 +130,12 @@ impl<'token> TokenScanner<'token> {
         }
         line_groups
     }
-}
 
-impl<'token> Into<TokenizedText> for TokenScanner<'token> {
-    fn into(mut self) -> TokenizedText {
-        TokenizedText::new(self.produce_line_groups(), self.tokens, self.errors)
+    pub(crate) fn gen_tokenized_text(mut self) -> Arc<TokenizedText> {
+        Arc::new(TokenizedText::new(
+            self.produce_line_groups(),
+            self.tokens,
+            self.errors,
+        ))
     }
 }

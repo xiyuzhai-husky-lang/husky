@@ -11,10 +11,11 @@ pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
 pub use severity::DiagnosticSeverity;
 
-use entity_route_query::EntityDefnError;
+use entity_route_query::{EntityDefnError, EntityRouteError};
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 use text::TextRange;
+use token::LexError;
 
 use collect::collect_diagnostics;
 
@@ -62,6 +63,23 @@ impl From<&InferError> for Diagnostic {
                 dev_src: error.dev_src.clone(),
             },
         }
+    }
+}
+
+impl From<&LexError> for Diagnostic {
+    fn from(error: &LexError) -> Self {
+        Self {
+            severity: DiagnosticSeverity::Error,
+            range: error.range.clone(),
+            message: format!("Lex Error: {}", error.message),
+            dev_src: error.dev_src.clone(),
+        }
+    }
+}
+
+impl From<EntityRouteError> for Diagnostic {
+    fn from(e: EntityRouteError) -> Self {
+        todo!()
     }
 }
 
