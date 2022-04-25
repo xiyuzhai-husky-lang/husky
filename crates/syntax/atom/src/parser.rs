@@ -189,7 +189,13 @@ impl<'a> AtomLRParser<'a> {
                 break;
             }
         }
-        Ok(self.stack.into())
+
+        if self.stack.is_convex() {
+            Ok(self.stack.into())
+        } else {
+            let last_atom = self.stack.atoms.last().unwrap();
+            err!(format!("last atom is not right convex"), last_atom.range)
+        }
     }
 }
 

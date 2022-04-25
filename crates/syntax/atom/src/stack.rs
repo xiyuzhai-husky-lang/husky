@@ -5,7 +5,7 @@ use crate::{convexity::Convexity, symbol::SymbolContext, *};
 
 #[derive(Debug)]
 pub(crate) struct AtomStack {
-    atoms: Vec<Atom>,
+    pub(crate) atoms: Vec<Atom>,
 }
 
 impl Into<Vec<Atom>> for AtomStack {
