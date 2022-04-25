@@ -1,6 +1,6 @@
 projects_dir=/home/xiyuzhai/Documents/husky/projects
-runtime_tests_dir=/home/xiyuzhai/Documents/husky/projects/tests/runtime
-compile_time_tests_dir=/home/xiyuzhai/Documents/husky/projects/tests/compile-time
+runtime_tests_dir=/home/xiyuzhai/Documents/husky/examples/good/runtime
+compile_time_tests_dir=/home/xiyuzhai/Documents/husky/examples/good/compile-time
 
 test-runtime:
 	cargo run --bin husky-lang-debugger $(runtime_tests_dir) --input-id 1 --mode test-runtime
