@@ -1,6 +1,12 @@
 //! Conversion of husky-lang-server specific types to lsp_types equivalents.
 #![allow(warnings, dead_code)]
-use std::path::{self, Path};
+use std::{
+    path::{self, Path},
+    sync::Arc,
+};
+
+use highlight::Highlight;
+use lsp_types::SemanticToken;
 
 use crate::lsp_ext;
 
@@ -88,4 +94,8 @@ impl From<lsp_ext::SnippetTextEdit>
             None => lsp_types::OneOf::Left(lsp_types::TextEdit { range, new_text }),
         }
     }
+}
+
+pub(crate) fn to_semantic_tokens(highlights: Arc<Vec<Highlight>>) -> Vec<SemanticToken> {
+    todo!()
 }
