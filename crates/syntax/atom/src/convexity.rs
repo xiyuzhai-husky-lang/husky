@@ -11,6 +11,7 @@ pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
         AtomKind::EntityRoute { .. }
         | AtomKind::Variable { .. }
+        | AtomKind::FrameVariable { .. }
         | AtomKind::ThisData { .. }
         | AtomKind::Unrecognized(_)
         | AtomKind::Literal(_)
@@ -29,6 +30,7 @@ pub(super) fn right_side_convexity(kind: &AtomKind) -> Convexity {
     match kind {
         AtomKind::EntityRoute { .. }
         | AtomKind::Variable { .. }
+        | AtomKind::FrameVariable { .. }
         | AtomKind::ThisData { .. }
         | AtomKind::Unrecognized(_)
         | AtomKind::Literal(_)

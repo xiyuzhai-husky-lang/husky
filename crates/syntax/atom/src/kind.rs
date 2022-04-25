@@ -16,6 +16,10 @@ pub enum AtomKind {
         varname: CustomIdentifier,
         init_row: Row,
     },
+    FrameVariable {
+        varname: CustomIdentifier,
+        init_row: Row,
+    },
     ThisData {
         ty: Option<EntityRoutePtr>,
     },

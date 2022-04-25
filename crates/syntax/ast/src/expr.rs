@@ -18,7 +18,7 @@ use text::TextRanged;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawExpr {
     pub range: TextRange,
-    pub kind: RawExprVariant,
+    pub variant: RawExprVariant,
 }
 
 impl TextRanged for RawExpr {
@@ -42,7 +42,7 @@ impl RawExpr {
         if bracket == Bracket::Par && start_attr == ListStartAttr::None && arena::len(&opds) == 1 {
             return Self {
                 range,
-                kind: RawExprVariant::Bracketed(opds.start),
+                variant: RawExprVariant::Bracketed(opds.start),
             };
         }
         let opr = match start_attr {
@@ -64,14 +64,14 @@ impl RawExpr {
         .into();
         Self {
             range,
-            kind: RawExprVariant::Opn { opr, opds },
+            variant: RawExprVariant::Opn { opr, opds },
         }
     }
 
     pub fn opn(range: TextRange, opr: Opr, opds: RawExprRange) -> Self {
         Self {
             range,
-            kind: RawExprVariant::Opn { opr, opds },
+            variant: RawExprVariant::Opn { opr, opds },
         }
     }
 }
@@ -80,16 +80,19 @@ impl From<&atom::Atom> for RawExpr {
     fn from(atom: &atom::Atom) -> Self {
         Self {
             range: atom.text_range(),
-            kind: match atom.kind {
+            variant: match atom.kind {
                 AtomKind::Variable { varname, init_row } => {
                     RawExprVariant::Variable { varname, init_row }
                 }
-                AtomKind::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
                 AtomKind::Literal(literal) => RawExprVariant::PrimitiveLiteral(literal.clone()),
                 AtomKind::EntityRoute { route: scope, kind } => {
                     RawExprVariant::Entity { route: scope, kind }
                 }
                 AtomKind::ThisData { ty } => RawExprVariant::This { ty },
+                AtomKind::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
+                AtomKind::FrameVariable { varname, init_row } => {
+                    RawExprVariant::FrameVariable { varname, init_row }
+                }
                 _ => {
                     p!(atom.kind);
                     panic!()

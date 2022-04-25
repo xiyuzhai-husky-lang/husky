@@ -67,7 +67,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
         arena: &RawExprArena,
     ) {
-        let infer_result = match arena[expr_idx].kind {
+        let infer_result = match arena[expr_idx].variant {
             RawExprVariant::Variable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
@@ -78,6 +78,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         };
         should!(self
             .contract_sheet
@@ -200,7 +201,7 @@ impl<'a> ContractSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<()> {
         let call_expr = &arena[all_opds.start];
-        match call_expr.kind {
+        match call_expr.variant {
             RawExprVariant::Entity { route: scope, .. } => {
                 let call_decl = self.db.call_decl(scope)?;
                 for i in 0..call_decl.inputs.len() {
@@ -238,6 +239,7 @@ impl<'a> ContractSheetBuilder<'a> {
             },
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
     }
 

@@ -22,7 +22,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
 
     fn parse_lazy_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<LazyExpr>> {
         let raw_expr = &self.arena()[raw_expr_idx];
-        let kind: LazyExprKind = match raw_expr.kind {
+        let kind: LazyExprKind = match raw_expr.variant {
             RawExprVariant::Variable { varname, .. } => LazyExprKind::Variable(varname),
             RawExprVariant::Unrecognized(ident) => {
                 err!(format!(
@@ -61,6 +61,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => LazyExprKind::This,
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
@@ -244,7 +245,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
     ) -> SemanticResult<LazyExprKind> {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
-        match call.kind {
+        match call.variant {
             RawExprVariant::Entity {
                 route: scope, kind, ..
             } => {
@@ -323,6 +324,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             },
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
     }
 

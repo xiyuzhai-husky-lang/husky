@@ -32,6 +32,7 @@ impl Symbol {
 pub enum SymbolKind {
     EntityRoute(EntityRoutePtr),
     Variable { init_row: Row },
+    FrameVariable { init_row: Row },
     Unrecognized(CustomIdentifier),
     ThisData { ty: Option<EntityRoutePtr> },
 }
