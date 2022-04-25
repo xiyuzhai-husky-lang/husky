@@ -21,6 +21,9 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
         let raw_expr = &self.arena()[raw_expr_idx];
         let kind = match raw_expr.variant {
             RawExprVariant::Variable { varname, .. } => EagerExprVariant::Variable(varname),
+            RawExprVariant::FrameVariable { varname, init_row } => {
+                EagerExprVariant::Variable(varname)
+            }
             RawExprVariant::Unrecognized(ident) => {
                 err!(format!(
                     "unrecognized identifier {} at {}:{:?}",
@@ -56,7 +59,6 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
             RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => EagerExprVariant::This,
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
