@@ -200,7 +200,16 @@ impl<'a> TySheetBuilder<'a> {
             PureBinaryOpr::BitAnd => todo!(),
             PureBinaryOpr::Or => todo!(),
             PureBinaryOpr::BitXor => todo!(),
-            PureBinaryOpr::BitOr => todo!(),
+            PureBinaryOpr::BitOr => {
+                if lopd_builtin_ty != ropd_builtin_ty {
+                    err!("expect use of bitor `|` on same types", range)
+                }
+                if lopd_builtin_ty != RootIdentifier::B32 && lopd_builtin_ty != RootIdentifier::B64
+                {
+                    err!("expect use of \"|\" on b32 or b64", range)
+                }
+                lopd_builtin_ty
+            }
             PureBinaryOpr::RemEuclid => todo!(),
         }
         .into())

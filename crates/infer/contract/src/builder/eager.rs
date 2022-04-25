@@ -102,6 +102,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) {
         let infer_result = match arena[expr_idx].variant {
             RawExprVariant::Variable { .. }
+            | RawExprVariant::FrameVariable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
             | RawExprVariant::PrimitiveLiteral(_)
@@ -111,7 +112,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         };
         match self.contract_sheet.eager_expr_contract_results.insert(
             expr_idx,
