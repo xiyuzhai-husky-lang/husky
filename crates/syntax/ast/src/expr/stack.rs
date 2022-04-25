@@ -235,6 +235,7 @@ impl<'a> ExprStack<'a> {
                         self.synthesize_lambda(inputs, start)
                     }
                     ExprStackOprKind::ListItem => {
+                        panic!();
                         let (bra, start) = loop {
                             match self.oprs.pop().unwrap().kind {
                                 ExprStackOprKind::ListStart { bra, start, .. } => {
