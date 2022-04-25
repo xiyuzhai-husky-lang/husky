@@ -8,7 +8,7 @@ use ast::{AstError, AstErrorVariant};
 use dev_utils::DevSource;
 use infer_error::{InferError, InferErrorVariant};
 pub use kind::DiagnosticKind;
-pub use query::{DiagnosticQuery, DiagnosticQueryStorage};
+pub use query::{DiagnosticQuery, DiagnosticQueryGroupStorage};
 pub use severity::DiagnosticSeverity;
 
 use entity_route_query::{EntityDefnError, EntityRouteError};

@@ -7,6 +7,7 @@ members = [
     "crates/semantics/*",
     "crates/compile-time/*",
     "crates/runtime/*",
+    "crates/ide/*",
     "crates/apps/*",
     "crates/try",
     "rust-gen/*",
@@ -19,6 +20,7 @@ default-members = [
     "crates/semantics/*",
     "crates/compile-time/*",
     "crates/runtime/*",
+    "crates/ide/*",
     "crates/apps/*",
     "crates/try",
 ]

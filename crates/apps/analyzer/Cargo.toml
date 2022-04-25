@@ -28,3 +28,4 @@ compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 diagnostic = { path = "../../ide/diagnostic", version = "0.0.0" }
+highlight = { path = "../../ide/highlight", version = "0.0.0" }
