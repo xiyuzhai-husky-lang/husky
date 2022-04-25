@@ -96,10 +96,10 @@ impl<'a> ExprStack<'a> {
         }
     }
 
-    pub(crate) fn finish(mut self) -> RawExprIdx {
-        self.synthesize_all_above(Precedence::None);
+    pub(crate) fn finish(mut self) -> AstResult<RawExprIdx> {
+        self.synthesize_all_above(Precedence::None)?;
         should!(self.exprs.len() == 1);
-        self.arena.alloc_one(self.exprs.pop().unwrap())
+        Ok(self.arena.alloc_one(self.exprs.pop().unwrap()))
     }
 
     pub(crate) fn accept_list_start(
@@ -115,9 +115,10 @@ impl<'a> ExprStack<'a> {
         };
     }
 
-    pub(crate) fn accept_list_item(&mut self) {
-        self.synthesize_all_above(Precedence::ListItem);
-        self.oprs.push(ExprStackOpr::list_item())
+    pub(crate) fn accept_list_item(&mut self) -> AstResult<()> {
+        self.synthesize_all_above(Precedence::ListItem)?;
+        self.oprs.push(ExprStackOpr::list_item());
+        Ok(())
     }
 
     pub(crate) fn accept_list_end(
@@ -129,10 +130,11 @@ impl<'a> ExprStack<'a> {
         self.synthesize_list(ket, attr, end)
     }
 
-    pub(crate) fn accept_binary(&mut self, binary: BinaryOpr) {
+    pub(crate) fn accept_binary(&mut self, binary: BinaryOpr) -> AstResult<()> {
         let stack_opr = ExprStackOpr::binary(binary);
-        self.synthesize_all_above(stack_opr.precedence);
+        self.synthesize_all_above(stack_opr.precedence)?;
         self.oprs.push(stack_opr);
+        Ok(())
     }
 
     pub(crate) fn accept_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
@@ -220,10 +222,10 @@ impl<'a> ExprStack<'a> {
         Ok(())
     }
 
-    fn synthesize_all_above(&mut self, threshold: Precedence) {
-        while let Some(stack_opr) = self.oprs.last().map(|opr| opr.clone()) {
+    fn synthesize_all_above(&mut self, threshold: Precedence) -> AstResult<()> {
+        while let Some(stack_opr) = self.oprs.last() {
             if stack_opr.precedence >= threshold {
-                self.oprs.pop();
+                let stack_opr = self.oprs.pop().unwrap();
                 match stack_opr.kind {
                     ExprStackOprKind::Binary(binary) => self.synthesize_binary(binary),
                     ExprStackOprKind::Prefix { prefix, start } => {
@@ -232,12 +234,38 @@ impl<'a> ExprStack<'a> {
                     ExprStackOprKind::LambdaHead { inputs, start } => {
                         self.synthesize_lambda(inputs, start)
                     }
-                    ExprStackOprKind::ListItem | ExprStackOprKind::ListStart { .. } => panic!(),
+                    ExprStackOprKind::ListItem => {
+                        let (bra, start) = loop {
+                            match self.oprs.pop().unwrap().kind {
+                                ExprStackOprKind::ListStart { bra, start, .. } => {
+                                    break (bra, start)
+                                }
+                                _ => (),
+                            }
+                        };
+                        return Err(AstError {
+                            variant: AstErrorVariant::Original {
+                                message: format!("expect a matching `{}`", bra.ket_code()),
+                                range: (start..(start.to_right(1))).into(),
+                            },
+                            dev_src: dev_src!(),
+                        });
+                    }
+                    ExprStackOprKind::ListStart { bra, start, .. } => {
+                        return Err(AstError {
+                            variant: AstErrorVariant::Original {
+                                message: format!("expect a matching `{}`", bra.ket_code()),
+                                range: (start..(start.to_right(1))).into(),
+                            },
+                            dev_src: dev_src!(),
+                        })
+                    }
                 }
             } else {
-                return;
+                return Ok(());
             }
         }
+        Ok(())
     }
 
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
