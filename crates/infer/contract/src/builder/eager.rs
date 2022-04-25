@@ -2,6 +2,7 @@ use ast::{
     RawBoundary, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt, RawStmtKind,
 };
 
+use dev_utils::dev_src;
 use entity_route::EntityRoutePtr;
 use infer_error::*;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
@@ -381,8 +382,11 @@ impl<'a> ContractSheetBuilder<'a> {
                 }
             }
             EagerContract::BorrowMut => EagerContract::BorrowMut,
-            EagerContract::TakeMut => todo!(),
-            EagerContract::Exec => todo!(),
+            EagerContract::TakeMut => EagerContract::TakeMut,
+            EagerContract::Exec => Err(InferError {
+                variant: InferErrorVariant::Derived,
+                dev_src: dev_src!(),
+            })?,
         };
         self.infer_eager_expr(total_opds.start, this_contract, arena);
         for opd in (total_opds.start + 1)..total_opds.end {
