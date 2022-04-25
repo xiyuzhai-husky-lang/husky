@@ -100,7 +100,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
     ) {
-        let infer_result = match arena[expr_idx].kind {
+        let infer_result = match arena[expr_idx].variant {
             RawExprVariant::Variable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
@@ -111,6 +111,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         };
         match self.contract_sheet.eager_expr_contract_results.insert(
             expr_idx,
@@ -263,7 +264,7 @@ impl<'a> ContractSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<()> {
         let call_expr = &arena[all_opds.start];
-        match call_expr.kind {
+        match call_expr.variant {
             RawExprVariant::Entity { route: scope, .. } => {
                 let call_decl = self.db.call_decl(scope)?;
                 match contract {
@@ -313,6 +314,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
     }
 

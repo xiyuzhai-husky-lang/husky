@@ -11,6 +11,10 @@ pub enum RawExprVariant {
         varname: CustomIdentifier,
         init_row: Row,
     },
+    FrameVariable {
+        varname: CustomIdentifier,
+        init_row: Row,
+    },
     This {
         ty: Option<EntityRoutePtr>,
     },

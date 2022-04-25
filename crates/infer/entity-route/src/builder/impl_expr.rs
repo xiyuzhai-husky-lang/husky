@@ -29,7 +29,7 @@ impl<'a> TySheetBuilder<'a> {
         expectation: Option<EntityRoutePtr>,
         arena: &RawExprArena,
     ) -> InferResult<EntityRoutePtr> {
-        let ty = match arena[expr_idx].kind {
+        let ty = match arena[expr_idx].variant {
             RawExprVariant::Variable { varname, init_row } => Ok(derived_not_none!(self
                 .ty_sheet
                 .variable_tys
@@ -49,6 +49,7 @@ impl<'a> TySheetBuilder<'a> {
             RawExprVariant::Opn { opr, ref opds } => self.infer_opn(opr, opds, expr_idx, arena),
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { ty } => derived_not_none!(ty),
+            RawExprVariant::FrameVariable { .. } => Ok(self.db.entity_route_menu().i32_ty),
         }?;
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicit_convertible(ty, expected_ty) {
@@ -258,7 +259,7 @@ impl<'a> TySheetBuilder<'a> {
         expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let call_expr = &arena[total_opds.start];
-        match call_expr.kind {
+        match call_expr.variant {
             RawExprVariant::Entity {
                 route: scope, kind, ..
             } => {
@@ -293,6 +294,7 @@ impl<'a> TySheetBuilder<'a> {
             },
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
     }
 

@@ -27,6 +27,10 @@ impl<'a> AtomLRParser<'a> {
                     },
                     SymbolKind::Unrecognized(ident) => AtomKind::Unrecognized(ident),
                     SymbolKind::ThisData { ty } => AtomKind::ThisData { ty },
+                    SymbolKind::FrameVariable { init_row } => AtomKind::FrameVariable {
+                        varname: ident.custom(),
+                        init_row,
+                    },
                 })
             } else {
                 None

@@ -226,7 +226,7 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_expr(&mut self, expr: &RawExpr) {
-        match expr.kind {
+        match expr.variant {
             RawExprVariant::Variable { varname, .. } => self.write(&varname),
             RawExprVariant::Unrecognized(varname) => self.write(&varname),
             RawExprVariant::PrimitiveLiteral(literal) => match literal {
@@ -296,6 +296,7 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[expr])
             }
             RawExprVariant::This { .. } => todo!(),
+            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
     }
 

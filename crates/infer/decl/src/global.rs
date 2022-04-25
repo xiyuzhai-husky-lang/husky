@@ -14,11 +14,11 @@ fn global_input_ty_from_ast(
         AstKind::Stmt(RawStmt {
             kind: RawStmtKind::Return(idx),
             ..
-        }) => match arena[idx].kind {
+        }) => match arena[idx].variant {
             RawExprVariant::Opn {
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
-            } => match arena[opds][0].kind {
+            } => match arena[opds][0].variant {
                 RawExprVariant::Entity {
                     route: scope,
                     kind: EntityKind::Routine,
@@ -53,11 +53,11 @@ fn global_output_ty_from_ast(
         AstKind::Stmt(RawStmt {
             kind: RawStmtKind::Return(idx),
             ..
-        }) => match arena[idx].kind {
+        }) => match arena[idx].variant {
             RawExprVariant::Opn {
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
-            } => match arena[opds][0].kind {
+            } => match arena[opds][0].variant {
                 RawExprVariant::Entity {
                     route: scope,
                     kind: EntityKind::Routine,

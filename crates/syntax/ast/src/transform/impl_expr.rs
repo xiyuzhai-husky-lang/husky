@@ -13,9 +13,16 @@ impl<'a> AstTransformer<'a> {
             match atom.kind {
                 AtomKind::Variable { .. }
                 | AtomKind::ThisData { .. }
-                | AtomKind::Unrecognized(_)
                 | AtomKind::Literal(_)
-                | AtomKind::EntityRoute { .. } => stack.accept_atom_expr(atom.into()),
+                | AtomKind::EntityRoute { .. }
+                | AtomKind::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
+                AtomKind::Unrecognized(ident) => stack.accept_atom_expr(
+                    match self.symbols.find(|symbol| symbol.ident == ident) {
+                        Some(symbol) => todo!(),
+                        None => atom,
+                    }
+                    .into(),
+                ),
                 AtomKind::Binary(opr) => stack.accept_binary(opr)?,
                 AtomKind::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_end()),
                 AtomKind::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),
