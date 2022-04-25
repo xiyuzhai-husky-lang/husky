@@ -1,3 +1,4 @@
+use vm::PrimitiveValue;
 use word::{Identifier, Keyword, WordPtr};
 
 pub use crate::*;
@@ -7,8 +8,7 @@ pub enum TokenKind {
     Keyword(Keyword),
     Identifier(Identifier),
     Special(Special),
-    I32Literal(i32),
-    F32Literal(f32),
+    PrimitiveLiteral(PrimitiveValue),
 }
 
 impl From<Special> for TokenKind {

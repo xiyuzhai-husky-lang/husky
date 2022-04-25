@@ -46,7 +46,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     fn next_word(&mut self, j_start: usize) -> Token {
         while let Some((_, c)) = self.char_iter.peek() {
             if is_word_char(*c) {
-                self.eat();
+                self.eat_char();
             } else {
                 break;
             }
@@ -58,36 +58,75 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             j_start + len,
             self.take_buffer_word().into(),
         );
-
-        fn is_word_char(c: char) -> bool {
-            c.is_alphanumeric() || c == '_'
-        }
     }
 
     fn next_number(&mut self, j_start: usize) -> Token {
-        while self.peek().is_digit(10) {
-            self.eat()
+        while self.peek_char().is_digit(10) {
+            self.eat_char()
         }
-        if self.peek() == '.' {
-            self.eat();
-            while self.peek().is_digit(10) {
-                self.eat()
+        match self.peek_char() {
+            '.' => {
+                self.eat_char();
+                while self.peek_char().is_digit(10) {
+                    self.eat_char()
+                }
+                let len = self.buffer.len();
+                Token::new(
+                    self.line_index,
+                    j_start,
+                    j_start + len,
+                    TokenKind::PrimitiveLiteral(self.take_buffer_f32().into()),
+                )
             }
-            let len = self.buffer.len();
-            Token::new(
-                self.line_index,
-                j_start,
-                j_start + len,
-                TokenKind::F32Literal(self.take_buffer_f32()),
-            )
-        } else {
-            let len = self.buffer.len();
-            Token::new(
-                self.line_index,
-                j_start,
-                j_start + len,
-                TokenKind::I32Literal(self.take_buffer_i32()),
-            )
+            'b' => {
+                // b32 or b64
+                self.ignore_char();
+                match self.peek_char() {
+                    '3' => {
+                        self.ignore_char();
+                        if self.peek_char() != '2' {
+                            todo!()
+                        }
+                        self.ignore_char();
+                        if is_word_char(self.peek_char()) {
+                            todo!()
+                        }
+                        let len = self.buffer.len() + 3;
+                        Token::new(
+                            self.line_index,
+                            j_start,
+                            j_start + len,
+                            TokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
+                        )
+                    }
+                    '6' => {
+                        self.ignore_char();
+                        if self.peek_char() != '4' {
+                            todo!()
+                        }
+                        todo!()
+                    }
+                    _ => todo!(),
+                }
+            }
+            'i' => {
+                // i64
+                todo!()
+            }
+            default => {
+                if default.is_alphabetic() {
+                    // letter other than 'b' or 'i' after integer literal is not allowed
+                    todo!()
+                }
+                // i32
+                let len = self.buffer.len();
+                Token::new(
+                    self.line_index,
+                    j_start,
+                    j_start + len,
+                    TokenKind::PrimitiveLiteral(self.take_buffer_i32().into()),
+                )
+            }
         }
     }
 
@@ -107,7 +146,11 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         std::mem::take(&mut self.buffer).parse::<f32>().unwrap()
     }
 
-    fn peek(&mut self) -> char {
+    fn take_buffer_b32(&mut self) -> u32 {
+        std::mem::take(&mut self.buffer).parse::<u32>().unwrap()
+    }
+
+    fn peek_char(&mut self) -> char {
         if let Some((_, c)) = self.char_iter.peek() {
             *c
         } else {
@@ -120,19 +163,23 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         (2, special)
     }
 
-    fn eat(&mut self) {
+    fn eat_char(&mut self) {
         let (_, c) = self.char_iter.next().expect("what");
         self.buffer.push(c);
     }
 
+    fn ignore_char(&mut self) {
+        let (_, c) = self.char_iter.next().expect("what");
+    }
+
     fn next_special(&mut self, j_start: usize, c_start: char) -> Option<Token> {
         let (len, special) = match c_start {
-            '=' => match self.peek() {
+            '=' => match self.peek_char() {
                 '=' => self.pass(Special::Eq),
                 '>' => self.pass(Special::HeavyArrow),
                 _ => (1, Special::Assign),
             },
-            ':' => match self.peek() {
+            ':' => match self.peek_char() {
                 ':' => self.pass(Special::DoubleColon),
                 _ => (1, Special::Colon),
             },
@@ -143,49 +190,49 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             ']' => (1, Special::RBox),
             '}' => (1, Special::RCurl),
             ',' => (1, Special::Comma),
-            '&' => match self.peek() {
+            '&' => match self.peek_char() {
                 '&' => self.pass(Special::And),
                 _ => (1, Special::Ambersand),
             },
-            '|' => match self.peek() {
+            '|' => match self.peek_char() {
                 '|' => self.pass(Special::DoubleVertical),
                 _ => (1, Special::Vertical),
             },
             '~' => (1, Special::BitNot),
             '.' => (1, Special::MemberAccess),
             '%' => (1, Special::Modulo),
-            '-' => match self.peek() {
+            '-' => match self.peek_char() {
                 '=' => self.pass(Special::SubAssign),
                 '-' => self.pass(Special::Decr),
                 '>' => self.pass(Special::LightArrow),
                 _ => (1, Special::SubOrMinus),
             },
-            '<' => match self.peek() {
+            '<' => match self.peek_char() {
                 '<' => self.pass(Special::Shr),
                 '=' => self.pass(Special::Leq),
                 _ => (1, Special::LAngle),
             },
-            '>' => match self.peek() {
+            '>' => match self.peek_char() {
                 '>' => self.pass(Special::Shl),
                 '=' => self.pass(Special::Geq),
                 _ => (1, Special::RAngle),
             },
-            '*' => match self.peek() {
+            '*' => match self.peek_char() {
                 '*' => self.pass(Special::Power),
                 '=' => self.pass(Special::MulAssign),
                 _ => (1, Special::Mul),
             },
-            '/' => match self.peek() {
+            '/' => match self.peek_char() {
                 '/' => return None,
                 '=' => self.pass(Special::DivAssign),
                 _ => (1, Special::Div),
             },
-            '+' => match self.peek() {
+            '+' => match self.peek_char() {
                 '+' => self.pass(Special::Incr),
                 '=' => self.pass(Special::AddAssign),
                 _ => (1, Special::Add),
             },
-            '!' => match self.peek() {
+            '!' => match self.peek_char() {
                 '=' => self.pass(Special::Neq),
                 _ => (1, Special::Exclamation),
             },
@@ -224,4 +271,8 @@ impl<'token_line, 'lex: 'token_line> Iterator for LineTokenIter<'token_line, 'le
             None
         }
     }
+}
+
+fn is_word_char(c: char) -> bool {
+    c.is_alphanumeric() || c == '_'
 }
