@@ -1,3 +1,5 @@
+use vm::PrimitiveValue;
+
 use super::*;
 
 impl<'a> AtomLRParser<'a> {
@@ -7,7 +9,7 @@ impl<'a> AtomLRParser<'a> {
 
     pub(crate) fn usize_literal(&mut self) -> Option<usize> {
         if let Some(Token {
-            kind: TokenKind::I32Literal(i),
+            kind: TokenKind::PrimitiveLiteral(PrimitiveValue::I32(i)),
             ..
         }) = self.stream.next()
         {

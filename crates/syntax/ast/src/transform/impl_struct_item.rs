@@ -34,8 +34,7 @@ impl<'a> AstTransformer<'a> {
             },
             TokenKind::Identifier(_) => self.parse_struct_field_var(token_group),
             TokenKind::Special(_) => todo!(),
-            TokenKind::I32Literal(_) => todo!(),
-            TokenKind::F32Literal(_) => todo!(),
+            TokenKind::PrimitiveLiteral(_) => todo!(),
         }
     }
 

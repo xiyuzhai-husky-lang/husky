@@ -75,8 +75,7 @@ impl Entry {
                         None,
                     ),
                     TokenKind::Special(_) => todo!(),
-                    TokenKind::I32Literal(_) => todo!(),
-                    TokenKind::F32Literal(_) => todo!(),
+                    TokenKind::PrimitiveLiteral(_) => todo!(),
                 };
             } else {
                 return (None, None);

@@ -56,8 +56,7 @@ impl From<&Token> for Atom {
                 panic!()
             }
             TokenKind::Special(special) => Atom::new(token.text_range(), special.into()),
-            TokenKind::I32Literal(i) => Atom::new(token.text_range(), i.into()),
-            TokenKind::F32Literal(f) => Atom::new(token.text_range(), f.into()),
+            TokenKind::PrimitiveLiteral(i) => Atom::new(token.text_range(), i.into()),
         }
     }
 }
