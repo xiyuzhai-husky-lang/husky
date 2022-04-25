@@ -8,7 +8,7 @@ mod special;
 mod tests;
 mod tokenized_text;
 
-pub use error::LexError;
+pub use error::*;
 pub use kind::TokenKind;
 pub use query::{TokenQueryGroup, TokenQueryGroupStorage};
 pub use special::Special;

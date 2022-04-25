@@ -1,9 +1,11 @@
+use std::sync::Arc;
+
 use print_utils::ep;
 use word::new_word_unique_allocator;
 
 use crate::TokenizedText;
 
-fn standalone_tokenize(text: &'static str) -> TokenizedText {
+fn standalone_tokenize(text: &'static str) -> Arc<TokenizedText> {
     let word_unique_allocator = new_word_unique_allocator();
     TokenizedText::parse(&word_unique_allocator, text)
 }

@@ -6,31 +6,31 @@ pub(crate) use def::*;
 use file::FileError;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ScopeError {
+pub enum EntityRouteError {
     FileError(FileError),
     DefError(def::EntityDefnError),
     Message(String),
+    Derived,
 }
 
-pub type EntityRouteResult<T> = Result<T, ScopeError>;
-pub type ScopeResultArc<T> = Result<Arc<T>, ScopeError>;
+pub type EntityRouteResult<T> = Result<T, EntityRouteError>;
+pub type ScopeResultArc<T> = Result<Arc<T>, EntityRouteError>;
 
-impl From<FileError> for ScopeError {
+impl From<FileError> for EntityRouteError {
     fn from(error: FileError) -> Self {
-        ScopeError::FileError(error)
+        EntityRouteError::FileError(error)
     }
 }
 
-// macro_rules! scope_error {
-//     ($msg: expr) => {{
-//         crate::ScopeError::Message($msg)
-//     }};
+// impl From<LexError> for EntityRouteError {
+//     fn from(error: LexError) -> Self {
+//         EntityRouteError::Derived
+//     }
 // }
-// pub(crate) use scope_error;
 
 macro_rules! scope_err {
     ($msg: expr) => {{
-        Err(crate::ScopeError::Message($msg))
+        Err(crate::EntityRouteError::Message($msg))
     }};
 }
 pub(crate) use scope_err;
@@ -39,8 +39,9 @@ macro_rules! not_none {
     ($result: expr, $msg: expr) => {{
         match $result {
             Some(value) => Ok(value),
-            None => Err(crate::ScopeError::Message($msg)),
+            None => Err(crate::EntityRouteError::Message($msg)),
         }
     }};
 }
 pub(crate) use not_none;
+use token::LexError;

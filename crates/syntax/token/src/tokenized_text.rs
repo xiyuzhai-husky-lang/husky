@@ -1,14 +1,16 @@
+use std::sync::Arc;
+
 use file::URange;
 use word::WordAllocator;
 
 use fold::FoldedList;
 
-use crate::*;
+use crate::{error::LexResult, *};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {
     pub tokens: Vec<Token>,
-    errors: Vec<LexError>,
+    pub errors: Vec<LexError>,
     token_groups: FoldedList<URange>,
 }
 
@@ -67,11 +69,11 @@ impl fold::ItemToFold<URange> for TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(word_unique_allocator: &WordAllocator, text: &str) -> Self {
+    pub(crate) fn parse(word_unique_allocator: &WordAllocator, text: &str) -> Arc<Self> {
         let mut token_scanner = TokenScanner::new(word_unique_allocator);
         text.lines()
             .enumerate()
             .for_each(|(i, line)| token_scanner.scan(i, line));
-        token_scanner.into()
+        token_scanner.gen_tokenized_text()
     }
 }

@@ -1,3 +1,4 @@
+use ast::AstText;
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use print_utils::p;
@@ -19,10 +20,16 @@ pub(crate) fn collect_diagnostics(
         }
     }
     let file = db.module_file(module).unwrap();
+    collect_lex_errors(db, file, &mut diagnostics);
     collect_ast_errors(db, file, &mut diagnostics);
     collect_infer_ty_errors(db, file, &mut diagnostics);
     collect_infer_contract_errors(db, file, &mut diagnostics);
     diagnostics
+}
+
+fn collect_lex_errors(db: &dyn DiagnosticQuery, file: FilePtr, diagnostics: &mut Vec<Diagnostic>) {
+    let tokenized_text = db.tokenized_text(file).unwrap();
+    diagnostics.extend(tokenized_text.errors.iter().map(|error| error.into()))
 }
 
 fn collect_ast_errors(db: &dyn DiagnosticQuery, file: FilePtr, diagnostics: &mut Vec<Diagnostic>) {

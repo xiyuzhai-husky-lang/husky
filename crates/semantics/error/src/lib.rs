@@ -40,13 +40,14 @@ pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
 
 pub type SemanticResultOptionArc<T> = Result<Option<Arc<T>>, SemanticError>;
 
-impl From<ScopeError> for SemanticError {
-    fn from(error: ScopeError) -> Self {
-        todo!()
-        // Self {
-        //     message: format!("ScopeError {:?}", error),
-        //     src: error.src,
-        // }
+impl From<EntityRouteError> for SemanticError {
+    fn from(error: EntityRouteError) -> Self {
+        Self {
+            variant: SemanticErrorVariant::Derived {
+                message: format!("Scope error: {:?}", &error),
+            },
+            dev_src: dev_src!(),
+        }
     }
 }
 
@@ -107,7 +108,7 @@ macro_rules! try_infer {
     }};
 }
 
-use dev_utils::DevSource;
-use entity_route_query::ScopeError;
+use dev_utils::{dev_src, DevSource};
+use entity_route_query::EntityRouteError;
 use infer_error::InferError;
 use vm::VMError;
