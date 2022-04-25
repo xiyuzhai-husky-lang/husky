@@ -202,7 +202,14 @@ impl<'a> TySheetBuilder<'a> {
             PureBinaryOpr::BitXor => todo!(),
             PureBinaryOpr::BitOr => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of bitor `|` on same types", range)
+                    err!(
+                        format!(
+                            "expect use of bitor `|` on same types, but got `{}` and `{}`",
+                            lopd_builtin_ty.as_str(),
+                            ropd_builtin_ty.as_str()
+                        ),
+                        range
+                    )
                 }
                 if lopd_builtin_ty != RootIdentifier::B32 && lopd_builtin_ty != RootIdentifier::B64
                 {
