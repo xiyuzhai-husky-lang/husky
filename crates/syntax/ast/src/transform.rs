@@ -19,6 +19,7 @@ use atom::symbol::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
+use lsp_types::{SemanticToken, SemanticTokens};
 use token::*;
 
 pub type AstIter<'a> = FoldIter<'a, AstResult<Ast>, FoldedList<AstResult<Ast>>>;
@@ -28,10 +29,11 @@ pub struct AstTransformer<'a> {
     main: FilePtr,
     file: FilePtr,
     arena: RawExprArena,
-    folded_results: FoldedList<AstResult<Ast>>,
     symbols: LocalStack<Symbol>,
     env: LocalValue<AstContext>,
     this: LocalValue<Option<EntityRoutePtr>>,
+    folded_results: FoldedList<AstResult<Ast>>,
+    semantic_tokens: Vec<SemanticToken>,
 }
 
 impl<'a> AstTransformer<'a> {
@@ -56,6 +58,7 @@ impl<'a> AstTransformer<'a> {
                 } => todo!(),
             }),
             this: LocalValue::new(None),
+            semantic_tokens: vec![],
         };
 
         fn module_symbols(
@@ -90,7 +93,10 @@ impl<'a> AstTransformer<'a> {
             file: self.file,
             arena: self.arena,
             folded_results: self.folded_results,
-            semantic_tokens: todo!(),
+            semantic_tokens: SemanticTokens {
+                result_id: None,
+                data: self.semantic_tokens,
+            },
         }
     }
 

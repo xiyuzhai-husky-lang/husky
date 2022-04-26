@@ -26,19 +26,17 @@ pub(super) async fn test_compile_time(dir: PathBuf) {
 }
 
 async fn test_semantic_tokens(pack_path: &Path, compile_time: &HuskyLangCompileTime) {
-    type SemanticTokensTable = HashMap<String, Arc<SemanticTokens>>;
+    type SemanticTokensTable = HashMap<String, SemanticTokens>;
 
     let modules = compile_time.all_modules();
-    let mut highlights_table = HashMap::<String, Arc<SemanticTokens>>::new();
+    let mut highlights_table = HashMap::<String, SemanticTokens>::new();
     for module in modules {
         let file = compile_time.module_file(module).unwrap();
-        let ast_text = compile_time.ast_text(file);
-        todo!()
-        // if highlights.len() > 0 {
-        //     assert!(highlights_table
-        //         .insert(module.to_str(), highlights.clone())
-        //         .is_none());
-        // }
+        let ast_text = compile_time.ast_text(file).unwrap();
+        let semantic_tokens = ast_text.semantic_tokens.clone();
+        assert!(highlights_table
+            .insert(module.to_str(), semantic_tokens)
+            .is_none());
     }
     compare_semantic_tokens_tables(highlights_table, pack_path);
 

@@ -26,11 +26,6 @@ pub struct Token {
     pub kind: TokenKind,
 }
 
-pub struct SemanticToken {
-    pub tokens: std::ops::Range<usize>,
-    pub text_range: TextRange,
-}
-
 impl std::fmt::Debug for Token {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("Token {{{:?}, {:?}}}", self.kind, self.range))
