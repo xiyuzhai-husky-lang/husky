@@ -270,7 +270,6 @@ pub(crate) fn handle_semantic_tokens_full(
     snapshot: HuskyLangDatabaseSnapshot,
     params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    msg_once!("todo handle semantic tokens full");
     let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
@@ -301,17 +300,19 @@ pub(crate) fn handle_semantic_tokens_full(
 
 pub(crate) fn handle_semantic_tokens_full_delta(
     _snapshot: HuskyLangDatabaseSnapshot,
-    _params: SemanticTokensDeltaParams,
+    params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
     msg_once!("todo handle semantic tokens full delta");
+    p!(params);
     Ok(None)
 }
 
 pub(crate) fn handle_semantic_tokens_range(
     _snapshot: HuskyLangDatabaseSnapshot,
-    _params: SemanticTokensRangeParams,
+    params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
     msg_once!("todo semantic tokens range");
+    p!(params);
     Ok(None)
     // msg_once!("{}:{} todo!", file!(), line!()); Ok(None)
     // let _p = profile::span("handle_semantic_tokens_range");
