@@ -40,7 +40,6 @@ impl<'a> AtomLRParser<'a> {
                 }
             }
         }
-        msg_once!("output contract");
         Ok(RoutineDefnHead {
             ident: routine_ident,
             routine_kind,
