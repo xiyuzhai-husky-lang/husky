@@ -1,6 +1,6 @@
 pub(crate) mod def;
 
-use std::sync::Arc;
+use std::{fmt::Formatter, sync::Arc};
 
 pub(crate) use def::*;
 use file::FileError;
@@ -12,6 +12,14 @@ pub enum EntityRouteError {
     Message(String),
     Derived,
 }
+
+impl std::fmt::Display for EntityRouteError {
+    fn fmt(&self, _: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+        todo!()
+    }
+}
+
+impl std::error::Error for EntityRouteError {}
 
 pub type EntityRouteResult<T> = Result<T, EntityRouteError>;
 pub type ScopeResultArc<T> = Result<Arc<T>, EntityRouteError>;

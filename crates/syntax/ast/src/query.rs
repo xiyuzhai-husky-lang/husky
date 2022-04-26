@@ -2,7 +2,7 @@ use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
-use lsp_types::FoldingRange;
+use lsp_types::{FoldingRange, SemanticTokens};
 use map_collect::MapCollect;
 use std::sync::Arc;
 use upcast::Upcast;
@@ -52,6 +52,7 @@ pub struct AstText {
     pub file: FilePtr,
     pub arena: RawExprArena,
     pub folded_results: FoldedList<AstResult<Ast>>,
+    pub semantic_tokens: SemanticTokens,
 }
 
 impl AstText {

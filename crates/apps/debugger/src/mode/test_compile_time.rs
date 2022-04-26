@@ -1,6 +1,6 @@
 use super::*;
 use compile_time_db::*;
-use highlight::{Highlight, HighlightQueryGroup};
+use lsp_types::{SemanticToken, SemanticTokens};
 
 pub(super) async fn test_compile_time(dir: PathBuf) {
     let pack_paths = collect_pack_dirs(dir);
@@ -20,30 +20,31 @@ pub(super) async fn test_compile_time(dir: PathBuf) {
             print_utils::RESET,
             pack_path.as_os_str().to_str().unwrap(),
         );
-        test_highlight(&pack_path, &compile_time).await;
+        test_semantic_tokens(&pack_path, &compile_time).await;
         test_diagnostics(&pack_path, &compile_time).await
     }
 }
 
-async fn test_highlight(pack_path: &Path, compile_time: &HuskyLangCompileTime) {
-    type HighlightTable = HashMap<String, Arc<Vec<Highlight>>>;
+async fn test_semantic_tokens(pack_path: &Path, compile_time: &HuskyLangCompileTime) {
+    type SemanticTokensTable = HashMap<String, Arc<SemanticTokens>>;
 
     let modules = compile_time.all_modules();
-    let mut highlights_table = HashMap::<String, Arc<Vec<Highlight>>>::new();
+    let mut highlights_table = HashMap::<String, Arc<SemanticTokens>>::new();
     for module in modules {
         let file = compile_time.module_file(module).unwrap();
-        let highlights = compile_time.highlights(file);
-        if highlights.len() > 0 {
-            assert!(highlights_table
-                .insert(module.to_str(), highlights.clone())
-                .is_none());
-        }
+        let ast_text = compile_time.ast_text(file);
+        todo!()
+        // if highlights.len() > 0 {
+        //     assert!(highlights_table
+        //         .insert(module.to_str(), highlights.clone())
+        //         .is_none());
+        // }
     }
-    compare_highlights_tables(highlights_table, pack_path);
+    compare_semantic_tokens_tables(highlights_table, pack_path);
 
-    fn compare_highlights_tables(diagnostics_table: HighlightTable, path: &Path) {
+    fn compare_semantic_tokens_tables(diagnostics_table: SemanticTokensTable, path: &Path) {
         let diagnostics_table_path = path.join("diagnostics_table.json");
-        let diagnostics_table_on_disk: HighlightTable = if !diagnostics_table_path.exists() {
+        let diagnostics_table_on_disk: SemanticTokensTable = if !diagnostics_table_path.exists() {
             Default::default()
         } else {
             let text = fs::read_to_string(diagnostics_table_path).unwrap();

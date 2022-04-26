@@ -3,7 +3,6 @@ use crate::{convert::from_lsp_types, *};
 type HuskyLangDatabaseSnapshot = salsa::Snapshot<compile_time_db::HuskyLangCompileTime>;
 
 use compile_time_db::{AllocateUniqueFile, AstSalsaQueryGroup};
-use highlight::HighlightQueryGroup;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
     CallHierarchyOutgoingCall, CallHierarchyOutgoingCallsParams, CallHierarchyPrepareParams,
@@ -275,14 +274,10 @@ pub(crate) fn handle_semantic_tokens_full(
     let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
-    Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
-        /// An optional result id. If provided and clients support delta updating
-        /// the client will include the result id in the next semantic token request.
-        /// A server can then instead of computing all semantic tokens again simply
-        /// send a delta.
-        result_id: None,
-        data: convert::to_lsp_types::to_semantic_tokens(snapshot.highlights(file)),
-    })))
+    let ast_text = snapshot.ast_text(file)?;
+    Ok(Some(SemanticTokensResult::Tokens(
+        ast_text.semantic_tokens.clone(),
+    )))
     // let _p = profile::span("handle_semantic_tokens_full");
 
     // let file_id = from_lsp_types::to_file_id(&snap, &params.text_document.uri)?;
