@@ -12,4 +12,16 @@ pub struct Highlight {
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub enum HighlightKind {}
+pub enum HighlightKind {
+    Comment,
+    Keyword,
+    String,
+    Number,
+    Operator,
+    Namespace,
+    Type,
+    Function,
+    Method,
+    Field,
+    Variable,
+}

@@ -141,7 +141,6 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr];
-        epin!();
         match expr.variant {
             RawExprVariant::Opn { opr, ref opds } => match opr {
                 Opr::Prefix(_) | Opr::Suffix(_) | Opr::List(_) => todo!(),
@@ -215,7 +214,6 @@ impl<'a> AstTransformer<'a> {
                             }
                             // LoopRawStmt::for_loop()?.into()
                         };
-                        epin!();
                         self.symbols.push(Symbol {
                             ident: frame_var,
                             kind: SymbolKind::FrameVariable {
