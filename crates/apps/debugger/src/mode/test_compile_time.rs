@@ -1,6 +1,9 @@
+use std::io::{stdin, stdout, Write};
+
 use super::*;
 use compile_time_db::*;
 use lsp_types::{SemanticToken, SemanticTokens};
+use serde::Serialize;
 
 pub(super) async fn test_compile_time(dir: PathBuf) {
     let pack_paths = collect_pack_dirs(dir);
@@ -40,19 +43,22 @@ async fn test_semantic_tokens(pack_path: &Path, compile_time: &HuskyLangCompileT
     }
     compare_semantic_tokens_tables(highlights_table, pack_path);
 
-    fn compare_semantic_tokens_tables(diagnostics_table: SemanticTokensTable, path: &Path) {
-        let diagnostics_table_path = path.join("diagnostics_table.json");
-        let diagnostics_table_on_disk: SemanticTokensTable = if !diagnostics_table_path.exists() {
-            Default::default()
-        } else {
-            let text = fs::read_to_string(diagnostics_table_path).unwrap();
-            let v: serde_json::Value = serde_json::from_str(&text).unwrap();
-            serde_json::from_value(v).unwrap()
-        };
-        if diagnostics_table_on_disk != diagnostics_table {
-            p!(diagnostics_table);
-            p!(diagnostics_table_on_disk);
-            todo!()
+    fn compare_semantic_tokens_tables(semantic_tokens_table: SemanticTokensTable, path: &Path) {
+        let semantic_tokens_table_path = path.join("semantic_tokens_table.json");
+        let semantic_tokens_table_on_disk: SemanticTokensTable =
+            if !semantic_tokens_table_path.exists() {
+                Default::default()
+            } else {
+                let text = fs::read_to_string(&semantic_tokens_table_path).unwrap();
+                let v: serde_json::Value = serde_json::from_str(&text).unwrap();
+                serde_json::from_value(v).unwrap()
+            };
+        if semantic_tokens_table_on_disk != semantic_tokens_table {
+            notify_change(
+                semantic_tokens_table,
+                semantic_tokens_table_on_disk,
+                &semantic_tokens_table_path,
+            )
         } else {
             println!(
                 "    {}result{}: {}ok{}",
@@ -88,9 +94,16 @@ async fn test_diagnostics(pack_path: &Path, compile_time: &HuskyLangCompileTime)
         let diagnostics_table_on_disk: DiagnosticsTable = if !diagnostics_table_path.exists() {
             Default::default()
         } else {
-            let text = fs::read_to_string(diagnostics_table_path).unwrap();
+            let text = fs::read_to_string(&diagnostics_table_path).unwrap();
             let v: serde_json::Value = serde_json::from_str(&text).unwrap();
-            serde_json::from_value(v).unwrap()
+            match serde_json::from_value(v) {
+                Ok(v) => v,
+                Err(e) => {
+                    p!(e);
+                    notify_change(diagnostics_table, text, &diagnostics_table_path);
+                    return;
+                }
+            }
         };
         if diagnostics_table_on_disk != diagnostics_table {
             p!(diagnostics_table);
@@ -105,5 +118,48 @@ async fn test_diagnostics(pack_path: &Path, compile_time: &HuskyLangCompileTime)
                 print_utils::RESET,
             )
         }
+    }
+}
+
+fn notify_change<T, S>(new: T, old: S, save_path: &Path)
+where
+    T: std::fmt::Debug + Serialize,
+    S: std::fmt::Debug + Serialize,
+{
+    // notify the difference between the old and the new
+    // ask whether to update the old
+    println!(
+        "{}Change in saved data{} for file {}{:?}{},",
+        print_utils::MAGENTA,
+        print_utils::RESET,
+        print_utils::GREEN,
+        save_path.as_os_str(),
+        print_utils::RESET,
+    );
+    print!("old = \n  {:?}\n", &old);
+    print!("new = \n  {:?}\n", &new);
+    let accept: bool = loop {
+        print!("Do you want to accept change in saved data (y/n)? ");
+        let mut s = String::new();
+        let _ = stdout().flush();
+        stdin()
+            .read_line(&mut s)
+            .expect("Did not enter a correct string");
+        if let Some('\n') = s.chars().next_back() {
+            s.pop();
+        }
+        if let Some('\r') = s.chars().next_back() {
+            s.pop();
+        }
+        match &s as &str {
+            "y" => break true,
+            "n" => break false,
+            _ => println!("Invalid answer: {}", s),
+        }
+    };
+    if accept {
+        fs::write(save_path, serde_json::to_string(&new).unwrap()).expect("Error writing");
+    } else {
+        panic!("Change in saved data not accepted")
     }
 }
