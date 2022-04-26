@@ -12,8 +12,6 @@ use lsp_types::{
 };
 use serde_json::json;
 
-use crate::semantic_tokens;
-
 pub fn get_server_capabilities() -> ServerCapabilities {
     ServerCapabilities {
         text_document_sync: Some(TextDocumentSyncCapability::Options(
@@ -106,8 +104,8 @@ pub fn get_server_capabilities() -> ServerCapabilities {
         semantic_tokens_provider: Some(
             SemanticTokensOptions {
                 legend: SemanticTokensLegend {
-                    token_types: semantic_tokens::SUPPORTED_TYPES.to_vec(),
-                    token_modifiers: semantic_tokens::SUPPORTED_MODIFIERS.to_vec(),
+                    token_types: token::SUPPORTED_TYPES.to_vec(),
+                    token_modifiers: token::SUPPORTED_MODIFIERS.to_vec(),
                 },
 
                 full: Some(SemanticTokensFullOptions::Delta { delta: Some(true) }),

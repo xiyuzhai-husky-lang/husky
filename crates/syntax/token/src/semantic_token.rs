@@ -6,9 +6,9 @@ use lsp_types::{SemanticTokenModifier, SemanticTokenType};
 
 macro_rules! define_semantic_token_types {
     ($(($ident:ident, $string:literal)),*$(,)?) => {
-        $(pub(crate) const $ident: SemanticTokenType = SemanticTokenType::new($string);)*
+        $(pub const $ident: SemanticTokenType = SemanticTokenType::new($string);)*
 
-        pub(crate) const SUPPORTED_TYPES: &[SemanticTokenType] = &[
+        pub const SUPPORTED_TYPES: &[SemanticTokenType] = &[
             SemanticTokenType::COMMENT,
             SemanticTokenType::KEYWORD,
             SemanticTokenType::STRING,
@@ -68,9 +68,9 @@ define_semantic_token_types![
 
 macro_rules! define_semantic_token_modifiers {
     ($(($ident:ident, $string:literal)),*$(,)?) => {
-        $(pub(crate) const $ident: SemanticTokenModifier = SemanticTokenModifier::new($string);)*
+        $(pub const $ident: SemanticTokenModifier = SemanticTokenModifier::new($string);)*
 
-        pub(crate) const SUPPORTED_MODIFIERS: &[SemanticTokenModifier] = &[
+        pub const SUPPORTED_MODIFIERS: &[SemanticTokenModifier] = &[
             SemanticTokenModifier::DOCUMENTATION,
             SemanticTokenModifier::DECLARATION,
             SemanticTokenModifier::DEFINITION,
