@@ -274,9 +274,10 @@ pub(crate) fn handle_semantic_tokens_full(
         &params.text_document.uri,
     )?);
     let ast_text = snapshot.ast_text(file)?;
-    Ok(Some(SemanticTokensResult::Tokens(
-        ast_text.semantic_tokens.clone(),
-    )))
+    Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
+        result_id: None,
+        data: convert::to_lsp_types::to_semantic_tokens(&ast_text.semantic_tokens),
+    })))
     // let _p = profile::span("handle_semantic_tokens_full");
 
     // let file_id = from_lsp_types::to_file_id(&snap, &params.text_document.uri)?;

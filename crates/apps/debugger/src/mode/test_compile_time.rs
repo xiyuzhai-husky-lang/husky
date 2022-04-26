@@ -24,7 +24,14 @@ pub(super) async fn test_compile_time(dir: PathBuf) {
             pack_path.as_os_str().to_str().unwrap(),
         );
         test_semantic_tokens(&pack_path, &compile_time).await;
-        test_diagnostics(&pack_path, &compile_time).await
+        test_diagnostics(&pack_path, &compile_time).await;
+        println!(
+            "    {}result{}: {}ok{}",
+            print_utils::CYAN,
+            print_utils::RESET,
+            print_utils::GREEN,
+            print_utils::RESET,
+        )
     }
 }
 
@@ -51,21 +58,24 @@ async fn test_semantic_tokens(pack_path: &Path, compile_time: &HuskyLangCompileT
             } else {
                 let text = fs::read_to_string(&semantic_tokens_table_path).unwrap();
                 let v: serde_json::Value = serde_json::from_str(&text).unwrap();
-                serde_json::from_value(v).unwrap()
+                match serde_json::from_value(v) {
+                    Ok(v) => v,
+                    Err(e) => {
+                        notify_deserialize_error(
+                            semantic_tokens_table,
+                            &text,
+                            &e,
+                            &semantic_tokens_table_path,
+                        );
+                        return;
+                    }
+                }
             };
         if semantic_tokens_table_on_disk != semantic_tokens_table {
             notify_change(
                 semantic_tokens_table,
                 semantic_tokens_table_on_disk,
                 &semantic_tokens_table_path,
-            )
-        } else {
-            println!(
-                "    {}result{}: {}ok{}",
-                print_utils::CYAN,
-                print_utils::RESET,
-                print_utils::GREEN,
-                print_utils::RESET,
             )
         }
     }
@@ -99,8 +109,7 @@ async fn test_diagnostics(pack_path: &Path, compile_time: &HuskyLangCompileTime)
             match serde_json::from_value(v) {
                 Ok(v) => v,
                 Err(e) => {
-                    p!(e);
-                    notify_change(diagnostics_table, text, &diagnostics_table_path);
+                    notify_deserialize_error(diagnostics_table, &text, &e, &diagnostics_table_path);
                     return;
                 }
             }
@@ -109,22 +118,13 @@ async fn test_diagnostics(pack_path: &Path, compile_time: &HuskyLangCompileTime)
             p!(diagnostics_table);
             p!(diagnostics_table_on_disk);
             todo!()
-        } else {
-            println!(
-                "    {}result{}: {}ok{}",
-                print_utils::CYAN,
-                print_utils::RESET,
-                print_utils::GREEN,
-                print_utils::RESET,
-            )
         }
     }
 }
 
-fn notify_change<T, S>(new: T, old: S, save_path: &Path)
+fn notify_change<T>(new: T, old: T, save_path: &Path)
 where
     T: std::fmt::Debug + Serialize,
-    S: std::fmt::Debug + Serialize,
 {
     // notify the difference between the old and the new
     // ask whether to update the old
@@ -138,6 +138,65 @@ where
     );
     print!("old = \n  {:?}\n", &old);
     print!("new = \n  {:?}\n", &new);
+    let accept: bool = loop {
+        print!("Do you want to accept change in saved data (y/n)? ");
+        let mut s = String::new();
+        let _ = stdout().flush();
+        stdin()
+            .read_line(&mut s)
+            .expect("Did not enter a correct string");
+        if let Some('\n') = s.chars().next_back() {
+            s.pop();
+        }
+        if let Some('\r') = s.chars().next_back() {
+            s.pop();
+        }
+        match &s as &str {
+            "y" => break true,
+            "n" => break false,
+            _ => println!("Invalid answer: {}", s),
+        }
+    };
+    if accept {
+        fs::write(save_path, serde_json::to_string(&new).unwrap()).expect("Error writing");
+    } else {
+        panic!("Change in saved data not accepted")
+    }
+}
+
+fn notify_deserialize_error<T>(
+    new: T,
+    old_text: &str,
+    e: &serde_json::error::Error,
+    save_path: &Path,
+) where
+    T: std::fmt::Debug + Serialize,
+{
+    // notify the difference between the old and the new
+    // ask whether to update the old
+    println!(
+        "{}Unable to deserialize saved data{} for file {}{:?}{},\n{}error{}:\n  {:?}",
+        print_utils::RED,
+        print_utils::RESET,
+        print_utils::GREEN,
+        save_path.as_os_str(),
+        print_utils::RESET,
+        print_utils::RED,
+        print_utils::RESET,
+        e
+    );
+    print!(
+        "{}old text{} = \n  {:?}\n",
+        print_utils::CYAN,
+        print_utils::RESET,
+        &old_text
+    );
+    print!(
+        "{}new{} = \n  {:?}\n",
+        print_utils::CYAN,
+        print_utils::RESET,
+        &new
+    );
     let accept: bool = loop {
         print!("Do you want to accept change in saved data (y/n)? ");
         let mut s = String::new();

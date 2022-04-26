@@ -51,7 +51,6 @@ fn collect_infer_ty_errors(
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let ty_sheet = db.entity_route_sheet(file).unwrap();
-    p!(ty_sheet.errors());
     for error in ty_sheet.errors() {
         diagnostics.push(error.into());
     }
@@ -63,7 +62,6 @@ fn collect_infer_contract_errors(
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let contract_sheet = db.contract_sheet(file).unwrap();
-    p!(contract_sheet.errors());
     for error in contract_sheet.errors() {
         diagnostics.push(error.into());
     }

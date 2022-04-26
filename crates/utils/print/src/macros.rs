@@ -60,7 +60,7 @@ macro_rules! msg_once {
         static ONCE: std::sync::Once = std::sync::Once::new();
         ONCE.call_once(|| {
             eprintln!(
-                "{}[message]{} {}, src: {}:{}\n",
+                "{}[message]{} {}, src: {}:{}",
                 print_utils::YELLOW,
                 print_utils::RESET,
                 $msg,
