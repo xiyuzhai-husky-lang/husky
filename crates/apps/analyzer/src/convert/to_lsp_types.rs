@@ -6,6 +6,7 @@ use std::{
 };
 
 use lsp_types::SemanticToken;
+use token::AbsSemanticToken;
 
 use crate::lsp_ext;
 
@@ -93,4 +94,8 @@ impl From<lsp_ext::SnippetTextEdit>
             None => lsp_types::OneOf::Left(lsp_types::TextEdit { range, new_text }),
         }
     }
+}
+
+pub(crate) fn to_semantic_tokens(abs_semantic_tokens: &[AbsSemanticToken]) -> Vec<SemanticToken> {
+    todo!()
 }
