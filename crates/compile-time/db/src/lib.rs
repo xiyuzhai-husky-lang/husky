@@ -48,7 +48,6 @@ use sync_utils::ARwLock;
     pack_semantics::PackQueryGroupStorage,
     feature::FeatureQueryGroupStorage,
     diagnostic::DiagnosticQueryGroupStorage,
-    highlight::HighlightQueryGroupStorage,
     instruction_gen::InstructionGenQueryGroupStorage,
     rust_gen::RustGenQueryStorage
 )]

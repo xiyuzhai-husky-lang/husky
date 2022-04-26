@@ -90,6 +90,7 @@ impl<'a> AstTransformer<'a> {
             file: self.file,
             arena: self.arena,
             folded_results: self.folded_results,
+            semantic_tokens: todo!(),
         }
     }
 
