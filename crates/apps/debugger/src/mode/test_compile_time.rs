@@ -2,8 +2,8 @@ use std::io::{stdin, stdout, Write};
 
 use super::*;
 use compile_time_db::*;
-use lsp_types::{SemanticToken, SemanticTokens};
 use serde::Serialize;
+use token::AbsSemanticToken;
 
 pub(super) async fn test_compile_time(dir: PathBuf) {
     let pack_paths = collect_pack_dirs(dir);
@@ -29,10 +29,10 @@ pub(super) async fn test_compile_time(dir: PathBuf) {
 }
 
 async fn test_semantic_tokens(pack_path: &Path, compile_time: &HuskyLangCompileTime) {
-    type SemanticTokensTable = HashMap<String, SemanticTokens>;
+    type SemanticTokensTable = HashMap<String, Vec<AbsSemanticToken>>;
 
     let modules = compile_time.all_modules();
-    let mut highlights_table = HashMap::<String, SemanticTokens>::new();
+    let mut highlights_table = HashMap::<String, Vec<AbsSemanticToken>>::new();
     for module in modules {
         let file = compile_time.module_file(module).unwrap();
         let ast_text = compile_time.ast_text(file).unwrap();

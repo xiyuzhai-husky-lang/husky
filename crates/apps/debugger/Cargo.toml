@@ -37,3 +37,4 @@ trace = { path = "../../runtime/trace", version = "0.0.0" }
 runtime-db = { path = "../../runtime/db", version = "0.0.0" }
 focus = { path = "../../runtime/focus", version = "0.0.0" }
 lsp-types = { version = "0.93", features = ["proposed"] }
+token = { path = "../../syntax/token", version = "0.0.0" }
