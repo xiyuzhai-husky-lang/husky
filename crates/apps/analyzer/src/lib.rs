@@ -5,7 +5,6 @@ mod convert;
 mod event_loop;
 mod init_connection;
 mod lsp_ext;
-mod semantic_tokens;
 mod server;
 mod server_capabilities;
 pub mod utils;

@@ -3,6 +3,7 @@ mod kind;
 mod line_token_iter;
 mod query;
 mod scanner;
+mod semantic_token;
 mod special;
 #[cfg(test)]
 mod tests;
@@ -11,6 +12,7 @@ mod tokenized_text;
 pub use error::*;
 pub use kind::TokenKind;
 pub use query::{TokenQueryGroup, TokenQueryGroupStorage};
+pub use semantic_token::*;
 pub use special::Special;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
@@ -22,6 +24,11 @@ use word::{Identifier, RangedCustomIdentifier};
 pub struct Token {
     pub range: TextRange,
     pub kind: TokenKind,
+}
+
+pub struct SemanticToken {
+    pub tokens: std::ops::Range<usize>,
+    pub text_range: TextRange,
 }
 
 impl std::fmt::Debug for Token {

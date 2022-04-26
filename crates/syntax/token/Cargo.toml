@@ -16,3 +16,4 @@ file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
+lsp-types = { version = "0.93", features = ["proposed"] }
