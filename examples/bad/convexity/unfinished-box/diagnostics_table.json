@@ -1,0 +1,1 @@
+{"unfinished_box":[{"severity":"Error","range":{"start":{"row":8,"col":13},"end":{"row":8,"col":14}},"message":"Ast Error: last atom is not right convex","dev_src":{"file":"crates/syntax/atom/src/parser.rs","line":199}}]}

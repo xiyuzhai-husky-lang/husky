@@ -72,7 +72,8 @@ async fn test(dir: PathBuf) {
         );
         test_semantic_tokens(&pack_path, &compile_time).await;
         if test_diagnostics(&pack_path, &compile_time).await {
-            return;
+            report_result_ok();
+            continue;
         }
         let error_flag =
             Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, pack_path))
@@ -81,12 +82,16 @@ async fn test(dir: PathBuf) {
         if error_flag {
             return;
         }
-        println!(
-            "    {}result{}: {}ok{}",
-            print_utils::CYAN,
-            print_utils::RESET,
-            print_utils::GREEN,
-            print_utils::RESET,
-        )
+        report_result_ok();
     }
+}
+
+fn report_result_ok() {
+    println!(
+        "    {}result{}: {}ok{}",
+        print_utils::CYAN,
+        print_utils::RESET,
+        print_utils::GREEN,
+        print_utils::RESET,
+    )
 }

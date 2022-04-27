@@ -1,0 +1,1 @@
+{"example1":[{"severity":"Error","range":{"start":{"row":7,"col":17},"end":{"row":7,"col":18}},"message":"Lex Error: expect indentated lines after `:`","dev_src":{"file":"crates/syntax/token/src/scanner.rs","line":92}}]}
