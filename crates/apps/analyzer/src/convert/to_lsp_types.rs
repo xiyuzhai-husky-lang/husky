@@ -6,7 +6,7 @@ use std::{
 };
 
 use lsp_types::SemanticToken;
-use token::AbsSemanticToken;
+use token::{AbsSemanticToken, AbsSemanticTokenKind};
 
 use crate::lsp_ext;
 
@@ -97,5 +97,29 @@ impl From<lsp_ext::SnippetTextEdit>
 }
 
 pub(crate) fn to_semantic_tokens(abs_semantic_tokens: &[AbsSemanticToken]) -> Vec<SemanticToken> {
-    todo!()
+    let mut semantic_tokens = vec![];
+    let mut last_line = 0;
+    let mut last_start = 0;
+    for abs_semantic_token in abs_semantic_tokens {
+        let new_line = abs_semantic_token.range.start.i();
+        let new_start = abs_semantic_token.range.start.j();
+        let length = abs_semantic_token.range.end.j() - new_start;
+        let token_type = match abs_semantic_token.kind {
+            AbsSemanticTokenKind::Field => todo!(),
+        };
+        semantic_tokens.push(SemanticToken {
+            delta_line: new_line - last_line,
+            delta_start: if new_line > last_line {
+                new_start
+            } else {
+                new_start - last_start
+            },
+            length,
+            token_type,
+            token_modifiers_bitset: todo!(),
+        });
+        last_line = new_start;
+        last_start = new_start
+    }
+    semantic_tokens
 }

@@ -3,8 +3,8 @@ use text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct AbsSemanticToken {
-    kind: AbsSemanticTokenKind,
-    range: TextRange,
+    pub kind: AbsSemanticTokenKind,
+    pub range: TextRange,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
