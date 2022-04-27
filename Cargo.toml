@@ -10,7 +10,8 @@ members = [
     "crates/ide/*",
     "crates/apps/*",
     "crates/try",
-    "rust-gen/*",
+    # "rust-gen/*",
+
 ]
 default-members = [
     "crates/utils/*",

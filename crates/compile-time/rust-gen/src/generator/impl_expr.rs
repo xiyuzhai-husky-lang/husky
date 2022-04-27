@@ -34,7 +34,7 @@ impl<'a> RustGenerator<'a> {
                 },
                 EagerOpnKind::RoutineCall(_) => todo!(),
                 EagerOpnKind::TypeCall { ranged_ty, ty_decl } => {
-                    self.gen_scope(ranged_ty.route);
+                    self.gen_entity_route(ranged_ty.route);
                     self.write("::");
                     self.write("__call__(");
                     self.gen_arguments(opds);
@@ -55,7 +55,16 @@ impl<'a> RustGenerator<'a> {
                     self.gen_arguments(&opds[1..]);
                     self.write(")");
                 }
-                EagerOpnKind::ElementAccess => todo!(),
+                EagerOpnKind::ElementAccess => {
+                    self.gen_expr(&opds[0]);
+                    self.write("[");
+                    if opds.len() > 2 {
+                        todo!()
+                    } else {
+                        self.gen_expr(&opds[1])
+                    }
+                    self.write("]");
+                }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
         }

@@ -38,10 +38,10 @@ impl<'a> RustGenerator<'a> {
                 InputContract::Exec => todo!(),
                 InputContract::MemberAccess => todo!(),
             }
-            self.gen_scope(input_placeholder.ranged_ty.route);
+            self.gen_entity_route(input_placeholder.ranged_ty.route);
         }
         self.write(") -> ");
-        self.gen_scope(output);
+        self.gen_entity_route(output);
         self.write(" {\n");
         self.gen_proc_stmts(stmts, 4);
         self.write("}\n");
@@ -79,10 +79,10 @@ impl<'a> RustGenerator<'a> {
                 InputContract::Exec => todo!(),
                 InputContract::MemberAccess => todo!(),
             }
-            self.gen_scope(input_placeholder.ranged_ty.route);
+            self.gen_entity_route(input_placeholder.ranged_ty.route);
         }
         self.write(") -> ");
-        self.gen_scope(output);
+        self.gen_entity_route(output);
         self.write(" {\n");
         self.gen_func_stmts(stmts, 4);
         self.write("}\n");
