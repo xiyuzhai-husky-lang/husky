@@ -1,4 +1,4 @@
-[![build badge](https://github.com/xiyuzhai/husky/actions/workflows/rust.yml/badge.svg?branch=master)](https://github.com/xiyuzhai/husky/actions/workflows/rust.yml)
+[![build badge](https://github.com/xiyuzhai/husky/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/xiyuzhai/husky/actions/workflows/rust.yml)
 
 # husky
 The Husky Programming Language
