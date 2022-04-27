@@ -1,27 +1,27 @@
-mod test_compile_time;
-mod test_runtime;
+mod notify;
+mod test_diagnostics;
+mod test_semantic_tokens;
 
 use crate::*;
 use compile_time_db::HuskyLangCompileTime;
 use diagnostic::Diagnostic;
+use notify::*;
 use path_utils::collect_pack_dirs;
 use std::{fs, path::PathBuf};
-use test_compile_time::*;
-use test_runtime::*;
+use test_diagnostics::*;
+use test_semantic_tokens::*;
 
 #[derive(Debug)]
 pub enum Mode {
     Run,
-    TestCompileTime,
-    TestRuntime,
+    Test,
 }
 
 impl Mode {
     pub async fn run(&self, dir: PathBuf) {
         match self {
             Mode::Run => run(dir).await,
-            Mode::TestRuntime => test_runtime(dir).await,
-            Mode::TestCompileTime => test_compile_time(dir).await,
+            Mode::Test => test(dir).await,
         }
     }
 }
@@ -30,8 +30,7 @@ impl From<Option<String>> for Mode {
     fn from(opt_str: Option<String>) -> Self {
         if let Some(ref s) = opt_str {
             match s.as_str() {
-                "test-runtime" => Mode::TestRuntime,
-                "test-compile-time" => Mode::TestCompileTime,
+                "test" => Mode::Test,
                 "run" => Mode::Run,
                 _ => panic!(),
             }
@@ -50,4 +49,44 @@ async fn run(path: PathBuf) {
 
 fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: PathBuf) {
     compile_time.load_pack(path)
+}
+
+async fn test(dir: PathBuf) {
+    assert!(dir.is_dir());
+    let pack_paths = collect_pack_dirs(dir);
+    println!(
+        "\n{}Running{} tests on {} example packages:",
+        print_utils::CYAN,
+        print_utils::RESET,
+        pack_paths.len()
+    );
+
+    for pack_path in pack_paths {
+        let mut compile_time = HuskyLangCompileTime::default();
+        init_compile_time_from_dir(&mut compile_time, pack_path.to_path_buf());
+        println!(
+            "\n{}test{} {}",
+            print_utils::CYAN,
+            print_utils::RESET,
+            pack_path.as_os_str().to_str().unwrap(),
+        );
+        test_semantic_tokens(&pack_path, &compile_time).await;
+        if test_diagnostics(&pack_path, &compile_time).await {
+            return;
+        }
+        let error_flag =
+            Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, pack_path))
+                .serve_on_error("localhost:51617", 0)
+                .await;
+        if error_flag {
+            return;
+        }
+        println!(
+            "    {}result{}: {}ok{}",
+            print_utils::CYAN,
+            print_utils::RESET,
+            print_utils::GREEN,
+            print_utils::RESET,
+        )
+    }
 }
