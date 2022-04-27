@@ -8,14 +8,14 @@ macro_rules! identify {
 }
 pub(super) use identify;
 
-macro_rules! expect {
+macro_rules! must_be {
     ($cond:expr, $msg: expr, $range:expr) => {
         if !$cond {
             err!($msg, $range)?
         }
     };
 }
-pub(super) use expect;
+pub(super) use must_be;
 
 macro_rules! expect_kind {
     ($token:expr, $kind:expr) => {

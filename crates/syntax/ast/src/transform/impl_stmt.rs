@@ -33,8 +33,8 @@ impl<'a> AstTransformer<'a> {
                 }
                 StmtKeyword::Elif => todo!(),
                 StmtKeyword::Else => {
-                    expect!(token_group.len() == 2, "expect one tokens after", kw_range);
-                    expect!(
+                    must_be!(token_group.len() == 2, "expect one tokens after", kw_range);
+                    must_be!(
                         token_group[1].kind == TokenKind::Special(Special::Colon),
                         "expect `:`",
                         token_group[1].range
@@ -51,11 +51,11 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Do => self.parse_do_while_loop(token_group)?,
                 StmtKeyword::Break => todo!(),
                 StmtKeyword::Return => {
-                    expect!(token_group.len() >= 2, "expect some tokens after", kw_range);
+                    must_be!(token_group.len() >= 2, "expect some tokens after", kw_range);
                     RawStmtKind::Return(self.parse_expr(&token_group[1..])?)
                 }
                 StmtKeyword::Assert => {
-                    expect!(token_group.len() >= 2, "expect some tokens after", kw_range);
+                    must_be!(token_group.len() >= 2, "expect some tokens after", kw_range);
                     RawStmtKind::Assert(self.parse_expr(&token_group[1..])?)
                 }
             },
