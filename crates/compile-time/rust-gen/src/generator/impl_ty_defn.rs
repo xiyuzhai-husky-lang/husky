@@ -45,7 +45,7 @@ impl<'a> RustGenerator<'a> {
                         FieldContract::LazyOwn => todo!(),
                     }
 
-                    self.gen_scope(ty);
+                    self.gen_entity_route(ty);
                     match field_variant {
                         FieldDefnVariant::StructOriginal => (),
                         FieldDefnVariant::RecordOriginal => (),

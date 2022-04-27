@@ -3,12 +3,12 @@ use entity_route::*;
 use super::*;
 
 impl<'a> RustGenerator<'a> {
-    pub(super) fn gen_scope(&mut self, scope: EntityRoutePtr) {
+    pub(super) fn gen_entity_route(&mut self, scope: EntityRoutePtr) {
         match scope.kind {
             EntityRouteKind::Root { ident } => self.result += &ident,
             EntityRouteKind::Package { .. } => self.write("crate"),
             EntityRouteKind::Child { parent, ident } => {
-                self.gen_scope(parent);
+                self.gen_entity_route(parent);
                 self.write("::");
                 self.write(&ident)
             }
@@ -22,7 +22,18 @@ impl<'a> RustGenerator<'a> {
             } => todo!(),
         }
         if scope.generic_arguments.len() > 0 {
-            todo!()
+            self.write("<");
+            for i in 0..scope.generic_arguments.len() {
+                if i > 0 {
+                    self.write(", ")
+                }
+                match scope.generic_arguments[i] {
+                    GenericArgument::Const(_) => todo!(),
+                    GenericArgument::EntityRoute(entity_route) => {
+                        self.gen_entity_route(entity_route)
+                    }
+                }
+            }
         }
     }
 }

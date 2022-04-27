@@ -3,6 +3,7 @@ examples_dir=/home/xiyuzhai/Documents/husky/examples
 
 test-examples:
 	cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test
+	cargo run --bin husky-lang-compiler $(examples_dir)/good
 
 test-examples-with-backtrace:
 	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test
