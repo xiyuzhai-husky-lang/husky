@@ -3,4 +3,4 @@ The Husky Programming Language
 
 Make vision interpretable again!
 
-![example workflow](https://github.com/xiyuzhai/husky/action/workflows/rust.yml/badge.svg)
+[![build badge](https://github.com/xiyuzhai/husky/actions/workflows/rust.yml/badge.svg?branch=master)](https://github.com/xiyuzhai/husky/actions/workflows/rust.yml)
