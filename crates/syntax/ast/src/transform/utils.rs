@@ -19,7 +19,7 @@ pub(super) use must_be;
 
 macro_rules! expect_kind {
     ($token:expr, $kind:expr) => {
-        expect!(
+        must_be!(
             $token.kind == TokenKind::Special($kind),
             format!("expect `{}`", $kind.code()),
             $token.range
@@ -37,7 +37,7 @@ pub(super) use expect_block_head;
 
 macro_rules! expect_at_least {
     ($tokens:expr, $kw_range:expr, $lower_bound:expr) => {
-        expect!(
+        must_be!(
             $tokens.len() >= $lower_bound,
             format!(
                 "expect at least {} tokens after keyword, but got {} tokens instead",
@@ -52,7 +52,7 @@ pub(super) use expect_at_least;
 
 macro_rules! expect_len {
     ($tokens:expr,  $len:expr) => {
-        expect!(
+        must_be!(
             $tokens.len() == $len,
             format!(
                 "expect {} tokens after keyword, but got {} tokens instead",
