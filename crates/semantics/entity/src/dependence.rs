@@ -118,7 +118,7 @@ impl EntityDefn {
                 extract_proc_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Type {
-                ref type_members,
+                ty_members: ref type_members,
                 ref variants,
                 kind,
                 ref trait_impls,

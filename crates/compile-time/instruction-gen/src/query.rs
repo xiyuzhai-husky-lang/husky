@@ -80,7 +80,7 @@ fn method_instruction_sheet(
         EntityDefnVariant::Func { .. } => todo!(),
         EntityDefnVariant::Proc { .. } => todo!(),
         EntityDefnVariant::Type {
-            ref type_members,
+            ty_members: ref type_members,
             ref variants,
             kind,
             ref trait_impls,
