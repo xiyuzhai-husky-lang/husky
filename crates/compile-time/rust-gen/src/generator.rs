@@ -55,7 +55,7 @@ impl<'a> RustGenerator<'a> {
                     stmts,
                 ),
                 EntityDefnVariant::Type {
-                    ref type_members,
+                    ref ty_members,
                     ref variants,
                     kind,
                     ref trait_impls,
@@ -64,8 +64,7 @@ impl<'a> RustGenerator<'a> {
                 } => match kind {
                     TyKind::Enum => self.gen_enum_defn(entity.ident.custom(), variants),
                     TyKind::Struct => {
-                        todo!()
-                        // self.gen_struct_defn(entity.ident.custom(), &ty.fields, &ty.methods)
+                        self.gen_struct_defn(entity.ident.custom(), ty_members, trait_impls)
                     }
                     TyKind::Record { .. } => (),
                     TyKind::Primitive => todo!(),

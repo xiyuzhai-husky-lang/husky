@@ -148,7 +148,7 @@ pub enum EntityDefnVariant {
     },
     Type {
         generic_placeholders: IdentDict<GenericPlaceholder>,
-        type_members: IdentDict<Arc<EntityDefn>>,
+        ty_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
@@ -395,7 +395,8 @@ pub(crate) fn entity_defn(
                 let ty_defn = db.entity_defn(ty).unwrap();
                 match ty_defn.variant {
                     EntityDefnVariant::Type {
-                        ref type_members, ..
+                        ty_members: ref type_members,
+                        ..
                     } => Ok(type_members[ident].clone()),
                     _ => panic!(),
                 }

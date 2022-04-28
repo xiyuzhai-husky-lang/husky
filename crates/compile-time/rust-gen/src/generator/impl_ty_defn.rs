@@ -1,6 +1,8 @@
 use infer_decl::FieldDecl;
-use semantics_entity::{EnumVariantDefnVariant, FieldDefnVariant};
-use vm::FieldContract;
+use semantics_entity::{
+    EnumVariantDefnVariant, FieldDefnVariant, MethodDefnVariant, MethodSource, TraitImplDefn,
+};
+use vm::{FieldContract, InputContract};
 use word::CustomIdentifier;
 
 use super::*;
@@ -25,43 +27,50 @@ impl<'a> RustGenerator<'a> {
         self.result += "}\n";
     }
 
-    pub(super) fn gen_struct_defn(&mut self, tyname: CustomIdentifier, members: &[EntityDefn]) {
+    pub(super) fn gen_struct_defn(
+        &mut self,
+        tyname: CustomIdentifier,
+        ty_members: &[Arc<EntityDefn>],
+        trait_impls: &[Arc<TraitImplDefn>],
+    ) {
         self.result += "pub struct ";
         self.result += tyname.0;
         self.result += " {\n";
-        for member in members {
-            self.result += "    pub(crate) ";
-            self.result += &member.ident;
-            self.result += ": ";
+        let mut member_iter = ty_members.iter().peekable();
+        while let Some(member) = member_iter.peek() {
             match member.variant {
                 EntityDefnVariant::TypeField {
                     ty,
                     ref field_variant,
                     contract,
                 } => {
+                    match field_variant {
+                        FieldDefnVariant::StructOriginal => (),
+                        FieldDefnVariant::StructDerived { .. } => break,
+                        _ => panic!(),
+                    }
+                    self.result += "    pub(crate) ";
+                    self.result += &member.ident;
+                    self.result += ": ";
                     match contract {
                         FieldContract::Own => (),
                         FieldContract::GlobalRef => todo!(),
                         FieldContract::LazyOwn => todo!(),
                     }
-
                     self.gen_entity_route(ty);
-                    match field_variant {
-                        FieldDefnVariant::StructOriginal => (),
-                        FieldDefnVariant::RecordOriginal => (),
-                        FieldDefnVariant::StructDerived { ref stmts } => todo!(),
-                        FieldDefnVariant::RecordDerived { ref stmts } => todo!(),
-                    }
+                    self.write(",\n");
                 }
-                _ => todo!(),
+                EntityDefnVariant::Method { .. } => break,
+                _ => panic!(),
             }
+            member_iter.next();
         }
         self.result += "}\n";
         // impl member routines
-        self.write("\nimpl ");
-        self.write(&tyname);
-        self.write(" {\n");
-        self.write("}\n");
+        self.gen_struct_methods(tyname, member_iter);
+        for trait_impl in trait_impls {
+            self.gen_trait_impl(tyname, trait_impl)
+        }
     }
 
     // fn gen_struct_call(&mut self, fields: &[FieldDefn]) {
@@ -91,46 +100,97 @@ impl<'a> RustGenerator<'a> {
     //     self.write("    }\n");
     // }
 
-    // fn gen_struct_field_routines(&mut self, methods: &[MethodDefn]) {
-    //     for method in methods {
-    //         self.write("\n    pub(crate) fn ");
-    //         self.write(&method.ident);
-    //         self.write("(");
-    //         match method.this_contract {
-    //             InputContract::Pure => self.write("&self"),
-    //             InputContract::GlobalRef => todo!(),
-    //             InputContract::Move => todo!(),
-    //             InputContract::BorrowMut => todo!(),
-    //             InputContract::MoveMut => todo!(),
-    //             InputContract::Exec => todo!(),
-    //         }
-    //         for input_placeholder in method.input_placeholders.iter() {
-    //             self.write(", ");
-    //             self.write(&input_placeholder.ident);
-    //             self.write(": ");
-    //             match input_placeholder.contract {
-    //                 InputContract::Pure => {
-    //                     if !self.db.is_copyable(input_placeholder.ranged_ty.route) {
-    //                         self.write("&")
-    //                     }
-    //                 }
-    //                 InputContract::GlobalRef => todo!(),
-    //                 InputContract::Move => todo!(),
-    //                 InputContract::BorrowMut => todo!(),
-    //                 InputContract::MoveMut => todo!(),
-    //                 InputContract::Exec => todo!(),
-    //             }
-    //             self.gen_scope(input_placeholder.ranged_ty.route);
-    //         }
-    //         self.write(") -> ");
-    //         self.gen_scope(method.output.route);
-    //         self.write(" {\n");
-    //         match method.variant {
-    //             MethodDefnVariant::Func { ref stmts } => self.gen_func_stmts(stmts, 8),
-    //             MethodDefnVariant::Proc { ref stmts } => todo!(),
-    //             MethodDefnVariant::Pattern { ref stmts } => todo!(),
-    //         }
-    //         self.write("    }\n");
-    //     }
-    // }
+    fn gen_struct_methods<'b>(
+        &mut self,
+        tyname: CustomIdentifier,
+        methods: impl Iterator<Item = &'b Arc<EntityDefn>>,
+    ) {
+        self.write("\nimpl ");
+        self.write(&tyname);
+        self.write(" {\n");
+        let mut start_flag = true;
+        for method in methods {
+            match method.variant {
+                EntityDefnVariant::Method {
+                    ref generic_placeholders,
+                    this_contract,
+                    ref input_placeholders,
+                    output_ty,
+                    output_contract,
+                    ref method_variant,
+                } => {
+                    match method_variant {
+                        MethodDefnVariant::TypeMethod { ty, method_source } => {
+                            match method_source {
+                                MethodSource::Func { .. } | MethodSource::Proc { .. } => (),
+                                MethodSource::Pattern { .. } => continue,
+                                MethodSource::Static(_) => panic!(),
+                            }
+                        }
+                        _ => panic!(),
+                    }
+                    if start_flag {
+                        start_flag = false
+                    } else {
+                        self.write("\n")
+                    }
+                    self.write("    pub(crate) fn ");
+                    self.write(&method.ident);
+                    self.write("(");
+                    match this_contract {
+                        InputContract::Pure => self.write("&self"),
+                        InputContract::GlobalRef => todo!(),
+                        InputContract::Move => todo!(),
+                        InputContract::BorrowMut => todo!(),
+                        InputContract::MoveMut => todo!(),
+                        InputContract::Exec => todo!(),
+                        InputContract::MemberAccess => todo!(),
+                    }
+                    for input_placeholder in input_placeholders.iter() {
+                        self.write(", ");
+                        self.write(&input_placeholder.ident);
+                        self.write(": ");
+                        match input_placeholder.contract {
+                            InputContract::Pure => {
+                                if !self
+                                    .db
+                                    .is_copy_constructible(input_placeholder.ranged_ty.route)
+                                {
+                                    self.write("&")
+                                }
+                            }
+                            InputContract::GlobalRef => todo!(),
+                            InputContract::Move => todo!(),
+                            InputContract::BorrowMut => todo!(),
+                            InputContract::MoveMut => todo!(),
+                            InputContract::Exec => todo!(),
+                            InputContract::MemberAccess => todo!(),
+                        }
+                        self.gen_entity_route(input_placeholder.ranged_ty.route);
+                    }
+                    self.write(") -> ");
+                    self.gen_entity_route(output_ty.route);
+                    self.write(" {\n");
+                    match method_variant {
+                        MethodDefnVariant::TypeMethod { ty, method_source } => {
+                            match method_source {
+                                MethodSource::Func { stmts } => self.gen_func_stmts(stmts, 8),
+                                MethodSource::Proc { stmts } => self.gen_proc_stmts(stmts, 8),
+                                MethodSource::Pattern { stmts } => todo!(),
+                                MethodSource::Static(_) => todo!(),
+                            }
+                        }
+                        _ => panic!(),
+                    }
+                    self.write("    }\n");
+                }
+                _ => panic!(),
+            }
+        }
+        self.write("}\n");
+    }
+
+    fn gen_trait_impl(&mut self, tyname: CustomIdentifier, trait_impl: &TraitImplDefn) {
+        todo!()
+    }
 }

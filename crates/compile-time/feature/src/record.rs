@@ -33,7 +33,7 @@ pub(crate) fn expr_record_field(
         } => match entity.variant {
             EntityDefnVariant::Type {
                 kind,
-                ref type_members,
+                ty_members: ref type_members,
                 ref variants,
                 ref trait_impls,
                 ref members,

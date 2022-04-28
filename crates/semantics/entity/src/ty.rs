@@ -136,7 +136,7 @@ impl EntityDefnVariant {
         let members = collect_all_members(&type_members, &trait_impls);
         EntityDefnVariant::Type {
             generic_placeholders,
-            type_members,
+            ty_members: type_members,
             variants,
             kind,
             trait_impls,
