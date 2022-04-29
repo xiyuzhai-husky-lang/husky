@@ -1,6 +1,6 @@
 use super::utils::*;
 use crate::*;
-use token::{Special, Token, TokenKind};
+use token::*;
 use vm::FieldContract;
 
 impl<'a> AstTransformer<'a> {
@@ -30,7 +30,7 @@ impl<'a> AstTransformer<'a> {
             if token_group.len() == 2 {
                 todo!()
             }
-            let ident = identify!(&token_group[0]);
+            let ident = identify!(self, &token_group[0], SemanticTokenKind::Field);
             let symbol_context = self.symbol_context();
             let ty = atom::parse_ty(&symbol_context, &token_group[2..])?;
             msg_once!("field contract");
@@ -53,7 +53,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         enter_block(self);
         self.env.set_value(AstContext::Morphism);
-        let ident = identify!(&token_group[1]);
+        let ident = identify!(self, &token_group[1], SemanticTokenKind::Field);
         msg_once!("field contract");
         let ty = atom::parse_ty(&self.symbol_context(), &token_group[3..])?;
         Ok(AstKind::FieldDefnHead(FieldDefnHead {

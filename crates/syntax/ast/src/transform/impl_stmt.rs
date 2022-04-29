@@ -5,7 +5,7 @@ use crate::{
 };
 use atom::symbol::{Symbol, SymbolKind};
 use text::{TextRange, TextRanged};
-use token::{Special, Token, TokenKind};
+use token::{SemanticTokenKind, Special, Token, TokenKind};
 use vm::BinaryOpr;
 
 impl<'a> AstTransformer<'a> {
@@ -75,7 +75,7 @@ impl<'a> AstTransformer<'a> {
             | AstContext::Func => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
-                    let varname = identify!(token_group[0]);
+                    let varname = identify!(self, token_group[0], SemanticTokenKind::Variable);
                     self.symbols
                         .push(Symbol::var(varname, token_group[0].row()));
                     RawStmt {
@@ -126,7 +126,7 @@ impl<'a> AstTransformer<'a> {
             InitKind::Decl => todo!(),
         }
         expect_at_least!(tokens, kw_range, 3);
-        let varname = identify!(&tokens[0]);
+        let varname = identify!(self, &tokens[0], SemanticTokenKind::Variable);
         self.symbols.push(Symbol::var(varname, tokens[0].row()));
         expect_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;

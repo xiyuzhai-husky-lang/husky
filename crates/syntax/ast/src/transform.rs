@@ -1,3 +1,4 @@
+mod impl_abs_semantic_token;
 mod impl_class_item;
 mod impl_enum_item;
 mod impl_expr;

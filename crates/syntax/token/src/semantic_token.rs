@@ -60,6 +60,7 @@ pub enum SemanticTokenKind {
     FrameVariable,
     Entity(EntityKind),
     GenericPlaceholder,
+    EnumVariant,
 }
 
 impl SemanticTokenKind {
@@ -89,6 +90,7 @@ impl SemanticTokenKind {
             },
             SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,
             SemanticTokenKind::Parameter => SemanticTokenType::PARAMETER,
+            SemanticTokenKind::EnumVariant => SemanticTokenType::ENUM_MEMBER,
         })
     }
 }

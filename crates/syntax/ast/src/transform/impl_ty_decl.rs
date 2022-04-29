@@ -36,7 +36,11 @@ impl<'a> AstTransformer<'a> {
         expect_head!(tokens);
         msg_once!("struct generic placeholders");
         Ok(AstKind::TypeDefnHead {
-            ident: identify!(tokens[1]),
+            ident: identify!(
+                self,
+                tokens[1],
+                SemanticTokenKind::Entity(EntityKind::Type(TyKind::Struct))
+            ),
             kind: TyKind::Struct,
             generic_placeholders: Default::default(),
         })
@@ -60,7 +64,11 @@ impl<'a> AstTransformer<'a> {
         expect_head!(tokens);
         msg_once!("record generic placeholders");
         Ok(AstKind::TypeDefnHead {
-            ident: identify!(tokens[1]),
+            ident: identify!(
+                self,
+                tokens[1],
+                SemanticTokenKind::Entity(EntityKind::Type(TyKind::Record))
+            ),
             kind: TyKind::Record,
             generic_placeholders: Default::default(),
         })
@@ -72,7 +80,11 @@ impl<'a> AstTransformer<'a> {
         expect_head!(tokens);
         msg_once!("record generic placeholders");
         Ok(AstKind::TypeDefnHead {
-            ident: identify!(tokens[1]),
+            ident: identify!(
+                self,
+                tokens[1],
+                SemanticTokenKind::Entity(EntityKind::Type(TyKind::Enum))
+            ),
             kind: TyKind::Enum,
             generic_placeholders: Default::default(),
         })
