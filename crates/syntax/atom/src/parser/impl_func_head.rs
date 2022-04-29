@@ -6,7 +6,6 @@ use defn_head::{
     TypeMethodDefnHead,
 };
 use entity_route::*;
-use print_utils::msg_once;
 use vm::{InputContract, OutputContract};
 use word::IdentDict;
 

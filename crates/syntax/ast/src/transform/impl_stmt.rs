@@ -160,7 +160,6 @@ impl<'a> AstTransformer<'a> {
                                     frame_var,
                                     pure_binary,
                                     opds.end - 1,
-                                    self.file,
                                     expr.range(),
                                 )?
                                 .into(),
@@ -172,7 +171,6 @@ impl<'a> AstTransformer<'a> {
                                     opds.start,
                                     pure_binary,
                                     frame_var,
-                                    self.file,
                                     expr.range(),
                                 )?
                                 .into(),

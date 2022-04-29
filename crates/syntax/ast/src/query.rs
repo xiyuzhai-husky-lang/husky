@@ -1,15 +1,12 @@
+use crate::*;
 use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
 use lsp_types::FoldingRange;
-use map_collect::MapCollect;
 use std::sync::Arc;
 use token::AbsSemanticToken;
 use upcast::Upcast;
-
-use crate::*;
-use atom::symbol::{Symbol, SymbolContext};
 
 #[salsa::query_group(AstQueryGroupStorage)]
 pub trait AstSalsaQueryGroup: EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> {

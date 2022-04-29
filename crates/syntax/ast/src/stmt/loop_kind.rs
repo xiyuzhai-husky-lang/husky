@@ -1,4 +1,3 @@
-use file::FilePtr;
 use vm::{BoundaryKind, LoopStep, PureBinaryOpr};
 
 use crate::*;
@@ -69,7 +68,6 @@ impl RawLoopKind {
         frame_var: CustomIdentifier,
         comparison: PureBinaryOpr,
         final_bound: RawExprIdx,
-        file: FilePtr,
         range: TextRange,
     ) -> AstResult<Self> {
         let final_boundary_kind = match comparison {
@@ -98,7 +96,6 @@ impl RawLoopKind {
         initial_bound: RawExprIdx,
         comparison: PureBinaryOpr,
         frame_var: CustomIdentifier,
-        file: FilePtr,
         range: TextRange,
     ) -> AstResult<Self> {
         let initial_boundary_kind = match comparison {
@@ -156,24 +153,6 @@ impl RawLoopKind {
     pub fn do_while_loop(condition: RawExprIdx) -> Self {
         Self::DoWhile { condition }
     }
-    // match pure_binary {
-    //     PureBinaryOpr::Geq => todo!(),
-    //     PureBinaryOpr::Greater => todo!(),
-    //     PureBinaryOpr::Leq => todo!(),
-    //     PureBinaryOpr::Less => {
-    //         let frame_var = match lopd.kind {
-    //             RawExprKind::Variable(ident) => ident,
-    //             RawExprKind::Unrecognized(_) => todo!(),
-    //             RawExprKind::Scope { scope, kind } => todo!(),
-    //             RawExprKind::Literal(_) => todo!(),
-    //             RawExprKind::Bracketed(_) => todo!(),
-    //             RawExprKind::Opn { opr, ref opds } => todo!(),
-    //             RawExprKind::Lambda(_, _) => todo!(),
-    //         };
-    //         todo!()
-    //     }
-    //     _ => todo!(),
-    // }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

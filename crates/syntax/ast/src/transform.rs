@@ -46,16 +46,9 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
             env: LocalValue::new(match module.kind {
-                EntityRouteKind::Package { main, ident } => AstContext::Package(main),
+                EntityRouteKind::Package { main, .. } => AstContext::Package(main),
                 EntityRouteKind::Child { .. } => AstContext::Module(module),
-                EntityRouteKind::Root { .. } | EntityRouteKind::Input { .. } => panic!(),
-                EntityRouteKind::Generic { ident, .. } => todo!(),
-                EntityRouteKind::ThisType => todo!(),
-                EntityRouteKind::TypeAsTraitMember {
-                    ty: parent,
-                    trai,
-                    ident,
-                } => todo!(),
+                _ => panic!(),
             }),
             this: LocalValue::new(None),
             abs_semantic_tokens: vec![],
@@ -75,13 +68,9 @@ impl<'a> AstTransformer<'a> {
                         ident,
                         kind: SymbolKind::EntityRoute(*route),
                     }),
-                    EntityRouteKind::Generic { ident, .. } => todo!(),
-                    EntityRouteKind::ThisType => todo!(),
-                    EntityRouteKind::TypeAsTraitMember {
-                        ty: parent,
-                        trai,
-                        ident,
-                    } => todo!(),
+                    EntityRouteKind::Generic { .. } => panic!(),
+                    EntityRouteKind::ThisType => panic!(),
+                    EntityRouteKind::TypeAsTraitMember { .. } => panic!(),
                 }
             }
             symbols
