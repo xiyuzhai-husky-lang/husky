@@ -1,7 +1,3 @@
-use std::mem::MaybeUninit;
-
-use print_utils::{epin, p};
-
 pub struct Pool<T, const BLOCK_SIZE: usize> {
     blocks: Vec<Block<T, BLOCK_SIZE>>,
 }
@@ -71,6 +67,7 @@ fn test_pool() {
 
 #[test]
 fn test_pool2() {
+    use print_utils::*;
     let mut pool = Pool::<i32, 10000>::default();
     p!(std::mem::size_of::<Pool<i32, 10000>>());
     unsafe {
