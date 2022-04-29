@@ -1,7 +1,13 @@
 macro_rules! identify {
-    ($token:expr) => {{
+    ($this: expr, $token:expr, $semantic_token_kind: expr) => {{
         match $token.kind {
-            TokenKind::Identifier(Identifier::Custom(ident)) => ident,
+            TokenKind::Identifier(Identifier::Custom(ident)) => {
+                $this.push_abs_semantic_token(token::AbsSemanticToken::new(
+                    $semantic_token_kind,
+                    $token.range,
+                ));
+                ident
+            }
             _ => err!("expect `<custom_identifier>`", $token.range)?,
         }
     }};
