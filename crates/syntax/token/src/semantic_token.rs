@@ -30,7 +30,6 @@ impl AbsSemanticToken {
             let new_line = abs_semantic_token.range.start.i();
             let new_start = abs_semantic_token.range.start.j();
             let length = abs_semantic_token.range.end.j() - new_start;
-            p!(new_line, last_line);
             let delta_line = new_line - last_line;
             let delta_start = if new_line > last_line {
                 new_start
