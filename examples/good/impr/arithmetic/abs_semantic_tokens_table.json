@@ -1,0 +1,62 @@
+{
+    "arithmetic": [
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Primitive,
+                ),
+            ),
+            range: 1:13..1:16,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Primitive,
+                ),
+            ),
+            range: 1:21..1:24,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Primitive,
+                ),
+            ),
+            range: 1:29..1:32,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 2:5..2:6,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 2:9..2:10,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Module,
+            ),
+            range: 5:5..5:14,
+            token_type: 6,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Routine,
+            ),
+            range: 8:12..8:15,
+            token_type: 14,
+            token_modifiers_bitset: 0,
+        },
+    ],
+}

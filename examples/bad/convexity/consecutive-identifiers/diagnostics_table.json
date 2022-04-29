@@ -1,1 +1,10 @@
-{"consecutive_identifiers":[{"severity":"Error","range":{"start":{"row":6,"col":7},"end":{"row":6,"col":8}},"message":"Ast Error: unexpected identifier here","dev_src":{"file":"crates/syntax/atom/src/parser.rs","line":193}}]}
+{
+    "consecutive_identifiers": [
+        Diagnostic {
+            severity: Error,
+            range: 7:8..7:9,
+            message: "Ast Error: unexpected identifier here",
+            dev_src: crates/syntax/atom/src/parser.rs:193,
+        },
+    ],
+}

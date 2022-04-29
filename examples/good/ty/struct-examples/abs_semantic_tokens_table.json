@@ -1,0 +1,158 @@
+{
+    "struct_examples": [
+        AbsSemanticToken {
+            kind: Entity(
+                Module,
+            ),
+            range: 2:5..2:14,
+            token_type: 6,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Primitive,
+                ),
+            ),
+            range: 7:21..7:24,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: ThisData,
+            range: 8:9..8:13,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Struct,
+                ),
+            ),
+            range: 10:14..10:15,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Struct,
+                ),
+            ),
+            range: 11:12..11:13,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Struct,
+                ),
+            ),
+            range: 13:14..13:15,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Struct,
+                ),
+            ),
+            range: 14:13..14:14,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 15:5..15:6,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 16:12..16:13,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Struct,
+                ),
+            ),
+            range: 19:13..19:14,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 20:12..20:13,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Primitive,
+                ),
+            ),
+            range: 22:14..22:17,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Struct,
+                ),
+            ),
+            range: 23:9..23:10,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 24:12..24:13,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Routine,
+            ),
+            range: 27:9..27:11,
+            token_type: 14,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 28:12..28:13,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Variable,
+            range: 29:12..29:13,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Routine,
+            ),
+            range: 30:12..30:14,
+            token_type: 14,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Routine,
+            ),
+            range: 31:12..31:14,
+            token_type: 14,
+            token_modifiers_bitset: 0,
+        },
+    ],
+}
