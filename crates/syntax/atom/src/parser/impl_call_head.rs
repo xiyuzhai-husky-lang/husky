@@ -19,6 +19,10 @@ impl<'a> AtomLRParser<'a> {
         routine_kind: RoutineContextKind,
     ) -> AtomResult<RoutineDefnHead> {
         let routine_ident = get!(self, custom_ident);
+        self.push_abs_semantic_token(AbsSemanticToken::new(
+            SemanticTokenKind::Entity(EntityKind::Routine),
+            routine_ident.range,
+        ));
         let generic_placeholders = self.placeholders()?;
         let input_placeholders = self.func_input_placeholders()?;
         let output_ty = self.func_output_type()?;
