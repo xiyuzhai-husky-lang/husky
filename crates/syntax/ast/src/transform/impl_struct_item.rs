@@ -1,9 +1,6 @@
 use super::utils::*;
 use crate::*;
-use atom::{
-    parser::AtomLRParser,
-    symbol::{Symbol, SymbolKind},
-};
+use atom::symbol::{Symbol, SymbolKind};
 use text::TextRanged;
 use token::{Special, Token, TokenKind};
 use vm::{FieldContract, InputContract};

@@ -315,18 +315,6 @@ pub(crate) fn handle_semantic_tokens_range(
         result_id: None,
         data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
     })))
-    // msg_once!("{}:{} todo!", file!(), line!()); Ok(None)
-    // let _p = profile::span("handle_semantic_tokens_range");
-
-    // let frange = from_lsp_types::file_range(&snapshot, params.text_document, params.range)?;
-    // let text = snapshot.analysis.file_text(frange.file_id)?;
-    // let line_index = snapshot.file_line_collection(frange.file_id)?;
-
-    // let highlights = snapshot.analysis.highlight_range(frange)?;
-    // let highlight_strings = snapshot.config.highlighting_strings();
-    // let semantic_tokens =
-    //     to_lsp_types::to_semantic_tokens(&text, &line_index, highlights, highlight_strings);
-    // Ok(Some(semantic_tokens.into()))
 }
 
 pub(crate) fn handle_open_docs(

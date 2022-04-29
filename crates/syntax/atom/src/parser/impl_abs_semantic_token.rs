@@ -1,7 +1,3 @@
-use entity_kind::TyKind;
-
-use super::symbol::SymbolKind;
-
 use super::*;
 impl<'a> AtomLRParser<'a> {
     pub(super) fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {

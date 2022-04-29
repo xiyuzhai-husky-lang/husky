@@ -3,7 +3,6 @@ use crate::{
     symbol::{Symbol, SymbolKind},
     *,
 };
-use atom::parser::AtomLRParser;
 use text::TextRanged;
 use token::*;
 use word::RoutineKeyword;

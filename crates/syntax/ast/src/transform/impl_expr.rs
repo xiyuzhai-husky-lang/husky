@@ -1,5 +1,5 @@
 use crate::*;
-use atom::{parser::AtomLRParser, AtomKind};
+use atom::{symbol::SymbolKind, AtomKind};
 use text::TextRanged;
 use token::Token;
 
@@ -18,7 +18,13 @@ impl<'a> AstTransformer<'a> {
                 | AtomKind::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
                 AtomKind::Unrecognized(ident) => stack.accept_atom_expr(
                     match self.symbols.find(|symbol| symbol.ident == ident) {
-                        Some(symbol) => todo!(),
+                        Some(symbol) => match symbol.kind {
+                            SymbolKind::EntityRoute(_) => todo!(),
+                            SymbolKind::Variable { .. } => todo!(),
+                            SymbolKind::FrameVariable { .. } => todo!(),
+                            SymbolKind::Unrecognized(_) => todo!(),
+                            SymbolKind::ThisData { .. } => todo!(),
+                        },
                         None => atom,
                     }
                     .into(),
