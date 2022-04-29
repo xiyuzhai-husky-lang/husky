@@ -1,9 +1,10 @@
 use std::sync::Arc;
 
 use file::URange;
+use lsp_types::FoldingRange;
 use word::WordAllocator;
 
-use fold::FoldedList;
+use fold::{FoldedList, FoldingEnd};
 
 use crate::*;
 
@@ -26,6 +27,34 @@ impl TokenizedText {
             token_groups: line_groups.into(),
         }
     }
+
+    pub fn folding_ranges(&self) -> Vec<FoldingRange> {
+        self.token_groups
+            .nodes
+            .iter()
+            .filter_map(|node| {
+                let start = self.tokens[node.value.start].range.start;
+                let end = match node.folding_end {
+                    FoldingEnd::Sibling(idx) => {
+                        let last_node = &self.token_groups.nodes[idx - 1];
+                        self.tokens[last_node.value.end - 1].range.end
+                    }
+                    FoldingEnd::Elder(idx) => {
+                        let last_node = &self.token_groups.nodes[idx - 1];
+                        self.tokens[last_node.value.end - 1].range.end
+                    }
+                    FoldingEnd::EOF => self.tokens.last().unwrap().range.end,
+                };
+                Some(FoldingRange {
+                    start_line: start.i(),
+                    start_character: Some(start.j()),
+                    end_line: end.i(),
+                    end_character: Some(end.j()),
+                    kind: None,
+                })
+            })
+            .collect()
+    }
 }
 
 pub type TokenGroupIter<'a> = fold::FoldIter<'a, [Token], TokenizedText>;
@@ -35,8 +64,8 @@ impl fold::FoldStorage<[Token]> for TokenizedText {
         self.token_groups.len()
     }
 
-    fn next_sibling(&self, index: usize) -> Option<usize> {
-        self.token_groups.next_sibling(index)
+    fn folding_end(&self, index: usize) -> FoldingEnd {
+        self.token_groups.folding_end(index)
     }
 
     fn value(&self, index: usize) -> &[Token] {

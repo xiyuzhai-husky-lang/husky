@@ -10,7 +10,7 @@ mod transformer;
 use check_utils::should;
 pub use executor::Executor;
 pub use fold_iter::{FoldIter, FoldIterItem};
-pub use folded_list::{FoldIdx, FoldedList, FoldedNode, ItemToFold};
+pub use folded_list::{FoldIdx, FoldedList, FoldedNode, FoldingEnd, ItemToFold};
 pub use local_stack::LocalStack;
 pub use local_value::LocalValue;
 pub use transformer::Transformer;
@@ -21,7 +21,7 @@ where
 {
     fn len(&self) -> usize;
     fn indent(&self, index: usize) -> Indent;
-    fn next_sibling(&self, index: usize) -> Option<usize>;
+    fn folding_end(&self, index: usize) -> FoldingEnd;
     fn value(&self, index: usize) -> &Value;
     fn this(&self) -> &Self;
 
@@ -38,6 +38,13 @@ where
         Self: Sized,
     {
         FoldIter::new(self.this(), if self.len() == 0 { None } else { Some(0) })
+    }
+
+    fn next_sibling_idx(&self, idx: usize) -> Option<usize> {
+        match self.folding_end(idx) {
+            FoldingEnd::Sibling(sibling_idx) => Some(sibling_idx),
+            _ => None,
+        }
     }
 }
 

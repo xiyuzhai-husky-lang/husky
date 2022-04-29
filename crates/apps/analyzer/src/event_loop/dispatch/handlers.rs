@@ -123,10 +123,11 @@ pub(crate) fn handle_folding_range(
     snapshot: HuskyLangDatabaseSnapshot,
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
+    use token::*;
     if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
         let file = snapshot.intern_file(path);
-        if let Ok(ast_text) = snapshot.ast_text(file) {
-            return Ok(Some(ast_text.folding_ranges()));
+        if let Ok(tokenized_text) = snapshot.tokenized_text(file) {
+            return Ok(Some(tokenized_text.folding_ranges()));
         }
     }
     Ok(None)

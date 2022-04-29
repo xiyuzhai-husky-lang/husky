@@ -61,32 +61,4 @@ impl AstText {
             .filter_map(|node| node.value.as_ref().err())
             .collect()
     }
-
-    pub fn folding_ranges(&self) -> Vec<FoldingRange> {
-        vec![FoldingRange {
-            start_line: 2,
-            start_character: None,
-            end_line: 7,
-            end_character: None,
-            kind: None,
-        }]
-        // self.folded_results
-        //     .nodes
-        //     .iter()
-        //     .filter_map(|node| {
-        //         if let Ok(ast) = &node.value {
-        //             p!(ast.range);
-        //             Some(FoldingRange {
-        //                 start_line: ast.range.start.i(),
-        //                 start_character: Some(ast.range.start.j()),
-        //                 end_line: ast.range.end.i(),
-        //                 end_character: Some(ast.range.end.j()),
-        //                 kind: None,
-        //             })
-        //         } else {
-        //             None
-        //         }
-        //     })
-        //     .collect()
-    }
 }

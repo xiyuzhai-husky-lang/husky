@@ -18,7 +18,7 @@ fn fold_items1() {
     let items: Vec<Indent> = vec![0, 4, 0].into();
     let fold_items: FoldedList<()> = items.into();
     p!(fold_items.nodes);
-    should_eq!(fold_items.nodes[1].next_sibling, None);
+    should_eq!(fold_items.nodes[1].folding_end, FoldingEnd::Elder(2));
 }
 
 #[test]
@@ -27,7 +27,7 @@ fn fold_items2() {
     let items: Vec<Indent> = vec![0, 4, 0, 4, 4].into();
     let fold_items: FoldedList<()> = items.into();
     should!(fold_items.iter_from(1).next().unwrap().children.is_none());
-    should_eq!(fold_items.nodes[3].next_sibling, Some(4));
+    should_eq!(fold_items.nodes[3].folding_end, FoldingEnd::Sibling(4));
 }
 
 pub struct TrivialTransformer {
