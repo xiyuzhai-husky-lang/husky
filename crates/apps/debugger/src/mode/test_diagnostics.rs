@@ -29,7 +29,7 @@ pub(super) async fn test_diagnostics(
     }
     compare_saved_data(
         &diagnostics_table,
-        &package_path.join("diagnostics_table.json"),
+        &package_path.join("diagnostics_table.txt"),
     );
     return diagnostics_table.len() > 0;
 }

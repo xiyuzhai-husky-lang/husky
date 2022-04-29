@@ -23,10 +23,10 @@ pub(super) async fn test_semantic_tokens(pack_path: &Path, compile_time: &HuskyL
     }
     compare_saved_data(
         &abs_semantic_tokens_table,
-        &pack_path.join("abs_semantic_tokens_table.json"),
+        &pack_path.join("abs_semantic_tokens_table.txt"),
     );
     compare_saved_data(
         &semantic_tokens_table,
-        &pack_path.join("semantic_tokens_table.json"),
+        &pack_path.join("semantic_tokens_table.txt"),
     );
 }
