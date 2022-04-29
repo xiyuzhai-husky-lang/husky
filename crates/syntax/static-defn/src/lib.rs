@@ -7,7 +7,7 @@ use dev_utils::StaticDevSource;
 pub use root::*;
 pub use ty::*;
 
-use entity_kind::{EntityKind, RoutineContextKind, RoutineKind, TyKind};
+use entity_kind::{EntityKind, MemberKind, RoutineContextKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
 use vm::{InputContract, Linkage, OutputContract};
 
@@ -73,7 +73,7 @@ impl EntityStaticDefnVariant {
             EntityStaticDefnVariant::Type { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
-            EntityStaticDefnVariant::Method { .. } => EntityKind::TypeMember,
+            EntityStaticDefnVariant::Method { .. } => EntityKind::TypeMember(MemberKind::Method),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => EntityKind::Type(TyKind::Other),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TypeField { .. } => todo!(),

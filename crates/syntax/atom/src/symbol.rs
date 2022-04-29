@@ -156,6 +156,7 @@ impl<'a> SymbolContext<'a> {
                             MemberKind::Call => todo!(),
                             MemberKind::TraitAssociatedType => EntityKind::Type(TyKind::Other),
                             MemberKind::TraitAssociatedConstSize => todo!(),
+                            MemberKind::Field => todo!(),
                         }
                     }
                 },

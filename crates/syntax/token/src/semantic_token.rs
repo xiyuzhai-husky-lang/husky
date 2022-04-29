@@ -1,15 +1,62 @@
+use crate::*;
+use entity_kind::{EntityKind, MemberKind};
 use serde::{Deserialize, Serialize};
 use text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct AbsSemanticToken {
-    pub kind: AbsSemanticTokenKind,
+    pub kind: SemanticTokenKind,
     pub range: TextRange,
+    pub token_type: u32,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub enum AbsSemanticTokenKind {
+impl AbsSemanticToken {
+    pub fn new(kind: SemanticTokenKind, token: &Token) -> Self {
+        Self {
+            kind,
+            range: token.range,
+            token_type: kind.token_type(),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum SemanticTokenKind {
     Field,
+    Special,
+    Variable,
+    ThisData,
+    FrameVariable,
+    Entity(EntityKind),
+}
+
+impl SemanticTokenKind {
+    pub fn token_type(self) -> u32 {
+        get_type_index(match self {
+            SemanticTokenKind::Field => SemanticTokenType::PROPERTY,
+            SemanticTokenKind::Special => SemanticTokenType::OPERATOR,
+            SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
+            SemanticTokenKind::ThisData => SemanticTokenType::VARIABLE,
+            SemanticTokenKind::FrameVariable => SemanticTokenType::VARIABLE,
+            SemanticTokenKind::Entity(entity_kind) => match entity_kind {
+                EntityKind::Module => SemanticTokenType::NAMESPACE,
+                EntityKind::Type(_) => SemanticTokenType::TYPE,
+                EntityKind::Trait => SemanticTokenType::TYPE,
+                EntityKind::TypeMember(member_kind) => match member_kind {
+                    MemberKind::Method => todo!(),
+                    MemberKind::Call => todo!(),
+                    MemberKind::TraitAssociatedType => todo!(),
+                    MemberKind::TraitAssociatedConstSize => todo!(),
+                    MemberKind::Field => todo!(),
+                },
+                EntityKind::Routine => SemanticTokenType::FUNCTION,
+                EntityKind::Feature => SemanticTokenType::VARIABLE,
+                EntityKind::Pattern => todo!(),
+                EntityKind::Literal => todo!(),
+                EntityKind::Member => todo!(),
+            },
+        })
+    }
 }
 
 use lsp_types::{

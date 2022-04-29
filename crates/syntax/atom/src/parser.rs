@@ -1,8 +1,9 @@
+mod impl_abs_semantic_token;
 mod impl_basic;
+mod impl_entity_route;
 mod impl_func_head;
 mod impl_inner_ops;
 mod impl_lambda_head;
-mod impl_scope;
 mod utils;
 
 use core::slice::Iter;
