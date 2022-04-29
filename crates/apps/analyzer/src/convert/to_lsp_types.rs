@@ -6,7 +6,7 @@ use std::{
 };
 
 use lsp_types::SemanticToken;
-use token::{AbsSemanticToken, AbsSemanticTokenKind};
+use token::{AbsSemanticToken, SemanticTokenKind};
 
 use crate::lsp_ext;
 
@@ -104,9 +104,6 @@ pub(crate) fn to_semantic_tokens(abs_semantic_tokens: &[AbsSemanticToken]) -> Ve
         let new_line = abs_semantic_token.range.start.i();
         let new_start = abs_semantic_token.range.start.j();
         let length = abs_semantic_token.range.end.j() - new_start;
-        let token_type = match abs_semantic_token.kind {
-            AbsSemanticTokenKind::Field => todo!(),
-        };
         semantic_tokens.push(SemanticToken {
             delta_line: new_line - last_line,
             delta_start: if new_line > last_line {
@@ -115,7 +112,7 @@ pub(crate) fn to_semantic_tokens(abs_semantic_tokens: &[AbsSemanticToken]) -> Ve
                 new_start - last_start
             },
             length,
-            token_type,
+            token_type: abs_semantic_token.kind.token_type(),
             token_modifiers_bitset: todo!(),
         });
         last_line = new_start;

@@ -1,16 +1,21 @@
 use entity_kind::TyKind;
+use token::SemanticTokenKind;
 
 use super::symbol::SymbolKind;
 
 use super::*;
 
-/// parse scope from left to right
+/// parse atoms from left to right
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
 impl<'a> AtomLRParser<'a> {
     pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomKind>> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {
+                self.push_abs_semantic_token(AbsSemanticToken::new(
+                    SemanticTokenKind::Special,
+                    token,
+                ));
                 Some(AtomKind::EntityRoute {
                     route: self.symbolic_ty()?,
                     kind: EntityKind::Type(TyKind::Vec),
@@ -20,17 +25,41 @@ impl<'a> AtomLRParser<'a> {
                     .symbol_context
                     .resolve_symbol_kind(ident, token.range)?;
                 Some(match symbol_kind {
-                    SymbolKind::EntityRoute(route) => self.normal_route(route)?,
-                    SymbolKind::Variable { init_row } => match ident {
-                        Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
-                        Identifier::Custom(varname) => AtomKind::Variable { varname, init_row },
-                    },
+                    SymbolKind::EntityRoute(route) => {
+                        self.push_abs_semantic_token(AbsSemanticToken::new(
+                            SemanticTokenKind::Entity(self.symbol_context.entity_kind(route)),
+                            token,
+                        ));
+                        self.normal_route(route)?
+                    }
+                    SymbolKind::Variable { init_row } => {
+                        self.push_abs_semantic_token(AbsSemanticToken::new(
+                            SemanticTokenKind::Variable,
+                            token,
+                        ));
+                        match ident {
+                            Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
+                            Identifier::Custom(varname) => AtomKind::Variable { varname, init_row },
+                        }
+                    }
                     SymbolKind::Unrecognized(ident) => AtomKind::Unrecognized(ident),
-                    SymbolKind::ThisData { ty } => AtomKind::ThisData { ty },
-                    SymbolKind::FrameVariable { init_row } => AtomKind::FrameVariable {
-                        varname: ident.custom(),
-                        init_row,
-                    },
+                    SymbolKind::ThisData { ty } => {
+                        self.push_abs_semantic_token(AbsSemanticToken::new(
+                            SemanticTokenKind::ThisData,
+                            token,
+                        ));
+                        AtomKind::ThisData { ty }
+                    }
+                    SymbolKind::FrameVariable { init_row } => {
+                        self.push_abs_semantic_token(AbsSemanticToken::new(
+                            SemanticTokenKind::FrameVariable,
+                            token,
+                        ));
+                        AtomKind::FrameVariable {
+                            varname: ident.custom(),
+                            init_row,
+                        }
+                    }
                 })
             } else {
                 None
@@ -141,7 +170,7 @@ impl<'a> AtomLRParser<'a> {
                 EntityKind::Module
                 | EntityKind::Literal
                 | EntityKind::Feature
-                | EntityKind::TypeMember
+                | EntityKind::TypeMember(_)
                 | EntityKind::Member => Ok(Vec::new()),
                 EntityKind::Type(_)
                 | EntityKind::Trait

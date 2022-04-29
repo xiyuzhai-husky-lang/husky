@@ -1,7 +1,8 @@
-use token::{Special, Token, TokenKind};
+use serde::{Deserialize, Serialize};
+// use token::{Special, Token, TokenKind};
 use word::{Keyword, TyKeyword};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TyKind {
     Enum,
     Record,
@@ -24,12 +25,12 @@ impl From<TyKeyword> for TyKind {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum EntityKind {
     Module,
     Type(TyKind),
     Trait,
-    TypeMember,
+    TypeMember(MemberKind),
     Routine,
     Feature,
     Pattern,
@@ -37,21 +38,6 @@ pub enum EntityKind {
     Member,
 }
 
-impl EntityKind {
-    pub fn new(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {
-        match keyword {
-            Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) => None,
-            Keyword::Mod => Some(EntityKind::Module),
-            Keyword::Routine(_) => Some(EntityKind::Routine),
-            Keyword::Type(keyword) => Some(EntityKind::Type(keyword.into())),
-            Keyword::Def => Some(match third_token.kind {
-                TokenKind::Special(Special::LCurl) => EntityKind::Pattern,
-                _ => EntityKind::Feature,
-            }),
-            Keyword::Main => todo!(),
-        }
-    }
-}
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EnumVariantKind {
     Constant,
@@ -79,7 +65,9 @@ pub enum RawMembRoutineKind {
     Func,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum MemberKind {
+    Field,
     Method,
     Call,
     TraitAssociatedType,

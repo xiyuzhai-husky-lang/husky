@@ -1,4 +1,5 @@
 use dev_utils::dev_src;
+use entity_kind::MemberKind;
 use entity_route::*;
 use file::FilePtr;
 use static_defn::*;
@@ -7,7 +8,7 @@ use word::{CustomIdentifier, Keyword};
 use crate::error::*;
 use crate::EntityRouteSalsaQueryGroup;
 use text::TextRanged;
-use token::{Token, TokenGroupIter, TokenKind};
+use token::{Special, Token, TokenGroupIter, TokenKind};
 use word::Identifier;
 
 #[derive(PartialEq, Eq, Clone)]
@@ -84,7 +85,7 @@ impl Entry {
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
-                    if let Some(kind) = EntityKind::new(keyword, &token_group[2]) {
+                    if let Some(kind) = tell_entity_kind(keyword, &token_group[2]) {
                         return match ident {
                             Identifier::Builtin(_) => (
                                 None,
@@ -131,6 +132,19 @@ impl Entry {
                 }),
             ),
         }
+    }
+}
+pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {
+    match keyword {
+        Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) => None,
+        Keyword::Mod => Some(EntityKind::Module),
+        Keyword::Routine(_) => Some(EntityKind::Routine),
+        Keyword::Type(keyword) => Some(EntityKind::Type(keyword.into())),
+        Keyword::Def => Some(match third_token.kind {
+            TokenKind::Special(Special::LCurl) => EntityKind::Pattern,
+            _ => EntityKind::Feature,
+        }),
+        Keyword::Main => todo!(),
     }
 }
 
@@ -263,7 +277,11 @@ impl ChildRouteTable {
                 for type_member in type_members {
                     entries.push(Entry {
                         ident: Some(db.intern_word(type_member.name).custom()),
-                        kind: EntityKind::TypeMember,
+                        kind: EntityKind::TypeMember(match type_member.variant {
+                            EntityStaticDefnVariant::TypeField { .. } => MemberKind::Field,
+                            EntityStaticDefnVariant::Method { .. } => MemberKind::Method,
+                            _ => panic!(),
+                        }),
                         source: EntitySource::StaticTypeMember,
                     })
                 }
