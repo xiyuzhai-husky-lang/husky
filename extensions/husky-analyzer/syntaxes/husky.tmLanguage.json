@@ -717,29 +717,14 @@
                     "match": "\\bdef\\b"
                 },
                 {
-                    "comment": "pd",
-                    "name": "keyword.other.pd.husky",
-                    "match": "\\bpd\\b"
-                },
-                {
                     "comment": "proc",
                     "name": "keyword.other.proc.husky",
                     "match": "\\bproc\\b"
                 },
                 {
-                    "comment": "procedure",
-                    "name": "keyword.other.proc.husky",
-                    "match": "\\bprocedure\\b"
-                },
-                {
-                    "comment": "pattern",
-                    "name": "keyword.other.pattern.husky",
-                    "match": "\\bpattern\\b"
-                },
-                {
-                    "comment": "crate",
-                    "name": "keyword.other.crate.husky",
-                    "match": "\\bcrate\\b"
+                    "comment": "dataset",
+                    "name": "keyword.other.dataset.husky",
+                    "match": "\\bdataset\\b"
                 },
                 {
                     "comment": "mut",
