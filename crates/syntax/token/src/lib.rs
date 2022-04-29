@@ -11,7 +11,7 @@ mod tokenized_text;
 
 pub use error::*;
 pub use kind::TokenKind;
-pub use query::{TokenQueryGroup, TokenQueryGroupStorage};
+pub use query::*;
 pub use semantic_token::*;
 pub use special::Special;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};

@@ -63,6 +63,7 @@ where
     pub idx: usize,
     pub indent: Indent,
     pub value: &'a Value,
+    pub folding_end: FoldingEnd,
     pub children: Option<FoldIter<'a, Value, Storage>>,
 }
 
@@ -82,7 +83,7 @@ where
             } else {
                 None
             };
-            self.next = self.storage.next_sibling(idx);
+            self.next = self.storage.next_sibling_idx(idx);
             if let Some(raw) = self.next {
                 should!(raw < self.storage.len());
             }
@@ -91,6 +92,7 @@ where
                 indent: self.storage.indent(idx),
                 value: self.storage.value(idx),
                 children,
+                folding_end: self.storage.folding_end(idx),
             })
         } else {
             None

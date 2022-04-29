@@ -46,11 +46,11 @@ impl<T> FoldedList<T> {
         &self.nodes
     }
 
-    pub fn append(&mut self, indent: Indent, value: T, next_sibling: Option<usize>) {
+    pub fn append(&mut self, indent: Indent, value: T, folding_end: FoldingEnd) {
         self.nodes.push(FoldedNode {
             indent,
             value,
-            next_sibling,
+            folding_end,
         });
     }
 }
@@ -59,7 +59,7 @@ impl<T> FoldedList<T> {
 pub struct FoldedNode<T> {
     pub(crate) indent: Indent,
     pub value: T,
-    pub(crate) next_sibling: Option<usize>,
+    pub folding_end: FoldingEnd,
 }
 
 impl<T> Debug for FoldedNode<T>
@@ -69,7 +69,7 @@ where
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
             "FoldedNode{{indent: {:?}, value: {:?}, next_sibling: {:?}}}",
-            &self.indent, &self.value, &self.next_sibling
+            &self.indent, &self.value, &self.folding_end
         ))
     }
 }
@@ -91,29 +91,36 @@ where
         for i in 0..items.len() {
             let mut j = i + 1;
             let indent = items[i].indent();
-            let next_sibling = loop {
+            let folding_end = loop {
                 if j < items.len() {
                     let indent_below = items[j].indent();
                     if indent_below == indent {
-                        break Some(j);
+                        break FoldingEnd::Sibling(j);
                     } else if indent_below < indent {
-                        break None;
+                        break FoldingEnd::Elder(j);
                     } else {
                         j += 1;
                     }
                 } else {
-                    break None;
+                    break FoldingEnd::EOF;
                 }
             };
             nodes.push(FoldedNode {
                 indent: items[i].indent(),
                 value: items[i].value(),
-                next_sibling,
+                folding_end,
             })
         }
 
         Self { nodes }
     }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum FoldingEnd {
+    Sibling(usize),
+    Elder(usize),
+    EOF,
 }
 
 pub trait ItemToFold<Key> {
@@ -129,8 +136,8 @@ where
         self.nodes.len()
     }
 
-    fn next_sibling(&self, index: usize) -> Option<usize> {
-        self.nodes[index].next_sibling
+    fn folding_end(&self, index: usize) -> FoldingEnd {
+        self.nodes[index].folding_end
     }
 
     fn value(&self, index: usize) -> &T {

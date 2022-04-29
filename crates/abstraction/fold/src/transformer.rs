@@ -34,7 +34,7 @@ where
                 this._enter_block();
             });
             self.folded_output_mut()
-                .append(item.indent, parse_result, iter.next);
+                .append(item.indent, parse_result, item.folding_end);
             // parse children
             if !block_entered {
                 self._enter_block();
