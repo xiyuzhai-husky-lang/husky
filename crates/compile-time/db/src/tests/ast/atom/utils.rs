@@ -24,6 +24,7 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static st
             symbols: (&symbols as &[Symbol]).into(),
             kind: SymbolContextKind::Normal,
         },
+        None,
         &tokens,
     )
     .parse_all()

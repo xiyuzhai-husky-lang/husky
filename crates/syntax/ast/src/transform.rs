@@ -33,7 +33,7 @@ pub struct AstTransformer<'a> {
     env: LocalValue<AstContext>,
     this: LocalValue<Option<EntityRoutePtr>>,
     folded_results: FoldedList<AstResult<Ast>>,
-    semantic_tokens: Vec<AbsSemanticToken>,
+    abs_semantic_tokens: Vec<AbsSemanticToken>,
 }
 
 impl<'a> AstTransformer<'a> {
@@ -58,7 +58,7 @@ impl<'a> AstTransformer<'a> {
                 } => todo!(),
             }),
             this: LocalValue::new(None),
-            semantic_tokens: vec![],
+            abs_semantic_tokens: vec![],
         };
 
         fn module_symbols(
@@ -93,7 +93,7 @@ impl<'a> AstTransformer<'a> {
             file: self.file,
             arena: self.arena,
             folded_results: self.folded_results,
-            semantic_tokens: self.semantic_tokens,
+            semantic_tokens: self.abs_semantic_tokens,
         }
     }
 
