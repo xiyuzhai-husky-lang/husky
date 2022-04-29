@@ -25,7 +25,6 @@ impl HuskyLangRuntime {
                 ref stmt,
                 ref history,
             } => self.proc_stmt_figure(stmt, history),
-            TraceVariant::LoopFrame { .. } => todo!(),
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
@@ -34,6 +33,7 @@ impl HuskyLangRuntime {
                 ref entity,
                 ref tokens,
             } => FigureProps::void(),
+            TraceVariant::LoopFrame { .. } => todo!(),
         }
     }
 
