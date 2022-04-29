@@ -5,7 +5,7 @@ use word::WordAllocator;
 
 use fold::FoldedList;
 
-use crate::{error::LexResult, *};
+use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {

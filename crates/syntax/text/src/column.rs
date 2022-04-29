@@ -1,4 +1,4 @@
-use serde::{Deserialize, Deserializer, Serialize};
+use serde::{Deserialize, Serialize};
 
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
@@ -27,5 +27,5 @@ impl From<i32> for Column {
 #[test]
 fn test_conversion() {
     let a: i32 = -1;
-    let b: u32 = a as u32;
+    let _b: u32 = a as u32;
 }

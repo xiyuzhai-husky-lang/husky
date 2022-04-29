@@ -1,4 +1,4 @@
-use dev_utils::{dev_src, static_dev_src};
+use dev_utils::static_dev_src;
 use vm::{InputContract, OutputContract};
 
 use crate::*;

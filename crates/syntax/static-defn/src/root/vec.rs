@@ -142,11 +142,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "Vec<E>",
         output_contract: OutputContract::Pure,
         linkage: Linkage {
-            call: |values| {
-                Ok(StackValue::Boxed(
-                    BoxedValue::new(Vec::<MemberValue>::new()),
-                ))
-            },
+            call: vec_type_call,
             nargs: 0,
         },
         routine_kind: RoutineKind::TypeCall,
@@ -155,7 +151,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
 };
 
 fn vec_type_call<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
+    _values: &mut [StackValue<'stack, 'eval>],
 ) -> VMResult<StackValue<'stack, 'eval>> {
     Ok(StackValue::Boxed(BoxedValue::new(
         Vec::<MemberValue<'eval>>::new(),
