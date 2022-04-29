@@ -81,8 +81,9 @@ impl<'a> AstTransformer<'a> {
         self.env.set_value(AstContext::Func);
         expect_at_least!(token_group, token_group.into(), 5);
         expect_block_head!(token_group);
-        let head = AtomLRParser::new(&self.symbol_context(), &token_group[funcname_idx..])
-            .method_decl(InputContract::Pure, RoutineContextKind::Func)?;
+        let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
+            parser.method_decl(InputContract::Pure, RoutineContextKind::Func)
+        })?;
         self.symbols.extend(
             head.input_placeholders
                 .iter()

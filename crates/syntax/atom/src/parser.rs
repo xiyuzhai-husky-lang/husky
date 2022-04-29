@@ -12,7 +12,7 @@ use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument};
 use file::FilePtr;
 use print_utils::p;
 use text::TextRange;
-use token::{Special, Token, TokenKind};
+use token::{AbsSemanticToken, Special, Token, TokenKind};
 use vm::{BinaryOpr, PureBinaryOpr};
 use word::CustomIdentifier;
 
@@ -60,15 +60,21 @@ impl<'a> From<&'a [Token]> for TokenStream<'a> {
 pub struct AtomLRParser<'a> {
     symbol_context: &'a SymbolContext<'a>,
     pub(crate) stream: TokenStream<'a>,
+    opt_abs_semantic_tokens: Option<&'a mut Vec<AbsSemanticToken>>,
     stack: AtomStack,
 }
 
 impl<'a> AtomLRParser<'a> {
-    pub fn new(symbol_context: &'a SymbolContext<'a>, tokens: &'a [Token]) -> Self {
+    pub fn new(
+        symbol_context: &'a SymbolContext<'a>,
+        opt_abs_semantic_tokens: Option<&'a mut Vec<AbsSemanticToken>>,
+        tokens: &'a [Token],
+    ) -> Self {
         Self {
             symbol_context,
             stream: tokens.into(),
             stack: AtomStack::new(),
+            opt_abs_semantic_tokens,
         }
     }
 
@@ -202,7 +208,7 @@ impl<'a> AtomLRParser<'a> {
 }
 
 pub fn parse_ty(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
-    let result = AtomLRParser::new(symbol_context, tokens.into()).parse_all()?;
+    let result = AtomLRParser::new(symbol_context, None, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()
     }

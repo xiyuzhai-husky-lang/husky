@@ -49,7 +49,7 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_use(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
-        let atoms = AtomLRParser::new(&self.symbol_context(), &token_group[1..]).parse_all()?;
+        let atoms = self.parse_atoms(&token_group[1..], |parser| parser.parse_all())?;
         msg_once!("todo: use all");
         let route = if atoms.len() != 1 {
             todo!("expect one atom for entity route")
