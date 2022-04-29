@@ -9,9 +9,6 @@ impl<'a> AstTransformer<'a> {
         f: impl FnOnce(AtomLRParser) -> S,
     ) -> S {
         let symbol_context = self.symbol_context();
-        // let abs_semantic_tokens_ptr: *const Vec<AbsSemanticToken> = &self.abs_semantic_tokens;
-        // let abs_semantic_tokens_mut_ptr: *mut Vec<AbsSemanticToken> =
-        //     abs_semantic_tokens_ptr as *mut Vec<AbsSemanticToken>;
         f(AtomLRParser::new(
             &symbol_context,
             Some(unsafe { ref_to_mut_ref(&self.abs_semantic_tokens) }),
