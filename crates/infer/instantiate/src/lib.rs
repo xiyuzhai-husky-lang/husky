@@ -100,28 +100,4 @@ impl<'a> Instantiator<'a> {
             },
         })
     }
-
-    // pub fn instantiate_field_access_decl(&self, signature: &MembAccessDecl) -> MembAccessDecl {
-    //     todo!()
-    // }
-
-    // pub fn instantiate_field_routine_decl(&self, signature: &MembCallDecl) -> MembCallDecl {
-    //     MembCallDecl {
-    //         this_contract: signature.this_contract,
-    //         inputs: signature
-    //             .inputs
-    //             .iter()
-    //             .map(|input| self.instantiate_input_decl(input))
-    //             .collect(),
-    //         output: self.instantiate_scope(signature.output).as_scope(),
-    //         args: signature.args.clone(),
-    //     }
-    // }
-
-    // fn instantiate_input_decl(&self, input: &InputDecl) -> InputDecl {
-    //     InputDecl {
-    //         contract: input.contract,
-    //         ty: self.instantiate_scope(input.ty).as_scope(),
-    //     }
-    // }
 }
