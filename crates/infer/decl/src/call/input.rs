@@ -43,7 +43,7 @@ impl Into<InputDecl> for &InputPlaceholder {
         InputDecl {
             contract: self.contract,
             ty: self.ranged_ty.route,
-            ident: self.ident,
+            ident: self.ident.ident,
         }
     }
 }

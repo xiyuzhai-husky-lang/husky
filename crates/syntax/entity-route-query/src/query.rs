@@ -4,7 +4,8 @@ use entity_route::*;
 use file::FilePtr;
 use path_utils::*;
 
-use entity_kind::TyKind;
+use entity_kind::{MemberKind, TyKind};
+use print_utils::p;
 use static_defn::*;
 use upcast::Upcast;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
@@ -14,7 +15,7 @@ use fold::FoldStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
-    fn subscope_table(&self, scope_id: EntityRoutePtr) -> ScopeResultArc<ChildRouteTable>;
+    fn subroute_table(&self, scope_id: EntityRoutePtr) -> ScopeResultArc<ChildRouteTable>;
 
     fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
@@ -25,7 +26,7 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
     fn entity_route_menu(&self) -> Arc<EntityRouteMenu>;
 }
 
-fn subscope_table(
+fn subroute_table(
     db: &dyn EntityRouteSalsaQueryGroup,
     scope_id: EntityRoutePtr,
 ) -> ScopeResultArc<ChildRouteTable> {
@@ -58,7 +59,7 @@ fn subscopes(
     db: &dyn EntityRouteSalsaQueryGroup,
     scope: EntityRoutePtr,
 ) -> Arc<Vec<EntityRoutePtr>> {
-    Arc::new(db.subscope_table(scope).map_or(Vec::new(), |table| {
+    Arc::new(db.subroute_table(scope).map_or(Vec::new(), |table| {
         table
             .child_routes(scope)
             .into_iter()
@@ -68,14 +69,14 @@ fn subscopes(
 }
 
 fn raw_entity_kind(db: &dyn EntityRouteSalsaQueryGroup, scope: EntityRoutePtr) -> EntityKind {
-    entity_kind_from_scope_kind(db, scope.kind)
+    entity_kind_from_entity_route_kind(db, scope.kind)
 }
 
-fn entity_kind_from_scope_kind(
+fn entity_kind_from_entity_route_kind(
     db: &dyn EntityRouteSalsaQueryGroup,
-    scope_kind: EntityRouteKind,
+    entity_route_kind: EntityRouteKind,
 ) -> EntityKind {
-    match scope_kind {
+    match entity_route_kind {
         EntityRouteKind::Root { ident } => match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
@@ -104,9 +105,9 @@ fn entity_kind_from_scope_kind(
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
         EntityRouteKind::Child { parent, ident } => match parent.kind {
-            EntityRouteKind::ThisType => EntityKind::Member,
+            EntityRouteKind::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
             _ => db
-                .subscope_table(parent)
+                .subroute_table(parent)
                 .unwrap()
                 .raw_entity_kind(ident)
                 .unwrap(),
@@ -132,7 +133,7 @@ fn entity_source(
         }
         EntityRouteKind::Package { main, .. } => Ok(EntitySource::Module { file: main }),
         EntityRouteKind::Child { parent, ident } => {
-            this.subscope_table(parent)?.entity_source(ident)
+            this.subroute_table(parent)?.entity_source(ident)
         }
         EntityRouteKind::Input { main } => Ok(EntitySource::Input { main }),
         EntityRouteKind::Generic { .. } => todo!(),
@@ -208,7 +209,7 @@ pub trait EntityRouteQueryGroup:
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
     ) -> Option<EntityRoutePtr> {
-        let parent_subscope_table = self.subscope_table(parent_scope);
+        let parent_subscope_table = self.subroute_table(parent_scope);
         if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
             Some(self.intern_entity_route(EntityRoute::child_route(parent_scope, ident, generics)))
         } else {
@@ -240,7 +241,7 @@ pub trait EntityRouteQueryGroup:
     {
         if let Ok(module) = self.module(id) {
             let mut modules = vec![module];
-            self.subscope_table(module).ok().map(|table| {
+            self.subroute_table(module).ok().map(|table| {
                 modules.extend(
                     table
                         .submodule_idents()
@@ -332,6 +333,6 @@ pub trait EntityRouteQueryGroup:
     }
 
     fn raw_entity_kind_from_scope_kind(&self, scope_kind: EntityRouteKind) -> EntityKind {
-        entity_kind_from_scope_kind(self.upcast(), scope_kind)
+        entity_kind_from_entity_route_kind(self.upcast(), scope_kind)
     }
 }

@@ -7,7 +7,7 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn use_all(&mut self, parent: EntityRoutePtr, range: TextRange) -> AstResult<()> {
         self.symbols.extend(
             self.db
-                .subscope_table(parent)
+                .subroute_table(parent)
                 .map_err(|_| error!("scope not found", range))?
                 .entries
                 .iter()

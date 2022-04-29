@@ -53,8 +53,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 EntityKind::Routine => todo!(),
                 EntityKind::Feature => LazyExprKind::EntityFeature { route: scope },
                 EntityKind::Pattern => todo!(),
-                EntityKind::TypeMember(_) => todo!(),
-                EntityKind::Member => todo!(),
+                EntityKind::Member(_) => todo!(),
             },
             RawExprVariant::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(_) => todo!(),
@@ -277,8 +276,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                     EntityKind::Feature => todo!(),
                     EntityKind::Pattern => todo!(),
                     EntityKind::Literal => todo!(),
-                    EntityKind::TypeMember(_) => todo!(),
-                    EntityKind::Member => todo!(),
+                    EntityKind::Member(_) => todo!(),
                 };
                 Ok(LazyExprKind::Opn {
                     opn_kind,

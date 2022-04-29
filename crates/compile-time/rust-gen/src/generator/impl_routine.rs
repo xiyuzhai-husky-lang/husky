@@ -20,7 +20,7 @@ impl<'a> RustGenerator<'a> {
             if i > 0 {
                 self.write(", ");
             }
-            self.write(&input_placeholder.ident);
+            self.write(&input_placeholder.ident.ident);
             self.write(": ");
             match input_placeholder.contract {
                 InputContract::Pure => {
@@ -61,7 +61,7 @@ impl<'a> RustGenerator<'a> {
             if i > 0 {
                 self.write(", ");
             }
-            self.write(&input_placeholder.ident);
+            self.write(&input_placeholder.ident.ident);
             self.write(": ");
             match input_placeholder.contract {
                 InputContract::Pure => {

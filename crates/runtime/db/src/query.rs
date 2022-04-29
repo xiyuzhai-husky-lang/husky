@@ -175,7 +175,7 @@ fn feature_expr_subtraces(
                         4,
                         TraceVariant::FeatureCallInput {
                             input: func_input.clone(),
-                            ident: input_placeholders[i].ident,
+                            ident: input_placeholders[i].ident.ident,
                         },
                     ));
                     match db.eval_feature_expr(func_input, input_id) {

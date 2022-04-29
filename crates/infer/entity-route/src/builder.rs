@@ -87,14 +87,14 @@ impl<'a> TySheetBuilder<'a> {
             if let None = self
                 .ty_sheet
                 .variable_tys
-                .get(&(inputs[0].ident, inputs[0].ranged_ty.row()))
+                .get(&(inputs[0].ident.ident, inputs[0].ranged_ty.row()))
             {
                 for input in inputs {
                     should!(self
                         .ty_sheet
                         .variable_tys
                         .insert(
-                            (input.ident, inputs[0].ranged_ty.row()),
+                            (input.ident.ident, inputs[0].ranged_ty.row()),
                             Some(input.ranged_ty.route),
                         )
                         .is_none());

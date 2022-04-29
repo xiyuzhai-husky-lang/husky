@@ -51,8 +51,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                     panic!("what")
                 }
                 EntityKind::Pattern => todo!(),
-                EntityKind::TypeMember(_) => todo!(),
-                EntityKind::Member => todo!(),
+                EntityKind::Member(_) => todo!(),
             },
             RawExprVariant::PrimitiveLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(_) => todo!(),

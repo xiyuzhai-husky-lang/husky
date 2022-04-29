@@ -1,9 +1,9 @@
+use crate::*;
+use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use syntax_types::Opr;
 use text::Row;
 use vm::PrimitiveValue;
-
-use crate::*;
-use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
+use word::RangedCustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprVariant {
@@ -30,7 +30,7 @@ pub enum RawExprVariant {
         opds: RawExprRange,
     },
     Lambda(
-        Vec<(CustomIdentifier, Option<RangedEntityRoute>)>,
+        Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>,
         RawExprIdx,
     ),
 }

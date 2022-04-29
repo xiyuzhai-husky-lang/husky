@@ -1,4 +1,5 @@
 use entity_route::RangedEntityRoute;
+use word::RangedCustomIdentifier;
 
 use crate::*;
 
@@ -8,13 +9,13 @@ use super::*;
 impl<'a> AtomLRParser<'a> {
     pub(crate) fn lambda_head(
         &mut self,
-    ) -> AtomResult<Vec<(CustomIdentifier, Option<RangedEntityRoute>)>> {
+    ) -> AtomResult<Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>> {
         Ok(comma_list!(self, lambda_parameter!, "|"))
     }
 
     pub(crate) fn lambda_parameter(
         &mut self,
-    ) -> AtomResult<(CustomIdentifier, Option<RangedEntityRoute>)> {
+    ) -> AtomResult<(RangedCustomIdentifier, Option<RangedEntityRoute>)> {
         let ident = get!(self, custom_ident);
         let ty = if next_matches!(self, ":") {
             Some(RangedEntityRoute {

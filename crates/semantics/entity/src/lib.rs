@@ -359,7 +359,7 @@ pub(crate) fn entity_defn(
                     )
                 }
                 AstKind::RoutineDefnHead(ref head) => (
-                    head.ident,
+                    head.ident.ident,
                     EntityDefnVariant::routine(db, head, not_none!(children), arena, file)?,
                 ),
                 AstKind::PatternDefnHead => todo!(),

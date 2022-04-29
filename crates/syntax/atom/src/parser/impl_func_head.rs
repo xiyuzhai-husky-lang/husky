@@ -6,6 +6,7 @@ use defn_head::{
     TypeMethodDefnHead,
 };
 use entity_route::*;
+use token::SemanticTokenKind;
 use vm::{InputContract, OutputContract};
 use word::IdentDict;
 
@@ -81,7 +82,7 @@ impl<'a> AtomLRParser<'a> {
     }
 
     fn placeholder(&mut self) -> AtomResult<GenericPlaceholder> {
-        let ident = get!(self, custom_ident);
+        let ranged_ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
             traits.push(RangedEntityRoute {
@@ -92,8 +93,12 @@ impl<'a> AtomLRParser<'a> {
                 todo!()
             }
         }
+        self.push_abs_semantic_token(AbsSemanticToken::new(
+            SemanticTokenKind::GenericPlaceholder,
+            ranged_ident.range,
+        ));
         Ok(GenericPlaceholder {
-            ident,
+            ident: ranged_ident.ident,
             variant: GenericPlaceholderVariant::Type { traits },
         })
     }

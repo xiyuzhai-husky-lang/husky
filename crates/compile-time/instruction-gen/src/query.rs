@@ -33,7 +33,7 @@ fn entity_instruction_sheet(
             db,
             input_placeholders
                 .iter()
-                .map(|input_placeholder| input_placeholder.ident)
+                .map(|input_placeholder| input_placeholder.ident.ident)
                 .collect(),
             stmts,
             false,
@@ -46,7 +46,7 @@ fn entity_instruction_sheet(
             db,
             input_placeholders
                 .iter()
-                .map(|input_placeholder| input_placeholder.ident)
+                .map(|input_placeholder| input_placeholder.ident.ident)
                 .collect(),
             stmts,
             false,
@@ -96,7 +96,7 @@ fn method_instruction_sheet(
                 } => {
                     let inputs = input_placeholders
                         .iter()
-                        .map(|input_placeholder| input_placeholder.ident)
+                        .map(|input_placeholder| input_placeholder.ident.ident)
                         .collect();
                     let source = match method_variant {
                         MethodDefnVariant::TypeMethod { ty, method_source } => method_source,

@@ -20,7 +20,7 @@ use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
 use std::{iter::Peekable, sync::Arc};
 use vec_dict::VecDict;
-use word::{CustomIdentifier, IdentDict};
+use word::{CustomIdentifier, IdentDict, RangedCustomIdentifier};
 
 impl EntityDefnVariant {
     pub(crate) fn ty_from_ast(
@@ -61,7 +61,10 @@ impl EntityDefnVariant {
                         contract,
                     } => match field_variant {
                         FieldDefnVariant::RecordOriginal => InputPlaceholder {
-                            ident,
+                            ident: RangedCustomIdentifier {
+                                ident,
+                                range: Default::default(),
+                            },
                             contract:
                                 contract.constructor_input_contract(db.is_copy_constructible(ty)),
                             ranged_ty: RangedEntityRoute {
@@ -90,7 +93,10 @@ impl EntityDefnVariant {
                         contract,
                     } => match field_variant {
                         FieldDefnVariant::StructOriginal => InputPlaceholder {
-                            ident,
+                            ident: RangedCustomIdentifier {
+                                ident,
+                                range: Default::default(),
+                            },
                             contract:
                                 contract.constructor_input_contract(db.is_copy_constructible(ty)),
                             ranged_ty: RangedEntityRoute {

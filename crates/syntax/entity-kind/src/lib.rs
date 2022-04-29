@@ -30,12 +30,11 @@ pub enum EntityKind {
     Module,
     Type(TyKind),
     Trait,
-    TypeMember(MemberKind),
+    Member(MemberKind),
     Routine,
     Feature,
     Pattern,
     Literal,
-    Member,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -72,4 +71,5 @@ pub enum MemberKind {
     Call,
     TraitAssociatedType,
     TraitAssociatedConstSize,
+    TraitAssociatedAny,
 }

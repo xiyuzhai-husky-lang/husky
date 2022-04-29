@@ -114,14 +114,14 @@ impl<'a> Formatter<'a> {
                     RoutineContextKind::Proc => "proc ",
                     RoutineContextKind::Func => "func ",
                 });
-                self.write(&head.ident);
+                self.write(&head.ident.ident);
                 self.write("(");
                 for i in 0..head.input_placeholders.len() {
                     if i > 0 {
                         self.write(", ");
                     }
                     let input_placeholder = &head.input_placeholders[i];
-                    self.fmt_ident(input_placeholder.ident.into());
+                    self.fmt_ident(input_placeholder.ident.ident.into());
                     self.write(": ");
                     self.fmt_func_input_contracted_type(input_placeholder);
                 }
@@ -284,7 +284,7 @@ impl<'a> Formatter<'a> {
                 self.join(
                     inputs,
                     |this, (ident, ty)| {
-                        this.fmt_ident((*ident).into());
+                        this.fmt_ident((*ident).ident.into());
                         if let Some(ty) = ty {
                             this.write(": ");
                             this.fmt_ty(ty.route)
