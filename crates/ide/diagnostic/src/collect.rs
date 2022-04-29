@@ -2,6 +2,7 @@ use ast::AstText;
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use print_utils::p;
+use semantics_error::SemanticErrorVariant;
 
 use crate::*;
 
@@ -24,6 +25,7 @@ pub(crate) fn collect_diagnostics(
     collect_ast_errors(db, file, &mut diagnostics);
     collect_infer_ty_errors(db, file, &mut diagnostics);
     collect_infer_contract_errors(db, file, &mut diagnostics);
+    // collect_semantic_errors(db, file, &mut diagnostics);
     diagnostics
 }
 
@@ -64,5 +66,20 @@ fn collect_infer_contract_errors(
     let contract_sheet = db.contract_sheet(file).unwrap();
     for error in contract_sheet.errors() {
         diagnostics.push(error.into());
+    }
+}
+
+fn collect_semantic_errors(
+    db: &dyn DiagnosticQuery,
+    file: FilePtr,
+    diagnostics: &mut Vec<Diagnostic>,
+) {
+    let module = db.module(file).unwrap();
+    match db.entity_defn(module) {
+        Ok(_) => (),
+        Err(e) => match e.variant {
+            SemanticErrorVariant::Derived { .. } => (),
+            SemanticErrorVariant::Original { .. } => diagnostics.push(e.into()),
+        },
     }
 }

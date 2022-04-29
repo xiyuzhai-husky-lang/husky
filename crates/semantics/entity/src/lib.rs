@@ -286,7 +286,7 @@ pub(crate) fn main_defn(
     main_file: file::FilePtr,
 ) -> SemanticResultArc<MainDefn> {
     let ast_text = this.ast_text(main_file)?;
-    for item in ast_text.folded_results.fold_iter(0) {
+    for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.kind {
             AstKind::MainDefn => {
                 return Ok(Arc::new(MainDefn {
@@ -334,7 +334,7 @@ pub(crate) fn entity_defn(
                 value, children, ..
             } = ast_text
                 .folded_results
-                .fold_iter(token_group_index)
+                .iter_from(token_group_index)
                 .next()
                 .unwrap();
             let ast_head = value.as_ref()?;

@@ -6,7 +6,7 @@ test-examples:
 	cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test
 
 test-examples-with-backtrace:
-	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test
+	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
 
 #test-compile-time:
 #	cargo run --bin husky-lang-debugger $(compile_time_tests_dir) --input-id 1 --mode test-compile-time

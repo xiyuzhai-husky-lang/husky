@@ -36,7 +36,7 @@ fn subscope_table(
             token_group_index,
         } => {
             let text = db.tokenized_text(file_id)?;
-            let item = text.fold_iter(token_group_index).next().unwrap();
+            let item = text.iter_from(token_group_index).next().unwrap();
             if let Some(children) = item.children {
                 ChildRouteTable::parse(file_id, children)
             } else {
@@ -45,7 +45,7 @@ fn subscope_table(
         }
         EntitySource::Module { file: file_id } => {
             let text = db.tokenized_text(file_id)?;
-            ChildRouteTable::parse(file_id, text.fold_iter(0))
+            ChildRouteTable::parse(file_id, text.iter())
         }
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Input { .. } => todo!(),
@@ -258,9 +258,9 @@ pub trait EntityRouteQueryGroup:
         }
     }
 
-    fn module(&self, id: FilePtr) -> EntityRouteResult<EntityRoutePtr> {
-        let path: PathBuf = (*id).into();
-        if !self.file_exists(id) {
+    fn module(&self, file: FilePtr) -> EntityRouteResult<EntityRoutePtr> {
+        let path: PathBuf = (*file).into();
+        if !self.file_exists(file) {
             scope_err!(format!("file didn't exist"))?
         } else if path_has_file_name(&path, "main.hsk") {
             if let Some(pack_name) = path_parent_file_name_str(&path) {
@@ -268,7 +268,7 @@ pub trait EntityRouteQueryGroup:
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
                     self.word_allocator().alloc(snake_name)
                 {
-                    Ok(self.intern_entity_route(EntityRoute::pack(id, ident)))
+                    Ok(self.intern_entity_route(EntityRoute::pack(file, ident)))
                 } else {
                     scope_err!(format!("pack name should be identifier"))?
                 }

@@ -32,7 +32,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
 fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> ScopeResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module(id)?);
-    parser.transform_all(tokenized_text.fold_iter(0));
+    parser.transform_all(tokenized_text.iter());
     Ok(Arc::new(parser.finish()))
 }
 

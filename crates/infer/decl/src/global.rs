@@ -88,7 +88,7 @@ pub(crate) fn global_input_ty(
     main_file: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
-    for item in ast_text.folded_results.fold_iter(0) {
+    for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.kind {
             AstKind::DatasetConfigDefnHead => {
                 return global_input_ty_from_ast(
@@ -115,7 +115,7 @@ pub(crate) fn global_output_ty(
     main_file: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
-    for item in ast_text.folded_results.fold_iter(0) {
+    for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.kind {
             AstKind::DatasetConfigDefnHead => {
                 return global_output_ty_from_ast(

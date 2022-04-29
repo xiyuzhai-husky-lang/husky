@@ -47,7 +47,7 @@ fn dataset_config_from_ast_text(
     ast_text: &AstText,
     file: FilePtr,
 ) -> SemanticResult<DatasetConfig> {
-    for item in ast_text.folded_results.fold_iter(0) {
+    for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.kind {
             AstKind::DatasetConfigDefnHead => {
                 return Ok(DatasetConfig::new(parse_decl_stmts(

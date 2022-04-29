@@ -80,7 +80,7 @@ pub(crate) fn call_decl(
             let ast_text = db.ast_text(file)?;
             let item = ast_text
                 .folded_results
-                .fold_iter(token_group_index)
+                .iter_from(token_group_index)
                 .next()
                 .unwrap();
             let ast = item.value.as_ref()?;

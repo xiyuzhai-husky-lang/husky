@@ -7,6 +7,7 @@ mod local_value;
 mod tests;
 mod transformer;
 
+use check_utils::should;
 pub use executor::Executor;
 pub use fold_iter::{FoldIter, FoldIterItem};
 pub use folded_list::{FoldIdx, FoldedList, FoldedNode, ItemToFold};
@@ -24,11 +25,19 @@ where
     fn value(&self, index: usize) -> &Value;
     fn this(&self) -> &Self;
 
-    fn fold_iter(&self, start: usize) -> FoldIter<Value, Self>
+    fn iter_from(&self, start: usize) -> FoldIter<Value, Self>
     where
         Self: Sized,
     {
+        should!(start < self.len());
         FoldIter::new(self.this(), Some(start))
+    }
+
+    fn iter(&self) -> FoldIter<Value, Self>
+    where
+        Self: Sized,
+    {
+        FoldIter::new(self.this(), if self.len() == 0 { None } else { Some(0) })
     }
 }
 

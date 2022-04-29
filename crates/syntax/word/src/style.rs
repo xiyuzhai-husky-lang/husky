@@ -17,7 +17,7 @@ pub fn dash_to_snake(dash_name: &str) -> String {
         } else if c == '-' {
             snake_name.push('_')
         } else {
-            p!(c);
+            p!(c, dash_name);
             todo!()
         }
     }

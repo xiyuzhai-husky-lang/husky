@@ -9,6 +9,7 @@ use dev_utils::DevSource;
 use infer_error::{InferError, InferErrorVariant};
 pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryGroupStorage};
+use semantics_error::{SemanticError, SemanticErrorVariant};
 pub use severity::DiagnosticSeverity;
 
 use entity_route_query::{EntityDefnError, EntityRouteError};
@@ -80,6 +81,20 @@ impl From<&LexError> for Diagnostic {
 impl From<EntityRouteError> for Diagnostic {
     fn from(e: EntityRouteError) -> Self {
         todo!()
+    }
+}
+
+impl From<SemanticError> for Diagnostic {
+    fn from(error: SemanticError) -> Self {
+        match error.variant {
+            SemanticErrorVariant::Derived { .. } => panic!(),
+            SemanticErrorVariant::Original { message } => Self {
+                severity: DiagnosticSeverity::Error,
+                range: Default::default(),
+                message,
+                dev_src: error.dev_src,
+            },
+        }
     }
 }
 
