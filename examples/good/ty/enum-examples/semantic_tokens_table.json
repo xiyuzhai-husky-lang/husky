@@ -1,1 +1,1 @@
-{"enum_examples":[{"kind":{"Entity":"Module"},"range":{"start":{"row":4,"col":4},"end":{"row":4,"col":13}},"token_type":6},{"kind":{"Entity":{"Type":"Enum"}},"range":{"start":{"row":7,"col":8},"end":{"row":7,"col":9}},"token_type":7}]}
+{"enum_examples":[{"kind":{"Entity":"Module"},"range":{"start":{"row":4,"col":4},"end":{"row":4,"col":13}},"token_type":6,"token_modifiers_bitset":0},{"kind":{"Entity":{"Type":"Enum"}},"range":{"start":{"row":7,"col":8},"end":{"row":7,"col":9}},"token_type":7,"token_modifiers_bitset":0}]}

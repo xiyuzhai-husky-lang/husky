@@ -112,8 +112,8 @@ pub(crate) fn to_semantic_tokens(abs_semantic_tokens: &[AbsSemanticToken]) -> Ve
                 new_start - last_start
             },
             length,
-            token_type: abs_semantic_token.kind.token_type(),
-            token_modifiers_bitset: todo!(),
+            token_type: abs_semantic_token.token_type,
+            token_modifiers_bitset: abs_semantic_token.token_modifiers_bitset,
         });
         last_line = new_start;
         last_start = new_start

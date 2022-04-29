@@ -8,6 +8,7 @@ pub struct AbsSemanticToken {
     pub kind: SemanticTokenKind,
     pub range: TextRange,
     pub token_type: u32,
+    pub token_modifiers_bitset: u32,
 }
 
 impl AbsSemanticToken {
@@ -16,6 +17,7 @@ impl AbsSemanticToken {
             kind,
             range: token.range,
             token_type: kind.token_type(),
+            token_modifiers_bitset: 0,
         }
     }
 }
