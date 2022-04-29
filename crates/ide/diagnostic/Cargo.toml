@@ -20,3 +20,5 @@ ast = { path = "../../syntax/ast", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }
 infer-error = { path = "../../infer/error", version = "0.0.0" }
 token = { path = "../../syntax/token", version = "0.0.0" }
+semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
+semantics-error = { path = "../../semantics/error", version = "0.0.0" }

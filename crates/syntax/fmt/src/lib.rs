@@ -20,6 +20,6 @@ fn fmt_text(db: &dyn FmtQuery, file: file::FilePtr) -> entity_route_query::Scope
         &ast_text.arena,
         AstContext::Module(db.module(file).unwrap()),
     );
-    formatter.execute_all(ast_text.folded_results.fold_iter(0));
+    formatter.execute_all(ast_text.folded_results.iter());
     Ok(Arc::new(formatter.finish()))
 }

@@ -84,6 +84,7 @@ impl HuskyLangRuntime {
             Ok(pack) => pack,
             Err(error) => {
                 compile_time.print_diagnostics();
+                p!(error);
                 panic!()
             }
         };

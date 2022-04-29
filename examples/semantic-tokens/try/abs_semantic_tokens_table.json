@@ -1,0 +1,12 @@
+{
+    "try": [
+        AbsSemanticToken {
+            kind: Entity(
+                Module,
+            ),
+            range: 2:5..2:7,
+            token_type: 6,
+            token_modifiers_bitset: 0,
+        },
+    ],
+}

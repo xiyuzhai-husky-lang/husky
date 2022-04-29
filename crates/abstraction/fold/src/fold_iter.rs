@@ -29,6 +29,9 @@ where
     Storage: FoldStorage<Value>,
 {
     pub(crate) fn new(storage: &'a Storage, next: Option<usize>) -> Self {
+        if let Some(idx) = next {
+            assert!(idx < storage.len())
+        }
         Self {
             storage,
             next,

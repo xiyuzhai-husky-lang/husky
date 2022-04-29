@@ -71,6 +71,6 @@ pub(crate) fn contract_sheet(
     let ty_sheet = db.entity_route_sheet(file)?;
     let mut builder = ContractSheetBuilder::new(db, file, ty_sheet);
     let ast_text = db.ast_text(file)?;
-    builder.infer_all(ast_text.folded_results.fold_iter(0));
+    builder.infer_all(ast_text.folded_results.iter());
     Ok(Arc::new(builder.finish()))
 }
