@@ -1,3 +1,5 @@
+use print_utils::p;
+
 pub fn dash_to_snake(dash_name: &str) -> String {
     if dash_name.len() == 0 {
         panic!()
@@ -15,11 +17,13 @@ pub fn dash_to_snake(dash_name: &str) -> String {
         } else if c == '-' {
             snake_name.push('_')
         } else {
+            p!(c);
             todo!()
         }
     }
     snake_name
 }
+
 pub fn snake_to_dash(snake_name: &str) -> String {
     if snake_name.len() == 0 {
         panic!()
