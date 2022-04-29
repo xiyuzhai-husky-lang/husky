@@ -1,4 +1,4 @@
-use entity_route::{EntityKind, EntityRouteKind, RangedEntityRoute};
+use entity_route::{EntityKind, RangedEntityRoute};
 use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
@@ -23,9 +23,6 @@ pub enum AtomKind {
     ThisData {
         ty: Option<EntityRoutePtr>,
     },
-    // ThisType {
-    //     ty: Option<EntityRoutePtr>,
-    // },
     Unrecognized(CustomIdentifier),
     Literal(PrimitiveValue),
     Binary(BinaryOpr),
