@@ -27,10 +27,10 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
     pub fn into_stack(self) -> StackValue<'stack, 'eval> {
         match self {
             MemberValue::Primitive(value) => StackValue::Primitive(value),
-            MemberValue::Boxed(_) => todo!(),
-            MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::GlobalRef(_) => todo!(),
-            MemberValue::Moved => todo!(),
+            MemberValue::Boxed(value) => StackValue::Boxed(value),
+            MemberValue::GlobalPure(value) => StackValue::GlobalPure(value),
+            MemberValue::GlobalRef(value) => StackValue::GlobalRef(value),
+            MemberValue::Moved => panic!(),
         }
     }
 

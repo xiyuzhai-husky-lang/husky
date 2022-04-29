@@ -91,15 +91,15 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    unsafe fn share_globally(&self) -> EvalValue<'eval> {
-        match self {
-            EvalValue::Primitive(value) => EvalValue::Primitive(*value),
-            EvalValue::GlobalRef(value) => EvalValue::GlobalRef(*value),
-            EvalValue::GlobalPure(value) => EvalValue::GlobalPure(value.clone()),
-            EvalValue::Undefined => EvalValue::Undefined,
-            EvalValue::Boxed(_) => todo!(),
-        }
-    }
+    // unsafe fn share_globally(&self) -> EvalValue<'eval> {
+    //     match self {
+    //         EvalValue::Primitive(value) => EvalValue::Primitive(*value),
+    //         EvalValue::GlobalRef(value) => EvalValue::GlobalRef(*value),
+    //         EvalValue::GlobalPure(value) => EvalValue::GlobalPure(value.clone()),
+    //         EvalValue::Undefined => EvalValue::Undefined,
+    //         EvalValue::Boxed(_) => todo!(),
+    //     }
+    // }
 
     pub fn share(&self) -> EvalValue<'eval> {
         match self {
