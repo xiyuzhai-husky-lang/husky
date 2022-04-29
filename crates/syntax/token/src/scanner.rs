@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use crate::{error::LexResult, line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
+use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 
 use dev_utils::dev_src;
 use file::URange;

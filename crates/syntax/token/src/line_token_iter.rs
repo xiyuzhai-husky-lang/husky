@@ -169,7 +169,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     }
 
     fn ignore_char(&mut self) {
-        let (_, c) = self.char_iter.next().expect("what");
+        let (_, _c) = self.char_iter.next().expect("what");
     }
 
     fn next_special(&mut self, j_start: usize, c_start: char) -> Option<Token> {
