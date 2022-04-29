@@ -1,11 +1,11 @@
-mod notify;
+mod compare;
 mod test_diagnostics;
 mod test_semantic_tokens;
 
 use crate::*;
+use compare::*;
 use compile_time_db::HuskyLangCompileTime;
 use diagnostic::Diagnostic;
-use notify::*;
 use path_utils::collect_pack_dirs;
 use std::{fs, path::PathBuf};
 use test_diagnostics::*;

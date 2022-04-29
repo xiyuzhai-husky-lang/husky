@@ -1,0 +1,22 @@
+{
+    "enum_examples": [
+        AbsSemanticToken {
+            kind: Entity(
+                Module,
+            ),
+            range: 5:5..5:14,
+            token_type: 6,
+            token_modifiers_bitset: 0,
+        },
+        AbsSemanticToken {
+            kind: Entity(
+                Type(
+                    Enum,
+                ),
+            ),
+            range: 8:9..8:10,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+    ],
+}

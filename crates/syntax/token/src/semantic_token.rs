@@ -1,5 +1,6 @@
 use crate::*;
 use entity_kind::{EntityKind, MemberKind};
+use print_utils::p;
 use serde::{Deserialize, Serialize};
 use text::TextRange;
 
@@ -19,6 +20,34 @@ impl AbsSemanticToken {
             token_type: kind.token_type(),
             token_modifiers_bitset: 0,
         }
+    }
+
+    pub fn to_semantic_tokens(abs_semantic_tokens: &[AbsSemanticToken]) -> Vec<SemanticToken> {
+        let mut semantic_tokens = vec![];
+        let mut last_line = 0;
+        let mut last_start = 0;
+        for abs_semantic_token in abs_semantic_tokens {
+            let new_line = abs_semantic_token.range.start.i();
+            let new_start = abs_semantic_token.range.start.j();
+            let length = abs_semantic_token.range.end.j() - new_start;
+            p!(new_line, last_line);
+            let delta_line = new_line - last_line;
+            let delta_start = if new_line > last_line {
+                new_start
+            } else {
+                new_start - last_start
+            };
+            semantic_tokens.push(SemanticToken {
+                delta_line,
+                delta_start,
+                length,
+                token_type: abs_semantic_token.token_type,
+                token_modifiers_bitset: abs_semantic_token.token_modifiers_bitset,
+            });
+            last_line = new_line;
+            last_start = new_start
+        }
+        semantic_tokens
     }
 }
 
@@ -62,7 +91,8 @@ impl SemanticTokenKind {
 }
 
 use lsp_types::{
-    Range, SemanticTokenModifier, SemanticTokenType, SemanticTokens, SemanticTokensEdit,
+    Range, SemanticToken, SemanticTokenModifier, SemanticTokenType, SemanticTokens,
+    SemanticTokensEdit,
 };
 
 macro_rules! define_semantic_token_types {

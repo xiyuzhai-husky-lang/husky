@@ -11,6 +11,7 @@ use lsp_types::{
     SemanticTokensFullDeltaResult, SemanticTokensParams, SemanticTokensRangeParams,
     SemanticTokensRangeResult, SemanticTokensResult, SymbolInformation, WorkspaceEdit,
 };
+use token::AbsSemanticToken;
 
 use crate::lsp_ext::{self, InlayHint, InlayHintsParams, WorkspaceSymbolParams};
 
@@ -274,9 +275,11 @@ pub(crate) fn handle_semantic_tokens_full(
         &params.text_document.uri,
     )?);
     let ast_text = snapshot.ast_text(file)?;
+    let data = AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens);
+    p!(data);
     Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
         result_id: None,
-        data: convert::to_lsp_types::to_semantic_tokens(&ast_text.semantic_tokens),
+        data,
     })))
 }
 
@@ -293,7 +296,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     Ok(Some(SemanticTokensFullDeltaResult::Tokens(
         SemanticTokens {
             result_id: None,
-            data: convert::to_lsp_types::to_semantic_tokens(&ast_text.semantic_tokens),
+            data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
         },
     )))
 }
@@ -310,7 +313,7 @@ pub(crate) fn handle_semantic_tokens_range(
     let ast_text = snapshot.ast_text(file)?;
     Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
         result_id: None,
-        data: convert::to_lsp_types::to_semantic_tokens(&ast_text.semantic_tokens),
+        data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
     })))
     // msg_once!("{}:{} todo!", file!(), line!()); Ok(None)
     // let _p = profile::span("handle_semantic_tokens_range");

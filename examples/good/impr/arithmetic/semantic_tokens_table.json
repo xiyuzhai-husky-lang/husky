@@ -1,1 +1,53 @@
-{"arithmetic":[{"kind":{"Entity":{"Type":"Primitive"}},"range":{"start":{"row":0,"col":12},"end":{"row":0,"col":15}},"token_type":7,"token_modifiers_bitset":0},{"kind":{"Entity":{"Type":"Primitive"}},"range":{"start":{"row":0,"col":20},"end":{"row":0,"col":23}},"token_type":7,"token_modifiers_bitset":0},{"kind":{"Entity":{"Type":"Primitive"}},"range":{"start":{"row":0,"col":28},"end":{"row":0,"col":31}},"token_type":7,"token_modifiers_bitset":0},{"kind":"Variable","range":{"start":{"row":1,"col":4},"end":{"row":1,"col":5}},"token_type":18,"token_modifiers_bitset":0},{"kind":"Variable","range":{"start":{"row":1,"col":8},"end":{"row":1,"col":9}},"token_type":18,"token_modifiers_bitset":0},{"kind":{"Entity":"Module"},"range":{"start":{"row":4,"col":4},"end":{"row":4,"col":13}},"token_type":6,"token_modifiers_bitset":0},{"kind":{"Entity":"Routine"},"range":{"start":{"row":7,"col":11},"end":{"row":7,"col":14}},"token_type":14,"token_modifiers_bitset":0}]}
+{
+    "arithmetic": [
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 12,
+            length: 3,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 8,
+            length: 3,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 8,
+            length: 3,
+            token_type: 7,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 1,
+            delta_start: 4,
+            length: 1,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 4,
+            length: 1,
+            token_type: 18,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 3,
+            delta_start: 4,
+            length: 9,
+            token_type: 6,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 3,
+            delta_start: 11,
+            length: 3,
+            token_type: 14,
+            token_modifiers_bitset: 0,
+        },
+    ],
+}

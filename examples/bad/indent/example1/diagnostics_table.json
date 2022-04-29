@@ -1,1 +1,10 @@
-{"example1":[{"severity":"Error","range":{"start":{"row":7,"col":17},"end":{"row":7,"col":18}},"message":"Lex Error: expect indentated lines after `:`","dev_src":{"file":"crates/syntax/token/src/scanner.rs","line":92}}]}
+{
+    "example1": [
+        Diagnostic {
+            severity: Error,
+            range: 8:18..8:19,
+            message: "Lex Error: expect indentated lines after `:`",
+            dev_src: crates/syntax/token/src/scanner.rs:92,
+        },
+    ],
+}
