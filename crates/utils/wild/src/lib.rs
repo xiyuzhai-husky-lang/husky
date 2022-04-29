@@ -1,5 +1,5 @@
-pub unsafe fn ref_to_mut_ref<T>(r: &T) {
-    let ptr:*T = r;
+pub unsafe fn ref_to_mut_ref<T>(r: &T) -> &mut T {
+    let ptr: *const T = r;
     let mut_ptr = ptr as *mut T;
-    unsafe {&mut *mut_ptr}
+    &mut *mut_ptr
 }
