@@ -47,7 +47,7 @@ impl<'eval> TraceFactory<'eval> {
             ];
             for i in 0..input_placeholders.len() {
                 let input_placeholder = &input_placeholders[i];
-                tokens.push(ident!(input_placeholder.ident.as_str()));
+                tokens.push(ident!(input_placeholder.ident.ident.as_str()));
                 tokens.push(special!(": "));
                 tokens.push(scope!(text.ranged(input_placeholder.ranged_ty.range)));
                 if i < input_placeholders.len() - 1 {

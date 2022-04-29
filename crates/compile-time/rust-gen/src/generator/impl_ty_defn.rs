@@ -148,7 +148,7 @@ impl<'a> RustGenerator<'a> {
                     }
                     for input_placeholder in input_placeholders.iter() {
                         self.write(", ");
-                        self.write(&input_placeholder.ident);
+                        self.write(&input_placeholder.ident.ident);
                         self.write(": ");
                         match input_placeholder.contract {
                             InputContract::Pure => {

@@ -6,21 +6,15 @@ mod impl_inner_ops;
 mod impl_lambda_head;
 mod utils;
 
-use core::slice::Iter;
-
+use super::{stack::AtomStack, symbol::SymbolContext, *};
 use check_utils::should;
+use core::slice::Iter;
 use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument};
-use file::FilePtr;
 use print_utils::p;
 use text::TextRange;
 use token::{AbsSemanticToken, Special, Token, TokenKind};
-use vm::{BinaryOpr, PureBinaryOpr};
-use word::CustomIdentifier;
-
-use super::{stack::AtomStack, symbol::SymbolContext, *};
-use crate::*;
-
 use utils::*;
+use vm::{BinaryOpr, PureBinaryOpr};
 
 #[derive(Debug, Clone)]
 pub(crate) struct TokenStream<'a> {

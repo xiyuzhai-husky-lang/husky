@@ -22,7 +22,7 @@ main:
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
-    let subscope_table = db.subscope_table(pack).ok().unwrap();
+    let subscope_table = db.subroute_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 2);
     should_eq!(subscope_table.errors.len(), 0);
 }
@@ -54,7 +54,7 @@ struct B {}
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
-    let subscope_table = db.subscope_table(pack).ok().unwrap();
+    let subscope_table = db.subroute_table(pack).ok().unwrap();
     p!(subscope_table.entries);
     should_eq!(subscope_table.entries.len(), 3);
     should_eq!(subscope_table.errors.len(), 0);
@@ -79,7 +79,7 @@ main:
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
-    let subscope_table = db.subscope_table(pack).ok().unwrap();
+    let subscope_table = db.subroute_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 1);
     should_eq!(subscope_table.errors.len(), 1);
 }

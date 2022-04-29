@@ -10,7 +10,7 @@ pub struct EagerVariable {
 impl EagerVariable {
     pub(crate) fn from_input(input_placeholder: &InputPlaceholder) -> Self {
         EagerVariable {
-            ident: input_placeholder.ident,
+            ident: input_placeholder.ident.ident,
             ty: input_placeholder.ranged_ty.route,
             qual: Qual::from_input(input_placeholder.contract),
         }

@@ -1,18 +1,16 @@
 mod generic;
 
 use entity_kind::RoutineContextKind;
-use entity_route_query::EntityRouteQueryGroup;
 pub use generic::*;
-use static_defn::StaticInputPlaceholder;
 use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use vm::{FieldContract, InputContract, OutputContract};
-use word::{CustomIdentifier, IdentDict};
+use word::{CustomIdentifier, IdentDict, RangedCustomIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RoutineDefnHead {
-    pub ident: CustomIdentifier,
+    pub ident: RangedCustomIdentifier,
     pub routine_kind: RoutineContextKind,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
@@ -22,7 +20,7 @@ pub struct RoutineDefnHead {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TypeMethodDefnHead {
-    pub ident: CustomIdentifier,
+    pub ident: RangedCustomIdentifier,
     pub routine_kind: RoutineContextKind,
     pub this_contract: InputContract,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
@@ -49,7 +47,7 @@ pub enum FieldKind {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputPlaceholder {
-    pub ident: CustomIdentifier,
+    pub ident: RangedCustomIdentifier,
     pub contract: InputContract,
     pub ranged_ty: RangedEntityRoute,
 }

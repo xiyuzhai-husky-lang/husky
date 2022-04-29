@@ -125,7 +125,7 @@ impl MethodDecl {
 
     pub fn from_ast(method_defn_head: &TypeMethodDefnHead, kind: MethodKind) -> Arc<Self> {
         Arc::new(MethodDecl {
-            ident: method_defn_head.ident,
+            ident: method_defn_head.ident.ident,
             inputs: method_defn_head
                 .input_placeholders
                 .map(|input_placeholder| input_placeholder.into()),

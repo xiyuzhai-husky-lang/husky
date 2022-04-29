@@ -13,10 +13,10 @@ pub struct AbsSemanticToken {
 }
 
 impl AbsSemanticToken {
-    pub fn new(kind: SemanticTokenKind, token: &Token) -> Self {
+    pub fn new(kind: SemanticTokenKind, range: TextRange) -> Self {
         Self {
             kind,
-            range: token.range,
+            range,
             token_type: kind.token_type(),
             token_modifiers_bitset: 0,
         }
@@ -58,6 +58,7 @@ pub enum SemanticTokenKind {
     ThisData,
     FrameVariable,
     Entity(EntityKind),
+    GenericPlaceholder,
 }
 
 impl SemanticTokenKind {
@@ -72,19 +73,20 @@ impl SemanticTokenKind {
                 EntityKind::Module => SemanticTokenType::NAMESPACE,
                 EntityKind::Type(_) => SemanticTokenType::TYPE,
                 EntityKind::Trait => SemanticTokenType::TYPE,
-                EntityKind::TypeMember(member_kind) => match member_kind {
+                EntityKind::Member(member_kind) => match member_kind {
                     MemberKind::Method => todo!(),
                     MemberKind::Call => todo!(),
                     MemberKind::TraitAssociatedType => todo!(),
                     MemberKind::TraitAssociatedConstSize => todo!(),
                     MemberKind::Field => todo!(),
+                    MemberKind::TraitAssociatedAny => panic!(),
                 },
                 EntityKind::Routine => SemanticTokenType::FUNCTION,
                 EntityKind::Feature => SemanticTokenType::VARIABLE,
-                EntityKind::Pattern => todo!(),
-                EntityKind::Literal => todo!(),
-                EntityKind::Member => todo!(),
+                EntityKind::Pattern => SemanticTokenType::FUNCTION,
+                EntityKind::Literal => SemanticTokenType::VARIABLE,
             },
+            SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,
         })
     }
 }

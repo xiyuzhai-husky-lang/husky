@@ -2,7 +2,7 @@ use entity_route::{EntityKind, RangedEntityRoute};
 use text::Row;
 use token::Special;
 use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
-use word::CustomIdentifier;
+use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;
 
@@ -31,7 +31,7 @@ pub enum AtomKind {
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
-    LambdaHead(Vec<(CustomIdentifier, Option<RangedEntityRoute>)>),
+    LambdaHead(Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>),
 }
 
 pub type LambdaHead = Vec<(Identifier, Option<RangedEntityRoute>)>;

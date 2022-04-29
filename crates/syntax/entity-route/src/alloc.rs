@@ -3,6 +3,7 @@ use paste::paste;
 use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
 use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
 use vm::{AnyValue, AnyValueDyn, EnumLiteralValueDyn, StaticTypeId};
+use word::RangedCustomIdentifier;
 
 use crate::*;
 

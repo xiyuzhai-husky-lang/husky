@@ -9,7 +9,9 @@ use map_collect::MapCollect;
 use print_utils::p;
 use static_defn::{StaticGenericPlaceholder, StaticInputPlaceholder};
 use text::{Row, TextRange};
-use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
+use word::{
+    ContextualIdentifier, CustomIdentifier, IdentDict, RangedCustomIdentifier, RootIdentifier,
+};
 
 use super::*;
 
@@ -157,6 +159,7 @@ impl<'a> SymbolContext<'a> {
                             MemberKind::TraitAssociatedType => EntityKind::Type(TyKind::Other),
                             MemberKind::TraitAssociatedConstSize => todo!(),
                             MemberKind::Field => todo!(),
+                            MemberKind::TraitAssociatedAny => panic!(),
                         }
                     }
                 },
@@ -193,7 +196,10 @@ impl<'a> SymbolContext<'a> {
         static_input_placeholder: &StaticInputPlaceholder,
     ) -> InputPlaceholder {
         InputPlaceholder {
-            ident: self.db.intern_word(static_input_placeholder.name).custom(),
+            ident: RangedCustomIdentifier {
+                ident: self.db.intern_word(static_input_placeholder.name).custom(),
+                range: Default::default(),
+            },
             contract: static_input_placeholder.contract,
             ranged_ty: RangedEntityRoute {
                 route: self

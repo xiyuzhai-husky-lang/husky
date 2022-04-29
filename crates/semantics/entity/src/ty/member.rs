@@ -73,7 +73,7 @@ impl EntityDefnVariant {
                         method_source,
                     };
                     members.insert_new(EntityDefn::new(
-                        head.ident.into(),
+                        head.ident.ident.into(),
                         EntityDefnVariant::Method {
                             input_placeholders: head.input_placeholders.clone(),
                             output_ty: head.output_ty,
@@ -85,7 +85,7 @@ impl EntityDefnVariant {
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {
                                 parent: ty_route,
-                                ident: head.ident,
+                                ident: head.ident.ident,
                             },
                             generic_arguments: vec![],
                         }),

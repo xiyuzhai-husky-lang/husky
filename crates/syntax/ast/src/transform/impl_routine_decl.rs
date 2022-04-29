@@ -36,7 +36,7 @@ impl<'a> AstTransformer<'a> {
             head.input_placeholders
                 .iter()
                 .map(|input_placeholder| Symbol {
-                    ident: input_placeholder.ident,
+                    ident: input_placeholder.ident.ident,
                     kind: SymbolKind::Variable {
                         init_row: input_placeholder.ranged_ty.row(),
                     },

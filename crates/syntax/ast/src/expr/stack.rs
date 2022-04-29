@@ -3,6 +3,7 @@ use check_utils::should;
 use entity_route::RangedEntityRoute;
 use text::{TextPosition, TextRange};
 use vm::{BinaryOpr, PrimitiveValue};
+use word::RangedCustomIdentifier;
 
 use crate::{expr::precedence::Precedence, *};
 
@@ -49,7 +50,7 @@ impl ExprStackOpr {
     }
 
     fn lambda_head(
-        inputs: Vec<(CustomIdentifier, Option<RangedEntityRoute>)>,
+        inputs: Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>,
         start: TextPosition,
     ) -> Self {
         Self {
@@ -73,7 +74,7 @@ enum ExprStackOprKind {
         start: TextPosition,
     },
     LambdaHead {
-        inputs: Vec<(CustomIdentifier, Option<RangedEntityRoute>)>,
+        inputs: Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>,
         start: TextPosition,
     },
 }
@@ -151,7 +152,7 @@ impl<'a> ExprStack<'a> {
 
     pub(crate) fn accept_lambda_head(
         &mut self,
-        inputs: Vec<(CustomIdentifier, Option<RangedEntityRoute>)>,
+        inputs: Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>,
         start: TextPosition,
     ) {
         self.oprs.push(ExprStackOpr::lambda_head(inputs, start))
@@ -316,7 +317,7 @@ impl<'a> ExprStack<'a> {
 
     fn synthesize_lambda(
         &mut self,
-        inputs: Vec<(CustomIdentifier, Option<RangedEntityRoute>)>,
+        inputs: Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>,
         start: TextPosition,
     ) {
         let range = (start..self.exprs.last().unwrap().range.end).into();

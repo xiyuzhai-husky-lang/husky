@@ -14,7 +14,7 @@ impl<'a> AtomLRParser<'a> {
             if token.kind == Special::LBox.into() {
                 self.push_abs_semantic_token(AbsSemanticToken::new(
                     SemanticTokenKind::Special,
-                    token,
+                    token.range,
                 ));
                 Some(AtomKind::EntityRoute {
                     route: self.symbolic_ty()?,
@@ -28,14 +28,14 @@ impl<'a> AtomLRParser<'a> {
                     SymbolKind::EntityRoute(route) => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::Entity(self.symbol_context.entity_kind(route)),
-                            token,
+                            token.range,
                         ));
                         self.normal_route(route)?
                     }
                     SymbolKind::Variable { init_row } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::Variable,
-                            token,
+                            token.range,
                         ));
                         match ident {
                             Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
@@ -46,14 +46,14 @@ impl<'a> AtomLRParser<'a> {
                     SymbolKind::ThisData { ty } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::ThisData,
-                            token,
+                            token.range,
                         ));
                         AtomKind::ThisData { ty }
                     }
                     SymbolKind::FrameVariable { init_row } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::FrameVariable,
-                            token,
+                            token.range,
                         ));
                         AtomKind::FrameVariable {
                             varname: ident.custom(),
@@ -97,11 +97,16 @@ impl<'a> AtomLRParser<'a> {
             .db
             .make_scope(route, self.generics(route)?);
         while next_matches!(self, Special::DoubleColon) {
-            let ident = get!(self, custom_ident);
-            route = self
-                .symbol_context
-                .db
-                .make_child_scope(route, ident, self.generics(route)?);
+            let ranged_ident = get!(self, custom_ident);
+            route = self.symbol_context.db.make_child_scope(
+                route,
+                ranged_ident.ident,
+                self.generics(route)?,
+            );
+            self.push_abs_semantic_token(AbsSemanticToken::new(
+                SemanticTokenKind::Entity(self.symbol_context.entity_kind(route)),
+                ranged_ident.range,
+            ));
             route = self
                 .symbol_context
                 .db
@@ -162,16 +167,11 @@ impl<'a> AtomLRParser<'a> {
                 | RootIdentifier::DatasetType => self.angled_generics(),
                 RootIdentifier::Type => todo!(),
             },
-            _ => match self
-                .symbol_context
-                .db
-                .raw_entity_kind_from_scope_kind(route.kind)
-            {
+            _ => match self.symbol_context.entity_kind(route) {
                 EntityKind::Module
                 | EntityKind::Literal
                 | EntityKind::Feature
-                | EntityKind::TypeMember(_)
-                | EntityKind::Member => Ok(Vec::new()),
+                | EntityKind::Member(_) => Ok(Vec::new()),
                 EntityKind::Type(_)
                 | EntityKind::Trait
                 | EntityKind::Routine

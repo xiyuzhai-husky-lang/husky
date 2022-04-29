@@ -95,8 +95,7 @@ impl<'a> TySheetBuilder<'a> {
             }
             EntityKind::Feature => self.db.feature_decl(scope)?.ty,
             EntityKind::Pattern => todo!(),
-            EntityKind::TypeMember(_) => todo!(),
-            EntityKind::Member => todo!(),
+            EntityKind::Member(_) => todo!(),
         })
     }
 

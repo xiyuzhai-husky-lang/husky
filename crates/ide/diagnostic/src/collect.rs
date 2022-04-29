@@ -11,7 +11,7 @@ pub(crate) fn collect_diagnostics(
     module: EntityRoutePtr,
 ) -> Vec<Diagnostic> {
     let mut diagnostics = Vec::new();
-    if let Ok(table) = db.subscope_table(module) {
+    if let Ok(table) = db.subroute_table(module) {
         diagnostics.extend(table.error_iter().map(|e| e.into()));
         for subscope_id in db.subscopes(module).iter() {
             match db.raw_entity_kind(*subscope_id) {

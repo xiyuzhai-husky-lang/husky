@@ -277,7 +277,7 @@ impl ChildRouteTable {
                 for type_member in type_members {
                     entries.push(Entry {
                         ident: Some(db.intern_word(type_member.name).custom()),
-                        kind: EntityKind::TypeMember(match type_member.variant {
+                        kind: EntityKind::Member(match type_member.variant {
                             EntityStaticDefnVariant::TypeField { .. } => MemberKind::Field,
                             EntityStaticDefnVariant::Method { .. } => MemberKind::Method,
                             _ => panic!(),

@@ -1,4 +1,5 @@
 use vm::PrimitiveValue;
+use word::RangedCustomIdentifier;
 
 use super::*;
 
@@ -23,13 +24,16 @@ impl<'a> AtomLRParser<'a> {
         }
     }
 
-    pub(crate) fn custom_ident(&mut self) -> Option<CustomIdentifier> {
+    pub(crate) fn custom_ident(&mut self) -> Option<RangedCustomIdentifier> {
         if let Some(Token {
             kind: TokenKind::Identifier(Identifier::Custom(ident)),
-            ..
+            range,
         }) = self.stream.next()
         {
-            Some(*ident)
+            Some(RangedCustomIdentifier {
+                ident: *ident,
+                range: *range,
+            })
         } else {
             None
         }

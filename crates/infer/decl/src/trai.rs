@@ -71,9 +71,7 @@ impl TraitMemberDecl {
         &self,
         db: &dyn DeclQueryGroup,
         implementor: &Implementor,
-        // member_impls: &[(CustomIdentifier, GenericArgument)],
     ) -> TraitMemberImplDecl {
-        // let implementor = Implementor::new(db.upcast(), this_ty, member_impls);
         match self {
             TraitMemberDecl::Method(method_decl) => {
                 TraitMemberImplDecl::Method(method_decl.implement(&implementor))
