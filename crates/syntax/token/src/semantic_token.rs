@@ -54,6 +54,7 @@ impl AbsSemanticToken {
 pub enum SemanticTokenKind {
     Field,
     Special,
+    Parameter,
     Variable,
     ThisData,
     FrameVariable,
@@ -87,6 +88,7 @@ impl SemanticTokenKind {
                 EntityKind::Literal => SemanticTokenType::VARIABLE,
             },
             SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,
+            SemanticTokenKind::Parameter => SemanticTokenType::PARAMETER,
         })
     }
 }

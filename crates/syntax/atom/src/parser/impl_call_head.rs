@@ -24,7 +24,7 @@ impl<'a> AtomLRParser<'a> {
             routine_ident.range,
         ));
         let generic_placeholders = self.placeholders()?;
-        let input_placeholders = self.func_input_placeholders()?;
+        let input_placeholders = self.call_input_placeholders()?;
         let output_ty = self.func_output_type()?;
         match routine_kind {
             RoutineContextKind::Proc => (),
@@ -61,7 +61,7 @@ impl<'a> AtomLRParser<'a> {
     ) -> AtomResult<TypeMethodDefnHead> {
         let routine_name = get!(self, custom_ident);
         let generics = self.placeholders()?;
-        let input_placeholders = self.func_input_placeholders()?;
+        let input_placeholders = self.call_input_placeholders()?;
         let output_ty = self.func_output_type()?;
         Ok(TypeMethodDefnHead {
             this_contract: this,
@@ -107,13 +107,17 @@ impl<'a> AtomLRParser<'a> {
         })
     }
 
-    fn func_input_placeholders(&mut self) -> AtomResultArc<Vec<InputPlaceholder>> {
+    fn call_input_placeholders(&mut self) -> AtomResultArc<Vec<InputPlaceholder>> {
         no_look_pass!(self, "(");
-        Ok(Arc::new(comma_list!(self, func_input_placeholder!, ")")))
+        Ok(Arc::new(comma_list!(self, call_input_placeholder!, ")")))
     }
 
-    fn func_input_placeholder(&mut self) -> AtomResult<InputPlaceholder> {
+    fn call_input_placeholder(&mut self) -> AtomResult<InputPlaceholder> {
         let ident = get!(self, custom_ident);
+        self.push_abs_semantic_token(AbsSemanticToken::new(
+            SemanticTokenKind::Parameter,
+            ident.range,
+        ));
         no_look_pass!(self, ":");
         self.stream.pop_range();
         let ty = RangedEntityRoute {
