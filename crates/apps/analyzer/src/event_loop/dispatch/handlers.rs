@@ -278,43 +278,40 @@ pub(crate) fn handle_semantic_tokens_full(
         result_id: None,
         data: convert::to_lsp_types::to_semantic_tokens(&ast_text.semantic_tokens),
     })))
-    // let _p = profile::span("handle_semantic_tokens_full");
-
-    // let file_id = from_lsp_types::to_file_id(&snap, &params.text_document.uri)?;
-    // let text = snap.analysis.file_text(file_id)?;
-    // let line_index = snap.file_line_collection(file_id)?;
-
-    // let highlights = snap.analysis.highlight(file_id)?;
-    // let highlight_strings = snap.config.highlighting_strings();
-    // let semantic_tokens =
-    //     to_lsp_types::to_semantic_tokens(&text, &line_index, highlights, highlight_strings);
-
-    // use salsa database
-
-    // // Unconditionally cache the tokens
-    // snap.semantic_tokens_cache
-    //     .lock()
-    //     .insert(params.text_document.uri, semantic_tokens.clone());
-
-    // Ok(Some(semantic_tokens.into()))
 }
 
 pub(crate) fn handle_semantic_tokens_full_delta(
-    _snapshot: HuskyLangDatabaseSnapshot,
+    snapshot: HuskyLangDatabaseSnapshot,
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
     msg_once!("todo handle semantic tokens full delta");
     p!(params);
-    Ok(None)
+    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+        &params.text_document.uri,
+    )?);
+    let ast_text = snapshot.ast_text(file)?;
+    Ok(Some(SemanticTokensFullDeltaResult::Tokens(
+        SemanticTokens {
+            result_id: None,
+            data: convert::to_lsp_types::to_semantic_tokens(&ast_text.semantic_tokens),
+        },
+    )))
 }
 
 pub(crate) fn handle_semantic_tokens_range(
-    _snapshot: HuskyLangDatabaseSnapshot,
+    snapshot: HuskyLangDatabaseSnapshot,
     params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
     msg_once!("todo semantic tokens range");
     p!(params);
-    Ok(None)
+    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+        &params.text_document.uri,
+    )?);
+    let ast_text = snapshot.ast_text(file)?;
+    Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
+        result_id: None,
+        data: convert::to_lsp_types::to_semantic_tokens(&ast_text.semantic_tokens),
+    })))
     // msg_once!("{}:{} todo!", file!(), line!()); Ok(None)
     // let _p = profile::span("handle_semantic_tokens_range");
 
