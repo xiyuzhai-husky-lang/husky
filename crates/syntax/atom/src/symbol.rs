@@ -168,7 +168,7 @@ impl<'a> SymbolContext<'a> {
 
     pub fn entity_route_from_str(&self, text: &str) -> AtomResult<EntityRoutePtr> {
         let tokens = self.db.tokenize(text);
-        let result = AtomLRParser::new(self, &tokens).parse_all()?;
+        let result = AtomLRParser::new(self, None, &tokens).parse_all()?;
         if result.len() == 0 {
             panic!()
         }
