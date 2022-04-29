@@ -11,6 +11,7 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
+wild-utils = { path = "../../utils/wild", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
