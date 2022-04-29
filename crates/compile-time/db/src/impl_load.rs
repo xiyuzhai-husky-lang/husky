@@ -29,9 +29,6 @@ impl HuskyLangCompileTime {
                 }
             } else if path.extension().unwrap() == "hsk" {
                 let text = fs::read_to_string(&path).expect("what");
-                if text.len() == 0 {
-                    panic!("{} is empty", &path.as_os_str().to_str().unwrap());
-                }
                 self.set_live_file_text(path, text)
             }
         }
