@@ -72,7 +72,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionKind::Return => VMControl::Return(self.stack.pop().into_eval()),
-                InstructionKind::Init(init_kind) => self.init(init_kind, mode).into(),
                 InstructionKind::Loop {
                     ref body,
                     loop_kind,
@@ -129,18 +128,5 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
 
     pub(crate) fn exec_code(&mut self, code: Linkage) -> EvalResult<'eval> {
         todo!()
-    }
-
-    fn init(&mut self, init_kind: InitKind, mode: Mode) -> VMResult<()> {
-        match self.stack.top_mut(mode) {
-            StackValue::Primitive(_)
-            | StackValue::Boxed(_)
-            | StackValue::GlobalPure(_)
-            | StackValue::GlobalRef(_) => (),
-            StackValue::LocalRef(_) => todo!(),
-            StackValue::MutLocalRef { .. } => todo!(),
-            StackValue::Moved => todo!(),
-        }
-        Ok(())
     }
 }
