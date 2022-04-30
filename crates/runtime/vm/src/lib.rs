@@ -10,6 +10,7 @@ mod interpreter;
 mod linkage;
 mod loop_kind;
 mod mode;
+mod mutation;
 mod signature;
 mod snapshot;
 mod stack;
@@ -20,13 +21,14 @@ pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
-pub use frame::{FrameKind, LoopFrameSnapshot};
+pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
 pub use linkage::Linkage;
 pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
 pub use mode::Mode;
+pub use mutation::*;
 pub use signature::*;
 pub use snapshot::{StackSnapshot, StackValueSnapshot};
 pub use stack::*;
@@ -64,7 +66,7 @@ pub fn exec_loop_debug<'stack, 'eval: 'stack>(
     values: impl Into<VMStack<'stack, 'eval>>,
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
-) -> Vec<LoopFrameSnapshot<'eval>> {
+) -> Vec<LoopFrameData<'eval>> {
     let mut interpreter = Interpreter::new(db, values);
     interpreter.exec_loop_debug(loop_kind, &sheet);
     interpreter.frames

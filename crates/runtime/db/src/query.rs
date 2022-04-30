@@ -120,7 +120,7 @@ pub fn subtraces(
         TraceVariant::FeatureBranch(ref branch) => db.feature_branch_subtraces(trace, branch),
         TraceVariant::EagerExpr { .. } => todo!(),
         TraceVariant::LoopFrame {
-            loop_frame_snapshot: ref vm_loop_frame,
+            loop_frame_data: ref vm_loop_frame,
             ref body_stmts,
             ref body_instruction_sheet,
             ..
@@ -281,7 +281,7 @@ pub fn trace_stalk(
         | TraceVariant::EagerExpr { .. }
         | TraceVariant::CallHead { .. } => panic!(),
         TraceVariant::LoopFrame {
-            loop_frame_snapshot: ref vm_loop_frame,
+            loop_frame_data: ref vm_loop_frame,
             ..
         } => match vm_loop_frame.control {
             vm::ControlSnapshot::None => TraceStalk::default(),
