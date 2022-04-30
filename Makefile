@@ -1,5 +1,6 @@
 projects_dir=/home/xiyuzhai/Documents/husky/projects
 examples_dir=/home/xiyuzhai/Documents/husky/examples
+temp_dir=/home/xiyuzhai/Documents/husky/examples/good/input
 
 test-examples:
 	cargo run --bin husky-lang-compiler $(examples_dir)/good
@@ -7,6 +8,10 @@ test-examples:
 
 test-examples-with-backtrace:
 	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
+
+test-temp:
+	cargo run --bin husky-lang-compiler $(temp_dir)
+	cargo run --bin husky-lang-debugger $(temp_dir) --input-id 1 --mode test
 
 #test-compile-time:
 #	cargo run --bin husky-lang-debugger $(compile_time_tests_dir) --input-id 1 --mode test-compile-time

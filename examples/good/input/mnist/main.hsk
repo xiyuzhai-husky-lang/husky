@@ -3,11 +3,10 @@ use datasets::cv::mnist::BinaryImage28
 dataset:
     cv::mnist::new_binary_dataset()
 
-proc find_connected_components(binary_image: BinaryImage28) -> []i32:
+proc find_connected_components(binary_image: BinaryImage28) -> i32:
     var b = binary_image.clone()
     b[0] = 1b32
-    return []i32()
+    return 1
 
 main:
-    d = find_connected_components(input)
-    1
+    find_connected_components(input)
