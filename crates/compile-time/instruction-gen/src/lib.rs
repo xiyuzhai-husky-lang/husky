@@ -60,12 +60,6 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    fn build_impr_block(&self, stmts: &[Arc<ProcStmt>]) -> Arc<InstructionSheet> {
-        let mut block_sheet_builder = self.subsheet_builder();
-        block_sheet_builder.compile_proc_stmts(stmts);
-        block_sheet_builder.finalize()
-    }
-
     fn finalize(self) -> Arc<InstructionSheet> {
         Arc::new(self.sheet)
     }

@@ -47,14 +47,17 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) {
         match loop_kind {
             LoopVariant::For {
-                frame_var,
                 initial_boundary,
                 final_boundary,
-                step,
+                frame_var,
+                ..
             } => {
                 self.compile_boundary(initial_boundary, &loop_stmt);
                 self.compile_boundary(final_boundary, &loop_stmt);
-                let body = self.build_impr_block(body_stmts);
+                let mut block_sheet_builder = self.subsheet_builder();
+                block_sheet_builder.def_frame_variable(frame_var.ident);
+                block_sheet_builder.compile_proc_stmts(body_stmts);
+                let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
                     InstructionKind::Loop {
                         body,
@@ -63,14 +66,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                     loop_stmt,
                 ));
             }
-            LoopVariant::ForExt {
-                frame_var,
-                frame_varidx,
-                final_boundary,
-                step,
-            } => {
+            LoopVariant::ForExt { final_boundary, .. } => {
                 self.compile_boundary(final_boundary, &loop_stmt);
-                let body = self.build_impr_block(body_stmts);
+                let mut block_sheet_builder = self.subsheet_builder();
+                block_sheet_builder.compile_proc_stmts(body_stmts);
+                let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
                     InstructionKind::Loop {
                         body,
