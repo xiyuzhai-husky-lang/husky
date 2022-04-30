@@ -28,15 +28,17 @@ pub struct EntityRouteSheet {
     pub(crate) expr_tys: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
     pub(crate) call_routes: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
     pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), Option<EntityRoutePtr>>,
+    pub(crate) global_errors: Vec<InferError>,
 }
 
 impl EntityRouteSheet {
-    pub(crate) fn new(ast_text: Arc<AstText>) -> Self {
+    pub(crate) fn new(ast_text: Arc<AstText>, global_errors: Vec<InferError>) -> Self {
         Self {
             expr_tys: Default::default(),
             variable_tys: Default::default(),
             call_routes: Default::default(),
             ast_text,
+            global_errors,
         }
     }
 
@@ -62,7 +64,7 @@ impl EntityRouteSheet {
     }
 
     pub fn errors(&self) -> Vec<&InferError> {
-        let mut errors: Vec<&InferError> = Vec::new();
+        let mut errors: Vec<&InferError> = self.global_errors.iter().collect();
         for (_, result) in self.expr_tys.iter() {
             match result {
                 Ok(_) => (),
@@ -72,6 +74,7 @@ impl EntityRouteSheet {
                 },
             }
         }
+
         errors
     }
 }

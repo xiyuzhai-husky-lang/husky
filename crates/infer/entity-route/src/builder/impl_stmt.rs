@@ -8,25 +8,30 @@ impl<'a> TySheetBuilder<'a> {
     pub(super) fn infer_stmts(
         &mut self,
         ast_iter: AstIter,
-        output_ty: EntityRoutePtr,
+        opt_output_ty: Option<EntityRoutePtr>,
         arena: &RawExprArena,
     ) {
         self.enter_block();
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.kind {
-                    AstKind::Stmt(ref stmt) => self.infer_stmt(stmt, output_ty, arena),
+                    AstKind::Stmt(ref stmt) => self.infer_stmt(stmt, opt_output_ty, arena),
                     _ => (),
                 }
             }
             if let Some(children) = item.children {
-                self.infer_stmts(children, output_ty, arena)
+                self.infer_stmts(children, opt_output_ty, arena)
             }
         }
         self.exit_block()
     }
 
-    fn infer_stmt(&mut self, stmt: &RawStmt, output_ty: EntityRoutePtr, arena: &RawExprArena) {
+    fn infer_stmt(
+        &mut self,
+        stmt: &RawStmt,
+        opt_output_ty: Option<EntityRoutePtr>,
+        arena: &RawExprArena,
+    ) {
         match stmt.kind {
             RawStmtKind::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
@@ -69,7 +74,7 @@ impl<'a> TySheetBuilder<'a> {
                 );
             }
             RawStmtKind::Return(result) => {
-                self.infer_expr(result, Some(output_ty), arena);
+                self.infer_expr(result, opt_output_ty, arena);
             }
             RawStmtKind::Assert(condition) => self.infer_condition(condition, arena),
         }
