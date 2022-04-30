@@ -336,20 +336,22 @@ impl EntityDefn {
                     extract_eager_expr_dependees(expr, builder)
                 }
                 EagerExprVariant::Opn {
-                    ref opn_kind,
+                    opn_variant: ref opn_kind,
                     ref opds,
                     ..
                 } => {
                     match opn_kind {
-                        EagerOpnKind::Binary { .. }
-                        | EagerOpnKind::Prefix { .. }
-                        | EagerOpnKind::Suffix { .. }
-                        | EagerOpnKind::FieldAccess { .. }
-                        | EagerOpnKind::MethodCall { .. }
-                        | EagerOpnKind::ElementAccess => (),
-                        EagerOpnKind::RoutineCall(routine) => builder.push(routine.route),
-                        EagerOpnKind::TypeCall { ranged_ty, .. } => builder.push(ranged_ty.route),
-                        EagerOpnKind::PatternCall => todo!(),
+                        EagerOpnVariant::Binary { .. }
+                        | EagerOpnVariant::Prefix { .. }
+                        | EagerOpnVariant::Suffix { .. }
+                        | EagerOpnVariant::FieldAccess { .. }
+                        | EagerOpnVariant::MethodCall { .. }
+                        | EagerOpnVariant::ElementAccess => (),
+                        EagerOpnVariant::RoutineCall(routine) => builder.push(routine.route),
+                        EagerOpnVariant::TypeCall { ranged_ty, .. } => {
+                            builder.push(ranged_ty.route)
+                        }
+                        EagerOpnVariant::PatternCall => todo!(),
                     }
                     for opd in opds {
                         extract_eager_expr_dependees(opd, builder)

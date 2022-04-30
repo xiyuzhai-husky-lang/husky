@@ -10,7 +10,7 @@ use word::RootIdentifier;
 use crate::*;
 use semantics_error::{err, try_infer};
 
-use super::EagerOpnKind;
+use super::EagerOpnVariant;
 
 pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
     fn arena(&self) -> &'a RawExprArena;
@@ -100,7 +100,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
         let lopd = self.parse_eager_expr(raw_opd_idx_range.start)?;
         let ropd = self.parse_eager_expr(raw_opd_idx_range.start + 1)?;
         Ok(EagerExprVariant::Opn {
-            opn_kind: EagerOpnKind::Binary { opr, this: lopd.ty },
+            opn_variant: EagerOpnVariant::Binary { opr, this: lopd.ty },
             opds: vec![lopd, ropd],
         })
     }
@@ -113,7 +113,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
         let opd_idx = raw_opds.start;
         let opd = self.parse_eager_expr(opd_idx)?;
         Ok(EagerExprVariant::Opn {
-            opn_kind: EagerOpnKind::Suffix { opr, this: opd.ty },
+            opn_variant: EagerOpnVariant::Suffix { opr, this: opd.ty },
             opds: vec![opd],
         })
     }
@@ -136,7 +136,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                     .map(|raw| self.parse_eager_expr(raw))
                     .collect::<SemanticResult<_>>()?;
                 Ok(EagerExprVariant::Opn {
-                    opn_kind: EagerOpnKind::RoutineCall(RangedEntityRoute {
+                    opn_variant: EagerOpnVariant::RoutineCall(RangedEntityRoute {
                         route: scope,
                         range: call.range(),
                     }),
@@ -154,7 +154,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                     .map(|(i, raw)| self.parse_eager_expr(raw))
                     .collect::<SemanticResult<_>>()?;
                 Ok(EagerExprVariant::Opn {
-                    opn_kind: EagerOpnKind::TypeCall {
+                    opn_variant: EagerOpnVariant::TypeCall {
                         ranged_ty: RangedEntityRoute {
                             route: scope,
                             range: call.range(),
@@ -189,7 +189,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
                         opds.extend(inputs);
                         msg_once!("todo: memb call compiled");
                         Ok(EagerExprVariant::Opn {
-                            opn_kind: EagerOpnKind::MethodCall {
+                            opn_variant: EagerOpnVariant::MethodCall {
                                 method_ident: field_ident,
                                 this_ty_decl,
                                 method_route: self
@@ -212,7 +212,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
 
     fn parse_element_access(&mut self, opds: RawExprRange) -> SemanticResult<EagerExprVariant> {
         Ok(EagerExprVariant::Opn {
-            opn_kind: EagerOpnKind::ElementAccess,
+            opn_variant: EagerOpnVariant::ElementAccess,
             opds: opds
                 .map(|raw| self.parse_eager_expr(raw))
                 .collect::<SemanticResult<_>>()?,
