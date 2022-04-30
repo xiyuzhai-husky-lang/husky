@@ -66,7 +66,7 @@ impl<'a> SymbolContext<'a> {
         tail: TextRange,
     ) -> Atom {
         let scope = EntityRoute::new_builtin(ident.into(), generics);
-        let kind = AtomKind::EntityRoute {
+        let kind = AtomVariant::EntityRoute {
             route: self.db.intern_entity_route(scope),
             kind: EntityKind::Type(match ident {
                 RootIdentifier::Void
@@ -181,7 +181,7 @@ impl<'a> SymbolContext<'a> {
             err!("too many atoms", result[1..].into())?
         } else {
             match result[0].kind {
-                AtomKind::EntityRoute { route: scope, .. } => Ok(scope),
+                AtomVariant::EntityRoute { route: scope, .. } => Ok(scope),
                 // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
                 _ => err!(
                     format!("expect type, but get `{:?}` instead", result[0]),

@@ -9,7 +9,7 @@ pub(crate) use stack::ExprStack;
 pub use word::Keyword;
 
 use crate::*;
-use atom::AtomKind;
+use atom::AtomVariant;
 
 use syntax_types::*;
 use text::TextRange;
@@ -81,16 +81,16 @@ impl From<&atom::Atom> for RawExpr {
         Self {
             range: atom.text_range(),
             variant: match atom.kind {
-                AtomKind::Variable { varname, init_row } => {
+                AtomVariant::Variable { varname, init_row } => {
                     RawExprVariant::Variable { varname, init_row }
                 }
-                AtomKind::Literal(literal) => RawExprVariant::PrimitiveLiteral(literal.clone()),
-                AtomKind::EntityRoute { route: scope, kind } => {
+                AtomVariant::Literal(literal) => RawExprVariant::PrimitiveLiteral(literal.clone()),
+                AtomVariant::EntityRoute { route: scope, kind } => {
                     RawExprVariant::Entity { route: scope, kind }
                 }
-                AtomKind::ThisData { ty } => RawExprVariant::This { ty },
-                AtomKind::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
-                AtomKind::FrameVariable { varname, init_row } => {
+                AtomVariant::ThisData { ty } => RawExprVariant::This { ty },
+                AtomVariant::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
+                AtomVariant::FrameVariable { varname, init_row } => {
                     RawExprVariant::FrameVariable { varname, init_row }
                 }
                 _ => {

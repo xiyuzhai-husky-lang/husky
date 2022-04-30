@@ -9,14 +9,14 @@ use super::*;
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomKind>> {
+    pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomVariant>> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {
                 self.push_abs_semantic_token(AbsSemanticToken::new(
                     SemanticTokenKind::Special,
                     token.range,
                 ));
-                Some(AtomKind::EntityRoute {
+                Some(AtomVariant::EntityRoute {
                     route: self.symbolic_ty()?,
                     kind: EntityKind::Type(TyKind::Vec),
                 })
@@ -39,23 +39,25 @@ impl<'a> AtomLRParser<'a> {
                         ));
                         match ident {
                             Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
-                            Identifier::Custom(varname) => AtomKind::Variable { varname, init_row },
+                            Identifier::Custom(varname) => {
+                                AtomVariant::Variable { varname, init_row }
+                            }
                         }
                     }
-                    SymbolKind::Unrecognized(ident) => AtomKind::Unrecognized(ident),
+                    SymbolKind::Unrecognized(ident) => AtomVariant::Unrecognized(ident),
                     SymbolKind::ThisData { ty } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::ThisData,
                             token.range,
                         ));
-                        AtomKind::ThisData { ty }
+                        AtomVariant::ThisData { ty }
                     }
                     SymbolKind::FrameVariable { init_row } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::FrameVariable,
                             token.range,
                         ));
-                        AtomKind::FrameVariable {
+                        AtomVariant::FrameVariable {
                             varname: ident.custom(),
                             init_row,
                         }
@@ -91,7 +93,7 @@ impl<'a> AtomLRParser<'a> {
         Ok(EntityRoute::array(element, size))
     }
 
-    fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<AtomKind> {
+    fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<AtomVariant> {
         let mut route = self
             .symbol_context
             .db
@@ -112,7 +114,7 @@ impl<'a> AtomLRParser<'a> {
                 .db
                 .make_scope(route, self.generics(route)?);
         }
-        return Ok(AtomKind::EntityRoute {
+        return Ok(AtomVariant::EntityRoute {
             route,
             kind: self.symbol_context.entity_kind(route),
         });
@@ -120,7 +122,7 @@ impl<'a> AtomLRParser<'a> {
 
     pub(crate) fn ty(&mut self) -> AtomResult<Option<EntityRoutePtr>> {
         Ok(
-            if let Some(AtomKind::EntityRoute {
+            if let Some(AtomVariant::EntityRoute {
                 route: scope, kind, ..
             }) = self.symbol()?
             {

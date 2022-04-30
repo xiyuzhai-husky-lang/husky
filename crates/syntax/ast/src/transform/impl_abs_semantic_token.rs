@@ -13,4 +13,13 @@ impl<'a> AstTransformer<'a> {
         }
         self.abs_semantic_tokens.push(new_token)
     }
+
+    pub(super) fn insert_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {
+        let index = self
+            .abs_semantic_tokens
+            .iter()
+            .position(|token| token.range.start > new_token.range.start)
+            .unwrap_or(self.abs_semantic_tokens.len());
+        self.abs_semantic_tokens.insert(index, new_token)
+    }
 }

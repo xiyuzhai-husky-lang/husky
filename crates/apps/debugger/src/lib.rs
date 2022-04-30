@@ -51,7 +51,6 @@ impl Debugger {
     }
 
     pub async fn serve_on_error(self, addr: impl ToSocketAddrs, input_id: usize) -> bool {
-        let pack_main: &Path = &self.runtime.lock().unwrap().pack_main();
         let mut error_flag = false;
         for trace in self.root_traces().iter() {
             let stalk = self.trace_stalk(*trace, input_id).await;

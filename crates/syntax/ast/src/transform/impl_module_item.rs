@@ -55,7 +55,7 @@ impl<'a> AstTransformer<'a> {
             todo!("expect one atom for entity route")
         } else {
             match atoms[0].kind {
-                AtomKind::EntityRoute { route, .. } => {
+                AtomVariant::EntityRoute { route, .. } => {
                     if route.generic_arguments.len() != 0 {
                         todo!("expect no generics")
                     }
