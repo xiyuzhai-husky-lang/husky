@@ -4,6 +4,7 @@ mod exec_loop;
 mod exec_primitive_opn;
 
 use crate::{history::HistoryEntry, *};
+use print_utils::p;
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn exec_all(
@@ -12,6 +13,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         mode: Mode,
     ) -> VMControl<'eval> {
         for ins in instructions {
+            p!(ins);
             let control = match ins.kind {
                 InstructionKind::PushVariable {
                     contract,
