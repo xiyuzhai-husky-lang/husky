@@ -15,7 +15,7 @@ use semantics_eager::*;
 use serde::Deserialize;
 use sync_utils::ARwLock;
 use text::{Text, TextQueryGroup};
-use vm::{InstructionSheet, LoopFrameSnapshot, StackSnapshot};
+use vm::{InstructionSheet, LoopFrameData, StackSnapshot};
 
 use crate::*;
 
@@ -108,7 +108,7 @@ impl<'eval> TraceFactory<'eval> {
                 tokens: tokens.clone(),
             }],
             TraceVariant::LoopFrame {
-                loop_frame_snapshot: ref vm_loop_frame,
+                loop_frame_data: ref vm_loop_frame,
                 ..
             } => self.loop_frame_lines(indent, vm_loop_frame),
         }
@@ -204,7 +204,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         &self,
         compile_time: &HuskyLangCompileTime,
         parent: &Trace,
-        loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
+        loop_frame_snapshot: &LoopFrameData<'eval>,
         instruction_sheet: &InstructionSheet,
         stmts: &[Arc<ProcStmt>],
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
