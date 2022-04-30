@@ -4,7 +4,6 @@ mod query;
 pub use query::InterpreterQueryGroup;
 
 use crate::*;
-use word::CustomIdentifier;
 
 pub struct Interpreter<'stack, 'eval: 'stack> {
     db: &'stack dyn InterpreterQueryGroup,
@@ -28,7 +27,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         })
     }
 
-    // Vec<StackValue<'stack, 'eval>>
     pub(crate) fn new(
         db: &'stack dyn InterpreterQueryGroup,
         values: impl Into<VMStack<'stack, 'eval>>,
@@ -56,13 +54,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             VMControl::Err(_) => todo!(),
         }
     }
-
-    // fn finish(&mut self) -> VMResult<StackValue<'stack, 'eval>> {
-    //     if self.stack.len() != 1 {
-    //         todo!()
-    //     }
-    //     Ok(self.stack.pop())
-    // }
 
     fn call_compiled(&mut self, f: Linkage) -> VMResult<()> {
         let result = (f.call)(self.stack.topk_mut(f.nargs))?;
