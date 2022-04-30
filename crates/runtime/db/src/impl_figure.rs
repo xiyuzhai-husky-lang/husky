@@ -88,9 +88,10 @@ impl HuskyLangRuntime {
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,
-            } => {
-                todo!()
-            }
+            } => match history.entry(stmt) {
+                HistoryEntry::Loop { ref mutations, .. } => FigureProps::mutations(mutations),
+                _ => panic!(),
+            },
         }
     }
 

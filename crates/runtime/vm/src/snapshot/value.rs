@@ -58,8 +58,8 @@ impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnaps
         match self {
             StackValueSnapshot::Primitive(value) => StackValue::Primitive(*value),
             StackValueSnapshot::MutRef { owner, gen, .. } => todo!(),
-            StackValueSnapshot::GlobalPure(_) => todo!(),
-            StackValueSnapshot::Boxed(_) => todo!(),
+            StackValueSnapshot::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
+            StackValueSnapshot::Boxed(value) => StackValue::Boxed(value.clone()),
         }
     }
 }

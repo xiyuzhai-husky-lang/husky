@@ -21,7 +21,7 @@ impl StackIdx {
         Ok(StackIdx(raw))
     }
 
-    fn raw(&self) -> usize {
+    pub(crate) fn raw(&self) -> usize {
         self.0 as usize
     }
 }
@@ -87,6 +87,10 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
                 .map(|value| value.snapshot())
                 .collect(),
         }
+    }
+
+    pub(crate) fn snapshot_value(&mut self, stack_idx: StackIdx) -> StackValueSnapshot<'eval> {
+        self.values[stack_idx.raw()].snapshot()
     }
 
     pub(crate) fn len(&self) -> usize {
