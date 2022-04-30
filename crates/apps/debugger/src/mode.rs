@@ -21,7 +21,7 @@ impl Mode {
     pub async fn run(&self, dir: PathBuf) {
         match self {
             Mode::Run => run(dir).await,
-            Mode::Test => test(dir).await,
+            Mode::Test => test_all_packages_in_dir(dir).await,
         }
     }
 }
@@ -51,7 +51,7 @@ fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: Pat
     compile_time.load_pack(path)
 }
 
-async fn test(dir: PathBuf) {
+async fn test_all_packages_in_dir(dir: PathBuf) {
     assert!(dir.is_dir());
     let pack_paths = collect_pack_dirs(dir);
     println!(
@@ -61,21 +61,22 @@ async fn test(dir: PathBuf) {
         pack_paths.len()
     );
 
-    for pack_path in pack_paths {
+    for package_path in pack_paths {
         let mut compile_time = HuskyLangCompileTime::default();
-        init_compile_time_from_dir(&mut compile_time, pack_path.to_path_buf());
+        init_compile_time_from_dir(&mut compile_time, package_path.to_path_buf());
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,
             print_utils::RESET,
-            pack_path.as_os_str().to_str().unwrap(),
+            package_path.as_os_str().to_str().unwrap(),
         );
-        test_semantic_tokens(&pack_path, &compile_time).await;
-        match test_diagnostics(&pack_path, &compile_time).await {
+        test_semantic_tokens(&package_path, &compile_time).await;
+        match test_diagnostics(&package_path, &compile_time).await {
             TestDiagnosticsResult::HasDiagnostics => (),
             TestDiagnosticsResult::NoDiagnostics => {
+                p!(&package_path);
                 let error_flag = Debugger::new(|compile_time| {
-                    init_compile_time_from_dir(compile_time, pack_path)
+                    init_compile_time_from_dir(compile_time, package_path)
                 })
                 .serve_on_error("localhost:51617", 0)
                 .await;
