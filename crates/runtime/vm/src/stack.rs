@@ -72,7 +72,6 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         stack_idx: StackIdx,
         contract: EagerContract,
     ) -> &mut StackValue<'stack, 'eval> {
-        p!(self.values);
         unsafe {
             let stack_value = self.values[stack_idx.raw()].bind(contract, stack_idx);
             self.push(stack_value);

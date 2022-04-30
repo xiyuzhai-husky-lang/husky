@@ -13,7 +13,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         mode: Mode,
     ) -> VMControl<'eval> {
         for ins in instructions {
-            p!(ins);
             let control = match ins.kind {
                 InstructionKind::PushVariable {
                     contract,

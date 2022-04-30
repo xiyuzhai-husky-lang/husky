@@ -74,7 +74,6 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
         match test_diagnostics(&package_path, &compile_time).await {
             TestDiagnosticsResult::HasDiagnostics => (),
             TestDiagnosticsResult::NoDiagnostics => {
-                p!(&package_path);
                 let error_flag = Debugger::new(|compile_time| {
                     init_compile_time_from_dir(compile_time, package_path)
                 })
