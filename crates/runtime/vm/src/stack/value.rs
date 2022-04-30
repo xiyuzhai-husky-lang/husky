@@ -218,11 +218,11 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                     PrimitiveValue::Void => todo!(),
                 },
                 StackValue::Boxed(value) => value.any_mut_ptr(),
-                StackValue::GlobalPure(_) => todo!(),
-                StackValue::GlobalRef(_) => todo!(),
-                StackValue::LocalRef(_) => todo!(),
-                StackValue::MutLocalRef { .. } => todo!(),
-                StackValue::Moved => todo!(),
+                StackValue::MutLocalRef { value, .. } => *value,
+                StackValue::LocalRef(_) => panic!("LocalRef cannot be mutated, this is a bug."),
+                StackValue::GlobalPure(_) => panic!("GlobalPure cannot be mutated, this is a bug."),
+                StackValue::GlobalRef(_) => panic!("GlobalRef cannot be mutated, this is a bug."),
+                StackValue::Moved => panic!("Move cannot be mutated, this is a bug."),
             }
         }
     }
