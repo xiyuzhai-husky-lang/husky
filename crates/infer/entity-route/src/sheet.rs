@@ -63,8 +63,15 @@ impl EntityRouteSheet {
         }
     }
 
-    pub fn errors(&self) -> Vec<&InferError> {
-        let mut errors: Vec<&InferError> = self.global_errors.iter().collect();
+    pub fn original_errors(&self) -> Vec<&InferError> {
+        let mut errors: Vec<&InferError> = self
+            .global_errors
+            .iter()
+            .filter_map(|e| match e.variant {
+                InferErrorVariant::Derived => None,
+                InferErrorVariant::Original { .. } => Some(e),
+            })
+            .collect();
         for (_, result) in self.expr_tys.iter() {
             match result {
                 Ok(_) => (),
