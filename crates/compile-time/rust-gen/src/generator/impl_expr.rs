@@ -85,11 +85,20 @@ impl<'a> RustGenerator<'a> {
                 self.result.push_str(&i.to_string());
                 self.write("i32")
             }
-            PrimitiveValue::F32(_) => todo!(),
-            PrimitiveValue::B32(_) => todo!(),
-            PrimitiveValue::B64(_) => todo!(),
-            PrimitiveValue::Bool(_) => todo!(),
-            PrimitiveValue::Void => todo!(),
+            PrimitiveValue::F32(f) => {
+                self.result.push_str(&f.to_string());
+                self.write("f32")
+            }
+            PrimitiveValue::B32(b) => {
+                self.result.push_str(&b.to_string());
+                self.write("u32")
+            }
+            PrimitiveValue::B64(b) => {
+                self.result.push_str(&b.to_string());
+                self.write("u64")
+            }
+            PrimitiveValue::Bool(b) => self.result.push_str(&b.to_string()),
+            PrimitiveValue::Void => self.result.push_str("()"),
         }
     }
 }
