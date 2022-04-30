@@ -149,7 +149,6 @@ impl VariableStack {
     }
 
     pub fn stack_idx(&self, ident0: CustomIdentifier) -> StackIdx {
-        p!(ident0);
         let idx = self.variables.len()
             - (1 + self
                 .variables
