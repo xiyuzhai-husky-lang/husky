@@ -1,4 +1,5 @@
 import {
+    decode_array,
     decode_member,
     decode_member_old,
     decode_string,
@@ -7,6 +8,8 @@ import type { Point2d } from "src/geom2d/geom2d";
 import type Graphics2dProps from "./Graphics2d";
 import type Color from "./Color";
 import { decode_graphics2d } from "./Graphics2d";
+import type MutationsFigureProps from "./Mutations";
+import { decode_mutation } from "./Mutations";
 
 export type PointGroup = {
     points: Point2d[];
@@ -50,7 +53,8 @@ type FigureProps =
     | GalleryProps
     | Graphics2dProps
     | Plot2dProps
-    | PrimitiveValueFigureProps;
+    | PrimitiveValueFigureProps
+    | MutationsFigureProps;
 export default FigureProps;
 
 export function decode_figure_props(data: unknown): FigureProps {
@@ -63,8 +67,16 @@ export function decode_figure_props(data: unknown): FigureProps {
                 kind: "Primitive",
                 value: decode_primitive_value(decode_member(data, "value")),
             };
+        case "Mutations":
+            return {
+                kind: "Mutations",
+                mutations: decode_array(
+                    decode_member(data, "mutations"),
+                    decode_mutation
+                ),
+            };
         default:
-            console.log(type);
+            console.log("data is ", data);
             throw new Error("Todo");
     }
 }
