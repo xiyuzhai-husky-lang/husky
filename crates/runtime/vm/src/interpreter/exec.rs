@@ -133,11 +133,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     }
 
     fn init(&mut self, init_kind: InitKind, mode: Mode) -> VMResult<()> {
-        // match init_kind {
-        //     InitKind::Let => todo!(),
-        //     InitKind::Var => todo!(),
-        //     InitKind::Decl => todo!(),
-        // }
         match self.stack.top_mut(mode) {
             StackValue::Primitive(_)
             | StackValue::Boxed(_)
@@ -149,40 +144,4 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         }
         Ok(())
     }
-
-    // fn exec(&mut self, ins_kind: &InstructionKind) -> VMControl<'eval> {
-    //     match ins_kind {
-    //         InstructionKind::PushVariable {
-    //             contract,
-    //             stack_idx: idx,
-    //         } => {
-    //             self.stack.push(self.stack.value(*idx).bind(*contract)?);
-    //             Ok(VMControl::Normal)
-    //         }
-    //         InstructionKind::PushPrimitiveLiteral(value) => {
-    //             self.stack.push(value.into());
-    //             Ok(VMControl::Normal)
-    //         }
-    //         InstructionKind::Call {
-    //             ref compiled,
-    //             nargs,
-    //         } => {
-    //             self.call(compiled, *nargs)?;
-    //             Ok(VMControl::Normal)
-    //         }
-    //         InstructionKind::PrimitiveOpn(opn) => {
-    //             self.exec_primitive_opn(*opn)?;
-    //             Ok(VMControl::Normal)
-    //         }
-    //         InstructionKind::InterpretCall(ref Instructions) => self.exec_all(Instructions),
-    //         InstructionKind::Return => {
-    //             Ok(VMControl::Return(self.stack.pop().into_eval()?))
-    //         }
-    //         InstructionKind::Init(init_kind) => {
-    //             self.init(*init_kind)?;
-    //             Ok(VMControl::Normal)
-    //         }
-    //         InstructionKind::Loop { body, loop_kind } => todo!(),
-    //     }
-    // }
 }
