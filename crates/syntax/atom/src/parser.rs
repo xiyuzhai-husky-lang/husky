@@ -44,7 +44,6 @@ impl<'a> TokenStream<'a> {
     }
 
     pub(crate) fn is_lpar_next(&mut self) -> bool {
-        p!(self.iter.peek());
         match self.iter.peek() {
             Some(Token {
                 kind: TokenKind::Special(Special::LPar),
