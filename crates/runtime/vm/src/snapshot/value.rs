@@ -26,12 +26,23 @@ impl<'eval> StackValueSnapshot<'eval> {
 impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            StackValueSnapshot::Primitive(arg0) => f.debug_tuple("Primitive").field(arg0).finish(),
-            StackValueSnapshot::MutRef { value, owner, .. } => {
-                f.debug_struct("MutRef").field("owner", owner).finish()
-            }
-            StackValueSnapshot::GlobalPure(_) => todo!(),
-            StackValueSnapshot::Boxed(_) => todo!(),
+            StackValueSnapshot::Primitive(arg0) => f
+                .debug_tuple("StackValueSnapshot::Primitive")
+                .field(arg0)
+                .finish(),
+            StackValueSnapshot::MutRef { value, owner, .. } => f
+                .debug_struct("StackValueSnapshot::MutRef")
+                .field("value", value)
+                .field("owner", owner)
+                .finish(),
+            StackValueSnapshot::GlobalPure(value) => f
+                .debug_struct("StackValueSnapshot::GlobalPure")
+                .field("value", value)
+                .finish(),
+            StackValueSnapshot::Boxed(value) => f
+                .debug_struct("StackValueSnapshot::Boxed")
+                .field("value", value)
+                .finish(),
         }
     }
 }
