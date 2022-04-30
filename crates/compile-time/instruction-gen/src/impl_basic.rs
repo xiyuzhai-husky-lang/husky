@@ -16,4 +16,8 @@ impl<'a> InstructionSheetBuilder<'a> {
         self.push_instruction(Instruction::new(InstructionKind::Init(init_kind), src));
         self.sheet.variable_stack.push(varname);
     }
+
+    pub(super) fn def_frame_variable(&mut self, frame_varname: CustomIdentifier) {
+        self.sheet.variable_stack.push(frame_varname);
+    }
 }
