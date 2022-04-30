@@ -8,6 +8,12 @@ pub struct TextRange {
     pub end: TextPosition,
 }
 
+impl TextRange {
+    pub fn whole() -> TextRange {
+        ((0, 0)..(0, 4)).into()
+    }
+}
+
 impl From<StaticDevSource> for TextRange {
     fn from(dev_src: StaticDevSource) -> Self {
         ((dev_src.line, 0)..(dev_src.line, 10)).into()

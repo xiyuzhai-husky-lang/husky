@@ -58,10 +58,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
                         item.children.map(|children| self.infer_all(children));
                     }
-                    AstKind::MainDefn => {
-                        let output_ty = self.db.global_output_ty(self.main_file).unwrap();
-                        self.infer_morphism(output_ty, item.children.unwrap(), &arena)
-                    }
+                    AstKind::MainDefn => self.infer_morphism(item.children.unwrap(), &arena),
                     AstKind::DatasetConfigDefnHead => self.infer_routine(
                         RootIdentifier::DatasetType.into(),
                         item.children.unwrap(),
@@ -76,7 +73,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         FieldKind::StructOriginal => (),
                         FieldKind::RecordOriginal => (),
                         FieldKind::StructDerived | FieldKind::RecordDerived => {
-                            self.infer_morphism(head.ty, item.children.unwrap(), &arena)
+                            self.infer_morphism(item.children.unwrap(), &arena)
                         }
                     },
                     AstKind::Stmt(_) => todo!(),
@@ -84,7 +81,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         self.infer_routine(head.output_ty.route, item.children.unwrap(), &arena)
                     }
                     AstKind::FeatureDecl { ty, .. } => {
-                        self.infer_morphism(ty.route, item.children.unwrap(), &arena)
+                        self.infer_morphism(item.children.unwrap(), &arena)
                     }
                 },
                 _ => (),

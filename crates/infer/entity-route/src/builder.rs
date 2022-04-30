@@ -19,10 +19,20 @@ pub struct TySheetBuilder<'a> {
 
 impl<'a> TySheetBuilder<'a> {
     pub(super) fn new(db: &'a dyn InferTyQueryGroup, ast_text: Arc<AstText>) -> Self {
+        let main_file = db.main_file(ast_text.file).unwrap();
+        let mut global_errors = Vec::new();
+        match db.global_input_ty(main_file) {
+            Ok(_) => (),
+            Err(e) => global_errors.push(e),
+        }
+        match db.global_output_ty(main_file) {
+            Ok(_) => (),
+            Err(e) => global_errors.push(e),
+        }
         Self {
             db,
-            main_file: db.main_file(ast_text.file).unwrap(),
-            ty_sheet: EntityRouteSheet::new(ast_text),
+            main_file,
+            ty_sheet: EntityRouteSheet::new(ast_text, global_errors),
             trait_uses: LocalStack::new(),
         }
     }
@@ -41,8 +51,8 @@ impl<'a> TySheetBuilder<'a> {
                         item.children.map(|children| self.infer_all(children));
                     }
                     AstKind::MainDefn => {
-                        let output_ty = self.db.global_output_ty(self.main_file).unwrap();
-                        self.infer_morphism(&[], output_ty, item.children.unwrap(), &arena)
+                        let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
+                        self.infer_morphism(&[], opt_output_ty, item.children.unwrap(), &arena)
                     }
                     AstKind::DatasetConfigDefnHead => self.infer_routine(
                         &[],
@@ -62,7 +72,7 @@ impl<'a> TySheetBuilder<'a> {
                         FieldKind::StructOriginal => (),
                         FieldKind::RecordOriginal => (),
                         FieldKind::StructDerived | FieldKind::RecordDerived => {
-                            self.infer_morphism(&[], head.ty, item.children.unwrap(), &arena)
+                            self.infer_morphism(&[], Some(head.ty), item.children.unwrap(), &arena)
                         }
                     },
                     AstKind::Stmt(_) => todo!(),
@@ -73,7 +83,7 @@ impl<'a> TySheetBuilder<'a> {
                         &arena,
                     ),
                     AstKind::FeatureDecl { ty, .. } => {
-                        self.infer_morphism(&[], ty.route, item.children.unwrap(), &arena)
+                        self.infer_morphism(&[], Some(ty.route), item.children.unwrap(), &arena)
                     }
                 },
                 _ => (),

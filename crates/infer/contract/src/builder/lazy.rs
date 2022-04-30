@@ -1,46 +1,35 @@
 use ast::*;
 
-use entity_route::{EntityRouteKind, EntityRoutePtr};
 use infer_error::*;
 use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use text::TextRange;
 use vm::{BinaryOpr, FieldContract};
-use word::{CustomIdentifier, RangedCustomIdentifier};
+use word::RangedCustomIdentifier;
 
 use super::*;
 use crate::*;
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(crate) fn infer_morphism(
-        &mut self,
-        output_ty: EntityRoutePtr,
-        ast_iter: AstIter,
-        arena: &RawExprArena,
-    ) {
-        self.infer_lazy_stmts(ast_iter.clone(), output_ty, arena);
+    pub(crate) fn infer_morphism(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
+        self.infer_lazy_stmts(ast_iter.clone(), arena);
     }
-    pub(super) fn infer_lazy_stmts(
-        &mut self,
-        ast_iter: AstIter,
-        output_ty: EntityRoutePtr,
-        arena: &RawExprArena,
-    ) {
+    pub(super) fn infer_lazy_stmts(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
         self.enter_block();
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.kind {
-                    AstKind::Stmt(ref stmt) => self.infer_lazy_stmt(stmt, output_ty, arena),
+                    AstKind::Stmt(ref stmt) => self.infer_lazy_stmt(stmt, arena),
                     _ => (),
                 }
             }
             if let Some(children) = item.children {
-                self.infer_lazy_stmts(children, output_ty, arena)
+                self.infer_lazy_stmts(children, arena)
             }
         }
         self.exit_block()
     }
 
-    fn infer_lazy_stmt(&mut self, stmt: &RawStmt, output_ty: EntityRoutePtr, arena: &RawExprArena) {
+    fn infer_lazy_stmt(&mut self, stmt: &RawStmt, arena: &RawExprArena) {
         match stmt.kind {
             RawStmtKind::Loop(raw_loop_kind) => panic!(),
             RawStmtKind::Branch(_) => todo!(),

@@ -1,5 +1,3 @@
-use entity_route::RangedEntityRoute;
-
 use super::*;
 
 impl<'a> TySheetBuilder<'a> {
@@ -11,6 +9,6 @@ impl<'a> TySheetBuilder<'a> {
         arena: &RawExprArena,
     ) {
         self.add_inputs(inputs);
-        self.infer_stmts(ast_iter.clone(), output_ty, arena)
+        self.infer_stmts(ast_iter.clone(), Some(output_ty), arena)
     }
 }

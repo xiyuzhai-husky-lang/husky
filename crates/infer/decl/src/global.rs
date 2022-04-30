@@ -106,7 +106,7 @@ pub(crate) fn global_input_ty(
     }
     err!(
         "dataset config not found, so input type can't be inferred",
-        todo!("whole main file range")
+        TextRange::whole()
     )
 }
 
