@@ -1,19 +1,20 @@
 use std::sync::Arc;
 
 use vm::{BoundaryKind, LoopStep, StackIdx, VMLoopKind};
+use word::RangedCustomIdentifier;
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LoopVariant {
     For {
-        frame_var: CustomIdentifier,
+        frame_var: RangedCustomIdentifier,
         initial_boundary: Boundary,
         final_boundary: Boundary,
         step: LoopStep,
     },
     ForExt {
-        frame_var: CustomIdentifier,
+        frame_var: RangedCustomIdentifier,
         frame_varidx: StackIdx,
         final_boundary: Boundary,
         step: LoopStep,
@@ -44,7 +45,7 @@ impl Into<VMLoopKind> for &LoopVariant {
                 initial_boundary_kind: initial_boundary.kind,
                 final_boundary_kind: final_boundary.kind,
                 step: *step,
-                frame_var: *frame_var,
+                frame_var: frame_var.ident,
             },
             LoopVariant::ForExt {
                 frame_var,
@@ -54,7 +55,7 @@ impl Into<VMLoopKind> for &LoopVariant {
             } => VMLoopKind::ForExt {
                 final_boundary_kind: final_boundary.kind,
                 step: *step,
-                frame_var: *frame_var,
+                frame_var: frame_var.ident,
                 frame_varidx: *frame_varidx,
             },
             LoopVariant::While { .. } | LoopVariant::DoWhile { .. } => VMLoopKind::Loop,

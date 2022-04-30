@@ -96,7 +96,7 @@ impl EntityDefnVariant {
                 AstKind::Use { .. } => todo!(),
                 AstKind::FieldDefnHead(ref field_defn_head) => {
                     members.insert_new(EntityDefn::new(
-                        field_defn_head.ident.into(),
+                        field_defn_head.ident.ident.into(),
                         EntityDefnVariant::type_field_from_ast(
                             db,
                             arena,
@@ -107,7 +107,7 @@ impl EntityDefnVariant {
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {
                                 parent: ty_route,
-                                ident: field_defn_head.ident,
+                                ident: field_defn_head.ident.ident,
                             },
                             generic_arguments: vec![],
                         }),

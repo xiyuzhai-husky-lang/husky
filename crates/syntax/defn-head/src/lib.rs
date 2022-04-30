@@ -31,7 +31,7 @@ pub struct TypeMethodDefnHead {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FieldDefnHead {
-    pub ident: CustomIdentifier,
+    pub ident: RangedCustomIdentifier,
     pub ty: EntityRoutePtr,
     pub kind: FieldKind,
     pub contract: FieldContract,

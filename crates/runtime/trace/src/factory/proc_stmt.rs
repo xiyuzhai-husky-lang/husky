@@ -57,7 +57,7 @@ impl<'eval> TraceFactory<'eval> {
                     vm::InitKind::Var => "var ",
                     vm::InitKind::Decl => panic!(),
                 })];
-                tokens.push(ident!(varname.0));
+                tokens.push(ident!(varname.ident.0));
                 tokens.push(special!(" = "));
                 tokens.extend(self.eager_expr_tokens(
                     initial_value,
@@ -103,7 +103,7 @@ impl<'eval> TraceFactory<'eval> {
                 } => {
                     let mut tokens = vec![keyword!("for ")];
                     tokens.extend(self.initial_boundary_tokens(initial_boundary, text, history));
-                    tokens.push(ident!(frame_var.0));
+                    tokens.push(ident!(frame_var.ident.0));
                     tokens.extend(self.final_boundary_tokens(final_boundary, text, history));
                     tokens.push(special!(":"));
                     tokens
@@ -114,7 +114,7 @@ impl<'eval> TraceFactory<'eval> {
                     ..
                 } => {
                     let mut tokens = vec![keyword!("forext ")];
-                    tokens.push(ident!(frame_var.0));
+                    tokens.push(ident!(frame_var.ident.0));
                     tokens.extend(self.final_boundary_tokens(final_boundary, text, history));
                     tokens.push(special!(":"));
                     tokens

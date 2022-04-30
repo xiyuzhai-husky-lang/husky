@@ -1,6 +1,7 @@
 use super::*;
-use crate::{transform::utils::*, *};
+use crate::*;
 use entity_kind::TyKind;
+use token::*;
 use word::*;
 
 impl<'a> AstTransformer<'a> {

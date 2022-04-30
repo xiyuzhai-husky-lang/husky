@@ -38,7 +38,10 @@ impl<'a> TySheetBuilder<'a> {
                     should!(self
                         .ty_sheet
                         .variable_tys
-                        .insert((frame_var, stmt.row()), Some(RootIdentifier::I32.into()))
+                        .insert(
+                            (frame_var.ident, stmt.row()),
+                            Some(RootIdentifier::I32.into())
+                        )
                         .is_none());
                     self.infer_loop_bound(initial_boundary, arena);
                     self.infer_loop_bound(final_boundary, arena);
@@ -59,7 +62,11 @@ impl<'a> TySheetBuilder<'a> {
                 ..
             } => {
                 let opt_ty = self.infer_expr(initial_value, None, arena);
-                insert_new!(self.ty_sheet.variable_tys, (varname, stmt.row()), opt_ty);
+                insert_new!(
+                    self.ty_sheet.variable_tys,
+                    (varname.ident, stmt.row()),
+                    opt_ty
+                );
             }
             RawStmtKind::Return(result) => {
                 self.infer_expr(result, Some(output_ty), arena);

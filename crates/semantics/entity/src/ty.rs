@@ -61,10 +61,7 @@ impl EntityDefnVariant {
                         contract,
                     } => match field_variant {
                         FieldDefnVariant::RecordOriginal => InputPlaceholder {
-                            ident: RangedCustomIdentifier {
-                                ident,
-                                range: Default::default(),
-                            },
+                            ident,
                             contract:
                                 contract.constructor_input_contract(db.is_copy_constructible(ty)),
                             ranged_ty: RangedEntityRoute {
@@ -93,10 +90,7 @@ impl EntityDefnVariant {
                         contract,
                     } => match field_variant {
                         FieldDefnVariant::StructOriginal => InputPlaceholder {
-                            ident: RangedCustomIdentifier {
-                                ident,
-                                range: Default::default(),
-                            },
+                            ident,
                             contract:
                                 contract.constructor_input_contract(db.is_copy_constructible(ty)),
                             ranged_ty: RangedEntityRoute {
@@ -232,7 +226,7 @@ impl EntityDefnVariant {
                     variant_class: raw_variant_kind,
                 } => {
                     variants.insert_new(EntityDefn::new(
-                        ident.into(),
+                        ident.ident.into(),
                         EntityDefnVariant::EnumVariant {
                             ident,
                             variant: match raw_variant_kind {
@@ -242,7 +236,7 @@ impl EntityDefnVariant {
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {
                                 parent: ty_route,
-                                ident,
+                                ident: ident.ident,
                             },
                             generic_arguments: vec![],
                         }),
@@ -324,7 +318,7 @@ pub enum EnumVariantDefnVariant {
 impl EntityDefnVariant {
     pub fn enum_variant(
         db: &dyn EntityDefnQueryGroup,
-        ident: CustomIdentifier,
+        ident: RangedCustomIdentifier,
         enum_variant_kind: EnumVariantKind,
         children: Option<AstIter>,
     ) -> EntityDefnVariant {

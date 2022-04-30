@@ -36,7 +36,7 @@ use std::sync::Arc;
 use text::TextRange;
 use vec_dict::HasKey;
 use vm::{FieldContract, InputContract, Linkage, OutputContract};
-use word::{CustomIdentifier, IdentDict, Identifier};
+use word::{CustomIdentifier, IdentDict, Identifier, RangedCustomIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
 pub struct EntityDefnUid {
@@ -160,7 +160,7 @@ pub enum EntityDefnVariant {
         members: IdentDict<Arc<EntityDefn>>,
     },
     EnumVariant {
-        ident: CustomIdentifier,
+        ident: RangedCustomIdentifier,
         variant: EnumVariantDefnVariant,
     },
     Builtin,
@@ -359,7 +359,7 @@ pub(crate) fn entity_defn(
                     )
                 }
                 AstKind::RoutineDefnHead(ref head) => (
-                    head.ident.ident,
+                    head.ident,
                     EntityDefnVariant::routine(db, head, not_none!(children), arena, file)?,
                 ),
                 AstKind::PatternDefnHead => todo!(),
@@ -381,7 +381,7 @@ pub(crate) fn entity_defn(
                 ),
             };
             Ok(EntityDefn::new(
-                ident.into(),
+                ident.ident.into(),
                 entity_kind,
                 entity_route,
                 file,

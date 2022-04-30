@@ -18,7 +18,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ..
             } => {
                 self.compile_expr(initial_value);
-                self.def_variable(varname, init_kind, stmt)
+                self.def_variable(varname.ident, init_kind, stmt)
             }
             ProcStmtVariant::Assert { ref condition } => {
                 self.compile_expr(condition);

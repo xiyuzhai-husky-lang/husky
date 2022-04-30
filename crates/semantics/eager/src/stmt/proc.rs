@@ -8,6 +8,7 @@ pub use branch::*;
 use fold::Indent;
 pub use loop_kind::*;
 use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
+use word::RangedCustomIdentifier;
 
 use super::*;
 use crate::*;
@@ -32,7 +33,7 @@ impl InstructionSource for ProcStmt {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ProcStmtVariant {
     Init {
-        varname: CustomIdentifier,
+        varname: RangedCustomIdentifier,
         initial_value: Arc<EagerExpr>,
         init_kind: InitKind,
         varidx: StackIdx,

@@ -5,6 +5,7 @@ use std::sync::Arc;
 
 pub use branch::*;
 use vm::{InstructionId, InstructionSource};
+use word::RangedCustomIdentifier;
 
 use super::parser::EagerStmtParser;
 
@@ -32,7 +33,7 @@ impl InstructionSource for FuncStmt {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum FuncStmtVariant {
     Init {
-        varname: CustomIdentifier,
+        varname: RangedCustomIdentifier,
         initial_value: Arc<EagerExpr>,
     },
     Assert {

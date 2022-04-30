@@ -12,7 +12,7 @@ use parse::LazyStmtParser;
 
 use file::FilePtr;
 use text::TextRange;
-use word::CustomIdentifier;
+use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;
 use crate::*;
@@ -35,7 +35,7 @@ impl InstructionSource for LazyStmt {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LazyStmtKind {
     Init {
-        varname: CustomIdentifier,
+        varname: RangedCustomIdentifier,
         value: Arc<LazyExpr>,
     },
     Assert {

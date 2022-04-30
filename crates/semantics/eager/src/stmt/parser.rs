@@ -2,6 +2,7 @@ use infer_contract::{ContractSheet, InferContract};
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_total::InferQueryGroup;
 use vm::{StackIdx, VMResult};
+use word::RangedCustomIdentifier;
 
 use crate::qual::QualTable;
 
@@ -41,13 +42,13 @@ impl<'a> EagerStmtParser<'a> {
 
     pub(super) fn def_variable(
         &mut self,
-        varname: CustomIdentifier,
+        varname: RangedCustomIdentifier,
         ty: EntityRoutePtr,
         qual: Qual,
     ) -> VMResult<StackIdx> {
         let varidx = StackIdx::new(self.variables.len())?;
         self.variables.push(EagerVariable {
-            ident: varname,
+            ident: varname.ident,
             ty,
             qual,
         });

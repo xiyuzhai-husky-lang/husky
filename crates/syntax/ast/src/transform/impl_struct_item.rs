@@ -1,8 +1,7 @@
-use super::utils::*;
 use crate::*;
 use atom::symbol::{Symbol, SymbolKind};
 use text::TextRanged;
-use token::{Special, Token, TokenKind};
+use token::*;
 use vm::{FieldContract, InputContract};
 use word::RoutineKeyword;
 
@@ -41,20 +40,7 @@ impl<'a> AstTransformer<'a> {
                 if token_group.len() == 2 {
                     todo!()
                 }
-                let ident = match token_group[0].kind {
-                    TokenKind::Identifier(ident) => match ident {
-                        Identifier::Builtin(_) => err!(
-                            "expect custom identifier but got builtin",
-                            token_group[0].text_range()
-                        )?,
-                        Identifier::Contextual(_) => err!(
-                            "expect custom identifier but got contextual",
-                            token_group[0].text_range()
-                        )?,
-                        Identifier::Custom(custom_ident) => custom_ident,
-                    },
-                    _ => err!("expect custom identifier", token_group[0].text_range())?,
-                };
+                let ident = identify!(self, token_group[0], SemanticTokenKind::Field);
                 let ty = atom::parse_ty(&self.symbol_context(), &token_group[2..])?;
                 AstKind::FieldDefnHead(FieldDefnHead {
                     ident,

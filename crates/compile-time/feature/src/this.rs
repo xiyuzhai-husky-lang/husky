@@ -48,7 +48,7 @@ impl FeatureBlock {
                         let value =
                             FeatureExpr::new(db, this.clone(), value.clone(), &symbols, features);
                         symbols.push(FeatureSymbol {
-                            varname,
+                            varname: varname.ident,
                             value: value.clone(),
                             feature: value.feature,
                         });
@@ -57,7 +57,10 @@ impl FeatureBlock {
                             range: feature_stmt.range,
                             indent: feature_stmt.indent,
                             feature: None,
-                            kind: FeatureStmtKind::Init { varname, value },
+                            kind: FeatureStmtKind::Init {
+                                varname: varname.ident,
+                                value,
+                            },
                             eval_id: Default::default(),
                         }
                     }

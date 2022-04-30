@@ -158,7 +158,7 @@ impl<'a> EagerStmtParser<'a> {
                     frame_var,
                     EntityRoutePtr::Root(RootIdentifier::I32),
                     Qual::frame_var(),
-                );
+                )?;
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::For {
                         frame_var,
@@ -178,7 +178,7 @@ impl<'a> EagerStmtParser<'a> {
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::ForExt {
                         frame_var,
-                        frame_varidx: self.varidx(frame_var),
+                        frame_varidx: self.varidx(frame_var.ident),
                         final_boundary: self.parse_boundary(final_boundary)?,
                         step,
                     },

@@ -150,7 +150,7 @@ impl<'a> LazyStmtParser<'a> {
                         if kind != InitKind::Decl {
                             todo!()
                         }
-                        self.def_variable(varname, initial_value.ty)?;
+                        self.def_variable(varname.ident, initial_value.ty)?;
                         LazyStmt {
                             file: self.file,
                             range: stmt.range,

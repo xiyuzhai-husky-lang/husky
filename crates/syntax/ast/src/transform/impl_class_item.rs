@@ -1,4 +1,3 @@
-use super::utils::*;
 use crate::*;
 use token::*;
 use vm::FieldContract;

@@ -174,7 +174,7 @@ impl TyDecl {
                     variant_class: ref raw_variant_kind,
                 } => {
                     variants.insert_new(EnumVariantDecl {
-                        ident,
+                        ident: ident.ident,
                         variant: match raw_variant_kind {
                             EnumVariantKind::Constant => EnumVariantDeclVariant::Constant,
                         },

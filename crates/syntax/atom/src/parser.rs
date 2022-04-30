@@ -8,17 +8,17 @@ mod utils;
 
 use super::{stack::AtomStack, symbol::SymbolContext, *};
 use check_utils::should;
-use core::slice::Iter;
 use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument};
 use print_utils::p;
+use std::iter::Peekable;
 use text::TextRange;
-use token::{AbsSemanticToken, Special, Token, TokenKind};
+use token::{identify, AbsSemanticToken, SemanticTokenKind, Special, Token, TokenKind};
 use utils::*;
 use vm::{BinaryOpr, PureBinaryOpr};
 
 #[derive(Debug, Clone)]
 pub(crate) struct TokenStream<'a> {
-    pub(crate) iter: Iter<'a, Token>,
+    pub(crate) iter: Peekable<core::slice::Iter<'a, Token>>,
     opt_range: Option<TextRange>,
 }
 
@@ -41,12 +41,23 @@ impl<'a> TokenStream<'a> {
         self.opt_range = None;
         range
     }
+
+    pub(crate) fn is_lpar_next(&mut self) -> bool {
+        p!(self.iter.peek());
+        match self.iter.peek() {
+            Some(Token {
+                kind: TokenKind::Special(Special::LPar),
+                ..
+            }) => true,
+            _ => false,
+        }
+    }
 }
 
 impl<'a> From<&'a [Token]> for TokenStream<'a> {
     fn from(tokens: &'a [Token]) -> Self {
         Self {
-            iter: tokens.iter(),
+            iter: tokens.iter().peekable(),
             opt_range: Some(tokens.into()),
         }
     }
@@ -173,10 +184,12 @@ impl<'a> AtomLRParser<'a> {
                                 .stream
                                 .next()
                                 .ok_or(error!("expect identifier after `.`", token.text_range()))?;
+                            let semantic_token_kind = if self.stream.is_lpar_next() {SemanticTokenKind::Method}else {SemanticTokenKind::Field};
+                            let ranged_ident = identify!(self, field_ident_token , semantic_token_kind);
                             self.stack.push(Atom::new(
                                 token.text_range(),
                                 SuffixOpr::MembAccess(
-                                    field_ident_token.ranged_custom_ident().unwrap(),
+                                    ranged_ident
                                 )
                                 .into(),
                             ))?

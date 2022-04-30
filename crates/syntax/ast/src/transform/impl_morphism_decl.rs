@@ -1,5 +1,5 @@
 use super::*;
-use crate::transform::utils::*;
+use token::*;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_morphism_decl(&mut self, token_group: &[Token]) -> AstResult<AstKind> {

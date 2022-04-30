@@ -96,7 +96,7 @@ impl<'a> Formatter<'a> {
                     TyKind::Array => todo!(),
                     TyKind::Other => todo!(),
                 }
-                self.fmt_ident(ident.into());
+                self.fmt_ident(ident.ident.into());
                 if generics.len() > 0 {
                     todo!()
                 }
@@ -134,7 +134,7 @@ impl<'a> Formatter<'a> {
             }
             AstKind::PatternDefnHead => todo!(),
             AstKind::FieldDefnHead(ref field_var) => {
-                self.fmt_ident(field_var.ident.into());
+                self.fmt_ident(field_var.ident.ident.into());
                 self.write(": ");
                 self.fmt_member_variable_contracted_type(field_var.contract, field_var.ty)
             }
@@ -199,7 +199,7 @@ impl<'a> Formatter<'a> {
                     InitKind::Var => self.write("var "),
                     InitKind::Decl => (),
                 }
-                self.fmt_ident(varname.into());
+                self.fmt_ident(varname.ident.into());
                 self.write(" = ");
                 self.fmt_expr(&self.arena[initial_value]);
             }
