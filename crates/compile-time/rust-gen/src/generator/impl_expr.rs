@@ -1,5 +1,5 @@
 use super::*;
-use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnKind};
+use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use syntax_types::SuffixOpr;
 use vm::PrimitiveValue;
 
@@ -12,16 +12,16 @@ impl<'a> RustGenerator<'a> {
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_primitive_literal(value),
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {
-                ref opn_kind,
+                ref opn_variant,
                 ref opds,
-            } => match opn_kind {
-                EagerOpnKind::Binary { opr, this } => {
+            } => match opn_variant {
+                EagerOpnVariant::Binary { opr, this } => {
                     self.gen_expr(&opds[0]);
                     self.write(opr.spaced_code());
                     self.gen_expr(&opds[1]);
                 }
-                EagerOpnKind::Prefix { opr, this } => todo!(),
-                EagerOpnKind::Suffix { opr, this } => match opr {
+                EagerOpnVariant::Prefix { opr, this } => todo!(),
+                EagerOpnVariant::Suffix { opr, this } => match opr {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
@@ -32,19 +32,19 @@ impl<'a> RustGenerator<'a> {
                     }
                     SuffixOpr::WithType(_) => todo!(),
                 },
-                EagerOpnKind::RoutineCall(_) => todo!(),
-                EagerOpnKind::TypeCall { ranged_ty, ty_decl } => {
+                EagerOpnVariant::RoutineCall(_) => todo!(),
+                EagerOpnVariant::TypeCall { ranged_ty, ty_decl } => {
                     self.gen_entity_route(ranged_ty.route);
                     self.write("::");
                     self.write("__call__(");
                     self.gen_arguments(opds);
                     self.write(")");
                 }
-                EagerOpnKind::PatternCall => todo!(),
-                EagerOpnKind::FieldAccess {
+                EagerOpnVariant::PatternCall => todo!(),
+                EagerOpnVariant::FieldAccess {
                     field_contract: field_var_contract,
                 } => todo!(),
-                EagerOpnKind::MethodCall {
+                EagerOpnVariant::MethodCall {
                     method_ident: field_ident,
                     ..
                 } => {
@@ -55,7 +55,7 @@ impl<'a> RustGenerator<'a> {
                     self.gen_arguments(&opds[1..]);
                     self.write(")");
                 }
-                EagerOpnKind::ElementAccess => {
+                EagerOpnVariant::ElementAccess => {
                     self.gen_expr(&opds[0]);
                     self.write("[");
                     if opds.len() > 2 {

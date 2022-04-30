@@ -1,4 +1,4 @@
-use semantics_eager::EagerOpnKind;
+use semantics_eager::EagerOpnVariant;
 
 use crate::*;
 
@@ -38,25 +38,25 @@ impl<'eval> Trace<'eval> {
                 | EagerExprVariant::Scope { .. }
                 | EagerExprVariant::PrimitiveLiteral(_) => None,
                 EagerExprVariant::Opn {
-                    ref opn_kind,
+                    opn_variant: ref opn_kind,
                     ref opds,
                     ..
                 } => match opn_kind {
-                    EagerOpnKind::FieldAccess { .. } | EagerOpnKind::ElementAccess => None,
-                    EagerOpnKind::Binary { .. }
-                    | EagerOpnKind::Prefix { .. }
-                    | EagerOpnKind::Suffix { .. } => {
+                    EagerOpnVariant::FieldAccess { .. } | EagerOpnVariant::ElementAccess => None,
+                    EagerOpnVariant::Binary { .. }
+                    | EagerOpnVariant::Prefix { .. }
+                    | EagerOpnVariant::Suffix { .. } => {
                         if opds[0].ty.is_builtin() {
                             None
                         } else {
                             Some(SubtracesContainerClass::Call)
                         }
                     }
-                    EagerOpnKind::RoutineCall { .. } | EagerOpnKind::MethodCall { .. } => {
+                    EagerOpnVariant::RoutineCall { .. } | EagerOpnVariant::MethodCall { .. } => {
                         Some(SubtracesContainerClass::Call)
                     }
-                    EagerOpnKind::PatternCall => panic!(),
-                    EagerOpnKind::TypeCall { .. } => todo!(),
+                    EagerOpnVariant::PatternCall => panic!(),
+                    EagerOpnVariant::TypeCall { .. } => todo!(),
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::Bracketed(_) => panic!(),

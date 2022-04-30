@@ -61,12 +61,12 @@ impl<'eval> TraceFactory<'eval> {
             EagerExprVariant::PrimitiveLiteral(value) => vec![literal!(value)],
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {
-                ref opn_kind,
+                opn_variant: ref opn_kind,
                 ref opds,
             } => {
                 let mut tokens = vec![];
                 match opn_kind {
-                    EagerOpnKind::Binary { opr, this } => {
+                    EagerOpnVariant::Binary { opr, this } => {
                         tokens.extend(self.eager_expr_tokens(
                             &opds[0],
                             text,
@@ -81,12 +81,12 @@ impl<'eval> TraceFactory<'eval> {
                             config.subexpr(),
                         ));
                     }
-                    EagerOpnKind::Prefix { .. } => todo!(),
-                    EagerOpnKind::Suffix { .. } => todo!(),
-                    EagerOpnKind::RoutineCall(_) => todo!(),
-                    EagerOpnKind::PatternCall => todo!(),
-                    EagerOpnKind::FieldAccess { .. } => todo!(),
-                    EagerOpnKind::MethodCall { method_ident, .. } => {
+                    EagerOpnVariant::Prefix { .. } => todo!(),
+                    EagerOpnVariant::Suffix { .. } => todo!(),
+                    EagerOpnVariant::RoutineCall(_) => todo!(),
+                    EagerOpnVariant::PatternCall => todo!(),
+                    EagerOpnVariant::FieldAccess { .. } => todo!(),
+                    EagerOpnVariant::MethodCall { method_ident, .. } => {
                         tokens.extend(self.eager_expr_tokens(
                             &opds[0],
                             text,
@@ -109,8 +109,8 @@ impl<'eval> TraceFactory<'eval> {
                         }
                         tokens.push(special!(")"));
                     }
-                    EagerOpnKind::ElementAccess => todo!(),
-                    EagerOpnKind::TypeCall { ranged_ty, .. } => {
+                    EagerOpnVariant::ElementAccess => todo!(),
+                    EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                         tokens.push(scope!(text.ranged(ranged_ty.range)));
                         tokens.push(special!("("));
                         for i in 0..opds.len() {

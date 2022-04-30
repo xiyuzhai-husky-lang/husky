@@ -7,7 +7,7 @@ use vm::{BinaryOpr, FieldContract};
 use word::RangedCustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum EagerOpnKind {
+pub enum EagerOpnVariant {
     Binary {
         opr: BinaryOpr,
         this: EntityRoutePtr,
@@ -36,9 +36,3 @@ pub enum EagerOpnKind {
     },
     ElementAccess,
 }
-
-// #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-// pub enum PrefixOpn {}
-
-// #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-// pub enum SuffixOpn {}

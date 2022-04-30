@@ -31,9 +31,9 @@ impl<'a> InstructionSheetBuilder<'a> {
             )),
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {
-                ref opn_kind,
+                ref opn_variant,
                 ref opds,
-            } => self.compile_opn(opn_kind, opds, expr),
+            } => self.compile_opn(opn_variant, opds, expr),
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::This => self.push_instruction(Instruction::new(
                 InstructionKind::PushVariable {
@@ -48,7 +48,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_opn(
         &mut self,
-        opn_kind: &EagerOpnKind,
+        opn_kind: &EagerOpnVariant,
         opds: &[Arc<EagerExpr>],
         expr: &Arc<EagerExpr>,
     ) {
@@ -56,7 +56,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             self.compile_expr(opd);
         }
         match opn_kind {
-            EagerOpnKind::Binary { opr, this } => {
+            EagerOpnVariant::Binary { opr, this } => {
                 let instruction = Instruction::new(
                     InstructionKind::PrimitiveOpn(match opr {
                         BinaryOpr::Pure(pure_binary_opr) => {
@@ -68,10 +68,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                 );
                 self.push_instruction(instruction)
             }
-            EagerOpnKind::Prefix { opr, .. } => {
+            EagerOpnVariant::Prefix { opr, .. } => {
                 todo!()
             }
-            EagerOpnKind::Suffix { opr, this: this_ty } => {
+            EagerOpnVariant::Suffix { opr, this: this_ty } => {
                 let instruction = Instruction::new(
                     match opr {
                         SuffixOpr::Incr => todo!(),
@@ -101,7 +101,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 );
                 self.push_instruction(instruction)
             }
-            EagerOpnKind::RoutineCall(routine) => {
+            EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(fp) = self.db.routine_linkage(routine.route) {
                     self.push_instruction(Instruction::new(
                         InstructionKind::RoutineCallCompiled { linkage: fp },
@@ -117,11 +117,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ))
                 }
             }
-            EagerOpnKind::PatternCall => todo!(),
-            EagerOpnKind::FieldAccess { field_contract } => {
+            EagerOpnVariant::PatternCall => todo!(),
+            EagerOpnVariant::FieldAccess { field_contract } => {
                 todo!()
             }
-            EagerOpnKind::MethodCall {
+            EagerOpnVariant::MethodCall {
                 method_ident,
                 ref this_ty_decl,
                 method_route,
@@ -134,8 +134,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ),
                 expr.clone(),
             )),
-            EagerOpnKind::ElementAccess => self.compile_element_access(expr.clone(), opds),
-            EagerOpnKind::TypeCall {
+            EagerOpnVariant::ElementAccess => self.compile_element_access(expr.clone(), opds),
+            EagerOpnVariant::TypeCall {
                 ranged_ty,
                 ref ty_decl,
             } => {

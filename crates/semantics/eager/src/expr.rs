@@ -38,7 +38,7 @@ pub enum EagerExprVariant {
     PrimitiveLiteral(PrimitiveValue),
     Bracketed(Arc<EagerExpr>),
     Opn {
-        opn_kind: EagerOpnKind,
+        opn_variant: EagerOpnVariant,
         opds: Vec<Arc<EagerExpr>>,
     },
     Lambda(

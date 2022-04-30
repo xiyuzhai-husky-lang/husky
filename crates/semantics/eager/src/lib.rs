@@ -3,7 +3,7 @@ mod qual;
 mod stmt;
 mod variable;
 
-pub use expr::{EagerExpr, EagerExprVariant, EagerOpnKind};
+pub use expr::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 pub use qual::Qual;
 pub use stmt::{
     parse_decl_stmts, parse_impr_stmts, Boundary, DeclBranchGroupKind, DeclBranchKind, FuncStmt,
