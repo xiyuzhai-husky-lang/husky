@@ -21,6 +21,17 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let value = self.stack.push_variable(stack_idx, contract);
                     match mode {
                         Mode::Fast => (),
+                        Mode::TrackMutation => match contract {
+                            EagerContract::Pure => todo!(),
+                            EagerContract::GlobalRef => todo!(),
+                            EagerContract::Move => todo!(),
+                            EagerContract::LetInit => todo!(),
+                            EagerContract::VarInit => todo!(),
+                            EagerContract::Return => todo!(),
+                            EagerContract::BorrowMut => todo!(),
+                            EagerContract::TakeMut => todo!(),
+                            EagerContract::Exec => todo!(),
+                        },
                         Mode::Debug => self.history.write(
                             ins,
                             HistoryEntry::NonVoidExpr {
@@ -37,7 +48,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::RoutineCallCompiled { linkage } => {
                     let control = self.call_compiled(linkage).into();
                     match mode {
-                        Mode::Fast => (),
+                        Mode::Fast | Mode::TrackMutation => (),
                         Mode::Debug => self.history.write(
                             ins,
                             HistoryEntry::NonVoidExpr {
@@ -56,7 +67,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         .routine_call_interpreted(&instruction_sheet.instructions, nargs)
                         .into();
                     match mode {
-                        Mode::Fast => (),
+                        Mode::Fast | Mode::TrackMutation => (),
                         Mode::Debug => todo!(),
                     };
                     control
@@ -66,7 +77,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 } => {
                     let control = self.new_virtual_struct(field_vars).into();
                     match mode {
-                        Mode::Fast => (),
+                        Mode::Fast | Mode::TrackMutation => (),
                         Mode::Debug => todo!(),
                     };
                     control
@@ -76,7 +87,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     ref body,
                     loop_kind,
                 } => match mode {
-                    Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
+                    Mode::Fast | Mode::TrackMutation => self.exec_loop_fast(loop_kind, body).into(),
                     Mode::Debug => {
                         let stack_snapshot = self.stack.snapshot();
                         let control = self.exec_loop_fast(loop_kind, body).into();

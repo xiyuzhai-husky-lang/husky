@@ -6,7 +6,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(super) fn exec_primitive_opn(
         &mut self,
         opn: PrimitiveOpn,
-        mode: Mode,
+        debug_flag: Mode,
         ins: &Instruction,
     ) -> VMResult<()> {
         match opn {
@@ -15,8 +15,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 let lopd = self.stack.pop();
                 let output = pure_binary_opr
                     .act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?;
-                match mode {
-                    Mode::Fast => (),
+                match debug_flag {
+                    Mode::Fast | Mode::TrackMutation => (),
                     Mode::Debug => self.history.write(
                         ins,
                         HistoryEntry::NonVoidExpr {
@@ -48,8 +48,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 }
                 let after = lopd.snapshot();
-                match mode {
+                match debug_flag {
                     Mode::Fast => (),
+                    Mode::TrackMutation => {
+                        todo!()
+                    }
                     Mode::Debug => self
                         .history
                         .write(ins, HistoryEntry::Assign { before, after }),
