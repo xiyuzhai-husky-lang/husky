@@ -1,4 +1,4 @@
-use print_utils::msg_once;
+use print_utils::{msg_once, p};
 use word::RootIdentifier;
 
 use crate::*;
@@ -33,9 +33,10 @@ pub(crate) fn is_copy_constructible(db: &dyn DeclQueryGroup, ty: EntityRoutePtr)
             RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(_) => {
-            msg_once!("handle reference to prevent looping");
             let ty_decl = db.type_decl(ty).unwrap();
-            todo!()
+            ty_decl
+                .trai_impl(db.entity_route_menu().copy_trait)
+                .is_some()
         }
         EntityRoutePtr::ThisType => todo!(),
     }
