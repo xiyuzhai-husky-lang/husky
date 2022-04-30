@@ -1,6 +1,6 @@
 mod value;
 
-use print_utils::p;
+use print_utils::{msg_once, p};
 pub use value::*;
 
 use arrayvec::ArrayVec;
@@ -72,8 +72,6 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         stack_idx: StackIdx,
         contract: EagerContract,
     ) -> &mut StackValue<'stack, 'eval> {
-        //  self.stack.variable(stack_idx).bind(,  stack_idx) };
-        // self.stack.push(value);
         p!(self.values);
         unsafe {
             let stack_value = self.values[stack_idx.raw()].bind(contract, stack_idx);
@@ -121,6 +119,7 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     }
 
     pub(crate) fn top_mut(&mut self, mode: Mode) -> &mut StackValue<'stack, 'eval> {
+        msg_once!("todo use mode");
         self.values.last_mut().unwrap()
     }
 
