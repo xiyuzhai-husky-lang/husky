@@ -25,7 +25,7 @@ pub enum RawStmtKind {
     Exec(RawExprIdx),
     Init {
         init_kind: InitKind,
-        varname: CustomIdentifier,
+        varname: RangedCustomIdentifier,
         initial_value: RawExprIdx,
     },
     Return(RawExprIdx),

@@ -22,7 +22,7 @@ pub struct Symbol {
 }
 
 impl Symbol {
-    pub fn var(ident: word::CustomIdentifier, init_row: Row) -> Self {
+    pub fn var(ident: CustomIdentifier, init_row: Row) -> Self {
         Self {
             ident: ident.into(),
             kind: SymbolKind::Variable { init_row },

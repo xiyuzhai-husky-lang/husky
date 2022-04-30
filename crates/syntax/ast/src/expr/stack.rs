@@ -311,7 +311,7 @@ impl<'a> ExprStack<'a> {
         self.exprs.truncate(len - n_opds);
         self.exprs.push(RawExpr {
             range,
-            variant: RawExprVariant::Opn { opr: opr, opds },
+            variant: RawExprVariant::Opn { opr, opds },
         });
     }
 

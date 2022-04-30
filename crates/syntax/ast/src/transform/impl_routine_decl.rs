@@ -1,9 +1,9 @@
-use super::utils::*;
 use crate::{
     symbol::{Symbol, SymbolKind},
     *,
 };
 use text::TextRanged;
+use token::*;
 use token::*;
 use word::RoutineKeyword;
 

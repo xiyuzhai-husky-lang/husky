@@ -1,3 +1,4 @@
+#[macro_export]
 macro_rules! identify {
     ($this: expr, $token:expr, $semantic_token_kind: expr) => {{
         match $token.kind {
@@ -6,14 +7,17 @@ macro_rules! identify {
                     $semantic_token_kind,
                     $token.range,
                 ));
-                ident
+                word::RangedCustomIdentifier {
+                    ident,
+                    range: $token.range,
+                }
             }
             _ => err!("expect `<custom_identifier>`", $token.range)?,
         }
     }};
 }
-pub(super) use identify;
 
+#[macro_export]
 macro_rules! must_be {
     ($cond:expr, $msg: expr, $range:expr) => {
         if !$cond {
@@ -21,8 +25,8 @@ macro_rules! must_be {
         }
     };
 }
-pub(super) use must_be;
 
+#[macro_export]
 macro_rules! expect_kind {
     ($token:expr, $kind:expr) => {
         must_be!(
@@ -32,15 +36,15 @@ macro_rules! expect_kind {
         );
     };
 }
-pub(super) use expect_kind;
 
+#[macro_export]
 macro_rules! expect_block_head {
     ($tokens:expr) => {
         expect_kind!($tokens.last().unwrap(), Special::Colon)
     };
 }
-pub(super) use expect_block_head;
 
+#[macro_export]
 macro_rules! expect_at_least {
     ($tokens:expr, $kw_range:expr, $lower_bound:expr) => {
         must_be!(
@@ -54,8 +58,8 @@ macro_rules! expect_at_least {
         );
     };
 }
-pub(super) use expect_at_least;
 
+#[macro_export]
 macro_rules! expect_len {
     ($tokens:expr,  $len:expr) => {
         must_be!(
@@ -69,8 +73,8 @@ macro_rules! expect_len {
         );
     };
 }
-pub(super) use expect_len;
 
+#[macro_export]
 macro_rules! trim_colon {
     ($tokens:expr; keyword, colon) => {{
         expect_kind!($tokens.last().unwrap(), Special::Colon);
@@ -83,11 +87,10 @@ macro_rules! trim_colon {
         &$tokens[0..($tokens.len() - 1)]
     }};
 }
-pub(super) use trim_colon;
 
+#[macro_export]
 macro_rules! expect_head {
     ($tokens:expr) => {{
         expect_kind!($tokens.last().unwrap(), Special::Colon);
     }};
 }
-pub(super) use expect_head;

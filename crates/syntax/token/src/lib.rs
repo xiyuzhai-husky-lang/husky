@@ -8,6 +8,7 @@ mod special;
 #[cfg(test)]
 mod tests;
 mod tokenized_text;
+mod utils;
 
 pub use error::*;
 pub use kind::TokenKind;

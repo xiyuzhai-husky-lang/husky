@@ -1,7 +1,7 @@
 use crate::*;
 use token::*;
 
-use super::utils::identify;
+use token::identify;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_enum_variant(&mut self, tokens: &[Token]) -> AstResult<AstKind> {

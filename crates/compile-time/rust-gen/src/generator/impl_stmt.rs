@@ -34,7 +34,7 @@ impl<'a> RustGenerator<'a> {
                 ref initial_value,
             } => {
                 self.write("let ");
-                self.write(&varname);
+                self.write(&varname.ident);
                 self.write(" = ");
                 self.gen_expr(initial_value);
                 self.write(";\n");
@@ -60,7 +60,7 @@ impl<'a> RustGenerator<'a> {
                     InitKind::Var => "let mut ",
                     InitKind::Decl => todo!(),
                 });
-                self.write(&varname);
+                self.write(&varname.ident);
                 self.write(" = ");
                 self.gen_expr(initial_value);
                 self.write(";\n");
@@ -91,14 +91,14 @@ impl<'a> RustGenerator<'a> {
                 } => {
                     if step.0 == 1 {
                         self.write("for ");
-                        self.write(&frame_var);
+                        self.write(&frame_var.ident);
                         self.write(" in ");
                         self.gen_range_start(initial_boundary);
                         self.write("..");
                         self.gen_range_end(final_boundary);
                     } else if step.0 == -1 {
                         self.write("for ");
-                        self.write(&frame_var);
+                        self.write(&frame_var.ident);
                         self.write(" in ");
                         self.gen_range_start(final_boundary);
                         self.write("..");
@@ -118,7 +118,7 @@ impl<'a> RustGenerator<'a> {
                     step,
                 } => {
                     self.write("while ");
-                    self.write(&frame_var);
+                    self.write(&frame_var.ident);
                     self.write(match final_boundary.kind {
                         BoundaryKind::UpperOpen => " < ",
                         BoundaryKind::UpperClosed => todo!(),
@@ -134,7 +134,7 @@ impl<'a> RustGenerator<'a> {
                     self.gen_proc_stmts(stmts, self.indent + 4);
                     self.write_indent();
                     self.write("    ");
-                    self.write(&frame_var);
+                    self.write(&frame_var.ident);
                     if step.0 > 0 {
                         self.write(" += ");
                         self.write(&step.0.to_string());

@@ -22,7 +22,7 @@ use error::*;
 use print_utils::*;
 use text::TextRange;
 use vm::InitKind;
-use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
+use word::{CustomIdentifier, IdentDict, Identifier, RangedCustomIdentifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
@@ -33,7 +33,7 @@ pub struct Ast {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstKind {
     TypeDefnHead {
-        ident: CustomIdentifier,
+        ident: RangedCustomIdentifier,
         kind: TyKind,
         generic_placeholders: IdentDict<GenericPlaceholder>,
     },
@@ -41,7 +41,7 @@ pub enum AstKind {
     RoutineDefnHead(RoutineDefnHead),
     PatternDefnHead,
     FeatureDecl {
-        ident: CustomIdentifier,
+        ident: RangedCustomIdentifier,
         ty: RangedEntityRoute,
     },
     TypeMethodDefnHead(TypeMethodDefnHead),
@@ -49,7 +49,7 @@ pub enum AstKind {
     DatasetConfigDefnHead,
     Stmt(RawStmt),
     EnumVariantDefnHead {
-        ident: CustomIdentifier,
+        ident: RangedCustomIdentifier,
         variant_class: EnumVariantKind,
     },
     Use {

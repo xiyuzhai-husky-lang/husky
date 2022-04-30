@@ -1,11 +1,10 @@
 use crate::{
     stmt::{RawBranchKind, RawLoopKind, RawStmtKind},
-    transform::utils::*,
     *,
 };
 use atom::symbol::{Symbol, SymbolKind};
 use text::{TextRange, TextRanged};
-use token::{SemanticTokenKind, Special, Token, TokenKind};
+use token::*;
 use vm::BinaryOpr;
 
 impl<'a> AstTransformer<'a> {
@@ -77,7 +76,7 @@ impl<'a> AstTransformer<'a> {
                     // declarative initialization
                     let varname = identify!(self, token_group[0], SemanticTokenKind::Variable);
                     self.symbols
-                        .push(Symbol::var(varname, token_group[0].row()));
+                        .push(Symbol::var(varname.ident, token_group[0].row()));
                     RawStmt {
                         range: token_group.into(),
                         kind: RawStmtKind::Init {
@@ -127,7 +126,8 @@ impl<'a> AstTransformer<'a> {
         }
         expect_at_least!(tokens, kw_range, 3);
         let varname = identify!(self, &tokens[0], SemanticTokenKind::Variable);
-        self.symbols.push(Symbol::var(varname, tokens[0].row()));
+        self.symbols
+            .push(Symbol::var(varname.ident, tokens[0].row()));
         expect_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtKind::Init {
@@ -154,6 +154,10 @@ impl<'a> AstTransformer<'a> {
                         let (frame_var, kind) = if let RawExprVariant::Unrecognized(frame_var) =
                             lopd.variant
                         {
+                            let frame_var = RangedCustomIdentifier {
+                                ident: frame_var,
+                                range: lopd.range,
+                            };
                             (
                                 frame_var,
                                 RawLoopKind::for_loop_with_default_initial(
@@ -165,6 +169,10 @@ impl<'a> AstTransformer<'a> {
                                 .into(),
                             )
                         } else if let RawExprVariant::Unrecognized(frame_var) = ropd.variant {
+                            let frame_var = RangedCustomIdentifier {
+                                ident: frame_var,
+                                range: ropd.range,
+                            };
                             (
                                 frame_var,
                                 RawLoopKind::for_loop_with_default_final(
@@ -192,7 +200,10 @@ impl<'a> AstTransformer<'a> {
                                     let frame_var = if let RawExprVariant::Unrecognized(frame_var) =
                                         lropd.variant
                                     {
-                                        frame_var
+                                        RangedCustomIdentifier {
+                                            ident: frame_var,
+                                            range: lropd.range,
+                                        }
                                     } else {
                                         err!("expect unrecognized", expr.range())?
                                     };
@@ -213,7 +224,7 @@ impl<'a> AstTransformer<'a> {
                             // LoopRawStmt::for_loop()?.into()
                         };
                         self.symbols.push(Symbol {
-                            ident: frame_var,
+                            ident: frame_var.ident,
                             kind: SymbolKind::FrameVariable {
                                 init_row: token_group[0].row(),
                             },
@@ -238,9 +249,12 @@ impl<'a> AstTransformer<'a> {
                 let lopd_idx = opds.start;
                 let ropd_idx = opds.end - 1;
                 let lopd = &self.arena[lopd_idx];
-                let frame_var = match lopd.variant {
-                    RawExprVariant::Variable { varname, .. } => varname,
-                    _ => todo!(),
+                let frame_var = RangedCustomIdentifier {
+                    ident: match lopd.variant {
+                        RawExprVariant::Variable { varname, .. } => varname,
+                        _ => todo!(),
+                    },
+                    range: lopd.range,
                 };
                 RawLoopKind::forext_loop(frame_var, comparison, ropd_idx)?.into()
             }
