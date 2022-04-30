@@ -2,6 +2,7 @@ mod impl_abs_semantic_token;
 mod impl_basic;
 mod impl_call_head;
 mod impl_entity_route;
+mod impl_handle_special;
 mod impl_inner_ops;
 mod impl_lambda_head;
 mod utils;
@@ -97,107 +98,23 @@ impl<'a> AtomLRParser<'a> {
                     TokenKind::Keyword(keyword) => {
                         err!("keyword should be put at start", token.text_range())?
                     }
-                    TokenKind::Special(special) => match special {
-                        Special::DoubleColon => {
-                            err!("unexpected double colon, maybe the identifier before is not recognized as scope", token.text_range())?
+                    TokenKind::Special(Special::Colon) => {
+                        if let Some(_) = self.stream.next() {
+                            todo!()
+                        } else {
+                            break;
                         }
-                        Special::Colon => {
-                            if let Some(_) = self.stream.next() {
-                                todo!()
-                            } else {
-                                break;
-                            }
-                        }
-                        Special::DoubleVertical => self.stack.push(Atom::new(
-                            token.text_range(),
-                            if !self.stack.is_concave() {
-                                BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
-                            } else {
-                                AtomKind::LambdaHead(Vec::new())
-                            },
-                        ))?,
-                        Special::Vertical => {
-                            if self.stack.is_concave() {
-                                let lambda_head = self.lambda_head()?;
-                                self.stack.push(Atom::new(
-                                    (token.text_start()..self.stream.opt_range.unwrap().end).into(),
-                                    AtomKind::LambdaHead(lambda_head),
-                                ))?;
-                            } else {
-                                self.stack.push(Atom::new(
-                                    token.text_range(),BinaryOpr::Pure(PureBinaryOpr::BitOr).into()))?
-                            }
-                        }
-                        Special::Ambersand => self.stack.push(Atom::new(
-                            token.text_range(),
-                            if self.stack.is_concave() {
-                                PrefixOpr::Shared.into()
-                            } else {
-                                BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
-                            },
-                        ))?,
-                        Special::LPar => self.stack.start_list(Bracket::Par, token.text_range()),
-                        Special::LBox => self.stack.start_list(Bracket::Box, token.text_range()),
-                        Special::LCurl => self.stack.start_list(Bracket::Curl, token.text_range()),
-                        Special::RPar => {
-                            if next_matches!(self, Special::LightArrow) {
-                                let output = get!(self, ty?);
-                                self.stack.make_func_type(
-                                    &self.symbol_context,
-                                    output,
-                                    self.stream.pop_range(),
-                                )?;
-                            } else {
-                                self.stack.end_list_or_make_type(
-                                    Bracket::Par,
-                                    ListEndAttr::None,
-                                    token.text_range(),
-                                    &self.symbol_context,
-                                )?
-                            }
-                        }
-                        Special::RBox => self.stack.end_list_or_make_type(
-                            Bracket::Box,
-                            ListEndAttr::None,
-                            token.text_range(),
-                            &self.symbol_context,
-                        )?,
-                        Special::RCurl => self.stack.end_list_or_make_type(
-                            Bracket::Curl,
-                            ListEndAttr::None,
-                            token.text_range(),
-                            &self.symbol_context,
-                        )?,
-                        Special::SubOrMinus => {
-                            if self.stack.is_convex() {
-                                self.stack.push(Atom::new(
-                                    token.text_range(),
-                                    BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
-                                ))?
-                            } else {
-                                self.stack
-                                    .push(Atom::new(token.text_range(), PrefixOpr::Minus.into()))?
-                            }
-                        }
-                        Special::MemberAccess => {
-                            let field_ident_token = self
-                                .stream
-                                .next()
-                                .ok_or(error!("expect identifier after `.`", token.text_range()))?;
-                            let semantic_token_kind = if self.stream.is_lpar_next() {SemanticTokenKind::Method}else {SemanticTokenKind::Field};
-                            let ranged_ident = identify!(self, field_ident_token , semantic_token_kind);
-                            self.stack.push(Atom::new(
-                                token.text_range(),
-                                SuffixOpr::MembAccess(
-                                    ranged_ident
-                                )
-                                .into(),
-                            ))?
-                        }
-                        _ => self.stack.push(token.into())?,
-                    },
+                    }
+                    TokenKind::Special(special) => self.handle_special(special, token)?,
                     TokenKind::Identifier(_) => {
                         err!("unexpected identifier here", token.text_range())?
+                    }
+                    TokenKind::PrimitiveLiteral(_value) => {
+                        self.push_abs_semantic_token(AbsSemanticToken::new(
+                            SemanticTokenKind::Literal,
+                            token.text_range(),
+                        ));
+                        self.stack.push(token.into())?
                     }
                     _ => self.stack.push(token.into())?,
                 }

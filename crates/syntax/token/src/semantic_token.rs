@@ -62,6 +62,7 @@ pub enum SemanticTokenKind {
     GenericPlaceholder,
     EnumVariant,
     Method,
+    Literal,
 }
 
 impl SemanticTokenKind {
@@ -93,6 +94,7 @@ impl SemanticTokenKind {
             SemanticTokenKind::Parameter => SemanticTokenType::PARAMETER,
             SemanticTokenKind::EnumVariant => SemanticTokenType::ENUM_MEMBER,
             SemanticTokenKind::Method => SemanticTokenType::METHOD,
+            SemanticTokenKind::Literal => SemanticTokenType::NUMBER,
         })
     }
 }
