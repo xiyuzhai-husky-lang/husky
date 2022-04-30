@@ -1,5 +1,5 @@
 use feature::*;
-use vm::{History, InstructionSheet, LoopFrameSnapshot, StackValueSnapshot, VMControl};
+use vm::{History, InstructionSheet, LoopFrameData, StackValueSnapshot, VMControl};
 use word::CustomIdentifier;
 
 use crate::*;
@@ -26,7 +26,7 @@ pub enum TraceVariant<'eval> {
         loop_stmt: Arc<ProcStmt>,
         body_instruction_sheet: Arc<InstructionSheet>,
         body_stmts: Arc<Vec<Arc<ProcStmt>>>,
-        loop_frame_snapshot: LoopFrameSnapshot<'eval>,
+        loop_frame_data: LoopFrameData<'eval>,
     },
     EagerExpr {
         expr: Arc<EagerExpr>,

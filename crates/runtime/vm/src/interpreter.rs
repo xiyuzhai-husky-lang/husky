@@ -10,7 +10,7 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
     stack: VMStack<'stack, 'eval>,
     pub(crate) history: History<'eval>,
     snapshot: Option<StackSnapshot<'eval>>,
-    pub(crate) frames: Vec<LoopFrameSnapshot<'eval>>,
+    pub(crate) frames: Vec<LoopFrameData<'eval>>,
 }
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -83,11 +83,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         self.snapshot = Some(self.stack.snapshot());
     }
 
-    fn take_changes(&mut self) -> (StackSnapshot<'eval>, Vec<()>) {
-        if let Some(snapshot) = std::mem::take(&mut self.snapshot) {
-            (snapshot, vec![()])
-        } else {
-            panic!()
-        }
+    fn collect_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData>) {
+        let snapshot = std::mem::take(&mut self.snapshot).expect("bug");
+        (snapshot, vec![todo!()])
     }
 }
