@@ -33,9 +33,9 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             ProcStmtVariant::BranchGroup { .. } => todo!(),
             ProcStmtVariant::Loop {
-                loop_variant: ref loop_kind,
+                ref loop_variant,
                 ref stmts,
-            } => self.compile_loop(loop_kind, stmt.clone(), stmts),
+            } => self.compile_loop(loop_variant, stmt.clone(), stmts),
         }
     }
 

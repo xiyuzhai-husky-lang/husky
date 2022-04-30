@@ -103,6 +103,7 @@ pub fn subtraces(
                     result,
                     ref stack_snapshot,
                     ref body,
+                    ..
                 } => db.loop_subtraces(
                     db.compile_time(trace.compile_time_version),
                     trace,

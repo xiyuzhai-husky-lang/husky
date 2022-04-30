@@ -57,7 +57,7 @@ pub fn exec_debug<'stack, 'eval: 'stack>(
     sheet: &InstructionSheet,
 ) -> Arc<History<'eval>> {
     let mut interpreter = Interpreter::new(db, values);
-    interpreter.exec_all(&sheet.instructions, Mode::Debug);
+    interpreter.exec_all(&sheet.instructions, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
 
@@ -68,6 +68,6 @@ pub fn exec_loop_debug<'stack, 'eval: 'stack>(
     sheet: &InstructionSheet,
 ) -> Vec<LoopFrameData<'eval>> {
     let mut interpreter = Interpreter::new(db, values);
-    interpreter.exec_loop_debug(loop_kind, &sheet);
+    interpreter.exec_loop_tracking_frame(loop_kind, &sheet);
     interpreter.frames
 }

@@ -1,7 +1,10 @@
 mod exec;
 mod query;
 
+use std::collections::HashMap;
+
 pub use query::InterpreterQueryGroup;
+use word::{CustomIdentifier, Identifier};
 
 use crate::*;
 
@@ -11,6 +14,7 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
     pub(crate) history: History<'eval>,
     snapshot: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
+    mutations: HashMap<StackIdx, Identifier>,
 }
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -24,6 +28,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             history: Default::default(),
             snapshot: None,
             frames: vec![],
+            mutations: Default::default(),
         })
     }
 
@@ -37,6 +42,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             history: Default::default(),
             snapshot: None,
             frames: vec![],
+            mutations: Default::default(),
         }
     }
 
@@ -83,8 +89,16 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         self.snapshot = Some(self.stack.snapshot());
     }
 
+    fn record_mutation(&mut self, stack_idx: StackIdx, varname: Identifier) {
+        self.mutations.insert(stack_idx, varname);
+    }
+
     fn collect_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData>) {
         let snapshot = std::mem::take(&mut self.snapshot).expect("bug");
-        (snapshot, vec![todo!()])
+        let mutations = std::mem::take(&mut self.mutations)
+            .iter()
+            .map(|_| MutationData {})
+            .collect();
+        (snapshot, mutations)
     }
 }

@@ -3,6 +3,7 @@ mod sheet;
 
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
+use word::{CustomIdentifier, Identifier};
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -48,6 +49,7 @@ pub enum InstructionKind {
     PushVariable {
         stack_idx: StackIdx,
         contract: EagerContract,
+        varname: Identifier,
     },
     PushPrimitiveLiteral(PrimitiveValue),
     FieldAccessCompiled {

@@ -15,7 +15,7 @@ use semantics_eager::*;
 use serde::Deserialize;
 use sync_utils::ARwLock;
 use text::{Text, TextQueryGroup};
-use vm::{InstructionSheet, LoopFrameData, StackSnapshot};
+use vm::{InstructionSheet, LoopFrameData, StackSnapshot, VariableStack};
 
 use crate::*;
 
