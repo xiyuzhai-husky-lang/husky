@@ -38,7 +38,7 @@ impl<'stack, 'eval: 'stack> std::fmt::Debug for StackValue<'stack, 'eval> {
                 arg0.fmt(f)
             }
             StackValue::Boxed(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
-            StackValue::GlobalPure(arg0) => f.debug_tuple("Volatile").field(arg0).finish(),
+            StackValue::GlobalPure(arg0) => f.debug_tuple("GlobalPure").field(arg0).finish(),
             StackValue::GlobalRef(arg0) => f.debug_tuple("GlobalRef").field(arg0).finish(),
             StackValue::LocalRef(arg0) => f.debug_tuple("Ref").field(arg0).finish(),
             StackValue::MutLocalRef { value, .. } => f.debug_tuple("MutRef").field(value).finish(),
