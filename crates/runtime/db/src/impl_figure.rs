@@ -88,7 +88,9 @@ impl HuskyLangRuntime {
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,
-            } => todo!(),
+            } => {
+                todo!()
+            }
         }
     }
 

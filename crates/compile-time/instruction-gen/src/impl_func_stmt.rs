@@ -15,7 +15,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref initial_value,
             } => {
                 self.compile_expr(initial_value);
-                self.def_variable(varname.ident, InitKind::Decl, stmt)
+                self.def_variable(varname.ident)
             }
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => {

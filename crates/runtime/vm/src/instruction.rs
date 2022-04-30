@@ -45,7 +45,6 @@ impl<
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum InstructionKind {
-    Init(InitKind),
     PushVariable {
         stack_idx: StackIdx,
         contract: EagerContract,

@@ -104,21 +104,11 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         self.values.drain((self.len() - k as usize)..).collect()
     }
 
-    pub(crate) fn topk_mut(&mut self, k: u8) -> &mut [StackValue<'stack, 'eval>] {
-        let len = self.len();
-        &mut self.values[(len - (k as usize))..]
-    }
-
     pub(crate) fn top_second(&self) -> &StackValue<'stack, 'eval> {
         &self.values[self.values.len() - 2]
     }
 
     pub(crate) fn top(&mut self) -> &StackValue<'stack, 'eval> {
-        self.values.last_mut().unwrap()
-    }
-
-    pub(crate) fn top_mut(&mut self, mode: Mode) -> &mut StackValue<'stack, 'eval> {
-        msg_once!("todo use mode");
         self.values.last_mut().unwrap()
     }
 
