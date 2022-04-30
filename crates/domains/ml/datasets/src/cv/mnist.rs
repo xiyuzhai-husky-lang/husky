@@ -113,7 +113,25 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                         nargs: 2,
                                     },
                                     borrow_mut_access: Linkage {
-                                        call: |_| todo!(),
+                                        call: |values| {
+                                            let index_value: usize = values[1]
+                                                .as_primitive()
+                                                .unwrap()
+                                                .as_i32()
+                                                .unwrap()
+                                                .try_into()
+                                                .expect("todo");
+                                            let (this_value, owner, _): (&mut BinaryImage28, _, _) =
+                                                values[0].downcast_mut_full();
+                                            this_value
+                                                .get_mut(index_value)
+                                                .map(|value| StackValue::MutLocalRef {
+                                                    value,
+                                                    owner,
+                                                    gen: (),
+                                                })
+                                                .ok_or(VMError::Message("todo".into()))
+                                        },
                                         nargs: 2,
                                     },
                                 }),
