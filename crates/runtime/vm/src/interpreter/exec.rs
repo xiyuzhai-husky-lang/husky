@@ -17,22 +17,16 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::PushVariable {
                     contract,
                     stack_idx,
+                    varname,
                 } => {
                     let value = self.stack.push_variable(stack_idx, contract);
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => match contract {
-                            EagerContract::Pure => todo!(),
-                            EagerContract::GlobalRef => todo!(),
-                            EagerContract::Move => todo!(),
-                            EagerContract::LetInit => todo!(),
-                            EagerContract::VarInit => todo!(),
-                            EagerContract::Return => todo!(),
-                            EagerContract::BorrowMut => todo!(),
-                            EagerContract::TakeMut => todo!(),
-                            EagerContract::Exec => todo!(),
+                            EagerContract::BorrowMut => self.record_mutation(stack_idx, varname),
+                            _ => (),
                         },
-                        Mode::Debug => self.history.write(
+                        Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::NonVoidExpr {
                                 output: value.snapshot(),
@@ -49,7 +43,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::Debug => self.history.write(
+                        Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::NonVoidExpr {
                                 output: self.stack.top_snapshot(),
@@ -68,7 +62,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::Debug => todo!(),
+                        Mode::TrackHistory => todo!(),
                     };
                     control
                 }
@@ -78,7 +72,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let control = self.new_virtual_struct(field_vars).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::Debug => todo!(),
+                        Mode::TrackHistory => todo!(),
                     };
                     control
                 }
@@ -87,13 +81,15 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     ref body,
                     loop_kind,
                 } => match mode {
-                    Mode::Fast | Mode::TrackMutation => self.exec_loop_fast(loop_kind, body).into(),
-                    Mode::Debug => {
-                        let stack_snapshot = self.stack.snapshot();
-                        let control = self.exec_loop_fast(loop_kind, body).into();
+                    Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
+                    Mode::TrackMutation => self.exec_loop_tracking_mutation(loop_kind, body).into(),
+                    Mode::TrackHistory => {
+                        self.take_snapshot();
+                        let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
+                        let (snapshot, mutations) = self.collect_mutations();
                         self.history.write(
                             ins,
-                            HistoryEntry::loop_entry(&control, stack_snapshot, body.clone()),
+                            HistoryEntry::loop_entry(&control, snapshot, body.clone(), mutations),
                         );
                         control
                     }

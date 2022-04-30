@@ -6,10 +6,20 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         loop_kind: VMLoopKind,
         body: &InstructionSheet,
     ) -> VMControl<'eval> {
-        self.exec_loop(loop_kind, body, |_| (), |_, _, _| ()).into()
+        self.exec_loop(loop_kind, body, |_| (), |_, _, _| (), Mode::Fast)
+            .into()
     }
 
-    pub(crate) fn exec_loop_debug(
+    pub(super) fn exec_loop_tracking_mutation(
+        &mut self,
+        loop_kind: VMLoopKind,
+        body: &InstructionSheet,
+    ) -> VMControl<'eval> {
+        self.exec_loop(loop_kind, body, |_| (), |_, _, _| (), Mode::TrackMutation)
+            .into()
+    }
+
+    pub(crate) fn exec_loop_tracking_frame(
         &mut self,
         loop_kind: VMLoopKind,
         body: &InstructionSheet,
@@ -28,6 +38,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     kind: loop_kind.into(),
                 });
             },
+            Mode::TrackMutation,
         )
         .into()
     }
@@ -38,6 +49,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         body: &InstructionSheet,
         exec_before_each_frame: impl Fn(&mut Self),
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
+        mode: Mode,
     ) -> VMResult<VMControl<'eval>> {
         match loop_kind {
             VMLoopKind::For {
@@ -69,7 +81,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
                     self.stack.push(StackValue::Primitive(frame_var.into()));
                     exec_before_each_frame(self);
-                    let control = self.exec_all(&body.instructions, Mode::Fast);
+                    let control = self.exec_all(&body.instructions, mode);
                     exec_after_each_frame(self, frame_var, &control);
                     self.stack.pop();
                     match control {
@@ -100,7 +112,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 let n = step.n(initial_value, final_bound_shifted);
                 for _ in 0..n {
                     exec_before_each_frame(self);
-                    let control = self.exec_all(&body.instructions, Mode::Fast);
+                    let control = self.exec_all(&body.instructions, mode);
                     exec_after_each_frame(
                         self,
                         self.stack.value(frame_varidx).as_primitive()?.as_i32()?,
@@ -119,7 +131,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             VMLoopKind::Loop => {
                 for frame_var in 0..LOOP_LIMIT {
                     exec_before_each_frame(self);
-                    let control = self.exec_all(&body.instructions, Mode::Fast);
+                    let control = self.exec_all(&body.instructions, mode);
                     exec_after_each_frame(self, frame_var, &control);
                     match control {
                         VMControl::None => (),

@@ -3,7 +3,7 @@ use text::Text;
 use upcast::Upcast;
 use vm::{
     exec_debug, exec_loop_debug, BoundaryKind, History, InstructionSheet, LoopFrameData,
-    StackSnapshot, VMControl,
+    StackSnapshot, VMControl, VariableStack,
 };
 
 use super::{expr::ExprTokenConfig, *};

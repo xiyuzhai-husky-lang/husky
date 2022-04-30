@@ -103,11 +103,7 @@ impl HuskyLangRuntime {
             }
             HistoryEntry::Exec => todo!(),
             HistoryEntry::Assign { before, after } => todo!(),
-            HistoryEntry::Loop {
-                result,
-                stack_snapshot,
-                body,
-            } => todo!(),
+            HistoryEntry::Loop { .. } => panic!(),
         }
     }
 }

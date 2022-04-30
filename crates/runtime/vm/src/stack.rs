@@ -8,7 +8,7 @@ use word::CustomIdentifier;
 
 use crate::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct StackIdx(u8);
 
 impl StackIdx {
@@ -150,5 +150,9 @@ impl VariableStack {
 
     pub fn push(&mut self, ident: CustomIdentifier) {
         self.variables.push(ident)
+    }
+
+    pub fn varname(&self, stack_idx: StackIdx) -> CustomIdentifier {
+        self.variables[stack_idx.0 as usize]
     }
 }

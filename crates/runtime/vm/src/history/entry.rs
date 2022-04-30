@@ -15,6 +15,7 @@ pub enum HistoryEntry<'eval> {
         result: ControlSnapshot<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
         body: Arc<InstructionSheet>,
+        mutations: Vec<MutationData>,
     },
 }
 
@@ -35,11 +36,13 @@ impl<'eval> HistoryEntry<'eval> {
         result: &VMControl<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
         body: Arc<InstructionSheet>,
+        mutations: Vec<MutationData>,
     ) -> HistoryEntry<'eval> {
         HistoryEntry::Loop {
             result: result.snapshot(),
             stack_snapshot,
             body,
+            mutations,
         }
     }
 }

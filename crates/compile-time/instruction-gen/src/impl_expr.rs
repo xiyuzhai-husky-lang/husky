@@ -13,12 +13,13 @@ use vm::{
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
         match expr.variant {
-            EagerExprVariant::Variable(ident) => {
-                let stack_idx = self.sheet.variable_stack.stack_idx(ident);
+            EagerExprVariant::Variable(varname) => {
+                let stack_idx = self.sheet.variable_stack.stack_idx(varname);
                 self.push_instruction(Instruction::new(
                     InstructionKind::PushVariable {
                         stack_idx,
                         contract: expr.contract,
+                        varname: varname.into(),
                     },
                     expr.clone(),
                 ))
@@ -38,6 +39,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionKind::PushVariable {
                     stack_idx: StackIdx::this(),
                     contract: expr.contract,
+                    varname: Identifier::Contextual(ContextualIdentifier::ThisData),
                 },
                 expr.clone(),
             )),

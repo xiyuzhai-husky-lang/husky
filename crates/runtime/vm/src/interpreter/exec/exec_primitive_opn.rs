@@ -17,7 +17,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     .act_on_primitives(lopd.as_primitive()?, ropd.as_primitive()?)?;
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
-                    Mode::Debug => self.history.write(
+                    Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::NonVoidExpr {
                             output: output.into(),
@@ -49,11 +49,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 let after = lopd.snapshot();
                 match debug_flag {
-                    Mode::Fast => (),
-                    Mode::TrackMutation => {
-                        todo!()
-                    }
-                    Mode::Debug => self
+                    Mode::Fast | Mode::TrackMutation => (),
+                    Mode::TrackHistory => self
                         .history
                         .write(ins, HistoryEntry::Assign { before, after }),
                 }
