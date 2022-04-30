@@ -149,8 +149,8 @@ impl<'eval> Trace<'eval> {
                     EagerOpnVariant::RoutineCall(_) => todo!(),
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => !ranged_ty.route.is_builtin(),
                     EagerOpnVariant::PatternCall => todo!(),
-                    EagerOpnVariant::FieldAccess { .. }
-                    | EagerOpnVariant::Binary { .. }
+                    EagerOpnVariant::FieldAccess { .. } => false,
+                    EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. }
                     | EagerOpnVariant::MethodCall { .. }
