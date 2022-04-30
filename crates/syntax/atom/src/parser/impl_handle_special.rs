@@ -5,18 +5,17 @@ use super::*;
 
 impl<'a> AtomLRParser<'a> {
     pub(super) fn handle_special(&mut self, special: Special, token: &Token) -> AtomResult<()> {
-        let range = token.text_range();
         match special {
             Special::DoubleColon => err!(
                 "unexpected double colon, maybe the identifier before is not recognized as scope",
-                range
+                self.stream.pop_range()
             )?,
             Special::DoubleVertical => self.stack.push(Atom::new(
-                range,
+                self.stream.pop_range(),
                 if !self.stack.is_concave() {
                     BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
                 } else {
-                    AtomKind::LambdaHead(Vec::new())
+                    AtomVariant::LambdaHead(Vec::new())
                 },
             )),
             Special::Vertical => {
@@ -24,26 +23,28 @@ impl<'a> AtomLRParser<'a> {
                     let lambda_head = self.lambda_head()?;
                     self.stack.push(Atom::new(
                         (token.text_start()..self.stream.opt_range.unwrap().end).into(),
-                        AtomKind::LambdaHead(lambda_head),
+                        AtomVariant::LambdaHead(lambda_head),
                     ))
                 } else {
                     self.stack.push(Atom::new(
-                        range,
+                        self.stream.pop_range(),
                         BinaryOpr::Pure(PureBinaryOpr::BitOr).into(),
                     ))
                 }
             }
             Special::Ambersand => self.stack.push(Atom::new(
-                range,
+                self.stream.pop_range(),
                 if self.stack.is_concave() {
                     PrefixOpr::Shared.into()
                 } else {
                     BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
                 },
             )),
-            Special::LPar => Ok(self.stack.start_list(Bracket::Par, range)),
-            Special::LBox => Ok(self.stack.start_list(Bracket::Box, range)),
-            Special::LCurl => Ok(self.stack.start_list(Bracket::Curl, range)),
+            Special::LPar => Ok(self.stack.start_list(Bracket::Par, self.stream.pop_range())),
+            Special::LBox => Ok(self.stack.start_list(Bracket::Box, self.stream.pop_range())),
+            Special::LCurl => Ok(self
+                .stack
+                .start_list(Bracket::Curl, self.stream.pop_range())),
             Special::RPar => {
                 if next_matches!(self, Special::LightArrow) {
                     let output = get!(self, ty?);
@@ -53,7 +54,7 @@ impl<'a> AtomLRParser<'a> {
                     self.stack.end_list_or_make_type(
                         Bracket::Par,
                         ListEndAttr::None,
-                        range,
+                        self.stream.pop_range(),
                         &self.symbol_context,
                     )
                 }
@@ -61,24 +62,28 @@ impl<'a> AtomLRParser<'a> {
             Special::RBox => self.stack.end_list_or_make_type(
                 Bracket::Box,
                 ListEndAttr::None,
-                range,
+                self.stream.pop_range(),
                 &self.symbol_context,
             ),
             Special::RCurl => self.stack.end_list_or_make_type(
                 Bracket::Curl,
                 ListEndAttr::None,
-                range,
+                self.stream.pop_range(),
                 &self.symbol_context,
             ),
             Special::SubOrMinus => {
                 if self.stack.is_convex() {
-                    self.stack
-                        .push(Atom::new(range, BinaryOpr::Pure(PureBinaryOpr::Sub).into()))
+                    self.stack.push(Atom::new(
+                        self.stream.pop_range(),
+                        BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
+                    ))
                 } else {
-                    self.stack.push(Atom::new(range, PrefixOpr::Minus.into()))
+                    self.stack
+                        .push(Atom::new(self.stream.pop_range(), PrefixOpr::Minus.into()))
                 }
             }
             Special::MemberAccess => {
+                let range = self.stream.pop_range();
                 let field_ident_token = self
                     .stream
                     .next()
@@ -92,7 +97,10 @@ impl<'a> AtomLRParser<'a> {
                 self.stack
                     .push(Atom::new(range, SuffixOpr::MembAccess(ranged_ident).into()))
             }
-            _ => self.stack.push(token.into()),
+            _ => {
+                self.stream.pop_range();
+                self.stack.push(token.into())
+            }
         }
     }
 }

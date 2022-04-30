@@ -1,6 +1,6 @@
 use super::utils;
 use crate::*;
-use atom::AtomKind;
+use atom::AtomVariant;
 
 #[test]
 fn vec_type() {
@@ -38,7 +38,7 @@ fn func_pointer_with_implicitly_void_return_type() {
     let atoms = utils::get_atoms_in_line(&mut db, "Fp(i32, i32)");
     should_eq!(atoms.len(), 1);
     let atom = &atoms[0];
-    if let AtomKind::EntityRoute { route, .. } = atom.kind {
+    if let AtomVariant::EntityRoute { route, .. } = atom.kind {
         should_eq!(route.generic_arguments.len(), 3);
     } else {
         panic!()

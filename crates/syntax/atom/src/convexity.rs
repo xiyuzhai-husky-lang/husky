@@ -6,42 +6,42 @@ pub enum Convexity {
     Concave,
 }
 
-pub(super) fn left_side_convexity(kind: &AtomKind) -> Convexity {
+pub(super) fn left_side_convexity(kind: &AtomVariant) -> Convexity {
     match kind {
-        AtomKind::EntityRoute { .. }
-        | AtomKind::Variable { .. }
-        | AtomKind::FrameVariable { .. }
-        | AtomKind::ThisData { .. }
-        | AtomKind::Unrecognized(_)
-        | AtomKind::Literal(_)
-        | AtomKind::Prefix(_)
-        | AtomKind::ListStart(_, ListStartAttr::None)
-        | AtomKind::ListEnd(_, _)
-        | AtomKind::LambdaHead(_) => Convexity::Convex,
-        AtomKind::Suffix(_)
-        | AtomKind::Binary(_)
-        | AtomKind::ListStart(_, ListStartAttr::Attach)
-        | AtomKind::ListItem => Convexity::Concave,
+        AtomVariant::EntityRoute { .. }
+        | AtomVariant::Variable { .. }
+        | AtomVariant::FrameVariable { .. }
+        | AtomVariant::ThisData { .. }
+        | AtomVariant::Unrecognized(_)
+        | AtomVariant::Literal(_)
+        | AtomVariant::Prefix(_)
+        | AtomVariant::ListStart(_, ListStartAttr::None)
+        | AtomVariant::ListEnd(_, _)
+        | AtomVariant::LambdaHead(_) => Convexity::Convex,
+        AtomVariant::Suffix(_)
+        | AtomVariant::Binary(_)
+        | AtomVariant::ListStart(_, ListStartAttr::Attach)
+        | AtomVariant::ListItem => Convexity::Concave,
     }
 }
 
-pub(super) fn right_side_convexity(kind: &AtomKind) -> Convexity {
+pub(super) fn right_side_convexity(kind: &AtomVariant) -> Convexity {
     match kind {
-        AtomKind::EntityRoute { .. }
-        | AtomKind::Variable { .. }
-        | AtomKind::FrameVariable { .. }
-        | AtomKind::ThisData { .. }
-        | AtomKind::Unrecognized(_)
-        | AtomKind::Literal(_)
-        | AtomKind::Suffix(_)
-        | AtomKind::ListEnd(_, ListEndAttr::None)
-        | AtomKind::ListEnd(_, ListEndAttr::Modulo) => Convexity::Convex,
-        AtomKind::Prefix(_)
-        | AtomKind::Binary(_)
-        | AtomKind::ListStart(_, _)
-        | AtomKind::ListItem
-        | AtomKind::ListEnd(_, ListEndAttr::Attach)
-        | AtomKind::LambdaHead(_) => Convexity::Concave,
+        AtomVariant::EntityRoute { .. }
+        | AtomVariant::Variable { .. }
+        | AtomVariant::FrameVariable { .. }
+        | AtomVariant::ThisData { .. }
+        | AtomVariant::Unrecognized(_)
+        | AtomVariant::Literal(_)
+        | AtomVariant::Suffix(_)
+        | AtomVariant::ListEnd(_, ListEndAttr::None)
+        | AtomVariant::ListEnd(_, ListEndAttr::Modulo) => Convexity::Convex,
+        AtomVariant::Prefix(_)
+        | AtomVariant::Binary(_)
+        | AtomVariant::ListStart(_, _)
+        | AtomVariant::ListItem
+        | AtomVariant::ListEnd(_, ListEndAttr::Attach)
+        | AtomVariant::LambdaHead(_) => Convexity::Concave,
     }
 }
 

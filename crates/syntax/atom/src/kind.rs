@@ -7,7 +7,7 @@ use word::{CustomIdentifier, RangedCustomIdentifier};
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum AtomKind {
+pub enum AtomVariant {
     EntityRoute {
         route: EntityRoutePtr,
         kind: EntityKind,
@@ -36,25 +36,25 @@ pub enum AtomKind {
 
 pub type LambdaHead = Vec<(Identifier, Option<RangedEntityRoute>)>;
 
-impl From<BinaryOpr> for AtomKind {
+impl From<BinaryOpr> for AtomVariant {
     fn from(opr: BinaryOpr) -> Self {
         Self::Binary(opr)
     }
 }
 
-impl From<PrefixOpr> for AtomKind {
+impl From<PrefixOpr> for AtomVariant {
     fn from(opr: PrefixOpr) -> Self {
         Self::Prefix(opr)
     }
 }
 
-impl From<SuffixOpr> for AtomKind {
+impl From<SuffixOpr> for AtomVariant {
     fn from(opr: SuffixOpr) -> Self {
         Self::Suffix(opr)
     }
 }
 
-impl From<Special> for AtomKind {
+impl From<Special> for AtomVariant {
     fn from(special: Special) -> Self {
         match special {
             Special::DoubleColon
@@ -93,26 +93,26 @@ impl From<Special> for AtomKind {
             Special::And => BinaryOpr::Pure(PureBinaryOpr::And).into(),
             Special::BitNot => PrefixOpr::BitNot.into(),
             Special::Modulo => BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into(),
-            Special::Incr => AtomKind::Suffix(SuffixOpr::Incr),
-            Special::Decr => AtomKind::Suffix(SuffixOpr::Decr),
-            Special::Comma => AtomKind::ListItem,
+            Special::Incr => AtomVariant::Suffix(SuffixOpr::Incr),
+            Special::Decr => AtomVariant::Suffix(SuffixOpr::Decr),
+            Special::Comma => AtomVariant::ListItem,
         }
     }
 }
 
-impl From<PrimitiveValue> for AtomKind {
+impl From<PrimitiveValue> for AtomVariant {
     fn from(lit: PrimitiveValue) -> Self {
         Self::Literal(lit)
     }
 }
 
-impl From<i32> for AtomKind {
+impl From<i32> for AtomVariant {
     fn from(i: i32) -> Self {
         PrimitiveValue::I32(i).into()
     }
 }
 
-impl From<f32> for AtomKind {
+impl From<f32> for AtomVariant {
     fn from(f: f32) -> Self {
         PrimitiveValue::F32(f).into()
     }

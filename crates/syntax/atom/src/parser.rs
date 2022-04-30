@@ -96,7 +96,7 @@ impl<'a> AtomLRParser<'a> {
             if let Some(token) = self.stream.next() {
                 match token.kind {
                     TokenKind::Keyword(keyword) => {
-                        err!("keyword should be put at start", token.text_range())?
+                        err!("keyword should be put at start", self.stream.pop_range())?
                     }
                     TokenKind::Special(Special::Colon) => {
                         if let Some(_) = self.stream.next() {
@@ -107,16 +107,16 @@ impl<'a> AtomLRParser<'a> {
                     }
                     TokenKind::Special(special) => self.handle_special(special, token)?,
                     TokenKind::Identifier(_) => {
-                        err!("unexpected identifier here", token.text_range())?
+                        err!("unexpected identifier here", self.stream.pop_range())?
                     }
                     TokenKind::PrimitiveLiteral(_value) => {
+                        let range = self.stream.pop_range();
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::Literal,
-                            token.text_range(),
+                            range,
                         ));
                         self.stack.push(token.into())?
                     }
-                    _ => self.stack.push(token.into())?,
                 }
             } else {
                 break;
@@ -142,7 +142,7 @@ pub fn parse_ty(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<
         err!("too many atoms", result[1..].into())?
     } else {
         match result[0].kind {
-            AtomKind::EntityRoute {
+            AtomVariant::EntityRoute {
                 route: scope,
                 kind: EntityKind::Type(_),
                 ..

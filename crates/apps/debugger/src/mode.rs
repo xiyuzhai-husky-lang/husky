@@ -7,7 +7,7 @@ use compare::*;
 use compile_time_db::HuskyLangCompileTime;
 use diagnostic::Diagnostic;
 use path_utils::collect_pack_dirs;
-use std::{fs, path::PathBuf};
+use std::path::PathBuf;
 use test_diagnostics::*;
 use test_semantic_tokens::*;
 

@@ -6,7 +6,7 @@ mod stack;
 pub mod symbol;
 
 pub use error::*;
-pub use kind::{AtomKind, LambdaHead};
+pub use kind::{AtomVariant, LambdaHead};
 pub use parser::AtomLRParser;
 pub use parser::*;
 use print_utils::p;
@@ -23,12 +23,12 @@ use word::RootIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct Atom {
-    range: TextRange,
-    pub kind: AtomKind,
+    pub range: TextRange,
+    pub kind: AtomVariant,
 }
 
 impl Atom {
-    pub fn new(range: TextRange, kind: AtomKind) -> Atom {
+    pub fn new(range: TextRange, kind: AtomVariant) -> Atom {
         Atom { range, kind }
     }
 }

@@ -221,8 +221,11 @@ impl<'a> AstTransformer<'a> {
                                 }
                                 _ => todo!(),
                             }
-                            // LoopRawStmt::for_loop()?.into()
                         };
+                        self.insert_abs_semantic_token(AbsSemanticToken::new(
+                            SemanticTokenKind::FrameVariable,
+                            frame_var.range,
+                        ));
                         self.symbols.push(Symbol {
                             ident: frame_var.ident,
                             kind: SymbolKind::FrameVariable {

@@ -50,10 +50,10 @@ impl AtomStack {
 
     pub(crate) fn end_list(&mut self, ket: Bracket, attr: ListEndAttr, ket_range: TextRange) {
         if self.is_convex() {
-            self.push(Atom::new(ket_range.clone(), AtomKind::ListItem))
+            self.push(Atom::new(ket_range.clone(), AtomVariant::ListItem))
                 .unwrap();
         }
-        self.push(Atom::new(ket_range, AtomKind::ListEnd(ket, attr)))
+        self.push(Atom::new(ket_range, AtomVariant::ListEnd(ket, attr)))
             .unwrap();
     }
 
@@ -69,7 +69,7 @@ impl AtomStack {
                 Bracket::Par,
                 Some(Atom {
                     kind:
-                        AtomKind::EntityRoute {
+                        AtomVariant::EntityRoute {
                             kind: EntityKind::Type(_),
                             ..
                         },
@@ -93,7 +93,7 @@ impl AtomStack {
     pub(crate) fn start_list(&mut self, bra: Bracket, text_range: TextRange) {
         self.push(Atom::new(
             text_range,
-            AtomKind::ListStart(
+            AtomVariant::ListStart(
                 bra,
                 if self.is_convex() {
                     ListStartAttr::Attach
@@ -114,7 +114,7 @@ impl AtomStack {
             ListStartAttr::Attach => {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.kind {
-                    AtomKind::EntityRoute {
+                    AtomVariant::EntityRoute {
                         route: EntityRoutePtr::Root(ident),
                         ..
                     } => match ident {
@@ -145,8 +145,8 @@ impl AtomStack {
     ) -> AtomResult<(ListStartAttr, Vec<GenericArgument>)> {
         let mut types = Vec::new();
         match self.pop(tail)?.kind {
-            AtomKind::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
-            AtomKind::EntityRoute {
+            AtomVariant::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
+            AtomVariant::EntityRoute {
                 route: scope,
                 kind: EntityKind::Type(_),
             } => types.push(scope.into()),
@@ -154,15 +154,15 @@ impl AtomStack {
         };
         loop {
             match self.pop(tail)?.kind {
-                AtomKind::ListStart(Bracket::Par, attr) => {
+                AtomVariant::ListStart(Bracket::Par, attr) => {
                     types.reverse();
                     return Ok((attr, types));
                 }
-                AtomKind::ListItem => (),
+                AtomVariant::ListItem => (),
                 _ => err!("left parenthesis or comma", *tail)?,
             }
             match self.pop(tail)?.kind {
-                AtomKind::EntityRoute {
+                AtomVariant::EntityRoute {
                     route: scope,
                     kind: EntityKind::Type(_),
                 } => types.push(scope.into()),

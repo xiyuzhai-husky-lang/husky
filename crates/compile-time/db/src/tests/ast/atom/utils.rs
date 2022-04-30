@@ -5,7 +5,11 @@ use atom::{
     *,
 };
 
-pub(super) fn check_atom_kind(db: &mut HuskyLangCompileTime, line: &'static str, kind: AtomKind) {
+pub(super) fn check_atom_kind(
+    db: &mut HuskyLangCompileTime,
+    line: &'static str,
+    kind: AtomVariant,
+) {
     let atoms = get_atoms_in_line(db, line);
     let atom = &atoms[0];
     should_eq!(atom.kind, kind);

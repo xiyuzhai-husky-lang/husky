@@ -4,7 +4,7 @@ use super::*;
 
 // inner ops
 impl<'a> AtomLRParser<'a> {
-    pub(crate) fn push(&mut self, kind: AtomKind) -> AtomResult<()> {
+    pub(crate) fn push(&mut self, kind: AtomVariant) -> AtomResult<()> {
         self.stack.push(Atom::new(self.stream.pop_range(), kind))
     }
 
