@@ -19,10 +19,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             body,
             |interpreter| interpreter.take_snapshot(),
             |interpreter, frame_var_value, control| {
-                let (snapshot, changes) = interpreter.take_changes();
-                interpreter.frames.push(LoopFrameSnapshot {
+                let (snapshot, mutations) = interpreter.collect_mutations();
+                interpreter.frames.push(LoopFrameData {
                     stack: snapshot,
-                    changes,
+                    mutations,
                     frame_var_value,
                     control: control.snapshot(),
                     kind: loop_kind.into(),

@@ -2,7 +2,7 @@ use compile_time_db::HuskyLangCompileTime;
 use text::Text;
 use upcast::Upcast;
 use vm::{
-    exec_debug, exec_loop_debug, BoundaryKind, History, InstructionSheet, LoopFrameSnapshot,
+    exec_debug, exec_loop_debug, BoundaryKind, History, InstructionSheet, LoopFrameData,
     StackSnapshot, VMControl,
 };
 
@@ -226,7 +226,7 @@ impl<'eval> TraceFactory<'eval> {
         Arc::new(
             frames
                 .into_iter()
-                .map(|loop_frame_snapshot| {
+                .map(|loop_frame_data| {
                     self.new_trace(
                         Some(parent.id),
                         parent.indent + 2,
@@ -234,7 +234,7 @@ impl<'eval> TraceFactory<'eval> {
                             loop_stmt: loop_stmt.clone(),
                             body_stmts: body_stmts.clone(),
                             body_instruction_sheet: body_instruction_sheet.clone(),
-                            loop_frame_snapshot,
+                            loop_frame_data,
                         },
                         text,
                     )
@@ -247,7 +247,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         compile_time: &HuskyLangCompileTime,
         parent: &Trace,
-        loop_frame_snapshot: &LoopFrameSnapshot<'eval>,
+        loop_frame_snapshot: &LoopFrameData<'eval>,
         instruction_sheet: &InstructionSheet,
         stmts: &[Arc<ProcStmt>],
         text: &Text,
@@ -266,7 +266,7 @@ impl<'eval> TraceFactory<'eval> {
     pub(super) fn loop_frame_lines(
         &self,
         indent: Indent,
-        vm_loop_frame: &LoopFrameSnapshot,
+        vm_loop_frame: &LoopFrameData,
     ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent,
@@ -277,7 +277,7 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn loop_frame_tokens(
         &self,
-        vm_loop_frame: &LoopFrameSnapshot,
+        vm_loop_frame: &LoopFrameData,
     ) -> Vec<TokenProps<'eval>> {
         match vm_loop_frame.kind {
             vm::FrameKind::For(frame_var) => {
