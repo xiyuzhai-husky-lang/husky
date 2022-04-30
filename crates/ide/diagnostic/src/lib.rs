@@ -8,6 +8,7 @@ use ast::{AstError, AstErrorVariant};
 use dev_utils::DevSource;
 use infer_error::{InferError, InferErrorVariant};
 pub use kind::DiagnosticKind;
+use print_utils::p;
 pub use query::{DiagnosticQuery, DiagnosticQueryGroupStorage};
 use semantics_error::{SemanticError, SemanticErrorVariant};
 pub use severity::DiagnosticSeverity;
@@ -56,7 +57,10 @@ impl From<&AstError> for Diagnostic {
 impl From<&InferError> for Diagnostic {
     fn from(error: &InferError) -> Self {
         match error.variant {
-            InferErrorVariant::Derived => panic!(),
+            InferErrorVariant::Derived => {
+                p!(error.dev_src);
+                panic!()
+            }
             InferErrorVariant::Original { ref message, range } => Self {
                 severity: DiagnosticSeverity::Error,
                 range: range.clone(),
