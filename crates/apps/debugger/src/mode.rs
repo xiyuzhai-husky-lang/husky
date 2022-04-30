@@ -71,16 +71,18 @@ async fn test(dir: PathBuf) {
             pack_path.as_os_str().to_str().unwrap(),
         );
         test_semantic_tokens(&pack_path, &compile_time).await;
-        if test_diagnostics(&pack_path, &compile_time).await {
-            report_result_ok();
-            continue;
-        }
-        let error_flag =
-            Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, pack_path))
+        match test_diagnostics(&pack_path, &compile_time).await {
+            TestDiagnosticsResult::HasDiagnostics => (),
+            TestDiagnosticsResult::NoDiagnostics => {
+                let error_flag = Debugger::new(|compile_time| {
+                    init_compile_time_from_dir(compile_time, pack_path)
+                })
                 .serve_on_error("localhost:51617", 0)
                 .await;
-        if error_flag {
-            return;
+                if error_flag {
+                    return;
+                }
+            }
         }
         report_result_ok();
     }

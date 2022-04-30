@@ -5,7 +5,7 @@ use compile_time_db::*;
 pub(super) async fn test_diagnostics(
     package_path: &Path,
     compile_time: &HuskyLangCompileTime,
-) -> bool {
+) -> TestDiagnosticsResult {
     let modules = compile_time.all_modules();
     let mut diagnostics_table = HashMap::<String, Vec<Diagnostic>>::new();
     for module in modules {
@@ -31,5 +31,14 @@ pub(super) async fn test_diagnostics(
         &diagnostics_table,
         &package_path.join("diagnostics_table.txt"),
     );
-    return diagnostics_table.len() > 0;
+    if diagnostics_table.len() > 0 {
+        TestDiagnosticsResult::HasDiagnostics
+    } else {
+        TestDiagnosticsResult::NoDiagnostics
+    }
+}
+
+pub enum TestDiagnosticsResult {
+    HasDiagnostics,
+    NoDiagnostics,
 }
