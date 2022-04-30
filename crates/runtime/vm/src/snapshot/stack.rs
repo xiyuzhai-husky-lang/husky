@@ -20,3 +20,11 @@ impl<'stack, 'eval: 'stack> Into<VMStack<'stack, 'eval>> for &StackSnapshot<'eva
         )
     }
 }
+
+impl<'eval> std::ops::Index<StackIdx> for StackSnapshot<'eval> {
+    type Output = StackValueSnapshot<'eval>;
+
+    fn index(&self, index: StackIdx) -> &Self::Output {
+        &self.values[index.raw()]
+    }
+}

@@ -93,11 +93,18 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         self.mutations.insert(stack_idx, varname);
     }
 
-    fn collect_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData>) {
+    fn collect_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData<'eval>>) {
         let snapshot = std::mem::take(&mut self.snapshot).expect("bug");
         let mutations = std::mem::take(&mut self.mutations)
             .iter()
-            .map(|_| MutationData {})
+            .map(|(stack_idx, varname)| {
+                let stack_idx = *stack_idx;
+                MutationData {
+                    varname: *varname,
+                    before: snapshot[stack_idx].clone(),
+                    after: self.stack.snapshot_value(stack_idx),
+                }
+            })
             .collect();
         (snapshot, mutations)
     }

@@ -12,10 +12,10 @@ pub enum HistoryEntry<'eval> {
         after: StackValueSnapshot<'eval>,
     },
     Loop {
-        result: ControlSnapshot<'eval>,
+        control: ControlSnapshot<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
         body: Arc<InstructionSheet>,
-        mutations: Vec<MutationData>,
+        mutations: Vec<MutationData<'eval>>,
     },
 }
 
@@ -24,7 +24,9 @@ impl<'eval> HistoryEntry<'eval> {
         match self {
             HistoryEntry::NonVoidExpr { ref output } => output.clone(),
             HistoryEntry::Exec => todo!(),
-            HistoryEntry::Loop { result, .. } => todo!(),
+            HistoryEntry::Loop {
+                control: result, ..
+            } => todo!(),
             HistoryEntry::Assign {
                 ref before,
                 ref after,
@@ -36,10 +38,10 @@ impl<'eval> HistoryEntry<'eval> {
         result: &VMControl<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
         body: Arc<InstructionSheet>,
-        mutations: Vec<MutationData>,
+        mutations: Vec<MutationData<'eval>>,
     ) -> HistoryEntry<'eval> {
         HistoryEntry::Loop {
-            result: result.snapshot(),
+            control: result.snapshot(),
             stack_snapshot,
             body,
             mutations,

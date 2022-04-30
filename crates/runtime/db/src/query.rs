@@ -100,7 +100,7 @@ pub fn subtraces(
                 | HistoryEntry::Exec
                 | HistoryEntry::Assign { .. } => Arc::new(vec![]),
                 HistoryEntry::Loop {
-                    result,
+                    control: result,
                     ref stack_snapshot,
                     ref body,
                     ..

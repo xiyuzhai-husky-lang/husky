@@ -4,7 +4,7 @@ use word::CustomIdentifier;
 #[derive(Debug, Clone)]
 pub struct LoopFrameData<'eval> {
     pub stack: StackSnapshot<'eval>,
-    pub mutations: Vec<MutationData>,
+    pub mutations: Vec<MutationData<'eval>>,
     pub control: ControlSnapshot<'eval>,
     pub frame_var_value: i32,
     pub kind: FrameKind,

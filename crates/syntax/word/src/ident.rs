@@ -1,6 +1,7 @@
 mod custom;
 
 pub use custom::*;
+use serde::Serialize;
 
 use core::hash::Hash;
 use std::{borrow::Borrow, ops::Deref};
@@ -10,6 +11,15 @@ pub enum Identifier {
     Builtin(RootIdentifier),
     Custom(CustomIdentifier),
     Contextual(ContextualIdentifier),
+}
+
+impl Serialize for Identifier {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        serializer.serialize_str(&self)
+    }
 }
 
 impl Identifier {
