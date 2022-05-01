@@ -29,9 +29,9 @@ impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
         match result {
             Ok(value) => match value {
                 EvalValue::Primitive(value) => fade!(value),
-                EvalValue::Boxed(value) => fade!(value.any_ref().print_short(20)),
-                EvalValue::GlobalPure(value) => fade!(value.print_short(20)),
-                EvalValue::GlobalRef(value) => fade!(value.print_short(20)),
+                EvalValue::Boxed(value) => fade!(value.any_ref().print_short()),
+                EvalValue::GlobalPure(value) => fade!(value.print_short()),
+                EvalValue::GlobalRef(value) => fade!(value.print_short()),
                 EvalValue::Undefined => fade!("undefined"),
             },
             Err(e) => Self {
@@ -49,9 +49,9 @@ impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
             StackValueSnapshot::Primitive(value) => value.into(),
             StackValueSnapshot::MutRef {
                 value, owner, gen, ..
-            } => fade!(format!("{:?}", value)),
+            } => fade!(value.print_short()),
             StackValueSnapshot::GlobalPure(_) => todo!(),
-            StackValueSnapshot::Boxed(value) => fade!(value.any_ref().print_short(20)),
+            StackValueSnapshot::Boxed(value) => fade!(value.any_ref().print_short()),
             StackValueSnapshot::Ref { value, owner, gen } => todo!(),
         }
     }
