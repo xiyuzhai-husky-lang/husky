@@ -47,12 +47,10 @@ impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
     fn from(value: StackValueSnapshot) -> Self {
         match value {
             StackValueSnapshot::Primitive(value) => value.into(),
-            StackValueSnapshot::MutRef {
-                value, owner, gen, ..
-            } => fade!(value.print_short()),
-            StackValueSnapshot::GlobalPure(_) => todo!(),
+            StackValueSnapshot::MutRef { value, .. } => fade!(value.print_short()),
+            StackValueSnapshot::GlobalPure(value) => fade!(value.print_short()),
             StackValueSnapshot::Boxed(value) => fade!(value.any_ref().print_short()),
-            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
+            StackValueSnapshot::Ref { value, .. } => fade!(value.print_short()),
         }
     }
 }

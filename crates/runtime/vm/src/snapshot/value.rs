@@ -20,11 +20,11 @@ pub enum StackValueSnapshot<'eval> {
 impl<'eval> StackValueSnapshot<'eval> {
     pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         match self {
-            StackValueSnapshot::Primitive(_) => todo!(),
-            StackValueSnapshot::GlobalPure(_) => todo!(),
+            StackValueSnapshot::Primitive(value) => value.any_ref(),
+            StackValueSnapshot::GlobalPure(value) => &**value,
             StackValueSnapshot::Boxed(boxed_value) => boxed_value.any_ref(),
-            StackValueSnapshot::MutRef { value, owner, gen } => &**value,
-            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
+            StackValueSnapshot::MutRef { value, .. } => &**value,
+            StackValueSnapshot::Ref { value, .. } => &**value,
         }
     }
 }
