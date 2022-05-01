@@ -158,7 +158,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         }
     }
 
-    fn pass(&mut self, special: Special) -> (usize, Special) {
+    fn pass_two(&mut self, special: Special) -> (usize, Special) {
         self.char_iter.next();
         (2, special)
     }
@@ -175,12 +175,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     fn next_special(&mut self, j_start: usize, c_start: char) -> Option<Token> {
         let (len, special) = match c_start {
             '=' => match self.peek_char() {
-                '=' => self.pass(Special::Eq),
-                '>' => self.pass(Special::HeavyArrow),
+                '=' => self.pass_two(Special::Eq),
+                '>' => self.pass_two(Special::HeavyArrow),
                 _ => (1, Special::Assign),
             },
             ':' => match self.peek_char() {
-                ':' => self.pass(Special::DoubleColon),
+                ':' => self.pass_two(Special::DoubleColon),
                 _ => (1, Special::Colon),
             },
             '(' => (1, Special::LPar),
@@ -191,49 +191,50 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             '}' => (1, Special::RCurl),
             ',' => (1, Special::Comma),
             '&' => match self.peek_char() {
-                '&' => self.pass(Special::And),
+                '&' => self.pass_two(Special::And),
                 _ => (1, Special::Ambersand),
             },
             '|' => match self.peek_char() {
-                '|' => self.pass(Special::DoubleVertical),
+                '|' => self.pass_two(Special::DoubleVertical),
+                '=' => self.pass_two(Special::BitOrAssign),
                 _ => (1, Special::Vertical),
             },
             '~' => (1, Special::BitNot),
             '.' => (1, Special::MemberAccess),
             '%' => (1, Special::Modulo),
             '-' => match self.peek_char() {
-                '=' => self.pass(Special::SubAssign),
-                '-' => self.pass(Special::Decr),
-                '>' => self.pass(Special::LightArrow),
+                '=' => self.pass_two(Special::SubAssign),
+                '-' => self.pass_two(Special::Decr),
+                '>' => self.pass_two(Special::LightArrow),
                 _ => (1, Special::SubOrMinus),
             },
             '<' => match self.peek_char() {
-                '<' => self.pass(Special::Shr),
-                '=' => self.pass(Special::Leq),
+                '<' => self.pass_two(Special::Shr),
+                '=' => self.pass_two(Special::Leq),
                 _ => (1, Special::LAngle),
             },
             '>' => match self.peek_char() {
-                '>' => self.pass(Special::Shl),
-                '=' => self.pass(Special::Geq),
+                '>' => self.pass_two(Special::Shl),
+                '=' => self.pass_two(Special::Geq),
                 _ => (1, Special::RAngle),
             },
             '*' => match self.peek_char() {
-                '*' => self.pass(Special::Power),
-                '=' => self.pass(Special::MulAssign),
+                '*' => self.pass_two(Special::Power),
+                '=' => self.pass_two(Special::MulAssign),
                 _ => (1, Special::Mul),
             },
             '/' => match self.peek_char() {
                 '/' => return None,
-                '=' => self.pass(Special::DivAssign),
+                '=' => self.pass_two(Special::DivAssign),
                 _ => (1, Special::Div),
             },
             '+' => match self.peek_char() {
-                '+' => self.pass(Special::Incr),
-                '=' => self.pass(Special::AddAssign),
+                '+' => self.pass_two(Special::Incr),
+                '=' => self.pass_two(Special::AddAssign),
                 _ => (1, Special::Add),
             },
             '!' => match self.peek_char() {
-                '=' => self.pass(Special::Neq),
+                '=' => self.pass_two(Special::Neq),
                 _ => (1, Special::Exclamation),
             },
             _ => {

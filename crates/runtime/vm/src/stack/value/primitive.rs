@@ -102,6 +102,14 @@ impl PrimitiveValue {
         }
     }
 
+    pub fn as_b64(&self) -> u64 {
+        if let PrimitiveValue::B64(b) = self {
+            *b
+        } else {
+            panic!()
+        }
+    }
+
     pub(crate) fn as_bool(&self) -> VMResult<bool> {
         if let PrimitiveValue::Bool(b) = self {
             Ok(*b)
