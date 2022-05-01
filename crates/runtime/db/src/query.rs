@@ -75,7 +75,6 @@ pub fn subtraces(
     trace_id: TraceId,
     effective_opt_input_id: Option<usize>,
 ) -> Arc<Vec<Arc<Trace<'static>>>> {
-    epin!();
     let trace: &Trace = &db.trace(trace_id);
     match trace.variant {
         TraceVariant::Main(ref block) => db.feature_block_subtraces(&trace, block),
