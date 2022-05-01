@@ -1,5 +1,6 @@
 mod value;
 
+use map_collect::MapCollect;
 use print_utils::{msg_once, p};
 pub use value::*;
 
@@ -129,14 +130,14 @@ impl<'stack, 'eval: 'stack> From<Vec<StackValue<'stack, 'eval>>> for VMStack<'st
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VariableStack {
-    variables: Vec<CustomIdentifier>,
+    variables: Vec<Option<CustomIdentifier>>,
     has_this: bool,
 }
 
 impl VariableStack {
-    pub fn new(inputs: Vec<CustomIdentifier>, has_this: bool) -> Self {
+    pub fn new(inputs: impl Iterator<Item = CustomIdentifier>, has_this: bool) -> Self {
         Self {
-            variables: inputs,
+            variables: inputs.map(|ident| Some(ident)).collect(),
             has_this,
         }
     }
@@ -147,16 +148,16 @@ impl VariableStack {
                 .variables
                 .iter()
                 .rev()
-                .position(|ident| *ident == ident0)
+                .position(|ident| *ident == Some(ident0))
                 .unwrap());
         StackIdx::new(if self.has_this { idx + 1 } else { idx }).unwrap()
     }
 
-    pub fn push(&mut self, ident: CustomIdentifier) {
-        self.variables.push(ident)
+    pub fn push(&mut self, opt_ident: Option<CustomIdentifier>) {
+        self.variables.push(opt_ident)
     }
 
     pub fn varname(&self, stack_idx: StackIdx) -> CustomIdentifier {
-        self.variables[stack_idx.0 as usize]
+        self.variables[stack_idx.0 as usize].unwrap()
     }
 }

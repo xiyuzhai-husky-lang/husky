@@ -22,7 +22,7 @@ pub struct InstructionSheetBuilder<'a> {
 impl<'a> InstructionSheetBuilder<'a> {
     pub fn new_func(
         db: &'a dyn InstructionGenQueryGroup,
-        inputs: Vec<CustomIdentifier>,
+        inputs: impl Iterator<Item = CustomIdentifier>,
         stmts: &[Arc<FuncStmt>],
         has_this: bool,
     ) -> Arc<InstructionSheet> {
@@ -33,7 +33,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     pub fn new_impr(
         db: &'a dyn InstructionGenQueryGroup,
-        inputs: Vec<CustomIdentifier>,
+        inputs: impl Iterator<Item = CustomIdentifier>,
         stmts: &[Arc<ProcStmt>],
         has_this: bool,
     ) -> Arc<InstructionSheet> {
@@ -44,7 +44,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn new(
         db: &'a dyn InstructionGenQueryGroup,
-        inputs: Vec<CustomIdentifier>,
+        inputs: impl Iterator<Item = CustomIdentifier>,
         has_this: bool,
     ) -> Self {
         Self {

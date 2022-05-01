@@ -33,8 +33,7 @@ fn entity_instruction_sheet(
             db,
             input_placeholders
                 .iter()
-                .map(|input_placeholder| input_placeholder.ident.ident)
-                .collect(),
+                .map(|input_placeholder| input_placeholder.ident.ident),
             stmts,
             false,
         ),
@@ -46,8 +45,7 @@ fn entity_instruction_sheet(
             db,
             input_placeholders
                 .iter()
-                .map(|input_placeholder| input_placeholder.ident.ident)
-                .collect(),
+                .map(|input_placeholder| input_placeholder.ident.ident),
             stmts,
             false,
         ),
@@ -96,8 +94,7 @@ fn method_instruction_sheet(
                 } => {
                     let inputs = input_placeholders
                         .iter()
-                        .map(|input_placeholder| input_placeholder.ident.ident)
-                        .collect();
+                        .map(|input_placeholder| input_placeholder.ident.ident);
                     let source = match method_variant {
                         MethodDefnVariant::TypeMethod { ty, method_source } => method_source,
                         MethodDefnVariant::TraitMethod {
@@ -133,7 +130,7 @@ fn dataset_config_instruction_sheet(
     pack_main: FilePtr,
 ) -> Arc<InstructionSheet> {
     let pack = db.package(pack_main).unwrap();
-    InstructionSheetBuilder::new_func(db, vec![], &pack.config.dataset.stmts, false)
+    InstructionSheetBuilder::new_func(db, vec![].into_iter(), &pack.config.dataset.stmts, false)
 }
 
 // fn virtual_vec_method_linkages(db: &dyn InstructionGenQueryGroup) -> Arc<IdentPairDict<Linkage>> {
