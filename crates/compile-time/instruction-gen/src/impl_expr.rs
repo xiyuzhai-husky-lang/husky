@@ -19,7 +19,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     InstructionKind::PushVariable {
                         stack_idx,
                         contract: expr.contract,
-                        varname: varname.into(),
+                        range: expr.range,
                         ty: expr.ty,
                     },
                     expr.clone(),
@@ -40,7 +40,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionKind::PushVariable {
                     stack_idx: StackIdx::this(),
                     contract: expr.contract,
-                    varname: Identifier::Contextual(ContextualIdentifier::ThisData),
+                    range: expr.range,
                     ty: expr.ty,
                 },
                 expr.clone(),
@@ -60,12 +60,18 @@ impl<'a> InstructionSheetBuilder<'a> {
         match opn_kind {
             EagerOpnVariant::Binary { opr, this } => {
                 let instruction = Instruction::new(
-                    InstructionKind::PrimitiveOpn(match opr {
-                        BinaryOpr::Pure(pure_binary_opr) => {
-                            PrimitiveOpn::PureBinary(*pure_binary_opr)
-                        }
-                        BinaryOpr::Assign(opt_binary_opr) => PrimitiveOpn::Assign(*opt_binary_opr),
-                    }),
+                    InstructionKind::PrimitiveOpn {
+                        opn: match opr {
+                            BinaryOpr::Pure(pure_binary_opr) => {
+                                PrimitiveOpn::PureBinary(*pure_binary_opr)
+                            }
+                            BinaryOpr::Assign(opt_binary_opr) => {
+                                PrimitiveOpn::Assign(*opt_binary_opr)
+                            }
+                        },
+                        this_ty: *this,
+                        this_range: opds[0].range,
+                    },
                     expr.clone(),
                 );
                 self.push_instruction(instruction)

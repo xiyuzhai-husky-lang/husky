@@ -33,15 +33,19 @@ pub enum FigureProps {
 
 #[derive(Debug, Serialize, Clone)]
 pub struct MutationVisualProps {
-    varname: Identifier,
+    name: String,
     before: VisualProps,
     after: VisualProps,
 }
 
 impl<'eval> MutationVisualProps {
-    pub fn new(visualizer: &RuntimeVisualizer, mutation_data: &MutationData<'eval>) -> Self {
+    pub fn new(
+        text: &Text,
+        visualizer: &RuntimeVisualizer,
+        mutation_data: &MutationData<'eval>,
+    ) -> Self {
         MutationVisualProps {
-            varname: mutation_data.varname,
+            name: text.ranged(mutation_data.range),
             before: visualizer.visualize(mutation_data.before.any_ref()),
             after: visualizer.visualize(mutation_data.after.any_ref()),
         }

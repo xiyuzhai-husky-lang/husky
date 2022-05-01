@@ -23,7 +23,7 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::Primitive(_) => todo!(),
             StackValueSnapshot::GlobalPure(_) => todo!(),
             StackValueSnapshot::Boxed(boxed_value) => boxed_value.any_ref(),
-            StackValueSnapshot::MutRef { value, owner, gen } => todo!(),
+            StackValueSnapshot::MutRef { value, owner, gen } => &**value,
             StackValueSnapshot::Ref { value, owner, gen } => todo!(),
         }
     }

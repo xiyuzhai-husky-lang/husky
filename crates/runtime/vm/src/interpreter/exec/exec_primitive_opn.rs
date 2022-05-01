@@ -1,3 +1,4 @@
+use entity_route::EntityRoutePtr;
 use print_utils::p;
 
 use crate::*;
@@ -50,9 +51,25 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 let after = lopd.snapshot();
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
-                    Mode::TrackHistory => self
-                        .history
-                        .write(ins, HistoryEntry::Assign { before, after }),
+                    Mode::TrackHistory => match ins.kind {
+                        InstructionKind::PrimitiveOpn {
+                            this_ty,
+                            this_range,
+                            ..
+                        } => self.history.write(
+                            ins,
+                            HistoryEntry::Exec {
+                                mutations: vec![MutationData {
+                                    file: ins.src.file(),
+                                    range: this_range,
+                                    ty: this_ty,
+                                    before,
+                                    after,
+                                }],
+                            },
+                        ),
+                        _ => panic!(""),
+                    },
                 }
                 Ok(())
             }

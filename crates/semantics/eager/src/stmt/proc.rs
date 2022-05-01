@@ -28,6 +28,10 @@ impl InstructionSource for ProcStmt {
     fn instruction_id(&self) -> InstructionId {
         self.instruction_id
     }
+
+    fn file(&self) -> FilePtr {
+        self.file
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

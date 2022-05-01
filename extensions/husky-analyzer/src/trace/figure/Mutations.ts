@@ -8,16 +8,16 @@ type MutationsFigureProps = {
 };
 
 export type MutationVisualProps = {
-    varname: string;
+    name: string;
     before: VisualProps;
     after: VisualProps;
 };
 
 export function decode_mutation(data: unknown): MutationVisualProps {
-    let varname = decode_string(decode_memb(data, "varname"));
+    let name = decode_string(decode_memb(data, "name"));
     let before = decode_visual_props(decode_memb(data, "before"));
     let after = decode_visual_props(decode_memb(data, "after"));
-    return { varname, before, after };
+    return { name, before, after };
 }
 
 export default MutationsFigureProps;

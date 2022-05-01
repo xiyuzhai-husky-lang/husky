@@ -7,6 +7,8 @@ use std::{
     },
 };
 
+use file::FilePtr;
+
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -14,6 +16,7 @@ pub struct InstructionId(pub(crate) usize);
 
 pub trait InstructionSource: std::fmt::Debug + Send + Sync + RefUnwindSafe {
     fn instruction_id(&self) -> InstructionId;
+    fn file(&self) -> FilePtr;
 }
 
 impl Default for InstructionId {
