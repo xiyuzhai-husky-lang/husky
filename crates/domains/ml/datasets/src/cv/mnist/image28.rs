@@ -60,7 +60,7 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
         Arc::new(self.clone())
     }
 
-    fn print_short(&self, _: u8) -> String {
+    fn print_short(&self) -> String {
         "BinaryImage28 { ... }".into()
     }
 }

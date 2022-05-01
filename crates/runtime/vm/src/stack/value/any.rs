@@ -52,7 +52,7 @@ pub trait AnyValue<'eval>:
         panic!()
     }
 
-    fn print_short(&self, _: u8) -> String {
+    fn print_short(&self) -> String {
         format!("{:?}", self)
     }
 }
@@ -67,7 +67,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + 'eval {
     fn assign<'stack>(&mut self, other: StackValue<'stack, 'eval>);
     fn as_primitive(&self) -> PrimitiveValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval> + 'eval);
-    fn print_short(&self, max_length: u8) -> String;
+    fn print_short(&self) -> String;
 }
 
 impl<'eval> dyn AnyValueDyn<'eval> {
@@ -125,8 +125,8 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
     fn upcast_any(&self) -> &dyn AnyValueDyn<'eval> {
         self
     }
-    fn print_short(&self, max_length: u8) -> String {
-        T::print_short(self, max_length)
+    fn print_short(&self) -> String {
+        T::print_short(self)
     }
 }
 
@@ -218,6 +218,10 @@ impl<'eval> AnyValue<'eval> for u32 {
     fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         Arc::new(*self)
     }
+
+    fn print_short(&self) -> String {
+        format!("{:#032b}", self)
+    }
 }
 
 impl<'eval> AnyValue<'eval> for u64 {
@@ -247,6 +251,10 @@ impl<'eval> AnyValue<'eval> for u64 {
 
     fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         Arc::new(*self)
+    }
+
+    fn print_short(&self) -> String {
+        format!("{:#064b}", self)
     }
 }
 
