@@ -200,79 +200,79 @@ impl PureBinaryOpr {
 
         Ok(match self {
             PureBinaryOpr::Add => match lopd {
-                PrimitiveValue::I32(a) => (a + ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a + ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a + ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a + ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::And => match lopd {
-                PrimitiveValue::Bool(a) => (a && ropd.as_bool()?).into(),
+                PrimitiveValue::Bool(a) => (a && ropd.as_bool()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::BitAnd => match lopd {
-                PrimitiveValue::B32(a) => (a & ropd.as_b32()?).into(),
+                PrimitiveValue::B32(a) => (a & ropd.as_b32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::BitOr => match lopd {
-                PrimitiveValue::B32(a) => (a | ropd.as_b32()?).into(),
+                PrimitiveValue::B32(a) => (a | ropd.as_b32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::BitXor => match lopd {
-                PrimitiveValue::B32(a) => (a ^ ropd.as_b32()?).into(),
+                PrimitiveValue::B32(a) => (a ^ ropd.as_b32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Div => match lopd {
-                PrimitiveValue::I32(a) => (a / ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a / ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a / ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a / ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Eq => match lopd {
-                PrimitiveValue::I32(i) => (i == ropd.as_i32()?).into(),
-                PrimitiveValue::F32(f) => (f == ropd.as_f32()?).into(),
-                PrimitiveValue::B32(b) => (b == ropd.as_b32()?).into(),
+                PrimitiveValue::I32(i) => (i == ropd.as_i32()).into(),
+                PrimitiveValue::F32(f) => (f == ropd.as_f32()).into(),
+                PrimitiveValue::B32(b) => (b == ropd.as_b32()).into(),
                 PrimitiveValue::B64(b) => (b == ropd.as_b64()).into(),
-                PrimitiveValue::Bool(b) => (b == ropd.as_bool()?).into(),
+                PrimitiveValue::Bool(b) => (b == ropd.as_bool()).into(),
                 PrimitiveValue::Void => true.into(),
             },
             PureBinaryOpr::Geq => match lopd {
-                PrimitiveValue::I32(a) => (a >= ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a >= ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a >= ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a >= ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Greater => match lopd {
-                PrimitiveValue::I32(a) => (a > ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a > ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a > ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a > ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Leq => match lopd {
-                PrimitiveValue::I32(a) => (a <= ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a <= ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a <= ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a <= ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Less => match lopd {
-                PrimitiveValue::I32(a) => (a < ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a < ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a < ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a < ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Mul => match lopd {
-                PrimitiveValue::I32(a) => (a * ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a * ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a * ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a * ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Neq => match lopd {
-                PrimitiveValue::I32(a) => (a != ropd.as_i32()?).into(),
-                PrimitiveValue::F32(f) => (f != ropd.as_f32()?).into(),
-                PrimitiveValue::B32(b) => (b != ropd.as_b32()?).into(),
+                PrimitiveValue::I32(a) => (a != ropd.as_i32()).into(),
+                PrimitiveValue::F32(f) => (f != ropd.as_f32()).into(),
+                PrimitiveValue::B32(b) => (b != ropd.as_b32()).into(),
                 PrimitiveValue::B64(b) => (b != ropd.as_b64()).into(),
-                PrimitiveValue::Bool(b) => (b != ropd.as_bool()?).into(),
+                PrimitiveValue::Bool(b) => (b != ropd.as_bool()).into(),
                 PrimitiveValue::Void => false.into(),
             },
             PureBinaryOpr::Or => match lopd {
-                PrimitiveValue::Bool(a) => (a || ropd.as_bool()?).into(),
+                PrimitiveValue::Bool(a) => (a || ropd.as_bool()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Power => match lopd {
                 PrimitiveValue::I32(a) => (a.pow(
-                    ropd.as_i32()?
+                    ropd.as_i32()
                         .try_into()
                         .map_err(|_| error!("expect positive power"))?,
                 ))
@@ -284,21 +284,21 @@ impl PureBinaryOpr {
                 PrimitiveValue::Void => todo!(),
             },
             PureBinaryOpr::RemEuclid => match lopd {
-                PrimitiveValue::I32(a) => a.rem_euclid(ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => a.rem_euclid(ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => a.rem_euclid(ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => a.rem_euclid(ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Shl => match lopd {
-                PrimitiveValue::B32(a) => (a << ropd.as_i32()?).into(),
+                PrimitiveValue::B32(a) => (a << ropd.as_i32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Shr => match lopd {
-                PrimitiveValue::B32(a) => (a >> ropd.as_i32()?).into(),
+                PrimitiveValue::B32(a) => (a >> ropd.as_i32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Sub => match lopd {
-                PrimitiveValue::I32(a) => (a - ropd.as_i32()?).into(),
-                PrimitiveValue::F32(a) => (a - ropd.as_f32()?).into(),
+                PrimitiveValue::I32(a) => (a - ropd.as_i32()).into(),
+                PrimitiveValue::F32(a) => (a - ropd.as_f32()).into(),
                 _ => no_such_opn!(),
             },
         })
