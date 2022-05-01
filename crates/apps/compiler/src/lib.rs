@@ -15,10 +15,11 @@ pub fn compile_all(dir: PathBuf) {
     }
 }
 
-pub fn compile_pack(pack_dir: PathBuf) {
+pub fn compile_pack(package_dir: PathBuf) {
     let mut compile_time = HuskyLangCompileTime::default();
-    compile_time.load_pack(pack_dir.clone());
+    compile_time.load_pack(package_dir.clone());
     let main_file = compile_time.unique_main_file();
+    p!(package_dir);
     let pack = compile_time.package(main_file).unwrap();
     let rust_dir = get_rust_dir(&pack);
     let code_snapshot_dir = get_or_create_child_dir(&rust_dir, "snapshot");
