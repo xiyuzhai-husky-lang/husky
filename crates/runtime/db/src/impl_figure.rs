@@ -6,7 +6,7 @@ use semantics_eager::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };
 use text::TextQueryGroup;
-use trace::MutationVisualProps;
+use trace::MutationFigureProps;
 use vm::{History, HistoryEntry, MutationData};
 
 impl HuskyLangRuntime {
@@ -125,7 +125,7 @@ impl HuskyLangRuntime {
     pub fn mutations_figure(&self, mutations: &[MutationData]) -> FigureProps {
         FigureProps::Mutations {
             mutations: mutations.map(|mutation| {
-                MutationVisualProps::new(
+                MutationFigureProps::new(
                     &self.text(mutation.file).unwrap(),
                     &self.visualizer(self.version(), mutation.ty),
                     mutation,

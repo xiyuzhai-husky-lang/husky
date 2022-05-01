@@ -27,27 +27,27 @@ pub enum FigureProps {
         yrange: (f32, f32),
     },
     Mutations {
-        mutations: Vec<MutationVisualProps>,
+        mutations: Vec<MutationFigureProps>,
     },
 }
 
 #[derive(Debug, Serialize, Clone)]
-pub struct MutationVisualProps {
+pub struct MutationFigureProps {
     name: String,
-    before: VisualProps,
-    after: VisualProps,
+    before: FigureProps,
+    after: FigureProps,
 }
 
-impl<'eval> MutationVisualProps {
+impl<'eval> MutationFigureProps {
     pub fn new(
         text: &Text,
         visualizer: &RuntimeVisualizer,
         mutation_data: &MutationData<'eval>,
     ) -> Self {
-        MutationVisualProps {
+        MutationFigureProps {
             name: text.ranged(mutation_data.range),
-            before: visualizer.visualize(mutation_data.before.any_ref()),
-            after: visualizer.visualize(mutation_data.after.any_ref()),
+            before: FigureProps::new_specific(visualizer.visualize(mutation_data.before.any_ref())),
+            after: FigureProps::new_specific(visualizer.visualize(mutation_data.after.any_ref())),
         }
     }
 }
