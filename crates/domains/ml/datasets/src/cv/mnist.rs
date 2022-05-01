@@ -96,9 +96,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                                 values[0].downcast_ref();
                                             let index_value: usize = values[1]
                                                 .as_primitive()
-                                                .unwrap()
                                                 .as_i32()
-                                                .unwrap()
                                                 .try_into()
                                                 .expect("todo");
                                             this_value
@@ -116,9 +114,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                         call: |values| {
                                             let index_value: usize = values[1]
                                                 .as_primitive()
-                                                .unwrap()
                                                 .as_i32()
-                                                .unwrap()
                                                 .try_into()
                                                 .expect("todo");
                                             let (this_value, owner, _): (&mut BinaryImage28, _, _) =

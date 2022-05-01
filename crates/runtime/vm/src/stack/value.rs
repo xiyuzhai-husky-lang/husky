@@ -273,15 +273,11 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub fn as_primitive(&self) -> VMResult<PrimitiveValue> {
+    pub fn as_primitive(&self) -> PrimitiveValue {
         match self {
-            StackValue::Primitive(value) => Ok(*value),
-            StackValue::Boxed(_) => todo!(),
-            StackValue::GlobalPure(_) => todo!(),
-            StackValue::GlobalRef(_) => todo!(),
-            StackValue::LocalRef { .. } => todo!(),
-            StackValue::MutLocalRef { value, .. } => Ok(value.as_primitive()),
-            StackValue::Moved => todo!(),
+            StackValue::Primitive(value) => *value,
+            StackValue::MutLocalRef { value, .. } => value.as_primitive(),
+            _ => panic!(""),
         }
     }
 

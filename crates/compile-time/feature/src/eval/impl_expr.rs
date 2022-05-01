@@ -21,8 +21,8 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 ref ropd,
             } => Ok(opr
                 .act_on_primitives(
-                    self.eval_feature_expr(lopd)?.as_primitive()?,
-                    self.eval_feature_expr(ropd)?.as_primitive()?,
+                    self.eval_feature_expr(lopd)?.as_primitive(),
+                    self.eval_feature_expr(ropd)?.as_primitive(),
                 )?
                 .into()),
             FeatureExprKind::StructOriginalFieldAccess {

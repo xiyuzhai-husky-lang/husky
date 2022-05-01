@@ -36,9 +36,9 @@ impl<'eval> From<PrimitiveValue> for EvalValue<'eval> {
 }
 
 impl<'eval> EvalValue<'eval> {
-    pub fn as_primitive(&self) -> VMResult<PrimitiveValue> {
+    pub fn as_primitive(&self) -> PrimitiveValue {
         match self {
-            EvalValue::Primitive(value) => Ok(*value),
+            EvalValue::Primitive(value) => *value,
             EvalValue::Boxed(_) => todo!(),
             EvalValue::GlobalPure(_) => todo!(),
             EvalValue::GlobalRef(_) => todo!(),
