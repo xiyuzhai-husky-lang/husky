@@ -3,6 +3,7 @@
     import Plot2d from "./Plot2d.svelte";
     import Graphics2d from "./Graphics2d.svelte";
     import PrimitiveValueFigure from "./PrimitiveValueFigure.svelte";
+    import Mutations from "./Mutations.svelte";
     export let figure: FigureProps | null;
     let windowHeight: number;
     let figureHeight: number;
@@ -38,6 +39,8 @@
                     <Plot2d {figure} />
                 {:else if figure.kind === "Graphics2d"}
                     <Graphics2d {figure} />
+                {:else if figure.kind === "Mutations"}
+                    <Mutations {figure} />
                 {:else}
                     <p class="error">{figure.kind} not supported in figure</p>
                 {/if}
