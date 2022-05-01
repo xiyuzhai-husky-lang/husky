@@ -1,6 +1,6 @@
-import { d_memb_old, decode_string } from "src/decode/decode";
+import { d_memb_old, decode_string, decode_memb } from "src/decode/decode";
 
-type PrimitiveValueFigureProps = {
+type PrimitiveValueVisualProps = {
     kind: "Primitive";
     value: PrimitiveValue;
 };
@@ -25,4 +25,13 @@ export function decode_primitive_value(data: unknown): PrimitiveValue {
     }
 }
 
-export default PrimitiveValueFigureProps;
+export function decode_primitive_value_visual(
+    data: unknown
+): PrimitiveValueVisualProps {
+    return {
+        kind: "Primitive",
+        value: decode_primitive_value(decode_memb(data, "value")),
+    };
+}
+
+export default PrimitiveValueVisualProps;
