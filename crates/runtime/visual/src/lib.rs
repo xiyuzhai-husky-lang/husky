@@ -3,7 +3,7 @@ mod query;
 pub use query::*;
 
 use compile_time_db::*;
-use entity_route::{EntityRoutePtr, EntitySource};
+use entity_route::EntityRoutePtr;
 use std::sync::Arc;
 use visual_syntax::{StaticVisualizer, VisualProps};
 use vm::AnyValueDyn;

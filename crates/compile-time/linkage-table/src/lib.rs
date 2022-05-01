@@ -1,11 +1,12 @@
 mod table;
 mod vec;
 
+use entity_route_query::EntitySource;
 use static_defn::{EntityStaticDefnVariant, LinkageSource};
 pub use table::*;
 
 use check_utils::*;
-use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, EntitySource, GenericArgument};
+use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, GenericArgument};
 use map_collect::MapCollect;
 use print_utils::p;
 use semantics_entity::{

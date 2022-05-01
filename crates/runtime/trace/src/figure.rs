@@ -33,13 +33,19 @@ pub enum FigureProps {
 #[derive(Debug, Serialize, Clone)]
 pub struct MutationVisualProps {
     varname: Identifier,
+    before: VisualProps,
+    after: VisualProps,
 }
 
 impl<'eval> From<&MutationData<'eval>> for MutationVisualProps {
     fn from(mutation_data: &MutationData<'eval>) -> Self {
-        MutationVisualProps {
-            varname: mutation_data.varname,
-        }
+        todo!()
+        // let visualizer =
+        // MutationVisualProps {
+        //     varname: mutation_data.varname,
+        //     before: mutation_data.before.any_ref().visualize(),
+        //     after: mutation_data.after.any_ref().visualize(),
+        // }
     }
 }
 

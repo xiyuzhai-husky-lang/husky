@@ -11,6 +11,7 @@ smallvec = "1.8.0"
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
+entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }

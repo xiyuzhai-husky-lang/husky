@@ -5,8 +5,8 @@ use file::FilePtr;
 use static_defn::*;
 use word::{CustomIdentifier, Keyword};
 
-use crate::error::*;
 use crate::EntityRouteSalsaQueryGroup;
+use crate::{error::*, *};
 use text::TextRanged;
 use token::{Special, Token, TokenGroupIter, TokenKind};
 use word::Identifier;

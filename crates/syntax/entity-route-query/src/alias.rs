@@ -1,7 +1,8 @@
-use token::TokenKind;
-use word::Keyword;
-
 use crate::*;
+use entity_route::EntityRoutePtr;
+use file::FilePtr;
+use token::TokenKind;
+use word::{Identifier, Keyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ScopeAliasTable {

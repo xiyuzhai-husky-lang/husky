@@ -10,6 +10,7 @@ use atom::{
     symbol::{Symbol, SymbolContextKind},
     SymbolContext,
 };
+use entity_route_query::EntitySource;
 use map_collect::MapCollect;
 pub use morphism::*;
 use print_utils::p;
@@ -22,7 +23,7 @@ use ast::AstKind;
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
-use entity_route::{EntityRoute, EntityRouteKind, EntitySource};
+use entity_route::{EntityRoute, EntityRouteKind};
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use fold::{FoldIterItem, FoldStorage};

@@ -303,7 +303,7 @@ impl EntityDefn {
             match expr.kind {
                 LazyExprKind::Variable(_) | LazyExprKind::PrimitiveLiteral(_) => (),
                 LazyExprKind::Scope { scope, .. } => v.push(scope),
-                LazyExprKind::EnumLiteral { scope, ref value } => todo!(),
+                LazyExprKind::EnumLiteral { .. } => todo!(),
                 LazyExprKind::Bracketed(_) => todo!(),
                 LazyExprKind::Opn { opn_kind, ref opds } => {
                     match opn_kind {
