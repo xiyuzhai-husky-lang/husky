@@ -75,30 +75,27 @@ impl PrimitiveValue {
         }
     }
 
-    pub fn as_i32(&self) -> VMResult<i32> {
+    pub fn as_i32(&self) -> i32 {
         if let PrimitiveValue::I32(i) = self {
-            Ok(*i)
+            *i
         } else {
-            Err(VMError::TypeMismatch(format!(
-                "expect I32, but get {:?} instead",
-                self
-            )))
+            panic!("expect I32, but get {:?} instead", self)
         }
     }
 
-    pub fn as_f32(&self) -> VMResult<f32> {
+    pub fn as_f32(&self) -> f32 {
         if let PrimitiveValue::F32(f) = self {
-            Ok(*f)
+            *f
         } else {
-            todo!()
+            panic!()
         }
     }
 
-    pub fn as_b32(&self) -> VMResult<u32> {
+    pub fn as_b32(&self) -> u32 {
         if let PrimitiveValue::B32(b) = self {
-            Ok(*b)
+            *b
         } else {
-            todo!()
+            panic!()
         }
     }
 
@@ -110,11 +107,11 @@ impl PrimitiveValue {
         }
     }
 
-    pub(crate) fn as_bool(&self) -> VMResult<bool> {
+    pub(crate) fn as_bool(&self) -> bool {
         if let PrimitiveValue::Bool(b) = self {
-            Ok(*b)
+            *b
         } else {
-            todo!()
+            panic!()
         }
     }
 
