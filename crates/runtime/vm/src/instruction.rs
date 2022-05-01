@@ -1,6 +1,7 @@
 mod id;
 mod sheet;
 
+use entity_route::EntityRoutePtr;
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
 use word::{CustomIdentifier, Identifier};
@@ -50,6 +51,7 @@ pub enum InstructionKind {
         stack_idx: StackIdx,
         contract: EagerContract,
         varname: Identifier,
+        ty: EntityRoutePtr,
     },
     PushPrimitiveLiteral(PrimitiveValue),
     FieldAccessCompiled {

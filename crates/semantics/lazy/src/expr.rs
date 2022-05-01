@@ -38,8 +38,7 @@ pub enum LazyExprKind {
     },
     PrimitiveLiteral(PrimitiveValue),
     EnumLiteral {
-        scope: EntityRoutePtr,
-        value: EnumLiteralValue,
+        entity_route: EntityRoutePtr,
     },
     Bracketed(Arc<LazyExpr>),
     Opn {

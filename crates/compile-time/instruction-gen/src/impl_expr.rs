@@ -20,6 +20,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         stack_idx,
                         contract: expr.contract,
                         varname: varname.into(),
+                        ty: expr.ty,
                     },
                     expr.clone(),
                 ))
@@ -40,6 +41,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     stack_idx: StackIdx::this(),
                     contract: expr.contract,
                     varname: Identifier::Contextual(ContextualIdentifier::ThisData),
+                    ty: expr.ty,
                 },
                 expr.clone(),
             )),

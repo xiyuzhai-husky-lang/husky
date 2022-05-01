@@ -11,8 +11,9 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
         match expr.kind {
             FeatureExprKind::PrimitiveLiteral(value) => Ok(value.into()),
-            FeatureExprKind::EnumLiteral { ref value, uid } => {
-                Ok(EvalValue::Boxed(value.clone_any()))
+            FeatureExprKind::EnumLiteral { entity_route, uid } => {
+                todo!()
+                // Ok(EvalValue::Boxed(value.clone_any()))
             }
             FeatureExprKind::PrimitiveBinaryOpr {
                 opr,

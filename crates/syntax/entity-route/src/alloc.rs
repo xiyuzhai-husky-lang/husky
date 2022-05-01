@@ -2,7 +2,6 @@ use core::hash::Hash;
 use paste::paste;
 use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
 use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
-use vm::{AnyValue, AnyValueDyn, EnumLiteralValueDyn, StaticTypeId};
 use word::RangedCustomIdentifier;
 
 use crate::*;
@@ -14,30 +13,6 @@ pub enum EntityRoutePtr {
     Root(RootIdentifier),
     Custom(&'static EntityRoute),
     ThisType,
-}
-
-impl<'eval> AnyValue<'eval> for EntityRoutePtr {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<EntityRoutePtr>().into()
-    }
-
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
-        "ScopePtr".into()
-    }
-
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        todo!()
-    }
-}
-
-impl EnumLiteralValueDyn for EntityRoutePtr {
-    fn clone_as_boxed(&self) -> Box<dyn EnumLiteralValueDyn> {
-        Box::new(self.clone())
-    }
-
-    fn eq_dyn(&self, other: &dyn EnumLiteralValueDyn) -> bool {
-        self.eq(other.upcast_any().downcast_ref::<EntityRoutePtr>())
-    }
 }
 
 impl EntityRoutePtr {

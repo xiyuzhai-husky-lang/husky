@@ -18,12 +18,15 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     contract,
                     stack_idx,
                     varname,
+                    ty,
                 } => {
                     let value = self.stack.push_variable(stack_idx, contract);
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => match contract {
-                            EagerContract::BorrowMut => self.record_mutation(stack_idx, varname),
+                            EagerContract::BorrowMut => {
+                                self.record_mutation(stack_idx, varname, ty)
+                            }
                             _ => (),
                         },
                         Mode::TrackHistory => self.history.write(

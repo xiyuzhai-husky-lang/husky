@@ -4,6 +4,7 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
 salsa = "0.17.0-pre.2"
 arrayvec = "0.7.2"
 vm = { path = "../../runtime/vm", version = "0.0.0" }

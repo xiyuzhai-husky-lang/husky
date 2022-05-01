@@ -15,7 +15,6 @@ use infer_decl::{DeclQueryGroup, TyDecl};
 use infer_error::*;
 use print_utils::*;
 use syntax_types::*;
-use vm::EnumLiteralValue;
 use word::RootIdentifier;
 
 pub trait InferEntityRoute {
@@ -31,48 +30,48 @@ pub trait InferEntityRoute {
     }
 }
 
-fn scope_ty(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
-    match scope {
-        EntityRoutePtr::Root(ident) => match ident {
-            RootIdentifier::Void => todo!(),
-            RootIdentifier::I32 => todo!(),
-            RootIdentifier::F32 => todo!(),
-            RootIdentifier::B32 => todo!(),
-            RootIdentifier::B64 => todo!(),
-            RootIdentifier::Bool => todo!(),
-            RootIdentifier::True | RootIdentifier::False => {
-                Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
-            }
-            RootIdentifier::Vec => todo!(),
-            RootIdentifier::Tuple => todo!(),
-            RootIdentifier::Debug => todo!(),
-            RootIdentifier::Std => todo!(),
-            RootIdentifier::Core => todo!(),
-            RootIdentifier::Fp => todo!(),
-            RootIdentifier::Fn => todo!(),
-            RootIdentifier::FnMut => todo!(),
-            RootIdentifier::FnOnce => todo!(),
-            RootIdentifier::Array => todo!(),
-            RootIdentifier::DatasetType => todo!(),
-            RootIdentifier::Type => todo!(),
-            RootIdentifier::Datasets => todo!(),
-            RootIdentifier::CloneTrait => todo!(),
-            RootIdentifier::CopyTrait => todo!(),
-            RootIdentifier::PartialEqTrait => todo!(),
-            RootIdentifier::EqTrait => todo!(),
-        },
-        EntityRoutePtr::Custom(scope) => match scope.kind {
-            EntityRouteKind::Input { main } => db.global_input_ty(main),
-            _ => todo!(),
-        },
-        EntityRoutePtr::ThisType => todo!(),
-    }
-}
+// fn scope_ty(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
+//     match scope {
+//         EntityRoutePtr::Root(ident) => match ident {
+//             RootIdentifier::Void => todo!(),
+//             RootIdentifier::I32 => todo!(),
+//             RootIdentifier::F32 => todo!(),
+//             RootIdentifier::B32 => todo!(),
+//             RootIdentifier::B64 => todo!(),
+//             RootIdentifier::Bool => todo!(),
+//             RootIdentifier::True | RootIdentifier::False => {
+//                 Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
+//             }
+//             RootIdentifier::Vec => todo!(),
+//             RootIdentifier::Tuple => todo!(),
+//             RootIdentifier::Debug => todo!(),
+//             RootIdentifier::Std => todo!(),
+//             RootIdentifier::Core => todo!(),
+//             RootIdentifier::Fp => todo!(),
+//             RootIdentifier::Fn => todo!(),
+//             RootIdentifier::FnMut => todo!(),
+//             RootIdentifier::FnOnce => todo!(),
+//             RootIdentifier::Array => todo!(),
+//             RootIdentifier::DatasetType => todo!(),
+//             RootIdentifier::Type => todo!(),
+//             RootIdentifier::Datasets => todo!(),
+//             RootIdentifier::CloneTrait => todo!(),
+//             RootIdentifier::CopyTrait => todo!(),
+//             RootIdentifier::PartialEqTrait => todo!(),
+//             RootIdentifier::EqTrait => todo!(),
+//         },
+//         EntityRoutePtr::Custom(scope) => match scope.kind {
+//             EntityRouteKind::Input { main } => db.global_input_ty(main),
+//             _ => todo!(),
+//         },
+//         EntityRoutePtr::ThisType => todo!(),
+//     }
+// }
 
-fn enum_literal_value(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
-    msg_once!("todo: enum_literal_value");
-    EnumLiteralValue::interpreted(scope)
-}
+// fn enum_literal_value(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
+//     msg_once!("todo: enum_literal_value");
+//     EnumLiteralValue::interpreted(scope)
+// }
 
 fn is_implicit_convertible(
     db: &dyn InferTyQueryGroup,

@@ -32,26 +32,27 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 ))
             }
             RawExprVariant::Entity {
-                route: scope, kind, ..
+                route: entity_route,
+                kind,
+                ..
             } => match kind {
                 EntityKind::Module => todo!(),
-                EntityKind::Literal => match scope {
+                EntityKind::Literal => match entity_route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
                     EntityRoutePtr::Root(RootIdentifier::False) => {
                         LazyExprKind::PrimitiveLiteral(PrimitiveValue::Bool(false))
                     }
-                    EntityRoutePtr::Custom(scope_ref) => LazyExprKind::EnumLiteral {
-                        scope,
-                        value: self.db().enum_literal_value(scope),
-                    },
+                    EntityRoutePtr::Custom(scope_ref) => LazyExprKind::EnumLiteral { entity_route },
                     _ => todo!(),
                 },
                 EntityKind::Type(_) => todo!(),
                 EntityKind::Trait => todo!(),
                 EntityKind::Routine => todo!(),
-                EntityKind::Feature => LazyExprKind::EntityFeature { route: scope },
+                EntityKind::Feature => LazyExprKind::EntityFeature {
+                    route: entity_route,
+                },
                 EntityKind::Pattern => todo!(),
                 EntityKind::Member(_) => todo!(),
             },

@@ -5,7 +5,6 @@ use file::FilePtr;
 use path_utils::*;
 
 use entity_kind::{MemberKind, TyKind};
-use print_utils::p;
 use static_defn::*;
 use upcast::Upcast;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};

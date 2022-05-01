@@ -33,7 +33,10 @@ impl HuskyLangRuntime {
                 ref entity,
                 ref tokens,
             } => FigureProps::void(),
-            TraceVariant::LoopFrame { .. } => todo!(),
+            TraceVariant::LoopFrame {
+                ref loop_frame_data,
+                ..
+            } => FigureProps::mutations(&loop_frame_data.mutations),
         }
     }
 

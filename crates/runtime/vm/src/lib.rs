@@ -1,7 +1,6 @@
 mod contract;
 mod control;
 mod entity;
-mod enum_literal;
 mod error;
 mod frame;
 mod history;
@@ -19,7 +18,6 @@ mod ty;
 pub use contract::{EagerContract, FieldContract, InputContract, LazyContract, OutputContract};
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
-pub use enum_literal::{EnumLiteralValue, EnumLiteralValueDyn};
 pub use error::{VMError, VMResult};
 pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};

@@ -2,7 +2,7 @@ use std::sync::{Arc, Mutex};
 
 use crate::dependence::*;
 use crate::*;
-use entity_route::{EntityRoutePtr, EntitySource};
+use entity_route::EntityRoutePtr;
 use infer_total::InferQueryGroup;
 use semantics_error::*;
 use sync_utils::ARwLock;

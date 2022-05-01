@@ -8,7 +8,7 @@ use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
-use vm::{EnumLiteralValue, InstructionSheet, LazyContract, Linkage};
+use vm::{InstructionSheet, LazyContract, Linkage};
 use word::{ContextualIdentifier, RootIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
@@ -39,7 +39,7 @@ impl Eq for FeatureExpr {}
 pub enum FeatureExprKind {
     PrimitiveLiteral(PrimitiveValue),
     EnumLiteral {
-        value: EnumLiteralValue,
+        entity_route: EntityRoutePtr,
         uid: EntityUid,
     },
     PrimitiveBinaryOpr {
@@ -150,12 +150,12 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.compile_opn(opn_kind, opds, expr.contract)
             }
             LazyExprKind::Lambda(_, _) => todo!(),
-            LazyExprKind::EnumLiteral { scope, ref value } => (
+            LazyExprKind::EnumLiteral { entity_route } => (
                 FeatureExprKind::EnumLiteral {
-                    value: value.clone(),
-                    uid: self.db.entity_uid(scope),
+                    entity_route,
+                    uid: self.db.entity_uid(entity_route),
                 },
-                self.features.alloc(Feature::EnumLiteral(scope)),
+                self.features.alloc(Feature::EnumLiteral(entity_route)),
             ),
             LazyExprKind::This => (
                 FeatureExprKind::This {
