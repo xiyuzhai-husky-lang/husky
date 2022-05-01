@@ -304,7 +304,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::MutLocalRef { value, owner, gen } => StackValueSnapshot::MutRef {
                 value: value.snapshot(),
                 owner: *owner,
-                gen: (),
+                gen: *gen,
             },
             StackValue::Moved => todo!(),
         }

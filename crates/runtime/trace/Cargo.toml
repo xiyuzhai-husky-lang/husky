@@ -24,6 +24,7 @@ semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 feature = { path = "../../compile-time/feature", version = "0.0.0" }
 visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }
+visual-runtime = { path = "../visual", version = "0.0.0" }
 compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }

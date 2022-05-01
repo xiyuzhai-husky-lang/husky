@@ -4,11 +4,11 @@ import Trace, { decode_trace } from "src/trace/Trace";
 import type TraceStalk from "src/trace/stalk/TraceStalk";
 import {
     decode_array,
-    d_memb,
+    decode_memb,
     d_memb_old,
     decode_number,
     decode_opt,
-    d_string,
+    decode_string,
 } from "src/decode/decode";
 import { decode_figure_props } from "trace/figure/FigureProps";
 import Focus from "src/data/Focus";
@@ -80,8 +80,8 @@ export default DebuggerResponse;
 
 export function parse_debugger_response(text: string): DebuggerResponse {
     let props: unknown = JSON.parse(text);
-    let type = d_memb_old(props, "kind", d_string);
-    switch (d_string(type)) {
+    let type = d_memb_old(props, "kind", decode_string);
+    switch (decode_string(type)) {
         case "Init":
             return {
                 kind: "Init",
@@ -97,11 +97,11 @@ export function parse_debugger_response(text: string): DebuggerResponse {
                 kind: "Activate",
                 id: d_memb_old(props, "id", decode_number),
                 opt_focus_for_figure: decode_opt(
-                    d_memb(props, "opt_focus_for_figure"),
+                    decode_memb(props, "opt_focus_for_figure"),
                     (data: unknown) => new Focus(data)
                 ),
                 opt_figure: decode_opt(
-                    d_memb(props, "opt_figure"),
+                    decode_memb(props, "opt_figure"),
                     decode_figure_props
                 ),
             };
@@ -110,15 +110,15 @@ export function parse_debugger_response(text: string): DebuggerResponse {
                 kind: "ToggleExpansion",
                 id: d_memb_old(props, "id", decode_number),
                 effective_opt_input_id: decode_opt(
-                    d_memb(props, "effective_opt_input_id"),
+                    decode_memb(props, "effective_opt_input_id"),
                     decode_number
                 ),
                 opt_subtraces: decode_opt(
-                    d_memb(props, "opt_subtraces"),
+                    decode_memb(props, "opt_subtraces"),
                     (data: unknown) => decode_array(data, decode_trace)
                 ),
                 associated_traces: decode_array(
-                    d_memb(props, "associated_traces"),
+                    decode_memb(props, "associated_traces"),
                     decode_trace
                 ),
             };
@@ -131,20 +131,20 @@ export function parse_debugger_response(text: string): DebuggerResponse {
             return {
                 kind: "DecodeFocus",
                 focus_result: decode_result(
-                    d_memb(props, "focus_result"),
+                    decode_memb(props, "focus_result"),
                     (data: unknown) => new Focus(data)
                 ),
             };
         case "LockFocus":
             return {
                 kind: "LockFocus",
-                focus: new Focus(d_memb(props, "focus")),
+                focus: new Focus(decode_memb(props, "focus")),
                 opt_active_trace_id_for_figure: decode_opt(
-                    d_memb(props, "opt_active_trace_id_for_figure"),
+                    decode_memb(props, "opt_active_trace_id_for_figure"),
                     decode_number
                 ),
                 opt_figure: decode_opt(
-                    d_memb(props, "opt_figure"),
+                    decode_memb(props, "opt_figure"),
                     decode_figure_props
                 ),
             };

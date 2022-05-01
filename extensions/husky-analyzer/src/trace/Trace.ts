@@ -4,7 +4,7 @@ import {
     d_memb_old,
     decode_number,
     decode_number_or_null,
-    d_string,
+    decode_string,
 } from "src/decode/decode";
 
 export type TokenProps = {
@@ -51,7 +51,7 @@ class Trace {
             decode_array(data, (element) => element as LineProps)
         );
         this.has_subtraces = d_memb_old(props, "has_subtraces", decode_boolean);
-        const kind = d_memb_old(props, "kind", d_string);
+        const kind = d_memb_old(props, "kind", decode_string);
         switch (kind) {
             case "Main":
             case "CallHead":

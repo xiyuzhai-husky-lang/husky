@@ -1,10 +1,10 @@
 import {
     decode_array,
-    d_memb,
+    decode_memb,
     decode_number,
     decode_number_pair,
     decode_opt,
-    d_string,
+    decode_string,
 } from "src/decode/decode";
 import type { Point2d } from "src/geom2d/geom2d";
 import type Color from "./Color";
@@ -33,21 +33,21 @@ type Graphics2dProps = {
 export default Graphics2dProps;
 
 export function decode_graphics2d(data: unknown): Graphics2dProps {
-    let image = decode_opt(d_memb(data, "image"), decode_image);
+    let image = decode_opt(decode_memb(data, "image"), decode_image);
     let shape_groups = decode_array(
-        d_memb(data, "shape_groups"),
+        decode_memb(data, "shape_groups"),
         decode_shape_group
     );
-    let xrange = decode_number_pair(d_memb(data, "xrange"));
-    let yrange = decode_number_pair(d_memb(data, "yrange"));
+    let xrange = decode_number_pair(decode_memb(data, "xrange"));
+    let yrange = decode_number_pair(decode_memb(data, "yrange"));
     return { kind: "Graphics2d", image, shape_groups, xrange, yrange };
 }
 
 function decode_image(raw: unknown): ImageProps {
-    let kind = d_string(d_memb(raw, "kind"));
+    let kind = decode_string(decode_memb(raw, "kind"));
     switch (kind) {
         case "Binary28":
-            const rows_unknown = d_memb(raw, "rows");
+            const rows_unknown = decode_memb(raw, "rows");
             return {
                 kind: "Binary28",
                 rows: decode_array(rows_unknown, decode_number),
