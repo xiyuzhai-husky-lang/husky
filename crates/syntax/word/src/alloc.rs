@@ -73,6 +73,7 @@ pub fn new_word_unique_allocator() -> WordAllocator {
         RootIdentifier::F32.into(),
         RootIdentifier::B32.into(),
         RootIdentifier::B64.into(),
+        RootIdentifier::Bool.into(),
         RootIdentifier::True.into(),
         RootIdentifier::False.into(),
         RootIdentifier::Vec.into(),
