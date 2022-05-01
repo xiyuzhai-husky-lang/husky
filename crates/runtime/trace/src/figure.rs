@@ -3,6 +3,7 @@ mod graphics2d;
 use crate::*;
 use graphics2d::*;
 use map_collect::MapCollect;
+use visual_runtime::RuntimeVisualizer;
 use visual_syntax::VisualProps;
 use vm::{MutationData, PrimitiveValue};
 use word::Identifier;
@@ -37,15 +38,13 @@ pub struct MutationVisualProps {
     after: VisualProps,
 }
 
-impl<'eval> From<&MutationData<'eval>> for MutationVisualProps {
-    fn from(mutation_data: &MutationData<'eval>) -> Self {
-        todo!()
-        // let visualizer =
-        // MutationVisualProps {
-        //     varname: mutation_data.varname,
-        //     before: mutation_data.before.any_ref().visualize(),
-        //     after: mutation_data.after.any_ref().visualize(),
-        // }
+impl<'eval> MutationVisualProps {
+    pub fn new(visualizer: &RuntimeVisualizer, mutation_data: &MutationData<'eval>) -> Self {
+        MutationVisualProps {
+            varname: mutation_data.varname,
+            before: visualizer.visualize(mutation_data.before.any_ref()),
+            after: visualizer.visualize(mutation_data.after.any_ref()),
+        }
     }
 }
 
@@ -65,12 +64,6 @@ impl FigureProps {
     pub fn void() -> Self {
         Self::Primitive {
             value: PrimitiveValue::Void,
-        }
-    }
-
-    pub fn mutations(mutations: &[MutationData]) -> Self {
-        FigureProps::Mutations {
-            mutations: mutations.map(|mutation| mutation.into()),
         }
     }
 }

@@ -10,7 +10,7 @@ mod token;
 
 pub use factory::{CreateTrace, TraceFactory, TraceId};
 use feature::*;
-pub use figure::FigureProps;
+pub use figure::*;
 use file::FilePtr;
 pub use kind::TraceVariant;
 use print_utils::p;

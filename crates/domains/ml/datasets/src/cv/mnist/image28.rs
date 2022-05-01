@@ -1,4 +1,4 @@
-use std::any::TypeId;
+use std::{any::TypeId, sync::Arc};
 
 use visual_syntax::VisualProps;
 use vm::{AnyValue, AnyValueDyn, StaticTypeId};
@@ -56,8 +56,8 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
         todo!()
     }
 
-    fn snapshot(&self) -> std::sync::Arc<dyn AnyValueDyn<'eval>> {
-        todo!()
+    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+        Arc::new(self.clone())
     }
 
     fn print_short(&self, _: u8) -> String {

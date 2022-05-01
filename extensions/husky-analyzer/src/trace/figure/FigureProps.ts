@@ -1,4 +1,9 @@
-import { decode_array, d_memb, d_memb_old, d_string } from "src/decode/decode";
+import {
+    decode_array,
+    decode_memb,
+    d_memb_old,
+    decode_string,
+} from "src/decode/decode";
 import type { Point2d } from "src/geom2d/geom2d";
 import type Graphics2dProps from "./Graphics2d";
 import type Color from "./Color";
@@ -30,20 +35,20 @@ type FigureProps =
 export default FigureProps;
 
 export function decode_figure_props(data: unknown): FigureProps {
-    let type = d_memb_old(data, "kind", d_string);
+    let type = d_memb_old(data, "kind", decode_string);
     switch (type) {
         case "Graphics2d":
             return decode_graphics2d(data);
         case "Primitive":
             return {
                 kind: "Primitive",
-                value: decode_primitive_value(d_memb(data, "value")),
+                value: decode_primitive_value(decode_memb(data, "value")),
             };
         case "Mutations":
             return {
                 kind: "Mutations",
                 mutations: decode_array(
-                    d_memb(data, "mutations"),
+                    decode_memb(data, "mutations"),
                     decode_mutation
                 ),
             };

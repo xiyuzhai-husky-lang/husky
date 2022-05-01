@@ -1,4 +1,4 @@
-import { d_memb_old, d_string } from "src/decode/decode";
+import { d_memb_old, decode_string } from "src/decode/decode";
 
 type PrimitiveValueFigureProps = {
     kind: "Primitive";
@@ -11,8 +11,8 @@ type PrimitiveValue = {
 };
 
 export function decode_primitive_value(data: unknown): PrimitiveValue {
-    let kind = d_memb_old(data, "kind", d_string);
-    let value = d_memb_old(data, "value", d_string);
+    let kind = d_memb_old(data, "kind", decode_string);
+    let value = d_memb_old(data, "value", decode_string);
     switch (kind) {
         case "I32":
         case "B32":

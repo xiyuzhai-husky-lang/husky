@@ -1,6 +1,6 @@
 import {
     decode_array,
-    d_memb,
+    decode_memb,
     decode_number,
     decode_opt,
 } from "src/decode/decode";
@@ -19,24 +19,24 @@ export default class InitData {
     figures: { [id_str: string]: FigureProps };
     constructor(props: unknown) {
         this.active_trace_id = decode_opt(
-            d_memb(props, "active_trace_id"),
+            decode_memb(props, "active_trace_id"),
             decode_number
         );
-        console.log("props.focus", d_memb(props, "focus"));
-        this.focus = new Focus(d_memb(props, "focus"));
+        console.log("props.focus", decode_memb(props, "focus"));
+        this.focus = new Focus(decode_memb(props, "focus"));
         console.log("this.focus", this.focus);
         this.traces = decode_array(
-            d_memb(props, "traces"),
+            decode_memb(props, "traces"),
             (element) => new Trace(element)
         );
-        this.subtraces_list = d_memb(props, "subtraces_list") as any;
-        this.expansions = d_memb(props, "expansions") as any;
-        this.showns = d_memb(props, "showns") as any;
+        this.subtraces_list = decode_memb(props, "subtraces_list") as any;
+        this.expansions = decode_memb(props, "expansions") as any;
+        this.showns = decode_memb(props, "showns") as any;
         this.root_traces = decode_array(
-            d_memb(props, "root_traces"),
+            decode_memb(props, "root_traces"),
             decode_number
         );
-        this.figures = d_memb(props, "figures") as any;
+        this.figures = decode_memb(props, "figures") as any;
     }
 }
 

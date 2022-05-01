@@ -1,10 +1,12 @@
 use crate::*;
 use compile_time_db::*;
 use feature::{FeatureExpr, FeatureExprKind, FeatureStmt, FeatureStmtKind};
+use map_collect::MapCollect;
 use semantics_eager::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };
-use vm::{History, HistoryEntry};
+use trace::MutationVisualProps;
+use vm::{History, HistoryEntry, MutationData};
 
 impl HuskyLangRuntime {
     pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureProps {
@@ -36,7 +38,7 @@ impl HuskyLangRuntime {
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ..
-            } => FigureProps::mutations(&loop_frame_data.mutations),
+            } => self.mutations_figure(&loop_frame_data.mutations),
         }
     }
 
@@ -92,7 +94,7 @@ impl HuskyLangRuntime {
                 ref loop_variant,
                 ref stmts,
             } => match history.entry(stmt) {
-                HistoryEntry::Loop { ref mutations, .. } => FigureProps::mutations(mutations),
+                HistoryEntry::Loop { ref mutations, .. } => self.mutations_figure(mutations),
                 _ => panic!(),
             },
         }
@@ -108,6 +110,14 @@ impl HuskyLangRuntime {
             HistoryEntry::Exec => todo!(),
             HistoryEntry::Assign { before, after } => todo!(),
             HistoryEntry::Loop { .. } => panic!(),
+        }
+    }
+
+    pub fn mutations_figure(&self, mutations: &[MutationData]) -> FigureProps {
+        FigureProps::Mutations {
+            mutations: mutations.map(|mutation| {
+                MutationVisualProps::new(&self.visualizer(self.version(), mutation.ty), mutation)
+            }),
         }
     }
 }

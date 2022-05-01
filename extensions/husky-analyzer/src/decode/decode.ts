@@ -55,7 +55,7 @@ export function decode_opt_or_undefined<T>(
     return decode_valid(data);
 }
 
-export function d_string(data: unknown): string {
+export function decode_string(data: unknown): string {
     if (typeof data !== "string") {
         throw new Error(`${data} is not a valid string`);
     }
@@ -90,7 +90,7 @@ export function d_memb_old<T>(
     }
 }
 
-export function d_memb(data: unknown, key: string): unknown {
+export function decode_memb(data: unknown, key: string): unknown {
     if (typeof data !== "object") {
         throw new Error(`expect object but got ${data} instead`);
     }
