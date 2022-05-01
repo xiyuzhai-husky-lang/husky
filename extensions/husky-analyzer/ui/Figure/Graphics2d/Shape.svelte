@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Color, ShapeProps } from "";
+    import type { ShapeProps } from "src/trace/figure/Graphics2d";
     import Arrow from "./Shape/Arrow.svelte";
 
     export let shape: ShapeProps;

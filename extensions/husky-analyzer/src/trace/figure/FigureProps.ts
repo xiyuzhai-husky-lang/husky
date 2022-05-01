@@ -8,10 +8,26 @@ import type { Point2d } from "src/geom2d/geom2d";
 import type Graphics2dProps from "./Graphics2d";
 import type Color from "./Color";
 import { decode_graphics2d } from "./Graphics2d";
-import type MutationsFigureProps from "./Mutations";
-import { decode_mutation } from "./Mutations";
 import type PrimitiveValueVisualProps from "./Primitive";
 import { decode_primitive_value } from "./Primitive";
+
+export type MutationsFigureProps = {
+    kind: "Mutations";
+    mutations: MutationVisualProps[];
+};
+
+export type MutationVisualProps = {
+    name: string;
+    before: FigureProps;
+    after: FigureProps;
+};
+
+export function decode_mutation(data: unknown): MutationVisualProps {
+    let name = decode_string(decode_memb(data, "name"));
+    let before = decode_figure_props(decode_memb(data, "before"));
+    let after = decode_figure_props(decode_memb(data, "after"));
+    return { name, before, after };
+}
 
 export type PointGroup = {
     points: Point2d[];
