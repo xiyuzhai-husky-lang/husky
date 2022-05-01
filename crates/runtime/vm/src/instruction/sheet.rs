@@ -9,7 +9,7 @@ pub struct InstructionSheet {
 }
 
 impl InstructionSheet {
-    pub fn new(inputs: Vec<CustomIdentifier>, has_this: bool) -> Self {
+    pub fn new(inputs: impl Iterator<Item = CustomIdentifier>, has_this: bool) -> Self {
         Self {
             instructions: vec![],
             variable_stack: VariableStack::new(inputs, has_this),

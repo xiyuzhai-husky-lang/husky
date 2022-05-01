@@ -15,6 +15,14 @@ pub(crate) fn for_loop2() -> i32 {
     b
 }
 
+pub(crate) fn for_loop3() -> i32 {
+    let mut b = 0i32;
+    for i in 0..5i32 {
+        b += i;
+    }
+    b
+}
+
 pub(crate) fn forext_loop1() -> i32 {
     let mut b = 0i32;
     let mut i = 3i32;

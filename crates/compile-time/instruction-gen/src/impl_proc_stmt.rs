@@ -55,7 +55,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_boundary(initial_boundary, &loop_stmt);
                 self.compile_boundary(final_boundary, &loop_stmt);
                 let mut block_sheet_builder = self.subsheet_builder();
-                block_sheet_builder.def_frame_variable(frame_var.ident);
+                block_sheet_builder.def_for_frame_variable(frame_var.ident);
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
@@ -69,6 +69,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             LoopVariant::ForExt { final_boundary, .. } => {
                 self.compile_boundary(final_boundary, &loop_stmt);
                 let mut block_sheet_builder = self.subsheet_builder();
+                block_sheet_builder.forext_frame();
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
