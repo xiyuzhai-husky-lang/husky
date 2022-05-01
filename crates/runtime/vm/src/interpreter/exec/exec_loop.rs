@@ -59,7 +59,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 ..
             } => {
                 let initial_bound_shifted = {
-                    let initial_bound = self.stack.top_second().as_primitive()?.as_i32();
+                    let initial_bound = self.stack.top_second().as_primitive().as_i32();
                     match initial_boundary_kind {
                         BoundaryKind::UpperOpen => initial_bound - 1,
                         BoundaryKind::UpperClosed => initial_bound,
@@ -68,7 +68,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 };
                 let final_bound_shifted = {
-                    let final_bound = self.stack.top().as_primitive()?.as_i32();
+                    let final_bound = self.stack.top().as_primitive().as_i32();
                     match final_boundary_kind {
                         BoundaryKind::UpperOpen => final_bound - 1,
                         BoundaryKind::UpperClosed => final_bound,
@@ -99,9 +99,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 step,
                 ..
             } => {
-                let initial_value = self.stack.value(frame_varidx).as_primitive()?.as_i32();
+                let initial_value = self.stack.value(frame_varidx).as_primitive().as_i32();
                 let final_bound_shifted = {
-                    let final_bound = self.stack.top().as_primitive()?.as_i32();
+                    let final_bound = self.stack.top().as_primitive().as_i32();
                     match final_boundary_kind {
                         BoundaryKind::UpperOpen => final_bound - 1,
                         BoundaryKind::UpperClosed => final_bound,
@@ -115,7 +115,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let control = self.exec_all(&body.instructions, mode);
                     exec_after_each_frame(
                         self,
-                        self.stack.value(frame_varidx).as_primitive()?.as_i32(),
+                        self.stack.value(frame_varidx).as_primitive().as_i32(),
                         &control,
                     );
                     match control {

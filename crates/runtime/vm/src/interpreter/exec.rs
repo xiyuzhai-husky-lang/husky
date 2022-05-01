@@ -98,7 +98,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 },
                 InstructionKind::BreakIfFalse => {
-                    let control = if !self.stack.top().as_primitive().unwrap().to_bool().unwrap() {
+                    let control = if !self.stack.top().as_primitive().to_bool().unwrap() {
                         VMControl::Break
                     } else {
                         VMControl::None
@@ -119,8 +119,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::None
                 }
                 InstructionKind::Assert => {
-                    let is_condition_satisfied =
-                        self.stack.pop().as_primitive().unwrap().to_bool().unwrap();
+                    let is_condition_satisfied = self.stack.pop().as_primitive().to_bool().unwrap();
                     if !is_condition_satisfied {
                         todo!()
                     } else {
