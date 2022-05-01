@@ -109,7 +109,27 @@ impl<'eval> TraceFactory<'eval> {
                         }
                         tokens.push(special!(")"));
                     }
-                    EagerOpnVariant::ElementAccess => todo!(),
+                    EagerOpnVariant::ElementAccess => {
+                        tokens.extend(self.eager_expr_tokens(
+                            &opds[0],
+                            text,
+                            history,
+                            config.subexpr(),
+                        ));
+                        tokens.push(special!("[", associated_trace.clone()));
+                        for i in 1..opds.len() {
+                            if i > 1 {
+                                tokens.push(special!(", "))
+                            }
+                            tokens.extend(self.eager_expr_tokens(
+                                &opds[i],
+                                text,
+                                history,
+                                config.subexpr(),
+                            ));
+                        }
+                        tokens.push(special!("]", associated_trace));
+                    }
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                         tokens.push(scope!(text.ranged(ranged_ty.range)));
                         tokens.push(special!("("));
