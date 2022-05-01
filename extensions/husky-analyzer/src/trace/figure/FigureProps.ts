@@ -10,7 +10,7 @@ import type Color from "./Color";
 import { decode_graphics2d } from "./Graphics2d";
 import type MutationsFigureProps from "./Mutations";
 import { decode_mutation } from "./Mutations";
-import type PrimitiveValueFigureProps from "./Primitive";
+import type PrimitiveValueVisualProps from "./Primitive";
 import { decode_primitive_value } from "./Primitive";
 
 export type PointGroup = {
@@ -30,7 +30,7 @@ type FigureProps =
     | GalleryProps
     | Graphics2dProps
     | Plot2dProps
-    | PrimitiveValueFigureProps
+    | PrimitiveValueVisualProps
     | MutationsFigureProps;
 export default FigureProps;
 

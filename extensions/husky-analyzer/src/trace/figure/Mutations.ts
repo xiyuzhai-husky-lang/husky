@@ -1,6 +1,6 @@
 import { decode_memb, decode_string } from "src/decode/decode";
-import type VisualProps from "./VisualProps/VisualProps";
-import { decode_visual_props as decode_visual_props } from "./VisualProps/VisualProps";
+import type VisualProps from "./VisualProps";
+import { decode_visual_props as decode_visual_props } from "./VisualProps";
 
 type MutationsFigureProps = {
     kind: "Mutations";
