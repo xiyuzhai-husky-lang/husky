@@ -4,6 +4,9 @@ use crate::*;
 
 impl<'eval> Trace<'eval> {
     pub fn subtraces_container_class(&self) -> Option<SubtracesContainerClass> {
+        if !self.has_subtraces() {
+            return None;
+        }
         match self.variant {
             TraceVariant::Main(_)
             | TraceVariant::FeatureStmt(_)
