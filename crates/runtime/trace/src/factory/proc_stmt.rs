@@ -2,8 +2,8 @@ use compile_time_db::HuskyLangCompileTime;
 use text::Text;
 use upcast::Upcast;
 use vm::{
-    exec_debug, exec_loop_debug, BoundaryKind, History, InstructionSheet, LoopFrameData,
-    StackSnapshot, VMControl, VariableStack,
+    exec_debug, exec_loop_debug, BinaryOpr, BoundaryKind, History, InstructionSheet, LoopFrameData,
+    StackSnapshot,
 };
 
 use super::{expr::ExprTokenConfig, *};
@@ -78,7 +78,24 @@ impl<'eval> TraceFactory<'eval> {
                 tokens
             }
             ProcStmtVariant::Execute { ref expr } => {
-                self.eager_expr_tokens(expr, text, history, ExprTokenConfig::exec())
+                let mut tokens =
+                    self.eager_expr_tokens(expr, text, history, ExprTokenConfig::exec());
+                match expr.variant {
+                    EagerExprVariant::Opn {
+                        ref opn_variant, ..
+                    } => match opn_variant {
+                        EagerOpnVariant::Binary { opr, this } => match opr {
+                            BinaryOpr::Assign(_) => {
+                                tokens.push(fade!(" = "));
+                                tokens.push(history.entry(expr).value().into());
+                            }
+                            BinaryOpr::Pure(_) => (),
+                        },
+                        _ => (),
+                    },
+                    _ => panic!(),
+                }
+                tokens
             }
             ProcStmtVariant::Return { ref result } => {
                 let mut tokens = vec![keyword!("return ")];
