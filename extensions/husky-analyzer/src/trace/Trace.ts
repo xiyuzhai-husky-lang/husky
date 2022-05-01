@@ -1,10 +1,10 @@
 import {
     decode_array,
     decode_boolean,
-    decode_member_old,
+    d_memb_old,
     decode_number,
     decode_number_or_null,
-    decode_string,
+    d_string,
 } from "src/decode/decode";
 
 export type TokenProps = {
@@ -45,17 +45,13 @@ class Trace {
         | "EagerExpr";
     subtraces_container_class: "Call" | null;
     constructor(props: unknown) {
-        this.id = decode_member_old(props, "id", decode_number);
-        this.parent = decode_member_old(props, "parent", decode_number_or_null);
-        this.lines = decode_member_old(props, "lines", (data) =>
+        this.id = d_memb_old(props, "id", decode_number);
+        this.parent = d_memb_old(props, "parent", decode_number_or_null);
+        this.lines = d_memb_old(props, "lines", (data) =>
             decode_array(data, (element) => element as LineProps)
         );
-        this.has_subtraces = decode_member_old(
-            props,
-            "has_subtraces",
-            decode_boolean
-        );
-        const kind = decode_member_old(props, "kind", decode_string);
+        this.has_subtraces = d_memb_old(props, "has_subtraces", decode_boolean);
+        const kind = d_memb_old(props, "kind", d_string);
         switch (kind) {
             case "Main":
             case "CallHead":
@@ -72,7 +68,7 @@ class Trace {
             default:
                 throw new Error(`Unknown kind ${kind}`);
         }
-        this.subtraces_container_class = decode_member_old(
+        this.subtraces_container_class = d_memb_old(
             props,
             "subtraces_container_class",
             (data) => data as any
