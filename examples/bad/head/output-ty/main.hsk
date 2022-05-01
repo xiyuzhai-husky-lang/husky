@@ -1,0 +1,2 @@
+func assign() -> b:
+    x + y

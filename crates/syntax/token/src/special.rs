@@ -1,5 +1,3 @@
-
-
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum Special {
     LAngle,
@@ -40,30 +38,31 @@ pub enum Special {
     SubAssign,   // -=
     MulAssign,   // *=
     DivAssign,   // /=
+    BitOrAssign, // /=
     Exclamation, // !
 }
 
 impl Special {
     pub fn code(&self) -> &'static str {
         match self {
-            Special::LAngle => todo!(),
-            Special::Leq => todo!(),
-            Special::RAngle => todo!(),
-            Special::Geq => todo!(),
-            Special::Neq => todo!(),
-            Special::Eq => todo!(),
-            Special::Shl => todo!(),
-            Special::Shr => todo!(),
-            Special::LCurl => todo!(),
-            Special::RCurl => todo!(),
-            Special::LBox => todo!(),
-            Special::RBox => todo!(),
-            Special::LPar => todo!(),
-            Special::RPar => todo!(),
-            Special::Add => todo!(),
-            Special::SubOrMinus => todo!(),
-            Special::Mul => todo!(),
-            Special::Div => todo!(),
+            Special::LAngle => "<",
+            Special::Leq => "<=",
+            Special::RAngle => ">",
+            Special::Geq => ">=",
+            Special::Neq => "!=",
+            Special::Eq => "==",
+            Special::Shl => "<<",
+            Special::Shr => ">>",
+            Special::LCurl => "{",
+            Special::RCurl => "}",
+            Special::LBox => "[",
+            Special::RBox => "]",
+            Special::LPar => "(",
+            Special::RPar => ")",
+            Special::Add => "+",
+            Special::SubOrMinus => "-",
+            Special::Mul => "*",
+            Special::Div => "/",
             Special::Power => "**",
             Special::And => "&&",
             Special::DoubleVertical => "||",
@@ -85,6 +84,7 @@ impl Special {
             Special::MulAssign => "*=",
             Special::DivAssign => "/=",
             Special::Exclamation => "!",
+            Special::BitOrAssign => "|=",
         }
     }
 }

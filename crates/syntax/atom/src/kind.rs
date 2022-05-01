@@ -78,6 +78,7 @@ impl From<Special> for AtomVariant {
             Special::SubAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Sub)).into(),
             Special::MulAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Mul)).into(),
             Special::DivAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Div)).into(),
+            Special::BitOrAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitOr)).into(),
             Special::LAngle => BinaryOpr::Pure(PureBinaryOpr::Less).into(),
             Special::Leq => BinaryOpr::Pure(PureBinaryOpr::Leq).into(),
             Special::RAngle => BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
@@ -116,13 +117,4 @@ impl From<f32> for AtomVariant {
     fn from(f: f32) -> Self {
         PrimitiveValue::F32(f).into()
     }
-}
-
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub enum BracketOpr {
-    Call,        // $0($1,*)
-    Index,       // $0[$1,*]
-    Curl,        // $0{$1,*}
-    ParIndex,    // $0[$1,*%]
-    DoubleIndex, // $0[[$1,*]]
 }

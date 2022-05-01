@@ -1,6 +1,11 @@
 func add(x: i32, y: i32) -> i32:
     x + y
 
+proc bitor_assign() -> bool:
+    var b = 0b32
+    b |= 1b32
+    return b == 1b32
+
 dataset:
     synthetic::trivial::real1d::dataset1()
 
@@ -10,3 +15,4 @@ main:
     assert 3 * 2 == 6
     assert 3 / 2 == 1
     assert 3 ** 2 == 9
+    assert bitor_assign()
