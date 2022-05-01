@@ -1,8 +1,6 @@
 <script lang="ts">
     import type FigureProps from "trace/figure/FigureProps";
-    import Plot2d from "./Plot2d.svelte";
-    import Graphics2d from "./Graphics2d.svelte";
-    import PrimitiveValueFigure from "./PrimitiveValueFigure.svelte";
+    import FigureCanvas from "./FigureCanvas.svelte";
     export let figure: FigureProps | null;
     let windowHeight: number;
     let figureHeight: number;
@@ -27,24 +25,7 @@
         class="FigureContent "
         style="flex-direction: {figureContentFlexDirection}"
     >
-        <div
-            class="FigureCanvas"
-            style="width: {canvasWidth}px; height: {canvasHeight}px"
-        >
-            {#if figure !== null}
-                {#if figure.kind === "Primitive"}
-                    <PrimitiveValueFigure {figure} />
-                {:else if figure.kind === "Plot2d"}
-                    <Plot2d {figure} />
-                {:else if figure.kind === "Graphics2d"}
-                    <Graphics2d {figure} />
-                {:else if figure.kind === "Mutations"}
-                    <self figure={figure.mutations[0].after} />
-                {:else}
-                    <p class="error">{figure.kind} not supported in figure</p>
-                {/if}
-            {/if}
-        </div>
+        <FigureCanvas {figure} {canvasHeight} {canvasWidth} />
         <div
             class="FigureExtra"
             style="width: {figureExtraWidthPercentage}%; height: {figureExtraHeightPercentage}%"
@@ -68,11 +49,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-    }
-    .FigureCanvas {
-        display: flex;
-        border: rgb(41, 41, 41) solid;
-        background: black;
     }
     .FigureExtra {
         border: rgb(41, 41, 41) solid;
