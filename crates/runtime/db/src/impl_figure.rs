@@ -5,6 +5,7 @@ use map_collect::MapCollect;
 use semantics_eager::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };
+use text::TextQueryGroup;
 use trace::MutationVisualProps;
 use vm::{History, HistoryEntry, MutationData};
 
@@ -87,7 +88,16 @@ impl HuskyLangRuntime {
                 varidx,
             } => self.eager_expr_figure(initial_value, history),
             ProcStmtVariant::Assert { ref condition } => todo!(),
-            ProcStmtVariant::Execute { ref expr } => todo!(),
+            ProcStmtVariant::Execute { ref expr } => {
+                let entry = history.entry(expr);
+                match entry {
+                    HistoryEntry::Exec { ref mutations } => self.mutations_figure(mutations),
+                    _ => {
+                        p!(entry);
+                        panic!("wrong kind of entry")
+                    }
+                }
+            }
             ProcStmtVariant::Return { ref result } => self.eager_expr_figure(result, history),
             ProcStmtVariant::BranchGroup { kind, ref branches } => todo!(),
             ProcStmtVariant::Loop {
@@ -107,8 +117,7 @@ impl HuskyLangRuntime {
                 let visual_props = visualizer.visualize(output.any_ref());
                 FigureProps::new_specific(visual_props)
             }
-            HistoryEntry::Exec => todo!(),
-            HistoryEntry::Assign { before, after } => todo!(),
+            HistoryEntry::Exec { .. } => todo!(),
             HistoryEntry::Loop { .. } => panic!(),
         }
     }
@@ -116,7 +125,11 @@ impl HuskyLangRuntime {
     pub fn mutations_figure(&self, mutations: &[MutationData]) -> FigureProps {
         FigureProps::Mutations {
             mutations: mutations.map(|mutation| {
-                MutationVisualProps::new(&self.visualizer(self.version(), mutation.ty), mutation)
+                MutationVisualProps::new(
+                    &self.text(mutation.file).unwrap(),
+                    &self.visualizer(self.version(), mutation.ty),
+                    mutation,
+                )
             }),
         }
     }

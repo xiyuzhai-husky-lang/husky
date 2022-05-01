@@ -95,9 +95,7 @@ pub fn subtraces(
                 loop_variant: ref loop_kind,
                 ref stmts,
             } => match history.entry(stmt) {
-                HistoryEntry::NonVoidExpr { .. }
-                | HistoryEntry::Exec
-                | HistoryEntry::Assign { .. } => Arc::new(vec![]),
+                HistoryEntry::NonVoidExpr { .. } | HistoryEntry::Exec { .. } => Arc::new(vec![]),
                 HistoryEntry::Loop {
                     control: result,
                     ref stack_snapshot,

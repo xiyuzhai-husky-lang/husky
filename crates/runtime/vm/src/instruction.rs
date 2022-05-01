@@ -2,9 +2,11 @@ mod id;
 mod sheet;
 
 use entity_route::EntityRoutePtr;
+use file::FilePtr;
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
-use word::{CustomIdentifier, Identifier};
+use text::TextRange;
+use word::{CustomIdentifier, Identifier, RootIdentifier};
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -43,6 +45,10 @@ impl<
         let this: &S = self;
         this.instruction_id()
     }
+    fn file(&self) -> FilePtr {
+        let this: &S = self;
+        this.file()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -50,7 +56,7 @@ pub enum InstructionKind {
     PushVariable {
         stack_idx: StackIdx,
         contract: EagerContract,
-        varname: Identifier,
+        range: TextRange,
         ty: EntityRoutePtr,
     },
     PushPrimitiveLiteral(PrimitiveValue),
@@ -71,7 +77,11 @@ pub enum InstructionKind {
     NewVirtualStruct {
         fields: Vec<FieldContract>,
     },
-    PrimitiveOpn(PrimitiveOpn),
+    PrimitiveOpn {
+        opn: PrimitiveOpn,
+        this_ty: EntityRoutePtr,
+        this_range: TextRange,
+    },
     Loop {
         body: Arc<InstructionSheet>,
         loop_kind: VMLoopKind,

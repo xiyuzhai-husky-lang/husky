@@ -6,10 +6,8 @@ pub enum HistoryEntry<'eval> {
     NonVoidExpr {
         output: StackValueSnapshot<'eval>,
     },
-    Exec,
-    Assign {
-        before: StackValueSnapshot<'eval>,
-        after: StackValueSnapshot<'eval>,
+    Exec {
+        mutations: Vec<MutationData<'eval>>,
     },
     Loop {
         control: ControlSnapshot<'eval>,
@@ -23,14 +21,13 @@ impl<'eval> HistoryEntry<'eval> {
     pub fn value(&self) -> StackValueSnapshot<'eval> {
         match self {
             HistoryEntry::NonVoidExpr { ref output } => output.clone(),
-            HistoryEntry::Exec => todo!(),
-            HistoryEntry::Loop {
-                control: result, ..
-            } => todo!(),
-            HistoryEntry::Assign {
-                ref before,
-                ref after,
-            } => after.clone(),
+            HistoryEntry::Exec { mutations } => {
+                if mutations.len() != 1 {
+                    todo!()
+                }
+                mutations[0].after.clone()
+            }
+            HistoryEntry::Loop { .. } => todo!(),
         }
     }
 

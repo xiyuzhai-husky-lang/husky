@@ -4,7 +4,9 @@ mod query;
 use std::collections::HashMap;
 
 use entity_route::EntityRoutePtr;
+use file::FilePtr;
 pub use query::InterpreterQueryGroup;
+use text::TextRange;
 use word::{CustomIdentifier, Identifier};
 
 use crate::*;
@@ -15,7 +17,7 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
     pub(crate) history: History<'eval>,
     snapshot: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    mutations: HashMap<StackIdx, (Identifier, EntityRoutePtr)>,
+    mutations: HashMap<StackIdx, (FilePtr, TextRange, EntityRoutePtr)>,
 }
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -90,18 +92,25 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         self.snapshot = Some(self.stack.snapshot());
     }
 
-    fn record_mutation(&mut self, stack_idx: StackIdx, varname: Identifier, ty: EntityRoutePtr) {
-        self.mutations.insert(stack_idx, (varname, ty));
+    fn record_mutation(
+        &mut self,
+        stack_idx: StackIdx,
+        file: FilePtr,
+        range: TextRange,
+        ty: EntityRoutePtr,
+    ) {
+        self.mutations.insert(stack_idx, (file, range, ty));
     }
 
     fn collect_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData<'eval>>) {
         let snapshot = std::mem::take(&mut self.snapshot).expect("bug");
         let mutations = std::mem::take(&mut self.mutations)
             .iter()
-            .map(|(stack_idx, (varname, ty))| {
+            .map(|(stack_idx, (file, range, ty))| {
                 let stack_idx = *stack_idx;
                 MutationData {
-                    varname: *varname,
+                    file: *file,
+                    range: *range,
                     ty: *ty,
                     before: snapshot[stack_idx].clone(),
                     after: self.stack.snapshot_value(stack_idx),

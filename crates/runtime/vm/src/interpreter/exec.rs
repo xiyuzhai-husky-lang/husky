@@ -17,7 +17,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::PushVariable {
                     contract,
                     stack_idx,
-                    varname,
+                    range,
                     ty,
                 } => {
                     let value = self.stack.push_variable(stack_idx, contract);
@@ -25,7 +25,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::Fast => (),
                         Mode::TrackMutation => match contract {
                             EagerContract::BorrowMut => {
-                                self.record_mutation(stack_idx, varname, ty)
+                                self.record_mutation(stack_idx, ins.src.file(), range, ty)
                             }
                             _ => (),
                         },
@@ -55,7 +55,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     control
                 }
-                InstructionKind::PrimitiveOpn(opn) => {
+                InstructionKind::PrimitiveOpn { opn, .. } => {
                     self.exec_primitive_opn(opn, mode, ins).into()
                 }
                 InstructionKind::RoutineCallInterpreted { routine, nargs } => {
