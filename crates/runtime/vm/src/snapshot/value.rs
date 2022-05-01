@@ -5,6 +5,11 @@ pub enum StackValueSnapshot<'eval> {
     Primitive(PrimitiveValue),
     GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
     Boxed(BoxedValue<'eval>),
+    Ref {
+        value: Arc<dyn AnyValueDyn<'eval>>,
+        owner: StackIdx,
+        gen: MutRefGenerator,
+    },
     MutRef {
         value: Arc<dyn AnyValueDyn<'eval>>,
         owner: StackIdx,
@@ -19,6 +24,7 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::GlobalPure(_) => todo!(),
             StackValueSnapshot::Boxed(boxed_value) => boxed_value.any_ref(),
             StackValueSnapshot::MutRef { value, owner, gen } => todo!(),
+            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
         }
     }
 }
@@ -43,6 +49,7 @@ impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
                 .debug_struct("StackValueSnapshot::Boxed")
                 .field("value", value)
                 .finish(),
+            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
         }
     }
 }
@@ -60,6 +67,7 @@ impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnaps
             StackValueSnapshot::MutRef { owner, gen, .. } => todo!(),
             StackValueSnapshot::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
             StackValueSnapshot::Boxed(value) => StackValue::Boxed(value.clone()),
+            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
         }
     }
 }

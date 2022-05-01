@@ -52,6 +52,7 @@ impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
             } => fade!(format!("{:?}", value)),
             StackValueSnapshot::GlobalPure(_) => todo!(),
             StackValueSnapshot::Boxed(value) => fade!(value.any_ref().print_short(20)),
+            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
         }
     }
 }
