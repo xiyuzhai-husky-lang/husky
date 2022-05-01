@@ -55,17 +55,17 @@ export function decode_opt_or_undefined<T>(
     return decode_valid(data);
 }
 
-export function decode_string(data: unknown): string {
+export function d_string(data: unknown): string {
     if (typeof data !== "string") {
         throw new Error(`${data} is not a valid string`);
     }
     return data;
 }
 
-export function decode_member_old<T>(
+export function d_memb_old<T>(
     data: unknown,
     key: string,
-    decode_member: (data: unknown) => T
+    d_memb: (data: unknown) => T
 ): T {
     if (typeof data !== "object") {
         throw new Error(`expect object but got ${data} instead`);
@@ -76,7 +76,7 @@ export function decode_member_old<T>(
     let entries = data as { [key: string]: unknown };
     if (key in entries) {
         try {
-            return decode_member(entries[key]);
+            return d_memb(entries[key]);
         } catch (error) {
             console.error(
                 `failed to decode member ${key} in ${JSON.stringify(data)}`
@@ -90,7 +90,7 @@ export function decode_member_old<T>(
     }
 }
 
-export function decode_member(data: unknown, key: string): unknown {
+export function d_memb(data: unknown, key: string): unknown {
     if (typeof data !== "object") {
         throw new Error(`expect object but got ${data} instead`);
     }

@@ -1,4 +1,4 @@
-import { decode_member, decode_number, decode_opt } from "src/decode/decode";
+import { d_memb, decode_number, decode_opt } from "src/decode/decode";
 import type Trace from "src/trace/Trace";
 
 export default class Focus {
@@ -9,7 +9,7 @@ export default class Focus {
             this.opt_input_id = null;
         } else {
             this.opt_input_id = decode_opt(
-                decode_member(data, "opt_input_id"),
+                d_memb(data, "opt_input_id"),
                 decode_number
             );
         }
