@@ -96,12 +96,18 @@ export function get_subtraces(focus: Focus, trace_id: number): Trace[] | null {
     return global.trace_cache.get_subtraces(focus, trace);
 }
 
-export function get_id_before(trace_id: number) {
-    throw new Error("todo");
+export function get_id_before(trace_id: number): number | undefined {
+    let trace_listing = get(global.trace_listing_store);
+    let index = trace_listing.indexOf(trace_id);
+    if (index === -1) {
+        throw new Error("panic");
+    }
+    return trace_listing[trace_listing.indexOf(trace_id) - 1];
 }
 
 export function get_id_after(trace_id: number) {
-    throw new Error("todo");
+    let trace_listing = get(global.trace_listing_store);
+    return trace_listing[trace_listing.indexOf(trace_id) + 1];
 }
 
 export function toggle_expansion(trace: Trace) {

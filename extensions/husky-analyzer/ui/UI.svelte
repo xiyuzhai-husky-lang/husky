@@ -8,7 +8,7 @@
         focus_store,
         input_locked_store,
         get_subtraces,
-        moveRight,
+        moveRight as move_right,
         move_up,
         move_down,
         move_left,
@@ -31,7 +31,7 @@
                 move_left();
                 break;
             case "KeyL":
-                moveRight();
+                move_right();
                 break;
             case "KeyJ":
                 move_down();
