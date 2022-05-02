@@ -17,6 +17,7 @@ class AppData {
         this.trace_cache.init(init_state);
         this.figure_cache.init(init_state);
         this.user_state.init(init_state);
+        this.update_trace_listing();
     }
 
     update_trace_listing() {
@@ -37,6 +38,7 @@ class AppData {
     }
 
     update_trace_listing_dfs(trace: Trace, trace_listing: number[]) {
+        trace_listing.push(trace.id);
         this.add_associated_traces(trace.id, trace_listing);
         if (this.user_state.is_expanded(trace.id)) {
             let subtraces = this.trace_cache.get_subtraces(this.focus(), trace);
@@ -57,7 +59,15 @@ class AppData {
                     let associated_trace_id = token.associated_trace;
                     if (associated_trace_id !== null) {
                         if (this.user_state.is_shown(associated_trace_id)) {
-                            trace_listing.push(associated_trace_id);
+                            let associated_trace =
+                                this.trace_cache.get_trace(associated_trace_id);
+                            if (associated_trace === null) {
+                                throw new Error("panic");
+                            }
+                            this.update_trace_listing_dfs(
+                                associated_trace,
+                                trace_listing
+                            );
                         }
                     }
                 }
