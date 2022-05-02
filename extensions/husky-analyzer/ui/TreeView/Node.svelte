@@ -46,6 +46,7 @@
     <div class="inner" class:active>
         {#each trace.lines as line}
             <Line
+                {trace}
                 {on_group_start_click}
                 {has_subtraces}
                 {expanded}
