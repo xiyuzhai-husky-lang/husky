@@ -7,8 +7,6 @@
     export let figure: FigureProps | null;
     export let canvasHeight: number;
     export let canvasWidth: number;
-
-    $: console.log(figure);
 </script>
 
 {#if figure !== null && figure.kind === "Mutations"}

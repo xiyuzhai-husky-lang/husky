@@ -22,9 +22,7 @@ export default class InitData {
             decode_memb(props, "active_trace_id"),
             decode_number
         );
-        console.log("props.focus", decode_memb(props, "focus"));
         this.focus = new Focus(decode_memb(props, "focus"));
-        console.log("this.focus", this.focus);
         this.traces = decode_array(
             decode_memb(props, "traces"),
             (element) => new Trace(element)

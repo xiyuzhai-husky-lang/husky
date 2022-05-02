@@ -22,7 +22,6 @@ class UserState {
         this.expansion_stores.load(init_state.expansions);
         this.shown_stores.load(init_state.showns);
         this.focus_locked_store.set(true);
-        console.log("init_state.focus", init_state.focus);
         this.focus_store.set(init_state.focus);
     }
 
