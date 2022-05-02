@@ -15,8 +15,10 @@
 
     function get_group_start_kind(trace: Trace): string {
         switch (trace.kind) {
+            case "Main":
             case "FeatureStmt":
             case "FeatureBranch":
+            case "FeatureExpr":
             case "FuncStmt":
             case "ProcStmt":
             case "LoopFrame":
