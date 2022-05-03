@@ -197,6 +197,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                         EagerContract::BorrowMut => MemberAccessKind::BorrowMut,
                         EagerContract::TakeMut => todo!(),
                         EagerContract::Exec => todo!(),
+                        EagerContract::UseMemberForLetInit => todo!(),
+                        EagerContract::UseMemberForVarInit => todo!(),
                     },
                 ),
             },

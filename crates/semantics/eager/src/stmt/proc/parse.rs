@@ -59,8 +59,10 @@ impl<'a> EagerStmtParser<'a> {
         iter: &mut Peekable<IterType>,
     ) -> SemanticResult<ProcStmtVariant> {
         Ok(match stmt.kind {
-            RawStmtKind::Loop(loop_kind) => self.parse_loop_stmt(loop_kind, not_none!(children))?,
-            RawStmtKind::Branch(branch_kind) => {
+            RawStmtVariant::Loop(loop_kind) => {
+                self.parse_loop_stmt(loop_kind, not_none!(children))?
+            }
+            RawStmtVariant::Branch(branch_kind) => {
                 let mut branches = vec![];
                 match branch_kind {
                     RawBranchKind::If { condition } => branches.push(Arc::new(ImprBranch {
@@ -75,14 +77,14 @@ impl<'a> EagerStmtParser<'a> {
                 while let Some(item) = iter.peek() {
                     let item = match item.value.as_ref()?.kind {
                         AstKind::Stmt(RawStmt {
-                            kind: RawStmtKind::Branch(_),
+                            kind: RawStmtVariant::Branch(_),
                             ..
                         }) => iter.next().unwrap(),
                         _ => break,
                     };
                     match item.value.as_ref()?.kind {
                         AstKind::Stmt(RawStmt {
-                            kind: RawStmtKind::Branch(branch_stmt),
+                            kind: RawStmtVariant::Branch(branch_stmt),
                             ..
                         }) => match branch_stmt {
                             RawBranchKind::If { condition } => break,
@@ -108,7 +110,7 @@ impl<'a> EagerStmtParser<'a> {
                     branches,
                 }
             }
-            RawStmtKind::Exec(expr) => {
+            RawStmtVariant::Exec(expr) => {
                 let expr = self.parse_eager_expr(expr)?;
                 if expr.ty != EntityRoutePtr::Root(RootIdentifier::Void) {
                     err!(format!(
@@ -118,7 +120,7 @@ impl<'a> EagerStmtParser<'a> {
                 }
                 ProcStmtVariant::Execute { expr }
             }
-            RawStmtKind::Init {
+            RawStmtVariant::Init {
                 varname,
                 initial_value,
                 init_kind,
@@ -133,12 +135,13 @@ impl<'a> EagerStmtParser<'a> {
                     varidx,
                 }
             }
-            RawStmtKind::Return(result) => ProcStmtVariant::Return {
+            RawStmtVariant::Return(result) => ProcStmtVariant::Return {
                 result: self.parse_eager_expr(result)?,
             },
-            RawStmtKind::Assert(condition) => ProcStmtVariant::Assert {
+            RawStmtVariant::Assert(condition) => ProcStmtVariant::Assert {
                 condition: self.parse_eager_expr(condition)?,
             },
+            RawStmtVariant::Break => todo!(),
         })
     }
 

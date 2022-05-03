@@ -105,7 +105,7 @@ impl<'a> TySheetBuilder<'a> {
                         .variable_tys
                         .insert(
                             (input.ident.ident, inputs[0].ranged_ty.row()),
-                            Some(input.ranged_ty.route),
+                            input.ranged_ty.route,
                         )
                         .is_none());
                 }

@@ -22,6 +22,7 @@ impl<'a> AstTransformer<'a> {
             TokenKind::Identifier(_) => self.parse_record_original_field(token_group),
             TokenKind::Special(_) => todo!(),
             TokenKind::PrimitiveLiteral(_) => todo!(),
+            TokenKind::Unrecognized(_) => todo!(),
         }
     }
     fn parse_record_original_field(&mut self, token_group: &[Token]) -> AstResult<AstKind> {

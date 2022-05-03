@@ -4,12 +4,12 @@ use compile_time_db::*;
 use compile_time_dir::{get_or_create_child_dir, get_rust_dir};
 use file::FilePtr;
 use io_utils::diff_write;
-use path_utils::collect_pack_dirs;
+use path_utils::collect_all_package_dirs;
 use print_utils::*;
 use std::path::{Path, PathBuf};
 
 pub fn compile_all(dir: PathBuf) {
-    let pack_dirs = collect_pack_dirs(dir);
+    let pack_dirs = collect_all_package_dirs(dir);
     for pack_dir in pack_dirs {
         compile_pack(pack_dir);
     }
@@ -17,7 +17,7 @@ pub fn compile_all(dir: PathBuf) {
 
 pub fn compile_pack(package_dir: PathBuf) {
     let mut compile_time = HuskyLangCompileTime::default();
-    compile_time.load_pack(package_dir.clone());
+    compile_time.load_package(&package_dir);
     let main_file = compile_time.unique_main_file();
     p!(package_dir);
     let pack = compile_time.package(main_file).unwrap();

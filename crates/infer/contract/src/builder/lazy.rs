@@ -31,18 +31,21 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_stmt(&mut self, stmt: &RawStmt, arena: &RawExprArena) {
         match stmt.kind {
-            RawStmtKind::Loop(raw_loop_kind) => panic!(),
-            RawStmtKind::Branch(_) => todo!(),
-            RawStmtKind::Exec(expr) => panic!(),
-            RawStmtKind::Init {
+            RawStmtVariant::Loop(raw_loop_kind) => panic!(),
+            RawStmtVariant::Branch(_) => todo!(),
+            RawStmtVariant::Exec(expr) => panic!(),
+            RawStmtVariant::Init {
                 varname,
                 initial_value,
                 ..
             } => {
                 self.infer_lazy_expr(initial_value, LazyContract::Move, arena);
             }
-            RawStmtKind::Return(result) => self.infer_lazy_expr(result, LazyContract::Move, arena),
-            RawStmtKind::Assert(condition) => self.infer_lazy_condition(condition, arena),
+            RawStmtVariant::Return(result) => {
+                self.infer_lazy_expr(result, LazyContract::Move, arena)
+            }
+            RawStmtVariant::Assert(condition) => self.infer_lazy_condition(condition, arena),
+            RawStmtVariant::Break => todo!(),
         }
     }
 

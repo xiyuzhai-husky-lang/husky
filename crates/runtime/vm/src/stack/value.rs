@@ -124,6 +124,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),
             EagerContract::Return => self.bind_return(),
+            EagerContract::UseMemberForLetInit => todo!(),
+            EagerContract::UseMemberForVarInit => todo!(),
         }
     }
 

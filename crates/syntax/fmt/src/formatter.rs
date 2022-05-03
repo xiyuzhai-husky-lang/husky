@@ -1,6 +1,6 @@
 use std::ops::AddAssign;
 
-use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtKind};
+use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtVariant};
 use defn_head::InputPlaceholder;
 use entity_kind::{RoutineContextKind, TyKind};
 use entity_route::EntityRoutePtr;
@@ -186,10 +186,10 @@ impl<'a> Formatter<'a> {
 
     fn fmt_stmt(&mut self, stmt: &ast::RawStmt) {
         match stmt.kind {
-            RawStmtKind::Loop(_) => todo!(),
-            RawStmtKind::Branch(_) => todo!(),
-            RawStmtKind::Exec(expr) => self.fmt_expr(&self.arena[expr]),
-            RawStmtKind::Init {
+            RawStmtVariant::Loop(_) => todo!(),
+            RawStmtVariant::Branch(_) => todo!(),
+            RawStmtVariant::Exec(expr) => self.fmt_expr(&self.arena[expr]),
+            RawStmtVariant::Init {
                 init_kind: kind,
                 varname,
                 initial_value,
@@ -203,7 +203,7 @@ impl<'a> Formatter<'a> {
                 self.write(" = ");
                 self.fmt_expr(&self.arena[initial_value]);
             }
-            RawStmtKind::Return(expr) => {
+            RawStmtVariant::Return(expr) => {
                 match self.context.value() {
                     AstContext::Func | AstContext::Morphism | AstContext::Main => (),
                     AstContext::Proc => self.write("return "),
@@ -218,10 +218,11 @@ impl<'a> Formatter<'a> {
                 }
                 self.fmt_expr(&self.arena[expr]);
             }
-            RawStmtKind::Assert(expr) => {
+            RawStmtVariant::Assert(expr) => {
                 self.write("assert ");
                 self.fmt_expr(&self.arena[expr]);
             }
+            RawStmtVariant::Break => todo!(),
         }
     }
 

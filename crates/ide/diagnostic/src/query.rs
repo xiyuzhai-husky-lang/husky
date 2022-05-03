@@ -11,10 +11,10 @@ use crate::*;
 pub trait DiagnosticQuery:
     EntityRouteQueryGroup + AstQueryGroup + InferQueryGroup + EntityDefnQueryGroup
 {
-    fn diagnostic_reserve(&self, module: EntityRoutePtr) -> Arc<DiagnosticReserve>;
+    fn diagnostics_reserve(&self, module: EntityRoutePtr) -> Arc<DiagnosticReserve>;
 }
 
-fn diagnostic_reserve(
+fn diagnostics_reserve(
     this: &dyn DiagnosticQuery,
     module: EntityRoutePtr,
 ) -> Arc<DiagnosticReserve> {

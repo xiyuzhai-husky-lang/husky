@@ -5,7 +5,11 @@ edition = "2021"
 
 [[bin]]
 name = "husky-analyzer-server"
-path = "src/bin/main.rs"
+path = "src/bin/server.rs"
+
+[[bin]]
+name = "husky-analyzer-tester"
+path = "src/bin/tester.rs"
 
 [dependencies]
 anyhow = "1.0.26"
@@ -24,6 +28,9 @@ lsp-server = "0.5.2"
 salsa = "0.17.0-pre.2"
 error-utils = { path = "../../utils/error", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
+path-utils = { path = "../../utils/path", version = "0.0.0" }
+test-utils = { path = "../../utils/test", version = "0.0.0" }
+check-utils = { path = "../../utils/check", version = "0.0.0" }
 compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }

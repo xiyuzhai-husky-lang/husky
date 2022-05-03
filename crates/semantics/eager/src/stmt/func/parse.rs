@@ -20,8 +20,8 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => match stmt.kind {
-                    RawStmtKind::Loop(_) => todo!(),
-                    RawStmtKind::Branch(branch_kind) => {
+                    RawStmtVariant::Loop(_) => todo!(),
+                    RawStmtVariant::Branch(branch_kind) => {
                         let mut branches = vec![];
                         match branch_kind {
                             RawBranchKind::If { condition } => {
@@ -38,14 +38,14 @@ impl<'a> EagerStmtParser<'a> {
                         while let Some(item) = iter.peek() {
                             let item = match item.value.as_ref()?.kind {
                                 AstKind::Stmt(RawStmt {
-                                    kind: RawStmtKind::Branch(_),
+                                    kind: RawStmtVariant::Branch(_),
                                     ..
                                 }) => iter.next().unwrap(),
                                 _ => break,
                             };
                             match item.value.as_ref()?.kind {
                                 AstKind::Stmt(RawStmt {
-                                    kind: RawStmtKind::Branch(branch_stmt),
+                                    kind: RawStmtVariant::Branch(branch_stmt),
                                     ..
                                 }) => match branch_stmt {
                                     RawBranchKind::If { .. } => break,
@@ -78,8 +78,8 @@ impl<'a> EagerStmtParser<'a> {
                             instruction_id: Default::default(),
                         }
                     }
-                    RawStmtKind::Exec(_) => todo!(),
-                    RawStmtKind::Init {
+                    RawStmtVariant::Exec(_) => todo!(),
+                    RawStmtVariant::Init {
                         varname,
                         initial_value,
                         init_kind: kind,
@@ -101,7 +101,7 @@ impl<'a> EagerStmtParser<'a> {
                             instruction_id: Default::default(),
                         }
                     }
-                    RawStmtKind::Return(result) => FuncStmt {
+                    RawStmtVariant::Return(result) => FuncStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
@@ -110,7 +110,7 @@ impl<'a> EagerStmtParser<'a> {
                         },
                         instruction_id: Default::default(),
                     },
-                    RawStmtKind::Assert(condition) => FuncStmt {
+                    RawStmtVariant::Assert(condition) => FuncStmt {
                         file: self.file,
                         range: stmt.range,
                         indent: item.indent,
@@ -119,6 +119,7 @@ impl<'a> EagerStmtParser<'a> {
                         },
                         instruction_id: Default::default(),
                     },
+                    RawStmtVariant::Break => todo!(),
                 },
                 AstKind::EnumVariantDefnHead {
                     ident,

@@ -1,6 +1,8 @@
 use vm::PrimitiveValue;
 use word::RangedCustomIdentifier;
 
+use crate::convexity::Convexity;
+
 use super::*;
 
 impl<'a> AtomLRParser<'a> {
@@ -40,6 +42,7 @@ impl<'a> AtomLRParser<'a> {
                     BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
                 },
             )),
+            Special::Exclamation => self.handle_exclamation(),
             Special::LPar => Ok(self.stack.start_list(Bracket::Par, self.stream.pop_range())),
             Special::LBox => Ok(self.stack.start_list(Bracket::Box, self.stream.pop_range())),
             Special::LCurl => Ok(self
@@ -101,6 +104,35 @@ impl<'a> AtomLRParser<'a> {
                 self.stream.pop_range();
                 self.stack.push(token.into())
             }
+        }
+    }
+
+    fn handle_exclamation(&mut self) -> AtomResult<()> {
+        let exclamation_range = self.stream.pop_range();
+        if let Some(atom_kind) = try_get!(self, symbol?) {
+            match atom_kind {
+                AtomVariant::EntityRoute { route, kind } => todo!(),
+                AtomVariant::Variable { .. }
+                | AtomVariant::FrameVariable { .. }
+                | AtomVariant::ThisData { .. }
+                | AtomVariant::Literal(_) => {
+                    self.stack.push(Atom::new(
+                        exclamation_range,
+                        AtomVariant::Prefix(PrefixOpr::Not),
+                    ))?;
+                    self.push(atom_kind)
+                }
+                AtomVariant::Unrecognized(_) => todo!(),
+                AtomVariant::Binary(_) => todo!(),
+                AtomVariant::Prefix(_) => todo!(),
+                AtomVariant::Suffix(_) => todo!(),
+                AtomVariant::ListStart(_, _) => todo!(),
+                AtomVariant::ListEnd(_, _) => todo!(),
+                AtomVariant::ListItem => todo!(),
+                AtomVariant::LambdaHead(_) => todo!(),
+            }
+        } else {
+            todo!()
         }
     }
 }

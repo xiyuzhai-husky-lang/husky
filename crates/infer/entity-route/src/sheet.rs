@@ -27,7 +27,7 @@ pub struct EntityRouteSheet {
     pub ast_text: Arc<AstText>,
     pub(crate) expr_tys: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
     pub(crate) call_routes: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
-    pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), Option<EntityRoutePtr>>,
+    pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), EntityRoutePtr>,
     pub(crate) global_errors: Vec<InferError>,
 }
 

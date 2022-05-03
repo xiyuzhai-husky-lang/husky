@@ -7,6 +7,7 @@ mod init_connection;
 mod lsp_ext;
 mod server;
 mod server_capabilities;
+pub mod tester;
 pub mod utils;
 
 pub use crate::event_loop::event_loop;

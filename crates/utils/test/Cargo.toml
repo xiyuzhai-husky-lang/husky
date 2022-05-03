@@ -1,0 +1,8 @@
+[package]
+name = "test-utils"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+path-utils = { path = "../path", version = "0.0.0" }
+print-utils = { path = "../print", version = "0.0.0" }

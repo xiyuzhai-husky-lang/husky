@@ -3,13 +3,13 @@ mod impl_load;
 mod impl_necessary;
 #[cfg(test)]
 mod tests;
+pub mod utils;
 
 pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use diagnostic::DiagnosticQuery;
 pub use entity_route::{AllocateUniqueScope, EntityRoute};
 pub use entity_route_query::{EntityRouteQueryGroup, EntityRouteSalsaQueryGroup};
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
-use file::FilePtr;
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use infer_contract::*;
@@ -17,15 +17,17 @@ pub use infer_decl::*;
 pub use infer_entity_route::*;
 pub use infer_total::*;
 pub use instruction_gen::InstructionGenQueryGroup;
-use linkage_table::LinkageTable;
 pub use pack_semantics::PackageQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
 pub use semantics_entity::EntityDefnQueryGroup;
 pub use token::TokenQueryGroup;
+pub use token::TokenSalsaQueryGroup;
 pub use word::InternWord;
 
 use check_utils::*;
 use entity_route::EntityRoutePtr;
+use file::FilePtr;
+use linkage_table::LinkageTable;
 use print_utils::*;
 use semantics_entity::{EntityDefnVariant, EntityRouteStore};
 use std::{

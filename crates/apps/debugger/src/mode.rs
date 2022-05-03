@@ -6,7 +6,7 @@ use crate::*;
 use compare::*;
 use compile_time_db::HuskyLangCompileTime;
 use diagnostic::Diagnostic;
-use path_utils::collect_pack_dirs;
+use path_utils::collect_all_package_dirs;
 use std::path::PathBuf;
 use test_diagnostics::*;
 use test_semantic_tokens::*;
@@ -48,12 +48,12 @@ async fn run(path: PathBuf) {
 }
 
 fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: PathBuf) {
-    compile_time.load_pack(path)
+    compile_time.load_package(&path)
 }
 
 async fn test_all_packages_in_dir(dir: PathBuf) {
     assert!(dir.is_dir());
-    let pack_paths = collect_pack_dirs(dir);
+    let pack_paths = collect_all_package_dirs(dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
         print_utils::CYAN,
