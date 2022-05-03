@@ -36,7 +36,7 @@ impl ContractSheet {
         if let Some(contract_result) = self.eager_expr_contract_results.get(&raw_expr_idx) {
             contract_result.clone()
         } else {
-            Err(derived!())
+            Err(derived!(format!("contract not inferred")))
         }
     }
 
@@ -46,7 +46,7 @@ impl ContractSheet {
             match result {
                 Ok(_) => (),
                 Err(error) => match error.variant {
-                    InferErrorVariant::Derived => (),
+                    InferErrorVariant::Derived { .. } => (),
                     InferErrorVariant::Original { .. } => errors.push(error),
                 },
             }
@@ -55,7 +55,7 @@ impl ContractSheet {
             match result {
                 Ok(_) => (),
                 Err(error) => match error.variant {
-                    InferErrorVariant::Derived => (),
+                    InferErrorVariant::Derived { .. } => (),
                     InferErrorVariant::Original { .. } => errors.push(error),
                 },
             }

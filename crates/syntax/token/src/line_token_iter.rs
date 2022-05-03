@@ -192,6 +192,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             ',' => (1, Special::Comma),
             '&' => match self.peek_char() {
                 '&' => self.pass_two(Special::And),
+                '=' => self.pass_two(Special::BitAndAssign),
                 _ => (1, Special::Ambersand),
             },
             '|' => match self.peek_char() {

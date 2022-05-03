@@ -133,7 +133,10 @@ impl<'a> SymbolContext<'a> {
     }
 
     fn find_symbol(&self, ident: CustomIdentifier) -> Option<&Symbol> {
-        self.symbols.iter().find(|symbol| symbol.ident == ident)
+        self.symbols
+            .iter()
+            .rev()
+            .find(|symbol| symbol.ident == ident)
     }
 
     pub fn entity_kind(&self, route: EntityRoutePtr) -> EntityKind {

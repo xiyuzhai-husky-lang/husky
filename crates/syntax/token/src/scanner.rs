@@ -1,4 +1,4 @@
-use std::sync::Arc;
+use std::{iter::Peekable, sync::Arc};
 
 use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 
@@ -6,6 +6,7 @@ use dev_utils::dev_src;
 use file::URange;
 use print_utils::{epin, p};
 use text::TextIndent;
+use wild_utils::ref_to_mut_ref;
 use word::WordAllocator;
 
 #[derive(PartialEq, Eq)]
@@ -71,110 +72,98 @@ impl<'token> TokenScanner<'token> {
     }
 
     fn produce_line_groups(&mut self) -> Vec<TokenGroup> {
-        epin!();
         let mut line_groups = Vec::new();
-        epin!();
         line_groups.reserve(self.tokenized_lines.len());
-        epin!();
         let mut line_iter = self
             .tokenized_lines
             .iter()
             .filter(|line| line.tokens.len() > 0)
             .peekable();
-        epin!();
-        let mut counter = 0;
         while let Some(first_line) = line_iter.next() {
-            counter += 1;
-            p!(counter);
-            if counter > 10000 {
-                panic!("infinite loop")
-            }
-            line_groups.push({
-                let group_indent = first_line.indent;
-                TokenGroup {
-                    indent: group_indent,
-                    tokens: first_line.tokens.start..{
-                        if self.last_token(first_line).kind == TokenKind::Special(Special::Colon) {
-                            epin!();
-                            if let Some(line) = line_iter.peek() {
-                                match line.indent.within(group_indent) {
-                                    Ok(is_within) => {
-                                        if !is_within {
-                                            self.errors.push(LexError {
-                                                message: format!(
-                                                    "expect indentated lines after `:`"
-                                                ),
-                                                range: self.last_token(first_line).range,
-                                                dev_src: dev_src!(),
-                                            });
-                                        }
-                                    }
-                                    Err(e) => self.errors.push(LexError {
-                                        message: format!("{:?}", e),
-                                        range: self.last_token(first_line).range,
-                                        dev_src: dev_src!(),
-                                    }),
-                                }
-                            }
-                            first_line.tokens.end
-                        } else {
-                            loop {
-                                counter += 1;
-                                if counter > 10000 {
-                                    panic!("infinite loop")
-                                }
-                                if let Some(line) = line_iter.peek().map(|e| *e) {
-                                    match line.indent.within(group_indent) {
-                                        Ok(is_within) => {
-                                            if is_within {
-                                                line_iter.next();
-                                            } else {
-                                                fn bind_to_last_line(kind: TokenKind) -> bool {
-                                                    match kind {
-                                                        TokenKind::Special(special) => {
-                                                            match special {
-                                                                Special::RCurl => true,
-                                                                Special::RBox => true,
-                                                                Special::RPar => true,
-                                                                _ => false,
-                                                            }
-                                                        }
-                                                        _ => false,
-                                                    }
-                                                }
-
-                                                if bind_to_last_line(
-                                                    self.first_token(line).kind.clone(),
-                                                ) {
-                                                    line_iter.next();
-                                                    break line.tokens.end;
-                                                } else {
-                                                    break line.tokens.start;
-                                                }
-                                            }
-                                        }
-                                        Err(e) => self.errors.push(LexError {
-                                            message: format!("{:?}", e),
-                                            range: self.last_token(first_line).range,
-                                            dev_src: dev_src!(),
-                                        }),
-                                    }
-                                } else {
-                                    break self.tokens.len();
-                                }
-                            }
-                        }
-                    },
-                }
-            });
+            line_groups.push(
+                unsafe { ref_to_mut_ref(self) }.produce_line_group(first_line, &mut line_iter),
+            );
         }
         line_groups
     }
 
+    fn produce_line_group<'a>(
+        &mut self,
+        first_line: &TokenizedLine,
+        line_iter: &mut Peekable<impl Iterator<Item = &'a TokenizedLine>>,
+    ) -> TokenGroup {
+        let group_indent = first_line.indent;
+        TokenGroup {
+            indent: group_indent,
+            tokens: first_line.tokens.start..{
+                if self.last_token(first_line).kind == TokenKind::Special(Special::Colon) {
+                    if let Some(line) = line_iter.peek() {
+                        match line.indent.within(group_indent) {
+                            Ok(is_within) => {
+                                if !is_within {
+                                    self.errors.push(LexError {
+                                        message: format!("expect indentated lines after `:`"),
+                                        range: self.last_token(first_line).range,
+                                        dev_src: dev_src!(),
+                                    });
+                                }
+                            }
+                            Err(e) => self.errors.push(LexError {
+                                message: format!("{:?}", e),
+                                range: self.last_token(first_line).range,
+                                dev_src: dev_src!(),
+                            }),
+                        }
+                    }
+                    first_line.tokens.end
+                } else {
+                    loop {
+                        if let Some(line) = line_iter.peek().map(|e| *e) {
+                            match line.indent.within(group_indent) {
+                                Ok(is_within) => {
+                                    if is_within {
+                                        line_iter.next();
+                                    } else {
+                                        fn bind_to_last_line(kind: TokenKind) -> bool {
+                                            match kind {
+                                                TokenKind::Special(special) => match special {
+                                                    Special::RCurl => true,
+                                                    Special::RBox => true,
+                                                    Special::RPar => true,
+                                                    _ => false,
+                                                },
+                                                _ => false,
+                                            }
+                                        }
+
+                                        if bind_to_last_line(self.first_token(line).kind.clone()) {
+                                            line_iter.next();
+                                            break line.tokens.end;
+                                        } else {
+                                            break line.tokens.start;
+                                        }
+                                    }
+                                }
+                                Err(e) => {
+                                    self.errors.push(LexError {
+                                        message: format!("{:?}", e),
+                                        range: self.last_token(first_line).range,
+                                        dev_src: dev_src!(),
+                                    });
+                                    line_iter.next();
+                                }
+                            }
+                        } else {
+                            break self.tokens.len();
+                        }
+                    }
+                }
+            },
+        }
+    }
+
     pub(crate) fn gen_tokenized_text(mut self) -> Arc<TokenizedText> {
-        epin!();
         let line_groups = self.produce_line_groups();
-        epin!();
         Arc::new(TokenizedText::new(line_groups, self.tokens, self.errors))
     }
 }

@@ -202,7 +202,19 @@ impl<'a> ContractSheetBuilder<'a> {
         match opr {
             PrefixOpr::Minus => (),
             PrefixOpr::Not => (),
-            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::BitNot => match contract {
+                EagerContract::Pure => (),
+                EagerContract::GlobalRef => todo!(),
+                EagerContract::Move => todo!(),
+                EagerContract::LetInit => todo!(),
+                EagerContract::VarInit => todo!(),
+                EagerContract::UseMemberForLetInit => todo!(),
+                EagerContract::UseMemberForVarInit => todo!(),
+                EagerContract::Return => todo!(),
+                EagerContract::BorrowMut => todo!(),
+                EagerContract::TakeMut => todo!(),
+                EagerContract::Exec => todo!(),
+            },
             PrefixOpr::Shared => todo!(),
             PrefixOpr::Exclusive => todo!(),
         }
@@ -407,7 +419,9 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::BorrowMut => EagerContract::BorrowMut,
             EagerContract::TakeMut => EagerContract::TakeMut,
             EagerContract::Exec => Err(InferError {
-                variant: InferErrorVariant::Derived,
+                variant: InferErrorVariant::Derived {
+                    message: "can't exec element access".to_string(),
+                },
                 dev_src: dev_src!(),
             })?,
             EagerContract::UseMemberForLetInit => todo!(),

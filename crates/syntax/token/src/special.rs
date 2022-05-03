@@ -24,22 +24,23 @@ pub enum Special {
     BitNot,
     Modulo,
     MemberAccess,
-    LightArrow,  // ->
-    HeavyArrow,  // =>
-    DoubleColon, // ::
-    Colon,       // :
-    Comma,       // ,
-    Ambersand,   // &
-    Incr,        // ++
-    Decr,        // --
-    Vertical,    // |
-    Assign,      // =
-    AddAssign,   // +=
-    SubAssign,   // -=
-    MulAssign,   // *=
-    DivAssign,   // /=
-    BitOrAssign, // /=
-    Exclamation, // !
+    LightArrow,   // ->
+    HeavyArrow,   // =>
+    DoubleColon,  // ::
+    Colon,        // :
+    Comma,        // ,
+    Ambersand,    // &
+    Incr,         // ++
+    Decr,         // --
+    Vertical,     // |
+    Assign,       // =
+    AddAssign,    // +=
+    SubAssign,    // -=
+    MulAssign,    // *=
+    DivAssign,    // /=
+    BitAndAssign, // &=
+    BitOrAssign,  // |=
+    Exclamation,  // !
 }
 
 impl Special {
@@ -85,6 +86,7 @@ impl Special {
             Special::DivAssign => "/=",
             Special::Exclamation => "!",
             Special::BitOrAssign => "|=",
+            Special::BitAndAssign => "&=",
         }
     }
 }

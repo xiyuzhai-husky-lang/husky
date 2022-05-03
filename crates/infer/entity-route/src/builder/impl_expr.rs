@@ -145,7 +145,12 @@ impl<'a> TySheetBuilder<'a> {
                     EntityRoutePtr::Custom(_) => todo!(),
                     EntityRoutePtr::ThisType => todo!(),
                 },
-                EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
+                EntityRoutePtr::Custom(lopd_custom_ty) => {
+                    p!(self.ty_sheet);
+                    p!(lopd_custom_ty);
+                    p!(pure_binary_opr);
+                    todo!()
+                }
                 EntityRoutePtr::ThisType => todo!(),
             },
             BinaryOpr::Assign(_) => {
@@ -264,7 +269,14 @@ impl<'a> TySheetBuilder<'a> {
                     todo!()
                 }
             }
-            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::BitNot => match opd_ty {
+                EntityRoutePtr::Root(root_ident) => match root_ident {
+                    RootIdentifier::B32 | RootIdentifier::B64 => Ok(opd_ty),
+                    _ => todo!(),
+                },
+                EntityRoutePtr::Custom(_) => todo!(),
+                EntityRoutePtr::ThisType => todo!(),
+            },
             PrefixOpr::Shared => todo!(),
             PrefixOpr::Exclusive => todo!(),
         }

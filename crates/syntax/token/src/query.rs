@@ -12,7 +12,6 @@ fn tokenized_text(
     id: file::FilePtr,
 ) -> FileResultArc<TokenizedText> {
     if let Some(text) = this.raw_text(id) {
-        epin!();
         return Ok(TokenizedText::parse(this.word_allocator(), text.as_str()));
     } else {
         Err(FileError::FileNotFound)

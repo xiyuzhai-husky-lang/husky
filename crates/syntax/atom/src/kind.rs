@@ -82,6 +82,7 @@ impl From<Special> for AtomVariant {
             Special::MulAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Mul)).into(),
             Special::DivAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Div)).into(),
             Special::BitOrAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitOr)).into(),
+            Special::BitAndAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitAnd)).into(),
             Special::LAngle => BinaryOpr::Pure(PureBinaryOpr::Less).into(),
             Special::Leq => BinaryOpr::Pure(PureBinaryOpr::Leq).into(),
             Special::RAngle => BinaryOpr::Pure(PureBinaryOpr::Greater).into(),

@@ -7,9 +7,9 @@ pub struct InferError {
 }
 
 impl InferError {
-    pub fn derived(&self) -> Self {
+    pub fn derived(&self, message: String) -> Self {
         Self {
-            variant: InferErrorVariant::Derived,
+            variant: InferErrorVariant::Derived { message },
             dev_src: self.dev_src.clone(),
         }
     }
@@ -17,7 +17,7 @@ impl InferError {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum InferErrorVariant {
-    Derived,
+    Derived { message: String },
     Original { message: String, range: TextRange },
 }
 
@@ -61,7 +61,9 @@ impl From<EntityRouteError> for InferError {
 impl From<&ast::AstError> for InferError {
     fn from(error: &ast::AstError) -> Self {
         Self {
-            variant: InferErrorVariant::Derived,
+            variant: InferErrorVariant::Derived {
+                message: format!("{:?}", error),
+            },
             dev_src: error.dev_src.clone(),
         }
     }
@@ -103,7 +105,9 @@ macro_rules! ok_or {
 macro_rules! derived_not_none {
     ($opt_value: expr) => {{
         $opt_value.ok_or(InferError {
-            variant: InferErrorVariant::Derived,
+            variant: InferErrorVariant::Derived {
+                message: "expect not none".to_string(),
+            },
             dev_src: dev_utils::dev_src!(),
         })
     }};
@@ -111,9 +115,9 @@ macro_rules! derived_not_none {
 
 #[macro_export]
 macro_rules! derived {
-    () => {{
+    ($message: expr) => {{
         InferError {
-            variant: InferErrorVariant::Derived,
+            variant: InferErrorVariant::Derived { message: $message },
             dev_src: dev_utils::dev_src!(),
         }
     }};
@@ -123,7 +127,9 @@ macro_rules! derived {
 macro_rules! derived_ok {
     ($opt_value: expr) => {{
         $opt_value.or(Err(InferError {
-            variant: InferErrorVariant::Derived,
+            variant: InferErrorVariant::Derived {
+                message: "derived ok".to_string(),
+            },
             dev_src: dev_utils::dev_src!(),
         }))?
     }};
