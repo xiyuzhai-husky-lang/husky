@@ -1,22 +1,10 @@
 {
-    mnist_predictor: [
+    mnist_predictor1: [
         Diagnostic {
             severity: Error,
             range: 11:14..11:15,
             message: "Ast Error: unrecognized char `;`",
             dev_src: crates/syntax/atom/src/parser.rs:120,
-        },
-        Diagnostic {
-            severity: Error,
-            range: 43:32..43:33,
-            message: "Ast Error: convexity not compatible",
-            dev_src: crates/syntax/atom/src/stack.rs:47,
-        },
-        Diagnostic {
-            severity: Error,
-            range: 30:63..30:66,
-            message: "Infer Error: Unrecognized identifier `img`",
-            dev_src: crates/infer/entity-route/src/builder/impl_expr.rs:47,
         },
         Diagnostic {
             severity: Error,
@@ -29,6 +17,12 @@
             range: 21:27..21:41,
             message: "Infer Error: no method named `trailing_zeros` for type `b32`",
             dev_src: crates/infer/decl/src/ty.rs:470,
+        },
+        Diagnostic {
+            severity: Error,
+            range: 30:63..30:66,
+            message: "Infer Error: Unrecognized identifier `img`",
+            dev_src: crates/infer/entity-route/src/builder/impl_expr.rs:47,
         },
         Diagnostic {
             severity: Error,

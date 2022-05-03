@@ -57,8 +57,8 @@ impl From<&AstError> for Diagnostic {
 impl From<&InferError> for Diagnostic {
     fn from(error: &InferError) -> Self {
         match error.variant {
-            InferErrorVariant::Derived => {
-                p!(error.dev_src);
+            InferErrorVariant::Derived { .. } => {
+                p!(error);
                 panic!()
             }
             InferErrorVariant::Original { ref message, range } => Self {

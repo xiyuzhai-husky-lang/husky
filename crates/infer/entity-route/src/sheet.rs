@@ -46,7 +46,7 @@ impl EntityRouteSheet {
         if let Some(ref expr_ty) = self.expr_tys.get(&expr_idx) {
             match expr_ty {
                 Ok(ty) => Ok(*ty),
-                Err(e) => Err(e.derived()),
+                Err(e) => Err(e.derived(format!("{:?}", e))),
             }
         } else {
             p!(self.expr_tys);
@@ -59,7 +59,7 @@ impl EntityRouteSheet {
     pub fn call_route_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         match &self.call_routes[&expr_idx] {
             Ok(call_route) => Ok(*call_route),
-            Err(e) => Err(e.derived()),
+            Err(e) => Err(e.derived(format!("{:?}", e))),
         }
     }
 
@@ -68,7 +68,7 @@ impl EntityRouteSheet {
             .global_errors
             .iter()
             .filter_map(|e| match e.variant {
-                InferErrorVariant::Derived => None,
+                InferErrorVariant::Derived { .. } => None,
                 InferErrorVariant::Original { .. } => Some(e),
             })
             .collect();
@@ -76,7 +76,7 @@ impl EntityRouteSheet {
             match result {
                 Ok(_) => (),
                 Err(error) => match error.variant {
-                    InferErrorVariant::Derived => (),
+                    InferErrorVariant::Derived { .. } => (),
                     InferErrorVariant::Original { .. } => errors.push(error),
                 },
             }

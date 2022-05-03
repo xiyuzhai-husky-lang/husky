@@ -30,7 +30,6 @@ impl TokenizedText {
     }
 
     pub fn folding_ranges(&self) -> Vec<FoldingRange> {
-        epin!();
         let result = self
             .token_groups
             .nodes
@@ -57,7 +56,6 @@ impl TokenizedText {
                 })
             })
             .collect();
-        epin!();
         result
     }
 }
@@ -104,13 +102,10 @@ impl fold::ItemToFold<URange> for TokenGroup {
 
 impl TokenizedText {
     pub(crate) fn parse(word_unique_allocator: &WordAllocator, text: &str) -> Arc<Self> {
-        epin!();
         let mut token_scanner = TokenScanner::new(word_unique_allocator);
-        epin!();
         for (i, line) in text.lines().enumerate() {
             token_scanner.scan(i, line)
         }
-        epin!();
         token_scanner.gen_tokenized_text()
     }
 }

@@ -144,7 +144,7 @@ impl<'eval> AnyValue<'eval> for i32 {
     }
 
     fn as_primitive(&self) -> PrimitiveValue {
-        self.into()
+        (*self).into()
     }
 
     fn from_stack(stack_value: StackValue) -> Self {

@@ -94,7 +94,28 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         base_route: "b32",
         generic_placeholders: &[],
         trait_impls: &[],
-        type_members: &[],
+        type_members: &[EntityStaticDefn {
+            name: "trailing_zeros",
+            subscopes: &[],
+            variant: EntityStaticDefnVariant::Method {
+                this_contract: InputContract::Pure,
+                input_placeholders: &[],
+                output_ty: "i32",
+                output_contract: OutputContract::Pure,
+                generic_placeholders: &[],
+                kind: MethodStaticDefnKind::TypeMethod {
+                    source: LinkageSource::PureOutput(Linkage {
+                        call: |values| {
+                            Ok(StackValue::Primitive(
+                                (values[0].as_primitive().as_b32().trailing_zeros() as i32).into(),
+                            ))
+                        },
+                        nargs: 1,
+                    }),
+                },
+            },
+            dev_src: static_dev_src!(),
+        }],
         variants: &[],
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {

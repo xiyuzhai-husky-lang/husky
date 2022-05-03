@@ -125,14 +125,10 @@ pub(crate) fn handle_folding_range(
 ) -> Result<Option<Vec<FoldingRange>>> {
     use token::*;
     if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-        epin!();
         let file = snapshot.intern_file(path);
-        epin!();
         if let Ok(tokenized_text) = snapshot.tokenized_text(file) {
-            epin!();
             return Ok(Some(tokenized_text.folding_ranges()));
         }
-        epin!();
     }
     Ok(None)
 }
@@ -276,50 +272,46 @@ pub(crate) fn handle_semantic_tokens_full(
     snapshot: HuskyLangDatabaseSnapshot,
     params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    Ok(None)
-    // let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
-    //     &params.text_document.uri,
-    // )?);
-    // let ast_text = snapshot.ast_text(file)?;
-    // let data = AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens);
-    // Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
-    //     result_id: None,
-    //     data,
-    // })))
+    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+        &params.text_document.uri,
+    )?);
+    let ast_text = snapshot.ast_text(file)?;
+    let data = AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens);
+    Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
+        result_id: None,
+        data,
+    })))
 }
 
 pub(crate) fn handle_semantic_tokens_full_delta(
     snapshot: HuskyLangDatabaseSnapshot,
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
-    Ok(None)
-    // msg_once!("todo handle semantic tokens full delta");
-    // let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
-    //     &params.text_document.uri,
-    // )?);
-    // let ast_text = snapshot.ast_text(file)?;
-    // Ok(Some(SemanticTokensFullDeltaResult::Tokens(
-    //     SemanticTokens {
-    //         result_id: None,
-    //         data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
-    //     },
-    // )))
+    msg_once!("todo handle semantic tokens full delta");
+    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+        &params.text_document.uri,
+    )?);
+    let ast_text = snapshot.ast_text(file)?;
+    Ok(Some(SemanticTokensFullDeltaResult::Tokens(
+        SemanticTokens {
+            result_id: None,
+            data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
+        },
+    )))
 }
 
 pub(crate) fn handle_semantic_tokens_range(
     snapshot: HuskyLangDatabaseSnapshot,
     params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
-    Ok(None)
-    // p!(params);
-    // let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
-    //     &params.text_document.uri,
-    // )?);
-    // let ast_text = snapshot.ast_text(file)?;
-    // Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
-    //     result_id: None,
-    //     data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
-    // })))
+    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+        &params.text_document.uri,
+    )?);
+    let ast_text = snapshot.ast_text(file)?;
+    Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
+        result_id: None,
+        data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
+    })))
 }
 
 pub(crate) fn handle_open_docs(
