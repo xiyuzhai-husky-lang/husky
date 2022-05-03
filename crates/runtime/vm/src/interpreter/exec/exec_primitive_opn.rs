@@ -73,7 +73,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 Ok(())
             }
-            PrimitiveOpn::Unary => todo!(),
+            PrimitiveOpn::Suffix(_) => todo!(),
+            PrimitiveOpn::Prefix(_) => todo!(),
         }
     }
 }

@@ -80,6 +80,7 @@ pub enum MethodStaticDefnKind {
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum LinkageSource {
     MemberAccess {
+        copy_access: Linkage,
         ref_access: Linkage,
         move_access: Linkage,
         borrow_mut_access: Linkage,

@@ -97,7 +97,7 @@ pub fn subtraces(
             } => match history.entry(stmt) {
                 HistoryEntry::NonVoidExpr { .. } | HistoryEntry::Exec { .. } => Arc::new(vec![]),
                 HistoryEntry::Loop {
-                    control: result,
+                    control,
                     ref stack_snapshot,
                     ref body,
                     ..
@@ -111,6 +111,7 @@ pub fn subtraces(
                     body,
                 ),
             },
+            ProcStmtVariant::Break => Arc::new(vec![]),
         },
         TraceVariant::FeatureExpr(ref expr) => {
             feature_expr_subtraces(db, trace, expr, effective_opt_input_id)

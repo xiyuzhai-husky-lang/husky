@@ -5,7 +5,7 @@ use crate::{
 use atom::symbol::{Symbol, SymbolKind};
 use text::{TextRange, TextRanged};
 use token::*;
-use vm::BinaryOpr;
+use vm::*;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_stmt_with_keyword(

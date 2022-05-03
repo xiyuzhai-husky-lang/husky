@@ -65,7 +65,7 @@ impl<'eval> TraceFactory<'eval> {
                 opn_variant: ref opn_kind,
                 ref opds,
             } => match opn_kind {
-                EagerOpnVariant::Binary { opr, this } => {
+                EagerOpnVariant::Binary { opr, this_ty: this } => {
                     tokens.extend(self.eager_expr_tokens(
                         &opds[0],
                         text,

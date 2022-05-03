@@ -171,6 +171,7 @@ impl<'a> RustGenerator<'a> {
                     self.write("}\n")
                 }
             },
+            ProcStmtVariant::Break => todo!(),
         }
     }
 

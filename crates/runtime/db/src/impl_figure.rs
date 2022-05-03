@@ -107,6 +107,7 @@ impl HuskyLangRuntime {
                 HistoryEntry::Loop { ref mutations, .. } => self.mutations_figure(mutations),
                 _ => panic!(),
             },
+            ProcStmtVariant::Break => FigureProps::void(),
         }
     }
 

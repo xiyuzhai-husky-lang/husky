@@ -1,7 +1,6 @@
 use super::*;
 use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnVariant};
-use syntax_types::SuffixOpr;
-use vm::PrimitiveValue;
+use vm::*;
 
 impl<'a> RustGenerator<'a> {
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
@@ -15,12 +14,12 @@ impl<'a> RustGenerator<'a> {
                 ref opn_variant,
                 ref opds,
             } => match opn_variant {
-                EagerOpnVariant::Binary { opr, this } => {
+                EagerOpnVariant::Binary { opr, this_ty: this } => {
                     self.gen_expr(&opds[0]);
                     self.write(opr.spaced_code());
                     self.gen_expr(&opds[1]);
                 }
-                EagerOpnVariant::Prefix { opr, this } => todo!(),
+                EagerOpnVariant::Prefix { opr, this_ty: this } => todo!(),
                 EagerOpnVariant::Suffix { opr, this } => match opr {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),

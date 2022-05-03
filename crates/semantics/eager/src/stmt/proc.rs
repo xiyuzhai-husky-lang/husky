@@ -48,9 +48,6 @@ pub enum ProcStmtVariant {
     Execute {
         expr: Arc<EagerExpr>,
     },
-    Return {
-        result: Arc<EagerExpr>,
-    },
     BranchGroup {
         kind: ImprBranchGroupKind,
         branches: Vec<Arc<ImprBranch>>,
@@ -58,6 +55,10 @@ pub enum ProcStmtVariant {
     Loop {
         loop_variant: LoopVariant,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
+    },
+    Break,
+    Return {
+        result: Arc<EagerExpr>,
     },
 }
 

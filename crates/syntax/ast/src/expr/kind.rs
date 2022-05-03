@@ -1,8 +1,7 @@
 use crate::*;
 use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
-use syntax_types::Opr;
 use text::Row;
-use vm::PrimitiveValue;
+use vm::*;
 use word::RangedCustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

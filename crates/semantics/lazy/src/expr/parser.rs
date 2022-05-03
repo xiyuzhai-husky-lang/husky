@@ -6,9 +6,8 @@ use entity_kind::TyKind;
 use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use infer_contract::InferContract;
-use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use syntax_types::{ListOpr, Opr};
-use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
+use infer_entity_route::InferEntityRoute;
+use vm::*;
 use word::{CustomIdentifier, RootIdentifier};
 
 use super::*;

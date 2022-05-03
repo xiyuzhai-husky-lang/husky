@@ -1,12 +1,14 @@
 mod id;
+mod opr;
 mod sheet;
+
+pub use opr::*;
 
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
 use text::TextRange;
-use word::{CustomIdentifier, Identifier, RootIdentifier};
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -88,6 +90,7 @@ pub enum InstructionKind {
     },
     Return,
     BreakIfFalse,
+    Break,
     Assert,
 }
 
@@ -108,14 +111,15 @@ impl std::fmt::Display for InitKind {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum PrimitiveOpn {
     PureBinary(PureBinaryOpr),
     Assign(Option<PureBinaryOpr>),
-    Unary,
+    Prefix(PrefixOpr),
+    Suffix(SuffixOpr),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {
     Pure(PureBinaryOpr),
     Assign(Option<PureBinaryOpr>),

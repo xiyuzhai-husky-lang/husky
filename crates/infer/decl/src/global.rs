@@ -1,6 +1,6 @@
 use file::FilePtr;
-use syntax_types::{ListOpr, Opr};
 use text::TextRange;
+use vm::*;
 use word::RootIdentifier;
 
 use crate::*;
@@ -20,11 +20,11 @@ fn global_input_ty_from_ast(
                 ref opds,
             } => match arena[opds][0].variant {
                 RawExprVariant::Entity {
-                    route: scope,
+                    route,
                     kind: EntityKind::Routine,
                     ..
                 } => {
-                    let signature = db.call_decl(scope)?;
+                    let signature = db.call_decl(route)?;
                     let dataset_type = signature.output.ty;
                     match dataset_type.kind {
                         EntityRouteKind::Root {
