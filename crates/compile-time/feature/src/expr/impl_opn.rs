@@ -185,6 +185,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                     ref_access,
                                     move_access,
                                     borrow_mut_access,
+                                    ..
                                 } => todo!(),
                                 LinkageSource::PureOutput(_) => todo!(),
                             }),

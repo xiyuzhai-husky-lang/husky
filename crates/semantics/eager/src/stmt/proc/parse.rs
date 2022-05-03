@@ -141,7 +141,7 @@ impl<'a> EagerStmtParser<'a> {
             RawStmtVariant::Assert(condition) => ProcStmtVariant::Assert {
                 condition: self.parse_eager_expr(condition)?,
             },
-            RawStmtVariant::Break => todo!(),
+            RawStmtVariant::Break => ProcStmtVariant::Break,
         })
     }
 

@@ -36,6 +36,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref loop_variant,
                 ref stmts,
             } => self.compile_loop(loop_variant, stmt.clone(), stmts),
+            ProcStmtVariant::Break => {
+                self.push_instruction(Instruction::new(InstructionKind::Break, stmt))
+            }
         }
     }
 

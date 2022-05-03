@@ -2,19 +2,18 @@ use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use infer_decl::TyDecl;
-use syntax_types::{PrefixOpr, SuffixOpr};
-use vm::{BinaryOpr, FieldContract};
+use vm::*;
 use word::RangedCustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerOpnVariant {
     Binary {
         opr: BinaryOpr,
-        this: EntityRoutePtr,
+        this_ty: EntityRoutePtr,
     },
     Prefix {
         opr: PrefixOpr,
-        this: EntityRoutePtr,
+        this_ty: EntityRoutePtr,
     },
     Suffix {
         opr: SuffixOpr,

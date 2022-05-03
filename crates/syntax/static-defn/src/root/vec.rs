@@ -45,6 +45,10 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             generic_placeholders: &[],
                             kind: MethodStaticDefnKind::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
+                                    copy_access: Linkage {
+                                        call: generic_vec_element_copy_access,
+                                        nargs: 2,
+                                    },
                                     ref_access: Linkage {
                                         call: generic_vec_element_ref_access,
                                         nargs: 2,
@@ -215,6 +219,20 @@ pub(crate) fn generic_vec_element_move_access<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMResult<StackValue<'stack, 'eval>> {
     todo!()
+}
+
+pub(crate) fn generic_vec_element_copy_access<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let i: usize = match values[1] {
+        StackValue::Primitive(value) => value.as_i32().try_into().unwrap(),
+        _ => panic!(),
+    };
+    if i > this_value.len() {
+        todo!()
+    }
+    Ok(this_value[i].copy_into_stack())
 }
 
 pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(

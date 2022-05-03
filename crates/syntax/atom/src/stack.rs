@@ -1,4 +1,5 @@
 use entity_route::{EntityKind, GenericArgument};
+use vm::*;
 use word::RootIdentifier;
 
 use crate::{convexity::Convexity, symbol::SymbolContext, *};

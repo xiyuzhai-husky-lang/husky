@@ -2,9 +2,8 @@ use ast::RawExprRange;
 use dev_utils::dev_src;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
 use map_utils::insert_new;
-use syntax_types::{PrefixOpr, SuffixOpr};
 use text::TextRange;
-use vm::{BinaryOpr, PureBinaryOpr};
+use vm::*;
 use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;

@@ -52,6 +52,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                             MethodSource::Static(static_linkage_source) => {
                                 match static_linkage_source {
                                     LinkageSource::MemberAccess {
+                                        copy_access,
                                         ref_access,
                                         move_access,
                                         borrow_mut_access,
@@ -59,6 +60,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                         MemberAccessKind::Move => *move_access,
                                         MemberAccessKind::Ref => *ref_access,
                                         MemberAccessKind::BorrowMut => *borrow_mut_access,
+                                        MemberAccessKind::Copy => *copy_access,
                                     },
                                     LinkageSource::PureOutput(_) => todo!(),
                                 }

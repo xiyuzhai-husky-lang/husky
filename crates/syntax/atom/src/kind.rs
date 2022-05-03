@@ -1,7 +1,10 @@
 use entity_route::{EntityKind, RangedEntityRoute};
 use text::Row;
 use token::Special;
-use vm::{BinaryOpr, PrimitiveValue, PureBinaryOpr};
+use vm::{
+    BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PrimitiveValue, PureBinaryOpr,
+    SuffixOpr,
+};
 use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;

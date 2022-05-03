@@ -6,9 +6,8 @@ use ast::{
 use dev_utils::dev_src;
 use entity_route::EntityRoutePtr;
 use infer_error::*;
-use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use text::TextRange;
-use vm::{BinaryOpr, FieldContract};
+use vm::*;
 use word::RangedCustomIdentifier;
 
 use super::*;
@@ -113,7 +112,10 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::Entity { .. }
             | RawExprVariant::PrimitiveLiteral(_)
             | RawExprVariant::This { .. } => Ok(()),
-            RawExprVariant::Bracketed(expr) => return self.infer_eager_expr(expr, contract, arena),
+            RawExprVariant::Bracketed(expr) => {
+                self.infer_eager_expr(expr, contract, arena);
+                Ok(())
+            }
             RawExprVariant::Opn { opr, ref opds } => {
                 self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
@@ -199,25 +201,27 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
     ) -> InferResult<()> {
-        match opr {
-            PrefixOpr::Minus => (),
-            PrefixOpr::Not => (),
-            PrefixOpr::BitNot => match contract {
-                EagerContract::Pure => (),
-                EagerContract::GlobalRef => todo!(),
-                EagerContract::Move => todo!(),
-                EagerContract::LetInit => todo!(),
-                EagerContract::VarInit => todo!(),
-                EagerContract::UseMemberForLetInit => todo!(),
-                EagerContract::UseMemberForVarInit => todo!(),
-                EagerContract::Return => todo!(),
-                EagerContract::BorrowMut => todo!(),
-                EagerContract::TakeMut => todo!(),
-                EagerContract::Exec => todo!(),
-            },
+        let opd_contract = match opr {
+            PrefixOpr::Minus | PrefixOpr::Not | PrefixOpr::BitNot => {
+                match contract {
+                    EagerContract::Pure => (),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::BorrowMut => todo!(),
+                    EagerContract::TakeMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                }
+                EagerContract::Pure
+            }
             PrefixOpr::Shared => todo!(),
             PrefixOpr::Exclusive => todo!(),
-        }
+        };
+        self.infer_eager_expr(opd, opd_contract, arena);
         Ok(())
     }
 

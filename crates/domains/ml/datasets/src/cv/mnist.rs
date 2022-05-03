@@ -90,7 +90,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                             generic_placeholders: &[],
                             kind: MethodStaticDefnKind::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
-                                    ref_access: Linkage {
+                                    copy_access: Linkage {
                                         call: |values| -> VMResult<StackValue> {
                                             let this_value: &BinaryImage28 =
                                                 values[0].downcast_ref();
@@ -104,6 +104,10 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                                 .map(|v| StackValue::Primitive(v.into()))
                                                 .ok_or(VMError::Message("todo".into()))
                                         },
+                                        nargs: 2,
+                                    },
+                                    ref_access: Linkage {
+                                        call: |values| -> VMResult<StackValue> { todo!() },
                                         nargs: 2,
                                     },
                                     move_access: Linkage {

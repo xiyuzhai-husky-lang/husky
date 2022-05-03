@@ -1,4 +1,5 @@
 use super::*;
+use vm::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Convexity {

@@ -3,8 +3,7 @@ use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
-use syntax_types::{ListOpr, Opr, SuffixOpr};
-use vm::{BinaryOpr, EagerContract, PrimitiveValue};
+use vm::*;
 use word::RootIdentifier;
 
 use crate::*;
@@ -79,7 +78,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
     ) -> SemanticResult<EagerExprVariant> {
         match opr {
             Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
-            Opr::Prefix(_) => todo!(),
+            Opr::Prefix(opr) => self.parse_prefix_opr(opr, opds),
             Opr::Suffix(opr) => self.parse_suffix_opr(opr, opds),
             Opr::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
@@ -102,8 +101,27 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
         let lopd = self.parse_eager_expr(raw_opd_idx_range.start)?;
         let ropd = self.parse_eager_expr(raw_opd_idx_range.start + 1)?;
         Ok(EagerExprVariant::Opn {
-            opn_variant: EagerOpnVariant::Binary { opr, this: lopd.ty },
+            opn_variant: EagerOpnVariant::Binary {
+                opr,
+                this_ty: lopd.ty,
+            },
             opds: vec![lopd, ropd],
+        })
+    }
+
+    fn parse_prefix_opr(
+        &mut self,
+        opr: PrefixOpr,
+        raw_opds: &RawExprRange,
+    ) -> SemanticResult<EagerExprVariant> {
+        let opd_idx = raw_opds.start;
+        let opd = self.parse_eager_expr(opd_idx)?;
+        Ok(EagerExprVariant::Opn {
+            opn_variant: EagerOpnVariant::Prefix {
+                opr,
+                this_ty: opd.ty,
+            },
+            opds: vec![opd],
         })
     }
 

@@ -1,7 +1,4 @@
-use vm::PrimitiveValue;
-use word::RangedCustomIdentifier;
-
-use crate::convexity::Convexity;
+use vm::*;
 
 use super::*;
 

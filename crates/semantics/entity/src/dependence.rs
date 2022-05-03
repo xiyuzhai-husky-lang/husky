@@ -295,6 +295,7 @@ impl EntityDefn {
                         }
                         extract_proc_stmts_dependees(stmts, v)
                     }
+                    ProcStmtVariant::Break => (),
                 }
             }
         }

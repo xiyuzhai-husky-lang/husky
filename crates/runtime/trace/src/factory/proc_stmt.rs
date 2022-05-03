@@ -84,7 +84,7 @@ impl<'eval> TraceFactory<'eval> {
                     EagerExprVariant::Opn {
                         ref opn_variant, ..
                     } => match opn_variant {
-                        EagerOpnVariant::Binary { opr, this } => match opr {
+                        EagerOpnVariant::Binary { opr, this_ty: this } => match opr {
                             BinaryOpr::Assign(_) => {
                                 tokens.push(fade!(" = "));
                                 tokens.push(history.entry(expr).value().into())
@@ -159,6 +159,7 @@ impl<'eval> TraceFactory<'eval> {
                     tokens
                 }
             },
+            ProcStmtVariant::Break => vec![keyword!("break")],
         }
     }
 

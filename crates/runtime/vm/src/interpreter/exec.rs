@@ -126,6 +126,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         VMControl::None
                     }
                 }
+                InstructionKind::Break => VMControl::Break,
             };
             match control {
                 VMControl::None => (),

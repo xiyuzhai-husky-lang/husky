@@ -32,6 +32,7 @@ pub enum LinkageKey {
 pub enum MemberAccessKind {
     Move,
     Ref,
+    Copy,
     BorrowMut,
 }
 

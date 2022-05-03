@@ -1,8 +1,6 @@
 use defn_head::FieldKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use infer_decl::MemberIdx;
-use syntax_types::*;
-use vm::PureBinaryOpr;
+use vm::*;
 use word::RangedCustomIdentifier;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

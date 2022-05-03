@@ -10,10 +10,9 @@ pub use word::Keyword;
 
 use crate::*;
 use atom::AtomVariant;
-
-use syntax_types::*;
 use text::TextRange;
 use text::TextRanged;
+use vm::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawExpr {

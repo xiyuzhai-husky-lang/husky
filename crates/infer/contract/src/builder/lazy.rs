@@ -1,9 +1,8 @@
 use ast::*;
 
 use infer_error::*;
-use syntax_types::{ListOpr, Opr, PrefixOpr, SuffixOpr};
 use text::TextRange;
-use vm::{BinaryOpr, FieldContract};
+use vm::*;
 use word::RangedCustomIdentifier;
 
 use super::*;

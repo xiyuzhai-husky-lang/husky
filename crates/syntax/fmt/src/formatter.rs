@@ -6,7 +6,7 @@ use entity_kind::{RoutineContextKind, TyKind};
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
 use syntax_types::*;
-use vm::{FieldContract, InitKind, InputContract, PrimitiveValue};
+use vm::*;
 use word::{RootIdentifier, WordAllocator};
 
 pub struct Formatter<'a> {

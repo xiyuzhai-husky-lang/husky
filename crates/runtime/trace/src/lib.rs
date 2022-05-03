@@ -110,6 +110,7 @@ impl<'eval> Trace<'eval> {
                 | ProcStmtVariant::Return { .. } => false,
                 ProcStmtVariant::Loop { .. } => true,
                 ProcStmtVariant::BranchGroup { .. } => panic!(),
+                ProcStmtVariant::Break => false,
             },
             TraceVariant::LoopFrame { .. }
             | TraceVariant::Main(_)
