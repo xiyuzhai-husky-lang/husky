@@ -2,6 +2,7 @@ use std::sync::Arc;
 
 use file::URange;
 use lsp_types::FoldingRange;
+use print_utils::epin;
 use word::WordAllocator;
 
 use fold::{FoldedList, FoldingEnd};
@@ -29,7 +30,9 @@ impl TokenizedText {
     }
 
     pub fn folding_ranges(&self) -> Vec<FoldingRange> {
-        self.token_groups
+        epin!();
+        let result = self
+            .token_groups
             .nodes
             .iter()
             .filter_map(|node| {
@@ -53,7 +56,9 @@ impl TokenizedText {
                     kind: None,
                 })
             })
-            .collect()
+            .collect();
+        epin!();
+        result
     }
 }
 
@@ -99,10 +104,13 @@ impl fold::ItemToFold<URange> for TokenGroup {
 
 impl TokenizedText {
     pub(crate) fn parse(word_unique_allocator: &WordAllocator, text: &str) -> Arc<Self> {
+        epin!();
         let mut token_scanner = TokenScanner::new(word_unique_allocator);
-        text.lines()
-            .enumerate()
-            .for_each(|(i, line)| token_scanner.scan(i, line));
+        epin!();
+        for (i, line) in text.lines().enumerate() {
+            token_scanner.scan(i, line)
+        }
+        epin!();
         token_scanner.gen_tokenized_text()
     }
 }

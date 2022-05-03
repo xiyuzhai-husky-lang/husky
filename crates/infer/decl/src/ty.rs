@@ -467,10 +467,13 @@ impl TyDecl {
         if matched_methods.len() == 1 {
             return Ok(matched_methods[0]);
         } else {
-            p!(ranged_ident);
-            p!(self.ty_members);
-            p!(matched_methods.len());
-            todo!()
+            err!(
+                format!(
+                    "no method named `{}` for type `{:?}`",
+                    &ranged_ident.ident, self.this_ty
+                ),
+                ranged_ident.range
+            )
         }
         // ok_or!(
         //     self.type_members.get(ranged_ident.ident),

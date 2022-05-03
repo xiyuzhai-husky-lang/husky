@@ -12,7 +12,7 @@ macro_rules! batch_into {
 
 pub(crate) fn send_updates(db: &HuskyLangCompileTime, comm: &ClientCommunicator) {
     db.module_iter().for_each(|module| {
-        db.diagnostic_reserve(module).release(|diagnostics| {
+        db.diagnostics_reserve(module).release(|diagnostics| {
             if let Some(file_id) = db.module_file(module).ok() {
                 comm.send_diagnostics(db.url(file_id), batch_into!(diagnostics), None);
             }

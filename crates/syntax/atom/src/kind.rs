@@ -72,7 +72,10 @@ impl From<Special> for AtomVariant {
             | Special::RBox
             | Special::RPar
             | Special::SubOrMinus
-            | Special::MemberAccess => panic!(),
+            | Special::MemberAccess => {
+                p!(special);
+                panic!()
+            }
             Special::Assign => BinaryOpr::Assign(None).into(),
             Special::AddAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Add)).into(),
             Special::SubAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Sub)).into(),

@@ -116,6 +116,9 @@ impl<'a> AtomLRParser<'a> {
                         ));
                         self.stack.push(token.into())?
                     }
+                    TokenKind::Unrecognized(c) => {
+                        err!(format!("unrecognized char `{}`", c), token.range)?
+                    }
                 }
             } else {
                 break;

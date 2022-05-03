@@ -11,6 +11,6 @@ async fn main() {
 }
 
 fn init_compile_time(compile_time: &mut HuskyLangCompileTime) {
-    compile_time.load_pack("/home/xiyuzhai/Documents/husky/rust-gen/record-examples/snapshot".into());
+    compile_time.load_package("/home/xiyuzhai/Documents/husky/rust-gen/record-examples/snapshot".into());
     link_entity_with_compiled(compile_time)
 }

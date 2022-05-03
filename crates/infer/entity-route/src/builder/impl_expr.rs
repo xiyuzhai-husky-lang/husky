@@ -29,13 +29,16 @@ impl<'a> TySheetBuilder<'a> {
         expectation: Option<EntityRoutePtr>,
         arena: &RawExprArena,
     ) -> InferResult<EntityRoutePtr> {
-        let ty = match arena[expr_idx].variant {
-            RawExprVariant::Variable { varname, init_row } => Ok(derived_not_none!(self
-                .ty_sheet
-                .variable_tys
-                .get(&(varname, init_row))
-                .unwrap()
-                .clone())?),
+        let expr = &arena[expr_idx];
+        let ty = match expr.variant {
+            RawExprVariant::Variable { varname, init_row } => {
+                derived_not_none!(self
+                    .ty_sheet
+                    .variable_tys
+                    .get(&(varname, init_row))
+                    .map(|route| *route)
+                    .clone())
+            }
             RawExprVariant::Unrecognized(ident) => Err(InferError {
                 variant: InferErrorVariant::Original {
                     message: format!("Unrecognized identifier `{}`", &ident),
@@ -45,7 +48,9 @@ impl<'a> TySheetBuilder<'a> {
             }),
             RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind),
             RawExprVariant::PrimitiveLiteral(value) => Ok(value.ty().into()),
-            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Bracketed(expr) => {
+                derived_not_none!(self.infer_expr(expr, expectation, arena))
+            }
             RawExprVariant::Opn { opr, ref opds } => self.infer_opn(opr, opds, expr_idx, arena),
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { ty } => derived_not_none!(ty),
@@ -179,8 +184,28 @@ impl<'a> TySheetBuilder<'a> {
                 }
                 RootIdentifier::Bool
             }
-            PureBinaryOpr::Shl => todo!(),
-            PureBinaryOpr::Shr => todo!(),
+            PureBinaryOpr::Shl => {
+                match lopd_builtin_ty {
+                    RootIdentifier::B32 | RootIdentifier::B64 => (),
+                    _ => err!("expect b32 or b64 for lopd of shift left `<<`", range),
+                }
+                match ropd_builtin_ty {
+                    RootIdentifier::I32 => (),
+                    _ => err!("expect i32 for ropd of shift left `>>`", range),
+                }
+                lopd_builtin_ty
+            }
+            PureBinaryOpr::Shr => {
+                match lopd_builtin_ty {
+                    RootIdentifier::B32 | RootIdentifier::B64 => (),
+                    _ => err!("expect b32 or b64 for lopd of shift right `>>`", range),
+                }
+                match ropd_builtin_ty {
+                    RootIdentifier::I32 => (),
+                    _ => err!("expect i32 for ropd of shift right `>>`", range),
+                }
+                lopd_builtin_ty
+            }
             PureBinaryOpr::Add
             | PureBinaryOpr::Sub
             | PureBinaryOpr::Mul
@@ -196,10 +221,8 @@ impl<'a> TySheetBuilder<'a> {
                 lopd_builtin_ty
             }
             PureBinaryOpr::And => todo!(),
-            PureBinaryOpr::BitAnd => todo!(),
             PureBinaryOpr::Or => todo!(),
-            PureBinaryOpr::BitXor => todo!(),
-            PureBinaryOpr::BitOr => {
+            PureBinaryOpr::BitXor | PureBinaryOpr::BitAnd | PureBinaryOpr::BitOr => {
                 if lopd_builtin_ty != ropd_builtin_ty {
                     err!(
                         format!(
@@ -227,7 +250,24 @@ impl<'a> TySheetBuilder<'a> {
         opd: RawExprIdx,
         arena: &RawExprArena,
     ) -> InferResult<EntityRoutePtr> {
-        todo!()
+        let opd_ty = derived_not_none!(self.infer_expr(opd, None, arena))?;
+        match opr {
+            PrefixOpr::Minus => todo!(),
+            PrefixOpr::Not => {
+                if self
+                    .db
+                    .is_implicit_convertible(opd_ty, EntityRoutePtr::Root(RootIdentifier::Bool))
+                {
+                    Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
+                } else {
+                    p!(opd_ty);
+                    todo!()
+                }
+            }
+            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::Shared => todo!(),
+            PrefixOpr::Exclusive => todo!(),
+        }
     }
 
     fn infer_suffix(

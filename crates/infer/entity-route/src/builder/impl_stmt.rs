@@ -33,7 +33,7 @@ impl<'a> TySheetBuilder<'a> {
         arena: &RawExprArena,
     ) {
         match stmt.kind {
-            RawStmtKind::Loop(raw_loop_kind) => match raw_loop_kind {
+            RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
                     frame_var,
                     initial_boundary,
@@ -43,10 +43,7 @@ impl<'a> TySheetBuilder<'a> {
                     should!(self
                         .ty_sheet
                         .variable_tys
-                        .insert(
-                            (frame_var.ident, stmt.row()),
-                            Some(RootIdentifier::I32.into())
-                        )
+                        .insert((frame_var.ident, stmt.row()), RootIdentifier::I32.into())
                         .is_none());
                     self.infer_loop_bound(initial_boundary, arena);
                     self.infer_loop_bound(final_boundary, arena);
@@ -57,26 +54,28 @@ impl<'a> TySheetBuilder<'a> {
                 RawLoopKind::While { condition } => self.infer_condition(condition, arena),
                 RawLoopKind::DoWhile { condition } => self.infer_condition(condition, arena),
             },
-            RawStmtKind::Branch(_) => todo!(),
-            RawStmtKind::Exec(expr) => {
+            RawStmtVariant::Branch(branch_kind) => match branch_kind {
+                RawBranchKind::If { condition } => self.infer_condition(condition, arena),
+                RawBranchKind::Elif { condition } => self.infer_condition(condition, arena),
+                RawBranchKind::Else => (),
+            },
+            RawStmtVariant::Exec(expr) => {
                 self.infer_expr(expr, Some(RootIdentifier::Void.into()), arena);
             }
-            RawStmtKind::Init {
+            RawStmtVariant::Init {
                 varname,
                 initial_value,
                 ..
             } => {
-                let opt_ty = self.infer_expr(initial_value, None, arena);
-                insert_new!(
-                    self.ty_sheet.variable_tys,
-                    (varname.ident, stmt.row()),
-                    opt_ty
-                );
+                if let Some(ty) = self.infer_expr(initial_value, None, arena) {
+                    insert_new!(self.ty_sheet.variable_tys, (varname.ident, stmt.row()), ty)
+                }
             }
-            RawStmtKind::Return(result) => {
+            RawStmtVariant::Return(result) => {
                 self.infer_expr(result, opt_output_ty, arena);
             }
-            RawStmtKind::Assert(condition) => self.infer_condition(condition, arena),
+            RawStmtVariant::Assert(condition) => self.infer_condition(condition, arena),
+            RawStmtVariant::Break => msg_once!("ensure break is inside a loop"),
         }
     }
 

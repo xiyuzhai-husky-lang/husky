@@ -20,7 +20,7 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
-pub fn collect_pack_dirs(dir: PathBuf) -> Vec<PathBuf> {
+pub fn collect_all_package_dirs(dir: PathBuf) -> Vec<PathBuf> {
     assert!(dir.is_dir());
     let main_path = dir.join("main.hsk");
     if main_path.exists() {
@@ -31,7 +31,7 @@ pub fn collect_pack_dirs(dir: PathBuf) -> Vec<PathBuf> {
             let entry = entry.unwrap();
             let subpath = entry.path();
             if subpath.is_dir() {
-                pack_paths.extend(collect_pack_dirs(subpath))
+                pack_paths.extend(collect_all_package_dirs(subpath))
             }
         }
         pack_paths

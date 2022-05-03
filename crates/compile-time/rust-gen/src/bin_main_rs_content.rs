@@ -23,7 +23,7 @@ async fn main() {{
 }}
 
 fn init_compile_time(compile_time: &mut HuskyLangCompileTime) {{
-    compile_time.load_pack({:?}.into());
+    compile_time.load_package({:?}.into());
     link_entity_with_compiled(compile_time)
 }}
 "#,

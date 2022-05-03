@@ -9,7 +9,7 @@ use crate::{expr::RawExprIdx, *};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawStmt {
     pub range: TextRange,
-    pub kind: RawStmtKind,
+    pub kind: RawStmtVariant,
 }
 
 impl TextRanged for RawStmt {
@@ -19,7 +19,7 @@ impl TextRanged for RawStmt {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum RawStmtKind {
+pub enum RawStmtVariant {
     Loop(RawLoopKind),
     Branch(RawBranchKind),
     Exec(RawExprIdx),
@@ -30,9 +30,10 @@ pub enum RawStmtKind {
     },
     Return(RawExprIdx),
     Assert(RawExprIdx),
+    Break,
 }
 
-impl From<RawLoopKind> for RawStmtKind {
+impl From<RawLoopKind> for RawStmtVariant {
     fn from(stmt: RawLoopKind) -> Self {
         Self::Loop(stmt)
     }

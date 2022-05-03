@@ -1,5 +1,6 @@
 use ast::{
-    RawBoundary, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt, RawStmtKind,
+    RawBoundary, RawBranchKind, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt,
+    RawStmtVariant,
 };
 
 use dev_utils::dev_src;
@@ -51,7 +52,7 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
     ) {
         match stmt.kind {
-            RawStmtKind::Loop(raw_loop_kind) => match raw_loop_kind {
+            RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
                     frame_var,
                     initial_boundary,
@@ -67,12 +68,16 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawLoopKind::While { condition } => self.infer_eager_condition(condition, arena),
                 RawLoopKind::DoWhile { condition } => self.infer_eager_condition(condition, arena),
             },
-            RawStmtKind::Branch(_) => todo!(),
-            RawStmtKind::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
-            RawStmtKind::Init { initial_value, .. } => {
+            RawStmtVariant::Branch(branch_kind) => match branch_kind {
+                RawBranchKind::If { condition } => self.infer_eager_condition(condition, arena),
+                RawBranchKind::Elif { condition } => self.infer_eager_condition(condition, arena),
+                RawBranchKind::Else => (),
+            },
+            RawStmtVariant::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
+            RawStmtVariant::Init { initial_value, .. } => {
                 self.infer_eager_expr(initial_value, EagerContract::LetInit, arena);
             }
-            RawStmtKind::Return(result) => {
+            RawStmtVariant::Return(result) => {
                 self.infer_eager_expr(result, EagerContract::Return, arena);
                 should!(!self
                     .contract_sheet
@@ -80,7 +85,8 @@ impl<'a> ContractSheetBuilder<'a> {
                     .get(&result)
                     .is_none())
             }
-            RawStmtKind::Assert(condition) => self.infer_eager_condition(condition, arena),
+            RawStmtVariant::Assert(condition) => self.infer_eager_condition(condition, arena),
+            RawStmtVariant::Break => (),
         }
     }
 
@@ -107,7 +113,7 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::Entity { .. }
             | RawExprVariant::PrimitiveLiteral(_)
             | RawExprVariant::This { .. } => Ok(()),
-            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Bracketed(expr) => return self.infer_eager_expr(expr, contract, arena),
             RawExprVariant::Opn { opr, ref opds } => {
                 self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
@@ -166,8 +172,10 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::BorrowMut => todo!(),
                     EagerContract::TakeMut => todo!(),
                     EagerContract::Exec => todo!(),
-                    EagerContract::LetInit => todo!(),
-                    EagerContract::VarInit => todo!(),
+                    EagerContract::LetInit => (),
+                    EagerContract::VarInit => (),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
                 }
                 self.infer_eager_expr(lopd, EagerContract::Pure, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);
@@ -191,7 +199,14 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
     ) -> InferResult<()> {
-        todo!()
+        match opr {
+            PrefixOpr::Minus => (),
+            PrefixOpr::Not => (),
+            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::Shared => todo!(),
+            PrefixOpr::Exclusive => todo!(),
+        }
+        Ok(())
     }
 
     fn infer_eager_suffix(
@@ -225,6 +240,8 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::Exec => todo!(),
                         EagerContract::LetInit => todo!(),
                         EagerContract::VarInit => todo!(),
+                        EagerContract::UseMemberForLetInit => todo!(),
+                        EagerContract::UseMemberForVarInit => todo!(),
                     },
                     FieldContract::GlobalRef => todo!(),
                     FieldContract::LazyOwn => todo!(),
@@ -277,6 +294,8 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::BorrowMut => todo!(),
                     EagerContract::TakeMut => todo!(),
                     EagerContract::Exec => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
                 }
                 for i in 0..call_decl.inputs.len() {
                     self.infer_eager_expr(
@@ -339,6 +358,8 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::GlobalRef => todo!(),
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
+            EagerContract::UseMemberForLetInit => todo!(),
+            EagerContract::UseMemberForVarInit => todo!(),
         }
         self.infer_eager_expr(
             this,
@@ -373,7 +394,7 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::Pure => EagerContract::Pure,
             EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
-            EagerContract::LetInit => todo!(),
+            EagerContract::LetInit => EagerContract::UseMemberForLetInit,
             EagerContract::VarInit => todo!(),
             EagerContract::Return => {
                 let ty = self.expr_ty_result(expr_idx)?;
@@ -389,6 +410,8 @@ impl<'a> ContractSheetBuilder<'a> {
                 variant: InferErrorVariant::Derived,
                 dev_src: dev_src!(),
             })?,
+            EagerContract::UseMemberForLetInit => todo!(),
+            EagerContract::UseMemberForVarInit => todo!(),
         };
         self.infer_eager_expr(total_opds.start, this_contract, arena);
         for opd in (total_opds.start + 1)..total_opds.end {

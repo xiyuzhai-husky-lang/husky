@@ -10,7 +10,7 @@ pub(super) async fn test_diagnostics(
     let mut diagnostics_table = HashMap::<String, Vec<Diagnostic>>::new();
     for module in modules {
         compile_time
-            .diagnostic_reserve(module)
+            .diagnostics_reserve(module)
             .release(|diagnostics| {
                 if diagnostics.len() > 0 {
                     assert!(diagnostics_table

@@ -56,6 +56,8 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::BorrowMut => todo!(),
             EagerContract::TakeMut => todo!(),
             EagerContract::Exec => todo!(),
+            EagerContract::UseMemberForLetInit => todo!(),
+            EagerContract::UseMemberForVarInit => todo!(),
         }
     }
 
@@ -91,6 +93,8 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),
             EagerContract::Return => todo!(),
+            EagerContract::UseMemberForLetInit => todo!(),
+            EagerContract::UseMemberForVarInit => todo!(),
         }
     }
 }

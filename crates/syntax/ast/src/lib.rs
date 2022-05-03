@@ -9,7 +9,7 @@ pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::AstContext;
 pub use expr::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
-pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtKind};
+pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtVariant};
 pub use transform::*;
 
 use atom::*;

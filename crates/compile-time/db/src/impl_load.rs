@@ -4,19 +4,14 @@ use std::{
     path::{Path, PathBuf},
 };
 
-fn file_should_exists(dir: PathBuf, filename: &str) {
-    let filepath = {
-        let mut filepath = dir;
-        filepath.push(filename);
-        filepath
-    };
-    assert!(filepath.exists())
+fn file_should_exists(dir: &Path, filename: &str) {
+    assert!(dir.join(filename).exists())
 }
 
 impl HuskyLangCompileTime {
-    pub fn load_pack(&mut self, pack_dir: PathBuf) {
-        self.load_dir(&pack_dir);
-        file_should_exists(pack_dir, "main.hsk")
+    pub fn load_package(&mut self, package_dir: &Path) {
+        self.load_dir(package_dir);
+        file_should_exists(package_dir, "main.hsk")
     }
 
     fn load_dir(&mut self, dir: &Path) {
@@ -25,7 +20,7 @@ impl HuskyLangCompileTime {
             let path = maybe_entry.expect("what").path();
             if path.is_dir() {
                 if path.join("mod.hsk").exists() {
-                    self.load_module(path)
+                    self.load_module(&path)
                 }
             } else if path.extension().unwrap() == "hsk" {
                 let text = fs::read_to_string(&path).expect("what");
@@ -34,7 +29,7 @@ impl HuskyLangCompileTime {
         }
     }
 
-    fn load_module(&mut self, module_dir: PathBuf) {
+    fn load_module(&mut self, module_dir: &Path) {
         self.load_dir(&module_dir);
         file_should_exists(module_dir, "mod.hsk")
     }

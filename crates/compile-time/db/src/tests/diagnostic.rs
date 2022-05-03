@@ -13,7 +13,7 @@ fn test_diagnostics() {
     should_eq!(modules.len(), 1);
     let the_module = modules[0];
     {
-        let diagnostic_reserve = db.diagnostic_reserve(the_module);
+        let diagnostic_reserve = db.diagnostics_reserve(the_module);
         test_print!(diagnostic_reserve);
         should_eq!(diagnostic_reserve.len(), 1);
     }

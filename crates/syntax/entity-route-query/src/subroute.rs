@@ -77,6 +77,7 @@ impl Entry {
                     ),
                     TokenKind::Special(_) => todo!(),
                     TokenKind::PrimitiveLiteral(_) => todo!(),
+                    TokenKind::Unrecognized(_) => todo!(),
                 };
             } else {
                 return (None, None);
