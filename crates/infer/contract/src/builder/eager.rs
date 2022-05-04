@@ -280,7 +280,7 @@ impl<'a> ContractSheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_eager_list_call(opds, contract, arena, range),
+            ListOpr::Call => self.infer_eager_list_call(opds, contract, arena, range, raw_expr_idx),
             ListOpr::Index => self.infer_eager_element_access(arena, opds, contract, raw_expr_idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
@@ -293,6 +293,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
         range: TextRange,
+        expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let call_expr = &arena[all_opds.start];
         match call_expr.variant {
@@ -329,13 +330,14 @@ impl<'a> ContractSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ident) => self.infer_eager_method(
+                    SuffixOpr::MembAccess(ident) => self.eager_method(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,
                         contract,
                         arena,
                         range,
+                        expr_idx,
                     ),
                     SuffixOpr::WithType(_) => todo!(),
                 },
@@ -351,7 +353,7 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_eager_method(
+    fn eager_method(
         &mut self,
         this: RawExprIdx,
         ranged_ident: RangedCustomIdentifier,
@@ -359,9 +361,9 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
         range: TextRange,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        let this_ty_decl = self.expr_ty_decl(this)?;
-        let method_call_decl = this_ty_decl.method(ranged_ident, &self.trait_uses)?;
+        let method_decl = self.method_decl(raw_expr_idx)?;
         match contract {
             EagerContract::Pure => (),
             EagerContract::Move => (),
@@ -377,20 +379,20 @@ impl<'a> ContractSheetBuilder<'a> {
         }
         self.infer_eager_expr(
             this,
-            method_call_decl
+            method_decl
                 .this_contract
-                .eager(method_call_decl.output.contract)?,
+                .eager(method_decl.output.contract)?,
             arena,
         );
-        if inputs.end - inputs.start != method_call_decl.inputs.len() {
+        if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
         }
-        for i in 0..method_call_decl.inputs.len() {
+        for i in 0..method_decl.inputs.len() {
             self.infer_eager_expr(
                 inputs.start + i,
-                method_call_decl.inputs[i]
+                method_decl.inputs[i]
                     .contract
-                    .eager(method_call_decl.output.contract)?,
+                    .eager(method_decl.output.contract)?,
                 arena,
             )
         }

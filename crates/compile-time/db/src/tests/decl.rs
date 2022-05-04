@@ -12,5 +12,5 @@ fn test_vec_ty_decl() {
         },
         generic_arguments: vec![GenericArgument::EntityRoute(db.entity_route_menu().i32_ty)],
     });
-    let vec_ty_decl = db.type_decl(db.entity_route_menu().vec_ty).unwrap();
+    let vec_ty_decl = db.ty_decl(db.entity_route_menu().vec_ty).unwrap();
 }

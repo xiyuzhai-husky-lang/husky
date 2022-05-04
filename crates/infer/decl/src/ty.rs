@@ -35,7 +35,7 @@ pub struct TyDecl {
     pub kind: TyKind,
     pub trai_impls: Vec<Arc<TraitImplDecl>>,
     pub members: Vec<MemberDecl>,
-    pub opt_type_call: Option<Arc<RoutineDecl>>,
+    pub opt_type_call: Option<Arc<CallDecl>>,
 }
 
 impl TyDecl {
@@ -137,7 +137,7 @@ impl TyDecl {
                         TyMemberDecl::Method(_) | TyMemberDecl::Call => break,
                     }
                 }
-                Some(Arc::new(RoutineDecl {
+                Some(Arc::new(CallDecl {
                     inputs,
                     output: OutputDecl {
                         ty,
@@ -257,7 +257,7 @@ impl TyDecl {
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDecl>>,
-        opt_type_call: Option<Arc<RoutineDecl>>,
+        opt_type_call: Option<Arc<CallDecl>>,
     ) -> Arc<Self> {
         let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
         Arc::new(Self {
@@ -504,12 +504,17 @@ impl TyDecl {
             .iter()
             .find(|trai_impl| trai_impl.trait_route == trai_route)
     }
+
+    pub fn trai_member_impl(
+        &self,
+        trai: EntityRoutePtr,
+        ident: CustomIdentifier,
+    ) -> Option<&TraitMemberImplDecl> {
+        self.trai_impl(trai)?.member(ident)
+    }
 }
 
-pub(crate) fn type_decl(
-    db: &dyn DeclQueryGroup,
-    ty_route: EntityRoutePtr,
-) -> InferResultArc<TyDecl> {
+pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty_route: EntityRoutePtr) -> InferResultArc<TyDecl> {
     let source = db.entity_source(ty_route)?;
     match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {

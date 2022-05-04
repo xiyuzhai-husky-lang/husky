@@ -37,7 +37,7 @@ fn is_qualified_ty_implicitly_convertible_to_contracted_ty(
     match output_contract {
         OutputContract::Transitive => match qualified_ty.qual {
             Qualifier::PureRef | Qualifier::LocalRef => false,
-            Qualifier::Transitive
+            Qualifier::Transient
             | Qualifier::Copyable
             | Qualifier::CopyableMut
             | Qualifier::StackOwned

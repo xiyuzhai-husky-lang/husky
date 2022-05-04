@@ -140,14 +140,36 @@ impl MethodDecl {
     }
 }
 
-// impl MembDecl {
-//     pub fn instantiate(&self, instantiator: &Instantiator) -> MembDecl {
-//         match self.variant {
-//             FieldDeclVariant::Var(ref decl) => MembDecl {
-//                 variant: FieldDeclVariant::Var(decl.instantiate(instantiator)),
-//             },
-//             FieldDeclVariant::Routine(ref decl) => MembDecl {
-//                 variant: FieldDeclVariant::Routine(decl.instantiate(instantiator)),
-//             },
-//         }
-//     }
+pub(crate) fn method_decl(
+    db: &dyn DeclQueryGroup,
+    route: EntityRoutePtr,
+) -> InferResultArc<MethodDecl> {
+    match route.kind {
+        EntityRouteKind::Root { ident } => todo!(),
+        EntityRouteKind::Package { main, ident } => todo!(),
+        EntityRouteKind::Child { parent, ident } => {
+            let ty_decl = derived_ok!(db.ty_decl(parent));
+            match derived_not_none!(ty_decl
+                .ty_members
+                .iter()
+                .find(|member| member.key() == ident))?
+            {
+                TyMemberDecl::Field(_) => todo!(),
+                TyMemberDecl::Method(method) => Ok(method.clone()),
+                TyMemberDecl::Call => todo!(),
+            }
+        }
+        EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+            let ty_decl = derived_ok!(db.ty_decl(ty));
+            match derived_not_none!(ty_decl.trai_member_impl(trai, ident))? {
+                TraitMemberImplDecl::Method(method) => Ok(method.clone()),
+                TraitMemberImplDecl::AssociatedType { ident, ty } => todo!(),
+                TraitMemberImplDecl::Call {} => todo!(),
+                TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
+            }
+        }
+        EntityRouteKind::Input { main } => todo!(),
+        EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+        EntityRouteKind::ThisType => todo!(),
+    }
+}

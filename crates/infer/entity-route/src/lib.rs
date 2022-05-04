@@ -11,7 +11,7 @@ use defn_head::*;
 use entity_route::*;
 use entity_route_query::{EntityRouteQueryGroup, EntityRouteResultArc};
 use file::FilePtr;
-use infer_decl::{DeclQueryGroup, TyDecl};
+use infer_decl::{CallDecl, DeclQueryGroup, MethodDecl, TyDecl};
 use infer_error::*;
 use print_utils::*;
 use syntax_types::*;
@@ -26,52 +26,22 @@ pub trait InferEntityRoute {
     }
     fn expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
         let ty = self.expr_ty_result(expr_idx)?;
-        self.decl_db().type_decl(ty)
+        self.decl_db().ty_decl(ty)
+    }
+
+    fn call_route_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+        self.entity_route_sheet().call_route(expr_idx)
+    }
+
+    fn call_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<CallDecl> {
+        self.decl_db().call_decl(self.call_route_result(expr_idx)?)
+    }
+
+    fn method_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<MethodDecl> {
+        self.decl_db()
+            .method_decl(self.call_route_result(expr_idx)?)
     }
 }
-
-// fn scope_ty(db: &dyn InferEntityRouteQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
-//     match scope {
-//         EntityRoutePtr::Root(ident) => match ident {
-//             RootIdentifier::Void => todo!(),
-//             RootIdentifier::I32 => todo!(),
-//             RootIdentifier::F32 => todo!(),
-//             RootIdentifier::B32 => todo!(),
-//             RootIdentifier::B64 => todo!(),
-//             RootIdentifier::Bool => todo!(),
-//             RootIdentifier::True | RootIdentifier::False => {
-//                 Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
-//             }
-//             RootIdentifier::Vec => todo!(),
-//             RootIdentifier::Tuple => todo!(),
-//             RootIdentifier::Debug => todo!(),
-//             RootIdentifier::Std => todo!(),
-//             RootIdentifier::Core => todo!(),
-//             RootIdentifier::Fp => todo!(),
-//             RootIdentifier::Fn => todo!(),
-//             RootIdentifier::FnMut => todo!(),
-//             RootIdentifier::FnOnce => todo!(),
-//             RootIdentifier::Array => todo!(),
-//             RootIdentifier::DatasetType => todo!(),
-//             RootIdentifier::Type => todo!(),
-//             RootIdentifier::Datasets => todo!(),
-//             RootIdentifier::CloneTrait => todo!(),
-//             RootIdentifier::CopyTrait => todo!(),
-//             RootIdentifier::PartialEqTrait => todo!(),
-//             RootIdentifier::EqTrait => todo!(),
-//         },
-//         EntityRoutePtr::Custom(scope) => match scope.kind {
-//             EntityRouteKind::Input { main } => db.global_input_ty(main),
-//             _ => todo!(),
-//         },
-//         EntityRoutePtr::ThisType => todo!(),
-//     }
-// }
-
-// fn enum_literal_value(db: &dyn InferEntityRouteQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
-//     msg_once!("todo: enum_literal_value");
-//     EnumLiteralValue::interpreted(scope)
-// }
 
 fn is_implicit_convertible(
     db: &dyn InferEntityRouteQueryGroup,
