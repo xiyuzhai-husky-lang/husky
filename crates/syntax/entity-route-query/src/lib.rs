@@ -6,7 +6,7 @@ mod source;
 mod subroute;
 
 pub use alias::*;
-pub use error::{def::EntityDefnError, EntityRouteError, EntityRouteResult, ScopeResultArc};
+pub use error::{def::EntityDefnError, EntityRouteError, EntityRouteResult, EntityRouteResultArc};
 pub use query::{
     EntityRouteQueryGroup, EntityRouteSalsaQueryGroup, ModuleFromFileError, ScopeQueryGroupStorage,
 };

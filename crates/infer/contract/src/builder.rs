@@ -1,11 +1,10 @@
 mod eager;
-mod impl_locality;
 mod lazy;
 
 use std::sync::Arc;
 
 use ast::{AstIter, AstKind};
-use defn_head::FieldKind;
+use entity_kind::FieldKind;
 use entity_route::EntityRouteKind;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
@@ -18,7 +17,6 @@ pub struct ContractSheetBuilder<'a> {
     db: &'a dyn InferContractSalsaQueryGroup,
     file: FilePtr,
     main_file: FilePtr,
-    entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: ContractSheet,
     trait_uses: LocalStack<EntityRouteKind>,
 }
@@ -29,29 +27,28 @@ impl<'a> InferEntityRoute for ContractSheetBuilder<'a> {
     }
 
     fn entity_route_sheet(&self) -> &EntityRouteSheet {
-        &self.entity_route_sheet
+        &self.contract_sheet.entity_route_sheet
     }
 }
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(crate) fn new(
-        db: &'a dyn InferContractSalsaQueryGroup,
-        file: FilePtr,
-        ty_sheet: Arc<EntityRouteSheet>,
-    ) -> Self {
+    pub(crate) fn new(db: &'a dyn InferContractSalsaQueryGroup, file: FilePtr) -> Self {
         Self {
             db,
             file,
             main_file: db.main_file(file).unwrap(),
-            contract_sheet: ContractSheet::new(ty_sheet),
+            contract_sheet: ContractSheet::new(db.entity_route_sheet(file).unwrap()),
             trait_uses: LocalStack::new(),
-            entity_route_sheet: db.entity_route_sheet(file).unwrap(),
         }
     }
 
     pub(crate) fn infer_all(&mut self, ast_iter: AstIter) {
-        let arena = self.contract_sheet.ty_sheet.ast_text.arena.clone();
-        self.enter_block();
+        let arena = self
+            .contract_sheet
+            .entity_route_sheet
+            .ast_text
+            .arena
+            .clone();
         for item in ast_iter {
             match item.value {
                 Ok(value) => match value.kind {
@@ -87,7 +84,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 _ => (),
             }
         }
-        self.exit_block()
     }
 
     pub(crate) fn finish(self) -> ContractSheet {

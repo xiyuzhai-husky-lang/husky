@@ -1,3 +1,4 @@
+mod binding;
 mod contract;
 mod control;
 mod entity;
@@ -15,6 +16,7 @@ mod snapshot;
 mod stack;
 mod ty;
 
+pub use binding::Binding;
 pub use contract::{EagerContract, FieldContract, InputContract, LazyContract, OutputContract};
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;

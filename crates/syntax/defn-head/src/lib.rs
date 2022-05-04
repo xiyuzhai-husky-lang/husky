@@ -1,6 +1,6 @@
 mod generic;
 
-use entity_kind::RoutineContextKind;
+use entity_kind::{FieldKind, RoutineContextKind};
 pub use generic::*;
 use std::sync::Arc;
 
@@ -35,14 +35,6 @@ pub struct FieldDefnHead {
     pub ty: EntityRoutePtr,
     pub kind: FieldKind,
     pub contract: FieldContract,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldKind {
-    StructOriginal,
-    StructDerived,
-    RecordOriginal,
-    RecordDerived,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

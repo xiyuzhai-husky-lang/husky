@@ -58,7 +58,7 @@ impl<'eval> TraceFactory<'eval> {
         let mut tokens = vec![];
         match expr.variant {
             EagerExprVariant::Variable(ident) => tokens.push(ident!(ident.0, associated_trace)),
-            EagerExprVariant::Scope { scope } => todo!(),
+            EagerExprVariant::EntityRoute { route: scope } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => return vec![literal!(value)],
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {

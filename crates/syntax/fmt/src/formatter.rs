@@ -185,7 +185,7 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_stmt(&mut self, stmt: &ast::RawStmt) {
-        match stmt.kind {
+        match stmt.variant {
             RawStmtVariant::Loop(_) => todo!(),
             RawStmtVariant::Branch(_) => todo!(),
             RawStmtVariant::Exec(expr) => self.fmt_expr(&self.arena[expr]),

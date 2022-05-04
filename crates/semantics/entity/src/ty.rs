@@ -62,8 +62,7 @@ impl EntityDefnVariant {
                     } => match field_variant {
                         FieldDefnVariant::RecordOriginal => InputPlaceholder {
                             ident,
-                            contract:
-                                contract.constructor_input_contract(db.is_copy_constructible(ty)),
+                            contract: contract.constructor_input_contract(db.is_copyable(ty)),
                             ranged_ty: RangedEntityRoute {
                                 route: ty,
                                 range: Default::default(),
@@ -91,8 +90,7 @@ impl EntityDefnVariant {
                     } => match field_variant {
                         FieldDefnVariant::StructOriginal => InputPlaceholder {
                             ident,
-                            contract:
-                                contract.constructor_input_contract(db.is_copy_constructible(ty)),
+                            contract: contract.constructor_input_contract(db.is_copyable(ty)),
                             ranged_ty: RangedEntityRoute {
                                 route: ty,
                                 range: Default::default(),

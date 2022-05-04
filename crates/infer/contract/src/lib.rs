@@ -7,9 +7,9 @@ pub use sheet::*;
 
 use ast::RawExprIdx;
 use check_utils::*;
-use entity_route_query::ScopeResultArc;
+use entity_route_query::EntityRouteResultArc;
 use file::FilePtr;
-use infer_entity_route::InferTyQueryGroup;
+use infer_entity_route::InferEntityRouteQueryGroup;
 use infer_error::InferResult;
 use print_utils::*;
 use vm::{EagerContract, LazyContract};

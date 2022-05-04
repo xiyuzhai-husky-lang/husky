@@ -15,16 +15,16 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         for ins in instructions {
             let control = match ins.kind {
                 InstructionKind::PushVariable {
-                    contract,
+                    binding,
                     stack_idx,
                     range,
                     ty,
                 } => {
-                    let value = self.stack.push_variable(stack_idx, contract);
+                    let value = self.stack.push_variable(stack_idx, binding);
                     match mode {
                         Mode::Fast => (),
-                        Mode::TrackMutation => match contract {
-                            EagerContract::BorrowMut => {
+                        Mode::TrackMutation => match binding {
+                            Binding::BorrowMut => {
                                 self.record_mutation(stack_idx, ins.src.file(), range, ty)
                             }
                             _ => (),
@@ -127,6 +127,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 }
                 InstructionKind::Break => VMControl::Break,
+                InstructionKind::BranchGroup { .. } => todo!(),
             };
             match control {
                 VMControl::None => (),

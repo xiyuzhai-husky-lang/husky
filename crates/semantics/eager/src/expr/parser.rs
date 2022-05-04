@@ -3,6 +3,7 @@ use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
+use infer_qualifier::InferQualifier;
 use vm::*;
 use word::RootIdentifier;
 
@@ -11,7 +12,7 @@ use semantics_error::{err, try_infer};
 
 use super::EagerOpnVariant;
 
-pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
+pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifier {
     fn arena(&self) -> &'a RawExprArena;
     fn file(&self) -> FilePtr;
     // fn db(&self) -> &'a dyn InferQueryGroup;
@@ -67,6 +68,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract {
             file: self.file(),
             instruction_id: Default::default(),
             contract: try_infer!(self.eager_expr_contract_result(raw_expr_idx)),
+            qualifier: try_infer!(self.eager_expr_qualifier_result(raw_expr_idx)),
         }))
     }
 

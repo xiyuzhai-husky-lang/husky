@@ -6,19 +6,20 @@ mod impl_stmt;
 
 use super::*;
 use ast::{AstIter, AstText};
+use entity_kind::FieldKind;
 use fold::LocalStack;
 use std::sync::Arc;
 use text::TextRanged;
 
-pub struct TySheetBuilder<'a> {
-    db: &'a dyn InferTyQueryGroup,
+pub struct EntityRouteSheetBuilder<'a> {
+    db: &'a dyn InferEntityRouteQueryGroup,
     main_file: FilePtr,
-    ty_sheet: EntityRouteSheet,
+    entity_route_sheet: EntityRouteSheet,
     trait_uses: LocalStack<EntityRouteKind>,
 }
 
-impl<'a> TySheetBuilder<'a> {
-    pub(super) fn new(db: &'a dyn InferTyQueryGroup, ast_text: Arc<AstText>) -> Self {
+impl<'a> EntityRouteSheetBuilder<'a> {
+    pub(super) fn new(db: &'a dyn InferEntityRouteQueryGroup, ast_text: Arc<AstText>) -> Self {
         let main_file = db.main_file(ast_text.file).unwrap();
         let mut global_errors = Vec::new();
         match db.global_input_ty(main_file) {
@@ -32,18 +33,18 @@ impl<'a> TySheetBuilder<'a> {
         Self {
             db,
             main_file,
-            ty_sheet: EntityRouteSheet::new(ast_text, global_errors),
+            entity_route_sheet: EntityRouteSheet::new(ast_text, global_errors),
             trait_uses: LocalStack::new(),
         }
     }
 
     pub(super) fn finish(self) -> EntityRouteSheet {
-        self.ty_sheet
+        self.entity_route_sheet
     }
 
     pub(super) fn infer_all(&mut self, ast_iter: AstIter) {
         self.enter_block();
-        let arena = self.ty_sheet.ast_text.arena.clone();
+        let arena = self.entity_route_sheet.ast_text.arena.clone();
         for item in ast_iter {
             match item.value {
                 Ok(value) => match value.kind {
@@ -95,13 +96,13 @@ impl<'a> TySheetBuilder<'a> {
     fn add_inputs(&mut self, inputs: &[InputPlaceholder]) {
         if inputs.len() > 0 {
             if let None = self
-                .ty_sheet
+                .entity_route_sheet
                 .variable_tys
                 .get(&(inputs[0].ident.ident, inputs[0].ranged_ty.row()))
             {
                 for input in inputs {
                     should!(self
-                        .ty_sheet
+                        .entity_route_sheet
                         .variable_tys
                         .insert(
                             (input.ident.ident, inputs[0].ranged_ty.row()),

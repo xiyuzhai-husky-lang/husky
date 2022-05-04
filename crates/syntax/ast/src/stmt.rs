@@ -9,7 +9,7 @@ use crate::{expr::RawExprIdx, *};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawStmt {
     pub range: TextRange,
-    pub kind: RawStmtVariant,
+    pub variant: RawStmtVariant,
 }
 
 impl TextRanged for RawStmt {

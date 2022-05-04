@@ -38,7 +38,7 @@ impl<'eval> Trace<'eval> {
             },
             TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
                 EagerExprVariant::Variable(_)
-                | EagerExprVariant::Scope { .. }
+                | EagerExprVariant::EntityRoute { .. }
                 | EagerExprVariant::PrimitiveLiteral(_) => None,
                 EagerExprVariant::Opn {
                     opn_variant: ref opn_kind,

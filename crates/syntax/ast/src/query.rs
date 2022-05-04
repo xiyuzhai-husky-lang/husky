@@ -1,5 +1,5 @@
 use crate::*;
-use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
+use entity_route_query::{EntityRouteQueryGroup, EntityRouteResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
@@ -10,7 +10,7 @@ use upcast::Upcast;
 
 #[salsa::query_group(AstQueryGroupStorage)]
 pub trait AstSalsaQueryGroup: EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> {
-    fn ast_text(&self, file: FilePtr) -> ScopeResultArc<AstText>;
+    fn ast_text(&self, file: FilePtr) -> EntityRouteResultArc<AstText>;
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
@@ -26,7 +26,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
     // }
 }
 
-fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> ScopeResultArc<AstText> {
+fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntityRouteResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module(id)?);
     parser.transform_all(tokenized_text.iter());

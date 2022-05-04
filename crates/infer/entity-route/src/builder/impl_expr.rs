@@ -8,7 +8,7 @@ use word::{CustomIdentifier, RangedCustomIdentifier};
 
 use super::*;
 
-impl<'a> TySheetBuilder<'a> {
+impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_expr(
         &mut self,
         expr_idx: RawExprIdx,
@@ -18,7 +18,7 @@ impl<'a> TySheetBuilder<'a> {
         let ty_result: InferResult<EntityRoutePtr> =
             self.expr_ty_result(expr_idx, expectation, arena);
         let opt_ty = ty_result.as_ref().ok().map(|ty| *ty);
-        insert_new!(self.ty_sheet.expr_tys, expr_idx, ty_result);
+        insert_new!(self.entity_route_sheet.expr_tys, expr_idx, ty_result);
         opt_ty
     }
 
@@ -32,7 +32,7 @@ impl<'a> TySheetBuilder<'a> {
         let ty = match expr.variant {
             RawExprVariant::Variable { varname, init_row } => {
                 derived_not_none!(self
-                    .ty_sheet
+                    .entity_route_sheet
                     .variable_tys
                     .get(&(varname, init_row))
                     .map(|route| *route)
@@ -145,7 +145,7 @@ impl<'a> TySheetBuilder<'a> {
                     EntityRoutePtr::ThisType => todo!(),
                 },
                 EntityRoutePtr::Custom(lopd_custom_ty) => {
-                    p!(self.ty_sheet);
+                    p!(self.entity_route_sheet);
                     p!(lopd_custom_ty);
                     p!(pure_binary_opr);
                     todo!()
@@ -386,7 +386,7 @@ impl<'a> TySheetBuilder<'a> {
         } else {
             vec![]
         };
-        self.ty_sheet.call_routes.insert(
+        self.entity_route_sheet.call_routes.insert(
             expr_idx,
             Ok(self.db.intern_entity_route(EntityRoute {
                 kind: match method_decl.kind {

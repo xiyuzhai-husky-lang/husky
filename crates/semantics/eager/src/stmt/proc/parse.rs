@@ -58,15 +58,15 @@ impl<'a> EagerStmtParser<'a> {
         children: Option<IterType>,
         iter: &mut Peekable<IterType>,
     ) -> SemanticResult<ProcStmtVariant> {
-        Ok(match stmt.kind {
+        Ok(match stmt.variant {
             RawStmtVariant::Loop(loop_kind) => {
                 self.parse_loop_stmt(loop_kind, not_none!(children))?
             }
             RawStmtVariant::Branch(branch_kind) => {
                 let mut branches = vec![];
                 match branch_kind {
-                    RawBranchKind::If { condition } => branches.push(Arc::new(ImprBranch {
-                        kind: ImprBranchKind::If {
+                    RawBranchKind::If { condition } => branches.push(Arc::new(ProcBranch {
+                        kind: ProcBranchKind::If {
                             condition: self.parse_eager_expr(condition)?,
                         },
                         stmts: self.parse_impr_stmts(not_none!(children))?,
@@ -77,14 +77,14 @@ impl<'a> EagerStmtParser<'a> {
                 while let Some(item) = iter.peek() {
                     let item = match item.value.as_ref()?.kind {
                         AstKind::Stmt(RawStmt {
-                            kind: RawStmtVariant::Branch(_),
+                            variant: RawStmtVariant::Branch(_),
                             ..
                         }) => iter.next().unwrap(),
                         _ => break,
                     };
                     match item.value.as_ref()?.kind {
                         AstKind::Stmt(RawStmt {
-                            kind: RawStmtVariant::Branch(branch_stmt),
+                            variant: RawStmtVariant::Branch(branch_stmt),
                             ..
                         }) => match branch_stmt {
                             RawBranchKind::If { condition } => break,
@@ -95,8 +95,8 @@ impl<'a> EagerStmtParser<'a> {
                                 todo!()
                             }
                             RawBranchKind::Else => {
-                                branches.push(Arc::new(ImprBranch {
-                                    kind: ImprBranchKind::Else,
+                                branches.push(Arc::new(ProcBranch {
+                                    kind: ProcBranchKind::Else,
                                     stmts: self.parse_impr_stmts(not_none!(item.children))?,
                                 }));
                                 break;
@@ -106,7 +106,7 @@ impl<'a> EagerStmtParser<'a> {
                     }
                 }
                 ProcStmtVariant::BranchGroup {
-                    kind: ImprBranchGroupKind::If,
+                    kind: ProcBranchGroupKind::If,
                     branches,
                 }
             }

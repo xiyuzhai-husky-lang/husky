@@ -15,19 +15,19 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(
                     InstructionKind::PushVariable {
                         stack_idx,
-                        contract: expr.contract,
+                        binding: expr.qualifier.eager_binding(expr.contract),
                         range: expr.range,
                         ty: expr.ty,
                     },
                     expr.clone(),
                 ))
             }
-            EagerExprVariant::Scope { scope } => todo!(),
+            EagerExprVariant::EntityRoute { route } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
                 InstructionKind::PushPrimitiveLiteral(value),
                 expr.clone(),
             )),
-            EagerExprVariant::Bracketed(_) => todo!(),
+            EagerExprVariant::Bracketed(ref expr) => self.compile_expr(expr),
             EagerExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
@@ -36,7 +36,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::This => self.push_instruction(Instruction::new(
                 InstructionKind::PushVariable {
                     stack_idx: StackIdx::this(),
-                    contract: expr.contract,
+                    binding: expr.qualifier.eager_binding(expr.contract),
                     range: expr.range,
                     ty: expr.ty,
                 },
@@ -196,7 +196,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     opds.map(|opd| opd.ty),
                     match expr.contract {
                         EagerContract::Pure => {
-                            if self.db.is_copy_constructible(expr.ty) {
+                            if self.db.is_copyable(expr.ty) {
                                 MemberAccessKind::Copy
                             } else {
                                 todo!()
@@ -205,7 +205,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => todo!(),
                         EagerContract::LetInit => {
-                            if self.db.is_copy_constructible(expr.ty) {
+                            if self.db.is_copyable(expr.ty) {
                                 MemberAccessKind::Copy
                             } else {
                                 todo!()
@@ -213,7 +213,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                         EagerContract::VarInit => todo!(),
                         EagerContract::Return => {
-                            if self.db.is_copy_constructible(expr.ty) {
+                            if self.db.is_copyable(expr.ty) {
                                 MemberAccessKind::Copy
                             } else {
                                 MemberAccessKind::Move

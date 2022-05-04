@@ -9,7 +9,7 @@ use ast::*;
 use check_utils::*;
 use defn_head::*;
 use entity_route::*;
-use entity_route_query::{EntityRouteQueryGroup, ScopeResultArc};
+use entity_route_query::{EntityRouteQueryGroup, EntityRouteResultArc};
 use file::FilePtr;
 use infer_decl::{DeclQueryGroup, TyDecl};
 use infer_error::*;
@@ -30,7 +30,7 @@ pub trait InferEntityRoute {
     }
 }
 
-// fn scope_ty(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
+// fn scope_ty(db: &dyn InferEntityRouteQueryGroup, scope: EntityRoutePtr) -> InferResult<EntityRoutePtr> {
 //     match scope {
 //         EntityRoutePtr::Root(ident) => match ident {
 //             RootIdentifier::Void => todo!(),
@@ -68,13 +68,13 @@ pub trait InferEntityRoute {
 //     }
 // }
 
-// fn enum_literal_value(db: &dyn InferTyQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
+// fn enum_literal_value(db: &dyn InferEntityRouteQueryGroup, scope: EntityRoutePtr) -> EnumLiteralValue {
 //     msg_once!("todo: enum_literal_value");
 //     EnumLiteralValue::interpreted(scope)
 // }
 
 fn is_implicit_convertible(
-    db: &dyn InferTyQueryGroup,
+    db: &dyn InferEntityRouteQueryGroup,
     src_ty: EntityRoutePtr,
     dst_ty: EntityRoutePtr,
 ) -> bool {

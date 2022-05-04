@@ -7,9 +7,14 @@ pub struct InferError {
 }
 
 impl InferError {
-    pub fn derived(&self, message: String) -> Self {
+    pub fn derived(&self) -> Self {
         Self {
-            variant: InferErrorVariant::Derived { message },
+            variant: InferErrorVariant::Derived {
+                message: match self.variant {
+                    InferErrorVariant::Derived { ref message } => message.clone(),
+                    InferErrorVariant::Original { .. } => format!("{:?}", self),
+                },
+            },
             dev_src: self.dev_src.clone(),
         }
     }
@@ -104,8 +109,8 @@ macro_rules! ok_or {
 #[macro_export]
 macro_rules! derived_not_none {
     ($opt_value: expr) => {{
-        $opt_value.ok_or(InferError {
-            variant: InferErrorVariant::Derived {
+        $opt_value.ok_or(infer_error::InferError {
+            variant: infer_error::InferErrorVariant::Derived {
                 message: "expect not none".to_string(),
             },
             dev_src: dev_utils::dev_src!(),

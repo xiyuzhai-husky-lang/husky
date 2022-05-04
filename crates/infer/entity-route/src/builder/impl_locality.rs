@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> TySheetBuilder<'a> {
+impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn enter_block(&mut self) {
         self.trait_uses.enter()
     }

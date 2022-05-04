@@ -146,9 +146,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.features.alloc(Feature::PrimitiveLiteral(value)),
             ),
             LazyExprKind::Bracketed(_) => todo!(),
-            LazyExprKind::Opn { opn_kind, ref opds } => {
-                self.compile_opn(opn_kind, opds, expr.contract)
-            }
+            LazyExprKind::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
             LazyExprKind::Lambda(_, _) => todo!(),
             LazyExprKind::EnumLiteral { entity_route } => (
                 FeatureExprKind::EnumLiteral {

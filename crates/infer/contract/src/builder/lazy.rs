@@ -13,7 +13,6 @@ impl<'a> ContractSheetBuilder<'a> {
         self.infer_lazy_stmts(ast_iter.clone(), arena);
     }
     pub(super) fn infer_lazy_stmts(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
-        self.enter_block();
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.kind {
@@ -25,11 +24,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_stmts(children, arena)
             }
         }
-        self.exit_block()
     }
 
     fn infer_lazy_stmt(&mut self, stmt: &RawStmt, arena: &RawExprArena) {
-        match stmt.kind {
+        match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => panic!(),
             RawStmtVariant::Branch(_) => todo!(),
             RawStmtVariant::Exec(expr) => panic!(),
@@ -281,7 +279,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match contract {
             LazyContract::Move => {
                 let ty = self.expr_ty_result(raw_expr_idx)?;
-                let this_contract = if self.db.is_copy_constructible(ty) {
+                let this_contract = if self.db.is_copyable(ty) {
                     LazyContract::Pure
                 } else {
                     LazyContract::Move

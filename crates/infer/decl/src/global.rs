@@ -12,7 +12,7 @@ fn global_input_ty_from_ast(
 ) -> InferResult<EntityRoutePtr> {
     match ast.kind {
         AstKind::Stmt(RawStmt {
-            kind: RawStmtVariant::Return(idx),
+            variant: RawStmtVariant::Return(idx),
             ..
         }) => match arena[idx].variant {
             RawExprVariant::Opn {
@@ -51,7 +51,7 @@ fn global_output_ty_from_ast(
 ) -> InferResult<EntityRoutePtr> {
     match ast.kind {
         AstKind::Stmt(RawStmt {
-            kind: RawStmtVariant::Return(idx),
+            variant: RawStmtVariant::Return(idx),
             ..
         }) => match arena[idx].variant {
             RawExprVariant::Opn {

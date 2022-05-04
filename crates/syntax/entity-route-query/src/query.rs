@@ -14,7 +14,7 @@ use fold::FoldStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
-    fn subroute_table(&self, scope_id: EntityRoutePtr) -> ScopeResultArc<ChildRouteTable>;
+    fn subroute_table(&self, scope_id: EntityRoutePtr) -> EntityRouteResultArc<ChildRouteTable>;
 
     fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
@@ -28,7 +28,7 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 fn subroute_table(
     db: &dyn EntityRouteSalsaQueryGroup,
     scope_id: EntityRoutePtr,
-) -> ScopeResultArc<ChildRouteTable> {
+) -> EntityRouteResultArc<ChildRouteTable> {
     Ok(Arc::new(match db.entity_source(scope_id)? {
         EntitySource::StaticModuleItem(data) => ChildRouteTable::from_static(db, data),
         EntitySource::WithinModule {

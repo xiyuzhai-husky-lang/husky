@@ -2,10 +2,8 @@ mod func;
 mod parser;
 mod proc;
 
-pub use func::parse_decl_stmts;
-pub use func::{DeclBranchGroupKind, DeclBranchKind, FuncStmt, FuncStmtVariant};
-pub use proc::parse_impr_stmts;
-pub use proc::{Boundary, LoopVariant, ProcStmt, ProcStmtVariant};
+pub use func::*;
+pub use proc::*;
 
 use crate::expr::EagerExprParser;
 use crate::*;
