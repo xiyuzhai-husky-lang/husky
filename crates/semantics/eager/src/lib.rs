@@ -1,10 +1,8 @@
 mod expr;
-mod qual;
 mod stmt;
 mod variable;
 
 pub use expr::{EagerExpr, EagerExprVariant, EagerOpnVariant};
-pub use qual::Qual;
 pub use stmt::*;
 pub use variable::EagerVariable;
 

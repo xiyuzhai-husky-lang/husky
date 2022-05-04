@@ -15,7 +15,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(
                     InstructionKind::PushVariable {
                         stack_idx,
-                        binding: expr.qualifier.eager_binding(expr.contract),
+                        binding: expr.qualified_ty.qual.binding(expr.contract),
                         range: expr.range,
                         ty: expr.ty,
                     },
@@ -36,7 +36,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::This => self.push_instruction(Instruction::new(
                 InstructionKind::PushVariable {
                     stack_idx: StackIdx::this(),
-                    binding: expr.qualifier.eager_binding(expr.contract),
+                    binding: expr.qualified_ty.qual.binding(expr.contract),
                     range: expr.range,
                     ty: expr.ty,
                 },
@@ -219,8 +219,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 MemberAccessKind::Move
                             }
                         }
-                        EagerContract::BorrowMut => MemberAccessKind::BorrowMut,
-                        EagerContract::TakeMut => todo!(),
+                        EagerContract::RefMut => MemberAccessKind::BorrowMut,
+                        EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
                         EagerContract::UseMemberForLetInit => todo!(),
                         EagerContract::UseMemberForVarInit => todo!(),

@@ -52,7 +52,7 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
             MemberValue::GlobalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         };
-        StackValue::MutLocalRef {
+        StackValue::LocalRefMut {
             value: unsafe { &mut *value_mut },
             owner,
             gen: (),

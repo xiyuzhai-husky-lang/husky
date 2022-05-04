@@ -17,7 +17,7 @@ pub use mode::Mode;
 
 use compile_time_db::HuskyLangCompileTime;
 use config::DebuggerConfig;
-use futures::executor::ThreadPool;
+use futures::executor::{block_on, ThreadPool};
 use gui::handle_query;
 use notif::handle_notif;
 use print_utils::*;
@@ -39,8 +39,18 @@ impl Debugger {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyLangCompileTime)) -> Self {
         let config = DebuggerConfig::from_env();
         let mut runtime = HuskyLangRuntime::new(init_compile_time);
+        p!(config);
         if let Some(ref input_id_str) = config.opt_input_id {
-            runtime.lock_input(input_id_str);
+            match runtime.lock_input(input_id_str) {
+                (_, Some(msg)) => panic!("{}", msg),
+                (Some(Some(input_id)), None) => {
+                    for trace in runtime.root_traces().iter() {
+                        let stalk = runtime.trace_stalk(*trace, input_id);
+                        p!(stalk);
+                    }
+                }
+                _ => (),
+            }
         }
         Self {
             runtime: Mutex::new(runtime),

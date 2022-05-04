@@ -57,7 +57,7 @@ impl EntityRouteSheet {
     }
 
     pub fn call_route(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        match &self.call_routes[&expr_idx] {
+        match derived_not_none!(self.call_routes.get(&expr_idx))? {
             Ok(call_route) => Ok(*call_route),
             Err(e) => Err(e.derived()),
         }

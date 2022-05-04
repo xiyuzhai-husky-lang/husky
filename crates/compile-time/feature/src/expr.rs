@@ -77,7 +77,7 @@ pub enum FeatureExprKind {
     },
     RoutineCall {
         opds: Vec<Arc<FeatureExpr>>,
-        instruction_sheet: Arc<InstructionSheet>,
+        opt_instruction_sheet: Option<Arc<InstructionSheet>>,
         opt_linkage: Option<Linkage>,
         routine_defn: Arc<EntityDefn>,
     },

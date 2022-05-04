@@ -48,7 +48,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 let kind = FeatureExprKind::RoutineCall {
                     opt_linkage: self.db.routine_linkage(routine.route),
                     opds,
-                    instruction_sheet: self.db.entity_instruction_sheet(routine.route),
+                    opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
                     routine_defn,
                 };
                 (kind, feature)
@@ -109,15 +109,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     } => todo!(),
                     MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
                 };
-                let opt_instruction_sheet = match source {
-                    MethodSource::Func { .. } | MethodSource::Proc { .. } => {
-                        self.db.method_instruction_sheet(method_route)
-                    }
-                    MethodSource::Pattern { stmts } => todo!(),
-                    MethodSource::Static(_) => todo!(),
-                };
                 FeatureExprKind::RoutineCall {
-                    instruction_sheet: self.db.method_instruction_sheet(method_route),
+                    opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
                     opt_linkage: self.db.method_linkage_source(method_route).as_ref().map(
                         |linkage_source| match linkage_source {
                             LinkageSource::MemberAccess {
@@ -129,7 +122,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                 LazyContract::GlobalRef => *ref_access,
                                 LazyContract::Pure => *ref_access,
                             },
-                            LinkageSource::PureOutput(_) => todo!(),
+                            LinkageSource::PureOutput(linkage) => *linkage,
                         },
                     ),
                     opds,

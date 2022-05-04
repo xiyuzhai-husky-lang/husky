@@ -20,12 +20,12 @@ use word::RootIdentifier;
 pub trait InferEntityRoute {
     fn decl_db(&self) -> &dyn DeclQueryGroup;
     fn entity_route_sheet(&self) -> &EntityRouteSheet;
-    fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+    fn raw_expr_ty(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         msg_once!("deprecated");
         self.entity_route_sheet().expr_ty_result(expr_idx)
     }
-    fn expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
-        let ty = self.expr_ty_result(expr_idx)?;
+    fn raw_expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
+        let ty = self.raw_expr_ty(expr_idx)?;
         self.decl_db().ty_decl(ty)
     }
 
@@ -54,13 +54,10 @@ fn is_implicit_convertible(
     match dst_ty {
         EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
             RootIdentifier::Void => false,
-            RootIdentifier::I32 => {
-                p!(src_ty, dst_ty);
-                todo!()
-            }
-            RootIdentifier::F32 => todo!(),
-            RootIdentifier::B32 => todo!(),
-            RootIdentifier::B64 => todo!(),
+            RootIdentifier::I32 => false,
+            RootIdentifier::F32 => false,
+            RootIdentifier::B32 => false,
+            RootIdentifier::B64 => false,
             RootIdentifier::Bool => match src_ty {
                 EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
                     RootIdentifier::I32

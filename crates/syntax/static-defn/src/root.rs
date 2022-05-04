@@ -30,7 +30,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                         nargs: 1,
                     })),
                 },
-                output_contract: OutputContract::Transitive,
+                output_contract: OutputContract::Transfer,
             },
             dev_src: static_dev_src!(),
         }],
@@ -101,7 +101,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 this_contract: InputContract::Pure,
                 input_placeholders: &[],
                 output_ty: "i32",
-                output_contract: OutputContract::Transitive,
+                output_contract: OutputContract::Transfer,
                 generic_placeholders: &[],
                 kind: MethodStaticDefnKind::TypeMethod {
                     source: LinkageSource::PureOutput(Linkage {

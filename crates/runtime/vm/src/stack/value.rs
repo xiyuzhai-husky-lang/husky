@@ -25,7 +25,7 @@ pub enum StackValue<'stack, 'eval: 'stack> {
         owner: StackIdx,
         gen: MutRefGenerator,
     },
-    MutLocalRef {
+    LocalRefMut {
         value: &'stack mut dyn AnyValueDyn<'eval>,
         owner: StackIdx,
         gen: MutRefGenerator,
@@ -45,7 +45,7 @@ impl<'stack, 'eval: 'stack> std::fmt::Debug for StackValue<'stack, 'eval> {
             StackValue::GlobalPure(arg0) => f.debug_tuple("GlobalPure").field(arg0).finish(),
             StackValue::GlobalRef(arg0) => f.debug_tuple("GlobalRef").field(arg0).finish(),
             StackValue::LocalRef { value, .. } => f.debug_tuple("Ref").field(value).finish(),
-            StackValue::MutLocalRef { value, .. } => f.debug_tuple("MutRef").field(value).finish(),
+            StackValue::LocalRefMut { value, .. } => f.debug_tuple("MutRef").field(value).finish(),
             StackValue::Moved => f.write_str("Taken"),
         }
     }
@@ -92,7 +92,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             },
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
-            StackValue::LocalRef { .. } | StackValue::MutLocalRef { .. } | StackValue::Moved => {
+            StackValue::LocalRef { .. } | StackValue::LocalRefMut { .. } | StackValue::Moved => {
                 panic!()
             }
         }
@@ -107,7 +107,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             },
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
-            StackValue::LocalRef { .. } | StackValue::MutLocalRef { .. } | StackValue::Moved => {
+            StackValue::LocalRef { .. } | StackValue::LocalRefMut { .. } | StackValue::Moved => {
                 panic!()
             }
         }
@@ -115,9 +115,10 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     pub(crate) unsafe fn bind(&mut self, binding: Binding, stack_idx: StackIdx) -> Self {
         match binding {
-            Binding::Pure => todo!(),
-            Binding::BorrowMut => todo!(),
+            Binding::Ref => self.bind_ref(stack_idx),
+            Binding::RefMut => self.bind_ref_mut(stack_idx),
             Binding::Move => todo!(),
+            Binding::Copy => self.bind_copy(),
         }
         // match contract {
         //     EagerContract::Pure => self.pure(stack_idx),
@@ -142,6 +143,63 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         // }
     }
 
+    unsafe fn bind_ref(&self, owner: StackIdx) -> Self {
+        match self {
+            StackValue::Moved => panic!(),
+            StackValue::Primitive(_) => panic!(),
+            StackValue::Boxed(value) => {
+                let ptr: *const dyn AnyValueDyn = &*value.inner;
+                StackValue::LocalRef {
+                    value: &*ptr,
+                    owner,
+                    gen: (),
+                }
+            }
+            StackValue::GlobalPure(value) => {
+                let ptr: *const dyn AnyValueDyn = &**value;
+                StackValue::LocalRef {
+                    value: &*ptr,
+                    owner,
+                    gen: (),
+                }
+            }
+            StackValue::GlobalRef(_) => panic!(),
+            StackValue::LocalRef { .. } => panic!(),
+            StackValue::LocalRefMut { value, owner, gen } => todo!(),
+        }
+    }
+
+    fn bind_copy(&self) -> Self {
+        match self {
+            StackValue::Moved => todo!(),
+            StackValue::Primitive(value) => StackValue::Primitive(*value),
+            StackValue::Boxed(_) => todo!(),
+            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::LocalRef { value, owner, gen } => todo!(),
+            StackValue::LocalRefMut { value, owner, gen } => todo!(),
+        }
+    }
+
+    unsafe fn bind_ref_mut(&mut self, owner: StackIdx) -> Self {
+        match self {
+            StackValue::Primitive(_) => todo!(),
+            StackValue::Boxed(value) => {
+                let ptr: *mut dyn AnyValueDyn = &mut *value.inner;
+                StackValue::LocalRefMut {
+                    value: &mut *ptr,
+                    owner,
+                    gen: (),
+                }
+            }
+            StackValue::Moved
+            | StackValue::GlobalPure(_)
+            | StackValue::GlobalRef(_)
+            | StackValue::LocalRef { .. }
+            | StackValue::LocalRefMut { .. } => panic!(),
+        }
+    }
+
     unsafe fn pure(&self, stack_idx: StackIdx) -> Self {
         match self {
             StackValue::Primitive(value) => StackValue::Primitive(*value),
@@ -156,7 +214,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
             StackValue::GlobalRef(value) => StackValue::GlobalRef(*value),
             StackValue::LocalRef { .. } => todo!(),
-            StackValue::MutLocalRef { .. } => todo!(),
+            StackValue::LocalRefMut { .. } => todo!(),
             StackValue::Moved => todo!(),
         }
     }
@@ -169,7 +227,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { .. } => todo!(),
-            StackValue::MutLocalRef { value, owner, gen } => todo!(),
+            StackValue::LocalRefMut { value, owner, gen } => todo!(),
         }
     }
 
@@ -181,12 +239,12 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { .. } => todo!(),
-            StackValue::MutLocalRef { value, owner, gen } => todo!(),
+            StackValue::LocalRefMut { value, owner, gen } => todo!(),
         }
     }
 
     unsafe fn borrow_mut(&mut self, self_stack_idx: StackIdx) -> Self {
-        Self::MutLocalRef {
+        Self::LocalRefMut {
             value: &mut *self.any_mut_ptr(),
             owner: self.owner(self_stack_idx).unwrap(),
             gen: (),
@@ -198,7 +256,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::Primitive(_) | StackValue::Boxed(_) => Some(self_stack_idx),
             StackValue::GlobalRef(_) | StackValue::GlobalPure(_) => None,
             StackValue::LocalRef { .. } => todo!(),
-            StackValue::MutLocalRef { owner, .. } => Some(*owner),
+            StackValue::LocalRefMut { owner, .. } => Some(*owner),
             StackValue::Moved => todo!(),
         }
     }
@@ -218,7 +276,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 StackValue::GlobalPure(_) => todo!(),
                 StackValue::GlobalRef(_) => todo!(),
                 StackValue::LocalRef { .. } => todo!(),
-                StackValue::MutLocalRef { .. } => todo!(),
+                StackValue::LocalRefMut { .. } => todo!(),
                 StackValue::Moved => todo!(),
             }
         }
@@ -236,7 +294,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                     PrimitiveValue::Void => todo!(),
                 },
                 StackValue::Boxed(value) => value.any_mut_ptr(),
-                StackValue::MutLocalRef { value, .. } => *value,
+                StackValue::LocalRefMut { value, .. } => *value,
                 StackValue::LocalRef { .. } => panic!("LocalRef cannot be mutated, this is a bug."),
                 StackValue::GlobalPure(_) => panic!("GlobalPure cannot be mutated, this is a bug."),
                 StackValue::GlobalRef(_) => panic!("GlobalRef cannot be mutated, this is a bug."),
@@ -253,7 +311,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::GlobalPure(value) => value.downcast_ref(),
             StackValue::GlobalRef(value) => value.downcast_ref(),
             StackValue::LocalRef { value, .. } => value.downcast_ref(),
-            StackValue::MutLocalRef { value, .. } => value.downcast_ref(),
+            StackValue::LocalRefMut { value, .. } => value.downcast_ref(),
         }
     }
 
@@ -267,7 +325,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             | StackValue::LocalRef { .. } => {
                 panic!()
             }
-            StackValue::MutLocalRef { ref mut value, .. } => value.downcast_mut(),
+            StackValue::LocalRefMut { ref mut value, .. } => value.downcast_mut(),
         }
     }
 
@@ -281,7 +339,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             | StackValue::LocalRef { .. } => {
                 panic!()
             }
-            StackValue::MutLocalRef { value, owner, gen } => {
+            StackValue::LocalRefMut { value, owner, gen } => {
                 let ptr: *mut T = value.downcast_mut();
                 (unsafe { &mut *ptr }, *owner, *gen)
             }
@@ -291,7 +349,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn as_primitive(&self) -> PrimitiveValue {
         match self {
             StackValue::Primitive(value) => *value,
-            StackValue::MutLocalRef { value, .. } => value.as_primitive(),
+            StackValue::LocalRefMut { value, .. } => value.as_primitive(),
             _ => panic!(""),
         }
     }
@@ -304,7 +362,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::GlobalPure(value) => StackValue::Boxed(BoxedValue::clone_from(&**value)),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { value, .. } => Self::Boxed(BoxedValue::clone_from(*value)),
-            StackValue::MutLocalRef { value, owner, gen } => todo!(),
+            StackValue::LocalRefMut { value, owner, gen } => todo!(),
         }
     }
 
@@ -319,7 +377,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 owner: *owner,
                 gen: *gen,
             },
-            StackValue::MutLocalRef { value, owner, gen } => StackValueSnapshot::MutRef {
+            StackValue::LocalRefMut { value, owner, gen } => StackValueSnapshot::MutRef {
                 value: value.snapshot(),
                 owner: *owner,
                 gen: *gen,
@@ -349,7 +407,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 let value: &VirtualTy = value.downcast_ref();
                 value.eager_field_var(field_idx, contract)
             }
-            StackValue::MutLocalRef { value, owner, gen } => {
+            StackValue::LocalRefMut { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
                 virtual_value.field_var_mut(field_idx, contract, owner)
             }

@@ -1,112 +1,43 @@
 mod builder;
+mod eager;
+mod lazy;
 mod query;
 mod sheet;
 
-use entity_route::EntityRoutePtr;
+pub use eager::*;
+pub use lazy::*;
 pub use query::*;
 pub use sheet::*;
+
+use entity_route::EntityRoutePtr;
+use print_utils::msg_once;
 
 use ast::RawExprIdx;
 use infer_error::InferResult;
 
+use text::Row;
 use vm::*;
+use word::Identifier;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct QualifiedTy {
-    qual: Qualifier,
-    ty: EntityRoutePtr,
-}
+pub trait InferQualifiedType {
+    fn qualified_ty_sheet(&self) -> &QualifiedTypeSheet;
 
-impl QualifiedTy {
-    pub(crate) fn use_for_init(self, init_kind: InitKind) -> InferResult<Self> {
-        let qual = match init_kind {
-            InitKind::Let => match self.qual {
-                Qualifier::Copyable | Qualifier::CopyableMut => Qualifier::Copyable,
-                Qualifier::PureRef => Qualifier::PureRef,
-                Qualifier::LocalRef => todo!(),
-                Qualifier::Transient => Qualifier::StackOwned,
-                Qualifier::StackOwned => todo!(),
-                Qualifier::StackOwnedMut => todo!(),
-            },
-            InitKind::Var => match self.qual {
-                Qualifier::Copyable | Qualifier::CopyableMut => Qualifier::CopyableMut,
-                Qualifier::PureRef => todo!(),
-                Qualifier::LocalRef => todo!(),
-                Qualifier::Transient => Qualifier::StackOwnedMut,
-                Qualifier::StackOwned => todo!(),
-                Qualifier::StackOwnedMut => todo!(),
-            },
-            InitKind::Decl => todo!(),
-        };
-        Ok(Self { qual, ty: self.ty })
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum Qualifier {
-    Copyable,
-    CopyableMut,
-    PureRef,
-    LocalRef,
-    Transient,
-    StackOwned,
-    StackOwnedMut,
-}
-
-impl Qualifier {
-    pub fn eager_binding(self, contract: EagerContract) -> Binding {
-        match self {
-            Qualifier::PureRef => match contract {
-                EagerContract::Pure => todo!(),
-                EagerContract::GlobalRef => todo!(),
-                EagerContract::Move => todo!(),
-                EagerContract::LetInit => todo!(),
-                EagerContract::VarInit => todo!(),
-                EagerContract::UseMemberForLetInit => todo!(),
-                EagerContract::UseMemberForVarInit => todo!(),
-                EagerContract::Return => todo!(),
-                EagerContract::BorrowMut => todo!(),
-                EagerContract::TakeMut => todo!(),
-                EagerContract::Exec => todo!(),
-            },
-            Qualifier::LocalRef => todo!(),
-            Qualifier::Transient => todo!(),
-            Qualifier::Copyable => todo!(),
-            Qualifier::CopyableMut => todo!(),
-            Qualifier::StackOwned => todo!(),
-            Qualifier::StackOwnedMut => todo!(),
-        }
-    }
-
-    pub fn from_input(input_contract: InputContract, is_copyable: bool) -> Self {
-        match input_contract {
-            InputContract::Pure => {
-                if is_copyable {
-                    Qualifier::Copyable
-                } else {
-                    Qualifier::PureRef
-                }
-            }
-            InputContract::GlobalRef => todo!(),
-            InputContract::Move => todo!(),
-            InputContract::BorrowMut => todo!(),
-            InputContract::MoveMut => todo!(),
-            InputContract::Exec => todo!(),
-            InputContract::MemberAccess => todo!(),
-        }
-    }
-}
-
-pub trait InferQualifier {
-    fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
-
-    fn lazy_expr_qualifier_result(&self, raw_expr_idx: RawExprIdx) -> InferResult<Qualifier> {
+    fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedType> {
         self.qualified_ty_sheet()
-            .lazy_expr_qualifier_result(raw_expr_idx)
+            .lazy_expr_qualified_ty(raw_expr_idx)
     }
 
-    fn eager_expr_qualifier_result(&self, raw_expr_idx: RawExprIdx) -> InferResult<Qualifier> {
+    fn eager_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedType> {
         self.qualified_ty_sheet()
-            .eager_expr_qualifier_result(raw_expr_idx)
+            .eager_expr_qualified_ty(raw_expr_idx)
+    }
+
+    fn eager_variable_qualified_ty(
+        &self,
+        varname: Identifier,
+        init_row: Row,
+    ) -> InferResult<EagerQualifiedType> {
+        self.qualified_ty_sheet()
+            .eager_variable_qualified_ty(varname, init_row)
     }
 }

@@ -5,7 +5,7 @@ use semantics_eager::ProcStmtVariant;
 use semantics_entity::EntityDefnVariant;
 use upcast::Upcast;
 use visual_runtime::VisualQueryGroup;
-use vm::{exec_debug, EvalResult, HistoryEntry, InterpreterQueryGroup};
+use vm::{exec_debug, EvalResult, HistoryEntry, InstructionSheet, InterpreterQueryGroup};
 
 use trace::*;
 
@@ -144,11 +144,12 @@ fn feature_expr_subtraces(
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
         | FeatureExprKind::Variable { .. } => vec![],
         FeatureExprKind::RoutineCall {
-            ref instruction_sheet,
+            ref opt_instruction_sheet,
             ref routine_defn,
             ref opds,
             ..
         } => {
+            let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
             if let Some(input_id) = opt_input_id {
                 let mut subtraces = vec![];
                 let mut func_input_values = vec![];

@@ -64,11 +64,11 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
-            ty: self.expr_ty_result(raw_expr_idx)?,
+            ty: self.raw_expr_ty(raw_expr_idx)?,
             kind,
             file: self.file(),
             instruction_id: Default::default(),
-            contract: self.lazy_expr_contract_result(raw_expr_idx)?,
+            contract: self.lazy_expr_contract(raw_expr_idx)?,
         }))
     }
 
@@ -211,7 +211,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
-                let ty_decl = self.expr_ty_decl(opds.start).unwrap();
+                let ty_decl = self.raw_expr_ty_decl(opds.start).unwrap();
                 LazyExprKind::Opn {
                     opn_kind: LazyOpnKind::FieldAccess {
                         field_ident: ranged_ident,

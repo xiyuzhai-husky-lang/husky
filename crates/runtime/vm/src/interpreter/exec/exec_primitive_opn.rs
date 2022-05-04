@@ -34,7 +34,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 let before = lopd.snapshot();
                 let lopd_value = lopd.as_primitive();
                 match lopd {
-                    StackValue::MutLocalRef { ref mut value, .. } => {
+                    StackValue::LocalRefMut { ref mut value, .. } => {
                         value.assign(if let Some(binary_opr) = opt_binary_opr {
                             binary_opr
                                 .act_on_primitives(lopd_value, ropd.as_primitive())?

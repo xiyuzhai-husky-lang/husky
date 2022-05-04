@@ -24,7 +24,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => match binding {
-                            Binding::BorrowMut => {
+                            Binding::RefMut => {
                                 self.record_mutation(stack_idx, ins.src.file(), range, ty)
                             }
                             _ => (),
@@ -59,9 +59,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     self.exec_primitive_opn(opn, mode, ins).into()
                 }
                 InstructionKind::RoutineCallInterpreted { routine, nargs } => {
-                    let instruction_sheet = self.db.entity_instruction_sheet_by_uid(routine);
+                    let instruction_sheet = self.db.entity_opt_instruction_sheet_by_uid(routine);
                     let control = self
-                        .routine_call_interpreted(&instruction_sheet.instructions, nargs)
+                        .routine_call_interpreted(&instruction_sheet.unwrap().instructions, nargs)
                         .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -137,7 +137,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn exec_code(&mut self, code: Linkage) -> EvalResult<'eval> {
+    pub(crate) fn exec_linkage(&mut self, code: Linkage) -> EvalResult<'eval> {
         todo!()
     }
 }

@@ -40,14 +40,14 @@ use std::sync::Arc;
 pub fn eval_fast<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
     iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
-    sheet: &InstructionSheet,
-    maybe_code: Option<Linkage>,
+    opt_instrn_sheet: Option<&InstructionSheet>,
+    maybe_linkage: Option<Linkage>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, iter)?;
-    if let Some(code) = maybe_code {
-        interpreter.exec_code(code)
+    if let Some(linkage) = maybe_linkage {
+        interpreter.exec_linkage(linkage)
     } else {
-        interpreter.eval_instructions(&sheet.instructions, Mode::Fast)
+        interpreter.eval_instructions(&opt_instrn_sheet.as_ref().unwrap().instructions, Mode::Fast)
     }
 }
 

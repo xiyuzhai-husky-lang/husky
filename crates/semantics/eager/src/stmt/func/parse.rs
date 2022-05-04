@@ -88,8 +88,7 @@ impl<'a> EagerStmtParser<'a> {
                         if kind != InitKind::Decl {
                             todo!()
                         }
-                        let qual = Qual::from_init(kind);
-                        self.def_variable(varname, initial_value.ty, qual)?;
+                        self.def_variable(varname)?;
                         FuncStmt {
                             file: self.file,
                             range: stmt.range,

@@ -75,7 +75,14 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         instructions: &[Instruction],
         nargs: u8,
     ) -> VMResult<()> {
-        todo!()
+        let inputs = self.stack.drain(nargs);
+        let mut interpreter = Interpreter::new(self.db, inputs);
+        self.stack.push(
+            interpreter
+                .eval_instructions(instructions, Mode::Fast)?
+                .into_stack()?,
+        );
+        Ok(())
     }
 
     fn new_virtual_struct(&mut self, field_vars: &[FieldContract]) -> VMResult<()> {

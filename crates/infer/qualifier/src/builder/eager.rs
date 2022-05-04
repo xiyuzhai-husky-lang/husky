@@ -1,6 +1,9 @@
-use ast::{RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt, RawStmtVariant};
+use ast::{
+    RawBranchKind, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt, RawStmtVariant,
+};
 use check_utils::should;
 use defn_head::InputPlaceholder;
+use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
 use infer_error::{derived_not_none, derived_ok};
 use print_utils::{msg_once, p};
@@ -12,17 +15,42 @@ use super::*;
 impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn infer_routine(
         &mut self,
+        arena: &RawExprArena,
         inputs: &[InputPlaceholder],
         ast_iter: AstIter,
-        arena: &RawExprArena,
         opt_output_ty: Option<EntityRoutePtr>,
         output_contract: OutputContract,
     ) {
-        self.add_inputs(inputs);
+        self.add_eager_inputs(inputs);
         self.infer_eager_stmts(arena, ast_iter, opt_output_ty, output_contract)
     }
 
-    pub(super) fn infer_eager_stmts(
+    fn add_eager_inputs(&mut self, inputs: &[InputPlaceholder]) {
+        if inputs.len() > 0 {
+            if let None = self
+                .qualified_ty_sheet
+                .eager_variable_qualified_tys
+                .get(&(inputs[0].ident.ident.into(), inputs[0].ranged_ty.row()))
+            {
+                for input in inputs {
+                    let ty = input.ranged_ty.route;
+                    should!(self
+                        .qualified_ty_sheet
+                        .eager_variable_qualified_tys
+                        .insert(
+                            (input.ident.ident.into(), inputs[0].ranged_ty.row()),
+                            Ok(EagerQualifiedType::new(
+                                EagerQualifier::from_input(input.contract, self.db.is_copyable(ty)),
+                                ty,
+                            )),
+                        )
+                        .is_none());
+                }
+            }
+        }
+    }
+
+    fn infer_eager_stmts(
         &mut self,
         arena: &RawExprArena,
         ast_iter: AstIter,
@@ -54,10 +82,22 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match stmt.variant {
             RawStmtVariant::Loop(loop_kind) => match loop_kind {
                 RawLoopKind::For {
+                    frame_var,
                     initial_boundary,
                     final_boundary,
                     ..
                 } => {
+                    should!(self
+                        .qualified_ty_sheet
+                        .eager_variable_qualified_tys
+                        .insert(
+                            (frame_var.ident.into(), stmt.row()),
+                            Ok(EagerQualifiedType {
+                                qual: EagerQualifier::Copyable,
+                                ty: EntityRoutePtr::Root(RootIdentifier::I32)
+                            })
+                        )
+                        .is_none());
                     if let Some(bound) = initial_boundary.opt_bound {
                         self.infer_eager_expr(arena, bound);
                     }
@@ -77,7 +117,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.infer_eager_expr(arena, condition);
                 }
             },
-            RawStmtVariant::Branch(_) => todo!(),
+            RawStmtVariant::Branch(branch_kind) => match branch_kind {
+                RawBranchKind::If { condition } => {
+                    self.infer_eager_expr(arena, condition);
+                }
+                RawBranchKind::Elif { condition } => {
+                    self.infer_eager_expr(arena, condition);
+                }
+                RawBranchKind::Else => (),
+            },
             RawStmtVariant::Exec(expr) => {
                 self.infer_eager_expr(arena, expr);
             }
@@ -91,9 +139,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 {
                     should!(self
                         .qualified_ty_sheet
-                        .variable_qualified_tys
+                        .eager_variable_qualified_tys
                         .insert(
-                            (varname.ident, stmt.row()),
+                            (varname.ident.into(), stmt.row()),
                             initial_value_qualified_ty.use_for_init(init_kind)
                         )
                         .is_none())
@@ -102,14 +150,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Return(expr) => {
                 match (opt_output_ty, self.infer_eager_expr(arena, expr)) {
                     (Some(output_ty), Some(qualified_ty)) => {
-                        if !self
-                            .db
-                            .is_qualified_ty_implicitly_convertible_to_contracted_ty(
-                                qualified_ty,
-                                output_contract,
-                                output_ty,
-                            )
-                        {
+                        if !qualified_ty.is_implicitly_convertible_to_output(
+                            self.db,
+                            output_contract,
+                            output_ty,
+                        ) {
                             todo!()
                         }
                     }
@@ -117,50 +162,69 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
             }
             RawStmtVariant::Assert(_) => todo!(),
-            RawStmtVariant::Break => todo!(),
+            RawStmtVariant::Break => (),
         }
     }
 
-    fn infer_eager_expr(&mut self, arena: &RawExprArena, expr: RawExprIdx) -> Option<QualifiedTy> {
-        let qualified_qualified_ty_result = self.eager_expr(expr, arena);
+    fn infer_eager_expr(
+        &mut self,
+        arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
+    ) -> Option<EagerQualifiedType> {
+        let qualified_qualified_ty_result = self.eager_expr(raw_expr_idx, arena);
         let opt_qualified_ty = qualified_qualified_ty_result
             .as_ref()
             .map(|qualified_ty| *qualified_ty)
             .ok();
         self.qualified_ty_sheet
-            .qualified_tys
-            .insert(expr, qualified_qualified_ty_result);
+            .eager_expr_qualified_tys
+            .insert(raw_expr_idx, qualified_qualified_ty_result);
         opt_qualified_ty
     }
 
     fn eager_expr(
         &mut self,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         arena: &RawExprArena,
-    ) -> InferResult<QualifiedTy> {
-        let expr = &arena[expr_idx];
-        match expr.variant {
+    ) -> InferResult<EagerQualifiedType> {
+        let raw_expr = &arena[raw_expr_idx];
+        match raw_expr.variant {
             RawExprVariant::Variable { varname, init_row } => match derived_not_none!(self
                 .qualified_ty_sheet
-                .variable_qualified_tys
-                .get(&(varname, init_row)))?
+                .eager_variable_qualified_tys
+                .get(&(varname.into(), init_row)))?
             {
                 Ok(qt) => Ok(*qt),
                 Err(e) => Err(e.derived()),
             },
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable { .. } => Ok(EagerQualifiedType::new(
+                EagerQualifier::Copyable,
+                EntityRoutePtr::Root(RootIdentifier::I32),
+            )),
             RawExprVariant::This { ty } => todo!(),
             RawExprVariant::Unrecognized(_) => todo!(),
-            RawExprVariant::Entity { route, kind } => todo!(),
-            RawExprVariant::PrimitiveLiteral(_) => Ok(QualifiedTy {
-                qual: Qualifier::Copyable,
-                ty: self.expr_ty_result(expr_idx).unwrap(),
-            }),
+            RawExprVariant::Entity { route, kind } => match kind {
+                EntityKind::Module => todo!(),
+                EntityKind::Type(_) => todo!(),
+                EntityKind::Trait => todo!(),
+                EntityKind::Member(_) => todo!(),
+                EntityKind::Routine => todo!(),
+                EntityKind::Feature => todo!(),
+                EntityKind::Pattern => todo!(),
+                EntityKind::Literal => Ok(EagerQualifiedType::new(
+                    EagerQualifier::Copyable,
+                    self.raw_expr_ty(raw_expr_idx)?,
+                )),
+            },
+            RawExprVariant::PrimitiveLiteral(_) => Ok(EagerQualifiedType::new(
+                EagerQualifier::Copyable,
+                self.raw_expr_ty(raw_expr_idx).unwrap(),
+            )),
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_eager_expr(arena, expr))
             }
             RawExprVariant::Opn { opr, ref opds } => {
-                self.eager_opn(arena, expr_idx, opr, opds.clone())
+                self.eager_opn(arena, raw_expr_idx, opr, opds.clone())
             }
             RawExprVariant::Lambda(_, _) => todo!(),
         }
@@ -169,45 +233,58 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn eager_opn(
         &mut self,
         arena: &RawExprArena,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         opr: Opr,
         opds: RawExprRange,
-    ) -> InferResult<QualifiedTy> {
+    ) -> InferResult<EagerQualifiedType> {
         match opr {
-            Opr::Binary(binary_opr) => self.binary(arena, expr_idx, opds),
-            Opr::Prefix(_) => todo!(),
+            Opr::Binary(binary_opr) => self.eager_binary(arena, raw_expr_idx, opds),
+            Opr::Prefix(prefix_opr) => self.eager_prefix(arena, raw_expr_idx, opds),
             Opr::Suffix(_) => todo!(),
-            Opr::List(list_opr) => self.list(arena, expr_idx, list_opr, opds),
+            Opr::List(list_opr) => self.eager_list(arena, raw_expr_idx, list_opr, opds),
         }
     }
 
-    fn binary(
+    fn eager_binary(
         &mut self,
         arena: &RawExprArena,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         opds: RawExprRange,
-    ) -> InferResult<QualifiedTy> {
+    ) -> InferResult<EagerQualifiedType> {
         self.infer_eager_expr(arena, opds.start);
         self.infer_eager_expr(arena, opds.start + 1);
-        Ok(QualifiedTy {
-            qual: Qualifier::Transient,
-            ty: self.expr_ty_result(expr_idx)?,
-        })
+        Ok(EagerQualifiedType::new(
+            EagerQualifier::Transient,
+            self.raw_expr_ty(raw_expr_idx)?,
+        ))
     }
 
-    fn list(
+    fn eager_prefix(
+        &mut self,
+        arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
+        opds: RawExprRange,
+    ) -> InferResult<EagerQualifiedType> {
+        self.infer_eager_expr(arena, opds.start);
+        Ok(EagerQualifiedType::new(
+            EagerQualifier::Transient,
+            self.raw_expr_ty(raw_expr_idx)?,
+        ))
+    }
+
+    fn eager_list(
         &mut self,
         arena: &RawExprArena,
         expr_idx: RawExprIdx,
         list_opr: ListOpr,
         opds: RawExprRange,
-    ) -> InferResult<QualifiedTy> {
+    ) -> InferResult<EagerQualifiedType> {
         match list_opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.eager_call(arena, expr_idx, opds),
-            ListOpr::Index => self.eager_index(arena, expr_idx, opds),
+            ListOpr::Index => self.eager_element_access(arena, expr_idx, opds),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
@@ -218,7 +295,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         expr_idx: RawExprIdx,
         total_opds: RawExprRange,
-    ) -> InferResult<QualifiedTy> {
+    ) -> InferResult<EagerQualifiedType> {
         match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
                 let call_decl = self.db.call_decl(route)?;
@@ -227,16 +304,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     .map(|opd_idx| self.infer_eager_expr(arena, opd_idx))
                     .collect();
                 match call_decl.output.contract {
-                    OutputContract::Transitive => {
+                    OutputContract::Transfer => {
                         msg_once!("handle ref");
-                        Ok(QualifiedTy {
-                            qual: if self.db.is_copyable(call_decl.output.ty) {
-                                Qualifier::Copyable
+                        Ok(EagerQualifiedType::new(
+                            if self.db.is_copyable(call_decl.output.ty) {
+                                EagerQualifier::Copyable
                             } else {
-                                Qualifier::Transient
+                                EagerQualifier::Transient
                             },
-                            ty: call_decl.output.ty,
-                        })
+                            call_decl.output.ty,
+                        ))
                     }
                     OutputContract::MemberAccess => todo!(),
                 }
@@ -266,13 +343,80 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn eager_index(
+    fn eager_element_access(
         &mut self,
         arena: &RawExprArena,
         expr_idx: RawExprIdx,
         total_opds: RawExprRange,
-    ) -> InferResult<QualifiedTy> {
-        todo!()
+    ) -> InferResult<EagerQualifiedType> {
+        let this_qt = derived_not_none!(self.infer_eager_expr(arena, total_opds.start))?;
+        let this_contract = self.eager_expr_contract(total_opds.start)?;
+        for opd in (total_opds.start + 1)..total_opds.end {
+            self.infer_eager_expr(arena, opd);
+        }
+        let element_ty = self.raw_expr_ty(expr_idx)?;
+        let qual = if self.db.is_copyable(element_ty) {
+            EagerQualifier::Copyable
+        } else {
+            match this_qt.qual {
+                EagerQualifier::Copyable | EagerQualifier::CopyableMut => panic!(),
+                EagerQualifier::PureRef => match this_contract {
+                    EagerContract::Pure => EagerQualifier::PureRef,
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => EagerQualifier::PureRef,
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::LocalRef => match this_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::Transient => match this_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::Owned => match this_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::OwnedMut => todo!(),
+                EagerQualifier::GlobalRef => todo!(),
+            }
+        };
+        Ok(EagerQualifiedType::new(qual, element_ty))
     }
 
     fn eager_method(
@@ -282,25 +426,22 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         inputs: RawExprRange,
         arena: &RawExprArena,
         expr_idx: RawExprIdx,
-    ) -> InferResult<QualifiedTy> {
+    ) -> InferResult<EagerQualifiedType> {
         let method_decl = self.method_decl(expr_idx)?;
         self.infer_eager_expr(arena, this);
         for input in inputs {
             self.infer_eager_expr(arena, input);
         }
         let qual = match method_decl.output.contract {
-            OutputContract::Transitive => {
+            OutputContract::Transfer => {
                 if self.db.is_copyable(method_decl.output.ty) {
-                    Qualifier::Copyable
+                    EagerQualifier::Copyable
                 } else {
-                    Qualifier::Transient
+                    EagerQualifier::Transient
                 }
             }
             OutputContract::MemberAccess => todo!(),
         };
-        Ok(QualifiedTy {
-            qual,
-            ty: method_decl.output.ty,
-        })
+        Ok(EagerQualifiedType::new(qual, method_decl.output.ty))
     }
 }

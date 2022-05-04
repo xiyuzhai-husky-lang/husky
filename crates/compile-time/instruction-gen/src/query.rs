@@ -11,15 +11,18 @@ use crate::*;
 pub trait InstructionGenQueryGroup:
     EntityDefnQueryGroup + PackageQueryGroup + ResolveLinkage
 {
-    fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Arc<InstructionSheet>;
-    fn method_instruction_sheet(&self, member_route: EntityRoutePtr) -> Arc<InstructionSheet>;
+    fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Option<Arc<InstructionSheet>>;
+    fn method_opt_instruction_sheet(
+        &self,
+        member_route: EntityRoutePtr,
+    ) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(&self, pack_main: FilePtr) -> Arc<InstructionSheet>;
 }
 
 fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     route: EntityRoutePtr,
-) -> Arc<InstructionSheet> {
+) -> Option<Arc<InstructionSheet>> {
     let entity_defn = db.entity_defn(route).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Module { .. } => todo!(),
@@ -29,26 +32,26 @@ fn entity_instruction_sheet(
             ref input_placeholders,
             ref stmts,
             ..
-        } => InstructionSheetBuilder::new_func(
+        } => Some(InstructionSheetBuilder::new_func(
             db,
             input_placeholders
                 .iter()
                 .map(|input_placeholder| input_placeholder.ident.ident),
             stmts,
             false,
-        ),
+        )),
         EntityDefnVariant::Proc {
             ref input_placeholders,
             ref stmts,
             ..
-        } => InstructionSheetBuilder::new_impr(
+        } => Some(InstructionSheetBuilder::new_impr(
             db,
             input_placeholders
                 .iter()
                 .map(|input_placeholder| input_placeholder.ident.ident),
             stmts,
             false,
-        ),
+        )),
         EntityDefnVariant::Type { .. } => todo!(),
         EntityDefnVariant::Main(_) => todo!(),
         EntityDefnVariant::Builtin => {
@@ -64,10 +67,10 @@ fn entity_instruction_sheet(
     }
 }
 
-fn method_instruction_sheet(
+fn method_opt_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     member_route: EntityRoutePtr,
-) -> Arc<InstructionSheet> {
+) -> Option<Arc<InstructionSheet>> {
     let ty = member_route.parent();
     let entity_defn = db.entity_defn(ty).unwrap();
     match entity_defn.variant {
@@ -105,11 +108,11 @@ fn method_instruction_sheet(
                     };
                     match source {
                         MethodSource::Func { stmts } => {
-                            InstructionSheetBuilder::new_func(db, inputs, stmts, true)
+                            Some(InstructionSheetBuilder::new_func(db, inputs, stmts, true))
                         }
                         MethodSource::Proc { stmts } => todo!(),
                         MethodSource::Pattern { stmts } => todo!(),
-                        MethodSource::Static(_) => todo!(),
+                        MethodSource::Static(_) => None,
                     }
                 }
                 _ => panic!(),

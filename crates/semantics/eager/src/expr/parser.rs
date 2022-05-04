@@ -3,7 +3,7 @@ use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
-use infer_qualifier::InferQualifier;
+use infer_qualifier::InferQualifiedType;
 use vm::*;
 use word::RootIdentifier;
 
@@ -12,7 +12,7 @@ use semantics_error::{err, try_infer};
 
 use super::EagerOpnVariant;
 
-pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifier {
+pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedType {
     fn arena(&self) -> &'a RawExprArena;
     fn file(&self) -> FilePtr;
     // fn db(&self) -> &'a dyn InferQueryGroup;
@@ -63,12 +63,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifier
         };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
-            ty: try_infer!(self.expr_ty_result(raw_expr_idx)),
+            ty: try_infer!(self.raw_expr_ty(raw_expr_idx)),
             variant: kind,
             file: self.file(),
             instruction_id: Default::default(),
-            contract: try_infer!(self.eager_expr_contract_result(raw_expr_idx)),
-            qualifier: try_infer!(self.eager_expr_qualifier_result(raw_expr_idx)),
+            contract: try_infer!(self.eager_expr_contract(raw_expr_idx)),
+            qualified_ty: self.eager_expr_qualified_ty(raw_expr_idx)?,
         }))
     }
 

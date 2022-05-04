@@ -18,9 +18,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         .variable_qualified_tys
                         .insert(
                             (input.ident.ident, inputs[0].ranged_ty.row()),
-                            Ok(QualifiedTy {
+                            Ok(EagerQualifiedTy {
                                 ty,
-                                qual: Qualifier::from_input(
+                                qual: EagerQualifier::from_input(
                                     input.contract,
                                     self.db.is_copyable(ty)
                                 ),

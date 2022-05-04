@@ -132,7 +132,10 @@ impl ResolveLinkage for HuskyLangCompileTime {
 }
 
 impl InterpreterQueryGroup for HuskyLangCompileTime {
-    fn entity_instruction_sheet_by_uid(&self, uid: vm::EntityUid) -> Arc<vm::InstructionSheet> {
+    fn entity_opt_instruction_sheet_by_uid(
+        &self,
+        uid: vm::EntityUid,
+    ) -> Option<Arc<vm::InstructionSheet>> {
         let entity_route = self.entity_route_by_uid(uid);
         self.entity_instruction_sheet(entity_route)
     }

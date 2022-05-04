@@ -10,13 +10,13 @@
             severity: Error,
             range: 30:63..30:66,
             message: "Infer Error: Unrecognized identifier `img`",
-            dev_src: crates/infer/entity-route/src/builder/impl_expr.rs:47,
+            dev_src: crates/infer/entity-route/src/builder/impl_expr.rs:46,
         },
         Diagnostic {
             severity: Error,
             range: 38:63..38:66,
             message: "Infer Error: Unrecognized identifier `img`",
-            dev_src: crates/infer/entity-route/src/builder/impl_expr.rs:47,
+            dev_src: crates/infer/entity-route/src/builder/impl_expr.rs:46,
         },
     ],
 }

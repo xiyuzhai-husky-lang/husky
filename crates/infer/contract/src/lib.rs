@@ -17,13 +17,11 @@ use vm::{EagerContract, LazyContract};
 pub trait InferContract {
     fn contract_sheet(&self) -> &ContractSheet;
 
-    fn lazy_expr_contract_result(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyContract> {
-        self.contract_sheet()
-            .lazy_expr_contract_result(raw_expr_idx)
+    fn lazy_expr_contract(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyContract> {
+        self.contract_sheet().lazy_expr_contract(raw_expr_idx)
     }
 
-    fn eager_expr_contract_result(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerContract> {
-        self.contract_sheet()
-            .eager_expr_contract_result(raw_expr_idx)
+    fn eager_expr_contract(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerContract> {
+        self.contract_sheet().eager_expr_contract(raw_expr_idx)
     }
 }

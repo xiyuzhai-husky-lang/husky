@@ -1,6 +1,7 @@
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Binding {
-    Pure,
-    BorrowMut,
+    Ref,
+    RefMut,
     Move,
+    Copy,
 }
