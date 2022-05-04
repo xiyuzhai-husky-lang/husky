@@ -18,7 +18,6 @@ pub struct ContractSheetBuilder<'a> {
     file: FilePtr,
     main_file: FilePtr,
     contract_sheet: ContractSheet,
-    trait_uses: LocalStack<EntityRouteKind>,
 }
 
 impl<'a> InferEntityRoute for ContractSheetBuilder<'a> {
@@ -38,7 +37,6 @@ impl<'a> ContractSheetBuilder<'a> {
             file,
             main_file: db.main_file(file).unwrap(),
             contract_sheet: ContractSheet::new(db.entity_route_sheet(file).unwrap()),
-            trait_uses: LocalStack::new(),
         }
     }
 

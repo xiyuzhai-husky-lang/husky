@@ -293,7 +293,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => self.db.type_decl(opd_ty)?.field_ty_result(ident),
+            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.field_ty_result(ident),
             SuffixOpr::WithType(_) => todo!(),
         }
     }
@@ -373,7 +373,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
-        let this_ty_decl = derived_ok!(self.db.type_decl(this_ty));
+        let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
         let method_decl = this_ty_decl.method(method_ident, &self.trait_uses)?;
         if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
@@ -417,7 +417,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }
         let this_ty = derived_not_none!(self.infer_expr(total_opds.start, None, arena))?;
         let index_ty = derived_not_none!(self.infer_expr(total_opds.start + 1, None, arena))?;
-        let this_ty_decl = self.db.type_decl(this_ty)?;
+        let this_ty_decl = self.db.ty_decl(this_ty)?;
         let index_trai = self.db.intern_entity_route(EntityRoute {
             kind: self.db.entity_route_menu().std_ops_index_trai.kind,
             generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],

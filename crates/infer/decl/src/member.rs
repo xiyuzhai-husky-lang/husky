@@ -149,6 +149,6 @@ impl MemberDecl {
 
 pub(crate) fn member_idx(db: &dyn DeclQueryGroup, member_route: EntityRoutePtr) -> MemberIdx {
     let this_ty = member_route.parent();
-    let this_ty_decl = db.type_decl(this_ty).unwrap();
+    let this_ty_decl = db.ty_decl(this_ty).unwrap();
     this_ty_decl.member_idx(member_route)
 }

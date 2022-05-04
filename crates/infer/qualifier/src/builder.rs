@@ -58,14 +58,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         item.children.unwrap(),
                         self.db.global_output_ty(self.main_file).ok(),
                     ),
-                    AstKind::DatasetConfigDefnHead => self.build_routine(
+                    AstKind::DatasetConfigDefnHead => self.infer_routine(
                         &[],
                         item.children.unwrap(),
                         &arena,
                         Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
                         OutputContract::Transitive,
                     ),
-                    AstKind::RoutineDefnHead(ref head) => self.build_routine(
+                    AstKind::RoutineDefnHead(ref head) => self.infer_routine(
                         &head.input_placeholders,
                         item.children.unwrap(),
                         &arena,
@@ -82,7 +82,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         }
                     },
                     AstKind::Stmt(_) => todo!(),
-                    AstKind::TypeMethodDefnHead(ref head) => self.build_routine(
+                    AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
                         &head.input_placeholders,
                         item.children.unwrap(),
                         &arena,

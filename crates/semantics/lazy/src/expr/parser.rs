@@ -310,7 +310,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                                 method_ident: ranged_ident,
                                 method_route: self
                                     .entity_route_sheet()
-                                    .call_route_result(raw_expr_idx)
+                                    .call_route(raw_expr_idx)
                                     .unwrap(),
                             },
                             opds,

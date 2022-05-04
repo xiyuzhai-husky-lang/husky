@@ -56,7 +56,7 @@ impl EntityRouteSheet {
         }
     }
 
-    pub fn call_route_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+    pub fn call_route(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         match &self.call_routes[&expr_idx] {
             Ok(call_route) => Ok(*call_route),
             Err(e) => Err(e.derived()),

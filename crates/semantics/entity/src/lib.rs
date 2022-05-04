@@ -346,7 +346,7 @@ pub(crate) fn entity_defn(
                     kind,
                     generic_placeholders: ref generics,
                 } => {
-                    let signature = try_infer!(db.type_decl(entity_route));
+                    let signature = try_infer!(db.ty_decl(entity_route));
                     (
                         ident,
                         EntityDefnVariant::ty_from_ast(

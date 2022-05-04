@@ -131,8 +131,8 @@ macro_rules! derived {
 #[macro_export]
 macro_rules! derived_ok {
     ($opt_value: expr) => {{
-        $opt_value.or(Err(InferError {
-            variant: InferErrorVariant::Derived {
+        $opt_value.or(Err(infer_error::InferError {
+            variant: infer_error::InferErrorVariant::Derived {
                 message: "derived ok".to_string(),
             },
             dev_src: dev_utils::dev_src!(),

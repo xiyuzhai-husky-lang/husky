@@ -165,7 +165,7 @@ impl<'a> FeatureExprBuilder<'a> {
         contract: LazyContract,
     ) -> (FeatureExprKind, FeaturePtr) {
         let this = self.new_expr(opds[0].clone());
-        let this_ty_decl = self.db.type_decl(this.expr.ty).unwrap();
+        let this_ty_decl = self.db.ty_decl(this.expr.ty).unwrap();
         match field_access_kind {
             FieldKind::StructOriginal => {
                 let feature = self.features.alloc(Feature::StructOriginalFieldAccess {

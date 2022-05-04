@@ -33,7 +33,7 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> bool {
             RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(_) => {
-            let ty_decl = db.type_decl(ty).unwrap();
+            let ty_decl = db.ty_decl(ty).unwrap();
             ty_decl
                 .trai_impl(db.entity_route_menu().copy_trait)
                 .is_some()

@@ -58,6 +58,12 @@ impl TraitImplDecl {
                 .map(|member| member.instantiate(instantiator)),
         })
     }
+
+    pub(crate) fn member(&self, ident: CustomIdentifier) -> Option<&TraitMemberImplDecl> {
+        self.member_impls
+            .iter()
+            .find(|impl_decl| impl_decl.ident() == ident)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

@@ -107,7 +107,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 linkage: field_access_fp,
                             }
                         } else {
-                            let this_ty_decl = self.db.type_decl(*this_ty).unwrap();
+                            let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
                             InstructionKind::FieldAccessInterpreted {
                                 field_idx: this_ty_decl
                                     .field_idx(ranged_ident.ident)

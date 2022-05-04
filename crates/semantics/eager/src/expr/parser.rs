@@ -181,7 +181,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifier
                             route: scope,
                             range: call.range(),
                         },
-                        ty_decl: try_infer!(self.decl_db().type_decl(scope)),
+                        ty_decl: try_infer!(self.decl_db().ty_decl(scope)),
                     },
                     opds: arguments,
                 })
@@ -206,7 +206,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifier
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))
                             .collect::<SemanticResult<Vec<_>>>()?;
-                        let this_ty_decl = self.decl_db().type_decl(this.ty).unwrap();
+                        let this_ty_decl = self.decl_db().ty_decl(this.ty).unwrap();
                         let mut opds = vec![this];
                         opds.extend(inputs);
                         msg_once!("todo: memb call compiled");
@@ -216,7 +216,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifier
                                 this_ty_decl,
                                 method_route: self
                                     .entity_route_sheet()
-                                    .call_route_result(raw_expr_idx)
+                                    .call_route(raw_expr_idx)
                                     .unwrap(),
                             },
                             opds,
