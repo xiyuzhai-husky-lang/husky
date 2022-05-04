@@ -22,14 +22,16 @@ impl ContractSheet {
         }
     }
 
-    pub(crate) fn lazy_expr_contract_result(
-        &self,
-        raw_expr_idx: RawExprIdx,
-    ) -> InferResult<LazyContract> {
-        self.lazy_expr_contract_results[&raw_expr_idx].clone()
+    pub(crate) fn lazy_expr_contract(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyContract> {
+        if let Some(contract_result) = self.lazy_expr_contract_results.get(&raw_expr_idx) {
+            contract_result.clone()
+        } else {
+            p!(self.entity_route_sheet.ast_text.arena[raw_expr_idx]);
+            Err(derived!(format!("contract not inferred")))
+        }
     }
 
-    pub(crate) fn eager_expr_contract_result(
+    pub(crate) fn eager_expr_contract(
         &self,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<EagerContract> {

@@ -141,7 +141,7 @@ impl TyDecl {
                     inputs,
                     output: OutputDecl {
                         ty,
-                        contract: OutputContract::Transitive,
+                        contract: OutputContract::Transfer,
                     },
                     generic_placeholders: generic_placeholders.clone(),
                 }))
@@ -290,13 +290,23 @@ impl TyDecl {
         match self.ty_members.get(ranged_ident.ident) {
             Some(type_member_decl) => match type_member_decl {
                 TyMemberDecl::Field(field) => Ok(field.ty),
-                TyMemberDecl::Method(_) => todo!(),
+                TyMemberDecl::Method(_) => err!(
+                    format!(
+                        "expect a field, but `{}` is a method in type `{:?}`",
+                        &ranged_ident.ident, self.this_ty
+                    ),
+                    ranged_ident.range
+                ),
                 TyMemberDecl::Call => todo!(),
             },
             None => {
-                p!(self);
-                p!(ranged_ident);
-                todo!()
+                err!(
+                    format!(
+                        "No such field `{}` in type `{:?}`",
+                        &ranged_ident.ident, self.this_ty
+                    ),
+                    ranged_ident.range
+                )
             }
         }
         // match self.kind {
@@ -330,10 +340,12 @@ impl TyDecl {
         match self.ty_members.get(ranged_ident.ident) {
             Some(member_decl) => match member_decl {
                 TyMemberDecl::Field(field) => Ok(field),
-                TyMemberDecl::Method(_) => todo!(),
+                TyMemberDecl::Method(_) => {
+                    Err(derived!(format!("expect a field, but got method instead")))
+                }
                 TyMemberDecl::Call => todo!(),
             },
-            None => todo!(),
+            None => Err(derived!(format!("no such field"))),
         }
         // self.fields[field_ident]
         // match self.kind {

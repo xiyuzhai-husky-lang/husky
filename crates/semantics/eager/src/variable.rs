@@ -1,18 +1,24 @@
+use infer_qualifier::{EagerQualifiedType, QualifiedTypeSheet};
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerVariable {
     pub ident: CustomIdentifier,
-    pub ty: EntityRoutePtr,
-    pub qual: Qual,
+    pub qualified_ty: EagerQualifiedType,
 }
 
 impl EagerVariable {
-    pub(crate) fn from_input(input_placeholder: &InputPlaceholder) -> Self {
-        EagerVariable {
+    pub(crate) fn from_input(
+        qualified_ty_sheet: &QualifiedTypeSheet,
+        input_placeholder: &InputPlaceholder,
+    ) -> SemanticResult<Self> {
+        Ok(EagerVariable {
             ident: input_placeholder.ident.ident,
-            ty: input_placeholder.ranged_ty.route,
-            qual: Qual::from_input(input_placeholder.contract),
-        }
+            qualified_ty: qualified_ty_sheet.eager_variable_qualified_ty(
+                input_placeholder.ident.ident.into(),
+                input_placeholder.ranged_ty.range.start.row,
+            )?,
+        })
     }
 }

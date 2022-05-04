@@ -1,11 +1,9 @@
 use infer_contract::{ContractSheet, InferContract};
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use infer_qualifier::{InferQualifier, QualifiedTySheet};
+use infer_qualifier::{InferQualifiedType, QualifiedTypeSheet};
 use infer_total::InferQueryGroup;
 use vm::{StackIdx, VMResult};
 use word::RangedCustomIdentifier;
-
-use crate::qual::QualTable;
 
 use super::*;
 
@@ -14,10 +12,9 @@ pub(super) struct EagerStmtParser<'a> {
     pub(super) arena: &'a RawExprArena,
     pub(super) variables: Vec<EagerVariable>,
     pub(super) file: FilePtr,
-    pub(super) qual_table: QualTable,
     entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: Arc<ContractSheet>,
-    qualified_ty_sheet: Arc<QualifiedTySheet>,
+    qualified_ty_sheet: Arc<QualifiedTypeSheet>,
 }
 
 impl<'a> EagerStmtParser<'a> {
@@ -28,32 +25,32 @@ impl<'a> EagerStmtParser<'a> {
         file: FilePtr,
     ) -> Self {
         msg_once!("check no errors in entity_route_sheet");
+        let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
         Self {
             db,
             arena,
             variables: input_placeholders
                 .iter()
-                .map(|input_placeholder| EagerVariable::from_input(input_placeholder))
+                .map(|input_placeholder| {
+                    EagerVariable::from_input(&qualified_ty_sheet, input_placeholder).unwrap()
+                })
                 .collect(),
             file,
-            qual_table: Default::default(),
             entity_route_sheet: db.entity_route_sheet(file).unwrap(),
             contract_sheet: db.contract_sheet(file).unwrap(),
-            qualified_ty_sheet: db.qualified_ty_sheet(file).unwrap(),
+            qualified_ty_sheet,
         }
     }
 
     pub(super) fn def_variable(
         &mut self,
         varname: RangedCustomIdentifier,
-        ty: EntityRoutePtr,
-        qual: Qual,
-    ) -> VMResult<StackIdx> {
+    ) -> SemanticResult<StackIdx> {
         let varidx = StackIdx::new(self.variables.len())?;
         self.variables.push(EagerVariable {
             ident: varname.ident,
-            ty,
-            qual,
+            qualified_ty: self
+                .eager_variable_qualified_ty(varname.ident.into(), varname.range.start.row)?,
         });
         Ok(varidx)
     }
@@ -89,8 +86,8 @@ impl<'a> InferContract for EagerStmtParser<'a> {
     }
 }
 
-impl<'a> InferQualifier for EagerStmtParser<'a> {
-    fn qualified_ty_sheet(&self) -> &infer_qualifier::QualifiedTySheet {
+impl<'a> InferQualifiedType for EagerStmtParser<'a> {
+    fn qualified_ty_sheet(&self) -> &infer_qualifier::QualifiedTypeSheet {
         &self.qualified_ty_sheet
     }
 }

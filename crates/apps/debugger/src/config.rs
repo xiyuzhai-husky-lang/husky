@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug)]
 pub(crate) struct DebuggerConfig {
     pub(crate) verbose: bool,
     pub(crate) opt_input_id: Option<String>,

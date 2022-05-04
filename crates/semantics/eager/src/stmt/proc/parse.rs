@@ -126,8 +126,7 @@ impl<'a> EagerStmtParser<'a> {
                 init_kind,
             } => {
                 let initial_value = self.parse_eager_expr(initial_value)?;
-                let qual = Qual::from_init(init_kind);
-                let varidx = self.def_variable(varname, initial_value.ty, qual)?;
+                let varidx = self.def_variable(varname)?;
                 ProcStmtVariant::Init {
                     varname,
                     initial_value,
@@ -157,11 +156,7 @@ impl<'a> EagerStmtParser<'a> {
                 final_boundary,
                 step,
             } => {
-                self.def_variable(
-                    frame_var,
-                    EntityRoutePtr::Root(RootIdentifier::I32),
-                    Qual::frame_var(),
-                )?;
+                self.def_variable(frame_var)?;
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::For {
                         frame_var,

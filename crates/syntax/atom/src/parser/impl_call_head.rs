@@ -50,7 +50,7 @@ impl<'a> AtomLRParser<'a> {
             generic_placeholders,
             input_placeholders,
             output_ty,
-            output_contract: OutputContract::Transitive,
+            output_contract: OutputContract::Transfer,
         })
     }
 
@@ -70,7 +70,7 @@ impl<'a> AtomLRParser<'a> {
             generic_placeholders: generics,
             input_placeholders,
             output_ty,
-            output_contract: OutputContract::Transitive,
+            output_contract: OutputContract::Transfer,
         })
     }
 

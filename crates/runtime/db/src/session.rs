@@ -48,7 +48,7 @@ impl<'sess> Session<'sess> {
         let dataset: Dataset = eval_fast(
             compile_time,
             TrivialIter::default(),
-            &compile_time.dataset_config_instruction_sheet(pack.main_defn.file),
+            Some(&compile_time.dataset_config_instruction_sheet(pack.main_defn.file)),
             None,
         )?
         .into_boxed()?

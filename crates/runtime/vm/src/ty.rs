@@ -53,8 +53,8 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                     MemberValue::Moved => todo!(),
                 },
             },
-            EagerContract::BorrowMut => todo!(),
-            EagerContract::TakeMut => todo!(),
+            EagerContract::RefMut => todo!(),
+            EagerContract::MoveMut => todo!(),
             EagerContract::Exec => todo!(),
             EagerContract::UseMemberForLetInit => todo!(),
             EagerContract::UseMemberForVarInit => todo!(),
@@ -71,7 +71,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::Pure => todo!(),
             EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
-            EagerContract::BorrowMut => match self {
+            EagerContract::RefMut => match self {
                 VirtualTy::Struct { field_vars } => {
                     let field_var_value = &mut field_vars[field_idx];
                     let ptr: *mut dyn AnyValueDyn = match field_var_value {
@@ -81,14 +81,14 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                         MemberValue::GlobalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
-                    StackValue::MutLocalRef {
+                    StackValue::LocalRefMut {
                         value: unsafe { &mut *ptr },
                         owner,
                         gen: (),
                     }
                 }
             },
-            EagerContract::TakeMut => todo!(),
+            EagerContract::MoveMut => todo!(),
             EagerContract::Exec => todo!(),
             EagerContract::LetInit => todo!(),
             EagerContract::VarInit => todo!(),

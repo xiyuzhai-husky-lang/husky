@@ -35,7 +35,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
-        output_contract: OutputContract::Transitive,
+        output_contract: OutputContract::Transfer,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
             nargs: 0,
@@ -63,7 +63,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         this_contract: InputContract::Pure,
                         input_placeholders: &[],
                         output_ty: "datasets::cv::mnist::BinaryImage28",
-                        output_contract: OutputContract::Transitive,
+                        output_contract: OutputContract::Transfer,
                         generic_placeholders: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
                     },
@@ -125,7 +125,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                                 values[0].downcast_mut_full();
                                             this_value
                                                 .get_mut(index_value)
-                                                .map(|value| StackValue::MutLocalRef {
+                                                .map(|value| StackValue::LocalRefMut {
                                                     value,
                                                     owner,
                                                     gen: (),
@@ -159,7 +159,7 @@ static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "datasets::cv::mnist::BinaryImage28",
-        output_contract: OutputContract::Transitive,
+        output_contract: OutputContract::Transfer,
         linkage: Linkage {
             call: |_values| Ok(StackValue::Boxed(BoxedValue::new(BinaryImage28::default()))),
             nargs: 0,

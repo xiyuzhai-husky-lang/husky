@@ -1,6 +1,6 @@
 use core::hash::Hash;
 use std::{borrow::Borrow, fmt::Display, ops::Deref};
-use text::TextRange;
+use text::{TextRange, TextRanged};
 
 #[derive(Copy, Clone)]
 pub struct CustomIdentifier(pub &'static str);
@@ -9,6 +9,12 @@ pub struct CustomIdentifier(pub &'static str);
 pub struct RangedCustomIdentifier {
     pub ident: CustomIdentifier,
     pub range: TextRange,
+}
+
+impl TextRanged for RangedCustomIdentifier {
+    fn text_range_ref(&self) -> &TextRange {
+        &self.range
+    }
 }
 
 impl CustomIdentifier {

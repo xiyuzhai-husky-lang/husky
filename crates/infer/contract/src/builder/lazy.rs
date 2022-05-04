@@ -141,7 +141,7 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
-                let this_ty_decl = self.expr_ty_decl(opd)?;
+                let this_ty_decl = self.raw_expr_ty_decl(opd)?;
                 let this_contract = match this_ty_decl.field_decl(ranged_ident)?.contract {
                     FieldContract::Own => match contract {
                         LazyContract::Move => LazyContract::Move,
@@ -280,7 +280,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         match contract {
             LazyContract::Move => {
-                let ty = self.expr_ty_result(raw_expr_idx)?;
+                let ty = self.raw_expr_ty(raw_expr_idx)?;
                 let this_contract = if self.db.is_copyable(ty) {
                     LazyContract::Pure
                 } else {

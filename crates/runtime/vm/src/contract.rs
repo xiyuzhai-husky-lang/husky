@@ -13,18 +13,18 @@ pub enum InputContract {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum OutputContract {
-    Transitive,
+    Transfer,
     MemberAccess,
 }
 
 impl InputContract {
     pub fn eager(&self, output: OutputContract) -> VMResult<EagerContract> {
         match output {
-            OutputContract::Transitive => Ok(match self {
+            OutputContract::Transfer => Ok(match self {
                 InputContract::Pure => EagerContract::Pure,
                 InputContract::GlobalRef => EagerContract::GlobalRef,
                 InputContract::Move => EagerContract::Move,
-                InputContract::BorrowMut => EagerContract::BorrowMut,
+                InputContract::BorrowMut => EagerContract::RefMut,
                 InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
                 InputContract::MemberAccess => panic!(),
@@ -35,7 +35,7 @@ impl InputContract {
 
     pub fn lazy(&self, output: OutputContract) -> VMResult<LazyContract> {
         match output {
-            OutputContract::Transitive => Ok(match self {
+            OutputContract::Transfer => Ok(match self {
                 InputContract::Pure => LazyContract::Pure,
                 InputContract::GlobalRef => todo!(),
                 InputContract::Move => LazyContract::Move,
@@ -59,8 +59,8 @@ pub enum EagerContract {
     UseMemberForLetInit,
     UseMemberForVarInit,
     Return,
-    BorrowMut,
-    TakeMut,
+    RefMut,
+    MoveMut,
     Exec,
 }
 
@@ -99,8 +99,8 @@ impl FieldContract {
                 EagerContract::Pure => todo!(),
                 EagerContract::GlobalRef => todo!(),
                 EagerContract::Move => Ok(EagerContract::Move),
-                EagerContract::BorrowMut => Ok(EagerContract::BorrowMut),
-                EagerContract::TakeMut => todo!(),
+                EagerContract::RefMut => Ok(EagerContract::RefMut),
+                EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::LetInit => todo!(),
                 EagerContract::VarInit => todo!(),

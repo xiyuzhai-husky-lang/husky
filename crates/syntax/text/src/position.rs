@@ -4,8 +4,8 @@ use crate::*;
 
 #[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
 pub struct TextPosition {
-    pub(crate) row: Row,
-    pub(crate) col: Column,
+    pub row: Row,
+    pub col: Column,
 }
 
 impl From<(u32, u32)> for TextPosition {

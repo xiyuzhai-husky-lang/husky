@@ -1,5 +1,4 @@
 mod eager;
-mod inputs;
 mod lazy;
 
 use std::sync::Arc;
@@ -19,7 +18,7 @@ pub(crate) struct QualifiedTySheetBuilder<'a> {
     db: &'a dyn InferQualifiedTyQueryGroup,
     contract_sheet: Arc<ContractSheet>,
     entity_route_sheet: Arc<EntityRouteSheet>,
-    qualified_ty_sheet: QualifiedTySheet,
+    qualified_ty_sheet: QualifiedTypeSheet,
     main_file: FilePtr,
 }
 
@@ -55,20 +54,22 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     }
                     AstKind::MainDefn => self.infer_morphism(
                         &arena,
-                        item.children.unwrap(),
-                        self.db.global_output_ty(self.main_file).ok(),
-                    ),
-                    AstKind::DatasetConfigDefnHead => self.infer_routine(
                         &[],
                         item.children.unwrap(),
+                        self.db.global_output_ty(self.main_file).ok(),
+                        OutputContract::Transfer,
+                    ),
+                    AstKind::DatasetConfigDefnHead => self.infer_routine(
                         &arena,
+                        &[],
+                        item.children.unwrap(),
                         Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
-                        OutputContract::Transitive,
+                        OutputContract::Transfer,
                     ),
                     AstKind::RoutineDefnHead(ref head) => self.infer_routine(
+                        &arena,
                         &head.input_placeholders,
                         item.children.unwrap(),
-                        &arena,
                         Some(head.output_ty.route),
                         head.output_contract,
                     ),
@@ -77,28 +78,36 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstKind::FieldDefnHead(ref head) => match head.kind {
                         FieldKind::StructOriginal => (),
                         FieldKind::RecordOriginal => (),
-                        FieldKind::StructDerived | FieldKind::RecordDerived => {
-                            self.infer_morphism(&arena, item.children.unwrap(), Some(head.ty))
-                        }
+                        FieldKind::StructDerived | FieldKind::RecordDerived => self.infer_morphism(
+                            &arena,
+                            &[],
+                            item.children.unwrap(),
+                            Some(head.ty),
+                            OutputContract::Transfer,
+                        ),
                     },
                     AstKind::Stmt(_) => todo!(),
                     AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
+                        &arena,
                         &head.input_placeholders,
                         item.children.unwrap(),
-                        &arena,
                         Some(head.output_ty.route),
                         head.output_contract,
                     ),
-                    AstKind::FeatureDecl { ty, .. } => {
-                        self.infer_morphism(&arena, item.children.unwrap(), Some(ty.route))
-                    }
+                    AstKind::FeatureDecl { ty, .. } => self.infer_morphism(
+                        &arena,
+                        &[],
+                        item.children.unwrap(),
+                        Some(ty.route),
+                        OutputContract::Transfer,
+                    ),
                 },
                 _ => (),
             }
         }
     }
 
-    pub(super) fn finish(self) -> Arc<QualifiedTySheet> {
+    pub(super) fn finish(self) -> Arc<QualifiedTypeSheet> {
         Arc::new(self.qualified_ty_sheet)
     }
 }

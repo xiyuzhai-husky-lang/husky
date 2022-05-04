@@ -41,10 +41,14 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
             }
             FeatureExprKind::RoutineCall {
                 ref opds,
-                ref instruction_sheet,
+                ref opt_instruction_sheet,
                 opt_linkage: opt_compiled,
                 ..
-            } => self.eval_routine_call(instruction_sheet, opt_compiled, opds),
+            } => self.eval_routine_call(
+                opt_instruction_sheet.as_ref().map(|r| &**r),
+                opt_compiled,
+                opds,
+            ),
             FeatureExprKind::EntityFeature { ref block, .. } => self.eval_feature_block(block),
             FeatureExprKind::NewRecord {
                 ty,
@@ -89,7 +93,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
 
     fn eval_routine_call(
         &mut self,
-        instrns: &InstructionSheet,
+        opt_instrns: Option<&InstructionSheet>,
         maybe_compiled: Option<Linkage>,
         inputs: &[Arc<FeatureExpr>],
     ) -> EvalResult<'eval> {
@@ -97,6 +101,6 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
         let values = inputs
             .iter()
             .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
-        eval_fast(db.upcast(), values, instrns, maybe_compiled)
+        eval_fast(db.upcast(), values, opt_instrns, maybe_compiled)
     }
 }

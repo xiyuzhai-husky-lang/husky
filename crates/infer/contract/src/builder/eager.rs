@@ -169,8 +169,8 @@ impl<'a> ContractSheetBuilder<'a> {
                 match contract {
                     EagerContract::Pure | EagerContract::Move | EagerContract::Return => (),
                     EagerContract::GlobalRef => todo!(),
-                    EagerContract::BorrowMut => todo!(),
-                    EagerContract::TakeMut => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::LetInit => (),
                     EagerContract::VarInit => (),
@@ -185,7 +185,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::Exec => (),
                     _ => todo!(),
                 }
-                self.infer_eager_expr(lopd, EagerContract::BorrowMut, arena);
+                self.infer_eager_expr(lopd, EagerContract::RefMut, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);
             }
         }
@@ -210,8 +210,8 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::Return => todo!(),
-                    EagerContract::BorrowMut => todo!(),
-                    EagerContract::TakeMut => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                 }
                 EagerContract::Pure
@@ -235,7 +235,7 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::MembAccess(ranged_ident) => {
-                let this_ty_decl = self.expr_ty_decl(opd)?;
+                let this_ty_decl = self.raw_expr_ty_decl(opd)?;
                 let field_var_decl = this_ty_decl.field_decl(ranged_ident)?;
                 let this_contract = match field_var_decl.contract {
                     FieldContract::Own => match contract {
@@ -249,8 +249,8 @@ impl<'a> ContractSheetBuilder<'a> {
                                 todo!()
                             }
                         }
-                        EagerContract::BorrowMut => EagerContract::BorrowMut,
-                        EagerContract::TakeMut => todo!(),
+                        EagerContract::RefMut => EagerContract::RefMut,
+                        EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
                         EagerContract::LetInit => todo!(),
                         EagerContract::VarInit => todo!(),
@@ -281,7 +281,7 @@ impl<'a> ContractSheetBuilder<'a> {
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_eager_list_call(opds, contract, arena, range, raw_expr_idx),
-            ListOpr::Index => self.infer_eager_element_access(arena, opds, contract, raw_expr_idx),
+            ListOpr::Index => self.eager_element_access(arena, opds, contract, raw_expr_idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
         }
@@ -306,8 +306,8 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::LetInit => (),
                     EagerContract::VarInit => (),
                     EagerContract::GlobalRef => todo!(),
-                    EagerContract::BorrowMut => todo!(),
-                    EagerContract::TakeMut => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
@@ -372,8 +372,8 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::VarInit => (),
             EagerContract::Exec => (),
             EagerContract::GlobalRef => todo!(),
-            EagerContract::BorrowMut => todo!(),
-            EagerContract::TakeMut => todo!(),
+            EagerContract::RefMut => todo!(),
+            EagerContract::MoveMut => todo!(),
             EagerContract::UseMemberForLetInit => todo!(),
             EagerContract::UseMemberForVarInit => todo!(),
         }
@@ -399,7 +399,7 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_eager_element_access(
+    fn eager_element_access(
         &mut self,
         arena: &RawExprArena,
         total_opds: &RawExprRange,
@@ -413,15 +413,15 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::LetInit => EagerContract::UseMemberForLetInit,
             EagerContract::VarInit => todo!(),
             EagerContract::Return => {
-                let ty = self.expr_ty_result(expr_idx)?;
+                let ty = self.raw_expr_ty(expr_idx)?;
                 if self.db.is_copyable(ty) {
                     EagerContract::Pure
                 } else {
                     EagerContract::Move
                 }
             }
-            EagerContract::BorrowMut => EagerContract::BorrowMut,
-            EagerContract::TakeMut => EagerContract::TakeMut,
+            EagerContract::RefMut => EagerContract::RefMut,
+            EagerContract::MoveMut => EagerContract::MoveMut,
             EagerContract::Exec => Err(InferError {
                 variant: InferErrorVariant::Derived {
                     message: "can't exec element access".to_string(),
