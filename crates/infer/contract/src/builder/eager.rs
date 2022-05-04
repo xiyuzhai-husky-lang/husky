@@ -20,7 +20,7 @@ impl<'a> ContractSheetBuilder<'a> {
         ast_iter: AstIter,
         arena: &RawExprArena,
     ) {
-        self.infer_eager_stmts(ast_iter.clone(), output_ty, arena);
+        self.infer_eager_stmts(ast_iter, output_ty, arena);
     }
 
     pub(super) fn infer_eager_stmts(
@@ -29,7 +29,6 @@ impl<'a> ContractSheetBuilder<'a> {
         output_ty: EntityRoutePtr,
         arena: &RawExprArena,
     ) {
-        self.enter_block();
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.kind {
@@ -41,7 +40,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_stmts(children, output_ty, arena)
             }
         }
-        self.exit_block()
     }
 
     fn infer_eager_stmt(
@@ -50,7 +48,7 @@ impl<'a> ContractSheetBuilder<'a> {
         output_ty: EntityRoutePtr,
         arena: &RawExprArena,
     ) {
-        match stmt.kind {
+        match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
                     frame_var,
@@ -245,7 +243,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
                         EagerContract::Return => {
-                            if self.db.is_copy_constructible(field_var_decl.ty) {
+                            if self.db.is_copyable(field_var_decl.ty) {
                                 EagerContract::Pure
                             } else {
                                 todo!()
@@ -414,7 +412,7 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::VarInit => todo!(),
             EagerContract::Return => {
                 let ty = self.expr_ty_result(expr_idx)?;
-                if self.db.is_copy_constructible(ty) {
+                if self.db.is_copyable(ty) {
                     EagerContract::Pure
                 } else {
                     EagerContract::Move

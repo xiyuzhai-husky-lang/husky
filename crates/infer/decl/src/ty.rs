@@ -6,7 +6,7 @@ mod vec;
 use std::iter::Peekable;
 
 use check_utils::should_eq;
-use entity_kind::{EnumVariantKind, RoutineContextKind};
+use entity_kind::{EnumVariantKind, FieldKind, RoutineContextKind};
 use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
@@ -125,9 +125,9 @@ impl TyDecl {
                         TyMemberDecl::Field(ref field_decl) => match field_decl.kind {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
                                 inputs.push(InputDecl {
-                                    contract: field_decl.contract.constructor_input_contract(
-                                        db.is_copy_constructible(field_decl.ty),
-                                    ),
+                                    contract: field_decl
+                                        .contract
+                                        .constructor_input_contract(db.is_copyable(field_decl.ty)),
                                     ty: field_decl.ty,
                                     ident: field_decl.ident,
                                 })
@@ -141,7 +141,7 @@ impl TyDecl {
                     inputs,
                     output: OutputDecl {
                         ty,
-                        contract: OutputContract::Pure,
+                        contract: OutputContract::Transitive,
                     },
                     generic_placeholders: generic_placeholders.clone(),
                 }))

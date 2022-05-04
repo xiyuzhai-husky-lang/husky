@@ -71,10 +71,10 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     pub(crate) fn push_variable(
         &mut self,
         stack_idx: StackIdx,
-        contract: EagerContract,
+        binding: Binding,
     ) -> &mut StackValue<'stack, 'eval> {
         unsafe {
-            let stack_value = self.values[stack_idx.raw()].bind(contract, stack_idx);
+            let stack_value = self.values[stack_idx.raw()].bind(binding, stack_idx);
             self.push(stack_value);
         }
         self.values.last_mut().unwrap()

@@ -5,10 +5,7 @@ mod variable;
 
 pub use expr::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 pub use qual::Qual;
-pub use stmt::{
-    parse_decl_stmts, parse_impr_stmts, Boundary, DeclBranchGroupKind, DeclBranchKind, FuncStmt,
-    FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
-};
+pub use stmt::*;
 pub use variable::EagerVariable;
 
 use defn_head::*;

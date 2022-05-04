@@ -113,20 +113,33 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub(crate) unsafe fn bind(&mut self, contract: EagerContract, stack_idx: StackIdx) -> Self {
-        match contract {
-            EagerContract::Pure => self.pure(stack_idx),
-            EagerContract::Move => self.bind_move(),
-            EagerContract::GlobalRef => todo!(),
-            EagerContract::TakeMut => todo!(),
-            EagerContract::BorrowMut => self.borrow_mut(stack_idx),
-            EagerContract::Exec => todo!(),
-            EagerContract::LetInit => todo!(),
-            EagerContract::VarInit => todo!(),
-            EagerContract::Return => self.bind_return(),
-            EagerContract::UseMemberForLetInit => todo!(),
-            EagerContract::UseMemberForVarInit => todo!(),
+    pub(crate) unsafe fn bind(&mut self, binding: Binding, stack_idx: StackIdx) -> Self {
+        match binding {
+            Binding::Pure => todo!(),
+            Binding::BorrowMut => todo!(),
+            Binding::Move => todo!(),
         }
+        // match contract {
+        //     EagerContract::Pure => self.pure(stack_idx),
+        //     EagerContract::Move => self.bind_move(),
+        //     EagerContract::GlobalRef => todo!(),
+        //     EagerContract::TakeMut => todo!(),
+        //     EagerContract::BorrowMut => self.borrow_mut(stack_idx),
+        //     EagerContract::Exec => todo!(),
+        //     EagerContract::LetInit => todo!(),
+        //     EagerContract::VarInit => todo!(),
+        //     EagerContract::Return => self.bind_return(),
+        //     EagerContract::UseMemberForLetInit => match self {
+        //         StackValue::Moved => todo!(),
+        //         StackValue::Primitive(_) => todo!(),
+        //         StackValue::Boxed(_) => todo!(),
+        //         StackValue::GlobalPure(_) => todo!(),
+        //         StackValue::GlobalRef(_) => todo!(),
+        //         StackValue::LocalRef { value, owner, gen } => todo!(),
+        //         StackValue::MutLocalRef { value, owner, gen } => todo!(),
+        //     },
+        //     EagerContract::UseMemberForVarInit => todo!(),
+        // }
     }
 
     unsafe fn pure(&self, stack_idx: StackIdx) -> Self {

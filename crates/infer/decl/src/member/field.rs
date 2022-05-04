@@ -1,4 +1,5 @@
 use crate::*;
+use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
 use vec_dict::HasKey;

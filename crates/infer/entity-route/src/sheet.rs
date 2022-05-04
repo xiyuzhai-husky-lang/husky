@@ -4,7 +4,7 @@ mod var;
 use std::{collections::HashMap, sync::Arc};
 
 use ast::{AstText, RawExpr};
-use builder::TySheetBuilder;
+use builder::EntityRouteSheetBuilder;
 use fold::FoldStorage;
 use infer_decl::MemberIdx;
 use text::Row;
@@ -13,11 +13,11 @@ use word::CustomIdentifier;
 use super::*;
 
 pub(crate) fn entity_route_sheet(
-    db: &dyn InferTyQueryGroup,
+    db: &dyn InferEntityRouteQueryGroup,
     file: FilePtr,
-) -> ScopeResultArc<EntityRouteSheet> {
+) -> EntityRouteResultArc<EntityRouteSheet> {
     let ast_text = db.ast_text(file)?;
-    let mut ty_sheet_builder = TySheetBuilder::new(db, ast_text.clone());
+    let mut ty_sheet_builder = EntityRouteSheetBuilder::new(db, ast_text.clone());
     ty_sheet_builder.infer_all(ast_text.folded_results.iter());
     Ok(Arc::new(ty_sheet_builder.finish()))
 }
@@ -46,7 +46,7 @@ impl EntityRouteSheet {
         if let Some(ref expr_ty) = self.expr_tys.get(&expr_idx) {
             match expr_ty {
                 Ok(ty) => Ok(*ty),
-                Err(e) => Err(e.derived(format!("{:?}", e))),
+                Err(e) => Err(e.derived()),
             }
         } else {
             p!(self.expr_tys);
@@ -59,7 +59,7 @@ impl EntityRouteSheet {
     pub fn call_route_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         match &self.call_routes[&expr_idx] {
             Ok(call_route) => Ok(*call_route),
-            Err(e) => Err(e.derived(format!("{:?}", e))),
+            Err(e) => Err(e.derived()),
         }
     }
 

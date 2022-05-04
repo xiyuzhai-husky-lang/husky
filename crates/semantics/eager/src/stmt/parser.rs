@@ -1,5 +1,6 @@
 use infer_contract::{ContractSheet, InferContract};
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
+use infer_qualifier::{InferQualifier, QualifiedTySheet};
 use infer_total::InferQueryGroup;
 use vm::{StackIdx, VMResult};
 use word::RangedCustomIdentifier;
@@ -16,6 +17,7 @@ pub(super) struct EagerStmtParser<'a> {
     pub(super) qual_table: QualTable,
     entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: Arc<ContractSheet>,
+    qualified_ty_sheet: Arc<QualifiedTySheet>,
 }
 
 impl<'a> EagerStmtParser<'a> {
@@ -37,6 +39,7 @@ impl<'a> EagerStmtParser<'a> {
             qual_table: Default::default(),
             entity_route_sheet: db.entity_route_sheet(file).unwrap(),
             contract_sheet: db.contract_sheet(file).unwrap(),
+            qualified_ty_sheet: db.qualified_ty_sheet(file).unwrap(),
         }
     }
 
@@ -83,6 +86,12 @@ impl<'a> InferEntityRoute for EagerStmtParser<'a> {
 impl<'a> InferContract for EagerStmtParser<'a> {
     fn contract_sheet(&self) -> &ContractSheet {
         &self.contract_sheet
+    }
+}
+
+impl<'a> InferQualifier for EagerStmtParser<'a> {
+    fn qualified_ty_sheet(&self) -> &infer_qualifier::QualifiedTySheet {
+        &self.qualified_ty_sheet
     }
 }
 

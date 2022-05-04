@@ -31,7 +31,14 @@ impl<'a> InstructionSheetBuilder<'a> {
             ProcStmtVariant::Execute { ref expr } => {
                 self.compile_expr(expr);
             }
-            ProcStmtVariant::BranchGroup { .. } => todo!(),
+            ProcStmtVariant::BranchGroup { ref branches, .. } => {
+                self.push_instruction(Instruction::new(
+                    InstructionKind::BranchGroup {
+                        branches: self.compile_branch_groups(branches),
+                    },
+                    stmt,
+                ))
+            }
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,
@@ -129,5 +136,18 @@ impl<'a> InstructionSheetBuilder<'a> {
                 loop_stmt.clone(),
             ))
         }
+    }
+
+    fn compile_branch_groups(&self, branches: &[Arc<ProcBranch>]) -> Vec<()> {
+        branches
+            .iter()
+            .map(|branch| match branch.kind {
+                ProcBranchKind::If { ref condition } => (),
+                ProcBranchKind::Elif { ref condition } => (),
+                ProcBranchKind::Else => (),
+                ProcBranchKind::Case { ref pattern } => todo!(),
+                ProcBranchKind::Default => todo!(),
+            })
+            .collect()
     }
 }

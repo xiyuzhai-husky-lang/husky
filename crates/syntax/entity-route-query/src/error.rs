@@ -22,7 +22,7 @@ impl std::fmt::Display for EntityRouteError {
 impl std::error::Error for EntityRouteError {}
 
 pub type EntityRouteResult<T> = Result<T, EntityRouteError>;
-pub type ScopeResultArc<T> = Result<Arc<T>, EntityRouteError>;
+pub type EntityRouteResultArc<T> = Result<Arc<T>, EntityRouteError>;
 
 impl From<FileError> for EntityRouteError {
     fn from(error: FileError) -> Self {

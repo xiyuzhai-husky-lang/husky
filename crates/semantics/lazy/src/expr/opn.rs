@@ -1,4 +1,4 @@
-use defn_head::FieldKind;
+use entity_kind::FieldKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use vm::*;
 use word::RangedCustomIdentifier;

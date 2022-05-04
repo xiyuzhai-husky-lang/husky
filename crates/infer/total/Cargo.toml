@@ -14,3 +14,4 @@ infer-error = { path = "../error", version = "0.0.0" }
 infer-decl = { path = "../decl", version = "0.0.0" }
 infer-entity-route = { path = "../entity-route", version = "0.0.0" }
 infer-contract = { path = "../contract", version = "0.0.0" }
+infer-qualifier = { path = "../qualifier", version = "0.0.0" }

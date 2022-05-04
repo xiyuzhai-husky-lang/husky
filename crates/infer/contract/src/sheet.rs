@@ -8,7 +8,7 @@ use crate::{builder::ContractSheetBuilder, *};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ContractSheet {
-    pub(crate) ty_sheet: Arc<EntityRouteSheet>,
+    pub entity_route_sheet: Arc<EntityRouteSheet>,
     pub(crate) lazy_expr_contract_results: HashMap<RawExprIdx, InferResult<LazyContract>>,
     pub(crate) eager_expr_contract_results: HashMap<RawExprIdx, InferResult<EagerContract>>,
 }
@@ -16,7 +16,7 @@ pub struct ContractSheet {
 impl ContractSheet {
     pub(crate) fn new(ty_sheet: Arc<EntityRouteSheet>) -> Self {
         Self {
-            ty_sheet,
+            entity_route_sheet: ty_sheet,
             lazy_expr_contract_results: Default::default(),
             eager_expr_contract_results: Default::default(),
         }
@@ -36,7 +36,7 @@ impl ContractSheet {
         if let Some(contract_result) = self.eager_expr_contract_results.get(&raw_expr_idx) {
             contract_result.clone()
         } else {
-            p!(self.ty_sheet.ast_text.arena[raw_expr_idx]);
+            p!(self.entity_route_sheet.ast_text.arena[raw_expr_idx]);
             Err(derived!(format!("contract not inferred")))
         }
     }
@@ -63,15 +63,4 @@ impl ContractSheet {
         }
         errors
     }
-}
-
-pub(crate) fn contract_sheet(
-    db: &dyn InferContractSalsaQueryGroup,
-    file: FilePtr,
-) -> ScopeResultArc<ContractSheet> {
-    let ty_sheet = db.entity_route_sheet(file)?;
-    let mut builder = ContractSheetBuilder::new(db, file, ty_sheet);
-    let ast_text = db.ast_text(file)?;
-    builder.infer_all(ast_text.folded_results.iter());
-    Ok(Arc::new(builder.finish()))
 }

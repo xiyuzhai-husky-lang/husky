@@ -139,7 +139,7 @@ impl<'eval> Trace<'eval> {
             },
             TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
                 EagerExprVariant::Variable(_)
-                | EagerExprVariant::Scope { .. }
+                | EagerExprVariant::EntityRoute { .. }
                 | EagerExprVariant::PrimitiveLiteral(_) => false,
                 EagerExprVariant::Bracketed(_) => todo!(),
                 EagerExprVariant::Opn {

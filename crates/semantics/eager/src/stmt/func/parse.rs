@@ -19,7 +19,7 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::RoutineDefnHead { .. } => todo!(),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
-                AstKind::Stmt(ref stmt) => match stmt.kind {
+                AstKind::Stmt(ref stmt) => match stmt.variant {
                     RawStmtVariant::Loop(_) => todo!(),
                     RawStmtVariant::Branch(branch_kind) => {
                         let mut branches = vec![];
@@ -38,14 +38,14 @@ impl<'a> EagerStmtParser<'a> {
                         while let Some(item) = iter.peek() {
                             let item = match item.value.as_ref()?.kind {
                                 AstKind::Stmt(RawStmt {
-                                    kind: RawStmtVariant::Branch(_),
+                                    variant: RawStmtVariant::Branch(_),
                                     ..
                                 }) => iter.next().unwrap(),
                                 _ => break,
                             };
                             match item.value.as_ref()?.kind {
                                 AstKind::Stmt(RawStmt {
-                                    kind: RawStmtVariant::Branch(branch_stmt),
+                                    variant: RawStmtVariant::Branch(branch_stmt),
                                     ..
                                 }) => match branch_stmt {
                                     RawBranchKind::If { .. } => break,

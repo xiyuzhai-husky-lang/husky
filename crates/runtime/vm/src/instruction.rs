@@ -57,7 +57,7 @@ impl<
 pub enum InstructionKind {
     PushVariable {
         stack_idx: StackIdx,
-        contract: EagerContract,
+        binding: Binding,
         range: TextRange,
         ty: EntityRoutePtr,
     },
@@ -92,6 +92,9 @@ pub enum InstructionKind {
     BreakIfFalse,
     Break,
     Assert,
+    BranchGroup {
+        branches: Vec<()>,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

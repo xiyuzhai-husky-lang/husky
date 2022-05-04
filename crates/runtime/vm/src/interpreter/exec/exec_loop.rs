@@ -81,15 +81,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 let n = step.n(initial_bound_shifted, final_bound_shifted);
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
-                    p!(frame_var);
                     self.stack.push(StackValue::Primitive(frame_var.into()));
-                    p!(
-                        self.stack,
-                        body.instructions
-                            .iter()
-                            .map(|ins| &ins.kind)
-                            .collect::<Vec<_>>()
-                    );
                     exec_before_each_frame(self);
                     let control = self.exec_all(&body.instructions, mode);
                     exec_after_each_frame(self, frame_var, &control);

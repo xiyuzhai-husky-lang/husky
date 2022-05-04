@@ -11,16 +11,16 @@ pub enum InputContract {
     MemberAccess,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum OutputContract {
-    Pure,
+    Transitive,
     MemberAccess,
 }
 
 impl InputContract {
     pub fn eager(&self, output: OutputContract) -> VMResult<EagerContract> {
         match output {
-            OutputContract::Pure => Ok(match self {
+            OutputContract::Transitive => Ok(match self {
                 InputContract::Pure => EagerContract::Pure,
                 InputContract::GlobalRef => EagerContract::GlobalRef,
                 InputContract::Move => EagerContract::Move,
@@ -35,7 +35,7 @@ impl InputContract {
 
     pub fn lazy(&self, output: OutputContract) -> VMResult<LazyContract> {
         match output {
-            OutputContract::Pure => Ok(match self {
+            OutputContract::Transitive => Ok(match self {
                 InputContract::Pure => LazyContract::Pure,
                 InputContract::GlobalRef => todo!(),
                 InputContract::Move => LazyContract::Move,
@@ -79,10 +79,10 @@ pub enum FieldContract {
 }
 
 impl FieldContract {
-    pub fn constructor_input_contract(&self, is_copy_constructible: bool) -> InputContract {
+    pub fn constructor_input_contract(&self, is_copyable: bool) -> InputContract {
         match self {
             FieldContract::Own => {
-                if is_copy_constructible {
+                if is_copyable {
                     InputContract::Pure
                 } else {
                     InputContract::Move

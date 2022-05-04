@@ -21,7 +21,7 @@ pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<f32, i32>",
-        output_contract: OutputContract::Pure,
+        output_contract: OutputContract::Transitive,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
             nargs: 0,
@@ -38,7 +38,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<f32, i32>",
-        output_contract: OutputContract::Pure,
+        output_contract: OutputContract::Transitive,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
             nargs: 0,

@@ -1,4 +1,4 @@
-use entity_kind::TyKind;
+use entity_kind::{FieldKind, TyKind};
 use entity_route::EntityRoute;
 use linkage_table::MemberAccessKind;
 use map_collect::MapCollect;
@@ -12,7 +12,7 @@ impl<'a> FeatureExprBuilder<'a> {
         &self,
         opn_kind: LazyOpnKind,
         opds: &[Arc<LazyExpr>],
-        contract: LazyContract,
+        expr: &Arc<LazyExpr>,
     ) -> (FeatureExprKind, FeaturePtr) {
         match opn_kind {
             LazyOpnKind::Binary { opr, this } => match this {
@@ -57,13 +57,13 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::FieldAccess {
                 field_ident,
                 field_kind,
-            } => self.compile_field_access(field_ident, field_kind, opds, contract),
+            } => self.compile_field_access(field_ident, field_kind, opds, expr.contract),
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,
                 ..
             } => self.compile_method_call(method_ident, method_route, opds),
-            LazyOpnKind::ElementAccess => self.compile_element_access(opds),
+            LazyOpnKind::ElementAccess => self.compile_element_access(opds, expr),
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::RecordCall(ty) => {
                 let uid = self.db.entity_uid(ty.route);
@@ -259,7 +259,11 @@ impl<'a> FeatureExprBuilder<'a> {
         }
     }
 
-    fn compile_element_access(&self, opds: &[Arc<LazyExpr>]) -> (FeatureExprKind, FeaturePtr) {
+    fn compile_element_access(
+        &self,
+        opds: &[Arc<LazyExpr>],
+        expr: &Arc<LazyExpr>,
+    ) -> (FeatureExprKind, FeaturePtr) {
         let opds: Vec<_> = opds.map(|opd| self.new_expr(opd.clone()));
         let feature = self.features.alloc(Feature::ElementAccess {
             opds: opds.map(|opd| opd.feature),
@@ -270,7 +274,13 @@ impl<'a> FeatureExprBuilder<'a> {
                 match opds[0].expr.contract {
                     LazyContract::Move => todo!(),
                     LazyContract::GlobalRef => todo!(),
-                    LazyContract::Pure => MemberAccessKind::Ref,
+                    LazyContract::Pure => {
+                        if self.db.is_copyable(expr.ty) {
+                            MemberAccessKind::Copy
+                        } else {
+                            MemberAccessKind::Ref
+                        }
+                    }
                 },
             ),
             opds,

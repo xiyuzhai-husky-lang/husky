@@ -10,10 +10,13 @@ use formatter::Formatter;
 
 #[salsa::query_group(FormatQueryGroupStorage)]
 pub trait FmtQuery: ast::AstQueryGroup {
-    fn fmt_text(&self, id: file::FilePtr) -> entity_route_query::ScopeResultArc<String>;
+    fn fmt_text(&self, id: file::FilePtr) -> entity_route_query::EntityRouteResultArc<String>;
 }
 
-fn fmt_text(db: &dyn FmtQuery, file: file::FilePtr) -> entity_route_query::ScopeResultArc<String> {
+fn fmt_text(
+    db: &dyn FmtQuery,
+    file: file::FilePtr,
+) -> entity_route_query::EntityRouteResultArc<String> {
     let ast_text = db.ast_text(file)?;
     let mut formatter = Formatter::new(
         db.word_allocator(),

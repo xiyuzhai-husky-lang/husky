@@ -4,7 +4,7 @@ use text::TextRanged;
 
 use super::*;
 
-impl<'a> TySheetBuilder<'a> {
+impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_stmts(
         &mut self,
         ast_iter: AstIter,
@@ -32,7 +32,7 @@ impl<'a> TySheetBuilder<'a> {
         opt_output_ty: Option<EntityRoutePtr>,
         arena: &RawExprArena,
     ) {
-        match stmt.kind {
+        match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
                     frame_var,
@@ -41,7 +41,7 @@ impl<'a> TySheetBuilder<'a> {
                     ..
                 } => {
                     should!(self
-                        .ty_sheet
+                        .entity_route_sheet
                         .variable_tys
                         .insert((frame_var.ident, stmt.row()), RootIdentifier::I32.into())
                         .is_none());
@@ -68,7 +68,11 @@ impl<'a> TySheetBuilder<'a> {
                 ..
             } => {
                 if let Some(ty) = self.infer_expr(initial_value, None, arena) {
-                    insert_new!(self.ty_sheet.variable_tys, (varname.ident, stmt.row()), ty)
+                    insert_new!(
+                        self.entity_route_sheet.variable_tys,
+                        (varname.ident, stmt.row()),
+                        ty
+                    )
                 }
             }
             RawStmtVariant::Return(result) => {

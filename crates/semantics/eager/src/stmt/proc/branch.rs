@@ -3,13 +3,13 @@ use std::sync::Arc;
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ImprBranch {
-    pub kind: ImprBranchKind,
+pub struct ProcBranch {
+    pub kind: ProcBranchKind,
     pub stmts: Arc<Vec<Arc<ProcStmt>>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ImprBranchKind {
+pub enum ProcBranchKind {
     If { condition: Arc<EagerExpr> },
     Elif { condition: Arc<EagerExpr> },
     Else,
@@ -18,7 +18,7 @@ pub enum ImprBranchKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ImprBranchGroupKind {
+pub enum ProcBranchGroupKind {
     If,
     Switch,
     Match,

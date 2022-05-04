@@ -331,7 +331,7 @@ impl EntityDefn {
         fn extract_eager_expr_dependees(expr: &EagerExpr, builder: &mut DependeeMapBuilder) {
             match expr.variant {
                 EagerExprVariant::Variable(_) => (),
-                EagerExprVariant::Scope { scope } => builder.push(scope),
+                EagerExprVariant::EntityRoute { route: scope } => builder.push(scope),
                 EagerExprVariant::PrimitiveLiteral(_) => (),
                 EagerExprVariant::Bracketed(ref expr) => {
                     extract_eager_expr_dependees(expr, builder)

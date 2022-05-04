@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> TySheetBuilder<'a> {
+impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_routine(
         &mut self,
         inputs: &[InputPlaceholder],
