@@ -1,9 +1,9 @@
 use crate::*;
 use token::*;
-use vm::FieldContract;
+use vm::{FieldContract, InputContract};
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_class_item(
+    pub(super) fn parse_record_item(
         &mut self,
         token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
@@ -25,6 +25,7 @@ impl<'a> AstTransformer<'a> {
             TokenKind::Unrecognized(_) => todo!(),
         }
     }
+
     fn parse_record_original_field(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
             if token_group.len() == 2 {
@@ -53,6 +54,8 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         enter_block(self);
         self.env.set_value(AstContext::Morphism);
+        self.opt_this_contract
+            .set_value(Some(InputContract::GlobalRef));
         let ident = identify!(self, &token_group[1], SemanticTokenKind::Field);
         msg_once!("field contract");
         let ty = atom::parse_ty(&self.symbol_context(), &token_group[3..])?;

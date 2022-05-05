@@ -15,7 +15,8 @@ pub enum RawExprVariant {
         init_row: Row,
     },
     This {
-        ty: Option<EntityRoutePtr>,
+        opt_ty: Option<EntityRoutePtr>,
+        opt_contract: Option<InputContract>,
     },
     Unrecognized(CustomIdentifier),
     Entity {

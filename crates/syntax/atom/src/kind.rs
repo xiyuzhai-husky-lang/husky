@@ -2,8 +2,8 @@ use entity_route::{EntityKind, RangedEntityRoute};
 use text::Row;
 use token::Special;
 use vm::{
-    BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PrimitiveValue, PureBinaryOpr,
-    SuffixOpr,
+    BinaryOpr, Bracket, InputContract, ListEndAttr, ListStartAttr, PrefixOpr, PrimitiveValue,
+    PureBinaryOpr, SuffixOpr,
 };
 use word::{CustomIdentifier, RangedCustomIdentifier};
 
@@ -24,7 +24,8 @@ pub enum AtomVariant {
         init_row: Row,
     },
     ThisData {
-        ty: Option<EntityRoutePtr>,
+        opt_ty: Option<EntityRoutePtr>,
+        opt_contract: Option<InputContract>,
     },
     Unrecognized(CustomIdentifier),
     Literal(PrimitiveValue),

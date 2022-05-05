@@ -106,7 +106,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     _ => (),
                 }
             }
-            RawStmtVariant::Assert(_) => todo!(),
+            RawStmtVariant::Assert(condition) => {
+                self.infer_lazy_expr(arena, condition);
+            }
             RawStmtVariant::Break => todo!(),
         }
     }
@@ -145,7 +147,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Err(ref e) => Err(e.derived()),
             },
             RawExprVariant::FrameVariable { varname, init_row } => todo!(),
-            RawExprVariant::This { ty } => todo!(),
+            RawExprVariant::This { opt_ty, .. } => todo!(),
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),

@@ -71,7 +71,7 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
 
     pub fn copy_into_stack(&self) -> StackValue<'stack, 'eval> {
         match self {
-            MemberValue::Primitive(_) => todo!(),
+            MemberValue::Primitive(value) => StackValue::Primitive(*value),
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),

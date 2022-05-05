@@ -53,7 +53,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             RawExprVariant::Opn { opr, ref opds } => self.infer_opn(opr, opds, expr_idx, arena),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { ty } => derived_not_none!(ty),
+            RawExprVariant::This { opt_ty, .. } => derived_not_none!(opt_ty),
             RawExprVariant::FrameVariable { .. } => Ok(self.db.entity_route_menu().i32_ty),
         }?;
         if let Some(expected_ty) = expectation {

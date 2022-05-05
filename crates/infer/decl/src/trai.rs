@@ -127,6 +127,7 @@ impl TraitDecl {
                     opt_package_main: None,
                     db: db.upcast(),
                     opt_this_ty: None,
+                    opt_this_contract: None,
                     symbols: symbols.into(),
                     kind: SymbolContextKind::Normal,
                 };

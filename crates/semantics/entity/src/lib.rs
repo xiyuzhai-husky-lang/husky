@@ -203,6 +203,7 @@ impl EntityDefnVariant {
                     opt_package_main: symbol_context.opt_package_main,
                     db: symbol_context.db,
                     opt_this_ty: None,
+                    opt_this_contract: None,
                     symbols: (&[] as &[Symbol]).into(),
                     kind: SymbolContextKind::Normal,
                 };
@@ -318,6 +319,7 @@ pub(crate) fn entity_defn(
                 opt_package_main: None,
                 db: db.upcast(),
                 opt_this_ty: None,
+                opt_this_contract: None,
                 symbols: (&[] as &[Symbol]).into(),
                 kind: SymbolContextKind::Normal,
             },

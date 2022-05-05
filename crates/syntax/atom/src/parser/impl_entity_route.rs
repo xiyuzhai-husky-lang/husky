@@ -45,12 +45,18 @@ impl<'a> AtomLRParser<'a> {
                         }
                     }
                     SymbolKind::Unrecognized(ident) => AtomVariant::Unrecognized(ident),
-                    SymbolKind::ThisData { ty } => {
+                    SymbolKind::ThisData {
+                        opt_ty,
+                        opt_contract,
+                    } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::ThisData,
                             token.range,
                         ));
-                        AtomVariant::ThisData { ty }
+                        AtomVariant::ThisData {
+                            opt_ty,
+                            opt_contract,
+                        }
                     }
                     SymbolKind::FrameVariable { init_row } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(

@@ -16,10 +16,10 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct QualifiedTySheet {
     pub(crate) eager_variable_qualified_tys:
-        VecPairMap<(Identifier, Row), InferResult<EagerQualifiedType>>,
+        VecPairMap<(Identifier, Row), InferResult<EagerQualifiedTy>>,
     pub(crate) lazy_variable_qualified_tys:
         VecPairMap<(Identifier, Row), InferResult<LazyQualifiedType>>,
-    pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerQualifiedType>>,
+    pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerQualifiedTy>>,
     pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyQualifiedType>>,
     pub(crate) contract_sheet: Arc<ContractSheet>,
 }
@@ -39,14 +39,14 @@ impl QualifiedTySheet {
     pub fn lazy_expr_qualified_ty(
         &self,
         raw_expr_idx: RawExprIdx,
-    ) -> InferResult<EagerQualifiedType> {
+    ) -> InferResult<EagerQualifiedTy> {
         todo!()
     }
 
     pub fn eager_expr_qualified_ty(
         &self,
         raw_expr_idx: RawExprIdx,
-    ) -> InferResult<EagerQualifiedType> {
+    ) -> InferResult<EagerQualifiedTy> {
         match derived_not_none!(self.eager_expr_qualified_tys.get(raw_expr_idx))? {
             Ok(qt) => Ok(*qt),
             Err(e) => Err(e.derived()),
@@ -57,7 +57,7 @@ impl QualifiedTySheet {
         &self,
         varname: Identifier,
         init_row: Row,
-    ) -> InferResult<EagerQualifiedType> {
+    ) -> InferResult<EagerQualifiedTy> {
         match derived_not_none!(self
             .eager_variable_qualified_tys
             .get_entry((varname, init_row)))?

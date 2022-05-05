@@ -89,7 +89,13 @@ impl From<&atom::Atom> for RawExpr {
                 AtomVariant::EntityRoute { route: scope, kind } => {
                     RawExprVariant::Entity { route: scope, kind }
                 }
-                AtomVariant::ThisData { ty } => RawExprVariant::This { ty },
+                AtomVariant::ThisData {
+                    opt_ty,
+                    opt_contract,
+                } => RawExprVariant::This {
+                    opt_ty,
+                    opt_contract,
+                },
                 AtomVariant::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
                 AtomVariant::FrameVariable { varname, init_row } => {
                     RawExprVariant::FrameVariable { varname, init_row }

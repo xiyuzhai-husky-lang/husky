@@ -344,7 +344,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 Opr::List(_) => todo!(),
             },
             RawExprVariant::Variable { varname, init_row } => todo!(),
-            RawExprVariant::This { ty } => todo!(),
+            RawExprVariant::This { opt_ty, .. } => todo!(),
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),

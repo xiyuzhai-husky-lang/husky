@@ -4,7 +4,7 @@ mod parser;
 use std::sync::Arc;
 
 use file::FilePtr;
-use infer_qualifier::{EagerQualifiedType, EagerQualifier};
+use infer_qualifier::{EagerQualifiedTy, EagerQualifier};
 pub use opn::*;
 pub(crate) use parser::EagerExprParser;
 
@@ -17,7 +17,7 @@ use word::CustomIdentifier;
 pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub qualified_ty: EagerQualifiedType,
+    pub qualified_ty: EagerQualifiedTy,
     pub ty: EntityRoutePtr,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,

@@ -223,6 +223,17 @@ impl VariableStack {
                 println!("uninitialized")
             }
         }
+
+        for i in self.variables.len()..vm_stack.values.len() {
+            print!(
+                "        #{: <3} {}{: <10}{} ",
+                i,
+                print_utils::RED,
+                "$",
+                print_utils::RESET,
+            );
+            println!("{}", vm_stack.values[i].print_short())
+        }
         println!("")
     }
 }
