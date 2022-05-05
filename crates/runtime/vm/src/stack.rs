@@ -136,6 +136,10 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     pub(crate) fn top_snapshot(&mut self) -> StackValueSnapshot<'eval> {
         self.values.last_mut().unwrap().snapshot()
     }
+
+    pub(crate) fn truncate(&mut self, len: usize) {
+        self.values.truncate(len)
+    }
 }
 
 impl<'stack, 'eval: 'stack> From<Vec<StackValue<'stack, 'eval>>> for VMStack<'stack, 'eval> {
@@ -170,6 +174,10 @@ impl VariableStack {
             variables: inputs.map(|ident| Some(ident)).collect(),
             has_this,
         }
+    }
+
+    pub fn len(&self) -> usize {
+        self.variables.len()
     }
 
     pub fn stack_idx(&self, ident0: CustomIdentifier) -> StackIdx {

@@ -5,6 +5,7 @@ mod exec_loop;
 mod exec_primitive_opn;
 
 use crate::{history::HistoryEntry, *};
+use check_utils::{should, should_eq};
 use print_utils::p;
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -17,8 +18,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     range,
                     ty,
                 } => {
-                    p!(stack_idx, ty, binding, range);
-                    sheet.variable_stack.compare_with_vm_stack(&self.stack);
                     let value = self.stack.push_variable(stack_idx, binding);
                     match mode {
                         Mode::Fast => (),
@@ -42,8 +41,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::None
                 }
                 InstructionKind::RoutineCallCompiled { linkage } => {
-                    sheet.variable_stack.compare_with_vm_stack(&self.stack);
-                    p!(ins.kind);
                     let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -89,26 +86,31 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::Loop {
                     ref body,
                     loop_kind,
-                } => match mode {
-                    Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
-                    Mode::TrackMutation => self.exec_loop_tracking_mutation(loop_kind, body).into(),
-                    Mode::TrackHistory => {
-                        self.take_snapshot();
-                        let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
-                        let (snapshot, mutations) = self.collect_mutations();
-                        self.history.write(
-                            ins,
-                            HistoryEntry::loop_entry(
-                                loop_kind,
-                                &control,
-                                snapshot,
-                                body.clone(),
-                                mutations,
-                            ),
-                        );
-                        control
+                } => {
+                    should!(self.stack.len() <= sheet.variable_stack.len() + 2);
+                    match mode {
+                        Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
+                        Mode::TrackMutation => {
+                            self.exec_loop_tracking_mutation(loop_kind, body).into()
+                        }
+                        Mode::TrackHistory => {
+                            self.take_snapshot();
+                            let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
+                            let (snapshot, mutations) = self.collect_mutations();
+                            self.history.write(
+                                ins,
+                                HistoryEntry::loop_entry(
+                                    loop_kind,
+                                    &control,
+                                    snapshot,
+                                    body.clone(),
+                                    mutations,
+                                ),
+                            );
+                            control
+                        }
                     }
-                },
+                }
                 InstructionKind::BreakIfFalse => {
                     let control = if !self.stack.top().as_primitive().to_bool() {
                         VMControl::Break
@@ -149,6 +151,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 InstructionKind::Break => VMControl::Break,
                 InstructionKind::BranchGroup { ref branches } => {
+                    should!(self.stack.len() <= sheet.variable_stack.len());
+                    let stack_len = self.stack.len();
                     let mut control = VMControl::None;
                     for (i, b) in branches.iter().enumerate() {
                         let enter: bool = if let Some(ref condition) = b.opt_condition_sheet {
@@ -176,9 +180,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                                     )
                                 }
                             }
+                            self.stack.truncate(stack_len);
                             break;
                         }
                     }
+
                     control
                 }
             };
@@ -190,7 +196,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn exec_linkage(&mut self, code: Linkage) -> EvalResult<'eval> {
-        todo!()
+    pub(crate) fn eval_linkage(&mut self, linkage: Linkage) -> EvalResult<'eval> {
+        let mut inputs = self.stack.drain(linkage.nargs);
+        should_eq!(self.stack.len(), 0);
+        Ok((linkage.call)(&mut inputs)?.into_eval())
     }
 }

@@ -13,11 +13,19 @@ proc horizontal_extend(a: b32, x: b32) -> b32:
     return y
 
 proc find_connected_components(img: BinaryImage28) -> []BinaryImage28:
-    var b = 0
+    var result = []BinaryImage28()
+    var unsearched = img.clone()
     for j < 30:
-        let x = 0
-        b = x
-    return []BinaryImage28()
+        while unsearched[j]:
+            let a = unsearched[j]
+            let shift = a.trailing_zeros()
+            var mask = BinaryImage28()
+            mask[j] = horizontal_extend(a, 1b32 << shift)
+            var flag = false
+            for j <= k < 30:
+                unsearched[k] &= (~mask[k])
+            result.push(mask)
+    return result
 
 
 main:

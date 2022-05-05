@@ -45,7 +45,7 @@ pub fn eval_fast<'stack, 'eval: 'stack>(
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, iter)?;
     if let Some(linkage) = maybe_linkage {
-        interpreter.exec_linkage(linkage)
+        interpreter.eval_linkage(linkage)
     } else {
         interpreter.eval_instructions(opt_instrn_sheet.as_ref().unwrap(), Mode::Fast)
     }

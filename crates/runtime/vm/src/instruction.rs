@@ -47,12 +47,14 @@ impl<
     > InstructionSource for T
 {
     fn instruction_id(&self) -> InstructionId {
-        let this: &S = self;
-        this.instruction_id()
+        S::instruction_id(self)
     }
     fn file(&self) -> FilePtr {
-        let this: &S = self;
-        this.file()
+        S::file(self)
+    }
+
+    fn text_range(&self) -> TextRange {
+        S::text_range(self)
     }
 }
 
