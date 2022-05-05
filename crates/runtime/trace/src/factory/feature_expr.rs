@@ -67,7 +67,29 @@ impl<'eval> TraceFactory<'eval> {
                     LazyOpnKind::MethodCall {
                         method_ident,
                         method_route,
-                    } => todo!(),
+                    } => {
+                        let mut tokens = vec![];
+                        tokens.extend(self.feature_expr_tokens(
+                            &feature_opds[0],
+                            text,
+                            config.subexpr(),
+                        ));
+                        tokens.push(special!("."));
+                        tokens.push(ident!(method_ident.ident.0));
+                        tokens.push(special!("("));
+                        for i in 1..opds.len() {
+                            if i > 1 {
+                                tokens.push(special!(", "))
+                            }
+                            tokens.extend(self.feature_expr_tokens(
+                                &feature_opds[i],
+                                text,
+                                config.subexpr(),
+                            ));
+                        }
+                        tokens.push(special!(")"));
+                        tokens
+                    }
                     LazyOpnKind::ElementAccess => todo!(),
                 },
                 _ => panic!(""),
