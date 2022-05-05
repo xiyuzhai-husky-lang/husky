@@ -47,7 +47,7 @@ pub fn eval_fast<'stack, 'eval: 'stack>(
     if let Some(linkage) = maybe_linkage {
         interpreter.exec_linkage(linkage)
     } else {
-        interpreter.eval_instructions(&opt_instrn_sheet.as_ref().unwrap().instructions, Mode::Fast)
+        interpreter.eval_instructions(opt_instrn_sheet.as_ref().unwrap(), Mode::Fast)
     }
 }
 
@@ -57,7 +57,7 @@ pub fn exec_debug<'stack, 'eval: 'stack>(
     sheet: &InstructionSheet,
 ) -> Arc<History<'eval>> {
     let mut interpreter = Interpreter::new(db, values);
-    interpreter.exec_all(&sheet.instructions, Mode::TrackHistory);
+    interpreter.exec_all(sheet, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
 

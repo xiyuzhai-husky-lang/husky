@@ -1,3 +1,5 @@
+use avec::Avec;
+
 use crate::*;
 
 #[derive(Debug, Clone)]
@@ -16,6 +18,12 @@ pub enum HistoryEntry<'eval> {
         body: Arc<InstructionSheet>,
         mutations: Vec<MutationData<'eval>>,
     },
+    BranchGroup {
+        enter: usize,
+        branches: Avec<VMBranch>,
+        control: ControlSnapshot<'eval>,
+        stack_snapshot: StackSnapshot<'eval>,
+    },
 }
 
 impl<'eval> HistoryEntry<'eval> {
@@ -29,6 +37,7 @@ impl<'eval> HistoryEntry<'eval> {
                 mutations[0].after.clone()
             }
             HistoryEntry::Loop { .. } => todo!(),
+            HistoryEntry::BranchGroup { enter, .. } => todo!(),
         }
     }
 

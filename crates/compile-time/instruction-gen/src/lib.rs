@@ -11,7 +11,7 @@ use print_utils::*;
 use semantics_eager::*;
 use semantics_entity::*;
 use std::sync::Arc;
-use vm::InstructionSheet;
+use vm::{Instruction, InstructionSheet};
 use word::*;
 
 pub struct InstructionSheetBuilder<'a> {
@@ -58,6 +58,10 @@ impl<'a> InstructionSheetBuilder<'a> {
             db: self.db,
             sheet: self.sheet.init_subsheet(),
         }
+    }
+
+    fn eject_instructions(&mut self) -> Vec<Instruction> {
+        std::mem::take(&mut self.sheet.instructions)
     }
 
     fn finalize(self) -> Arc<InstructionSheet> {

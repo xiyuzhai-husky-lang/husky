@@ -57,7 +57,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                         call: generic_vec_element_move_access,
                                         nargs: 2,
                                     },
-                                    borrow_mut_access: Linkage {
+                                    ref_mut_access: Linkage {
                                         call: generic_vec_element_borrow_mut_access,
                                         nargs: 2,
                                     },

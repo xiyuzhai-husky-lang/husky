@@ -109,6 +109,7 @@ pub fn subtraces(
                     stack_snapshot,
                     body,
                 ),
+                HistoryEntry::BranchGroup { enter, .. } => todo!(),
             },
             ProcStmtVariant::Break => Arc::new(vec![]),
         },

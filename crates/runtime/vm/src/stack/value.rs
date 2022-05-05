@@ -14,6 +14,7 @@ use std::sync::Arc;
 use word::CustomIdentifier;
 
 use crate::*;
+use std::fmt::Write;
 
 pub enum StackValue<'stack, 'eval: 'stack> {
     Moved,
@@ -59,6 +60,37 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             _ => panic!(),
         }
     }
+
+    pub fn print_short(&self) -> String {
+        let mut result = String::new();
+        match self {
+            StackValue::Moved => result.push_str("Moved"),
+            StackValue::Primitive(value) => {
+                result.push_str("Primitive ");
+                result.push_str(&value.any_ref().print_short())
+            }
+            StackValue::Boxed(value) => {
+                result.push_str("Boxed ");
+                result.push_str(&value.any_ref().print_short())
+            }
+            StackValue::GlobalPure(value) => {
+                result.push_str("GlobalPure ");
+                result.push_str(&value.print_short())
+            }
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::LocalRef { value, owner, gen } => {
+                result.push_str("LocalRef ");
+                result.push_str(&value.print_short());
+                write!(result, " Owner({:?}) ", owner);
+            }
+            StackValue::LocalRefMut { value, owner, gen } => {
+                result.push_str("LocalRefMut ");
+                result.push_str(&value.print_short());
+                write!(result, " Owner({:?}) ", owner);
+            }
+        }
+        result
+    }
 }
 
 impl<'stack, 'eval: 'stack> From<PrimitiveValue> for StackValue<'stack, 'eval> {
@@ -99,6 +131,18 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
+    pub fn to_bool(&self) -> bool {
+        match self {
+            StackValue::Moved => todo!(),
+            StackValue::Primitive(v) => v.to_bool(),
+            StackValue::Boxed(_) => todo!(),
+            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::LocalRef { value, owner, gen } => todo!(),
+            StackValue::LocalRefMut { value, owner, gen } => todo!(),
+        }
+    }
+
     pub fn into_member(&mut self) -> MemberValue<'eval> {
         match self {
             StackValue::Primitive(primitive_value) => MemberValue::Primitive(*primitive_value),
@@ -118,30 +162,9 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         match binding {
             Binding::Ref => self.bind_ref(stack_idx),
             Binding::RefMut => self.bind_ref_mut(stack_idx),
-            Binding::Move => todo!(),
+            Binding::Move => self.bind_move(),
             Binding::Copy => self.bind_copy(),
         }
-        // match contract {
-        //     EagerContract::Pure => self.pure(stack_idx),
-        //     EagerContract::Move => self.bind_move(),
-        //     EagerContract::GlobalRef => todo!(),
-        //     EagerContract::TakeMut => todo!(),
-        //     EagerContract::BorrowMut => self.borrow_mut(stack_idx),
-        //     EagerContract::Exec => todo!(),
-        //     EagerContract::LetInit => todo!(),
-        //     EagerContract::VarInit => todo!(),
-        //     EagerContract::Return => self.bind_return(),
-        //     EagerContract::UseMemberForLetInit => match self {
-        //         StackValue::Moved => todo!(),
-        //         StackValue::Primitive(_) => todo!(),
-        //         StackValue::Boxed(_) => todo!(),
-        //         StackValue::GlobalPure(_) => todo!(),
-        //         StackValue::GlobalRef(_) => todo!(),
-        //         StackValue::LocalRef { value, owner, gen } => todo!(),
-        //         StackValue::MutLocalRef { value, owner, gen } => todo!(),
-        //     },
-        //     EagerContract::UseMemberForVarInit => todo!(),
-        // }
     }
 
     unsafe fn bind_ref(&self, owner: StackIdx) -> Self {
@@ -269,7 +292,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    fn any(&self) -> &dyn AnyValueDyn {
+    pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         {
             match self {
                 StackValue::Primitive(value) => match value {
@@ -280,11 +303,11 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                     PrimitiveValue::Bool(value) => value,
                     PrimitiveValue::Void => todo!(),
                 },
-                StackValue::Boxed(_) => todo!(),
-                StackValue::GlobalPure(_) => todo!(),
+                StackValue::Boxed(value) => value.any_ref(),
+                StackValue::GlobalPure(value) => (&**value),
                 StackValue::GlobalRef(_) => todo!(),
-                StackValue::LocalRef { .. } => todo!(),
-                StackValue::LocalRefMut { .. } => todo!(),
+                StackValue::LocalRef { value, .. } => *value,
+                StackValue::LocalRefMut { value, .. } => *value,
                 StackValue::Moved => todo!(),
             }
         }
@@ -398,7 +421,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     }
 
     pub fn static_type_id(&self) -> StaticTypeId {
-        self.any().static_type_id()
+        self.any_ref().static_type_id()
     }
 
     pub fn field_var(self, field_idx: usize, contract: EagerContract) -> StackValue<'stack, 'eval> {

@@ -177,7 +177,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                 LinkageSource::MemberAccess {
                                     ref_access,
                                     move_access,
-                                    borrow_mut_access,
+                                    ref_mut_access: borrow_mut_access,
                                     ..
                                 } => todo!(),
                                 LinkageSource::PureOutput(_) => todo!(),

@@ -1,7 +1,10 @@
+mod branch;
 mod id;
 mod opr;
 mod sheet;
 
+use avec::Avec;
+pub use branch::*;
 pub use opr::*;
 
 use entity_route::EntityRoutePtr;
@@ -14,7 +17,7 @@ use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 use crate::*;
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct Instruction {
     pub kind: InstructionKind,
     pub src: Arc<dyn InstructionSource>,
@@ -53,7 +56,7 @@ impl<
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum InstructionKind {
     PushVariable {
         stack_idx: StackIdx,
@@ -93,7 +96,7 @@ pub enum InstructionKind {
     Break,
     Assert,
     BranchGroup {
-        branches: Vec<()>,
+        branches: Avec<VMBranch>,
     },
 }
 
