@@ -1,20 +1,24 @@
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 
 #[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
 pub struct Row(pub u32);
 
 impl TestComparable for Row {
-    fn write_inherent(&self, result: &mut String) {
-        write!(
-            result,
-            "{}row {: <4}{}",
-            print_utils::YELLOW,
-            self.0 + 1,
-            print_utils::RESET
-        )
-        .unwrap();
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+        if config.colored {
+            write!(
+                result,
+                "{}row {: <4}{}",
+                print_utils::YELLOW,
+                self.0 + 1,
+                print_utils::RESET
+            )
+            .unwrap();
+        } else {
+            write!(result, "row {: <4}", self.0 + 1,).unwrap();
+        }
     }
 }
 

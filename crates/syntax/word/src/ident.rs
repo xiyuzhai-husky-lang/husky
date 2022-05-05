@@ -6,7 +6,7 @@ use core::hash::Hash;
 use serde::Serialize;
 use std::fmt::Write;
 use std::{borrow::Borrow, ops::Deref};
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
@@ -16,15 +16,19 @@ pub enum Identifier {
 }
 
 impl TestComparable for Identifier {
-    fn write_inherent(&self, result: &mut String) {
-        write!(
-            result,
-            "{}{: <10}{}",
-            print_utils::CYAN,
-            self.as_str(),
-            print_utils::RESET
-        )
-        .unwrap();
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+        if config.colored {
+            write!(
+                result,
+                "{}{: <10}{}",
+                print_utils::CYAN,
+                self.as_str(),
+                print_utils::RESET
+            )
+            .unwrap();
+        } else {
+            write!(result, "{: <10}", self.as_str()).unwrap();
+        }
     }
 }
 

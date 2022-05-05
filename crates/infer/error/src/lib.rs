@@ -7,7 +7,7 @@ pub struct InferError {
 }
 
 impl TestComparable for InferError {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         match self.variant {
             InferErrorVariant::Derived { ref message } => todo!(),
             InferErrorVariant::Original { ref message, range } => todo!(),
@@ -151,6 +151,6 @@ macro_rules! derived_ok {
 
 use dev_utils::*;
 use entity_route_query::EntityRouteError;
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 use text::TextRange;
 use vm::VMError;

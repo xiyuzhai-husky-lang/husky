@@ -7,6 +7,7 @@ use fold::{FoldStorage, FoldedList};
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
+use test_utils::TestCompareConfig;
 use text::{Text, TextQueryGroup};
 use token::AbsSemanticToken;
 use upcast::Upcast;
@@ -70,13 +71,19 @@ impl AstText {
 }
 
 impl ArenaKeyQuery<RawExpr> for AstText {
-    fn write_key(&self, raw_expr_idx: RawExprIdx, result: &mut String) {
+    fn write_key(&self, config: TestCompareConfig, raw_expr_idx: RawExprIdx, result: &mut String) {
         let expr = &self.arena[raw_expr_idx];
         let range = expr.range();
-        result.push_str(print_utils::GREEN);
+        if config.colored {
+            result.push_str(print_utils::GREEN);
+        }
         write!(result, "{: <15?}", range).unwrap();
-        result.push_str(print_utils::CYAN);
+        if config.colored {
+            result.push_str(print_utils::CYAN);
+        }
         write!(result, "{: <20}", self.text.ranged(range)).unwrap();
-        result.push_str(print_utils::RESET);
+        if config.colored {
+            result.push_str(print_utils::RESET);
+        }
     }
 }

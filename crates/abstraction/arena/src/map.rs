@@ -1,6 +1,6 @@
 use check_utils::should;
 use std::{fmt::Write, marker::PhantomData};
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 
 use crate::*;
 
@@ -20,21 +20,21 @@ where
 }
 
 pub trait ArenaKeyQuery<T> {
-    fn write_key(&self, raw_idx: ArenaIdx<T>, result: &mut String);
+    fn write_key(&self, config: TestCompareConfig, raw_idx: ArenaIdx<T>, result: &mut String);
 
     fn write_map_inherently<V: TestComparable>(
         &self,
         map: &ArenaMap<T, V>,
-        indent: u8,
+        config: TestCompareConfig,
         result: &mut String,
     ) {
         for (raw_idx, v) in map.iter() {
-            for _ in 0..indent {
+            for _ in 0..config.indent {
                 result.push(' ')
             }
-            self.write_key(raw_idx, result);
+            self.write_key(config, raw_idx, result);
             result.push_str("   ");
-            v.write_inherent(result);
+            v.write_inherent(config.indented(), result);
             result.push_str("\n");
         }
     }

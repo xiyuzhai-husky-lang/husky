@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, Clone)]
 pub enum HistoryEntry<'eval> {
     // Stmt { control: VMControlSnapshot },
-    NonVoidExpr {
+    PureExpr {
         output: StackValueSnapshot<'eval>,
     },
     Exec {
@@ -20,7 +20,7 @@ pub enum HistoryEntry<'eval> {
 impl<'eval> HistoryEntry<'eval> {
     pub fn value(&self) -> StackValueSnapshot<'eval> {
         match self {
-            HistoryEntry::NonVoidExpr { ref output } => output.clone(),
+            HistoryEntry::PureExpr { ref output } => output.clone(),
             HistoryEntry::Exec { mutations } => {
                 if mutations.len() != 1 {
                     todo!()

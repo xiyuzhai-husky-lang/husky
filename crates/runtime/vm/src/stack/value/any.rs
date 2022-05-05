@@ -49,6 +49,7 @@ pub trait AnyValue<'eval>:
     }
 
     fn as_primitive(&self) -> PrimitiveValue {
+        p!(self);
         panic!()
     }
 
@@ -269,6 +270,10 @@ impl<'eval> AnyValue<'eval> for bool {
 
     fn boxed_any(&self) -> Box<dyn AnyValueDyn<'eval>> {
         Box::new(*self)
+    }
+
+    fn as_primitive(&self) -> PrimitiveValue {
+        self.into()
     }
 
     fn from_stack(stack_value: StackValue) -> Self {

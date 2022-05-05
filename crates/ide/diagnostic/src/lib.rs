@@ -17,7 +17,7 @@ use semantics_error::{SemanticError, SemanticErrorVariant};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use std::sync::Arc;
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 use text::TextRange;
 use token::LexError;
 
@@ -32,7 +32,7 @@ pub struct Diagnostic {
 }
 
 impl TestComparable for Diagnostic {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         write!(result, "{:?}\t{}", self.range, self.message).unwrap()
     }
 }

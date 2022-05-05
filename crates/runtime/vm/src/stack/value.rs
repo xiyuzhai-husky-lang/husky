@@ -9,6 +9,7 @@ pub use boxed::BoxedValue;
 pub use eval::{EvalResult, EvalValue};
 pub use member::*;
 pub use primitive::PrimitiveValue;
+use print_utils::p;
 use std::sync::Arc;
 use word::CustomIdentifier;
 
@@ -183,7 +184,14 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     unsafe fn bind_ref_mut(&mut self, owner: StackIdx) -> Self {
         match self {
-            StackValue::Primitive(_) => todo!(),
+            StackValue::Primitive(value) => {
+                let ptr: *mut dyn AnyValueDyn = value.any_mut();
+                StackValue::LocalRefMut {
+                    value: &mut *ptr,
+                    owner,
+                    gen: (),
+                }
+            }
             StackValue::Boxed(value) => {
                 let ptr: *mut dyn AnyValueDyn = &mut *value.inner;
                 StackValue::LocalRefMut {
@@ -350,7 +358,10 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         match self {
             StackValue::Primitive(value) => *value,
             StackValue::LocalRefMut { value, .. } => value.as_primitive(),
-            _ => panic!(""),
+            _ => {
+                p!(self);
+                panic!("")
+            }
         }
     }
 

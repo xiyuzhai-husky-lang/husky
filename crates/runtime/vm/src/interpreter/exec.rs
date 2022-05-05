@@ -31,7 +31,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         },
                         Mode::TrackHistory => self.history.write(
                             ins,
-                            HistoryEntry::NonVoidExpr {
+                            HistoryEntry::PureExpr {
                                 output: value.snapshot(),
                             },
                         ),
@@ -48,7 +48,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
                             ins,
-                            HistoryEntry::NonVoidExpr {
+                            HistoryEntry::PureExpr {
                                 output: self.stack.top_snapshot(),
                             },
                         ),

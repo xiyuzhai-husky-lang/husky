@@ -1,6 +1,6 @@
 use crate::*;
 use std::fmt::Write;
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EagerQualifiedType {
@@ -9,18 +9,22 @@ pub struct EagerQualifiedType {
 }
 
 impl TestComparable for EagerQualifiedType {
-    fn write_inherent(&self, result: &mut String) {
-        write!(
-            result,
-            "{}{: <12?}{} {}{:?}{}",
-            print_utils::PINK,
-            self.qual,
-            print_utils::RESET,
-            print_utils::GREEN,
-            self.ty,
-            print_utils::RESET,
-        )
-        .unwrap()
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+        if config.colored {
+            write!(
+                result,
+                "{}{: <12?}{} {}{:?}{}",
+                print_utils::PINK,
+                self.qual,
+                print_utils::RESET,
+                print_utils::GREEN,
+                self.ty,
+                print_utils::RESET,
+            )
+            .unwrap()
+        } else {
+            write!(result, "{: <12?} {:?}", self.qual, self.ty,).unwrap()
+        }
     }
 }
 
@@ -127,7 +131,19 @@ impl EagerQualifier {
             EagerQualifier::LocalRef => todo!(),
             EagerQualifier::Transient => todo!(),
             EagerQualifier::Copyable => Binding::Copy,
-            EagerQualifier::CopyableMut => Binding::Copy,
+            EagerQualifier::CopyableMut => match contract {
+                EagerContract::Pure => Binding::Copy,
+                EagerContract::GlobalRef => todo!(),
+                EagerContract::Move => todo!(),
+                EagerContract::LetInit => todo!(),
+                EagerContract::VarInit => todo!(),
+                EagerContract::UseMemberForLetInit => panic!(),
+                EagerContract::UseMemberForVarInit => panic!(),
+                EagerContract::Return => todo!(),
+                EagerContract::RefMut => Binding::RefMut,
+                EagerContract::MoveMut => todo!(),
+                EagerContract::Exec => todo!(),
+            },
             EagerQualifier::Owned => match contract {
                 EagerContract::Pure => Binding::Ref,
                 EagerContract::GlobalRef => panic!(),

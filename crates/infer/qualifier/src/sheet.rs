@@ -6,7 +6,7 @@ use infer_contract::ContractSheet;
 use infer_error::derived_not_none;
 use print_utils::{p, ps};
 use std::fmt::Write;
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 use text::Row;
 use vec_map::VecPairMap;
 use word::Identifier;
@@ -83,16 +83,17 @@ macro_rules! write_field_name {
 }
 
 impl TestComparable for QualifiedTySheet {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         let ast_text = &self.contract_sheet.entity_route_sheet.ast_text;
         write_field_name!(result, "eager variable qualified types");
-        self.eager_variable_qualified_tys.write_inherent(result);
+        self.eager_variable_qualified_tys
+            .write_inherent(config.indented(), result);
         write_field_name!(result, "lazy expr qualified types");
-        ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, 4, result);
+        ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, config.indented(), result);
         write_field_name!(result, "eager expr qualified types");
-        ast_text.write_map_inherently(&self.eager_expr_qualified_tys, 4, result);
+        ast_text.write_map_inherently(&self.eager_expr_qualified_tys, config.indented(), result);
         write_field_name!(result, "lazy expr qualified types");
-        ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, 4, result);
+        ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, config.indented(), result);
     }
     // fn print_inherent(&self) -> String {
     //     let mut result = String::new();

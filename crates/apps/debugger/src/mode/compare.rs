@@ -5,6 +5,8 @@ use std::{
     path::Path,
 };
 
+use text_diff::print_diff;
+
 pub(super) fn compare_saved_data<T>(new_data: &T, saved_data_path: &Path)
 where
     T: Debug + Default + PartialEq,
@@ -31,8 +33,10 @@ fn notify_change(new_data_text: &str, old_data_text: &str, save_path: &Path) {
         save_path.as_os_str(),
         print_utils::RESET,
     );
-    print!("old = \n  {}\n", &old_data_text);
-    print!("new = \n  {}\n", &new_data_text);
+    // print!("old = \n  {}\n", &old_data_text);
+    // print!("new = \n  {}\n", &new_data_text);
+    print_diff(old_data_text, new_data_text, "\n");
+    // print!();
     let accept: bool = loop {
         print!("Do you want to accept change in saved data (y/n)? ");
         let mut s = String::new();

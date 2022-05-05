@@ -22,6 +22,7 @@ warp = "0.2"
 lsp-server = "0.5.2"
 xflags = "0.2.4"
 salsa = "0.17.0-pre.2"
+text-diff = "0.4.0"
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
