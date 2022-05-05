@@ -92,15 +92,13 @@ pub fn subtraces(
             | ProcStmtVariant::Execute { .. }
             | ProcStmtVariant::Return { .. } => Arc::new(vec![]),
             ProcStmtVariant::BranchGroup { .. } => panic!(),
-            ProcStmtVariant::Loop {
-                loop_variant: ref loop_kind,
-                ref stmts,
-            } => match history.entry(stmt) {
+            ProcStmtVariant::Loop { ref stmts, .. } => match history.entry(stmt) {
                 HistoryEntry::PureExpr { .. } | HistoryEntry::Exec { .. } => Arc::new(vec![]),
                 HistoryEntry::Loop {
                     control,
                     ref stack_snapshot,
                     ref body,
+                    loop_kind,
                     ..
                 } => db.loop_subtraces(
                     db.compile_time(),

@@ -3,7 +3,7 @@ use text::Text;
 use upcast::Upcast;
 use vm::{
     exec_debug, exec_loop_debug, BinaryOpr, BoundaryKind, History, InstructionSheet, LoopFrameData,
-    StackSnapshot,
+    StackSnapshot, VMLoopKind,
 };
 
 use super::{expr::ExprTokenConfig, *};
@@ -50,7 +50,6 @@ impl<'eval> TraceFactory<'eval> {
                 varname,
                 ref initial_value,
                 init_kind,
-                varidx,
             } => {
                 let mut tokens = vec![keyword!(match init_kind {
                     vm::InitKind::Let => "let ",
@@ -228,7 +227,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         compile_time: &HuskyLangCompileTime,
         parent: &Trace,
-        loop_kind: &LoopVariant,
+        loop_kind: VMLoopKind,
         loop_stmt: &Arc<ProcStmt>,
         body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
         text: &Text,
@@ -238,7 +237,7 @@ impl<'eval> TraceFactory<'eval> {
         let frames = exec_loop_debug(
             compile_time.upcast(),
             stack_snapshot,
-            loop_kind.into(),
+            loop_kind,
             &body_instruction_sheet,
         );
         Arc::new(

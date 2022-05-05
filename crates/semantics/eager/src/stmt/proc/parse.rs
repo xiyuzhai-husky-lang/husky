@@ -126,12 +126,10 @@ impl<'a> EagerStmtParser<'a> {
                 init_kind,
             } => {
                 let initial_value = self.parse_eager_expr(initial_value)?;
-                let varidx = self.def_variable(varname)?;
                 ProcStmtVariant::Init {
                     varname,
                     initial_value,
                     init_kind,
-                    varidx,
                 }
             }
             RawStmtVariant::Return(result) => ProcStmtVariant::Return {
@@ -155,18 +153,15 @@ impl<'a> EagerStmtParser<'a> {
                 initial_boundary,
                 final_boundary,
                 step,
-            } => {
-                self.def_variable(frame_var)?;
-                ProcStmtVariant::Loop {
-                    loop_variant: LoopVariant::For {
-                        frame_var,
-                        initial_boundary: self.parse_boundary(initial_boundary)?,
-                        final_boundary: self.parse_boundary(final_boundary)?,
-                        step,
-                    },
-                    stmts: self.parse_impr_stmts(children)?,
-                }
-            }
+            } => ProcStmtVariant::Loop {
+                loop_variant: LoopVariant::For {
+                    frame_var,
+                    initial_boundary: self.parse_boundary(initial_boundary)?,
+                    final_boundary: self.parse_boundary(final_boundary)?,
+                    step,
+                },
+                stmts: self.parse_impr_stmts(children)?,
+            },
             RawLoopKind::ForExt {
                 frame_var,
                 final_boundary,
@@ -176,7 +171,6 @@ impl<'a> EagerStmtParser<'a> {
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::ForExt {
                         frame_var,
-                        frame_varidx: self.varidx(frame_var.ident),
                         final_boundary: self.parse_boundary(final_boundary)?,
                         step,
                     },

@@ -60,6 +60,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 initial_boundary,
                 final_boundary,
                 frame_var,
+                step,
                 ..
             } => {
                 self.compile_boundary(initial_boundary, &loop_stmt);
@@ -71,21 +72,36 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(
                     InstructionKind::Loop {
                         body,
-                        loop_kind: loop_kind.into(),
+                        loop_kind: VMLoopKind::For {
+                            initial_boundary_kind: initial_boundary.kind,
+                            final_boundary_kind: final_boundary.kind,
+                            step: *step,
+                            frame_var: frame_var.ident,
+                        },
                     },
                     loop_stmt,
                 ));
             }
-            LoopVariant::ForExt { final_boundary, .. } => {
+            LoopVariant::ForExt {
+                frame_var,
+                final_boundary,
+                step,
+                ..
+            } => {
                 self.compile_boundary(final_boundary, &loop_stmt);
                 let mut block_sheet_builder = self.subsheet_builder();
-                block_sheet_builder.forext_frame();
+                block_sheet_builder.def_forext_frame();
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
                     InstructionKind::Loop {
                         body,
-                        loop_kind: loop_kind.into(),
+                        loop_kind: VMLoopKind::ForExt {
+                            final_boundary_kind: final_boundary.kind,
+                            step: *step,
+                            frame_var: frame_var.ident,
+                            frame_varidx: self.varidx(frame_var.ident),
+                        },
                     },
                     loop_stmt,
                 ));
@@ -102,7 +118,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(
                     InstructionKind::Loop {
                         body,
-                        loop_kind: loop_kind.into(),
+                        loop_kind: VMLoopKind::Loop,
                     },
                     loop_stmt,
                 ));
@@ -119,7 +135,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(
                     InstructionKind::Loop {
                         body,
-                        loop_kind: loop_kind.into(),
+                        loop_kind: VMLoopKind::Loop,
                     },
                     loop_stmt,
                 ));
