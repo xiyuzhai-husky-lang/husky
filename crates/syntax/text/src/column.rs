@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
@@ -7,7 +7,7 @@ use test_utils::TestComparable;
 pub struct Column(pub(crate) u32);
 
 impl TestComparable for Column {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         todo!()
     }
 }

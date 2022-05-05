@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use test_utils::TestComparable;
+use test_utils::{TestComparable, TestCompareConfig};
 
 use crate::*;
 
@@ -10,7 +10,7 @@ pub struct TextPosition {
 }
 
 impl TestComparable for TextPosition {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         todo!()
     }
 }

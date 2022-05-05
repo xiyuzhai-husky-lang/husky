@@ -20,7 +20,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(
                         ins,
-                        HistoryEntry::NonVoidExpr {
+                        HistoryEntry::PureExpr {
                             output: output.into(),
                         },
                     ),
@@ -45,6 +45,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     _ => {
                         p!(lopd);
+                        p!(ins.src);
                         panic!()
                     }
                 }
@@ -73,8 +74,34 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 Ok(())
             }
-            PrimitiveOpn::Suffix(_) => todo!(),
-            PrimitiveOpn::Prefix(_) => todo!(),
+            PrimitiveOpn::Suffix(suffix_opr) => {
+                let output = suffix_opr.act_on_primitive(self.stack.pop().as_primitive());
+                match debug_flag {
+                    Mode::Fast | Mode::TrackMutation => (),
+                    Mode::TrackHistory => self.history.write(
+                        ins,
+                        HistoryEntry::PureExpr {
+                            output: output.into(),
+                        },
+                    ),
+                }
+                self.stack.push(output.into());
+                Ok(())
+            }
+            PrimitiveOpn::Prefix(prefix_opr) => {
+                let output = prefix_opr.act_on_primitive(self.stack.pop().as_primitive());
+                match debug_flag {
+                    Mode::Fast | Mode::TrackMutation => (),
+                    Mode::TrackHistory => self.history.write(
+                        ins,
+                        HistoryEntry::PureExpr {
+                            output: output.into(),
+                        },
+                    ),
+                }
+                self.stack.push(output.into());
+                Ok(())
+            }
         }
     }
 }

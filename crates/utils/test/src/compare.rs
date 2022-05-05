@@ -9,35 +9,50 @@ use std::{
     sync::Arc,
 };
 
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+pub struct TestCompareConfig {
+    pub colored: bool,
+    pub indent: u8,
+}
+
+impl TestCompareConfig {
+    pub fn indented(&self) -> Self {
+        Self {
+            colored: self.colored,
+            indent: self.indent + 4,
+        }
+    }
+}
+
 pub trait TestComparable: std::fmt::Debug + PartialEq {
-    fn write_inherent(&self, result: &mut String);
-    fn print_inherent(&self) -> String {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String);
+    fn print_inherent(&self, config: TestCompareConfig) -> String {
         let mut result = String::new();
-        self.write_inherent(&mut result);
+        self.write_inherent(config, &mut result);
         result
     }
 }
 
 impl<T: TestComparable> TestComparable for Arc<T> {
-    fn write_inherent(&self, result: &mut String) {
-        (**self).write_inherent(result)
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+        (**self).write_inherent(config, result)
     }
 }
 
 impl<T: TestComparable> TestComparable for Vec<T> {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         for t in self.iter() {
-            t.write_inherent(result);
+            t.write_inherent(config, result);
             result.push_str("\n");
         }
     }
 }
 
 impl<T: TestComparable, S: TestComparable> TestComparable for (T, S) {
-    fn write_inherent(&self, result: &mut String) {
-        self.0.write_inherent(result);
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+        self.0.write_inherent(config, result);
         result.push_str("  ");
-        self.1.write_inherent(result);
+        self.1.write_inherent(config, result);
     }
 }
 
@@ -46,22 +61,22 @@ where
     T: TestComparable,
     E: TestComparable,
 {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         match self {
-            Ok(v) => v.write_inherent(result),
-            Err(e) => e.write_inherent(result),
+            Ok(v) => v.write_inherent(config, result),
+            Err(e) => e.write_inherent(config, result),
         }
     }
 }
 
 impl TestComparable for lsp_types::SemanticToken {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         write!(result, "{:?}", self).unwrap();
     }
 }
 
 impl TestComparable for lsp_types::FoldingRange {
-    fn write_inherent(&self, result: &mut String) {
+    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         write!(result, "{:?}", self).unwrap();
     }
 }
@@ -70,7 +85,10 @@ pub fn compare_saved_data<T>(new_data: &T, saved_data_path: &Path) -> TestResult
 where
     T: TestComparable,
 {
-    let new_data_text = new_data.print_inherent();
+    let new_data_text = new_data.print_inherent(TestCompareConfig {
+        colored: false,
+        indent: 0,
+    });
     let data_on_disk_text: String = if !saved_data_path.exists() {
         "nothing".into()
     } else {

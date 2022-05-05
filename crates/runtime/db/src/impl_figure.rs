@@ -114,7 +114,7 @@ impl HuskyLangRuntime {
     fn eager_expr_figure(&self, expr: &EagerExpr, history: &History) -> FigureProps {
         let visualizer = self.visualizer(self.version(), expr.ty);
         match history.entry(expr) {
-            HistoryEntry::NonVoidExpr { output } => {
+            HistoryEntry::PureExpr { output } => {
                 let visual_props = visualizer.visualize(output.any_ref());
                 FigureProps::new_specific(visual_props)
             }

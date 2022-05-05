@@ -15,10 +15,10 @@ test-temp:
 	cargo run --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics/misc/mnist-predictor2
 
 test-analyzer:
-	cargo run --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics
-	cargo run --bin husky-analyzer-tester test-folding-ranges $(test_examples_dir)/analyzer/folding-ranges
-	cargo run --bin husky-analyzer-tester test-semantic-tokens $(test_examples_dir)/analyzer/semantic-tokens
-	cargo run --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys
+	cargo run -q --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics
+	cargo run -q --bin husky-analyzer-tester test-folding-ranges $(test_examples_dir)/analyzer/folding-ranges
+	cargo run -q --bin husky-analyzer-tester test-semantic-tokens $(test_examples_dir)/analyzer/semantic-tokens
+	cargo run -q --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys
 
 vscode: test-analyzer
 	scripts/vscode_prepublish.sh

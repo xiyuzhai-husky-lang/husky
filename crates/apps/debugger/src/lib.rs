@@ -39,7 +39,6 @@ impl Debugger {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyLangCompileTime)) -> Self {
         let config = DebuggerConfig::from_env();
         let mut runtime = HuskyLangRuntime::new(init_compile_time);
-        p!(config);
         if let Some(ref input_id_str) = config.opt_input_id {
             match runtime.lock_input(input_id_str) {
                 (_, Some(msg)) => panic!("{}", msg),
