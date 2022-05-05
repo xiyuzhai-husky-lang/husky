@@ -12,14 +12,13 @@ test-examples-with-backtrace:
 	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
 
 test-temp:
-	cargo run --bin husky-lang-compiler $(temp_dir)
-	cargo run --bin husky-lang-debugger $(temp_dir) --input-id 1 --mode test
-
+	cargo run --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics/misc/mnist-predictor2
 
 test-analyzer:
 	cargo run --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics
 	cargo run --bin husky-analyzer-tester test-folding-ranges $(test_examples_dir)/analyzer/folding-ranges
 	cargo run --bin husky-analyzer-tester test-semantic-tokens $(test_examples_dir)/analyzer/semantic-tokens
+	cargo run --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys
 
 vscode: test-analyzer
 	scripts/vscode_prepublish.sh

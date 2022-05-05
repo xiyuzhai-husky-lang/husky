@@ -19,7 +19,7 @@ use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
 use std::{iter::Peekable, sync::Arc};
-use vec_dict::VecDict;
+use vec_map::VecMap;
 use word::{CustomIdentifier, IdentDict, RangedCustomIdentifier};
 
 impl EntityDefnVariant {
@@ -215,7 +215,7 @@ impl EntityDefnVariant {
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
     ) -> SemanticResult<IdentDict<Arc<EntityDefn>>> {
-        let mut variants = VecDict::default();
+        let mut variants = VecMap::default();
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
             match ast.kind {
@@ -256,7 +256,7 @@ impl EntityDefnVariant {
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
         todo!()
-        // let mut fields = VecDict::default();
+        // let mut fields = VecMap::default();
         // for subitem in children {
         //     match subitem.value.as_ref()?.kind {
         //         AstKind::Use { .. } => (),

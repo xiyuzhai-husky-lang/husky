@@ -127,7 +127,7 @@ impl HuskyLangRuntime {
         FigureProps::Mutations {
             mutations: mutations.map(|mutation| {
                 MutationFigureProps::new(
-                    &self.text(mutation.file).unwrap(),
+                    &self.compile_time().text(mutation.file).unwrap(),
                     &self.visualizer(self.version(), mutation.ty),
                     mutation,
                 )

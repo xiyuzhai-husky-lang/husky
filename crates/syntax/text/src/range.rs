@@ -22,9 +22,7 @@ impl From<StaticDevSource> for TextRange {
 
 impl std::fmt::Debug for TextRange {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.start.fmt(f)?;
-        f.write_str("..")?;
-        self.end.fmt(f)
+        f.pad(&format!("{:?}..{:?}", self.start, self.end))
     }
 }
 

@@ -7,13 +7,13 @@ use print_utils::p;
 
 #[salsa::query_group(InferQualifiedTyQueryGroupStorage)]
 pub trait InferQualifiedTyQueryGroup: InferEntityRouteQueryGroup + InferContractQueryGroup {
-    fn qualified_ty_sheet(&self, file: FilePtr) -> EntityRouteResultArc<QualifiedTypeSheet>;
+    fn qualified_ty_sheet(&self, file: FilePtr) -> EntityRouteResultArc<QualifiedTySheet>;
 }
 
 fn qualified_ty_sheet(
     db: &dyn InferQualifiedTyQueryGroup,
     file: FilePtr,
-) -> EntityRouteResultArc<QualifiedTypeSheet> {
+) -> EntityRouteResultArc<QualifiedTySheet> {
     let mut builder = QualifiedTySheetBuilder::new(db, file)?;
     builder.infer_all();
     Ok(builder.finish())

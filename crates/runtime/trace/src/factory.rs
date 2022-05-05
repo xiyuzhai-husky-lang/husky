@@ -8,7 +8,7 @@ mod feature_stmt;
 mod func_stmt;
 mod proc_stmt;
 
-use compile_time_db::HuskyLangCompileTime;
+use compile_time_db::{AskCompileTime, HuskyLangCompileTime};
 use expr::ExprTokenConfig;
 use feature::*;
 use semantics_eager::*;
@@ -152,7 +152,7 @@ impl<'eval> TraceFactory<'eval> {
     // }
 }
 
-pub trait CreateTrace<'eval>: TextQueryGroup {
+pub trait CreateTrace<'eval>: AskCompileTime {
     fn trace_factory(&self) -> &TraceFactory<'eval>;
 
     fn feature_block_subtraces(
@@ -160,7 +160,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         parent: &Trace<'eval>,
         feature_block: &FeatureBlock,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
-        let text = &self.text(parent.file).unwrap();
+        let text = &self.compile_time().text(parent.file).unwrap();
         Arc::new(
             self.trace_factory()
                 .feature_block_subtraces(parent, feature_block, text),
@@ -172,7 +172,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         parent: &Trace<'eval>,
         branch: &FeatureBranch,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
-        let text = &self.text(parent.file).unwrap();
+        let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory()
             .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
     }
@@ -187,7 +187,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
-        let text = &self.text(parent.file).unwrap();
+        let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().loop_subtraces(
             compile_time,
             parent,
@@ -208,7 +208,7 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         instruction_sheet: &InstructionSheet,
         stmts: &[Arc<ProcStmt>],
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
-        let text = &self.text(parent.file).unwrap();
+        let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(
             compile_time,
             parent,
@@ -226,8 +226,12 @@ pub trait CreateTrace<'eval>: TextQueryGroup {
         indent: Indent,
         kind: TraceVariant<'eval>,
     ) -> Arc<Trace<'eval>> {
-        self.trace_factory()
-            .new_trace(parent_id, indent, kind, &self.text(file).unwrap())
+        self.trace_factory().new_trace(
+            parent_id,
+            indent,
+            kind,
+            &self.compile_time().text(file).unwrap(),
+        )
     }
 
     fn trace(&self, id: TraceId) -> Arc<Trace<'eval>> {

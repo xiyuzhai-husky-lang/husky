@@ -27,21 +27,19 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             if let None = self
                 .qualified_ty_sheet
                 .lazy_variable_qualified_tys
-                .get(&(inputs[0].ident.ident.into(), inputs[0].ranged_ty.row()))
+                .get_entry((inputs[0].ident.ident.into(), inputs[0].ranged_ty.row()))
             {
                 for input in inputs {
                     let ty = input.ranged_ty.route;
-                    should!(self
-                        .qualified_ty_sheet
+                    self.qualified_ty_sheet
                         .lazy_variable_qualified_tys
-                        .insert(
+                        .insert_new((
                             (input.ident.ident.into(), inputs[0].ranged_ty.row()),
                             Ok(LazyQualifiedType::new(
                                 LazyQualifier::from_input(input.contract, self.db.is_copyable(ty)),
                                 ty,
                             )),
-                        )
-                        .is_none());
+                        ));
                 }
             }
         }
@@ -86,14 +84,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 initial_value,
             } => {
                 if let Some(qt) = self.infer_lazy_expr(arena, initial_value) {
-                    should!(self
-                        .qualified_ty_sheet
+                    self.qualified_ty_sheet
                         .lazy_variable_qualified_tys
-                        .insert(
+                        .insert_new((
                             (varname.ident.into(), varname.row()),
-                            qt.use_for_init(init_kind)
-                        )
-                        .is_none());
+                            qt.use_for_init(init_kind),
+                        ));
                 }
             }
             RawStmtVariant::Return(expr) => {
@@ -127,7 +123,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             .ok();
         self.qualified_ty_sheet
             .lazy_expr_qualified_tys
-            .insert(raw_expr_idx, qualified_qualified_ty_result);
+            .insert_new(raw_expr_idx, qualified_qualified_ty_result);
         opt_qualified_ty
     }
 
@@ -142,10 +138,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::Variable { varname, init_row } => match derived_not_none!(self
                 .qualified_ty_sheet
                 .lazy_variable_qualified_tys
-                .get(&(varname.into(), init_row)))?
+                .get_entry((varname.into(), init_row)))?
+            .1
             {
-                Ok(qt) => Ok(*qt),
-                Err(e) => Err(e.derived()),
+                Ok(qt) => Ok(qt),
+                Err(ref e) => Err(e.derived()),
             },
             RawExprVariant::FrameVariable { varname, init_row } => todo!(),
             RawExprVariant::This { ty } => todo!(),

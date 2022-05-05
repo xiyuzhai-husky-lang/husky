@@ -22,16 +22,12 @@ use std::{
     collections::HashMap,
     sync::{Arc, Mutex},
 };
-use text::{RawTextQueryGroup, TextQueryGroupStorage};
+use text::TextQueryGroupStorage;
 use trace::{CreateTrace, FigureProps, Trace, TraceFactory, TraceId, TraceStalk, TraceVariant};
 use visual_runtime::*;
 use vm::{AnyValueDyn, Instruction};
 
-#[salsa::database(
-    VisualQueryGroupStorage,
-    RuntimeQueryGroupStorage,
-    TextQueryGroupStorage
-)]
+#[salsa::database(VisualQueryGroupStorage, RuntimeQueryGroupStorage)]
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
@@ -45,15 +41,8 @@ pub struct HuskyLangRuntime {
 }
 
 impl AskCompileTime for HuskyLangRuntime {
-    fn compile_time(&self, _version: usize) -> &HuskyLangCompileTime {
-        msg_once!("check version");
+    fn compile_time(&self) -> &HuskyLangCompileTime {
         &self.compile_time
-    }
-}
-
-impl RawTextQueryGroup for HuskyLangRuntime {
-    fn raw_text(&self, file: FilePtr) -> Option<Arc<String>> {
-        self.compile_time.raw_text(file)
     }
 }
 

@@ -1,15 +1,20 @@
 use crate::*;
+use arena::map::ArenaKeyQuery;
 use entity_route_query::{EntityRouteQueryGroup, EntityRouteResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
 use lsp_types::FoldingRange;
+use std::fmt::Write;
 use std::sync::Arc;
+use text::{Text, TextQueryGroup};
 use token::AbsSemanticToken;
 use upcast::Upcast;
 
 #[salsa::query_group(AstQueryGroupStorage)]
-pub trait AstSalsaQueryGroup: EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> {
+pub trait AstSalsaQueryGroup:
+    EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> + TextQueryGroup
+{
     fn ast_text(&self, file: FilePtr) -> EntityRouteResultArc<AstText>;
 }
 
@@ -51,6 +56,7 @@ pub struct AstText {
     pub arena: RawExprArena,
     pub folded_results: FoldedList<AstResult<Ast>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
+    pub text: Arc<Text>,
 }
 
 impl AstText {
@@ -60,5 +66,13 @@ impl AstText {
             .iter()
             .filter_map(|node| node.value.as_ref().err())
             .collect()
+    }
+}
+
+impl ArenaKeyQuery<RawExpr> for AstText {
+    fn write_key(&self, raw_expr_idx: RawExprIdx, result: &mut String) {
+        let range = self.arena[raw_expr_idx].range();
+        write!(result, "{: <15?}", range).unwrap();
+        write!(result, "{: <50} ", self.text.ranged(range)).unwrap();
     }
 }

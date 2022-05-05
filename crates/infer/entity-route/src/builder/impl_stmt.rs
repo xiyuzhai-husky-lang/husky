@@ -1,5 +1,4 @@
 use ast::{RawBoundary, RawLoopKind};
-use map_utils::insert_new;
 use text::TextRanged;
 
 use super::*;
@@ -68,11 +67,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 ..
             } => {
                 if let Some(ty) = self.infer_expr(initial_value, None, arena) {
-                    insert_new!(
-                        self.entity_route_sheet.variable_tys,
-                        (varname.ident, stmt.row()),
-                        ty
-                    )
+                    should!(self
+                        .entity_route_sheet
+                        .variable_tys
+                        .insert((varname.ident, stmt.row()), ty)
+                        .is_none())
                 }
             }
             RawStmtVariant::Return(result) => {

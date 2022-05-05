@@ -11,6 +11,7 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
+test-utils = { path = "../../utils/test", version = "0.0.0" }
 reserve = { path = "../../abstraction/reserve", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }

@@ -1,0 +1,3 @@
+17:22..17:34	Infer Error: Unrecognized identifier `binary_image`
+30:63..30:66	Infer Error: Unrecognized identifier `img`
+38:63..38:66	Infer Error: Unrecognized identifier `img`

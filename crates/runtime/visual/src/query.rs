@@ -12,7 +12,7 @@ fn visualizer(
     version: usize,
     ty: EntityRoutePtr,
 ) -> Arc<RuntimeVisualizer> {
-    let scope_source = db.compile_time(version).entity_source(ty).unwrap();
+    let scope_source = db.compile_time().entity_source(ty).unwrap();
     match scope_source {
         EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),

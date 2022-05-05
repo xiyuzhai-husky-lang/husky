@@ -31,6 +31,24 @@ macro_rules! p {
 }
 
 #[macro_export]
+macro_rules! ps {
+    ($s:expr) => {
+        eprintln!(
+            r#"
+-------------------------------------------------------------------
+{}{}:{}{}:{}
+{}"#,
+            print_utils::GREEN,
+            file!(),
+            print_utils::YELLOW,
+            line!(),
+            print_utils::RESET,
+            $s,
+        )
+    };
+}
+
+#[macro_export]
 macro_rules! ep {
   ($($v:expr),*) => {eprintln!("src: {}:{}\n  {}\n",
   file!(),

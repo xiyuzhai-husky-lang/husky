@@ -1,5 +1,5 @@
 use entity_kind::EnumVariantKind;
-use vec_dict::HasKey;
+use vec_map::HasKey;
 
 use super::*;
 
@@ -9,7 +9,7 @@ use super::*;
 //     generic_placeholders: IdentDict<GenericPlaceholder>,
 //     children: AstIter,
 // ) -> InferResultArc<TyDecl> {
-//     let mut variants = VecDict::default();
+//     let mut variants = VecMap::default();
 //     let mut trait_impls = Vec::new();
 //     for subitem in children {
 //         match subitem.value.as_ref()?.kind {

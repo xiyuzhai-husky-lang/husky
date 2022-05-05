@@ -9,11 +9,11 @@ pub use ident::*;
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use style::*;
 
-pub type IdentDict<T> = VecDict<CustomIdentifier, T>;
-pub type IdentArcDict<T> = VecDict<CustomIdentifier, Arc<T>>;
-pub type IdentPairDict<T> = VecPairDict<CustomIdentifier, T>;
+pub type IdentDict<T> = VecMap<CustomIdentifier, T>;
+pub type IdentArcDict<T> = VecMap<CustomIdentifier, Arc<T>>;
+pub type IdentPairDict<T> = VecPairMap<CustomIdentifier, T>;
 
-use vec_dict::{VecDict, VecPairDict};
+use vec_map::{VecMap, VecPairMap};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum WordPtr {

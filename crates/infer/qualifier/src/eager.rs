@@ -1,9 +1,17 @@
 use crate::*;
+use std::fmt::Write;
+use test_utils::TestComparable;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EagerQualifiedType {
     pub qual: EagerQualifier,
     pub ty: EntityRoutePtr,
+}
+
+impl TestComparable for EagerQualifiedType {
+    fn write_inherent(&self, result: &mut String) {
+        write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
+    }
 }
 
 impl EagerQualifiedType {
@@ -63,7 +71,7 @@ impl EagerQualifiedType {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EagerQualifier {
     Copyable,
     CopyableMut,
@@ -73,6 +81,21 @@ pub enum EagerQualifier {
     Transient,
     Owned,
     OwnedMut,
+}
+
+impl std::fmt::Debug for EagerQualifier {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.pad(match self {
+            Self::Copyable => "Copyable",
+            Self::CopyableMut => "CopyableMut",
+            Self::PureRef => "PureRef",
+            Self::GlobalRef => "GlobalRef",
+            Self::LocalRef => "LocalRef",
+            Self::Transient => "Transient",
+            Self::Owned => "Owned",
+            Self::OwnedMut => "OwnedMut",
+        })
+    }
 }
 
 impl EagerQualifier {

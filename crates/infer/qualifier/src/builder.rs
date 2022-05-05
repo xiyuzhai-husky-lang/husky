@@ -18,7 +18,7 @@ pub(crate) struct QualifiedTySheetBuilder<'a> {
     db: &'a dyn InferQualifiedTyQueryGroup,
     contract_sheet: Arc<ContractSheet>,
     entity_route_sheet: Arc<EntityRouteSheet>,
-    qualified_ty_sheet: QualifiedTypeSheet,
+    qualified_ty_sheet: QualifiedTySheet,
     main_file: FilePtr,
 }
 
@@ -31,8 +31,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         Ok(Self {
             db,
             entity_route_sheet: contract_sheet.entity_route_sheet.clone(),
+            qualified_ty_sheet: QualifiedTySheet::new(contract_sheet.clone()),
             contract_sheet,
-            qualified_ty_sheet: Default::default(),
             main_file: db.main_file(file).unwrap(),
         })
     }
@@ -107,7 +107,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    pub(super) fn finish(self) -> Arc<QualifiedTypeSheet> {
+    pub(super) fn finish(self) -> Arc<QualifiedTySheet> {
         Arc::new(self.qualified_ty_sheet)
     }
 }

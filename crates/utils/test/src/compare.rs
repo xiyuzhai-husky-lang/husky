@@ -1,16 +1,68 @@
 use crate::TestResult;
+use std::fmt::Write;
+use std::io::Write as _;
 use std::{
     fmt::Debug,
     fs,
-    io::{stdin, stdout, Write},
+    io::{stdin, stdout},
     path::Path,
+    sync::Arc,
 };
+
+pub trait TestComparable: std::fmt::Debug + PartialEq {
+    fn write_inherent(&self, result: &mut String);
+    fn print_inherent(&self) -> String {
+        let mut result = String::new();
+        self.write_inherent(&mut result);
+        result
+    }
+}
+
+impl<T: TestComparable> TestComparable for Arc<T> {
+    fn write_inherent(&self, result: &mut String) {
+        (**self).write_inherent(result)
+    }
+}
+
+impl<T: TestComparable> TestComparable for Vec<T> {
+    fn write_inherent(&self, result: &mut String) {
+        for t in self.iter() {
+            t.write_inherent(result);
+            result.push_str("\n");
+        }
+    }
+}
+
+impl<T, E> TestComparable for Result<T, E>
+where
+    T: TestComparable,
+    E: TestComparable,
+{
+    fn write_inherent(&self, result: &mut String) {
+        match self {
+            Ok(v) => v.write_inherent(result),
+            Err(e) => e.write_inherent(result),
+        }
+    }
+}
+
+impl TestComparable for lsp_types::SemanticToken {
+    fn write_inherent(&self, result: &mut String) {
+        write!(result, "{:?}", self).unwrap();
+    }
+}
+
+impl TestComparable for lsp_types::FoldingRange {
+    fn write_inherent(&self, result: &mut String) {
+        write!(result, "{:?}", self).unwrap();
+    }
+}
 
 pub fn compare_saved_data<T>(new_data: &T, saved_data_path: &Path) -> TestResult
 where
-    T: Debug + Default + PartialEq,
+    T: TestComparable,
 {
-    let new_data_text = to_string(new_data);
+    let new_data_text = new_data.print_inherent();
     let data_on_disk_text: String = if !saved_data_path.exists() {
         "nothing".into()
     } else {
@@ -61,11 +113,4 @@ fn notify_change(new_data_text: &str, old_data_text: &str, save_path: &Path) -> 
     } else {
         TestResult::Failed
     }
-}
-
-fn to_string<T>(data: &T) -> String
-where
-    T: Debug,
-{
-    return format!("{:#?}", data);
 }

@@ -1,4 +1,5 @@
 #![feature(step_trait)]
+pub mod map;
 
 use std::{
     fmt::Debug,
@@ -9,7 +10,7 @@ use std::{
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct Arena<T> {
-    storage: Vec<T>,
+    data: Vec<T>,
 }
 
 impl<T> Debug for Arena<T>
@@ -18,7 +19,7 @@ where
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("\nArena:\n")?;
-        for (i, v) in self.storage.iter().enumerate() {
+        for (i, v) in self.data.iter().enumerate() {
             f.write_fmt(format_args!("  #{}: {:?}\n", i, &v))?
         }
         Ok(())
@@ -27,25 +28,23 @@ where
 
 impl<T> Arena<T> {
     pub fn new() -> Self {
-        Self {
-            storage: Vec::new(),
-        }
+        Self { data: Vec::new() }
     }
     pub fn alloc(&mut self, item: Vec<T>) -> ArenaRange<T> {
-        let start = ArenaIdx::new(self.storage.len());
-        self.storage.extend(item);
-        let end = ArenaIdx::new(self.storage.len());
+        let start = ArenaIdx::new(self.data.len());
+        self.data.extend(item);
+        let end = ArenaIdx::new(self.data.len());
         start..end
     }
 
     pub fn alloc_one(&mut self, item: T) -> ArenaIdx<T> {
-        let idx = ArenaIdx::new(self.storage.len());
-        self.storage.push(item);
+        let idx = ArenaIdx::new(self.data.len());
+        self.data.push(item);
         idx
     }
 
     pub fn len(&self) -> usize {
-        self.storage.len()
+        self.data.len()
     }
 }
 
@@ -220,7 +219,7 @@ impl<T> core::ops::Index<ArenaIdx<T>> for Arena<T> {
     type Output = T;
 
     fn index(&self, idx: ArenaIdx<T>) -> &Self::Output {
-        &self.storage[idx.raw]
+        &self.data[idx.raw]
     }
 }
 
@@ -236,7 +235,7 @@ impl<T> core::ops::Index<&ArenaIdx<T>> for Arena<T> {
     type Output = T;
 
     fn index(&self, idx: &ArenaIdx<T>) -> &Self::Output {
-        &self.storage[idx.raw]
+        &self.data[idx.raw]
     }
 }
 
@@ -244,7 +243,7 @@ impl<T> core::ops::Index<ArenaRange<T>> for Arena<T> {
     type Output = [T];
 
     fn index(&self, idx: ArenaRange<T>) -> &Self::Output {
-        &self.storage[idx.start.raw..idx.end.raw]
+        &self.data[idx.start.raw..idx.end.raw]
     }
 }
 
@@ -252,6 +251,6 @@ impl<T> core::ops::Index<&ArenaRange<T>> for Arena<T> {
     type Output = [T];
 
     fn index(&self, idx: &ArenaRange<T>) -> &Self::Output {
-        &self.storage[idx.start.raw..idx.end.raw]
+        &self.data[idx.start.raw..idx.end.raw]
     }
 }

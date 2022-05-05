@@ -7,7 +7,7 @@ pub use method::*;
 use atom::{symbol::Symbol, SymbolContext};
 use fold::LocalStack;
 use map_collect::MapCollect;
-use vec_dict::HasKey;
+use vec_map::HasKey;
 
 use crate::*;
 

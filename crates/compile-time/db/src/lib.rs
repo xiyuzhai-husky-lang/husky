@@ -15,6 +15,7 @@ pub use husky_fmt::FmtQuery;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_entity_route::*;
+pub use infer_qualifier::*;
 pub use infer_total::*;
 pub use instruction_gen::InstructionGenQueryGroup;
 pub use pack_semantics::PackageQueryGroup;
@@ -41,6 +42,7 @@ use sync_utils::ARwLock;
     file::FileQueryStorage,
     token::TokenQueryGroupStorage,
     entity_route_query::ScopeQueryGroupStorage,
+    text::TextQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
     infer_decl::DeclQueryGroupStorage,
@@ -66,5 +68,5 @@ pub struct HuskyLangCompileTime {
 }
 
 pub trait AskCompileTime {
-    fn compile_time(&self, version: usize) -> &HuskyLangCompileTime;
+    fn compile_time(&self) -> &HuskyLangCompileTime;
 }

@@ -20,7 +20,7 @@ use vm::*;
 use word::Identifier;
 
 pub trait InferQualifiedType {
-    fn qualified_ty_sheet(&self) -> &QualifiedTypeSheet;
+    fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
 
     fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedType> {
         self.qualified_ty_sheet()

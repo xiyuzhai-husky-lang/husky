@@ -1,3 +1,5 @@
+mod impl_compare;
+
 use std::{marker::PhantomData, ops::Deref, sync::Arc};
 
 pub trait HasKey<K>
@@ -27,7 +29,7 @@ where
 }
 
 #[derive(PartialEq, Eq, Clone)]
-pub struct VecDict<K, V>
+pub struct VecMap<K, V>
 where
     K: PartialEq + Eq + Copy,
     V: HasKey<K>,
@@ -36,7 +38,7 @@ where
     phantom: PhantomData<K>,
 }
 
-impl<K, V> std::fmt::Debug for VecDict<K, V>
+impl<K, V> std::fmt::Debug for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy,
     V: HasKey<K> + std::fmt::Debug,
@@ -46,14 +48,14 @@ where
     }
 }
 
-pub type VecPairDict<K, V> = VecDict<K, (K, V)>;
+pub type VecPairMap<K, V> = VecMap<K, (K, V)>;
 
 pub struct Repeat {
     pub i: usize,
     pub j: usize,
 }
 
-impl<K, Entry> VecDict<K, Entry>
+impl<K, Entry> VecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy,
     Entry: HasKey<K>,
@@ -80,11 +82,11 @@ where
         self.entries.len()
     }
 
-    pub fn get(&self, key: K) -> Option<&Entry> {
+    pub fn get_entry(&self, key: K) -> Option<&Entry> {
         self.entries.iter().find(|entry| entry.key() == key)
     }
 
-    pub fn iget(&self, key: K) -> Option<(usize, &Entry)> {
+    pub fn iget_entry(&self, key: K) -> Option<(usize, &Entry)> {
         self.entries
             .iter()
             .enumerate()
@@ -148,7 +150,7 @@ where
     }
 }
 
-impl<K, V> FromIterator<V> for VecDict<K, V>
+impl<K, V> FromIterator<V> for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy,
     V: HasKey<K>,
@@ -162,7 +164,7 @@ where
     }
 }
 
-impl<K, V> Deref for VecDict<K, V>
+impl<K, V> Deref for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy,
     V: HasKey<K>,
@@ -174,7 +176,7 @@ where
     }
 }
 
-impl<K, V> Default for VecDict<K, V>
+impl<K, V> Default for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy,
     V: HasKey<K>,
@@ -187,7 +189,7 @@ where
     }
 }
 
-impl<K, V> std::ops::Index<K> for VecDict<K, V>
+impl<K, V> std::ops::Index<K> for VecMap<K, V>
 where
     K: PartialEq + Eq + Clone + Copy,
     V: HasKey<K>,
@@ -195,6 +197,6 @@ where
     type Output = V;
 
     fn index(&self, index: K) -> &Self::Output {
-        self.get(index).unwrap()
+        self.get_entry(index).unwrap()
     }
 }

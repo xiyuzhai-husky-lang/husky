@@ -9,7 +9,7 @@ arrayvec = "0.7.2"
 compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
-vec-dict = { path = "../../abstraction/vec-dict", version = "0.0.0" }
+vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }

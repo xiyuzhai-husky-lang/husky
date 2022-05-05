@@ -1,0 +1,1 @@
+53:5..53:6	Infer Error: expect i32 but get Vec<datasets::cv::mnist::BinaryImage28> instead
