@@ -22,7 +22,7 @@ use entity_route::*;
 pub use enum_variant::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
-use vec_dict::VecDict;
+use vec_map::VecMap;
 use vm::{OutputContract, TySignature};
 use word::{IdentArcDict, IdentDict, RangedCustomIdentifier};
 
@@ -166,7 +166,7 @@ impl TyDecl {
     fn collect_variants(
         children: &mut Peekable<AstIter>,
     ) -> InferResult<IdentDict<EnumVariantDecl>> {
-        let mut variants = VecDict::default();
+        let mut variants = VecMap::default();
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.kind {
                 AstKind::EnumVariantDefnHead {
@@ -287,7 +287,7 @@ impl TyDecl {
         &self,
         ranged_ident: RangedCustomIdentifier,
     ) -> InferResult<EntityRoutePtr> {
-        match self.ty_members.get(ranged_ident.ident) {
+        match self.ty_members.get_entry(ranged_ident.ident) {
             Some(type_member_decl) => match type_member_decl {
                 TyMemberDecl::Field(field) => Ok(field.ty),
                 TyMemberDecl::Method(_) => err!(
@@ -337,7 +337,7 @@ impl TyDecl {
     }
 
     pub fn field_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResultArcRef<FieldDecl> {
-        match self.ty_members.get(ranged_ident.ident) {
+        match self.ty_members.get_entry(ranged_ident.ident) {
             Some(member_decl) => match member_decl {
                 TyMemberDecl::Field(field) => Ok(field),
                 TyMemberDecl::Method(_) => {
@@ -374,7 +374,7 @@ impl TyDecl {
     }
 
     pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind {
-        match self.ty_members.get(field_ident).unwrap() {
+        match self.ty_members.get_entry(field_ident).unwrap() {
             TyMemberDecl::Field(field) => field.kind,
             _ => panic!(""),
         }
@@ -440,7 +440,7 @@ impl TyDecl {
         // then look in the trait members,
         // if multiple are found in the trait members,
         // report an infer error.
-        if let Some(member) = self.ty_members.get(ranged_ident.ident) {
+        if let Some(member) = self.ty_members.get_entry(ranged_ident.ident) {
             match member {
                 TyMemberDecl::Field(_) => todo!(),
                 TyMemberDecl::Method(method) => return Ok(method),

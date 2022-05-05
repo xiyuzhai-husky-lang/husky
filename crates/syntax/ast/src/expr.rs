@@ -3,7 +3,7 @@ mod kind;
 mod precedence;
 mod stack;
 
-use arena::{Arena, ArenaIdx, ArenaRange};
+use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
 pub use kind::RawExprVariant;
 pub(crate) use stack::ExprStack;
 pub use word::Keyword;
@@ -19,6 +19,8 @@ pub struct RawExpr {
     pub range: TextRange,
     pub variant: RawExprVariant,
 }
+
+pub type RawExprMap<V> = ArenaMap<RawExpr, V>;
 
 impl TextRanged for RawExpr {
     fn text_range_ref(&self) -> &TextRange {

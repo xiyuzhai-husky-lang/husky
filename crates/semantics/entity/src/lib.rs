@@ -35,7 +35,7 @@ use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::TextRange;
-use vec_dict::HasKey;
+use vec_map::HasKey;
 use vm::{FieldContract, InputContract, Linkage, OutputContract};
 use word::{CustomIdentifier, IdentDict, Identifier, RangedCustomIdentifier};
 

@@ -1,0 +1,1 @@
+53:7..53:10	Infer Error: expect a field, but `len` is a method in type `Vec<datasets::cv::mnist::BinaryImage28>`

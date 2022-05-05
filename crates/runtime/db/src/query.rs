@@ -3,6 +3,7 @@ use defn_head::InputPlaceholder;
 use feature::*;
 use semantics_eager::ProcStmtVariant;
 use semantics_entity::EntityDefnVariant;
+use text::TextQueryGroup;
 use upcast::Upcast;
 use visual_runtime::VisualQueryGroup;
 use vm::{exec_debug, EvalResult, HistoryEntry, InstructionSheet, InterpreterQueryGroup};
@@ -58,7 +59,7 @@ pub trait RuntimeQueryGroup:
 }
 
 pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<TraceId>> {
-    let compile_time = this.compile_time(this.version());
+    let compile_time = this.compile_time();
     let pack_main = this.pack_main();
     Arc::new(vec![this
         .new_trace(
@@ -102,7 +103,7 @@ pub fn subtraces(
                     ref body,
                     ..
                 } => db.loop_subtraces(
-                    db.compile_time(trace.compile_time_version),
+                    db.compile_time(),
                     trace,
                     loop_kind,
                     stmt,
@@ -124,7 +125,7 @@ pub fn subtraces(
             ref body_instruction_sheet,
             ..
         } => db.loop_frame_subtraces(
-            db.compile_time(trace.compile_time_version),
+            db.compile_time(),
             trace,
             vm_loop_frame,
             body_instruction_sheet,
@@ -153,10 +154,10 @@ fn feature_expr_subtraces(
             if let Some(input_id) = opt_input_id {
                 let mut subtraces = vec![];
                 let mut func_input_values = vec![];
-                subtraces.push(
-                    db.trace_factory()
-                        .new_call_head(routine_defn.clone(), &db.text(routine_defn.file).unwrap()),
-                );
+                subtraces.push(db.trace_factory().new_call_head(
+                    routine_defn.clone(),
+                    &db.compile_time().text(routine_defn.file).unwrap(),
+                ));
                 let input_placeholders: &[InputPlaceholder] = match routine_defn.variant {
                     EntityDefnVariant::Func {
                         ref input_placeholders,
@@ -183,18 +184,14 @@ fn feature_expr_subtraces(
                         Err(_) => return Arc::new(subtraces),
                     }
                 }
-                let history = exec_debug(
-                    db.compile_time(parent.compile_time_version),
-                    func_input_values,
-                    instruction_sheet,
-                );
+                let history = exec_debug(db.compile_time(), func_input_values, instruction_sheet);
                 match routine_defn.variant {
                     EntityDefnVariant::Func { ref stmts, .. } => {
                         subtraces.extend(db.trace_factory().func_stmts_traces(
                             parent.id(),
                             4,
                             stmts,
-                            &db.text(routine_defn.file).unwrap(),
+                            &db.compile_time().text(routine_defn.file).unwrap(),
                             &history,
                         ));
                     }
@@ -203,7 +200,7 @@ fn feature_expr_subtraces(
                             parent.id(),
                             4,
                             stmts,
-                            &db.text(routine_defn.file).unwrap(),
+                            &db.compile_time().text(routine_defn.file).unwrap(),
                             &history,
                         ));
                     }

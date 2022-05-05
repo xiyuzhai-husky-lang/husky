@@ -1,5 +1,5 @@
 use crate::*;
-use vec_dict::VecDict;
+use vec_map::VecMap;
 use word::IdentDict;
 
 pub(crate) fn struct_decl(
@@ -8,7 +8,7 @@ pub(crate) fn struct_decl(
     generic_placeholders: IdentDict<GenericPlaceholder>,
     mut children: AstIter,
 ) -> InferResultArc<TyDecl> {
-    let mut type_members = VecDict::default();
+    let mut type_members = VecMap::default();
     let mut trait_impls = vec![TraitImplDecl::clone_trait_impl(db, this_ty)];
     // add fields
     while let Some(subitem) = children.next() {

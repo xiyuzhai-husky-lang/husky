@@ -7,7 +7,7 @@ use fold::LocalStack;
 use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use print_utils::p;
-use vec_dict::HasKey;
+use vec_map::HasKey;
 use vm::InputContract;
 use word::IdentDict;
 

@@ -83,6 +83,7 @@ impl<'a> AstTransformer<'a> {
             arena: self.arena,
             folded_results: self.folded_results,
             semantic_tokens: self.abs_semantic_tokens,
+            text: self.db.text(self.file).unwrap(),
         }
     }
 

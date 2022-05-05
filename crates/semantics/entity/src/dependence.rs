@@ -1,15 +1,15 @@
 use entity_route::EntityRouteKind;
 use print_utils::msg_once;
 use semantics_error::*;
-use vec_dict::VecDict;
+use vec_map::VecMap;
 
 use crate::*;
 
-pub type DependeeMap = VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>;
+pub type DependeeMap = VecMap<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>;
 
 pub struct DependeeMapBuilder<'a> {
     db: &'a dyn EntityDefnQueryGroup,
-    map: VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>,
+    map: VecMap<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)>,
 }
 
 impl<'a> DependeeMapBuilder<'a> {
@@ -90,7 +90,7 @@ impl EntityDefn {
     fn immediate_dependees(
         &self,
         db: &dyn EntityDefnQueryGroup,
-    ) -> VecDict<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)> {
+    ) -> VecMap<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)> {
         let mut builder = DependeeMapBuilder::new(db);
         match self.variant {
             EntityDefnVariant::Module { .. } => Default::default(),

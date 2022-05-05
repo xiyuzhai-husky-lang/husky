@@ -1,7 +1,6 @@
 use ast::RawExprRange;
 use dev_utils::dev_src;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
-use map_utils::insert_new;
 use text::TextRange;
 use vm::*;
 use word::{CustomIdentifier, RangedCustomIdentifier};
@@ -18,7 +17,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let ty_result: InferResult<EntityRoutePtr> =
             self.expr_ty_result(expr_idx, expectation, arena);
         let opt_ty = ty_result.as_ref().ok().map(|ty| *ty);
-        insert_new!(self.entity_route_sheet.expr_tys, expr_idx, ty_result);
+        self.entity_route_sheet
+            .expr_tys
+            .insert_new(expr_idx, ty_result);
         opt_ty
     }
 
@@ -386,7 +387,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         } else {
             vec![]
         };
-        self.entity_route_sheet.call_routes.insert(
+        self.entity_route_sheet.call_routes.insert_new(
             expr_idx,
             Ok(self.db.intern_entity_route(EntityRoute {
                 kind: match method_decl.kind {

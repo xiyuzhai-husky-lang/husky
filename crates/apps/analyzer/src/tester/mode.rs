@@ -6,6 +6,7 @@ pub enum AnalyzerTesterMode {
     TestDiagnostics,
     TestFoldingRanges,
     TestSemanticTokens,
+    TestQualifiedTys,
 }
 
 impl AnalyzerTesterMode {
@@ -14,6 +15,7 @@ impl AnalyzerTesterMode {
             "test-diagnostics" => AnalyzerTesterMode::TestDiagnostics,
             "test-folding-ranges" => AnalyzerTesterMode::TestFoldingRanges,
             "test-semantic-tokens" => AnalyzerTesterMode::TestSemanticTokens,
+            "test-qualified-tys" => AnalyzerTesterMode::TestQualifiedTys,
             _ => {
                 p!(flags.mode);
                 todo!()

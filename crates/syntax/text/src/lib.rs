@@ -14,7 +14,7 @@ pub use position::TextPosition;
 pub use range::{new_same_line, TextRange, TextRanged};
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
 pub use column::Column;
-pub use query::{RawTextQueryGroup, TextQueryGroup, TextQueryGroupStorage};
+pub use query::{TextQueryGroup, TextQueryGroupStorage};
 pub use row::Row;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

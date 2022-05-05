@@ -2,7 +2,7 @@ use entity_kind::TyKind;
 use entity_route::{EntityKind, RangedEntityRoute};
 use entity_route_query::EntityRouteQueryGroup;
 use static_defn::StaticGenericPlaceholder;
-use vec_dict::HasKey;
+use vec_map::HasKey;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

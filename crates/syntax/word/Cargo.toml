@@ -12,6 +12,6 @@ doctest = false
 bimap = "0.6.1"
 serde = { version = "1.0.106", features = ["derive"] }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
-vec-dict = { path = "../../abstraction/vec-dict", version = "0.0.0" }
+vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }

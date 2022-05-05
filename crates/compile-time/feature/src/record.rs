@@ -40,7 +40,7 @@ pub(crate) fn expr_record_field(
                 ..
             } => match kind {
                 TyKind::Record => {
-                    if let Some((idx, type_member)) = type_members.iget(field_ident) {
+                    if let Some((idx, type_member)) = type_members.iget_entry(field_ident) {
                         match type_member.variant {
                             EntityDefnVariant::TypeField {
                                 ty,

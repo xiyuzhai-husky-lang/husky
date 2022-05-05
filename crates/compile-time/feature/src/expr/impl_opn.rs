@@ -215,7 +215,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     EntityDefnVariant::Type {
                         ty_members: ref type_members,
                         ..
-                    } => match type_members.get(field_ident.ident).unwrap().variant {
+                    } => match type_members.get_entry(field_ident.ident).unwrap().variant {
                         EntityDefnVariant::TypeField {
                             ref field_variant, ..
                         } => match field_variant {

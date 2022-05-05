@@ -7,7 +7,7 @@ use check_utils::should_eq;
 use entity_kind::MemberKind;
 use implement::Implementor;
 use map_collect::MapCollect;
-use vec_dict::HasKey;
+use vec_map::HasKey;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]

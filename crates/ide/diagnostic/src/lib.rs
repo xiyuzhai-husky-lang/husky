@@ -4,18 +4,20 @@ mod query;
 // mod reserve;
 mod severity;
 
-use ast::{AstError, AstErrorVariant};
-use dev_utils::DevSource;
-use infer_error::{InferError, InferErrorVariant};
 pub use kind::DiagnosticKind;
-use print_utils::p;
 pub use query::{DiagnosticQuery, DiagnosticQueryGroupStorage};
-use semantics_error::{SemanticError, SemanticErrorVariant};
 pub use severity::DiagnosticSeverity;
 
+use ast::{AstError, AstErrorVariant};
+use dev_utils::DevSource;
 use entity_route_query::{EntityDefnError, EntityRouteError};
+use infer_error::{InferError, InferErrorVariant};
+use print_utils::p;
+use semantics_error::{SemanticError, SemanticErrorVariant};
 use serde::{Deserialize, Serialize};
+use std::fmt::Write;
 use std::sync::Arc;
+use test_utils::TestComparable;
 use text::TextRange;
 use token::LexError;
 
@@ -27,6 +29,12 @@ pub struct Diagnostic {
     range: TextRange,
     message: String,
     dev_src: DevSource,
+}
+
+impl TestComparable for Diagnostic {
+    fn write_inherent(&self, result: &mut String) {
+        write!(result, "{:?}\t{}", self.range, self.message).unwrap()
+    }
 }
 
 impl From<&EntityDefnError> for Diagnostic {

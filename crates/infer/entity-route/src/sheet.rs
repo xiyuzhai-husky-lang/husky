@@ -3,6 +3,7 @@ mod var;
 
 use std::{collections::HashMap, sync::Arc};
 
+use arena::map::ArenaMap;
 use ast::{AstText, RawExpr};
 use builder::EntityRouteSheetBuilder;
 use fold::FoldStorage;
@@ -25,8 +26,8 @@ pub(crate) fn entity_route_sheet(
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityRouteSheet {
     pub ast_text: Arc<AstText>,
-    pub(crate) expr_tys: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
-    pub(crate) call_routes: HashMap<RawExprIdx, InferResult<EntityRoutePtr>>,
+    pub(crate) expr_tys: RawExprMap<InferResult<EntityRoutePtr>>,
+    pub(crate) call_routes: RawExprMap<InferResult<EntityRoutePtr>>,
     pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), EntityRoutePtr>,
     pub(crate) global_errors: Vec<InferError>,
 }
@@ -34,16 +35,16 @@ pub struct EntityRouteSheet {
 impl EntityRouteSheet {
     pub(crate) fn new(ast_text: Arc<AstText>, global_errors: Vec<InferError>) -> Self {
         Self {
-            expr_tys: Default::default(),
+            expr_tys: ArenaMap::new(&ast_text.arena),
+            call_routes: ArenaMap::new(&ast_text.arena),
             variable_tys: Default::default(),
-            call_routes: Default::default(),
             ast_text,
             global_errors,
         }
     }
 
     pub fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        if let Some(ref expr_ty) = self.expr_tys.get(&expr_idx) {
+        if let Some(ref expr_ty) = self.expr_tys.get(expr_idx) {
             match expr_ty {
                 Ok(ty) => Ok(*ty),
                 Err(e) => Err(e.derived()),
@@ -57,7 +58,7 @@ impl EntityRouteSheet {
     }
 
     pub fn call_route(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        match derived_not_none!(self.call_routes.get(&expr_idx))? {
+        match derived_not_none!(self.call_routes.get(expr_idx))? {
             Ok(call_route) => Ok(*call_route),
             Err(e) => Err(e.derived()),
         }
@@ -72,7 +73,7 @@ impl EntityRouteSheet {
                 InferErrorVariant::Original { .. } => Some(e),
             })
             .collect();
-        for (_, result) in self.expr_tys.iter() {
+        for result in self.expr_tys.values() {
             match result {
                 Ok(_) => (),
                 Err(error) => match error.variant {

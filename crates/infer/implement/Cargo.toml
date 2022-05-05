@@ -11,7 +11,7 @@ salsa = "0.17.0-pre.2"
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
-vec-dict = { path = "../../abstraction/vec-dict", version = "0.0.0" }
+vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }

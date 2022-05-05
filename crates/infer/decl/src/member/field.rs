@@ -2,7 +2,7 @@ use crate::*;
 use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
-use vec_dict::HasKey;
+use vec_map::HasKey;
 use vm::FieldContract;
 use word::CustomIdentifier;
 

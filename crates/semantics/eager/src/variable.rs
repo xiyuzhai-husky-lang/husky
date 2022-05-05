@@ -1,4 +1,4 @@
-use infer_qualifier::{EagerQualifiedType, QualifiedTypeSheet};
+use infer_qualifier::{EagerQualifiedType, QualifiedTySheet};
 
 use crate::*;
 
@@ -10,7 +10,7 @@ pub struct EagerVariable {
 
 impl EagerVariable {
     pub(crate) fn from_input(
-        qualified_ty_sheet: &QualifiedTypeSheet,
+        qualified_ty_sheet: &QualifiedTySheet,
         input_placeholder: &InputPlaceholder,
     ) -> SemanticResult<Self> {
         Ok(EagerVariable {

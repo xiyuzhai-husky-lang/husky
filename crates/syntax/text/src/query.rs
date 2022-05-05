@@ -1,13 +1,9 @@
 use crate::*;
 
-use file::FilePtr;
-
-pub trait RawTextQueryGroup {
-    fn raw_text(&self, file: FilePtr) -> Option<Arc<String>>;
-}
+use file::{FilePtr, FileQueryGroup};
 
 #[salsa::query_group(TextQueryGroupStorage)]
-pub trait TextQueryGroup: RawTextQueryGroup {
+pub trait TextQueryGroup: FileQueryGroup {
     fn text(&self, file: FilePtr) -> Option<Arc<Text>>;
 }
 

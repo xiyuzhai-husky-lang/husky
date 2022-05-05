@@ -30,21 +30,19 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             if let None = self
                 .qualified_ty_sheet
                 .eager_variable_qualified_tys
-                .get(&(inputs[0].ident.ident.into(), inputs[0].ranged_ty.row()))
+                .get_entry((inputs[0].ident.ident.into(), inputs[0].ranged_ty.row()))
             {
                 for input in inputs {
                     let ty = input.ranged_ty.route;
-                    should!(self
-                        .qualified_ty_sheet
+                    self.qualified_ty_sheet
                         .eager_variable_qualified_tys
-                        .insert(
+                        .insert_new((
                             (input.ident.ident.into(), inputs[0].ranged_ty.row()),
                             Ok(EagerQualifiedType::new(
                                 EagerQualifier::from_input(input.contract, self.db.is_copyable(ty)),
                                 ty,
                             )),
-                        )
-                        .is_none());
+                        ));
                 }
             }
         }
@@ -87,17 +85,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     final_boundary,
                     ..
                 } => {
-                    should!(self
-                        .qualified_ty_sheet
+                    self.qualified_ty_sheet
                         .eager_variable_qualified_tys
-                        .insert(
+                        .insert_new((
                             (frame_var.ident.into(), stmt.row()),
                             Ok(EagerQualifiedType {
                                 qual: EagerQualifier::Copyable,
-                                ty: EntityRoutePtr::Root(RootIdentifier::I32)
-                            })
-                        )
-                        .is_none());
+                                ty: EntityRoutePtr::Root(RootIdentifier::I32),
+                            }),
+                        ));
                     if let Some(bound) = initial_boundary.opt_bound {
                         self.infer_eager_expr(arena, bound);
                     }
@@ -137,14 +133,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 if let Some(initial_value_qualified_ty) =
                     self.infer_eager_expr(arena, initial_value)
                 {
-                    should!(self
-                        .qualified_ty_sheet
+                    self.qualified_ty_sheet
                         .eager_variable_qualified_tys
-                        .insert(
+                        .insert_new((
                             (varname.ident.into(), stmt.row()),
-                            initial_value_qualified_ty.use_for_init(init_kind)
-                        )
-                        .is_none())
+                            initial_value_qualified_ty.use_for_init(init_kind),
+                        ))
                 }
             }
             RawStmtVariant::Return(expr) => {
@@ -178,7 +172,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             .ok();
         self.qualified_ty_sheet
             .eager_expr_qualified_tys
-            .insert(raw_expr_idx, qualified_qualified_ty_result);
+            .insert_new(raw_expr_idx, qualified_qualified_ty_result);
         opt_qualified_ty
     }
 
@@ -192,10 +186,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::Variable { varname, init_row } => match derived_not_none!(self
                 .qualified_ty_sheet
                 .eager_variable_qualified_tys
-                .get(&(varname.into(), init_row)))?
+                .get_entry((varname.into(), init_row)))?
+            .1
             {
-                Ok(qt) => Ok(*qt),
-                Err(e) => Err(e.derived()),
+                Ok(qt) => Ok(qt),
+                Err(ref e) => Err(e.derived()),
             },
             RawExprVariant::FrameVariable { .. } => Ok(EagerQualifiedType::new(
                 EagerQualifier::Copyable,
