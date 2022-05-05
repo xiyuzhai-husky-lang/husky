@@ -15,7 +15,6 @@ pub enum LoopVariant {
     },
     ForExt {
         frame_var: RangedCustomIdentifier,
-        frame_varidx: StackIdx,
         final_boundary: Boundary,
         step: LoopStep,
     },
@@ -31,34 +30,4 @@ pub enum LoopVariant {
 pub struct Boundary {
     pub opt_bound: Option<Arc<EagerExpr>>,
     pub kind: BoundaryKind,
-}
-
-impl Into<VMLoopKind> for &LoopVariant {
-    fn into(self) -> VMLoopKind {
-        match self {
-            LoopVariant::For {
-                frame_var,
-                initial_boundary,
-                final_boundary,
-                step,
-            } => VMLoopKind::For {
-                initial_boundary_kind: initial_boundary.kind,
-                final_boundary_kind: final_boundary.kind,
-                step: *step,
-                frame_var: frame_var.ident,
-            },
-            LoopVariant::ForExt {
-                frame_var,
-                final_boundary,
-                frame_varidx,
-                step,
-            } => VMLoopKind::ForExt {
-                final_boundary_kind: final_boundary.kind,
-                step: *step,
-                frame_var: frame_var.ident,
-                frame_varidx: *frame_varidx,
-            },
-            LoopVariant::While { .. } | LoopVariant::DoWhile { .. } => VMLoopKind::Loop,
-        }
-    }
 }

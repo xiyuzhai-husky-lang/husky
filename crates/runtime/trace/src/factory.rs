@@ -15,7 +15,7 @@ use semantics_eager::*;
 use serde::Deserialize;
 use sync_utils::ARwLock;
 use text::{Text, TextQueryGroup};
-use vm::{InstructionSheet, LoopFrameData, StackSnapshot, VariableStack};
+use vm::{InstructionSheet, LoopFrameData, StackSnapshot, VMLoopKind, VariableStack};
 
 use crate::*;
 
@@ -181,7 +181,7 @@ pub trait CreateTrace<'eval>: AskCompileTime {
         &self,
         compile_time: &HuskyLangCompileTime,
         parent: &Trace,
-        loop_kind: &LoopVariant,
+        loop_kind: VMLoopKind,
         loop_stmt: &Arc<ProcStmt>,
         stmts: &Arc<Vec<Arc<ProcStmt>>>,
         stack_snapshot: &StackSnapshot<'eval>,

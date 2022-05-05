@@ -40,7 +40,6 @@ pub enum ProcStmtVariant {
         varname: RangedCustomIdentifier,
         initial_value: Arc<EagerExpr>,
         init_kind: InitKind,
-        varidx: StackIdx,
     },
     Assert {
         condition: Arc<EagerExpr>,

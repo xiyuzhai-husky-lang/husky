@@ -10,7 +10,6 @@ use super::*;
 pub(super) struct EagerStmtParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,
     pub(super) arena: &'a RawExprArena,
-    pub(super) variables: Vec<EagerVariable>,
     pub(super) file: FilePtr,
     entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: Arc<ContractSheet>,
@@ -29,44 +28,11 @@ impl<'a> EagerStmtParser<'a> {
         Self {
             db,
             arena,
-            variables: input_placeholders
-                .iter()
-                .map(|input_placeholder| {
-                    EagerVariable::from_input(&qualified_ty_sheet, input_placeholder).unwrap()
-                })
-                .collect(),
             file,
             entity_route_sheet: db.entity_route_sheet(file).unwrap(),
             contract_sheet: db.contract_sheet(file).unwrap(),
             qualified_ty_sheet,
         }
-    }
-
-    pub(super) fn def_variable(
-        &mut self,
-        varname: RangedCustomIdentifier,
-    ) -> SemanticResult<StackIdx> {
-        let varidx = StackIdx::new(self.variables.len())?;
-        self.variables.push(EagerVariable {
-            ident: varname.ident,
-            qualified_ty: self
-                .eager_variable_qualified_ty(varname.ident.into(), varname.range.start.row)?,
-        });
-        Ok(varidx)
-    }
-
-    pub(super) fn varidx(&self, varname: CustomIdentifier) -> StackIdx {
-        StackIdx::new(
-            self.variables.len()
-                - 1
-                - self
-                    .variables
-                    .iter()
-                    .rev()
-                    .position(|v| v.ident == varname)
-                    .unwrap(),
-        )
-        .unwrap()
     }
 }
 

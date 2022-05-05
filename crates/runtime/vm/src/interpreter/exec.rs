@@ -92,7 +92,13 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         let (snapshot, mutations) = self.collect_mutations();
                         self.history.write(
                             ins,
-                            HistoryEntry::loop_entry(&control, snapshot, body.clone(), mutations),
+                            HistoryEntry::loop_entry(
+                                loop_kind,
+                                &control,
+                                snapshot,
+                                body.clone(),
+                                mutations,
+                            ),
                         );
                         control
                     }

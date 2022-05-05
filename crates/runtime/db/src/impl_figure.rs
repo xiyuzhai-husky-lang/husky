@@ -85,7 +85,6 @@ impl HuskyLangRuntime {
                 varname,
                 ref initial_value,
                 init_kind,
-                varidx,
             } => self.eager_expr_figure(initial_value, history),
             ProcStmtVariant::Assert { ref condition } => todo!(),
             ProcStmtVariant::Execute { ref expr } => {

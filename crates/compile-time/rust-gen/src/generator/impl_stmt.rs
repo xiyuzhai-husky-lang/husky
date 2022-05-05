@@ -53,7 +53,6 @@ impl<'a> RustGenerator<'a> {
                 varname,
                 ref initial_value,
                 init_kind,
-                varidx,
             } => {
                 self.write(match init_kind {
                     InitKind::Let => "let ",
@@ -113,7 +112,6 @@ impl<'a> RustGenerator<'a> {
                 }
                 LoopVariant::ForExt {
                     frame_var,
-                    frame_varidx,
                     final_boundary,
                     step,
                 } => {
