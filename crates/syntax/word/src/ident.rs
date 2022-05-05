@@ -1,16 +1,31 @@
 mod custom;
 
 pub use custom::*;
-use serde::Serialize;
 
 use core::hash::Hash;
+use serde::Serialize;
+use std::fmt::Write;
 use std::{borrow::Borrow, ops::Deref};
+use test_utils::TestComparable;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
     Builtin(RootIdentifier),
     Custom(CustomIdentifier),
     Contextual(ContextualIdentifier),
+}
+
+impl TestComparable for Identifier {
+    fn write_inherent(&self, result: &mut String) {
+        write!(
+            result,
+            "{}{: <10}{}",
+            print_utils::CYAN,
+            self.as_str(),
+            print_utils::RESET
+        )
+        .unwrap();
+    }
 }
 
 impl Serialize for Identifier {

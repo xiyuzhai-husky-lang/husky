@@ -7,9 +7,9 @@ where
     V: HasKey<K> + TestComparable,
 {
     fn write_inherent(&self, result: &mut String) {
-        result.push_str("eager variable qualified types:\n\n");
         for entry in &self.entries {
             entry.write_inherent(result);
+            result.push_str("    ");
             result.push('\n')
         }
         println!("{}", &result);

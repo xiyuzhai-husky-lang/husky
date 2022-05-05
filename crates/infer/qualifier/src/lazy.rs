@@ -1,11 +1,18 @@
-use infer_error::derived;
-
 use crate::*;
+use infer_error::derived;
+use std::fmt::Write;
+use test_utils::TestComparable;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyQualifiedType {
     pub qual: LazyQualifier,
     pub ty: EntityRoutePtr,
+}
+
+impl TestComparable for LazyQualifiedType {
+    fn write_inherent(&self, result: &mut String) {
+        write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
+    }
 }
 
 impl LazyQualifiedType {

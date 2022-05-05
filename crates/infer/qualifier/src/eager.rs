@@ -10,7 +10,17 @@ pub struct EagerQualifiedType {
 
 impl TestComparable for EagerQualifiedType {
     fn write_inherent(&self, result: &mut String) {
-        write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
+        write!(
+            result,
+            "{}{: <12?}{} {}{:?}{}",
+            print_utils::PINK,
+            self.qual,
+            print_utils::RESET,
+            print_utils::GREEN,
+            self.ty,
+            print_utils::RESET,
+        )
+        .unwrap()
     }
 }
 
@@ -163,6 +173,21 @@ impl EagerQualifier {
             InputContract::MoveMut => todo!(),
             InputContract::Exec => todo!(),
             InputContract::MemberAccess => todo!(),
+        }
+    }
+
+    pub fn from_output(output_contract: OutputContract, is_copyable: bool) -> Self {
+        match output_contract {
+            OutputContract::Transfer => Self::transitive(is_copyable),
+            OutputContract::MemberAccess => todo!(),
+        }
+    }
+
+    pub fn transitive(is_copyable: bool) -> Self {
+        if is_copyable {
+            EagerQualifier::Copyable
+        } else {
+            EagerQualifier::Transient
         }
     }
 }
