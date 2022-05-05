@@ -60,6 +60,7 @@ impl TyDecl {
                     opt_package_main: None,
                     db: db.upcast(),
                     opt_this_ty: None,
+                    opt_this_contract: None,
                     symbols: (&symbols as &[Symbol]).into(),
                     kind: SymbolContextKind::Normal,
                 };
@@ -628,6 +629,7 @@ pub(crate) fn method_decl_from_static(
                 opt_package_main: None,
                 db: db.upcast(),
                 opt_this_ty: None,
+                opt_this_contract: None,
                 symbols: symbols.into(),
                 kind: SymbolContextKind::Normal,
             };

@@ -24,8 +24,9 @@ impl<'a> AstTransformer<'a> {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
-                        self.this
+                        self.opt_this_ty
                             .set_value(Some(self.env().subscope(self.db, custom_ident)));
+                        self.opt_this_contract.set_value(None);
                     }
                     _ => (),
                 },
@@ -52,8 +53,9 @@ impl<'a> AstTransformer<'a> {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
-                        self.this
+                        self.opt_this_ty
                             .set_value(Some(self.env().subscope(self.db, custom_ident)));
+                        self.opt_this_contract.set_value(None);
                     }
                     _ => (),
                 },
@@ -80,12 +82,16 @@ impl<'a> AstTransformer<'a> {
         expect_len!(tokens, 3);
         expect_head!(tokens);
         msg_once!("record generic placeholders");
+        let ident = identify!(
+            self,
+            tokens[1],
+            SemanticTokenKind::Entity(EntityKind::Type(TyKind::Enum))
+        );
+        self.opt_this_ty
+            .set_value(Some(self.env().subscope(self.db, ident.ident)));
+        self.opt_this_contract.set_value(None);
         Ok(AstKind::TypeDefnHead {
-            ident: identify!(
-                self,
-                tokens[1],
-                SemanticTokenKind::Entity(EntityKind::Type(TyKind::Enum))
-            ),
+            ident,
             kind: TyKind::Enum,
             generic_placeholders: Default::default(),
         })

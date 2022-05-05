@@ -3,12 +3,12 @@ use std::fmt::Write;
 use test_utils::{TestComparable, TestCompareConfig};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct EagerQualifiedType {
+pub struct EagerQualifiedTy {
     pub qual: EagerQualifier,
     pub ty: EntityRoutePtr,
 }
 
-impl TestComparable for EagerQualifiedType {
+impl TestComparable for EagerQualifiedTy {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         if config.colored {
             write!(
@@ -28,7 +28,18 @@ impl TestComparable for EagerQualifiedType {
     }
 }
 
-impl EagerQualifiedType {
+impl EagerQualifiedTy {
+    pub(crate) fn from_input(
+        db: &dyn InferQualifiedTyQueryGroup,
+        input_contract: InputContract,
+        ty: EntityRoutePtr,
+    ) -> Self {
+        EagerQualifiedTy::new(
+            EagerQualifier::from_input(input_contract, db.is_copyable(ty)),
+            ty,
+        )
+    }
+
     pub(crate) fn new(qual: EagerQualifier, ty: EntityRoutePtr) -> Self {
         msg_once!("handle ref");
         Self { qual, ty }
@@ -139,9 +150,9 @@ impl EagerQualifier {
                 EagerContract::VarInit => todo!(),
                 EagerContract::UseMemberForLetInit => panic!(),
                 EagerContract::UseMemberForVarInit => panic!(),
-                EagerContract::Return => todo!(),
+                EagerContract::Return => Binding::Copy,
                 EagerContract::RefMut => Binding::RefMut,
-                EagerContract::MoveMut => todo!(),
+                EagerContract::MoveMut => Binding::Copy,
                 EagerContract::Exec => todo!(),
             },
             EagerQualifier::Owned => match contract {

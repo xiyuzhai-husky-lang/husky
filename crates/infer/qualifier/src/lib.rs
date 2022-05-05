@@ -22,12 +22,12 @@ use word::Identifier;
 pub trait InferQualifiedType {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
 
-    fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedType> {
+    fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedTy> {
         self.qualified_ty_sheet()
             .lazy_expr_qualified_ty(raw_expr_idx)
     }
 
-    fn eager_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedType> {
+    fn eager_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedTy> {
         self.qualified_ty_sheet()
             .eager_expr_qualified_ty(raw_expr_idx)
     }
@@ -36,7 +36,7 @@ pub trait InferQualifiedType {
         &self,
         varname: Identifier,
         init_row: Row,
-    ) -> InferResult<EagerQualifiedType> {
+    ) -> InferResult<EagerQualifiedTy> {
         self.qualified_ty_sheet()
             .eager_variable_qualified_ty(varname, init_row)
     }

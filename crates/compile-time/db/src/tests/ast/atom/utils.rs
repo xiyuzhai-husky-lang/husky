@@ -25,6 +25,7 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static st
             opt_package_main: Some(main),
             db,
             opt_this_ty: None,
+            opt_this_contract: None,
             symbols: (&symbols as &[Symbol]).into(),
             kind: SymbolContextKind::Normal,
         },

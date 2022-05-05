@@ -9,6 +9,7 @@ use map_collect::MapCollect;
 use print_utils::p;
 use static_defn::{StaticGenericPlaceholder, StaticInputPlaceholder};
 use text::{Row, TextRange};
+use vm::InputContract;
 use word::{
     ContextualIdentifier, CustomIdentifier, IdentDict, RangedCustomIdentifier, RootIdentifier,
 };
@@ -33,10 +34,17 @@ impl Symbol {
 #[derive(Debug, Clone, Copy)]
 pub enum SymbolKind {
     EntityRoute(EntityRoutePtr),
-    Variable { init_row: Row },
-    FrameVariable { init_row: Row },
+    Variable {
+        init_row: Row,
+    },
+    FrameVariable {
+        init_row: Row,
+    },
     Unrecognized(CustomIdentifier),
-    ThisData { ty: Option<EntityRoutePtr> },
+    ThisData {
+        opt_ty: Option<EntityRoutePtr>,
+        opt_contract: Option<InputContract>,
+    },
 }
 
 #[derive(Clone)]
@@ -44,7 +52,7 @@ pub struct SymbolContext<'a> {
     pub opt_package_main: Option<FilePtr>,
     pub db: &'a dyn EntityRouteQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
-    // pub this_ty_members: Option<EntityRoute>,
+    pub opt_this_contract: Option<InputContract>,
     pub symbols: Cow<'a, [Symbol]>,
     pub kind: SymbolContextKind<'a>,
 }
@@ -118,7 +126,8 @@ impl<'a> SymbolContext<'a> {
                     }),
                 )),
                 ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData {
-                    ty: self.opt_this_ty,
+                    opt_ty: self.opt_this_ty,
+                    opt_contract: self.opt_this_contract,
                 }),
                 ContextualIdentifier::ThisType => {
                     Ok(SymbolKind::EntityRoute(self.db.entity_route_menu().this_ty))

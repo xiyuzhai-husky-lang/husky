@@ -1,15 +1,8 @@
-mod compare;
-mod test_diagnostics;
-mod test_semantic_tokens;
-
 use crate::*;
-use compare::*;
 use compile_time_db::HuskyLangCompileTime;
 use diagnostic::Diagnostic;
 use path_utils::collect_all_package_dirs;
 use std::path::PathBuf;
-use test_diagnostics::*;
-use test_semantic_tokens::*;
 
 #[derive(Debug)]
 pub enum Mode {
@@ -53,15 +46,15 @@ fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: Pat
 
 async fn test_all_packages_in_dir(dir: PathBuf) {
     assert!(dir.is_dir());
-    let pack_paths = collect_all_package_dirs(dir);
+    let package_paths = collect_all_package_dirs(dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
         print_utils::CYAN,
         print_utils::RESET,
-        pack_paths.len()
+        package_paths.len()
     );
 
-    for package_path in pack_paths {
+    for package_path in package_paths {
         let mut compile_time = HuskyLangCompileTime::default();
         init_compile_time_from_dir(&mut compile_time, package_path.to_path_buf());
         println!(
@@ -70,21 +63,9 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
             print_utils::RESET,
             package_path.as_os_str().to_str().unwrap(),
         );
-        test_semantic_tokens(&package_path, &compile_time).await;
-        match test_diagnostics(&package_path, &compile_time).await {
-            TestDiagnosticsResult::HasDiagnostics => (),
-            TestDiagnosticsResult::NoDiagnostics => {
-                let error_flag = Debugger::new(|compile_time| {
-                    init_compile_time_from_dir(compile_time, package_path)
-                })
-                .serve_on_error("localhost:51617", 0)
-                .await;
-                if error_flag {
-                    return;
-                }
-            }
-        }
-        report_result_ok();
+        Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, package_path))
+            .serve_on_error("localhost:51617", 0)
+            .await;
     }
 }
 

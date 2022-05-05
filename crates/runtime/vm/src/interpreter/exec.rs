@@ -87,6 +87,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     ref body,
                     loop_kind,
                 } => {
+                    p!(ins.src.text_range());
+                    p!(self.stack.len(), sheet.variable_stack.len());
+                    p!(sheet.variable_stack.compare_with_vm_stack(&self.stack));
                     should!(self.stack.len() <= sheet.variable_stack.len() + 2);
                     match mode {
                         Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),

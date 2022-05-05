@@ -20,6 +20,9 @@ test-analyzer:
 	cargo run -q --bin husky-analyzer-tester test-semantic-tokens $(test_examples_dir)/analyzer/semantic-tokens
 	cargo run -q --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys
 
+test-debugger:
+	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --mode test
+
 vscode: test-analyzer
 	scripts/vscode_prepublish.sh
 	rsync -a extensions/husky-analyzer ~/.vscode/extensions/

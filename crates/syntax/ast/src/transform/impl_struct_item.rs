@@ -17,9 +17,7 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Routine(routine_keyword) => match routine_keyword {
                     RoutineKeyword::Test => todo!(),
                     RoutineKeyword::Proc => todo!(),
-                    RoutineKeyword::Func => {
-                        self.parse_struct_field_func(token_group, 1, enter_block)
-                    }
+                    RoutineKeyword::Func => self.parse_struct_method(token_group, 1, enter_block),
                 },
                 Keyword::Type(_) => todo!(),
                 Keyword::Stmt(_) => todo!(),
@@ -28,14 +26,14 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Mod => todo!(),
                 Keyword::Main => todo!(),
             },
-            TokenKind::Identifier(_) => self.parse_struct_field_var(token_group),
+            TokenKind::Identifier(_) => self.parse_struct_field(token_group),
             TokenKind::Special(_) => todo!(),
             TokenKind::PrimitiveLiteral(_) => todo!(),
             TokenKind::Unrecognized(_) => todo!(),
         }
     }
 
-    pub(super) fn parse_struct_field_var(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    pub(super) fn parse_struct_field(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         Ok(
             if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
                 if token_group.len() == 2 {
@@ -55,7 +53,7 @@ impl<'a> AstTransformer<'a> {
         )
     }
 
-    pub(super) fn parse_struct_field_func(
+    pub(super) fn parse_struct_method(
         &mut self,
         token_group: &[Token],
         funcname_idx: usize,
@@ -68,6 +66,7 @@ impl<'a> AstTransformer<'a> {
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
             parser.method_decl(InputContract::Pure, RoutineContextKind::Func)
         })?;
+        self.opt_this_contract.set_value(Some(head.this_contract));
         self.symbols.extend(
             head.input_placeholders
                 .iter()

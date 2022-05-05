@@ -1,15 +1,15 @@
 mod impl_abs_semantic_token;
-mod impl_class_item;
 mod impl_enum_item;
 mod impl_expr;
 mod impl_module_item;
 mod impl_morphism_decl;
 mod impl_parse_atoms;
+mod impl_record_item;
 mod impl_routine_decl;
 mod impl_stmt;
 mod impl_struct_item;
 mod impl_symbol_context;
-mod impl_ty_decl;
+mod impl_ty;
 mod impl_use_all;
 
 use crate::{
@@ -21,6 +21,7 @@ use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use token::*;
+use vm::InputContract;
 
 pub type AstIter<'a> = FoldIter<'a, AstResult<Ast>, FoldedList<AstResult<Ast>>>;
 
@@ -31,7 +32,8 @@ pub struct AstTransformer<'a> {
     arena: RawExprArena,
     symbols: LocalStack<Symbol>,
     env: LocalValue<AstContext>,
-    this: LocalValue<Option<EntityRoutePtr>>,
+    opt_this_ty: LocalValue<Option<EntityRoutePtr>>,
+    opt_this_contract: LocalValue<Option<InputContract>>,
     folded_results: FoldedList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
 }
@@ -50,7 +52,8 @@ impl<'a> AstTransformer<'a> {
                 EntityRouteKind::Child { .. } => AstContext::Module(module),
                 _ => panic!(),
             }),
-            this: LocalValue::new(None),
+            opt_this_ty: LocalValue::new(None),
+            opt_this_contract: LocalValue::new(None),
             abs_semantic_tokens: vec![],
         };
 
@@ -96,6 +99,8 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
     fn _enter_block(&mut self) {
         self.env.enter();
         self.symbols.enter();
+        self.opt_this_ty.enter();
+        self.opt_this_contract.enter();
     }
 
     fn _exit_block(&mut self) {
@@ -137,7 +142,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 },
                 AstContext::Struct => self.parse_struct_item(token_group, enter_block)?,
                 AstContext::Enum => self.parse_enum_variant(token_group)?,
-                AstContext::Record => self.parse_class_item(token_group, enter_block)?,
+                AstContext::Record => self.parse_record_item(token_group, enter_block)?,
                 AstContext::Props => todo!(),
             },
         })
