@@ -114,7 +114,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                         call: |_| todo!(),
                                         nargs: 2,
                                     },
-                                    borrow_mut_access: Linkage {
+                                    ref_mut_access: Linkage {
                                         call: |values| {
                                             let index_value: usize = values[1]
                                                 .as_primitive()

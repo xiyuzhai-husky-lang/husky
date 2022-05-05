@@ -2,7 +2,7 @@ use word::CustomIdentifier;
 
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct InstructionSheet {
     pub instructions: Vec<Instruction>,
     pub variable_stack: VariableStack,

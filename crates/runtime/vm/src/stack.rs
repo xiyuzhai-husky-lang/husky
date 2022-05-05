@@ -1,5 +1,6 @@
 mod value;
 
+use check_utils::should_eq;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
 pub use value::*;
@@ -9,8 +10,14 @@ use word::CustomIdentifier;
 
 use crate::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub struct StackIdx(u8);
+
+impl std::fmt::Debug for StackIdx {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("StackIdx({})", self.0))
+    }
+}
 
 impl StackIdx {
     pub fn this() -> StackIdx {
@@ -29,10 +36,18 @@ impl StackIdx {
 
 pub const STACK_SIZE: usize = 255;
 
-#[derive(Debug)]
 pub struct VMStack<'stack, 'eval: 'stack> {
     values: ArrayVec<StackValue<'stack, 'eval>, STACK_SIZE>,
     opt_this: Option<StackValue<'stack, 'eval>>,
+}
+
+impl<'stack, 'eval> std::fmt::Debug for VMStack<'stack, 'eval> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("VMStack")
+            .field("values", &self.values)
+            .field("opt_this", &self.opt_this)
+            .finish()
+    }
 }
 
 impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
@@ -74,7 +89,8 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         binding: Binding,
     ) -> &mut StackValue<'stack, 'eval> {
         unsafe {
-            let stack_value = self.values[stack_idx.raw()].bind(binding, stack_idx);
+            let value = &mut self.values[stack_idx.raw()];
+            let stack_value = value.bind(binding, stack_idx);
             self.push(stack_value);
         }
         self.values.last_mut().unwrap()
@@ -128,10 +144,24 @@ impl<'stack, 'eval: 'stack> From<Vec<StackValue<'stack, 'eval>>> for VMStack<'st
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct VariableStack {
     variables: Vec<Option<CustomIdentifier>>,
     has_this: bool,
+}
+
+impl std::fmt::Debug for VariableStack {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("\nVariableStack:\n")?;
+        f.write_fmt(format_args!("    has_this: {}\n", self.has_this))?;
+        f.write_str("    variables:\n")?;
+        for (i, opt_ident) in self.variables.iter().enumerate() {
+            if let Some(ident) = opt_ident {
+                f.write_fmt(format_args!("        {: <3} {}\n", i, ident.as_str()))?
+            }
+        }
+        f.write_str("\n")
+    }
 }
 
 impl VariableStack {
@@ -159,5 +189,32 @@ impl VariableStack {
 
     pub fn varname(&self, stack_idx: StackIdx) -> CustomIdentifier {
         self.variables[stack_idx.0 as usize].unwrap()
+    }
+
+    pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) {
+        should_eq!(vm_stack.opt_this.is_some(), self.has_this);
+        println!("comparing with vm stack, src: {}:{}", file!(), line!());
+        println!("VariableStack:");
+        println!("    has_this: {}", self.has_this);
+        println!("    variables:");
+        for (i, opt_ident) in self.variables.iter().enumerate() {
+            print!(
+                "        #{: <3} {}{: <10}{} ",
+                i,
+                print_utils::CYAN,
+                if let Some(ident) = opt_ident {
+                    ident.as_str()
+                } else {
+                    "-"
+                },
+                print_utils::RESET,
+            );
+            if i < vm_stack.values.len() {
+                println!("{}", vm_stack.values[i].print_short())
+            } else {
+                println!("uninitialized")
+            }
+        }
+        println!("")
     }
 }

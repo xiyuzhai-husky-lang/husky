@@ -1,6 +1,7 @@
 use crate::*;
 
-use vm::{EagerContract, Instruction, InstructionKind, VMLoopKind};
+use avec::Avec;
+use vm::{EagerContract, Instruction, InstructionKind, VMBranch, VMLoopKind};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
@@ -154,16 +155,29 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    fn compile_branch_groups(&self, branches: &[Arc<ProcBranch>]) -> Vec<()> {
-        branches
-            .iter()
-            .map(|branch| match branch.kind {
-                ProcBranchKind::If { ref condition } => (),
-                ProcBranchKind::Elif { ref condition } => (),
-                ProcBranchKind::Else => (),
-                ProcBranchKind::Case { ref pattern } => todo!(),
-                ProcBranchKind::Default => todo!(),
-            })
-            .collect()
+    fn compile_branch_groups(&self, branches: &[Arc<ProcBranch>]) -> Avec<VMBranch> {
+        Arc::new(
+            branches
+                .iter()
+                .map(|branch| match branch.kind {
+                    ProcBranchKind::If { ref condition } => Arc::new(VMBranch {
+                        opt_condition_sheet: {
+                            let mut condition_sheet = self.subsheet_builder();
+                            condition_sheet.compile_expr(condition);
+                            Some(condition_sheet.finalize())
+                        },
+                        body: {
+                            let mut body_sheet = self.subsheet_builder();
+                            body_sheet.compile_proc_stmts(&branch.stmts);
+                            body_sheet.finalize()
+                        },
+                    }),
+                    ProcBranchKind::Elif { ref condition } => todo!(),
+                    ProcBranchKind::Else => todo!(),
+                    ProcBranchKind::Case { ref pattern } => todo!(),
+                    ProcBranchKind::Default => todo!(),
+                })
+                .collect(),
+        )
     }
 }

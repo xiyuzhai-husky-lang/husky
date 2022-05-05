@@ -55,7 +55,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                         copy_access,
                                         ref_access,
                                         move_access,
-                                        borrow_mut_access,
+                                        ref_mut_access: borrow_mut_access,
                                     } => match access_kind {
                                         MemberAccessKind::Move => *move_access,
                                         MemberAccessKind::Ref => *ref_access,

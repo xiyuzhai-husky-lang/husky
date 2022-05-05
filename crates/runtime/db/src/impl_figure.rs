@@ -119,6 +119,7 @@ impl HuskyLangRuntime {
             }
             HistoryEntry::Exec { .. } => todo!(),
             HistoryEntry::Loop { .. } => panic!(),
+            HistoryEntry::BranchGroup { enter, .. } => todo!(),
         }
     }
 

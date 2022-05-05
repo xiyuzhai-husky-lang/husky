@@ -35,7 +35,11 @@ impl PrefixOpr {
                 PrimitiveValue::Void => panic!(),
             }
             .into(),
-            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::BitNot => match opd {
+                PrimitiveValue::B32(b) => (!b).into(),
+                PrimitiveValue::B64(b) => (!b).into(),
+                _ => panic!(),
+            },
             PrefixOpr::Shared => todo!(),
             PrefixOpr::Exclusive => todo!(),
         }

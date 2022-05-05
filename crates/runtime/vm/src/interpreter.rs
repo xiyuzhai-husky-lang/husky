@@ -51,10 +51,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
 
     pub(crate) fn eval_instructions(
         &mut self,
-        instructions: &[Instruction],
+        sheet: &InstructionSheet,
         mode: Mode,
     ) -> EvalResult<'eval> {
-        match self.exec_all(instructions, mode) {
+        match self.exec_all(sheet, mode) {
             VMControl::None => {
                 panic!("no return from eval_instructions")
             }
@@ -70,16 +70,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         Ok(())
     }
 
-    fn routine_call_interpreted(
-        &mut self,
-        instructions: &[Instruction],
-        nargs: u8,
-    ) -> VMResult<()> {
+    fn routine_call_interpreted(&mut self, sheet: &InstructionSheet, nargs: u8) -> VMResult<()> {
         let inputs = self.stack.drain(nargs);
         let mut interpreter = Interpreter::new(self.db, inputs);
         self.stack.push(
             interpreter
-                .eval_instructions(instructions, Mode::Fast)?
+                .eval_instructions(sheet, Mode::Fast)?
                 .into_stack()?,
         );
         Ok(())

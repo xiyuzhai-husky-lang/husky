@@ -1,3 +1,4 @@
+mod exec_branch;
 mod exec_call;
 mod exec_interpret_call;
 mod exec_loop;
@@ -7,12 +8,8 @@ use crate::{history::HistoryEntry, *};
 use print_utils::p;
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
-    pub(crate) fn exec_all(
-        &mut self,
-        instructions: &[Instruction],
-        mode: Mode,
-    ) -> VMControl<'eval> {
-        for ins in instructions {
+    pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
+        for ins in &sheet.instructions {
             let control = match ins.kind {
                 InstructionKind::PushVariable {
                     binding,
@@ -20,6 +17,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     range,
                     ty,
                 } => {
+                    p!(stack_idx, ty, binding, range);
+                    sheet.variable_stack.compare_with_vm_stack(&self.stack);
                     let value = self.stack.push_variable(stack_idx, binding);
                     match mode {
                         Mode::Fast => (),
@@ -43,6 +42,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::None
                 }
                 InstructionKind::RoutineCallCompiled { linkage } => {
+                    sheet.variable_stack.compare_with_vm_stack(&self.stack);
+                    p!(ins.kind);
                     let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -61,11 +62,16 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::RoutineCallInterpreted { routine, nargs } => {
                     let instruction_sheet = self.db.entity_opt_instruction_sheet_by_uid(routine);
                     let control = self
-                        .routine_call_interpreted(&instruction_sheet.unwrap().instructions, nargs)
+                        .routine_call_interpreted(&instruction_sheet.unwrap(), nargs)
                         .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => todo!(),
+                        Mode::TrackHistory => self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                output: self.stack.top_snapshot(),
+                            },
+                        ),
                     };
                     control
                 }
@@ -104,7 +110,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 },
                 InstructionKind::BreakIfFalse => {
-                    let control = if !self.stack.top().as_primitive().to_bool().unwrap() {
+                    let control = if !self.stack.top().as_primitive().to_bool() {
                         VMControl::Break
                     } else {
                         VMControl::None
@@ -122,10 +128,19 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let this = self.stack.pop();
                     self.stack
                         .push(this.field_var(field_idx as usize, contract));
+                    match mode {
+                        Mode::Fast | Mode::TrackMutation => (),
+                        Mode::TrackHistory => self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                output: self.stack.top_snapshot(),
+                            },
+                        ),
+                    };
                     VMControl::None
                 }
                 InstructionKind::Assert => {
-                    let is_condition_satisfied = self.stack.pop().as_primitive().to_bool().unwrap();
+                    let is_condition_satisfied = self.stack.pop().as_primitive().to_bool();
                     if !is_condition_satisfied {
                         todo!()
                     } else {
@@ -133,7 +148,39 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 }
                 InstructionKind::Break => VMControl::Break,
-                InstructionKind::BranchGroup { .. } => todo!(),
+                InstructionKind::BranchGroup { ref branches } => {
+                    let mut control = VMControl::None;
+                    for (i, b) in branches.iter().enumerate() {
+                        let enter: bool = if let Some(ref condition) = b.opt_condition_sheet {
+                            self.exec_all(condition, mode);
+                            self.stack.pop().to_bool()
+                        } else {
+                            true
+                        };
+                        if enter {
+                            match mode {
+                                Mode::Fast => control = self.exec_all(&b.body, Mode::Fast),
+                                Mode::TrackMutation => todo!(),
+                                Mode::TrackHistory => {
+                                    self.take_snapshot();
+                                    control = self.exec_all(&b.body, Mode::TrackHistory);
+                                    let (stack_snapshot, mutations) = self.collect_mutations();
+                                    self.history.write(
+                                        ins,
+                                        HistoryEntry::BranchGroup {
+                                            enter: i,
+                                            stack_snapshot,
+                                            branches: branches.clone(),
+                                            control: todo!(),
+                                        },
+                                    )
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    control
+                }
             };
             match control {
                 VMControl::None => (),
