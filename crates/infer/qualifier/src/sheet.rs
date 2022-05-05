@@ -69,15 +69,30 @@ impl QualifiedTySheet {
     }
 }
 
+macro_rules! write_field_name {
+    ($result: expr, $name: expr) => {
+        write!(
+            $result,
+            "\n{}{}\n{}",
+            print_utils::MAGENTA,
+            $name,
+            print_utils::RESET
+        )
+        .unwrap()
+    };
+}
+
 impl TestComparable for QualifiedTySheet {
     fn write_inherent(&self, result: &mut String) {
-        result.push_str("eager variable qualified types:\n\n");
-        self.contract_sheet
-            .entity_route_sheet
-            .ast_text
-            .write_map_inherently(&self.eager_expr_qualified_tys, 4, result);
-        ps!(result);
-        todo!()
+        let ast_text = &self.contract_sheet.entity_route_sheet.ast_text;
+        write_field_name!(result, "eager variable qualified types");
+        self.eager_variable_qualified_tys.write_inherent(result);
+        write_field_name!(result, "lazy expr qualified types");
+        ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, 4, result);
+        write_field_name!(result, "eager expr qualified types");
+        ast_text.write_map_inherently(&self.eager_expr_qualified_tys, 4, result);
+        write_field_name!(result, "lazy expr qualified types");
+        ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, 4, result);
     }
     // fn print_inherent(&self) -> String {
     //     let mut result = String::new();

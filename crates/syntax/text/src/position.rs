@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use test_utils::TestComparable;
 
 use crate::*;
 
@@ -6,6 +7,12 @@ use crate::*;
 pub struct TextPosition {
     pub row: Row,
     pub col: Column,
+}
+
+impl TestComparable for TextPosition {
+    fn write_inherent(&self, result: &mut String) {
+        todo!()
+    }
 }
 
 impl From<(u32, u32)> for TextPosition {

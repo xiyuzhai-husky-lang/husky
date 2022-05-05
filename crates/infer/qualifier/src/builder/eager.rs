@@ -248,9 +248,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerQualifiedType> {
         self.infer_eager_expr(arena, opds.start);
         self.infer_eager_expr(arena, opds.start + 1);
+        let ty = self.raw_expr_ty(raw_expr_idx)?;
         Ok(EagerQualifiedType::new(
-            EagerQualifier::Transient,
-            self.raw_expr_ty(raw_expr_idx)?,
+            if self.db.is_copyable(ty) {
+                EagerQualifier::Copyable
+            } else {
+                EagerQualifier::Transient
+            },
+            ty,
         ))
     }
 
@@ -261,8 +266,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerQualifiedType> {
         self.infer_eager_expr(arena, opds.start);
+        let ty = self.raw_expr_ty(raw_expr_idx)?;
         Ok(EagerQualifiedType::new(
-            EagerQualifier::Transient,
+            EagerQualifier::transitive(self.db.is_copyable(ty)),
             self.raw_expr_ty(raw_expr_idx)?,
         ))
     }

@@ -30,7 +30,7 @@ impl<'a> AstTransformer<'a> {
                     .into(),
                 ),
                 AtomVariant::Binary(opr) => stack.accept_binary(opr)?,
-                AtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_end()),
+                AtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_start()),
                 AtomVariant::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),
                 AtomVariant::ListStart(bra, attr) => {
                     stack.accept_list_start(bra, attr, atom.text_start())

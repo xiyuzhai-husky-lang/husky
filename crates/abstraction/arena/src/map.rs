@@ -33,7 +33,7 @@ pub trait ArenaKeyQuery<T> {
                 result.push(' ')
             }
             self.write_key(raw_idx, result);
-            result.push_str("  ");
+            result.push_str("   ");
             v.write_inherent(result);
             result.push_str("\n");
         }

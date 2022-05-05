@@ -71,8 +71,12 @@ impl AstText {
 
 impl ArenaKeyQuery<RawExpr> for AstText {
     fn write_key(&self, raw_expr_idx: RawExprIdx, result: &mut String) {
-        let range = self.arena[raw_expr_idx].range();
+        let expr = &self.arena[raw_expr_idx];
+        let range = expr.range();
+        result.push_str(print_utils::GREEN);
         write!(result, "{: <15?}", range).unwrap();
-        write!(result, "{: <50} ", self.text.ranged(range)).unwrap();
+        result.push_str(print_utils::CYAN);
+        write!(result, "{: <20}", self.text.ranged(range)).unwrap();
+        result.push_str(print_utils::RESET);
     }
 }

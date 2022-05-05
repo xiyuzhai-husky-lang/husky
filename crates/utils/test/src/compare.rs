@@ -33,6 +33,14 @@ impl<T: TestComparable> TestComparable for Vec<T> {
     }
 }
 
+impl<T: TestComparable, S: TestComparable> TestComparable for (T, S) {
+    fn write_inherent(&self, result: &mut String) {
+        self.0.write_inherent(result);
+        result.push_str("  ");
+        self.1.write_inherent(result);
+    }
+}
+
 impl<T, E> TestComparable for Result<T, E>
 where
     T: TestComparable,

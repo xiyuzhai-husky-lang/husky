@@ -8,4 +8,4 @@ pub const MAGENTA: &str = "\x1B[35m";
 pub const CYAN: &str = "\x1B[36m";
 pub const WHITE: &str = "\x1B[37m";
 pub const BOLDBLACK: &str = "\033[1m\033[30m";
-pub const PINK: &str = "\x1B[38;2;250;50;155m";
+pub const PINK: &str = "\x1B[38;2;200;50;155m";

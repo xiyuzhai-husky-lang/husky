@@ -1,9 +1,16 @@
 use serde::{Deserialize, Serialize};
+use test_utils::TestComparable;
 
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
 pub struct Column(pub(crate) u32);
+
+impl TestComparable for Column {
+    fn write_inherent(&self, result: &mut String) {
+        todo!()
+    }
+}
 
 impl From<u32> for Column {
     fn from(raw: u32) -> Self {
