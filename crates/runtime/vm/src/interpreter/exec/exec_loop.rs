@@ -53,7 +53,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
         mode: Mode,
     ) -> VMResult<VMControl<'eval>> {
-        match loop_kind {
+        let stack_len = self.stack.len();
+        let (new_len, control) = match loop_kind {
             VMLoopKind::For {
                 initial_boundary_kind,
                 final_boundary_kind,
@@ -93,7 +94,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         VMControl::Err(_) => todo!(),
                     }
                 }
-                Ok(VMControl::None)
+                (stack_len - 2, Ok(VMControl::None))
             }
             VMLoopKind::ForExt {
                 frame_varidx,
@@ -128,7 +129,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     step.update(self.stack.value_mut(frame_varidx));
                 }
-                Ok(VMControl::None)
+                (stack_len - 1, Ok(VMControl::None))
             }
             VMLoopKind::Loop => {
                 for frame_var in 0..LOOP_LIMIT {
@@ -142,9 +143,14 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         VMControl::Err(_) => todo!(),
                     }
                 }
-                err!(format!("infinite loop (loop limit = {})", LOOP_LIMIT))
+                (
+                    stack_len,
+                    err!(format!("infinite loop (loop limit = {})", LOOP_LIMIT)),
+                )
             }
-        }
+        };
+        self.stack.truncate(new_len);
+        control
     }
 }
 

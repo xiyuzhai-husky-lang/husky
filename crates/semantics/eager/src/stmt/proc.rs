@@ -32,6 +32,10 @@ impl InstructionSource for ProcStmt {
     fn file(&self) -> FilePtr {
         self.file
     }
+
+    fn text_range(&self) -> TextRange {
+        self.range
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

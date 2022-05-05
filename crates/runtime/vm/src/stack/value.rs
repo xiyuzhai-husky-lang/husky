@@ -205,13 +205,13 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    unsafe fn bind_ref_mut(&mut self, owner: StackIdx) -> Self {
+    unsafe fn bind_ref_mut(&mut self, stack_idx: StackIdx) -> Self {
         match self {
             StackValue::Primitive(value) => {
                 let ptr: *mut dyn AnyValueDyn = value.any_mut();
                 StackValue::LocalRefMut {
                     value: &mut *ptr,
-                    owner,
+                    owner: stack_idx,
                     gen: (),
                 }
             }
@@ -219,7 +219,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 let ptr: *mut dyn AnyValueDyn = &mut *value.inner;
                 StackValue::LocalRefMut {
                     value: &mut *ptr,
-                    owner,
+                    owner: stack_idx,
                     gen: (),
                 }
             }

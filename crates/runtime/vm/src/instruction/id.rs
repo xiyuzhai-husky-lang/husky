@@ -8,6 +8,7 @@ use std::{
 };
 
 use file::FilePtr;
+use text::TextRange;
 
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
 
@@ -17,6 +18,7 @@ pub struct InstructionId(pub(crate) usize);
 pub trait InstructionSource: std::fmt::Debug + Send + Sync + RefUnwindSafe {
     fn instruction_id(&self) -> InstructionId;
     fn file(&self) -> FilePtr;
+    fn text_range(&self) -> TextRange;
 }
 
 impl Default for InstructionId {

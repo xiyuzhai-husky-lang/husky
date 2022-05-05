@@ -45,7 +45,6 @@ impl Debugger {
                 (Some(Some(input_id)), None) => {
                     for trace in runtime.root_traces().iter() {
                         let stalk = runtime.trace_stalk(*trace, input_id);
-                        p!(stalk);
                     }
                 }
                 _ => (),
