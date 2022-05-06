@@ -81,7 +81,15 @@ impl<'eval> TraceFactory<'eval> {
                         config.subexpr(),
                     ));
                 }
-                EagerOpnVariant::Prefix { .. } => todo!(),
+                EagerOpnVariant::Prefix { opr, .. } => {
+                    tokens.push(special!(opr.code(), associated_trace));
+                    tokens.extend(self.eager_expr_tokens(
+                        &opds[0],
+                        text,
+                        history,
+                        config.subexpr(),
+                    ));
+                }
                 EagerOpnVariant::Suffix { .. } => todo!(),
                 EagerOpnVariant::RoutineCall(ranged_scope) => {
                     tokens = self.eager_routine_call_tokens(

@@ -44,4 +44,14 @@ impl PrefixOpr {
             PrefixOpr::Exclusive => todo!(),
         }
     }
+
+    pub fn code(self) -> &'static str {
+        match self {
+            PrefixOpr::Minus => "-",
+            PrefixOpr::Not => "!",
+            PrefixOpr::BitNot => "~",
+            PrefixOpr::Shared => "&",
+            PrefixOpr::Exclusive => "!",
+        }
+    }
 }
