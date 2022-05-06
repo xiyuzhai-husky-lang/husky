@@ -1,6 +1,6 @@
 <script lang="ts">
-    import TreeView from "./TreeView/TreeView.svelte";
-    import Figure from "./Figure/Figure.svelte";
+    import TreeView from "./TreeView.svelte";
+    import Figure from "./Figure.svelte";
     import HSplitPane from "./SplitPane/HSplitPane.svelte";
     import { request_lock_input } from "src/server/server";
     import {
@@ -18,6 +18,8 @@
     import { onDestroy } from "svelte";
 
     let window_height: number;
+    $: bottom_height = window_height * 0.03;
+    $: middle_height = window_height - bottom_height;
 
     $: focus = $focus_store;
     $: opt_input_id = focus.opt_input_id;
@@ -83,11 +85,13 @@
 <svelte:window on:keydown={on_key_down} bind:innerHeight={window_height} />
 
 <div class="DebuggerUI" style="height: {window_height}px">
-    <HSplitPane>
-        <TreeView slot="left" />
-        <Figure slot="right" {figure} />
-    </HSplitPane>
-    <div class="Bottom">
+    <div class="Middle" style="height: {middle_height}px">
+        <HSplitPane>
+            <TreeView slot="left" />
+            <Figure slot="right" {figure} />
+        </HSplitPane>
+    </div>
+    <div class="Bottom" style="height: {bottom_height}px">
         <div class="BottomItem">
             focus:
             <div on:click={on_input_clicked} class="BottomInputWrapper">
@@ -118,7 +122,6 @@
         align-items: center;
     }
     input {
-        height: 20px;
         min-width: 80%;
         background: rgb(0, 105, 105);
         border: none;
