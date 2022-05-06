@@ -109,14 +109,18 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         let snapshot = std::mem::take(&mut self.snapshot).expect("bug");
         let mutations = std::mem::take(&mut self.mutations)
             .iter()
-            .map(|(stack_idx, (file, range, ty))| {
+            .filter_map(|(stack_idx, (file, range, ty))| {
                 let stack_idx = *stack_idx;
-                MutationData {
-                    file: *file,
-                    range: *range,
-                    ty: *ty,
-                    before: snapshot[stack_idx].clone(),
-                    after: self.stack.snapshot_value(stack_idx),
+                if stack_idx.raw() < snapshot.len() {
+                    Some(MutationData {
+                        file: *file,
+                        range: *range,
+                        ty: *ty,
+                        before: snapshot[stack_idx].clone(),
+                        after: self.stack.snapshot_value(stack_idx),
+                    })
+                } else {
+                    None
                 }
             })
             .collect();
