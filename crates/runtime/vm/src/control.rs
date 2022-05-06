@@ -32,7 +32,7 @@ impl<'eval> VMControl<'eval> {
             VMControl::None => ControlSnapshot::None,
             VMControl::Return(value) => ControlSnapshot::Return(value.snapshot()),
             VMControl::Break => ControlSnapshot::Break,
-            VMControl::Err(_) => todo!(),
+            VMControl::Err(e) => ControlSnapshot::Err(e.clone()),
         }
     }
 }
