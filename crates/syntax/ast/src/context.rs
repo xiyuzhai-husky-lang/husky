@@ -16,14 +16,18 @@ pub enum AstContext {
     Struct,
     Record,
     Props,
-    Enum,
+    Enum(EntityRoutePtr),
 }
 
 impl AstContext {
-    pub fn subscope(&self, db: &dyn AstSalsaQueryGroup, ident: CustomIdentifier) -> EntityRoutePtr {
+    pub fn child_route(
+        &self,
+        db: &dyn AstSalsaQueryGroup,
+        ident: CustomIdentifier,
+    ) -> EntityRoutePtr {
         match self {
             AstContext::Package(main) => db
-                .subscope(db.module(*main).unwrap(), ident, vec![])
+                .child_route(db.module(*main).unwrap(), ident, vec![])
                 .unwrap(),
             AstContext::Module(_) => todo!(),
             AstContext::DatasetConfig => todo!(),
@@ -33,7 +37,7 @@ impl AstContext {
             AstContext::Proc => todo!(),
             AstContext::Test => todo!(),
             AstContext::Struct => todo!(),
-            AstContext::Enum => todo!(),
+            AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
         }
@@ -62,7 +66,7 @@ impl std::fmt::Display for AstContext {
             AstContext::Proc => "proc",
             AstContext::Test => "test",
             AstContext::Struct => "struct",
-            AstContext::Enum => "enum",
+            AstContext::Enum(_) => "enum",
             AstContext::Record => "record",
             AstContext::Props => "props",
         })

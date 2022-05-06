@@ -202,7 +202,7 @@ pub enum ModuleFromFileRule {
 pub trait EntityRouteQueryGroup:
     EntityRouteSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn EntityRouteSalsaQueryGroup>
 {
-    fn subscope(
+    fn child_route(
         &self,
         parent_scope: EntityRoutePtr,
         ident: CustomIdentifier,

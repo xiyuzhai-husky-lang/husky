@@ -18,9 +18,9 @@ pub struct QualifiedTySheet {
     pub(crate) eager_variable_qualified_tys:
         VecPairMap<(Identifier, Row), InferResult<EagerQualifiedTy>>,
     pub(crate) lazy_variable_qualified_tys:
-        VecPairMap<(Identifier, Row), InferResult<LazyQualifiedType>>,
+        VecPairMap<(Identifier, Row), InferResult<LazyQualifiedTy>>,
     pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerQualifiedTy>>,
-    pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyQualifiedType>>,
+    pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyQualifiedTy>>,
     pub(crate) contract_sheet: Arc<ContractSheet>,
 }
 

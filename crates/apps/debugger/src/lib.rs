@@ -6,8 +6,6 @@ pub mod mock;
 mod mode;
 mod notif;
 mod state;
-#[cfg(test)]
-mod tests;
 
 use avec::Avec;
 pub use error::{DebuggerError, DebuggerResult};
@@ -25,6 +23,7 @@ use runtime_db::{HuskyLangRuntime, RuntimeQueryGroup};
 use state::DebuggerState;
 use std::sync::Mutex;
 use std::{collections::HashMap, convert::Infallible, net::ToSocketAddrs, path::Path, sync::Arc};
+use test_utils::TestResult;
 use trace::{CreateTrace, FigureProps, Trace, TraceId, TraceStalk, TraceTokenKind};
 use warp::Filter;
 
@@ -58,7 +57,7 @@ impl Debugger {
         }
     }
 
-    pub async fn serve_on_error(self, addr: impl ToSocketAddrs, input_id: usize) -> bool {
+    pub async fn serve_on_error(self, addr: impl ToSocketAddrs, input_id: usize) -> TestResult {
         let mut error_flag = false;
         for trace in self.root_traces().iter() {
             let stalk = self.trace_stalk(*trace, input_id).await;
@@ -73,9 +72,11 @@ impl Debugger {
             }
         }
         if error_flag {
-            self.serve(addr).await.unwrap()
+            self.serve(addr).await.unwrap();
+            TestResult::Failed
+        } else {
+            TestResult::Success
         }
-        error_flag
     }
 
     pub async fn serve(self, addr: impl ToSocketAddrs) -> DebuggerResult<()> {

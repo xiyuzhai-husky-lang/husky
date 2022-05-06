@@ -86,7 +86,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     exec_before_each_frame(self);
                     let control = self.exec_all(body, mode);
                     exec_after_each_frame(self, frame_var, &control);
-                    self.stack.pop();
+                    self.stack.truncate(stack_len);
                     match control {
                         VMControl::None => (),
                         VMControl::Return(value) => return Ok(VMControl::Return(value)),
@@ -121,6 +121,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         self.stack.value(frame_varidx).as_primitive().as_i32(),
                         &control,
                     );
+                    self.stack.truncate(stack_len);
                     match control {
                         VMControl::None => (),
                         VMControl::Return(value) => return Ok(VMControl::Return(value)),
@@ -136,6 +137,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     exec_before_each_frame(self);
                     let control = self.exec_all(body, mode);
                     exec_after_each_frame(self, frame_var, &control);
+                    self.stack.truncate(stack_len);
                     match control {
                         VMControl::None => (),
                         VMControl::Return(value) => return Ok(VMControl::Return(value)),

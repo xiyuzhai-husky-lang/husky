@@ -27,6 +27,7 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 path-utils = { path = "../../utils/path", version = "0.0.0" }
+test-utils = { path = "../../utils/test", version = "0.0.0" }
 json-map = { path = "../../abstraction/json-map", version = "0.0.0" }
 json-result = { path = "../../abstraction/json-result", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }

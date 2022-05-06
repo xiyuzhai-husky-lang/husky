@@ -63,18 +63,32 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
             print_utils::RESET,
             package_path.as_os_str().to_str().unwrap(),
         );
-        Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, package_path))
+        match Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, package_path))
             .serve_on_error("localhost:51617", 0)
-            .await;
+            .await
+        {
+            TestResult::Success => finalize_success(),
+            TestResult::Failed => finalize_failure(),
+        }
     }
 }
 
-fn report_result_ok() {
+fn finalize_success() {
     println!(
-        "    {}result{}: {}ok{}",
+        "    {}result{}: {}success{}",
         print_utils::CYAN,
         print_utils::RESET,
         print_utils::GREEN,
+        print_utils::RESET,
+    )
+}
+
+fn finalize_failure() {
+    println!(
+        "    {}result{}: {}failure{}",
+        print_utils::CYAN,
+        print_utils::RESET,
+        print_utils::RED,
         print_utils::RESET,
     )
 }

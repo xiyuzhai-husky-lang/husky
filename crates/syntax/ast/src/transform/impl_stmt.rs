@@ -103,7 +103,7 @@ impl<'a> AstTransformer<'a> {
                 variant: RawStmtVariant::Exec(self.parse_expr(token_group)?),
             },
             AstContext::Test => todo!(),
-            AstContext::Struct | AstContext::Enum => panic!(),
+            AstContext::Struct | AstContext::Enum(_) => panic!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
         })

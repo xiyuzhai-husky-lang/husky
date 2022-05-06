@@ -24,8 +24,8 @@ impl<'a> AstTransformer<'a> {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
-                        self.opt_this_ty
-                            .set_value(Some(self.env().subscope(self.db, custom_ident)));
+                        let this_ty = self.env().child_route(self.db, custom_ident);
+                        self.opt_this_ty.set_value(Some(this_ty));
                         self.opt_this_contract.set_value(None);
                     }
                     _ => (),
@@ -54,7 +54,7 @@ impl<'a> AstTransformer<'a> {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
                         self.opt_this_ty
-                            .set_value(Some(self.env().subscope(self.db, custom_ident)));
+                            .set_value(Some(self.env().child_route(self.db, custom_ident)));
                         self.opt_this_contract.set_value(None);
                     }
                     _ => (),
@@ -78,7 +78,6 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_enum(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
-        self.env.set_value(AstContext::Enum);
         expect_len!(tokens, 3);
         expect_head!(tokens);
         msg_once!("record generic placeholders");
@@ -87,8 +86,9 @@ impl<'a> AstTransformer<'a> {
             tokens[1],
             SemanticTokenKind::Entity(EntityKind::Type(TyKind::Enum))
         );
-        self.opt_this_ty
-            .set_value(Some(self.env().subscope(self.db, ident.ident)));
+        let this_ty = self.env().child_route(self.db, ident.ident);
+        self.env.set_value(AstContext::Enum(this_ty));
+        self.opt_this_ty.set_value(Some(this_ty));
         self.opt_this_contract.set_value(None);
         Ok(AstKind::TypeDefnHead {
             ident,
