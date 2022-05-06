@@ -4,18 +4,29 @@ use std::fmt::Write;
 use test_utils::{TestComparable, TestCompareConfig};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct LazyQualifiedType {
+pub struct LazyQualifiedTy {
     pub qual: LazyQualifier,
     pub ty: EntityRoutePtr,
 }
 
-impl TestComparable for LazyQualifiedType {
+impl TestComparable for LazyQualifiedTy {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
     }
 }
 
-impl LazyQualifiedType {
+impl LazyQualifiedTy {
+    pub(crate) fn from_input(
+        db: &dyn InferQualifiedTyQueryGroup,
+        input_contract: InputContract,
+        ty: EntityRoutePtr,
+    ) -> Self {
+        LazyQualifiedTy::new(
+            LazyQualifier::from_input(input_contract, db.is_copyable(ty)),
+            ty,
+        )
+    }
+
     pub fn new(qual: LazyQualifier, ty: EntityRoutePtr) -> Self {
         msg_once!("handle ref");
         Self { qual, ty }
@@ -49,7 +60,7 @@ impl LazyQualifiedType {
                 LazyQualifier::Copyable => true,
                 LazyQualifier::PureRef => todo!(),
                 LazyQualifier::GlobalRef => todo!(),
-                LazyQualifier::Transient => todo!(),
+                LazyQualifier::Transient => true,
             },
             OutputContract::MemberAccess => todo!(),
         }
@@ -76,6 +87,20 @@ impl LazyQualifier {
 
 impl LazyQualifier {
     pub fn from_input(input_contract: InputContract, is_copyable: bool) -> Self {
-        todo!()
+        match input_contract {
+            InputContract::Pure => {
+                if is_copyable {
+                    LazyQualifier::Copyable
+                } else {
+                    LazyQualifier::PureRef
+                }
+            }
+            InputContract::GlobalRef => LazyQualifier::GlobalRef,
+            InputContract::Move => todo!(),
+            InputContract::BorrowMut => todo!(),
+            InputContract::MoveMut => todo!(),
+            InputContract::Exec => todo!(),
+            InputContract::MemberAccess => todo!(),
+        }
     }
 }

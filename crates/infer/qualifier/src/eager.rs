@@ -67,7 +67,16 @@ impl EagerQualifiedTy {
                 EagerQualifier::OwnedMut => todo!(),
                 EagerQualifier::GlobalRef => todo!(),
             },
-            InitKind::Decl => todo!(),
+            InitKind::Decl => match self.qual {
+                EagerQualifier::Copyable => todo!(),
+                EagerQualifier::CopyableMut => todo!(),
+                EagerQualifier::PureRef => todo!(),
+                EagerQualifier::GlobalRef => todo!(),
+                EagerQualifier::LocalRef => todo!(),
+                EagerQualifier::Transient => EagerQualifier::Owned,
+                EagerQualifier::Owned => todo!(),
+                EagerQualifier::OwnedMut => panic!(),
+            },
         };
         Ok(Self { qual, ty: self.ty })
     }

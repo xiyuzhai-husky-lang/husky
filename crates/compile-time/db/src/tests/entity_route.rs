@@ -94,21 +94,21 @@ fn datasets() {
         generic_arguments: vec![],
     });
     let synthetic_scope = db
-        .subscope(
+        .child_route(
             dataset_scope,
             db.intern_word("synthetic").opt_custom().unwrap(),
             vec![],
         )
         .unwrap();
     let synthetic_trivial_scope = db
-        .subscope(
+        .child_route(
             synthetic_scope,
             db.intern_word("trivial").opt_custom().unwrap(),
             vec![],
         )
         .unwrap();
     let _synthetic_trivial_real1d_scope = db
-        .subscope(
+        .child_route(
             synthetic_trivial_scope,
             db.intern_word("real1d").opt_custom().unwrap(),
             vec![],

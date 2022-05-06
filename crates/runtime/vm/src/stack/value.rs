@@ -187,7 +187,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                     gen: (),
                 }
             }
-            StackValue::GlobalRef(_) => panic!(),
+            StackValue::GlobalRef(value) => StackValue::GlobalRef(*value),
             StackValue::LocalRef { .. } => panic!(),
             StackValue::LocalRefMut { value, owner, gen } => todo!(),
         }

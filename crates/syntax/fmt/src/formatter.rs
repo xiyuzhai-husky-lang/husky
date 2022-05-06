@@ -214,7 +214,7 @@ impl<'a> Formatter<'a> {
                     AstContext::Struct => todo!(),
                     AstContext::Record => todo!(),
                     AstContext::Props => todo!(),
-                    AstContext::Enum => todo!(),
+                    AstContext::Enum(_) => todo!(),
                 }
                 self.fmt_expr(&self.arena[expr]);
             }
