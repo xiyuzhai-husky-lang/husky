@@ -21,7 +21,7 @@ test-debugger:
 	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 11 --mode test
 
 test-temp:
-	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger/proc/loop2 --input-id 11 --mode test
+	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger/proc/loop2 --input-id 11 --mode run
 
 test-debugger-with-backtrace:
 	RUST_BACKTRACE=1 cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 11 --mode test

@@ -1,0 +1,1 @@
+{"buildTargets":["mnist","mnist-with-backtrace","test-analyzer","test-debugger","test-debugger-with-backtrace","test-examples","test-examples-with-backtrace","test-temp","vscode"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
