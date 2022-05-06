@@ -17,5 +17,6 @@
         height: 100%;
         width: grow;
         background: rgb(36, 36, 36);
+        overflow: scroll;
     }
 </style>
