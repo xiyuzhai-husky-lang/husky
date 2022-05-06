@@ -6,13 +6,58 @@
     let window_height: number;
     let figure_height: number;
     let figure_width: number;
-    $: canvas_height = 0.9 * Math.min(figure_height, figure_width);
-    $: canvas_width = canvas_height;
-    $: figureContentFlexDirection =
-        figure_height > figure_width ? "column" : "row";
-    $: figure_control_height_percentage =
-        figure_height > figure_width ? 15 : 95;
-    $: figure_control_width_percentage = figure_height > figure_width ? 95 : 15;
+
+    // flex
+    $: vertical = figure_height > figure_width;
+    $: figure_flex_direction = vertical ? "column" : "row";
+    // canvas
+    $: figure_canvas_height = calc_figure_canvas_dimension(
+        figure_height,
+        figure_width
+    );
+    $: figure_canvas_width = figure_canvas_height;
+    // control
+    $: figure_control_height = calc_figure_control_height(
+        vertical,
+        figure_height,
+        figure_canvas_height
+    );
+    $: figure_control_width = calc_figure_control_width(
+        vertical,
+        figure_width,
+        figure_canvas_width
+    );
+
+    function calc_figure_canvas_dimension(
+        figure_height: number,
+        figure_width: number
+    ): number {
+        return 0.85 * Math.min(figure_height, figure_width);
+    }
+
+    function calc_figure_control_height(
+        vertical: boolean,
+        figure_height: number,
+        figure_canvas_height: number
+    ): number {
+        if (vertical) {
+            return figure_height * 0.85 - figure_canvas_height;
+        } else {
+            return figure_canvas_height;
+        }
+    }
+
+    function calc_figure_control_width(
+        vertical: boolean,
+        figure_width: number,
+        figure_canvas_width: number
+    ): number {
+        if (vertical) {
+            return figure_canvas_width;
+        } else {
+            return figure_width * 0.85 - figure_canvas_width;
+        }
+    }
 </script>
 
 <svelte:window bind:innerHeight={window_height} />
@@ -23,15 +68,9 @@
     bind:clientWidth={figure_width}
 >
     <p>title</p>
-    <div
-        class="FigureContent"
-        style="flex-direction: {figureContentFlexDirection}"
-    >
-        <FigureCanvas {figure} {canvas_height} {canvas_width} />
-        <FigureControl
-            {figure_control_height_percentage}
-            {figure_control_width_percentage}
-        />
+    <div class="FigureContent" style="flex-direction: {figure_flex_direction}">
+        <FigureCanvas {figure} {figure_canvas_height} {figure_canvas_width} />
+        <FigureControl {figure_control_height} {figure_control_width} />
     </div>
 </div>
 
