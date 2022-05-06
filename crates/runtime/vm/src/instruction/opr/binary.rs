@@ -236,7 +236,7 @@ impl PureBinaryOpr {
             PureBinaryOpr::Neq => " != ",
             PureBinaryOpr::Eq => " == ",
             PureBinaryOpr::Shl => " << ",
-            PureBinaryOpr::Shr => " >>",
+            PureBinaryOpr::Shr => " >> ",
             PureBinaryOpr::Add => " + ",
             PureBinaryOpr::Sub => " - ",
             PureBinaryOpr::Mul => " * ",
