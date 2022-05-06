@@ -6,6 +6,7 @@ use crate::*;
 
 use check_utils::should;
 pub use entry::HistoryEntry;
+use print_utils::p;
 
 #[derive(Debug, Default, Clone)]
 pub struct History<'eval> {
@@ -13,8 +14,16 @@ pub struct History<'eval> {
 }
 
 impl<'eval> History<'eval> {
-    pub fn entry<T: InstructionSource>(&self, t: &T) -> HistoryEntry<'eval> {
-        self.entries.get(&t.instruction_id()).unwrap().clone()
+    pub fn get<T: InstructionSource>(&self, t: &T) -> Option<&HistoryEntry<'eval>> {
+        self.entries.get(&t.instruction_id())
+    }
+
+    pub fn value<T: InstructionSource>(&self, t: &T) -> StackValueSnapshot<'eval> {
+        if let Some(entry) = self.entries.get(&t.instruction_id()) {
+            entry.value()
+        } else {
+            StackValueSnapshot::Uninitialized
+        }
     }
 
     pub fn write(&mut self, ins: &Instruction, entry: HistoryEntry<'eval>) {

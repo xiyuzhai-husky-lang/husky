@@ -86,7 +86,7 @@ impl<'eval> TraceFactory<'eval> {
                         EagerOpnVariant::Binary { opr, this_ty: this } => match opr {
                             BinaryOpr::Assign(_) => {
                                 tokens.push(fade!(" = "));
-                                tokens.push(history.entry(expr).value().into())
+                                tokens.push(history.value(expr).into())
                             }
                             BinaryOpr::Pure(_) => (),
                         },

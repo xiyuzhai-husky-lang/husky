@@ -92,25 +92,30 @@ pub fn subtraces(
             | ProcStmtVariant::Execute { .. }
             | ProcStmtVariant::Return { .. } => Arc::new(vec![]),
             ProcStmtVariant::BranchGroup { .. } => panic!(),
-            ProcStmtVariant::Loop { ref stmts, .. } => match history.entry(stmt) {
-                HistoryEntry::PureExpr { .. } | HistoryEntry::Exec { .. } => Arc::new(vec![]),
-                HistoryEntry::Loop {
-                    control,
-                    ref stack_snapshot,
-                    ref body,
-                    loop_kind,
-                    ..
-                } => db.loop_subtraces(
-                    db.compile_time(),
-                    trace,
-                    loop_kind,
-                    stmt,
-                    stmts,
-                    stack_snapshot,
-                    body,
-                ),
-                HistoryEntry::BranchGroup { enter, .. } => todo!(),
-            },
+            ProcStmtVariant::Loop { ref stmts, .. } => {
+                match history
+                    .get(stmt)
+                    .expect("if there is no entry, there is no subtraces")
+                {
+                    HistoryEntry::PureExpr { .. } | HistoryEntry::Exec { .. } => Arc::new(vec![]),
+                    HistoryEntry::Loop {
+                        control,
+                        ref stack_snapshot,
+                        ref body,
+                        loop_kind,
+                        ..
+                    } => db.loop_subtraces(
+                        db.compile_time(),
+                        trace,
+                        *loop_kind,
+                        stmt,
+                        stmts,
+                        stack_snapshot,
+                        body,
+                    ),
+                    HistoryEntry::BranchGroup { enter, .. } => todo!(),
+                }
+            }
             ProcStmtVariant::Break => Arc::new(vec![]),
         },
         TraceVariant::FeatureExpr(ref expr) => {

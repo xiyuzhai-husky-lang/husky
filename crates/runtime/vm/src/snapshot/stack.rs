@@ -9,6 +9,10 @@ impl<'stack, 'eval: 'stack> StackSnapshot<'eval> {
     pub(crate) fn stack(&self) -> VMStack<'stack, 'eval> {
         todo!()
     }
+
+    pub fn len(&self) -> usize {
+        self.values.len()
+    }
 }
 
 impl<'stack, 'eval: 'stack> Into<VMStack<'stack, 'eval>> for &StackSnapshot<'eval> {

@@ -88,13 +88,16 @@ impl HuskyLangRuntime {
             } => self.eager_expr_figure(initial_value, history),
             ProcStmtVariant::Assert { ref condition } => todo!(),
             ProcStmtVariant::Execute { ref expr } => {
-                let entry = history.entry(expr);
-                match entry {
-                    HistoryEntry::Exec { ref mutations } => self.mutations_figure(mutations),
-                    _ => {
-                        p!(entry);
-                        panic!("wrong kind of entry")
+                if let Some(entry) = history.get(expr) {
+                    match entry {
+                        HistoryEntry::Exec { ref mutations } => self.mutations_figure(mutations),
+                        _ => {
+                            p!(entry);
+                            panic!("wrong kind of entry")
+                        }
                     }
+                } else {
+                    FigureProps::void()
                 }
             }
             ProcStmtVariant::Return { ref result } => self.eager_expr_figure(result, history),
@@ -102,24 +105,36 @@ impl HuskyLangRuntime {
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,
-            } => match history.entry(stmt) {
-                HistoryEntry::Loop { ref mutations, .. } => self.mutations_figure(mutations),
-                _ => panic!(),
-            },
+            } => {
+                if let Some(entry) = history.get(stmt) {
+                    match entry {
+                        HistoryEntry::Loop { ref mutations, .. } => {
+                            self.mutations_figure(mutations)
+                        }
+                        _ => panic!(),
+                    }
+                } else {
+                    FigureProps::void()
+                }
+            }
             ProcStmtVariant::Break => FigureProps::void(),
         }
     }
 
     fn eager_expr_figure(&self, expr: &EagerExpr, history: &History) -> FigureProps {
         let visualizer = self.visualizer(self.version(), expr.ty);
-        match history.entry(expr) {
-            HistoryEntry::PureExpr { output } => {
-                let visual_props = visualizer.visualize(output.any_ref());
-                FigureProps::new_specific(visual_props)
+        if let Some(entry) = history.get(expr) {
+            match entry {
+                HistoryEntry::PureExpr { output } => {
+                    let visual_props = visualizer.visualize(output.any_ref());
+                    FigureProps::new_specific(visual_props)
+                }
+                HistoryEntry::Exec { .. } => todo!(),
+                HistoryEntry::Loop { .. } => panic!(),
+                HistoryEntry::BranchGroup { enter, .. } => todo!(),
             }
-            HistoryEntry::Exec { .. } => todo!(),
-            HistoryEntry::Loop { .. } => panic!(),
-            HistoryEntry::BranchGroup { enter, .. } => todo!(),
+        } else {
+            FigureProps::void()
         }
     }
 

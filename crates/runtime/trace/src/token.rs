@@ -51,6 +51,7 @@ impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
             StackValueSnapshot::GlobalPure(value) => fade!(value.print_short()),
             StackValueSnapshot::Boxed(value) => fade!(value.any_ref().print_short()),
             StackValueSnapshot::Ref { value, .. } => fade!(value.print_short()),
+            StackValueSnapshot::Uninitialized => fade!("uninitialized"),
         }
     }
 }
