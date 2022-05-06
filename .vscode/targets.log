@@ -1,0 +1,391 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri May  6 16:42:49 2022
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = i3
+# environment
+OPAM_SWITCH_PREFIX = /home/xiyuzhai/.opam/4.11.1
+# default
+.SHELLFLAGS := -c
+# environment
+OCAML_TOPLEVEL_PATH = /home/xiyuzhai/.opam/4.11.1/lib/toplevel
+# environment
+XDG_SESSION_CLASS = user
+# environment
+SNAP_COMMON = /var/snap/code/common
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+B = /home/zealot/Applications/custom/bin
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = i3
+# default
+MAKE_VERSION := 4.2.1
+# makefile
+CURDIR := /home/xiyuzhai/Documents/husky
+# makefile
+SHELL = /bin/sh
+# environment
+SNAP_DATA = /var/snap/code/95
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /snap/code/95/usr/share/code/code
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-i3:/etc/xdg
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+SNAP_ARCH = amd64
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+USERNAME = xiyuzhai
+# environment
+MANDATORY_PATH = /usr/share/gconf/i3.mandatory.path
+# environment
+XDG_DATA_DIRS = /usr/share/i3:/home/xiyuzhai/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /home/xiyuzhai
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/95/usr/share/glib-2.0/schemas
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/xiyuzhai/.elan/bin:/home/xiyuzhai/.opam/4.11.1/bin:/home/xiyuzhai/.husky/bin:/home/xiyuzhai/.local/bin:/home/zealot/Applications/anaconda3/bin:/home/xiyuzhai/.elan/bin:/home/xiyuzhai/.elan/bin:/home/xiyuzhai/.opam/4.11.1/bin:/home/xiyuzhai/.cargo/bin:/home/xiyuzhai/.husky/bin:/home/xiyuzhai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/zealot/Applications/custom/bin
+# environment
+LARK_DIR = /home/zealot/Applications/anaconda3/envs/algsysml/lib/python3.7/site-packages/lark
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/xiyuzhai/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+SNAP = /snap/code/95
+# environment
+SNAP_VERSION = 57fd6d01
+# environment
+VSCODE_LOG_STACK = false
+# environment
+DISABLE_WAYLAND = 1
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/95/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = 
+# environment
+XDG_SESSION_DESKTOP = i3
+# environment
+SSH_AUTH_SOCK = /tmp/ssh-2zHwQngAHyzm/agent.1873
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :1
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+PWD = /home/xiyuzhai/Documents/husky
+# default
+.LOADED := 
+# environment
+XDG_SEAT = seat0
+# environment
+SSH_AGENT_PID = 1947
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = i3
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+MANPATH = :/home/xiyuzhai/.opam/4.11.1/man:/home/xiyuzhai/.opam/4.11.1/man
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/xiyuzhai
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/xiyuzhai/.config/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
+# environment
+LOGNAME = xiyuzhai
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# environment
+SNAP_CONTEXT = R0R1XtQm6_bbuBUzJoefLiwyYKzs9khJkHKKCsEbMYVMZKbgnQ6L
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_USER_COMMON = /home/xiyuzhai/snap/code/common
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XDG_VTNR = 2
+# environment
+TORCH_DIR = /home/zealot/Applications/anaconda3/envs/algsysml/lib/python3.7/site-packages/torch
+# environment
+MAKELEVEL := 0
+# environment
+SNAP_REAL_HOME = /home/xiyuzhai
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SNAP_USER_DATA = /home/xiyuzhai/snap/code/95
+# environment
+SHLVL = 0
+# environment
+CC = gcc
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c7913e7f-0c4b-4c4d-81ae-051efff989e2.sock
+# environment
+XDG_SESSION_ID = 2
+# environment
+USER = xiyuzhai
+# environment
+SNAP_REVISION = 95
+# environment
+CAML_LD_LIBRARY_PATH = /home/xiyuzhai/.opam/4.11.1/lib/stublibs:/home/xiyuzhai/.opam/4.11.1/lib/ocaml/stublibs:/home/xiyuzhai/.opam/4.11.1/lib/ocaml
+# makefile
+.DEFAULT_GOAL := test-examples
+# environment
+XDG_CURRENT_DESKTOP = i3
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+I3SOCK = /run/user/1000/i3/ipc-socket.1873
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-8e655882-1.67.0-main.sock
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# makefile (from 'Makefile', line 4)
+temp_dir = /home/xiyuzhai/Documents/husky/examples/good/input
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# makefile (from 'Makefile', line 2)
+examples_dir = /home/xiyuzhai/Documents/husky/examples
+# environment
+QT_ACCESSIBILITY = 1
+# environment
+DEFAULTS_PATH = /usr/share/gconf/i3.default.path
+# default
+MAKEFILES := 
+# environment
+SNAP_COOKIE = R0R1XtQm6_bbuBUzJoefLiwyYKzs9khJkHKKCsEbMYVMZKbgnQ6L
+# automatic
+<F = $(notdir $<)
+# environment
+CXX = g++
+# environment
+SNAP_NAME = code
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SNAP_REEXEC = 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 2
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile (from 'Makefile', line 3)
+test_examples_dir = /home/xiyuzhai/Documents/husky/test-examples
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+VSCODE_PID = 2089
+# makefile (from 'Makefile', line 1)
+projects_dir = /home/xiyuzhai/Documents/husky/projects
+# variable set hash-table stats:
+# Load=125/1024=12%, Rehash=0, Collisions=16/150=11%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 66311, inode 6322967): 25 files, no impossibilities.
+
+# 25 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+ 
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-06 16:20:50.733669662
+#  File has been updated.
+#  Successfully updated.
+
+test-examples:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 8):
+	cargo run --bin husky-lang-compiler $(examples_dir)/good
+	cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test
+
+test-examples-with-backtrace:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 12):
+	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test-debugger:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 11 --mode test
+
+mnist:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 37):
+	cargo run -q --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 11 --mode run
+
+test-temp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 24):
+	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger/proc/loop2 --input-id 11 --mode run
+
+vscode: test-analyzer
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	scripts/vscode_prepublish.sh
+	rsync -a extensions/husky-analyzer ~/.vscode/extensions/
+	cargo install --path crates/apps/analyzer --bin husky-analyzer-server
+
+test-debugger-with-backtrace:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 27):
+	RUST_BACKTRACE=1 cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 11 --mode test
+	
+
+mnist-with-backtrace:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 40):
+	RUST_BACKTRACE=1 cargo run -q --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 11 --mode run 2>&1 | python scripts/filter_rust_backtrace.py
+
+test-analyzer:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 15):
+	cargo run -q --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics
+	cargo run -q --bin husky-analyzer-tester test-folding-ranges $(test_examples_dir)/analyzer/folding-ranges
+	cargo run -q --bin husky-analyzer-tester test-semantic-tokens $(test_examples_dir)/analyzer/semantic-tokens
+	cargo run -q --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys
+
+# files hash-table stats:
+# Load=13/1024=1%, Rehash=0, Collisions=0/24=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 38 / storage = 411 B / avg = 10 B
+# current buf: size = 8162 B / used = 411 B / count = 38 / avg = 10 B
+
+# strcache performance: lookups = 53 / hit rate = 28%
+# hash-table stats:
+# Load=38/8192=0%, Rehash=0, Collisions=1/53=2%
+# Finished Make data base on Fri May  6 16:42:49 2022
+
+ 

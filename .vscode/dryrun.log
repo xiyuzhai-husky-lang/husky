@@ -1,0 +1,5 @@
+make: Entering directory '/home/xiyuzhai/Documents/husky'
+cargo run --bin husky-lang-compiler /home/xiyuzhai/Documents/husky/examples/good
+cargo run --bin husky-lang-debugger /home/xiyuzhai/Documents/husky/examples --input-id 1 --mode test
+make: Leaving directory '/home/xiyuzhai/Documents/husky'
+ 
