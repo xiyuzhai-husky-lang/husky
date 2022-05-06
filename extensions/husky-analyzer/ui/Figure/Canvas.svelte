@@ -6,38 +6,44 @@
     import NullCanvas from "./Canvas/NullCanvas.svelte";
 
     export let figure: FigureProps | null;
-    export let canvas_height: number;
-    export let canvas_width: number;
+    $: figure_selected = get_figure_selected(figure);
+    export let figure_canvas_height: number;
+    export let figure_canvas_width: number;
+
+    function get_figure_selected(
+        figure: FigureProps | null
+    ): FigureProps | null {
+        if (figure === null) {
+            return null;
+        }
+        if (figure.kind === "Mutations") {
+            if (figure.mutations.length > 0) {
+                return figure.mutations[0].after;
+            } else {
+                return null;
+            }
+        } else {
+            return figure;
+        }
+    }
 </script>
 
-{#if figure === null}
-    <NullCanvas />
-{:else if figure.kind === "Mutations"}
-    {#if figure.mutations.length > 0}
-        <svelte:self
-            figure={figure.mutations[0].after}
-            {canvas_height}
-            {canvas_width}
-        />
-    {/if}
-{:else}
-    <div
-        class="FigureCanvas"
-        style="width: {canvas_width}px; height: {canvas_height}px"
-    >
-        {#if figure !== null}
-            {#if figure.kind === "Primitive"}
-                <PrimitiveValueCanvas {figure} />
-            {:else if figure.kind === "Plot2d"}
-                <Plot2dCanvas {figure} />
-            {:else if figure.kind === "Graphics2d"}
-                <Graphics2dCanvas {figure} />
-            {:else}
-                <p class="error">{figure.kind} not supported in figure</p>
-            {/if}
+<div
+    class="FigureCanvas"
+    style="width: {figure_canvas_width}px; height: {figure_canvas_height}px"
+>
+    {#if figure_selected !== null}
+        {#if figure_selected.kind === "Primitive"}
+            <PrimitiveValueCanvas figure={figure_selected} />
+        {:else if figure_selected.kind === "Plot2d"}
+            <Plot2dCanvas figure={figure_selected} />
+        {:else if figure_selected.kind === "Graphics2d"}
+            <Graphics2dCanvas figure={figure_selected} />
+        {:else}
+            <p class="error">{figure_selected.kind} not supported in figure</p>
         {/if}
-    </div>
-{/if}
+    {/if}
+</div>
 
 <style>
     .FigureCanvas {
