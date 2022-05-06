@@ -166,7 +166,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         if enter {
                             match mode {
                                 Mode::Fast => control = self.exec_all(&b.body, Mode::Fast),
-                                Mode::TrackMutation => todo!(),
+                                Mode::TrackMutation => {
+                                    control = self.exec_all(&b.body, Mode::TrackMutation)
+                                }
                                 Mode::TrackHistory => {
                                     self.take_snapshot();
                                     control = self.exec_all(&b.body, Mode::TrackHistory);
