@@ -20,7 +20,7 @@ impl Into<Cow<'static, str>> for VMError {
             VMError::ValueUndefined => "value undefined".into(),
             VMError::AssertionFailure => "assertion failure".into(),
             VMError::CannotPop => todo!(),
-            VMError::Message(_) => todo!(),
+            VMError::Message(e) => e.into(),
         }
     }
 }

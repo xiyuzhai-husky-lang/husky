@@ -1,7 +1,7 @@
 use std::fmt::*;
 #[macro_export]
 macro_rules! show {
-    ($a:expr)=>{format!("{}{}{} = {:#?}",
+    ($a:expr)=>{format!("{}{}{} = {:?}",
     print_utils::PINK,stringify!($a),
     print_utils::RESET,
     $a)};

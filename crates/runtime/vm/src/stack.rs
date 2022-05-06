@@ -1,11 +1,11 @@
 mod value;
 
+use arrayvec::ArrayVec;
 use check_utils::should_eq;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
+use std::fmt::Write;
 pub use value::*;
-
-use arrayvec::ArrayVec;
 use word::CustomIdentifier;
 
 use crate::*;
@@ -199,12 +199,18 @@ impl VariableStack {
         self.variables[stack_idx.0 as usize].unwrap()
     }
 
-    pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) {
+    pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {
+        let mut result = String::new();
         should_eq!(vm_stack.opt_this.is_some(), self.has_this);
-        println!("comparing with vm stack, src: {}:{}", file!(), line!());
-        println!("VariableStack:");
-        println!("    has_this: {}", self.has_this);
-        println!("    variables:");
+        write!(
+            result,
+            "comparing with vm stack, src: {}:{}",
+            file!(),
+            line!()
+        );
+        write!(result, "VariableStack:");
+        write!(result, "    has_this: {}", self.has_this);
+        write!(result, "    variables:");
         for (i, opt_ident) in self.variables.iter().enumerate() {
             print!(
                 "        #{: <3} {}{: <10}{} ",
@@ -218,22 +224,25 @@ impl VariableStack {
                 print_utils::RESET,
             );
             if i < vm_stack.values.len() {
-                println!("{}", vm_stack.values[i].print_short())
+                write!(result, "{}", vm_stack.values[i].print_short()).unwrap()
             } else {
-                println!("uninitialized")
+                write!(result, "uninitialized").unwrap()
             }
         }
 
         for i in self.variables.len()..vm_stack.values.len() {
-            print!(
+            write!(
+                result,
                 "        #{: <3} {}{: <10}{} ",
                 i,
                 print_utils::RED,
                 "$",
                 print_utils::RESET,
-            );
-            println!("{}", vm_stack.values[i].print_short())
+            )
+            .unwrap();
+            write!(result, "{}", vm_stack.values[i].print_short()).unwrap()
         }
-        println!("")
+        result.push('\n');
+        result
     }
 }

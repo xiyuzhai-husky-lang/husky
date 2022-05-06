@@ -60,7 +60,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             }
             VMControl::Return(result) => Ok(result),
             VMControl::Break => todo!(),
-            VMControl::Err(_) => todo!(),
+            VMControl::Err(e) => Err(e),
         }
     }
 

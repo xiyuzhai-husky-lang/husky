@@ -54,6 +54,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionKind::PrimitiveOpn { opn, .. } => {
+                    // sheet.variable_stack.compare_with_vm_stack(&self.stack);
                     self.exec_primitive_opn(opn, mode, ins).into()
                 }
                 InstructionKind::RoutineCallInterpreted { routine, nargs } => {
@@ -87,11 +88,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     ref body,
                     loop_kind,
                 } => {
-                    // p!(ins.src.text_range());
-                    // p!(self.stack.len(), sheet.variable_stack.len());
-                    // p!(sheet.variable_stack.compare_with_vm_stack(&self.stack));
                     should!(self.stack.len() <= sheet.variable_stack.len() + 2);
-                    match mode {
+                    let control = match mode {
                         Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
                         Mode::TrackMutation => {
                             self.exec_loop_tracking_mutation(loop_kind, body).into()
@@ -112,7 +110,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                             );
                             control
                         }
-                    }
+                    };
+                    control
                 }
                 InstructionKind::BreakIfFalse => {
                     let control = if !self.stack.top().as_primitive().to_bool() {
