@@ -1,3 +1,4 @@
+use entity_route::RangedEntityRoute;
 use text::Text;
 use vm::{History, StackValueSnapshot};
 
@@ -62,9 +63,9 @@ impl<'eval> TraceFactory<'eval> {
             EagerExprVariant::PrimitiveLiteral(value) => return vec![literal!(value)],
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {
-                opn_variant: ref opn_kind,
+                ref opn_variant,
                 ref opds,
-            } => match opn_kind {
+            } => match opn_variant {
                 EagerOpnVariant::Binary { opr, this_ty: this } => {
                     tokens.extend(self.eager_expr_tokens(
                         &opds[0],
@@ -82,7 +83,16 @@ impl<'eval> TraceFactory<'eval> {
                 }
                 EagerOpnVariant::Prefix { .. } => todo!(),
                 EagerOpnVariant::Suffix { .. } => todo!(),
-                EagerOpnVariant::RoutineCall(_) => todo!(),
+                EagerOpnVariant::RoutineCall(ranged_scope) => {
+                    tokens = self.eager_routine_call_tokens(
+                        *ranged_scope,
+                        opds,
+                        associated_trace,
+                        text,
+                        history,
+                        &config,
+                    )
+                }
                 EagerOpnVariant::PatternCall => todo!(),
                 EagerOpnVariant::FieldAccess { .. } => todo!(),
                 EagerOpnVariant::MethodCall { method_ident, .. } => {
@@ -153,6 +163,29 @@ impl<'eval> TraceFactory<'eval> {
             tokens.push(fade!(" = "));
             tokens.push(history.value(expr).into())
         }
+        tokens
+    }
+
+    fn eager_routine_call_tokens(
+        &self,
+        ranged_scope: RangedEntityRoute,
+        inputs: &[Arc<EagerExpr>],
+        associated_trace: Option<Arc<Trace<'eval>>>,
+        text: &Text,
+        history: &Arc<History<'eval>>,
+        config: &ExprTokenConfig,
+    ) -> Vec<TokenProps<'eval>> {
+        let mut tokens = vec![
+            scope!(text.ranged(ranged_scope.range), associated_trace),
+            special!("("),
+        ];
+        for (i, input) in inputs.iter().enumerate() {
+            if i > 0 {
+                tokens.push(special!(", "));
+            }
+            tokens.extend(self.eager_expr_tokens(input, text, history, config.subexpr()));
+        }
+        tokens.push(special!(")"));
         tokens
     }
 }
