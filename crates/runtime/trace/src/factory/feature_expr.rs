@@ -50,7 +50,7 @@ impl<'eval> TraceFactory<'eval> {
                 LazyExprKind::Opn { opn_kind, ref opds } => match opn_kind {
                     LazyOpnKind::Binary { opr, this } => todo!(),
                     LazyOpnKind::Prefix(_) => todo!(),
-                    LazyOpnKind::RoutineCall(ranged_route) => self.routine_call_tokens(
+                    LazyOpnKind::RoutineCall(ranged_route) => self.feature_routine_call_tokens(
                         ranged_route,
                         feature_opds,
                         associated_trace,
@@ -121,7 +121,7 @@ impl<'eval> TraceFactory<'eval> {
         };
     }
 
-    fn routine_call_tokens(
+    fn feature_routine_call_tokens(
         &self,
         ranged_scope: RangedEntityRoute,
         inputs: &[Arc<FeatureExpr>],
