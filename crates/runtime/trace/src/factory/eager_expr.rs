@@ -151,7 +151,7 @@ impl<'eval> TraceFactory<'eval> {
         };
         if config.appended {
             tokens.push(fade!(" = "));
-            tokens.push(history.entry(expr).value().into())
+            tokens.push(history.value(expr).into())
         }
         tokens
     }
