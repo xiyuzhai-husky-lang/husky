@@ -29,6 +29,13 @@ impl EntityRoutePtr {
     }
 }
 
+impl std::fmt::Display for EntityRoutePtr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        use std::fmt::Debug;
+        (**self).fmt(f)
+    }
+}
+
 impl std::fmt::Debug for EntityRoutePtr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         (**self).fmt(f)

@@ -19,4 +19,14 @@ impl SuffixOpr {
     pub fn act_on_primitive(&self, opd: PrimitiveValue) -> PrimitiveValue {
         todo!()
     }
+
+    pub fn code(self) -> String {
+        match self {
+            SuffixOpr::Incr => "++".into(),
+            SuffixOpr::Decr => "--".into(),
+            SuffixOpr::MayReturn => "?".into(),
+            SuffixOpr::MembAccess(ident) => format!(".{}", ident.ident),
+            SuffixOpr::WithType(ty) => format!(": {}", ty),
+        }
+    }
 }
