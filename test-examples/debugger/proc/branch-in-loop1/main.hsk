@@ -1,0 +1,14 @@
+proc f() -> i32:
+    var a = 0
+    for 0 <= i < 5:
+        a += i
+        if i > 2:
+            break
+    return a
+
+
+dataset:
+    synthetic::trivial::real1d::dataset1()
+
+main:
+    assert f() == 6

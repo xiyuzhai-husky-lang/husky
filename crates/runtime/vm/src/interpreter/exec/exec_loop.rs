@@ -80,21 +80,31 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 };
                 let n = step.n(initial_bound_shifted, final_bound_shifted);
+                let mut control = VMControl::None;
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
                     self.stack.push(StackValue::Primitive(frame_var.into()));
                     exec_before_each_frame(self);
-                    let control = self.exec_all(body, mode);
-                    exec_after_each_frame(self, frame_var, &control);
+                    let frame_control = self.exec_all(body, mode);
+                    exec_after_each_frame(self, frame_var, &frame_control);
                     self.stack.truncate(stack_len);
-                    match control {
+                    match frame_control {
                         VMControl::None => (),
-                        VMControl::Return(value) => return Ok(VMControl::Return(value)),
-                        VMControl::Break => return Ok(VMControl::None),
-                        VMControl::Err(_) => todo!(),
+                        VMControl::Return(value) => {
+                            control = VMControl::Return(value);
+                            break;
+                        }
+                        VMControl::Break => {
+                            control = VMControl::None;
+                            break;
+                        }
+                        VMControl::Err(e) => {
+                            control = VMControl::Err(e);
+                            break;
+                        }
                     }
                 }
-                (stack_len - 2, Ok(VMControl::None))
+                (stack_len - 2, Ok(control))
             }
             VMLoopKind::ForExt {
                 frame_varidx,
@@ -113,42 +123,54 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                 };
                 let n = step.n(initial_value, final_bound_shifted);
+                let mut control = VMControl::None;
                 for _ in 0..n {
                     exec_before_each_frame(self);
-                    let control = self.exec_all(body, mode);
+                    let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(
                         self,
                         self.stack.value(frame_varidx).as_primitive().as_i32(),
-                        &control,
+                        &frame_control,
                     );
                     self.stack.truncate(stack_len);
-                    match control {
+                    match frame_control {
                         VMControl::None => (),
-                        VMControl::Return(value) => return Ok(VMControl::Return(value)),
-                        VMControl::Break => return Ok(VMControl::None),
+                        VMControl::Return(value) => {
+                            control = VMControl::Return(value);
+                            break;
+                        }
+                        VMControl::Break => {
+                            control = VMControl::None;
+                            break;
+                        }
                         VMControl::Err(_) => todo!(),
                     }
                     step.update(self.stack.value_mut(frame_varidx));
                 }
-                (stack_len - 1, Ok(VMControl::None))
+                (stack_len - 1, Ok(control))
             }
             VMLoopKind::Loop => {
+                let mut control_result =
+                    err!(format!("infinite loop (loop limit = {})", LOOP_LIMIT));
                 for frame_var in 0..LOOP_LIMIT {
                     exec_before_each_frame(self);
-                    let control = self.exec_all(body, mode);
-                    exec_after_each_frame(self, frame_var, &control);
+                    let frame_control = self.exec_all(body, mode);
+                    exec_after_each_frame(self, frame_var, &frame_control);
                     self.stack.truncate(stack_len);
-                    match control {
+                    match frame_control {
                         VMControl::None => (),
-                        VMControl::Return(value) => return Ok(VMControl::Return(value)),
-                        VMControl::Break => return Ok(VMControl::None),
+                        VMControl::Return(value) => {
+                            control_result = Ok(VMControl::Return(value));
+                            break;
+                        }
+                        VMControl::Break => {
+                            control_result = Ok(VMControl::None);
+                            break;
+                        }
                         VMControl::Err(_) => todo!(),
                     }
                 }
-                (
-                    stack_len,
-                    err!(format!("infinite loop (loop limit = {})", LOOP_LIMIT)),
-                )
+                (stack_len, control_result)
             }
         };
         self.stack.truncate(new_len);

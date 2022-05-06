@@ -1,3 +1,5 @@
+use print_utils::p;
+
 use super::*;
 
 impl From<BinaryOpr> for Opr {
@@ -101,14 +103,20 @@ impl PureBinaryOpr {
             },
             PureBinaryOpr::BitAnd => match lopd {
                 PrimitiveValue::B32(a) => (a & ropd.as_b32()).into(),
+                PrimitiveValue::B64(a) => (a & ropd.as_b64()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::BitOr => match lopd {
                 PrimitiveValue::B32(a) => (a | ropd.as_b32()).into(),
-                _ => no_such_opn!(),
+                PrimitiveValue::B64(a) => (a | ropd.as_b64()).into(),
+                _ => {
+                    p!(lopd);
+                    no_such_opn!()
+                }
             },
             PureBinaryOpr::BitXor => match lopd {
                 PrimitiveValue::B32(a) => (a ^ ropd.as_b32()).into(),
+                PrimitiveValue::B64(a) => (a ^ ropd.as_b64()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Div => match lopd {
