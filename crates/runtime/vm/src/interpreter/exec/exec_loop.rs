@@ -178,4 +178,4 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     }
 }
 
-const LOOP_LIMIT: i32 = 50000;
+const LOOP_LIMIT: i32 = 500;
