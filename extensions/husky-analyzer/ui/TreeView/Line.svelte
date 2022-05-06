@@ -36,7 +36,7 @@
             class={`GroupStart ${trace.kind}`}
             class:has_subtraces
             class:expanded
-            on:click={on_group_start_click}
+            on:mousedown={on_group_start_click}
         >
             {#if group_start_kind == "vscode"}
                 <svg
