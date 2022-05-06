@@ -137,29 +137,42 @@ impl<'eval> Trace<'eval> {
                 FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
                 FeatureExprKind::ElementAccess { ref opds, .. } => false,
             },
-            TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
-                EagerExprVariant::Variable(_)
-                | EagerExprVariant::EntityRoute { .. }
-                | EagerExprVariant::PrimitiveLiteral(_) => false,
-                EagerExprVariant::Bracketed(_) => todo!(),
-                EagerExprVariant::Opn {
-                    ref opn_variant,
-                    ref opds,
-                    ..
-                } => match opn_variant {
-                    EagerOpnVariant::RoutineCall(_) => todo!(),
-                    EagerOpnVariant::TypeCall { ranged_ty, .. } => !ranged_ty.route.is_builtin(),
-                    EagerOpnVariant::PatternCall => todo!(),
-                    EagerOpnVariant::FieldAccess { .. } => false,
-                    EagerOpnVariant::Binary { .. }
-                    | EagerOpnVariant::Prefix { .. }
-                    | EagerOpnVariant::Suffix { .. }
-                    | EagerOpnVariant::MethodCall { .. }
-                    | EagerOpnVariant::ElementAccess => !opds[0].ty.is_builtin(),
-                },
-                EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::This => todo!(),
-            },
+            TraceVariant::EagerExpr {
+                ref expr,
+                ref history,
+            } => {
+                if history.get(expr).is_none() {
+                    false
+                } else {
+                    match expr.variant {
+                        EagerExprVariant::Variable(_)
+                        | EagerExprVariant::EntityRoute { .. }
+                        | EagerExprVariant::PrimitiveLiteral(_) => false,
+                        EagerExprVariant::Bracketed(_) => todo!(),
+                        EagerExprVariant::Opn {
+                            ref opn_variant,
+                            ref opds,
+                            ..
+                        } => match opn_variant {
+                            EagerOpnVariant::RoutineCall(ranged_route) => {
+                                !ranged_route.route.is_builtin()
+                            }
+                            EagerOpnVariant::TypeCall { ranged_ty, .. } => {
+                                !ranged_ty.route.is_builtin()
+                            }
+                            EagerOpnVariant::PatternCall => todo!(),
+                            EagerOpnVariant::FieldAccess { .. } => false,
+                            EagerOpnVariant::Binary { .. }
+                            | EagerOpnVariant::Prefix { .. }
+                            | EagerOpnVariant::Suffix { .. }
+                            | EagerOpnVariant::MethodCall { .. }
+                            | EagerOpnVariant::ElementAccess => !opds[0].ty.is_builtin(),
+                        },
+                        EagerExprVariant::Lambda(_, _) => todo!(),
+                        EagerExprVariant::This => todo!(),
+                    }
+                }
+            }
             TraceVariant::CallHead { .. } => false,
         }
     }
