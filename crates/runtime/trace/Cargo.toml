@@ -10,11 +10,12 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
-file = { path = "../../syntax/file", version = "0.0.0" }
-text = { path = "../../syntax/text", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
+avec = { path = "../../abstraction/avec", version = "0.0.0" }
+file = { path = "../../syntax/file", version = "0.0.0" }
+text = { path = "../../syntax/text", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
 syntax-types = { path = "../../syntax/types", version = "0.0.0" }

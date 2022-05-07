@@ -123,7 +123,10 @@ pub fn subtraces(
             feature_expr_subtraces(db, trace, expr, effective_opt_input_id)
         }
         TraceVariant::FeatureBranch(ref branch) => db.feature_branch_subtraces(trace, branch),
-        TraceVariant::EagerExpr { .. } => todo!(),
+        TraceVariant::EagerExpr {
+            ref expr,
+            ref history,
+        } => db.eager_expr_subtraces(trace, expr, history),
         TraceVariant::LoopFrame {
             ref loop_frame_data,
             ref loop_stmt,

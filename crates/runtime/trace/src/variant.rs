@@ -116,8 +116,8 @@ impl<'eval> TraceVariant<'eval> {
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. }
-                    | EagerOpnVariant::MethodCall { .. }
-                    | EagerOpnVariant::ElementAccess => !opds[0].ty.is_builtin(),
+                    | EagerOpnVariant::MethodCall { .. } => !opds[0].ty.is_builtin(),
+                    EagerOpnVariant::ElementAccess => false,
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::This => todo!(),
