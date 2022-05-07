@@ -18,6 +18,10 @@ impl<'eval> History<'eval> {
         self.entries.get(&t.instruction_id())
     }
 
+    pub fn contains<T: InstructionSource>(&self, t: &T) -> bool {
+        self.entries.contains_key(&t.instruction_id())
+    }
+
     pub fn value<T: InstructionSource>(&self, t: &T) -> StackValueSnapshot<'eval> {
         if let Some(entry) = self.entries.get(&t.instruction_id()) {
             entry.value()

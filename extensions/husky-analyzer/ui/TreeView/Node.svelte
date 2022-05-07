@@ -48,8 +48,8 @@
             <Line
                 {trace}
                 {on_group_start_click}
-                {has_subtraces}
                 {expanded}
+                {has_subtraces}
                 {active}
                 {line}
                 {extra_tokens}

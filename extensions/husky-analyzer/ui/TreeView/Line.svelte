@@ -5,13 +5,13 @@
 
     export let trace: Trace;
     export let on_group_start_click: () => void;
-    export let has_subtraces: boolean;
     export let expanded: boolean;
     export let active: boolean;
-
+    export let has_subtraces: boolean;
     export let line: LineProps;
     export let extra_tokens: TokenProps[];
     $: group_start_kind = get_group_start_kind(trace);
+    $: unreachable = !trace.reachable;
 
     function get_group_start_kind(trace: Trace): string {
         switch (trace.kind) {
@@ -29,7 +29,7 @@
     }
 </script>
 
-<p>
+<p class:unreachable>
     <span class="indent" style="padding-left: {line.indent * 9.5}px" />
     {#if line.idx === 0}
         <span
@@ -100,5 +100,8 @@
     }
     .GroupStart.has_subtraces.expanded {
         transform: rotate(90deg);
+    }
+    .unreachable {
+        opacity: 0.6;
     }
 </style>

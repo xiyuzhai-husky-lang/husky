@@ -32,6 +32,7 @@ class Trace {
     parent: number | null;
     lines: LineProps[];
     has_subtraces: boolean;
+    reachable: boolean;
     kind:
         | "Main"
         | "CallHead"
@@ -51,6 +52,7 @@ class Trace {
             decode_array(data, (element) => element as LineProps)
         );
         this.has_subtraces = d_memb_old(props, "has_subtraces", decode_boolean);
+        this.reachable = d_memb_old(props, "reachable", decode_boolean);
         const kind = d_memb_old(props, "kind", decode_string);
         switch (kind) {
             case "Main":

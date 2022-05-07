@@ -114,6 +114,7 @@ pub fn subtraces(
                         body,
                     ),
                     HistoryEntry::BranchGroup { enter, .. } => todo!(),
+                    HistoryEntry::Break => todo!(),
                 }
             }
             ProcStmtVariant::Break => Arc::new(vec![]),

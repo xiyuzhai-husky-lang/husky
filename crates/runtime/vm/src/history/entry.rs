@@ -24,6 +24,7 @@ pub enum HistoryEntry<'eval> {
         control: ControlSnapshot<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
     },
+    Break,
 }
 
 impl<'eval> HistoryEntry<'eval> {
@@ -38,6 +39,7 @@ impl<'eval> HistoryEntry<'eval> {
             }
             HistoryEntry::Loop { .. } => todo!(),
             HistoryEntry::BranchGroup { enter, .. } => todo!(),
+            HistoryEntry::Break => todo!(),
         }
     }
 
