@@ -187,12 +187,12 @@ export function tell_has_subtraces_store(
         case "CallHead":
         case "FeatureCallInput":
         case "FeatureStmt":
-        case "FuncStmt":
             return readable(false);
+        case "FuncStmt":
+        case "EagerExpr":
         case "ProcStmt":
             return readable(trace.has_subtraces);
         case "FeatureExpr":
-        case "EagerExpr":
             let opt_input_id_store = global.user_state.focus_store;
             return derived(
                 opt_input_id_store,

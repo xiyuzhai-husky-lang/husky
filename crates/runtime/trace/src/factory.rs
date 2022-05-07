@@ -8,6 +8,7 @@ mod feature_stmt;
 mod func_stmt;
 mod proc_stmt;
 
+use avec::Avec;
 use compile_time_db::{AskCompileTime, HuskyLangCompileTime};
 use expr::ExprTokenConfig;
 use feature::*;
@@ -15,7 +16,7 @@ use semantics_eager::*;
 use serde::Deserialize;
 use sync_utils::ARwLock;
 use text::{Text, TextQueryGroup};
-use vm::{InstructionSheet, LoopFrameData, StackSnapshot, VMLoopKind, VariableStack};
+use vm::{History, InstructionSheet, LoopFrameData, StackSnapshot, VMLoopKind, VariableStack};
 
 use crate::*;
 
@@ -175,6 +176,26 @@ pub trait CreateTrace<'eval>: AskCompileTime {
         let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory()
             .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
+    }
+
+    fn eager_expr_subtraces(
+        &self,
+        parent: &Trace<'eval>,
+        expr: &Arc<EagerExpr>,
+        history: &Arc<History<'eval>>,
+    ) -> Avec<Trace<'eval>> {
+        match expr.variant {
+            EagerExprVariant::Variable(_) => todo!(),
+            EagerExprVariant::This => todo!(),
+            EagerExprVariant::EntityRoute { route } => todo!(),
+            EagerExprVariant::PrimitiveLiteral(_) => todo!(),
+            EagerExprVariant::Bracketed(_) => todo!(),
+            EagerExprVariant::Opn {
+                ref opn_variant,
+                ref opds,
+            } => todo!(),
+            EagerExprVariant::Lambda(_, _) => todo!(),
+        }
     }
 
     fn loop_subtraces(

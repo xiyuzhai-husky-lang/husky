@@ -26,7 +26,7 @@
     $: has_subtraces_store = tell_has_subtraces_store(trace);
     $: has_subtraces = $has_subtraces_store;
     function toggle_expansion_locked() {
-        if (!locked) {
+        if (has_subtraces && !locked) {
             toggle_expansion(trace);
             locked = true;
             setTimeout(() => {
