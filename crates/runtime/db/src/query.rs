@@ -125,16 +125,17 @@ pub fn subtraces(
         TraceVariant::FeatureBranch(ref branch) => db.feature_branch_subtraces(trace, branch),
         TraceVariant::EagerExpr { .. } => todo!(),
         TraceVariant::LoopFrame {
-            loop_frame_data: ref vm_loop_frame,
+            ref loop_frame_data,
+            ref loop_stmt,
             ref body_stmts,
             ref body_instruction_sheet,
-            ..
         } => db.loop_frame_subtraces(
             db.compile_time(),
-            trace,
-            vm_loop_frame,
-            body_instruction_sheet,
+            loop_stmt,
             body_stmts,
+            body_instruction_sheet,
+            loop_frame_data,
+            trace,
         ),
     }
 }

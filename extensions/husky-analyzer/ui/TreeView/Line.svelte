@@ -102,6 +102,6 @@
         transform: rotate(90deg);
     }
     .unreachable {
-        opacity: 0.6;
+        opacity: 0.35;
     }
 </style>

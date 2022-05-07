@@ -101,7 +101,7 @@ impl<'eval> TraceFactory<'eval> {
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
-            } => self.eager_expr_lines(expr, text, history, ExprTokenConfig::expr()),
+            } => self.eager_expr_lines(text, expr, history, indent, ExprTokenConfig::expr()),
             TraceVariant::CallHead { ref tokens, .. } => vec![LineProps {
                 indent: 0,
                 idx: 0,
@@ -116,13 +116,13 @@ impl<'eval> TraceFactory<'eval> {
 
     fn new_trace(
         &self,
-        parent_id: Option<TraceId>,
+        opt_parent_id: Option<TraceId>,
         indent: Indent,
         kind: TraceVariant<'eval>,
         text: &Text,
     ) -> Arc<Trace<'eval>> {
         let trace = Arc::new(Trace::new(
-            parent_id,
+            opt_parent_id,
             indent,
             kind,
             self,
@@ -203,19 +203,21 @@ pub trait CreateTrace<'eval>: AskCompileTime {
     fn loop_frame_subtraces(
         &self,
         compile_time: &HuskyLangCompileTime,
-        parent: &Trace,
-        loop_frame_snapshot: &LoopFrameData<'eval>,
-        instruction_sheet: &InstructionSheet,
+        loop_stmt: &Arc<ProcStmt>,
         stmts: &[Arc<ProcStmt>],
+        instruction_sheet: &InstructionSheet,
+        loop_frame_data: &LoopFrameData<'eval>,
+        parent: &Trace,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(
             compile_time,
-            parent,
-            loop_frame_snapshot,
-            instruction_sheet,
-            stmts,
             text,
+            loop_stmt,
+            stmts,
+            instruction_sheet,
+            loop_frame_data,
+            parent,
         )
     }
 

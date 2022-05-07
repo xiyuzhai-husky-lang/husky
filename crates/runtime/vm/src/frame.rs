@@ -7,7 +7,7 @@ pub struct LoopFrameData<'eval> {
     pub mutations: Vec<MutationData<'eval>>,
     pub control: ControlSnapshot<'eval>,
     pub frame_var_value: i32,
-    pub kind: FrameKind,
+    pub frame_kind: FrameKind,
 }
 
 #[derive(Debug, Clone)]
