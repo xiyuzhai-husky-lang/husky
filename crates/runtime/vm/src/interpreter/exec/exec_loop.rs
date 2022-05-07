@@ -37,7 +37,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     mutations,
                     frame_var_value,
                     control: control.snapshot(),
-                    kind: loop_kind.into(),
+                    frame_kind: loop_kind.into(),
                 });
             },
             Mode::TrackMutation,

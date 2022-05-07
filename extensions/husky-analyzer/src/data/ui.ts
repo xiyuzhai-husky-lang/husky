@@ -38,8 +38,9 @@ export function get_show_store(trace: Trace) {
             case "FeatureCallInput":
                 return true;
             case "FeatureExpr":
-            case "EagerExpr":
                 return false;
+            case "EagerExpr":
+                return trace.parent !== null;
         }
     }
 }

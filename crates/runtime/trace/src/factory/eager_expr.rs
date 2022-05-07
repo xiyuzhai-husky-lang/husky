@@ -8,15 +8,15 @@ use crate::*;
 impl<'eval> TraceFactory<'eval> {
     pub fn new_eager_expr_trace(
         &self,
-        parent_id: TraceId,
-        expr: Arc<EagerExpr>,
-        value: StackValueSnapshot,
-        history: Arc<History<'eval>>,
         text: &Text,
+        expr: Arc<EagerExpr>,
+        history: Arc<History<'eval>>,
+        opt_parent: Option<&Trace>,
+        indent: Indent,
     ) -> Arc<Trace<'eval>> {
         self.new_trace(
-            Some(parent_id),
-            0,
+            opt_parent.map(|parent| parent.id),
+            indent,
             TraceVariant::EagerExpr { expr, history },
             text,
         )
@@ -24,13 +24,14 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn eager_expr_lines(
         &self,
-        expr: &Arc<EagerExpr>,
         text: &Text,
+        expr: &Arc<EagerExpr>,
         history: &Arc<History<'eval>>,
+        indent: u8,
         config: ExprTokenConfig,
     ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
-            indent: 0,
+            indent,
             idx: 0,
             tokens: self.eager_expr_tokens(expr, text, history, config),
         }]
@@ -44,15 +45,7 @@ impl<'eval> TraceFactory<'eval> {
         config: ExprTokenConfig,
     ) -> Vec<TokenProps<'eval>> {
         let associated_trace = if config.associated {
-            Some(self.new_trace(
-                None,
-                0,
-                TraceVariant::EagerExpr {
-                    expr: expr.clone(),
-                    history: history.clone(),
-                },
-                text,
-            ))
+            Some(self.new_eager_expr_trace(text, expr.clone(), history.clone(), None, 0))
         } else {
             None
         };

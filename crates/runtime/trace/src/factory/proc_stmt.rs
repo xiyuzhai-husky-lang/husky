@@ -1,4 +1,5 @@
 use compile_time_db::HuskyLangCompileTime;
+use print_utils::epin;
 use text::Text;
 use upcast::Upcast;
 use vm::{
@@ -263,21 +264,47 @@ impl<'eval> TraceFactory<'eval> {
     pub(super) fn loop_frame_subtraces(
         &self,
         compile_time: &HuskyLangCompileTime,
-        parent: &Trace,
-        loop_frame_snapshot: &LoopFrameData<'eval>,
-        instruction_sheet: &InstructionSheet,
-        stmts: &[Arc<ProcStmt>],
         text: &Text,
+        loop_stmt: &Arc<ProcStmt>,
+        stmts: &[Arc<ProcStmt>],
+        instruction_sheet: &InstructionSheet,
+        loop_frame_data: &LoopFrameData<'eval>,
+        parent: &Trace,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let history = exec_debug(
             compile_time.upcast(),
-            &loop_frame_snapshot.stack,
+            &loop_frame_data.stack,
             instruction_sheet,
         );
-        Arc::new(
-            self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history)
-                .collect(),
-        )
+        let mut subtraces: Vec<_> = self
+            .proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history)
+            .collect();
+        match loop_stmt.variant {
+            ProcStmtVariant::Loop {
+                ref loop_variant, ..
+            } => match loop_variant {
+                LoopVariant::For { .. } | LoopVariant::ForExt { .. } => (),
+                LoopVariant::While { condition } => subtraces.insert(
+                    0,
+                    self.new_eager_expr_trace(
+                        text,
+                        condition.clone(),
+                        history.clone(),
+                        Some(parent),
+                        parent.indent + 2,
+                    ),
+                ),
+                LoopVariant::DoWhile { condition } => subtraces.push(self.new_eager_expr_trace(
+                    text,
+                    condition.clone(),
+                    history.clone(),
+                    Some(parent),
+                    parent.indent + 2,
+                )),
+            },
+            _ => panic!(),
+        }
+        Arc::new(subtraces)
     }
 
     pub(super) fn loop_frame_lines(
@@ -296,7 +323,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         vm_loop_frame: &LoopFrameData,
     ) -> Vec<TokenProps<'eval>> {
-        match vm_loop_frame.kind {
+        match vm_loop_frame.frame_kind {
             vm::FrameKind::For(frame_var) => {
                 vec![
                     keyword!("frame "),
