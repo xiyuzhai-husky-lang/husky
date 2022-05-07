@@ -26,9 +26,9 @@ impl ExprTokenConfig {
         }
     }
 
-    pub(super) fn expr() -> Self {
+    pub(super) fn expr(associated: bool) -> Self {
         Self {
-            associated: false,
+            associated,
             appended: true,
         }
     }

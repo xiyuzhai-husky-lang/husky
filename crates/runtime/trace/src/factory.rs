@@ -72,6 +72,7 @@ impl<'eval> TraceFactory<'eval> {
         indent: Indent,
         kind: &TraceVariant<'eval>,
         text: &Text,
+        has_parent: bool,
     ) -> Vec<LineProps<'eval>> {
         match kind {
             TraceVariant::Main(feature_block) => vec![LineProps {
@@ -85,11 +86,11 @@ impl<'eval> TraceFactory<'eval> {
             }],
             TraceVariant::FeatureStmt(stmt) => self.feature_stmt_lines(stmt, text),
             TraceVariant::FeatureExpr(expr) => {
-                self.feature_expr_lines(expr, text, ExprTokenConfig::expr())
+                self.feature_expr_lines(expr, text, ExprTokenConfig::expr(false))
             }
             TraceVariant::FeatureBranch(branch) => self.feature_branch_lines(indent, branch, text),
             TraceVariant::FeatureCallInput { ident, input } => {
-                let mut lines = self.feature_expr_lines(input, text, ExprTokenConfig::expr());
+                let mut lines = self.feature_expr_lines(input, text, ExprTokenConfig::expr(true));
                 lines[0].tokens.insert(0, special!(" = "));
                 lines[0].tokens.insert(0, ident!(ident.0));
                 lines
@@ -102,7 +103,13 @@ impl<'eval> TraceFactory<'eval> {
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
-            } => self.eager_expr_lines(text, expr, history, indent, ExprTokenConfig::expr()),
+            } => self.eager_expr_lines(
+                text,
+                expr,
+                history,
+                indent,
+                ExprTokenConfig::expr(has_parent),
+            ),
             TraceVariant::CallHead { ref tokens, .. } => vec![LineProps {
                 indent: 0,
                 idx: 0,
