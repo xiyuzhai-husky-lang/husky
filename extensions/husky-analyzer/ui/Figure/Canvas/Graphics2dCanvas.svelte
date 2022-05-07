@@ -3,6 +3,8 @@
     import Shape from "./Graphics2d/Shape.svelte";
     import Image from "./Graphics2d/Image.svelte";
     export let figure: Graphics2dProps;
+    export let figure_canvas_height: number;
+    export let figure_canvas_width: number;
 
     $: svgXMin = figure.xrange[0];
     $: svgWidth = figure.xrange[1] - figure.xrange[0];
@@ -12,7 +14,11 @@
 
 <div class="wrapper">
     {#if figure.image !== null}
-        <Image image_props={figure.image} />
+        <Image
+            image_props={figure.image}
+            image_height={figure_canvas_height}
+            image_width={figure_canvas_width}
+        />
     {/if}
 
     <svg viewBox="{svgXMin} {svgYMin} {svgWidth} {svgHeight}">

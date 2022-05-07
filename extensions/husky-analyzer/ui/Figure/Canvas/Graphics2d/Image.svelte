@@ -6,17 +6,30 @@
     import { focus_store } from "src/data/ui";
 
     export let image_props: ImageProps;
+    export let image_height: number;
+    export let image_width: number;
+    $: console.log(
+        "image height: ",
+        image_height,
+        " image width: ",
+        image_width
+    );
     $: focus = $focus_store;
-    $: draw(canvas, image_props);
+    $: draw(canvas, image_props, image_height, image_width);
 
     let canvas: any;
 
-    function draw(canvas: any, image_props: ImageProps) {
+    function draw(
+        canvas: any,
+        image_props: ImageProps,
+        image_height: number,
+        image_width: number
+    ) {
         if (canvas === undefined) {
             return;
         }
         let ctx = canvas.getContext("2d");
-        const imageData = ctx.getImageData(0, 0, 900, 900);
+        const imageData = ctx.getImageData(0, 0, image_width, image_height);
         let image_loader = new ImageLoader(image_props);
 
         const original_height = image_loader.height();
@@ -24,11 +37,11 @@
 
         for (let p = 0; p < imageData.data.length; p += 4) {
             const q = p / 4;
-            const x = q % canvas.width;
-            const y = (q / canvas.width) >>> 0;
+            const x = q % image_width;
+            const y = (q / image_width) >>> 0;
 
-            const i = Math.floor((y / canvas.height) * original_height);
-            const j = Math.floor((x / canvas.width) * original_width);
+            const i = Math.floor((y / image_height) * original_height);
+            const j = Math.floor((x / image_width) * original_width);
             imageData.data[p + 0] = image_loader.r(i, j);
             imageData.data[p + 1] = image_loader.g(i, j);
             imageData.data[p + 2] = image_loader.b(i, j);
@@ -39,12 +52,10 @@
     }
 </script>
 
-<canvas bind:this={canvas} width="900" height="900" />
+<canvas bind:this={canvas} width={image_width} height={image_height} />
 
 <style>
     canvas {
-        height: 900px;
-        width: 900px;
         background-color: #666;
     }
 </style>
