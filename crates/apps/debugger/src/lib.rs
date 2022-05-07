@@ -2,6 +2,7 @@ mod config;
 mod error;
 pub mod flags;
 mod gui;
+mod impl_figure;
 pub mod mock;
 mod mode;
 mod notif;
@@ -10,6 +11,7 @@ mod state;
 use avec::Avec;
 pub use error::{DebuggerError, DebuggerResult};
 use focus::Focus;
+use impl_figure::FigureControl;
 use json_result::JsonResult;
 pub use mode::Mode;
 
@@ -130,10 +132,6 @@ impl Debugger {
         self.runtime.lock().unwrap().showns()
     }
 
-    pub async fn figure(&self, id: TraceId, focus: &Focus) -> FigureProps {
-        self.runtime.lock().unwrap().figure(id, focus)
-    }
-
     pub async fn activate(&self, id: TraceId) {
         self.state.lock().unwrap().active_trace_id = Some(id);
     }
@@ -146,7 +144,7 @@ impl Debugger {
         self.runtime.lock().unwrap().toggle_show(id)
     }
 
-    pub async fn trace(&self, id: TraceId) -> Arc<Trace<'static>> {
+    pub fn trace(&self, id: TraceId) -> Arc<Trace<'static>> {
         self.runtime.lock().unwrap().trace(id)
     }
 

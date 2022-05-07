@@ -1,4 +1,7 @@
+mod control;
 mod graphics2d;
+
+pub use control::*;
 
 use crate::*;
 use graphics2d::*;
@@ -16,7 +19,7 @@ pub enum FigureProps {
     },
     Plot2d {
         plot_kind: Plot2dKind,
-        groups: Vec<PointGroup>,
+        point_groups: Vec<Point2dGroup>,
         xrange: (f32, f32),
         yrange: (f32, f32),
     },
@@ -78,7 +81,7 @@ pub enum Plot2dKind {
 }
 
 #[derive(Debug, Serialize, Clone)]
-pub struct PointGroup {
+pub struct Point2dGroup {
     pub points: Vec<Point2d>,
     pub color: Color,
 }

@@ -9,20 +9,20 @@ mod token;
 mod variant;
 
 pub use factory::{CreateTrace, TraceFactory, TraceId};
-use feature::*;
 pub use figure::*;
-use file::FilePtr;
-use print_utils::p;
-use semantics_eager::*;
-use semantics_entity::*;
 pub use stalk::TraceStalk;
-use text::{Text, TextRange};
 pub use token::{TokenProps, TraceTokenKind};
 pub use variant::TraceVariant;
 
+use feature::*;
+use file::FilePtr;
 use fold::Indent;
+use print_utils::p;
+use semantics_eager::*;
+use semantics_entity::*;
 use serde::{ser::SerializeStruct, Serialize};
 use std::{borrow::Cow, sync::Arc};
+use text::{Text, TextRange};
 
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug, Clone)]
