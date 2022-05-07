@@ -12,3 +12,5 @@ Cargo.lock
 node_modules
 
 _outdated
+
+.vscode
