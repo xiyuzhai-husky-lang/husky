@@ -87,7 +87,7 @@ impl<'eval> Trace<'eval> {
         let (file, range) = variant.file_and_range();
         let reachable = variant.reachable();
         let has_subtraces = variant.has_subtraces(reachable);
-        let lines = trace_allocator.lines(id, indent, &variant, text);
+        let lines = trace_allocator.lines(id, indent, &variant, text, parent.is_some());
         Self {
             id,
             parent,
