@@ -70,7 +70,11 @@
     <p>title</p>
     <div class="FigureContent" style="flex-direction: {figure_flex_direction}">
         <FigureCanvas {figure} {figure_canvas_height} {figure_canvas_width} />
-        <FigureControl {figure_control_height} {figure_control_width} />
+        <FigureControl
+            {figure}
+            {figure_control_height}
+            {figure_control_width}
+        />
     </div>
 </div>
 
