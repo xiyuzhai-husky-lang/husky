@@ -1,24 +1,24 @@
 mod associated_traces;
 mod factory;
 mod figure;
-mod kind;
 mod stalk;
 mod subtraces;
 #[cfg(test)]
 mod tests;
 mod token;
+mod variant;
 
 pub use factory::{CreateTrace, TraceFactory, TraceId};
 use feature::*;
 pub use figure::*;
 use file::FilePtr;
-pub use kind::TraceVariant;
 use print_utils::p;
 use semantics_eager::*;
 use semantics_entity::*;
 pub use stalk::TraceStalk;
 use text::{Text, TextRange};
 pub use token::{TokenProps, TraceTokenKind};
+pub use variant::TraceVariant;
 
 use fold::Indent;
 use serde::{ser::SerializeStruct, Serialize};
@@ -35,6 +35,8 @@ pub struct Trace<'eval> {
     pub range: TextRange,
     pub file: FilePtr,
     pub compile_time_version: usize,
+    pub has_subtraces: bool,
+    pub reachable: bool,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -62,7 +64,8 @@ impl<'eval> Serialize for Trace<'eval> {
         state.serialize_field("parent", &self.parent)?;
         state.serialize_field("lines", &self.lines)?;
         state.serialize_field("kind", &self.variant)?;
-        state.serialize_field("has_subtraces", &self.has_subtraces())?;
+        state.serialize_field("has_subtraces", &self.has_subtraces)?;
+        state.serialize_field("reachable", &self.reachable)?;
         state.serialize_field(
             "subtraces_container_class",
             &self.subtraces_container_class(),
@@ -75,105 +78,30 @@ impl<'eval> Trace<'eval> {
     pub(crate) fn new(
         parent: Option<TraceId>,
         indent: Indent,
-        kind: TraceVariant<'eval>,
+        variant: TraceVariant<'eval>,
         trace_allocator: &TraceFactory<'eval>,
         text: &Text,
         compile_time_version: usize,
     ) -> Self {
         let id = trace_allocator.next_id();
-        let (file, range) = kind.file_and_range();
+        let (file, range) = variant.file_and_range();
+        let reachable = variant.reachable();
+        let has_subtraces = variant.has_subtraces(reachable);
         Self {
             id,
             parent,
             indent,
-            lines: trace_allocator.lines(id, indent, &kind, text),
-            variant: kind,
+            lines: trace_allocator.lines(id, indent, &variant, text),
+            variant,
             file,
             range,
             compile_time_version,
+            has_subtraces,
+            reachable,
         }
     }
 
     pub fn id(&self) -> TraceId {
         self.id
-    }
-
-    pub fn has_subtraces(&self) -> bool {
-        match self.variant {
-            TraceVariant::FeatureStmt(_)
-            | TraceVariant::FeatureCallInput { .. }
-            | TraceVariant::FuncStmt { .. } => false,
-            TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
-                ProcStmtVariant::Init { .. }
-                | ProcStmtVariant::Assert { .. }
-                | ProcStmtVariant::Execute { .. }
-                | ProcStmtVariant::Return { .. } => false,
-                ProcStmtVariant::Loop { .. } => true,
-                ProcStmtVariant::BranchGroup { .. } => panic!(),
-                ProcStmtVariant::Break => false,
-            },
-            TraceVariant::LoopFrame { .. }
-            | TraceVariant::Main(_)
-            | TraceVariant::FeatureBranch(_) => true,
-            TraceVariant::FeatureExpr(ref expr) => match expr.kind {
-                FeatureExprKind::PrimitiveLiteral(_)
-                | FeatureExprKind::PrimitiveBinaryOpr { .. }
-                | FeatureExprKind::Variable { .. } => false,
-                FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureExprKind::EnumLiteral { .. } => todo!(),
-                FeatureExprKind::EntityFeature { .. } => todo!(),
-                FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureExprKind::RecordOriginalFieldAccess {
-                    ref this,
-                    field_ident,
-                    ..
-                } => todo!(),
-                FeatureExprKind::This { ref repr } => todo!(),
-                FeatureExprKind::GlobalInput => false,
-                FeatureExprKind::RoutineCall {
-                    ref routine_defn, ..
-                } => !routine_defn.is_builtin(),
-                FeatureExprKind::PatternCall {} => true,
-                FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
-                FeatureExprKind::ElementAccess { ref opds, .. } => false,
-            },
-            TraceVariant::EagerExpr {
-                ref expr,
-                ref history,
-            } => {
-                if history.get(expr).is_none() {
-                    false
-                } else {
-                    match expr.variant {
-                        EagerExprVariant::Variable(_)
-                        | EagerExprVariant::EntityRoute { .. }
-                        | EagerExprVariant::PrimitiveLiteral(_) => false,
-                        EagerExprVariant::Bracketed(_) => todo!(),
-                        EagerExprVariant::Opn {
-                            ref opn_variant,
-                            ref opds,
-                            ..
-                        } => match opn_variant {
-                            EagerOpnVariant::RoutineCall(ranged_route) => {
-                                !ranged_route.route.is_builtin()
-                            }
-                            EagerOpnVariant::TypeCall { ranged_ty, .. } => {
-                                !ranged_ty.route.is_builtin()
-                            }
-                            EagerOpnVariant::PatternCall => todo!(),
-                            EagerOpnVariant::FieldAccess { .. } => false,
-                            EagerOpnVariant::Binary { .. }
-                            | EagerOpnVariant::Prefix { .. }
-                            | EagerOpnVariant::Suffix { .. }
-                            | EagerOpnVariant::MethodCall { .. }
-                            | EagerOpnVariant::ElementAccess => !opds[0].ty.is_builtin(),
-                        },
-                        EagerExprVariant::Lambda(_, _) => todo!(),
-                        EagerExprVariant::This => todo!(),
-                    }
-                }
-            }
-            TraceVariant::CallHead { .. } => false,
-        }
     }
 }

@@ -132,6 +132,7 @@ impl HuskyLangRuntime {
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
                 HistoryEntry::BranchGroup { enter, .. } => todo!(),
+                HistoryEntry::Break => todo!(),
             }
         } else {
             FigureProps::void()

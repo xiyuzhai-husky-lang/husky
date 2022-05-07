@@ -151,7 +151,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         VMControl::None
                     }
                 }
-                InstructionKind::Break => VMControl::Break,
+                InstructionKind::Break => {
+                    if mode == Mode::TrackHistory {
+                        self.history.write(ins, HistoryEntry::Break)
+                    }
+                    VMControl::Break
+                }
                 InstructionKind::BranchGroup { ref branches } => {
                     should!(self.stack.len() <= sheet.variable_stack.len());
                     let stack_len = self.stack.len();
