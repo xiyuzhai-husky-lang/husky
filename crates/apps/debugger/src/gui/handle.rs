@@ -20,15 +20,20 @@ pub fn handle_message(
                             opt_focus_for_figure,
                         } => {
                             debugger_.activate(id).await;
-                            let opt_figure = if let Some(ref focus) = opt_focus_for_figure {
-                                Some(debugger_.figure(id, focus).await)
-                            } else {
-                                None
-                            };
+                            let (opt_figure, opt_figure_control) =
+                                if let Some(ref focus) = opt_focus_for_figure {
+                                    (
+                                        Some(debugger_.figure(id, focus).await),
+                                        Some(debugger_.figure_control(id, focus)),
+                                    )
+                                } else {
+                                    (None, None)
+                                };
                             Response::Activate {
                                 id,
                                 opt_focus_for_figure,
                                 opt_figure,
+                                opt_figure_control,
                             }
                         }
                         Query::ToggleExpansion {
@@ -60,7 +65,7 @@ pub fn handle_message(
                             Response::ToggleShow { id }
                         }
                         Query::Trace { id } => {
-                            let trace = debugger_.trace(id).await;
+                            let trace = debugger_.trace(id);
                             Response::Trace { id, trace }
                         }
                         Query::TraceStalk { trace_id, input_id } => {
