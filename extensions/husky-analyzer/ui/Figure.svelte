@@ -32,7 +32,7 @@
         figure_height: number,
         figure_width: number
     ): number {
-        return 0.85 * Math.min(figure_height, figure_width);
+        return Math.floor(0.85 * Math.min(figure_height, figure_width));
     }
 
     function calc_figure_control_height(
@@ -41,7 +41,7 @@
         figure_canvas_height: number
     ): number {
         if (vertical) {
-            return figure_height * 0.85 - figure_canvas_height;
+            return Math.floor(figure_height * 0.85) - figure_canvas_height;
         } else {
             return figure_canvas_height;
         }
@@ -55,7 +55,7 @@
         if (vertical) {
             return figure_canvas_width;
         } else {
-            return figure_width * 0.85 - figure_canvas_width;
+            return Math.floor(figure_width * 0.85) - figure_canvas_width;
         }
     }
 </script>
