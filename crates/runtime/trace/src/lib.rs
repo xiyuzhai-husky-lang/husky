@@ -27,7 +27,7 @@ use text::{Text, TextRange};
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug, Clone)]
 pub struct Trace<'eval> {
-    parent: Option<TraceId>,
+    pub parent: Option<TraceId>,
     pub(crate) id: TraceId,
     pub variant: TraceVariant<'eval>,
     pub indent: Indent,

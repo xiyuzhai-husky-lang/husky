@@ -12,6 +12,7 @@ use file::FilePtr;
 pub use id::{InstructionId, InstructionSource};
 pub use sheet::InstructionSheet;
 use text::TextRange;
+use word::Identifier;
 
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -65,6 +66,7 @@ pub enum InstructionKind {
         binding: Binding,
         range: TextRange,
         ty: EntityRoutePtr,
+        varname: Identifier,
     },
     PushPrimitiveLiteral(PrimitiveValue),
     FieldAccessCompiled {

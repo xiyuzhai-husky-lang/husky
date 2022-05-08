@@ -9,8 +9,7 @@ use datasets::LabeledData;
 pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 use focus::Focus;
 use json_result::JsonResult;
-use query::EvalFeature;
-pub use query::{RuntimeQueryGroup, RuntimeQueryGroupStorage};
+pub use query::*;
 
 use check_utils::*;
 use compile_time_db::*;

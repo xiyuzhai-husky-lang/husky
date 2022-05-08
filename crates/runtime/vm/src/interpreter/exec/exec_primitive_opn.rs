@@ -62,9 +62,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                             HistoryEntry::Exec {
                                 mutations: vec![MutationData {
                                     file: ins.src.file(),
-                                    range: this_range,
+                                    kind: MutationDataKind::Exec { range: this_range },
                                     ty: this_ty,
-                                    before,
+                                    before: Some(before),
                                     after,
                                 }],
                             },

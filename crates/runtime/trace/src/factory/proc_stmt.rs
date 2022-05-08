@@ -273,7 +273,7 @@ impl<'eval> TraceFactory<'eval> {
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let history = exec_debug(
             compile_time.upcast(),
-            &loop_frame_data.stack,
+            &loop_frame_data.stack_snapshot,
             instruction_sheet,
         );
         let mut subtraces: Vec<_> = self

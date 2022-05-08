@@ -36,9 +36,9 @@ pub enum FigureProps {
 
 #[derive(Debug, Serialize, Clone)]
 pub struct MutationFigureProps {
-    name: String,
-    before: FigureProps,
-    after: FigureProps,
+    pub name: String,
+    pub before: Option<FigureProps>,
+    pub after: FigureProps,
 }
 
 impl<'eval> MutationFigureProps {
@@ -48,8 +48,14 @@ impl<'eval> MutationFigureProps {
         mutation_data: &MutationData<'eval>,
     ) -> Self {
         MutationFigureProps {
-            name: text.ranged(mutation_data.range),
-            before: FigureProps::new_specific(visualizer.visualize(mutation_data.before.any_ref())),
+            name: match mutation_data.kind {
+                vm::MutationDataKind::Exec { range } => text.ranged(range),
+                vm::MutationDataKind::Block { varname, .. } => varname.as_str().to_string(),
+            },
+            before: mutation_data
+                .before
+                .as_ref()
+                .map(|before| FigureProps::new_specific(visualizer.visualize(before.any_ref()))),
             after: FigureProps::new_specific(visualizer.visualize(mutation_data.after.any_ref())),
         }
     }

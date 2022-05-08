@@ -14,6 +14,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let stack_idx = self.sheet.variable_stack.stack_idx(varname);
                 self.push_instruction(Instruction::new(
                     InstructionKind::PushVariable {
+                        varname: varname.into(),
                         stack_idx,
                         binding: expr.qualified_ty.qual.binding(expr.contract),
                         range: expr.range,
@@ -35,6 +36,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::This => self.push_instruction(Instruction::new(
                 InstructionKind::PushVariable {
+                    varname: ContextualIdentifier::ThisData.into(),
                     stack_idx: StackIdx::this(),
                     binding: expr.qualified_ty.qual.binding(expr.contract),
                     range: expr.range,
