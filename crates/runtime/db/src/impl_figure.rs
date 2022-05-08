@@ -7,7 +7,7 @@ use semantics_eager::{
 };
 use text::TextQueryGroup;
 use trace::MutationFigureProps;
-use vm::{History, HistoryEntry, MutationData};
+use vm::{History, HistoryEntry, MutationData, MutationDataKind, StackSnapshot};
 
 impl HuskyLangRuntime {
     pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureProps {
@@ -39,7 +39,11 @@ impl HuskyLangRuntime {
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ..
-            } => self.mutations_figure(&loop_frame_data.mutations),
+            } => self.loop_frame_mutations_figure(
+                trace.parent.unwrap(),
+                &loop_frame_data.mutations,
+                &loop_frame_data.stack_snapshot,
+            ),
         }
     }
 
@@ -149,5 +153,60 @@ impl HuskyLangRuntime {
                 )
             }),
         }
+    }
+
+    pub fn loop_frame_mutations_figure(
+        &self,
+        loop_trace_id: TraceId,
+        frame_mutations: &[MutationData],
+        frame_stack_snapshot: &StackSnapshot,
+    ) -> FigureProps {
+        let loop_trace = self.trace(loop_trace_id);
+        let mutations = match loop_trace.variant {
+            TraceVariant::ProcStmt {
+                ref stmt,
+                ref history,
+            } => match history.get(stmt).unwrap() {
+                HistoryEntry::Loop {
+                    loop_kind,
+                    control,
+                    stack_snapshot,
+                    body,
+                    mutations,
+                } => mutations
+                    .iter()
+                    .map(|mutation| {
+                        if let Some(frame_mutation) = frame_mutations
+                            .iter()
+                            .find(|frame_mutation| frame_mutation.varidx() == mutation.varidx())
+                        {
+                            MutationFigureProps::new(
+                                &self.compile_time().text(frame_mutation.file).unwrap(),
+                                &self.visualizer(self.version(), frame_mutation.ty),
+                                frame_mutation,
+                            )
+                        } else {
+                            MutationFigureProps {
+                                name: match mutation.kind {
+                                    MutationDataKind::Exec { range } => panic!(),
+                                    MutationDataKind::Block { stack_idx, varname } => {
+                                        varname.as_str().to_string()
+                                    }
+                                },
+                                before: None,
+                                after: FigureProps::new_specific(
+                                    self.visualizer(self.version(), mutation.ty).visualize(
+                                        frame_stack_snapshot[mutation.varidx()].any_ref(),
+                                    ),
+                                ),
+                            }
+                        }
+                    })
+                    .collect(),
+                _ => panic!(),
+            },
+            _ => panic!(),
+        };
+        FigureProps::Mutations { mutations }
     }
 }

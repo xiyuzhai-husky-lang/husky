@@ -17,13 +17,14 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     stack_idx,
                     range,
                     ty,
+                    varname,
                 } => {
                     let value = self.stack.push_variable(stack_idx, binding);
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => match binding {
                             Binding::RefMut => {
-                                self.record_mutation(stack_idx, ins.src.file(), range, ty)
+                                self.record_mutation(stack_idx, varname, ins.src.file(), range, ty)
                             }
                             _ => (),
                         },
@@ -97,7 +98,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => {
                             self.take_snapshot();
                             let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
-                            let (snapshot, mutations) = self.collect_mutations();
+                            let (snapshot, mutations) = self.collect_block_mutations();
                             self.history.write(
                                 ins,
                                 HistoryEntry::loop_entry(
@@ -177,7 +178,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                                 Mode::TrackHistory => {
                                     self.take_snapshot();
                                     control = self.exec_all(&b.body, Mode::TrackHistory);
-                                    let (stack_snapshot, mutations) = self.collect_mutations();
+                                    let (stack_snapshot, mutations) =
+                                        self.collect_block_mutations();
                                     self.history.write(
                                         ins,
                                         HistoryEntry::BranchGroup {

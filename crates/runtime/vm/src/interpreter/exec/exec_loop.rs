@@ -31,9 +31,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             body,
             |interpreter| interpreter.take_snapshot(),
             |interpreter, frame_var_value, control| {
-                let (snapshot, mutations) = interpreter.collect_mutations();
+                let (snapshot, mutations) = interpreter.collect_block_mutations();
                 interpreter.frames.push(LoopFrameData {
-                    stack: snapshot,
+                    stack_snapshot: snapshot,
                     mutations,
                     frame_var_value,
                     control: control.snapshot(),

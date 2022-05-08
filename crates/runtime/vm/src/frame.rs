@@ -1,9 +1,11 @@
+use std::collections::HashMap;
+
 use crate::*;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone)]
 pub struct LoopFrameData<'eval> {
-    pub stack: StackSnapshot<'eval>,
+    pub stack_snapshot: StackSnapshot<'eval>,
     pub mutations: Vec<MutationData<'eval>>,
     pub control: ControlSnapshot<'eval>,
     pub frame_var_value: i32,

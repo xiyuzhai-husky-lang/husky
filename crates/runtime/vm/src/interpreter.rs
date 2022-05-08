@@ -17,7 +17,7 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
     pub(crate) history: History<'eval>,
     snapshot: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    mutations: HashMap<StackIdx, (FilePtr, TextRange, EntityRoutePtr)>,
+    variable_mutations: HashMap<StackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
 }
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -31,7 +31,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             history: Default::default(),
             snapshot: None,
             frames: vec![],
-            mutations: Default::default(),
+            variable_mutations: Default::default(),
         })
     }
 
@@ -45,7 +45,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             history: Default::default(),
             snapshot: None,
             frames: vec![],
-            mutations: Default::default(),
+            variable_mutations: Default::default(),
         }
     }
 
@@ -98,25 +98,30 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     fn record_mutation(
         &mut self,
         stack_idx: StackIdx,
+        varname: Identifier,
         file: FilePtr,
         range: TextRange,
         ty: EntityRoutePtr,
     ) {
-        self.mutations.insert(stack_idx, (file, range, ty));
+        self.variable_mutations
+            .insert(stack_idx, (varname, file, range, ty));
     }
 
-    fn collect_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData<'eval>>) {
+    fn collect_block_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData<'eval>>) {
         let snapshot = std::mem::take(&mut self.snapshot).expect("bug");
-        let mutations = std::mem::take(&mut self.mutations)
+        let mutations = std::mem::take(&mut self.variable_mutations)
             .iter()
-            .filter_map(|(stack_idx, (file, range, ty))| {
+            .filter_map(|(stack_idx, (varname, file, _, ty))| {
                 let stack_idx = *stack_idx;
                 if stack_idx.raw() < snapshot.len() {
                     Some(MutationData {
                         file: *file,
-                        range: *range,
+                        kind: MutationDataKind::Block {
+                            stack_idx,
+                            varname: *varname,
+                        },
                         ty: *ty,
-                        before: snapshot[stack_idx].clone(),
+                        before: Some(snapshot[stack_idx].clone()),
                         after: self.stack.snapshot_value(stack_idx),
                     })
                 } else {

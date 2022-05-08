@@ -3,6 +3,7 @@ import {
     decode_memb,
     d_memb_old,
     decode_string,
+    decode_opt,
 } from "src/decode/decode";
 import type { Point2d } from "src/geom2d/geom2d";
 import type Graphics2dProps from "./Graphics2d";
@@ -18,13 +19,14 @@ export type MutationsFigureProps = {
 
 export type MutationVisualProps = {
     name: string;
-    before: FigureProps;
+    before: FigureProps | null;
     after: FigureProps;
 };
 
 export function decode_mutation(data: unknown): MutationVisualProps {
     let name = decode_string(decode_memb(data, "name"));
-    let before = decode_figure_props(decode_memb(data, "before"));
+
+    let before = decode_opt(decode_memb(data, "before"), decode_figure_props);
     let after = decode_figure_props(decode_memb(data, "after"));
     return { name, before, after };
 }
