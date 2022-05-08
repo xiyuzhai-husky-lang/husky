@@ -8,6 +8,16 @@ export function decode_array<T>(
     return data.map((element) => decode_element(element));
 }
 
+export function decode_array_with_index<T>(
+    data: unknown,
+    decode_element: (element: unknown, idx: number) => T
+): T[] {
+    if (!Array.isArray(data)) {
+        throw new Error(`${data} is not a valid array`);
+    }
+    return data.map((element, idx) => decode_element(element, idx));
+}
+
 export function decode_number(data: unknown): number {
     if (typeof data !== "number") {
         throw new Error(`${data} is not a valid number`);

@@ -1,12 +1,12 @@
 use json_map::JsonMap;
 
-use crate::{impl_figure::FigureControl, *};
+use crate::{impl_figure::FigureControlProps, *};
 
 #[derive(Default)]
 pub struct DebuggerState {
     pub(crate) active_trace_id: Option<TraceId>,
     pub(crate) subtraces_map: JsonMap<(TraceId, Option<usize>), Vec<TraceId>>,
-    pub(crate) figure_control: JsonMap<TraceId, FigureControl>,
+    pub(crate) figure_control: JsonMap<TraceId, FigureControlProps>,
 }
 
 impl DebuggerState {

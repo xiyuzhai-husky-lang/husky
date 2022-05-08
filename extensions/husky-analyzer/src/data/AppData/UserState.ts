@@ -3,7 +3,8 @@ import type { Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import type InitData from "./InitData";
 import StoreMap from "src/abstraction/StoreMap";
-import Focus from "./Focus";
+import Focus from "../Focus";
+import type FigureControlProps from "src/trace/figure/FigureControlProps";
 
 class UserState {
     //volatile
@@ -12,6 +13,9 @@ class UserState {
     shown_stores: StoreMap<boolean> = new StoreMap();
     focus_store: Writable<Focus> = writable(new Focus());
     focus_locked_store: Writable<boolean> = writable(true);
+    figure_control_stores: {
+        [figure_control_key: string]: FigureControlProps;
+    } = {};
 
     init(init_state: InitData) {
         this.active_trace_store.set(
@@ -52,6 +56,16 @@ class UserState {
     did_lock_focus(focus: Focus) {
         this.focus_store.set(focus);
         this.focus_locked_store.set(true);
+    }
+
+    private figure_control_key(trace: Trace): string {
+        throw new Error("todo");
+    }
+
+    set_figure_control() {}
+
+    get_figure_control_store(trace: Trace): FigureControlProps {
+        throw new Error("todo");
     }
 
     print_state() {

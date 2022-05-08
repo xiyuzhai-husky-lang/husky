@@ -1,11 +1,15 @@
-import type { LockFocusResponse } from "src/server/DebuggerResponse";
+import type {
+    FigureControlResponse,
+    LockFocusResponse,
+} from "src/server/DebuggerResponse";
 import type FigureProps from "src/trace/figure/FigureProps";
 import type TraceStalk from "src/trace/stalk/TraceStalk";
 import type Trace from "src/trace/Trace";
 import { get } from "svelte/store";
 import type Focus from "./Focus";
 import global from "./global";
-import type InitData from "./InitData";
+import type InitData from "./AppData/InitData";
+import type FigureControlProps from "src/trace/figure/FigureControlProps";
 
 export function receive_init_response(init_state: InitData) {
     global.init(init_state);
@@ -16,8 +20,6 @@ export function receive_subtraces(
     eff_opt_input_id: number | null,
     subtraces: Trace[]
 ) {
-    console.log("receive subtraces for trace id = ", trace_id);
-    console.log("subtraces: ", subtraces);
     global.trace_cache.receive_subtraces(trace_id, eff_opt_input_id, subtraces);
     global.update_trace_listing();
 }
@@ -52,7 +54,8 @@ export function set_figure(
 export function did_activate(
     trace_id: number,
     opt_focus_for_figure: Focus | null,
-    opt_figure: FigureProps | null
+    opt_figure: FigureProps | null,
+    opt_figure_control: FigureControlProps | null
 ) {
     if (opt_figure !== null) {
         if (opt_focus_for_figure === null) {
@@ -86,6 +89,10 @@ export function did_lock_focus(response: LockFocusResponse) {
         );
     }
     global.user_state.did_lock_focus(response.focus);
+}
+
+export function did_update_figure_control(response: FigureControlResponse) {
+    global.user_state.set_figure_control();
 }
 
 export function opt_active_trace_id_for_figure(focus: Focus): number | null {

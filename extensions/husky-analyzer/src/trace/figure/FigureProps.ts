@@ -4,6 +4,7 @@ import {
     d_memb_old,
     decode_string,
     decode_opt,
+    decode_array_with_index,
 } from "src/decode/decode";
 import type { Point2d } from "src/geom2d/geom2d";
 import type Graphics2dProps from "./Graphics2d";
@@ -21,14 +22,18 @@ export type MutationFigureProps = {
     name: string;
     before: FigureProps | null;
     after: FigureProps;
+    idx: number;
 };
 
-export function decode_mutation(data: unknown): MutationFigureProps {
+export function decode_mutation(
+    data: unknown,
+    idx: number
+): MutationFigureProps {
     let name = decode_string(decode_memb(data, "name"));
 
     let before = decode_opt(decode_memb(data, "before"), decode_figure_props);
     let after = decode_figure_props(decode_memb(data, "after"));
-    return { name, before, after };
+    return { name, before, after, idx };
 }
 
 export type PointGroup = {
@@ -65,7 +70,7 @@ export function decode_figure_props(data: unknown): FigureProps {
         case "Mutations":
             return {
                 kind: "Mutations",
-                mutations: decode_array(
+                mutations: decode_array_with_index(
                     decode_memb(data, "mutations"),
                     decode_mutation
                 ),

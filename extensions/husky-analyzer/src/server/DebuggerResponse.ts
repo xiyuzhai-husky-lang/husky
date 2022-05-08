@@ -1,5 +1,5 @@
 import type FigureProps from "trace/figure/FigureProps";
-import InitData, { decode_init_state } from "src/data/InitData";
+import InitData, { decode_init_state } from "src/data/AppData/InitData";
 import Trace, { decode_trace } from "src/trace/Trace";
 import type TraceStalk from "src/trace/stalk/TraceStalk";
 import {
@@ -14,22 +14,25 @@ import { decode_figure_props } from "trace/figure/FigureProps";
 import Focus from "src/data/Focus";
 import { decode_result } from "src/abstraction/Result";
 import type Result from "src/abstraction/Result";
+import type FigureControlProps from "src/trace/figure/FigureControlProps";
+import { decode_figure_control_props } from "src/trace/figure/FigureControlProps";
 
 export type InitResponse = {
     kind: "Init";
     init_state: InitData;
 };
-type TraceResponse = {
+export type TraceResponse = {
     kind: "Trace";
     trace: Trace;
 };
-type ActivateResponse = {
+export type ActivateResponse = {
     kind: "Activate";
     id: number;
     opt_focus_for_figure: Focus | null;
     opt_figure: FigureProps | null;
+    opt_figure_control: FigureControlProps | null;
 };
-type ToggleExpansionResponse = {
+export type ToggleExpansionResponse = {
     kind: "ToggleExpansion";
     id: number;
     effective_opt_input_id: number | null;
@@ -37,12 +40,12 @@ type ToggleExpansionResponse = {
     associated_traces: Trace[];
 };
 
-type ToggleShowResponse = {
+export type ToggleShowResponse = {
     kind: "ToggleShow";
     id: number;
 };
 
-type DecodeFocusResponse = {
+export type DecodeFocusResponse = {
     kind: "DecodeFocus";
     focus_result: Result<Focus>;
 };
@@ -54,7 +57,7 @@ export type LockFocusResponse = {
     opt_figure: FigureProps | null;
 };
 
-type SetShownResponse = {
+export type SetShownResponse = {
     kind: "SetShown";
     trace_id: number;
     is_shown: boolean;
@@ -65,6 +68,9 @@ export type TraceStalkResponse = {
     input_id: number;
     stalk: TraceStalk;
 };
+
+export type FigureControlResponse = {};
+
 export type DebuggerResponse =
     | InitResponse
     | TraceResponse
@@ -103,6 +109,10 @@ export function parse_debugger_response(text: string): DebuggerResponse {
                 opt_figure: decode_opt(
                     decode_memb(props, "opt_figure"),
                     decode_figure_props
+                ),
+                opt_figure_control: decode_opt(
+                    decode_memb(props, "opt_figure_control"),
+                    decode_figure_control_props
                 ),
             };
         case "ToggleExpansion":

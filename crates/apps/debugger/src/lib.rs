@@ -11,7 +11,7 @@ mod state;
 use avec::Avec;
 pub use error::{DebuggerError, DebuggerResult};
 use focus::Focus;
-use impl_figure::FigureControl;
+use impl_figure::FigureControlProps;
 use json_result::JsonResult;
 pub use mode::Mode;
 
