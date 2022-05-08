@@ -1,4 +1,6 @@
 <script lang="ts">
+    import FlexDirection from "src/abstraction/FlexDiretion";
+
     import type FigureProps from "trace/figure/FigureProps";
     import FigureCanvas from "./Figure/Canvas.svelte";
     import FigureControl from "./Figure/Control.svelte";
@@ -9,7 +11,8 @@
 
     // flex
     $: vertical = figure_height > figure_width;
-    $: figure_flex_direction = vertical ? "column" : "row";
+    $: figure_flex_direction = new FlexDirection(!vertical);
+    $: figure_control_flex_direction = figure_flex_direction.transpose();
     // canvas
     $: figure_canvas_height = calc_figure_canvas_dimension(
         figure_height,
@@ -68,12 +71,16 @@
     bind:clientWidth={figure_width}
 >
     <p>title</p>
-    <div class="FigureContent" style="flex-direction: {figure_flex_direction}">
+    <div
+        class="FigureContent"
+        style="flex-direction: {figure_flex_direction.code()}"
+    >
         <FigureCanvas {figure} {figure_canvas_height} {figure_canvas_width} />
         <FigureControl
             {figure}
             {figure_control_height}
             {figure_control_width}
+            {figure_control_flex_direction}
         />
     </div>
 </div>

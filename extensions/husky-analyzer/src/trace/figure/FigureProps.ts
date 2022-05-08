@@ -14,16 +14,16 @@ import { decode_primitive_value } from "./Primitive";
 
 export type MutationsFigureProps = {
     kind: "Mutations";
-    mutations: MutationVisualProps[];
+    mutations: MutationFigureProps[];
 };
 
-export type MutationVisualProps = {
+export type MutationFigureProps = {
     name: string;
     before: FigureProps | null;
     after: FigureProps;
 };
 
-export function decode_mutation(data: unknown): MutationVisualProps {
+export function decode_mutation(data: unknown): MutationFigureProps {
     let name = decode_string(decode_memb(data, "name"));
 
     let before = decode_opt(decode_memb(data, "before"), decode_figure_props);
