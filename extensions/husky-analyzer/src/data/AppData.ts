@@ -1,7 +1,7 @@
-import type InitData from "./InitData";
-import TraceCache from "./TraceCache";
-import FigureCache from "./FigureCache";
-import UserState from "./UserState";
+import type InitData from "./AppData/InitData";
+import TraceCache from "./AppData/TraceCache";
+import FigureCache from "./AppData/FigureCache";
+import UserState from "./AppData/UserState";
 import type { Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import type Trace from "src/trace/Trace";

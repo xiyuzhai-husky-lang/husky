@@ -6,7 +6,7 @@ import {
 } from "src/decode/decode";
 import type FigureProps from "src/trace/figure/FigureProps";
 import Trace from "src/trace/Trace";
-import Focus from "./Focus";
+import Focus from "../Focus";
 
 export default class InitData {
     active_trace_id: number | null;

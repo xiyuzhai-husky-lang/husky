@@ -1,6 +1,8 @@
 import type FigureProps from "src/trace/figure/FigureProps";
-import type Focus from "./Focus";
+import type Focus from "../Focus";
 import type InitData from "./InitData";
+import type Trace from "src/trace/Trace";
+import type FigureControlProps from "src/trace/figure/FigureControlProps";
 
 class FigureCache {
     figures: { [focus: string]: FigureProps } = {};

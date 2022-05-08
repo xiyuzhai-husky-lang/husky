@@ -45,7 +45,8 @@ class Server {
                 server_handle.did_activate(
                     response.id,
                     response.opt_focus_for_figure,
-                    response.opt_figure
+                    response.opt_figure,
+                    response.opt_figure_control
                 );
                 break;
             case "ToggleExpansion":

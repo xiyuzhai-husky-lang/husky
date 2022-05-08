@@ -6,9 +6,9 @@ import type TraceStalk from "src/trace/stalk/TraceStalk";
 import type Trace from "src/trace/Trace";
 import type { Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
-import type Focus from "./Focus";
+import type Focus from "../Focus";
 import type InitData from "./InitData";
-import { gen_subtraces_key } from "./key";
+import { gen_subtraces_key } from "../key";
 
 class TraceCache {
     traces: NDict<Trace> = new NDict();

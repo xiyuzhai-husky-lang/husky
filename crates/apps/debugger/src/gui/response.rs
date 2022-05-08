@@ -14,7 +14,7 @@ pub(super) enum Response<'a> {
         id: TraceId,
         opt_focus_for_figure: Option<Focus>,
         opt_figure: Option<FigureProps>,
-        opt_figure_control: Option<FigureControl>,
+        opt_figure_control: Option<FigureControlProps>,
     },
     ToggleExpansion {
         id: TraceId,
