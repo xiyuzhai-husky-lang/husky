@@ -25,6 +25,7 @@ impl Focus {
             TraceVariant::LoopFrame { .. } => todo!(),
             TraceVariant::EagerExpr { .. } => todo!(),
             TraceVariant::CallHead { .. } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
         }
     }
 

@@ -101,7 +101,7 @@ pub fn subtraces(
                     HistoryEntry::Loop {
                         control,
                         ref stack_snapshot,
-                        ref body,
+                        body_instruction_sheet: ref body,
                         loop_kind,
                         ..
                     } => db.loop_subtraces(
@@ -113,7 +113,10 @@ pub fn subtraces(
                         stack_snapshot,
                         body,
                     ),
-                    HistoryEntry::BranchGroup { enter, .. } => todo!(),
+                    HistoryEntry::BranchGroup {
+                        branch_entered: enter,
+                        ..
+                    } => todo!(),
                     HistoryEntry::Break => todo!(),
                 }
             }
@@ -133,13 +136,30 @@ pub fn subtraces(
             ref body_stmts,
             ref body_instruction_sheet,
         } => db.loop_frame_subtraces(
-            db.compile_time(),
             loop_stmt,
             body_stmts,
             body_instruction_sheet,
             loop_frame_data,
             trace,
         ),
+        TraceVariant::ProcBranch {
+            ref stmt,
+            branch_idx,
+            ref history,
+            ref vm_branch,
+            ref branch,
+            ..
+        } => match history.get(stmt).unwrap() {
+            HistoryEntry::BranchGroup {
+                stack_snapshot,
+                branch_entered,
+                ..
+            } => {
+                should_eq!(branch_idx, *branch_entered);
+                db.proc_branch_subtraces(&branch.stmts, &vm_branch.body, stack_snapshot, trace)
+            }
+            _ => panic!(),
+        },
     }
 }
 
@@ -295,5 +315,6 @@ pub fn trace_stalk(
             vm::ControlSnapshot::Break => todo!(),
             vm::ControlSnapshot::Err(_) => todo!(),
         },
+        TraceVariant::ProcBranch { .. } => panic!(),
     })
 }

@@ -1,5 +1,7 @@
 use feature::*;
-use vm::{History, InstructionSheet, LoopFrameData, StackValueSnapshot, VMControl};
+use vm::{
+    History, HistoryEntry, InstructionSheet, LoopFrameData, StackValueSnapshot, VMBranch, VMControl,
+};
 use word::CustomIdentifier;
 
 use crate::*;
@@ -20,6 +22,13 @@ pub enum TraceVariant<'eval> {
     },
     ProcStmt {
         stmt: Arc<ProcStmt>,
+        history: Arc<History<'eval>>,
+    },
+    ProcBranch {
+        stmt: Arc<ProcStmt>,
+        branch: Arc<ProcBranch>,
+        vm_branch: Arc<VMBranch>,
+        branch_idx: u8,
         history: Arc<History<'eval>>,
     },
     LoopFrame {
@@ -51,6 +60,7 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::CallHead { ref entity, .. } => (entity.file, entity.range),
             TraceVariant::ProcStmt { stmt, .. } => (stmt.file, stmt.range),
             TraceVariant::LoopFrame { loop_stmt, .. } => (loop_stmt.file, loop_stmt.range),
+            TraceVariant::ProcBranch { stmt, branch, .. } => (stmt.file, branch.range),
         }
     }
 
@@ -123,6 +133,21 @@ impl<'eval> TraceVariant<'eval> {
                 EagerExprVariant::This => todo!(),
             },
             TraceVariant::CallHead { .. } => false,
+            TraceVariant::ProcBranch {
+                stmt,
+                branch_idx,
+                history,
+                ..
+            } => match history.get(stmt).unwrap() {
+                HistoryEntry::BranchGroup { branch_entered, .. } => {
+                    if branch_entered == branch_idx {
+                        true
+                    } else {
+                        false
+                    }
+                }
+                _ => panic!(),
+            },
         }
     }
 
@@ -147,7 +172,7 @@ impl<'eval> TraceVariant<'eval> {
                 } => history.contains(initial_value),
                 ProcStmtVariant::Assert { ref condition } => history.contains(condition),
                 ProcStmtVariant::Execute { ref expr } => history.contains(expr),
-                ProcStmtVariant::BranchGroup { .. } => todo!(),
+                ProcStmtVariant::BranchGroup { .. } => panic!(),
                 ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
                 ProcStmtVariant::Return { ref result } => history.contains(result),
             },
@@ -159,6 +184,21 @@ impl<'eval> TraceVariant<'eval> {
             } => true,
             TraceVariant::EagerExpr { expr, history } => history.contains(expr),
             TraceVariant::CallHead { entity, tokens } => true,
+            TraceVariant::ProcBranch {
+                stmt,
+                branch_idx,
+                history,
+                ..
+            } => match history.get(stmt).unwrap() {
+                HistoryEntry::BranchGroup { branch_entered, .. } => {
+                    if branch_idx > branch_entered {
+                        false
+                    } else {
+                        true
+                    }
+                }
+                _ => panic!(),
+            },
         }
     }
 }
@@ -179,6 +219,7 @@ impl<'eval> Serialize for TraceVariant<'eval> {
             TraceVariant::EagerExpr { .. } => "EagerExpr",
             TraceVariant::CallHead { .. } => "CallHead",
             TraceVariant::LoopFrame { .. } => "LoopFrame",
+            TraceVariant::ProcBranch { .. } => "ProcBranch",
         })
     }
 }

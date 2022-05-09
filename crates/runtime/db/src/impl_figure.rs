@@ -44,6 +44,25 @@ impl HuskyLangRuntime {
                 &loop_frame_data.mutations,
                 &loop_frame_data.stack_snapshot,
             ),
+            TraceVariant::ProcBranch {
+                ref stmt,
+                branch_idx,
+                ref history,
+                ..
+            } => match history.get(stmt).unwrap() {
+                HistoryEntry::BranchGroup {
+                    branch_entered,
+                    mutations,
+                    ..
+                } => {
+                    if *branch_entered == branch_idx {
+                        self.mutations_figure(mutations)
+                    } else {
+                        FigureProps::void()
+                    }
+                }
+                _ => panic!(),
+            },
         }
     }
 
@@ -137,7 +156,10 @@ impl HuskyLangRuntime {
                 }
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
-                HistoryEntry::BranchGroup { enter, .. } => todo!(),
+                HistoryEntry::BranchGroup {
+                    branch_entered: enter,
+                    ..
+                } => todo!(),
                 HistoryEntry::Break => todo!(),
             }
         } else {
@@ -173,7 +195,7 @@ impl HuskyLangRuntime {
                     loop_kind,
                     control,
                     stack_snapshot,
-                    body,
+                    body_instruction_sheet: body,
                     mutations,
                 } => mutations
                     .iter()

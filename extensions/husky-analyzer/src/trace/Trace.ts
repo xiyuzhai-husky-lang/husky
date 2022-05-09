@@ -42,6 +42,7 @@ class Trace {
         | "FeatureCallInput"
         | "FuncStmt"
         | "ProcStmt"
+        | "ProcBranch"
         | "LoopFrame"
         | "EagerExpr";
     subtraces_container_class: "Call" | null;
@@ -65,6 +66,7 @@ class Trace {
             case "ProcStmt":
             case "LoopFrame":
             case "EagerExpr":
+            case "ProcBranch":
                 this.kind = kind;
                 break;
             default:

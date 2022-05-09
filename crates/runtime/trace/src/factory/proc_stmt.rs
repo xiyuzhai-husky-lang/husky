@@ -3,8 +3,8 @@ use print_utils::epin;
 use text::Text;
 use upcast::Upcast;
 use vm::{
-    exec_debug, exec_loop_debug, BinaryOpr, BoundaryKind, History, InstructionSheet, LoopFrameData,
-    StackSnapshot, VMLoopKind,
+    exec_debug, exec_loop_debug, BinaryOpr, BoundaryKind, History, HistoryEntry, InstructionSheet,
+    LoopFrameData, StackSnapshot, VMLoopKind,
 };
 
 use super::{expr::ExprTokenConfig, *};
@@ -23,6 +23,36 @@ impl<'eval> TraceFactory<'eval> {
             Some(parent_id),
             indent,
             TraceVariant::ProcStmt { stmt, history },
+            text,
+        )
+    }
+
+    fn new_proc_branch_trace(
+        &self,
+        text: &Text,
+        parent_id: TraceId,
+        indent: Indent,
+        stmt: Arc<ProcStmt>,
+        branch: Arc<ProcBranch>,
+        branch_idx: u8,
+        history: Arc<History<'eval>>,
+    ) -> Arc<Trace<'eval>> {
+        let vm_branch = match history.get(&stmt).unwrap() {
+            HistoryEntry::BranchGroup { vm_branches, .. } => {
+                vm_branches[branch_idx as usize].clone()
+            }
+            _ => panic!(),
+        };
+        self.new_trace(
+            Some(parent_id),
+            indent,
+            TraceVariant::ProcBranch {
+                stmt,
+                branch,
+                branch_idx,
+                vm_branch,
+                history,
+            },
             text,
         )
     }
@@ -218,10 +248,33 @@ impl<'eval> TraceFactory<'eval> {
         stmts: &'a [Arc<ProcStmt>],
         text: &'a Text,
         history: &'a Arc<History<'eval>>,
-    ) -> impl Iterator<Item = Arc<Trace<'eval>>> + 'a {
-        stmts.iter().map(move |stmt| {
-            self.new_proc_stmt_trace(parent_id, indent, stmt.clone(), text, history.clone())
-        })
+    ) -> Vec<Arc<Trace<'eval>>> {
+        let mut traces = Vec::new();
+        for stmt in stmts {
+            match stmt.variant {
+                ProcStmtVariant::BranchGroup { kind, ref branches } => {
+                    for (branch_idx, branch) in branches.iter().enumerate() {
+                        traces.push(self.new_proc_branch_trace(
+                            text,
+                            parent_id,
+                            indent,
+                            stmt.clone(),
+                            branch.clone(),
+                            branch_idx.try_into().unwrap(),
+                            history.clone(),
+                        ))
+                    }
+                }
+                _ => traces.push(self.new_proc_stmt_trace(
+                    parent_id,
+                    indent,
+                    stmt.clone(),
+                    text,
+                    history.clone(),
+                )),
+            }
+        }
+        traces
     }
 
     pub(super) fn loop_subtraces(
@@ -270,15 +323,14 @@ impl<'eval> TraceFactory<'eval> {
         instruction_sheet: &InstructionSheet,
         loop_frame_data: &LoopFrameData<'eval>,
         parent: &Trace,
-    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
+    ) -> Avec<Trace<'eval>> {
         let history = exec_debug(
             compile_time.upcast(),
             &loop_frame_data.stack_snapshot,
             instruction_sheet,
         );
-        let mut subtraces: Vec<_> = self
-            .proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history)
-            .collect();
+        let mut subtraces: Vec<_> =
+            self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history);
         match loop_stmt.variant {
             ProcStmtVariant::Loop {
                 ref loop_variant, ..
@@ -310,11 +362,11 @@ impl<'eval> TraceFactory<'eval> {
     pub(super) fn loop_frame_lines(
         &self,
         indent: Indent,
-        vm_loop_frame: &LoopFrameData,
+        loop_frame_data: &LoopFrameData,
     ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
             indent,
-            tokens: self.loop_frame_tokens(vm_loop_frame),
+            tokens: self.loop_frame_tokens(loop_frame_data),
             idx: 0,
         }]
     }
@@ -339,5 +391,71 @@ impl<'eval> TraceFactory<'eval> {
                 ]
             }
         }
+    }
+
+    pub(super) fn proc_branch_subtraces(
+        &self,
+        compile_time: &HuskyLangCompileTime,
+        text: &Text,
+        stmts: &[Arc<ProcStmt>],
+        instruction_sheet: &InstructionSheet,
+        stack_snapshot: &StackSnapshot<'eval>,
+        parent: &Trace,
+    ) -> Avec<Trace<'eval>> {
+        let history = exec_debug(compile_time.upcast(), stack_snapshot, instruction_sheet);
+        Arc::new(self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history))
+    }
+
+    pub(super) fn proc_branch_lines(
+        &self,
+        text: &Text,
+        indent: Indent,
+        branch: &ProcBranch,
+        history: &Arc<History<'eval>>,
+    ) -> Vec<LineProps<'eval>> {
+        vec![LineProps {
+            indent,
+            tokens: self.proc_branch_tokens(text, indent, branch, history),
+            idx: 0,
+        }]
+    }
+
+    pub(super) fn proc_branch_tokens(
+        &self,
+        text: &Text,
+        indent: Indent,
+        branch: &ProcBranch,
+        history: &Arc<History<'eval>>,
+    ) -> Vec<TokenProps<'eval>> {
+        let mut tokens = Vec::new();
+        match branch.variant {
+            ProcBranchVariant::If { ref condition } => {
+                tokens.push(keyword!("if "));
+                tokens.extend(self.eager_expr_tokens(
+                    condition,
+                    text,
+                    history,
+                    ExprTokenConfig::branch(),
+                ));
+                tokens.push(special!(":"))
+            }
+            ProcBranchVariant::Elif { ref condition } => {
+                tokens.push(keyword!("elif "));
+                tokens.extend(self.eager_expr_tokens(
+                    condition,
+                    text,
+                    history,
+                    ExprTokenConfig::branch(),
+                ));
+                tokens.push(special!(":"))
+            }
+            ProcBranchVariant::Else => {
+                tokens.push(keyword!("else"));
+                tokens.push(special!(":"))
+            }
+            ProcBranchVariant::Case { ref pattern } => todo!(),
+            ProcBranchVariant::Default => todo!(),
+        }
+        tokens
     }
 }
