@@ -397,7 +397,19 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
         let element_ty = self.raw_expr_ty(expr_idx)?;
         let qual = if self.db.is_copyable(element_ty) {
-            EagerQualifier::Copyable
+            match this_contract {
+                EagerContract::Pure => EagerQualifier::Copyable,
+                EagerContract::GlobalRef => panic!(),
+                EagerContract::Move => panic!(),
+                EagerContract::LetInit => EagerQualifier::Copyable,
+                EagerContract::VarInit => EagerQualifier::CopyableMut,
+                EagerContract::UseMemberForLetInit => EagerQualifier::Copyable,
+                EagerContract::UseMemberForVarInit => EagerQualifier::CopyableMut,
+                EagerContract::Return => EagerQualifier::Copyable,
+                EagerContract::RefMut => EagerQualifier::CopyableMut,
+                EagerContract::MoveMut => panic!(),
+                EagerContract::Exec => panic!(),
+            }
         } else {
             match this_qt.qual {
                 EagerQualifier::Copyable | EagerQualifier::CopyableMut => panic!(),
