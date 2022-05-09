@@ -53,6 +53,8 @@
             case "KeyS":
                 print_state();
                 break;
+            case "KeyF":
+                console.log("figure: ", figure);
             default:
         }
     }
