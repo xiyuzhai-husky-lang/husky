@@ -45,7 +45,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     _ => {
                         p!(lopd);
-                        p!(ins.src);
+                        p!(ins.src.text_range());
+                        p!(self.stack);
                         panic!()
                     }
                 }
