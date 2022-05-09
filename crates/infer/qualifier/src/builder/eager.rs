@@ -5,9 +5,9 @@ use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
-use infer_error::{derived_not_none, derived_ok};
+use infer_error::{derived_not_none, derived_ok, throw};
 use print_utils::{msg_once, p};
-use text::TextRanged;
+use text::{TextRange, TextRanged};
 use word::RangedCustomIdentifier;
 
 use super::*;
@@ -228,7 +228,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 derived_not_none!(self.infer_eager_expr(arena, expr))
             }
             RawExprVariant::Opn { opr, ref opds } => {
-                self.eager_opn(arena, raw_expr_idx, opr, opds.clone())
+                self.eager_opn(arena, raw_expr_idx, opr, opds.clone(), raw_expr.range)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
         }
@@ -240,9 +240,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         opr: Opr,
         opds: RawExprRange,
+        range: TextRange,
     ) -> InferResult<EagerQualifiedTy> {
         match opr {
-            Opr::Binary(binary_opr) => self.eager_binary(arena, raw_expr_idx, opds),
+            Opr::Binary(binary_opr) => {
+                self.eager_binary(arena, raw_expr_idx, binary_opr, opds, range)
+            }
             Opr::Prefix(prefix_opr) => self.eager_prefix(arena, raw_expr_idx, opds),
             Opr::Suffix(suffix_opr) => self.eager_suffix(arena, raw_expr_idx, opds),
             Opr::List(list_opr) => self.eager_list(arena, raw_expr_idx, list_opr, opds),
@@ -253,9 +256,23 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
+        opr: BinaryOpr,
         opds: RawExprRange,
+        range: TextRange,
     ) -> InferResult<EagerQualifiedTy> {
-        self.infer_eager_expr(arena, opds.start);
+        let this_qt = derived_not_none!(self.infer_eager_expr(arena, opds.start))?;
+        match opr {
+            BinaryOpr::Pure(_) => (),
+            BinaryOpr::Assign(_) => match this_qt.qual {
+                EagerQualifier::Copyable
+                | EagerQualifier::PureRef
+                | EagerQualifier::GlobalRef
+                | EagerQualifier::LocalRef
+                | EagerQualifier::Transient
+                | EagerQualifier::Owned => throw!("lopd is not mutable", range),
+                EagerQualifier::CopyableMut | EagerQualifier::OwnedMut => (),
+            },
+        }
         self.infer_eager_expr(arena, opds.start + 1);
         let ty = self.raw_expr_ty(raw_expr_idx)?;
         Ok(EagerQualifiedTy::new(

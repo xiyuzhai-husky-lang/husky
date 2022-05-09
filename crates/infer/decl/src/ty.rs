@@ -291,7 +291,7 @@ impl TyDecl {
         match self.ty_members.get_entry(ranged_ident.ident) {
             Some(type_member_decl) => match type_member_decl {
                 TyMemberDecl::Field(field) => Ok(field.ty),
-                TyMemberDecl::Method(_) => err!(
+                TyMemberDecl::Method(_) => throw!(
                     format!(
                         "expect a field, but `{}` is a method in type `{:?}`",
                         &ranged_ident.ident, self.this_ty
@@ -301,7 +301,7 @@ impl TyDecl {
                 TyMemberDecl::Call => todo!(),
             },
             None => {
-                err!(
+                throw!(
                     format!(
                         "No such field `{}` in type `{:?}`",
                         &ranged_ident.ident, self.this_ty
@@ -480,7 +480,7 @@ impl TyDecl {
         if matched_methods.len() == 1 {
             return Ok(matched_methods[0]);
         } else {
-            err!(
+            throw!(
                 format!(
                     "no method named `{}` for type `{:?}`",
                     &ranged_ident.ident, self.this_ty

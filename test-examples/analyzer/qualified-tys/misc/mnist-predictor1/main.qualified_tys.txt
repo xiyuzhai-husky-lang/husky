@@ -66,8 +66,7 @@
     10:16..10:17   y                      Copyable     b32
     10:11..10:17   z != y                 Copyable     bool
     11:9..11:10    y                      Copyable     b32
-    11:13..11:14   z                      CopyableMut  b32
-    11:9..11:14    y = z                  Copyable     void
+    11:9..11:14    y = z                  InferError: lopd is not mutable
     12:23..12:24   y                      Copyable     b32
     12:28..12:29   1                      Copyable     i32
     12:23..12:29   y << 1                 Copyable     b32
@@ -100,13 +99,8 @@
     22:24..22:39   BinaryImage28()        Transient    datasets::cv::mnist::BinaryImage28
     23:13..23:17   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
     23:18..23:19   j                      Copyable     i32
-    23:44..23:48   1b32                   Copyable     b32
-    23:52..23:57   shift                  Copyable     i32
-    23:41..23:42   a                      Copyable     b32
-    23:44..23:57   1b32 << shift          Copyable     b32
     23:13..23:20   mask[j]                Copyable     b32
-    23:23..23:58   horizontal_extend(a, 1b32 << shift)   Copyable     b32
-    23:13..23:58   mask[j] = horizontal_extend(a, 1b32 << shift)   Copyable     void
+    23:13..23:58   mask[j] = horizontal_extend(a, 1b32 << shift)   InferError: lopd is not mutable
     24:24..24:29   false                  Copyable     bool
     25:20..25:24   flag                   CopyableMut  bool
     25:19..25:24   !flag                  Copyable     bool
@@ -146,8 +140,7 @@
     35:25..35:29   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
     35:30..35:35   i + 1                  Copyable     i32
     35:25..35:36   mask[i + 1]            Copyable     b32
-    35:39..35:46   new_row                Copyable     b32
-    35:25..35:46   mask[i + 1] = new_row   Copyable     void
+    35:25..35:46   mask[i + 1] = new_row   InferError: lopd is not mutable
     36:29..36:30   j                      Copyable     i32
     37:35..37:39   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
     37:40..37:41   i                      CopyableMut  i32
@@ -172,19 +165,13 @@
     41:25..41:29   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
     41:30..41:31   i                      CopyableMut  i32
     41:25..41:32   mask[i]                Copyable     b32
-    41:35..41:42   new_row                Copyable     b32
-    41:25..41:42   mask[i] = new_row      Copyable     void
+    41:25..41:42   mask[i] = new_row      InferError: lopd is not mutable
     42:17..42:18   j                      Copyable     i32
     42:26..42:28   30                     Copyable     i32
     43:17..43:27   unsearched             OwnedMut     datasets::cv::mnist::BinaryImage28
     43:28..43:29   k                      Copyable     i32
-    43:36..43:40   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
-    43:41..43:42   k                      Copyable     i32
-    43:36..43:43   mask[k]                Copyable     b32
-    43:35..43:43   ~mask[k]               Copyable     b32
     43:17..43:30   unsearched[k]          Copyable     b32
-    43:34..43:44   (~mask[k])             Copyable     b32
-    43:17..43:44   unsearched[k] &= (~mask[k])   Copyable     void
+    43:17..43:44   unsearched[k] &= (~mask[k])   InferError: lopd is not mutable
     44:13..44:19   result                 OwnedMut     Vec<datasets::cv::mnist::BinaryImage28>
     44:25..44:29   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
     44:13..44:30   result.push(mask)      Copyable     void
