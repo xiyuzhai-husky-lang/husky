@@ -54,7 +54,11 @@ impl<'eval> TraceFactory<'eval> {
             EagerExprVariant::Variable(ident) => tokens.push(ident!(ident.0, associated_trace)),
             EagerExprVariant::EntityRoute { route: scope } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => return vec![literal!(value)],
-            EagerExprVariant::Bracketed(_) => todo!(),
+            EagerExprVariant::Bracketed(ref expr) => {
+                tokens.push(special!("("));
+                tokens.extend(self.eager_expr_tokens(expr, text, history, config.subexpr()));
+                tokens.push(special!(")"));
+            }
             EagerExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
