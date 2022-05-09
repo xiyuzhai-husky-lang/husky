@@ -104,7 +104,7 @@ pub(crate) fn global_input_ty(
             _ => (),
         }
     }
-    err!(
+    throw!(
         "dataset config not found, so input type can't be inferred",
         TextRange::whole()
     )
@@ -131,7 +131,7 @@ pub(crate) fn global_output_ty(
             _ => (),
         }
     }
-    err!(
+    throw!(
         "dataset config not found in main, so input type can't be inferred",
         TextRange {
             start: (0u32, 0).into(),

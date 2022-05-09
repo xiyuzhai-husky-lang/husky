@@ -5,5 +5,6 @@ edition = "2021"
 
 [dependencies]
 lsp-types = { version = "0.93", features = ["proposed"] }
+text-diff = "0.4.0"
 path-utils = { path = "../path", version = "0.0.0" }
 print-utils = { path = "../print", version = "0.0.0" }

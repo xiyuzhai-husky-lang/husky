@@ -58,7 +58,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }?;
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicit_convertible(ty, expected_ty) {
-                err!(
+                throw!(
                     format!("expect {:?} but get {:?} instead", expected_ty, ty),
                     arena[expr_idx].range
                 )
@@ -175,39 +175,39 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             | PureBinaryOpr::Greater
             | PureBinaryOpr::Geq => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"<, <=, >, >=\" on same types", range)
+                    throw!("expect use of \"<, <=, >, >=\" on same types", range)
                 }
                 match lopd_builtin_ty {
                     RootIdentifier::I32 | RootIdentifier::F32 => (),
-                    _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32", range),
+                    _ => throw!("expect use of \"<, <=, >, >=\" on i32 or f32", range),
                 }
                 RootIdentifier::Bool
             }
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"!=\" on same types", range)
+                    throw!("expect use of \"!=\" on same types", range)
                 }
                 RootIdentifier::Bool
             }
             PureBinaryOpr::Shl => {
                 match lopd_builtin_ty {
                     RootIdentifier::B32 | RootIdentifier::B64 => (),
-                    _ => err!("expect b32 or b64 for lopd of shift left `<<`", range),
+                    _ => throw!("expect b32 or b64 for lopd of shift left `<<`", range),
                 }
                 match ropd_builtin_ty {
                     RootIdentifier::I32 => (),
-                    _ => err!("expect i32 for ropd of shift left `>>`", range),
+                    _ => throw!("expect i32 for ropd of shift left `>>`", range),
                 }
                 lopd_builtin_ty
             }
             PureBinaryOpr::Shr => {
                 match lopd_builtin_ty {
                     RootIdentifier::B32 | RootIdentifier::B64 => (),
-                    _ => err!("expect b32 or b64 for lopd of shift right `>>`", range),
+                    _ => throw!("expect b32 or b64 for lopd of shift right `>>`", range),
                 }
                 match ropd_builtin_ty {
                     RootIdentifier::I32 => (),
-                    _ => err!("expect i32 for ropd of shift right `>>`", range),
+                    _ => throw!("expect i32 for ropd of shift right `>>`", range),
                 }
                 lopd_builtin_ty
             }
@@ -217,11 +217,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             | PureBinaryOpr::Div
             | PureBinaryOpr::Power => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!("expect use of \"+, -, *, /, **\" on same types", range)
+                    throw!("expect use of \"+, -, *, /, **\" on same types", range)
                 }
                 match lopd_builtin_ty {
                     RootIdentifier::I32 | RootIdentifier::F32 => (),
-                    _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32", range),
+                    _ => throw!("expect use of \"+, -, *, /, **\" on i32 or f32", range),
                 }
                 lopd_builtin_ty
             }
@@ -229,7 +229,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             PureBinaryOpr::Or => todo!(),
             PureBinaryOpr::BitXor | PureBinaryOpr::BitAnd | PureBinaryOpr::BitOr => {
                 if lopd_builtin_ty != ropd_builtin_ty {
-                    err!(
+                    throw!(
                         format!(
                             "expect use of bitor `|` on same types, but got `{}` and `{}`",
                             lopd_builtin_ty.as_str(),
@@ -240,7 +240,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 if lopd_builtin_ty != RootIdentifier::B32 && lopd_builtin_ty != RootIdentifier::B64
                 {
-                    err!("expect use of \"|\" on b32 or b64", range)
+                    throw!("expect use of \"|\" on b32 or b64", range)
                 }
                 lopd_builtin_ty
             }

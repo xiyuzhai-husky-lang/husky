@@ -1,3 +1,4 @@
+use std::fmt::Write;
 use std::sync::Arc;
 
 #[derive(Clone, PartialEq, Eq)]
@@ -10,7 +11,17 @@ impl TestComparable for InferError {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         match self.variant {
             InferErrorVariant::Derived { ref message } => todo!(),
-            InferErrorVariant::Original { ref message, range } => todo!(),
+            InferErrorVariant::Original { ref message, range } => match config.colored {
+                true => write!(
+                    result,
+                    "{}InferError{}: {}",
+                    print_utils::RED,
+                    print_utils::RESET,
+                    message
+                )
+                .unwrap(),
+                false => write!(result, "InferError: {}", message).unwrap(),
+            },
         }
     }
 }
@@ -90,10 +101,10 @@ impl From<VMError> for InferError {
 }
 
 #[macro_export]
-macro_rules! err {
+macro_rules! throw {
     ($msg:expr, $range: expr) => {{
-        Err(InferError {
-            variant: InferErrorVariant::Original {
+        Err(infer_error::InferError {
+            variant: infer_error::InferErrorVariant::Original {
                 message: $msg.into(),
                 range: $range,
             },

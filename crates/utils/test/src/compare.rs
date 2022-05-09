@@ -1,3 +1,5 @@
+use text_diff::print_diff;
+
 use crate::TestResult;
 use std::fmt::Write;
 use std::io::Write as _;
@@ -112,8 +114,7 @@ fn notify_change(new_data_text: &str, old_data_text: &str, save_path: &Path) -> 
         save_path.as_os_str(),
         print_utils::RESET,
     );
-    print!("old = \n  {}\n", &old_data_text);
-    print!("new = \n  {}\n", &new_data_text);
+    print_diff(old_data_text, new_data_text, "\n");
     let accept: bool = loop {
         print!("Do you want to accept change in saved data (y/n)? ");
         let mut s = String::new();
