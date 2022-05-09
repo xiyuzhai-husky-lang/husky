@@ -26,7 +26,7 @@ impl TestCompareConfig {
     }
 }
 
-pub trait TestComparable: std::fmt::Debug + PartialEq {
+pub trait TestDisplay: std::fmt::Debug + PartialEq {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String);
     fn print_inherent(&self, config: TestCompareConfig) -> String {
         let mut result = String::new();
@@ -35,13 +35,13 @@ pub trait TestComparable: std::fmt::Debug + PartialEq {
     }
 }
 
-impl<T: TestComparable> TestComparable for Arc<T> {
+impl<T: TestDisplay> TestDisplay for Arc<T> {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         (**self).write_inherent(config, result)
     }
 }
 
-impl<T: TestComparable> TestComparable for Vec<T> {
+impl<T: TestDisplay> TestDisplay for Vec<T> {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         for t in self.iter() {
             t.write_inherent(config, result);
@@ -50,7 +50,7 @@ impl<T: TestComparable> TestComparable for Vec<T> {
     }
 }
 
-impl<T: TestComparable, S: TestComparable> TestComparable for (T, S) {
+impl<T: TestDisplay, S: TestDisplay> TestDisplay for (T, S) {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         self.0.write_inherent(config, result);
         result.push_str("  ");
@@ -58,10 +58,10 @@ impl<T: TestComparable, S: TestComparable> TestComparable for (T, S) {
     }
 }
 
-impl<T, E> TestComparable for Result<T, E>
+impl<T, E> TestDisplay for Result<T, E>
 where
-    T: TestComparable,
-    E: TestComparable,
+    T: TestDisplay,
+    E: TestDisplay,
 {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         match self {
@@ -71,13 +71,13 @@ where
     }
 }
 
-impl TestComparable for lsp_types::SemanticToken {
+impl TestDisplay for lsp_types::SemanticToken {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         write!(result, "{:?}", self).unwrap();
     }
 }
 
-impl TestComparable for lsp_types::FoldingRange {
+impl TestDisplay for lsp_types::FoldingRange {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         write!(result, "{:?}", self).unwrap();
     }
@@ -85,7 +85,7 @@ impl TestComparable for lsp_types::FoldingRange {
 
 pub fn compare_saved_data<T>(new_data: &T, saved_data_path: &Path) -> TestResult
 where
-    T: TestComparable,
+    T: TestDisplay,
 {
     let new_data_text = new_data.print_inherent(TestCompareConfig {
         colored: false,

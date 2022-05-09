@@ -1,7 +1,7 @@
 use crate::*;
 use infer_error::derived;
 use std::fmt::Write;
-use test_utils::{TestComparable, TestCompareConfig};
+use test_utils::{TestCompareConfig, TestDisplay};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyQualifiedTy {
@@ -9,7 +9,7 @@ pub struct LazyQualifiedTy {
     pub ty: EntityRoutePtr,
 }
 
-impl TestComparable for LazyQualifiedTy {
+impl TestDisplay for LazyQualifiedTy {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
     }
