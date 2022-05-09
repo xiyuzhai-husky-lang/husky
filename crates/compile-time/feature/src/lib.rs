@@ -16,7 +16,7 @@ pub use expr::{FeatureExpr, FeatureExprKind};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use repr::*;
 pub use sheet::FeatureSheet;
-pub use stmt::{FeatureStmt, FeatureStmtKind};
+pub use stmt::{FeatureStmt, FeatureStmtVariant};
 pub use this::FeatureBlock;
 pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,

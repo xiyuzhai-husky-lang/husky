@@ -57,7 +57,7 @@ impl FeatureBlock {
                             range: feature_stmt.range,
                             indent: feature_stmt.indent,
                             feature: None,
-                            kind: FeatureStmtKind::Init {
+                            variant: FeatureStmtVariant::Init {
                                 varname: varname.ident,
                                 value,
                             },
@@ -80,7 +80,7 @@ impl FeatureBlock {
                             range: feature_stmt.range,
                             indent: feature_stmt.indent,
                             feature,
-                            kind: FeatureStmtKind::Assert { condition },
+                            variant: FeatureStmtVariant::Assert { condition },
                             eval_id: Default::default(),
                         }
                     }
@@ -92,7 +92,7 @@ impl FeatureBlock {
                             range: feature_stmt.range,
                             indent: feature_stmt.indent,
                             feature: Some(result.feature),
-                            kind: FeatureStmtKind::Return { result },
+                            variant: FeatureStmtVariant::Return { result },
                             eval_id: Default::default(),
                         }
                     }
@@ -169,7 +169,7 @@ impl FeatureBlock {
                             range: feature_stmt.range,
                             indent: feature_stmt.indent,
                             feature,
-                            kind: FeatureStmtKind::BranchGroup { kind, branches },
+                            variant: FeatureStmtVariant::BranchGroup { kind, branches },
                             eval_id: Default::default(),
                         }
                     }

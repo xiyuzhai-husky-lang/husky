@@ -95,11 +95,11 @@ pub(crate) fn block_record_memb(
 ) -> FeatureRepr {
     let stmt_features = this.stmt_features();
     if stmt_features.len() == 1 {
-        match this.stmts.last().unwrap().kind {
-            FeatureStmtKind::Return { ref result } => {
+        match this.stmts.last().unwrap().variant {
+            FeatureStmtVariant::Return { ref result } => {
                 db.record_field_repr(result.clone().into(), field_ident)
             }
-            FeatureStmtKind::BranchGroup { kind, ref branches } => todo!(),
+            FeatureStmtVariant::BranchGroup { kind, ref branches } => todo!(),
             _ => panic!(),
         }
     } else {

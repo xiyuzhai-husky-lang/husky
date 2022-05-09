@@ -9,10 +9,10 @@ impl<'eval> TraceFactory<'eval> {
         stmt: Arc<FeatureStmt>,
         text: &Text,
     ) -> Vec<Arc<Trace<'eval>>> {
-        match stmt.kind {
-            FeatureStmtKind::Init { .. }
-            | FeatureStmtKind::Assert { .. }
-            | FeatureStmtKind::Return { .. } => {
+        match stmt.variant {
+            FeatureStmtVariant::Init { .. }
+            | FeatureStmtVariant::Assert { .. }
+            | FeatureStmtVariant::Return { .. } => {
                 vec![self.new_trace(
                     Some(parent.id),
                     stmt.indent,
@@ -20,7 +20,7 @@ impl<'eval> TraceFactory<'eval> {
                     text,
                 )]
             }
-            FeatureStmtKind::BranchGroup { ref branches, .. } => branches
+            FeatureStmtVariant::BranchGroup { ref branches, .. } => branches
                 .iter()
                 .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone(), text))
                 .collect(),
@@ -36,26 +36,26 @@ impl<'eval> TraceFactory<'eval> {
     }
 
     pub fn feature_stmt_tokens(&self, stmt: &FeatureStmt, text: &Text) -> Vec<TokenProps<'eval>> {
-        match stmt.kind {
-            FeatureStmtKind::Init { varname, ref value } => {
+        match stmt.variant {
+            FeatureStmtVariant::Init { varname, ref value } => {
                 let mut tokens = vec![];
                 tokens.push(ident!(varname.0));
                 tokens.push(special!(" = "));
                 tokens.extend(self.feature_expr_tokens(value, text, ExprTokenConfig::stmt()));
                 tokens
             }
-            FeatureStmtKind::Assert { ref condition } => {
+            FeatureStmtVariant::Assert { ref condition } => {
                 let mut tokens = vec![];
                 tokens.push(keyword!("assert "));
                 tokens.extend(self.feature_expr_tokens(condition, text, ExprTokenConfig::stmt()));
                 tokens
             }
-            FeatureStmtKind::Return { ref result } => {
+            FeatureStmtVariant::Return { ref result } => {
                 let mut tokens = vec![];
                 tokens.extend(self.feature_expr_tokens(result, text, ExprTokenConfig::stmt()));
                 tokens
             }
-            FeatureStmtKind::BranchGroup { .. } => panic!(),
+            FeatureStmtVariant::BranchGroup { .. } => panic!(),
         }
     }
 }
