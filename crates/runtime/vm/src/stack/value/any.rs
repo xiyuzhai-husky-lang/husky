@@ -315,4 +315,8 @@ impl<'eval> AnyValue<'eval> for Vec<MemberValue<'eval>> {
     fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         Arc::new(self.clone())
     }
+
+    fn print_short(&self) -> String {
+        format!("{{ len: {}, data: [...] }}", self.len(),)
+    }
 }
