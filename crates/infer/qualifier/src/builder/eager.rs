@@ -5,7 +5,7 @@ use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
-use infer_error::{derived_not_none, derived_ok, throw};
+use infer_error::{derived, derived_not_none, derived_ok, throw};
 use print_utils::{msg_once, p};
 use text::{TextRange, TextRanged};
 use word::RangedCustomIdentifier;
@@ -206,7 +206,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let contract = derived_not_none!(opt_contract)?;
                 Ok(EagerQualifiedTy::from_input(self.db, contract, ty))
             }
-            RawExprVariant::Unrecognized(_) => todo!(),
+            RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized".into())),
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
                 EntityKind::Type(_) => todo!(),

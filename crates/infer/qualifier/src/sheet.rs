@@ -3,7 +3,7 @@ use std::{collections::HashMap, sync::Arc};
 use arena::map::{ArenaKeyQuery, ArenaMap};
 use ast::RawExprMap;
 use infer_contract::ContractSheet;
-use infer_error::derived_not_none;
+use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use print_utils::{p, ps};
 use std::fmt::Write;
 use test_utils::{TestComparable, TestCompareConfig};
@@ -66,6 +66,47 @@ impl QualifiedTySheet {
             Ok(qt) => Ok(qt),
             Err(ref e) => Err(e.derived()),
         }
+    }
+
+    pub fn original_errors(&self) -> Vec<&InferError> {
+        let mut errors = Vec::new();
+        for (_, result) in self.eager_expr_qualified_tys.iter() {
+            match result {
+                Ok(_) => (),
+                Err(e) => match e.variant {
+                    InferErrorVariant::Derived { .. } => (),
+                    InferErrorVariant::Original { .. } => errors.push(e),
+                },
+            }
+        }
+        for (_, result) in self.lazy_expr_qualified_tys.iter() {
+            match result {
+                Ok(_) => (),
+                Err(e) => match e.variant {
+                    InferErrorVariant::Derived { .. } => (),
+                    InferErrorVariant::Original { .. } => errors.push(e),
+                },
+            }
+        }
+        for result in self.eager_expr_qualified_tys.values() {
+            match result {
+                Ok(_) => (),
+                Err(e) => match e.variant {
+                    InferErrorVariant::Derived { .. } => (),
+                    InferErrorVariant::Original { .. } => errors.push(e),
+                },
+            }
+        }
+        for result in self.lazy_expr_qualified_tys.values() {
+            match result {
+                Ok(_) => (),
+                Err(e) => match e.variant {
+                    InferErrorVariant::Derived { .. } => (),
+                    InferErrorVariant::Original { .. } => errors.push(e),
+                },
+            }
+        }
+        errors
     }
 }
 
