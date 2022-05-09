@@ -1,6 +1,6 @@
 use crate::*;
 use compile_time_db::*;
-use feature::{FeatureExpr, FeatureExprKind, FeatureStmt, FeatureStmtKind};
+use feature::{FeatureExpr, FeatureExprKind, FeatureStmt, FeatureStmtVariant};
 use map_collect::MapCollect;
 use semantics_eager::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
@@ -48,11 +48,13 @@ impl HuskyLangRuntime {
     }
 
     fn feature_stmt_figure(&self, stmt: &FeatureStmt, focus: &Focus) -> FigureProps {
-        match stmt.kind {
-            FeatureStmtKind::Init { varname, ref value } => self.feature_expr_figure(value, focus),
-            FeatureStmtKind::Assert { .. } => FigureProps::void(),
-            FeatureStmtKind::Return { ref result } => self.feature_expr_figure(result, focus),
-            FeatureStmtKind::BranchGroup { kind, ref branches } => FigureProps::void(),
+        match stmt.variant {
+            FeatureStmtVariant::Init { varname, ref value } => {
+                self.feature_expr_figure(value, focus)
+            }
+            FeatureStmtVariant::Assert { .. } => FigureProps::void(),
+            FeatureStmtVariant::Return { ref result } => self.feature_expr_figure(result, focus),
+            FeatureStmtVariant::BranchGroup { kind, ref branches } => FigureProps::void(),
         }
     }
 

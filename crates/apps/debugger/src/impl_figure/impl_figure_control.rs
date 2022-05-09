@@ -1,5 +1,6 @@
+use feature::FeatureStmtVariant;
 use trace::TraceVariant;
-use vm::LoopFrameData;
+use vm::{HistoryEntry, LoopFrameData};
 
 use super::*;
 
@@ -10,13 +11,25 @@ pub struct FigureControlProps {
 }
 
 impl FigureControlProps {
-    pub fn loop_frame_default<'eval>(loop_frame_data: &LoopFrameData<'eval>) -> Self {
-        FigureControlProps {
-            opt_mutation_selection: if loop_frame_data.mutations.len() > 0 {
-                Some(0)
-            } else {
-                None
+    pub fn loop_frame_default<'eval>(loop_trace: &Trace) -> Self {
+        let opt_mutation_selection = match loop_trace.variant {
+            TraceVariant::ProcStmt {
+                ref stmt,
+                ref history,
+            } => match history.get(stmt).unwrap() {
+                HistoryEntry::Loop { mutations, .. } => {
+                    if mutations.len() > 0 {
+                        Some(0)
+                    } else {
+                        None
+                    }
+                }
+                _ => panic!(),
             },
+            _ => panic!(),
+        };
+        FigureControlProps {
+            opt_mutation_selection,
         }
     }
 }
@@ -39,7 +52,7 @@ impl Debugger {
                 ref body_instruction_sheet,
                 ref body_stmts,
                 ref loop_frame_data,
-            } => FigureControlProps::loop_frame_default(loop_frame_data),
+            } => FigureControlProps::loop_frame_default(&self.trace(trace.parent.unwrap())),
         }
     }
 

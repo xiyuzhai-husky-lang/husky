@@ -7,7 +7,7 @@ use crate::{eval::FeatureEvalId, *};
 #[derive(Debug, Clone)]
 pub struct FeatureStmt {
     pub indent: fold::Indent,
-    pub kind: FeatureStmtKind,
+    pub variant: FeatureStmtVariant,
     pub(crate) feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
@@ -35,7 +35,7 @@ impl text::TextRanged for FeatureStmt {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureStmtKind {
+pub enum FeatureStmtVariant {
     Init {
         varname: CustomIdentifier,
         value: Arc<FeatureExpr>,

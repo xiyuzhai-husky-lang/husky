@@ -251,26 +251,26 @@ pub fn trace_stalk(
                 this.eval_feature_block(block, input_id).into(),
             ],
         },
-        TraceVariant::FeatureStmt(ref stmt) => match stmt.kind {
-            FeatureStmtKind::Init { varname, ref value } => TraceStalk {
+        TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
+            FeatureStmtVariant::Init { varname, ref value } => TraceStalk {
                 extra_tokens: vec![
                     trace::fade!(" = "),
                     this.eval_feature_expr(value, input_id).into(),
                 ],
             },
-            FeatureStmtKind::Assert { ref condition } => TraceStalk {
+            FeatureStmtVariant::Assert { ref condition } => TraceStalk {
                 extra_tokens: vec![
                     trace::fade!(" = "),
                     this.eval_feature_expr(condition, input_id).into(),
                 ],
             },
-            FeatureStmtKind::Return { ref result } => TraceStalk {
+            FeatureStmtVariant::Return { ref result } => TraceStalk {
                 extra_tokens: vec![
                     trace::fade!(" = "),
                     this.eval_feature_expr(result, input_id).into(),
                 ],
             },
-            FeatureStmtKind::BranchGroup { kind, ref branches } => panic!(),
+            FeatureStmtVariant::BranchGroup { kind, ref branches } => panic!(),
         },
         TraceVariant::FeatureBranch(_) => TraceStalk {
             extra_tokens: vec![],

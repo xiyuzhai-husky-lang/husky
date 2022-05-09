@@ -334,11 +334,11 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> Arc<FeatureExpr> {
         let stmt_features = block.stmt_features();
         if stmt_features.len() == 1 {
-            match block.stmts.last().unwrap().kind {
-                FeatureStmtKind::Return { ref result } => {
+            match block.stmts.last().unwrap().variant {
+                FeatureStmtVariant::Return { ref result } => {
                     self.record_field_var_value(result, field_ident)
                 }
-                FeatureStmtKind::BranchGroup { kind, ref branches } => todo!(),
+                FeatureStmtVariant::BranchGroup { kind, ref branches } => todo!(),
                 _ => panic!(),
             }
         } else {
