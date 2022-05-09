@@ -1,10 +1,10 @@
 use crate::*;
-use test_utils::{TestComparable, TestCompareConfig};
+use test_utils::{TestCompareConfig, TestDisplay};
 
-impl<K, V> TestComparable for VecMap<K, V>
+impl<K, V> TestDisplay for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy,
-    V: HasKey<K> + TestComparable,
+    V: HasKey<K> + TestDisplay,
 {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         for entry in &self.entries {

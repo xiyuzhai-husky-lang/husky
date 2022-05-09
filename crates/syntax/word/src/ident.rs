@@ -6,7 +6,7 @@ use core::hash::Hash;
 use serde::Serialize;
 use std::fmt::Write;
 use std::{borrow::Borrow, ops::Deref};
-use test_utils::{TestComparable, TestCompareConfig};
+use test_utils::{TestCompareConfig, TestDisplay};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
@@ -15,7 +15,7 @@ pub enum Identifier {
     Contextual(ContextualIdentifier),
 }
 
-impl TestComparable for Identifier {
+impl TestDisplay for Identifier {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         if config.colored {
             write!(

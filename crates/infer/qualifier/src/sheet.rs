@@ -6,7 +6,7 @@ use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use print_utils::{p, ps};
 use std::fmt::Write;
-use test_utils::{TestComparable, TestCompareConfig};
+use test_utils::{TestDisplay, TestCompareConfig};
 use text::Row;
 use vec_map::VecPairMap;
 use word::Identifier;
@@ -123,7 +123,7 @@ macro_rules! write_field_name {
     };
 }
 
-impl TestComparable for QualifiedTySheet {
+impl TestDisplay for QualifiedTySheet {
     fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
         let ast_text = &self.contract_sheet.entity_route_sheet.ast_text;
         write_field_name!(result, "eager variable qualified types");

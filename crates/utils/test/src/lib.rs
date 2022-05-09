@@ -16,17 +16,17 @@ pub fn test_all_packages_in_dir(dir: PathBuf, f: impl Fn(&Path) -> TestResult) {
     if !dir.is_dir() {
         panic!("{:?} is not a directory", &dir)
     }
-    let pack_paths = collect_all_package_dirs(dir);
+    let package_paths = collect_all_package_dirs(dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
         print_utils::CYAN,
         print_utils::RESET,
-        pack_paths.len()
+        package_paths.len()
     );
 
     let mut packages_failed: Vec<PathBuf> = vec![];
 
-    for package_path in pack_paths {
+    for package_path in package_paths {
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,
