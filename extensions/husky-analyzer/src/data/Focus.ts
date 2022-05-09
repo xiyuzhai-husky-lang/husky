@@ -39,6 +39,7 @@ export default class Focus {
             case "FeatureStmt":
             case "FuncStmt":
             case "ProcStmt":
+            case "ProcBranch":
             case "LoopFrame":
             case "FeatureBranch":
             case "FeatureCallInput":

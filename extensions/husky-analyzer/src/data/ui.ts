@@ -32,6 +32,7 @@ export function get_show_store(trace: Trace) {
             case "FeatureStmt":
             case "FuncStmt":
             case "ProcStmt":
+            case "ProcBranch":
             case "FeatureBranch":
             case "CallHead":
             case "LoopFrame":
@@ -191,6 +192,7 @@ export function tell_has_subtraces_store(
         case "FuncStmt":
         case "EagerExpr":
         case "ProcStmt":
+        case "ProcBranch":
             return readable(trace.has_subtraces);
         case "FeatureExpr":
             let opt_input_id_store = global.user_state.focus_store;

@@ -15,14 +15,16 @@ pub enum HistoryEntry<'eval> {
         loop_kind: VMLoopKind,
         control: ControlSnapshot<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
-        body: Arc<InstructionSheet>,
+        body_instruction_sheet: Arc<InstructionSheet>,
         mutations: Vec<MutationData<'eval>>,
     },
     BranchGroup {
-        enter: usize,
+        branch_entered: u8,
         branches: Avec<VMBranch>,
+        vm_branches: Avec<VMBranch>,
         control: ControlSnapshot<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
+        mutations: Vec<MutationData<'eval>>,
     },
     Break,
 }
@@ -38,7 +40,10 @@ impl<'eval> HistoryEntry<'eval> {
                 mutations[0].after.clone()
             }
             HistoryEntry::Loop { .. } => todo!(),
-            HistoryEntry::BranchGroup { enter, .. } => todo!(),
+            HistoryEntry::BranchGroup {
+                branch_entered: enter,
+                ..
+            } => todo!(),
             HistoryEntry::Break => todo!(),
         }
     }
@@ -54,7 +59,7 @@ impl<'eval> HistoryEntry<'eval> {
             loop_kind,
             control: result.snapshot(),
             stack_snapshot,
-            body,
+            body_instruction_sheet: body,
             mutations,
         }
     }

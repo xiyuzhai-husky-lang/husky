@@ -15,7 +15,8 @@ impl<'eval> Trace<'eval> {
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::LoopFrame { .. }
-            | TraceVariant::CallHead { .. } => None,
+            | TraceVariant::CallHead { .. }
+            | TraceVariant::ProcBranch { .. } => None,
             TraceVariant::FeatureExpr(ref expr) => match expr.kind {
                 FeatureExprKind::PrimitiveLiteral(_)
                 | FeatureExprKind::PrimitiveBinaryOpr { .. }

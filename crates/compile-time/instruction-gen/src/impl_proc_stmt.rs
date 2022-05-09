@@ -159,8 +159,8 @@ impl<'a> InstructionSheetBuilder<'a> {
         Arc::new(
             branches
                 .iter()
-                .map(|branch| match branch.kind {
-                    ProcBranchKind::If { ref condition } => Arc::new(VMBranch {
+                .map(|branch| match branch.variant {
+                    ProcBranchVariant::If { ref condition } => Arc::new(VMBranch {
                         opt_condition_sheet: {
                             let mut condition_sheet = self.subsheet_builder();
                             condition_sheet.compile_expr(condition);
@@ -172,10 +172,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                             body_sheet.finalize()
                         },
                     }),
-                    ProcBranchKind::Elif { ref condition } => todo!(),
-                    ProcBranchKind::Else => todo!(),
-                    ProcBranchKind::Case { ref pattern } => todo!(),
-                    ProcBranchKind::Default => todo!(),
+                    ProcBranchVariant::Elif { ref condition } => todo!(),
+                    ProcBranchVariant::Else => todo!(),
+                    ProcBranchVariant::Case { ref pattern } => todo!(),
+                    ProcBranchVariant::Default => todo!(),
                 })
                 .collect(),
         )

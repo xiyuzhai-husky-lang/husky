@@ -66,10 +66,12 @@ impl<'a> EagerStmtParser<'a> {
                 let mut branches = vec![];
                 match branch_kind {
                     RawBranchKind::If { condition } => branches.push(Arc::new(ProcBranch {
-                        kind: ProcBranchKind::If {
+                        variant: ProcBranchVariant::If {
                             condition: self.parse_eager_expr(condition)?,
                         },
                         stmts: self.parse_impr_stmts(not_none!(children))?,
+                        range: stmt.range,
+                        file: self.file,
                     })),
                     RawBranchKind::Elif { condition } => todo!(),
                     RawBranchKind::Else => todo!(),
@@ -96,8 +98,10 @@ impl<'a> EagerStmtParser<'a> {
                             }
                             RawBranchKind::Else => {
                                 branches.push(Arc::new(ProcBranch {
-                                    kind: ProcBranchKind::Else,
+                                    variant: ProcBranchVariant::Else,
                                     stmts: self.parse_impr_stmts(not_none!(item.children))?,
+                                    range: stmt.range,
+                                    file: self.file,
                                 }));
                                 break;
                             }

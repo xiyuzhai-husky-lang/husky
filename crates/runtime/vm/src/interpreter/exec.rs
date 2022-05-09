@@ -183,10 +183,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                                     self.history.write(
                                         ins,
                                         HistoryEntry::BranchGroup {
-                                            enter: i,
+                                            branch_entered: i.try_into().unwrap(),
                                             stack_snapshot,
                                             branches: branches.clone(),
                                             control: control.snapshot(),
+                                            mutations,
+                                            vm_branches: branches.clone(),
                                         },
                                     )
                                 }

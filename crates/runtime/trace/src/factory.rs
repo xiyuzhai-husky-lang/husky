@@ -70,11 +70,11 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         id: TraceId,
         indent: Indent,
-        kind: &TraceVariant<'eval>,
+        variant: &TraceVariant<'eval>,
         text: &Text,
         has_parent: bool,
     ) -> Vec<LineProps<'eval>> {
-        match kind {
+        match variant {
             TraceVariant::Main(feature_block) => vec![LineProps {
                 indent,
                 idx: 0,
@@ -119,6 +119,13 @@ impl<'eval> TraceFactory<'eval> {
                 loop_frame_data: ref vm_loop_frame,
                 ..
             } => self.loop_frame_lines(indent, vm_loop_frame),
+            TraceVariant::ProcBranch {
+                stmt,
+                branch,
+                branch_idx,
+                history,
+                ..
+            } => self.proc_branch_lines(text, indent, branch, history),
         }
     }
 
@@ -230,21 +237,38 @@ pub trait CreateTrace<'eval>: AskCompileTime {
 
     fn loop_frame_subtraces(
         &self,
-        compile_time: &HuskyLangCompileTime,
         loop_stmt: &Arc<ProcStmt>,
         stmts: &[Arc<ProcStmt>],
         instruction_sheet: &InstructionSheet,
         loop_frame_data: &LoopFrameData<'eval>,
         parent: &Trace,
-    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
+    ) -> Avec<Trace<'eval>> {
         let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(
-            compile_time,
+            self.compile_time(),
             text,
             loop_stmt,
             stmts,
             instruction_sheet,
             loop_frame_data,
+            parent,
+        )
+    }
+
+    fn proc_branch_subtraces(
+        &self,
+        stmts: &[Arc<ProcStmt>],
+        instruction_sheet: &InstructionSheet,
+        stack_snapshot: &StackSnapshot<'eval>,
+        parent: &Trace,
+    ) -> Avec<Trace<'eval>> {
+        let text = &self.compile_time().text(parent.file).unwrap();
+        self.trace_factory().proc_branch_subtraces(
+            self.compile_time(),
+            text,
+            stmts,
+            instruction_sheet,
+            stack_snapshot,
             parent,
         )
     }
