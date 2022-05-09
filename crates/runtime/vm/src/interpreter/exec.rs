@@ -186,7 +186,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                                             enter: i,
                                             stack_snapshot,
                                             branches: branches.clone(),
-                                            control: todo!(),
+                                            control: control.snapshot(),
                                         },
                                     )
                                 }
