@@ -1,11 +1,3 @@
 53:5..53:6	Infer Error: expect i32 but get Vec<datasets::cv::mnist::BinaryImage28> instead
 11:9..11:14	Infer Error: lopd is not mutable
-23:13..23:58	Infer Error: lopd is not mutable
-35:25..35:46	Infer Error: lopd is not mutable
-41:25..41:42	Infer Error: lopd is not mutable
-43:17..43:44	Infer Error: lopd is not mutable
 11:9..11:14	Infer Error: lopd is not mutable
-23:13..23:58	Infer Error: lopd is not mutable
-35:25..35:46	Infer Error: lopd is not mutable
-41:25..41:42	Infer Error: lopd is not mutable
-43:17..43:44	Infer Error: lopd is not mutable
