@@ -338,7 +338,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 Ok(call_decl.output.ty)
             }
             RawExprVariant::Variable { .. } => todo!(),
-            RawExprVariant::Unrecognized(_) => todo!(),
+            RawExprVariant::Unrecognized(_) => {
+                throw!("unrecognized caller", call_expr.range)
+            }
             RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { opr, ref opds } => match opr {

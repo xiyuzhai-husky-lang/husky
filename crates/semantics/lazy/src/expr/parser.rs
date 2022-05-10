@@ -284,7 +284,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 })
             }
             RawExprVariant::Variable { .. } => todo!(),
-            RawExprVariant::Unrecognized(_) => todo!(),
+            RawExprVariant::Unrecognized(_) => panic!(),
             RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn {
