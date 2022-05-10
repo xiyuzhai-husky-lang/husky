@@ -191,7 +191,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match opr {
             Opr::Binary(binary_opr) => self.lazy_binary(arena, raw_expr_idx, opds),
             Opr::Prefix(prefix_opr) => self.lazy_prefix(arena, raw_expr_idx, opds),
-            Opr::Suffix(suffix_opr) => self.lazy_suffix(arena, raw_expr_idx, opds),
+            Opr::Suffix(suffix_opr) => self.lazy_suffix(arena, raw_expr_idx, suffix_opr, opds),
             Opr::List(list_opr) => self.lazy_list(arena, raw_expr_idx, list_opr, opds),
         }
     }
@@ -227,13 +227,26 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
+        opr: SuffixOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
-        self.infer_lazy_expr(arena, opds.start);
-        Ok(LazyQualifiedTy::new(
-            LazyQualifier::Transient,
-            self.raw_expr_ty(raw_expr_idx)?,
-        ))
+        let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
+        let this_ty_decl = self.db.ty_decl(this_qt.ty)?;
+        Ok(match opr {
+            SuffixOpr::Incr => todo!(),
+            SuffixOpr::Decr => todo!(),
+            SuffixOpr::MayReturn => todo!(),
+            SuffixOpr::FieldAccess(field_ident) => {
+                let field_decl = this_ty_decl.field_decl(field_ident)?;
+                let qual = LazyQualifier::from_field(
+                    this_qt.qual,
+                    field_decl.contract,
+                    self.db.is_copyable(field_decl.ty),
+                )?;
+                LazyQualifiedTy::new(qual, field_decl.ty)
+            }
+            SuffixOpr::WithType(_) => todo!(),
+        })
     }
 
     fn lazy_list(
@@ -286,7 +299,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
                 Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::MembAccess(ident) => self.lazy_method(
+                    SuffixOpr::FieldAccess(ident) => self.lazy_method(
                         opds.start,
                         ident,
                         (total_opds.start + 1)..total_opds.end,

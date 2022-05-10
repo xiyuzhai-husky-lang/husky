@@ -294,7 +294,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ident) => self.db.ty_decl(opd_ty)?.field_ty_result(ident),
+            SuffixOpr::FieldAccess(ident) => self.db.ty_decl(opd_ty)?.field_ty_result(ident),
             SuffixOpr::WithType(_) => todo!(),
         }
     }
@@ -345,7 +345,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
                 Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::MembAccess(ident) => self.infer_method(
+                    SuffixOpr::FieldAccess(ident) => self.infer_method(
                         opds.start,
                         ident,
                         (total_opds.start + 1)..total_opds.end,

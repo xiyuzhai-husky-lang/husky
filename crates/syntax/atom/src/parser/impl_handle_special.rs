@@ -94,8 +94,10 @@ impl<'a> AtomLRParser<'a> {
                     SemanticTokenKind::Field
                 };
                 let ranged_ident = identify!(self, field_ident_token, semantic_token_kind);
-                self.stack
-                    .push(Atom::new(range, SuffixOpr::MembAccess(ranged_ident).into()))
+                self.stack.push(Atom::new(
+                    range,
+                    SuffixOpr::FieldAccess(ranged_ident).into(),
+                ))
             }
             _ => {
                 self.stream.pop_range();

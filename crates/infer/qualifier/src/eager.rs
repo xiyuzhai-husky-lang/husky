@@ -133,6 +133,18 @@ impl std::fmt::Debug for EagerQualifier {
 }
 
 impl EagerQualifier {
+    pub fn mutable(&self) -> bool {
+        match self {
+            EagerQualifier::Copyable
+            | EagerQualifier::PureRef
+            | EagerQualifier::GlobalRef
+            | EagerQualifier::LocalRef
+            | EagerQualifier::Owned
+            | EagerQualifier::Transient => false,
+            EagerQualifier::CopyableMut | EagerQualifier::OwnedMut => true,
+        }
+    }
+
     pub fn binding(self, contract: EagerContract) -> Binding {
         match self {
             EagerQualifier::PureRef => match contract {
@@ -210,6 +222,42 @@ impl EagerQualifier {
             InputContract::Exec => todo!(),
             InputContract::MemberAccess => todo!(),
         }
+    }
+
+    pub fn from_field(
+        this_qual: EagerQualifier,
+        field_contract: FieldContract,
+        is_field_copyable: bool,
+    ) -> InferResult<Self> {
+        Ok(if is_field_copyable {
+            if this_qual.mutable() && field_contract.mutable() {
+                EagerQualifier::CopyableMut
+            } else {
+                EagerQualifier::Copyable
+            }
+        } else {
+            match this_qual {
+                EagerQualifier::Copyable | EagerQualifier::CopyableMut => panic!(),
+                EagerQualifier::PureRef => EagerQualifier::PureRef,
+                EagerQualifier::GlobalRef => EagerQualifier::GlobalRef,
+                EagerQualifier::LocalRef => EagerQualifier::LocalRef,
+                EagerQualifier::Transient => match field_contract {
+                    FieldContract::Own => todo!(),
+                    FieldContract::GlobalRef => todo!(),
+                    FieldContract::LazyOwn => todo!(),
+                },
+                EagerQualifier::Owned => match field_contract {
+                    FieldContract::Own => todo!(),
+                    FieldContract::GlobalRef => todo!(),
+                    FieldContract::LazyOwn => todo!(),
+                },
+                EagerQualifier::OwnedMut => match field_contract {
+                    FieldContract::Own => todo!(),
+                    FieldContract::GlobalRef => todo!(),
+                    FieldContract::LazyOwn => todo!(),
+                },
+            }
+        })
     }
 
     pub fn from_output(output_contract: OutputContract, is_copyable: bool) -> Self {

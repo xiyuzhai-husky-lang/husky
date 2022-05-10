@@ -79,6 +79,13 @@ pub enum FieldContract {
 }
 
 impl FieldContract {
+    pub fn mutable(&self) -> bool {
+        match self {
+            FieldContract::Own => true,
+            FieldContract::GlobalRef | FieldContract::LazyOwn => false,
+        }
+    }
+
     pub fn constructor_input_contract(&self, is_copyable: bool) -> InputContract {
         match self {
             FieldContract::Own => {

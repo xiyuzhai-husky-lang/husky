@@ -234,7 +234,7 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ranged_ident) => {
+            SuffixOpr::FieldAccess(ranged_ident) => {
                 let this_ty_decl = self.raw_expr_ty_decl(opd)?;
                 let field_var_decl = this_ty_decl.field_decl(ranged_ident)?;
                 let this_contract = match field_var_decl.contract {
@@ -330,7 +330,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ident) => self.eager_method(
+                    SuffixOpr::FieldAccess(ident) => self.eager_method(
                         opds.start,
                         ident,
                         (all_opds.start + 1)..all_opds.end,

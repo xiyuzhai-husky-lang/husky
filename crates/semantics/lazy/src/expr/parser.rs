@@ -210,7 +210,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ranged_ident) => {
+            SuffixOpr::FieldAccess(ranged_ident) => {
                 let ty_decl = self.raw_expr_ty_decl(opds.start).unwrap();
                 LazyExprKind::Opn {
                     opn_kind: LazyOpnKind::FieldAccess {
@@ -297,7 +297,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ranged_ident) => {
+                    SuffixOpr::FieldAccess(ranged_ident) => {
                         let this = self.parse_lazy_expr(field_opds.start)?;
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_lazy_expr(idx))
