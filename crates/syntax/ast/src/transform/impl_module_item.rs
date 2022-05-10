@@ -17,7 +17,7 @@ impl<'a> AstTransformer<'a> {
         match keyword {
             Keyword::Routine(routine_keyword) => {
                 enter_block(self);
-                self.parse_routine_decl(routine_keyword, token_group)
+                self.parse_routine_defn_head(routine_keyword, token_group)
             }
             Keyword::Type(ty_kw) => {
                 enter_block(self);

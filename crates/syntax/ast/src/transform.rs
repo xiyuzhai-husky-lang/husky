@@ -5,7 +5,7 @@ mod impl_module_item;
 mod impl_morphism_decl;
 mod impl_parse_atoms;
 mod impl_record_item;
-mod impl_routine_decl;
+mod impl_routine_defn_head;
 mod impl_stmt;
 mod impl_struct_item;
 mod impl_symbol_context;

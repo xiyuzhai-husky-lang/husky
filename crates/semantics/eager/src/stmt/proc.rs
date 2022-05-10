@@ -72,5 +72,5 @@ pub fn parse_impr_stmts(
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
-    EagerStmtParser::new(input_placeholders, db, arena, file).parse_impr_stmts(iter)
+    EagerStmtParser::new(input_placeholders, db, arena, file).parse_proc_stmts(iter)
 }
