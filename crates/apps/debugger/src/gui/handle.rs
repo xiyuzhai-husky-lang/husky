@@ -24,7 +24,6 @@ pub fn handle_message(
                                 if let Some(ref focus) = opt_focus_for_figure {
                                     let runtime = &mut debugger_.runtime.lock().unwrap();
                                     let trace = runtime.trace(id);
-                                    p!(trace.variant.tag());
                                     (
                                         Some(runtime.figure(id, focus)),
                                         Some(runtime.figure_control(&trace, focus)),
@@ -32,7 +31,6 @@ pub fn handle_message(
                                 } else {
                                     (None, None)
                                 };
-                            p!(opt_figure_control);
                             Response::Activate {
                                 id,
                                 opt_focus_for_figure,
