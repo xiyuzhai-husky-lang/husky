@@ -27,7 +27,7 @@ pub enum TraceVariant<'eval> {
     ProcBranch {
         stmt: Arc<ProcStmt>,
         branch: Arc<ProcBranch>,
-        vm_branch: Arc<VMBranch>,
+        opt_vm_branch: Option<Arc<VMBranch>>, // not none when executed
         branch_idx: u8,
         history: Arc<History<'eval>>,
     },
@@ -48,6 +48,22 @@ pub enum TraceVariant<'eval> {
 }
 
 impl<'eval> TraceVariant<'eval> {
+    pub fn tag(&self) -> &'static str {
+        match self {
+            TraceVariant::Main(_) => "TraceVariant::Main",
+            TraceVariant::FeatureStmt(_) => "TraceVariant::FeatureStmt",
+            TraceVariant::FeatureBranch(_) => "TraceVariant::FeatureBranch",
+            TraceVariant::FeatureExpr(_) => "TraceVariant::FeatureExpr",
+            TraceVariant::FeatureCallInput { .. } => "TraceVariant::FeatureCallInput",
+            TraceVariant::FuncStmt { .. } => "TraceVariant::FuncStmt",
+            TraceVariant::ProcStmt { .. } => "TraceVariant::ProcStmt",
+            TraceVariant::ProcBranch { .. } => "TraceVariant::ProcBranch",
+            TraceVariant::LoopFrame { .. } => "TraceVariant::ProcBranch",
+            TraceVariant::EagerExpr { .. } => "TraceVariant::EagerExpr",
+            TraceVariant::CallHead { .. } => "TraceVariant::CallHead",
+        }
+    }
+
     pub fn file_and_range(&self) -> (FilePtr, TextRange) {
         match self {
             TraceVariant::Main(ref block) => (block.file, block.range),
@@ -138,16 +154,25 @@ impl<'eval> TraceVariant<'eval> {
                 branch_idx,
                 history,
                 ..
-            } => match history.get(stmt).unwrap() {
-                HistoryEntry::BranchGroup { branch_entered, .. } => {
-                    if branch_entered == branch_idx {
-                        true
-                    } else {
-                        false
+            } => {
+                if let Some(entry) = history.get(stmt) {
+                    match entry {
+                        HistoryEntry::BranchGroup {
+                            opt_branch_entered: branch_entered,
+                            ..
+                        } => {
+                            if *branch_entered == Some(*branch_idx) {
+                                true
+                            } else {
+                                false
+                            }
+                        }
+                        _ => panic!(),
                     }
+                } else {
+                    false
                 }
-                _ => panic!(),
-            },
+            }
         }
     }
 
@@ -189,16 +214,28 @@ impl<'eval> TraceVariant<'eval> {
                 branch_idx,
                 history,
                 ..
-            } => match history.get(stmt).unwrap() {
-                HistoryEntry::BranchGroup { branch_entered, .. } => {
-                    if branch_idx > branch_entered {
-                        false
-                    } else {
-                        true
+            } => {
+                if let Some(entry) = history.get(stmt) {
+                    match entry {
+                        HistoryEntry::BranchGroup {
+                            opt_branch_entered, ..
+                        } => {
+                            if let Some(branch_entered) = opt_branch_entered {
+                                if branch_idx > branch_entered {
+                                    false
+                                } else {
+                                    true
+                                }
+                            } else {
+                                false
+                            }
+                        }
+                        _ => panic!(),
                     }
+                } else {
+                    false
                 }
-                _ => panic!(),
-            },
+            }
         }
     }
 }

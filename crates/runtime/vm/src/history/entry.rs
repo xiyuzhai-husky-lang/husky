@@ -19,7 +19,7 @@ pub enum HistoryEntry<'eval> {
         mutations: Vec<MutationData<'eval>>,
     },
     BranchGroup {
-        branch_entered: u8,
+        opt_branch_entered: Option<u8>,
         branches: Avec<VMBranch>,
         vm_branches: Avec<VMBranch>,
         control: ControlSnapshot<'eval>,
@@ -41,7 +41,7 @@ impl<'eval> HistoryEntry<'eval> {
             }
             HistoryEntry::Loop { .. } => todo!(),
             HistoryEntry::BranchGroup {
-                branch_entered: enter,
+                opt_branch_entered: enter,
                 ..
             } => todo!(),
             HistoryEntry::Break => todo!(),

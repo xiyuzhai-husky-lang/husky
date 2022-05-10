@@ -5,6 +5,7 @@ import type Trace from "src/trace/Trace";
 import global from "./global";
 import type FigureProps from "src/trace/figure/FigureProps";
 import type Focus from "./Focus";
+import type FigureControlProps from "src/trace/figure/FigureControlProps";
 
 export const root_traces_store = global.trace_cache.root_traces_store;
 
@@ -81,6 +82,17 @@ export function get_trace_stalk_store(trace_id: number, opt_input_id: number) {
 export function get_figure(active_trace_id: number, focus: Focus): FigureProps {
     try {
         return global.figure_cache.get_figure(active_trace_id, focus);
+    } catch (error) {
+        console.log("focus", get(focus_store));
+        throw error;
+    }
+}
+
+export function get_figure_control_store(
+    trace: Trace
+): Readable<FigureControlProps> {
+    try {
+        return global.user_state.get_figure_control_store(trace);
     } catch (error) {
         console.log("focus", get(focus_store));
         throw error;

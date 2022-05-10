@@ -1,10 +1,11 @@
 import type Trace from "src/trace/Trace";
-import type { Writable } from "svelte/store";
+import type { Readable, Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import type InitData from "./InitData";
 import StoreMap from "src/abstraction/StoreMap";
 import Focus from "../Focus";
 import type FigureControlProps from "src/trace/figure/FigureControlProps";
+import StoreStringMap from "src/abstraction/StoreStringMap";
 
 class UserState {
     //volatile
@@ -13,9 +14,8 @@ class UserState {
     shown_stores: StoreMap<boolean> = new StoreMap();
     focus_store: Writable<Focus> = writable(new Focus());
     focus_locked_store: Writable<boolean> = writable(true);
-    figure_control_stores: {
-        [figure_control_key: string]: FigureControlProps;
-    } = {};
+    figure_control_stores: StoreStringMap<FigureControlProps> =
+        new StoreStringMap();
 
     init(init_state: InitData) {
         this.active_trace_store.set(
@@ -27,6 +27,11 @@ class UserState {
         this.shown_stores.load(init_state.showns);
         this.focus_locked_store.set(true);
         this.focus_store.set(init_state.focus);
+        console.log(
+            "init_state.figure_controls = ",
+            init_state.figure_controls
+        );
+        this.figure_control_stores.load(init_state.figure_controls);
     }
 
     is_expanded(trace_id: number): boolean {
@@ -59,13 +64,31 @@ class UserState {
     }
 
     private figure_control_key(trace: Trace): string {
-        throw new Error("todo");
+        switch (trace.kind) {
+            case "Main":
+            case "CallHead":
+            case "FeatureStmt":
+            case "FeatureBranch":
+            case "FeatureExpr":
+            case "FeatureCallInput":
+            case "FuncStmt":
+            case "ProcStmt":
+            case "ProcBranch":
+            case "EagerExpr":
+                return `${trace.id}`;
+            case "LoopFrame":
+                return `${trace.parent}`;
+        }
     }
 
-    set_figure_control() {}
+    set_figure_control(trace: Trace, figure_control: FigureControlProps) {
+        let key = this.figure_control_key(trace);
+        this.figure_control_stores.set(key, figure_control);
+    }
 
-    get_figure_control_store(trace: Trace): FigureControlProps {
-        throw new Error("todo");
+    get_figure_control_store(trace: Trace): Readable<FigureControlProps> {
+        let key = this.figure_control_key(trace);
+        return this.figure_control_stores.get_store(key);
     }
 
     print_state() {

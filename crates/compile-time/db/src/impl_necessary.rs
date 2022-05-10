@@ -62,7 +62,7 @@ impl InternWord for HuskyLangCompileTime {
 }
 
 impl LiveFiles for HuskyLangCompileTime {
-    fn get_live_files(&self) -> &ARwLock<HashMap<file::FilePtr, ARwLock<String>>> {
+    fn get_live_files(&self) -> &ARwLock<IndexMap<file::FilePtr, ARwLock<String>>> {
         &self.live_docs
     }
 

@@ -22,13 +22,17 @@ pub fn handle_message(
                             debugger_.activate(id).await;
                             let (opt_figure, opt_figure_control) =
                                 if let Some(ref focus) = opt_focus_for_figure {
+                                    let runtime = &mut debugger_.runtime.lock().unwrap();
+                                    let trace = runtime.trace(id);
+                                    p!(trace.variant.tag());
                                     (
-                                        Some(debugger_.figure(id, focus).await),
-                                        Some(debugger_.figure_control(id, focus)),
+                                        Some(runtime.figure(id, focus)),
+                                        Some(runtime.figure_control(&trace, focus)),
                                     )
                                 } else {
                                     (None, None)
                                 };
+                            p!(opt_figure_control);
                             Response::Activate {
                                 id,
                                 opt_focus_for_figure,
@@ -84,16 +88,22 @@ pub fn handle_message(
                             focus,
                             opt_active_trace_id_for_figure,
                         } => {
-                            let opt_figure = if let Some(trace_id) = opt_active_trace_id_for_figure
-                            {
-                                Some(debugger_.figure(trace_id, &focus).await)
-                            } else {
-                                None
-                            };
+                            let (opt_figure, opt_figure_control) =
+                                if let Some(trace_id) = opt_active_trace_id_for_figure {
+                                    let runtime = &mut debugger_.runtime.lock().unwrap();
+                                    let trace = runtime.trace(trace_id);
+                                    (
+                                        Some(runtime.figure(trace_id, &focus)),
+                                        Some(runtime.figure_control(&trace, &focus)),
+                                    )
+                                } else {
+                                    (None, None)
+                                };
                             Response::LockFocus {
                                 focus,
                                 opt_active_trace_id_for_figure,
                                 opt_figure,
+                                opt_figure_control,
                             }
                         }
                     })

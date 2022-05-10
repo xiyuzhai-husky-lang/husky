@@ -37,12 +37,12 @@ impl<'eval> TraceFactory<'eval> {
         branch_idx: u8,
         history: Arc<History<'eval>>,
     ) -> Arc<Trace<'eval>> {
-        let vm_branch = match history.get(&stmt).unwrap() {
+        let opt_vm_branch = history.get(&stmt).map(|entry| match entry {
             HistoryEntry::BranchGroup { vm_branches, .. } => {
                 vm_branches[branch_idx as usize].clone()
             }
             _ => panic!(),
-        };
+        });
         self.new_trace(
             Some(parent_id),
             indent,
@@ -50,7 +50,7 @@ impl<'eval> TraceFactory<'eval> {
                 stmt,
                 branch,
                 branch_idx,
-                vm_branch,
+                opt_vm_branch,
                 history,
             },
             text,

@@ -69,7 +69,10 @@ export type TraceStalkResponse = {
     stalk: TraceStalk;
 };
 
-export type FigureControlResponse = {};
+export type FigureControlResponse = {
+    trace_id: number;
+    figure_control: FigureControlProps;
+};
 
 export type DebuggerResponse =
     | InitResponse

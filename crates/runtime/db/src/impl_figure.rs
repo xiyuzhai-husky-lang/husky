@@ -1,3 +1,9 @@
+mod figure_focus;
+mod impl_figure_control;
+
+pub use figure_focus::*;
+pub use impl_figure_control::*;
+
 use crate::*;
 use compile_time_db::*;
 use feature::{FeatureExpr, FeatureExprKind, FeatureStmt, FeatureStmtVariant};
@@ -49,18 +55,19 @@ impl HuskyLangRuntime {
                 branch_idx,
                 ref history,
                 ..
-            } => match history.get(stmt).unwrap() {
-                HistoryEntry::BranchGroup {
-                    branch_entered,
+            } => match history.get(stmt) {
+                Some(HistoryEntry::BranchGroup {
+                    opt_branch_entered: branch_entered,
                     mutations,
                     ..
-                } => {
-                    if *branch_entered == branch_idx {
+                }) => {
+                    if *branch_entered == Some(branch_idx) {
                         self.mutations_figure(mutations)
                     } else {
                         FigureProps::void()
                     }
                 }
+                None => FigureProps::void(),
                 _ => panic!(),
             },
         }
@@ -157,7 +164,7 @@ impl HuskyLangRuntime {
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
                 HistoryEntry::BranchGroup {
-                    branch_entered: enter,
+                    opt_branch_entered: enter,
                     ..
                 } => todo!(),
                 HistoryEntry::Break => todo!(),

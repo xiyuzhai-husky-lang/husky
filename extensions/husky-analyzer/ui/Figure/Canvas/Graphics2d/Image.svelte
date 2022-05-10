@@ -8,12 +8,6 @@
     export let image_props: ImageProps;
     export let image_height: number;
     export let image_width: number;
-    $: console.log(
-        "image height: ",
-        image_height,
-        " image width: ",
-        image_width
-    );
     $: focus = $focus_store;
     $: draw(canvas, image_props, image_height, image_width);
 

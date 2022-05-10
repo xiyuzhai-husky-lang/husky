@@ -96,7 +96,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                             self.exec_loop_tracking_mutation(loop_kind, body).into()
                         }
                         Mode::TrackHistory => {
-                            self.take_snapshot();
+                            self.save_snapshot();
                             let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
                             let (snapshot, mutations) = self.collect_block_mutations();
                             self.history.write(
@@ -161,44 +161,68 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::BranchGroup { ref branches } => {
                     should!(self.stack.len() <= sheet.variable_stack.len());
                     let stack_len = self.stack.len();
-                    let mut control = VMControl::None;
-                    for (i, b) in branches.iter().enumerate() {
-                        let enter: bool = if let Some(ref condition) = b.opt_condition_sheet {
-                            self.exec_all(condition, mode);
-                            self.stack.pop().to_bool()
-                        } else {
-                            true
-                        };
-                        if enter {
-                            match mode {
-                                Mode::Fast => control = self.exec_all(&b.body, Mode::Fast),
-                                Mode::TrackMutation => {
-                                    control = self.exec_all(&b.body, Mode::TrackMutation)
+                    let mut indexed_branch_iter = branches.iter().enumerate();
+                    let opt_indexed_branch_entered = loop {
+                        match indexed_branch_iter.next() {
+                            Some((i, b)) => {
+                                let enter: bool = if let Some(ref condition) = b.opt_condition_sheet
+                                {
+                                    self.exec_all(condition, mode); // compute condition
+                                    self.stack.pop().to_bool()
+                                } else {
+                                    true
+                                };
+                                if enter {
+                                    break Some((i, b));
                                 }
+                            }
+                            None => break None,
+                        }
+                    };
+                    match opt_indexed_branch_entered {
+                        Some((i, b)) => {
+                            let control = match mode {
+                                Mode::Fast => self.exec_all(&b.body, Mode::Fast),
+                                Mode::TrackMutation => self.exec_all(&b.body, Mode::TrackMutation),
                                 Mode::TrackHistory => {
-                                    self.take_snapshot();
-                                    control = self.exec_all(&b.body, Mode::TrackHistory);
+                                    self.save_snapshot();
+                                    let control = self.exec_all(&b.body, Mode::TrackHistory);
                                     let (stack_snapshot, mutations) =
                                         self.collect_block_mutations();
                                     self.history.write(
                                         ins,
                                         HistoryEntry::BranchGroup {
-                                            branch_entered: i.try_into().unwrap(),
+                                            opt_branch_entered: Some(i.try_into().unwrap()),
                                             stack_snapshot,
                                             branches: branches.clone(),
                                             control: control.snapshot(),
                                             mutations,
                                             vm_branches: branches.clone(),
                                         },
-                                    )
+                                    );
+                                    control
                                 }
-                            }
+                            };
                             self.stack.truncate(stack_len);
-                            break;
+                            control
+                        }
+                        None => {
+                            if mode == Mode::TrackHistory {
+                                self.history.write(
+                                    ins,
+                                    HistoryEntry::BranchGroup {
+                                        opt_branch_entered: None,
+                                        stack_snapshot: self.stack.snapshot(),
+                                        branches: branches.clone(),
+                                        control: ControlSnapshot::None,
+                                        mutations: Vec::new(),
+                                        vm_branches: branches.clone(),
+                                    },
+                                );
+                            }
+                            VMControl::None
                         }
                     }
-
-                    control
                 }
             };
             match control {

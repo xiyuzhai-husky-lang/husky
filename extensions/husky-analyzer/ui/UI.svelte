@@ -14,6 +14,7 @@
         move_left,
         get_figure,
         print_state,
+        get_figure_control_store,
     } from "src/data/ui";
     import { onDestroy } from "svelte";
 
@@ -26,6 +27,10 @@
     $: active_trace = $active_trace_store;
     $: figure =
         active_trace !== null ? get_figure(active_trace.id, focus) : null;
+    $: figure_control_store =
+        active_trace !== null ? get_figure_control_store(active_trace) : null;
+    $: figure_control_props =
+        active_trace !== null ? $figure_control_store : null;
 
     function on_key_down(e: KeyboardEvent) {
         switch (e.code) {
@@ -54,7 +59,8 @@
                 print_state();
                 break;
             case "KeyF":
-                console.log("figure: ", figure);
+                console.log("figure props: ", figure);
+                console.log("figure control props: ", figure_control_props);
             default:
         }
     }
@@ -90,7 +96,7 @@
     <div class="Middle" style="height: {middle_height}px">
         <HSplitPane>
             <TreeView slot="left" />
-            <Figure slot="right" {figure} />
+            <Figure slot="right" {figure} {figure_control_props} />
         </HSplitPane>
     </div>
     <div class="Bottom" style="height: {bottom_height}px">

@@ -2,7 +2,6 @@ mod config;
 mod error;
 pub mod flags;
 mod gui;
-mod impl_figure;
 pub mod mock;
 mod mode;
 mod notif;
@@ -11,7 +10,8 @@ mod state;
 use avec::Avec;
 pub use error::{DebuggerError, DebuggerResult};
 use focus::Focus;
-use impl_figure::FigureControlProps;
+use indexmap::IndexMap;
+use json_map::JsonListMap;
 use json_result::JsonResult;
 pub use mode::Mode;
 
