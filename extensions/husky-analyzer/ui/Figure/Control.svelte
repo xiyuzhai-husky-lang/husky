@@ -34,7 +34,7 @@
 
 <style>
     .FigureControl {
-        border: rgb(41, 41, 41) solid;
+        /* border: rgb(41, 41, 41) solid; */
         padding: 4px;
         display: flex;
     }

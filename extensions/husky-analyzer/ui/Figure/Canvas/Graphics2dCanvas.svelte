@@ -21,7 +21,10 @@
         />
     {/if}
 
-    <svg viewBox="{svgXMin} {svgYMin} {svgWidth} {svgHeight}">
+    <svg
+        style="width: {figure_canvas_width}px; height: {figure_canvas_height}px"
+        viewBox="{svgXMin} {svgYMin} {svgWidth} {svgHeight}"
+    >
         <g transform="matrix(1 0 0 -1 0 {figure.yrange[1]})">
             {#each figure.shape_groups as shape_group}
                 <g class={shape_group.color}>
@@ -39,8 +42,6 @@
         position: relative;
     }
     svg {
-        height: 900px;
-        width: 900px;
         position: absolute;
         left: 0px;
         top: 0px;

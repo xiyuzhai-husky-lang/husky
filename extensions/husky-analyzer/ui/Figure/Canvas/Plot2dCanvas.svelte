@@ -2,6 +2,8 @@
     import type { Plot2dProps } from "src/trace/figure/FigureProps";
     import Scatter2d from "./Plot2d/Scatter2d.svelte";
     export let figure: Plot2dProps;
+    export let figure_canvas_height: number;
+    export let figure_canvas_width: number;
 
     $: svgXMin = figure.xrange[0];
     $: svgWidth = figure.xrange[1] - figure.xrange[0];
@@ -10,7 +12,10 @@
     $: pointRadius = 0.01 * Math.min(svgWidth, svgHeight);
 </script>
 
-<svg viewBox="{svgXMin} {svgYMin} {svgWidth} {svgHeight}">
+<svg
+    style="width: {figure_canvas_width}px; height: {figure_canvas_height}px"
+    viewBox="{svgXMin} {svgYMin} {svgWidth} {svgHeight}"
+>
     <g><Scatter2d {figure} {pointRadius} /></g>
 </svg>
 

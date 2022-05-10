@@ -119,6 +119,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow: none;
     }
     .Bottom {
         padding-left: 10px;

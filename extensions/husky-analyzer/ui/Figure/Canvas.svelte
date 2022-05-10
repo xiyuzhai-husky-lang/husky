@@ -37,7 +37,11 @@
         {#if figure_selected.kind === "Primitive"}
             <PrimitiveValueCanvas figure={figure_selected} />
         {:else if figure_selected.kind === "Plot2d"}
-            <Plot2dCanvas figure={figure_selected} />
+            <Plot2dCanvas
+                figure={figure_selected}
+                {figure_canvas_width}
+                {figure_canvas_height}
+            />
         {:else if figure_selected.kind === "Graphics2d"}
             <Graphics2dCanvas
                 figure={figure_selected}
@@ -53,7 +57,7 @@
 <style>
     .FigureCanvas {
         display: flex;
-        border: rgb(41, 41, 41) solid;
+        /* border: rgb(41, 41, 41) solid; */
         background: black;
     }
 </style>
