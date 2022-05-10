@@ -18,7 +18,7 @@ impl<'a> EagerStmtParser<'a> {
         })
     }
 
-    pub(super) fn parse_impr_stmts(
+    pub(super) fn parse_proc_stmts(
         &mut self,
         iter: IterType,
     ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
@@ -37,7 +37,7 @@ impl<'a> EagerStmtParser<'a> {
                     file: self.file,
                     range: stmt.range,
                     indent: item.indent,
-                    variant: self.parse_impr_stmt(stmt, item.children, &mut iter)?,
+                    variant: self.parse_proc_stmt(stmt, item.children, &mut iter)?,
                     instruction_id,
                 },
                 AstKind::EnumVariantDefnHead {
@@ -49,10 +49,14 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::FeatureDecl { .. } => todo!(),
             }))
         }
+
+        if (stmts.len() > 0 && stmts[0].range.start.i() >= 20) {
+            p!(stmts);
+        }
         Ok(Arc::new(stmts))
     }
 
-    fn parse_impr_stmt(
+    fn parse_proc_stmt(
         &mut self,
         stmt: &RawStmt,
         children: Option<IterType>,
@@ -69,7 +73,7 @@ impl<'a> EagerStmtParser<'a> {
                         variant: ProcBranchVariant::If {
                             condition: self.parse_eager_expr(condition)?,
                         },
-                        stmts: self.parse_impr_stmts(not_none!(children))?,
+                        stmts: self.parse_proc_stmts(not_none!(children))?,
                         range: stmt.range,
                         file: self.file,
                     })),
@@ -79,9 +83,14 @@ impl<'a> EagerStmtParser<'a> {
                 while let Some(item) = iter.peek() {
                     let item = match item.value.as_ref()?.kind {
                         AstKind::Stmt(RawStmt {
-                            variant: RawStmtVariant::Branch(_),
+                            variant: RawStmtVariant::Branch(branch_stmt),
                             ..
-                        }) => iter.next().unwrap(),
+                        }) => match branch_stmt {
+                            RawBranchKind::If { .. } => break,
+                            RawBranchKind::Elif { .. } | RawBranchKind::Else => {
+                                iter.next().unwrap()
+                            }
+                        },
                         _ => break,
                     };
                     match item.value.as_ref()?.kind {
@@ -89,7 +98,7 @@ impl<'a> EagerStmtParser<'a> {
                             variant: RawStmtVariant::Branch(branch_stmt),
                             ..
                         }) => match branch_stmt {
-                            RawBranchKind::If { condition } => break,
+                            RawBranchKind::If { .. } => panic!(),
                             RawBranchKind::Elif { condition } => {
                                 if branches.len() == 0 {
                                     todo!()
@@ -99,7 +108,7 @@ impl<'a> EagerStmtParser<'a> {
                             RawBranchKind::Else => {
                                 branches.push(Arc::new(ProcBranch {
                                     variant: ProcBranchVariant::Else,
-                                    stmts: self.parse_impr_stmts(not_none!(item.children))?,
+                                    stmts: self.parse_proc_stmts(not_none!(item.children))?,
                                     range: stmt.range,
                                     file: self.file,
                                 }));
@@ -164,7 +173,7 @@ impl<'a> EagerStmtParser<'a> {
                     final_boundary: self.parse_boundary(final_boundary)?,
                     step,
                 },
-                stmts: self.parse_impr_stmts(children)?,
+                stmts: self.parse_proc_stmts(children)?,
             },
             RawLoopKind::ForExt {
                 frame_var,
@@ -178,7 +187,7 @@ impl<'a> EagerStmtParser<'a> {
                         final_boundary: self.parse_boundary(final_boundary)?,
                         step,
                     },
-                    stmts: self.parse_impr_stmts(children)?,
+                    stmts: self.parse_proc_stmts(children)?,
                 }
             }
             RawLoopKind::While { condition } => {
@@ -193,7 +202,7 @@ impl<'a> EagerStmtParser<'a> {
                 }
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::While { condition },
-                    stmts: self.parse_impr_stmts(children)?,
+                    stmts: self.parse_proc_stmts(children)?,
                 }
             }
             RawLoopKind::DoWhile { condition } => {
@@ -208,7 +217,7 @@ impl<'a> EagerStmtParser<'a> {
                 }
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::DoWhile { condition },
-                    stmts: self.parse_impr_stmts(children)?,
+                    stmts: self.parse_proc_stmts(children)?,
                 }
             }
         })

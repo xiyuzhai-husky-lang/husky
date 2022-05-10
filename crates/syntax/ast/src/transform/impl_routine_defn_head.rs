@@ -8,7 +8,7 @@ use token::*;
 use word::RoutineKeyword;
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_routine_decl(
+    pub(super) fn parse_routine_defn_head(
         &mut self,
         routine_keyword: RoutineKeyword,
         token_group: &[Token],
