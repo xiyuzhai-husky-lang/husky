@@ -8,11 +8,11 @@ impl From<SuffixOpr> for Opr {
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum SuffixOpr {
-    Incr,                               // ++
-    Decr,                               // --
-    MayReturn,                          // ?
-    MembAccess(RangedCustomIdentifier), // .
-    WithType(EntityRoutePtr),           // :
+    Incr,                                // ++
+    Decr,                                // --
+    MayReturn,                           // ?
+    FieldAccess(RangedCustomIdentifier), // .
+    WithType(EntityRoutePtr),            // :
 }
 
 impl SuffixOpr {
@@ -25,7 +25,7 @@ impl SuffixOpr {
             SuffixOpr::Incr => "++".into(),
             SuffixOpr::Decr => "--".into(),
             SuffixOpr::MayReturn => "?".into(),
-            SuffixOpr::MembAccess(ident) => format!(".{}", ident.ident),
+            SuffixOpr::FieldAccess(ident) => format!(".{}", ident.ident),
             SuffixOpr::WithType(ty) => format!(": {}", ty),
         }
     }

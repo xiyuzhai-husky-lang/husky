@@ -24,7 +24,7 @@ impl<'a> RustGenerator<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(field_ident) => {
+                    SuffixOpr::FieldAccess(field_ident) => {
                         self.gen_expr(&opds[0]);
                         self.write(".");
                         self.write(&field_ident.ident)

@@ -140,7 +140,7 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::MembAccess(ranged_ident) => {
+            SuffixOpr::FieldAccess(ranged_ident) => {
                 let this_ty_decl = self.raw_expr_ty_decl(opd)?;
                 let this_contract = match this_ty_decl.field_decl(ranged_ident)?.contract {
                     FieldContract::Own => match contract {
@@ -216,7 +216,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ranged_ident) => self.infer_lazy_method(
+                    SuffixOpr::FieldAccess(ranged_ident) => self.infer_lazy_method(
                         opds.start,
                         ranged_ident,
                         (all_opds.start + 1)..all_opds.end,

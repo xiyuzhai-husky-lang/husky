@@ -101,7 +101,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(ranged_ident) => {
+                    SuffixOpr::FieldAccess(ranged_ident) => {
                         if let Some(field_access_fp) =
                             self.db.field_access_fp(*this_ty, ranged_ident.ident)
                         {

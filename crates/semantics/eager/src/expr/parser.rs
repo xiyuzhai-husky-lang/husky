@@ -201,7 +201,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::MembAccess(field_ident) => {
+                    SuffixOpr::FieldAccess(field_ident) => {
                         let this = self.parse_eager_expr(field_opds.start)?;
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))

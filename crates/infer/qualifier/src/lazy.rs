@@ -103,4 +103,16 @@ impl LazyQualifier {
             InputContract::MemberAccess => todo!(),
         }
     }
+
+    pub fn from_field(
+        this_qual: LazyQualifier,
+        field_contract: FieldContract,
+        is_field_copyable: bool,
+    ) -> InferResult<Self> {
+        Ok(if is_field_copyable {
+            LazyQualifier::Copyable
+        } else {
+            todo!()
+        })
+    }
 }
