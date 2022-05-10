@@ -1,9 +1,11 @@
 <script lang="ts">
     import type FlexDirection from "src/abstraction/FlexDiretion";
+    import type FigureControlProps from "src/trace/figure/FigureControlProps";
 
     import type FigureProps from "src/trace/figure/FigureProps";
     import MutationsControl from "./Control/MutationGroupControl.svelte";
     export let figure: FigureProps | null;
+    export let figure_control_props: FigureControlProps | null;
     export let figure_control_height: number;
     export let figure_control_width: number;
     export let figure_control_flex_direction: FlexDirection;
@@ -14,13 +16,18 @@
     style="width: {figure_control_width}px; height: {figure_control_height}px"
 >
     {#if figure !== null}
-        {#if figure.kind === "Mutations"}
-            <MutationsControl
-                {figure}
-                {figure_control_height}
-                {figure_control_width}
-                {figure_control_flex_direction}
-            />
+        {#if figure_control_props !== null}
+            {#if figure.kind === "Mutations"}
+                <MutationsControl
+                    {figure}
+                    {figure_control_props}
+                    {figure_control_height}
+                    {figure_control_width}
+                    {figure_control_flex_direction}
+                />
+            {/if}
+        {:else}
+            panic
         {/if}
     {/if}
 </div>

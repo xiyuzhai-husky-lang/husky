@@ -1,4 +1,5 @@
 use feature::FeatureStmtVariant;
+use serde::Serialize;
 use trace::TraceVariant;
 use vm::{HistoryEntry, LoopFrameData, MutationData};
 
@@ -11,8 +12,8 @@ pub struct FigureControlProps {
 }
 
 impl FigureControlProps {
-    pub fn loop_frame_default(loop_trace: &Trace) -> Self {
-        match loop_trace.variant {
+    pub fn loop_default(loop_trace: &Trace) -> Self {
+        let control_props = match loop_trace.variant {
             TraceVariant::ProcStmt {
                 ref stmt,
                 ref history,
@@ -21,7 +22,9 @@ impl FigureControlProps {
                 _ => panic!(),
             },
             _ => panic!(),
-        }
+        };
+        p!(control_props);
+        control_props
     }
 
     pub fn mutations_default(mutations: &[MutationData]) -> Self {
@@ -32,9 +35,20 @@ impl FigureControlProps {
     }
 }
 
-impl Debugger {
-    pub fn figure_control(&self, id: TraceId, focus: &Focus) -> FigureControlProps {
-        let trace = self.trace(id);
+impl HuskyLangRuntime {
+    pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlProps {
+        epin!();
+        let key = focus.figure_control_key(trace);
+        if let Some(control) = self.figure_controls.get(&key) {
+            control.clone()
+        } else {
+            let control = self.gen_figure_control(trace);
+            self.figure_controls.insert(key, control.clone());
+            control
+        }
+    }
+    pub fn gen_figure_control(&mut self, trace: &Trace) -> FigureControlProps {
+        epin!();
         match trace.variant {
             TraceVariant::Main(_)
             | TraceVariant::FeatureStmt(_)
@@ -42,15 +56,15 @@ impl Debugger {
             | TraceVariant::FeatureExpr(_)
             | TraceVariant::FeatureCallInput { .. }
             | TraceVariant::FuncStmt { .. }
-            | TraceVariant::ProcStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. } => FigureControlProps::default(),
-            TraceVariant::LoopFrame {
-                ref loop_stmt,
-                ref body_instruction_sheet,
-                ref body_stmts,
-                ref loop_frame_data,
-            } => FigureControlProps::loop_frame_default(&self.trace(trace.parent.unwrap())),
+            TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
+                ProcStmtVariant::Loop { .. } => FigureControlProps::loop_default(trace),
+                _ => FigureControlProps::default(),
+            },
+            TraceVariant::LoopFrame { .. } => {
+                FigureControlProps::loop_default(&self.trace(trace.parent.unwrap()))
+            }
             TraceVariant::ProcBranch {
                 ref stmt,
                 branch_idx,
@@ -58,11 +72,11 @@ impl Debugger {
                 ..
             } => match history.get(stmt).unwrap() {
                 HistoryEntry::BranchGroup {
-                    branch_entered,
+                    opt_branch_entered: branch_entered,
                     mutations,
                     ..
                 } => {
-                    if branch_idx == *branch_entered {
+                    if Some(branch_idx) == *branch_entered {
                         FigureControlProps::mutations_default(mutations)
                     } else {
                         FigureControlProps::default()

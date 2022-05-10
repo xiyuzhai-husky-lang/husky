@@ -114,7 +114,7 @@ pub fn subtraces(
                         body,
                     ),
                     HistoryEntry::BranchGroup {
-                        branch_entered: enter,
+                        opt_branch_entered: enter,
                         ..
                     } => todo!(),
                     HistoryEntry::Break => todo!(),
@@ -146,17 +146,22 @@ pub fn subtraces(
             ref stmt,
             branch_idx,
             ref history,
-            ref vm_branch,
+            ref opt_vm_branch,
             ref branch,
             ..
         } => match history.get(stmt).unwrap() {
             HistoryEntry::BranchGroup {
                 stack_snapshot,
-                branch_entered,
+                opt_branch_entered: branch_entered,
                 ..
             } => {
-                should_eq!(branch_idx, *branch_entered);
-                db.proc_branch_subtraces(&branch.stmts, &vm_branch.body, stack_snapshot, trace)
+                should_eq!(Some(branch_idx), *branch_entered);
+                db.proc_branch_subtraces(
+                    &branch.stmts,
+                    &opt_vm_branch.as_ref().unwrap().body,
+                    stack_snapshot,
+                    trace,
+                )
             }
             _ => panic!(),
         },

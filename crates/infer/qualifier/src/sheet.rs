@@ -1,4 +1,4 @@
-use std::{collections::HashMap, sync::Arc};
+use std::sync::Arc;
 
 use arena::map::{ArenaKeyQuery, ArenaMap};
 use ast::RawExprMap;
@@ -6,7 +6,7 @@ use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use print_utils::{p, ps};
 use std::fmt::Write;
-use test_utils::{TestDisplay, TestCompareConfig};
+use test_utils::{TestCompareConfig, TestDisplay};
 use text::Row;
 use vec_map::VecPairMap;
 use word::Identifier;

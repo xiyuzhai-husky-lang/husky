@@ -4,6 +4,7 @@ import {
     decode_number,
     decode_opt,
 } from "src/decode/decode";
+import type FigureControlProps from "src/trace/figure/FigureControlProps";
 import type FigureProps from "src/trace/figure/FigureProps";
 import Trace from "src/trace/Trace";
 import Focus from "../Focus";
@@ -17,6 +18,7 @@ export default class InitData {
     root_traces: number[];
     focus: Focus;
     figures: { [id_str: string]: FigureProps };
+    figure_controls: { [id_str: string]: FigureControlProps };
     constructor(props: unknown) {
         this.active_trace_id = decode_opt(
             decode_memb(props, "active_trace_id"),
@@ -35,6 +37,7 @@ export default class InitData {
             decode_number
         );
         this.figures = decode_memb(props, "figures") as any;
+        this.figure_controls = decode_memb(props, "figure_controls") as any;
     }
 }
 

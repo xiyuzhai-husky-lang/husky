@@ -12,6 +12,7 @@ pub use entity_route_query::{EntityRouteQueryGroup, EntityRouteSalsaQueryGroup};
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
+use indexmap::IndexMap;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_entity_route::*;
@@ -61,7 +62,7 @@ pub struct HuskyLangCompileTime {
     file_unique_allocator: file::UniqueFileAllocator,
     word_unique_allocator: word::WordAllocator,
     scope_unique_allocator: entity_route::EntityRouteInterner,
-    live_docs: ARwLock<HashMap<FilePtr, ARwLock<String>>>,
+    live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
     features: feature::FeatureUniqueAllocator,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,

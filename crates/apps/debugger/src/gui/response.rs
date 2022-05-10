@@ -1,5 +1,6 @@
 use focus::Focus;
 use json_result::JsonResult;
+use runtime_db::FigureControlProps;
 
 use super::*;
 use crate::*;
@@ -36,6 +37,7 @@ pub(super) enum Response<'a> {
         focus: Focus,
         opt_active_trace_id_for_figure: Option<TraceId>,
         opt_figure: Option<FigureProps>,
+        opt_figure_control: Option<FigureControlProps>,
     },
     TraceStalk {
         trace_id: TraceId,

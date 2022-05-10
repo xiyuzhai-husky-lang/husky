@@ -5,6 +5,7 @@ use std::collections::HashMap;
 
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
+use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
 use text::TextRange;
 use word::{CustomIdentifier, Identifier};
@@ -15,9 +16,9 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
     db: &'stack dyn InterpreterQueryGroup,
     stack: VMStack<'stack, 'eval>,
     pub(crate) history: History<'eval>,
-    snapshot: Option<StackSnapshot<'eval>>,
+    opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: HashMap<StackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
+    variable_mutations: IndexMap<StackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
 }
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
@@ -29,7 +30,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             db,
             stack: VMStack::try_new(iter)?,
             history: Default::default(),
-            snapshot: None,
+            opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
         })
@@ -43,7 +44,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             db,
             stack: values.into(),
             history: Default::default(),
-            snapshot: None,
+            opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
         }
@@ -88,11 +89,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         Ok(())
     }
 
-    fn take_snapshot(&mut self) {
-        if let Some(_) = self.snapshot {
+    fn save_snapshot(&mut self) {
+        if let Some(_) = self.opt_snapshot_saved {
             panic!()
         }
-        self.snapshot = Some(self.stack.snapshot());
+        self.opt_snapshot_saved = Some(self.stack.snapshot());
     }
 
     fn record_mutation(
@@ -108,7 +109,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     }
 
     fn collect_block_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData<'eval>>) {
-        let snapshot = std::mem::take(&mut self.snapshot).expect("bug");
+        let snapshot = std::mem::take(&mut self.opt_snapshot_saved).expect("bug");
         let mutations = std::mem::take(&mut self.variable_mutations)
             .iter()
             .filter_map(|(stack_idx, (varname, file, _, ty))| {

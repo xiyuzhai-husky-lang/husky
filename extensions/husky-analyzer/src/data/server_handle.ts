@@ -46,9 +46,15 @@ export function set_trace_stalk(
 export function set_figure(
     trace_id: number,
     focus: Focus,
-    figure: FigureProps
+    figure: FigureProps,
+    figure_control: FigureControlProps
 ) {
     global.figure_cache.set_figure(trace_id, focus, figure);
+    let trace = global.trace_cache.get_trace(trace_id);
+    if (trace === null) {
+        throw new Error("what");
+    }
+    global.user_state.set_figure_control(trace, figure_control);
 }
 
 export function did_activate(
@@ -61,7 +67,15 @@ export function did_activate(
         if (opt_focus_for_figure === null) {
             throw new Error("panic");
         }
-        set_figure(trace_id, opt_focus_for_figure, opt_figure);
+        if (opt_figure_control === null) {
+            throw new Error("panic");
+        }
+        set_figure(
+            trace_id,
+            opt_focus_for_figure,
+            opt_figure,
+            opt_figure_control
+        );
     }
     let trace = global.trace_cache.get_trace(trace_id);
     global.user_state.active_trace_store.set(trace);
@@ -92,7 +106,11 @@ export function did_lock_focus(response: LockFocusResponse) {
 }
 
 export function did_update_figure_control(response: FigureControlResponse) {
-    global.user_state.set_figure_control();
+    let trace = global.trace_cache.get_trace(response.trace_id);
+    if (trace === null) {
+        throw new Error("what");
+    }
+    global.user_state.set_figure_control(trace, response.figure_control);
 }
 
 export function opt_active_trace_id_for_figure(focus: Focus): number | null {

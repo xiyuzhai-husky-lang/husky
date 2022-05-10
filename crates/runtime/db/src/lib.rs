@@ -8,6 +8,9 @@ mod tests;
 use datasets::LabeledData;
 pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 use focus::Focus;
+pub use impl_figure::*;
+use indexmap::IndexMap;
+use json_map::JsonListMap;
 use json_result::JsonResult;
 pub use query::*;
 
@@ -36,6 +39,7 @@ pub struct HuskyLangRuntime {
     focus: Focus,
     expansions: HashMap<TraceId, bool>,
     showns: HashMap<TraceId, bool>,
+    figure_controls: HashMap<String, FigureControlProps>,
     package_main: FilePtr,
 }
 
@@ -86,6 +90,7 @@ impl HuskyLangRuntime {
             expansions: Default::default(),
             showns: Default::default(),
             package_main,
+            figure_controls: Default::default(),
         };
         runtime.set_version(0);
         runtime.set_pack_main(package_main);

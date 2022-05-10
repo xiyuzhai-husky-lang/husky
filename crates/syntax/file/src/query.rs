@@ -4,11 +4,12 @@ use std::{
 };
 
 use crate::*;
+use indexmap::IndexMap;
 use itertools::Itertools;
 use sync_utils::ARwLock;
 
 pub trait LiveFiles: AllocateUniqueFile {
-    fn get_live_files(&self) -> &ARwLock<HashMap<FilePtr, ARwLock<String>>>;
+    fn get_live_files(&self) -> &ARwLock<IndexMap<FilePtr, ARwLock<String>>>;
     fn did_change_source(&mut self, id: FilePtr);
 
     fn set_live_file_text(&mut self, path: PathBuf, text: String) {

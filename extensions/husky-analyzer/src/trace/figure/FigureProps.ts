@@ -30,7 +30,6 @@ export function decode_mutation(
     idx: number
 ): MutationFigureProps {
     let name = decode_string(decode_memb(data, "name"));
-
     let before = decode_opt(decode_memb(data, "before"), decode_figure_props);
     let after = decode_figure_props(decode_memb(data, "after"));
     return { name, before, after, idx };

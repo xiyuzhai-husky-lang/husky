@@ -4,9 +4,12 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
 tokio = { version = "1.16.1", features = ["sync"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
+indexmap = "1.8.1"
+json-map = { path = "../../abstraction/json-map", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }

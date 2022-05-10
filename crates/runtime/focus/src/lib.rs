@@ -40,4 +40,13 @@ impl Focus {
             "g".into()
         }
     }
+
+    pub fn figure_control_key(&self, trace: &Trace) -> String {
+        match trace.variant {
+            TraceVariant::LoopFrame { .. } => {
+                format!("{}", trace.parent.unwrap().0)
+            }
+            _ => format!("{}", trace.id().0),
+        }
+    }
 }
