@@ -10,7 +10,7 @@
     $: selected = opt_mutation_selection === mutation.idx;
 
     function select_me() {
-        console.log("select me");
+        alert("select me");
     }
 </script>
 
@@ -22,11 +22,12 @@
         <div class="AssociationBox" />
         <div
             class="Name"
-            style="width: {mutation_control_width - 31}px"
+            style="width: {mutation_control_width - 131}px"
             on:mousedown={select_me}
         >
             {mutation.name}
         </div>
+        <button on:click={select_me}>try</button>
     </div>
 </div>
 
@@ -48,6 +49,10 @@
     .Name {
         background: black;
         padding-left: 4px;
+        z-index: 1;
+    }
+    .Name:hover {
+        background: brown;
     }
     .selected {
         outline: orange solid 2px;
