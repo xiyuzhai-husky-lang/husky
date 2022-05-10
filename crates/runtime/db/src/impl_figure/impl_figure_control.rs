@@ -23,7 +23,6 @@ impl FigureControlProps {
             },
             _ => panic!(),
         };
-        p!(control_props);
         control_props
     }
 
@@ -37,7 +36,6 @@ impl FigureControlProps {
 
 impl HuskyLangRuntime {
     pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlProps {
-        epin!();
         let key = focus.figure_control_key(trace);
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
@@ -48,7 +46,6 @@ impl HuskyLangRuntime {
         }
     }
     pub fn gen_figure_control(&mut self, trace: &Trace) -> FigureControlProps {
-        epin!();
         match trace.variant {
             TraceVariant::Main(_)
             | TraceVariant::FeatureStmt(_)

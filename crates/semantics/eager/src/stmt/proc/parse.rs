@@ -49,10 +49,6 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::FeatureDecl { .. } => todo!(),
             }))
         }
-
-        if (stmts.len() > 0 && stmts[0].range.start.i() >= 20) {
-            p!(stmts);
-        }
         Ok(Arc::new(stmts))
     }
 
