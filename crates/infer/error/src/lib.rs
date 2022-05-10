@@ -114,6 +114,18 @@ macro_rules! throw {
 }
 
 #[macro_export]
+macro_rules! throw_derived {
+    ($msg:expr) => {{
+        Err(infer_error::InferError {
+            variant: infer_error::InferErrorVariant::Derived {
+                message: $msg.into(),
+            },
+            dev_src: dev_utils::dev_src!(),
+        })?
+    }};
+}
+
+#[macro_export]
 macro_rules! ok_or {
     ($opt_value: expr, $msg:expr, $range: expr) => {{
         $opt_value.ok_or(InferError {
