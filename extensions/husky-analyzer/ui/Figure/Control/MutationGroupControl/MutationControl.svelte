@@ -26,8 +26,6 @@
             on:mousedown={select_me}
         >
             {mutation.name}
-            opt_mutation_selection = {opt_mutation_selection}
-            mutation.idx = {mutation.idx}
         </div>
     </div>
 </div>
