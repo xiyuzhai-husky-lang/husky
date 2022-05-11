@@ -1,23 +1,20 @@
 mod handle;
 mod init;
-mod query;
+mod request;
 mod response;
 mod tests;
 
-use crate::{
-    gui::{handle::handle_message, init::init_gui},
-    *,
-};
-
+use crate::*;
 use futures::{task::SpawnExt, FutureExt, StreamExt};
-use init::InitData;
+use handle::handle_message;
+use init::InitState;
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc::{self, UnboundedSender};
 use trace::{FigureProps, Trace, TraceId, TraceStalk};
 use warp::ws::{Message, WebSocket};
 
-use query::Query;
-use response::Response;
+use request::{Request, RequestVariant};
+use response::{Response, ResponseVariant};
 
 pub(crate) async fn handle_query(
     socket: warp::ws::Ws,
@@ -39,7 +36,6 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
         print_utils::CYAN,
         print_utils::RESET
     );
-    init_gui(&debugger, client_sender.clone());
     while let Some(result) = rx.next().await {
         let msg = result.expect("error receiving ws message: {}");
         match msg.to_str() {

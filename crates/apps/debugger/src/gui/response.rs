@@ -6,21 +6,24 @@ use super::*;
 use crate::*;
 
 #[derive(Debug, Serialize, Clone)]
+pub(super) struct Response<'a> {
+    pub request_id: usize,
+    pub variant: ResponseVariant<'a>,
+}
+
+#[derive(Debug, Serialize, Clone)]
 #[serde(tag = "kind")]
-pub(super) enum Response<'a> {
+pub(super) enum ResponseVariant<'a> {
     Init {
-        init_state: InitData<'a>,
+        init_state: InitState<'a>,
     },
     Activate {
-        id: TraceId,
-        opt_focus_for_figure: Option<Focus>,
-        opt_figure: Option<FigureProps>,
-        opt_figure_control: Option<FigureControlProps>,
+        figure_props: FigureProps,
+        figure_control_props: FigureControlProps,
     },
     ToggleExpansion {
-        id: TraceId,
         effective_opt_input_id: Option<usize>,
-        opt_subtraces: Option<Avec<Trace<'static>>>,
+        subtraces: Avec<Trace<'static>>,
         associated_traces: Vec<Arc<Trace<'static>>>,
     },
     ToggleShow {
@@ -40,8 +43,6 @@ pub(super) enum Response<'a> {
         opt_figure_control: Option<FigureControlProps>,
     },
     TraceStalk {
-        trace_id: TraceId,
-        input_id: usize,
         stalk: Arc<TraceStalk<'static>>,
     },
 }

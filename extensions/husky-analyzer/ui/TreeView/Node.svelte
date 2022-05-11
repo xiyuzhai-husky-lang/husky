@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { focus_store, get_trace_stalk_store } from "src/data/ui";
+    import state, { focus_store } from "src/state";
     import Line from "./Line.svelte";
-    import type Trace from "src/trace/Trace";
+    import type { Trace } from "src/trace";
 
     export let trace: Trace;
     export let on_click: () => void;
@@ -24,6 +24,8 @@
             case "EagerExpr":
             case "CallHead":
             case "FeatureCallInput":
+            case "LoopFrame":
+            case "ProcBranch":
                 return false;
         }
     }
@@ -31,7 +33,7 @@
     $: focus = $focus_store;
     $: has_extra = tell_has_extra(trace, focus.opt_input_id);
     $: stalk_store = has_extra
-        ? get_trace_stalk_store(trace.id, focus.opt_input_id!)
+        ? state.get_trace_stalk_store(trace.id, focus.opt_input_id!)
         : null;
     $: stalk = stalk_store !== null ? $stalk_store : null;
     $: extra_tokens = stalk !== null ? stalk.extra_tokens : [];

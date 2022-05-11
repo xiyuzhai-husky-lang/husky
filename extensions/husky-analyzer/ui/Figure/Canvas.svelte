@@ -1,5 +1,6 @@
 <script lang="ts">
-    import type FigureProps from "src/figure/src/figure/FigurePropsrt Plot2dCanvas from "./Canvas/Plot2dCanvas.svelte";
+    import type FigureProps from "src/figure";
+    import Plot2dCanvas from "./Canvas/Plot2dCanvas.svelte";
     import Graphics2dCanvas from "./Canvas/Graphics2dCanvas.svelte";
     import PrimitiveValueCanvas from "./Canvas/PrimitiveValueCanvas.svelte";
     import NullCanvas from "./Canvas/NullCanvas.svelte";

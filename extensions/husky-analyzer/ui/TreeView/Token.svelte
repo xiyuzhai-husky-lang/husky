@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { get_show_store, get_trace, toggle_show } from "src/data/ui";
-    import type { TokenProps } from "src/trace/Trace";
+    import state from "src/state";
+    import type { TokenProps } from "src/trace";
     export let token: TokenProps;
     export let within_active_node: boolean;
     $: spacesBeforeStyles = spacesStyle(countSpacesBefore(token.value));
@@ -8,10 +8,12 @@
     $: associated = token.associated_trace !== null;
     $: associated_trace =
         token.associated_trace !== null
-            ? get_trace(token.associated_trace)
+            ? state.get_trace(token.associated_trace)
             : null;
     $: associated_trace_shown_store =
-        associated_trace !== null ? get_show_store(associated_trace) : null;
+        associated_trace !== null
+            ? state.get_show_store(associated_trace)
+            : null;
     $: associated_trace_shown =
         associated_trace_shown_store !== null
             ? $associated_trace_shown_store
@@ -44,7 +46,7 @@
     function handleClick() {
         if (within_active_node) {
             if (token.associated_trace !== null) {
-                toggle_show(token.associated_trace);
+                state.toggle_show(token.associated_trace);
             }
         }
     }

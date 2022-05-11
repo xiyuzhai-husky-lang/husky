@@ -2,6 +2,7 @@ mod config;
 mod error;
 pub mod flags;
 mod gui;
+mod internal;
 pub mod mock;
 mod mode;
 mod notif;
@@ -11,6 +12,7 @@ use avec::Avec;
 pub use error::{DebuggerError, DebuggerResult};
 use focus::Focus;
 use indexmap::IndexMap;
+use internal::DebuggerInternal;
 use json_map::JsonListMap;
 use json_result::JsonResult;
 pub use mode::Mode;
@@ -23,17 +25,15 @@ use notif::handle_notif;
 use print_utils::*;
 use runtime_db::{HuskyLangRuntime, RuntimeQueryGroup};
 use state::DebuggerState;
-use std::sync::Mutex;
+use std::sync::{Mutex, RwLock};
 use std::{collections::HashMap, convert::Infallible, net::ToSocketAddrs, path::Path, sync::Arc};
 use test_utils::TestResult;
 use trace::{CreateTrace, FigureProps, Trace, TraceId, TraceStalk, TraceTokenKind};
 use warp::Filter;
 
 pub struct Debugger {
-    runtime: Mutex<HuskyLangRuntime>,
+    internal: Mutex<DebuggerInternal>,
     threadpool: ThreadPool,
-    state: Mutex<DebuggerState>,
-    config: DebuggerConfig,
 }
 
 impl Debugger {
@@ -52,17 +52,29 @@ impl Debugger {
             }
         }
         Self {
-            runtime: Mutex::new(runtime),
+            internal: Mutex::new(DebuggerInternal {
+                runtime,
+                state: Default::default(),
+                config,
+            }),
             threadpool: ThreadPool::new().unwrap(),
-            state: Default::default(),
-            config,
         }
     }
 
     pub async fn serve_on_error(self, addr: impl ToSocketAddrs, input_id: usize) -> TestResult {
+        if self.has_root_error(input_id).await {
+            self.serve(addr).await.unwrap();
+            TestResult::Failed
+        } else {
+            TestResult::Success
+        }
+    }
+
+    async fn has_root_error(&self, input_id: usize) -> bool {
         let mut error_flag = false;
-        for trace in self.root_traces().iter() {
-            let stalk = self.trace_stalk(*trace, input_id).await;
+        let internal = self.internal.lock().unwrap();
+        for trace in internal.runtime.root_traces().iter() {
+            let stalk = internal.trace_stalk(*trace, input_id);
             for token in &stalk.extra_tokens {
                 match token.kind {
                     TraceTokenKind::Error => {
@@ -73,12 +85,7 @@ impl Debugger {
                 }
             }
         }
-        if error_flag {
-            self.serve(addr).await.unwrap();
-            TestResult::Failed
-        } else {
-            TestResult::Success
-        }
+        error_flag
     }
 
     pub async fn serve(self, addr: impl ToSocketAddrs) -> DebuggerResult<()> {
@@ -103,65 +110,8 @@ impl Debugger {
         Ok(())
     }
 
-    pub fn change_text(&self) {}
-
-    pub fn root_traces(&self) -> Arc<Vec<TraceId>> {
-        self.runtime.lock().unwrap().root_traces()
-    }
-
-    pub async fn subtraces(
-        &self,
-        trace_id: TraceId,
-        effective_opt_input_id: Option<usize>,
-    ) -> Avec<Trace<'static>> {
-        let runtime = self.runtime.lock().unwrap();
-        let trace = runtime.trace(trace_id);
-        let subtraces = runtime.subtraces(trace_id, effective_opt_input_id);
-        self.state
-            .lock()
-            .unwrap()
-            .set_subtraces(&trace, effective_opt_input_id, &subtraces);
-        subtraces
-    }
-
-    pub fn expansions(&self) -> HashMap<TraceId, bool> {
-        self.runtime.lock().unwrap().expansions()
-    }
-
-    pub fn showns(&self) -> HashMap<TraceId, bool> {
-        self.runtime.lock().unwrap().showns()
-    }
-
-    pub async fn activate(&self, id: TraceId) {
-        self.state.lock().unwrap().active_trace_id = Some(id);
-    }
-
-    pub async fn toggle_expansion(&self, id: TraceId) {
-        self.runtime.lock().unwrap().toggle_expansion(id)
-    }
-
-    pub async fn toggle_show(&self, id: TraceId) {
-        self.runtime.lock().unwrap().toggle_show(id)
-    }
-
-    pub fn trace(&self, id: TraceId) -> Arc<Trace<'static>> {
-        self.runtime.lock().unwrap().trace(id)
-    }
-
-    pub fn decode_focus(&self, command: &str) -> JsonResult<Focus> {
-        self.runtime.lock().unwrap().decode_focus(command)
-    }
-
-    pub async fn lock_input(&self, input_str: &str) -> (Option<Option<usize>>, Option<String>) {
-        self.runtime.lock().unwrap().lock_input(input_str)
-    }
-
-    pub async fn trace_stalk(
-        &self,
-        trace_id: TraceId,
-        input_id: usize,
-    ) -> Arc<TraceStalk<'static>> {
-        self.runtime.lock().unwrap().trace_stalk(trace_id, input_id)
+    pub fn change_text(&self) {
+        todo!()
     }
 }
 

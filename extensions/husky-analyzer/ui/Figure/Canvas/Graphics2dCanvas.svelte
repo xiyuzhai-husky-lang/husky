@@ -1,5 +1,6 @@
 <script lang="ts">
-    import type Graphics2dProps from "src/figure/src/figure/Graphics2drt Shape from "./Graphics2d/Shape.svelte";
+    import type Graphics2dProps from "src/figure/Graphics2d";
+    import Shape from "./Graphics2d/Shape.svelte";
     import Image from "./Graphics2d/Image.svelte";
     export let figure: Graphics2dProps;
     export let figure_canvas_height: number;

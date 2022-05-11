@@ -1,6 +1,5 @@
 <script lang="ts">
-    import type Trace from "src/trace/Trace";
-    import type { TokenProps, LineProps } from "src/trace/Trace";
+    import type { Trace, TokenProps, LineProps } from "src/trace";
     import Token from "./Token.svelte";
 
     export let trace: Trace;

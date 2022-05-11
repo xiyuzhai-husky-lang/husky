@@ -3,11 +3,11 @@ import FutureMap from "src/abstraction/FutureMap";
 import NDict from "src/abstraction/NDict";
 import SchemeFutureMap from "src/abstraction/SchemeFutureMap";
 import type TraceStalk from "src/trace/stalk";
-import type Trace from "src/trace/Trace";
+import type { Trace } from "src/trace";
 import type { Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import type { Focus } from "src/focus";
-import type { InitState } from "src/state/init";
+import type { InitState } from "src/state/init_state";
 
 export class TraceCache {
     traces: NDict<Trace> = new NDict();

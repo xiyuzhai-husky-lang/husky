@@ -114,8 +114,8 @@ impl HuskyLangRuntime {
         *self.expansions.entry(trace.id()).or_insert(false)
     }
 
-    pub fn expansions(&mut self) -> HashMap<TraceId, bool> {
-        self.expansions.clone()
+    pub fn expansions(&self) -> &HashMap<TraceId, bool> {
+        &self.expansions
     }
 
     pub fn toggle_show(&mut self, id: TraceId) {
@@ -123,8 +123,8 @@ impl HuskyLangRuntime {
         *shown = !*shown;
     }
 
-    pub fn showns(&self) -> HashMap<TraceId, bool> {
-        self.showns.clone()
+    pub fn showns(&self) -> &HashMap<TraceId, bool> {
+        &self.showns
     }
 
     pub fn focus(&self) -> &Focus {

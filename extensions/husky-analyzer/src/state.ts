@@ -1,11 +1,10 @@
-import type { DebuggerServer } from "./server";
-import server from "./server";
-import { TraceState } from "./state/trace";
-import { FigureState } from "./state/figure";
-import { InitState } from "./state/init";
-import { FocusState } from "./state/focus";
+import { DebuggerServer } from "./server";
+import { TraceState } from "./state/trace_state";
+import { FigureState } from "./state/figure_state";
+import { InitState } from "./state/init_state";
+import { FocusState } from "./state/focus_state";
 import type { Focus } from "./focus";
-import type FigureProps from "./figure/FigureProps";
+import type FigureProps from "./figure";
 import {
     derived,
     get,
@@ -15,16 +14,24 @@ import {
 } from "svelte/store";
 import type { Trace } from "./trace";
 import type FigureControlProps from "./figure/FigureControlProps";
+import { decode_trace_stalk } from "./trace/stalk";
+import {
+    decode_array,
+    decode_memb,
+    decode_number_or_null,
+} from "./decode/decode";
+import { decode_figure_control_props } from "./figure/FigureControlProps";
+import { decode_figure_props } from "./figure";
+import { decode_trace } from "./trace";
 
 class DebuggerState {
-    private server: DebuggerServer;
+    private server: DebuggerServer = new DebuggerServer();
     trace_state: TraceState = new TraceState();
     figure_state: FigureState = new FigureState();
     focus_state: FocusState = new FocusState();
 
-    constructor(server: DebuggerServer) {
-        this.server = server;
-        server.send_request({ kind: "Init" }, (response_variant) => {
+    constructor() {
+        this.server.send_request({ kind: "Init" }, (response_variant) => {
             this.init(response_variant);
         });
     }
@@ -38,11 +45,64 @@ class DebuggerState {
 
     activate(trace_id: number) {
         const focus = get(focus_store);
-        throw new Error("todo");
-        // server.request_activate(
-        //     trace_id,
-        //     global.figure_cache.is_figure_cached(trace_id, focus) ? null : focus
-        // );
+        const is_figure_cached = this.figure_state.is_figure_cached(
+            trace_id,
+            focus
+        );
+        const trace = this.get_trace(trace_id);
+        if (is_figure_cached) {
+            this.did_activate(trace);
+            this.server.send_request({
+                kind: "Activate",
+                trace_id,
+                opt_focus_for_figure: null,
+            });
+        } else {
+            this.server.send_request(
+                {
+                    kind: "Activate",
+                    trace_id,
+                    opt_focus_for_figure: focus,
+                },
+                (response_variant: unknown) => {
+                    let figure_props = decode_figure_props(
+                        decode_memb(response_variant, "figure_props")
+                    );
+                    let figure_control_props = decode_figure_control_props(
+                        decode_memb(response_variant, "figure_control_props")
+                    );
+                    this.did_activate(
+                        trace,
+                        focus,
+                        figure_props,
+                        figure_control_props
+                    );
+                }
+            );
+        }
+    }
+
+    did_activate(
+        trace: Trace,
+        opt_focus_for_figure: Focus | null = null,
+        opt_figure_props: FigureProps | null = null,
+        opt_figure_control: FigureControlProps | null = null
+    ) {
+        if (opt_figure_props !== null) {
+            if (opt_focus_for_figure === null) {
+                throw new Error("panic");
+            }
+            if (opt_figure_control === null) {
+                throw new Error("panic");
+            }
+            this.figure_state.set_figure(
+                trace,
+                opt_focus_for_figure,
+                opt_figure_props,
+                opt_figure_control
+            );
+        }
+        this.trace_state.control.active_trace_store.set(trace);
     }
 
     move_up() {
@@ -140,20 +200,52 @@ class DebuggerState {
 
     toggle_expansion(trace: Trace) {
         const expanded = get(this.get_expansion_store(trace.id));
+        const focus = get(focus_store);
         const request_subtraces = !expanded
-            ? !this.trace_state.cache.is_subtraces_cached(
-                  get(focus_store),
-                  trace
-              )
+            ? !this.trace_state.cache.is_subtraces_cached(focus, trace)
             : false;
-        throw new Error("todo");
-        // server.request_toggle_expansion(
-        //     trace.id,
-        //     get(
-        //         global.user_state.focus_store
-        //     ).gen_subtraces_effective_opt_input_id(trace),
-        //     request_subtraces
-        // );
+        if (request_subtraces) {
+            this.server.send_request(
+                {
+                    kind: "ToggleExpansion",
+                    trace_id: trace.id,
+                    effective_opt_input_id:
+                        focus.gen_subtraces_effective_opt_input_id(trace),
+                    request_subtraces,
+                },
+                (response_variant: unknown) => {
+                    this.trace_state.cache.receive_subtraces(
+                        trace.id,
+                        decode_number_or_null(
+                            decode_memb(
+                                response_variant,
+                                "effective_opt_input_id"
+                            )
+                        ),
+                        decode_array(
+                            decode_memb(response_variant, "subtraces"),
+                            decode_trace
+                        )
+                    );
+                    this.trace_state.cache.cache_traces(
+                        decode_array(
+                            decode_memb(response_variant, "associated_traces"),
+                            decode_trace
+                        )
+                    );
+                    this.trace_state.did_toggle_expansion(focus, trace.id);
+                }
+            );
+        } else {
+            this.trace_state.did_toggle_expansion(focus, trace.id);
+            this.server.send_request({
+                kind: "ToggleExpansion",
+                trace_id: trace.id,
+                effective_opt_input_id:
+                    focus.gen_subtraces_effective_opt_input_id(trace),
+                request_subtraces,
+            });
+        }
     }
 
     gen_has_subtraces_store(trace: Trace | null): Readable<boolean> {
@@ -207,12 +299,46 @@ class DebuggerState {
         }
     }
 
+    get_trace_stalk_store(trace_id: number, input_id: number) {
+        return this.trace_state.cache.get_trace_stalk_store(
+            trace_id,
+            input_id,
+            () => {
+                this.server.send_request(
+                    {
+                        kind: "TraceStalk",
+                        trace_id,
+                        input_id,
+                    },
+                    (response_variant: unknown) => {
+                        this.trace_state.cache.set_trace_stalk(
+                            trace_id,
+                            input_id,
+                            decode_trace_stalk(
+                                decode_memb(response_variant, "stalk")
+                            )
+                        );
+                    }
+                );
+            }
+        );
+    }
+
+    toggle_show(trace_id: number) {
+        const focus = get(focus_store);
+        this.trace_state.did_toggle_show(focus, trace_id);
+        this.server.send_request({
+            kind: "ToggleShow",
+            trace_id,
+        });
+    }
+
     print_state() {
         throw new Error("todo");
     }
 }
 
-const state = new DebuggerState(server);
+const state = new DebuggerState();
 
 export default state;
 
@@ -220,3 +346,4 @@ export const focus_store = state.focus_state.focus_store;
 export const active_trace_store = state.trace_state.control.active_trace_store;
 export const input_locked_store: Writable<boolean> =
     state.focus_state.focus_locked_store;
+export const root_traces_store = state.trace_state.cache.root_traces_store;
