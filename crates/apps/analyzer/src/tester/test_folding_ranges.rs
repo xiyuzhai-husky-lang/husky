@@ -3,10 +3,7 @@ use std::path::Path;
 use test_utils::*;
 
 pub(super) fn test_folding_ranges(package_dir: &Path) -> TestResult {
-    test_all_modules(package_dir, "folding_ranges.txt", |compile_time, module| {
-        compile_time
-            .tokenized_text(compile_time.module_file(module).unwrap())
-            .unwrap()
-            .folding_ranges()
+    test_all_source_files(package_dir, "folding_ranges.txt", |compile_time, file| {
+        compile_time.tokenized_text(file).unwrap().folding_ranges()
     })
 }

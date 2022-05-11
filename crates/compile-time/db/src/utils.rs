@@ -16,19 +16,18 @@ use crate::*;
 //     }
 // }
 
-pub fn test_all_modules<T>(
+pub fn test_all_source_files<T>(
     package_dir: &Path,
     extension: &str,
-    f: impl Fn(&HuskyLangCompileTime, EntityRoutePtr) -> T,
+    f: impl Fn(&HuskyLangCompileTime, FilePtr) -> T,
 ) -> TestResult
 where
     T: TestDisplay,
 {
     let mut compile_time = HuskyLangCompileTime::default();
     compile_time.load_package(package_dir);
-    for module in compile_time.all_modules() {
-        let file = compile_time.module_file(module).unwrap();
-        match compare_saved_data(&f(&compile_time, module), &file.with_extension(extension)) {
+    for file in compile_time.all_source_files() {
+        match compare_saved_data(&f(&compile_time, file), &file.with_extension(extension)) {
             TestResult::Success => (),
             TestResult::Failed => return TestResult::Failed,
         }
@@ -36,16 +35,15 @@ where
     TestResult::Success
 }
 
-pub fn print_all_modules(
+pub fn print_all_source_files_analysis(
     package_dir: &Path,
     title: &str,
-    f: impl Fn(&HuskyLangCompileTime, EntityRoutePtr) -> String,
+    f: impl Fn(&HuskyLangCompileTime, FilePtr) -> String,
 ) {
     let mut compile_time = HuskyLangCompileTime::default();
     compile_time.load_package(package_dir);
-    for module in compile_time.all_modules() {
-        let file = compile_time.module_file(module).unwrap();
+    for file in compile_time.all_source_files() {
         println!("{} for file: {:?}:\n", title, file);
-        println!("{}", &f(&compile_time, module))
+        println!("{}", &f(&compile_time, file))
     }
 }
