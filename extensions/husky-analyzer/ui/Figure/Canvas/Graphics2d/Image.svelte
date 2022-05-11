@@ -1,8 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import type ImageProps from "src/trace/figure/ImageProps";
-    import { ImageLoader } from "src/trace/figure/ImageProps";
-    import type Focus from "src/data/Focus";
+    import type ImageProps from "src/figsrc/figure/ImagePropsimport { ImageLoader } from "srcsrc/figure/ImageProps    import type Focus from "src/data/Focus";
     import { focus_store } from "src/data/ui";
 
     export let image_props: ImageProps;

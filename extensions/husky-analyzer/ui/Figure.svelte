@@ -1,8 +1,6 @@
 <script lang="ts">
     import FlexDirection from "src/abstraction/FlexDiretion";
-    import type FigureControlProps from "src/trace/figure/FigureControlProps";
-    import type FigureProps from "trace/figure/FigureProps";
-    import FigureCanvas from "./Figure/Canvas.svelte";
+    import type FigureControlProps from "src/figsrc/figure/FigureControlPropsimport type FigureProps from "srcsrc/figure/FigureProps    import FigureCanvas from "./Figure/Canvas.svelte";
     import FigureControl from "./Figure/Control.svelte";
 
     export let figure: FigureProps | null;

@@ -1,11 +1,11 @@
 use feature::FeatureStmtVariant;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use trace::TraceVariant;
 use vm::{HistoryEntry, LoopFrameData, MutationData};
 
 use super::*;
 
-#[derive(Debug, Default, Serialize, Clone)]
+#[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "kind")]
 pub struct FigureControlProps {
     opt_mutation_selection: Option<u8>,
@@ -84,7 +84,13 @@ impl HuskyLangRuntime {
         }
     }
 
-    pub fn update_figure_control(&self, id: TraceId, new_control: FigureControlProps) {
-        todo!()
+    pub fn update_figure_control(
+        &mut self,
+        trace_id: TraceId,
+        focus: &Focus,
+        new_control: FigureControlProps,
+    ) {
+        self.figure_controls
+            .insert(focus.figure_control_key(&self.trace(trace_id)), new_control);
     }
 }

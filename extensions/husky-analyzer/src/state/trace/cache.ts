@@ -2,21 +2,20 @@ import Dict from "src/abstraction/Dict";
 import FutureMap from "src/abstraction/FutureMap";
 import NDict from "src/abstraction/NDict";
 import SchemeFutureMap from "src/abstraction/SchemeFutureMap";
-import type TraceStalk from "src/trace/stalk/TraceStalk";
+import type TraceStalk from "src/trace/stalk";
 import type Trace from "src/trace/Trace";
 import type { Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
-import type Focus from "../Focus";
-import type InitData from "./InitData";
-import { gen_subtraces_key } from "../key";
+import type { Focus } from "src/focus";
+import type { InitState } from "src/state/init";
 
-class TraceCache {
+export class TraceCache {
     traces: NDict<Trace> = new NDict();
     subtraces_dict: Dict<Trace[]> = new Dict();
     trace_stalk_store_map: SchemeFutureMap<TraceStalk> = new SchemeFutureMap();
     root_traces_store: Writable<Trace[] | null> = writable(null);
 
-    init(init_state: InitData) {
+    init(init_state: InitState) {
         this.init_trace_futures(init_state.traces);
         this.init_root_traces_stores(init_state.traces, init_state.root_traces);
         this.init_subtraces_map(init_state.traces, init_state.subtraces_list);
@@ -122,4 +121,16 @@ class TraceCache {
     }
 }
 
-export default TraceCache;
+function gen_subtraces_key(
+    effective_opt_input_id_for_subtraces: number | null,
+    trace_id: number
+): string {
+    return `${effective_opt_input_id_for_subtraces}:${trace_id}`;
+}
+
+function gen_subtraces_effective_opt_input_id(
+    opt_input_id: number | null,
+    trace: Trace
+): number | null {
+    throw new Error("TODO");
+}

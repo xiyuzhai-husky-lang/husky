@@ -1,7 +1,7 @@
-import type FigureProps from "trace/figure/FigureProps";
+import type FigureProps from "src/figure/FigureProps";
 import InitData, { decode_init_state } from "src/data/AppData/InitData";
 import Trace, { decode_trace } from "src/trace/Trace";
-import type TraceStalk from "src/trace/stalk/TraceStalk";
+import type TraceStalk from "src/trace/stalk";
 import {
     decode_array,
     decode_memb,
@@ -10,23 +10,26 @@ import {
     decode_opt,
     decode_string,
 } from "src/decode/decode";
-import { decode_figure_props } from "trace/figure/FigureProps";
+import { decode_figure_props } from "src/figure/FigureProps";
 import Focus from "src/data/Focus";
 import { decode_result } from "src/abstraction/Result";
 import type Result from "src/abstraction/Result";
-import type FigureControlProps from "src/trace/figure/FigureControlProps";
-import { decode_figure_control_props } from "src/trace/figure/FigureControlProps";
+import type FigureControlProps from "src/figure/FigureControlProps";
+import { decode_figure_control_props } from "src/figure/FigureControlProps";
 
 export type InitResponse = {
     kind: "Init";
+    request_id: number;
     init_state: InitData;
 };
 export type TraceResponse = {
     kind: "Trace";
+    request_id: number;
     trace: Trace;
 };
 export type ActivateResponse = {
     kind: "Activate";
+    request_id: number;
     id: number;
     opt_focus_for_figure: Focus | null;
     opt_figure: FigureProps | null;

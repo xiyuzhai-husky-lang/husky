@@ -2,6 +2,7 @@ import type DebuggerResponse from "./DebuggerResponse";
 import * as server_handle from "src/data/server_handle";
 import { parse_debugger_response } from "./DebuggerResponse";
 import type Focus from "src/data/Focus";
+import type FigureControlProps from "src/figure/FigureControlProps
 
 class Server {
     websocket = new WebSocket("ws://localhost:51617/query");
@@ -157,6 +158,19 @@ export function request_activate(
         kind: "Activate",
         id,
         opt_focus_for_figure,
+    });
+}
+
+export function request_update_figure_control_props(
+    trace_id: number,
+    focus: Focus,
+    figure_control_props: FigureControlProps
+) {
+    server_instance.try_send_request({
+        kind: "UpdateFigureControlProps",
+        trace_id,
+        focus,
+        figure_control_props,
     });
 }
 

@@ -1,7 +1,7 @@
 {
     "extends": "@tsconfig/svelte/tsconfig.json",
     "include": ["./ui", "./src"],
-    "exclude": ["./node_modules/*", ".old/*"],
+    "exclude": ["./node_modules/*", ".old/*", "./old/*"],
     "compilerOptions": {
         "strict": true,
         "baseUrl": ".",

@@ -3,19 +3,11 @@
     import Figure from "./Figure.svelte";
     import HSplitPane from "./SplitPane/HSplitPane.svelte";
     import { request_lock_input } from "src/server/server";
-    import {
+    import state, {
         active_trace_store,
         focus_store,
         input_locked_store,
-        get_subtraces,
-        moveRight as move_right,
-        move_up,
-        move_down,
-        move_left,
-        get_figure_props,
-        print_state,
-        get_figure_control_store,
-    } from "src/data/ui";
+    } from "src/state";
     import { onDestroy } from "svelte";
 
     let window_height: number;
@@ -26,37 +18,39 @@
     $: opt_input_id = focus.opt_input_id;
     $: active_trace = $active_trace_store;
     $: figure_props =
-        active_trace !== null ? get_figure_props(active_trace.id, focus) : null;
+        active_trace !== null
+            ? state.figure_props(active_trace.id, focus)
+            : null;
     $: figure_control_store =
-        active_trace !== null ? get_figure_control_store(active_trace) : null;
+        active_trace !== null ? state.figure_control_store(active_trace) : null;
     $: figure_control_props =
         active_trace !== null ? $figure_control_store : null;
 
     function on_key_down(e: KeyboardEvent) {
         switch (e.code) {
             case "KeyH":
-                move_left();
+                state.move_left();
                 break;
             case "KeyL":
-                move_right();
+                state.move_right();
                 break;
             case "KeyJ":
-                move_down();
+                state.move_down();
                 break;
             case "KeyK":
-                move_up();
+                state.move_up();
                 break;
             case "KeyT":
                 if (active_trace !== null) {
                     console.log("trace: ", active_trace);
                     console.log(
                         "subtraces: ",
-                        get_subtraces(focus, active_trace.id)
+                        state.get_subtraces(focus, active_trace.id)
                     );
                 }
                 break;
             case "KeyS":
-                print_state();
+                state.print_state();
                 break;
             case "KeyF":
                 console.log("figure props: ", figure_props);

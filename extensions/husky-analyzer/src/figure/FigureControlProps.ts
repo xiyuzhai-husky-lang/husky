@@ -6,6 +6,10 @@ export default class FigureControlProps {
     constructor(opt_mutation_selection: number | null) {
         this.opt_mutation_selection = opt_mutation_selection;
     }
+
+    select_mutation(mutation_idx: number): FigureControlProps {
+        return new FigureControlProps(mutation_idx);
+    }
 }
 
 export function decode_figure_control_props(data: unknown): FigureControlProps {

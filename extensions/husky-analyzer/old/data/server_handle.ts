@@ -2,14 +2,14 @@ import type {
     FigureControlResponse,
     LockFocusResponse,
 } from "src/server/DebuggerResponse";
-import type FigureProps from "src/trace/figure/FigureProps";
-import type TraceStalk from "src/trace/stalk/TraceStalk";
+import type FigureProps from "src/figure/FigureProps
+import type TraceStalk from "src/trace/stalk";
 import type Trace from "src/trace/Trace";
 import { get } from "svelte/store";
 import type Focus from "./Focus";
 import global from "./global";
-import type InitData from "./AppData/InitData";
-import type FigureControlProps from "src/trace/figure/FigureControlProps";
+import type InitData from "../../src/state/init";
+import type FigureControlProps from "src/figure/FigureControlProps
 
 export function receive_init_response(init_state: InitData) {
     global.init(init_state);
@@ -54,7 +54,7 @@ export function set_figure(
     if (trace === null) {
         throw new Error("what");
     }
-    global.user_state.set_figure_control(trace, figure_control);
+    global.user_state.set_figure_control_props(trace, figure_control);
 }
 
 export function did_activate(
@@ -110,7 +110,7 @@ export function did_update_figure_control(response: FigureControlResponse) {
     if (trace === null) {
         throw new Error("what");
     }
-    global.user_state.set_figure_control(trace, response.figure_control);
+    global.user_state.set_figure_control_props(trace, response.figure_control);
 }
 
 export function opt_active_trace_id_for_figure(focus: Focus): number | null {
