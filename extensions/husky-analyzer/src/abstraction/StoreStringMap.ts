@@ -1,13 +1,14 @@
 import type { Readable, Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
+import type Dict from "./Dict";
 
 class StoreStringMap<T> {
     private stores: { [key: string]: Writable<T> } = {};
 
-    load(values: { [key: string]: T }) {
+    load(values: Dict<T>) {
         this.stores = {};
-        for (const key in values) {
-            this.stores[key] = writable(values[key]);
+        for (const [key, value] of values.entries()) {
+            this.stores[key] = writable(value);
         }
     }
 

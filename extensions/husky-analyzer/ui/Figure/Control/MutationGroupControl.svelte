@@ -1,12 +1,10 @@
 <script lang="ts">
     import type FlexDirection from "src/abstraction/FlexDiretion";
     import type FigureControlProps from "src/figure/FigureControlProps";
+    import { select_mutation } from "src/figure/FigureControlProps";
     import type { MutationsFigureProps } from "src/figure";
+    import state from "src/state";
     import MutationControl from "./MutationGroupControl/MutationControl.svelte";
-    // import { update_figure_control_props } from "src/data/ui";
-    // update_figure_control_props(
-    //     figure_control_props.select_mutation(mutation.idx)
-    // )
     export let figure: MutationsFigureProps;
     export let figure_control_props: FigureControlProps;
     export let figure_control_height: number;
@@ -27,7 +25,10 @@
             {mutation}
             {mutation_control_height}
             {mutation_control_width}
-            on_mouse_down={() => alert("todo")}
+            on_mouse_down={() =>
+                state.update_figure_control_props(
+                    select_mutation(mutation.idx)
+                )}
         />
     {/each}
 </div>

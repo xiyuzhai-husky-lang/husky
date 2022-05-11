@@ -1,5 +1,5 @@
 import type { Trace } from "src/trace";
-import type { Readable, Writable } from "svelte/store";
+import type { Readable, Updater, Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import StoreMap from "src/abstraction/StoreMap";
 import type FigureControlProps from "src/figure/FigureControlProps";
@@ -71,6 +71,14 @@ export class FigureState {
     ) {
         let key = this.figure_control_key(trace);
         this.figure_control_stores.set(key, figure_control_props);
+    }
+
+    update_figure_control_props(
+        trace: Trace,
+        updater: Updater<FigureControlProps>
+    ) {
+        let key = this.figure_control_key(trace);
+        this.figure_control_stores.update(key, updater);
     }
 
     get_figure_control_store(trace: Trace): Readable<FigureControlProps> {

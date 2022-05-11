@@ -10,6 +10,7 @@ import {
     get,
     readable,
     type Readable,
+    type Updater,
     type Writable,
 } from "svelte/store";
 import type { Trace } from "./trace";
@@ -297,6 +298,26 @@ class DebuggerState {
             console.log("focus", get(focus_store));
             throw error;
         }
+    }
+
+    update_figure_control_props(updater: Updater<FigureControlProps>) {
+        const active_trace = get(active_trace_store);
+        if (active_trace === null) {
+            throw new Error("todo");
+        }
+        this.figure_state.update_figure_control_props(
+            active_trace,
+            (figure_control_props: FigureControlProps) => {
+                const new_value = updater(figure_control_props);
+                this.server.send_request({
+                    kind: "UpdateFigureControlProps",
+                    focus: get(focus_store),
+                    trace_id: active_trace.id,
+                    figure_control_props: new_value,
+                });
+                return new_value;
+            }
+        );
     }
 
     get_trace_stalk_store(trace_id: number, input_id: number) {

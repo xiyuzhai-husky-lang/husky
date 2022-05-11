@@ -1,4 +1,5 @@
 import { decode_memb, decode_number_or_null } from "src/decode/decode";
+import type { Updater } from "svelte/store";
 
 export default class FigureControlProps {
     opt_mutation_selection: number | null;
@@ -8,7 +9,8 @@ export default class FigureControlProps {
     }
 
     select_mutation(mutation_idx: number): FigureControlProps {
-        return new FigureControlProps(mutation_idx);
+        this.opt_mutation_selection = mutation_idx;
+        return this;
     }
 }
 
@@ -17,4 +19,12 @@ export function decode_figure_control_props(data: unknown): FigureControlProps {
         decode_memb(data, "opt_mutation_selection")
     );
     return new FigureControlProps(opt_mutation_selection);
+}
+
+export function select_mutation(
+    mutation_idx: number
+): Updater<FigureControlProps> {
+    return (control_props: FigureControlProps) => {
+        return control_props.select_mutation(mutation_idx);
+    };
 }

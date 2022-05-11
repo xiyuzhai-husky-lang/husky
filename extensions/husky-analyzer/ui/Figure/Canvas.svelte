@@ -4,25 +4,31 @@
     import Graphics2dCanvas from "./Canvas/Graphics2dCanvas.svelte";
     import PrimitiveValueCanvas from "./Canvas/PrimitiveValueCanvas.svelte";
     import NullCanvas from "./Canvas/NullCanvas.svelte";
+    import type FigureControlProps from "src/figure/FigureControlProps";
 
     export let figure: FigureProps | null;
+    export let figure_control_props: FigureControlProps | null;
     export let figure_canvas_height: number;
     export let figure_canvas_width: number;
 
-    $: figure_selected = get_figure_selected(figure);
+    $: figure_selected = get_figure_selected(figure, figure_control_props);
 
     function get_figure_selected(
-        figure: FigureProps | null
+        figure: FigureProps | null,
+        figure_control_props: FigureControlProps | null
     ): FigureProps | null {
-        if (figure === null) {
+        if (figure === null || figure_control_props === null) {
             return null;
         }
         if (figure.kind === "Mutations") {
-            if (figure.mutations.length > 0) {
-                return figure.mutations[0].after;
-            } else {
+            if (figure.mutations.length === 0) {
                 return null;
             }
+            if (figure_control_props.opt_mutation_selection === null) {
+                return null;
+            }
+            return figure.mutations[figure_control_props.opt_mutation_selection]
+                .after;
         } else {
             return figure;
         }
