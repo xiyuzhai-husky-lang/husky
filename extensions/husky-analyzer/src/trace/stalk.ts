@@ -1,4 +1,4 @@
-import type { TokenProps } from "../../old/Trace";
+import type { TokenProps } from "../trace";
 
 type TraceStalk = {
     extra_tokens: TokenProps[];
