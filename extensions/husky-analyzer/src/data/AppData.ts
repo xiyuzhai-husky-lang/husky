@@ -14,7 +14,6 @@ class AppData {
     trace_listing_store: Writable<number[]> = writable([]);
 
     init(init_state: InitData) {
-        console.log("init");
         this.trace_cache.init(init_state);
         this.figure_cache.init(init_state);
         this.user_state.init(init_state);

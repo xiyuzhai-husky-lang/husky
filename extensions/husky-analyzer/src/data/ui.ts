@@ -88,7 +88,6 @@ export function get_figure_props(
             active_trace_id,
             focus
         );
-        console.log("figure props = ", figure_props);
         return figure_props;
     } catch (error) {
         console.log("focus", get(focus_store));
