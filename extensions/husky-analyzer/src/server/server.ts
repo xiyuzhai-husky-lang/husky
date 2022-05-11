@@ -50,7 +50,6 @@ class Server {
                 );
                 break;
             case "ToggleExpansion":
-                console.log("ToggleExpansionResponse: ", response);
                 if (response.opt_subtraces !== null) {
                     server_handle.receive_subtraces(
                         response.id,

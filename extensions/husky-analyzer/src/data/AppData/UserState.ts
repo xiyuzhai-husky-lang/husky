@@ -27,10 +27,6 @@ class UserState {
         this.shown_stores.load(init_state.showns);
         this.focus_locked_store.set(true);
         this.focus_store.set(init_state.focus);
-        console.log(
-            "init_state.figure_controls = ",
-            init_state.figure_controls
-        );
         this.figure_control_stores.load(init_state.figure_controls);
     }
 
