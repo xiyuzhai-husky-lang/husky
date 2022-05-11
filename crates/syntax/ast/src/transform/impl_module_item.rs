@@ -25,7 +25,7 @@ impl<'a> AstTransformer<'a> {
             }
             Keyword::Use => self.parse_use(token_group),
             Keyword::Mod => todo!(),
-            Keyword::Stmt(_) => todo!("no stmt in module level"),
+            Keyword::Stmt(_) => err!("no stmt in module level", token_group.text_range()),
             Keyword::Config(cfg) => {
                 enter_block(self);
                 Ok(match cfg {

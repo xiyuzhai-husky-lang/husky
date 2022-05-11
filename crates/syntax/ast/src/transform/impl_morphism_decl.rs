@@ -3,9 +3,9 @@ use token::*;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_morphism_decl(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
-        expect_at_least!(token_group, token_group.into(), 3);
+        expect_at_least!(token_group, token_group.text_range(), 3);
         expect_head!(token_group);
-        expect_at_least!(token_group, token_group.into(), 5);
+        expect_at_least!(token_group, token_group.text_range(), 5);
         match token_group[2].kind {
             TokenKind::Special(Special::LightArrow) => self.parse_feature_decl(token_group),
             _ => todo!(),
@@ -24,7 +24,7 @@ impl<'a> AstTransformer<'a> {
             ident,
             ty: RangedEntityRoute {
                 route: scope,
-                range: token_group[3..(token_group.len() - 1)].into(),
+                range: token_group[3..(token_group.len() - 1)].text_range(),
             },
         })
     }

@@ -34,8 +34,8 @@ impl Atom {
 }
 
 impl TextRanged for Atom {
-    fn text_range_ref(&self) -> &TextRange {
-        &self.range
+    fn text_range(&self) -> TextRange {
+        self.range
     }
 }
 

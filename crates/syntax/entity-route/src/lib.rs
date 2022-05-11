@@ -21,8 +21,8 @@ pub struct RangedEntityRoute {
 }
 
 impl TextRanged for RangedEntityRoute {
-    fn text_range_ref(&self) -> &TextRange {
-        &self.range
+    fn text_range(&self) -> TextRange {
+        self.range
     }
 }
 

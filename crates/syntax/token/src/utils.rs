@@ -69,7 +69,7 @@ macro_rules! expect_len {
                 $len,
                 $tokens.len()
             ),
-            $tokens.into()
+            $tokens.text_range()
         );
     };
 }

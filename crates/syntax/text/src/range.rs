@@ -60,25 +60,23 @@ impl Into<lsp_types::Range> for TextRange {
 }
 
 pub trait TextRanged {
-    fn text_range_ref(&self) -> &TextRange;
-    fn text_range(&self) -> TextRange {
-        self.text_range_ref().clone()
-    }
+    fn text_range(&self) -> TextRange;
+
     fn text_range_to(&self, end: TextPosition) -> TextRange {
-        (self.text_range_ref().start..end).into()
+        (self.text_range().start..end).into()
     }
     fn text_start(&self) -> TextPosition {
-        self.text_range_ref().start
+        self.text_range().start
     }
     fn text_end(&self) -> TextPosition {
-        self.text_range_ref().end
+        self.text_range().end
     }
     fn to(&self, range: &TextRange) -> TextRange {
         (self.text_end()..range.end).into()
     }
 
     fn row(&self) -> Row {
-        self.text_range_ref().start.row
+        self.text_range().start.row
     }
 }
 
@@ -89,10 +87,6 @@ where
     fn text_range(&self) -> TextRange {
         self.deref().text_range()
     }
-
-    fn text_range_ref(&self) -> &TextRange {
-        self.deref().text_range_ref()
-    }
 }
 
 pub fn new_same_line(i: usize, start: usize, end: usize) -> TextRange {
@@ -102,19 +96,29 @@ pub fn new_same_line(i: usize, start: usize, end: usize) -> TextRange {
     }
 }
 
-impl<T: TextRanged> From<&[T]> for TextRange {
-    fn from(slice: &[T]) -> Self {
-        if slice.len() > 0 {
-            ((slice[0].text_range().start)..(slice.last().unwrap().text_range().end)).into()
+impl<T: TextRanged> TextRanged for [T] {
+    fn text_range(&self) -> TextRange {
+        if self.len() > 0 {
+            ((self[0].text_range().start)..(self.last().unwrap().text_range().end)).into()
         } else {
             TextRange::default()
         }
     }
 }
 
-impl<T: TextRanged> From<&Vec<T>> for TextRange {
-    fn from(v: &Vec<T>) -> Self {
-        let slice: &[T] = v;
-        slice.into()
-    }
-}
+// impl<T: TextRanged> From<&[T]> for TextRange {
+//     fn from(slice: &[T]) -> Self {
+//         if slice.len() > 0 {
+//             ((slice[0].text_range().start)..(slice.last().unwrap().text_range().end)).into()
+//         } else {
+//             TextRange::default()
+//         }
+//     }
+// }
+
+// impl<T: TextRanged> From<&Vec<T>> for TextRange {
+//     fn from(v: &Vec<T>) -> Self {
+//         let slice: &[T] = v;
+//         slice.into()
+//     }
+// }
