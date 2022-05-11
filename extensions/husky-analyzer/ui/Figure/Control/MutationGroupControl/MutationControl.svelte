@@ -22,12 +22,13 @@
         <div class="AssociationBox" />
         <div
             class="Name"
-            style="width: {mutation_control_width - 131}px"
+            style="width: {mutation_control_width - 31}px"
             on:mousedown={select_me}
         >
             {mutation.name}
+            opt_mutation_selection = {opt_mutation_selection}
+            mutation.idx = {mutation.idx}
         </div>
-        <button on:click={select_me}>try</button>
     </div>
 </div>
 
@@ -47,7 +48,7 @@
         background: rgb(47, 47, 47);
     }
     .Name {
-        background: black;
+        background: rgb(101, 26, 26);
         padding-left: 4px;
         z-index: 1;
     }
