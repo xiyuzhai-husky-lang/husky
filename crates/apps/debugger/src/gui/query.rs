@@ -1,4 +1,5 @@
 use focus::Focus;
+use runtime_db::FigureControlProps;
 
 use super::*;
 
@@ -30,5 +31,10 @@ pub(super) enum Query {
     TraceStalk {
         trace_id: TraceId,
         input_id: usize,
+    },
+    UpdateFigureControlProps {
+        trace_id: TraceId,
+        focus: Focus,
+        figure_control_props: FigureControlProps,
     },
 }

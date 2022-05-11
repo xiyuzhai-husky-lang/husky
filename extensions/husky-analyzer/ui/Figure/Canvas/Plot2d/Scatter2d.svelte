@@ -1,6 +1,5 @@
 <script lang="ts">
-    import type { Plot2dProps } from "trace/figure/FigureProps";
-    export let figure: Plot2dProps;
+    import type { Plot2dProps } from "src/figure/src/figure/FigurePropsrt let figure: Plot2dProps;
     export let pointRadius: number;
 
     $: transformToSvgY = (y: number) => {

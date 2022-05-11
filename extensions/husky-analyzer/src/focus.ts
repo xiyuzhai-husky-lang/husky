@@ -1,7 +1,7 @@
 import { decode_memb, decode_number, decode_opt } from "src/decode/decode";
 import type Trace from "src/trace/Trace";
 
-export default class Focus {
+export class Focus {
     opt_input_id: number | null;
 
     constructor(data?: unknown) {

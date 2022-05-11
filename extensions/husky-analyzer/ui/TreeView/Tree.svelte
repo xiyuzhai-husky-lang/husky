@@ -1,33 +1,23 @@
 <script lang="ts">
     import Node from "./Node.svelte";
-    import {
-        get_trace,
-        get_expansion_store,
-        get_show_store,
-        get_subtraces,
-        active_trace_store,
-        activate,
-        toggle_expansion,
-        focus_store,
-    } from "src/data/ui";
-    import { tell_has_subtraces_store } from "src/data/ui";
+    import state, { active_trace_store, focus_store } from "src/state";
     export let trace_id: number;
 
-    $: trace = get_trace(trace_id);
-    $: expanded_store = get_expansion_store(trace_id);
+    $: trace = state.get_trace(trace_id);
+    $: expanded_store = state.get_expansion_store(trace_id);
     $: expanded = $expanded_store;
-    $: shown_store = get_show_store(trace);
+    $: shown_store = state.get_show_store(trace);
     $: shown = $shown_store;
     $: subtraces =
-        shown && expanded ? get_subtraces($focus_store, trace_id) : null;
+        shown && expanded ? state.get_subtraces($focus_store, trace_id) : null;
     $: active_trace = $active_trace_store;
     $: active = active_trace !== null ? active_trace.id === trace_id : false;
     let locked = false;
-    $: has_subtraces_store = tell_has_subtraces_store(trace);
+    $: has_subtraces_store = state.gen_has_subtraces_store(trace);
     $: has_subtraces = $has_subtraces_store;
     function toggle_expansion_locked() {
         if (has_subtraces && !locked) {
-            toggle_expansion(trace);
+            state.toggle_expansion(trace);
             locked = true;
             setTimeout(() => {
                 locked = false;
@@ -40,7 +30,7 @@
     <div class="TraceTree">
         <Node
             on_click={() => {
-                activate(trace_id);
+                state.activate(trace_id);
             }}
             on_double_click={() => {
                 toggle_expansion_locked();

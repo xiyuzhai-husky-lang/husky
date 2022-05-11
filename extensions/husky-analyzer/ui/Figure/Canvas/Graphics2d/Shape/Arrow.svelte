@@ -1,6 +1,5 @@
 <script lang="ts">
-    import type { ArrowProps } from "trace/figure/Graphics2d";
-    import {
+    import type { ArrowProps } from "src/figure/src/figure/Graphics2drt {
         get_displacement,
         get_point_distance,
         get_angle_in_degree,

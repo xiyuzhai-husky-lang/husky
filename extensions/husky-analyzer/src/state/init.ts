@@ -4,12 +4,12 @@ import {
     decode_number,
     decode_opt,
 } from "src/decode/decode";
-import type FigureControlProps from "src/trace/figure/FigureControlProps";
-import type FigureProps from "src/trace/figure/FigureProps";
+import type FigureControlProps from "src/figure/FigureControlProps";
+import type FigureProps from "src/figure/FigureProps";
 import Trace from "src/trace/Trace";
-import Focus from "../Focus";
+import { Focus } from "src/focus";
 
-export default class InitData {
+export class InitState {
     active_trace_id: number | null;
     traces: Trace[];
     subtraces_list: [[number, number | null], number[]][];
@@ -42,5 +42,5 @@ export default class InitData {
 }
 
 export function decode_init_state(props: unknown) {
-    return new InitData(props);
+    return new InitState(props);
 }

@@ -2,16 +2,13 @@
     import type {
         MutationsFigureProps,
         MutationFigureProps,
-    } from "src/trace/figure/FigureProps";
+    } from "src/figure/src/figure/FigurePropsrt { update_figure_control_props } from "src/data/ui";
     export let mutation: MutationFigureProps;
     export let mutation_control_height: number;
     export let mutation_control_width: number;
     export let opt_mutation_selection: number | null;
+    export let on_mouse_down: () => void;
     $: selected = opt_mutation_selection === mutation.idx;
-
-    function select_me() {
-        alert("select me");
-    }
 </script>
 
 <div
@@ -23,7 +20,7 @@
         <div
             class="Name"
             style="width: {mutation_control_width - 31}px"
-            on:mousedown={select_me}
+            on:mousedown={on_mouse_down}
         >
             {mutation.name}
         </div>
