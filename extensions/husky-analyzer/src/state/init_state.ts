@@ -8,6 +8,9 @@ import type FigureControlProps from "src/figure/FigureControlProps";
 import type FigureProps from "src/figure";
 import { Trace } from "src/trace";
 import { Focus } from "src/focus";
+import type Dict from "src/abstraction/Dict";
+import { decode_figure_control_props } from "src/figure/FigureControlProps";
+import { decode_dict } from "src/abstraction/Dict";
 
 export class InitState {
     active_trace_id: number | null;
@@ -18,7 +21,7 @@ export class InitState {
     root_traces: number[];
     focus: Focus;
     figures: { [id_str: string]: FigureProps };
-    figure_controls: { [id_str: string]: FigureControlProps };
+    figure_controls: Dict<FigureControlProps>;
     constructor(response_variant: unknown) {
         const raw_init_state = decode_memb(response_variant, "init_state");
         this.active_trace_id = decode_opt(
@@ -41,10 +44,10 @@ export class InitState {
             decode_number
         );
         this.figures = decode_memb(raw_init_state, "figures") as any;
-        this.figure_controls = decode_memb(
-            raw_init_state,
-            "figure_controls"
-        ) as any;
+        this.figure_controls = decode_dict(
+            decode_memb(raw_init_state, "figure_controls"),
+            decode_figure_control_props
+        );
     }
 }
 

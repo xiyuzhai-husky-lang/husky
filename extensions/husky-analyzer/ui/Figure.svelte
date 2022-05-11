@@ -77,7 +77,12 @@
         class="FigureContent"
         style="flex-direction: {figure_flex_direction.code()}"
     >
-        <FigureCanvas {figure} {figure_canvas_height} {figure_canvas_width} />
+        <FigureCanvas
+            {figure}
+            {figure_control_props}
+            {figure_canvas_height}
+            {figure_canvas_width}
+        />
         <FigureControl
             {figure}
             {figure_control_props}
