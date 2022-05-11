@@ -12,8 +12,8 @@ pub struct RangedCustomIdentifier {
 }
 
 impl TextRanged for RangedCustomIdentifier {
-    fn text_range_ref(&self) -> &TextRange {
-        &self.range
+    fn text_range(&self) -> TextRange {
+        self.range
     }
 }
 

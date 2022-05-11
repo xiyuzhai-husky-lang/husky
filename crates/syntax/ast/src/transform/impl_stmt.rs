@@ -15,7 +15,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<RawStmt> {
         let kw_range = token_group[0].text_range();
         Ok(RawStmt {
-            range: token_group.into(),
+            range: token_group.text_range(),
             variant: match keyword {
                 StmtKeyword::Let => {
                     self.parse_init_stmt(InitKind::Let, kw_range, &token_group[1..])?
@@ -83,7 +83,7 @@ impl<'a> AstTransformer<'a> {
                     self.symbols
                         .push(Symbol::var(varname.ident, token_group[0].row()));
                     RawStmt {
-                        range: token_group.into(),
+                        range: token_group.text_range(),
                         variant: RawStmtVariant::Init {
                             init_kind: InitKind::Decl,
                             varname,
@@ -93,13 +93,13 @@ impl<'a> AstTransformer<'a> {
                 } else {
                     // declarative return
                     RawStmt {
-                        range: token_group.into(),
+                        range: token_group.text_range(),
                         variant: RawStmtVariant::Return(self.parse_expr(token_group)?),
                     }
                 }
             }
             AstContext::Proc => RawStmt {
-                range: token_group.into(),
+                range: token_group.text_range(),
                 variant: RawStmtVariant::Exec(self.parse_expr(token_group)?),
             },
             AstContext::Test => todo!(),

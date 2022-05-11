@@ -61,7 +61,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         enter_block(self);
         self.env.set_value(AstContext::Func);
-        expect_at_least!(token_group, token_group.into(), 5);
+        expect_at_least!(token_group, token_group.text_range(), 5);
         expect_block_head!(token_group);
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
             parser.method_decl(InputContract::Pure, RoutineContextKind::Func)

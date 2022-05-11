@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use file::FilePtr;
 use semantics_lazy::*;
-use text::TextRange;
+use text::{TextRange, TextRanged};
 
 use crate::{eval::FeatureEvalId, unique_allocate::FeatureUniqueAllocator, *};
 
@@ -178,7 +178,7 @@ impl FeatureBlock {
             .collect();
         let feature = Feature::block(features, &stmts);
         let file = stmts[0].file;
-        let range = (&stmts).into();
+        let range = stmts.text_range();
         Arc::new(FeatureBlock {
             symbols,
             stmts,

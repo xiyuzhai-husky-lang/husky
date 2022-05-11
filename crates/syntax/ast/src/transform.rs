@@ -20,6 +20,7 @@ use atom::symbol::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
+use text::TextRanged;
 use token::*;
 use vm::InputContract;
 
@@ -115,7 +116,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<Ast> {
         Ok(Ast {
-            range: token_group.into(),
+            range: token_group.text_range(),
             kind: match self.env() {
                 AstContext::Package(_) | AstContext::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?

@@ -1,0 +1,120 @@
+4:1..4:4	first token should be keyword
+5:1..5:4	first token should be keyword
+8:1..8:4	first token should be keyword
+8:64..8:65	Lex Error: Inappropriate
+11:19..11:20	Lex Error: Inappropriate
+18:19..18:20	Lex Error: Inappropriate
+20:33..20:34	Lex Error: Inappropriate
+33:13..33:14	Lex Error: Inappropriate
+35:15..35:16	Lex Error: expect indentated lines after `:`
+36:15..36:16	Lex Error: Inappropriate
+38:15..38:16	Lex Error: Inappropriate
+41:13..41:14	Lex Error: Inappropriate
+43:13..43:14	Lex Error: Inappropriate
+45:15..45:16	Lex Error: Inappropriate
+47:15..47:16	Lex Error: expect indentated lines after `:`
+48:15..48:16	Lex Error: Inappropriate
+50:15..50:16	Lex Error: Inappropriate
+53:13..53:14	Lex Error: Inappropriate
+55:15..55:16	Lex Error: expect indentated lines after `:`
+56:15..56:16	Lex Error: Inappropriate
+58:15..58:16	Lex Error: Inappropriate
+73:58..73:59	Lex Error: Inappropriate
+78:24..78:25	Lex Error: Inappropriate
+79:97..79:98	Lex Error: Inappropriate
+82:15..82:16	Lex Error: Inappropriate
+90:16..90:17	Lex Error: Inappropriate
+92:17..92:18	Lex Error: Inappropriate
+96:17..96:18	Lex Error: Inappropriate
+101:18..101:19	Lex Error: Inappropriate
+106:18..106:19	Lex Error: Inappropriate
+108:17..108:18	Lex Error: Inappropriate
+112:17..112:18	Lex Error: Inappropriate
+117:18..117:19	Lex Error: Inappropriate
+122:18..122:19	Lex Error: Inappropriate
+125:49..125:50	Lex Error: Inappropriate
+128:28..128:29	Lex Error: Inappropriate
+134:15..134:16	Lex Error: Inappropriate
+140:19..140:20	Lex Error: Inappropriate
+143:49..143:50	Lex Error: Inappropriate
+146:28..146:29	Lex Error: Inappropriate
+152:15..152:16	Lex Error: Inappropriate
+159:22..159:23	Lex Error: Inappropriate
+1:10..1:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
+2:10..2:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
+3:10..3:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
+6:1..6:36	Ast Error: expect 3 tokens after keyword, but got 9 tokens instead
+7:1..7:39	Ast Error: expect 3 tokens after keyword, but got 11 tokens instead
+9:3..9:30	Ast Error: no stmt in module level
+10:3..10:41	Ast Error: no stmt in module level
+11:3..11:20	Ast Error: no stmt in module level
+13:5..13:23	Ast Error: no stmt in module level
+14:5..14:21	Ast Error: no stmt in module level
+15:5..15:25	Ast Error: no stmt in module level
+16:5..16:25	Ast Error: no stmt in module level
+18:3..18:20	Ast Error: no stmt in module level
+20:5..20:34	Ast Error: no stmt in module level
+21:7..21:33	Ast Error: no stmt in module level
+22:7..22:16	Ast Error: no stmt in module level
+23:7..23:70	Ast Error: no stmt in module level
+25:7..25:30	Ast Error: no stmt in module level
+26:7..26:28	Ast Error: no stmt in module level
+27:7..27:37	Ast Error: no stmt in module level
+29:7..29:25	Ast Error: no stmt in module level
+30:7..30:56	Ast Error: no stmt in module level
+31:7..31:56	Ast Error: no stmt in module level
+32:7..32:27	Ast Error: no stmt in module level
+33:7..33:14	Ast Error: no stmt in module level
+34:9..34:27	Ast Error: no stmt in module level
+35:9..35:16	Ast Error: no stmt in module level
+36:9..36:16	Ast Error: no stmt in module level
+38:9..38:16	Ast Error: no stmt in module level
+41:7..41:14	Ast Error: no stmt in module level
+43:7..43:14	Ast Error: no stmt in module level
+44:9..44:27	Ast Error: no stmt in module level
+45:9..45:16	Ast Error: no stmt in module level
+47:9..47:16	Ast Error: no stmt in module level
+48:9..48:16	Ast Error: no stmt in module level
+50:9..50:16	Ast Error: no stmt in module level
+53:7..53:14	Ast Error: no stmt in module level
+54:9..54:27	Ast Error: no stmt in module level
+55:9..55:16	Ast Error: no stmt in module level
+56:9..56:16	Ast Error: no stmt in module level
+58:9..58:16	Ast Error: no stmt in module level
+63:7..63:17	Ast Error: no stmt in module level
+64:7..64:17	Ast Error: no stmt in module level
+65:7..65:27	Ast Error: no stmt in module level
+66:7..66:27	Ast Error: no stmt in module level
+67:7..67:32	Ast Error: no stmt in module level
+68:7..68:33	Ast Error: no stmt in module level
+70:7..70:27	Ast Error: no stmt in module level
+71:7..71:29	Ast Error: no stmt in module level
+73:7..73:59	Ast Error: no stmt in module level
+78:9..78:25	Ast Error: no stmt in module level
+79:11..79:98	Ast Error: no stmt in module level
+82:11..82:16	Ast Error: no stmt in module level
+89:9..89:29	Ast Error: no stmt in module level
+90:9..90:17	Ast Error: no stmt in module level
+91:11..91:55	Ast Error: no stmt in module level
+92:11..92:18	Ast Error: no stmt in module level
+96:11..96:18	Ast Error: no stmt in module level
+101:11..101:19	Ast Error: no stmt in module level
+106:9..106:19	Ast Error: no stmt in module level
+107:11..107:55	Ast Error: no stmt in module level
+108:11..108:18	Ast Error: no stmt in module level
+112:11..112:18	Ast Error: no stmt in module level
+117:11..117:19	Ast Error: no stmt in module level
+122:9..122:19	Ast Error: no stmt in module level
+123:11..123:56	Ast Error: no stmt in module level
+124:11..124:56	Ast Error: no stmt in module level
+125:11..125:50	Ast Error: no stmt in module level
+128:11..128:29	Ast Error: no stmt in module level
+134:11..134:16	Ast Error: no stmt in module level
+140:9..140:20	Ast Error: no stmt in module level
+141:11..141:62	Ast Error: no stmt in module level
+142:11..142:62	Ast Error: no stmt in module level
+143:11..143:50	Ast Error: no stmt in module level
+146:11..146:29	Ast Error: no stmt in module level
+152:11..152:16	Ast Error: no stmt in module level
+159:7..159:23	Ast Error: no stmt in module level
+164:3..164:16	Ast Error: no stmt in module level

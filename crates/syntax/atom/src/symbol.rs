@@ -190,14 +190,14 @@ impl<'a> SymbolContext<'a> {
         }
         if result.len() > 1 {
             p!(result);
-            err!("too many atoms", result[1..].into())?
+            err!("too many atoms", result[1..].text_range())?
         } else {
             match result[0].kind {
                 AtomVariant::EntityRoute { route: scope, .. } => Ok(scope),
                 // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
                 _ => err!(
                     format!("expect type, but get `{:?}` instead", result[0]),
-                    (&result).into()
+                    (&result).text_range()
                 )?,
             }
         }

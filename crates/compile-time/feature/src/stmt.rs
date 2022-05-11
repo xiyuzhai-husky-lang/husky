@@ -29,8 +29,8 @@ impl PartialEq for FeatureStmt {
 impl Eq for FeatureStmt {}
 
 impl text::TextRanged for FeatureStmt {
-    fn text_range_ref(&self) -> &text::TextRange {
-        &self.range
+    fn text_range(&self) -> text::TextRange {
+        self.range
     }
 }
 

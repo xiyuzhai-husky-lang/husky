@@ -58,7 +58,7 @@ impl<'a> From<&'a [Token]> for TokenStream<'a> {
     fn from(tokens: &'a [Token]) -> Self {
         Self {
             iter: tokens.iter().peekable(),
-            opt_range: Some(tokens.into()),
+            opt_range: Some(tokens.text_range()),
         }
     }
 }
@@ -141,7 +141,7 @@ pub fn parse_ty(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<
     }
     if result.len() > 1 {
         p!(result);
-        err!("too many atoms", result[1..].into())?
+        err!("too many atoms", result[1..].text_range())?
     } else {
         match result[0].kind {
             AtomVariant::EntityRoute {
@@ -152,7 +152,7 @@ pub fn parse_ty(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<
             // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
             _ => err!(
                 format!("expect type, but get `{:?}` instead", result[0]),
-                (&result).into()
+                result.text_range()
             )?,
         }
     }

@@ -13,8 +13,8 @@ pub struct RawStmt {
 }
 
 impl TextRanged for RawStmt {
-    fn text_range_ref(&self) -> &TextRange {
-        &self.range
+    fn text_range(&self) -> TextRange {
+        self.range
     }
 }
 
