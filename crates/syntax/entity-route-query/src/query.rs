@@ -1,5 +1,5 @@
 use crate::{error::scope_err, *};
-use check_utils::should;
+use check_utils::{should, should_eq};
 use entity_route::*;
 use file::FilePtr;
 use path_utils::*;
@@ -216,10 +216,7 @@ pub trait EntityRouteQueryGroup:
         }
     }
 
-    fn all_modules(&self) -> Vec<EntityRoutePtr>
-    where
-        Self: Sized,
-    {
+    fn all_modules(&self) -> Vec<EntityRoutePtr> {
         self.all_main_files()
             .iter()
             .map(|id| self.collect_modules(*id))
@@ -227,18 +224,23 @@ pub trait EntityRouteQueryGroup:
             .collect()
     }
 
-    fn module_iter(&self) -> std::vec::IntoIter<EntityRoutePtr>
+    fn all_source_files(&self) -> Vec<FilePtr>
     where
         Self: Sized,
     {
+        self.all_main_files()
+            .iter()
+            .map(|file| self.collect_source_files(*file))
+            .flatten()
+            .collect()
+    }
+
+    fn module_iter(&self) -> std::vec::IntoIter<EntityRoutePtr> {
         self.all_modules().into_iter()
     }
 
-    fn collect_modules(&self, id: FilePtr) -> Vec<EntityRoutePtr>
-    where
-        Self: Sized,
-    {
-        if let Ok(module) = self.module(id) {
+    fn collect_modules(&self, file: FilePtr) -> Vec<EntityRoutePtr> {
+        if let Ok(module) = self.module(file) {
             let mut modules = vec![module];
             self.subroute_table(module).ok().map(|table| {
                 modules.extend(
@@ -246,7 +248,7 @@ pub trait EntityRouteQueryGroup:
                         .submodule_idents()
                         .into_iter()
                         .filter_map(|ident| {
-                            self.submodule_file_id(id, ident)
+                            self.submodule_file_id(file, ident)
                                 .map_or(None, |id| Some(self.collect_modules(id)))
                         })
                         .flatten(),
@@ -256,6 +258,14 @@ pub trait EntityRouteQueryGroup:
         } else {
             vec![]
         }
+    }
+
+    fn collect_source_files(&self, main_file: FilePtr) -> Vec<FilePtr> {
+        should!(main_file.ends_with("main.hsk"));
+        collect_all_source_files(main_file.parent().unwrap().to_path_buf())
+            .into_iter()
+            .map(|path| self.intern_file(path))
+            .collect()
     }
 
     fn module(&self, file: FilePtr) -> EntityRouteResult<EntityRoutePtr> {
@@ -309,10 +319,7 @@ pub trait EntityRouteQueryGroup:
         &self,
         parent_id: FilePtr,
         ident: CustomIdentifier,
-    ) -> EntityRouteResult<FilePtr>
-    where
-        Self: Sized,
-    {
+    ) -> EntityRouteResult<FilePtr> {
         let path = &*parent_id;
 
         should!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(path, "main.hsk"));

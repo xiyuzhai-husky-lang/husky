@@ -37,3 +37,20 @@ pub fn collect_all_package_dirs(dir: PathBuf) -> Vec<PathBuf> {
         pack_paths
     }
 }
+
+pub fn collect_all_source_files(dir: PathBuf) -> Vec<PathBuf> {
+    assert!(dir.is_dir());
+    let mut source_files = vec![];
+    for entry in std::fs::read_dir(dir).unwrap() {
+        let entry = entry.unwrap();
+        let subpath = entry.path();
+        if subpath.is_dir() {
+            source_files.extend(collect_all_source_files(subpath))
+        } else {
+            if subpath.extension().unwrap() == "hsk" {
+                source_files.push(subpath)
+            }
+        }
+    }
+    source_files
+}
