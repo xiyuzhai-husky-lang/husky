@@ -39,6 +39,7 @@ pub struct MutationFigureProps {
     pub name: String,
     pub before: Option<FigureProps>,
     pub after: FigureProps,
+    pub idx: usize,
 }
 
 impl<'eval> MutationFigureProps {
@@ -46,6 +47,7 @@ impl<'eval> MutationFigureProps {
         text: &Text,
         visualizer: &RuntimeVisualizer,
         mutation_data: &MutationData<'eval>,
+        idx: usize,
     ) -> Self {
         MutationFigureProps {
             name: match mutation_data.kind {
@@ -57,6 +59,7 @@ impl<'eval> MutationFigureProps {
                 .as_ref()
                 .map(|before| FigureProps::new_specific(visualizer.visualize(before.any_ref()))),
             after: FigureProps::new_specific(visualizer.visualize(mutation_data.after.any_ref())),
+            idx,
         }
     }
 }

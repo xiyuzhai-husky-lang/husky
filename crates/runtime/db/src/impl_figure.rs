@@ -176,13 +176,18 @@ impl HuskyLangRuntime {
 
     pub fn mutations_figure(&self, mutations: &[MutationData]) -> FigureProps {
         FigureProps::Mutations {
-            mutations: mutations.map(|mutation| {
-                MutationFigureProps::new(
-                    &self.compile_time().text(mutation.file).unwrap(),
-                    &self.visualizer(self.version(), mutation.ty),
-                    mutation,
-                )
-            }),
+            mutations: mutations
+                .iter()
+                .enumerate()
+                .map(|(i, mutation)| {
+                    MutationFigureProps::new(
+                        &self.compile_time().text(mutation.file).unwrap(),
+                        &self.visualizer(self.version(), mutation.ty),
+                        mutation,
+                        i,
+                    )
+                })
+                .collect(),
         }
     }
 
@@ -206,7 +211,8 @@ impl HuskyLangRuntime {
                     mutations,
                 } => mutations
                     .iter()
-                    .map(|mutation| {
+                    .enumerate()
+                    .map(|(idx, mutation)| {
                         if let Some(frame_mutation) = frame_mutations
                             .iter()
                             .find(|frame_mutation| frame_mutation.varidx() == mutation.varidx())
@@ -215,6 +221,7 @@ impl HuskyLangRuntime {
                                 &self.compile_time().text(frame_mutation.file).unwrap(),
                                 &self.visualizer(self.version(), frame_mutation.ty),
                                 frame_mutation,
+                                idx,
                             )
                         } else {
                             MutationFigureProps {
@@ -230,6 +237,7 @@ impl HuskyLangRuntime {
                                         frame_stack_snapshot[mutation.varidx()].any_ref(),
                                     ),
                                 ),
+                                idx,
                             }
                         }
                     })

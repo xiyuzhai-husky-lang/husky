@@ -57,7 +57,7 @@
 <style>
     .FigureCanvas {
         display: flex;
-        /* border: rgb(41, 41, 41) solid; */
+        border: rgb(41, 41, 41) solid;
         background: black;
     }
 </style>

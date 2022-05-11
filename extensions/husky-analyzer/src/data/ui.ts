@@ -79,9 +79,17 @@ export function get_trace_stalk_store(trace_id: number, opt_input_id: number) {
     );
 }
 
-export function get_figure(active_trace_id: number, focus: Focus): FigureProps {
+export function get_figure_props(
+    active_trace_id: number,
+    focus: Focus
+): FigureProps {
     try {
-        return global.figure_cache.get_figure(active_trace_id, focus);
+        let figure_props = global.figure_cache.get_figure(
+            active_trace_id,
+            focus
+        );
+        console.log("figure props = ", figure_props);
+        return figure_props;
     } catch (error) {
         console.log("focus", get(focus_store));
         throw error;

@@ -12,7 +12,7 @@
         move_up,
         move_down,
         move_left,
-        get_figure,
+        get_figure_props,
         print_state,
         get_figure_control_store,
     } from "src/data/ui";
@@ -25,8 +25,8 @@
     $: focus = $focus_store;
     $: opt_input_id = focus.opt_input_id;
     $: active_trace = $active_trace_store;
-    $: figure =
-        active_trace !== null ? get_figure(active_trace.id, focus) : null;
+    $: figure_props =
+        active_trace !== null ? get_figure_props(active_trace.id, focus) : null;
     $: figure_control_store =
         active_trace !== null ? get_figure_control_store(active_trace) : null;
     $: figure_control_props =
@@ -59,7 +59,7 @@
                 print_state();
                 break;
             case "KeyF":
-                console.log("figure props: ", figure);
+                console.log("figure props: ", figure_props);
                 console.log("figure control props: ", figure_control_props);
             default:
         }
@@ -96,7 +96,7 @@
     <div class="Middle" style="height: {middle_height}px">
         <HSplitPane>
             <TreeView slot="left" />
-            <Figure slot="right" {figure} {figure_control_props} />
+            <Figure slot="right" figure={figure_props} {figure_control_props} />
         </HSplitPane>
     </div>
     <div class="Bottom" style="height: {bottom_height}px">
