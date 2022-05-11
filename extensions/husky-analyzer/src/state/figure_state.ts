@@ -1,11 +1,11 @@
-import type Trace from "src/trace/Trace";
+import type { Trace } from "src/trace";
 import type { Readable, Writable } from "svelte/store";
 import { writable, get } from "svelte/store";
 import StoreMap from "src/abstraction/StoreMap";
 import type FigureControlProps from "src/figure/FigureControlProps";
 import StoreStringMap from "src/abstraction/StoreStringMap";
-import type { InitState } from "./init";
-import type FigureProps from "src/figure/FigureProps";
+import type { InitState } from "./init_state";
+import type FigureProps from "src/figure";
 import type { Focus } from "src/focus";
 
 export class FigureState {
@@ -18,10 +18,16 @@ export class FigureState {
         this.figure_control_stores.load(init_state.figure_controls);
     }
 
-    set_figure(trace_id: number, focus: Focus, figure: FigureProps) {
-        let key = focus.gen_figure_key(trace_id);
+    set_figure(
+        trace: Trace,
+        focus: Focus,
+        figure: FigureProps,
+        figure_control_props: FigureControlProps
+    ) {
+        let key = focus.gen_figure_key(trace.id);
         console.assert(!(key in this.figures));
         this.figures[key] = figure;
+        this.set_figure_control_props(trace, figure_control_props);
     }
 
     get_figure(trace_id: number, focus: Focus): FigureProps {

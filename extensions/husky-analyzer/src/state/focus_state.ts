@@ -1,6 +1,6 @@
 import { Focus } from "src/focus";
 import { get, writable, type Writable } from "svelte/store";
-import type { InitState } from "./init";
+import type { InitState } from "./init_state";
 
 export class FocusState {
     focus_store: Writable<Focus> = writable(new Focus());

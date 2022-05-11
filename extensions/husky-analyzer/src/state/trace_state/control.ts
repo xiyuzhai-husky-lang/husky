@@ -1,7 +1,7 @@
 import StoreMap from "src/abstraction/StoreMap";
 import type { Trace } from "src/trace";
 import { writable, type Writable } from "svelte/store";
-import type { InitState } from "../init";
+import type { InitState } from "../init_state";
 
 export class TraceControlState {
     active_trace_store: Writable<Trace | null> = writable(null);

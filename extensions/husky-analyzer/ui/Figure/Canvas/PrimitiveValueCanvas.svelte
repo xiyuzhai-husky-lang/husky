@@ -1,3 +1,4 @@
 <script lang="ts">
-    import type PrimitiveValueFigureProps from "src/figure/src/figure/Primitivert let figure: PrimitiveValueFigureProps;
+    import type PrimitiveValueFigureProps from "src/figure/Primitive";
+    export let figure: PrimitiveValueFigureProps;
 </script>

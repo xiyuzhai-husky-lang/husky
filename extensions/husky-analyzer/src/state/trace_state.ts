@@ -1,9 +1,9 @@
 import type { Focus } from "src/focus";
 import type { Trace } from "src/trace";
 import { get, writable, type Writable } from "svelte/store";
-import type { InitState } from "./init";
-import { TraceCache } from "./trace/cache";
-import { TraceControlState } from "./trace/control";
+import type { InitState } from "./init_state";
+import { TraceCache } from "./trace_state/cache";
+import { TraceControlState } from "./trace_state/control";
 
 export class TraceState {
     cache: TraceCache = new TraceCache();
@@ -45,6 +45,16 @@ export class TraceState {
             }
             this.trace_listing_store.set(trace_listing);
         }
+    }
+
+    did_toggle_expansion(focus: Focus, trace_id: number) {
+        this.control.did_toggle_expansion(trace_id);
+        this.update_trace_listing(focus);
+    }
+
+    did_toggle_show(focus: Focus, trace_id: number) {
+        this.control.did_toggle_show(trace_id);
+        this.update_trace_listing(focus);
     }
 
     private update_trace_listing_dfs(

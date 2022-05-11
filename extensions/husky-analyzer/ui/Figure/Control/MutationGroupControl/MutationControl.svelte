@@ -1,8 +1,6 @@
 <script lang="ts">
-    import type {
-        MutationsFigureProps,
-        MutationFigureProps,
-    } from "src/figure/src/figure/FigurePropsrt { update_figure_control_props } from "src/data/ui";
+    import type { MutationsFigureProps, MutationFigureProps } from "src/figure";
+    import state from "src/state";
     export let mutation: MutationFigureProps;
     export let mutation_control_height: number;
     export let mutation_control_width: number;

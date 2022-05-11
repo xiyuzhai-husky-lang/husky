@@ -2,7 +2,6 @@
     import TreeView from "./TreeView.svelte";
     import Figure from "./Figure.svelte";
     import HSplitPane from "./SplitPane/HSplitPane.svelte";
-    import { request_lock_input } from "src/server/server";
     import state, {
         active_trace_store,
         focus_store,
@@ -79,7 +78,8 @@
             e.preventDefault();
         }
         if (e.code === "Enter" && !is_input_locked) {
-            request_lock_input(input_str);
+            throw new Error("todo");
+            // request_lock_input(input_str);
         }
     }
 </script>

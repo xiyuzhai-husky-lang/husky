@@ -2,16 +2,16 @@ import NDict from "./abstraction/NDict";
 import { decode_memb, decode_number } from "./decode/decode";
 
 type DebuggerResponse = {
-    id: number;
+    request_id: number;
     variant: any;
 };
 
-type DebuggerRequest = { request_id?: number; variant: unknown };
+type DebuggerRequest = { opt_request_id?: number; variant: unknown };
 
 function decode_debugger_response(raw: unknown): DebuggerResponse {
-    let id = decode_number(decode_memb(raw, "request_id"));
+    let request_id = decode_number(decode_memb(raw, "request_id"));
     let variant = decode_memb(raw, "variant");
-    return { id, variant };
+    return { request_id, variant };
 }
 
 export class DebuggerServer {
@@ -28,15 +28,12 @@ export class DebuggerServer {
         this.websocket.addEventListener("open", (event: Event) => {
             this.send_pending_requests();
         });
-        this.websocket.addEventListener(
-            "message",
-            function (this: DebuggerServer, event: MessageEvent) {
-                let response: DebuggerResponse = decode_debugger_response(
-                    event.data
-                );
-                this.call_backs.get(response.id)(response.variant);
-            }.bind(this)
-        );
+        this.websocket.addEventListener("message", (event: MessageEvent) => {
+            let response: DebuggerResponse = decode_debugger_response(
+                JSON.parse(event.data)
+            );
+            this.call_backs.get(response.request_id)(response.variant);
+        });
     }
 
     private send_pending_requests(): void {
@@ -54,15 +51,15 @@ export class DebuggerServer {
 
     send_request(
         variant: any,
-        call_back?: (response: DebuggerResponse) => void
+        call_back?: (response_variant: unknown) => void
     ) {
         let request: DebuggerRequest = {
             variant,
         };
         if (call_back !== undefined) {
             let request_id = this.gen_request_id();
-            request.request_id = request_id;
-            this.call_backs.insert_new(request_id, variant);
+            request.opt_request_id = request_id;
+            this.call_backs.insert_new(request_id, call_back);
         }
         switch (this.websocket.readyState) {
             case 0:
@@ -82,7 +79,3 @@ export class DebuggerServer {
         }
     }
 }
-
-const server = new DebuggerServer();
-
-export default server;

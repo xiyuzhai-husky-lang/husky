@@ -92,7 +92,9 @@ export function d_memb_old<T>(
 
 export function decode_memb(data: unknown, key: string): unknown {
     if (typeof data !== "object") {
-        throw new Error(`expect object but got ${data} instead`);
+        throw new Error(
+            `expect object but got type ${typeof data} with data = ${data} instead`
+        );
     }
     if (data === null) {
         throw new Error(`expect object but got ${data} instead`);

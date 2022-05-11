@@ -5,18 +5,26 @@ use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "kind")]
-pub(super) enum Query {
+pub(super) struct Request {
+    pub opt_request_id: Option<usize>,
+    pub variant: RequestVariant,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
+#[serde(tag = "kind")]
+pub(super) enum RequestVariant {
+    Init,
     Activate {
-        id: TraceId,
+        trace_id: TraceId,
         opt_focus_for_figure: Option<Focus>,
     },
     ToggleExpansion {
-        id: TraceId,
+        trace_id: TraceId,
         effective_opt_input_id: Option<usize>,
         request_subtraces: bool,
     },
     ToggleShow {
-        id: TraceId,
+        trace_id: TraceId,
     },
     Trace {
         id: TraceId,

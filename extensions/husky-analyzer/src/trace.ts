@@ -79,3 +79,7 @@ export class Trace {
         );
     }
 }
+
+export function decode_trace(data: unknown): Trace {
+    return new Trace(data);
+}
