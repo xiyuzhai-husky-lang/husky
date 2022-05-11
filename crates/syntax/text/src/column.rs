@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use test_utils::{TestCompareConfig, TestDisplay};
+use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
@@ -7,7 +7,7 @@ use test_utils::{TestCompareConfig, TestDisplay};
 pub struct Column(pub(crate) u32);
 
 impl TestDisplay for Column {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         todo!()
     }
 }

@@ -18,6 +18,7 @@ use crate::{
 };
 use atom::symbol::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
+use entity_route_query::EntityRouteResult;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use text::TextRanged;
@@ -40,11 +41,14 @@ pub struct AstTransformer<'a> {
 }
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn new(db: &'a dyn AstSalsaQueryGroup, module: EntityRoutePtr) -> Self {
-        return Self {
+    pub(crate) fn new(
+        db: &'a dyn AstSalsaQueryGroup,
+        module: EntityRoutePtr,
+    ) -> EntityRouteResult<Self> {
+        return Ok(Self {
             db,
-            main: db.main_file(db.module_file(module).unwrap()).unwrap(),
-            file: db.module_file(module).unwrap(),
+            main: db.main_file(db.module_file(module)?).unwrap(),
+            file: db.module_file(module)?,
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
@@ -56,7 +60,7 @@ impl<'a> AstTransformer<'a> {
             opt_this_ty: LocalValue::new(None),
             opt_this_contract: LocalValue::new(None),
             abs_semantic_tokens: vec![],
-        };
+        });
 
         fn module_symbols(
             db: &dyn AstSalsaQueryGroup,

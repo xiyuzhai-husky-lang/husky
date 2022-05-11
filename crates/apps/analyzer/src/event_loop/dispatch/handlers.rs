@@ -275,7 +275,10 @@ pub(crate) fn handle_semantic_tokens_full(
     let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
-    let ast_text = snapshot.ast_text(file)?;
+    let ast_text = match snapshot.ast_text(file) {
+        Ok(ast_text) => ast_text,
+        Err(_) => return Ok(None),
+    };
     let data = AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens);
     Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
         result_id: None,
@@ -291,7 +294,10 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
-    let ast_text = snapshot.ast_text(file)?;
+    let ast_text = match snapshot.ast_text(file) {
+        Ok(ast_text) => ast_text,
+        Err(_) => return Ok(None),
+    };
     Ok(Some(SemanticTokensFullDeltaResult::Tokens(
         SemanticTokens {
             result_id: None,
@@ -307,7 +313,10 @@ pub(crate) fn handle_semantic_tokens_range(
     let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
-    let ast_text = snapshot.ast_text(file)?;
+    let ast_text = match snapshot.ast_text(file) {
+        Ok(ast_text) => ast_text,
+        Err(_) => return Ok(None),
+    };
     Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
         result_id: None,
         data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),

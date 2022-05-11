@@ -17,7 +17,7 @@ use semantics_error::{SemanticError, SemanticErrorVariant};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use std::sync::Arc;
-use test_utils::{TestCompareConfig, TestDisplay};
+use test_utils::{TestDisplayConfig, TestDisplay};
 use text::TextRange;
 use token::LexError;
 
@@ -32,7 +32,7 @@ pub struct Diagnostic {
 }
 
 impl TestDisplay for Diagnostic {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         write!(result, "{:?}\t{}", self.range, self.message).unwrap()
     }
 }
@@ -92,7 +92,12 @@ impl From<&LexError> for Diagnostic {
 
 impl From<EntityRouteError> for Diagnostic {
     fn from(e: EntityRouteError) -> Self {
-        todo!()
+        Diagnostic {
+            severity: DiagnosticSeverity::Error,
+            range: Default::default(),
+            message: format!("Entity Route Error: {:?}", e),
+            dev_src: e.dev_src,
+        }
     }
 }
 

@@ -20,7 +20,10 @@ pub(crate) fn collect_diagnostics(
             }
         }
     }
-    let file = db.module_file(module).unwrap();
+    let file = match db.module_file(module) {
+        Ok(file) => file,
+        Err(e) => return vec![e.into()],
+    };
     collect_lex_errors(db, file, &mut diagnostics);
     collect_ast_errors(db, file, &mut diagnostics);
     collect_infer_ty_errors(db, file, &mut diagnostics);

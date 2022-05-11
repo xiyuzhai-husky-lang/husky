@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use test_utils::{TestCompareConfig, TestDisplay};
+use test_utils::{TestDisplayConfig, TestDisplay};
 
 use crate::*;
 
@@ -10,7 +10,7 @@ pub struct TextPosition {
 }
 
 impl TestDisplay for TextPosition {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         todo!()
     }
 }

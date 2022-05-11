@@ -15,7 +15,7 @@ pub(crate) fn contract_sheet(
     db: &dyn InferContractSalsaQueryGroup,
     file: FilePtr,
 ) -> EntityRouteResultArc<ContractSheet> {
-    let mut builder = ContractSheetBuilder::new(db, file);
+    let mut builder = ContractSheetBuilder::new(db, file)?;
     let ast_text = db.ast_text(file)?;
     builder.infer_all(ast_text.folded_results.iter());
     Ok(Arc::new(builder.finish()))

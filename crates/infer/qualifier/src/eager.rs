@@ -1,6 +1,6 @@
 use crate::*;
 use std::fmt::Write;
-use test_utils::{TestCompareConfig, TestDisplay};
+use test_utils::{TestDisplayConfig, TestDisplay};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EagerQualifiedTy {
@@ -9,7 +9,7 @@ pub struct EagerQualifiedTy {
 }
 
 impl TestDisplay for EagerQualifiedTy {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,
