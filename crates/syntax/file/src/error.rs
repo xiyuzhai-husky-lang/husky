@@ -1,9 +1,17 @@
+use dev_utils::DevSource;
+
 use crate::*;
 
 use std::sync::Arc;
 
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct FileError {
+    pub kind: FileErrorKind,
+    pub dev_src: DevSource,
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FileError {
+pub enum FileErrorKind {
     NoSuchpack,
     FileNotFound,
     DuplicateModuleFiles,

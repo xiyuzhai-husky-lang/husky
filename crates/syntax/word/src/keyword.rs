@@ -12,20 +12,26 @@ pub enum Keyword {
     Mod,
 }
 
-impl Deref for Keyword {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
+impl Keyword {
+    pub fn as_str(&self) -> &'static str {
         match self {
-            Keyword::Config(keyword) => keyword.deref(),
-            Keyword::Routine(keyword) => keyword.deref(),
-            Keyword::Type(keyword) => keyword.deref(),
-            Keyword::Stmt(keyword) => keyword.deref(),
+            Keyword::Config(keyword) => keyword.as_str(),
+            Keyword::Routine(keyword) => keyword.as_str(),
+            Keyword::Type(keyword) => keyword.as_str(),
+            Keyword::Stmt(keyword) => keyword.as_str(),
             Keyword::Use => "use",
             Keyword::Mod => "mod",
             Keyword::Def => "def",
             Keyword::Main => "main",
         }
+    }
+}
+
+impl Deref for Keyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        self.as_str()
     }
 }
 
@@ -58,13 +64,19 @@ pub enum ConfigKeyword {
     Dataset,
 }
 
+impl ConfigKeyword {
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            ConfigKeyword::Dataset => "dataset",
+        }
+    }
+}
+
 impl Deref for ConfigKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
-        match self {
-            ConfigKeyword::Dataset => "dataset",
-        }
+        self.as_str()
     }
 }
 
@@ -75,15 +87,21 @@ pub enum RoutineKeyword {
     Func,
 }
 
-impl Deref for RoutineKeyword {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
+impl RoutineKeyword {
+    pub fn as_str(&self) -> &'static str {
         match self {
             RoutineKeyword::Test => "test",
             RoutineKeyword::Proc => "proc",
             RoutineKeyword::Func => "func",
         }
+    }
+}
+
+impl Deref for RoutineKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        self.as_str()
     }
 }
 
@@ -96,10 +114,8 @@ pub enum TyKeyword {
     Record,
 }
 
-impl Deref for TyKeyword {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
+impl TyKeyword {
+    fn as_str(&self) -> &'static str {
         match self {
             TyKeyword::Struct => "struct",
             TyKeyword::Rename => "rename",
@@ -107,6 +123,14 @@ impl Deref for TyKeyword {
             TyKeyword::Props => "props",
             TyKeyword::Record => "record",
         }
+    }
+}
+
+impl Deref for TyKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        self.as_str()
     }
 }
 
@@ -130,10 +154,8 @@ pub enum StmtKeyword {
     Assert,
 }
 
-impl Deref for StmtKeyword {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
+impl StmtKeyword {
+    pub fn as_str(&self) -> &'static str {
         match self {
             StmtKeyword::Let => "let",
             StmtKeyword::Var => "var",
@@ -152,5 +174,13 @@ impl Deref for StmtKeyword {
             StmtKeyword::Return => "return",
             StmtKeyword::Assert => "assert",
         }
+    }
+}
+
+impl Deref for StmtKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        self.as_str()
     }
 }

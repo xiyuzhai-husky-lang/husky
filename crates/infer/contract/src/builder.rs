@@ -6,6 +6,7 @@ use std::sync::Arc;
 use ast::{AstIter, AstKind};
 use entity_kind::FieldKind;
 use entity_route::EntityRouteKind;
+use entity_route_query::EntityRouteResult;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
@@ -31,13 +32,16 @@ impl<'a> InferEntityRoute for ContractSheetBuilder<'a> {
 }
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(crate) fn new(db: &'a dyn InferContractSalsaQueryGroup, file: FilePtr) -> Self {
-        Self {
+    pub(crate) fn new(
+        db: &'a dyn InferContractSalsaQueryGroup,
+        file: FilePtr,
+    ) -> EntityRouteResult<Self> {
+        Ok(Self {
             db,
             file,
             main_file: db.main_file(file).unwrap(),
-            contract_sheet: ContractSheet::new(db.entity_route_sheet(file).unwrap()),
-        }
+            contract_sheet: ContractSheet::new(db.entity_route_sheet(file)?),
+        })
     }
 
     pub(crate) fn infer_all(&mut self, ast_iter: AstIter) {

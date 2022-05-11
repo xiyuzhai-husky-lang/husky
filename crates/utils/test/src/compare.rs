@@ -12,12 +12,12 @@ use std::{
 };
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub struct TestCompareConfig {
+pub struct TestDisplayConfig {
     pub colored: bool,
     pub indent: u8,
 }
 
-impl TestCompareConfig {
+impl TestDisplayConfig {
     pub fn indented(&self) -> Self {
         Self {
             colored: self.colored,
@@ -27,22 +27,31 @@ impl TestCompareConfig {
 }
 
 pub trait TestDisplay: std::fmt::Debug + PartialEq {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String);
-    fn print_inherent(&self, config: TestCompareConfig) -> String {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String);
+    fn print_inherent(&self, config: TestDisplayConfig) -> String {
         let mut result = String::new();
         self.write_inherent(config, &mut result);
         result
     }
 }
 
+impl<T: TestDisplay> TestDisplay for Option<T> {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+        match self {
+            Some(value) => value.write_inherent(config, result),
+            None => (),
+        }
+    }
+}
+
 impl<T: TestDisplay> TestDisplay for Arc<T> {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         (**self).write_inherent(config, result)
     }
 }
 
 impl<T: TestDisplay> TestDisplay for Vec<T> {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         for t in self.iter() {
             t.write_inherent(config, result);
             result.push_str("\n");
@@ -51,7 +60,7 @@ impl<T: TestDisplay> TestDisplay for Vec<T> {
 }
 
 impl<T: TestDisplay, S: TestDisplay> TestDisplay for (T, S) {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         self.0.write_inherent(config, result);
         result.push_str("  ");
         self.1.write_inherent(config, result);
@@ -63,7 +72,7 @@ where
     T: TestDisplay,
     E: TestDisplay,
 {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         match self {
             Ok(v) => v.write_inherent(config, result),
             Err(e) => e.write_inherent(config, result),
@@ -72,13 +81,13 @@ where
 }
 
 impl TestDisplay for lsp_types::SemanticToken {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         write!(result, "{:?}", self).unwrap();
     }
 }
 
 impl TestDisplay for lsp_types::FoldingRange {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         write!(result, "{:?}", self).unwrap();
     }
 }
@@ -87,7 +96,7 @@ pub fn compare_saved_data<T>(new_data: &T, saved_data_path: &Path) -> TestResult
 where
     T: TestDisplay,
 {
-    let new_data_text = new_data.print_inherent(TestCompareConfig {
+    let new_data_text = new_data.print_inherent(TestDisplayConfig {
         colored: false,
         indent: 0,
     });

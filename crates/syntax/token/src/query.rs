@@ -1,6 +1,7 @@
 use crate::{line_token_iter::LineTokenIter, *};
 
-use file::{FileError, FileResultArc};
+use dev_utils::dev_src;
+use file::{FileError, FileErrorKind, FileResultArc};
 use print_utils::epin;
 #[salsa::query_group(TokenQueryGroupStorage)]
 pub trait TokenSalsaQueryGroup: file::FileQueryGroup + word::InternWord {
@@ -14,7 +15,10 @@ fn tokenized_text(
     if let Some(text) = this.raw_text(id) {
         return Ok(TokenizedText::parse(this.word_allocator(), text.as_str()));
     } else {
-        Err(FileError::FileNotFound)
+        Err(FileError {
+            kind: FileErrorKind::FileNotFound,
+            dev_src: dev_src!(),
+        })
     }
 }
 

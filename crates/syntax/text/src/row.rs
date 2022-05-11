@@ -1,12 +1,12 @@
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
-use test_utils::{TestDisplay, TestCompareConfig};
+use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
 pub struct Row(pub u32);
 
 impl TestDisplay for Row {
-    fn write_inherent(&self, config: TestCompareConfig, result: &mut String) {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,

@@ -7,7 +7,7 @@ use fold::{FoldStorage, FoldedList};
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
-use test_utils::TestCompareConfig;
+use test_utils::TestDisplayConfig;
 use text::{Text, TextQueryGroup};
 use token::AbsSemanticToken;
 use upcast::Upcast;
@@ -34,7 +34,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
 
 fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntityRouteResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
-    let mut parser = AstTransformer::new(this, this.module(id)?);
+    let mut parser = AstTransformer::new(this, this.module(id)?)?;
     parser.transform_all(tokenized_text.iter());
     Ok(Arc::new(parser.finish()))
 }
@@ -71,7 +71,7 @@ impl AstText {
 }
 
 impl ArenaKeyQuery<RawExpr> for AstText {
-    fn write_key(&self, config: TestCompareConfig, raw_expr_idx: RawExprIdx, result: &mut String) {
+    fn write_key(&self, config: TestDisplayConfig, raw_expr_idx: RawExprIdx, result: &mut String) {
         let expr = &self.arena[raw_expr_idx];
         let range = expr.range();
         if config.colored {

@@ -7,7 +7,7 @@ mod utils;
 pub use allocate_unique::{
     new_file_unique_allocator, AllocateUniqueFile, FilePtr, UniqueFileAllocator,
 };
-pub use error::{FileError, FileResult, FileResultArc};
+pub use error::*;
 pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
 pub type URange = std::ops::Range<usize>;
 

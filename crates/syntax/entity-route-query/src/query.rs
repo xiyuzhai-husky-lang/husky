@@ -1,10 +1,11 @@
-use crate::{error::scope_err, *};
+use crate::{error::err, *};
 use check_utils::{should, should_eq};
-use entity_route::*;
-use file::FilePtr;
-use path_utils::*;
-
+use dev_utils::dev_src;
 use entity_kind::{MemberKind, TyKind};
+use entity_route::*;
+use file::{FileError, FileErrorKind, FilePtr};
+use path_utils::*;
+use print_utils::p;
 use static_defn::*;
 use upcast::Upcast;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
@@ -269,9 +270,9 @@ pub trait EntityRouteQueryGroup:
     }
 
     fn module(&self, file: FilePtr) -> EntityRouteResult<EntityRoutePtr> {
-        let path: PathBuf = (*file).into();
+        let path: PathBuf = file.to_path_buf();
         if !self.file_exists(file) {
-            scope_err!(format!("file didn't exist"))?
+            err!(format!("file doesn't exist"))?
         } else if path_has_file_name(&path, "main.hsk") {
             if let Some(pack_name) = path_parent_file_name_str(&path) {
                 let snake_name = dash_to_snake(&pack_name);
@@ -280,23 +281,41 @@ pub trait EntityRouteQueryGroup:
                 {
                     Ok(self.intern_entity_route(EntityRoute::pack(file, ident)))
                 } else {
-                    scope_err!(format!("pack name should be identifier"))?
+                    err!(format!("pack name should be identifier"))?
                 }
             } else {
-                scope_err!(format!("pack root should have filename"))?
+                err!(format!("pack root should have filename"))?
             }
         } else if path_has_file_name(&path, "mod.hsk") {
             todo!()
         } else if path_has_extension(&path, "hsk") {
-            let maybe_main_path = path.with_file_name("main.hsk");
-            if maybe_main_path.exists() {
-                let _parent = self.module(self.intern_file(path.with_file_name("mod.hsk")));
-                todo!()
-            } else {
-                todo!()
+            let parent = {
+                let maybe_main_path = path.with_file_name("main.hsk");
+                if maybe_main_path.exists() {
+                    self.module(self.intern_file(maybe_main_path))?
+                } else {
+                    todo!()
+                }
+            };
+            let word = self.intern_word(path.file_stem().unwrap().to_str().unwrap());
+            match word {
+                WordPtr::Keyword(kw) => {
+                    err!(format!(
+                        "expect custom identifier for module name, but got keyword {} instead",
+                        kw.as_str()
+                    ))
+                }
+                WordPtr::Identifier(ident) => match ident {
+                    Identifier::Builtin(_) => todo!(),
+                    Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
+                        kind: EntityRouteKind::Child { parent, ident },
+                        generic_arguments: vec![],
+                    })),
+                    Identifier::Contextual(_) => todo!(),
+                },
             }
         } else {
-            scope_err!(format!(
+            err!(format!(
                 "file (path: {:?}) should have extension .hsk",
                 path.to_str()
             ))?
@@ -332,7 +351,11 @@ pub trait EntityRouteQueryGroup:
         } else if module_path2.is_file() && !module_path1.is_file() {
             Ok(module_path1)
         } else {
-            Err(file::FileError::FileNotFound.into())
+            Err(FileError {
+                kind: FileErrorKind::FileNotFound,
+                dev_src: dev_src!(),
+            }
+            .into())
         };
 
         module_path.map(|pth| self.intern_file(pth))

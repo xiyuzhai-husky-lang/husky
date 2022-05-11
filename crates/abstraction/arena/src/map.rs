@@ -1,6 +1,6 @@
 use check_utils::should;
 use std::{fmt::Write, marker::PhantomData};
-use test_utils::{TestCompareConfig, TestDisplay};
+use test_utils::{TestDisplay, TestDisplayConfig};
 
 use crate::*;
 
@@ -20,12 +20,12 @@ where
 }
 
 pub trait ArenaKeyQuery<T> {
-    fn write_key(&self, config: TestCompareConfig, raw_idx: ArenaIdx<T>, result: &mut String);
+    fn write_key(&self, config: TestDisplayConfig, raw_idx: ArenaIdx<T>, result: &mut String);
 
     fn write_map_inherently<V: TestDisplay>(
         &self,
         map: &ArenaMap<T, V>,
-        config: TestCompareConfig,
+        config: TestDisplayConfig,
         result: &mut String,
     ) {
         for (raw_idx, v) in map.iter() {
