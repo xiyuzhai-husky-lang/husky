@@ -34,7 +34,8 @@ pub enum EntityKind {
     Routine,
     Feature,
     Pattern,
-    Literal,
+    EnumLiteral,
+    Main,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

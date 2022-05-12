@@ -4,9 +4,12 @@ use std::{
 };
 
 use crate::*;
+use check_utils::should_eq;
 use indexmap::IndexMap;
 use itertools::Itertools;
+use print_utils::p;
 use sync_utils::ARwLock;
+use word::CustomIdentifier;
 
 pub trait LiveFiles: AllocateUniqueFile {
     fn get_live_files(&self) -> &ARwLock<IndexMap<FilePtr, ARwLock<String>>>;
@@ -137,6 +140,30 @@ pub trait FileQueryGroup: FileSalsaQuery {
             let mut url: String = url.into();
             url[driver_letter_range].make_ascii_lowercase();
             lsp_types::Url::parse(&url).unwrap()
+        }
+    }
+
+    fn get_submodule_file(&self, module_file: &Path, ident: CustomIdentifier) -> Option<FilePtr> {
+        should_eq!(module_file.extension().unwrap(), "hsk");
+        if module_file.file_name().unwrap() == "mod.hsk"
+            || module_file.file_name().unwrap() == "main.hsk"
+        {
+            let maybe_submodule_file =
+                self.intern_file(module_file.with_file_name(format!("{}.hsk", ident)));
+            if self.file_exists(maybe_submodule_file) {
+                Some(maybe_submodule_file)
+            } else {
+                let maybe_submodule_file =
+                    self.intern_file(module_file.with_file_name(format!("{}.hsk", ident)));
+                if self.file_exists(maybe_submodule_file) {
+                    Some(maybe_submodule_file)
+                } else {
+                    None
+                }
+            }
+        } else {
+            p!(module_file);
+            todo!()
         }
     }
 }

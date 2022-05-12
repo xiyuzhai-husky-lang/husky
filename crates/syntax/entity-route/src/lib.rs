@@ -133,7 +133,7 @@ pub enum EntityRouteKind {
 }
 
 impl EntityRoute {
-    pub fn pack(main: FilePtr, ident: CustomIdentifier) -> Self {
+    pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
             kind: EntityRouteKind::Package { main, ident },
             generic_arguments: Vec::new(),

@@ -1,7 +1,7 @@
 mod connected_components
 
 use datasets::cv::mnist::BinaryImage28
-use
+use co
 
 dataset:
     cv::mnist::new_binary_dataset()

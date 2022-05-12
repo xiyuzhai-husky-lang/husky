@@ -31,7 +31,7 @@ impl<'a> DependeeMapBuilder<'a> {
             EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic {
                 ident,
-                entity_kind: raw_entity_kind,
+                entity_kind: entity_kind,
             } => todo!(),
             EntityRouteKind::ThisType => todo!(),
             EntityRouteKind::TypeAsTraitMember {

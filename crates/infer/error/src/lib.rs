@@ -154,7 +154,9 @@ macro_rules! derived_not_none {
 macro_rules! derived {
     ($message: expr) => {{
         infer_error::InferError {
-            variant: infer_error::InferErrorVariant::Derived { message: $message },
+            variant: infer_error::InferErrorVariant::Derived {
+                message: $message.into(),
+            },
             dev_src: dev_utils::dev_src!(),
         }
     }};

@@ -1,2 +1,4 @@
-4:1..4:4	Ast Error: expect route after keyword `use`
-22:9..22:34	Infer Error: unrecognized caller
+2:1..2:4	Ast Error: expect route after keyword `use`
+12:23..12:40	Infer Error: unrecognized caller
+19:45..19:62	Infer Error: unrecognized caller
+27:45..27:62	Infer Error: unrecognized caller

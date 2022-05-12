@@ -103,10 +103,10 @@ impl<'a> AtomLRParser<'a> {
         let mut route = self
             .symbol_context
             .db
-            .make_scope(route, self.generics(route)?);
+            .make_route(route, self.generics(route)?);
         while next_matches!(self, Special::DoubleColon) {
             let ranged_ident = get!(self, custom_ident);
-            route = self.symbol_context.db.make_child_scope(
+            route = self.symbol_context.db.make_subroute(
                 route,
                 ranged_ident.ident,
                 self.generics(route)?,
@@ -118,7 +118,7 @@ impl<'a> AtomLRParser<'a> {
             route = self
                 .symbol_context
                 .db
-                .make_scope(route, self.generics(route)?);
+                .make_route(route, self.generics(route)?);
         }
         return Ok(AtomVariant::EntityRoute {
             route,
@@ -177,13 +177,14 @@ impl<'a> AtomLRParser<'a> {
             },
             _ => match self.symbol_context.entity_kind(route) {
                 EntityKind::Module
-                | EntityKind::Literal
+                | EntityKind::EnumLiteral
                 | EntityKind::Feature
                 | EntityKind::Member(_) => Ok(Vec::new()),
                 EntityKind::Type(_)
                 | EntityKind::Trait
                 | EntityKind::Routine
                 | EntityKind::Pattern => self.angled_generics(),
+                EntityKind::Main => panic!(),
             },
         }
     }

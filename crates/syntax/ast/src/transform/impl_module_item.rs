@@ -1,5 +1,4 @@
 use crate::*;
-use file::get_submodule_file;
 use text::TextRanged;
 use token::*;
 use word::*;
@@ -88,10 +87,7 @@ impl<'a> AstTransformer<'a> {
         );
         Ok(AstKind::Submodule {
             ident,
-            source_file: self.db.intern_file(derived_not_none!(get_submodule_file(
-                &self.file,
-                ident.ident
-            ))?),
+            source_file: derived_not_none!(self.db.get_submodule_file(&self.file, ident.ident))?,
         })
     }
 }

@@ -1,4 +1,5 @@
 use entity_route::EntityRouteKind;
+use entity_route_query::EntitySource;
 use word::RootIdentifier;
 
 use crate::*;
@@ -18,7 +19,7 @@ main:
     );
 
     let main_file = db.intern_file("haha/main.hsk".into());
-    let pack = db.intern_entity_route(EntityRoute::pack(
+    let pack = db.intern_entity_route(EntityRoute::package(
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
@@ -50,14 +51,22 @@ struct B {}
     );
 
     let main_file = db.intern_file("haha/main.hsk".into());
-    let pack = db.intern_entity_route(EntityRoute::pack(
+    let husky_lord_file = db.intern_file("haha/husky_lord.hsk".into());
+    let package = db.intern_entity_route(EntityRoute::package(
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
-    let subscope_table = db.subroute_table(pack).ok().unwrap();
-    p!(subscope_table.entries);
-    should_eq!(subscope_table.entries.len(), 3);
-    should_eq!(subscope_table.errors.len(), 0);
+    let subroute_table = db.subroute_table(package).ok().unwrap();
+    let husky_lord_route =
+        db.make_subroute(package, db.intern_word("husky_lord").custom(), Vec::new());
+    should_eq!(
+        db.entity_source(husky_lord_route).unwrap(),
+        EntitySource::Module {
+            file: husky_lord_file
+        }
+    );
+    should_eq!(subroute_table.entries.len(), 3);
+    should_eq!(subroute_table.errors.len(), 0);
 }
 
 #[test]
@@ -75,7 +84,7 @@ main:
     );
 
     let main_file = db.intern_file("haha/main.hsk".into());
-    let pack = db.intern_entity_route(EntityRoute::pack(
+    let pack = db.intern_entity_route(EntityRoute::package(
         main_file,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));

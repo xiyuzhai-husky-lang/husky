@@ -1,7 +1,7 @@
 use dev_utils::dev_src;
 use entity_kind::MemberKind;
 use entity_route::*;
-use file::{get_submodule_file, FilePtr};
+use file::FilePtr;
 use print_utils::p;
 use static_defn::*;
 use word::{CustomIdentifier, Keyword};
@@ -30,6 +30,7 @@ impl std::fmt::Debug for Entry {
 
 impl Entry {
     pub fn from_token_group(
+        db: &dyn EntityRouteSalsaQueryGroup,
         file: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
@@ -42,7 +43,7 @@ impl Entry {
                 TokenKind::Identifier(Identifier::Custom(ident)) => {
                     return Ok(Some(Entry {
                         ident: Some(ident),
-                        kind: EntityKind::Literal,
+                        kind: EntityKind::EnumLiteral,
                         source: EntitySource::from_file(file, token_group_index),
                     }))
                 }
@@ -58,11 +59,11 @@ impl Entry {
             return match token_group[0].kind {
                 TokenKind::Keyword(Keyword::Main) => Ok(Some(Entry {
                     ident: None,
-                    kind: EntityKind::Routine,
+                    kind: EntityKind::Main,
                     source: EntitySource::from_file(file, token_group_index),
                 })),
                 TokenKind::Keyword(Keyword::Mod) => {
-                    Entry::submodule(file, token_group_index, token_group)
+                    Entry::submodule(db, file, token_group_index, token_group)
                 }
                 TokenKind::Keyword(Keyword::Config(_)) => Ok(None),
                 _ => Err(defn_error!(
@@ -105,6 +106,7 @@ impl Entry {
     }
 
     pub fn submodule(
+        db: &dyn EntityRouteSalsaQueryGroup,
         file: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
@@ -113,20 +115,20 @@ impl Entry {
             TokenKind::Identifier(Identifier::Custom(ident)) => ident,
             _ => todo!(),
         };
-        if get_submodule_file(&file, ident).is_none() {
-            return Err(defn_error!(
+        if let Some(submodule_file) = db.get_submodule_file(&file, ident) {
+            Ok(Some(Entry {
+                ident: Some(ident),
+                kind: EntityKind::Module,
+                source: EntitySource::Module {
+                    file: submodule_file,
+                },
+            }))
+        } else {
+            Err(defn_error!(
                 format!("file for submodule doesn't exist"),
                 token_group.text_range()
-            ));
+            ))
         }
-        return Ok(Some(Entry {
-            ident: Some(ident),
-            kind: EntityKind::Module,
-            source: EntitySource::WithinModule {
-                file,
-                token_group_index,
-            },
-        }));
     }
 }
 
@@ -140,17 +142,17 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
             TokenKind::Special(Special::LCurl) => EntityKind::Pattern,
             _ => EntityKind::Feature,
         }),
-        Keyword::Main => todo!(),
+        Keyword::Main => Some(EntityKind::Main),
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ChildRouteTable {
+pub struct SubrouteTable {
     pub entries: Vec<Entry>,
     pub errors: Vec<EntitySyntaxError>,
 }
 
-impl std::fmt::Display for ChildRouteTable {
+impl std::fmt::Display for SubrouteTable {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("[")?;
         self.entries
@@ -162,7 +164,7 @@ impl std::fmt::Display for ChildRouteTable {
     }
 }
 
-impl ChildRouteTable {
+impl SubrouteTable {
     pub fn empty() -> Self {
         Self {
             entries: Vec::new(),
@@ -170,11 +172,15 @@ impl ChildRouteTable {
         }
     }
 
-    pub fn parse(file_id: FilePtr, token_groups: TokenGroupIter) -> Self {
+    pub fn parse(
+        db: &dyn EntityRouteSalsaQueryGroup,
+        file_id: FilePtr,
+        token_groups: TokenGroupIter,
+    ) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(
-                |item| match Entry::from_token_group(file_id, item.idx, item.value) {
+                |item| match Entry::from_token_group(db, file_id, item.idx, item.value) {
                     Ok(opt_entry) => opt_entry,
                     Err(e) => {
                         errors.push(e);
@@ -187,7 +193,7 @@ impl ChildRouteTable {
     }
 }
 
-impl ChildRouteTable {
+impl SubrouteTable {
     pub fn submodule_idents(&self) -> Vec<CustomIdentifier> {
         self.entries
             .iter()
@@ -212,7 +218,7 @@ impl ChildRouteTable {
         )
     }
 
-    pub fn raw_entity_kind(&self, ident: CustomIdentifier) -> Option<EntityKind> {
+    pub fn entity_kind(&self, ident: CustomIdentifier) -> Option<EntityKind> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
@@ -234,7 +240,7 @@ impl ChildRouteTable {
     }
 }
 
-impl ChildRouteTable {
+impl SubrouteTable {
     pub fn entry_iter(&self) -> core::slice::Iter<Entry> {
         self.entries.iter()
     }
@@ -253,7 +259,7 @@ impl ChildRouteTable {
     }
 }
 
-impl ChildRouteTable {
+impl SubrouteTable {
     pub(crate) fn from_static(
         db: &dyn EntityRouteSalsaQueryGroup,
         data: &EntityStaticDefn,
@@ -263,7 +269,7 @@ impl ChildRouteTable {
             .iter()
             .map(|(s, data)| Entry {
                 ident: Some(db.intern_word(s).opt_custom().unwrap()),
-                kind: data.variant.raw_entity_kind(),
+                kind: data.variant.entity_kind(),
                 source: (*data).into(),
             })
             .collect();
