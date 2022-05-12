@@ -20,9 +20,9 @@ impl<'a> Instantiator<'a> {
     }
 
     pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> GenericArgument {
-        match self.db.raw_entity_kind(src_scope) {
+        match self.db.entity_kind(src_scope) {
             EntityKind::Module => GenericArgument::EntityRoute(src_scope),
-            EntityKind::Literal => todo!(),
+            EntityKind::EnumLiteral => todo!(),
             _ => {
                 let (kind, mut generics) = match src_scope.kind {
                     EntityRouteKind::Package { .. } => panic!(),

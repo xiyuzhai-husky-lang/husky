@@ -34,7 +34,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             }
             RawExprVariant::Entity { route: scope, kind } => match kind {
                 EntityKind::Module => todo!(),
-                EntityKind::Literal => match scope {
+                EntityKind::EnumLiteral => match scope {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
                         EagerExprVariant::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
@@ -52,6 +52,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 }
                 EntityKind::Pattern => todo!(),
                 EntityKind::Member(_) => todo!(),
+                EntityKind::Main => panic!(),
             },
             RawExprVariant::PrimitiveLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(expr) => {

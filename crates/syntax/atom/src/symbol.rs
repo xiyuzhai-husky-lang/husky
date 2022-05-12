@@ -173,10 +173,10 @@ impl<'a> SymbolContext<'a> {
                         }
                     }
                 },
-                _ => self.db.raw_entity_kind(route),
+                _ => self.db.entity_kind(route),
             },
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
-            _ => self.db.raw_entity_kind(route),
+            _ => self.db.entity_kind(route),
         }
     }
 

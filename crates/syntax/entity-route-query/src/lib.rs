@@ -3,7 +3,7 @@ mod error;
 mod menu;
 mod query;
 mod source;
-mod subroute;
+mod subroute_table;
 
 pub use alias::*;
 pub use error::*;
@@ -13,4 +13,4 @@ pub use query::{
 pub use source::*;
 
 use menu::*;
-use subroute::*;
+use subroute_table::*;

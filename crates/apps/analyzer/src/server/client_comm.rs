@@ -39,7 +39,6 @@ impl ClientCommunicator {
         diagnostics: Vec<lsp_types::Diagnostic>,
         version: Option<i32>,
     ) {
-        eprintln!("send {} diagnostics for {}", diagnostics.len(), uri);
         let notif = lsp_server::Notification::new(
             lsp_types::notification::PublishDiagnostics::METHOD.to_string(),
             lsp_types::PublishDiagnosticsParams {

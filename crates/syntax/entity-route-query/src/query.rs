@@ -16,11 +16,11 @@ use fold::FoldStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
-    fn subroute_table(&self, scope_id: EntityRoutePtr) -> EntityRouteResultArc<ChildRouteTable>;
+    fn subroute_table(&self, scope_id: EntityRoutePtr) -> EntityRouteResultArc<SubrouteTable>;
 
     fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
-    fn raw_entity_kind(&self, entity_route: EntityRoutePtr) -> EntityKind;
+    fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntityKind;
 
     fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
 
@@ -30,9 +30,9 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 fn subroute_table(
     db: &dyn EntityRouteSalsaQueryGroup,
     entity_route: EntityRoutePtr,
-) -> EntityRouteResultArc<ChildRouteTable> {
+) -> EntityRouteResultArc<SubrouteTable> {
     Ok(Arc::new(match db.entity_source(entity_route)? {
-        EntitySource::StaticModuleItem(data) => ChildRouteTable::from_static(db, data),
+        EntitySource::StaticModuleItem(data) => SubrouteTable::from_static(db, data),
         EntitySource::WithinModule {
             file: file_id,
             token_group_index,
@@ -40,14 +40,14 @@ fn subroute_table(
             let text = db.tokenized_text(file_id)?;
             let item = text.iter_from(token_group_index).next().unwrap();
             if let Some(children) = item.children {
-                ChildRouteTable::parse(file_id, children)
+                SubrouteTable::parse(db, file_id, children)
             } else {
-                ChildRouteTable::empty()
+                SubrouteTable::empty()
             }
         }
         EntitySource::Module { file: file_id } => {
             let text = db.tokenized_text(file_id)?;
-            ChildRouteTable::parse(file_id, text.iter())
+            SubrouteTable::parse(db, file_id, text.iter())
         }
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Input { .. } => todo!(),
@@ -69,7 +69,7 @@ fn subscopes(
     }))
 }
 
-fn raw_entity_kind(db: &dyn EntityRouteSalsaQueryGroup, scope: EntityRoutePtr) -> EntityKind {
+fn entity_kind(db: &dyn EntityRouteSalsaQueryGroup, scope: EntityRoutePtr) -> EntityKind {
     entity_kind_from_entity_route_kind(db, scope.kind)
 }
 
@@ -90,7 +90,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::Fp
             | RootIdentifier::Array
             | RootIdentifier::DatasetType => EntityKind::Type(TyKind::Other),
-            RootIdentifier::True | RootIdentifier::False => EntityKind::Literal,
+            RootIdentifier::True | RootIdentifier::False => EntityKind::EnumLiteral,
             RootIdentifier::Fn | RootIdentifier::FnMut | RootIdentifier::FnOnce => {
                 EntityKind::Trait
             }
@@ -110,7 +110,7 @@ fn entity_kind_from_entity_route_kind(
             _ => db
                 .subroute_table(parent)
                 .unwrap()
-                .raw_entity_kind(ident)
+                .entity_kind(ident)
                 .unwrap(),
         },
         EntityRouteKind::Input { .. } => EntityKind::Feature,
@@ -280,7 +280,7 @@ pub trait EntityRouteQueryGroup:
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
                     self.word_allocator().alloc(snake_name)
                 {
-                    Ok(self.intern_entity_route(EntityRoute::pack(file, ident)))
+                    Ok(self.intern_entity_route(EntityRoute::package(file, ident)))
                 } else {
                     Err(derived_error!(format!("pack name should be identifier")))?
                 }
@@ -360,7 +360,7 @@ pub trait EntityRouteQueryGroup:
         module_path.map(|pth| self.intern_file(pth))
     }
 
-    fn raw_entity_kind_from_scope_kind(&self, scope_kind: EntityRouteKind) -> EntityKind {
+    fn entity_kind_from_scope_kind(&self, scope_kind: EntityRouteKind) -> EntityKind {
         entity_kind_from_entity_route_kind(self.upcast(), scope_kind)
     }
 }

@@ -151,7 +151,7 @@ pub trait AllocateUniqueScope {
     fn intern_entity_route(&self, scope: EntityRoute) -> EntityRoutePtr {
         self.scope_unique_allocator().alloc(scope)
     }
-    fn make_scope(
+    fn make_route(
         &self,
         route: EntityRoutePtr,
         generic_arguments: Vec<GenericArgument>,
@@ -163,7 +163,7 @@ pub trait AllocateUniqueScope {
             generic_arguments: generics,
         })
     }
-    fn make_child_scope(
+    fn make_subroute(
         &self,
         parent: EntityRoutePtr,
         ident: CustomIdentifier,

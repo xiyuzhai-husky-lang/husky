@@ -49,37 +49,3 @@ impl LineMapValidRange {
         }
     }
 }
-
-// pub struct LineMap {}
-
-// impl LineMap {
-//     pub fn new(text: &str) -> LineMap {
-//         todo!()
-//     }
-
-//     pub fn string_range(&self, text_range: lsp_types::Range) -> Range {
-//         todo!()
-//     }
-// }
-
-pub fn get_submodule_file(module_file: &Path, ident: CustomIdentifier) -> Option<PathBuf> {
-    should_eq!(module_file.extension().unwrap(), "hsk");
-    if module_file.file_name().unwrap() == "mod.hsk"
-        || module_file.file_name().unwrap() == "main.hsk"
-    {
-        let maybe_submodule_file = module_file.with_file_name(format!("{}.hsk", ident));
-        if maybe_submodule_file.exists() {
-            Some(maybe_submodule_file)
-        } else {
-            let maybe_submodule_file = module_file.with_file_name(format!("{}.hsk", ident));
-            if maybe_submodule_file.exists() {
-                Some(maybe_submodule_file)
-            } else {
-                None
-            }
-        }
-    } else {
-        p!(module_file);
-        todo!()
-    }
-}

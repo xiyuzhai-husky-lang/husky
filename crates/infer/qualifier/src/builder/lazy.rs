@@ -167,7 +167,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     ty,
                 )),
                 EntityKind::Pattern => todo!(),
-                EntityKind::Literal => Ok(LazyQualifiedTy::new(LazyQualifier::Copyable, ty)),
+                EntityKind::EnumLiteral => Ok(LazyQualifiedTy::new(LazyQualifier::Copyable, ty)),
+                EntityKind::Main => panic!(),
             },
             RawExprVariant::PrimitiveLiteral(_) => Ok(LazyQualifiedTy::new(
                 LazyQualifier::Copyable,

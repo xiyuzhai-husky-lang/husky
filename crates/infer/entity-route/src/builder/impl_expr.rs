@@ -74,7 +74,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         Ok(match entity_kind {
             EntityKind::Module => todo!(),
-            EntityKind::Literal => match scope {
+            EntityKind::EnumLiteral => match scope {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
                 EntityRoutePtr::Custom(scope) => match scope.kind {
@@ -101,6 +101,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::Feature => self.db.feature_decl(scope)?.ty,
             EntityKind::Pattern => todo!(),
             EntityKind::Member(_) => todo!(),
+            EntityKind::Main => panic!(),
         })
     }
 

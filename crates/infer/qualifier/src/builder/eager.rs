@@ -206,7 +206,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let contract = derived_not_none!(opt_contract)?;
                 Ok(EagerQualifiedTy::from_input(self.db, contract, ty))
             }
-            RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized".into())),
+            RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized")),
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
                 EntityKind::Type(_) => todo!(),
@@ -215,10 +215,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Routine => todo!(),
                 EntityKind::Feature => todo!(),
                 EntityKind::Pattern => todo!(),
-                EntityKind::Literal => Ok(EagerQualifiedTy::new(
+                EntityKind::EnumLiteral => Ok(EagerQualifiedTy::new(
                     EagerQualifier::Copyable,
                     self.raw_expr_ty(raw_expr_idx)?,
                 )),
+                EntityKind::Main => panic!(),
             },
             RawExprVariant::PrimitiveLiteral(_) => Ok(EagerQualifiedTy::new(
                 EagerQualifier::Copyable,
@@ -389,6 +390,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 },
                 Opr::List(_) => todo!(),
             },
+            RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized caller")),
             _ => {
                 p!(arena[total_opds.start].variant);
                 todo!()

@@ -67,7 +67,7 @@ pub enum EntityStaticDefnVariant {
 }
 
 impl EntityStaticDefnVariant {
-    pub fn raw_entity_kind(&self) -> EntityKind {
+    pub fn entity_kind(&self) -> EntityKind {
         match self {
             EntityStaticDefnVariant::Routine { .. } => EntityKind::Routine,
             EntityStaticDefnVariant::Type { kind, .. } => EntityKind::Type(*kind),
