@@ -6,9 +6,9 @@ use ast::{
 use dev_utils::dev_src;
 use entity_route::EntityRoutePtr;
 use infer_error::*;
+use text::RangedCustomIdentifier;
 use text::TextRange;
 use vm::*;
-use word::RangedCustomIdentifier;
 
 use super::*;
 use crate::*;

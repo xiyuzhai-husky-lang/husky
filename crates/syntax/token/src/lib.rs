@@ -18,8 +18,8 @@ pub use special::Special;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
 use scanner::TokenScanner;
-use text::{TextIndent, TextRange, TextRanged};
-use word::{Identifier, RangedCustomIdentifier};
+use text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
+use word::Identifier;
 
 #[derive(PartialEq, Eq)]
 pub struct Token {

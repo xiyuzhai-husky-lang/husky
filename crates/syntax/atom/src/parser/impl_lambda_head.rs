@@ -1,5 +1,5 @@
 use entity_route::RangedEntityRoute;
-use word::RangedCustomIdentifier;
+use text::RangedCustomIdentifier;
 
 use crate::*;
 

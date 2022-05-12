@@ -22,9 +22,10 @@ use entity_route::*;
 pub use enum_variant::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
+use text::*;
 use vec_map::VecMap;
 use vm::{OutputContract, TySignature};
-use word::{IdentArcDict, IdentDict, RangedCustomIdentifier};
+use word::{IdentArcDict, IdentDict};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {
@@ -245,6 +246,7 @@ impl TyDecl {
                     ident,
                     variant_class,
                 } => todo!(),
+                AstKind::Submodule { ident, source_file } => todo!(),
             }
         }
         Ok(())

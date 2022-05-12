@@ -10,14 +10,14 @@ pub use severity::DiagnosticSeverity;
 
 use ast::{AstError, AstErrorVariant};
 use dev_utils::DevSource;
-use entity_route_query::{EntityDefnError, EntityRouteError};
+use entity_route_query::{EntitySyntaxError, EntitySyntaxErrorKind};
 use infer_error::{InferError, InferErrorVariant};
 use print_utils::p;
 use semantics_error::{SemanticError, SemanticErrorVariant};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use std::sync::Arc;
-use test_utils::{TestDisplayConfig, TestDisplay};
+use test_utils::{TestDisplay, TestDisplayConfig};
 use text::TextRange;
 use token::LexError;
 
@@ -34,17 +34,6 @@ pub struct Diagnostic {
 impl TestDisplay for Diagnostic {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         write!(result, "{:?}\t{}", self.range, self.message).unwrap()
-    }
-}
-
-impl From<&EntityDefnError> for Diagnostic {
-    fn from(error: &EntityDefnError) -> Self {
-        Self {
-            severity: DiagnosticSeverity::Error,
-            range: error.range.clone(),
-            message: error.message(),
-            dev_src: error.dev_src.clone(),
-        }
     }
 }
 
@@ -90,13 +79,42 @@ impl From<&LexError> for Diagnostic {
     }
 }
 
-impl From<EntityRouteError> for Diagnostic {
-    fn from(e: EntityRouteError) -> Self {
+impl From<EntitySyntaxError> for Diagnostic {
+    fn from(e: EntitySyntaxError) -> Self {
         Diagnostic {
             severity: DiagnosticSeverity::Error,
-            range: Default::default(),
-            message: format!("Entity Route Error: {:?}", e),
+            range: match e.kind {
+                EntitySyntaxErrorKind::Defn { range } => range,
+                _ => Default::default(),
+            },
+            message: format!(
+                "Entity Route Error: {}",
+                &e.print_inherent(TestDisplayConfig {
+                    colored: false,
+                    indent: 0
+                })
+            ),
             dev_src: e.dev_src,
+        }
+    }
+}
+
+impl From<&EntitySyntaxError> for Diagnostic {
+    fn from(e: &EntitySyntaxError) -> Self {
+        Diagnostic {
+            severity: DiagnosticSeverity::Error,
+            range: match e.kind {
+                EntitySyntaxErrorKind::Defn { range } => range,
+                _ => Default::default(),
+            },
+            message: format!(
+                "Entity Route Error: {}",
+                &e.print_inherent(TestDisplayConfig {
+                    colored: false,
+                    indent: 0
+                })
+            ),
+            dev_src: e.dev_src.clone(),
         }
     }
 }

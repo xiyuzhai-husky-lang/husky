@@ -76,6 +76,7 @@ impl<'a> AtomLRParser<'a> {
         opt_abs_semantic_tokens: Option<&'a mut Vec<AbsSemanticToken>>,
         tokens: &'a [Token],
     ) -> Self {
+        should!(tokens.len() > 0);
         Self {
             symbol_context,
             stream: tokens.into(),
@@ -134,7 +135,7 @@ impl<'a> AtomLRParser<'a> {
     }
 }
 
-pub fn parse_ty(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
+pub fn parse_route(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
     let result = AtomLRParser::new(symbol_context, None, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()

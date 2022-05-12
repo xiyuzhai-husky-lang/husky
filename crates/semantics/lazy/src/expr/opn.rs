@@ -1,7 +1,7 @@
 use entity_kind::FieldKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
+use text::RangedCustomIdentifier;
 use vm::*;
-use word::RangedCustomIdentifier;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LazyOpnKind {

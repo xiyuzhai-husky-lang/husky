@@ -1,9 +1,9 @@
 use ast::*;
 
 use infer_error::*;
+use text::RangedCustomIdentifier;
 use text::TextRange;
 use vm::*;
-use word::RangedCustomIdentifier;
 
 use super::*;
 use crate::*;

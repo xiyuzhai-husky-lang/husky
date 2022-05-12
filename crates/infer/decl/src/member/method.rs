@@ -104,7 +104,7 @@ impl MethodDecl {
                 generic_placeholders,
                 kind,
             } => {
-                let output_ty = parse_ty(symbol_context, &db.tokenize(output_ty)).unwrap();
+                let output_ty = parse_route(symbol_context, &db.tokenize(output_ty)).unwrap();
                 Arc::new(Self {
                     ident: db.intern_word(defn.name).custom(),
                     this_contract: this_contract,

@@ -1,21 +1,8 @@
 use core::hash::Hash;
 use std::{borrow::Borrow, fmt::Display, ops::Deref};
-use text::{TextRange, TextRanged};
 
 #[derive(Copy, Clone)]
 pub struct CustomIdentifier(pub &'static str);
-
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub struct RangedCustomIdentifier {
-    pub ident: CustomIdentifier,
-    pub range: TextRange,
-}
-
-impl TextRanged for RangedCustomIdentifier {
-    fn text_range(&self) -> TextRange {
-        self.range
-    }
-}
 
 impl CustomIdentifier {
     pub fn snake_name(&self) -> String {

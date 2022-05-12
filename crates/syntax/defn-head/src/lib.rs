@@ -5,8 +5,9 @@ pub use generic::*;
 use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
+use text::RangedCustomIdentifier;
 use vm::{FieldContract, InputContract, OutputContract};
-use word::{CustomIdentifier, IdentDict, RangedCustomIdentifier};
+use word::{CustomIdentifier, IdentDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RoutineDefnHead {

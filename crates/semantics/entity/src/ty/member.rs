@@ -121,6 +121,7 @@ impl EntityDefnVariant {
                     ident,
                     variant_class,
                 } => todo!(),
+                AstKind::Submodule { ident, source_file } => todo!(),
             }
         }
         Ok(())

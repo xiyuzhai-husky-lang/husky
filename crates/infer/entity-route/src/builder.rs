@@ -86,6 +86,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     AstKind::FeatureDecl { ty, .. } => {
                         self.infer_morphism(&[], Some(ty.route), item.children.unwrap(), &arena)
                     }
+                    AstKind::Submodule { ident, source_file } => (),
                 },
                 _ => (),
             }

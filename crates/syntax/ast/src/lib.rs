@@ -8,6 +8,7 @@ mod transform;
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::AstContext;
 pub use expr::*;
+use file::FilePtr;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtVariant};
 pub use transform::*;
@@ -20,9 +21,9 @@ use entity_kind::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use error::*;
 use print_utils::*;
-use text::TextRange;
+use text::*;
 use vm::InitKind;
-use word::{CustomIdentifier, IdentDict, Identifier, RangedCustomIdentifier, StmtKeyword};
+use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
@@ -54,6 +55,10 @@ pub enum AstKind {
     },
     Use {
         use_variant: UseVariant,
+    },
+    Submodule {
+        ident: RangedCustomIdentifier,
+        source_file: FilePtr,
     },
 }
 

@@ -1,5 +1,5 @@
 use ast::AstText;
-use entity_route::EntityRoutePtr;
+use entity_route::{EntityKind, EntityRoutePtr};
 use file::FilePtr;
 use print_utils::{msg_once, p};
 use semantics_error::SemanticErrorVariant;
@@ -13,12 +13,6 @@ pub(crate) fn collect_diagnostics(
     let mut diagnostics = Vec::new();
     if let Ok(table) = db.subroute_table(module) {
         diagnostics.extend(table.error_iter().map(|e| e.into()));
-        for subscope_id in db.subscopes(module).iter() {
-            match db.raw_entity_kind(*subscope_id) {
-                entity_route::EntityKind::Module => todo!("check module exists"),
-                _ => (),
-            }
-        }
     }
     let file = match db.module_file(module) {
         Ok(file) => file,

@@ -2,8 +2,8 @@ use infer_contract::{ContractSheet, InferContract};
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_qualifier::{InferQualifiedType, QualifiedTySheet};
 use infer_total::InferQueryGroup;
+use text::RangedCustomIdentifier;
 use vm::{StackIdx, VMResult};
-use word::RangedCustomIdentifier;
 
 use super::*;
 

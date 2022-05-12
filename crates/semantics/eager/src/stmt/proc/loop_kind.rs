@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
+use text::RangedCustomIdentifier;
 use vm::{BoundaryKind, LoopStep, StackIdx, VMLoopKind};
-use word::RangedCustomIdentifier;
 
 use crate::*;
 

@@ -40,8 +40,8 @@ pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
 
 pub type SemanticResultOptionArc<T> = Result<Option<Arc<T>>, SemanticError>;
 
-impl From<EntityRouteError> for SemanticError {
-    fn from(error: EntityRouteError) -> Self {
+impl From<EntitySyntaxError> for SemanticError {
+    fn from(error: EntitySyntaxError) -> Self {
         Self {
             variant: SemanticErrorVariant::Derived {
                 message: format!("Scope error: {:?}", &error),
@@ -109,6 +109,6 @@ macro_rules! try_infer {
 }
 
 use dev_utils::{dev_src, DevSource};
-use entity_route_query::EntityRouteError;
+use entity_route_query::EntitySyntaxError;
 use infer_error::InferError;
 use vm::VMError;

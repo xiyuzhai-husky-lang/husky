@@ -11,8 +11,8 @@ use vm::{InstructionId, InstructionSource};
 use parse::LazyStmtParser;
 
 use file::FilePtr;
-use text::TextRange;
-use word::{CustomIdentifier, RangedCustomIdentifier};
+use text::*;
+use word::CustomIdentifier;
 
 use super::*;
 use crate::*;

@@ -19,8 +19,9 @@ use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
 use std::{iter::Peekable, sync::Arc};
+use text::*;
 use vec_map::VecMap;
-use word::{CustomIdentifier, IdentDict, RangedCustomIdentifier};
+use word::{CustomIdentifier, IdentDict};
 
 impl EntityDefnVariant {
     pub(crate) fn ty_from_ast(

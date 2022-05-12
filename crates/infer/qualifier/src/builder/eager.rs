@@ -7,8 +7,8 @@ use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
 use infer_error::{derived, derived_not_none, derived_ok, throw};
 use print_utils::{msg_once, p};
+use text::RangedCustomIdentifier;
 use text::{TextRange, TextRanged};
-use word::RangedCustomIdentifier;
 
 use super::*;
 

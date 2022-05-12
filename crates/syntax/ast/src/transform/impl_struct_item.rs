@@ -40,7 +40,7 @@ impl<'a> AstTransformer<'a> {
                     todo!()
                 }
                 let ident = identify!(self, token_group[0], SemanticTokenKind::Field);
-                let ty = atom::parse_ty(&self.symbol_context(), &token_group[2..])?;
+                let ty = atom::parse_route(&self.symbol_context(), &token_group[2..])?;
                 AstKind::FieldDefnHead(FieldDefnHead {
                     ident,
                     contract: FieldContract::Own,

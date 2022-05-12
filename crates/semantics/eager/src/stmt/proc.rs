@@ -8,7 +8,7 @@ pub use branch::*;
 use fold::Indent;
 pub use loop_kind::*;
 use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
-use word::RangedCustomIdentifier;
+use text::RangedCustomIdentifier;
 
 use super::*;
 use crate::*;

@@ -6,7 +6,7 @@ use std::sync::Arc;
 use ast::{AstIter, AstKind};
 use entity_kind::FieldKind;
 use entity_route::EntityRouteKind;
-use entity_route_query::EntityRouteResult;
+use entity_route_query::EntitySyntaxResult;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
@@ -35,7 +35,7 @@ impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn new(
         db: &'a dyn InferContractSalsaQueryGroup,
         file: FilePtr,
-    ) -> EntityRouteResult<Self> {
+    ) -> EntitySyntaxResult<Self> {
         Ok(Self {
             db,
             file,
@@ -82,6 +82,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstKind::FeatureDecl { ty, .. } => {
                         self.infer_morphism(item.children.unwrap(), &arena)
                     }
+                    AstKind::Submodule { ident, source_file } => (),
                 },
                 _ => (),
             }

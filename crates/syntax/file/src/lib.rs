@@ -9,6 +9,7 @@ pub use allocate_unique::{
 };
 pub use error::*;
 pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
+pub use utils::*;
 pub type URange = std::ops::Range<usize>;
 
 use std::sync::Arc;

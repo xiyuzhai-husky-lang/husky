@@ -63,7 +63,7 @@ macro_rules! err {
 }
 pub(crate) use err;
 
-macro_rules! err_derived {
+macro_rules! derived_err {
     () => {{
         Err(AstError {
             variant: AstErrorVariant::Derived,
@@ -71,4 +71,14 @@ macro_rules! err_derived {
         })
     }};
 }
-pub(crate) use err_derived;
+pub(crate) use derived_err;
+
+macro_rules! derived_not_none {
+    ($opt_value: expr) => {{
+        $opt_value.ok_or(AstError {
+            variant: AstErrorVariant::Derived,
+            dev_src: dev_utils::dev_src!(),
+        })
+    }};
+}
+pub(crate) use derived_not_none;

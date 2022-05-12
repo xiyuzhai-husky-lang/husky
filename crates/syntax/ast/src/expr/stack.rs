@@ -2,7 +2,7 @@ use check_utils::should;
 use entity_route::RangedEntityRoute;
 use text::{TextPosition, TextRange};
 use vm::*;
-use word::RangedCustomIdentifier;
+use text::RangedCustomIdentifier;
 
 use crate::{expr::precedence::Precedence, *};
 

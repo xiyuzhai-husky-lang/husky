@@ -2,7 +2,7 @@ use crate::*;
 use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use text::Row;
 use vm::*;
-use word::RangedCustomIdentifier;
+use text::RangedCustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprVariant {

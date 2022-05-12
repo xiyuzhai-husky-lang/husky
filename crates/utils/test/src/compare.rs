@@ -101,7 +101,7 @@ where
         indent: 0,
     });
     let data_on_disk_text: String = if !saved_data_path.exists() {
-        "nothing".into()
+        "".into()
     } else {
         fs::read_to_string(&saved_data_path).unwrap()
     };

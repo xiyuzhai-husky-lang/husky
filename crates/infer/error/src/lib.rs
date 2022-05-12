@@ -73,8 +73,8 @@ pub type InferResult<T> = Result<T, InferError>;
 pub type InferResultArc<T> = Result<Arc<T>, InferError>;
 pub type InferResultArcRef<'a, T> = Result<&'a Arc<T>, InferError>;
 
-impl From<EntityRouteError> for InferError {
-    fn from(error: EntityRouteError) -> Self {
+impl From<EntitySyntaxError> for InferError {
+    fn from(error: EntitySyntaxError) -> Self {
         todo!()
         // Self {
         //     message: format!("ScopeError {:?}", error),
@@ -173,7 +173,7 @@ macro_rules! derived_ok {
 }
 
 use dev_utils::*;
-use entity_route_query::EntityRouteError;
+use entity_route_query::EntitySyntaxError;
 use test_utils::{TestDisplay, TestDisplayConfig};
 use text::TextRange;
 use vm::VMError;
