@@ -1,0 +1,2 @@
+4:27..4:29	Ast Error: route `no_such_subroute::connected_components` has no subroute named `co`
+22:9..22:34	Infer Error: unrecognized caller

@@ -148,6 +148,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SubrouteTable {
+    pub route: EntityRoutePtr,
     pub entries: Vec<Entry>,
     pub errors: Vec<EntitySyntaxError>,
 }
@@ -165,8 +166,9 @@ impl std::fmt::Display for SubrouteTable {
 }
 
 impl SubrouteTable {
-    pub fn empty() -> Self {
+    pub fn empty(route: EntityRoutePtr) -> Self {
         Self {
+            route,
             entries: Vec::new(),
             errors: Vec::new(),
         }
@@ -174,13 +176,14 @@ impl SubrouteTable {
 
     pub fn parse(
         db: &dyn EntityRouteSalsaQueryGroup,
-        file_id: FilePtr,
+        file: FilePtr,
+        route: EntityRoutePtr,
         token_groups: TokenGroupIter,
     ) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(
-                |item| match Entry::from_token_group(db, file_id, item.idx, item.value) {
+                |item| match Entry::from_token_group(db, file, item.idx, item.value) {
                     Ok(opt_entry) => opt_entry,
                     Err(e) => {
                         errors.push(e);
@@ -189,7 +192,11 @@ impl SubrouteTable {
                 },
             )
             .collect();
-        Self { entries, errors }
+        Self {
+            route,
+            entries,
+            errors,
+        }
     }
 }
 
@@ -218,11 +225,15 @@ impl SubrouteTable {
         )
     }
 
-    pub fn entity_kind(&self, ident: CustomIdentifier) -> Option<EntityKind> {
+    pub fn entity_kind(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntityKind> {
         self.entries
             .iter()
             .find(|entry| entry.ident == Some(ident))
             .map(|entry| entry.kind)
+            .ok_or(query_error!(format!(
+                "route `{:?}` has no subroute named `{}`",
+                self.route, ident
+            )))
     }
 
     pub fn has_subscope(
@@ -262,6 +273,7 @@ impl SubrouteTable {
 impl SubrouteTable {
     pub(crate) fn from_static(
         db: &dyn EntityRouteSalsaQueryGroup,
+        route: EntityRoutePtr,
         data: &EntityStaticDefn,
     ) -> Self {
         let mut entries: Vec<Entry> = data
@@ -303,6 +315,7 @@ impl SubrouteTable {
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
         }
         Self {
+            route,
             entries,
             errors: vec![],
         }

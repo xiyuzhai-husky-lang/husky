@@ -20,7 +20,7 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 
     fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
-    fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntityKind;
+    fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
 
     fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
 
@@ -32,22 +32,22 @@ fn subroute_table(
     entity_route: EntityRoutePtr,
 ) -> EntityRouteResultArc<SubrouteTable> {
     Ok(Arc::new(match db.entity_source(entity_route)? {
-        EntitySource::StaticModuleItem(data) => SubrouteTable::from_static(db, data),
+        EntitySource::StaticModuleItem(data) => SubrouteTable::from_static(db, entity_route, data),
         EntitySource::WithinModule {
-            file: file_id,
+            file,
             token_group_index,
         } => {
-            let text = db.tokenized_text(file_id)?;
+            let text = db.tokenized_text(file)?;
             let item = text.iter_from(token_group_index).next().unwrap();
             if let Some(children) = item.children {
-                SubrouteTable::parse(db, file_id, children)
+                SubrouteTable::parse(db, file, entity_route, children)
             } else {
-                SubrouteTable::empty()
+                SubrouteTable::empty(entity_route)
             }
         }
         EntitySource::Module { file: file_id } => {
             let text = db.tokenized_text(file_id)?;
-            SubrouteTable::parse(db, file_id, text.iter())
+            SubrouteTable::parse(db, file_id, entity_route, text.iter())
         }
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Input { .. } => todo!(),
@@ -69,15 +69,18 @@ fn subscopes(
     }))
 }
 
-fn entity_kind(db: &dyn EntityRouteSalsaQueryGroup, scope: EntityRoutePtr) -> EntityKind {
+fn entity_kind(
+    db: &dyn EntityRouteSalsaQueryGroup,
+    scope: EntityRoutePtr,
+) -> EntitySyntaxResult<EntityKind> {
     entity_kind_from_entity_route_kind(db, scope.kind)
 }
 
 fn entity_kind_from_entity_route_kind(
     db: &dyn EntityRouteSalsaQueryGroup,
     entity_route_kind: EntityRouteKind,
-) -> EntityKind {
-    match entity_route_kind {
+) -> EntitySyntaxResult<EntityKind> {
+    Ok(match entity_route_kind {
         EntityRouteKind::Root { ident } => match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
@@ -107,11 +110,7 @@ fn entity_kind_from_entity_route_kind(
         EntityRouteKind::Package { .. } => EntityKind::Module,
         EntityRouteKind::Child { parent, ident } => match parent.kind {
             EntityRouteKind::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
-            _ => db
-                .subroute_table(parent)
-                .unwrap()
-                .entity_kind(ident)
-                .unwrap(),
+            _ => db.subroute_table(parent).unwrap().entity_kind(ident)?,
         },
         EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
@@ -121,7 +120,7 @@ fn entity_kind_from_entity_route_kind(
             trai,
             ident,
         } => todo!(),
-    }
+    })
 }
 
 fn entity_source(
@@ -360,7 +359,10 @@ pub trait EntityRouteQueryGroup:
         module_path.map(|pth| self.intern_file(pth))
     }
 
-    fn entity_kind_from_scope_kind(&self, scope_kind: EntityRouteKind) -> EntityKind {
+    fn entity_kind_from_scope_kind(
+        &self,
+        scope_kind: EntityRouteKind,
+    ) -> EntitySyntaxResult<EntityKind> {
         entity_kind_from_entity_route_kind(self.upcast(), scope_kind)
     }
 }

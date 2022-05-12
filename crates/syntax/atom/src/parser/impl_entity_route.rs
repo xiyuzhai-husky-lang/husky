@@ -27,7 +27,9 @@ impl<'a> AtomLRParser<'a> {
                 Some(match symbol_kind {
                     SymbolKind::EntityRoute(route) => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
-                            SemanticTokenKind::Entity(self.symbol_context.entity_kind(route)),
+                            SemanticTokenKind::Entity(
+                                self.symbol_context.entity_kind(route, token.range)?,
+                            ),
                             token.range,
                         ));
                         self.normal_route(route)?
@@ -112,7 +114,9 @@ impl<'a> AtomLRParser<'a> {
                 self.generics(route)?,
             );
             self.push_abs_semantic_token(AbsSemanticToken::new(
-                SemanticTokenKind::Entity(self.symbol_context.entity_kind(route)),
+                SemanticTokenKind::Entity(
+                    self.symbol_context.entity_kind(route, ranged_ident.range)?,
+                ),
                 ranged_ident.range,
             ));
             route = self
@@ -122,7 +126,10 @@ impl<'a> AtomLRParser<'a> {
         }
         return Ok(AtomVariant::EntityRoute {
             route,
-            kind: self.symbol_context.entity_kind(route),
+            kind: self
+                .symbol_context
+                .entity_kind(route, Default::default())
+                .unwrap(),
         });
     }
 
@@ -175,7 +182,11 @@ impl<'a> AtomLRParser<'a> {
                 | RootIdentifier::DatasetType => self.angled_generics(),
                 RootIdentifier::Type => todo!(),
             },
-            _ => match self.symbol_context.entity_kind(route) {
+            _ => match self
+                .symbol_context
+                .entity_kind(route, Default::default())
+                .unwrap()
+            {
                 EntityKind::Module
                 | EntityKind::EnumLiteral
                 | EntityKind::Feature

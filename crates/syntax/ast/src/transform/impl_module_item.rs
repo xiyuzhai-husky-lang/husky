@@ -64,6 +64,7 @@ impl<'a> AstTransformer<'a> {
                     }
                     route
                 }
+                AtomVariant::Unrecognized(_) => return err!("unrecognized ident", atoms[0].range),
                 _ => todo!(),
             }
         };
