@@ -10,7 +10,7 @@ pub use query::*;
 pub use sheet::*;
 
 use entity_route::EntityRoutePtr;
-use print_utils::msg_once;
+use print_utils::emsg_once;
 
 use ast::RawExprIdx;
 use infer_error::InferResult;

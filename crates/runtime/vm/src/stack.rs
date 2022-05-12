@@ -3,7 +3,7 @@ mod value;
 use arrayvec::ArrayVec;
 use check_utils::should_eq;
 use map_collect::MapCollect;
-use print_utils::{msg_once, p};
+use print_utils::{emsg_once, p};
 use std::fmt::Write;
 pub use value::*;
 use word::CustomIdentifier;

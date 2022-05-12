@@ -16,7 +16,7 @@ macro_rules! eshow {
     stringify!($a),
     $a)};
    ($a:expr, $($as:expr),*) => {
-    format!("{}, {}", (print_utils::show!($a)), (print_utils::show!($($as),*)))
+    format!("{}, {}", (print_utils::eshow!($a)), (print_utils::eshow!($($as),*)))
   };
 }
 

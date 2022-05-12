@@ -162,7 +162,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ranged_ty,
                 ref ty_decl,
             } => {
-                msg_once!("TypeCall compiled");
+                emsg_once!("TypeCall compiled");
                 let instruction_kind =
                     if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
                         InstructionKind::RoutineCallCompiled { linkage }

@@ -304,7 +304,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                             .collect::<SemanticResult<Vec<_>>>()?;
                         let mut opds = vec![this];
                         opds.extend(inputs);
-                        msg_once!("todo: memb call compiled");
+                        emsg_once!("todo: memb call compiled");
                         Ok(LazyExprKind::Opn {
                             opn_kind: LazyOpnKind::MethodCall {
                                 method_ident: ranged_ident,

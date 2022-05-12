@@ -1,4 +1,4 @@
-use print_utils::{msg_once, p};
+use print_utils::{emsg_once, p};
 use word::RootIdentifier;
 
 use crate::*;

@@ -44,7 +44,7 @@ impl<'a> LazyStmtParser<'a> {
         ty: EntityRoutePtr,
     ) -> VMResult<StackIdx> {
         let varidx = StackIdx::new(self.variables.len())?;
-        msg_once!("todo: is reference variable");
+        emsg_once!("todo: is reference variable");
         self.variables.push(LazyVariable {
             ident: varname,
             ty,

@@ -21,7 +21,7 @@ pub trait InferEntityRoute {
     fn decl_db(&self) -> &dyn DeclQueryGroup;
     fn entity_route_sheet(&self) -> &EntityRouteSheet;
     fn raw_expr_ty(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        msg_once!("deprecated");
+        emsg_once!("deprecated");
         self.entity_route_sheet().expr_ty_result(expr_idx)
     }
     fn raw_expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {

@@ -209,7 +209,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                         let this_ty_decl = self.decl_db().ty_decl(this.ty).unwrap();
                         let mut opds = vec![this];
                         opds.extend(inputs);
-                        msg_once!("todo: memb call compiled");
+                        emsg_once!("todo: memb call compiled");
                         Ok(EagerExprVariant::Opn {
                             opn_variant: EagerOpnVariant::MethodCall {
                                 method_ident: field_ident,

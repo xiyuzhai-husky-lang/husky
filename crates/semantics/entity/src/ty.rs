@@ -14,7 +14,7 @@ use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use infer_decl::{DeclQueryGroup, MemberIdx};
 use infer_total::InferQueryGroup;
-use print_utils::{msg_once, p};
+use print_utils::{emsg_once, p};
 use semantics_eager::{FuncStmt, ProcStmt};
 use semantics_error::SemanticResult;
 use semantics_lazy::LazyStmt;
@@ -43,7 +43,7 @@ impl EntityDefnVariant {
         let mut children = children.peekable();
         let mut ty_members = IdentDict::default();
         let mut trait_impls = Vec::new();
-        msg_once!("todo");
+        emsg_once!("todo");
 
         let variants = match kind {
             TyKind::Enum => Self::collect_variants(db, file, ty, &mut children)?,

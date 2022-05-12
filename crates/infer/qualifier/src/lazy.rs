@@ -1,7 +1,7 @@
 use crate::*;
 use infer_error::derived;
 use std::fmt::Write;
-use test_utils::{TestDisplayConfig, TestDisplay};
+use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyQualifiedTy {
@@ -28,7 +28,7 @@ impl LazyQualifiedTy {
     }
 
     pub fn new(qual: LazyQualifier, ty: EntityRoutePtr) -> Self {
-        msg_once!("handle ref");
+        emsg_once!("handle ref");
         Self { qual, ty }
     }
 

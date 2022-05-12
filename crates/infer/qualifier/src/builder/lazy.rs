@@ -282,7 +282,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     .collect();
                 match call_decl.output.contract {
                     OutputContract::Transfer => {
-                        msg_once!("handle ref");
+                        emsg_once!("handle ref");
                         Ok(LazyQualifiedTy::new(
                             if self.db.is_copyable(call_decl.output.ty) {
                                 LazyQualifier::Copyable

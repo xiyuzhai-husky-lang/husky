@@ -12,7 +12,7 @@ use defn_head::*;
 use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
-use print_utils::{msg_once, p};
+use print_utils::{emsg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticInputPlaceholder};
 use vm::{InputContract, OutputContract};
 use word::IdentDict;

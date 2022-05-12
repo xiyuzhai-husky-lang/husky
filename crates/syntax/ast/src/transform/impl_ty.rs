@@ -36,7 +36,7 @@ impl<'a> AstTransformer<'a> {
         self.env.set_value(AstContext::Struct);
         expect_len!(tokens, 3);
         expect_head!(tokens);
-        msg_once!("struct generic placeholders");
+        emsg_once!("struct generic placeholders");
         Ok(AstKind::TypeDefnHead {
             ident: identify!(
                 self,
@@ -65,7 +65,7 @@ impl<'a> AstTransformer<'a> {
         self.env.set_value(AstContext::Record);
         expect_len!(tokens, 3);
         expect_head!(tokens);
-        msg_once!("record generic placeholders");
+        emsg_once!("record generic placeholders");
         Ok(AstKind::TypeDefnHead {
             ident: identify!(
                 self,
@@ -80,7 +80,7 @@ impl<'a> AstTransformer<'a> {
     fn parse_enum(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
         expect_len!(tokens, 3);
         expect_head!(tokens);
-        msg_once!("record generic placeholders");
+        emsg_once!("record generic placeholders");
         let ident = identify!(
             self,
             tokens[1],
