@@ -4,8 +4,8 @@ use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use infer_error::derived_not_none;
 use print_utils::p;
+use text::RangedCustomIdentifier;
 use text::TextRanged;
-use word::RangedCustomIdentifier;
 
 use super::*;
 

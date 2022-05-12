@@ -18,7 +18,7 @@ impl<'a> AstTransformer<'a> {
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Feature)
         );
-        let scope = atom::parse_ty(&self.symbol_context(), &token_group[3..])?;
+        let scope = atom::parse_route(&self.symbol_context(), &token_group[3..])?;
         self.env.set_value(AstContext::Morphism);
         Ok(AstKind::FeatureDecl {
             ident,

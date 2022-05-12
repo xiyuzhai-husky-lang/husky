@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 use ast::{AstIter, AstKind, RawExprArena};
 use entity_kind::FieldKind;
-use entity_route_query::EntityRouteResult;
+use entity_route_query::EntitySyntaxResult;
 use file::FilePtr;
 use infer_contract::{ContractSheet, InferContract};
 use infer_decl::DeclQueryGroup;
@@ -26,7 +26,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn new(
         db: &'a dyn InferQualifiedTyQueryGroup,
         file: FilePtr,
-    ) -> EntityRouteResult<Self> {
+    ) -> EntitySyntaxResult<Self> {
         let contract_sheet = db.contract_sheet(file)?;
         Ok(Self {
             db,
@@ -101,6 +101,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         Some(ty.route),
                         OutputContract::Transfer,
                     ),
+                    AstKind::Submodule { ident, source_file } => (),
                 },
                 _ => (),
             }

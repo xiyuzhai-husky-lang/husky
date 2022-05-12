@@ -1,1 +1,1 @@
-1:1..1:1	Entity Route Error: EntityRouteError { variant: Message("expect custom identifier for module name, but got keyword test instead"), dev_src: crates/syntax/entity-route-query/src/query.rs:303 }
+1:1..1:1	Entity Route Error: Derived Error: "expect custom identifier for module name, but got keyword test instead"

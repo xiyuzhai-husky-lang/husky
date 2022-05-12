@@ -1,13 +1,14 @@
 use dev_utils::dev_src;
 use entity_kind::MemberKind;
 use entity_route::*;
-use file::FilePtr;
+use file::{get_submodule_file, FilePtr};
+use print_utils::p;
 use static_defn::*;
 use word::{CustomIdentifier, Keyword};
 
 use crate::EntityRouteSalsaQueryGroup;
 use crate::{error::*, *};
-use text::TextRanged;
+use text::{RangedCustomIdentifier, TextRange, TextRanged};
 use token::{Special, Token, TokenGroupIter, TokenKind};
 use word::Identifier;
 
@@ -32,109 +33,103 @@ impl Entry {
         file: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
-    ) -> (Option<Entry>, Option<EntityDefnError>) {
+    ) -> EntitySyntaxResult<Option<Entry>> {
         if token_group[0].kind == TokenKind::Keyword(Keyword::Use.into()) {
-            return (None, None);
+            return Ok(None);
         }
         if token_group.len() < 2 {
             match token_group[0].kind {
                 TokenKind::Identifier(Identifier::Custom(ident)) => {
-                    return (
-                        Some(Entry {
-                            ident: Some(ident),
-                            kind: EntityKind::Literal,
-                            source: EntitySource::from_file(file, token_group_index),
-                        }),
-                        None,
-                    )
+                    return Ok(Some(Entry {
+                        ident: Some(ident),
+                        kind: EntityKind::Literal,
+                        source: EntitySource::from_file(file, token_group_index),
+                    }))
                 }
-                _ => todo!(),
+                _ => {
+                    return Err(defn_error!(
+                        "invalid single token for entity defn head",
+                        token_group[0].text_range()
+                    ))
+                }
             }
         }
         if token_group.len() == 2 {
-            if token_group[0].kind == TokenKind::Keyword(Keyword::Main.into()) {
-                return (
-                    Some(Entry {
-                        ident: None,
-                        kind: EntityKind::Routine,
-                        source: EntitySource::from_file(file, token_group_index),
-                    }),
-                    None,
-                );
-            } else if token_group[0].kind == TokenKind::Keyword(Keyword::Mod.into()) {
-                return match token_group[1].kind {
-                    TokenKind::Keyword(_) => todo!(),
-                    TokenKind::Identifier(ident) => (
-                        Some(Entry {
-                            ident: Some(ident.opt_custom().expect("todo")),
-                            kind: EntityKind::Module,
-                            source: EntitySource::WithinModule {
-                                file,
-                                token_group_index: token_group_index,
-                            },
-                        }),
-                        None,
-                    ),
-                    TokenKind::Special(_) => todo!(),
-                    TokenKind::PrimitiveLiteral(_) => todo!(),
-                    TokenKind::Unrecognized(_) => todo!(),
-                };
-            } else {
-                return (None, None);
-            }
+            return match token_group[0].kind {
+                TokenKind::Keyword(Keyword::Main) => Ok(Some(Entry {
+                    ident: None,
+                    kind: EntityKind::Routine,
+                    source: EntitySource::from_file(file, token_group_index),
+                })),
+                TokenKind::Keyword(Keyword::Mod) => {
+                    Entry::submodule(file, token_group_index, token_group)
+                }
+                TokenKind::Keyword(Keyword::Config(_)) => Ok(None),
+                _ => Err(defn_error!(
+                    "invalid tokens for entity defn head",
+                    token_group.text_range()
+                )),
+            };
         }
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => {
                 if let TokenKind::Identifier(ident) = token_group[1].kind {
                     if let Some(kind) = tell_entity_kind(keyword, &token_group[2]) {
                         return match ident {
-                            Identifier::Builtin(_) => (
-                                None,
-                                Some(EntityDefnError {
-                                    range: token_group[1].text_range(),
-                                    rule_broken: ScopeDefRule::BuiltinIdentifierAreReserved,
-                                    dev_src: dev_src!(),
-                                }),
-                            ),
-                            Identifier::Custom(user_defined_ident) => (
-                                Some(Entry {
-                                    ident: Some(user_defined_ident),
-                                    kind,
-                                    source: EntitySource::from_file(file, token_group_index),
-                                }),
-                                None,
-                            ),
-                            Identifier::Contextual(_) => (
-                                None,
-                                Some(EntityDefnError {
-                                    range: token_group[1].text_range(),
-                                    rule_broken: ScopeDefRule::ContextualIdentifierAreReserved,
-                                    dev_src: dev_src!(),
-                                }),
-                            ),
+                            Identifier::Builtin(_) => Err(defn_error!(
+                                "builtin identifiers are reserved",
+                                token_group[1].text_range()
+                            )),
+                            Identifier::Custom(user_defined_ident) => Ok(Some(Entry {
+                                ident: Some(user_defined_ident),
+                                kind,
+                                source: EntitySource::from_file(file, token_group_index),
+                            })),
+                            Identifier::Contextual(_) => Err(defn_error!(
+                                "contextual identifiers are reserved",
+                                token_group[1].text_range()
+                            )),
                         };
                     }
                 }
-                (
-                    None,
-                    Some(EntityDefnError {
-                        range: token_group[1].text_range(),
-                        rule_broken: ScopeDefRule::SecondTokenShouldBeIdentifier,
-                        dev_src: dev_src!(),
-                    }),
-                )
+                Err(defn_error!(
+                    "second token should be identifier",
+                    token_group[1].text_range()
+                ))
             }
-            _ => (
-                None,
-                Some(EntityDefnError {
-                    range: token_group[0].text_range(),
-                    rule_broken: ScopeDefRule::FirstTokenShouldBeKeyword,
-                    dev_src: dev_src!(),
-                }),
-            ),
+            _ => Err(defn_error!(
+                "first token should be identifier",
+                token_group[0].text_range()
+            )),
         }
     }
+
+    pub fn submodule(
+        file: FilePtr,
+        token_group_index: usize,
+        token_group: &[Token],
+    ) -> EntitySyntaxResult<Option<Entry>> {
+        let ident = match token_group[1].kind {
+            TokenKind::Identifier(Identifier::Custom(ident)) => ident,
+            _ => todo!(),
+        };
+        if get_submodule_file(&file, ident).is_none() {
+            return Err(defn_error!(
+                format!("file for submodule doesn't exist"),
+                token_group.text_range()
+            ));
+        }
+        return Ok(Some(Entry {
+            ident: Some(ident),
+            kind: EntityKind::Module,
+            source: EntitySource::WithinModule {
+                file,
+                token_group_index,
+            },
+        }));
+    }
 }
+
 pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {
     match keyword {
         Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) => None,
@@ -152,7 +147,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ChildRouteTable {
     pub entries: Vec<Entry>,
-    pub errors: Vec<EntityDefnError>,
+    pub errors: Vec<EntitySyntaxError>,
 }
 
 impl std::fmt::Display for ChildRouteTable {
@@ -178,11 +173,15 @@ impl ChildRouteTable {
     pub fn parse(file_id: FilePtr, token_groups: TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
-            .filter_map(|item| {
-                let (entry, error) = Entry::from_token_group(file_id, item.idx, item.value);
-                error.map(|error| errors.push(error));
-                entry
-            })
+            .filter_map(
+                |item| match Entry::from_token_group(file_id, item.idx, item.value) {
+                    Ok(opt_entry) => opt_entry,
+                    Err(e) => {
+                        errors.push(e);
+                        None
+                    }
+                },
+            )
             .collect();
         Self { entries, errors }
     }
@@ -203,8 +202,8 @@ impl ChildRouteTable {
             .collect()
     }
 
-    pub fn entity_source(&self, ident: CustomIdentifier) -> EntityRouteResult<EntitySource> {
-        not_none!(
+    pub fn entity_source(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntitySource> {
+        query_not_none!(
             self.entries
                 .iter()
                 .find(|entry| entry.ident == Some(ident))
@@ -239,7 +238,7 @@ impl ChildRouteTable {
     pub fn entry_iter(&self) -> core::slice::Iter<Entry> {
         self.entries.iter()
     }
-    pub fn error_iter(&self) -> core::slice::Iter<EntityDefnError> {
+    pub fn error_iter(&self) -> core::slice::Iter<EntitySyntaxError> {
         self.errors.iter()
     }
     pub fn child_routes(&self, parent_scope_id: EntityRoutePtr) -> Vec<EntityRoute> {

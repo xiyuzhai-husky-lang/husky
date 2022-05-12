@@ -18,7 +18,7 @@ use crate::{
 };
 use atom::symbol::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
-use entity_route_query::EntityRouteResult;
+use entity_route_query::EntitySyntaxResult;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use text::TextRanged;
@@ -44,7 +44,7 @@ impl<'a> AstTransformer<'a> {
     pub(crate) fn new(
         db: &'a dyn AstSalsaQueryGroup,
         module: EntityRoutePtr,
-    ) -> EntityRouteResult<Self> {
+    ) -> EntitySyntaxResult<Self> {
         return Ok(Self {
             db,
             main: db.main_file(db.module_file(module)?).unwrap(),

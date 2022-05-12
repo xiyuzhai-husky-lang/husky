@@ -10,7 +10,7 @@ pub use suffix::*;
 
 use crate::*;
 use entity_route::EntityRoutePtr;
-use word::RangedCustomIdentifier;
+use text::RangedCustomIdentifier;
 
 #[derive(PartialEq, Eq, Copy, Clone)]
 pub enum Opr {

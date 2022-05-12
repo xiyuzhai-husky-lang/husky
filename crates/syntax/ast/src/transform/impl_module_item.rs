@@ -1,4 +1,5 @@
 use crate::*;
+use file::get_submodule_file;
 use text::TextRanged;
 use token::*;
 use word::*;
@@ -12,7 +13,7 @@ impl<'a> AstTransformer<'a> {
         let keyword = if let TokenKind::Keyword(keyword) = token_group[0].kind {
             keyword
         } else {
-            return err_derived!();
+            return derived_err!();
         };
         match keyword {
             Keyword::Routine(routine_keyword) => {
@@ -24,7 +25,7 @@ impl<'a> AstTransformer<'a> {
                 self.parse_ty_defn(ty_kw, token_group)
             }
             Keyword::Use => self.parse_use(token_group),
-            Keyword::Mod => todo!(),
+            Keyword::Mod => self.parse_submodule(token_group),
             Keyword::Stmt(_) => err!("no stmt in module level", token_group.text_range()),
             Keyword::Config(cfg) => {
                 enter_block(self);
@@ -49,6 +50,9 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_use(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+        if token_group.len() <= 1 {
+            return err!("expect route after keyword `use`", token_group.text_range());
+        }
         let atoms = self.parse_atoms(&token_group[1..], |parser| parser.parse_all())?;
         msg_once!("todo: use all");
         let route = if atoms.len() != 1 {
@@ -67,6 +71,27 @@ impl<'a> AstTransformer<'a> {
         self.use_route(route)?;
         Ok(AstKind::Use {
             use_variant: UseVariant::Route { route },
+        })
+    }
+
+    fn parse_submodule(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+        if token_group.len() < 2 {
+            return derived_err!();
+        }
+        if token_group.len() > 2 {
+            todo!()
+        }
+        let ident = identify!(
+            self,
+            token_group[1],
+            SemanticTokenKind::Entity(EntityKind::Module)
+        );
+        Ok(AstKind::Submodule {
+            ident,
+            source_file: self.db.intern_file(derived_not_none!(get_submodule_file(
+                &self.file,
+                ident.ident
+            ))?),
         })
     }
 }

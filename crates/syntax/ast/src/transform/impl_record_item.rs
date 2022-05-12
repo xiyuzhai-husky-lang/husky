@@ -33,7 +33,7 @@ impl<'a> AstTransformer<'a> {
             }
             let ident = identify!(self, &token_group[0], SemanticTokenKind::Field);
             let symbol_context = self.symbol_context();
-            let ty = atom::parse_ty(&symbol_context, &token_group[2..])?;
+            let ty = atom::parse_route(&symbol_context, &token_group[2..])?;
             msg_once!("field contract");
             Ok(AstKind::FieldDefnHead(FieldDefnHead {
                 ident,
@@ -58,7 +58,7 @@ impl<'a> AstTransformer<'a> {
             .set_value(Some(InputContract::GlobalRef));
         let ident = identify!(self, &token_group[1], SemanticTokenKind::Field);
         msg_once!("field contract");
-        let ty = atom::parse_ty(&self.symbol_context(), &token_group[3..])?;
+        let ty = atom::parse_route(&self.symbol_context(), &token_group[3..])?;
         Ok(AstKind::FieldDefnHead(FieldDefnHead {
             ident,
             ty,

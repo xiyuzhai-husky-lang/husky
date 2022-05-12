@@ -1,6 +1,7 @@
 use crate::*;
 use dev_utils::StaticDevSource;
 use serde::{Deserialize, Serialize};
+use word::CustomIdentifier;
 
 #[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {
@@ -106,19 +107,14 @@ impl<T: TextRanged> TextRanged for [T] {
     }
 }
 
-// impl<T: TextRanged> From<&[T]> for TextRange {
-//     fn from(slice: &[T]) -> Self {
-//         if slice.len() > 0 {
-//             ((slice[0].text_range().start)..(slice.last().unwrap().text_range().end)).into()
-//         } else {
-//             TextRange::default()
-//         }
-//     }
-// }
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+pub struct RangedCustomIdentifier {
+    pub ident: CustomIdentifier,
+    pub range: TextRange,
+}
 
-// impl<T: TextRanged> From<&Vec<T>> for TextRange {
-//     fn from(v: &Vec<T>) -> Self {
-//         let slice: &[T] = v;
-//         slice.into()
-//     }
-// }
+impl TextRanged for RangedCustomIdentifier {
+    fn text_range(&self) -> TextRange {
+        self.range
+    }
+}

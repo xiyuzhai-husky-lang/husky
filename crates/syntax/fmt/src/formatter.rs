@@ -147,6 +147,7 @@ impl<'a> Formatter<'a> {
             AstKind::TypeMethodDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),
             AstKind::Use { ref use_variant } => todo!(),
+            AstKind::Submodule { ident, source_file } => todo!(),
         }
     }
 

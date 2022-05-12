@@ -42,6 +42,16 @@ macro_rules! err {
 }
 pub(crate) use err;
 
+macro_rules! derived_err {
+    () => {{
+        Err(AtomError {
+            variant: AtomErrorVariant::Derived,
+            dev_src: dev_utils::dev_src!(),
+        })
+    }};
+}
+pub(crate) use derived_err;
+
 impl From<FileError> for AtomError {
     fn from(_: FileError) -> Self {
         todo!()

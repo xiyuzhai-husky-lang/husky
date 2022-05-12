@@ -4,8 +4,8 @@ mod parse;
 use std::sync::Arc;
 
 pub use branch::*;
+use text::RangedCustomIdentifier;
 use vm::{InstructionId, InstructionSource};
-use word::RangedCustomIdentifier;
 
 use super::parser::EagerStmtParser;
 

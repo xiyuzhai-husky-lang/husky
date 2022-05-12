@@ -1,3 +1,9 @@
+use std::path::{Path, PathBuf};
+
+use check_utils::should_eq;
+use print_utils::p;
+use word::CustomIdentifier;
+
 use crate::line_map::LineMap;
 
 pub(crate) fn apply_document_changes(
@@ -55,3 +61,25 @@ impl LineMapValidRange {
 //         todo!()
 //     }
 // }
+
+pub fn get_submodule_file(module_file: &Path, ident: CustomIdentifier) -> Option<PathBuf> {
+    should_eq!(module_file.extension().unwrap(), "hsk");
+    if module_file.file_name().unwrap() == "mod.hsk"
+        || module_file.file_name().unwrap() == "main.hsk"
+    {
+        let maybe_submodule_file = module_file.with_file_name(format!("{}.hsk", ident));
+        if maybe_submodule_file.exists() {
+            Some(maybe_submodule_file)
+        } else {
+            let maybe_submodule_file = module_file.with_file_name(format!("{}.hsk", ident));
+            if maybe_submodule_file.exists() {
+                Some(maybe_submodule_file)
+            } else {
+                None
+            }
+        }
+    } else {
+        p!(module_file);
+        todo!()
+    }
+}

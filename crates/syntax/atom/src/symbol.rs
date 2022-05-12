@@ -8,11 +8,9 @@ use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
 use static_defn::{StaticGenericPlaceholder, StaticInputPlaceholder};
-use text::{Row, TextRange};
+use text::*;
 use vm::InputContract;
-use word::{
-    ContextualIdentifier, CustomIdentifier, IdentDict, RangedCustomIdentifier, RootIdentifier,
-};
+use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
 use super::*;
 

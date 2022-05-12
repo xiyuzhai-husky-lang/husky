@@ -8,6 +8,7 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
+test-utils = { path = "../../utils/test", version = "0.0.0" }
 path-utils = { path = "../../utils/path", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }

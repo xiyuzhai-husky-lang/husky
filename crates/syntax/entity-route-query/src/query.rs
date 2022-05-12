@@ -1,4 +1,4 @@
-use crate::{error::err, *};
+use crate::*;
 use check_utils::{should, should_eq};
 use dev_utils::dev_src;
 use entity_kind::{MemberKind, TyKind};
@@ -7,6 +7,7 @@ use file::{FileError, FileErrorKind, FilePtr};
 use path_utils::*;
 use print_utils::p;
 use static_defn::*;
+use text::TextRange;
 use upcast::Upcast;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 
@@ -19,18 +20,18 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 
     fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
-    fn raw_entity_kind(&self, scope_id: EntityRoutePtr) -> EntityKind;
+    fn raw_entity_kind(&self, entity_route: EntityRoutePtr) -> EntityKind;
 
-    fn entity_source(&self, scope_id: EntityRoutePtr) -> EntityRouteResult<EntitySource>;
+    fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
 
     fn entity_route_menu(&self) -> Arc<EntityRouteMenu>;
 }
 
 fn subroute_table(
     db: &dyn EntityRouteSalsaQueryGroup,
-    scope_id: EntityRoutePtr,
+    entity_route: EntityRoutePtr,
 ) -> EntityRouteResultArc<ChildRouteTable> {
-    Ok(Arc::new(match db.entity_source(scope_id)? {
+    Ok(Arc::new(match db.entity_source(entity_route)? {
         EntitySource::StaticModuleItem(data) => ChildRouteTable::from_static(db, data),
         EntitySource::WithinModule {
             file: file_id,
@@ -126,7 +127,7 @@ fn entity_kind_from_entity_route_kind(
 fn entity_source(
     this: &dyn EntityRouteSalsaQueryGroup,
     entity_route: EntityRoutePtr,
-) -> EntityRouteResult<EntitySource> {
+) -> EntitySyntaxResult<EntitySource> {
     match entity_route.kind {
         EntityRouteKind::Root { ident } => {
             Ok(EntitySource::StaticModuleItem(static_root_defn(ident)))
@@ -269,10 +270,10 @@ pub trait EntityRouteQueryGroup:
             .collect()
     }
 
-    fn module(&self, file: FilePtr) -> EntityRouteResult<EntityRoutePtr> {
+    fn module(&self, file: FilePtr) -> EntitySyntaxResult<EntityRoutePtr> {
         let path: PathBuf = file.to_path_buf();
         if !self.file_exists(file) {
-            err!(format!("file doesn't exist"))?
+            Err(derived_error!(format!("file doesn't exist")))?
         } else if path_has_file_name(&path, "main.hsk") {
             if let Some(pack_name) = path_parent_file_name_str(&path) {
                 let snake_name = dash_to_snake(&pack_name);
@@ -281,10 +282,10 @@ pub trait EntityRouteQueryGroup:
                 {
                     Ok(self.intern_entity_route(EntityRoute::pack(file, ident)))
                 } else {
-                    err!(format!("pack name should be identifier"))?
+                    Err(derived_error!(format!("pack name should be identifier")))?
                 }
             } else {
-                err!(format!("pack root should have filename"))?
+                Err(derived_error!(format!("pack root should have filename")))?
             }
         } else if path_has_file_name(&path, "mod.hsk") {
             todo!()
@@ -299,12 +300,10 @@ pub trait EntityRouteQueryGroup:
             };
             let word = self.intern_word(path.file_stem().unwrap().to_str().unwrap());
             match word {
-                WordPtr::Keyword(kw) => {
-                    err!(format!(
-                        "expect custom identifier for module name, but got keyword {} instead",
-                        kw.as_str()
-                    ))
-                }
+                WordPtr::Keyword(kw) => Err(derived_error!(format!(
+                    "expect custom identifier for module name, but got keyword {} instead",
+                    kw.as_str()
+                ))),
                 WordPtr::Identifier(ident) => match ident {
                     Identifier::Builtin(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
@@ -315,14 +314,14 @@ pub trait EntityRouteQueryGroup:
                 },
             }
         } else {
-            err!(format!(
+            Err(derived_error!(format!(
                 "file (path: {:?}) should have extension .hsk",
                 path.to_str()
-            ))?
+            )))?
         }
     }
 
-    fn module_file(&self, module: EntityRoutePtr) -> EntityRouteResult<FilePtr> {
+    fn module_file(&self, module: EntityRoutePtr) -> EntitySyntaxResult<FilePtr> {
         Ok(match self.entity_source(module)? {
             EntitySource::StaticModuleItem(_) => panic!(),
             EntitySource::WithinModule { file: file_id, .. } => file_id,
@@ -338,7 +337,7 @@ pub trait EntityRouteQueryGroup:
         &self,
         parent_id: FilePtr,
         ident: CustomIdentifier,
-    ) -> EntityRouteResult<FilePtr> {
+    ) -> EntitySyntaxResult<FilePtr> {
         let path = &*parent_id;
 
         should!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(path, "main.hsk"));

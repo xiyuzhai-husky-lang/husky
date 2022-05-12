@@ -14,5 +14,4 @@ serde = { version = "1.0.106", features = ["derive"] }
 test-utils = { path = "../../utils/test", version = "0.0.0" }
 unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
 vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
-text = { path = "../text", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }

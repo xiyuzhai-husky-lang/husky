@@ -1,0 +1,7 @@
+use
+
+dataset:
+    cv::mnist::new_binary_dataset()
+
+main:
+    1

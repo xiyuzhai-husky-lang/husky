@@ -7,7 +7,7 @@ macro_rules! identify {
                     $semantic_token_kind,
                     $token.range,
                 ));
-                word::RangedCustomIdentifier {
+                text::RangedCustomIdentifier {
                     ident,
                     range: $token.range,
                 }

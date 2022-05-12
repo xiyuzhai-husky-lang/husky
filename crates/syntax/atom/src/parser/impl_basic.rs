@@ -1,5 +1,5 @@
+use text::RangedCustomIdentifier;
 use vm::PrimitiveValue;
-use word::RangedCustomIdentifier;
 
 use super::*;
 

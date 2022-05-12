@@ -1,9 +1,9 @@
 use ast::RawExprRange;
 use dev_utils::dev_src;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
-use text::TextRange;
+use text::*;
 use vm::*;
-use word::{CustomIdentifier, RangedCustomIdentifier};
+use word::CustomIdentifier;
 
 use super::*;
 

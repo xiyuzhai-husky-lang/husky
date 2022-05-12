@@ -1,6 +1,7 @@
 use std::path::{Path, PathBuf};
 
 use unique_allocator::UniqueAllocator;
+use word::CustomIdentifier;
 
 pub type UniqueFileAllocator = UniqueAllocator<Path, PathBuf>;
 pub type FilePtr = unique_allocator::BasicUniqueAllocatorPtr<Path>;
@@ -10,6 +11,10 @@ pub trait AllocateUniqueFile {
 
     fn intern_file(&self, path: PathBuf) -> FilePtr {
         self.file_unique_allocator().alloc(path)
+    }
+
+    fn submodule_file(&self, module_file: FilePtr, ident: CustomIdentifier) {
+        todo!()
     }
 }
 

@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use infer_decl::TyDecl;
+use text::RangedCustomIdentifier;
 use vm::*;
-use word::RangedCustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerOpnVariant {
