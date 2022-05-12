@@ -1,6 +1,6 @@
 use crate::*;
 use std::fmt::Write;
-use test_utils::{TestDisplayConfig, TestDisplay};
+use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EagerQualifiedTy {
@@ -41,7 +41,7 @@ impl EagerQualifiedTy {
     }
 
     pub(crate) fn new(qual: EagerQualifier, ty: EntityRoutePtr) -> Self {
-        msg_once!("handle ref");
+        emsg_once!("handle ref");
         Self { qual, ty }
     }
 

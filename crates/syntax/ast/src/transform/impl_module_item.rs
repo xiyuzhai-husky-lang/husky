@@ -54,7 +54,7 @@ impl<'a> AstTransformer<'a> {
             return err!("expect route after keyword `use`", token_group.text_range());
         }
         let atoms = self.parse_atoms(&token_group[1..], |parser| parser.parse_all())?;
-        msg_once!("todo: use all");
+        emsg_once!("todo: use all");
         let route = if atoms.len() != 1 {
             todo!("expect one atom for entity route")
         } else {

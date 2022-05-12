@@ -90,6 +90,14 @@ macro_rules! msg_once {
 }
 
 #[macro_export]
+macro_rules! emsg_once {
+    ($msg:expr) => {{
+        static ONCE: std::sync::Once = std::sync::Once::new();
+        ONCE.call_once(|| eprintln!("[message] {}, src: {}:{}", $msg, file!(), line!()))
+    }};
+}
+
+#[macro_export]
 macro_rules! epin {
     () => {
         eprintln!("[pin] src: {}:{}", file!(), line!());

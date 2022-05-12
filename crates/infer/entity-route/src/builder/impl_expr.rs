@@ -95,7 +95,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::Type(_) => RootIdentifier::Type.into(),
             EntityKind::Trait => todo!(),
             EntityKind::Routine => {
-                msg_once!("todo: generics in fp");
+                emsg_once!("todo: generics in fp");
                 RootIdentifier::Fp.into()
             }
             EntityKind::Feature => self.db.feature_decl(scope)?.ty,

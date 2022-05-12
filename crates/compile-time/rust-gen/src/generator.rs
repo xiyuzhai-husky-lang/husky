@@ -93,7 +93,7 @@ impl<'a> RustGenerator<'a> {
     }
 
     fn gen_init(&mut self, subentities: &[Arc<EntityDefn>]) {
-        msg_once!("link entity with compiled");
+        emsg_once!("link entity with compiled");
         self.result += r#"
 pub mod __init__ {
     pub fn link_entity_with_compiled(compile_time: &mut compile_time_db::HuskyLangCompileTime) {

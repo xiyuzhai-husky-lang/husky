@@ -1,5 +1,5 @@
 use entity_route::EntityRouteKind;
-use print_utils::msg_once;
+use print_utils::emsg_once;
 use semantics_error::*;
 use vec_map::VecMap;
 
@@ -25,7 +25,7 @@ impl<'a> DependeeMapBuilder<'a> {
             EntityRouteKind::Root { .. } => return,
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => {
-                msg_once!("dependences on entity from external packs should be merged");
+                emsg_once!("dependences on entity from external packs should be merged");
                 ()
             }
             EntityRouteKind::Input { main } => todo!(),

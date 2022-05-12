@@ -177,7 +177,7 @@ impl<'a> EagerStmtParser<'a> {
                 final_boundary,
                 step,
             } => {
-                msg_once!("todo: change frame var qual in forext");
+                emsg_once!("todo: change frame var qual in forext");
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::ForExt {
                         frame_var,

@@ -324,8 +324,8 @@ pub trait EntityRouteQueryGroup:
     fn module_file(&self, module: EntityRoutePtr) -> EntitySyntaxResult<FilePtr> {
         Ok(match self.entity_source(module)? {
             EntitySource::StaticModuleItem(_) => panic!(),
-            EntitySource::WithinModule { file: file_id, .. } => file_id,
-            EntitySource::Module { file: file_id } => file_id,
+            EntitySource::WithinModule { file, .. } => file,
+            EntitySource::Module { file } => file,
             EntitySource::WithinBuiltinModule => todo!(),
             EntitySource::Input { .. } => todo!(),
             EntitySource::StaticTypeMember => todo!(),

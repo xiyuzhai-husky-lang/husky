@@ -56,5 +56,5 @@ fn save_code_snapshot(
         &snapshot_dir.join("main.hsk"),
         compile_time.file_content(main_file).to_str().unwrap(),
     );
-    msg_once!("save snapshot of other files")
+    emsg_once!("save snapshot of other files")
 }

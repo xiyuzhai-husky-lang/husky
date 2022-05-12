@@ -1,7 +1,7 @@
 use ast::AstText;
 use entity_route::{EntityKind, EntityRoutePtr};
 use file::FilePtr;
-use print_utils::{msg_once, p};
+use print_utils::{emsg_once, p};
 use semantics_error::SemanticErrorVariant;
 
 use crate::*;
@@ -23,7 +23,7 @@ pub(crate) fn collect_diagnostics(
     collect_infer_ty_errors(db, file, &mut diagnostics);
     collect_infer_contract_errors(db, file, &mut diagnostics);
     collect_infer_qualified_ty_errors(db, file, &mut diagnostics);
-    msg_once!("todo: collect semantic errors");
+    emsg_once!("todo: collect semantic errors");
     // collect_semantic_errors(db, file, &mut diagnostics);
     diagnostics
 }

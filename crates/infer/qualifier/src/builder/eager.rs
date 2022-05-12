@@ -6,7 +6,7 @@ use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
 use infer_error::{derived, derived_not_none, derived_ok, throw};
-use print_utils::{msg_once, p};
+use print_utils::{emsg_once, p};
 use text::RangedCustomIdentifier;
 use text::{TextRange, TextRanged};
 
@@ -358,7 +358,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     .collect();
                 match call_decl.output.contract {
                     OutputContract::Transfer => {
-                        msg_once!("handle ref");
+                        emsg_once!("handle ref");
                         Ok(EagerQualifiedTy::new(
                             if self.db.is_copyable(call_decl.output.ty) {
                                 EagerQualifier::Copyable

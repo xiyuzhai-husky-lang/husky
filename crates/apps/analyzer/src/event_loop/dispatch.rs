@@ -94,7 +94,7 @@ fn handle_lsp_notification(
                 lsp_types::NumberOrString::Number(id) => id.into(),
                 lsp_types::NumberOrString::String(id) => id.into(),
             };
-            msg_once!("TODO: on::<lsp_types::notification::Cancel>");
+            emsg_once!("TODO: on::<lsp_types::notification::Cancel>");
             Ok(TaskSet::Nothing)
         })?
         .on_sync::<lsp_types::notification::WorkDoneProgressCancel>(|_server, _params| {

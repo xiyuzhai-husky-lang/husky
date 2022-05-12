@@ -23,7 +23,7 @@ impl<'a> EagerStmtParser<'a> {
         arena: &'a RawExprArena,
         file: FilePtr,
     ) -> Self {
-        msg_once!("check no errors in entity_route_sheet");
+        emsg_once!("check no errors in entity_route_sheet");
         let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
         Self {
             db,

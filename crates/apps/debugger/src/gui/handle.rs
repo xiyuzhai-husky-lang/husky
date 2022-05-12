@@ -163,7 +163,7 @@ impl DebuggerInternal {
             );
         }
         let traces = self.runtime.traces();
-        msg_once!("init figures");
+        emsg_once!("init figures");
         ResponseVariant::Init {
             init_state: InitState {
                 active_trace_id,
