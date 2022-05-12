@@ -20,7 +20,7 @@ impl<'a> Instantiator<'a> {
     }
 
     pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> GenericArgument {
-        match self.db.entity_kind(src_scope) {
+        match self.db.entity_kind(src_scope).unwrap() {
             EntityKind::Module => GenericArgument::EntityRoute(src_scope),
             EntityKind::EnumLiteral => todo!(),
             _ => {

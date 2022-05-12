@@ -3,7 +3,7 @@ use std::borrow::Cow;
 use defn_head::{GenericPlaceholder, GenericPlaceholderVariant, InputPlaceholder};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
-use entity_route_query::EntityRouteQueryGroup;
+use entity_route_query::{EntityRouteQueryGroup, EntitySyntaxResult};
 use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
@@ -146,8 +146,8 @@ impl<'a> SymbolContext<'a> {
             .find(|symbol| symbol.ident == ident)
     }
 
-    pub fn entity_kind(&self, route: EntityRoutePtr) -> EntityKind {
-        match route.kind {
+    pub fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
+        let kind_result: EntitySyntaxResult<EntityKind> = match route.kind {
             EntityRouteKind::Child {
                 parent,
                 ident: ident0,
@@ -166,7 +166,7 @@ impl<'a> SymbolContext<'a> {
                         {
                             MemberKind::Method => todo!(),
                             MemberKind::Call => todo!(),
-                            MemberKind::TraitAssociatedType => EntityKind::Type(TyKind::Other),
+                            MemberKind::TraitAssociatedType => Ok(EntityKind::Type(TyKind::Other)),
                             MemberKind::TraitAssociatedConstSize => todo!(),
                             MemberKind::Field => todo!(),
                             MemberKind::TraitAssociatedAny => panic!(),
@@ -177,6 +177,10 @@ impl<'a> SymbolContext<'a> {
             },
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
             _ => self.db.entity_kind(route),
+        };
+        match kind_result {
+            Ok(kind) => Ok(kind),
+            Err(e) => err!(e.message, range),
         }
     }
 
