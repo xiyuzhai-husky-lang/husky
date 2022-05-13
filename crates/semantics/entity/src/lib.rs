@@ -300,7 +300,7 @@ pub(crate) fn main_defn(
                         &[],
                         this.upcast(),
                         &ast_text.arena,
-                        not_none!(item.children),
+                        not_none!(item.opt_children),
                         main_file,
                     )?,
                     file: main_file,
@@ -338,7 +338,9 @@ pub(crate) fn entity_defn(
             let ast_text = db.ast_text(file)?;
             let arena = &ast_text.arena;
             let FoldIterItem {
-                value, children, ..
+                value,
+                opt_children: children,
+                ..
             } = ast_text
                 .folded_results
                 .iter_from(token_group_index)

@@ -46,49 +46,51 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         self.enter_block();
         let arena = self.entity_route_sheet.ast_text.arena.clone();
         for item in ast_iter {
-            match item.value {
-                Ok(value) => match value.kind {
-                    AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
-                        item.children.map(|children| self.infer_all(children));
-                    }
-                    AstKind::MainDefn => {
-                        let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
-                        self.infer_morphism(&[], opt_output_ty, item.children.unwrap(), &arena)
-                    }
-                    AstKind::DatasetConfigDefnHead => self.infer_routine(
-                        &[],
-                        RootIdentifier::DatasetType.into(),
-                        item.children.unwrap(),
-                        &arena,
-                    ),
-                    AstKind::RoutineDefnHead(ref head) => self.infer_routine(
-                        &head.input_placeholders,
-                        head.output_ty.route,
-                        item.children.unwrap(),
-                        &arena,
-                    ),
-                    AstKind::PatternDefnHead => todo!(),
-                    AstKind::Use { .. } => (),
-                    AstKind::FieldDefnHead(ref head) => match head.kind {
-                        FieldKind::StructOriginal => (),
-                        FieldKind::RecordOriginal => (),
-                        FieldKind::StructDerived | FieldKind::RecordDerived => {
-                            self.infer_morphism(&[], Some(head.ty), item.children.unwrap(), &arena)
+            if let Some(children) = item.opt_children {
+                match item.value {
+                    Ok(value) => match value.kind {
+                        AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
+                            self.infer_all(children)
                         }
+                        AstKind::MainDefn => {
+                            let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
+                            self.infer_morphism(&[], opt_output_ty, children, &arena)
+                        }
+                        AstKind::DatasetConfigDefnHead => self.infer_routine(
+                            &[],
+                            RootIdentifier::DatasetType.into(),
+                            children,
+                            &arena,
+                        ),
+                        AstKind::RoutineDefnHead(ref head) => self.infer_routine(
+                            &head.input_placeholders,
+                            head.output_ty.route,
+                            children,
+                            &arena,
+                        ),
+                        AstKind::PatternDefnHead => todo!(),
+                        AstKind::Use { .. } => (),
+                        AstKind::FieldDefnHead(ref head) => match head.kind {
+                            FieldKind::StructOriginal => (),
+                            FieldKind::RecordOriginal => (),
+                            FieldKind::StructDerived | FieldKind::RecordDerived => {
+                                self.infer_morphism(&[], Some(head.ty), children, &arena)
+                            }
+                        },
+                        AstKind::Stmt(_) => todo!(),
+                        AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
+                            &head.input_placeholders,
+                            head.output_ty.route,
+                            children,
+                            &arena,
+                        ),
+                        AstKind::FeatureDecl { ty, .. } => {
+                            self.infer_morphism(&[], Some(ty.route), children, &arena)
+                        }
+                        AstKind::Submodule { ident, source_file } => (),
                     },
-                    AstKind::Stmt(_) => todo!(),
-                    AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
-                        &head.input_placeholders,
-                        head.output_ty.route,
-                        item.children.unwrap(),
-                        &arena,
-                    ),
-                    AstKind::FeatureDecl { ty, .. } => {
-                        self.infer_morphism(&[], Some(ty.route), item.children.unwrap(), &arena)
-                    }
-                    AstKind::Submodule { ident, source_file } => (),
-                },
-                _ => (),
+                    _ => (),
+                }
             }
         }
         self.exit_block()

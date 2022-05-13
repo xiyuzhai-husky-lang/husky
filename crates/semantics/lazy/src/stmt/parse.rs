@@ -91,7 +91,7 @@ impl<'a> LazyStmtParser<'a> {
                                     kind: LazyBranchKind::If {
                                         condition: self.parse_lazy_expr(condition)?,
                                     },
-                                    stmts: self.parse_lazy_stmts(not_none!(item.children))?,
+                                    stmts: self.parse_lazy_stmts(not_none!(item.opt_children))?,
                                 }))
                             }
                             RawBranchKind::Elif { condition } => todo!(),
@@ -121,7 +121,7 @@ impl<'a> LazyStmtParser<'a> {
                                         branches.push(Arc::new(LazyBranch {
                                             kind: LazyBranchKind::Else,
                                             stmts: self
-                                                .parse_lazy_stmts(not_none!(item.children))?,
+                                                .parse_lazy_stmts(not_none!(item.opt_children))?,
                                         }));
                                         break;
                                     }

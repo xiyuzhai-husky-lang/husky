@@ -27,7 +27,7 @@ where
             }
 
             // parse children
-            if let Some(children) = item.children {
+            if let Some(children) = item.opt_children {
                 self.execute_all(children);
             }
             self._exit_block();

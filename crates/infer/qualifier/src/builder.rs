@@ -46,64 +46,66 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     pub(super) fn infer_ast(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
         for item in ast_iter {
-            match item.value {
-                Ok(value) => match value.kind {
-                    AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
-                        item.children
-                            .map(|children| self.infer_ast(children, arena));
-                    }
-                    AstKind::MainDefn => self.infer_morphism(
-                        &arena,
-                        &[],
-                        item.children.unwrap(),
-                        self.db.global_output_ty(self.main_file).ok(),
-                        OutputContract::Transfer,
-                    ),
-                    AstKind::DatasetConfigDefnHead => self.infer_routine(
-                        &arena,
-                        &[],
-                        item.children.unwrap(),
-                        Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
-                        OutputContract::Transfer,
-                    ),
-                    AstKind::RoutineDefnHead(ref head) => self.infer_routine(
-                        &arena,
-                        &head.input_placeholders,
-                        item.children.unwrap(),
-                        Some(head.output_ty.route),
-                        head.output_contract,
-                    ),
-                    AstKind::PatternDefnHead => todo!(),
-                    AstKind::Use { .. } => (),
-                    AstKind::FieldDefnHead(ref head) => match head.kind {
-                        FieldKind::StructOriginal => (),
-                        FieldKind::RecordOriginal => (),
-                        FieldKind::StructDerived | FieldKind::RecordDerived => self.infer_morphism(
+            if let Some(children) = item.opt_children {
+                match item.value {
+                    Ok(value) => match value.kind {
+                        AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
+                            self.infer_ast(children, arena)
+                        }
+                        AstKind::MainDefn => self.infer_morphism(
                             &arena,
                             &[],
-                            item.children.unwrap(),
-                            Some(head.ty),
+                            children,
+                            self.db.global_output_ty(self.main_file).ok(),
                             OutputContract::Transfer,
                         ),
+                        AstKind::DatasetConfigDefnHead => self.infer_routine(
+                            &arena,
+                            &[],
+                            children,
+                            Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
+                            OutputContract::Transfer,
+                        ),
+                        AstKind::RoutineDefnHead(ref head) => self.infer_routine(
+                            &arena,
+                            &head.input_placeholders,
+                            children,
+                            Some(head.output_ty.route),
+                            head.output_contract,
+                        ),
+                        AstKind::PatternDefnHead => todo!(),
+                        AstKind::Use { .. } => (),
+                        AstKind::FieldDefnHead(ref head) => match head.kind {
+                            FieldKind::StructOriginal => (),
+                            FieldKind::RecordOriginal => (),
+                            FieldKind::StructDerived | FieldKind::RecordDerived => self
+                                .infer_morphism(
+                                    &arena,
+                                    &[],
+                                    children,
+                                    Some(head.ty),
+                                    OutputContract::Transfer,
+                                ),
+                        },
+                        AstKind::Stmt(_) => todo!(),
+                        AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
+                            &arena,
+                            &head.input_placeholders,
+                            children,
+                            Some(head.output_ty.route),
+                            head.output_contract,
+                        ),
+                        AstKind::FeatureDecl { ty, .. } => self.infer_morphism(
+                            &arena,
+                            &[],
+                            children,
+                            Some(ty.route),
+                            OutputContract::Transfer,
+                        ),
+                        AstKind::Submodule { ident, source_file } => (),
                     },
-                    AstKind::Stmt(_) => todo!(),
-                    AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
-                        &arena,
-                        &head.input_placeholders,
-                        item.children.unwrap(),
-                        Some(head.output_ty.route),
-                        head.output_contract,
-                    ),
-                    AstKind::FeatureDecl { ty, .. } => self.infer_morphism(
-                        &arena,
-                        &[],
-                        item.children.unwrap(),
-                        Some(ty.route),
-                        OutputContract::Transfer,
-                    ),
-                    AstKind::Submodule { ident, source_file } => (),
-                },
-                _ => (),
+                    _ => (),
+                }
             }
         }
     }

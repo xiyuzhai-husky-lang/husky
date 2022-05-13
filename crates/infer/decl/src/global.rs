@@ -94,7 +94,7 @@ pub(crate) fn global_input_ty(
                 return global_input_ty_from_ast(
                     db,
                     &ast_text.arena,
-                    derived_not_none!(item.children)?
+                    derived_not_none!(item.opt_children)?
                         .last()
                         .unwrap()
                         .value
@@ -105,7 +105,7 @@ pub(crate) fn global_input_ty(
         }
     }
     throw!(
-        "dataset config not found, so input type can't be inferred",
+        "dataset config not found in main, so input type can't be inferred",
         TextRange::whole()
     )
 }
@@ -121,7 +121,7 @@ pub(crate) fn global_output_ty(
                 return global_output_ty_from_ast(
                     db,
                     &ast_text.arena,
-                    derived_not_none!(item.children)?
+                    derived_not_none!(item.opt_children)?
                         .last()
                         .unwrap()
                         .value
@@ -131,11 +131,5 @@ pub(crate) fn global_output_ty(
             _ => (),
         }
     }
-    throw!(
-        "dataset config not found in main, so input type can't be inferred",
-        TextRange {
-            start: (0u32, 0).into(),
-            end: (0u32, 4).into(),
-        }
-    )
+    throw_derived!("dataset config not found in main, so output type can't be inferred")
 }

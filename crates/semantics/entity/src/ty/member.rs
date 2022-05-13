@@ -61,7 +61,7 @@ impl EntityDefnVariant {
                                 &head.input_placeholders,
                                 db,
                                 arena,
-                                child.children.unwrap(),
+                                child.opt_children.unwrap(),
                                 file,
                             )?;
                             MethodSource::Func { stmts }
@@ -102,7 +102,7 @@ impl EntityDefnVariant {
                             arena,
                             file,
                             field_defn_head,
-                            child.children.clone(),
+                            child.opt_children.clone(),
                         )?,
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {

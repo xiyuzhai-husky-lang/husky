@@ -29,7 +29,7 @@ impl<'a> EagerStmtParser<'a> {
                                     kind: DeclBranchKind::If {
                                         condition: self.parse_eager_expr(condition)?,
                                     },
-                                    stmts: self.parse_decl_stmts(not_none!(item.children))?,
+                                    stmts: self.parse_decl_stmts(not_none!(item.opt_children))?,
                                 }))
                             }
                             RawBranchKind::Elif { condition } => todo!(),
@@ -59,7 +59,7 @@ impl<'a> EagerStmtParser<'a> {
                                         branches.push(Arc::new(DeclBranch {
                                             kind: DeclBranchKind::Else,
                                             stmts: self
-                                                .parse_decl_stmts(not_none!(item.children))?,
+                                                .parse_decl_stmts(not_none!(item.opt_children))?,
                                         }));
                                         break;
                                     }
