@@ -6,11 +6,11 @@ enum Direction:
 
 
 // pub func int int => Point2d point
-pub fn Point2dFromIJ28(i: int, j: int) -> Point2d
-  return Point2d(float(29 - j), float(29 - i))
+// pub fn Point2dFromIJ28(i: int, j: int) -> Point2d
+//   return Point2d(float(29 - j), float(29 - i))
 
-fn get_pixel_pair(row: bit32, j: int) -> bit32
-  return (row >> (j - 1)) & bit32(3)
+func get_pixel_pair(row: b32, j: int) -> bit32
+  return (row >> (j - 1)) & bit32(3b3
 
 fn get_pixel_to_the_left(row: bit32, j: int) -> bit32
   return (row >> j) & bit32(1)
