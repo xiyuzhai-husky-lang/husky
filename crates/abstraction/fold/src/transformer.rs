@@ -39,7 +39,7 @@ where
             if !block_entered {
                 self._enter_block();
             }
-            if let Some(children) = item.children {
+            if let Some(children) = item.opt_children {
                 self.transform_all(children);
             }
             self._exit_block();

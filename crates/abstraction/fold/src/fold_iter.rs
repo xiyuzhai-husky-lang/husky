@@ -64,7 +64,7 @@ where
     pub indent: Indent,
     pub value: &'a Value,
     pub folding_end: FoldingEnd,
-    pub children: Option<FoldIter<'a, Value, Storage>>,
+    pub opt_children: Option<FoldIter<'a, Value, Storage>>,
 }
 
 impl<'a, Value: 'a, Storage> Iterator for FoldIter<'a, Value, Storage>
@@ -76,7 +76,7 @@ where
 
     fn next(&mut self) -> Option<Self::Item> {
         if let Some(idx) = self.next {
-            let children = if idx + 1 >= self.storage.len() {
+            let opt_children = if idx + 1 >= self.storage.len() {
                 None
             } else if self.storage.indent(idx + 1) > self.storage.indent(idx) {
                 Some(self.next_level_iter(Some(idx + 1)))
@@ -91,7 +91,7 @@ where
                 idx,
                 indent: self.storage.indent(idx),
                 value: self.storage.value(idx),
-                children,
+                opt_children,
                 folding_end: self.storage.folding_end(idx),
             })
         } else {

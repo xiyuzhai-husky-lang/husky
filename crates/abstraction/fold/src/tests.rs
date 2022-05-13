@@ -26,7 +26,12 @@ fn fold_items2() {
     use check_utils::*;
     let items: Vec<Indent> = vec![0, 4, 0, 4, 4].into();
     let fold_items: FoldedList<()> = items.into();
-    should!(fold_items.iter_from(1).next().unwrap().children.is_none());
+    should!(fold_items
+        .iter_from(1)
+        .next()
+        .unwrap()
+        .opt_children
+        .is_none());
     should_eq!(fold_items.nodes[3].folding_end, FoldingEnd::Sibling(4));
 }
 
@@ -61,7 +66,12 @@ fn transform() {
     let mut transformer = TrivialTransformer {
         fold_outputs: FoldedList::<()>::new(),
     };
-    should!(fold_items.iter_from(2).next().unwrap().children.is_some());
+    should!(fold_items
+        .iter_from(2)
+        .next()
+        .unwrap()
+        .opt_children
+        .is_some());
     for i in 0..fold_items.len() {
         let mut iter = fold_items.iter_from(i);
         test_print!(i, iter, iter.next());

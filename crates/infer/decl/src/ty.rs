@@ -581,7 +581,7 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty_route: EntityRoutePtr) -> Infe
                             ty_route,
                             kind,
                             generic_placeholders.clone(),
-                            derived_not_none!(item.children)?,
+                            derived_not_none!(item.opt_children)?,
                         )
                     }
                 }

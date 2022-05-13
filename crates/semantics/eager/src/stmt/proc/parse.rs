@@ -37,7 +37,7 @@ impl<'a> EagerStmtParser<'a> {
                     file: self.file,
                     range: stmt.range,
                     indent: item.indent,
-                    variant: self.parse_proc_stmt(stmt, item.children, &mut iter)?,
+                    variant: self.parse_proc_stmt(stmt, item.opt_children, &mut iter)?,
                     instruction_id,
                 },
                 AstKind::EnumVariantDefnHead {
@@ -105,7 +105,7 @@ impl<'a> EagerStmtParser<'a> {
                             RawBranchKind::Else => {
                                 branches.push(Arc::new(ProcBranch {
                                     variant: ProcBranchVariant::Else,
-                                    stmts: self.parse_proc_stmts(not_none!(item.children))?,
+                                    stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
                                     range: stmt.range,
                                     file: self.file,
                                 }));

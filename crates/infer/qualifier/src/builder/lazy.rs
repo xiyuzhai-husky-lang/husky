@@ -61,7 +61,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     _ => (),
                 }
             }
-            if let Some(children) = item.children {
+            if let Some(children) = item.opt_children {
                 self.infer_lazy_stmts(arena, children, opt_output_ty, output_contract)
             }
         }

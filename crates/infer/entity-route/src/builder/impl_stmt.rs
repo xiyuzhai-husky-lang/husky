@@ -18,7 +18,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     _ => (),
                 }
             }
-            if let Some(children) = item.children {
+            if let Some(children) = item.opt_children {
                 self.infer_stmts(children, opt_output_ty, arena)
             }
         }

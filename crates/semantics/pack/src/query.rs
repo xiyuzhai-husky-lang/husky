@@ -54,7 +54,7 @@ fn dataset_config_from_ast_text(
                     &[],
                     this.upcast(),
                     &ast_text.arena,
-                    not_none!(item.children),
+                    not_none!(item.opt_children),
                     file,
                 )?))
             }

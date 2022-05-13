@@ -20,7 +20,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     _ => (),
                 }
             }
-            if let Some(children) = item.children {
+            if let Some(children) = item.opt_children {
                 self.infer_lazy_stmts(children, arena)
             }
         }

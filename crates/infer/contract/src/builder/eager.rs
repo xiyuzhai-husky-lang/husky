@@ -36,7 +36,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     _ => (),
                 }
             }
-            if let Some(children) = item.children {
+            if let Some(children) = item.opt_children {
                 self.infer_eager_stmts(children, output_ty, arena)
             }
         }

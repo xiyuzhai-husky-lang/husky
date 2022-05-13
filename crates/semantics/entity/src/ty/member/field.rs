@@ -48,7 +48,7 @@ impl EntityDefnVariant {
                             arena,
                             file,
                             field_defn_head,
-                            child.children.clone(),
+                            child.opt_children.clone(),
                         )?,
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {

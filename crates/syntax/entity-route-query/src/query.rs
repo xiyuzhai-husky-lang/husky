@@ -39,7 +39,7 @@ fn subroute_table(
         } => {
             let text = db.tokenized_text(file)?;
             let item = text.iter_from(token_group_index).next().unwrap();
-            if let Some(children) = item.children {
+            if let Some(children) = item.opt_children {
                 SubrouteTable::parse(db, file, entity_route, children)
             } else {
                 SubrouteTable::empty(entity_route)
