@@ -8,7 +8,7 @@ use vm::*;
 use word::RootIdentifier;
 
 use crate::*;
-use semantics_error::{err, try_infer};
+use semantics_error::{derived_unwrap, err};
 
 use super::EagerOpnVariant;
 
@@ -64,11 +64,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
-            ty: try_infer!(self.raw_expr_ty(raw_expr_idx)),
+            ty: derived_unwrap!(self.raw_expr_ty(raw_expr_idx)),
             variant: kind,
             file: self.file(),
             instruction_id: Default::default(),
-            contract: try_infer!(self.eager_expr_contract(raw_expr_idx)),
+            contract: derived_unwrap!(self.eager_expr_contract(raw_expr_idx)),
             qualified_ty: self.eager_expr_qualified_ty(raw_expr_idx)?,
         }))
     }
@@ -171,7 +171,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 kind: EntityKind::Type(_),
                 ..
             } => {
-                let signature = try_infer!(self.decl_db().call_decl(scope));
+                let signature = derived_unwrap!(self.decl_db().call_decl(scope));
                 let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw))
@@ -182,7 +182,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                             route: scope,
                             range: call.range(),
                         },
-                        ty_decl: try_infer!(self.decl_db().ty_decl(scope)),
+                        ty_decl: derived_unwrap!(self.decl_db().ty_decl(scope)),
                     },
                     opds: arguments,
                 })

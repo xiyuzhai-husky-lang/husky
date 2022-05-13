@@ -102,7 +102,7 @@ impl TyDecl {
         kind: TyKind,
         generic_placeholders: IdentDict<GenericPlaceholder>,
         children: AstIter,
-    ) -> InferResultArc<Self> {
+    ) -> InferQueryResultArc<Self> {
         let generic_arguments =
             db.generic_arguments_from_generic_placeholders(&generic_placeholders);
         let this_ty = db.intern_entity_route(EntityRoute {
@@ -167,7 +167,7 @@ impl TyDecl {
 
     fn collect_variants(
         children: &mut Peekable<AstIter>,
-    ) -> InferResult<IdentDict<EnumVariantDecl>> {
+    ) -> InferQueryResult<IdentDict<EnumVariantDecl>> {
         let mut variants = VecMap::default();
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.kind {
@@ -192,7 +192,7 @@ impl TyDecl {
     fn collect_original_fields(
         children: &mut Peekable<AstIter>,
         members: &mut IdentDict<TyMemberDecl>,
-    ) -> InferResult<()> {
+    ) -> InferQueryResult<()> {
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.kind {
                 AstKind::FieldDefnHead(ref field_defn_head) => {
@@ -212,7 +212,7 @@ impl TyDecl {
     fn collect_other_members(
         mut children: Peekable<AstIter>,
         members: &mut IdentDict<TyMemberDecl>,
-    ) -> InferResult<()> {
+    ) -> InferQueryResult<()> {
         while let Some(child) = children.next() {
             match child.value.as_ref()?.kind {
                 AstKind::TypeDefnHead {
@@ -529,7 +529,10 @@ impl TyDecl {
     }
 }
 
-pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty_route: EntityRoutePtr) -> InferResultArc<TyDecl> {
+pub(crate) fn ty_decl(
+    db: &dyn DeclQueryGroup,
+    ty_route: EntityRoutePtr,
+) -> InferQueryResultArc<TyDecl> {
     let source = db.entity_source(ty_route)?;
     match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
@@ -581,7 +584,7 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty_route: EntityRoutePtr) -> Infe
                             ty_route,
                             kind,
                             generic_placeholders.clone(),
-                            derived_not_none!(item.opt_children)?,
+                            query_derived_not_none!(item.opt_children)?,
                         )
                     }
                 }

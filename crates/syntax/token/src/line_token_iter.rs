@@ -83,21 +83,23 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 self.ignore_char();
                 match self.peek_char() {
                     '3' => {
-                        self.ignore_char();
-                        if self.peek_char() != '2' {
-                            todo!()
-                        }
-                        self.ignore_char();
-                        if is_word_char(self.peek_char()) {
-                            todo!()
-                        }
-                        let len = self.buffer.len() + 3;
-                        Token::new(
-                            self.line_index,
-                            j_start,
-                            j_start + len,
-                            TokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
-                        )
+                        let (len, kind) = {
+                            self.ignore_char();
+                            if self.peek_char() != '2' {
+                                (self.buffer.len() + 2, TokenKind::IllFormedLiteral)
+                            } else {
+                                self.ignore_char();
+                                if is_word_char(self.peek_char()) {
+                                    todo!()
+                                } else {
+                                    (
+                                        self.buffer.len() + 3,
+                                        TokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
+                                    )
+                                }
+                            }
+                        };
+                        Token::new(self.line_index, j_start, j_start + len, kind)
                     }
                     '6' => {
                         self.ignore_char();

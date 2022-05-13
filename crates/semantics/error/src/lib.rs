@@ -102,9 +102,14 @@ macro_rules! not_none {
 }
 
 #[macro_export]
-macro_rules! try_infer {
+macro_rules! derived_unwrap {
     ($syntax_result: expr) => {{
-        $syntax_result.map_err(|e| SemanticError::from_infer_error(e, dev_utils::dev_src!()))?
+        $syntax_result.map_err(|e| SemanticError {
+            variant: SemanticErrorVariant::Derived {
+                message: format!("{:?}", e),
+            },
+            dev_src: dev_utils::dev_src!(),
+        })?
     }};
 }
 

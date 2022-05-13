@@ -193,7 +193,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &arena[all_opds.start];
         match call_expr.variant {
             RawExprVariant::Entity { route: scope, .. } => {
-                let call_decl = self.db.call_decl(scope)?;
+                let call_decl = derived_unwrap!(self.db.call_decl(scope));
                 for i in 0..call_decl.inputs.len() {
                     self.infer_lazy_expr(
                         all_opds.start + 1 + i,

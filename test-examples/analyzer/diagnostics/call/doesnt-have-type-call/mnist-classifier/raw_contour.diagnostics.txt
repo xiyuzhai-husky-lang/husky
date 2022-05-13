@@ -1,0 +1,23 @@
+21:1..21:3	Entity Route Error: Defn Error: "first token should be identifier"(21:1..21:3)
+51:1..51:3	Entity Route Error: Defn Error: "first token should be identifier"(51:1..51:3)
+61:1..61:3	Entity Route Error: Defn Error: "first token should be identifier"(61:1..61:3)
+21:68..21:77	Lex Error: Inappropriate
+21:68..21:77	Lex Error: Inappropriate
+21:68..21:77	Lex Error: Inappropriate
+21:68..21:77	Lex Error: Inappropriate
+21:68..21:77	Lex Error: Inappropriate
+21:68..21:77	Lex Error: Inappropriate
+21:68..21:77	Lex Error: Inappropriate
+51:63..51:66	Lex Error: Inappropriate
+51:63..51:66	Lex Error: Inappropriate
+51:63..51:66	Lex Error: Inappropriate
+51:63..51:66	Lex Error: Inappropriate
+51:63..51:66	Lex Error: Inappropriate
+51:63..51:66	Lex Error: Inappropriate
+61:25..61:26	Lex Error: Inappropriate
+61:25..61:26	Lex Error: Inappropriate
+61:25..61:26	Lex Error: Inappropriate
+61:25..61:26	Lex Error: Inappropriate
+61:25..61:26	Lex Error: Inappropriate
+61:25..61:26	Lex Error: Inappropriate
+61:25..61:26	Lex Error: Inappropriate

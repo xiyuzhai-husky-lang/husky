@@ -1,5 +1,5 @@
 use file::FilePtr;
-use text::TextRange;
+use text::{BindTextRange, TextRange};
 use vm::*;
 use word::RootIdentifier;
 
@@ -18,26 +18,29 @@ fn global_input_ty_from_ast(
             RawExprVariant::Opn {
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
-            } => match arena[opds][0].variant {
-                RawExprVariant::Entity {
-                    route,
-                    kind: EntityKind::Routine,
-                    ..
-                } => {
-                    let signature = db.call_decl(route)?;
-                    let dataset_type = signature.output.ty;
-                    match dataset_type.kind {
-                        EntityRouteKind::Root {
-                            ident: RootIdentifier::DatasetType,
-                        } => match dataset_type.generic_arguments[0] {
-                            GenericArgument::Const(_) => todo!(),
-                            GenericArgument::EntityRoute(input_ty) => Ok(input_ty),
-                        },
-                        _ => panic!(),
+            } => {
+                let caller = &arena[opds][0];
+                match caller.variant {
+                    RawExprVariant::Entity {
+                        route,
+                        kind: EntityKind::Routine,
+                        ..
+                    } => {
+                        let signature = db.call_decl(route).bind(caller)?;
+                        let dataset_type = signature.output.ty;
+                        match dataset_type.kind {
+                            EntityRouteKind::Root {
+                                ident: RootIdentifier::DatasetType,
+                            } => match dataset_type.generic_arguments[0] {
+                                GenericArgument::Const(_) => todo!(),
+                                GenericArgument::EntityRoute(input_ty) => Ok(input_ty),
+                            },
+                            _ => panic!(),
+                        }
                     }
+                    _ => todo!(),
                 }
-                _ => todo!(),
-            },
+            }
             _ => todo!(),
         },
         _ => todo!(),
@@ -57,26 +60,29 @@ fn global_output_ty_from_ast(
             RawExprVariant::Opn {
                 opr: Opr::List(ListOpr::Call),
                 ref opds,
-            } => match arena[opds][0].variant {
-                RawExprVariant::Entity {
-                    route: scope,
-                    kind: EntityKind::Routine,
-                    ..
-                } => {
-                    let call_decl = db.call_decl(scope)?;
-                    let dataset_type = call_decl.output.ty;
-                    match dataset_type.kind {
-                        EntityRouteKind::Root {
-                            ident: RootIdentifier::DatasetType,
-                        } => match dataset_type.generic_arguments[1] {
-                            GenericArgument::Const(_) => todo!(),
-                            GenericArgument::EntityRoute(output_ty) => Ok(output_ty),
-                        },
-                        _ => panic!(),
+            } => {
+                let caller = &arena[opds][0];
+                match caller.variant {
+                    RawExprVariant::Entity {
+                        route: scope,
+                        kind: EntityKind::Routine,
+                        ..
+                    } => {
+                        let call_decl = db.call_decl(scope).bind_text_range(caller.range)?;
+                        let dataset_type = call_decl.output.ty;
+                        match dataset_type.kind {
+                            EntityRouteKind::Root {
+                                ident: RootIdentifier::DatasetType,
+                            } => match dataset_type.generic_arguments[1] {
+                                GenericArgument::Const(_) => todo!(),
+                                GenericArgument::EntityRoute(output_ty) => Ok(output_ty),
+                            },
+                            _ => panic!(),
+                        }
                     }
+                    _ => todo!(),
                 }
-                _ => todo!(),
-            },
+            }
             _ => todo!(),
         },
         _ => todo!(),

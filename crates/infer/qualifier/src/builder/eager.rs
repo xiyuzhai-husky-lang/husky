@@ -5,7 +5,7 @@ use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
-use infer_error::{derived, derived_not_none, derived_ok, throw};
+use infer_error::{derived, derived_not_none, derived_unwrap, throw};
 use print_utils::{emsg_once, p};
 use text::RangedCustomIdentifier;
 use text::{TextRange, TextRanged};
@@ -308,7 +308,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(arena, opds.start))?;
-        let this_ty_decl = self.db.ty_decl(this_qt.ty)?;
+        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         Ok(match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
@@ -352,7 +352,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerQualifiedTy> {
         match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
-                let call_decl = self.db.call_decl(route)?;
+                let call_decl = derived_unwrap!(self.db.call_decl(route));
                 let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
                     .into_iter()
                     .map(|opd_idx| self.infer_eager_expr(arena, opd_idx))

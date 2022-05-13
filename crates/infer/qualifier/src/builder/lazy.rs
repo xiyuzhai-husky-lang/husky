@@ -3,6 +3,7 @@ use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use infer_error::derived_not_none;
+use infer_error::derived_unwrap;
 use print_utils::p;
 use text::RangedCustomIdentifier;
 use text::TextRanged;
@@ -232,7 +233,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
-        let this_ty_decl = self.db.ty_decl(this_qt.ty)?;
+        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         Ok(match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
@@ -276,7 +277,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<LazyQualifiedTy> {
         match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
-                let call_decl = self.db.call_decl(route)?;
+                let call_decl = derived_unwrap!(self.db.call_decl(route));
                 let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
                     .into_iter()
                     .map(|opd_idx| self.infer_lazy_expr(arena, opd_idx))

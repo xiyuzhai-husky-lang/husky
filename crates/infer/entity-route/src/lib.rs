@@ -26,7 +26,7 @@ pub trait InferEntityRoute {
     }
     fn raw_expr_ty_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
         let ty = self.raw_expr_ty(expr_idx)?;
-        self.decl_db().ty_decl(ty)
+        Ok(derived_unwrap!(self.decl_db().ty_decl(ty)))
     }
 
     fn call_route_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
@@ -34,7 +34,9 @@ pub trait InferEntityRoute {
     }
 
     fn call_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<CallDecl> {
-        self.decl_db().call_decl(self.call_route_result(expr_idx)?)
+        Ok(derived_unwrap!(self
+            .decl_db()
+            .call_decl(self.call_route_result(expr_idx)?)))
     }
 
     fn method_decl(&self, expr_idx: RawExprIdx) -> InferResultArc<MethodDecl> {

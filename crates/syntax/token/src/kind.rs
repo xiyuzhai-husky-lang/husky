@@ -10,6 +10,7 @@ pub enum TokenKind {
     Special(Special),
     PrimitiveLiteral(PrimitiveValue),
     Unrecognized(char),
+    IllFormedLiteral,
 }
 
 impl From<Special> for TokenKind {
