@@ -346,7 +346,9 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Variable { varname, init_row } => todo!(),
             RawExprVariant::This { opt_ty, .. } => todo!(),
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => {
+                throw_derived!("a primitive literal can't be a caller")
+            }
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::FrameVariable { varname, init_row } => todo!(),

@@ -94,7 +94,7 @@
     22:24..22:39   BinaryImage28()        Transient    datasets::cv::mnist::BinaryImage28
     23:13..23:17   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
     23:18..23:19   j                      Copyable     i32
-    23:44..23:48   1b32                   Copyable     b32
+    23:44..23:47   1b3                    Copyable     b32
     23:52..23:57   shift                  Copyable     i32
     23:41..23:42   a                      Copyable     b32
     23:44..23:57   1b32 << shift          Copyable     b32

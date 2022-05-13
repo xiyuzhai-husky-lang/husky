@@ -207,7 +207,9 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => {
+                throw_derived!("a primitive literal can't be a caller")
+            }
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { opr, ref opds } => match opr {
                 Opr::Binary(_) => todo!(),

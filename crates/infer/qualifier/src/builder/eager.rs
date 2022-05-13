@@ -5,7 +5,7 @@ use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
-use infer_error::{derived, derived_not_none, derived_unwrap, throw};
+use infer_error::{derived, derived_not_none, derived_unwrap, throw, throw_derived};
 use print_utils::{emsg_once, p};
 use text::RangedCustomIdentifier;
 use text::{TextRange, TextRanged};
@@ -391,6 +391,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Opr::List(_) => todo!(),
             },
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized caller")),
+            RawExprVariant::PrimitiveLiteral(_) => {
+                throw_derived!("a primitive literal can't be a caller")
+            }
             _ => {
                 p!(arena[total_opds.start].variant);
                 todo!()

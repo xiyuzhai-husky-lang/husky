@@ -4,6 +4,7 @@ use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use infer_error::derived_not_none;
 use infer_error::derived_unwrap;
+use infer_error::throw_derived;
 use print_utils::p;
 use text::RangedCustomIdentifier;
 use text::TextRanged;
@@ -315,6 +316,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 },
                 Opr::List(_) => todo!(),
             },
+            RawExprVariant::PrimitiveLiteral(_) => {
+                throw_derived!("a primitive literal can't be a caller")
+            }
             _ => {
                 p!(arena[total_opds.start].variant);
                 todo!()
