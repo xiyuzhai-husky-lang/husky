@@ -114,6 +114,12 @@ impl<'token> TokenScanner<'token> {
                                 dev_src: dev_src!(),
                             }),
                         }
+                    } else {
+                        self.errors.push(LexError {
+                            message: format!("expect indentated lines after `:`"),
+                            range: self.last_token(first_line).range,
+                            dev_src: dev_src!(),
+                        })
                     }
                     first_line.tokens.end
                 } else {
