@@ -23,7 +23,7 @@ impl<'a> AstTransformer<'a> {
             TokenKind::Special(_) => todo!(),
             TokenKind::PrimitiveLiteral(_) => todo!(),
             TokenKind::Unrecognized(_) => todo!(),
-            TokenKind::IllFormedLiteral => todo!(),
+            TokenKind::IllFormedLiteral(_) => todo!(),
         }
     }
 
