@@ -81,18 +81,21 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             'b' => {
                 // b32 or b64
                 self.ignore_char();
-                let (extra_len, kind) = match self.peek_char() {
+                let (token_len, kind) = match self.peek_char() {
                     '3' => {
                         self.ignore_char();
                         if self.peek_char() != '2' {
-                            (2, TokenKind::IllFormedLiteral)
+                            (
+                                self.buffer.len() + 2,
+                                TokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                            )
                         } else {
                             self.ignore_char();
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
                                 (
-                                    3,
+                                    self.buffer.len() + 3,
                                     TokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
                                 )
                             }
@@ -105,14 +108,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         }
                         todo!()
                     }
-                    _ => (1, TokenKind::IllFormedLiteral),
+                    _ => (
+                        self.buffer.len() + 1,
+                        TokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                    ),
                 };
-                Token::new(
-                    self.line_index,
-                    j_start,
-                    j_start + self.buffer.len() + extra_len,
-                    kind,
-                )
+                Token::new(self.line_index, j_start, j_start + token_len, kind)
             }
             'i' => {
                 // i64
@@ -153,6 +154,10 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
 
     fn take_buffer_b32(&mut self) -> u32 {
         std::mem::take(&mut self.buffer).parse::<u32>().unwrap()
+    }
+
+    fn take_buffer_b64(&mut self) -> u64 {
+        std::mem::take(&mut self.buffer).parse::<u64>().unwrap()
     }
 
     fn peek_char(&mut self) -> char {

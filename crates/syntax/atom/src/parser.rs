@@ -120,8 +120,8 @@ impl<'a> AtomLRParser<'a> {
                     TokenKind::Unrecognized(c) => {
                         err!(format!("unrecognized char `{}`", c), token.range)?
                     }
-                    TokenKind::IllFormedLiteral => {
-                        err!(format!("ill formed literal"), token.range)?
+                    TokenKind::IllFormedLiteral(n) => {
+                        err!(format!("ill formed literal `{:?}`", n), token.range)?
                     }
                 }
             } else {
