@@ -14,13 +14,13 @@ test-examples-with-backtrace:
 cargo-test:
 	cargo test
 
-test-analyzer: cargo-test
+test-analyzer:
 	cargo run -q --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics
 	cargo run -q --bin husky-analyzer-tester test-folding-ranges $(test_examples_dir)/analyzer/folding-ranges
 	cargo run -q --bin husky-analyzer-tester test-semantic-tokens $(test_examples_dir)/analyzer/semantic-tokens
 	cargo run -q --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys
 
-test-debugger: cargo-test
+test-debugger:
 	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 11 --mode test
 
 test-temp:
@@ -31,7 +31,7 @@ test-debugger-with-backtrace:
 	
 #	| python scripts/filter_rust_backtrace.py
 
-vscode: test-analyzer
+vscode: cargo-test test-analyzer
 	scripts/vscode_prepublish.sh
 	rsync -a extensions/husky-analyzer ~/.vscode/extensions/
 	cargo install --path crates/apps/analyzer --bin husky-analyzer-server
