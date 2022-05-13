@@ -328,12 +328,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         range: TextRange,
         expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
-        let call_expr = &arena[total_opds.start];
-        match call_expr.variant {
-            RawExprVariant::Entity {
-                route: scope, kind, ..
-            } => {
-                let call_decl = derived_unwrap!(self.db.call_decl(scope));
+        let caller = &arena[total_opds.start];
+        match caller.variant {
+            RawExprVariant::Entity { route, kind, .. } => {
+                let call_decl = self.db.call_decl(route).bind(caller)?;
                 for i in 0..call_decl.inputs.len() {
                     let input_expr_idx = total_opds.start + 1 + i;
                     self.infer_expr(input_expr_idx, Some(call_decl.inputs[i].ty), arena);
@@ -342,7 +340,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => {
-                throw!("unrecognized caller", call_expr.range)
+                throw!("unrecognized caller", caller.range)
             }
             RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),

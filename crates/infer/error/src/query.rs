@@ -5,7 +5,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct InferQueryError {
-    pub variant: InferQueryErrorKind,
+    pub kind: InferQueryErrorKind,
     pub message: String,
     pub dev_src: DevSource,
 }
@@ -27,14 +27,25 @@ impl BindTextRange for InferQueryError {
     }
 
     fn bind_text_range(self, range: TextRange) -> Self::Target {
-        todo!()
+        InferError {
+            variant: match self.kind {
+                InferQueryErrorKind::Derived => InferErrorVariant::Derived {
+                    message: self.message,
+                },
+                InferQueryErrorKind::Original => InferErrorVariant::Original {
+                    message: self.message,
+                    range,
+                },
+            },
+            dev_src: self.dev_src,
+        }
     }
 }
 
 impl From<EntitySyntaxError> for InferQueryError {
     fn from(e: EntitySyntaxError) -> Self {
         Self {
-            variant: InferQueryErrorKind::Derived,
+            kind: InferQueryErrorKind::Derived,
             message: e.message,
             dev_src: e.dev_src,
         }
@@ -44,7 +55,7 @@ impl From<EntitySyntaxError> for InferQueryError {
 impl From<&AstError> for InferQueryError {
     fn from(e: &AstError) -> Self {
         Self {
-            variant: InferQueryErrorKind::Derived,
+            kind: InferQueryErrorKind::Derived,
             message: e.message(),
             dev_src: e.dev_src.clone(),
         }
@@ -56,7 +67,7 @@ macro_rules! query_error {
     ($msg: expr) => {{
         InferQueryError {
             message: $msg,
-            variant: InferQueryErrorKind::Original,
+            kind: InferQueryErrorKind::Original,
             dev_src: dev_utils::dev_src!(),
         }
     }};
@@ -66,7 +77,7 @@ macro_rules! query_error {
 macro_rules! query_derived_not_none {
     ($opt_value: expr) => {{
         $opt_value.ok_or(infer_error::InferQueryError {
-            variant: infer_error::InferQueryErrorKind::Derived,
+            kind: infer_error::InferQueryErrorKind::Derived,
             message: "expect not none".to_string(),
             dev_src: dev_utils::dev_src!(),
         })

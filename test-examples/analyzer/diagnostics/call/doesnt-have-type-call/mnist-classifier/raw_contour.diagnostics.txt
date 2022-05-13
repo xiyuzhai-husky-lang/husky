@@ -21,3 +21,5 @@
 61:25..61:26	Lex Error: Inappropriate
 61:25..61:26	Lex Error: Inappropriate
 61:25..61:26	Lex Error: Inappropriate
+16:18..16:21	Infer Error: no type call for b32
+19:24..19:27	Infer Error: no type call for b32
