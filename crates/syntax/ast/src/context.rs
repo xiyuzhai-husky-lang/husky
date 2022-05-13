@@ -29,7 +29,7 @@ impl AstContext {
             AstContext::Package(main) => db
                 .child_route(db.module(*main).unwrap(), ident, vec![])
                 .unwrap(),
-            AstContext::Module(_) => todo!(),
+            AstContext::Module(route) => db.child_route(*route, ident, vec![]).unwrap(),
             AstContext::DatasetConfig => todo!(),
             AstContext::Main => todo!(),
             AstContext::Morphism => todo!(),
