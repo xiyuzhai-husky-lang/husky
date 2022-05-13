@@ -81,25 +81,22 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             'b' => {
                 // b32 or b64
                 self.ignore_char();
-                match self.peek_char() {
+                let (extra_len, kind) = match self.peek_char() {
                     '3' => {
-                        let (len, kind) = {
+                        self.ignore_char();
+                        if self.peek_char() != '2' {
+                            (2, TokenKind::IllFormedLiteral)
+                        } else {
                             self.ignore_char();
-                            if self.peek_char() != '2' {
-                                (self.buffer.len() + 2, TokenKind::IllFormedLiteral)
+                            if is_word_char(self.peek_char()) {
+                                todo!()
                             } else {
-                                self.ignore_char();
-                                if is_word_char(self.peek_char()) {
-                                    todo!()
-                                } else {
-                                    (
-                                        self.buffer.len() + 3,
-                                        TokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
-                                    )
-                                }
+                                (
+                                    3,
+                                    TokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
+                                )
                             }
-                        };
-                        Token::new(self.line_index, j_start, j_start + len, kind)
+                        }
                     }
                     '6' => {
                         self.ignore_char();
@@ -108,8 +105,14 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         }
                         todo!()
                     }
-                    _ => todo!(),
-                }
+                    _ => (1, TokenKind::IllFormedLiteral),
+                };
+                Token::new(
+                    self.line_index,
+                    j_start,
+                    j_start + self.buffer.len() + extra_len,
+                    kind,
+                )
             }
             'i' => {
                 // i64

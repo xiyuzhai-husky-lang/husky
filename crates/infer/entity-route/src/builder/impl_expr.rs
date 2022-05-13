@@ -342,7 +342,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Unrecognized(_) => {
                 throw!("unrecognized caller", caller.range)
             }
-            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => {
+                throw!("a primitive literal can't be a caller", caller.range)
+            }
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { opr, ref opds } => match opr {
                 Opr::Binary(_) => todo!(),
