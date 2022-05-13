@@ -1,4 +1,5 @@
 mod dependence;
+mod module;
 mod morphism;
 mod query;
 mod routine;
@@ -12,6 +13,7 @@ use atom::{
 };
 use entity_route_query::EntitySource;
 use map_collect::MapCollect;
+use module::module_defn;
 pub use morphism::*;
 use print_utils::p;
 pub use query::*;
@@ -129,7 +131,9 @@ impl EntityDefn {
 #[derive(Debug, PartialEq, Eq)]
 pub enum EntityDefnVariant {
     Main(MainDefn),
-    Module {},
+    Module {
+        module_items: Avec<EntityDefn>,
+    },
     Feature {
         ty: RangedEntityRoute,
         lazy_stmts: Arc<Vec<Arc<LazyStmt>>>,
@@ -392,7 +396,7 @@ pub(crate) fn entity_defn(
                 ast_head.range,
             ))
         }
-        EntitySource::Module { file } => todo!(),
+        EntitySource::Module { file } => module_defn(db, entity_route, file),
         EntitySource::Input { .. } => todo!(),
         EntitySource::StaticTypeMember => match entity_route.kind {
             EntityRouteKind::Child { parent: ty, ident } => {

@@ -75,7 +75,7 @@ fn method_opt_instruction_sheet(
     let entity_defn = db.entity_defn(ty).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Main(_) => todo!(),
-        EntityDefnVariant::Module {} => todo!(),
+        EntityDefnVariant::Module { .. } => todo!(),
         EntityDefnVariant::Feature { .. } => todo!(),
         EntityDefnVariant::Pattern {} => todo!(),
         EntityDefnVariant::Func { .. } => todo!(),

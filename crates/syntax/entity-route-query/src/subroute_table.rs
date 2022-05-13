@@ -258,15 +258,17 @@ impl SubrouteTable {
     pub fn error_iter(&self) -> core::slice::Iter<EntitySyntaxError> {
         self.errors.iter()
     }
-    pub fn child_routes(&self, parent_scope_id: EntityRoutePtr) -> Vec<EntityRoute> {
-        self.entries
-            .iter()
-            .filter_map(|entry| {
-                entry
-                    .ident
-                    .map(|ident| EntityRoute::child_route(parent_scope_id, ident, Vec::new()))
+
+    pub fn subroute_iter<'a>(
+        &'a self,
+        db: &'a dyn EntityRouteSalsaQueryGroup,
+        parent_route: EntityRoutePtr,
+    ) -> impl Iterator<Item = EntityRoutePtr> + 'a {
+        self.entries.iter().filter_map(move |entry| {
+            entry.ident.map(|ident| {
+                db.intern_entity_route(EntityRoute::child_route(parent_route, ident, Vec::new()))
             })
-            .collect()
+        })
     }
 }
 
