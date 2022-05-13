@@ -295,7 +295,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::FieldAccess(ident) => self.db.ty_decl(opd_ty)?.field_ty_result(ident),
+            SuffixOpr::FieldAccess(ident) => {
+                derived_unwrap!(self.db.ty_decl(opd_ty)).field_ty_result(ident)
+            }
             SuffixOpr::WithType(_) => todo!(),
         }
     }
@@ -331,7 +333,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Entity {
                 route: scope, kind, ..
             } => {
-                let call_decl = self.db.call_decl(scope)?;
+                let call_decl = derived_unwrap!(self.db.call_decl(scope));
                 for i in 0..call_decl.inputs.len() {
                     let input_expr_idx = total_opds.start + 1 + i;
                     self.infer_expr(input_expr_idx, Some(call_decl.inputs[i].ty), arena);
@@ -377,7 +379,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
-        let this_ty_decl = derived_ok!(self.db.ty_decl(this_ty));
+        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let method_decl = this_ty_decl.method(method_ident, &self.trait_uses)?;
         if inputs.end - inputs.start != method_decl.inputs.len() {
             todo!()
@@ -421,7 +423,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }
         let this_ty = derived_not_none!(self.infer_expr(total_opds.start, None, arena))?;
         let index_ty = derived_not_none!(self.infer_expr(total_opds.start + 1, None, arena))?;
-        let this_ty_decl = self.db.ty_decl(this_ty)?;
+        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let index_trai = self.db.intern_entity_route(EntityRoute {
             kind: self.db.entity_route_menu().std_ops_index_trai.kind,
             generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],

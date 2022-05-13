@@ -1,3 +1,7 @@
+mod bind;
+
+pub use bind::*;
+
 use crate::*;
 use dev_utils::StaticDevSource;
 use serde::{Deserialize, Serialize};

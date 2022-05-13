@@ -60,16 +60,17 @@ impl From<&RoutineDefnHead> for CallDecl {
 pub(crate) fn call_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
-) -> InferResultArc<CallDecl> {
+) -> InferQueryResultArc<CallDecl> {
     let source = db.entity_source(route)?;
     return match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => {
                 routine_decl_from_static(db, vec![], static_defn)
             }
-            EntityStaticDefnVariant::Type { .. } => {
-                db.ty_decl(route)?.opt_type_call.clone().expect("todo")
-            }
+            EntityStaticDefnVariant::Type { .. } => match db.ty_decl(route)?.opt_type_call {
+                Some(ref ty_call) => ty_call.clone(),
+                None => return Err(query_error!(format!("no type call for {:?}", route))),
+            },
             _ => panic!(),
         }),
         EntitySource::WithinBuiltinModule => todo!(),

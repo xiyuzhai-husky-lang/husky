@@ -298,7 +298,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &arena[all_opds.start];
         match call_expr.variant {
             RawExprVariant::Entity { route: scope, .. } => {
-                let call_decl = self.db.call_decl(scope)?;
+                let call_decl = derived_unwrap!(self.db.call_decl(scope));
                 match contract {
                     EagerContract::Pure => (),
                     EagerContract::Move => (),

@@ -148,7 +148,7 @@ pub(crate) fn method_decl(
         EntityRouteKind::Root { ident } => todo!(),
         EntityRouteKind::Package { main, ident } => todo!(),
         EntityRouteKind::Child { parent, ident } => {
-            let ty_decl = derived_ok!(db.ty_decl(parent));
+            let ty_decl = derived_unwrap!(db.ty_decl(parent));
             match derived_not_none!(ty_decl
                 .ty_members
                 .iter()
@@ -160,7 +160,7 @@ pub(crate) fn method_decl(
             }
         }
         EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-            let ty_decl = derived_ok!(db.ty_decl(ty));
+            let ty_decl = derived_unwrap!(db.ty_decl(ty));
             match derived_not_none!(ty_decl.trai_member_impl(trai, ident))? {
                 TraitMemberImplDecl::Method(method) => Ok(method.clone()),
                 TraitMemberImplDecl::AssociatedType { ident, ty } => todo!(),
