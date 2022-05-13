@@ -60,13 +60,10 @@ fn subscopes(
     db: &dyn EntityRouteSalsaQueryGroup,
     scope: EntityRoutePtr,
 ) -> Arc<Vec<EntityRoutePtr>> {
-    Arc::new(db.subroute_table(scope).map_or(Vec::new(), |table| {
-        table
-            .child_routes(scope)
-            .into_iter()
-            .map(|scope| db.intern_entity_route(scope))
-            .collect()
-    }))
+    Arc::new(
+        db.subroute_table(scope)
+            .map_or(Vec::new(), |table| table.subroute_iter(db, scope).collect()),
+    )
 }
 
 fn entity_kind(

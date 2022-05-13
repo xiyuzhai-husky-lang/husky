@@ -30,7 +30,7 @@ impl<'a> RustGenerator<'a> {
         for entity in pack.subentity_defns.iter() {
             match entity.variant {
                 EntityDefnVariant::Main(_) => todo!(),
-                EntityDefnVariant::Module {} => todo!(),
+                EntityDefnVariant::Module { .. } => todo!(),
                 EntityDefnVariant::Feature { .. } | EntityDefnVariant::Pattern {} => (),
                 EntityDefnVariant::Func {
                     ref input_placeholders,
