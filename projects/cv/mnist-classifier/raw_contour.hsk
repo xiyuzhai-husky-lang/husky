@@ -1,2 +1,113 @@
 enum Direction:
-UP, LEFT, DOWN, RIGHT}
+    UP
+    LEFT
+    DOWN
+    RIGHT
+
+
+// pub func int int => Point2d point
+pub fn Point2dFromIJ28(i: int, j: int) -> Point2d
+  return Point2d(float(29 - j), float(29 - i))
+
+fn get_pixel_pair(row: bit32, j: int) -> bit32
+  return (row >> (j - 1)) & bit32(3)
+
+fn get_pixel_to_the_left(row: bit32, j: int) -> bit32
+  return (row >> j) & bit32(1)
+
+fn get_pixel_to_the_right(row: bit32, j: int) -> bit32
+  return (row >> (j - 1)) & bit32(1)
+
+fn get_inward_direction(row_above: bit32, row_below: bit32, j: int) -> Direction
+  let pixel_pair_above = get_pixel_pair row_above j
+  let pixel_pair_below = get_pixel_pair row_below j
+  switch pixel_pair_above
+  case 0
+    switch pixel_pair_below
+    case 1
+    case 3
+      return Direction::LEFT
+    case 2
+      return Direction::UP
+  case 1
+    return Direction::DOWN
+  case 2
+    switch pixel_pair_below
+    case 0
+      return Direction::RIGHT
+    case 1
+    case 3
+      return Direction::LEFT
+    case 2
+      return Direction::UP
+  case 3
+    switch pixel_pair_below
+    case 0
+    case 1
+      return Direction::RIGHT
+    case 2
+      return Direction::UP
+
+fn get_angle_change(inward: Direction, outward: Direction) -> int
+  let raw_angle_change = bitmod outward.to_int() - inward.to_int() 2
+  switch raw_angle_change
+  case 0
+  case 1
+  case 2
+    return raw_angle_change
+  case 3
+    return -1
+
+fn get_outward_direction(
+      row_above: bit32,
+      row_below: bit32,
+      j: int,
+      inward_direction: Direction
+    ) -> Direction
+  let pixel_pair_above = get_pixel_pair row_above j
+  let pixel_pair_below = get_pixel_pair row_below j
+  switch pixel_pair_above
+  case 0
+    switch pixel_pair_below
+    case 1
+      return Direction::DOWN
+    case 2
+    case 3
+      return Direction::LEFT
+  case 1
+    switch pixel_pair_below
+    case 0
+      return Direction::RIGHT
+    case 1
+      return Direction::DOWN
+    case 2
+      switch inward_direction
+      case Direction::DOWN
+        return Direction::LEFT
+      case Direction::UP
+        return Direction::RIGHT
+      default
+        assert false
+    case 3
+      return Direction::LEFT
+  case 2
+    switch pixel_pair_below
+    case 0
+    case 2
+    case 3
+      return Direction::UP
+    case 1
+      switch inward_direction
+      case Direction::LEFT
+        return Direction::UP
+      case Direction::RIGHT
+        return Direction::DOWN
+      default
+        assert false
+  case 3
+    switch pixel_pair_below
+    case 0
+    case 2
+      return Direction::RIGHT
+    case 1
+      return Direction::DOWN
