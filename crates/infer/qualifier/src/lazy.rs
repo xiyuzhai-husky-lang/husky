@@ -2,6 +2,7 @@ use crate::*;
 use infer_error::derived;
 use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
+use word::RootIdentifier;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyQualifiedTy {
@@ -16,6 +17,13 @@ impl TestDisplay for LazyQualifiedTy {
 }
 
 impl LazyQualifiedTy {
+    pub(crate) fn ty_ty() -> Self {
+        Self {
+            qual: LazyQualifier::GlobalRef,
+            ty: EntityRoutePtr::Root(RootIdentifier::Type),
+        }
+    }
+
     pub(crate) fn from_input(
         db: &dyn InferQualifiedTyQueryGroup,
         input_contract: InputContract,

@@ -1,6 +1,7 @@
 use crate::*;
 use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
+use word::RootIdentifier;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EagerQualifiedTy {
@@ -29,6 +30,12 @@ impl TestDisplay for EagerQualifiedTy {
 }
 
 impl EagerQualifiedTy {
+    pub(crate) fn ty_qualified_ty() -> Self {
+        Self {
+            qual: EagerQualifier::GlobalRef,
+            ty: EntityRoutePtr::Root(RootIdentifier::Type),
+        }
+    }
     pub(crate) fn from_input(
         db: &dyn InferQualifiedTyQueryGroup,
         input_contract: InputContract,

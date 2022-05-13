@@ -2,6 +2,7 @@ use ast::{RawExprArena, RawExprRange, RawExprVariant, RawStmt, RawStmtVariant};
 use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
+use infer_error::derived;
 use infer_error::derived_not_none;
 use infer_error::derived_unwrap;
 use infer_error::throw_derived;
@@ -160,7 +161,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
-                EntityKind::Type(_) => todo!(),
+                EntityKind::Type(_) => Ok(LazyQualifiedTy::ty_ty()),
                 EntityKind::Trait => todo!(),
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Routine => todo!(),

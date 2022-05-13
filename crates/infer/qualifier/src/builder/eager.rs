@@ -209,7 +209,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized")),
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
-                EntityKind::Type(_) => todo!(),
+                EntityKind::Type(_) => Ok(EagerQualifiedTy::ty_qualified_ty()),
                 EntityKind::Trait => todo!(),
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Routine => todo!(),
