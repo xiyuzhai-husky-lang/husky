@@ -75,8 +75,8 @@ impl EagerQualifiedTy {
                 EagerQualifier::GlobalRef => todo!(),
             },
             InitKind::Decl => match self.qual {
-                EagerQualifier::Copyable => todo!(),
-                EagerQualifier::CopyableMut => todo!(),
+                EagerQualifier::Copyable => EagerQualifier::Copyable,
+                EagerQualifier::CopyableMut => panic!(),
                 EagerQualifier::PureRef => todo!(),
                 EagerQualifier::GlobalRef => todo!(),
                 EagerQualifier::LocalRef => todo!(),

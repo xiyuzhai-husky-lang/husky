@@ -112,8 +112,8 @@ fn is_implicit_convertible(
             RootIdentifier::EqTrait => todo!(),
         },
         EntityRoutePtr::Custom(_) => {
-            p!(src_ty, dst_ty);
-            todo!()
+            msg_once!("handle convertible");
+            false
         }
         EntityRoutePtr::ThisType => todo!(),
     }
