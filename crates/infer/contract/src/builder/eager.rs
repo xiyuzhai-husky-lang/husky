@@ -1,3 +1,4 @@
+use ast::{CasePattern, CasePatternVariant};
 use ast::{
     RawBoundary, RawBranchVariant, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind,
     RawStmt, RawStmtVariant,
@@ -71,7 +72,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     self.infer_eager_condition(*condition, arena)
                 }
                 RawBranchVariant::Else => (),
-                RawBranchVariant::Case { pattern } => todo!(),
+                RawBranchVariant::Case { pattern } => self.infer_eager_pattern(pattern),
                 RawBranchVariant::Default => todo!(),
             },
             RawStmtVariant::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
@@ -88,7 +89,19 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawStmtVariant::Assert(condition) => self.infer_eager_condition(condition, arena),
             RawStmtVariant::Break => (),
-            RawStmtVariant::Match { .. } => todo!(),
+            RawStmtVariant::Match {
+                match_expr,
+                match_contract,
+            } => {
+                self.infer_eager_expr(match_expr, match_contract.eager(), arena);
+            }
+        }
+    }
+
+    fn infer_eager_pattern(&mut self, pattern: &CasePattern) {
+        match pattern.variant {
+            CasePatternVariant::PrimitiveLiteral(_) => (),
+            CasePatternVariant::OneOf { .. } => (),
         }
     }
 

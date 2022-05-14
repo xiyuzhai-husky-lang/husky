@@ -1,4 +1,4 @@
-use ast::{MatchPattern, MatchPatternVariant, RawBranchVariant};
+use ast::{CasePattern, CasePatternVariant, RawBranchVariant};
 use ast::{RawExprArena, RawExprRange, RawExprVariant, RawStmt, RawStmtVariant};
 use check_utils::should;
 use defn_head::InputPlaceholder;
@@ -84,7 +84,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 RawBranchVariant::If { condition } => todo!(),
                 RawBranchVariant::Elif { condition } => todo!(),
                 RawBranchVariant::Else => todo!(),
-                RawBranchVariant::Case { ref pattern } => self.infer_lazy_match_pattern(pattern),
+                RawBranchVariant::Case { ref pattern } => self.infer_lazy_case_pattern(pattern),
                 RawBranchVariant::Default => (),
             },
             RawStmtVariant::Exec(_) => todo!(),
@@ -126,14 +126,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn infer_lazy_match_pattern(&mut self, pattern: &MatchPattern) {
+    fn infer_lazy_case_pattern(&mut self, pattern: &CasePattern) {
         match pattern.variant {
-            MatchPatternVariant::PrimitiveLiteral(_) => (),
-            MatchPatternVariant::OneOf { ref patterns } => {
-                for pattern in patterns {
-                    self.infer_lazy_match_pattern(pattern)
-                }
-            }
+            CasePatternVariant::PrimitiveLiteral(_) => (),
+            CasePatternVariant::OneOf { ref patterns } => (),
         }
     }
 

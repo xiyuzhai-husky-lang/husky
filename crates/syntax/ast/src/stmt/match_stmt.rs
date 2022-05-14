@@ -1,6 +1,6 @@
 use crate::*;
 use entity_route::EntityRoutePtr;
-use vm::{LazyContract, PrimitiveValue};
+use vm::{EagerContract, LazyContract, PrimitiveValue};
 use word::RootIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -14,54 +14,60 @@ impl MatchContract {
             MatchContract::Pure => LazyContract::Pure,
         }
     }
+
+    pub fn eager(self) -> EagerContract {
+        match self {
+            MatchContract::Pure => EagerContract::Pure,
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MatchPattern {
+pub struct CasePattern {
     pub ty: EntityRoutePtr,
     pub range: TextRange,
-    pub variant: MatchPatternVariant,
+    pub variant: CasePatternVariant,
 }
 
-impl TextRanged for MatchPattern {
+impl TextRanged for CasePattern {
     fn text_range(&self) -> TextRange {
         self.range
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum MatchPatternVariant {
+pub enum CasePatternVariant {
     PrimitiveLiteral(PrimitiveValue),
-    OneOf { patterns: Vec<MatchPattern> },
+    OneOf { patterns: Vec<CasePattern> },
 }
 
-impl MatchPattern {
+impl CasePattern {
     pub fn primitive_literal(value: PrimitiveValue, range: TextRange) -> Self {
         Self {
             ty: value.ty().into(),
-            variant: MatchPatternVariant::PrimitiveLiteral(value),
+            variant: CasePatternVariant::PrimitiveLiteral(value),
             range,
         }
     }
 
-    pub fn or(self, new_pattern: MatchPattern) -> AstResult<Self> {
+    pub fn or(self, new_pattern: CasePattern) -> AstResult<Self> {
         if self.ty != new_pattern.ty {
             todo!()
         }
         let ty = self.ty;
         let range = self.text_range_to(&new_pattern);
         let patterns = match self.variant {
-            MatchPatternVariant::PrimitiveLiteral(_) => {
+            CasePatternVariant::PrimitiveLiteral(_) => {
                 vec![self, new_pattern]
             }
-            MatchPatternVariant::OneOf { mut patterns } => {
+            CasePatternVariant::OneOf { mut patterns } => {
                 patterns.push(new_pattern);
                 patterns
             }
         };
-        Ok(MatchPattern {
+        Ok(CasePattern {
             ty,
-            variant: MatchPatternVariant::OneOf { patterns },
+            variant: CasePatternVariant::OneOf { patterns },
             range,
         })
     }

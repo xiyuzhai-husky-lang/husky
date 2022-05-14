@@ -51,6 +51,7 @@ impl EntityRouteSheet {
             }
         } else {
             p!(self.expr_tys);
+            p!(self.ast_text.file);
             p!(self.ast_text.arena);
             p!(expr_idx);
             panic!()

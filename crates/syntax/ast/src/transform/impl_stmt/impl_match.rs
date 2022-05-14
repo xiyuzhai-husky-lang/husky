@@ -26,7 +26,7 @@ impl<'a> AstTransformer<'a> {
         }))
     }
 
-    fn parse_match_pattern(&mut self, tokens: &[Token]) -> AstResult<MatchPattern> {
+    fn parse_match_pattern(&mut self, tokens: &[Token]) -> AstResult<CasePattern> {
         todo!()
     }
 
@@ -46,7 +46,7 @@ impl<'a> MatchPatternParser<'a> {
         }
     }
 
-    pub fn parse(mut self) -> AstResult<MatchPattern> {
+    pub fn parse(mut self) -> AstResult<CasePattern> {
         let mut pattern = self.parse_simple_pattern()?.unwrap();
         while let Some(separator) = self.atom_iter.next() {
             match separator.kind {
@@ -63,7 +63,7 @@ impl<'a> MatchPatternParser<'a> {
         Ok(pattern)
     }
 
-    fn parse_simple_pattern(&mut self) -> AstResult<Option<MatchPattern>> {
+    fn parse_simple_pattern(&mut self) -> AstResult<Option<CasePattern>> {
         Ok(self.atom_iter.next().map(|atom| match atom.kind {
             AtomVariant::EntityRoute { route, kind } => todo!(),
             AtomVariant::Variable { varname, init_row } => todo!(),
@@ -74,7 +74,7 @@ impl<'a> MatchPatternParser<'a> {
             } => todo!(),
             AtomVariant::Unrecognized(_) => todo!(),
             AtomVariant::PrimitiveLiteral(value) => {
-                MatchPattern::primitive_literal(value, atom.range)
+                CasePattern::primitive_literal(value, atom.range)
             }
             AtomVariant::Binary(_) => todo!(),
             AtomVariant::Prefix(_) => todo!(),

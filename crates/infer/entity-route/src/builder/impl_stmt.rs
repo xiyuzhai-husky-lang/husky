@@ -36,6 +36,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     },
                     _ => todo!(),
                 }
+            } else {
+                if let Some(children) = item.opt_children {
+                    self.infer_stmts(children, opt_output_ty, arena)
+                }
             }
         }
         self.exit_block()

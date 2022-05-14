@@ -60,10 +60,10 @@ impl<'a> ContractSheetBuilder<'a> {
         self.infer_lazy_expr(condition, LazyContract::Pure, arena)
     }
 
-    fn infer_lazy_pattern(&mut self, pattern: &MatchPattern) {
+    fn infer_lazy_pattern(&mut self, pattern: &CasePattern) {
         match pattern.variant {
-            MatchPatternVariant::PrimitiveLiteral(_) => (),
-            MatchPatternVariant::OneOf { .. } => (),
+            CasePatternVariant::PrimitiveLiteral(_) => (),
+            CasePatternVariant::OneOf { .. } => (),
         }
     }
 

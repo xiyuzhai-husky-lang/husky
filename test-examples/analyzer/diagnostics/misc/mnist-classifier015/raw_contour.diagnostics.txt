@@ -1,0 +1,11 @@
+22:5..22:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
+23:5..23:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
+34:19..34:35	Ast Error: expect `:`
+35:13..35:20	Ast Error: can't put case outside a match context
+37:13..37:24	Ast Error: can't put case outside a match context
+39:13..39:20	Ast Error: can't put case outside a match context
+46:39..46:41	Ast Error: expect `:`
+56:14..56:15	Ast Error: expect `:`
+112:39..112:43	Ast Error: expect `:`
+24:11..24:27	Infer Error: Unrecognized identifier `pixel_pair_above`
+26:19..26:35	Infer Error: Unrecognized identifier `pixel_pair_below`
