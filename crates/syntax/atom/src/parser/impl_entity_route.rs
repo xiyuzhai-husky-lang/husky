@@ -8,7 +8,7 @@ use super::*;
 /// parse atoms from left to right
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
-impl<'a> AtomLRParser<'a> {
+impl<'a> AtomParser<'a> {
     pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomVariant>> {
         Ok(if let Some(token) = self.stream.next() {
             if token.kind == Special::LBox.into() {

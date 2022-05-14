@@ -136,7 +136,7 @@ impl AtomStack {
             .atoms
             .pop()
             .ok_or(error!("something before it", follower.clone()))?;
-        *follower = atom.to(follower);
+        *follower = atom.text_range_to(follower);
         Ok(atom)
     }
 

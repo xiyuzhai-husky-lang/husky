@@ -1,5 +1,5 @@
 use super::*;
-impl<'a> AtomLRParser<'a> {
+impl<'a> AtomParser<'a> {
     pub(super) fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {
         if let Some(abs_semantic_tokens) = self.opt_abs_semantic_tokens.as_mut() {
             if abs_semantic_tokens.len() > 0 {

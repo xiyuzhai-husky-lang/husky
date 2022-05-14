@@ -53,7 +53,6 @@ pub fn new_word_unique_allocator() -> WordAllocator {
         StmtKeyword::If.into(),
         StmtKeyword::Elif.into(),
         StmtKeyword::Else.into(),
-        StmtKeyword::Switch.into(),
         StmtKeyword::Match.into(),
         StmtKeyword::Case.into(),
         StmtKeyword::DeFault.into(),

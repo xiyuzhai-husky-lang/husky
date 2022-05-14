@@ -24,16 +24,16 @@ impl<'a> AstTransformer<'a> {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
-                        let this_ty = self.env().child_route(self.db, custom_ident);
-                        self.opt_this_ty.set_value(Some(this_ty));
-                        self.opt_this_contract.set_value(None);
+                        let this_ty = self.context().child_route(self.db, custom_ident);
+                        self.opt_this_ty.set(Some(this_ty));
+                        self.opt_this_contract.set(None);
                     }
                     _ => (),
                 },
                 _ => (),
             }
         };
-        self.env.set_value(AstContext::Struct);
+        self.context.set(AstContext::Struct);
         expect_len!(tokens, 3);
         expect_head!(tokens);
         emsg_once!("struct generic placeholders");
@@ -54,15 +54,15 @@ impl<'a> AstTransformer<'a> {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
                         self.opt_this_ty
-                            .set_value(Some(self.env().child_route(self.db, custom_ident)));
-                        self.opt_this_contract.set_value(None);
+                            .set(Some(self.context().child_route(self.db, custom_ident)));
+                        self.opt_this_contract.set(None);
                     }
                     _ => (),
                 },
                 _ => (),
             }
         };
-        self.env.set_value(AstContext::Record);
+        self.context.set(AstContext::Record);
         expect_len!(tokens, 3);
         expect_head!(tokens);
         emsg_once!("record generic placeholders");
@@ -86,10 +86,10 @@ impl<'a> AstTransformer<'a> {
             tokens[1],
             SemanticTokenKind::Entity(EntityKind::Type(TyKind::Enum))
         );
-        let this_ty = self.env().child_route(self.db, ident.ident);
-        self.env.set_value(AstContext::Enum(this_ty));
-        self.opt_this_ty.set_value(Some(this_ty));
-        self.opt_this_contract.set_value(None);
+        let this_ty = self.context().child_route(self.db, ident.ident);
+        self.context.set(AstContext::Enum(this_ty));
+        self.opt_this_ty.set(Some(this_ty));
+        self.opt_this_contract.set(None);
         Ok(AstKind::TypeDefnHead {
             ident,
             kind: TyKind::Enum,

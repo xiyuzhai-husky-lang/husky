@@ -1,6 +1,6 @@
 use ast::{
-    RawBoundary, RawBranchKind, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt,
-    RawStmtVariant,
+    RawBoundary, RawBranchVariant, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind,
+    RawStmt, RawStmtVariant,
 };
 
 use dev_utils::dev_src;
@@ -65,10 +65,14 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawLoopKind::While { condition } => self.infer_eager_condition(condition, arena),
                 RawLoopKind::DoWhile { condition } => self.infer_eager_condition(condition, arena),
             },
-            RawStmtVariant::Branch(branch_kind) => match branch_kind {
-                RawBranchKind::If { condition } => self.infer_eager_condition(condition, arena),
-                RawBranchKind::Elif { condition } => self.infer_eager_condition(condition, arena),
-                RawBranchKind::Else => (),
+            RawStmtVariant::Branch(ref branch_kind) => match branch_kind {
+                RawBranchVariant::If { condition } => self.infer_eager_condition(*condition, arena),
+                RawBranchVariant::Elif { condition } => {
+                    self.infer_eager_condition(*condition, arena)
+                }
+                RawBranchVariant::Else => (),
+                RawBranchVariant::Case { pattern } => todo!(),
+                RawBranchVariant::Default => todo!(),
             },
             RawStmtVariant::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
             RawStmtVariant::Init { initial_value, .. } => {
@@ -84,6 +88,7 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawStmtVariant::Assert(condition) => self.infer_eager_condition(condition, arena),
             RawStmtVariant::Break => (),
+            RawStmtVariant::Match { .. } => todo!(),
         }
     }
 

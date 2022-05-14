@@ -29,7 +29,13 @@ impl<'a> ContractSheetBuilder<'a> {
     fn infer_lazy_stmt(&mut self, stmt: &RawStmt, arena: &RawExprArena) {
         match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => panic!(),
-            RawStmtVariant::Branch(_) => todo!(),
+            RawStmtVariant::Branch(ref branch_variant) => match branch_variant {
+                RawBranchVariant::If { condition } => todo!(),
+                RawBranchVariant::Elif { condition } => todo!(),
+                RawBranchVariant::Else => todo!(),
+                RawBranchVariant::Case { pattern } => self.infer_lazy_pattern(pattern),
+                RawBranchVariant::Default => (),
+            },
             RawStmtVariant::Exec(expr) => panic!(),
             RawStmtVariant::Init {
                 varname,
@@ -43,11 +49,22 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawStmtVariant::Assert(condition) => self.infer_lazy_condition(condition, arena),
             RawStmtVariant::Break => todo!(),
+            RawStmtVariant::Match {
+                match_expr,
+                match_contract,
+            } => self.infer_lazy_expr(match_expr, match_contract.lazy(), arena),
         }
     }
 
     fn infer_lazy_condition(&mut self, condition: RawExprIdx, arena: &RawExprArena) {
         self.infer_lazy_expr(condition, LazyContract::Pure, arena)
+    }
+
+    fn infer_lazy_pattern(&mut self, pattern: &MatchPattern) {
+        match pattern.variant {
+            MatchPatternVariant::PrimitiveLiteral(_) => (),
+            MatchPatternVariant::OneOf { .. } => (),
+        }
     }
 
     pub(super) fn infer_lazy_expr(

@@ -14,7 +14,7 @@ pub(super) fn left_side_convexity(kind: &AtomVariant) -> Convexity {
         | AtomVariant::FrameVariable { .. }
         | AtomVariant::ThisData { .. }
         | AtomVariant::Unrecognized(_)
-        | AtomVariant::Literal(_)
+        | AtomVariant::PrimitiveLiteral(_)
         | AtomVariant::Prefix(_)
         | AtomVariant::ListStart(_, ListStartAttr::None)
         | AtomVariant::ListEnd(_, _)
@@ -33,7 +33,7 @@ pub(super) fn right_side_convexity(kind: &AtomVariant) -> Convexity {
         | AtomVariant::FrameVariable { .. }
         | AtomVariant::ThisData { .. }
         | AtomVariant::Unrecognized(_)
-        | AtomVariant::Literal(_)
+        | AtomVariant::PrimitiveLiteral(_)
         | AtomVariant::Suffix(_)
         | AtomVariant::ListEnd(_, ListEndAttr::None)
         | AtomVariant::ListEnd(_, ListEndAttr::Modulo) => Convexity::Convex,

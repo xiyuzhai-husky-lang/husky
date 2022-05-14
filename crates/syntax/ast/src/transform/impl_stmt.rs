@@ -1,5 +1,8 @@
+mod impl_loop;
+mod impl_match;
+
 use crate::{
-    stmt::{RawBranchKind, RawLoopKind, RawStmtVariant},
+    stmt::{RawBranchVariant, RawLoopKind, RawStmtVariant},
     *,
 };
 use atom::symbol::{Symbol, SymbolKind};
@@ -12,6 +15,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         keyword: StmtKeyword,
         token_group: &[Token],
+        enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<RawStmt> {
         let kw_range = token_group[0].text_range();
         Ok(RawStmt {
@@ -26,7 +30,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::If => {
                     expect_at_least!(token_group, kw_range, 3);
                     expect_block_head!(token_group);
-                    RawStmtVariant::Branch(RawBranchKind::If {
+                    RawStmtVariant::Branch(RawBranchVariant::If {
                         condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
                     })
                 }
@@ -35,15 +39,58 @@ impl<'a> AstTransformer<'a> {
                     must_be!(token_group.len() == 2, "expect one tokens after", kw_range);
                     must_be!(
                         token_group[1].kind == TokenKind::Special(Special::Colon),
-                        "expect `:`",
-                        token_group[1].range
+                        "expect `:` at the end",
+                        token_group[0].text_range()
                     );
-                    RawStmtVariant::Branch(RawBranchKind::Else)
+                    RawStmtVariant::Branch(RawBranchVariant::Else)
                 }
-                StmtKeyword::Switch => todo!(),
-                StmtKeyword::Match => todo!(),
-                StmtKeyword::Case => todo!(),
-                StmtKeyword::DeFault => todo!(),
+                StmtKeyword::Match => {
+                    enter_block(self);
+                    match self.context() {
+                        AstContext::Main | AstContext::Lazy => {
+                            self.context.set(AstContext::LazyMatch)
+                        }
+                        AstContext::DatasetConfig | AstContext::Func => {
+                            self.context.set(AstContext::FuncMatch)
+                        }
+                        AstContext::Proc => self.context.set(AstContext::ProcMatch),
+                        AstContext::Test => todo!(),
+                        _ => todo!("can't put match here"),
+                    }
+                    self.parse_match(token_group)?
+                }
+                StmtKeyword::Case => {
+                    enter_block(self);
+                    match self.context() {
+                        AstContext::FuncMatch => self.context.set(AstContext::Func),
+                        AstContext::ProcMatch => self.context.set(AstContext::Proc),
+                        AstContext::LazyMatch => self.context.set(AstContext::Lazy),
+                        _ => {
+                            return err!(
+                                "can't put case outside a match context",
+                                token_group.text_range()
+                            )
+                        }
+                    }
+                    self.parse_case(token_group)?
+                }
+                StmtKeyword::DeFault => {
+                    enter_block(self);
+                    match self.context() {
+                        AstContext::FuncMatch => self.context.set(AstContext::Func),
+                        AstContext::ProcMatch => self.context.set(AstContext::Proc),
+                        AstContext::LazyMatch => self.context.set(AstContext::Lazy),
+                        _ => {
+                            return err!(
+                                "can't put case outside a match context",
+                                token_group.text_range()
+                            )
+                        }
+                    }
+                    expect_head!(token_group);
+                    must_be!(token_group.len() == 2, "expect some tokens after", kw_range);
+                    RawStmtVariant::Branch(RawBranchVariant::Default)
+                }
                 StmtKeyword::For => self.parse_for_loop(token_group)?,
                 StmtKeyword::ForExt => self.parse_forext_loop(token_group)?,
                 StmtKeyword::While => self.parse_while_loop(token_group)?,
@@ -70,13 +117,10 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         token_group: &[Token],
     ) -> AstResult<RawStmt> {
-        Ok(match self.env() {
+        Ok(match self.context() {
             AstContext::Package(_) => todo!(),
             AstContext::Module(_) => todo!(),
-            AstContext::DatasetConfig
-            | AstContext::Main
-            | AstContext::Morphism
-            | AstContext::Func => {
+            AstContext::DatasetConfig | AstContext::Main | AstContext::Lazy | AstContext::Func => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
                     let varname = identify!(self, token_group[0], SemanticTokenKind::Variable);
@@ -106,6 +150,9 @@ impl<'a> AstTransformer<'a> {
             AstContext::Struct | AstContext::Enum(_) => panic!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
+            AstContext::FuncMatch => todo!(),
+            AstContext::ProcMatch => todo!(),
+            AstContext::LazyMatch => todo!(),
         })
         // Ok(Stmt::Exec(expr.unwrap()).into())
     }
@@ -116,13 +163,13 @@ impl<'a> AstTransformer<'a> {
         tokens: &[Token],
     ) -> AstResult<RawStmtVariant> {
         match kind {
-            InitKind::Let | InitKind::Var => match self.env() {
+            InitKind::Let | InitKind::Var => match self.context() {
                 AstContext::Proc | AstContext::Test => (),
                 _ => err!(
                     format!(
                         "`{}` statement requires env to be `proc` or `test`, but got `{}` instead",
                         kind,
-                        self.env()
+                        self.context()
                     ),
                     kw_range
                 )?,

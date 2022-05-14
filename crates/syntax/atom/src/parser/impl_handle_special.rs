@@ -2,7 +2,7 @@ use vm::*;
 
 use super::*;
 
-impl<'a> AtomLRParser<'a> {
+impl<'a> AtomParser<'a> {
     pub(super) fn handle_special(&mut self, special: Special, token: &Token) -> AtomResult<()> {
         match special {
             Special::DoubleColon => err!(
@@ -114,7 +114,7 @@ impl<'a> AtomLRParser<'a> {
                 AtomVariant::Variable { .. }
                 | AtomVariant::FrameVariable { .. }
                 | AtomVariant::ThisData { .. }
-                | AtomVariant::Literal(_) => {
+                | AtomVariant::PrimitiveLiteral(_) => {
                     self.stack.push(Atom::new(
                         exclamation_range,
                         AtomVariant::Prefix(PrefixOpr::Not),

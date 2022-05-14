@@ -7,7 +7,7 @@ pub mod symbol;
 
 pub use error::*;
 pub use kind::{AtomVariant, LambdaHead};
-pub use parser::AtomLRParser;
+pub use parser::AtomParser;
 pub use parser::*;
 use print_utils::p;
 pub use symbol::SymbolContext;

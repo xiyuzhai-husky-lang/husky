@@ -1,3 +1,4 @@
+use ast::{MatchPattern, MatchPatternVariant, RawBranchVariant};
 use ast::{RawExprArena, RawExprRange, RawExprVariant, RawStmt, RawStmtVariant};
 use check_utils::should;
 use defn_head::InputPlaceholder;
@@ -79,7 +80,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(_) => todo!(),
-            RawStmtVariant::Branch(_) => todo!(),
+            RawStmtVariant::Branch(ref branch_variant) => match branch_variant {
+                RawBranchVariant::If { condition } => todo!(),
+                RawBranchVariant::Elif { condition } => todo!(),
+                RawBranchVariant::Else => todo!(),
+                RawBranchVariant::Case { ref pattern } => self.infer_lazy_match_pattern(pattern),
+                RawBranchVariant::Default => (),
+            },
             RawStmtVariant::Exec(_) => todo!(),
             RawStmtVariant::Init {
                 init_kind,
@@ -113,6 +120,20 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.infer_lazy_expr(arena, condition);
             }
             RawStmtVariant::Break => todo!(),
+            RawStmtVariant::Match { match_expr, .. } => {
+                self.infer_lazy_expr(arena, match_expr);
+            }
+        }
+    }
+
+    fn infer_lazy_match_pattern(&mut self, pattern: &MatchPattern) {
+        match pattern.variant {
+            MatchPatternVariant::PrimitiveLiteral(_) => (),
+            MatchPatternVariant::OneOf { ref patterns } => {
+                for pattern in patterns {
+                    self.infer_lazy_match_pattern(pattern)
+                }
+            }
         }
     }
 

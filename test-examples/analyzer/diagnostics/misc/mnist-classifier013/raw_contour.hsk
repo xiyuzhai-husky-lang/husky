@@ -24,7 +24,8 @@ func get_inward_direction(row_above: b32, row_below: b32, j: int) -> Direction:
     match pixel_pair_above:
         case 0:
             match pixel_pair_below:
-                case 1 | 3:
+                case 1:
+                case 3:
                     return Direction::LEFT
                 case 2:
                     return Direction::UP
@@ -34,13 +35,15 @@ func get_inward_direction(row_above: b32, row_below: b32, j: int) -> Direction:
             match pixel_pair_below
             case 0:
                 return Direction::RIGHT
-            case 1 | 3:
+            case 1:
+            case 3:
                 return Direction::LEFT
             case 2:
                 return Direction::UP
         case 3
             match pixel_pair_below
-                case 0 | 1:
+                case 0
+                case 1
                     return Direction::RIGHT
                 case 2
                     return Direction::UP

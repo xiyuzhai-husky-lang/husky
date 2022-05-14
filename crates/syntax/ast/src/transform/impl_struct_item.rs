@@ -61,13 +61,13 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstKind> {
         enter_block(self);
-        self.env.set_value(AstContext::Func);
+        self.context.set(AstContext::Func);
         expect_at_least!(token_group, token_group.text_range(), 5);
         expect_block_head!(token_group);
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
             parser.method_decl(InputContract::Pure, RoutineContextKind::Func)
         })?;
-        self.opt_this_contract.set_value(Some(head.this_contract));
+        self.opt_this_contract.set(Some(head.this_contract));
         self.symbols.extend(
             head.input_placeholders
                 .iter()

@@ -30,7 +30,7 @@ impl<'a> AstTransformer<'a> {
                 enter_block(self);
                 Ok(match cfg {
                     ConfigKeyword::Dataset => {
-                        self.env.set_value(AstContext::DatasetConfig);
+                        self.context.set(AstContext::DatasetConfig);
                         self.use_all(RootIdentifier::Datasets.into(), token_group[0].text_range())?;
                         AstKind::DatasetConfigDefnHead
                     }
@@ -42,7 +42,7 @@ impl<'a> AstTransformer<'a> {
             }
             Keyword::Main => {
                 enter_block(self);
-                self.env.set_value(AstContext::Main);
+                self.context.set(AstContext::Main);
                 Ok(AstKind::MainDefn)
             }
         }

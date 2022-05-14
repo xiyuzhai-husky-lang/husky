@@ -63,46 +63,50 @@ impl<'a> EagerStmtParser<'a> {
             RawStmtVariant::Loop(loop_kind) => {
                 self.parse_loop_stmt(loop_kind, not_none!(children))?
             }
-            RawStmtVariant::Branch(branch_kind) => {
+            RawStmtVariant::Branch(ref branch_kind) => {
                 let mut branches = vec![];
                 match branch_kind {
-                    RawBranchKind::If { condition } => branches.push(Arc::new(ProcBranch {
+                    RawBranchVariant::If { condition } => branches.push(Arc::new(ProcBranch {
                         variant: ProcBranchVariant::If {
-                            condition: self.parse_eager_expr(condition)?,
+                            condition: self.parse_eager_expr(*condition)?,
                         },
                         stmts: self.parse_proc_stmts(not_none!(children))?,
                         range: stmt.range,
                         file: self.file,
                     })),
-                    RawBranchKind::Elif { condition } => todo!(),
-                    RawBranchKind::Else => todo!(),
+                    RawBranchVariant::Elif { condition } => todo!(),
+                    RawBranchVariant::Else => todo!(),
+                    RawBranchVariant::Case { pattern } => todo!(),
+                    RawBranchVariant::Default => todo!(),
                 }
                 while let Some(item) = iter.peek() {
                     let item = match item.value.as_ref()?.kind {
                         AstKind::Stmt(RawStmt {
-                            variant: RawStmtVariant::Branch(branch_stmt),
+                            variant: RawStmtVariant::Branch(ref branch_variant),
                             ..
-                        }) => match branch_stmt {
-                            RawBranchKind::If { .. } => break,
-                            RawBranchKind::Elif { .. } | RawBranchKind::Else => {
+                        }) => match branch_variant {
+                            RawBranchVariant::If { .. } => break,
+                            RawBranchVariant::Elif { .. } | RawBranchVariant::Else => {
                                 iter.next().unwrap()
                             }
+                            RawBranchVariant::Case { pattern } => todo!(),
+                            RawBranchVariant::Default => todo!(),
                         },
                         _ => break,
                     };
                     match item.value.as_ref()?.kind {
                         AstKind::Stmt(RawStmt {
-                            variant: RawStmtVariant::Branch(branch_stmt),
+                            variant: RawStmtVariant::Branch(ref branch_variant),
                             ..
-                        }) => match branch_stmt {
-                            RawBranchKind::If { .. } => panic!(),
-                            RawBranchKind::Elif { condition } => {
+                        }) => match branch_variant {
+                            RawBranchVariant::If { .. } => panic!(),
+                            RawBranchVariant::Elif { condition } => {
                                 if branches.len() == 0 {
                                     todo!()
                                 }
                                 todo!()
                             }
-                            RawBranchKind::Else => {
+                            RawBranchVariant::Else => {
                                 branches.push(Arc::new(ProcBranch {
                                     variant: ProcBranchVariant::Else,
                                     stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
@@ -111,6 +115,8 @@ impl<'a> EagerStmtParser<'a> {
                                 }));
                                 break;
                             }
+                            RawBranchVariant::Case { pattern } => todo!(),
+                            RawBranchVariant::Default => todo!(),
                         },
                         _ => break,
                     }
@@ -149,6 +155,7 @@ impl<'a> EagerStmtParser<'a> {
                 condition: self.parse_eager_expr(condition)?,
             },
             RawStmtVariant::Break => ProcStmtVariant::Break,
+            RawStmtVariant::Match { .. } => todo!(),
         })
     }
 

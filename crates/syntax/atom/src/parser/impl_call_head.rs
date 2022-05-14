@@ -13,7 +13,7 @@ use word::IdentDict;
 use super::*;
 
 // inner ops
-impl<'a> AtomLRParser<'a> {
+impl<'a> AtomParser<'a> {
     pub fn routine_defn_head(
         mut self,
         routine_kind: RoutineContextKind,
