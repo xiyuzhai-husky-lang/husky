@@ -1,0 +1,15 @@
+mod connected_components
+mod raw_contour
+
+use datasets::cv::mnist::BinaryImage28
+use connected_components::find_connected_components
+
+dataset:
+    cv::mnist::new_binary_dataset()
+
+main:
+    a = input
+    b = a[1]
+    c = a[12]
+    d = find_connected_components(input)
+    d.len()

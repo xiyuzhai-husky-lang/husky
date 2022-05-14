@@ -1,7 +1,4 @@
-use ast::{
-    RawBranchVariant, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt,
-    RawStmtVariant,
-};
+use ast::*;
 use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
@@ -122,7 +119,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.infer_eager_expr(arena, *condition);
                 }
                 RawBranchVariant::Else => (),
-                RawBranchVariant::Case { pattern } => todo!(),
+                RawBranchVariant::Case { pattern } => self.infer_eager_case_pattern(pattern),
                 RawBranchVariant::Default => todo!(),
             },
             RawStmtVariant::Exec(expr) => {
@@ -162,7 +159,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.infer_eager_expr(arena, condition);
             }
             RawStmtVariant::Break => (),
-            RawStmtVariant::Match { .. } => todo!(),
+            RawStmtVariant::Match { match_expr, .. } => {
+                self.infer_eager_expr(arena, match_expr);
+            }
+        }
+    }
+
+    fn infer_eager_case_pattern(&mut self, pattern: &CasePattern) {
+        match pattern.variant {
+            CasePatternVariant::PrimitiveLiteral(_) => (),
+            CasePatternVariant::OneOf { ref patterns } => (),
         }
     }
 

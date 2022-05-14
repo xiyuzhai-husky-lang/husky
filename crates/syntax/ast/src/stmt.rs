@@ -51,6 +51,6 @@ pub enum RawBranchVariant {
     If { condition: RawExprIdx },
     Elif { condition: RawExprIdx },
     Else,
-    Case { pattern: MatchPattern },
+    Case { pattern: CasePattern },
     Default,
 }
