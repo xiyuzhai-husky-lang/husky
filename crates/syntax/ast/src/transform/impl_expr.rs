@@ -13,7 +13,7 @@ impl<'a> AstTransformer<'a> {
             match atom.kind {
                 AtomVariant::Variable { .. }
                 | AtomVariant::ThisData { .. }
-                | AtomVariant::Literal(_)
+                | AtomVariant::PrimitiveLiteral(_)
                 | AtomVariant::EntityRoute { .. }
                 | AtomVariant::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
                 AtomVariant::Unrecognized(ident) => stack.accept_atom_expr(

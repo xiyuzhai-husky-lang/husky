@@ -1,10 +1,13 @@
-use text::{TextRange, TextRanged};
-use word::CustomIdentifier;
 mod loop_kind;
+mod match_stmt;
 
 pub use loop_kind::{RawBoundary, RawLoopKind};
+pub use match_stmt::*;
+use vm::InputContract;
 
 use crate::{expr::RawExprIdx, *};
+use text::{TextRange, TextRanged};
+use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawStmt {
@@ -21,7 +24,7 @@ impl TextRanged for RawStmt {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawStmtVariant {
     Loop(RawLoopKind),
-    Branch(RawBranchKind),
+    Branch(RawBranchVariant),
     Exec(RawExprIdx),
     Init {
         init_kind: InitKind,
@@ -31,6 +34,10 @@ pub enum RawStmtVariant {
     Return(RawExprIdx),
     Assert(RawExprIdx),
     Break,
+    Match {
+        match_expr: RawExprIdx,
+        match_contract: MatchContract,
+    },
 }
 
 impl From<RawLoopKind> for RawStmtVariant {
@@ -39,9 +46,11 @@ impl From<RawLoopKind> for RawStmtVariant {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RawBranchKind {
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum RawBranchVariant {
     If { condition: RawExprIdx },
     Elif { condition: RawExprIdx },
     Else,
+    Case { pattern: MatchPattern },
+    Default,
 }

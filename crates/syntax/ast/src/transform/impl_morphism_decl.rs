@@ -19,7 +19,7 @@ impl<'a> AstTransformer<'a> {
             SemanticTokenKind::Entity(EntityKind::Feature)
         );
         let scope = atom::parse_route(&self.symbol_context(), &token_group[3..])?;
-        self.env.set_value(AstContext::Morphism);
+        self.context.set(AstContext::Lazy);
         Ok(AstKind::FeatureDecl {
             ident,
             ty: RangedEntityRoute {

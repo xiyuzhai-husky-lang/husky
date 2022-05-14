@@ -85,7 +85,9 @@ impl From<&atom::Atom> for RawExpr {
                 AtomVariant::Variable { varname, init_row } => {
                     RawExprVariant::Variable { varname, init_row }
                 }
-                AtomVariant::Literal(literal) => RawExprVariant::PrimitiveLiteral(literal.clone()),
+                AtomVariant::PrimitiveLiteral(literal) => {
+                    RawExprVariant::PrimitiveLiteral(literal.clone())
+                }
                 AtomVariant::EntityRoute { route: scope, kind } => {
                     RawExprVariant::Entity { route: scope, kind }
                 }

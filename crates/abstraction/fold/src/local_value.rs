@@ -27,7 +27,7 @@ impl<T: Copy> LocalValue<T> {
         self.values.last().unwrap().1
     }
 
-    pub fn set_value(&mut self, v: T) {
+    pub fn set(&mut self, v: T) {
         self.values.push((self.current, v))
     }
 }
@@ -36,7 +36,7 @@ impl<T: Copy> LocalValue<T> {
 fn use_fold_value() {
     let mut v: LocalValue<i64> = LocalValue::new(0);
     v.enter();
-    v.set_value(23);
+    v.set(23);
     v.enter();
     assert_eq!(v.value(), 23);
     v.exit();

@@ -1,5 +1,6 @@
 use ast::{
-    RawBranchKind, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt, RawStmtVariant,
+    RawBranchVariant, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind, RawStmt,
+    RawStmtVariant,
 };
 use check_utils::should;
 use defn_head::InputPlaceholder;
@@ -113,14 +114,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.infer_eager_expr(arena, condition);
                 }
             },
-            RawStmtVariant::Branch(branch_kind) => match branch_kind {
-                RawBranchKind::If { condition } => {
-                    self.infer_eager_expr(arena, condition);
+            RawStmtVariant::Branch(ref branch_kind) => match branch_kind {
+                RawBranchVariant::If { condition } => {
+                    self.infer_eager_expr(arena, *condition);
                 }
-                RawBranchKind::Elif { condition } => {
-                    self.infer_eager_expr(arena, condition);
+                RawBranchVariant::Elif { condition } => {
+                    self.infer_eager_expr(arena, *condition);
                 }
-                RawBranchKind::Else => (),
+                RawBranchVariant::Else => (),
+                RawBranchVariant::Case { pattern } => todo!(),
+                RawBranchVariant::Default => todo!(),
             },
             RawStmtVariant::Exec(expr) => {
                 self.infer_eager_expr(arena, expr);
@@ -159,6 +162,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.infer_eager_expr(arena, condition);
             }
             RawStmtVariant::Break => (),
+            RawStmtVariant::Match { .. } => todo!(),
         }
     }
 

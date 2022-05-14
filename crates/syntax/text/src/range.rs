@@ -67,21 +67,24 @@ impl Into<lsp_types::Range> for TextRange {
 pub trait TextRanged {
     fn text_range(&self) -> TextRange;
 
-    fn text_range_to(&self, end: TextPosition) -> TextRange {
-        (self.text_range().start..end).into()
-    }
     fn text_start(&self) -> TextPosition {
         self.text_range().start
     }
     fn text_end(&self) -> TextPosition {
         self.text_range().end
     }
-    fn to(&self, range: &TextRange) -> TextRange {
-        (self.text_end()..range.end).into()
+    fn text_range_to(&self, other: &impl TextRanged) -> TextRange {
+        (self.text_end()..(other.text_range().end)).into()
     }
 
     fn row(&self) -> Row {
         self.text_range().start.row
+    }
+}
+
+impl TextRanged for TextRange {
+    fn text_range(&self) -> TextRange {
+        *self
     }
 }
 

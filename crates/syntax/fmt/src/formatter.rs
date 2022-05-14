@@ -87,7 +87,7 @@ impl<'a> Formatter<'a> {
                 match kind {
                     TyKind::Enum => todo!(),
                     TyKind::Struct => {
-                        self.context.set_value(AstContext::Struct);
+                        self.context.set(AstContext::Struct);
                         self.write("struct ")
                     }
                     TyKind::Record => todo!(),
@@ -103,12 +103,12 @@ impl<'a> Formatter<'a> {
             }
             AstKind::MainDefn => {
                 enter_block(self);
-                self.context.set_value(AstContext::Main);
+                self.context.set(AstContext::Main);
                 self.write("main:")
             }
             AstKind::RoutineDefnHead(ref head) => {
                 enter_block(self);
-                self.context.set_value((head.routine_kind).into());
+                self.context.set((head.routine_kind).into());
                 self.write(match head.routine_kind {
                     RoutineContextKind::Test => "test ",
                     RoutineContextKind::Proc => "proc ",
@@ -206,7 +206,7 @@ impl<'a> Formatter<'a> {
             }
             RawStmtVariant::Return(expr) => {
                 match self.context.value() {
-                    AstContext::Func | AstContext::Morphism | AstContext::Main => (),
+                    AstContext::Func | AstContext::Lazy | AstContext::Main => (),
                     AstContext::Proc => self.write("return "),
                     AstContext::Package(_) => todo!(),
                     AstContext::Module(_) => todo!(),
@@ -216,6 +216,9 @@ impl<'a> Formatter<'a> {
                     AstContext::Record => todo!(),
                     AstContext::Props => todo!(),
                     AstContext::Enum(_) => todo!(),
+                    AstContext::FuncMatch => todo!(),
+                    AstContext::ProcMatch => todo!(),
+                    AstContext::LazyMatch => todo!(),
                 }
                 self.fmt_expr(&self.arena[expr]);
             }
@@ -224,6 +227,7 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[expr]);
             }
             RawStmtVariant::Break => todo!(),
+            RawStmtVariant::Match { .. } => todo!(),
         }
     }
 

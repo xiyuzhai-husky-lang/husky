@@ -16,17 +16,17 @@ impl<'a> AstTransformer<'a> {
         let tokens = trim_colon!(token_group; keyword, colon);
         let head = match routine_keyword {
             RoutineKeyword::Test => {
-                self.env.set_value(AstContext::Test);
+                self.context.set(AstContext::Test);
                 todo!()
             }
             RoutineKeyword::Proc => {
-                self.env.set_value(AstContext::Proc);
+                self.context.set(AstContext::Proc);
                 self.parse_atoms(tokens, |parser| {
                     parser.routine_defn_head(RoutineContextKind::Proc)
                 })?
             }
             RoutineKeyword::Func => {
-                self.env.set_value(AstContext::Func);
+                self.context.set(AstContext::Func);
                 self.parse_atoms(tokens, |parser| {
                     parser.routine_defn_head(RoutineContextKind::Func)
                 })?

@@ -63,14 +63,14 @@ impl<'a> From<&'a [Token]> for TokenStream<'a> {
     }
 }
 
-pub struct AtomLRParser<'a> {
+pub struct AtomParser<'a> {
     symbol_context: &'a SymbolContext<'a>,
     pub(crate) stream: TokenStream<'a>,
     opt_abs_semantic_tokens: Option<&'a mut Vec<AbsSemanticToken>>,
     stack: AtomStack,
 }
 
-impl<'a> AtomLRParser<'a> {
+impl<'a> AtomParser<'a> {
     pub fn new(
         symbol_context: &'a SymbolContext<'a>,
         opt_abs_semantic_tokens: Option<&'a mut Vec<AbsSemanticToken>>,
@@ -139,7 +139,7 @@ impl<'a> AtomLRParser<'a> {
 }
 
 pub fn parse_route(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
-    let result = AtomLRParser::new(symbol_context, None, tokens.into()).parse_all()?;
+    let result = AtomParser::new(symbol_context, None, tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()
     }

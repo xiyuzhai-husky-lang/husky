@@ -28,7 +28,7 @@ pub enum AtomVariant {
         opt_contract: Option<InputContract>,
     },
     Unrecognized(CustomIdentifier),
-    Literal(PrimitiveValue),
+    PrimitiveLiteral(PrimitiveValue),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
@@ -111,7 +111,7 @@ impl From<Special> for AtomVariant {
 
 impl From<PrimitiveValue> for AtomVariant {
     fn from(lit: PrimitiveValue) -> Self {
-        Self::Literal(lit)
+        Self::PrimitiveLiteral(lit)
     }
 }
 

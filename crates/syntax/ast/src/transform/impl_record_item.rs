@@ -54,9 +54,8 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstKind> {
         enter_block(self);
-        self.env.set_value(AstContext::Morphism);
-        self.opt_this_contract
-            .set_value(Some(InputContract::GlobalRef));
+        self.context.set(AstContext::Lazy);
+        self.opt_this_contract.set(Some(InputContract::GlobalRef));
         let ident = identify!(self, &token_group[1], SemanticTokenKind::Field);
         emsg_once!("field contract");
         let ty = atom::parse_route(&self.symbol_context(), &token_group[3..])?;

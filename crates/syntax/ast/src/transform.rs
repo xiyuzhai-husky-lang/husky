@@ -33,7 +33,7 @@ pub struct AstTransformer<'a> {
     file: FilePtr,
     arena: RawExprArena,
     symbols: LocalStack<Symbol>,
-    env: LocalValue<AstContext>,
+    context: LocalValue<AstContext>,
     opt_this_ty: LocalValue<Option<EntityRoutePtr>>,
     opt_this_contract: LocalValue<Option<InputContract>>,
     folded_results: FoldedList<AstResult<Ast>>,
@@ -52,7 +52,7 @@ impl<'a> AstTransformer<'a> {
             arena: RawExprArena::new(),
             folded_results: FoldedList::new(),
             symbols: module_symbols(db, module),
-            env: LocalValue::new(match module.kind {
+            context: LocalValue::new(match module.kind {
                 EntityRouteKind::Package { main, .. } => AstContext::Package(main),
                 EntityRouteKind::Child { .. } => AstContext::Module(module),
                 _ => panic!(),
@@ -95,21 +95,21 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn env(&self) -> AstContext {
-        self.env.value()
+    fn context(&self) -> AstContext {
+        self.context.value()
     }
 }
 
 impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransformer<'a> {
     fn _enter_block(&mut self) {
-        self.env.enter();
+        self.context.enter();
         self.symbols.enter();
         self.opt_this_ty.enter();
         self.opt_this_contract.enter();
     }
 
     fn _exit_block(&mut self) {
-        self.env.exit();
+        self.context.exit();
         self.symbols.exit();
     }
 
@@ -121,23 +121,26 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
     ) -> AstResult<Ast> {
         Ok(Ast {
             range: token_group.text_range(),
-            kind: match self.env() {
+            kind: match self.context() {
                 AstContext::Package(_) | AstContext::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?
                 }
                 AstContext::DatasetConfig
                 | AstContext::Main
-                | AstContext::Morphism
+                | AstContext::Lazy
                 | AstContext::Func
                 | AstContext::Proc
-                | AstContext::Test => match token_group[0].kind {
+                | AstContext::Test
+                | AstContext::FuncMatch
+                | AstContext::ProcMatch
+                | AstContext::LazyMatch => match token_group[0].kind {
                     TokenKind::Keyword(keyword) => match keyword {
                         Keyword::Config(_) => todo!(),
                         Keyword::Routine(_) => todo!(),
                         Keyword::Type(_) => todo!(),
-                        Keyword::Stmt(keyword) => {
-                            self.parse_stmt_with_keyword(keyword, token_group)?.into()
-                        }
+                        Keyword::Stmt(keyword) => self
+                            .parse_stmt_with_keyword(keyword, token_group, enter_block)?
+                            .into(),
                         Keyword::Def => todo!(),
                         Keyword::Use => todo!(),
                         Keyword::Mod => todo!(),

@@ -83,19 +83,21 @@ impl<'a> LazyStmtParser<'a> {
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => match stmt.variant {
                     RawStmtVariant::Loop(_) => todo!(),
-                    RawStmtVariant::Branch(branch_kind) => {
+                    RawStmtVariant::Branch(ref branch_kind) => {
                         let mut branches = vec![];
                         match branch_kind {
-                            RawBranchKind::If { condition } => {
+                            RawBranchVariant::If { condition } => {
                                 branches.push(Arc::new(LazyBranch {
                                     kind: LazyBranchKind::If {
-                                        condition: self.parse_lazy_expr(condition)?,
+                                        condition: self.parse_lazy_expr(*condition)?,
                                     },
                                     stmts: self.parse_lazy_stmts(not_none!(item.opt_children))?,
                                 }))
                             }
-                            RawBranchKind::Elif { condition } => todo!(),
-                            RawBranchKind::Else => todo!(),
+                            RawBranchVariant::Elif { condition } => todo!(),
+                            RawBranchVariant::Else => todo!(),
+                            RawBranchVariant::Case { pattern } => todo!(),
+                            RawBranchVariant::Default => todo!(),
                         }
                         while let Some(item) = iter.peek() {
                             let item = match item.value.as_ref()?.kind {
@@ -107,17 +109,17 @@ impl<'a> LazyStmtParser<'a> {
                             };
                             match item.value.as_ref()?.kind {
                                 AstKind::Stmt(RawStmt {
-                                    variant: RawStmtVariant::Branch(branch_stmt),
+                                    variant: RawStmtVariant::Branch(ref branch_variant),
                                     ..
-                                }) => match branch_stmt {
-                                    RawBranchKind::If { .. } => break,
-                                    RawBranchKind::Elif { condition } => {
+                                }) => match branch_variant {
+                                    RawBranchVariant::If { .. } => break,
+                                    RawBranchVariant::Elif { condition } => {
                                         if branches.len() == 0 {
                                             todo!()
                                         }
                                         todo!()
                                     }
-                                    RawBranchKind::Else => {
+                                    RawBranchVariant::Else => {
                                         branches.push(Arc::new(LazyBranch {
                                             kind: LazyBranchKind::Else,
                                             stmts: self
@@ -125,6 +127,8 @@ impl<'a> LazyStmtParser<'a> {
                                         }));
                                         break;
                                     }
+                                    RawBranchVariant::Case { pattern } => todo!(),
+                                    RawBranchVariant::Default => todo!(),
                                 },
                                 _ => break,
                             }
@@ -181,6 +185,7 @@ impl<'a> LazyStmtParser<'a> {
                         instruction_id: Default::default(),
                     },
                     RawStmtVariant::Break => todo!(),
+                    RawStmtVariant::Match { .. } => panic!(),
                 },
                 AstKind::EnumVariantDefnHead {
                     ident,

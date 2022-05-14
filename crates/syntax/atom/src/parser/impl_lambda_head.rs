@@ -6,7 +6,7 @@ use crate::*;
 use super::*;
 
 // inner ops
-impl<'a> AtomLRParser<'a> {
+impl<'a> AtomParser<'a> {
     pub(crate) fn lambda_head(
         &mut self,
     ) -> AtomResult<Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>> {

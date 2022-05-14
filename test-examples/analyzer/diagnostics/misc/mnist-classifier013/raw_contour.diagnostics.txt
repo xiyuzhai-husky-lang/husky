@@ -1,0 +1,13 @@
+27:23..27:24	Lex Error: expect indentated lines after `:`
+38:19..38:20	Lex Error: expect indentated lines after `:`
+21:62..21:65	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(int)), 21:62..21:65})} instead
+22:5..22:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
+23:5..23:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
+35:19..35:35	Ast Error: expect `:`
+36:13..36:20	Ast Error: can't put case outside a match context
+38:13..38:20	Ast Error: can't put case outside a match context
+39:13..39:20	Ast Error: can't put case outside a match context
+41:13..41:20	Ast Error: can't put case outside a match context
+49:39..49:41	Ast Error: expect `:`
+59:14..59:15	Ast Error: expect `:`
+115:39..115:43	Ast Error: expect `:`

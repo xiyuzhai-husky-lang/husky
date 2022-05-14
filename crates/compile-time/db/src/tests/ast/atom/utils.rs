@@ -20,7 +20,7 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static st
     let tokens = db.tokenize(line);
     let main = db.intern_file("haha/main.hsk".into());
     let symbols = fold::LocalStack::new();
-    AtomLRParser::new(
+    AtomParser::new(
         &SymbolContext {
             opt_package_main: Some(main),
             db,

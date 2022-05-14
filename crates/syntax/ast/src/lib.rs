@@ -10,7 +10,7 @@ pub use context::AstContext;
 pub use expr::*;
 use file::FilePtr;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
-pub use stmt::{RawBoundary, RawBranchKind, RawLoopKind, RawStmt, RawStmtVariant};
+pub use stmt::*;
 pub use transform::*;
 
 use atom::*;

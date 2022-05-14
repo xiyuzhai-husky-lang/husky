@@ -3,7 +3,7 @@ use vm::PrimitiveValue;
 
 use super::*;
 
-impl<'a> AtomLRParser<'a> {
+impl<'a> AtomParser<'a> {
     pub(crate) fn special(&mut self, target: Special) -> Option<()> {
         self.kind(target.into())
     }

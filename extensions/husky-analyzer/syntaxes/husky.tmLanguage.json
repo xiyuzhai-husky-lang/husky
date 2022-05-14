@@ -358,7 +358,7 @@
                 {
                     "comment": "decimal integers and floats",
                     "name": "constant.numeric.decimal.husky",
-                    "match": "\\b\\d[\\d_]*(\\.?)[\\d_]*(?:(E)([+-])([\\d_]+))?(f32|f64|i128|i16|i32|i64|i8|isize|int|u128|u16|u32|u64|u8|usize|b32)?\\b",
+                    "match": "\\b\\d[\\d_]*(\\.?)[\\d_]*(?:(E)([+-])([\\d_]+))?(f32|i32|b32|b64)?\\b",
                     "captures": {
                         "1": {
                             "name": "punctuation.separator.dot.decimal.husky"
@@ -649,12 +649,12 @@
                 {
                     "comment": "control flow keywords",
                     "name": "keyword.control.husky",
-                    "match": "\\b(await|break|continue|for|forext|if|elif|else|loop|match|switch|case|default|return|try|do|while|yield)\\b"
+                    "match": "\\b(break|continue|for|forext|if|elif|else|match|case|default|return|do|while)\\b"
                 },
                 {
                     "comment": "storage keywords",
                     "name": "keyword.other.husky storage.type.husky",
-                    "match": "\\b(extern|let|var|mod)\\b"
+                    "match": "\\b(let|var|mod)\\b"
                 },
                 {
                     "comment": "const keyword",
@@ -680,6 +680,11 @@
                     "comment": "struct keyword",
                     "name": "keyword.declaration.struct.husky storage.type.husky",
                     "match": "\\b(struct)\\b"
+                },
+                {
+                    "comment": "record keyword",
+                    "name": "keyword.declaration.struct.husky storage.type.husky",
+                    "match": "\\b(record)\\b"
                 },
                 {
                     "comment": "storage modifiers",

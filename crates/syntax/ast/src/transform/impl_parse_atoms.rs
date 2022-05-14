@@ -6,10 +6,10 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_atoms<S>(
         &mut self,
         tokens: &[Token],
-        f: impl FnOnce(AtomLRParser) -> S,
+        f: impl FnOnce(AtomParser) -> S,
     ) -> S {
         let symbol_context = self.symbol_context();
-        f(AtomLRParser::new(
+        f(AtomParser::new(
             &symbol_context,
             Some(unsafe { ref_to_mut_ref(&self.abs_semantic_tokens) }),
             tokens,

@@ -9,7 +9,7 @@ pub enum AstContext {
     Module(EntityRoutePtr),
     DatasetConfig,
     Main,
-    Morphism,
+    Lazy,
     Func,
     Proc,
     Test,
@@ -17,6 +17,9 @@ pub enum AstContext {
     Record,
     Props,
     Enum(EntityRoutePtr),
+    LazyMatch,
+    FuncMatch,
+    ProcMatch,
 }
 
 impl AstContext {
@@ -32,7 +35,7 @@ impl AstContext {
             AstContext::Module(route) => db.child_route(*route, ident, vec![]).unwrap(),
             AstContext::DatasetConfig => todo!(),
             AstContext::Main => todo!(),
-            AstContext::Morphism => todo!(),
+            AstContext::Lazy => todo!(),
             AstContext::Func => todo!(),
             AstContext::Proc => todo!(),
             AstContext::Test => todo!(),
@@ -40,6 +43,9 @@ impl AstContext {
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
+            AstContext::LazyMatch => todo!(),
+            AstContext::FuncMatch => todo!(),
+            AstContext::ProcMatch => todo!(),
         }
     }
 }
@@ -57,11 +63,11 @@ impl From<RoutineContextKind> for AstContext {
 impl std::fmt::Display for AstContext {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str(match self {
-            AstContext::Package(_) => "pack",
+            AstContext::Package(_) => "package",
             AstContext::Module(_) => "module",
             AstContext::DatasetConfig => "dataset config",
             AstContext::Main => "main",
-            AstContext::Morphism => "def",
+            AstContext::Lazy => "def",
             AstContext::Func => "func",
             AstContext::Proc => "proc",
             AstContext::Test => "test",
@@ -69,6 +75,9 @@ impl std::fmt::Display for AstContext {
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",
             AstContext::Props => "props",
+            AstContext::FuncMatch => "func match",
+            AstContext::ProcMatch => "proc match",
+            AstContext::LazyMatch => "lazy match",
         })
     }
 }
