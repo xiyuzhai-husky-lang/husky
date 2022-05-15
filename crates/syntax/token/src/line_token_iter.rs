@@ -122,16 +122,27 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             default => {
                 if default.is_alphabetic() {
                     // letter other than 'b' or 'i' after integer literal is not allowed
-                    todo!()
+                    let mut token_len = self.buffer.len() + 1;
+                    while self.peek_char().is_alphabetic() {
+                        self.ignore_char();
+                        token_len += 1;
+                    }
+                    Token::new(
+                        self.line_index,
+                        j_start,
+                        j_start + token_len,
+                        TokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                    )
+                } else {
+                    // i32
+                    let len = self.buffer.len();
+                    Token::new(
+                        self.line_index,
+                        j_start,
+                        j_start + len,
+                        TokenKind::PrimitiveLiteral(self.take_buffer_i32().into()),
+                    )
                 }
-                // i32
-                let len = self.buffer.len();
-                Token::new(
-                    self.line_index,
-                    j_start,
-                    j_start + len,
-                    TokenKind::PrimitiveLiteral(self.take_buffer_i32().into()),
-                )
             }
         }
     }

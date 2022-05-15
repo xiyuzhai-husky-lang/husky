@@ -7,7 +7,7 @@ pub use sheet::*;
 
 use ast::RawExprIdx;
 use check_utils::*;
-use entity_route_query::EntityRouteResultArc;
+use entity_route_query::EntitySyntaxResultArc;
 use file::FilePtr;
 use infer_entity_route::InferEntityRouteQueryGroup;
 use infer_error::InferResult;

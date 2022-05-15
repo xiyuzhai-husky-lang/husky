@@ -206,7 +206,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 let this_ty_defn = self.db.entity_defn(this.expr.ty).unwrap();
                 let field_uid =
                     self.db
-                        .entity_uid(self.db.intern_entity_route(EntityRoute::child_route(
+                        .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
                             this.expr.ty,
                             field_ident.ident,
                             vec![],

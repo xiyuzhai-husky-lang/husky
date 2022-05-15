@@ -1,0 +1,9 @@
+2:5..2:14	Ast Error: expect keyword or identifier at the beginning of each struct item
+110:50..110:62	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(Point2d)), 110:55..110:62})} instead
+116:28..116:41	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(BinaryImage28)), 116:28..116:41})} instead
+148:32..148:35	Ast Error: unexpected identifier here
+155:49..155:52	Ast Error: unexpected identifier here
+160:51..160:54	Ast Error: unexpected identifier here
+164:51..164:54	Ast Error: unexpected identifier here
+197:41..197:44	Ast Error: unexpected identifier here
+52:33..52:39	Infer Error: no method named `to_i32` for type `mnist_classifier019::raw_contour::Direction`

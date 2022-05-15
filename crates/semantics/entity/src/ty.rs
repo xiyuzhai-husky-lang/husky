@@ -183,13 +183,11 @@ impl EntityDefnVariant {
                 let type_members = type_members.map(|type_member| {
                     EntityDefn::from_static(
                         &symbol_context,
-                        symbol_context
-                            .db
-                            .intern_entity_route(EntityRoute::child_route(
-                                this_ty,
-                                symbol_context.db.intern_word(type_member.name).custom(),
-                                vec![],
-                            )),
+                        symbol_context.db.intern_entity_route(EntityRoute::subroute(
+                            this_ty,
+                            symbol_context.db.intern_word(type_member.name).custom(),
+                            vec![],
+                        )),
                         type_member,
                     )
                 });

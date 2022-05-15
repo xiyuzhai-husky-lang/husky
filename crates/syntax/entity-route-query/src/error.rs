@@ -45,7 +45,7 @@ impl TestDisplay for EntitySyntaxError {
 }
 
 pub type EntitySyntaxResult<T> = Result<T, EntitySyntaxError>;
-pub type EntityRouteResultArc<T> = Result<Arc<T>, EntitySyntaxError>;
+pub type EntitySyntaxResultArc<T> = Result<Arc<T>, EntitySyntaxError>;
 
 impl From<FileError> for EntitySyntaxError {
     fn from(error: FileError) -> Self {

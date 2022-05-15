@@ -152,7 +152,7 @@ impl EntityRoute {
         }
     }
 
-    pub fn child_route(
+    pub fn subroute(
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,

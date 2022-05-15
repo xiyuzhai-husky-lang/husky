@@ -43,7 +43,7 @@
 1:10..1:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
 2:10..2:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
 3:10..3:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
-6:1..6:36	Ast Error: expect 3 tokens after keyword, but got 9 tokens instead
+6:35..6:36	Ast Error: expect `:`
 7:1..7:39	Ast Error: expect 3 tokens after keyword, but got 11 tokens instead
 9:3..9:30	Ast Error: no stmt in module level
 10:3..10:41	Ast Error: no stmt in module level

@@ -6,7 +6,7 @@ use crate::{builder::ContractSheetBuilder, *};
 
 #[salsa::query_group(InferContractQueryGroupStorage)]
 pub trait InferContractSalsaQueryGroup: InferEntityRouteQueryGroup {
-    fn contract_sheet(&self, file: FilePtr) -> EntityRouteResultArc<ContractSheet>;
+    fn contract_sheet(&self, file: FilePtr) -> EntitySyntaxResultArc<ContractSheet>;
 }
 
 pub trait InferContractQueryGroup: InferContractSalsaQueryGroup {}
@@ -14,7 +14,7 @@ pub trait InferContractQueryGroup: InferContractSalsaQueryGroup {}
 pub(crate) fn contract_sheet(
     db: &dyn InferContractSalsaQueryGroup,
     file: FilePtr,
-) -> EntityRouteResultArc<ContractSheet> {
+) -> EntitySyntaxResultArc<ContractSheet> {
     let mut builder = ContractSheetBuilder::new(db, file)?;
     let ast_text = db.ast_text(file)?;
     builder.infer_all(ast_text.folded_results.iter());

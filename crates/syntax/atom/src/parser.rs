@@ -100,7 +100,7 @@ impl<'a> AtomParser<'a> {
                     }
                     TokenKind::Special(Special::Colon) => {
                         if let Some(_) = self.stream.next() {
-                            todo!()
+                            err!("unexpected colon", token.range)?
                         } else {
                             break;
                         }

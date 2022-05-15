@@ -244,13 +244,11 @@ impl EntityDefnVariant {
                     members: members.map(|member| {
                         EntityDefn::from_static(
                             &symbol_context,
-                            symbol_context
-                                .db
-                                .intern_entity_route(EntityRoute::child_route(
-                                    this_trai,
-                                    symbol_context.db.intern_word(member.name).custom(),
-                                    vec![],
-                                )),
+                            symbol_context.db.intern_entity_route(EntityRoute::subroute(
+                                this_trai,
+                                symbol_context.db.intern_word(member.name).custom(),
+                                vec![],
+                            )),
                             member,
                         )
                     }),

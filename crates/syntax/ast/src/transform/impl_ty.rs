@@ -24,7 +24,7 @@ impl<'a> AstTransformer<'a> {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
-                        let this_ty = self.context().child_route(self.db, custom_ident);
+                        let this_ty = self.context().subroute(self.db, custom_ident);
                         self.opt_this_ty.set(Some(this_ty));
                         self.opt_this_contract.set(None);
                     }
@@ -34,7 +34,6 @@ impl<'a> AstTransformer<'a> {
             }
         };
         self.context.set(AstContext::Struct);
-        expect_len!(tokens, 3);
         expect_head!(tokens);
         emsg_once!("struct generic placeholders");
         Ok(AstKind::TypeDefnHead {
@@ -54,7 +53,7 @@ impl<'a> AstTransformer<'a> {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
                         self.opt_this_ty
-                            .set(Some(self.context().child_route(self.db, custom_ident)));
+                            .set(Some(self.context().subroute(self.db, custom_ident)));
                         self.opt_this_contract.set(None);
                     }
                     _ => (),
@@ -86,7 +85,7 @@ impl<'a> AstTransformer<'a> {
             tokens[1],
             SemanticTokenKind::Entity(EntityKind::Type(TyKind::Enum))
         );
-        let this_ty = self.context().child_route(self.db, ident.ident);
+        let this_ty = self.context().subroute(self.db, ident.ident);
         self.context.set(AstContext::Enum(this_ty));
         self.opt_this_ty.set(Some(this_ty));
         self.opt_this_contract.set(None);
