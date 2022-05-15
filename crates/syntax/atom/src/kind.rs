@@ -101,6 +101,7 @@ impl From<Special> for AtomVariant {
             Special::Power => BinaryOpr::Pure(PureBinaryOpr::Power).into(),
             Special::And => BinaryOpr::Pure(PureBinaryOpr::And).into(),
             Special::BitNot => PrefixOpr::BitNot.into(),
+            Special::DoubleExclamation => PrefixOpr::Move.into(),
             Special::Modulo => BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into(),
             Special::Incr => AtomVariant::Suffix(SuffixOpr::Incr),
             Special::Decr => AtomVariant::Suffix(SuffixOpr::Decr),

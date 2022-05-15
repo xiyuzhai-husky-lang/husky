@@ -8,11 +8,11 @@ impl From<PrefixOpr> for Opr {
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum PrefixOpr {
-    Minus,     // -
-    Not,       // !$0
-    BitNot,    // ~
-    Shared,    // &
-    Exclusive, // !$0 after WithType or Vec or Array
+    Minus,  // -
+    Not,    // !$0
+    BitNot, // ~
+    Shared, // &
+    Move,   // !$0 after WithType or Vec or Array
 }
 
 impl PrefixOpr {
@@ -41,7 +41,7 @@ impl PrefixOpr {
                 _ => panic!(),
             },
             PrefixOpr::Shared => todo!(),
-            PrefixOpr::Exclusive => todo!(),
+            PrefixOpr::Move => todo!(),
         }
     }
 
@@ -51,7 +51,7 @@ impl PrefixOpr {
             PrefixOpr::Not => "!",
             PrefixOpr::BitNot => "~",
             PrefixOpr::Shared => "&",
-            PrefixOpr::Exclusive => "!",
+            PrefixOpr::Move => "!!",
         }
     }
 }
