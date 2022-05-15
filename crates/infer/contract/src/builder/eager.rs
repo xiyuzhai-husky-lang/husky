@@ -236,7 +236,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 EagerContract::Pure
             }
             PrefixOpr::Shared => todo!(),
-            PrefixOpr::Exclusive => todo!(),
+            PrefixOpr::Move => todo!(),
         };
         self.infer_eager_expr(opd, opd_contract, arena);
         Ok(())

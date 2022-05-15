@@ -88,7 +88,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                         }
                         PrefixOpr::Shared => todo!(),
-                        PrefixOpr::Exclusive => todo!(),
+                        PrefixOpr::Move => todo!(),
                     }
                 } else {
                     todo!()

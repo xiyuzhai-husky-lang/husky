@@ -28,13 +28,19 @@ impl<'a> AstTransformer<'a> {
                     self.parse_init_stmt(InitKind::Var, kw_range, &token_group[1..])?
                 }
                 StmtKeyword::If => {
-                    expect_at_least!(token_group, kw_range, 3);
                     expect_block_head!(token_group);
+                    expect_at_least!(token_group, kw_range, 3);
                     RawStmtVariant::Branch(RawBranchVariant::If {
                         condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
                     })
                 }
-                StmtKeyword::Elif => todo!(),
+                StmtKeyword::Elif => {
+                    expect_block_head!(token_group);
+                    expect_at_least!(token_group, kw_range, 3);
+                    RawStmtVariant::Branch(RawBranchVariant::Elif {
+                        condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
+                    })
+                }
                 StmtKeyword::Else => {
                     must_be!(token_group.len() == 2, "expect one tokens after", kw_range);
                     must_be!(

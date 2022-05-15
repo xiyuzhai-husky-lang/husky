@@ -279,7 +279,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 EntityRoutePtr::ThisType => todo!(),
             },
             PrefixOpr::Shared => todo!(),
-            PrefixOpr::Exclusive => todo!(),
+            PrefixOpr::Move => todo!(),
         }
     }
 
