@@ -16,7 +16,7 @@ use super::*;
 pub(crate) fn entity_route_sheet(
     db: &dyn InferEntityRouteQueryGroup,
     file: FilePtr,
-) -> EntityRouteResultArc<EntityRouteSheet> {
+) -> EntitySyntaxResultArc<EntityRouteSheet> {
     let ast_text = db.ast_text(file)?;
     let mut ty_sheet_builder = EntityRouteSheetBuilder::new(db, ast_text.clone());
     ty_sheet_builder.infer_all(ast_text.folded_results.iter());

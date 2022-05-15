@@ -1,6 +1,6 @@
 use crate::*;
 use arena::map::ArenaKeyQuery;
-use entity_route_query::{EntityRouteQueryGroup, EntityRouteResultArc};
+use entity_route_query::{EntityRouteQueryGroup, EntitySyntaxResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};
@@ -16,7 +16,7 @@ use upcast::Upcast;
 pub trait AstSalsaQueryGroup:
     EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> + TextQueryGroup
 {
-    fn ast_text(&self, file: FilePtr) -> EntityRouteResultArc<AstText>;
+    fn ast_text(&self, file: FilePtr) -> EntitySyntaxResultArc<AstText>;
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
@@ -32,7 +32,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
     // }
 }
 
-fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntityRouteResultArc<AstText> {
+fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntitySyntaxResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module(id)?)?;
     parser.transform_all(tokenized_text.iter());

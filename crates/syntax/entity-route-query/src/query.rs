@@ -16,7 +16,7 @@ use fold::FoldStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
-    fn subroute_table(&self, scope_id: EntityRoutePtr) -> EntityRouteResultArc<SubrouteTable>;
+    fn subroute_table(&self, scope_id: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
 
     fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
@@ -30,7 +30,7 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 fn subroute_table(
     db: &dyn EntityRouteSalsaQueryGroup,
     entity_route: EntityRoutePtr,
-) -> EntityRouteResultArc<SubrouteTable> {
+) -> EntitySyntaxResultArc<SubrouteTable> {
     Ok(Arc::new(match db.entity_source(entity_route)? {
         EntitySource::StaticModuleItem(data) => SubrouteTable::from_static(db, entity_route, data),
         EntitySource::WithinModule {
@@ -200,17 +200,21 @@ pub enum ModuleFromFileRule {
 pub trait EntityRouteQueryGroup:
     EntityRouteSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn EntityRouteSalsaQueryGroup>
 {
-    fn child_route(
+    fn subroute_result(
         &self,
         parent_scope: EntityRoutePtr,
         ident: CustomIdentifier,
         generics: Vec<GenericArgument>,
-    ) -> Option<EntityRoutePtr> {
-        let parent_subscope_table = self.subroute_table(parent_scope);
-        if parent_subscope_table.map_or(false, |table| table.has_subscope(ident, &generics)) {
-            Some(self.intern_entity_route(EntityRoute::child_route(parent_scope, ident, generics)))
+    ) -> EntitySyntaxResult<EntityRoutePtr> {
+        let parent_subscope_table = self.subroute_table(parent_scope)?;
+        if parent_subscope_table.has_subscope(ident, &generics) {
+            Ok(self.intern_entity_route(EntityRoute::subroute(parent_scope, ident, generics)))
         } else {
-            None
+            Err(EntitySyntaxError {
+                kind: EntitySyntaxErrorKind::Query,
+                dev_src: dev_src!(),
+                message: format!("no such subroute"),
+            })
         }
     }
 

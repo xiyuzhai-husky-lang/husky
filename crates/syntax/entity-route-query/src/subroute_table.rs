@@ -266,7 +266,7 @@ impl SubrouteTable {
     ) -> impl Iterator<Item = EntityRoutePtr> + 'a {
         self.entries.iter().filter_map(move |entry| {
             entry.ident.map(|ident| {
-                db.intern_entity_route(EntityRoute::child_route(parent_route, ident, Vec::new()))
+                db.intern_entity_route(EntityRoute::subroute(parent_route, ident, Vec::new()))
             })
         })
     }

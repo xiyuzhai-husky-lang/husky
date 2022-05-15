@@ -23,16 +23,10 @@ pub enum AstContext {
 }
 
 impl AstContext {
-    pub fn child_route(
-        &self,
-        db: &dyn AstSalsaQueryGroup,
-        ident: CustomIdentifier,
-    ) -> EntityRoutePtr {
+    pub fn subroute(&self, db: &dyn AstSalsaQueryGroup, ident: CustomIdentifier) -> EntityRoutePtr {
         match self {
-            AstContext::Package(main) => db
-                .child_route(db.module(*main).unwrap(), ident, vec![])
-                .unwrap(),
-            AstContext::Module(route) => db.child_route(*route, ident, vec![]).unwrap(),
+            AstContext::Package(main) => db.make_subroute(db.module(*main).unwrap(), ident, vec![]),
+            AstContext::Module(route) => db.make_subroute(*route, ident, Vec::new()),
             AstContext::DatasetConfig => todo!(),
             AstContext::Main => todo!(),
             AstContext::Lazy => todo!(),

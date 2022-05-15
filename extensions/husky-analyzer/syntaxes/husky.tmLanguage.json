@@ -930,7 +930,7 @@
             "patterns": [
                 {
                     "comment": "numeric types",
-                    "match": "(?<![A-Za-z])(f32|f64|i128|i16|i32|i64|i8|isize|u128|u16|u32|u64|u8|usize|float|int|b32)\\b",
+                    "match": "(?<![A-Za-z])(f32|i32|b32|b64|bool)\\b",
                     "captures": {
                         "1": {
                             "name": "entity.name.type.numeric.husky"
