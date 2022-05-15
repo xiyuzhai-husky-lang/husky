@@ -1,4 +1,5 @@
 use ast::{RawBoundary, RawLoopKind};
+use dev_utils::dev_src;
 use text::TextRanged;
 
 use super::*;
@@ -16,8 +17,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 match value.kind {
                     AstKind::Stmt(ref stmt) => match stmt.variant {
                         RawStmtVariant::Match { match_expr, .. } => {
-                            let opt_match_expr_ty =
-                                self.infer_expr(match_expr, opt_output_ty, arena);
+                            let opt_match_expr_ty = self.infer_expr(match_expr, None, arena);
                             if let Some(children) = item.opt_children {
                                 self.infer_match_branches(
                                     arena,
@@ -121,7 +121,16 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     }) => {
                         if let Some(match_expr_ty) = opt_match_expr_ty {
                             if match_expr_ty != pattern.ty {
-                                todo!()
+                                self.entity_route_sheet.extra_errors.push(InferError {
+                                    variant: InferErrorVariant::Original {
+                                        message: format!(
+                                            "match expression is of type `{:?}` but case pattern is of type `{:?}` instead",
+                                            match_expr_ty, pattern.ty
+                                        ),
+                                        range: pattern.range,
+                                    },
+                                    dev_src: dev_src!(),
+                                })
                             }
                         }
                     }
