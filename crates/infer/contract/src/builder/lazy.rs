@@ -64,6 +64,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match pattern.variant {
             CasePatternVariant::PrimitiveLiteral(_) => (),
             CasePatternVariant::OneOf { .. } => (),
+            CasePatternVariant::EnumLiteral(_) => (),
         }
     }
 

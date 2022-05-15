@@ -130,6 +130,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match pattern.variant {
             CasePatternVariant::PrimitiveLiteral(_) => (),
             CasePatternVariant::OneOf { ref patterns } => (),
+            CasePatternVariant::EnumLiteral(_) => (),
         }
     }
 

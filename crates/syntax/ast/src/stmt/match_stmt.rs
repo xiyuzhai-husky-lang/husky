@@ -39,6 +39,7 @@ impl TextRanged for CasePattern {
 pub enum CasePatternVariant {
     PrimitiveLiteral(PrimitiveValue),
     OneOf { patterns: Vec<CasePattern> },
+    EnumLiteral(EntityRoutePtr),
 }
 
 impl CasePattern {
@@ -50,14 +51,28 @@ impl CasePattern {
         }
     }
 
+    pub fn enum_literal(value: EntityRoutePtr, range: TextRange) -> Self {
+        Self {
+            ty: value.parent(),
+            variant: CasePatternVariant::EnumLiteral(value),
+            range,
+        }
+    }
+
     pub fn or(self, new_pattern: CasePattern) -> AstResult<Self> {
+        let range = self.text_range_to(&new_pattern);
         if self.ty != new_pattern.ty {
-            todo!()
+            return err!(
+                format!(
+                    "can't combine patterns of different types `{:?}` and `{:?}`",
+                    self.ty, new_pattern.ty
+                ),
+                range
+            );
         }
         let ty = self.ty;
-        let range = self.text_range_to(&new_pattern);
         let patterns = match self.variant {
-            CasePatternVariant::PrimitiveLiteral(_) => {
+            CasePatternVariant::PrimitiveLiteral(_) | CasePatternVariant::EnumLiteral(_) => {
                 vec![self, new_pattern]
             }
             CasePatternVariant::OneOf { mut patterns } => {

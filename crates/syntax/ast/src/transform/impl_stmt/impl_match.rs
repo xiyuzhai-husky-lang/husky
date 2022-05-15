@@ -64,25 +64,32 @@ impl<'a> MatchPatternParser<'a> {
     }
 
     fn parse_simple_pattern(&mut self) -> AstResult<Option<CasePattern>> {
-        Ok(self.atom_iter.next().map(|atom| match atom.kind {
-            AtomVariant::EntityRoute { route, kind } => todo!(),
-            AtomVariant::Variable { varname, init_row } => todo!(),
-            AtomVariant::FrameVariable { varname, init_row } => todo!(),
-            AtomVariant::ThisData {
-                opt_ty,
-                opt_contract,
-            } => todo!(),
-            AtomVariant::Unrecognized(_) => todo!(),
-            AtomVariant::PrimitiveLiteral(value) => {
-                CasePattern::primitive_literal(value, atom.range)
-            }
-            AtomVariant::Binary(_) => todo!(),
-            AtomVariant::Prefix(_) => todo!(),
-            AtomVariant::Suffix(_) => todo!(),
-            AtomVariant::ListStart(_, _) => todo!(),
-            AtomVariant::ListEnd(_, _) => todo!(),
-            AtomVariant::ListItem => todo!(),
-            AtomVariant::LambdaHead(_) => todo!(),
-        }))
+        Ok(if let Some(atom) = self.atom_iter.next() {
+            Some(match atom.kind {
+                AtomVariant::EntityRoute { route, kind } => match kind {
+                    EntityKind::EnumLiteral => CasePattern::enum_literal(route, atom.range),
+                    _ => err!(format!("expect enum literal"), atom.range)?,
+                },
+                AtomVariant::Variable { varname, init_row } => todo!(),
+                AtomVariant::FrameVariable { varname, init_row } => todo!(),
+                AtomVariant::ThisData {
+                    opt_ty,
+                    opt_contract,
+                } => todo!(),
+                AtomVariant::Unrecognized(_) => todo!(),
+                AtomVariant::PrimitiveLiteral(value) => {
+                    CasePattern::primitive_literal(value, atom.range)
+                }
+                AtomVariant::Binary(_) => todo!(),
+                AtomVariant::Prefix(_) => todo!(),
+                AtomVariant::Suffix(_) => todo!(),
+                AtomVariant::ListStart(_, _) => todo!(),
+                AtomVariant::ListEnd(_, _) => todo!(),
+                AtomVariant::ListItem => todo!(),
+                AtomVariant::LambdaHead(_) => todo!(),
+            })
+        } else {
+            None
+        })
     }
 }

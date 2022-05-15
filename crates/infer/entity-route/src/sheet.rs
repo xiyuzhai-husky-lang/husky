@@ -29,17 +29,17 @@ pub struct EntityRouteSheet {
     pub(crate) expr_tys: RawExprMap<InferResult<EntityRoutePtr>>,
     pub(crate) call_routes: RawExprMap<InferResult<EntityRoutePtr>>,
     pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), EntityRoutePtr>,
-    pub(crate) global_errors: Vec<InferError>,
+    pub(crate) extra_errors: Vec<InferError>,
 }
 
 impl EntityRouteSheet {
-    pub(crate) fn new(ast_text: Arc<AstText>, global_errors: Vec<InferError>) -> Self {
+    pub(crate) fn new(ast_text: Arc<AstText>, extra_errors: Vec<InferError>) -> Self {
         Self {
             expr_tys: ArenaMap::new(&ast_text.arena),
             call_routes: ArenaMap::new(&ast_text.arena),
             variable_tys: Default::default(),
             ast_text,
-            global_errors,
+            extra_errors,
         }
     }
 
@@ -67,7 +67,7 @@ impl EntityRouteSheet {
 
     pub fn original_errors(&self) -> Vec<&InferError> {
         let mut errors: Vec<&InferError> = self
-            .global_errors
+            .extra_errors
             .iter()
             .filter_map(|e| match e.variant {
                 InferErrorVariant::Derived { .. } => None,

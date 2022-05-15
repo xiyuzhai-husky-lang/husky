@@ -120,7 +120,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 RawBranchVariant::Else => (),
                 RawBranchVariant::Case { pattern } => self.infer_eager_case_pattern(pattern),
-                RawBranchVariant::Default => todo!(),
+                RawBranchVariant::Default => (),
             },
             RawStmtVariant::Exec(expr) => {
                 self.infer_eager_expr(arena, expr);
@@ -169,6 +169,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match pattern.variant {
             CasePatternVariant::PrimitiveLiteral(_) => (),
             CasePatternVariant::OneOf { ref patterns } => (),
+            CasePatternVariant::EnumLiteral(_) => (),
         }
     }
 

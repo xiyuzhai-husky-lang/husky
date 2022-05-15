@@ -73,7 +73,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 }
                 RawBranchVariant::Else => (),
                 RawBranchVariant::Case { pattern } => self.infer_eager_pattern(pattern),
-                RawBranchVariant::Default => todo!(),
+                RawBranchVariant::Default => (),
             },
             RawStmtVariant::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
             RawStmtVariant::Init { initial_value, .. } => {
@@ -102,6 +102,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match pattern.variant {
             CasePatternVariant::PrimitiveLiteral(_) => (),
             CasePatternVariant::OneOf { .. } => (),
+            CasePatternVariant::EnumLiteral(_) => (),
         }
     }
 
