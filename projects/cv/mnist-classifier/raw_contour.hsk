@@ -68,8 +68,6 @@ func get_outward_direction(
                     Direction::DOWN
                 case 2b32 | 3b32:
                     Direction::LEFT
-                default:
-                    panic
         case 1b32:
             match pixel_pair_below:
                 case 0b32:
@@ -82,8 +80,6 @@ func get_outward_direction(
                             Direction::LEFT
                         case Direction::UP:
                             Direction::RIGHT
-                        default:
-                            panic
                 case 3b32:
                     Direction::LEFT
         case 2b32:
@@ -96,16 +92,12 @@ func get_outward_direction(
                             Direction::UP
                         case Direction::RIGHT:
                             Direction::DOWN
-                        default:
-                            panic
         case 3b32:
             match pixel_pair_below:
                 case 0b32 | 2b32:
                     Direction::RIGHT
                 case 1b32:
                     Direction::DOWN
-                default:
-                    panic
 
 
 struct StreakCache:
