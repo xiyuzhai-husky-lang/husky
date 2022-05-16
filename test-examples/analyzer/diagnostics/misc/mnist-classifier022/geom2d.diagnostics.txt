@@ -1,0 +1,13 @@
+44:24..44:26	Ast Error: unexpected identifier here
+72:60..72:62	Ast Error: unexpected identifier here
+6:9..6:17	Infer Error: expect mnist_classifier022::geom2d::Vector2d but get type instead
+12:45..12:49	Infer Error: no method named `sqrt` for type `f32`
+28:45..28:49	Infer Error: no method named `sqrt` for type `f32`
+37:21..37:24	Infer Error: unrecognized caller
+39:16..39:44	Infer Error: Unrecognized identifier `is_branch_cut_value_positive`
+53:12..53:22	Infer Error: expect use of "!=" on same types
+55:20..55:39	Infer Error: expect use of "<, <=, >, >=" on same types
+58:19..58:22	Infer Error: no method named `sgn` for type `f32`
+65:66..65:69	Infer Error: no method named `min` for type `f32`
+6:9..6:17	Infer Error: expect return type to be `mnist_classifier022::geom2d::Vector2d`,
+  but got `EagerQualifiedTy { qual: GlobalRef, ty: type }` instead

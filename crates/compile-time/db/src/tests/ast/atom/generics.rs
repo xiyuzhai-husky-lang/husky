@@ -3,9 +3,9 @@ use crate::*;
 use atom::AtomVariant;
 
 #[test]
-fn vec_type() {
+fn list_type() {
     let mut db = HuskyLangCompileTime::default();
-    let atoms = utils::get_atoms_in_line(&mut db, "Vec<i32>");
+    let atoms = utils::get_atoms_in_line(&mut db, "List<i32>");
     should_eq!(atoms.len(), 1);
 }
 
@@ -60,21 +60,21 @@ fn func_trait() {
 }
 
 #[test]
-fn vec_of_default_func_type_with_nonvoid_return_type() {
+fn list_of_default_func_type_with_nonvoid_return_type() {
     let mut db = HuskyLangCompileTime::default();
-    let atoms = utils::get_atoms_in_line(&mut db, "Vec<(i32, i32) -> i32>");
+    let atoms = utils::get_atoms_in_line(&mut db, "List<(i32, i32) -> i32>");
     should_eq!(atoms.len(), 1);
 }
 
 #[test]
-fn vec_of_default_func_type_with_nonvoid_return_type2() {
+fn list_of_default_func_type_with_nonvoid_return_type2() {
     let mut db = HuskyLangCompileTime::default();
-    let atoms = utils::get_atoms_in_line(&mut db, "Vec<() -> i32>");
+    let atoms = utils::get_atoms_in_line(&mut db, "List<() -> i32>");
     should_eq!(atoms.len(), 1);
 }
 
 #[test]
-fn symbolized_vec_of_i32() {
+fn symbolized_list_of_i32() {
     let mut db = HuskyLangCompileTime::default();
     let atoms = utils::get_atoms_in_line(&mut db, "[]i32");
     should_eq!(atoms.len(), 1);

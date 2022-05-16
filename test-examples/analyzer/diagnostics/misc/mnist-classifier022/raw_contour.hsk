@@ -1,5 +1,3 @@
-use package::geom2d::*
-
 struct RawContour:
     points: []Point2d
 

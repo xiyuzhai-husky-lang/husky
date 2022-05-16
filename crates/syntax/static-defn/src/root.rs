@@ -1,8 +1,8 @@
+mod list;
 mod static_std;
-mod vec;
 
+pub use list::*;
 pub use static_std::*;
-pub use vec::*;
 
 use dev_utils::{dev_src, static_dev_src};
 

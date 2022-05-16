@@ -75,7 +75,7 @@ pub fn new_word_unique_allocator() -> WordAllocator {
         RootIdentifier::Bool.into(),
         RootIdentifier::True.into(),
         RootIdentifier::False.into(),
-        RootIdentifier::Vec.into(),
+        RootIdentifier::List.into(),
         RootIdentifier::Array.into(),
         RootIdentifier::Tuple.into(),
         RootIdentifier::Fp.into(),

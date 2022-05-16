@@ -34,7 +34,8 @@ struct Vector2d:
         this.x * other.y - this.y * other.x
 
     func angle(is_branch_cut_positive: bool) -> f32:
-        cos_value = (this.x/this.norm()).min(1.0)
+        // min(
+        cos_value = v.x/get_norm(v), 1.0)
         if cos_value + 1.0 < 0.001:
             if is_branch_cut_positive:
                 180.0
@@ -50,9 +51,9 @@ struct Vector2d:
         // 0: no moving
         // expect not antiparallel
         cross = this.cross(other)
-        if cross == 0.0:
+        if cross == 0:
             // expect nonzero and not antiparallel
-            assert this.dot(other) > 0.0
+            assert this.dot(other) > 0
             0
         else:
             cross.sgn()

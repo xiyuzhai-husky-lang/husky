@@ -309,7 +309,7 @@ impl<'eval> AnyValue<'eval> for Vec<MemberValue<'eval>> {
     }
 
     fn static_type_name() -> Cow<'static, str> {
-        "Vec".into()
+        "List".into()
     }
 
     fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {

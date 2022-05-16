@@ -14,7 +14,7 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> bool {
             | RootIdentifier::Bool => true,
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => todo!(),
+            RootIdentifier::List => todo!(),
             RootIdentifier::Tuple => todo!(),
             RootIdentifier::Debug => todo!(),
             RootIdentifier::Std => todo!(),

@@ -85,7 +85,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::B32
             | RootIdentifier::B64
             | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
-            RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
+            RootIdentifier::List => EntityKind::Type(TyKind::Vec),
             RootIdentifier::Tuple
             | RootIdentifier::Fp
             | RootIdentifier::Array
@@ -165,7 +165,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Bool => &BOOL_TYPE_DEFN,
         RootIdentifier::True => todo!(),
         RootIdentifier::False => todo!(),
-        RootIdentifier::Vec => &VEC_TYPE_DEFN,
+        RootIdentifier::List => &LIST_TYPE_DEFN,
         RootIdentifier::Tuple => todo!(),
         RootIdentifier::Debug => todo!(),
         RootIdentifier::Std => &STD_MODULE_DEFN,

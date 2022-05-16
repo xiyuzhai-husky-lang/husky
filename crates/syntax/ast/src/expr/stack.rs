@@ -1,8 +1,8 @@
 use check_utils::should;
 use entity_route::RangedEntityRoute;
+use text::RangedCustomIdentifier;
 use text::{TextPosition, TextRange};
 use vm::*;
-use text::RangedCustomIdentifier;
 
 use crate::{expr::precedence::Precedence, *};
 
@@ -172,7 +172,10 @@ impl<'a> ExprStack<'a> {
             let mut i = 0;
             loop {
                 if i >= self.oprs.len() {
-                    todo!()
+                    err!(
+                        format!("can't match ket  `{}`", ket.ket_code(),),
+                        ((end.to_left(1))..end).into()
+                    )?;
                 }
                 match self.top(i).kind {
                     ExprStackOprKind::ListItem => (),
