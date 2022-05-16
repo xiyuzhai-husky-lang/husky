@@ -32,9 +32,9 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     raw_expr.range()
                 ))
             }
-            RawExprVariant::Entity { route: scope, kind } => match kind {
+            RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
-                EntityKind::EnumLiteral => match scope {
+                EntityKind::EnumLiteral => match route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
                         EagerExprVariant::PrimitiveLiteral(PrimitiveValue::Bool(true))
                     }
@@ -58,7 +58,9 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawExprVariant::Bracketed(expr) => {
                 EagerExprVariant::Bracketed(self.parse_eager_expr(expr)?)
             }
-            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds, raw_expr_idx)?,
+            RawExprVariant::Opn {
+                ref opr, ref opds, ..
+            } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => EagerExprVariant::This,
         };
@@ -75,14 +77,14 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
 
     fn parse_opn(
         &mut self,
-        opr: Opr,
+        opr: &Opr,
         opds: &RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         match opr {
-            Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
-            Opr::Prefix(opr) => self.parse_prefix_opr(opr, opds),
-            Opr::Suffix(opr) => self.parse_suffix_opr(opr, opds),
+            Opr::Binary(opr) => self.parse_binary_opr(*opr, opds),
+            Opr::Prefix(opr) => self.parse_prefix_opr(*opr, opds),
+            Opr::Suffix(opr) => self.parse_suffix_opr(*opr, opds),
             Opr::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
@@ -91,6 +93,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 ListOpr::Index => self.parse_element_access(opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
+                ListOpr::MethodCall { .. } => todo!(),
             },
         }
     }
@@ -193,7 +196,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn {
-                opr,
+                ref opr,
                 opds: ref field_opds,
             } => match opr {
                 Opr::Binary(_) => todo!(),
@@ -203,6 +206,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
                     SuffixOpr::FieldAccess(field_ident) => {
+                        todo!("outdated");
                         let this = self.parse_eager_expr(field_opds.start)?;
                         let inputs = input_opd_idx_range
                             .map(|idx| self.parse_eager_expr(idx))
@@ -213,7 +217,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                         emsg_once!("todo: memb call compiled");
                         Ok(EagerExprVariant::Opn {
                             opn_variant: EagerOpnVariant::MethodCall {
-                                method_ident: field_ident,
+                                method_ident: *field_ident,
                                 this_ty_decl,
                                 method_route: self
                                     .entity_route_sheet()

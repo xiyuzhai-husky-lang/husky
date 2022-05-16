@@ -90,16 +90,38 @@ impl<'a> AtomParser<'a> {
                     .stream
                     .next()
                     .ok_or(error!("expect identifier after `.`", range))?;
-                let semantic_token_kind = if self.stream.is_lpar_next() {
+                let is_lpar_or_langle_next = match self.stream.peek_next_bra() {
+                    Some(Bracket::Par) | Some(Bracket::Angle) => true,
+                    _ => false,
+                };
+                let semantic_token_kind = if is_lpar_or_langle_next {
                     SemanticTokenKind::Method
                 } else {
                     SemanticTokenKind::Field
                 };
                 let ranged_ident = identify!(self, field_ident_token, semantic_token_kind);
-                self.stack.push(Atom::new(
-                    range,
-                    SuffixOpr::FieldAccess(ranged_ident).into(),
-                ))
+                let atom_variant = if is_lpar_or_langle_next {
+                    let generic_arguments = self.angled_generics()?;
+                    match self.stream.next() {
+                        Some(token) => match token.kind {
+                            TokenKind::Special(Special::LPar) => {
+                                self.stream.pop_range();
+                            }
+                            _ => todo!(),
+                        },
+                        None => todo!(),
+                    }
+                    AtomVariant::ListStart(
+                        Bracket::Par,
+                        ListStartAttr::MethodAttach {
+                            ranged_ident,
+                            generic_arguments,
+                        },
+                    )
+                } else {
+                    SuffixOpr::FieldAccess(ranged_ident).into()
+                };
+                self.stack.push(Atom::new(range, atom_variant))
             }
             _ => {
                 self.stream.pop_range();

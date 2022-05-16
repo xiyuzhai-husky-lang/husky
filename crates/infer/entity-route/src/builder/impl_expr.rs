@@ -51,7 +51,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_expr(expr, expectation, arena))
             }
-            RawExprVariant::Opn { opr, ref opds } => self.infer_opn(opr, opds, expr_idx, arena),
+            RawExprVariant::Opn { ref opr, ref opds } => self.infer_opn(opr, opds, expr_idx, arena),
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { opt_ty, .. } => derived_not_none!(opt_ty),
             RawExprVariant::FrameVariable { .. } => Ok(self.db.entity_route_menu().i32_ty),
@@ -107,7 +107,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_opn(
         &mut self,
-        opr: Opr,
+        opr: &Opr,
         opds: &RawExprRange,
         expr_idx: RawExprIdx,
         arena: &RawExprArena,
@@ -115,10 +115,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let range = arena[expr_idx].range;
         match opr {
             Opr::Binary(opr) => {
-                self.binary_opn_ty_result(opr, opds.start, opds.start + 1, arena, range)
+                self.binary_opn_ty_result(*opr, opds.start, opds.start + 1, arena, range)
             }
-            Opr::Prefix(opr) => self.infer_prefix(opr, opds.start, arena),
-            Opr::Suffix(opr) => self.infer_suffix(opr, opds.start, arena, range),
+            Opr::Prefix(opr) => self.infer_prefix(*opr, opds.start, arena),
+            Opr::Suffix(opr) => self.infer_suffix(*opr, opds.start, arena, range),
             Opr::List(opr) => self.list_opn_ty_result(opr, opds, arena, range, expr_idx),
         }
     }
@@ -304,7 +304,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn list_opn_ty_result(
         &mut self,
-        opr: ListOpr,
+        opr: &ListOpr,
         opds: &RawExprRange,
         arena: &RawExprArena,
         range: TextRange,
@@ -314,14 +314,21 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_list_call(opds, arena, range, expr_idx),
+            ListOpr::Call => self.infer_call(opds, arena, range, expr_idx),
             ListOpr::Index => self.infer_index(arena, opds, range),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
+            ListOpr::MethodCall { ranged_ident, .. } => self.infer_method_call(
+                opds.start,
+                *ranged_ident,
+                (opds.start + 1)..opds.end,
+                arena,
+                expr_idx,
+            ),
         }
     }
 
-    fn infer_list_call(
+    fn infer_call(
         &mut self,
         total_opds: &RawExprRange,
         arena: &RawExprArena,
@@ -338,39 +345,21 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 Ok(call_decl.output.ty)
             }
-            RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => {
                 throw!("unrecognized caller", caller.range)
             }
-            RawExprVariant::PrimitiveLiteral(_) => {
+            RawExprVariant::PrimitiveLiteral(_) | RawExprVariant::FrameVariable { .. } => {
                 throw!("a primitive literal can't be a caller", caller.range)
             }
-            RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => match opr {
-                Opr::Binary(_) => todo!(),
-                Opr::Prefix(_) => todo!(),
-                Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::FieldAccess(ident) => self.infer_method(
-                        opds.start,
-                        ident,
-                        (total_opds.start + 1)..total_opds.end,
-                        arena,
-                        expr_idx,
-                    ),
-                    SuffixOpr::Incr => todo!(),
-                    SuffixOpr::Decr => todo!(),
-                    SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::WithType(_) => todo!(),
-                },
-                Opr::List(_) => todo!(),
-            },
+            RawExprVariant::Bracketed(_)
+            | RawExprVariant::Opn { .. }
+            | RawExprVariant::This { .. }
+            | RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { .. } => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
     }
 
-    fn infer_method(
+    fn infer_method_call(
         &mut self,
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,

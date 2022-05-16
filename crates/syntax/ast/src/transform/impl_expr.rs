@@ -7,9 +7,10 @@ impl<'a> AstTransformer<'a> {
     pub fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {
         let atoms = self.parse_atoms(tokens, |parser| parser.parse_all())?;
         should!(atoms.len() > 0);
-        let mut atom_iter = atoms.iter().peekable();
+        let mut atom_iter = atoms.into_iter().peekable();
         let mut stack = ExprStack::new(&mut self.arena);
         while let Some(atom) = atom_iter.next() {
+            let atom_text_start = atom.text_start();
             match atom.kind {
                 AtomVariant::Variable { .. }
                 | AtomVariant::ThisData { .. }
@@ -33,7 +34,7 @@ impl<'a> AstTransformer<'a> {
                 AtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_start()),
                 AtomVariant::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),
                 AtomVariant::ListStart(bra, attr) => {
-                    stack.accept_list_start(bra, attr, atom.text_start())
+                    stack.accept_list_start(bra, attr, atom_text_start, Vec::new())
                 }
                 AtomVariant::ListEnd(ket, attr) => {
                     stack.accept_list_end(ket, attr, atom.text_end())?

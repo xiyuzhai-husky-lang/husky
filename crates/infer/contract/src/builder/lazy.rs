@@ -81,7 +81,7 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::PrimitiveLiteral(_)
             | RawExprVariant::This { .. } => Ok(()),
             RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => {
+            RawExprVariant::Opn { ref opr, ref opds } => {
                 self.infer_lazy_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
@@ -96,7 +96,7 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_opn(
         &mut self,
-        opr: Opr,
+        opr: &Opr,
         opds: &RawExprRange,
         contract: LazyContract,
         arena: &RawExprArena,
@@ -104,9 +104,9 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
-            Opr::Binary(opr) => self.infer_lazy_binary_opn(opr, opds, contract, arena),
-            Opr::Prefix(opr) => self.infer_lazy_prefix_opn(opr, opds.start, contract, arena),
-            Opr::Suffix(opr) => self.infer_lazy_suffix(opr, opds.start, contract, arena),
+            Opr::Binary(opr) => self.infer_lazy_binary_opn(*opr, opds, contract, arena),
+            Opr::Prefix(opr) => self.infer_lazy_prefix_opn(*opr, opds.start, contract, arena),
+            Opr::Suffix(opr) => self.infer_lazy_suffix(*opr, opds.start, contract, arena),
             Opr::List(opr) => {
                 self.infer_lazy_list_opn(opr, opds, contract, arena, range, raw_expr_idx)
             }
@@ -182,7 +182,7 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_list_opn(
         &mut self,
-        opr: ListOpr,
+        opr: &ListOpr,
         opds: &RawExprRange,
         contract: LazyContract,
         arena: &RawExprArena,
@@ -193,14 +193,22 @@ impl<'a> ContractSheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_lazy_list_call(opds, contract, arena, range, raw_expr_idx),
+            ListOpr::Call => self.infer_lazy_call(opds, contract, arena, range, raw_expr_idx),
             ListOpr::Index => self.infer_lazy_element_access(arena, opds, contract, raw_expr_idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
+            ListOpr::MethodCall { ranged_ident, .. } => self.infer_lazy_method_call(
+                arena,
+                opds.start,
+                *ranged_ident,
+                (opds.start + 1)..(opds.end),
+                contract,
+                raw_expr_idx,
+            ),
         }
     }
 
-    fn infer_lazy_list_call(
+    fn infer_lazy_call(
         &mut self,
         all_opds: &RawExprRange,
         contract: LazyContract,
@@ -210,8 +218,8 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let call_expr = &arena[all_opds.start];
         match call_expr.variant {
-            RawExprVariant::Entity { route: scope, .. } => {
-                let call_decl = derived_unwrap!(self.db.call_decl(scope));
+            RawExprVariant::Entity { route, .. } => {
+                let call_decl = derived_unwrap!(self.db.call_decl(route));
                 for i in 0..call_decl.inputs.len() {
                     self.infer_lazy_expr(
                         all_opds.start + 1 + i,
@@ -223,44 +231,25 @@ impl<'a> ContractSheetBuilder<'a> {
                 }
                 Ok(())
             }
-            RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::PrimitiveLiteral(_) => {
+            RawExprVariant::PrimitiveLiteral(_) | RawExprVariant::FrameVariable { .. } => {
                 throw_derived!("a primitive literal can't be a caller")
             }
-            RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => match opr {
-                Opr::Binary(_) => todo!(),
-                Opr::Prefix(_) => todo!(),
-                Opr::Suffix(suffix_opr) => match suffix_opr {
-                    SuffixOpr::Incr => todo!(),
-                    SuffixOpr::Decr => todo!(),
-                    SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::FieldAccess(ranged_ident) => self.infer_lazy_method(
-                        opds.start,
-                        ranged_ident,
-                        (all_opds.start + 1)..all_opds.end,
-                        contract,
-                        arena,
-                        raw_expr_idx,
-                    ),
-                    SuffixOpr::WithType(_) => todo!(),
-                },
-                Opr::List(_) => todo!(),
-            },
+            RawExprVariant::Variable { .. }
+            | RawExprVariant::Bracketed(_)
+            | RawExprVariant::Opn { .. }
+            | RawExprVariant::This { .. } => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { .. } => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
     }
 
-    fn infer_lazy_method(
+    fn infer_lazy_method_call(
         &mut self,
+        arena: &RawExprArena,
         this: RawExprIdx,
         ranged_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         contract: LazyContract,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;

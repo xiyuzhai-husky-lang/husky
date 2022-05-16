@@ -22,6 +22,7 @@ pub(super) fn left_side_convexity(kind: &AtomVariant) -> Convexity {
         AtomVariant::Suffix(_)
         | AtomVariant::Binary(_)
         | AtomVariant::ListStart(_, ListStartAttr::Attach)
+        | AtomVariant::ListStart(_, ListStartAttr::MethodAttach { .. })
         | AtomVariant::ListItem => Convexity::Concave,
     }
 }

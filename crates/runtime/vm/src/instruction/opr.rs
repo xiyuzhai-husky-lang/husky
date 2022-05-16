@@ -12,7 +12,7 @@ use crate::*;
 use entity_route::EntityRoutePtr;
 use text::RangedCustomIdentifier;
 
-#[derive(PartialEq, Eq, Copy, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum Opr {
     Binary(BinaryOpr),
     Prefix(PrefixOpr),

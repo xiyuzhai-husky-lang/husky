@@ -84,6 +84,7 @@ impl AtomStack {
                         generics.push(EntityRoutePtr::Root(RootIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
+                    ListStartAttr::MethodAttach { .. } => todo!(),
                 };
                 self.push(symbol_context.builtin_type_atom(ident, generics, tail))
             }
@@ -128,6 +129,7 @@ impl AtomStack {
                     _ => err!(expectation, last_atom.text_range()),
                 }
             }
+            ListStartAttr::MethodAttach { .. } => todo!(),
         }
     }
 
