@@ -122,7 +122,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                 LazyContract::GlobalRef => *ref_access,
                                 LazyContract::Pure => *ref_access,
                             },
-                            LinkageSource::PureOutput(linkage) => *linkage,
+                            LinkageSource::Transfer(linkage) => *linkage,
                         },
                     ),
                     opds,
@@ -180,7 +180,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                     ref_mut_access: borrow_mut_access,
                                     ..
                                 } => todo!(),
-                                LinkageSource::PureOutput(_) => todo!(),
+                                LinkageSource::Transfer(_) => todo!(),
                             }),
                         this,
                     },

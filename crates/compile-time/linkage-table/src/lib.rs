@@ -62,7 +62,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                         MemberAccessKind::BorrowMut => *borrow_mut_access,
                                         MemberAccessKind::Copy => *copy_access,
                                     },
-                                    LinkageSource::PureOutput(_) => todo!(),
+                                    LinkageSource::Transfer(_) => todo!(),
                                 }
                             }
                         }
@@ -88,7 +88,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             .linkage_table()
             .struct_field_access(self.entity_uid(this_ty), field_ident)
         {
-            return Some(LinkageSource::PureOutput(linkage));
+            return Some(LinkageSource::Transfer(linkage));
         } else {
             None
         }
@@ -96,7 +96,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
 
     fn method_linkage_source(&self, method_route: EntityRoutePtr) -> Option<LinkageSource> {
         if let Some(linkage) = self.linkage_table().routine(self.entity_uid(method_route)) {
-            return Some(LinkageSource::PureOutput(linkage));
+            return Some(LinkageSource::Transfer(linkage));
         }
         let method_defn = self.entity_defn(method_route).unwrap();
         match method_defn.variant {

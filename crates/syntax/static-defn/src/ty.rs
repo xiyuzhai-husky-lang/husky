@@ -85,5 +85,5 @@ pub enum LinkageSource {
         move_access: Linkage,
         ref_mut_access: Linkage,
     },
-    PureOutput(Linkage),
+    Transfer(Linkage),
 }

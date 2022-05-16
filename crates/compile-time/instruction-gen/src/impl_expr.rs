@@ -248,7 +248,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ref_mut_access: borrow_mut_access,
                     ..
                 } => todo!(),
-                LinkageSource::PureOutput(linkage) => {
+                LinkageSource::Transfer(linkage) => {
                     InstructionKind::RoutineCallCompiled { linkage }
                 }
             }
