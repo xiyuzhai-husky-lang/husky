@@ -68,7 +68,7 @@ fn is_implicit_convertible(
                     | RootIdentifier::B64
                     | RootIdentifier::Bool => true,
                     RootIdentifier::Void
-                    | RootIdentifier::Vec
+                    | RootIdentifier::List
                     | RootIdentifier::Tuple
                     | RootIdentifier::Fp
                     | RootIdentifier::Fn
@@ -84,7 +84,7 @@ fn is_implicit_convertible(
             },
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => todo!(),
+            RootIdentifier::List => todo!(),
             RootIdentifier::Tuple => todo!(),
             RootIdentifier::Debug => todo!(),
             RootIdentifier::Std => todo!(),

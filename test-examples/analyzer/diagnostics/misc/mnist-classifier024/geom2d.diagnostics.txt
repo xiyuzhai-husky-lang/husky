@@ -1,0 +1,9 @@
+38:41..38:42	Ast Error: can't match ket  `)`
+45:24..45:26	Ast Error: unexpected identifier here
+73:60..73:62	Ast Error: unexpected identifier here
+12:45..12:49	Infer Error: no method named `sqrt` for type `f32`
+28:45..28:49	Infer Error: no method named `sqrt` for type `f32`
+54:12..54:22	Infer Error: expect use of "!=" on same types
+56:20..56:39	Infer Error: expect use of "<, <=, >, >=" on same types
+59:19..59:22	Infer Error: no method named `sgn` for type `f32`
+66:66..66:69	Infer Error: no method named `min` for type `f32`

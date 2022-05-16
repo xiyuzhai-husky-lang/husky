@@ -83,7 +83,7 @@ impl<'a> SymbolContext<'a> {
                 | RootIdentifier::Bool => TyKind::Primitive,
                 RootIdentifier::True => todo!(),
                 RootIdentifier::False => todo!(),
-                RootIdentifier::Vec => todo!(),
+                RootIdentifier::List => todo!(),
                 RootIdentifier::Tuple => TyKind::Other,
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Std => todo!(),

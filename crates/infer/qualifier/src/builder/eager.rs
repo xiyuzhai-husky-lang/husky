@@ -3,7 +3,9 @@ use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
-use infer_error::{derived, derived_not_none, derived_unwrap, throw, throw_derived};
+use infer_error::{
+    derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
+};
 use print_utils::{emsg_once, p};
 use text::RangedCustomIdentifier;
 use text::{TextRange, TextRanged};
@@ -149,7 +151,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             output_contract,
                             output_ty,
                         ) {
-                            todo!()
+                            self.qualified_ty_sheet.extra_errors.push(InferError {
+                                variant: InferErrorVariant::Original {
+                                    message: format!(
+                                        "expect return type to be `{:?}`,\n  but got `{:?}` instead",
+                                   output_ty,qualified_ty),
+                                    range: stmt.range,
+                                },
+                                dev_src: dev_utils::dev_src!(),
+                            })
                         }
                     }
                     _ => (),

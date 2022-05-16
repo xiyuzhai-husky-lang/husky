@@ -6,7 +6,7 @@ use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use print_utils::{p, ps};
 use std::fmt::Write;
-use test_utils::{TestDisplayConfig, TestDisplay};
+use test_utils::{TestDisplay, TestDisplayConfig};
 use text::Row;
 use vec_map::VecPairMap;
 use word::Identifier;
@@ -22,6 +22,7 @@ pub struct QualifiedTySheet {
     pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerQualifiedTy>>,
     pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyQualifiedTy>>,
     pub(crate) contract_sheet: Arc<ContractSheet>,
+    pub(crate) extra_errors: Vec<InferError>,
 }
 
 impl QualifiedTySheet {
@@ -33,6 +34,7 @@ impl QualifiedTySheet {
             eager_expr_qualified_tys: ArenaMap::new(arena),
             lazy_expr_qualified_tys: ArenaMap::new(arena),
             contract_sheet,
+            extra_errors: Vec::new(),
         }
     }
 
@@ -104,6 +106,12 @@ impl QualifiedTySheet {
                     InferErrorVariant::Derived { .. } => (),
                     InferErrorVariant::Original { .. } => errors.push(e),
                 },
+            }
+        }
+        for e in &self.extra_errors {
+            match e.variant {
+                InferErrorVariant::Derived { .. } => (),
+                InferErrorVariant::Original { .. } => errors.push(e),
             }
         }
         errors

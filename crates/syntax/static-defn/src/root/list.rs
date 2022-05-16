@@ -2,11 +2,11 @@ use check_utils::should_eq;
 
 use super::*;
 
-pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "Vec",
+pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
+    name: "List",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
-        base_route: "Vec",
+        base_route: "List",
         generic_placeholders: &[StaticGenericPlaceholder {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
@@ -22,7 +22,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     variant: EntityStaticDefnVariant::Method {
                         this_contract: InputContract::Pure,
                         input_placeholders: &[],
-                        output_ty: "Vec<E>",
+                        output_ty: "List<E>",
                         output_contract: OutputContract::Transfer,
                         generic_placeholders: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
@@ -80,7 +80,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     generic_placeholders: &[],
                     kind: MethodStaticDefnKind::TypeMethod {
                         source: LinkageSource::PureOutput(Linkage {
-                            call: generic_vec_len,
+                            call: generic_list_len,
                             nargs: 1,
                         }),
                     },
@@ -132,18 +132,18 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         variants: &[],
         kind: TyKind::Vec,
         visualizer: TRIVIAL_VISUALIZER,
-        opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
+        opt_type_call: Some(&LIST_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),
 };
 
-static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "Vec",
+static LIST_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
+    name: "List",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_placeholders: &[],
         input_placeholders: vec![],
-        output_ty: "Vec<E>",
+        output_ty: "List<E>",
         output_contract: OutputContract::Transfer,
         linkage: Linkage {
             call: vec_type_call,
@@ -170,7 +170,7 @@ fn vec_type_call<'stack, 'eval>(
 //     Ok(StackValue::Boxed(BoxedValue::new(generic_vec_cloned)))
 // }
 
-fn generic_vec_len<'stack, 'eval>(
+fn generic_list_len<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMResult<StackValue<'stack, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();

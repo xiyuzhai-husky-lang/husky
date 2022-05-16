@@ -71,13 +71,13 @@ fn f32_type() {
 }
 
 #[test]
-fn vec_generics() {
+fn list_generics() {
     let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
         &mut db,
-        "Vec",
+        "List",
         AtomVariant::EntityRoute {
-            route: RootIdentifier::Vec.into(),
+            route: RootIdentifier::List.into(),
             kind: EntityKind::Type(TyKind::Vec),
         },
     );
