@@ -1,5 +1,5 @@
 use check_utils::should;
-use entity_route::RangedEntityRoute;
+use entity_route::{GenericArgument, RangedEntityRoute};
 use text::RangedCustomIdentifier;
 use text::{TextPosition, TextRange};
 use vm::*;
@@ -15,7 +15,7 @@ pub(crate) struct ExprStack<'a> {
 #[derive(Debug, PartialEq, Eq, Clone)]
 struct ExprStackOpr {
     precedence: Precedence,
-    kind: ExprStackOprKind,
+    variant: ExprStackOprVariant,
 }
 
 impl ExprStackOpr {
@@ -23,28 +23,33 @@ impl ExprStackOpr {
         let precedence = opr.into();
         Self {
             precedence,
-            kind: ExprStackOprKind::Binary(opr),
+            variant: ExprStackOprVariant::Binary(opr),
         }
     }
 
     fn prefix(prefix: PrefixOpr, start: TextPosition) -> Self {
         Self {
             precedence: Precedence::Prefix,
-            kind: ExprStackOprKind::Prefix { prefix, start },
+            variant: ExprStackOprVariant::Prefix { prefix, start },
         }
     }
 
     fn list_item() -> Self {
         Self {
             precedence: Precedence::None,
-            kind: ExprStackOprKind::ListItem,
+            variant: ExprStackOprVariant::ListItem,
         }
     }
 
-    fn list_start(bra: Bracket, attr: ListStartAttr, start: TextPosition) -> Self {
+    fn list_start(
+        bra: Bracket,
+        attr: ListStartAttr,
+        start: TextPosition,
+        generic_arguments: Vec<GenericArgument>,
+    ) -> Self {
         Self {
             precedence: Precedence::None,
-            kind: ExprStackOprKind::ListStart { bra, attr, start },
+            variant: ExprStackOprVariant::ListStart { bra, attr, start },
         }
     }
 
@@ -54,13 +59,13 @@ impl ExprStackOpr {
     ) -> Self {
         Self {
             precedence: Precedence::LambdaHead,
-            kind: ExprStackOprKind::LambdaHead { inputs, start },
+            variant: ExprStackOprVariant::LambdaHead { inputs, start },
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-enum ExprStackOprKind {
+enum ExprStackOprVariant {
     Binary(BinaryOpr),
     ListItem,
     Prefix {
@@ -107,12 +112,18 @@ impl<'a> ExprStack<'a> {
         bra: Bracket,
         attr: ListStartAttr,
         start: TextPosition,
+        generic_arguments: Vec<GenericArgument>,
     ) {
-        self.oprs.push(ExprStackOpr::list_start(bra, attr, start));
-        match attr {
-            ListStartAttr::None => (),
-            ListStartAttr::Attach => self.oprs.push(ExprStackOpr::list_item()),
-        };
+        let attached = attr.attached();
+        self.oprs.push(ExprStackOpr::list_start(
+            bra,
+            attr,
+            start,
+            generic_arguments,
+        ));
+        if attached {
+            self.oprs.push(ExprStackOpr::list_item())
+        }
     }
 
     pub(crate) fn accept_list_item(&mut self) -> AstResult<()> {
@@ -168,48 +179,49 @@ impl<'a> ExprStack<'a> {
         end_attr: ListEndAttr,
         end: TextPosition,
     ) -> AstResult<()> {
-        let (start_attr, start, list_len) = {
-            let mut i = 0;
+        let original_number_of_oprs = self.oprs.len();
+        let (start_attr, start) = {
             loop {
-                if i >= self.oprs.len() {
-                    err!(
-                        format!("can't match ket  `{}`", ket.ket_code(),),
-                        ((end.to_left(1))..end).into()
-                    )?;
-                }
-                match self.top(i).kind {
-                    ExprStackOprKind::ListItem => (),
-                    ExprStackOprKind::ListStart { bra, attr, start } => {
-                        if ket != bra {
+                match self.oprs.pop() {
+                    Some(expr_stack_opr) => match expr_stack_opr.variant {
+                        ExprStackOprVariant::ListItem => (),
+                        ExprStackOprVariant::ListStart { bra, attr, start } => {
+                            if ket != bra {
+                                err!(
+                                    format!(
+                                        "brackets should match but get bra = {}, ket = {}",
+                                        bra.bra_code(),
+                                        ket.ket_code(),
+                                    ),
+                                    (self.exprs[0].range.start..end).into()
+                                )?;
+                            };
+                            break (attr, start);
+                        }
+                        _ => {
                             err!(
                                 format!(
-                                    "brackets should match but get bra = {}, ket = {}",
-                                    bra.bra_code(),
-                                    ket.ket_code(),
+                                    "expect {} but got {:?} instead",
+                                    ket.bra_code(),
+                                    expr_stack_opr
                                 ),
                                 (self.exprs[0].range.start..end).into()
                             )?;
-                        };
-                        break (attr, start, i);
-                    }
-                    _ => {
+                        }
+                    },
+                    None => {
                         err!(
-                            format!(
-                                "expect {} but got {:?} instead",
-                                ket.bra_code(),
-                                self.oprs[i]
-                            ),
-                            (self.exprs[0].range.start..end).into()
+                            format!("can't match ket `{}`", ket.ket_code(),),
+                            ((end.to_left(1))..end).into()
                         )?;
                     }
                 }
-                i += 1;
             }
         };
-        self.oprs.truncate(self.oprs.len() - list_len - 1);
-        let true_start = match start_attr {
-            ListStartAttr::None => start,
-            ListStartAttr::Attach => self.exprs[self.exprs.len() - list_len].range.start,
+        let list_len = original_number_of_oprs - self.oprs.len() - 1;
+        let true_start = match start_attr.attached() {
+            true => self.exprs[self.exprs.len() - list_len].range.start,
+            false => start,
         };
         let opds = self
             .arena
@@ -229,18 +241,18 @@ impl<'a> ExprStack<'a> {
         while let Some(stack_opr) = self.oprs.last() {
             if stack_opr.precedence >= threshold {
                 let stack_opr = self.oprs.pop().unwrap();
-                match stack_opr.kind {
-                    ExprStackOprKind::Binary(binary) => self.synthesize_binary(binary),
-                    ExprStackOprKind::Prefix { prefix, start } => {
+                match stack_opr.variant {
+                    ExprStackOprVariant::Binary(binary) => self.synthesize_binary(binary),
+                    ExprStackOprVariant::Prefix { prefix, start } => {
                         self.synthesize_prefix(prefix, start)
                     }
-                    ExprStackOprKind::LambdaHead { inputs, start } => {
+                    ExprStackOprVariant::LambdaHead { inputs, start } => {
                         self.synthesize_lambda(inputs, start)
                     }
-                    ExprStackOprKind::ListItem => {
+                    ExprStackOprVariant::ListItem => {
                         let (bra, start) = loop {
-                            match self.oprs.pop().unwrap().kind {
-                                ExprStackOprKind::ListStart { bra, start, .. } => {
+                            match self.oprs.pop().unwrap().variant {
+                                ExprStackOprVariant::ListStart { bra, start, .. } => {
                                     break (bra, start)
                                 }
                                 _ => (),
@@ -254,7 +266,7 @@ impl<'a> ExprStack<'a> {
                             dev_src: dev_src!(),
                         });
                     }
-                    ExprStackOprKind::ListStart { bra, start, .. } => {
+                    ExprStackOprVariant::ListStart { bra, start, .. } => {
                         return Err(AstError {
                             variant: AstErrorVariant::Original {
                                 message: format!("expect a matching `{}`", bra.ket_code()),
@@ -274,7 +286,7 @@ impl<'a> ExprStack<'a> {
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
         let len = self.exprs.len();
         let range = (self.exprs[len - 2].range.start..self.exprs[len - 1].range.end).into();
-        self.synthesize_opr(binary.into(), 2, range)
+        self.synthesize_opr(binary.into(), Vec::new(), 2, range)
     }
 
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
@@ -299,15 +311,21 @@ impl<'a> ExprStack<'a> {
                 return;
             }
         }
-        self.synthesize_opr(prefix.into(), 1, range)
+        self.synthesize_opr(prefix.into(), Vec::new(), 1, range)
     }
 
     fn synthesize_suffix(&mut self, suffix: SuffixOpr, end: TextPosition) {
         let range = (self.exprs.last().unwrap().range.start..end).into();
-        self.synthesize_opr(suffix.into(), 1, range)
+        self.synthesize_opr(suffix.into(), Vec::new(), 1, range)
     }
 
-    fn synthesize_opr(&mut self, opr: Opr, n_opds: usize, range: TextRange) {
+    fn synthesize_opr(
+        &mut self,
+        opr: Opr,
+        generic_arguments: Vec<GenericArgument>,
+        n_opds: usize,
+        range: TextRange,
+    ) {
         let len = self.exprs.len();
         let opds = self.arena.alloc(self.exprs[(len - n_opds)..len].into());
         self.exprs.truncate(len - n_opds);

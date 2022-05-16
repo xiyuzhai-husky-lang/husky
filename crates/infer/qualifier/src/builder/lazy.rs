@@ -196,7 +196,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.raw_expr_ty(raw_expr_idx).unwrap(),
             )),
             RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => {
+            RawExprVariant::Opn { ref opr, ref opds } => {
                 self.lazy_opn(arena, raw_expr_idx, opr, opds.clone())
             }
             RawExprVariant::Lambda(_, _) => todo!(),
@@ -207,13 +207,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
-        opr: Opr,
+        opr: &Opr,
         opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
         match opr {
             Opr::Binary(binary_opr) => self.lazy_binary(arena, raw_expr_idx, opds),
             Opr::Prefix(prefix_opr) => self.lazy_prefix(arena, raw_expr_idx, opds),
-            Opr::Suffix(suffix_opr) => self.lazy_suffix(arena, raw_expr_idx, suffix_opr, opds),
+            Opr::Suffix(suffix_opr) => self.lazy_suffix(arena, raw_expr_idx, *suffix_opr, opds),
             Opr::List(list_opr) => self.lazy_list(arena, raw_expr_idx, list_opr, opds),
         }
     }
@@ -275,7 +275,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         expr_idx: RawExprIdx,
-        list_opr: ListOpr,
+        list_opr: &ListOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
         match list_opr {
@@ -286,6 +286,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             ListOpr::Index => self.lazy_element_access(arena, expr_idx, opds),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
+            ListOpr::MethodCall { ranged_ident, .. } => self.lazy_method_call(
+                arena,
+                opds.start,
+                *ranged_ident,
+                (opds.start + 1)..opds.end,
+                expr_idx,
+            ),
         }
     }
 
@@ -317,24 +324,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     OutputContract::MemberAccess => todo!(),
                 }
             }
-            RawExprVariant::Opn { opr, ref opds } => match opr {
-                Opr::Binary(_) => todo!(),
-                Opr::Prefix(_) => todo!(),
-                Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::FieldAccess(ident) => self.lazy_method(
-                        opds.start,
-                        ident,
-                        (total_opds.start + 1)..total_opds.end,
-                        arena,
-                        expr_idx,
-                    ),
-                    SuffixOpr::Incr => todo!(),
-                    SuffixOpr::Decr => todo!(),
-                    SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::WithType(_) => todo!(),
-                },
-                Opr::List(_) => todo!(),
-            },
+            RawExprVariant::Opn { ref opr, ref opds } => todo!(),
             RawExprVariant::PrimitiveLiteral(_) => {
                 throw_derived!("a primitive literal can't be a caller")
             }
@@ -370,12 +360,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         Ok(LazyQualifiedTy::new(qual, element_ty))
     }
 
-    fn lazy_method(
+    fn lazy_method_call(
         &mut self,
+        arena: &RawExprArena,
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
-        arena: &RawExprArena,
         expr_idx: RawExprIdx,
     ) -> InferResult<LazyQualifiedTy> {
         let method_decl = self.method_decl(expr_idx)?;

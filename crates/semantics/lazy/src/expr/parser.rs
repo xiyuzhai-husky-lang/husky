@@ -58,7 +58,9 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             },
             RawExprVariant::PrimitiveLiteral(value) => LazyExprKind::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { opr, ref opds } => self.parse_opn(opr, opds, raw_expr_idx)?,
+            RawExprVariant::Opn {
+                ref opr, ref opds, ..
+            } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => LazyExprKind::This,
             RawExprVariant::FrameVariable { varname, init_row } => todo!(),
@@ -75,14 +77,14 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
 
     fn parse_opn(
         &mut self,
-        opr: Opr,
+        opr: &Opr,
         opds: &RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprKind> {
         match opr {
-            Opr::Binary(opr) => self.parse_binary_opr(opr, opds),
+            Opr::Binary(opr) => self.parse_binary_opr(*opr, opds),
             Opr::Prefix(_) => todo!(),
-            Opr::Suffix(opr) => self.parse_suffix_opr(opr, opds),
+            Opr::Suffix(opr) => self.parse_suffix_opr(*opr, opds),
             Opr::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
@@ -91,6 +93,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 ListOpr::Index => self.parse_element_access(opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
+                ListOpr::MethodCall { .. } => todo!(),
             },
         }
     }
@@ -246,9 +249,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
         let call = &self.arena()[opd_idx_range.start];
         let input_opd_idx_range = (opd_idx_range.start + 1)..opd_idx_range.end;
         match call.variant {
-            RawExprVariant::Entity {
-                route: scope, kind, ..
-            } => {
+            RawExprVariant::Entity { route, kind, .. } => {
                 let arguments: Vec<_> = ((opd_idx_range.start + 1)..opd_idx_range.end)
                     .map(|raw| self.parse_lazy_expr(raw))
                     .collect::<SemanticResult<_>>()?;
@@ -257,11 +258,11 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                     EntityKind::Type(ty_kind) => match ty_kind {
                         TyKind::Enum => todo!(),
                         TyKind::Record => LazyOpnKind::RecordCall(RangedEntityRoute {
-                            route: scope,
+                            route,
                             range: call.range(),
                         }),
                         TyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
-                            route: scope,
+                            route,
                             range: call.range(),
                         }),
                         TyKind::Primitive => todo!(),
@@ -271,7 +272,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                     },
                     EntityKind::Trait => todo!(),
                     EntityKind::Routine => LazyOpnKind::RoutineCall(RangedEntityRoute {
-                        route: scope,
+                        route,
                         range: call.range(),
                     }),
                     EntityKind::Feature => todo!(),
@@ -290,7 +291,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn {
-                opr,
+                ref opr,
                 opds: ref field_opds,
             } => match opr {
                 Opr::Binary(_) => todo!(),
@@ -309,7 +310,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                         emsg_once!("todo: memb call compiled");
                         Ok(LazyExprKind::Opn {
                             opn_kind: LazyOpnKind::MethodCall {
-                                method_ident: ranged_ident,
+                                method_ident: *ranged_ident,
                                 method_route: self
                                     .entity_route_sheet()
                                     .call_route(raw_expr_idx)

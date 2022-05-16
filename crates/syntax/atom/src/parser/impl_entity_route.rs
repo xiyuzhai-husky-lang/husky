@@ -213,7 +213,7 @@ impl<'a> AtomParser<'a> {
         Ok(args)
     }
 
-    fn angled_generics(&mut self) -> AtomResult<Vec<GenericArgument>> {
+    pub(crate) fn angled_generics(&mut self) -> AtomResult<Vec<GenericArgument>> {
         Ok(if next_matches!(self, Special::LAngle) {
             comma_list![self, generic!+, ">"]
         } else {

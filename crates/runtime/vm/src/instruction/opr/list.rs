@@ -1,3 +1,5 @@
+use entity_route::GenericArgument;
+
 use super::*;
 
 impl From<ListOpr> for Opr {
@@ -6,7 +8,7 @@ impl From<ListOpr> for Opr {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ListOpr {
     TupleInit,
     NewVec,
@@ -15,12 +17,30 @@ pub enum ListOpr {
     Index,
     ModuloIndex,
     StructInit,
+    MethodCall {
+        ranged_ident: RangedCustomIdentifier,
+        generic_arguments: Vec<GenericArgument>,
+    },
 }
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ListStartAttr {
     None,
     Attach,
+    MethodAttach {
+        ranged_ident: RangedCustomIdentifier,
+        generic_arguments: Vec<GenericArgument>,
+    },
+}
+
+impl ListStartAttr {
+    pub fn attached(&self) -> bool {
+        match self {
+            ListStartAttr::None => false,
+            ListStartAttr::Attach => true,
+            ListStartAttr::MethodAttach { .. } => true,
+        }
+    }
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
@@ -34,6 +54,7 @@ pub enum ListEndAttr {
 pub enum Bracket {
     Par,
     Box,
+    Angle,
     Curl,
 }
 
@@ -42,6 +63,7 @@ impl Bracket {
         match self {
             Bracket::Par => "(",
             Bracket::Box => "[",
+            Bracket::Angle => "<",
             Bracket::Curl => "{",
         }
     }
@@ -50,6 +72,7 @@ impl Bracket {
         match self {
             Bracket::Par => ")",
             Bracket::Box => "]",
+            Bracket::Angle => ">",
             Bracket::Curl => "}",
         }
     }

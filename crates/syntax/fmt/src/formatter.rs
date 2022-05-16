@@ -248,7 +248,7 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[expr_idx]);
                 self.write(")");
             }
-            RawExprVariant::Opn { opr: opn, ref opds } => match opn {
+            RawExprVariant::Opn { ref opr, ref opds } => match opr {
                 Opr::Binary(opr) => {
                     let opds = &self.arena[opds];
                     self.fmt_expr(&opds[0]);
@@ -265,24 +265,8 @@ impl<'a> Formatter<'a> {
                     ListOpr::Index => todo!(),
                     ListOpr::ModuloIndex => todo!(),
                     ListOpr::StructInit => todo!(),
+                    ListOpr::MethodCall { .. } => todo!(),
                 },
-                // ast::Opr::ScopeCall(_) => todo!(),
-                // ast::Opr::ValueCall => {
-                //     let opds = &self.arena[opds];
-                //     self.fmt_expr(result, &opds[0]);
-                //     self.write("(");
-                //     for i in 1..opds.len() {
-                //         if i >= 2 {
-                //             self.write(", ")
-                //         }
-                //         self.fmt_expr(result, &opds[i]);
-                //     }
-                //     self.write(")");
-                // }
-                // ast::Opr::MemberCall(_) => todo!(),
-                // ast::Opr::Member(_) => todo!(),
-                // ast::Opr::Index => todo!(),
-                // ast::Opr::Opr(opr) => match opr {},
             },
             RawExprVariant::Entity { .. } => todo!(),
             RawExprVariant::Lambda(ref inputs, expr) => {

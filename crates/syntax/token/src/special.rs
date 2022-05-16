@@ -1,3 +1,5 @@
+use vm::Bracket;
+
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum Special {
     LAngle,
@@ -89,6 +91,16 @@ impl Special {
             Special::BitOrAssign => "|=",
             Special::BitAndAssign => "&=",
             Special::DoubleExclamation => "!!",
+        }
+    }
+
+    pub fn opt_bra(&self) -> Option<Bracket> {
+        match self {
+            Special::LAngle => Some(Bracket::Angle),
+            Special::LCurl => Some(Bracket::Curl),
+            Special::LBox => Some(Bracket::Box),
+            Special::LPar => Some(Bracket::Par),
+            _ => None,
         }
     }
 }

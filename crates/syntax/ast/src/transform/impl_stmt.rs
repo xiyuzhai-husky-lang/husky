@@ -200,7 +200,7 @@ impl<'a> AstTransformer<'a> {
         let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr];
         match expr.variant {
-            RawExprVariant::Opn { opr, ref opds } => match opr {
+            RawExprVariant::Opn { ref opr, ref opds } => match opr {
                 Opr::Prefix(_) | Opr::Suffix(_) | Opr::List(_) => todo!(),
                 Opr::Binary(binary) => match binary {
                     BinaryOpr::Assign(_) => todo!(),
@@ -220,7 +220,7 @@ impl<'a> AstTransformer<'a> {
                                 frame_var,
                                 RawLoopKind::for_loop_with_default_initial(
                                     frame_var,
-                                    pure_binary,
+                                    *pure_binary,
                                     opds.end - 1,
                                     expr.range(),
                                 )?
@@ -235,7 +235,7 @@ impl<'a> AstTransformer<'a> {
                                 frame_var,
                                 RawLoopKind::for_loop_with_default_final(
                                     opds.start,
-                                    pure_binary,
+                                    *pure_binary,
                                     frame_var,
                                     expr.range(),
                                 )?
@@ -244,7 +244,7 @@ impl<'a> AstTransformer<'a> {
                         } else {
                             let final_comparison = pure_binary;
                             match lopd.variant {
-                                RawExprVariant::Opn { opr, ref opds } => {
+                                RawExprVariant::Opn { ref opr, ref opds } => {
                                     let llopd_idx = opds.start;
                                     let lropd_idx = opds.end - 1;
                                     let lropd = &self.arena[lropd_idx];
@@ -269,9 +269,9 @@ impl<'a> AstTransformer<'a> {
                                         frame_var,
                                         RawLoopKind::for_loop(
                                             llopd_idx,
-                                            initial_comparison,
+                                            *initial_comparison,
                                             frame_var,
-                                            final_comparison,
+                                            *final_comparison,
                                             ropd_idx,
                                         )?
                                         .into(),

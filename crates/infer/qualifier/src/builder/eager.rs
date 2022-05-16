@@ -249,7 +249,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_eager_expr(arena, expr))
             }
-            RawExprVariant::Opn { opr, ref opds } => {
+            RawExprVariant::Opn { ref opr, ref opds } => {
                 self.eager_opn(arena, raw_expr_idx, opr, opds.clone(), raw_expr.range)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
@@ -260,16 +260,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
-        opr: Opr,
+        opr: &Opr,
         opds: RawExprRange,
         range: TextRange,
     ) -> InferResult<EagerQualifiedTy> {
         match opr {
             Opr::Binary(binary_opr) => {
-                self.eager_binary(arena, raw_expr_idx, binary_opr, opds, range)
+                self.eager_binary(arena, raw_expr_idx, *binary_opr, opds, range)
             }
             Opr::Prefix(prefix_opr) => self.eager_prefix(arena, raw_expr_idx, opds),
-            Opr::Suffix(suffix_opr) => self.eager_suffix(arena, raw_expr_idx, suffix_opr, opds),
+            Opr::Suffix(suffix_opr) => self.eager_suffix(arena, raw_expr_idx, *suffix_opr, opds),
             Opr::List(list_opr) => self.eager_list(arena, raw_expr_idx, list_opr, opds),
         }
     }
@@ -351,7 +351,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         expr_idx: RawExprIdx,
-        list_opr: ListOpr,
+        list_opr: &ListOpr,
         opds: RawExprRange,
     ) -> InferResult<EagerQualifiedTy> {
         match list_opr {
@@ -362,6 +362,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             ListOpr::Index => self.eager_element_access(arena, expr_idx, opds),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
+            ListOpr::MethodCall { ranged_ident, .. } => self.eager_method_call(
+                arena,
+                opds.start,
+                *ranged_ident,
+                (opds.start + 1)..opds.end,
+                expr_idx,
+            ),
         }
     }
 
@@ -393,24 +400,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     OutputContract::MemberAccess => todo!(),
                 }
             }
-            RawExprVariant::Opn { opr, ref opds } => match opr {
-                Opr::Binary(_) => todo!(),
-                Opr::Prefix(_) => todo!(),
-                Opr::Suffix(suffix) => match suffix {
-                    SuffixOpr::FieldAccess(ident) => self.eager_method(
-                        opds.start,
-                        ident,
-                        (total_opds.start + 1)..total_opds.end,
-                        arena,
-                        expr_idx,
-                    ),
-                    SuffixOpr::Incr => todo!(),
-                    SuffixOpr::Decr => todo!(),
-                    SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::WithType(_) => todo!(),
-                },
-                Opr::List(_) => todo!(),
-            },
+            RawExprVariant::Opn { ref opr, ref opds } => todo!(),
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized caller")),
             RawExprVariant::PrimitiveLiteral(_) => {
                 throw_derived!("a primitive literal can't be a caller")
@@ -510,12 +500,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         Ok(EagerQualifiedTy::new(qual, element_ty))
     }
 
-    fn eager_method(
+    fn eager_method_call(
         &mut self,
+        arena: &RawExprArena,
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
-        arena: &RawExprArena,
         expr_idx: RawExprIdx,
     ) -> InferResult<EagerQualifiedTy> {
         let method_decl = self.method_decl(expr_idx)?;

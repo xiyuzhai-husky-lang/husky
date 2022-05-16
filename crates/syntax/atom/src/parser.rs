@@ -15,7 +15,7 @@ use std::iter::Peekable;
 use text::TextRange;
 use token::{identify, AbsSemanticToken, SemanticTokenKind, Special, Token, TokenKind};
 use utils::*;
-use vm::{BinaryOpr, PureBinaryOpr};
+use vm::{BinaryOpr, Bracket, PureBinaryOpr};
 
 #[derive(Debug, Clone)]
 pub(crate) struct TokenStream<'a> {
@@ -43,13 +43,13 @@ impl<'a> TokenStream<'a> {
         range
     }
 
-    pub(crate) fn is_lpar_next(&mut self) -> bool {
+    pub(crate) fn peek_next_bra(&mut self) -> Option<Bracket> {
         match self.iter.peek() {
-            Some(Token {
-                kind: TokenKind::Special(Special::LPar),
-                ..
-            }) => true,
-            _ => false,
+            Some(token) => match token.kind {
+                TokenKind::Special(special) => special.opt_bra(),
+                _ => None,
+            },
+            _ => None,
         }
     }
 }

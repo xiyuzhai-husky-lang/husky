@@ -4,6 +4,8 @@ mod precedence;
 mod stack;
 
 use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
+use atom::Atom;
+use entity_route::GenericArgument;
 pub use kind::RawExprVariant;
 pub(crate) use stack::ExprStack;
 pub use word::Keyword;
@@ -51,6 +53,7 @@ impl RawExpr {
                 Bracket::Par => ListOpr::TupleInit,
                 Bracket::Box => ListOpr::NewVec,
                 Bracket::Curl => ListOpr::NewDict,
+                Bracket::Angle => todo!(),
             },
             ListStartAttr::Attach => match bracket {
                 Bracket::Par => ListOpr::Call,
@@ -60,6 +63,14 @@ impl RawExpr {
                     ListEndAttr::Attach => todo!(),
                 },
                 Bracket::Curl => ListOpr::StructInit,
+                Bracket::Angle => todo!(),
+            },
+            ListStartAttr::MethodAttach {
+                ranged_ident,
+                generic_arguments,
+            } => ListOpr::MethodCall {
+                ranged_ident,
+                generic_arguments,
             },
         }
         .into();
@@ -77,8 +88,8 @@ impl RawExpr {
     }
 }
 
-impl From<&atom::Atom> for RawExpr {
-    fn from(atom: &atom::Atom) -> Self {
+impl From<Atom> for RawExpr {
+    fn from(atom: Atom) -> Self {
         Self {
             range: atom.text_range(),
             variant: match atom.kind {
