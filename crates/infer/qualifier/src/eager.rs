@@ -94,7 +94,7 @@ impl EagerQualifiedTy {
         output_contract: OutputContract,
         output_ty: EntityRoutePtr,
     ) -> bool {
-        if !db.is_implicit_convertible(self.ty, output_ty) {
+        if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
         match output_contract {

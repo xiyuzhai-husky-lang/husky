@@ -120,6 +120,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                     }
                     SuffixOpr::WithType(_) => todo!(),
+                    SuffixOpr::AsType(_) => todo!(),
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)

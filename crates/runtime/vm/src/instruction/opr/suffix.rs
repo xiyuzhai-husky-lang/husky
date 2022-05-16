@@ -1,3 +1,5 @@
+use entity_route::RangedEntityRoute;
+
 use super::*;
 
 impl From<SuffixOpr> for Opr {
@@ -13,6 +15,7 @@ pub enum SuffixOpr {
     MayReturn,                           // ?
     FieldAccess(RangedCustomIdentifier), // .
     WithType(EntityRoutePtr),            // :
+    AsType(RangedEntityRoute),           // :
 }
 
 impl SuffixOpr {
@@ -27,6 +30,7 @@ impl SuffixOpr {
             SuffixOpr::MayReturn => "?".into(),
             SuffixOpr::FieldAccess(ident) => format!(".{}", ident.ident),
             SuffixOpr::WithType(ty) => format!(": {}", ty),
+            SuffixOpr::AsType(ty) => format!(" as {}", ty.route),
         }
     }
 }

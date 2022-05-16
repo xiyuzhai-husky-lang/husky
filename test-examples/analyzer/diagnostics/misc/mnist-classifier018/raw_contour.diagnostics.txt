@@ -1,11 +1,6 @@
 115:40..115:50	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(RawContour)), 115:40..115:50})} instead
 121:28..121:41	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(BinaryImage28)), 121:28..121:41})} instead
 122:18..122:30	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(RawContour)), 122:20..122:30})} instead
-153:32..153:35	Ast Error: unexpected identifier here
-160:49..160:52	Ast Error: unexpected identifier here
-165:51..165:54	Ast Error: unexpected identifier here
-169:51..169:54	Ast Error: unexpected identifier here
-202:41..202:44	Ast Error: unexpected identifier here
 49:33..49:39	Infer Error: no method named `to_i32` for type `mnist_classifier018::raw_contour::Direction`
 72:21..72:26	Infer Error: Unrecognized identifier `panic`
 86:29..86:34	Infer Error: Unrecognized identifier `panic`

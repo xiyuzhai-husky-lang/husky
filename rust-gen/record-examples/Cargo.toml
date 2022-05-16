@@ -11,7 +11,6 @@ tokio = { version = "0.2", features = ["full"] }
 husky-lang-debugger = { path = "../../crates/apps/debugger", version = "0.0.0" }
 compile-time-db = { path = "../../crates/compile-time/db", version = "0.0.0" }
 
-
 [[bin]]
 name = "record_examples-debugger"
 path = "src/bin/main.rs"

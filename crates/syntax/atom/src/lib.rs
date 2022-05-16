@@ -1,17 +1,17 @@
 mod convexity;
 mod error;
-mod kind;
 pub mod parser;
 mod stack;
 pub mod symbol;
+mod variant;
 
 pub use error::*;
-pub use kind::{AtomVariant, LambdaHead};
 pub use parser::AtomParser;
 pub use parser::*;
 use print_utils::p;
 pub use symbol::SymbolContext;
 pub use syntax_types::*;
+pub use variant::{AtomVariant, LambdaHead};
 
 use entity_kind::*;
 use entity_route::EntityRoutePtr;
@@ -57,6 +57,7 @@ impl From<&Token> for Atom {
             }
             TokenKind::Special(special) => Atom::new(token.text_range(), special.into()),
             TokenKind::PrimitiveLiteral(i) => Atom::new(token.text_range(), i.into()),
+            TokenKind::WordOpr(word_opr) => Atom::new(token.text_range(), word_opr.into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
             TokenKind::Taboo(_) => todo!(),

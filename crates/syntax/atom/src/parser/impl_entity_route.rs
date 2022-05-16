@@ -1,4 +1,5 @@
 use entity_kind::TyKind;
+use entity_route::RangedEntityRoute;
 use token::SemanticTokenKind;
 
 use super::symbol::SymbolKind;
@@ -135,12 +136,9 @@ impl<'a> AtomParser<'a> {
 
     pub(crate) fn ty(&mut self) -> AtomResult<Option<EntityRoutePtr>> {
         Ok(
-            if let Some(AtomVariant::EntityRoute {
-                route: scope, kind, ..
-            }) = self.symbol()?
-            {
+            if let Some(AtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
                 if let EntityKind::Type(_) = kind {
-                    Some(scope)
+                    Some(route)
                 } else {
                     None
                 }

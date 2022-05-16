@@ -2,9 +2,10 @@ mod impl_abs_semantic_token;
 mod impl_basic;
 mod impl_call_head;
 mod impl_entity_route;
-mod impl_handle_special;
 mod impl_inner_ops;
 mod impl_lambda_head;
+mod impl_special;
+mod impl_word_opr;
 mod utils;
 
 use super::{stack::AtomStack, symbol::SymbolContext, *};
@@ -106,6 +107,7 @@ impl<'a> AtomParser<'a> {
                         }
                     }
                     TokenKind::Special(special) => self.handle_special(special, token)?,
+                    TokenKind::WordOpr(word_opr) => self.handle_word_opr(word_opr, token)?,
                     TokenKind::Identifier(_) => {
                         err!("unexpected identifier here", self.stream.pop_range())?
                     }

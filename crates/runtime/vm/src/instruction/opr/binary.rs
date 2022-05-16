@@ -35,18 +35,19 @@ impl BinaryOpr {
                         PureBinaryOpr::BitOr => " |= ",
                         PureBinaryOpr::BitXor => " ^= ",
                         PureBinaryOpr::Div => " /= ",
-                        PureBinaryOpr::Greater => todo!(),
-                        PureBinaryOpr::Leq => todo!(),
-                        PureBinaryOpr::Less => todo!(),
-                        PureBinaryOpr::Mul => todo!(),
-                        PureBinaryOpr::Neq => todo!(),
-                        PureBinaryOpr::RemEuclid => todo!(),
-                        PureBinaryOpr::Or => todo!(),
-                        PureBinaryOpr::Power => todo!(),
-                        PureBinaryOpr::Shl => todo!(),
-                        PureBinaryOpr::Shr => todo!(),
+                        PureBinaryOpr::Mul => " *= ",
+                        PureBinaryOpr::RemEuclid => " %= ",
+                        PureBinaryOpr::Or => " ||= ",
+                        PureBinaryOpr::Power => " **= ",
+                        PureBinaryOpr::Shl => " <<= ",
+                        PureBinaryOpr::Shr => " >>= ",
                         PureBinaryOpr::Sub => " -= ",
-                        PureBinaryOpr::Eq | PureBinaryOpr::Geq => panic!(),
+                        PureBinaryOpr::Leq
+                        | PureBinaryOpr::Less
+                        | PureBinaryOpr::Neq
+                        | PureBinaryOpr::Greater
+                        | PureBinaryOpr::Eq
+                        | PureBinaryOpr::Geq => panic!(),
                     }
                 } else {
                     " = "

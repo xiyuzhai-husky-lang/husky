@@ -14,6 +14,7 @@ impl Deref for WordPtr {
             WordPtr::Keyword(keyword) => keyword.deref(),
             WordPtr::Identifier(ident) => ident.deref(),
             WordPtr::Taboo(taboo) => taboo.deref(),
+            WordPtr::Opr(opr) => opr.deref(),
         }
     }
 }
@@ -95,6 +96,9 @@ pub fn new_word_interner() -> WordAllocator {
         ContextualIdentifier::ThisType.into(),
         Taboo::Crate.into(),
         Taboo::Vec.into(),
+        WordOpr::And.into(),
+        WordOpr::Or.into(),
+        WordOpr::As.into(),
     ])
 }
 

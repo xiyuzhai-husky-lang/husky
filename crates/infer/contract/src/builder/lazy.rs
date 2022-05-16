@@ -177,6 +177,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 Ok(())
             }
             SuffixOpr::WithType(_) => todo!(),
+            SuffixOpr::AsType(_) => todo!(),
         }
     }
 

@@ -1,8 +1,8 @@
-44:24..44:26	Ast Error: unexpected identifier here
-72:60..72:62	Ast Error: unexpected identifier here
+72:63..72:68	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(float)), 72:63..72:68})} instead
 6:9..6:17	Infer Error: expect mnist_classifier022::geom2d::Vector2d but get type instead
 37:21..37:24	Infer Error: unrecognized caller
 39:16..39:44	Infer Error: Unrecognized identifier `is_branch_cut_value_positive`
+44:14..44:15	Infer Error: Unrecognized identifier `v`
 53:12..53:22	Infer Error: expect use of "!=" on same types
 55:20..55:39	Infer Error: expect use of "<, <=, >, >=" on same types
 6:9..6:17	Infer Error: expect return type to be `mnist_classifier022::geom2d::Vector2d`,

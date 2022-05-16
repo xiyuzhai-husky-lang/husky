@@ -30,6 +30,7 @@ impl<'a> RustGenerator<'a> {
                         self.write(&field_ident.ident)
                     }
                     SuffixOpr::WithType(_) => todo!(),
+                    SuffixOpr::AsType(_) => todo!(),
                 },
                 EagerOpnVariant::RoutineCall(_) => todo!(),
                 EagerOpnVariant::TypeCall { ranged_ty, ty_decl } => {

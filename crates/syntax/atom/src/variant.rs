@@ -5,7 +5,7 @@ use vm::{
     BinaryOpr, Bracket, InputContract, ListEndAttr, ListStartAttr, PrefixOpr, PrimitiveValue,
     PureBinaryOpr, SuffixOpr,
 };
-use word::CustomIdentifier;
+use word::{CustomIdentifier, WordOpr};
 
 use super::*;
 
@@ -106,6 +106,16 @@ impl From<Special> for AtomVariant {
             Special::Incr => AtomVariant::Suffix(SuffixOpr::Incr),
             Special::Decr => AtomVariant::Suffix(SuffixOpr::Decr),
             Special::Comma => AtomVariant::ListItem,
+        }
+    }
+}
+
+impl From<WordOpr> for AtomVariant {
+    fn from(word_opr: WordOpr) -> Self {
+        match word_opr {
+            WordOpr::And => AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::And)),
+            WordOpr::Or => AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::Or)),
+            WordOpr::As => panic!(),
         }
     }
 }
