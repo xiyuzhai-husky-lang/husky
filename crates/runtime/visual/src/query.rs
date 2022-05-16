@@ -21,10 +21,10 @@ fn visualizer(
             EntityStaticDefnVariant::Trait { .. } => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_placeholders: inputs,
+                input_parameters: inputs,
                 output_ty,
                 output_contract,
-                generic_placeholders,
+                generic_parameters: generic_placeholders,
                 kind,
             } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),

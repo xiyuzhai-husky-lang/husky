@@ -13,7 +13,7 @@ use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, p};
-use static_defn::{EntityStaticDefnVariant, StaticInputPlaceholder};
+use static_defn::{EntityStaticDefnVariant, StaticInputParameter};
 use vm::{InputContract, OutputContract};
 use word::IdentDict;
 

@@ -37,10 +37,10 @@ pub static INDEX_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                 subscopes: &[],
                 variant: EntityStaticDefnVariant::Method {
                     this_contract: InputContract::MemberAccess,
-                    input_placeholders: &[],
+                    input_parameters: &[],
                     output_ty: "This::Output",
                     output_contract: OutputContract::MemberAccess,
-                    generic_placeholders: &[],
+                    generic_parameters: &[],
                     kind: MethodStaticDefnKind::TraitMethod {
                         opt_default_source: None,
                     },

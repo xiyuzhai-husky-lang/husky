@@ -7,7 +7,7 @@ use entity_route_query::{EntityRouteQueryGroup, EntitySyntaxResult};
 use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
-use static_defn::{StaticGenericPlaceholder, StaticInputPlaceholder};
+use static_defn::{StaticGenericPlaceholder, StaticInputParameter};
 use text::*;
 use vm::InputContract;
 use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
@@ -210,7 +210,7 @@ impl<'a> SymbolContext<'a> {
 
     pub fn input_placeholder_from_static(
         &self,
-        static_input_placeholder: &StaticInputPlaceholder,
+        static_input_placeholder: &StaticInputParameter,
     ) -> InputPlaceholder {
         InputPlaceholder {
             ident: RangedCustomIdentifier {

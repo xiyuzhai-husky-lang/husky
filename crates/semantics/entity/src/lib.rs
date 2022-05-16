@@ -257,10 +257,10 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_placeholders,
+                input_parameters: input_placeholders,
                 output_ty,
                 output_contract,
-                generic_placeholders,
+                generic_parameters: generic_placeholders,
                 kind,
             } => EntityDefnVariant::Method {
                 generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {

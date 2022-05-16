@@ -21,10 +21,10 @@ pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
                         this_contract: InputContract::Pure,
-                        input_placeholders: &[],
+                        input_parameters: &[],
                         output_ty: "List<E>",
                         output_contract: OutputContract::Transfer,
-                        generic_placeholders: &[],
+                        generic_parameters: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
                     },
                 }],
@@ -39,10 +39,10 @@ pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         subscopes: &[],
                         variant: EntityStaticDefnVariant::Method {
                             this_contract: InputContract::MemberAccess,
-                            input_placeholders: &[],
+                            input_parameters: &[],
                             output_ty: "E",
                             output_contract: OutputContract::MemberAccess,
-                            generic_placeholders: &[],
+                            generic_parameters: &[],
                             kind: MethodStaticDefnKind::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
                                     copy_access: Linkage {
@@ -75,11 +75,11 @@ pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 subscopes: &[],
                 variant: EntityStaticDefnVariant::Method {
                     this_contract: InputContract::Pure,
-                    input_placeholders: &[],
+                    input_parameters: &[],
                     output_ty: "i32",
-                    generic_placeholders: &[],
+                    generic_parameters: &[],
                     kind: MethodStaticDefnKind::TypeMethod {
-                        source: LinkageSource::PureOutput(Linkage {
+                        source: LinkageSource::Transfer(Linkage {
                             call: generic_list_len,
                             nargs: 1,
                         }),
@@ -93,15 +93,15 @@ pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 subscopes: &[],
                 variant: EntityStaticDefnVariant::Method {
                     this_contract: InputContract::BorrowMut,
-                    input_placeholders: &[StaticInputPlaceholder {
+                    input_parameters: &[StaticInputParameter {
                         contract: InputContract::Move,
                         ty: "E",
                         name: "element",
                     }],
                     output_ty: "void",
-                    generic_placeholders: &[],
+                    generic_parameters: &[],
                     kind: MethodStaticDefnKind::TypeMethod {
-                        source: LinkageSource::PureOutput(Linkage {
+                        source: LinkageSource::Transfer(Linkage {
                             call: generic_vec_push,
                             nargs: 2,
                         }),
@@ -115,11 +115,11 @@ pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 subscopes: &[],
                 variant: EntityStaticDefnVariant::Method {
                     this_contract: InputContract::BorrowMut,
-                    input_placeholders: &[],
+                    input_parameters: &[],
                     output_ty: "E",
-                    generic_placeholders: &[],
+                    generic_parameters: &[],
                     kind: MethodStaticDefnKind::TypeMethod {
-                        source: LinkageSource::PureOutput(Linkage {
+                        source: LinkageSource::Transfer(Linkage {
                             call: generic_vec_pop,
                             nargs: 1,
                         }),
