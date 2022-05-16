@@ -1,7 +1,2 @@
 72:60..72:62	Ast Error: unexpected identifier here
-12:45..12:49	Infer Error: no method named `sqrt` for type `f32`
-28:45..28:49	Infer Error: no method named `sqrt` for type `f32`
-37:42..37:45	Infer Error: no method named `min` for type `f32`
 44:14..44:15	Infer Error: Unrecognized identifier `v`
-58:19..58:22	Infer Error: no method named `sgn` for type `f32`
-65:66..65:69	Infer Error: no method named `min` for type `f32`
