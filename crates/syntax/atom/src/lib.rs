@@ -59,6 +59,7 @@ impl From<&Token> for Atom {
             TokenKind::PrimitiveLiteral(i) => Atom::new(token.text_range(), i.into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
+            TokenKind::Taboo(_) => todo!(),
         }
     }
 }

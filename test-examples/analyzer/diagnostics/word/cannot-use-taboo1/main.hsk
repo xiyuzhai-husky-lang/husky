@@ -1,0 +1,17 @@
+use package::A
+
+proc crate() -> i32:
+    return 1
+
+enum Vec:
+    Haha
+
+enum A:
+    Haha
+
+dataset:
+    synthetic::trivial::real1d::dataset1()
+
+main:
+    a = A::Haha
+    1

@@ -1,5 +1,5 @@
 use vm::PrimitiveValue;
-use word::{Identifier, Keyword, WordPtr};
+use word::{Identifier, Keyword, Taboo, WordPtr};
 
 pub use crate::*;
 
@@ -11,6 +11,7 @@ pub enum TokenKind {
     PrimitiveLiteral(PrimitiveValue),
     Unrecognized(char),
     IllFormedLiteral(PrimitiveValue),
+    Taboo(Taboo),
 }
 
 impl From<Special> for TokenKind {
@@ -29,6 +30,7 @@ impl From<WordPtr> for TokenKind {
         match word {
             WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
             WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
+            WordPtr::Taboo(taboo) => TokenKind::Taboo(taboo),
         }
     }
 }

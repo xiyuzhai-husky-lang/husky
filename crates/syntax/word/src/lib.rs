@@ -1,6 +1,7 @@
 mod intern;
 mod keyword;
 mod style;
+mod taboo;
 
 use std::sync::Arc;
 
@@ -8,6 +9,7 @@ pub use ident::*;
 pub use intern::{new_word_interner, InternWord, WordAllocator};
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use style::*;
+pub use taboo::*;
 
 pub type IdentDict<T> = VecMap<CustomIdentifier, T>;
 pub type IdentArcDict<T> = VecMap<CustomIdentifier, Arc<T>>;
@@ -19,12 +21,13 @@ use vec_map::{VecMap, VecPairMap};
 pub enum WordPtr {
     Keyword(Keyword),
     Identifier(Identifier),
+    Taboo(Taboo),
 }
 
 impl WordPtr {
     pub fn opt_ident(self) -> Option<Identifier> {
         match self {
-            WordPtr::Keyword(_) => None,
+            WordPtr::Keyword(_) | WordPtr::Taboo(_) => None,
             WordPtr::Identifier(ident) => Some(ident),
         }
     }

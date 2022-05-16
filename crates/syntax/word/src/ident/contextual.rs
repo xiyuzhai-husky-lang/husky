@@ -7,6 +7,11 @@ pub enum ContextualIdentifier {
     ThisData,
     ThisType,
 }
+impl From<ContextualIdentifier> for Identifier {
+    fn from(ident: ContextualIdentifier) -> Self {
+        Self::Contextual(ident)
+    }
+}
 
 impl ContextualIdentifier {
     pub fn as_str(&self) -> &'static str {

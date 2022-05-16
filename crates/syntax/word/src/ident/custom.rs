@@ -1,8 +1,14 @@
+use super::*;
 use core::hash::Hash;
 use std::{borrow::Borrow, fmt::Display, ops::Deref};
 
 #[derive(Copy, Clone)]
 pub struct CustomIdentifier(pub &'static str);
+impl From<CustomIdentifier> for Identifier {
+    fn from(ident: CustomIdentifier) -> Self {
+        Self::Custom(ident)
+    }
+}
 
 impl CustomIdentifier {
     pub fn snake_name(&self) -> String {

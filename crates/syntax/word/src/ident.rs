@@ -81,23 +81,6 @@ impl Deref for Identifier {
     }
 }
 
-impl From<RootIdentifier> for Identifier {
-    fn from(ident: RootIdentifier) -> Self {
-        Self::Builtin(ident)
-    }
-}
-
-impl From<CustomIdentifier> for Identifier {
-    fn from(ident: CustomIdentifier) -> Self {
-        Self::Custom(ident)
-    }
-}
-
-impl From<ContextualIdentifier> for Identifier {
-    fn from(ident: ContextualIdentifier) -> Self {
-        Self::Contextual(ident)
-    }
-}
 pub fn default_func_type() -> RootIdentifier {
     RootIdentifier::Fp
 }
