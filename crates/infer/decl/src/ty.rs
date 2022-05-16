@@ -622,10 +622,10 @@ pub(crate) fn method_decl_from_static(
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
             this_contract,
-            input_placeholders: inputs,
+            input_parameters: inputs,
             output_ty,
             output_contract,
-            generic_placeholders,
+            generic_parameters: generic_placeholders,
             kind,
         } => {
             let generic_placeholders = db.generic_placeholders_from_static(generic_placeholders);
