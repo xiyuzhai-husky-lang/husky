@@ -1,4 +1,3 @@
-
 pub(crate) fn for_loop1() -> i32 {
     let mut b = 0i32;
     for i in (0i32 + 1)..5i32 {

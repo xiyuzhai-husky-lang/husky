@@ -344,6 +344,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EagerQualifiedTy::new(qual, field_decl.ty)
             }
             SuffixOpr::WithType(_) => todo!(),
+            SuffixOpr::AsType(_) => todo!(),
         })
     }
 

@@ -238,6 +238,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                 // }
             }
             SuffixOpr::WithType(_) => todo!(),
+            SuffixOpr::AsType(_) => todo!(),
         })
     }
 
@@ -320,6 +321,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
                         })
                     }
                     SuffixOpr::WithType(_) => todo!(),
+                    SuffixOpr::AsType(_) => todo!(),
                 },
                 Opr::List(_) => todo!(),
             },

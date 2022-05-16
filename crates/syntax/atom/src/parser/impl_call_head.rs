@@ -23,7 +23,7 @@ impl<'a> AtomParser<'a> {
             SemanticTokenKind::Entity(EntityKind::Routine),
             routine_ident.range,
         ));
-        let generic_placeholders = self.placeholders()?;
+        let generic_placeholders = self.parameters()?;
         let input_placeholders = self.call_input_placeholders()?;
         let output_ty = self.func_output_type()?;
         match routine_kind {
@@ -60,7 +60,7 @@ impl<'a> AtomParser<'a> {
         routine_kind: RoutineContextKind,
     ) -> AtomResult<TypeMethodDefnHead> {
         let routine_name = get!(self, custom_ident);
-        let generics = self.placeholders()?;
+        let generics = self.parameters()?;
         let input_placeholders = self.call_input_placeholders()?;
         let output_ty = self.func_output_type()?;
         Ok(TypeMethodDefnHead {
@@ -74,9 +74,9 @@ impl<'a> AtomParser<'a> {
         })
     }
 
-    fn placeholders(&mut self) -> AtomResult<IdentDict<GenericPlaceholder>> {
+    fn parameters(&mut self) -> AtomResult<IdentDict<GenericPlaceholder>> {
         if next_matches!(self, "<") {
-            match IdentDict::from_vec(comma_list![self, placeholder!+, ">"]) {
+            match IdentDict::from_vec(comma_list![self, parameter!+, ">"]) {
                 Ok(generic_placeholders) => Ok(generic_placeholders),
                 Err(repeat) => todo!(),
             }
@@ -85,7 +85,7 @@ impl<'a> AtomParser<'a> {
         }
     }
 
-    fn placeholder(&mut self) -> AtomResult<GenericPlaceholder> {
+    fn parameter(&mut self) -> AtomResult<GenericPlaceholder> {
         let ranged_ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {

@@ -283,6 +283,26 @@ impl<'a> ContractSheetBuilder<'a> {
                 Ok(())
             }
             SuffixOpr::WithType(_) => todo!(),
+            SuffixOpr::AsType(_) => {
+                self.infer_eager_expr(
+                    opd,
+                    match contract {
+                        EagerContract::Pure => contract,
+                        EagerContract::GlobalRef => todo!(),
+                        EagerContract::Move => todo!(),
+                        EagerContract::LetInit => todo!(),
+                        EagerContract::VarInit => todo!(),
+                        EagerContract::UseMemberForLetInit => todo!(),
+                        EagerContract::UseMemberForVarInit => todo!(),
+                        EagerContract::Return => todo!(),
+                        EagerContract::RefMut => todo!(),
+                        EagerContract::MoveMut => todo!(),
+                        EagerContract::Exec => todo!(),
+                    },
+                    arena,
+                );
+                Ok(())
+            }
         }
     }
 

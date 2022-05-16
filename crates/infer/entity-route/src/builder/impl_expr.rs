@@ -57,7 +57,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::FrameVariable { .. } => Ok(self.db.entity_route_menu().i32_ty),
         }?;
         if let Some(expected_ty) = expectation {
-            if !self.db.is_implicit_convertible(ty, expected_ty) {
+            if !self.db.is_implicitly_castable(ty, expected_ty) {
                 throw!(
                     format!("expect {:?} but get {:?} instead", expected_ty, ty),
                     arena[expr_idx].range
@@ -262,7 +262,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             PrefixOpr::Not => {
                 if self
                     .db
-                    .is_implicit_convertible(opd_ty, EntityRoutePtr::Root(RootIdentifier::Bool))
+                    .is_implicitly_castable(opd_ty, EntityRoutePtr::Root(RootIdentifier::Bool))
                 {
                     Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
                 } else {
@@ -299,6 +299,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 derived_unwrap!(self.db.ty_decl(opd_ty)).field_ty_result(ident)
             }
             SuffixOpr::WithType(_) => todo!(),
+            SuffixOpr::AsType(ranged_ty) => Ok(ranged_ty.route),
         }
     }
 
