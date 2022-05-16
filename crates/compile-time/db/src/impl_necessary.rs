@@ -39,7 +39,7 @@ impl Default for HuskyLangCompileTime {
         Self {
             storage: Default::default(),
             file_unique_allocator: file::new_file_unique_allocator(),
-            word_unique_allocator: word::new_word_unique_allocator(),
+            word_unique_allocator: word::new_word_interner(),
             scope_unique_allocator,
             live_docs,
             features,

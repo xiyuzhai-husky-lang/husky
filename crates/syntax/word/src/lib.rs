@@ -1,11 +1,11 @@
-mod alloc;
+mod intern;
 mod keyword;
 mod style;
 
 use std::sync::Arc;
 
-pub use alloc::{new_word_unique_allocator, InternWord, WordAllocator};
 pub use ident::*;
+pub use intern::{new_word_interner, InternWord, WordAllocator};
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use style::*;
 

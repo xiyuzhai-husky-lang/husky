@@ -130,6 +130,9 @@ impl<'a> SymbolContext<'a> {
                 ContextualIdentifier::ThisType => {
                     Ok(SymbolKind::EntityRoute(self.db.entity_route_menu().this_ty))
                 }
+                ContextualIdentifier::Package => Ok(SymbolKind::EntityRoute(
+                    self.db.module(self.opt_package_main.unwrap()).unwrap(),
+                )),
             },
             Identifier::Custom(ident) => Ok(if let Some(symbol) = self.find_symbol(ident) {
                 symbol.kind
