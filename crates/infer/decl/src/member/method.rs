@@ -98,10 +98,10 @@ impl MethodDecl {
         match defn.variant {
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_placeholders: inputs,
+                input_parameters: inputs,
                 output_ty,
                 output_contract,
-                generic_placeholders,
+                generic_parameters: generic_placeholders,
                 kind,
             } => {
                 let output_ty = parse_route(symbol_context, &db.tokenize(output_ty)).unwrap();

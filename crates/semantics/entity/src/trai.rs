@@ -91,10 +91,10 @@ impl EntityDefnVariant {
             }
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_placeholders: inputs,
+                input_parameters: inputs,
                 output_ty,
                 output_contract,
-                generic_placeholders,
+                generic_parameters: generic_placeholders,
                 kind,
             } => {
                 let method_variant = match kind {

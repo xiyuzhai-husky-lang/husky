@@ -61,10 +61,10 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
                         this_contract: InputContract::Pure,
-                        input_placeholders: &[],
+                        input_parameters: &[],
                         output_ty: "datasets::cv::mnist::BinaryImage28",
                         output_contract: OutputContract::Transfer,
-                        generic_placeholders: &[],
+                        generic_parameters: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
                     },
                 }],
@@ -80,14 +80,14 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         subscopes: &[],
                         variant: EntityStaticDefnVariant::Method {
                             this_contract: InputContract::MemberAccess,
-                            input_placeholders: &[StaticInputPlaceholder {
+                            input_parameters: &[StaticInputParameter {
                                 contract: InputContract::Pure,
                                 ty: "i32",
                                 name: "todo!()",
                             }],
                             output_ty: "b32",
                             output_contract: OutputContract::MemberAccess,
-                            generic_placeholders: &[],
+                            generic_parameters: &[],
                             kind: MethodStaticDefnKind::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
                                     copy_access: Linkage {

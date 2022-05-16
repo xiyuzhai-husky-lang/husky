@@ -12,7 +12,7 @@ pub struct InputDecl {
 impl InputDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
-        input: &StaticInputPlaceholder,
+        input: &StaticInputParameter,
         symbol_context: &SymbolContext,
     ) -> Self {
         // opt_this_ty,
