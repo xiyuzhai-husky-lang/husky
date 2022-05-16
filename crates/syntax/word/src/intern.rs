@@ -33,7 +33,7 @@ impl UniqueAllocatorPtr for WordPtr {
     type Thing = str;
 }
 
-pub fn new_word_unique_allocator() -> WordAllocator {
+pub fn new_word_interner() -> WordAllocator {
     WordAllocator::new(&[
         ConfigKeyword::Dataset.into(),
         Keyword::Use.into(),
@@ -88,6 +88,7 @@ pub fn new_word_unique_allocator() -> WordAllocator {
         RootIdentifier::CopyTrait.into(),
         RootIdentifier::PartialEqTrait.into(),
         RootIdentifier::EqTrait.into(),
+        ContextualIdentifier::Package.into(),
         ContextualIdentifier::Input.into(),
         ContextualIdentifier::ThisData.into(),
         ContextualIdentifier::ThisType.into(),
