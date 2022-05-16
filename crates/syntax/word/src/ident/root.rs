@@ -29,6 +29,12 @@ pub enum RootIdentifier {
     EqTrait,
 }
 
+impl From<RootIdentifier> for Identifier {
+    fn from(ident: RootIdentifier) -> Self {
+        Self::Builtin(ident)
+    }
+}
+
 impl Deref for RootIdentifier {
     type Target = str;
 

@@ -304,6 +304,10 @@ pub trait EntityRouteQueryGroup:
                     "expect custom identifier for module name, but got keyword {} instead",
                     kw.as_str()
                 ))),
+                WordPtr::Taboo(taboo) => Err(derived_error!(format!(
+                    "expect custom identifier for module name, but got taboo {} instead",
+                    taboo.as_str()
+                ))),
                 WordPtr::Identifier(ident) => match ident {
                     Identifier::Builtin(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
