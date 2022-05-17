@@ -62,5 +62,5 @@ pub fn parse_decl_stmts(
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
-    EagerStmtParser::new(input_placeholders, db, arena, file).parse_decl_stmts(iter)
+    EagerStmtParser::new(input_placeholders, db, arena, file).parse_func_stmts(iter)
 }
