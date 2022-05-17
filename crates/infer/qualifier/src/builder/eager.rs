@@ -298,7 +298,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 | EagerQualifier::LocalRef
                 | EagerQualifier::Transient
                 | EagerQualifier::Owned => throw!("lopd is not mutable", range),
-                EagerQualifier::CopyableMut | EagerQualifier::OwnedMut => (),
+                EagerQualifier::CopyableMut | EagerQualifier::OwnedMut | EagerQualifier::RefMut => {
+                    ()
+                }
             },
         }
         self.infer_eager_expr(arena, opds.start + 1);
@@ -433,79 +435,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.infer_eager_expr(arena, opd);
         }
         let element_ty = self.raw_expr_ty(expr_idx)?;
-        let qual = if self.db.is_copyable(element_ty) {
-            match this_contract {
-                EagerContract::Pure => EagerQualifier::Copyable,
-                EagerContract::GlobalRef => panic!(),
-                EagerContract::Move => panic!(),
-                EagerContract::LetInit => EagerQualifier::Copyable,
-                EagerContract::VarInit => EagerQualifier::CopyableMut,
-                EagerContract::UseMemberForLetInit => EagerQualifier::Copyable,
-                EagerContract::UseMemberForVarInit => EagerQualifier::CopyableMut,
-                EagerContract::Return => EagerQualifier::Copyable,
-                EagerContract::RefMut => EagerQualifier::CopyableMut,
-                EagerContract::MoveMut => panic!(),
-                EagerContract::Exec => panic!(),
-            }
-        } else {
-            match this_qt.qual {
-                EagerQualifier::Copyable | EagerQualifier::CopyableMut => panic!(),
-                EagerQualifier::PureRef => match this_contract {
-                    EagerContract::Pure => EagerQualifier::PureRef,
-                    EagerContract::GlobalRef => todo!(),
-                    EagerContract::Move => todo!(),
-                    EagerContract::LetInit => EagerQualifier::PureRef,
-                    EagerContract::VarInit => todo!(),
-                    EagerContract::UseMemberForLetInit => EagerQualifier::PureRef,
-                    EagerContract::UseMemberForVarInit => todo!(),
-                    EagerContract::Return => todo!(),
-                    EagerContract::RefMut => todo!(),
-                    EagerContract::MoveMut => todo!(),
-                    EagerContract::Exec => todo!(),
-                },
-                EagerQualifier::LocalRef => match this_contract {
-                    EagerContract::Pure => todo!(),
-                    EagerContract::GlobalRef => todo!(),
-                    EagerContract::Move => todo!(),
-                    EagerContract::LetInit => todo!(),
-                    EagerContract::VarInit => todo!(),
-                    EagerContract::UseMemberForLetInit => todo!(),
-                    EagerContract::UseMemberForVarInit => todo!(),
-                    EagerContract::Return => todo!(),
-                    EagerContract::RefMut => todo!(),
-                    EagerContract::MoveMut => todo!(),
-                    EagerContract::Exec => todo!(),
-                },
-                EagerQualifier::Transient => match this_contract {
-                    EagerContract::Pure => todo!(),
-                    EagerContract::GlobalRef => todo!(),
-                    EagerContract::Move => todo!(),
-                    EagerContract::LetInit => todo!(),
-                    EagerContract::VarInit => todo!(),
-                    EagerContract::UseMemberForLetInit => todo!(),
-                    EagerContract::UseMemberForVarInit => todo!(),
-                    EagerContract::Return => todo!(),
-                    EagerContract::RefMut => todo!(),
-                    EagerContract::MoveMut => todo!(),
-                    EagerContract::Exec => todo!(),
-                },
-                EagerQualifier::Owned => match this_contract {
-                    EagerContract::Pure => todo!(),
-                    EagerContract::GlobalRef => todo!(),
-                    EagerContract::Move => todo!(),
-                    EagerContract::LetInit => todo!(),
-                    EagerContract::VarInit => todo!(),
-                    EagerContract::UseMemberForLetInit => todo!(),
-                    EagerContract::UseMemberForVarInit => todo!(),
-                    EagerContract::Return => todo!(),
-                    EagerContract::RefMut => todo!(),
-                    EagerContract::MoveMut => todo!(),
-                    EagerContract::Exec => todo!(),
-                },
-                EagerQualifier::OwnedMut => todo!(),
-                EagerQualifier::GlobalRef => todo!(),
-            }
-        };
+        let qual = EagerQualifier::from_element_access(
+            this_qt.qual,
+            this_contract,
+            self.db.is_copyable(element_ty),
+        );
         Ok(EagerQualifiedTy::new(qual, element_ty))
     }
 
@@ -518,19 +452,25 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         expr_idx: RawExprIdx,
     ) -> InferResult<EagerQualifiedTy> {
         let method_decl = self.method_decl(expr_idx)?;
-        self.infer_eager_expr(arena, this);
+        let this_qt = derived_not_none!(self.infer_eager_expr(arena, this))?;
+        let this_contract = self.eager_expr_contract(this)?;
         for input in inputs {
             self.infer_eager_expr(arena, input);
         }
+        let is_element_copyable = self.db.is_copyable(method_decl.output.ty);
         let qual = match method_decl.output.liason {
             OutputLiason::Transfer => {
-                if self.db.is_copyable(method_decl.output.ty) {
+                if is_element_copyable {
                     EagerQualifier::Copyable
                 } else {
                     EagerQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess => todo!(),
+            OutputLiason::MemberAccess => EagerQualifier::from_element_access(
+                this_qt.qual,
+                this_contract,
+                is_element_copyable,
+            ),
         };
         Ok(EagerQualifiedTy::new(qual, method_decl.output.ty))
     }

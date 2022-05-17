@@ -261,7 +261,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
     name: "first",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::BorrowMut,
+        this_contract: InputContract::MemberAccess,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
@@ -285,7 +285,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_contract: OutputLiason::Transfer,
+        output_contract: OutputLiason::MemberAccess,
     },
     dev_src: static_dev_src!(),
 };
@@ -318,7 +318,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     name: "last",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::BorrowMut,
+        this_contract: InputContract::MemberAccess,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
@@ -342,7 +342,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_contract: OutputLiason::Transfer,
+        output_contract: OutputLiason::MemberAccess,
     },
     dev_src: static_dev_src!(),
 };
