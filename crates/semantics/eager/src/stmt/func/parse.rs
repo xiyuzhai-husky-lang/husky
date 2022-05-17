@@ -17,14 +17,13 @@ impl<'a> EagerStmtParser<'a> {
             match item.value.as_ref()?.kind {
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => {
-                    let children = not_none!(item.opt_children);
                     let variant = match stmt.variant {
                         RawStmtVariant::Loop(_) => todo!(),
                         RawStmtVariant::ConditionBranch {
                             condition_branch_kind,
                         } => self.parse_func_condition_flow(
                             stmt,
-                            children,
+                            not_none!(item.opt_children),
                             &mut iter,
                             condition_branch_kind,
                         )?,
@@ -50,7 +49,12 @@ impl<'a> EagerStmtParser<'a> {
                         RawStmtVariant::Match {
                             match_expr,
                             match_contract,
-                        } => self.parse_func_match(stmt, children, match_expr, match_contract)?,
+                        } => self.parse_func_match(
+                            stmt,
+                            not_none!(item.opt_children),
+                            match_expr,
+                            match_contract,
+                        )?,
                     };
                     stmts.push(Arc::new(FuncStmt {
                         file: self.file,
