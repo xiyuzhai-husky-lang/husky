@@ -175,7 +175,7 @@ impl EntityRoute {
     }
 
     pub fn vec(element: GenericArgument) -> Self {
-        Self::new_builtin(RootIdentifier::List, vec![element])
+        Self::new_builtin(RootIdentifier::Vec, vec![element])
     }
 
     pub fn array(element: GenericArgument, size: usize) -> Self {

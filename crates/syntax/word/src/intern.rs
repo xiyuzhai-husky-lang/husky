@@ -13,7 +13,6 @@ impl Deref for WordPtr {
         match self {
             WordPtr::Keyword(keyword) => keyword.deref(),
             WordPtr::Identifier(ident) => ident.deref(),
-            WordPtr::Taboo(taboo) => taboo.deref(),
             WordPtr::Opr(opr) => opr.deref(),
         }
     }
@@ -77,7 +76,7 @@ pub fn new_word_interner() -> WordAllocator {
         RootIdentifier::Bool.into(),
         RootIdentifier::True.into(),
         RootIdentifier::False.into(),
-        RootIdentifier::List.into(),
+        RootIdentifier::Vec.into(),
         RootIdentifier::Array.into(),
         RootIdentifier::Tuple.into(),
         RootIdentifier::Fp.into(),
@@ -90,12 +89,10 @@ pub fn new_word_interner() -> WordAllocator {
         RootIdentifier::CopyTrait.into(),
         RootIdentifier::PartialEqTrait.into(),
         RootIdentifier::EqTrait.into(),
-        ContextualIdentifier::Package.into(),
+        ContextualIdentifier::Crate.into(),
         ContextualIdentifier::Input.into(),
         ContextualIdentifier::ThisData.into(),
         ContextualIdentifier::ThisType.into(),
-        Taboo::Crate.into(),
-        Taboo::Vec.into(),
         WordOpr::And.into(),
         WordOpr::Or.into(),
         WordOpr::As.into(),

@@ -1,4 +1,4 @@
-use package::geom2d::*
+use crate::geom2d::*
 
 struct RawContour:
     points: []Point2d

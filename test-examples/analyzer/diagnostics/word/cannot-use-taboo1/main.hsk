@@ -1,4 +1,4 @@
-use package::A
+use crate::A
 
 proc crate() -> i32:
     return 1

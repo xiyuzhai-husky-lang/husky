@@ -1,12 +1,11 @@
+use super::*;
 use check_utils::should_eq;
 
-use super::*;
-
-pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "List",
+pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
+    name: "Vec",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
-        base_route: "List",
+        base_route: "Vec",
         generic_placeholders: &[StaticGenericPlaceholder {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
@@ -22,7 +21,7 @@ pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     variant: EntityStaticDefnVariant::Method {
                         this_contract: InputContract::Pure,
                         input_parameters: &[],
-                        output_ty: "List<E>",
+                        output_ty: "Vec<E>",
                         output_contract: OutputContract::Transfer,
                         generic_parameters: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
@@ -69,81 +68,22 @@ pub static LIST_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 dev_src: static_dev_src!(),
             },
         ],
-        type_members: &[
-            EntityStaticDefn {
-                name: "len",
-                subscopes: &[],
-                variant: EntityStaticDefnVariant::Method {
-                    this_contract: InputContract::Pure,
-                    input_parameters: &[],
-                    output_ty: "i32",
-                    generic_parameters: &[],
-                    kind: MethodStaticDefnKind::TypeMethod {
-                        source: LinkageSource::Transfer(Linkage {
-                            call: generic_list_len,
-                            nargs: 1,
-                        }),
-                    },
-                    output_contract: OutputContract::Transfer,
-                },
-                dev_src: static_dev_src!(),
-            },
-            EntityStaticDefn {
-                name: "push",
-                subscopes: &[],
-                variant: EntityStaticDefnVariant::Method {
-                    this_contract: InputContract::BorrowMut,
-                    input_parameters: &[StaticInputParameter {
-                        contract: InputContract::Move,
-                        ty: "E",
-                        name: "element",
-                    }],
-                    output_ty: "void",
-                    generic_parameters: &[],
-                    kind: MethodStaticDefnKind::TypeMethod {
-                        source: LinkageSource::Transfer(Linkage {
-                            call: generic_vec_push,
-                            nargs: 2,
-                        }),
-                    },
-                    output_contract: OutputContract::Transfer,
-                },
-                dev_src: static_dev_src!(),
-            },
-            EntityStaticDefn {
-                name: "pop",
-                subscopes: &[],
-                variant: EntityStaticDefnVariant::Method {
-                    this_contract: InputContract::BorrowMut,
-                    input_parameters: &[],
-                    output_ty: "E",
-                    generic_parameters: &[],
-                    kind: MethodStaticDefnKind::TypeMethod {
-                        source: LinkageSource::Transfer(Linkage {
-                            call: generic_vec_pop,
-                            nargs: 1,
-                        }),
-                    },
-                    output_contract: OutputContract::Transfer,
-                },
-                dev_src: static_dev_src!(),
-            },
-        ],
+        type_members: &[&VEC_LEN, &VEC_PUSH, &VEC_POP, &VEC_FIRST, &VEC_LAST],
         variants: &[],
         kind: TyKind::Vec,
         visualizer: TRIVIAL_VISUALIZER,
-        opt_type_call: Some(&LIST_TYPE_CALL_DEFN),
+        opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),
 };
 
-static LIST_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "List",
+static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
+    name: "Vec",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_placeholders: &[],
         input_placeholders: vec![],
-        output_ty: "List<E>",
+        output_ty: "Vec<E>",
         output_contract: OutputContract::Transfer,
         linkage: Linkage {
             call: vec_type_call,
@@ -160,22 +100,6 @@ fn vec_type_call<'stack, 'eval>(
     Ok(StackValue::Boxed(BoxedValue::new(
         Vec::<MemberValue<'eval>>::new(),
     )))
-}
-
-// fn generic_vec_clone<'stack, 'eval>(
-//     values: &mut [StackValue<'stack, 'eval>],
-// ) -> VMResult<StackValue<'stack, 'eval>> {
-//     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
-//     let generic_vec_cloned: Vec<MemberValue<'eval>> = generic_vec.clone();
-//     Ok(StackValue::Boxed(BoxedValue::new(generic_vec_cloned)))
-// }
-
-fn generic_list_len<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
-    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
-    let len: i32 = generic_vec.len().try_into().unwrap();
-    Ok(StackValue::Primitive(len.into()))
 }
 
 fn generic_vec_push<'stack, 'eval>(
@@ -262,4 +186,187 @@ pub(crate) fn generic_vec_element_borrow_mut_access<'stack, 'eval>(
         todo!()
     }
     Ok(this_value[i].stack_mut(stack_idx))
+}
+
+pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
+    name: "len",
+    subscopes: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_contract: InputContract::Pure,
+        input_parameters: &[],
+        output_ty: "i32",
+        generic_parameters: &[],
+        kind: MethodStaticDefnKind::TypeMethod {
+            source: LinkageSource::Transfer(Linkage {
+                call: generic_list_len,
+                nargs: 1,
+            }),
+        },
+        output_contract: OutputContract::Transfer,
+    },
+    dev_src: static_dev_src!(),
+};
+
+fn generic_list_len<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let len: i32 = generic_vec.len().try_into().unwrap();
+    Ok(StackValue::Primitive(len.into()))
+}
+
+pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
+    name: "push",
+    subscopes: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_contract: InputContract::BorrowMut,
+        input_parameters: &[StaticInputParameter {
+            contract: InputContract::Move,
+            ty: "E",
+            name: "element",
+        }],
+        output_ty: "void",
+        generic_parameters: &[],
+        kind: MethodStaticDefnKind::TypeMethod {
+            source: LinkageSource::Transfer(Linkage {
+                call: generic_vec_push,
+                nargs: 2,
+            }),
+        },
+        output_contract: OutputContract::Transfer,
+    },
+    dev_src: static_dev_src!(),
+};
+
+pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
+    name: "pop",
+    subscopes: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_contract: InputContract::BorrowMut,
+        input_parameters: &[],
+        output_ty: "E",
+        generic_parameters: &[],
+        kind: MethodStaticDefnKind::TypeMethod {
+            source: LinkageSource::Transfer(Linkage {
+                call: generic_vec_pop,
+                nargs: 1,
+            }),
+        },
+        output_contract: OutputContract::Transfer,
+    },
+    dev_src: static_dev_src!(),
+};
+
+pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
+    name: "first",
+    subscopes: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_contract: InputContract::BorrowMut,
+        input_parameters: &[],
+        output_ty: "E",
+        generic_parameters: &[],
+        kind: MethodStaticDefnKind::TypeMethod {
+            source: LinkageSource::MemberAccess {
+                copy_access: Linkage {
+                    call: generic_vec_first_copy,
+                    nargs: 1,
+                },
+                ref_access: Linkage {
+                    call: generic_vec_first_ref,
+                    nargs: 1,
+                },
+                ref_mut_access: Linkage {
+                    call: generic_vec_first_ref_mut,
+                    nargs: 1,
+                },
+                move_access: Linkage {
+                    call: generic_vec_first_move,
+                    nargs: 1,
+                },
+            },
+        },
+        output_contract: OutputContract::Transfer,
+    },
+    dev_src: static_dev_src!(),
+};
+
+fn generic_vec_first_copy<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn generic_vec_first_ref<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn generic_vec_first_ref_mut<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn generic_vec_first_move<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
+    name: "last",
+    subscopes: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_contract: InputContract::BorrowMut,
+        input_parameters: &[],
+        output_ty: "E",
+        generic_parameters: &[],
+        kind: MethodStaticDefnKind::TypeMethod {
+            source: LinkageSource::MemberAccess {
+                copy_access: Linkage {
+                    call: generic_vec_last_copy,
+                    nargs: 1,
+                },
+                ref_access: Linkage {
+                    call: generic_vec_last_ref,
+                    nargs: 1,
+                },
+                ref_mut_access: Linkage {
+                    call: generic_vec_last_ref_mut,
+                    nargs: 1,
+                },
+                move_access: Linkage {
+                    call: generic_vec_last_move,
+                    nargs: 1,
+                },
+            },
+        },
+        output_contract: OutputContract::Transfer,
+    },
+    dev_src: static_dev_src!(),
+};
+
+fn generic_vec_last_copy<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn generic_vec_last_ref<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn generic_vec_last_ref_mut<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
+}
+
+fn generic_vec_last_move<'stack, 'eval>(
+    values: &mut [StackValue<'stack, 'eval>],
+) -> VMResult<StackValue<'stack, 'eval>> {
+    todo!()
 }

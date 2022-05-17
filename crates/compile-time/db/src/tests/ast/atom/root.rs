@@ -75,9 +75,9 @@ fn list_generics() {
     let mut db = HuskyLangCompileTime::default();
     utils::check_atom_kind(
         &mut db,
-        "List",
+        "Vec",
         AtomVariant::EntityRoute {
-            route: RootIdentifier::List.into(),
+            route: RootIdentifier::Vec.into(),
             kind: EntityKind::Type(TyKind::Vec),
         },
     );

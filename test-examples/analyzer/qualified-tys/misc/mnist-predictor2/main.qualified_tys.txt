@@ -5,7 +5,7 @@
     y           row 8     Copyable     b32
     z           row 9     CopyableMut  b32
     img         row 15    PureRef      datasets::cv::mnist::BinaryImage28
-    result      row 16    OwnedMut     List<datasets::cv::mnist::BinaryImage28>
+    result      row 16    OwnedMut     Vec<datasets::cv::mnist::BinaryImage28>
     unsearched  row 17    OwnedMut     datasets::cv::mnist::BinaryImage28
     j           row 18    Copyable     i32
     a           row 20    Copyable     b32
@@ -23,8 +23,8 @@
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
     35:35..35:40   input                  GlobalRef datasets::cv::mnist::BinaryImage28
-    35:9..35:41    find_connected_components(input)   Transient List<datasets::cv::mnist::BinaryImage28>
-    36:5..36:6     d                      GlobalRef List<datasets::cv::mnist::BinaryImage28>
+    35:9..35:41    find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
+    36:5..36:6     d                      GlobalRef Vec<datasets::cv::mnist::BinaryImage28>
     36:5..36:12    d.len()                Copyable i32
 
 [35meager expr qualified types
@@ -79,7 +79,7 @@
     12:13..12:42   a & (y | (y << 1) | (y >> 1))   Copyable     b32
     12:9..12:42    z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     13:12..13:13   y                      Copyable     b32
-    16:18..16:35   []BinaryImage28()      Transient    List<datasets::cv::mnist::BinaryImage28>
+    16:18..16:35   []BinaryImage28()      Transient    Vec<datasets::cv::mnist::BinaryImage28>
     17:22..17:25   img                    PureRef      datasets::cv::mnist::BinaryImage28
     17:22..17:33   img.clone()            Transient    datasets::cv::mnist::BinaryImage28
     18:13..18:15   30                     Copyable     i32
@@ -113,10 +113,10 @@
     26:17..26:30   unsearched[k]          CopyableMut  b32
     26:34..26:44   (~mask[k])             Copyable     b32
     26:17..26:44   unsearched[k] &= (~mask[k])   Copyable     void
-    27:13..27:19   result                 OwnedMut     List<datasets::cv::mnist::BinaryImage28>
+    27:13..27:19   result                 OwnedMut     Vec<datasets::cv::mnist::BinaryImage28>
     27:25..27:29   mask                   OwnedMut     datasets::cv::mnist::BinaryImage28
     27:13..27:30   result.push(mask)      Copyable     void
-    28:12..28:18   result                 OwnedMut     List<datasets::cv::mnist::BinaryImage28>
+    28:12..28:18   result                 OwnedMut     Vec<datasets::cv::mnist::BinaryImage28>
 
 [35mlazy expr qualified types
 [0m    32:9..32:14    input                  GlobalRef datasets::cv::mnist::BinaryImage28
@@ -127,6 +127,6 @@
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
     35:35..35:40   input                  GlobalRef datasets::cv::mnist::BinaryImage28
-    35:9..35:41    find_connected_components(input)   Transient List<datasets::cv::mnist::BinaryImage28>
-    36:5..36:6     d                      GlobalRef List<datasets::cv::mnist::BinaryImage28>
+    35:9..35:41    find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
+    36:5..36:6     d                      GlobalRef Vec<datasets::cv::mnist::BinaryImage28>
     36:5..36:12    d.len()                Copyable i32

@@ -1,4 +1,4 @@
-use package::geom2d::*
+use crate::geom2d::*
 use datasets::cv::mnist::BinaryImage28
 
 struct RawContour:
