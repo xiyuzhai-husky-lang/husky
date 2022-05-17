@@ -21,9 +21,11 @@ impl<'a> AstTransformer<'a> {
         let atoms = self.parse_atoms(&token_group[1..(token_group.len() - 1)], |parser| {
             parser.parse_all()
         })?;
-        Ok(RawStmtVariant::Branch(RawBranchVariant::Case {
-            pattern: MatchPatternParser::new(&atoms).parse()?,
-        }))
+        Ok(RawStmtVariant::PatternBranch {
+            pattern_branch_variant: RawPatternBranchVariant::Case {
+                pattern: MatchPatternParser::new(&atoms).parse()?,
+            },
+        })
     }
 
     fn parse_match_pattern(&mut self, tokens: &[Token]) -> AstResult<CasePattern> {

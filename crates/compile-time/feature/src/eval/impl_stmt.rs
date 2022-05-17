@@ -16,7 +16,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 }
             }
             FeatureStmtVariant::Return { ref result } => self.eval_feature_expr(result),
-            FeatureStmtVariant::BranchGroup { ref branches, .. } => {
+            FeatureStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {
                     let execute_branch: bool = match branch.variant {
                         FeatureBranchVariant::If { ref condition } => self.satisfies(condition)?,

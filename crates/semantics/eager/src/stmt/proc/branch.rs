@@ -19,10 +19,3 @@ pub enum ProcBranchVariant {
     Case { pattern: Arc<EagerExpr> },
     Default,
 }
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ProcBranchGroupKind {
-    If,
-    Switch,
-    Match,
-}

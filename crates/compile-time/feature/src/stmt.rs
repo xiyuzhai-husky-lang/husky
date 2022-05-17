@@ -1,5 +1,4 @@
 use file::FilePtr;
-use semantics_lazy::LazyBranchGroupKind;
 use text::TextRange;
 
 use crate::{eval::FeatureEvalId, *};
@@ -46,8 +45,7 @@ pub enum FeatureStmtVariant {
     Return {
         result: Arc<FeatureExpr>,
     },
-    BranchGroup {
-        kind: LazyBranchGroupKind,
+    ConditionFlow {
         branches: Vec<Arc<FeatureBranch>>,
     },
 }

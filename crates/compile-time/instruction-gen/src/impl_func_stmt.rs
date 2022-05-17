@@ -22,7 +22,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_expr(result);
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
             }
-            FuncStmtVariant::Branches { .. } => todo!(),
+            FuncStmtVariant::ConditionFlow { .. } => todo!(),
         }
     }
 }

@@ -13,51 +13,49 @@ impl<'a> EagerStmtParser<'a> {
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             stmts.push(Arc::new(match item.value.as_ref()?.kind {
-                AstKind::TypeDefnHead { .. } => todo!(),
-                AstKind::MainDefn => todo!(),
-                AstKind::DatasetConfigDefnHead => todo!(),
-                AstKind::RoutineDefnHead { .. } => todo!(),
-                AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => match stmt.variant {
                     RawStmtVariant::Loop(_) => todo!(),
-                    RawStmtVariant::Branch(ref branch_kind) => {
+                    RawStmtVariant::ConditionBranch {
+                        condition_branch_kind,
+                    } => {
                         let mut branches = vec![];
-                        match branch_kind {
-                            RawBranchVariant::If { condition } => {
+                        match condition_branch_kind {
+                            RawConditionBranchKind::If { condition } => {
                                 branches.push(Arc::new(DeclBranch {
                                     kind: DeclBranchKind::If {
-                                        condition: self.parse_eager_expr(*condition)?,
+                                        condition: self.parse_eager_expr(condition)?,
                                     },
                                     stmts: self.parse_decl_stmts(not_none!(item.opt_children))?,
                                 }))
                             }
-                            RawBranchVariant::Elif { condition } => todo!(),
-                            RawBranchVariant::Else => todo!(),
-                            RawBranchVariant::Case { pattern } => todo!(),
-                            RawBranchVariant::Default => todo!(),
+                            RawConditionBranchKind::Elif { condition } => todo!(),
+                            RawConditionBranchKind::Else => todo!(),
                         }
                         while let Some(item) = iter.peek() {
                             let item = match item.value.as_ref()?.kind {
                                 AstKind::Stmt(RawStmt {
-                                    variant: RawStmtVariant::Branch(_),
+                                    variant: RawStmtVariant::ConditionBranch { .. },
                                     ..
                                 }) => iter.next().unwrap(),
                                 _ => break,
                             };
                             match item.value.as_ref()?.kind {
                                 AstKind::Stmt(RawStmt {
-                                    variant: RawStmtVariant::Branch(ref branch_variant),
+                                    variant:
+                                        RawStmtVariant::ConditionBranch {
+                                            ref condition_branch_kind,
+                                        },
                                     ..
-                                }) => match branch_variant {
-                                    RawBranchVariant::If { .. } => break,
-                                    RawBranchVariant::Elif { condition } => {
+                                }) => match condition_branch_kind {
+                                    RawConditionBranchKind::If { .. } => break,
+                                    RawConditionBranchKind::Elif { condition } => {
                                         if branches.len() == 0 {
                                             todo!()
                                         }
                                         todo!()
                                     }
-                                    RawBranchVariant::Else => {
+                                    RawConditionBranchKind::Else => {
                                         branches.push(Arc::new(DeclBranch {
                                             kind: DeclBranchKind::Else,
                                             stmts: self
@@ -65,8 +63,6 @@ impl<'a> EagerStmtParser<'a> {
                                         }));
                                         break;
                                     }
-                                    RawBranchVariant::Case { pattern } => todo!(),
-                                    RawBranchVariant::Default => todo!(),
                                 },
                                 _ => break,
                             }
@@ -75,13 +71,13 @@ impl<'a> EagerStmtParser<'a> {
                             file: self.file,
                             range: stmt.range,
                             indent: item.indent,
-                            variant: FuncStmtVariant::Branches {
-                                kind: DeclBranchGroupKind::If,
-                                branches,
-                            },
+                            variant: FuncStmtVariant::ConditionFlow { branches },
                             instruction_id: Default::default(),
                         }
                     }
+                    RawStmtVariant::PatternBranch {
+                        ref pattern_branch_variant,
+                    } => todo!(),
                     RawStmtVariant::Exec(_) => todo!(),
                     RawStmtVariant::Init {
                         varname,
@@ -124,14 +120,8 @@ impl<'a> EagerStmtParser<'a> {
                     RawStmtVariant::Break => todo!(),
                     RawStmtVariant::Match { .. } => todo!(),
                 },
-                AstKind::EnumVariantDefnHead {
-                    ident,
-                    variant_class: ref raw_variant_kind,
-                } => todo!(),
-                AstKind::FieldDefnHead { .. } => todo!(),
-                AstKind::TypeMethodDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
-                AstKind::Submodule { ident, source_file } => todo!(),
+                _ => panic!(),
             }))
         }
         Ok(Arc::new(stmts))

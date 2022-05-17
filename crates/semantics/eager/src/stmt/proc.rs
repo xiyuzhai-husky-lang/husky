@@ -7,8 +7,8 @@ use std::sync::Arc;
 pub use branch::*;
 use fold::Indent;
 pub use loop_kind::*;
-use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
 use text::RangedCustomIdentifier;
+use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
 
 use super::*;
 use crate::*;
@@ -51,8 +51,7 @@ pub enum ProcStmtVariant {
     Execute {
         expr: Arc<EagerExpr>,
     },
-    BranchGroup {
-        kind: ProcBranchGroupKind,
+    ConditionFlow {
         branches: Vec<Arc<ProcBranch>>,
     },
     Loop {

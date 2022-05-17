@@ -41,7 +41,7 @@ impl<'a> RustGenerator<'a> {
             }
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => self.gen_expr(result),
-            FuncStmtVariant::Branches { kind, ref branches } => todo!(),
+            FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
         }
         self.write_newline();
     }
@@ -77,7 +77,7 @@ impl<'a> RustGenerator<'a> {
                 self.gen_expr(result);
                 self.write_newline();
             }
-            ProcStmtVariant::BranchGroup { kind, ref branches } => todo!(),
+            ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
             ProcStmtVariant::Loop {
                 loop_variant: ref loop_kind,
                 ref stmts,

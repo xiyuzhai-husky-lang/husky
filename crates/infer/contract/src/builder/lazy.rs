@@ -31,12 +31,18 @@ impl<'a> ContractSheetBuilder<'a> {
     fn infer_lazy_stmt(&mut self, stmt: &RawStmt, arena: &RawExprArena) {
         match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => panic!(),
-            RawStmtVariant::Branch(ref branch_variant) => match branch_variant {
-                RawBranchVariant::If { condition } => todo!(),
-                RawBranchVariant::Elif { condition } => todo!(),
-                RawBranchVariant::Else => todo!(),
-                RawBranchVariant::Case { pattern } => self.infer_lazy_pattern(pattern),
-                RawBranchVariant::Default => (),
+            RawStmtVariant::ConditionBranch {
+                condition_branch_kind,
+            } => match condition_branch_kind {
+                RawConditionBranchKind::If { condition } => todo!(),
+                RawConditionBranchKind::Elif { condition } => todo!(),
+                RawConditionBranchKind::Else => todo!(),
+            },
+            RawStmtVariant::PatternBranch {
+                ref pattern_branch_variant,
+            } => match pattern_branch_variant {
+                RawPatternBranchVariant::Case { pattern } => self.infer_lazy_pattern(pattern),
+                RawPatternBranchVariant::Default => (),
             },
             RawStmtVariant::Exec(expr) => panic!(),
             RawStmtVariant::Init {

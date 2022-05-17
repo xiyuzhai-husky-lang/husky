@@ -59,73 +59,11 @@ impl<'a> EagerStmtParser<'a> {
         children: Option<IterType>,
         iter: &mut Peekable<IterType>,
     ) -> SemanticResult<ProcStmtVariant> {
-        Ok(match stmt.variant {
-            RawStmtVariant::Loop(loop_kind) => {
-                self.parse_loop_stmt(loop_kind, not_none!(children))?
-            }
-            RawStmtVariant::Branch(ref branch_kind) => {
-                let mut branches = vec![];
-                match branch_kind {
-                    RawBranchVariant::If { condition } => branches.push(Arc::new(ProcBranch {
-                        variant: ProcBranchVariant::If {
-                            condition: self.parse_eager_expr(*condition)?,
-                        },
-                        stmts: self.parse_proc_stmts(not_none!(children))?,
-                        range: stmt.range,
-                        file: self.file,
-                    })),
-                    RawBranchVariant::Elif { condition } => todo!(),
-                    RawBranchVariant::Else => todo!(),
-                    RawBranchVariant::Case { pattern } => todo!(),
-                    RawBranchVariant::Default => todo!(),
-                }
-                while let Some(item) = iter.peek() {
-                    let item = match item.value.as_ref()?.kind {
-                        AstKind::Stmt(RawStmt {
-                            variant: RawStmtVariant::Branch(ref branch_variant),
-                            ..
-                        }) => match branch_variant {
-                            RawBranchVariant::If { .. } => break,
-                            RawBranchVariant::Elif { .. } | RawBranchVariant::Else => {
-                                iter.next().unwrap()
-                            }
-                            RawBranchVariant::Case { pattern } => todo!(),
-                            RawBranchVariant::Default => todo!(),
-                        },
-                        _ => break,
-                    };
-                    match item.value.as_ref()?.kind {
-                        AstKind::Stmt(RawStmt {
-                            variant: RawStmtVariant::Branch(ref branch_variant),
-                            ..
-                        }) => match branch_variant {
-                            RawBranchVariant::If { .. } => panic!(),
-                            RawBranchVariant::Elif { condition } => {
-                                if branches.len() == 0 {
-                                    todo!()
-                                }
-                                todo!()
-                            }
-                            RawBranchVariant::Else => {
-                                branches.push(Arc::new(ProcBranch {
-                                    variant: ProcBranchVariant::Else,
-                                    stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
-                                    range: stmt.range,
-                                    file: self.file,
-                                }));
-                                break;
-                            }
-                            RawBranchVariant::Case { pattern } => todo!(),
-                            RawBranchVariant::Default => todo!(),
-                        },
-                        _ => break,
-                    }
-                }
-                ProcStmtVariant::BranchGroup {
-                    kind: ProcBranchGroupKind::If,
-                    branches,
-                }
-            }
+        match stmt.variant {
+            RawStmtVariant::Loop(loop_kind) => self.parse_loop_stmt(loop_kind, not_none!(children)),
+            RawStmtVariant::ConditionBranch {
+                condition_branch_kind,
+            } => self.parse_condition_flow(stmt, not_none!(children), iter, condition_branch_kind),
             RawStmtVariant::Exec(expr) => {
                 let expr = self.parse_eager_expr(expr)?;
                 if expr.ty != EntityRoutePtr::Root(RootIdentifier::Void) {
@@ -134,35 +72,102 @@ impl<'a> EagerStmtParser<'a> {
                         expr.ty
                     ))
                 }
-                ProcStmtVariant::Execute { expr }
+                Ok(ProcStmtVariant::Execute { expr })
             }
             RawStmtVariant::Init {
                 varname,
                 initial_value,
                 init_kind,
-            } => {
-                let initial_value = self.parse_eager_expr(initial_value)?;
-                ProcStmtVariant::Init {
-                    varname,
-                    initial_value,
-                    init_kind,
-                }
-            }
-            RawStmtVariant::Return(result) => ProcStmtVariant::Return {
+            } => Ok(ProcStmtVariant::Init {
+                varname,
+                initial_value: self.parse_eager_expr(initial_value)?,
+                init_kind,
+            }),
+            RawStmtVariant::Return(result) => Ok(ProcStmtVariant::Return {
                 result: self.parse_eager_expr(result)?,
-            },
-            RawStmtVariant::Assert(condition) => ProcStmtVariant::Assert {
+            }),
+            RawStmtVariant::Assert(condition) => Ok(ProcStmtVariant::Assert {
                 condition: self.parse_eager_expr(condition)?,
-            },
-            RawStmtVariant::Break => ProcStmtVariant::Break,
+            }),
+            RawStmtVariant::Break => Ok(ProcStmtVariant::Break),
             RawStmtVariant::Match { .. } => todo!(),
-        })
+            RawStmtVariant::PatternBranch { .. } => {
+                panic!("pattern branch must be inside match stmt")
+            }
+        }
+    }
+
+    fn parse_condition_flow(
+        &mut self,
+        stmt: &RawStmt,
+        children: IterType,
+        iter: &mut Peekable<AstIter>,
+        condition_branch_kind: RawConditionBranchKind,
+    ) -> SemanticResult<ProcStmtVariant> {
+        let mut branches = vec![];
+        match condition_branch_kind {
+            RawConditionBranchKind::If { condition } => branches.push(Arc::new(ProcBranch {
+                variant: ProcBranchVariant::If {
+                    condition: self.parse_eager_expr(condition)?,
+                },
+                stmts: self.parse_proc_stmts(children)?,
+                range: stmt.range,
+                file: self.file,
+            })),
+            RawConditionBranchKind::Elif { condition } => todo!(),
+            RawConditionBranchKind::Else => todo!(),
+        }
+        while let Some(item) = iter.peek() {
+            let item = match item.value.as_ref()?.kind {
+                AstKind::Stmt(RawStmt {
+                    variant:
+                        RawStmtVariant::ConditionBranch {
+                            ref condition_branch_kind,
+                        },
+                    ..
+                }) => match condition_branch_kind {
+                    RawConditionBranchKind::If { .. } => break,
+                    RawConditionBranchKind::Elif { .. } | RawConditionBranchKind::Else => {
+                        iter.next().unwrap()
+                    }
+                },
+                _ => break,
+            };
+            match item.value.as_ref()?.kind {
+                AstKind::Stmt(RawStmt {
+                    variant:
+                        RawStmtVariant::ConditionBranch {
+                            ref condition_branch_kind,
+                        },
+                    ..
+                }) => match condition_branch_kind {
+                    RawConditionBranchKind::If { .. } => panic!(),
+                    RawConditionBranchKind::Elif { condition } => {
+                        if branches.len() == 0 {
+                            todo!()
+                        }
+                        todo!()
+                    }
+                    RawConditionBranchKind::Else => {
+                        branches.push(Arc::new(ProcBranch {
+                            variant: ProcBranchVariant::Else,
+                            stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
+                            range: stmt.range,
+                            file: self.file,
+                        }));
+                        break;
+                    }
+                },
+                _ => break,
+            }
+        }
+        Ok(ProcStmtVariant::ConditionFlow { branches })
     }
 
     fn parse_loop_stmt(
         &mut self,
         loop_kind: RawLoopKind,
-        children: IterType,
+        children: AstIter,
     ) -> SemanticResult<ProcStmtVariant> {
         Ok(match loop_kind {
             RawLoopKind::For {

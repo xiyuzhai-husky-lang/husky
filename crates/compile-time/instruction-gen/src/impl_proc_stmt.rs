@@ -32,7 +32,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             ProcStmtVariant::Execute { ref expr } => {
                 self.compile_expr(expr);
             }
-            ProcStmtVariant::BranchGroup { ref branches, .. } => {
+            ProcStmtVariant::ConditionFlow { ref branches, .. } => {
                 self.push_instruction(Instruction::new(
                     InstructionKind::BranchGroup {
                         branches: self.compile_branch_groups(branches),

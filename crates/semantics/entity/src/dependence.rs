@@ -217,11 +217,14 @@ impl EntityDefn {
 
         fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], v: &mut DependeeMapBuilder) {
             for stmt in stmts {
-                match stmt.kind {
-                    LazyStmtKind::Init { varname, ref value } => todo!(),
-                    LazyStmtKind::Assert { ref condition } => todo!(),
-                    LazyStmtKind::Return { ref result } => extract_lazy_expr_dependees(result, v),
-                    LazyStmtKind::Branches { kind, ref branches } => todo!(),
+                match stmt.variant {
+                    LazyStmtVariant::Init { varname, ref value } => todo!(),
+                    LazyStmtVariant::Assert { ref condition } => todo!(),
+                    LazyStmtVariant::Return { ref result } => {
+                        extract_lazy_expr_dependees(result, v)
+                    }
+                    LazyStmtVariant::ConditionFlow { ref branches } => todo!(),
+                    LazyStmtVariant::Match { .. } => todo!(),
                 }
             }
         }
@@ -239,7 +242,7 @@ impl EntityDefn {
                     FuncStmtVariant::Return { ref result } => {
                         extract_eager_expr_dependees(result, v)
                     }
-                    FuncStmtVariant::Branches { kind, ref branches } => {
+                    FuncStmtVariant::ConditionFlow { ref branches } => {
                         for branch in branches {
                             extract_func_stmts_dependees(&branch.stmts, v)
                         }
@@ -263,7 +266,7 @@ impl EntityDefn {
                         extract_eager_expr_dependees(result, v)
                     }
                     ProcStmtVariant::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
-                    ProcStmtVariant::BranchGroup { kind, ref branches } => {
+                    ProcStmtVariant::ConditionFlow { ref branches } => {
                         for branch in branches {
                             extract_proc_stmts_dependees(&branch.stmts, v)
                         }

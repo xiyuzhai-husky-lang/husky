@@ -338,7 +338,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 FeatureStmtVariant::Return { ref result } => {
                     self.record_field_var_value(result, field_ident)
                 }
-                FeatureStmtVariant::BranchGroup { kind, ref branches } => todo!(),
+                FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
                 _ => panic!(),
             }
         } else {

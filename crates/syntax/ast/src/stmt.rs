@@ -24,7 +24,12 @@ impl TextRanged for RawStmt {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawStmtVariant {
     Loop(RawLoopKind),
-    Branch(RawBranchVariant),
+    ConditionBranch {
+        condition_branch_kind: RawConditionBranchKind,
+    },
+    PatternBranch {
+        pattern_branch_variant: RawPatternBranchVariant,
+    },
     Exec(RawExprIdx),
     Init {
         init_kind: InitKind,
@@ -46,11 +51,15 @@ impl From<RawLoopKind> for RawStmtVariant {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum RawBranchVariant {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum RawConditionBranchKind {
     If { condition: RawExprIdx },
     Elif { condition: RawExprIdx },
     Else,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum RawPatternBranchVariant {
     Case { pattern: CasePattern },
     Default,
 }

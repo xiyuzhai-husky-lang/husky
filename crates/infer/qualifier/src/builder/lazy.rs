@@ -1,5 +1,4 @@
-use ast::{CasePattern, CasePatternVariant, RawBranchVariant};
-use ast::{RawExprArena, RawExprRange, RawExprVariant, RawStmt, RawStmtVariant};
+use ast::*;
 use check_utils::should;
 use defn_head::InputPlaceholder;
 use entity_kind::EntityKind;
@@ -80,12 +79,20 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(_) => todo!(),
-            RawStmtVariant::Branch(ref branch_variant) => match branch_variant {
-                RawBranchVariant::If { condition } => todo!(),
-                RawBranchVariant::Elif { condition } => todo!(),
-                RawBranchVariant::Else => todo!(),
-                RawBranchVariant::Case { ref pattern } => self.infer_lazy_case_pattern(pattern),
-                RawBranchVariant::Default => (),
+            RawStmtVariant::ConditionBranch {
+                condition_branch_kind,
+            } => match condition_branch_kind {
+                RawConditionBranchKind::If { condition } => todo!(),
+                RawConditionBranchKind::Elif { condition } => todo!(),
+                RawConditionBranchKind::Else => todo!(),
+            },
+            RawStmtVariant::PatternBranch {
+                ref pattern_branch_variant,
+            } => match pattern_branch_variant {
+                RawPatternBranchVariant::Case { ref pattern } => {
+                    self.infer_lazy_case_pattern(pattern)
+                }
+                RawPatternBranchVariant::Default => (),
             },
             RawStmtVariant::Exec(_) => todo!(),
             RawStmtVariant::Init {

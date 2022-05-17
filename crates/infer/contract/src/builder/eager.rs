@@ -1,10 +1,6 @@
 use std::iter::zip;
 
-use ast::{CasePattern, CasePatternVariant};
-use ast::{
-    RawBoundary, RawBranchVariant, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind,
-    RawStmt, RawStmtVariant,
-};
+use ast::*;
 
 use dev_utils::dev_src;
 use entity_route::EntityRoutePtr;
@@ -68,14 +64,22 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawLoopKind::While { condition } => self.infer_eager_condition(condition, arena),
                 RawLoopKind::DoWhile { condition } => self.infer_eager_condition(condition, arena),
             },
-            RawStmtVariant::Branch(ref branch_kind) => match branch_kind {
-                RawBranchVariant::If { condition } => self.infer_eager_condition(*condition, arena),
-                RawBranchVariant::Elif { condition } => {
-                    self.infer_eager_condition(*condition, arena)
+            RawStmtVariant::ConditionBranch {
+                condition_branch_kind,
+            } => match condition_branch_kind {
+                RawConditionBranchKind::If { condition } => {
+                    self.infer_eager_condition(condition, arena)
                 }
-                RawBranchVariant::Else => (),
-                RawBranchVariant::Case { pattern } => self.infer_eager_pattern(pattern),
-                RawBranchVariant::Default => (),
+                RawConditionBranchKind::Elif { condition } => {
+                    self.infer_eager_condition(condition, arena)
+                }
+                RawConditionBranchKind::Else => (),
+            },
+            RawStmtVariant::PatternBranch {
+                ref pattern_branch_variant,
+            } => match pattern_branch_variant {
+                RawPatternBranchVariant::Case { pattern } => self.infer_eager_pattern(pattern),
+                RawPatternBranchVariant::Default => (),
             },
             RawStmtVariant::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
             RawStmtVariant::Init { initial_value, .. } => {
