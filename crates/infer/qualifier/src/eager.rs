@@ -88,7 +88,7 @@ impl EagerQualifiedTy {
         Ok(Self { qual, ty: self.ty })
     }
 
-    pub(crate) fn is_implicitly_convertible_to_output(
+    pub fn is_implicitly_castable_to_output(
         self,
         db: &dyn InferQualifiedTyQueryGroup,
         output_contract: OutputContract,
@@ -109,6 +109,20 @@ impl EagerQualifiedTy {
             },
             OutputContract::MemberAccess => todo!(),
         }
+    }
+
+    pub fn as_ty(
+        self,
+        db: &dyn InferQualifiedTyQueryGroup,
+        ty: EntityRoutePtr,
+    ) -> InferResult<Self> {
+        if !db.is_explicitly_castable(self.ty, ty)? {
+            todo!()
+        }
+        Ok(Self {
+            qual: self.qual,
+            ty,
+        })
     }
 }
 

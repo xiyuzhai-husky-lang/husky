@@ -176,8 +176,8 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_expr(opd, this_contract, arena);
                 Ok(())
             }
-            SuffixOpr::WithType(_) => todo!(),
-            SuffixOpr::AsType(_) => todo!(),
+            SuffixOpr::WithTy(_) => todo!(),
+            SuffixOpr::AsTy(_) => todo!(),
         }
     }
 

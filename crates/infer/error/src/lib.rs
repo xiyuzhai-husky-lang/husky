@@ -98,6 +98,15 @@ impl From<&ast::AstError> for InferError {
     }
 }
 
+impl From<InferQueryError> for InferError {
+    fn from(e: InferQueryError) -> Self {
+        Self {
+            variant: InferErrorVariant::Derived { message: e.message },
+            dev_src: e.dev_src.clone(),
+        }
+    }
+}
+
 impl From<VMError> for InferError {
     fn from(_: VMError) -> Self {
         todo!()

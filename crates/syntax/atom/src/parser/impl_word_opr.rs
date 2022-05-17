@@ -16,7 +16,7 @@ impl<'a> AtomParser<'a> {
                 let ty_range = self.stream.pop_range();
                 self.stack.push(Atom::new(
                     word_opr_range.text_range_to(&ty_range),
-                    AtomVariant::Suffix(SuffixOpr::AsType(RangedEntityRoute {
+                    AtomVariant::Suffix(SuffixOpr::AsTy(RangedEntityRoute {
                         route: ty,
                         range: ty_range,
                     })),

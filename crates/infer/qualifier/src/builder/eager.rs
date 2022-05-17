@@ -146,7 +146,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Return(expr) => {
                 match (opt_output_ty, self.infer_eager_expr(arena, expr)) {
                     (Some(output_ty), Some(qualified_ty)) => {
-                        if !qualified_ty.is_implicitly_convertible_to_output(
+                        if !qualified_ty.is_implicitly_castable_to_output(
                             self.db,
                             output_contract,
                             output_ty,
@@ -330,7 +330,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(arena, opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
-        Ok(match opr {
+        match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => todo!(),
@@ -341,11 +341,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     field_decl.contract,
                     self.db.is_copyable(field_decl.ty),
                 )?;
-                EagerQualifiedTy::new(qual, field_decl.ty)
+                Ok(EagerQualifiedTy::new(qual, field_decl.ty))
             }
-            SuffixOpr::WithType(_) => todo!(),
-            SuffixOpr::AsType(_) => todo!(),
-        })
+            SuffixOpr::WithTy(_) => todo!(),
+            SuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
+        }
     }
 
     fn eager_list(

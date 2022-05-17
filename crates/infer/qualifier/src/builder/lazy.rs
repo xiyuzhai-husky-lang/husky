@@ -267,8 +267,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 )?;
                 LazyQualifiedTy::new(qual, field_decl.ty)
             }
-            SuffixOpr::WithType(_) => todo!(),
-            SuffixOpr::AsType(_) => todo!(),
+            SuffixOpr::WithTy(_) => todo!(),
+            SuffixOpr::AsTy(_) => todo!(),
         })
     }
 
