@@ -25,6 +25,7 @@ impl<'a> AstTransformer<'a> {
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
             TokenKind::WordOpr(_) => todo!(),
+            TokenKind::Decorator(_) => todo!(),
         }
     }
 

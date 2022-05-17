@@ -60,6 +60,7 @@ impl From<&Token> for Atom {
             TokenKind::WordOpr(word_opr) => Atom::new(token.text_range(), word_opr.into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
+            TokenKind::Decorator(_) => todo!(),
         }
     }
 }

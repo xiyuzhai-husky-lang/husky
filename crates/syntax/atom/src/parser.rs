@@ -125,6 +125,7 @@ impl<'a> AtomParser<'a> {
                     TokenKind::IllFormedLiteral(n) => {
                         err!(format!("ill formed literal `{:?}`", n), token.range)?
                     }
+                    TokenKind::Decorator(_) => todo!(),
                 }
             } else {
                 break;

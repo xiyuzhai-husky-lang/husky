@@ -1,8 +1,10 @@
+mod decorator;
 mod intern;
 mod keyword;
 mod opr;
 mod style;
 
+pub use decorator::*;
 pub use ident::*;
 pub use intern::{new_word_interner, InternWord, WordAllocator};
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
@@ -20,14 +22,14 @@ pub enum WordPtr {
     Keyword(Keyword),
     Identifier(Identifier),
     Opr(WordOpr),
+    Decorator(Decorator),
 }
 
 impl WordPtr {
     pub fn opt_ident(self) -> Option<Identifier> {
         match self {
-            WordPtr::Keyword(_) => None,
             WordPtr::Identifier(ident) => Some(ident),
-            WordPtr::Opr(_) => todo!(),
+            _ => None,
         }
     }
     pub fn ident(self) -> Identifier {
