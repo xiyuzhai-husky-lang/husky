@@ -227,8 +227,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                             opds,
                         })
                     }
-                    SuffixOpr::WithType(_) => todo!(),
-                    SuffixOpr::AsType(_) => todo!(),
+                    SuffixOpr::WithTy(_) => todo!(),
+                    SuffixOpr::AsTy(_) => todo!(),
                 },
                 Opr::List(_) => todo!(),
             },

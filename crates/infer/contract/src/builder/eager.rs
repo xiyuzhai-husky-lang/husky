@@ -282,8 +282,8 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_expr(opd, this_contract, arena);
                 Ok(())
             }
-            SuffixOpr::WithType(_) => todo!(),
-            SuffixOpr::AsType(_) => {
+            SuffixOpr::WithTy(_) => todo!(),
+            SuffixOpr::AsTy(_) => {
                 self.infer_eager_expr(
                     opd,
                     match contract {

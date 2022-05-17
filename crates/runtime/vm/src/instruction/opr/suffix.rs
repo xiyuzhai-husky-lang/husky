@@ -14,8 +14,8 @@ pub enum SuffixOpr {
     Decr,                                // --
     MayReturn,                           // ?
     FieldAccess(RangedCustomIdentifier), // .
-    WithType(EntityRoutePtr),            // :
-    AsType(RangedEntityRoute),           // :
+    WithTy(EntityRoutePtr),              // :
+    AsTy(RangedEntityRoute),             // :
 }
 
 impl SuffixOpr {
@@ -29,8 +29,8 @@ impl SuffixOpr {
             SuffixOpr::Decr => "--".into(),
             SuffixOpr::MayReturn => "?".into(),
             SuffixOpr::FieldAccess(ident) => format!(".{}", ident.ident),
-            SuffixOpr::WithType(ty) => format!(": {}", ty),
-            SuffixOpr::AsType(ty) => format!(" as {}", ty.route),
+            SuffixOpr::WithTy(ty) => format!(": {}", ty),
+            SuffixOpr::AsTy(ty) => format!(" as {}", ty.route),
         }
     }
 }

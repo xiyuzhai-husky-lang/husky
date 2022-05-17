@@ -29,8 +29,8 @@ impl<'a> RustGenerator<'a> {
                         self.write(".");
                         self.write(&field_ident.ident)
                     }
-                    SuffixOpr::WithType(_) => todo!(),
-                    SuffixOpr::AsType(_) => todo!(),
+                    SuffixOpr::WithTy(_) => todo!(),
+                    SuffixOpr::AsTy(_) => todo!(),
                 },
                 EagerOpnVariant::RoutineCall(_) => todo!(),
                 EagerOpnVariant::TypeCall { ranged_ty, ty_decl } => {

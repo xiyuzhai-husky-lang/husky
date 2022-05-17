@@ -69,5 +69,5 @@ struct Vector2d:
             else:
                 -180.0
         else:
-            arc_angle = (this.rotation_direction_to(other) as f32) * cos_value.acos()
+            arc_angle = (this.rotation_direction_to(other) as float) * cos_value.acos()
             arc_angle * 180.0 / 3.1415926

@@ -298,8 +298,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             SuffixOpr::FieldAccess(ident) => {
                 derived_unwrap!(self.db.ty_decl(opd_ty)).field_ty_result(ident)
             }
-            SuffixOpr::WithType(_) => todo!(),
-            SuffixOpr::AsType(ranged_ty) => Ok(ranged_ty.route),
+            SuffixOpr::WithTy(_) => todo!(),
+            SuffixOpr::AsTy(ranged_ty) => Ok(ranged_ty.route),
         }
     }
 

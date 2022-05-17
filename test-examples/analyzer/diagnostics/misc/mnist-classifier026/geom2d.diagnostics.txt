@@ -1,0 +1,1 @@
+72:63..72:68	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(float)), 72:63..72:68})} instead
