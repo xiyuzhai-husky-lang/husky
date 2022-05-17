@@ -1,10 +1,11 @@
 use vm::PrimitiveValue;
-use word::{Identifier, Keyword, WordOpr, WordPtr};
+use word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
 
 pub use crate::*;
 
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokenKind {
+    Decorator(Decorator),
     Keyword(Keyword),
     Identifier(Identifier),
     Special(Special),
@@ -31,6 +32,7 @@ impl From<WordPtr> for TokenKind {
             WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
             WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
             WordPtr::Opr(word_opr) => TokenKind::WordOpr(word_opr),
+            WordPtr::Decorator(decorator) => TokenKind::Decorator(decorator),
         }
     }
 }

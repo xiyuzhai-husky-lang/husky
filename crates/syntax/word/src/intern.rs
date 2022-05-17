@@ -14,6 +14,7 @@ impl Deref for WordPtr {
             WordPtr::Keyword(keyword) => keyword.deref(),
             WordPtr::Identifier(ident) => ident.deref(),
             WordPtr::Opr(opr) => opr.deref(),
+            WordPtr::Decorator(decorator) => decorator.deref(),
         }
     }
 }
@@ -96,6 +97,10 @@ pub fn new_word_interner() -> WordAllocator {
         WordOpr::And.into(),
         WordOpr::Or.into(),
         WordOpr::As.into(),
+        Decorator::Pub.into(),
+        Decorator::Private.into(),
+        Decorator::Async.into(),
+        Decorator::Static.into(),
     ])
 }
 

@@ -316,6 +316,7 @@ pub trait EntityRouteQueryGroup:
                     })),
                     Identifier::Contextual(_) => todo!(),
                 },
+                WordPtr::Decorator(_) => todo!(),
             }
         } else {
             Err(derived_error!(format!(
