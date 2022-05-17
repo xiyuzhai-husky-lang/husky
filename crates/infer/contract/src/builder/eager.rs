@@ -274,7 +274,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
                         EagerContract::Return => {
-                            if self.db.is_copyable(field_var_decl.ty) {
+                            if self.db.is_copyable(field_var_decl.ty)? {
                                 EagerContract::Pure
                             } else {
                                 todo!()
@@ -429,7 +429,7 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::VarInit => todo!(),
             EagerContract::Return => {
                 let ty = self.raw_expr_ty(expr_idx)?;
-                if self.db.is_copyable(ty) {
+                if self.db.is_copyable(ty)? {
                     EagerContract::Pure
                 } else {
                     EagerContract::Move

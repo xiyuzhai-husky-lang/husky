@@ -268,7 +268,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     LazyContract::Move => todo!(),
                     LazyContract::GlobalRef => todo!(),
                     LazyContract::Pure => {
-                        if self.db.is_copyable(expr.ty) {
+                        if self.db.is_copyable(expr.ty).unwrap() {
                             MemberAccessKind::Copy
                         } else {
                             MemberAccessKind::Ref

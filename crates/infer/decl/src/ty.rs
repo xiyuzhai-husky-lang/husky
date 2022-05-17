@@ -129,7 +129,7 @@ impl TyDecl {
                                 inputs.push(InputDecl {
                                     contract: field_decl
                                         .contract
-                                        .constructor_input_contract(db.is_copyable(field_decl.ty)),
+                                        .constructor_input_contract(db.is_copyable(field_decl.ty)?),
                                     ty: field_decl.ty,
                                     ident: field_decl.ident,
                                 })

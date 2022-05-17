@@ -38,10 +38,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         .eager_variable_qualified_tys
                         .insert_new((
                             (input.ident.ident.into(), inputs[0].ranged_ty.row()),
-                            Ok(EagerQualifiedTy::new(
-                                EagerQualifier::from_input(input.contract, self.db.is_copyable(ty)),
-                                ty,
-                            )),
+                            (|| {
+                                (Ok(EagerQualifiedTy::new(
+                                    EagerQualifier::from_input(
+                                        input.contract,
+                                        self.db.is_copyable(ty)?,
+                                    ),
+                                    ty,
+                                )))
+                            })(),
                         ));
                 }
             }
@@ -231,7 +236,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             } => {
                 let ty = derived_not_none!(opt_ty)?;
                 let contract = derived_not_none!(opt_contract)?;
-                Ok(EagerQualifiedTy::from_input(self.db, contract, ty))
+                EagerQualifiedTy::from_input(self.db, contract, ty)
             }
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized")),
             RawExprVariant::Entity { route, kind } => match kind {
@@ -306,7 +311,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_eager_expr(arena, opds.start + 1);
         let ty = self.raw_expr_ty(raw_expr_idx)?;
         Ok(EagerQualifiedTy::new(
-            if self.db.is_copyable(ty) {
+            if self.db.is_copyable(ty)? {
                 EagerQualifier::Copyable
             } else {
                 EagerQualifier::Transient
@@ -324,7 +329,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_eager_expr(arena, opds.start);
         let ty = self.raw_expr_ty(raw_expr_idx)?;
         Ok(EagerQualifiedTy::new(
-            EagerQualifier::transitive(self.db.is_copyable(ty)),
+            EagerQualifier::transitive(self.db.is_copyable(ty)?),
             self.raw_expr_ty(raw_expr_idx)?,
         ))
     }
@@ -349,7 +354,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let qual = EagerQualifier::from_field(
                     this_qt.qual,
                     field_decl.contract,
-                    self.db.is_copyable(field_decl.ty),
+                    self.db.is_copyable(field_decl.ty)?,
                 )?;
                 Ok(EagerQualifiedTy::new(qual, field_decl.ty))
             }
@@ -400,7 +405,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     OutputLiason::Transfer => {
                         emsg_once!("handle ref");
                         Ok(EagerQualifiedTy::new(
-                            if self.db.is_copyable(call_decl.output.ty) {
+                            if self.db.is_copyable(call_decl.output.ty)? {
                                 EagerQualifier::Copyable
                             } else {
                                 EagerQualifier::Transient
@@ -438,7 +443,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let qual = EagerQualifier::from_element_access(
             this_qt.qual,
             this_contract,
-            self.db.is_copyable(element_ty),
+            self.db.is_copyable(element_ty)?,
         );
         Ok(EagerQualifiedTy::new(qual, element_ty))
     }
@@ -457,7 +462,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for input in inputs {
             self.infer_eager_expr(arena, input);
         }
-        let is_element_copyable = self.db.is_copyable(method_decl.output.ty);
+        let is_element_copyable = self.db.is_copyable(method_decl.output.ty)?;
         let qual = match method_decl.output.liason {
             OutputLiason::Transfer => {
                 if is_element_copyable {

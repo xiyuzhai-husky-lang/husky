@@ -43,5 +43,5 @@ pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
     fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
     fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;
 
-    fn is_copyable(&self, ty: EntityRoutePtr) -> bool;
+    fn is_copyable(&self, ty: EntityRoutePtr) -> InferResult<bool>;
 }

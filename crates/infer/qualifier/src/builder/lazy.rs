@@ -38,10 +38,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         .lazy_variable_qualified_tys
                         .insert_new((
                             (input.ident.ident.into(), inputs[0].ranged_ty.row()),
-                            Ok(LazyQualifiedTy::new(
-                                LazyQualifier::from_input(input.contract, self.db.is_copyable(ty)),
-                                ty,
-                            )),
+                            self.db.is_copyable(ty).map(|is_copyable| {
+                                LazyQualifiedTy::new(
+                                    LazyQualifier::from_input(input.contract, is_copyable),
+                                    ty,
+                                )
+                            }),
                         ));
                 }
             }
@@ -181,7 +183,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             } => {
                 let ty = derived_not_none!(opt_ty)?;
                 let contract = derived_not_none!(opt_contract)?;
-                Ok(LazyQualifiedTy::from_input(self.db, contract, ty))
+                LazyQualifiedTy::from_input(self.db, contract, ty)
             }
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::Entity { route, kind } => match kind {
@@ -191,7 +193,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Routine => todo!(),
                 EntityKind::Feature => Ok(LazyQualifiedTy::new(
-                    LazyQualifier::feature(self.db.is_copyable(ty)),
+                    LazyQualifier::feature(self.db.is_copyable(ty)?),
                     ty,
                 )),
                 EntityKind::Pattern => todo!(),
@@ -270,7 +272,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let qual = LazyQualifier::from_field(
                     this_qt.qual,
                     field_decl.contract,
-                    self.db.is_copyable(field_decl.ty),
+                    self.db.is_copyable(field_decl.ty)?,
                 )?;
                 LazyQualifiedTy::new(qual, field_decl.ty)
             }
@@ -321,7 +323,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     OutputLiason::Transfer => {
                         emsg_once!("handle ref");
                         Ok(LazyQualifiedTy::new(
-                            if self.db.is_copyable(call_decl.output.ty) {
+                            if self.db.is_copyable(call_decl.output.ty)? {
                                 LazyQualifier::Copyable
                             } else {
                                 LazyQualifier::Transient
@@ -355,7 +357,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.infer_lazy_expr(arena, opd);
         }
         let element_ty = self.raw_expr_ty(expr_idx)?;
-        let qual = if self.db.is_copyable(element_ty) {
+        let qual = if self.db.is_copyable(element_ty)? {
             LazyQualifier::Copyable
         } else {
             match this_qt.qual {
@@ -383,7 +385,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
         let qual = match method_decl.output.liason {
             OutputLiason::Transfer => {
-                if self.db.is_copyable(method_decl.output.ty) {
+                if self.db.is_copyable(method_decl.output.ty)? {
                     LazyQualifier::Copyable
                 } else {
                     LazyQualifier::Transient
