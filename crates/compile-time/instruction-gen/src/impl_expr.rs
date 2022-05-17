@@ -199,7 +199,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     opds.map(|opd| opd.ty),
                     match expr.contract {
                         EagerContract::Pure => {
-                            if self.db.is_copyable(expr.ty) {
+                            if self.db.is_copyable(expr.ty).unwrap() {
                                 MemberAccessKind::Copy
                             } else {
                                 todo!()
@@ -208,7 +208,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => todo!(),
                         EagerContract::LetInit => {
-                            if self.db.is_copyable(expr.ty) {
+                            if self.db.is_copyable(expr.ty).unwrap() {
                                 MemberAccessKind::Copy
                             } else {
                                 todo!()
@@ -216,7 +216,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                         EagerContract::VarInit => todo!(),
                         EagerContract::Return => {
-                            if self.db.is_copyable(expr.ty) {
+                            if self.db.is_copyable(expr.ty).unwrap() {
                                 MemberAccessKind::Copy
                             } else {
                                 MemberAccessKind::Move

@@ -294,7 +294,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match contract {
             LazyContract::Move => {
                 let ty = self.raw_expr_ty(raw_expr_idx)?;
-                let this_contract = if self.db.is_copyable(ty) {
+                let this_contract = if self.db.is_copyable(ty)? {
                     LazyContract::Pure
                 } else {
                     LazyContract::Move

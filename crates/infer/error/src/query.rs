@@ -40,6 +40,19 @@ impl BindTextRangeInto<InferError> for InferQueryError {
     }
 }
 
+impl From<InferError> for InferQueryError {
+    fn from(e: InferError) -> Self {
+        Self {
+            kind: InferQueryErrorKind::Derived,
+            message: match e.variant {
+                InferErrorVariant::Derived { message } => message,
+                InferErrorVariant::Original { message, .. } => message,
+            },
+            dev_src: e.dev_src,
+        }
+    }
+}
+
 impl From<EntitySyntaxError> for InferQueryError {
     fn from(e: EntitySyntaxError) -> Self {
         Self {

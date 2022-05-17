@@ -40,11 +40,11 @@ impl EagerQualifiedTy {
         db: &dyn InferQualifiedTyQueryGroup,
         input_contract: InputContract,
         ty: EntityRoutePtr,
-    ) -> Self {
-        EagerQualifiedTy::new(
-            EagerQualifier::from_input(input_contract, db.is_copyable(ty)),
+    ) -> InferResult<Self> {
+        Ok(EagerQualifiedTy::new(
+            EagerQualifier::from_input(input_contract, db.is_copyable(ty)?),
             ty,
-        )
+        ))
     }
 
     pub(crate) fn new(qual: EagerQualifier, ty: EntityRoutePtr) -> Self {
