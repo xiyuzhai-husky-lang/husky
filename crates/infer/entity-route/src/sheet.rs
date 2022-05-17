@@ -6,6 +6,7 @@ use std::{collections::HashMap, sync::Arc};
 use arena::map::ArenaMap;
 use ast::{AstText, RawExpr};
 use builder::EntityRouteSheetBuilder;
+use dev_utils::dev_src;
 use fold::FoldStorage;
 use infer_decl::MemberIdx;
 use text::Row;
@@ -50,11 +51,12 @@ impl EntityRouteSheet {
                 Err(e) => Err(e.derived()),
             }
         } else {
-            p!(self.expr_tys);
-            p!(self.ast_text.file);
-            p!(self.ast_text.arena);
-            p!(expr_idx);
-            panic!()
+            Err(InferError {
+                variant: InferErrorVariant::Derived {
+                    message: "failed to infer expr ty".into(),
+                },
+                dev_src: dev_src!(),
+            })
         }
     }
 
