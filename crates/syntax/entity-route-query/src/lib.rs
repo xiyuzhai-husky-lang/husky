@@ -11,6 +11,6 @@ pub use query::{
     EntityRouteQueryGroup, EntityRouteSalsaQueryGroup, ModuleFromFileError, ScopeQueryGroupStorage,
 };
 pub use source::*;
+pub use subroute_table::*;
 
 use menu::*;
-use subroute_table::*;

@@ -17,6 +17,7 @@ pub enum MemberDecl {
     AssociatedCall,
     TypeField(Arc<FieldDecl>),
     TypeMethod(Arc<MethodDecl>),
+    TypeAssociatedCall(Arc<CallDecl>),
     TraitMethodImpl {
         trait_route: EntityRoutePtr,
         method: Arc<MethodDecl>,
@@ -50,6 +51,7 @@ impl MemberDecl {
             MemberDecl::TraitMethodImpl { method, .. } => method.ident,
             MemberDecl::TraitAssociatedTypeImpl { ident, .. } => *ident,
             MemberDecl::TraitAssociatedConstSizeImpl { ident, .. } => *ident,
+            MemberDecl::TypeAssociatedCall(call) => call.route.ident().custom(),
         }
     }
 }
@@ -81,7 +83,7 @@ impl From<&TyMemberDecl> for MemberDecl {
         match decl {
             TyMemberDecl::Field(field_decl) => MemberDecl::TypeField(field_decl.clone()),
             TyMemberDecl::Method(method_decl) => MemberDecl::TypeMethod(method_decl.clone()),
-            TyMemberDecl::Call => todo!(),
+            TyMemberDecl::Call(call_decl) => MemberDecl::TypeAssociatedCall(call_decl.clone()),
         }
     }
 }
@@ -90,7 +92,7 @@ impl From<&TyMemberDecl> for MemberDecl {
 pub enum TyMemberDecl {
     Field(Arc<FieldDecl>),
     Method(Arc<MethodDecl>),
-    Call,
+    Call(Arc<CallDecl>),
 }
 
 impl TyMemberDecl {
@@ -100,7 +102,7 @@ impl TyMemberDecl {
             TyMemberDecl::Method(method_decl) => {
                 TyMemberDecl::Method(method_decl.instantiate(instantiator))
             }
-            TyMemberDecl::Call => todo!(),
+            TyMemberDecl::Call(_) => todo!(),
         }
     }
 
@@ -123,7 +125,7 @@ impl HasKey<CustomIdentifier> for TyMemberDecl {
         match self {
             TyMemberDecl::Method(method_decl) => method_decl.ident,
             TyMemberDecl::Field(field_decl) => field_decl.ident,
-            TyMemberDecl::Call => todo!(),
+            TyMemberDecl::Call(call_decl) => call_decl.route.ident().custom(),
         }
     }
 }

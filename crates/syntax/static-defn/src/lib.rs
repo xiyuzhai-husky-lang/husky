@@ -7,7 +7,7 @@ use dev_utils::StaticDevSource;
 pub use root::*;
 pub use ty::*;
 
-use entity_kind::{EntityKind, MemberKind, RoutineContextKind, RoutineKind, TyKind};
+use entity_kind::{EntityKind, MemberKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
 use vm::{InputContract, Linkage, OutputLiason};
 

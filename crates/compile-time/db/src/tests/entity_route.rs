@@ -70,29 +70,28 @@ struct B {}
 }
 
 #[test]
-fn error1() {
-    let mut db = HuskyLangCompileTime::default();
-    db.set_live_file_text(
-        "haha/main.hsk".into(),
-        r#"
-stru ct A {}
+// fn error1() {
+//     let mut db = HuskyLangCompileTime::default();
+//     db.set_live_file_text(
+//         "haha/main.hsk".into(),
+//         r#"
+// stru ct A {}
 
-main:
-    let a = 1
-"#
-        .into(),
-    );
+// main:
+//     let a = 1
+// "#
+//         .into(),
+//     );
 
-    let main_file = db.intern_file("haha/main.hsk".into());
-    let pack = db.intern_entity_route(EntityRoute::package(
-        main_file,
-        db.intern_word("haha".into()).opt_custom().unwrap(),
-    ));
-    let subscope_table = db.subroute_table(pack).ok().unwrap();
-    should_eq!(subscope_table.entries.len(), 1);
-    should_eq!(subscope_table.errors.len(), 1);
-}
-
+//     let main_file = db.intern_file("haha/main.hsk".into());
+//     let pack = db.intern_entity_route(EntityRoute::package(
+//         main_file,
+//         db.intern_word("haha".into()).opt_custom().unwrap(),
+//     ));
+//     let subscope_table = db.subroute_table(pack).ok().unwrap();
+//     should_eq!(subscope_table.entries.len(), 1);
+//     should_eq!(subscope_table.errors.len(), 1);
+// }
 #[test]
 fn datasets() {
     let db = HuskyLangCompileTime::default();

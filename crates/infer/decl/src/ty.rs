@@ -6,7 +6,7 @@ mod vec;
 use std::iter::Peekable;
 
 use check_utils::should_eq;
-use entity_kind::{EnumVariantKind, FieldKind, RoutineContextKind};
+use entity_kind::{EnumVariantKind, FieldKind};
 use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
@@ -25,7 +25,7 @@ use map_collect::MapCollect;
 use text::*;
 use vec_map::VecMap;
 use vm::{OutputLiason, TySignature};
-use word::{IdentArcDict, IdentDict};
+use word::{IdentArcDict, IdentDict, RoutineKeyword};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {
@@ -71,8 +71,9 @@ impl TyDecl {
                     generic_arguments,
                 });
                 symbol_context.opt_this_ty = Some(this_ty);
-                let opt_type_call = opt_type_call
-                    .map(|type_call| routine_decl_from_static(db, symbols.clone(), type_call));
+                let opt_type_call = opt_type_call.map(|type_call| {
+                    routine_decl_from_static(db, symbols.clone(), this_ty, type_call)
+                });
                 let trait_impls = trait_impls
                     .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, &symbol_context));
                 Self::new(
@@ -117,7 +118,7 @@ impl TyDecl {
             _ => Default::default(),
         };
         Self::collect_original_fields(&mut children, &mut ty_members)?;
-        Self::collect_other_members(children, &mut ty_members)?;
+        Self::collect_other_members(db, this_ty, children, &mut ty_members)?;
         let opt_type_call = match kind {
             TyKind::Enum => None,
             TyKind::Record | TyKind::Struct => {
@@ -136,10 +137,11 @@ impl TyDecl {
                             }
                             FieldKind::StructDerived | FieldKind::RecordDerived => break,
                         },
-                        TyMemberDecl::Method(_) | TyMemberDecl::Call => break,
+                        TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
                     }
                 }
                 Some(Arc::new(CallDecl {
+                    route: ty,
                     parameters: inputs,
                     output: OutputDecl {
                         ty,
@@ -210,6 +212,8 @@ impl TyDecl {
     }
 
     fn collect_other_members(
+        db: &dyn DeclQueryGroup,
+        this_ty: EntityRoutePtr,
         mut children: Peekable<AstIter>,
         members: &mut IdentDict<TyMemberDecl>,
     ) -> InferQueryResult<()> {
@@ -226,11 +230,10 @@ impl TyDecl {
                 AstKind::FeatureDecl { ident, ty } => todo!(),
                 AstKind::TypeMethodDefnHead(ref method_defn_head) => {
                     match method_defn_head.routine_kind {
-                        RoutineContextKind::Proc => todo!(),
-                        RoutineContextKind::Func => members.insert_new(TyMemberDecl::Method(
+                        RoutineKeyword::Proc => todo!(),
+                        RoutineKeyword::Func => members.insert_new(TyMemberDecl::Method(
                             MethodDecl::from_ast(method_defn_head, MethodKind::Type),
                         )),
-                        RoutineContextKind::Test => todo!(),
                     }
                 }
                 AstKind::Use { .. } => todo!(),
@@ -247,6 +250,12 @@ impl TyDecl {
                     variant_class,
                 } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
+                AstKind::TypeAssociatedRoutineDefnHead(ref call_defn_head) => {
+                    members.insert_new(TyMemberDecl::Call(CallDecl::from_ast(
+                        db.make_subroute(this_ty, call_defn_head.ident.ident, vec![]),
+                        call_defn_head,
+                    )))
+                }
             }
         }
         Ok(())
@@ -300,7 +309,7 @@ impl TyDecl {
                     ),
                     ranged_ident.range
                 ),
-                TyMemberDecl::Call => todo!(),
+                TyMemberDecl::Call(_) => todo!(),
             },
             None => {
                 throw!(
@@ -346,7 +355,7 @@ impl TyDecl {
                 TyMemberDecl::Method(_) => {
                     Err(derived!(format!("expect a field, but got method instead")))
                 }
-                TyMemberDecl::Call => todo!(),
+                TyMemberDecl::Call(_) => todo!(),
             },
             None => Err(derived!(format!("no such field"))),
         }
@@ -447,7 +456,7 @@ impl TyDecl {
             match member {
                 TyMemberDecl::Field(_) => todo!(),
                 TyMemberDecl::Method(method) => return Ok(method),
-                TyMemberDecl::Call => todo!(),
+                TyMemberDecl::Call(_) => todo!(),
             }
         }
         let matched_methods: Vec<&Arc<MethodDecl>> = self
@@ -473,6 +482,7 @@ impl TyDecl {
                         }
                         MemberDecl::TraitAssociatedTypeImpl { .. } => todo!(),
                         MemberDecl::TraitAssociatedConstSizeImpl { .. } => todo!(),
+                        MemberDecl::TypeAssociatedCall(_) => todo!(),
                     }
                 } else {
                     None

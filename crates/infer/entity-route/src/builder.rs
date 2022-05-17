@@ -68,6 +68,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             children,
                             &arena,
                         ),
+                        AstKind::TypeAssociatedRoutineDefnHead(ref head) => self.infer_routine(
+                            &head.input_placeholders,
+                            head.output_ty.route,
+                            children,
+                            &arena,
+                        ),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
                         AstKind::FieldDefnHead(ref head) => match head.kind {

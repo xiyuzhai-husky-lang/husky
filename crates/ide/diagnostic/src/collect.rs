@@ -1,5 +1,6 @@
 use ast::AstText;
 use entity_route::{EntityKind, EntityRoutePtr};
+use entity_route_query::SubrouteTable;
 use file::FilePtr;
 use print_utils::{emsg_once, p};
 use semantics_error::SemanticErrorVariant;
@@ -11,13 +12,11 @@ pub(crate) fn collect_diagnostics(
     module: EntityRoutePtr,
 ) -> Vec<Diagnostic> {
     let mut diagnostics = Vec::new();
-    if let Ok(table) = db.subroute_table(module) {
-        diagnostics.extend(table.error_iter().map(|e| e.into()));
-    }
     let file = match db.module_file(module) {
         Ok(file) => file,
         Err(e) => return vec![e.into()],
     };
+    collect_module_entity_syntax_errors(db, module, &mut diagnostics);
     collect_lex_errors(db, file, &mut diagnostics);
     collect_ast_errors(db, file, &mut diagnostics);
     collect_infer_ty_errors(db, file, &mut diagnostics);
@@ -26,6 +25,26 @@ pub(crate) fn collect_diagnostics(
     emsg_once!("todo: collect semantic errors");
     // collect_semantic_errors(db, file, &mut diagnostics);
     diagnostics
+}
+
+fn collect_module_entity_syntax_errors(
+    db: &dyn DiagnosticQuery,
+    module: EntityRoutePtr,
+    diagnostics: &mut Vec<Diagnostic>,
+) {
+    collect_entity_syntax_errors(db, module, diagnostics)
+}
+
+fn collect_entity_syntax_errors(
+    db: &dyn DiagnosticQuery,
+    parent: EntityRoutePtr,
+    diagnostics: &mut Vec<Diagnostic>,
+) {
+    let table = db.subroute_table(parent).unwrap();
+    diagnostics.extend(table.error_iter().map(|e| e.into()));
+    for subroute in table.non_module_subroute_iter(db.upcast(), parent) {
+        collect_entity_syntax_errors(db, subroute, diagnostics)
+    }
 }
 
 fn collect_lex_errors(db: &dyn DiagnosticQuery, file: FilePtr, diagnostics: &mut Vec<Diagnostic>) {

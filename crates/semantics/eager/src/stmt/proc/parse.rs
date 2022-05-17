@@ -48,6 +48,7 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::TypeMethodDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
+                AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
             }))
         }
         Ok(Arc::new(stmts))

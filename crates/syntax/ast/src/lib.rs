@@ -46,6 +46,7 @@ pub enum AstKind {
         ty: RangedEntityRoute,
     },
     TypeMethodDefnHead(TypeMethodDefnHead),
+    TypeAssociatedRoutineDefnHead(RoutineDefnHead),
     FieldDefnHead(FieldDefnHead),
     DatasetConfigDefnHead,
     Stmt(RawStmt),

@@ -21,6 +21,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct CallDecl {
+    pub route: EntityRoutePtr,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
@@ -29,6 +30,9 @@ pub struct CallDecl {
 impl CallDecl {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
         Arc::new(Self {
+            route: instantiator
+                .instantiate_entity_route(self.route)
+                .as_entity_route(),
             generic_placeholders: self
                 .generic_placeholders
                 .iter()
@@ -38,11 +42,10 @@ impl CallDecl {
             output: self.output.instantiate(instantiator),
         })
     }
-}
 
-impl From<&RoutineDefnHead> for CallDecl {
-    fn from(head: &RoutineDefnHead) -> Self {
-        CallDecl {
+    pub(crate) fn from_ast(route: EntityRoutePtr, head: &RoutineDefnHead) -> Arc<Self> {
+        Arc::new(CallDecl {
+            route,
             generic_placeholders: head.generic_placeholders.clone(),
             parameters: head
                 .input_placeholders
@@ -53,7 +56,7 @@ impl From<&RoutineDefnHead> for CallDecl {
                 ty: head.output_ty.route,
                 liason: head.output_contract,
             },
-        }
+        })
     }
 }
 
@@ -65,7 +68,7 @@ pub(crate) fn call_decl(
     return match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => {
-                routine_decl_from_static(db, vec![], static_defn)
+                routine_decl_from_static(db, vec![], route, static_defn)
             }
             EntityStaticDefnVariant::Type { .. } => match db.ty_decl(route)?.opt_type_call {
                 Some(ref ty_call) => ty_call.clone(),
@@ -86,19 +89,14 @@ pub(crate) fn call_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.kind {
-                AstKind::RoutineDefnHead(ref head) => Ok(Arc::new(head.into())),
+                AstKind::RoutineDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
+                AstKind::TypeAssociatedRoutineDefnHead(ref head) => {
+                    Ok(CallDecl::from_ast(route, head))
+                }
                 // type constructor
                 AstKind::TypeDefnHead { .. } => {
                     let ty_decl = db.ty_decl(route)?;
                     Ok(ty_decl.opt_type_call.clone().expect("todo"))
-
-                    // ok_or(InferError {
-                    //     variant: InferErrorVariant::Original {
-                    //         message: format!("no type call for {:?}", route),
-                    //         range: todo!(),
-                    //     },
-                    //     dev_src: todo!(),
-                    // })
                 }
                 _ => panic!(),
             }
@@ -113,6 +111,7 @@ pub(crate) fn call_decl(
 pub(crate) fn routine_decl_from_static(
     db: &dyn DeclQueryGroup,
     mut symbols: Vec<Symbol>,
+    route: EntityRoutePtr,
     static_defn: &EntityStaticDefn,
 ) -> Arc<CallDecl> {
     match static_defn.variant {
@@ -141,6 +140,7 @@ pub(crate) fn routine_decl_from_static(
             });
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
             Arc::new(CallDecl {
+                route,
                 generic_placeholders,
                 parameters: inputs,
                 output: OutputDecl {

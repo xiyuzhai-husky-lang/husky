@@ -73,6 +73,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             Some(head.output_ty.route),
                             head.output_contract,
                         ),
+                        AstKind::TypeAssociatedRoutineDefnHead(ref head) => self.infer_routine(
+                            &arena,
+                            &head.input_placeholders,
+                            children,
+                            Some(head.output_ty.route),
+                            head.output_contract,
+                        ),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
                         AstKind::FieldDefnHead(ref head) => match head.kind {

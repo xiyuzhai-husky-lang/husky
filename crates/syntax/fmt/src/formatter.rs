@@ -2,12 +2,12 @@ use std::ops::AddAssign;
 
 use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtVariant};
 use defn_head::InputPlaceholder;
-use entity_kind::{RoutineContextKind, TyKind};
+use entity_kind::TyKind;
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
 use syntax_types::*;
 use vm::*;
-use word::{RootIdentifier, WordAllocator};
+use word::{RootIdentifier, RoutineKeyword, WordAllocator};
 
 pub struct Formatter<'a> {
     word_unique_allocator: &'a WordAllocator,
@@ -110,9 +110,8 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set((head.routine_kind).into());
                 self.write(match head.routine_kind {
-                    RoutineContextKind::Test => "test ",
-                    RoutineContextKind::Proc => "proc ",
-                    RoutineContextKind::Func => "func ",
+                    RoutineKeyword::Proc => "proc ",
+                    RoutineKeyword::Func => "func ",
                 });
                 self.write(&head.ident.ident);
                 self.write("(");
@@ -148,6 +147,7 @@ impl<'a> Formatter<'a> {
             AstKind::FeatureDecl { .. } => todo!(),
             AstKind::Use { ref use_variant } => todo!(),
             AstKind::Submodule { ident, source_file } => todo!(),
+            AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
         }
     }
 
@@ -207,12 +207,13 @@ impl<'a> Formatter<'a> {
             }
             RawStmtVariant::Return(expr) => {
                 match self.context.value() {
-                    AstContext::Func | AstContext::Lazy | AstContext::Main => (),
-                    AstContext::Proc => self.write("return "),
+                    AstContext::Routine(RoutineKeyword::Func)
+                    | AstContext::Lazy
+                    | AstContext::Main => (),
+                    AstContext::Routine(RoutineKeyword::Proc) => self.write("return "),
                     AstContext::Package(_) => todo!(),
                     AstContext::Module(_) => todo!(),
                     AstContext::DatasetConfig => todo!(),
-                    AstContext::Test => todo!(),
                     AstContext::Struct => todo!(),
                     AstContext::Record => todo!(),
                     AstContext::Props => todo!(),

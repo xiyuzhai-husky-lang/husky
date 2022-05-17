@@ -128,9 +128,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 AstContext::DatasetConfig
                 | AstContext::Main
                 | AstContext::Lazy
-                | AstContext::Func
-                | AstContext::Proc
-                | AstContext::Test
+                | AstContext::Routine(_)
                 | AstContext::FuncMatch
                 | AstContext::ProcMatch
                 | AstContext::LazyMatch => match token_group[0].kind {

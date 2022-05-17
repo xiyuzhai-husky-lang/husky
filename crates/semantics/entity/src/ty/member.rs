@@ -3,6 +3,7 @@ mod method;
 
 pub use field::*;
 pub use method::*;
+use word::RoutineKeyword;
 
 use super::*;
 
@@ -55,8 +56,8 @@ impl EntityDefnVariant {
                 AstKind::FeatureDecl { ident, ty } => todo!(),
                 AstKind::TypeMethodDefnHead(ref head) => {
                     let method_source = match head.routine_kind {
-                        RoutineContextKind::Proc => todo!(),
-                        RoutineContextKind::Func => {
+                        RoutineKeyword::Proc => todo!(),
+                        RoutineKeyword::Func => {
                             let stmts = semantics_eager::parse_decl_stmts(
                                 &head.input_placeholders,
                                 db,
@@ -66,7 +67,6 @@ impl EntityDefnVariant {
                             )?;
                             MethodSource::Func { stmts }
                         }
-                        RoutineContextKind::Test => todo!(),
                     };
                     let method_variant = MethodDefnVariant::TypeMethod {
                         ty: ty_route,
@@ -122,6 +122,7 @@ impl EntityDefnVariant {
                     variant_class,
                 } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
+                AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
             }
         }
         Ok(())
