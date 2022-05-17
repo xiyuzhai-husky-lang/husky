@@ -1,5 +1,5 @@
 use ast::AstError;
-use text::BindTextRange;
+use text::BindTextRangeInto;
 
 use crate::*;
 
@@ -19,14 +19,12 @@ pub enum InferQueryErrorKind {
 pub type InferQueryResultArc<T> = Result<Arc<T>, InferQueryError>;
 pub type InferQueryResult<T> = Result<T, InferQueryError>;
 
-impl BindTextRange for InferQueryError {
-    type Target = InferError;
-
-    fn ref_bind_text_range(&self, range: TextRange) -> Self::Target {
+impl BindTextRangeInto<InferError> for InferQueryError {
+    fn ref_bind_text_range_into(&self, range: TextRange) -> InferError {
         todo!()
     }
 
-    fn bind_text_range(self, range: TextRange) -> Self::Target {
+    fn bind_text_range_into(self, range: TextRange) -> InferError {
         InferError {
             variant: match self.kind {
                 InferQueryErrorKind::Derived => InferErrorVariant::Derived {

@@ -5,6 +5,7 @@ use ast::*;
 use dev_utils::dev_src;
 use entity_route::EntityRoutePtr;
 use infer_error::*;
+use text::BindTextRangeInto;
 use text::RangedCustomIdentifier;
 use text::TextRange;
 use vm::*;
@@ -366,13 +367,11 @@ impl<'a> ContractSheetBuilder<'a> {
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
                     call_decl.parameters.iter(),
                 ) {
-                    self.infer_eager_expr(
-                        argument,
-                        parameter
-                            .contract
-                            .eager(call_decl.output.liason, contract)?,
-                        arena,
-                    )
+                    let argument_contract_result: InferResult<_> = parameter
+                        .contract
+                        .eager(call_decl.output.liason, contract)
+                        .bind_into(&arena[argument]);
+                    self.infer_eager_expr(argument, argument_contract_result?, arena)
                 }
                 Ok(())
             }
@@ -400,22 +399,17 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;
-
-        self.infer_eager_expr(
-            this,
-            method_decl
-                .this_contract
-                .eager(method_decl.output.liason, contract)?,
-            arena,
-        );
+        let this_contract_result: InferResult<_> = method_decl
+            .this_contract
+            .eager(method_decl.output.liason, contract)
+            .bind_into(&arena[this]);
+        self.infer_eager_expr(this, this_contract_result?, arena);
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
-            self.infer_eager_expr(
-                argument,
-                parameter
-                    .contract
-                    .eager(method_decl.output.liason, contract)?,
-                arena,
-            )
+            let argument_contract_result: InferResult<_> = parameter
+                .contract
+                .eager(method_decl.output.liason, contract)
+                .bind_into(&arena[argument]);
+            self.infer_eager_expr(argument, argument_contract_result?, arena)
         }
         Ok(())
     }

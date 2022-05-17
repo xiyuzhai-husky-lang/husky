@@ -108,9 +108,24 @@ impl From<InferQueryError> for InferError {
     }
 }
 
-impl From<VMCompileError> for InferError {
-    fn from(_: VMCompileError) -> Self {
-        todo!()
+impl BindTextRangeFrom<VMCompileError> for InferError {
+    fn bind_text_range_from(e: VMCompileError, range: TextRange) -> Self {
+        Self {
+            variant: InferErrorVariant::Original {
+                message: e.message,
+                range,
+            },
+            dev_src: e.dev_src,
+        }
+    }
+    fn bind_text_range_from_ref(e: &VMCompileError, range: TextRange) -> Self {
+        Self {
+            variant: InferErrorVariant::Original {
+                message: e.message.clone(),
+                range,
+            },
+            dev_src: e.dev_src.clone(),
+        }
     }
 }
 
@@ -191,4 +206,4 @@ macro_rules! derived_unwrap {
 use dev_utils::*;
 use entity_route_query::EntitySyntaxError;
 use test_utils::{TestDisplay, TestDisplayConfig};
-use text::TextRange;
+use text::{BindTextRangeFrom, TextRange};

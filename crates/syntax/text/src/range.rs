@@ -1,6 +1,8 @@
-mod bind;
+mod bind_from;
+mod bind_into;
 
-pub use bind::*;
+pub use bind_from::*;
+pub use bind_into::*;
 
 use crate::*;
 use dev_utils::StaticDevSource;

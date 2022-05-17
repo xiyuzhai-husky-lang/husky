@@ -355,7 +355,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let caller = &arena[total_opds.start];
         match caller.variant {
             RawExprVariant::Entity { route, kind, .. } => {
-                let call_decl = self.db.call_decl(route).bind(caller)?;
+                let call_decl_result: InferResult<_> = self.db.call_decl(route).bind_into(caller);
+                let call_decl = call_decl_result?;
                 if call_decl.parameters.len() != total_opds.end - total_opds.start - 1 {
                     self.entity_route_sheet.extra_errors.push(InferError {
                         variant: InferErrorVariant::Original {
