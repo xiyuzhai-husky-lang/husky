@@ -15,7 +15,7 @@ use word::IdentDict;
 pub struct MethodDecl {
     pub ident: CustomIdentifier,
     pub this_contract: InputContract,
-    pub inputs: Vec<InputDecl>,
+    pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub kind: MethodKind,
@@ -68,8 +68,8 @@ impl MethodDecl {
         Arc::new(Self {
             ident: self.ident,
             this_contract: self.this_contract,
-            inputs: self
-                .inputs
+            parameters: self
+                .parameters
                 .iter()
                 .map(|input| input.instantiate(instantiator))
                 .collect(),
@@ -83,7 +83,7 @@ impl MethodDecl {
         Arc::new(Self {
             ident: self.ident,
             this_contract: self.this_contract,
-            inputs: self.inputs.map(|input| input.implement(implementor)),
+            parameters: self.parameters.map(|input| input.implement(implementor)),
             output: self.output.implement(implementor),
             generic_placeholders: self.generic_placeholders.clone(),
             kind: self.kind,
@@ -108,7 +108,8 @@ impl MethodDecl {
                 Arc::new(Self {
                     ident: db.intern_word(defn.name).custom(),
                     this_contract: this_contract,
-                    inputs: inputs.map(|input| InputDecl::from_static(db, input, symbol_context)),
+                    parameters: inputs
+                        .map(|input| InputDecl::from_static(db, input, symbol_context)),
                     output: OutputDecl {
                         contract: output_contract,
                         ty: output_ty,
@@ -126,7 +127,7 @@ impl MethodDecl {
     pub fn from_ast(method_defn_head: &TypeMethodDefnHead, kind: MethodKind) -> Arc<Self> {
         Arc::new(MethodDecl {
             ident: method_defn_head.ident.ident,
-            inputs: method_defn_head
+            parameters: method_defn_head
                 .input_placeholders
                 .map(|input_placeholder| input_placeholder.into()),
             output: OutputDecl {

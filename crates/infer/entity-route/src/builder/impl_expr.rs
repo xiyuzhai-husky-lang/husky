@@ -1,3 +1,5 @@
+use std::iter::zip;
+
 use ast::RawExprRange;
 use dev_utils::dev_src;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
@@ -114,16 +116,14 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let range = arena[expr_idx].range;
         match opr {
-            Opr::Binary(opr) => {
-                self.binary_opn_ty_result(*opr, opds.start, opds.start + 1, arena, range)
-            }
+            Opr::Binary(opr) => self.binary_opn(*opr, opds.start, opds.start + 1, arena, range),
             Opr::Prefix(opr) => self.infer_prefix(*opr, opds.start, arena),
             Opr::Suffix(opr) => self.infer_suffix(*opr, opds.start, arena, range),
             Opr::List(opr) => self.list_opn_ty_result(opr, opds, arena, range, expr_idx),
         }
     }
 
-    fn binary_opn_ty_result(
+    fn binary_opn(
         &mut self,
         opr: BinaryOpr,
         lopd: RawExprIdx,
@@ -136,13 +136,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => match lopd_ty {
                 EntityRoutePtr::Root(lopd_builtin_ty) => match ropd_ty {
-                    EntityRoutePtr::Root(ropd_builtin_ty) => self
-                        .builtin_pure_binary_opn_ty_result(
-                            pure_binary_opr,
-                            lopd_builtin_ty,
-                            ropd_builtin_ty,
-                            range,
-                        ),
+                    EntityRoutePtr::Root(ropd_builtin_ty) => self.builtin_pure_binary_opn(
+                        pure_binary_opr,
+                        lopd_builtin_ty,
+                        ropd_builtin_ty,
+                        range,
+                    ),
                     EntityRoutePtr::Custom(_) => todo!(),
                     EntityRoutePtr::ThisType => todo!(),
                 },
@@ -163,7 +162,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }
     }
 
-    fn builtin_pure_binary_opn_ty_result(
+    fn builtin_pure_binary_opn(
         &self,
         pure_binary_opr: PureBinaryOpr,
         lopd_builtin_ty: RootIdentifier,
@@ -226,8 +225,15 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 lopd_builtin_ty
             }
-            PureBinaryOpr::And => todo!(),
-            PureBinaryOpr::Or => todo!(),
+            PureBinaryOpr::And | PureBinaryOpr::Or => {
+                if lopd_builtin_ty != RootIdentifier::Bool {
+                    throw!("expect lopd to be of type `bool`", range)
+                }
+                if ropd_builtin_ty != RootIdentifier::Bool {
+                    throw!("expect ropd to be of type `bool`", range)
+                }
+                RootIdentifier::Bool
+            }
             PureBinaryOpr::BitXor | PureBinaryOpr::BitAnd | PureBinaryOpr::BitOr => {
                 if lopd_builtin_ty != ropd_builtin_ty {
                     throw!(
@@ -292,7 +298,17 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None, arena))?;
         match opr {
-            SuffixOpr::Incr => todo!(),
+            SuffixOpr::Incr => {
+                match opd_ty {
+                    EntityRoutePtr::Root(opd_ty_ident) => match opd_ty_ident {
+                        RootIdentifier::I32 => (),
+                        _ => todo!(),
+                    },
+                    EntityRoutePtr::Custom(_) => todo!(),
+                    EntityRoutePtr::ThisType => todo!(),
+                }
+                Ok(EntityRoutePtr::Root(RootIdentifier::Void))
+            }
             SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::FieldAccess(ident) => {
@@ -340,9 +356,24 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         match caller.variant {
             RawExprVariant::Entity { route, kind, .. } => {
                 let call_decl = self.db.call_decl(route).bind(caller)?;
-                for i in 0..call_decl.inputs.len() {
-                    let input_expr_idx = total_opds.start + 1 + i;
-                    self.infer_expr(input_expr_idx, Some(call_decl.inputs[i].ty), arena);
+                if call_decl.parameters.len() != total_opds.end - total_opds.start - 1 {
+                    self.entity_route_sheet.extra_errors.push(InferError {
+                        variant: InferErrorVariant::Original {
+                            message: format!(
+                                "expect `{}` arguments, but get `{}` arguments",
+                                call_decl.parameters.len(),
+                                total_opds.end - total_opds.start - 1
+                            ),
+                            range,
+                        },
+                        dev_src: dev_src!(),
+                    })
+                }
+                for (argument, parameter) in zip(
+                    ((total_opds.start + 1)..total_opds.end).into_iter(),
+                    call_decl.parameters.iter(),
+                ) {
+                    self.infer_expr(argument, Some(parameter.ty), arena);
                 }
                 Ok(call_decl.output.ty)
             }
@@ -371,11 +402,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let method_decl = this_ty_decl.method(method_ident, &self.trait_uses)?;
-        if inputs.end - inputs.start != method_decl.inputs.len() {
-            todo!()
-        }
-        for i in 0..method_decl.inputs.len() {
-            self.infer_expr(inputs.start + i, Some(method_decl.inputs[i].ty), arena);
+        for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
+            self.infer_expr(argument, Some(parameter.ty), arena);
         }
         let generic_arguments = if method_decl.generic_placeholders.len() > 0 {
             todo!()

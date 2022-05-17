@@ -22,7 +22,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct CallDecl {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
-    pub inputs: Vec<InputDecl>,
+    pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
 }
 
@@ -34,7 +34,7 @@ impl CallDecl {
                 .iter()
                 .filter_map(|placeholder| instantiator.instantiate_generic_placeholder(placeholder))
                 .collect(),
-            inputs: self.inputs.map(|input| input.instantiate(instantiator)),
+            parameters: self.parameters.map(|input| input.instantiate(instantiator)),
             output: self.output.instantiate(instantiator),
         })
     }
@@ -44,7 +44,7 @@ impl From<&RoutineDefnHead> for CallDecl {
     fn from(head: &RoutineDefnHead) -> Self {
         CallDecl {
             generic_placeholders: head.generic_placeholders.clone(),
-            inputs: head
+            parameters: head
                 .input_placeholders
                 .iter()
                 .map(|input_placeholder| input_placeholder.into())
@@ -142,7 +142,7 @@ pub(crate) fn routine_decl_from_static(
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
             Arc::new(CallDecl {
                 generic_placeholders,
-                inputs,
+                parameters: inputs,
                 output: OutputDecl {
                     contract: output_contract,
                     ty: output_ty,

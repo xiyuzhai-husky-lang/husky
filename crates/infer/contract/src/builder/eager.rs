@@ -1,3 +1,5 @@
+use std::iter::zip;
+
 use ast::{CasePattern, CasePatternVariant};
 use ast::{
     RawBoundary, RawBranchVariant, RawExprArena, RawExprRange, RawExprVariant, RawLoopKind,
@@ -250,8 +252,13 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
     ) -> InferResult<()> {
         match opr {
-            SuffixOpr::Incr => todo!(),
-            SuffixOpr::Decr => todo!(),
+            SuffixOpr::Incr | SuffixOpr::Decr => {
+                self.infer_eager_expr(opd, EagerContract::RefMut, arena);
+                match contract {
+                    EagerContract::Exec => Ok(()),
+                    _ => todo!(),
+                }
+            }
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::FieldAccess(ranged_ident) => {
                 let this_ty_decl = self.raw_expr_ty_decl(opd)?;
@@ -341,13 +348,13 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_eager_call(
         &mut self,
-        all_opds: &RawExprRange,
+        total_opds: &RawExprRange,
         contract: EagerContract,
         arena: &RawExprArena,
         range: TextRange,
         expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        let call_expr = &arena[all_opds.start];
+        let call_expr = &arena[total_opds.start];
         match call_expr.variant {
             RawExprVariant::Entity { route: scope, .. } => {
                 let call_decl = derived_unwrap!(self.db.call_decl(scope));
@@ -364,12 +371,13 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                 }
-                for i in 0..call_decl.inputs.len() {
+                for (argument, parameter) in zip(
+                    ((total_opds.start + 1)..total_opds.end).into_iter(),
+                    call_decl.parameters.iter(),
+                ) {
                     self.infer_eager_expr(
-                        all_opds.start + 1 + i,
-                        call_decl.inputs[i]
-                            .contract
-                            .eager(call_decl.output.contract)?,
+                        argument,
+                        parameter.contract.eager(call_decl.output.contract)?,
                         arena,
                     )
                 }
@@ -419,15 +427,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 .eager(method_decl.output.contract)?,
             arena,
         );
-        if inputs.end - inputs.start != method_decl.inputs.len() {
-            todo!()
-        }
-        for i in 0..method_decl.inputs.len() {
+        for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             self.infer_eager_expr(
-                inputs.start + i,
-                method_decl.inputs[i]
-                    .contract
-                    .eager(method_decl.output.contract)?,
+                argument,
+                parameter.contract.eager(method_decl.output.contract)?,
                 arena,
             )
         }
