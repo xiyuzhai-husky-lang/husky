@@ -110,8 +110,8 @@ struct StreakCache:
     prev2: i32
 
 func get_concave_middle_point(contour: RawContour) -> Point2d:
-    N = contour.len()
-    p0 = contour[N-2]
+    N = contour.points.len()
+    p0 = contour.points[N-2]
     p2 = contour[N-1]
     Point2d(
         (p0.x + p2.x) / 2.0, 

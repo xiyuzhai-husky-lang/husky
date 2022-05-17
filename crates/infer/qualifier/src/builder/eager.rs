@@ -451,7 +451,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     EagerContract::Move => todo!(),
                     EagerContract::LetInit => EagerQualifier::PureRef,
                     EagerContract::VarInit => todo!(),
-                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForLetInit => EagerQualifier::PureRef,
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::Return => todo!(),
                     EagerContract::RefMut => todo!(),

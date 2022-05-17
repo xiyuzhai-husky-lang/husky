@@ -18,7 +18,7 @@ pub enum Special {
     RPar,
     Add,
     SubOrMinus,
-    Mul,
+    Star, // *
     Div,
     Power,
     And,
@@ -65,7 +65,7 @@ impl Special {
             Special::RPar => ")",
             Special::Add => "+",
             Special::SubOrMinus => "-",
-            Special::Mul => "*",
+            Special::Star => "*",
             Special::Div => "/",
             Special::Power => "**",
             Special::And => "&&",

@@ -1,5 +1,4 @@
-1:5..1:23	Ast Error: expect custom_ident after it, but get {Some(Token {Special(Mul), 1:22..1:23})} instead
-4:13..4:22	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(Point2d)), 4:15..4:22})} instead
-112:50..112:62	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(Point2d)), 112:55..112:62})} instead
 121:28..121:41	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(BinaryImage28)), 121:28..121:41})} instead
 54:51..54:57	Infer Error: no method named `to_i32` for type `mnist_classifier026::raw_contour::Direction`
+115:10..115:22	Infer Error: can't index by `i32` into type `mnist_classifier026::raw_contour::RawContour`,
+it doesn't satisfy trait `std::ops::Index<i32>`

@@ -243,7 +243,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             '*' => match self.peek_char() {
                 '*' => self.pass_two(Special::Power),
                 '=' => self.pass_two(Special::MulAssign),
-                _ => (1, Special::Mul),
+                _ => (1, Special::Star),
             },
             '/' => match self.peek_char() {
                 '/' => return None,
