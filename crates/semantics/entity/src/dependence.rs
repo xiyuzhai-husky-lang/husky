@@ -247,6 +247,7 @@ impl EntityDefn {
                             extract_func_stmts_dependees(&branch.stmts, v)
                         }
                     }
+                    FuncStmtVariant::Match { ref branches } => todo!(),
                 }
             }
         }

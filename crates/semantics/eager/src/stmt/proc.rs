@@ -1,17 +1,18 @@
-mod branch;
+mod condition_branch;
 mod loop_kind;
 mod parse;
+mod pattern_branch;
 
-use std::sync::Arc;
-
-pub use branch::*;
-use fold::Indent;
+pub use condition_branch::*;
 pub use loop_kind::*;
-use text::RangedCustomIdentifier;
-use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
+pub use pattern_branch::*;
 
 use super::*;
 use crate::*;
+use fold::Indent;
+use std::sync::Arc;
+use text::RangedCustomIdentifier;
+use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
 
 use parser::EagerStmtParser;
 
@@ -52,7 +53,7 @@ pub enum ProcStmtVariant {
         expr: Arc<EagerExpr>,
     },
     ConditionFlow {
-        branches: Vec<Arc<ProcBranch>>,
+        branches: Vec<Arc<ProcConditionBranch>>,
     },
     Loop {
         loop_variant: LoopVariant,

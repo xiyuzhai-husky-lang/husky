@@ -33,7 +33,7 @@ impl<'eval> TraceFactory<'eval> {
         parent_id: TraceId,
         indent: Indent,
         stmt: Arc<ProcStmt>,
-        branch: Arc<ProcBranch>,
+        branch: Arc<ProcConditionBranch>,
         branch_idx: u8,
         history: Arc<History<'eval>>,
     ) -> Arc<Trace<'eval>> {
@@ -410,7 +410,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         text: &Text,
         indent: Indent,
-        branch: &ProcBranch,
+        branch: &ProcConditionBranch,
         history: &Arc<History<'eval>>,
     ) -> Vec<LineProps<'eval>> {
         vec![LineProps {
@@ -424,12 +424,12 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         text: &Text,
         indent: Indent,
-        branch: &ProcBranch,
+        branch: &ProcConditionBranch,
         history: &Arc<History<'eval>>,
     ) -> Vec<TokenProps<'eval>> {
         let mut tokens = Vec::new();
         match branch.variant {
-            ProcBranchVariant::If { ref condition } => {
+            ProcConditionBranchVariant::If { ref condition } => {
                 tokens.push(keyword!("if "));
                 tokens.extend(self.eager_expr_tokens(
                     condition,
@@ -439,7 +439,7 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens.push(special!(":"))
             }
-            ProcBranchVariant::Elif { ref condition } => {
+            ProcConditionBranchVariant::Elif { ref condition } => {
                 tokens.push(keyword!("elif "));
                 tokens.extend(self.eager_expr_tokens(
                     condition,
@@ -449,12 +449,10 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens.push(special!(":"))
             }
-            ProcBranchVariant::Else => {
+            ProcConditionBranchVariant::Else => {
                 tokens.push(keyword!("else"));
                 tokens.push(special!(":"))
             }
-            ProcBranchVariant::Case { ref pattern } => todo!(),
-            ProcBranchVariant::Default => todo!(),
         }
         tokens
     }

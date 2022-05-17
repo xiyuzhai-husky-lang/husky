@@ -108,6 +108,7 @@ impl HuskyLangRuntime {
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => todo!(),
             FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
+            FuncStmtVariant::Match { ref branches } => todo!(),
         }
     }
 
