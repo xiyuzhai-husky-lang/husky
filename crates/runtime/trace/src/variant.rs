@@ -26,7 +26,7 @@ pub enum TraceVariant<'eval> {
     },
     ProcBranch {
         stmt: Arc<ProcStmt>,
-        branch: Arc<ProcBranch>,
+        branch: Arc<ProcConditionBranch>,
         opt_vm_branch: Option<Arc<VMBranch>>, // not none when executed
         branch_idx: u8,
         history: Arc<History<'eval>>,
@@ -190,6 +190,7 @@ impl<'eval> TraceVariant<'eval> {
                 FuncStmtVariant::Assert { ref condition } => history.contains(condition),
                 FuncStmtVariant::Return { ref result } => history.contains(result),
                 FuncStmtVariant::ConditionFlow { .. } => todo!(),
+                FuncStmtVariant::Match { ref branches } => todo!(),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
                 ProcStmtVariant::Init {

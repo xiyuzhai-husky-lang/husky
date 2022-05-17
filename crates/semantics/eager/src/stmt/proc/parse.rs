@@ -111,14 +111,16 @@ impl<'a> EagerStmtParser<'a> {
     ) -> SemanticResult<ProcStmtVariant> {
         let mut branches = vec![];
         match condition_branch_kind {
-            RawConditionBranchKind::If { condition } => branches.push(Arc::new(ProcBranch {
-                variant: ProcBranchVariant::If {
-                    condition: self.parse_eager_expr(condition)?,
-                },
-                stmts: self.parse_proc_stmts(children)?,
-                range: stmt.range,
-                file: self.file,
-            })),
+            RawConditionBranchKind::If { condition } => {
+                branches.push(Arc::new(ProcConditionBranch {
+                    variant: ProcConditionBranchVariant::If {
+                        condition: self.parse_eager_expr(condition)?,
+                    },
+                    stmts: self.parse_proc_stmts(children)?,
+                    range: stmt.range,
+                    file: self.file,
+                }))
+            }
             RawConditionBranchKind::Elif { condition } => todo!(),
             RawConditionBranchKind::Else => todo!(),
         }
@@ -154,8 +156,8 @@ impl<'a> EagerStmtParser<'a> {
                         todo!()
                     }
                     RawConditionBranchKind::Else => {
-                        branches.push(Arc::new(ProcBranch {
-                            variant: ProcBranchVariant::Else,
+                        branches.push(Arc::new(ProcConditionBranch {
+                            variant: ProcConditionBranchVariant::Else,
                             stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
                             range: stmt.range,
                             file: self.file,

@@ -23,6 +23,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
             }
             FuncStmtVariant::ConditionFlow { .. } => todo!(),
+            FuncStmtVariant::Match { ref branches } => todo!(),
         }
     }
 }

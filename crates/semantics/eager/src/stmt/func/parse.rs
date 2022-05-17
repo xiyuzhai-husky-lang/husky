@@ -80,12 +80,14 @@ impl<'a> EagerStmtParser<'a> {
     ) -> SemanticResult<FuncStmtVariant> {
         let mut branches = vec![];
         match condition_branch_kind {
-            RawConditionBranchKind::If { condition } => branches.push(Arc::new(DeclBranch {
-                kind: DeclBranchKind::If {
-                    condition: self.parse_eager_expr(condition)?,
-                },
-                stmts: self.parse_func_stmts(children)?,
-            })),
+            RawConditionBranchKind::If { condition } => {
+                branches.push(Arc::new(FuncConditionBranch {
+                    kind: DeclBranchKind::If {
+                        condition: self.parse_eager_expr(condition)?,
+                    },
+                    stmts: self.parse_func_stmts(children)?,
+                }))
+            }
             RawConditionBranchKind::Elif { condition } => todo!(),
             RawConditionBranchKind::Else => todo!(),
         }
@@ -113,7 +115,7 @@ impl<'a> EagerStmtParser<'a> {
                         todo!()
                     }
                     RawConditionBranchKind::Else => {
-                        branches.push(Arc::new(DeclBranch {
+                        branches.push(Arc::new(FuncConditionBranch {
                             kind: DeclBranchKind::Else,
                             stmts: self.parse_func_stmts(not_none!(item.opt_children))?,
                         }));
@@ -133,6 +135,8 @@ impl<'a> EagerStmtParser<'a> {
         match_expr: RawExprIdx,
         match_contract: MatchContract,
     ) -> SemanticResult<FuncStmtVariant> {
-        todo!()
+        let mut branches = vec![];
+        for item in children {}
+        Ok(FuncStmtVariant::Match { branches })
     }
 }

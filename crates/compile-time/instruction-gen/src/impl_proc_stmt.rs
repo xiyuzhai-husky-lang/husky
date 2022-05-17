@@ -155,12 +155,12 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    fn compile_branch_groups(&self, branches: &[Arc<ProcBranch>]) -> Avec<VMBranch> {
+    fn compile_branch_groups(&self, branches: &[Arc<ProcConditionBranch>]) -> Avec<VMBranch> {
         Arc::new(
             branches
                 .iter()
                 .map(|branch| match branch.variant {
-                    ProcBranchVariant::If { ref condition } => Arc::new(VMBranch {
+                    ProcConditionBranchVariant::If { ref condition } => Arc::new(VMBranch {
                         opt_condition_sheet: {
                             let mut condition_sheet = self.subsheet_builder();
                             condition_sheet.compile_expr(condition);
@@ -172,10 +172,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                             body_sheet.finalize()
                         },
                     }),
-                    ProcBranchVariant::Elif { ref condition } => todo!(),
-                    ProcBranchVariant::Else => todo!(),
-                    ProcBranchVariant::Case { ref pattern } => todo!(),
-                    ProcBranchVariant::Default => todo!(),
+                    ProcConditionBranchVariant::Elif { ref condition } => todo!(),
+                    ProcConditionBranchVariant::Else => todo!(),
                 })
                 .collect(),
         )
