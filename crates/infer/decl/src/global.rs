@@ -1,5 +1,5 @@
 use file::FilePtr;
-use text::{BindTextRange, TextRange};
+use text::{BindTextRangeInto, TextRange};
 use vm::*;
 use word::RootIdentifier;
 
@@ -26,8 +26,9 @@ fn global_input_ty_from_ast(
                         kind: EntityKind::Routine,
                         ..
                     } => {
-                        let signature = db.call_decl(route).bind(caller)?;
-                        let dataset_type = signature.output.ty;
+                        let signature_result: InferResult<_> =
+                            db.call_decl(route).bind_into(caller);
+                        let dataset_type = signature_result?.output.ty;
                         match dataset_type.kind {
                             EntityRouteKind::Root {
                                 ident: RootIdentifier::DatasetType,
@@ -68,8 +69,9 @@ fn global_output_ty_from_ast(
                         kind: EntityKind::Routine,
                         ..
                     } => {
-                        let call_decl = db.call_decl(scope).bind_text_range(caller.range)?;
-                        let dataset_type = call_decl.output.ty;
+                        let call_decl_result: InferResult<_> =
+                            db.call_decl(scope).bind_into(caller);
+                        let dataset_type = call_decl_result?.output.ty;
                         match dataset_type.kind {
                             EntityRouteKind::Root {
                                 ident: RootIdentifier::DatasetType,

@@ -10,6 +10,7 @@ arrayvec = "0.7.2"
 indexmap = "1.8.1"
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
+dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }

@@ -3,6 +3,7 @@ use std::iter::zip;
 use ast::*;
 
 use infer_error::*;
+use text::BindTextRangeInto;
 use text::RangedCustomIdentifier;
 use text::TextRange;
 use vm::*;
@@ -233,11 +234,11 @@ impl<'a> ContractSheetBuilder<'a> {
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
                     call_decl.parameters.iter(),
                 ) {
-                    self.infer_lazy_expr(
-                        argument,
-                        parameter.contract.lazy(call_decl.output.liason)?,
-                        arena,
-                    )
+                    let argument_contract_result: InferResult<_> = parameter
+                        .contract
+                        .lazy(call_decl.output.liason)
+                        .bind_into(&arena[argument]);
+                    self.infer_lazy_expr(argument, argument_contract_result?, arena)
                 }
                 Ok(())
             }
@@ -268,17 +269,17 @@ impl<'a> ContractSheetBuilder<'a> {
             LazyContract::GlobalRef => todo!(),
             LazyContract::Pure => (),
         }
-        self.infer_lazy_expr(
-            this,
-            method_decl.this_contract.lazy(method_decl.output.liason)?,
-            arena,
-        );
+        let this_contract_result: InferResult<_> = method_decl
+            .this_contract
+            .lazy(method_decl.output.liason)
+            .bind_into(&arena[this]);
+        self.infer_lazy_expr(this, this_contract_result?, arena);
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
-            self.infer_lazy_expr(
-                argument,
-                parameter.contract.lazy(method_decl.output.liason)?,
-                arena,
-            )
+            let argument_contract_result: InferResult<_> = parameter
+                .contract
+                .lazy(method_decl.output.liason)
+                .bind_into(&arena[argument]);
+            self.infer_lazy_expr(argument, argument_contract_result?, arena)
         }
         Ok(())
     }
