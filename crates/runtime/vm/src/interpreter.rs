@@ -24,8 +24,8 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn try_new(
         db: &'stack dyn InterpreterQueryGroup,
-        iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
-    ) -> VMResult<Interpreter<'stack, 'eval>> {
+        iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
+    ) -> VMRuntimeResult<Interpreter<'stack, 'eval>> {
         Ok(Self {
             db,
             stack: VMStack::try_new(iter)?,
@@ -65,13 +65,17 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         }
     }
 
-    fn call_compiled(&mut self, f: Linkage) -> VMResult<()> {
+    fn call_compiled(&mut self, f: Linkage) -> VMRuntimeResult<()> {
         let result = (f.call)(&mut self.stack.drain(f.nargs))?;
         self.stack.push(result.into());
         Ok(())
     }
 
-    fn routine_call_interpreted(&mut self, sheet: &InstructionSheet, nargs: u8) -> VMResult<()> {
+    fn routine_call_interpreted(
+        &mut self,
+        sheet: &InstructionSheet,
+        nargs: u8,
+    ) -> VMRuntimeResult<()> {
         let inputs = self.stack.drain(nargs);
         let mut interpreter = Interpreter::new(self.db, inputs);
         self.stack.push(
@@ -82,7 +86,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         Ok(())
     }
 
-    fn new_virtual_struct(&mut self, field_vars: &[FieldContract]) -> VMResult<()> {
+    fn new_virtual_struct(&mut self, field_vars: &[FieldContract]) -> VMRuntimeResult<()> {
         let inputs = self.stack.drain(field_vars.len().try_into().unwrap());
         self.stack
             .push(VirtualTy::new_struct(inputs, field_vars).into());

@@ -6,7 +6,7 @@ use infer_contract::{ContractSheet, InferContract};
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
-use vm::{InitKind, StackIdx, VMResult};
+use vm::{InitKind, StackIdx, VMCompileResult, VMRuntimeResult};
 use word::CustomIdentifier;
 
 pub(super) struct LazyStmtParser<'a> {
@@ -42,7 +42,7 @@ impl<'a> LazyStmtParser<'a> {
         &mut self,
         varname: CustomIdentifier,
         ty: EntityRoutePtr,
-    ) -> VMResult<StackIdx> {
+    ) -> VMCompileResult<StackIdx> {
         let varidx = StackIdx::new(self.variables.len())?;
         emsg_once!("todo: is reference variable");
         self.variables.push(LazyVariable {

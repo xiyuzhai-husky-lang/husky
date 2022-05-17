@@ -3,7 +3,7 @@ use entity_kind::TyKind;
 use file::FilePtr;
 use linkage_table::ResolveLinkage;
 use pack_semantics::PackageQueryGroup;
-use vm::{BoxedValue, EvalValue, Linkage, MemberValue, StackValue, VMResult};
+use vm::{BoxedValue, EvalValue, Linkage, MemberValue, StackValue, VMRuntimeResult};
 
 use crate::*;
 

@@ -111,7 +111,7 @@ impl MethodDecl {
                     parameters: inputs
                         .map(|input| InputDecl::from_static(db, input, symbol_context)),
                     output: OutputDecl {
-                        contract: output_contract,
+                        liason: output_contract,
                         ty: output_ty,
                     },
                     generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
@@ -131,7 +131,7 @@ impl MethodDecl {
                 .input_placeholders
                 .map(|input_placeholder| input_placeholder.into()),
             output: OutputDecl {
-                contract: method_defn_head.output_contract,
+                liason: method_defn_head.output_contract,
                 ty: method_defn_head.output_ty.route,
             },
             this_contract: method_defn_head.this_contract,

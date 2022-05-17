@@ -35,7 +35,7 @@ impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
                 EvalValue::Undefined => fade!("undefined"),
             },
             Err(e) => Self {
-                value: e.into(),
+                value: e.message.into(),
                 associated_trace: None,
                 kind: TraceTokenKind::Error,
             },
@@ -56,18 +56,18 @@ impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
     }
 }
 
-impl<'eval> From<VMResult<StackValueSnapshot<'eval>>> for TokenProps<'eval> {
-    fn from(_: VMResult<StackValueSnapshot>) -> Self {
+impl<'eval> From<VMRuntimeResult<StackValueSnapshot<'eval>>> for TokenProps<'eval> {
+    fn from(_: VMRuntimeResult<StackValueSnapshot>) -> Self {
         todo!()
     }
 }
 
-impl<'eval> From<VMResult<PrimitiveValue>> for TokenProps<'eval> {
-    fn from(result: VMResult<PrimitiveValue>) -> Self {
+impl<'eval> From<VMRuntimeResult<PrimitiveValue>> for TokenProps<'eval> {
+    fn from(result: VMRuntimeResult<PrimitiveValue>) -> Self {
         match result {
             Ok(value) => value.into(),
             Err(e) => Self {
-                value: e.into(),
+                value: e.message.into(),
                 associated_trace: None,
                 kind: TraceTokenKind::Error,
             },
@@ -214,4 +214,4 @@ macro_rules! fade {
     }};
 }
 
-use vm::{EvalResult, EvalValue, InitKind, PrimitiveValue, StackValueSnapshot, VMResult};
+use vm::{EvalResult, EvalValue, InitKind, PrimitiveValue, StackValueSnapshot, VMRuntimeResult};

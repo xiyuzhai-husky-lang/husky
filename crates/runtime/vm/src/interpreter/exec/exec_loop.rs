@@ -52,7 +52,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         exec_before_each_frame: impl Fn(&mut Self),
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
         mode: Mode,
-    ) -> VMResult<VMControl<'eval>> {
+    ) -> VMRuntimeResult<VMControl<'eval>> {
         let stack_len = self.stack.len();
         let (new_len, control) = match loop_kind {
             VMLoopKind::For {
@@ -150,8 +150,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 (stack_len - 1, Ok(control))
             }
             VMLoopKind::Loop => {
-                let mut control_result =
-                    err!(format!("infinite loop (loop limit = {})", LOOP_LIMIT));
+                let mut control_result = Err(vm_runtime_error!(format!(
+                    "infinite loop (loop limit = {})",
+                    LOOP_LIMIT
+                )));
                 for frame_var in 0..LOOP_LIMIT {
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);

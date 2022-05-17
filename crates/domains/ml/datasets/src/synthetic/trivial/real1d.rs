@@ -1,7 +1,7 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_kind::RoutineKind;
 use std::sync::Arc;
-use vm::{BoxedValue, Linkage, OutputContract, StackValue};
+use vm::{BoxedValue, Linkage, OutputLiason, StackValue};
 use xrng::XRng;
 
 pub const REAL_1D_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
@@ -21,7 +21,7 @@ pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<f32, i32>",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset1()))),
             nargs: 0,
@@ -38,7 +38,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<f32, i32>",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(dataset2()))),
             nargs: 0,

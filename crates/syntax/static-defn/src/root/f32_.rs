@@ -30,7 +30,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
             ty: "f32",
         }],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -53,7 +53,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
             ty: "f32",
         }],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -72,7 +72,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "i32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -91,7 +91,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -110,7 +110,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -129,7 +129,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -148,7 +148,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -167,7 +167,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -186,7 +186,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -205,7 +205,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "f32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {

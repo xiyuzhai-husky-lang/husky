@@ -22,7 +22,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         this_contract: InputContract::Pure,
                         input_parameters: &[],
                         output_ty: "Vec<E>",
-                        output_contract: OutputContract::Transfer,
+                        output_contract: OutputLiason::Transfer,
                         generic_parameters: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
                     },
@@ -40,7 +40,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             this_contract: InputContract::MemberAccess,
                             input_parameters: &[],
                             output_ty: "E",
-                            output_contract: OutputContract::MemberAccess,
+                            output_contract: OutputLiason::MemberAccess,
                             generic_parameters: &[],
                             kind: MethodStaticDefnKind::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
@@ -84,7 +84,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Vec<E>",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         linkage: Linkage {
             call: vec_type_call,
             nargs: 0,
@@ -96,7 +96,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 fn vec_type_call<'stack, 'eval>(
     _values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     Ok(StackValue::Boxed(BoxedValue::new(
         Vec::<MemberValue<'eval>>::new(),
     )))
@@ -104,7 +104,7 @@ fn vec_type_call<'stack, 'eval>(
 
 fn generic_vec_push<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     should_eq!(values.len(), 2);
     let element = values[1].into_member();
     let generic_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
@@ -114,25 +114,25 @@ fn generic_vec_push<'stack, 'eval>(
 
 fn generic_vec_pop<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_first<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_last<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 pub(crate) fn construct_generic_vec<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     should_eq!(values.len(), 0);
     Ok(StackValue::Boxed(BoxedValue::new(
         Vec::<MemberValue<'eval>>::new(),
@@ -141,13 +141,13 @@ pub(crate) fn construct_generic_vec<'stack, 'eval>(
 
 pub(crate) fn generic_vec_element_move_access<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 pub(crate) fn generic_vec_element_copy_access<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let i: usize = match values[1] {
         StackValue::Primitive(value) => value.as_i32().try_into().unwrap(),
@@ -161,7 +161,7 @@ pub(crate) fn generic_vec_element_copy_access<'stack, 'eval>(
 
 pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let i: usize = match values[1] {
         StackValue::Primitive(value) => value.as_i32().try_into().unwrap(),
@@ -175,7 +175,7 @@ pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(
 
 pub(crate) fn generic_vec_element_borrow_mut_access<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     let i: usize = match values[1] {
         StackValue::Primitive(value) => value.as_i32().try_into().unwrap(),
         _ => panic!(),
@@ -202,14 +202,14 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
                 nargs: 1,
             }),
         },
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
 
 fn generic_list_len<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let len: i32 = generic_vec.len().try_into().unwrap();
     Ok(StackValue::Primitive(len.into()))
@@ -233,7 +233,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
                 nargs: 2,
             }),
         },
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
@@ -252,7 +252,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
                 nargs: 1,
             }),
         },
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
@@ -285,32 +285,32 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
 
 fn generic_vec_first_copy<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_first_ref<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_first_ref_mut<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_first_move<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
@@ -342,31 +342,31 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
 
 fn generic_vec_last_copy<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_last_ref<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_last_ref_mut<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }
 
 fn generic_vec_last_move<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
-) -> VMResult<StackValue<'stack, 'eval>> {
+) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
     todo!()
 }

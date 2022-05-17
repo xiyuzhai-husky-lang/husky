@@ -24,7 +24,7 @@ impl StackIdx {
         Self(0)
     }
 
-    pub fn new(raw: usize) -> VMResult<StackIdx> {
+    pub fn new(raw: usize) -> VMCompileResult<StackIdx> {
         let raw: u8 = raw.try_into().unwrap();
         Ok(StackIdx(raw))
     }
@@ -52,8 +52,8 @@ impl<'stack, 'eval> std::fmt::Debug for VMStack<'stack, 'eval> {
 
 impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     pub(crate) fn try_new(
-        iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
-    ) -> VMResult<Self> {
+        iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
+    ) -> VMRuntimeResult<Self> {
         let mut values = ArrayVec::new();
         for result in iter {
             values.push(result?)

@@ -1,6 +1,7 @@
 mod query;
 
 pub use query::*;
+use vm::VMCompileError;
 
 use std::fmt::Write;
 use std::sync::Arc;
@@ -107,8 +108,8 @@ impl From<InferQueryError> for InferError {
     }
 }
 
-impl From<VMError> for InferError {
-    fn from(_: VMError) -> Self {
+impl From<VMCompileError> for InferError {
+    fn from(_: VMCompileError) -> Self {
         todo!()
     }
 }
@@ -191,4 +192,3 @@ use dev_utils::*;
 use entity_route_query::EntitySyntaxError;
 use test_utils::{TestDisplay, TestDisplayConfig};
 use text::TextRange;
-use vm::VMError;

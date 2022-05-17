@@ -1,4 +1,4 @@
-use vm::{EvalResult, EvalValue, VMError, VMResult};
+use vm::{EvalResult, EvalValue, VMRuntimeError, VMRuntimeResult};
 
 use crate::*;
 
@@ -12,7 +12,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 if self.satisfies(condition)? {
                     Ok(EvalValue::Undefined)
                 } else {
-                    Err(VMError::AssertionFailure)
+                    Err(VMRuntimeError {
+                        message: format!("assertion failed"),
+                    })
                 }
             }
             FeatureStmtVariant::Return { ref result } => self.eval_feature_expr(result),
@@ -34,7 +36,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn satisfies(&mut self, condition: &FeatureExpr) -> VMResult<bool> {
+    fn satisfies(&mut self, condition: &FeatureExpr) -> VMRuntimeResult<bool> {
         Ok(match self.eval_feature_expr(condition)? {
             EvalValue::Primitive(value) => match value {
                 PrimitiveValue::I32(_) => todo!(),

@@ -79,7 +79,7 @@ impl EntityDefnVariant {
                             output_ty: head.output_ty,
                             this_contract: head.this_contract,
                             method_variant,
-                            output_contract: OutputContract::Transfer,
+                            output_contract: OutputLiason::Transfer,
                             generic_placeholders: head.generic_placeholders.clone(),
                         },
                         db.intern_entity_route(EntityRoute {

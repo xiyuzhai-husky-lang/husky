@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct OutputDecl {
-    pub contract: OutputContract,
+    pub liason: OutputLiason,
     pub ty: EntityRoutePtr,
 }
 
@@ -15,7 +15,7 @@ impl OutputDecl {
             ty: instantiator
                 .instantiate_entity_route(self.ty)
                 .as_entity_route(),
-            contract: self.contract,
+            liason: self.liason,
         }
     }
 }
@@ -25,7 +25,7 @@ impl Implementable for OutputDecl {
 
     fn implement(&self, implementor: &Implementor) -> Self::Target {
         Self {
-            contract: self.contract,
+            liason: self.liason,
             ty: self.ty.implement(implementor),
         }
     }

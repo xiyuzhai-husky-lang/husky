@@ -24,7 +24,7 @@ use fold::LocalStack;
 use map_collect::MapCollect;
 use text::*;
 use vec_map::VecMap;
-use vm::{OutputContract, TySignature};
+use vm::{OutputLiason, TySignature};
 use word::{IdentArcDict, IdentDict};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -143,7 +143,7 @@ impl TyDecl {
                     parameters: inputs,
                     output: OutputDecl {
                         ty,
-                        contract: OutputContract::Transfer,
+                        liason: OutputLiason::Transfer,
                     },
                     generic_placeholders: generic_placeholders.clone(),
                 }))
@@ -649,7 +649,7 @@ pub(crate) fn method_decl_from_static(
                 generic_placeholders,
                 parameters: inputs,
                 output: OutputDecl {
-                    contract: output_contract,
+                    liason: output_contract,
                     ty: output_ty,
                 },
                 this_contract,

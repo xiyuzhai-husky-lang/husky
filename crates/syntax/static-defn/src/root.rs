@@ -34,7 +34,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                         nargs: 1,
                     })),
                 },
-                output_contract: OutputContract::Transfer,
+                output_contract: OutputLiason::Transfer,
             },
             dev_src: static_dev_src!(),
         }],

@@ -4,7 +4,7 @@ use crate::*;
 pub struct Linkage {
     pub call: for<'stack, 'eval> fn(
         &mut [StackValue<'stack, 'eval>],
-    ) -> VMResult<StackValue<'stack, 'eval>>,
+    ) -> VMRuntimeResult<StackValue<'stack, 'eval>>,
     pub nargs: u8,
 }
 

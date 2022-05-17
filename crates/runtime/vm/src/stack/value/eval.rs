@@ -4,7 +4,7 @@ use word::CustomIdentifier;
 
 use crate::*;
 
-pub type EvalResult<'eval> = VMResult<EvalValue<'eval>>;
+pub type EvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
 
 #[derive(Debug, Clone)]
 pub enum EvalValue<'eval> {
@@ -46,14 +46,14 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn into_boxed(self) -> VMResult<BoxedValue<'eval>> {
+    pub fn into_boxed(self) -> VMRuntimeResult<BoxedValue<'eval>> {
         match self {
             EvalValue::Boxed(value) => Ok(value),
             _ => todo!(),
         }
     }
 
-    pub fn into_stack(self) -> VMResult<StackValue<'eval, 'eval>> {
+    pub fn into_stack(self) -> VMRuntimeResult<StackValue<'eval, 'eval>> {
         match self {
             EvalValue::Primitive(value) => Ok(StackValue::Primitive(value)),
             EvalValue::Boxed(value) => Ok(StackValue::Boxed(value)),
