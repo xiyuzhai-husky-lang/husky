@@ -4,6 +4,7 @@ use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
 use infer_qualifier::InferQualifiedType;
+use text::RangedCustomIdentifier;
 use vm::*;
 use word::RootIdentifier;
 
@@ -90,10 +91,15 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
                 ListOpr::Call => self.parse_call(opds.clone(), raw_expr_idx),
+                ListOpr::MethodCall { ranged_ident, .. } => self.parse_method_call(
+                    opds.start,
+                    (opds.start + 1)..opds.end,
+                    *ranged_ident,
+                    raw_expr_idx,
+                ),
                 ListOpr::Index => self.parse_element_access(opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
-                ListOpr::MethodCall { .. } => todo!(),
             },
         }
     }
@@ -201,41 +207,38 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             } => match opr {
                 Opr::Binary(_) => todo!(),
                 Opr::Prefix(_) => todo!(),
-                Opr::Suffix(suffix_opr) => match suffix_opr {
-                    SuffixOpr::Incr => todo!(),
-                    SuffixOpr::Decr => todo!(),
-                    SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::FieldAccess(field_ident) => {
-                        todo!("outdated");
-                        let this = self.parse_eager_expr(field_opds.start)?;
-                        let inputs = input_opd_idx_range
-                            .map(|idx| self.parse_eager_expr(idx))
-                            .collect::<SemanticResult<Vec<_>>>()?;
-                        let this_ty_decl = self.decl_db().ty_decl(this.ty).unwrap();
-                        let mut opds = vec![this];
-                        opds.extend(inputs);
-                        emsg_once!("todo: memb call compiled");
-                        Ok(EagerExprVariant::Opn {
-                            opn_variant: EagerOpnVariant::MethodCall {
-                                method_ident: *field_ident,
-                                this_ty_decl,
-                                method_route: self
-                                    .entity_route_sheet()
-                                    .call_route(raw_expr_idx)
-                                    .unwrap(),
-                            },
-                            opds,
-                        })
-                    }
-                    SuffixOpr::WithTy(_) => todo!(),
-                    SuffixOpr::AsTy(_) => todo!(),
-                },
+                Opr::Suffix(suffix_opr) => todo!(),
                 Opr::List(_) => todo!(),
             },
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
             RawExprVariant::FrameVariable { varname, init_row } => todo!(),
         }
+    }
+
+    fn parse_method_call(
+        &mut self,
+        this: RawExprIdx,
+        inputs: RawExprRange,
+        method_ident: RangedCustomIdentifier,
+        raw_expr_idx: RawExprIdx,
+    ) -> SemanticResult<EagerExprVariant> {
+        let this = self.parse_eager_expr(this)?;
+        let inputs = inputs
+            .map(|idx| self.parse_eager_expr(idx))
+            .collect::<SemanticResult<Vec<_>>>()?;
+        let this_ty_decl = self.decl_db().ty_decl(this.ty).unwrap();
+        let mut opds = vec![this];
+        opds.extend(inputs);
+        emsg_once!("todo: memb call compiled");
+        Ok(EagerExprVariant::Opn {
+            opn_variant: EagerOpnVariant::MethodCall {
+                method_ident,
+                this_ty_decl,
+                method_route: self.entity_route_sheet().call_route(raw_expr_idx).unwrap(),
+            },
+            opds,
+        })
     }
 
     fn parse_element_access(&mut self, opds: RawExprRange) -> SemanticResult<EagerExprVariant> {
