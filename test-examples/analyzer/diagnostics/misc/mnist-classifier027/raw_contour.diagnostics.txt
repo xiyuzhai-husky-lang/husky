@@ -1,0 +1,3 @@
+121:28..121:41	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(BinaryImage28)), 121:28..121:41})} instead
+54:61..54:67	Infer Error: no method named `bitmod` for type `i32`
+113:17..113:20	Infer Error: no method named `len` for type `mnist_classifier027::raw_contour::RawContour`
