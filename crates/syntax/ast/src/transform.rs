@@ -10,7 +10,7 @@ mod impl_stmt;
 mod impl_struct_item;
 mod impl_symbol_context;
 mod impl_ty;
-mod impl_use_all;
+mod impl_use;
 
 use crate::{
     query::{AstSalsaQueryGroup, AstText},

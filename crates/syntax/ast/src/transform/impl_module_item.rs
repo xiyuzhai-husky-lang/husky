@@ -48,32 +48,6 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn parse_use(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
-        if token_group.len() <= 1 {
-            return err!("expect route after keyword `use`", token_group.text_range());
-        }
-        let atoms = self.parse_atoms(&token_group[1..], |parser| parser.parse_all())?;
-        emsg_once!("todo: use all");
-        let route = if atoms.len() != 1 {
-            todo!("expect one atom for entity route")
-        } else {
-            match atoms[0].kind {
-                AtomVariant::EntityRoute { route, .. } => {
-                    if route.generic_arguments.len() != 0 {
-                        todo!("expect no generics")
-                    }
-                    route
-                }
-                AtomVariant::Unrecognized(_) => return err!("unrecognized ident", atoms[0].range),
-                _ => todo!(),
-            }
-        };
-        self.use_route(route)?;
-        Ok(AstKind::Use {
-            use_variant: UseVariant::Route { route },
-        })
-    }
-
     fn parse_submodule(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         if token_group.len() < 2 {
             return derived_err!();

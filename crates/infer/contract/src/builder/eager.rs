@@ -271,10 +271,11 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::RefMut => EagerContract::RefMut,
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
-                        EagerContract::LetInit => todo!(),
+                        EagerContract::LetInit | EagerContract::UseMemberForLetInit => {
+                            EagerContract::UseMemberForLetInit
+                        }
                         EagerContract::VarInit => todo!(),
-                        EagerContract::UseMemberForLetInit => todo!(),
-                        EagerContract::UseMemberForVarInit => todo!(),
+                        EagerContract::UseMemberForVarInit => EagerContract::UseMemberForVarInit,
                     },
                     FieldContract::GlobalRef => todo!(),
                     FieldContract::LazyOwn => todo!(),

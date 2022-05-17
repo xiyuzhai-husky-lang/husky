@@ -96,7 +96,7 @@ impl From<Special> for AtomVariant {
             Special::Shl => BinaryOpr::Pure(PureBinaryOpr::Shl).into(),
             Special::Shr => BinaryOpr::Pure(PureBinaryOpr::Shr).into(),
             Special::Add => BinaryOpr::Pure(PureBinaryOpr::Add).into(),
-            Special::Mul => BinaryOpr::Pure(PureBinaryOpr::Mul).into(),
+            Special::Star => BinaryOpr::Pure(PureBinaryOpr::Mul).into(),
             Special::Div => BinaryOpr::Pure(PureBinaryOpr::Div).into(),
             Special::Power => BinaryOpr::Pure(PureBinaryOpr::Power).into(),
             Special::And => BinaryOpr::Pure(PureBinaryOpr::And).into(),
