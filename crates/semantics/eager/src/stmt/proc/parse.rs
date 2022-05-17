@@ -63,7 +63,12 @@ impl<'a> EagerStmtParser<'a> {
             RawStmtVariant::Loop(loop_kind) => self.parse_loop_stmt(loop_kind, not_none!(children)),
             RawStmtVariant::ConditionBranch {
                 condition_branch_kind,
-            } => self.parse_condition_flow(stmt, not_none!(children), iter, condition_branch_kind),
+            } => self.parse_proc_condition_flow(
+                stmt,
+                not_none!(children),
+                iter,
+                condition_branch_kind,
+            ),
             RawStmtVariant::Exec(expr) => {
                 let expr = self.parse_eager_expr(expr)?;
                 if expr.ty != EntityRoutePtr::Root(RootIdentifier::Void) {
@@ -97,7 +102,7 @@ impl<'a> EagerStmtParser<'a> {
         }
     }
 
-    fn parse_condition_flow(
+    fn parse_proc_condition_flow(
         &mut self,
         stmt: &RawStmt,
         children: IterType,
