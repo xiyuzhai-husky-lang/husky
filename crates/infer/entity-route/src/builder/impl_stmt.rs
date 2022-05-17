@@ -73,12 +73,20 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 RawLoopKind::While { condition } => self.infer_condition(condition, arena),
                 RawLoopKind::DoWhile { condition } => self.infer_condition(condition, arena),
             },
-            RawStmtVariant::Branch(ref branch_kind) => match branch_kind {
-                RawBranchVariant::If { condition } => self.infer_condition(*condition, arena),
-                RawBranchVariant::Elif { condition } => self.infer_condition(*condition, arena),
-                RawBranchVariant::Else => (),
-                RawBranchVariant::Case { pattern } => todo!(),
-                RawBranchVariant::Default => todo!(),
+            RawStmtVariant::ConditionBranch {
+                condition_branch_kind,
+            } => match condition_branch_kind {
+                RawConditionBranchKind::If { condition } => self.infer_condition(condition, arena),
+                RawConditionBranchKind::Elif { condition } => {
+                    self.infer_condition(condition, arena)
+                }
+                RawConditionBranchKind::Else => (),
+            },
+            RawStmtVariant::PatternBranch {
+                ref pattern_branch_variant,
+            } => match pattern_branch_variant {
+                RawPatternBranchVariant::Case { pattern } => todo!(),
+                RawPatternBranchVariant::Default => todo!(),
             },
             RawStmtVariant::Exec(expr) => {
                 self.infer_expr(expr, Some(RootIdentifier::Void.into()), arena);
@@ -116,7 +124,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             if let Ok(ref ast) = item.value.as_ref() {
                 match ast.kind {
                     AstKind::Stmt(RawStmt {
-                        variant: RawStmtVariant::Branch(RawBranchVariant::Case { ref pattern }),
+                        variant:
+                            RawStmtVariant::PatternBranch {
+                                pattern_branch_variant:
+                                    RawPatternBranchVariant::Case { ref pattern },
+                            },
                         ..
                     }) => {
                         if let Some(match_expr_ty) = opt_match_expr_ty {
@@ -135,7 +147,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         }
                     }
                     AstKind::Stmt(RawStmt {
-                        variant: RawStmtVariant::Branch(RawBranchVariant::Default),
+                        variant:
+                            RawStmtVariant::PatternBranch {
+                                pattern_branch_variant: RawPatternBranchVariant::Default,
+                            },
                         ..
                     }) => (),
                     _ => {

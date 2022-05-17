@@ -113,16 +113,22 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.infer_eager_expr(arena, condition);
                 }
             },
-            RawStmtVariant::Branch(ref branch_kind) => match branch_kind {
-                RawBranchVariant::If { condition } => {
-                    self.infer_eager_expr(arena, *condition);
+            RawStmtVariant::ConditionBranch {
+                condition_branch_kind,
+            } => match condition_branch_kind {
+                RawConditionBranchKind::If { condition } => {
+                    self.infer_eager_expr(arena, condition);
                 }
-                RawBranchVariant::Elif { condition } => {
-                    self.infer_eager_expr(arena, *condition);
+                RawConditionBranchKind::Elif { condition } => {
+                    self.infer_eager_expr(arena, condition);
                 }
-                RawBranchVariant::Else => (),
-                RawBranchVariant::Case { pattern } => self.infer_eager_case_pattern(pattern),
-                RawBranchVariant::Default => (),
+                RawConditionBranchKind::Else => (),
+            },
+            RawStmtVariant::PatternBranch {
+                ref pattern_branch_variant,
+            } => match pattern_branch_variant {
+                RawPatternBranchVariant::Case { pattern } => self.infer_eager_case_pattern(pattern),
+                RawPatternBranchVariant::Default => (),
             },
             RawStmtVariant::Exec(expr) => {
                 self.infer_eager_expr(arena, expr);

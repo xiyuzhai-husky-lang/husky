@@ -99,7 +99,7 @@ pub(crate) fn block_record_memb(
             FeatureStmtVariant::Return { ref result } => {
                 db.record_field_repr(result.clone().into(), field_ident)
             }
-            FeatureStmtVariant::BranchGroup { kind, ref branches } => todo!(),
+            FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
             _ => panic!(),
         }
     } else {

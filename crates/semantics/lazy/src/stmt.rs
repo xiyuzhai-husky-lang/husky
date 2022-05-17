@@ -22,7 +22,7 @@ pub struct LazyStmt {
     pub file: FilePtr,
     pub range: TextRange,
     pub indent: fold::Indent,
-    pub kind: LazyStmtKind,
+    pub variant: LazyStmtVariant,
     pub instruction_id: InstructionId,
 }
 
@@ -41,7 +41,7 @@ impl InstructionSource for LazyStmt {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LazyStmtKind {
+pub enum LazyStmtVariant {
     Init {
         varname: RangedCustomIdentifier,
         value: Arc<LazyExpr>,
@@ -52,9 +52,11 @@ pub enum LazyStmtKind {
     Return {
         result: Arc<LazyExpr>,
     },
-    Branches {
-        kind: LazyBranchGroupKind,
-        branches: Vec<Arc<LazyBranch>>,
+    ConditionFlow {
+        branches: Vec<Arc<LazyConditionBranch>>,
+    },
+    Match {
+        branches: Vec<Arc<LazyPatternBranch>>,
     },
 }
 

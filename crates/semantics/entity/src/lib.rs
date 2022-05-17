@@ -32,7 +32,7 @@ use fold::{FoldIterItem, FoldStorage};
 use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
-use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtKind};
+use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;

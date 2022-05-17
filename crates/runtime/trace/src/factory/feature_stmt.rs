@@ -20,7 +20,7 @@ impl<'eval> TraceFactory<'eval> {
                     text,
                 )]
             }
-            FeatureStmtVariant::BranchGroup { ref branches, .. } => branches
+            FeatureStmtVariant::ConditionFlow { ref branches, .. } => branches
                 .iter()
                 .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone(), text))
                 .collect(),
@@ -55,7 +55,7 @@ impl<'eval> TraceFactory<'eval> {
                 tokens.extend(self.feature_expr_tokens(result, text, ExprTokenConfig::stmt()));
                 tokens
             }
-            FeatureStmtVariant::BranchGroup { .. } => panic!(),
+            FeatureStmtVariant::ConditionFlow { .. } => panic!(),
         }
     }
 }

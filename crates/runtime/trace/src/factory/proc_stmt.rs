@@ -137,7 +137,7 @@ impl<'eval> TraceFactory<'eval> {
                 ));
                 tokens
             }
-            ProcStmtVariant::BranchGroup { kind, ref branches } => todo!(),
+            ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
             ProcStmtVariant::Loop {
                 loop_variant: ref loop_kind,
                 ref stmts,
@@ -252,7 +252,7 @@ impl<'eval> TraceFactory<'eval> {
         let mut traces = Vec::new();
         for stmt in stmts {
             match stmt.variant {
-                ProcStmtVariant::BranchGroup { kind, ref branches } => {
+                ProcStmtVariant::ConditionFlow { ref branches } => {
                     for (branch_idx, branch) in branches.iter().enumerate() {
                         traces.push(self.new_proc_branch_trace(
                             text,

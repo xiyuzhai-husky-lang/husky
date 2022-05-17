@@ -1,10 +1,7 @@
 mod impl_loop;
 mod impl_match;
 
-use crate::{
-    stmt::{RawBranchVariant, RawLoopKind, RawStmtVariant},
-    *,
-};
+use crate::{stmt::*, *};
 use atom::symbol::{Symbol, SymbolKind};
 use text::{TextRange, TextRanged};
 use token::*;
@@ -30,16 +27,20 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::If => {
                     expect_block_head!(token_group);
                     expect_at_least!(token_group, kw_range, 3);
-                    RawStmtVariant::Branch(RawBranchVariant::If {
-                        condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
-                    })
+                    RawStmtVariant::ConditionBranch {
+                        condition_branch_kind: RawConditionBranchKind::If {
+                            condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
+                        },
+                    }
                 }
                 StmtKeyword::Elif => {
                     expect_block_head!(token_group);
                     expect_at_least!(token_group, kw_range, 3);
-                    RawStmtVariant::Branch(RawBranchVariant::Elif {
-                        condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
-                    })
+                    RawStmtVariant::ConditionBranch {
+                        condition_branch_kind: RawConditionBranchKind::Elif {
+                            condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
+                        },
+                    }
                 }
                 StmtKeyword::Else => {
                     must_be!(token_group.len() == 2, "expect one tokens after", kw_range);
@@ -48,7 +49,9 @@ impl<'a> AstTransformer<'a> {
                         "expect `:` at the end",
                         token_group[0].text_range()
                     );
-                    RawStmtVariant::Branch(RawBranchVariant::Else)
+                    RawStmtVariant::ConditionBranch {
+                        condition_branch_kind: RawConditionBranchKind::Else,
+                    }
                 }
                 StmtKeyword::Match => {
                     enter_block(self);
@@ -95,7 +98,9 @@ impl<'a> AstTransformer<'a> {
                     }
                     expect_head!(token_group);
                     must_be!(token_group.len() == 2, "expect some tokens after", kw_range);
-                    RawStmtVariant::Branch(RawBranchVariant::Default)
+                    RawStmtVariant::PatternBranch {
+                        pattern_branch_variant: RawPatternBranchVariant::Default,
+                    }
                 }
                 StmtKeyword::For => self.parse_for_loop(token_group)?,
                 StmtKeyword::ForExt => self.parse_forext_loop(token_group)?,

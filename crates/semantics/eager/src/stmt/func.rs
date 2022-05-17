@@ -50,8 +50,7 @@ pub enum FuncStmtVariant {
     Return {
         result: Arc<EagerExpr>,
     },
-    Branches {
-        kind: DeclBranchGroupKind,
+    ConditionFlow {
         branches: Vec<Arc<DeclBranch>>,
     },
 }

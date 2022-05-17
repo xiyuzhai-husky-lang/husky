@@ -3,23 +3,26 @@ use std::sync::Arc;
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct LazyBranch {
-    pub kind: LazyBranchKind,
+pub struct LazyConditionBranch {
+    pub variant: LazyConditionBranchVariant,
     pub stmts: Arc<Vec<Arc<LazyStmt>>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LazyBranchKind {
+pub enum LazyConditionBranchVariant {
     If { condition: Arc<LazyExpr> },
     Elif { condition: Arc<LazyExpr> },
     Else,
-    Case { pattern: Arc<LazyExpr> },
-    Default,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum LazyBranchGroupKind {
-    If,
-    Switch,
-    Match,
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct LazyPatternBranch {
+    pub variant: LazyPatternBranchVariant,
+    pub stmts: Arc<Vec<Arc<LazyStmt>>>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum LazyPatternBranchVariant {
+    Case { pattern: Arc<LazyExpr> },
+    Default,
 }

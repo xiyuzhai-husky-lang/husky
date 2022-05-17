@@ -91,7 +91,7 @@ pub fn subtraces(
             | ProcStmtVariant::Assert { .. }
             | ProcStmtVariant::Execute { .. }
             | ProcStmtVariant::Return { .. } => Arc::new(vec![]),
-            ProcStmtVariant::BranchGroup { .. } => panic!(),
+            ProcStmtVariant::ConditionFlow { .. } => panic!(),
             ProcStmtVariant::Loop { ref stmts, .. } => {
                 match history
                     .get(stmt)
@@ -295,7 +295,7 @@ pub fn trace_stalk(
                     this.eval_feature_expr(result, input_id).into(),
                 ],
             },
-            FeatureStmtVariant::BranchGroup { kind, ref branches } => panic!(),
+            FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
         },
         TraceVariant::FeatureBranch(_) => TraceStalk {
             extra_tokens: vec![],

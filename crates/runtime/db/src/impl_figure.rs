@@ -80,7 +80,7 @@ impl HuskyLangRuntime {
             }
             FeatureStmtVariant::Assert { .. } => FigureProps::void(),
             FeatureStmtVariant::Return { ref result } => self.feature_expr_figure(result, focus),
-            FeatureStmtVariant::BranchGroup { kind, ref branches } => FigureProps::void(),
+            FeatureStmtVariant::ConditionFlow { ref branches } => FigureProps::void(),
         }
     }
 
@@ -107,7 +107,7 @@ impl HuskyLangRuntime {
             } => todo!(),
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => todo!(),
-            FuncStmtVariant::Branches { kind, ref branches } => todo!(),
+            FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
         }
     }
 
@@ -133,7 +133,7 @@ impl HuskyLangRuntime {
                 }
             }
             ProcStmtVariant::Return { ref result } => self.eager_expr_figure(result, history),
-            ProcStmtVariant::BranchGroup { kind, ref branches } => todo!(),
+            ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,

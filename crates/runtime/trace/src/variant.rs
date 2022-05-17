@@ -94,7 +94,7 @@ impl<'eval> TraceVariant<'eval> {
                 | ProcStmtVariant::Execute { .. }
                 | ProcStmtVariant::Return { .. } => false,
                 ProcStmtVariant::Loop { .. } => true,
-                ProcStmtVariant::BranchGroup { .. } => panic!(),
+                ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Break => false,
             },
             TraceVariant::LoopFrame { .. }
@@ -189,7 +189,7 @@ impl<'eval> TraceVariant<'eval> {
                 } => history.contains(initial_value),
                 FuncStmtVariant::Assert { ref condition } => history.contains(condition),
                 FuncStmtVariant::Return { ref result } => history.contains(result),
-                FuncStmtVariant::Branches { .. } => todo!(),
+                FuncStmtVariant::ConditionFlow { .. } => todo!(),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
                 ProcStmtVariant::Init {
@@ -197,7 +197,7 @@ impl<'eval> TraceVariant<'eval> {
                 } => history.contains(initial_value),
                 ProcStmtVariant::Assert { ref condition } => history.contains(condition),
                 ProcStmtVariant::Execute { ref expr } => history.contains(expr),
-                ProcStmtVariant::BranchGroup { .. } => panic!(),
+                ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
                 ProcStmtVariant::Return { ref result } => history.contains(result),
             },
