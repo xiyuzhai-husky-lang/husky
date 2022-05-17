@@ -157,7 +157,7 @@ pub(crate) fn method_decl(
             {
                 TyMemberDecl::Field(_) => todo!(),
                 TyMemberDecl::Method(method) => Ok(method.clone()),
-                TyMemberDecl::Call => todo!(),
+                TyMemberDecl::Call(_) => todo!(),
             }
         }
         EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {

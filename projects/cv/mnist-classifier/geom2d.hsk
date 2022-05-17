@@ -14,8 +14,8 @@ struct Point2d:
     func dist(other: Point2d) -> f32:
         this.to(other).norm()
 
-    static func from_ij28() -> Point2d:
-        Point2d(float(29 - j), float(29 - i))
+    static func from_ij28(i: i32, j: i32) -> Point2d:
+        Point2d((29 - j) as f32, (29 - i) as f32)
 struct Vector2d:
     x: f32
     y: f32

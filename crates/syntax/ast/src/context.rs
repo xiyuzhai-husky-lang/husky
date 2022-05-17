@@ -1,5 +1,5 @@
-use entity_kind::RoutineContextKind;
 use file::FilePtr;
+use word::RoutineKeyword;
 
 use crate::*;
 
@@ -10,9 +10,7 @@ pub enum AstContext {
     DatasetConfig,
     Main,
     Lazy,
-    Func,
-    Proc,
-    Test,
+    Routine(RoutineKeyword),
     Struct,
     Record,
     Props,
@@ -30,9 +28,7 @@ impl AstContext {
             AstContext::DatasetConfig => todo!(),
             AstContext::Main => todo!(),
             AstContext::Lazy => todo!(),
-            AstContext::Func => todo!(),
-            AstContext::Proc => todo!(),
-            AstContext::Test => todo!(),
+            AstContext::Routine(_) => todo!(),
             AstContext::Struct => todo!(),
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
@@ -44,12 +40,11 @@ impl AstContext {
     }
 }
 
-impl From<RoutineContextKind> for AstContext {
-    fn from(routine_kind: RoutineContextKind) -> Self {
+impl From<RoutineKeyword> for AstContext {
+    fn from(routine_kind: RoutineKeyword) -> Self {
         match routine_kind {
-            RoutineContextKind::Test => AstContext::Test,
-            RoutineContextKind::Proc => AstContext::Proc,
-            RoutineContextKind::Func => AstContext::Func,
+            RoutineKeyword::Proc => AstContext::Routine(RoutineKeyword::Proc),
+            RoutineKeyword::Func => AstContext::Routine(RoutineKeyword::Func),
         }
     }
 }
@@ -62,9 +57,8 @@ impl std::fmt::Display for AstContext {
             AstContext::DatasetConfig => "dataset config",
             AstContext::Main => "main",
             AstContext::Lazy => "def",
-            AstContext::Func => "func",
-            AstContext::Proc => "proc",
-            AstContext::Test => "test",
+            AstContext::Routine(RoutineKeyword::Func) => "func",
+            AstContext::Routine(RoutineKeyword::Proc) => "proc",
             AstContext::Struct => "struct",
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",

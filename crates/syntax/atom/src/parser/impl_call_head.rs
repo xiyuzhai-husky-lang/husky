@@ -8,7 +8,7 @@ use defn_head::{
 use entity_route::*;
 use token::SemanticTokenKind;
 use vm::{InputContract, OutputLiason};
-use word::IdentDict;
+use word::{IdentDict, RoutineKeyword};
 
 use super::*;
 
@@ -16,7 +16,7 @@ use super::*;
 impl<'a> AtomParser<'a> {
     pub fn routine_defn_head(
         mut self,
-        routine_kind: RoutineContextKind,
+        routine_keyword: RoutineKeyword,
     ) -> AtomResult<RoutineDefnHead> {
         let routine_ident = get!(self, custom_ident);
         self.push_abs_semantic_token(AbsSemanticToken::new(
@@ -26,12 +26,9 @@ impl<'a> AtomParser<'a> {
         let generic_placeholders = self.parameters()?;
         let input_placeholders = self.call_input_placeholders()?;
         let output_ty = self.func_output_type()?;
-        match routine_kind {
-            RoutineContextKind::Proc => (),
-            RoutineContextKind::Test => {
-                todo!()
-            }
-            RoutineContextKind::Func => {
+        match routine_keyword {
+            RoutineKeyword::Proc => (),
+            RoutineKeyword::Func => {
                 for input_placeholder in input_placeholders.iter() {
                     match input_placeholder.contract {
                         InputContract::Pure | InputContract::GlobalRef | InputContract::Move => (),
@@ -46,7 +43,7 @@ impl<'a> AtomParser<'a> {
         }
         Ok(RoutineDefnHead {
             ident: routine_ident,
-            routine_kind,
+            routine_kind: routine_keyword,
             generic_placeholders,
             input_placeholders,
             output_ty,
@@ -57,7 +54,7 @@ impl<'a> AtomParser<'a> {
     pub fn method_decl(
         mut self,
         this: InputContract,
-        routine_kind: RoutineContextKind,
+        routine_kind: RoutineKeyword,
     ) -> AtomResult<TypeMethodDefnHead> {
         let routine_name = get!(self, custom_ident);
         let generics = self.parameters()?;

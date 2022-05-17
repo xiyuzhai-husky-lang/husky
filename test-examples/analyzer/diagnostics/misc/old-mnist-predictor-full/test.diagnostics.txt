@@ -1,1 +1,1 @@
-1:1..1:1	Entity Route Error: Derived Error: "expect custom identifier for module name, but got keyword test instead"
+1:1..1:1	Entity Route Error: Query Error: "No entity route with ident: \"test\" among [{ident: None, kind: Main}, source: WithinModule { file: \"/home/xiyuzhai/Documents/husky/test-examples/analyzer/diagnostics/misc/old-mnist-predictor-full/main.hsk\", token_group_index: 8 },]"

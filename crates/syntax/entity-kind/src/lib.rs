@@ -43,13 +43,6 @@ pub enum EnumVariantKind {
     Constant,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RoutineContextKind {
-    Test,
-    Proc,
-    Func,
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RoutineKind {
     Normal,

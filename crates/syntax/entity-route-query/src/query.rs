@@ -16,9 +16,9 @@ use fold::FoldStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
-    fn subroute_table(&self, scope_id: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
+    fn subroute_table(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
 
-    fn subscopes(&self, scope: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
+    fn subscopes(&self, entity_route: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 
     fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
 
@@ -31,29 +31,42 @@ fn subroute_table(
     db: &dyn EntityRouteSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResultArc<SubrouteTable> {
-    Ok(Arc::new(match db.entity_source(entity_route)? {
-        EntitySource::StaticModuleItem(data) => SubrouteTable::from_static(db, entity_route, data),
-        EntitySource::WithinModule {
-            file,
-            token_group_index,
-        } => {
-            let text = db.tokenized_text(file)?;
-            let item = text.iter_from(token_group_index).next().unwrap();
-            if let Some(children) = item.opt_children {
-                SubrouteTable::parse(db, file, entity_route, children)
-            } else {
-                SubrouteTable::empty(entity_route)
-            }
+    let entity_kind = db.entity_kind(entity_route)?;
+    match db.entity_kind(entity_route)? {
+        EntityKind::Routine
+        | EntityKind::Feature
+        | EntityKind::Pattern
+        | EntityKind::EnumLiteral
+        | EntityKind::Main
+        | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(entity_route, entity_kind))),
+        EntityKind::Module | EntityKind::Type(_) | EntityKind::Trait => {
+            Ok(Arc::new(match db.entity_source(entity_route)? {
+                EntitySource::StaticModuleItem(data) => {
+                    SubrouteTable::from_static(db, entity_route, entity_kind, data)
+                }
+                EntitySource::WithinModule {
+                    file,
+                    token_group_index,
+                } => {
+                    let text = db.tokenized_text(file)?;
+                    let item = text.iter_from(token_group_index).next().unwrap();
+                    if let Some(children) = item.opt_children {
+                        SubrouteTable::parse(db, file, entity_route, entity_kind, children)
+                    } else {
+                        SubrouteTable::new(entity_route, entity_kind)
+                    }
+                }
+                EntitySource::Module { file: file_id } => {
+                    let text = db.tokenized_text(file_id)?;
+                    SubrouteTable::parse(db, file_id, entity_route, entity_kind, text.iter())
+                }
+                EntitySource::WithinBuiltinModule => todo!(),
+                EntitySource::Input { .. } => todo!(),
+                EntitySource::StaticTypeMember => todo!(),
+                EntitySource::StaticTypeAsTraitMember => todo!(),
+            }))
         }
-        EntitySource::Module { file: file_id } => {
-            let text = db.tokenized_text(file_id)?;
-            SubrouteTable::parse(db, file_id, entity_route, text.iter())
-        }
-        EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::Input { .. } => todo!(),
-        EntitySource::StaticTypeMember => todo!(),
-        EntitySource::StaticTypeAsTraitMember => todo!(),
-    }))
+    }
 }
 
 fn subscopes(

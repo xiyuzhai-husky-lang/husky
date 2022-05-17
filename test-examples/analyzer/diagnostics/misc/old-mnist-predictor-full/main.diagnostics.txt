@@ -1,11 +1,3 @@
-1:1..1:4	Entity Route Error: Defn Error: "first token should be identifier"(1:1..1:4)
-2:1..2:4	Entity Route Error: Defn Error: "first token should be identifier"(2:1..2:4)
-3:1..3:4	Entity Route Error: Defn Error: "first token should be identifier"(3:1..3:4)
-4:1..4:4	Entity Route Error: Defn Error: "first token should be identifier"(4:1..4:4)
-5:1..5:4	Entity Route Error: Defn Error: "first token should be identifier"(5:1..5:4)
-6:1..6:4	Entity Route Error: Defn Error: "first token should be identifier"(6:1..6:4)
-7:1..7:4	Entity Route Error: Defn Error: "first token should be identifier"(7:1..7:4)
-8:1..8:4	Entity Route Error: Defn Error: "first token should be identifier"(8:1..8:4)
 9:5..9:6	Lex Error: Inappropriate
 10:3..10:6	Ast Error: `let` statement requires env to be `proc` or `test`, but got `main` instead
 11:3..11:6	Ast Error: `let` statement requires env to be `proc` or `test`, but got `main` instead

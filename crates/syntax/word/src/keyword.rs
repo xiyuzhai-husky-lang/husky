@@ -82,7 +82,6 @@ impl Deref for ConfigKeyword {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum RoutineKeyword {
-    Test,
     Proc,
     Func,
 }
@@ -90,7 +89,6 @@ pub enum RoutineKeyword {
 impl RoutineKeyword {
     pub fn as_str(&self) -> &'static str {
         match self {
-            RoutineKeyword::Test => "test",
             RoutineKeyword::Proc => "proc",
             RoutineKeyword::Func => "func",
         }

@@ -5,12 +5,12 @@ use token::TokenKind;
 use word::{Identifier, Keyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ScopeAliasTable {
-    entries: Vec<Entry>,
+pub struct EntityRouteAliasTable {
+    entries: Vec<EntityRouteAliasEntry>,
     errors: Vec<ScopeAliasDefError>,
 }
 
-impl ScopeAliasTable {
+impl EntityRouteAliasTable {
     pub fn empty() -> Self {
         Self {
             entries: Vec::new(),
@@ -22,7 +22,7 @@ impl ScopeAliasTable {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|item| {
-                let (entry, error) = Entry::parse(file_id, item.idx, item.value);
+                let (entry, error) = EntityRouteAliasEntry::parse(file_id, item.idx, item.value);
                 error.map(|error| errors.push(error));
                 entry
             })
@@ -32,17 +32,17 @@ impl ScopeAliasTable {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct Entry {
+pub struct EntityRouteAliasEntry {
     ident: Identifier,
     scope_id: EntityRoutePtr,
 }
 
-impl Entry {
+impl EntityRouteAliasEntry {
     pub fn parse(
         _file_id: FilePtr,
         _token_group_index: usize,
         token_group: &[token::Token],
-    ) -> (Option<Entry>, Option<ScopeAliasDefError>) {
+    ) -> (Option<EntityRouteAliasEntry>, Option<ScopeAliasDefError>) {
         if token_group[0].kind == TokenKind::Keyword(Keyword::Use) {
             todo!()
         } else {
