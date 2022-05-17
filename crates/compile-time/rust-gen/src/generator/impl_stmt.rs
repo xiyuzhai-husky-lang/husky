@@ -229,7 +229,7 @@ impl<'a> RustGenerator<'a> {
                 RootIdentifier::Bool => self.gen_expr(condition),
                 RootIdentifier::True
                 | RootIdentifier::False
-                | RootIdentifier::List
+                | RootIdentifier::Vec
                 | RootIdentifier::Tuple
                 | RootIdentifier::Debug
                 | RootIdentifier::Std

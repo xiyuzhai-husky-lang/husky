@@ -82,8 +82,8 @@ pub enum LinkageSource {
     MemberAccess {
         copy_access: Linkage,
         ref_access: Linkage,
-        move_access: Linkage,
         ref_mut_access: Linkage,
+        move_access: Linkage,
     },
     Transfer(Linkage),
 }

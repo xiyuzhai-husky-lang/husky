@@ -40,7 +40,7 @@ fn is_implicitly_castable(
                     | RootIdentifier::B64
                     | RootIdentifier::Bool => true,
                     RootIdentifier::Void
-                    | RootIdentifier::List
+                    | RootIdentifier::Vec
                     | RootIdentifier::Tuple
                     | RootIdentifier::Fp
                     | RootIdentifier::Fn
@@ -56,7 +56,7 @@ fn is_implicitly_castable(
             },
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
-            RootIdentifier::List => todo!(),
+            RootIdentifier::Vec => todo!(),
             RootIdentifier::Tuple => todo!(),
             RootIdentifier::Debug => todo!(),
             RootIdentifier::Std => todo!(),

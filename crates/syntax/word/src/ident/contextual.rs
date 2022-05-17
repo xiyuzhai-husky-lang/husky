@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum ContextualIdentifier {
-    Package,
+    Crate,
     Input,
     ThisData,
     ThisType,
@@ -16,7 +16,7 @@ impl From<ContextualIdentifier> for Identifier {
 impl ContextualIdentifier {
     pub fn as_str(&self) -> &'static str {
         match self {
-            ContextualIdentifier::Package => "package",
+            ContextualIdentifier::Crate => "crate",
             ContextualIdentifier::Input => "input",
             ContextualIdentifier::ThisData => "this",
             ContextualIdentifier::ThisType => "This",

@@ -174,7 +174,7 @@ impl<'a> AtomParser<'a> {
                 | RootIdentifier::Fn
                 | RootIdentifier::FnMut
                 | RootIdentifier::FnOnce => Ok(self.func_args()?),
-                RootIdentifier::List
+                RootIdentifier::Vec
                 | RootIdentifier::Array
                 | RootIdentifier::Tuple
                 | RootIdentifier::DatasetType => self.angled_generics(),

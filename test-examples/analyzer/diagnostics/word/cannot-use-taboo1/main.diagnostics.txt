@@ -1,4 +1,4 @@
-3:6..3:11	Entity Route Error: Defn Error: "second token should be identifier"(3:6..3:11)
-6:6..6:9	Entity Route Error: Defn Error: "second token should be identifier"(6:6..6:9)
-3:6..3:11	Ast Error: expect custom_ident after it, but get {Some(Token {Taboo(Crate), 3:6..3:11})} instead
+3:6..3:11	Entity Route Error: Defn Error: "contextual identifiers are reserved"(3:6..3:11)
+6:6..6:9	Entity Route Error: Defn Error: "builtin identifiers are reserved"(6:6..6:9)
+3:6..3:11	Ast Error: expect custom_ident after it, but get {Some(Token {Identifier(Contextual(Crate)), 3:6..3:11})} instead
 6:6..6:9	Ast Error: expect `<custom_identifier>`

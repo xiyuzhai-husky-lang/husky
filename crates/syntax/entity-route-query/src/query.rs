@@ -85,7 +85,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::B32
             | RootIdentifier::B64
             | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
-            RootIdentifier::List => EntityKind::Type(TyKind::Vec),
+            RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
             RootIdentifier::Tuple
             | RootIdentifier::Fp
             | RootIdentifier::Array
@@ -165,7 +165,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Bool => &BOOL_TYPE_DEFN,
         RootIdentifier::True => todo!(),
         RootIdentifier::False => todo!(),
-        RootIdentifier::List => &LIST_TYPE_DEFN,
+        RootIdentifier::Vec => &VEC_TYPE_DEFN,
         RootIdentifier::Tuple => todo!(),
         RootIdentifier::Debug => todo!(),
         RootIdentifier::Std => &STD_MODULE_DEFN,
@@ -303,10 +303,6 @@ pub trait EntityRouteQueryGroup:
                 WordPtr::Keyword(kw) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got keyword {} instead",
                     kw.as_str()
-                ))),
-                WordPtr::Taboo(taboo) => Err(derived_error!(format!(
-                    "expect custom identifier for module name, but got taboo {} instead",
-                    taboo.as_str()
                 ))),
                 WordPtr::Opr(word_opr) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got word operator {} instead",

@@ -83,7 +83,7 @@ impl<'a> SymbolContext<'a> {
                 | RootIdentifier::Bool => TyKind::Primitive,
                 RootIdentifier::True => todo!(),
                 RootIdentifier::False => todo!(),
-                RootIdentifier::List => todo!(),
+                RootIdentifier::Vec => todo!(),
                 RootIdentifier::Tuple => TyKind::Other,
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Std => todo!(),
@@ -130,7 +130,7 @@ impl<'a> SymbolContext<'a> {
                 ContextualIdentifier::ThisType => {
                     Ok(SymbolKind::EntityRoute(self.db.entity_route_menu().this_ty))
                 }
-                ContextualIdentifier::Package => Ok(SymbolKind::EntityRoute(
+                ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
                     self.db.module(self.opt_package_main.unwrap()).unwrap(),
                 )),
             },

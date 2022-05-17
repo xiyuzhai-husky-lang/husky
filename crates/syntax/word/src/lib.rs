@@ -2,14 +2,12 @@ mod intern;
 mod keyword;
 mod opr;
 mod style;
-mod taboo;
 
 pub use ident::*;
 pub use intern::{new_word_interner, InternWord, WordAllocator};
 pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
 pub use opr::*;
 pub use style::*;
-pub use taboo::*;
 pub type IdentDict<T> = VecMap<CustomIdentifier, T>;
 pub type IdentArcDict<T> = VecMap<CustomIdentifier, Arc<T>>;
 pub type IdentPairDict<T> = VecPairMap<CustomIdentifier, T>;
@@ -21,14 +19,13 @@ use vec_map::{VecMap, VecPairMap};
 pub enum WordPtr {
     Keyword(Keyword),
     Identifier(Identifier),
-    Taboo(Taboo),
     Opr(WordOpr),
 }
 
 impl WordPtr {
     pub fn opt_ident(self) -> Option<Identifier> {
         match self {
-            WordPtr::Keyword(_) | WordPtr::Taboo(_) => None,
+            WordPtr::Keyword(_) => None,
             WordPtr::Identifier(ident) => Some(ident),
             WordPtr::Opr(_) => todo!(),
         }
