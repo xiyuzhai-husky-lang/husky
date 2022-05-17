@@ -61,6 +61,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Transient | EagerQualifier::OwnedMut => EagerQualifier::Owned,
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::GlobalRef => todo!(),
+                EagerQualifier::RefMut => todo!(),
             },
             InitKind::Var => match self.qual {
                 EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
@@ -72,6 +73,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::OwnedMut => todo!(),
                 EagerQualifier::GlobalRef => todo!(),
+                EagerQualifier::RefMut => todo!(),
             },
             InitKind::Decl => match self.qual {
                 EagerQualifier::Copyable => EagerQualifier::Copyable,
@@ -82,6 +84,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Transient => EagerQualifier::Owned,
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::OwnedMut => panic!(),
+                EagerQualifier::RefMut => todo!(),
             },
         };
         Ok(Self { qual, ty: self.ty })
@@ -105,6 +108,7 @@ impl EagerQualifiedTy {
                 | EagerQualifier::Owned
                 | EagerQualifier::OwnedMut => true,
                 EagerQualifier::GlobalRef => todo!(),
+                EagerQualifier::RefMut => todo!(),
             },
             OutputLiason::MemberAccess => todo!(),
         }
@@ -129,25 +133,27 @@ impl EagerQualifiedTy {
 pub enum EagerQualifier {
     Copyable,
     CopyableMut,
+    Owned,
+    OwnedMut,
     PureRef,
     GlobalRef,
     LocalRef,
+    RefMut,
     Transient,
-    Owned,
-    OwnedMut,
 }
 
 impl std::fmt::Debug for EagerQualifier {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.pad(match self {
-            Self::Copyable => "Copyable",
-            Self::CopyableMut => "CopyableMut",
-            Self::PureRef => "PureRef",
-            Self::GlobalRef => "GlobalRef",
-            Self::LocalRef => "LocalRef",
-            Self::Transient => "Transient",
-            Self::Owned => "Owned",
-            Self::OwnedMut => "OwnedMut",
+            EagerQualifier::Copyable => "Copyable",
+            EagerQualifier::CopyableMut => "CopyableMut",
+            EagerQualifier::Owned => "Owned",
+            EagerQualifier::OwnedMut => "OwnedMut",
+            EagerQualifier::PureRef => "PureRef",
+            EagerQualifier::GlobalRef => "GlobalRef",
+            EagerQualifier::LocalRef => "LocalRef",
+            EagerQualifier::RefMut => "RefMut",
+            EagerQualifier::Transient => "Transient",
         })
     }
 }
@@ -161,7 +167,7 @@ impl EagerQualifier {
             | EagerQualifier::LocalRef
             | EagerQualifier::Owned
             | EagerQualifier::Transient => false,
-            EagerQualifier::CopyableMut | EagerQualifier::OwnedMut => true,
+            EagerQualifier::CopyableMut | EagerQualifier::OwnedMut | EagerQualifier::RefMut => true,
         }
     }
 
@@ -223,6 +229,7 @@ impl EagerQualifier {
                 EagerContract::Exec => todo!(),
             },
             EagerQualifier::GlobalRef => todo!(),
+            EagerQualifier::RefMut => todo!(),
         }
     }
 
@@ -276,6 +283,7 @@ impl EagerQualifier {
                     FieldContract::GlobalRef => todo!(),
                     FieldContract::LazyOwn => todo!(),
                 },
+                EagerQualifier::RefMut => todo!(),
             }
         })
     }
@@ -292,6 +300,99 @@ impl EagerQualifier {
             EagerQualifier::Copyable
         } else {
             EagerQualifier::Transient
+        }
+    }
+
+    pub fn from_element_access(
+        this_qual: Self,
+        this_contract: EagerContract,
+        is_element_copyable: bool,
+    ) -> Self {
+        if is_element_copyable {
+            match this_contract {
+                EagerContract::Pure => EagerQualifier::Copyable,
+                EagerContract::GlobalRef => panic!(),
+                EagerContract::Move => panic!(),
+                EagerContract::LetInit => EagerQualifier::Copyable,
+                EagerContract::VarInit => EagerQualifier::CopyableMut,
+                EagerContract::UseMemberForLetInit => EagerQualifier::Copyable,
+                EagerContract::UseMemberForVarInit => EagerQualifier::CopyableMut,
+                EagerContract::Return => EagerQualifier::Copyable,
+                EagerContract::RefMut => EagerQualifier::CopyableMut,
+                EagerContract::MoveMut => panic!(),
+                EagerContract::Exec => panic!(),
+            }
+        } else {
+            match this_qual {
+                EagerQualifier::Copyable | EagerQualifier::CopyableMut => panic!(),
+                EagerQualifier::PureRef => match this_contract {
+                    EagerContract::Pure => EagerQualifier::PureRef,
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => EagerQualifier::PureRef,
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => EagerQualifier::PureRef,
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::LocalRef => match this_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::Transient => match this_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::Owned => match this_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::OwnedMut => match this_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => EagerQualifier::RefMut,
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::GlobalRef => todo!(),
+                EagerQualifier::RefMut => todo!(),
+            }
         }
     }
 }

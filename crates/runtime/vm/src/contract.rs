@@ -1,3 +1,5 @@
+use check_utils::should_eq;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -19,7 +21,7 @@ pub enum OutputLiason {
 
 impl InputContract {
     pub fn eager(
-        &self,
+        self,
         output_liason: OutputLiason,
         output_contract: EagerContract,
     ) -> VMCompileResult<EagerContract> {
@@ -56,12 +58,25 @@ impl InputContract {
                 })
             }
             OutputLiason::MemberAccess => {
-                todo!()
+                should_eq!(self, InputContract::MemberAccess);
+                match output_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::LetInit => todo!(),
+                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => Ok(output_contract),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                }
             }
         }
     }
 
-    pub fn lazy(&self, output: OutputLiason) -> VMCompileResult<LazyContract> {
+    pub fn lazy(self, output: OutputLiason) -> VMCompileResult<LazyContract> {
         match output {
             OutputLiason::Transfer => Ok(match self {
                 InputContract::Pure => LazyContract::Pure,

@@ -14,19 +14,20 @@ pub struct InferError {
 
 impl TestDisplay for InferError {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
-        match self.variant {
-            InferErrorVariant::Derived { ref message } => todo!(),
-            InferErrorVariant::Original { ref message, range } => match config.colored {
-                true => write!(
-                    result,
-                    "{}InferError{}: {}",
-                    print_utils::RED,
-                    print_utils::RESET,
-                    message
-                )
-                .unwrap(),
-                false => write!(result, "InferError: {}", message).unwrap(),
-            },
+        let message = match self.variant {
+            InferErrorVariant::Derived { ref message } => message,
+            InferErrorVariant::Original { ref message, range } => message,
+        };
+        match config.colored {
+            true => write!(
+                result,
+                "{}InferError{}: {}",
+                print_utils::RED,
+                print_utils::RESET,
+                message
+            )
+            .unwrap(),
+            false => write!(result, "InferError: {}", message).unwrap(),
         }
     }
 }
