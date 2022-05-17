@@ -51,7 +51,7 @@ func get_inward_direction(row_above: b32, row_below: b32, j: i32) -> Direction:
                     Direction::UP
 
 func get_angle_change(inward: Direction, outward: Direction) -> i32:
-    raw_angle_change = ((outward as i32) - inward.to_i32()).bitmod(2)
+    raw_angle_change = ((outward as i32) - (inward as i32)).bitmod(2)
     match raw_angle_change:
         case 0b32 | 1b32 | 2b32:
             raw_angle_change
