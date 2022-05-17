@@ -58,9 +58,8 @@ impl EagerQualifiedTy {
                 EagerQualifier::Copyable | EagerQualifier::CopyableMut => EagerQualifier::Copyable,
                 EagerQualifier::PureRef => EagerQualifier::PureRef,
                 EagerQualifier::LocalRef => todo!(),
-                EagerQualifier::Transient => EagerQualifier::Owned,
+                EagerQualifier::Transient | EagerQualifier::OwnedMut => EagerQualifier::Owned,
                 EagerQualifier::Owned => todo!(),
-                EagerQualifier::OwnedMut => todo!(),
                 EagerQualifier::GlobalRef => todo!(),
             },
             InitKind::Var => match self.qual {

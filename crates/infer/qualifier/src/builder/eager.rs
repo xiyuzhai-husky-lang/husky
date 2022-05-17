@@ -331,8 +331,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let this_qt = derived_not_none!(self.infer_eager_expr(arena, opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         match opr {
-            SuffixOpr::Incr => todo!(),
-            SuffixOpr::Decr => todo!(),
+            SuffixOpr::Incr | SuffixOpr::Decr => Ok(EagerQualifiedTy {
+                qual: EagerQualifier::Copyable,
+                ty: EntityRoutePtr::Root(RootIdentifier::Void),
+            }),
             SuffixOpr::MayReturn => todo!(),
             SuffixOpr::FieldAccess(field_ident) => {
                 let field_decl = this_ty_decl.field_decl(field_ident)?;
@@ -344,10 +346,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Ok(EagerQualifiedTy::new(qual, field_decl.ty))
             }
             SuffixOpr::WithTy(_) => todo!(),
-            SuffixOpr::AsTy(ranged_ty) => {
-                p!(this_qt.ty, ranged_ty.route);
-                this_qt.as_ty(self.db, ranged_ty.route)
-            }
+            SuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
         }
     }
 

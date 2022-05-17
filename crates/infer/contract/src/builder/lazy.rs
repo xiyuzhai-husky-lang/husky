@@ -1,3 +1,5 @@
+use std::iter::zip;
+
 use ast::*;
 
 use infer_error::*;
@@ -211,22 +213,23 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_call(
         &mut self,
-        all_opds: &RawExprRange,
+        total_opds: &RawExprRange,
         contract: LazyContract,
         arena: &RawExprArena,
         range: TextRange,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        let call_expr = &arena[all_opds.start];
+        let call_expr = &arena[total_opds.start];
         match call_expr.variant {
             RawExprVariant::Entity { route, .. } => {
                 let call_decl = derived_unwrap!(self.db.call_decl(route));
-                for i in 0..call_decl.inputs.len() {
+                for (argument, parameter) in zip(
+                    ((total_opds.start + 1)..total_opds.end).into_iter(),
+                    call_decl.parameters.iter(),
+                ) {
                     self.infer_lazy_expr(
-                        all_opds.start + 1 + i,
-                        call_decl.inputs[i]
-                            .contract
-                            .lazy(call_decl.output.contract)?,
+                        argument,
+                        parameter.contract.lazy(call_decl.output.contract)?,
                         arena,
                     )
                 }
@@ -266,15 +269,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 .lazy(method_decl.output.contract)?,
             arena,
         );
-        if inputs.end - inputs.start != method_decl.inputs.len() {
-            todo!()
-        }
-        for i in 0..method_decl.inputs.len() {
+        for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             self.infer_lazy_expr(
-                inputs.start + 1,
-                method_decl.inputs[i]
-                    .contract
-                    .lazy(method_decl.output.contract)?,
+                argument,
+                parameter.contract.lazy(method_decl.output.contract)?,
                 arena,
             )
         }

@@ -140,7 +140,7 @@ impl TyDecl {
                     }
                 }
                 Some(Arc::new(CallDecl {
-                    inputs,
+                    parameters: inputs,
                     output: OutputDecl {
                         ty,
                         contract: OutputContract::Transfer,
@@ -647,7 +647,7 @@ pub(crate) fn method_decl_from_static(
             assert!(matches!(kind, MethodStaticDefnKind::TypeMethod { .. }));
             Arc::new(MethodDecl {
                 generic_placeholders,
-                inputs,
+                parameters: inputs,
                 output: OutputDecl {
                     contract: output_contract,
                     ty: output_ty,

@@ -130,7 +130,7 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
         boundary_unsearched[i] = (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))
     for 1 <= k <= 29:
         while boundary_unsearched[k]:
-            var contour = RawContour()
+            var contour = []Point2d()
             var i = k
             var j = boundary_unsearched[k].trailing_zeros()
             // prepare rows
