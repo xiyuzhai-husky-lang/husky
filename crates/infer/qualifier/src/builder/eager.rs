@@ -344,7 +344,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Ok(EagerQualifiedTy::new(qual, field_decl.ty))
             }
             SuffixOpr::WithTy(_) => todo!(),
-            SuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
+            SuffixOpr::AsTy(ranged_ty) => {
+                p!(this_qt.ty, ranged_ty.route);
+                this_qt.as_ty(self.db, ranged_ty.route)
+            }
         }
     }
 
