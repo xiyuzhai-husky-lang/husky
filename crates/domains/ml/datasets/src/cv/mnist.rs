@@ -7,7 +7,7 @@ mod val;
 use dev_utils::static_dev_src;
 use entity_kind::{RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
-use vm::{InputContract, OutputContract, VMError, VMResult};
+use vm::*;
 use xrng::permutation_from_seed;
 
 use super::*;
@@ -35,7 +35,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
             nargs: 0,
@@ -63,7 +63,7 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         this_contract: InputContract::Pure,
                         input_parameters: &[],
                         output_ty: "datasets::cv::mnist::BinaryImage28",
-                        output_contract: OutputContract::Transfer,
+                        output_contract: OutputLiason::Transfer,
                         generic_parameters: &[],
                         kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
                     },
@@ -86,12 +86,12 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                 name: "todo!()",
                             }],
                             output_ty: "b32",
-                            output_contract: OutputContract::MemberAccess,
+                            output_contract: OutputLiason::MemberAccess,
                             generic_parameters: &[],
                             kind: MethodStaticDefnKind::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
                                     copy_access: Linkage {
-                                        call: |values| -> VMResult<StackValue> {
+                                        call: |values| -> VMRuntimeResult<StackValue> {
                                             let this_value: &BinaryImage28 =
                                                 values[0].downcast_ref();
                                             let index_value: usize = values[1]
@@ -102,12 +102,14 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             this_value
                                                 .get(index_value)
                                                 .map(|v| StackValue::Primitive(v.into()))
-                                                .ok_or(VMError::Message("todo".into()))
+                                                .ok_or(VMRuntimeError {
+                                                    message: "todo".into(),
+                                                })
                                         },
                                         nargs: 2,
                                     },
                                     ref_access: Linkage {
-                                        call: |values| -> VMResult<StackValue> { todo!() },
+                                        call: |values| -> VMRuntimeResult<StackValue> { todo!() },
                                         nargs: 2,
                                     },
                                     move_access: Linkage {
@@ -130,7 +132,9 @@ static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                                     owner,
                                                     gen: (),
                                                 })
-                                                .ok_or(VMError::Message("todo".into()))
+                                                .ok_or(VMRuntimeError {
+                                                    message: "todo".into(),
+                                                })
                                         },
                                         nargs: 2,
                                     },
@@ -159,7 +163,7 @@ static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "datasets::cv::mnist::BinaryImage28",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_values| Ok(StackValue::Boxed(BoxedValue::new(BinaryImage28::default()))),
             nargs: 0,

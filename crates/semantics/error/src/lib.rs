@@ -1,4 +1,8 @@
+use dev_utils::{dev_src, DevSource};
+use entity_route_query::EntitySyntaxError;
+use infer_error::InferError;
 use std::sync::Arc;
+use vm::VMCompileError;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct SemanticError {
@@ -71,8 +75,8 @@ impl From<&ast::AstError> for SemanticError {
     }
 }
 
-impl From<VMError> for SemanticError {
-    fn from(_: VMError) -> Self {
+impl From<VMCompileError> for SemanticError {
+    fn from(_: VMCompileError) -> Self {
         todo!()
     }
 }
@@ -112,8 +116,3 @@ macro_rules! derived_unwrap {
         })?
     }};
 }
-
-use dev_utils::{dev_src, DevSource};
-use entity_route_query::EntitySyntaxError;
-use infer_error::InferError;
-use vm::VMError;

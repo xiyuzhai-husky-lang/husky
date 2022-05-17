@@ -7,7 +7,7 @@ use defn_head::{
 };
 use entity_route::*;
 use token::SemanticTokenKind;
-use vm::{InputContract, OutputContract};
+use vm::{InputContract, OutputLiason};
 use word::IdentDict;
 
 use super::*;
@@ -50,7 +50,7 @@ impl<'a> AtomParser<'a> {
             generic_placeholders,
             input_placeholders,
             output_ty,
-            output_contract: OutputContract::Transfer,
+            output_contract: OutputLiason::Transfer,
         })
     }
 
@@ -70,7 +70,7 @@ impl<'a> AtomParser<'a> {
             generic_placeholders: generics,
             input_placeholders,
             output_ty,
-            output_contract: OutputContract::Transfer,
+            output_contract: OutputLiason::Transfer,
         })
     }
 

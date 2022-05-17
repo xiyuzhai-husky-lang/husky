@@ -90,14 +90,14 @@ impl EagerQualifiedTy {
     pub fn is_implicitly_castable_to_output(
         self,
         db: &dyn InferQualifiedTyQueryGroup,
-        output_contract: OutputContract,
+        output_contract: OutputLiason,
         output_ty: EntityRoutePtr,
     ) -> bool {
         if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
         match output_contract {
-            OutputContract::Transfer => match self.qual {
+            OutputLiason::Transfer => match self.qual {
                 EagerQualifier::PureRef | EagerQualifier::LocalRef => false,
                 EagerQualifier::Transient
                 | EagerQualifier::Copyable
@@ -106,7 +106,7 @@ impl EagerQualifiedTy {
                 | EagerQualifier::OwnedMut => true,
                 EagerQualifier::GlobalRef => todo!(),
             },
-            OutputContract::MemberAccess => todo!(),
+            OutputLiason::MemberAccess => todo!(),
         }
     }
 
@@ -280,10 +280,10 @@ impl EagerQualifier {
         })
     }
 
-    pub fn from_output(output_contract: OutputContract, is_copyable: bool) -> Self {
+    pub fn from_output(output_contract: OutputLiason, is_copyable: bool) -> Self {
         match output_contract {
-            OutputContract::Transfer => Self::transitive(is_copyable),
-            OutputContract::MemberAccess => todo!(),
+            OutputLiason::Transfer => Self::transitive(is_copyable),
+            OutputLiason::MemberAccess => todo!(),
         }
     }
 

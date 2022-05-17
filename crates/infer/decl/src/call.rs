@@ -14,7 +14,7 @@ use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticInputParameter};
-use vm::{InputContract, OutputContract};
+use vm::{InputContract, OutputLiason};
 use word::IdentDict;
 
 use crate::*;
@@ -51,7 +51,7 @@ impl From<&RoutineDefnHead> for CallDecl {
                 .collect(),
             output: OutputDecl {
                 ty: head.output_ty.route,
-                contract: head.output_contract,
+                liason: head.output_contract,
             },
         }
     }
@@ -144,7 +144,7 @@ pub(crate) fn routine_decl_from_static(
                 generic_placeholders,
                 parameters: inputs,
                 output: OutputDecl {
-                    contract: output_contract,
+                    liason: output_contract,
                     ty: output_ty,
                 },
             })

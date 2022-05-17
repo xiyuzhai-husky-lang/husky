@@ -12,30 +12,58 @@ pub enum InputContract {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum OutputContract {
+pub enum OutputLiason {
     Transfer,
     MemberAccess,
 }
 
 impl InputContract {
-    pub fn eager(&self, output: OutputContract) -> VMResult<EagerContract> {
-        match output {
-            OutputContract::Transfer => Ok(match self {
-                InputContract::Pure => EagerContract::Pure,
-                InputContract::GlobalRef => EagerContract::GlobalRef,
-                InputContract::Move => EagerContract::Move,
-                InputContract::BorrowMut => EagerContract::RefMut,
-                InputContract::MoveMut => todo!(),
-                InputContract::Exec => todo!(),
-                InputContract::MemberAccess => panic!(),
-            }),
-            OutputContract::MemberAccess => todo!(),
+    pub fn eager(
+        &self,
+        output_liason: OutputLiason,
+        output_contract: EagerContract,
+    ) -> VMCompileResult<EagerContract> {
+        match output_liason {
+            OutputLiason::Transfer => {
+                match output_contract {
+                    EagerContract::Pure
+                    | EagerContract::Move
+                    | EagerContract::Return
+                    | EagerContract::LetInit
+                    | EagerContract::VarInit
+                    | EagerContract::Exec => (),
+                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::RefMut => match output_liason {
+                        OutputLiason::Transfer => {
+                            return Err(vm_compile_error!(format!(
+                                "can't mutate transferred output"
+                            )))
+                        }
+                        OutputLiason::MemberAccess => todo!(),
+                    },
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                }
+                Ok(match self {
+                    InputContract::Pure => EagerContract::Pure,
+                    InputContract::GlobalRef => EagerContract::GlobalRef,
+                    InputContract::Move => EagerContract::Move,
+                    InputContract::BorrowMut => EagerContract::RefMut,
+                    InputContract::MoveMut => todo!(),
+                    InputContract::Exec => todo!(),
+                    InputContract::MemberAccess => panic!(),
+                })
+            }
+            OutputLiason::MemberAccess => {
+                todo!()
+            }
         }
     }
 
-    pub fn lazy(&self, output: OutputContract) -> VMResult<LazyContract> {
+    pub fn lazy(&self, output: OutputLiason) -> VMCompileResult<LazyContract> {
         match output {
-            OutputContract::Transfer => Ok(match self {
+            OutputLiason::Transfer => Ok(match self {
                 InputContract::Pure => LazyContract::Pure,
                 InputContract::GlobalRef => todo!(),
                 InputContract::Move => LazyContract::Move,
@@ -44,7 +72,7 @@ impl InputContract {
                 InputContract::Exec => todo!(),
                 InputContract::MemberAccess => todo!(),
             }),
-            OutputContract::MemberAccess => todo!(),
+            OutputLiason::MemberAccess => todo!(),
         }
     }
 }
@@ -100,7 +128,7 @@ impl FieldContract {
         }
     }
 
-    pub fn this(&self, input_contract: EagerContract) -> VMResult<EagerContract> {
+    pub fn this(&self, input_contract: EagerContract) -> VMCompileResult<EagerContract> {
         match self {
             FieldContract::Own => match input_contract {
                 EagerContract::Pure => todo!(),

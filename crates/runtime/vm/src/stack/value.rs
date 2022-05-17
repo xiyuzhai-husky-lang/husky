@@ -54,7 +54,7 @@ impl<'stack, 'eval: 'stack> std::fmt::Debug for StackValue<'stack, 'eval> {
 }
 
 impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
-    pub fn boxed(self) -> VMResult<BoxedValue<'eval>> {
+    pub fn boxed(self) -> VMRuntimeResult<BoxedValue<'eval>> {
         match self {
             StackValue::Boxed(value) => Ok(value),
             _ => panic!(),
@@ -106,7 +106,7 @@ impl<'stack, 'eval: 'stack> From<&PrimitiveValue> for StackValue<'stack, 'eval> 
 }
 
 impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
-    pub fn from_eval(eval_value: EvalValue<'eval>) -> VMResult<Self> {
+    pub fn from_eval(eval_value: EvalValue<'eval>) -> VMRuntimeResult<Self> {
         Ok(match eval_value {
             EvalValue::Primitive(value) => Self::Primitive(value),
             EvalValue::Boxed(_) => todo!(),

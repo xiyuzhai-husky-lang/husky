@@ -235,7 +235,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 ) {
                     self.infer_lazy_expr(
                         argument,
-                        parameter.contract.lazy(call_decl.output.contract)?,
+                        parameter.contract.lazy(call_decl.output.liason)?,
                         arena,
                     )
                 }
@@ -270,15 +270,13 @@ impl<'a> ContractSheetBuilder<'a> {
         }
         self.infer_lazy_expr(
             this,
-            method_decl
-                .this_contract
-                .lazy(method_decl.output.contract)?,
+            method_decl.this_contract.lazy(method_decl.output.liason)?,
             arena,
         );
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             self.infer_lazy_expr(
                 argument,
-                parameter.contract.lazy(method_decl.output.contract)?,
+                parameter.contract.lazy(method_decl.output.liason)?,
                 arena,
             )
         }

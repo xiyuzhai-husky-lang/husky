@@ -19,7 +19,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         inputs: &[InputPlaceholder],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_contract: OutputContract,
+        output_contract: OutputLiason,
     ) {
         self.add_lazy_inputs(inputs);
         self.infer_lazy_stmts(arena, ast_iter, opt_output_ty, output_contract)
@@ -53,7 +53,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_contract: OutputContract,
+        output_contract: OutputLiason,
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
@@ -75,7 +75,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         stmt: &RawStmt,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_contract: OutputContract,
+        output_contract: OutputLiason,
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(_) => todo!(),
@@ -317,8 +317,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     .into_iter()
                     .map(|opd_idx| self.infer_lazy_expr(arena, opd_idx))
                     .collect();
-                match call_decl.output.contract {
-                    OutputContract::Transfer => {
+                match call_decl.output.liason {
+                    OutputLiason::Transfer => {
                         emsg_once!("handle ref");
                         Ok(LazyQualifiedTy::new(
                             if self.db.is_copyable(call_decl.output.ty) {
@@ -329,7 +329,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             call_decl.output.ty,
                         ))
                     }
-                    OutputContract::MemberAccess => todo!(),
+                    OutputLiason::MemberAccess => todo!(),
                 }
             }
             RawExprVariant::Opn { ref opr, ref opds } => todo!(),
@@ -381,15 +381,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for input in inputs {
             self.infer_lazy_expr(arena, input);
         }
-        let qual = match method_decl.output.contract {
-            OutputContract::Transfer => {
+        let qual = match method_decl.output.liason {
+            OutputLiason::Transfer => {
                 if self.db.is_copyable(method_decl.output.ty) {
                     LazyQualifier::Copyable
                 } else {
                     LazyQualifier::Transient
                 }
             }
-            OutputContract::MemberAccess => todo!(),
+            OutputLiason::MemberAccess => todo!(),
         };
         Ok(LazyQualifiedTy::new(qual, method_decl.output.ty))
     }

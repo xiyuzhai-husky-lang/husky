@@ -1,12 +1,9 @@
-#![allow(warnings)]
-mod error;
 mod impl_figure;
 mod query;
 mod session;
 mod tests;
 
 use datasets::LabeledData;
-pub use error::{RuntimeError, RuntimeResult, RuntimeResultArc};
 use focus::Focus;
 pub use impl_figure::*;
 use indexmap::IndexMap;

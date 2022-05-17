@@ -9,7 +9,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         opn: PrimitiveOpn,
         debug_flag: Mode,
         ins: &Instruction,
-    ) -> VMResult<()> {
+    ) -> VMRuntimeResult<()> {
         match opn {
             PrimitiveOpn::PureBinary(pure_binary_opr) => {
                 let ropd = self.stack.pop();

@@ -362,26 +362,15 @@ impl<'a> ContractSheetBuilder<'a> {
         match call_expr.variant {
             RawExprVariant::Entity { route: scope, .. } => {
                 let call_decl = derived_unwrap!(self.db.call_decl(scope));
-                match contract {
-                    EagerContract::Pure => (),
-                    EagerContract::Move => (),
-                    EagerContract::Return => (),
-                    EagerContract::LetInit => (),
-                    EagerContract::VarInit => (),
-                    EagerContract::GlobalRef => todo!(),
-                    EagerContract::RefMut => todo!(),
-                    EagerContract::MoveMut => todo!(),
-                    EagerContract::Exec => todo!(),
-                    EagerContract::UseMemberForLetInit => todo!(),
-                    EagerContract::UseMemberForVarInit => todo!(),
-                }
                 for (argument, parameter) in zip(
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
                     call_decl.parameters.iter(),
                 ) {
                     self.infer_eager_expr(
                         argument,
-                        parameter.contract.eager(call_decl.output.contract)?,
+                        parameter
+                            .contract
+                            .eager(call_decl.output.liason, contract)?,
                         arena,
                     )
                 }
@@ -411,30 +400,20 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;
-        match contract {
-            EagerContract::Pure => (),
-            EagerContract::Move => (),
-            EagerContract::Return => (),
-            EagerContract::LetInit => (),
-            EagerContract::VarInit => (),
-            EagerContract::Exec => (),
-            EagerContract::GlobalRef => todo!(),
-            EagerContract::RefMut => todo!(),
-            EagerContract::MoveMut => todo!(),
-            EagerContract::UseMemberForLetInit => todo!(),
-            EagerContract::UseMemberForVarInit => todo!(),
-        }
+
         self.infer_eager_expr(
             this,
             method_decl
                 .this_contract
-                .eager(method_decl.output.contract)?,
+                .eager(method_decl.output.liason, contract)?,
             arena,
         );
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             self.infer_eager_expr(
                 argument,
-                parameter.contract.eager(method_decl.output.contract)?,
+                parameter
+                    .contract
+                    .eager(method_decl.output.liason, contract)?,
                 arena,
             )
         }

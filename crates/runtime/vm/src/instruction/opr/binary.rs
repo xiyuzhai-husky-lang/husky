@@ -85,7 +85,7 @@ impl PureBinaryOpr {
         &self,
         lopd: PrimitiveValue,
         ropd: PrimitiveValue,
-    ) -> VMResult<PrimitiveValue> {
+    ) -> VMRuntimeResult<PrimitiveValue> {
         macro_rules! no_such_opn {
             () => {{
                 todo!()
@@ -174,7 +174,7 @@ impl PureBinaryOpr {
                 PrimitiveValue::I32(a) => (a.pow(
                     ropd.as_i32()
                         .try_into()
-                        .map_err(|_| error!("expect positive power"))?,
+                        .map_err(|_| vm_runtime_error!("expect positive power"))?,
                 ))
                 .into(),
                 PrimitiveValue::F32(_) => todo!(),

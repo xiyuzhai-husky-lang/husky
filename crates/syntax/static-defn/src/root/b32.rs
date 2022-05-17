@@ -30,7 +30,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputContract::Pure,
         input_parameters: &[],
         output_ty: "i32",
-        output_contract: OutputContract::Transfer,
+        output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnKind::TypeMethod {
             source: LinkageSource::Transfer(Linkage {

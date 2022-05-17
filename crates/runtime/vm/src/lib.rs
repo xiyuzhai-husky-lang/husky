@@ -17,10 +17,10 @@ mod stack;
 mod ty;
 
 pub use binding::Binding;
-pub use contract::{EagerContract, FieldContract, InputContract, LazyContract, OutputContract};
+pub use contract::{EagerContract, FieldContract, InputContract, LazyContract, OutputLiason};
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
-pub use error::{VMError, VMResult};
+pub use error::*;
 pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
@@ -39,7 +39,7 @@ use std::sync::Arc;
 
 pub fn eval_fast<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
-    iter: impl Iterator<Item = VMResult<StackValue<'stack, 'eval>>>,
+    iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
     opt_instrn_sheet: Option<&InstructionSheet>,
     maybe_linkage: Option<Linkage>,
 ) -> EvalResult<'eval> {

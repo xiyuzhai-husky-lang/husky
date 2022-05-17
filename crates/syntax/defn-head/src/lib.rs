@@ -6,7 +6,7 @@ use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use text::RangedCustomIdentifier;
-use vm::{FieldContract, InputContract, OutputContract};
+use vm::{FieldContract, InputContract, OutputLiason};
 use word::{CustomIdentifier, IdentDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -16,7 +16,7 @@ pub struct RoutineDefnHead {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output_ty: RangedEntityRoute,
-    pub output_contract: OutputContract,
+    pub output_contract: OutputLiason,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -27,7 +27,7 @@ pub struct TypeMethodDefnHead {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub input_placeholders: Arc<Vec<InputPlaceholder>>,
     pub output_ty: RangedEntityRoute,
-    pub output_contract: OutputContract,
+    pub output_contract: OutputLiason,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

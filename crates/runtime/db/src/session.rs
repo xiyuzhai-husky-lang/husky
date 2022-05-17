@@ -4,7 +4,7 @@ mod tests;
 use pack_semantics::{Config, Pack};
 use semantics_eager::FuncStmt;
 use trivial_iter::TrivialIter;
-use vm::{eval_fast, EvalResult, Mode, VMResult};
+use vm::{eval_fast, EvalResult, Mode, VMRuntimeResult};
 
 use crate::*;
 
@@ -43,7 +43,7 @@ impl<'sess> Default for ValidationReport<'sess> {
 }
 
 impl<'sess> Session<'sess> {
-    pub(crate) fn new(pack: &Pack, compile_time: &HuskyLangCompileTime) -> VMResult<Self> {
+    pub(crate) fn new(pack: &Pack, compile_time: &HuskyLangCompileTime) -> VMRuntimeResult<Self> {
         let config = pack.config.clone();
         let dataset: Dataset = eval_fast(
             compile_time,

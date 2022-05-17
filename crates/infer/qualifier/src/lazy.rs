@@ -57,20 +57,20 @@ impl LazyQualifiedTy {
     pub(crate) fn is_implicitly_convertible_to_output(
         self,
         db: &dyn InferQualifiedTyQueryGroup,
-        output_contract: OutputContract,
+        output_contract: OutputLiason,
         output_ty: EntityRoutePtr,
     ) -> bool {
         if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
         match output_contract {
-            OutputContract::Transfer => match self.qual {
+            OutputLiason::Transfer => match self.qual {
                 LazyQualifier::Copyable => true,
                 LazyQualifier::PureRef => todo!(),
                 LazyQualifier::GlobalRef => todo!(),
                 LazyQualifier::Transient => true,
             },
-            OutputContract::MemberAccess => todo!(),
+            OutputLiason::MemberAccess => todo!(),
         }
     }
 }

@@ -38,10 +38,10 @@ impl<'eval> BoxedValue<'eval> {
         }
     }
 
-    pub fn take<T: AnyValue<'eval>>(self) -> VMResult<T> {
+    pub fn take<T: AnyValue<'eval>>(self) -> VMRuntimeResult<T> {
         // check type
         if (*self.inner).static_type_id() != T::static_type_id() {
-            Err(VMError::TypeMismatch("tooododo".into()))
+            Err(vm_runtime_error!(format!("type_mismatch")))
         } else {
             let raw_pointer: *const (dyn AnyValueDyn + 'eval) =
                 Box::<(dyn AnyValueDyn + 'eval)>::into_raw(self.inner);

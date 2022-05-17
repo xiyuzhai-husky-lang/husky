@@ -38,7 +38,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::*;
 use vec_map::HasKey;
-use vm::{FieldContract, InputContract, Linkage, OutputContract};
+use vm::{FieldContract, InputContract, Linkage, OutputLiason};
 use word::{CustomIdentifier, IdentDict, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -179,7 +179,7 @@ pub enum EntityDefnVariant {
         this_contract: InputContract,
         input_placeholders: Arc<Vec<InputPlaceholder>>,
         output_ty: RangedEntityRoute,
-        output_contract: OutputContract,
+        output_contract: OutputLiason,
         method_variant: MethodDefnVariant,
     },
     TraitAssociatedTypeImpl {
