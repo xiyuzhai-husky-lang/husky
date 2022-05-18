@@ -16,6 +16,7 @@ struct Point2d:
 
     static func from_ij28(i: i32, j: i32) -> Point2d:
         Point2d((29 - j) as f32, (29 - i) as f32)
+
 struct Vector2d:
     x: f32
     y: f32
