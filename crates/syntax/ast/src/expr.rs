@@ -41,12 +41,12 @@ impl RawExpr {
         end_attr: ListEndAttr,
         range: TextRange,
         opds: RawExprRange,
-    ) -> Self {
+    ) -> AstResult<Self> {
         if bracket == Bracket::Par && start_attr == ListStartAttr::None && arena::len(&opds) == 1 {
-            return Self {
+            return Ok(Self {
                 range,
                 variant: RawExprVariant::Bracketed(opds.start),
-            };
+            });
         }
         let opr = match start_attr {
             ListStartAttr::None => match bracket {
@@ -58,7 +58,12 @@ impl RawExpr {
             ListStartAttr::Attach => match bracket {
                 Bracket::Par => ListOpr::Call,
                 Bracket::Box => match end_attr {
-                    ListEndAttr::None => ListOpr::Index,
+                    ListEndAttr::None => {
+                        if arena::len(&opds) < 2 {
+                            return err!(format!("expect index expr inside `[]`"), range);
+                        }
+                        ListOpr::Index
+                    }
                     ListEndAttr::Modulo => ListOpr::ModuloIndex,
                     ListEndAttr::Attach => todo!(),
                 },
@@ -74,10 +79,10 @@ impl RawExpr {
             },
         }
         .into();
-        Self {
+        Ok(Self {
             range,
             variant: RawExprVariant::Opn { opr, opds },
-        }
+        })
     }
 
     pub fn opn(range: TextRange, opr: Opr, opds: RawExprRange) -> Self {

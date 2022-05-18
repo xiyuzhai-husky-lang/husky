@@ -460,7 +460,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         total_range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         if total_opds.end - total_opds.start < 2 {
-            throw!(format!("expect indices inside `[]`"), total_range);
+            panic!()
+            // throw!(format!("expect indices inside `[]`"), total_range);
         }
         if total_opds.end - total_opds.start > 2 {}
         let this_ty = derived_not_none!(self.infer_expr(total_opds.start, None, arena))?;
