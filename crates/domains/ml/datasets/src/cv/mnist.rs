@@ -1,28 +1,31 @@
+mod binary_grid28;
+mod binary_image28;
 mod dev;
-mod image28;
 mod load;
 mod test;
 mod val;
 
-use dev_utils::static_dev_src;
-use entity_kind::{RoutineKind, TyKind};
-use visual_syntax::StaticVisualizer;
-use vm::*;
-use xrng::permutation_from_seed;
+pub use binary_grid28::*;
+pub use binary_image28::*;
 
 use super::*;
 use crate::*;
 use dev::*;
-use image28::*;
+use dev_utils::static_dev_src;
+use entity_kind::{RoutineKind, TyKind};
 use load::*;
 use test::*;
 use val::*;
+use visual_syntax::StaticVisualizer;
+use vm::*;
+use xrng::permutation_from_seed;
 
 pub static MNIST_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "mnist",
     subscopes: &[
         ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
         ("BinaryImage28", &BINARY_IMAGE_28_TYPE_DEFN),
+        ("BinaryGrid28", &BINARY_GRID_28_TYPE_DEFN),
     ],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
@@ -43,134 +46,6 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         routine_kind: RoutineKind::Normal,
     },
     dev_src: dev_utils::static_dev_src!(),
-};
-
-static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
-    name: "BinaryImage28",
-    subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
-        base_route: "datasets::cv::mnist::BinaryImage28",
-        generic_placeholders: &[],
-        trait_impls: &[
-            StaticTraitImplDefn {
-                dev_src: static_dev_src!(),
-                trai: "Clone",
-                member_impls: &[EntityStaticDefn {
-                    dev_src: static_dev_src!(),
-                    name: "clone",
-                    subscopes: &[],
-                    variant: EntityStaticDefnVariant::Method {
-                        this_contract: InputContract::Pure,
-                        input_parameters: &[],
-                        output_ty: "datasets::cv::mnist::BinaryImage28",
-                        output_contract: OutputLiason::Transfer,
-                        generic_parameters: &[],
-                        kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
-                    },
-                }],
-            },
-            StaticTraitImplDefn {
-                dev_src: static_dev_src!(),
-                trai: "std::ops::Index<i32>",
-                member_impls: &[
-                    associated_type_impl!("Output", "b32"),
-                    EntityStaticDefn {
-                        dev_src: dev_utils::static_dev_src!(),
-                        name: "index",
-                        subscopes: &[],
-                        variant: EntityStaticDefnVariant::Method {
-                            this_contract: InputContract::MemberAccess,
-                            input_parameters: &[StaticInputParameter {
-                                contract: InputContract::Pure,
-                                ty: "i32",
-                                name: "todo!()",
-                            }],
-                            output_ty: "b32",
-                            output_contract: OutputLiason::MemberAccess,
-                            generic_parameters: &[],
-                            kind: MethodStaticDefnKind::TraitMethodImpl {
-                                opt_source: Some(LinkageSource::MemberAccess {
-                                    copy_access: Linkage {
-                                        call: |values| -> VMRuntimeResult<StackValue> {
-                                            let this_value: &BinaryImage28 =
-                                                values[0].downcast_ref();
-                                            let index_value: usize = values[1]
-                                                .as_primitive()
-                                                .as_i32()
-                                                .try_into()
-                                                .expect("todo");
-                                            this_value
-                                                .get(index_value)
-                                                .map(|v| StackValue::Primitive(v.into()))
-                                                .ok_or(VMRuntimeError {
-                                                    message: "todo".into(),
-                                                })
-                                        },
-                                        nargs: 2,
-                                    },
-                                    ref_access: Linkage {
-                                        call: |values| -> VMRuntimeResult<StackValue> { todo!() },
-                                        nargs: 2,
-                                    },
-                                    move_access: Linkage {
-                                        call: |_| todo!(),
-                                        nargs: 2,
-                                    },
-                                    ref_mut_access: Linkage {
-                                        call: |values| {
-                                            let index_value: usize = values[1]
-                                                .as_primitive()
-                                                .as_i32()
-                                                .try_into()
-                                                .expect("todo");
-                                            let (this_value, owner, _): (&mut BinaryImage28, _, _) =
-                                                values[0].downcast_mut_full();
-                                            this_value
-                                                .get_mut(index_value)
-                                                .map(|value| StackValue::LocalRefMut {
-                                                    value,
-                                                    owner,
-                                                    gen: (),
-                                                })
-                                                .ok_or(VMRuntimeError {
-                                                    message: "todo".into(),
-                                                })
-                                        },
-                                        nargs: 2,
-                                    },
-                                }),
-                            },
-                        },
-                    },
-                ],
-            },
-        ],
-        type_members: &[],
-        variants: &[],
-        kind: TyKind::Array,
-        visualizer: StaticVisualizer {
-            compiled: BinaryImage28::visualize,
-        },
-        opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
-    },
-    dev_src: dev_utils::static_dev_src!(),
-};
-
-static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "BinaryImage28",
-    subscopes: &[],
-    variant: EntityStaticDefnVariant::Routine {
-        generic_placeholders: &[],
-        input_placeholders: vec![],
-        output_ty: "datasets::cv::mnist::BinaryImage28",
-        output_contract: OutputLiason::Transfer,
-        linkage: Linkage {
-            call: |_values| Ok(StackValue::Boxed(BoxedValue::new(BinaryImage28::default()))),
-            nargs: 0,
-        },
-        routine_kind: RoutineKind::TypeCall,
-    },
-    dev_src: static_dev_src!(),
 };
 
 pub fn new_binary_dataset<'eval>() -> Dataset<'eval> {

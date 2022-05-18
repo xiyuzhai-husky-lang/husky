@@ -145,12 +145,32 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     EntityRoutePtr::Custom(_) => todo!(),
                     EntityRoutePtr::ThisType => todo!(),
                 },
-                EntityRoutePtr::Custom(lopd_custom_ty) => {
-                    p!(self.entity_route_sheet);
-                    p!(lopd_custom_ty);
-                    p!(pure_binary_opr);
-                    todo!()
-                }
+                EntityRoutePtr::Custom(lopd_custom_ty) => match pure_binary_opr {
+                    PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
+                        if lopd_ty == ropd_ty {
+                            Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
+                        } else {
+                            todo!()
+                        }
+                    }
+                    PureBinaryOpr::Add => todo!(),
+                    PureBinaryOpr::And => todo!(),
+                    PureBinaryOpr::BitAnd => todo!(),
+                    PureBinaryOpr::BitOr => todo!(),
+                    PureBinaryOpr::BitXor => todo!(),
+                    PureBinaryOpr::Div => todo!(),
+                    PureBinaryOpr::Geq => todo!(),
+                    PureBinaryOpr::Greater => todo!(),
+                    PureBinaryOpr::Leq => todo!(),
+                    PureBinaryOpr::Less => todo!(),
+                    PureBinaryOpr::Mul => todo!(),
+                    PureBinaryOpr::RemEuclid => todo!(),
+                    PureBinaryOpr::Or => todo!(),
+                    PureBinaryOpr::Power => todo!(),
+                    PureBinaryOpr::Shl => todo!(),
+                    PureBinaryOpr::Shr => todo!(),
+                    PureBinaryOpr::Sub => todo!(),
+                },
                 EntityRoutePtr::ThisType => todo!(),
             },
             BinaryOpr::Assign(_) => {
