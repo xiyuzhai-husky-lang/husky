@@ -14,7 +14,7 @@ pub struct RoutineDefnHead {
     pub ident: RangedCustomIdentifier,
     pub routine_kind: RoutineKeyword,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
-    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
+    pub parameters: Arc<Vec<InputParameter>>,
     pub output_ty: RangedEntityRoute,
     pub output_contract: OutputLiason,
 }
@@ -25,7 +25,7 @@ pub struct TypeMethodDefnHead {
     pub routine_kind: RoutineKeyword,
     pub this_contract: InputContract,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
-    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
+    pub input_placeholders: Arc<Vec<InputParameter>>,
     pub output_ty: RangedEntityRoute,
     pub output_contract: OutputLiason,
 }
@@ -39,7 +39,7 @@ pub struct FieldDefnHead {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputPlaceholder {
+pub struct InputParameter {
     pub ident: RangedCustomIdentifier,
     pub contract: InputContract,
     pub ranged_ty: RangedEntityRoute,

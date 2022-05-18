@@ -1,5 +1,5 @@
 use atom::SymbolContext;
-use defn_head::InputPlaceholder;
+use defn_head::InputParameter;
 use entity_route::RangedEntityRoute;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
@@ -8,7 +8,7 @@ use vm::Linkage;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyCallDefn {
-    pub input_placeholders: Arc<Vec<InputPlaceholder>>,
+    pub input_placeholders: Arc<Vec<InputParameter>>,
     pub output_ty: RangedEntityRoute,
     pub source: TyCallSource,
 }

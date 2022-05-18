@@ -48,7 +48,7 @@ impl CallDecl {
             route,
             generic_placeholders: head.generic_placeholders.clone(),
             parameters: head
-                .input_placeholders
+                .parameters
                 .iter()
                 .map(|input_placeholder| input_placeholder.into())
                 .collect(),

@@ -1,5 +1,5 @@
 use datasets::LabeledData;
-use defn_head::InputPlaceholder;
+use defn_head::InputParameter;
 use feature::*;
 use semantics_eager::ProcStmtVariant;
 use semantics_entity::EntityDefnVariant;
@@ -192,7 +192,7 @@ fn feature_expr_subtraces(
                     routine_defn.clone(),
                     &db.compile_time().text(routine_defn.file).unwrap(),
                 ));
-                let input_placeholders: &[InputPlaceholder] = match routine_defn.variant {
+                let input_placeholders: &[InputParameter] = match routine_defn.variant {
                     EntityDefnVariant::Func {
                         ref input_placeholders,
                         ..

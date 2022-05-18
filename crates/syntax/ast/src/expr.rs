@@ -93,9 +93,13 @@ impl From<Atom> for RawExpr {
         Self {
             range: atom.text_range(),
             variant: match atom.kind {
-                AtomVariant::Variable { varname, init_row } => {
-                    RawExprVariant::Variable { varname, init_row }
-                }
+                AtomVariant::Variable {
+                    varname,
+                    init_range: init_row,
+                } => RawExprVariant::Variable {
+                    varname,
+                    init_range: init_row,
+                },
                 AtomVariant::PrimitiveLiteral(literal) => {
                     RawExprVariant::PrimitiveLiteral(literal.clone())
                 }
@@ -110,9 +114,13 @@ impl From<Atom> for RawExpr {
                     opt_contract,
                 },
                 AtomVariant::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
-                AtomVariant::FrameVariable { varname, init_row } => {
-                    RawExprVariant::FrameVariable { varname, init_row }
-                }
+                AtomVariant::FrameVariable {
+                    varname,
+                    init_range,
+                } => RawExprVariant::FrameVariable {
+                    varname,
+                    init_range,
+                },
                 _ => {
                     p!(atom.kind);
                     panic!()

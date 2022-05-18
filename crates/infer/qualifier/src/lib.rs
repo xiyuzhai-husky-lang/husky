@@ -15,7 +15,7 @@ use print_utils::emsg_once;
 use ast::RawExprIdx;
 use infer_error::InferResult;
 
-use text::Row;
+use text::{Row, TextRange};
 use vm::*;
 use word::Identifier;
 
@@ -35,9 +35,9 @@ pub trait InferQualifiedType {
     fn eager_variable_qualified_ty(
         &self,
         varname: Identifier,
-        init_row: Row,
+        init_range: TextRange,
     ) -> InferResult<EagerQualifiedTy> {
         self.qualified_ty_sheet()
-            .eager_variable_qualified_ty(varname, init_row)
+            .eager_variable_qualified_ty(varname, init_range)
     }
 }

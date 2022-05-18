@@ -99,7 +99,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 should!(!self
                     .contract_sheet
                     .eager_expr_contract_results
-                    .get(&result)
+                    .get(result)
                     .is_none())
             }
             RawStmtVariant::Assert(condition) => self.infer_eager_condition(condition, arena),
@@ -153,21 +153,13 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawExprVariant::Lambda(_, _) => todo!(),
         };
-        match self.contract_sheet.eager_expr_contract_results.insert(
+        self.contract_sheet.eager_expr_contract_results.insert_new(
             expr_idx,
             match infer_result {
                 Ok(_) => Ok(contract),
                 Err(e) => Err(e),
             },
-        ) {
-            Some(_) => {
-                p!(expr_idx);
-                p!(self.file);
-                p!(arena);
-                panic!()
-            }
-            None => (),
-        }
+        );
     }
 
     fn infer_eager_opn(
@@ -386,7 +378,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 Ok(())
             }
             RawExprVariant::Opn { ref opr, ref opds } => todo!(),
-            RawExprVariant::Variable { varname, init_row } => todo!(),
+            RawExprVariant::Variable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
             RawExprVariant::This { opt_ty, .. } => todo!(),
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
             RawExprVariant::PrimitiveLiteral(_) => {
@@ -394,7 +389,10 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
         }
     }
 

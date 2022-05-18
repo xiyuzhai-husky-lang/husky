@@ -72,8 +72,14 @@ impl<'a> MatchPatternParser<'a> {
                     EntityKind::EnumLiteral => CasePattern::enum_literal(route, atom.range),
                     _ => err!(format!("expect enum literal"), atom.range)?,
                 },
-                AtomVariant::Variable { varname, init_row } => todo!(),
-                AtomVariant::FrameVariable { varname, init_row } => todo!(),
+                AtomVariant::Variable {
+                    varname,
+                    init_range: init_row,
+                } => todo!(),
+                AtomVariant::FrameVariable {
+                    varname,
+                    init_range,
+                } => todo!(),
                 AtomVariant::ThisData {
                     opt_ty,
                     opt_contract,

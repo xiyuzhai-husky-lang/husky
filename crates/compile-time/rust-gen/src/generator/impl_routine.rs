@@ -9,7 +9,7 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_proc_defn(
         &mut self,
         ident: CustomIdentifier,
-        input_placeholders: &[InputPlaceholder],
+        input_placeholders: &[InputParameter],
         output: EntityRoutePtr,
         stmts: &[Arc<ProcStmt>],
     ) {
@@ -51,7 +51,7 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_func_defn(
         &mut self,
         ident: CustomIdentifier,
-        input_placeholders: &[InputPlaceholder],
+        input_placeholders: &[InputParameter],
         output: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {

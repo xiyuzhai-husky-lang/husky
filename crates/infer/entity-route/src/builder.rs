@@ -63,13 +63,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             &arena,
                         ),
                         AstKind::RoutineDefnHead(ref head) => self.infer_routine(
-                            &head.input_placeholders,
+                            &head.parameters,
                             head.output_ty.route,
                             children,
                             &arena,
                         ),
                         AstKind::TypeAssociatedRoutineDefnHead(ref head) => self.infer_routine(
-                            &head.input_placeholders,
+                            &head.parameters,
                             head.output_ty.route,
                             children,
                             &arena,
@@ -102,24 +102,16 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         self.exit_block()
     }
 
-    fn add_inputs(&mut self, inputs: &[InputPlaceholder]) {
-        if inputs.len() > 0 {
-            if let None = self
+    fn add_inputs(&mut self, inputs: &[InputParameter]) {
+        for input in inputs {
+            should!(self
                 .entity_route_sheet
                 .variable_tys
-                .get(&(inputs[0].ident.ident, inputs[0].ranged_ty.row()))
-            {
-                for input in inputs {
-                    should!(self
-                        .entity_route_sheet
-                        .variable_tys
-                        .insert(
-                            (input.ident.ident, inputs[0].ranged_ty.row()),
-                            input.ranged_ty.route,
-                        )
-                        .is_none());
-                }
-            }
+                .insert(
+                    (input.ident.ident, input.ident.range),
+                    input.ranged_ty.route,
+                )
+                .is_none());
         }
     }
 }

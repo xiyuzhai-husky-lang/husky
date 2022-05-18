@@ -3,7 +3,7 @@ use super::*;
 impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_routine(
         &mut self,
-        inputs: &[InputPlaceholder],
+        inputs: &[InputParameter],
         output_ty: EntityRoutePtr,
         ast_iter: AstIter,
         arena: &RawExprArena,

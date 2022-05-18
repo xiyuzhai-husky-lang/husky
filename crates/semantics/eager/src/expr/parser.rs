@@ -22,9 +22,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let raw_expr = &self.arena()[raw_expr_idx];
         let kind = match raw_expr.variant {
             RawExprVariant::Variable { varname, .. } => EagerExprVariant::Variable(varname),
-            RawExprVariant::FrameVariable { varname, init_row } => {
-                EagerExprVariant::Variable(varname)
-            }
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => EagerExprVariant::Variable(varname),
             RawExprVariant::Unrecognized(ident) => {
                 err!(format!(
                     "unrecognized identifier {} at {}:{:?}",
@@ -65,9 +66,14 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => EagerExprVariant::This,
         };
+        if let Err(e) = self.raw_expr_ty(raw_expr_idx) {
+            p!(self.contract_sheet());
+            p!(self.file(), raw_expr, raw_expr_idx);
+            panic!()
+        }
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
-            ty: derived_unwrap!(self.raw_expr_ty(raw_expr_idx)),
+            ty: self.raw_expr_ty(raw_expr_idx).unwrap(),
             variant: kind,
             file: self.file(),
             instruction_id: Default::default(),
@@ -212,7 +218,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             },
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
         }
     }
 

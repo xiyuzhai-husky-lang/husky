@@ -62,7 +62,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     should!(self
                         .entity_route_sheet
                         .variable_tys
-                        .insert((frame_var.ident, stmt.row()), RootIdentifier::I32.into())
+                        .insert(
+                            (frame_var.ident, frame_var.range),
+                            RootIdentifier::I32.into()
+                        )
                         .is_none());
                     self.infer_loop_bound(initial_boundary, arena);
                     self.infer_loop_bound(final_boundary, arena);
@@ -108,7 +111,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     should!(self
                         .entity_route_sheet
                         .variable_tys
-                        .insert((varname.ident, stmt.row()), ty)
+                        .insert((varname.ident, varname.range), ty)
                         .is_none())
                 }
             }

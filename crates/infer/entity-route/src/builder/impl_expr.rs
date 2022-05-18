@@ -33,13 +33,21 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let expr = &arena[expr_idx];
         let ty = match expr.variant {
-            RawExprVariant::Variable { varname, init_row } => {
-                derived_not_none!(self
+            RawExprVariant::Variable {
+                varname,
+                init_range,
+            } => {
+                let opt_ty = self
                     .entity_route_sheet
                     .variable_tys
-                    .get(&(varname, init_row))
-                    .map(|route| *route)
-                    .clone())
+                    .get(&(varname, init_range))
+                    .map(|route| *route);
+                if opt_ty.is_none() {
+                    p!(self.entity_route_sheet.variable_tys);
+                    p!(varname, init_range);
+                    panic!()
+                }
+                derived_not_none!(opt_ty)
             }
             RawExprVariant::Unrecognized(ident) => Err(InferError {
                 variant: InferErrorVariant::Original {
