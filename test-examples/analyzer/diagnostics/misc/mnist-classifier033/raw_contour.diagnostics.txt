@@ -1,0 +1,2 @@
+204:30..204:31	Ast Error: unrecognized char `;`
+124:31..124:43	Infer Error: unrecognized caller
