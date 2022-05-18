@@ -1,5 +1,5 @@
-2:13..2:22	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(Point2d)), 2:15..2:22})} instead
-110:50..110:62	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(Point2d)), 110:55..110:62})} instead
+2:22..2:26	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(Point2d)), 2:15..2:22})} instead
+110:62..110:66	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(Point2d)), 110:55..110:62})} instead
 116:29..116:30	Ast Error: unrecognized char `\`
-120:28..120:41	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(BinaryImage28)), 120:28..120:41})} instead
+120:41..120:42	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(BinaryImage28)), 120:28..120:41})} instead
 52:33..52:39	Infer Error: no method named `to_i32` for type `mnist_classifier021::raw_contour::Direction`

@@ -1,4 +1,4 @@
-21:62..21:65	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(int)), 21:62..21:65})} instead
+21:65..21:66	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(int)), 21:62..21:65})} instead
 22:5..22:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
 23:5..23:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
 34:19..34:35	Ast Error: expect `:`

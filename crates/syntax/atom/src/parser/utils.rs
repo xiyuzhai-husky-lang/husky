@@ -133,11 +133,11 @@ macro_rules! get{
             pattern
         } else {
             return err!(
-                format!("expect {} after it, but get {{{:?}}} instead",
+                format!("expect {}, but get {{{:?}}} instead",
                     stringify!($patt),
                     saved_stream.next()
                 ),
-                $this.stream.pop_range()
+                $this.stream.next_range()
             )
         }
     }};
@@ -146,7 +146,7 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*) {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
         }
     }};
 
@@ -160,7 +160,7 @@ macro_rules! get{
                         stringify!($patt),
                         saved_stream.next()
                     ),
-                    $this.stream.pop_range()
+                    $this.stream.next_range()
                 )
         }
     }};
@@ -169,7 +169,7 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
         }
     }};
 
@@ -180,7 +180,7 @@ macro_rules! get{
         } else {
             return err!(
                 format!("expect {:?} after it", stringify!($patt)),
-                $this.stream.pop_range()
+                $this.stream.next_range()
             )
         }
     }};
@@ -189,7 +189,7 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
         }
     }};
 }
@@ -198,7 +198,7 @@ pub(crate) use get;
 macro_rules! no_look_pass {
     ($this:expr, $patt:ident) => {{
         if $this.$patt().is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
         }
     }};
 
@@ -213,13 +213,13 @@ macro_rules! no_look_pass {
 
     ($this:expr, $patt:ident?) => {{
         if $this.$patt()?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
         }
     }};
 
     ($this:expr, $patt:ident?, $($args:expr),*) => {{
         if  $this.$patt($($args),*)?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.pop_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
         }
     }};
 
