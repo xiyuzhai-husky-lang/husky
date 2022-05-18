@@ -241,12 +241,13 @@ impl<'a> RustGenerator<'a> {
                 | RootIdentifier::FnOnce
                 | RootIdentifier::Array
                 | RootIdentifier::DatasetType
-                | RootIdentifier::Type => panic!(),
+                | RootIdentifier::TypeType => panic!(),
                 RootIdentifier::Datasets => todo!(),
                 RootIdentifier::CloneTrait => todo!(),
                 RootIdentifier::CopyTrait => todo!(),
                 RootIdentifier::PartialEqTrait => todo!(),
                 RootIdentifier::EqTrait => todo!(),
+                RootIdentifier::ModuleType => todo!(),
             },
             EntityRoutePtr::Custom(_) => panic!(),
             EntityRoutePtr::ThisType => todo!(),

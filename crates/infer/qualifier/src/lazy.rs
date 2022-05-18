@@ -20,7 +20,7 @@ impl LazyQualifiedTy {
     pub(crate) fn ty_ty() -> Self {
         Self {
             qual: LazyQualifier::GlobalRef,
-            ty: EntityRoutePtr::Root(RootIdentifier::Type),
+            ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
         }
     }
 

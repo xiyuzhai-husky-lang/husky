@@ -102,7 +102,9 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::Tuple
             | RootIdentifier::Fp
             | RootIdentifier::Array
-            | RootIdentifier::DatasetType => EntityKind::Type(TyKind::Other),
+            | RootIdentifier::DatasetType
+            | RootIdentifier::TypeType
+            | RootIdentifier::ModuleType => EntityKind::Type(TyKind::Other),
             RootIdentifier::True | RootIdentifier::False => EntityKind::EnumLiteral,
             RootIdentifier::Fn | RootIdentifier::FnMut | RootIdentifier::FnOnce => {
                 EntityKind::Trait
@@ -110,7 +112,6 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::Debug | RootIdentifier::Std | RootIdentifier::Core => {
                 EntityKind::Module
             }
-            RootIdentifier::Type => todo!(),
             RootIdentifier::Datasets => EntityKind::Module,
             RootIdentifier::CloneTrait
             | RootIdentifier::CopyTrait
@@ -190,11 +191,12 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Array => todo!(),
         RootIdentifier::Datasets => datasets::DATASETS_MODULE_DEFN,
         RootIdentifier::DatasetType => &datasets::DATASET_TYPE_DEFN,
-        RootIdentifier::Type => todo!(),
+        RootIdentifier::TypeType => todo!(),
         RootIdentifier::CloneTrait => &CLONE_TRAIT_DEFN,
         RootIdentifier::CopyTrait => todo!(),
         RootIdentifier::PartialEqTrait => todo!(),
         RootIdentifier::EqTrait => todo!(),
+        RootIdentifier::ModuleType => todo!(),
     }
     .into()
 }

@@ -25,12 +25,13 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             RootIdentifier::FnOnce => todo!(),
             RootIdentifier::Array => todo!(),
             RootIdentifier::DatasetType => todo!(),
-            RootIdentifier::Type => todo!(),
+            RootIdentifier::TypeType => todo!(),
             RootIdentifier::Datasets => todo!(),
             RootIdentifier::CloneTrait => todo!(),
             RootIdentifier::CopyTrait => todo!(),
             RootIdentifier::PartialEqTrait => todo!(),
             RootIdentifier::EqTrait => todo!(),
+            RootIdentifier::ModuleType => todo!(),
         }),
         EntityRoutePtr::Custom(_) => {
             let ty_decl = db.ty_decl(ty)?;

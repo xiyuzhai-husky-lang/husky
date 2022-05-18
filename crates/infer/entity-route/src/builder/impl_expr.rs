@@ -77,7 +77,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         entity_kind: EntityKind,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match entity_kind {
-            EntityKind::Module => todo!(),
+            EntityKind::Module => EntityRoutePtr::Root(RootIdentifier::ModuleType),
             EntityKind::EnumLiteral => match scope {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
@@ -96,7 +96,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 },
                 _ => todo!(),
             },
-            EntityKind::Type(_) => RootIdentifier::Type.into(),
+            EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => todo!(),
             EntityKind::Routine => {
                 emsg_once!("todo: generics in fp");
