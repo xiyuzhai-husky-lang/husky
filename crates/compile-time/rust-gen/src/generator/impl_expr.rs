@@ -67,6 +67,7 @@ impl<'a> RustGenerator<'a> {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
+            EagerExprVariant::EnumLiteral(_) => todo!(),
         }
     }
 

@@ -88,7 +88,7 @@ pub(crate) fn call_decl(
                 .next()
                 .unwrap();
             let ast = item.value.as_ref()?;
-            match ast.kind {
+            match ast.variant {
                 AstKind::RoutineDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
                 AstKind::TypeAssociatedRoutineDefnHead(ref head) => {
                     Ok(CallDecl::from_ast(route, head))

@@ -3,7 +3,7 @@ use ast::{AstKind, AstText};
 use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::FoldStorage;
-use semantics_eager::parse_decl_stmts;
+use semantics_eager::parse_func_stmts;
 use semantics_entity::EntityDefnQueryGroup;
 use semantics_error::*;
 
@@ -48,9 +48,9 @@ fn dataset_config_from_ast_text(
     file: FilePtr,
 ) -> SemanticResult<DatasetConfig> {
     for item in ast_text.folded_results.iter() {
-        match item.value.as_ref()?.kind {
+        match item.value.as_ref()?.variant {
             AstKind::DatasetConfigDefnHead => {
-                return Ok(DatasetConfig::new(parse_decl_stmts(
+                return Ok(DatasetConfig::new(parse_func_stmts(
                     &[],
                     this.upcast(),
                     &ast_text.arena,

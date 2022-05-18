@@ -14,7 +14,7 @@ impl<'a> EagerStmtParser<'a> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
-            match item.value.as_ref()?.kind {
+            match item.value.as_ref()?.variant {
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => {
                     let variant = match stmt.variant {
@@ -82,7 +82,7 @@ impl<'a> EagerStmtParser<'a> {
         match condition_branch_kind {
             RawConditionBranchKind::If { condition } => {
                 branches.push(Arc::new(FuncConditionBranch {
-                    kind: DeclBranchKind::If {
+                    kind: FuncConditionBranchKind::If {
                         condition: self.parse_eager_expr(condition)?,
                     },
                     stmts: self.parse_func_stmts(children)?,
@@ -92,14 +92,14 @@ impl<'a> EagerStmtParser<'a> {
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
-            let item = match item.value.as_ref()?.kind {
+            let item = match item.value.as_ref()?.variant {
                 AstKind::Stmt(RawStmt {
                     variant: RawStmtVariant::ConditionBranch { .. },
                     ..
                 }) => iter.next().unwrap(),
                 _ => break,
             };
-            match item.value.as_ref()?.kind {
+            match item.value.as_ref()?.variant {
                 AstKind::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
@@ -116,7 +116,7 @@ impl<'a> EagerStmtParser<'a> {
                     }
                     RawConditionBranchKind::Else => {
                         branches.push(Arc::new(FuncConditionBranch {
-                            kind: DeclBranchKind::Else,
+                            kind: FuncConditionBranchKind::Else,
                             stmts: self.parse_func_stmts(not_none!(item.opt_children))?,
                         }));
                         break;
@@ -135,8 +135,33 @@ impl<'a> EagerStmtParser<'a> {
         match_expr: RawExprIdx,
         match_contract: MatchContract,
     ) -> SemanticResult<FuncStmtVariant> {
-        let mut branches = vec![];
-        for item in children {}
-        Ok(FuncStmtVariant::Match { branches })
+        Ok(FuncStmtVariant::Match {
+            branches: children
+                .map(|item| {
+                    let value = item.value.as_ref().unwrap();
+                    match value.variant {
+                        AstKind::Stmt(RawStmt {
+                            variant:
+                                RawStmtVariant::PatternBranch {
+                                    ref pattern_branch_variant,
+                                },
+                            ..
+                        }) => Ok(Arc::new(match pattern_branch_variant {
+                            RawPatternBranchVariant::Case { pattern } => FuncPatternBranch {
+                                variant: FuncPatternBranchVariant::Case {
+                                    pattern: pattern.clone(),
+                                },
+                                stmts: self.parse_func_stmts(item.opt_children.clone().unwrap())?,
+                            },
+                            RawPatternBranchVariant::Default => FuncPatternBranch {
+                                variant: FuncPatternBranchVariant::Default,
+                                stmts: self.parse_func_stmts(item.opt_children.clone().unwrap())?,
+                            },
+                        })),
+                        _ => panic!(),
+                    }
+                })
+                .collect::<SemanticResult<Vec<_>>>()?,
+        })
     }
 }

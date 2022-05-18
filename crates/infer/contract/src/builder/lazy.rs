@@ -18,7 +18,7 @@ impl<'a> ContractSheetBuilder<'a> {
     pub(super) fn infer_lazy_stmts(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
-                match value.kind {
+                match value.variant {
                     AstKind::Stmt(ref stmt) => self.infer_lazy_stmt(stmt, arena),
                     _ => (),
                 }

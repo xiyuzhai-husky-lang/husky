@@ -26,7 +26,7 @@ pub(crate) fn feature_decl(
                 .next()
                 .unwrap();
             let ast = item.value.as_ref()?;
-            match ast.kind {
+            match ast.variant {
                 AstKind::FeatureDecl { ident, ty } => Ok(Arc::new(FeatureDecl { ty: ty.route })),
                 _ => todo!(),
             }

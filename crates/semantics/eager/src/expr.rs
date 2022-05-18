@@ -46,6 +46,7 @@ pub enum EagerExprVariant {
         route: EntityRoutePtr,
     },
     PrimitiveLiteral(PrimitiveValue),
+    EnumLiteral(EntityRoutePtr),
     Bracketed(Arc<EagerExpr>),
     Opn {
         opn_variant: EagerOpnVariant,

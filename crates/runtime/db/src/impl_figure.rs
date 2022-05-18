@@ -151,6 +151,7 @@ impl HuskyLangRuntime {
                 }
             }
             ProcStmtVariant::Break => FigureProps::void(),
+            ProcStmtVariant::Match { ref branches } => todo!(),
         }
     }
 

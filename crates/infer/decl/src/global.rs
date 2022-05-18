@@ -10,7 +10,7 @@ fn global_input_ty_from_ast(
     arena: &RawExprArena,
     ast: &Ast,
 ) -> InferResult<EntityRoutePtr> {
-    match ast.kind {
+    match ast.variant {
         AstKind::Stmt(RawStmt {
             variant: RawStmtVariant::Return(idx),
             ..
@@ -53,7 +53,7 @@ fn global_output_ty_from_ast(
     arena: &RawExprArena,
     ast: &Ast,
 ) -> InferResult<EntityRoutePtr> {
-    match ast.kind {
+    match ast.variant {
         AstKind::Stmt(RawStmt {
             variant: RawStmtVariant::Return(idx),
             ..
@@ -97,7 +97,7 @@ pub(crate) fn global_input_ty(
 ) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.iter() {
-        match item.value.as_ref()?.kind {
+        match item.value.as_ref()?.variant {
             AstKind::DatasetConfigDefnHead => {
                 return global_input_ty_from_ast(
                     db,
@@ -124,7 +124,7 @@ pub(crate) fn global_output_ty(
 ) -> InferResult<EntityRoutePtr> {
     let ast_text = db.ast_text(main_file)?;
     for item in ast_text.folded_results.iter() {
-        match item.value.as_ref()?.kind {
+        match item.value.as_ref()?.variant {
             AstKind::DatasetConfigDefnHead => {
                 return global_output_ty_from_ast(
                     db,

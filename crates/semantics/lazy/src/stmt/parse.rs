@@ -74,7 +74,7 @@ impl<'a> LazyStmtParser<'a> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
-            match item.value.as_ref()?.kind {
+            match item.value.as_ref()?.variant {
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => {
                     let variant = match stmt.variant {
@@ -148,14 +148,14 @@ impl<'a> LazyStmtParser<'a> {
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
-            let item = match item.value.as_ref()?.kind {
+            let item = match item.value.as_ref()?.variant {
                 AstKind::Stmt(RawStmt {
                     variant: RawStmtVariant::ConditionBranch { .. },
                     ..
                 }) => iter.next().unwrap(),
                 _ => break,
             };
-            match item.value.as_ref()?.kind {
+            match item.value.as_ref()?.variant {
                 AstKind::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {

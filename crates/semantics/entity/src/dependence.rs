@@ -300,17 +300,18 @@ impl EntityDefn {
                         extract_proc_stmts_dependees(stmts, v)
                     }
                     ProcStmtVariant::Break => (),
+                    ProcStmtVariant::Match { ref branches } => todo!(),
                 }
             }
         }
 
         fn extract_lazy_expr_dependees(expr: &LazyExpr, v: &mut DependeeMapBuilder) {
-            match expr.kind {
-                LazyExprKind::Variable(_) | LazyExprKind::PrimitiveLiteral(_) => (),
-                LazyExprKind::Scope { scope, .. } => v.push(scope),
-                LazyExprKind::EnumLiteral { .. } => todo!(),
-                LazyExprKind::Bracketed(_) => todo!(),
-                LazyExprKind::Opn { opn_kind, ref opds } => {
+            match expr.variant {
+                LazyExprVariant::Variable(_) | LazyExprVariant::PrimitiveLiteral(_) => (),
+                LazyExprVariant::Scope { scope, .. } => v.push(scope),
+                LazyExprVariant::EnumLiteral { .. } => todo!(),
+                LazyExprVariant::Bracketed(_) => todo!(),
+                LazyExprVariant::Opn { opn_kind, ref opds } => {
                     match opn_kind {
                         LazyOpnKind::Binary { .. }
                         | LazyOpnKind::Prefix(_)
@@ -326,9 +327,9 @@ impl EntityDefn {
                         extract_lazy_expr_dependees(opd, v)
                     }
                 }
-                LazyExprKind::Lambda(_, _) => todo!(),
-                LazyExprKind::This => (),
-                LazyExprKind::EntityFeature { route: scope } => todo!(),
+                LazyExprVariant::Lambda(_, _) => todo!(),
+                LazyExprVariant::This => (),
+                LazyExprVariant::EntityFeature { route: scope } => todo!(),
             }
         }
 
@@ -364,6 +365,7 @@ impl EntityDefn {
                 }
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::This => builder.push(expr.ty),
+                EagerExprVariant::EnumLiteral(_) => todo!(),
             }
         }
 

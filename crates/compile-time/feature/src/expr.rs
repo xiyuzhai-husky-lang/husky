@@ -121,8 +121,8 @@ struct FeatureExprBuilder<'a> {
 
 impl<'a> FeatureExprBuilder<'a> {
     fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureExpr> {
-        let (kind, feature) = match expr.kind {
-            LazyExprKind::Variable(varname) => self
+        let (kind, feature) = match expr.variant {
+            LazyExprVariant::Variable(varname) => self
                 .symbols
                 .iter()
                 .rev()
@@ -140,28 +140,28 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                 })
                 .unwrap(),
-            LazyExprKind::Scope { scope, compiled } => todo!(),
-            LazyExprKind::PrimitiveLiteral(value) => (
+            LazyExprVariant::Scope { scope, compiled } => todo!(),
+            LazyExprVariant::PrimitiveLiteral(value) => (
                 FeatureExprKind::PrimitiveLiteral(value),
                 self.features.alloc(Feature::PrimitiveLiteral(value)),
             ),
-            LazyExprKind::Bracketed(_) => todo!(),
-            LazyExprKind::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
-            LazyExprKind::Lambda(_, _) => todo!(),
-            LazyExprKind::EnumLiteral { entity_route } => (
+            LazyExprVariant::Bracketed(_) => todo!(),
+            LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
+            LazyExprVariant::Lambda(_, _) => todo!(),
+            LazyExprVariant::EnumLiteral { entity_route } => (
                 FeatureExprKind::EnumLiteral {
                     entity_route,
                     uid: self.db.entity_uid(entity_route),
                 },
                 self.features.alloc(Feature::EnumLiteral(entity_route)),
             ),
-            LazyExprKind::This => (
+            LazyExprVariant::This => (
                 FeatureExprKind::This {
                     repr: self.this.as_ref().unwrap().clone(),
                 },
                 self.this.as_ref().unwrap().feature(),
             ),
-            LazyExprKind::EntityFeature { route } => match route.kind {
+            LazyExprVariant::EntityFeature { route } => match route.kind {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
                 EntityRouteKind::Child { .. } => {
                     let uid = self.db.entity_uid(route);

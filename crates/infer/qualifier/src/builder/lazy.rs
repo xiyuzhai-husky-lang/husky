@@ -51,7 +51,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
-                match value.kind {
+                match value.variant {
                     AstKind::Stmt(ref stmt) => {
                         self.infer_lazy_stmt(arena, stmt, opt_output_ty, output_contract)
                     }

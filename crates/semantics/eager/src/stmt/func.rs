@@ -1,19 +1,18 @@
-mod branch;
+mod condition_branch;
 mod parse;
+mod pattern_branch;
 
-use std::sync::Arc;
-
-pub use branch::*;
-use text::RangedCustomIdentifier;
-use vm::{InstructionId, InstructionSource};
+pub use condition_branch::*;
+pub use pattern_branch::*;
 
 use super::parser::EagerStmtParser;
-
-use file::FilePtr;
-use text::TextRange;
-
 use super::*;
 use crate::*;
+use file::FilePtr;
+use std::sync::Arc;
+use text::RangedCustomIdentifier;
+use text::TextRange;
+use vm::{InstructionId, InstructionSource};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncStmt {
@@ -54,11 +53,11 @@ pub enum FuncStmtVariant {
         branches: Vec<Arc<FuncConditionBranch>>,
     },
     Match {
-        branches: Vec<Arc<FuncConditionBranch>>,
+        branches: Vec<Arc<FuncPatternBranch>>,
     },
 }
 
-pub fn parse_decl_stmts(
+pub fn parse_func_stmts(
     input_placeholders: &[InputParameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,

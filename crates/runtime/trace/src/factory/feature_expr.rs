@@ -1,5 +1,5 @@
 use entity_route::RangedEntityRoute;
-use semantics_lazy::{LazyExprKind, LazyOpnKind};
+use semantics_lazy::{LazyExprVariant, LazyOpnKind};
 
 use super::expr::ExprTokenConfig;
 use crate::*;
@@ -46,8 +46,8 @@ impl<'eval> TraceFactory<'eval> {
             FeatureExprKind::RoutineCall {
                 opds: ref feature_opds,
                 ..
-            } => match expr.expr.kind {
-                LazyExprKind::Opn { opn_kind, ref opds } => match opn_kind {
+            } => match expr.expr.variant {
+                LazyExprVariant::Opn { opn_kind, ref opds } => match opn_kind {
                     LazyOpnKind::Binary { opr, this } => todo!(),
                     LazyOpnKind::Prefix(_) => todo!(),
                     LazyOpnKind::RoutineCall(ranged_route) => self.feature_routine_call_tokens(

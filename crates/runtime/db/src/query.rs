@@ -121,6 +121,7 @@ pub fn subtraces(
                 }
             }
             ProcStmtVariant::Break => Arc::new(vec![]),
+            ProcStmtVariant::Match { ref branches } => todo!(),
         },
         TraceVariant::FeatureExpr(ref expr) => {
             feature_expr_subtraces(db, trace, expr, effective_opt_input_id)

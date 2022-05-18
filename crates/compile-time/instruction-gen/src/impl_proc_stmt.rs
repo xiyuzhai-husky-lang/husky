@@ -47,6 +47,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             ProcStmtVariant::Break => {
                 self.push_instruction(Instruction::new(InstructionKind::Break, stmt))
             }
+            ProcStmtVariant::Match { ref branches } => todo!(),
         }
     }
 

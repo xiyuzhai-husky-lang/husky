@@ -1,11 +1,12 @@
 use crate::*;
+use ast::CasePattern;
 use file::FilePtr;
 use std::sync::Arc;
 use text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ProcPatternBranch {
-    pub variant: ProcConditionBranchVariant,
+    pub variant: ProcPatternBranchVariant,
     pub stmts: Arc<Vec<Arc<ProcStmt>>>,
     pub range: TextRange,
     pub file: FilePtr,
@@ -13,6 +14,6 @@ pub struct ProcPatternBranch {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ProcPatternBranchVariant {
-    Case { pattern: Arc<EagerExpr> },
+    Case { pattern: CasePattern },
     Default,
 }

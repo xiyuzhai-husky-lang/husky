@@ -190,6 +190,7 @@ impl<'eval> TraceFactory<'eval> {
                 }
             },
             ProcStmtVariant::Break => vec![keyword!("break")],
+            ProcStmtVariant::Match { ref branches } => todo!(),
         }
     }
 

@@ -171,6 +171,7 @@ impl<'eval> TraceFactory<'eval> {
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::This => todo!(),
+            EagerExprVariant::EnumLiteral(_) => todo!(),
         };
         if config.appended {
             tokens.push(fade!(" = "));
