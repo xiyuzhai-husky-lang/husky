@@ -1,18 +1,18 @@
 
 [35meager variable qualified types
-[0m    a           row 7     Copyable     b32
-    x           row 7     Copyable     b32
-    y           row 8     Copyable     b32
-    z           row 9     CopyableMut  b32
-    img         row 15    PureRef      datasets::cv::mnist::BinaryImage28
-    result      row 16    OwnedMut     Vec<datasets::cv::mnist::BinaryImage28>
-    unsearched  row 17    OwnedMut     datasets::cv::mnist::BinaryImage28
-    j           row 18    Copyable     i32
-    a           row 20    Copyable     b32
-    shift       row 21    Copyable     i32
-    mask        row 22    OwnedMut     datasets::cv::mnist::BinaryImage28
-    flag        row 24    CopyableMut  bool
-    k           row 25    Copyable     i32
+[0m    a           7:24..7:25  Copyable     b32
+    x           7:32..7:33  Copyable     b32
+    y           8:9..8:10  Copyable     b32
+    z           9:9..9:10  CopyableMut  b32
+    img         15:32..15:35  PureRef      datasets::cv::mnist::BinaryImage28
+    result      16:9..16:15  OwnedMut     Vec<datasets::cv::mnist::BinaryImage28>
+    unsearched  17:9..17:19  OwnedMut     datasets::cv::mnist::BinaryImage28
+    j           18:9..18:10  Copyable     i32
+    a           20:17..20:18  Copyable     b32
+    shift       21:17..21:22  Copyable     i32
+    mask        22:17..22:21  OwnedMut     datasets::cv::mnist::BinaryImage28
+    flag        24:17..24:21  CopyableMut  bool
+    k           25:22..25:23  Copyable     i32
 
 [35mlazy expr qualified types
 [0m    32:9..32:14    input                  GlobalRef datasets::cv::mnist::BinaryImage28

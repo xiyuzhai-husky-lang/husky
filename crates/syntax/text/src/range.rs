@@ -8,6 +8,7 @@ use test_utils::TestDisplay;
 use crate::*;
 use dev_utils::StaticDevSource;
 use serde::{Deserialize, Serialize};
+use std::fmt::Write;
 use word::CustomIdentifier;
 
 #[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -18,7 +19,7 @@ pub struct TextRange {
 
 impl TestDisplay for TextRange {
     fn write_inherent(&self, config: test_utils::TestDisplayConfig, result: &mut String) {
-        todo!()
+        write!(result, "{:?}", self).unwrap()
     }
 }
 

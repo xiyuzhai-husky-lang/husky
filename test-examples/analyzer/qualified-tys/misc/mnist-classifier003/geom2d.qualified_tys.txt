@@ -1,20 +1,20 @@
 
 [35meager variable qualified types
-[0m    other       row 8     PureRef      mnist_classifier003::geom2d::Point2d
-    other       row 14    PureRef      mnist_classifier003::geom2d::Point2d
-    other       row 24    PureRef      mnist_classifier003::geom2d::Vector2d
-    other       row 30    PureRef      mnist_classifier003::geom2d::Vector2d
-    other       row 33    PureRef      mnist_classifier003::geom2d::Vector2d
-    is_branch_cut_positive  row 36    Copyable     bool
-    cos_value   row 37    Copyable     f32
-    other       row 47    PureRef      mnist_classifier003::geom2d::Vector2d
-    cross       row 52    Copyable     f32
-    other       row 60    PureRef      mnist_classifier003::geom2d::Vector2d
-    is_branch_cut_positive  row 60    Copyable     bool
-    this_norm   row 61    Copyable     f32
-    other_norm  row 63    Copyable     f32
-    cos_value   row 65    Copyable     f32
-    arc_angle   row 72    Copyable     f32
+[0m    other       8:13..8:18  PureRef      mnist_classifier003::geom2d::Point2d
+    other       14:15..14:20  PureRef      mnist_classifier003::geom2d::Point2d
+    other       24:13..24:18  PureRef      mnist_classifier003::geom2d::Vector2d
+    other       30:14..30:19  PureRef      mnist_classifier003::geom2d::Vector2d
+    other       33:16..33:21  PureRef      mnist_classifier003::geom2d::Vector2d
+    is_branch_cut_positive  36:16..36:38  Copyable     bool
+    cos_value   37:9..37:18  Copyable     f32
+    other       47:32..47:37  PureRef      mnist_classifier003::geom2d::Vector2d
+    cross       52:9..52:14  Copyable     f32
+    other       60:19..60:24  PureRef      mnist_classifier003::geom2d::Vector2d
+    is_branch_cut_positive  60:36..60:58  Copyable     bool
+    this_norm   61:9..61:18  Copyable     f32
+    other_norm  63:9..63:19  Copyable     f32
+    cos_value   65:9..65:18  Copyable     f32
+    arc_angle   72:13..72:22  Copyable     f32
 
 [35mlazy expr qualified types
 [0m
