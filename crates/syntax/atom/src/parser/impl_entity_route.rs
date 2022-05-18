@@ -35,16 +35,17 @@ impl<'a> AtomParser<'a> {
                         ));
                         self.normal_route(route)?
                     }
-                    SymbolKind::Variable { init_row } => {
+                    SymbolKind::Variable { init_range } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::Variable,
                             token.range,
                         ));
                         match ident {
                             Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
-                            Identifier::Custom(varname) => {
-                                AtomVariant::Variable { varname, init_row }
-                            }
+                            Identifier::Custom(varname) => AtomVariant::Variable {
+                                varname,
+                                init_range,
+                            },
                         }
                     }
                     SymbolKind::Unrecognized(ident) => AtomVariant::Unrecognized(ident),
@@ -61,14 +62,14 @@ impl<'a> AtomParser<'a> {
                             opt_contract,
                         }
                     }
-                    SymbolKind::FrameVariable { init_row } => {
+                    SymbolKind::FrameVariable { init_range } => {
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::FrameVariable,
                             token.range,
                         ));
                         AtomVariant::FrameVariable {
                             varname: ident.custom(),
-                            init_row,
+                            init_range,
                         }
                     }
                 })

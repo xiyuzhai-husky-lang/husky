@@ -68,14 +68,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         ),
                         AstKind::RoutineDefnHead(ref head) => self.infer_routine(
                             &arena,
-                            &head.input_placeholders,
+                            &head.parameters,
                             children,
                             Some(head.output_ty.route),
                             head.output_contract,
                         ),
                         AstKind::TypeAssociatedRoutineDefnHead(ref head) => self.infer_routine(
                             &arena,
-                            &head.input_placeholders,
+                            &head.parameters,
                             children,
                             Some(head.output_ty.route),
                             head.output_contract,

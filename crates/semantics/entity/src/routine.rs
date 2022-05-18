@@ -14,7 +14,7 @@ impl EntityDefnVariant {
         Ok(match routine_defn_head.routine_kind {
             RoutineKeyword::Proc => {
                 let stmts = parse_impr_stmts(
-                    &routine_defn_head.input_placeholders,
+                    &routine_defn_head.parameters,
                     db.upcast(),
                     arena,
                     children,
@@ -22,14 +22,14 @@ impl EntityDefnVariant {
                 )?;
                 EntityDefnVariant::Proc {
                     generic_placeholders: routine_defn_head.generic_placeholders.clone(),
-                    input_placeholders: routine_defn_head.input_placeholders.clone(),
+                    input_placeholders: routine_defn_head.parameters.clone(),
                     output: routine_defn_head.output_ty,
                     stmts,
                 }
             }
             RoutineKeyword::Func => {
                 let stmts = parse_decl_stmts(
-                    &routine_defn_head.input_placeholders,
+                    &routine_defn_head.parameters,
                     db.upcast(),
                     arena,
                     children,
@@ -37,7 +37,7 @@ impl EntityDefnVariant {
                 )?;
                 EntityDefnVariant::Func {
                     generic_placeholders: routine_defn_head.generic_placeholders.clone(),
-                    input_placeholders: routine_defn_head.input_placeholders.clone(),
+                    input_placeholders: routine_defn_head.parameters.clone(),
                     output: routine_defn_head.output_ty,
                     stmts,
                 }

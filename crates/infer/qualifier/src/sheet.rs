@@ -7,7 +7,7 @@ use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use print_utils::{p, ps};
 use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
-use text::Row;
+use text::{Row, TextRange};
 use vec_map::VecPairMap;
 use word::Identifier;
 
@@ -16,9 +16,9 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct QualifiedTySheet {
     pub(crate) eager_variable_qualified_tys:
-        VecPairMap<(Identifier, Row), InferResult<EagerQualifiedTy>>,
+        VecPairMap<(Identifier, TextRange), InferResult<EagerQualifiedTy>>,
     pub(crate) lazy_variable_qualified_tys:
-        VecPairMap<(Identifier, Row), InferResult<LazyQualifiedTy>>,
+        VecPairMap<(Identifier, TextRange), InferResult<LazyQualifiedTy>>,
     pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerQualifiedTy>>,
     pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyQualifiedTy>>,
     pub(crate) contract_sheet: Arc<ContractSheet>,
@@ -58,11 +58,11 @@ impl QualifiedTySheet {
     pub fn eager_variable_qualified_ty(
         &self,
         varname: Identifier,
-        init_row: Row,
+        init_range: TextRange,
     ) -> InferResult<EagerQualifiedTy> {
         match derived_not_none!(self
             .eager_variable_qualified_tys
-            .get_entry((varname, init_row)))?
+            .get_entry((varname, init_range)))?
         .1
         {
             Ok(qt) => Ok(qt),

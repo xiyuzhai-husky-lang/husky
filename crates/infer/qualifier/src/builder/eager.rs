@@ -1,6 +1,6 @@
 use ast::*;
 use check_utils::should;
-use defn_head::InputPlaceholder;
+use defn_head::InputParameter;
 use entity_kind::EntityKind;
 use entity_route::EntityRoutePtr;
 use infer_error::{
@@ -16,7 +16,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn infer_routine(
         &mut self,
         arena: &RawExprArena,
-        inputs: &[InputPlaceholder],
+        inputs: &[InputParameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
         output_contract: OutputLiason,
@@ -25,31 +25,20 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_eager_stmts(arena, ast_iter, opt_output_ty, output_contract)
     }
 
-    fn add_eager_inputs(&mut self, inputs: &[InputPlaceholder]) {
-        if inputs.len() > 0 {
-            if let None = self
-                .qualified_ty_sheet
+    fn add_eager_inputs(&mut self, inputs: &[InputParameter]) {
+        for input in inputs {
+            let ty = input.ranged_ty.route;
+            self.qualified_ty_sheet
                 .eager_variable_qualified_tys
-                .get_entry((inputs[0].ident.ident.into(), inputs[0].ranged_ty.row()))
-            {
-                for input in inputs {
-                    let ty = input.ranged_ty.route;
-                    self.qualified_ty_sheet
-                        .eager_variable_qualified_tys
-                        .insert_new((
-                            (input.ident.ident.into(), inputs[0].ranged_ty.row()),
-                            (|| {
-                                (Ok(EagerQualifiedTy::new(
-                                    EagerQualifier::from_input(
-                                        input.contract,
-                                        self.db.is_copyable(ty)?,
-                                    ),
-                                    ty,
-                                )))
-                            })(),
-                        ));
-                }
-            }
+                .insert_new((
+                    (input.ident.ident.into(), input.ident.range),
+                    (|| {
+                        (Ok(EagerQualifiedTy::new(
+                            EagerQualifier::from_input(input.contract, self.db.is_copyable(ty)?),
+                            ty,
+                        )))
+                    })(),
+                ));
         }
     }
 
@@ -93,7 +82,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.qualified_ty_sheet
                         .eager_variable_qualified_tys
                         .insert_new((
-                            (frame_var.ident.into(), stmt.row()),
+                            (frame_var.ident.into(), frame_var.range),
                             Ok(EagerQualifiedTy {
                                 qual: EagerQualifier::Copyable,
                                 ty: EntityRoutePtr::Root(RootIdentifier::I32),
@@ -149,7 +138,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.qualified_ty_sheet
                         .eager_variable_qualified_tys
                         .insert_new((
-                            (varname.ident.into(), stmt.row()),
+                            (varname.ident.into(), varname.range),
                             initial_value_qualified_ty.use_for_init(init_kind),
                         ))
                 }
@@ -217,7 +206,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerQualifiedTy> {
         let raw_expr = &arena[raw_expr_idx];
         match raw_expr.variant {
-            RawExprVariant::Variable { varname, init_row } => match derived_not_none!(self
+            RawExprVariant::Variable {
+                varname,
+                init_range: init_row,
+            } => match derived_not_none!(self
                 .qualified_ty_sheet
                 .eager_variable_qualified_tys
                 .get_entry((varname.into(), init_row)))?

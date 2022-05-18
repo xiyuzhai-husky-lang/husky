@@ -9,7 +9,7 @@ use builder::EntityRouteSheetBuilder;
 use dev_utils::dev_src;
 use fold::FoldStorage;
 use infer_decl::MemberIdx;
-use text::Row;
+use text::{Row, TextRange};
 use word::CustomIdentifier;
 
 use super::*;
@@ -29,7 +29,7 @@ pub struct EntityRouteSheet {
     pub ast_text: Arc<AstText>,
     pub(crate) expr_tys: RawExprMap<InferResult<EntityRoutePtr>>,
     pub(crate) call_routes: RawExprMap<InferResult<EntityRoutePtr>>,
-    pub(crate) variable_tys: HashMap<(CustomIdentifier, Row), EntityRoutePtr>,
+    pub(crate) variable_tys: HashMap<(CustomIdentifier, TextRange), EntityRoutePtr>,
     pub(crate) extra_errors: Vec<InferError>,
 }
 

@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::*;
 use defn_head::{
-    GenericPlaceholder, GenericPlaceholderVariant, InputPlaceholder, RoutineDefnHead,
+    GenericPlaceholder, GenericPlaceholderVariant, InputParameter, RoutineDefnHead,
     TypeMethodDefnHead,
 };
 use entity_route::*;
@@ -45,7 +45,7 @@ impl<'a> AtomParser<'a> {
             ident: routine_ident,
             routine_kind: routine_keyword,
             generic_placeholders,
-            input_placeholders,
+            parameters: input_placeholders,
             output_ty,
             output_contract: OutputLiason::Transfer,
         })
@@ -104,12 +104,12 @@ impl<'a> AtomParser<'a> {
         })
     }
 
-    fn call_input_placeholders(&mut self) -> AtomResultArc<Vec<InputPlaceholder>> {
+    fn call_input_placeholders(&mut self) -> AtomResultArc<Vec<InputParameter>> {
         no_look_pass!(self, "(");
         Ok(Arc::new(comma_list!(self, call_input_placeholder!, ")")))
     }
 
-    fn call_input_placeholder(&mut self) -> AtomResult<InputPlaceholder> {
+    fn call_input_placeholder(&mut self) -> AtomResult<InputParameter> {
         let ident = get!(self, custom_ident);
         self.push_abs_semantic_token(AbsSemanticToken::new(
             SemanticTokenKind::Parameter,
@@ -121,7 +121,7 @@ impl<'a> AtomParser<'a> {
             route: get!(self, ty?),
             range: self.stream.pop_range(),
         };
-        Ok(InputPlaceholder {
+        Ok(InputParameter {
             ident,
             contract: InputContract::Pure,
             ranged_ty: ty,

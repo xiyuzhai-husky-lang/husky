@@ -205,7 +205,7 @@ impl EntityDefn {
         return builder.finish();
 
         fn extract_call_head_dependees(
-            inputs: &[InputPlaceholder],
+            inputs: &[InputParameter],
             output: RangedEntityRoute,
             builder: &mut DependeeMapBuilder,
         ) {

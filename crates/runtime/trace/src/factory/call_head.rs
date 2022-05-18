@@ -1,4 +1,4 @@
-use defn_head::InputPlaceholder;
+use defn_head::InputParameter;
 use word::{CustomIdentifier, Identifier};
 
 use super::*;
@@ -37,7 +37,7 @@ impl<'eval> TraceFactory<'eval> {
         fn routine_call_head_tokens<'eval>(
             routine_keyword: &'static str,
             ident: Identifier,
-            input_placeholders: &[InputPlaceholder],
+            input_placeholders: &[InputParameter],
             text: &Text,
         ) -> Vec<TokenProps<'eval>> {
             let mut tokens = vec![

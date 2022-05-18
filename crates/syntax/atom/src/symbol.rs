@@ -1,6 +1,6 @@
 use std::borrow::Cow;
 
-use defn_head::{GenericPlaceholder, GenericPlaceholderVariant, InputPlaceholder};
+use defn_head::{GenericPlaceholder, GenericPlaceholderVariant, InputParameter};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
 use entity_route_query::{EntityRouteQueryGroup, EntitySyntaxResult};
@@ -21,10 +21,12 @@ pub struct Symbol {
 }
 
 impl Symbol {
-    pub fn var(ident: CustomIdentifier, init_row: Row) -> Self {
+    pub fn variable(ranged_ident: RangedCustomIdentifier) -> Self {
         Self {
-            ident: ident.into(),
-            kind: SymbolKind::Variable { init_row },
+            ident: ranged_ident.ident.into(),
+            kind: SymbolKind::Variable {
+                init_range: ranged_ident.range,
+            },
         }
     }
 }
@@ -33,10 +35,10 @@ impl Symbol {
 pub enum SymbolKind {
     EntityRoute(EntityRoutePtr),
     Variable {
-        init_row: Row,
+        init_range: TextRange,
     },
     FrameVariable {
-        init_row: Row,
+        init_range: TextRange,
     },
     Unrecognized(CustomIdentifier),
     ThisData {
@@ -211,8 +213,8 @@ impl<'a> SymbolContext<'a> {
     pub fn input_placeholder_from_static(
         &self,
         static_input_placeholder: &StaticInputParameter,
-    ) -> InputPlaceholder {
-        InputPlaceholder {
+    ) -> InputParameter {
+        InputParameter {
             ident: RangedCustomIdentifier {
                 ident: self.db.intern_word(static_input_placeholder.name).custom(),
                 range: Default::default(),

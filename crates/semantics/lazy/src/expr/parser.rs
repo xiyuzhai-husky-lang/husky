@@ -63,7 +63,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => LazyExprKind::This,
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
@@ -327,7 +330,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             },
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::This { .. } => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
         }
     }
 

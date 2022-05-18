@@ -67,12 +67,7 @@ impl<'a> AstTransformer<'a> {
         self.symbols.extend(
             head.input_placeholders
                 .iter()
-                .map(|input_placeholder| Symbol {
-                    ident: input_placeholder.ident.ident,
-                    kind: SymbolKind::Variable {
-                        init_row: input_placeholder.ranged_ty.row(),
-                    },
-                }),
+                .map(|parameter| Symbol::variable(parameter.ident)),
         );
         Ok(AstKind::TypeMethodDefnHead(head))
     }
@@ -97,14 +92,9 @@ impl<'a> AstTransformer<'a> {
         self.opt_this_contract.set(None);
         self.opt_this_ty.set(None);
         self.symbols.extend(
-            head.input_placeholders
+            head.parameters
                 .iter()
-                .map(|input_placeholder| Symbol {
-                    ident: input_placeholder.ident.ident,
-                    kind: SymbolKind::Variable {
-                        init_row: input_placeholder.ranged_ty.row(),
-                    },
-                }),
+                .map(|parameter| Symbol::variable(parameter.ident)),
         );
         Ok(AstKind::TypeAssociatedRoutineDefnHead(head))
     }

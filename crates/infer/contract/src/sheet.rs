@@ -1,29 +1,30 @@
-use std::{collections::HashMap, sync::Arc};
-
+use arena::map::ArenaMap;
+use ast::RawExprMap;
 use fold::FoldStorage;
 use infer_entity_route::EntityRouteSheet;
 use infer_error::*;
+use std::{collections::HashMap, sync::Arc};
 
 use crate::{builder::ContractSheetBuilder, *};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ContractSheet {
     pub entity_route_sheet: Arc<EntityRouteSheet>,
-    pub(crate) lazy_expr_contract_results: HashMap<RawExprIdx, InferResult<LazyContract>>,
-    pub(crate) eager_expr_contract_results: HashMap<RawExprIdx, InferResult<EagerContract>>,
+    pub(crate) lazy_expr_contract_results: RawExprMap<InferResult<LazyContract>>,
+    pub(crate) eager_expr_contract_results: RawExprMap<InferResult<EagerContract>>,
 }
 
 impl ContractSheet {
     pub(crate) fn new(ty_sheet: Arc<EntityRouteSheet>) -> Self {
         Self {
+            lazy_expr_contract_results: ArenaMap::new(&ty_sheet.ast_text.arena),
+            eager_expr_contract_results: ArenaMap::new(&ty_sheet.ast_text.arena),
             entity_route_sheet: ty_sheet,
-            lazy_expr_contract_results: Default::default(),
-            eager_expr_contract_results: Default::default(),
         }
     }
 
     pub(crate) fn lazy_expr_contract(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyContract> {
-        if let Some(contract_result) = self.lazy_expr_contract_results.get(&raw_expr_idx) {
+        if let Some(contract_result) = self.lazy_expr_contract_results.get(raw_expr_idx) {
             contract_result.clone()
         } else {
             p!(self.entity_route_sheet.ast_text.arena[raw_expr_idx]);
@@ -35,7 +36,7 @@ impl ContractSheet {
         &self,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<EagerContract> {
-        if let Some(contract_result) = self.eager_expr_contract_results.get(&raw_expr_idx) {
+        if let Some(contract_result) = self.eager_expr_contract_results.get(raw_expr_idx) {
             contract_result.clone()
         } else {
             p!(self.entity_route_sheet.ast_text.arena[raw_expr_idx]);

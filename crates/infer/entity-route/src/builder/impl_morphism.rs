@@ -3,7 +3,7 @@ use super::*;
 impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_morphism(
         &mut self,
-        inputs: &[InputPlaceholder],
+        inputs: &[InputParameter],
         opt_output_ty: Option<EntityRoutePtr>,
         ast_iter: AstIter,
         arena: &RawExprArena,

@@ -10,7 +10,7 @@ pub struct TySheetVarEntry {
 }
 
 impl TySheetVarEntry {
-    pub(super) fn from_input(input_placeholder: &InputPlaceholder) -> Self {
+    pub(super) fn from_input(input_placeholder: &InputParameter) -> Self {
         TySheetVarEntry {
             opt_ty: Some(input_placeholder.ranged_ty.route),
             errors: vec![],

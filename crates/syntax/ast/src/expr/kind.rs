@@ -9,11 +9,11 @@ use vm::*;
 pub enum RawExprVariant {
     Variable {
         varname: CustomIdentifier,
-        init_row: Row,
+        init_range: TextRange,
     },
     FrameVariable {
         varname: CustomIdentifier,
-        init_row: Row,
+        init_range: TextRange,
     },
     This {
         opt_ty: Option<EntityRoutePtr>,

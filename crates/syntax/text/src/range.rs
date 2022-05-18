@@ -3,6 +3,7 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
+use test_utils::TestDisplay;
 
 use crate::*;
 use dev_utils::StaticDevSource;
@@ -13,6 +14,12 @@ use word::CustomIdentifier;
 pub struct TextRange {
     pub start: TextPosition,
     pub end: TextPosition,
+}
+
+impl TestDisplay for TextRange {
+    fn write_inherent(&self, config: test_utils::TestDisplayConfig, result: &mut String) {
+        todo!()
+    }
 }
 
 impl TextRange {

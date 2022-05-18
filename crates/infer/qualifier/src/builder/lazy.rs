@@ -1,6 +1,6 @@
 use ast::*;
 use check_utils::should;
-use defn_head::InputPlaceholder;
+use defn_head::InputParameter;
 use entity_kind::EntityKind;
 use infer_error::derived;
 use infer_error::derived_not_none;
@@ -16,7 +16,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn infer_morphism(
         &mut self,
         arena: &RawExprArena,
-        inputs: &[InputPlaceholder],
+        inputs: &[InputParameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
         output_contract: OutputLiason,
@@ -25,28 +25,20 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_lazy_stmts(arena, ast_iter, opt_output_ty, output_contract)
     }
 
-    fn add_lazy_inputs(&mut self, inputs: &[InputPlaceholder]) {
-        if inputs.len() > 0 {
-            if let None = self
-                .qualified_ty_sheet
+    fn add_lazy_inputs(&mut self, inputs: &[InputParameter]) {
+        for input in inputs {
+            let ty = input.ranged_ty.route;
+            self.qualified_ty_sheet
                 .lazy_variable_qualified_tys
-                .get_entry((inputs[0].ident.ident.into(), inputs[0].ranged_ty.row()))
-            {
-                for input in inputs {
-                    let ty = input.ranged_ty.route;
-                    self.qualified_ty_sheet
-                        .lazy_variable_qualified_tys
-                        .insert_new((
-                            (input.ident.ident.into(), inputs[0].ranged_ty.row()),
-                            self.db.is_copyable(ty).map(|is_copyable| {
-                                LazyQualifiedTy::new(
-                                    LazyQualifier::from_input(input.contract, is_copyable),
-                                    ty,
-                                )
-                            }),
-                        ));
-                }
-            }
+                .insert_new((
+                    (input.ident.ident.into(), input.ident.range),
+                    self.db.is_copyable(ty).map(|is_copyable| {
+                        LazyQualifiedTy::new(
+                            LazyQualifier::from_input(input.contract, is_copyable),
+                            ty,
+                        )
+                    }),
+                ));
         }
     }
 
@@ -106,7 +98,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.qualified_ty_sheet
                         .lazy_variable_qualified_tys
                         .insert_new((
-                            (varname.ident.into(), varname.row()),
+                            (varname.ident.into(), varname.range),
                             qt.use_for_init(init_kind),
                         ));
                 }
@@ -167,16 +159,22 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let raw_expr = &arena[raw_expr_idx];
         let ty = self.raw_expr_ty(raw_expr_idx)?;
         match raw_expr.variant {
-            RawExprVariant::Variable { varname, init_row } => match derived_not_none!(self
+            RawExprVariant::Variable {
+                varname,
+                init_range,
+            } => match derived_not_none!(self
                 .qualified_ty_sheet
                 .lazy_variable_qualified_tys
-                .get_entry((varname.into(), init_row)))?
+                .get_entry((varname.into(), init_range)))?
             .1
             {
                 Ok(qt) => Ok(qt),
                 Err(ref e) => Err(e.derived()),
             },
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
             RawExprVariant::This {
                 opt_ty,
                 opt_contract,

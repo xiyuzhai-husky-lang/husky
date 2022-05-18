@@ -29,14 +29,9 @@ impl<'a> AstTransformer<'a> {
             }
         };
         self.symbols.extend(
-            head.input_placeholders
+            head.parameters
                 .iter()
-                .map(|input_placeholder| Symbol {
-                    ident: input_placeholder.ident.ident,
-                    kind: SymbolKind::Variable {
-                        init_row: input_placeholder.ranged_ty.row(),
-                    },
-                }),
+                .map(|parameter| Symbol::variable(parameter.ident)),
         );
         Ok(AstKind::RoutineDefnHead(head))
     }

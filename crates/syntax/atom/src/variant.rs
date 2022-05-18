@@ -17,11 +17,11 @@ pub enum AtomVariant {
     },
     Variable {
         varname: CustomIdentifier,
-        init_row: Row,
+        init_range: TextRange,
     },
     FrameVariable {
         varname: CustomIdentifier,
-        init_row: Row,
+        init_range: TextRange,
     },
     ThisData {
         opt_ty: Option<EntityRoutePtr>,

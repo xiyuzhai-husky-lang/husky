@@ -61,7 +61,7 @@ pub enum LazyStmtVariant {
 }
 
 pub fn parse_lazy_stmts(
-    input_placeholders: &[InputPlaceholder],
+    input_placeholders: &[InputParameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,

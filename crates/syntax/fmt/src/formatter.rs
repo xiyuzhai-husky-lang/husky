@@ -1,7 +1,7 @@
 use std::ops::AddAssign;
 
 use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtVariant};
-use defn_head::InputPlaceholder;
+use defn_head::InputParameter;
 use entity_kind::TyKind;
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
@@ -115,11 +115,11 @@ impl<'a> Formatter<'a> {
                 });
                 self.write(&head.ident.ident);
                 self.write("(");
-                for i in 0..head.input_placeholders.len() {
+                for i in 0..head.parameters.len() {
                     if i > 0 {
                         self.write(", ");
                     }
-                    let input_placeholder = &head.input_placeholders[i];
+                    let input_placeholder = &head.parameters[i];
                     self.fmt_ident(input_placeholder.ident.ident.into());
                     self.write(": ");
                     self.fmt_func_input_contracted_type(input_placeholder);
@@ -164,7 +164,7 @@ impl<'a> Formatter<'a> {
         self.fmt_ty(ty);
     }
 
-    fn fmt_func_input_contracted_type(&mut self, ty: &InputPlaceholder) {
+    fn fmt_func_input_contracted_type(&mut self, ty: &InputParameter) {
         match ty.contract {
             InputContract::Pure => (),
             InputContract::GlobalRef => self.write("&"),
@@ -293,7 +293,10 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[expr])
             }
             RawExprVariant::This { .. } => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
         }
     }
 

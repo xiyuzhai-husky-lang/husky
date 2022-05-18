@@ -94,13 +94,14 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::FrameVariable { varname, init_row } => todo!(),
+            RawExprVariant::FrameVariable {
+                varname,
+                init_range: init_row,
+            } => todo!(),
         };
-        should!(self
-            .contract_sheet
+        self.contract_sheet
             .lazy_expr_contract_results
-            .insert(expr_idx, infer_result.map(|_| contract))
-            .is_none());
+            .insert_new(expr_idx, infer_result.map(|_| contract));
     }
 
     fn infer_lazy_opn(

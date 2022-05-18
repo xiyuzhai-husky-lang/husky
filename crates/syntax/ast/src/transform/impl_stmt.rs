@@ -148,8 +148,7 @@ impl<'a> AstTransformer<'a> {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
                     let varname = identify!(self, token_group[0], SemanticTokenKind::Variable);
-                    self.symbols
-                        .push(Symbol::var(varname.ident, token_group[0].row()));
+                    self.symbols.push(Symbol::variable(varname));
                     RawStmt {
                         range: token_group.text_range(),
                         variant: RawStmtVariant::Init {
@@ -212,8 +211,7 @@ impl<'a> AstTransformer<'a> {
         }
         expect_at_least!(tokens, kw_range, 3);
         let varname = identify!(self, &tokens[0], SemanticTokenKind::Variable);
-        self.symbols
-            .push(Symbol::var(varname.ident, tokens[0].row()));
+        self.symbols.push(Symbol::variable(varname));
         expect_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtVariant::Init {
@@ -315,7 +313,7 @@ impl<'a> AstTransformer<'a> {
                         self.symbols.push(Symbol {
                             ident: frame_var.ident,
                             kind: SymbolKind::FrameVariable {
-                                init_row: token_group[0].row(),
+                                init_range: frame_var.range,
                             },
                         });
                         Ok(kind)

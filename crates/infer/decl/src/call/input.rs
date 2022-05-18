@@ -38,7 +38,7 @@ impl InputDecl {
     }
 }
 
-impl Into<InputDecl> for &InputPlaceholder {
+impl Into<InputDecl> for &InputParameter {
     fn into(self) -> InputDecl {
         InputDecl {
             contract: self.contract,

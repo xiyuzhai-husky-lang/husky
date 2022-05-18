@@ -61,7 +61,7 @@ impl EntityDefnVariant {
                         ref field_variant,
                         contract,
                     } => match field_variant {
-                        FieldDefnVariant::RecordOriginal => InputPlaceholder {
+                        FieldDefnVariant::RecordOriginal => InputParameter {
                             ident,
                             contract:
                                 contract.constructor_input_contract(db.is_copyable(ty).unwrap()),
@@ -90,7 +90,7 @@ impl EntityDefnVariant {
                         ref field_variant,
                         contract,
                     } => match field_variant {
-                        FieldDefnVariant::StructOriginal => InputPlaceholder {
+                        FieldDefnVariant::StructOriginal => InputParameter {
                             ident,
                             contract:
                                 contract.constructor_input_contract(db.is_copyable(ty).unwrap()),
