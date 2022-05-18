@@ -459,9 +459,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         total_opds: &RawExprRange,
         total_range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
-        if total_opds.end - total_opds.start != 2 {
-            todo!()
+        if total_opds.end - total_opds.start < 2 {
+            throw!(format!("expect indices inside `[]`"), total_range);
         }
+        if total_opds.end - total_opds.start > 2 {}
         let this_ty = derived_not_none!(self.infer_expr(total_opds.start, None, arena))?;
         let index_ty = derived_not_none!(self.infer_expr(total_opds.start + 1, None, arena))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
