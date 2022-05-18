@@ -30,7 +30,7 @@ impl<'a> EagerStmtParser<'a> {
                         RawStmtVariant::PatternBranch {
                             ref pattern_branch_variant,
                         } => todo!(),
-                        RawStmtVariant::Exec(_) => todo!(),
+                        RawStmtVariant::Exec { .. } => todo!(),
                         RawStmtVariant::Init {
                             varname,
                             initial_value,

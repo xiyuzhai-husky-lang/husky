@@ -30,7 +30,10 @@ pub enum RawStmtVariant {
     PatternBranch {
         pattern_branch_variant: RawPatternBranchVariant,
     },
-    Exec(RawExprIdx),
+    Exec {
+        expr: RawExprIdx,
+        silent: bool,
+    },
     Init {
         init_kind: InitKind,
         varname: RangedCustomIdentifier,

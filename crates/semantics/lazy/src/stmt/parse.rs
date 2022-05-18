@@ -88,7 +88,7 @@ impl<'a> LazyStmtParser<'a> {
                             condition_branch_kind,
                         )?,
                         RawStmtVariant::PatternBranch { .. } => panic!(),
-                        RawStmtVariant::Exec(_) => todo!(),
+                        RawStmtVariant::Exec { .. } => todo!(),
                         RawStmtVariant::Init {
                             varname,
                             initial_value,
