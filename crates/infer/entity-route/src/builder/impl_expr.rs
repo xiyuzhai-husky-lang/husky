@@ -37,17 +37,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 varname,
                 init_range,
             } => {
-                let opt_ty = self
+                derived_not_none!(self
                     .entity_route_sheet
                     .variable_tys
                     .get(&(varname, init_range))
-                    .map(|route| *route);
-                if opt_ty.is_none() {
-                    p!(self.entity_route_sheet.variable_tys);
-                    p!(varname, init_range);
-                    panic!()
-                }
-                derived_not_none!(opt_ty)
+                    .map(|route| *route))
             }
             RawExprVariant::Unrecognized(ident) => Err(InferError {
                 variant: InferErrorVariant::Original {

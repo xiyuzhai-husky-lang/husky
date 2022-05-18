@@ -1,51 +1,51 @@
 
 [35meager variable qualified types
-[0m    row         row 18    Copyable     b32
-    j           row 18    Copyable     i32
-    row         row 21    Copyable     b32
-    j           row 21    Copyable     i32
-    row         row 24    Copyable     b32
-    j           row 24    Copyable     i32
-    row_above   row 27    Copyable     b32
-    row_below   row 27    Copyable     b32
-    j           row 27    Copyable     i32
-    pixel_pair_above  row 28    Copyable     b32
-    pixel_pair_below  row 29    Copyable     b32
-    inward      row 54    PureRef      mnist_classifier003::raw_contour::Direction
-    outward     row 54    PureRef      mnist_classifier003::raw_contour::Direction
-    row_above   row 63    Copyable     b32
-    row_below   row 63    Copyable     b32
-    j           row 63    Copyable     i32
-    inward_direction  row 63    PureRef      mnist_classifier003::raw_contour::Direction
-    pixel_pair_above  row 68    Copyable     b32
-    pixel_pair_below  row 69    Copyable     b32
-    contour     row 113   PureRef      mnist_classifier003::raw_contour::RawContour
-    N           row 114   Copyable     i32
-    p0          row 115   PureRef      mnist_classifier003::geom2d::Point2d
-    p2          row 116   PureRef      mnist_classifier003::geom2d::Point2d
-    cc          row 122   PureRef      datasets::cv::mnist::BinaryImage28
-    result      row 123   OwnedMut     Vec<mnist_classifier003::raw_contour::RawContour>
-    i           row 125   Copyable     i32
-    r_ur        row 126   Copyable     b32
-    r_dr        row 127   Copyable     b32
-    r_ul        row 128   Copyable     b32
-    r_dl        row 129   Copyable     b32
-    k           row 131   Copyable     i32
-    contour     row 133   OwnedMut     Vec<mnist_classifier003::geom2d::Point2d>
-    i           row 134   CopyableMut  i32
-    row_above   row 137   CopyableMut  b32
-    row_below   row 138   CopyableMut  b32
-    inward_direction  row 140   OwnedMut     mnist_classifier003::raw_contour::Direction
-    i0          row 142   Copyable     i32
-    dir0        row 144   Owned        mnist_classifier003::raw_contour::Direction
-    prev_angle_change1  row 145   CopyableMut  i32
-    prev_angle_change2  row 146   CopyableMut  i32
-    total_angle_change  row 147   CopyableMut  i32
-    prev_streak1  row 150   CopyableMut  i32
-    prev_streak2  row 151   CopyableMut  i32
-    current_streak  row 152   CopyableMut  i32
-    outward_direction  row 155   Owned        mnist_classifier003::raw_contour::Direction
-    angle_change  row 156   Copyable     i32
+[0m    row         18:21..18:24  Copyable     b32
+    j           18:31..18:32  Copyable     i32
+    row         21:28..21:31  Copyable     b32
+    j           21:38..21:39  Copyable     i32
+    row         24:29..24:32  Copyable     b32
+    j           24:39..24:40  Copyable     i32
+    row_above   27:27..27:36  Copyable     b32
+    row_below   27:43..27:52  Copyable     b32
+    j           27:59..27:60  Copyable     i32
+    pixel_pair_above  28:5..28:21  Copyable     b32
+    pixel_pair_below  29:5..29:21  Copyable     b32
+    inward      54:23..54:29  PureRef      mnist_classifier003::raw_contour::Direction
+    outward     54:42..54:49  PureRef      mnist_classifier003::raw_contour::Direction
+    row_above   63:5..63:14  Copyable     b32
+    row_below   64:5..64:14  Copyable     b32
+    j           65:5..65:6  Copyable     i32
+    inward_direction  66:5..66:21  PureRef      mnist_classifier003::raw_contour::Direction
+    pixel_pair_above  68:5..68:21  Copyable     b32
+    pixel_pair_below  69:5..69:21  Copyable     b32
+    contour     113:31..113:38  PureRef      mnist_classifier003::raw_contour::RawContour
+    N           114:5..114:6  Copyable     i32
+    p0          115:5..115:7  PureRef      mnist_classifier003::geom2d::Point2d
+    p2          116:5..116:7  PureRef      mnist_classifier003::geom2d::Point2d
+    cc          122:24..122:26  PureRef      datasets::cv::mnist::BinaryImage28
+    result      123:9..123:15  OwnedMut     Vec<mnist_classifier003::raw_contour::RawContour>
+    i           125:14..125:15  Copyable     i32
+    r_ur        126:13..126:17  Copyable     b32
+    r_dr        127:13..127:17  Copyable     b32
+    r_ul        128:13..128:17  Copyable     b32
+    r_dl        129:13..129:17  Copyable     b32
+    k           131:14..131:15  Copyable     i32
+    contour     133:17..133:24  OwnedMut     Vec<mnist_classifier003::geom2d::Point2d>
+    i           134:17..134:18  CopyableMut  i32
+    row_above   137:17..137:26  CopyableMut  b32
+    row_below   138:17..138:26  CopyableMut  b32
+    inward_direction  140:17..140:33  OwnedMut     mnist_classifier003::raw_contour::Direction
+    i0          142:17..142:19  Copyable     i32
+    dir0        144:17..144:21  Owned        mnist_classifier003::raw_contour::Direction
+    prev_angle_change1  145:17..145:35  CopyableMut  i32
+    prev_angle_change2  146:17..146:35  CopyableMut  i32
+    total_angle_change  147:17..147:35  CopyableMut  i32
+    prev_streak1  150:17..150:29  CopyableMut  i32
+    prev_streak2  151:17..151:29  CopyableMut  i32
+    current_streak  152:17..152:31  CopyableMut  i32
+    outward_direction  155:21..155:38  Owned        mnist_classifier003::raw_contour::Direction
+    angle_change  156:21..156:33  Copyable     i32
 
 [35mlazy expr qualified types
 [0m
@@ -97,10 +97,10 @@
     58:13..58:29   raw_angle_change       InferError: expect not none
     60:13..60:15   -1                     Copyable     i32
     68:39..68:48   row_above              Copyable     b32
-    68:50..68:51   j                      InferError: expect not none
+    68:50..68:51   j                      Copyable     i32
     68:24..68:52   get_pixel_pair(row_above, j)   Copyable     b32
-    69:39..69:48   row_below              InferError: expect not none
-    69:50..69:51   j                      InferError: expect not none
+    69:39..69:48   row_below              Copyable     b32
+    69:50..69:51   j                      Copyable     i32
     69:24..69:52   get_pixel_pair(row_below, j)   Copyable     b32
     70:11..70:27   pixel_pair_above       Copyable     b32
     72:19..72:35   pixel_pair_below       Copyable     b32
@@ -109,13 +109,13 @@
     78:19..78:35   pixel_pair_below       Copyable     b32
     80:21..80:37   Direction::RIGHT       Copyable     mnist_classifier003::raw_contour::Direction
     82:21..82:36   Direction::DOWN        Copyable     mnist_classifier003::raw_contour::Direction
-    84:27..84:43   inward_direction       InferError: expect not none
+    84:27..84:43   inward_direction       PureRef      mnist_classifier003::raw_contour::Direction
     86:29..86:44   Direction::LEFT        Copyable     mnist_classifier003::raw_contour::Direction
     88:29..88:45   Direction::RIGHT       Copyable     mnist_classifier003::raw_contour::Direction
     90:21..90:36   Direction::LEFT        Copyable     mnist_classifier003::raw_contour::Direction
     92:19..92:35   pixel_pair_below       Copyable     b32
     94:21..94:34   Direction::UP          Copyable     mnist_classifier003::raw_contour::Direction
-    96:27..96:43   inward_direction       InferError: expect not none
+    96:27..96:43   inward_direction       PureRef      mnist_classifier003::raw_contour::Direction
     98:29..98:42   Direction::UP          Copyable     mnist_classifier003::raw_contour::Direction
     100:29..100:44 Direction::DOWN        Copyable     mnist_classifier003::raw_contour::Direction
     102:19..102:35 pixel_pair_below       Copyable     b32
