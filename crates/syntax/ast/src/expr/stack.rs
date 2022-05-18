@@ -233,7 +233,7 @@ impl<'a> ExprStack<'a> {
             end_attr,
             (true_start..end).into(),
             opds,
-        ));
+        )?);
         Ok(())
     }
 
