@@ -33,7 +33,7 @@ impl EagerQualifiedTy {
     pub(crate) fn ty_qualified_ty() -> Self {
         Self {
             qual: EagerQualifier::GlobalRef,
-            ty: EntityRoutePtr::Root(RootIdentifier::Type),
+            ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
         }
     }
     pub(crate) fn from_input(

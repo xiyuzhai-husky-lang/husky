@@ -48,7 +48,7 @@ fn is_implicitly_castable(
                     | RootIdentifier::FnOnce
                     | RootIdentifier::Array
                     | RootIdentifier::DatasetType
-                    | RootIdentifier::Type => false,
+                    | RootIdentifier::TypeType => false,
                     _ => panic!(),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
@@ -76,12 +76,13 @@ fn is_implicitly_castable(
                 },
                 _ => false,
             },
-            RootIdentifier::Type => todo!(),
+            RootIdentifier::TypeType => todo!(),
             RootIdentifier::Datasets => panic!(),
             RootIdentifier::CloneTrait => todo!(),
             RootIdentifier::CopyTrait => todo!(),
             RootIdentifier::PartialEqTrait => todo!(),
             RootIdentifier::EqTrait => todo!(),
+            RootIdentifier::ModuleType => todo!(),
         },
         EntityRoutePtr::Custom(_) => {
             msg_once!("handle convertible");

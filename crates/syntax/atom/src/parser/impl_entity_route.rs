@@ -179,7 +179,8 @@ impl<'a> AtomParser<'a> {
                 | RootIdentifier::Array
                 | RootIdentifier::Tuple
                 | RootIdentifier::DatasetType => self.angled_generics(),
-                RootIdentifier::Type => todo!(),
+                RootIdentifier::TypeType => todo!(),
+                RootIdentifier::ModuleType => todo!(),
             },
             _ => match self
                 .symbol_context
