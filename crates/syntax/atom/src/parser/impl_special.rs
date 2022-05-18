@@ -21,7 +21,7 @@ impl<'a> AtomParser<'a> {
                 if self.stack.is_concave() {
                     let lambda_head = self.lambda_head()?;
                     self.stack.push(Atom::new(
-                        (token.text_start()..self.stream.opt_range.unwrap().end).into(),
+                        self.stream.pop_range(),
                         AtomVariant::LambdaHead(lambda_head),
                     ))
                 } else {

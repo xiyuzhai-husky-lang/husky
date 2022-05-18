@@ -20,37 +20,46 @@ use vm::{BinaryOpr, Bracket, PureBinaryOpr};
 
 #[derive(Debug, Clone)]
 pub(crate) struct TokenStream<'a> {
-    pub(crate) iter: Peekable<core::slice::Iter<'a, Token>>,
-    opt_range: Option<TextRange>,
+    pub(crate) tokens: &'a [Token],
+    start: usize,
+    next: usize,
 }
 
 impl<'a> TokenStream<'a> {
     pub(crate) fn next(&mut self) -> Option<&'a Token> {
-        if let Some(token) = self.iter.next() {
-            if let Some(range) = &mut self.opt_range {
-                range.end = token.text_end()
-            } else {
-                self.opt_range = Some(token.range)
-            }
-            Some(token)
+        if self.next < self.tokens.len() {
+            let next = self.next;
+            self.next += 1;
+            Some(&self.tokens[next])
         } else {
             None
         }
     }
 
+    pub(crate) fn next_range(&self) -> TextRange {
+        if self.next < self.tokens.len() {
+            self.tokens[self.next].range
+        } else {
+            let last_token_range = self.tokens.last().unwrap().range;
+            (last_token_range.end..(last_token_range.end.to_right(4))).into()
+        }
+    }
+
     pub(crate) fn pop_range(&mut self) -> TextRange {
-        let range = self.opt_range.unwrap();
-        self.opt_range = None;
-        range
+        should!(self.start < self.next);
+        let start = self.start;
+        self.start = self.next;
+        self.tokens[start..self.next].text_range()
     }
 
     pub(crate) fn peek_next_bra(&mut self) -> Option<Bracket> {
-        match self.iter.peek() {
-            Some(token) => match token.kind {
+        if self.next < self.tokens.len() {
+            match self.tokens[self.next].kind {
                 TokenKind::Special(special) => special.opt_bra(),
                 _ => None,
-            },
-            _ => None,
+            }
+        } else {
+            None
         }
     }
 }
@@ -58,8 +67,9 @@ impl<'a> TokenStream<'a> {
 impl<'a> From<&'a [Token]> for TokenStream<'a> {
     fn from(tokens: &'a [Token]) -> Self {
         Self {
-            iter: tokens.iter().peekable(),
-            opt_range: Some(tokens.text_range()),
+            tokens,
+            start: 0,
+            next: 0,
         }
     }
 }
