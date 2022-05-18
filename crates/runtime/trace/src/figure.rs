@@ -2,9 +2,9 @@ mod control;
 mod graphics2d;
 
 pub use control::*;
+pub use graphics2d::*;
 
 use crate::*;
-use graphics2d::*;
 use map_collect::MapCollect;
 use visual_runtime::RuntimeVisualizer;
 use visual_syntax::VisualProps;
@@ -74,6 +74,12 @@ impl FigureProps {
                 yrange: (0.0, 28.0),
             },
             VisualProps::Primitive { value } => FigureProps::Primitive { value },
+            VisualProps::BinaryGrid28 { ref padded_rows } => FigureProps::Graphics2d {
+                image: None,
+                shape_groups: vec![Shape2dGroup::laser_grid28(padded_rows)],
+                xrange: (0.0, 28.0),
+                yrange: (0.0, 28.0),
+            },
         }
     }
 

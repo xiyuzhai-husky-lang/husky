@@ -27,3 +27,9 @@ pub struct Shape2dGroup {
 pub enum Shape2d {
     Arrow { from: Point2d, to: Point2d },
 }
+
+impl Shape2dGroup {
+    pub fn laser_grid28(padded_rows: &[u32; 31]) -> Shape2dGroup {
+        todo!()
+    }
+}
