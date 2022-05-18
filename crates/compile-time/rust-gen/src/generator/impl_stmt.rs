@@ -171,6 +171,7 @@ impl<'a> RustGenerator<'a> {
                 }
             },
             ProcStmtVariant::Break => todo!(),
+            ProcStmtVariant::Match { ref branches } => todo!(),
         }
     }
 

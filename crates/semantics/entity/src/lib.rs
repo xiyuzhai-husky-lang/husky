@@ -32,7 +32,7 @@ use fold::{FoldIterItem, FoldStorage};
 use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
-use semantics_lazy::{LazyExpr, LazyExprKind, LazyOpnKind, LazyStmt, LazyStmtVariant};
+use semantics_lazy::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
@@ -291,7 +291,7 @@ pub(crate) fn main_defn(
 ) -> SemanticResultArc<MainDefn> {
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.iter() {
-        match item.value.as_ref()?.kind {
+        match item.value.as_ref()?.variant {
             AstKind::MainDefn => {
                 return Ok(Arc::new(MainDefn {
                     stmts: parse_lazy_stmts(
@@ -346,7 +346,7 @@ pub(crate) fn entity_defn(
                 .unwrap();
             let ast_head = value.as_ref()?;
 
-            let (ident, entity_kind) = match ast_head.kind {
+            let (ident, entity_kind) = match ast_head.variant {
                 AstKind::TypeDefnHead {
                     ident,
                     kind,
@@ -367,7 +367,13 @@ pub(crate) fn entity_defn(
                 }
                 AstKind::RoutineDefnHead(ref head) => (
                     head.ident,
-                    EntityDefnVariant::routine(db, head, not_none!(children), arena, file)?,
+                    EntityDefnVariant::routine(
+                        db.upcast(),
+                        head,
+                        not_none!(children),
+                        arena,
+                        file,
+                    )?,
                 ),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),

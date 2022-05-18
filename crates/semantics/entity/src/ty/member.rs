@@ -44,7 +44,7 @@ impl EntityDefnVariant {
     ) -> SemanticResult<()> {
         while let Some(child) = children.next() {
             let ast = child.value.as_ref()?;
-            match ast.kind {
+            let (ident, variant): (CustomIdentifier, _) = match ast.variant {
                 AstKind::TypeDefnHead {
                     ident,
                     kind,
@@ -54,11 +54,21 @@ impl EntityDefnVariant {
                 AstKind::RoutineDefnHead(_) => todo!(),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::FeatureDecl { ident, ty } => todo!(),
+                AstKind::TypeAssociatedRoutineDefnHead(ref routine_defn_head) => (
+                    routine_defn_head.ident.ident,
+                    EntityDefnVariant::routine(
+                        db,
+                        routine_defn_head,
+                        child.opt_children.unwrap(),
+                        arena,
+                        file,
+                    )?,
+                ),
                 AstKind::TypeMethodDefnHead(ref head) => {
                     let method_source = match head.routine_kind {
                         RoutineKeyword::Proc => todo!(),
                         RoutineKeyword::Func => {
-                            let stmts = semantics_eager::parse_decl_stmts(
+                            let stmts = semantics_eager::parse_func_stmts(
                                 &head.input_placeholders,
                                 db,
                                 arena,
@@ -72,8 +82,8 @@ impl EntityDefnVariant {
                         ty: ty_route,
                         method_source,
                     };
-                    members.insert_new(EntityDefn::new(
-                        head.ident.ident.into(),
+                    (
+                        head.ident.ident,
                         EntityDefnVariant::Method {
                             input_placeholders: head.input_placeholders.clone(),
                             output_ty: head.output_ty,
@@ -82,39 +92,19 @@ impl EntityDefnVariant {
                             output_contract: OutputLiason::Transfer,
                             generic_placeholders: head.generic_placeholders.clone(),
                         },
-                        db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteKind::Child {
-                                parent: ty_route,
-                                ident: head.ident.ident,
-                            },
-                            generic_arguments: vec![],
-                        }),
-                        file,
-                        ast.range,
-                    ))
+                    )
                 }
                 AstKind::Use { .. } => todo!(),
-                AstKind::FieldDefnHead(ref field_defn_head) => {
-                    members.insert_new(EntityDefn::new(
-                        field_defn_head.ident.ident.into(),
-                        EntityDefnVariant::type_field_from_ast(
-                            db,
-                            arena,
-                            file,
-                            field_defn_head,
-                            child.opt_children.clone(),
-                        )?,
-                        db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteKind::Child {
-                                parent: ty_route,
-                                ident: field_defn_head.ident.ident,
-                            },
-                            generic_arguments: vec![],
-                        }),
+                AstKind::FieldDefnHead(ref field_defn_head) => (
+                    field_defn_head.ident.ident,
+                    EntityDefnVariant::type_field_from_ast(
+                        db,
+                        arena,
                         file,
-                        ast.range,
-                    ));
-                }
+                        field_defn_head,
+                        child.opt_children.clone(),
+                    )?,
+                ),
                 AstKind::DatasetConfigDefnHead => todo!(),
                 AstKind::Stmt(_) => todo!(),
                 AstKind::EnumVariantDefnHead {
@@ -122,8 +112,14 @@ impl EntityDefnVariant {
                     variant_class,
                 } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
-            }
+            };
+            members.insert_new(EntityDefn::new(
+                ident.into(),
+                variant,
+                db.make_subroute(ty_route, ident, Vec::new()),
+                file,
+                ast.range,
+            ))
         }
         Ok(())
     }

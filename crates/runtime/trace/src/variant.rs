@@ -96,6 +96,7 @@ impl<'eval> TraceVariant<'eval> {
                 ProcStmtVariant::Loop { .. } => true,
                 ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Break => false,
+                ProcStmtVariant::Match { ref branches } => todo!(),
             },
             TraceVariant::LoopFrame { .. }
             | TraceVariant::Main(_)
@@ -147,6 +148,7 @@ impl<'eval> TraceVariant<'eval> {
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::This => todo!(),
+                EagerExprVariant::EnumLiteral(_) => todo!(),
             },
             TraceVariant::CallHead { .. } => false,
             TraceVariant::ProcBranch {
@@ -201,6 +203,7 @@ impl<'eval> TraceVariant<'eval> {
                 ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
                 ProcStmtVariant::Return { ref result } => history.contains(result),
+                ProcStmtVariant::Match { ref branches } => todo!(),
             },
             TraceVariant::LoopFrame {
                 loop_stmt,

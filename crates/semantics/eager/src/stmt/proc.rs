@@ -63,6 +63,9 @@ pub enum ProcStmtVariant {
     Return {
         result: Arc<EagerExpr>,
     },
+    Match {
+        branches: Vec<Arc<ProcPatternBranch>>,
+    },
 }
 
 pub fn parse_impr_stmts(

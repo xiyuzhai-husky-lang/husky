@@ -121,7 +121,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
     ) -> AstResult<Ast> {
         Ok(Ast {
             range: token_group.text_range(),
-            kind: match self.context() {
+            variant: match self.context() {
                 AstContext::Package(_) | AstContext::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?
                 }

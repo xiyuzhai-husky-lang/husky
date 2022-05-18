@@ -209,6 +209,7 @@ pub trait CreateTrace<'eval>: AskCompileTime {
                 ref opds,
             } => todo!(),
             EagerExprVariant::Lambda(_, _) => todo!(),
+            EagerExprVariant::EnumLiteral(_) => todo!(),
         }
     }
 

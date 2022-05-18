@@ -44,6 +44,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 },
                 expr.clone(),
             )),
+            EagerExprVariant::EnumLiteral(_) => todo!(),
         }
     }
 

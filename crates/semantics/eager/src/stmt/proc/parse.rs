@@ -26,7 +26,7 @@ impl<'a> EagerStmtParser<'a> {
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             let instruction_id = InstructionId::default();
-            stmts.push(Arc::new(match item.value.as_ref()?.kind {
+            stmts.push(Arc::new(match item.value.as_ref()?.variant {
                 AstKind::TypeDefnHead { .. } => todo!(),
                 AstKind::MainDefn => todo!(),
                 AstKind::DatasetConfigDefnHead => todo!(),
@@ -96,7 +96,10 @@ impl<'a> EagerStmtParser<'a> {
                 condition: self.parse_eager_expr(condition)?,
             }),
             RawStmtVariant::Break => Ok(ProcStmtVariant::Break),
-            RawStmtVariant::Match { .. } => todo!(),
+            RawStmtVariant::Match {
+                match_expr,
+                match_contract,
+            } => self.parse_proc_match(stmt, not_none!(children), match_expr, match_contract),
             RawStmtVariant::PatternBranch { .. } => {
                 panic!("pattern branch must be inside match stmt")
             }
@@ -126,7 +129,7 @@ impl<'a> EagerStmtParser<'a> {
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
-            let item = match item.value.as_ref()?.kind {
+            let item = match item.value.as_ref()?.variant {
                 AstKind::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
@@ -141,7 +144,7 @@ impl<'a> EagerStmtParser<'a> {
                 },
                 _ => break,
             };
-            match item.value.as_ref()?.kind {
+            match item.value.as_ref()?.variant {
                 AstKind::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
@@ -244,6 +247,47 @@ impl<'a> EagerStmtParser<'a> {
                     stmts: self.parse_proc_stmts(children)?,
                 }
             }
+        })
+    }
+
+    fn parse_proc_match(
+        &mut self,
+        stmt: &RawStmt,
+        children: AstIter,
+        match_expr: RawExprIdx,
+        match_contract: MatchContract,
+    ) -> SemanticResult<ProcStmtVariant> {
+        Ok(ProcStmtVariant::Match {
+            branches: children
+                .map(|item| {
+                    let value = item.value.as_ref().unwrap();
+                    match value.variant {
+                        AstKind::Stmt(RawStmt {
+                            variant:
+                                RawStmtVariant::PatternBranch {
+                                    ref pattern_branch_variant,
+                                },
+                            range,
+                        }) => Ok(Arc::new(match pattern_branch_variant {
+                            RawPatternBranchVariant::Case { pattern } => ProcPatternBranch {
+                                variant: ProcPatternBranchVariant::Case {
+                                    pattern: pattern.clone(),
+                                },
+                                stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
+                                range,
+                                file: self.file,
+                            },
+                            RawPatternBranchVariant::Default => ProcPatternBranch {
+                                variant: ProcPatternBranchVariant::Default,
+                                stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
+                                range,
+                                file: self.file,
+                            },
+                        })),
+                        _ => panic!(),
+                    }
+                })
+                .collect::<SemanticResult<Vec<_>>>()?,
         })
     }
 }

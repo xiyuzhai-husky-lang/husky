@@ -48,7 +48,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for item in ast_iter {
             if let Some(children) = item.opt_children {
                 match item.value {
-                    Ok(value) => match value.kind {
+                    Ok(value) => match value.variant {
                         AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
                             self.infer_ast(children, arena)
                         }

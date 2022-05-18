@@ -172,7 +172,7 @@ impl TyDecl {
     ) -> InferQueryResult<IdentDict<EnumVariantDecl>> {
         let mut variants = VecMap::default();
         while let Some(child) = children.peek() {
-            match child.value.as_ref()?.kind {
+            match child.value.as_ref()?.variant {
                 AstKind::EnumVariantDefnHead {
                     ident,
                     variant_class: ref raw_variant_kind,
@@ -196,7 +196,7 @@ impl TyDecl {
         members: &mut IdentDict<TyMemberDecl>,
     ) -> InferQueryResult<()> {
         while let Some(child) = children.peek() {
-            match child.value.as_ref()?.kind {
+            match child.value.as_ref()?.variant {
                 AstKind::FieldDefnHead(ref field_defn_head) => {
                     match field_defn_head.kind {
                         FieldKind::StructOriginal | FieldKind::RecordOriginal => (),
@@ -218,7 +218,7 @@ impl TyDecl {
         members: &mut IdentDict<TyMemberDecl>,
     ) -> InferQueryResult<()> {
         while let Some(child) = children.next() {
-            match child.value.as_ref()?.kind {
+            match child.value.as_ref()?.variant {
                 AstKind::TypeDefnHead {
                     ident,
                     kind,
@@ -579,7 +579,7 @@ pub(crate) fn ty_decl(
                 .next()
                 .unwrap();
             let ast = item.value.as_ref()?;
-            match ast.kind {
+            match ast.variant {
                 AstKind::TypeDefnHead {
                     kind,
                     ref generic_placeholders,

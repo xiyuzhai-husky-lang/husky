@@ -43,7 +43,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     EntityRoutePtr::Root(RootIdentifier::False) => {
                         EagerExprVariant::PrimitiveLiteral(PrimitiveValue::Bool(false))
                     }
-                    EntityRoutePtr::Custom(_) => todo!(),
+                    EntityRoutePtr::Custom(_) => EagerExprVariant::EnumLiteral(route),
                     _ => todo!(),
                 },
                 EntityKind::Type(_) => todo!(),

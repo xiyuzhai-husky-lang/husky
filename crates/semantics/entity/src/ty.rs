@@ -32,7 +32,7 @@ impl EntityDefnVariant {
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
-        let (ident, kind, generic_placeholders) = match head.kind {
+        let (ident, kind, generic_placeholders) = match head.variant {
             AstKind::TypeDefnHead {
                 ident,
                 kind,
@@ -220,7 +220,7 @@ impl EntityDefnVariant {
         let mut variants = VecMap::default();
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
-            match ast.kind {
+            match ast.variant {
                 AstKind::EnumVariantDefnHead {
                     ident,
                     variant_class: raw_variant_kind,

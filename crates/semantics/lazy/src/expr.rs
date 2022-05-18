@@ -18,7 +18,7 @@ pub struct LazyExpr {
     pub file: FilePtr,
     pub range: TextRange,
     pub ty: EntityRoutePtr,
-    pub kind: LazyExprKind,
+    pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
     pub contract: LazyContract,
 }
@@ -38,7 +38,7 @@ impl InstructionSource for LazyExpr {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LazyExprKind {
+pub enum LazyExprVariant {
     Variable(CustomIdentifier),
     Scope {
         scope: EntityRoutePtr,

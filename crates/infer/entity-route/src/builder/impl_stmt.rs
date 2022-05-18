@@ -14,7 +14,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         self.enter_block();
         for item in ast_iter {
             if let Ok(ref value) = item.value {
-                match value.kind {
+                match value.variant {
                     AstKind::Stmt(ref stmt) => match stmt.variant {
                         RawStmtVariant::Match { match_expr, .. } => {
                             let opt_match_expr_ty = self.infer_expr(match_expr, None, arena);
@@ -133,7 +133,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) {
         for item in branch_ast_iter {
             if let Ok(ref ast) = item.value.as_ref() {
-                match ast.kind {
+                match ast.variant {
                     AstKind::Stmt(RawStmt {
                         variant:
                             RawStmtVariant::PatternBranch {
@@ -165,7 +165,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         ..
                     }) => (),
                     _ => {
-                        p!(ast.kind);
+                        p!(ast.variant);
                         panic!()
                     }
                 }

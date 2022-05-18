@@ -33,7 +33,7 @@ impl EntityDefnVariant {
     ) -> SemanticResult<()> {
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
-            match ast.kind {
+            match ast.variant {
                 AstKind::FieldDefnHead(ref field_defn_head) => {
                     match field_defn_head.kind {
                         FieldKind::StructOriginal => (),

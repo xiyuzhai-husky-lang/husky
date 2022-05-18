@@ -77,7 +77,7 @@ impl<'a> Formatter<'a> {
 
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &ast::Ast, enter_block: impl FnOnce(&mut Self)) {
-        match ast.kind {
+        match ast.variant {
             AstKind::TypeDefnHead {
                 ident,
                 ref kind,

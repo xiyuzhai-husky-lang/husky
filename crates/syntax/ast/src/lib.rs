@@ -27,7 +27,7 @@ use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
-    pub kind: AstKind,
+    pub variant: AstKind,
     pub range: TextRange,
 }
 
@@ -73,7 +73,7 @@ impl From<RawStmt> for Ast {
     fn from(stmt: RawStmt) -> Self {
         Self {
             range: stmt.range,
-            kind: AstKind::Stmt(stmt),
+            variant: AstKind::Stmt(stmt),
         }
     }
 }
