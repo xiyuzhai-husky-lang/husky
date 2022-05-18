@@ -1,10 +1,12 @@
 mod b32;
 mod f32_;
+mod i32_;
 mod static_std;
 mod vec;
 
 pub use b32::*;
 pub use f32_::*;
+pub use i32_::*;
 pub use static_std::*;
 pub use vec::*;
 
@@ -48,22 +50,6 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "void",
-        generic_placeholders: &[],
-        trait_impls: &[],
-        type_members: &[],
-        variants: &[],
-        kind: TyKind::Primitive,
-        visualizer: TRIVIAL_VISUALIZER,
-        opt_type_call: None,
-    },
-    dev_src: static_dev_src!(),
-};
-
-pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "i32",
-    subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
-        base_route: "i32",
         generic_placeholders: &[],
         trait_impls: &[],
         type_members: &[],

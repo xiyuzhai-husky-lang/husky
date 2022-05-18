@@ -111,7 +111,14 @@ fn is_explicitly_castable(
     let src_ty_decl = db.ty_decl(src_ty)?;
     let dst_ty_decl = db.ty_decl(dst_ty)?;
     match src_ty_decl.kind {
-        TyKind::Enum => todo!(),
+        TyKind::Enum => match dst_ty {
+            EntityRoutePtr::Root(dst_ty_ident) => match dst_ty_ident {
+                RootIdentifier::I32 | RootIdentifier::B32 | RootIdentifier::B64 => Ok(true),
+                _ => todo!(),
+            },
+            EntityRoutePtr::Custom(_) => todo!(),
+            EntityRoutePtr::ThisType => todo!(),
+        },
         TyKind::Record => todo!(),
         TyKind::Struct => todo!(),
         TyKind::Primitive => todo!(),
