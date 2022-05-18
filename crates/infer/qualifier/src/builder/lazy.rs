@@ -361,7 +361,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             match this_qt.qual {
                 LazyQualifier::Copyable => todo!(),
                 LazyQualifier::PureRef => todo!(),
-                LazyQualifier::GlobalRef => todo!(),
+                LazyQualifier::GlobalRef => LazyQualifier::GlobalRef,
                 LazyQualifier::Transient => todo!(),
             }
         };
