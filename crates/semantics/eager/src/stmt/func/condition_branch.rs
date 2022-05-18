@@ -2,12 +2,12 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncConditionBranch {
-    pub kind: FuncConditionBranchKind,
+    pub variant: FuncConditionBranchVariant,
     pub stmts: Arc<Vec<Arc<FuncStmt>>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum FuncConditionBranchKind {
+pub enum FuncConditionBranchVariant {
     If { condition: Arc<EagerExpr> },
     Elif { condition: Arc<EagerExpr> },
     Else,

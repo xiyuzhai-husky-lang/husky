@@ -81,7 +81,7 @@ impl InputContract {
             OutputLiason::Transfer => Ok(match self {
                 InputContract::Pure => LazyContract::Pure,
                 InputContract::GlobalRef => todo!(),
-                InputContract::Move => LazyContract::Move,
+                InputContract::Move => todo!(),
                 InputContract::BorrowMut => todo!(),
                 InputContract::MoveMut => todo!(),
                 InputContract::Exec => todo!(),
@@ -109,9 +109,13 @@ pub enum EagerContract {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LazyContract {
-    Move,
+    Init,
+    Return,
+    UseMemberForInit,
+    UseMemberForReturn,
     GlobalRef,
     Pure,
+    Move,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

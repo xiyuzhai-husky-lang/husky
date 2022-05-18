@@ -375,6 +375,16 @@ pub(crate) fn entity_defn(
                         file,
                     )?,
                 ),
+                AstKind::TypeAssociatedRoutineDefnHead(ref head) => (
+                    head.ident,
+                    EntityDefnVariant::routine(
+                        db.upcast(),
+                        head,
+                        not_none!(children),
+                        arena,
+                        file,
+                    )?,
+                ),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::MainDefn | AstKind::DatasetConfigDefnHead | AstKind::Stmt(_) => panic!(),
@@ -393,7 +403,6 @@ pub(crate) fn entity_defn(
                     EntityDefnVariant::feature(db, ty, not_none!(children), arena, file)?,
                 ),
                 AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
             };
             Ok(EntityDefn::new(
                 ident.ident.into(),
