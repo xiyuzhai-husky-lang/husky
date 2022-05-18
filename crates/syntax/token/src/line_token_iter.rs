@@ -223,6 +223,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             },
             '~' => (1, Special::BitNot),
             '.' => (1, Special::MemberAccess),
+            ';' => (1, Special::Semicolon),
             '%' => (1, Special::Modulo),
             '-' => match self.peek_char() {
                 '=' => self.pass_two(Special::SubAssign),

@@ -44,6 +44,7 @@ pub enum Special {
     BitOrAssign,       // |=
     Exclamation,       // !
     DoubleExclamation, // !!
+    Semicolon,         // ;
 }
 
 impl Special {
@@ -91,6 +92,7 @@ impl Special {
             Special::BitOrAssign => "|=",
             Special::BitAndAssign => "&=",
             Special::DoubleExclamation => "!!",
+            Special::Semicolon => ";",
         }
     }
 

@@ -89,6 +89,7 @@ impl<'a> MatchPatternParser<'a> {
                 AtomVariant::ListEnd(_, _) => todo!(),
                 AtomVariant::ListItem => todo!(),
                 AtomVariant::LambdaHead(_) => todo!(),
+                AtomVariant::SilentEnd => todo!(),
             })
         } else {
             None

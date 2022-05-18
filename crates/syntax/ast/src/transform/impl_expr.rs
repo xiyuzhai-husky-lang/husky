@@ -43,6 +43,7 @@ impl<'a> AstTransformer<'a> {
                 AtomVariant::LambdaHead(ref args) => {
                     stack.accept_lambda_head(args.clone(), atom.text_start())
                 }
+                AtomVariant::SilentEnd => return err!(format!("unexpected `;`"), atom.range),
             }
         }
         stack.finish()

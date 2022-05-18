@@ -88,8 +88,16 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => todo!(),
                 RawPatternBranchVariant::Default => todo!(),
             },
-            RawStmtVariant::Exec(expr) => {
-                self.infer_expr(expr, Some(RootIdentifier::Void.into()), arena);
+            RawStmtVariant::Exec { expr, silent } => {
+                self.infer_expr(
+                    expr,
+                    if silent {
+                        None
+                    } else {
+                        Some(RootIdentifier::Void.into())
+                    },
+                    arena,
+                );
             }
             RawStmtVariant::Init {
                 varname,

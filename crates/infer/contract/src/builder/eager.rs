@@ -82,7 +82,15 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => self.infer_eager_pattern(pattern),
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec(expr) => self.infer_eager_expr(expr, EagerContract::Exec, arena),
+            RawStmtVariant::Exec { expr, silent } => self.infer_eager_expr(
+                expr,
+                if silent {
+                    EagerContract::Pure
+                } else {
+                    EagerContract::Exec
+                },
+                arena,
+            ),
             RawStmtVariant::Init { initial_value, .. } => {
                 self.infer_eager_expr(initial_value, EagerContract::LetInit, arena);
             }
@@ -208,8 +216,11 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             BinaryOpr::Assign(_) => {
                 match contract {
-                    EagerContract::Exec => (),
-                    _ => todo!(),
+                    EagerContract::Exec | EagerContract::Pure => (),
+                    _ => {
+                        p!(contract, arena[opds.start]);
+                        todo!()
+                    }
                 }
                 self.infer_eager_expr(lopd, EagerContract::RefMut, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);

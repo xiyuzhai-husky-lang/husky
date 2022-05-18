@@ -1,4 +1,3 @@
-204:30..204:31	Ast Error: unrecognized char `;`
 58:13..58:29	Infer Error: expect i32 but get b32 instead
 124:31..124:43	Infer Error: unrecognized caller
 58:13..58:29	Infer Error: expect return type to be `i32`,

@@ -96,7 +96,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec(_) => todo!(),
+            RawStmtVariant::Exec { .. } => todo!(),
             RawStmtVariant::Init {
                 init_kind,
                 varname,

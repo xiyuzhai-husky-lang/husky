@@ -36,6 +36,7 @@ pub enum AtomVariant {
     ListEnd(Bracket, ListEndAttr),
     ListItem,
     LambdaHead(Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>),
+    SilentEnd,
 }
 
 pub type LambdaHead = Vec<(Identifier, Option<RangedEntityRoute>)>;
@@ -106,6 +107,7 @@ impl From<Special> for AtomVariant {
             Special::Incr => AtomVariant::Suffix(SuffixOpr::Incr),
             Special::Decr => AtomVariant::Suffix(SuffixOpr::Decr),
             Special::Comma => AtomVariant::ListItem,
+            Special::Semicolon => AtomVariant::SilentEnd,
         }
     }
 }

@@ -1,3 +1,2 @@
-204:30..204:31	Ast Error: unrecognized char `;`
 55:61..55:67	Infer Error: no method named `bitmod` for type `i32`
 124:31..124:43	Infer Error: unrecognized caller

@@ -166,10 +166,21 @@ impl<'a> AstTransformer<'a> {
                     }
                 }
             }
-            AstContext::Routine(RoutineKeyword::Proc) => RawStmt {
-                range: token_group.text_range(),
-                variant: RawStmtVariant::Exec(self.parse_expr(token_group)?),
-            },
+            AstContext::Routine(RoutineKeyword::Proc) => {
+                let (expr_tokens, silent) = match token_group.last().unwrap().kind {
+                    TokenKind::Special(Special::Semicolon) => {
+                        (&token_group[..(token_group.len() - 1)], true)
+                    }
+                    _ => (token_group, false),
+                };
+                RawStmt {
+                    range: token_group.text_range(),
+                    variant: RawStmtVariant::Exec {
+                        expr: self.parse_expr(expr_tokens)?,
+                        silent,
+                    },
+                }
+            }
             AstContext::Struct | AstContext::Enum(_) => panic!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),

@@ -1,3 +1,4 @@
-11:14..11:15	Ast Error: unrecognized char `;`
 30:63..30:66	Infer Error: Unrecognized identifier `img`
 38:63..38:66	Infer Error: Unrecognized identifier `img`
+11:9..11:14	Infer Error: lopd is not mutable
+11:9..11:14	Infer Error: lopd is not mutable

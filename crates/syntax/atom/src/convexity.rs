@@ -23,7 +23,8 @@ pub(super) fn left_side_convexity(kind: &AtomVariant) -> Convexity {
         | AtomVariant::Binary(_)
         | AtomVariant::ListStart(_, ListStartAttr::Attach)
         | AtomVariant::ListStart(_, ListStartAttr::MethodAttach { .. })
-        | AtomVariant::ListItem => Convexity::Concave,
+        | AtomVariant::ListItem
+        | AtomVariant::SilentEnd => Convexity::Concave,
     }
 }
 
@@ -37,7 +38,8 @@ pub(super) fn right_side_convexity(kind: &AtomVariant) -> Convexity {
         | AtomVariant::PrimitiveLiteral(_)
         | AtomVariant::Suffix(_)
         | AtomVariant::ListEnd(_, ListEndAttr::None)
-        | AtomVariant::ListEnd(_, ListEndAttr::Modulo) => Convexity::Convex,
+        | AtomVariant::ListEnd(_, ListEndAttr::Modulo)
+        | AtomVariant::SilentEnd => Convexity::Convex,
         AtomVariant::Prefix(_)
         | AtomVariant::Binary(_)
         | AtomVariant::ListStart(_, _)
