@@ -4,6 +4,7 @@ mod geom2d
 
 use datasets::cv::mnist::BinaryImage28
 use connected_components::find_connected_components
+use raw_contour::find_raw_contours
 
 dataset:
     cv::mnist::new_binary_dataset()
@@ -14,5 +15,5 @@ main:
     c = a[12]
     connected_components = find_connected_components(input)
     connected_component = connected_components[0]
-    raw_contour
-    connected_components.len()
+    raw_contours = find_raw_contours(connected_component)
+    raw_contours.len()

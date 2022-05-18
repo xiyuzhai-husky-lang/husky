@@ -121,6 +121,10 @@ impl<'a> FeatureExprBuilder<'a> {
                                 LazyContract::Move => *move_access,
                                 LazyContract::GlobalRef => *ref_access,
                                 LazyContract::Pure => *ref_access,
+                                LazyContract::Init => todo!(),
+                                LazyContract::Return => todo!(),
+                                LazyContract::UseMemberForInit => todo!(),
+                                LazyContract::UseMemberForReturn => todo!(),
                             },
                             LinkageSource::Transfer(linkage) => *linkage,
                         },
@@ -265,15 +269,21 @@ impl<'a> FeatureExprBuilder<'a> {
             linkage: self.db.element_access_linkage(
                 opds.map(|opd| opd.expr.ty),
                 match opds[0].expr.contract {
-                    LazyContract::Move => todo!(),
+                    LazyContract::Move => {
+                        p!(opds[0].expr.file, opds[0].expr.range);
+                        todo!()
+                    }
                     LazyContract::GlobalRef => todo!(),
-                    LazyContract::Pure => {
+                    LazyContract::Init => todo!(),
+                    LazyContract::Return => todo!(),
+                    LazyContract::Pure | LazyContract::UseMemberForInit => {
                         if self.db.is_copyable(expr.ty).unwrap() {
                             MemberAccessKind::Copy
                         } else {
                             MemberAccessKind::Ref
                         }
                     }
+                    LazyContract::UseMemberForReturn => todo!(),
                 },
             ),
             opds,

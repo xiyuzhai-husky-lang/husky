@@ -1,3 +1,4 @@
+use ast::{CasePattern, CasePatternVariant};
 use entity_route::EntityRouteKind;
 use print_utils::emsg_once;
 use semantics_error::*;
@@ -229,47 +230,53 @@ impl EntityDefn {
             }
         }
 
-        fn extract_func_stmts_dependees(stmts: &[Arc<FuncStmt>], v: &mut DependeeMapBuilder) {
+        fn extract_func_stmts_dependees(stmts: &[Arc<FuncStmt>], builder: &mut DependeeMapBuilder) {
             for stmt in stmts {
                 match stmt.variant {
                     FuncStmtVariant::Init {
                         varname,
                         initial_value: ref value,
-                    } => extract_eager_expr_dependees(value, v),
+                    } => extract_eager_expr_dependees(value, builder),
                     FuncStmtVariant::Assert { ref condition } => {
-                        extract_eager_expr_dependees(condition, v)
+                        extract_eager_expr_dependees(condition, builder)
                     }
                     FuncStmtVariant::Return { ref result } => {
-                        extract_eager_expr_dependees(result, v)
+                        extract_eager_expr_dependees(result, builder)
                     }
                     FuncStmtVariant::ConditionFlow { ref branches } => {
                         for branch in branches {
-                            extract_func_stmts_dependees(&branch.stmts, v)
+                            extract_func_stmts_dependees(&branch.stmts, builder)
                         }
                     }
-                    FuncStmtVariant::Match { ref branches } => todo!(),
+                    FuncStmtVariant::Match { ref branches } => {
+                        for branch in branches {
+                            extract_func_pattern_branch_dependees(branch, builder)
+                        }
+                    }
                 }
             }
         }
 
-        fn extract_proc_stmts_dependees(stmts: &[Arc<ProcStmt>], v: &mut DependeeMapBuilder) {
+        fn extract_proc_stmts_dependees(stmts: &[Arc<ProcStmt>], builder: &mut DependeeMapBuilder) {
             for stmt in stmts {
                 match stmt.variant {
                     ProcStmtVariant::Init {
                         varname,
                         ref initial_value,
                         ..
-                    } => extract_eager_expr_dependees(initial_value, v),
+                    } => extract_eager_expr_dependees(initial_value, builder),
                     ProcStmtVariant::Assert { ref condition } => {
-                        extract_eager_expr_dependees(condition, v)
+                        extract_eager_expr_dependees(condition, builder)
                     }
                     ProcStmtVariant::Return { ref result } => {
-                        extract_eager_expr_dependees(result, v)
+                        extract_eager_expr_dependees(result, builder)
                     }
-                    ProcStmtVariant::Execute { ref expr } => extract_eager_expr_dependees(expr, v),
+                    ProcStmtVariant::Execute { ref expr } => {
+                        extract_eager_expr_dependees(expr, builder)
+                    }
                     ProcStmtVariant::ConditionFlow { ref branches } => {
                         for branch in branches {
-                            extract_proc_stmts_dependees(&branch.stmts, v)
+                            extract_proc_condition_branch_dependees(branch, builder)
                         }
                     }
                     ProcStmtVariant::Loop {
@@ -282,25 +289,29 @@ impl EntityDefn {
                                 ref final_boundary,
                                 ..
                             } => {
-                                extract_boundary_dependees(initial_boundary, v);
-                                extract_boundary_dependees(final_boundary, v);
+                                extract_boundary_dependees(initial_boundary, builder);
+                                extract_boundary_dependees(final_boundary, builder);
                             }
                             LoopVariant::ForExt {
                                 ref final_boundary, ..
                             } => {
-                                extract_boundary_dependees(final_boundary, v);
+                                extract_boundary_dependees(final_boundary, builder);
                             }
                             LoopVariant::While { condition } => {
-                                extract_eager_expr_dependees(condition, v)
+                                extract_eager_expr_dependees(condition, builder)
                             }
                             LoopVariant::DoWhile { condition } => {
-                                extract_eager_expr_dependees(condition, v)
+                                extract_eager_expr_dependees(condition, builder)
                             }
                         }
-                        extract_proc_stmts_dependees(stmts, v)
+                        extract_proc_stmts_dependees(stmts, builder)
                     }
                     ProcStmtVariant::Break => (),
-                    ProcStmtVariant::Match { ref branches } => todo!(),
+                    ProcStmtVariant::Match { ref branches } => {
+                        for branch in branches {
+                            extract_proc_pattern_branch_dependees(branch, builder)
+                        }
+                    }
                 }
             }
         }
@@ -336,7 +347,7 @@ impl EntityDefn {
         fn extract_eager_expr_dependees(expr: &EagerExpr, builder: &mut DependeeMapBuilder) {
             match expr.variant {
                 EagerExprVariant::Variable(_) => (),
-                EagerExprVariant::EntityRoute { route: scope } => builder.push(scope),
+                EagerExprVariant::EntityRoute { route } => builder.push(route),
                 EagerExprVariant::PrimitiveLiteral(_) => (),
                 EagerExprVariant::Bracketed(ref expr) => {
                     extract_eager_expr_dependees(expr, builder)
@@ -365,7 +376,7 @@ impl EntityDefn {
                 }
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::This => builder.push(expr.ty),
-                EagerExprVariant::EnumLiteral(_) => todo!(),
+                EagerExprVariant::EnumLiteral(_) => builder.push(expr.ty),
             }
         }
 
@@ -381,7 +392,9 @@ impl EntityDefn {
             builder: &mut DependeeMapBuilder,
         ) {
             match variant_defn.variant {
-                EntityDefnVariant::EnumVariant { .. } => todo!(),
+                EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
+                    EnumVariantDefnVariant::Constant => (),
+                },
                 _ => panic!(),
             }
         }
@@ -425,6 +438,68 @@ impl EntityDefn {
             //     MethodDefnVariant::Proc { ref stmts } => todo!(),
             //     MethodDefnVariant::Pattern { ref stmts } => todo!(),
             // }
+        }
+
+        fn extract_proc_condition_branch_dependees(
+            branch: &ProcConditionBranch,
+            builder: &mut DependeeMapBuilder,
+        ) {
+            match branch.variant {
+                ProcConditionBranchVariant::If { ref condition } => {
+                    extract_eager_expr_dependees(condition, builder)
+                }
+                ProcConditionBranchVariant::Elif { ref condition } => {
+                    extract_eager_expr_dependees(condition, builder)
+                }
+                ProcConditionBranchVariant::Else => (),
+            }
+            extract_proc_stmts_dependees(&branch.stmts, builder)
+        }
+
+        fn extract_proc_pattern_branch_dependees(
+            branch: &ProcPatternBranch,
+            builder: &mut DependeeMapBuilder,
+        ) {
+            match branch.variant {
+                ProcPatternBranchVariant::Case { ref pattern } => {
+                    extract_case_pattern_dependees(pattern, builder)
+                }
+                ProcPatternBranchVariant::Default => (),
+            }
+            extract_proc_stmts_dependees(&branch.stmts, builder)
+        }
+
+        fn extract_func_condition_branch_dependees(
+            branch: &FuncConditionBranch,
+            builder: &mut DependeeMapBuilder,
+        ) {
+            match branch.variant {
+                FuncConditionBranchVariant::If { ref condition } => {
+                    extract_eager_expr_dependees(condition, builder)
+                }
+                FuncConditionBranchVariant::Elif { ref condition } => {
+                    extract_eager_expr_dependees(condition, builder)
+                }
+                FuncConditionBranchVariant::Else => todo!(),
+            }
+            extract_func_stmts_dependees(&branch.stmts, builder)
+        }
+
+        fn extract_func_pattern_branch_dependees(
+            branch: &FuncPatternBranch,
+            builder: &mut DependeeMapBuilder,
+        ) {
+            match branch.variant {
+                FuncPatternBranchVariant::Case { ref pattern } => {
+                    extract_case_pattern_dependees(pattern, builder)
+                }
+                FuncPatternBranchVariant::Default => todo!(),
+            }
+            extract_func_stmts_dependees(&branch.stmts, builder)
+        }
+
+        fn extract_case_pattern_dependees(pattern: &CasePattern, builder: &mut DependeeMapBuilder) {
+            builder.push(pattern.ty)
         }
     }
 }

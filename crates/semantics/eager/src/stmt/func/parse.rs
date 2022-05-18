@@ -82,7 +82,7 @@ impl<'a> EagerStmtParser<'a> {
         match condition_branch_kind {
             RawConditionBranchKind::If { condition } => {
                 branches.push(Arc::new(FuncConditionBranch {
-                    kind: FuncConditionBranchKind::If {
+                    variant: FuncConditionBranchVariant::If {
                         condition: self.parse_eager_expr(condition)?,
                     },
                     stmts: self.parse_func_stmts(children)?,
@@ -116,7 +116,7 @@ impl<'a> EagerStmtParser<'a> {
                     }
                     RawConditionBranchKind::Else => {
                         branches.push(Arc::new(FuncConditionBranch {
-                            kind: FuncConditionBranchKind::Else,
+                            variant: FuncConditionBranchVariant::Else,
                             stmts: self.parse_func_stmts(not_none!(item.opt_children))?,
                         }));
                         break;
