@@ -300,14 +300,13 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_expr(
                     opd,
                     match contract {
-                        EagerContract::Pure => contract,
+                        EagerContract::Pure | EagerContract::Return => contract,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => todo!(),
                         EagerContract::LetInit => todo!(),
                         EagerContract::VarInit => todo!(),
                         EagerContract::UseMemberForLetInit => todo!(),
                         EagerContract::UseMemberForVarInit => todo!(),
-                        EagerContract::Return => todo!(),
                         EagerContract::RefMut => todo!(),
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
