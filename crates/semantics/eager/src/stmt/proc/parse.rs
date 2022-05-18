@@ -145,7 +145,7 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
-                            ref condition_branch_kind,
+                            condition_branch_kind,
                         },
                     ..
                 }) => match condition_branch_kind {
@@ -154,7 +154,14 @@ impl<'a> EagerStmtParser<'a> {
                         if branches.len() == 0 {
                             todo!()
                         }
-                        todo!()
+                        branches.push(Arc::new(ProcConditionBranch {
+                            variant: ProcConditionBranchVariant::Elif {
+                                condition: self.parse_eager_expr(condition)?,
+                            },
+                            stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
+                            range: stmt.range,
+                            file: self.file,
+                        }));
                     }
                     RawConditionBranchKind::Else => {
                         branches.push(Arc::new(ProcConditionBranch {
