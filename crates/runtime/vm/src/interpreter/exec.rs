@@ -19,10 +19,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     ty,
                     varname,
                 } => {
-                    if ins.src.text_range().start.j() == 31 {
-                        p!(ins.src.text_range());
-                        ps!(sheet.variable_stack.compare_with_vm_stack(&self.stack));
-                    }
                     let value = self.stack.push_variable(stack_idx, binding);
                     match mode {
                         Mode::Fast => (),
