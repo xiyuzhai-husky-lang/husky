@@ -18,10 +18,16 @@ pub enum HistoryEntry<'eval> {
         body_instruction_sheet: Arc<InstructionSheet>,
         mutations: Vec<MutationData<'eval>>,
     },
-    BranchGroup {
+    ConditionFlow {
         opt_branch_entered: Option<u8>,
-        branches: Avec<VMConditionBranch>,
         vm_branches: Avec<VMConditionBranch>,
+        control: ControlSnapshot<'eval>,
+        stack_snapshot: StackSnapshot<'eval>,
+        mutations: Vec<MutationData<'eval>>,
+    },
+    PatternMatching {
+        opt_branch_entered: Option<u8>,
+        vm_branches: Avec<VMPatternBranch>,
         control: ControlSnapshot<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
         mutations: Vec<MutationData<'eval>>,
@@ -40,11 +46,12 @@ impl<'eval> HistoryEntry<'eval> {
                 mutations[0].after.clone()
             }
             HistoryEntry::Loop { .. } => todo!(),
-            HistoryEntry::BranchGroup {
+            HistoryEntry::ConditionFlow {
                 opt_branch_entered: enter,
                 ..
             } => todo!(),
             HistoryEntry::Break => todo!(),
+            HistoryEntry::PatternMatching { .. } => todo!(),
         }
     }
 

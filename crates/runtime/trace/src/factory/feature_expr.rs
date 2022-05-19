@@ -95,7 +95,7 @@ impl<'eval> TraceFactory<'eval> {
                 _ => panic!(""),
             },
             FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
-            FeatureExprKind::EnumLiteral { .. } => todo!(),
+            FeatureExprKind::EnumKindLiteral { .. } => todo!(),
             FeatureExprKind::EntityFeature { .. } => todo!(),
             FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
             FeatureExprKind::RecordOriginalFieldAccess {

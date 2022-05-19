@@ -53,13 +53,13 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             let this_value: &BinaryGrid28 =
                                                 values[0].downcast_ref();
                                             let index_value: usize = values[1]
-                                                .as_primitive()
-                                                .as_i32()
+                                                .primitive()
+                                                .take_i32()
                                                 .try_into()
                                                 .expect("todo");
                                             this_value
                                                 .get(index_value)
-                                                .map(|v| StackValue::Primitive(v.into()))
+                                                .map(|v| StackValue::Copyable(v.into()))
                                                 .ok_or(VMRuntimeError {
                                                     message: "todo".into(),
                                                 })
@@ -77,8 +77,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                     ref_mut_access: Linkage {
                                         call: |values| {
                                             let index_value: usize = values[1]
-                                                .as_primitive()
-                                                .as_i32()
+                                                .primitive()
+                                                .take_i32()
                                                 .try_into()
                                                 .expect("todo");
                                             let (this_value, owner, _): (&mut BinaryGrid28, _, _) =
@@ -123,7 +123,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "datasets::cv::mnist::BinaryGrid28",
         output_contract: OutputLiason::Transfer,
         linkage: Linkage {
-            call: |_values| Ok(StackValue::Boxed(BoxedValue::new(BinaryGrid28::default()))),
+            call: |_values| Ok(StackValue::Owned(OwnedValue::new(BinaryGrid28::default()))),
             nargs: 0,
         },
         routine_kind: RoutineKind::TypeCall,
@@ -171,9 +171,9 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
         todo!()
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        Arc::new(self.clone())
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     Arc::new(self.clone())
+    // }
 
     fn print_short(&self) -> String {
         "BinaryGrid28 { ... }".into()

@@ -46,7 +46,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::VarInit => todo!(),
             EagerContract::Return => match self {
                 VirtualTy::Struct { field_vars } => match field_vars[field_idx] {
-                    MemberValue::Primitive(value) => StackValue::Primitive(value),
+                    MemberValue::Primitive(value) => StackValue::Copyable(value),
                     MemberValue::Boxed(_) => todo!(),
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::GlobalRef(_) => todo!(),
@@ -108,14 +108,14 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
         todo!()
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        todo!()
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     todo!()
+    // }
 }
 
 impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for VirtualTy<'eval> {
     fn into(self) -> StackValue<'stack, 'eval> {
-        StackValue::Boxed(BoxedValue::new(self))
+        StackValue::Owned(OwnedValue::new(self))
     }
 }
 

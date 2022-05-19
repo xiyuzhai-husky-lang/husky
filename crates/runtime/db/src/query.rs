@@ -113,11 +113,12 @@ pub fn subtraces(
                         stack_snapshot,
                         body,
                     ),
-                    HistoryEntry::BranchGroup {
+                    HistoryEntry::ConditionFlow {
                         opt_branch_entered: enter,
                         ..
                     } => todo!(),
                     HistoryEntry::Break => todo!(),
+                    HistoryEntry::PatternMatching { .. } => todo!(),
                 }
             }
             ProcStmtVariant::Break => Arc::new(vec![]),
@@ -154,7 +155,7 @@ pub fn subtraces(
             ref branch,
             ..
         } => match history.get(stmt).unwrap() {
-            HistoryEntry::BranchGroup {
+            HistoryEntry::ConditionFlow {
                 stack_snapshot,
                 opt_branch_entered: branch_entered,
                 ..
@@ -261,7 +262,7 @@ fn feature_expr_subtraces(
         FeatureExprKind::PatternCall {} => todo!(),
         FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
         FeatureExprKind::StructOriginalFieldAccess { .. } => panic!(),
-        FeatureExprKind::EnumLiteral { .. } => panic!(),
+        FeatureExprKind::EnumKindLiteral { .. } => panic!(),
         FeatureExprKind::GlobalInput => panic!(),
         FeatureExprKind::ElementAccess { ref opds, .. } => panic!(),
     })

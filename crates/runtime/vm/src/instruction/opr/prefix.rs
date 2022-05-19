@@ -16,28 +16,30 @@ pub enum PrefixOpr {
 }
 
 impl PrefixOpr {
-    pub fn act_on_primitive(&self, opd: PrimitiveValue) -> PrimitiveValue {
+    pub fn act_on_primitive(&self, opd: CopyableValue) -> CopyableValue {
         match self {
             PrefixOpr::Minus => match opd {
-                PrimitiveValue::I32(_) => todo!(),
-                PrimitiveValue::F32(_) => todo!(),
-                PrimitiveValue::B32(_) => todo!(),
-                PrimitiveValue::B64(_) => todo!(),
-                PrimitiveValue::Bool(_) => todo!(),
-                PrimitiveValue::Void => todo!(),
+                CopyableValue::I32(_) => todo!(),
+                CopyableValue::F32(_) => todo!(),
+                CopyableValue::B32(_) => todo!(),
+                CopyableValue::B64(_) => todo!(),
+                CopyableValue::Bool(_) => todo!(),
+                CopyableValue::Void => panic!(),
+                CopyableValue::EnumKind(_) => panic!(),
             },
             PrefixOpr::Not => match opd {
-                PrimitiveValue::I32(i) => i == 0,
-                PrimitiveValue::F32(f) => f == 0.,
-                PrimitiveValue::B32(b) => b == 0,
-                PrimitiveValue::B64(b) => b == 0,
-                PrimitiveValue::Bool(b) => !b,
-                PrimitiveValue::Void => panic!(),
+                CopyableValue::I32(i) => i == 0,
+                CopyableValue::F32(f) => f == 0.,
+                CopyableValue::B32(b) => b == 0,
+                CopyableValue::B64(b) => b == 0,
+                CopyableValue::Bool(b) => !b,
+                CopyableValue::Void => panic!(),
+                CopyableValue::EnumKind(_) => panic!(),
             }
             .into(),
             PrefixOpr::BitNot => match opd {
-                PrimitiveValue::B32(b) => (!b).into(),
-                PrimitiveValue::B64(b) => (!b).into(),
+                CopyableValue::B32(b) => (!b).into(),
+                CopyableValue::B64(b) => (!b).into(),
                 _ => panic!(),
             },
             PrefixOpr::Shared => todo!(),

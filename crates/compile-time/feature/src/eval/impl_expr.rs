@@ -11,7 +11,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
         match expr.kind {
             FeatureExprKind::PrimitiveLiteral(value) => Ok(value.into()),
-            FeatureExprKind::EnumLiteral { entity_route, uid } => {
+            FeatureExprKind::EnumKindLiteral { entity_route, uid } => {
                 todo!()
                 // Ok(EvalValue::Boxed(value.clone_any()))
             }
@@ -21,8 +21,8 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 ref ropd,
             } => Ok(opr
                 .act_on_primitives(
-                    self.eval_feature_expr(lopd)?.as_primitive(),
-                    self.eval_feature_expr(ropd)?.as_primitive(),
+                    self.eval_feature_expr(lopd)?.primitive(),
+                    self.eval_feature_expr(ropd)?.primitive(),
                 )?
                 .into()),
             FeatureExprKind::StructOriginalFieldAccess {

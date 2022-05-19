@@ -11,12 +11,12 @@
     j           27:59..27:60  Copyable     i32
     pixel_pair_above  28:5..28:21  Copyable     b32
     pixel_pair_below  29:5..29:21  Copyable     b32
-    inward      54:23..54:29  PureRef      mnist_classifier003::raw_contour::Direction
-    outward     54:42..54:49  PureRef      mnist_classifier003::raw_contour::Direction
+    inward      54:23..54:29  Copyable     mnist_classifier003::raw_contour::Direction
+    outward     54:42..54:49  Copyable     mnist_classifier003::raw_contour::Direction
     row_above   63:5..63:14  Copyable     b32
     row_below   64:5..64:14  Copyable     b32
     j           65:5..65:6  Copyable     i32
-    inward_direction  66:5..66:21  PureRef      mnist_classifier003::raw_contour::Direction
+    inward_direction  66:5..66:21  Copyable     mnist_classifier003::raw_contour::Direction
     pixel_pair_above  68:5..68:21  Copyable     b32
     pixel_pair_below  69:5..69:21  Copyable     b32
     contour     113:31..113:38  PureRef      mnist_classifier003::raw_contour::RawContour
@@ -35,16 +35,16 @@
     i           134:17..134:18  CopyableMut  i32
     row_above   137:17..137:26  CopyableMut  b32
     row_below   138:17..138:26  CopyableMut  b32
-    inward_direction  140:17..140:33  OwnedMut     mnist_classifier003::raw_contour::Direction
+    inward_direction  140:17..140:33  CopyableMut  mnist_classifier003::raw_contour::Direction
     i0          142:17..142:19  Copyable     i32
-    dir0        144:17..144:21  Owned        mnist_classifier003::raw_contour::Direction
+    dir0        144:17..144:21  Copyable     mnist_classifier003::raw_contour::Direction
     prev_angle_change1  145:17..145:35  CopyableMut  i32
     prev_angle_change2  146:17..146:35  CopyableMut  i32
     total_angle_change  147:17..147:35  CopyableMut  i32
     prev_streak1  150:17..150:29  CopyableMut  i32
     prev_streak2  151:17..151:29  CopyableMut  i32
     current_streak  152:17..152:31  CopyableMut  i32
-    outward_direction  155:21..155:38  Owned        mnist_classifier003::raw_contour::Direction
+    outward_direction  155:21..155:38  Copyable     mnist_classifier003::raw_contour::Direction
     angle_change  156:21..156:33  Copyable     i32
 
 [35mlazy expr qualified types
@@ -109,13 +109,13 @@
     78:19..78:35   pixel_pair_below       Copyable     b32
     80:21..80:37   Direction::RIGHT       Copyable     mnist_classifier003::raw_contour::Direction
     82:21..82:36   Direction::DOWN        Copyable     mnist_classifier003::raw_contour::Direction
-    84:27..84:43   inward_direction       PureRef      mnist_classifier003::raw_contour::Direction
+    84:27..84:43   inward_direction       Copyable     mnist_classifier003::raw_contour::Direction
     86:29..86:44   Direction::LEFT        Copyable     mnist_classifier003::raw_contour::Direction
     88:29..88:45   Direction::RIGHT       Copyable     mnist_classifier003::raw_contour::Direction
     90:21..90:36   Direction::LEFT        Copyable     mnist_classifier003::raw_contour::Direction
     92:19..92:35   pixel_pair_below       Copyable     b32
     94:21..94:34   Direction::UP          Copyable     mnist_classifier003::raw_contour::Direction
-    96:27..96:43   inward_direction       PureRef      mnist_classifier003::raw_contour::Direction
+    96:27..96:43   inward_direction       Copyable     mnist_classifier003::raw_contour::Direction
     98:29..98:42   Direction::UP          Copyable     mnist_classifier003::raw_contour::Direction
     100:29..100:44 Direction::DOWN        Copyable     mnist_classifier003::raw_contour::Direction
     102:19..102:35 pixel_pair_below       Copyable     b32
@@ -192,10 +192,10 @@
     140:57..140:66 row_above              CopyableMut  b32
     140:68..140:77 row_below              CopyableMut  b32
     140:79..140:80 j                      InferError: expect not none
-    140:36..140:81 get_inward_direction(row_above, row_below, j)   Transient    mnist_classifier003::raw_contour::Direction
+    140:36..140:81 get_inward_direction(row_above, row_below, j)   Copyable     mnist_classifier003::raw_contour::Direction
     142:22..142:23 i                      CopyableMut  i32
     143:22..143:23 j                      InferError: expect not none
-    144:24..144:40 inward_direction       OwnedMut     mnist_classifier003::raw_contour::Direction
+    144:24..144:40 inward_direction       CopyableMut  mnist_classifier003::raw_contour::Direction
     145:38..145:39 0                      Copyable     i32
     146:38..146:39 0                      Copyable     i32
     147:38..147:39 0                      Copyable     i32
@@ -214,10 +214,10 @@
     155:63..155:72 row_above              CopyableMut  b32
     155:74..155:83 row_below              CopyableMut  b32
     155:85..155:86 j                      InferError: expect not none
-    155:88..155:104inward_direction       OwnedMut     mnist_classifier003::raw_contour::Direction
-    155:41..155:105get_outward_direction(row_above, row_below, j, inward_direction)   Transient    mnist_classifier003::raw_contour::Direction
-    156:53..156:69 inward_direction       OwnedMut     mnist_classifier003::raw_contour::Direction
-    156:71..156:88 outward_direction      Owned        mnist_classifier003::raw_contour::Direction
+    155:88..155:104inward_direction       CopyableMut  mnist_classifier003::raw_contour::Direction
+    155:41..155:105get_outward_direction(row_above, row_below, j, inward_direction)   Copyable     mnist_classifier003::raw_contour::Direction
+    156:53..156:69 inward_direction       CopyableMut  mnist_classifier003::raw_contour::Direction
+    156:71..156:88 outward_direction      Copyable     mnist_classifier003::raw_contour::Direction
     156:36..156:89 get_angle_change(inward_direction, outward_direction)   Copyable     i32
     158:17..158:36 boundary_unsearched    InferError: expect not none
     158:17..158:39 boundary_unsearched[i]   InferError: expect not none
@@ -320,7 +320,7 @@
     182:21..182:39 prev_angle_change1     CopyableMut  i32
     182:42..182:54 angle_change           Copyable     i32
     182:21..182:54 prev_angle_change1 = angle_change   Copyable     void
-    185:23..185:40 outward_direction      Owned        mnist_classifier003::raw_contour::Direction
+    185:23..185:40 outward_direction      Copyable     mnist_classifier003::raw_contour::Direction
     187:29..187:30 i                      CopyableMut  i32
     187:33..187:34 1                      Copyable     i32
     187:25..187:26 i                      CopyableMut  i32
@@ -353,8 +353,8 @@
     195:25..195:34 j = j + 1              InferError: expect not none
     197:25..197:26 j                      InferError: expect not none
     197:25..197:34 j = j - 1              InferError: expect not none
-    199:17..199:33 inward_direction       OwnedMut     mnist_classifier003::raw_contour::Direction
-    199:36..199:53 outward_direction      Owned        mnist_classifier003::raw_contour::Direction
+    199:17..199:33 inward_direction       CopyableMut  mnist_classifier003::raw_contour::Direction
+    199:36..199:53 outward_direction      Copyable     mnist_classifier003::raw_contour::Direction
     199:17..199:53 inward_direction = outward_direction   Copyable     void
     201:20..201:34 current_streak         CopyableMut  i32
     201:38..201:40 -1                     Copyable     i32

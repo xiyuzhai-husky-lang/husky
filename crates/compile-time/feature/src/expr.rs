@@ -37,8 +37,8 @@ impl Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureExprKind {
-    PrimitiveLiteral(PrimitiveValue),
-    EnumLiteral {
+    PrimitiveLiteral(CopyableValue),
+    EnumKindLiteral {
         entity_route: EntityRoutePtr,
         uid: EntityUid,
     },
@@ -149,7 +149,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
             LazyExprVariant::Lambda(_, _) => todo!(),
             LazyExprVariant::EnumLiteral { entity_route } => (
-                FeatureExprKind::EnumLiteral {
+                FeatureExprKind::EnumKindLiteral {
                     entity_route,
                     uid: self.db.entity_uid(entity_route),
                 },

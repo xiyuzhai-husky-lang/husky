@@ -110,7 +110,7 @@ impl<'eval> TraceVariant<'eval> {
                 | FeatureExprKind::PrimitiveBinaryOpr { .. }
                 | FeatureExprKind::Variable { .. } => false,
                 FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureExprKind::EnumLiteral { .. } => todo!(),
+                FeatureExprKind::EnumKindLiteral { .. } => todo!(),
                 FeatureExprKind::EntityFeature { .. } => todo!(),
                 FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
                 FeatureExprKind::RecordOriginalFieldAccess {
@@ -152,7 +152,7 @@ impl<'eval> TraceVariant<'eval> {
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::This => todo!(),
-                EagerExprVariant::EnumLiteral(_) => todo!(),
+                EagerExprVariant::EnumKindLiteral(_) => todo!(),
             },
             TraceVariant::CallHead { .. } => false,
             TraceVariant::ProcBranch {
@@ -163,7 +163,7 @@ impl<'eval> TraceVariant<'eval> {
             } => {
                 if let Some(entry) = history.get(stmt) {
                     match entry {
-                        HistoryEntry::BranchGroup {
+                        HistoryEntry::ConditionFlow {
                             opt_branch_entered: branch_entered,
                             ..
                         } => {
@@ -231,7 +231,7 @@ impl<'eval> TraceVariant<'eval> {
             } => {
                 if let Some(entry) = history.get(stmt) {
                     match entry {
-                        HistoryEntry::BranchGroup {
+                        HistoryEntry::ConditionFlow {
                             opt_branch_entered, ..
                         } => {
                             if let Some(branch_entered) = opt_branch_entered {

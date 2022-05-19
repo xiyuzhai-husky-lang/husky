@@ -35,8 +35,8 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Primitive(
-                        (values[0].as_primitive().as_b32().trailing_zeros() as i32).into(),
+                    Ok(StackValue::Copyable(
+                        (values[0].primitive().take_b32().trailing_zeros() as i32).into(),
                     ))
                 },
                 nargs: 1,
@@ -61,8 +61,13 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 1,
+                call: |values| {
+                    let b = values[0].primitive().take_b32();
+                    let i = values[1].primitive().take_i32();
+                    let last_bits = b & ((1 << i) - 1);
+                    Ok(StackValue::Copyable(last_bits.into()))
+                },
+                nargs: 2,
             }),
         },
     },

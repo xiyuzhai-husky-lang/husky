@@ -62,8 +62,8 @@ impl<'eval> From<VMRuntimeResult<StackValueSnapshot<'eval>>> for TokenProps<'eva
     }
 }
 
-impl<'eval> From<VMRuntimeResult<PrimitiveValue>> for TokenProps<'eval> {
-    fn from(result: VMRuntimeResult<PrimitiveValue>) -> Self {
+impl<'eval> From<VMRuntimeResult<CopyableValue>> for TokenProps<'eval> {
+    fn from(result: VMRuntimeResult<CopyableValue>) -> Self {
         match result {
             Ok(value) => value.into(),
             Err(e) => Self {
@@ -75,8 +75,8 @@ impl<'eval> From<VMRuntimeResult<PrimitiveValue>> for TokenProps<'eval> {
     }
 }
 
-impl<'eval> From<PrimitiveValue> for TokenProps<'eval> {
-    fn from(value: PrimitiveValue) -> Self {
+impl<'eval> From<CopyableValue> for TokenProps<'eval> {
+    fn from(value: CopyableValue) -> Self {
         fade!(value)
     }
 }
@@ -214,4 +214,4 @@ macro_rules! fade {
     }};
 }
 
-use vm::{EvalResult, EvalValue, InitKind, PrimitiveValue, StackValueSnapshot, VMRuntimeResult};
+use vm::{EvalResult, EvalValue, InitKind, CopyableValue, StackValueSnapshot, VMRuntimeResult};

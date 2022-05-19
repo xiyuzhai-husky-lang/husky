@@ -24,7 +24,7 @@ pub enum RawExprVariant {
         route: EntityRoutePtr,
         kind: EntityKind,
     },
-    PrimitiveLiteral(PrimitiveValue),
+    CopyableLiteral(CopyableValue),
     Bracketed(RawExprIdx),
     Opn {
         opr: Opr,

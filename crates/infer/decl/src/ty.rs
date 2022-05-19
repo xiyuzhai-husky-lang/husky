@@ -599,7 +599,10 @@ pub(crate) fn ty_decl(
                         )
                     }
                 }
-                _ => panic!(),
+                _ => {
+                    p!(ast);
+                    panic!()
+                }
             }
         }
         EntitySource::Module { file } => todo!(),

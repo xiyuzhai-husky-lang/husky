@@ -4,7 +4,7 @@ mod mnist;
 use crate::{labeled::LabeledData, *};
 use mnist::*;
 use std::sync::Arc;
-use vm::{BoxedValue, Linkage, StackValue};
+use vm::{Linkage, OwnedValue, StackValue};
 
 pub static CV_MOD_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "cv",

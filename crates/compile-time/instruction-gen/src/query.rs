@@ -1,11 +1,10 @@
+use crate::*;
 use check_utils::should_eq;
 use entity_kind::TyKind;
 use file::FilePtr;
 use linkage_table::ResolveLinkage;
 use pack_semantics::PackageQueryGroup;
-use vm::{BoxedValue, EvalValue, Linkage, MemberValue, StackValue, VMRuntimeResult};
-
-use crate::*;
+use vm::{EvalValue, Linkage, MemberValue, OwnedValue, StackValue, VMRuntimeResult};
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup:
@@ -17,6 +16,7 @@ pub trait InstructionGenQueryGroup:
         member_route: EntityRoutePtr,
     ) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(&self, pack_main: FilePtr) -> Arc<InstructionSheet>;
+    fn enum_literal_as_u8(&self, route: EntityRoutePtr) -> u8;
 }
 
 fn entity_instruction_sheet(
@@ -134,4 +134,14 @@ fn dataset_config_instruction_sheet(
 ) -> Arc<InstructionSheet> {
     let pack = db.package(pack_main).unwrap();
     InstructionSheetBuilder::new_func(db, vec![].into_iter(), &pack.config.dataset.stmts, false)
+}
+
+fn enum_literal_as_u8(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> u8 {
+    let ty_decl = db.ty_decl(route.parent()).unwrap();
+    ty_decl
+        .variants
+        .position(route.ident().custom())
+        .unwrap()
+        .try_into()
+        .unwrap()
 }

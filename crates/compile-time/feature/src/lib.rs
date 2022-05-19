@@ -30,7 +30,7 @@ use print_utils::*;
 use std::sync::Arc;
 use text::*;
 use vm::EntityUid;
-use vm::{PrimitiveValue, PureBinaryOpr};
+use vm::{CopyableValue, PureBinaryOpr};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -43,7 +43,7 @@ pub struct FeatureSymbol {
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub enum Feature {
     Input,
-    PrimitiveLiteral(PrimitiveValue),
+    PrimitiveLiteral(CopyableValue),
     EnumLiteral(EntityRoutePtr),
     Assert {
         condition: FeaturePtr,

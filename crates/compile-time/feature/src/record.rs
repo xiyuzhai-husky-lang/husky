@@ -72,7 +72,7 @@ pub(crate) fn expr_record_field(
             },
             _ => panic!(),
         },
-        FeatureExprKind::EnumLiteral { .. }
+        FeatureExprKind::EnumKindLiteral { .. }
         | FeatureExprKind::PrimitiveBinaryOpr { .. }
         | FeatureExprKind::StructOriginalFieldAccess { .. }
         | FeatureExprKind::PrimitiveLiteral(_) => {

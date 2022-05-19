@@ -292,21 +292,22 @@ impl<'a> ExprStack<'a> {
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
         let range = (start..self.exprs.last().unwrap().range.end).into();
         if prefix == PrefixOpr::Minus {
-            if let RawExprVariant::PrimitiveLiteral(lit) = self.exprs.last().unwrap().variant {
+            if let RawExprVariant::CopyableLiteral(lit) = self.exprs.last().unwrap().variant {
                 self.exprs.pop();
                 match lit {
-                    PrimitiveValue::I32(i) => self.exprs.push(RawExpr {
+                    CopyableValue::I32(i) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveValue::I32(-i)),
+                        variant: RawExprVariant::CopyableLiteral(CopyableValue::I32(-i)),
                     }),
-                    PrimitiveValue::F32(f) => self.exprs.push(RawExpr {
+                    CopyableValue::F32(f) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveValue::F32(-f)),
+                        variant: RawExprVariant::CopyableLiteral(CopyableValue::F32(-f)),
                     }),
-                    PrimitiveValue::Void
-                    | PrimitiveValue::B32(_)
-                    | PrimitiveValue::Bool(_)
-                    | PrimitiveValue::B64(_) => todo!(),
+                    CopyableValue::Void
+                    | CopyableValue::B32(_)
+                    | CopyableValue::Bool(_)
+                    | CopyableValue::B64(_) => todo!(),
+                    CopyableValue::EnumKind(_) => todo!(),
                 }
                 return;
             }

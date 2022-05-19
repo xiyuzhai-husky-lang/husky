@@ -2,8 +2,8 @@ use crate::*;
 
 #[derive(Debug, Clone)]
 pub enum MemberValue<'eval> {
-    Primitive(PrimitiveValue),
-    Boxed(BoxedValue<'eval>),
+    Primitive(CopyableValue),
+    Boxed(OwnedValue<'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
     GlobalRef(&'eval dyn AnyValueDyn<'eval>),
     Moved,
@@ -26,8 +26,8 @@ impl<'eval> Eq for MemberValue<'eval> {}
 impl<'stack, 'eval: 'stack> MemberValue<'eval> {
     pub fn into_stack(self) -> StackValue<'stack, 'eval> {
         match self {
-            MemberValue::Primitive(value) => StackValue::Primitive(value),
-            MemberValue::Boxed(value) => StackValue::Boxed(value),
+            MemberValue::Primitive(value) => StackValue::Copyable(value),
+            MemberValue::Boxed(value) => StackValue::Owned(value),
             MemberValue::GlobalPure(value) => StackValue::GlobalPure(value),
             MemberValue::GlobalRef(value) => StackValue::GlobalRef(value),
             MemberValue::Moved => panic!(),
@@ -71,7 +71,7 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
 
     pub fn copy_into_stack(&self) -> StackValue<'stack, 'eval> {
         match self {
-            MemberValue::Primitive(value) => StackValue::Primitive(*value),
+            MemberValue::Primitive(value) => StackValue::Copyable(*value),
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),

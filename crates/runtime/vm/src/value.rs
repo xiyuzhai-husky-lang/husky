@@ -1,14 +1,14 @@
 mod any;
-mod boxed;
+mod copyable;
 mod eval;
 mod member;
-mod primitive;
+mod owned;
 
 pub use any::*;
-pub use boxed::BoxedValue;
+pub use copyable::*;
 pub use eval::{EvalResult, EvalValue};
 pub use member::*;
-pub use primitive::PrimitiveValue;
+pub use owned::OwnedValue;
 use print_utils::p;
 use std::sync::Arc;
 use word::CustomIdentifier;
@@ -18,8 +18,8 @@ use std::fmt::Write;
 
 pub enum StackValue<'stack, 'eval: 'stack> {
     Moved,
-    Primitive(PrimitiveValue),
-    Boxed(BoxedValue<'eval>),
+    Copyable(CopyableValue),
+    Owned(OwnedValue<'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
     GlobalRef(&'eval dyn AnyValueDyn<'eval>),
     LocalRef {
@@ -39,11 +39,11 @@ pub type MutRefGenerator = ();
 impl<'stack, 'eval: 'stack> std::fmt::Debug for StackValue<'stack, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            StackValue::Primitive(arg0) => {
+            StackValue::Copyable(arg0) => {
                 f.write_str("Primitive ")?;
                 arg0.fmt(f)
             }
-            StackValue::Boxed(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
+            StackValue::Owned(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
             StackValue::GlobalPure(arg0) => f.debug_tuple("GlobalPure").field(arg0).finish(),
             StackValue::GlobalRef(arg0) => f.debug_tuple("GlobalRef").field(arg0).finish(),
             StackValue::LocalRef { value, .. } => f.debug_tuple("Ref").field(value).finish(),
@@ -54,9 +54,9 @@ impl<'stack, 'eval: 'stack> std::fmt::Debug for StackValue<'stack, 'eval> {
 }
 
 impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
-    pub fn boxed(self) -> VMRuntimeResult<BoxedValue<'eval>> {
+    pub fn boxed(self) -> VMRuntimeResult<OwnedValue<'eval>> {
         match self {
-            StackValue::Boxed(value) => Ok(value),
+            StackValue::Owned(value) => Ok(value),
             _ => panic!(),
         }
     }
@@ -65,11 +65,11 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         let mut result = String::new();
         match self {
             StackValue::Moved => result.push_str("Moved"),
-            StackValue::Primitive(value) => {
+            StackValue::Copyable(value) => {
                 result.push_str("Primitive ");
                 result.push_str(&value.any_ref().print_short())
             }
-            StackValue::Boxed(value) => {
+            StackValue::Owned(value) => {
                 result.push_str("Boxed ");
                 result.push_str(&value.any_ref().print_short())
             }
@@ -93,22 +93,22 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     }
 }
 
-impl<'stack, 'eval: 'stack> From<PrimitiveValue> for StackValue<'stack, 'eval> {
-    fn from(value: PrimitiveValue) -> Self {
-        StackValue::Primitive(value)
+impl<'stack, 'eval: 'stack> From<CopyableValue> for StackValue<'stack, 'eval> {
+    fn from(value: CopyableValue) -> Self {
+        StackValue::Copyable(value)
     }
 }
 
-impl<'stack, 'eval: 'stack> From<&PrimitiveValue> for StackValue<'stack, 'eval> {
-    fn from(value: &PrimitiveValue) -> Self {
-        StackValue::Primitive(*value)
+impl<'stack, 'eval: 'stack> From<&CopyableValue> for StackValue<'stack, 'eval> {
+    fn from(value: &CopyableValue) -> Self {
+        StackValue::Copyable(*value)
     }
 }
 
 impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn from_eval(eval_value: EvalValue<'eval>) -> VMRuntimeResult<Self> {
         Ok(match eval_value {
-            EvalValue::Primitive(value) => Self::Primitive(value),
+            EvalValue::Primitive(value) => Self::Copyable(value),
             EvalValue::Boxed(_) => todo!(),
             EvalValue::GlobalPure(value) => StackValue::GlobalPure(value),
             EvalValue::GlobalRef(value) => Self::GlobalRef(value),
@@ -118,9 +118,9 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     pub fn into_eval(&mut self) -> EvalValue<'eval> {
         match self {
-            StackValue::Primitive(primitive_value) => EvalValue::Primitive(*primitive_value),
-            StackValue::Boxed(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
-                StackValue::Boxed(boxed_value) => EvalValue::Boxed(boxed_value),
+            StackValue::Copyable(primitive_value) => EvalValue::Primitive(*primitive_value),
+            StackValue::Owned(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
+                StackValue::Owned(boxed_value) => EvalValue::Boxed(boxed_value),
                 _ => panic!(),
             },
             StackValue::GlobalPure(_) => todo!(),
@@ -134,8 +134,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn to_bool(&self) -> bool {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(v) => v.to_bool(),
-            StackValue::Boxed(_) => todo!(),
+            StackValue::Copyable(v) => v.to_bool(),
+            StackValue::Owned(_) => todo!(),
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { value, owner, gen } => todo!(),
@@ -145,9 +145,9 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     pub fn into_member(&mut self) -> MemberValue<'eval> {
         match self {
-            StackValue::Primitive(primitive_value) => MemberValue::Primitive(*primitive_value),
-            StackValue::Boxed(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
-                StackValue::Boxed(boxed_value) => MemberValue::Boxed(boxed_value),
+            StackValue::Copyable(primitive_value) => MemberValue::Primitive(*primitive_value),
+            StackValue::Owned(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
+                StackValue::Owned(boxed_value) => MemberValue::Boxed(boxed_value),
                 _ => panic!(),
             },
             StackValue::GlobalPure(_) => todo!(),
@@ -170,8 +170,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     unsafe fn bind_ref(&self, owner: StackIdx) -> Self {
         match self {
             StackValue::Moved => panic!(),
-            StackValue::Primitive(_) => panic!(),
-            StackValue::Boxed(value) => {
+            StackValue::Copyable(_) => panic!(),
+            StackValue::Owned(value) => {
                 let ptr: *const dyn AnyValueDyn = &*value.inner;
                 StackValue::LocalRef {
                     value: &*ptr,
@@ -196,8 +196,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     fn bind_copy(&self) -> Self {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(value) => StackValue::Primitive(*value),
-            StackValue::Boxed(_) => todo!(),
+            StackValue::Copyable(value) => StackValue::Copyable(*value),
+            StackValue::Owned(_) => todo!(),
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { value, owner, gen } => {
@@ -210,7 +210,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     unsafe fn bind_ref_mut(&mut self, stack_idx: StackIdx) -> Self {
         match self {
-            StackValue::Primitive(value) => {
+            StackValue::Copyable(value) => {
                 let ptr: *mut dyn AnyValueDyn = value.any_mut();
                 StackValue::LocalRefMut {
                     value: &mut *ptr,
@@ -218,7 +218,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                     gen: (),
                 }
             }
-            StackValue::Boxed(value) => {
+            StackValue::Owned(value) => {
                 let ptr: *mut dyn AnyValueDyn = &mut *value.inner;
                 StackValue::LocalRefMut {
                     value: &mut *ptr,
@@ -236,8 +236,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     unsafe fn pure(&self, stack_idx: StackIdx) -> Self {
         match self {
-            StackValue::Primitive(value) => StackValue::Primitive(*value),
-            StackValue::Boxed(value) => {
+            StackValue::Copyable(value) => StackValue::Copyable(*value),
+            StackValue::Owned(value) => {
                 let ptr: *const dyn AnyValueDyn = &*value.inner;
                 StackValue::LocalRef {
                     value: &*ptr,
@@ -256,8 +256,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub(crate) fn bind_move(&mut self) -> Self {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(value) => StackValue::Primitive(*value),
-            StackValue::Boxed(_) => std::mem::replace(self, StackValue::Moved),
+            StackValue::Copyable(value) => StackValue::Copyable(*value),
+            StackValue::Owned(_) => std::mem::replace(self, StackValue::Moved),
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { .. } => todo!(),
@@ -268,8 +268,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub(crate) fn bind_return(&mut self) -> Self {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(value) => Self::Primitive(*value),
-            StackValue::Boxed(_) => std::mem::replace(self, StackValue::Moved),
+            StackValue::Copyable(value) => Self::Copyable(*value),
+            StackValue::Owned(_) => std::mem::replace(self, StackValue::Moved),
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { .. } => todo!(),
@@ -287,7 +287,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     fn owner(&self, self_stack_idx: StackIdx) -> Option<StackIdx> {
         match self {
-            StackValue::Primitive(_) | StackValue::Boxed(_) => Some(self_stack_idx),
+            StackValue::Copyable(_) | StackValue::Owned(_) => Some(self_stack_idx),
             StackValue::GlobalRef(_) | StackValue::GlobalPure(_) => None,
             StackValue::LocalRef { .. } => todo!(),
             StackValue::LocalRefMut { owner, .. } => Some(*owner),
@@ -298,15 +298,16 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         {
             match self {
-                StackValue::Primitive(value) => match value {
-                    PrimitiveValue::I32(value) => value,
-                    PrimitiveValue::F32(value) => value,
-                    PrimitiveValue::B32(value) => value,
-                    PrimitiveValue::B64(value) => value,
-                    PrimitiveValue::Bool(value) => value,
-                    PrimitiveValue::Void => todo!(),
+                StackValue::Copyable(value) => match value {
+                    CopyableValue::I32(value) => value,
+                    CopyableValue::F32(value) => value,
+                    CopyableValue::B32(value) => value,
+                    CopyableValue::B64(value) => value,
+                    CopyableValue::Bool(value) => value,
+                    CopyableValue::Void => todo!(),
+                    CopyableValue::EnumKind(value) => value,
                 },
-                StackValue::Boxed(value) => value.any_ref(),
+                StackValue::Owned(value) => value.any_ref(),
                 StackValue::GlobalPure(value) => (&**value),
                 StackValue::GlobalRef(_) => todo!(),
                 StackValue::LocalRef { value, .. } => *value,
@@ -319,15 +320,16 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     fn any_mut_ptr(&mut self) -> *mut dyn AnyValueDyn<'eval> {
         {
             match self {
-                StackValue::Primitive(value) => match value {
-                    PrimitiveValue::I32(value) => value,
-                    PrimitiveValue::F32(value) => value,
-                    PrimitiveValue::B32(value) => value,
-                    PrimitiveValue::B64(value) => value,
-                    PrimitiveValue::Bool(value) => value,
-                    PrimitiveValue::Void => todo!(),
+                StackValue::Copyable(value) => match value {
+                    CopyableValue::I32(value) => value,
+                    CopyableValue::F32(value) => value,
+                    CopyableValue::B32(value) => value,
+                    CopyableValue::B64(value) => value,
+                    CopyableValue::Bool(value) => value,
+                    CopyableValue::Void => todo!(),
+                    CopyableValue::EnumKind(value) => value,
                 },
-                StackValue::Boxed(value) => value.any_mut_ptr(),
+                StackValue::Owned(value) => value.any_mut_ptr(),
                 StackValue::LocalRefMut { value, .. } => *value,
                 StackValue::LocalRef { .. } => panic!("LocalRef cannot be mutated, this is a bug."),
                 StackValue::GlobalPure(_) => panic!("GlobalPure cannot be mutated, this is a bug."),
@@ -340,8 +342,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(_) => todo!(),
-            StackValue::Boxed(_) => todo!(),
+            StackValue::Copyable(_) => todo!(),
+            StackValue::Owned(_) => todo!(),
             StackValue::GlobalPure(value) => value.downcast_ref(),
             StackValue::GlobalRef(value) => value.downcast_ref(),
             StackValue::LocalRef { value, .. } => value.downcast_ref(),
@@ -352,8 +354,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(_) => todo!(),
-            StackValue::Boxed(_)
+            StackValue::Copyable(_) => todo!(),
+            StackValue::Owned(_)
             | StackValue::GlobalPure(_)
             | StackValue::GlobalRef(_)
             | StackValue::LocalRef { .. } => {
@@ -366,8 +368,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn downcast_mut_full<T: AnyValue<'eval>>(&mut self) -> (&'stack mut T, StackIdx, ()) {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(_) => todo!(),
-            StackValue::Boxed(_)
+            StackValue::Copyable(_) => todo!(),
+            StackValue::Owned(_)
             | StackValue::GlobalPure(_)
             | StackValue::GlobalRef(_)
             | StackValue::LocalRef { .. } => {
@@ -380,10 +382,10 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub fn as_primitive(&self) -> PrimitiveValue {
+    pub fn primitive(&self) -> CopyableValue {
         match self {
-            StackValue::Primitive(value) => *value,
-            StackValue::LocalRefMut { value, .. } => value.as_primitive(),
+            StackValue::Copyable(value) => *value,
+            StackValue::LocalRefMut { value, .. } => value.primitive(),
             _ => {
                 p!(self);
                 panic!("")
@@ -394,19 +396,19 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn clone_into_stack(&self) -> StackValue<'stack, 'eval> {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(_) => todo!(),
-            StackValue::Boxed(_) => todo!(),
-            StackValue::GlobalPure(value) => StackValue::Boxed(BoxedValue::clone_from(&**value)),
+            StackValue::Copyable(_) => todo!(),
+            StackValue::Owned(_) => todo!(),
+            StackValue::GlobalPure(value) => StackValue::Owned(OwnedValue::clone_from(&**value)),
             StackValue::GlobalRef(_) => todo!(),
-            StackValue::LocalRef { value, .. } => Self::Boxed(BoxedValue::clone_from(*value)),
+            StackValue::LocalRef { value, .. } => Self::Owned(OwnedValue::clone_from(*value)),
             StackValue::LocalRefMut { value, owner, gen } => todo!(),
         }
     }
 
     pub(crate) fn snapshot(&mut self) -> StackValueSnapshot<'eval> {
         match self {
-            StackValue::Primitive(value) => StackValueSnapshot::Primitive(*value),
-            StackValue::Boxed(value) => StackValueSnapshot::Boxed(value.clone()),
+            StackValue::Copyable(value) => StackValueSnapshot::Primitive(*value),
+            StackValue::Owned(value) => StackValueSnapshot::Boxed(value.clone()),
             StackValue::GlobalPure(value) => StackValueSnapshot::GlobalPure(value.clone()),
             StackValue::GlobalRef(_) => todo!(),
             StackValue::LocalRef { value, owner, gen } => StackValueSnapshot::Ref {
@@ -430,8 +432,8 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
     pub fn field_var(self, field_idx: usize, contract: EagerContract) -> StackValue<'stack, 'eval> {
         match self {
             StackValue::Moved => todo!(),
-            StackValue::Primitive(_) => todo!(),
-            StackValue::Boxed(boxed_value) => {
+            StackValue::Copyable(_) => todo!(),
+            StackValue::Owned(boxed_value) => {
                 let mut value: VirtualTy = boxed_value.take().unwrap();
                 value.take_field_var(field_idx)
             }

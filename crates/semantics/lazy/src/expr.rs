@@ -55,7 +55,7 @@ pub enum LazyExprVariant {
         scope: EntityRoutePtr,
         compiled: (),
     },
-    PrimitiveLiteral(PrimitiveValue),
+    PrimitiveLiteral(CopyableValue),
     EnumLiteral {
         entity_route: EntityRoutePtr,
     },

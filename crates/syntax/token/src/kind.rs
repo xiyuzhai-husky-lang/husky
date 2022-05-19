@@ -1,4 +1,4 @@
-use vm::PrimitiveValue;
+use vm::CopyableValue;
 use word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
 
 pub use crate::*;
@@ -10,9 +10,9 @@ pub enum TokenKind {
     Identifier(Identifier),
     Special(Special),
     WordOpr(WordOpr),
-    PrimitiveLiteral(PrimitiveValue),
+    PrimitiveLiteral(CopyableValue),
     Unrecognized(char),
-    IllFormedLiteral(PrimitiveValue),
+    IllFormedLiteral(CopyableValue),
 }
 
 impl From<Special> for TokenKind {

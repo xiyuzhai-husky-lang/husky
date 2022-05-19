@@ -198,7 +198,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::EnumLiteral => Ok(LazyQualifiedTy::new(LazyQualifier::Copyable, ty)),
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::PrimitiveLiteral(_) => Ok(LazyQualifiedTy::new(
+            RawExprVariant::CopyableLiteral(_) => Ok(LazyQualifiedTy::new(
                 LazyQualifier::Copyable,
                 self.raw_expr_ty(raw_expr_idx).unwrap(),
             )),
@@ -333,7 +333,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
             }
             RawExprVariant::Opn { ref opr, ref opds } => todo!(),
-            RawExprVariant::PrimitiveLiteral(_) => {
+            RawExprVariant::CopyableLiteral(_) => {
                 throw_derived!("a primitive literal can't be a caller")
             }
             _ => {

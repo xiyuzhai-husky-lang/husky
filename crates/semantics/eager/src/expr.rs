@@ -10,7 +10,7 @@ pub(crate) use parser::EagerExprParser;
 
 use entity_route::EntityRoutePtr;
 use text::TextRange;
-use vm::{EagerContract, InstructionId, InstructionSource, Linkage, PrimitiveValue};
+use vm::{CopyableValue, EagerContract, InstructionId, InstructionSource, Linkage};
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -45,8 +45,8 @@ pub enum EagerExprVariant {
     EntityRoute {
         route: EntityRoutePtr,
     },
-    PrimitiveLiteral(PrimitiveValue),
-    EnumLiteral(EntityRoutePtr),
+    PrimitiveLiteral(CopyableValue),
+    EnumKindLiteral(EntityRoutePtr),
     Bracketed(Arc<EagerExpr>),
     Opn {
         opn_variant: EagerOpnVariant,

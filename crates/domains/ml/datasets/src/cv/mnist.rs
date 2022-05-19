@@ -40,7 +40,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         output_contract: OutputLiason::Transfer,
         linkage: Linkage {
-            call: |_| Ok(StackValue::Boxed(BoxedValue::new(new_binary_dataset()))),
+            call: |_| Ok(StackValue::Owned(OwnedValue::new(new_binary_dataset()))),
             nargs: 0,
         },
         routine_kind: RoutineKind::Normal,
@@ -79,9 +79,9 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
         todo!()
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        todo!()
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     todo!()
+    // }
 }
 
 impl<'eval> DatasetDyn<'eval> for MnistDataset {

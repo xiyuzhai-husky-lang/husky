@@ -8,6 +8,7 @@ pub use condition_flow::*;
 pub use id::{InstructionId, InstructionSource};
 pub use opr::*;
 pub use pattern_match::*;
+use print_utils::p;
 pub use sheet::InstructionSheet;
 
 use crate::*;
@@ -68,7 +69,8 @@ pub enum InstructionKind {
         ty: EntityRoutePtr,
         varname: Identifier,
     },
-    PushPrimitiveLiteral(PrimitiveValue),
+    PushPrimitiveLiteral(CopyableValue),
+    PushEnumKindLiteral(EnumKindValue),
     FieldAccessCompiled {
         linkage: Linkage,
     },
@@ -127,7 +129,121 @@ impl std::fmt::Display for InitKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum OprOpn {
     PureBinary(PureBinaryOpr),
-    Assign(Option<PureBinaryOpr>),
+    Assign(AssignOpn),
     Prefix(PrefixOpr),
-    Suffix(SuffixOpr),
+    Cast(CastOpn),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum AssignOpn {
+    Binary(Option<PureBinaryOpr>),
+    Incr,
+    Decr,
+}
+
+impl AssignOpn {
+    pub fn act_on<'stack, 'eval>(
+        self,
+        lopd: &mut StackValue<'stack, 'eval>,
+        ropd: StackValue<'stack, 'eval>,
+    ) -> VMRuntimeResult<()> {
+        match self {
+            AssignOpn::Binary(opt_binary_opr) => match lopd {
+                StackValue::LocalRefMut { ref mut value, .. } => {
+                    value.assign(if let Some(binary_opr) = opt_binary_opr {
+                        let lopd_value = value.primitive();
+                        binary_opr
+                            .act_on_primitives(lopd_value, ropd.primitive())?
+                            .into()
+                    } else {
+                        ropd
+                    });
+                }
+                _ => panic!(),
+            },
+            AssignOpn::Incr => todo!(),
+            AssignOpn::Decr => todo!(),
+        }
+        Ok(())
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum CastOpn {
+    AsI32,
+    AsB32,
+    AsF32,
+}
+
+impl CastOpn {
+    pub fn act_on<'stack, 'eval>(
+        self,
+        opd: StackValue<'stack, 'eval>,
+    ) -> StackValue<'stack, 'eval> {
+        match self {
+            CastOpn::AsI32 => StackValue::Copyable(cast_as_i32(opd).into()),
+            CastOpn::AsB32 => StackValue::Copyable(cast_as_b32(opd).into()),
+            CastOpn::AsF32 => StackValue::Copyable(cast_as_f32(opd).into()),
+        }
+    }
+}
+
+fn cast_as_i32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> i32 {
+    match opd {
+        StackValue::Moved => todo!(),
+        StackValue::Copyable(value) => match value {
+            CopyableValue::I32(i) => i,
+            CopyableValue::F32(_) => todo!(),
+            CopyableValue::B32(b) => b as i32,
+            CopyableValue::B64(_) => todo!(),
+            CopyableValue::Bool(_) => todo!(),
+            CopyableValue::Void => todo!(),
+            CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as i32,
+        },
+        StackValue::Owned(_) => todo!(),
+        StackValue::GlobalPure(_) => todo!(),
+        StackValue::GlobalRef(_) => todo!(),
+        StackValue::LocalRef { value, owner, gen } => todo!(),
+        StackValue::LocalRefMut { value, owner, gen } => todo!(),
+    }
+}
+
+fn cast_as_b32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> u32 {
+    match opd {
+        StackValue::Moved => todo!(),
+        StackValue::Copyable(value) => match value {
+            CopyableValue::I32(i) => i as u32,
+            CopyableValue::F32(_) => todo!(),
+            CopyableValue::B32(_) => todo!(),
+            CopyableValue::B64(_) => todo!(),
+            CopyableValue::Bool(_) => todo!(),
+            CopyableValue::Void => todo!(),
+            CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as u32,
+        },
+        StackValue::Owned(_) => todo!(),
+        StackValue::GlobalPure(_) => todo!(),
+        StackValue::GlobalRef(_) => todo!(),
+        StackValue::LocalRef { value, owner, gen } => todo!(),
+        StackValue::LocalRefMut { value, owner, gen } => todo!(),
+    }
+}
+
+fn cast_as_f32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> f32 {
+    match opd {
+        StackValue::Moved => todo!(),
+        StackValue::Copyable(value) => match value {
+            CopyableValue::I32(i) => i as f32,
+            CopyableValue::F32(_) => todo!(),
+            CopyableValue::B32(b) => todo!(),
+            CopyableValue::B64(_) => todo!(),
+            CopyableValue::Bool(_) => todo!(),
+            CopyableValue::Void => todo!(),
+            CopyableValue::EnumKind(enum_kind) => todo!(),
+        },
+        StackValue::Owned(_) => todo!(),
+        StackValue::GlobalPure(_) => todo!(),
+        StackValue::GlobalRef(_) => todo!(),
+        StackValue::LocalRef { value, owner, gen } => todo!(),
+        StackValue::LocalRefMut { value, owner, gen } => todo!(),
+    }
 }

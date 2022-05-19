@@ -2,7 +2,7 @@ use entity_route::{EntityKind, RangedEntityRoute};
 use text::*;
 use token::Special;
 use vm::{
-    BinaryOpr, Bracket, InputContract, ListEndAttr, ListStartAttr, PrefixOpr, PrimitiveValue,
+    BinaryOpr, Bracket, CopyableValue, InputContract, ListEndAttr, ListStartAttr, PrefixOpr,
     PureBinaryOpr, SuffixOpr,
 };
 use word::{CustomIdentifier, WordOpr};
@@ -28,7 +28,7 @@ pub enum AtomVariant {
         opt_contract: Option<InputContract>,
     },
     Unrecognized(CustomIdentifier),
-    PrimitiveLiteral(PrimitiveValue),
+    PrimitiveLiteral(CopyableValue),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
@@ -122,20 +122,20 @@ impl From<WordOpr> for AtomVariant {
     }
 }
 
-impl From<PrimitiveValue> for AtomVariant {
-    fn from(lit: PrimitiveValue) -> Self {
+impl From<CopyableValue> for AtomVariant {
+    fn from(lit: CopyableValue) -> Self {
         Self::PrimitiveLiteral(lit)
     }
 }
 
 impl From<i32> for AtomVariant {
     fn from(i: i32) -> Self {
-        PrimitiveValue::I32(i).into()
+        CopyableValue::I32(i).into()
     }
 }
 
 impl From<f32> for AtomVariant {
     fn from(f: f32) -> Self {
-        PrimitiveValue::F32(f).into()
+        CopyableValue::F32(f).into()
     }
 }

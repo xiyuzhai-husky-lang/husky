@@ -142,7 +142,7 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::FrameVariable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
-            | RawExprVariant::PrimitiveLiteral(_)
+            | RawExprVariant::CopyableLiteral(_)
             | RawExprVariant::This { .. } => Ok(()),
             RawExprVariant::Bracketed(expr) => {
                 self.infer_eager_expr(expr, contract, arena);
@@ -384,7 +384,7 @@ impl<'a> ContractSheetBuilder<'a> {
             } => todo!(),
             RawExprVariant::This { opt_ty, .. } => todo!(),
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::PrimitiveLiteral(_) => {
+            RawExprVariant::CopyableLiteral(_) => {
                 throw_derived!("a primitive literal can't be a caller")
             }
             RawExprVariant::Bracketed(_) => todo!(),

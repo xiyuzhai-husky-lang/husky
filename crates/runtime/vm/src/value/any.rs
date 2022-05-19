@@ -35,7 +35,7 @@ pub trait AnyValue<'eval>:
 {
     fn static_type_id() -> StaticTypeId;
     fn static_type_name() -> Cow<'static, str>;
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>>;
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>>;
 
     fn boxed_any(&self) -> Box<dyn AnyValueDyn<'eval>> {
         Box::new(self.clone())
@@ -43,12 +43,12 @@ pub trait AnyValue<'eval>:
 
     fn from_stack<'stack>(stack_value: StackValue<'stack, 'eval>) -> Self {
         match stack_value {
-            StackValue::Boxed(boxed_value) => boxed_value.take().unwrap(),
+            StackValue::Owned(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
 
-    fn as_primitive(&self) -> PrimitiveValue {
+    fn as_primitive(&self) -> CopyableValue {
         p!(self);
         panic!()
     }
@@ -66,7 +66,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + 'eval {
     fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>>;
     fn equal_any(&self, other: &dyn AnyValueDyn<'eval>) -> bool;
     fn assign<'stack>(&mut self, other: StackValue<'stack, 'eval>);
-    fn as_primitive(&self) -> PrimitiveValue;
+    fn primitive(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval> + 'eval);
     fn print_short(&self) -> String;
 }
@@ -119,7 +119,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         *self = T::from_stack(other)
     }
 
-    fn as_primitive(&self) -> PrimitiveValue {
+    fn primitive(&self) -> CopyableValue {
         T::as_primitive(self)
     }
 
@@ -144,21 +144,21 @@ impl<'eval> AnyValue<'eval> for i32 {
         Box::new(*self)
     }
 
-    fn as_primitive(&self) -> PrimitiveValue {
+    fn as_primitive(&self) -> CopyableValue {
         (*self).into()
     }
 
     fn from_stack(stack_value: StackValue) -> Self {
         match stack_value {
-            StackValue::Primitive(PrimitiveValue::I32(value)) => value,
-            StackValue::Boxed(boxed_value) => boxed_value.take().unwrap(),
+            StackValue::Copyable(CopyableValue::I32(value)) => value,
+            StackValue::Owned(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        Arc::new(*self)
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     Arc::new(*self)
+    // }
 }
 
 impl<'eval> AnyValue<'eval> for f32 {
@@ -174,21 +174,21 @@ impl<'eval> AnyValue<'eval> for f32 {
         Box::new(*self)
     }
 
-    fn as_primitive(&self) -> PrimitiveValue {
+    fn as_primitive(&self) -> CopyableValue {
         self.into()
     }
 
     fn from_stack(stack_value: StackValue) -> Self {
         match stack_value {
-            StackValue::Primitive(PrimitiveValue::F32(value)) => value,
-            StackValue::Boxed(boxed_value) => boxed_value.take().unwrap(),
+            StackValue::Copyable(CopyableValue::F32(value)) => value,
+            StackValue::Owned(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        Arc::new(*self)
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     Arc::new(*self)
+    // }
 }
 
 impl<'eval> AnyValue<'eval> for u32 {
@@ -204,21 +204,21 @@ impl<'eval> AnyValue<'eval> for u32 {
         Box::new(*self)
     }
 
-    fn as_primitive(&self) -> PrimitiveValue {
+    fn as_primitive(&self) -> CopyableValue {
         self.into()
     }
 
     fn from_stack(stack_value: StackValue) -> Self {
         match stack_value {
-            StackValue::Primitive(PrimitiveValue::B32(value)) => value,
-            StackValue::Boxed(boxed_value) => boxed_value.take().unwrap(),
+            StackValue::Copyable(CopyableValue::B32(value)) => value,
+            StackValue::Owned(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        Arc::new(*self)
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     Arc::new(*self)
+    // }
 
     fn print_short(&self) -> String {
         format!("{:#032b}", self)
@@ -238,21 +238,21 @@ impl<'eval> AnyValue<'eval> for u64 {
         Box::new(*self)
     }
 
-    fn as_primitive(&self) -> PrimitiveValue {
+    fn as_primitive(&self) -> CopyableValue {
         self.into()
     }
 
     fn from_stack(stack_value: StackValue) -> Self {
         match stack_value {
-            StackValue::Primitive(PrimitiveValue::B64(value)) => value,
-            StackValue::Boxed(boxed_value) => boxed_value.take().unwrap(),
+            StackValue::Copyable(CopyableValue::B64(value)) => value,
+            StackValue::Owned(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        Arc::new(*self)
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     Arc::new(*self)
+    // }
 
     fn print_short(&self) -> String {
         format!("{:#064b}", self)
@@ -272,21 +272,21 @@ impl<'eval> AnyValue<'eval> for bool {
         Box::new(*self)
     }
 
-    fn as_primitive(&self) -> PrimitiveValue {
+    fn as_primitive(&self) -> CopyableValue {
         self.into()
     }
 
     fn from_stack(stack_value: StackValue) -> Self {
         match stack_value {
-            StackValue::Primitive(PrimitiveValue::Bool(value)) => value,
-            StackValue::Boxed(boxed_value) => boxed_value.take().unwrap(),
+            StackValue::Copyable(CopyableValue::Bool(value)) => value,
+            StackValue::Owned(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        Arc::new(*self)
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     Arc::new(*self)
+    // }
 }
 
 impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
@@ -298,9 +298,9 @@ impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
         todo!()
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        todo!()
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     todo!()
+    // }
 }
 
 impl<'eval> AnyValue<'eval> for Vec<MemberValue<'eval>> {
@@ -312,9 +312,9 @@ impl<'eval> AnyValue<'eval> for Vec<MemberValue<'eval>> {
         "Vec".into()
     }
 
-    fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        Arc::new(self.clone())
-    }
+    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    //     Arc::new(self.clone())
+    // }
 
     fn print_short(&self) -> String {
         format!("{{ len: {}, data: [...] }}", self.len(),)

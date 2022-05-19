@@ -51,7 +51,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 dev_src: dev_src!(),
             }),
             RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind),
-            RawExprVariant::PrimitiveLiteral(value) => Ok(value.ty().into()),
+            RawExprVariant::CopyableLiteral(value) => Ok(value.ty().into()),
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_expr(expr, expectation, arena))
             }
@@ -403,7 +403,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Unrecognized(_) => {
                 throw!("unrecognized caller", caller.range)
             }
-            RawExprVariant::PrimitiveLiteral(_) | RawExprVariant::FrameVariable { .. } => {
+            RawExprVariant::CopyableLiteral(_) | RawExprVariant::FrameVariable { .. } => {
                 throw!("a primitive literal can't be a caller", caller.range)
             }
             RawExprVariant::Bracketed(_)

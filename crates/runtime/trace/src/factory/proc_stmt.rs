@@ -38,7 +38,7 @@ impl<'eval> TraceFactory<'eval> {
         history: Arc<History<'eval>>,
     ) -> Arc<Trace<'eval>> {
         let opt_vm_branch = history.get(&stmt).map(|entry| match entry {
-            HistoryEntry::BranchGroup { vm_branches, .. } => {
+            HistoryEntry::ConditionFlow { vm_branches, .. } => {
                 vm_branches[branch_idx as usize].clone()
             }
             _ => panic!(),

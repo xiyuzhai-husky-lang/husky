@@ -1,14 +1,10 @@
-mod value;
-
+use crate::*;
 use arrayvec::ArrayVec;
 use check_utils::should_eq;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, p};
 use std::fmt::Write;
-pub use value::*;
 use word::CustomIdentifier;
-
-use crate::*;
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub struct StackIdx(u8);
