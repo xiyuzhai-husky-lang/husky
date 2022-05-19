@@ -53,8 +53,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
         mode: Mode,
     ) -> VMRuntimeResult<VMControl<'eval>> {
-        let stack_len = self.stack.len();
-        let (new_len, control) = match loop_kind {
+        let control = match loop_kind {
             VMLoopKind::For {
                 initial_boundary_kind,
                 final_boundary_kind,
@@ -81,6 +80,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 };
                 let n = step.n(initial_bound_shifted, final_bound_shifted);
                 let mut control = VMControl::None;
+                let stack_len = self.stack.len();
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
                     self.stack.push(StackValue::Primitive(frame_var.into()));
@@ -105,7 +105,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         }
                     }
                 }
-                (stack_len - 2, Ok(control))
+                Ok(control)
             }
             VMLoopKind::ForExt {
                 frame_varidx,
@@ -125,6 +125,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 };
                 let n = step.n(initial_value, final_bound_shifted);
                 let mut control = VMControl::None;
+                let stack_len = self.stack.len();
                 for _ in 0..n {
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);
@@ -148,13 +149,14 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     step.update(self.stack.value_mut(frame_varidx));
                 }
-                (stack_len - 1, Ok(control))
+                Ok(control)
             }
             VMLoopKind::Loop => {
                 let mut control_result = Err(vm_runtime_error!(format!(
                     "infinite loop (loop limit = {})",
                     LOOP_LIMIT
                 )));
+                let stack_len = self.stack.len();
                 for frame_var in 0..LOOP_LIMIT {
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);
@@ -173,10 +175,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         VMControl::Err(_) => todo!(),
                     }
                 }
-                (stack_len, control_result)
+                control_result
             }
         };
-        self.stack.truncate(new_len);
         control
     }
 }
