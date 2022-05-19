@@ -1,7 +1,9 @@
 use crate::*;
 
 use avec::Avec;
-use vm::{EagerContract, Instruction, InstructionKind, VMBranch, VMLoopKind};
+use vm::{
+    EagerContract, Instruction, InstructionKind, VMConditionBranch, VMLoopKind, VMPatternBranch,
+};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
@@ -32,14 +34,6 @@ impl<'a> InstructionSheetBuilder<'a> {
             ProcStmtVariant::Execute { ref expr } => {
                 self.compile_expr(expr);
             }
-            ProcStmtVariant::ConditionFlow { ref branches, .. } => {
-                self.push_instruction(Instruction::new(
-                    InstructionKind::BranchGroup {
-                        branches: self.compile_branch_groups(branches),
-                    },
-                    stmt,
-                ))
-            }
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,
@@ -47,7 +41,26 @@ impl<'a> InstructionSheetBuilder<'a> {
             ProcStmtVariant::Break => {
                 self.push_instruction(Instruction::new(InstructionKind::Break, stmt))
             }
-            ProcStmtVariant::Match { ref branches } => todo!(),
+            ProcStmtVariant::ConditionFlow { ref branches, .. } => {
+                self.push_instruction(Instruction::new(
+                    InstructionKind::ConditionFlow {
+                        branches: self.compile_proc_condition_flow(branches),
+                    },
+                    stmt,
+                ))
+            }
+            ProcStmtVariant::Match {
+                ref match_expr,
+                ref branches,
+            } => {
+                self.compile_expr(match_expr);
+                self.push_instruction(Instruction::new(
+                    InstructionKind::PatternMatch {
+                        branches: self.compile_proc_pattern_match(branches),
+                    },
+                    stmt,
+                ))
+            }
         }
     }
 
@@ -68,7 +81,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_boundary(initial_boundary, &loop_stmt);
                 self.compile_boundary(final_boundary, &loop_stmt);
                 let mut block_sheet_builder = self.subsheet_builder();
-                block_sheet_builder.def_for_frame_variable(frame_var.ident);
+                block_sheet_builder.def_variable(frame_var.ident);
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
@@ -92,7 +105,6 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => {
                 self.compile_boundary(final_boundary, &loop_stmt);
                 let mut block_sheet_builder = self.subsheet_builder();
-                block_sheet_builder.def_forext_frame();
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
@@ -156,25 +168,81 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    fn compile_branch_groups(&self, branches: &[Arc<ProcConditionBranch>]) -> Avec<VMBranch> {
+    fn compile_proc_condition_flow(
+        &self,
+        branches: &[Arc<ProcConditionBranch>],
+    ) -> Avec<VMConditionBranch> {
         Arc::new(
             branches
                 .iter()
                 .map(|branch| match branch.variant {
-                    ProcConditionBranchVariant::If { ref condition } => Arc::new(VMBranch {
-                        opt_condition_sheet: {
-                            let mut condition_sheet = self.subsheet_builder();
-                            condition_sheet.compile_expr(condition);
-                            Some(condition_sheet.finalize())
-                        },
+                    ProcConditionBranchVariant::If { ref condition } => {
+                        Arc::new(VMConditionBranch {
+                            opt_condition_sheet: {
+                                let mut condition_sheet = self.subsheet_builder();
+                                condition_sheet.compile_expr(condition);
+                                Some(condition_sheet.finalize())
+                            },
+                            body: {
+                                let mut body_sheet = self.subsheet_builder();
+                                body_sheet.compile_proc_stmts(&branch.stmts);
+                                body_sheet.finalize()
+                            },
+                        })
+                    }
+                    ProcConditionBranchVariant::Elif { ref condition } => {
+                        Arc::new(VMConditionBranch {
+                            opt_condition_sheet: {
+                                let mut condition_sheet = self.subsheet_builder();
+                                condition_sheet.compile_expr(condition);
+                                Some(condition_sheet.finalize())
+                            },
+                            body: {
+                                let mut body_sheet = self.subsheet_builder();
+                                body_sheet.compile_proc_stmts(&branch.stmts);
+                                body_sheet.finalize()
+                            },
+                        })
+                    }
+                    ProcConditionBranchVariant::Else => Arc::new(VMConditionBranch {
+                        opt_condition_sheet: None,
                         body: {
                             let mut body_sheet = self.subsheet_builder();
                             body_sheet.compile_proc_stmts(&branch.stmts);
                             body_sheet.finalize()
                         },
                     }),
-                    ProcConditionBranchVariant::Elif { ref condition } => todo!(),
-                    ProcConditionBranchVariant::Else => todo!(),
+                })
+                .collect(),
+        )
+    }
+
+    fn compile_proc_pattern_match(
+        &self,
+        branches: &[Arc<ProcPatternBranch>],
+    ) -> Avec<VMPatternBranch> {
+        Arc::new(
+            branches
+                .iter()
+                .map(|branch| {
+                    Arc::new(match branch.variant {
+                        ProcPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
+                            opt_pattern: Some(pattern.compile()),
+                            body: {
+                                let mut body_sheet = self.subsheet_builder();
+                                body_sheet.compile_proc_stmts(&branch.stmts);
+                                body_sheet.finalize()
+                            },
+                        },
+                        ProcPatternBranchVariant::Default => VMPatternBranch {
+                            opt_pattern: None,
+                            body: {
+                                let mut body_sheet = self.subsheet_builder();
+                                body_sheet.compile_proc_stmts(&branch.stmts);
+                                body_sheet.finalize()
+                            },
+                        },
+                    })
                 })
                 .collect(),
         )

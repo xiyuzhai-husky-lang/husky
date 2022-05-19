@@ -20,8 +20,8 @@ pub enum HistoryEntry<'eval> {
     },
     BranchGroup {
         opt_branch_entered: Option<u8>,
-        branches: Avec<VMBranch>,
-        vm_branches: Avec<VMBranch>,
+        branches: Avec<VMConditionBranch>,
+        vm_branches: Avec<VMConditionBranch>,
         control: ControlSnapshot<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
         mutations: Vec<MutationData<'eval>>,

@@ -4,6 +4,7 @@ use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use infer_contract::{ContractSheet, InferContract};
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
+use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
 use vm::{InitKind, StackIdx, VMCompileResult, VMRuntimeResult};
@@ -16,6 +17,7 @@ pub(super) struct LazyStmtParser<'a> {
     pub(super) file: FilePtr,
     entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: Arc<ContractSheet>,
+    qualified_ty_sheet: Arc<QualifiedTySheet>,
 }
 
 impl<'a> LazyStmtParser<'a> {
@@ -35,6 +37,7 @@ impl<'a> LazyStmtParser<'a> {
             file,
             entity_route_sheet: db.entity_route_sheet(file).unwrap(),
             contract_sheet: db.contract_sheet(file).unwrap(),
+            qualified_ty_sheet: db.qualified_ty_sheet(file).unwrap(),
         }
     }
 
@@ -98,7 +101,7 @@ impl<'a> LazyStmtParser<'a> {
                             if kind != InitKind::Decl {
                                 todo!()
                             }
-                            self.def_variable(varname.ident, initial_value.ty)?;
+                            self.def_variable(varname.ident, initial_value.qualified_ty.ty)?;
                             LazyStmtVariant::Init {
                                 varname,
                                 value: initial_value,
@@ -198,6 +201,12 @@ impl<'a> InferEntityRoute for LazyStmtParser<'a> {
 impl<'a> InferContract for LazyStmtParser<'a> {
     fn contract_sheet(&self) -> &ContractSheet {
         &self.contract_sheet
+    }
+}
+
+impl<'a> InferQualifiedTy for LazyStmtParser<'a> {
+    fn qualified_ty_sheet(&self) -> &infer_qualifier::QualifiedTySheet {
+        &self.qualified_ty_sheet
     }
 }
 

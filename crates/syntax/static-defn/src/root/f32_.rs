@@ -32,7 +32,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -55,7 +55,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -74,7 +74,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -93,7 +93,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -112,7 +112,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -131,7 +131,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -150,7 +150,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -169,7 +169,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -188,7 +188,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,
@@ -207,7 +207,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "f32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 2,

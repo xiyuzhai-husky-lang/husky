@@ -91,6 +91,23 @@ impl LazyQualifier {
             LazyQualifier::GlobalRef
         }
     }
+
+    pub fn binding(self, contract: LazyContract) -> Binding {
+        match self {
+            LazyQualifier::PureRef => match contract {
+                LazyContract::Pure => Binding::Ref,
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Move => todo!(),
+                LazyContract::Init => todo!(),
+                LazyContract::UseMemberForInit => Binding::Ref,
+                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::Return => todo!(),
+            },
+            LazyQualifier::Transient => todo!(),
+            LazyQualifier::Copyable => Binding::Copy,
+            LazyQualifier::GlobalRef => Binding::Ref,
+        }
+    }
 }
 
 impl LazyQualifier {

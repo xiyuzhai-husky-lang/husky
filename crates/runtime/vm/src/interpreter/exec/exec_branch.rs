@@ -9,7 +9,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         &mut self,
         sheet: &InstructionSheet,
         ins: &Instruction,
-        branches: &Avec<VMBranch>,
+        branches: &Avec<VMConditionBranch>,
         mode: Mode,
     ) -> VMControl<'eval> {
         should!(self.stack.len() <= sheet.variable_stack.len());

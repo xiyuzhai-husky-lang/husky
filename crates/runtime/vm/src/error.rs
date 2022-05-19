@@ -5,6 +5,7 @@ pub struct VMRuntimeError {
     pub message: String,
 }
 pub type VMRuntimeResult<T> = Result<T, VMRuntimeError>;
+#[macro_export]
 macro_rules! vm_runtime_error {
     ($message: expr) => {
         VMRuntimeError {
@@ -13,7 +14,6 @@ macro_rules! vm_runtime_error {
     };
 }
 use dev_utils::DevSource;
-pub(crate) use vm_runtime_error;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VMCompileError {

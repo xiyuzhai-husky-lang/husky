@@ -261,7 +261,7 @@ impl EntityDefnVariant {
                 output_ty,
                 output_contract,
                 generic_parameters: generic_placeholders,
-                kind,
+                ref kind,
             } => EntityDefnVariant::Method {
                 generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
                     GenericPlaceholder::from_static(symbol_context.db, static_generic_placeholder)

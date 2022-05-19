@@ -41,18 +41,18 @@ impl MethodKind {
 
     pub fn from_static(
         db: &dyn DeclQueryGroup,
-        static_kind: MethodStaticDefnKind,
+        method_variant: &MethodStaticDefnVariant,
         symbol_context: &SymbolContext,
     ) -> Self {
-        match static_kind {
-            MethodStaticDefnKind::TypeMethod { .. } => Self::Type,
-            MethodStaticDefnKind::TraitMethod { .. } => {
+        match method_variant {
+            MethodStaticDefnVariant::TypeMethod { .. } => Self::Type,
+            MethodStaticDefnVariant::TraitMethod { .. } => {
                 // opt_this_ty,
                 Self::Trait {
                     trai: symbol_context.trai(),
                 }
             }
-            MethodStaticDefnKind::TraitMethodImpl { opt_source } => todo!(),
+            MethodStaticDefnVariant::TraitMethodImpl { opt_source } => todo!(),
         }
     }
 }
@@ -102,7 +102,7 @@ impl MethodDecl {
                 output_ty,
                 output_contract,
                 generic_parameters: generic_placeholders,
-                kind,
+                ref kind,
             } => {
                 let output_ty = parse_route(symbol_context, &db.tokenize(output_ty)).unwrap();
                 Arc::new(Self {

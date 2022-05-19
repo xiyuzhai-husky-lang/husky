@@ -19,10 +19,10 @@ use text::{Row, TextRange};
 use vm::*;
 use word::Identifier;
 
-pub trait InferQualifiedType {
+pub trait InferQualifiedTy {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
 
-    fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedTy> {
+    fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyQualifiedTy> {
         self.qualified_ty_sheet()
             .lazy_expr_qualified_ty(raw_expr_idx)
     }

@@ -1,6 +1,7 @@
 use feature::*;
 use vm::{
-    History, HistoryEntry, InstructionSheet, LoopFrameData, StackValueSnapshot, VMBranch, VMControl,
+    History, HistoryEntry, InstructionSheet, LoopFrameData, StackValueSnapshot, VMConditionBranch,
+    VMControl,
 };
 use word::CustomIdentifier;
 
@@ -27,7 +28,7 @@ pub enum TraceVariant<'eval> {
     ProcBranch {
         stmt: Arc<ProcStmt>,
         branch: Arc<ProcConditionBranch>,
-        opt_vm_branch: Option<Arc<VMBranch>>, // not none when executed
+        opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
         branch_idx: u8,
         history: Arc<History<'eval>>,
     },
@@ -96,7 +97,10 @@ impl<'eval> TraceVariant<'eval> {
                 ProcStmtVariant::Loop { .. } => true,
                 ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Break => false,
-                ProcStmtVariant::Match { ref branches } => todo!(),
+                ProcStmtVariant::Match {
+                    ref match_expr,
+                    ref branches,
+                } => todo!(),
             },
             TraceVariant::LoopFrame { .. }
             | TraceVariant::Main(_)
@@ -192,7 +196,10 @@ impl<'eval> TraceVariant<'eval> {
                 FuncStmtVariant::Assert { ref condition } => history.contains(condition),
                 FuncStmtVariant::Return { ref result } => history.contains(result),
                 FuncStmtVariant::ConditionFlow { .. } => todo!(),
-                FuncStmtVariant::Match { ref branches } => todo!(),
+                FuncStmtVariant::Match {
+                    ref match_expr,
+                    ref branches,
+                } => todo!(),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
                 ProcStmtVariant::Init {
@@ -203,7 +210,10 @@ impl<'eval> TraceVariant<'eval> {
                 ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
                 ProcStmtVariant::Return { ref result } => history.contains(result),
-                ProcStmtVariant::Match { ref branches } => todo!(),
+                ProcStmtVariant::Match {
+                    ref match_expr,
+                    ref branches,
+                } => todo!(),
             },
             TraceVariant::LoopFrame {
                 loop_stmt,

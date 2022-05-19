@@ -248,7 +248,11 @@ impl EntityDefn {
                             extract_func_stmts_dependees(&branch.stmts, builder)
                         }
                     }
-                    FuncStmtVariant::Match { ref branches } => {
+                    FuncStmtVariant::Match {
+                        ref match_expr,
+                        ref branches,
+                    } => {
+                        extract_eager_expr_dependees(match_expr, builder);
                         for branch in branches {
                             extract_func_pattern_branch_dependees(branch, builder)
                         }
@@ -307,7 +311,11 @@ impl EntityDefn {
                         extract_proc_stmts_dependees(stmts, builder)
                     }
                     ProcStmtVariant::Break => (),
-                    ProcStmtVariant::Match { ref branches } => {
+                    ProcStmtVariant::Match {
+                        ref match_expr,
+                        ref branches,
+                    } => {
+                        extract_eager_expr_dependees(match_expr, builder);
                         for branch in branches {
                             extract_proc_pattern_branch_dependees(branch, builder)
                         }

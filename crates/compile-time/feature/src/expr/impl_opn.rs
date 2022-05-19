@@ -1,9 +1,8 @@
 use entity_kind::{FieldKind, TyKind};
 use entity_route::EntityRoute;
-use linkage_table::MemberAccessKind;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
-use vm::LazyContract;
+use vm::{Binding, LazyContract};
 
 use super::*;
 
@@ -94,7 +93,8 @@ impl<'a> FeatureExprBuilder<'a> {
             method_ident: method_ident.ident,
             opds: opds.iter().map(|opd| opd.feature).collect(),
         });
-        let this_ty_defn = self.db.entity_defn(opds[0].expr.ty).unwrap();
+        let this_expr = &opds[0].expr;
+        let this_ty_defn = self.db.entity_defn(this_expr.ty()).unwrap();
         let member_idx = self.db.member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
         let kind = match method_defn.variant {
@@ -111,43 +111,10 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 FeatureExprKind::RoutineCall {
                     opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
-                    opt_linkage: self.db.method_linkage_source(method_route).as_ref().map(
-                        |linkage_source| match linkage_source {
-                            LinkageSource::MemberAccess {
-                                ref_access,
-                                move_access,
-                                ..
-                            } => match opds[0].expr.contract {
-                                LazyContract::Move => *move_access,
-                                LazyContract::GlobalRef => *ref_access,
-                                LazyContract::Pure => *ref_access,
-                                LazyContract::Init => todo!(),
-                                LazyContract::Return => todo!(),
-                                LazyContract::UseMemberForInit => todo!(),
-                                LazyContract::UseMemberForReturn => todo!(),
-                            },
-                            LinkageSource::Transfer(linkage) => *linkage,
-                        },
-                    ),
+                    opt_linkage: self.db.method_linkage(method_route, this_expr.binding()),
                     opds,
                     routine_defn: method_defn.clone(),
                 }
-                //     match method_variant {
-                //     MethodSource::Func { .. } | MethodSource::Proc { .. } => {
-                //         FeatureExprKind::RoutineCall {
-                //             opds,
-                //             instruction_sheet: self.db.method_instruction_sheet(method_route),
-                //             opt_linkage: self.db.method_linkage(method_route),
-                //             routine_defn: method_defn.clone(),
-                //         }
-                //     }
-                //     MethodSource::Pattern { stmts } => todo!(),
-                //     MethodSource::StaticMemberAccess {
-                //         ref_access,
-                //         move_access,
-                //         borrow_mut_access,
-                //     } => todo!(),
-                // }
             }
             _ => panic!(),
         };
@@ -162,7 +129,7 @@ impl<'a> FeatureExprBuilder<'a> {
         contract: LazyContract,
     ) -> (FeatureExprKind, FeaturePtr) {
         let this = self.new_expr(opds[0].clone());
-        let this_ty_decl = self.db.ty_decl(this.expr.ty).unwrap();
+        let this_ty_decl = self.db.ty_decl(this.expr.ty()).unwrap();
         match field_access_kind {
             FieldKind::StructOriginal => {
                 let feature = self.features.alloc(Feature::StructOriginalFieldAccess {
@@ -176,7 +143,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         contract,
                         opt_linkage: self
                             .db
-                            .struct_field_access(this.expr.ty, field_ident.ident)
+                            .struct_field_access(this.expr.ty(), field_ident.ident)
                             .map(|linkage_source| match linkage_source {
                                 LinkageSource::MemberAccess {
                                     ref_access,
@@ -207,11 +174,11 @@ impl<'a> FeatureExprBuilder<'a> {
                 )
             }
             FieldKind::RecordDerived => {
-                let this_ty_defn = self.db.entity_defn(this.expr.ty).unwrap();
+                let this_ty_defn = self.db.entity_defn(this.expr.ty()).unwrap();
                 let field_uid =
                     self.db
                         .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
-                            this.expr.ty,
+                            this.expr.ty(),
                             field_ident.ident,
                             vec![],
                         )));
@@ -267,7 +234,7 @@ impl<'a> FeatureExprBuilder<'a> {
         });
         let feature_expr_kind = FeatureExprKind::ElementAccess {
             linkage: self.db.element_access_linkage(
-                opds.map(|opd| opd.expr.ty),
+                opds.map(|opd| opd.expr.ty()),
                 match opds[0].expr.contract {
                     LazyContract::Move => {
                         p!(opds[0].expr.file, opds[0].expr.range);
@@ -277,10 +244,10 @@ impl<'a> FeatureExprBuilder<'a> {
                     LazyContract::Init => todo!(),
                     LazyContract::Return => todo!(),
                     LazyContract::Pure | LazyContract::UseMemberForInit => {
-                        if self.db.is_copyable(expr.ty).unwrap() {
-                            MemberAccessKind::Copy
+                        if self.db.is_copyable(expr.ty()).unwrap() {
+                            Binding::Copy
                         } else {
-                            MemberAccessKind::Ref
+                            Binding::Ref
                         }
                     }
                     LazyContract::UseMemberForReturn => todo!(),

@@ -6,12 +6,12 @@ use crate::*;
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(super) fn exec_primitive_opn(
         &mut self,
-        opn: PrimitiveOpn,
+        opn: OprOpn,
         debug_flag: Mode,
         ins: &Instruction,
     ) -> VMRuntimeResult<()> {
         match opn {
-            PrimitiveOpn::PureBinary(pure_binary_opr) => {
+            OprOpn::PureBinary(pure_binary_opr) => {
                 let ropd = self.stack.pop();
                 let lopd = self.stack.pop();
                 let output =
@@ -28,7 +28,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 self.stack.push(output.into());
                 Ok(())
             }
-            PrimitiveOpn::Assign(opt_binary_opr) => {
+            OprOpn::Assign(opt_binary_opr) => {
                 let ropd = self.stack.pop();
                 let mut lopd = self.stack.pop();
                 let before = lopd.snapshot();
@@ -54,7 +54,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => match ins.kind {
-                        InstructionKind::PrimitiveOpn {
+                        InstructionKind::OprOpn {
                             this_ty,
                             this_range,
                             ..
@@ -75,7 +75,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 Ok(())
             }
-            PrimitiveOpn::Suffix(suffix_opr) => {
+            OprOpn::Suffix(suffix_opr) => {
                 let output = suffix_opr.act_on_primitive(self.stack.pop().as_primitive());
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
@@ -89,7 +89,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 self.stack.push(output.into());
                 Ok(())
             }
-            PrimitiveOpn::Prefix(prefix_opr) => {
+            OprOpn::Prefix(prefix_opr) => {
                 let output = prefix_opr.act_on_primitive(self.stack.pop().as_primitive());
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),

@@ -125,13 +125,13 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         self.values.drain((self.len() - k as usize)..).collect()
     }
 
-    pub(crate) fn top_second(&self) -> &StackValue<'stack, 'eval> {
-        &self.values[self.values.len() - 2]
-    }
+    // pub(crate) fn top_second(&self) -> &StackValue<'stack, 'eval> {
+    //     &self.values[self.values.len() - 2]
+    // }
 
-    pub(crate) fn top(&mut self) -> &StackValue<'stack, 'eval> {
-        self.values.last_mut().unwrap()
-    }
+    // pub(crate) fn top(&mut self) -> &StackValue<'stack, 'eval> {
+    //     self.values.last_mut().unwrap()
+    // }
 
     pub(crate) fn top_snapshot(&mut self) -> StackValueSnapshot<'eval> {
         self.values.last_mut().unwrap().snapshot()
@@ -150,7 +150,7 @@ impl<'stack, 'eval: 'stack> From<Vec<StackValue<'stack, 'eval>>> for VMStack<'st
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct VariableStack {
-    variables: Vec<Option<CustomIdentifier>>,
+    variables: Vec<CustomIdentifier>,
     has_this: bool,
 }
 
@@ -159,10 +159,8 @@ impl std::fmt::Debug for VariableStack {
         f.write_str("\nVariableStack:\n")?;
         f.write_fmt(format_args!("    has_this: {}\n", self.has_this))?;
         f.write_str("    variables:\n")?;
-        for (i, opt_ident) in self.variables.iter().enumerate() {
-            if let Some(ident) = opt_ident {
-                f.write_fmt(format_args!("        {: <3} {}\n", i, ident.as_str()))?
-            }
+        for (i, ident) in self.variables.iter().enumerate() {
+            f.write_fmt(format_args!("        {: <3} {}\n", i, ident.as_str()))?
         }
         f.write_str("\n")
     }
@@ -171,7 +169,7 @@ impl std::fmt::Debug for VariableStack {
 impl VariableStack {
     pub fn new(inputs: impl Iterator<Item = CustomIdentifier>, has_this: bool) -> Self {
         Self {
-            variables: inputs.map(|ident| Some(ident)).collect(),
+            variables: inputs.map(|ident| ident).collect(),
             has_this,
         }
     }
@@ -186,47 +184,38 @@ impl VariableStack {
                 .variables
                 .iter()
                 .rev()
-                .position(|ident| *ident == Some(ident0))
+                .position(|ident| *ident == ident0)
                 .unwrap());
         StackIdx::new(if self.has_this { idx + 1 } else { idx }).unwrap()
     }
 
-    pub fn push(&mut self, opt_ident: Option<CustomIdentifier>) {
-        self.variables.push(opt_ident)
+    pub fn push(&mut self, ident: CustomIdentifier) {
+        self.variables.push(ident)
     }
 
     pub fn varname(&self, stack_idx: StackIdx) -> CustomIdentifier {
-        self.variables[stack_idx.0 as usize].unwrap()
+        self.variables[stack_idx.0 as usize]
     }
 
     pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {
         let mut result = String::new();
         should_eq!(vm_stack.opt_this.is_some(), self.has_this);
-        write!(
-            result,
-            "comparing with vm stack, src: {}:{}",
-            file!(),
-            line!()
-        );
-        write!(result, "VariableStack:");
-        write!(result, "    has_this: {}", self.has_this);
-        write!(result, "    variables:");
-        for (i, opt_ident) in self.variables.iter().enumerate() {
-            print!(
+        write!(result, "VariableStack:\n");
+        write!(result, "    has_this: {}\n", self.has_this);
+        write!(result, "    variables:\n");
+        for (i, ident) in self.variables.iter().enumerate() {
+            write!(
+                result,
                 "        #{: <3} {}{: <10}{} ",
                 i,
                 print_utils::CYAN,
-                if let Some(ident) = opt_ident {
-                    ident.as_str()
-                } else {
-                    "-"
-                },
+                ident.as_str(),
                 print_utils::RESET,
             );
             if i < vm_stack.values.len() {
-                write!(result, "{}", vm_stack.values[i].print_short()).unwrap()
+                write!(result, "{}\n", vm_stack.values[i].print_short()).unwrap()
             } else {
-                write!(result, "uninitialized").unwrap()
+                write!(result, "uninitialized\n").unwrap()
             }
         }
 
@@ -240,7 +229,7 @@ impl VariableStack {
                 print_utils::RESET,
             )
             .unwrap();
-            write!(result, "{}", vm_stack.values[i].print_short()).unwrap()
+            write!(result, "{}\n", vm_stack.values[i].print_short()).unwrap()
         }
         result.push('\n');
         result

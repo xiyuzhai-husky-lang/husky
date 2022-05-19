@@ -3,7 +3,7 @@ use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
-use infer_qualifier::InferQualifiedType;
+use infer_qualifier::InferQualifiedTy;
 use text::RangedCustomIdentifier;
 use vm::*;
 use word::RootIdentifier;
@@ -13,7 +13,7 @@ use semantics_error::{derived_unwrap, err};
 
 use super::EagerOpnVariant;
 
-pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedType {
+pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
     fn arena(&self) -> &'a RawExprArena;
     fn file(&self) -> FilePtr;
     // fn db(&self) -> &'a dyn InferQueryGroup;

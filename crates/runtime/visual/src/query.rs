@@ -25,7 +25,7 @@ fn visualizer(
                 output_ty,
                 output_contract,
                 generic_parameters: generic_placeholders,
-                kind,
+                ref kind,
             } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TypeField { .. } => todo!(),

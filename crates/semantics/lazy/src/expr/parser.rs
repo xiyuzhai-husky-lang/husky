@@ -7,6 +7,7 @@ use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
+use infer_qualifier::InferQualifiedTy;
 use text::RangedCustomIdentifier;
 use vm::*;
 use word::{CustomIdentifier, RootIdentifier};
@@ -14,7 +15,7 @@ use word::{CustomIdentifier, RootIdentifier};
 use super::*;
 use semantics_error::*;
 
-pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
+pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
     fn arena(&self) -> &'a RawExprArena;
     fn vartype(&self, varname: CustomIdentifier) -> EntityRoutePtr;
     fn file(&self) -> FilePtr;
@@ -73,7 +74,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
-            ty: self.raw_expr_ty(raw_expr_idx)?,
+            qualified_ty: self.lazy_expr_qualified_ty(raw_expr_idx)?,
             variant: kind,
             file: self.file(),
             instruction_id: Default::default(),
@@ -119,12 +120,12 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
         let ropd = self.parse_lazy_expr(raw_opds.start + 1)?;
         let output_type = match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
-                self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty, ropd.ty)?
+                self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty(), ropd.ty())?
             }
             BinaryOpr::Assign(opt_binary) => {
                 if let Some(pure_binary_opr) = opt_binary {
-                    if lopd.ty
-                        != self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty, ropd.ty)?
+                    if lopd.ty()
+                        != self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty(), ropd.ty())?
                     {
                         todo!()
                     }
@@ -137,7 +138,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract {
             BinaryOpr::Assign(_) => todo!(),
         };
         Ok(LazyExprVariant::Opn {
-            opn_kind: LazyOpnKind::Binary { opr, this: lopd.ty },
+            opn_kind: LazyOpnKind::Binary {
+                opr,
+                this: lopd.ty(),
+            },
             opds: vec![lopd, ropd],
         })
     }

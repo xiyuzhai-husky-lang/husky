@@ -15,7 +15,7 @@ use semantics_entity::{
 use std::collections::HashMap;
 use sync_utils::ARwLock;
 use vec::*;
-use vm::EntityUid;
+use vm::{Binding, EntityUid};
 use vm::{BoxedValue, EvalValue, Linkage, StackValue, VMRuntimeResult};
 use word::{CustomIdentifier, RootIdentifier};
 
@@ -25,7 +25,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn element_access_linkage(
         &self,
         opd_tys: Vec<EntityRoutePtr>,
-        access_kind: MemberAccessKind,
+        access_kind: Binding,
     ) -> Linkage {
         if let Some(linkage) = self
             .linkage_table()
@@ -49,21 +49,8 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                             MethodSource::Func { stmts } => todo!(),
                             MethodSource::Proc { stmts } => todo!(),
                             MethodSource::Pattern { stmts } => todo!(),
-                            MethodSource::Static(static_linkage_source) => {
-                                match static_linkage_source {
-                                    LinkageSource::MemberAccess {
-                                        copy_access,
-                                        ref_access,
-                                        move_access,
-                                        ref_mut_access: borrow_mut_access,
-                                    } => match access_kind {
-                                        MemberAccessKind::Move => *move_access,
-                                        MemberAccessKind::Ref => *ref_access,
-                                        MemberAccessKind::BorrowMut => *borrow_mut_access,
-                                        MemberAccessKind::Copy => *copy_access,
-                                    },
-                                    LinkageSource::Transfer(_) => todo!(),
-                                }
+                            MethodSource::Static(linkage_source) => {
+                                linkage_source.bind(access_kind)
                             }
                         }
                     } else {
@@ -94,9 +81,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         }
     }
 
-    fn method_linkage_source(&self, method_route: EntityRoutePtr) -> Option<LinkageSource> {
+    fn method_linkage(&self, method_route: EntityRoutePtr, binding: Binding) -> Option<Linkage> {
         if let Some(linkage) = self.linkage_table().routine(self.entity_uid(method_route)) {
-            return Some(LinkageSource::Transfer(linkage));
+            return Some(linkage);
         }
         let method_defn = self.entity_defn(method_route).unwrap();
         match method_defn.variant {
@@ -108,7 +95,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                     MethodSource::Func { .. }
                     | MethodSource::Proc { .. }
                     | MethodSource::Pattern { .. } => None,
-                    MethodSource::Static(linkage) => Some(*linkage),
+                    MethodSource::Static(linkage_source) => Some(linkage_source.bind(binding)),
                 },
                 MethodDefnVariant::TraitMethod {
                     trai,
@@ -120,7 +107,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                             MethodSource::Func { ref stmts } => todo!(),
                             MethodSource::Proc { ref stmts } => todo!(),
                             MethodSource::Pattern { ref stmts } => todo!(),
-                            MethodSource::Static(linkage_source) => Some(*linkage_source),
+                            MethodSource::Static(linkage_source) => {
+                                Some(linkage_source.bind(binding))
+                            }
                         };
                     }
                     let trai_defn = self.entity_defn(*trai).unwrap();
@@ -145,7 +134,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                     MethodSource::Func { ref stmts } => todo!(),
                                     MethodSource::Proc { ref stmts } => todo!(),
                                     MethodSource::Pattern { ref stmts } => todo!(),
-                                    MethodSource::Static(linkage_source) => Some(*linkage_source),
+                                    MethodSource::Static(linkage_source) => {
+                                        Some(linkage_source.bind(binding))
+                                    }
                                 },
                                 _ => panic!(),
                             }

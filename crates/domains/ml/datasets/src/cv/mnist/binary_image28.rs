@@ -23,7 +23,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         output_ty: "datasets::cv::mnist::BinaryImage28",
                         output_contract: OutputLiason::Transfer,
                         generic_parameters: &[],
-                        kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
+                        kind: MethodStaticDefnVariant::TraitMethodImpl { opt_source: None },
                     },
                 }],
             },
@@ -46,7 +46,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                             output_ty: "b32",
                             output_contract: OutputLiason::MemberAccess,
                             generic_parameters: &[],
-                            kind: MethodStaticDefnKind::TraitMethodImpl {
+                            kind: MethodStaticDefnVariant::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
                                     copy_access: Linkage {
                                         call: |values| -> VMRuntimeResult<StackValue> {

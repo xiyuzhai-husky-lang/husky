@@ -115,7 +115,7 @@ impl TraitDecl {
                     (
                         db.intern_word(member.name).custom(),
                         match member.variant {
-                            EntityStaticDefnVariant::Method { kind, .. } => MemberKind::Method,
+                            EntityStaticDefnVariant::Method { .. } => MemberKind::Method,
                             EntityStaticDefnVariant::TraitAssociatedType { .. } => {
                                 MemberKind::TraitAssociatedType
                             }
@@ -199,14 +199,7 @@ pub(crate) fn trait_decl(
                 }
             }
             EntityStaticDefnVariant::Module => todo!(),
-            EntityStaticDefnVariant::Method {
-                this_contract,
-                input_parameters: inputs,
-                output_ty,
-                output_contract,
-                generic_parameters: generic_placeholders,
-                kind,
-            } => todo!(),
+            EntityStaticDefnVariant::Method { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TypeField { .. } => todo!(),
