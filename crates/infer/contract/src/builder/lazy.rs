@@ -138,7 +138,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     LazyContract::GlobalRef => todo!(),
                     LazyContract::Pure => (),
                     LazyContract::Init => todo!(),
-                    LazyContract::Return => todo!(),
+                    LazyContract::Return => (),
                     LazyContract::UseMemberForInit => todo!(),
                     LazyContract::UseMemberForReturn => todo!(),
                     LazyContract::Move => todo!(),
