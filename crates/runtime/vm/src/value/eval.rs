@@ -8,8 +8,8 @@ pub type EvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
 
 #[derive(Debug, Clone)]
 pub enum EvalValue<'eval> {
-    Primitive(PrimitiveValue),
-    Boxed(BoxedValue<'eval>),
+    Primitive(CopyableValue),
+    Boxed(OwnedValue<'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
     GlobalRef(&'eval dyn AnyValueDyn<'eval>),
     Undefined,
@@ -29,14 +29,14 @@ impl<'eval> PartialEq for EvalValue<'eval> {
 
 impl<'eval> Eq for EvalValue<'eval> {}
 
-impl<'eval> From<PrimitiveValue> for EvalValue<'eval> {
-    fn from(value: PrimitiveValue) -> Self {
+impl<'eval> From<CopyableValue> for EvalValue<'eval> {
+    fn from(value: CopyableValue) -> Self {
         Self::Primitive(value)
     }
 }
 
 impl<'eval> EvalValue<'eval> {
-    pub fn as_primitive(&self) -> PrimitiveValue {
+    pub fn primitive(&self) -> CopyableValue {
         match self {
             EvalValue::Primitive(value) => *value,
             EvalValue::Boxed(_) => todo!(),
@@ -46,7 +46,7 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn into_boxed(self) -> VMRuntimeResult<BoxedValue<'eval>> {
+    pub fn into_boxed(self) -> VMRuntimeResult<OwnedValue<'eval>> {
         match self {
             EvalValue::Boxed(value) => Ok(value),
             _ => todo!(),
@@ -55,8 +55,8 @@ impl<'eval> EvalValue<'eval> {
 
     pub fn into_stack(self) -> VMRuntimeResult<StackValue<'eval, 'eval>> {
         match self {
-            EvalValue::Primitive(value) => Ok(StackValue::Primitive(value)),
-            EvalValue::Boxed(value) => Ok(StackValue::Boxed(value)),
+            EvalValue::Primitive(value) => Ok(StackValue::Copyable(value)),
+            EvalValue::Boxed(value) => Ok(StackValue::Owned(value)),
             EvalValue::GlobalPure(value) => Ok(StackValue::GlobalPure(value)),
             EvalValue::GlobalRef(value) => Ok(StackValue::GlobalRef(value)),
             EvalValue::Undefined => todo!(),

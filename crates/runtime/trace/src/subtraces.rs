@@ -25,7 +25,7 @@ impl<'eval> Trace<'eval> {
                 | FeatureExprKind::GlobalInput => None,
                 FeatureExprKind::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
                 FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureExprKind::EnumLiteral { .. } => todo!(),
+                FeatureExprKind::EnumKindLiteral { .. } => todo!(),
                 FeatureExprKind::EntityFeature { .. } => todo!(),
                 FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
                 FeatureExprKind::RecordOriginalFieldAccess {
@@ -65,7 +65,7 @@ impl<'eval> Trace<'eval> {
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::Bracketed(_) => panic!(),
                 EagerExprVariant::This => todo!(),
-                EagerExprVariant::EnumLiteral(_) => todo!(),
+                EagerExprVariant::EnumKindLiteral(_) => todo!(),
             },
         }
     }

@@ -40,10 +40,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 EntityKind::Module => todo!(),
                 EntityKind::EnumLiteral => match entity_route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
-                        LazyExprVariant::PrimitiveLiteral(PrimitiveValue::Bool(true))
+                        LazyExprVariant::PrimitiveLiteral(CopyableValue::Bool(true))
                     }
                     EntityRoutePtr::Root(RootIdentifier::False) => {
-                        LazyExprVariant::PrimitiveLiteral(PrimitiveValue::Bool(false))
+                        LazyExprVariant::PrimitiveLiteral(CopyableValue::Bool(false))
                     }
                     EntityRoutePtr::Custom(scope_ref) => {
                         LazyExprVariant::EnumLiteral { entity_route }
@@ -60,7 +60,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::PrimitiveLiteral(value) => LazyExprVariant::PrimitiveLiteral(value),
+            RawExprVariant::CopyableLiteral(value) => LazyExprVariant::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn {
                 ref opr, ref opds, ..
@@ -304,7 +304,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             }
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => panic!(),
-            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::CopyableLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { .. } => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),

@@ -1,5 +1,5 @@
 use text::RangedCustomIdentifier;
-use vm::PrimitiveValue;
+use vm::CopyableValue;
 
 use super::*;
 
@@ -10,7 +10,7 @@ impl<'a> AtomParser<'a> {
 
     pub(crate) fn usize_literal(&mut self) -> Option<usize> {
         if let Some(Token {
-            kind: TokenKind::PrimitiveLiteral(PrimitiveValue::I32(i)),
+            kind: TokenKind::PrimitiveLiteral(CopyableValue::I32(i)),
             ..
         }) = self.stream.next()
         {

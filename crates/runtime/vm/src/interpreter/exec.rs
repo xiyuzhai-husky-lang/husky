@@ -1,7 +1,8 @@
-mod exec_branch;
 mod exec_call;
+mod exec_condition_flow;
 mod exec_interpret_call;
 mod exec_loop;
+mod exec_pattern_match;
 mod exec_primitive_opn;
 
 use crate::{history::HistoryEntry, *};
@@ -39,6 +40,28 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 InstructionKind::PushPrimitiveLiteral(value) => {
                     self.stack.push(value.into());
+                    match mode {
+                        Mode::Fast | Mode::TrackMutation => (),
+                        Mode::TrackHistory => self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                output: self.stack.top_snapshot(),
+                            },
+                        ),
+                    }
+                    VMControl::None
+                }
+                InstructionKind::PushEnumKindLiteral(entity_kind) => {
+                    self.stack.push(StackValue::Copyable(entity_kind.into()));
+                    match mode {
+                        Mode::Fast | Mode::TrackMutation => (),
+                        Mode::TrackHistory => self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                output: self.stack.top_snapshot(),
+                            },
+                        ),
+                    }
                     VMControl::None
                 }
                 InstructionKind::RoutineCallCompiled { linkage } => {
@@ -114,7 +137,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionKind::BreakIfFalse => {
-                    let control = if !self.stack.pop().as_primitive().to_bool() {
+                    let control = if !self.stack.pop().primitive().to_bool() {
                         VMControl::Break
                     } else {
                         VMControl::None
@@ -143,7 +166,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::None
                 }
                 InstructionKind::Assert => {
-                    let is_condition_satisfied = self.stack.pop().as_primitive().to_bool();
+                    let is_condition_satisfied = self.stack.pop().primitive().to_bool();
                     if !is_condition_satisfied {
                         todo!()
                     } else {
@@ -157,9 +180,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::Break
                 }
                 InstructionKind::ConditionFlow { ref branches } => {
-                    self.exec_branch(sheet, ins, branches, mode)
+                    self.exec_condition_flow(sheet, ins, branches, mode)
                 }
-                InstructionKind::PatternMatch { ref branches } => todo!(),
+                InstructionKind::PatternMatch { ref branches } => {
+                    self.exec_pattern_matching(sheet, ins, branches, mode)
+                }
             };
             match control {
                 VMControl::None => (),

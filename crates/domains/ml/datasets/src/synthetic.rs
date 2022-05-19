@@ -12,7 +12,7 @@ pub const SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
 use crate::{labeled::LabeledData, *};
 
 use loader::SyntheticSampleLoader;
-use vm::BoxedValue;
+use vm::OwnedValue;
 
 pub trait SyntheticDataset<'eval>: AnyValueDyn<'eval> + 'eval {
     fn data_generator(&self) -> fn(seed: u64, idx: usize) -> LabeledData<'eval>;
@@ -113,9 +113,9 @@ impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
         todo!()
     }
 
-    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
-        todo!()
-    }
+    // fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
+    //     todo!()
+    // }
 }
 
 impl<'eval> SyntheticDataset<'eval> for SimpleSyntheticDataset<'eval> {

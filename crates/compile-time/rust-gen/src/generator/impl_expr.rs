@@ -8,7 +8,7 @@ impl<'a> RustGenerator<'a> {
             EagerExprVariant::Variable(varname) => self.write(&varname),
             EagerExprVariant::This => self.write("self"),
             EagerExprVariant::EntityRoute { route: scope } => todo!(),
-            EagerExprVariant::PrimitiveLiteral(value) => self.gen_primitive_literal(value),
+            EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {
                 ref opn_variant,
@@ -20,7 +20,7 @@ impl<'a> RustGenerator<'a> {
                     self.gen_expr(&opds[1]);
                 }
                 EagerOpnVariant::Prefix { opr, this_ty: this } => todo!(),
-                EagerOpnVariant::Suffix { opr, this } => match opr {
+                EagerOpnVariant::Suffix { opr, this_ty: this } => match opr {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
                     SuffixOpr::MayReturn => todo!(),
@@ -67,7 +67,7 @@ impl<'a> RustGenerator<'a> {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::EnumLiteral(_) => todo!(),
+            EagerExprVariant::EnumKindLiteral(_) => todo!(),
         }
     }
 
@@ -80,26 +80,27 @@ impl<'a> RustGenerator<'a> {
         }
     }
 
-    fn gen_primitive_literal(&mut self, v: PrimitiveValue) {
+    fn gen_copyable_literal(&mut self, v: CopyableValue) {
         match v {
-            PrimitiveValue::I32(i) => {
+            CopyableValue::I32(i) => {
                 self.result.push_str(&i.to_string());
                 self.write("i32")
             }
-            PrimitiveValue::F32(f) => {
+            CopyableValue::F32(f) => {
                 self.result.push_str(&f.to_string());
                 self.write("f32")
             }
-            PrimitiveValue::B32(b) => {
+            CopyableValue::B32(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u32")
             }
-            PrimitiveValue::B64(b) => {
+            CopyableValue::B64(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u64")
             }
-            PrimitiveValue::Bool(b) => self.result.push_str(&b.to_string()),
-            PrimitiveValue::Void => self.result.push_str("()"),
+            CopyableValue::Bool(b) => self.result.push_str(&b.to_string()),
+            CopyableValue::Void => self.result.push_str("()"),
+            CopyableValue::EnumKind(_) => todo!(),
         }
     }
 }

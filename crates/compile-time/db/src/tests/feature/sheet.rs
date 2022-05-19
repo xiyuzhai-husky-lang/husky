@@ -30,6 +30,6 @@ main:
     let mut sheet = FeatureSheet::default();
     let result = eval_feature_block(&db, &main_block, Arc::new(1i32), &mut sheet)
         .unwrap()
-        .as_primitive();
+        .primitive();
     should_eq!(result, 1.into());
 }

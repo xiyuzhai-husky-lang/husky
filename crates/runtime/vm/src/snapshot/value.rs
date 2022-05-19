@@ -2,9 +2,9 @@ use crate::*;
 
 #[derive(Clone)]
 pub enum StackValueSnapshot<'eval> {
-    Primitive(PrimitiveValue),
+    Primitive(CopyableValue),
     GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
-    Boxed(BoxedValue<'eval>),
+    Boxed(OwnedValue<'eval>),
     Ref {
         value: Arc<dyn AnyValueDyn<'eval>>,
         owner: StackIdx,
@@ -57,8 +57,8 @@ impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
     }
 }
 
-impl<'eval> From<PrimitiveValue> for StackValueSnapshot<'eval> {
-    fn from(value: PrimitiveValue) -> Self {
+impl<'eval> From<CopyableValue> for StackValueSnapshot<'eval> {
+    fn from(value: CopyableValue) -> Self {
         Self::Primitive(value)
     }
 }
@@ -66,10 +66,10 @@ impl<'eval> From<PrimitiveValue> for StackValueSnapshot<'eval> {
 impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnapshot<'eval> {
     fn into(self) -> StackValue<'stack, 'eval> {
         match self {
-            StackValueSnapshot::Primitive(value) => StackValue::Primitive(*value),
+            StackValueSnapshot::Primitive(value) => StackValue::Copyable(*value),
             StackValueSnapshot::MutRef { owner, gen, .. } => todo!(),
             StackValueSnapshot::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
-            StackValueSnapshot::Boxed(value) => StackValue::Boxed(value.clone()),
+            StackValueSnapshot::Boxed(value) => StackValue::Owned(value.clone()),
             StackValueSnapshot::Ref { value, owner, gen } => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
         }

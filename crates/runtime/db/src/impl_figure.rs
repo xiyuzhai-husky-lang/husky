@@ -56,7 +56,7 @@ impl HuskyLangRuntime {
                 ref history,
                 ..
             } => match history.get(stmt) {
-                Some(HistoryEntry::BranchGroup {
+                Some(HistoryEntry::ConditionFlow {
                     opt_branch_entered: branch_entered,
                     mutations,
                     ..
@@ -171,11 +171,12 @@ impl HuskyLangRuntime {
                 }
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
-                HistoryEntry::BranchGroup {
+                HistoryEntry::ConditionFlow {
                     opt_branch_entered: enter,
                     ..
                 } => todo!(),
                 HistoryEntry::Break => todo!(),
+                HistoryEntry::PatternMatching { .. } => todo!(),
             }
         } else {
             FigureProps::void()

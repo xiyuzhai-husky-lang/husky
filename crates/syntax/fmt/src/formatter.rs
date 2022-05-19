@@ -242,13 +242,14 @@ impl<'a> Formatter<'a> {
         match expr.variant {
             RawExprVariant::Variable { varname, .. } => self.write(&varname),
             RawExprVariant::Unrecognized(varname) => self.write(&varname),
-            RawExprVariant::PrimitiveLiteral(literal) => match literal {
-                PrimitiveValue::I32(i) => self.write(&i.to_string()),
-                PrimitiveValue::F32(f) => self.write(&f.to_string()),
-                PrimitiveValue::Void => todo!(),
-                PrimitiveValue::B32(_) => todo!(),
-                PrimitiveValue::Bool(_) => todo!(),
-                PrimitiveValue::B64(_) => todo!(),
+            RawExprVariant::CopyableLiteral(literal) => match literal {
+                CopyableValue::I32(i) => self.write(&i.to_string()),
+                CopyableValue::F32(f) => self.write(&f.to_string()),
+                CopyableValue::Void => todo!(),
+                CopyableValue::B32(_) => todo!(),
+                CopyableValue::Bool(_) => todo!(),
+                CopyableValue::B64(_) => todo!(),
+                CopyableValue::EnumKind(_) => todo!(),
             },
             RawExprVariant::Bracketed(expr_idx) => {
                 self.write("(");

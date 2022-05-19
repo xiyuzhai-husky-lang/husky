@@ -286,7 +286,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 _ => panic!(),
             },
             FeatureExprKind::RoutineCall { .. }
-            | FeatureExprKind::EnumLiteral { .. }
+            | FeatureExprKind::EnumKindLiteral { .. }
             | FeatureExprKind::PrimitiveBinaryOpr { .. }
             | FeatureExprKind::StructOriginalFieldAccess { .. }
             | FeatureExprKind::PrimitiveLiteral(_) => {

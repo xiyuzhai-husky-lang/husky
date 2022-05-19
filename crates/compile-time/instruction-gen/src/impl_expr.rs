@@ -43,7 +43,13 @@ impl<'a> InstructionSheetBuilder<'a> {
                 },
                 expr.clone(),
             )),
-            EagerExprVariant::EnumLiteral(_) => todo!(),
+            EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
+                InstructionKind::PushEnumKindLiteral(EnumKindValue {
+                    kind_idx: self.db.enum_literal_as_u8(route),
+                    route,
+                }),
+                expr.clone(),
+            )),
         }
     }
 
@@ -61,7 +67,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let ins_kind = InstructionKind::OprOpn {
                     opn: match opr {
                         BinaryOpr::Pure(pure_binary_opr) => OprOpn::PureBinary(*pure_binary_opr),
-                        BinaryOpr::Assign(opt_binary_opr) => OprOpn::Assign(*opt_binary_opr),
+                        BinaryOpr::Assign(opt_binary_opr) => {
+                            OprOpn::Assign(AssignOpn::Binary(*opt_binary_opr))
+                        }
                     },
                     this_ty: *this_ty,
                     this_range: opds[0].range,
@@ -80,10 +88,32 @@ impl<'a> InstructionSheetBuilder<'a> {
                 );
                 self.push_instruction(instruction)
             }
-            EagerOpnVariant::Suffix { opr, this: this_ty } => {
+            EagerOpnVariant::Suffix { opr, this_ty } => {
                 let ins_kind = match opr {
-                    SuffixOpr::Incr | SuffixOpr::Decr => InstructionKind::OprOpn {
-                        opn: OprOpn::Suffix(*opr),
+                    SuffixOpr::Incr => InstructionKind::OprOpn {
+                        opn: OprOpn::Assign(AssignOpn::Incr),
+                        this_ty: *this_ty,
+                        this_range: opds[0].range,
+                    },
+                    SuffixOpr::Decr => InstructionKind::OprOpn {
+                        opn: OprOpn::Assign(AssignOpn::Decr),
+                        this_ty: *this_ty,
+                        this_range: opds[0].range,
+                    },
+                    SuffixOpr::AsTy(ty) => InstructionKind::OprOpn {
+                        opn: match ty.route {
+                            EntityRoutePtr::Root(ty_ident) => match ty_ident {
+                                RootIdentifier::Void => todo!(),
+                                RootIdentifier::I32 => OprOpn::Cast(CastOpn::AsI32),
+                                RootIdentifier::F32 => OprOpn::Cast(CastOpn::AsF32),
+                                RootIdentifier::B32 => OprOpn::Cast(CastOpn::AsB32),
+                                RootIdentifier::B64 => todo!(),
+                                RootIdentifier::Bool => todo!(),
+                                _ => todo!(),
+                            },
+                            EntityRoutePtr::Custom(_) => todo!(),
+                            EntityRoutePtr::ThisType => todo!(),
+                        },
                         this_ty: *this_ty,
                         this_range: opds[0].range,
                     },
@@ -107,7 +137,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                     }
                     SuffixOpr::WithTy(_) => todo!(),
-                    SuffixOpr::AsTy(_) => todo!(),
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)

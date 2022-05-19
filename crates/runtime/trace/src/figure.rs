@@ -8,14 +8,14 @@ use crate::*;
 use map_collect::MapCollect;
 use visual_runtime::RuntimeVisualizer;
 use visual_syntax::VisualProps;
-use vm::{MutationData, PrimitiveValue};
+use vm::{MutationData, CopyableValue};
 use word::Identifier;
 
 #[derive(Debug, Serialize, Clone)]
 #[serde(tag = "kind")]
 pub enum FigureProps {
     Primitive {
-        value: PrimitiveValue,
+        value: CopyableValue,
     },
     Plot2d {
         plot_kind: Plot2dKind,
@@ -85,7 +85,7 @@ impl FigureProps {
 
     pub fn void() -> Self {
         Self::Primitive {
-            value: PrimitiveValue::Void,
+            value: CopyableValue::Void,
         }
     }
 }

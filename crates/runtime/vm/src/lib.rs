@@ -15,6 +15,7 @@ mod signature;
 mod snapshot;
 mod stack;
 mod ty;
+mod value;
 
 pub use binding::Binding;
 pub use contract::{EagerContract, FieldContract, InputContract, LazyContract, OutputLiason};
@@ -33,6 +34,7 @@ pub use signature::*;
 pub use snapshot::{StackSnapshot, StackValueSnapshot};
 pub use stack::*;
 pub use ty::*;
+pub use value::*;
 
 use error::*;
 use std::sync::Arc;

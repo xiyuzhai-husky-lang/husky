@@ -1,18 +1,16 @@
+use crate::*;
 use avec::Avec;
 use check_utils::should;
 use print_utils::p;
 
-use crate::*;
-
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
-    pub(super) fn exec_branch(
+    pub(super) fn exec_condition_flow(
         &mut self,
         sheet: &InstructionSheet,
         ins: &Instruction,
         branches: &Avec<VMConditionBranch>,
         mode: Mode,
     ) -> VMControl<'eval> {
-        should!(self.stack.len() <= sheet.variable_stack.len());
         let stack_len = self.stack.len();
         let mut indexed_branch_iter = branches.iter().enumerate();
         let opt_indexed_branch_entered = loop {
@@ -42,10 +40,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         let (stack_snapshot, mutations) = self.collect_block_mutations();
                         self.history.write(
                             ins,
-                            HistoryEntry::BranchGroup {
+                            HistoryEntry::ConditionFlow {
                                 opt_branch_entered: Some(i.try_into().unwrap()),
                                 stack_snapshot,
-                                branches: branches.clone(),
                                 control: control.snapshot(),
                                 mutations,
                                 vm_branches: branches.clone(),
@@ -61,10 +58,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 if mode == Mode::TrackHistory {
                     self.history.write(
                         ins,
-                        HistoryEntry::BranchGroup {
+                        HistoryEntry::ConditionFlow {
                             opt_branch_entered: None,
                             stack_snapshot: self.stack.snapshot(),
-                            branches: branches.clone(),
                             control: ControlSnapshot::None,
                             mutations: Vec::new(),
                             vm_branches: branches.clone(),

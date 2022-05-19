@@ -1,7 +1,7 @@
 use crate::*;
 use entity_route::EntityRoutePtr;
 use map_collect::MapCollect;
-use vm::{EagerContract, LazyContract, PrimitiveValue, VMCasePattern};
+use vm::{CopyableValue, EagerContract, LazyContract, VMCasePattern};
 use word::RootIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -38,7 +38,7 @@ impl CasePattern {
                 VMCasePattern::OneOf(patterns.map(|pattern| pattern.compile()))
             }
             CasePatternVariant::EnumLiteral(entity_route) => {
-                VMCasePattern::EnumLiteral(entity_route)
+                VMCasePattern::EnumKindLiteral(entity_route)
             }
         }
     }
@@ -52,13 +52,13 @@ impl TextRanged for CasePattern {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum CasePatternVariant {
-    PrimitiveLiteral(PrimitiveValue),
+    PrimitiveLiteral(CopyableValue),
     OneOf { patterns: Vec<CasePattern> },
     EnumLiteral(EntityRoutePtr),
 }
 
 impl CasePattern {
-    pub fn primitive_literal(value: PrimitiveValue, range: TextRange) -> Self {
+    pub fn primitive_literal(value: CopyableValue, range: TextRange) -> Self {
         Self {
             ty: value.ty().into(),
             variant: CasePatternVariant::PrimitiveLiteral(value),

@@ -38,12 +38,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 EntityKind::Module => todo!(),
                 EntityKind::EnumLiteral => match route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
-                        EagerExprVariant::PrimitiveLiteral(PrimitiveValue::Bool(true))
+                        EagerExprVariant::PrimitiveLiteral(CopyableValue::Bool(true))
                     }
                     EntityRoutePtr::Root(RootIdentifier::False) => {
-                        EagerExprVariant::PrimitiveLiteral(PrimitiveValue::Bool(false))
+                        EagerExprVariant::PrimitiveLiteral(CopyableValue::Bool(false))
                     }
-                    EntityRoutePtr::Custom(_) => EagerExprVariant::EnumLiteral(route),
+                    EntityRoutePtr::Custom(_) => EagerExprVariant::EnumKindLiteral(route),
                     _ => todo!(),
                 },
                 EntityKind::Type(_) => todo!(),
@@ -56,7 +56,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::PrimitiveLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
+            RawExprVariant::CopyableLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(expr) => {
                 EagerExprVariant::Bracketed(self.parse_eager_expr(expr)?)
             }
@@ -151,7 +151,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let opd_idx = raw_opds.start;
         let opd = self.parse_eager_expr(opd_idx)?;
         Ok(EagerExprVariant::Opn {
-            opn_variant: EagerOpnVariant::Suffix { opr, this: opd.ty },
+            opn_variant: EagerOpnVariant::Suffix {
+                opr,
+                this_ty: opd.ty,
+            },
             opds: vec![opd],
         })
     }
@@ -205,7 +208,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawExprVariant::Entity { .. } => todo!(),
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => todo!(),
-            RawExprVariant::PrimitiveLiteral(_) => todo!(),
+            RawExprVariant::CopyableLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn {
                 ref opr,

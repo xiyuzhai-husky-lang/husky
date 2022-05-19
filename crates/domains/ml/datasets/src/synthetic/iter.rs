@@ -12,7 +12,7 @@ use super::*;
 pub struct SyntheticSampleIter<'a, 'eval: 'a> {
     dataset: &'a dyn SyntheticDataset<'eval>,
     seed: u64,
-    current: MaybeUninit<BoxedValue<'static>>,
+    current: MaybeUninit<OwnedValue<'static>>,
     next_idx: usize,
 }
 

@@ -245,7 +245,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 )),
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::PrimitiveLiteral(_) => Ok(EagerQualifiedTy::new(
+            RawExprVariant::CopyableLiteral(_) => Ok(EagerQualifiedTy::new(
                 EagerQualifier::Copyable,
                 self.raw_expr_ty(raw_expr_idx).unwrap(),
             )),
@@ -410,7 +410,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }
             RawExprVariant::Opn { ref opr, ref opds } => todo!(),
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized caller")),
-            RawExprVariant::PrimitiveLiteral(_) => {
+            RawExprVariant::CopyableLiteral(_) => {
                 throw_derived!("a primitive literal can't be a caller")
             }
             _ => {

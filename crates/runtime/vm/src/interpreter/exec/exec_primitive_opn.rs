@@ -15,7 +15,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 let ropd = self.stack.pop();
                 let lopd = self.stack.pop();
                 let output =
-                    pure_binary_opr.act_on_primitives(lopd.as_primitive(), ropd.as_primitive())?;
+                    pure_binary_opr.act_on_primitives(lopd.primitive(), ropd.primitive())?;
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(
@@ -28,28 +28,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 self.stack.push(output.into());
                 Ok(())
             }
-            OprOpn::Assign(opt_binary_opr) => {
+            OprOpn::Assign(assign_opn) => {
                 let ropd = self.stack.pop();
                 let mut lopd = self.stack.pop();
                 let before = lopd.snapshot();
-                let lopd_value = lopd.as_primitive();
-                match lopd {
-                    StackValue::LocalRefMut { ref mut value, .. } => {
-                        value.assign(if let Some(binary_opr) = opt_binary_opr {
-                            binary_opr
-                                .act_on_primitives(lopd_value, ropd.as_primitive())?
-                                .into()
-                        } else {
-                            ropd
-                        });
-                    }
-                    _ => {
-                        p!(lopd);
-                        p!(ins.src.text_range());
-                        p!(self.stack);
-                        panic!()
-                    }
-                }
+                let lopd_value = lopd.primitive();
+                assign_opn.act_on(&mut lopd, ropd);
                 let after = lopd.snapshot();
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
@@ -75,22 +59,22 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 Ok(())
             }
-            OprOpn::Suffix(suffix_opr) => {
-                let output = suffix_opr.act_on_primitive(self.stack.pop().as_primitive());
+            OprOpn::Cast(cast_opn) => {
+                let mut output = cast_opn.act_on(self.stack.pop());
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            output: output.into(),
+                            output: output.snapshot(),
                         },
                     ),
                 }
-                self.stack.push(output.into());
+                self.stack.push(output);
                 Ok(())
             }
             OprOpn::Prefix(prefix_opr) => {
-                let output = prefix_opr.act_on_primitive(self.stack.pop().as_primitive());
+                let output = prefix_opr.act_on_primitive(self.stack.pop().primitive());
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(

@@ -99,7 +99,7 @@ impl<'eval> AnyValue<'eval> for Dataset<'eval> {
         "Arc<dyn Dataset>".into()
     }
 
-    fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
-        todo!()
-    }
+    // fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
+    //     todo!()
+    // }
 }
