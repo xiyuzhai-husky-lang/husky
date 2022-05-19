@@ -173,7 +173,10 @@ impl FeatureBlock {
                             eval_id: Default::default(),
                         }
                     }
-                    LazyStmtVariant::Match { ref branches } => todo!(),
+                    LazyStmtVariant::Match {
+                        ref match_expr,
+                        ref branches,
+                    } => todo!(),
                 })
             })
             .collect();

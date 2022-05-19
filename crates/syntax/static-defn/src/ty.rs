@@ -64,8 +64,8 @@ macro_rules! associated_type_impl {
     };
 }
 
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum MethodStaticDefnKind {
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum MethodStaticDefnVariant {
     TypeMethod {
         source: LinkageSource,
     },
@@ -77,7 +77,7 @@ pub enum MethodStaticDefnKind {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum LinkageSource {
     MemberAccess {
         copy_access: Linkage,
@@ -86,4 +86,23 @@ pub enum LinkageSource {
         move_access: Linkage,
     },
     Transfer(Linkage),
+}
+
+impl LinkageSource {
+    pub fn bind(&self, binding: Binding) -> Linkage {
+        match self {
+            LinkageSource::MemberAccess {
+                copy_access,
+                ref_access,
+                ref_mut_access,
+                move_access,
+            } => match binding {
+                Binding::Ref => *ref_access,
+                Binding::RefMut => *ref_mut_access,
+                Binding::Move => *move_access,
+                Binding::Copy => *copy_access,
+            },
+            LinkageSource::Transfer(linkage) => *linkage,
+        }
+    }
 }

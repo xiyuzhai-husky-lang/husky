@@ -3,7 +3,7 @@ use crate::*;
 use atom::SymbolContext;
 use dev_utils::DevSource;
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefn, MethodStaticDefnKind, StaticTraitImplDefn};
+use static_defn::{EntityStaticDefn, MethodStaticDefnVariant, StaticTraitImplDefn};
 use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -95,21 +95,24 @@ impl EntityDefnVariant {
                 output_ty,
                 output_contract,
                 generic_parameters: generic_placeholders,
-                kind,
+                ref kind,
             } => {
                 let method_variant = match kind {
-                    MethodStaticDefnKind::TypeMethod { source } => todo!(),
-                    MethodStaticDefnKind::TraitMethod { opt_default_source } => {
+                    MethodStaticDefnVariant::TypeMethod { source } => todo!(),
+                    MethodStaticDefnVariant::TraitMethod { opt_default_source } => {
                         MethodDefnVariant::TraitMethod {
                             trai,
                             opt_default_source: opt_default_source
+                                .clone()
                                 .map(|source| MethodSource::Static(source)),
                         }
                     }
-                    MethodStaticDefnKind::TraitMethodImpl { opt_source } => {
+                    MethodStaticDefnVariant::TraitMethodImpl { opt_source } => {
                         MethodDefnVariant::TraitMethodImpl {
                             trai,
-                            opt_source: opt_source.map(|source| MethodSource::Static(source)),
+                            opt_source: opt_source
+                                .clone()
+                                .map(|source| MethodSource::Static(source)),
                         }
                     }
                 };

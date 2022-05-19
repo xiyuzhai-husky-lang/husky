@@ -34,10 +34,10 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
         }
     }
 
-    pub fn stack_ref(&self) -> StackValue<'stack, 'eval> {
+    pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         match self {
-            MemberValue::Primitive(value) => StackValue::Primitive(*value),
-            MemberValue::Boxed(_) => todo!(),
+            MemberValue::Primitive(_) => todo!(),
+            MemberValue::Boxed(ref value) => value.any_ref(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),
             MemberValue::Moved => todo!(),

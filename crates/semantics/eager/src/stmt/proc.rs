@@ -64,6 +64,7 @@ pub enum ProcStmtVariant {
         result: Arc<EagerExpr>,
     },
     Match {
+        match_expr: Arc<EagerExpr>,
         branches: Vec<Arc<ProcPatternBranch>>,
     },
 }

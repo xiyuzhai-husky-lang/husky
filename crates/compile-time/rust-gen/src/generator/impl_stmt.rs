@@ -42,7 +42,10 @@ impl<'a> RustGenerator<'a> {
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => self.gen_expr(result),
             FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
-            FuncStmtVariant::Match { ref branches } => todo!(),
+            FuncStmtVariant::Match {
+                ref match_expr,
+                ref branches,
+            } => todo!(),
         }
         self.write_newline();
     }
@@ -171,7 +174,10 @@ impl<'a> RustGenerator<'a> {
                 }
             },
             ProcStmtVariant::Break => todo!(),
-            ProcStmtVariant::Match { ref branches } => todo!(),
+            ProcStmtVariant::Match {
+                ref match_expr,
+                ref branches,
+            } => todo!(),
         }
     }
 

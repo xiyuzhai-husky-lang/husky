@@ -49,7 +49,7 @@ impl<'eval> BoxedValue<'eval> {
         }
     }
 
-    pub fn pointer(&self) -> *const (dyn AnyValueDyn<'eval>) {
+    pub fn any_pointer(&self) -> *const (dyn AnyValueDyn<'eval>) {
         &*(self.inner)
     }
 

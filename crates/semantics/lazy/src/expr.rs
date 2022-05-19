@@ -4,6 +4,7 @@ mod parser;
 use std::sync::Arc;
 
 use file::FilePtr;
+use infer_qualifier::LazyQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
@@ -17,10 +18,20 @@ use word::{CustomIdentifier, Identifier};
 pub struct LazyExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub ty: EntityRoutePtr,
+    pub qualified_ty: LazyQualifiedTy,
     pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
     pub contract: LazyContract,
+}
+
+impl LazyExpr {
+    pub fn binding(&self) -> Binding {
+        self.qualified_ty.qual.binding(self.contract)
+    }
+
+    pub fn ty(&self) -> EntityRoutePtr {
+        self.qualified_ty.ty
+    }
 }
 
 impl InstructionSource for LazyExpr {

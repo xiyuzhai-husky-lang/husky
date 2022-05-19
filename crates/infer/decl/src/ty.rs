@@ -112,13 +112,14 @@ impl TyDecl {
         });
         let mut children = children.peekable();
         let mut ty_members = IdentDict::default();
-        let mut trai_impls = Vec::default();
         let variants = match kind {
             TyKind::Enum => Self::collect_variants(&mut children)?,
             _ => Default::default(),
         };
         Self::collect_original_fields(&mut children, &mut ty_members)?;
         Self::collect_other_members(db, this_ty, children, &mut ty_members)?;
+        let mut trai_impls =
+            TraitImplDecl::implicit_trai_impls(db, this_ty, kind, &ty_members, &variants);
         let opt_type_call = match kind {
             TyKind::Enum => None,
             TyKind::Record | TyKind::Struct => {
@@ -636,7 +637,7 @@ pub(crate) fn method_decl_from_static(
             output_ty,
             output_contract,
             generic_parameters: generic_placeholders,
-            kind,
+            ref kind,
         } => {
             let generic_placeholders = db.generic_placeholders_from_static(generic_placeholders);
             symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
@@ -654,7 +655,7 @@ pub(crate) fn method_decl_from_static(
                 ident: db.custom_ident(input.name),
             });
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
-            assert!(matches!(kind, MethodStaticDefnKind::TypeMethod { .. }));
+            assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(MethodDecl {
                 generic_placeholders,
                 parameters: inputs,

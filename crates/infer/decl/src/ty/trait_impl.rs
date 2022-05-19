@@ -2,10 +2,10 @@ use atom::{
     symbol::{Symbol, SymbolContextKind},
     SymbolContext,
 };
-use entity_kind::MemberKind;
+use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
 use map_collect::MapCollect;
-use print_utils::p;
+use print_utils::{msg_once, p};
 
 use crate::*;
 
@@ -64,7 +64,104 @@ impl TraitImplDecl {
             .iter()
             .find(|impl_decl| impl_decl.ident() == ident)
     }
+
+    pub(crate) fn implicit_trai_impls(
+        db: &dyn DeclQueryGroup,
+        this_ty: EntityRoutePtr,
+        ty_kind: TyKind,
+        ty_members: &[TyMemberDecl],
+        variants: &[EnumVariantDecl],
+    ) -> Vec<Arc<TraitImplDecl>> {
+        let mut trait_impl_decls = Vec::new();
+        let entity_route_menu = db.entity_route_menu();
+        if derive_is_copyable(db, ty_kind, ty_members, variants) {
+            trait_impl_decls.push(Arc::new(TraitImplDecl {
+                trait_route: entity_route_menu.copy_trait,
+                this_ty,
+                member_impls: Vec::new(),
+            }))
+        }
+        msg_once!("handle other traits, Clone, PartialEq, Eq");
+        // if derive_is_clonable(db, ty_kind, ty_members, variants) {
+        //     trait_impl_decls.push(Arc::new(TraitImplDecl {
+        //         trait_route: entity_route_menu.clone_trait,
+        //         this_ty,
+        //         member_impls: Vec::new(),
+        //     }))
+        // }
+        trait_impl_decls
+    }
 }
+
+fn derive_is_copyable(
+    db: &dyn DeclQueryGroup,
+    ty_kind: TyKind,
+    ty_members: &[TyMemberDecl],
+    variants: &[EnumVariantDecl],
+) -> bool {
+    match ty_kind {
+        TyKind::Enum => {
+            for variant in variants {
+                match variant.variant {
+                    EnumVariantDeclVariant::Constant => (),
+                }
+            }
+            true
+        }
+        TyKind::Record => false,
+        TyKind::Struct => false,
+        TyKind::Primitive => todo!(),
+        TyKind::Vec => todo!(),
+        TyKind::Array => todo!(),
+        TyKind::Other => todo!(),
+    }
+}
+
+// fn derive_is_clonable(
+//     db: &dyn DeclQueryGroup,
+//     ty_kind: TyKind,
+//     ty_members: &[TyMemberDecl],
+//     variants: &[EnumVariantDecl],
+// ) -> bool {
+//     match ty_kind {
+//         TyKind::Enum => todo!(),
+//         TyKind::Record => false,
+//         TyKind::Struct => {
+//             for ty_member in ty_members {
+//                 match ty_member {
+//                     TyMemberDecl::Field(field) => {
+//                         if field.kind == FieldKind::StructOriginal {
+//                             if ! db.is_clonable
+//                         }
+//                     }
+//                     TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => (),
+//                 }
+//             }
+//             true
+//         }
+//         TyKind::Primitive => todo!(),
+//         TyKind::Vec => todo!(),
+//         TyKind::Array => todo!(),
+//         TyKind::Other => todo!(),
+//     }
+// }
+
+// fn is_partial_equatable(
+//     db: &dyn DeclQueryGroup,
+//     ty_kind: TyKind,
+//     ty_members: &[TyMemberDecl],
+//     variants: &[EnumVariantDecl],
+// ) -> bool {
+//     match ty_kind {
+//         TyKind::Enum => todo!(),
+//         TyKind::Record => true,
+//         TyKind::Struct => todo!(),
+//         TyKind::Primitive => todo!(),
+//         TyKind::Vec => todo!(),
+//         TyKind::Array => todo!(),
+//         TyKind::Other => todo!(),
+//     }
+// }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TraitMemberImplDecl {

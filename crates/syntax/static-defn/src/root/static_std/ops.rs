@@ -41,7 +41,7 @@ pub static INDEX_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                     output_ty: "This::Output",
                     output_contract: OutputLiason::MemberAccess,
                     generic_parameters: &[],
-                    kind: MethodStaticDefnKind::TraitMethod {
+                    kind: MethodStaticDefnVariant::TraitMethod {
                         opt_default_source: None,
                     },
                 },

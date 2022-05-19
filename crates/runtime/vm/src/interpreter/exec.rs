@@ -6,7 +6,7 @@ mod exec_primitive_opn;
 
 use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
-use print_utils::p;
+use print_utils::{p, ps};
 
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
@@ -19,6 +19,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     ty,
                     varname,
                 } => {
+                    if ins.src.text_range().start.j() == 31 {
+                        p!(ins.src.text_range());
+                        ps!(sheet.variable_stack.compare_with_vm_stack(&self.stack));
+                    }
                     let value = self.stack.push_variable(stack_idx, binding);
                     match mode {
                         Mode::Fast => (),
@@ -54,7 +58,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     control
                 }
-                InstructionKind::PrimitiveOpn { opn, .. } => {
+                InstructionKind::OprOpn { opn, .. } => {
                     // sheet.variable_stack.compare_with_vm_stack(&self.stack);
                     self.exec_primitive_opn(opn, mode, ins).into()
                 }
@@ -89,7 +93,6 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     ref body,
                     loop_kind,
                 } => {
-                    should!(self.stack.len() <= sheet.variable_stack.len() + 2);
                     let control = match mode {
                         Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
                         Mode::TrackMutation => {
@@ -115,12 +118,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionKind::BreakIfFalse => {
-                    let control = if !self.stack.top().as_primitive().to_bool() {
+                    let control = if !self.stack.pop().as_primitive().to_bool() {
                         VMControl::Break
                     } else {
                         VMControl::None
                     };
-                    self.stack.pop();
                     control
                 }
                 InstructionKind::FieldAccessCompiled {
@@ -158,9 +160,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     VMControl::Break
                 }
-                InstructionKind::BranchGroup { ref branches } => {
+                InstructionKind::ConditionFlow { ref branches } => {
                     self.exec_branch(sheet, ins, branches, mode)
                 }
+                InstructionKind::PatternMatch { ref branches } => todo!(),
             };
             match control {
                 VMControl::None => (),

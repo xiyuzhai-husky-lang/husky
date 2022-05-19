@@ -58,7 +58,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Primitive(value) => Ok(StackValue::Primitive(value)),
             EvalValue::Boxed(value) => Ok(StackValue::Boxed(value)),
             EvalValue::GlobalPure(value) => Ok(StackValue::GlobalPure(value)),
-            EvalValue::GlobalRef(_) => todo!(),
+            EvalValue::GlobalRef(value) => Ok(StackValue::GlobalRef(value)),
             EvalValue::Undefined => todo!(),
         }
     }

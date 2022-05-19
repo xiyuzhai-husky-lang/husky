@@ -1,7 +1,7 @@
 use avec::Avec;
 use entity_route::EntityRouteKind;
 use infer_decl::MethodKind;
-use static_defn::{LinkageSource, MethodStaticDefnKind};
+use static_defn::{LinkageSource, MethodStaticDefnVariant};
 
 use super::*;
 
@@ -30,20 +30,24 @@ pub enum MethodDefnVariant {
 }
 
 impl MethodDefnVariant {
-    pub fn from_static(symbol_context: &SymbolContext, method_kind: MethodStaticDefnKind) -> Self {
+    pub fn from_static(
+        symbol_context: &SymbolContext,
+        method_kind: &MethodStaticDefnVariant,
+    ) -> Self {
         match method_kind {
-            MethodStaticDefnKind::TypeMethod { source } => MethodDefnVariant::TypeMethod {
+            MethodStaticDefnVariant::TypeMethod { source } => MethodDefnVariant::TypeMethod {
                 ty: symbol_context.opt_this_ty.unwrap(),
-                method_source: MethodSource::Static(source),
+                method_source: MethodSource::Static(source.clone()),
             },
-            MethodStaticDefnKind::TraitMethod { opt_default_source } => {
+            MethodStaticDefnVariant::TraitMethod { opt_default_source } => {
                 MethodDefnVariant::TraitMethod {
                     trai: symbol_context.trai(),
                     opt_default_source: opt_default_source
-                        .map(|source| MethodSource::Static(source)),
+                        .as_ref()
+                        .map(|source| MethodSource::Static(source.clone())),
                 }
             }
-            MethodStaticDefnKind::TraitMethodImpl { opt_source } => {
+            MethodStaticDefnVariant::TraitMethodImpl { opt_source } => {
                 panic!("this shouldn't be handled here")
             }
         }

@@ -88,7 +88,7 @@ impl HuskyLangRuntime {
         match focus.opt_input_id {
             Some(input_id) => {
                 if let Ok(value) = self.eval_feature_expr(expr, input_id) {
-                    let visualizer = self.visualizer(self.version(), expr.expr.ty);
+                    let visualizer = self.visualizer(self.version(), expr.expr.ty());
                     let visual_props = visualizer.visualize(value.any_ref());
                     FigureProps::new_specific(visual_props)
                 } else {
@@ -108,7 +108,10 @@ impl HuskyLangRuntime {
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => todo!(),
             FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
-            FuncStmtVariant::Match { ref branches } => todo!(),
+            FuncStmtVariant::Match {
+                ref match_expr,
+                ref branches,
+            } => todo!(),
         }
     }
 
@@ -151,7 +154,10 @@ impl HuskyLangRuntime {
                 }
             }
             ProcStmtVariant::Break => FigureProps::void(),
-            ProcStmtVariant::Match { ref branches } => todo!(),
+            ProcStmtVariant::Match {
+                ref match_expr,
+                ref branches,
+            } => todo!(),
         }
     }
 

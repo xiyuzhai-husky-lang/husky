@@ -38,11 +38,11 @@ impl QualifiedTySheet {
         }
     }
 
-    pub fn lazy_expr_qualified_ty(
-        &self,
-        raw_expr_idx: RawExprIdx,
-    ) -> InferResult<EagerQualifiedTy> {
-        todo!()
+    pub fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyQualifiedTy> {
+        match derived_not_none!(self.lazy_expr_qualified_tys.get(raw_expr_idx))? {
+            Ok(qt) => Ok(*qt),
+            Err(e) => Err(e.derived()),
+        }
     }
 
     pub fn eager_expr_qualified_ty(

@@ -258,6 +258,7 @@ impl<'a> EagerStmtParser<'a> {
         match_contract: MatchContract,
     ) -> SemanticResult<ProcStmtVariant> {
         Ok(ProcStmtVariant::Match {
+            match_expr: self.parse_eager_expr(match_expr)?,
             branches: children
                 .map(|item| {
                     let value = item.value.as_ref().unwrap();

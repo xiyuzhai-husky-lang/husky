@@ -24,7 +24,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         output_ty: "Vec<E>",
                         output_contract: OutputLiason::Transfer,
                         generic_parameters: &[],
-                        kind: MethodStaticDefnKind::TraitMethodImpl { opt_source: None },
+                        kind: MethodStaticDefnVariant::TraitMethodImpl { opt_source: None },
                     },
                 }],
             },
@@ -42,7 +42,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             output_ty: "E",
                             output_contract: OutputLiason::MemberAccess,
                             generic_parameters: &[],
-                            kind: MethodStaticDefnKind::TraitMethodImpl {
+                            kind: MethodStaticDefnVariant::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
                                     copy_access: Linkage {
                                         call: generic_vec_element_copy_access,
@@ -153,7 +153,7 @@ pub(crate) fn generic_vec_element_copy_access<'stack, 'eval>(
         StackValue::Primitive(value) => value.as_i32().try_into().unwrap(),
         _ => panic!(),
     };
-    if i > this_value.len() {
+    if i >= this_value.len() {
         todo!()
     }
     Ok(this_value[i].copy_into_stack())
@@ -167,10 +167,19 @@ pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(
         StackValue::Primitive(value) => value.as_i32().try_into().unwrap(),
         _ => panic!(),
     };
-    if i > this_value.len() {
-        todo!()
+    if i >= this_value.len() {
+        return Err(vm_runtime_error!(format!(
+            "index out of bounds: the len is {} but the index is {}",
+            this_value.len(),
+            i
+        )));
     }
-    Ok(this_value[i].stack_ref())
+    let any_ptr: *const dyn AnyValueDyn = this_value[i].any_ref();
+    Ok(match values[0] {
+        StackValue::GlobalRef(_) => StackValue::GlobalRef(unsafe { &*any_ptr }),
+        StackValue::LocalRef { value, owner, gen } => todo!(),
+        _ => panic!(),
+    })
 }
 
 pub(crate) fn generic_vec_element_borrow_mut_access<'stack, 'eval>(
@@ -182,7 +191,7 @@ pub(crate) fn generic_vec_element_borrow_mut_access<'stack, 'eval>(
     };
     let (this_value, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
         values[0].downcast_mut_full();
-    if i > this_value.len() {
+    if i >= this_value.len() {
         todo!()
     }
     Ok(this_value[i].stack_mut(stack_idx))
@@ -196,7 +205,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         input_parameters: &[],
         output_ty: "i32",
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: generic_list_len,
                 nargs: 1,
@@ -227,7 +236,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "void",
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: generic_vec_push,
                 nargs: 2,
@@ -246,7 +255,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: generic_vec_pop,
                 nargs: 1,
@@ -265,7 +274,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::MemberAccess {
                 copy_access: Linkage {
                     call: generic_vec_first_copy,
@@ -322,7 +331,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::MemberAccess {
                 copy_access: Linkage {
                     call: generic_vec_last_copy,

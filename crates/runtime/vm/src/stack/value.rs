@@ -124,7 +124,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 _ => panic!(),
             },
             StackValue::GlobalPure(_) => todo!(),
-            StackValue::GlobalRef(_) => todo!(),
+            StackValue::GlobalRef(value) => EvalValue::GlobalRef(*value),
             StackValue::LocalRef { .. } | StackValue::LocalRefMut { .. } | StackValue::Moved => {
                 panic!()
             }
@@ -200,7 +200,10 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             StackValue::Boxed(_) => todo!(),
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(_) => todo!(),
-            StackValue::LocalRef { value, owner, gen } => todo!(),
+            StackValue::LocalRef { value, owner, gen } => {
+                p!(value);
+                todo!()
+            }
             StackValue::LocalRefMut { value, owner, gen } => todo!(),
         }
     }

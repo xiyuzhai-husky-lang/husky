@@ -20,20 +20,12 @@ pub enum LinkageKey {
     },
     ElementAccess {
         opd_uids: SmallVec<[EntityUid; 2]>,
-        access_kind: MemberAccessKind,
+        binding: Binding,
     },
     StructFieldAccess {
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
     },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum MemberAccessKind {
-    Move,
-    Ref,
-    Copy,
-    BorrowMut,
 }
 
 impl LinkageTable {
@@ -59,12 +51,9 @@ impl LinkageTable {
     pub(crate) fn element_access(
         &self,
         opd_uids: SmallVec<[EntityUid; 2]>,
-        access_kind: MemberAccessKind,
+        binding: Binding,
     ) -> Option<Linkage> {
-        self.linkage(LinkageKey::ElementAccess {
-            opd_uids,
-            access_kind,
-        })
+        self.linkage(LinkageKey::ElementAccess { opd_uids, binding })
     }
 
     fn linkage(&self, key: LinkageKey) -> Option<Linkage> {

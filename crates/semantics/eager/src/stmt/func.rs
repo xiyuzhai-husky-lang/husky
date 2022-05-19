@@ -53,6 +53,7 @@ pub enum FuncStmtVariant {
         branches: Vec<Arc<FuncConditionBranch>>,
     },
     Match {
+        match_expr: Arc<EagerExpr>,
         branches: Vec<Arc<FuncPatternBranch>>,
     },
 }

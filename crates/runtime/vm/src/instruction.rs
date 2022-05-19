@@ -1,22 +1,22 @@
-mod branch;
+mod condition_flow;
 mod id;
 mod opr;
+mod pattern_match;
 mod sheet;
 
-use avec::Avec;
-pub use branch::*;
-pub use opr::*;
-
-use entity_route::EntityRoutePtr;
-use file::FilePtr;
+pub use condition_flow::*;
 pub use id::{InstructionId, InstructionSource};
+pub use opr::*;
+pub use pattern_match::*;
 pub use sheet::InstructionSheet;
-use text::TextRange;
-use word::Identifier;
-
-use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 use crate::*;
+use avec::Avec;
+use entity_route::EntityRoutePtr;
+use file::FilePtr;
+use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
+use text::TextRange;
+use word::Identifier;
 
 #[derive(Debug)]
 pub struct Instruction {
@@ -86,8 +86,8 @@ pub enum InstructionKind {
     NewVirtualStruct {
         fields: Vec<FieldContract>,
     },
-    PrimitiveOpn {
-        opn: PrimitiveOpn,
+    OprOpn {
+        opn: OprOpn,
         this_ty: EntityRoutePtr,
         this_range: TextRange,
     },
@@ -99,8 +99,11 @@ pub enum InstructionKind {
     BreakIfFalse,
     Break,
     Assert,
-    BranchGroup {
-        branches: Avec<VMBranch>,
+    ConditionFlow {
+        branches: Avec<VMConditionBranch>,
+    },
+    PatternMatch {
+        branches: Avec<VMPatternBranch>,
     },
 }
 
@@ -122,7 +125,7 @@ impl std::fmt::Display for InitKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PrimitiveOpn {
+pub enum OprOpn {
     PureBinary(PureBinaryOpr),
     Assign(Option<PureBinaryOpr>),
     Prefix(PrefixOpr),

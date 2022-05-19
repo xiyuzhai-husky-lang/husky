@@ -56,6 +56,7 @@ pub enum LazyStmtVariant {
         branches: Vec<Arc<LazyConditionBranch>>,
     },
     Match {
+        match_expr: Arc<LazyExpr>,
         branches: Vec<Arc<LazyPatternBranch>>,
     },
 }

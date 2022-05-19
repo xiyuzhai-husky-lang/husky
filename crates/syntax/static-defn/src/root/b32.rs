@@ -32,7 +32,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
                     Ok(StackValue::Primitive(
@@ -59,7 +59,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         output_ty: "b32",
         output_contract: OutputLiason::Transfer,
         generic_parameters: &[],
-        kind: MethodStaticDefnKind::TypeMethod {
+        kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
                 nargs: 1,

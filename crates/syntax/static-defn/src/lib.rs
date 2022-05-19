@@ -54,7 +54,7 @@ pub enum EntityStaticDefnVariant {
         output_ty: &'static str,
         output_contract: OutputLiason,
         generic_parameters: &'static [StaticGenericPlaceholder],
-        kind: MethodStaticDefnKind,
+        kind: MethodStaticDefnVariant,
     },
     TraitAssociatedType {
         trai: &'static str,

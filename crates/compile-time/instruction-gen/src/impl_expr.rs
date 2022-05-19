@@ -2,7 +2,6 @@ use crate::*;
 
 use entity_kind::TyKind;
 use infer_decl::TyDecl;
-use linkage_table::MemberAccessKind;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
 use vm::*;
@@ -12,7 +11,6 @@ impl<'a> InstructionSheetBuilder<'a> {
         match expr.variant {
             EagerExprVariant::Variable(varname) => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(varname);
-                p!(expr.range, expr.file);
                 self.push_instruction(Instruction::new(
                     InstructionKind::PushVariable {
                         varname: varname.into(),
@@ -60,48 +58,35 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
         match opn_kind {
             EagerOpnVariant::Binary { opr, this_ty } => {
-                let ins_kind = if this_ty.is_builtin() {
-                    InstructionKind::PrimitiveOpn {
-                        opn: match opr {
-                            BinaryOpr::Pure(pure_binary_opr) => {
-                                PrimitiveOpn::PureBinary(*pure_binary_opr)
-                            }
-                            BinaryOpr::Assign(opt_binary_opr) => {
-                                PrimitiveOpn::Assign(*opt_binary_opr)
-                            }
-                        },
-                        this_ty: *this_ty,
-                        this_range: opds[0].range,
-                    }
-                } else {
-                    todo!()
+                let ins_kind = InstructionKind::OprOpn {
+                    opn: match opr {
+                        BinaryOpr::Pure(pure_binary_opr) => OprOpn::PureBinary(*pure_binary_opr),
+                        BinaryOpr::Assign(opt_binary_opr) => OprOpn::Assign(*opt_binary_opr),
+                    },
+                    this_ty: *this_ty,
+                    this_range: opds[0].range,
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)
             }
             EagerOpnVariant::Prefix { opr, this_ty } => {
-                let ins_kind = if this_ty.is_builtin() {
-                    match opr {
-                        PrefixOpr::Minus | PrefixOpr::Not | PrefixOpr::BitNot => {
-                            InstructionKind::PrimitiveOpn {
-                                opn: PrimitiveOpn::Prefix(*opr),
-                                this_ty: *this_ty,
-                                this_range: opds[0].range,
-                            }
-                        }
-                        PrefixOpr::Shared => todo!(),
-                        PrefixOpr::Move => todo!(),
-                    }
-                } else {
-                    todo!()
-                };
-                let instruction = Instruction::new(ins_kind, expr.clone());
+                let instruction = Instruction::new(
+                    InstructionKind::OprOpn {
+                        opn: OprOpn::Prefix(*opr),
+                        this_ty: *this_ty,
+                        this_range: opds[0].range,
+                    },
+                    expr.clone(),
+                );
                 self.push_instruction(instruction)
             }
             EagerOpnVariant::Suffix { opr, this: this_ty } => {
                 let ins_kind = match opr {
-                    SuffixOpr::Incr => todo!(),
-                    SuffixOpr::Decr => todo!(),
+                    SuffixOpr::Incr | SuffixOpr::Decr => InstructionKind::OprOpn {
+                        opn: OprOpn::Suffix(*opr),
+                        this_ty: *this_ty,
+                        this_range: opds[0].range,
+                    },
                     SuffixOpr::MayReturn => todo!(),
                     SuffixOpr::FieldAccess(ranged_ident) => {
                         if let Some(field_access_fp) =
@@ -151,15 +136,19 @@ impl<'a> InstructionSheetBuilder<'a> {
                 method_ident,
                 ref this_ty_decl,
                 method_route,
-            } => self.push_instruction(Instruction::new(
-                self.method_call_instruction_kind(
-                    opds[0].ty,
-                    this_ty_decl,
-                    *method_route,
-                    method_ident.ident,
-                ),
-                expr.clone(),
-            )),
+            } => {
+                let this = &opds[0];
+                self.push_instruction(Instruction::new(
+                    self.method_call_instruction_kind(
+                        this.ty,
+                        this_ty_decl,
+                        *method_route,
+                        method_ident.ident,
+                        this.qualified_ty.qual.binding(this.contract),
+                    ),
+                    expr.clone(),
+                ))
+            }
             EagerOpnVariant::ElementAccess => self.compile_element_access(expr.clone(), opds),
             EagerOpnVariant::TypeCall {
                 ranged_ty,
@@ -202,7 +191,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     match expr.contract {
                         EagerContract::Pure => {
                             if self.db.is_copyable(expr.ty).unwrap() {
-                                MemberAccessKind::Copy
+                                Binding::Copy
                             } else {
                                 todo!()
                             }
@@ -211,7 +200,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         EagerContract::Move => todo!(),
                         EagerContract::LetInit => {
                             if self.db.is_copyable(expr.ty).unwrap() {
-                                MemberAccessKind::Copy
+                                Binding::Copy
                             } else {
                                 todo!()
                             }
@@ -219,12 +208,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                         EagerContract::VarInit => todo!(),
                         EagerContract::Return => {
                             if self.db.is_copyable(expr.ty).unwrap() {
-                                MemberAccessKind::Copy
+                                Binding::Copy
                             } else {
-                                MemberAccessKind::Move
+                                Binding::Move
                             }
                         }
-                        EagerContract::RefMut => MemberAccessKind::BorrowMut,
+                        EagerContract::RefMut => Binding::RefMut,
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
                         EagerContract::UseMemberForLetInit => todo!(),
@@ -242,19 +231,10 @@ impl<'a> InstructionSheetBuilder<'a> {
         this_ty_decl: &TyDecl,
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
+        binding: Binding,
     ) -> InstructionKind {
-        if let Some(routine_source) = self.db.method_linkage_source(method_route) {
-            match routine_source {
-                LinkageSource::MemberAccess {
-                    ref_access,
-                    move_access,
-                    ref_mut_access: borrow_mut_access,
-                    ..
-                } => todo!(),
-                LinkageSource::Transfer(linkage) => {
-                    InstructionKind::RoutineCallCompiled { linkage }
-                }
-            }
+        if let Some(linkage) = self.db.method_linkage(method_route, binding) {
+            InstructionKind::RoutineCallCompiled { linkage }
         } else {
             match this_ty_decl.kind {
                 TyKind::Struct => todo!(),
