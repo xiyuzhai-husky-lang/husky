@@ -2,8 +2,8 @@ mod exec_call;
 mod exec_condition_flow;
 mod exec_interpret_call;
 mod exec_loop;
+mod exec_opr_opn;
 mod exec_pattern_match;
-mod exec_primitive_opn;
 
 use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
@@ -32,7 +32,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: value.snapshot(),
+                                output: value.eval(),
                             },
                         ),
                     }
@@ -45,7 +45,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.top_snapshot(),
+                                output: self.stack.eval_top(),
                             },
                         ),
                     }
@@ -58,7 +58,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.top_snapshot(),
+                                output: self.stack.eval_top(),
                             },
                         ),
                     }
@@ -71,7 +71,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.top_snapshot(),
+                                output: self.stack.eval_top(),
                             },
                         ),
                     }
@@ -79,7 +79,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 InstructionKind::OprOpn { opn, .. } => {
                     // sheet.variable_stack.compare_with_vm_stack(&self.stack);
-                    self.exec_primitive_opn(opn, mode, ins).into()
+                    self.exec_opr_opn(opn, mode, ins).into()
                 }
                 InstructionKind::RoutineCallInterpreted { routine, nargs } => {
                     let instruction_sheet = self.db.entity_opt_instruction_sheet_by_uid(routine);
@@ -91,7 +91,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.top_snapshot(),
+                                output: self.stack.eval_top(),
                             },
                         ),
                     };
@@ -159,7 +159,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.top_snapshot(),
+                                output: self.stack.eval_top(),
                             },
                         ),
                     };

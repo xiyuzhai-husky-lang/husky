@@ -66,8 +66,8 @@ impl<'eval> FeatureSheet<'eval> {
 unsafe fn share_cached<'eval>(cached: &EvalResult<'eval>) -> EvalResult<'eval> {
     Ok(match cached {
         Ok(value) => match value {
-            EvalValue::Primitive(value) => EvalValue::Primitive(*value),
-            EvalValue::Boxed(value) => EvalValue::GlobalRef(&*value.any_pointer()),
+            EvalValue::Copyable(value) => EvalValue::Copyable(*value),
+            EvalValue::Owned(value) => EvalValue::GlobalRef(&*value.any_ptr()),
             EvalValue::GlobalRef(value) => EvalValue::GlobalRef(*value),
             EvalValue::GlobalPure(value) => EvalValue::GlobalPure(value.clone()),
             EvalValue::Undefined => EvalValue::Undefined,

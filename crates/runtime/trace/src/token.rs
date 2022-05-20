@@ -24,16 +24,10 @@ impl<'eval> Serialize for TokenProps<'eval> {
     }
 }
 
-impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
-    fn from(result: EvalResult<'static>) -> Self {
+impl<'eval> From<EvalResult<'eval>> for TokenProps<'eval> {
+    fn from(result: EvalResult<'eval>) -> Self {
         match result {
-            Ok(value) => match value {
-                EvalValue::Primitive(value) => fade!(value),
-                EvalValue::Boxed(value) => fade!(value.any_ref().print_short()),
-                EvalValue::GlobalPure(value) => fade!(value.print_short()),
-                EvalValue::GlobalRef(value) => fade!(value.print_short()),
-                EvalValue::Undefined => fade!("undefined"),
-            },
+            Ok(value) => value.into(),
             Err(e) => Self {
                 value: e.message.into(),
                 associated_trace: None,
@@ -43,15 +37,14 @@ impl<'eval> From<EvalResult<'static>> for TokenProps<'eval> {
     }
 }
 
-impl<'eval> From<StackValueSnapshot<'eval>> for TokenProps<'eval> {
-    fn from(value: StackValueSnapshot) -> Self {
+impl<'eval> From<EvalValue<'eval>> for TokenProps<'eval> {
+    fn from(value: EvalValue<'eval>) -> Self {
         match value {
-            StackValueSnapshot::Primitive(value) => value.into(),
-            StackValueSnapshot::MutRef { value, .. } => fade!(value.print_short()),
-            StackValueSnapshot::GlobalPure(value) => fade!(value.print_short()),
-            StackValueSnapshot::Boxed(value) => fade!(value.any_ref().print_short()),
-            StackValueSnapshot::Ref { value, .. } => fade!(value.print_short()),
-            StackValueSnapshot::Uninitialized => fade!("uninitialized"),
+            EvalValue::Copyable(value) => fade!(value),
+            EvalValue::Owned(value) => fade!(value.any_ref().print_short()),
+            EvalValue::GlobalPure(value) => fade!(value.print_short()),
+            EvalValue::GlobalRef(value) => fade!(value.print_short()),
+            EvalValue::Undefined => fade!("undefined"),
         }
     }
 }
@@ -214,4 +207,4 @@ macro_rules! fade {
     }};
 }
 
-use vm::{EvalResult, EvalValue, InitKind, CopyableValue, StackValueSnapshot, VMRuntimeResult};
+use vm::{CopyableValue, EvalResult, EvalValue, InitKind, StackValueSnapshot, VMRuntimeResult};

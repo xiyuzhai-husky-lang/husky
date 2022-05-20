@@ -51,7 +51,7 @@ impl<'sess> Session<'sess> {
             Some(&compile_time.dataset_config_instruction_sheet(pack.main_defn.file)),
             None,
         )?
-        .into_boxed()?
+        .owned()?
         .take()?;
         Ok(Self {
             dev: Division::new(dataset.dev_loader()),

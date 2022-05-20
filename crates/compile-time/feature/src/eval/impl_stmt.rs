@@ -38,7 +38,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
 
     fn satisfies(&mut self, condition: &FeatureExpr) -> VMRuntimeResult<bool> {
         Ok(match self.eval_feature_expr(condition)? {
-            EvalValue::Primitive(value) => match value {
+            EvalValue::Copyable(value) => match value {
                 CopyableValue::I32(_) => todo!(),
                 CopyableValue::F32(_) => todo!(),
                 CopyableValue::B32(_) => todo!(),

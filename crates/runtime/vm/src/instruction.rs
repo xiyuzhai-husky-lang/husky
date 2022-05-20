@@ -129,42 +129,69 @@ impl std::fmt::Display for InitKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum OprOpn {
     PureBinary(PureBinaryOpr),
-    Assign(AssignOpn),
+    BinaryAssign(Option<PureBinaryOpr>),
     Prefix(PrefixOpr),
     Cast(CastOpn),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum AssignOpn {
-    Binary(Option<PureBinaryOpr>),
     Incr,
     Decr,
 }
 
-impl AssignOpn {
-    pub fn act_on<'stack, 'eval>(
-        self,
-        lopd: &mut StackValue<'stack, 'eval>,
-        ropd: StackValue<'stack, 'eval>,
-    ) -> VMRuntimeResult<()> {
-        match self {
-            AssignOpn::Binary(opt_binary_opr) => match lopd {
-                StackValue::LocalRefMut { ref mut value, .. } => {
-                    value.assign(if let Some(binary_opr) = opt_binary_opr {
-                        let lopd_value = value.primitive();
-                        binary_opr
-                            .act_on_primitives(lopd_value, ropd.primitive())?
-                            .into()
-                    } else {
-                        ropd
-                    });
-                }
-                _ => panic!(),
-            },
-            AssignOpn::Incr => todo!(),
-            AssignOpn::Decr => todo!(),
+pub fn binary_assign<'stack, 'eval>(
+    opt_binary_opr: Option<PureBinaryOpr>,
+    lopd: &mut StackValue<'stack, 'eval>,
+    ropd: StackValue<'stack, 'eval>,
+) -> VMRuntimeResult<()> {
+    match lopd {
+        StackValue::LocalRefMut { ref mut value, .. } => {
+            value.assign(if let Some(binary_opr) = opt_binary_opr {
+                let lopd_value = value.primitive();
+                binary_opr
+                    .act_on_primitives(lopd_value, ropd.primitive())?
+                    .into()
+            } else {
+                ropd
+            });
         }
-        Ok(())
+        _ => panic!(),
+    }
+    Ok(())
+}
+
+pub fn incr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
+    let opd_primitive = opd.primitive();
+    match opd {
+        StackValue::LocalRefMut { value, owner, gen } => {
+            value.assign(StackValue::Copyable(match opd_primitive {
+                CopyableValue::I32(i) => (i + 1).into(),
+                CopyableValue::F32(_) => todo!(),
+                CopyableValue::B32(_) => todo!(),
+                CopyableValue::B64(_) => todo!(),
+                CopyableValue::Bool(_) => todo!(),
+                CopyableValue::Void => todo!(),
+                CopyableValue::EnumKind(_) => todo!(),
+            }))
+        }
+
+        _ => panic!(),
+    }
+}
+
+pub fn decr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
+    let opd_primitive = opd.primitive();
+    match opd {
+        StackValue::LocalRefMut { value, owner, gen } => {
+            value.assign(StackValue::Copyable(match opd_primitive {
+                CopyableValue::I32(i) => (i - 1).into(),
+                CopyableValue::F32(_) => todo!(),
+                CopyableValue::B32(_) => todo!(),
+                CopyableValue::B64(_) => todo!(),
+                CopyableValue::Bool(_) => todo!(),
+                CopyableValue::Void => todo!(),
+                CopyableValue::EnumKind(_) => todo!(),
+            }))
+        }
+
+        _ => panic!(),
     }
 }
 
@@ -203,7 +230,7 @@ fn cast_as_i32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> i32 {
         StackValue::Owned(_) => todo!(),
         StackValue::GlobalPure(_) => todo!(),
         StackValue::GlobalRef(_) => todo!(),
-        StackValue::LocalRef { value, owner, gen } => todo!(),
+        StackValue::LocalRef(value) => todo!(),
         StackValue::LocalRefMut { value, owner, gen } => todo!(),
     }
 }
@@ -223,7 +250,7 @@ fn cast_as_b32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> u32 {
         StackValue::Owned(_) => todo!(),
         StackValue::GlobalPure(_) => todo!(),
         StackValue::GlobalRef(_) => todo!(),
-        StackValue::LocalRef { value, owner, gen } => todo!(),
+        StackValue::LocalRef(value) => todo!(),
         StackValue::LocalRefMut { value, owner, gen } => todo!(),
     }
 }
@@ -243,7 +270,7 @@ fn cast_as_f32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> f32 {
         StackValue::Owned(_) => todo!(),
         StackValue::GlobalPure(_) => todo!(),
         StackValue::GlobalRef(_) => todo!(),
-        StackValue::LocalRef { value, owner, gen } => todo!(),
+        StackValue::LocalRef(value) => todo!(),
         StackValue::LocalRefMut { value, owner, gen } => todo!(),
     }
 }

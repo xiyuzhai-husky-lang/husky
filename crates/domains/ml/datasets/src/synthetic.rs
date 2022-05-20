@@ -109,7 +109,7 @@ impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
         todo!()
     }
 
-    fn boxed_any(&self) -> Box<dyn vm::AnyValueDyn<'eval>> {
+    fn clone_into_box(&self) -> Box<dyn vm::AnyValueDyn<'eval>> {
         todo!()
     }
 

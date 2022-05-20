@@ -22,11 +22,11 @@ impl<'eval> History<'eval> {
         self.entries.contains_key(&t.instruction_id())
     }
 
-    pub fn value<T: InstructionSource>(&self, t: &T) -> StackValueSnapshot<'eval> {
+    pub fn value<T: InstructionSource>(&self, t: &T) -> EvalValue<'eval> {
         if let Some(entry) = self.entries.get(&t.instruction_id()) {
             entry.value()
         } else {
-            StackValueSnapshot::Uninitialized
+            EvalValue::Undefined
         }
     }
 

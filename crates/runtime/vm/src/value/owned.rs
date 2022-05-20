@@ -5,21 +5,23 @@ use crate::*;
 
 use super::*;
 
-pub struct OwnedValue<'eval> {
-    pub(crate) inner: Box<dyn AnyValueDyn<'eval>>,
+pub struct OwnedValue<'eval>(pub(crate) Box<dyn AnyValueDyn<'eval>>);
+
+impl<'eval> From<Box<dyn AnyValueDyn<'eval>>> for OwnedValue<'eval> {
+    fn from(boxed_value: Box<dyn AnyValueDyn<'eval>>) -> Self {
+        Self(boxed_value)
+    }
 }
 
 impl<'eval> Clone for OwnedValue<'eval> {
     fn clone(&self) -> Self {
-        Self {
-            inner: self.inner.clone_any(),
-        }
+        Self(self.0.clone_into_box_dyn())
     }
 }
 
 impl<'eval> PartialEq for OwnedValue<'eval> {
     fn eq(&self, other: &OwnedValue<'eval>) -> bool {
-        self.inner.equal_any(&*other.inner)
+        self.0.equal_any(&*other.0)
     }
 }
 
@@ -27,53 +29,50 @@ impl<'eval> Eq for OwnedValue<'eval> {}
 
 impl<'eval> OwnedValue<'eval> {
     pub fn new<T: AnyValueDyn<'eval>>(value: T) -> OwnedValue<'eval> {
-        Self {
-            inner: Box::new(value),
-        }
-    }
-
-    pub fn clone_from(value: &dyn AnyValueDyn<'eval>) -> OwnedValue<'eval> {
-        Self {
-            inner: value.clone_any(),
-        }
+        Self(Box::new(value))
     }
 
     pub fn take<T: AnyValue<'eval>>(self) -> VMRuntimeResult<T> {
         // check type
-        if (*self.inner).static_type_id() != T::static_type_id() {
+        if (*self.0).static_type_id_dyn() != T::static_type_id() {
             Err(vm_runtime_error!(format!("type_mismatch")))
         } else {
             let raw_pointer: *const (dyn AnyValueDyn + 'eval) =
-                Box::<(dyn AnyValueDyn + 'eval)>::into_raw(self.inner);
+                Box::<(dyn AnyValueDyn + 'eval)>::into_raw(self.0);
             Ok(unsafe { *Box::from_raw(raw_pointer as *mut T) })
         }
     }
 
-    pub fn any_pointer(&self) -> *const (dyn AnyValueDyn<'eval>) {
-        &*(self.inner)
+    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval>) {
+        &*(self.0)
     }
 
     pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
-        &*self.inner
+        &*self.0
     }
 
     pub fn any_mut_ptr(&mut self) -> *mut dyn AnyValueDyn<'eval> {
-        &mut *self.inner
+        &mut *self.0
     }
 
     pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
-        if T::static_type_id() != self.inner.static_type_id() {
-            panic!()
-        }
-        let ptr: *const dyn AnyValueDyn = &*self.inner;
-        let ptr: *const T = ptr as *const T;
-        unsafe { &*ptr }
+        self.0.downcast_ref()
+        // if T::static_type_id() != self.0.static_type_id() {
+        //     panic!()
+        // }
+        // let ptr: *const dyn AnyValueDyn = &*self.0;
+        // let ptr: *const T = ptr as *const T;
+        // unsafe { &*ptr }
+    }
+
+    pub fn share(&self) -> SharedValue<'eval> {
+        todo!()
     }
 }
 
 impl<'eval> std::fmt::Debug for OwnedValue<'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.inner.fmt(f)
+        self.0.fmt(f)
     }
 }
 

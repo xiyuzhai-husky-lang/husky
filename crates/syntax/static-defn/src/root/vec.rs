@@ -105,7 +105,6 @@ fn vec_type_call<'stack, 'eval>(
 fn generic_vec_push<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
-    should_eq!(values.len(), 2);
     let element = values[1].into_member();
     let generic_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
     generic_vec.push(element);
@@ -177,7 +176,7 @@ pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(
     let any_ptr: *const dyn AnyValueDyn = this_value[i].any_ref();
     Ok(match values[0] {
         StackValue::GlobalRef(_) => StackValue::GlobalRef(unsafe { &*any_ptr }),
-        StackValue::LocalRef { value, owner, gen } => todo!(),
+        StackValue::LocalRef(value) => todo!(),
         _ => panic!(),
     })
 }
@@ -342,7 +341,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
                     nargs: 1,
                 },
                 ref_mut_access: Linkage {
-                    call: generic_vec_last_ref_mut,
+                    call: generic_vec_last_mut,
                     nargs: 1,
                 },
                 move_access: Linkage {
@@ -365,13 +364,22 @@ fn generic_vec_last_copy<'stack, 'eval>(
 fn generic_vec_last_ref<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
-    todo!()
+    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    match generic_vec.last() {
+        Some(value) => Ok(value.stack_ref()),
+        None => Err(vm_runtime_error!("empty vec")),
+    }
 }
 
-fn generic_vec_last_ref_mut<'stack, 'eval>(
+fn generic_vec_last_mut<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
-    todo!()
+    let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
+        values[0].downcast_mut_full();
+    match generic_vec.last_mut() {
+        Some(value) => Ok(value.stack_mut(stack_idx)),
+        None => Err(vm_runtime_error!("empty vec")),
+    }
 }
 
 fn generic_vec_last_move<'stack, 'eval>(

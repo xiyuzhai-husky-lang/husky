@@ -126,8 +126,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                             varname: *varname,
                         },
                         ty: *ty,
-                        before: Some(snapshot[stack_idx].clone()),
-                        after: self.stack.snapshot_value(stack_idx),
+                        before: Some(snapshot[stack_idx].eval()),
+                        after: self.stack.eval(stack_idx),
                     })
                 } else {
                     None

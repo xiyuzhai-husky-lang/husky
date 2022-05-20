@@ -2,16 +2,11 @@ use crate::*;
 
 #[derive(Clone)]
 pub enum StackValueSnapshot<'eval> {
-    Primitive(CopyableValue),
+    Copyable(CopyableValue),
     GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
-    Boxed(OwnedValue<'eval>),
-    Ref {
-        value: Arc<dyn AnyValueDyn<'eval>>,
-        owner: StackIdx,
-        gen: MutRefGenerator,
-    },
+    Owned(OwnedValue<'eval>),
+    Shared(Arc<dyn AnyValueDyn<'eval>>),
     MutRef {
-        value: Arc<dyn AnyValueDyn<'eval>>,
         owner: StackIdx,
         gen: MutRefGenerator,
     },
@@ -21,37 +16,37 @@ pub enum StackValueSnapshot<'eval> {
 impl<'eval> StackValueSnapshot<'eval> {
     pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         match self {
-            StackValueSnapshot::Primitive(value) => value.any_ref(),
+            StackValueSnapshot::Copyable(value) => value.any_ref(),
             StackValueSnapshot::GlobalPure(value) => &**value,
-            StackValueSnapshot::Boxed(boxed_value) => boxed_value.any_ref(),
-            StackValueSnapshot::MutRef { value, .. } => &**value,
-            StackValueSnapshot::Ref { value, .. } => &**value,
+            StackValueSnapshot::Owned(boxed_value) => boxed_value.any_ref(),
+            StackValueSnapshot::Shared(value) => &**value,
+            StackValueSnapshot::MutRef { .. } => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
         }
+    }
+
+    pub fn eval(&self) -> EvalValue<'eval> {
+        todo!()
     }
 }
 
 impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            StackValueSnapshot::Primitive(arg0) => f
+            StackValueSnapshot::Copyable(arg0) => f
                 .debug_tuple("StackValueSnapshot::Primitive")
                 .field(arg0)
                 .finish(),
-            StackValueSnapshot::MutRef { value, owner, .. } => f
-                .debug_struct("StackValueSnapshot::MutRef")
-                .field("value", value)
-                .field("owner", owner)
-                .finish(),
+            StackValueSnapshot::MutRef { owner, .. } => todo!(),
             StackValueSnapshot::GlobalPure(value) => f
                 .debug_struct("StackValueSnapshot::GlobalPure")
                 .field("value", value)
                 .finish(),
-            StackValueSnapshot::Boxed(value) => f
+            StackValueSnapshot::Owned(value) => f
                 .debug_struct("StackValueSnapshot::Boxed")
                 .field("value", value)
                 .finish(),
-            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
+            StackValueSnapshot::Shared(value) => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
         }
     }
@@ -59,18 +54,18 @@ impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
 
 impl<'eval> From<CopyableValue> for StackValueSnapshot<'eval> {
     fn from(value: CopyableValue) -> Self {
-        Self::Primitive(value)
+        Self::Copyable(value)
     }
 }
 
 impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnapshot<'eval> {
     fn into(self) -> StackValue<'stack, 'eval> {
         match self {
-            StackValueSnapshot::Primitive(value) => StackValue::Copyable(*value),
+            StackValueSnapshot::Copyable(value) => StackValue::Copyable(*value),
             StackValueSnapshot::MutRef { owner, gen, .. } => todo!(),
             StackValueSnapshot::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
-            StackValueSnapshot::Boxed(value) => StackValue::Owned(value.clone()),
-            StackValueSnapshot::Ref { value, owner, gen } => todo!(),
+            StackValueSnapshot::Owned(value) => StackValue::Owned(value.clone()),
+            StackValueSnapshot::Shared(value) => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
         }
     }
