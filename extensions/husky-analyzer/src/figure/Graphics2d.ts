@@ -11,13 +11,18 @@ import type Color from "./Color";
 import type ImageProps from "./ImageProps";
 
 export type ArrowProps = {
-    kind: "Arrow";
+    kind: "Arrow2d";
     from: Point2d;
     to: Point2d;
 };
-export type ShapeProps = ArrowProps;
-export type ShapeGroupProps = {
-    shapes: ShapeProps[];
+
+export type Point2dProps = {
+    kind: "Point2d";
+    point: Point2d;
+};
+export type Shape2dProps = ArrowProps | Point2dProps;
+export type Shape2dGroupProps = {
+    shapes: Shape2dProps[];
     color: Color;
     line_width: number;
 };
@@ -25,7 +30,7 @@ export type ShapeGroupProps = {
 type Graphics2dProps = {
     kind: "Graphics2d";
     image: null | ImageProps;
-    shape_groups: ShapeGroupProps[];
+    shape_groups: Shape2dGroupProps[];
     xrange: [number, number];
     yrange: [number, number];
 };
@@ -57,7 +62,7 @@ function decode_image(raw: unknown): ImageProps {
     }
 }
 
-function decode_shape_group(data: unknown): ShapeGroupProps {
+function decode_shape_group(data: unknown): Shape2dGroupProps {
     throw new Error("TODO");
 }
 

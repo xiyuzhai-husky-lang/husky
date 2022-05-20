@@ -66,7 +66,7 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
             MemberValue::GlobalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         };
-        StackValue::LocalRefMut {
+        StackValue::RefMut {
             value: unsafe { &mut *value_mut },
             owner,
             gen: (),

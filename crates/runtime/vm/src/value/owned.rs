@@ -5,7 +5,7 @@ use crate::*;
 
 use super::*;
 
-pub struct OwnedValue<'eval>(pub(crate) Box<dyn AnyValueDyn<'eval>>);
+pub struct OwnedValue<'eval>(Box<dyn AnyValueDyn<'eval>>);
 
 impl<'eval> From<Box<dyn AnyValueDyn<'eval>>> for OwnedValue<'eval> {
     fn from(boxed_value: Box<dyn AnyValueDyn<'eval>>) -> Self {
@@ -32,15 +32,23 @@ impl<'eval> OwnedValue<'eval> {
         Self(Box::new(value))
     }
 
+    pub fn from_any_ref(value: &dyn AnyValueDyn<'eval>) -> OwnedValue<'eval> {
+        Self(value.clone_into_box_dyn())
+    }
+
     pub fn take<T: AnyValue<'eval>>(self) -> VMRuntimeResult<T> {
         // check type
         if (*self.0).static_type_id_dyn() != T::static_type_id() {
             Err(vm_runtime_error!(format!("type_mismatch")))
         } else {
-            let raw_pointer: *const (dyn AnyValueDyn + 'eval) =
-                Box::<(dyn AnyValueDyn + 'eval)>::into_raw(self.0);
+            let raw_pointer = Box::into_raw(self.0);
             Ok(unsafe { *Box::from_raw(raw_pointer as *mut T) })
         }
+    }
+
+    pub fn take_into_arc(self) -> Arc<dyn AnyValueDyn<'eval> + 'eval> {
+        let raw_pointer = Box::<(dyn AnyValueDyn + 'eval)>::into_raw(self.0);
+        unsafe { (*raw_pointer).take_into_arc() }
     }
 
     pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval>) {
@@ -63,10 +71,6 @@ impl<'eval> OwnedValue<'eval> {
         // let ptr: *const dyn AnyValueDyn = &*self.0;
         // let ptr: *const T = ptr as *const T;
         // unsafe { &*ptr }
-    }
-
-    pub fn share(&self) -> SharedValue<'eval> {
-        todo!()
     }
 }
 

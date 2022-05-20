@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { ShapeProps } from "src/figure/Graphics2d";
+    import type { Shape2dProps } from "src/figure/Graphics2d";
     import Arrow from "./Shape/Arrow.svelte";
 
-    export let shape: ShapeProps;
+    export let shape: Shape2dProps;
     export let lineWidth: number;
 </script>
 

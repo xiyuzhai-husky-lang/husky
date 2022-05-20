@@ -77,6 +77,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + 'eval {
     fn primitive(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval> + 'eval);
     fn print_short(&self) -> String;
+    unsafe fn take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>>; // consume the memory pointed at to create an Arc
 }
 
 impl<'eval> dyn AnyValueDyn<'eval> {
@@ -136,6 +137,13 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
     }
     fn print_short(&self) -> String {
         T::print_short(self)
+    }
+
+    // must use this for a raw pointer dropped from box
+    unsafe fn take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+        let ptr: *mut Self = self as *const Self as *mut Self;
+        let this: Self = *Box::from_raw(ptr);
+        Arc::new(this)
     }
 }
 

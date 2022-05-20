@@ -118,7 +118,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             .iter()
             .filter_map(|(stack_idx, (varname, file, _, ty))| {
                 let stack_idx = *stack_idx;
-                if stack_idx.raw() < snapshot.len() {
+                if stack_idx.raw() < snapshot.len().min(self.stack.len()) {
                     Some(MutationData {
                         file: *file,
                         kind: MutationDataKind::Block {
