@@ -23,7 +23,7 @@ impl VMCasePattern {
                 StackValue::Owned(_) => todo!(),
                 StackValue::GlobalPure(_) => todo!(),
                 StackValue::GlobalRef(_) => todo!(),
-                StackValue::LocalRef { value, owner, gen } => todo!(),
+                StackValue::LocalRef(value) => todo!(),
                 StackValue::LocalRefMut { value, owner, gen } => todo!(),
             },
             VMCasePattern::OneOf(subpatterns) => {
@@ -48,7 +48,7 @@ impl VMCasePattern {
                 StackValue::Owned(_) => todo!(),
                 StackValue::GlobalPure(_) => todo!(),
                 StackValue::GlobalRef(_) => todo!(),
-                StackValue::LocalRef { value, owner, gen } => todo!(),
+                StackValue::LocalRef(value) => todo!(),
                 StackValue::LocalRefMut { value, owner, gen } => todo!(),
             },
         }

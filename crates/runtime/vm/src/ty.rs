@@ -107,10 +107,6 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
     fn static_type_name() -> std::borrow::Cow<'static, str> {
         todo!()
     }
-
-    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-    //     todo!()
-    // }
 }
 
 impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for VirtualTy<'eval> {

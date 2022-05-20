@@ -35,9 +35,24 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
         "EntityRoutePtr".into()
     }
 
-    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-    //     todo!()
-    // }
+    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+        panic!()
+    }
+
+    fn as_copyable(&self) -> CopyableValue {
+        CopyableValue::EnumKind(*self)
+    }
+
+    fn from_stack<'stack>(stack_value: StackValue<'stack, 'eval>) -> Self {
+        match stack_value {
+            StackValue::Copyable(CopyableValue::EnumKind(enum_kind)) => enum_kind,
+            _ => {
+                p!(Self::static_type_name());
+                p!(stack_value);
+                panic!()
+            }
+        }
+    }
 }
 
 impl Serialize for CopyableValue {
@@ -114,7 +129,7 @@ impl CopyableValue {
         }
     }
 
-    pub(crate) fn as_bool(&self) -> bool {
+    pub(crate) fn take_bool(&self) -> bool {
         if let CopyableValue::Bool(b) = self {
             *b
         } else {
@@ -130,6 +145,14 @@ impl CopyableValue {
             CopyableValue::B64(value) => *value != 0u64,
             CopyableValue::Bool(value) => *value,
             CopyableValue::Void | CopyableValue::EnumKind(_) => panic!(),
+        }
+    }
+
+    pub(crate) fn take_enum_kind(self) -> EnumKindValue {
+        if let CopyableValue::EnumKind(b) = self {
+            b
+        } else {
+            panic!()
         }
     }
 

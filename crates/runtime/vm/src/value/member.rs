@@ -44,10 +44,24 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
         }
     }
 
+    pub fn any_ptr(&self) -> *const dyn AnyValueDyn<'eval> {
+        match self {
+            MemberValue::Primitive(_) => todo!(),
+            MemberValue::Boxed(ref value) => value.any_ref(),
+            MemberValue::GlobalPure(_) => todo!(),
+            MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::Moved => todo!(),
+        }
+    }
+
+    pub fn stack_ref(&self) -> StackValue<'stack, 'eval> {
+        StackValue::LocalRef(unsafe { &*self.any_ptr() })
+    }
+
     pub fn stack_mut(&mut self, owner: StackIdx) -> StackValue<'stack, 'eval> {
         let value_mut: *mut (dyn AnyValueDyn<'eval> + 'eval) = match self {
             MemberValue::Primitive(value) => value.any_mut(),
-            MemberValue::Boxed(_) => todo!(),
+            MemberValue::Boxed(value) => value.any_mut_ptr(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
@@ -61,7 +75,7 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
 
     pub fn share_globally(&self) -> EvalValue<'eval> {
         match self {
-            MemberValue::Primitive(value) => EvalValue::Primitive(*value),
+            MemberValue::Primitive(value) => EvalValue::Copyable(*value),
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),

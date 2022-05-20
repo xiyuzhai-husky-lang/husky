@@ -10,8 +10,8 @@ pub struct MutationData<'eval> {
     pub file: FilePtr,
     pub kind: MutationDataKind,
     pub ty: EntityRoutePtr,
-    pub before: Option<StackValueSnapshot<'eval>>,
-    pub after: StackValueSnapshot<'eval>,
+    pub before: Option<EvalValue<'eval>>,
+    pub after: EvalValue<'eval>,
 }
 
 #[derive(Debug, Clone)]

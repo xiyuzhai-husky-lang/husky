@@ -102,8 +102,8 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         }
     }
 
-    pub(crate) fn snapshot_value(&mut self, stack_idx: StackIdx) -> StackValueSnapshot<'eval> {
-        self.values[stack_idx.raw()].snapshot()
+    pub(crate) fn eval(&mut self, stack_idx: StackIdx) -> EvalValue<'eval> {
+        self.values[stack_idx.raw()].eval()
     }
 
     pub(crate) fn len(&self) -> usize {
@@ -129,8 +129,8 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     //     self.values.last_mut().unwrap()
     // }
 
-    pub(crate) fn top_snapshot(&mut self) -> StackValueSnapshot<'eval> {
-        self.values.last_mut().unwrap().snapshot()
+    pub(crate) fn eval_top(&mut self) -> EvalValue<'eval> {
+        self.values.last().unwrap().eval()
     }
 
     pub(crate) fn truncate(&mut self, len: usize) {

@@ -6,7 +6,7 @@ use crate::*;
 pub enum HistoryEntry<'eval> {
     // Stmt { control: VMControlSnapshot },
     PureExpr {
-        output: StackValueSnapshot<'eval>,
+        output: EvalValue<'eval>,
     },
     Exec {
         mutations: Vec<MutationData<'eval>>,
@@ -36,7 +36,7 @@ pub enum HistoryEntry<'eval> {
 }
 
 impl<'eval> HistoryEntry<'eval> {
-    pub fn value(&self) -> StackValueSnapshot<'eval> {
+    pub fn value(&self) -> EvalValue<'eval> {
         match self {
             HistoryEntry::PureExpr { ref output } => output.clone(),
             HistoryEntry::Exec { mutations } => {

@@ -67,9 +67,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let ins_kind = InstructionKind::OprOpn {
                     opn: match opr {
                         BinaryOpr::Pure(pure_binary_opr) => OprOpn::PureBinary(*pure_binary_opr),
-                        BinaryOpr::Assign(opt_binary_opr) => {
-                            OprOpn::Assign(AssignOpn::Binary(*opt_binary_opr))
-                        }
+                        BinaryOpr::Assign(opt_binary_opr) => OprOpn::BinaryAssign(*opt_binary_opr),
                     },
                     this_ty: *this_ty,
                     this_range: opds[0].range,
@@ -91,12 +89,12 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::Suffix { opr, this_ty } => {
                 let ins_kind = match opr {
                     SuffixOpr::Incr => InstructionKind::OprOpn {
-                        opn: OprOpn::Assign(AssignOpn::Incr),
+                        opn: OprOpn::Incr,
                         this_ty: *this_ty,
                         this_range: opds[0].range,
                     },
                     SuffixOpr::Decr => InstructionKind::OprOpn {
-                        opn: OprOpn::Assign(AssignOpn::Decr),
+                        opn: OprOpn::Decr,
                         this_ty: *this_ty,
                         this_range: opds[0].range,
                     },
