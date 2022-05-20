@@ -85,7 +85,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                                 values[0].downcast_mut_full();
                                             this_value
                                                 .get_mut(index_value)
-                                                .map(|value| StackValue::LocalRefMut {
+                                                .map(|value| StackValue::RefMut {
                                                     value,
                                                     owner,
                                                     gen: (),

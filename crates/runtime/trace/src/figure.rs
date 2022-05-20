@@ -8,7 +8,7 @@ use crate::*;
 use map_collect::MapCollect;
 use visual_runtime::RuntimeVisualizer;
 use visual_syntax::VisualProps;
-use vm::{MutationData, CopyableValue};
+use vm::{CopyableValue, MutationData};
 use word::Identifier;
 
 #[derive(Debug, Serialize, Clone)]
@@ -25,7 +25,7 @@ pub enum FigureProps {
     },
     Graphics2d {
         image: Option<ImageProps>,
-        shape_groups: Vec<Shape2dGroup>,
+        shape_groups: Vec<Shape2dGroupProps>,
         xrange: (f32, f32),
         yrange: (f32, f32),
     },
@@ -76,7 +76,7 @@ impl FigureProps {
             VisualProps::Primitive { value } => FigureProps::Primitive { value },
             VisualProps::BinaryGrid28 { ref padded_rows } => FigureProps::Graphics2d {
                 image: None,
-                shape_groups: vec![Shape2dGroup::laser_grid28(padded_rows)],
+                shape_groups: vec![Shape2dGroupProps::laser_grid28(padded_rows)],
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
@@ -114,6 +114,15 @@ pub enum Color {
 pub struct Point2d {
     pub x: f32,
     pub y: f32,
+}
+
+impl Point2d {
+    pub fn from_ij28(i: usize, j: usize) -> Self {
+        Point2d {
+            x: j as f32 + 1.0,
+            y: 29.0 - i as f32,
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Clone)]

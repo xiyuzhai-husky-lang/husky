@@ -142,7 +142,7 @@ pub fn binary_assign<'stack, 'eval>(
     ropd: StackValue<'stack, 'eval>,
 ) -> VMRuntimeResult<()> {
     match lopd {
-        StackValue::LocalRefMut { ref mut value, .. } => {
+        StackValue::RefMut { ref mut value, .. } => {
             value.assign(if let Some(binary_opr) = opt_binary_opr {
                 let lopd_value = value.primitive();
                 binary_opr
@@ -160,7 +160,7 @@ pub fn binary_assign<'stack, 'eval>(
 pub fn incr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
     let opd_primitive = opd.primitive();
     match opd {
-        StackValue::LocalRefMut { value, owner, gen } => {
+        StackValue::RefMut { value, owner, gen } => {
             value.assign(StackValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i + 1).into(),
                 CopyableValue::F32(_) => todo!(),
@@ -179,7 +179,7 @@ pub fn incr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
 pub fn decr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
     let opd_primitive = opd.primitive();
     match opd {
-        StackValue::LocalRefMut { value, owner, gen } => {
+        StackValue::RefMut { value, owner, gen } => {
             value.assign(StackValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i - 1).into(),
                 CopyableValue::F32(_) => todo!(),
@@ -231,7 +231,7 @@ fn cast_as_i32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> i32 {
         StackValue::GlobalPure(_) => todo!(),
         StackValue::GlobalRef(_) => todo!(),
         StackValue::LocalRef(value) => todo!(),
-        StackValue::LocalRefMut { value, owner, gen } => todo!(),
+        StackValue::RefMut { value, owner, gen } => todo!(),
     }
 }
 
@@ -251,7 +251,7 @@ fn cast_as_b32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> u32 {
         StackValue::GlobalPure(_) => todo!(),
         StackValue::GlobalRef(_) => todo!(),
         StackValue::LocalRef(value) => todo!(),
-        StackValue::LocalRefMut { value, owner, gen } => todo!(),
+        StackValue::RefMut { value, owner, gen } => todo!(),
     }
 }
 
@@ -271,6 +271,6 @@ fn cast_as_f32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> f32 {
         StackValue::GlobalPure(_) => todo!(),
         StackValue::GlobalRef(_) => todo!(),
         StackValue::LocalRef(value) => todo!(),
-        StackValue::LocalRefMut { value, owner, gen } => todo!(),
+        StackValue::RefMut { value, owner, gen } => todo!(),
     }
 }

@@ -24,7 +24,7 @@ impl VMCasePattern {
                 StackValue::GlobalPure(_) => todo!(),
                 StackValue::GlobalRef(_) => todo!(),
                 StackValue::LocalRef(value) => todo!(),
-                StackValue::LocalRefMut { value, owner, gen } => todo!(),
+                StackValue::RefMut { value, owner, gen } => todo!(),
             },
             VMCasePattern::OneOf(subpatterns) => {
                 for subpattern in subpatterns {
@@ -49,7 +49,7 @@ impl VMCasePattern {
                 StackValue::GlobalPure(_) => todo!(),
                 StackValue::GlobalRef(_) => todo!(),
                 StackValue::LocalRef(value) => todo!(),
-                StackValue::LocalRefMut { value, owner, gen } => todo!(),
+                StackValue::RefMut { value, owner, gen } => todo!(),
             },
         }
     }

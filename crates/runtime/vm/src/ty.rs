@@ -81,7 +81,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                         MemberValue::GlobalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
-                    StackValue::LocalRefMut {
+                    StackValue::RefMut {
                         value: unsafe { &mut *ptr },
                         owner,
                         gen: (),

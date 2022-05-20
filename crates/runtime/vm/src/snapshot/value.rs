@@ -4,8 +4,8 @@ use crate::*;
 pub enum StackValueSnapshot<'eval> {
     Copyable(CopyableValue),
     GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
+    GlobalRef(&'eval dyn AnyValueDyn<'eval>),
     Owned(OwnedValue<'eval>),
-    Shared(Arc<dyn AnyValueDyn<'eval>>),
     MutRef {
         owner: StackIdx,
         gen: MutRefGenerator,
@@ -19,14 +19,22 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::Copyable(value) => value.any_ref(),
             StackValueSnapshot::GlobalPure(value) => &**value,
             StackValueSnapshot::Owned(boxed_value) => boxed_value.any_ref(),
-            StackValueSnapshot::Shared(value) => &**value,
+            StackValueSnapshot::Owned(snapshared_value) => snapshared_value.any_ref(),
             StackValueSnapshot::MutRef { .. } => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
+            StackValueSnapshot::GlobalRef(_) => todo!(),
         }
     }
 
     pub fn eval(&self) -> EvalValue<'eval> {
-        todo!()
+        match self {
+            StackValueSnapshot::Copyable(copyable_value) => EvalValue::Copyable(*copyable_value),
+            StackValueSnapshot::GlobalPure(value) => EvalValue::GlobalPure(value.clone()),
+            StackValueSnapshot::GlobalRef(value) => EvalValue::GlobalRef(*value),
+            StackValueSnapshot::Owned(value) => EvalValue::Owned(value.clone()),
+            StackValueSnapshot::MutRef { owner, gen } => todo!(),
+            StackValueSnapshot::Uninitialized => todo!(),
+        }
     }
 }
 
@@ -46,8 +54,9 @@ impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
                 .debug_struct("StackValueSnapshot::Boxed")
                 .field("value", value)
                 .finish(),
-            StackValueSnapshot::Shared(value) => todo!(),
+            StackValueSnapshot::Owned(value) => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
+            StackValueSnapshot::GlobalRef(_) => todo!(),
         }
     }
 }
@@ -65,8 +74,9 @@ impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnaps
             StackValueSnapshot::MutRef { owner, gen, .. } => todo!(),
             StackValueSnapshot::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
             StackValueSnapshot::Owned(value) => StackValue::Owned(value.clone()),
-            StackValueSnapshot::Shared(value) => todo!(),
+            StackValueSnapshot::Owned(value) => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
+            StackValueSnapshot::GlobalRef(_) => todo!(),
         }
     }
 }
