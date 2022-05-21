@@ -1,7 +1,11 @@
-use entity_syntax::EntityLocus;
-use static_defn::EntityStaticDefnVariant;
-
 use crate::*;
+use entity_syntax::EntityLocus;
+use instruction_gen::new_func_instruction_sheet;
+use semantics_entity::EntityDefnVariant;
+use static_defn::EntityStaticDefnVariant;
+use visual_semantics::VisualizerSource;
+use visual_syntax::TRIVIAL_VISUALIZER;
+
 #[salsa::query_group(VisualQueryGroupStorage)]
 pub trait VisualQueryGroup: AskCompileTime {
     fn visualizer(&self, version: usize, ty: EntityRoutePtr) -> Arc<RuntimeVisualizer>;
@@ -12,34 +16,30 @@ fn visualizer(
     version: usize,
     ty: EntityRoutePtr,
 ) -> Arc<RuntimeVisualizer> {
-    let scope_source = db.compile_time().entity_locus(ty).unwrap();
-    match scope_source {
-        EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
-            EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Type { visualizer, .. } => Arc::new(visualizer.into()),
-            EntityStaticDefnVariant::Module => todo!(),
-            EntityStaticDefnVariant::Trait { .. } => todo!(),
-            EntityStaticDefnVariant::Method {
-                this_contract,
-                input_parameters: inputs,
-                output_ty,
-                output_contract,
-                generic_parameters: generic_placeholders,
-                ref kind,
-            } => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
-            EntityStaticDefnVariant::TypeField { .. } => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+    let ty_defn = db.compile_time().entity_defn(ty).unwrap();
+    Arc::new(match ty_defn.variant {
+        EntityDefnVariant::Type {
+            ref opt_visualizer_source,
+            ..
+        } => match opt_visualizer_source {
+            Some(visualizer_source) => match visualizer_source {
+                VisualizerSource::Static(static_visualizer) => static_visualizer.into(),
+                VisualizerSource::Xml {
+                    ref stmts,
+                    ref xml_expr,
+                } => RuntimeVisualizer::Interpreted {
+                    stmts: stmts.clone(),
+                    xml_expr: xml_expr.clone(),
+                    instruction_sheet: new_func_instruction_sheet(
+                        db.compile_time(),
+                        [].into_iter(),
+                        stmts,
+                        true,
+                    ),
+                },
+            },
+            None => RuntimeVisualizer::Compiled(TRIVIAL_VISUALIZER.compiled),
         },
-        EntityLocus::WithinBuiltinModule => todo!(),
-        EntityLocus::WithinModule {
-            file,
-            token_group_index,
-        } => todo!(),
-        EntityLocus::Module { file } => todo!(),
-        EntityLocus::Input { main } => todo!(),
-        EntityLocus::StaticTypeMember => todo!(),
-        EntityLocus::StaticTypeAsTraitMember => todo!(),
-    }
+        _ => todo!(),
+    })
 }

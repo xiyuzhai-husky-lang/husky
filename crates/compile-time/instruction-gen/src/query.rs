@@ -32,7 +32,7 @@ fn entity_instruction_sheet(
             ref input_placeholders,
             ref stmts,
             ..
-        } => Some(InstructionSheetBuilder::new_func(
+        } => Some(new_func_instruction_sheet(
             db,
             input_placeholders
                 .iter()
@@ -44,7 +44,7 @@ fn entity_instruction_sheet(
             ref input_placeholders,
             ref stmts,
             ..
-        } => Some(InstructionSheetBuilder::new_impr(
+        } => Some(new_impr_instruction_sheet(
             db,
             input_placeholders
                 .iter()
@@ -108,7 +108,7 @@ fn method_opt_instruction_sheet(
                     };
                     match source {
                         MethodSource::Func { stmts } => {
-                            Some(InstructionSheetBuilder::new_func(db, inputs, stmts, true))
+                            Some(new_func_instruction_sheet(db, inputs, stmts, true))
                         }
                         MethodSource::Proc { stmts } => todo!(),
                         MethodSource::Pattern { stmts } => todo!(),
@@ -133,7 +133,7 @@ fn dataset_config_instruction_sheet(
     pack_main: FilePtr,
 ) -> Arc<InstructionSheet> {
     let pack = db.package(pack_main).unwrap();
-    InstructionSheetBuilder::new_func(db, vec![].into_iter(), &pack.config.dataset.stmts, false)
+    new_func_instruction_sheet(db, vec![].into_iter(), &pack.config.dataset.stmts, false)
 }
 
 fn enum_literal_as_u8(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> u8 {
