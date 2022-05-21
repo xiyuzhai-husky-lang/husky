@@ -1,4 +1,4 @@
-use entity_route_query::EntitySource;
+use entity_route_query::EntityLocus;
 use static_defn::EntityStaticDefnVariant;
 
 use crate::*;
@@ -12,9 +12,9 @@ fn visualizer(
     version: usize,
     ty: EntityRoutePtr,
 ) -> Arc<RuntimeVisualizer> {
-    let scope_source = db.compile_time().entity_source(ty).unwrap();
+    let scope_source = db.compile_time().entity_locus(ty).unwrap();
     match scope_source {
-        EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+        EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
             EntityStaticDefnVariant::Type { visualizer, .. } => Arc::new(visualizer.into()),
             EntityStaticDefnVariant::Module => todo!(),
@@ -32,14 +32,14 @@ fn visualizer(
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         },
-        EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::WithinModule {
+        EntityLocus::WithinBuiltinModule => todo!(),
+        EntityLocus::WithinModule {
             file,
             token_group_index,
         } => todo!(),
-        EntitySource::Module { file } => todo!(),
-        EntitySource::Input { main } => todo!(),
-        EntitySource::StaticTypeMember => todo!(),
-        EntitySource::StaticTypeAsTraitMember => todo!(),
+        EntityLocus::Module { file } => todo!(),
+        EntityLocus::Input { main } => todo!(),
+        EntityLocus::StaticTypeMember => todo!(),
+        EntityLocus::StaticTypeAsTraitMember => todo!(),
     }
 }

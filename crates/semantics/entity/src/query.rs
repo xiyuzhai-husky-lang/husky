@@ -52,16 +52,16 @@ impl EntityRouteStore {
 
 pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRoutePtr) -> EntityUid {
     // responds to changes in either defn or defns of dependees
-    let entity_source = db.entity_source(entity_route).unwrap();
+    let entity_source = db.entity_locus(entity_route).unwrap();
     match entity_source {
         // in the future, we should make a difference between entity in current pack and depending packs
-        EntitySource::StaticModuleItem(_)
-        | EntitySource::StaticTypeMember
-        | EntitySource::StaticTypeAsTraitMember => (),
-        EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::Module { file } => todo!(),
-        EntitySource::Input { main } => todo!(),
-        EntitySource::WithinModule {
+        EntityLocus::StaticModuleItem(_)
+        | EntityLocus::StaticTypeMember
+        | EntityLocus::StaticTypeAsTraitMember => (),
+        EntityLocus::WithinBuiltinModule => todo!(),
+        EntityLocus::Module { file } => todo!(),
+        EntityLocus::Input { main } => todo!(),
+        EntityLocus::WithinModule {
             file,
             token_group_index,
         } => {

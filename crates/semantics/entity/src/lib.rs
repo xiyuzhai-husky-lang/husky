@@ -11,7 +11,7 @@ use atom::{
     symbol::{Symbol, SymbolContextKind},
     SymbolContext,
 };
-use entity_route_query::EntitySource;
+use entity_route_query::EntityLocus;
 use map_collect::MapCollect;
 use module::module_defn;
 pub use morphism::*;
@@ -314,9 +314,9 @@ pub(crate) fn entity_defn(
     db: &dyn EntityDefnQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<EntityDefn> {
-    let source = db.entity_source(entity_route)?;
+    let source = db.entity_locus(entity_route)?;
     match source {
-        EntitySource::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
+        EntityLocus::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
             &SymbolContext {
                 opt_package_main: None,
                 db: db.upcast(),
@@ -328,8 +328,8 @@ pub(crate) fn entity_defn(
             entity_route,
             static_defn,
         )),
-        EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::WithinModule {
+        EntityLocus::WithinBuiltinModule => todo!(),
+        EntityLocus::WithinModule {
             file,
             token_group_index,
         } => {
@@ -412,9 +412,9 @@ pub(crate) fn entity_defn(
                 ast_head.range,
             ))
         }
-        EntitySource::Module { file } => module_defn(db, entity_route, file),
-        EntitySource::Input { .. } => todo!(),
-        EntitySource::StaticTypeMember => match entity_route.kind {
+        EntityLocus::Module { file } => module_defn(db, entity_route, file),
+        EntityLocus::Input { .. } => todo!(),
+        EntityLocus::StaticTypeMember => match entity_route.kind {
             EntityRouteKind::Child { parent: ty, ident } => {
                 let ty_defn = db.entity_defn(ty).unwrap();
                 match ty_defn.variant {
@@ -427,7 +427,7 @@ pub(crate) fn entity_defn(
             }
             _ => panic!(),
         },
-        EntitySource::StaticTypeAsTraitMember => match entity_route.kind {
+        EntityLocus::StaticTypeAsTraitMember => match entity_route.kind {
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
                 let ty_defn = db.entity_defn(ty)?;
                 let trai_impl_defn = ty_defn
