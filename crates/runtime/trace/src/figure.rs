@@ -85,7 +85,7 @@ impl FigureProps {
 
     pub fn void() -> Self {
         Self::Primitive {
-            value: CopyableValue::Void,
+            value: CopyableValue::Void(()),
         }
     }
 }

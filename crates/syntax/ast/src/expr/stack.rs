@@ -303,7 +303,7 @@ impl<'a> ExprStack<'a> {
                         range,
                         variant: RawExprVariant::CopyableLiteral(CopyableValue::F32(-f)),
                     }),
-                    CopyableValue::Void
+                    CopyableValue::Void(_)
                     | CopyableValue::B32(_)
                     | CopyableValue::Bool(_)
                     | CopyableValue::B64(_) => todo!(),

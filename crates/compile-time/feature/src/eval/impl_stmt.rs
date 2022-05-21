@@ -44,7 +44,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 CopyableValue::B32(_) => todo!(),
                 CopyableValue::B64(_) => todo!(),
                 CopyableValue::Bool(b) => b,
-                CopyableValue::Void => todo!(),
+                CopyableValue::Void(_) => todo!(),
                 CopyableValue::EnumKind(_) => todo!(),
             },
             _ => todo!(),

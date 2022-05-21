@@ -16,7 +16,7 @@ pub enum CopyableValue {
     B32(u32),
     B64(u64),
     Bool(bool),
-    Void,
+    Void(()),
     EnumKind(EnumKindValue),
 }
 
@@ -68,7 +68,7 @@ impl Serialize for CopyableValue {
             CopyableValue::B32(_) => "B32",
             CopyableValue::B64(_) => "B64",
             CopyableValue::Bool(_) => "Bool",
-            CopyableValue::Void => "Void",
+            CopyableValue::Void(_) => "Void",
             CopyableValue::EnumKind(_) => "EnumKind",
         };
         let value: Cow<'static, str> = (*self).into();
@@ -80,7 +80,7 @@ impl Serialize for CopyableValue {
 
 impl From<()> for CopyableValue {
     fn from(_: ()) -> Self {
-        Self::Void
+        Self::Void(())
     }
 }
 
@@ -92,7 +92,7 @@ impl CopyableValue {
             CopyableValue::B32(_) => RootIdentifier::B32.into(),
             CopyableValue::B64(_) => RootIdentifier::B64.into(),
             CopyableValue::Bool(_) => todo!(),
-            CopyableValue::Void => todo!(),
+            CopyableValue::Void(_) => todo!(),
             CopyableValue::EnumKind(enum_kind) => enum_kind.route.parent(),
         }
     }
@@ -144,7 +144,7 @@ impl CopyableValue {
             CopyableValue::B32(value) => *value != 0u32,
             CopyableValue::B64(value) => *value != 0u64,
             CopyableValue::Bool(value) => *value,
-            CopyableValue::Void | CopyableValue::EnumKind(_) => panic!(),
+            CopyableValue::Void(_) | CopyableValue::EnumKind(_) => panic!(),
         }
     }
 
@@ -163,7 +163,8 @@ impl CopyableValue {
             CopyableValue::B32(value) => value,
             CopyableValue::B64(value) => value,
             CopyableValue::Bool(value) => value,
-            CopyableValue::Void | CopyableValue::EnumKind(_) => panic!(),
+            CopyableValue::EnumKind(value) => value,
+            CopyableValue::Void(value) => value,
         }
     }
 
@@ -175,7 +176,7 @@ impl CopyableValue {
             CopyableValue::B64(value) => value,
             CopyableValue::Bool(value) => value,
             CopyableValue::EnumKind(value) => value,
-            CopyableValue::Void => todo!(),
+            CopyableValue::Void(_) => todo!(),
         }
     }
 }
@@ -189,7 +190,7 @@ impl Hash for CopyableValue {
             CopyableValue::B32(b) => b.hash(state),
             CopyableValue::B64(b) => b.hash(state),
             CopyableValue::Bool(b) => b.hash(state),
-            CopyableValue::Void => ().hash(state),
+            CopyableValue::Void(_) => ().hash(state),
             CopyableValue::EnumKind(enum_kind) => enum_kind.hash(state),
         }
     }
@@ -269,7 +270,7 @@ impl Into<String> for CopyableValue {
             CopyableValue::B32(b) => format!("{:#032b}", b),
             CopyableValue::B64(b) => format!("{:#064b}", b),
             CopyableValue::Bool(b) => format!("{}", b),
-            CopyableValue::Void => "()".into(),
+            CopyableValue::Void(_) => "()".into(),
             CopyableValue::EnumKind(enum_kind) => format!("{:?}", enum_kind.route),
         }
     }
@@ -283,7 +284,7 @@ impl Into<Cow<'static, str>> for CopyableValue {
             CopyableValue::B32(b) => format!("{:#032b}", b).into(),
             CopyableValue::B64(b) => format!("{:#064b}", b).into(),
             CopyableValue::Bool(b) => format!("{}", b).into(),
-            CopyableValue::Void => "()".into(),
+            CopyableValue::Void(_) => "()".into(),
             CopyableValue::EnumKind(enum_kind) => format!("{:?}", enum_kind.route).into(),
         }
     }

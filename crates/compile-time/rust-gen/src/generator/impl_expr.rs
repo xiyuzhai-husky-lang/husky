@@ -99,7 +99,7 @@ impl<'a> RustGenerator<'a> {
                 self.write("u64")
             }
             CopyableValue::Bool(b) => self.result.push_str(&b.to_string()),
-            CopyableValue::Void => self.result.push_str("()"),
+            CopyableValue::Void(_) => self.result.push_str("()"),
             CopyableValue::EnumKind(_) => todo!(),
         }
     }
