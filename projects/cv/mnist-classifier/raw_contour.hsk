@@ -5,6 +5,9 @@ use datasets::cv::mnist::BinaryGrid28
 struct RawContour:
     points: []Point2d
 
+    visual:
+        <Contour {points} />
+
 enum Direction:
     UP
     LEFT
