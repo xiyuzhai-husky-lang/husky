@@ -64,9 +64,9 @@ pub(crate) fn call_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
 ) -> InferQueryResultArc<CallDecl> {
-    let source = db.entity_source(route)?;
+    let source = db.entity_locus(route)?;
     return match source {
-        EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
+        EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => {
                 routine_decl_from_static(db, vec![], route, static_defn)
             }
@@ -76,8 +76,8 @@ pub(crate) fn call_decl(
             },
             _ => panic!(),
         }),
-        EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::WithinModule {
+        EntityLocus::WithinBuiltinModule => todo!(),
+        EntityLocus::WithinModule {
             file,
             token_group_index,
         } => {
@@ -101,10 +101,10 @@ pub(crate) fn call_decl(
                 _ => panic!(),
             }
         }
-        EntitySource::Module { file: file_id } => todo!(),
-        EntitySource::Input { .. } => todo!(),
-        EntitySource::StaticTypeMember => todo!(),
-        EntitySource::StaticTypeAsTraitMember => todo!(),
+        EntityLocus::Module { file: file_id } => todo!(),
+        EntityLocus::Input { .. } => todo!(),
+        EntityLocus::StaticTypeMember => todo!(),
+        EntityLocus::StaticTypeAsTraitMember => todo!(),
     };
 }
 

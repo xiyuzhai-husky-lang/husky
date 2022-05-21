@@ -4,7 +4,7 @@ use super::*;
 pub struct SubrouteEntry {
     pub ident: Option<CustomIdentifier>,
     pub kind: EntityKind,
-    pub source: EntitySource,
+    pub source: EntityLocus,
 }
 
 impl std::fmt::Debug for SubrouteEntry {
@@ -33,7 +33,7 @@ impl SubrouteEntry {
                     return Ok(Some(SubrouteEntry {
                         ident: Some(ident),
                         kind: EntityKind::EnumLiteral,
-                        source: EntitySource::from_file(file, token_group_index),
+                        source: EntityLocus::from_file(file, token_group_index),
                     }))
                 }
                 _ => {
@@ -49,7 +49,7 @@ impl SubrouteEntry {
                 TokenKind::Keyword(Keyword::Main) => Ok(Some(SubrouteEntry {
                     ident: None,
                     kind: EntityKind::Main,
-                    source: EntitySource::from_file(file, token_group_index),
+                    source: EntityLocus::from_file(file, token_group_index),
                 })),
                 TokenKind::Keyword(Keyword::Mod) => {
                     SubrouteEntry::submodule(db, file, token_group_index, token_group)
@@ -69,7 +69,7 @@ impl SubrouteEntry {
                             Identifier::Custom(ident) => Ok(Some(SubrouteEntry {
                                 ident: Some(ident),
                                 kind,
-                                source: EntitySource::from_file(file, token_group_index),
+                                source: EntityLocus::from_file(file, token_group_index),
                             })),
                             Identifier::Contextual(_) => Err(defn_error!(
                                 "contextual identifiers are reserved",
@@ -90,7 +90,7 @@ impl SubrouteEntry {
                             Ok(Some(SubrouteEntry {
                                 ident: Some(ident),
                                 kind: EntityKind::Routine,
-                                source: EntitySource::from_file(file, token_group_index),
+                                source: EntityLocus::from_file(file, token_group_index),
                             }))
                         }
                         _ => todo!(),
@@ -116,7 +116,7 @@ impl SubrouteEntry {
             Ok(Some(SubrouteEntry {
                 ident: Some(ident),
                 kind: EntityKind::Module,
-                source: EntitySource::Module {
+                source: EntityLocus::Module {
                     file: submodule_file,
                 },
             }))

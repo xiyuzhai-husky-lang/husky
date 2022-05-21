@@ -185,9 +185,9 @@ pub(crate) fn trait_decl(
     db: &dyn DeclQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> InferResultArc<TraitDecl> {
-    let entity_source = db.entity_source(entity_route).unwrap();
+    let entity_source = db.entity_locus(entity_route).unwrap();
     match entity_source {
-        EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+        EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
             EntityStaticDefnVariant::Type { .. } => todo!(),
             EntityStaticDefnVariant::Trait { .. } => {
@@ -205,15 +205,15 @@ pub(crate) fn trait_decl(
             EntityStaticDefnVariant::TypeField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
         },
-        EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::WithinModule {
+        EntityLocus::WithinBuiltinModule => todo!(),
+        EntityLocus::WithinModule {
             file,
             token_group_index,
         } => todo!(),
-        EntitySource::Module { file } => todo!(),
-        EntitySource::Input { main } => todo!(),
-        EntitySource::StaticTypeMember => todo!(),
-        EntitySource::StaticTypeAsTraitMember => todo!(),
+        EntityLocus::Module { file } => todo!(),
+        EntityLocus::Input { main } => todo!(),
+        EntityLocus::StaticTypeMember => todo!(),
+        EntityLocus::StaticTypeAsTraitMember => todo!(),
     }
 }
 

@@ -101,7 +101,7 @@ impl SubrouteTable {
             .collect()
     }
 
-    pub fn entity_source(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntitySource> {
+    pub fn entity_locus(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntityLocus> {
         query_not_none!(
             self.entries
                 .iter()
@@ -200,7 +200,7 @@ impl SubrouteTable {
                             EntityStaticDefnVariant::Method { .. } => MemberKind::Method,
                             _ => panic!(),
                         }),
-                        source: EntitySource::StaticTypeMember,
+                        source: EntityLocus::StaticTypeMember,
                     })
                 }
                 for variant in variants {

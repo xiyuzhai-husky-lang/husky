@@ -1,5 +1,5 @@
 use entity_route::EntityRouteKind;
-use entity_route_query::EntitySource;
+use entity_route_query::EntityLocus;
 use word::RootIdentifier;
 
 use crate::*;
@@ -60,8 +60,8 @@ struct B {}
     let husky_lord_route =
         db.make_subroute(package, db.intern_word("husky_lord").custom(), Vec::new());
     should_eq!(
-        db.entity_source(husky_lord_route).unwrap(),
-        EntitySource::Module {
+        db.entity_locus(husky_lord_route).unwrap(),
+        EntityLocus::Module {
             file: husky_lord_file
         }
     );

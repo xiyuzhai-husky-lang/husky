@@ -1,7 +1,7 @@
 mod table;
 mod vec;
 
-use entity_route_query::EntitySource;
+use entity_route_query::EntityLocus;
 use static_defn::{EntityStaticDefnVariant, LinkageSource};
 pub use table::*;
 
@@ -152,8 +152,8 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     }
 
     fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<Linkage> {
-        match self.entity_source(routine).unwrap() {
-            EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+        match self.entity_locus(routine).unwrap() {
+            EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
                 EntityStaticDefnVariant::Routine { linkage, .. } => Some(linkage),
                 EntityStaticDefnVariant::Type { .. } => todo!(),
                 EntityStaticDefnVariant::Module => todo!(),
@@ -164,14 +164,14 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                 EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
                 EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
             },
-            EntitySource::WithinBuiltinModule => todo!(),
-            EntitySource::WithinModule { .. } => {
+            EntityLocus::WithinBuiltinModule => todo!(),
+            EntityLocus::WithinModule { .. } => {
                 self.linkage_table().routine(self.entity_uid(routine))
             }
-            EntitySource::Module { file } => todo!(),
-            EntitySource::Input { main } => todo!(),
-            EntitySource::StaticTypeMember => todo!(),
-            EntitySource::StaticTypeAsTraitMember => todo!(),
+            EntityLocus::Module { file } => todo!(),
+            EntityLocus::Input { main } => todo!(),
+            EntityLocus::StaticTypeMember => todo!(),
+            EntityLocus::StaticTypeAsTraitMember => todo!(),
         }
     }
 
