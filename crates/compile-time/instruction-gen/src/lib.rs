@@ -14,34 +14,34 @@ use std::sync::Arc;
 use vm::{Instruction, InstructionSheet};
 use word::*;
 
-pub struct InstructionSheetBuilder<'a> {
+pub fn new_func_instruction_sheet(
+    db: &dyn InstructionGenQueryGroup,
+    inputs: impl Iterator<Item = CustomIdentifier>,
+    stmts: &[Arc<FuncStmt>],
+    has_this: bool,
+) -> Arc<InstructionSheet> {
+    let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
+    builder.compile_func_stmts(stmts);
+    builder.finalize()
+}
+
+pub fn new_impr_instruction_sheet(
+    db: &dyn InstructionGenQueryGroup,
+    inputs: impl Iterator<Item = CustomIdentifier>,
+    stmts: &[Arc<ProcStmt>],
+    has_this: bool,
+) -> Arc<InstructionSheet> {
+    let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
+    builder.compile_proc_stmts(stmts);
+    builder.finalize()
+}
+
+struct InstructionSheetBuilder<'a> {
     db: &'a dyn InstructionGenQueryGroup,
     sheet: InstructionSheet,
 }
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub fn new_func(
-        db: &'a dyn InstructionGenQueryGroup,
-        inputs: impl Iterator<Item = CustomIdentifier>,
-        stmts: &[Arc<FuncStmt>],
-        has_this: bool,
-    ) -> Arc<InstructionSheet> {
-        let mut builder = Self::new(db, inputs, has_this);
-        builder.compile_func_stmts(stmts);
-        builder.finalize()
-    }
-
-    pub fn new_impr(
-        db: &'a dyn InstructionGenQueryGroup,
-        inputs: impl Iterator<Item = CustomIdentifier>,
-        stmts: &[Arc<ProcStmt>],
-        has_this: bool,
-    ) -> Arc<InstructionSheet> {
-        let mut builder = Self::new(db, inputs, has_this);
-        builder.compile_proc_stmts(stmts);
-        builder.finalize()
-    }
-
     fn new(
         db: &'a dyn InstructionGenQueryGroup,
         inputs: impl Iterator<Item = CustomIdentifier>,

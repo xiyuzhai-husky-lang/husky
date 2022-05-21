@@ -38,6 +38,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::*;
 use vec_map::HasKey;
+use visual_semantics::VisualizerSource;
 use vm::{FieldContract, InputContract, Linkage, OutputLiason};
 use word::{CustomIdentifier, IdentDict, Identifier};
 
@@ -159,6 +160,7 @@ pub enum EntityDefnVariant {
         trait_impls: Vec<Arc<TraitImplDefn>>,
         members: Avec<EntityDefn>,
         opt_type_call: Option<Arc<TyCallDefn>>,
+        opt_visualizer_source: Option<VisualizerSource>,
     },
     Trait {
         generic_placeholders: IdentDict<GenericPlaceholder>,
