@@ -4,12 +4,12 @@ import {
     decode_number,
     decode_opt,
 } from "src/decode/decode";
-import type FigureControlProps from "src/figure/FigureControlProps";
+import type { FigureControlProps } from "src/figure/control";
 import type FigureProps from "src/figure";
 import { Trace } from "src/trace";
 import { Focus } from "src/focus";
 import type Dict from "src/abstraction/Dict";
-import { decode_figure_control_props } from "src/figure/FigureControlProps";
+import { decode_figure_control_props } from "src/figure/control";
 import { decode_dict } from "src/abstraction/Dict";
 
 export class InitState {

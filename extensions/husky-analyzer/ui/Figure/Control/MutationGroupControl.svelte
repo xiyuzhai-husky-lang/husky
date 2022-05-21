@@ -1,7 +1,7 @@
 <script lang="ts">
     import type FlexDirection from "src/abstraction/FlexDiretion";
-    import type FigureControlProps from "src/figure/FigureControlProps";
-    import { select_mutation } from "src/figure/FigureControlProps";
+    import type { FigureControlProps } from "src/figure/control";
+    import { select_mutation } from "src/figure/control";
     import type { MutationsFigureProps } from "src/figure";
     import state from "src/state";
     import MutationControl from "./MutationGroupControl/MutationControl.svelte";

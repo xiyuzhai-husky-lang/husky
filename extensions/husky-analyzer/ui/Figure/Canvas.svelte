@@ -4,7 +4,7 @@
     import Graphics2dCanvas from "./Canvas/Graphics2dCanvas.svelte";
     import PrimitiveValueCanvas from "./Canvas/PrimitiveValueCanvas.svelte";
     import NullCanvas from "./Canvas/NullCanvas.svelte";
-    import type FigureControlProps from "src/figure/FigureControlProps";
+    import type { FigureControlProps } from "src/figure/control";
 
     export let figure: FigureProps | null;
     export let figure_control_props: FigureControlProps | null;

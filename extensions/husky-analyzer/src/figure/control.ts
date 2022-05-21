@@ -1,7 +1,7 @@
 import { decode_memb, decode_number_or_null } from "src/decode/decode";
 import type { Updater } from "svelte/store";
 
-export default class FigureControlProps {
+export class FigureControlProps {
     opt_mutation_selection: number | null;
 
     constructor(opt_mutation_selection: number | null) {
