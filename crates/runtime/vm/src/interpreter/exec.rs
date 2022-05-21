@@ -32,7 +32,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: value.eval(),
+                                output: Ok(value.eval()),
                             },
                         ),
                     }
@@ -45,7 +45,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.eval_top(),
+                                output: Ok(self.stack.eval_top()),
                             },
                         ),
                     }
@@ -58,7 +58,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.eval_top(),
+                                output: Ok(self.stack.eval_top()),
                             },
                         ),
                     }
@@ -71,7 +71,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.eval_top(),
+                                output: match control {
+                                    VMControl::Err(ref e) => Err(e.clone()),
+                                    _ => Ok(self.stack.eval_top()),
+                                },
                             },
                         ),
                     }
@@ -91,7 +94,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.eval_top(),
+                                output: Ok(self.stack.eval_top()),
                             },
                         ),
                     };
@@ -103,7 +106,12 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     let control = self.new_virtual_struct(field_vars).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => todo!(),
+                        Mode::TrackHistory => self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                output: Ok(self.stack.eval_top()),
+                            },
+                        ),
                     };
                     control
                 }
@@ -159,7 +167,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: self.stack.eval_top(),
+                                output: Ok(self.stack.eval_top()),
                             },
                         ),
                     };
