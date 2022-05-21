@@ -172,7 +172,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Match { match_expr, .. } => {
                 self.infer_eager_expr(arena, match_expr);
             }
-            RawStmtVariant::ReturnXml(_) => todo!(),
+            RawStmtVariant::ReturnXml(ref xml_expr) => {
+                xml_expr.props.iter().for_each(|(_, argument)| {
+                    self.infer_eager_expr(arena, *argument);
+                })
+            }
         }
     }
 
