@@ -14,8 +14,8 @@ export class TraceControlState {
                 ? null
                 : init_state.traces[init_state.active_trace_id]
         );
-        this.expansion_stores.load(init_state.expansions);
-        this.shown_stores.load(init_state.showns);
+        this.expansion_stores.load(init_state.expansions.data);
+        this.shown_stores.load(init_state.showns.data);
     }
 
     is_expanded(trace_id: number): boolean {

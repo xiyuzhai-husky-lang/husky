@@ -10,6 +10,7 @@
     $: svgWidth = figure.xrange[1] - figure.xrange[0];
     $: svgYMin = 0;
     $: svgHeight = figure.yrange[1] - figure.yrange[0];
+    $: console.log("figure.shape_groups = ", figure.shape_groups);
 </script>
 
 <div class="wrapper">
@@ -28,8 +29,11 @@
         <g transform="matrix(1 0 0 -1 0 {figure.yrange[1]})">
             {#each figure.shape_groups as shape_group}
                 <g class={shape_group.color}>
-                    {#each shape_group.shapes as shape}
-                        <Shape {shape} lineWidth={shape_group.line_width} />
+                    {#each shape_group.shapes as shape2d_props}
+                        <Shape
+                            {shape2d_props}
+                            lineWidth={shape_group.line_width}
+                        />
                     {/each}
                 </g>
             {/each}

@@ -5,9 +5,10 @@ import StoreStringMap from "src/abstraction/StoreStringMap";
 import type { InitState } from "./init_state";
 import type FigureProps from "src/figure";
 import type { Focus } from "src/focus";
+import Dict from "src/abstraction/Dict";
 
 export class FigureState {
-    figures: { [focus: string]: FigureProps } = {};
+    figures: Dict<FigureProps> = new Dict<FigureProps>();
     figure_control_stores: StoreStringMap<FigureControlProps> =
         new StoreStringMap();
 
@@ -24,20 +25,26 @@ export class FigureState {
     ) {
         let key = focus.gen_figure_key(trace.id);
         console.assert(!(key in this.figures));
-        this.figures[key] = figure;
+        this.figures.insert_new(key, figure);
         this.set_figure_control_props(trace, figure_control_props);
     }
 
     get_figure(trace_id: number, focus: Focus): FigureProps {
         let key = focus.gen_figure_key(trace_id);
-        if (!(key in this.figures)) {
-            throw new Error(
+        // if (!(key in this.figures)) {
+        //     throw new Error(
+        //         `key ${JSON.stringify(key)} not in figures: ${JSON.stringify(
+        //             this.figures
+        //         )}`
+        //     );
+        // }
+        return this.figures.get(
+            key,
+            () =>
                 `key ${JSON.stringify(key)} not in figures: ${JSON.stringify(
                     this.figures
                 )}`
-            );
-        }
-        return this.figures[key];
+        );
     }
 
     is_figure_cached(trace_id: number, focus: Focus): boolean {

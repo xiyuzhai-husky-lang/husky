@@ -11,11 +11,13 @@ import type { Color } from "../color";
 import { decode_color } from "../color";
 
 export type Arrow2dProps = {
+    kind: "Arrow2d";
     from: Point2d;
     to: Point2d;
 };
 
 export type Point2dProps = {
+    kind: "Point2d";
     point: Point2d;
 };
 export type Shape2dProps = Arrow2dProps | Point2dProps;
@@ -23,7 +25,6 @@ export type Shape2dGroupProps = {
     shapes: Shape2dProps[];
     color: Color;
     line_width: number;
-    kind: Shape2dKind;
 };
 export type Shape2dKind = "Point2d" | "Arrow2d";
 
@@ -36,7 +37,6 @@ export function decode_shape2d_group_props(data: unknown): Shape2dGroupProps {
         ),
         color: decode_color(decode_memb(data, "color")),
         line_width: decode_number(decode_memb(data, "line_width")),
-        kind,
     };
 }
 
@@ -55,11 +55,13 @@ function decode_shape2d_props(data: unknown, kind: Shape2dKind): Shape2dProps {
     switch (kind) {
         case "Arrow2d":
             return {
+                kind: "Arrow2d",
                 from: decode_point2d(decode_memb(data, "from")),
                 to: decode_point2d(decode_memb(data, "to")),
             };
         case "Point2d":
             return {
+                kind: "Point2d",
                 point: decode_point2d(decode_memb(data, "point")),
             };
     }
