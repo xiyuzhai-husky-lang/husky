@@ -6,7 +6,7 @@ use std::sync::Arc;
 use ast::{AstIter, AstKind};
 use entity_kind::FieldKind;
 use entity_route::EntityRouteKind;
-use entity_route_query::EntitySyntaxResult;
+use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};

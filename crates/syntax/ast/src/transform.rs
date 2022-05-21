@@ -18,7 +18,7 @@ use crate::{
 };
 use atom::symbol::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
-use entity_route_query::EntitySyntaxResult;
+use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use text::TextRanged;

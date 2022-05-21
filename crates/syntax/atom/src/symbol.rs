@@ -3,7 +3,7 @@ use std::borrow::Cow;
 use defn_head::{GenericPlaceholder, GenericPlaceholderVariant, InputParameter};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
-use entity_route_query::{EntityRouteQueryGroup, EntitySyntaxResult};
+use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResult};
 use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;

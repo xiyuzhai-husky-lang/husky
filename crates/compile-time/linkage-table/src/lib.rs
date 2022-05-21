@@ -1,7 +1,7 @@
 mod table;
 mod vec;
 
-use entity_route_query::EntityLocus;
+use entity_syntax::EntityLocus;
 use static_defn::{EntityStaticDefnVariant, LinkageSource};
 pub use table::*;
 

@@ -1,6 +1,6 @@
 use entity_kind::TyKind;
 use entity_route::{EntityKind, RangedEntityRoute};
-use entity_route_query::EntityRouteQueryGroup;
+use entity_syntax::EntityRouteQueryGroup;
 use static_defn::StaticGenericPlaceholder;
 use vec_map::HasKey;
 use word::CustomIdentifier;

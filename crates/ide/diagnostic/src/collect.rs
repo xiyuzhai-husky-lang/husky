@@ -1,6 +1,6 @@
 use ast::AstText;
 use entity_route::{EntityKind, EntityRoutePtr};
-use entity_route_query::SubrouteTable;
+use entity_syntax::SubrouteTable;
 use file::FilePtr;
 use print_utils::{emsg_once, p};
 use semantics_error::SemanticErrorVariant;

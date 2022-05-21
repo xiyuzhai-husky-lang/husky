@@ -10,7 +10,7 @@ pub use severity::DiagnosticSeverity;
 
 use ast::{AstError, AstErrorVariant};
 use dev_utils::DevSource;
-use entity_route_query::{EntitySyntaxError, EntitySyntaxErrorKind};
+use entity_syntax::{EntitySyntaxError, EntitySyntaxErrorKind};
 use infer_error::{InferError, InferErrorVariant};
 use print_utils::p;
 use semantics_error::{SemanticError, SemanticErrorVariant};

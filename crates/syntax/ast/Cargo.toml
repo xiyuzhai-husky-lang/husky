@@ -25,7 +25,7 @@ text = { path = "../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 token = { path = "../token", version = "0.0.0" }
 entity-route = { path = "../entity-route", version = "0.0.0" }
-entity-route-query = { path = "../entity-route-query", version = "0.0.0" }
+entity-syntax = { path = "../entity-syntax", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }

@@ -33,7 +33,7 @@ file = { path = "../../syntax/file", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 token = { path = "../../syntax/token", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
-entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
+entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 husky-fmt = { path = "../../syntax/fmt", version = "0.0.0" }

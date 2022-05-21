@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 use ast::{AstIter, AstKind, RawExprArena};
 use entity_kind::FieldKind;
-use entity_route_query::EntitySyntaxResult;
+use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
 use infer_contract::{ContractSheet, InferContract};
 use infer_decl::DeclQueryGroup;
