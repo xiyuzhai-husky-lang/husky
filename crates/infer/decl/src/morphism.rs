@@ -20,7 +20,7 @@ pub(crate) fn morphism_decl(
     db: &dyn DeclQueryGroup,
     scope: EntityRoutePtr,
 ) -> InferResultArc<MorphismDecl> {
-    let source = db.entity_source(scope)?;
+    let source = db.entity_locus(scope)?;
     return match source {
         EntitySource::Builtin(data) => Ok(Arc::new(todo!())),
         EntitySource::WithinBuiltinModule => todo!(),
