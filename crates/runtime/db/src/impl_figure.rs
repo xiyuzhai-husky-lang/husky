@@ -165,10 +165,13 @@ impl HuskyLangRuntime {
         let visualizer = self.visualizer(self.version(), expr.ty);
         if let Some(entry) = history.get(expr) {
             match entry {
-                HistoryEntry::PureExpr { output } => {
-                    let visual_props = visualizer.visualize(output.any_ref());
-                    FigureProps::new_specific(visual_props)
-                }
+                HistoryEntry::PureExpr { output } => match output {
+                    Ok(output) => {
+                        let visual_props = visualizer.visualize(output.any_ref());
+                        FigureProps::new_specific(visual_props)
+                    }
+                    Err(e) => FigureProps::void(),
+                },
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
                 HistoryEntry::ConditionFlow {
