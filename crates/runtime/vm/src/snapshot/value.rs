@@ -10,7 +10,6 @@ pub enum StackValueSnapshot<'eval> {
         owner: StackIdx,
         gen: MutRefGenerator,
     },
-    Uninitialized,
 }
 
 impl<'eval> StackValueSnapshot<'eval> {
@@ -21,7 +20,6 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::Owned(boxed_value) => boxed_value.any_ref(),
             StackValueSnapshot::Owned(snapshared_value) => snapshared_value.any_ref(),
             StackValueSnapshot::MutRef { .. } => todo!(),
-            StackValueSnapshot::Uninitialized => todo!(),
             StackValueSnapshot::GlobalRef(_) => todo!(),
         }
     }
@@ -33,7 +31,6 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::GlobalRef(value) => EvalValue::GlobalRef(*value),
             StackValueSnapshot::Owned(value) => EvalValue::Owned(value.clone()),
             StackValueSnapshot::MutRef { owner, gen } => todo!(),
-            StackValueSnapshot::Uninitialized => todo!(),
         }
     }
 }
@@ -55,7 +52,6 @@ impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
                 .field("value", value)
                 .finish(),
             StackValueSnapshot::Owned(value) => todo!(),
-            StackValueSnapshot::Uninitialized => todo!(),
             StackValueSnapshot::GlobalRef(_) => todo!(),
         }
     }
@@ -75,7 +71,6 @@ impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnaps
             StackValueSnapshot::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
             StackValueSnapshot::Owned(value) => StackValue::Owned(value.clone()),
             StackValueSnapshot::Owned(value) => todo!(),
-            StackValueSnapshot::Uninitialized => todo!(),
             StackValueSnapshot::GlobalRef(value) => StackValue::GlobalRef(*value),
         }
     }
