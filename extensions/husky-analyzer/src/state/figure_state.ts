@@ -1,8 +1,6 @@
 import type { Trace } from "src/trace";
 import type { Readable, Updater, Writable } from "svelte/store";
-import { writable, get } from "svelte/store";
-import StoreMap from "src/abstraction/StoreMap";
-import type FigureControlProps from "src/figure/FigureControlProps";
+import type { FigureControlProps } from "src/figure/control";
 import StoreStringMap from "src/abstraction/StoreStringMap";
 import type { InitState } from "./init_state";
 import type FigureProps from "src/figure";

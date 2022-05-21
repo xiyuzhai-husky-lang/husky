@@ -7,9 +7,9 @@ import {
     decode_number,
 } from "src/decode/decode";
 import type { Point2d } from "src/geom2d/geom2d";
-import type Graphics2dProps from "./figure/Graphics2d";
-import type Color from "./figure/Color";
-import { decode_graphics2d } from "./figure/Graphics2d";
+import type Graphics2dProps from "./figure/graphics2d";
+import type { Color } from "./figure/color";
+import { decode_graphics2d } from "./figure/graphics2d";
 import type PrimitiveValueVisualProps from "./figure/Primitive";
 import { decode_primitive_value } from "./figure/Primitive";
 

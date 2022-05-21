@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type Graphics2dProps from "src/figure/Graphics2d";
+    import type { Graphics2dProps } from "src/figure/graphics2d";
     import Shape from "./Graphics2d/Shape.svelte";
     import Image from "./Graphics2d/Image.svelte";
     export let figure: Graphics2dProps;

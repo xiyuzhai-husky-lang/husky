@@ -14,14 +14,14 @@ import {
     type Writable,
 } from "svelte/store";
 import type { Trace } from "./trace";
-import type FigureControlProps from "./figure/FigureControlProps";
+import type { FigureControlProps } from "./figure/control";
 import { decode_trace_stalk } from "./trace/stalk";
 import {
     decode_array,
     decode_memb,
     decode_number_or_null,
 } from "./decode/decode";
-import { decode_figure_control_props } from "./figure/FigureControlProps";
+import { decode_figure_control_props } from "./figure/control";
 import { decode_figure_props } from "./figure";
 import { decode_trace } from "./trace";
 

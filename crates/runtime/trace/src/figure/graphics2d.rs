@@ -24,7 +24,6 @@ pub struct Shape2dGroupProps {
 }
 
 #[derive(Debug, Serialize, Clone)]
-#[serde(untagged)]
 pub enum Shape2dKind {
     Arrow2d,
     Point2d,
@@ -43,9 +42,11 @@ impl Shape2dGroupProps {
         for i in 0..29 {
             for j in 0..29 {
                 let value = (padded_rows[i + 1] >> (31 - (j + 1))) & 1;
-                shapes.push(Shape2dProps::Point2d {
-                    point: Point2d::from_ij28(i, j),
-                })
+                if value != 0 {
+                    shapes.push(Shape2dProps::Point2d {
+                        point: Point2d::from_ij28(i, j),
+                    })
+                }
             }
         }
         Self {
