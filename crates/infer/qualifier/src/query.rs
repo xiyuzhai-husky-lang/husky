@@ -1,5 +1,5 @@
 use crate::{builder::QualifiedTySheetBuilder, *};
-use entity_route_query::EntitySyntaxResultArc;
+use entity_syntax::EntitySyntaxResultArc;
 use file::FilePtr;
 use infer_contract::InferContractQueryGroup;
 use infer_entity_route::InferEntityRouteQueryGroup;

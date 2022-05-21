@@ -1,5 +1,5 @@
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, GenericArgument};
-use entity_route_query::EntityRouteSalsaQueryGroup;
+use entity_syntax::EntityRouteSalsaQueryGroup;
 use print_utils::p;
 use word::CustomIdentifier;
 

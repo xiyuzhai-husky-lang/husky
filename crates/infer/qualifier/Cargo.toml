@@ -22,7 +22,7 @@ infer-entity-route = { path = "../entity-route", version = "0.0.0" }
 infer-contract = { path = "../contract", version = "0.0.0" }
 infer-decl = { path = "../decl", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
-entity-route-query = { path = "../../syntax/entity-route-query", version = "0.0.0" }
+entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }

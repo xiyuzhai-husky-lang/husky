@@ -11,7 +11,7 @@ use atom::{
     symbol::{Symbol, SymbolContextKind},
     SymbolContext,
 };
-use entity_route_query::EntityLocus;
+use entity_syntax::EntityLocus;
 use map_collect::MapCollect;
 use module::module_defn;
 pub use morphism::*;

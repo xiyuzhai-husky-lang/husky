@@ -205,6 +205,6 @@ macro_rules! derived_unwrap {
 }
 
 use dev_utils::*;
-use entity_route_query::EntitySyntaxError;
+use entity_syntax::EntitySyntaxError;
 use test_utils::{TestDisplay, TestDisplayConfig};
 use text::{BindTextRangeFrom, TextRange};

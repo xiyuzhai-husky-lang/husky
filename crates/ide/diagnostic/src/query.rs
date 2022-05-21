@@ -1,6 +1,6 @@
 use ast::AstQueryGroup;
 use entity_route::EntityRoutePtr;
-use entity_route_query::EntityRouteQueryGroup;
+use entity_syntax::EntityRouteQueryGroup;
 use infer_total::InferQueryGroup;
 use reserve::Reserve;
 use semantics_entity::EntityDefnQueryGroup;

@@ -1,6 +1,6 @@
 use crate::*;
 use arena::map::ArenaKeyQuery;
-use entity_route_query::{EntityRouteQueryGroup, EntitySyntaxResultArc};
+use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldStorage, FoldedList};

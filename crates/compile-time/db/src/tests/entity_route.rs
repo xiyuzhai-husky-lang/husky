@@ -1,5 +1,5 @@
 use entity_route::EntityRouteKind;
-use entity_route_query::EntityLocus;
+use entity_syntax::EntityLocus;
 use word::RootIdentifier;
 
 use crate::*;

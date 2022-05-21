@@ -19,7 +19,7 @@ use copy::*;
 use defn_head::*;
 use entity_kind::TyKind;
 use entity_route::*;
-use entity_route_query::*;
+use entity_syntax::*;
 use feature::*;
 use file::FilePtr;
 use fold::FoldStorage;

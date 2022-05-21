@@ -8,7 +8,7 @@ pub mod utils;
 pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use diagnostic::DiagnosticQuery;
 pub use entity_route::{AllocateUniqueScope, EntityRoute};
-pub use entity_route_query::{EntityRouteQueryGroup, EntityRouteSalsaQueryGroup};
+pub use entity_syntax::{EntityRouteQueryGroup, EntityRouteSalsaQueryGroup};
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
@@ -42,7 +42,7 @@ use sync_utils::ARwLock;
 #[salsa::database(
     file::FileQueryStorage,
     token::TokenQueryGroupStorage,
-    entity_route_query::ScopeQueryGroupStorage,
+    entity_syntax::ScopeQueryGroupStorage,
     text::TextQueryGroupStorage,
     ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,

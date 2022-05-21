@@ -1,7 +1,7 @@
 use check_utils::should_eq;
 use defn_head::{GenericPlaceholder, GenericPlaceholderVariant};
 use entity_route::*;
-use entity_route_query::*;
+use entity_syntax::*;
 use map_collect::MapCollect;
 use print_utils::p;
 use word::CustomIdentifier;

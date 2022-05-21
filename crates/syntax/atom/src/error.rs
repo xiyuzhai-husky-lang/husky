@@ -58,8 +58,8 @@ impl From<FileError> for AtomError {
     }
 }
 
-impl From<entity_route_query::ModuleFromFileError> for AtomError {
-    fn from(_: entity_route_query::ModuleFromFileError) -> Self {
+impl From<entity_syntax::ModuleFromFileError> for AtomError {
+    fn from(_: entity_syntax::ModuleFromFileError) -> Self {
         Self {
             variant: AtomErrorVariant::Derived,
             dev_src: dev_utils::dev_src!(),
