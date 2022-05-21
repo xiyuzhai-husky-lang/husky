@@ -76,7 +76,7 @@ impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnaps
             StackValueSnapshot::Owned(value) => StackValue::Owned(value.clone()),
             StackValueSnapshot::Owned(value) => todo!(),
             StackValueSnapshot::Uninitialized => todo!(),
-            StackValueSnapshot::GlobalRef(_) => todo!(),
+            StackValueSnapshot::GlobalRef(value) => StackValue::GlobalRef(*value),
         }
     }
 }
