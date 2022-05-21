@@ -24,7 +24,7 @@ impl PrefixOpr {
                 CopyableValue::B32(_) => todo!(),
                 CopyableValue::B64(_) => todo!(),
                 CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void => panic!(),
+                CopyableValue::Void(_) => panic!(),
                 CopyableValue::EnumKind(_) => panic!(),
             },
             PrefixOpr::Not => match opd {
@@ -33,7 +33,7 @@ impl PrefixOpr {
                 CopyableValue::B32(b) => b == 0,
                 CopyableValue::B64(b) => b == 0,
                 CopyableValue::Bool(b) => !b,
-                CopyableValue::Void => panic!(),
+                CopyableValue::Void(_) => panic!(),
                 CopyableValue::EnumKind(_) => panic!(),
             }
             .into(),

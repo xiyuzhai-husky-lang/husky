@@ -131,7 +131,7 @@ impl PureBinaryOpr {
                 CopyableValue::B32(b) => (b == ropd.take_b32()).into(),
                 CopyableValue::B64(b) => (b == ropd.take_b64()).into(),
                 CopyableValue::Bool(b) => (b == ropd.take_bool()).into(),
-                CopyableValue::Void => true.into(),
+                CopyableValue::Void(_) => true.into(),
                 CopyableValue::EnumKind(enum_kind) => {
                     (enum_kind.route == ropd.take_enum_kind().route).into()
                 }
@@ -167,7 +167,7 @@ impl PureBinaryOpr {
                 CopyableValue::B32(b) => (b != ropd.take_b32()).into(),
                 CopyableValue::B64(b) => (b != ropd.take_b64()).into(),
                 CopyableValue::Bool(b) => (b != ropd.take_bool()).into(),
-                CopyableValue::Void => false.into(),
+                CopyableValue::Void(_) => false.into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Or => match lopd {
@@ -185,7 +185,7 @@ impl PureBinaryOpr {
                 CopyableValue::B32(_) => todo!(),
                 CopyableValue::B64(_) => todo!(),
                 CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void => todo!(),
+                CopyableValue::Void(_) => todo!(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::RemEuclid => match lopd {

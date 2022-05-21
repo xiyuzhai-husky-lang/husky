@@ -42,7 +42,7 @@ impl VMCasePattern {
                     CopyableValue::B32(_) => todo!(),
                     CopyableValue::B64(_) => todo!(),
                     CopyableValue::Bool(_) => todo!(),
-                    CopyableValue::Void => todo!(),
+                    CopyableValue::Void(_) => todo!(),
                     CopyableValue::EnumKind(enum_kind) => enum_kind.route == *route,
                 },
                 StackValue::Owned(_) => todo!(),

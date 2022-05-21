@@ -147,6 +147,36 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
     }
 }
 
+impl<'eval> AnyValue<'eval> for () {
+    fn static_type_id() -> StaticTypeId {
+        TypeId::of::<Self>().into()
+    }
+
+    fn static_type_name() -> Cow<'static, str> {
+        "i32".into()
+    }
+
+    fn clone_into_box(&self) -> Box<dyn AnyValueDyn<'eval>> {
+        Box::new(*self)
+    }
+
+    fn as_copyable(&self) -> CopyableValue {
+        (*self).into()
+    }
+
+    fn from_stack(stack_value: StackValue) -> Self {
+        match stack_value {
+            StackValue::Copyable(CopyableValue::Void(value)) => value,
+            StackValue::Owned(boxed_value) => boxed_value.take().unwrap(),
+            _ => panic!(),
+        }
+    }
+
+    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+        panic!()
+    }
+}
+
 impl<'eval> AnyValue<'eval> for i32 {
     fn static_type_id() -> StaticTypeId {
         TypeId::of::<Self>().into()

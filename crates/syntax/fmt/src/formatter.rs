@@ -245,7 +245,7 @@ impl<'a> Formatter<'a> {
             RawExprVariant::CopyableLiteral(literal) => match literal {
                 CopyableValue::I32(i) => self.write(&i.to_string()),
                 CopyableValue::F32(f) => self.write(&f.to_string()),
-                CopyableValue::Void => todo!(),
+                CopyableValue::Void(_) => todo!(),
                 CopyableValue::B32(_) => todo!(),
                 CopyableValue::Bool(_) => todo!(),
                 CopyableValue::B64(_) => todo!(),

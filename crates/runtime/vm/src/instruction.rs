@@ -167,7 +167,7 @@ pub fn incr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
                 CopyableValue::B32(_) => todo!(),
                 CopyableValue::B64(_) => todo!(),
                 CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void => todo!(),
+                CopyableValue::Void(_) => todo!(),
                 CopyableValue::EnumKind(_) => todo!(),
             }))
         }
@@ -186,7 +186,7 @@ pub fn decr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
                 CopyableValue::B32(_) => todo!(),
                 CopyableValue::B64(_) => todo!(),
                 CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void => todo!(),
+                CopyableValue::Void(_) => todo!(),
                 CopyableValue::EnumKind(_) => todo!(),
             }))
         }
@@ -224,7 +224,7 @@ fn cast_as_i32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> i32 {
             CopyableValue::B32(b) => b as i32,
             CopyableValue::B64(_) => todo!(),
             CopyableValue::Bool(_) => todo!(),
-            CopyableValue::Void => todo!(),
+            CopyableValue::Void(_) => todo!(),
             CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as i32,
         },
         StackValue::Owned(_) => todo!(),
@@ -244,7 +244,7 @@ fn cast_as_b32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> u32 {
             CopyableValue::B32(_) => todo!(),
             CopyableValue::B64(_) => todo!(),
             CopyableValue::Bool(_) => todo!(),
-            CopyableValue::Void => todo!(),
+            CopyableValue::Void(_) => todo!(),
             CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as u32,
         },
         StackValue::Owned(_) => todo!(),
@@ -264,7 +264,7 @@ fn cast_as_f32<'stack, 'eval>(opd: StackValue<'stack, 'eval>) -> f32 {
             CopyableValue::B32(b) => todo!(),
             CopyableValue::B64(_) => todo!(),
             CopyableValue::Bool(_) => todo!(),
-            CopyableValue::Void => todo!(),
+            CopyableValue::Void(_) => todo!(),
             CopyableValue::EnumKind(enum_kind) => todo!(),
         },
         StackValue::Owned(_) => todo!(),
