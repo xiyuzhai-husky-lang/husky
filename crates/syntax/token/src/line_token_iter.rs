@@ -248,6 +248,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             },
             '/' => match self.peek_char() {
                 '/' => return None,
+                '>' => self.pass_two(Special::XmlKet),
                 '=' => self.pass_two(Special::DivAssign),
                 _ => (1, Special::Div),
             },

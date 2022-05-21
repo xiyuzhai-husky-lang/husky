@@ -58,22 +58,23 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         }
                         AstKind::DatasetConfigDefnHead => self.infer_routine(
                             &[],
-                            RootIdentifier::DatasetType.into(),
+                            Some(RootIdentifier::DatasetType.into()),
                             children,
                             &arena,
                         ),
                         AstKind::RoutineDefnHead(ref head) => self.infer_routine(
                             &head.parameters,
-                            head.output_ty.route,
+                            Some(head.output_ty.route),
                             children,
                             &arena,
                         ),
                         AstKind::TypeAssociatedRoutineDefnHead(ref head) => self.infer_routine(
                             &head.parameters,
-                            head.output_ty.route,
+                            Some(head.output_ty.route),
                             children,
                             &arena,
                         ),
+                        AstKind::Visual => self.infer_routine(&[], None, children, &arena),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
                         AstKind::FieldDefnHead(ref head) => match head.kind {
@@ -86,7 +87,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         AstKind::Stmt(_) => todo!(),
                         AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
                             &head.input_placeholders,
-                            head.output_ty.route,
+                            Some(head.output_ty.route),
                             children,
                             &arena,
                         ),

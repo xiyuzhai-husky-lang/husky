@@ -3,7 +3,7 @@ use test_utils::{TestDisplay, TestDisplayConfig};
 
 impl<K, V> TestDisplay for VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: HasKey<K> + TestDisplay,
 {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {

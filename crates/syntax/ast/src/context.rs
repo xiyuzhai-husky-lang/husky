@@ -11,6 +11,7 @@ pub enum AstContext {
     Main,
     Lazy,
     Routine(RoutineKeyword),
+    Visual,
     Struct,
     Record,
     Props,
@@ -36,6 +37,7 @@ impl AstContext {
             AstContext::LazyMatch => todo!(),
             AstContext::FuncMatch => todo!(),
             AstContext::ProcMatch => todo!(),
+            AstContext::Visual => todo!(),
         }
     }
 }
@@ -59,6 +61,7 @@ impl std::fmt::Display for AstContext {
             AstContext::Lazy => "def",
             AstContext::Routine(RoutineKeyword::Func) => "func",
             AstContext::Routine(RoutineKeyword::Proc) => "proc",
+            AstContext::Visual => "visual",
             AstContext::Struct => "struct",
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",

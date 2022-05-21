@@ -62,6 +62,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 match_expr,
                 match_contract,
             } => self.infer_lazy_expr(match_expr, match_contract.lazy(), arena),
+            RawStmtVariant::ReturnXml(_) => todo!(),
         }
     }
 

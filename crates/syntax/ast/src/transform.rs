@@ -11,6 +11,7 @@ mod impl_struct_item;
 mod impl_symbol_context;
 mod impl_ty;
 mod impl_use;
+mod impl_xml;
 
 use crate::{
     query::{AstSalsaQueryGroup, AstText},
@@ -131,7 +132,8 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 | AstContext::Routine(_)
                 | AstContext::FuncMatch
                 | AstContext::ProcMatch
-                | AstContext::LazyMatch => match token_group[0].kind {
+                | AstContext::LazyMatch
+                | AstContext::Visual => match token_group[0].kind {
                     TokenKind::Keyword(keyword) => match keyword {
                         Keyword::Config(_) => todo!(),
                         Keyword::Routine(_) => todo!(),
@@ -143,6 +145,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                         Keyword::Use => todo!(),
                         Keyword::Mod => todo!(),
                         Keyword::Main => todo!(),
+                        Keyword::Visual => todo!(),
                     },
                     _ => self.parse_stmt_without_keyword(token_group)?.into(),
                 },

@@ -121,6 +121,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawStmtVariant::Assert(condition) => self.infer_condition(condition, arena),
             RawStmtVariant::Break => emsg_once!("ensure break is inside a loop"),
             RawStmtVariant::Match { match_expr, .. } => panic!("shouldn't be here"),
+            RawStmtVariant::ReturnXml(_) => todo!(),
         }
     }
 

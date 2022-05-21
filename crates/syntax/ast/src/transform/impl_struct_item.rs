@@ -21,6 +21,12 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
                 Keyword::Main => todo!(),
+                Keyword::Visual => {
+                    expect_len!(token_group, 2);
+                    expect_block_head!(token_group);
+                    enter_block(self);
+                    self.context.set(AstContext::Visual);
+                    Ok(AstKind::Visual)},
             },
             TokenKind::Identifier(_) => self.parse_struct_field(token_group, ),
             TokenKind::Decorator(_) => self.parse_struct_associated_routine(token_group, enter_block), 
@@ -33,7 +39,7 @@ impl<'a> AstTransformer<'a> {
 
     pub(super) fn parse_struct_field(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         if token_group.len() > 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
-            let ident = identify!(self, token_group[0], SemanticTokenKind::Field);
+            let ident = identify_token!(self, token_group[0], SemanticTokenKind::Field);
             let ty = atom::parse_route(&self.symbol_context(), &token_group[2..])?;
             Ok(AstKind::FieldDefnHead(FieldDefnHead {
                 ident,

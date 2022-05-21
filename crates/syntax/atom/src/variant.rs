@@ -108,6 +108,7 @@ impl From<Special> for AtomVariant {
             Special::Decr => AtomVariant::Suffix(SuffixOpr::Decr),
             Special::Comma => AtomVariant::ListItem,
             Special::Semicolon => AtomVariant::SilentEnd,
+            Special::XmlKet => todo!(),
         }
     }
 }

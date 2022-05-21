@@ -18,6 +18,7 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
                 Keyword::Main => todo!(),
+                Keyword::Visual => todo!(),
             },
             TokenKind::Identifier(_) => self.parse_record_original_field(token_group),
             TokenKind::Special(_) => todo!(),
@@ -34,7 +35,7 @@ impl<'a> AstTransformer<'a> {
             if token_group.len() == 2 {
                 todo!()
             }
-            let ident = identify!(self, &token_group[0], SemanticTokenKind::Field);
+            let ident = identify_token!(self, &token_group[0], SemanticTokenKind::Field);
             let symbol_context = self.symbol_context();
             let ty = atom::parse_route(&symbol_context, &token_group[2..])?;
             emsg_once!("field contract");
@@ -58,7 +59,7 @@ impl<'a> AstTransformer<'a> {
         enter_block(self);
         self.context.set(AstContext::Lazy);
         self.opt_this_contract.set(Some(InputContract::GlobalRef));
-        let ident = identify!(self, &token_group[1], SemanticTokenKind::Field);
+        let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         emsg_once!("field contract");
         let ty = atom::parse_route(&self.symbol_context(), &token_group[3..])?;
         Ok(AstKind::FieldDefnHead(FieldDefnHead {

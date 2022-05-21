@@ -1,5 +1,5 @@
 #[macro_export]
-macro_rules! identify {
+macro_rules! identify_token {
     ($this: expr, $token:expr, $semantic_token_kind: expr) => {{
         match $token.kind {
             TokenKind::Identifier(Identifier::Custom(ident)) => {
@@ -27,7 +27,7 @@ macro_rules! must_be {
 }
 
 #[macro_export]
-macro_rules! expect_kind {
+macro_rules! expect_token_kind {
     ($token:expr, $kind:expr) => {
         must_be!(
             $token.kind == TokenKind::Special($kind),
@@ -40,7 +40,7 @@ macro_rules! expect_kind {
 #[macro_export]
 macro_rules! expect_block_head {
     ($tokens:expr) => {
-        expect_kind!($tokens.last().unwrap(), Special::Colon)
+        expect_token_kind!($tokens.last().unwrap(), Special::Colon)
     };
 }
 
@@ -77,13 +77,13 @@ macro_rules! expect_len {
 #[macro_export]
 macro_rules! trim_colon {
     ($tokens:expr; keyword, colon) => {{
-        expect_kind!($tokens.last().unwrap(), Special::Colon);
+        expect_token_kind!($tokens.last().unwrap(), Special::Colon);
         &$tokens[1..($tokens.len() - 1)]
     }};
 
     ($tokens:expr, $kw_range:expr) => {{
         expect_at_least!($tokens, $kw_range, 1);
-        expect_kind!($tokens.last().unwrap(), Special::Colon);
+        expect_token_kind!($tokens.last().unwrap(), Special::Colon);
         &$tokens[0..($tokens.len() - 1)]
     }};
 }
@@ -91,6 +91,6 @@ macro_rules! trim_colon {
 #[macro_export]
 macro_rules! expect_head {
     ($tokens:expr) => {{
-        expect_kind!($tokens.last().unwrap(), Special::Colon);
+        expect_token_kind!($tokens.last().unwrap(), Special::Colon);
     }};
 }

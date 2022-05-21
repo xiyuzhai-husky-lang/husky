@@ -7,7 +7,7 @@ use static_defn::LinkageSource;
 use vm::*;
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(super) fn compile_expr(&mut self, expr: &Arc<EagerExpr>) {
+    pub(super) fn compile_eager_expr(&mut self, expr: &Arc<EagerExpr>) {
         match expr.variant {
             EagerExprVariant::Variable(varname) => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(varname);
@@ -27,7 +27,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionKind::PushPrimitiveLiteral(value),
                 expr.clone(),
             )),
-            EagerExprVariant::Bracketed(ref expr) => self.compile_expr(expr),
+            EagerExprVariant::Bracketed(ref expr) => self.compile_eager_expr(expr),
             EagerExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
@@ -60,7 +60,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         expr: &Arc<EagerExpr>,
     ) {
         for opd in opds {
-            self.compile_expr(opd);
+            self.compile_eager_expr(opd);
         }
         match opn_kind {
             EagerOpnVariant::Binary { opr, this_ty } => {

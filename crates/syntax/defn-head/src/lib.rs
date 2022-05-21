@@ -16,7 +16,7 @@ pub struct RoutineDefnHead {
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
     pub parameters: Arc<Vec<InputParameter>>,
     pub output_ty: RangedEntityRoute,
-    pub output_contract: OutputLiason,
+    pub output_liason: OutputLiason,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

@@ -55,6 +55,7 @@ impl<'a> EagerStmtParser<'a> {
                             match_expr,
                             match_contract,
                         )?,
+                        RawStmtVariant::ReturnXml(_) => todo!(),
                     };
                     stmts.push(Arc::new(FuncStmt {
                         file: self.file,

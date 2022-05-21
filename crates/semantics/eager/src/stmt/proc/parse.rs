@@ -49,6 +49,7 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::FeatureDecl { .. } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
                 AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
+                AstKind::Visual => todo!(),
             }))
         }
         Ok(Arc::new(stmts))
@@ -103,6 +104,7 @@ impl<'a> EagerStmtParser<'a> {
             RawStmtVariant::PatternBranch { .. } => {
                 panic!("pattern branch must be inside match stmt")
             }
+            RawStmtVariant::ReturnXml(_) => todo!(),
         }
     }
 

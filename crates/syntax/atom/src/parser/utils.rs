@@ -206,7 +206,7 @@ macro_rules! no_look_pass {
         if  $this.$patt($($args),*).is_none() {
             return err!(
                 format!("expect {:?} after it", stringify!($patt)),
-                $this.stream.pop_range()
+                $this.stream.next_range()
             )
         }
     }};
@@ -227,8 +227,16 @@ macro_rules! no_look_pass {
         no_look_pass!($this, special, Special::LPar)
     }};
 
+    ($this:expr, "{") => {{
+        no_look_pass!($this, special, Special::LCurl)
+    }};
+
     ($this:expr, ":") => {{
         no_look_pass!($this, special, Special::Colon)
+    }};
+
+    ($this:expr, "=") => {{
+        no_look_pass!($this, special, Special::Assign)
     }};
 }
 pub(crate) use no_look_pass;

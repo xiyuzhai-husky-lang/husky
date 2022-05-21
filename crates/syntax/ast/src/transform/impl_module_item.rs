@@ -45,6 +45,7 @@ impl<'a> AstTransformer<'a> {
                 self.context.set(AstContext::Main);
                 Ok(AstKind::MainDefn)
             }
+            Keyword::Visual => todo!(),
         }
     }
 
@@ -55,7 +56,7 @@ impl<'a> AstTransformer<'a> {
         if token_group.len() > 2 {
             todo!()
         }
-        let ident = identify!(
+        let ident = identify_token!(
             self,
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Module)

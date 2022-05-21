@@ -7,10 +7,10 @@ impl<'a> AtomParser<'a> {
         match special {
             Special::DoubleColon => err!(
                 "unexpected double colon, maybe the identifier before is not recognized as scope",
-                self.stream.pop_range()
+                self.stream.pop_text_range()
             )?,
             Special::DoubleVertical => self.stack.push(Atom::new(
-                self.stream.pop_range(),
+                self.stream.pop_text_range(),
                 if !self.stack.is_concave() {
                     BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
                 } else {
@@ -21,42 +21,50 @@ impl<'a> AtomParser<'a> {
                 if self.stack.is_concave() {
                     let lambda_head = self.lambda_head()?;
                     self.stack.push(Atom::new(
-                        self.stream.pop_range(),
+                        self.stream.pop_text_range(),
                         AtomVariant::LambdaHead(lambda_head),
                     ))
                 } else {
                     self.stack.push(Atom::new(
-                        self.stream.pop_range(),
+                        self.stream.pop_text_range(),
                         BinaryOpr::Pure(PureBinaryOpr::BitOr).into(),
                     ))
                 }
             }
             Special::Ambersand => self.stack.push(Atom::new(
-                self.stream.pop_range(),
+                self.stream.pop_text_range(),
                 if self.stack.is_concave() {
                     PrefixOpr::Shared.into()
                 } else {
                     BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
                 },
             )),
-            Special::Exclamation => self
+            Special::Exclamation => self.stack.push(Atom::new(
+                self.stream.pop_text_range(),
+                PrefixOpr::Not.into(),
+            )),
+            Special::LPar => Ok(self
                 .stack
-                .push(Atom::new(self.stream.pop_range(), PrefixOpr::Not.into())),
-            Special::LPar => Ok(self.stack.start_list(Bracket::Par, self.stream.pop_range())),
-            Special::LBox => Ok(self.stack.start_list(Bracket::Box, self.stream.pop_range())),
+                .start_list(Bracket::Par, self.stream.pop_text_range())),
+            Special::LBox => Ok(self
+                .stack
+                .start_list(Bracket::Box, self.stream.pop_text_range())),
             Special::LCurl => Ok(self
                 .stack
-                .start_list(Bracket::Curl, self.stream.pop_range())),
+                .start_list(Bracket::Curl, self.stream.pop_text_range())),
             Special::RPar => {
                 if next_matches!(self, Special::LightArrow) {
                     let output = get!(self, ty?);
-                    self.stack
-                        .make_func_type(&self.symbol_context, output, self.stream.pop_range())
+                    self.stack.make_func_type(
+                        &self.symbol_context,
+                        output,
+                        self.stream.pop_text_range(),
+                    )
                 } else {
                     self.stack.end_list_or_make_type(
                         Bracket::Par,
                         ListEndAttr::None,
-                        self.stream.pop_range(),
+                        self.stream.pop_text_range(),
                         &self.symbol_context,
                     )
                 }
@@ -64,28 +72,30 @@ impl<'a> AtomParser<'a> {
             Special::RBox => self.stack.end_list_or_make_type(
                 Bracket::Box,
                 ListEndAttr::None,
-                self.stream.pop_range(),
+                self.stream.pop_text_range(),
                 &self.symbol_context,
             ),
             Special::RCurl => self.stack.end_list_or_make_type(
                 Bracket::Curl,
                 ListEndAttr::None,
-                self.stream.pop_range(),
+                self.stream.pop_text_range(),
                 &self.symbol_context,
             ),
             Special::SubOrMinus => {
                 if self.stack.is_convex() {
                     self.stack.push(Atom::new(
-                        self.stream.pop_range(),
+                        self.stream.pop_text_range(),
                         BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
                     ))
                 } else {
-                    self.stack
-                        .push(Atom::new(self.stream.pop_range(), PrefixOpr::Minus.into()))
+                    self.stack.push(Atom::new(
+                        self.stream.pop_text_range(),
+                        PrefixOpr::Minus.into(),
+                    ))
                 }
             }
             Special::MemberAccess => {
-                let range = self.stream.pop_range();
+                let range = self.stream.pop_text_range();
                 let field_ident_token = self
                     .stream
                     .next()
@@ -99,13 +109,13 @@ impl<'a> AtomParser<'a> {
                 } else {
                     SemanticTokenKind::Field
                 };
-                let ranged_ident = identify!(self, field_ident_token, semantic_token_kind);
+                let ranged_ident = identify_token!(self, field_ident_token, semantic_token_kind);
                 let atom_variant = if is_lpar_or_langle_next {
                     let generic_arguments = self.angled_generics()?;
                     match self.stream.next() {
                         Some(token) => match token.kind {
                             TokenKind::Special(Special::LPar) => {
-                                self.stream.pop_range();
+                                self.stream.pop_text_range();
                             }
                             _ => todo!(),
                         },
@@ -124,7 +134,7 @@ impl<'a> AtomParser<'a> {
                 self.stack.push(Atom::new(range, atom_variant))
             }
             _ => {
-                self.stream.pop_range();
+                self.stream.pop_text_range();
                 self.stack.push(token.into())
             }
         }

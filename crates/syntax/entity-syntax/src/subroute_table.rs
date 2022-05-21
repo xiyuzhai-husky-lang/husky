@@ -27,6 +27,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
             _ => EntityKind::Feature,
         }),
         Keyword::Main => Some(EntityKind::Main),
+        Keyword::Visual => None,
     }
 }
 

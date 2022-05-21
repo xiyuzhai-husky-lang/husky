@@ -27,14 +27,6 @@ impl<'a> AstTransformer<'a> {
             },
         })
     }
-
-    fn parse_match_pattern(&mut self, tokens: &[Token]) -> AstResult<CasePattern> {
-        todo!()
-    }
-
-    fn parse_first_match_pattern(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
-        todo!()
-    }
 }
 
 pub struct MatchPatternParser<'a> {

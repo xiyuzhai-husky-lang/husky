@@ -1,13 +1,13 @@
 use crate::*;
 use token::*;
 
-use token::identify;
+use token::identify_token;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_enum_variant(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
         if tokens.len() == 1 {
             Ok(AstKind::EnumVariantDefnHead {
-                ident: identify!(self, tokens[0], SemanticTokenKind::EnumVariant),
+                ident: identify_token!(self, tokens[0], SemanticTokenKind::EnumVariant),
                 variant_class: EnumVariantKind::Constant,
             })
         } else {

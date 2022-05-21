@@ -1,6 +1,6 @@
 use crate::*;
 use entity_syntax::EntityLocus;
-use instruction_gen::new_func_instruction_sheet;
+use instruction_gen::new_visual_instruction_sheet;
 use semantics_entity::EntityDefnVariant;
 use static_defn::EntityStaticDefnVariant;
 use visual_semantics::VisualizerSource;
@@ -30,11 +30,10 @@ fn visualizer(
                 } => RuntimeVisualizer::Interpreted {
                     stmts: stmts.clone(),
                     xml_expr: xml_expr.clone(),
-                    instruction_sheet: new_func_instruction_sheet(
+                    instruction_sheet: new_visual_instruction_sheet(
                         db.compile_time(),
-                        [].into_iter(),
                         stmts,
-                        true,
+                        xml_expr,
                     ),
                 },
             },

@@ -45,6 +45,7 @@ pub enum Special {
     Exclamation,       // !
     DoubleExclamation, // !!
     Semicolon,         // ;
+    XmlKet,            // />
 }
 
 impl Special {
@@ -93,6 +94,7 @@ impl Special {
             Special::BitAndAssign => "&=",
             Special::DoubleExclamation => "!!",
             Special::Semicolon => ";",
+            Special::XmlKet => "/>",
         }
     }
 

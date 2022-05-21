@@ -13,7 +13,7 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_feature_decl(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
-        let ident = identify!(
+        let ident = identify_token!(
             self,
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Feature)

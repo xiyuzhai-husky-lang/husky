@@ -10,6 +10,7 @@ pub enum Keyword {
     Main,
     Use,
     Mod,
+    Visual,
 }
 
 impl Keyword {
@@ -23,6 +24,7 @@ impl Keyword {
             Keyword::Mod => "mod",
             Keyword::Def => "def",
             Keyword::Main => "main",
+            Keyword::Visual => "visual",
         }
     }
 }

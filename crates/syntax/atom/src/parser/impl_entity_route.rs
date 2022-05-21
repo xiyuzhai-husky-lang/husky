@@ -202,7 +202,7 @@ impl<'a> AtomParser<'a> {
 
     fn func_args(&mut self) -> AtomResult<Vec<GenericArgument>> {
         if !next_matches!(self, "(") {
-            return err!("args", self.stream.pop_range());
+            return err!("args", self.stream.pop_text_range());
         }
         let mut args = comma_list![self, generic!, RPar];
         args.push(if next_matches!(self, "->") {

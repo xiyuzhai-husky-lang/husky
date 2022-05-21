@@ -59,15 +59,18 @@ impl<'a> ContractSheetBuilder<'a> {
                             self.infer_all(children)
                         }
                         AstKind::MainDefn => self.infer_morphism(children, &arena),
-                        AstKind::DatasetConfigDefnHead => {
-                            self.infer_routine(RootIdentifier::DatasetType.into(), children, &arena)
-                        }
+                        AstKind::DatasetConfigDefnHead => self.infer_routine(
+                            Some(RootIdentifier::DatasetType.into()),
+                            children,
+                            &arena,
+                        ),
                         AstKind::RoutineDefnHead(ref head) => {
-                            self.infer_routine(head.output_ty.route, children, &arena)
+                            self.infer_routine(Some(head.output_ty.route), children, &arena)
                         }
                         AstKind::TypeAssociatedRoutineDefnHead(ref head) => {
-                            self.infer_routine(head.output_ty.route, children, &arena)
+                            self.infer_routine(Some(head.output_ty.route), children, &arena)
                         }
+                        AstKind::Visual => self.infer_routine(None, children, &arena),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
                         AstKind::FieldDefnHead(ref head) => match head.kind {
@@ -79,7 +82,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         },
                         AstKind::Stmt(_) => todo!(),
                         AstKind::TypeMethodDefnHead(ref head) => {
-                            self.infer_routine(head.output_ty.route, children, &arena)
+                            self.infer_routine(Some(head.output_ty.route), children, &arena)
                         }
                         AstKind::FeatureDecl { ty, .. } => self.infer_morphism(children, &arena),
                         AstKind::Submodule { ident, source_file } => (),
