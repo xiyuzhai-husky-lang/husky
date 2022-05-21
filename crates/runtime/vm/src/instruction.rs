@@ -17,7 +17,7 @@ use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 use text::TextRange;
-use word::Identifier;
+use word::{CustomIdentifier, Identifier};
 
 #[derive(Debug)]
 pub struct Instruction {
@@ -106,6 +106,11 @@ pub enum InstructionKind {
     },
     PatternMatch {
         branches: Avec<VMPatternBranch>,
+    },
+    NewXml {
+        name: &'static str,
+        props: Vec<CustomIdentifier>,
+        n_child_expr: u8,
     },
 }
 

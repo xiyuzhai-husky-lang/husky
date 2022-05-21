@@ -6,15 +6,17 @@ mod impl_inner_ops;
 mod impl_lambda_head;
 mod impl_special;
 mod impl_word_opr;
+mod impl_xml;
 mod utils;
 
 use super::{stack::AtomStack, symbol::SymbolContext, *};
 use check_utils::should;
 use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument};
+use file::URange;
 use print_utils::p;
 use std::iter::Peekable;
 use text::TextRange;
-use token::{identify, AbsSemanticToken, SemanticTokenKind, Special, Token, TokenKind};
+use token::{identify_token, AbsSemanticToken, SemanticTokenKind, Special, Token, TokenKind};
 use utils::*;
 use vm::{BinaryOpr, Bracket, PureBinaryOpr};
 
@@ -26,6 +28,10 @@ pub(crate) struct TokenStream<'a> {
 }
 
 impl<'a> TokenStream<'a> {
+    pub(crate) fn empty(&self) -> bool {
+        self.next >= self.tokens.len()
+    }
+
     pub(crate) fn next(&mut self) -> Option<&'a Token> {
         if self.next < self.tokens.len() {
             let next = self.next;
@@ -45,7 +51,14 @@ impl<'a> TokenStream<'a> {
         }
     }
 
-    pub(crate) fn pop_range(&mut self) -> TextRange {
+    pub(crate) fn pop_token_slice(&mut self) -> URange {
+        should!(self.start < self.next);
+        let start = self.start;
+        self.start = self.next;
+        start..self.next
+    }
+
+    pub(crate) fn pop_text_range(&mut self) -> TextRange {
         should!(self.start < self.next);
         let start = self.start;
         self.start = self.next;
@@ -106,9 +119,10 @@ impl<'a> AtomParser<'a> {
 
             if let Some(token) = self.stream.next() {
                 match token.kind {
-                    TokenKind::Keyword(keyword) => {
-                        err!("keyword should be put at start", self.stream.pop_range())?
-                    }
+                    TokenKind::Keyword(keyword) => err!(
+                        "keyword should be put at start",
+                        self.stream.pop_text_range()
+                    )?,
                     TokenKind::Special(Special::Colon) => {
                         if let Some(_) = self.stream.next() {
                             err!("unexpected colon", token.range)?
@@ -119,10 +133,10 @@ impl<'a> AtomParser<'a> {
                     TokenKind::Special(special) => self.handle_special(special, token)?,
                     TokenKind::WordOpr(word_opr) => self.handle_word_opr(word_opr, token)?,
                     TokenKind::Identifier(_) => {
-                        err!("unexpected identifier here", self.stream.pop_range())?
+                        err!("unexpected identifier here", self.stream.pop_text_range())?
                     }
                     TokenKind::PrimitiveLiteral(_value) => {
-                        let range = self.stream.pop_range();
+                        let range = self.stream.pop_text_range();
                         self.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::Literal,
                             range,

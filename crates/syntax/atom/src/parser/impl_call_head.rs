@@ -47,7 +47,7 @@ impl<'a> AtomParser<'a> {
             generic_placeholders,
             parameters: input_placeholders,
             output_ty,
-            output_contract: OutputLiason::Transfer,
+            output_liason: OutputLiason::Transfer,
         })
     }
 
@@ -88,7 +88,7 @@ impl<'a> AtomParser<'a> {
         if next_matches!(self, ":") {
             traits.push(RangedEntityRoute {
                 route: get!(self, ty?),
-                range: self.stream.pop_range(),
+                range: self.stream.pop_text_range(),
             });
             if next_matches!(self, "+") {
                 todo!()
@@ -116,10 +116,10 @@ impl<'a> AtomParser<'a> {
             ident.range,
         ));
         no_look_pass!(self, ":");
-        self.stream.pop_range();
+        self.stream.pop_text_range();
         let ty = RangedEntityRoute {
             route: get!(self, ty?),
-            range: self.stream.pop_range(),
+            range: self.stream.pop_text_range(),
         };
         Ok(InputParameter {
             ident,
@@ -132,12 +132,12 @@ impl<'a> AtomParser<'a> {
         Ok(if next_matches!(self, "->") {
             RangedEntityRoute {
                 route: get!(self, ty?),
-                range: self.stream.pop_range(),
+                range: self.stream.pop_text_range(),
             }
         } else {
             RangedEntityRoute {
                 route: EntityRoutePtr::Root(RootIdentifier::Void),
-                range: self.stream.pop_range(),
+                range: self.stream.pop_text_range(),
             }
         })
     }

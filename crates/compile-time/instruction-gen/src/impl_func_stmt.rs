@@ -15,12 +15,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                 varname,
                 ref initial_value,
             } => {
-                self.compile_expr(initial_value);
+                self.compile_eager_expr(initial_value);
                 self.def_variable(varname.ident)
             }
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => {
-                self.compile_expr(result);
+                self.compile_eager_expr(result);
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
             }
             FuncStmtVariant::ConditionFlow { .. } => todo!(),
@@ -28,7 +28,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref match_expr,
                 ref branches,
             } => {
-                self.compile_expr(match_expr);
+                self.compile_eager_expr(match_expr);
                 self.push_instruction(Instruction::new(
                     InstructionKind::PatternMatch {
                         branches: self.compile_func_pattern_match(branches),

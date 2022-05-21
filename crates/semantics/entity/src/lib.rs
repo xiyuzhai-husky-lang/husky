@@ -405,6 +405,7 @@ pub(crate) fn entity_defn(
                     EntityDefnVariant::feature(db, ty, not_none!(children), arena, file)?,
                 ),
                 AstKind::Submodule { ident, source_file } => todo!(),
+                AstKind::Visual => todo!(),
             };
             Ok(EntityDefn::new(
                 ident.ident.into(),

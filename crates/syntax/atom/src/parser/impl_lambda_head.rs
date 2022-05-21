@@ -20,7 +20,7 @@ impl<'a> AtomParser<'a> {
         let ty = if next_matches!(self, ":") {
             Some(RangedEntityRoute {
                 route: get!(self.ty?),
-                range: self.stream.pop_range(),
+                range: self.stream.pop_text_range(),
             })
         } else {
             None

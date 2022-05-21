@@ -1,7 +1,8 @@
 mod impl_basic;
-mod impl_expr;
+mod impl_eager_expr;
 mod impl_func_stmt;
 mod impl_proc_stmt;
+mod impl_xml_expr;
 mod query;
 
 pub use query::*;
@@ -11,10 +12,22 @@ use print_utils::*;
 use semantics_eager::*;
 use semantics_entity::*;
 use std::sync::Arc;
+use visual_semantics::XmlExpr;
 use vm::{Instruction, InstructionSheet};
 use word::*;
 
-pub fn new_func_instruction_sheet(
+pub fn new_visual_instruction_sheet(
+    db: &dyn InstructionGenQueryGroup,
+    stmts: &[Arc<FuncStmt>],
+    xml_expr: &Arc<XmlExpr>,
+) -> Arc<InstructionSheet> {
+    let mut builder = InstructionSheetBuilder::new(db, [].into_iter(), true);
+    builder.compile_func_stmts(stmts);
+    builder.compile_xml_expr(xml_expr.clone());
+    builder.finalize()
+}
+
+fn new_func_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     inputs: impl Iterator<Item = CustomIdentifier>,
     stmts: &[Arc<FuncStmt>],
@@ -25,7 +38,7 @@ pub fn new_func_instruction_sheet(
     builder.finalize()
 }
 
-pub fn new_impr_instruction_sheet(
+fn new_impr_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     inputs: impl Iterator<Item = CustomIdentifier>,
     stmts: &[Arc<ProcStmt>],

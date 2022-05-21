@@ -54,7 +54,7 @@ impl CallDecl {
                 .collect(),
             output: OutputDecl {
                 ty: head.output_ty.route,
-                liason: head.output_contract,
+                liason: head.output_liason,
             },
         })
     }

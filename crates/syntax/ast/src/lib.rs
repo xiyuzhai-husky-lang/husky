@@ -4,6 +4,9 @@ mod expr;
 mod query;
 mod stmt;
 mod transform;
+mod xml;
+
+use std::sync::Arc;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::AstContext;
@@ -12,6 +15,7 @@ use file::FilePtr;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::*;
 pub use transform::*;
+pub use xml::*;
 
 use atom::*;
 use check_utils::*;
@@ -61,6 +65,7 @@ pub enum AstKind {
         ident: RangedCustomIdentifier,
         source_file: FilePtr,
     },
+    Visual,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

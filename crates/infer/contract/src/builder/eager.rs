@@ -16,28 +16,28 @@ use crate::*;
 impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn infer_routine(
         &mut self,
-        output_ty: EntityRoutePtr,
+        opt_output_ty: Option<EntityRoutePtr>,
         ast_iter: AstIter,
         arena: &RawExprArena,
     ) {
-        self.infer_eager_stmts(ast_iter, output_ty, arena);
+        self.infer_eager_stmts(ast_iter, opt_output_ty, arena);
     }
 
     pub(super) fn infer_eager_stmts(
         &mut self,
         ast_iter: AstIter,
-        output_ty: EntityRoutePtr,
+        opt_output_ty: Option<EntityRoutePtr>,
         arena: &RawExprArena,
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
-                    AstKind::Stmt(ref stmt) => self.infer_eager_stmt(stmt, output_ty, arena),
+                    AstKind::Stmt(ref stmt) => self.infer_eager_stmt(stmt, opt_output_ty, arena),
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_eager_stmts(children, output_ty, arena)
+                self.infer_eager_stmts(children, opt_output_ty, arena)
             }
         }
     }
@@ -45,7 +45,7 @@ impl<'a> ContractSheetBuilder<'a> {
     fn infer_eager_stmt(
         &mut self,
         stmt: &RawStmt,
-        output_ty: EntityRoutePtr,
+        opt_output_ty: Option<EntityRoutePtr>,
         arena: &RawExprArena,
     ) {
         match stmt.variant {
@@ -110,6 +110,7 @@ impl<'a> ContractSheetBuilder<'a> {
             } => {
                 self.infer_eager_expr(match_expr, match_contract.eager(), arena);
             }
+            RawStmtVariant::ReturnXml(_) => todo!(),
         }
     }
 

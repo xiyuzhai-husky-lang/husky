@@ -115,6 +115,7 @@ impl<'a> LazyStmtParser<'a> {
                         },
                         RawStmtVariant::Break => todo!(),
                         RawStmtVariant::Match { .. } => panic!(),
+                        RawStmtVariant::ReturnXml(_) => todo!(),
                     };
                     stmts.push(Arc::new(LazyStmt {
                         file: self.file,

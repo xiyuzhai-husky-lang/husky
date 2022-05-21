@@ -193,6 +193,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
                 }
+                InstructionKind::NewXml { .. } => todo!(),
             };
             match control {
                 VMControl::None => (),

@@ -11,3 +11,4 @@ avec = { path = "../../abstraction/avec", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }
+vm = { path = "../../runtime/vm", version = "0.0.0" }

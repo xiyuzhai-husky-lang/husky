@@ -1,4 +1,3 @@
-mod impl_loop;
 mod impl_match;
 
 use crate::{stmt::*, *};
@@ -144,10 +143,12 @@ impl<'a> AstTransformer<'a> {
             AstContext::DatasetConfig
             | AstContext::Main
             | AstContext::Lazy
-            | AstContext::Routine(RoutineKeyword::Func) => {
+            | AstContext::Routine(RoutineKeyword::Func)
+            | AstContext::Visual => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
-                    let varname = identify!(self, token_group[0], SemanticTokenKind::Variable);
+                    let varname =
+                        identify_token!(self, token_group[0], SemanticTokenKind::Variable);
                     self.symbols.push(Symbol::variable(varname));
                     RawStmt {
                         range: token_group.text_range(),
@@ -159,9 +160,18 @@ impl<'a> AstTransformer<'a> {
                     }
                 } else {
                     // declarative return
-                    RawStmt {
-                        range: token_group.text_range(),
-                        variant: RawStmtVariant::Return(self.parse_expr(token_group)?),
+                    if self.context() == AstContext::Visual {
+                        // return xml expr
+                        RawStmt {
+                            range: token_group.text_range(),
+                            variant: RawStmtVariant::ReturnXml(self.parse_xml_expr(token_group)?),
+                        }
+                    } else {
+                        // return eager expr
+                        RawStmt {
+                            range: token_group.text_range(),
+                            variant: RawStmtVariant::Return(self.parse_expr(token_group)?),
+                        }
                     }
                 }
             }
@@ -210,9 +220,9 @@ impl<'a> AstTransformer<'a> {
             InitKind::Decl => todo!(),
         }
         expect_at_least!(tokens, kw_range, 3);
-        let varname = identify!(self, &tokens[0], SemanticTokenKind::Variable);
+        let varname = identify_token!(self, &tokens[0], SemanticTokenKind::Variable);
         self.symbols.push(Symbol::variable(varname));
-        expect_kind!(tokens[1], Special::Assign);
+        expect_token_kind!(tokens[1], Special::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtVariant::Init {
             init_kind: kind,

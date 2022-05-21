@@ -4,14 +4,14 @@ use std::{marker::PhantomData, ops::Deref, sync::Arc};
 
 pub trait HasKey<K>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
 {
     fn key(&self) -> K;
 }
 
 impl<K, T> HasKey<K> for (K, T)
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
 {
     fn key(&self) -> K {
         self.0
@@ -20,7 +20,7 @@ where
 
 impl<K, T> HasKey<K> for Arc<T>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     T: HasKey<K>,
 {
     fn key(&self) -> K {
@@ -31,7 +31,7 @@ where
 #[derive(PartialEq, Eq, Clone)]
 pub struct VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: HasKey<K>,
 {
     entries: Vec<V>,
@@ -40,7 +40,7 @@ where
 
 impl<K, V> std::fmt::Debug for VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: HasKey<K> + std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -57,7 +57,7 @@ pub struct Repeat {
 
 impl<K, Entry> VecMap<K, Entry>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     Entry: HasKey<K>,
 {
     pub fn data(&self) -> &[Entry] {
@@ -100,13 +100,17 @@ where
             .is_some()
     }
 
+    pub fn keys<'a>(&'a self) -> impl Iterator<Item = K> + 'a {
+        self.entries.iter().map(|entry| entry.key())
+    }
+
     pub fn get_mut(&mut self, key: K) -> Option<&mut Entry> {
         self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
     pub fn insert_new(&mut self, value: Entry) {
         if self.has(value.key()) {
-            panic!()
+            panic!("key `{:?}` already exists", value.key())
         } else {
             self.entries.push(value)
         }
@@ -152,7 +156,7 @@ where
 
 impl<K, V> FromIterator<V> for VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: HasKey<K>,
 {
     fn from_iter<T: IntoIterator<Item = V>>(iter: T) -> Self {
@@ -166,7 +170,7 @@ where
 
 impl<K, V> Deref for VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: HasKey<K>,
 {
     type Target = [V];
@@ -178,7 +182,7 @@ where
 
 impl<K, V> Default for VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: HasKey<K>,
 {
     fn default() -> Self {
@@ -191,7 +195,7 @@ where
 
 impl<K, V> std::ops::Index<K> for VecMap<K, V>
 where
-    K: PartialEq + Eq + Clone + Copy,
+    K: PartialEq + Eq + Clone + Copy + std::fmt::Debug,
     V: HasKey<K>,
 {
     type Output = V;

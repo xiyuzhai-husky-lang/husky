@@ -63,6 +63,7 @@ pub enum SemanticTokenKind {
     EnumVariant,
     Method,
     Literal,
+    XmlKind,
 }
 
 impl SemanticTokenKind {
@@ -96,6 +97,7 @@ impl SemanticTokenKind {
             SemanticTokenKind::EnumVariant => SemanticTokenType::ENUM_MEMBER,
             SemanticTokenKind::Method => SemanticTokenType::METHOD,
             SemanticTokenKind::Literal => SemanticTokenType::NUMBER,
+            SemanticTokenKind::XmlKind => SemanticTokenType::FUNCTION,
         })
     }
 }

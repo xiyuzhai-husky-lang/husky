@@ -20,19 +20,19 @@ impl<'a> InstructionSheetBuilder<'a> {
                 init_kind,
                 ..
             } => {
-                self.compile_expr(initial_value);
+                self.compile_eager_expr(initial_value);
                 self.def_variable(varname.ident)
             }
             ProcStmtVariant::Assert { ref condition } => {
-                self.compile_expr(condition);
+                self.compile_eager_expr(condition);
                 self.push_instruction(Instruction::new(InstructionKind::Assert, stmt))
             }
             ProcStmtVariant::Return { ref result } => {
-                self.compile_expr(result);
+                self.compile_eager_expr(result);
                 self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
             }
             ProcStmtVariant::Execute { ref expr } => {
-                self.compile_expr(expr);
+                self.compile_eager_expr(expr);
             }
             ProcStmtVariant::Loop {
                 ref loop_variant,
@@ -53,7 +53,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref match_expr,
                 ref branches,
             } => {
-                self.compile_expr(match_expr);
+                self.compile_eager_expr(match_expr);
                 self.push_instruction(Instruction::new(
                     InstructionKind::PatternMatch {
                         branches: self.compile_proc_pattern_match(branches),
@@ -122,7 +122,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             LoopVariant::While { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
-                block_sheet_builder.compile_expr(condition);
+                block_sheet_builder.compile_eager_expr(condition);
                 block_sheet_builder.push_instruction(Instruction::new(
                     InstructionKind::BreakIfFalse,
                     loop_stmt.clone(),
@@ -140,7 +140,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             LoopVariant::DoWhile { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
                 block_sheet_builder.compile_proc_stmts(body_stmts);
-                block_sheet_builder.compile_expr(condition);
+                block_sheet_builder.compile_eager_expr(condition);
                 block_sheet_builder.push_instruction(Instruction::new(
                     InstructionKind::BreakIfFalse,
                     loop_stmt.clone(),
@@ -159,7 +159,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_boundary(&mut self, boundary: &Boundary, loop_stmt: &Arc<ProcStmt>) {
         if let Some(ref bound) = boundary.opt_bound {
-            self.compile_expr(bound)
+            self.compile_eager_expr(bound)
         } else {
             self.push_instruction(Instruction::new(
                 InstructionKind::PushPrimitiveLiteral(0i32.into()),
@@ -180,7 +180,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
                                 let mut condition_sheet = self.subsheet_builder();
-                                condition_sheet.compile_expr(condition);
+                                condition_sheet.compile_eager_expr(condition);
                                 Some(condition_sheet.finalize())
                             },
                             body: {
@@ -194,7 +194,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
                                 let mut condition_sheet = self.subsheet_builder();
-                                condition_sheet.compile_expr(condition);
+                                condition_sheet.compile_eager_expr(condition);
                                 Some(condition_sheet.finalize())
                             },
                             body: {

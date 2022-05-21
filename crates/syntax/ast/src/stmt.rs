@@ -40,6 +40,7 @@ pub enum RawStmtVariant {
         initial_value: RawExprIdx,
     },
     Return(RawExprIdx),
+    ReturnXml(Arc<RawXmlExpr>),
     Assert(RawExprIdx),
     Break,
     Match {

@@ -5,7 +5,8 @@ use super::*;
 // inner ops
 impl<'a> AtomParser<'a> {
     pub(crate) fn push(&mut self, kind: AtomVariant) -> AtomResult<()> {
-        self.stack.push(Atom::new(self.stream.pop_range(), kind))
+        self.stack
+            .push(Atom::new(self.stream.pop_text_range(), kind))
     }
 
     pub(crate) fn save_stream(&self) -> TokenStream<'a> {

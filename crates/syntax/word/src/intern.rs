@@ -42,6 +42,7 @@ pub fn new_word_interner() -> WordAllocator {
         Keyword::Mod.into(),
         Keyword::Def.into(),
         Keyword::Main.into(),
+        Keyword::Visual.into(),
         RoutineKeyword::Proc.into(),
         RoutineKeyword::Func.into(),
         TyKeyword::Struct.into(),

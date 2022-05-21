@@ -148,6 +148,7 @@ impl<'a> Formatter<'a> {
             AstKind::Use { ref use_variant } => todo!(),
             AstKind::Submodule { ident, source_file } => todo!(),
             AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
+            AstKind::Visual => todo!(),
         }
     }
 
@@ -226,6 +227,7 @@ impl<'a> Formatter<'a> {
                     AstContext::FuncMatch => todo!(),
                     AstContext::ProcMatch => todo!(),
                     AstContext::LazyMatch => todo!(),
+                    AstContext::Visual => todo!(),
                 }
                 self.fmt_expr(&self.arena[expr]);
             }
@@ -235,6 +237,7 @@ impl<'a> Formatter<'a> {
             }
             RawStmtVariant::Break => todo!(),
             RawStmtVariant::Match { .. } => todo!(),
+            RawStmtVariant::ReturnXml(_) => todo!(),
         }
     }
 

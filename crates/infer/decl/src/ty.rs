@@ -257,6 +257,7 @@ impl TyDecl {
                         call_defn_head,
                     )))
                 }
+                AstKind::Visual => (),
             }
         }
         Ok(())
