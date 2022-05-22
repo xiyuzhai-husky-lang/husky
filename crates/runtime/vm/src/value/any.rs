@@ -396,6 +396,6 @@ impl<'eval> AnyValue<'eval> for Vec<MemberValue<'eval>> {
         format!("{{ len: {}, data: [...] }}", self.len(),)
     }
     fn to_json_value(&self) -> serde_json::value::Value {
-        serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
+        serde_json::value::Value::Array(self.iter().map(|elem| elem.get_json_value()).collect())
     }
 }

@@ -25,15 +25,21 @@ impl Serialize for CopyableValue {
     where
         S: serde::Serializer,
     {
-        match self {
-            CopyableValue::I32(value) => value.serialize(serializer),
-            CopyableValue::F32(value) => value.serialize(serializer),
-            CopyableValue::B32(value) => value.serialize(serializer),
-            CopyableValue::B64(value) => value.serialize(serializer),
-            CopyableValue::Bool(value) => value.serialize(serializer),
-            CopyableValue::Void(value) => value.serialize(serializer),
-            CopyableValue::EnumKind(value) => value.serialize(serializer),
-        }
+        // 3 is the number of fields in the struct.
+        let mut state = serializer.serialize_struct("PrimitiveValue", 3)?;
+        let kind = match self {
+            CopyableValue::I32(value) => "I32",
+            CopyableValue::F32(_) => "F32",
+            CopyableValue::B32(_) => "B32",
+            CopyableValue::B64(_) => "B64",
+            CopyableValue::Bool(_) => "Bool",
+            CopyableValue::Void(_) => "Void",
+            CopyableValue::EnumKind(_) => "EnumKind",
+        };
+        let value: Cow<'static, str> = (*self).into();
+        state.serialize_field("kind", &kind)?;
+        state.serialize_field("value", &value)?;
+        state.end()
     }
 }
 
@@ -136,6 +142,17 @@ impl CopyableValue {
             CopyableValue::Bool(value) => value,
             CopyableValue::EnumKind(value) => value,
             CopyableValue::Void(_) => todo!(),
+        }
+    }
+    pub fn get_primitive_json_value(self) -> serde_json::Value {
+        match self {
+            CopyableValue::I32(value) => serde_json::to_value(value).unwrap(),
+            CopyableValue::F32(value) => serde_json::to_value(value).unwrap(),
+            CopyableValue::B32(value) => serde_json::to_value(value).unwrap(),
+            CopyableValue::B64(value) => serde_json::to_value(value).unwrap(),
+            CopyableValue::Bool(value) => serde_json::to_value(value).unwrap(),
+            CopyableValue::Void(value) => serde_json::to_value(value).unwrap(),
+            CopyableValue::EnumKind(value) => todo!(),
         }
     }
 }

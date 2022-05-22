@@ -2,25 +2,17 @@ use super::*;
 
 #[derive(Debug, Serialize, Clone)]
 #[serde(tag = "kind")]
-pub enum ImageProps {
+pub enum ImageLayerProps {
     Colored { pixels: Vec<Vec<(u8, u8, u8)>> },
     Binary28 { rows: Box<[u32; 28]> },
 }
 
-impl ImageProps {
+impl ImageLayerProps {
     pub fn binary_image_28(padded_rows: &[u32; 30]) -> Self {
         Self::Binary28 {
             rows: Box::new(padded_rows[1..29].try_into().unwrap()),
         }
     }
-}
-
-#[derive(Debug, Serialize, Clone)]
-pub struct Shape2dGroupProps {
-    pub shapes: Vec<Shape2dProps>,
-    pub line_width: f32,
-    pub color: Color,
-    pub kind: Shape2dKind,
 }
 
 #[derive(Debug, Serialize, Clone)]
@@ -30,7 +22,6 @@ pub enum Shape2dKind {
 }
 
 #[derive(Debug, Serialize, Clone)]
-#[serde(untagged)]
 pub enum Shape2dProps {
     Arrow2d {
         from: Point2dProps,
@@ -39,9 +30,13 @@ pub enum Shape2dProps {
     Point2d {
         point: Point2dProps,
     },
+    Group {
+        shapes: Vec<Shape2dProps>,
+        line_width: f32,
+    },
 }
 
-impl Shape2dGroupProps {
+impl Shape2dProps {
     pub fn laser_grid28(padded_rows: &[u32; 31]) -> Self {
         let mut shapes = Vec::<Shape2dProps>::new();
         for i in 0..29 {
@@ -54,11 +49,9 @@ impl Shape2dGroupProps {
                 }
             }
         }
-        Self {
+        Shape2dProps::Group {
             shapes,
             line_width: 2.0,
-            color: Color::Red,
-            kind: Shape2dKind::Point2d,
         }
     }
 }

@@ -1,12 +1,12 @@
 <script lang="ts">
-    import type { ArrowProps } from "src/figure/graphics2d/shape";
+    import type { Arrow2dProps } from "src/figure/graphics2d/shape";
     import {
         get_displacement,
         get_point_distance,
         get_angle_in_degree,
     } from "src/geom2d/geom2d";
 
-    export let arrow: ArrowProps;
+    export let arrow: Arrow2dProps;
     export let lineWidth: number;
 
     $: displacement = get_displacement(arrow.from, arrow.to);

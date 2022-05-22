@@ -25,8 +25,8 @@ pub enum FigureProps {
         yrange: (f32, f32),
     },
     Graphics2d {
-        image: Option<ImageProps>,
-        shape_groups: Vec<Shape2dGroupProps>,
+        image_layers: Vec<ImageLayerProps>,
+        shapes: Vec<Shape2dProps>,
         xrange: (f32, f32),
         yrange: (f32, f32),
     },
@@ -75,15 +75,15 @@ impl FigureProps {
     pub fn new_specific(visual_props: VisualProps) -> Self {
         match visual_props {
             VisualProps::BinaryImage28 { padded_rows } => FigureProps::Graphics2d {
-                image: Some(ImageProps::binary_image_28(&padded_rows)),
-                shape_groups: Vec::new(),
+                image_layers: vec![ImageLayerProps::binary_image_28(&padded_rows)],
+                shapes: Vec::new(),
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
             VisualProps::Primitive { value } => FigureProps::Primitive { value },
             VisualProps::BinaryGrid28 { ref padded_rows } => FigureProps::Graphics2d {
-                image: None,
-                shape_groups: vec![Shape2dGroupProps::laser_grid28(padded_rows)],
+                image_layers: vec![],
+                shapes: vec![Shape2dProps::laser_grid28(padded_rows)],
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },

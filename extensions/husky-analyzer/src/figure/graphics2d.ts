@@ -6,17 +6,14 @@ import {
     decode_opt,
     decode_string,
 } from "src/decode/decode";
-import type ImageProps from "./graphics2d/image";
+import type { ImageLayerProps } from "./graphics2d/image";
 import { decode_image } from "./graphics2d/image";
-import {
-    decode_shape2d_group_props,
-    type Shape2dGroupProps,
-} from "./graphics2d/shape";
+import { decode_shape2d_props, type Shape2dProps } from "./graphics2d/shape";
 
 export type Graphics2dProps = {
     kind: "Graphics2d";
-    image: null | ImageProps;
-    shape_groups: Shape2dGroupProps[];
+    image_layers: ImageLayerProps[];
+    shapes: Shape2dProps[];
     xrange: [number, number];
     yrange: [number, number];
 };
@@ -24,12 +21,12 @@ export type Graphics2dProps = {
 export default Graphics2dProps;
 
 export function decode_graphics2d(data: unknown): Graphics2dProps {
-    let image = decode_opt(decode_memb(data, "image"), decode_image);
-    let shape_groups = decode_array(
-        decode_memb(data, "shape_groups"),
-        decode_shape2d_group_props
+    let image_layers = decode_array(decode_memb(data, "images"), decode_image);
+    let shapes = decode_array(
+        decode_memb(data, "shapes"),
+        decode_shape2d_props
     );
     let xrange = decode_number_pair(decode_memb(data, "xrange"));
     let yrange = decode_number_pair(decode_memb(data, "yrange"));
-    return { kind: "Graphics2d", image, shape_groups, xrange, yrange };
+    return { kind: "Graphics2d", image_layers, shapes, xrange, yrange };
 }
