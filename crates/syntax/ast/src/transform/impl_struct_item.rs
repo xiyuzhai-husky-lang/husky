@@ -2,7 +2,7 @@ use crate::*;
 use atom::symbol::{Symbol, SymbolKind};
 use text::TextRanged;
 use token::*;
-use vm::{FieldContract, InputContract};
+use vm::{FieldLiason, InputLiason};
 use word::RoutineKeyword;
 
 impl<'a> AstTransformer<'a> {
@@ -31,7 +31,7 @@ impl<'a> AstTransformer<'a> {
                     expect_block_head!(token_group);
                     enter_block(self);
                     self.context.set(AstContext::Visual); 
-                    self.opt_this_contract.set(Some(InputContract::Pure));
+                    self.opt_this_contract.set(Some(InputLiason::Pure));
                     Ok(AstKind::Visual)},
             }},
             TokenKind::Identifier(_) => self.parse_struct_field(token_group, ),
@@ -49,7 +49,7 @@ impl<'a> AstTransformer<'a> {
             let ty = atom::parse_route(&self.symbol_context(), &token_group[2..])?;
             Ok(AstKind::FieldDefnHead(FieldDefnHead {
                 ident,
-                contract: FieldContract::Own,
+                contract: FieldLiason::Own,
                 ty,
                 kind: FieldKind::StructOriginal,
             }))
@@ -73,7 +73,7 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         const funcname_idx: usize = 1;
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
-            parser.method_decl(InputContract::Pure, RoutineKeyword::Func)
+            parser.method_decl(InputLiason::Pure, RoutineKeyword::Func)
         })?;
         self.opt_this_contract.set(Some(head.this_contract));
         self.symbols.extend(

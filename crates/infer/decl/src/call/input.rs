@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputDecl {
-    pub contract: InputContract,
+    pub contract: InputLiason,
     pub ty: EntityRoutePtr,
     pub ident: CustomIdentifier,
 }

@@ -275,14 +275,14 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::FieldAccess(ranged_ident) => {
                 let this_ty_decl = self.raw_expr_ty_decl(opd)?;
-                let field_var_decl = this_ty_decl.field_decl(ranged_ident)?;
-                let this_contract = match field_var_decl.contract {
-                    FieldContract::Own => match contract {
+                let field_decl = this_ty_decl.field_decl(ranged_ident)?;
+                let this_contract = match field_decl.liason {
+                    FieldLiason::Own => match contract {
                         EagerContract::Pure => EagerContract::Pure,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => EagerContract::Move,
                         EagerContract::Return => {
-                            if self.db.is_copyable(field_var_decl.ty)? {
+                            if self.db.is_copyable(field_decl.ty)? {
                                 EagerContract::Pure
                             } else {
                                 todo!()
@@ -297,8 +297,8 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::VarInit => todo!(),
                         EagerContract::UseMemberForVarInit => EagerContract::UseMemberForVarInit,
                     },
-                    FieldContract::GlobalRef => todo!(),
-                    FieldContract::LazyOwn => todo!(),
+                    FieldLiason::GlobalRef => todo!(),
+                    FieldLiason::LazyOwn => todo!(),
                 };
                 self.infer_eager_expr(opd, this_contract, arena);
                 Ok(())

@@ -1,5 +1,5 @@
 use dev_utils::static_dev_src;
-use vm::{InputContract, OutputLiason};
+use vm::{InputLiason, OutputLiason};
 
 use crate::*;
 
@@ -36,10 +36,10 @@ pub static INDEX_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                 name: "index",
                 subscopes: &[],
                 variant: EntityStaticDefnVariant::Method {
-                    this_contract: InputContract::MemberAccess,
+                    this_contract: InputLiason::MemberAccess,
                     input_parameters: &[],
                     output_ty: "This::Output",
-                    output_contract: OutputLiason::MemberAccess,
+                    output_liason: OutputLiason::MemberAccess,
                     generic_parameters: &[],
                     kind: MethodStaticDefnVariant::TraitMethod {
                         opt_default_source: None,

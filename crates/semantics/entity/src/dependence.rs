@@ -141,12 +141,10 @@ impl EntityDefn {
                 EnumVariantDefnVariant::Constant => (),
             },
             EntityDefnVariant::TypeField {
-                ty,
-                ref field_variant,
-                ..
+                ty, ref fieldiant, ..
             } => {
                 builder.push(ty);
-                match field_variant {
+                match fieldiant {
                     FieldDefnVariant::StructOriginal => todo!(),
                     FieldDefnVariant::RecordOriginal => todo!(),
                     FieldDefnVariant::StructDerived { stmts } => todo!(),
@@ -421,7 +419,7 @@ impl EntityDefn {
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TypeField {
                     ty,
-                    ref field_variant,
+                    ref fieldiant,
                     contract,
                 } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),

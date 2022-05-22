@@ -38,7 +38,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_| Ok(StackValue::Owned(OwnedValue::new(new_binary_dataset()))),
             nargs: 0,
@@ -70,6 +70,15 @@ impl MnistDataset {
     }
 }
 
+impl Serialize for MnistDataset {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        todo!()
+    }
+}
+
 impl<'eval> AnyValue<'eval> for MnistDataset {
     fn static_type_id() -> StaticTypeId {
         todo!()
@@ -79,9 +88,9 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
         todo!()
     }
 
-    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-    //     todo!()
-    // }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        todo!()
+    }
 }
 
 impl<'eval> DatasetDyn<'eval> for MnistDataset {

@@ -72,6 +72,10 @@ impl<'eval> OwnedValue<'eval> {
         // let ptr: *const T = ptr as *const T;
         // unsafe { &*ptr }
     }
+
+    pub fn get_json_value(&self) -> serde_json::value::Value {
+        self.0.get_json_value_dyn()
+    }
 }
 
 impl<'eval> std::fmt::Debug for OwnedValue<'eval> {

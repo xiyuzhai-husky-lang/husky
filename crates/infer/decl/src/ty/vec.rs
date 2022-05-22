@@ -1,4 +1,4 @@
-use vm::InputContract;
+use vm::InputLiason;
 
 use super::*;
 

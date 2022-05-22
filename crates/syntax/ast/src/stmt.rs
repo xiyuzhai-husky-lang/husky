@@ -3,7 +3,7 @@ mod match_stmt;
 
 pub use loop_kind::{RawBoundary, RawLoopKind};
 pub use match_stmt::*;
-use vm::InputContract;
+use vm::InputLiason;
 
 use crate::{expr::RawExprIdx, *};
 use text::{TextRange, TextRanged};

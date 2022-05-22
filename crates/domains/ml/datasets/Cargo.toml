@@ -7,6 +7,8 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
 xrng = { path = "../../../utils/xrng" }
 word = { path = "../../../syntax/word", version = "0.0.0" }
 entity-route = { path = "../../../syntax/entity-route", version = "0.0.0" }

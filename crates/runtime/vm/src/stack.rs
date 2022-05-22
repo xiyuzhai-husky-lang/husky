@@ -121,14 +121,6 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         self.values.drain((self.len() - k as usize)..).collect()
     }
 
-    // pub(crate) fn top_second(&self) -> &StackValue<'stack, 'eval> {
-    //     &self.values[self.values.len() - 2]
-    // }
-
-    // pub(crate) fn top(&mut self) -> &StackValue<'stack, 'eval> {
-    //     self.values.last_mut().unwrap()
-    // }
-
     pub(crate) fn eval_top(&mut self) -> EvalValue<'eval> {
         self.values.last().unwrap().eval()
     }

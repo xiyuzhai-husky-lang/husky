@@ -14,11 +14,11 @@ pub(crate) fn struct_decl(
     while let Some(subitem) = children.next() {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
-            AstKind::FieldDefn(ref field_var_defn) => {
+            AstKind::FieldDefn(ref field_defn) => {
                 type_members.insert_new(TypeMemberDecl::Field(Arc::new(FieldDecl {
-                    ident: field_var_defn.ident,
-                    contract: field_var_defn.contract,
-                    ty: field_var_defn.ty,
+                    ident: field_defn.ident,
+                    contract: field_defn.contract,
+                    ty: field_defn.ty,
                 })))
             }
             _ => break,
@@ -28,9 +28,9 @@ pub(crate) fn struct_decl(
     while let Some(subitem) = children.next() {
         let subast = subitem.value.as_ref()?;
         match subast.kind {
-            AstKind::FieldDefn(ref field_var_defn) => panic!("expect fields to be defined first"),
-            AstKind::MembRoutineDefnHead(ref field_var_defn) => {
-                type_members.insert_new(TypeMemberDecl::Method(Arc::new(field_var_defn.into())))
+            AstKind::FieldDefn(ref field_defn) => panic!("expect fields to be defined first"),
+            AstKind::MembRoutineDefnHead(ref field_defn) => {
+                type_members.insert_new(TypeMemberDecl::Method(Arc::new(field_defn.into())))
             }
             _ => panic!(),
         }

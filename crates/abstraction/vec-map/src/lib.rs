@@ -60,8 +60,14 @@ where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     Entry: HasKey<K>,
 {
+    pub fn take_data(self) -> Vec<Entry> {
+        self.entries
+    }
     pub fn data(&self) -> &[Entry] {
         &self.entries
+    }
+    pub fn data_mut(&mut self) -> &mut [Entry] {
+        &mut self.entries
     }
 
     pub fn from_vec(data: Vec<Entry>) -> Result<Self, Repeat> {

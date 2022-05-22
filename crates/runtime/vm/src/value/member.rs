@@ -1,3 +1,5 @@
+use serde::Serialize;
+
 use crate::*;
 
 #[derive(Debug, Clone)]
@@ -89,6 +91,16 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::Moved => todo!(),
+        }
+    }
+
+    pub fn to_json_value(&self) -> serde_json::value::Value {
+        match self {
+            MemberValue::Primitive(value) => serde_json::value::to_value(value).unwrap(),
+            MemberValue::Boxed(value) => value.get_json_value(),
+            MemberValue::GlobalPure(value) => value.get_json_value_dyn(),
+            MemberValue::GlobalRef(value) => value.get_json_value_dyn(),
             MemberValue::Moved => todo!(),
         }
     }

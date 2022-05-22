@@ -39,9 +39,9 @@ pub enum XmlExprKind {
 impl XmlExprKind {
     pub fn as_str(self) -> &'static str {
         match self {
-            XmlExprKind::Point2d => todo!(),
-            XmlExprKind::Arrow2d => todo!(),
-            XmlExprKind::Contour => todo!(),
+            XmlExprKind::Point2d => "Point2d",
+            XmlExprKind::Arrow2d => "Arrow2d",
+            XmlExprKind::Contour => "Contour",
         }
     }
 

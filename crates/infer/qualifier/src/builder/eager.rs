@@ -19,10 +19,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         inputs: &[InputParameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
     ) {
         self.add_eager_inputs(inputs);
-        self.infer_eager_stmts(arena, ast_iter, opt_output_ty, output_contract)
+        self.infer_eager_stmts(arena, ast_iter, opt_output_ty, output_liason)
     }
 
     fn add_eager_inputs(&mut self, inputs: &[InputParameter]) {
@@ -47,19 +47,19 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
                     AstKind::Stmt(ref stmt) => {
-                        self.infer_eager_stmt(arena, stmt, opt_output_ty, output_contract)
+                        self.infer_eager_stmt(arena, stmt, opt_output_ty, output_liason)
                     }
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_eager_stmts(arena, children, opt_output_ty, output_contract)
+                self.infer_eager_stmts(arena, children, opt_output_ty, output_liason)
             }
         }
     }
@@ -69,7 +69,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         stmt: &RawStmt,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(loop_kind) => match loop_kind {
@@ -148,7 +148,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     (Some(output_ty), Some(qualified_ty)) => {
                         if !qualified_ty.is_implicitly_castable_to_output(
                             self.db,
-                            output_contract,
+                            output_liason,
                             output_ty,
                         ) {
                             self.qualified_ty_sheet.extra_errors.push(InferError {
@@ -350,7 +350,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let field_decl = this_ty_decl.field_decl(field_ident)?;
                 let qual = EagerQualifier::from_field(
                     this_qt.qual,
-                    field_decl.contract,
+                    field_decl.liason,
                     self.db.is_copyable(field_decl.ty)?,
                 )?;
                 Ok(EagerQualifiedTy::new(qual, field_decl.ty))

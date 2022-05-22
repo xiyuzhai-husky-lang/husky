@@ -1,6 +1,6 @@
 use crate::*;
 use entity_route::EntityRoutePtr;
-use vm::InputContract;
+use vm::InputLiason;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -16,13 +16,13 @@ impl LazyVariable {
             ident: input_placeholder.ident.ident,
             ty: input_placeholder.ranged_ty.route,
             is_reference: match input_placeholder.contract {
-                InputContract::Pure => false,
-                InputContract::GlobalRef => todo!(),
-                InputContract::Move => todo!(),
-                InputContract::BorrowMut => todo!(),
-                InputContract::MoveMut => todo!(),
-                InputContract::Exec => todo!(),
-                InputContract::MemberAccess => todo!(),
+                InputLiason::Pure => false,
+                InputLiason::GlobalRef => todo!(),
+                InputLiason::Move => todo!(),
+                InputLiason::BorrowMut => todo!(),
+                InputLiason::MoveMut => todo!(),
+                InputLiason::Exec => todo!(),
+                InputLiason::MemberAccess => todo!(),
             },
         }
     }

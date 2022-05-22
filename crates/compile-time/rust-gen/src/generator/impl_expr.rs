@@ -42,7 +42,7 @@ impl<'a> RustGenerator<'a> {
                 }
                 EagerOpnVariant::PatternCall => todo!(),
                 EagerOpnVariant::FieldAccess {
-                    field_contract: field_var_contract,
+                    field_liason: field_contract,
                 } => todo!(),
                 EagerOpnVariant::MethodCall {
                     method_ident: field_ident,

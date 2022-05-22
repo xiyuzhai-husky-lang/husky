@@ -187,9 +187,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         ty_members: ref type_members,
                         ..
                     } => match type_members.get_entry(field_ident.ident).unwrap().variant {
-                        EntityDefnVariant::TypeField {
-                            ref field_variant, ..
-                        } => match field_variant {
+                        EntityDefnVariant::TypeField { ref fieldiant, .. } => match fieldiant {
                             FieldDefnVariant::StructOriginal | FieldDefnVariant::RecordOriginal => {
                                 panic!()
                             }
@@ -258,7 +256,7 @@ impl<'a> FeatureExprBuilder<'a> {
         (feature_expr_kind, feature)
     }
 
-    fn record_field_var_value(
+    fn record_field_value(
         &self,
         this: &FeatureExpr,
         field_ident: CustomIdentifier,
@@ -267,7 +265,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprKind::Variable { .. } => todo!(),
             FeatureExprKind::RecordOriginalFieldAccess { .. } => todo!(),
             FeatureExprKind::EntityFeature { ref block, .. } => {
-                self.derive_record_field_var_value_from_block(block, field_ident)
+                self.derive_record_field_value_from_block(block, field_ident)
             }
             FeatureExprKind::NewRecord {
                 ref entity,
@@ -304,7 +302,7 @@ impl<'a> FeatureExprBuilder<'a> {
     //     feature: result.feature,
     //     kind: RecordMembExprKind::Expr(result.clone()),
     // },
-    fn derive_record_field_var_value_from_block(
+    fn derive_record_field_value_from_block(
         &self,
         block: &FeatureBlock,
         field_ident: CustomIdentifier,
@@ -313,7 +311,7 @@ impl<'a> FeatureExprBuilder<'a> {
         if stmt_features.len() == 1 {
             match block.stmts.last().unwrap().variant {
                 FeatureStmtVariant::Return { ref result } => {
-                    self.record_field_var_value(result, field_ident)
+                    self.record_field_value(result, field_ident)
                 }
                 FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
                 _ => panic!(),

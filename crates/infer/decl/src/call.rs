@@ -14,7 +14,7 @@ use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticInputParameter};
-use vm::{InputContract, OutputLiason};
+use vm::{InputLiason, OutputLiason};
 use word::IdentDict;
 
 use crate::*;
@@ -119,7 +119,7 @@ pub(crate) fn routine_decl_from_static(
             ref generic_placeholders,
             input_placeholders: ref inputs,
             output_ty,
-            output_contract,
+            output_liason,
             linkage,
             routine_kind,
         } => {
@@ -144,7 +144,7 @@ pub(crate) fn routine_decl_from_static(
                 generic_placeholders,
                 parameters: inputs,
                 output: OutputDecl {
-                    liason: output_contract,
+                    liason: output_liason,
                     ty: output_ty,
                 },
             })

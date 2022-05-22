@@ -2,7 +2,7 @@ use infer_decl::FieldDecl;
 use semantics_entity::{
     EnumVariantDefnVariant, FieldDefnVariant, MethodDefnVariant, MethodSource, TraitImplDefn,
 };
-use vm::{FieldContract, InputContract};
+use vm::{FieldLiason, InputLiason};
 use word::CustomIdentifier;
 
 use super::*;
@@ -41,10 +41,10 @@ impl<'a> RustGenerator<'a> {
             match member.variant {
                 EntityDefnVariant::TypeField {
                     ty,
-                    ref field_variant,
+                    ref fieldiant,
                     contract,
                 } => {
-                    match field_variant {
+                    match fieldiant {
                         FieldDefnVariant::StructOriginal => (),
                         FieldDefnVariant::StructDerived { .. } => break,
                         _ => panic!(),
@@ -53,9 +53,9 @@ impl<'a> RustGenerator<'a> {
                     self.result += &member.ident;
                     self.result += ": ";
                     match contract {
-                        FieldContract::Own => (),
-                        FieldContract::GlobalRef => todo!(),
-                        FieldContract::LazyOwn => todo!(),
+                        FieldLiason::Own => (),
+                        FieldLiason::GlobalRef => todo!(),
+                        FieldLiason::LazyOwn => todo!(),
                     }
                     self.gen_entity_route(ty);
                     self.write(",\n");
@@ -116,7 +116,7 @@ impl<'a> RustGenerator<'a> {
                     this_contract,
                     ref input_placeholders,
                     output_ty,
-                    output_contract,
+                    output_liason,
                     ref method_variant,
                 } => {
                     match method_variant {
@@ -138,20 +138,20 @@ impl<'a> RustGenerator<'a> {
                     self.write(&method.ident);
                     self.write("(");
                     match this_contract {
-                        InputContract::Pure => self.write("&self"),
-                        InputContract::GlobalRef => todo!(),
-                        InputContract::Move => todo!(),
-                        InputContract::BorrowMut => todo!(),
-                        InputContract::MoveMut => todo!(),
-                        InputContract::Exec => todo!(),
-                        InputContract::MemberAccess => todo!(),
+                        InputLiason::Pure => self.write("&self"),
+                        InputLiason::GlobalRef => todo!(),
+                        InputLiason::Move => todo!(),
+                        InputLiason::BorrowMut => todo!(),
+                        InputLiason::MoveMut => todo!(),
+                        InputLiason::Exec => todo!(),
+                        InputLiason::MemberAccess => todo!(),
                     }
                     for input_placeholder in input_placeholders.iter() {
                         self.write(", ");
                         self.write(&input_placeholder.ident.ident);
                         self.write(": ");
                         match input_placeholder.contract {
-                            InputContract::Pure => {
+                            InputLiason::Pure => {
                                 if !self
                                     .db
                                     .is_copyable(input_placeholder.ranged_ty.route)
@@ -160,12 +160,12 @@ impl<'a> RustGenerator<'a> {
                                     self.write("&")
                                 }
                             }
-                            InputContract::GlobalRef => todo!(),
-                            InputContract::Move => todo!(),
-                            InputContract::BorrowMut => todo!(),
-                            InputContract::MoveMut => todo!(),
-                            InputContract::Exec => todo!(),
-                            InputContract::MemberAccess => todo!(),
+                            InputLiason::GlobalRef => todo!(),
+                            InputLiason::Move => todo!(),
+                            InputLiason::BorrowMut => todo!(),
+                            InputLiason::MoveMut => todo!(),
+                            InputLiason::Exec => todo!(),
+                            InputLiason::MemberAccess => todo!(),
                         }
                         self.gen_entity_route(input_placeholder.ranged_ty.route);
                     }

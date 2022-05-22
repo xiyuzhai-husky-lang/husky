@@ -89,7 +89,7 @@ impl EntityDefnVariant {
                             output_ty: head.output_ty,
                             this_contract: head.this_contract,
                             method_variant,
-                            output_contract: OutputLiason::Transfer,
+                            output_liason: OutputLiason::Transfer,
                             generic_placeholders: head.generic_placeholders.clone(),
                         },
                     )

@@ -19,10 +19,10 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "clone",
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_contract: InputContract::Pure,
+                        this_contract: InputLiason::Pure,
                         input_parameters: &[],
                         output_ty: "Vec<E>",
-                        output_contract: OutputLiason::Transfer,
+                        output_liason: OutputLiason::Transfer,
                         generic_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl { opt_source: None },
                     },
@@ -37,10 +37,10 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         name: "index",
                         subscopes: &[],
                         variant: EntityStaticDefnVariant::Method {
-                            this_contract: InputContract::MemberAccess,
+                            this_contract: InputLiason::MemberAccess,
                             input_parameters: &[],
                             output_ty: "E",
-                            output_contract: OutputLiason::MemberAccess,
+                            output_liason: OutputLiason::MemberAccess,
                             generic_parameters: &[],
                             kind: MethodStaticDefnVariant::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
@@ -84,7 +84,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Vec<E>",
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
         linkage: Linkage {
             call: vec_type_call,
             nargs: 0,
@@ -200,7 +200,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     name: "len",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::Pure,
+        this_contract: InputLiason::Pure,
         input_parameters: &[],
         output_ty: "i32",
         generic_parameters: &[],
@@ -210,7 +210,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
                 nargs: 1,
             }),
         },
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
@@ -227,9 +227,9 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::BorrowMut,
+        this_contract: InputLiason::BorrowMut,
         input_parameters: &[StaticInputParameter {
-            contract: InputContract::Move,
+            contract: InputLiason::Move,
             ty: "E",
             name: "element",
         }],
@@ -241,7 +241,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
                 nargs: 2,
             }),
         },
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
@@ -250,7 +250,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
     name: "pop",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::BorrowMut,
+        this_contract: InputLiason::BorrowMut,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
@@ -260,7 +260,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
                 nargs: 1,
             }),
         },
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
 };
@@ -269,7 +269,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
     name: "first",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::MemberAccess,
+        this_contract: InputLiason::MemberAccess,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
@@ -293,7 +293,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_contract: OutputLiason::MemberAccess,
+        output_liason: OutputLiason::MemberAccess,
     },
     dev_src: static_dev_src!(),
 };
@@ -326,7 +326,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     name: "last",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::MemberAccess,
+        this_contract: InputLiason::MemberAccess,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
@@ -350,7 +350,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_contract: OutputLiason::MemberAccess,
+        output_liason: OutputLiason::MemberAccess,
     },
     dev_src: static_dev_src!(),
 };

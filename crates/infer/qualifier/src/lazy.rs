@@ -26,11 +26,11 @@ impl LazyQualifiedTy {
 
     pub(crate) fn from_input(
         db: &dyn InferQualifiedTyQueryGroup,
-        input_contract: InputContract,
+        input_liason: InputLiason,
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
         Ok(LazyQualifiedTy::new(
-            LazyQualifier::from_input(input_contract, db.is_copyable(ty)?),
+            LazyQualifier::from_input(input_liason, db.is_copyable(ty)?),
             ty,
         ))
     }
@@ -57,13 +57,13 @@ impl LazyQualifiedTy {
     pub(crate) fn is_implicitly_convertible_to_output(
         self,
         db: &dyn InferQualifiedTyQueryGroup,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
         output_ty: EntityRoutePtr,
     ) -> bool {
         if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
-        match output_contract {
+        match output_liason {
             OutputLiason::Transfer => match self.qual {
                 LazyQualifier::Copyable => true,
                 LazyQualifier::PureRef => todo!(),
@@ -111,27 +111,27 @@ impl LazyQualifier {
 }
 
 impl LazyQualifier {
-    pub fn from_input(input_contract: InputContract, is_copyable: bool) -> Self {
-        match input_contract {
-            InputContract::Pure => {
+    pub fn from_input(input_liason: InputLiason, is_copyable: bool) -> Self {
+        match input_liason {
+            InputLiason::Pure => {
                 if is_copyable {
                     LazyQualifier::Copyable
                 } else {
                     LazyQualifier::PureRef
                 }
             }
-            InputContract::GlobalRef => LazyQualifier::GlobalRef,
-            InputContract::Move => todo!(),
-            InputContract::BorrowMut => todo!(),
-            InputContract::MoveMut => todo!(),
-            InputContract::Exec => todo!(),
-            InputContract::MemberAccess => todo!(),
+            InputLiason::GlobalRef => LazyQualifier::GlobalRef,
+            InputLiason::Move => todo!(),
+            InputLiason::BorrowMut => todo!(),
+            InputLiason::MoveMut => todo!(),
+            InputLiason::Exec => todo!(),
+            InputLiason::MemberAccess => todo!(),
         }
     }
 
     pub fn from_field(
         this_qual: LazyQualifier,
-        field_contract: FieldContract,
+        field_liason: FieldLiason,
         is_field_copyable: bool,
     ) -> InferResult<Self> {
         Ok(if is_field_copyable {

@@ -240,14 +240,14 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 }
                 // match *ty_decl {
                 //     TySignature::Struct {
-                //         ref field_vars,
+                //         ref fields,
                 //         ref field_routines,
                 //     } => {
                 //         todo!()
                 //     }
                 //     TySignature::Enum { ref variants } => todo!(),
                 //     TySignature::Record {
-                //         ref field_vars,
+                //         ref fields,
                 //         ref field_features,
                 //     } => todo!(),
                 // }

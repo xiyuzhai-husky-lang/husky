@@ -47,6 +47,7 @@ pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
 use entity_route::EntityRouteKind;
+use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use visual_syntax::TRIVIAL_VISUALIZER;
@@ -90,6 +91,15 @@ impl<'eval> PartialEq for Dataset<'eval> {
     }
 }
 
+impl<'eval> Serialize for Dataset<'eval> {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        todo!()
+    }
+}
+
 impl<'eval> AnyValue<'eval> for Dataset<'eval> {
     fn static_type_id() -> StaticTypeId {
         HuskyBuiltinStaticTypeId::Dataset.into()
@@ -97,6 +107,10 @@ impl<'eval> AnyValue<'eval> for Dataset<'eval> {
 
     fn static_type_name() -> Cow<'static, str> {
         "Arc<dyn Dataset>".into()
+    }
+
+    fn to_json_value(&self) -> serde_json::value::Value {
+        todo!()
     }
 
     // fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {

@@ -19,7 +19,7 @@ impl EntityDefnVariant {
         Ok(Self::TypeField {
             ty: field_defn_head.ty,
             contract: field_defn_head.contract,
-            field_variant: variant,
+            fieldiant: variant,
         })
     }
 

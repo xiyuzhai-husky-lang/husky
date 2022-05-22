@@ -5,12 +5,12 @@ use std::sync::Arc;
 pub use opr::*;
 
 use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
-use vm::{FieldContract, InputContract};
+use vm::{FieldLiason, InputLiason};
 use word::{CustomIdentifier, IdentDict};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MembType {
-    pub contract: FieldContract,
+    pub contract: FieldLiason,
     pub ty: EntityRoutePtr,
 }
 
