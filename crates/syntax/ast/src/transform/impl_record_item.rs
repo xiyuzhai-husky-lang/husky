@@ -1,6 +1,6 @@
 use crate::*;
 use token::*;
-use vm::{FieldContract, InputContract};
+use vm::{FieldLiason, InputLiason};
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_record_item(
@@ -41,7 +41,7 @@ impl<'a> AstTransformer<'a> {
             emsg_once!("field contract");
             Ok(AstKind::FieldDefnHead(FieldDefnHead {
                 ident,
-                contract: FieldContract::Own,
+                contract: FieldLiason::Own,
                 ty,
                 kind: FieldKind::RecordOriginal,
             }))
@@ -58,7 +58,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         enter_block(self);
         self.context.set(AstContext::Lazy);
-        self.opt_this_contract.set(Some(InputContract::GlobalRef));
+        self.opt_this_contract.set(Some(InputLiason::GlobalRef));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         emsg_once!("field contract");
         let ty = atom::parse_route(&self.symbol_context(), &token_group[3..])?;
@@ -66,7 +66,7 @@ impl<'a> AstTransformer<'a> {
             ident,
             ty,
             kind: FieldKind::RecordDerived,
-            contract: FieldContract::Own,
+            contract: FieldLiason::Own,
         }))
     }
 }

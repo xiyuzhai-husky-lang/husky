@@ -21,7 +21,7 @@ pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<f32, i32>",
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_| Ok(StackValue::Owned(OwnedValue::new(dataset1()))),
             nargs: 0,
@@ -38,7 +38,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "Dataset<f32, i32>",
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_| Ok(StackValue::Owned(OwnedValue::new(dataset2()))),
             nargs: 0,

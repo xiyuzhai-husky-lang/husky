@@ -9,7 +9,7 @@ use map_collect::MapCollect;
 use print_utils::p;
 use static_defn::{StaticGenericPlaceholder, StaticInputParameter};
 use text::*;
-use vm::InputContract;
+use vm::InputLiason;
 use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
 use super::*;
@@ -43,7 +43,7 @@ pub enum SymbolKind {
     Unrecognized(CustomIdentifier),
     ThisData {
         opt_ty: Option<EntityRoutePtr>,
-        opt_contract: Option<InputContract>,
+        opt_contract: Option<InputLiason>,
     },
 }
 
@@ -52,7 +52,7 @@ pub struct SymbolContext<'a> {
     pub opt_package_main: Option<FilePtr>,
     pub db: &'a dyn EntityRouteQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
-    pub opt_this_contract: Option<InputContract>,
+    pub opt_this_contract: Option<InputLiason>,
     pub symbols: Cow<'a, [Symbol]>,
     pub kind: SymbolContextKind<'a>,
 }

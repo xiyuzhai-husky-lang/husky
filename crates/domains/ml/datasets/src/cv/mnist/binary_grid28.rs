@@ -18,10 +18,10 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                     name: "clone",
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_contract: InputContract::Pure,
+                        this_contract: InputLiason::Pure,
                         input_parameters: &[],
                         output_ty: "datasets::cv::mnist::BinaryGrid28",
-                        output_contract: OutputLiason::Transfer,
+                        output_liason: OutputLiason::Transfer,
                         generic_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl { opt_source: None },
                     },
@@ -37,14 +37,14 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         name: "index",
                         subscopes: &[],
                         variant: EntityStaticDefnVariant::Method {
-                            this_contract: InputContract::MemberAccess,
+                            this_contract: InputLiason::MemberAccess,
                             input_parameters: &[StaticInputParameter {
-                                contract: InputContract::Pure,
+                                contract: InputLiason::Pure,
                                 ty: "i32",
                                 name: "todo!()",
                             }],
                             output_ty: "b32",
-                            output_contract: OutputLiason::MemberAccess,
+                            output_liason: OutputLiason::MemberAccess,
                             generic_parameters: &[],
                             kind: MethodStaticDefnVariant::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
@@ -121,7 +121,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         generic_placeholders: &[],
         input_placeholders: vec![],
         output_ty: "datasets::cv::mnist::BinaryGrid28",
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
         linkage: Linkage {
             call: |_values| Ok(StackValue::Owned(OwnedValue::new(BinaryGrid28::default()))),
             nargs: 0,
@@ -162,6 +162,15 @@ impl BinaryGrid28 {
     }
 }
 
+impl Serialize for BinaryGrid28 {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        todo!()
+    }
+}
+
 impl<'eval> AnyValue<'eval> for BinaryGrid28 {
     fn static_type_id() -> StaticTypeId {
         TypeId::of::<Self>().into()
@@ -177,5 +186,9 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
 
     fn print_short(&self) -> String {
         "BinaryGrid28 { ... }".into()
+    }
+
+    fn to_json_value(&self) -> serde_json::value::Value {
+        todo!()
     }
 }

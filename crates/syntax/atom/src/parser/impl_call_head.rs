@@ -7,7 +7,7 @@ use defn_head::{
 };
 use entity_route::*;
 use token::SemanticTokenKind;
-use vm::{InputContract, OutputLiason};
+use vm::{InputLiason, OutputLiason};
 use word::{IdentDict, RoutineKeyword};
 
 use super::*;
@@ -31,12 +31,12 @@ impl<'a> AtomParser<'a> {
             RoutineKeyword::Func => {
                 for input_placeholder in input_placeholders.iter() {
                     match input_placeholder.contract {
-                        InputContract::Pure | InputContract::GlobalRef | InputContract::Move => (),
-                        InputContract::BorrowMut | InputContract::MoveMut => {
+                        InputLiason::Pure | InputLiason::GlobalRef | InputLiason::Move => (),
+                        InputLiason::BorrowMut | InputLiason::MoveMut => {
                             todo!("report invalid input contract")
                         }
-                        InputContract::Exec => todo!(),
-                        InputContract::MemberAccess => todo!(),
+                        InputLiason::Exec => todo!(),
+                        InputLiason::MemberAccess => todo!(),
                     }
                 }
             }
@@ -53,7 +53,7 @@ impl<'a> AtomParser<'a> {
 
     pub fn method_decl(
         mut self,
-        this: InputContract,
+        this: InputLiason,
         routine_kind: RoutineKeyword,
     ) -> AtomResult<TypeMethodDefnHead> {
         let routine_name = get!(self, custom_ident);
@@ -67,7 +67,7 @@ impl<'a> AtomParser<'a> {
             generic_placeholders: generics,
             input_placeholders,
             output_ty,
-            output_contract: OutputLiason::Transfer,
+            output_liason: OutputLiason::Transfer,
         })
     }
 
@@ -123,7 +123,7 @@ impl<'a> AtomParser<'a> {
         };
         Ok(InputParameter {
             ident,
-            contract: InputContract::Pure,
+            contract: InputLiason::Pure,
             ranged_ty: ty,
         })
     }

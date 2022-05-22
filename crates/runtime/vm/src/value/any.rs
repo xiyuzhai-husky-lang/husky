@@ -1,4 +1,5 @@
 use print_utils::p;
+use serde::Serialize;
 
 use crate::*;
 use std::{any::TypeId, borrow::Cow, fmt::Debug, panic::RefUnwindSafe, sync::Arc};
@@ -64,6 +65,7 @@ pub trait AnyValue<'eval>:
     fn print_short(&self) -> String {
         format!("{:?}", self)
     }
+    fn to_json_value(&self) -> serde_json::value::Value;
 }
 
 // object safe trait
@@ -77,7 +79,9 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + 'eval {
     fn primitive(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval> + 'eval);
     fn print_short(&self) -> String;
-    unsafe fn take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>>; // consume the memory pointed at to create an Arc
+    // consume the memory pointed at to create an Arc
+    unsafe fn take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>>;
+    fn get_json_value_dyn(&self) -> serde_json::value::Value;
 }
 
 impl<'eval> dyn AnyValueDyn<'eval> {
@@ -145,6 +149,10 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         let this: Self = *Box::from_raw(ptr);
         Arc::new(this)
     }
+
+    fn get_json_value_dyn(&self) -> serde_json::value::Value {
+        self.to_json_value()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for () {
@@ -174,6 +182,9 @@ impl<'eval> AnyValue<'eval> for () {
 
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
+    }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::to_value(self).unwrap()
     }
 }
 
@@ -205,6 +216,9 @@ impl<'eval> AnyValue<'eval> for i32 {
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::to_value(self).unwrap()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for f32 {
@@ -234,6 +248,9 @@ impl<'eval> AnyValue<'eval> for f32 {
 
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
+    }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::to_value(self).unwrap()
     }
 }
 
@@ -269,6 +286,9 @@ impl<'eval> AnyValue<'eval> for u32 {
     fn print_short(&self) -> String {
         format!("{:#032b}", self)
     }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::to_value(self).unwrap()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for u64 {
@@ -303,6 +323,9 @@ impl<'eval> AnyValue<'eval> for u64 {
     fn print_short(&self) -> String {
         format!("{:#064b}", self)
     }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::to_value(self).unwrap()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for bool {
@@ -333,6 +356,9 @@ impl<'eval> AnyValue<'eval> for bool {
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::to_value(self).unwrap()
+    }
 }
 
 impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
@@ -346,6 +372,10 @@ impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
 
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
+    }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        todo!()
+        // serde_json::value::to_value(self).unwrap()
     }
 }
 
@@ -364,5 +394,8 @@ impl<'eval> AnyValue<'eval> for Vec<MemberValue<'eval>> {
 
     fn print_short(&self) -> String {
         format!("{{ len: {}, data: [...] }}", self.len(),)
+    }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
     }
 }

@@ -1,14 +1,15 @@
 mod control;
 mod graphics2d;
 
+use compile_time_db::HuskyLangCompileTime;
 pub use control::*;
 pub use graphics2d::*;
 
 use crate::*;
 use map_collect::MapCollect;
 use visual_runtime::RuntimeVisualizer;
-use visual_syntax::VisualProps;
-use vm::{CopyableValue, MutationData};
+use visual_syntax::{Point2dProps, VisualProps};
+use vm::{CopyableValue, MutationData, VMRuntimeResult};
 use word::Identifier;
 
 #[derive(Debug, Serialize, Clone)]
@@ -44,6 +45,7 @@ pub struct MutationFigureProps {
 
 impl<'eval> MutationFigureProps {
     pub fn new(
+        compile_time: &HuskyLangCompileTime,
         text: &Text,
         visualizer: &RuntimeVisualizer,
         mutation_data: &MutationData<'eval>,
@@ -54,11 +56,16 @@ impl<'eval> MutationFigureProps {
                 vm::MutationDataKind::Exec { range } => text.ranged(range),
                 vm::MutationDataKind::Block { varname, .. } => varname.as_str().to_string(),
             },
-            before: mutation_data
-                .before
-                .as_ref()
-                .map(|before| FigureProps::new_specific(visualizer.visualize(before.any_ref()))),
-            after: FigureProps::new_specific(visualizer.visualize(mutation_data.after.any_ref())),
+            before: if let Some(before) = mutation_data.before.as_ref() {
+                Some(FigureProps::new_specific(
+                    visualizer.visualize(compile_time, before.any_ref()),
+                ))
+            } else {
+                None
+            },
+            after: FigureProps::new_specific(
+                visualizer.visualize(compile_time, mutation_data.after.any_ref()),
+            ),
             idx,
         }
     }
@@ -80,6 +87,7 @@ impl FigureProps {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
+            VisualProps::Contour { points } => todo!(),
         }
     }
 
@@ -97,7 +105,7 @@ pub enum Plot2dKind {
 
 #[derive(Debug, Serialize, Clone)]
 pub struct Point2dGroup {
-    pub points: Vec<Point2d>,
+    pub points: Vec<Point2dProps>,
     pub color: Color,
 }
 
@@ -108,25 +116,4 @@ pub enum Color {
     Yellow,
     Green,
     Blue,
-}
-
-#[derive(Debug, Serialize, Clone)]
-pub struct Point2d {
-    pub x: f32,
-    pub y: f32,
-}
-
-impl Point2d {
-    pub fn from_ij28(i: usize, j: usize) -> Self {
-        Point2d {
-            x: j as f32 + 1.0,
-            y: 29.0 - i as f32,
-        }
-    }
-}
-
-#[derive(Debug, Serialize, Clone)]
-pub struct Vector2d {
-    x: f32,
-    y: f32,
 }

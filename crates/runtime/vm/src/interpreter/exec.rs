@@ -5,6 +5,8 @@ mod exec_loop;
 mod exec_opr_opn;
 mod exec_pattern_match;
 
+use std::iter::zip;
+
 use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
 use print_utils::{p, ps};
@@ -100,10 +102,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     control
                 }
-                InstructionKind::NewVirtualStruct {
-                    fields: ref field_vars,
-                } => {
-                    let control = self.new_virtual_struct(field_vars).into();
+                InstructionKind::NewVirtualStruct { ref fields } => {
+                    let control = self.new_virtual_struct(fields).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -157,11 +157,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 } => todo!(),
                 InstructionKind::FieldAccessInterpreted {
                     field_idx,
-                    contract,
+                    field_access_contract,
                 } => {
                     let this = self.stack.pop();
                     self.stack
-                        .push(this.field_var(field_idx as usize, contract));
+                        .push(this.field(field_idx as usize, field_access_contract));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -193,7 +193,34 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionKind::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
                 }
-                InstructionKind::NewXml { .. } => todo!(),
+                InstructionKind::NewXml {
+                    name,
+                    ref props,
+                    n_child_expr,
+                } => {
+                    if n_child_expr > 0 {
+                        todo!()
+                    }
+                    let arguments = self.stack.drain(props.len().try_into().unwrap());
+                    let xml_value = XmlValue {
+                        name: name.to_string(),
+                        props: zip(
+                            props.iter().map(|ident| *ident),
+                            arguments
+                                .into_iter()
+                                .map(|argument| argument.to_json_value()),
+                        )
+                        .collect(),
+                    };
+                    self.stack
+                        .push(StackValue::Owned(OwnedValue::new(xml_value)));
+                    match mode {
+                        Mode::Fast => (),
+                        Mode::TrackMutation => todo!(),
+                        Mode::TrackHistory => todo!(),
+                    }
+                    VMControl::None
+                }
             };
             match control {
                 VMControl::None => (),

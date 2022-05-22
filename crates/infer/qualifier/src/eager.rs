@@ -38,11 +38,11 @@ impl EagerQualifiedTy {
     }
     pub(crate) fn from_input(
         db: &dyn InferQualifiedTyQueryGroup,
-        input_contract: InputContract,
+        input_liason: InputLiason,
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
         Ok(EagerQualifiedTy::new(
-            EagerQualifier::from_input(input_contract, db.is_copyable(ty)?),
+            EagerQualifier::from_input(input_liason, db.is_copyable(ty)?),
             ty,
         ))
     }
@@ -93,13 +93,13 @@ impl EagerQualifiedTy {
     pub fn is_implicitly_castable_to_output(
         self,
         db: &dyn InferQualifiedTyQueryGroup,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
         output_ty: EntityRoutePtr,
     ) -> bool {
         if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
-        match output_contract {
+        match output_liason {
             OutputLiason::Transfer => match self.qual {
                 EagerQualifier::PureRef | EagerQualifier::LocalRef => false,
                 EagerQualifier::Transient
@@ -233,31 +233,31 @@ impl EagerQualifier {
         }
     }
 
-    pub fn from_input(input_contract: InputContract, is_copyable: bool) -> Self {
-        match input_contract {
-            InputContract::Pure => {
+    pub fn from_input(input_liason: InputLiason, is_copyable: bool) -> Self {
+        match input_liason {
+            InputLiason::Pure => {
                 if is_copyable {
                     EagerQualifier::Copyable
                 } else {
                     EagerQualifier::PureRef
                 }
             }
-            InputContract::GlobalRef => todo!(),
-            InputContract::Move => todo!(),
-            InputContract::BorrowMut => todo!(),
-            InputContract::MoveMut => todo!(),
-            InputContract::Exec => todo!(),
-            InputContract::MemberAccess => todo!(),
+            InputLiason::GlobalRef => todo!(),
+            InputLiason::Move => todo!(),
+            InputLiason::BorrowMut => todo!(),
+            InputLiason::MoveMut => todo!(),
+            InputLiason::Exec => todo!(),
+            InputLiason::MemberAccess => todo!(),
         }
     }
 
     pub fn from_field(
         this_qual: EagerQualifier,
-        field_contract: FieldContract,
+        field_liason: FieldLiason,
         is_field_copyable: bool,
     ) -> InferResult<Self> {
         Ok(if is_field_copyable {
-            if this_qual.mutable() && field_contract.mutable() {
+            if this_qual.mutable() && field_liason.mutable() {
                 EagerQualifier::CopyableMut
             } else {
                 EagerQualifier::Copyable
@@ -268,28 +268,28 @@ impl EagerQualifier {
                 EagerQualifier::PureRef => EagerQualifier::PureRef,
                 EagerQualifier::GlobalRef => EagerQualifier::GlobalRef,
                 EagerQualifier::LocalRef => EagerQualifier::LocalRef,
-                EagerQualifier::Transient => match field_contract {
-                    FieldContract::Own => todo!(),
-                    FieldContract::GlobalRef => todo!(),
-                    FieldContract::LazyOwn => todo!(),
+                EagerQualifier::Transient => match field_liason {
+                    FieldLiason::Own => todo!(),
+                    FieldLiason::GlobalRef => todo!(),
+                    FieldLiason::LazyOwn => todo!(),
                 },
-                EagerQualifier::Owned => match field_contract {
-                    FieldContract::Own => todo!(),
-                    FieldContract::GlobalRef => todo!(),
-                    FieldContract::LazyOwn => todo!(),
+                EagerQualifier::Owned => match field_liason {
+                    FieldLiason::Own => todo!(),
+                    FieldLiason::GlobalRef => todo!(),
+                    FieldLiason::LazyOwn => todo!(),
                 },
-                EagerQualifier::OwnedMut => match field_contract {
-                    FieldContract::Own => todo!(),
-                    FieldContract::GlobalRef => todo!(),
-                    FieldContract::LazyOwn => todo!(),
+                EagerQualifier::OwnedMut => match field_liason {
+                    FieldLiason::Own => todo!(),
+                    FieldLiason::GlobalRef => todo!(),
+                    FieldLiason::LazyOwn => todo!(),
                 },
                 EagerQualifier::RefMut => todo!(),
             }
         })
     }
 
-    pub fn from_output(output_contract: OutputLiason, is_copyable: bool) -> Self {
-        match output_contract {
+    pub fn from_output(output_liason: OutputLiason, is_copyable: bool) -> Self {
+        match output_liason {
             OutputLiason::Transfer => Self::transitive(is_copyable),
             OutputLiason::MemberAccess => todo!(),
         }

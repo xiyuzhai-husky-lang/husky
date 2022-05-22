@@ -122,7 +122,7 @@ impl<'a> Formatter<'a> {
                     let input_placeholder = &head.parameters[i];
                     self.fmt_ident(input_placeholder.ident.ident.into());
                     self.write(": ");
-                    self.fmt_func_input_contracted_type(input_placeholder);
+                    self.fmt_func_input_liasoned_type(input_placeholder);
                 }
                 self.write(")");
                 if head.output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
@@ -132,10 +132,10 @@ impl<'a> Formatter<'a> {
                 self.write(":");
             }
             AstKind::PatternDefnHead => todo!(),
-            AstKind::FieldDefnHead(ref field_var) => {
-                self.fmt_ident(field_var.ident.ident.into());
+            AstKind::FieldDefnHead(ref field) => {
+                self.fmt_ident(field.ident.ident.into());
                 self.write(": ");
-                self.fmt_member_variable_contracted_type(field_var.contract, field_var.ty)
+                self.fmt_member_variable_contracted_type(field.contract, field.ty)
             }
             AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstKind::DatasetConfigDefnHead => todo!(),
@@ -156,24 +156,24 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_member_variable_contracted_type(&mut self, contract: FieldContract, ty: EntityRoutePtr) {
+    fn fmt_member_variable_contracted_type(&mut self, contract: FieldLiason, ty: EntityRoutePtr) {
         match contract {
-            FieldContract::Own => (),
-            FieldContract::GlobalRef => self.write("&"),
-            FieldContract::LazyOwn => todo!(),
+            FieldLiason::Own => (),
+            FieldLiason::GlobalRef => self.write("&"),
+            FieldLiason::LazyOwn => todo!(),
         }
         self.fmt_ty(ty);
     }
 
-    fn fmt_func_input_contracted_type(&mut self, ty: &InputParameter) {
+    fn fmt_func_input_liasoned_type(&mut self, ty: &InputParameter) {
         match ty.contract {
-            InputContract::Pure => (),
-            InputContract::GlobalRef => self.write("&"),
-            InputContract::Move => self.write("!"),
-            InputContract::BorrowMut => self.write("mut &"),
-            InputContract::MoveMut => self.write("mut !"),
-            InputContract::Exec => todo!(),
-            InputContract::MemberAccess => todo!(),
+            InputLiason::Pure => (),
+            InputLiason::GlobalRef => self.write("&"),
+            InputLiason::Move => self.write("!"),
+            InputLiason::BorrowMut => self.write("mut &"),
+            InputLiason::MoveMut => self.write("mut !"),
+            InputLiason::Exec => todo!(),
+            InputLiason::MemberAccess => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.route);
     }

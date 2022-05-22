@@ -74,18 +74,18 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn lazy_field_var(mut self, field_idx: usize, contract: LazyContract) -> EvalValue<'eval> {
+    pub fn lazy_field(mut self, field_idx: usize, contract: LazyContract) -> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(_) => panic!("primitive doesn't have member variables"),
             EvalValue::Owned(value) => {
                 let mut value: VirtualTy = value.take().unwrap();
-                value.take_field_var(field_idx).into_eval()
+                value.take_field(field_idx).into_eval()
             }
             EvalValue::GlobalPure(_) => panic!("expect global ref"),
             EvalValue::GlobalRef(value) => unsafe {
                 value
                     .downcast_ref::<VirtualTy<'eval>>()
-                    .eval_field_var(field_idx)
+                    .eval_field(field_idx)
                     .share_globally()
             },
             EvalValue::Undefined => todo!(),
@@ -117,7 +117,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => value.any_ref(),
             EvalValue::Owned(value) => value.any_ref(),
             EvalValue::GlobalPure(value) => &**value,
-            EvalValue::GlobalRef(_) => todo!(),
+            EvalValue::GlobalRef(value) => *value,
             EvalValue::Undefined => todo!(),
         }
     }

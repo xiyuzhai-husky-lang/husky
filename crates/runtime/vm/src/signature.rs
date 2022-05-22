@@ -7,7 +7,7 @@ use crate::*;
 pub enum TySignature {
     Enum,
     Struct {
-        field_vars: IdentDict<(CustomIdentifier, FieldContract)>,
+        fields: IdentDict<(CustomIdentifier, FieldLiason)>,
     },
     Vec,
 }

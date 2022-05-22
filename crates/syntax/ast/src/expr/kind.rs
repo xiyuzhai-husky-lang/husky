@@ -17,7 +17,7 @@ pub enum RawExprVariant {
     },
     This {
         opt_ty: Option<EntityRoutePtr>,
-        opt_contract: Option<InputContract>,
+        opt_contract: Option<InputLiason>,
     },
     Unrecognized(CustomIdentifier),
     Entity {

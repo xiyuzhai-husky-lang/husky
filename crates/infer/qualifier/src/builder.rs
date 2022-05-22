@@ -103,7 +103,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             &head.input_placeholders,
                             children,
                             Some(head.output_ty.route),
-                            head.output_contract,
+                            head.output_liason,
                         ),
                         AstKind::FeatureDecl { ty, .. } => self.infer_morphism(
                             &arena,

@@ -1,14 +1,18 @@
 mod any;
 mod copyable;
+mod enum_kind;
 mod eval;
 mod member;
 mod owned;
+mod xml;
 
 pub use any::*;
 pub use copyable::*;
+pub use enum_kind::*;
 pub use eval::{EvalResult, EvalValue};
 pub use member::*;
 pub use owned::*;
+pub use xml::*;
 
 use crate::*;
 use print_utils::{msg_once, p};
@@ -78,6 +82,18 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
             }
         }
         result
+    }
+
+    pub fn to_json_value(self) -> serde_json::value::Value {
+        match self {
+            StackValue::Moved => todo!(),
+            StackValue::Copyable(_) => todo!(),
+            StackValue::Owned(_) => todo!(),
+            StackValue::GlobalPure(_) => todo!(),
+            StackValue::GlobalRef(_) => todo!(),
+            StackValue::LocalRef(value) => value.get_json_value_dyn(),
+            StackValue::RefMut { value, owner, gen } => todo!(),
+        }
     }
 }
 
@@ -159,14 +175,14 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     pub(crate) unsafe fn bind(&mut self, binding: Binding, stack_idx: StackIdx) -> Self {
         match binding {
-            Binding::Ref => self.bind_ref(stack_idx),
+            Binding::Ref => self.bind_ref(),
             Binding::RefMut => self.bind_ref_mut(stack_idx),
             Binding::Move => self.bind_move(),
             Binding::Copy => self.bind_copy(),
         }
     }
 
-    unsafe fn bind_ref(&self, owner: StackIdx) -> Self {
+    unsafe fn bind_ref(&self) -> Self {
         match self {
             StackValue::Moved => panic!(),
             StackValue::Copyable(_) => panic!(),
@@ -179,7 +195,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 StackValue::LocalRef(&*ptr)
             }
             StackValue::GlobalRef(value) => StackValue::GlobalRef(*value),
-            StackValue::LocalRef { .. } => panic!(),
+            StackValue::LocalRef(value) => StackValue::LocalRef(*value),
             StackValue::RefMut { value, owner, gen } => todo!(),
         }
     }
@@ -408,26 +424,30 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         self.any_ref().static_type_id_dyn()
     }
 
-    pub fn field_var(self, field_idx: usize, contract: EagerContract) -> StackValue<'stack, 'eval> {
+    pub fn field(
+        self,
+        field_idx: usize,
+        field_access_contract: EagerContract,
+    ) -> StackValue<'stack, 'eval> {
         match self {
             StackValue::Moved => todo!(),
             StackValue::Copyable(_) => todo!(),
             StackValue::Owned(boxed_value) => {
                 let mut value: VirtualTy = boxed_value.take().unwrap();
-                value.take_field_var(field_idx)
+                value.take_field(field_idx)
             }
             StackValue::GlobalPure(_) => todo!(),
             StackValue::GlobalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_field_var(field_idx, contract)
+                value.eager_field(field_idx, field_access_contract)
             }
             StackValue::LocalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_field_var(field_idx, contract)
+                value.eager_field(field_idx, field_access_contract)
             }
             StackValue::RefMut { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
-                virtual_value.field_var_mut(field_idx, contract, owner)
+                virtual_value.field_mut(field_idx, field_access_contract, owner)
             }
         }
     }

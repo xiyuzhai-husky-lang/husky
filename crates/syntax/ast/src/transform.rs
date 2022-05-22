@@ -24,7 +24,7 @@ use file::FilePtr;
 use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
 use text::TextRanged;
 use token::*;
-use vm::InputContract;
+use vm::InputLiason;
 
 pub type AstIter<'a> = FoldIter<'a, AstResult<Ast>, FoldedList<AstResult<Ast>>>;
 
@@ -36,7 +36,7 @@ pub struct AstTransformer<'a> {
     symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
     opt_this_ty: LocalValue<Option<EntityRoutePtr>>,
-    opt_this_contract: LocalValue<Option<InputContract>>,
+    opt_this_contract: LocalValue<Option<InputLiason>>,
     folded_results: FoldedList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
 }

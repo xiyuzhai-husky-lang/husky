@@ -175,8 +175,8 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::FieldAccess(ranged_ident) => {
                 let this_ty_decl = self.raw_expr_ty_decl(opd)?;
-                let this_contract = match this_ty_decl.field_decl(ranged_ident)?.contract {
-                    FieldContract::Own => match contract {
+                let this_contract = match this_ty_decl.field_decl(ranged_ident)?.liason {
+                    FieldLiason::Own => match contract {
                         LazyContract::Move => LazyContract::Move,
                         LazyContract::GlobalRef => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
@@ -185,8 +185,8 @@ impl<'a> ContractSheetBuilder<'a> {
                         LazyContract::UseMemberForInit => todo!(),
                         LazyContract::UseMemberForReturn => todo!(),
                     },
-                    FieldContract::GlobalRef => todo!(),
-                    FieldContract::LazyOwn => match contract {
+                    FieldLiason::GlobalRef => todo!(),
+                    FieldLiason::LazyOwn => match contract {
                         LazyContract::GlobalRef => todo!(),
                         LazyContract::Pure => LazyContract::Pure,
                         LazyContract::Init => todo!(),

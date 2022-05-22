@@ -93,7 +93,7 @@ impl EntityDefnVariant {
                 this_contract,
                 input_parameters: inputs,
                 output_ty,
-                output_contract,
+                output_liason,
                 generic_parameters: generic_placeholders,
                 ref kind,
             } => {
@@ -125,7 +125,7 @@ impl EntityDefnVariant {
                         range: Default::default(),
                     },
                     this_contract,
-                    output_contract,
+                    output_liason,
                     method_variant,
                     generic_placeholders: generic_placeholders.map(|generic_placeholder| {
                         GenericPlaceholder::from_static(context.db, generic_placeholder)

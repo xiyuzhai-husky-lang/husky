@@ -27,10 +27,10 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "trailing_zeros",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::Pure,
+        this_contract: InputLiason::Pure,
         input_parameters: &[],
         output_ty: "i32",
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
@@ -50,14 +50,14 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
     name: "last_bits",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputContract::Pure,
+        this_contract: InputLiason::Pure,
         input_parameters: &[StaticInputParameter {
             name: "k",
-            contract: InputContract::Pure,
+            contract: InputLiason::Pure,
             ty: "i32",
         }],
         output_ty: "b32",
-        output_contract: OutputLiason::Transfer,
+        output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {

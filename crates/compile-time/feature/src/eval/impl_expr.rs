@@ -36,7 +36,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                     todo!()
                 } else {
                     let this_value = self.eval_feature_expr(this)?;
-                    Ok(unsafe { this_value.lazy_field_var(field_idx, contract) })
+                    Ok(unsafe { this_value.lazy_field(field_idx, contract) })
                 }
             }
             FeatureExprKind::RoutineCall {

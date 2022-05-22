@@ -39,7 +39,7 @@ use std::sync::Arc;
 use text::*;
 use vec_map::HasKey;
 use visual_semantics::VisualizerSource;
-use vm::{FieldContract, InputContract, Linkage, OutputLiason};
+use vm::{FieldLiason, InputLiason, Linkage, OutputLiason};
 use word::{CustomIdentifier, IdentDict, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -173,15 +173,15 @@ pub enum EntityDefnVariant {
     Builtin,
     TypeField {
         ty: EntityRoutePtr,
-        field_variant: FieldDefnVariant,
-        contract: FieldContract,
+        fieldiant: FieldDefnVariant,
+        contract: FieldLiason,
     },
     Method {
         generic_placeholders: IdentDict<GenericPlaceholder>,
-        this_contract: InputContract,
+        this_contract: InputLiason,
         input_placeholders: Arc<Vec<InputParameter>>,
         output_ty: RangedEntityRoute,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
         method_variant: MethodDefnVariant,
     },
     TraitAssociatedTypeImpl {
@@ -261,7 +261,7 @@ impl EntityDefnVariant {
                 this_contract,
                 input_parameters: input_placeholders,
                 output_ty,
-                output_contract,
+                output_liason,
                 generic_parameters: generic_placeholders,
                 ref kind,
             } => EntityDefnVariant::Method {
@@ -276,7 +276,7 @@ impl EntityDefnVariant {
                     route: symbol_context.entity_route_from_str(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                output_contract,
+                output_liason,
                 method_variant: MethodDefnVariant::from_static(symbol_context, kind),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),

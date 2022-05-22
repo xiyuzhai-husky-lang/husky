@@ -39,10 +39,10 @@ impl<'eval> FeatureSheet<'eval> {
     //     let object = match entity.kind() {
     //         EntityKind::Ty(ty) => match ty.kind {
     //             TyKind::Record {
-    //                 ref field_vars,
+    //                 ref fields,
     //                 ref field_features,
     //             } => {
-    //                 assert!(field_vars.len() == opds.len());
+    //                 assert!(fields.len() == opds.len());
     //                 let field_features = field_features
     //                     .iter()
     //                     .map(|(_ident, defn)| {
@@ -50,7 +50,7 @@ impl<'eval> FeatureSheet<'eval> {
     //                     })
     //                     .collect();
     //                 Object {
-    //                     field_vars: opds.to_vec(),
+    //                     fields: opds.to_vec(),
     //                     field_features,
     //                 }
     //             }

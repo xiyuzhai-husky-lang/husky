@@ -100,6 +100,15 @@ impl<'eval> SimpleSyntheticDataset<'eval> {
     }
 }
 
+impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        todo!()
+    }
+}
+
 impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
     fn static_type_id() -> StaticTypeId {
         todo!()
@@ -113,9 +122,9 @@ impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
         todo!()
     }
 
-    // fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
-    //     todo!()
-    // }
+    fn to_json_value(&self) -> serde_json::value::Value {
+        todo!()
+    }
 }
 
 impl<'eval> SyntheticDataset<'eval> for SimpleSyntheticDataset<'eval> {

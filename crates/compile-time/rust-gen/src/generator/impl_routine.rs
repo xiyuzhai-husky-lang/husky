@@ -1,6 +1,6 @@
 use entity_route::EntityRoutePtr;
 use semantics_eager::{FuncStmt, ProcStmt};
-use vm::InputContract;
+use vm::InputLiason;
 use word::CustomIdentifier;
 
 use super::*;
@@ -23,7 +23,7 @@ impl<'a> RustGenerator<'a> {
             self.write(&input_placeholder.ident.ident);
             self.write(": ");
             match input_placeholder.contract {
-                InputContract::Pure => {
+                InputLiason::Pure => {
                     if !self
                         .db
                         .is_copyable(input_placeholder.ranged_ty.route)
@@ -32,12 +32,12 @@ impl<'a> RustGenerator<'a> {
                         self.write("&")
                     }
                 }
-                InputContract::GlobalRef => todo!(),
-                InputContract::Move => todo!(),
-                InputContract::BorrowMut => todo!(),
-                InputContract::MoveMut => todo!(),
-                InputContract::Exec => todo!(),
-                InputContract::MemberAccess => todo!(),
+                InputLiason::GlobalRef => todo!(),
+                InputLiason::Move => todo!(),
+                InputLiason::BorrowMut => todo!(),
+                InputLiason::MoveMut => todo!(),
+                InputLiason::Exec => todo!(),
+                InputLiason::MemberAccess => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);
         }
@@ -65,7 +65,7 @@ impl<'a> RustGenerator<'a> {
             self.write(&input_placeholder.ident.ident);
             self.write(": ");
             match input_placeholder.contract {
-                InputContract::Pure => {
+                InputLiason::Pure => {
                     if !self
                         .db
                         .is_copyable(input_placeholder.ranged_ty.route)
@@ -74,12 +74,12 @@ impl<'a> RustGenerator<'a> {
                         self.write("&")
                     }
                 }
-                InputContract::GlobalRef => todo!(),
-                InputContract::Move => todo!(),
-                InputContract::BorrowMut => todo!(),
-                InputContract::MoveMut => todo!(),
-                InputContract::Exec => todo!(),
-                InputContract::MemberAccess => todo!(),
+                InputLiason::GlobalRef => todo!(),
+                InputLiason::Move => todo!(),
+                InputLiason::BorrowMut => todo!(),
+                InputLiason::MoveMut => todo!(),
+                InputLiason::Exec => todo!(),
+                InputLiason::MemberAccess => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);
         }

@@ -1,6 +1,7 @@
 use crate::*;
 use entity_syntax::EntityLocus;
 use instruction_gen::new_visual_instruction_sheet;
+use print_utils::p;
 use semantics_entity::EntityDefnVariant;
 use static_defn::EntityStaticDefnVariant;
 use visual_semantics::VisualizerSource;

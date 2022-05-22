@@ -6,7 +6,7 @@ struct RawContour:
     points: []Point2d
 
     visual:
-        <Contour points = {this.points} />
+        <Contour points={this.points} />
 
 enum Direction:
     UP

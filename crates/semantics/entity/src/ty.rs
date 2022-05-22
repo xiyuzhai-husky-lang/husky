@@ -58,20 +58,20 @@ impl EntityDefnVariant {
                 input_placeholders: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
-                        ref field_variant,
+                        ref fieldiant,
                         contract,
-                    } => match field_variant {
+                    } => match fieldiant {
                         FieldDefnVariant::RecordOriginal => InputParameter {
                             ident,
                             contract:
-                                contract.constructor_input_contract(db.is_copyable(ty).unwrap()),
+                                contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
                             ranged_ty: RangedEntityRoute {
                                 route: ty,
                                 range: Default::default(),
                             },
                         },
                         _ => {
-                            p!(field_variant);
+                            p!(fieldiant);
                             panic!()
                         }
                     },
@@ -87,13 +87,13 @@ impl EntityDefnVariant {
                 input_placeholders: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
-                        ref field_variant,
+                        ref fieldiant,
                         contract,
-                    } => match field_variant {
+                    } => match fieldiant {
                         FieldDefnVariant::StructOriginal => InputParameter {
                             ident,
                             contract:
-                                contract.constructor_input_contract(db.is_copyable(ty).unwrap()),
+                                contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
                             ranged_ty: RangedEntityRoute {
                                 route: ty,
                                 range: Default::default(),
@@ -116,7 +116,6 @@ impl EntityDefnVariant {
         };
 
         let opt_visualizer_source = Self::collect_visual_source(db, arena, file, ty, &mut children);
-
         Self::collect_other_members(db, arena, file, ty, children, &mut ty_members)?;
         Ok(EntityDefnVariant::new_ty(
             generic_placeholders,
@@ -270,7 +269,7 @@ impl EntityDefnVariant {
         //     match subitem.value.as_ref()?.kind {
         //         AstKind::Use { .. } => (),
         //         AstKind::RoutineDefnHead(_) => todo!(),
-        //         AstKind::FieldDefn(ref field_var_defn) => fields.insert_new(field_var_defn.clone()),
+        //         AstKind::FieldDefn(ref field_defn) => fields.insert_new(field_defn.clone()),
         //         AstKind::MembFeatureDefnHead { ident, ty } => {
         //             let stmts = semantics_lazy::parse_lazy_stmts(
         //                 &[],

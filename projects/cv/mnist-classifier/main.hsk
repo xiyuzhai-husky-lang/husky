@@ -16,4 +16,5 @@ main:
     connected_components = find_connected_components(input)
     connected_component = connected_components[0]
     raw_contours = find_raw_contours(connected_component)
+    raw_contour0 = raw_contours[0]
     raw_contours.len()

@@ -9,7 +9,7 @@ pub use ty::*;
 
 use entity_kind::{EntityKind, MemberKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
-use vm::{InputContract, Linkage, OutputLiason};
+use vm::{InputLiason, Linkage, OutputLiason};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
@@ -25,7 +25,7 @@ pub enum EntityStaticDefnVariant {
         generic_placeholders: &'static [StaticGenericPlaceholder],
         input_placeholders: Vec<StaticInputParameter>,
         output_ty: &'static str,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
         linkage: Linkage,
         routine_kind: RoutineKind,
     },
@@ -46,13 +46,13 @@ pub enum EntityStaticDefnVariant {
     },
     Module,
     TypeField {
-        field_variant: StaticFieldVariant,
+        fieldiant: StaticFieldVariant,
     },
     Method {
-        this_contract: InputContract,
+        this_contract: InputLiason,
         input_parameters: &'static [StaticInputParameter],
         output_ty: &'static str,
-        output_contract: OutputLiason,
+        output_liason: OutputLiason,
         generic_parameters: &'static [StaticGenericPlaceholder],
         kind: MethodStaticDefnVariant,
     },

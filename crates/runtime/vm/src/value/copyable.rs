@@ -20,61 +20,20 @@ pub enum CopyableValue {
     EnumKind(EnumKindValue),
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct EnumKindValue {
-    pub kind_idx: u8,
-    pub route: EntityRoutePtr,
-}
-
-impl<'eval> AnyValue<'eval> for EnumKindValue {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<EntityRoutePtr>().into()
-    }
-
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
-        "EntityRoutePtr".into()
-    }
-
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-        panic!()
-    }
-
-    fn as_copyable(&self) -> CopyableValue {
-        CopyableValue::EnumKind(*self)
-    }
-
-    fn from_stack<'stack>(stack_value: StackValue<'stack, 'eval>) -> Self {
-        match stack_value {
-            StackValue::Copyable(CopyableValue::EnumKind(enum_kind)) => enum_kind,
-            _ => {
-                p!(Self::static_type_name());
-                p!(stack_value);
-                panic!()
-            }
-        }
-    }
-}
-
 impl Serialize for CopyableValue {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
     {
-        // 3 is the number of fields in the struct.
-        let mut state = serializer.serialize_struct("PrimitiveValue", 3)?;
-        let kind = match self {
-            CopyableValue::I32(value) => "I32",
-            CopyableValue::F32(_) => "F32",
-            CopyableValue::B32(_) => "B32",
-            CopyableValue::B64(_) => "B64",
-            CopyableValue::Bool(_) => "Bool",
-            CopyableValue::Void(_) => "Void",
-            CopyableValue::EnumKind(_) => "EnumKind",
-        };
-        let value: Cow<'static, str> = (*self).into();
-        state.serialize_field("kind", &kind)?;
-        state.serialize_field("value", &value)?;
-        state.end()
+        match self {
+            CopyableValue::I32(value) => value.serialize(serializer),
+            CopyableValue::F32(value) => value.serialize(serializer),
+            CopyableValue::B32(value) => value.serialize(serializer),
+            CopyableValue::B64(value) => value.serialize(serializer),
+            CopyableValue::Bool(value) => value.serialize(serializer),
+            CopyableValue::Void(value) => value.serialize(serializer),
+            CopyableValue::EnumKind(value) => value.serialize(serializer),
+        }
     }
 }
 

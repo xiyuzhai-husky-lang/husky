@@ -8,7 +8,7 @@ use entity_route::EntityRoutePtr;
 use semantics_eager::FuncStmt;
 use std::sync::Arc;
 use visual_syntax::{StaticVisualizer, VisualProps};
-use vm::{AnyValueDyn, InstructionSheet};
+use vm::{eval_fast, AnyValueDyn, InstructionSheet, StackValue, VMRuntimeResult, XmlValue};
 
 #[derive(Clone)]
 pub enum RuntimeVisualizer {
@@ -20,10 +20,27 @@ pub enum RuntimeVisualizer {
 }
 
 impl RuntimeVisualizer {
-    pub fn visualize<'a, 'eval>(&self, value: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
+    pub fn visualize<'a, 'eval>(
+        &self,
+        compile_time: &HuskyLangCompileTime,
+        value: &(dyn AnyValueDyn<'eval> + 'eval),
+    ) -> VisualProps {
         match self {
             RuntimeVisualizer::Compiled(compiled) => compiled(value),
-            RuntimeVisualizer::Interpreted { .. } => todo!(),
+            RuntimeVisualizer::Interpreted {
+                instruction_sheet, ..
+            } => match eval_fast(
+                compile_time,
+                vec![Ok(StackValue::LocalRef(value))].into_iter(),
+                Some(instruction_sheet),
+                None,
+            ) {
+                Ok(value) => {
+                    let xml_value: XmlValue = value.owned().unwrap().take().unwrap();
+                    VisualProps::from_xml_value(xml_value)
+                }
+                Err(_) => todo!(),
+            },
         }
     }
 }

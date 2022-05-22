@@ -2,7 +2,7 @@ use entity_route::{EntityKind, RangedEntityRoute};
 use text::*;
 use token::Special;
 use vm::{
-    BinaryOpr, Bracket, CopyableValue, InputContract, ListEndAttr, ListStartAttr, PrefixOpr,
+    BinaryOpr, Bracket, CopyableValue, InputLiason, ListEndAttr, ListStartAttr, PrefixOpr,
     PureBinaryOpr, SuffixOpr,
 };
 use word::{CustomIdentifier, WordOpr};
@@ -25,7 +25,7 @@ pub enum AtomVariant {
     },
     ThisData {
         opt_ty: Option<EntityRoutePtr>,
-        opt_contract: Option<InputContract>,
+        opt_contract: Option<InputLiason>,
     },
     Unrecognized(CustomIdentifier),
     PrimitiveLiteral(CopyableValue),

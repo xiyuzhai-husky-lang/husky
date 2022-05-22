@@ -3,13 +3,13 @@ use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
 use vec_map::HasKey;
-use vm::FieldContract;
+use vm::FieldLiason;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FieldDecl {
     pub ident: CustomIdentifier,
-    pub contract: FieldContract,
+    pub liason: FieldLiason,
     pub ty: EntityRoutePtr,
     pub kind: FieldKind,
 }
@@ -21,11 +21,11 @@ impl FieldDecl {
 
     pub fn from_static(db: &dyn DeclQueryGroup, static_decl: &EntityStaticDefn) -> Self {
         match static_decl.variant {
-            EntityStaticDefnVariant::TypeField { ref field_variant } => Self {
+            EntityStaticDefnVariant::TypeField { ref fieldiant } => Self {
                 ident: db.intern_word(static_decl.name).custom(),
-                contract: todo!(),
+                liason: todo!(),
                 ty: todo!(),
-                kind: match *field_variant {},
+                kind: match *fieldiant {},
             },
             _ => panic!(""),
         }
@@ -34,7 +34,7 @@ impl FieldDecl {
     pub fn from_ast(field_defn_head: &FieldDefnHead) -> Arc<Self> {
         Arc::new(Self {
             ident: field_defn_head.ident.ident,
-            contract: field_defn_head.contract,
+            liason: field_defn_head.contract,
             ty: field_defn_head.ty,
             kind: field_defn_head.kind,
         })

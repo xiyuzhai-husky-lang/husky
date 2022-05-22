@@ -26,7 +26,7 @@ pub enum EagerOpnVariant {
     },
     PatternCall,
     FieldAccess {
-        field_contract: FieldContract,
+        field_liason: FieldLiason,
     },
     MethodCall {
         method_ident: RangedCustomIdentifier,

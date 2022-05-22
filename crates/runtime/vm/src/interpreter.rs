@@ -86,10 +86,13 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         Ok(())
     }
 
-    fn new_virtual_struct(&mut self, field_vars: &[FieldContract]) -> VMRuntimeResult<()> {
-        let inputs = self.stack.drain(field_vars.len().try_into().unwrap());
+    fn new_virtual_struct(
+        &mut self,
+        fields: &[(CustomIdentifier, FieldLiason)],
+    ) -> VMRuntimeResult<()> {
+        let inputs = self.stack.drain(fields.len().try_into().unwrap());
         self.stack
-            .push(VirtualTy::new_struct(inputs, field_vars).into());
+            .push(VirtualTy::new_struct(inputs, fields).into());
         Ok(())
     }
 

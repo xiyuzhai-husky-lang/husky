@@ -8,13 +8,13 @@ use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use print_utils::p;
 use vec_map::HasKey;
-use vm::InputContract;
+use vm::InputLiason;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct MethodDecl {
     pub ident: CustomIdentifier,
-    pub this_contract: InputContract,
+    pub this_contract: InputLiason,
     pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
@@ -100,7 +100,7 @@ impl MethodDecl {
                 this_contract,
                 input_parameters: inputs,
                 output_ty,
-                output_contract,
+                output_liason,
                 generic_parameters: generic_placeholders,
                 ref kind,
             } => {
@@ -111,7 +111,7 @@ impl MethodDecl {
                     parameters: inputs
                         .map(|input| InputDecl::from_static(db, input, symbol_context)),
                     output: OutputDecl {
-                        liason: output_contract,
+                        liason: output_liason,
                         ty: output_ty,
                     },
                     generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
@@ -131,7 +131,7 @@ impl MethodDecl {
                 .input_placeholders
                 .map(|input_placeholder| input_placeholder.into()),
             output: OutputDecl {
-                liason: method_defn_head.output_contract,
+                liason: method_defn_head.output_liason,
                 ty: method_defn_head.output_ty.route,
             },
             this_contract: method_defn_head.this_contract,

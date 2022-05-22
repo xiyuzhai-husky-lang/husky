@@ -4,7 +4,7 @@ use word::IdentDict;
 
 #[derive(Debug, Clone)]
 pub struct Object {
-    pub field_vars: Vec<Arc<FeatureExpr>>,
+    pub fields: Vec<Arc<FeatureExpr>>,
     pub field_features: Vec<Arc<FeatureBlock>>,
 }
 

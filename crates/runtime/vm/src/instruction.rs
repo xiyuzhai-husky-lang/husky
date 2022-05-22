@@ -17,7 +17,7 @@ use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 use text::TextRange;
-use word::{CustomIdentifier, Identifier};
+use word::{CustomIdentifier, IdentPairDict, Identifier};
 
 #[derive(Debug)]
 pub struct Instruction {
@@ -76,7 +76,7 @@ pub enum InstructionKind {
     },
     FieldAccessInterpreted {
         field_idx: u8,
-        contract: EagerContract,
+        field_access_contract: EagerContract,
     },
     RoutineCallCompiled {
         linkage: Linkage,
@@ -86,7 +86,7 @@ pub enum InstructionKind {
         nargs: u8,
     },
     NewVirtualStruct {
-        fields: Vec<FieldContract>,
+        fields: IdentPairDict<FieldLiason>,
     },
     OprOpn {
         opn: OprOpn,

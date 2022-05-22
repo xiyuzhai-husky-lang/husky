@@ -130,8 +130,8 @@ impl TyDecl {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
                                 inputs.push(InputDecl {
                                     contract: field_decl
-                                        .contract
-                                        .constructor_input_contract(db.is_copyable(field_decl.ty)?),
+                                        .liason
+                                        .constructor_input_liason(db.is_copyable(field_decl.ty)?),
                                     ty: field_decl.ty,
                                     ident: field_decl.ident,
                                 })
@@ -325,21 +325,21 @@ impl TyDecl {
         }
         // match self.kind {
         //     TyKind::Struct {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         ..
         //     } => ok_or!(
-        //         field_vars.get(ranged_ident.ident),
+        //         fields.get(ranged_ident.ident),
         //         format!("no such member variable {}", &ranged_ident.ident),
         //         ranged_ident.range
         //     )
         //     .map(|signature| signature.ty),
         //     TyKind::Enum { ref variants } => todo!(),
         //     TyKind::Record {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         derived_fields: ref field_features,
         //     } => {
-        //         if let Some(field_var) = field_vars.get(ranged_ident.ident) {
-        //             Ok(field_var.ty)
+        //         if let Some(field) = fields.get(ranged_ident.ident) {
+        //             Ok(field.ty)
         //         } else if let Some(field_feature) = field_features.get(ranged_ident.ident) {
         //             Ok(*field_feature)
         //         } else {
@@ -364,16 +364,16 @@ impl TyDecl {
         // self.fields[field_ident]
         // match self.kind {
         //     TyKind::Struct {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         ..
-        //     } => *field_vars.get(ranged_ident.ident).unwrap(),
+        //     } => *fields.get(ranged_ident.ident).unwrap(),
         //     TyKind::Enum { ref variants } => todo!(),
         //     TyKind::Record {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         derived_fields: ref field_features,
         //     } => {
-        //         if let Some(field_var) = field_vars.get(ranged_ident.ident) {
-        //             *field_var
+        //         if let Some(field) = fields.get(ranged_ident.ident) {
+        //             *field
         //         } else if let Some(field_feature) = field_features.get(ranged_ident.ident) {
         //             FieldDecl {
         //                 contract: MembAccessContract::LazyOwn,
@@ -394,10 +394,10 @@ impl TyDecl {
         }
         // match self.kind {
         //     TyKind::Struct {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         methods: ref field_routines,
         //     } => {
-        //         if field_vars.get(field_ident).is_some() {
+        //         if fields.get(field_ident).is_some() {
         //             FieldAccessKind::StructMembVar
         //         } else {
         //             panic!("todo: memb feature of struct")
@@ -405,10 +405,10 @@ impl TyDecl {
         //     }
         //     TyKind::Enum { ref variants } => todo!(),
         //     TyKind::Record {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         derived_fields: ref field_features,
         //     } => {
-        //         if field_vars.get(field_ident).is_some() {
+        //         if fields.get(field_ident).is_some() {
         //             FieldAccessKind::RecordMemb
         //         } else if field_features.get(field_ident).is_some() {
         //             FieldAccessKind::RecordMemb
@@ -424,20 +424,20 @@ impl TyDecl {
         todo!()
         // match self.kind {
         //     TyKind::Struct {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         ..
         //     } => {
-        //         let mut vm_field_vars = IdentDict::<MembAccessContract>::default();
-        //         field_vars.iter().for_each(|(ident, field_var_sig)| {
-        //             vm_field_vars.insert_new(*ident, field_var_sig.contract)
+        //         let mut vm_fields = IdentDict::<MembAccessContract>::default();
+        //         fields.iter().for_each(|(ident, field_sig)| {
+        //             vm_fields.insert_new(*ident, field_sig.contract)
         //         });
         //         TySignature::Struct {
-        //             field_vars: vm_field_vars,
+        //             fields: vm_fields,
         //         }
         //     }
         //     TyKind::Enum { ref variants } => todo!(),
         //     TyKind::Record {
-        //         fields: ref field_vars,
+        //         fields: ref fields,
         //         derived_fields: ref field_features,
         //     } => todo!(),
         //     TyKind::Vec { element_ty } => TySignature::Vec,
@@ -639,7 +639,7 @@ pub(crate) fn method_decl_from_static(
             this_contract,
             input_parameters: inputs,
             output_ty,
-            output_contract,
+            output_liason,
             generic_parameters: generic_placeholders,
             ref kind,
         } => {
@@ -664,7 +664,7 @@ pub(crate) fn method_decl_from_static(
                 generic_placeholders,
                 parameters: inputs,
                 output: OutputDecl {
-                    liason: output_contract,
+                    liason: output_liason,
                     ty: output_ty,
                 },
                 this_contract,

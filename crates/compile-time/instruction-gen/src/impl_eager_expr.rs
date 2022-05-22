@@ -130,7 +130,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                     .field_idx(ranged_ident.ident)
                                     .try_into()
                                     .unwrap(),
-                                contract: expr.contract,
+                                field_access_contract: expr.contract,
                             }
                         }
                     }
@@ -156,7 +156,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 }
             }
             EagerOpnVariant::PatternCall => todo!(),
-            EagerOpnVariant::FieldAccess { field_contract } => {
+            EagerOpnVariant::FieldAccess { field_liason } => {
                 todo!()
             }
             EagerOpnVariant::MethodCall {
@@ -188,7 +188,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                     } else {
                         match ty_decl.kind {
                             TyKind::Struct => InstructionKind::NewVirtualStruct {
-                                fields: ty_decl.fields().map(|decl| decl.contract).collect(),
+                                fields: ty_decl
+                                    .fields()
+                                    .map(|decl| (decl.ident, decl.liason))
+                                    .collect(),
                             },
                             TyKind::Enum => todo!(),
                             TyKind::Record => todo!(),
