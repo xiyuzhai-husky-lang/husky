@@ -112,7 +112,7 @@ impl EntityDefnVariant {
                     variant_class,
                 } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::Visual => todo!(),
+                AstKind::Visual => continue,
             };
             members.insert_new(EntityDefn::new(
                 ident.into(),

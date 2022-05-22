@@ -1,7 +1,6 @@
-use std::sync::Arc;
-
+use crate::*;
 use file::FilePtr;
-use semantics_eager::EagerExpr;
+use std::sync::Arc;
 use text::TextRange;
 use vm::{InstructionId, InstructionSource};
 use word::{IdentDict, IdentPairDict};
@@ -33,7 +32,7 @@ impl InstructionSource for XmlExpr {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum XmlExprKind {
     Point2d,
-    Contour2d,
+    Contour,
     Arrow2d,
 }
 
@@ -41,8 +40,17 @@ impl XmlExprKind {
     pub fn as_str(self) -> &'static str {
         match self {
             XmlExprKind::Point2d => todo!(),
-            XmlExprKind::Contour2d => todo!(),
             XmlExprKind::Arrow2d => todo!(),
+            XmlExprKind::Contour => todo!(),
+        }
+    }
+
+    pub fn from_ident(ident: CustomIdentifier) -> Self {
+        match ident.as_str() {
+            "Point2d" => XmlExprKind::Point2d,
+            "Contour" => XmlExprKind::Contour,
+            "Arrow2d" => XmlExprKind::Arrow2d,
+            _ => todo!(),
         }
     }
 }

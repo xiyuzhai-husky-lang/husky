@@ -1,10 +1,12 @@
 mod expr;
 mod stmt;
 mod variable;
+mod xml;
 
 pub use expr::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 pub use stmt::*;
 pub use variable::EagerVariable;
+pub use xml::*;
 
 use defn_head::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};

@@ -36,6 +36,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     stmt,
                 ))
             }
+            FuncStmtVariant::ReturnXml { ref xml_expr } => todo!(),
         }
     }
 

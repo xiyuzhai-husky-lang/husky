@@ -52,6 +52,7 @@ impl AbsSemanticToken {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum SemanticTokenKind {
+    Keyword,
     Field,
     Special,
     Parameter,
@@ -69,6 +70,7 @@ pub enum SemanticTokenKind {
 impl SemanticTokenKind {
     pub fn token_type(self) -> u32 {
         get_type_index(match self {
+            SemanticTokenKind::Keyword => SemanticTokenType::KEYWORD,
             SemanticTokenKind::Field => SemanticTokenType::PROPERTY,
             SemanticTokenKind::Special => SemanticTokenType::OPERATOR,
             SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,

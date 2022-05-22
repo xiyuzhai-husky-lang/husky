@@ -112,6 +112,7 @@ impl HuskyLangRuntime {
                 ref match_expr,
                 ref branches,
             } => todo!(),
+            FuncStmtVariant::ReturnXml { ref xml_expr } => todo!(),
         }
     }
 

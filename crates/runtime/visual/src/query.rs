@@ -24,17 +24,9 @@ fn visualizer(
         } => match opt_visualizer_source {
             Some(visualizer_source) => match visualizer_source {
                 VisualizerSource::Static(static_visualizer) => static_visualizer.into(),
-                VisualizerSource::Xml {
-                    ref stmts,
-                    ref xml_expr,
-                } => RuntimeVisualizer::Interpreted {
+                VisualizerSource::Custom { ref stmts } => RuntimeVisualizer::Interpreted {
                     stmts: stmts.clone(),
-                    xml_expr: xml_expr.clone(),
-                    instruction_sheet: new_visual_instruction_sheet(
-                        db.compile_time(),
-                        stmts,
-                        xml_expr,
-                    ),
+                    instruction_sheet: new_visual_instruction_sheet(db.compile_time(), stmts),
                 },
             },
             None => RuntimeVisualizer::Compiled(TRIVIAL_VISUALIZER.compiled),

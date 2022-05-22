@@ -7,7 +7,6 @@ use compile_time_db::*;
 use entity_route::EntityRoutePtr;
 use semantics_eager::FuncStmt;
 use std::sync::Arc;
-use visual_semantics::XmlExpr;
 use visual_syntax::{StaticVisualizer, VisualProps};
 use vm::{AnyValueDyn, InstructionSheet};
 
@@ -16,7 +15,6 @@ pub enum RuntimeVisualizer {
     Compiled(for<'eval> fn(&(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps),
     Interpreted {
         stmts: Avec<FuncStmt>,
-        xml_expr: Arc<XmlExpr>,
         instruction_sheet: Arc<InstructionSheet>,
     },
 }

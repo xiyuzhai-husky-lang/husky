@@ -115,7 +115,7 @@ impl EntityDefnVariant {
             TyKind::Other => todo!(),
         };
 
-        let opt_visual_source = None;
+        let opt_visualizer_source = Self::collect_visual_source(db, arena, file, ty, &mut children);
 
         Self::collect_other_members(db, arena, file, ty, children, &mut ty_members)?;
         Ok(EntityDefnVariant::new_ty(
@@ -125,7 +125,7 @@ impl EntityDefnVariant {
             kind,
             trait_impls,
             opt_type_call,
-            opt_visual_source,
+            opt_visualizer_source,
         ))
     }
 
@@ -297,6 +297,28 @@ impl EntityDefnVariant {
         //     MemberDefn::TypeField(_) => todo!(),
         //     MemberDefn::TypeMethod(_) => todo!(),
         // }
+    }
+
+    fn collect_visual_source(
+        db: &dyn InferQueryGroup,
+        arena: &RawExprArena,
+        file: FilePtr,
+        ty_route: EntityRoutePtr,
+        children: &mut Peekable<AstIter>,
+    ) -> Option<VisualizerSource> {
+        let item = if let Some(item) = children.peek() {
+            item
+        } else {
+            return None;
+        };
+        let ref ast = item.value.as_ref().unwrap();
+        match ast.variant {
+            AstKind::Visual => Some(VisualizerSource::Custom {
+                stmts: parse_func_stmts(&[], db, arena, item.opt_children.clone().unwrap(), file)
+                    .unwrap(),
+            }),
+            _ => None,
+        }
     }
 }
 

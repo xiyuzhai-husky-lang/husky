@@ -49,6 +49,9 @@ pub enum FuncStmtVariant {
     Return {
         result: Arc<EagerExpr>,
     },
+    ReturnXml {
+        xml_expr: Arc<XmlExpr>,
+    },
     ConditionFlow {
         branches: Vec<Arc<FuncConditionBranch>>,
     },
@@ -62,7 +65,7 @@ pub fn parse_func_stmts(
     input_placeholders: &[InputParameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
-    iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
+    iter: AstIter,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
     EagerStmtParser::new(input_placeholders, db, arena, file).parse_func_stmts(iter)
