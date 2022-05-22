@@ -87,7 +87,12 @@ impl FigureProps {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
-            VisualProps::Contour { points } => todo!(),
+            VisualProps::Contour { points } => FigureProps::Graphics2d {
+                image_layers: vec![],
+                shapes: vec![Shape2dProps::Contour { points }],
+                xrange: (0.0, 28.0),
+                yrange: (0.0, 28.0),
+            },
         }
     }
 
