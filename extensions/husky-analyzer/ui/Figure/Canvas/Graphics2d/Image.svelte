@@ -1,30 +1,36 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import type ImageProps from "src/figure/graphics2d/image";
+    import type { ImageLayerProps } from "src/figure/graphics2d/image";
     import { ImageLoader } from "src/figure/graphics2d/image";
     import type { Focus } from "src/focus";
     import { focus_store } from "src/state";
 
-    export let image_props: ImageProps;
+    export let image_layers: ImageLayerProps[];
     export let image_height: number;
     export let image_width: number;
     $: focus = $focus_store;
-    $: draw(canvas, image_props, image_height, image_width);
+    $: draw(canvas, image_layers, image_height, image_width);
 
     let canvas: any;
 
     function draw(
         canvas: any,
-        image_props: ImageProps,
+        image_layers: ImageLayerProps[],
         image_height: number,
         image_width: number
     ) {
         if (canvas === undefined) {
             return;
         }
+        if (image_layers.length === 0) {
+            return;
+        }
+        if (image_layers.length > 1) {
+            throw new Error("TODO: layer supposition");
+        }
         let ctx = canvas.getContext("2d");
         const imageData = ctx.getImageData(0, 0, image_width, image_height);
-        let image_loader = new ImageLoader(image_props);
+        let image_loader = new ImageLoader(image_layers[0]);
 
         const original_height = image_loader.height();
         const original_width = image_loader.width();

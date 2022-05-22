@@ -28,20 +28,20 @@ export type Shape2dGroupProps = {
 };
 export type Shape2dKind = "Point2d" | "Arrow2d";
 
-export function decode_shape2d_group_props(data: unknown): Shape2dGroupProps {
-    console.log("data = ", data);
-    const kind = decode_shape2d_kind(decode_memb(data, "kind"));
-    return {
-        shapes: decode_array(decode_memb(data, "shapes"), (data: unknown) =>
-            decode_shape2d_props(data, kind)
-        ),
-        color: decode_color(decode_memb(data, "color")),
-        line_width: decode_number(decode_memb(data, "line_width")),
-    };
-}
+// export function decode_shape2d_group_props(data: unknown): Shape2dGroupProps {
+//     console.log("data = ", data);
+//     const kind = decode_shape2d_kind(decode_memb(data, "kind"));
+//     return {
+//         shapes: decode_array(decode_memb(data, "shapes"), (data: unknown) =>
+//             decode_shape2d_props(data, kind)
+//         ),
+//         color: decode_color(decode_memb(data, "color")),
+//         line_width: decode_number(decode_memb(data, "line_width")),
+//     };
+// }
 
 function decode_shape2d_kind(data: unknown): Shape2dKind {
-    switch (decode_string(data)) {
+    switch (decode_string(decode_memb(data, "kind"))) {
         case "Arrow2d":
             return "Arrow2d";
         case "Point2d":
@@ -51,7 +51,8 @@ function decode_shape2d_kind(data: unknown): Shape2dKind {
     }
 }
 
-function decode_shape2d_props(data: unknown, kind: Shape2dKind): Shape2dProps {
+export function decode_shape2d_props(data: unknown): Shape2dProps {
+    const kind = decode_shape2d_kind(data);
     switch (kind) {
         case "Arrow2d":
             return {

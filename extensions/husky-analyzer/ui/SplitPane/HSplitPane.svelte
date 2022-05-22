@@ -99,7 +99,6 @@
     div.wrapper {
         width: 100%;
         height: 100%;
-        /* background-color: yellow; */
         display: inline-flex;
     }
     div.separator {
@@ -109,9 +108,6 @@
         margin-left: -2px;
         z-index: 1;
         background-color: rgb(78, 78, 78);
-        /* background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='30'><path d='M2 0 v30 M5 0 v30 M8 0 v30' fill='none' stroke='black'/></svg>"); */
-        /* background-repeat: no-repeat; */
-        /* background-position: center; */
     }
     div.left {
         width: var(--left-panel-size);

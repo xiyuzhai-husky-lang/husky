@@ -3,7 +3,6 @@
     import Plot2dCanvas from "./Canvas/Plot2dCanvas.svelte";
     import Graphics2dCanvas from "./Canvas/Graphics2dCanvas.svelte";
     import PrimitiveValueCanvas from "./Canvas/PrimitiveValueCanvas.svelte";
-    import NullCanvas from "./Canvas/NullCanvas.svelte";
     import type { FigureControlProps } from "src/figure/control";
 
     export let figure: FigureProps | null;

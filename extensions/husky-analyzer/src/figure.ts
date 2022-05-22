@@ -55,8 +55,9 @@ type FigureProps =
 export default FigureProps;
 
 export function decode_figure_props(data: unknown): FigureProps {
-    let type = d_memb_old(data, "kind", decode_string);
-    switch (type) {
+    console.log("decode figure props input = ", data);
+    let kind = d_memb_old(data, "kind", decode_string);
+    switch (kind) {
         case "Graphics2d":
             return decode_graphics2d(data);
         case "Primitive":

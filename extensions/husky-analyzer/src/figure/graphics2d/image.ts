@@ -7,17 +7,16 @@ import {
     decode_string,
 } from "src/decode/decode";
 
-type ImageProps =
+export type ImageLayerProps =
     | {
           kind: "Colored";
           pixels: [number, number, number][][];
       }
     | { kind: "Binary28"; rows: number[] };
-export default ImageProps;
 
 export class ImageLoader {
-    props: ImageProps;
-    constructor(props: ImageProps) {
+    props: ImageLayerProps;
+    constructor(props: ImageLayerProps) {
         this.props = props;
     }
 
@@ -71,7 +70,7 @@ function binary28_row_pixel(row: number, j: number): number {
     return ((row >> (28 - j)) & 1) * 255;
 }
 
-export function decode_image(raw: unknown): ImageProps {
+export function decode_image(raw: unknown): ImageLayerProps {
     let kind = decode_string(decode_memb(raw, "kind"));
     switch (kind) {
         case "Binary28":

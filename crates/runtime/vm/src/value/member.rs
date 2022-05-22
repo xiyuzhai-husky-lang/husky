@@ -95,9 +95,9 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
         }
     }
 
-    pub fn to_json_value(&self) -> serde_json::value::Value {
+    pub fn get_json_value(&self) -> serde_json::value::Value {
         match self {
-            MemberValue::Primitive(value) => serde_json::value::to_value(value).unwrap(),
+            MemberValue::Primitive(value) => value.get_primitive_json_value(),
             MemberValue::Boxed(value) => value.get_json_value(),
             MemberValue::GlobalPure(value) => value.get_json_value_dyn(),
             MemberValue::GlobalRef(value) => value.get_json_value_dyn(),

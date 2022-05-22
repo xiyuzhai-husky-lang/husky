@@ -10,32 +10,22 @@
     $: svgWidth = figure.xrange[1] - figure.xrange[0];
     $: svgYMin = 0;
     $: svgHeight = figure.yrange[1] - figure.yrange[0];
-    $: console.log("figure.shape_groups = ", figure.shape_groups);
 </script>
 
 <div class="wrapper">
-    {#if figure.image !== null}
-        <Image
-            image_props={figure.image}
-            image_height={figure_canvas_height}
-            image_width={figure_canvas_width}
-        />
-    {/if}
+    <Image
+        image_layers={figure.image_layers}
+        image_height={figure_canvas_height}
+        image_width={figure_canvas_width}
+    />
 
     <svg
         style="width: {figure_canvas_width}px; height: {figure_canvas_height}px"
         viewBox="{svgXMin} {svgYMin} {svgWidth} {svgHeight}"
     >
         <g transform="matrix(1 0 0 -1 0 {figure.yrange[1]})">
-            {#each figure.shape_groups as shape_group}
-                <g class={shape_group.color}>
-                    {#each shape_group.shapes as shape2d_props}
-                        <Shape
-                            {shape2d_props}
-                            lineWidth={shape_group.line_width}
-                        />
-                    {/each}
-                </g>
+            {#each figure.shapes as shape2d_props}
+                <Shape {shape2d_props} />
             {/each}
         </g>
     </svg>
