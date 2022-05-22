@@ -16,12 +16,7 @@ impl ImageLayerProps {
 }
 
 #[derive(Debug, Serialize, Clone)]
-pub enum Shape2dKind {
-    Arrow2d,
-    Point2d,
-}
-
-#[derive(Debug, Serialize, Clone)]
+#[serde(tag = "kind")]
 pub enum Shape2dProps {
     Arrow2d {
         from: Point2dProps,
@@ -29,6 +24,9 @@ pub enum Shape2dProps {
     },
     Point2d {
         point: Point2dProps,
+    },
+    Contour {
+        points: Vec<Point2dProps>,
     },
     Group {
         shapes: Vec<Shape2dProps>,

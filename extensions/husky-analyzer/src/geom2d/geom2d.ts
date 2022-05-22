@@ -9,6 +9,8 @@ export type Vector2d = {
     y: number;
 };
 
+export type Edge2d = { from: Point2d; to: Point2d };
+
 export function get_point_distance(a: Point2d, b: Point2d): number {
     return vector_norm(get_displacement(a, b));
 }

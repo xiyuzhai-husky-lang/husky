@@ -10,23 +10,26 @@ import { decode_point2d, type Point2d } from "src/geom2d/geom2d";
 import type { Color } from "../color";
 import { decode_color } from "../color";
 
-export type Arrow2dProps = {
+export type Arrow2dShapeProps = {
     kind: "Arrow2d";
     from: Point2d;
     to: Point2d;
 };
 
-export type Point2dProps = {
+export type Point2dShapeProps = {
     kind: "Point2d";
     point: Point2d;
 };
-export type Shape2dProps = Arrow2dProps | Point2dProps;
+export type ContourShapeProps = { kind: "Contour"; points: Point2d[] };
+export type Shape2dProps =
+    | Arrow2dShapeProps
+    | Point2dShapeProps
+    | ContourShapeProps;
 export type Shape2dGroupProps = {
     shapes: Shape2dProps[];
     color: Color;
     line_width: number;
 };
-export type Shape2dKind = "Point2d" | "Arrow2d";
 
 // export function decode_shape2d_group_props(data: unknown): Shape2dGroupProps {
 //     console.log("data = ", data);
@@ -40,19 +43,8 @@ export type Shape2dKind = "Point2d" | "Arrow2d";
 //     };
 // }
 
-function decode_shape2d_kind(data: unknown): Shape2dKind {
-    switch (decode_string(decode_memb(data, "kind"))) {
-        case "Arrow2d":
-            return "Arrow2d";
-        case "Point2d":
-            return "Point2d";
-        default:
-            throw new Error("TODO");
-    }
-}
-
 export function decode_shape2d_props(data: unknown): Shape2dProps {
-    const kind = decode_shape2d_kind(data);
+    const kind = decode_string(decode_memb(data, "kind"));
     switch (kind) {
         case "Arrow2d":
             return {
@@ -65,5 +57,15 @@ export function decode_shape2d_props(data: unknown): Shape2dProps {
                 kind: "Point2d",
                 point: decode_point2d(decode_memb(data, "point")),
             };
+        case "Contour":
+            return {
+                kind: "Contour",
+                points: decode_array(
+                    decode_memb(data, "points"),
+                    decode_point2d
+                ),
+            };
+        default:
+            throw new Error("TODO");
     }
 }

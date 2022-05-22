@@ -21,7 +21,10 @@ export type Graphics2dProps = {
 export default Graphics2dProps;
 
 export function decode_graphics2d(data: unknown): Graphics2dProps {
-    let image_layers = decode_array(decode_memb(data, "images"), decode_image);
+    let image_layers = decode_array(
+        decode_memb(data, "image_layers"),
+        decode_image
+    );
     let shapes = decode_array(
         decode_memb(data, "shapes"),
         decode_shape2d_props
