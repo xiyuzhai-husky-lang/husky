@@ -12,18 +12,15 @@ use print_utils::*;
 use semantics_eager::*;
 use semantics_entity::*;
 use std::sync::Arc;
-use visual_semantics::XmlExpr;
 use vm::{Instruction, InstructionSheet};
 use word::*;
 
 pub fn new_visual_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     stmts: &[Arc<FuncStmt>],
-    xml_expr: &Arc<XmlExpr>,
 ) -> Arc<InstructionSheet> {
     let mut builder = InstructionSheetBuilder::new(db, [].into_iter(), true);
     builder.compile_func_stmts(stmts);
-    builder.compile_xml_expr(xml_expr.clone());
     builder.finalize()
 }
 

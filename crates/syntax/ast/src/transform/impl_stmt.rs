@@ -15,6 +15,8 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<RawStmt> {
         let kw_range = token_group[0].text_range();
+        self.abs_semantic_tokens
+            .push(AbsSemanticToken::new(SemanticTokenKind::Keyword, kw_range));
         Ok(RawStmt {
             range: token_group.text_range(),
             variant: match keyword {

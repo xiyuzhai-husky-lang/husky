@@ -200,6 +200,7 @@ impl<'eval> TraceVariant<'eval> {
                     ref match_expr,
                     ref branches,
                 } => todo!(),
+                FuncStmtVariant::ReturnXml { ref xml_expr } => todo!(),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
                 ProcStmtVariant::Init {

@@ -12,7 +12,12 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstKind> {
         match token_group[0].kind {
-            TokenKind::Keyword(keyword) => match keyword {
+            TokenKind::Keyword(keyword) => {
+                self.abs_semantic_tokens.push(AbsSemanticToken::new(
+                    SemanticTokenKind::Keyword,
+                    token_group[0].range,
+                ));
+                match keyword {
                 Keyword::Config(_) => todo!(),
                 Keyword::Routine(routine_keyword) => self.parse_struct_method(token_group, enter_block),
                 Keyword::Type(_) => todo!(),
@@ -25,9 +30,10 @@ impl<'a> AstTransformer<'a> {
                     expect_len!(token_group, 2);
                     expect_block_head!(token_group);
                     enter_block(self);
-                    self.context.set(AstContext::Visual);
+                    self.context.set(AstContext::Visual); 
+                    self.opt_this_contract.set(Some(InputContract::Pure));
                     Ok(AstKind::Visual)},
-            },
+            }},
             TokenKind::Identifier(_) => self.parse_struct_field(token_group, ),
             TokenKind::Decorator(_) => self.parse_struct_associated_routine(token_group, enter_block), 
             _ => err!(

@@ -1,6 +1,7 @@
 use std::iter::Peekable;
 
 use vm::{EagerContract, InitKind};
+use word::IdentPairDict;
 
 use super::parser::EagerStmtParser;
 use super::*;
@@ -55,7 +56,9 @@ impl<'a> EagerStmtParser<'a> {
                             match_expr,
                             match_contract,
                         )?,
-                        RawStmtVariant::ReturnXml(_) => todo!(),
+                        RawStmtVariant::ReturnXml(ref raw_xml_expr) => FuncStmtVariant::ReturnXml {
+                            xml_expr: self.parse_xml_expr(raw_xml_expr)?,
+                        },
                     };
                     stmts.push(Arc::new(FuncStmt {
                         file: self.file,
@@ -165,5 +168,25 @@ impl<'a> EagerStmtParser<'a> {
                 })
                 .collect::<SemanticResult<Vec<_>>>()?,
         })
+    }
+
+    fn parse_xml_expr(&mut self, raw_xml_expr: &RawXmlExpr) -> SemanticResultArc<XmlExpr> {
+        let kind = XmlExprKind::from_ident(raw_xml_expr.ident);
+        let props = raw_xml_expr
+            .props
+            .iter()
+            .map(
+                |(ident, raw_expr_idx)| -> SemanticResult<(CustomIdentifier, Arc<EagerExpr>)> {
+                    Ok((*ident, self.parse_eager_expr(*raw_expr_idx)?))
+                },
+            )
+            .collect::<SemanticResult<IdentPairDict<Arc<EagerExpr>>>>()?;
+        Ok(Arc::new(XmlExpr {
+            kind,
+            props,
+            range: raw_xml_expr.range,
+            file: self.file,
+            instruction_id: Default::default(),
+        }))
     }
 }

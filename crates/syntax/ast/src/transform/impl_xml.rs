@@ -24,7 +24,9 @@ impl<'a> AstTransformer<'a> {
         }
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::XmlKind);
         Ok(Arc::new(RawXmlExpr {
+            ident: ident.ident,
             props: self.parse_xml_props(&token_group[2..(token_group.len() - 1)])?,
+            range: token_group.text_range(),
         }))
     }
 

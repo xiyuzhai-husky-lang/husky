@@ -10,6 +10,10 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstKind> {
         let keyword = if let TokenKind::Keyword(keyword) = token_group[0].kind {
+            self.abs_semantic_tokens.push(AbsSemanticToken::new(
+                SemanticTokenKind::Keyword,
+                token_group[0].range,
+            ));
             keyword
         } else {
             return derived_err!();

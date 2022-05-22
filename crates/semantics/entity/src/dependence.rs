@@ -257,6 +257,7 @@ impl EntityDefn {
                             extract_func_pattern_branch_dependees(branch, builder)
                         }
                     }
+                    FuncStmtVariant::ReturnXml { ref xml_expr } => todo!(),
                 }
             }
         }

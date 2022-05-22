@@ -10,6 +10,10 @@ impl<'a> AtomParser<'a> {
         let mut props: Vec<(CustomIdentifier, URange)> = Vec::new();
         while !self.stream.empty() {
             let ranged_ident = get!(self, custom_ident);
+            self.push_abs_semantic_token(token::AbsSemanticToken::new(
+                SemanticTokenKind::Parameter,
+                ranged_ident.range,
+            ));
             no_look_pass!(self, "=");
             no_look_pass!(self, "{");
             self.stream.pop_token_slice();
