@@ -47,6 +47,7 @@ pub fn eval_feature_expr<'eval>(
     input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
+    msg_once!("if expr.feature is in the cache, return the cached value");
     let mut evaluator = FeatureEvaluator {
         db,
         global_input: input,

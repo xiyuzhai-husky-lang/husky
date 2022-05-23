@@ -1,5 +1,6 @@
 use std::sync::Arc;
 
+use print_utils::{epin, p};
 use semantics_lazy::LazyStmt;
 use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, Linkage, StackValue};
 
@@ -42,13 +43,16 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
             FeatureExprKind::RoutineCall {
                 ref opds,
                 ref opt_instruction_sheet,
-                opt_linkage: opt_compiled,
+                opt_linkage,
                 ..
-            } => self.eval_routine_call(
-                opt_instruction_sheet.as_ref().map(|r| &**r),
-                opt_compiled,
-                opds,
-            ),
+            } => {
+                let result = self.eval_routine_call(
+                    opt_instruction_sheet.as_ref().map(|r| &**r),
+                    opt_linkage,
+                    opds,
+                );
+                result
+            }
             FeatureExprKind::EntityFeature { ref block, .. } => self.eval_feature_block(block),
             FeatureExprKind::NewRecord {
                 ty,

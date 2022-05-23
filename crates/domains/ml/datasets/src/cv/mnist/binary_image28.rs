@@ -188,12 +188,8 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
     }
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "BinaryImage28".into()
     }
-
-    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
-    //     Arc::new(self.clone())
-    // }
 
     fn print_short(&self) -> String {
         "BinaryImage28 { ... }".into()

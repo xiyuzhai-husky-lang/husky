@@ -76,7 +76,6 @@ impl HuskyLangRuntime {
     fn feature_stmt_figure(&self, stmt: &FeatureStmt, focus: &Focus) -> FigureProps {
         match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => {
-                p!(value.expr.range);
                 self.feature_expr_figure(value, focus)
             }
             FeatureStmtVariant::Assert { .. } => FigureProps::void(),
