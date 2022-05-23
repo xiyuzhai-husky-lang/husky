@@ -65,7 +65,7 @@ pub fn parse_lazy_stmts(
     input_placeholders: &[InputParameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
-    iter: fold::FoldIter<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>,
+    iter: fold::FoldableIter<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
     LazyStmtParser::new(input_placeholders, db, arena, file).parse_lazy_stmts(iter)

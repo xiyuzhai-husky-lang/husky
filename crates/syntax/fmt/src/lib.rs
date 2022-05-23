@@ -1,9 +1,9 @@
 mod formatter;
 
-pub type FormattedText = fold::FoldedList<ast::AstResult<String>>;
+pub type FormattedText = fold::FoldableList<ast::AstResult<String>>;
 
 use ast::AstContext;
-use fold::{Executor, FoldStorage};
+use fold::{Executor, FoldableStorage};
 use std::sync::Arc;
 
 use formatter::Formatter;

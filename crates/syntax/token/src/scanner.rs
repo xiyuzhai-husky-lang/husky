@@ -129,6 +129,11 @@ impl<'token> TokenScanner<'token> {
                                 Ok(is_within) => {
                                     if is_within {
                                         line_iter.next();
+                                        if self.last_token(line).kind
+                                            == TokenKind::Special(Special::Colon)
+                                        {
+                                            break line.tokens.end;
+                                        }
                                     } else {
                                         fn bind_to_last_line(kind: TokenKind) -> bool {
                                             match kind {

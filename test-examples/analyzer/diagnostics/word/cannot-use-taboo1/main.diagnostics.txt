@@ -2,3 +2,4 @@
 6:6..6:9	Entity Route Error: Defn Error: "builtin identifiers are reserved"(6:6..6:9)
 3:11..3:12	Ast Error: expect custom_ident, but get {Some(Token {Identifier(Contextual(Crate)), 3:6..3:11})} instead
 6:6..6:9	Ast Error: expect `<custom_identifier>`
+7:5..7:9	Ast Error: expect keyword at the beginning of module item

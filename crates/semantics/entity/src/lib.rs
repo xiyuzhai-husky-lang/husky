@@ -28,7 +28,7 @@ use entity_kind::*;
 use entity_route::{EntityRoute, EntityRouteKind};
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
-use fold::{FoldIterItem, FoldStorage};
+use fold::{FoldIterItem, FoldableStorage};
 use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
@@ -339,7 +339,7 @@ pub(crate) fn entity_defn(
             let arena = &ast_text.arena;
             let FoldIterItem {
                 value,
-                opt_children: children,
+                opt_children,
                 ..
             } = ast_text
                 .folded_results
@@ -361,7 +361,7 @@ pub(crate) fn entity_defn(
                             db.upcast(),
                             entity_route,
                             ast_head,
-                            not_none!(children),
+                            not_none!(opt_children),
                             arena,
                             file,
                         )?,
@@ -372,7 +372,7 @@ pub(crate) fn entity_defn(
                     EntityDefnVariant::routine(
                         db.upcast(),
                         head,
-                        not_none!(children),
+                        not_none!(opt_children),
                         arena,
                         file,
                     )?,
@@ -382,7 +382,7 @@ pub(crate) fn entity_defn(
                     EntityDefnVariant::routine(
                         db.upcast(),
                         head,
-                        not_none!(children),
+                        not_none!(opt_children),
                         arena,
                         file,
                     )?,
@@ -395,14 +395,14 @@ pub(crate) fn entity_defn(
                     variant_class,
                 } => (
                     ident,
-                    EntityDefnVariant::enum_variant(db, ident, variant_class, children),
+                    EntityDefnVariant::enum_variant(db, ident, variant_class, opt_children),
                 ),
                 AstKind::FieldDefnHead { .. } | AstKind::TypeMethodDefnHead(_) => {
                     return Ok(db.member_defn(entity_route))
                 }
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,
-                    EntityDefnVariant::feature(db, ty, not_none!(children), arena, file)?,
+                    EntityDefnVariant::feature(db, ty, not_none!(opt_children), arena, file)?,
                 ),
                 AstKind::Submodule { ident, source_file } => todo!(),
                 AstKind::Visual => todo!(),

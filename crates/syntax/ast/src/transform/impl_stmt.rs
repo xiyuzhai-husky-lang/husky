@@ -195,7 +195,7 @@ impl<'a> AstTransformer<'a> {
             AstContext::Struct | AstContext::Enum(_) => panic!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
-            AstContext::FuncMatch => todo!(),
+            AstContext::FuncMatch => err!(format!("expect case stmt"), token_group.text_range())?,
             AstContext::ProcMatch => todo!(),
             AstContext::LazyMatch => todo!(),
         })

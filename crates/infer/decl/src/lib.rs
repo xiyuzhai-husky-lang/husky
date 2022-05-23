@@ -22,7 +22,7 @@ use entity_route::*;
 use entity_syntax::*;
 use feature::*;
 use file::FilePtr;
-use fold::FoldStorage;
+use fold::FoldableStorage;
 use global::*;
 use infer_error::*;
 use instantiate::*;

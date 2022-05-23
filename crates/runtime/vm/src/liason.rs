@@ -52,8 +52,8 @@ impl InputLiason {
             }
             OutputLiason::MemberAccess => {
                 should_eq!(self, InputLiason::MemberAccess);
-                match output_contract {
-                    EagerContract::Pure => todo!(),
+                Ok(match output_contract {
+                    EagerContract::Pure => EagerContract::Pure,
                     EagerContract::GlobalRef => todo!(),
                     EagerContract::Move => todo!(),
                     EagerContract::LetInit => todo!(),
@@ -61,10 +61,10 @@ impl InputLiason {
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::Return => todo!(),
-                    EagerContract::RefMut => Ok(output_contract),
+                    EagerContract::RefMut => output_contract,
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
-                }
+                })
             }
         }
     }

@@ -297,7 +297,38 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None, arena))?;
         match opr {
-            PrefixOpr::Minus => todo!(),
+            PrefixOpr::Minus => match opd_ty {
+                EntityRoutePtr::Root(root_ident) => match root_ident {
+                    RootIdentifier::Void => todo!(),
+                    RootIdentifier::I32 => Ok(EntityRoutePtr::Root(RootIdentifier::I32)),
+                    RootIdentifier::F32 => Ok(EntityRoutePtr::Root(RootIdentifier::F32)),
+                    RootIdentifier::B32 => todo!(),
+                    RootIdentifier::B64 => todo!(),
+                    RootIdentifier::Bool => todo!(),
+                    RootIdentifier::True => todo!(),
+                    RootIdentifier::False => todo!(),
+                    RootIdentifier::Vec => todo!(),
+                    RootIdentifier::Tuple => todo!(),
+                    RootIdentifier::Debug => todo!(),
+                    RootIdentifier::Std => todo!(),
+                    RootIdentifier::Core => todo!(),
+                    RootIdentifier::Fp => todo!(),
+                    RootIdentifier::Fn => todo!(),
+                    RootIdentifier::FnMut => todo!(),
+                    RootIdentifier::FnOnce => todo!(),
+                    RootIdentifier::Array => todo!(),
+                    RootIdentifier::Datasets => todo!(),
+                    RootIdentifier::DatasetType => todo!(),
+                    RootIdentifier::TypeType => todo!(),
+                    RootIdentifier::ModuleType => todo!(),
+                    RootIdentifier::CloneTrait => todo!(),
+                    RootIdentifier::CopyTrait => todo!(),
+                    RootIdentifier::PartialEqTrait => todo!(),
+                    RootIdentifier::EqTrait => todo!(),
+                },
+                EntityRoutePtr::Custom(_) => todo!(),
+                EntityRoutePtr::ThisType => todo!(),
+            },
             PrefixOpr::Not => {
                 if self
                     .db
@@ -331,7 +362,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None, arena))?;
         match opr {
-            SuffixOpr::Incr => {
+            SuffixOpr::Incr | SuffixOpr::Decr => {
                 match opd_ty {
                     EntityRoutePtr::Root(opd_ty_ident) => match opd_ty_ident {
                         RootIdentifier::I32 => (),
@@ -342,7 +373,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 Ok(EntityRoutePtr::Root(RootIdentifier::Void))
             }
-            SuffixOpr::Decr => todo!(),
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::FieldAccess(ident) => {
                 derived_unwrap!(self.db.ty_decl(opd_ty)).field_ty_result(ident)

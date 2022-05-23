@@ -1,6 +1,6 @@
 use arena::map::ArenaMap;
 use ast::RawExprMap;
-use fold::FoldStorage;
+use fold::FoldableStorage;
 use infer_entity_route::EntityRouteSheet;
 use infer_error::*;
 use std::{collections::HashMap, sync::Arc};

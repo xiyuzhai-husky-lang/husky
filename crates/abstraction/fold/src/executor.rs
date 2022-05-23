@@ -2,14 +2,14 @@ use crate::*;
 
 pub trait Executor<Input, InputContainer>
 where
-    InputContainer: FoldStorage<Input>,
+    InputContainer: FoldableStorage<Input>,
     Input: ?Sized,
 {
     fn _enter_block(&mut self);
     fn _exit_block(&mut self);
     fn execute(&mut self, indent: Indent, input: &Input, enter_block: impl FnOnce(&mut Self));
 
-    fn execute_all<'a>(&mut self, mut iter: FoldIter<'a, Input, InputContainer>)
+    fn execute_all<'a>(&mut self, mut iter: FoldableIter<'a, Input, InputContainer>)
     where
         Input: 'a,
     {

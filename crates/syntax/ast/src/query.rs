@@ -3,7 +3,7 @@ use arena::map::ArenaKeyQuery;
 use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResultArc};
 use file::FilePtr;
 use fold::Transformer;
-use fold::{FoldStorage, FoldedList};
+use fold::{FoldableList, FoldableStorage};
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
@@ -24,7 +24,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {}
 fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntitySyntaxResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module(id)?)?;
-    parser.transform_all(tokenized_text.iter());
+    parser.transform_all_recr(tokenized_text.iter());
     Ok(Arc::new(parser.finish()))
 }
 
@@ -32,7 +32,7 @@ fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntitySyntaxResultArc
 pub struct AstText {
     pub file: FilePtr,
     pub arena: RawExprArena,
-    pub folded_results: FoldedList<AstResult<Ast>>,
+    pub folded_results: FoldableList<AstResult<Ast>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
     pub text: Arc<Text>,
 }
@@ -44,6 +44,24 @@ impl AstText {
             .iter()
             .filter_map(|node| node.value.as_ref().err())
             .collect()
+    }
+
+    pub fn summarize(&self) -> String {
+        let mut summary = String::new();
+        for (i, folded_result) in self.folded_results.nodes.iter().enumerate() {
+            write!(
+                summary,
+                "#{}, {}{:?}, {:?}\n",
+                i,
+                &((0..folded_result.indent)
+                    .into_iter()
+                    .map(|_| ' ')
+                    .collect::<String>()),
+                folded_result.folding_end,
+                folded_result.value.as_ref().map(|ast| ast.range)
+            );
+        }
+        summary
     }
 }
 

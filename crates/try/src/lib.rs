@@ -3,6 +3,7 @@
 mod try_atomic;
 mod try_control_flow;
 mod try_diff_text;
+mod try_eq;
 mod try_random;
 mod try_rayon;
 mod try_ref;

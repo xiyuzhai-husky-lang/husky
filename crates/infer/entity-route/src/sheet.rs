@@ -7,7 +7,7 @@ use arena::map::ArenaMap;
 use ast::{AstText, RawExpr};
 use builder::EntityRouteSheetBuilder;
 use dev_utils::dev_src;
-use fold::FoldStorage;
+use fold::FoldableStorage;
 use infer_decl::MemberIdx;
 use text::{Row, TextRange};
 use word::CustomIdentifier;

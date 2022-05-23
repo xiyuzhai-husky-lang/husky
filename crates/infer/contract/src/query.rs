@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use fold::FoldStorage;
+use fold::FoldableStorage;
 
 use crate::{builder::ContractSheetBuilder, *};
 

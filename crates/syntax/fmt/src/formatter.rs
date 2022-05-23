@@ -37,7 +37,7 @@ impl<'a> Formatter<'a> {
     }
 }
 
-impl<'a> fold::Executor<AstResult<Ast>, fold::FoldedList<AstResult<Ast>>> for Formatter<'a> {
+impl<'a> fold::Executor<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>> for Formatter<'a> {
     fn _enter_block(&mut self) {
         self.context.enter()
     }
