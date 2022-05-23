@@ -8,7 +8,7 @@ pub enum ImageLayerProps {
 }
 
 impl ImageLayerProps {
-    pub fn binary_image_28(padded_rows: &[u32; 30]) -> Self {
+    pub fn binary_image28(padded_rows: &[u32; 30]) -> Self {
         Self::Binary28 {
             rows: Box::new(padded_rows[1..29].try_into().unwrap()),
         }

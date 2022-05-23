@@ -71,7 +71,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         type_members: &[&VEC_LEN, &VEC_PUSH, &VEC_POP, &VEC_FIRST, &VEC_LAST],
         variants: &[],
         kind: TyKind::Vec,
-        visualizer: TRIVIAL_VISUALIZER,
+        visualizer: StaticVisualizer::Vec,
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),

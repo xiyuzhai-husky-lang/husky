@@ -1,6 +1,7 @@
 mod query;
 
 use avec::Avec;
+use print_utils::p;
 pub use query::*;
 
 use compile_time_db::*;
@@ -8,11 +9,16 @@ use entity_route::EntityRoutePtr;
 use semantics_eager::FuncStmt;
 use std::sync::Arc;
 use visual_syntax::{StaticVisualizer, VisualProps};
-use vm::{eval_fast, AnyValueDyn, InstructionSheet, StackValue, VMRuntimeResult, XmlValue};
+use vm::{
+    eval_fast, AnyValueDyn, InstructionSheet, MemberValue, StackValue, VMRuntimeResult, XmlValue,
+};
 
 #[derive(Clone)]
 pub enum RuntimeVisualizer {
     Compiled(for<'eval> fn(&(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps),
+    Vec {
+        ty: EntityRoutePtr,
+    },
     Interpreted {
         stmts: Avec<FuncStmt>,
         instruction_sheet: Arc<InstructionSheet>,
@@ -22,7 +28,7 @@ pub enum RuntimeVisualizer {
 impl RuntimeVisualizer {
     pub fn visualize<'a, 'eval>(
         &self,
-        compile_time: &HuskyLangCompileTime,
+        db: &dyn VisualQueryGroup,
         value: &(dyn AnyValueDyn<'eval> + 'eval),
     ) -> VisualProps {
         match self {
@@ -30,7 +36,7 @@ impl RuntimeVisualizer {
             RuntimeVisualizer::Interpreted {
                 instruction_sheet, ..
             } => match eval_fast(
-                compile_time,
+                db.compile_time(),
                 vec![Ok(StackValue::LocalRef(value))].into_iter(),
                 Some(instruction_sheet),
                 None,
@@ -41,6 +47,18 @@ impl RuntimeVisualizer {
                 }
                 Err(_) => todo!(),
             },
+            RuntimeVisualizer::Vec { ty, .. } => {
+                let elem_ty = ty.generic_arguments[0].as_entity_route();
+                let elem_visualizer = db.visualizer(elem_ty);
+                p!(ty, elem_ty);
+                let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
+                VisualProps::Group(
+                    virtual_vec
+                        .iter()
+                        .map(|elem| self.visualize(db, elem.any_ref()))
+                        .collect(),
+                )
+            }
         }
     }
 }
@@ -50,6 +68,7 @@ impl std::fmt::Debug for RuntimeVisualizer {
         match self {
             RuntimeVisualizer::Compiled(arg0) => f.write_str("Compiled"),
             RuntimeVisualizer::Interpreted { .. } => f.write_str("Interpreted"),
+            RuntimeVisualizer::Vec { .. } => f.write_str("Vec"),
         }
     }
 }
@@ -79,14 +98,14 @@ impl PartialEq for RuntimeVisualizer {
 
 impl Eq for RuntimeVisualizer {}
 
-impl From<&StaticVisualizer> for RuntimeVisualizer {
-    fn from(builtin_visualizer: &StaticVisualizer) -> Self {
-        RuntimeVisualizer::Compiled(builtin_visualizer.compiled)
-    }
-}
-
-impl From<StaticVisualizer> for RuntimeVisualizer {
-    fn from(builtin_visualizer: StaticVisualizer) -> Self {
-        RuntimeVisualizer::Compiled(builtin_visualizer.compiled)
+impl RuntimeVisualizer {
+    pub fn from_static(
+        static_visualizer: StaticVisualizer,
+        ty: EntityRoutePtr,
+    ) -> RuntimeVisualizer {
+        match static_visualizer {
+            StaticVisualizer::Compiled(compiled) => RuntimeVisualizer::Compiled(compiled),
+            StaticVisualizer::Vec => RuntimeVisualizer::Vec { ty },
+        }
     }
 }

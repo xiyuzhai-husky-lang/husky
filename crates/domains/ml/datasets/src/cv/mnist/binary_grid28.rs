@@ -106,9 +106,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         type_members: &[],
         variants: &[],
         kind: TyKind::Array,
-        visualizer: StaticVisualizer {
-            compiled: BinaryGrid28::visualize,
-        },
+        visualizer: StaticVisualizer::Compiled(BinaryGrid28::visualize),
         opt_type_call: Some(&BINARY_GRID28_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),

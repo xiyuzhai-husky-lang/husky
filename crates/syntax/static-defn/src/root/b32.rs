@@ -10,14 +10,12 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         type_members: &[&B32_TRAILING_ZEROS, &B32_LAST_BITS],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: StaticVisualizer {
-            compiled: |value| {
-                let value: &u32 = value.downcast_ref();
-                VisualProps::Primitive {
-                    value: (*value).into(),
-                }
-            },
-        },
+        visualizer: StaticVisualizer::Compiled(|value| {
+            let value: &u32 = value.downcast_ref();
+            VisualProps::Primitive {
+                value: (*value).into(),
+            }
+        }),
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),

@@ -106,9 +106,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         type_members: &[],
         variants: &[],
         kind: TyKind::Array,
-        visualizer: StaticVisualizer {
-            compiled: BinaryImage28::visualize,
-        },
+        visualizer: StaticVisualizer::Compiled(BinaryImage28::visualize),
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),

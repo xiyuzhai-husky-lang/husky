@@ -88,6 +88,7 @@ impl<'eval> dyn AnyValueDyn<'eval> {
     #[inline]
     pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
         if T::static_type_id() != self.static_type_id_dyn() {
+            p!(self.static_type_name_dyn(), T::static_type_name());
             panic!()
         }
         let ptr: *const dyn AnyValueDyn = &*self;
