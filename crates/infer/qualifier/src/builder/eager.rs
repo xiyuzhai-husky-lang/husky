@@ -139,7 +139,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         .eager_variable_qualified_tys
                         .insert_new((
                             (varname.ident.into(), varname.range),
-                            initial_value_qualified_ty.use_for_init(init_kind),
+                            initial_value_qualified_ty.init_variable_qual(init_kind),
                         ))
                 }
             }
@@ -300,9 +300,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 | EagerQualifier::LocalRef
                 | EagerQualifier::Transient
                 | EagerQualifier::Owned => throw!("lopd is not mutable", range),
-                EagerQualifier::CopyableMut | EagerQualifier::OwnedMut | EagerQualifier::RefMut => {
-                    ()
-                }
+                EagerQualifier::CopyableMut
+                | EagerQualifier::OwnedMut
+                | EagerQualifier::LocalRefMut => (),
             },
         }
         self.infer_eager_expr(arena, opds.start + 1);
@@ -437,7 +437,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.infer_eager_expr(arena, opd);
         }
         let element_ty = self.raw_expr_ty(expr_idx)?;
-        let qual = EagerQualifier::from_element_access(
+        let qual = EagerQualifier::element_access_qual(
             this_qt.qual,
             this_contract,
             self.db.is_copyable(element_ty)?,
@@ -468,7 +468,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     EagerQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess => EagerQualifier::from_element_access(
+            OutputLiason::MemberAccess => EagerQualifier::element_access_qual(
                 this_qt.qual,
                 this_contract,
                 is_element_copyable,

@@ -52,16 +52,16 @@ impl EagerQualifiedTy {
         Self { qual, ty }
     }
 
-    pub(crate) fn use_for_init(self, init_kind: InitKind) -> InferResult<Self> {
+    pub(crate) fn init_variable_qual(self, init_kind: InitKind) -> InferResult<Self> {
         let qual = match init_kind {
             InitKind::Let => match self.qual {
                 EagerQualifier::Copyable | EagerQualifier::CopyableMut => EagerQualifier::Copyable,
                 EagerQualifier::PureRef => EagerQualifier::PureRef,
-                EagerQualifier::LocalRef => todo!(),
+                EagerQualifier::LocalRef => EagerQualifier::LocalRef,
                 EagerQualifier::Transient | EagerQualifier::OwnedMut => EagerQualifier::Owned,
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::GlobalRef => todo!(),
-                EagerQualifier::RefMut => todo!(),
+                EagerQualifier::LocalRefMut => todo!(),
             },
             InitKind::Var => match self.qual {
                 EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
@@ -73,7 +73,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::OwnedMut => todo!(),
                 EagerQualifier::GlobalRef => todo!(),
-                EagerQualifier::RefMut => todo!(),
+                EagerQualifier::LocalRefMut => todo!(),
             },
             InitKind::Decl => match self.qual {
                 EagerQualifier::Copyable => EagerQualifier::Copyable,
@@ -84,7 +84,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Transient => EagerQualifier::Owned,
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::OwnedMut => panic!(),
-                EagerQualifier::RefMut => todo!(),
+                EagerQualifier::LocalRefMut => todo!(),
             },
         };
         Ok(Self { qual, ty: self.ty })
@@ -108,7 +108,7 @@ impl EagerQualifiedTy {
                 | EagerQualifier::Owned
                 | EagerQualifier::OwnedMut => true,
                 EagerQualifier::GlobalRef => todo!(),
-                EagerQualifier::RefMut => todo!(),
+                EagerQualifier::LocalRefMut => todo!(),
             },
             OutputLiason::MemberAccess => todo!(),
         }
@@ -138,7 +138,7 @@ pub enum EagerQualifier {
     PureRef,
     GlobalRef,
     LocalRef,
-    RefMut,
+    LocalRefMut,
     Transient,
 }
 
@@ -152,7 +152,7 @@ impl std::fmt::Debug for EagerQualifier {
             EagerQualifier::PureRef => "PureRef",
             EagerQualifier::GlobalRef => "GlobalRef",
             EagerQualifier::LocalRef => "LocalRef",
-            EagerQualifier::RefMut => "RefMut",
+            EagerQualifier::LocalRefMut => "RefMut",
             EagerQualifier::Transient => "Transient",
         })
     }
@@ -167,7 +167,9 @@ impl EagerQualifier {
             | EagerQualifier::LocalRef
             | EagerQualifier::Owned
             | EagerQualifier::Transient => false,
-            EagerQualifier::CopyableMut | EagerQualifier::OwnedMut | EagerQualifier::RefMut => true,
+            EagerQualifier::CopyableMut
+            | EagerQualifier::OwnedMut
+            | EagerQualifier::LocalRefMut => true,
         }
     }
 
@@ -229,7 +231,7 @@ impl EagerQualifier {
                 EagerContract::Exec => todo!(),
             },
             EagerQualifier::GlobalRef => todo!(),
-            EagerQualifier::RefMut => todo!(),
+            EagerQualifier::LocalRefMut => todo!(),
         }
     }
 
@@ -280,12 +282,12 @@ impl EagerQualifier {
                     FieldLiason::LazyOwn => todo!(),
                 },
                 EagerQualifier::OwnedMut => match field_liason {
-                    FieldLiason::Own => todo!(),
+                    FieldLiason::Own => EagerQualifier::LocalRefMut,
                     FieldLiason::GlobalRef => todo!(),
                     FieldLiason::LazyOwn => todo!(),
                 },
-                EagerQualifier::RefMut => match field_liason {
-                    FieldLiason::Own => EagerQualifier::RefMut,
+                EagerQualifier::LocalRefMut => match field_liason {
+                    FieldLiason::Own => EagerQualifier::LocalRefMut,
                     FieldLiason::GlobalRef => todo!(),
                     FieldLiason::LazyOwn => todo!(),
                 },
@@ -308,7 +310,7 @@ impl EagerQualifier {
         }
     }
 
-    pub fn from_element_access(
+    pub fn element_access_qual(
         this_qual: Self,
         this_contract: EagerContract,
         is_element_copyable: bool,
@@ -388,15 +390,16 @@ impl EagerQualifier {
                     EagerContract::Move => todo!(),
                     EagerContract::LetInit => todo!(),
                     EagerContract::VarInit => todo!(),
-                    EagerContract::UseMemberForLetInit => todo!(),
+                    // let stmt doesn't move, but create a ref instead
+                    EagerContract::UseMemberForLetInit => EagerQualifier::LocalRef,
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::Return => todo!(),
-                    EagerContract::RefMut => EagerQualifier::RefMut,
+                    EagerContract::RefMut => EagerQualifier::LocalRefMut,
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                 },
                 EagerQualifier::GlobalRef => todo!(),
-                EagerQualifier::RefMut => todo!(),
+                EagerQualifier::LocalRefMut => todo!(),
             }
         }
     }
