@@ -6,7 +6,9 @@ export default class Dict<T> {
     }
 
     insert_new(key: string, value: T) {
-        console.assert(!(key in this.data));
+        if (key in this.data) {
+            throw new Error("Duplicate key");
+        }
         this.data[key] = value;
     }
 
