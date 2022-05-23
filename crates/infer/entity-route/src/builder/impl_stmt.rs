@@ -12,6 +12,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         arena: &RawExprArena,
     ) {
         self.enter_block();
+        let file = self.entity_route_sheet.ast_text.file;
         for item in ast_iter {
             if let Ok(ref value) = item.value {
                 match value.variant {

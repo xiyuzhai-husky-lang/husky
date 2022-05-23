@@ -16,7 +16,10 @@ impl<'a> AstTransformer<'a> {
             ));
             keyword
         } else {
-            return derived_err!();
+            return err!(
+                format!("expect keyword at the beginning of module item"),
+                token_group[0].range
+            );
         };
         match keyword {
             Keyword::Routine(routine_keyword) => {
@@ -55,7 +58,7 @@ impl<'a> AstTransformer<'a> {
 
     fn parse_submodule(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
         if token_group.len() < 2 {
-            return derived_err!();
+            return err!(format!("expect mod <identifier>"), token_group.text_range());
         }
         if token_group.len() > 2 {
             todo!()

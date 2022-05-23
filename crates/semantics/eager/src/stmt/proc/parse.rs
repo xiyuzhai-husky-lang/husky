@@ -3,7 +3,7 @@ use std::iter::Peekable;
 use super::{parser::EagerStmtParser, *};
 use crate::*;
 
-type IterType<'a> = fold::FoldIter<'a, AstResult<Ast>, fold::FoldedList<AstResult<Ast>>>;
+type IterType<'a> = fold::FoldableIter<'a, AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>;
 
 impl<'a> EagerStmtParser<'a> {
     fn parse_boundary(&mut self, boundary: RawBoundary) -> SemanticResult<Boundary> {

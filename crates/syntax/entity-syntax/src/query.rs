@@ -11,7 +11,7 @@ use text::TextRange;
 use upcast::Upcast;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 
-use fold::FoldStorage;
+use fold::FoldableStorage;
 
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]

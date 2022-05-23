@@ -263,6 +263,7 @@ impl EagerQualifier {
                 EagerQualifier::Copyable
             }
         } else {
+            // non-copyable
             match this_qual {
                 EagerQualifier::Copyable | EagerQualifier::CopyableMut => panic!(),
                 EagerQualifier::PureRef => EagerQualifier::PureRef,
@@ -283,7 +284,11 @@ impl EagerQualifier {
                     FieldLiason::GlobalRef => todo!(),
                     FieldLiason::LazyOwn => todo!(),
                 },
-                EagerQualifier::RefMut => todo!(),
+                EagerQualifier::RefMut => match field_liason {
+                    FieldLiason::Own => EagerQualifier::RefMut,
+                    FieldLiason::GlobalRef => todo!(),
+                    FieldLiason::LazyOwn => todo!(),
+                },
             }
         })
     }
@@ -378,7 +383,7 @@ impl EagerQualifier {
                     EagerContract::Exec => todo!(),
                 },
                 EagerQualifier::OwnedMut => match this_contract {
-                    EagerContract::Pure => todo!(),
+                    EagerContract::Pure => EagerQualifier::PureRef,
                     EagerContract::GlobalRef => todo!(),
                     EagerContract::Move => todo!(),
                     EagerContract::LetInit => todo!(),

@@ -1,9 +1,11 @@
 use std::{fmt::Debug, marker::PhantomData};
 
+use check_utils::should_eq;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FoldedList<T> {
+pub struct FoldableList<T> {
     pub nodes: Vec<FoldedNode<T>>,
 }
 
@@ -38,7 +40,7 @@ impl<T> From<usize> for FoldIdx<T> {
     }
 }
 
-impl<T> FoldedList<T> {
+impl<T> FoldableList<T> {
     pub fn new() -> Self {
         Self { nodes: Vec::new() }
     }
@@ -57,7 +59,7 @@ impl<T> FoldedList<T> {
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct FoldedNode<T> {
-    pub(crate) indent: Indent,
+    pub indent: Indent,
     pub value: T,
     pub folding_end: FoldingEnd,
 }
@@ -80,7 +82,7 @@ impl<T> FoldedNode<T> {
     }
 }
 
-impl<Item, T> From<Vec<Item>> for FoldedList<T>
+impl<Item, T> From<Vec<Item>> for FoldableList<T>
 where
     Item: ItemToFold<T>,
 {
@@ -112,6 +114,8 @@ where
             })
         }
 
+        should_eq!(nodes.len(), items.len());
+
         Self { nodes }
     }
 }
@@ -128,7 +132,7 @@ pub trait ItemToFold<Key> {
     fn indent(&self) -> Indent;
 }
 
-impl<T> FoldStorage<T> for FoldedList<T>
+impl<T> FoldableStorage<T> for FoldableList<T>
 where
     T: Debug,
 {
@@ -144,7 +148,7 @@ where
         &self.nodes[index].value
     }
 
-    fn this(&self) -> &FoldedList<T> {
+    fn this(&self) -> &FoldableList<T> {
         self
     }
 

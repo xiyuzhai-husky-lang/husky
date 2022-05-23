@@ -21,12 +21,12 @@ use atom::symbol::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
 use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
-use fold::{FoldIter, FoldedList, LocalStack, LocalValue};
+use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use text::TextRanged;
 use token::*;
 use vm::InputLiason;
 
-pub type AstIter<'a> = FoldIter<'a, AstResult<Ast>, FoldedList<AstResult<Ast>>>;
+pub type AstIter<'a> = FoldableIter<'a, AstResult<Ast>, FoldableList<AstResult<Ast>>>;
 
 pub struct AstTransformer<'a> {
     db: &'a dyn AstSalsaQueryGroup,
@@ -37,8 +37,9 @@ pub struct AstTransformer<'a> {
     context: LocalValue<AstContext>,
     opt_this_ty: LocalValue<Option<EntityRoutePtr>>,
     opt_this_contract: LocalValue<Option<InputLiason>>,
-    folded_results: FoldedList<AstResult<Ast>>,
+    pub(crate) folded_results: FoldableList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
+    tokenized_text: Arc<TokenizedText>,
 }
 
 impl<'a> AstTransformer<'a> {
@@ -46,12 +47,13 @@ impl<'a> AstTransformer<'a> {
         db: &'a dyn AstSalsaQueryGroup,
         module: EntityRoutePtr,
     ) -> EntitySyntaxResult<Self> {
+        let module_file = db.module_file(module)?;
         return Ok(Self {
             db,
-            main: db.main_file(db.module_file(module)?).unwrap(),
-            file: db.module_file(module)?,
+            main: db.main_file(module_file).unwrap(),
+            file: module_file,
             arena: RawExprArena::new(),
-            folded_results: FoldedList::new(),
+            folded_results: FoldableList::new(),
             symbols: module_symbols(db, module),
             context: LocalValue::new(match module.kind {
                 EntityRouteKind::Package { main, .. } => AstContext::Package(main),
@@ -61,6 +63,7 @@ impl<'a> AstTransformer<'a> {
             opt_this_ty: LocalValue::new(None),
             opt_this_contract: LocalValue::new(None),
             abs_semantic_tokens: vec![],
+            tokenized_text: db.tokenized_text(module_file)?,
         });
 
         fn module_symbols(
@@ -157,7 +160,15 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         })
     }
 
-    fn folded_output_mut(&mut self) -> &mut FoldedList<AstResult<Ast>> {
+    fn foldable_outputs_mut(&mut self) -> &mut FoldableList<AstResult<Ast>> {
         &mut self.folded_results
+    }
+
+    fn foldable_inputs(&self) -> &TokenizedText {
+        &self.tokenized_text
+    }
+
+    fn misplaced(&self) -> AstResult<Ast> {
+        derived_err!()
     }
 }

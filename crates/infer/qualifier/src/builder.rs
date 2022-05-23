@@ -38,7 +38,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     }
 
     pub(super) fn infer_all(&mut self) {
-        use fold::FoldStorage;
+        use fold::FoldableStorage;
         let arena = self.entity_route_sheet.ast_text.arena.clone();
         let ast_text = self.entity_route_sheet.ast_text.clone();
         self.infer_ast(ast_text.folded_results.iter(), &arena)

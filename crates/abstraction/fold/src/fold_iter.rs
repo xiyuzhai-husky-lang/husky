@@ -1,32 +1,33 @@
 use crate::*;
 use check_utils::*;
+use print_utils::p;
 use std::marker::PhantomData;
 
 #[derive(Clone)]
-pub struct FoldIter<'a, Value, Storage>
+pub struct FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldStorage<Value>,
+    Storage: FoldableStorage<Value>,
 {
     pub(crate) storage: &'a Storage,
     pub next: Option<usize>,
     phantom: PhantomData<Value>,
 }
 
-impl<'a, Value, Storage> std::fmt::Debug for FoldIter<'a, Value, Storage>
+impl<'a, Value, Storage> std::fmt::Debug for FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldStorage<Value>,
+    Storage: FoldableStorage<Value>,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("FoldIter{{ next: {:?} }}", &self.next))
     }
 }
 
-impl<'a, Value, Storage> FoldIter<'a, Value, Storage>
+impl<'a, Value, Storage> FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldStorage<Value>,
+    Storage: FoldableStorage<Value>,
 {
     pub(crate) fn new(storage: &'a Storage, next: Option<usize>) -> Self {
         if let Some(idx) = next {
@@ -40,10 +41,10 @@ where
     }
 }
 
-impl<'a, Value, Storage> FoldIter<'a, Value, Storage>
+impl<'a, Value, Storage> FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldStorage<Value>,
+    Storage: FoldableStorage<Value>,
 {
     pub fn next_level_iter(&self, next: Option<usize>) -> Self {
         Self {
@@ -58,19 +59,19 @@ where
 pub struct FoldIterItem<'a, Value: 'a, Storage>
 where
     Value: ?Sized,
-    Storage: FoldStorage<Value>,
+    Storage: FoldableStorage<Value>,
 {
     pub idx: usize,
     pub indent: Indent,
     pub value: &'a Value,
     pub folding_end: FoldingEnd,
-    pub opt_children: Option<FoldIter<'a, Value, Storage>>,
+    pub opt_children: Option<FoldableIter<'a, Value, Storage>>,
 }
 
-impl<'a, Value: 'a, Storage> Iterator for FoldIter<'a, Value, Storage>
+impl<'a, Value: 'a, Storage> Iterator for FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized + 'a,
-    Storage: FoldStorage<Value>,
+    Storage: FoldableStorage<Value>,
 {
     type Item = FoldIterItem<'a, Value, Storage>;
 
