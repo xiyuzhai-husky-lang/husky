@@ -8,8 +8,8 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         generic_placeholders: &[],
         trait_impls: &[],
         type_members: &[
-            &F32_MIN, &F32_MAX, &F32_SGN, &F32_SQRT, &F32_COS, &F32_SIN, &F32_TAN, &F32_ACOS,
-            &F32_ASIN, &F32_ATAN,
+            &F32_MIN, &F32_MAX, &F32_SGN, &F32_ABS, &F32_SQRT, &F32_COS, &F32_SIN, &F32_TAN,
+            &F32_ACOS, &F32_ASIN, &F32_ATAN,
         ],
         variants: &[],
         kind: TyKind::Primitive,
@@ -72,6 +72,25 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         this_contract: InputLiason::Pure,
         input_parameters: &[],
         output_ty: "i32",
+        output_liason: OutputLiason::Transfer,
+        generic_parameters: &[],
+        kind: MethodStaticDefnVariant::TypeMethod {
+            source: LinkageSource::Transfer(Linkage {
+                call: |values| todo!(),
+                nargs: 2,
+            }),
+        },
+    },
+    dev_src: static_dev_src!(),
+};
+
+pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
+    name: "abs",
+    subscopes: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_contract: InputLiason::Pure,
+        input_parameters: &[],
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {

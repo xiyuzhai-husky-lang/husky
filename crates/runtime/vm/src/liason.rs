@@ -1,5 +1,6 @@
 use crate::*;
 use check_utils::should_eq;
+use print_utils::p;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InputLiason {
@@ -17,6 +18,8 @@ impl InputLiason {
         self,
         output_liason: OutputLiason,
         output_contract: EagerContract,
+        is_output_ty_copyable: bool,
+        is_this: bool,
     ) -> VMCompileResult<EagerContract> {
         match output_liason {
             OutputLiason::Transfer => {
@@ -51,20 +54,30 @@ impl InputLiason {
                 })
             }
             OutputLiason::MemberAccess => {
-                should_eq!(self, InputLiason::MemberAccess);
-                Ok(match output_contract {
-                    EagerContract::Pure => EagerContract::Pure,
-                    EagerContract::GlobalRef => todo!(),
-                    EagerContract::Move => todo!(),
-                    EagerContract::LetInit => todo!(),
-                    EagerContract::VarInit => todo!(),
-                    EagerContract::UseMemberForLetInit => todo!(),
-                    EagerContract::UseMemberForVarInit => todo!(),
-                    EagerContract::Return => todo!(),
-                    EagerContract::RefMut => output_contract,
-                    EagerContract::MoveMut => todo!(),
-                    EagerContract::Exec => todo!(),
-                })
+                if !is_this {
+                    Ok(EagerContract::Pure)
+                } else {
+                    // this
+                    Ok(match output_contract {
+                        EagerContract::Pure => EagerContract::Pure,
+                        EagerContract::GlobalRef => todo!(),
+                        EagerContract::Move => todo!(),
+                        EagerContract::LetInit => {
+                            if is_output_ty_copyable {
+                                EagerContract::Pure
+                            } else {
+                                EagerContract::UseMemberForLetInit
+                            }
+                        }
+                        EagerContract::VarInit => todo!(),
+                        EagerContract::UseMemberForLetInit => EagerContract::UseMemberForLetInit,
+                        EagerContract::UseMemberForVarInit => todo!(),
+                        EagerContract::Return => todo!(),
+                        EagerContract::RefMut => output_contract,
+                        EagerContract::MoveMut => todo!(),
+                        EagerContract::Exec => todo!(),
+                    })
+                }
             }
         }
     }

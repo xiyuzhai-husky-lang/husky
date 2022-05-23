@@ -364,19 +364,26 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
         range: TextRange,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let call_expr = &arena[total_opds.start];
+        let output_ty = self.raw_expr_ty(raw_expr_idx)?;
+        let is_output_ty_copyable = self.db.is_copyable(output_ty)?;
         match call_expr.variant {
-            RawExprVariant::Entity { route: scope, .. } => {
-                let call_decl = derived_unwrap!(self.db.call_decl(scope));
+            RawExprVariant::Entity { route, .. } => {
+                let call_decl = derived_unwrap!(self.db.call_decl(route));
                 for (argument, parameter) in zip(
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
                     call_decl.parameters.iter(),
                 ) {
                     let argument_contract_result: InferResult<_> = parameter
                         .contract
-                        .eager(call_decl.output.liason, contract)
+                        .eager(
+                            call_decl.output.liason,
+                            contract,
+                            is_output_ty_copyable,
+                            false,
+                        )
                         .bind_into(&arena[argument]);
                     self.infer_eager_expr(argument, argument_contract_result?, arena)
                 }
@@ -412,15 +419,26 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;
+        let is_output_ty_copyable = self.db.is_copyable(method_decl.output.ty)?;
         let this_contract_result: InferResult<_> = method_decl
             .this_contract
-            .eager(method_decl.output.liason, contract)
+            .eager(
+                method_decl.output.liason,
+                contract,
+                is_output_ty_copyable,
+                true,
+            )
             .bind_into(&arena[this]);
         self.infer_eager_expr(this, this_contract_result?, arena);
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             let argument_contract_result: InferResult<_> = parameter
                 .contract
-                .eager(method_decl.output.liason, contract)
+                .eager(
+                    method_decl.output.liason,
+                    contract,
+                    is_output_ty_copyable,
+                    false,
+                )
                 .bind_into(&arena[argument]);
             self.infer_eager_expr(argument, argument_contract_result?, arena)
         }
