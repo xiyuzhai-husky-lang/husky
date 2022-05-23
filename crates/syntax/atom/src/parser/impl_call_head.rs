@@ -56,14 +56,18 @@ impl<'a> AtomParser<'a> {
         this: InputLiason,
         routine_kind: RoutineKeyword,
     ) -> AtomResult<TypeMethodDefnHead> {
-        let routine_name = get!(self, custom_ident);
+        let routine_ident = get!(self, custom_ident);
+        self.push_abs_semantic_token(AbsSemanticToken::new(
+            SemanticTokenKind::Entity(EntityKind::Routine),
+            routine_ident.range,
+        ));
         let generics = self.parameters()?;
         let input_placeholders = self.call_input_placeholders()?;
         let output_ty = self.func_output_type()?;
         Ok(TypeMethodDefnHead {
             this_contract: this,
             routine_kind,
-            ident: routine_name,
+            ident: routine_ident,
             generic_placeholders: generics,
             input_placeholders,
             output_ty,

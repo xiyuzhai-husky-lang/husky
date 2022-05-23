@@ -144,7 +144,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         ropd_builtin_ty,
                         range,
                     ),
-                    EntityRoutePtr::Custom(_) => todo!(),
+                    EntityRoutePtr::Custom(_) => {
+                        throw!(
+                            format!("expect ropd to be of root type, but got `{}`", ropd_ty),
+                            range
+                        )
+                    }
                     EntityRoutePtr::ThisType => todo!(),
                 },
                 EntityRoutePtr::Custom(lopd_custom_ty) => match pure_binary_opr {
@@ -273,7 +278,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 lopd_builtin_ty
             }
-            PureBinaryOpr::RemEuclid => todo!(),
+            PureBinaryOpr::RemEuclid => match (lopd_builtin_ty, ropd_builtin_ty) {
+                (RootIdentifier::I32, RootIdentifier::I32) => RootIdentifier::I32,
+                _ => {
+                    p!(lopd_builtin_ty, ropd_builtin_ty);
+                    todo!()
+                }
+            },
         }
         .into())
     }

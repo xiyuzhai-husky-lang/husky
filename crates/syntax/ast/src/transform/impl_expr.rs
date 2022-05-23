@@ -39,7 +39,7 @@ impl<'a> AstTransformer<'a> {
                 AtomVariant::ListEnd(ket, attr) => {
                     stack.accept_list_end(ket, attr, atom.text_end())?
                 }
-                AtomVariant::ListItem => stack.accept_list_item()?,
+                AtomVariant::ListItem => stack.accept_list_item(atom.range.start)?,
                 AtomVariant::LambdaHead(ref args) => {
                     stack.accept_lambda_head(args.clone(), atom.text_start())
                 }
