@@ -49,7 +49,7 @@ export class FigureState {
 
     is_figure_cached(trace_id: number, focus: Focus): boolean {
         let key = focus.gen_figure_key(trace_id);
-        return key in this.figures;
+        return this.figures.has(key);
     }
 
     private figure_control_key(trace: Trace): string {
