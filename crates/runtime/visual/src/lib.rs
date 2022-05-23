@@ -50,12 +50,11 @@ impl RuntimeVisualizer {
             RuntimeVisualizer::Vec { ty, .. } => {
                 let elem_ty = ty.generic_arguments[0].as_entity_route();
                 let elem_visualizer = db.visualizer(elem_ty);
-                p!(ty, elem_ty);
                 let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
                 VisualProps::Group(
                     virtual_vec
                         .iter()
-                        .map(|elem| self.visualize(db, elem.any_ref()))
+                        .map(|elem| elem_visualizer.visualize(db, elem.any_ref()))
                         .collect(),
                 )
             }
