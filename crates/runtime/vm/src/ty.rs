@@ -132,7 +132,7 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
     }
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "VirtualTy".into()
     }
 
     fn print_short(&self) -> String {

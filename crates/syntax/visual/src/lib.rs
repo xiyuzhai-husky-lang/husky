@@ -4,8 +4,9 @@ pub use props::*;
 use vm::AnyValueDyn;
 
 #[derive(Clone, Copy)]
-pub struct StaticVisualizer {
-    pub compiled: for<'eval> fn(&(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps,
+pub enum StaticVisualizer {
+    Compiled(for<'eval> fn(&(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps),
+    Vec,
 }
 
 impl std::fmt::Debug for StaticVisualizer {
@@ -22,9 +23,7 @@ impl PartialEq for StaticVisualizer {
 
 impl Eq for StaticVisualizer {}
 
-pub const TRIVIAL_VISUALIZER: StaticVisualizer = StaticVisualizer {
-    compiled: visualize_trivial,
-};
+pub const TRIVIAL_VISUALIZER: StaticVisualizer = StaticVisualizer::Compiled(visualize_trivial);
 
 fn visualize_trivial<'eval>(_data: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
     VisualProps::Primitive { value: ().into() }

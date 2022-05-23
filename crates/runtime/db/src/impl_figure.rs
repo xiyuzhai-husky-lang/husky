@@ -76,6 +76,7 @@ impl HuskyLangRuntime {
     fn feature_stmt_figure(&self, stmt: &FeatureStmt, focus: &Focus) -> FigureProps {
         match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => {
+                p!(value.expr.range);
                 self.feature_expr_figure(value, focus)
             }
             FeatureStmtVariant::Assert { .. } => FigureProps::void(),
@@ -88,8 +89,8 @@ impl HuskyLangRuntime {
         match focus.opt_input_id {
             Some(input_id) => {
                 if let Ok(value) = self.eval_feature_expr(expr, input_id) {
-                    let visualizer = self.visualizer(self.version(), expr.expr.ty());
-                    let visual_props = visualizer.visualize(self.compile_time(), value.any_ref());
+                    let visualizer = self.visualizer(expr.expr.ty());
+                    let visual_props = visualizer.visualize(self, value.any_ref());
                     FigureProps::new_specific(visual_props)
                 } else {
                     FigureProps::void()
@@ -163,13 +164,12 @@ impl HuskyLangRuntime {
     }
 
     fn eager_expr_figure(&self, expr: &EagerExpr, history: &History) -> FigureProps {
-        let visualizer = self.visualizer(self.version(), expr.ty);
+        let visualizer = self.visualizer(expr.ty);
         if let Some(entry) = history.get(expr) {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
                     Ok(output) => {
-                        let visual_props =
-                            visualizer.visualize(self.compile_time(), output.any_ref());
+                        let visual_props = visualizer.visualize(self, output.any_ref());
                         FigureProps::new_specific(visual_props)
                     }
                     Err(e) => FigureProps::void(),
@@ -195,9 +195,9 @@ impl HuskyLangRuntime {
                 .enumerate()
                 .map(|(i, mutation)| {
                     MutationFigureProps::new(
-                        self.compile_time(),
+                        self,
                         &self.compile_time().text(mutation.file).unwrap(),
-                        &self.visualizer(self.version(), mutation.ty),
+                        &self.visualizer(mutation.ty),
                         mutation,
                         i,
                     )
@@ -233,9 +233,9 @@ impl HuskyLangRuntime {
                             .find(|frame_mutation| frame_mutation.varidx() == mutation.varidx())
                         {
                             MutationFigureProps::new(
-                                self.compile_time(),
+                                self,
                                 &self.compile_time().text(frame_mutation.file).unwrap(),
-                                &self.visualizer(self.version(), frame_mutation.ty),
+                                &self.visualizer(frame_mutation.ty),
                                 frame_mutation,
                                 idx,
                             )
@@ -249,8 +249,8 @@ impl HuskyLangRuntime {
                                 },
                                 before: None,
                                 after: FigureProps::new_specific(
-                                    self.visualizer(self.version(), mutation.ty).visualize(
-                                        self.compile_time(),
+                                    self.visualizer(mutation.ty).visualize(
+                                        self,
                                         frame_stack_snapshot[mutation.varidx()].any_ref(),
                                     ),
                                 ),

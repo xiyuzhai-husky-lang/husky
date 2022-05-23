@@ -7,7 +7,7 @@ pub use graphics2d::*;
 
 use crate::*;
 use map_collect::MapCollect;
-use visual_runtime::RuntimeVisualizer;
+use visual_runtime::{RuntimeVisualizer, VisualQueryGroup};
 use visual_syntax::{Point2dProps, VisualProps};
 use vm::{CopyableValue, MutationData, VMRuntimeResult};
 use word::Identifier;
@@ -45,7 +45,7 @@ pub struct MutationFigureProps {
 
 impl<'eval> MutationFigureProps {
     pub fn new(
-        compile_time: &HuskyLangCompileTime,
+        db: &dyn VisualQueryGroup,
         text: &Text,
         visualizer: &RuntimeVisualizer,
         mutation_data: &MutationData<'eval>,
@@ -58,13 +58,13 @@ impl<'eval> MutationFigureProps {
             },
             before: if let Some(before) = mutation_data.before.as_ref() {
                 Some(FigureProps::new_specific(
-                    visualizer.visualize(compile_time, before.any_ref()),
+                    visualizer.visualize(db, before.any_ref()),
                 ))
             } else {
                 None
             },
             after: FigureProps::new_specific(
-                visualizer.visualize(compile_time, mutation_data.after.any_ref()),
+                visualizer.visualize(db, mutation_data.after.any_ref()),
             ),
             idx,
         }
@@ -75,7 +75,7 @@ impl FigureProps {
     pub fn new_specific(visual_props: VisualProps) -> Self {
         match visual_props {
             VisualProps::BinaryImage28 { padded_rows } => FigureProps::Graphics2d {
-                image_layers: vec![ImageLayerProps::binary_image_28(&padded_rows)],
+                image_layers: vec![ImageLayerProps::binary_image28(&padded_rows)],
                 shapes: Vec::new(),
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
@@ -93,7 +93,41 @@ impl FigureProps {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
+            VisualProps::Group(mut visuals) => {
+                if visuals.len() == 0 {
+                    return FigureProps::void();
+                }
+                if visuals.len() == 1 {
+                    return Self::new_specific(visuals.pop().unwrap());
+                }
+                match visuals[0] {
+                    VisualProps::BinaryImage28 { .. }
+                    | VisualProps::BinaryGrid28 { .. }
+                    | VisualProps::Contour { .. } => Self::new_specific_graphics2d_group(visuals),
+                    VisualProps::Primitive { .. } => todo!(),
+                    VisualProps::Group(_) => todo!(),
+                }
+            }
         }
+    }
+
+    pub fn new_specific_graphics2d_group(visuals: Vec<VisualProps>) -> Self {
+        let mut image_layers = Vec::new();
+        let mut shapes = Vec::new();
+        for visual in visuals {
+            match visual {
+                VisualProps::BinaryImage28 { ref padded_rows } => {
+                    image_layers.push(ImageLayerProps::binary_image28(padded_rows))
+                }
+                VisualProps::BinaryGrid28 { ref padded_rows } => {
+                    shapes.push(Shape2dProps::laser_grid28(padded_rows))
+                }
+                VisualProps::Primitive { value } => todo!(),
+                VisualProps::Contour { points } => shapes.push(Shape2dProps::Contour { points }),
+                VisualProps::Group(_) => todo!(),
+            }
+        }
+        todo!()
     }
 
     pub fn void() -> Self {

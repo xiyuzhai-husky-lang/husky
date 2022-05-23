@@ -10,6 +10,7 @@ pub enum VisualProps {
     BinaryGrid28 { padded_rows: [u32; 31] },
     Primitive { value: CopyableValue },
     Contour { points: Vec<Point2dProps> },
+    Group(Vec<VisualProps>),
 }
 
 impl VisualProps {
