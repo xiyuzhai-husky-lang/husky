@@ -1,7 +1,7 @@
 mod connected_components
 mod raw_contour
 mod geom2d
-mod line_segment_sketch
+mod 
 
 use datasets::cv::mnist::BinaryImage28
 use connected_components::find_connected_components

@@ -8,12 +8,6 @@ struct RawContour:
     visual:
         <Contour points={this.points} />
 
-    func displacement(start: i32, end: i32) -> Vector2d:
-        N = this.points.len()
-        ct_start = this.points[start%N]
-        ct_end = this.points[end%N]
-        ct_start.to(ct_end)
-
 enum Direction:
     UP
     LEFT

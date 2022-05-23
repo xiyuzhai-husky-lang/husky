@@ -34,10 +34,10 @@ impl ExprStackOpr {
         }
     }
 
-    fn list_item() -> Self {
+    fn list_item(position: TextPosition) -> Self {
         Self {
             precedence: Precedence::None,
-            variant: ExprStackOprVariant::ListItem,
+            variant: ExprStackOprVariant::ListItem(position),
         }
     }
 
@@ -67,7 +67,7 @@ impl ExprStackOpr {
 #[derive(Debug, PartialEq, Eq, Clone)]
 enum ExprStackOprVariant {
     Binary(BinaryOpr),
-    ListItem,
+    ListItem(TextPosition),
     Prefix {
         prefix: PrefixOpr,
         start: TextPosition,
@@ -122,13 +122,13 @@ impl<'a> ExprStack<'a> {
             generic_arguments,
         ));
         if attached {
-            self.oprs.push(ExprStackOpr::list_item())
+            self.oprs.push(ExprStackOpr::list_item(start))
         }
     }
 
-    pub(crate) fn accept_list_item(&mut self) -> AstResult<()> {
+    pub(crate) fn accept_list_item(&mut self, position: TextPosition) -> AstResult<()> {
         self.synthesize_all_above(Precedence::ListItem)?;
-        self.oprs.push(ExprStackOpr::list_item());
+        self.oprs.push(ExprStackOpr::list_item(position));
         Ok(())
     }
 
@@ -184,7 +184,7 @@ impl<'a> ExprStack<'a> {
             loop {
                 match self.oprs.pop() {
                     Some(expr_stack_opr) => match expr_stack_opr.variant {
-                        ExprStackOprVariant::ListItem => (),
+                        ExprStackOprVariant::ListItem(_) => (),
                         ExprStackOprVariant::ListStart { bra, attr, start } => {
                             if ket != bra {
                                 err!(
@@ -249,13 +249,20 @@ impl<'a> ExprStack<'a> {
                     ExprStackOprVariant::LambdaHead { inputs, start } => {
                         self.synthesize_lambda(inputs, start)
                     }
-                    ExprStackOprVariant::ListItem => {
+                    ExprStackOprVariant::ListItem(position) => {
                         let (bra, start) = loop {
-                            match self.oprs.pop().unwrap().variant {
-                                ExprStackOprVariant::ListStart { bra, start, .. } => {
-                                    break (bra, start)
+                            if let Some(opr) = self.oprs.pop() {
+                                match opr.variant {
+                                    ExprStackOprVariant::ListStart { bra, start, .. } => {
+                                        break (bra, start)
+                                    }
+                                    _ => (),
                                 }
-                                _ => (),
+                            } else {
+                                return err!(
+                                    format!("improper use of `,`"),
+                                    (position..(position.to_right(1))).into()
+                                );
                             }
                         };
                         return Err(AstError {

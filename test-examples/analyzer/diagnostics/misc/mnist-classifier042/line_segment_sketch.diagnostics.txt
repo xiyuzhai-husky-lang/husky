@@ -1,0 +1,1 @@
+17:12..17:18	Infer Error: `points` is a field not a method in type `mnist_classifier042::raw_contour::RawContour`

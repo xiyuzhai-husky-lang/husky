@@ -456,7 +456,13 @@ impl TyDecl {
         // report an infer error.
         if let Some(member) = self.ty_members.get_entry(ranged_ident.ident) {
             match member {
-                TyMemberDecl::Field(_) => todo!(),
+                TyMemberDecl::Field(_) => throw!(
+                    format!(
+                        "`{}` is a field not a method in type `{:?}`",
+                        &ranged_ident.ident, self.this_ty
+                    ),
+                    ranged_ident.range
+                ),
                 TyMemberDecl::Method(method) => return Ok(method),
                 TyMemberDecl::Call(_) => todo!(),
             }
