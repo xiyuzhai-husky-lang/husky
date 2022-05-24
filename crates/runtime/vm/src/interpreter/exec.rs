@@ -15,7 +15,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
         for ins in &sheet.instructions {
             let control = match ins.kind {
-                InstructionKind::PushVariable {
+                InstructionVariant::PushVariable {
                     binding,
                     stack_idx,
                     range,
@@ -40,7 +40,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionKind::PushPrimitiveLiteral(value) => {
+                InstructionVariant::PushPrimitiveLiteral(value) => {
                     self.stack.push(value.into());
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -53,7 +53,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionKind::PushEnumKindLiteral(entity_kind) => {
+                InstructionVariant::PushEnumKindLiteral(entity_kind) => {
                     self.stack.push(StackValue::Copyable(entity_kind.into()));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -66,7 +66,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionKind::RoutineCallCompiled { linkage } => {
+                InstructionVariant::RoutineCallCompiled { linkage } => {
                     let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -82,11 +82,11 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     control
                 }
-                InstructionKind::OprOpn { opn, .. } => {
+                InstructionVariant::OprOpn { opn, .. } => {
                     // sheet.variable_stack.compare_with_vm_stack(&self.stack);
                     self.exec_opr_opn(opn, mode, ins).into()
                 }
-                InstructionKind::RoutineCallInterpreted { routine, nargs } => {
+                InstructionVariant::RoutineCallInterpreted { routine, nargs } => {
                     let instruction_sheet = self.db.entity_opt_instruction_sheet_by_uid(routine);
                     let control = self
                         .routine_call_interpreted(&instruction_sheet.unwrap(), nargs)
@@ -102,7 +102,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     control
                 }
-                InstructionKind::NewVirtualStruct { ref fields } => {
+                InstructionVariant::NewVirtualStruct { ref fields } => {
                     let control = self.new_virtual_struct(fields).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -115,8 +115,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     control
                 }
-                InstructionKind::Return => VMControl::Return(self.stack.pop().into_eval()),
-                InstructionKind::Loop {
+                InstructionVariant::Return => VMControl::Return(self.stack.pop().into_eval()),
+                InstructionVariant::Loop {
                     ref body,
                     loop_kind,
                 } => {
@@ -144,7 +144,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     control
                 }
-                InstructionKind::BreakIfFalse => {
+                InstructionVariant::BreakIfFalse => {
                     let control = if !self.stack.pop().primitive().to_bool() {
                         VMControl::Break
                     } else {
@@ -152,10 +152,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     control
                 }
-                InstructionKind::FieldAccessCompiled {
+                InstructionVariant::FieldAccessCompiled {
                     linkage: field_access_fp,
                 } => todo!(),
-                InstructionKind::FieldAccessInterpreted {
+                InstructionVariant::FieldAccessInterpreted {
                     field_idx,
                     field_access_contract,
                 } => {
@@ -173,7 +173,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     };
                     VMControl::None
                 }
-                InstructionKind::Assert => {
+                InstructionVariant::Assert => {
                     let is_condition_satisfied = self.stack.pop().primitive().to_bool();
                     if !is_condition_satisfied {
                         todo!()
@@ -181,19 +181,19 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         VMControl::None
                     }
                 }
-                InstructionKind::Break => {
+                InstructionVariant::Break => {
                     if mode == Mode::TrackHistory {
                         self.history.write(ins, HistoryEntry::Break)
                     }
                     VMControl::Break
                 }
-                InstructionKind::ConditionFlow { ref branches } => {
+                InstructionVariant::ConditionFlow { ref branches } => {
                     self.exec_condition_flow(sheet, ins, branches, mode)
                 }
-                InstructionKind::PatternMatch { ref branches } => {
+                InstructionVariant::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
                 }
-                InstructionKind::NewXml {
+                InstructionVariant::NewXml {
                     name,
                     ref props,
                     n_child_expr,

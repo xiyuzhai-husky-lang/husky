@@ -21,7 +21,7 @@ use word::{CustomIdentifier, IdentPairDict, Identifier};
 
 #[derive(Debug)]
 pub struct Instruction {
-    pub kind: InstructionKind,
+    pub kind: InstructionVariant,
     pub src: Arc<dyn InstructionSource>,
 }
 
@@ -34,7 +34,7 @@ impl PartialEq for Instruction {
 impl Eq for Instruction {}
 
 impl Instruction {
-    pub fn new(kind: InstructionKind, src: Arc<dyn InstructionSource>) -> Self {
+    pub fn new(kind: InstructionVariant, src: Arc<dyn InstructionSource>) -> Self {
         Self { kind, src }
     }
 
@@ -61,7 +61,7 @@ impl<
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum InstructionKind {
+pub enum InstructionVariant {
     PushVariable {
         stack_idx: StackIdx,
         binding: Binding,

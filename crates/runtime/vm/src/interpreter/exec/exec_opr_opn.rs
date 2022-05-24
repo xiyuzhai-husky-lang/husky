@@ -40,7 +40,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         binary_assign(opt_binary_opr, &mut lopd, ropd);
                         let after = lopd.eval();
                         match ins.kind {
-                            InstructionKind::OprOpn {
+                            InstructionVariant::OprOpn {
                                 this_ty,
                                 this_range,
                                 ..
@@ -101,7 +101,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         incr(&mut opd);
                         let after = opd.eval();
                         match ins.kind {
-                            InstructionKind::OprOpn {
+                            InstructionVariant::OprOpn {
                                 this_ty,
                                 this_range,
                                 ..
@@ -134,7 +134,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         decr(&mut opd);
                         let after = opd.eval();
                         match ins.kind {
-                            InstructionKind::OprOpn {
+                            InstructionVariant::OprOpn {
                                 this_ty,
                                 this_range,
                                 ..

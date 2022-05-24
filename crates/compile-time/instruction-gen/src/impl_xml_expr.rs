@@ -1,4 +1,4 @@
-use vm::InstructionKind;
+use vm::InstructionVariant;
 
 use crate::*;
 
@@ -8,7 +8,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             self.compile_eager_expr(argument)
         }
         self.push_instruction(Instruction::new(
-            InstructionKind::NewXml {
+            InstructionVariant::NewXml {
                 name: expr.kind.as_str(),
                 props: expr.props.keys().collect(),
                 n_child_expr: 0,
