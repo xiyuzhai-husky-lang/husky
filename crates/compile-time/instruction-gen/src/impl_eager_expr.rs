@@ -140,9 +140,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(instruction)
             }
             EagerOpnVariant::RoutineCall(routine) => {
-                if let Some(fp) = self.db.routine_linkage(routine.route) {
+                if let Some(linkage) = self.db.routine_linkage(routine.route) {
                     self.push_instruction(Instruction::new(
-                        InstructionVariant::CallCompiled { linkage: fp },
+                        InstructionVariant::CallCompiled { linkage },
                         expr.clone(),
                     ))
                 } else {
