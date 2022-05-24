@@ -13,14 +13,14 @@ pub enum VirtualTy<'eval> {
 
 impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
     pub fn new_struct(
-        mut inputs: Vec<StackValue<'stack, 'eval>>,
+        mut arguments: impl Iterator<Item = StackValue<'stack, 'eval>>,
         field_liasons: &[(CustomIdentifier, FieldLiason)],
     ) -> Self {
         let mut fields = IdentPairDict::<MemberValue<'eval>>::default();
-        for i in 0..inputs.len() {
+        for (i, mut argument) in arguments.enumerate() {
             let (ident, liason) = field_liasons[i];
             msg_once!("check liason");
-            fields.insert_new((ident, inputs[i].bind_move().into_member()));
+            fields.insert_new((ident, argument.bind_move().into_member()));
         }
         VirtualTy::Struct { fields }
     }
@@ -48,7 +48,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
         match field_access_contract {
             EagerContract::Pure => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-                    MemberValue::Primitive(_) => todo!(),
+                    MemberValue::Copyable(value) => StackValue::Copyable(value),
                     MemberValue::Boxed(ref value) => {
                         let ptr = value.any_ptr();
                         StackValue::LocalRef(unsafe { &*ptr })
@@ -64,7 +64,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::VarInit => todo!(),
             EagerContract::Return => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-                    MemberValue::Primitive(value) => StackValue::Copyable(value),
+                    MemberValue::Copyable(value) => StackValue::Copyable(value),
                     MemberValue::Boxed(_) => todo!(),
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::GlobalRef(_) => todo!(),
@@ -74,7 +74,18 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::RefMut => todo!(),
             EagerContract::MoveMut => todo!(),
             EagerContract::Exec => todo!(),
-            EagerContract::UseMemberForLetInit => todo!(),
+            EagerContract::UseMemberForLetInit => match self {
+                VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
+                    MemberValue::Copyable(_) => todo!(),
+                    MemberValue::Boxed(ref value) => {
+                        let ptr = value.any_ptr();
+                        StackValue::LocalRef(unsafe { &*ptr })
+                    }
+                    MemberValue::GlobalPure(_) => todo!(),
+                    MemberValue::GlobalRef(_) => todo!(),
+                    MemberValue::Moved => todo!(),
+                },
+            },
             EagerContract::UseMemberForVarInit => todo!(),
         }
     }
@@ -93,7 +104,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                 VirtualTy::Struct { fields } => {
                     let field_value = &mut fields.data_mut()[field_idx].1;
                     let ptr: *mut dyn AnyValueDyn = match field_value {
-                        MemberValue::Primitive(ref mut value) => value.any_mut(),
+                        MemberValue::Copyable(ref mut value) => value.any_mut(),
                         MemberValue::Boxed(_) => todo!(),
                         MemberValue::GlobalPure(_) => todo!(),
                         MemberValue::GlobalRef(_) => todo!(),

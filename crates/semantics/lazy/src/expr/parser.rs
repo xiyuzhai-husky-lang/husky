@@ -287,7 +287,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                         TyKind::Array => todo!(),
                     },
                     EntityKind::Trait => todo!(),
-                    EntityKind::Routine => LazyOpnKind::RoutineCall(RangedEntityRoute {
+                    EntityKind::Routine => LazyOpnKind::NormalRoutineCall(RangedEntityRoute {
                         route,
                         range: call.range(),
                     }),

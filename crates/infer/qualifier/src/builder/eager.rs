@@ -31,7 +31,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.qualified_ty_sheet
                 .eager_variable_qualified_tys
                 .insert_new((
-                    (input.ident.ident.into(), input.ident.range),
+                    (input.ranged_ident.ident.into(), input.ranged_ident.range),
                     (|| {
                         (Ok(EagerQualifiedTy::new(
                             EagerQualifier::from_input(input.contract, self.db.is_copyable(ty)?),

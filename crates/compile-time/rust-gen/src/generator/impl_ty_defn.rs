@@ -114,7 +114,7 @@ impl<'a> RustGenerator<'a> {
                 EntityDefnVariant::Method {
                     ref generic_placeholders,
                     this_contract,
-                    ref input_placeholders,
+                    parameters: ref input_placeholders,
                     output_ty,
                     output_liason,
                     ref method_variant,
@@ -148,7 +148,7 @@ impl<'a> RustGenerator<'a> {
                     }
                     for input_placeholder in input_placeholders.iter() {
                         self.write(", ");
-                        self.write(&input_placeholder.ident.ident);
+                        self.write(&input_placeholder.ranged_ident.ident);
                         self.write(": ");
                         match input_placeholder.contract {
                             InputLiason::Pure => {

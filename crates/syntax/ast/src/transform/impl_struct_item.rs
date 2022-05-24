@@ -79,7 +79,7 @@ impl<'a> AstTransformer<'a> {
         self.symbols.extend(
             head.input_placeholders
                 .iter()
-                .map(|parameter| Symbol::variable(parameter.ident)),
+                .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
         Ok(AstKind::TypeMethodDefnHead(head))
     }
@@ -106,7 +106,7 @@ impl<'a> AstTransformer<'a> {
         self.symbols.extend(
             head.parameters
                 .iter()
-                .map(|parameter| Symbol::variable(parameter.ident)),
+                .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
         Ok(AstKind::TypeAssociatedRoutineDefnHead(head))
     }

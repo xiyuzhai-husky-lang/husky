@@ -14,10 +14,10 @@ impl EagerVariable {
         input_placeholder: &InputParameter,
     ) -> SemanticResult<Self> {
         Ok(EagerVariable {
-            ident: input_placeholder.ident.ident,
+            ident: input_placeholder.ranged_ident.ident,
             qualified_ty: qualified_ty_sheet.eager_variable_qualified_ty(
-                input_placeholder.ident.ident.into(),
-                input_placeholder.ident.range,
+                input_placeholder.ranged_ident.ident.into(),
+                input_placeholder.ranged_ident.range,
             )?,
         })
     }

@@ -43,11 +43,11 @@ use std::sync::Arc;
 
 pub fn eval_fast<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
-    iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
     opt_instrn_sheet: Option<&InstructionSheet>,
     maybe_linkage: Option<Linkage>,
+    argument_iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
 ) -> EvalResult<'eval> {
-    let mut interpreter = Interpreter::try_new(db, iter)?;
+    let mut interpreter = Interpreter::try_new(db, argument_iter)?;
     if let Some(linkage) = maybe_linkage {
         interpreter.eval_linkage(linkage)
     } else {
@@ -57,21 +57,21 @@ pub fn eval_fast<'stack, 'eval: 'stack>(
 
 pub fn exec_debug<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
-    values: impl Into<VMStack<'stack, 'eval>>,
     sheet: &InstructionSheet,
+    prestack: impl Into<VMStack<'stack, 'eval>>,
 ) -> Arc<History<'eval>> {
-    let mut interpreter = Interpreter::new(db, values);
+    let mut interpreter = Interpreter::from_prestack(db, prestack);
     interpreter.exec_all(sheet, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
 
 pub fn exec_loop_debug<'stack, 'eval: 'stack>(
     db: &'stack dyn InterpreterQueryGroup,
-    values: impl Into<VMStack<'stack, 'eval>>,
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
+    stack_snapshot: &StackSnapshot<'eval>,
 ) -> Vec<LoopFrameData<'eval>> {
-    let mut interpreter = Interpreter::new(db, values);
+    let mut interpreter = Interpreter::from_prestack(db, stack_snapshot);
     interpreter.exec_loop_tracking_frame(loop_kind, &sheet);
     interpreter.frames
 }

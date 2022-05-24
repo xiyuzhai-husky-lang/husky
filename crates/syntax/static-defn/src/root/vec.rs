@@ -176,7 +176,7 @@ pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(
     let any_ptr: *const dyn AnyValueDyn = this_value[i].any_ref();
     Ok(match values[0] {
         StackValue::GlobalRef(_) => StackValue::GlobalRef(unsafe { &*any_ptr }),
-        StackValue::LocalRef(value) => todo!(),
+        StackValue::LocalRef(_) => StackValue::LocalRef(unsafe { &*any_ptr }),
         _ => panic!(),
     })
 }

@@ -43,7 +43,7 @@ impl Into<InputDecl> for &InputParameter {
         InputDecl {
             contract: self.contract,
             ty: self.ranged_ty.route,
-            ident: self.ident.ident,
+            ident: self.ranged_ident.ident,
         }
     }
 }

@@ -18,7 +18,7 @@ impl EntityDefnVariant {
                     parse_impr_stmts(&routine_defn_head.parameters, db, arena, children, file)?;
                 EntityDefnVariant::Proc {
                     generic_placeholders: routine_defn_head.generic_placeholders.clone(),
-                    input_placeholders: routine_defn_head.parameters.clone(),
+                    parameters: routine_defn_head.parameters.clone(),
                     output: routine_defn_head.output_ty,
                     stmts,
                 }

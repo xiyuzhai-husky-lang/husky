@@ -40,7 +40,7 @@ pub struct FieldDefnHead {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputParameter {
-    pub ident: RangedCustomIdentifier,
+    pub ranged_ident: RangedCustomIdentifier,
     pub contract: InputLiason,
     pub ranged_ty: RangedEntityRoute,
 }

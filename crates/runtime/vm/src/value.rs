@@ -70,7 +70,10 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
                 result.push_str("GlobalPure ");
                 result.push_str(&value.print_short())
             }
-            StackValue::GlobalRef(_) => todo!(),
+            StackValue::GlobalRef(value) => {
+                result.push_str("GlobalRef ");
+                result.push_str(&value.print_short());
+            }
             StackValue::LocalRef(value) => {
                 result.push_str("LocalRef ");
                 result.push_str(&value.print_short());
@@ -160,7 +163,7 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
 
     pub fn into_member(&mut self) -> MemberValue<'eval> {
         match self {
-            StackValue::Copyable(primitive_value) => MemberValue::Primitive(*primitive_value),
+            StackValue::Copyable(primitive_value) => MemberValue::Copyable(*primitive_value),
             StackValue::Owned(boxed_value) => match std::mem::replace(self, StackValue::Moved) {
                 StackValue::Owned(boxed_value) => MemberValue::Boxed(boxed_value),
                 _ => panic!(),
@@ -382,10 +385,10 @@ impl<'stack, 'eval: 'stack> StackValue<'stack, 'eval> {
         }
     }
 
-    pub fn primitive(&self) -> CopyableValue {
+    pub fn take_copyable(&self) -> CopyableValue {
         match self {
             StackValue::Copyable(value) => *value,
-            StackValue::RefMut { value, .. } => value.primitive(),
+            StackValue::RefMut { value, .. } => value.take_copyable(),
             _ => {
                 p!(self);
                 panic!("")

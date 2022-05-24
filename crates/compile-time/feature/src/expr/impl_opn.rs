@@ -35,7 +35,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 _ => todo!(),
             },
             LazyOpnKind::Prefix(_) => todo!(),
-            LazyOpnKind::RoutineCall(routine) => {
+            LazyOpnKind::NormalRoutineCall(routine) => {
                 let uid = self.db.entity_uid(routine.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
                 let feature = self.features.alloc(Feature::FuncCall {
@@ -47,6 +47,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 let kind = FeatureExprKind::RoutineCall {
                     opt_linkage: self.db.routine_linkage(routine.route),
                     opds,
+                    has_this: false,
                     opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
                     routine_defn,
                 };
@@ -113,6 +114,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
                     opt_linkage: self.db.method_linkage(method_route, this_expr.binding()),
                     opds,
+                    has_this: true,
                     routine_defn: method_defn.clone(),
                 }
             }

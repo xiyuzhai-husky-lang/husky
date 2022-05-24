@@ -114,7 +114,11 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_f32().sqrt().into(),
+                    ))
+                },
                 nargs: 2,
             }),
         },

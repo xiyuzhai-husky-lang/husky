@@ -85,7 +85,7 @@ impl EntityDefnVariant {
                     (
                         head.ident.ident,
                         EntityDefnVariant::Method {
-                            input_placeholders: head.input_placeholders.clone(),
+                            parameters: head.input_placeholders.clone(),
                             output_ty: head.output_ty,
                             this_contract: head.this_contract,
                             method_variant,

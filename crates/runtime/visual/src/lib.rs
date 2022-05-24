@@ -37,9 +37,9 @@ impl RuntimeVisualizer {
                 instruction_sheet, ..
             } => match eval_fast(
                 db.compile_time(),
-                vec![Ok(StackValue::LocalRef(value))].into_iter(),
                 Some(instruction_sheet),
                 None,
+                vec![Ok(StackValue::LocalRef(value))].into_iter(),
             ) {
                 Ok(value) => {
                     let xml_value: XmlValue = value.owned().unwrap().take().unwrap();

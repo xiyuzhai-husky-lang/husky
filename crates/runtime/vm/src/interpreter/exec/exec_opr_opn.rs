@@ -14,8 +14,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
             OprOpn::PureBinary(pure_binary_opr) => {
                 let ropd = self.stack.pop();
                 let lopd = self.stack.pop();
-                let output =
-                    pure_binary_opr.act_on_primitives(lopd.primitive(), ropd.primitive())?;
+                let output = pure_binary_opr
+                    .act_on_primitives(lopd.take_copyable(), ropd.take_copyable())?;
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(
@@ -39,7 +39,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         let before = lopd.eval();
                         binary_assign(opt_binary_opr, &mut lopd, ropd);
                         let after = lopd.eval();
-                        match ins.kind {
+                        match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,
                                 this_range,
@@ -77,7 +77,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 Ok(())
             }
             OprOpn::Prefix(prefix_opr) => {
-                let output = prefix_opr.act_on_primitive(self.stack.pop().primitive());
+                let output = prefix_opr.act_on_primitive(self.stack.pop().take_copyable());
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(
@@ -100,7 +100,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         let before = opd.eval();
                         incr(&mut opd);
                         let after = opd.eval();
-                        match ins.kind {
+                        match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,
                                 this_range,
@@ -133,7 +133,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         let before = opd.eval();
                         decr(&mut opd);
                         let after = opd.eval();
-                        match ins.kind {
+                        match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,
                                 this_range,
