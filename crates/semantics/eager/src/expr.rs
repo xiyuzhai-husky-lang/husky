@@ -41,7 +41,7 @@ impl InstructionSource for EagerExpr {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerExprVariant {
     Variable(CustomIdentifier),
-    This,
+    ThisData,
     EntityRoute {
         route: EntityRoutePtr,
     },

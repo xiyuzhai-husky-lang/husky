@@ -200,7 +200,7 @@ pub trait CreateTrace<'eval>: AskCompileTime {
     ) -> Avec<Trace<'eval>> {
         match expr.variant {
             EagerExprVariant::Variable(_) => todo!(),
-            EagerExprVariant::This => todo!(),
+            EagerExprVariant::ThisData => todo!(),
             EagerExprVariant::EntityRoute { route } => todo!(),
             EagerExprVariant::PrimitiveLiteral(_) => todo!(),
             EagerExprVariant::Bracketed(_) => todo!(),

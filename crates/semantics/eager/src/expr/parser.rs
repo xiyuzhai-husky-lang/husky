@@ -64,7 +64,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 ref opr, ref opds, ..
             } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { .. } => EagerExprVariant::This,
+            RawExprVariant::This { .. } => EagerExprVariant::ThisData,
         };
         if let Err(e) = self.raw_expr_ty(raw_expr_idx) {
             p!(self.contract_sheet());

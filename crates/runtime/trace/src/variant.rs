@@ -151,7 +151,7 @@ impl<'eval> TraceVariant<'eval> {
                     EagerOpnVariant::ElementAccess => false,
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::This => todo!(),
+                EagerExprVariant::ThisData => todo!(),
                 EagerExprVariant::EnumKindLiteral(_) => todo!(),
             },
             TraceVariant::CallHead { .. } => false,

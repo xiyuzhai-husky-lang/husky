@@ -67,6 +67,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::CallCompiled { linkage } => {
+                    p!(sheet.variable_stack);
+                    ps!(sheet.variable_stack.compare_with_vm_stack(&self.stack));
                     let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
