@@ -58,6 +58,10 @@ impl CallDecl {
             },
         })
     }
+
+    pub fn nargs(&self) -> u8 {
+        self.parameters.len().try_into().unwrap()
+    }
 }
 
 pub(crate) fn call_decl(

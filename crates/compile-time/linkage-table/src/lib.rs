@@ -152,7 +152,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     }
 
     fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<Linkage> {
-        match self.entity_locus(routine).unwrap() {
+        let opt_linkage = match self.entity_locus(routine).unwrap() {
             EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
                 EntityStaticDefnVariant::Routine { linkage, .. } => Some(linkage),
                 EntityStaticDefnVariant::Type { .. } => todo!(),
@@ -172,7 +172,12 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             EntityLocus::Input { main } => todo!(),
             EntityLocus::StaticTypeMember => todo!(),
             EntityLocus::StaticTypeAsTraitMember => todo!(),
+        };
+        let call_decl = self.call_decl(routine).unwrap();
+        if let Some(linkage) = opt_linkage {
+            should_eq!(linkage.nargs, call_decl.nargs());
         }
+        opt_linkage
     }
 
     fn field_access_fp(
