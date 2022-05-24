@@ -1,6 +1,6 @@
 use crate::*;
 use avec::Avec;
-use vm::{EagerContract, InitKind, Instruction, InstructionKind, VMPatternBranch};
+use vm::{EagerContract, InitKind, Instruction, InstructionVariant, VMPatternBranch};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
@@ -21,7 +21,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             FuncStmtVariant::Assert { ref condition } => todo!(),
             FuncStmtVariant::Return { ref result } => {
                 self.compile_eager_expr(result);
-                self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
+                self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
             }
             FuncStmtVariant::ConditionFlow { .. } => todo!(),
             FuncStmtVariant::Match {
@@ -30,7 +30,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => {
                 self.compile_eager_expr(match_expr);
                 self.push_instruction(Instruction::new(
-                    InstructionKind::PatternMatch {
+                    InstructionVariant::PatternMatch {
                         branches: self.compile_func_pattern_match(branches),
                     },
                     stmt,
@@ -38,7 +38,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             FuncStmtVariant::ReturnXml { ref xml_expr } => {
                 self.compile_xml_expr(xml_expr.clone());
-                self.push_instruction(Instruction::new(InstructionKind::Return, stmt));
+                self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
             }
         }
     }

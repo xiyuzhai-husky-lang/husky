@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use vm::{Instruction, InstructionKind, InstructionSheet};
+use vm::{Instruction, InstructionSheet, InstructionVariant};
 
 use semantics_eager::*;
 

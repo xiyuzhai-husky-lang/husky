@@ -12,7 +12,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::Variable(varname) => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(varname);
                 self.push_instruction(Instruction::new(
-                    InstructionKind::PushVariable {
+                    InstructionVariant::PushVariable {
                         varname: varname.into(),
                         stack_idx,
                         binding: expr.qualified_ty.qual.binding(expr.contract),
@@ -24,7 +24,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerExprVariant::EntityRoute { route } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
-                InstructionKind::PushPrimitiveLiteral(value),
+                InstructionVariant::PushPrimitiveLiteral(value),
                 expr.clone(),
             )),
             EagerExprVariant::Bracketed(ref expr) => self.compile_eager_expr(expr),
@@ -34,7 +34,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => self.compile_opn(opn_variant, opds, expr),
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::This => self.push_instruction(Instruction::new(
-                InstructionKind::PushVariable {
+                InstructionVariant::PushVariable {
                     varname: ContextualIdentifier::ThisData.into(),
                     stack_idx: StackIdx::this(),
                     binding: expr.qualified_ty.qual.binding(expr.contract),
@@ -44,7 +44,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 expr.clone(),
             )),
             EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
-                InstructionKind::PushEnumKindLiteral(EnumKindValue {
+                InstructionVariant::PushEnumKindLiteral(EnumKindValue {
                     kind_idx: self.db.enum_literal_as_u8(route),
                     route,
                 }),
@@ -64,7 +64,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
         match opn_kind {
             EagerOpnVariant::Binary { opr, this_ty } => {
-                let ins_kind = InstructionKind::OprOpn {
+                let ins_kind = InstructionVariant::OprOpn {
                     opn: match opr {
                         BinaryOpr::Pure(pure_binary_opr) => OprOpn::PureBinary(*pure_binary_opr),
                         BinaryOpr::Assign(opt_binary_opr) => OprOpn::BinaryAssign(*opt_binary_opr),
@@ -77,7 +77,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerOpnVariant::Prefix { opr, this_ty } => {
                 let instruction = Instruction::new(
-                    InstructionKind::OprOpn {
+                    InstructionVariant::OprOpn {
                         opn: OprOpn::Prefix(*opr),
                         this_ty: *this_ty,
                         this_range: opds[0].range,
@@ -88,17 +88,17 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerOpnVariant::Suffix { opr, this_ty } => {
                 let ins_kind = match opr {
-                    SuffixOpr::Incr => InstructionKind::OprOpn {
+                    SuffixOpr::Incr => InstructionVariant::OprOpn {
                         opn: OprOpn::Incr,
                         this_ty: *this_ty,
                         this_range: opds[0].range,
                     },
-                    SuffixOpr::Decr => InstructionKind::OprOpn {
+                    SuffixOpr::Decr => InstructionVariant::OprOpn {
                         opn: OprOpn::Decr,
                         this_ty: *this_ty,
                         this_range: opds[0].range,
                     },
-                    SuffixOpr::AsTy(ty) => InstructionKind::OprOpn {
+                    SuffixOpr::AsTy(ty) => InstructionVariant::OprOpn {
                         opn: match ty.route {
                             EntityRoutePtr::Root(ty_ident) => match ty_ident {
                                 RootIdentifier::Void => todo!(),
@@ -120,12 +120,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                         if let Some(field_access_fp) =
                             self.db.field_access_fp(*this_ty, ranged_ident.ident)
                         {
-                            InstructionKind::FieldAccessCompiled {
+                            InstructionVariant::FieldAccessCompiled {
                                 linkage: field_access_fp,
                             }
                         } else {
                             let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
-                            InstructionKind::FieldAccessInterpreted {
+                            InstructionVariant::FieldAccessInterpreted {
                                 field_idx: this_ty_decl
                                     .field_idx(ranged_ident.ident)
                                     .try_into()
@@ -142,12 +142,12 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(fp) = self.db.routine_linkage(routine.route) {
                     self.push_instruction(Instruction::new(
-                        InstructionKind::RoutineCallCompiled { linkage: fp },
+                        InstructionVariant::RoutineCallCompiled { linkage: fp },
                         expr.clone(),
                     ))
                 } else {
                     self.push_instruction(Instruction::new(
-                        InstructionKind::RoutineCallInterpreted {
+                        InstructionVariant::RoutineCallInterpreted {
                             routine: self.db.entity_uid(routine.route),
                             nargs: opds.len() as u8,
                         },
@@ -184,10 +184,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                 emsg_once!("TypeCall compiled");
                 let instruction_kind =
                     if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
-                        InstructionKind::RoutineCallCompiled { linkage }
+                        InstructionVariant::RoutineCallCompiled { linkage }
                     } else {
                         match ty_decl.kind {
-                            TyKind::Struct => InstructionKind::NewVirtualStruct {
+                            TyKind::Struct => InstructionVariant::NewVirtualStruct {
                                 fields: ty_decl
                                     .fields()
                                     .map(|decl| (decl.ident, decl.liason))
@@ -215,7 +215,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_element_access(&mut self, expr: Arc<EagerExpr>, opds: &[Arc<EagerExpr>]) {
         self.push_instruction(Instruction::new(
-            InstructionKind::RoutineCallCompiled {
+            InstructionVariant::RoutineCallCompiled {
                 linkage: self.db.element_access_linkage(
                     opds.map(|opd| opd.ty),
                     match expr.contract {
@@ -262,9 +262,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
         binding: Binding,
-    ) -> InstructionKind {
+    ) -> InstructionVariant {
         if let Some(linkage) = self.db.method_linkage(method_route, binding) {
-            InstructionKind::RoutineCallCompiled { linkage }
+            InstructionVariant::RoutineCallCompiled { linkage }
         } else {
             match this_ty_decl.kind {
                 TyKind::Struct => todo!(),
