@@ -74,7 +74,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
-                nargs: 2,
+                nargs: 1,
             }),
         },
     },
@@ -92,8 +92,12 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_i32().abs().into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },

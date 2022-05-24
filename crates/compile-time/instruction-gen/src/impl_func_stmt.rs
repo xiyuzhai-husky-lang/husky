@@ -1,6 +1,8 @@
 use crate::*;
 use avec::Avec;
-use vm::{EagerContract, InitKind, Instruction, InstructionVariant, VMPatternBranch};
+use vm::{
+    EagerContract, InitKind, Instruction, InstructionVariant, VMConditionBranch, VMPatternBranch,
+};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
@@ -18,12 +20,22 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_eager_expr(initial_value);
                 self.def_variable(varname.ident)
             }
-            FuncStmtVariant::Assert { ref condition } => todo!(),
+            FuncStmtVariant::Assert { ref condition } => {
+                self.compile_eager_expr(condition);
+                self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
+            }
             FuncStmtVariant::Return { ref result } => {
                 self.compile_eager_expr(result);
                 self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
             }
-            FuncStmtVariant::ConditionFlow { .. } => todo!(),
+            FuncStmtVariant::ConditionFlow { ref branches } => {
+                self.push_instruction(Instruction::new(
+                    InstructionVariant::ConditionFlow {
+                        branches: self.compile_func_condition_flow(branches),
+                    },
+                    stmt,
+                ))
+            }
             FuncStmtVariant::Match {
                 ref match_expr,
                 ref branches,
@@ -41,6 +53,55 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
             }
         }
+    }
+
+    fn compile_func_condition_flow(
+        &self,
+        branches: &[Arc<FuncConditionBranch>],
+    ) -> Avec<VMConditionBranch> {
+        Arc::new(
+            branches
+                .iter()
+                .map(|branch| match branch.variant {
+                    FuncConditionBranchVariant::If { ref condition } => {
+                        Arc::new(VMConditionBranch {
+                            opt_condition_sheet: {
+                                let mut condition_sheet = self.subsheet_builder();
+                                condition_sheet.compile_eager_expr(condition);
+                                Some(condition_sheet.finalize())
+                            },
+                            body: {
+                                let mut body_sheet = self.subsheet_builder();
+                                body_sheet.compile_func_stmts(&branch.stmts);
+                                body_sheet.finalize()
+                            },
+                        })
+                    }
+                    FuncConditionBranchVariant::Elif { ref condition } => {
+                        Arc::new(VMConditionBranch {
+                            opt_condition_sheet: {
+                                let mut condition_sheet = self.subsheet_builder();
+                                condition_sheet.compile_eager_expr(condition);
+                                Some(condition_sheet.finalize())
+                            },
+                            body: {
+                                let mut body_sheet = self.subsheet_builder();
+                                body_sheet.compile_func_stmts(&branch.stmts);
+                                body_sheet.finalize()
+                            },
+                        })
+                    }
+                    FuncConditionBranchVariant::Else => Arc::new(VMConditionBranch {
+                        opt_condition_sheet: None,
+                        body: {
+                            let mut body_sheet = self.subsheet_builder();
+                            body_sheet.compile_func_stmts(&branch.stmts);
+                            body_sheet.finalize()
+                        },
+                    }),
+                })
+                .collect(),
+        )
     }
 
     fn compile_func_pattern_match(

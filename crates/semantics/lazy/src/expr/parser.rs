@@ -61,7 +61,9 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 EntityKind::Main => panic!(),
             },
             RawExprVariant::CopyableLiteral(value) => LazyExprVariant::PrimitiveLiteral(value),
-            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Bracketed(bracketed_expr) => {
+                LazyExprVariant::Bracketed(self.parse_lazy_expr(bracketed_expr)?)
+            }
             RawExprVariant::Opn {
                 ref opr, ref opds, ..
             } => self.parse_opn(opr, opds, raw_expr_idx)?,

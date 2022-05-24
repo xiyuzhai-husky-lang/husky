@@ -17,25 +17,25 @@ impl<'eval> Trace<'eval> {
             | TraceVariant::LoopFrame { .. }
             | TraceVariant::CallHead { .. }
             | TraceVariant::ProcBranch { .. } => None,
-            TraceVariant::FeatureExpr(ref expr) => match expr.kind {
-                FeatureExprKind::PrimitiveLiteral(_)
-                | FeatureExprKind::PrimitiveBinaryOpr { .. }
-                | FeatureExprKind::Variable { .. }
-                | FeatureExprKind::ElementAccess { .. }
-                | FeatureExprKind::GlobalInput => None,
-                FeatureExprKind::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
-                FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureExprKind::EnumKindLiteral { .. } => todo!(),
-                FeatureExprKind::EntityFeature { .. } => todo!(),
-                FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureExprKind::RecordOriginalFieldAccess {
+            TraceVariant::FeatureExpr(ref expr) => match expr.variant {
+                FeatureExprVariant::PrimitiveLiteral(_)
+                | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+                | FeatureExprVariant::Variable { .. }
+                | FeatureExprVariant::ElementAccess { .. }
+                | FeatureExprVariant::GlobalInput => None,
+                FeatureExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
+                FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
+                FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
+                FeatureExprVariant::EntityFeature { .. } => todo!(),
+                FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+                FeatureExprVariant::RecordOriginalFieldAccess {
                     ref this,
                     field_ident,
                     ..
                 } => todo!(),
-                FeatureExprKind::This { ref repr } => todo!(),
-                FeatureExprKind::PatternCall {} => todo!(),
-                FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
+                FeatureExprVariant::This { ref repr } => todo!(),
+                FeatureExprVariant::PatternCall {} => todo!(),
+                FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             },
             TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
                 EagerExprVariant::Variable(_)

@@ -76,8 +76,20 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    let f = values[0].take_copyable().take_f32();
+                    Ok(StackValue::Copyable(
+                        (if f > 0. {
+                            1
+                        } else if f == 0. {
+                            0
+                        } else {
+                            -1
+                        })
+                        .into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },
@@ -96,7 +108,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| todo!(),
-                nargs: 2,
+                nargs: 1,
             }),
         },
     },
@@ -119,7 +131,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
                         values[0].take_copyable().take_f32().sqrt().into(),
                     ))
                 },
-                nargs: 2,
+                nargs: 1,
             }),
         },
     },
@@ -137,8 +149,12 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_f32().cos().into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },
@@ -156,8 +172,12 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_f32().sin().into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },
@@ -175,8 +195,12 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_f32().tan().into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },
@@ -194,8 +218,12 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_f32().acos().into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },
@@ -213,8 +241,12 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_f32().asin().into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },
@@ -232,8 +264,12 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
+                call: |values| {
+                    Ok(StackValue::Copyable(
+                        values[0].take_copyable().take_f32().atan().into(),
+                    ))
+                },
+                nargs: 1,
             }),
         },
     },

@@ -12,7 +12,7 @@ mod unique_allocate;
 
 pub use branch::{FeatureBranch, FeatureBranchVariant};
 pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt, FeatureEvalIndicator};
-pub use expr::{FeatureExpr, FeatureExprKind};
+pub use expr::{FeatureExpr, FeatureExprVariant};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use repr::*;
 pub use sheet::FeatureSheet;
