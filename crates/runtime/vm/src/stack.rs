@@ -135,7 +135,7 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct VariableStack {
-    variables: Vec<CustomIdentifier>,
+    non_this_variables: Vec<CustomIdentifier>,
     has_this: bool,
 }
 
@@ -144,7 +144,7 @@ impl std::fmt::Debug for VariableStack {
         f.write_str("\nVariableStack:\n")?;
         f.write_fmt(format_args!("    has_this: {}\n", self.has_this))?;
         f.write_str("    variables:\n")?;
-        for (i, ident) in self.variables.iter().enumerate() {
+        for (i, ident) in self.non_this_variables.iter().enumerate() {
             f.write_fmt(format_args!("        {: <3} {}\n", i, ident.as_str()))?
         }
         f.write_str("\n")
@@ -154,19 +154,19 @@ impl std::fmt::Debug for VariableStack {
 impl VariableStack {
     pub fn new(inputs: impl Iterator<Item = CustomIdentifier>, has_this: bool) -> Self {
         Self {
-            variables: inputs.map(|ident| ident).collect(),
+            non_this_variables: inputs.map(|ident| ident).collect(),
             has_this,
         }
     }
 
     pub fn len(&self) -> usize {
-        self.variables.len()
+        self.non_this_variables.len()
     }
 
     pub fn stack_idx(&self, ident0: CustomIdentifier) -> StackIdx {
-        let idx = self.variables.len()
+        let idx = self.non_this_variables.len()
             - (1 + self
-                .variables
+                .non_this_variables
                 .iter()
                 .rev()
                 .position(|ident| *ident == ident0)
@@ -175,19 +175,27 @@ impl VariableStack {
     }
 
     pub fn push(&mut self, ident: CustomIdentifier) {
-        self.variables.push(ident)
+        self.non_this_variables.push(ident)
     }
 
     pub fn varname(&self, stack_idx: StackIdx) -> CustomIdentifier {
-        self.variables[stack_idx.0 as usize]
+        self.non_this_variables[stack_idx.0 as usize]
     }
 
     pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {
         let mut result = String::new();
         write!(result, "VariableStack:\n");
         write!(result, "    has_this: {}\n", self.has_this);
+        if self.has_this {
+            write!(
+                result,
+                "        this: {}\n",
+                vm_stack.values[0].print_short()
+            );
+        }
         write!(result, "    variables:\n");
-        for (i, ident) in self.variables.iter().enumerate() {
+        let shift = if self.has_this { 1 } else { 0 };
+        for (i, ident) in self.non_this_variables.iter().enumerate() {
             write!(
                 result,
                 "        #{: <3} {}{: <10}{} ",
@@ -196,14 +204,14 @@ impl VariableStack {
                 ident.as_str(),
                 print_utils::RESET,
             );
-            if i < vm_stack.values.len() {
-                write!(result, "{}\n", vm_stack.values[i].print_short()).unwrap()
+            if i + shift < vm_stack.values.len() {
+                write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
             } else {
                 write!(result, "uninitialized\n").unwrap()
             }
         }
 
-        for i in self.variables.len()..vm_stack.values.len() {
+        for i in self.non_this_variables.len()..(vm_stack.values.len() - shift) {
             write!(
                 result,
                 "        #{: <3} {}{: <10}{} ",
@@ -213,7 +221,7 @@ impl VariableStack {
                 print_utils::RESET,
             )
             .unwrap();
-            write!(result, "{}\n", vm_stack.values[i].print_short()).unwrap()
+            write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
         }
         result.push('\n');
         result

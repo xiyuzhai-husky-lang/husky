@@ -6,7 +6,7 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
         match expr.variant {
             EagerExprVariant::Variable(varname) => self.write(&varname),
-            EagerExprVariant::This => self.write("self"),
+            EagerExprVariant::ThisData => self.write("self"),
             EagerExprVariant::EntityRoute { route: scope } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
             EagerExprVariant::Bracketed(_) => todo!(),

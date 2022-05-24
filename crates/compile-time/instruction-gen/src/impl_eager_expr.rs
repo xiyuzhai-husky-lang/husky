@@ -33,7 +33,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref opds,
             } => self.compile_opn(opn_variant, opds, expr),
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::This => self.push_instruction(Instruction::new(
+            EagerExprVariant::ThisData => self.push_instruction(Instruction::new(
                 InstructionVariant::PushVariable {
                     varname: ContextualIdentifier::ThisData.into(),
                     stack_idx: StackIdx::this(),

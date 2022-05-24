@@ -170,7 +170,7 @@ impl<'eval> TraceFactory<'eval> {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::This => todo!(),
+            EagerExprVariant::ThisData => todo!(),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
         };
         if config.appended {

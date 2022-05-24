@@ -382,7 +382,7 @@ impl EntityDefn {
                     }
                 }
                 EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::This => builder.push(expr.ty),
+                EagerExprVariant::ThisData => builder.push(expr.ty),
                 EagerExprVariant::EnumKindLiteral(_) => builder.push(expr.ty),
             }
         }

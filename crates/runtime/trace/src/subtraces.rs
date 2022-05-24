@@ -64,7 +64,7 @@ impl<'eval> Trace<'eval> {
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::Bracketed(_) => panic!(),
-                EagerExprVariant::This => todo!(),
+                EagerExprVariant::ThisData => todo!(),
                 EagerExprVariant::EnumKindLiteral(_) => todo!(),
             },
         }
