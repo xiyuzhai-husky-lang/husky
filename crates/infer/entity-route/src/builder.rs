@@ -109,7 +109,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 .entity_route_sheet
                 .variable_tys
                 .insert(
-                    (input.ident.ident, input.ident.range),
+                    (input.ranged_ident.ident, input.ranged_ident.range),
                     input.ranged_ty.route,
                 )
                 .is_none());

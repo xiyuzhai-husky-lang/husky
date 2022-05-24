@@ -13,7 +13,7 @@ pub struct LazyVariable {
 impl LazyVariable {
     pub(crate) fn from_input(input_placeholder: &InputParameter) -> Self {
         LazyVariable {
-            ident: input_placeholder.ident.ident,
+            ident: input_placeholder.ranged_ident.ident,
             ty: input_placeholder.ranged_ty.route,
             is_reference: match input_placeholder.contract {
                 InputLiason::Pure => false,

@@ -10,7 +10,7 @@ pub enum LazyOpnKind {
         this: EntityRoutePtr,
     },
     Prefix(PrefixOpr),
-    RoutineCall(RangedEntityRoute),
+    NormalRoutineCall(RangedEntityRoute),
     StructCall(RangedEntityRoute),
     RecordCall(RangedEntityRoute),
     PatternCall,

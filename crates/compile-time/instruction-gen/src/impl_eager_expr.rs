@@ -142,14 +142,15 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(fp) = self.db.routine_linkage(routine.route) {
                     self.push_instruction(Instruction::new(
-                        InstructionVariant::RoutineCallCompiled { linkage: fp },
+                        InstructionVariant::CallCompiled { linkage: fp },
                         expr.clone(),
                     ))
                 } else {
                     self.push_instruction(Instruction::new(
-                        InstructionVariant::RoutineCallInterpreted {
-                            routine: self.db.entity_uid(routine.route),
+                        InstructionVariant::CallInterpreted {
+                            routine_uid: self.db.entity_uid(routine.route),
                             nargs: opds.len() as u8,
+                            has_this: false,
                         },
                         expr.clone(),
                     ))
@@ -166,7 +167,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => {
                 let this = &opds[0];
                 self.push_instruction(Instruction::new(
-                    self.method_call_instruction_kind(
+                    self.method_call_instruction_variant(
                         this.ty,
                         this_ty_decl,
                         *method_route,
@@ -184,7 +185,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 emsg_once!("TypeCall compiled");
                 let instruction_kind =
                     if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
-                        InstructionVariant::RoutineCallCompiled { linkage }
+                        InstructionVariant::CallCompiled { linkage }
                     } else {
                         match ty_decl.kind {
                             TyKind::Struct => InstructionVariant::NewVirtualStruct {
@@ -215,7 +216,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_element_access(&mut self, expr: Arc<EagerExpr>, opds: &[Arc<EagerExpr>]) {
         self.push_instruction(Instruction::new(
-            InstructionVariant::RoutineCallCompiled {
+            InstructionVariant::CallCompiled {
                 linkage: self.db.element_access_linkage(
                     opds.map(|opd| opd.ty),
                     match expr.contract {
@@ -223,7 +224,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             if self.db.is_copyable(expr.ty).unwrap() {
                                 Binding::Copy
                             } else {
-                                todo!()
+                                Binding::Ref
                             }
                         }
                         EagerContract::GlobalRef => todo!(),
@@ -232,7 +233,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             if self.db.is_copyable(expr.ty).unwrap() {
                                 Binding::Copy
                             } else {
-                                todo!()
+                                Binding::Ref
                             }
                         }
                         EagerContract::VarInit => todo!(),
@@ -255,30 +256,23 @@ impl<'a> InstructionSheetBuilder<'a> {
         ))
     }
 
-    fn method_call_instruction_kind(
+    fn method_call_instruction_variant(
         &self,
         this_ty: EntityRoutePtr,
         this_ty_decl: &TyDecl,
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
-        binding: Binding,
+        this_binding: Binding,
     ) -> InstructionVariant {
-        if let Some(linkage) = self.db.method_linkage(method_route, binding) {
-            InstructionVariant::RoutineCallCompiled { linkage }
+        if let Some(linkage) = self.db.method_linkage(method_route, this_binding) {
+            InstructionVariant::CallCompiled { linkage }
         } else {
-            match this_ty_decl.kind {
-                TyKind::Struct => todo!(),
-                TyKind::Enum => todo!(),
-                TyKind::Record => todo!(),
-                TyKind::Vec => {
-                    todo!()
-                    // let linkage = self.db.virtual_vec_method_linkages()[method_ident].1;
-                    // InstructionKind::RoutineCallCompiled { linkage }
-                }
-                _ => {
-                    p!(this_ty_decl.kind, method_ident);
-                    todo!()
-                }
+            let method_uid = self.db.entity_uid(method_route);
+            let method_decl = self.db.method_decl(method_route).unwrap();
+            InstructionVariant::CallInterpreted {
+                routine_uid: method_uid,
+                nargs: (method_decl.parameters.len() + 1).try_into().unwrap(),
+                has_this: true,
             }
         }
     }

@@ -34,41 +34,41 @@ pub const STACK_SIZE: usize = 255;
 
 pub struct VMStack<'stack, 'eval: 'stack> {
     values: ArrayVec<StackValue<'stack, 'eval>, STACK_SIZE>,
-    opt_this: Option<StackValue<'stack, 'eval>>,
 }
 
 impl<'stack, 'eval> std::fmt::Debug for VMStack<'stack, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("VMStack")
             .field("values", &self.values)
-            .field("opt_this", &self.opt_this)
             .finish()
+    }
+}
+
+impl<'stack, 'eval: 'stack, T: Iterator<Item = StackValue<'stack, 'eval>>> From<T>
+    for VMStack<'stack, 'eval>
+{
+    fn from(t: T) -> Self {
+        Self::new(t)
     }
 }
 
 impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
     pub(crate) fn try_new(
-        iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
+        argument_iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
     ) -> VMRuntimeResult<Self> {
         let mut values = ArrayVec::new();
-        for result in iter {
+        for result in argument_iter {
             values.push(result?)
         }
-        Ok(Self {
-            values,
-            opt_this: None,
-        })
+        Ok(Self { values })
     }
 
-    pub(crate) fn new(iter: impl Iterator<Item = StackValue<'stack, 'eval>>) -> Self {
+    pub(crate) fn new(argument_iter: impl Iterator<Item = StackValue<'stack, 'eval>>) -> Self {
         let mut values = ArrayVec::new();
-        for value in iter {
+        for value in argument_iter {
             values.push(value)
         }
-        Self {
-            values,
-            opt_this: None,
-        }
+        Self { values }
     }
 
     pub(crate) fn value(&self, idx: StackIdx) -> &StackValue<'stack, 'eval> {
@@ -117,8 +117,11 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         self.values.pop().unwrap()
     }
 
-    pub(crate) fn drain(&mut self, k: u8) -> Vec<StackValue<'stack, 'eval>> {
-        self.values.drain((self.len() - k as usize)..).collect()
+    pub(crate) fn drain<'a>(
+        &'a mut self,
+        k: u8,
+    ) -> impl Iterator<Item = StackValue<'stack, 'eval>> + 'a {
+        self.values.drain((self.len() - k as usize)..)
     }
 
     pub(crate) fn eval_top(&mut self) -> EvalValue<'eval> {
@@ -127,12 +130,6 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
 
     pub(crate) fn truncate(&mut self, len: usize) {
         self.values.truncate(len)
-    }
-}
-
-impl<'stack, 'eval: 'stack> From<Vec<StackValue<'stack, 'eval>>> for VMStack<'stack, 'eval> {
-    fn from(values: Vec<StackValue<'stack, 'eval>>) -> Self {
-        Self::new(values.into_iter())
     }
 }
 
@@ -187,7 +184,6 @@ impl VariableStack {
 
     pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {
         let mut result = String::new();
-        should_eq!(vm_stack.opt_this.is_some(), self.has_this);
         write!(result, "VariableStack:\n");
         write!(result, "    has_this: {}\n", self.has_this);
         write!(result, "    variables:\n");

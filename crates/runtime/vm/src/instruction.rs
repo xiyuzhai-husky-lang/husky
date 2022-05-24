@@ -21,13 +21,13 @@ use word::{CustomIdentifier, IdentPairDict, Identifier};
 
 #[derive(Debug)]
 pub struct Instruction {
-    pub kind: InstructionVariant,
+    pub variant: InstructionVariant,
     pub src: Arc<dyn InstructionSource>,
 }
 
 impl PartialEq for Instruction {
     fn eq(&self, other: &Self) -> bool {
-        self.kind == other.kind && self.src.instruction_id() == other.src.instruction_id()
+        self.variant == other.variant && self.src.instruction_id() == other.src.instruction_id()
     }
 }
 
@@ -35,7 +35,7 @@ impl Eq for Instruction {}
 
 impl Instruction {
     pub fn new(kind: InstructionVariant, src: Arc<dyn InstructionSource>) -> Self {
-        Self { kind, src }
+        Self { variant: kind, src }
     }
 
     pub fn id(&self) -> InstructionId {
@@ -78,12 +78,13 @@ pub enum InstructionVariant {
         field_idx: u8,
         field_access_contract: EagerContract,
     },
-    RoutineCallCompiled {
+    CallCompiled {
         linkage: Linkage,
     },
-    RoutineCallInterpreted {
-        routine: EntityUid,
+    CallInterpreted {
+        routine_uid: EntityUid,
         nargs: u8,
+        has_this: bool,
     },
     NewVirtualStruct {
         fields: IdentPairDict<FieldLiason>,
@@ -149,9 +150,9 @@ pub fn binary_assign<'stack, 'eval>(
     match lopd {
         StackValue::RefMut { ref mut value, .. } => {
             value.assign(if let Some(binary_opr) = opt_binary_opr {
-                let lopd_value = value.primitive();
+                let lopd_value = value.take_copyable();
                 binary_opr
-                    .act_on_primitives(lopd_value, ropd.primitive())?
+                    .act_on_primitives(lopd_value, ropd.take_copyable())?
                     .into()
             } else {
                 ropd
@@ -163,7 +164,7 @@ pub fn binary_assign<'stack, 'eval>(
 }
 
 pub fn incr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
-    let opd_primitive = opd.primitive();
+    let opd_primitive = opd.take_copyable();
     match opd {
         StackValue::RefMut { value, owner, gen } => {
             value.assign(StackValue::Copyable(match opd_primitive {
@@ -182,7 +183,7 @@ pub fn incr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
 }
 
 pub fn decr<'stack, 'eval>(opd: &mut StackValue<'stack, 'eval>) {
-    let opd_primitive = opd.primitive();
+    let opd_primitive = opd.take_copyable();
     match opd {
         StackValue::RefMut { value, owner, gen } => {
             value.assign(StackValue::Copyable(match opd_primitive {

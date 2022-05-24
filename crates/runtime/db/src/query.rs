@@ -187,6 +187,7 @@ fn feature_expr_subtraces(
             ref opt_instruction_sheet,
             ref routine_defn,
             ref opds,
+            has_this,
             ..
         } => {
             let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
@@ -203,7 +204,7 @@ fn feature_expr_subtraces(
                         ..
                     } => input_placeholders,
                     EntityDefnVariant::Proc {
-                        ref input_placeholders,
+                        parameters: ref input_placeholders,
                         ..
                     } => input_placeholders,
                     _ => panic!(),
@@ -215,7 +216,7 @@ fn feature_expr_subtraces(
                         4,
                         TraceVariant::FeatureCallInput {
                             input: func_input.clone(),
-                            ident: input_placeholders[i].ident.ident,
+                            ident: input_placeholders[i].ranged_ident.ident,
                         },
                     ));
                     match db.eval_feature_expr(func_input, input_id) {
@@ -223,7 +224,11 @@ fn feature_expr_subtraces(
                         Err(_) => return Arc::new(subtraces),
                     }
                 }
-                let history = exec_debug(db.compile_time(), func_input_values, instruction_sheet);
+                let history = exec_debug(
+                    db.compile_time(),
+                    instruction_sheet,
+                    func_input_values.into_iter(),
+                );
                 match routine_defn.variant {
                     EntityDefnVariant::Func { ref stmts, .. } => {
                         subtraces.extend(db.trace_factory().func_stmts_traces(

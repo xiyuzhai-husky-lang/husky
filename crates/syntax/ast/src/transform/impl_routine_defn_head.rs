@@ -31,7 +31,7 @@ impl<'a> AstTransformer<'a> {
         self.symbols.extend(
             head.parameters
                 .iter()
-                .map(|parameter| Symbol::variable(parameter.ident)),
+                .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
         Ok(AstKind::RoutineDefnHead(head))
     }

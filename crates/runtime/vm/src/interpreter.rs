@@ -24,11 +24,11 @@ pub struct Interpreter<'stack, 'eval: 'stack> {
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn try_new(
         db: &'stack dyn InterpreterQueryGroup,
-        iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
+        argument_iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
     ) -> VMRuntimeResult<Interpreter<'stack, 'eval>> {
         Ok(Self {
             db,
-            stack: VMStack::try_new(iter)?,
+            stack: VMStack::try_new(argument_iter)?,
             history: Default::default(),
             opt_snapshot_saved: None,
             frames: vec![],
@@ -38,11 +38,26 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
 
     pub(crate) fn new(
         db: &'stack dyn InterpreterQueryGroup,
-        values: impl Into<VMStack<'stack, 'eval>>,
+        argument_iter: impl Iterator<Item = StackValue<'stack, 'eval>>,
+        has_this: bool,
     ) -> Interpreter<'stack, 'eval> {
         Self {
             db,
-            stack: values.into(),
+            stack: VMStack::new(argument_iter),
+            history: Default::default(),
+            opt_snapshot_saved: None,
+            frames: vec![],
+            variable_mutations: Default::default(),
+        }
+    }
+
+    pub(crate) fn from_prestack(
+        db: &'stack dyn InterpreterQueryGroup,
+        prestack: impl Into<VMStack<'stack, 'eval>>,
+    ) -> Interpreter<'stack, 'eval> {
+        Self {
+            db,
+            stack: prestack.into(),
             history: Default::default(),
             opt_snapshot_saved: None,
             frames: vec![],
@@ -65,34 +80,13 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
         }
     }
 
-    fn call_compiled(&mut self, f: Linkage) -> VMRuntimeResult<()> {
-        let result = (f.call)(&mut self.stack.drain(f.nargs))?;
-        self.stack.push(result.into());
-        Ok(())
-    }
-
-    fn routine_call_interpreted(
-        &mut self,
-        sheet: &InstructionSheet,
-        nargs: u8,
-    ) -> VMRuntimeResult<()> {
-        let inputs = self.stack.drain(nargs);
-        let mut interpreter = Interpreter::new(self.db, inputs);
-        self.stack.push(
-            interpreter
-                .eval_instructions(sheet, Mode::Fast)?
-                .into_stack()?,
-        );
-        Ok(())
-    }
-
     fn new_virtual_struct(
         &mut self,
         fields: &[(CustomIdentifier, FieldLiason)],
     ) -> VMRuntimeResult<()> {
         let inputs = self.stack.drain(fields.len().try_into().unwrap());
-        self.stack
-            .push(VirtualTy::new_struct(inputs, fields).into());
+        let value = VirtualTy::new_struct(inputs, fields).into();
+        self.stack.push(value);
         Ok(())
     }
 

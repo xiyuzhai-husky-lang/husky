@@ -14,7 +14,7 @@ use print_utils::{p, ps};
 impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
         for ins in &sheet.instructions {
-            let control = match ins.kind {
+            let control = match ins.variant {
                 InstructionVariant::PushVariable {
                     binding,
                     stack_idx,
@@ -66,7 +66,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::RoutineCallCompiled { linkage } => {
+                InstructionVariant::CallCompiled { linkage } => {
                     let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -86,10 +86,14 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     // sheet.variable_stack.compare_with_vm_stack(&self.stack);
                     self.exec_opr_opn(opn, mode, ins).into()
                 }
-                InstructionVariant::RoutineCallInterpreted { routine, nargs } => {
+                InstructionVariant::CallInterpreted {
+                    routine_uid: routine,
+                    nargs, // including this
+                    has_this,
+                } => {
                     let instruction_sheet = self.db.entity_opt_instruction_sheet_by_uid(routine);
                     let control = self
-                        .routine_call_interpreted(&instruction_sheet.unwrap(), nargs)
+                        .call_interpreted(&instruction_sheet.unwrap(), nargs, has_this)
                         .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -145,7 +149,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     control
                 }
                 InstructionVariant::BreakIfFalse => {
-                    let control = if !self.stack.pop().primitive().to_bool() {
+                    let control = if !self.stack.pop().take_copyable().to_bool() {
                         VMControl::Break
                     } else {
                         VMControl::None
@@ -174,7 +178,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::Assert => {
-                    let is_condition_satisfied = self.stack.pop().primitive().to_bool();
+                    let is_condition_satisfied = self.stack.pop().take_copyable().to_bool();
                     if !is_condition_satisfied {
                         todo!()
                     } else {
@@ -231,8 +235,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     }
 
     pub(crate) fn eval_linkage(&mut self, linkage: Linkage) -> EvalResult<'eval> {
-        let mut inputs = self.stack.drain(linkage.nargs);
+        let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
         should_eq!(self.stack.len(), 0);
-        Ok((linkage.call)(&mut inputs)?.into_eval())
+        Ok((linkage.call)(&mut arguments)?.into_eval())
     }
 }

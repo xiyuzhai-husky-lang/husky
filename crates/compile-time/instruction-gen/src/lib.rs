@@ -35,7 +35,7 @@ fn new_func_instruction_sheet(
     builder.finalize()
 }
 
-fn new_impr_instruction_sheet(
+fn new_proc_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     inputs: impl Iterator<Item = CustomIdentifier>,
     stmts: &[Arc<ProcStmt>],

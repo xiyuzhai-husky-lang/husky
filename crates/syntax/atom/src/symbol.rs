@@ -216,7 +216,7 @@ impl<'a> SymbolContext<'a> {
         static_input_placeholder: &StaticInputParameter,
     ) -> InputParameter {
         InputParameter {
-            ident: RangedCustomIdentifier {
+            ranged_ident: RangedCustomIdentifier {
                 ident: self.db.intern_word(static_input_placeholder.name).custom(),
                 range: Default::default(),
             },

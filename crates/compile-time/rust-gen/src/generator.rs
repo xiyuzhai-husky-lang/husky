@@ -44,7 +44,7 @@ impl<'a> RustGenerator<'a> {
                     stmts,
                 ),
                 EntityDefnVariant::Proc {
-                    ref input_placeholders,
+                    parameters: ref input_placeholders,
                     output,
                     ref stmts,
                     ..

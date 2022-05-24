@@ -110,7 +110,7 @@ impl EntityDefn {
                 extract_func_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Proc {
-                ref input_placeholders,
+                parameters: ref input_placeholders,
                 output,
                 ref stmts,
                 ..
@@ -154,7 +154,7 @@ impl EntityDefn {
                 }
             }
             EntityDefnVariant::Method {
-                ref input_placeholders,
+                parameters: ref input_placeholders,
                 output_ty,
                 ref method_variant,
                 ..
@@ -335,7 +335,7 @@ impl EntityDefn {
                         | LazyOpnKind::Prefix(_)
                         | LazyOpnKind::FieldAccess { .. }
                         | LazyOpnKind::MethodCall { .. } => (),
-                        LazyOpnKind::RoutineCall(routine) => v.push(routine.route),
+                        LazyOpnKind::NormalRoutineCall(routine) => v.push(routine.route),
                         LazyOpnKind::StructCall(ty) => v.push(ty.route),
                         LazyOpnKind::RecordCall(ty) => v.push(ty.route),
                         LazyOpnKind::PatternCall => todo!(),

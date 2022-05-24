@@ -36,21 +36,21 @@ fn entity_instruction_sheet(
             db,
             input_placeholders
                 .iter()
-                .map(|input_placeholder| input_placeholder.ident.ident),
+                .map(|input_placeholder| input_placeholder.ranged_ident.ident),
             stmts,
             false,
         )),
         EntityDefnVariant::Proc {
-            ref input_placeholders,
+            ref parameters,
             ref stmts,
             ..
-        } => Some(new_impr_instruction_sheet(
+        } => Some(new_proc_instruction_sheet(
             db,
-            input_placeholders
+            parameters
                 .iter()
-                .map(|input_placeholder| input_placeholder.ident.ident),
+                .map(|parameter| parameter.ranged_ident.ident),
             stmts,
-            false,
+            false, // has_this
         )),
         EntityDefnVariant::Type { .. } => todo!(),
         EntityDefnVariant::Main(_) => todo!(),
@@ -62,7 +62,33 @@ fn entity_instruction_sheet(
         EntityDefnVariant::TypeField { .. } => todo!(),
         EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
         EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
-        EntityDefnVariant::Method { .. } => todo!(),
+        EntityDefnVariant::Method {
+            ref parameters,
+            ref method_variant,
+            ..
+        } => {
+            msg_once!("handle generics");
+            match method_variant {
+                MethodDefnVariant::TypeMethod { ty, method_source } => match method_source {
+                    MethodSource::Func { stmts } => Some(new_func_instruction_sheet(
+                        db,
+                        parameters
+                            .iter()
+                            .map(|parameter| parameter.ranged_ident.ident),
+                        stmts,
+                        true, // has_this
+                    )),
+                    MethodSource::Proc { stmts } => todo!(),
+                    MethodSource::Pattern { stmts } => todo!(),
+                    MethodSource::Static(_) => todo!(),
+                },
+                MethodDefnVariant::TraitMethod {
+                    trai,
+                    opt_default_source,
+                } => todo!(),
+                MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
+            }
+        }
         EntityDefnVariant::Trait { .. } => todo!(),
     }
 }
@@ -92,12 +118,12 @@ fn method_opt_instruction_sheet(
             match method_defn.variant {
                 EntityDefnVariant::Method {
                     ref method_variant,
-                    ref input_placeholders,
+                    parameters: ref input_placeholders,
                     ..
                 } => {
                     let inputs = input_placeholders
                         .iter()
-                        .map(|input_placeholder| input_placeholder.ident.ident);
+                        .map(|input_placeholder| input_placeholder.ranged_ident.ident);
                     let source = match method_variant {
                         MethodDefnVariant::TypeMethod { ty, method_source } => method_source,
                         MethodDefnVariant::TraitMethod {

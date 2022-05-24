@@ -15,7 +15,7 @@ impl<'eval> TraceFactory<'eval> {
                 ..
             } => routine_call_head_tokens("func ", entity.ident, input_placeholders, text),
             EntityDefnVariant::Proc {
-                ref input_placeholders,
+                parameters: ref input_placeholders,
                 ..
             } => routine_call_head_tokens("proc ", entity.ident, input_placeholders, text),
             EntityDefnVariant::Type { .. } => todo!(),
@@ -47,7 +47,7 @@ impl<'eval> TraceFactory<'eval> {
             ];
             for i in 0..input_placeholders.len() {
                 let input_placeholder = &input_placeholders[i];
-                tokens.push(ident!(input_placeholder.ident.ident.as_str()));
+                tokens.push(ident!(input_placeholder.ranged_ident.ident.as_str()));
                 tokens.push(special!(": "));
                 tokens.push(scope!(text.ranged(input_placeholder.ranged_ty.range)));
                 if i < input_placeholders.len() - 1 {

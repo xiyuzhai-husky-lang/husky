@@ -62,7 +62,7 @@ impl EntityDefnVariant {
                         contract,
                     } => match fieldiant {
                         FieldDefnVariant::RecordOriginal => InputParameter {
-                            ident,
+                            ranged_ident: ident,
                             contract:
                                 contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
                             ranged_ty: RangedEntityRoute {
@@ -91,7 +91,7 @@ impl EntityDefnVariant {
                         contract,
                     } => match fieldiant {
                         FieldDefnVariant::StructOriginal => InputParameter {
-                            ident,
+                            ranged_ident: ident,
                             contract:
                                 contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
                             ranged_ty: RangedEntityRoute {

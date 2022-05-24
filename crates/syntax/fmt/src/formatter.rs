@@ -120,7 +120,7 @@ impl<'a> Formatter<'a> {
                         self.write(", ");
                     }
                     let input_placeholder = &head.parameters[i];
-                    self.fmt_ident(input_placeholder.ident.ident.into());
+                    self.fmt_ident(input_placeholder.ranged_ident.ident.into());
                     self.write(": ");
                     self.fmt_func_input_liasoned_type(input_placeholder);
                 }

@@ -294,9 +294,9 @@ impl<'eval> TraceFactory<'eval> {
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let frames = exec_loop_debug(
             compile_time.upcast(),
-            stack_snapshot,
             loop_kind,
             &body_instruction_sheet,
+            stack_snapshot,
         );
         Arc::new(
             frames
@@ -330,8 +330,8 @@ impl<'eval> TraceFactory<'eval> {
     ) -> Avec<Trace<'eval>> {
         let history = exec_debug(
             compile_time.upcast(),
-            &loop_frame_data.stack_snapshot,
             instruction_sheet,
+            &loop_frame_data.stack_snapshot,
         );
         let mut subtraces: Vec<_> =
             self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history);
@@ -406,7 +406,7 @@ impl<'eval> TraceFactory<'eval> {
         stack_snapshot: &StackSnapshot<'eval>,
         parent: &Trace,
     ) -> Avec<Trace<'eval>> {
-        let history = exec_debug(compile_time.upcast(), stack_snapshot, instruction_sheet);
+        let history = exec_debug(compile_time.upcast(), instruction_sheet, stack_snapshot);
         Arc::new(self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history))
     }
 

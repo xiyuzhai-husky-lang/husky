@@ -148,7 +148,7 @@ pub enum EntityDefnVariant {
     },
     Proc {
         generic_placeholders: IdentDict<GenericPlaceholder>,
-        input_placeholders: Arc<Vec<InputParameter>>,
+        parameters: Arc<Vec<InputParameter>>,
         output: RangedEntityRoute,
         stmts: Avec<ProcStmt>,
     },
@@ -179,7 +179,7 @@ pub enum EntityDefnVariant {
     Method {
         generic_placeholders: IdentDict<GenericPlaceholder>,
         this_contract: InputLiason,
-        input_placeholders: Arc<Vec<InputParameter>>,
+        parameters: Arc<Vec<InputParameter>>,
         output_ty: RangedEntityRoute,
         output_liason: OutputLiason,
         method_variant: MethodDefnVariant,
@@ -269,7 +269,7 @@ impl EntityDefnVariant {
                     GenericPlaceholder::from_static(symbol_context.db, static_generic_placeholder)
                 }),
                 this_contract,
-                input_placeholders: Arc::new(input_placeholders.map(|input_placeholder| {
+                parameters: Arc::new(input_placeholders.map(|input_placeholder| {
                     symbol_context.input_placeholder_from_static(input_placeholder)
                 })),
                 output_ty: RangedEntityRoute {

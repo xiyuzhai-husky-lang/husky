@@ -47,9 +47,9 @@ impl<'sess> Session<'sess> {
         let config = pack.config.clone();
         let dataset: Dataset = eval_fast(
             compile_time,
-            TrivialIter::default(),
             Some(&compile_time.dataset_config_instruction_sheet(pack.main_defn.file)),
             None,
+            [].into_iter(),
         )?
         .owned()?
         .take()?;

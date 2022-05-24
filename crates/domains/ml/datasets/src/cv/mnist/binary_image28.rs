@@ -53,7 +53,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             let this_value: &BinaryImage28 =
                                                 values[0].downcast_ref();
                                             let index_value: usize = values[1]
-                                                .primitive()
+                                                .take_copyable()
                                                 .take_i32()
                                                 .try_into()
                                                 .expect("todo");
@@ -77,7 +77,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                     ref_mut_access: Linkage {
                                         call: |values| {
                                             let index_value: usize = values[1]
-                                                .primitive()
+                                                .take_copyable()
                                                 .take_i32()
                                                 .try_into()
                                                 .expect("todo");

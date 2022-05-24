@@ -126,7 +126,7 @@ impl<'a> AtomParser<'a> {
             range: self.stream.pop_text_range(),
         };
         Ok(InputParameter {
-            ident,
+            ranged_ident: ident,
             contract: InputLiason::Pure,
             ranged_ty: ty,
         })

@@ -117,7 +117,7 @@ impl EntityDefnVariant {
                     }
                 };
                 Self::Method {
-                    input_placeholders: Arc::new(inputs.map(|input_placeholder| {
+                    parameters: Arc::new(inputs.map(|input_placeholder| {
                         context.input_placeholder_from_static(input_placeholder)
                     })),
                     output_ty: RangedEntityRoute {

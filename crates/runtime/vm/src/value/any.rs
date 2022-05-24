@@ -76,7 +76,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + 'eval {
     fn clone_into_arc_dyn(&self) -> Arc<dyn AnyValueDyn<'eval>>;
     fn equal_any(&self, other: &dyn AnyValueDyn<'eval>) -> bool;
     fn assign<'stack>(&mut self, other: StackValue<'stack, 'eval>);
-    fn primitive(&self) -> CopyableValue;
+    fn take_copyable(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval> + 'eval);
     fn print_short(&self) -> String;
     // consume the memory pointed at to create an Arc
@@ -133,7 +133,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         *self = T::from_stack(other)
     }
 
-    fn primitive(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         T::as_copyable(self)
     }
 

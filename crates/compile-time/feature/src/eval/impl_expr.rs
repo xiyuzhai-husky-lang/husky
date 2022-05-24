@@ -44,12 +44,14 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
+                has_this,
                 ..
             } => {
                 let result = self.eval_routine_call(
                     opt_instruction_sheet.as_ref().map(|r| &**r),
                     opt_linkage,
                     opds,
+                    has_this,
                 );
                 result
             }
@@ -99,12 +101,13 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
         &mut self,
         opt_instrns: Option<&InstructionSheet>,
         maybe_compiled: Option<Linkage>,
-        inputs: &[Arc<FeatureExpr>],
+        arguments: &[Arc<FeatureExpr>],
+        has_this: bool,
     ) -> EvalResult<'eval> {
         let db = self.db;
-        let values = inputs
+        let values = arguments
             .iter()
             .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
-        eval_fast(db.upcast(), values, opt_instrns, maybe_compiled)
+        eval_fast(db.upcast(), opt_instrns, maybe_compiled, values)
     }
 }
