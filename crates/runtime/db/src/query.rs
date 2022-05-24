@@ -179,11 +179,11 @@ fn feature_expr_subtraces(
     expr: &FeatureExpr,
     opt_input_id: Option<usize>,
 ) -> Arc<Vec<Arc<Trace<'static>>>> {
-    Arc::new(match expr.kind {
-        FeatureExprKind::PrimitiveLiteral(_)
-        | FeatureExprKind::PrimitiveBinaryOpr { .. }
-        | FeatureExprKind::Variable { .. } => vec![],
-        FeatureExprKind::RoutineCall {
+    Arc::new(match expr.variant {
+        FeatureExprVariant::PrimitiveLiteral(_)
+        | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+        | FeatureExprVariant::Variable { .. } => vec![],
+        FeatureExprVariant::RoutineCall {
             ref opt_instruction_sheet,
             ref routine_defn,
             ref opds,
@@ -256,20 +256,20 @@ fn feature_expr_subtraces(
             }
         }
 
-        FeatureExprKind::EntityFeature { .. } => todo!(),
-        FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-        FeatureExprKind::RecordOriginalFieldAccess {
+        FeatureExprVariant::EntityFeature { .. } => todo!(),
+        FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+        FeatureExprVariant::RecordOriginalFieldAccess {
             ref this,
             field_ident,
             ..
         } => todo!(),
-        FeatureExprKind::This { ref repr } => todo!(),
-        FeatureExprKind::PatternCall {} => todo!(),
-        FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
-        FeatureExprKind::StructOriginalFieldAccess { .. } => panic!(),
-        FeatureExprKind::EnumKindLiteral { .. } => panic!(),
-        FeatureExprKind::GlobalInput => panic!(),
-        FeatureExprKind::ElementAccess { ref opds, .. } => panic!(),
+        FeatureExprVariant::This { ref repr } => todo!(),
+        FeatureExprVariant::PatternCall {} => todo!(),
+        FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+        FeatureExprVariant::StructOriginalFieldAccess { .. } => panic!(),
+        FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
+        FeatureExprVariant::GlobalInput => panic!(),
+        FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
     })
 }
 

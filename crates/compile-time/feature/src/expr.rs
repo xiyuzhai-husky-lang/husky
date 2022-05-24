@@ -15,7 +15,7 @@ use crate::{eval::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
 pub struct FeatureExpr {
-    pub kind: FeatureExprKind,
+    pub variant: FeatureExprVariant,
     pub(crate) feature: FeaturePtr,
     pub(crate) eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
@@ -36,7 +36,7 @@ impl PartialEq for FeatureExpr {
 impl Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureExprKind {
+pub enum FeatureExprVariant {
     PrimitiveLiteral(CopyableValue),
     EnumKindLiteral {
         entity_route: EntityRoutePtr,
@@ -130,7 +130,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 .find_map(|symbol| {
                     if symbol.varname == varname {
                         Some((
-                            FeatureExprKind::Variable {
+                            FeatureExprVariant::Variable {
                                 varname,
                                 value: symbol.value.clone(),
                             },
@@ -143,21 +143,23 @@ impl<'a> FeatureExprBuilder<'a> {
                 .unwrap(),
             LazyExprVariant::Scope { scope, compiled } => todo!(),
             LazyExprVariant::PrimitiveLiteral(value) => (
-                FeatureExprKind::PrimitiveLiteral(value),
+                FeatureExprVariant::PrimitiveLiteral(value),
                 self.features.alloc(Feature::PrimitiveLiteral(value)),
             ),
-            LazyExprVariant::Bracketed(_) => todo!(),
+            LazyExprVariant::Bracketed(ref bracketed_expr) => {
+                return self.new_expr(bracketed_expr.clone())
+            }
             LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
             LazyExprVariant::Lambda(_, _) => todo!(),
             LazyExprVariant::EnumLiteral { entity_route } => (
-                FeatureExprKind::EnumKindLiteral {
+                FeatureExprVariant::EnumKindLiteral {
                     entity_route,
                     uid: self.db.entity_uid(entity_route),
                 },
                 self.features.alloc(Feature::EnumLiteral(entity_route)),
             ),
             LazyExprVariant::This => (
-                FeatureExprKind::This {
+                FeatureExprVariant::This {
                     repr: self.this.as_ref().unwrap().clone(),
                 },
                 self.this.as_ref().unwrap().feature(),
@@ -167,7 +169,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 EntityRouteKind::Child { .. } => {
                     let uid = self.db.entity_uid(route);
                     let feature = self.features.alloc(Feature::EntityFeature { route, uid });
-                    let kind = FeatureExprKind::EntityFeature {
+                    let kind = FeatureExprVariant::EntityFeature {
                         route,
                         block: self.db.scoped_feature_block(route).unwrap(),
                     };
@@ -175,7 +177,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 }
                 EntityRouteKind::Input { main } => {
                     let feature = self.features.alloc(Feature::Input);
-                    let kind = FeatureExprKind::GlobalInput;
+                    let kind = FeatureExprVariant::GlobalInput;
                     (kind, feature)
                 }
                 EntityRouteKind::Generic { ident, .. } => todo!(),
@@ -188,7 +190,7 @@ impl<'a> FeatureExprBuilder<'a> {
             },
         };
         Arc::new(FeatureExpr {
-            kind,
+            variant: kind,
             feature,
             eval_id: Default::default(),
             expr,

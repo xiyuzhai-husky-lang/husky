@@ -29,9 +29,9 @@ impl<'eval> TraceFactory<'eval> {
         } else {
             None
         };
-        return match expr.kind {
-            FeatureExprKind::PrimitiveLiteral(value) => vec![literal!(value)],
-            FeatureExprKind::PrimitiveBinaryOpr {
+        return match expr.variant {
+            FeatureExprVariant::PrimitiveLiteral(value) => vec![literal!(value)],
+            FeatureExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
@@ -42,8 +42,10 @@ impl<'eval> TraceFactory<'eval> {
                 tokens.extend(self.feature_expr_tokens(ropd, text, config.subexpr()));
                 tokens
             }
-            FeatureExprKind::Variable { varname, .. } => vec![ident!(varname.0, associated_trace)],
-            FeatureExprKind::RoutineCall {
+            FeatureExprVariant::Variable { varname, .. } => {
+                vec![ident!(varname.0, associated_trace)]
+            }
+            FeatureExprVariant::RoutineCall {
                 opds: ref feature_opds,
                 ..
             } => match expr.expr.variant {
@@ -95,20 +97,20 @@ impl<'eval> TraceFactory<'eval> {
                 },
                 _ => panic!(""),
             },
-            FeatureExprKind::StructOriginalFieldAccess { .. } => todo!(),
-            FeatureExprKind::EnumKindLiteral { .. } => todo!(),
-            FeatureExprKind::EntityFeature { .. } => todo!(),
-            FeatureExprKind::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprKind::RecordOriginalFieldAccess {
+            FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
+            FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
+            FeatureExprVariant::EntityFeature { .. } => todo!(),
+            FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+            FeatureExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => todo!(),
-            FeatureExprKind::This { ref repr } => todo!(),
-            FeatureExprKind::GlobalInput => vec![keyword!("input")],
-            FeatureExprKind::PatternCall {} => todo!(),
-            FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
-            FeatureExprKind::ElementAccess { ref opds, .. } => {
+            FeatureExprVariant::This { ref repr } => todo!(),
+            FeatureExprVariant::GlobalInput => vec![keyword!("input")],
+            FeatureExprVariant::PatternCall {} => todo!(),
+            FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+            FeatureExprVariant::ElementAccess { ref opds, .. } => {
                 let mut tokens = vec![];
                 tokens.extend(self.feature_expr_tokens(&opds[0], text, config.subexpr()));
                 tokens.push(special!("[", associated_trace.clone()));

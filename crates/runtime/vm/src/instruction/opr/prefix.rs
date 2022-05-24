@@ -19,8 +19,8 @@ impl PrefixOpr {
     pub fn act_on_primitive(&self, opd: CopyableValue) -> CopyableValue {
         match self {
             PrefixOpr::Minus => match opd {
-                CopyableValue::I32(_) => todo!(),
-                CopyableValue::F32(_) => todo!(),
+                CopyableValue::I32(i) => (-i).into(),
+                CopyableValue::F32(f) => (-f).into(),
                 CopyableValue::B32(_) => todo!(),
                 CopyableValue::B64(_) => todo!(),
                 CopyableValue::Bool(_) => todo!(),

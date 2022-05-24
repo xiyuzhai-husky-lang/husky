@@ -203,7 +203,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 LazyQualifier::Copyable,
                 self.raw_expr_ty(raw_expr_idx).unwrap(),
             )),
-            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Bracketed(bracketed_expr) => {
+                derived_not_none!(self.infer_lazy_expr(arena, bracketed_expr))
+            }
             RawExprVariant::Opn { ref opr, ref opds } => {
                 self.lazy_opn(arena, raw_expr_idx, opr, opds.clone())
             }

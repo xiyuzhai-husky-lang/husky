@@ -90,7 +90,10 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::Entity { .. }
             | RawExprVariant::CopyableLiteral(_)
             | RawExprVariant::This { .. } => Ok(()),
-            RawExprVariant::Bracketed(_) => todo!(),
+            RawExprVariant::Bracketed(bracketed_expr) => {
+                self.infer_lazy_expr(bracketed_expr, contract, arena);
+                Ok(())
+            }
             RawExprVariant::Opn { ref opr, ref opds } => {
                 self.infer_lazy_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
             }

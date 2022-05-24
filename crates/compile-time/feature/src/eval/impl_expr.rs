@@ -4,19 +4,19 @@ use print_utils::{epin, p};
 use semantics_lazy::LazyStmt;
 use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, Linkage, StackValue};
 
-use crate::{FeatureBlock, FeatureExpr, FeatureExprKind};
+use crate::{FeatureBlock, FeatureExpr, FeatureExprVariant};
 
 use super::FeatureEvaluator;
 
 impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
-        match expr.kind {
-            FeatureExprKind::PrimitiveLiteral(value) => Ok(value.into()),
-            FeatureExprKind::EnumKindLiteral { entity_route, uid } => {
+        match expr.variant {
+            FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
+            FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
                 todo!()
                 // Ok(EvalValue::Boxed(value.clone_any()))
             }
-            FeatureExprKind::PrimitiveBinaryOpr {
+            FeatureExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
@@ -26,7 +26,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                     self.eval_feature_expr(ropd)?.primitive(),
                 )?
                 .into()),
-            FeatureExprKind::StructOriginalFieldAccess {
+            FeatureExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_idx,
                 contract,
@@ -40,7 +40,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                     Ok(unsafe { this_value.lazy_field(field_idx, contract) })
                 }
             }
-            FeatureExprKind::RoutineCall {
+            FeatureExprVariant::RoutineCall {
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
@@ -55,8 +55,8 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 );
                 result
             }
-            FeatureExprKind::EntityFeature { ref block, .. } => self.eval_feature_block(block),
-            FeatureExprKind::NewRecord {
+            FeatureExprVariant::EntityFeature { ref block, .. } => self.eval_feature_block(block),
+            FeatureExprVariant::NewRecord {
                 ty,
                 ref entity,
                 ref opds,
@@ -67,22 +67,22 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 // .into()),
                 todo!()
             }
-            FeatureExprKind::Variable { ref value, .. } => self
+            FeatureExprVariant::Variable { ref value, .. } => self
                 .cache(expr.feature, |evaluator: &mut Self| {
                     evaluator.eval_feature_expr(&value)
                 }),
-            FeatureExprKind::RecordOriginalFieldAccess {
+            FeatureExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
             } => self.eval_feature_repr(repr),
-            FeatureExprKind::This { ref repr } => todo!(),
-            FeatureExprKind::GlobalInput => Ok(EvalValue::GlobalPure(self.global_input.clone())),
-            FeatureExprKind::PatternCall {} => todo!(),
-            FeatureExprKind::RecordDerivedFieldAccess { ref block, .. } => {
+            FeatureExprVariant::This { ref repr } => todo!(),
+            FeatureExprVariant::GlobalInput => Ok(EvalValue::GlobalPure(self.global_input.clone())),
+            FeatureExprVariant::PatternCall {} => todo!(),
+            FeatureExprVariant::RecordDerivedFieldAccess { ref block, .. } => {
                 self.eval_feature_block(block)
             }
-            FeatureExprKind::ElementAccess {
+            FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
                 if opds.len() > 2 {

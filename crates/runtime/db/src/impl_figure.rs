@@ -6,7 +6,7 @@ pub use impl_figure_control::*;
 
 use crate::*;
 use compile_time_db::*;
-use feature::{FeatureExpr, FeatureExprKind, FeatureStmt, FeatureStmtVariant};
+use feature::{FeatureExpr, FeatureExprVariant, FeatureStmt, FeatureStmtVariant};
 use map_collect::MapCollect;
 use semantics_eager::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,

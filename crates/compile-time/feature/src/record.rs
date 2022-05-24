@@ -20,13 +20,13 @@ pub(crate) fn expr_record_field(
     this: &Arc<FeatureExpr>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
-    match this.kind {
-        FeatureExprKind::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
-        FeatureExprKind::RecordOriginalFieldAccess { .. } => todo!(),
-        FeatureExprKind::EntityFeature { ref block, .. } => {
+    match this.variant {
+        FeatureExprVariant::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
+        FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
+        FeatureExprVariant::EntityFeature { ref block, .. } => {
             block_record_memb(db, block, field_ident)
         }
-        FeatureExprKind::NewRecord {
+        FeatureExprVariant::NewRecord {
             ref entity,
             ref opds,
             ..
@@ -72,19 +72,19 @@ pub(crate) fn expr_record_field(
             },
             _ => panic!(),
         },
-        FeatureExprKind::EnumKindLiteral { .. }
-        | FeatureExprKind::PrimitiveBinaryOpr { .. }
-        | FeatureExprKind::StructOriginalFieldAccess { .. }
-        | FeatureExprKind::PrimitiveLiteral(_) => {
-            p!(this.kind);
+        FeatureExprVariant::EnumKindLiteral { .. }
+        | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+        | FeatureExprVariant::StructOriginalFieldAccess { .. }
+        | FeatureExprVariant::PrimitiveLiteral(_) => {
+            p!(this.variant);
             panic!()
         }
-        FeatureExprKind::This { ref repr } => db.record_field_repr(repr.clone(), field_ident),
-        FeatureExprKind::GlobalInput => todo!(),
-        FeatureExprKind::RoutineCall { .. } => todo!(),
-        FeatureExprKind::PatternCall {} => todo!(),
-        FeatureExprKind::RecordDerivedFieldAccess { .. } => todo!(),
-        FeatureExprKind::ElementAccess { ref opds, .. } => todo!(),
+        FeatureExprVariant::This { ref repr } => db.record_field_repr(repr.clone(), field_ident),
+        FeatureExprVariant::GlobalInput => todo!(),
+        FeatureExprVariant::RoutineCall { .. } => todo!(),
+        FeatureExprVariant::PatternCall {} => todo!(),
+        FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+        FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
     }
 }
 
