@@ -424,7 +424,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     self.entity_route_sheet.extra_errors.push(InferError {
                         variant: InferErrorVariant::Original {
                             message: format!(
-                                "expect `{}` arguments, but get `{}` arguments",
+                                "expect {} arguments, but get {} arguments",
                                 call_decl.parameters.len(),
                                 total_opds.end - total_opds.start - 1
                             ),
