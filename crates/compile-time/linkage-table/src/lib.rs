@@ -82,73 +82,81 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     }
 
     fn method_linkage(&self, method_route: EntityRoutePtr, binding: Binding) -> Option<Linkage> {
-        if let Some(linkage) = self.linkage_table().routine(self.entity_uid(method_route)) {
-            return Some(linkage);
-        }
-        let method_defn = self.entity_defn(method_route).unwrap();
-        match method_defn.variant {
-            EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::Method {
-                ref method_variant, ..
-            } => match method_variant {
-                MethodDefnVariant::TypeMethod { method_source, .. } => match method_source {
-                    MethodSource::Func { .. }
-                    | MethodSource::Proc { .. }
-                    | MethodSource::Pattern { .. } => None,
-                    MethodSource::Static(linkage_source) => Some(linkage_source.bind(binding)),
-                },
-                MethodDefnVariant::TraitMethod {
-                    trai,
-                    opt_default_source,
-                } => todo!(),
-                MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
-                    if let Some(source) = opt_source {
-                        return match source {
-                            MethodSource::Func { ref stmts } => todo!(),
-                            MethodSource::Proc { ref stmts } => todo!(),
-                            MethodSource::Pattern { ref stmts } => todo!(),
-                            MethodSource::Static(linkage_source) => {
-                                Some(linkage_source.bind(binding))
-                            }
-                        };
-                    }
-                    let trai_defn = self.entity_defn(*trai).unwrap();
-                    match trai_defn.variant {
-                        EntityDefnVariant::Trait {
-                            ref generic_placeholders,
-                            ref members,
-                        } => {
-                            let member = members
-                                .iter()
-                                .find(|member| member.ident == method_defn.ident)
-                                .unwrap();
-                            match member.variant {
-                                EntityDefnVariant::Method {
-                                    method_variant:
-                                        MethodDefnVariant::TraitMethod {
-                                            trai,
-                                            ref opt_default_source,
-                                        },
-                                    ..
-                                } => match opt_default_source.as_ref().unwrap() {
-                                    MethodSource::Func { ref stmts } => todo!(),
-                                    MethodSource::Proc { ref stmts } => todo!(),
-                                    MethodSource::Pattern { ref stmts } => todo!(),
-                                    MethodSource::Static(linkage_source) => {
-                                        Some(linkage_source.bind(binding))
-                                    }
-                                },
-                                _ => panic!(),
-                            }
+        let opt_linkage = if let Some(linkage) =
+            self.linkage_table().routine(self.entity_uid(method_route))
+        {
+            Some(linkage)
+        } else {
+            let method_defn = self.entity_defn(method_route).unwrap();
+            match method_defn.variant {
+                EntityDefnVariant::Builtin => todo!(),
+                EntityDefnVariant::Method {
+                    ref method_variant, ..
+                } => match method_variant {
+                    MethodDefnVariant::TypeMethod { method_source, .. } => match method_source {
+                        MethodSource::Func { .. }
+                        | MethodSource::Proc { .. }
+                        | MethodSource::Pattern { .. } => None,
+                        MethodSource::Static(linkage_source) => Some(linkage_source.bind(binding)),
+                    },
+                    MethodDefnVariant::TraitMethod {
+                        trai,
+                        opt_default_source,
+                    } => todo!(),
+                    MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
+                        if let Some(source) = opt_source {
+                            return match source {
+                                MethodSource::Func { ref stmts } => todo!(),
+                                MethodSource::Proc { ref stmts } => todo!(),
+                                MethodSource::Pattern { ref stmts } => todo!(),
+                                MethodSource::Static(linkage_source) => {
+                                    Some(linkage_source.bind(binding))
+                                }
+                            };
                         }
-                        _ => panic!(),
+                        let trai_defn = self.entity_defn(*trai).unwrap();
+                        match trai_defn.variant {
+                            EntityDefnVariant::Trait {
+                                ref generic_placeholders,
+                                ref members,
+                            } => {
+                                let member = members
+                                    .iter()
+                                    .find(|member| member.ident == method_defn.ident)
+                                    .unwrap();
+                                match member.variant {
+                                    EntityDefnVariant::Method {
+                                        method_variant:
+                                            MethodDefnVariant::TraitMethod {
+                                                trai,
+                                                ref opt_default_source,
+                                            },
+                                        ..
+                                    } => match opt_default_source.as_ref().unwrap() {
+                                        MethodSource::Func { ref stmts } => todo!(),
+                                        MethodSource::Proc { ref stmts } => todo!(),
+                                        MethodSource::Pattern { ref stmts } => todo!(),
+                                        MethodSource::Static(linkage_source) => {
+                                            Some(linkage_source.bind(binding))
+                                        }
+                                    },
+                                    _ => panic!(),
+                                }
+                            }
+                            _ => panic!(),
+                        }
                     }
+                },
+                _ => {
+                    panic!()
                 }
-            },
-            _ => {
-                panic!()
             }
+        };
+        let method_decl = self.method_decl(method_route).unwrap();
+        if let Some(linkage) = opt_linkage {
+            should_eq!(linkage.nargs, method_decl.nargs());
         }
+        opt_linkage
     }
 
     fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<Linkage> {
