@@ -46,7 +46,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
         field_access_contract: EagerContract,
     ) -> StackValue<'stack, 'eval> {
         match field_access_contract {
-            EagerContract::Pure => match self {
+            EagerContract::Pure | EagerContract::UseForLetInit => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
                     MemberValue::Copyable(value) => StackValue::Copyable(value),
                     MemberValue::Boxed(ref value) => {
@@ -60,7 +60,6 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             },
             EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
-            EagerContract::UseForLetInit => todo!(),
             EagerContract::UseForVarInit => todo!(),
             EagerContract::Return => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {

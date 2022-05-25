@@ -284,7 +284,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
                     nargs: 1,
                 },
                 ref_mut_access: Linkage {
-                    call: generic_vec_first_ref_mut,
+                    call: generic_vec_first_mut,
                     nargs: 1,
                 },
                 move_access: Linkage {
@@ -307,13 +307,22 @@ fn generic_vec_first_copy<'stack, 'eval>(
 fn generic_vec_first_ref<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
-    todo!()
+    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    match generic_vec.first() {
+        Some(value) => Ok(value.stack_ref()),
+        None => Err(vm_runtime_error!("empty vec")),
+    }
 }
 
-fn generic_vec_first_ref_mut<'stack, 'eval>(
+fn generic_vec_first_mut<'stack, 'eval>(
     values: &mut [StackValue<'stack, 'eval>],
 ) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
-    todo!()
+    let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
+        values[0].downcast_mut_full();
+    match generic_vec.first_mut() {
+        Some(value) => Ok(value.stack_mut(stack_idx)),
+        None => Err(vm_runtime_error!("empty vec")),
+    }
 }
 
 fn generic_vec_first_move<'stack, 'eval>(
