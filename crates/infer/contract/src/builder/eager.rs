@@ -82,9 +82,9 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => self.infer_eager_pattern(pattern),
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec { expr, silent } => self.infer_eager_expr(
+            RawStmtVariant::Exec { expr, discard } => self.infer_eager_expr(
                 expr,
-                if silent {
+                if discard {
                     EagerContract::Pure
                 } else {
                     EagerContract::Exec
@@ -92,7 +92,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 arena,
             ),
             RawStmtVariant::Init { initial_value, .. } => {
-                self.infer_eager_expr(initial_value, EagerContract::LetInit, arena);
+                self.infer_eager_expr(initial_value, EagerContract::UseForLetInit, arena);
             }
             RawStmtVariant::Return(result) => {
                 self.infer_eager_expr(result, EagerContract::Return, arena);
@@ -177,9 +177,13 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
-            Opr::Binary(opr) => self.infer_eager_binary_opn(*opr, opds, contract, arena),
+            Opr::Binary(opr) => {
+                self.infer_eager_binary_opn(*opr, opds, contract, arena, raw_expr_idx)
+            }
             Opr::Prefix(opr) => self.infer_eager_prefix_opn(*opr, opds.start, contract, arena),
-            Opr::Suffix(opr) => self.infer_eager_suffix(*opr, opds.start, contract, arena),
+            Opr::Suffix(opr) => {
+                self.infer_eager_suffix(*opr, opds.start, contract, arena, raw_expr_idx)
+            }
             Opr::List(opr) => {
                 self.infer_eager_list_opn(opr, opds, contract, arena, range, raw_expr_idx)
             }
@@ -192,9 +196,12 @@ impl<'a> ContractSheetBuilder<'a> {
         opds: &RawExprRange,
         contract: EagerContract,
         arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let lopd = opds.start;
         let ropd = opds.start + 1;
+        let lopd_ty = self.raw_expr_ty(opds.start)?;
+        let is_lopd_copyable = self.db.is_copyable(lopd_ty)?;
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
@@ -203,24 +210,35 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::RefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
-                    EagerContract::LetInit => (),
-                    EagerContract::VarInit => (),
+                    EagerContract::UseForLetInit => (),
+                    EagerContract::UseForVarInit => (),
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::UseForAssign => todo!(),
                 }
                 self.infer_eager_expr(lopd, EagerContract::Pure, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);
             }
-            BinaryOpr::Assign(_) => {
+            BinaryOpr::Assign(opt_opr) => {
                 match contract {
-                    EagerContract::Exec | EagerContract::Pure => (),
+                    EagerContract::Exec => (),
+                    EagerContract::Pure => {
+                        throw_derived!(format!("can't use value of type `void` as argument"))
+                    }
                     _ => {
                         p!(contract, arena[opds.start]);
                         todo!()
                     }
                 }
                 self.infer_eager_expr(lopd, EagerContract::RefMut, arena);
-                self.infer_eager_expr(ropd, EagerContract::Pure, arena);
+                self.infer_eager_expr(
+                    ropd,
+                    match (opt_opr, is_lopd_copyable) {
+                        (None, false) => EagerContract::UseForAssign,
+                        _ => EagerContract::Pure,
+                    },
+                    arena,
+                );
             }
         }
         Ok(())
@@ -239,14 +257,15 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::Pure => (),
                     EagerContract::GlobalRef => todo!(),
                     EagerContract::Move => todo!(),
-                    EagerContract::LetInit => todo!(),
-                    EagerContract::VarInit => todo!(),
+                    EagerContract::UseForLetInit => todo!(),
+                    EagerContract::UseForVarInit => todo!(),
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::Return => todo!(),
                     EagerContract::RefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
+                    EagerContract::UseForAssign => todo!(),
                 }
                 EagerContract::Pure
             }
@@ -263,6 +282,7 @@ impl<'a> ContractSheetBuilder<'a> {
         opd: RawExprIdx,
         contract: EagerContract,
         arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
             SuffixOpr::Incr | SuffixOpr::Decr => {
@@ -291,11 +311,17 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::RefMut => EagerContract::RefMut,
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
-                        EagerContract::LetInit | EagerContract::UseMemberForLetInit => {
+                        EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
                             EagerContract::UseMemberForLetInit
                         }
-                        EagerContract::VarInit => todo!(),
+                        EagerContract::UseForVarInit => todo!(),
                         EagerContract::UseMemberForVarInit => EagerContract::UseMemberForVarInit,
+                        EagerContract::UseForAssign => throw!(
+                            format!(
+                            "can't use noncopyable field for assignment without explicit moving"
+                        ),
+                            arena[raw_expr_idx].range
+                        ),
                     },
                     FieldLiason::GlobalRef => todo!(),
                     FieldLiason::LazyOwn => todo!(),
@@ -311,13 +337,14 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::Pure | EagerContract::Return => contract,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => todo!(),
-                        EagerContract::LetInit => todo!(),
-                        EagerContract::VarInit => todo!(),
+                        EagerContract::UseForLetInit => todo!(),
+                        EagerContract::UseForVarInit => todo!(),
                         EagerContract::UseMemberForLetInit => todo!(),
                         EagerContract::UseMemberForVarInit => todo!(),
                         EagerContract::RefMut => todo!(),
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
+                        EagerContract::UseForAssign => todo!(),
                     },
                     arena,
                 );
@@ -456,8 +483,8 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::Pure => EagerContract::Pure,
             EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
-            EagerContract::LetInit => EagerContract::UseMemberForLetInit,
-            EagerContract::VarInit => todo!(),
+            EagerContract::UseForLetInit => EagerContract::UseMemberForLetInit,
+            EagerContract::UseForVarInit => todo!(),
             EagerContract::Return => {
                 let ty = self.raw_expr_ty(expr_idx)?;
                 if self.db.is_copyable(ty)? {
@@ -476,6 +503,12 @@ impl<'a> ContractSheetBuilder<'a> {
             })?,
             EagerContract::UseMemberForLetInit => todo!(),
             EagerContract::UseMemberForVarInit => todo!(),
+            EagerContract::UseForAssign => {
+                throw!(
+                    format!("can't use noncopyable element for assignment without moving"),
+                    arena[expr_idx].range
+                )
+            }
         };
         self.infer_eager_expr(total_opds.start, this_contract, arena);
         for opd in (total_opds.start + 1)..total_opds.end {

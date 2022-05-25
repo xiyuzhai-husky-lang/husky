@@ -25,7 +25,7 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             RootIdentifier::FnOnce => todo!(),
             RootIdentifier::Array => todo!(),
             RootIdentifier::DatasetType => todo!(),
-            RootIdentifier::TypeType => todo!(),
+            RootIdentifier::TypeType => false,
             RootIdentifier::Datasets => todo!(),
             RootIdentifier::CloneTrait => todo!(),
             RootIdentifier::CopyTrait => todo!(),

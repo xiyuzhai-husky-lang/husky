@@ -45,7 +45,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => self.infer_lazy_pattern(pattern),
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec { expr, silent } => panic!(),
+            RawStmtVariant::Exec {
+                expr,
+                discard: silent,
+            } => panic!(),
             RawStmtVariant::Init {
                 varname,
                 initial_value,

@@ -71,7 +71,10 @@ impl<'a> EagerStmtParser<'a> {
                 iter,
                 condition_branch_kind,
             ),
-            RawStmtVariant::Exec { expr, silent } => {
+            RawStmtVariant::Exec {
+                expr,
+                discard: silent,
+            } => {
                 let expr = self.parse_eager_expr(expr)?;
                 if !silent && expr.ty != EntityRoutePtr::Root(RootIdentifier::Void) {
                     err!(format!(

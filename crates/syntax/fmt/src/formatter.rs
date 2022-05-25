@@ -191,7 +191,10 @@ impl<'a> Formatter<'a> {
             RawStmtVariant::Loop(_) => todo!(),
             RawStmtVariant::ConditionBranch { .. } => todo!(),
             RawStmtVariant::PatternBranch { .. } => todo!(),
-            RawStmtVariant::Exec { expr, silent } => {
+            RawStmtVariant::Exec {
+                expr,
+                discard: silent,
+            } => {
                 self.fmt_expr(&self.arena[expr]);
                 if silent {
                     self.write(";")

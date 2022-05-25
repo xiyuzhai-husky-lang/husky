@@ -60,8 +60,8 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             },
             EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
-            EagerContract::LetInit => todo!(),
-            EagerContract::VarInit => todo!(),
+            EagerContract::UseForLetInit => todo!(),
+            EagerContract::UseForVarInit => todo!(),
             EagerContract::Return => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
                     MemberValue::Copyable(value) => StackValue::Copyable(value),
@@ -87,6 +87,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                 },
             },
             EagerContract::UseMemberForVarInit => todo!(),
+            EagerContract::UseForAssign => todo!(),
         }
     }
 
@@ -119,11 +120,12 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             },
             EagerContract::MoveMut => todo!(),
             EagerContract::Exec => todo!(),
-            EagerContract::LetInit => todo!(),
-            EagerContract::VarInit => todo!(),
+            EagerContract::UseForLetInit => todo!(),
+            EagerContract::UseForVarInit => todo!(),
             EagerContract::Return => todo!(),
             EagerContract::UseMemberForLetInit => todo!(),
             EagerContract::UseMemberForVarInit => todo!(),
+            EagerContract::UseForAssign => todo!(),
         }
     }
 }

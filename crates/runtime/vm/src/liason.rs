@@ -27,9 +27,10 @@ impl InputLiason {
                     EagerContract::Pure
                     | EagerContract::Move
                     | EagerContract::Return
-                    | EagerContract::LetInit
-                    | EagerContract::VarInit
-                    | EagerContract::Exec => (),
+                    | EagerContract::UseForLetInit
+                    | EagerContract::UseForVarInit
+                    | EagerContract::Exec
+                    | EagerContract::UseForAssign => (),
                     EagerContract::GlobalRef => todo!(),
                     EagerContract::RefMut => match output_liason {
                         OutputLiason::Transfer => {
@@ -62,20 +63,21 @@ impl InputLiason {
                         EagerContract::Pure => EagerContract::Pure,
                         EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => todo!(),
-                        EagerContract::LetInit => {
+                        EagerContract::UseForLetInit => {
                             if is_output_ty_copyable {
                                 EagerContract::Pure
                             } else {
                                 EagerContract::UseMemberForLetInit
                             }
                         }
-                        EagerContract::VarInit => todo!(),
+                        EagerContract::UseForVarInit => todo!(),
                         EagerContract::UseMemberForLetInit => EagerContract::UseMemberForLetInit,
                         EagerContract::UseMemberForVarInit => todo!(),
                         EagerContract::Return => todo!(),
                         EagerContract::RefMut => output_contract,
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
+                        EagerContract::UseForAssign => todo!(),
                     })
                 }
             }
@@ -142,11 +144,12 @@ impl FieldLiason {
                 EagerContract::RefMut => Ok(EagerContract::RefMut),
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
-                EagerContract::LetInit => todo!(),
-                EagerContract::VarInit => todo!(),
+                EagerContract::UseForLetInit => todo!(),
+                EagerContract::UseForVarInit => todo!(),
                 EagerContract::Return => todo!(),
                 EagerContract::UseMemberForLetInit => todo!(),
                 EagerContract::UseMemberForVarInit => todo!(),
+                EagerContract::UseForAssign => todo!(),
             },
             FieldLiason::GlobalRef => todo!(),
             FieldLiason::LazyOwn => todo!(),

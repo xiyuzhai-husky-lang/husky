@@ -32,7 +32,7 @@ pub enum RawStmtVariant {
     },
     Exec {
         expr: RawExprIdx,
-        silent: bool,
+        discard: bool,
     },
     Init {
         init_kind: InitKind,
