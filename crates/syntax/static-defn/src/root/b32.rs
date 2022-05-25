@@ -6,7 +6,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Type {
         base_route: "b32",
         generic_placeholders: &[],
-        trait_impls: &[],
+        static_trait_impls: &[],
         type_members: &[&B32_TRAILING_ZEROS, &B32_LAST_BITS],
         variants: &[],
         kind: TyKind::Primitive,

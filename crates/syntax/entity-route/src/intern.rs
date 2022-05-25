@@ -38,6 +38,7 @@ impl std::fmt::Display for EntityRoutePtr {
 
 impl std::fmt::Debug for EntityRoutePtr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        use std::fmt::Debug;
         (**self).fmt(f)
     }
 }
@@ -197,7 +198,15 @@ pub fn new_entity_route_interner() -> EntityRouteInterner {
         RootIdentifier::Fn,
         RootIdentifier::FnMut,
         RootIdentifier::FnOnce,
+        RootIdentifier::Array,
+        RootIdentifier::Datasets,
         RootIdentifier::DatasetType,
+        RootIdentifier::TypeType,
+        RootIdentifier::ModuleType,
+        RootIdentifier::CloneTrait,
+        RootIdentifier::CopyTrait,
+        RootIdentifier::PartialEqTrait,
+        RootIdentifier::EqTrait,
     ])
 }
 

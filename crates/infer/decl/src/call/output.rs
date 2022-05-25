@@ -14,7 +14,7 @@ impl OutputDecl {
         Self {
             ty: instantiator
                 .instantiate_entity_route(self.ty)
-                .as_entity_route(),
+                .take_entity_route(),
             liason: self.liason,
         }
     }

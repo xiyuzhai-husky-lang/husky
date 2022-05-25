@@ -32,7 +32,7 @@ pub enum EntityStaticDefnVariant {
     Type {
         base_route: &'static str,
         generic_placeholders: &'static [StaticGenericPlaceholder],
-        trait_impls: &'static [StaticTraitImplDefn],
+        static_trait_impls: &'static [StaticTraitImplDefn],
         type_members: &'static [&'static EntityStaticDefn],
         variants: &'static [EntityStaticDefn],
         kind: TyKind,

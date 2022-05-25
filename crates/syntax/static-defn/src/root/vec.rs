@@ -10,24 +10,24 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
-        trait_impls: &[
-            StaticTraitImplDefn {
-                dev_src: static_dev_src!(),
-                trai: "Clone",
-                member_impls: &[EntityStaticDefn {
-                    dev_src: static_dev_src!(),
-                    name: "clone",
-                    subscopes: &[],
-                    variant: EntityStaticDefnVariant::Method {
-                        this_contract: InputLiason::Pure,
-                        input_parameters: &[],
-                        output_ty: "Vec<E>",
-                        output_liason: OutputLiason::Transfer,
-                        generic_parameters: &[],
-                        kind: MethodStaticDefnVariant::TraitMethodImpl { opt_source: None },
-                    },
-                }],
-            },
+        static_trait_impls: &[
+            // StaticTraitImplDefn {
+            //     dev_src: static_dev_src!(),
+            //     trai: "Clone",
+            //     member_impls: &[EntityStaticDefn {
+            //         dev_src: static_dev_src!(),
+            //         name: "clone",
+            //         subscopes: &[],
+            //         variant: EntityStaticDefnVariant::Method {
+            //             this_contract: InputLiason::Pure,
+            //             input_parameters: &[],
+            //             output_ty: "Vec<E>",
+            //             output_liason: OutputLiason::Transfer,
+            //             generic_parameters: &[],
+            //             kind: MethodStaticDefnVariant::TraitMethodImpl { opt_source: None },
+            //         },
+            //     }],
+            // },
             StaticTraitImplDefn {
                 trai: "std::ops::Index<i32>",
                 member_impls: &[

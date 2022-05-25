@@ -42,16 +42,6 @@ impl TraitImplDefn {
             .iter()
             .find(|member_impl| member_impl.ident.custom() == ident)
             .unwrap()
-        //     format!(
-        //     "no member `{:?}` in trait `{:?}`, available members are {:?}, trait impl src: {:?}",
-        //     ident,
-        //     self.trai,
-        //     self.member_impls
-        //         .iter()
-        //         .map(|member_impl| member_impl.ident)
-        //         .collect::<Vec<_>>(),
-        //     self.dev_src
-        // )
     }
 }
 

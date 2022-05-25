@@ -178,7 +178,7 @@ impl EagerQualifier {
             EagerQualifier::PureRef => match contract {
                 EagerContract::Pure => Binding::Ref,
                 EagerContract::GlobalRef => todo!(),
-                EagerContract::Move => todo!(),
+                EagerContract::Move => panic!(),
                 EagerContract::UseForLetInit => todo!(),
                 EagerContract::UseForVarInit => todo!(),
                 EagerContract::UseMemberForLetInit => Binding::Ref,
@@ -231,7 +231,7 @@ impl EagerQualifier {
                 EagerContract::RefMut => Binding::RefMut,
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
-                EagerContract::UseForAssign => todo!(),
+                EagerContract::UseForAssign => Binding::Move,
             },
             EagerQualifier::OwnedMut => match contract {
                 EagerContract::Pure => Binding::Ref,
@@ -265,7 +265,6 @@ impl EagerQualifier {
             InputLiason::Move => todo!(),
             InputLiason::BorrowMut => todo!(),
             InputLiason::MoveMut => todo!(),
-            InputLiason::Exec => todo!(),
             InputLiason::MemberAccess => todo!(),
         }
     }

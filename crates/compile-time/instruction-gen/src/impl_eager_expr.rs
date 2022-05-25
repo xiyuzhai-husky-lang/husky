@@ -8,6 +8,7 @@ use vm::*;
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_eager_expr(&mut self, expr: &Arc<EagerExpr>) {
+        p!(expr.file, expr.range);
         match expr.variant {
             EagerExprVariant::Variable(varname) => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(varname);

@@ -172,7 +172,6 @@ impl<'a> Formatter<'a> {
             InputLiason::Move => self.write("!"),
             InputLiason::BorrowMut => self.write("mut &"),
             InputLiason::MoveMut => self.write("mut !"),
-            InputLiason::Exec => todo!(),
             InputLiason::MemberAccess => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.route);

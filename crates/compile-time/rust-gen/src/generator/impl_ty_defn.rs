@@ -143,7 +143,6 @@ impl<'a> RustGenerator<'a> {
                         InputLiason::Move => todo!(),
                         InputLiason::BorrowMut => todo!(),
                         InputLiason::MoveMut => todo!(),
-                        InputLiason::Exec => todo!(),
                         InputLiason::MemberAccess => todo!(),
                     }
                     for input_placeholder in input_placeholders.iter() {
@@ -164,7 +163,6 @@ impl<'a> RustGenerator<'a> {
                             InputLiason::Move => todo!(),
                             InputLiason::BorrowMut => todo!(),
                             InputLiason::MoveMut => todo!(),
-                            InputLiason::Exec => todo!(),
                             InputLiason::MemberAccess => todo!(),
                         }
                         self.gen_entity_route(input_placeholder.ranged_ty.route);

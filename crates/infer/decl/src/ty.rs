@@ -5,7 +5,7 @@ mod vec;
 
 use std::iter::Peekable;
 
-use check_utils::should_eq;
+use check_utils::{should, should_eq};
 use entity_kind::{EnumVariantKind, FieldKind};
 use print_utils::p;
 pub use trait_impl::*;
@@ -34,7 +34,7 @@ pub struct TyDecl {
     pub ty_members: IdentDict<TyMemberDecl>,
     pub variants: IdentDict<EnumVariantDecl>,
     pub kind: TyKind,
-    pub trai_impls: Vec<Arc<TraitImplDecl>>,
+    pub trait_impls: Vec<Arc<TraitImplDecl>>,
     pub members: Vec<MemberDecl>,
     pub opt_type_call: Option<Arc<CallDecl>>,
 }
@@ -45,7 +45,7 @@ impl TyDecl {
             EntityStaticDefnVariant::Type {
                 base_route,
                 generic_placeholders,
-                trait_impls,
+                static_trait_impls,
                 type_members,
                 variants,
                 kind,
@@ -74,19 +74,27 @@ impl TyDecl {
                 let opt_type_call = opt_type_call.map(|type_call| {
                     routine_decl_from_static(db, symbols.clone(), this_ty, type_call)
                 });
-                let trait_impls = trait_impls
-                    .map(|trait_impl| TraitImplDecl::from_static(db, trait_impl, &symbol_context));
+                let ty_members: IdentDict<_> = type_members
+                    .iter()
+                    .map(|member| TyMemberDecl::from_static(db, member, &symbol_context))
+                    .collect();
+                let variants: IdentDict<_> = variants.map(|static_decl| {
+                    EnumVariantDecl::from_static(db, static_decl, &symbol_context)
+                });
+                let mut trait_impls =
+                    TraitImplDecl::implicit_trait_impls(db, this_ty, kind, &ty_members, &variants)
+                        .unwrap();
+                trait_impls.extend(
+                    static_trait_impls.iter().map(|trait_impl| {
+                        TraitImplDecl::from_static(db, trait_impl, &symbol_context)
+                    }),
+                );
                 Self::new(
                     db,
                     this_ty,
                     generic_placeholders,
-                    type_members
-                        .iter()
-                        .map(|member| TyMemberDecl::from_static(db, member, &symbol_context))
-                        .collect(),
-                    variants.map(|static_decl| {
-                        EnumVariantDecl::from_static(db, static_decl, &symbol_context)
-                    }),
+                    ty_members,
+                    variants,
                     kind,
                     trait_impls,
                     opt_type_call,
@@ -119,7 +127,7 @@ impl TyDecl {
         Self::collect_original_fields(&mut children, &mut ty_members)?;
         Self::collect_other_members(db, this_ty, children, &mut ty_members)?;
         let mut trai_impls =
-            TraitImplDecl::implicit_trai_impls(db, this_ty, kind, &ty_members, &variants);
+            TraitImplDecl::implicit_trait_impls(db, this_ty, kind, &ty_members, &variants)?;
         let opt_type_call = match kind {
             TyKind::Enum => None,
             TyKind::Record | TyKind::Struct => {
@@ -129,7 +137,7 @@ impl TyDecl {
                         TyMemberDecl::Field(ref field_decl) => match field_decl.kind {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
                                 inputs.push(InputDecl {
-                                    contract: field_decl
+                                    liason: field_decl
                                         .liason
                                         .constructor_input_liason(db.is_copyable(field_decl.ty)?),
                                     ty: field_decl.ty,
@@ -280,7 +288,7 @@ impl TyDecl {
             ty_members: type_members,
             variants,
             kind,
-            trai_impls: trait_impls,
+            trait_impls,
             members,
             opt_type_call,
         })
@@ -499,23 +507,26 @@ impl TyDecl {
             .collect();
         if matched_methods.len() == 1 {
             return Ok(matched_methods[0]);
-        } else {
+        } else if matched_methods.len() == 0 {
+            // p!(self.this_ty);
+            // p!(self.trait_impls);
+            // p!(self.members);
+            // println!(
+            //     "no method named `{}` for type `{}`",
+            //     &ranged_ident.ident, self.this_ty
+            // );
+            // panic!();
             throw!(
                 format!(
-                    "no method named `{}` for type `{:?}`",
+                    "no method named `{}` for type `{}`",
                     &ranged_ident.ident, self.this_ty
                 ),
                 ranged_ident.range
             )
+        } else {
+            p!(self.this_ty, matched_methods);
+            todo!()
         }
-        // ok_or!(
-        //     self.type_members.get(ranged_ident.ident),
-        //     format!(
-        //         "no method named `{}` found in type `{:?}`",
-        //         &ranged_ident.ident, self.this_ty
-        //     ),
-        //     ranged_ident.range
-        // )
     }
 
     pub fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx {
@@ -532,8 +543,8 @@ impl TyDecl {
         }
     }
 
-    pub fn trai_impl(&self, trai_route: EntityRoutePtr) -> Option<&Arc<TraitImplDecl>> {
-        self.trai_impls
+    pub fn trait_impl(&self, trai_route: EntityRoutePtr) -> Option<&Arc<TraitImplDecl>> {
+        self.trait_impls
             .iter()
             .find(|trai_impl| trai_impl.trait_route == trai_route)
     }
@@ -543,7 +554,7 @@ impl TyDecl {
         trai: EntityRoutePtr,
         ident: CustomIdentifier,
     ) -> Option<&TraitMemberImplDecl> {
-        self.trai_impl(trai)?.member(ident)
+        self.trait_impl(trai)?.member(ident)
     }
 }
 
@@ -661,7 +672,7 @@ pub(crate) fn method_decl_from_static(
             };
             let inputs = inputs.map(|input| InputDecl {
                 ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
-                contract: input.contract,
+                liason: input.contract,
                 ident: db.custom_ident(input.name),
             });
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
@@ -673,7 +684,7 @@ pub(crate) fn method_decl_from_static(
                     liason: output_liason,
                     ty: output_ty,
                 },
-                this_contract,
+                this_liason: this_contract,
                 ident: db.intern_word(static_defn.name).custom(),
                 kind: MethodKind::Type,
             })

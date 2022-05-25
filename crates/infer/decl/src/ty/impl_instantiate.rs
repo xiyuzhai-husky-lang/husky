@@ -17,14 +17,14 @@ impl TyDecl {
             db,
             instantiator
                 .instantiate_entity_route(self.this_ty)
-                .as_entity_route(),
+                .take_entity_route(),
             Default::default(), // generic_placeholders
             self.ty_members
                 .map(|member| member.instantiate(&instantiator)), //   type_methods
             self.variants
                 .map(|variant| variant.instantiate(&instantiator)), //   variants
             self.kind,          //      kind
-            self.trai_impls.map(|t| t.instantiate(&instantiator)), //   trait_impls
+            self.trait_impls.map(|t| t.instantiate(&instantiator)), //   trait_impls
             self.opt_type_call
                 .as_ref()
                 .map(|type_call| type_call.instantiate(&instantiator)),

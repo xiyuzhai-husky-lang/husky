@@ -1,10 +1,10 @@
-mod alloc;
+mod intern;
 
-pub use alloc::{
-    new_entity_route_interner, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
-};
 pub use entity_kind::EntityKind;
 use file::FilePtr;
+pub use intern::{
+    new_entity_route_interner, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
+};
 use text::{TextRange, TextRanged};
 use word::{CustomIdentifier, Identifier, RootIdentifier};
 
@@ -73,7 +73,7 @@ pub enum GenericArgument {
 }
 
 impl GenericArgument {
-    pub fn as_entity_route(&self) -> EntityRoutePtr {
+    pub fn take_entity_route(&self) -> EntityRoutePtr {
         match self {
             GenericArgument::Const(_) => panic!(),
             GenericArgument::EntityRoute(scope) => *scope,

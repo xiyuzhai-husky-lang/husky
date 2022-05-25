@@ -255,7 +255,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     call_decl.parameters.iter(),
                 ) {
                     let argument_contract_result: InferResult<_> = parameter
-                        .contract
+                        .liason
                         .lazy(call_decl.output.liason)
                         .bind_into(&arena[argument]);
                     self.infer_lazy_expr(argument, argument_contract_result?, arena)
@@ -285,13 +285,13 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;
         let this_contract_result: InferResult<_> = method_decl
-            .this_contract
+            .this_liason
             .lazy(method_decl.output.liason)
             .bind_into(&arena[this]);
         self.infer_lazy_expr(this, this_contract_result?, arena);
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             let argument_contract_result: InferResult<_> = parameter
-                .contract
+                .liason
                 .lazy(method_decl.output.liason)
                 .bind_into(&arena[argument]);
             self.infer_lazy_expr(argument, argument_contract_result?, arena)

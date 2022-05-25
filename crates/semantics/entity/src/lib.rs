@@ -15,7 +15,7 @@ use entity_syntax::EntityLocus;
 use map_collect::MapCollect;
 use module::module_defn;
 pub use morphism::*;
-use print_utils::p;
+use print_utils::{msg_once, p};
 pub use query::*;
 pub use routine::*;
 pub use trai::*;
@@ -40,7 +40,7 @@ use text::*;
 use vec_map::HasKey;
 use visual_semantics::VisualizerSource;
 use vm::{FieldLiason, InputLiason, Linkage, OutputLiason};
-use word::{CustomIdentifier, IdentDict, Identifier};
+use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
 pub struct EntityDefnUid {
@@ -124,6 +124,13 @@ impl EntityDefn {
             } => trait_impls
                 .iter()
                 .find(|trait_impl| trait_impl.trai == trai),
+            _ => panic!(""),
+        }
+    }
+
+    pub fn trait_member_defn(&self, ident: CustomIdentifier) -> Option<&Arc<EntityDefn>> {
+        match self.variant {
+            EntityDefnVariant::Trait { ref members, .. } => members.get_entry(ident),
             _ => panic!(""),
         }
     }
@@ -431,13 +438,34 @@ pub(crate) fn entity_defn(
             _ => panic!(),
         },
         EntityLocus::StaticTypeAsTraitMember => match entity_route.kind {
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-                let ty_defn = db.entity_defn(ty)?;
-                let trai_impl_defn = ty_defn
-                    .trait_impl(trai)
-                    .expect("todo: trait_impl not found");
-                Ok(trai_impl_defn.member_impl(ident).clone())
-            }
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match trai {
+                EntityRoutePtr::Root(RootIdentifier::CloneTrait) => {
+                    msg_once!("this is a temporary ugly solution");
+                    let clone_trait_defn = db
+                        .entity_defn(EntityRoutePtr::Root(RootIdentifier::CloneTrait))
+                        .unwrap();
+                    Ok(clone_trait_defn.trait_member_defn(ident).unwrap().clone())
+                    // match ident.as_str() {
+                    //     "clone" => Ok(Arc::new(EntityDefn {
+                    //         ident: todo!(),
+                    //         variant: todo!(),
+                    //         subentities: todo!(),
+                    //         base_route: todo!(),
+                    //         file: todo!(),
+                    //         range: todo!(),
+                    //     })),
+                    //     _ => todo!(),
+                    // }
+                }
+                _ => {
+                    let ty_defn = db.entity_defn(ty)?;
+                    p!(ty, trai);
+                    let trai_impl_defn = ty_defn
+                        .trait_impl(trai)
+                        .expect("todo: trait_impl not found");
+                    Ok(trai_impl_defn.member_impl(ident).clone())
+                }
+            },
             _ => panic!(),
         },
     }

@@ -51,7 +51,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Type {
         base_route: "void",
         generic_placeholders: &[],
-        trait_impls: &[],
+        static_trait_impls: &[],
         type_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
@@ -67,7 +67,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Type {
         base_route: "b64",
         generic_placeholders: &[],
-        trait_impls: &[],
+        static_trait_impls: &[],
         type_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
@@ -83,7 +83,7 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Type {
         base_route: "bool",
         generic_placeholders: &[],
-        trait_impls: &[],
+        static_trait_impls: &[],
         type_members: &[],
         variants: &[],
         kind: TyKind::Primitive,

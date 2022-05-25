@@ -35,7 +35,6 @@ impl<'a> AtomParser<'a> {
                         InputLiason::BorrowMut | InputLiason::MoveMut => {
                             todo!("report invalid input contract")
                         }
-                        InputLiason::Exec => todo!(),
                         InputLiason::MemberAccess => todo!(),
                     }
                 }

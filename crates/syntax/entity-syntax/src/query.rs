@@ -5,7 +5,7 @@ use entity_kind::{MemberKind, TyKind};
 use entity_route::*;
 use file::{FileError, FileErrorKind, FilePtr};
 use path_utils::*;
-use print_utils::p;
+use print_utils::{msg_once, p};
 use static_defn::*;
 use text::TextRange;
 use upcast::Upcast;
@@ -135,7 +135,7 @@ fn entity_kind_from_entity_route_kind(
 }
 
 fn entity_locus(
-    this: &dyn EntityRouteSalsaQueryGroup,
+    db: &dyn EntityRouteSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntityLocus> {
     match entity_route.kind {
@@ -143,29 +143,41 @@ fn entity_locus(
             Ok(EntityLocus::StaticModuleItem(static_root_defn(ident)))
         }
         EntityRouteKind::Package { main, .. } => Ok(EntityLocus::Module { file: main }),
-        EntityRouteKind::Child { parent, ident } => {
-            this.subroute_table(parent)?.entity_locus(ident)
-        }
+        EntityRouteKind::Child { parent, ident } => db.subroute_table(parent)?.entity_locus(ident),
         EntityRouteKind::Input { main } => Ok(EntityLocus::Input { main }),
-        EntityRouteKind::Generic { .. } => todo!(),
-        EntityRouteKind::ThisType => panic!(),
-        EntityRouteKind::TypeAsTraitMember { ty, .. } => {
-            let ty_source = this.entity_locus(ty).unwrap();
-            match ty_source {
-                EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
-                    EntityStaticDefnVariant::Type { .. } => {
-                        Ok(EntityLocus::StaticTypeAsTraitMember)
-                    }
-                    _ => panic!(),
-                },
-                EntityLocus::WithinBuiltinModule => todo!(),
-                EntityLocus::WithinModule { .. } => todo!(),
-                EntityLocus::Module { .. } => todo!(),
-                EntityLocus::Input { .. } => todo!(),
-                EntityLocus::StaticTypeMember => todo!(),
-                EntityLocus::StaticTypeAsTraitMember => todo!(),
-            }
+        EntityRouteKind::Generic { .. } => {
+            p!(entity_route);
+            todo!()
         }
+        EntityRouteKind::ThisType => panic!(),
+        EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match trai {
+            EntityRoutePtr::Root(root_ident) => match root_ident {
+                RootIdentifier::CloneTrait => {
+                    msg_once!("ad hoc");
+                    Ok(EntityLocus::StaticTypeAsTraitMember)
+                    // db.entity_locus(EntityRoutePtr::Root(RootIdentifier::CloneTrait))
+                }
+                _ => todo!(),
+            },
+            EntityRoutePtr::Custom(_) => todo!(),
+            EntityRoutePtr::ThisType => {
+                let ty_source = db.entity_locus(ty).unwrap();
+                match ty_source {
+                    EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
+                        EntityStaticDefnVariant::Type { .. } => {
+                            Ok(EntityLocus::StaticTypeAsTraitMember)
+                        }
+                        _ => panic!(),
+                    },
+                    EntityLocus::WithinBuiltinModule => todo!(),
+                    EntityLocus::WithinModule { .. } => todo!(),
+                    EntityLocus::Module { .. } => todo!(),
+                    EntityLocus::Input { .. } => todo!(),
+                    EntityLocus::StaticTypeMember => todo!(),
+                    EntityLocus::StaticTypeAsTraitMember => todo!(),
+                }
+            }
+        },
     }
 }
 

@@ -1,3 +1,5 @@
+use std::iter::zip;
+
 use ast::*;
 use check_utils::should;
 use defn_head::InputParameter;
@@ -397,10 +399,42 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
                 let call_decl = derived_unwrap!(self.db.call_decl(route));
-                let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
-                    .into_iter()
-                    .map(|opd_idx| self.infer_eager_expr(arena, opd_idx))
-                    .collect();
+                let opt_opd_qualified_tys = zip(
+                    ((total_opds.start + 1)..total_opds.end).into_iter(),
+                    call_decl.parameters.iter(),
+                )
+                .map(
+                    |(opd_idx, parameter)| -> InferResult<Option<EagerQualifiedTy>> {
+                        if let Some(qt) = self.infer_eager_expr(arena, opd_idx) {
+                            match parameter.liason {
+                                InputLiason::Pure => Ok(Some(qt)),
+                                InputLiason::GlobalRef => todo!(),
+                                InputLiason::BorrowMut => todo!(),
+                                InputLiason::Move | InputLiason::MoveMut => match qt.qual {
+                                    EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
+                                        panic!()
+                                    }
+                                    EagerQualifier::PureRef => {
+                                        throw!(
+                                            format!("can't move a pure ref to owned"),
+                                            arena[opd_idx].range
+                                        )
+                                    }
+                                    EagerQualifier::Owned
+                                    | EagerQualifier::OwnedMut
+                                    | EagerQualifier::Transient => Ok(Some(qt)),
+                                    EagerQualifier::GlobalRef => todo!(),
+                                    EagerQualifier::LocalRef => todo!(),
+                                    EagerQualifier::LocalRefMut => todo!(),
+                                },
+                                InputLiason::MemberAccess => todo!(),
+                            }
+                        } else {
+                            Ok(None)
+                        }
+                    },
+                )
+                .collect::<InferResult<Vec<_>>>()?;
                 match call_decl.output.liason {
                     OutputLiason::Transfer => {
                         emsg_once!("handle ref");

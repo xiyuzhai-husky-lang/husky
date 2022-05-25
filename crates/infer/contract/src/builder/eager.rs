@@ -404,7 +404,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     call_decl.parameters.iter(),
                 ) {
                     let argument_contract_result: InferResult<_> = parameter
-                        .contract
+                        .liason
                         .eager(
                             call_decl.output.liason,
                             contract,
@@ -448,7 +448,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let method_decl = self.method_decl(raw_expr_idx)?;
         let is_output_ty_copyable = self.db.is_copyable(method_decl.output.ty)?;
         let this_contract_result: InferResult<_> = method_decl
-            .this_contract
+            .this_liason
             .eager(
                 method_decl.output.liason,
                 contract,
@@ -459,7 +459,7 @@ impl<'a> ContractSheetBuilder<'a> {
         self.infer_eager_expr(this, this_contract_result?, arena);
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             let argument_contract_result: InferResult<_> = parameter
-                .contract
+                .liason
                 .eager(
                     method_decl.output.liason,
                     contract,

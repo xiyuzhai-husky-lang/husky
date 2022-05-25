@@ -36,7 +36,6 @@ impl<'a> RustGenerator<'a> {
                 InputLiason::Move => todo!(),
                 InputLiason::BorrowMut => todo!(),
                 InputLiason::MoveMut => todo!(),
-                InputLiason::Exec => todo!(),
                 InputLiason::MemberAccess => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);
@@ -78,7 +77,6 @@ impl<'a> RustGenerator<'a> {
                 InputLiason::Move => todo!(),
                 InputLiason::BorrowMut => todo!(),
                 InputLiason::MoveMut => todo!(),
-                InputLiason::Exec => todo!(),
                 InputLiason::MemberAccess => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);

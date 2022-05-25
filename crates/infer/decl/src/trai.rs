@@ -59,7 +59,7 @@ impl TraitMemberDecl {
                 traits: traits.map(|trai| {
                     instantiator
                         .instantiate_entity_route(*trai)
-                        .as_entity_route()
+                        .take_entity_route()
                 }),
             },
             TraitMemberDecl::ConstSize(_) => todo!(),
@@ -80,7 +80,7 @@ impl TraitMemberDecl {
                 if traits.len() > 0 {
                     todo!("verify traits are satisfied")
                 }
-                let ty = implementor.generic_argument(*ident).as_entity_route();
+                let ty = implementor.generic_argument(*ident).take_entity_route();
                 TraitMemberImplDecl::AssociatedType { ident: *ident, ty }
             }
             TraitMemberDecl::ConstSize(_) => todo!(),
@@ -170,7 +170,7 @@ impl TraitDecl {
         Arc::new(TraitDecl {
             trai: instantiator
                 .instantiate_entity_route(self.trai)
-                .as_entity_route(),
+                .take_entity_route(),
             generic_placeholders: Default::default(),
             members: self
                 .members

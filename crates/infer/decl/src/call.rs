@@ -32,7 +32,7 @@ impl CallDecl {
         Arc::new(Self {
             route: instantiator
                 .instantiate_entity_route(self.route)
-                .as_entity_route(),
+                .take_entity_route(),
             generic_placeholders: self
                 .generic_placeholders
                 .iter()
@@ -139,7 +139,7 @@ pub(crate) fn routine_decl_from_static(
             };
             let inputs = inputs.map(|input| InputDecl {
                 ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
-                contract: input.contract,
+                liason: input.contract,
                 ident: db.custom_ident(input.name),
             });
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();

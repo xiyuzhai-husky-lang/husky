@@ -29,7 +29,7 @@ impl<'a> Instantiator<'a> {
                     EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
                     EntityRouteKind::Child { parent, ident } => (
                         EntityRouteKind::Child {
-                            parent: self.instantiate_entity_route(parent).as_entity_route(),
+                            parent: self.instantiate_entity_route(parent).take_entity_route(),
                             ident,
                         },
                         vec![],
