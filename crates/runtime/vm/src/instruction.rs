@@ -109,7 +109,7 @@ pub enum InstructionVariant {
         branches: Avec<VMPatternBranch>,
     },
     NewXmlFromTag {
-        name: &'static str,
+        tag_kind: XmlTagKind,
         props: Vec<CustomIdentifier>,
         n_child_expr: u8,
     },

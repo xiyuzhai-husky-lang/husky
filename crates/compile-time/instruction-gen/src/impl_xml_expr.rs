@@ -21,7 +21,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 }
                 self.push_instruction(Instruction::new(
                     InstructionVariant::NewXmlFromTag {
-                        name: tag_kind.as_str(),
+                        tag_kind,
                         props: props.keys().collect(),
                         n_child_expr: 0,
                     },

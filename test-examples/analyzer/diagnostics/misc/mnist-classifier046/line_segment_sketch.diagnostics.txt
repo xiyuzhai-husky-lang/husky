@@ -11,4 +11,3 @@
 60:31..60:39	Ast Error: expect `:`
 62:30..62:37	Ast Error: expect `:`
 46:22..46:29	Infer Error: unrecognized caller
-49:17..49:45	Infer Error: unrecognized caller

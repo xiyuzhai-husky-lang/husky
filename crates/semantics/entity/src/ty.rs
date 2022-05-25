@@ -1,6 +1,7 @@
 mod member;
 mod type_call;
 
+use check_utils::should;
 pub use member::*;
 pub use type_call::*;
 
@@ -114,9 +115,10 @@ impl EntityDefnVariant {
             TyKind::Array => todo!(),
             TyKind::Other => todo!(),
         };
-
+        Self::collect_other_ty_members(db, arena, file, ty, &mut children, &mut ty_members)?;
         let opt_visualizer_source = Self::collect_visual_source(db, arena, file, ty, &mut children);
-        Self::collect_other_members(db, arena, file, ty, children, &mut ty_members)?;
+        p!(children.peek());
+        should!(children.peek().is_none());
         Ok(EntityDefnVariant::new_ty(
             generic_placeholders,
             ty_members,
@@ -305,8 +307,8 @@ impl EntityDefnVariant {
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
     ) -> Option<VisualizerSource> {
-        let item = if let Some(item) = children.peek() {
-            item
+        let item = if let Some(_) = children.peek() {
+            children.next().unwrap()
         } else {
             return None;
         };

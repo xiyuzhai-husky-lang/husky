@@ -33,7 +33,8 @@ impl<'a> AstTransformer<'a> {
                 _ => (),
             }
         };
-        self.context.set(AstContext::Struct);
+        self.context
+            .set(AstContext::Struct(StructItemContext::OriginalField));
         expect_head!(tokens);
         emsg_once!("struct generic placeholders");
         Ok(AstKind::TypeDefnHead {

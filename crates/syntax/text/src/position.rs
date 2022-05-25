@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use test_utils::{TestDisplayConfig, TestDisplay};
+use test_utils::{TestDisplay, TestDisplayConfig};
 
 use crate::*;
 

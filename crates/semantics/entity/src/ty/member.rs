@@ -34,15 +34,15 @@ pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRoutePtr) 
 }
 
 impl EntityDefnVariant {
-    pub(crate) fn collect_other_members(
+    pub(crate) fn collect_other_ty_members(
         db: &dyn InferQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
         ty_route: EntityRoutePtr,
-        mut children: Peekable<AstIter>,
+        children: &mut Peekable<AstIter>,
         members: &mut IdentDict<Arc<EntityDefn>>,
     ) -> SemanticResult<()> {
-        while let Some(child) = children.next() {
+        while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
             let (ident, variant): (CustomIdentifier, _) = match ast.variant {
                 AstKind::TypeDefnHead {
@@ -59,7 +59,7 @@ impl EntityDefnVariant {
                     EntityDefnVariant::routine(
                         db,
                         routine_defn_head,
-                        child.opt_children.unwrap(),
+                        child.opt_children.clone().unwrap(),
                         arena,
                         file,
                     )?,
@@ -72,7 +72,7 @@ impl EntityDefnVariant {
                                 &head.input_placeholders,
                                 db,
                                 arena,
-                                child.opt_children.unwrap(),
+                                child.opt_children.clone().unwrap(),
                                 file,
                             )?;
                             MethodSource::Func { stmts }
@@ -112,8 +112,9 @@ impl EntityDefnVariant {
                     variant_class,
                 } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::Visual => continue,
+                AstKind::Visual => break,
             };
+            children.next();
             members.insert_new(EntityDefn::new(
                 ident.into(),
                 variant,

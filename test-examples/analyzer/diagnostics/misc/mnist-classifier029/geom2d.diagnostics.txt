@@ -1,1 +1,1 @@
-17:5..17:9	Ast Error: expect <identifier>: <type>
+17:5..17:9	Ast Error: old context is `Method`

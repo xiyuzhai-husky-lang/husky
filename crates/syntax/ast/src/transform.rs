@@ -115,6 +115,8 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
     fn _exit_block(&mut self) {
         self.context.exit();
         self.symbols.exit();
+        self.opt_this_ty.exit();
+        self.opt_this_contract.exit();
     }
 
     fn transform(
@@ -152,7 +154,9 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                     },
                     _ => self.parse_stmt_without_keyword(token_group)?.into(),
                 },
-                AstContext::Struct => self.parse_struct_item(token_group, enter_block)?,
+                AstContext::Struct(struct_item_context) => {
+                    self.parse_struct_item(token_group, struct_item_context, enter_block)?
+                }
                 AstContext::Enum(_) => self.parse_enum_variant(token_group)?,
                 AstContext::Record => self.parse_record_item(token_group, enter_block)?,
                 AstContext::Props => todo!(),

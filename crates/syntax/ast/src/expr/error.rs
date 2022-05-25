@@ -1,6 +1,6 @@
 // use std::sync::Arc;
 
-// 
+//
 
 // use text::TextRange;
 

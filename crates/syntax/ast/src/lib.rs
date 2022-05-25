@@ -9,7 +9,7 @@ mod xml;
 use std::sync::Arc;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
-pub use context::AstContext;
+pub use context::*;
 pub use expr::*;
 use file::FilePtr;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};

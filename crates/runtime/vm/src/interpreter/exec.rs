@@ -199,7 +199,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 }
                 InstructionVariant::NewXmlFromValue { ty } => todo!(),
                 InstructionVariant::NewXmlFromTag {
-                    name,
+                    tag_kind,
                     ref props,
                     n_child_expr,
                 } => {
@@ -208,7 +208,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     }
                     let arguments = self.stack.drain(props.len().try_into().unwrap());
                     let xml_value = XmlValue {
-                        name: name.to_string(),
+                        tag_kind,
                         props: zip(
                             props.iter().map(|ident| *ident),
                             arguments
