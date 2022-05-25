@@ -1,3 +1,7 @@
+mod struct_item_context;
+
+pub use struct_item_context::*;
+
 use file::FilePtr;
 use word::RoutineKeyword;
 
@@ -12,7 +16,7 @@ pub enum AstContext {
     Lazy,
     Routine(RoutineKeyword),
     Visual,
-    Struct,
+    Struct(StructItemContext),
     Record,
     Props,
     Enum(EntityRoutePtr),
@@ -30,7 +34,7 @@ impl AstContext {
             AstContext::Main => todo!(),
             AstContext::Lazy => todo!(),
             AstContext::Routine(_) => todo!(),
-            AstContext::Struct => todo!(),
+            AstContext::Struct(item_context) => todo!(),
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
@@ -62,7 +66,7 @@ impl std::fmt::Display for AstContext {
             AstContext::Routine(RoutineKeyword::Func) => "func",
             AstContext::Routine(RoutineKeyword::Proc) => "proc",
             AstContext::Visual => "visual",
-            AstContext::Struct => "struct",
+            AstContext::Struct(_) => "struct",
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",
             AstContext::Props => "props",

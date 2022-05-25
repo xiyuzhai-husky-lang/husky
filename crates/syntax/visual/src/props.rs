@@ -16,12 +16,15 @@ pub enum VisualProps {
 impl VisualProps {
     pub fn from_xml_value(xml_value: XmlValue) -> VisualProps {
         let mut data = xml_value.props.take_data();
-        should_eq!(data.len(), 1);
-        let (ident, value) = data.pop().unwrap();
-        match xml_value.name.as_str() {
+        match xml_value.tag_kind.as_str() {
             "Contour" => {
+                should_eq!(data.len(), 1);
+                let (ident, value) = data.pop().unwrap();
                 let points: Vec<Point2dProps> = serde_json::from_value(value).unwrap();
                 VisualProps::Contour { points }
+            }
+            "LineSegment" => {
+                todo!()
             }
             _ => todo!(),
         }

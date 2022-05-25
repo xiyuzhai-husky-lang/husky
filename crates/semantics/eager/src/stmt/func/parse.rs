@@ -1,6 +1,6 @@
 use std::iter::Peekable;
 
-use vm::{EagerContract, InitKind};
+use vm::{EagerContract, InitKind, XmlTagKind};
 use word::IdentPairDict;
 
 use super::parser::EagerStmtParser;

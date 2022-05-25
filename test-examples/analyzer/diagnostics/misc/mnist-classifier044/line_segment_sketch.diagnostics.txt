@@ -14,6 +14,5 @@
 27:42..27:43	Ast Error: expect `:`
 29:12..29:15	Ast Error: expect `:`
 49:42..49:43	Ast Error: expect `:`
-24:28..24:32	Infer Error: no method named `size` for type `mnist_classifier044::raw_contour::RawContour`
 30:21..30:29	Infer Error: unrecognized caller
 31:20..31:27	Infer Error: unrecognized caller

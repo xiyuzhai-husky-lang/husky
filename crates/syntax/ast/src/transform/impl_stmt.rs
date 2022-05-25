@@ -192,7 +192,7 @@ impl<'a> AstTransformer<'a> {
                     },
                 }
             }
-            AstContext::Struct | AstContext::Enum(_) => panic!(),
+            AstContext::Struct(_) | AstContext::Enum(_) => panic!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
             AstContext::FuncMatch => err!(format!("expect case stmt"), token_group.text_range())?,

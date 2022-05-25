@@ -1,6 +1,8 @@
 use std::ops::AddAssign;
 
-use ast::{Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtVariant};
+use ast::{
+    Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtVariant, StructItemContext,
+};
 use defn_head::InputParameter;
 use entity_kind::TyKind;
 use entity_route::EntityRoutePtr;
@@ -87,7 +89,8 @@ impl<'a> Formatter<'a> {
                 match kind {
                     TyKind::Enum => todo!(),
                     TyKind::Struct => {
-                        self.context.set(AstContext::Struct);
+                        self.context
+                            .set(AstContext::Struct(StructItemContext::OriginalField));
                         self.write("struct ")
                     }
                     TyKind::Record => todo!(),
@@ -222,7 +225,7 @@ impl<'a> Formatter<'a> {
                     AstContext::Package(_) => todo!(),
                     AstContext::Module(_) => todo!(),
                     AstContext::DatasetConfig => todo!(),
-                    AstContext::Struct => todo!(),
+                    AstContext::Struct(_) => todo!(),
                     AstContext::Record => todo!(),
                     AstContext::Props => todo!(),
                     AstContext::Enum(_) => todo!(),

@@ -125,7 +125,11 @@ impl TyDecl {
             _ => Default::default(),
         };
         Self::collect_original_fields(&mut children, &mut ty_members)?;
-        Self::collect_other_members(db, this_ty, children, &mut ty_members)?;
+        Self::collect_other_ty_members(db, this_ty, &mut children, &mut ty_members)?;
+        Self::collect_visual(&mut children);
+        if children.peek().is_some() {
+            throw_derived!("expect no children after collecting_visual")
+        }
         let mut trai_impls =
             TraitImplDecl::implicit_trait_impls(db, this_ty, kind, &ty_members, &variants)?;
         let opt_type_call = match kind {
@@ -220,23 +224,14 @@ impl TyDecl {
         Ok(())
     }
 
-    fn collect_other_members(
+    fn collect_other_ty_members(
         db: &dyn DeclQueryGroup,
         this_ty: EntityRoutePtr,
-        mut children: Peekable<AstIter>,
+        children: &mut Peekable<AstIter>,
         members: &mut IdentDict<TyMemberDecl>,
     ) -> InferQueryResult<()> {
-        while let Some(child) = children.next() {
+        while let Some(child) = children.peek() {
             match child.value.as_ref()?.variant {
-                AstKind::TypeDefnHead {
-                    ident,
-                    kind,
-                    ref generic_placeholders,
-                } => todo!(),
-                AstKind::MainDefn => todo!(),
-                AstKind::RoutineDefnHead(_) => todo!(),
-                AstKind::PatternDefnHead => todo!(),
-                AstKind::FeatureDecl { ident, ty } => todo!(),
                 AstKind::TypeMethodDefnHead(ref method_defn_head) => {
                     match method_defn_head.routine_kind {
                         RoutineKeyword::Proc => todo!(),
@@ -252,20 +247,35 @@ impl TyDecl {
                     FieldKind::StructDerived | FieldKind::RecordDerived => members
                         .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(field_defn_head))),
                 },
-                AstKind::DatasetConfigDefnHead => todo!(),
-                AstKind::Stmt(_) => todo!(),
-                AstKind::EnumVariantDefnHead {
-                    ident,
-                    variant_class,
-                } => todo!(),
-                AstKind::Submodule { ident, source_file } => todo!(),
                 AstKind::TypeAssociatedRoutineDefnHead(ref call_defn_head) => {
                     members.insert_new(TyMemberDecl::Call(CallDecl::from_ast(
                         db.make_subroute(this_ty, call_defn_head.ident.ident, vec![]),
                         call_defn_head,
                     )))
                 }
-                AstKind::Visual => (),
+                AstKind::Visual => break,
+                AstKind::TypeDefnHead { .. }
+                | AstKind::MainDefn
+                | AstKind::RoutineDefnHead(_)
+                | AstKind::PatternDefnHead
+                | AstKind::FeatureDecl { .. }
+                | AstKind::DatasetConfigDefnHead
+                | AstKind::Stmt(_)
+                | AstKind::EnumVariantDefnHead { .. }
+                | AstKind::Submodule { .. } => todo!(),
+            }
+            children.next();
+        }
+        Ok(())
+    }
+
+    fn collect_visual(children: &mut Peekable<AstIter>) -> InferQueryResult<()> {
+        if let Some(child) = children.peek() {
+            match child.value.as_ref()?.variant {
+                AstKind::Visual => {
+                    children.next();
+                }
+                _ => (),
             }
         }
         Ok(())
