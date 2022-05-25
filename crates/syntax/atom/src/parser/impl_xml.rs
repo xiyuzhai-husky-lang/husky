@@ -6,14 +6,10 @@ use word::{CustomIdentifier, IdentPairDict};
 
 // inner ops
 impl<'a> AtomParser<'a> {
-    pub fn xml_props(mut self) -> AtomResult<Vec<(CustomIdentifier, URange)>> {
-        let mut props: Vec<(CustomIdentifier, URange)> = Vec::new();
+    pub fn xml_props(mut self) -> AtomResult<Vec<(RangedCustomIdentifier, URange)>> {
+        let mut props: Vec<(RangedCustomIdentifier, URange)> = Vec::new();
         while !self.stream.empty() {
             let ranged_ident = get!(self, custom_ident);
-            self.push_abs_semantic_token(token::AbsSemanticToken::new(
-                SemanticTokenKind::Parameter,
-                ranged_ident.range,
-            ));
             no_look_pass!(self, "=");
             no_look_pass!(self, "{");
             self.stream.pop_token_slice();
@@ -34,10 +30,7 @@ impl<'a> AtomParser<'a> {
                 }
             }
             let token_slice = self.stream.pop_token_slice();
-            props.push((
-                ranged_ident.ident,
-                (token_slice.start)..(token_slice.end - 1),
-            ))
+            props.push((ranged_ident, (token_slice.start)..(token_slice.end - 1)))
         }
         Ok(props)
     }

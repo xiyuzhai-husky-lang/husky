@@ -3,7 +3,15 @@ use word::IdentPairDict;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawXmlExpr {
-    pub ident: CustomIdentifier,
-    pub props: IdentPairDict<RawExprIdx>,
     pub range: TextRange,
+    pub variant: RawXmlExprVariant,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum RawXmlExprVariant {
+    Value(RawExprIdx),
+    Tag {
+        ident: CustomIdentifier,
+        props: IdentPairDict<RawExprIdx>,
+    },
 }

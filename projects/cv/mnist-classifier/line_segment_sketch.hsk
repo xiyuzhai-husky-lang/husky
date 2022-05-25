@@ -13,8 +13,14 @@ struct LineSegment:
     func displacement() -> Vector2d:
         this.start.to(this.end)
 
+    visual:
+        <LineSegment start = {this.start} end = {this.end} />
+
 struct LineSegmentSketch:
     line_segments: []LineSegment
+
+    visual:
+        this.line_segments
 
 func go_right(u: Vector2d, r: f32) -> Vector2d:
     L = (u.x*u.x+u.y*u.y).sqrt()

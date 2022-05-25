@@ -104,7 +104,7 @@ impl FigureProps {
                     VisualProps::BinaryImage28 { .. }
                     | VisualProps::BinaryGrid28 { .. }
                     | VisualProps::Contour { .. } => Self::new_specific_graphics2d_group(visuals),
-                    VisualProps::Primitive { .. } => todo!(),
+                    VisualProps::Primitive { .. } => Self::new_specific_primitive_group(visuals),
                     VisualProps::Group(_) => todo!(),
                 }
             }
@@ -128,6 +128,10 @@ impl FigureProps {
             }
         }
         todo!()
+    }
+
+    pub fn new_specific_primitive_group(visuals: Vec<VisualProps>) -> Self {
+        Self::void()
     }
 
     pub fn void() -> Self {
