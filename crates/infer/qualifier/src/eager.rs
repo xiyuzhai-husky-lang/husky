@@ -222,7 +222,7 @@ impl EagerQualifier {
             EagerQualifier::Owned => match contract {
                 EagerContract::Pure => Binding::Ref,
                 EagerContract::GlobalRef => panic!(),
-                EagerContract::Move => todo!(),
+                EagerContract::Move => Binding::Move,
                 EagerContract::UseForLetInit => todo!(),
                 EagerContract::UseForVarInit => todo!(),
                 EagerContract::UseMemberForLetInit => todo!(),
