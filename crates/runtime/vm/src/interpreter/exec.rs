@@ -197,7 +197,8 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 InstructionVariant::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
                 }
-                InstructionVariant::NewXml {
+                InstructionVariant::NewXmlFromValue { ty } => todo!(),
+                InstructionVariant::NewXmlFromTag {
                     name,
                     ref props,
                     n_child_expr,

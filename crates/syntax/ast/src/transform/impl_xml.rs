@@ -11,21 +11,25 @@ impl<'a> AstTransformer<'a> {
         if token_group.len() < 2 {
             return err!(format!("expect xml"), token_group.text_range());
         }
-        match token_group[0].kind {
-            TokenKind::Special(Special::LAngle) => (),
-            _ => return err!(format!("expect `<`"), token_group[0].range),
-        }
-        match token_group.last().unwrap().kind {
-            TokenKind::Special(Special::XmlKet) => (),
-            _ => return err!(format!("expect `/>`"), token_group[0].range),
-        }
-        if token_group.len() == 2 {
-            todo!()
-        }
-        let ident = identify_token!(self, &token_group[1], SemanticTokenKind::XmlKind);
+        let variant = match token_group[0].kind {
+            TokenKind::Special(Special::LAngle) => {
+                match token_group.last().unwrap().kind {
+                    TokenKind::Special(Special::XmlKet) => (),
+                    _ => return err!(format!("expect `/>`"), token_group[0].range),
+                }
+                if token_group.len() == 2 {
+                    todo!()
+                }
+                let ident = identify_token!(self, &token_group[1], SemanticTokenKind::XmlTagKind);
+                RawXmlExprVariant::Tag {
+                    ident: ident.ident,
+                    props: self.parse_xml_props(&token_group[2..(token_group.len() - 1)])?,
+                }
+            }
+            _ => RawXmlExprVariant::Value(self.parse_expr(token_group)?),
+        };
         Ok(Arc::new(RawXmlExpr {
-            ident: ident.ident,
-            props: self.parse_xml_props(&token_group[2..(token_group.len() - 1)])?,
+            variant,
             range: token_group.text_range(),
         }))
     }
@@ -34,23 +38,14 @@ impl<'a> AstTransformer<'a> {
         self.parse_atoms(tokens, |parser| parser.xml_props())?
             .into_iter()
             .map(
-                |(ident, token_range)| -> AstResult<(CustomIdentifier, RawExprIdx)> {
-                    Ok((ident, self.parse_expr(&tokens[token_range])?))
+                |(ranged_ident, token_range)| -> AstResult<(CustomIdentifier, RawExprIdx)> {
+                    self.push_abs_semantic_token(token::AbsSemanticToken::new(
+                        SemanticTokenKind::Parameter,
+                        ranged_ident.range,
+                    ));
+                    Ok((ranged_ident.ident, self.parse_expr(&tokens[token_range])?))
                 },
             )
             .collect()
-        // let mut props = IdentPairDict::<RawExprIdx>::default();
-        // let mut iter = tokens.iter().enumerate();
-        // while let Some((_, ident_token)) = iter.next() {
-        //     let ident = identify_token!(self, ident_token, SemanticTokenKind::Field);
-        //     let (_, lcurl_token) = iter.next();
-        //     expect_token_kind!(lcurl_token, Special::LCurl);
-        //     match ident_token.kind {
-        //         TokenKind::Special(Special::LCurl) => (),
-        //         _ => todo!(),
-        //     }
-        //     todo!()
-        // }
-        // Ok(props)
     }
 }

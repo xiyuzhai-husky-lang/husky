@@ -108,10 +108,13 @@ pub enum InstructionVariant {
     PatternMatch {
         branches: Avec<VMPatternBranch>,
     },
-    NewXml {
+    NewXmlFromTag {
         name: &'static str,
         props: Vec<CustomIdentifier>,
         n_child_expr: u8,
+    },
+    NewXmlFromValue {
+        ty: EntityRoutePtr,
     },
 }
 
