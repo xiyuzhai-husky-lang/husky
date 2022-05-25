@@ -14,7 +14,7 @@ use word::IdentDict;
 #[derive(Debug, PartialEq, Eq)]
 pub struct MethodDecl {
     pub ident: CustomIdentifier,
-    pub this_contract: InputLiason,
+    pub this_liason: InputLiason,
     pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
     pub generic_placeholders: IdentDict<GenericPlaceholder>,
@@ -34,7 +34,7 @@ impl MethodKind {
             MethodKind::Trait { trai } => MethodKind::Trait {
                 trai: instantiator
                     .instantiate_entity_route(*trai)
-                    .as_entity_route(),
+                    .take_entity_route(),
             },
         }
     }
@@ -71,7 +71,7 @@ impl MethodDecl {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
         Arc::new(Self {
             ident: self.ident,
-            this_contract: self.this_contract,
+            this_liason: self.this_liason,
             parameters: self
                 .parameters
                 .iter()
@@ -86,7 +86,7 @@ impl MethodDecl {
     pub fn implement(&self, implementor: &Implementor) -> Arc<Self> {
         Arc::new(Self {
             ident: self.ident,
-            this_contract: self.this_contract,
+            this_liason: self.this_liason,
             parameters: self.parameters.map(|input| input.implement(implementor)),
             output: self.output.implement(implementor),
             generic_placeholders: self.generic_placeholders.clone(),
@@ -111,7 +111,7 @@ impl MethodDecl {
                 let output_ty = parse_route(symbol_context, &db.tokenize(output_ty)).unwrap();
                 Arc::new(Self {
                     ident: db.intern_word(defn.name).custom(),
-                    this_contract: this_contract,
+                    this_liason: this_contract,
                     parameters: inputs
                         .map(|input| InputDecl::from_static(db, input, symbol_context)),
                     output: OutputDecl {
@@ -138,7 +138,7 @@ impl MethodDecl {
                 liason: method_defn_head.output_liason,
                 ty: method_defn_head.output_ty.route,
             },
-            this_contract: method_defn_head.this_contract,
+            this_liason: method_defn_head.this_contract,
             generic_placeholders: method_defn_head.generic_placeholders.clone(),
             kind,
         })

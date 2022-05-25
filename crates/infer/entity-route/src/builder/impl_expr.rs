@@ -513,7 +513,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],
         });
         let trai_impl = ok_or!(
-            this_ty_decl.trai_impl(index_trai),
+            this_ty_decl.trait_impl(index_trai),
             format!(
                 "can't index by `{:?}` into type `{:?}`,\nit doesn't satisfy trait `{:?}`",
                 index_ty, this_ty, index_trai

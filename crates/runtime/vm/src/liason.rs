@@ -9,7 +9,6 @@ pub enum InputLiason {
     Move,
     BorrowMut,
     MoveMut,
-    Exec,
     MemberAccess,
 }
 
@@ -50,7 +49,6 @@ impl InputLiason {
                     InputLiason::Move => EagerContract::Move,
                     InputLiason::BorrowMut => EagerContract::RefMut,
                     InputLiason::MoveMut => todo!(),
-                    InputLiason::Exec => todo!(),
                     InputLiason::MemberAccess => panic!(),
                 })
             }
@@ -92,7 +90,6 @@ impl InputLiason {
                 InputLiason::Move => todo!(),
                 InputLiason::BorrowMut => todo!(),
                 InputLiason::MoveMut => todo!(),
-                InputLiason::Exec => todo!(),
                 InputLiason::MemberAccess => todo!(),
             }),
             OutputLiason::MemberAccess => todo!(),

@@ -124,7 +124,6 @@ impl LazyQualifier {
             InputLiason::Move => todo!(),
             InputLiason::BorrowMut => todo!(),
             InputLiason::MoveMut => todo!(),
-            InputLiason::Exec => todo!(),
             InputLiason::MemberAccess => todo!(),
         }
     }

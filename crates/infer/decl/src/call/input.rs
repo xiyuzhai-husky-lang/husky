@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputDecl {
-    pub contract: InputLiason,
+    pub liason: InputLiason,
     pub ty: EntityRoutePtr,
     pub ident: CustomIdentifier,
 }
@@ -18,7 +18,7 @@ impl InputDecl {
         // opt_this_ty,
         Self {
             ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
-            contract: input.contract,
+            liason: input.contract,
             ident: db.custom_ident(input.name),
         }
     }
@@ -27,8 +27,8 @@ impl InputDecl {
         Self {
             ty: instantiator
                 .instantiate_entity_route(self.ty)
-                .as_entity_route(),
-            contract: self.contract,
+                .take_entity_route(),
+            liason: self.liason,
             ident: self.ident,
         }
     }
@@ -41,7 +41,7 @@ impl InputDecl {
 impl Into<InputDecl> for &InputParameter {
     fn into(self) -> InputDecl {
         InputDecl {
-            contract: self.contract,
+            liason: self.contract,
             ty: self.ranged_ty.route,
             ident: self.ranged_ident.ident,
         }

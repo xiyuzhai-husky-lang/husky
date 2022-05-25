@@ -6,7 +6,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Type {
         base_route: "i32",
         generic_placeholders: &[],
-        trait_impls: &[],
+        static_trait_impls: &[],
         type_members: &[&I32_MIN, &I32_MAX, &I32_SGN, &I32_ABS],
         variants: &[],
         kind: TyKind::Primitive,

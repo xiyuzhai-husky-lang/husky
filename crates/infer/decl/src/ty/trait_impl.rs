@@ -6,6 +6,7 @@ use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
+use vm::{InputLiason, OutputLiason};
 
 use crate::*;
 
@@ -37,22 +38,16 @@ impl TraitImplDecl {
             this_ty: symbol_context.opt_this_ty.unwrap(),
             member_impls,
         })
-        // Self::from_trait_decl(db, trait_decl, symbol_context.opt_this_ty.unwrap())
-    }
-
-    pub(crate) fn clone_trait_impl(db: &dyn DeclQueryGroup, this_ty: EntityRoutePtr) -> Arc<Self> {
-        todo!()
-        // Self::from_trait_decl(db, db.trait_decl_menu().clone_trait.clone(), this_ty)
     }
 
     pub(crate) fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
         Arc::new(Self {
             trait_route: instantiator
                 .instantiate_entity_route(self.trait_route)
-                .as_entity_route(),
+                .take_entity_route(),
             this_ty: instantiator
                 .instantiate_entity_route(self.this_ty)
-                .as_entity_route(),
+                .take_entity_route(),
             member_impls: self
                 .member_impls
                 .map(|member| member.instantiate(instantiator)),
@@ -65,31 +60,44 @@ impl TraitImplDecl {
             .find(|impl_decl| impl_decl.ident() == ident)
     }
 
-    pub(crate) fn implicit_trai_impls(
+    pub(crate) fn implicit_trait_impls(
         db: &dyn DeclQueryGroup,
         this_ty: EntityRoutePtr,
         ty_kind: TyKind,
         ty_members: &[TyMemberDecl],
         variants: &[EnumVariantDecl],
-    ) -> Vec<Arc<TraitImplDecl>> {
+    ) -> InferResult<Vec<Arc<TraitImplDecl>>> {
         let mut trait_impl_decls = Vec::new();
         let entity_route_menu = db.entity_route_menu();
-        if derive_is_copyable(db, ty_kind, ty_members, variants) {
+        let is_copyable = derive_is_copyable(db, ty_kind, ty_members, variants);
+        if is_copyable {
             trait_impl_decls.push(Arc::new(TraitImplDecl {
                 trait_route: entity_route_menu.copy_trait,
                 this_ty,
                 member_impls: Vec::new(),
             }))
         }
-        msg_once!("handle other traits, Clone, PartialEq, Eq");
-        // if derive_is_clonable(db, ty_kind, ty_members, variants) {
-        //     trait_impl_decls.push(Arc::new(TraitImplDecl {
-        //         trait_route: entity_route_menu.clone_trait,
-        //         this_ty,
-        //         member_impls: Vec::new(),
-        //     }))
-        // }
-        trait_impl_decls
+        if derive_is_clonable(db, is_copyable, this_ty, ty_kind, ty_members, variants)? {
+            msg_once!("much to do here");
+            let clone_trait = entity_route_menu.clone_trait;
+            trait_impl_decls.push(Arc::new(TraitImplDecl {
+                trait_route: clone_trait,
+                this_ty,
+                member_impls: vec![TraitMemberImplDecl::Method(Arc::new(MethodDecl {
+                    ident: db.intern_word("clone").custom(),
+                    this_liason: InputLiason::Pure,
+                    parameters: vec![],
+                    output: OutputDecl {
+                        liason: OutputLiason::Transfer,
+                        ty: this_ty,
+                    },
+                    generic_placeholders: Default::default(),
+                    kind: MethodKind::Trait { trai: clone_trait },
+                }))],
+            }))
+        }
+        msg_once!("handle other traits, PartialEq, Eq");
+        Ok(trait_impl_decls)
     }
 }
 
@@ -110,41 +118,71 @@ fn derive_is_copyable(
         }
         TyKind::Record => false,
         TyKind::Struct => false,
-        TyKind::Primitive => todo!(),
-        TyKind::Vec => todo!(),
-        TyKind::Array => todo!(),
-        TyKind::Other => todo!(),
+        TyKind::Primitive => true,
+        TyKind::Vec => false,
+        TyKind::Array => false,
+        TyKind::Other => false,
     }
 }
 
-// fn derive_is_clonable(
-//     db: &dyn DeclQueryGroup,
-//     ty_kind: TyKind,
-//     ty_members: &[TyMemberDecl],
-//     variants: &[EnumVariantDecl],
-// ) -> bool {
-//     match ty_kind {
-//         TyKind::Enum => todo!(),
-//         TyKind::Record => false,
-//         TyKind::Struct => {
-//             for ty_member in ty_members {
-//                 match ty_member {
-//                     TyMemberDecl::Field(field) => {
-//                         if field.kind == FieldKind::StructOriginal {
-//                             if ! db.is_clonable
-//                         }
-//                     }
-//                     TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => (),
-//                 }
-//             }
-//             true
-//         }
-//         TyKind::Primitive => todo!(),
-//         TyKind::Vec => todo!(),
-//         TyKind::Array => todo!(),
-//         TyKind::Other => todo!(),
-//     }
-// }
+fn derive_is_clonable(
+    db: &dyn DeclQueryGroup,
+    is_copyable: bool,
+    this_ty: EntityRoutePtr,
+    ty_kind: TyKind,
+    ty_members: &[TyMemberDecl],
+    variants: &[EnumVariantDecl],
+) -> InferResult<bool> {
+    // in husky, if a type is copyable, it's not clonable
+    if is_copyable {
+        return Ok(false);
+    }
+    Ok(match ty_kind {
+        TyKind::Enum => {
+            for variant in variants {
+                match variant.variant {
+                    EnumVariantDeclVariant::Constant => (),
+                }
+            }
+            true
+        }
+        TyKind::Record => false,
+        TyKind::Struct => {
+            for ty_member in ty_members {
+                match ty_member {
+                    TyMemberDecl::Field(field) => {
+                        if field.kind == FieldKind::StructOriginal {
+                            if !db.is_copyable(field.ty)? && !db.is_clonable(field.ty)? {
+                                p!(field.ty, db.is_copyable(field.ty), db.is_clonable(field.ty));
+                                let ty_decl = db.ty_decl(field.ty).unwrap();
+                                let clone_trait = db.entity_route_menu().clone_trait;
+                                for trait_impl in &ty_decl.trait_impls {
+                                    p!(trait_impl.trait_route, clone_trait);
+                                }
+                                // p!(ty_decl.trait_impl());
+                                return Ok(false);
+                            }
+                        }
+                    }
+                    TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => (),
+                }
+            }
+            true
+        }
+        TyKind::Primitive => todo!(),
+        TyKind::Vec => {
+            msg_once!("Vec<E>, E should be copyable or clonable");
+            true
+            // let elem_ty = this_ty.generic_arguments[0].take_entity_route();
+            // db.is_copyable(elem_ty)? || db.is_clonable(elem_ty)?
+        }
+        TyKind::Array => true,
+        TyKind::Other => {
+            msg_once!("Examine this more closely");
+            true
+        }
+    })
+}
 
 // fn is_partial_equatable(
 //     db: &dyn DeclQueryGroup,
@@ -252,7 +290,9 @@ impl TraitMemberImplDecl {
             TraitMemberImplDecl::AssociatedType { ident, ty } => {
                 TraitMemberImplDecl::AssociatedType {
                     ident: *ident,
-                    ty: instantiator.instantiate_entity_route(*ty).as_entity_route(),
+                    ty: instantiator
+                        .instantiate_entity_route(*ty)
+                        .take_entity_route(),
                 }
             }
             TraitMemberImplDecl::Call {} => todo!(),

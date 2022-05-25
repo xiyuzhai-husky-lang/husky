@@ -158,7 +158,7 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::Type {
                 base_route,
                 generic_placeholders,
-                ref trait_impls,
+                static_trait_impls: ref trait_impls,
                 ref type_members,
                 ref variants,
                 kind,

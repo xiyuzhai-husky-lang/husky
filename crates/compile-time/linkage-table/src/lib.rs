@@ -101,8 +101,13 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                     },
                     MethodDefnVariant::TraitMethod {
                         trai,
-                        opt_default_source,
-                    } => todo!(),
+                        ref opt_default_source,
+                    } => opt_default_source.as_ref().map(|source| match source {
+                        MethodSource::Func { stmts } => todo!(),
+                        MethodSource::Proc { stmts } => todo!(),
+                        MethodSource::Pattern { stmts } => todo!(),
+                        MethodSource::Static(linkage_source) => linkage_source.bind(binding),
+                    }),
                     MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
                         if let Some(source) = opt_source {
                             return match source {
@@ -147,9 +152,22 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         }
                     }
                 },
-                _ => {
-                    panic!()
+                EntityDefnVariant::Main(_) => todo!(),
+                EntityDefnVariant::Module { .. } => todo!(),
+                EntityDefnVariant::Feature { .. } => todo!(),
+                EntityDefnVariant::Pattern {} => todo!(),
+                EntityDefnVariant::Func { .. } => todo!(),
+                EntityDefnVariant::Proc { .. } => todo!(),
+                EntityDefnVariant::Type { .. } => todo!(),
+                EntityDefnVariant::Trait { ref members, .. } => {
+                    p!(members);
+                    p!(method_route);
+                    todo!()
                 }
+                EntityDefnVariant::EnumVariant { .. } => todo!(),
+                EntityDefnVariant::TypeField { .. } => todo!(),
+                EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
+                EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             }
         };
         let method_decl = self.method_decl(method_route).unwrap();

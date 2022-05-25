@@ -59,7 +59,7 @@ impl Implementable for EntityRoutePtr {
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => match parent.kind {
                 EntityRouteKind::ThisType => {
-                    let ty = implementor.generic_argument(ident).as_entity_route();
+                    let ty = implementor.generic_argument(ident).take_entity_route();
                     (ty.kind, ty.generic_arguments.clone())
                 }
                 _ => todo!(),
