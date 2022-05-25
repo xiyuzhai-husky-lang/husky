@@ -31,7 +31,7 @@ impl<T: Copy> LocalValue<T> {
 
     pub fn exit(&mut self) {
         self.current -= 1;
-        while self.values.last().unwrap().0 > self.current {
+        if self.values.last().unwrap().0 > self.current {
             self.values.pop();
         }
     }
@@ -41,7 +41,11 @@ impl<T: Copy> LocalValue<T> {
     }
 
     pub fn set(&mut self, v: T) {
-        self.values.push((self.current, v))
+        if self.values.last().unwrap().0 < self.current {
+            self.values.push((self.current, v))
+        } else {
+            self.values.last_mut().unwrap().1 = v
+        }
     }
 }
 
