@@ -1,4 +1,4 @@
-133:27..133:39	Infer Error: expect `1` arguments, but get `0` arguments
+133:27..133:39	Infer Error: expect 1 arguments, but get 0 arguments
 55:61..55:67	Infer Error: no method named `bitmod` for type `i32`
 124:31..124:43	Infer Error: unrecognized caller
 162:33..162:37	Infer Error: no method named `last` for type `mnist_classifier028::raw_contour::RawContour`

@@ -124,7 +124,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => self.infer_eager_case_pattern(pattern),
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec { expr, silent } => {
+            RawStmtVariant::Exec {
+                expr,
+                discard: silent,
+            } => {
                 self.infer_eager_expr(arena, expr);
             }
             RawStmtVariant::Init {

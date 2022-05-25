@@ -92,16 +92,26 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => todo!(),
                 RawPatternBranchVariant::Default => todo!(),
             },
-            RawStmtVariant::Exec { expr, silent } => {
-                self.infer_expr(
+            RawStmtVariant::Exec { expr, discard } => {
+                if let Some(ty) = self.infer_expr(
                     expr,
-                    if silent {
+                    if discard {
                         None
                     } else {
                         Some(RootIdentifier::Void.into())
                     },
                     arena,
-                );
+                ) {
+                    match (ty, discard) {
+                        (EntityRoutePtr::Root(RootIdentifier::Void), true) => {
+                            self.entity_route_sheet.extra_errors.push(error!(
+                                format!("obsolete discard because the output is of type `void`"),
+                                arena[expr].range
+                            ))
+                        }
+                        _ => (),
+                    }
+                }
             }
             RawStmtVariant::Init {
                 varname,

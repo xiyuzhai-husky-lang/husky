@@ -178,7 +178,7 @@ impl<'a> AstTransformer<'a> {
                 }
             }
             AstContext::Routine(RoutineKeyword::Proc) => {
-                let (expr_tokens, silent) = match token_group.last().unwrap().kind {
+                let (expr_tokens, discard) = match token_group.last().unwrap().kind {
                     TokenKind::Special(Special::Semicolon) => {
                         (&token_group[..(token_group.len() - 1)], true)
                     }
@@ -188,7 +188,7 @@ impl<'a> AstTransformer<'a> {
                     range: token_group.text_range(),
                     variant: RawStmtVariant::Exec {
                         expr: self.parse_expr(expr_tokens)?,
-                        silent,
+                        discard,
                     },
                 }
             }

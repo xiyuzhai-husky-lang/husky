@@ -131,6 +131,19 @@ impl BindTextRangeFrom<VMCompileError> for InferError {
 }
 
 #[macro_export]
+macro_rules! error {
+    ($msg:expr, $range: expr) => {{
+        infer_error::InferError {
+            variant: infer_error::InferErrorVariant::Original {
+                message: $msg.into(),
+                range: $range,
+            },
+            dev_src: dev_utils::dev_src!(),
+        }
+    }};
+}
+
+#[macro_export]
 macro_rules! throw {
     ($msg:expr, $range: expr) => {{
         Err(infer_error::InferError {
