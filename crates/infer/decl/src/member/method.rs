@@ -64,6 +64,10 @@ impl HasKey<CustomIdentifier> for MethodDecl {
 }
 
 impl MethodDecl {
+    pub fn nargs(&self) -> u8 {
+        (self.parameters.len() + 1).try_into().unwrap()
+    }
+
     pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
         Arc::new(Self {
             ident: self.ident,
