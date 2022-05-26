@@ -103,11 +103,20 @@ impl FigureProps {
                 match visuals[0] {
                     VisualProps::BinaryImage28 { .. }
                     | VisualProps::BinaryGrid28 { .. }
-                    | VisualProps::Contour { .. } => Self::new_specific_graphics2d_group(visuals),
+                    | VisualProps::Contour { .. }
+                    | VisualProps::LineSegment { .. } => {
+                        Self::new_specific_graphics2d_group(visuals)
+                    }
                     VisualProps::Primitive { .. } => Self::new_specific_primitive_group(visuals),
                     VisualProps::Group(_) => todo!(),
                 }
             }
+            VisualProps::LineSegment { start, end } => FigureProps::Graphics2d {
+                image_layers: vec![],
+                shapes: vec![Shape2dProps::LineSegment { start, end }],
+                xrange: (0.0, 28.0),
+                yrange: (0.0, 28.0),
+            },
         }
     }
 
@@ -125,9 +134,17 @@ impl FigureProps {
                 VisualProps::Primitive { value } => todo!(),
                 VisualProps::Contour { points } => shapes.push(Shape2dProps::Contour { points }),
                 VisualProps::Group(_) => todo!(),
+                VisualProps::LineSegment { start, end } => {
+                    shapes.push(Shape2dProps::LineSegment { start, end })
+                }
             }
         }
-        todo!()
+        FigureProps::Graphics2d {
+            image_layers,
+            shapes,
+            xrange: (0.0, 28.0),
+            yrange: (0.0, 28.0),
+        }
     }
 
     pub fn new_specific_primitive_group(visuals: Vec<VisualProps>) -> Self {

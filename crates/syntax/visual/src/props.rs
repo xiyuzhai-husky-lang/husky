@@ -1,21 +1,34 @@
 use check_utils::should_eq;
-use print_utils::{p, ps};
+use print_utils::{msg_once, p, ps};
 use serde::{Deserialize, Serialize};
 use vm::{CopyableValue, XmlValue};
 
 #[derive(Debug, Clone, Serialize)]
 #[serde(tag = "kind")]
 pub enum VisualProps {
-    BinaryImage28 { padded_rows: [u32; 30] },
-    BinaryGrid28 { padded_rows: [u32; 31] },
-    Primitive { value: CopyableValue },
-    Contour { points: Vec<Point2dProps> },
+    BinaryImage28 {
+        padded_rows: [u32; 30],
+    },
+    BinaryGrid28 {
+        padded_rows: [u32; 31],
+    },
+    Primitive {
+        value: CopyableValue,
+    },
+    Contour {
+        points: Vec<Point2dProps>,
+    },
+    LineSegment {
+        start: Point2dProps,
+        end: Point2dProps,
+    },
     Group(Vec<VisualProps>),
 }
 
 impl VisualProps {
     pub fn from_xml_value(xml_value: XmlValue) -> VisualProps {
         let mut data = xml_value.props.take_data();
+        msg_once!("ad hoc");
         match xml_value.tag_kind.as_str() {
             "Contour" => {
                 should_eq!(data.len(), 1);
@@ -24,7 +37,16 @@ impl VisualProps {
                 VisualProps::Contour { points }
             }
             "LineSegment" => {
-                todo!()
+                should_eq!(data.len(), 2);
+                // end
+                let (ident, value) = data.pop().unwrap();
+                should_eq!(ident.as_str(), "end");
+                let end: Point2dProps = serde_json::from_value(value).unwrap();
+                // start
+                let (ident, value) = data.pop().unwrap();
+                should_eq!(ident.as_str(), "start");
+                let start: Point2dProps = serde_json::from_value(value).unwrap();
+                VisualProps::LineSegment { start, end }
             }
             _ => todo!(),
         }

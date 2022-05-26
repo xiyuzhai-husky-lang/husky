@@ -28,6 +28,10 @@ pub enum Shape2dProps {
     Contour {
         points: Vec<Point2dProps>,
     },
+    LineSegment {
+        start: Point2dProps,
+        end: Point2dProps,
+    },
     Group {
         shapes: Vec<Shape2dProps>,
         line_width: f32,
