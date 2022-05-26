@@ -21,10 +21,16 @@ export type Point2dShapeProps = {
     point: Point2d;
 };
 export type ContourShapeProps = { kind: "Contour"; points: Point2d[] };
+export type LineSegmentProps = {
+    kind: "LineSegment";
+    start: Point2d;
+    end: Point2d;
+};
 export type Shape2dProps =
     | Arrow2dShapeProps
     | Point2dShapeProps
-    | ContourShapeProps;
+    | ContourShapeProps
+    | LineSegmentProps;
 export type Shape2dGroupProps = {
     shapes: Shape2dProps[];
     color: Color;
@@ -64,6 +70,12 @@ export function decode_shape2d_props(data: unknown): Shape2dProps {
                     decode_memb(data, "points"),
                     decode_point2d
                 ),
+            };
+        case "LineSegment":
+            return {
+                kind: "LineSegment",
+                start: decode_point2d(decode_memb(data, "start")),
+                end: decode_point2d(decode_memb(data, "end")),
             };
         default:
             throw new Error("TODO");
