@@ -121,7 +121,7 @@ impl CopyableValue {
         }
     }
 
-    pub fn any_ref<'eval>(&self) -> &dyn AnyValueDyn<'eval> {
+    pub fn any_ref<'eval>(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             CopyableValue::I32(value) => value,
             CopyableValue::F32(value) => value,
@@ -133,7 +133,7 @@ impl CopyableValue {
         }
     }
 
-    pub fn any_mut<'eval>(&mut self) -> &mut dyn AnyValueDyn<'eval> {
+    pub fn any_mut<'eval>(&mut self) -> &mut (dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             CopyableValue::I32(value) => value,
             CopyableValue::F32(value) => value,

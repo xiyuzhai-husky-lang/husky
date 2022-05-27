@@ -94,62 +94,62 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn vec_type_call<'stack, 'eval>(
-    _values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
-    Ok(StackValue::Owned(OwnedValue::new(
-        Vec::<MemberValue<'eval>>::new(),
-    )))
+fn vec_type_call<'vm, 'eval>(
+    _values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    Ok(VMValue::FullyOwned(OwnedValue::new(Vec::<
+        MemberValue<'eval>,
+    >::new())))
 }
 
-fn generic_vec_push<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_push<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let element = values[1].into_member();
     let generic_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
     generic_vec.push(element);
-    Ok(StackValue::Copyable(().into()))
+    Ok(VMValue::Copyable(().into()))
 }
 
-fn generic_vec_pop<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_pop<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }
 
-fn generic_vec_first<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_first<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }
 
-fn generic_vec_last<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_last<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }
 
-pub(crate) fn construct_generic_vec<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+pub(crate) fn construct_generic_vec<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     should_eq!(values.len(), 0);
-    Ok(StackValue::Owned(OwnedValue::new(
-        Vec::<MemberValue<'eval>>::new(),
-    )))
+    Ok(VMValue::FullyOwned(OwnedValue::new(Vec::<
+        MemberValue<'eval>,
+    >::new())))
 }
 
-pub(crate) fn generic_vec_element_move_access<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+pub(crate) fn generic_vec_element_move_access<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }
 
-pub(crate) fn generic_vec_element_copy_access<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+pub(crate) fn generic_vec_element_copy_access<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let i: usize = match values[1] {
-        StackValue::Copyable(value) => value.take_i32().try_into().unwrap(),
+        VMValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
     };
     if i >= this_value.len() {
@@ -158,12 +158,12 @@ pub(crate) fn generic_vec_element_copy_access<'stack, 'eval>(
     Ok(this_value[i].copy_into_stack())
 }
 
-pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+pub(crate) fn generic_vec_element_ref_access<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let i: usize = match values[1] {
-        StackValue::Copyable(value) => value.take_i32().try_into().unwrap(),
+        VMValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
     };
     if i >= this_value.len() {
@@ -173,19 +173,19 @@ pub(crate) fn generic_vec_element_ref_access<'stack, 'eval>(
             i
         )));
     }
-    let any_ptr: *const dyn AnyValueDyn = this_value[i].any_ref();
+    let any_ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
     Ok(match values[0] {
-        StackValue::GlobalRef(_) => StackValue::GlobalRef(unsafe { &*any_ptr }),
-        StackValue::LocalRef(_) => StackValue::LocalRef(unsafe { &*any_ptr }),
+        VMValue::EvalRef(_) => VMValue::EvalRef(unsafe { &*any_ptr }),
+        VMValue::FullyOwnedRef(_) => VMValue::FullyOwnedRef(unsafe { &*any_ptr }),
         _ => panic!(),
     })
 }
 
-pub(crate) fn generic_vec_element_borrow_mut_access<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+pub(crate) fn generic_vec_element_borrow_mut_access<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let i: usize = match values[1] {
-        StackValue::Copyable(value) => value.take_i32().try_into().unwrap(),
+        VMValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
     };
     let (this_value, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
@@ -215,12 +215,12 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn generic_list_len<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_list_len<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     let len: i32 = generic_vec.len().try_into().unwrap();
-    Ok(StackValue::Copyable(len.into()))
+    Ok(VMValue::Copyable(len.into()))
 }
 
 pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
@@ -298,15 +298,15 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn generic_vec_first_copy<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_first_copy<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }
 
-fn generic_vec_first_ref<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_first_ref<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     match generic_vec.first() {
         Some(value) => Ok(value.stack_ref()),
@@ -314,9 +314,9 @@ fn generic_vec_first_ref<'stack, 'eval>(
     }
 }
 
-fn generic_vec_first_mut<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_first_mut<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
         values[0].downcast_mut_full();
     match generic_vec.first_mut() {
@@ -325,9 +325,9 @@ fn generic_vec_first_mut<'stack, 'eval>(
     }
 }
 
-fn generic_vec_first_move<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_first_move<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }
 
@@ -364,15 +364,15 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn generic_vec_last_copy<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_last_copy<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }
 
-fn generic_vec_last_ref<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_last_ref<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     match generic_vec.last() {
         Some(value) => Ok(value.stack_ref()),
@@ -380,9 +380,9 @@ fn generic_vec_last_ref<'stack, 'eval>(
     }
 }
 
-fn generic_vec_last_mut<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_last_mut<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
         values[0].downcast_mut_full();
     match generic_vec.last_mut() {
@@ -391,8 +391,8 @@ fn generic_vec_last_mut<'stack, 'eval>(
     }
 }
 
-fn generic_vec_last_move<'stack, 'eval>(
-    values: &mut [StackValue<'stack, 'eval>],
-) -> VMRuntimeResult<StackValue<'stack, 'eval>> {
+fn generic_vec_last_move<'vm, 'eval>(
+    values: &mut [VMValue<'vm, 'eval>],
+) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
 }

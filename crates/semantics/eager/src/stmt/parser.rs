@@ -3,7 +3,7 @@ use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};
 use infer_total::InferQueryGroup;
 use text::RangedCustomIdentifier;
-use vm::{StackIdx, VMRuntimeResult};
+use vm::{VMRuntimeResult, VMStackIdx};
 
 use super::*;
 

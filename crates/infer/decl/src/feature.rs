@@ -33,7 +33,7 @@ pub(crate) fn feature_decl(
         }
         EntityLocus::Module { file } => todo!(),
         EntityLocus::Input { main } => Ok(Arc::new(FeatureDecl {
-            ty: db.global_input_ty(main)?,
+            ty: db.eval_input_ty(main)?,
         })),
         EntityLocus::StaticTypeMember => todo!(),
         EntityLocus::StaticTypeAsTraitMember => todo!(),

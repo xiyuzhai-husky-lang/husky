@@ -7,22 +7,22 @@ use std::fmt::Write;
 use word::CustomIdentifier;
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
-pub struct StackIdx(u8);
+pub struct VMStackIdx(u8);
 
-impl std::fmt::Debug for StackIdx {
+impl std::fmt::Debug for VMStackIdx {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("StackIdx({})", self.0))
     }
 }
 
-impl StackIdx {
-    pub fn this() -> StackIdx {
+impl VMStackIdx {
+    pub fn this() -> VMStackIdx {
         Self(0)
     }
 
-    pub fn new(raw: usize) -> VMCompileResult<StackIdx> {
+    pub fn new(raw: usize) -> VMCompileResult<VMStackIdx> {
         let raw: u8 = raw.try_into().unwrap();
-        Ok(StackIdx(raw))
+        Ok(VMStackIdx(raw))
     }
 
     pub(crate) fn raw(&self) -> usize {
@@ -32,11 +32,11 @@ impl StackIdx {
 
 pub const STACK_SIZE: usize = 255;
 
-pub struct VMStack<'stack, 'eval: 'stack> {
-    values: ArrayVec<StackValue<'stack, 'eval>, STACK_SIZE>,
+pub struct VMStack<'vm, 'eval: 'vm> {
+    values: ArrayVec<VMValue<'vm, 'eval>, STACK_SIZE>,
 }
 
-impl<'stack, 'eval> std::fmt::Debug for VMStack<'stack, 'eval> {
+impl<'vm, 'eval> std::fmt::Debug for VMStack<'vm, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("VMStack")
             .field("values", &self.values)
@@ -44,17 +44,15 @@ impl<'stack, 'eval> std::fmt::Debug for VMStack<'stack, 'eval> {
     }
 }
 
-impl<'stack, 'eval: 'stack, T: Iterator<Item = StackValue<'stack, 'eval>>> From<T>
-    for VMStack<'stack, 'eval>
-{
+impl<'vm, 'eval: 'vm, T: Iterator<Item = VMValue<'vm, 'eval>>> From<T> for VMStack<'vm, 'eval> {
     fn from(t: T) -> Self {
         Self::new(t)
     }
 }
 
-impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> VMStack<'vm, 'eval> {
     pub(crate) fn try_new(
-        argument_iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
+        argument_iter: impl Iterator<Item = VMRuntimeResult<VMValue<'vm, 'eval>>>,
     ) -> VMRuntimeResult<Self> {
         let mut values = ArrayVec::new();
         for result in argument_iter {
@@ -63,7 +61,7 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         Ok(Self { values })
     }
 
-    pub(crate) fn new(argument_iter: impl Iterator<Item = StackValue<'stack, 'eval>>) -> Self {
+    pub(crate) fn new(argument_iter: impl Iterator<Item = VMValue<'vm, 'eval>>) -> Self {
         let mut values = ArrayVec::new();
         for value in argument_iter {
             values.push(value)
@@ -71,19 +69,19 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         Self { values }
     }
 
-    pub(crate) fn value(&self, idx: StackIdx) -> &StackValue<'stack, 'eval> {
+    pub(crate) fn value(&self, idx: VMStackIdx) -> &VMValue<'vm, 'eval> {
         &self.values[idx.raw()]
     }
 
-    pub(crate) fn value_mut(&mut self, idx: StackIdx) -> &mut StackValue<'stack, 'eval> {
+    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut VMValue<'vm, 'eval> {
         &mut self.values[idx.raw()]
     }
 
     pub(crate) fn push_variable(
         &mut self,
-        stack_idx: StackIdx,
+        stack_idx: VMStackIdx,
         binding: Binding,
-    ) -> &mut StackValue<'stack, 'eval> {
+    ) -> &mut VMValue<'vm, 'eval> {
         unsafe {
             let value = &mut self.values[stack_idx.raw()];
             let stack_value = value.bind(binding, stack_idx);
@@ -102,7 +100,7 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         }
     }
 
-    pub(crate) fn eval(&mut self, stack_idx: StackIdx) -> EvalValue<'eval> {
+    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> EvalValue<'eval> {
         self.values[stack_idx.raw()].eval()
     }
 
@@ -110,17 +108,14 @@ impl<'stack, 'eval: 'stack> VMStack<'stack, 'eval> {
         self.values.len()
     }
 
-    pub(crate) fn push(&mut self, value: StackValue<'stack, 'eval>) {
+    pub(crate) fn push(&mut self, value: VMValue<'vm, 'eval>) {
         self.values.push(value);
     }
-    pub(crate) fn pop(&mut self) -> StackValue<'stack, 'eval> {
+    pub(crate) fn pop(&mut self) -> VMValue<'vm, 'eval> {
         self.values.pop().unwrap()
     }
 
-    pub(crate) fn drain<'a>(
-        &'a mut self,
-        k: u8,
-    ) -> impl Iterator<Item = StackValue<'stack, 'eval>> + 'a {
+    pub(crate) fn drain<'a>(&'a mut self, k: u8) -> impl Iterator<Item = VMValue<'vm, 'eval>> + 'a {
         self.values.drain((self.len() - k as usize)..)
     }
 
@@ -163,7 +158,7 @@ impl VariableStack {
         self.non_this_variables.len()
     }
 
-    pub fn stack_idx(&self, ident0: CustomIdentifier) -> StackIdx {
+    pub fn stack_idx(&self, ident0: CustomIdentifier) -> VMStackIdx {
         let idx = self.non_this_variables.len()
             - (1 + self
                 .non_this_variables
@@ -171,14 +166,14 @@ impl VariableStack {
                 .rev()
                 .position(|ident| *ident == ident0)
                 .unwrap());
-        StackIdx::new(if self.has_this { idx + 1 } else { idx }).unwrap()
+        VMStackIdx::new(if self.has_this { idx + 1 } else { idx }).unwrap()
     }
 
     pub fn push(&mut self, ident: CustomIdentifier) {
         self.non_this_variables.push(ident)
     }
 
-    pub fn varname(&self, stack_idx: StackIdx) -> CustomIdentifier {
+    pub fn varname(&self, stack_idx: VMStackIdx) -> CustomIdentifier {
         self.non_this_variables[stack_idx.0 as usize]
     }
 

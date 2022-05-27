@@ -10,9 +10,9 @@ pub type EvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
 #[derive(Debug, Clone)]
 pub enum EvalValue<'eval> {
     Copyable(CopyableValue),
-    Owned(OwnedValue<'eval>),
-    GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
-    GlobalRef(&'eval dyn AnyValueDyn<'eval>),
+    Owned(OwnedValue<'eval, 'eval>),
+    GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    GlobalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     Undefined,
 }
 
@@ -47,19 +47,19 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn owned(self) -> VMRuntimeResult<OwnedValue<'eval>> {
+    pub fn owned(self) -> VMRuntimeResult<OwnedValue<'eval, 'eval>> {
         match self {
             EvalValue::Owned(value) => Ok(value),
             _ => todo!(),
         }
     }
 
-    pub fn into_stack(self) -> VMRuntimeResult<StackValue<'eval, 'eval>> {
+    pub fn into_stack<'stack>(self) -> VMRuntimeResult<VMValue<'stack, 'eval>> {
         match self {
-            EvalValue::Copyable(value) => Ok(StackValue::Copyable(value)),
-            EvalValue::Owned(value) => Ok(StackValue::Owned(value)),
-            EvalValue::GlobalPure(value) => Ok(StackValue::GlobalPure(value)),
-            EvalValue::GlobalRef(value) => Ok(StackValue::GlobalRef(value)),
+            EvalValue::Copyable(value) => Ok(VMValue::Copyable(value)),
+            EvalValue::Owned(value) => Ok(VMValue::FullyOwned(value)),
+            EvalValue::GlobalPure(value) => Ok(VMValue::EvalPure(value)),
+            EvalValue::GlobalRef(value) => Ok(VMValue::EvalRef(value)),
             EvalValue::Undefined => todo!(),
         }
     }
@@ -112,7 +112,7 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
+    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             EvalValue::Copyable(value) => value.any_ref(),
             EvalValue::Owned(value) => value.any_ref(),

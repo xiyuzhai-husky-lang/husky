@@ -5,8 +5,8 @@ pub struct StackSnapshot<'eval> {
     pub(crate) values: Vec<StackValueSnapshot<'eval>>,
 }
 
-impl<'stack, 'eval: 'stack> StackSnapshot<'eval> {
-    pub(crate) fn stack(&self) -> VMStack<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> StackSnapshot<'eval> {
+    pub(crate) fn stack(&self) -> VMStack<'vm, 'eval> {
         todo!()
     }
 
@@ -15,8 +15,8 @@ impl<'stack, 'eval: 'stack> StackSnapshot<'eval> {
     }
 }
 
-impl<'stack, 'eval: 'stack> Into<VMStack<'stack, 'eval>> for &StackSnapshot<'eval> {
-    fn into(self) -> VMStack<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> Into<VMStack<'vm, 'eval>> for &StackSnapshot<'eval> {
+    fn into(self) -> VMStack<'vm, 'eval> {
         VMStack::new(
             self.values
                 .iter()
@@ -25,10 +25,10 @@ impl<'stack, 'eval: 'stack> Into<VMStack<'stack, 'eval>> for &StackSnapshot<'eva
     }
 }
 
-impl<'eval> std::ops::Index<StackIdx> for StackSnapshot<'eval> {
+impl<'eval> std::ops::Index<VMStackIdx> for StackSnapshot<'eval> {
     type Output = StackValueSnapshot<'eval>;
 
-    fn index(&self, index: StackIdx) -> &Self::Output {
+    fn index(&self, index: VMStackIdx) -> &Self::Output {
         &self.values[index.raw()]
     }
 }

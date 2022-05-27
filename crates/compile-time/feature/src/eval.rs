@@ -16,12 +16,12 @@ use vm::EvalResult;
 pub fn eval_feature_block<'eval>(
     db: &dyn FeatureQueryGroup,
     block: &FeatureBlock,
-    input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut FeatureSheet<'eval>,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator {
         db,
-        global_input: input,
+        eval_input,
         sheet,
     };
     evaluator.eval_feature_block(block)
@@ -35,7 +35,7 @@ pub fn eval_feature_stmt<'eval>(
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator {
         db,
-        global_input: input,
+        eval_input: input,
         sheet,
     };
     evaluator.eval_feature_stmt(stmt)
@@ -50,7 +50,7 @@ pub fn eval_feature_expr<'eval>(
     msg_once!("if expr.feature is in the cache, return the cached value");
     let mut evaluator = FeatureEvaluator {
         db,
-        global_input: input,
+        eval_input: input,
         sheet,
     };
     evaluator.eval_feature_expr(expr)
@@ -66,7 +66,7 @@ pub fn eval_feature_repr<'eval>(
 }
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
-    global_input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &'a mut FeatureSheet<'eval>,
     db: &'a dyn FeatureQueryGroup,
 }

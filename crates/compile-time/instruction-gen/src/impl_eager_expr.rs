@@ -36,7 +36,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::ThisData => self.push_instruction(Instruction::new(
                 InstructionVariant::PushVariable {
                     varname: ContextualIdentifier::ThisData.into(),
-                    stack_idx: StackIdx::this(),
+                    stack_idx: VMStackIdx::this(),
                     binding: expr.qualified_ty.qual.binding(expr.contract),
                     range: expr.range,
                     ty: expr.ty,

@@ -12,7 +12,7 @@ use crate::*;
 use fold::Indent;
 use std::sync::Arc;
 use text::RangedCustomIdentifier;
-use vm::{InitKind, InstructionId, InstructionSource, StackIdx};
+use vm::{InitKind, InstructionId, InstructionSource, VMStackIdx};
 
 use parser::EagerStmtParser;
 

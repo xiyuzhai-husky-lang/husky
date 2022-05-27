@@ -10,7 +10,7 @@ use semantics_eager::FuncStmt;
 use std::sync::Arc;
 use visual_syntax::{StaticVisualizer, VisualProps};
 use vm::{
-    eval_fast, AnyValueDyn, InstructionSheet, MemberValue, StackValue, VMRuntimeResult, XmlValue,
+    eval_fast, AnyValueDyn, InstructionSheet, MemberValue, VMRuntimeResult, VMValue, XmlValue,
 };
 
 #[derive(Clone)]
@@ -39,7 +39,7 @@ impl RuntimeVisualizer {
                 db.compile_time(),
                 Some(instruction_sheet),
                 None,
-                vec![Ok(StackValue::LocalRef(value))].into_iter(),
+                vec![Ok(VMValue::FullyOwnedRef(value))].into_iter(),
             ) {
                 Ok(value) => {
                     let xml_value: XmlValue = value.owned().unwrap().take().unwrap();

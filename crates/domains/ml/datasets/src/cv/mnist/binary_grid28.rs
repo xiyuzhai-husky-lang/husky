@@ -31,7 +31,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
                             opt_source: Some(LinkageSource::MemberAccess {
                                 copy_access: Linkage {
-                                    call: |values| -> VMRuntimeResult<StackValue> {
+                                    call: |values| -> VMRuntimeResult<VMValue> {
                                         let this_value: &BinaryGrid28 = values[0].downcast_ref();
                                         let index_value: usize = values[1]
                                             .take_copyable()
@@ -40,7 +40,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             .expect("todo");
                                         this_value
                                             .get(index_value)
-                                            .map(|v| StackValue::Copyable(v.into()))
+                                            .map(|v| VMValue::Copyable(v.into()))
                                             .ok_or(VMRuntimeError {
                                                 message: "todo".into(),
                                             })
@@ -48,7 +48,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                     nargs: 2,
                                 },
                                 ref_access: Linkage {
-                                    call: |values| -> VMRuntimeResult<StackValue> { todo!() },
+                                    call: |values| -> VMRuntimeResult<VMValue> { todo!() },
                                     nargs: 2,
                                 },
                                 move_access: Linkage {
@@ -66,7 +66,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             values[0].downcast_mut_full();
                                         this_value
                                             .get_mut(index_value)
-                                            .map(|value| StackValue::RefMut {
+                                            .map(|value| VMValue::FullyOwnedMut {
                                                 value,
                                                 owner,
                                                 gen: (),
@@ -101,7 +101,11 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
         linkage: Linkage {
-            call: |_values| Ok(StackValue::Owned(OwnedValue::new(BinaryGrid28::default()))),
+            call: |_values| {
+                Ok(VMValue::FullyOwned(
+                    OwnedValue::new(BinaryGrid28::default()),
+                ))
+            },
             nargs: 0,
         },
         routine_kind: RoutineKind::TypeCall,
@@ -124,7 +128,7 @@ impl std::fmt::Debug for BinaryGrid28 {
 }
 
 impl BinaryGrid28 {
-    pub fn visualize<'eval>(value: &dyn AnyValueDyn<'eval>) -> VisualProps {
+    pub fn visualize<'eval>(value: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
         let value: &BinaryGrid28 = value.downcast_ref();
         VisualProps::BinaryGrid28 {
             padded_rows: value.padded_rows.clone(),

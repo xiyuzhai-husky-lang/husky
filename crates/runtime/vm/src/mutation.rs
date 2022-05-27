@@ -20,13 +20,13 @@ pub enum MutationDataKind {
         range: TextRange,
     },
     Block {
-        stack_idx: StackIdx,
+        stack_idx: VMStackIdx,
         varname: Identifier,
     },
 }
 
 impl<'eval> MutationData<'eval> {
-    pub fn varidx(&self) -> StackIdx {
+    pub fn varidx(&self) -> VMStackIdx {
         match self.kind {
             MutationDataKind::Exec { range } => panic!(),
             MutationDataKind::Block { stack_idx, varname } => stack_idx,

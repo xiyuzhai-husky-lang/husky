@@ -11,9 +11,9 @@ pub enum VirtualTy<'eval> {
     },
 }
 
-impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
+impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
     pub fn new_struct(
-        mut arguments: impl Iterator<Item = StackValue<'stack, 'eval>>,
+        mut arguments: impl Iterator<Item = VMValue<'vm, 'eval>>,
         field_liasons: &[(CustomIdentifier, FieldLiason)],
     ) -> Self {
         let mut fields = IdentPairDict::<MemberValue<'eval>>::default();
@@ -31,7 +31,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
         }
     }
 
-    pub fn take_field(&mut self, field_idx: usize) -> StackValue<'stack, 'eval> {
+    pub fn take_field(&mut self, field_idx: usize) -> VMValue<'vm, 'eval> {
         match self {
             VirtualTy::Struct { fields } => {
                 std::mem::replace(&mut fields.data_mut()[field_idx].1, MemberValue::Moved)
@@ -44,14 +44,14 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
         &self,
         field_idx: usize,
         field_access_contract: EagerContract,
-    ) -> StackValue<'stack, 'eval> {
+    ) -> VMValue<'vm, 'eval> {
         match field_access_contract {
             EagerContract::Pure | EagerContract::UseForLetInit => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-                    MemberValue::Copyable(value) => StackValue::Copyable(value),
+                    MemberValue::Copyable(value) => VMValue::Copyable(value),
                     MemberValue::Boxed(ref value) => {
                         let ptr = value.any_ptr();
-                        StackValue::LocalRef(unsafe { &*ptr })
+                        VMValue::FullyOwnedRef(unsafe { &*ptr })
                     }
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::GlobalRef(_) => todo!(),
@@ -63,7 +63,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
             EagerContract::UseForVarInit => todo!(),
             EagerContract::Return => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-                    MemberValue::Copyable(value) => StackValue::Copyable(value),
+                    MemberValue::Copyable(value) => VMValue::Copyable(value),
                     MemberValue::Boxed(_) => todo!(),
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::GlobalRef(_) => todo!(),
@@ -78,7 +78,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                     MemberValue::Copyable(_) => todo!(),
                     MemberValue::Boxed(ref value) => {
                         let ptr = value.any_ptr();
-                        StackValue::LocalRef(unsafe { &*ptr })
+                        VMValue::FullyOwnedRef(unsafe { &*ptr })
                     }
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::GlobalRef(_) => todo!(),
@@ -94,8 +94,8 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
         &mut self,
         field_idx: usize,
         contract: EagerContract,
-        owner: StackIdx,
-    ) -> StackValue<'stack, 'eval> {
+        owner: VMStackIdx,
+    ) -> VMValue<'vm, 'eval> {
         match contract {
             EagerContract::Pure => todo!(),
             EagerContract::GlobalRef => todo!(),
@@ -110,7 +110,7 @@ impl<'stack, 'eval: 'stack> VirtualTy<'eval> {
                         MemberValue::GlobalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
-                    StackValue::RefMut {
+                    VMValue::FullyOwnedMut {
                         value: unsafe { &mut *ptr },
                         owner,
                         gen: (),
@@ -163,9 +163,9 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
     }
 }
 
-impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for VirtualTy<'eval> {
-    fn into(self) -> StackValue<'stack, 'eval> {
-        StackValue::Owned(OwnedValue::new(self))
+impl<'vm, 'eval: 'vm> Into<VMValue<'vm, 'eval>> for VirtualTy<'eval> {
+    fn into(self) -> VMValue<'vm, 'eval> {
+        VMValue::FullyOwned(OwnedValue::new(self))
     }
 }
 

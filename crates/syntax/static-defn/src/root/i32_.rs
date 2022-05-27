@@ -93,7 +93,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_i32().abs().into(),
                     ))
                 },

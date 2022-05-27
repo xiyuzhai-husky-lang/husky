@@ -5,7 +5,7 @@ use word::RootIdentifier;
 
 use crate::*;
 
-fn global_input_ty_from_ast(
+fn eval_input_ty_from_ast(
     db: &dyn DeclQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
@@ -91,7 +91,7 @@ fn global_output_ty_from_ast(
     }
 }
 
-pub(crate) fn global_input_ty(
+pub(crate) fn eval_input_ty(
     db: &dyn DeclQueryGroup,
     main_file: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
@@ -99,7 +99,7 @@ pub(crate) fn global_input_ty(
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
             AstKind::DatasetConfigDefnHead => {
-                return global_input_ty_from_ast(
+                return eval_input_ty_from_ast(
                     db,
                     &ast_text.arena,
                     derived_not_none!(item.opt_children)?

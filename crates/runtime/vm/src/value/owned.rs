@@ -5,34 +5,34 @@ use crate::*;
 
 use super::*;
 
-pub struct OwnedValue<'eval>(Box<dyn AnyValueDyn<'eval>>);
+pub struct OwnedValue<'vm, 'eval: 'vm>(Box<dyn AnyValueDyn<'eval> + 'vm>);
 
-impl<'eval> From<Box<dyn AnyValueDyn<'eval>>> for OwnedValue<'eval> {
-    fn from(boxed_value: Box<dyn AnyValueDyn<'eval>>) -> Self {
+impl<'vm, 'eval: 'vm> From<Box<dyn AnyValueDyn<'eval> + 'eval>> for OwnedValue<'vm, 'eval> {
+    fn from(boxed_value: Box<dyn AnyValueDyn<'eval> + 'eval>) -> Self {
         Self(boxed_value)
     }
 }
 
-impl<'eval> Clone for OwnedValue<'eval> {
+impl<'vm, 'eval: 'vm> Clone for OwnedValue<'vm, 'eval> {
     fn clone(&self) -> Self {
         Self(self.0.clone_into_box_dyn())
     }
 }
 
-impl<'eval> PartialEq for OwnedValue<'eval> {
-    fn eq(&self, other: &OwnedValue<'eval>) -> bool {
+impl<'vm, 'eval: 'vm> PartialEq for OwnedValue<'vm, 'eval> {
+    fn eq(&self, other: &OwnedValue<'vm, 'eval>) -> bool {
         self.0.equal_any(&*other.0)
     }
 }
 
-impl<'eval> Eq for OwnedValue<'eval> {}
+impl<'vm, 'eval: 'vm> Eq for OwnedValue<'vm, 'eval> {}
 
-impl<'eval> OwnedValue<'eval> {
-    pub fn new<T: AnyValueDyn<'eval>>(value: T) -> OwnedValue<'eval> {
+impl<'vm, 'eval: 'vm> OwnedValue<'vm, 'eval> {
+    pub fn new<T: AnyValueDyn<'eval> + 'eval>(value: T) -> OwnedValue<'vm, 'eval> {
         Self(Box::new(value))
     }
 
-    pub fn from_any_ref(value: &dyn AnyValueDyn<'eval>) -> OwnedValue<'eval> {
+    pub fn from_any_ref(value: &(dyn AnyValueDyn<'eval> + 'eval)) -> OwnedValue<'vm, 'eval> {
         Self(value.clone_into_box_dyn())
     }
 
@@ -46,24 +46,27 @@ impl<'eval> OwnedValue<'eval> {
         }
     }
 
-    pub fn take_into_arc(self) -> Arc<dyn AnyValueDyn<'eval> + 'eval> {
-        let raw_pointer = Box::<(dyn AnyValueDyn + 'eval)>::into_raw(self.0);
+    pub fn take_into_arc(self) -> Arc<dyn AnyValueDyn<'eval> + 'vm>
+    where
+        Self: 'eval,
+    {
+        let raw_pointer = Box::<(dyn AnyValueDyn<'eval> + 'vm)>::into_raw(self.0);
         unsafe { (*raw_pointer).take_into_arc() }
     }
 
-    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval>) {
+    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'vm) {
         &*(self.0)
     }
 
-    pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
+    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'vm) {
         &*self.0
     }
 
-    pub fn any_mut_ptr(&mut self) -> *mut dyn AnyValueDyn<'eval> {
+    pub fn any_mut_ptr(&mut self) -> *mut (dyn AnyValueDyn<'eval> + 'vm) {
         &mut *self.0
     }
 
-    pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
+    pub fn downcast_ref<T: AnyValue<'eval> + 'vm>(&self) -> &T {
         self.0.downcast_ref()
         // if T::static_type_id() != self.0.static_type_id() {
         //     panic!()
@@ -78,7 +81,7 @@ impl<'eval> OwnedValue<'eval> {
     }
 }
 
-impl<'eval> std::fmt::Debug for OwnedValue<'eval> {
+impl<'vm, 'eval: 'vm> std::fmt::Debug for OwnedValue<'vm, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.0.fmt(f)
     }

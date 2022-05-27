@@ -5,9 +5,9 @@ use crate::*;
 #[derive(Debug, Clone)]
 pub enum MemberValue<'eval> {
     Copyable(CopyableValue),
-    Boxed(OwnedValue<'eval>),
-    GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
-    GlobalRef(&'eval dyn AnyValueDyn<'eval>),
+    Boxed(OwnedValue<'eval, 'eval>),
+    GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    GlobalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     Moved,
 }
 
@@ -25,18 +25,18 @@ impl<'eval> PartialEq for MemberValue<'eval> {
 
 impl<'eval> Eq for MemberValue<'eval> {}
 
-impl<'stack, 'eval: 'stack> MemberValue<'eval> {
-    pub fn into_stack(self) -> StackValue<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> MemberValue<'eval> {
+    pub fn into_stack(self) -> VMValue<'vm, 'eval> {
         match self {
-            MemberValue::Copyable(value) => StackValue::Copyable(value),
-            MemberValue::Boxed(value) => StackValue::Owned(value),
-            MemberValue::GlobalPure(value) => StackValue::GlobalPure(value),
-            MemberValue::GlobalRef(value) => StackValue::GlobalRef(value),
+            MemberValue::Copyable(value) => VMValue::Copyable(value),
+            MemberValue::Boxed(value) => VMValue::FullyOwned(value),
+            MemberValue::GlobalPure(value) => VMValue::EvalPure(value),
+            MemberValue::GlobalRef(value) => VMValue::EvalRef(value),
             MemberValue::Moved => panic!(),
         }
     }
 
-    pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
+    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             MemberValue::Copyable(_) => todo!(),
             MemberValue::Boxed(ref value) => value.any_ref(),
@@ -46,7 +46,7 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
         }
     }
 
-    pub fn any_ptr(&self) -> *const dyn AnyValueDyn<'eval> {
+    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             MemberValue::Copyable(_) => todo!(),
             MemberValue::Boxed(ref value) => value.any_ref(),
@@ -56,19 +56,19 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
         }
     }
 
-    pub fn stack_ref(&self) -> StackValue<'stack, 'eval> {
-        StackValue::LocalRef(unsafe { &*self.any_ptr() })
+    pub fn stack_ref(&self) -> VMValue<'vm, 'eval> {
+        VMValue::FullyOwnedRef(unsafe { &*self.any_ptr() })
     }
 
-    pub fn stack_mut(&mut self, owner: StackIdx) -> StackValue<'stack, 'eval> {
-        let value_mut: *mut (dyn AnyValueDyn<'eval> + 'eval) = match self {
+    pub fn stack_mut<'a>(&'a mut self, owner: VMStackIdx) -> VMValue<'vm, 'eval> {
+        let value_mut: *mut dyn AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         };
-        StackValue::RefMut {
+        VMValue::FullyOwnedMut {
             value: unsafe { &mut *value_mut },
             owner,
             gen: (),
@@ -85,9 +85,9 @@ impl<'stack, 'eval: 'stack> MemberValue<'eval> {
         }
     }
 
-    pub fn copy_into_stack(&self) -> StackValue<'stack, 'eval> {
+    pub fn copy_into_stack(&self) -> VMValue<'vm, 'eval> {
         match self {
-            MemberValue::Copyable(value) => StackValue::Copyable(*value),
+            MemberValue::Copyable(value) => VMValue::Copyable(*value),
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::GlobalRef(_) => todo!(),

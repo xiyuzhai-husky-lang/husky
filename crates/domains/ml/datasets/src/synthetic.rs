@@ -118,8 +118,11 @@ impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
         todo!()
     }
 
-    fn clone_into_box(&self) -> Box<dyn vm::AnyValueDyn<'eval>> {
-        todo!()
+    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    where
+        Self: 'vm,
+    {
+        Box::new(self.clone())
     }
 
     fn to_json_value(&self) -> serde_json::value::Value {

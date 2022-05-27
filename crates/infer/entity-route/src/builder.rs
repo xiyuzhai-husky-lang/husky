@@ -22,7 +22,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn new(db: &'a dyn InferEntityRouteQueryGroup, ast_text: Arc<AstText>) -> Self {
         let main_file = db.main_file(ast_text.file).unwrap();
         let mut global_errors = Vec::new();
-        match db.global_input_ty(main_file) {
+        match db.eval_input_ty(main_file) {
             Ok(_) => (),
             Err(e) => global_errors.push(e),
         }

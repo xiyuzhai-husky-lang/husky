@@ -15,16 +15,20 @@ pub enum VMCasePattern {
 }
 
 impl VMCasePattern {
-    pub fn matches<'stack, 'eval>(&self, value: &StackValue<'stack, 'eval>) -> bool {
+    pub fn matches<'vm, 'eval>(&self, value: &VMValue<'vm, 'eval>) -> bool {
         match self {
             VMCasePattern::Primitive(v0) => match value {
-                StackValue::Moved => todo!(),
-                StackValue::Copyable(v1) => v0 == v1,
-                StackValue::Owned(_) => todo!(),
-                StackValue::GlobalPure(_) => todo!(),
-                StackValue::GlobalRef(_) => todo!(),
-                StackValue::LocalRef(value) => todo!(),
-                StackValue::RefMut { value, owner, gen } => todo!(),
+                VMValue::Moved => todo!(),
+                VMValue::Copyable(v1) => v0 == v1,
+                VMValue::FullyOwned(_) => todo!(),
+                VMValue::EvalPure(_) => todo!(),
+                VMValue::EvalRef(_) => todo!(),
+                VMValue::FullyOwnedRef(value) => todo!(),
+                VMValue::FullyOwnedMut { value, owner, gen } => todo!(),
+                VMValue::PartiallyOwned(_) => todo!(),
+                VMValue::PartiallyOwnedRef(_) => todo!(),
+                VMValue::CopyableMut { value, owner, gen } => todo!(),
+                VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
             },
             VMCasePattern::OneOf(subpatterns) => {
                 for subpattern in subpatterns {
@@ -35,8 +39,8 @@ impl VMCasePattern {
                 false
             }
             VMCasePattern::EnumKindLiteral(route) => match value {
-                StackValue::Moved => todo!(),
-                StackValue::Copyable(copyable_value) => match copyable_value {
+                VMValue::Moved => todo!(),
+                VMValue::Copyable(copyable_value) => match copyable_value {
                     CopyableValue::I32(_) => todo!(),
                     CopyableValue::F32(_) => todo!(),
                     CopyableValue::B32(_) => todo!(),
@@ -45,11 +49,15 @@ impl VMCasePattern {
                     CopyableValue::Void(_) => todo!(),
                     CopyableValue::EnumKind(enum_kind) => enum_kind.route == *route,
                 },
-                StackValue::Owned(_) => todo!(),
-                StackValue::GlobalPure(_) => todo!(),
-                StackValue::GlobalRef(_) => todo!(),
-                StackValue::LocalRef(value) => todo!(),
-                StackValue::RefMut { value, owner, gen } => todo!(),
+                VMValue::FullyOwned(_) => todo!(),
+                VMValue::EvalPure(_) => todo!(),
+                VMValue::EvalRef(_) => todo!(),
+                VMValue::FullyOwnedRef(value) => todo!(),
+                VMValue::FullyOwnedMut { value, owner, gen } => todo!(),
+                VMValue::PartiallyOwned(_) => todo!(),
+                VMValue::PartiallyOwnedRef(_) => todo!(),
+                VMValue::CopyableMut { value, owner, gen } => todo!(),
+                VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
             },
         }
     }

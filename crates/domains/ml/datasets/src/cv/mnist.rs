@@ -40,7 +40,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: Linkage {
-            call: |_| Ok(StackValue::Owned(OwnedValue::new(new_binary_dataset()))),
+            call: |_| Ok(VMValue::FullyOwned(OwnedValue::new(new_binary_dataset()))),
             nargs: 0,
         },
         routine_kind: RoutineKind::Normal,

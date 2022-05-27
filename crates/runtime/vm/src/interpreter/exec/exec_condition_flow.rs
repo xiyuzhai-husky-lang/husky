@@ -3,7 +3,7 @@ use avec::Avec;
 use check_utils::should;
 use print_utils::p;
 
-impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     pub(super) fn exec_condition_flow(
         &mut self,
         sheet: &InstructionSheet,
