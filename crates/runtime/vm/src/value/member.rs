@@ -68,7 +68,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::GlobalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         };
-        VMValue::FullyOwnedMut {
+        VMValue::CopyableOrFullyOwnedMut {
             value: unsafe { &mut *value_mut },
             owner,
             gen: (),

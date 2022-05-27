@@ -151,7 +151,7 @@ pub fn binary_assign<'vm, 'eval>(
     ropd: VMValue<'vm, 'eval>,
 ) -> VMRuntimeResult<()> {
     match lopd {
-        VMValue::FullyOwnedMut { ref mut value, .. } => {
+        VMValue::CopyableOrFullyOwnedMut { ref mut value, .. } => {
             value.assign(if let Some(binary_opr) = opt_binary_opr {
                 let lopd_value = value.take_copyable();
                 binary_opr
@@ -169,7 +169,7 @@ pub fn binary_assign<'vm, 'eval>(
 pub fn incr<'vm, 'eval>(opd: &mut VMValue<'vm, 'eval>) {
     let opd_primitive = opd.take_copyable();
     match opd {
-        VMValue::FullyOwnedMut { value, owner, gen } => {
+        VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
             value.assign(VMValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i + 1).into(),
                 CopyableValue::F32(_) => todo!(),
@@ -188,7 +188,7 @@ pub fn incr<'vm, 'eval>(opd: &mut VMValue<'vm, 'eval>) {
 pub fn decr<'vm, 'eval>(opd: &mut VMValue<'vm, 'eval>) {
     let opd_primitive = opd.take_copyable();
     match opd {
-        VMValue::FullyOwnedMut { value, owner, gen } => {
+        VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
             value.assign(VMValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i - 1).into(),
                 CopyableValue::F32(_) => todo!(),
@@ -237,10 +237,9 @@ fn cast_as_i32<'vm, 'eval>(opd: VMValue<'vm, 'eval>) -> i32 {
         VMValue::EvalPure(_) => todo!(),
         VMValue::EvalRef(_) => todo!(),
         VMValue::FullyOwnedRef(value) => todo!(),
-        VMValue::FullyOwnedMut { value, owner, gen } => todo!(),
+        VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
         VMValue::PartiallyOwned(_) => todo!(),
         VMValue::PartiallyOwnedRef(_) => todo!(),
-        VMValue::CopyableMut { value, owner, gen } => todo!(),
         VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
     }
 }
@@ -261,10 +260,9 @@ fn cast_as_b32<'vm, 'eval>(opd: VMValue<'vm, 'eval>) -> u32 {
         VMValue::EvalPure(_) => todo!(),
         VMValue::EvalRef(_) => todo!(),
         VMValue::FullyOwnedRef(value) => todo!(),
-        VMValue::FullyOwnedMut { value, owner, gen } => todo!(),
+        VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
         VMValue::PartiallyOwned(_) => todo!(),
         VMValue::PartiallyOwnedRef(_) => todo!(),
-        VMValue::CopyableMut { value, owner, gen } => todo!(),
         VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
     }
 }
@@ -285,10 +283,9 @@ fn cast_as_f32<'vm, 'eval>(opd: VMValue<'vm, 'eval>) -> f32 {
         VMValue::EvalPure(_) => todo!(),
         VMValue::EvalRef(_) => todo!(),
         VMValue::FullyOwnedRef(value) => todo!(),
-        VMValue::FullyOwnedMut { value, owner, gen } => todo!(),
+        VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
         VMValue::PartiallyOwned(_) => todo!(),
         VMValue::PartiallyOwnedRef(_) => todo!(),
-        VMValue::CopyableMut { value, owner, gen } => todo!(),
         VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
     }
 }

@@ -24,10 +24,9 @@ impl VMCasePattern {
                 VMValue::EvalPure(_) => todo!(),
                 VMValue::EvalRef(_) => todo!(),
                 VMValue::FullyOwnedRef(value) => todo!(),
-                VMValue::FullyOwnedMut { value, owner, gen } => todo!(),
+                VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
                 VMValue::PartiallyOwned(_) => todo!(),
                 VMValue::PartiallyOwnedRef(_) => todo!(),
-                VMValue::CopyableMut { value, owner, gen } => todo!(),
                 VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
             },
             VMCasePattern::OneOf(subpatterns) => {
@@ -53,10 +52,9 @@ impl VMCasePattern {
                 VMValue::EvalPure(_) => todo!(),
                 VMValue::EvalRef(_) => todo!(),
                 VMValue::FullyOwnedRef(value) => todo!(),
-                VMValue::FullyOwnedMut { value, owner, gen } => todo!(),
+                VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
                 VMValue::PartiallyOwned(_) => todo!(),
                 VMValue::PartiallyOwnedRef(_) => todo!(),
-                VMValue::CopyableMut { value, owner, gen } => todo!(),
                 VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
             },
         }

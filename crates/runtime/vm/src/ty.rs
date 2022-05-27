@@ -110,7 +110,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                         MemberValue::GlobalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
-                    VMValue::FullyOwnedMut {
+                    VMValue::CopyableOrFullyOwnedMut {
                         value: unsafe { &mut *ptr },
                         owner,
                         gen: (),
