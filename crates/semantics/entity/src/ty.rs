@@ -117,7 +117,6 @@ impl EntityDefnVariant {
         };
         Self::collect_other_ty_members(db, arena, file, ty, &mut children, &mut ty_members)?;
         let opt_visualizer_source = Self::collect_visual_source(db, arena, file, ty, &mut children);
-        p!(children.peek());
         should!(children.peek().is_none());
         Ok(EntityDefnVariant::new_ty(
             generic_placeholders,
