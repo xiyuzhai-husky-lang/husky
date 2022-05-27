@@ -2,7 +2,7 @@ use print_utils::{epin, p};
 
 use crate::*;
 
-impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     pub(super) fn exec_loop_fast(
         &mut self,
         loop_kind: VMLoopKind,
@@ -83,7 +83,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                 let stack_len = self.stack.len();
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
-                    self.stack.push(StackValue::Copyable(frame_var.into()));
+                    self.stack.push(VMValue::Copyable(frame_var.into()));
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(self, frame_var, &frame_control);

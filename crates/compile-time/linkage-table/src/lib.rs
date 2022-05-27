@@ -16,7 +16,7 @@ use std::collections::HashMap;
 use sync_utils::ARwLock;
 use vec::*;
 use vm::{Binding, EntityUid};
-use vm::{EvalValue, Linkage, OwnedValue, StackValue, VMRuntimeResult};
+use vm::{EvalValue, Linkage, OwnedValue, VMRuntimeResult, VMValue};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {

@@ -3,18 +3,18 @@ use crate::*;
 #[derive(Clone)]
 pub enum StackValueSnapshot<'eval> {
     Copyable(CopyableValue),
-    GlobalPure(Arc<dyn AnyValueDyn<'eval>>),
-    GlobalRef(&'eval dyn AnyValueDyn<'eval>),
-    Owned(OwnedValue<'eval>),
+    GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    GlobalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    Owned(OwnedValue<'eval, 'eval>),
     RefMut {
         value: EvalValue<'eval>,
-        owner: StackIdx,
+        owner: VMStackIdx,
         gen: MutRefGenerator,
     },
 }
 
 impl<'eval> StackValueSnapshot<'eval> {
-    pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
+    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             StackValueSnapshot::Copyable(value) => value.any_ref(),
             StackValueSnapshot::GlobalPure(value) => &**value,
@@ -69,14 +69,14 @@ impl<'eval> From<CopyableValue> for StackValueSnapshot<'eval> {
     }
 }
 
-impl<'stack, 'eval: 'stack> Into<StackValue<'stack, 'eval>> for &StackValueSnapshot<'eval> {
-    fn into(self) -> StackValue<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> Into<VMValue<'vm, 'eval>> for &StackValueSnapshot<'eval> {
+    fn into(self) -> VMValue<'vm, 'eval> {
         match self {
-            StackValueSnapshot::Copyable(value) => StackValue::Copyable(*value),
+            StackValueSnapshot::Copyable(value) => VMValue::Copyable(*value),
             StackValueSnapshot::RefMut { owner, gen, .. } => todo!(),
-            StackValueSnapshot::GlobalPure(value) => StackValue::GlobalPure(value.clone()),
-            StackValueSnapshot::Owned(value) => StackValue::Owned(value.clone()),
-            StackValueSnapshot::GlobalRef(value) => StackValue::GlobalRef(*value),
+            StackValueSnapshot::GlobalPure(value) => VMValue::EvalPure(value.clone()),
+            StackValueSnapshot::Owned(value) => VMValue::FullyOwned(value.clone()),
+            StackValueSnapshot::GlobalRef(value) => VMValue::EvalRef(*value),
         }
     }
 }

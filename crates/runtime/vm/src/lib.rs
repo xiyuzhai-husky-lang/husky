@@ -41,11 +41,11 @@ pub use value::*;
 use error::*;
 use std::sync::Arc;
 
-pub fn eval_fast<'stack, 'eval: 'stack>(
-    db: &'stack dyn InterpreterQueryGroup,
+pub fn eval_fast<'vm, 'eval: 'vm>(
+    db: &'vm dyn InterpreterQueryGroup,
     opt_instrn_sheet: Option<&InstructionSheet>,
     maybe_linkage: Option<Linkage>,
-    argument_iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
+    argument_iter: impl Iterator<Item = VMRuntimeResult<VMValue<'vm, 'eval>>>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, argument_iter)?;
     if let Some(linkage) = maybe_linkage {
@@ -55,18 +55,18 @@ pub fn eval_fast<'stack, 'eval: 'stack>(
     }
 }
 
-pub fn exec_debug<'stack, 'eval: 'stack>(
-    db: &'stack dyn InterpreterQueryGroup,
+pub fn exec_debug<'vm, 'eval: 'vm>(
+    db: &'vm dyn InterpreterQueryGroup,
     sheet: &InstructionSheet,
-    prestack: impl Into<VMStack<'stack, 'eval>>,
+    prestack: impl Into<VMStack<'vm, 'eval>>,
 ) -> Arc<History<'eval>> {
     let mut interpreter = Interpreter::from_prestack(db, prestack);
     interpreter.exec_all(sheet, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
 
-pub fn exec_loop_debug<'stack, 'eval: 'stack>(
-    db: &'stack dyn InterpreterQueryGroup,
+pub fn exec_loop_debug<'vm, 'eval: 'vm>(
+    db: &'vm dyn InterpreterQueryGroup,
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
     stack_snapshot: &StackSnapshot<'eval>,

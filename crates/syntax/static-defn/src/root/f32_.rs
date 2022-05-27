@@ -78,7 +78,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
                     let f = values[0].take_copyable().take_f32();
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         (if f > 0. {
                             1
                         } else if f == 0. {
@@ -108,7 +108,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().abs().into(),
                     ))
                 },
@@ -131,7 +131,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().sqrt().into(),
                     ))
                 },
@@ -154,7 +154,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().cos().into(),
                     ))
                 },
@@ -177,7 +177,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().sin().into(),
                     ))
                 },
@@ -200,7 +200,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().tan().into(),
                     ))
                 },
@@ -223,7 +223,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().acos().into(),
                     ))
                 },
@@ -246,7 +246,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().asin().into(),
                     ))
                 },
@@ -269,7 +269,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
                 call: |values| {
-                    Ok(StackValue::Copyable(
+                    Ok(VMValue::Copyable(
                         values[0].take_copyable().take_f32().atan().into(),
                     ))
                 },

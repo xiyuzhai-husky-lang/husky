@@ -12,20 +12,20 @@ use word::{CustomIdentifier, Identifier};
 
 use crate::*;
 
-pub struct Interpreter<'stack, 'eval: 'stack> {
-    db: &'stack dyn InterpreterQueryGroup,
-    stack: VMStack<'stack, 'eval>,
+pub struct Interpreter<'vm, 'eval: 'vm> {
+    db: &'vm dyn InterpreterQueryGroup,
+    stack: VMStack<'vm, 'eval>,
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<StackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
+    variable_mutations: IndexMap<VMStackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
 }
 
-impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     pub(crate) fn try_new(
-        db: &'stack dyn InterpreterQueryGroup,
-        argument_iter: impl Iterator<Item = VMRuntimeResult<StackValue<'stack, 'eval>>>,
-    ) -> VMRuntimeResult<Interpreter<'stack, 'eval>> {
+        db: &'vm dyn InterpreterQueryGroup,
+        argument_iter: impl Iterator<Item = VMRuntimeResult<VMValue<'vm, 'eval>>>,
+    ) -> VMRuntimeResult<Interpreter<'vm, 'eval>> {
         Ok(Self {
             db,
             stack: VMStack::try_new(argument_iter)?,
@@ -37,10 +37,10 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     }
 
     pub(crate) fn new(
-        db: &'stack dyn InterpreterQueryGroup,
-        argument_iter: impl Iterator<Item = StackValue<'stack, 'eval>>,
+        db: &'vm dyn InterpreterQueryGroup,
+        argument_iter: impl Iterator<Item = VMValue<'vm, 'eval>>,
         has_this: bool,
-    ) -> Interpreter<'stack, 'eval> {
+    ) -> Interpreter<'vm, 'eval> {
         Self {
             db,
             stack: VMStack::new(argument_iter),
@@ -52,9 +52,9 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
     }
 
     pub(crate) fn from_prestack(
-        db: &'stack dyn InterpreterQueryGroup,
-        prestack: impl Into<VMStack<'stack, 'eval>>,
-    ) -> Interpreter<'stack, 'eval> {
+        db: &'vm dyn InterpreterQueryGroup,
+        prestack: impl Into<VMStack<'vm, 'eval>>,
+    ) -> Interpreter<'vm, 'eval> {
         Self {
             db,
             stack: prestack.into(),
@@ -99,7 +99,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
 
     fn record_mutation(
         &mut self,
-        stack_idx: StackIdx,
+        stack_idx: VMStackIdx,
         varname: Identifier,
         file: FilePtr,
         range: TextRange,

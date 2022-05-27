@@ -1,6 +1,6 @@
 use word::CustomIdentifier;
 
-use crate::{CopyableValue, StackIdx, StackValue};
+use crate::{CopyableValue, VMStackIdx, VMValue};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VMLoopKind {
@@ -12,7 +12,7 @@ pub enum VMLoopKind {
     },
     ForExt {
         frame_var: CustomIdentifier,
-        frame_varidx: StackIdx,
+        frame_varidx: VMStackIdx,
         final_boundary_kind: BoundaryKind,
         step: LoopStep,
     },
@@ -43,9 +43,9 @@ impl LoopStep {
         a + self.0 * i
     }
 
-    pub fn update<'stack, 'eval: 'stack>(&self, frame_var: &mut StackValue<'stack, 'eval>) {
+    pub fn update<'vm, 'eval: 'vm>(&self, frame_var: &mut VMValue<'vm, 'eval>) {
         match frame_var {
-            StackValue::Copyable(CopyableValue::I32(ref mut frame_var)) => {
+            VMValue::Copyable(CopyableValue::I32(ref mut frame_var)) => {
                 *frame_var = *frame_var + self.0;
             }
             _ => panic!(),

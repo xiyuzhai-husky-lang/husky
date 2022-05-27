@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     pub(super) fn call_compiled(&mut self, f: Linkage) -> VMRuntimeResult<()> {
         let result = (f.call)(&mut self.stack.drain(f.nargs).collect::<Vec<_>>())?;
         self.stack.push(result.into());

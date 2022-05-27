@@ -2,13 +2,13 @@ use std::sync::Arc;
 
 use print_utils::{epin, p};
 use semantics_lazy::LazyStmt;
-use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, Linkage, StackValue};
+use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, Linkage, VMValue};
 
 use crate::{FeatureBlock, FeatureExpr, FeatureExprVariant};
 
 use super::FeatureEvaluator;
 
-impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
         match expr.variant {
             FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
@@ -77,7 +77,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
                 ref repr,
             } => self.eval_feature_repr(repr),
             FeatureExprVariant::This { ref repr } => todo!(),
-            FeatureExprVariant::GlobalInput => Ok(EvalValue::GlobalPure(self.global_input.clone())),
+            FeatureExprVariant::GlobalInput => Ok(EvalValue::GlobalPure(self.eval_input.clone())),
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess { ref block, .. } => {
                 self.eval_feature_block(block)
@@ -107,7 +107,7 @@ impl<'stack, 'eval: 'stack> FeatureEvaluator<'stack, 'eval> {
         let db = self.db;
         let values = arguments
             .iter()
-            .map(|expr| StackValue::from_eval(self.eval_feature_expr(expr)?));
+            .map(|expr| VMValue::from_eval(self.eval_feature_expr(expr)?));
         eval_fast(db.upcast(), opt_instrns, maybe_compiled, values)
     }
 }

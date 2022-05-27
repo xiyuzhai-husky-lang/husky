@@ -11,7 +11,7 @@ use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
 use print_utils::{p, ps};
 
-impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
+impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
         for ins in &sheet.instructions {
             let control = match ins.variant {
@@ -54,7 +54,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::PushEnumKindLiteral(entity_kind) => {
-                    self.stack.push(StackValue::Copyable(entity_kind.into()));
+                    self.stack.push(VMValue::Copyable(entity_kind.into()));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -218,7 +218,7 @@ impl<'stack, 'eval: 'stack> Interpreter<'stack, 'eval> {
                         .collect(),
                     };
                     self.stack
-                        .push(StackValue::Owned(OwnedValue::new(xml_value)));
+                        .push(VMValue::FullyOwned(OwnedValue::new(xml_value)));
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => todo!(),
