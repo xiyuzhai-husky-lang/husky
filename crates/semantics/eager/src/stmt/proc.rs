@@ -70,11 +70,11 @@ pub enum ProcStmtVariant {
 }
 
 pub fn parse_impr_stmts(
-    input_placeholders: &[InputParameter],
+    parameters: &[InputParameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldableIter<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
-    EagerStmtParser::new(input_placeholders, db, arena, file).parse_proc_stmts(iter)
+    EagerStmtParser::new(parameters, db, arena, file).parse_proc_stmts(iter)
 }

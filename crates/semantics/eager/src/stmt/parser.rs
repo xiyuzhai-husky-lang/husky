@@ -18,7 +18,7 @@ pub(super) struct EagerStmtParser<'a> {
 
 impl<'a> EagerStmtParser<'a> {
     pub(super) fn new(
-        input_placeholders: &[InputParameter],
+        parameters: &[InputParameter],
         db: &'a dyn InferQueryGroup,
         arena: &'a RawExprArena,
         file: FilePtr,

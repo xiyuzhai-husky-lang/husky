@@ -190,12 +190,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Type(_) => Ok(LazyQualifiedTy::ty_ty()),
                 EntityKind::Trait => todo!(),
                 EntityKind::Member(_) => todo!(),
-                EntityKind::Routine => todo!(),
+                EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => Ok(LazyQualifiedTy::new(
                     LazyQualifier::feature(self.db.is_copyable(ty)?),
                     ty,
                 )),
-                EntityKind::Pattern => todo!(),
                 EntityKind::EnumLiteral => Ok(LazyQualifiedTy::new(LazyQualifier::Copyable, ty)),
                 EntityKind::Main => panic!(),
             },

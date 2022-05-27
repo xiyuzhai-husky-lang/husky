@@ -112,9 +112,9 @@ impl<'a> RustGenerator<'a> {
         for method in methods {
             match method.variant {
                 EntityDefnVariant::Method {
-                    ref generic_placeholders,
+                    ref generic_parameters,
                     this_contract,
-                    parameters: ref input_placeholders,
+                    parameters: ref parameters,
                     output_ty,
                     output_liason,
                     ref method_variant,
@@ -145,7 +145,7 @@ impl<'a> RustGenerator<'a> {
                         InputLiason::MoveMut => todo!(),
                         InputLiason::MemberAccess => todo!(),
                     }
-                    for input_placeholder in input_placeholders.iter() {
+                    for input_placeholder in parameters.iter() {
                         self.write(", ");
                         self.write(&input_placeholder.ranged_ident.ident);
                         self.write(": ");

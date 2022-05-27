@@ -3,7 +3,7 @@ use super::*;
 pub(crate) fn record_decl(
     db: &dyn DeclQueryGroup,
     entity_route_kind: EntityRouteKind,
-    generic_placeholders: IdentDict<GenericPlaceholder>,
+    generic_parameters: IdentDict<GenericPlaceholder>,
     mut children: AstIter,
 ) -> InferResultArc<TyDecl> {
     let mut type_members = IdentDict::default();
@@ -31,8 +31,8 @@ pub(crate) fn record_decl(
             _ => panic!(),
         }
     }
-    let generics = db.generic_arguments_from_generic_placeholders(&generic_placeholders);
-    let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+    let generics = db.generic_arguments_from_generic_parameters(&generic_parameters);
+    let symbols = db.symbols_from_generic_parameters(&generic_parameters);
     let this_ty = db.intern_entity_route(EntityRoute {
         kind: entity_route_kind,
         generic_arguments: generics,
@@ -40,7 +40,7 @@ pub(crate) fn record_decl(
     Ok(Arc::new(TyDecl::new(
         db,
         this_ty,
-        generic_placeholders,
+        generic_parameters,
         type_members,
         Default::default(), // variants
         TyKind::Record,
@@ -48,7 +48,7 @@ pub(crate) fn record_decl(
     )))
     // db,
     // entity_route_kind,
-    // generic_placeholders,
+    // generic_parameters,
     // traits,
     // TyKind::Record,
 }

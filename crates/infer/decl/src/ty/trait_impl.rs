@@ -91,7 +91,7 @@ impl TraitImplDecl {
                         liason: OutputLiason::Transfer,
                         ty: this_ty,
                     },
-                    generic_placeholders: Default::default(),
+                    generic_parameters: Default::default(),
                     kind: MethodKind::Trait { trai: clone_trait },
                 }))],
             }))

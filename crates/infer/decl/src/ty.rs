@@ -25,12 +25,12 @@ use map_collect::MapCollect;
 use text::*;
 use vec_map::VecMap;
 use vm::{OutputLiason, TySignature};
-use word::{IdentArcDict, IdentDict, RoutineKeyword};
+use word::{IdentArcDict, IdentDict, Paradigm};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {
     pub this_ty: EntityRoutePtr,
-    pub generic_placeholders: IdentDict<GenericPlaceholder>,
+    pub generic_parameters: IdentDict<GenericParameter>,
     pub ty_members: IdentDict<TyMemberDecl>,
     pub variants: IdentDict<EnumVariantDecl>,
     pub kind: TyKind,
@@ -44,7 +44,7 @@ impl TyDecl {
         match static_defn.variant {
             EntityStaticDefnVariant::Type {
                 base_route,
-                generic_placeholders,
+                generic_parameters,
                 static_trait_impls,
                 type_members,
                 variants,
@@ -52,11 +52,10 @@ impl TyDecl {
                 opt_type_call,
                 ..
             } => {
-                let generic_placeholders =
-                    db.generic_placeholders_from_static(generic_placeholders);
+                let generic_parameters = db.generic_parameters_from_static(generic_parameters);
                 let generic_arguments =
-                    db.generic_arguments_from_generic_placeholders(&generic_placeholders);
-                let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+                    db.generic_arguments_from_generic_parameters(&generic_parameters);
+                let symbols = db.symbols_from_generic_parameters(&generic_parameters);
                 let mut symbol_context = SymbolContext {
                     opt_package_main: None,
                     db: db.upcast(),
@@ -92,7 +91,7 @@ impl TyDecl {
                 Self::new(
                     db,
                     this_ty,
-                    generic_placeholders,
+                    generic_parameters,
                     ty_members,
                     variants,
                     kind,
@@ -109,11 +108,10 @@ impl TyDecl {
         arena: &RawExprArena,
         ty: EntityRoutePtr,
         kind: TyKind,
-        generic_placeholders: IdentDict<GenericPlaceholder>,
+        generic_parameters: IdentDict<GenericParameter>,
         children: AstIter,
     ) -> InferQueryResultArc<Self> {
-        let generic_arguments =
-            db.generic_arguments_from_generic_placeholders(&generic_placeholders);
+        let generic_arguments = db.generic_arguments_from_generic_parameters(&generic_parameters);
         let this_ty = db.intern_entity_route(EntityRoute {
             kind: ty.kind,
             generic_arguments,
@@ -160,7 +158,7 @@ impl TyDecl {
                         ty,
                         liason: OutputLiason::Transfer,
                     },
-                    generic_placeholders: generic_placeholders.clone(),
+                    generic_parameters: generic_parameters.clone(),
                 }))
             }
             TyKind::Primitive => todo!(),
@@ -171,7 +169,7 @@ impl TyDecl {
         Ok(TyDecl::new(
             db,
             this_ty,
-            generic_placeholders,
+            generic_parameters,
             ty_members,
             variants,
             kind,
@@ -232,14 +230,19 @@ impl TyDecl {
     ) -> InferQueryResult<()> {
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.variant {
-                AstKind::TypeMethodDefnHead(ref method_defn_head) => {
-                    match method_defn_head.routine_kind {
-                        RoutineKeyword::Proc => todo!(),
-                        RoutineKeyword::Func => members.insert_new(TyMemberDecl::Method(
-                            MethodDecl::from_ast(method_defn_head, MethodKind::Type),
+                AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                    Some(_) => match head.paradigm {
+                        Paradigm::Procedural => todo!(),
+                        Paradigm::EagerFunctional => members.insert_new(TyMemberDecl::Method(
+                            MethodDecl::from_ast(head, MethodKind::Type),
                         )),
-                    }
-                }
+                        Paradigm::LazyFunctional => todo!(),
+                    },
+                    None => members.insert_new(TyMemberDecl::Call(CallDecl::from_ast(
+                        db.make_subroute(this_ty, head.ident.ident, vec![]),
+                        head,
+                    ))),
+                },
                 AstKind::Use { .. } => todo!(),
                 AstKind::FieldDefnHead(ref field_defn_head) => match field_defn_head.kind {
                     FieldKind::StructOriginal => todo!("no original at this point"),
@@ -247,16 +250,10 @@ impl TyDecl {
                     FieldKind::StructDerived | FieldKind::RecordDerived => members
                         .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(field_defn_head))),
                 },
-                AstKind::TypeAssociatedRoutineDefnHead(ref call_defn_head) => {
-                    members.insert_new(TyMemberDecl::Call(CallDecl::from_ast(
-                        db.make_subroute(this_ty, call_defn_head.ident.ident, vec![]),
-                        call_defn_head,
-                    )))
-                }
                 AstKind::Visual => break,
                 AstKind::TypeDefnHead { .. }
                 | AstKind::MainDefn
-                | AstKind::RoutineDefnHead(_)
+                | AstKind::CallFormDefnHead(_)
                 | AstKind::PatternDefnHead
                 | AstKind::FeatureDecl { .. }
                 | AstKind::DatasetConfigDefnHead
@@ -284,7 +281,7 @@ impl TyDecl {
     pub(crate) fn new(
         db: &dyn DeclQueryGroup,
         this_ty: EntityRoutePtr,
-        generic_placeholders: IdentDict<GenericPlaceholder>,
+        generic_parameters: IdentDict<GenericParameter>,
         type_members: IdentDict<TyMemberDecl>,
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
@@ -294,7 +291,7 @@ impl TyDecl {
         let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
         Arc::new(Self {
             this_ty,
-            generic_placeholders,
+            generic_parameters,
             ty_members: type_members,
             variants,
             kind,
@@ -582,7 +579,7 @@ pub(crate) fn ty_decl(
                 if ty_route.generic_arguments.len() > 0 {
                     assert_eq!(
                         ty_route.generic_arguments.len(),
-                        base_decl.generic_placeholders.len()
+                        base_decl.generic_parameters.len()
                     );
                     base_decl.instantiate(db, &ty_route.generic_arguments)
                 } else {
@@ -611,7 +608,7 @@ pub(crate) fn ty_decl(
             match ast.variant {
                 AstKind::TypeDefnHead {
                     kind,
-                    ref generic_placeholders,
+                    ref generic_parameters,
                     ..
                 } => {
                     if ty_route.generic_arguments.len() > 0 {
@@ -622,7 +619,7 @@ pub(crate) fn ty_decl(
                             &ast_text.arena,
                             ty_route,
                             kind,
-                            generic_placeholders.clone(),
+                            generic_parameters.clone(),
                             query_derived_not_none!(item.opt_children)?,
                         )
                     }
@@ -667,11 +664,11 @@ pub(crate) fn method_decl_from_static(
             input_parameters: inputs,
             output_ty,
             output_liason,
-            generic_parameters: generic_placeholders,
+            generic_parameters: generic_parameters,
             ref kind,
         } => {
-            let generic_placeholders = db.generic_placeholders_from_static(generic_placeholders);
-            symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
+            let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+            symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
             let symbol_context = SymbolContext {
                 opt_package_main: None,
                 db: db.upcast(),
@@ -688,7 +685,7 @@ pub(crate) fn method_decl_from_static(
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
             assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(MethodDecl {
-                generic_placeholders,
+                generic_parameters,
                 parameters: inputs,
                 output: OutputDecl {
                     liason: output_liason,

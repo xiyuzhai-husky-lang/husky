@@ -66,14 +66,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
                             OutputLiason::Transfer,
                         ),
-                        AstKind::RoutineDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
                             &arena,
                             &head.parameters,
                             children,
                             Some(head.output_ty.route),
                             head.output_liason,
                         ),
-                        AstKind::TypeAssociatedRoutineDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
                             &arena,
                             &head.parameters,
                             children,
@@ -98,9 +98,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                 ),
                         },
                         AstKind::Stmt(_) => todo!(),
-                        AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
                             &arena,
-                            &head.input_placeholders,
+                            &head.parameters,
                             children,
                             Some(head.output_ty.route),
                             head.output_liason,

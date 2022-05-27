@@ -12,8 +12,8 @@ pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
     //     },
     //     generics: vec![],
     // });
-    // let mut generic_placeholders = IdentDict::default();
-    // generic_placeholders.insert_new(
+    // let mut generic_parameters = IdentDict::default();
+    // generic_parameters.insert_new(
     //     element_ty_ident,
     //     GenericPlaceholder::Type { traits: vec![] },
     // );
@@ -22,7 +22,7 @@ pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
     //     EntityRouteKind::Root {
     //         ident: RootIdentifier::Vec,
     //     },
-    //     generic_placeholders,
+    //     generic_parameters,
     //     vec![db.entity_route_menu().clone_trait],
     //     TyKind::Vec { element_ty },
     // ))
@@ -43,7 +43,7 @@ pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
 //                     ty: element_ty,
 //                 }],
 //                 output: db.entity_route_menu().void_type,
-//                 generic_placeholders: Default::default(),
+//                 generic_parameters: Default::default(),
 //             }),
 //         },
 //     );
@@ -54,7 +54,7 @@ pub(crate) fn vec_decl(db: &dyn DeclQueryGroup) -> Arc<TyDecl> {
 //                 this_contract: InputContract::Pure,
 //                 inputs: vec![],
 //                 output: db.entity_route_menu().i32_type,
-//                 generic_placeholders: Default::default(),
+//                 generic_parameters: Default::default(),
 //             }),
 //         },
 //     );

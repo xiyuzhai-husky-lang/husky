@@ -1,5 +1,5 @@
 use check_utils::should_eq;
-use defn_head::{GenericPlaceholder, GenericPlaceholderVariant};
+use defn_head::{GenericParameter, GenericPlaceholderVariant};
 use entity_route::*;
 use entity_syntax::*;
 use map_collect::MapCollect;
@@ -8,13 +8,13 @@ use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
     pub db: &'a dyn EntityRouteSalsaQueryGroup,
-    pub generic_placeholders: &'a [GenericPlaceholder],
+    pub generic_parameters: &'a [GenericParameter],
     pub dst_generics: &'a [GenericArgument],
 }
 
 impl<'a> Instantiator<'a> {
     fn find_generic(&self, ident: CustomIdentifier) -> Option<usize> {
-        self.generic_placeholders
+        self.generic_parameters
             .iter()
             .position(|p| p.ident == ident)
     }
@@ -47,7 +47,7 @@ impl<'a> Instantiator<'a> {
                                 }
                             }
                         } else {
-                            p!(ident, self.generic_placeholders);
+                            p!(ident, self.generic_parameters);
                             todo!()
                         }
                     }
@@ -83,14 +83,14 @@ impl<'a> Instantiator<'a> {
 
     pub fn instantiate_generic_placeholder(
         &self,
-        placeholder: &GenericPlaceholder,
-    ) -> Option<GenericPlaceholder> {
-        for targeted_placeholder in self.generic_placeholders.iter() {
+        placeholder: &GenericParameter,
+    ) -> Option<GenericParameter> {
+        for targeted_placeholder in self.generic_parameters.iter() {
             if targeted_placeholder.ident == placeholder.ident {
                 todo!()
             }
         }
-        Some(GenericPlaceholder {
+        Some(GenericParameter {
             ident: placeholder.ident,
             variant: match placeholder.variant {
                 GenericPlaceholderVariant::Const => GenericPlaceholderVariant::Const,

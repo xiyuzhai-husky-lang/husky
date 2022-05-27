@@ -3,7 +3,7 @@ mod method;
 
 pub use field::*;
 pub use method::*;
-use word::RoutineKeyword;
+use word::Paradigm;
 
 use super::*;
 
@@ -48,52 +48,54 @@ impl EntityDefnVariant {
                 AstKind::TypeDefnHead {
                     ident,
                     kind,
-                    ref generic_placeholders,
+                    ref generic_parameters,
                 } => todo!(),
                 AstKind::MainDefn => todo!(),
-                AstKind::RoutineDefnHead(_) => todo!(),
+                AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                    Some(this_contract) => {
+                        let method_source = match head.paradigm {
+                            Paradigm::Procedural => todo!(),
+                            Paradigm::EagerFunctional => {
+                                let stmts = semantics_eager::parse_func_stmts(
+                                    &head.parameters,
+                                    db,
+                                    arena,
+                                    child.opt_children.clone().unwrap(),
+                                    file,
+                                )?;
+                                MethodSource::Func { stmts }
+                            }
+                            Paradigm::LazyFunctional => todo!(),
+                        };
+                        let method_variant = MethodDefnVariant::TypeMethod {
+                            ty: ty_route,
+                            method_source,
+                        };
+                        (
+                            head.ident.ident,
+                            EntityDefnVariant::Method {
+                                parameters: head.parameters.clone(),
+                                output_ty: head.output_ty,
+                                this_contract,
+                                method_variant,
+                                output_liason: OutputLiason::Transfer,
+                                generic_parameters: head.generic_parameters.clone(),
+                            },
+                        )
+                    }
+                    None => (
+                        head.ident.ident,
+                        EntityDefnVariant::function(
+                            db,
+                            head,
+                            child.opt_children.clone().unwrap(),
+                            arena,
+                            file,
+                        )?,
+                    ),
+                },
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::FeatureDecl { ident, ty } => todo!(),
-                AstKind::TypeAssociatedRoutineDefnHead(ref routine_defn_head) => (
-                    routine_defn_head.ident.ident,
-                    EntityDefnVariant::routine(
-                        db,
-                        routine_defn_head,
-                        child.opt_children.clone().unwrap(),
-                        arena,
-                        file,
-                    )?,
-                ),
-                AstKind::TypeMethodDefnHead(ref head) => {
-                    let method_source = match head.routine_kind {
-                        RoutineKeyword::Proc => todo!(),
-                        RoutineKeyword::Func => {
-                            let stmts = semantics_eager::parse_func_stmts(
-                                &head.input_placeholders,
-                                db,
-                                arena,
-                                child.opt_children.clone().unwrap(),
-                                file,
-                            )?;
-                            MethodSource::Func { stmts }
-                        }
-                    };
-                    let method_variant = MethodDefnVariant::TypeMethod {
-                        ty: ty_route,
-                        method_source,
-                    };
-                    (
-                        head.ident.ident,
-                        EntityDefnVariant::Method {
-                            parameters: head.input_placeholders.clone(),
-                            output_ty: head.output_ty,
-                            this_contract: head.this_contract,
-                            method_variant,
-                            output_liason: OutputLiason::Transfer,
-                            generic_placeholders: head.generic_placeholders.clone(),
-                        },
-                    )
-                }
                 AstKind::Use { .. } => todo!(),
                 AstKind::FieldDefnHead(ref field_defn_head) => (
                     field_defn_head.ident.ident,

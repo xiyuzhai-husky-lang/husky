@@ -35,8 +35,8 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "new_binary_dataset",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
-        generic_placeholders: &[],
-        input_placeholders: vec![],
+        generic_parameters: &[],
+        parameters: vec![],
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: Linkage {

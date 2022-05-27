@@ -18,7 +18,7 @@ pub static INDEX_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Trait {
         base_route: "std::ops::Index",
-        generic_placeholders: &[StaticGenericPlaceholder {
+        generic_parameters: &[StaticGenericPlaceholder {
             name: "Idx",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],

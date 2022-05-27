@@ -203,15 +203,12 @@ fn feature_expr_subtraces(
                     routine_defn.clone(),
                     &db.compile_time().text(routine_defn.file).unwrap(),
                 ));
-                let input_placeholders: &[InputParameter] = match routine_defn.variant {
-                    EntityDefnVariant::Func {
-                        ref input_placeholders,
-                        ..
-                    } => input_placeholders,
+                let parameters: &[InputParameter] = match routine_defn.variant {
+                    EntityDefnVariant::Func { ref parameters, .. } => parameters,
                     EntityDefnVariant::Proc {
-                        parameters: ref input_placeholders,
+                        parameters: ref parameters,
                         ..
-                    } => input_placeholders,
+                    } => parameters,
                     _ => panic!(),
                 };
                 for (i, func_input) in opds.iter().enumerate() {
@@ -221,7 +218,7 @@ fn feature_expr_subtraces(
                         4,
                         TraceVariant::FeatureCallInput {
                             input: func_input.clone(),
-                            ident: input_placeholders[i].ranged_ident.ident,
+                            ident: parameters[i].ranged_ident.ident,
                         },
                     ));
                     match db.eval_feature_expr(func_input, input_id) {

@@ -33,12 +33,12 @@ impl EntityDefnVariant {
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
-        let (ident, kind, generic_placeholders) = match head.variant {
+        let (ident, kind, generic_parameters) = match head.variant {
             AstKind::TypeDefnHead {
                 ident,
                 kind,
-                ref generic_placeholders,
-            } => (ident, kind, generic_placeholders.clone()),
+                ref generic_parameters,
+            } => (ident, kind, generic_parameters.clone()),
             _ => panic!(),
         };
         let mut children = children.peekable();
@@ -56,7 +56,7 @@ impl EntityDefnVariant {
         let opt_type_call = match kind {
             TyKind::Enum => None,
             TyKind::Record => Some(Arc::new(TyCallDefn {
-                input_placeholders: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
+                parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
                         ref fieldiant,
@@ -85,7 +85,7 @@ impl EntityDefnVariant {
                 source: TyCallSource::GenericRecord,
             })),
             TyKind::Struct => Some(Arc::new(TyCallDefn {
-                input_placeholders: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
+                parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
                         ref fieldiant,
@@ -119,7 +119,7 @@ impl EntityDefnVariant {
         let opt_visualizer_source = Self::collect_visual_source(db, arena, file, ty, &mut children);
         should!(children.peek().is_none());
         Ok(EntityDefnVariant::new_ty(
-            generic_placeholders,
+            generic_parameters,
             ty_members,
             variants,
             kind,
@@ -130,7 +130,7 @@ impl EntityDefnVariant {
     }
 
     fn new_ty(
-        generic_placeholders: IdentDict<GenericPlaceholder>,
+        generic_parameters: IdentDict<GenericParameter>,
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
@@ -140,7 +140,7 @@ impl EntityDefnVariant {
     ) -> Self {
         let members = collect_all_members(&type_members, &trait_impls);
         EntityDefnVariant::Type {
-            generic_placeholders,
+            generic_parameters,
             ty_members: type_members,
             variants,
             kind,
@@ -158,7 +158,7 @@ impl EntityDefnVariant {
         match static_defn.variant {
             EntityStaticDefnVariant::Type {
                 base_route,
-                generic_placeholders,
+                generic_parameters,
                 static_trait_impls: ref trait_impls,
                 ref type_members,
                 ref variants,
@@ -175,16 +175,15 @@ impl EntityDefnVariant {
                     kind: SymbolContextKind::Normal,
                 };
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
-                let generic_placeholders =
-                    symbol_context.generic_placeholders_from_static(generic_placeholders);
-                let generic_arguments = symbol_context
-                    .generic_arguments_from_generic_placeholders(&generic_placeholders);
+                let generic_parameters =
+                    symbol_context.generic_parameters_from_static(generic_parameters);
+                let generic_arguments =
+                    symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_ty = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
                     generic_arguments,
                 });
-                let symbols =
-                    symbol_context.symbols_from_generic_placeholders(&generic_placeholders);
+                let symbols = symbol_context.symbols_from_generic_parameters(&generic_parameters);
                 symbol_context.symbols = symbols.into();
                 symbol_context.opt_this_ty = Some(this_ty);
                 let type_members = type_members.map(|type_member| {
@@ -204,7 +203,7 @@ impl EntityDefnVariant {
                     .map(|trait_impl| TraitImplDefn::from_static(&symbol_context, trait_impl));
                 let opt_visualizer_source = Some(VisualizerSource::Static(visualizer));
                 Self::new_ty(
-                    generic_placeholders,
+                    generic_parameters,
                     type_members,
                     variants,
                     kind,

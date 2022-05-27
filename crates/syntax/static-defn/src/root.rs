@@ -40,7 +40,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
             },
             dev_src: static_dev_src!(),
         }],
-        generic_placeholders: &[],
+        generic_parameters: &[],
     },
     dev_src: static_dev_src!(),
 };
@@ -50,7 +50,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "void",
-        generic_placeholders: &[],
+        generic_parameters: &[],
         static_trait_impls: &[],
         type_members: &[],
         variants: &[],
@@ -66,7 +66,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "b64",
-        generic_placeholders: &[],
+        generic_parameters: &[],
         static_trait_impls: &[],
         type_members: &[],
         variants: &[],
@@ -82,7 +82,7 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "bool",
-        generic_placeholders: &[],
+        generic_parameters: &[],
         static_trait_impls: &[],
         type_members: &[],
         variants: &[],

@@ -8,7 +8,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "datasets::cv::mnist::BinaryImage28",
-        generic_placeholders: &[],
+        generic_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
             dev_src: static_dev_src!(),
             trai: "std::ops::Index<i32>",
@@ -96,8 +96,8 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryImage28",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
-        generic_placeholders: &[],
-        input_placeholders: vec![],
+        generic_parameters: &[],
+        parameters: vec![],
         output_ty: "datasets::cv::mnist::BinaryImage28",
         output_liason: OutputLiason::Transfer,
         linkage: Linkage {

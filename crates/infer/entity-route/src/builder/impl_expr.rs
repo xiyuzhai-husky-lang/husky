@@ -98,12 +98,15 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             },
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => todo!(),
-            EntityKind::Routine => {
-                emsg_once!("todo: generics in fp");
-                RootIdentifier::Fp.into()
+            EntityKind::Function { is_lazy } => {
+                if is_lazy {
+                    todo!()
+                } else {
+                    emsg_once!("todo: generics in fp");
+                    RootIdentifier::Fp.into()
+                }
             }
             EntityKind::Feature => self.db.feature_decl(scope)?.ty,
-            EntityKind::Pattern => todo!(),
             EntityKind::Member(_) => todo!(),
             EntityKind::Main => panic!(),
         })
@@ -469,7 +472,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
             self.infer_expr(argument, Some(parameter.ty), arena);
         }
-        let generic_arguments = if method_decl.generic_placeholders.len() > 0 {
+        let generic_arguments = if method_decl.generic_parameters.len() > 0 {
             todo!()
         } else {
             vec![]

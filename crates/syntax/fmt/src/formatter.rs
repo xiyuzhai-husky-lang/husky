@@ -9,7 +9,7 @@ use entity_route::EntityRoutePtr;
 use fold::LocalValue;
 use syntax_types::*;
 use vm::*;
-use word::{RootIdentifier, RoutineKeyword, WordAllocator};
+use word::{Paradigm, RootIdentifier, WordAllocator};
 
 pub struct Formatter<'a> {
     word_unique_allocator: &'a WordAllocator,
@@ -83,7 +83,7 @@ impl<'a> Formatter<'a> {
             AstKind::TypeDefnHead {
                 ident,
                 ref kind,
-                generic_placeholders: ref generics,
+                generic_parameters: ref generics,
             } => {
                 enter_block(self);
                 match kind {
@@ -106,15 +106,16 @@ impl<'a> Formatter<'a> {
             }
             AstKind::MainDefn => {
                 enter_block(self);
-                self.context.set(AstContext::Main);
+                self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
                 self.write("main:")
             }
-            AstKind::RoutineDefnHead(ref head) => {
+            AstKind::CallFormDefnHead(ref head) => {
                 enter_block(self);
-                self.context.set((head.routine_kind).into());
-                self.write(match head.routine_kind {
-                    RoutineKeyword::Proc => "proc ",
-                    RoutineKeyword::Func => "func ",
+                self.context.set((head.paradigm).into());
+                self.write(match head.paradigm {
+                    Paradigm::Procedural => "proc ",
+                    Paradigm::EagerFunctional => "func ",
+                    Paradigm::LazyFunctional => todo!(),
                 });
                 self.write(&head.ident.ident);
                 self.write("(");
@@ -146,11 +147,10 @@ impl<'a> Formatter<'a> {
                 ident,
                 variant_class: ref variant_kind,
             } => todo!(),
-            AstKind::TypeMethodDefnHead { .. } => todo!(),
             AstKind::FeatureDecl { .. } => todo!(),
             AstKind::Use { ref use_variant } => todo!(),
             AstKind::Submodule { ident, source_file } => todo!(),
-            AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
+            AstKind::CallFormDefnHead(_) => todo!(),
             AstKind::Visual => todo!(),
         }
     }
@@ -218,20 +218,17 @@ impl<'a> Formatter<'a> {
             }
             RawStmtVariant::Return(expr) => {
                 match self.context.value() {
-                    AstContext::Routine(RoutineKeyword::Func)
-                    | AstContext::Lazy
-                    | AstContext::Main => (),
-                    AstContext::Routine(RoutineKeyword::Proc) => self.write("return "),
+                    AstContext::Stmt(Paradigm::EagerFunctional)
+                    | AstContext::Stmt(Paradigm::LazyFunctional)
+                    | AstContext::Stmt(Paradigm::LazyFunctional) => (),
+                    AstContext::Stmt(Paradigm::Procedural) => self.write("return "),
                     AstContext::Package(_) => todo!(),
                     AstContext::Module(_) => todo!(),
-                    AstContext::DatasetConfig => todo!(),
                     AstContext::Struct(_) => todo!(),
                     AstContext::Record => todo!(),
                     AstContext::Props => todo!(),
                     AstContext::Enum(_) => todo!(),
-                    AstContext::FuncMatch => todo!(),
-                    AstContext::ProcMatch => todo!(),
-                    AstContext::LazyMatch => todo!(),
+                    AstContext::Match(_) => todo!(),
                     AstContext::Visual => todo!(),
                 }
                 self.fmt_expr(&self.arena[expr]);

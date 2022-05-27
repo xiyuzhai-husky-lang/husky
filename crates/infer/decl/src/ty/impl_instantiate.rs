@@ -7,10 +7,10 @@ impl TyDecl {
         db: &dyn DeclQueryGroup,
         dst_generics: &[GenericArgument],
     ) -> Arc<Self> {
-        should_eq!(self.generic_placeholders.len(), dst_generics.len());
+        should_eq!(self.generic_parameters.len(), dst_generics.len());
         let instantiator = Instantiator {
             db: db.upcast(),
-            generic_placeholders: &self.generic_placeholders,
+            generic_parameters: &self.generic_parameters,
             dst_generics,
         };
         Self::new(
@@ -18,7 +18,7 @@ impl TyDecl {
             instantiator
                 .instantiate_entity_route(self.this_ty)
                 .take_entity_route(),
-            Default::default(), // generic_placeholders
+            Default::default(), // generic_parameters
             self.ty_members
                 .map(|member| member.instantiate(&instantiator)), //   type_methods
             self.variants

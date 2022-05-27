@@ -33,9 +33,8 @@ fn subroute_table(
 ) -> EntitySyntaxResultArc<SubrouteTable> {
     let entity_kind = db.entity_kind(entity_route)?;
     match db.entity_kind(entity_route)? {
-        EntityKind::Routine
+        EntityKind::Function { .. }
         | EntityKind::Feature
-        | EntityKind::Pattern
         | EntityKind::EnumLiteral
         | EntityKind::Main
         | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(entity_route, entity_kind))),

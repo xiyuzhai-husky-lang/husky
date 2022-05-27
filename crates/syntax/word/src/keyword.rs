@@ -1,12 +1,13 @@
 use std::ops::Deref;
 
+use serde::{Deserialize, Serialize};
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
     Config(ConfigKeyword),
-    Routine(RoutineKeyword),
+    Paradigm(Paradigm),
     Type(TyKeyword),
     Stmt(StmtKeyword),
-    Def,
     Main,
     Use,
     Mod,
@@ -17,12 +18,11 @@ impl Keyword {
     pub fn as_str(&self) -> &'static str {
         match self {
             Keyword::Config(keyword) => keyword.as_str(),
-            Keyword::Routine(keyword) => keyword.as_str(),
+            Keyword::Paradigm(keyword) => keyword.as_str(),
             Keyword::Type(keyword) => keyword.as_str(),
             Keyword::Stmt(keyword) => keyword.as_str(),
             Keyword::Use => "use",
             Keyword::Mod => "mod",
-            Keyword::Def => "def",
             Keyword::Main => "main",
             Keyword::Visual => "visual",
         }
@@ -43,9 +43,9 @@ impl From<ConfigKeyword> for Keyword {
     }
 }
 
-impl From<RoutineKeyword> for Keyword {
-    fn from(kw: RoutineKeyword) -> Self {
-        Keyword::Routine(kw)
+impl From<Paradigm> for Keyword {
+    fn from(kw: Paradigm) -> Self {
+        Keyword::Paradigm(kw)
     }
 }
 
@@ -82,22 +82,31 @@ impl Deref for ConfigKeyword {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum RoutineKeyword {
-    Proc,
-    Func,
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, Serialize, Deserialize)]
+pub enum Paradigm {
+    LazyFunctional,
+    EagerFunctional,
+    Procedural,
 }
 
-impl RoutineKeyword {
-    pub fn as_str(&self) -> &'static str {
+impl Paradigm {
+    pub fn as_str(self) -> &'static str {
         match self {
-            RoutineKeyword::Proc => "proc",
-            RoutineKeyword::Func => "func",
+            Paradigm::Procedural => "proc",
+            Paradigm::EagerFunctional => "func",
+            Paradigm::LazyFunctional => "def",
+        }
+    }
+
+    pub fn is_lazy(self) -> bool {
+        match self {
+            Paradigm::LazyFunctional => true,
+            Paradigm::EagerFunctional | Paradigm::Procedural => false,
         }
     }
 }
 
-impl Deref for RoutineKeyword {
+impl Deref for Paradigm {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {

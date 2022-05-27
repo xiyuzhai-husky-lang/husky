@@ -84,18 +84,16 @@ impl SubrouteEntry {
                 ))
             }
             TokenKind::Decorator(Decorator::Static) => match token_group[1].kind {
-                TokenKind::Keyword(Keyword::Routine(routine_keyword)) => {
-                    match token_group[2].kind {
-                        TokenKind::Identifier(Identifier::Custom(ident)) => {
-                            Ok(Some(SubrouteEntry {
-                                ident: Some(ident),
-                                kind: EntityKind::Routine,
-                                source: EntityLocus::from_file(file, token_group_index),
-                            }))
-                        }
-                        _ => todo!(),
-                    }
-                }
+                TokenKind::Keyword(Keyword::Paradigm(paradigm)) => match token_group[2].kind {
+                    TokenKind::Identifier(Identifier::Custom(ident)) => Ok(Some(SubrouteEntry {
+                        ident: Some(ident),
+                        kind: EntityKind::Function {
+                            is_lazy: paradigm.is_lazy(),
+                        },
+                        source: EntityLocus::from_file(file, token_group_index),
+                    })),
+                    _ => todo!(),
+                },
                 _ => todo!(),
             },
             _ => Ok(None),

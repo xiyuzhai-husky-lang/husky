@@ -23,7 +23,7 @@ fn eval_input_ty_from_ast(
                 match caller.variant {
                     RawExprVariant::Entity {
                         route,
-                        kind: EntityKind::Routine,
+                        kind: EntityKind::Function { .. },
                         ..
                     } => {
                         let signature_result: InferResult<_> =
@@ -66,7 +66,7 @@ fn global_output_ty_from_ast(
                 match caller.variant {
                     RawExprVariant::Entity {
                         route: scope,
-                        kind: EntityKind::Routine,
+                        kind: EntityKind::Function { .. },
                         ..
                     } => {
                         let call_decl_result: InferResult<_> =

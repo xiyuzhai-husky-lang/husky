@@ -7,7 +7,6 @@ impl EntityDefnVariant {
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module { ref module_items } => module_items.clone(),
             EntityDefnVariant::Feature { .. }
-            | EntityDefnVariant::Pattern {}
             | EntityDefnVariant::TypeField { .. }
             | EntityDefnVariant::Func { .. }
             | EntityDefnVariant::Proc { .. }

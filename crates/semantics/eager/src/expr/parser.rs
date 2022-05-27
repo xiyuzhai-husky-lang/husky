@@ -48,11 +48,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 },
                 EntityKind::Type(_) => todo!(),
                 EntityKind::Trait => todo!(),
-                EntityKind::Routine => todo!(),
+                EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => {
                     panic!("what")
                 }
-                EntityKind::Pattern => todo!(),
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },
@@ -169,9 +168,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         match call.variant {
             RawExprVariant::Entity {
                 route: scope,
-                kind: EntityKind::Routine,
+                kind: EntityKind::Function { is_lazy },
                 ..
             } => {
+                if is_lazy {
+                    todo!()
+                }
                 let arguments: Vec<_> = input_opd_idx_range
                     .clone()
                     .map(|raw| self.parse_eager_expr(raw))
@@ -205,7 +207,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     opds: arguments,
                 })
             }
-            RawExprVariant::Entity { .. } => todo!(),
+            RawExprVariant::Entity { kind, .. } => {
+                p!(kind);
+                todo!()
+            }
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::CopyableLiteral(_) => todo!(),

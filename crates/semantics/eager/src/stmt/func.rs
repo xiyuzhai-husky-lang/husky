@@ -62,11 +62,11 @@ pub enum FuncStmtVariant {
 }
 
 pub fn parse_func_stmts(
-    input_placeholders: &[InputParameter],
+    parameters: &[InputParameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: AstIter,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
-    EagerStmtParser::new(input_placeholders, db, arena, file).parse_func_stmts(iter)
+    EagerStmtParser::new(parameters, db, arena, file).parse_func_stmts(iter)
 }

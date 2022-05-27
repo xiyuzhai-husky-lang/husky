@@ -62,13 +62,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             children,
                             &arena,
                         ),
-                        AstKind::RoutineDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
                             &head.parameters,
                             Some(head.output_ty.route),
                             children,
                             &arena,
                         ),
-                        AstKind::TypeAssociatedRoutineDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
                             &head.parameters,
                             Some(head.output_ty.route),
                             children,
@@ -85,8 +85,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             }
                         },
                         AstKind::Stmt(_) => todo!(),
-                        AstKind::TypeMethodDefnHead(ref head) => self.infer_routine(
-                            &head.input_placeholders,
+                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
+                            &head.parameters,
                             Some(head.output_ty.route),
                             children,
                             &arena,

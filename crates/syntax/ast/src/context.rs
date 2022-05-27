@@ -3,7 +3,7 @@ mod struct_item_context;
 pub use struct_item_context::*;
 
 use file::FilePtr;
-use word::RoutineKeyword;
+use word::Paradigm;
 
 use crate::*;
 
@@ -11,18 +11,13 @@ use crate::*;
 pub enum AstContext {
     Package(FilePtr),
     Module(EntityRoutePtr),
-    DatasetConfig,
-    Main,
-    Lazy,
-    Routine(RoutineKeyword),
+    Stmt(Paradigm),
+    Match(Paradigm),
     Visual,
     Struct(StructItemContext),
     Record,
     Props,
     Enum(EntityRoutePtr),
-    LazyMatch,
-    FuncMatch,
-    ProcMatch,
 }
 
 impl AstContext {
@@ -30,27 +25,23 @@ impl AstContext {
         match self {
             AstContext::Package(main) => db.make_subroute(db.module(*main).unwrap(), ident, vec![]),
             AstContext::Module(route) => db.make_subroute(*route, ident, Vec::new()),
-            AstContext::DatasetConfig => todo!(),
-            AstContext::Main => todo!(),
-            AstContext::Lazy => todo!(),
-            AstContext::Routine(_) => todo!(),
+            AstContext::Stmt(_) => todo!(),
+            AstContext::Match(_) => todo!(),
             AstContext::Struct(item_context) => todo!(),
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
-            AstContext::LazyMatch => todo!(),
-            AstContext::FuncMatch => todo!(),
-            AstContext::ProcMatch => todo!(),
             AstContext::Visual => todo!(),
         }
     }
 }
 
-impl From<RoutineKeyword> for AstContext {
-    fn from(routine_kind: RoutineKeyword) -> Self {
-        match routine_kind {
-            RoutineKeyword::Proc => AstContext::Routine(RoutineKeyword::Proc),
-            RoutineKeyword::Func => AstContext::Routine(RoutineKeyword::Func),
+impl From<Paradigm> for AstContext {
+    fn from(paradigm: Paradigm) -> Self {
+        match paradigm {
+            Paradigm::Procedural => AstContext::Stmt(Paradigm::Procedural),
+            Paradigm::EagerFunctional => AstContext::Stmt(Paradigm::EagerFunctional),
+            Paradigm::LazyFunctional => todo!(),
         }
     }
 }
@@ -60,19 +51,15 @@ impl std::fmt::Display for AstContext {
         f.write_str(match self {
             AstContext::Package(_) => "package",
             AstContext::Module(_) => "module",
-            AstContext::DatasetConfig => "dataset config",
-            AstContext::Main => "main",
-            AstContext::Lazy => "def",
-            AstContext::Routine(RoutineKeyword::Func) => "func",
-            AstContext::Routine(RoutineKeyword::Proc) => "proc",
+            AstContext::Stmt(Paradigm::LazyFunctional) => "def",
+            AstContext::Stmt(Paradigm::EagerFunctional) => "func",
+            AstContext::Stmt(Paradigm::Procedural) => "proc",
             AstContext::Visual => "visual",
             AstContext::Struct(_) => "struct",
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",
             AstContext::Props => "props",
-            AstContext::FuncMatch => "func match",
-            AstContext::ProcMatch => "proc match",
-            AstContext::LazyMatch => "lazy match",
+            AstContext::Match(_) => todo!(),
         })
     }
 }

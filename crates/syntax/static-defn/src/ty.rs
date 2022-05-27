@@ -44,7 +44,7 @@ pub enum StaticFieldVariant {}
 //     },
 //     Method {
 //         this_contract: InputContract,
-//         input_placeholders: &'static [StaticInputPlaceholder],
+//         parameters: &'static [StaticInputPlaceholder],
 //         output: &'static str,
 //         ref_access: Linkage,
 //         move_access: Linkage,

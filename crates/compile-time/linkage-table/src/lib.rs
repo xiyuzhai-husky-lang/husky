@@ -122,7 +122,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         let trai_defn = self.entity_defn(*trai).unwrap();
                         match trai_defn.variant {
                             EntityDefnVariant::Trait {
-                                ref generic_placeholders,
+                                ref generic_parameters,
                                 ref members,
                             } => {
                                 let member = members
@@ -152,22 +152,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         }
                     }
                 },
-                EntityDefnVariant::Main(_) => todo!(),
-                EntityDefnVariant::Module { .. } => todo!(),
-                EntityDefnVariant::Feature { .. } => todo!(),
-                EntityDefnVariant::Pattern {} => todo!(),
-                EntityDefnVariant::Func { .. } => todo!(),
-                EntityDefnVariant::Proc { .. } => todo!(),
-                EntityDefnVariant::Type { .. } => todo!(),
-                EntityDefnVariant::Trait { ref members, .. } => {
-                    p!(members);
-                    p!(method_route);
-                    todo!()
-                }
-                EntityDefnVariant::EnumVariant { .. } => todo!(),
-                EntityDefnVariant::TypeField { .. } => todo!(),
-                EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
-                EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+                _ => todo!(),
             }
         };
         let method_decl = self.method_decl(method_route).unwrap();
@@ -181,14 +166,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         let opt_linkage = match self.entity_locus(routine).unwrap() {
             EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
                 EntityStaticDefnVariant::Routine { linkage, .. } => Some(linkage),
-                EntityStaticDefnVariant::Type { .. } => todo!(),
-                EntityStaticDefnVariant::Module => todo!(),
-                EntityStaticDefnVariant::Trait { .. } => todo!(),
-                EntityStaticDefnVariant::TypeField { .. } => todo!(),
-                EntityStaticDefnVariant::Method { .. } => todo!(),
-                EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
-                EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-                EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+                _ => todo!(),
             },
             EntityLocus::WithinBuiltinModule => todo!(),
             EntityLocus::WithinModule { .. } => {

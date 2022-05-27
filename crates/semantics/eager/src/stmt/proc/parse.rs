@@ -30,7 +30,7 @@ impl<'a> EagerStmtParser<'a> {
                 AstKind::TypeDefnHead { .. } => todo!(),
                 AstKind::MainDefn => todo!(),
                 AstKind::DatasetConfigDefnHead => todo!(),
-                AstKind::RoutineDefnHead { .. } => todo!(),
+                AstKind::CallFormDefnHead { .. } => todo!(),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::Stmt(ref stmt) => ProcStmt {
@@ -45,10 +45,10 @@ impl<'a> EagerStmtParser<'a> {
                     variant_class: ref variant_kind,
                 } => todo!(),
                 AstKind::FieldDefnHead { .. } => todo!(),
-                AstKind::TypeMethodDefnHead { .. } => todo!(),
+                AstKind::CallFormDefnHead { .. } => todo!(),
                 AstKind::FeatureDecl { .. } => todo!(),
                 AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::TypeAssociatedRoutineDefnHead(_) => todo!(),
+                AstKind::CallFormDefnHead(_) => todo!(),
                 AstKind::Visual => todo!(),
             }))
         }

@@ -22,7 +22,7 @@ pub(super) struct LazyStmtParser<'a> {
 
 impl<'a> LazyStmtParser<'a> {
     pub(super) fn new(
-        input_placeholders: &[InputParameter],
+        parameters: &[InputParameter],
         db: &'a dyn InferQueryGroup,
         arena: &'a RawExprArena,
         file: FilePtr,
@@ -30,7 +30,7 @@ impl<'a> LazyStmtParser<'a> {
         Self {
             db,
             arena,
-            variables: input_placeholders
+            variables: parameters
                 .iter()
                 .map(|input_placeholder| LazyVariable::from_input(input_placeholder))
                 .collect(),

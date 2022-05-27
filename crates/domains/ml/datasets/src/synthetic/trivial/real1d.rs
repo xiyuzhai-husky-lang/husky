@@ -18,8 +18,8 @@ pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset1",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
-        generic_placeholders: &[],
-        input_placeholders: vec![],
+        generic_parameters: &[],
+        parameters: vec![],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: Linkage {
@@ -35,8 +35,8 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset2",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
-        generic_placeholders: &[],
-        input_placeholders: vec![],
+        generic_parameters: &[],
+        parameters: vec![],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: Linkage {

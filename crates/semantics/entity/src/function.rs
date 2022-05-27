@@ -2,37 +2,38 @@ use crate::*;
 use ast::{AstIter, RawExprArena};
 use infer_total::InferQueryGroup;
 use semantics_error::*;
-use word::RoutineKeyword;
+use word::Paradigm;
 
 impl EntityDefnVariant {
-    pub(crate) fn routine(
+    pub(crate) fn function(
         db: &dyn InferQueryGroup,
-        routine_defn_head: &RoutineDefnHead,
+        routine_defn_head: &CallableDefnHead,
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
-        Ok(match routine_defn_head.routine_kind {
-            RoutineKeyword::Proc => {
+        Ok(match routine_defn_head.paradigm {
+            Paradigm::Procedural => {
                 let stmts =
                     parse_impr_stmts(&routine_defn_head.parameters, db, arena, children, file)?;
                 EntityDefnVariant::Proc {
-                    generic_placeholders: routine_defn_head.generic_placeholders.clone(),
+                    generic_parameters: routine_defn_head.generic_parameters.clone(),
                     parameters: routine_defn_head.parameters.clone(),
                     output: routine_defn_head.output_ty,
                     stmts,
                 }
             }
-            RoutineKeyword::Func => {
+            Paradigm::EagerFunctional => {
                 let stmts =
                     parse_func_stmts(&routine_defn_head.parameters, db, arena, children, file)?;
                 EntityDefnVariant::Func {
-                    generic_placeholders: routine_defn_head.generic_placeholders.clone(),
-                    input_placeholders: routine_defn_head.parameters.clone(),
+                    generic_parameters: routine_defn_head.generic_parameters.clone(),
+                    parameters: routine_defn_head.parameters.clone(),
                     output: routine_defn_head.output_ty,
                     stmts,
                 }
             }
+            Paradigm::LazyFunctional => todo!(),
         })
     }
 }

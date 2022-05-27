@@ -6,7 +6,7 @@ use super::*;
 // pub(crate) fn enum_decl(
 //     db: &dyn DeclQueryGroup,
 //     this_ty: EntityRoutePtr,
-//     generic_placeholders: IdentDict<GenericPlaceholder>,
+//     generic_parameters: IdentDict<GenericPlaceholder>,
 //     children: AstIter,
 // ) -> InferResultArc<TyDecl> {
 //     let mut variants = VecMap::default();
@@ -28,7 +28,7 @@ use super::*;
 //     Ok(TyDecl::new(
 //         db,
 //         this_ty,
-//         generic_placeholders,
+//         generic_parameters,
 //         Default::default(), // type_methods
 //         variants,
 //         TyKind::Enum,
