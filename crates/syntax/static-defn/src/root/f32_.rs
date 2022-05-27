@@ -5,7 +5,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "f32",
-        generic_placeholders: &[],
+        generic_parameters: &[],
         static_trait_impls: &[],
         type_members: &[
             &F32_MIN, &F32_MAX, &F32_SGN, &F32_ABS, &F32_SQRT, &F32_COS, &F32_SIN, &F32_TAN,

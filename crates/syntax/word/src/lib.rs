@@ -7,7 +7,7 @@ mod style;
 pub use decorator::*;
 pub use ident::*;
 pub use intern::{new_word_interner, InternWord, WordAllocator};
-pub use keyword::{ConfigKeyword, Keyword, RoutineKeyword, StmtKeyword, TyKeyword};
+pub use keyword::{ConfigKeyword, Keyword, Paradigm, StmtKeyword, TyKeyword};
 pub use opr::*;
 pub use style::*;
 pub type IdentDict<T> = VecMap<CustomIdentifier, T>;
@@ -68,8 +68,8 @@ impl From<ConfigKeyword> for WordPtr {
     }
 }
 
-impl From<RoutineKeyword> for WordPtr {
-    fn from(func: RoutineKeyword) -> Self {
+impl From<Paradigm> for WordPtr {
+    fn from(func: Paradigm) -> Self {
         Self::Keyword(func.into())
     }
 }

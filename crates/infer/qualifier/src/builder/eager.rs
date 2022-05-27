@@ -251,9 +251,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Type(_) => Ok(EagerQualifiedTy::ty_qualified_ty()),
                 EntityKind::Trait => todo!(),
                 EntityKind::Member(_) => todo!(),
-                EntityKind::Routine => todo!(),
+                EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => todo!(),
-                EntityKind::Pattern => todo!(),
                 EntityKind::EnumLiteral => Ok(EagerQualifiedTy::new(
                     EagerQualifier::Copyable,
                     self.raw_expr_ty(raw_expr_idx)?,

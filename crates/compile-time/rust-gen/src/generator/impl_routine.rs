@@ -9,14 +9,14 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_proc_defn(
         &mut self,
         ident: CustomIdentifier,
-        input_placeholders: &[InputParameter],
+        parameters: &[InputParameter],
         output: EntityRoutePtr,
         stmts: &[Arc<ProcStmt>],
     ) {
         self.write("\npub(crate) fn ");
         self.write(&ident);
         self.write("(");
-        for (i, input_placeholder) in input_placeholders.iter().enumerate() {
+        for (i, input_placeholder) in parameters.iter().enumerate() {
             if i > 0 {
                 self.write(", ");
             }
@@ -50,14 +50,14 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_func_defn(
         &mut self,
         ident: CustomIdentifier,
-        input_placeholders: &[InputParameter],
+        parameters: &[InputParameter],
         output: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {
         self.write("\npub(crate) fn ");
         self.write(&ident);
         self.write("(");
-        for (i, input_placeholder) in input_placeholders.iter().enumerate() {
+        for (i, input_placeholder) in parameters.iter().enumerate() {
             if i > 0 {
                 self.write(", ");
             }

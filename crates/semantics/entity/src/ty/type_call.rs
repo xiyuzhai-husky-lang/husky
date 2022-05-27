@@ -8,7 +8,7 @@ use vm::Linkage;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyCallDefn {
-    pub input_placeholders: Arc<Vec<InputParameter>>,
+    pub parameters: Arc<Vec<InputParameter>>,
     pub output_ty: RangedEntityRoute,
     pub source: TyCallSource,
 }
@@ -24,12 +24,12 @@ impl TyCallDefn {
     pub fn from_static(context: &SymbolContext, static_defn: &EntityStaticDefn) -> Arc<TyCallDefn> {
         Arc::new(match static_defn.variant {
             EntityStaticDefnVariant::Routine {
-                ref input_placeholders,
+                ref parameters,
                 output_ty,
                 linkage,
                 ..
             } => TyCallDefn {
-                input_placeholders: Arc::new(input_placeholders.map(|input_placeholder| {
+                parameters: Arc::new(parameters.map(|input_placeholder| {
                     context.input_placeholder_from_static(input_placeholder)
                 })),
                 output_ty: RangedEntityRoute {

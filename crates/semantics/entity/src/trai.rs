@@ -84,7 +84,7 @@ impl EntityDefnVariant {
                 input_parameters: inputs,
                 output_ty,
                 output_liason,
-                generic_parameters: generic_placeholders,
+                generic_parameters: generic_parameters,
                 ref kind,
             } => {
                 let method_variant = match kind {
@@ -117,8 +117,8 @@ impl EntityDefnVariant {
                     this_contract,
                     output_liason,
                     method_variant,
-                    generic_placeholders: generic_placeholders.map(|generic_placeholder| {
-                        GenericPlaceholder::from_static(context.db, generic_placeholder)
+                    generic_parameters: generic_parameters.map(|generic_placeholder| {
+                        GenericParameter::from_static(context.db, generic_placeholder)
                     }),
                 }
             }

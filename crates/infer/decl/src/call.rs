@@ -22,7 +22,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct CallDecl {
     pub route: EntityRoutePtr,
-    pub generic_placeholders: IdentDict<GenericPlaceholder>,
+    pub generic_parameters: IdentDict<GenericParameter>,
     pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
 }
@@ -33,8 +33,8 @@ impl CallDecl {
             route: instantiator
                 .instantiate_entity_route(self.route)
                 .take_entity_route(),
-            generic_placeholders: self
-                .generic_placeholders
+            generic_parameters: self
+                .generic_parameters
                 .iter()
                 .filter_map(|placeholder| instantiator.instantiate_generic_placeholder(placeholder))
                 .collect(),
@@ -43,10 +43,10 @@ impl CallDecl {
         })
     }
 
-    pub(crate) fn from_ast(route: EntityRoutePtr, head: &RoutineDefnHead) -> Arc<Self> {
+    pub(crate) fn from_ast(route: EntityRoutePtr, head: &CallableDefnHead) -> Arc<Self> {
         Arc::new(CallDecl {
             route,
-            generic_placeholders: head.generic_placeholders.clone(),
+            generic_parameters: head.generic_parameters.clone(),
             parameters: head
                 .parameters
                 .iter()
@@ -93,10 +93,8 @@ pub(crate) fn call_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstKind::RoutineDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
-                AstKind::TypeAssociatedRoutineDefnHead(ref head) => {
-                    Ok(CallDecl::from_ast(route, head))
-                }
+                AstKind::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
+                AstKind::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
                 // type constructor
                 AstKind::TypeDefnHead { .. } => {
                     let ty_decl = db.ty_decl(route)?;
@@ -120,15 +118,15 @@ pub(crate) fn routine_decl_from_static(
 ) -> Arc<CallDecl> {
     match static_defn.variant {
         EntityStaticDefnVariant::Routine {
-            ref generic_placeholders,
-            input_placeholders: ref inputs,
+            ref generic_parameters,
+            parameters: ref inputs,
             output_ty,
             output_liason,
             linkage,
-            routine_kind,
+            routine_kind: paradigm,
         } => {
-            let generic_placeholders = db.generic_placeholders_from_static(generic_placeholders);
-            symbols.extend(db.symbols_from_generic_placeholders(&generic_placeholders));
+            let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+            symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
             let symbol_context = SymbolContext {
                 opt_package_main: None,
                 db: db.upcast(),
@@ -145,7 +143,7 @@ pub(crate) fn routine_decl_from_static(
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
             Arc::new(CallDecl {
                 route,
-                generic_placeholders,
+                generic_parameters,
                 parameters: inputs,
                 output: OutputDecl {
                     liason: output_liason,

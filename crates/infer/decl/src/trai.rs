@@ -13,7 +13,7 @@ use word::IdentDict;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitDecl {
     pub trai: EntityRoutePtr,
-    pub generic_placeholders: IdentDict<GenericPlaceholder>,
+    pub generic_parameters: IdentDict<GenericParameter>,
     pub members: IdentDict<TraitMemberDecl>,
 }
 
@@ -105,12 +105,11 @@ impl TraitDecl {
         match static_defn.variant {
             EntityStaticDefnVariant::Trait {
                 base_route,
-                ref generic_placeholders,
+                ref generic_parameters,
                 ref members,
             } => {
-                let generic_placeholders =
-                    db.generic_placeholders_from_static(generic_placeholders);
-                let symbols = db.symbols_from_generic_placeholders(&generic_placeholders);
+                let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+                let symbols = db.symbols_from_generic_parameters(&generic_parameters);
                 let member_context: Vec<_> = members.map(|member| {
                     (
                         db.intern_word(member.name).custom(),
@@ -133,7 +132,7 @@ impl TraitDecl {
                 };
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
                 let generic_arguments =
-                    db.generic_arguments_from_generic_placeholders(&generic_placeholders);
+                    db.generic_arguments_from_generic_parameters(&generic_parameters);
                 should_eq!(base_route.generic_arguments.len(), 0);
                 let trai = db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
@@ -145,7 +144,7 @@ impl TraitDecl {
                 };
                 Arc::new(TraitDecl {
                     trai,
-                    generic_placeholders,
+                    generic_parameters,
                     members: members
                         .iter()
                         .map(|member| TraitMemberDecl::from_static(db, member, &symbol_context))
@@ -161,17 +160,17 @@ impl TraitDecl {
         db: &dyn DeclQueryGroup,
         dst_generics: &[GenericArgument],
     ) -> Arc<Self> {
-        should_eq!(self.generic_placeholders.len(), dst_generics.len());
+        should_eq!(self.generic_parameters.len(), dst_generics.len());
         let instantiator = Instantiator {
             db: db.upcast(),
-            generic_placeholders: &self.generic_placeholders,
+            generic_parameters: &self.generic_parameters,
             dst_generics,
         };
         Arc::new(TraitDecl {
             trai: instantiator
                 .instantiate_entity_route(self.trai)
                 .take_entity_route(),
-            generic_placeholders: Default::default(),
+            generic_parameters: Default::default(),
             members: self
                 .members
                 .iter()

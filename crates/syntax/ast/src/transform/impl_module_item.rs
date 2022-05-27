@@ -22,9 +22,19 @@ impl<'a> AstTransformer<'a> {
             );
         };
         match keyword {
-            Keyword::Routine(routine_keyword) => {
+            Keyword::Paradigm(paradigm) => {
                 enter_block(self);
-                self.parse_routine_defn_head(routine_keyword, token_group)
+                match token_group[2].kind {
+                    TokenKind::Special(Special::LightArrow) => todo!(),
+                    TokenKind::Special(Special::LPar) => {
+                        self.parse_function_defn_head(paradigm, token_group)
+                    }
+                    _ => todo!(),
+                }
+                // Keyword::Def => {
+                //     enter_block(self);
+                //     self.parse_morphism_decl(token_group)
+                // }
             }
             Keyword::Type(ty_kw) => {
                 enter_block(self);
@@ -37,19 +47,16 @@ impl<'a> AstTransformer<'a> {
                 enter_block(self);
                 Ok(match cfg {
                     ConfigKeyword::Dataset => {
-                        self.context.set(AstContext::DatasetConfig);
+                        self.context
+                            .set(AstContext::Stmt(Paradigm::EagerFunctional));
                         self.use_all(RootIdentifier::Datasets.into(), token_group[0].text_range())?;
                         AstKind::DatasetConfigDefnHead
                     }
                 })
             }
-            Keyword::Def => {
-                enter_block(self);
-                self.parse_morphism_decl(token_group)
-            }
             Keyword::Main => {
                 enter_block(self);
-                self.context.set(AstContext::Main);
+                self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
                 Ok(AstKind::MainDefn)
             }
             Keyword::Visual => todo!(),

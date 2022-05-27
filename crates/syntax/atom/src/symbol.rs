@@ -1,6 +1,6 @@
 use std::borrow::Cow;
 
-use defn_head::{GenericPlaceholder, GenericPlaceholderVariant, InputParameter};
+use defn_head::{GenericParameter, GenericPlaceholderVariant, InputParameter};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
 use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResult};
@@ -239,11 +239,11 @@ impl<'a> SymbolContext<'a> {
         }
     }
 
-    pub fn generic_placeholders_from_static(
+    pub fn generic_parameters_from_static(
         &self,
-        static_generic_placeholders: &[StaticGenericPlaceholder],
-    ) -> IdentDict<GenericPlaceholder> {
-        static_generic_placeholders.map(|static_generic_placeholder| GenericPlaceholder {
+        static_generic_parameters: &[StaticGenericPlaceholder],
+    ) -> IdentDict<GenericParameter> {
+        static_generic_parameters.map(|static_generic_placeholder| GenericParameter {
             ident: self
                 .db
                 .intern_word(static_generic_placeholder.name)
@@ -252,11 +252,11 @@ impl<'a> SymbolContext<'a> {
         })
     }
 
-    pub fn generic_arguments_from_generic_placeholders(
+    pub fn generic_arguments_from_generic_parameters(
         &self,
-        generic_placeholders: &[GenericPlaceholder],
+        generic_parameters: &[GenericParameter],
     ) -> Vec<GenericArgument> {
-        generic_placeholders.map(|generic_placeholder| {
+        generic_parameters.map(|generic_placeholder| {
             GenericArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident,
@@ -267,12 +267,12 @@ impl<'a> SymbolContext<'a> {
         })
     }
 
-    pub fn symbols_from_generic_placeholders(
+    pub fn symbols_from_generic_parameters(
         &self,
-        generic_placeholders: &[GenericPlaceholder],
+        generic_parameters: &[GenericParameter],
     ) -> Vec<Symbol> {
         let mut symbols = Vec::new();
-        for generic_placeholder in generic_placeholders.iter() {
+        for generic_placeholder in generic_parameters.iter() {
             symbols.push(Symbol {
                 ident: generic_placeholder.ident,
                 kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {

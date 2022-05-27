@@ -5,7 +5,7 @@ use atom::symbol::{Symbol, SymbolKind};
 use text::{TextRange, TextRanged};
 use token::*;
 use vm::*;
-use word::RoutineKeyword;
+use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_stmt_with_keyword(
@@ -58,15 +58,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Match => {
                     enter_block(self);
                     match self.context() {
-                        AstContext::Main | AstContext::Lazy => {
-                            self.context.set(AstContext::LazyMatch)
-                        }
-                        AstContext::DatasetConfig | AstContext::Routine(RoutineKeyword::Func) => {
-                            self.context.set(AstContext::FuncMatch)
-                        }
-                        AstContext::Routine(RoutineKeyword::Proc) => {
-                            self.context.set(AstContext::ProcMatch)
-                        }
+                        AstContext::Stmt(paradigm) => self.context.set(AstContext::Match(paradigm)),
                         _ => todo!("can't put match here"),
                     }
                     self.parse_match(token_group)?
@@ -74,13 +66,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Case => {
                     enter_block(self);
                     match self.context() {
-                        AstContext::FuncMatch => {
-                            self.context.set(AstContext::Routine(RoutineKeyword::Func))
-                        }
-                        AstContext::ProcMatch => {
-                            self.context.set(AstContext::Routine(RoutineKeyword::Proc))
-                        }
-                        AstContext::LazyMatch => self.context.set(AstContext::Lazy),
+                        AstContext::Match(paradigm) => self.context.set(AstContext::Stmt(paradigm)),
                         _ => {
                             return err!(
                                 "can't put case outside a match context",
@@ -93,13 +79,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::DeFault => {
                     enter_block(self);
                     match self.context() {
-                        AstContext::FuncMatch => {
-                            self.context.set(AstContext::Routine(RoutineKeyword::Func))
-                        }
-                        AstContext::ProcMatch => {
-                            self.context.set(AstContext::Routine(RoutineKeyword::Proc))
-                        }
-                        AstContext::LazyMatch => self.context.set(AstContext::Lazy),
+                        AstContext::Match(paradigm) => self.context.set(AstContext::Stmt(paradigm)),
                         _ => {
                             return err!(
                                 "can't put case outside a match context",
@@ -142,10 +122,8 @@ impl<'a> AstTransformer<'a> {
         Ok(match self.context() {
             AstContext::Package(_) => todo!(),
             AstContext::Module(_) => todo!(),
-            AstContext::DatasetConfig
-            | AstContext::Main
-            | AstContext::Lazy
-            | AstContext::Routine(RoutineKeyword::Func)
+            AstContext::Stmt(Paradigm::LazyFunctional)
+            | AstContext::Stmt(Paradigm::EagerFunctional)
             | AstContext::Visual => {
                 if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
                     // declarative initialization
@@ -177,7 +155,7 @@ impl<'a> AstTransformer<'a> {
                     }
                 }
             }
-            AstContext::Routine(RoutineKeyword::Proc) => {
+            AstContext::Stmt(Paradigm::Procedural) => {
                 let (expr_tokens, discard) = match token_group.last().unwrap().kind {
                     TokenKind::Special(Special::Semicolon) => {
                         (&token_group[..(token_group.len() - 1)], true)
@@ -195,9 +173,7 @@ impl<'a> AstTransformer<'a> {
             AstContext::Struct(_) | AstContext::Enum(_) => panic!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
-            AstContext::FuncMatch => err!(format!("expect case stmt"), token_group.text_range())?,
-            AstContext::ProcMatch => todo!(),
-            AstContext::LazyMatch => todo!(),
+            AstContext::Match(_) => err!(format!("expect case stmt"), token_group.text_range())?,
         })
         // Ok(Stmt::Exec(expr.unwrap()).into())
     }
@@ -209,7 +185,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<RawStmtVariant> {
         match kind {
             InitKind::Let | InitKind::Var => match self.context() {
-                AstContext::Routine(RoutineKeyword::Proc) => (),
+                AstContext::Stmt(Paradigm::Procedural) => (),
                 _ => err!(
                     format!(
                         "`{}` statement requires env to be `proc` or `test`, but got `{}` instead",

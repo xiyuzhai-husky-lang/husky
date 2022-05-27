@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 // use token::{Special, Token, TokenKind};
-use word::{Keyword, TyKeyword};
+use word::{Keyword, Paradigm, TyKeyword};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TyKind {
@@ -31,9 +31,8 @@ pub enum EntityKind {
     Type(TyKind),
     Trait,
     Member(MemberKind),
-    Routine,
+    Function { is_lazy: bool },
     Feature,
-    Pattern,
     EnumLiteral,
     Main,
 }

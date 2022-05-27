@@ -19,7 +19,7 @@ pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "Dataset",
-        generic_placeholders: &[
+        generic_parameters: &[
             StaticGenericPlaceholder {
                 name: "Input",
                 variant: StaticGenericPlaceholderVariant::Type { traits: &[] },

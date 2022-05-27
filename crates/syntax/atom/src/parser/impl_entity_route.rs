@@ -191,10 +191,9 @@ impl<'a> AtomParser<'a> {
                 | EntityKind::EnumLiteral
                 | EntityKind::Feature
                 | EntityKind::Member(_) => Ok(Vec::new()),
-                EntityKind::Type(_)
-                | EntityKind::Trait
-                | EntityKind::Routine
-                | EntityKind::Pattern => self.angled_generics(),
+                EntityKind::Type(_) | EntityKind::Trait | EntityKind::Function { .. } => {
+                    self.angled_generics()
+                }
                 EntityKind::Main => panic!(),
             },
         }

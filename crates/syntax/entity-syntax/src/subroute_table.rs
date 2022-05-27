@@ -20,12 +20,17 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
     match keyword {
         Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) => None,
         Keyword::Mod => Some(EntityKind::Module),
-        Keyword::Routine(_) => Some(EntityKind::Routine),
-        Keyword::Type(keyword) => Some(EntityKind::Type(keyword.into())),
-        Keyword::Def => Some(match third_token.kind {
-            TokenKind::Special(Special::LCurl) => EntityKind::Pattern,
-            _ => EntityKind::Feature,
+        Keyword::Paradigm(paradigm) => Some(match third_token.kind {
+            TokenKind::Special(Special::LPar) => EntityKind::Function {
+                is_lazy: paradigm.is_lazy(),
+            },
+            TokenKind::Special(Special::LightArrow) => EntityKind::Feature,
+            _ => {
+                p!(third_token);
+                todo!()
+            }
         }),
+        Keyword::Type(keyword) => Some(EntityKind::Type(keyword.into())),
         Keyword::Main => Some(EntityKind::Main),
         Keyword::Visual => None,
     }

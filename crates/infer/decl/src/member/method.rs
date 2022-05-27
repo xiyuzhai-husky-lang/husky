@@ -17,7 +17,7 @@ pub struct MethodDecl {
     pub this_liason: InputLiason,
     pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
-    pub generic_placeholders: IdentDict<GenericPlaceholder>,
+    pub generic_parameters: IdentDict<GenericParameter>,
     pub kind: MethodKind,
 }
 
@@ -78,7 +78,7 @@ impl MethodDecl {
                 .map(|input| input.instantiate(instantiator))
                 .collect(),
             output: self.output.instantiate(instantiator),
-            generic_placeholders: Default::default(),
+            generic_parameters: Default::default(),
             kind: self.kind.instantiate(instantiator),
         })
     }
@@ -89,7 +89,7 @@ impl MethodDecl {
             this_liason: self.this_liason,
             parameters: self.parameters.map(|input| input.implement(implementor)),
             output: self.output.implement(implementor),
-            generic_placeholders: self.generic_placeholders.clone(),
+            generic_parameters: self.generic_parameters.clone(),
             kind: self.kind,
         })
     }
@@ -105,7 +105,7 @@ impl MethodDecl {
                 input_parameters: inputs,
                 output_ty,
                 output_liason,
-                generic_parameters: generic_placeholders,
+                generic_parameters: generic_parameters,
                 ref kind,
             } => {
                 let output_ty = parse_route(symbol_context, &db.tokenize(output_ty)).unwrap();
@@ -118,8 +118,8 @@ impl MethodDecl {
                         liason: output_liason,
                         ty: output_ty,
                     },
-                    generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
-                        GenericPlaceholder::from_static(db.upcast(), static_generic_placeholder)
+                    generic_parameters: generic_parameters.map(|static_generic_placeholder| {
+                        GenericParameter::from_static(db.upcast(), static_generic_placeholder)
                     }),
                     kind: MethodKind::from_static(db, kind, symbol_context),
                 })
@@ -128,18 +128,18 @@ impl MethodDecl {
         }
     }
 
-    pub fn from_ast(method_defn_head: &TypeMethodDefnHead, kind: MethodKind) -> Arc<Self> {
+    pub fn from_ast(method_defn_head: &CallableDefnHead, kind: MethodKind) -> Arc<Self> {
         Arc::new(MethodDecl {
             ident: method_defn_head.ident.ident,
             parameters: method_defn_head
-                .input_placeholders
+                .parameters
                 .map(|input_placeholder| input_placeholder.into()),
             output: OutputDecl {
                 liason: method_defn_head.output_liason,
                 ty: method_defn_head.output_ty.route,
             },
-            this_liason: method_defn_head.this_contract,
-            generic_placeholders: method_defn_head.generic_placeholders.clone(),
+            this_liason: method_defn_head.opt_this_contract.unwrap(),
+            generic_parameters: method_defn_head.generic_parameters.clone(),
             kind,
         })
     }

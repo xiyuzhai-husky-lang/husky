@@ -5,7 +5,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "i32",
-        generic_placeholders: &[],
+        generic_parameters: &[],
         static_trait_impls: &[],
         type_members: &[&I32_MIN, &I32_MAX, &I32_SGN, &I32_ABS],
         variants: &[],

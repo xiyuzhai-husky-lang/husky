@@ -6,12 +6,12 @@ use vec_map::HasKey;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct GenericPlaceholder {
+pub struct GenericParameter {
     pub ident: CustomIdentifier,
     pub variant: GenericPlaceholderVariant,
 }
 
-impl HasKey<CustomIdentifier> for GenericPlaceholder {
+impl HasKey<CustomIdentifier> for GenericParameter {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }
@@ -23,13 +23,13 @@ pub enum GenericPlaceholderVariant {
     Type { traits: Vec<RangedEntityRoute> },
 }
 
-impl GenericPlaceholder {
+impl GenericParameter {
     pub fn from_static(db: &dyn EntityRouteQueryGroup, _: &StaticGenericPlaceholder) -> Self {
         todo!()
     }
 }
 
-impl GenericPlaceholder {
+impl GenericParameter {
     pub fn entity_kind(&self) -> EntityKind {
         match self.variant {
             GenericPlaceholderVariant::Const => todo!(),

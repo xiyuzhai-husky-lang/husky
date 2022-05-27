@@ -64,10 +64,10 @@ impl<'a> ContractSheetBuilder<'a> {
                             children,
                             &arena,
                         ),
-                        AstKind::RoutineDefnHead(ref head) => {
+                        AstKind::CallFormDefnHead(ref head) => {
                             self.infer_routine(Some(head.output_ty.route), children, &arena)
                         }
-                        AstKind::TypeAssociatedRoutineDefnHead(ref head) => {
+                        AstKind::CallFormDefnHead(ref head) => {
                             self.infer_routine(Some(head.output_ty.route), children, &arena)
                         }
                         AstKind::Visual => self.infer_routine(None, children, &arena),
@@ -81,7 +81,7 @@ impl<'a> ContractSheetBuilder<'a> {
                             }
                         },
                         AstKind::Stmt(_) => todo!(),
-                        AstKind::TypeMethodDefnHead(ref head) => {
+                        AstKind::CallFormDefnHead(ref head) => {
                             self.infer_routine(Some(head.output_ty.route), children, &arena)
                         }
                         AstKind::FeatureDecl { ty, .. } => self.infer_morphism(children, &arena),

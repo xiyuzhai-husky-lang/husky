@@ -27,14 +27,13 @@ fn entity_instruction_sheet(
     match entity_defn.variant {
         EntityDefnVariant::Module { .. } => todo!(),
         EntityDefnVariant::Feature { .. } => todo!(),
-        EntityDefnVariant::Pattern { .. } => todo!(),
         EntityDefnVariant::Func {
-            ref input_placeholders,
+            ref parameters,
             ref stmts,
             ..
         } => Some(new_func_instruction_sheet(
             db,
-            input_placeholders
+            parameters
                 .iter()
                 .map(|input_placeholder| input_placeholder.ranged_ident.ident),
             stmts,
@@ -100,12 +99,6 @@ fn method_opt_instruction_sheet(
     let ty = member_route.parent();
     let entity_defn = db.entity_defn(ty).unwrap();
     match entity_defn.variant {
-        EntityDefnVariant::Main(_) => todo!(),
-        EntityDefnVariant::Module { .. } => todo!(),
-        EntityDefnVariant::Feature { .. } => todo!(),
-        EntityDefnVariant::Pattern {} => todo!(),
-        EntityDefnVariant::Func { .. } => todo!(),
-        EntityDefnVariant::Proc { .. } => todo!(),
         EntityDefnVariant::Type {
             ty_members: ref type_members,
             ref variants,
@@ -118,10 +111,10 @@ fn method_opt_instruction_sheet(
             match method_defn.variant {
                 EntityDefnVariant::Method {
                     ref method_variant,
-                    parameters: ref input_placeholders,
+                    parameters: ref parameters,
                     ..
                 } => {
-                    let inputs = input_placeholders
+                    let inputs = parameters
                         .iter()
                         .map(|input_placeholder| input_placeholder.ranged_ident.ident);
                     let source = match method_variant {
@@ -144,13 +137,7 @@ fn method_opt_instruction_sheet(
                 _ => panic!(),
             }
         }
-        EntityDefnVariant::Builtin => todo!(),
-        EntityDefnVariant::EnumVariant { .. } => todo!(),
-        EntityDefnVariant::TypeField { .. } => todo!(),
-        EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
-        EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
-        EntityDefnVariant::Method { .. } => todo!(),
-        EntityDefnVariant::Trait { .. } => todo!(),
+        _ => todo!(),
     }
 }
 

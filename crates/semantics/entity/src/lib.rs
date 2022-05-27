@@ -1,8 +1,8 @@
 mod dependence;
+mod function;
 mod module;
 mod morphism;
 mod query;
-mod routine;
 mod subentities;
 mod trai;
 mod ty;
@@ -12,12 +12,12 @@ use atom::{
     SymbolContext,
 };
 use entity_syntax::EntityLocus;
+pub use function::*;
 use map_collect::MapCollect;
 use module::module_defn;
 pub use morphism::*;
 use print_utils::{msg_once, p};
 pub use query::*;
-pub use routine::*;
 pub use trai::*;
 pub use ty::*;
 
@@ -146,21 +146,20 @@ pub enum EntityDefnVariant {
         ty: RangedEntityRoute,
         lazy_stmts: Arc<Vec<Arc<LazyStmt>>>,
     },
-    Pattern {},
     Func {
-        generic_placeholders: IdentDict<GenericPlaceholder>,
-        input_placeholders: Arc<Vec<InputParameter>>,
+        generic_parameters: IdentDict<GenericParameter>,
+        parameters: Arc<Vec<InputParameter>>,
         output: RangedEntityRoute,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     Proc {
-        generic_placeholders: IdentDict<GenericPlaceholder>,
+        generic_parameters: IdentDict<GenericParameter>,
         parameters: Arc<Vec<InputParameter>>,
         output: RangedEntityRoute,
         stmts: Avec<ProcStmt>,
     },
     Type {
-        generic_placeholders: IdentDict<GenericPlaceholder>,
+        generic_parameters: IdentDict<GenericParameter>,
         ty_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
@@ -170,7 +169,7 @@ pub enum EntityDefnVariant {
         opt_visualizer_source: Option<VisualizerSource>,
     },
     Trait {
-        generic_placeholders: IdentDict<GenericPlaceholder>,
+        generic_parameters: IdentDict<GenericParameter>,
         members: IdentDict<Arc<EntityDefn>>,
     },
     EnumVariant {
@@ -184,7 +183,7 @@ pub enum EntityDefnVariant {
         contract: FieldLiason,
     },
     Method {
-        generic_placeholders: IdentDict<GenericPlaceholder>,
+        generic_parameters: IdentDict<GenericParameter>,
         this_contract: InputLiason,
         parameters: Arc<Vec<InputParameter>>,
         output_ty: RangedEntityRoute,
@@ -209,7 +208,7 @@ impl EntityDefnVariant {
             }
             EntityStaticDefnVariant::Trait {
                 base_route,
-                generic_placeholders,
+                generic_parameters,
                 members,
             } => {
                 let mut symbol_context = SymbolContext {
@@ -221,10 +220,10 @@ impl EntityDefnVariant {
                     kind: SymbolContextKind::Normal,
                 };
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
-                let generic_placeholders =
-                    symbol_context.generic_placeholders_from_static(generic_placeholders);
-                let generic_arguments = symbol_context
-                    .generic_arguments_from_generic_placeholders(&generic_placeholders);
+                let generic_parameters =
+                    symbol_context.generic_parameters_from_static(generic_parameters);
+                let generic_arguments =
+                    symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_trai = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
                     generic_arguments,
@@ -249,7 +248,7 @@ impl EntityDefnVariant {
                     member_kinds: &member_kinds,
                 };
                 EntityDefnVariant::Trait {
-                    generic_placeholders,
+                    generic_parameters,
                     members: members.map(|member| {
                         EntityDefn::from_static(
                             &symbol_context,
@@ -266,17 +265,17 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_parameters: input_placeholders,
+                input_parameters: parameters,
                 output_ty,
                 output_liason,
-                generic_parameters: generic_placeholders,
+                generic_parameters: generic_parameters,
                 ref kind,
             } => EntityDefnVariant::Method {
-                generic_placeholders: generic_placeholders.map(|static_generic_placeholder| {
-                    GenericPlaceholder::from_static(symbol_context.db, static_generic_placeholder)
+                generic_parameters: generic_parameters.map(|static_generic_placeholder| {
+                    GenericParameter::from_static(symbol_context.db, static_generic_placeholder)
                 }),
                 this_contract,
-                parameters: Arc::new(input_placeholders.map(|input_placeholder| {
+                parameters: Arc::new(parameters.map(|input_placeholder| {
                     symbol_context.input_placeholder_from_static(input_placeholder)
                 })),
                 output_ty: RangedEntityRoute {
@@ -359,7 +358,7 @@ pub(crate) fn entity_defn(
                 AstKind::TypeDefnHead {
                     ident,
                     kind,
-                    generic_placeholders: ref generics,
+                    generic_parameters: ref generics,
                 } => {
                     let signature = derived_unwrap!(db.ty_decl(entity_route));
                     (
@@ -374,26 +373,20 @@ pub(crate) fn entity_defn(
                         )?,
                     )
                 }
-                AstKind::RoutineDefnHead(ref head) => (
-                    head.ident,
-                    EntityDefnVariant::routine(
-                        db.upcast(),
-                        head,
-                        not_none!(opt_children),
-                        arena,
-                        file,
-                    )?,
-                ),
-                AstKind::TypeAssociatedRoutineDefnHead(ref head) => (
-                    head.ident,
-                    EntityDefnVariant::routine(
-                        db.upcast(),
-                        head,
-                        not_none!(opt_children),
-                        arena,
-                        file,
-                    )?,
-                ),
+                AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                    Some(_) => return Ok(db.member_defn(entity_route)),
+                    None => (
+                        head.ident,
+                        EntityDefnVariant::function(
+                            db.upcast(),
+                            head,
+                            not_none!(opt_children),
+                            arena,
+                            file,
+                        )?,
+                    ),
+                },
+                AstKind::FieldDefnHead { .. } => return Ok(db.member_defn(entity_route)),
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::MainDefn | AstKind::DatasetConfigDefnHead | AstKind::Stmt(_) => panic!(),
@@ -404,9 +397,6 @@ pub(crate) fn entity_defn(
                     ident,
                     EntityDefnVariant::enum_variant(db, ident, variant_class, opt_children),
                 ),
-                AstKind::FieldDefnHead { .. } | AstKind::TypeMethodDefnHead(_) => {
-                    return Ok(db.member_defn(entity_route))
-                }
                 AstKind::FeatureDecl { ident, ty } => (
                     ident,
                     EntityDefnVariant::feature(db, ty, not_none!(opt_children), arena, file)?,
@@ -445,17 +435,6 @@ pub(crate) fn entity_defn(
                         .entity_defn(EntityRoutePtr::Root(RootIdentifier::CloneTrait))
                         .unwrap();
                     Ok(clone_trait_defn.trait_member_defn(ident).unwrap().clone())
-                    // match ident.as_str() {
-                    //     "clone" => Ok(Arc::new(EntityDefn {
-                    //         ident: todo!(),
-                    //         variant: todo!(),
-                    //         subentities: todo!(),
-                    //         base_route: todo!(),
-                    //         file: todo!(),
-                    //         range: todo!(),
-                    //     })),
-                    //     _ => todo!(),
-                    // }
                 }
                 _ => {
                     let ty_defn = db.entity_defn(ty)?;

@@ -6,7 +6,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Type {
         base_route: "Vec",
-        generic_placeholders: &[StaticGenericPlaceholder {
+        generic_parameters: &[StaticGenericPlaceholder {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
@@ -81,8 +81,8 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {
-        generic_placeholders: &[],
-        input_placeholders: vec![],
+        generic_parameters: &[],
+        parameters: vec![],
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
         linkage: Linkage {

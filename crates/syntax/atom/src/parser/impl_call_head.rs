@@ -1,35 +1,31 @@
 use std::sync::Arc;
 
 use crate::*;
-use defn_head::{
-    GenericPlaceholder, GenericPlaceholderVariant, InputParameter, RoutineDefnHead,
-    TypeMethodDefnHead,
-};
+use defn_head::{CallableDefnHead, GenericParameter, GenericPlaceholderVariant, InputParameter};
 use entity_route::*;
 use token::SemanticTokenKind;
 use vm::{InputLiason, OutputLiason};
-use word::{IdentDict, RoutineKeyword};
+use word::{IdentDict, Paradigm};
 
 use super::*;
 
 // inner ops
 impl<'a> AtomParser<'a> {
-    pub fn routine_defn_head(
-        mut self,
-        routine_keyword: RoutineKeyword,
-    ) -> AtomResult<RoutineDefnHead> {
+    pub fn routine_defn_head(mut self, paradigm: Paradigm) -> AtomResult<CallableDefnHead> {
         let routine_ident = get!(self, custom_ident);
         self.push_abs_semantic_token(AbsSemanticToken::new(
-            SemanticTokenKind::Entity(EntityKind::Routine),
+            SemanticTokenKind::Entity(EntityKind::Function {
+                is_lazy: paradigm.is_lazy(),
+            }),
             routine_ident.range,
         ));
-        let generic_placeholders = self.parameters()?;
-        let input_placeholders = self.call_input_placeholders()?;
+        let generic_parameters = self.parameters()?;
+        let parameters = self.call_parameters()?;
         let output_ty = self.func_output_type()?;
-        match routine_keyword {
-            RoutineKeyword::Proc => (),
-            RoutineKeyword::Func => {
-                for input_placeholder in input_placeholders.iter() {
+        match paradigm {
+            Paradigm::Procedural => (),
+            Paradigm::EagerFunctional => {
+                for input_placeholder in parameters.iter() {
                     match input_placeholder.contract {
                         InputLiason::Pure | InputLiason::GlobalRef | InputLiason::Move => (),
                         InputLiason::BorrowMut | InputLiason::MoveMut => {
@@ -39,45 +35,49 @@ impl<'a> AtomParser<'a> {
                     }
                 }
             }
+            Paradigm::LazyFunctional => todo!(),
         }
-        Ok(RoutineDefnHead {
+        Ok(CallableDefnHead {
             ident: routine_ident,
-            routine_kind: routine_keyword,
-            generic_placeholders,
-            parameters: input_placeholders,
+            paradigm,
+            generic_parameters: generic_parameters,
+            parameters: parameters,
             output_ty,
             output_liason: OutputLiason::Transfer,
+            opt_this_contract: None,
         })
     }
 
-    pub fn method_decl(
+    pub fn method_defn_head(
         mut self,
         this: InputLiason,
-        routine_kind: RoutineKeyword,
-    ) -> AtomResult<TypeMethodDefnHead> {
+        paradigm: Paradigm,
+    ) -> AtomResult<CallableDefnHead> {
         let routine_ident = get!(self, custom_ident);
         self.push_abs_semantic_token(AbsSemanticToken::new(
-            SemanticTokenKind::Entity(EntityKind::Routine),
+            SemanticTokenKind::Entity(EntityKind::Function {
+                is_lazy: paradigm.is_lazy(),
+            }),
             routine_ident.range,
         ));
         let generics = self.parameters()?;
-        let input_placeholders = self.call_input_placeholders()?;
+        let parameters = self.call_parameters()?;
         let output_ty = self.func_output_type()?;
-        Ok(TypeMethodDefnHead {
-            this_contract: this,
-            routine_kind,
+        Ok(CallableDefnHead {
+            opt_this_contract: Some(this),
+            paradigm,
             ident: routine_ident,
-            generic_placeholders: generics,
-            input_placeholders,
+            generic_parameters: generics,
+            parameters,
             output_ty,
             output_liason: OutputLiason::Transfer,
         })
     }
 
-    fn parameters(&mut self) -> AtomResult<IdentDict<GenericPlaceholder>> {
+    fn parameters(&mut self) -> AtomResult<IdentDict<GenericParameter>> {
         if next_matches!(self, "<") {
             match IdentDict::from_vec(comma_list![self, parameter!+, ">"]) {
-                Ok(generic_placeholders) => Ok(generic_placeholders),
+                Ok(generic_parameters) => Ok(generic_parameters),
                 Err(repeat) => todo!(),
             }
         } else {
@@ -85,7 +85,7 @@ impl<'a> AtomParser<'a> {
         }
     }
 
-    fn parameter(&mut self) -> AtomResult<GenericPlaceholder> {
+    fn parameter(&mut self) -> AtomResult<GenericParameter> {
         let ranged_ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if next_matches!(self, ":") {
@@ -101,13 +101,13 @@ impl<'a> AtomParser<'a> {
             SemanticTokenKind::GenericPlaceholder,
             ranged_ident.range,
         ));
-        Ok(GenericPlaceholder {
+        Ok(GenericParameter {
             ident: ranged_ident.ident,
             variant: GenericPlaceholderVariant::Type { traits },
         })
     }
 
-    fn call_input_placeholders(&mut self) -> AtomResultArc<Vec<InputParameter>> {
+    fn call_parameters(&mut self) -> AtomResultArc<Vec<InputParameter>> {
         no_look_pass!(self, "(");
         Ok(Arc::new(comma_list!(self, call_input_placeholder!, ")")))
     }

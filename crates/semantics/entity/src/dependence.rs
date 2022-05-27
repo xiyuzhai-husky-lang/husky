@@ -99,23 +99,22 @@ impl EntityDefn {
                 builder.push(ty.route);
                 extract_lazy_stmts_dependees(lazy_stmts, &mut builder);
             }
-            EntityDefnVariant::Pattern { .. } => todo!(),
             EntityDefnVariant::Func {
-                ref input_placeholders,
+                ref parameters,
                 output,
                 ref stmts,
                 ..
             } => {
-                extract_call_head_dependees(input_placeholders, output, &mut builder);
+                extract_call_head_dependees(parameters, output, &mut builder);
                 extract_func_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Proc {
-                parameters: ref input_placeholders,
+                parameters: ref parameters,
                 output,
                 ref stmts,
                 ..
             } => {
-                extract_call_head_dependees(input_placeholders, output, &mut builder);
+                extract_call_head_dependees(parameters, output, &mut builder);
                 extract_proc_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Type {
@@ -154,12 +153,12 @@ impl EntityDefn {
                 }
             }
             EntityDefnVariant::Method {
-                parameters: ref input_placeholders,
+                parameters: ref parameters,
                 output_ty,
                 ref method_variant,
                 ..
             } => {
-                extract_call_head_dependees(input_placeholders, output_ty, &mut builder);
+                extract_call_head_dependees(parameters, output_ty, &mut builder);
                 let opt_source = match method_variant {
                     MethodDefnVariant::TypeMethod { ty, method_source } => {
                         builder.push(*ty);
@@ -197,7 +196,7 @@ impl EntityDefn {
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             EntityDefnVariant::Trait {
-                ref generic_placeholders,
+                ref generic_parameters,
                 ref members,
             } => todo!(),
         };
@@ -411,7 +410,6 @@ impl EntityDefn {
                 EntityDefnVariant::Main(_) => todo!(),
                 EntityDefnVariant::Module { .. } => panic!("shouldn't be here"),
                 EntityDefnVariant::Feature { ty, ref lazy_stmts } => todo!(),
-                EntityDefnVariant::Pattern {} => todo!(),
                 EntityDefnVariant::Func { .. } => todo!(),
                 EntityDefnVariant::Proc { .. } => todo!(),
                 EntityDefnVariant::Type { .. } => todo!(),
@@ -426,7 +424,7 @@ impl EntityDefn {
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
                 EntityDefnVariant::Method { .. } => todo!(),
                 EntityDefnVariant::Trait {
-                    ref generic_placeholders,
+                    ref generic_parameters,
                     ref members,
                 } => todo!(),
             }
@@ -434,7 +432,7 @@ impl EntityDefn {
 
         fn extract_method_dependees(method_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
             todo!()
-            // for input_placeholder in method_defn.input_placeholders.iter() {
+            // for input_placeholder in method_defn.parameters.iter() {
             //     builder.push(input_placeholder.ranged_ty.route)
             // }
             // builder.push(method_defn.output.route);

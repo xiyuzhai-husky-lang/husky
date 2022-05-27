@@ -7,27 +7,18 @@ use std::sync::Arc;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use text::RangedCustomIdentifier;
 use vm::{FieldLiason, InputLiason, OutputLiason};
-use word::{CustomIdentifier, IdentDict, RoutineKeyword};
+use word::{CustomIdentifier, IdentDict, Paradigm};
 
+// function or method
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct RoutineDefnHead {
+pub struct CallableDefnHead {
     pub ident: RangedCustomIdentifier,
-    pub routine_kind: RoutineKeyword,
-    pub generic_placeholders: IdentDict<GenericPlaceholder>,
+    pub paradigm: Paradigm,
+    pub generic_parameters: IdentDict<GenericParameter>,
     pub parameters: Arc<Vec<InputParameter>>,
     pub output_ty: RangedEntityRoute,
     pub output_liason: OutputLiason,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct TypeMethodDefnHead {
-    pub ident: RangedCustomIdentifier,
-    pub routine_kind: RoutineKeyword,
-    pub this_contract: InputLiason,
-    pub generic_placeholders: IdentDict<GenericPlaceholder>,
-    pub input_placeholders: Arc<Vec<InputParameter>>,
-    pub output_ty: RangedEntityRoute,
-    pub output_liason: OutputLiason,
+    pub opt_this_contract: Option<InputLiason>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

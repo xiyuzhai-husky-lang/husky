@@ -5,7 +5,7 @@ use word::IdentDict;
 pub(crate) fn struct_decl(
     db: &dyn DeclQueryGroup,
     this_ty: EntityRoutePtr,
-    generic_placeholders: IdentDict<GenericPlaceholder>,
+    generic_parameters: IdentDict<GenericPlaceholder>,
     mut children: AstIter,
 ) -> InferResultArc<TyDecl> {
     let mut type_members = VecMap::default();
@@ -38,7 +38,7 @@ pub(crate) fn struct_decl(
     Ok(Arc::new(TyDecl::new(
         db,
         this_ty,
-        generic_placeholders,
+        generic_parameters,
         type_members,
         Default::default(),
         TyKind::Struct,

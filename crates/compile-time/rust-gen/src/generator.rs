@@ -31,29 +31,19 @@ impl<'a> RustGenerator<'a> {
             match entity.variant {
                 EntityDefnVariant::Main(_) => todo!(),
                 EntityDefnVariant::Module { .. } => todo!(),
-                EntityDefnVariant::Feature { .. } | EntityDefnVariant::Pattern {} => (),
+                EntityDefnVariant::Feature { .. } => (),
                 EntityDefnVariant::Func {
-                    ref input_placeholders,
+                    ref parameters,
                     output,
                     ref stmts,
                     ..
-                } => self.gen_func_defn(
-                    entity.ident.custom(),
-                    input_placeholders,
-                    output.route,
-                    stmts,
-                ),
+                } => self.gen_func_defn(entity.ident.custom(), parameters, output.route, stmts),
                 EntityDefnVariant::Proc {
-                    parameters: ref input_placeholders,
+                    parameters: ref parameters,
                     output,
                     ref stmts,
                     ..
-                } => self.gen_proc_defn(
-                    entity.ident.custom(),
-                    input_placeholders,
-                    output.route,
-                    stmts,
-                ),
+                } => self.gen_proc_defn(entity.ident.custom(), parameters, output.route, stmts),
                 EntityDefnVariant::Type {
                     ref ty_members,
                     ref variants,

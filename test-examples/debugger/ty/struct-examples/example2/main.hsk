@@ -1,8 +1,19 @@
 dataset:
     synthetic::trivial::real1d::dataset1()
     
-struct A:
+struct A: 
+    // original eager field
     x: i32
+
+    // optional eager field
+    y ?= x + 1
+
+    // derived eager field
+    z = x - 2
+
+    // lazy field
+    func w -> i32:
+        x + 1
 
     func get_x() -> i32:
         this.x
@@ -33,6 +44,7 @@ func g1() -> i32:
 main:
     a = f1()
     assert a.x == 1
+    assert a.y == 2
     assert a.get_x() == 1
     assert a.get_x_plus_constant() == 3
     assert a.get_x_squared() == 1

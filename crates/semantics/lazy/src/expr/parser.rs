@@ -52,11 +52,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 },
                 EntityKind::Type(_) => todo!(),
                 EntityKind::Trait => todo!(),
-                EntityKind::Routine => todo!(),
+                EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => LazyExprVariant::EntityFeature {
                     route: entity_route,
                 },
-                EntityKind::Pattern => todo!(),
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },
@@ -289,12 +288,17 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                         TyKind::Array => todo!(),
                     },
                     EntityKind::Trait => todo!(),
-                    EntityKind::Routine => LazyOpnKind::NormalRoutineCall(RangedEntityRoute {
-                        route,
-                        range: call.range(),
-                    }),
+                    EntityKind::Function { is_lazy } => {
+                        if is_lazy {
+                            todo!()
+                        } else {
+                            LazyOpnKind::NormalRoutineCall(RangedEntityRoute {
+                                route,
+                                range: call.range(),
+                            })
+                        }
+                    }
                     EntityKind::Feature => todo!(),
-                    EntityKind::Pattern => todo!(),
                     EntityKind::EnumLiteral => todo!(),
                     EntityKind::Member(_) => todo!(),
                     EntityKind::Main => panic!(),

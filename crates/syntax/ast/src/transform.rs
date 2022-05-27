@@ -1,13 +1,13 @@
 mod impl_abs_semantic_token;
 mod impl_enum_item;
 mod impl_expr;
+mod impl_feature;
+mod impl_function;
 mod impl_module_item;
-mod impl_morphism_decl;
 mod impl_parse_atoms;
 mod impl_record_item;
-mod impl_routine_defn_head;
 mod impl_stmt;
-mod impl_struct_item;
+mod impl_struct;
 mod impl_symbol_context;
 mod impl_ty;
 mod impl_use;
@@ -131,29 +131,23 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 AstContext::Package(_) | AstContext::Module(_) => {
                     self.parse_module_item(token_group, enter_block)?
                 }
-                AstContext::DatasetConfig
-                | AstContext::Main
-                | AstContext::Lazy
-                | AstContext::Routine(_)
-                | AstContext::FuncMatch
-                | AstContext::ProcMatch
-                | AstContext::LazyMatch
-                | AstContext::Visual => match token_group[0].kind {
-                    TokenKind::Keyword(keyword) => match keyword {
-                        Keyword::Config(_) => todo!(),
-                        Keyword::Routine(_) => todo!(),
-                        Keyword::Type(_) => todo!(),
-                        Keyword::Stmt(keyword) => self
-                            .parse_stmt_with_keyword(keyword, token_group, enter_block)?
-                            .into(),
-                        Keyword::Def => todo!(),
-                        Keyword::Use => todo!(),
-                        Keyword::Mod => todo!(),
-                        Keyword::Main => todo!(),
-                        Keyword::Visual => todo!(),
-                    },
-                    _ => self.parse_stmt_without_keyword(token_group)?.into(),
-                },
+                AstContext::Stmt(_) | AstContext::Match(_) | AstContext::Visual => {
+                    match token_group[0].kind {
+                        TokenKind::Keyword(keyword) => match keyword {
+                            Keyword::Config(_) => todo!(),
+                            Keyword::Paradigm(_) => todo!(),
+                            Keyword::Type(_) => todo!(),
+                            Keyword::Stmt(keyword) => self
+                                .parse_stmt_with_keyword(keyword, token_group, enter_block)?
+                                .into(),
+                            Keyword::Use => todo!(),
+                            Keyword::Mod => todo!(),
+                            Keyword::Main => todo!(),
+                            Keyword::Visual => todo!(),
+                        },
+                        _ => self.parse_stmt_without_keyword(token_group)?.into(),
+                    }
+                }
                 AstContext::Struct(struct_item_context) => {
                     self.parse_struct_item(token_group, struct_item_context, enter_block)?
                 }

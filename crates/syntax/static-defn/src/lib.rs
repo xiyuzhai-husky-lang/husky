@@ -22,8 +22,8 @@ pub struct EntityStaticDefn {
 #[derive(Debug, PartialEq, Eq)]
 pub enum EntityStaticDefnVariant {
     Routine {
-        generic_placeholders: &'static [StaticGenericPlaceholder],
-        input_placeholders: Vec<StaticInputParameter>,
+        generic_parameters: &'static [StaticGenericPlaceholder],
+        parameters: Vec<StaticInputParameter>,
         output_ty: &'static str,
         output_liason: OutputLiason,
         linkage: Linkage,
@@ -31,7 +31,7 @@ pub enum EntityStaticDefnVariant {
     },
     Type {
         base_route: &'static str,
-        generic_placeholders: &'static [StaticGenericPlaceholder],
+        generic_parameters: &'static [StaticGenericPlaceholder],
         static_trait_impls: &'static [StaticTraitImplDefn],
         type_members: &'static [&'static EntityStaticDefn],
         variants: &'static [EntityStaticDefn],
@@ -41,7 +41,7 @@ pub enum EntityStaticDefnVariant {
     },
     Trait {
         base_route: &'static str,
-        generic_placeholders: &'static [StaticGenericPlaceholder],
+        generic_parameters: &'static [StaticGenericPlaceholder],
         members: &'static [EntityStaticDefn],
     },
     Module,
@@ -69,7 +69,7 @@ pub enum EntityStaticDefnVariant {
 impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
-            EntityStaticDefnVariant::Routine { .. } => EntityKind::Routine,
+            EntityStaticDefnVariant::Routine { .. } => EntityKind::Function { is_lazy: false },
             EntityStaticDefnVariant::Type { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
