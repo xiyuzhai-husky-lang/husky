@@ -7,7 +7,7 @@ use crate::{eval::FeatureEvalId, *};
 pub struct FeatureStmt {
     pub indent: fold::Indent,
     pub variant: FeatureStmtVariant,
-    pub(crate) feature: Option<FeaturePtr>,
+    pub(crate) opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,

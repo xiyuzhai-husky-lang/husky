@@ -5,17 +5,15 @@ mod object;
 mod query;
 mod record;
 mod repr;
-mod sheet;
 mod stmt;
 mod this;
 mod unique_allocate;
 
 pub use branch::{FeatureBranch, FeatureBranchVariant};
-pub use eval::{eval_feature_block, eval_feature_expr, eval_feature_stmt, FeatureEvalIndicator};
+pub use eval::*;
 pub use expr::{FeatureExpr, FeatureExprVariant};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use repr::*;
-pub use sheet::FeatureSheet;
 pub use stmt::{FeatureStmt, FeatureStmtVariant};
 pub use this::FeatureBlock;
 pub use unique_allocate::{
@@ -90,7 +88,7 @@ pub enum Feature {
 
 impl Feature {
     pub fn block(features: &FeatureUniqueAllocator, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
-        let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.feature).collect();
+        let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
         if stmt_features.len() == 1 {
             stmt_features[0]
         } else {

@@ -1,10 +1,8 @@
-use std::sync::Arc;
-
+use crate::*;
 use print_utils::{epin, p};
 use semantics_lazy::LazyStmt;
-use vm::{eval_fast, EvalResult, EvalValue, InstructionSheet, Linkage, VMValue};
-
-use crate::{FeatureBlock, FeatureExpr, FeatureExprVariant};
+use std::sync::Arc;
+use vm::*;
 
 use super::FeatureEvaluator;
 
@@ -55,7 +53,9 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 );
                 result
             }
-            FeatureExprVariant::EntityFeature { ref block, .. } => self.eval_feature_block(block),
+            FeatureExprVariant::EntityFeature { ref block, .. } => {
+                self.eval_feature_block(block, EvalKey::Feature(block.feature))
+            }
             FeatureExprVariant::NewRecord {
                 ty,
                 ref entity,
@@ -68,7 +68,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 todo!()
             }
             FeatureExprVariant::Variable { ref value, .. } => self
-                .cache(expr.feature, |evaluator: &mut Self| {
+                .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
                     evaluator.eval_feature_expr(&value)
                 }),
             FeatureExprVariant::RecordOriginalFieldAccess {
@@ -79,9 +79,12 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
             FeatureExprVariant::This { ref repr } => todo!(),
             FeatureExprVariant::GlobalInput => Ok(EvalValue::GlobalPure(self.eval_input.clone())),
             FeatureExprVariant::PatternCall {} => todo!(),
-            FeatureExprVariant::RecordDerivedFieldAccess { ref block, .. } => {
-                self.eval_feature_block(block)
-            }
+            FeatureExprVariant::RecordDerivedFieldAccess {
+                ref this,
+                field_ident,
+                ref block,
+                ..
+            } => self.eval_feature_block(block, EvalKey::Feature(block.feature)),
             FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {

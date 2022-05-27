@@ -56,7 +56,7 @@ impl FeatureBlock {
                             file: lazy_stmt.file,
                             range: lazy_stmt.range,
                             indent: lazy_stmt.indent,
-                            feature: None,
+                            opt_feature: None,
                             variant: FeatureStmtVariant::Init {
                                 varname: varname.ident,
                                 value,
@@ -79,7 +79,7 @@ impl FeatureBlock {
                             file: lazy_stmt.file,
                             range: lazy_stmt.range,
                             indent: lazy_stmt.indent,
-                            feature,
+                            opt_feature: feature,
                             variant: FeatureStmtVariant::Assert { condition },
                             eval_id: Default::default(),
                         }
@@ -91,7 +91,7 @@ impl FeatureBlock {
                             file: lazy_stmt.file,
                             range: lazy_stmt.range,
                             indent: lazy_stmt.indent,
-                            feature: Some(result.feature),
+                            opt_feature: Some(result.feature),
                             variant: FeatureStmtVariant::Return { result },
                             eval_id: Default::default(),
                         }
@@ -168,7 +168,7 @@ impl FeatureBlock {
                             file: lazy_stmt.file,
                             range: lazy_stmt.range,
                             indent: lazy_stmt.indent,
-                            feature,
+                            opt_feature: feature,
                             variant: FeatureStmtVariant::ConditionFlow { branches },
                             eval_id: Default::default(),
                         }
@@ -194,6 +194,9 @@ impl FeatureBlock {
     }
 
     pub(crate) fn stmt_features(&self) -> Vec<FeaturePtr> {
-        self.stmts.iter().filter_map(|stmt| stmt.feature).collect()
+        self.stmts
+            .iter()
+            .filter_map(|stmt| stmt.opt_feature)
+            .collect()
     }
 }

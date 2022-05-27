@@ -5,24 +5,37 @@ use vm::{EvalResult, EvalValue};
 use super::*;
 
 #[derive(Default, Debug)]
-pub struct FeatureSheet<'eval> {
-    values: HashMap<FeaturePtr, EvalResult<'eval>>,
+pub struct EvalSheet<'eval> {
+    values: HashMap<EvalKey<'eval>, EvalResult<'eval>>,
 }
 
-impl<'eval> FeatureSheet<'eval> {
-    pub(crate) fn cached_value(&self, feature: FeaturePtr) -> Option<EvalResult<'eval>> {
+#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+pub enum EvalKey<'eval> {
+    Feature(FeaturePtr),
+    StructDerivedField {
+        parent: *const dyn AnyValueDyn<'eval>,
+        field_ident: CustomIdentifier,
+    },
+}
+
+unsafe impl<'eval> Send for EvalKey<'eval> {}
+
+unsafe impl<'eval> Sync for EvalKey<'eval> {}
+
+impl<'eval> EvalSheet<'eval> {
+    pub(crate) fn cached_value(&self, eval_key: EvalKey<'eval>) -> Option<EvalResult<'eval>> {
         self.values
-            .get(&feature)
+            .get(&eval_key)
             .map(|v| unsafe { share_cached(v) })
     }
 
     pub(crate) fn cache(
         &mut self,
-        feature: FeaturePtr,
+        eval_key: EvalKey<'eval>,
         value: EvalResult<'eval>,
     ) -> EvalResult<'eval> {
         let result = unsafe { share_cached(&value) };
-        assert!(self.values.insert(feature, value).is_none());
+        assert!(self.values.insert(eval_key, value).is_none());
         result
     }
 
@@ -77,5 +90,5 @@ unsafe fn share_cached<'eval>(cached: &EvalResult<'eval>) -> EvalResult<'eval> {
 }
 
 pub trait HasFeatureSheet<'cache> {
-    fn feature_sheet(&self, idx: usize) -> &FeatureSheet<'cache>;
+    fn feature_sheet(&self, idx: usize) -> &EvalSheet<'cache>;
 }
