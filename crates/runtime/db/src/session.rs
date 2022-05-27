@@ -17,7 +17,7 @@ use std::{
 use datasets::{Dataset, DatasetDyn};
 
 use division::Division;
-use feature::{Feature, FeaturePtr, FeatureSheet};
+use feature::{EvalSheet, Feature, FeaturePtr};
 
 #[derive(Debug)]
 pub struct Session<'eval> {

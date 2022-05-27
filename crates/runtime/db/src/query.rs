@@ -16,11 +16,16 @@ pub trait EvalFeature {
     fn feature_query_group(&self) -> &dyn FeatureQueryGroup;
     fn session(&self) -> &Arc<Mutex<Session<'static>>>;
 
-    fn eval_feature_block(&self, block: &FeatureBlock, input_id: usize) -> EvalResult<'static> {
+    fn eval_feature_block(
+        &self,
+        block: &FeatureBlock,
+        input_id: usize,
+        eval_key: EvalKey<'static>,
+    ) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_feature_block(self.feature_query_group(), block, input, sheet)
+        eval_feature_block(self.feature_query_group(), block, input, sheet, eval_key)
     }
 
     fn eval_feature_stmt(&self, stmt: &FeatureStmt, input_id: usize) -> EvalResult<'static> {
@@ -283,7 +288,8 @@ pub fn trace_stalk(
         TraceVariant::Main(ref block) => TraceStalk {
             extra_tokens: vec![
                 trace::fade!(" = "),
-                this.eval_feature_block(block, input_id).into(),
+                this.eval_feature_block(block, input_id, EvalKey::Feature(block.feature))
+                    .into(),
             ],
         },
         TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {

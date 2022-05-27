@@ -8,7 +8,7 @@ use crate::*;
 #[derive(Debug)]
 pub struct Division<'eval> {
     pub loader: DataLoader<'eval>,
-    pub sheets: Vec<FeatureSheet<'eval>>,
+    pub sheets: Vec<EvalSheet<'eval>>,
     pub indicators: Vec<FeatureEvalIndicator>,
 }
 
@@ -18,7 +18,7 @@ impl<'eval> Division<'eval> {
         let mut indicators = vec![];
         sheets.reserve(loader.len());
         (0..loader.len()).for_each(|_| {
-            sheets.push(FeatureSheet::default());
+            sheets.push(EvalSheet::default());
             indicators.push(Default::default())
         });
         Self {
