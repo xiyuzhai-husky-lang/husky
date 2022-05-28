@@ -39,7 +39,7 @@ impl AstContext {
 impl From<Paradigm> for AstContext {
     fn from(paradigm: Paradigm) -> Self {
         match paradigm {
-            Paradigm::Procedural => AstContext::Stmt(Paradigm::Procedural),
+            Paradigm::EagerProcedural => AstContext::Stmt(Paradigm::EagerProcedural),
             Paradigm::EagerFunctional => AstContext::Stmt(Paradigm::EagerFunctional),
             Paradigm::LazyFunctional => todo!(),
         }
@@ -53,7 +53,7 @@ impl std::fmt::Display for AstContext {
             AstContext::Module(_) => "module",
             AstContext::Stmt(Paradigm::LazyFunctional) => "def",
             AstContext::Stmt(Paradigm::EagerFunctional) => "func",
-            AstContext::Stmt(Paradigm::Procedural) => "proc",
+            AstContext::Stmt(Paradigm::EagerProcedural) => "proc",
             AstContext::Visual => "visual",
             AstContext::Struct(_) => "struct",
             AstContext::Enum(_) => "enum",

@@ -2,30 +2,31 @@ use vm::Bracket;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum Special {
-    LAngle,
-    Leq,
-    RAngle,
-    Geq,
-    Neq,
-    Eq,
-    Shl,
-    Shr,
-    LCurl,
-    RCurl,
-    LBox,
-    RBox,
-    LPar,
-    RPar,
-    Add,
-    SubOrMinus,
-    Star, // *
-    Div,
-    Power,
-    And,
-    DoubleVertical,
-    BitNot,
-    Modulo,
-    MemberAccess,
+    LAngle,            // <
+    Leq,               // <=
+    RAngle,            // >
+    Geq,               // >=
+    Neq,               // !=
+    MaybeEq,           // ?=
+    Eq,                // ==
+    Shl,               // <<
+    Shr,               //>>
+    LCurl,             // {
+    RCurl,             // }
+    LBox,              // [
+    RBox,              //]
+    LPar,              // (
+    RPar,              //)
+    Add,               // +
+    SubOrMinus,        // -
+    Star,              // *
+    Div,               // /
+    Power,             // **
+    And,               // &&
+    DoubleVertical,    // ||
+    BitNot,            // ~
+    Modulo,            // %
+    MemberAccess,      // .
     LightArrow,        // ->
     HeavyArrow,        // =>
     DoubleColon,       // ::
@@ -56,6 +57,7 @@ impl Special {
             Special::RAngle => ">",
             Special::Geq => ">=",
             Special::Neq => "!=",
+            Special::MaybeEq => "?=",
             Special::Eq => "==",
             Special::Shl => "<<",
             Special::Shr => ">>",

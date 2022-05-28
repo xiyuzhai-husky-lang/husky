@@ -49,7 +49,10 @@ pub enum AstKind {
         ident: RangedCustomIdentifier,
         ty: RangedEntityRoute,
     },
-    FieldDefnHead(FieldDefnHead),
+    FieldDefnHead {
+        head: FieldDefnHead,
+        opt_expr: Option<RawExprIdx>,
+    },
     DatasetConfigDefnHead,
     Stmt(RawStmt),
     EnumVariantDefnHead {

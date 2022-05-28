@@ -13,7 +13,7 @@ impl EntityDefnVariant {
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
         Ok(match routine_defn_head.paradigm {
-            Paradigm::Procedural => {
+            Paradigm::EagerProcedural => {
                 let stmts =
                     parse_impr_stmts(&routine_defn_head.parameters, db, arena, children, file)?;
                 EntityDefnVariant::Proc {

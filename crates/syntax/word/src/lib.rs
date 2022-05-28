@@ -7,7 +7,7 @@ mod style;
 pub use decorator::*;
 pub use ident::*;
 pub use intern::{new_word_interner, InternWord, WordAllocator};
-pub use keyword::{ConfigKeyword, Keyword, Paradigm, StmtKeyword, TyKeyword};
+pub use keyword::*;
 pub use opr::*;
 pub use style::*;
 pub type IdentDict<T> = VecMap<CustomIdentifier, T>;

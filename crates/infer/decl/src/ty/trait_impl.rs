@@ -1,6 +1,6 @@
 use atom::{
-    symbol::{Symbol, SymbolContextKind},
-    SymbolContext,
+    context::{AtomContextKind, Symbol},
+    AtomContext,
 };
 use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
@@ -21,7 +21,7 @@ impl TraitImplDecl {
     pub(crate) fn from_static(
         db: &dyn DeclQueryGroup,
         static_trait_impl: &StaticTraitImplDefn,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> Arc<Self> {
         let trait_route = symbol_context
             .entity_route_from_str(static_trait_impl.trai)
@@ -35,7 +35,7 @@ impl TraitImplDecl {
         );
         Arc::new(Self {
             trait_route,
-            this_ty: symbol_context.opt_this_ty.unwrap(),
+            this_ty: symbol_context.opt_this_ty().unwrap(),
             member_impls,
         })
     }
@@ -242,7 +242,7 @@ impl TraitMemberImplDecl {
 
     pub fn collect_from_static(
         db: &dyn DeclQueryGroup,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
         trait_decl: &TraitDecl,
         static_member_impls: &[EntityStaticDefn],
     ) -> Vec<Self> {
@@ -264,7 +264,7 @@ impl TraitMemberImplDecl {
             .collect();
         // let member_impl_context: Vec<_> =
         //     member_impls.map(|member_impl| (member_impl.ident(), member_impl.generic_argument()));
-        let this_ty = symbol_context.opt_this_ty.unwrap();
+        let this_ty = symbol_context.opt_this_ty().unwrap();
         let implementor = Implementor::new(db.upcast(), this_ty, &member_symbol_impls);
 
         trait_decl

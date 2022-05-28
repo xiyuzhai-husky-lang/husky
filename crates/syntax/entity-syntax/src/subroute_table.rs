@@ -18,7 +18,7 @@ use word::Identifier;
 
 pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {
     match keyword {
-        Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) => None,
+        Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) | Keyword::Liason(_) => None,
         Keyword::Mod => Some(EntityKind::Module),
         Keyword::Paradigm(paradigm) => Some(match third_token.kind {
             TokenKind::Special(Special::LPar) => EntityKind::Function {

@@ -2,9 +2,8 @@ use crate::*;
 
 #[derive(Clone, Copy)]
 pub struct Linkage {
-    pub call: for<'vm, 'eval> fn(
-        &mut [VMValue<'vm, 'eval>],
-    ) -> VMRuntimeResult<VMValue<'vm, 'eval>>,
+    pub call:
+        for<'vm, 'eval> fn(&mut [VMValue<'vm, 'eval>]) -> VMRuntimeResult<VMValue<'vm, 'eval>>,
     pub nargs: u8,
 }
 

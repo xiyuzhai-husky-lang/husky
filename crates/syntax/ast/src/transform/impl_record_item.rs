@@ -22,6 +22,7 @@ impl<'a> AstTransformer<'a> {
                 Keyword::Mod => todo!(),
                 Keyword::Main => todo!(),
                 Keyword::Visual => todo!(),
+                Keyword::Liason(_) => todo!(),
             },
             TokenKind::Identifier(_) => self.parse_record_original_field(token_group),
             TokenKind::Special(_) => todo!(),
@@ -39,15 +40,17 @@ impl<'a> AstTransformer<'a> {
                 todo!()
             }
             let ident = identify_token!(self, &token_group[0], SemanticTokenKind::Field);
-            let symbol_context = self.symbol_context();
-            let ty = atom::parse_route(&symbol_context, &token_group[2..])?;
+            let ty = atom::parse_route(self, &token_group[2..])?;
             emsg_once!("field contract");
-            Ok(AstKind::FieldDefnHead(FieldDefnHead {
-                ident,
-                contract: FieldLiason::Own,
-                ty,
-                kind: FieldKind::RecordOriginal,
-            }))
+            Ok(AstKind::FieldDefnHead {
+                head: FieldDefnHead {
+                    ident,
+                    liason: FieldLiason::Immutable,
+                    ty,
+                    kind: FieldKind::RecordOriginal,
+                },
+                opt_expr: todo!(),
+            })
         } else {
             p!(token_group);
             todo!()
@@ -64,12 +67,15 @@ impl<'a> AstTransformer<'a> {
         self.opt_this_contract.set(Some(InputLiason::GlobalRef));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         emsg_once!("field contract");
-        let ty = atom::parse_route(&self.symbol_context(), &token_group[3..])?;
-        Ok(AstKind::FieldDefnHead(FieldDefnHead {
-            ident,
-            ty,
-            kind: FieldKind::RecordDerived,
-            contract: FieldLiason::Own,
-        }))
+        let ty = atom::parse_route(self, &token_group[3..])?;
+        Ok(AstKind::FieldDefnHead {
+            head: FieldDefnHead {
+                ident,
+                ty,
+                kind: FieldKind::RecordDerived,
+                liason: FieldLiason::Immutable,
+            },
+            opt_expr: todo!(),
+        })
     }
 }

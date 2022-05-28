@@ -4,7 +4,7 @@ mod method;
 pub use field::*;
 pub use method::*;
 
-use atom::{symbol::Symbol, SymbolContext};
+use atom::{context::Symbol, AtomContext};
 use fold::LocalStack;
 use map_collect::MapCollect;
 use print_utils::{epin, p};
@@ -110,7 +110,7 @@ impl TyMemberDecl {
     pub(crate) fn from_static(
         db: &dyn DeclQueryGroup,
         static_defn: &EntityStaticDefn,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Method { .. } => {

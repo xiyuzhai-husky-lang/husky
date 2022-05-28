@@ -1,15 +1,15 @@
+pub mod context;
 mod convexity;
 mod error;
 pub mod parser;
 mod stack;
-pub mod symbol;
 mod variant;
 
+pub use context::*;
 pub use error::*;
 pub use parser::AtomParser;
 pub use parser::*;
 use print_utils::p;
-pub use symbol::SymbolContext;
 pub use syntax_types::*;
 pub use variant::{AtomVariant, LambdaHead};
 

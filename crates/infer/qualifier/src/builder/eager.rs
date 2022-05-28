@@ -15,7 +15,7 @@ use text::{TextRange, TextRanged};
 use super::*;
 
 impl<'a> QualifiedTySheetBuilder<'a> {
-    pub(super) fn infer_routine(
+    pub(super) fn infer_eager_call_form(
         &mut self,
         arena: &RawExprArena,
         inputs: &[InputParameter],

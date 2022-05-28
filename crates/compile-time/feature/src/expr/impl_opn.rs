@@ -160,7 +160,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            FieldKind::StructDerived => todo!(),
+            FieldKind::StructDerivedLazy { .. } => todo!(),
             FieldKind::RecordOriginal => {
                 let repr = self
                     .db
@@ -221,6 +221,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     _ => panic!(),
                 }
             }
+            FieldKind::StructDefault => todo!(),
+            FieldKind::StructDerivedEager => todo!(),
         }
     }
 

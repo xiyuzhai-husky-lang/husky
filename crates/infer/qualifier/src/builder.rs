@@ -10,7 +10,7 @@ use file::FilePtr;
 use infer_contract::{ContractSheet, InferContract};
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use word::RootIdentifier;
+use word::{Paradigm, RootIdentifier};
 
 use crate::*;
 
@@ -52,60 +52,76 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
                             self.infer_ast(children, arena)
                         }
-                        AstKind::MainDefn => self.infer_morphism(
+                        AstKind::MainDefn => self.infer_lazy_call_form(
                             &arena,
                             &[],
                             children,
                             self.db.global_output_ty(self.main_file).ok(),
                             OutputLiason::Transfer,
                         ),
-                        AstKind::DatasetConfigDefnHead => self.infer_routine(
+                        AstKind::DatasetConfigDefnHead => self.infer_eager_call_form(
                             &arena,
                             &[],
                             children,
                             Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
                             OutputLiason::Transfer,
                         ),
-                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_eager_call_form(
                             &arena,
                             &head.parameters,
                             children,
                             Some(head.output_ty.route),
                             head.output_liason,
                         ),
-                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_eager_call_form(
                             &arena,
                             &head.parameters,
                             children,
                             Some(head.output_ty.route),
                             head.output_liason,
                         ),
-                        AstKind::Visual => {
-                            self.infer_routine(&arena, &[], children, None, OutputLiason::Transfer)
-                        }
+                        AstKind::Visual => self.infer_eager_call_form(
+                            &arena,
+                            &[],
+                            children,
+                            None,
+                            OutputLiason::Transfer,
+                        ),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
-                        AstKind::FieldDefnHead(ref head) => match head.kind {
+                        AstKind::FieldDefnHead { ref head, .. } => match head.kind {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
-                            FieldKind::StructDerived | FieldKind::RecordDerived => self
-                                .infer_morphism(
-                                    &arena,
-                                    &[],
-                                    children,
-                                    Some(head.ty),
-                                    OutputLiason::Transfer,
-                                ),
+                            FieldKind::StructDerivedLazy {
+                                paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
+                            } => self.infer_eager_call_form(
+                                &arena,
+                                &[],
+                                children,
+                                Some(head.ty),
+                                OutputLiason::Transfer,
+                            ),
+                            FieldKind::StructDerivedLazy {
+                                paradigm: Paradigm::LazyFunctional,
+                            }
+                            | FieldKind::RecordDerived => self.infer_lazy_call_form(
+                                &arena,
+                                &[],
+                                children,
+                                Some(head.ty),
+                                OutputLiason::Transfer,
+                            ),
+                            _ => todo!(),
                         },
                         AstKind::Stmt(_) => todo!(),
-                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_eager_call_form(
                             &arena,
                             &head.parameters,
                             children,
                             Some(head.output_ty.route),
                             head.output_liason,
                         ),
-                        AstKind::FeatureDecl { ty, .. } => self.infer_morphism(
+                        AstKind::FeatureDecl { ty, .. } => self.infer_lazy_call_form(
                             &arena,
                             &[],
                             children,

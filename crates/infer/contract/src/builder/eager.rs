@@ -14,40 +14,21 @@ use super::*;
 use crate::*;
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(crate) fn infer_routine(
-        &mut self,
-        opt_output_ty: Option<EntityRoutePtr>,
-        ast_iter: AstIter,
-        arena: &RawExprArena,
-    ) {
-        self.infer_eager_stmts(ast_iter, opt_output_ty, arena);
-    }
-
-    pub(super) fn infer_eager_stmts(
-        &mut self,
-        ast_iter: AstIter,
-        opt_output_ty: Option<EntityRoutePtr>,
-        arena: &RawExprArena,
-    ) {
+    pub(super) fn infer_eager_stmts(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
-                    AstKind::Stmt(ref stmt) => self.infer_eager_stmt(stmt, opt_output_ty, arena),
+                    AstKind::Stmt(ref stmt) => self.infer_eager_stmt(stmt, arena),
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_eager_stmts(children, opt_output_ty, arena)
+                self.infer_eager_stmts(children, arena)
             }
         }
     }
 
-    fn infer_eager_stmt(
-        &mut self,
-        stmt: &RawStmt,
-        opt_output_ty: Option<EntityRoutePtr>,
-        arena: &RawExprArena,
-    ) {
+    fn infer_eager_stmt(&mut self, stmt: &RawStmt, arena: &RawExprArena) {
         match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
@@ -301,37 +282,11 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::FieldAccess(ranged_ident) => {
                 let this_ty_decl = self.raw_expr_ty_decl(opd)?;
                 let field_decl = this_ty_decl.field_decl(ranged_ident)?;
-                let this_contract = match field_decl.liason {
-                    FieldLiason::Own => match contract {
-                        EagerContract::Pure => EagerContract::Pure,
-                        EagerContract::GlobalRef => todo!(),
-                        EagerContract::Move => EagerContract::Move,
-                        EagerContract::Return => {
-                            if self.db.is_copyable(field_decl.ty)? {
-                                EagerContract::Pure
-                            } else {
-                                todo!()
-                            }
-                        }
-                        EagerContract::RefMut => EagerContract::RefMut,
-                        EagerContract::MoveMut => todo!(),
-                        EagerContract::Exec => todo!(),
-                        EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
-                            EagerContract::UseMemberForLetInit
-                        }
-                        EagerContract::UseForVarInit => todo!(),
-                        EagerContract::UseMemberForVarInit => EagerContract::UseMemberForVarInit,
-                        EagerContract::UseForAssign => throw!(
-                            format!(
-                            "can't use noncopyable field for assignment without explicit moving"
-                        ),
-                            arena[raw_expr_idx].range
-                        ),
-                    },
-                    FieldLiason::GlobalRef => todo!(),
-                    FieldLiason::LazyOwn => todo!(),
-                };
-                self.infer_eager_expr(opd, this_contract, arena);
+                let this_contract_result: InferResult<_> = field_decl
+                    .liason
+                    .this_eager_contract(contract)
+                    .bind_into(&arena[raw_expr_idx]);
+                self.infer_eager_expr(opd, this_contract_result?, arena);
                 Ok(())
             }
             SuffixOpr::WithTy(_) => todo!(),

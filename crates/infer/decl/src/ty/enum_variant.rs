@@ -46,7 +46,7 @@ impl EnumVariantDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         static_decl: &EntityStaticDefn,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> Self {
         todo!()
     }

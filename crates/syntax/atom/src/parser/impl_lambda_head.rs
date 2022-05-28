@@ -6,7 +6,7 @@ use crate::*;
 use super::*;
 
 // inner ops
-impl<'a> AtomParser<'a> {
+impl<'a, 'b> AtomParser<'a, 'b> {
     pub(crate) fn lambda_head(
         &mut self,
     ) -> AtomResult<Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>> {
@@ -20,7 +20,7 @@ impl<'a> AtomParser<'a> {
         let ty = if next_matches!(self, ":") {
             Some(RangedEntityRoute {
                 route: get!(self.ty?),
-                range: self.stream.pop_text_range(),
+                range: self.token_stream.pop_text_range(),
             })
         } else {
             None

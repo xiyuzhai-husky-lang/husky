@@ -17,7 +17,7 @@ use crate::{
     query::{AstSalsaQueryGroup, AstText},
     *,
 };
-use atom::symbol::{Symbol, SymbolKind};
+use atom::context::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
 use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
@@ -144,6 +144,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                             Keyword::Mod => todo!(),
                             Keyword::Main => todo!(),
                             Keyword::Visual => todo!(),
+                            Keyword::Liason(_) => todo!(),
                         },
                         _ => self.parse_stmt_without_keyword(token_group)?.into(),
                     }

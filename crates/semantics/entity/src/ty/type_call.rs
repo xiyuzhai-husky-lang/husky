@@ -1,4 +1,4 @@
-use atom::SymbolContext;
+use atom::AtomContext;
 use defn_head::InputParameter;
 use entity_route::RangedEntityRoute;
 use map_collect::MapCollect;
@@ -21,7 +21,10 @@ pub enum TyCallSource {
 }
 
 impl TyCallDefn {
-    pub fn from_static(context: &SymbolContext, static_defn: &EntityStaticDefn) -> Arc<TyCallDefn> {
+    pub fn from_static(
+        context: &mut dyn AtomContext,
+        static_defn: &EntityStaticDefn,
+    ) -> Arc<TyCallDefn> {
         Arc::new(match static_defn.variant {
             EntityStaticDefnVariant::Routine {
                 ref parameters,

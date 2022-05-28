@@ -1,7 +1,6 @@
 mod impl_expr;
+mod impl_function;
 mod impl_locality;
-mod impl_morphism;
-mod impl_routine;
 mod impl_stmt;
 
 use super::*;
@@ -54,45 +53,47 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         }
                         AstKind::MainDefn => {
                             let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
-                            self.infer_morphism(&[], opt_output_ty, children, &arena)
+                            self.infer_function(&[], opt_output_ty, children, &arena)
                         }
-                        AstKind::DatasetConfigDefnHead => self.infer_routine(
+                        AstKind::DatasetConfigDefnHead => self.infer_function(
                             &[],
                             Some(RootIdentifier::DatasetType.into()),
                             children,
                             &arena,
                         ),
-                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_function(
                             &head.parameters,
                             Some(head.output_ty.route),
                             children,
                             &arena,
                         ),
-                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_function(
                             &head.parameters,
                             Some(head.output_ty.route),
                             children,
                             &arena,
                         ),
-                        AstKind::Visual => self.infer_routine(&[], None, children, &arena),
+                        AstKind::Visual => self.infer_function(&[], None, children, &arena),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
-                        AstKind::FieldDefnHead(ref head) => match head.kind {
+                        AstKind::FieldDefnHead { ref head, .. } => match head.kind {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
-                            FieldKind::StructDerived | FieldKind::RecordDerived => {
-                                self.infer_morphism(&[], Some(head.ty), children, &arena)
+                            FieldKind::StructDerivedLazy { .. } | FieldKind::RecordDerived => {
+                                self.infer_function(&[], Some(head.ty), children, &arena)
                             }
+                            FieldKind::StructDefault => todo!(),
+                            FieldKind::StructDerivedEager => todo!(),
                         },
                         AstKind::Stmt(_) => todo!(),
-                        AstKind::CallFormDefnHead(ref head) => self.infer_routine(
+                        AstKind::CallFormDefnHead(ref head) => self.infer_function(
                             &head.parameters,
                             Some(head.output_ty.route),
                             children,
                             &arena,
                         ),
                         AstKind::FeatureDecl { ty, .. } => {
-                            self.infer_morphism(&[], Some(ty.route), children, &arena)
+                            self.infer_function(&[], Some(ty.route), children, &arena)
                         }
                         AstKind::Submodule { ident, source_file } => (),
                     },

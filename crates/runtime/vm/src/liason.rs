@@ -105,36 +105,92 @@ pub enum OutputLiason {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum FieldLiason {
-    Own,
-    GlobalRef,
-    LazyOwn,
+    Immutable,
+    Mutable,
+    Derived,
 }
 
 impl FieldLiason {
-    pub fn mutable(&self) -> bool {
+    pub fn mutable(self) -> bool {
         match self {
-            FieldLiason::Own => true,
-            FieldLiason::GlobalRef | FieldLiason::LazyOwn => false,
+            FieldLiason::Immutable | FieldLiason::Derived => false,
+            FieldLiason::Mutable => true,
         }
     }
 
     pub fn constructor_input_liason(&self, is_copyable: bool) -> InputLiason {
         match self {
-            FieldLiason::Own => {
+            FieldLiason::Immutable => {
                 if is_copyable {
                     InputLiason::Pure
                 } else {
                     InputLiason::Move
                 }
             }
-            FieldLiason::GlobalRef => InputLiason::GlobalRef,
-            FieldLiason::LazyOwn => panic!(),
+            FieldLiason::Mutable => {
+                if is_copyable {
+                    InputLiason::Pure
+                } else {
+                    InputLiason::MoveMut
+                }
+            }
+            FieldLiason::Derived => panic!(),
         }
     }
 
-    pub fn this(&self, input_liason: EagerContract) -> VMCompileResult<EagerContract> {
+    pub fn this_eager_contract(
+        self,
+        field_contract: EagerContract,
+    ) -> VMCompileResult<EagerContract> {
+        //  match field_decl.liason {
+        //     FieldLiason::Own => match contract {
+        //         EagerContract::Pure => EagerContract::Pure,
+        //         EagerContract::GlobalRef => todo!(),
+        //         EagerContract::Move => EagerContract::Move,
+        //         EagerContract::Return => {
+        //             if self.db.is_copyable(field_decl.ty)? {
+        //                 EagerContract::Pure
+        //             } else {
+        //                 todo!()
+        //             }
+        //         }
+        //         EagerContract::RefMut => EagerContract::RefMut,
+        //         EagerContract::MoveMut => todo!(),
+        //         EagerContract::Exec => todo!(),
+        //         EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
+        //             EagerContract::UseMemberForLetInit
+        //         }
+        //         EagerContract::UseForVarInit => todo!(),
+        //         EagerContract::UseMemberForVarInit => EagerContract::UseMemberForVarInit,
+        //         EagerContract::UseForAssign => throw!(
+        //             format!(
+        //             "can't use noncopyable field for assignment without explicit moving"
+        //         ),
+        //             arena[raw_expr_idx].range
+        //         ),
+        //     },
+        //     FieldLiason::GlobalRef => todo!(),
+        //     FieldLiason::LazyOwn => todo!(),
+        // };
         match self {
-            FieldLiason::Own => match input_liason {
+            FieldLiason::Immutable => match field_contract {
+                EagerContract::Pure => todo!(),
+                EagerContract::GlobalRef => todo!(),
+                EagerContract::Move | EagerContract::MoveMut => Ok(EagerContract::Move),
+                EagerContract::Exec => todo!(),
+                EagerContract::UseForLetInit => todo!(),
+                EagerContract::UseForVarInit => todo!(),
+                EagerContract::Return => todo!(),
+                EagerContract::UseMemberForLetInit => todo!(),
+                EagerContract::UseMemberForVarInit => todo!(),
+                EagerContract::RefMut => Err(vm_compile_error!(format!(
+                    "can't bind mutable reference to an immutable field"
+                ))),
+                EagerContract::UseForAssign => Err(vm_compile_error!(format!(
+                    "can't assign to an immutable field"
+                ))),
+            },
+            FieldLiason::Mutable => match field_contract {
                 EagerContract::Pure => todo!(),
                 EagerContract::GlobalRef => todo!(),
                 EagerContract::Move => Ok(EagerContract::Move),
@@ -148,8 +204,22 @@ impl FieldLiason {
                 EagerContract::UseMemberForVarInit => todo!(),
                 EagerContract::UseForAssign => todo!(),
             },
-            FieldLiason::GlobalRef => todo!(),
-            FieldLiason::LazyOwn => todo!(),
+            FieldLiason::Derived => panic!(),
+        }
+    }
+
+    pub fn this_lazy_contract(self, field_contract: LazyContract) -> VMCompileResult<LazyContract> {
+        match self {
+            FieldLiason::Immutable | FieldLiason::Mutable => match field_contract {
+                LazyContract::Move => Ok(LazyContract::Move),
+                LazyContract::Pure => Ok(LazyContract::Pure),
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Init => todo!(),
+                LazyContract::Return => todo!(),
+                LazyContract::UseMemberForInit => todo!(),
+                LazyContract::UseMemberForReturn => todo!(),
+            },
+            FieldLiason::Derived => panic!(),
         }
     }
 }

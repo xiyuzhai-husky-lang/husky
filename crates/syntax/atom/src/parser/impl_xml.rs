@@ -5,17 +5,17 @@ use text::RangedCustomIdentifier;
 use word::{CustomIdentifier, IdentPairDict};
 
 // inner ops
-impl<'a> AtomParser<'a> {
+impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn xml_props(mut self) -> AtomResult<Vec<(RangedCustomIdentifier, URange)>> {
         let mut props: Vec<(RangedCustomIdentifier, URange)> = Vec::new();
-        while !self.stream.empty() {
+        while !self.token_stream.empty() {
             let ranged_ident = get!(self, custom_ident);
             no_look_pass!(self, "=");
             no_look_pass!(self, "{");
-            self.stream.pop_token_slice();
+            self.token_stream.pop_token_slice();
             let mut layer = 1;
             while layer > 0 {
-                match self.stream.next() {
+                match self.token_stream.next() {
                     Some(token) => match token.kind {
                         TokenKind::Special(Special::LCurl) => layer += 1,
                         TokenKind::Special(Special::RCurl) => layer -= 1,
@@ -29,7 +29,7 @@ impl<'a> AtomParser<'a> {
                     }
                 }
             }
-            let token_slice = self.stream.pop_token_slice();
+            let token_slice = self.token_stream.pop_token_slice();
             props.push((ranged_ident, (token_slice.start)..(token_slice.end - 1)))
         }
         Ok(props)

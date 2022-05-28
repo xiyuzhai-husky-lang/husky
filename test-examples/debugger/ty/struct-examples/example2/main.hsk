@@ -6,10 +6,10 @@ struct A:
     x: i32
 
     // optional eager field
-    y ?= x + 1
+    y: i32 ?= x + 1
 
     // derived eager field
-    z = x - 2
+    z: i32 = x - 2
 
     // lazy field
     func w -> i32:

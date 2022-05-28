@@ -1,7 +1,7 @@
 use crate::*;
 use atom::{
-    symbol::{Symbol, SymbolContextKind},
-    SymbolContext,
+    context::{AtomContextKind, Symbol},
+    AtomContext, AtomContextStandalone,
 };
 use check_utils::should_eq;
 use entity_kind::MemberKind;
@@ -32,7 +32,7 @@ impl TraitMemberDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         static_member_defn: &EntityStaticDefn,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> Self {
         match static_member_defn.variant {
             EntityStaticDefnVariant::Method { .. } => TraitMemberDecl::Method(
@@ -122,13 +122,13 @@ impl TraitDecl {
                         },
                     )
                 });
-                let mut symbol_context = SymbolContext {
+                let mut symbol_context = AtomContextStandalone {
                     opt_package_main: None,
                     db: db.upcast(),
                     opt_this_ty: None,
                     opt_this_contract: None,
                     symbols: symbols.into(),
-                    kind: SymbolContextKind::Normal,
+                    kind: AtomContextKind::Normal,
                 };
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
                 let generic_arguments =
@@ -138,7 +138,7 @@ impl TraitDecl {
                     kind: base_route.kind,
                     generic_arguments,
                 });
-                symbol_context.kind = SymbolContextKind::Trait {
+                symbol_context.kind = AtomContextKind::Trait {
                     this_trai: trai,
                     member_kinds: &member_context,
                 };
@@ -147,7 +147,7 @@ impl TraitDecl {
                     generic_parameters,
                     members: members
                         .iter()
-                        .map(|member| TraitMemberDecl::from_static(db, member, &symbol_context))
+                        .map(|member| TraitMemberDecl::from_static(db, member, &mut symbol_context))
                         .collect(),
                 })
             }

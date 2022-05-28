@@ -288,24 +288,24 @@ impl EagerQualifier {
                 EagerQualifier::GlobalRef => EagerQualifier::GlobalRef,
                 EagerQualifier::LocalRef => EagerQualifier::LocalRef,
                 EagerQualifier::Transient => match field_liason {
-                    FieldLiason::Own => todo!(),
-                    FieldLiason::GlobalRef => todo!(),
-                    FieldLiason::LazyOwn => todo!(),
+                    FieldLiason::Immutable => todo!(),
+                    FieldLiason::Mutable => todo!(),
+                    FieldLiason::Derived => todo!(),
                 },
                 EagerQualifier::Owned => match field_liason {
-                    FieldLiason::Own => todo!(),
-                    FieldLiason::GlobalRef => todo!(),
-                    FieldLiason::LazyOwn => todo!(),
+                    FieldLiason::Immutable => todo!(),
+                    FieldLiason::Mutable => todo!(),
+                    FieldLiason::Derived => todo!(),
                 },
                 EagerQualifier::OwnedMut => match field_liason {
-                    FieldLiason::Own => EagerQualifier::LocalRefMut,
-                    FieldLiason::GlobalRef => todo!(),
-                    FieldLiason::LazyOwn => todo!(),
+                    FieldLiason::Mutable => EagerQualifier::LocalRefMut,
+                    FieldLiason::Immutable => todo!(),
+                    FieldLiason::Derived => todo!(),
                 },
                 EagerQualifier::LocalRefMut => match field_liason {
-                    FieldLiason::Own => EagerQualifier::LocalRefMut,
-                    FieldLiason::GlobalRef => todo!(),
-                    FieldLiason::LazyOwn => todo!(),
+                    FieldLiason::Mutable => EagerQualifier::LocalRefMut,
+                    FieldLiason::Immutable => panic!("shouldn't be here"),
+                    FieldLiason::Derived => todo!(),
                 },
             }
         })

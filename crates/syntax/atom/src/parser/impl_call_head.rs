@@ -10,10 +10,10 @@ use word::{IdentDict, Paradigm};
 use super::*;
 
 // inner ops
-impl<'a> AtomParser<'a> {
+impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn routine_defn_head(mut self, paradigm: Paradigm) -> AtomResult<CallableDefnHead> {
         let routine_ident = get!(self, custom_ident);
-        self.push_abs_semantic_token(AbsSemanticToken::new(
+        self.context.push_abs_semantic_token(AbsSemanticToken::new(
             SemanticTokenKind::Entity(EntityKind::Function {
                 is_lazy: paradigm.is_lazy(),
             }),
@@ -23,7 +23,7 @@ impl<'a> AtomParser<'a> {
         let parameters = self.call_parameters()?;
         let output_ty = self.func_output_type()?;
         match paradigm {
-            Paradigm::Procedural => (),
+            Paradigm::EagerProcedural => (),
             Paradigm::EagerFunctional => {
                 for input_placeholder in parameters.iter() {
                     match input_placeholder.contract {
@@ -54,7 +54,7 @@ impl<'a> AtomParser<'a> {
         paradigm: Paradigm,
     ) -> AtomResult<CallableDefnHead> {
         let routine_ident = get!(self, custom_ident);
-        self.push_abs_semantic_token(AbsSemanticToken::new(
+        self.context.push_abs_semantic_token(AbsSemanticToken::new(
             SemanticTokenKind::Entity(EntityKind::Function {
                 is_lazy: paradigm.is_lazy(),
             }),
@@ -91,13 +91,13 @@ impl<'a> AtomParser<'a> {
         if next_matches!(self, ":") {
             traits.push(RangedEntityRoute {
                 route: get!(self, ty?),
-                range: self.stream.pop_text_range(),
+                range: self.token_stream.pop_text_range(),
             });
             if next_matches!(self, "+") {
                 todo!()
             }
         }
-        self.push_abs_semantic_token(AbsSemanticToken::new(
+        self.context.push_abs_semantic_token(AbsSemanticToken::new(
             SemanticTokenKind::GenericPlaceholder,
             ranged_ident.range,
         ));
@@ -114,15 +114,15 @@ impl<'a> AtomParser<'a> {
 
     fn call_input_placeholder(&mut self) -> AtomResult<InputParameter> {
         let ident = get!(self, custom_ident);
-        self.push_abs_semantic_token(AbsSemanticToken::new(
+        self.context.push_abs_semantic_token(AbsSemanticToken::new(
             SemanticTokenKind::Parameter,
             ident.range,
         ));
         no_look_pass!(self, ":");
-        self.stream.pop_text_range();
+        self.token_stream.pop_text_range();
         let ty = RangedEntityRoute {
             route: get!(self, ty?),
-            range: self.stream.pop_text_range(),
+            range: self.token_stream.pop_text_range(),
         };
         Ok(InputParameter {
             ranged_ident: ident,
@@ -135,12 +135,12 @@ impl<'a> AtomParser<'a> {
         Ok(if next_matches!(self, "->") {
             RangedEntityRoute {
                 route: get!(self, ty?),
-                range: self.stream.pop_text_range(),
+                range: self.token_stream.pop_text_range(),
             }
         } else {
             RangedEntityRoute {
                 route: EntityRoutePtr::Root(RootIdentifier::Void),
-                range: self.stream.pop_text_range(),
+                range: self.token_stream.pop_text_range(),
             }
         })
     }

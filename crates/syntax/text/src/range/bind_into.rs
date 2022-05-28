@@ -7,11 +7,11 @@ pub trait BindTextRangeInto<T>: Sized {
 
     fn ref_bind_text_range_into(&self, range: TextRange) -> T;
 
-    fn bind_into<S>(self, t: &S) -> T
+    fn bind_into<S>(self, s: &S) -> T
     where
         S: TextRanged,
     {
-        self.bind_text_range_into(t.text_range())
+        self.bind_text_range_into(s.text_range())
     }
 }
 

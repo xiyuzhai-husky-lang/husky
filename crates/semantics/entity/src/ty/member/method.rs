@@ -31,12 +31,12 @@ pub enum MethodDefnVariant {
 
 impl MethodDefnVariant {
     pub fn from_static(
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
         method_kind: &MethodStaticDefnVariant,
     ) -> Self {
         match method_kind {
             MethodStaticDefnVariant::TypeMethod { source } => MethodDefnVariant::TypeMethod {
-                ty: symbol_context.opt_this_ty.unwrap(),
+                ty: symbol_context.opt_this_ty().unwrap(),
                 method_source: MethodSource::Static(source.clone()),
             },
             MethodStaticDefnVariant::TraitMethod { opt_default_source } => {

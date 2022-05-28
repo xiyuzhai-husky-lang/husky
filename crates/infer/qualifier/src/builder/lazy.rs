@@ -13,7 +13,7 @@ use text::TextRanged;
 use super::*;
 
 impl<'a> QualifiedTySheetBuilder<'a> {
-    pub(super) fn infer_morphism(
+    pub(super) fn infer_lazy_call_form(
         &mut self,
         arena: &RawExprArena,
         inputs: &[InputParameter],

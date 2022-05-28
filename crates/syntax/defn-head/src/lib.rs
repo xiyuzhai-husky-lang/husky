@@ -23,10 +23,10 @@ pub struct CallableDefnHead {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FieldDefnHead {
+    pub liason: FieldLiason,
     pub ident: RangedCustomIdentifier,
     pub ty: EntityRoutePtr,
     pub kind: FieldKind,
-    pub contract: FieldLiason,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

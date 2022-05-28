@@ -1,6 +1,9 @@
-use std::ops::Deref;
+mod liason;
+
+pub use liason::*;
 
 use serde::{Deserialize, Serialize};
+use std::ops::Deref;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
@@ -8,6 +11,7 @@ pub enum Keyword {
     Paradigm(Paradigm),
     Type(TyKeyword),
     Stmt(StmtKeyword),
+    Liason(LiasonKeyword),
     Main,
     Use,
     Mod,
@@ -25,6 +29,7 @@ impl Keyword {
             Keyword::Mod => "mod",
             Keyword::Main => "main",
             Keyword::Visual => "visual",
+            Keyword::Liason(keyword) => keyword.as_str(),
         }
     }
 }
@@ -86,13 +91,13 @@ impl Deref for ConfigKeyword {
 pub enum Paradigm {
     LazyFunctional,
     EagerFunctional,
-    Procedural,
+    EagerProcedural,
 }
 
 impl Paradigm {
     pub fn as_str(self) -> &'static str {
         match self {
-            Paradigm::Procedural => "proc",
+            Paradigm::EagerProcedural => "proc",
             Paradigm::EagerFunctional => "func",
             Paradigm::LazyFunctional => "def",
         }
@@ -101,7 +106,7 @@ impl Paradigm {
     pub fn is_lazy(self) -> bool {
         match self {
             Paradigm::LazyFunctional => true,
-            Paradigm::EagerFunctional | Paradigm::Procedural => false,
+            Paradigm::EagerFunctional | Paradigm::EagerProcedural => false,
         }
     }
 }

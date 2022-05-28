@@ -1,7 +1,7 @@
 macro_rules! try_get {
-    ($this:expr, $patt:ident) => {{
+    ($this: expr, $patt:ident) => {{
      let saved_stream = $this.save_stream();
-     if let Some(pattern) = $this.$patt() {
+     if let Some(pattern) = $this.$patt(symbol_context) {
          Some(pattern)
      } else {
          $this.rollback(saved_stream);
@@ -127,7 +127,7 @@ macro_rules! next_matches {
 pub(crate) use next_matches;
 
 macro_rules! get{
-    ($this:expr, $patt:ident) => {{
+    ($this: expr, $patt:ident) => {{
         let mut saved_stream = $this.save_stream();
         if let Some(pattern) = $this.$patt() {
             pattern
@@ -137,16 +137,16 @@ macro_rules! get{
                     stringify!($patt),
                     saved_stream.next()
                 ),
-                $this.stream.next_range()
+                $this.token_stream.next_range()
             )
         }
     }};
 
     ($this:expr, $patt:ident, $($args:expr),*) => {{
-        if let Some(pattern) = this.$patt($args,*) {
+        if let Some(pattern) = $this.$patt($($args),*) {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
         }
     }};
 
@@ -160,16 +160,16 @@ macro_rules! get{
                         stringify!($patt),
                         saved_stream.next()
                     ),
-                    $this.stream.next_range()
+                    $this.token_stream.next_range()
                 )
         }
     }};
 
     ($this:expr, $patt:ident?, $($args:expr),*) => {{
-        if let Some(pattern) = this.$patt($args,*)? {
+        if let Some(pattern) = $this.$patt($($args),*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
         }
     }};
 
@@ -180,7 +180,7 @@ macro_rules! get{
         } else {
             return err!(
                 format!("expect {:?} after it", stringify!($patt)),
-                $this.stream.next_range()
+                $this.token_stream.next_range()
             )
         }
     }};
@@ -189,7 +189,7 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
         }
     }};
 }
@@ -198,7 +198,7 @@ pub(crate) use get;
 macro_rules! no_look_pass {
     ($this:expr, $patt:ident) => {{
         if $this.$patt().is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
         }
     }};
 
@@ -206,20 +206,20 @@ macro_rules! no_look_pass {
         if  $this.$patt($($args),*).is_none() {
             return err!(
                 format!("expect {:?} after it", stringify!($patt)),
-                $this.stream.next_range()
+                $this.token_stream.next_range()
             )
         }
     }};
 
     ($this:expr, $patt:ident?) => {{
         if $this.$patt()?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
         }
     }};
 
     ($this:expr, $patt:ident?, $($args:expr),*) => {{
         if  $this.$patt($($args),*)?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
         }
     }};
 

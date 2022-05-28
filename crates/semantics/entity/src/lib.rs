@@ -8,8 +8,8 @@ mod trai;
 mod ty;
 
 use atom::{
-    symbol::{Symbol, SymbolContextKind},
-    SymbolContext,
+    context::{AtomContextKind, Symbol},
+    AtomContext, AtomContextStandalone,
 };
 use entity_syntax::EntityLocus;
 pub use function::*;
@@ -74,20 +74,20 @@ impl HasKey<CustomIdentifier> for EntityDefn {
 
 impl EntityDefn {
     pub fn from_static(
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
         route: EntityRoutePtr,
         static_entity_defn: &EntityStaticDefn,
     ) -> Arc<Self> {
         let variant = EntityDefnVariant::from_static(symbol_context, static_entity_defn);
         Self::new(
             symbol_context
-                .db
+                .entity_syntax_db()
                 .intern_word(static_entity_defn.name)
                 .ident(),
             variant,
             route,
             symbol_context
-                .db
+                .entity_syntax_db()
                 .intern_file(static_entity_defn.dev_src.file.into()),
             static_entity_defn.dev_src.into(),
         )
@@ -200,7 +200,10 @@ pub enum EntityDefnVariant {
 }
 
 impl EntityDefnVariant {
-    pub fn from_static(symbol_context: &SymbolContext, static_defn: &EntityStaticDefn) -> Self {
+    pub fn from_static(
+        symbol_context: &mut dyn AtomContext,
+        static_defn: &EntityStaticDefn,
+    ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
             EntityStaticDefnVariant::Type { .. } => {
@@ -211,13 +214,13 @@ impl EntityDefnVariant {
                 generic_parameters,
                 members,
             } => {
-                let mut symbol_context = SymbolContext {
-                    opt_package_main: symbol_context.opt_package_main,
-                    db: symbol_context.db,
+                let mut symbol_context = AtomContextStandalone {
+                    opt_package_main: symbol_context.opt_package_main(),
+                    db: symbol_context.entity_syntax_db(),
                     opt_this_ty: None,
                     opt_this_contract: None,
                     symbols: (&[] as &[Symbol]).into(),
-                    kind: SymbolContextKind::Normal,
+                    kind: AtomContextKind::Normal,
                 };
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
                 let generic_parameters =
@@ -243,22 +246,19 @@ impl EntityDefnVariant {
                         },
                     )
                 });
-                symbol_context.kind = SymbolContextKind::Trait {
+                symbol_context.kind = AtomContextKind::Trait {
                     this_trai,
                     member_kinds: &member_kinds,
                 };
                 EntityDefnVariant::Trait {
                     generic_parameters,
                     members: members.map(|member| {
-                        EntityDefn::from_static(
-                            &symbol_context,
-                            symbol_context.db.intern_entity_route(EntityRoute::subroute(
-                                this_trai,
-                                symbol_context.db.intern_word(member.name).custom(),
-                                vec![],
-                            )),
-                            member,
-                        )
+                        let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
+                            this_trai,
+                            symbol_context.db.intern_word(member.name).custom(),
+                            vec![],
+                        ));
+                        EntityDefn::from_static(&mut symbol_context, route, member)
                     }),
                 }
             }
@@ -272,7 +272,10 @@ impl EntityDefnVariant {
                 ref kind,
             } => EntityDefnVariant::Method {
                 generic_parameters: generic_parameters.map(|static_generic_placeholder| {
-                    GenericParameter::from_static(symbol_context.db, static_generic_placeholder)
+                    GenericParameter::from_static(
+                        symbol_context.entity_syntax_db(),
+                        static_generic_placeholder,
+                    )
                 }),
                 this_contract,
                 parameters: Arc::new(parameters.map(|input_placeholder| {
@@ -325,13 +328,13 @@ pub(crate) fn entity_defn(
     let source = db.entity_locus(entity_route)?;
     match source {
         EntityLocus::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
-            &SymbolContext {
+            &mut AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),
                 opt_this_ty: None,
                 opt_this_contract: None,
                 symbols: (&[] as &[Symbol]).into(),
-                kind: SymbolContextKind::Normal,
+                kind: AtomContextKind::Normal,
             },
             entity_route,
             static_defn,

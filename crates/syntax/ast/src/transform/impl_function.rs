@@ -1,7 +1,4 @@
-use crate::{
-    symbol::{Symbol, SymbolKind},
-    *,
-};
+use crate::*;
 use text::TextRanged;
 use token::*;
 use token::*;
@@ -15,10 +12,11 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         let tokens = trim_colon!(token_group; keyword, colon);
         let head = match paradigm {
-            Paradigm::Procedural => {
-                self.context.set(AstContext::Stmt(Paradigm::Procedural));
+            Paradigm::EagerProcedural => {
+                self.context
+                    .set(AstContext::Stmt(Paradigm::EagerProcedural));
                 self.parse_atoms(tokens, |parser| {
-                    parser.routine_defn_head(Paradigm::Procedural)
+                    parser.routine_defn_head(Paradigm::EagerProcedural)
                 })?
             }
             Paradigm::EagerFunctional => {

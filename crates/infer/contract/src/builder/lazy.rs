@@ -12,9 +12,6 @@ use super::*;
 use crate::*;
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(crate) fn infer_morphism(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
-        self.infer_lazy_stmts(ast_iter.clone(), arena);
-    }
     pub(super) fn infer_lazy_stmts(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
@@ -181,28 +178,12 @@ impl<'a> ContractSheetBuilder<'a> {
             SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
             SuffixOpr::FieldAccess(ranged_ident) => {
                 let this_ty_decl = self.raw_expr_ty_decl(opd)?;
-                let this_contract = match this_ty_decl.field_decl(ranged_ident)?.liason {
-                    FieldLiason::Own => match contract {
-                        LazyContract::Move => LazyContract::Move,
-                        LazyContract::GlobalRef => todo!(),
-                        LazyContract::Pure => LazyContract::Pure,
-                        LazyContract::Init => todo!(),
-                        LazyContract::Return => todo!(),
-                        LazyContract::UseMemberForInit => todo!(),
-                        LazyContract::UseMemberForReturn => todo!(),
-                    },
-                    FieldLiason::GlobalRef => todo!(),
-                    FieldLiason::LazyOwn => match contract {
-                        LazyContract::GlobalRef => todo!(),
-                        LazyContract::Pure => LazyContract::Pure,
-                        LazyContract::Init => todo!(),
-                        LazyContract::Return => todo!(),
-                        LazyContract::UseMemberForInit => todo!(),
-                        LazyContract::UseMemberForReturn => todo!(),
-                        LazyContract::Move => todo!(),
-                    },
-                };
-                self.infer_lazy_expr(opd, this_contract, arena);
+                let this_contract_result: InferResult<_> = this_ty_decl
+                    .field_decl(ranged_ident)?
+                    .liason
+                    .this_lazy_contract(contract)
+                    .bind_into(&arena[opd]);
+                self.infer_lazy_expr(opd, this_contract_result?, arena);
                 Ok(())
             }
             SuffixOpr::WithTy(_) => todo!(),

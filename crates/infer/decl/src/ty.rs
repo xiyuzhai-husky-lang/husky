@@ -14,8 +14,8 @@ pub use vec::*;
 use crate::*;
 use ast::AstIter;
 use atom::{
-    symbol::{Symbol, SymbolContextKind, SymbolKind},
-    SymbolContext,
+    context::{AtomContextKind, Symbol, SymbolKind},
+    AtomContext, AtomContextStandalone,
 };
 use defn_head::*;
 use entity_route::*;
@@ -56,13 +56,13 @@ impl TyDecl {
                 let generic_arguments =
                     db.generic_arguments_from_generic_parameters(&generic_parameters);
                 let symbols = db.symbols_from_generic_parameters(&generic_parameters);
-                let mut symbol_context = SymbolContext {
+                let mut symbol_context = AtomContextStandalone {
                     opt_package_main: None,
                     db: db.upcast(),
                     opt_this_ty: None,
                     opt_this_contract: None,
                     symbols: (&symbols as &[Symbol]).into(),
-                    kind: SymbolContextKind::Normal,
+                    kind: AtomContextKind::Normal,
                 };
                 let base_ty = symbol_context.entity_route_from_str(base_route).unwrap();
                 let this_ty = db.intern_entity_route(EntityRoute {
@@ -75,19 +75,17 @@ impl TyDecl {
                 });
                 let ty_members: IdentDict<_> = type_members
                     .iter()
-                    .map(|member| TyMemberDecl::from_static(db, member, &symbol_context))
+                    .map(|member| TyMemberDecl::from_static(db, member, &mut symbol_context))
                     .collect();
                 let variants: IdentDict<_> = variants.map(|static_decl| {
-                    EnumVariantDecl::from_static(db, static_decl, &symbol_context)
+                    EnumVariantDecl::from_static(db, static_decl, &mut symbol_context)
                 });
                 let mut trait_impls =
                     TraitImplDecl::implicit_trait_impls(db, this_ty, kind, &ty_members, &variants)
                         .unwrap();
-                trait_impls.extend(
-                    static_trait_impls.iter().map(|trait_impl| {
-                        TraitImplDecl::from_static(db, trait_impl, &symbol_context)
-                    }),
-                );
+                trait_impls.extend(static_trait_impls.iter().map(|trait_impl| {
+                    TraitImplDecl::from_static(db, trait_impl, &mut symbol_context)
+                }));
                 Self::new(
                     db,
                     this_ty,
@@ -146,7 +144,7 @@ impl TyDecl {
                                     ident: field_decl.ident,
                                 })
                             }
-                            FieldKind::StructDerived | FieldKind::RecordDerived => break,
+                            _ => break,
                         },
                         TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
                     }
@@ -208,13 +206,13 @@ impl TyDecl {
     ) -> InferQueryResult<()> {
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.variant {
-                AstKind::FieldDefnHead(ref field_defn_head) => {
-                    match field_defn_head.kind {
+                AstKind::FieldDefnHead { ref head, .. } => {
+                    match head.kind {
                         FieldKind::StructOriginal | FieldKind::RecordOriginal => (),
-                        FieldKind::StructDerived | FieldKind::RecordDerived => break,
+                        _ => break,
                     }
                     children.next();
-                    members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(field_defn_head)))
+                    members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(head)))
                 }
                 _ => break,
             }
@@ -232,7 +230,7 @@ impl TyDecl {
             match child.value.as_ref()?.variant {
                 AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
                     Some(_) => match head.paradigm {
-                        Paradigm::Procedural => todo!(),
+                        Paradigm::EagerProcedural => todo!(),
                         Paradigm::EagerFunctional => members.insert_new(TyMemberDecl::Method(
                             MethodDecl::from_ast(head, MethodKind::Type),
                         )),
@@ -244,11 +242,10 @@ impl TyDecl {
                     ))),
                 },
                 AstKind::Use { .. } => todo!(),
-                AstKind::FieldDefnHead(ref field_defn_head) => match field_defn_head.kind {
+                AstKind::FieldDefnHead { ref head, .. } => match head.kind {
                     FieldKind::StructOriginal => todo!("no original at this point"),
                     FieldKind::RecordOriginal => todo!("no original at this point"),
-                    FieldKind::StructDerived | FieldKind::RecordDerived => members
-                        .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(field_defn_head))),
+                    _ => members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(head))),
                 },
                 AstKind::Visual => break,
                 AstKind::TypeDefnHead { .. }
@@ -669,13 +666,13 @@ pub(crate) fn method_decl_from_static(
         } => {
             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
-            let symbol_context = SymbolContext {
+            let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),
                 opt_this_ty: None,
                 opt_this_contract: None,
                 symbols: symbols.into(),
-                kind: SymbolContextKind::Normal,
+                kind: AtomContextKind::Normal,
             };
             let inputs = inputs.map(|input| InputDecl {
                 ty: symbol_context.entity_route_from_str(input.ty).unwrap(),

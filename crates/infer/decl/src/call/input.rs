@@ -1,4 +1,4 @@
-use atom::SymbolContext;
+use atom::AtomContext;
 
 use super::*;
 
@@ -13,7 +13,7 @@ impl InputDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         input: &StaticInputParameter,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> Self {
         // opt_this_ty,
         Self {

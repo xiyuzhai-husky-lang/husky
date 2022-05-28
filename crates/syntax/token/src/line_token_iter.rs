@@ -261,6 +261,10 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 '=' => self.pass_two(Special::Neq),
                 _ => (1, Special::Exclamation),
             },
+            '?' => match self.peek_char() {
+                '=' => self.pass_two(Special::MaybeEq),
+                _ => (1, Special::Exclamation),
+            },
             c => {
                 return Some(Token::new(
                     self.line_index,
