@@ -52,11 +52,6 @@ impl<'a> RustGenerator<'a> {
                     self.result += "    pub(crate) ";
                     self.result += &member.ident;
                     self.result += ": ";
-                    match contract {
-                        FieldLiason::Own => (),
-                        FieldLiason::GlobalRef => todo!(),
-                        FieldLiason::LazyOwn => todo!(),
-                    }
                     self.gen_entity_route(ty);
                     self.write(",\n");
                 }

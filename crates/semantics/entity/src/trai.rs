@@ -1,6 +1,6 @@
 use crate::EntityDefn;
 use crate::*;
-use atom::SymbolContext;
+use atom::AtomContext;
 use dev_utils::DevSource;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, MethodStaticDefnVariant, StaticTraitImplDefn};
@@ -18,7 +18,7 @@ pub struct TraitImplDefn {
 
 impl TraitImplDefn {
     pub fn from_static(
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
         static_trait_impl: &StaticTraitImplDefn,
     ) -> Arc<Self> {
         let trai = symbol_context
@@ -47,19 +47,22 @@ impl TraitImplDefn {
 
 impl EntityDefn {
     pub fn trait_member_impl_from_static(
-        context: &SymbolContext,
+        context: &mut dyn AtomContext,
         trai: EntityRoutePtr,
         static_trait_impl: &EntityStaticDefn,
     ) -> Arc<Self> {
         let variant =
             EntityDefnVariant::trait_member_impl_from_static(context, trai, static_trait_impl);
-        let ident = context.db.intern_word(static_trait_impl.name).ident();
+        let ident = context
+            .entity_syntax_db()
+            .intern_word(static_trait_impl.name)
+            .ident();
         Self::new(
             ident,
             variant,
-            context.opt_this_ty.unwrap(),
+            context.opt_this_ty().unwrap(),
             context
-                .db
+                .entity_syntax_db()
                 .intern_file(static_trait_impl.dev_src.file.into()),
             static_trait_impl.dev_src.into(),
         )
@@ -68,7 +71,7 @@ impl EntityDefn {
 
 impl EntityDefnVariant {
     pub fn trait_member_impl_from_static(
-        context: &SymbolContext,
+        context: &mut dyn AtomContext,
         trai: EntityRoutePtr,
         static_defn: &EntityStaticDefn,
     ) -> Self {
@@ -118,7 +121,10 @@ impl EntityDefnVariant {
                     output_liason,
                     method_variant,
                     generic_parameters: generic_parameters.map(|generic_placeholder| {
-                        GenericParameter::from_static(context.db, generic_placeholder)
+                        GenericParameter::from_static(
+                            context.entity_syntax_db(),
+                            generic_placeholder,
+                        )
                     }),
                 }
             }

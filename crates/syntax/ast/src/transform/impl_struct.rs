@@ -4,19 +4,12 @@ mod impl_method;
 mod impl_visual;
 
 use crate::*;
-use atom::symbol::{Symbol, SymbolKind};
+use atom::context::{Symbol, SymbolKind};
 use text::TextRanged;
 use token::*;
 use vm::{FieldLiason, InputLiason};
 use word::Paradigm;
 
-// the order is:
-// 1. original fields
-// 2. derived fields
-// 3. static callables
-// 4. methods
-// 5. trait impls
-// 6. visualization
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_item(
         &mut self,
@@ -32,7 +25,15 @@ impl<'a> AstTransformer<'a> {
                 ));
                 match keyword {
                     Keyword::Paradigm(routine_keyword) => {
-                        self.parse_struct_method(token_group, struct_item_context, enter_block)
+                        match token_group[2].kind {
+                            TokenKind::Special(Special::LPar) => {
+                                self.parse_struct_method(token_group, struct_item_context, enter_block)
+                            },
+                            TokenKind::Special(Special::LightArrow) =>{
+                                self.parse_struct_derived_lazy_field(token_group, struct_item_context, enter_block)
+                            },
+                            _=> todo!(),
+                        }
                     },
                     Keyword::Visual => self.parse_visual(token_group, struct_item_context, enter_block),
                     Keyword::Config(_)
@@ -44,10 +45,11 @@ impl<'a> AstTransformer<'a> {
                         p!(self.context, keyword);
                         todo!()
                     },
+                    Keyword::Liason(_) =>  self.parse_struct_eager_field(token_group, struct_item_context),
                 }
             },
             TokenKind::Identifier(_) => {
-                self.parse_struct_field(token_group, struct_item_context, )
+                self.parse_struct_eager_field(token_group, struct_item_context)
             },
             TokenKind::Decorator(_) => {
                 self.parse_struct_associated_routine(token_group, struct_item_context, enter_block)

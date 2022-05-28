@@ -1,7 +1,7 @@
 mod impl_match;
 
 use crate::{stmt::*, *};
-use atom::symbol::{Symbol, SymbolKind};
+use atom::context::{Symbol, SymbolKind};
 use text::{TextRange, TextRanged};
 use token::*;
 use vm::*;
@@ -155,7 +155,7 @@ impl<'a> AstTransformer<'a> {
                     }
                 }
             }
-            AstContext::Stmt(Paradigm::Procedural) => {
+            AstContext::Stmt(Paradigm::EagerProcedural) => {
                 let (expr_tokens, discard) = match token_group.last().unwrap().kind {
                     TokenKind::Special(Special::Semicolon) => {
                         (&token_group[..(token_group.len() - 1)], true)
@@ -185,7 +185,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<RawStmtVariant> {
         match kind {
             InitKind::Let | InitKind::Var => match self.context() {
-                AstContext::Stmt(Paradigm::Procedural) => (),
+                AstContext::Stmt(Paradigm::EagerProcedural) => (),
                 _ => err!(
                     format!(
                         "`{}` statement requires env to be `proc` or `test`, but got `{}` instead",

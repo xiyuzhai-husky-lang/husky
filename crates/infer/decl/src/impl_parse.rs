@@ -1,6 +1,6 @@
 use crate::*;
 use atom::{
-    symbol::{Symbol, SymbolContextKind, SymbolKind},
+    context::{AtomContextKind, Symbol, SymbolKind},
     *,
 };
 use entity_route::*;
@@ -12,7 +12,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
     // pub fn parse_entity(
     //     &self,
     //     text: &str,
-    //     symbol_context: &SymbolContext,
+    //     symbol_context: &mut SymbolContext,
     // ) -> AtomResult<EntityRoutePtr> {
     //     parse_entity(symbol_context, &self.tokenize(text))
     // }

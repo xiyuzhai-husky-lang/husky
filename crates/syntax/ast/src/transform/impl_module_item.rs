@@ -60,6 +60,7 @@ impl<'a> AstTransformer<'a> {
                 Ok(AstKind::MainDefn)
             }
             Keyword::Visual => todo!(),
+            Keyword::Liason(_) => todo!(),
         }
     }
 

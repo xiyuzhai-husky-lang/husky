@@ -10,7 +10,7 @@ use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use word::RootIdentifier;
+use word::{Paradigm, RootIdentifier};
 
 use crate::*;
 
@@ -58,33 +58,37 @@ impl<'a> ContractSheetBuilder<'a> {
                         AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
                             self.infer_all(children)
                         }
-                        AstKind::MainDefn => self.infer_morphism(children, &arena),
-                        AstKind::DatasetConfigDefnHead => self.infer_routine(
-                            Some(RootIdentifier::DatasetType.into()),
-                            children,
-                            &arena,
-                        ),
+                        AstKind::MainDefn => self.infer_lazy_stmts(children, &arena),
+                        AstKind::DatasetConfigDefnHead => self.infer_eager_stmts(children, &arena),
                         AstKind::CallFormDefnHead(ref head) => {
-                            self.infer_routine(Some(head.output_ty.route), children, &arena)
+                            self.infer_eager_stmts(children, &arena)
                         }
                         AstKind::CallFormDefnHead(ref head) => {
-                            self.infer_routine(Some(head.output_ty.route), children, &arena)
+                            self.infer_eager_stmts(children, &arena)
                         }
-                        AstKind::Visual => self.infer_routine(None, children, &arena),
+                        AstKind::Visual => self.infer_eager_stmts(children, &arena),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
-                        AstKind::FieldDefnHead(ref head) => match head.kind {
+                        AstKind::FieldDefnHead { ref head, .. } => match head.kind {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
-                            FieldKind::StructDerived | FieldKind::RecordDerived => {
-                                self.infer_morphism(children, &arena)
+                            FieldKind::StructDerivedLazy {
+                                paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
+                            } => self.infer_eager_stmts(children, &arena),
+                            FieldKind::StructDerivedLazy {
+                                paradigm: Paradigm::LazyFunctional,
+                            }
+                            | FieldKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
+                            _ => {
+                                p!(head.kind);
+                                todo!()
                             }
                         },
                         AstKind::Stmt(_) => todo!(),
                         AstKind::CallFormDefnHead(ref head) => {
-                            self.infer_routine(Some(head.output_ty.route), children, &arena)
+                            self.infer_eager_stmts(children, &arena)
                         }
-                        AstKind::FeatureDecl { ty, .. } => self.infer_morphism(children, &arena),
+                        AstKind::FeatureDecl { ty, .. } => self.infer_lazy_stmts(children, &arena),
                         AstKind::Submodule { ident, source_file } => (),
                     },
                     _ => (),

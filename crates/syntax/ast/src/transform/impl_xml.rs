@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use atom::symbol::{Symbol, SymbolKind};
+use atom::context::{Symbol, SymbolKind};
 use entity_route::{EntityRoute, EntityRouteKind};
 use text::TextRange;
 use word::IdentPairDict;

@@ -1,7 +1,7 @@
 use crate::*;
 
 use atom::{
-    symbol::{Symbol, SymbolContextKind},
+    context::{AtomContextKind, Symbol},
     *,
 };
 
@@ -21,16 +21,15 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static st
     let main = db.intern_file("haha/main.hsk".into());
     let symbols = fold::LocalStack::new();
     AtomParser::new(
-        &SymbolContext {
+        &mut AtomContextStandalone {
             opt_package_main: Some(main),
             db,
             opt_this_ty: None,
             opt_this_contract: None,
             symbols: (&symbols as &[Symbol]).into(),
-            kind: SymbolContextKind::Normal,
+            kind: AtomContextKind::Normal,
         },
-        None,
-        &tokens,
+        &mut tokens.as_slice().into(),
     )
     .parse_all()
     .unwrap()

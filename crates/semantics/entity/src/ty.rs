@@ -8,8 +8,8 @@ pub use type_call::*;
 use super::*;
 use ast::*;
 use atom::{
-    symbol::{Symbol, SymbolContextKind},
-    SymbolContext,
+    context::{AtomContextKind, Symbol},
+    AtomContext,
 };
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
@@ -152,7 +152,7 @@ impl EntityDefnVariant {
     }
 
     pub(crate) fn ty_from_static(
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
@@ -166,13 +166,13 @@ impl EntityDefnVariant {
                 visualizer,
                 opt_type_call,
             } => {
-                let mut symbol_context = SymbolContext {
-                    opt_package_main: symbol_context.opt_package_main,
-                    db: symbol_context.db,
+                let mut symbol_context = AtomContextStandalone {
+                    opt_package_main: symbol_context.opt_package_main(),
+                    db: symbol_context.entity_syntax_db(),
                     opt_this_ty: None,
                     opt_this_contract: None,
                     symbols: (&[] as &[Symbol]).into(),
-                    kind: SymbolContextKind::Normal,
+                    kind: AtomContextKind::Normal,
                 };
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
                 let generic_parameters =
@@ -187,20 +187,17 @@ impl EntityDefnVariant {
                 symbol_context.symbols = symbols.into();
                 symbol_context.opt_this_ty = Some(this_ty);
                 let type_members = type_members.map(|type_member| {
-                    EntityDefn::from_static(
-                        &symbol_context,
-                        symbol_context.db.intern_entity_route(EntityRoute::subroute(
-                            this_ty,
-                            symbol_context.db.intern_word(type_member.name).custom(),
-                            vec![],
-                        )),
-                        type_member,
-                    )
+                    let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
+                        this_ty,
+                        symbol_context.db.intern_word(type_member.name).custom(),
+                        vec![],
+                    ));
+                    EntityDefn::from_static(&mut symbol_context, route, type_member)
                 });
                 let variants = variants.map(|_| todo!());
                 let kind = kind;
                 let trait_impls = trait_impls
-                    .map(|trait_impl| TraitImplDefn::from_static(&symbol_context, trait_impl));
+                    .map(|trait_impl| TraitImplDefn::from_static(&mut symbol_context, trait_impl));
                 let opt_visualizer_source = Some(VisualizerSource::Static(visualizer));
                 Self::new_ty(
                     generic_parameters,
@@ -209,7 +206,7 @@ impl EntityDefnVariant {
                     kind,
                     trait_impls,
                     opt_type_call
-                        .map(|type_call| TyCallDefn::from_static(&symbol_context, type_call)),
+                        .map(|type_call| TyCallDefn::from_static(&mut symbol_context, type_call)),
                     opt_visualizer_source,
                 )
             }

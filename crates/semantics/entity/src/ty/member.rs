@@ -54,7 +54,7 @@ impl EntityDefnVariant {
                 AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
                     Some(this_contract) => {
                         let method_source = match head.paradigm {
-                            Paradigm::Procedural => todo!(),
+                            Paradigm::EagerProcedural => todo!(),
                             Paradigm::EagerFunctional => {
                                 let stmts = semantics_eager::parse_func_stmts(
                                     &head.parameters,
@@ -97,13 +97,13 @@ impl EntityDefnVariant {
                 AstKind::PatternDefnHead => todo!(),
                 AstKind::FeatureDecl { ident, ty } => todo!(),
                 AstKind::Use { .. } => todo!(),
-                AstKind::FieldDefnHead(ref field_defn_head) => (
-                    field_defn_head.ident.ident,
+                AstKind::FieldDefnHead { ref head, .. } => (
+                    head.ident.ident,
                     EntityDefnVariant::type_field_from_ast(
                         db,
                         arena,
                         file,
-                        field_defn_head,
+                        head,
                         child.opt_children.clone(),
                     )?,
                 ),

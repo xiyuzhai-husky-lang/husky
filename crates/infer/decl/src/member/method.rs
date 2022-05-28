@@ -1,6 +1,6 @@
 use crate::*;
 use atom::{
-    symbol::{Symbol, SymbolContextKind},
+    context::{AtomContextKind, Symbol},
     *,
 };
 use fold::LocalStack;
@@ -42,7 +42,7 @@ impl MethodKind {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         method_variant: &MethodStaticDefnVariant,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> Self {
         match method_variant {
             MethodStaticDefnVariant::TypeMethod { .. } => Self::Type,
@@ -97,7 +97,7 @@ impl MethodDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
         defn: &EntityStaticDefn,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> Arc<Self> {
         match defn.variant {
             EntityStaticDefnVariant::Method {

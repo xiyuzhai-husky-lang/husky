@@ -10,15 +10,18 @@ impl EntityDefnVariant {
     ) -> SemanticResult<Self> {
         let variant = match field_defn_head.kind {
             FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
-            FieldKind::StructDerived => FieldDefnVariant::StructDerived { stmts: todo!() },
+            FieldKind::StructDerivedLazy {
+                paradigm: Paradigm::LazyFunctional,
+            } => FieldDefnVariant::StructDerived { stmts: todo!() },
             FieldKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
             FieldKind::RecordDerived => FieldDefnVariant::RecordDerived {
                 stmts: semantics_lazy::parse_lazy_stmts(&[], db, arena, children.unwrap(), file)?,
             },
+            _ => todo!(),
         };
         Ok(Self::TypeField {
             ty: field_defn_head.ty,
-            contract: field_defn_head.contract,
+            contract: field_defn_head.liason,
             fieldiant: variant,
         })
     }
@@ -34,26 +37,25 @@ impl EntityDefnVariant {
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
             match ast.variant {
-                AstKind::FieldDefnHead(ref field_defn_head) => {
-                    match field_defn_head.kind {
+                AstKind::FieldDefnHead { ref head, .. } => {
+                    match head.kind {
                         FieldKind::StructOriginal => (),
-                        FieldKind::StructDerived => break,
                         FieldKind::RecordOriginal => (),
-                        FieldKind::RecordDerived => break,
+                        _ => break,
                     }
                     members.insert_new(EntityDefn::new(
-                        field_defn_head.ident.ident.into(),
+                        head.ident.ident.into(),
                         EntityDefnVariant::type_field_from_ast(
                             db,
                             arena,
                             file,
-                            field_defn_head,
+                            head,
                             child.opt_children.clone(),
                         )?,
                         db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child {
                                 parent: ty_route,
-                                ident: field_defn_head.ident.ident,
+                                ident: head.ident.ident,
                             },
                             generic_arguments: vec![],
                         }),

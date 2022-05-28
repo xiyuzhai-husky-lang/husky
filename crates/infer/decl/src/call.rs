@@ -5,8 +5,8 @@ pub use input::*;
 pub use output::*;
 
 use atom::{
-    symbol::{Symbol, SymbolContextKind},
-    SymbolContext,
+    context::{AtomContextKind, Symbol},
+    AtomContext, AtomContextStandalone,
 };
 use defn_head::*;
 use fold::LocalStack;
@@ -127,13 +127,13 @@ pub(crate) fn routine_decl_from_static(
         } => {
             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
-            let symbol_context = SymbolContext {
+            let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),
                 opt_this_ty: None,
                 opt_this_contract: None,
                 symbols: (&symbols as &[Symbol]).into(),
-                kind: SymbolContextKind::Normal,
+                kind: AtomContextKind::Normal,
             };
             let inputs = inputs.map(|input| InputDecl {
                 ty: symbol_context.entity_route_from_str(input.ty).unwrap(),

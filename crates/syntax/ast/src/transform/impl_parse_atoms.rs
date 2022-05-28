@@ -8,11 +8,6 @@ impl<'a> AstTransformer<'a> {
         tokens: &[Token],
         f: impl FnOnce(AtomParser) -> S,
     ) -> S {
-        let symbol_context = self.symbol_context();
-        f(AtomParser::new(
-            &symbol_context,
-            Some(unsafe { ref_to_mut_ref(&self.abs_semantic_tokens) }),
-            tokens,
-        ))
+        f(AtomParser::new(self, &mut tokens.into()))
     }
 }

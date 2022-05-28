@@ -113,7 +113,7 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set((head.paradigm).into());
                 self.write(match head.paradigm {
-                    Paradigm::Procedural => "proc ",
+                    Paradigm::EagerProcedural => "proc ",
                     Paradigm::EagerFunctional => "func ",
                     Paradigm::LazyFunctional => todo!(),
                 });
@@ -136,10 +136,15 @@ impl<'a> Formatter<'a> {
                 self.write(":");
             }
             AstKind::PatternDefnHead => todo!(),
-            AstKind::FieldDefnHead(ref field) => {
-                self.fmt_ident(field.ident.ident.into());
+            AstKind::FieldDefnHead { ref head, opt_expr } => {
+                match head.liason {
+                    FieldLiason::Immutable => todo!(),
+                    FieldLiason::Mutable => todo!(),
+                    FieldLiason::Derived => todo!(),
+                }
+                self.fmt_ident(head.ident.ident.into());
                 self.write(": ");
-                self.fmt_member_variable_contracted_type(field.contract, field.ty)
+                self.fmt_ty(head.ty)
             }
             AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstKind::DatasetConfigDefnHead => todo!(),
@@ -157,15 +162,6 @@ impl<'a> Formatter<'a> {
 
     fn fmt_ident(&mut self, ident: word::Identifier) {
         self.result.add_assign(&ident)
-    }
-
-    fn fmt_member_variable_contracted_type(&mut self, contract: FieldLiason, ty: EntityRoutePtr) {
-        match contract {
-            FieldLiason::Own => (),
-            FieldLiason::GlobalRef => self.write("&"),
-            FieldLiason::LazyOwn => todo!(),
-        }
-        self.fmt_ty(ty);
     }
 
     fn fmt_func_input_liasoned_type(&mut self, ty: &InputParameter) {
@@ -221,7 +217,7 @@ impl<'a> Formatter<'a> {
                     AstContext::Stmt(Paradigm::EagerFunctional)
                     | AstContext::Stmt(Paradigm::LazyFunctional)
                     | AstContext::Stmt(Paradigm::LazyFunctional) => (),
-                    AstContext::Stmt(Paradigm::Procedural) => self.write("return "),
+                    AstContext::Stmt(Paradigm::EagerProcedural) => self.write("return "),
                     AstContext::Package(_) => todo!(),
                     AstContext::Module(_) => todo!(),
                     AstContext::Struct(_) => todo!(),

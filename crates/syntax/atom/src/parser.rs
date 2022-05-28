@@ -1,4 +1,3 @@
-mod impl_abs_semantic_token;
 mod impl_basic;
 mod impl_call_head;
 mod impl_entity_route;
@@ -9,103 +8,34 @@ mod impl_word_opr;
 mod impl_xml;
 mod utils;
 
-use super::{stack::AtomStack, symbol::SymbolContext, *};
+use super::{stack::AtomStack, *};
 use check_utils::should;
 use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument};
 use file::URange;
 use print_utils::p;
 use std::iter::Peekable;
 use text::TextRange;
-use token::{identify_token, AbsSemanticToken, SemanticTokenKind, Special, Token, TokenKind};
+use token::{
+    identify_token, AbsSemanticToken, SemanticTokenKind, Special, Token, TokenKind, TokenStream,
+};
 use utils::*;
 use vm::{BinaryOpr, Bracket, PureBinaryOpr};
 
-#[derive(Debug, Clone)]
-pub(crate) struct TokenStream<'a> {
-    pub(crate) tokens: &'a [Token],
-    start: usize,
-    next: usize,
-}
-
-impl<'a> TokenStream<'a> {
-    pub(crate) fn empty(&self) -> bool {
-        self.next >= self.tokens.len()
-    }
-
-    pub(crate) fn next(&mut self) -> Option<&'a Token> {
-        if self.next < self.tokens.len() {
-            let next = self.next;
-            self.next += 1;
-            Some(&self.tokens[next])
-        } else {
-            None
-        }
-    }
-
-    pub(crate) fn next_range(&self) -> TextRange {
-        if self.next < self.tokens.len() {
-            self.tokens[self.next].range
-        } else {
-            let last_token_range = self.tokens.last().unwrap().range;
-            (last_token_range.end..(last_token_range.end.to_right(4))).into()
-        }
-    }
-
-    pub(crate) fn pop_token_slice(&mut self) -> URange {
-        should!(self.start < self.next);
-        let start = self.start;
-        self.start = self.next;
-        start..self.next
-    }
-
-    pub(crate) fn pop_text_range(&mut self) -> TextRange {
-        should!(self.start < self.next);
-        let start = self.start;
-        self.start = self.next;
-        self.tokens[start..self.next].text_range()
-    }
-
-    pub(crate) fn peek_next_bra(&mut self) -> Option<Bracket> {
-        if self.next < self.tokens.len() {
-            match self.tokens[self.next].kind {
-                TokenKind::Special(special) => special.opt_bra(),
-                _ => None,
-            }
-        } else {
-            None
-        }
-    }
-}
-
-impl<'a> From<&'a [Token]> for TokenStream<'a> {
-    fn from(tokens: &'a [Token]) -> Self {
-        Self {
-            tokens,
-            start: 0,
-            next: 0,
-        }
-    }
-}
-
-pub struct AtomParser<'a> {
-    symbol_context: &'a SymbolContext<'a>,
-    pub(crate) stream: TokenStream<'a>,
-    opt_abs_semantic_tokens: Option<&'a mut Vec<AbsSemanticToken>>,
+pub struct AtomParser<'a, 'b> {
+    context: &'a mut dyn AtomContext,
+    pub(crate) token_stream: &'a mut TokenStream<'b>,
     stack: AtomStack,
 }
 
-impl<'a> AtomParser<'a> {
+impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn new(
-        symbol_context: &'a SymbolContext<'a>,
-        opt_abs_semantic_tokens: Option<&'a mut Vec<AbsSemanticToken>>,
-        tokens: &'a [Token],
+        symbol_context: &'a mut dyn AtomContext,
+        token_stream: &'a mut TokenStream<'b>,
     ) -> Self {
-        should!(tokens.len() > 0);
         Self {
-            symbol_context,
-            stream: tokens.into(),
+            context: symbol_context,
+            token_stream,
             stack: AtomStack::new(),
-            opt_abs_semantic_tokens,
         }
     }
 
@@ -117,14 +47,14 @@ impl<'a> AtomParser<'a> {
                 }
             }
 
-            if let Some(token) = self.stream.next() {
+            if let Some(token) = self.token_stream.next() {
                 match token.kind {
                     TokenKind::Keyword(keyword) => err!(
                         "keyword should be put at start",
-                        self.stream.pop_text_range()
+                        self.token_stream.pop_text_range()
                     )?,
                     TokenKind::Special(Special::Colon) => {
-                        if let Some(_) = self.stream.next() {
+                        if let Some(_) = self.token_stream.next() {
                             err!("unexpected colon", token.range)?
                         } else {
                             break;
@@ -132,12 +62,13 @@ impl<'a> AtomParser<'a> {
                     }
                     TokenKind::Special(special) => self.handle_special(special, token)?,
                     TokenKind::WordOpr(word_opr) => self.handle_word_opr(word_opr, token)?,
-                    TokenKind::Identifier(_) => {
-                        err!("unexpected identifier here", self.stream.pop_text_range())?
-                    }
+                    TokenKind::Identifier(_) => err!(
+                        "unexpected identifier here",
+                        self.token_stream.pop_text_range()
+                    )?,
                     TokenKind::PrimitiveLiteral(_value) => {
-                        let range = self.stream.pop_text_range();
-                        self.push_abs_semantic_token(AbsSemanticToken::new(
+                        let range = self.token_stream.pop_text_range();
+                        self.context.push_abs_semantic_token(AbsSemanticToken::new(
                             SemanticTokenKind::Literal,
                             range,
                         ));
@@ -163,10 +94,17 @@ impl<'a> AtomParser<'a> {
             err!(format!("last atom is not right convex"), last_atom.range)
         }
     }
+
+    fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {
+        self.context.push_abs_semantic_token(new_token)
+    }
 }
 
-pub fn parse_route(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResult<EntityRoutePtr> {
-    let result = AtomParser::new(symbol_context, None, tokens.into()).parse_all()?;
+pub fn parse_route<'a, 'b>(
+    symbol_context: &'a mut dyn AtomContext,
+    tokens: &'a [Token],
+) -> AtomResult<EntityRoutePtr> {
+    let result = AtomParser::new(symbol_context, &mut tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()
     }
@@ -190,7 +128,7 @@ pub fn parse_route(symbol_context: &SymbolContext, tokens: &[Token]) -> AtomResu
 }
 
 // pub fn parse_entity(
-//     symbol_context: &SymbolContext,
+//     symbol_context: &mut SymbolContext,
 //     tokens: &[Token],
 // ) -> AtomResult<EntityRoutePtr> {
 //     let result = AtomLRParser::new(symbol_context, tokens.into()).parse_all()?;

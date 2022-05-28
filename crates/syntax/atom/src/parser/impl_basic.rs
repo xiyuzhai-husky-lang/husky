@@ -3,7 +3,7 @@ use vm::CopyableValue;
 
 use super::*;
 
-impl<'a> AtomParser<'a> {
+impl<'a, 'b> AtomParser<'a, 'b> {
     pub(crate) fn special(&mut self, target: Special) -> Option<()> {
         self.kind(target.into())
     }
@@ -12,7 +12,7 @@ impl<'a> AtomParser<'a> {
         if let Some(Token {
             kind: TokenKind::PrimitiveLiteral(CopyableValue::I32(i)),
             ..
-        }) = self.stream.next()
+        }) = self.token_stream.next()
         {
             if *i < 0 {
                 None
@@ -28,7 +28,7 @@ impl<'a> AtomParser<'a> {
         if let Some(Token {
             kind: TokenKind::Identifier(Identifier::Custom(ident)),
             range,
-        }) = self.stream.next()
+        }) = self.token_stream.next()
         {
             Some(RangedCustomIdentifier {
                 ident: *ident,
@@ -40,7 +40,7 @@ impl<'a> AtomParser<'a> {
     }
 
     fn kind(&mut self, target: TokenKind) -> Option<()> {
-        if let Some(Token { kind, .. }) = self.stream.next() {
+        if let Some(Token { kind, .. }) = self.token_stream.next() {
             if *kind == target {
                 return Some(());
             }

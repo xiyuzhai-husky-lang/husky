@@ -70,7 +70,9 @@ pub enum MemberKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FieldKind {
     StructOriginal,
-    StructDerived,
+    StructDefault,
+    StructDerivedEager,
+    StructDerivedLazy { paradigm: Paradigm },
     RecordOriginal,
     RecordDerived,
 }

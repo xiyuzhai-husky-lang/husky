@@ -1,5 +1,10 @@
-use std::borrow::Cow;
+mod standalone;
+mod symbol;
 
+pub use standalone::*;
+pub use symbol::*;
+
+use super::*;
 use defn_head::{GenericParameter, GenericPlaceholderVariant, InputParameter};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
@@ -8,57 +13,14 @@ use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
 use static_defn::{StaticGenericPlaceholder, StaticInputParameter};
+use std::borrow::Cow;
 use text::*;
+use token::AbsSemanticToken;
 use vm::InputLiason;
 use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
-use super::*;
-
-#[derive(Debug, Clone)]
-pub struct Symbol {
-    pub ident: CustomIdentifier,
-    pub kind: SymbolKind,
-}
-
-impl Symbol {
-    pub fn variable(ranged_ident: RangedCustomIdentifier) -> Self {
-        Self {
-            ident: ranged_ident.ident.into(),
-            kind: SymbolKind::Variable {
-                init_range: ranged_ident.range,
-            },
-        }
-    }
-}
-
-#[derive(Debug, Clone, Copy)]
-pub enum SymbolKind {
-    EntityRoute(EntityRoutePtr),
-    Variable {
-        init_range: TextRange,
-    },
-    FrameVariable {
-        init_range: TextRange,
-    },
-    Unrecognized(CustomIdentifier),
-    ThisData {
-        opt_ty: Option<EntityRoutePtr>,
-        opt_contract: Option<InputLiason>,
-    },
-}
-
-#[derive(Clone)]
-pub struct SymbolContext<'a> {
-    pub opt_package_main: Option<FilePtr>,
-    pub db: &'a dyn EntityRouteQueryGroup,
-    pub opt_this_ty: Option<EntityRoutePtr>,
-    pub opt_this_contract: Option<InputLiason>,
-    pub symbols: Cow<'a, [Symbol]>,
-    pub kind: SymbolContextKind<'a>,
-}
-
 #[derive(Clone, Copy)]
-pub enum SymbolContextKind<'a> {
+pub enum AtomContextKind<'a> {
     Normal,
     Trait {
         this_trai: EntityRoutePtr,
@@ -66,8 +28,17 @@ pub enum SymbolContextKind<'a> {
     },
 }
 
-impl<'a> SymbolContext<'a> {
-    pub fn builtin_type_atom(
+pub trait AtomContext {
+    fn opt_package_main(&self) -> Option<FilePtr>;
+    fn entity_syntax_db(&self) -> &dyn EntityRouteQueryGroup;
+    fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
+    fn opt_this_contract(&self) -> Option<InputLiason>;
+    fn symbols(&self) -> &[Symbol];
+    fn kind(&self) -> AtomContextKind;
+    fn as_dyn_mut(&mut self) -> &mut dyn AtomContext;
+    fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken);
+
+    fn builtin_type_atom(
         &self,
         ident: RootIdentifier,
         generics: Vec<GenericArgument>,
@@ -75,7 +46,7 @@ impl<'a> SymbolContext<'a> {
     ) -> Atom {
         let scope = EntityRoute::new_builtin(ident.into(), generics);
         let kind = AtomVariant::EntityRoute {
-            route: self.db.intern_entity_route(scope),
+            route: self.entity_syntax_db().intern_entity_route(scope),
             kind: EntityKind::Type(match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32
@@ -108,33 +79,31 @@ impl<'a> SymbolContext<'a> {
         Atom::new(tail, kind)
     }
 
-    pub fn resolve_symbol_kind(
-        &self,
-        ident: Identifier,
-        range: TextRange,
-    ) -> AtomResult<SymbolKind> {
+    fn resolve_symbol_kind(&self, ident: Identifier, range: TextRange) -> AtomResult<SymbolKind> {
         match ident {
             Identifier::Builtin(ident) => Ok(SymbolKind::EntityRoute(ident.into())),
             Identifier::Contextual(ident) => match ident {
                 ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
-                    self.db.intern_entity_route(EntityRoute {
+                    self.entity_syntax_db().intern_entity_route(EntityRoute {
                         kind: EntityRouteKind::Input {
                             main: self
-                                .opt_package_main
+                                .opt_package_main()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
                         generic_arguments: vec![],
                     }),
                 )),
                 ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData {
-                    opt_ty: self.opt_this_ty,
-                    opt_contract: self.opt_this_contract,
+                    opt_ty: self.opt_this_ty(),
+                    opt_contract: self.opt_this_contract(),
                 }),
-                ContextualIdentifier::ThisType => {
-                    Ok(SymbolKind::EntityRoute(self.db.entity_route_menu().this_ty))
-                }
+                ContextualIdentifier::ThisType => Ok(SymbolKind::EntityRoute(
+                    self.entity_syntax_db().entity_route_menu().this_ty,
+                )),
                 ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
-                    self.db.module(self.opt_package_main.unwrap()).unwrap(),
+                    self.entity_syntax_db()
+                        .module(self.opt_package_main().unwrap())
+                        .unwrap(),
                 )),
             },
             Identifier::Custom(ident) => Ok(if let Some(symbol) = self.find_symbol(ident) {
@@ -146,21 +115,21 @@ impl<'a> SymbolContext<'a> {
     }
 
     fn find_symbol(&self, ident: CustomIdentifier) -> Option<&Symbol> {
-        self.symbols
+        self.symbols()
             .iter()
             .rev()
             .find(|symbol| symbol.ident == ident)
     }
 
-    pub fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
+    fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
         let kind_result: EntitySyntaxResult<EntityKind> = match route.kind {
             EntityRouteKind::Child {
                 parent,
                 ident: ident0,
             } => match parent.kind {
-                EntityRouteKind::ThisType => match self.kind {
-                    SymbolContextKind::Normal => todo!(),
-                    SymbolContextKind::Trait {
+                EntityRouteKind::ThisType => match self.kind() {
+                    AtomContextKind::Normal => todo!(),
+                    AtomContextKind::Trait {
                         member_kinds: members,
                         ..
                     } => {
@@ -179,10 +148,10 @@ impl<'a> SymbolContext<'a> {
                         }
                     }
                 },
-                _ => self.db.entity_kind(route),
+                _ => self.entity_syntax_db().entity_kind(route),
             },
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
-            _ => self.db.entity_kind(route),
+            _ => self.entity_syntax_db().entity_kind(route),
         };
         match kind_result {
             Ok(kind) => Ok(kind),
@@ -190,9 +159,10 @@ impl<'a> SymbolContext<'a> {
         }
     }
 
-    pub fn entity_route_from_str(&self, text: &str) -> AtomResult<EntityRoutePtr> {
-        let tokens = self.db.tokenize(text);
-        let result = AtomParser::new(self, None, &tokens).parse_all()?;
+    fn entity_route_from_str(&mut self, text: &str) -> AtomResult<EntityRoutePtr> {
+        let tokens = self.entity_syntax_db().tokenize(text);
+        let result =
+            AtomParser::new(self.as_dyn_mut(), &mut (&tokens as &[_]).into()).parse_all()?;
         if result.len() == 0 {
             panic!()
         }
@@ -211,13 +181,16 @@ impl<'a> SymbolContext<'a> {
         }
     }
 
-    pub fn input_placeholder_from_static(
-        &self,
+    fn input_placeholder_from_static(
+        &mut self,
         static_input_placeholder: &StaticInputParameter,
     ) -> InputParameter {
         InputParameter {
             ranged_ident: RangedCustomIdentifier {
-                ident: self.db.intern_word(static_input_placeholder.name).custom(),
+                ident: self
+                    .entity_syntax_db()
+                    .intern_word(static_input_placeholder.name)
+                    .custom(),
                 range: Default::default(),
             },
             contract: static_input_placeholder.contract,
@@ -230,34 +203,34 @@ impl<'a> SymbolContext<'a> {
         }
     }
 
-    pub fn trai(&self) -> EntityRoutePtr {
-        match self.kind {
-            SymbolContextKind::Normal => panic!(),
-            SymbolContextKind::Trait {
+    fn trai(&self) -> EntityRoutePtr {
+        match self.kind() {
+            AtomContextKind::Normal => panic!(),
+            AtomContextKind::Trait {
                 this_trai: trai, ..
             } => trai,
         }
     }
 
-    pub fn generic_parameters_from_static(
+    fn generic_parameters_from_static(
         &self,
         static_generic_parameters: &[StaticGenericPlaceholder],
     ) -> IdentDict<GenericParameter> {
         static_generic_parameters.map(|static_generic_placeholder| GenericParameter {
             ident: self
-                .db
+                .entity_syntax_db()
                 .intern_word(static_generic_placeholder.name)
                 .custom(),
             variant: GenericPlaceholderVariant::Type { traits: vec![] },
         })
     }
 
-    pub fn generic_arguments_from_generic_parameters(
+    fn generic_arguments_from_generic_parameters(
         &self,
         generic_parameters: &[GenericParameter],
     ) -> Vec<GenericArgument> {
         generic_parameters.map(|generic_placeholder| {
-            GenericArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
+            GenericArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident,
                     entity_kind: generic_placeholder.entity_kind(),
@@ -267,7 +240,7 @@ impl<'a> SymbolContext<'a> {
         })
     }
 
-    pub fn symbols_from_generic_parameters(
+    fn symbols_from_generic_parameters(
         &self,
         generic_parameters: &[GenericParameter],
     ) -> Vec<Symbol> {
@@ -275,13 +248,15 @@ impl<'a> SymbolContext<'a> {
         for generic_placeholder in generic_parameters.iter() {
             symbols.push(Symbol {
                 ident: generic_placeholder.ident,
-                kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
-                    kind: EntityRouteKind::Generic {
-                        ident: generic_placeholder.ident,
-                        entity_kind: generic_placeholder.entity_kind(),
+                kind: SymbolKind::EntityRoute(self.entity_syntax_db().intern_entity_route(
+                    EntityRoute {
+                        kind: EntityRouteKind::Generic {
+                            ident: generic_placeholder.ident,
+                            entity_kind: generic_placeholder.entity_kind(),
+                        },
+                        generic_arguments: vec![],
                     },
-                    generic_arguments: vec![],
-                })),
+                )),
             })
         }
         symbols

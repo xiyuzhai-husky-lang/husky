@@ -2,7 +2,7 @@ use entity_route::{EntityKind, GenericArgument};
 use vm::*;
 use word::RootIdentifier;
 
-use crate::{convexity::Convexity, symbol::SymbolContext, *};
+use crate::{context::AtomContext, convexity::Convexity, *};
 
 #[derive(Debug)]
 pub(crate) struct AtomStack {
@@ -63,7 +63,7 @@ impl AtomStack {
         ket: Bracket,
         attr: ListEndAttr,
         mut tail: TextRange,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
     ) -> AtomResult<()> {
         match (ket, self.atoms.last()) {
             (
@@ -176,7 +176,7 @@ impl AtomStack {
 
     pub(crate) fn make_func_type(
         &mut self,
-        symbol_context: &SymbolContext,
+        symbol_context: &mut dyn AtomContext,
         output: EntityRoutePtr,
         mut tail: TextRange,
     ) -> AtomResult<()> {

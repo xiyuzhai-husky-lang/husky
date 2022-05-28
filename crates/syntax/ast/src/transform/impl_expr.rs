@@ -1,5 +1,5 @@
 use crate::*;
-use atom::{symbol::SymbolKind, AtomVariant};
+use atom::{context::SymbolKind, AtomVariant};
 use text::TextRanged;
 use token::Token;
 
