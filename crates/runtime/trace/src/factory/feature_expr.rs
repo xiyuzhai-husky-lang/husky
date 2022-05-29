@@ -66,6 +66,7 @@ impl<'eval> TraceFactory<'eval> {
                     LazyOpnKind::FieldAccess {
                         field_ident,
                         field_kind,
+                        ..
                     } => todo!(),
                     LazyOpnKind::MethodCall {
                         method_ident,

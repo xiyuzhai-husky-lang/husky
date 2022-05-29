@@ -96,7 +96,7 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         enter_block(self);
         self.context.set(AstContext::Visual);
-        self.opt_this_contract.set(Some(InputLiason::Pure));
+        self.opt_this_liason.set(Some(InputLiason::Pure));
         context_update_result?;
         Ok(AstKind::Visual)
     }

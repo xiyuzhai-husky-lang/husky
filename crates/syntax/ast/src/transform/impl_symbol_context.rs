@@ -15,8 +15,8 @@ impl<'a> AtomContext for AstTransformer<'a> {
         self.opt_this_ty.value()
     }
 
-    fn opt_this_contract(&self) -> Option<vm::InputLiason> {
-        self.opt_this_contract.value()
+    fn opt_this_liason(&self) -> Option<vm::InputLiason> {
+        self.opt_this_liason.value()
     }
 
     fn symbols(&self) -> &[Symbol] {
@@ -52,5 +52,9 @@ impl<'a> AtomContext for AstTransformer<'a> {
     fn rollback(&mut self, state: AtomContextState) {
         self.abs_semantic_tokens
             .truncate(state.abs_semantic_tokens_len)
+    }
+
+    fn push_symbol(&mut self, new_symbol: Symbol) {
+        self.symbols.push(new_symbol)
     }
 }

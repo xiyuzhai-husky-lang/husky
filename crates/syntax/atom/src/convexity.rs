@@ -12,7 +12,8 @@ pub(super) fn left_side_convexity(kind: &AtomVariant) -> Convexity {
         AtomVariant::EntityRoute { .. }
         | AtomVariant::Variable { .. }
         | AtomVariant::FrameVariable { .. }
-        | AtomVariant::ThisData { .. }
+        | AtomVariant::ThisValue { .. }
+        | AtomVariant::ThisField { .. }
         | AtomVariant::Unrecognized(_)
         | AtomVariant::PrimitiveLiteral(_)
         | AtomVariant::Prefix(_)
@@ -34,7 +35,8 @@ pub(super) fn right_side_convexity(kind: &AtomVariant) -> Convexity {
         AtomVariant::EntityRoute { .. }
         | AtomVariant::Variable { .. }
         | AtomVariant::FrameVariable { .. }
-        | AtomVariant::ThisData { .. }
+        | AtomVariant::ThisValue { .. }
+        | AtomVariant::ThisField { .. }
         | AtomVariant::Unrecognized(_)
         | AtomVariant::PrimitiveLiteral(_)
         | AtomVariant::Suffix(_)

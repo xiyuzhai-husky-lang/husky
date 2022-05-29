@@ -2,8 +2,8 @@ use entity_route::{EntityKind, RangedEntityRoute};
 use text::*;
 use token::Special;
 use vm::{
-    BinaryOpr, Bracket, CopyableValue, InputLiason, ListEndAttr, ListStartAttr, PrefixOpr,
-    PureBinaryOpr, SuffixOpr,
+    BinaryOpr, Bracket, CopyableValue, InputLiason, ListEndAttr, ListStartAttr, MemberLiason,
+    PrefixOpr, PureBinaryOpr, SuffixOpr,
 };
 use word::{CustomIdentifier, WordOpr};
 
@@ -23,9 +23,16 @@ pub enum AtomVariant {
         varname: CustomIdentifier,
         init_range: TextRange,
     },
-    ThisData {
-        opt_ty: Option<EntityRoutePtr>,
-        opt_contract: Option<InputLiason>,
+    ThisValue {
+        opt_this_ty: Option<EntityRoutePtr>,
+        opt_this_liason: Option<InputLiason>,
+    },
+    ThisField {
+        field_ident: RangedCustomIdentifier,
+        opt_this_ty: Option<EntityRoutePtr>,
+        opt_this_liason: Option<InputLiason>,
+        opt_field_ty: Option<RangedEntityRoute>,
+        field_liason: MemberLiason,
     },
     Unrecognized(CustomIdentifier),
     PrimitiveLiteral(CopyableValue),

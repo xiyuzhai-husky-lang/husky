@@ -60,8 +60,14 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 ref opds,
             } => self.infer_opn(opr, opds, raw_expr_idx, arena),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { opt_ty, .. } => derived_not_none!(opt_ty),
+            RawExprVariant::ThisValue {
+                opt_this_ty: opt_ty,
+                ..
+            } => derived_not_none!(opt_ty),
             RawExprVariant::FrameVariable { .. } => Ok(self.db.entity_route_menu().i32_ty),
+            RawExprVariant::ThisField { opt_field_ty, .. } => {
+                Ok(derived_not_none!(opt_field_ty)?.route)
+            }
         }?;
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicitly_castable(ty, expected_ty) {
@@ -469,9 +475,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             RawExprVariant::Bracketed(_)
             | RawExprVariant::Opn { .. }
-            | RawExprVariant::This { .. }
+            | RawExprVariant::ThisValue { .. }
             | RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::ThisField { .. } => todo!(),
         }
     }
 

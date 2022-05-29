@@ -36,7 +36,7 @@ pub struct AstTransformer<'a> {
     symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
     opt_this_ty: LocalValue<Option<EntityRoutePtr>>,
-    opt_this_contract: LocalValue<Option<InputLiason>>,
+    opt_this_liason: LocalValue<Option<InputLiason>>,
     pub(crate) folded_results: FoldableList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
     tokenized_text: Arc<TokenizedText>,
@@ -61,7 +61,7 @@ impl<'a> AstTransformer<'a> {
                 _ => panic!(),
             }),
             opt_this_ty: LocalValue::new(None),
-            opt_this_contract: LocalValue::new(None),
+            opt_this_liason: LocalValue::new(None),
             abs_semantic_tokens: vec![],
             tokenized_text: db.tokenized_text(module_file)?,
         });
@@ -109,14 +109,14 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
         self.context.enter();
         self.symbols.enter();
         self.opt_this_ty.enter();
-        self.opt_this_contract.enter();
+        self.opt_this_liason.enter();
     }
 
     fn _exit_block(&mut self) {
         self.context.exit();
         self.symbols.exit();
         self.opt_this_ty.exit();
-        self.opt_this_contract.exit();
+        self.opt_this_liason.exit();
     }
 
     fn transform(

@@ -136,7 +136,7 @@ impl<'a> RustGenerator<'a> {
                         InputLiason::Pure => self.write("&self"),
                         InputLiason::GlobalRef => todo!(),
                         InputLiason::Move => todo!(),
-                        InputLiason::BorrowMut => todo!(),
+                        InputLiason::LocalRefMut => todo!(),
                         InputLiason::MoveMut => todo!(),
                         InputLiason::MemberAccess => todo!(),
                     }
@@ -156,7 +156,7 @@ impl<'a> RustGenerator<'a> {
                             }
                             InputLiason::GlobalRef => todo!(),
                             InputLiason::Move => todo!(),
-                            InputLiason::BorrowMut => todo!(),
+                            InputLiason::LocalRefMut => todo!(),
                             InputLiason::MoveMut => todo!(),
                             InputLiason::MemberAccess => todo!(),
                         }

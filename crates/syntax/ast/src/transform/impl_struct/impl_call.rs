@@ -24,7 +24,7 @@ impl<'a> AstTransformer<'a> {
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
             parser.routine_defn_head(routine_keyword)
         })?;
-        self.opt_this_contract.set(None);
+        self.opt_this_liason.set(None);
         self.opt_this_ty.set(None);
         self.symbols.extend(
             head.parameters

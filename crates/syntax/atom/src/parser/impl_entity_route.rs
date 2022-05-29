@@ -1,5 +1,6 @@
 use entity_kind::TyKind;
 use entity_route::RangedEntityRoute;
+use text::RangedCustomIdentifier;
 use token::SemanticTokenKind;
 
 use super::context::SymbolKind;
@@ -50,18 +51,39 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         }
                     }
                     SymbolKind::Unrecognized(ident) => AtomVariant::Unrecognized(ident),
-                    SymbolKind::ThisData {
-                        opt_ty,
-                        opt_contract,
+                    SymbolKind::ThisValue {
+                        opt_this_ty,
+                        opt_this_liason,
                     } => {
                         self.atom_context
                             .push_abs_semantic_token(AbsSemanticToken::new(
-                                SemanticTokenKind::ThisData,
+                                SemanticTokenKind::ThisValue,
                                 token.range,
                             ));
-                        AtomVariant::ThisData {
-                            opt_ty,
-                            opt_contract,
+                        AtomVariant::ThisValue {
+                            opt_this_ty,
+                            opt_this_liason,
+                        }
+                    }
+                    SymbolKind::ThisField {
+                        opt_this_ty,
+                        opt_field_ty,
+                        field_liason,
+                    } => {
+                        self.atom_context
+                            .push_abs_semantic_token(AbsSemanticToken::new(
+                                SemanticTokenKind::Field,
+                                token.range,
+                            ));
+                        AtomVariant::ThisField {
+                            field_ident: RangedCustomIdentifier {
+                                ident: ident.custom(),
+                                range: token.range,
+                            },
+                            opt_this_ty,
+                            opt_this_liason: self.atom_context.opt_this_liason(),
+                            opt_field_ty,
+                            field_liason,
                         }
                     }
                     SymbolKind::FrameVariable { init_range } => {

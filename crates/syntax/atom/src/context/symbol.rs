@@ -1,3 +1,5 @@
+use vm::MemberLiason;
+
 use super::*;
 
 #[derive(Debug, Clone)]
@@ -27,8 +29,13 @@ pub enum SymbolKind {
         init_range: TextRange,
     },
     Unrecognized(CustomIdentifier),
-    ThisData {
-        opt_ty: Option<EntityRoutePtr>,
-        opt_contract: Option<InputLiason>,
+    ThisValue {
+        opt_this_ty: Option<EntityRoutePtr>,
+        opt_this_liason: Option<InputLiason>,
+    },
+    ThisField {
+        opt_this_ty: Option<EntityRoutePtr>,
+        opt_field_ty: Option<RangedEntityRoute>,
+        field_liason: MemberLiason,
     },
 }

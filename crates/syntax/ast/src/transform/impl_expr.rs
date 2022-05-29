@@ -13,7 +13,8 @@ impl<'a> AstTransformer<'a> {
             let atom_text_start = atom.text_start();
             match atom.kind {
                 AtomVariant::Variable { .. }
-                | AtomVariant::ThisData { .. }
+                | AtomVariant::ThisValue { .. }
+                | AtomVariant::ThisField { .. }
                 | AtomVariant::PrimitiveLiteral(_)
                 | AtomVariant::EntityRoute { .. }
                 | AtomVariant::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
@@ -24,7 +25,8 @@ impl<'a> AstTransformer<'a> {
                             SymbolKind::Variable { .. } => todo!(),
                             SymbolKind::FrameVariable { .. } => todo!(),
                             SymbolKind::Unrecognized(_) => todo!(),
-                            SymbolKind::ThisData { .. } => todo!(),
+                            SymbolKind::ThisValue { .. } => todo!(),
+                            SymbolKind::ThisField { .. } => todo!(),
                         },
                         None => atom,
                     }

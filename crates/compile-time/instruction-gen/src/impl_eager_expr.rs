@@ -33,9 +33,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref opds,
             } => self.compile_opn(opn_variant, opds, expr),
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::ThisData { binding } => self.push_instruction(Instruction::new(
+            EagerExprVariant::ThisValue { binding } => self.push_instruction(Instruction::new(
                 InstructionVariant::PushVariable {
-                    varname: ContextualIdentifier::ThisData.into(),
+                    varname: ContextualIdentifier::ThisValue.into(),
                     stack_idx: VMStackIdx::this(),
                     binding,
                     range: expr.range,
@@ -43,6 +43,42 @@ impl<'a> InstructionSheetBuilder<'a> {
                 },
                 expr.clone(),
             )),
+            EagerExprVariant::ThisField {
+                field_ident,
+                this_ty,
+                this_binding,
+                field_binding,
+            } => {
+                self.push_instruction(Instruction::new(
+                    InstructionVariant::PushVariable {
+                        varname: ContextualIdentifier::ThisValue.into(),
+                        stack_idx: VMStackIdx::this(),
+                        binding: this_binding,
+                        range: expr.range,
+                        ty: expr.ty(),
+                    },
+                    expr.clone(),
+                ));
+                self.push_instruction(Instruction::new(
+                    if let Some(field_access_fp) =
+                        self.db.field_access_fp(this_ty, field_ident.ident)
+                    {
+                        InstructionVariant::FieldAccessCompiled {
+                            linkage: field_access_fp,
+                        }
+                    } else {
+                        let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
+                        InstructionVariant::FieldAccessInterpreted {
+                            field_idx: this_ty_decl
+                                .field_idx(field_ident.ident)
+                                .try_into()
+                                .unwrap(),
+                            field_binding,
+                        }
+                    },
+                    expr.clone(),
+                ))
+            }
             EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushEnumKindLiteral(EnumKindValue {
                     kind_idx: self.db.enum_literal_as_u8(route),

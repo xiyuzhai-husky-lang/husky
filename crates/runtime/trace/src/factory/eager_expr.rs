@@ -172,7 +172,8 @@ impl<'eval> TraceFactory<'eval> {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::ThisData { .. } => todo!(),
+            EagerExprVariant::ThisValue { .. } => todo!(),
+            EagerExprVariant::ThisField { .. } => todo!(),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
         };
         if config.appended {

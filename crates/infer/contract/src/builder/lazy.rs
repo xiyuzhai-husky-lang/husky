@@ -89,7 +89,7 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
             | RawExprVariant::CopyableLiteral(_)
-            | RawExprVariant::This { .. } => Ok(()),
+            | RawExprVariant::ThisValue { .. } => Ok(()),
             RawExprVariant::Bracketed(bracketed_expr) => {
                 self.infer_lazy_expr(bracketed_expr, contract, arena);
                 Ok(())
@@ -110,6 +110,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 varname,
                 init_range: init_row,
             } => todo!(),
+            RawExprVariant::ThisField { .. } => todo!(),
         };
         self.contract_sheet
             .lazy_expr_contract_results
@@ -269,8 +270,9 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Variable { .. }
             | RawExprVariant::Bracketed(_)
             | RawExprVariant::Opn { .. }
-            | RawExprVariant::This { .. } => todo!(),
+            | RawExprVariant::ThisValue { .. } => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::ThisField { .. } => todo!(),
         }
     }
 

@@ -15,9 +15,16 @@ pub enum RawExprVariant {
         varname: CustomIdentifier,
         init_range: TextRange,
     },
-    This {
-        opt_ty: Option<EntityRoutePtr>,
-        opt_liason: Option<InputLiason>,
+    ThisValue {
+        opt_this_ty: Option<EntityRoutePtr>,
+        opt_this_liason: Option<InputLiason>,
+    },
+    ThisField {
+        opt_this_ty: Option<EntityRoutePtr>,
+        opt_this_liason: Option<InputLiason>,
+        field_ident: RangedCustomIdentifier,
+        field_liason: MemberLiason,
+        opt_field_ty: Option<RangedEntityRoute>,
     },
     Unrecognized(CustomIdentifier),
     Entity {

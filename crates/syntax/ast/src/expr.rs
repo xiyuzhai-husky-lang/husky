@@ -110,12 +110,25 @@ impl From<Atom> for RawExpr {
                 AtomVariant::EntityRoute { route: scope, kind } => {
                     RawExprVariant::Entity { route: scope, kind }
                 }
-                AtomVariant::ThisData {
-                    opt_ty,
-                    opt_contract,
-                } => RawExprVariant::This {
-                    opt_ty,
-                    opt_liason: opt_contract,
+                AtomVariant::ThisValue {
+                    opt_this_ty,
+                    opt_this_liason,
+                } => RawExprVariant::ThisValue {
+                    opt_this_ty,
+                    opt_this_liason,
+                },
+                AtomVariant::ThisField {
+                    opt_this_ty,
+                    opt_this_liason,
+                    field_ident,
+                    field_liason,
+                    opt_field_ty,
+                } => RawExprVariant::ThisField {
+                    opt_this_ty,
+                    opt_this_liason,
+                    field_ident,
+                    opt_field_ty,
+                    field_liason,
                 },
                 AtomVariant::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
                 AtomVariant::FrameVariable {

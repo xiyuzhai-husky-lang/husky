@@ -37,13 +37,14 @@ pub trait AtomContext {
     fn opt_package_main(&self) -> Option<FilePtr>;
     fn entity_syntax_db(&self) -> &dyn EntityRouteQueryGroup;
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
-    fn opt_this_contract(&self) -> Option<InputLiason>;
+    fn opt_this_liason(&self) -> Option<InputLiason>;
     fn symbols(&self) -> &[Symbol];
     fn kind(&self) -> AtomContextKind;
     fn as_dyn_mut(&mut self) -> &mut dyn AtomContext;
     fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken);
     fn save_state(&self) -> AtomContextState;
     fn rollback(&mut self, state: AtomContextState);
+    fn push_symbol(&mut self, new_symbol: Symbol);
 
     fn builtin_type_atom(
         &self,
@@ -100,9 +101,9 @@ pub trait AtomContext {
                         generic_arguments: vec![],
                     }),
                 )),
-                ContextualIdentifier::ThisData => Ok(SymbolKind::ThisData {
-                    opt_ty: self.opt_this_ty(),
-                    opt_contract: self.opt_this_contract(),
+                ContextualIdentifier::ThisValue => Ok(SymbolKind::ThisValue {
+                    opt_this_ty: self.opt_this_ty(),
+                    opt_this_liason: self.opt_this_liason(),
                 }),
                 ContextualIdentifier::ThisType => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db().entity_route_menu().this_ty,

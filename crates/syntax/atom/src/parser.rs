@@ -101,6 +101,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {
         self.atom_context.push_abs_semantic_token(new_token)
     }
+
+    pub fn push_symbol(&mut self, f: impl FnOnce(&mut dyn AtomContext) -> Symbol) {
+        let new_symbol = f(self.atom_context);
+        self.atom_context.push_symbol(new_symbol)
+    }
 }
 
 pub fn parse_route<'a, 'b>(

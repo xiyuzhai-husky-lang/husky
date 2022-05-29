@@ -7,7 +7,7 @@ use word::LiasonKeyword;
 pub enum InputLiason {
     Pure,
     Move,
-    BorrowMut,
+    LocalRefMut,
     MoveMut,
     MemberAccess,
     GlobalRef,
@@ -46,7 +46,7 @@ impl InputLiason {
                 Ok(match self {
                     InputLiason::Pure => EagerContract::Pure,
                     InputLiason::Move | InputLiason::MoveMut => EagerContract::Move,
-                    InputLiason::BorrowMut => EagerContract::RefMut,
+                    InputLiason::LocalRefMut => EagerContract::RefMut,
                     InputLiason::MemberAccess => panic!(),
                     InputLiason::GlobalRef => todo!(),
                 })
@@ -85,7 +85,7 @@ impl InputLiason {
             OutputLiason::Transfer => Ok(match self {
                 InputLiason::Pure => LazyContract::Pure,
                 InputLiason::Move => todo!(),
-                InputLiason::BorrowMut => todo!(),
+                InputLiason::LocalRefMut => todo!(),
                 InputLiason::MoveMut => todo!(),
                 InputLiason::MemberAccess => todo!(),
                 InputLiason::GlobalRef => todo!(),

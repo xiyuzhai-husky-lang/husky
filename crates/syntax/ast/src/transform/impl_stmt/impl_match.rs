@@ -72,10 +72,11 @@ impl<'a> MatchPatternParser<'a> {
                     varname,
                     init_range,
                 } => todo!(),
-                AtomVariant::ThisData {
-                    opt_ty,
-                    opt_contract,
+                AtomVariant::ThisValue {
+                    opt_this_ty: opt_ty,
+                    opt_this_liason: opt_contract,
                 } => todo!(),
+                AtomVariant::ThisField { .. } => todo!(),
                 AtomVariant::Unrecognized(_) => todo!(),
                 AtomVariant::PrimitiveLiteral(value) => {
                     CasePattern::primitive_literal(value, atom.range)

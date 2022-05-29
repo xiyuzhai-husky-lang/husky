@@ -26,7 +26,7 @@ impl<'a> AstTransformer<'a> {
                     Identifier::Custom(custom_ident) => {
                         let this_ty = self.context().subroute(self.db, custom_ident);
                         self.opt_this_ty.set(Some(this_ty));
-                        self.opt_this_contract.set(None);
+                        self.opt_this_liason.set(None);
                     }
                     _ => (),
                 },
@@ -55,7 +55,7 @@ impl<'a> AstTransformer<'a> {
                     Identifier::Custom(custom_ident) => {
                         self.opt_this_ty
                             .set(Some(self.context().subroute(self.db, custom_ident)));
-                        self.opt_this_contract.set(None);
+                        self.opt_this_liason.set(None);
                     }
                     _ => (),
                 },
@@ -89,7 +89,7 @@ impl<'a> AstTransformer<'a> {
         let this_ty = self.context().subroute(self.db, ident.ident);
         self.context.set(AstContext::Enum(this_ty));
         self.opt_this_ty.set(Some(this_ty));
-        self.opt_this_contract.set(None);
+        self.opt_this_liason.set(None);
         Ok(AstKind::TypeDefnHead {
             ident,
             kind: TyKind::Enum,

@@ -147,7 +147,7 @@ impl LazyQualifier {
             }
             InputLiason::GlobalRef => LazyQualifier::GlobalRef,
             InputLiason::Move => todo!(),
-            InputLiason::BorrowMut => todo!(),
+            InputLiason::LocalRefMut => todo!(),
             InputLiason::MoveMut => todo!(),
             InputLiason::MemberAccess => todo!(),
         }
@@ -192,7 +192,7 @@ impl LazyQualifier {
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
                 LazyContract::GlobalRef => todo!(),
-                LazyContract::Pure => todo!(),
+                LazyContract::Pure => Binding::Copy,
                 LazyContract::Move => todo!(),
             }
         } else {
