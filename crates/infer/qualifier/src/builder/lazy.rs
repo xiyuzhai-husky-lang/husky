@@ -169,7 +169,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 .get_entry((varname.into(), init_range)))?
             .1
             {
-                Ok(qt) => Ok(qt),
+                Ok(variable_qt) => {
+                    let variable_contract = self.lazy_expr_contract(raw_expr_idx)?;
+                    Ok(LazyQualifiedTy {
+                        qual: variable_qt.qual.variable_use(variable_contract)?,
+                        ty: variable_qt.ty,
+                    })
+                }
                 Err(ref e) => Err(e.derived()),
             },
             RawExprVariant::FrameVariable {
