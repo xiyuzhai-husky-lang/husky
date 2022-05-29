@@ -201,10 +201,10 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
     ) -> InferResult<()> {
         let this_ty_decl = self.raw_expr_ty_decl(opd)?;
-        let this_contract_result: InferResult<_> = this_ty_decl
-            .field_decl(field_ident)?
+        let field_decl = this_ty_decl.field_decl(field_ident)?;
+        let this_contract_result: InferResult<_> = field_decl
             .liason
-            .this_lazy_contract(contract)
+            .this_lazy_contract(contract, self.db.is_copyable(field_decl.ty)?)
             .bind_into(&arena[opd]);
         self.infer_lazy_expr(opd, this_contract_result?, arena);
         Ok(())

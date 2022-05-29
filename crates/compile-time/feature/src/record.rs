@@ -49,7 +49,7 @@ pub(crate) fn expr_record_field(
                             } => match fieldiant {
                                 FieldDefnVariant::StructOriginal => panic!(),
                                 FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),
-                                FieldDefnVariant::StructDerived { stmts } => {
+                                FieldDefnVariant::StructDerived { block } => {
                                     todo!()
                                 }
                                 FieldDefnVariant::RecordDerived { stmts } => {

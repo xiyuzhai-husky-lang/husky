@@ -196,7 +196,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             FieldDefnVariant::StructOriginal | FieldDefnVariant::RecordOriginal => {
                                 panic!()
                             }
-                            FieldDefnVariant::StructDerived { stmts } => todo!(),
+                            FieldDefnVariant::StructDerived { block } => todo!(),
                             FieldDefnVariant::RecordDerived { stmts } => {
                                 let block = FeatureBlock::new(
                                     self.db,

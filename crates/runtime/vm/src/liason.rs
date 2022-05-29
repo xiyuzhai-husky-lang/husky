@@ -147,8 +147,69 @@ impl MemberLiason {
 
     pub fn this_eager_contract(
         self,
-        field_contract: EagerContract,
+        member_contract: EagerContract,
+        is_member_copyable: bool,
     ) -> VMCompileResult<EagerContract> {
+        if is_member_copyable {
+            Ok(match member_contract {
+                EagerContract::Pure => EagerContract::Pure,
+                EagerContract::Move => todo!(),
+                EagerContract::UseForLetInit => EagerContract::Pure,
+                EagerContract::UseForVarInit => EagerContract::Pure,
+                EagerContract::UseForAssignRvalue => todo!(),
+                EagerContract::UseMemberForLetInit => todo!(),
+                EagerContract::UseMemberForVarInit => todo!(),
+                EagerContract::Return => EagerContract::Pure,
+                EagerContract::RefMut => match self {
+                    MemberLiason::Immutable => {
+                        return Err(vm_compile_error!(format!(
+                            "can't turn an immutable member into ref mut"
+                        )))
+                    }
+                    MemberLiason::Mutable => EagerContract::RefMut,
+                    MemberLiason::Derived => todo!(),
+                },
+                EagerContract::MoveMut => todo!(),
+                EagerContract::Exec => todo!(),
+            })
+        } else {
+            match self {
+                MemberLiason::Immutable => match member_contract {
+                    EagerContract::Pure => Ok(EagerContract::Pure),
+
+                    EagerContract::Move | EagerContract::MoveMut => Ok(EagerContract::Move),
+                    EagerContract::Exec => todo!(),
+                    EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
+                        Ok(EagerContract::UseMemberForLetInit)
+                    }
+                    EagerContract::UseForVarInit | EagerContract::UseMemberForVarInit => {
+                        Ok(EagerContract::UseMemberForVarInit)
+                    }
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => Err(vm_compile_error!(format!(
+                        "can't bind mutable reference to an immutable field"
+                    ))),
+                    EagerContract::UseForAssignRvalue => Err(vm_compile_error!(format!(
+                        "can't assign to an immutable field"
+                    ))),
+                },
+                MemberLiason::Mutable => match member_contract {
+                    EagerContract::Pure => Ok(EagerContract::Pure),
+                    EagerContract::Move => Ok(EagerContract::Move),
+                    EagerContract::RefMut => Ok(EagerContract::RefMut),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                    EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
+                        Ok(EagerContract::UseMemberForLetInit)
+                    }
+                    EagerContract::UseForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::UseForAssignRvalue => todo!(),
+                },
+                MemberLiason::Derived => panic!(),
+            }
+        }
         //  match field_decl.liason {
         //     FieldLiason::Own => match contract {
         //         EagerContract::Pure => EagerContract::Pure,
@@ -179,56 +240,36 @@ impl MemberLiason {
         //     FieldLiason::GlobalRef => todo!(),
         //     FieldLiason::LazyOwn => todo!(),
         // };
-        match self {
-            MemberLiason::Immutable => match field_contract {
-                EagerContract::Pure => Ok(EagerContract::Pure),
-
-                EagerContract::Move | EagerContract::MoveMut => Ok(EagerContract::Move),
-                EagerContract::Exec => todo!(),
-                EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
-                    Ok(EagerContract::UseMemberForLetInit)
-                }
-                EagerContract::UseForVarInit | EagerContract::UseMemberForVarInit => {
-                    Ok(EagerContract::UseMemberForVarInit)
-                }
-                EagerContract::Return => todo!(),
-                EagerContract::RefMut => Err(vm_compile_error!(format!(
-                    "can't bind mutable reference to an immutable field"
-                ))),
-                EagerContract::UseForAssignRvalue => Err(vm_compile_error!(format!(
-                    "can't assign to an immutable field"
-                ))),
-            },
-            MemberLiason::Mutable => match field_contract {
-                EagerContract::Pure => Ok(EagerContract::Pure),
-                EagerContract::Move => Ok(EagerContract::Move),
-                EagerContract::RefMut => Ok(EagerContract::RefMut),
-                EagerContract::MoveMut => todo!(),
-                EagerContract::Exec => todo!(),
-                EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
-                    Ok(EagerContract::UseMemberForLetInit)
-                }
-                EagerContract::UseForVarInit => todo!(),
-                EagerContract::Return => todo!(),
-                EagerContract::UseMemberForVarInit => todo!(),
-                EagerContract::UseForAssignRvalue => todo!(),
-            },
-            MemberLiason::Derived => panic!(),
-        }
     }
 
-    pub fn this_lazy_contract(self, field_contract: LazyContract) -> VMCompileResult<LazyContract> {
-        match self {
-            MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
-                LazyContract::Move => Ok(LazyContract::Move),
-                LazyContract::Pure => Ok(LazyContract::Pure),
-                LazyContract::GlobalRef => todo!(),
+    pub fn this_lazy_contract(
+        self,
+        field_contract: LazyContract,
+        is_member_copyable: bool,
+    ) -> VMCompileResult<LazyContract> {
+        Ok(if is_member_copyable {
+            match field_contract {
                 LazyContract::Init => todo!(),
                 LazyContract::Return => todo!(),
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
-            },
-            MemberLiason::Derived => panic!(),
-        }
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Pure => LazyContract::Pure,
+                LazyContract::Move => todo!(),
+            }
+        } else {
+            match self {
+                MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
+                    LazyContract::Move => LazyContract::Move,
+                    LazyContract::Pure => LazyContract::Pure,
+                    LazyContract::GlobalRef => todo!(),
+                    LazyContract::Init => todo!(),
+                    LazyContract::Return => todo!(),
+                    LazyContract::UseMemberForInit => todo!(),
+                    LazyContract::UseMemberForReturn => todo!(),
+                },
+                MemberLiason::Derived => todo!(),
+            }
+        })
     }
 }
