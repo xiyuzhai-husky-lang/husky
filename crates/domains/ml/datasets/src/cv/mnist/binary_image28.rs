@@ -26,7 +26,9 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                             name: "todo!()",
                         }],
                         output_ty: "b32",
-                        output_liason: OutputLiason::MemberAccess,
+                        output_liason: OutputLiason::MemberAccess {
+                            member_liason: MemberLiason::Mutable,
+                        },
                         generic_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
                             opt_source: Some(LinkageSource::MemberAccess {

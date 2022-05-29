@@ -1,11 +1,5 @@
 use super::*;
 
-impl From<PrefixOpr> for Opr {
-    fn from(prefix: PrefixOpr) -> Self {
-        Self::Prefix(prefix)
-    }
-}
-
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum PrefixOpr {
     Minus,  // -
@@ -13,6 +7,12 @@ pub enum PrefixOpr {
     BitNot, // ~
     Shared, // &
     Move,   // !$0 after WithType or Vec or Array
+}
+
+impl Into<RawOpnVariant> for PrefixOpr {
+    fn into(self) -> RawOpnVariant {
+        RawOpnVariant::Prefix(self)
+    }
 }
 
 impl PrefixOpr {

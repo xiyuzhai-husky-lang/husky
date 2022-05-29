@@ -36,13 +36,14 @@ impl EagerQualifiedTy {
             ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
         }
     }
-    pub(crate) fn from_input(
+    pub(crate) fn from_parameter_use(
         db: &dyn InferQualifiedTyQueryGroup,
         input_liason: InputLiason,
         ty: EntityRoutePtr,
+        contract: EagerContract,
     ) -> InferResult<Self> {
         Ok(EagerQualifiedTy::new(
-            EagerQualifier::from_input(input_liason, db.is_copyable(ty)?),
+            EagerQualifier::from_parameter_use(input_liason, db.is_copyable(ty)?, contract)?,
             ty,
         ))
     }
@@ -110,7 +111,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::GlobalRef => todo!(),
                 EagerQualifier::LocalRefMut => todo!(),
             },
-            OutputLiason::MemberAccess => todo!(),
+            OutputLiason::MemberAccess { .. } => todo!(),
         }
     }
 
@@ -247,7 +248,106 @@ impl EagerQualifier {
         }
     }
 
-    pub fn from_input(input_liason: InputLiason, is_copyable: bool) -> Self {
+    pub fn method_opt_output_binding(
+        self,
+        output_liason: OutputLiason,
+        output_contract: EagerContract,
+        is_output_ty_copyable: bool,
+    ) -> Option<Binding> {
+        match output_liason {
+            OutputLiason::Transfer => None,
+            OutputLiason::MemberAccess { member_liason } => {
+                Some(self.member_binding(member_liason, output_contract, is_output_ty_copyable))
+            }
+        }
+    }
+
+    pub fn member_binding(
+        self,
+        member_liason: MemberLiason,
+        member_contract: EagerContract,
+        is_member_ty_copyable: bool,
+    ) -> Binding {
+        if is_member_ty_copyable {
+            match member_contract {
+                EagerContract::Pure
+                | EagerContract::UseForLetInit
+                | EagerContract::UseForAssignRvalue
+                | EagerContract::UseMemberForLetInit
+                | EagerContract::UseMemberForVarInit => Binding::Copy,
+                EagerContract::Move => todo!(),
+                EagerContract::UseForVarInit => todo!(),
+                EagerContract::Return => todo!(),
+                EagerContract::RefMut => match member_liason {
+                    MemberLiason::Immutable => todo!(),
+                    MemberLiason::Mutable => Binding::RefMut,
+                    MemberLiason::Derived => todo!(),
+                },
+                EagerContract::MoveMut => todo!(),
+                EagerContract::Exec => todo!(),
+            }
+        } else {
+            // non-copyable
+            match self {
+                EagerQualifier::Copyable => todo!(),
+                EagerQualifier::CopyableMut => todo!(),
+                EagerQualifier::Owned => todo!(),
+                EagerQualifier::OwnedMut => todo!(),
+                EagerQualifier::PureRef => match member_contract {
+                    EagerContract::Pure => Binding::Ref,
+                    EagerContract::Move => todo!(),
+                    EagerContract::UseForLetInit => Binding::Ref,
+                    EagerContract::UseForVarInit => todo!(),
+                    EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::UseMemberForLetInit => Binding::Ref,
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::GlobalRef => todo!(),
+                EagerQualifier::LocalRef => match member_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
+                        Binding::Ref
+                    }
+                    EagerContract::UseForVarInit => todo!(),
+                    EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => todo!(),
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::LocalRefMut => match member_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::UseForLetInit => todo!(),
+                    EagerContract::UseForVarInit => todo!(),
+                    EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::UseMemberForLetInit => todo!(),
+                    EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::Return => todo!(),
+                    EagerContract::RefMut => Binding::RefMut,
+                    EagerContract::MoveMut => todo!(),
+                    EagerContract::Exec => todo!(),
+                },
+                EagerQualifier::Transient => todo!(),
+            }
+        }
+    }
+
+    pub fn from_parameter_use(
+        input_liason: InputLiason,
+        is_copyable: bool,
+        contract: EagerContract,
+    ) -> InferResult<Self> {
+        Self::from_parameter(input_liason, is_copyable).variable_use(contract)
+    }
+
+    pub fn from_parameter(input_liason: InputLiason, is_copyable: bool) -> Self {
         match input_liason {
             InputLiason::Pure => {
                 if is_copyable {
@@ -266,7 +366,7 @@ impl EagerQualifier {
 
     pub fn from_field(
         this_qual: EagerQualifier,
-        field_liason: FieldLiason,
+        field_liason: MemberLiason,
         is_field_copyable: bool,
     ) -> InferResult<Self> {
         Ok(if is_field_copyable {
@@ -283,9 +383,9 @@ impl EagerQualifier {
                 EagerQualifier::GlobalRef => EagerQualifier::GlobalRef,
                 EagerQualifier::LocalRef => EagerQualifier::LocalRef,
                 EagerQualifier::Transient => match field_liason {
-                    FieldLiason::Immutable => todo!(),
-                    FieldLiason::Mutable => todo!(),
-                    FieldLiason::Derived => todo!(),
+                    MemberLiason::Immutable => todo!(),
+                    MemberLiason::Mutable => todo!(),
+                    MemberLiason::Derived => todo!(),
                 },
                 EagerQualifier::Owned | EagerQualifier::OwnedMut => panic!(),
                 // match field_liason {
@@ -294,9 +394,9 @@ impl EagerQualifier {
                 //     FieldLiason::Derived => todo!(),
                 // },
                 EagerQualifier::LocalRefMut => match field_liason {
-                    FieldLiason::Mutable => EagerQualifier::LocalRefMut,
-                    FieldLiason::Immutable => panic!("shouldn't be here"),
-                    FieldLiason::Derived => todo!(),
+                    MemberLiason::Mutable => EagerQualifier::LocalRefMut,
+                    MemberLiason::Immutable => panic!("shouldn't be here"),
+                    MemberLiason::Derived => todo!(),
                 },
             }
         })
@@ -305,7 +405,7 @@ impl EagerQualifier {
     pub fn from_output(output_liason: OutputLiason, is_copyable: bool) -> Self {
         match output_liason {
             OutputLiason::Transfer => Self::transitive(is_copyable),
-            OutputLiason::MemberAccess => todo!(),
+            OutputLiason::MemberAccess { .. } => todo!(),
         }
     }
 

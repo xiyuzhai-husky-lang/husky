@@ -82,7 +82,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
 
     fn new_virtual_struct(
         &mut self,
-        fields: &[(CustomIdentifier, FieldLiason)],
+        fields: &[(CustomIdentifier, MemberLiason)],
     ) -> VMRuntimeResult<()> {
         let inputs = self.stack.drain(fields.len().try_into().unwrap());
         let value = VirtualTy::new_struct(inputs, fields).into();

@@ -16,7 +16,7 @@ impl<'a> AstTransformer<'a> {
         )?;
         let mut token_stream: TokenStream = token_group.into();
         let mut parser = AtomParser::new(self, &mut token_stream);
-        let liason = FieldLiason::from_opt_keyword(try_get!(parser, liason));
+        let liason = MemberLiason::from_opt_keyword(try_get!(parser, liason));
         let ident = get!(parser, sema_custom_ident, SemanticTokenKind::Field);
         eat!(parser, ":");
         let ty = get!(parser, ranged_ty?);
@@ -105,7 +105,7 @@ impl<'a> AstTransformer<'a> {
         let ty = atom::parse_route(self, &token_group[3..])?;
         Ok(AstKind::FieldDefnHead {
             head: FieldDefnHead {
-                liason: FieldLiason::Derived,
+                liason: MemberLiason::Derived,
                 ident,
                 ty,
                 kind: FieldKind::StructDerivedLazy { paradigm },

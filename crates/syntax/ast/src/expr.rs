@@ -1,17 +1,17 @@
 mod error;
-mod kind;
 mod precedence;
 mod stack;
+mod variant;
 
-use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
-use atom::Atom;
-use entity_route::GenericArgument;
-pub use kind::RawExprVariant;
-pub(crate) use stack::ExprStack;
+pub use variant::*;
 pub use word::Keyword;
 
 use crate::*;
+use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
+use atom::Atom;
 use atom::AtomVariant;
+use entity_route::GenericArgument;
+pub(crate) use stack::ExprStack;
 use text::TextRange;
 use text::TextRanged;
 use vm::*;
@@ -48,7 +48,7 @@ impl RawExpr {
                 variant: RawExprVariant::Bracketed(opds.start),
             });
         }
-        let opr = match start_attr {
+        let opn_variant = RawOpnVariant::List(match start_attr {
             ListStartAttr::None => match bracket {
                 Bracket::Par => ListOpr::TupleInit,
                 Bracket::Box => ListOpr::NewVec,
@@ -77,18 +77,17 @@ impl RawExpr {
                 ranged_ident,
                 generic_arguments,
             },
-        }
-        .into();
+        });
         Ok(Self {
             range,
-            variant: RawExprVariant::Opn { opr, opds },
+            variant: RawExprVariant::Opn { opn_variant, opds },
         })
     }
 
-    pub fn opn(range: TextRange, opr: Opr, opds: RawExprRange) -> Self {
+    pub fn opn(range: TextRange, opn_variant: RawOpnVariant, opds: RawExprRange) -> Self {
         Self {
             range,
-            variant: RawExprVariant::Opn { opr, opds },
+            variant: RawExprVariant::Opn { opn_variant, opds },
         }
     }
 }
@@ -116,7 +115,7 @@ impl From<Atom> for RawExpr {
                     opt_contract,
                 } => RawExprVariant::This {
                     opt_ty,
-                    opt_contract,
+                    opt_liason: opt_contract,
                 },
                 AtomVariant::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
                 AtomVariant::FrameVariable {

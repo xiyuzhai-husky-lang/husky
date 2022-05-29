@@ -512,11 +512,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
         self.any_ref().static_type_id_dyn()
     }
 
-    pub fn field(
-        self,
-        field_idx: usize,
-        field_access_contract: EagerContract,
-    ) -> VMValue<'vm, 'eval> {
+    pub fn field(self, field_idx: usize, field_binding: Binding) -> VMValue<'vm, 'eval> {
         match self {
             VMValue::Moved => todo!(),
             VMValue::Copyable(_) => todo!(),
@@ -527,15 +523,15 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::EvalPure(_) => todo!(),
             VMValue::EvalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_field(field_idx, field_access_contract)
+                value.access_field(field_idx, field_binding)
             }
             VMValue::FullyOwnedRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
-                value.eager_field(field_idx, field_access_contract)
+                value.access_field(field_idx, field_binding)
             }
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
-                virtual_value.field_mut(field_idx, field_access_contract, owner)
+                virtual_value.field_mut(field_idx, field_binding, owner)
             }
             VMValue::PartiallyOwned(_) => todo!(),
             VMValue::PartiallyOwnedRef(_) => todo!(),

@@ -21,6 +21,9 @@ pub enum LazyOpnKind {
     MethodCall {
         method_ident: RangedCustomIdentifier,
         method_route: EntityRoutePtr,
+        opt_output_binding: Option<Binding>,
     },
-    ElementAccess,
+    ElementAccess {
+        element_binding: Binding,
+    },
 }

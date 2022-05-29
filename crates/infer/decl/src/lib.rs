@@ -30,8 +30,8 @@ use word::{CustomIdentifier, RootIdentifier};
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
-    fn call_decl(&self, scope: EntityRoutePtr) -> InferQueryResultArc<CallDecl>;
-    fn method_decl(&self, scope: EntityRoutePtr) -> InferResultArc<MethodDecl>;
+    fn call_decl(&self, call_route: EntityRoutePtr) -> InferQueryResultArc<CallDecl>;
+    fn method_decl(&self, method_route: EntityRoutePtr) -> InferResultArc<MethodDecl>;
     fn ty_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<TyDecl>;
     fn trait_decl(&self, trai: EntityRoutePtr) -> InferResultArc<TraitDecl>;
     fn feature_decl(&self, feature_entity: EntityRoutePtr) -> InferResultArc<FeatureDecl>;

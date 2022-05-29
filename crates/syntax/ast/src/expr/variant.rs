@@ -17,7 +17,7 @@ pub enum RawExprVariant {
     },
     This {
         opt_ty: Option<EntityRoutePtr>,
-        opt_contract: Option<InputLiason>,
+        opt_liason: Option<InputLiason>,
     },
     Unrecognized(CustomIdentifier),
     Entity {
@@ -27,7 +27,7 @@ pub enum RawExprVariant {
     CopyableLiteral(CopyableValue),
     Bracketed(RawExprIdx),
     Opn {
-        opr: Opr,
+        opn_variant: RawOpnVariant,
         opds: RawExprRange,
     },
     Lambda(

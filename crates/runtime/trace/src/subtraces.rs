@@ -37,36 +37,38 @@ impl<'eval> Trace<'eval> {
                 FeatureExprVariant::PatternCall {} => todo!(),
                 FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             },
-            TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
-                EagerExprVariant::Variable(_)
-                | EagerExprVariant::EntityRoute { .. }
-                | EagerExprVariant::PrimitiveLiteral(_) => None,
-                EagerExprVariant::Opn {
-                    opn_variant: ref opn_kind,
-                    ref opds,
-                    ..
-                } => match opn_kind {
-                    EagerOpnVariant::FieldAccess { .. } | EagerOpnVariant::ElementAccess => None,
-                    EagerOpnVariant::Binary { .. }
-                    | EagerOpnVariant::Prefix { .. }
-                    | EagerOpnVariant::Suffix { .. } => {
-                        if opds[0].ty.is_builtin() {
-                            None
-                        } else {
-                            Some(SubtracesContainerClass::Call)
+            TraceVariant::EagerExpr { ref expr, .. } => {
+                match expr.variant {
+                    EagerExprVariant::Variable { .. }
+                    | EagerExprVariant::EntityRoute { .. }
+                    | EagerExprVariant::PrimitiveLiteral(_) => None,
+                    EagerExprVariant::Opn {
+                        opn_variant: ref opn_kind,
+                        ref opds,
+                        ..
+                    } => match opn_kind {
+                        EagerOpnVariant::FieldAccess { .. }
+                        | EagerOpnVariant::ElementAccess { .. } => None,
+                        EagerOpnVariant::Binary { .. }
+                        | EagerOpnVariant::Prefix { .. }
+                        | EagerOpnVariant::Suffix { .. } => {
+                            if opds[0].ty().is_builtin() {
+                                None
+                            } else {
+                                Some(SubtracesContainerClass::Call)
+                            }
                         }
-                    }
-                    EagerOpnVariant::RoutineCall { .. } | EagerOpnVariant::MethodCall { .. } => {
-                        Some(SubtracesContainerClass::Call)
-                    }
-                    EagerOpnVariant::PatternCall => panic!(),
-                    EagerOpnVariant::TypeCall { .. } => todo!(),
-                },
-                EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::Bracketed(_) => panic!(),
-                EagerExprVariant::ThisData => todo!(),
-                EagerExprVariant::EnumKindLiteral(_) => todo!(),
-            },
+                        EagerOpnVariant::RoutineCall { .. }
+                        | EagerOpnVariant::MethodCall { .. } => Some(SubtracesContainerClass::Call),
+                        EagerOpnVariant::PatternCall => panic!(),
+                        EagerOpnVariant::TypeCall { .. } => todo!(),
+                    },
+                    EagerExprVariant::Lambda(_, _) => todo!(),
+                    EagerExprVariant::Bracketed(_) => panic!(),
+                    EagerExprVariant::ThisData { .. } => todo!(),
+                    EagerExprVariant::EnumKindLiteral(_) => todo!(),
+                }
+            }
         }
     }
 }

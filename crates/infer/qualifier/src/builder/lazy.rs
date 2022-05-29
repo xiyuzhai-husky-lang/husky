@@ -184,7 +184,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             } => todo!(),
             RawExprVariant::This {
                 opt_ty,
-                opt_contract,
+                opt_liason: opt_contract,
             } => {
                 let ty = derived_not_none!(opt_ty)?;
                 let contract = derived_not_none!(opt_contract)?;
@@ -211,9 +211,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::Bracketed(bracketed_expr) => {
                 derived_not_none!(self.infer_lazy_expr(arena, bracketed_expr))
             }
-            RawExprVariant::Opn { ref opr, ref opds } => {
-                self.lazy_opn(arena, raw_expr_idx, opr, opds.clone())
-            }
+            RawExprVariant::Opn {
+                opn_variant: ref opr,
+                ref opds,
+            } => self.lazy_opn(arena, raw_expr_idx, opr, opds.clone()),
             RawExprVariant::Lambda(_, _) => todo!(),
         }
     }
@@ -222,14 +223,17 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
-        opr: &Opr,
+        opr: &RawOpnVariant,
         opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
         match opr {
-            Opr::Binary(binary_opr) => self.lazy_binary(arena, raw_expr_idx, opds),
-            Opr::Prefix(prefix_opr) => self.lazy_prefix(arena, raw_expr_idx, opds),
-            Opr::Suffix(suffix_opr) => self.lazy_suffix(arena, raw_expr_idx, *suffix_opr, opds),
-            Opr::List(list_opr) => self.lazy_list(arena, raw_expr_idx, list_opr, opds),
+            RawOpnVariant::Binary(binary_opr) => self.lazy_binary(arena, raw_expr_idx, opds),
+            RawOpnVariant::Prefix(prefix_opr) => self.lazy_prefix(arena, raw_expr_idx, opds),
+            RawOpnVariant::Suffix(suffix_opr) => {
+                self.lazy_suffix(arena, raw_expr_idx, *suffix_opr, opds)
+            }
+            RawOpnVariant::List(list_opr) => self.lazy_list(arena, raw_expr_idx, list_opr, opds),
+            RawOpnVariant::FieldAccess(_) => todo!(),
         }
     }
 
@@ -272,25 +276,33 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         Ok(match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
-            SuffixOpr::MayReturn => todo!(),
-            SuffixOpr::FieldAccess(field_ident) => {
-                let field_decl = this_ty_decl.field_decl(field_ident)?;
-                let qual = LazyQualifier::from_field(
-                    this_qt.qual,
-                    field_decl.liason,
-                    self.db.is_copyable(field_decl.ty)?,
-                )?;
-                LazyQualifiedTy::new(qual, field_decl.ty)
-            }
             SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(_) => todo!(),
         })
     }
 
+    fn lazy_field_access(
+        &mut self,
+        arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
+        field_ident: RangedCustomIdentifier,
+        opds: RawExprRange,
+    ) -> InferResult<LazyQualifiedTy> {
+        let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
+        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
+        let field_decl = this_ty_decl.field_decl(field_ident)?;
+        let qual = LazyQualifier::from_field(
+            this_qt.qual,
+            field_decl.liason,
+            self.db.is_copyable(field_decl.ty)?,
+        )?;
+        Ok(LazyQualifiedTy::new(qual, field_decl.ty))
+    }
+
     fn lazy_list(
         &mut self,
         arena: &RawExprArena,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         list_opr: &ListOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
@@ -298,8 +310,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.lazy_call(arena, expr_idx, opds),
-            ListOpr::Index => self.lazy_element_access(arena, expr_idx, opds),
+            ListOpr::Call => self.lazy_call(arena, raw_expr_idx, opds),
+            ListOpr::Index => self.lazy_element_access(arena, raw_expr_idx, opds),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
             ListOpr::MethodCall { ranged_ident, .. } => self.lazy_method_call(
@@ -307,7 +319,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 opds.start,
                 *ranged_ident,
                 (opds.start + 1)..opds.end,
-                expr_idx,
+                raw_expr_idx,
             ),
         }
     }
@@ -315,7 +327,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn lazy_call(
         &mut self,
         arena: &RawExprArena,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
         match arena[total_opds.start].variant {
@@ -337,10 +349,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             call_decl.output.ty,
                         ))
                     }
-                    OutputLiason::MemberAccess => todo!(),
+                    OutputLiason::MemberAccess { .. } => todo!(),
                 }
             }
-            RawExprVariant::Opn { ref opr, ref opds } => todo!(),
+            RawExprVariant::Opn {
+                opn_variant: ref opr,
+                ref opds,
+            } => todo!(),
             RawExprVariant::CopyableLiteral(_) => {
                 throw_derived!("a primitive literal can't be a caller")
             }
@@ -354,7 +369,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn lazy_element_access(
         &mut self,
         arena: &RawExprArena,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<LazyQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, total_opds.start))?;
@@ -362,7 +377,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_lazy_expr(arena, opd);
         }
-        let element_ty = self.raw_expr_ty(expr_idx)?;
+        let element_ty = self.raw_expr_ty(raw_expr_idx)?;
         let qual = if self.db.is_copyable(element_ty)? {
             LazyQualifier::Copyable
         } else {
@@ -382,9 +397,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<LazyQualifiedTy> {
-        let method_decl = self.method_decl(expr_idx)?;
+        let method_decl = self.method_decl(raw_expr_idx)?;
         self.infer_lazy_expr(arena, this);
         for input in inputs {
             self.infer_lazy_expr(arena, input);
@@ -397,7 +412,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     LazyQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess => todo!(),
+            OutputLiason::MemberAccess { .. } => todo!(),
         };
         Ok(LazyQualifiedTy::new(qual, method_decl.output.ty))
     }

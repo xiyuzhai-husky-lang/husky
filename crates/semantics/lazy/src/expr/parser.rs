@@ -24,7 +24,19 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
     fn parse_lazy_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<LazyExpr>> {
         let raw_expr = &self.arena()[raw_expr_idx];
         let kind: LazyExprVariant = match raw_expr.variant {
-            RawExprVariant::Variable { varname, .. } => LazyExprVariant::Variable(varname),
+            RawExprVariant::Variable {
+                varname,
+                init_range,
+            } => {
+                let variable_qt = self
+                    .lazy_variable_qualified_ty(varname.into(), init_range)
+                    .unwrap();
+                let contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+                LazyExprVariant::Variable {
+                    varname,
+                    binding: variable_qt.qual.binding(contract),
+                }
+            }
             RawExprVariant::Unrecognized(ident) => {
                 err!(format!(
                     "unrecognized identifier {} at {:?}",
@@ -64,10 +76,12 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 LazyExprVariant::Bracketed(self.parse_lazy_expr(bracketed_expr)?)
             }
             RawExprVariant::Opn {
-                ref opr, ref opds, ..
+                opn_variant: ref opr,
+                ref opds,
+                ..
             } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { .. } => LazyExprVariant::This,
+            RawExprVariant::This { .. } => LazyExprVariant::This { binding: todo!() },
             RawExprVariant::FrameVariable {
                 varname,
                 init_range: init_row,
@@ -79,26 +93,25 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             variant: kind,
             file: self.file(),
             instruction_id: Default::default(),
-            contract: self.lazy_expr_contract(raw_expr_idx)?,
         }))
     }
 
     fn parse_opn(
         &mut self,
-        opr: &Opr,
+        opr: &RawOpnVariant,
         opds: &RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         match opr {
-            Opr::Binary(opr) => self.parse_binary_opr(*opr, opds),
-            Opr::Prefix(_) => todo!(),
-            Opr::Suffix(opr) => self.parse_suffix_opr(*opr, opds),
-            Opr::List(opr) => match opr {
+            RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
+            RawOpnVariant::Prefix(_) => todo!(),
+            RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(*opr, opds),
+            RawOpnVariant::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => todo!(),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_call(opds, raw_expr_idx),
-                ListOpr::Index => self.parse_element_access(opds.clone()),
+                ListOpr::Call => self.parse_function_call(opds, raw_expr_idx),
+                ListOpr::Index => self.parse_element_access(opds.clone(), raw_expr_idx),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
                 ListOpr::MethodCall { ranged_ident, .. } => self.parse_method_call(
@@ -108,6 +121,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     raw_expr_idx,
                 ),
             },
+            RawOpnVariant::FieldAccess(_) => todo!(),
         }
     }
 
@@ -229,36 +243,28 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         Ok(match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
-            SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::FieldAccess(ranged_ident) => {
-                let ty_decl = self.raw_expr_ty_decl(opds.start).unwrap();
-                LazyExprVariant::Opn {
-                    opn_kind: LazyOpnKind::FieldAccess {
-                        field_ident: ranged_ident,
-                        field_kind: ty_decl.field_kind(ranged_ident.ident),
-                    },
-                    opds: vec![this],
-                }
-                // match *ty_decl {
-                //     TySignature::Struct {
-                //         ref fields,
-                //         ref field_routines,
-                //     } => {
-                //         todo!()
-                //     }
-                //     TySignature::Enum { ref variants } => todo!(),
-                //     TySignature::Record {
-                //         ref fields,
-                //         ref field_features,
-                //     } => todo!(),
-                // }
-            }
             SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(_) => todo!(),
         })
     }
 
-    fn parse_call(
+    fn parse_field_access(
+        &mut self,
+        field_ident: RangedCustomIdentifier,
+        this_idx: RawExprIdx,
+    ) -> SemanticResult<LazyExprVariant> {
+        let this = self.parse_lazy_expr(this_idx)?;
+        let ty_decl = self.raw_expr_ty_decl(this_idx).unwrap();
+        Ok(LazyExprVariant::Opn {
+            opn_kind: LazyOpnKind::FieldAccess {
+                field_ident,
+                field_kind: ty_decl.field_kind(field_ident.ident),
+            },
+            opds: vec![this],
+        })
+    }
+
+    fn parse_function_call(
         &mut self,
         opd_idx_range: &RawExprRange,
         raw_expr_idx: RawExprIdx,
@@ -330,24 +336,50 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(this)?;
+        let opt_output_binding = {
+            let method_route = self.call_route_result(raw_expr_idx).unwrap();
+            let method_decl = self.decl_db().method_decl(method_route).unwrap();
+            let output_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+            let output_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
+            this.qualified_ty.qual.method_opt_output_binding(
+                method_decl.output.liason,
+                output_contract,
+                self.decl_db().is_copyable(output_qt.ty).unwrap(),
+            )
+        };
         let inputs = inputs
             .map(|idx| self.parse_lazy_expr(idx))
             .collect::<SemanticResult<Vec<_>>>()?;
         let mut opds = vec![this];
         opds.extend(inputs);
-        emsg_once!("todo: memb call compiled");
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::MethodCall {
                 method_ident,
                 method_route: self.entity_route_sheet().call_route(raw_expr_idx).unwrap(),
+                opt_output_binding,
             },
             opds,
         })
     }
 
-    fn parse_element_access(&mut self, opds: RawExprRange) -> SemanticResult<LazyExprVariant> {
+    fn parse_element_access(
+        &mut self,
+        opds: RawExprRange,
+        raw_expr_idx: RawExprIdx,
+    ) -> SemanticResult<LazyExprVariant> {
+        let element_ty = self.raw_expr_ty(raw_expr_idx).unwrap();
         Ok(LazyExprVariant::Opn {
-            opn_kind: LazyOpnKind::ElementAccess,
+            opn_kind: LazyOpnKind::ElementAccess {
+                element_binding: {
+                    let this_qt = self.lazy_expr_qualified_ty(opds.start).unwrap();
+                    let contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+                    this_qt.qual.member_binding(
+                        MemberLiason::Mutable,
+                        contract,
+                        self.decl_db().is_copyable(element_ty).unwrap(),
+                    )
+                },
+            },
             opds: opds
                 .map(|raw| self.parse_lazy_expr(raw))
                 .collect::<SemanticResult<_>>()?,

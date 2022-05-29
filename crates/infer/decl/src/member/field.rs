@@ -3,13 +3,13 @@ use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
 use vec_map::HasKey;
-use vm::FieldLiason;
+use vm::MemberLiason;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FieldDecl {
     pub ident: CustomIdentifier,
-    pub liason: FieldLiason,
+    pub liason: MemberLiason,
     pub ty: EntityRoutePtr,
     pub kind: FieldKind,
 }

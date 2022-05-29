@@ -40,7 +40,9 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             this_contract: InputLiason::MemberAccess,
                             input_parameters: &[],
                             output_ty: "E",
-                            output_liason: OutputLiason::MemberAccess,
+                            output_liason: OutputLiason::MemberAccess {
+                                member_liason: MemberLiason::Mutable,
+                            },
                             generic_parameters: &[],
                             kind: MethodStaticDefnVariant::TraitMethodImpl {
                                 opt_source: Some(LinkageSource::MemberAccess {
@@ -293,7 +295,9 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_liason: OutputLiason::MemberAccess,
+        output_liason: OutputLiason::MemberAccess {
+            member_liason: MemberLiason::Mutable,
+        },
     },
     dev_src: static_dev_src!(),
 };
@@ -359,7 +363,9 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
                 },
             },
         },
-        output_liason: OutputLiason::MemberAccess,
+        output_liason: OutputLiason::MemberAccess {
+            member_liason: MemberLiason::Mutable,
+        },
     },
     dev_src: static_dev_src!(),
 };

@@ -16,7 +16,7 @@ fn eval_input_ty_from_ast(
             ..
         }) => match arena[idx].variant {
             RawExprVariant::Opn {
-                opr: Opr::List(ListOpr::Call),
+                opn_variant: RawOpnVariant::List(ListOpr::Call),
                 ref opds,
             } => {
                 let caller = &arena[opds][0];
@@ -59,7 +59,7 @@ fn global_output_ty_from_ast(
             ..
         }) => match arena[idx].variant {
             RawExprVariant::Opn {
-                opr: Opr::List(ListOpr::Call),
+                opn_variant: RawOpnVariant::List(ListOpr::Call),
                 ref opds,
             } => {
                 let caller = &arena[opds][0];

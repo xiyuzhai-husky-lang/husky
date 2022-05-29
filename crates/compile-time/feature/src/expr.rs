@@ -8,7 +8,7 @@ use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
-use vm::{InstructionSheet, LazyContract, Linkage};
+use vm::{Binding, InstructionSheet, LazyContract, Linkage};
 use word::{ContextualIdentifier, RootIdentifier};
 
 use crate::{eval::FeatureEvalId, *};
@@ -58,7 +58,7 @@ pub enum FeatureExprVariant {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
         field_idx: usize,
-        contract: LazyContract,
+        field_binding: Binding,
         opt_linkage: Option<Linkage>,
     },
     RecordOriginalFieldAccess {
@@ -123,7 +123,7 @@ struct FeatureExprBuilder<'a> {
 impl<'a> FeatureExprBuilder<'a> {
     fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureExpr> {
         let (kind, feature) = match expr.variant {
-            LazyExprVariant::Variable(varname) => self
+            LazyExprVariant::Variable { varname, .. } => self
                 .symbols
                 .iter()
                 .rev()
@@ -141,7 +141,10 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                 })
                 .unwrap(),
-            LazyExprVariant::Scope { scope, compiled } => todo!(),
+            LazyExprVariant::EntityRoute {
+                route: scope,
+                compiled,
+            } => todo!(),
             LazyExprVariant::PrimitiveLiteral(value) => (
                 FeatureExprVariant::PrimitiveLiteral(value),
                 self.features.alloc(Feature::PrimitiveLiteral(value)),
@@ -158,7 +161,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.features.alloc(Feature::EnumLiteral(entity_route)),
             ),
-            LazyExprVariant::This => (
+            LazyExprVariant::This { .. } => (
                 FeatureExprVariant::This {
                     repr: self.this.as_ref().unwrap().clone(),
                 },

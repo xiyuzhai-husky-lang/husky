@@ -1,3 +1,4 @@
+use crate::*;
 use check_utils::should;
 use entity_route::{GenericArgument, RangedEntityRoute};
 use text::RangedCustomIdentifier;
@@ -154,6 +155,14 @@ impl<'a> ExprStack<'a> {
 
     pub(crate) fn accept_suffix(&mut self, suffix: SuffixOpr, end: TextPosition) {
         self.synthesize_suffix(suffix, end)
+    }
+
+    pub(crate) fn accept_field_access(
+        &mut self,
+        field_ident: RangedCustomIdentifier,
+        end: TextPosition,
+    ) {
+        self.synthesize_field_access(field_ident, end)
     }
 
     pub(crate) fn accept_atom_expr(&mut self, expr: RawExpr) {
@@ -327,9 +336,19 @@ impl<'a> ExprStack<'a> {
         self.synthesize_opr(suffix.into(), Vec::new(), 1, range)
     }
 
+    fn synthesize_field_access(&mut self, field_ident: RangedCustomIdentifier, end: TextPosition) {
+        let range = (self.exprs.last().unwrap().range.start..end).into();
+        self.synthesize_opr(
+            RawOpnVariant::FieldAccess(field_ident),
+            Vec::new(),
+            1,
+            range,
+        )
+    }
+
     fn synthesize_opr(
         &mut self,
-        opr: Opr,
+        opr: RawOpnVariant,
         generic_arguments: Vec<GenericArgument>,
         n_opds: usize,
         range: TextRange,
@@ -339,7 +358,10 @@ impl<'a> ExprStack<'a> {
         self.exprs.truncate(len - n_opds);
         self.exprs.push(RawExpr {
             range,
-            variant: RawExprVariant::Opn { opr, opds },
+            variant: RawExprVariant::Opn {
+                opn_variant: opr,
+                opds,
+            },
         });
     }
 

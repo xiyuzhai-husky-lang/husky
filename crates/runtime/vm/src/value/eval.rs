@@ -1,5 +1,6 @@
 use std::sync::Arc;
 
+use print_utils::msg_once;
 use word::CustomIdentifier;
 
 use crate::*;
@@ -74,7 +75,8 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn lazy_field(mut self, field_idx: usize, contract: LazyContract) -> EvalValue<'eval> {
+    pub fn lazy_field(mut self, field_idx: usize, field_binding: Binding) -> EvalValue<'eval> {
+        msg_once!("use field binding");
         match self {
             EvalValue::Copyable(_) => panic!("primitive doesn't have member variables"),
             EvalValue::Owned(value) => {

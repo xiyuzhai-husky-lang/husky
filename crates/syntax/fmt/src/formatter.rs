@@ -138,9 +138,9 @@ impl<'a> Formatter<'a> {
             AstKind::PatternDefnHead => todo!(),
             AstKind::FieldDefnHead { ref head, opt_expr } => {
                 match head.liason {
-                    FieldLiason::Immutable => (),
-                    FieldLiason::Mutable => todo!(),
-                    FieldLiason::Derived => todo!(),
+                    MemberLiason::Immutable => (),
+                    MemberLiason::Mutable => todo!(),
+                    MemberLiason::Derived => todo!(),
                 }
                 self.fmt_ident(head.ident.ident.into());
                 self.write(": ");
@@ -252,21 +252,24 @@ impl<'a> Formatter<'a> {
                 CopyableValue::B64(_) => todo!(),
                 CopyableValue::EnumKind(_) => todo!(),
             },
-            RawExprVariant::Bracketed(expr_idx) => {
+            RawExprVariant::Bracketed(raw_expr_idx) => {
                 self.write("(");
-                self.fmt_expr(&self.arena[expr_idx]);
+                self.fmt_expr(&self.arena[raw_expr_idx]);
                 self.write(")");
             }
-            RawExprVariant::Opn { ref opr, ref opds } => match opr {
-                Opr::Binary(opr) => {
+            RawExprVariant::Opn {
+                opn_variant: ref opr,
+                ref opds,
+            } => match opr {
+                RawOpnVariant::Binary(opr) => {
                     let opds = &self.arena[opds];
                     self.fmt_expr(&opds[0]);
                     self.write(opr.spaced_code());
                     self.fmt_expr(&opds[1]);
                 }
-                Opr::Prefix(opr) => todo!(),
-                Opr::Suffix(_) => todo!(),
-                Opr::List(opr) => match opr {
+                RawOpnVariant::Prefix(opr) => todo!(),
+                RawOpnVariant::Suffix(_) => todo!(),
+                RawOpnVariant::List(opr) => match opr {
                     ListOpr::TupleInit => todo!(),
                     ListOpr::NewVec => todo!(),
                     ListOpr::NewDict => todo!(),
@@ -276,6 +279,7 @@ impl<'a> Formatter<'a> {
                     ListOpr::StructInit => todo!(),
                     ListOpr::MethodCall { .. } => todo!(),
                 },
+                RawOpnVariant::FieldAccess(_) => todo!(),
             },
             RawExprVariant::Entity { .. } => todo!(),
             RawExprVariant::Lambda(ref inputs, expr) => {

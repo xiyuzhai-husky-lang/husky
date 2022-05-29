@@ -131,7 +131,7 @@ impl<'eval> TraceVariant<'eval> {
                 ref expr,
                 ref history,
             } => match expr.variant {
-                EagerExprVariant::Variable(_)
+                EagerExprVariant::Variable { .. }
                 | EagerExprVariant::EntityRoute { .. }
                 | EagerExprVariant::PrimitiveLiteral(_) => false,
                 EagerExprVariant::Bracketed(_) => todo!(),
@@ -147,11 +147,11 @@ impl<'eval> TraceVariant<'eval> {
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. }
-                    | EagerOpnVariant::MethodCall { .. } => !opds[0].ty.is_builtin(),
-                    EagerOpnVariant::ElementAccess => false,
+                    | EagerOpnVariant::MethodCall { .. } => !opds[0].ty().is_builtin(),
+                    EagerOpnVariant::ElementAccess { .. } => false,
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::ThisData => todo!(),
+                EagerExprVariant::ThisData { .. } => todo!(),
                 EagerExprVariant::EnumKindLiteral(_) => todo!(),
             },
             TraceVariant::CallHead { .. } => false,

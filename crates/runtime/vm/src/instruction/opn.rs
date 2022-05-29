@@ -12,29 +12,22 @@ use crate::*;
 use entity_route::EntityRoutePtr;
 use text::RangedCustomIdentifier;
 
-#[derive(PartialEq, Eq, Clone)]
-pub enum Opr {
+#[derive(Clone, PartialEq, Eq)]
+pub enum RawOpnVariant {
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
     List(ListOpr),
+    FieldAccess(RangedCustomIdentifier),
 }
 
-impl std::fmt::Debug for Opr {
+impl std::fmt::Debug for RawOpnVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Binary(arg0) => {
                 f.write_str("Binary ")?;
                 arg0.fmt(f)
             }
-            // Self::Assign(opt_binary) => {
-            //     f.write_str("Assign ")?;
-            //     if let Some(binary) = opt_binary {
-            //         binary.fmt(f)
-            //     } else {
-            //         Ok(())
-            //     }
-            // }
             Self::Prefix(arg0) => {
                 f.write_str("Prefix ")?;
                 arg0.fmt(f)
@@ -47,6 +40,11 @@ impl std::fmt::Debug for Opr {
                 f.write_str("List ")?;
                 arg0.fmt(f)
             }
+            RawOpnVariant::Binary(_) => todo!(),
+            RawOpnVariant::Prefix(_) => todo!(),
+            RawOpnVariant::Suffix(_) => todo!(),
+            RawOpnVariant::List(_) => todo!(),
+            RawOpnVariant::FieldAccess(_) => todo!(),
         }
     }
 }
