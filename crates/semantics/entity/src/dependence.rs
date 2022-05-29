@@ -146,7 +146,11 @@ impl EntityDefn {
                 match fieldiant {
                     FieldDefnVariant::StructOriginal => todo!(),
                     FieldDefnVariant::RecordOriginal => todo!(),
-                    FieldDefnVariant::StructDerived { stmts } => todo!(),
+                    FieldDefnVariant::StructDerived { block } => match block {
+                        Block::Lazy { stmts } => todo!(),
+                        Block::Func { stmts } => todo!(),
+                        Block::Proc { stmts } => todo!(),
+                    },
                     FieldDefnVariant::RecordDerived { stmts } => {
                         extract_lazy_stmts_dependees(stmts, &mut builder)
                     }

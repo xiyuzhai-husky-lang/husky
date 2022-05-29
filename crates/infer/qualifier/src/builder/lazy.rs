@@ -233,7 +233,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.lazy_suffix(arena, raw_expr_idx, *suffix_opr, opds)
             }
             RawOpnVariant::List(list_opr) => self.lazy_list(arena, raw_expr_idx, list_opr, opds),
-            RawOpnVariant::FieldAccess(_) => todo!(),
+            RawOpnVariant::FieldAccess(field_ident) => {
+                self.lazy_field_access(arena, raw_expr_idx, *field_ident, opds)
+            }
         }
     }
 

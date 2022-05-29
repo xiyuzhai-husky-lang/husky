@@ -10,9 +10,21 @@ impl EntityDefnVariant {
     ) -> SemanticResult<Self> {
         let variant = match field_defn_head.kind {
             FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
-            FieldKind::StructDerivedLazy {
-                paradigm: Paradigm::LazyFunctional,
-            } => FieldDefnVariant::StructDerived { stmts: todo!() },
+            FieldKind::StructDerivedLazy { paradigm } => FieldDefnVariant::StructDerived {
+                block: match paradigm {
+                    Paradigm::LazyFunctional => Block::Lazy { stmts: todo!() },
+                    Paradigm::EagerFunctional => Block::Func {
+                        stmts: semantics_eager::parse_func_stmts(
+                            &[],
+                            db,
+                            arena,
+                            children.unwrap(),
+                            file,
+                        )?,
+                    },
+                    Paradigm::EagerProcedural => todo!(),
+                },
+            },
             FieldKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
             FieldKind::RecordDerived => FieldDefnVariant::RecordDerived {
                 stmts: semantics_lazy::parse_lazy_stmts(&[], db, arena, children.unwrap(), file)?,
@@ -75,6 +87,13 @@ impl EntityDefnVariant {
 pub enum FieldDefnVariant {
     StructOriginal,
     RecordOriginal,
-    StructDerived { stmts: Arc<Vec<Arc<LazyStmt>>> },
+    StructDerived { block: Block },
     RecordDerived { stmts: Arc<Vec<Arc<LazyStmt>>> },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum Block {
+    Lazy { stmts: Arc<Vec<Arc<LazyStmt>>> },
+    Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
+    Proc { stmts: Arc<Vec<Arc<ProcStmt>>> },
 }

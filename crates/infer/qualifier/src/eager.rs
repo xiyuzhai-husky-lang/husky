@@ -274,10 +274,10 @@ impl EagerQualifier {
                 | EagerContract::UseForLetInit
                 | EagerContract::UseForAssignRvalue
                 | EagerContract::UseMemberForLetInit
-                | EagerContract::UseMemberForVarInit => Binding::Copy,
+                | EagerContract::UseMemberForVarInit
+                | EagerContract::Return => Binding::Copy,
                 EagerContract::Move => todo!(),
                 EagerContract::UseForVarInit => todo!(),
-                EagerContract::Return => todo!(),
                 EagerContract::RefMut => match member_liason {
                     MemberLiason::Immutable => todo!(),
                     MemberLiason::Mutable => Binding::RefMut,

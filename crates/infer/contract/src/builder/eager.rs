@@ -328,7 +328,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let this_contract_result: InferResult<_> = field_decl
             .liason
-            .this_eager_contract(contract)
+            .this_eager_contract(contract, self.db.is_copyable(field_decl.ty)?)
             .bind_into(&arena[raw_expr_idx]);
         self.infer_eager_expr(opd, this_contract_result?, arena);
         Ok(())
