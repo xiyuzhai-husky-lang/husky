@@ -37,9 +37,9 @@
 146:28..146:29	Lex Error: Inappropriate
 152:15..152:16	Lex Error: Inappropriate
 159:22..159:23	Lex Error: Inappropriate
-1:10..1:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
-2:10..2:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
-3:10..3:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
+1:12..1:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
+2:12..2:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
+3:12..3:12	Ast Error: unexpected double colon, maybe the identifier before is not recognized as scope
 4:1..4:4	Ast Error: expect keyword at the beginning of module item
 5:1..5:4	Ast Error: expect keyword at the beginning of module item
 6:35..6:36	Ast Error: expect `:`

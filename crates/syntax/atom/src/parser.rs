@@ -1,16 +1,16 @@
 mod impl_basic;
 mod impl_call_head;
 mod impl_entity_route;
-mod impl_inner_ops;
 mod impl_lambda_head;
 mod impl_special;
+mod impl_state;
 mod impl_word_opr;
 mod impl_xml;
 mod utils;
 
 use super::{stack::AtomStack, *};
 use check_utils::should;
-use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument};
+use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument, RangedEntityRoute};
 use file::URange;
 use print_utils::p;
 use std::iter::Peekable;
@@ -22,8 +22,8 @@ use utils::*;
 use vm::{BinaryOpr, Bracket, PureBinaryOpr};
 
 pub struct AtomParser<'a, 'b> {
-    context: &'a mut dyn AtomContext,
-    pub(crate) token_stream: &'a mut TokenStream<'b>,
+    atom_context: &'a mut dyn AtomContext,
+    pub token_stream: &'a mut TokenStream<'b>,
     stack: AtomStack,
 }
 
@@ -33,7 +33,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         token_stream: &'a mut TokenStream<'b>,
     ) -> Self {
         Self {
-            context: symbol_context,
+            atom_context: symbol_context,
             token_stream,
             stack: AtomStack::new(),
         }
@@ -42,16 +42,18 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn parse_all(mut self) -> AtomResult<Vec<Atom>> {
         loop {
             if self.stack.is_concave() {
+                let text_start = self.token_stream.text_position();
                 if let Some(kind) = try_get!(self, symbol?) {
-                    self.push(kind)?;
+                    self.push(kind, text_start)?;
                 }
             }
 
+            let text_start = self.token_stream.text_position();
             if let Some(token) = self.token_stream.next() {
                 match token.kind {
                     TokenKind::Keyword(keyword) => err!(
                         "keyword should be put at start",
-                        self.token_stream.pop_text_range()
+                        self.token_stream.text_range(text_start)
                     )?,
                     TokenKind::Special(Special::Colon) => {
                         if let Some(_) = self.token_stream.next() {
@@ -61,17 +63,18 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         }
                     }
                     TokenKind::Special(special) => self.handle_special(special, token)?,
-                    TokenKind::WordOpr(word_opr) => self.handle_word_opr(word_opr, token)?,
+                    TokenKind::WordOpr(word_opr) => self.handle_word_opr(word_opr, text_start)?,
                     TokenKind::Identifier(_) => err!(
                         "unexpected identifier here",
-                        self.token_stream.pop_text_range()
+                        self.token_stream.text_range(text_start)
                     )?,
                     TokenKind::PrimitiveLiteral(_value) => {
-                        let range = self.token_stream.pop_text_range();
-                        self.context.push_abs_semantic_token(AbsSemanticToken::new(
-                            SemanticTokenKind::Literal,
-                            range,
-                        ));
+                        let range = self.token_stream.text_range(text_start);
+                        self.atom_context
+                            .push_abs_semantic_token(AbsSemanticToken::new(
+                                SemanticTokenKind::Literal,
+                                range,
+                            ));
                         self.stack.push(token.into())?
                     }
                     TokenKind::Unrecognized(c) => {
@@ -96,14 +99,14 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {
-        self.context.push_abs_semantic_token(new_token)
+        self.atom_context.push_abs_semantic_token(new_token)
     }
 }
 
 pub fn parse_route<'a, 'b>(
     symbol_context: &'a mut dyn AtomContext,
     tokens: &'a [Token],
-) -> AtomResult<EntityRoutePtr> {
+) -> AtomResult<RangedEntityRoute> {
     let result = AtomParser::new(symbol_context, &mut tokens.into()).parse_all()?;
     if result.len() == 0 {
         panic!()
@@ -114,10 +117,13 @@ pub fn parse_route<'a, 'b>(
     } else {
         match result[0].kind {
             AtomVariant::EntityRoute {
-                route: scope,
+                route,
                 kind: EntityKind::Type(_),
                 ..
-            } => Ok(scope),
+            } => Ok(RangedEntityRoute {
+                route,
+                range: tokens.text_range(),
+            }),
             // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
             _ => err!(
                 format!("expect type, but get `{:?}` instead", result[0]),

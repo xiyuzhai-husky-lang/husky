@@ -4,13 +4,14 @@ use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub(super) fn handle_special(&mut self, special: Special, token: &Token) -> AtomResult<()> {
+        let text_start = self.token_stream.text_position();
         match special {
             Special::DoubleColon => err!(
                 "unexpected double colon, maybe the identifier before is not recognized as scope",
-                self.token_stream.pop_text_range()
+                self.token_stream.text_range(text_start)
             )?,
             Special::DoubleVertical => self.stack.push(Atom::new(
-                self.token_stream.pop_text_range(),
+                self.token_stream.text_range(text_start),
                 if !self.stack.is_concave() {
                     BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
                 } else {
@@ -21,18 +22,18 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 if self.stack.is_concave() {
                     let lambda_head = self.lambda_head()?;
                     self.stack.push(Atom::new(
-                        self.token_stream.pop_text_range(),
+                        self.token_stream.text_range(text_start),
                         AtomVariant::LambdaHead(lambda_head),
                     ))
                 } else {
                     self.stack.push(Atom::new(
-                        self.token_stream.pop_text_range(),
+                        self.token_stream.text_range(text_start),
                         BinaryOpr::Pure(PureBinaryOpr::BitOr).into(),
                     ))
                 }
             }
             Special::Ambersand => self.stack.push(Atom::new(
-                self.token_stream.pop_text_range(),
+                self.token_stream.text_range(text_start),
                 if self.stack.is_concave() {
                     PrefixOpr::Shared.into()
                 } else {
@@ -40,62 +41,62 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 },
             )),
             Special::Exclamation => self.stack.push(Atom::new(
-                self.token_stream.pop_text_range(),
+                self.token_stream.text_range(text_start),
                 PrefixOpr::Not.into(),
             )),
             Special::LPar => Ok(self
                 .stack
-                .start_list(Bracket::Par, self.token_stream.pop_text_range())),
+                .start_list(Bracket::Par, self.token_stream.text_range(text_start))),
             Special::LBox => Ok(self
                 .stack
-                .start_list(Bracket::Box, self.token_stream.pop_text_range())),
+                .start_list(Bracket::Box, self.token_stream.text_range(text_start))),
             Special::LCurl => Ok(self
                 .stack
-                .start_list(Bracket::Curl, self.token_stream.pop_text_range())),
+                .start_list(Bracket::Curl, self.token_stream.text_range(text_start))),
             Special::RPar => {
-                if next_matches!(self, Special::LightArrow) {
+                if try_eat!(self, Special::LightArrow) {
                     let output = get!(self, ty?);
                     self.stack.make_func_type(
-                        self.context,
+                        self.atom_context,
                         output,
-                        self.token_stream.pop_text_range(),
+                        self.token_stream.text_range(text_start),
                     )
                 } else {
                     self.stack.end_list_or_make_type(
                         Bracket::Par,
                         ListEndAttr::None,
-                        self.token_stream.pop_text_range(),
-                        self.context,
+                        self.token_stream.text_range(text_start),
+                        self.atom_context,
                     )
                 }
             }
             Special::RBox => self.stack.end_list_or_make_type(
                 Bracket::Box,
                 ListEndAttr::None,
-                self.token_stream.pop_text_range(),
-                self.context,
+                self.token_stream.text_range(text_start),
+                self.atom_context,
             ),
             Special::RCurl => self.stack.end_list_or_make_type(
                 Bracket::Curl,
                 ListEndAttr::None,
-                self.token_stream.pop_text_range(),
-                self.context,
+                self.token_stream.text_range(text_start),
+                self.atom_context,
             ),
             Special::SubOrMinus => {
                 if self.stack.is_convex() {
                     self.stack.push(Atom::new(
-                        self.token_stream.pop_text_range(),
+                        self.token_stream.text_range(text_start),
                         BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
                     ))
                 } else {
                     self.stack.push(Atom::new(
-                        self.token_stream.pop_text_range(),
+                        self.token_stream.text_range(text_start),
                         PrefixOpr::Minus.into(),
                     ))
                 }
             }
             Special::MemberAccess => {
-                let range = self.token_stream.pop_text_range();
+                let range = self.token_stream.text_range(text_start);
                 let field_ident_token = self
                     .token_stream
                     .next()
@@ -115,7 +116,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     match self.token_stream.next() {
                         Some(token) => match token.kind {
                             TokenKind::Special(Special::LPar) => {
-                                self.token_stream.pop_text_range();
+                                self.token_stream.text_range(text_start);
                             }
                             _ => todo!(),
                         },
@@ -134,7 +135,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 self.stack.push(Atom::new(range, atom_variant))
             }
             _ => {
-                self.token_stream.pop_text_range();
+                self.token_stream.text_range(text_start);
                 self.stack.push(token.into())
             }
         }

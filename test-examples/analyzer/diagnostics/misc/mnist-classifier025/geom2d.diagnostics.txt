@@ -1,2 +1,2 @@
-72:68..72:69	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(float)), 72:63..72:68})} instead
+72:63..72:68	Ast Error: expect ranged_ty
 44:14..44:15	Infer Error: Unrecognized identifier `v`

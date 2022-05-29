@@ -1,1 +1,1 @@
-2:16..2:17	Ast Error: unexpected colon
+2:8..2:13	Ast Error: expect ranged_ty

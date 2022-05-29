@@ -109,7 +109,7 @@ impl From<Special> for AtomVariant {
             Special::Comma => AtomVariant::ListItem,
             Special::Semicolon => AtomVariant::SilentEnd,
             Special::XmlKet => todo!(),
-            Special::MaybeEq => todo!(),
+            Special::DeriveAssign => todo!(),
         }
     }
 }

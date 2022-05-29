@@ -5,11 +5,11 @@ struct A:
     // original eager field
     x: i32
 
-    // optional eager field
-    y: i32 ?= x + 1
+    // default field
+    y: i32 = x + 1
 
     // derived eager field
-    z: i32 = x - 2
+    z: i32 := x - 2
 
     // lazy field
     func w -> i32:

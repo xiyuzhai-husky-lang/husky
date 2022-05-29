@@ -42,4 +42,15 @@ impl<'a> AtomContext for AstTransformer<'a> {
     fn as_dyn_mut(&mut self) -> &mut dyn AtomContext {
         self
     }
+
+    fn save_state(&self) -> AtomContextState {
+        AtomContextState {
+            abs_semantic_tokens_len: self.abs_semantic_tokens.len(),
+        }
+    }
+
+    fn rollback(&mut self, state: AtomContextState) {
+        self.abs_semantic_tokens
+            .truncate(state.abs_semantic_tokens_len)
+    }
 }

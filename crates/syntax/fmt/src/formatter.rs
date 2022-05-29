@@ -138,13 +138,13 @@ impl<'a> Formatter<'a> {
             AstKind::PatternDefnHead => todo!(),
             AstKind::FieldDefnHead { ref head, opt_expr } => {
                 match head.liason {
-                    FieldLiason::Immutable => todo!(),
+                    FieldLiason::Immutable => (),
                     FieldLiason::Mutable => todo!(),
                     FieldLiason::Derived => todo!(),
                 }
                 self.fmt_ident(head.ident.ident.into());
                 self.write(": ");
-                self.fmt_ty(head.ty)
+                self.fmt_ty(head.ty.route)
             }
             AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstKind::DatasetConfigDefnHead => todo!(),
@@ -165,7 +165,7 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_func_input_liasoned_type(&mut self, ty: &InputParameter) {
-        match ty.contract {
+        match ty.liason {
             InputLiason::Pure => (),
             InputLiason::GlobalRef => self.write("&"),
             InputLiason::Move => self.write("!"),

@@ -13,31 +13,34 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomVariant>> {
         Ok(if let Some(token) = self.token_stream.next() {
             if token.kind == Special::LBox.into() {
-                self.context.push_abs_semantic_token(AbsSemanticToken::new(
-                    SemanticTokenKind::Special,
-                    token.range,
-                ));
+                self.atom_context
+                    .push_abs_semantic_token(AbsSemanticToken::new(
+                        SemanticTokenKind::Special,
+                        token.range,
+                    ));
                 Some(AtomVariant::EntityRoute {
                     route: self.symbolic_ty()?,
                     kind: EntityKind::Type(TyKind::Vec),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
-                let symbol_kind = self.context.resolve_symbol_kind(ident, token.range)?;
+                let symbol_kind = self.atom_context.resolve_symbol_kind(ident, token.range)?;
                 Some(match symbol_kind {
                     SymbolKind::EntityRoute(route) => {
-                        self.context.push_abs_semantic_token(AbsSemanticToken::new(
-                            SemanticTokenKind::Entity(
-                                self.context.entity_kind(route, token.range)?,
-                            ),
-                            token.range,
-                        ));
+                        self.atom_context
+                            .push_abs_semantic_token(AbsSemanticToken::new(
+                                SemanticTokenKind::Entity(
+                                    self.atom_context.entity_kind(route, token.range)?,
+                                ),
+                                token.range,
+                            ));
                         self.normal_route(route)?
                     }
                     SymbolKind::Variable { init_range } => {
-                        self.context.push_abs_semantic_token(AbsSemanticToken::new(
-                            SemanticTokenKind::Variable,
-                            token.range,
-                        ));
+                        self.atom_context
+                            .push_abs_semantic_token(AbsSemanticToken::new(
+                                SemanticTokenKind::Variable,
+                                token.range,
+                            ));
                         match ident {
                             Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
                             Identifier::Custom(varname) => AtomVariant::Variable {
@@ -51,20 +54,22 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         opt_ty,
                         opt_contract,
                     } => {
-                        self.context.push_abs_semantic_token(AbsSemanticToken::new(
-                            SemanticTokenKind::ThisData,
-                            token.range,
-                        ));
+                        self.atom_context
+                            .push_abs_semantic_token(AbsSemanticToken::new(
+                                SemanticTokenKind::ThisData,
+                                token.range,
+                            ));
                         AtomVariant::ThisData {
                             opt_ty,
                             opt_contract,
                         }
                     }
                     SymbolKind::FrameVariable { init_range } => {
-                        self.context.push_abs_semantic_token(AbsSemanticToken::new(
-                            SemanticTokenKind::FrameVariable,
-                            token.range,
-                        ));
+                        self.atom_context
+                            .push_abs_semantic_token(AbsSemanticToken::new(
+                                SemanticTokenKind::FrameVariable,
+                                token.range,
+                            ));
                         AtomVariant::FrameVariable {
                             varname: ident.custom(),
                             init_range,
@@ -80,12 +85,15 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn symbolic_ty(&mut self) -> AtomResult<EntityRoutePtr> {
-        let route = if next_matches!(self, Special::RBox) {
+        let route = if try_eat!(self, Special::RBox) {
             self.vec_ty()
         } else {
             self.array_ty()
         }?;
-        Ok(self.context.entity_syntax_db().intern_entity_route(route))
+        Ok(self
+            .atom_context
+            .entity_syntax_db()
+            .intern_entity_route(route))
     }
 
     fn vec_ty(&mut self) -> AtomResult<EntityRoute> {
@@ -94,7 +102,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     fn array_ty(&mut self) -> AtomResult<EntityRoute> {
         let size = get!(self, usize_literal);
-        no_look_pass!(self, special, Special::RBox);
+        eat!(self, special, Special::RBox);
         let element = self.generic()?;
         Ok(EntityRoute::array(element, size))
     }
@@ -102,29 +110,36 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<AtomVariant> {
         let generic_arguments = self.generics(route)?;
         let mut route = self
-            .context
+            .atom_context
             .entity_syntax_db()
             .make_route(route, generic_arguments);
-        while next_matches!(self, Special::DoubleColon) {
+        while try_eat!(self, Special::DoubleColon) {
             let ranged_ident = get!(self, custom_ident);
             let generics = self.generics(route)?;
-            route =
-                self.context
-                    .entity_syntax_db()
-                    .make_subroute(route, ranged_ident.ident, generics);
-            self.context.push_abs_semantic_token(AbsSemanticToken::new(
-                SemanticTokenKind::Entity(self.context.entity_kind(route, ranged_ident.range)?),
-                ranged_ident.range,
-            ));
+            route = self.atom_context.entity_syntax_db().make_subroute(
+                route,
+                ranged_ident.ident,
+                generics,
+            );
+            self.atom_context
+                .push_abs_semantic_token(AbsSemanticToken::new(
+                    SemanticTokenKind::Entity(
+                        self.atom_context.entity_kind(route, ranged_ident.range)?,
+                    ),
+                    ranged_ident.range,
+                ));
             let generic_arguments = self.generics(route)?;
             route = self
-                .context
+                .atom_context
                 .entity_syntax_db()
                 .make_route(route, generic_arguments);
         }
         return Ok(AtomVariant::EntityRoute {
             route,
-            kind: self.context.entity_kind(route, Default::default()).unwrap(),
+            kind: self
+                .atom_context
+                .entity_kind(route, Default::default())
+                .unwrap(),
         });
     }
 
@@ -133,6 +148,24 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             if let Some(AtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
                 if let EntityKind::Type(_) = kind {
                     Some(route)
+                } else {
+                    None
+                }
+            } else {
+                None
+            },
+        )
+    }
+
+    pub fn ranged_ty(&mut self) -> AtomResult<Option<RangedEntityRoute>> {
+        let text_start = self.token_stream.text_position();
+        Ok(
+            if let Some(AtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
+                if let EntityKind::Type(_) = kind {
+                    Some(RangedEntityRoute {
+                        route,
+                        range: self.token_stream.text_range(text_start),
+                    })
                 } else {
                     None
                 }
@@ -175,7 +208,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 RootIdentifier::TypeType => todo!(),
                 RootIdentifier::ModuleType => todo!(),
             },
-            _ => match self.context.entity_kind(route, Default::default()).unwrap() {
+            _ => match self
+                .atom_context
+                .entity_kind(route, Default::default())
+                .unwrap()
+            {
                 EntityKind::Module
                 | EntityKind::EnumLiteral
                 | EntityKind::Feature
@@ -189,11 +226,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn func_args(&mut self) -> AtomResult<Vec<GenericArgument>> {
-        if !next_matches!(self, "(") {
-            return err!("args", self.token_stream.pop_text_range());
-        }
+        eat!(self, "(");
         let mut args = comma_list![self, generic!, RPar];
-        args.push(if next_matches!(self, "->") {
+        args.push(if try_eat!(self, "->") {
             self.generic()?
         } else {
             EntityRoutePtr::Root(RootIdentifier::Void).into()
@@ -202,7 +237,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub(crate) fn angled_generics(&mut self) -> AtomResult<Vec<GenericArgument>> {
-        Ok(if next_matches!(self, Special::LAngle) {
+        Ok(if try_eat!(self, Special::LAngle) {
             comma_list![self, generic!+, ">"]
         } else {
             Vec::new()
@@ -210,9 +245,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn generic(&mut self) -> AtomResult<GenericArgument> {
-        Ok(if next_matches!(self, "(") {
+        Ok(if try_eat!(self, "(") {
             let mut args = comma_list!(self, generic!, ")");
-            let scope = if next_matches!(self, "->") {
+            let scope = if try_eat!(self, "->") {
                 args.push(self.generic()?);
                 EntityRoute::default_func_type(args)
             } else {
@@ -225,6 +260,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn intern(&self, scope: EntityRoute) -> EntityRoutePtr {
-        self.context.entity_syntax_db().intern_entity_route(scope)
+        self.atom_context
+            .entity_syntax_db()
+            .intern_entity_route(scope)
     }
 }

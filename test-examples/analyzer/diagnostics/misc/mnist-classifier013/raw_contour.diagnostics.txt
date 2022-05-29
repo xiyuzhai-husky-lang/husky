@@ -6,7 +6,7 @@
 97:23..97:24	Lex Error: expect indentated lines after `:`
 98:23..98:24	Lex Error: expect indentated lines after `:`
 111:23..111:24	Lex Error: expect indentated lines after `:`
-21:65..21:66	Ast Error: expect ty after it, but get {Some(Token {Identifier(Custom(int)), 21:62..21:65})} instead
+21:62..21:65	Ast Error: expect ranged_ty
 22:5..22:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
 23:5..23:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
 35:19..35:35	Ast Error: expect `:`
@@ -20,11 +20,11 @@
 56:9..56:16	Ast Error: can't put case outside a match context
 58:9..58:16	Ast Error: can't put case outside a match context
 70:9..70:16	Ast Error: can't put case outside a match context
-72:17..72:21	Ast Error: keyword should be put at start
+72:17..72:22	Ast Error: keyword should be put at start
 73:21..73:36	Ast Error: expect case stmt
 79:9..79:16	Ast Error: can't put case outside a match context
 95:9..95:16	Ast Error: can't put case outside a match context
-103:25..103:29	Ast Error: keyword should be put at start
+103:25..103:30	Ast Error: keyword should be put at start
 104:29..104:42	Ast Error: expect case stmt
 109:9..109:16	Ast Error: can't put case outside a match context
 57:13..57:29	Infer Error: Unrecognized identifier `raw_angle_change`

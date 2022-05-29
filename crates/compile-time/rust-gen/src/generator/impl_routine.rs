@@ -22,7 +22,7 @@ impl<'a> RustGenerator<'a> {
             }
             self.write(&input_placeholder.ranged_ident.ident);
             self.write(": ");
-            match input_placeholder.contract {
+            match input_placeholder.liason {
                 InputLiason::Pure => {
                     if !self
                         .db
@@ -63,7 +63,7 @@ impl<'a> RustGenerator<'a> {
             }
             self.write(&input_placeholder.ranged_ident.ident);
             self.write(": ");
-            match input_placeholder.contract {
+            match input_placeholder.liason {
                 InputLiason::Pure => {
                     if !self
                         .db

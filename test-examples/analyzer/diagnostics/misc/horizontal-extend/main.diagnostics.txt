@@ -1,2 +1,0 @@
-9:9..9:14	Infer Error: lopd is not mutable
-9:9..9:14	Infer Error: lopd is not mutable

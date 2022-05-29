@@ -116,7 +116,7 @@ impl MethodDecl {
                         .map(|input| InputDecl::from_static(db, input, symbol_context)),
                     output: OutputDecl {
                         liason: output_liason,
-                        ty: output_ty,
+                        ty: output_ty.route,
                     },
                     generic_parameters: generic_parameters.map(|static_generic_placeholder| {
                         GenericParameter::from_static(db.upcast(), static_generic_placeholder)

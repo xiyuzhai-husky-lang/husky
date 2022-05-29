@@ -25,13 +25,13 @@ pub struct CallableDefnHead {
 pub struct FieldDefnHead {
     pub liason: FieldLiason,
     pub ident: RangedCustomIdentifier,
-    pub ty: EntityRoutePtr,
+    pub ty: RangedEntityRoute,
     pub kind: FieldKind,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputParameter {
     pub ranged_ident: RangedCustomIdentifier,
-    pub contract: InputLiason,
+    pub liason: InputLiason,
     pub ranged_ty: RangedEntityRoute,
 }

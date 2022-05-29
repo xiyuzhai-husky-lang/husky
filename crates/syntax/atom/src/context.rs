@@ -28,6 +28,11 @@ pub enum AtomContextKind<'a> {
     },
 }
 
+#[derive(Default)]
+pub struct AtomContextState {
+    pub abs_semantic_tokens_len: usize,
+}
+
 pub trait AtomContext {
     fn opt_package_main(&self) -> Option<FilePtr>;
     fn entity_syntax_db(&self) -> &dyn EntityRouteQueryGroup;
@@ -37,6 +42,8 @@ pub trait AtomContext {
     fn kind(&self) -> AtomContextKind;
     fn as_dyn_mut(&mut self) -> &mut dyn AtomContext;
     fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken);
+    fn save_state(&self) -> AtomContextState;
+    fn rollback(&mut self, state: AtomContextState);
 
     fn builtin_type_atom(
         &self,
@@ -193,7 +200,7 @@ pub trait AtomContext {
                     .custom(),
                 range: Default::default(),
             },
-            contract: static_input_placeholder.contract,
+            liason: static_input_placeholder.contract,
             ranged_ty: RangedEntityRoute {
                 route: self
                     .entity_route_from_str(static_input_placeholder.ty)

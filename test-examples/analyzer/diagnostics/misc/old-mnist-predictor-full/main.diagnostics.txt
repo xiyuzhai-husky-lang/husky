@@ -7,5 +7,5 @@
 6:1..6:4	Ast Error: expect keyword at the beginning of module item
 7:1..7:4	Ast Error: expect keyword at the beginning of module item
 8:1..8:4	Ast Error: expect keyword at the beginning of module item
-10:3..10:6	Ast Error: `let` statement requires env to be `proc` or `test`, but got `main` instead
-11:3..11:6	Ast Error: `let` statement requires env to be `proc` or `test`, but got `main` instead
+10:3..10:6	Ast Error: `let` statement requires env to be `proc` or `test`, but got `def` instead
+11:3..11:6	Ast Error: `let` statement requires env to be `proc` or `test`, but got `def` instead

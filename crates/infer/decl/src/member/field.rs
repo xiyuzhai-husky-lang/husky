@@ -35,7 +35,7 @@ impl FieldDecl {
         Arc::new(Self {
             ident: field_defn_head.ident.ident,
             liason: field_defn_head.liason,
-            ty: field_defn_head.ty,
+            ty: field_defn_head.ty.route,
             kind: field_defn_head.kind,
         })
     }

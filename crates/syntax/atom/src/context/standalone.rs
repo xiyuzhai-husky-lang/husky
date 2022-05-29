@@ -48,4 +48,10 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
     fn as_dyn_mut(&mut self) -> &mut dyn AtomContext {
         self
     }
+
+    fn save_state(&self) -> AtomContextState {
+        Default::default()
+    }
+
+    fn rollback(&mut self, state: AtomContextState) {}
 }

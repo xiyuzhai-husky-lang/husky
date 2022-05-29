@@ -4,11 +4,10 @@ use check_utils::should_eq;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EagerContract {
     Pure,
-    GlobalRef,
     Move,
     UseForLetInit,
     UseForVarInit,
-    UseForAssign,
+    UseForAssignRvalue,
     UseMemberForLetInit,
     UseMemberForVarInit,
     Return,

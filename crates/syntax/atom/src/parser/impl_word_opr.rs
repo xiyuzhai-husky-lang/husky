@@ -1,27 +1,22 @@
 use entity_route::RangedEntityRoute;
 use print_utils::epin;
+use text::TextPosition;
 use vm::*;
 use word::WordOpr;
 
 use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
-    pub(super) fn handle_word_opr(&mut self, word_opr: WordOpr, token: &Token) -> AtomResult<()> {
-        let word_opr_range = self.token_stream.pop_text_range();
+    pub(super) fn handle_word_opr(
+        &mut self,
+        word_opr: WordOpr,
+        text_start: TextPosition,
+    ) -> AtomResult<()> {
         match word_opr {
-            WordOpr::And | WordOpr::Or => {
-                self.stack.push(Atom::new(word_opr_range, word_opr.into()))
-            }
+            WordOpr::And | WordOpr::Or => self.push(word_opr.into(), text_start),
             WordOpr::As => {
-                let ty = get!(self, ty?);
-                let ty_range = self.token_stream.pop_text_range();
-                self.stack.push(Atom::new(
-                    word_opr_range.text_range_to(&ty_range),
-                    AtomVariant::Suffix(SuffixOpr::AsTy(RangedEntityRoute {
-                        route: ty,
-                        range: ty_range,
-                    })),
-                ))
+                let ty = get!(self, ranged_ty?);
+                self.push(AtomVariant::Suffix(SuffixOpr::AsTy(ty)), text_start)
             }
         }
     }

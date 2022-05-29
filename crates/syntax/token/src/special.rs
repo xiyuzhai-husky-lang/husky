@@ -7,7 +7,7 @@ pub enum Special {
     RAngle,            // >
     Geq,               // >=
     Neq,               // !=
-    MaybeEq,           // ?=
+    DeriveAssign,      // ?=
     Eq,                // ==
     Shl,               // <<
     Shr,               //>>
@@ -57,7 +57,7 @@ impl Special {
             Special::RAngle => ">",
             Special::Geq => ">=",
             Special::Neq => "!=",
-            Special::MaybeEq => "?=",
+            Special::DeriveAssign => "?=",
             Special::Eq => "==",
             Special::Shl => "<<",
             Special::Shr => ">>",

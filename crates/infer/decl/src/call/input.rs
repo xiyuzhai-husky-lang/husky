@@ -41,7 +41,7 @@ impl InputDecl {
 impl Into<InputDecl> for &InputParameter {
     fn into(self) -> InputDecl {
         InputDecl {
-            liason: self.contract,
+            liason: self.liason,
             ty: self.ranged_ty.route,
             ident: self.ranged_ident.ident,
         }

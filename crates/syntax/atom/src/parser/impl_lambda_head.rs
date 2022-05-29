@@ -17,11 +17,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         &mut self,
     ) -> AtomResult<(RangedCustomIdentifier, Option<RangedEntityRoute>)> {
         let ident = get!(self, custom_ident);
-        let ty = if next_matches!(self, ":") {
-            Some(RangedEntityRoute {
-                route: get!(self.ty?),
-                range: self.token_stream.pop_text_range(),
-            })
+        let ty = if try_eat!(self, ":") {
+            Some(get!(self.ranged_ty?))
         } else {
             None
         };

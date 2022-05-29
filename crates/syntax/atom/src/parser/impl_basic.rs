@@ -1,11 +1,12 @@
 use text::RangedCustomIdentifier;
 use vm::CopyableValue;
+use word::{Keyword, LiasonKeyword};
 
 use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
-    pub(crate) fn special(&mut self, target: Special) -> Option<()> {
-        self.kind(target.into())
+    pub fn special(&mut self, target: Special) -> Option<()> {
+        self.token_kind(target.into())
     }
 
     pub(crate) fn usize_literal(&mut self) -> Option<usize> {
@@ -39,10 +40,42 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    fn kind(&mut self, target: TokenKind) -> Option<()> {
+    pub fn sema_custom_ident(
+        &mut self,
+        semantic_token_kind: SemanticTokenKind,
+    ) -> Option<RangedCustomIdentifier> {
+        if let Some(Token {
+            kind: TokenKind::Identifier(Identifier::Custom(ident)),
+            range,
+        }) = self.token_stream.next()
+        {
+            self.atom_context
+                .push_abs_semantic_token(AbsSemanticToken::new(semantic_token_kind, *range));
+            Some(RangedCustomIdentifier {
+                ident: *ident,
+                range: *range,
+            })
+        } else {
+            None
+        }
+    }
+
+    pub fn token_kind(&mut self, target: TokenKind) -> Option<()> {
         if let Some(Token { kind, .. }) = self.token_stream.next() {
             if *kind == target {
                 return Some(());
+            }
+        }
+        None
+    }
+
+    pub fn liason(&mut self) -> Option<LiasonKeyword> {
+        if let Some(Token { kind, .. }) = self.token_stream.next() {
+            match kind {
+                TokenKind::Keyword(Keyword::Liason(liason_keyword)) => {
+                    return Some(*liason_keyword)
+                }
+                _ => (),
             }
         }
         None

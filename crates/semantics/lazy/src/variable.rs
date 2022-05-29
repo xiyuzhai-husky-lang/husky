@@ -15,7 +15,7 @@ impl LazyVariable {
         LazyVariable {
             ident: input_placeholder.ranged_ident.ident,
             ty: input_placeholder.ranged_ty.route,
-            is_reference: match input_placeholder.contract {
+            is_reference: match input_placeholder.liason {
                 InputLiason::Pure => false,
                 InputLiason::GlobalRef => todo!(),
                 InputLiason::Move => todo!(),
