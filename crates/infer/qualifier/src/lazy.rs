@@ -70,7 +70,7 @@ impl LazyQualifiedTy {
                 LazyQualifier::GlobalRef => todo!(),
                 LazyQualifier::Transient => true,
             },
-            OutputLiason::MemberAccess => todo!(),
+            OutputLiason::MemberAccess { .. } => todo!(),
         }
     }
 }
@@ -155,7 +155,7 @@ impl LazyQualifier {
 
     pub fn from_field(
         this_qual: LazyQualifier,
-        field_liason: FieldLiason,
+        field_liason: MemberLiason,
         is_field_copyable: bool,
     ) -> InferResult<Self> {
         Ok(if is_field_copyable {
@@ -163,5 +163,54 @@ impl LazyQualifier {
         } else {
             todo!()
         })
+    }
+
+    pub fn method_opt_output_binding(
+        self,
+        output_liason: OutputLiason,
+        output_contract: LazyContract,
+        is_output_ty_copyable: bool,
+    ) -> Option<Binding> {
+        match output_liason {
+            OutputLiason::Transfer => None,
+            OutputLiason::MemberAccess { member_liason } => {
+                Some(self.member_binding(member_liason, output_contract, is_output_ty_copyable))
+            }
+        }
+    }
+
+    pub fn member_binding(
+        self,
+        member_liason: MemberLiason,
+        member_contract: LazyContract,
+        is_member_ty_copyable: bool,
+    ) -> Binding {
+        if is_member_ty_copyable {
+            match member_contract {
+                LazyContract::Init => Binding::Copy,
+                LazyContract::Return => todo!(),
+                LazyContract::UseMemberForInit => todo!(),
+                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Pure => todo!(),
+                LazyContract::Move => todo!(),
+            }
+        } else {
+            // non-copyable
+            match member_contract {
+                LazyContract::Init => match self {
+                    LazyQualifier::Copyable => todo!(),
+                    LazyQualifier::PureRef => Binding::Ref,
+                    LazyQualifier::GlobalRef => Binding::Ref,
+                    LazyQualifier::Transient => Binding::Move,
+                },
+                LazyContract::Return => todo!(),
+                LazyContract::UseMemberForInit => todo!(),
+                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Pure => todo!(),
+                LazyContract::Move => todo!(),
+            }
+        }
     }
 }

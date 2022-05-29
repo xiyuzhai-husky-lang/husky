@@ -58,31 +58,34 @@ impl SubrouteEntry {
             };
         }
         match token_group[0].kind {
-            TokenKind::Keyword(keyword) => {
-                if let TokenKind::Identifier(ident) = token_group[1].kind {
-                    if let Some(kind) = tell_entity_kind(keyword, &token_group[2]) {
-                        return match ident {
-                            Identifier::Builtin(_) => Err(defn_error!(
-                                "builtin identifiers are reserved",
-                                token_group[1].text_range()
-                            )),
-                            Identifier::Custom(ident) => Ok(Some(SubrouteEntry {
-                                ident: Some(ident),
-                                kind,
-                                source: EntityLocus::from_file(file, token_group_index),
-                            })),
-                            Identifier::Contextual(_) => Err(defn_error!(
-                                "contextual identifiers are reserved",
-                                token_group[1].text_range()
-                            )),
-                        };
+            TokenKind::Keyword(keyword) => match keyword {
+                Keyword::Paradigm(_) | Keyword::Type(_) | Keyword::Mod => {
+                    if let TokenKind::Identifier(ident) = token_group[1].kind {
+                        if let Some(kind) = tell_entity_kind(keyword, &token_group[2]) {
+                            return match ident {
+                                Identifier::Builtin(_) => Err(defn_error!(
+                                    "builtin identifiers are reserved",
+                                    token_group[1].text_range()
+                                )),
+                                Identifier::Custom(ident) => Ok(Some(SubrouteEntry {
+                                    ident: Some(ident),
+                                    kind,
+                                    source: EntityLocus::from_file(file, token_group_index),
+                                })),
+                                Identifier::Contextual(_) => Err(defn_error!(
+                                    "contextual identifiers are reserved",
+                                    token_group[1].text_range()
+                                )),
+                            };
+                        }
                     }
+                    Err(defn_error!(
+                        "second token should be identifier",
+                        token_group[1].text_range()
+                    ))
                 }
-                Err(defn_error!(
-                    "second token should be identifier",
-                    token_group[1].text_range()
-                ))
-            }
+                _ => Ok(None),
+            },
             TokenKind::Decorator(Decorator::Static) => match token_group[1].kind {
                 TokenKind::Keyword(Keyword::Paradigm(paradigm)) => match token_group[2].kind {
                     TokenKind::Identifier(Identifier::Custom(ident)) => Ok(Some(SubrouteEntry {

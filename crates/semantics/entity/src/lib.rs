@@ -39,7 +39,7 @@ use std::sync::Arc;
 use text::*;
 use vec_map::HasKey;
 use visual_semantics::VisualizerSource;
-use vm::{FieldLiason, InputLiason, Linkage, OutputLiason};
+use vm::{InputLiason, Linkage, MemberLiason, OutputLiason};
 use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -180,7 +180,7 @@ pub enum EntityDefnVariant {
     TypeField {
         ty: EntityRoutePtr,
         fieldiant: FieldDefnVariant,
-        contract: FieldLiason,
+        contract: MemberLiason,
     },
     Method {
         generic_parameters: IdentDict<GenericParameter>,

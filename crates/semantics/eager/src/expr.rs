@@ -10,7 +10,7 @@ pub(crate) use parser::EagerExprParser;
 
 use entity_route::EntityRoutePtr;
 use text::TextRange;
-use vm::{CopyableValue, EagerContract, InstructionId, InstructionSource, Linkage};
+use vm::{Binding, CopyableValue, EagerContract, InstructionId, InstructionSource, Linkage};
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -18,10 +18,14 @@ pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
     pub qualified_ty: EagerQualifiedTy,
-    pub ty: EntityRoutePtr,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
-    pub contract: EagerContract,
+}
+
+impl EagerExpr {
+    pub fn ty(&self) -> EntityRoutePtr {
+        self.qualified_ty.ty
+    }
 }
 
 impl InstructionSource for EagerExpr {
@@ -40,8 +44,13 @@ impl InstructionSource for EagerExpr {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerExprVariant {
-    Variable(CustomIdentifier),
-    ThisData,
+    Variable {
+        varname: CustomIdentifier,
+        binding: Binding,
+    },
+    ThisData {
+        binding: Binding,
+    },
     EntityRoute {
         route: EntityRoutePtr,
     },

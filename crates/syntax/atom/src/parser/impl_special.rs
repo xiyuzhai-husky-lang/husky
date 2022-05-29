@@ -130,7 +130,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         },
                     )
                 } else {
-                    SuffixOpr::FieldAccess(ranged_ident).into()
+                    AtomVariant::FieldAccess(ranged_ident)
                 };
                 self.stack.push(Atom::new(range, atom_variant))
             }

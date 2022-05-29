@@ -21,14 +21,9 @@ pub struct LazyExpr {
     pub qualified_ty: LazyQualifiedTy,
     pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
-    pub contract: LazyContract,
 }
 
 impl LazyExpr {
-    pub fn binding(&self) -> Binding {
-        self.qualified_ty.qual.binding(self.contract)
-    }
-
     pub fn ty(&self) -> EntityRoutePtr {
         self.qualified_ty.ty
     }
@@ -50,9 +45,12 @@ impl InstructionSource for LazyExpr {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LazyExprVariant {
-    Variable(CustomIdentifier),
-    Scope {
-        scope: EntityRoutePtr,
+    Variable {
+        varname: CustomIdentifier,
+        binding: Binding,
+    },
+    EntityRoute {
+        route: EntityRoutePtr,
         compiled: (),
     },
     PrimitiveLiteral(CopyableValue),
@@ -68,7 +66,9 @@ pub enum LazyExprVariant {
         Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
         Box<LazyExpr>,
     ),
-    This,
+    This {
+        binding: Binding,
+    },
     EntityFeature {
         route: EntityRoutePtr,
     },

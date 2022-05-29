@@ -76,10 +76,10 @@ impl<'a> EagerStmtParser<'a> {
                 discard: silent,
             } => {
                 let expr = self.parse_eager_expr(expr)?;
-                if !silent && expr.ty != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if !silent && expr.ty() != EntityRoutePtr::Root(RootIdentifier::Void) {
                     err!(format!(
                         "expect non-silent executed expression to be of type void, but got {:?} instead",
-                        expr.ty
+                        expr.ty()
                     ))
                 }
                 Ok(ProcStmtVariant::Execute { expr })
@@ -224,7 +224,7 @@ impl<'a> EagerStmtParser<'a> {
             }
             RawLoopKind::While { condition } => {
                 let condition = self.parse_eager_expr(condition)?;
-                match condition.ty {
+                match condition.ty() {
                     EntityRoutePtr::Root(RootIdentifier::Bool)
                     | EntityRoutePtr::Root(RootIdentifier::I32)
                     | EntityRoutePtr::Root(RootIdentifier::F32)
@@ -239,7 +239,7 @@ impl<'a> EagerStmtParser<'a> {
             }
             RawLoopKind::DoWhile { condition } => {
                 let condition = self.parse_eager_expr(condition)?;
-                match condition.ty {
+                match condition.ty() {
                     EntityRoutePtr::Root(RootIdentifier::Bool)
                     | EntityRoutePtr::Root(RootIdentifier::I32)
                     | EntityRoutePtr::Root(RootIdentifier::F32)

@@ -2,16 +2,16 @@ use print_utils::p;
 
 use super::*;
 
-impl From<BinaryOpr> for Opr {
-    fn from(binary: BinaryOpr) -> Self {
-        Self::Binary(binary)
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {
     Pure(PureBinaryOpr),
     Assign(Option<PureBinaryOpr>),
+}
+
+impl Into<RawOpnVariant> for BinaryOpr {
+    fn into(self) -> RawOpnVariant {
+        RawOpnVariant::Binary(self)
+    }
 }
 
 impl BinaryOpr {

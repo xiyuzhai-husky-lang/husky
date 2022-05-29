@@ -27,7 +27,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
             FeatureExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_idx,
-                contract,
+                field_binding,
                 opt_linkage: opt_compiled,
                 ..
             } => {
@@ -35,7 +35,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                     todo!()
                 } else {
                     let this_value = self.eval_feature_expr(this)?;
-                    Ok(unsafe { this_value.lazy_field(field_idx, contract) })
+                    Ok(unsafe { this_value.lazy_field(field_idx, field_binding) })
                 }
             }
             FeatureExprVariant::RoutineCall {

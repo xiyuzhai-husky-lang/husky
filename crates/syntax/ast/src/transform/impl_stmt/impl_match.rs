@@ -83,6 +83,7 @@ impl<'a> MatchPatternParser<'a> {
                 AtomVariant::Binary(_) => todo!(),
                 AtomVariant::Prefix(_) => todo!(),
                 AtomVariant::Suffix(_) => todo!(),
+                AtomVariant::FieldAccess(_) => todo!(),
                 AtomVariant::ListStart(_, _) => todo!(),
                 AtomVariant::ListEnd(_, _) => todo!(),
                 AtomVariant::ListItem => todo!(),

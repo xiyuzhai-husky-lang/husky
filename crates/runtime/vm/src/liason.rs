@@ -37,7 +37,7 @@ impl InputLiason {
                                 "can't mutate transferred output"
                             )))
                         }
-                        OutputLiason::MemberAccess => todo!(),
+                        OutputLiason::MemberAccess { .. } => todo!(),
                     },
                     EagerContract::MoveMut => todo!(),
                     EagerContract::UseMemberForLetInit => todo!(),
@@ -45,14 +45,13 @@ impl InputLiason {
                 }
                 Ok(match self {
                     InputLiason::Pure => EagerContract::Pure,
-                    InputLiason::Move => EagerContract::Move,
+                    InputLiason::Move | InputLiason::MoveMut => EagerContract::Move,
                     InputLiason::BorrowMut => EagerContract::RefMut,
-                    InputLiason::MoveMut => todo!(),
                     InputLiason::MemberAccess => panic!(),
                     InputLiason::GlobalRef => todo!(),
                 })
             }
-            OutputLiason::MemberAccess => {
+            OutputLiason::MemberAccess { .. } => {
                 if !is_this {
                     Ok(EagerContract::Pure)
                 } else {
@@ -91,7 +90,7 @@ impl InputLiason {
                 InputLiason::MemberAccess => todo!(),
                 InputLiason::GlobalRef => todo!(),
             }),
-            OutputLiason::MemberAccess => todo!(),
+            OutputLiason::MemberAccess { .. } => todo!(),
         }
     }
 }
@@ -99,50 +98,50 @@ impl InputLiason {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum OutputLiason {
     Transfer,
-    MemberAccess,
+    MemberAccess { member_liason: MemberLiason },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum FieldLiason {
+pub enum MemberLiason {
     Immutable,
     Mutable,
     Derived,
 }
 
-impl FieldLiason {
-    pub fn from_opt_keyword(opt_keyword: Option<LiasonKeyword>) -> FieldLiason {
+impl MemberLiason {
+    pub fn from_opt_keyword(opt_keyword: Option<LiasonKeyword>) -> MemberLiason {
         match opt_keyword {
             Some(liason_keyword) => match liason_keyword {
-                LiasonKeyword::Mut => FieldLiason::Mutable,
+                LiasonKeyword::Mut => MemberLiason::Mutable,
             },
-            None => FieldLiason::Immutable,
+            None => MemberLiason::Immutable,
         }
     }
 
     pub fn mutable(self) -> bool {
         match self {
-            FieldLiason::Immutable | FieldLiason::Derived => false,
-            FieldLiason::Mutable => true,
+            MemberLiason::Immutable | MemberLiason::Derived => false,
+            MemberLiason::Mutable => true,
         }
     }
 
     pub fn constructor_input_liason(&self, is_copyable: bool) -> InputLiason {
         match self {
-            FieldLiason::Immutable => {
+            MemberLiason::Immutable => {
                 if is_copyable {
                     InputLiason::Pure
                 } else {
                     InputLiason::Move
                 }
             }
-            FieldLiason::Mutable => {
+            MemberLiason::Mutable => {
                 if is_copyable {
                     InputLiason::Pure
                 } else {
                     InputLiason::MoveMut
                 }
             }
-            FieldLiason::Derived => panic!(),
+            MemberLiason::Derived => panic!(),
         }
     }
 
@@ -181,7 +180,7 @@ impl FieldLiason {
         //     FieldLiason::LazyOwn => todo!(),
         // };
         match self {
-            FieldLiason::Immutable => match field_contract {
+            MemberLiason::Immutable => match field_contract {
                 EagerContract::Pure => Ok(EagerContract::Pure),
 
                 EagerContract::Move | EagerContract::MoveMut => Ok(EagerContract::Move),
@@ -200,27 +199,27 @@ impl FieldLiason {
                     "can't assign to an immutable field"
                 ))),
             },
-            FieldLiason::Mutable => match field_contract {
-                EagerContract::Pure => todo!(),
-
+            MemberLiason::Mutable => match field_contract {
+                EagerContract::Pure => Ok(EagerContract::Pure),
                 EagerContract::Move => Ok(EagerContract::Move),
                 EagerContract::RefMut => Ok(EagerContract::RefMut),
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
-                EagerContract::UseForLetInit => todo!(),
+                EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
+                    Ok(EagerContract::UseMemberForLetInit)
+                }
                 EagerContract::UseForVarInit => todo!(),
                 EagerContract::Return => todo!(),
-                EagerContract::UseMemberForLetInit => todo!(),
                 EagerContract::UseMemberForVarInit => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
             },
-            FieldLiason::Derived => panic!(),
+            MemberLiason::Derived => panic!(),
         }
     }
 
     pub fn this_lazy_contract(self, field_contract: LazyContract) -> VMCompileResult<LazyContract> {
         match self {
-            FieldLiason::Immutable | FieldLiason::Mutable => match field_contract {
+            MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
                 LazyContract::Move => Ok(LazyContract::Move),
                 LazyContract::Pure => Ok(LazyContract::Pure),
                 LazyContract::GlobalRef => todo!(),
@@ -229,7 +228,7 @@ impl FieldLiason {
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
             },
-            FieldLiason::Derived => panic!(),
+            MemberLiason::Derived => panic!(),
         }
     }
 }

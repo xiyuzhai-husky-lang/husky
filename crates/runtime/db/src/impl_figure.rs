@@ -163,7 +163,7 @@ impl HuskyLangRuntime {
     }
 
     fn eager_expr_figure(&self, expr: &EagerExpr, history: &History) -> FigureProps {
-        let visualizer = self.visualizer(expr.ty);
+        let visualizer = self.visualizer(expr.ty());
         if let Some(entry) = history.get(expr) {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {

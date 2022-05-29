@@ -9,15 +9,15 @@ use vm::*;
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_eager_expr(&mut self, expr: &Arc<EagerExpr>) {
         match expr.variant {
-            EagerExprVariant::Variable(varname) => {
+            EagerExprVariant::Variable { varname, binding } => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(varname);
                 self.push_instruction(Instruction::new(
                     InstructionVariant::PushVariable {
                         varname: varname.into(),
                         stack_idx,
-                        binding: expr.qualified_ty.qual.binding(expr.contract),
+                        binding,
                         range: expr.range,
-                        ty: expr.ty,
+                        ty: expr.ty(),
                     },
                     expr.clone(),
                 ))
@@ -33,13 +33,13 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref opds,
             } => self.compile_opn(opn_variant, opds, expr),
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::ThisData => self.push_instruction(Instruction::new(
+            EagerExprVariant::ThisData { binding } => self.push_instruction(Instruction::new(
                 InstructionVariant::PushVariable {
                     varname: ContextualIdentifier::ThisData.into(),
                     stack_idx: VMStackIdx::this(),
-                    binding: expr.qualified_ty.qual.binding(expr.contract),
+                    binding,
                     range: expr.range,
-                    ty: expr.ty,
+                    ty: expr.ty(),
                 },
                 expr.clone(),
             )),
@@ -115,25 +115,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                         this_ty: *this_ty,
                         this_range: opds[0].range,
                     },
-                    SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::FieldAccess(ranged_ident) => {
-                        if let Some(field_access_fp) =
-                            self.db.field_access_fp(*this_ty, ranged_ident.ident)
-                        {
-                            InstructionVariant::FieldAccessCompiled {
-                                linkage: field_access_fp,
-                            }
-                        } else {
-                            let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
-                            InstructionVariant::FieldAccessInterpreted {
-                                field_idx: this_ty_decl
-                                    .field_idx(ranged_ident.ident)
-                                    .try_into()
-                                    .unwrap(),
-                                field_access_contract: expr.contract,
-                            }
-                        }
-                    }
                     SuffixOpr::WithTy(_) => todo!(),
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
@@ -157,27 +138,53 @@ impl<'a> InstructionSheetBuilder<'a> {
                 }
             }
             EagerOpnVariant::PatternCall => todo!(),
-            EagerOpnVariant::FieldAccess { field_liason } => {
-                todo!()
+            EagerOpnVariant::FieldAccess {
+                this_ty,
+                field_ident,
+                field_liason,
+                field_binding,
+            } => {
+                self.push_instruction(Instruction::new(
+                    if let Some(field_access_fp) =
+                        self.db.field_access_fp(*this_ty, field_ident.ident)
+                    {
+                        InstructionVariant::FieldAccessCompiled {
+                            linkage: field_access_fp,
+                        }
+                    } else {
+                        let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
+                        InstructionVariant::FieldAccessInterpreted {
+                            field_idx: this_ty_decl
+                                .field_idx(field_ident.ident)
+                                .try_into()
+                                .unwrap(),
+                            field_binding: *field_binding,
+                        }
+                    },
+                    expr.clone(),
+                ));
             }
             EagerOpnVariant::MethodCall {
                 method_ident,
-                ref this_ty_decl,
+                this_ty_decl,
                 method_route,
+                opt_output_binding,
             } => {
                 let this = &opds[0];
                 self.push_instruction(Instruction::new(
                     self.method_call_instruction_variant(
-                        this.ty,
+                        this.ty(),
                         this_ty_decl,
                         *method_route,
                         method_ident.ident,
-                        this.qualified_ty.qual.binding(this.contract),
+                        *opt_output_binding,
                     ),
                     expr.clone(),
                 ))
             }
-            EagerOpnVariant::ElementAccess => self.compile_element_access(expr.clone(), opds),
+            EagerOpnVariant::ElementAccess { element_binding } => {
+                self.compile_element_access(expr.clone(), opds, *element_binding)
+            }
             EagerOpnVariant::TypeCall {
                 ranged_ty,
                 ref ty_decl,
@@ -214,45 +221,19 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    fn compile_element_access(&mut self, expr: Arc<EagerExpr>, opds: &[Arc<EagerExpr>]) {
+    fn compile_element_access(
+        &mut self,
+        this: Arc<EagerExpr>,
+        opds: &[Arc<EagerExpr>],
+        element_binding: Binding,
+    ) {
         self.push_instruction(Instruction::new(
             InstructionVariant::CallCompiled {
-                linkage: self.db.element_access_linkage(
-                    opds.map(|opd| opd.ty),
-                    match expr.contract {
-                        EagerContract::Pure => {
-                            if self.db.is_copyable(expr.ty).unwrap() {
-                                Binding::Copy
-                            } else {
-                                Binding::Ref
-                            }
-                        }
-                        EagerContract::Move => todo!(),
-                        EagerContract::UseForLetInit => {
-                            if self.db.is_copyable(expr.ty).unwrap() {
-                                Binding::Copy
-                            } else {
-                                Binding::Ref
-                            }
-                        }
-                        EagerContract::UseForVarInit => todo!(),
-                        EagerContract::Return => {
-                            if self.db.is_copyable(expr.ty).unwrap() {
-                                Binding::Copy
-                            } else {
-                                Binding::Move
-                            }
-                        }
-                        EagerContract::RefMut => Binding::RefMut,
-                        EagerContract::MoveMut => todo!(),
-                        EagerContract::Exec => todo!(),
-                        EagerContract::UseMemberForLetInit => todo!(),
-                        EagerContract::UseMemberForVarInit => todo!(),
-                        EagerContract::UseForAssignRvalue => todo!(),
-                    },
-                ),
+                linkage: self
+                    .db
+                    .element_access_linkage(opds.map(|opd| opd.ty()), element_binding),
             },
-            expr,
+            this,
         ))
     }
 
@@ -262,9 +243,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         this_ty_decl: &TyDecl,
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
-        this_binding: Binding,
+        opt_output_binding: Option<Binding>,
     ) -> InstructionVariant {
-        if let Some(linkage) = self.db.method_linkage(method_route, this_binding) {
+        if let Some(linkage) = self.db.method_linkage(method_route, opt_output_binding) {
             InstructionVariant::CallCompiled { linkage }
         } else {
             let method_uid = self.db.entity_uid(method_route);

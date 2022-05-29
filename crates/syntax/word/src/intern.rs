@@ -13,7 +13,7 @@ impl Deref for WordPtr {
         match self {
             WordPtr::Keyword(keyword) => keyword.deref(),
             WordPtr::Identifier(ident) => ident.deref(),
-            WordPtr::Opr(opr) => opr.deref(),
+            WordPtr::RawOpnVariant(opr) => opr.deref(),
             WordPtr::Decorator(decorator) => decorator.deref(),
         }
     }

@@ -2,12 +2,6 @@ use entity_route::GenericArgument;
 
 use super::*;
 
-impl From<ListOpr> for Opr {
-    fn from(list: ListOpr) -> Self {
-        Self::List(list)
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ListOpr {
     TupleInit,
@@ -21,6 +15,12 @@ pub enum ListOpr {
         ranged_ident: RangedCustomIdentifier,
         generic_arguments: Vec<GenericArgument>,
     },
+}
+
+impl Into<RawOpnVariant> for ListOpr {
+    fn into(self) -> RawOpnVariant {
+        RawOpnVariant::List(self)
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

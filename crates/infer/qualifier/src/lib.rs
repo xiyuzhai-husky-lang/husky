@@ -17,7 +17,7 @@ use infer_error::InferResult;
 
 use text::{Row, TextRange};
 use vm::*;
-use word::Identifier;
+use word::{CustomIdentifier, Identifier};
 
 pub trait InferQualifiedTy {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
@@ -34,10 +34,19 @@ pub trait InferQualifiedTy {
 
     fn eager_variable_qualified_ty(
         &self,
-        varname: Identifier,
+        varname: CustomIdentifier,
         init_range: TextRange,
     ) -> InferResult<EagerQualifiedTy> {
         self.qualified_ty_sheet()
             .eager_variable_qualified_ty(varname, init_range)
+    }
+
+    fn lazy_variable_qualified_ty(
+        &self,
+        varname: CustomIdentifier,
+        init_range: TextRange,
+    ) -> InferResult<LazyQualifiedTy> {
+        self.qualified_ty_sheet()
+            .lazy_variable_qualified_ty(varname, init_range)
     }
 }

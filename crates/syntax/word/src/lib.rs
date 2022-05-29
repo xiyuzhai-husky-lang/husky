@@ -21,7 +21,7 @@ use vec_map::{VecMap, VecPairMap};
 pub enum WordPtr {
     Keyword(Keyword),
     Identifier(Identifier),
-    Opr(WordOpr),
+    RawOpnVariant(WordOpr),
     Decorator(Decorator),
 }
 

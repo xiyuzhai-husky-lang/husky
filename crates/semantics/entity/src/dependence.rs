@@ -324,8 +324,8 @@ impl EntityDefn {
 
         fn extract_lazy_expr_dependees(expr: &LazyExpr, v: &mut DependeeMapBuilder) {
             match expr.variant {
-                LazyExprVariant::Variable(_) | LazyExprVariant::PrimitiveLiteral(_) => (),
-                LazyExprVariant::Scope { scope, .. } => v.push(scope),
+                LazyExprVariant::Variable { .. } | LazyExprVariant::PrimitiveLiteral(_) => (),
+                LazyExprVariant::EntityRoute { route: scope, .. } => v.push(scope),
                 LazyExprVariant::EnumLiteral { .. } => todo!(),
                 LazyExprVariant::Bracketed(_) => todo!(),
                 LazyExprVariant::Opn { opn_kind, ref opds } => {
@@ -338,21 +338,21 @@ impl EntityDefn {
                         LazyOpnKind::StructCall(ty) => v.push(ty.route),
                         LazyOpnKind::RecordCall(ty) => v.push(ty.route),
                         LazyOpnKind::PatternCall => todo!(),
-                        LazyOpnKind::ElementAccess => todo!(),
+                        LazyOpnKind::ElementAccess { .. } => todo!(),
                     }
                     for opd in opds {
                         extract_lazy_expr_dependees(opd, v)
                     }
                 }
                 LazyExprVariant::Lambda(_, _) => todo!(),
-                LazyExprVariant::This => (),
+                LazyExprVariant::This { .. } => (),
                 LazyExprVariant::EntityFeature { route: scope } => todo!(),
             }
         }
 
         fn extract_eager_expr_dependees(expr: &EagerExpr, builder: &mut DependeeMapBuilder) {
             match expr.variant {
-                EagerExprVariant::Variable(_) => (),
+                EagerExprVariant::Variable { .. } => (),
                 EagerExprVariant::EntityRoute { route } => builder.push(route),
                 EagerExprVariant::PrimitiveLiteral(_) => (),
                 EagerExprVariant::Bracketed(ref expr) => {
@@ -369,7 +369,7 @@ impl EntityDefn {
                         | EagerOpnVariant::Suffix { .. }
                         | EagerOpnVariant::FieldAccess { .. }
                         | EagerOpnVariant::MethodCall { .. }
-                        | EagerOpnVariant::ElementAccess => (),
+                        | EagerOpnVariant::ElementAccess { .. } => (),
                         EagerOpnVariant::RoutineCall(routine) => builder.push(routine.route),
                         EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                             builder.push(ranged_ty.route)
@@ -381,8 +381,8 @@ impl EntityDefn {
                     }
                 }
                 EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::ThisData => builder.push(expr.ty),
-                EagerExprVariant::EnumKindLiteral(_) => builder.push(expr.ty),
+                EagerExprVariant::ThisData { .. } => builder.push(expr.ty()),
+                EagerExprVariant::EnumKindLiteral(_) => builder.push(expr.ty()),
             }
         }
 

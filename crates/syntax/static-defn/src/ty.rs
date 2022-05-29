@@ -1,3 +1,4 @@
+use check_utils::should;
 use dev_utils::{DevSource, StaticDevSource};
 use entity_kind::{MemberKind, TyKind};
 use visual_syntax::StaticVisualizer;
@@ -89,20 +90,23 @@ pub enum LinkageSource {
 }
 
 impl LinkageSource {
-    pub fn bind(&self, binding: Binding) -> Linkage {
+    pub fn bind(&self, opt_binding: Option<Binding>) -> Linkage {
         match self {
             LinkageSource::MemberAccess {
                 copy_access,
                 ref_access,
                 ref_mut_access,
                 move_access,
-            } => match binding {
+            } => match opt_binding.unwrap() {
                 Binding::Ref => *ref_access,
                 Binding::RefMut => *ref_mut_access,
                 Binding::Move => *move_access,
                 Binding::Copy => *copy_access,
             },
-            LinkageSource::Transfer(linkage) => *linkage,
+            LinkageSource::Transfer(linkage) => {
+                should!(opt_binding.is_none());
+                *linkage
+            }
         }
     }
 }

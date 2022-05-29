@@ -214,9 +214,11 @@ impl<'a> AstTransformer<'a> {
         let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr];
         match expr.variant {
-            RawExprVariant::Opn { ref opr, ref opds } => match opr {
-                Opr::Prefix(_) | Opr::Suffix(_) | Opr::List(_) => todo!(),
-                Opr::Binary(binary) => match binary {
+            RawExprVariant::Opn {
+                opn_variant: ref opr,
+                ref opds,
+            } => match opr {
+                RawOpnVariant::Binary(binary) => match binary {
                     BinaryOpr::Assign(_) => todo!(),
                     BinaryOpr::Pure(pure_binary) => {
                         let lopd_idx = opds.start;
@@ -258,12 +260,15 @@ impl<'a> AstTransformer<'a> {
                         } else {
                             let final_comparison = pure_binary;
                             match lopd.variant {
-                                RawExprVariant::Opn { ref opr, ref opds } => {
+                                RawExprVariant::Opn {
+                                    opn_variant: ref opr,
+                                    ref opds,
+                                } => {
                                     let llopd_idx = opds.start;
                                     let lropd_idx = opds.end - 1;
                                     let lropd = &self.arena[lropd_idx];
                                     let initial_comparison = match opr {
-                                        Opr::Binary(binary) => match binary {
+                                        RawOpnVariant::Binary(binary) => match binary {
                                             BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr,
                                             BinaryOpr::Assign(_) => todo!(),
                                         },
@@ -307,6 +312,12 @@ impl<'a> AstTransformer<'a> {
                         Ok(kind)
                     }
                 },
+                RawOpnVariant::Prefix(_)
+                | RawOpnVariant::Suffix(_)
+                | RawOpnVariant::List(_)
+                | RawOpnVariant::FieldAccess(_) => {
+                    todo!()
+                }
             },
             _ => todo!(),
         }
@@ -314,11 +325,11 @@ impl<'a> AstTransformer<'a> {
 
     fn parse_forext_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
-        let expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
-        let expr = &self.arena[expr_idx];
+        let raw_expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
+        let expr = &self.arena[raw_expr_idx];
         Ok(match expr.variant {
             RawExprVariant::Opn {
-                opr: Opr::Binary(BinaryOpr::Pure(comparison)),
+                opn_variant: RawOpnVariant::Binary(BinaryOpr::Pure(comparison)),
                 ref opds,
             } => {
                 let lopd_idx = opds.start;
@@ -339,8 +350,8 @@ impl<'a> AstTransformer<'a> {
 
     fn parse_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
-        let expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
-        Ok(RawLoopKind::while_loop(expr_idx).into())
+        let raw_expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
+        Ok(RawLoopKind::while_loop(raw_expr_idx).into())
     }
 
     fn parse_do_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
@@ -351,7 +362,7 @@ impl<'a> AstTransformer<'a> {
                 todo!()
             }
         }
-        let expr_idx = self.parse_expr(&token_group[2..(token_group.len() - 1)])?;
-        Ok(RawLoopKind::do_while_loop(expr_idx).into())
+        let raw_expr_idx = self.parse_expr(&token_group[2..(token_group.len() - 1)])?;
+        Ok(RawLoopKind::do_while_loop(raw_expr_idx).into())
     }
 }

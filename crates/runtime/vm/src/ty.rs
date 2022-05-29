@@ -14,7 +14,7 @@ pub enum VirtualTy<'eval> {
 impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
     pub fn new_struct(
         mut arguments: impl Iterator<Item = VMValue<'vm, 'eval>>,
-        field_liasons: &[(CustomIdentifier, FieldLiason)],
+        field_liasons: &[(CustomIdentifier, MemberLiason)],
     ) -> Self {
         let mut fields = IdentPairDict::<MemberValue<'eval>>::default();
         for (i, mut argument) in arguments.enumerate() {
@@ -40,13 +40,9 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         }
     }
 
-    pub fn eager_field(
-        &self,
-        field_idx: usize,
-        field_access_contract: EagerContract,
-    ) -> VMValue<'vm, 'eval> {
-        match field_access_contract {
-            EagerContract::Pure | EagerContract::UseForLetInit => match self {
+    pub fn access_field(&self, field_idx: usize, field_binding: Binding) -> VMValue<'vm, 'eval> {
+        match field_binding {
+            Binding::Ref => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
                     MemberValue::Copyable(value) => VMValue::Copyable(value),
                     MemberValue::Boxed(ref value) => {
@@ -58,10 +54,9 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                     MemberValue::Moved => todo!(),
                 },
             },
-
-            EagerContract::Move => todo!(),
-            EagerContract::UseForVarInit => todo!(),
-            EagerContract::Return => match self {
+            Binding::RefMut => todo!(),
+            Binding::Move => todo!(),
+            Binding::Copy => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
                     MemberValue::Copyable(value) => VMValue::Copyable(value),
                     MemberValue::Boxed(_) => todo!(),
@@ -70,62 +65,77 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                     MemberValue::Moved => todo!(),
                 },
             },
-            EagerContract::RefMut => todo!(),
-            EagerContract::MoveMut => todo!(),
-            EagerContract::Exec => todo!(),
-            EagerContract::UseMemberForLetInit => match self {
-                VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-                    MemberValue::Copyable(_) => todo!(),
-                    MemberValue::Boxed(ref value) => {
-                        let ptr = value.any_ptr();
-                        VMValue::FullyOwnedRef(unsafe { &*ptr })
-                    }
-                    MemberValue::GlobalPure(_) => todo!(),
-                    MemberValue::GlobalRef(_) => todo!(),
-                    MemberValue::Moved => todo!(),
-                },
-            },
-            EagerContract::UseMemberForVarInit => todo!(),
-            EagerContract::UseForAssignRvalue => todo!(),
         }
+        // EagerContract::Move => todo!(),
+        // EagerContract::UseForVarInit => todo!(),
+        // EagerContract::Return => match self {
+        //     VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
+        //         MemberValue::Copyable(value) => VMValue::Copyable(value),
+        //         MemberValue::Boxed(_) => todo!(),
+        //         MemberValue::GlobalPure(_) => todo!(),
+        //         MemberValue::GlobalRef(_) => todo!(),
+        //         MemberValue::Moved => todo!(),
+        //     },
+        // },
+        // EagerContract::RefMut => todo!(),
+        // EagerContract::MoveMut => todo!(),
+        // EagerContract::Exec => todo!(),
+        // EagerContract::UseMemberForLetInit => match self {
+        //     VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
+        //         MemberValue::Copyable(_) => todo!(),
+        //         MemberValue::Boxed(ref value) => {
+        //             let ptr = value.any_ptr();
+        //             VMValue::FullyOwnedRef(unsafe { &*ptr })
+        //         }
+        //         MemberValue::GlobalPure(_) => todo!(),
+        //         MemberValue::GlobalRef(_) => todo!(),
+        //         MemberValue::Moved => todo!(),
+        //     },
+        // },
+        // EagerContract::UseMemberForVarInit => todo!(),
+        // EagerContract::UseForAssignRvalue => todo!(),
     }
 
     pub fn field_mut(
         &mut self,
         field_idx: usize,
-        contract: EagerContract,
+        field_binding: Binding,
         owner: VMStackIdx,
     ) -> VMValue<'vm, 'eval> {
-        match contract {
-            EagerContract::Pure => todo!(),
-
-            EagerContract::Move => todo!(),
-            EagerContract::RefMut => match self {
-                VirtualTy::Struct { fields } => {
-                    let field_value = &mut fields.data_mut()[field_idx].1;
-                    let ptr: *mut dyn AnyValueDyn = match field_value {
-                        MemberValue::Copyable(ref mut value) => value.any_mut(),
-                        MemberValue::Boxed(_) => todo!(),
-                        MemberValue::GlobalPure(_) => todo!(),
-                        MemberValue::GlobalRef(_) => todo!(),
-                        MemberValue::Moved => todo!(),
-                    };
-                    VMValue::CopyableOrFullyOwnedMut {
-                        value: unsafe { &mut *ptr },
-                        owner,
-                        gen: (),
-                    }
-                }
-            },
-            EagerContract::MoveMut => todo!(),
-            EagerContract::Exec => todo!(),
-            EagerContract::UseForLetInit => todo!(),
-            EagerContract::UseForVarInit => todo!(),
-            EagerContract::Return => todo!(),
-            EagerContract::UseMemberForLetInit => todo!(),
-            EagerContract::UseMemberForVarInit => todo!(),
-            EagerContract::UseForAssignRvalue => todo!(),
+        match field_binding {
+            Binding::Ref => todo!(),
+            Binding::RefMut => todo!(),
+            Binding::Move => todo!(),
+            Binding::Copy => todo!(),
         }
+        //  EagerContract::Pure => todo!(),
+
+        // EagerContract::Move => todo!(),
+        // EagerContract::RefMut => match self {
+        //     VirtualTy::Struct { fields } => {
+        //         let field_value = &mut fields.data_mut()[field_idx].1;
+        //         let ptr: *mut dyn AnyValueDyn = match field_value {
+        //             MemberValue::Copyable(ref mut value) => value.any_mut(),
+        //             MemberValue::Boxed(_) => todo!(),
+        //             MemberValue::GlobalPure(_) => todo!(),
+        //             MemberValue::GlobalRef(_) => todo!(),
+        //             MemberValue::Moved => todo!(),
+        //         };
+        //         VMValue::CopyableOrFullyOwnedMut {
+        //             value: unsafe { &mut *ptr },
+        //             owner,
+        //             gen: (),
+        //         }
+        //     }
+        // },
+        // EagerContract::MoveMut => todo!(),
+        // EagerContract::Exec => todo!(),
+        // EagerContract::UseForLetInit => todo!(),
+        // EagerContract::UseForVarInit => todo!(),
+        // EagerContract::Return => todo!(),
+        // EagerContract::UseMemberForLetInit => todo!(),
+        // EagerContract::UseMemberForVarInit => todo!(),
+        // EagerContract::UseForAssignRvalue => todo!(),
     }
 }
 

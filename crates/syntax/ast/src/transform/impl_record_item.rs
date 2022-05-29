@@ -1,6 +1,6 @@
 use crate::*;
 use token::*;
-use vm::{FieldLiason, InputLiason};
+use vm::{InputLiason, MemberLiason};
 use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
@@ -45,7 +45,7 @@ impl<'a> AstTransformer<'a> {
             Ok(AstKind::FieldDefnHead {
                 head: FieldDefnHead {
                     ident,
-                    liason: FieldLiason::Immutable,
+                    liason: MemberLiason::Immutable,
                     ty,
                     kind: FieldKind::RecordOriginal,
                 },
@@ -73,7 +73,7 @@ impl<'a> AstTransformer<'a> {
                 ident,
                 ty,
                 kind: FieldKind::RecordDerived,
-                liason: FieldLiason::Immutable,
+                liason: MemberLiason::Immutable,
             },
             opt_expr: todo!(),
         })

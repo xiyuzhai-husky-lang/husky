@@ -25,11 +25,11 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn element_access_linkage(
         &self,
         opd_tys: Vec<EntityRoutePtr>,
-        access_kind: Binding,
+        element_binding: Binding,
     ) -> Linkage {
         if let Some(linkage) = self
             .linkage_table()
-            .element_access(opd_tys.map(|ty| self.entity_uid(*ty)), access_kind)
+            .element_access(opd_tys.map(|ty| self.entity_uid(*ty)), element_binding)
         {
             return linkage;
         }
@@ -50,7 +50,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                             MethodSource::Proc { stmts } => todo!(),
                             MethodSource::Pattern { stmts } => todo!(),
                             MethodSource::Static(linkage_source) => {
-                                linkage_source.bind(access_kind)
+                                linkage_source.bind(Some(element_binding))
                             }
                         }
                     } else {
@@ -81,7 +81,11 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         }
     }
 
-    fn method_linkage(&self, method_route: EntityRoutePtr, binding: Binding) -> Option<Linkage> {
+    fn method_linkage(
+        &self,
+        method_route: EntityRoutePtr,
+        opt_output_binding: Option<Binding>,
+    ) -> Option<Linkage> {
         let opt_linkage = if let Some(linkage) =
             self.linkage_table().routine(self.entity_uid(method_route))
         {
@@ -97,7 +101,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         MethodSource::Func { .. }
                         | MethodSource::Proc { .. }
                         | MethodSource::Pattern { .. } => None,
-                        MethodSource::Static(linkage_source) => Some(linkage_source.bind(binding)),
+                        MethodSource::Static(linkage_source) => {
+                            Some(linkage_source.bind(opt_output_binding))
+                        }
                     },
                     MethodDefnVariant::TraitMethod {
                         trai,
@@ -106,7 +112,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         MethodSource::Func { stmts } => todo!(),
                         MethodSource::Proc { stmts } => todo!(),
                         MethodSource::Pattern { stmts } => todo!(),
-                        MethodSource::Static(linkage_source) => linkage_source.bind(binding),
+                        MethodSource::Static(linkage_source) => {
+                            linkage_source.bind(opt_output_binding)
+                        }
                     }),
                     MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
                         if let Some(source) = opt_source {
@@ -115,7 +123,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                 MethodSource::Proc { ref stmts } => todo!(),
                                 MethodSource::Pattern { ref stmts } => todo!(),
                                 MethodSource::Static(linkage_source) => {
-                                    Some(linkage_source.bind(binding))
+                                    Some(linkage_source.bind(opt_output_binding))
                                 }
                             };
                         }
@@ -142,7 +150,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                         MethodSource::Proc { ref stmts } => todo!(),
                                         MethodSource::Pattern { ref stmts } => todo!(),
                                         MethodSource::Static(linkage_source) => {
-                                            Some(linkage_source.bind(binding))
+                                            Some(linkage_source.bind(opt_output_binding))
                                         }
                                     },
                                     _ => panic!(),

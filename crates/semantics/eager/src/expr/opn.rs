@@ -16,8 +16,8 @@ pub enum EagerOpnVariant {
         this_ty: EntityRoutePtr,
     },
     Suffix {
-        opr: SuffixOpr,
         this_ty: EntityRoutePtr,
+        opr: SuffixOpr,
     },
     RoutineCall(RangedEntityRoute),
     TypeCall {
@@ -26,12 +26,18 @@ pub enum EagerOpnVariant {
     },
     PatternCall,
     FieldAccess {
-        field_liason: FieldLiason,
+        this_ty: EntityRoutePtr,
+        field_ident: RangedCustomIdentifier,
+        field_liason: MemberLiason,
+        field_binding: Binding,
     },
     MethodCall {
         method_ident: RangedCustomIdentifier,
         this_ty_decl: Arc<TyDecl>,
         method_route: EntityRoutePtr,
+        opt_output_binding: Option<Binding>,
     },
-    ElementAccess,
+    ElementAccess {
+        element_binding: Binding,
+    },
 }

@@ -31,7 +31,7 @@ impl From<WordPtr> for TokenKind {
         match word {
             WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
             WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
-            WordPtr::Opr(word_opr) => TokenKind::WordOpr(word_opr),
+            WordPtr::RawOpnVariant(word_opr) => TokenKind::WordOpr(word_opr),
             WordPtr::Decorator(decorator) => TokenKind::Decorator(decorator),
         }
     }

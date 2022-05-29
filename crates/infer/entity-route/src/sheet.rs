@@ -44,8 +44,8 @@ impl EntityRouteSheet {
         }
     }
 
-    pub fn expr_ty_result(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        if let Some(ref expr_ty) = self.expr_tys.get(expr_idx) {
+    pub fn expr_ty_result(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+        if let Some(ref expr_ty) = self.expr_tys.get(raw_expr_idx) {
             match expr_ty {
                 Ok(ty) => Ok(*ty),
                 Err(e) => Err(e.derived()),
@@ -60,8 +60,8 @@ impl EntityRouteSheet {
         }
     }
 
-    pub fn call_route(&self, expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        match derived_not_none!(self.call_routes.get(expr_idx))? {
+    pub fn call_route(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+        match derived_not_none!(self.call_routes.get(raw_expr_idx))? {
             Ok(call_route) => Ok(*call_route),
             Err(e) => Err(e.derived()),
         }

@@ -51,7 +51,9 @@ impl<'eval> TraceFactory<'eval> {
         };
         let mut tokens = vec![];
         match expr.variant {
-            EagerExprVariant::Variable(ident) => tokens.push(ident!(ident.0, associated_trace)),
+            EagerExprVariant::Variable { varname, .. } => {
+                tokens.push(ident!(varname.0, associated_trace))
+            }
             EagerExprVariant::EntityRoute { route: scope } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => return vec![literal!(value)],
             EagerExprVariant::Bracketed(ref expr) => {
@@ -131,7 +133,7 @@ impl<'eval> TraceFactory<'eval> {
                     }
                     tokens.push(special!(")"));
                 }
-                EagerOpnVariant::ElementAccess => {
+                EagerOpnVariant::ElementAccess { element_binding } => {
                     tokens.extend(self.eager_expr_tokens(
                         &opds[0],
                         text,
@@ -170,7 +172,7 @@ impl<'eval> TraceFactory<'eval> {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::ThisData => todo!(),
+            EagerExprVariant::ThisData { .. } => todo!(),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
         };
         if config.appended {

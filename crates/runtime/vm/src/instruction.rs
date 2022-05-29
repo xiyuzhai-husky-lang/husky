@@ -1,12 +1,12 @@
 mod condition_flow;
 mod id;
-mod opr;
+mod opn;
 mod pattern_match;
 mod sheet;
 
 pub use condition_flow::*;
 pub use id::{InstructionId, InstructionSource};
-pub use opr::*;
+pub use opn::*;
 pub use pattern_match::*;
 use print_utils::p;
 pub use sheet::InstructionSheet;
@@ -76,7 +76,7 @@ pub enum InstructionVariant {
     },
     FieldAccessInterpreted {
         field_idx: u8,
-        field_access_contract: EagerContract,
+        field_binding: Binding,
     },
     CallCompiled {
         linkage: Linkage,
@@ -87,7 +87,7 @@ pub enum InstructionVariant {
         has_this: bool,
     },
     NewVirtualStruct {
-        fields: IdentPairDict<FieldLiason>,
+        fields: IdentPairDict<MemberLiason>,
     },
     OprOpn {
         opn: OprOpn,

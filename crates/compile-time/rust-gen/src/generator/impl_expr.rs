@@ -5,8 +5,8 @@ use vm::*;
 impl<'a> RustGenerator<'a> {
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
         match expr.variant {
-            EagerExprVariant::Variable(varname) => self.write(&varname),
-            EagerExprVariant::ThisData => self.write("self"),
+            EagerExprVariant::Variable { varname, .. } => self.write(&varname),
+            EagerExprVariant::ThisData { .. } => self.write("self"),
             EagerExprVariant::EntityRoute { route: scope } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
             EagerExprVariant::Bracketed(_) => todo!(),
@@ -23,12 +23,11 @@ impl<'a> RustGenerator<'a> {
                 EagerOpnVariant::Suffix { opr, this_ty: this } => match opr {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
-                    SuffixOpr::MayReturn => todo!(),
-                    SuffixOpr::FieldAccess(field_ident) => {
-                        self.gen_expr(&opds[0]);
-                        self.write(".");
-                        self.write(&field_ident.ident)
-                    }
+                    // SuffixOpr::FieldAccess(field_ident) => {
+                    //     self.gen_expr(&opds[0]);
+                    //     self.write(".");
+                    //     self.write(&field_ident.ident)
+                    // }
                     SuffixOpr::WithTy(_) => todo!(),
                     SuffixOpr::AsTy(_) => todo!(),
                 },
@@ -41,9 +40,7 @@ impl<'a> RustGenerator<'a> {
                     self.write(")");
                 }
                 EagerOpnVariant::PatternCall => todo!(),
-                EagerOpnVariant::FieldAccess {
-                    field_liason: field_contract,
-                } => todo!(),
+                EagerOpnVariant::FieldAccess { field_liason, .. } => todo!(),
                 EagerOpnVariant::MethodCall {
                     method_ident: field_ident,
                     ..
@@ -55,7 +52,7 @@ impl<'a> RustGenerator<'a> {
                     self.gen_arguments(&opds[1..]);
                     self.write(")");
                 }
-                EagerOpnVariant::ElementAccess => {
+                EagerOpnVariant::ElementAccess { .. } => {
                     self.gen_expr(&opds[0]);
                     self.write("[");
                     if opds.len() > 2 {

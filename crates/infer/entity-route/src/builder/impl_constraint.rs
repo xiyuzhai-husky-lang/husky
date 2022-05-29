@@ -22,16 +22,16 @@ impl<'a> TySheetBuilder<'a> {
 
     pub(super) fn add_expr_constraint(
         &mut self,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         constraint: Constraint,
         change_flag: &mut bool,
     ) -> Option<ScopePtr> {
-        if let Some(entry) = self.ty_sheet.exprs.get_mut(expr_idx) {
+        if let Some(entry) = self.ty_sheet.exprs.get_mut(raw_expr_idx) {
             Some(entry.add_constraint(constraint))
         } else {
             self.ty_sheet
                 .exprs
-                .insert_new(expr_idx, TySheetEntry::new(constraint.clone()));
+                .insert_new(raw_expr_idx, TySheetEntry::new(constraint.clone()));
             *change_flag = true;
             constraint.ty_result.ok()
         }

@@ -124,11 +124,11 @@ impl<'a> ContractSheetBuilder<'a> {
 
     pub(super) fn infer_eager_expr(
         &mut self,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
         contract: EagerContract,
         arena: &RawExprArena,
     ) {
-        let infer_result = match arena[expr_idx].variant {
+        let infer_result = match arena[raw_expr_idx].variant {
             RawExprVariant::Variable { .. }
             | RawExprVariant::FrameVariable { .. }
             | RawExprVariant::Unrecognized(_)
@@ -139,13 +139,21 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_expr(expr, contract, arena);
                 Ok(())
             }
-            RawExprVariant::Opn { ref opr, ref opds } => {
-                self.infer_eager_opn(opr, opds, contract, arena, arena[expr_idx].range, expr_idx)
-            }
+            RawExprVariant::Opn {
+                opn_variant: ref opr,
+                ref opds,
+            } => self.infer_eager_opn(
+                opr,
+                opds,
+                contract,
+                arena,
+                arena[raw_expr_idx].range,
+                raw_expr_idx,
+            ),
             RawExprVariant::Lambda(_, _) => todo!(),
         };
         self.contract_sheet.eager_expr_contract_results.insert_new(
-            expr_idx,
+            raw_expr_idx,
             match infer_result {
                 Ok(_) => Ok(contract),
                 Err(e) => Err(e),
@@ -155,7 +163,7 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_eager_opn(
         &mut self,
-        opr: &Opr,
+        opr: &RawOpnVariant,
         opds: &RawExprRange,
         contract: EagerContract,
         arena: &RawExprArena,
@@ -163,16 +171,25 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
-            Opr::Binary(opr) => {
+            RawOpnVariant::Binary(opr) => {
                 self.infer_eager_binary_opn(*opr, opds, contract, arena, raw_expr_idx)
             }
-            Opr::Prefix(opr) => self.infer_eager_prefix_opn(*opr, opds.start, contract, arena),
-            Opr::Suffix(opr) => {
+            RawOpnVariant::Prefix(opr) => {
+                self.infer_eager_prefix_opn(*opr, opds.start, contract, arena)
+            }
+            RawOpnVariant::Suffix(opr) => {
                 self.infer_eager_suffix(*opr, opds.start, contract, arena, raw_expr_idx)
             }
-            Opr::List(opr) => {
+            RawOpnVariant::List(opr) => {
                 self.infer_eager_list_opn(opr, opds, contract, arena, range, raw_expr_idx)
             }
+            RawOpnVariant::FieldAccess(field_ident) => self.infer_eager_field_access(
+                *field_ident,
+                opds.start,
+                contract,
+                arena,
+                raw_expr_idx,
+            ),
         }
     }
 
@@ -276,17 +293,6 @@ impl<'a> ContractSheetBuilder<'a> {
                     _ => todo!(),
                 }
             }
-            SuffixOpr::MayReturn => panic!("should handle this case in parse return statement"),
-            SuffixOpr::FieldAccess(ranged_ident) => {
-                let this_ty_decl = self.raw_expr_ty_decl(opd)?;
-                let field_decl = this_ty_decl.field_decl(ranged_ident)?;
-                let this_contract_result: InferResult<_> = field_decl
-                    .liason
-                    .this_eager_contract(contract)
-                    .bind_into(&arena[raw_expr_idx]);
-                self.infer_eager_expr(opd, this_contract_result?, arena);
-                Ok(())
-            }
             SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(_) => {
                 self.infer_eager_expr(
@@ -308,6 +314,24 @@ impl<'a> ContractSheetBuilder<'a> {
                 Ok(())
             }
         }
+    }
+
+    fn infer_eager_field_access(
+        &mut self,
+        field_ident: RangedCustomIdentifier,
+        opd: RawExprIdx,
+        contract: EagerContract,
+        arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
+    ) -> InferResult<()> {
+        let this_ty_decl = self.raw_expr_ty_decl(opd)?;
+        let field_decl = this_ty_decl.field_decl(field_ident)?;
+        let this_contract_result: InferResult<_> = field_decl
+            .liason
+            .this_eager_contract(contract)
+            .bind_into(&arena[raw_expr_idx]);
+        self.infer_eager_expr(opd, this_contract_result?, arena);
+        Ok(())
     }
 
     fn infer_eager_list_opn(
@@ -373,7 +397,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 }
                 Ok(())
             }
-            RawExprVariant::Opn { ref opr, ref opds } => todo!(),
+            RawExprVariant::Opn {
+                opn_variant: ref opr,
+                ref opds,
+            } => todo!(),
             RawExprVariant::Variable {
                 varname,
                 init_range: init_row,
@@ -434,7 +461,7 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
         total_opds: &RawExprRange,
         contract: EagerContract,
-        expr_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let this_contract = match contract {
             EagerContract::Pure => EagerContract::Pure,
@@ -442,7 +469,7 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::UseForLetInit => EagerContract::UseMemberForLetInit,
             EagerContract::UseForVarInit => todo!(),
             EagerContract::Return => {
-                let ty = self.raw_expr_ty(expr_idx)?;
+                let ty = self.raw_expr_ty(raw_expr_idx)?;
                 if self.db.is_copyable(ty)? {
                     EagerContract::Pure
                 } else {
@@ -462,7 +489,7 @@ impl<'a> ContractSheetBuilder<'a> {
             EagerContract::UseForAssignRvalue => {
                 throw!(
                     format!("can't use noncopyable element for assignment without moving"),
-                    arena[expr_idx].range
+                    arena[raw_expr_idx].range
                 )
             }
         };

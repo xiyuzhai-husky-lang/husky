@@ -10,6 +10,23 @@ impl From<CustomIdentifier> for Identifier {
     }
 }
 
+impl TestDisplay for CustomIdentifier {
+    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+        if config.colored {
+            write!(
+                result,
+                "{}{: <10}{}",
+                print_utils::CYAN,
+                self.as_str(),
+                print_utils::RESET
+            )
+            .unwrap();
+        } else {
+            write!(result, "{: <10}", self.as_str()).unwrap();
+        }
+    }
+}
+
 impl CustomIdentifier {
     pub fn snake_name(&self) -> String {
         let mut snake_name = String::new();

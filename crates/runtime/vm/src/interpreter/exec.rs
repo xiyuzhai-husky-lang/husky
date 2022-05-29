@@ -161,11 +161,11 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                 } => todo!(),
                 InstructionVariant::FieldAccessInterpreted {
                     field_idx,
-                    field_access_contract,
+                    field_binding,
                 } => {
                     let this = self.stack.pop();
                     self.stack
-                        .push(this.field(field_idx as usize, field_access_contract));
+                        .push(this.field(field_idx as usize, field_binding));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(

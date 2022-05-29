@@ -224,7 +224,7 @@ impl<'a> RustGenerator<'a> {
     }
 
     fn gen_condition(&mut self, condition: &EagerExpr) {
-        match condition.ty {
+        match condition.ty() {
             EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32

@@ -32,6 +32,7 @@ pub enum AtomVariant {
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
+    FieldAccess(RangedCustomIdentifier),
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,

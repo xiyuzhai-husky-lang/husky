@@ -6,7 +6,7 @@ use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use text::RangedCustomIdentifier;
-use vm::{FieldLiason, InputLiason, OutputLiason};
+use vm::{InputLiason, MemberLiason, OutputLiason};
 use word::{CustomIdentifier, IdentDict, Paradigm};
 
 // function or method
@@ -23,7 +23,7 @@ pub struct CallableDefnHead {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FieldDefnHead {
-    pub liason: FieldLiason,
+    pub liason: MemberLiason,
     pub ident: RangedCustomIdentifier,
     pub ty: RangedEntityRoute,
     pub kind: FieldKind,

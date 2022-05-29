@@ -57,13 +57,15 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::FieldAccess {
                 field_ident,
                 field_kind,
-            } => self.compile_field_access(field_ident, field_kind, opds, expr.contract),
+            } => self.compile_field_access(field_ident, field_kind, opds, todo!()),
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,
-                ..
-            } => self.compile_method_call(method_ident, method_route, opds),
-            LazyOpnKind::ElementAccess => self.compile_element_access(opds, expr),
+                opt_output_binding,
+            } => self.compile_method_call(method_ident, method_route, opds, opt_output_binding),
+            LazyOpnKind::ElementAccess { element_binding } => {
+                self.compile_element_access(opds, expr, element_binding)
+            }
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::RecordCall(ty) => {
                 let uid = self.db.entity_uid(ty.route);
@@ -88,6 +90,7 @@ impl<'a> FeatureExprBuilder<'a> {
         method_ident: RangedCustomIdentifier,
         method_route: EntityRoutePtr,
         opds: &[Arc<LazyExpr>],
+        opt_output_binding: Option<Binding>,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
         let feature = self.features.alloc(Feature::MethodCall {
@@ -112,7 +115,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 FeatureExprVariant::RoutineCall {
                     opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
-                    opt_linkage: self.db.method_linkage(method_route, this_expr.binding()),
+                    opt_linkage: self.db.method_linkage(method_route, opt_output_binding),
                     opds,
                     has_this: true,
                     routine_defn: method_defn.clone(),
@@ -128,7 +131,7 @@ impl<'a> FeatureExprBuilder<'a> {
         field_ident: RangedCustomIdentifier,
         field_access_kind: FieldKind,
         opds: &[Arc<LazyExpr>],
-        contract: LazyContract,
+        field_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let this = self.new_expr(opds[0].clone());
         let this_ty_decl = self.db.ty_decl(this.expr.ty()).unwrap();
@@ -142,7 +145,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     FeatureExprVariant::StructOriginalFieldAccess {
                         field_ident,
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
-                        contract,
+                        field_binding,
                         opt_linkage: self
                             .db
                             .struct_field_access(this.expr.ty(), field_ident.ident)
@@ -230,32 +233,16 @@ impl<'a> FeatureExprBuilder<'a> {
         &self,
         opds: &[Arc<LazyExpr>],
         expr: &Arc<LazyExpr>,
+        element_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.map(|opd| self.new_expr(opd.clone()));
         let feature = self.features.alloc(Feature::ElementAccess {
             opds: opds.map(|opd| opd.feature),
         });
         let feature_expr_kind = FeatureExprVariant::ElementAccess {
-            linkage: self.db.element_access_linkage(
-                opds.map(|opd| opd.expr.ty()),
-                match opds[0].expr.contract {
-                    LazyContract::Move => {
-                        p!(opds[0].expr.file, opds[0].expr.range);
-                        todo!()
-                    }
-                    LazyContract::GlobalRef => todo!(),
-                    LazyContract::Init => todo!(),
-                    LazyContract::Return => todo!(),
-                    LazyContract::Pure | LazyContract::UseMemberForInit => {
-                        if self.db.is_copyable(expr.ty()).unwrap() {
-                            Binding::Copy
-                        } else {
-                            Binding::Ref
-                        }
-                    }
-                    LazyContract::UseMemberForReturn => todo!(),
-                },
-            ),
+            linkage: self
+                .db
+                .element_access_linkage(opds.map(|opd| opd.expr.ty()), element_binding),
             opds,
         };
         (feature_expr_kind, feature)

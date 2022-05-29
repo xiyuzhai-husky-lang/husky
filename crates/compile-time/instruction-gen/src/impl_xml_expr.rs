@@ -8,7 +8,9 @@ impl<'a> InstructionSheetBuilder<'a> {
             XmlExprVariant::Value(ref value_expr) => {
                 self.compile_eager_expr(value_expr);
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::NewXmlFromValue { ty: value_expr.ty },
+                    InstructionVariant::NewXmlFromValue {
+                        ty: value_expr.ty(),
+                    },
                     expr,
                 ))
             }
