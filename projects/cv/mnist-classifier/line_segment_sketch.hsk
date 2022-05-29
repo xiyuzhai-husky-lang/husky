@@ -2,13 +2,13 @@ use crate::geom2d::*
 use crate::raw_contour::RawContour
 
 struct LineSegmentInterval:
-    start: i32
-    end: i32
+    mut start: i32
+    mut end: i32
 
 struct LineSegment:
-    start: Point2d
-    end: Point2d
-    interval: LineSegmentInterval
+    mut start: Point2d
+    mut end: Point2d
+    mut interval: LineSegmentInterval
 
     func displacement() -> Vector2d:
         this.start.to(this.end)
