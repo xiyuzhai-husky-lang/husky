@@ -95,7 +95,7 @@ pub fn new_word_interner() -> WordAllocator {
         RootIdentifier::ModuleType.into(),
         ContextualIdentifier::Crate.into(),
         ContextualIdentifier::Input.into(),
-        ContextualIdentifier::ThisData.into(),
+        ContextualIdentifier::ThisValue.into(),
         ContextualIdentifier::ThisType.into(),
         WordOpr::And.into(),
         WordOpr::Or.into(),

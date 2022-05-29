@@ -9,7 +9,7 @@ use infer_error::{
     derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
 };
 use print_utils::{emsg_once, epin, p};
-use text::RangedCustomIdentifier;
+use text::{BindTextRangeInto, RangedCustomIdentifier};
 use text::{TextRange, TextRanged};
 
 use super::*;
@@ -243,11 +243,40 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EagerQualifier::Copyable,
                 EntityRoutePtr::Root(RootIdentifier::I32),
             )),
-            RawExprVariant::This { opt_ty, opt_liason } => {
-                let ty = derived_not_none!(opt_ty)?;
-                let liason = derived_not_none!(opt_liason)?;
-                let contract = self.eager_expr_contract(raw_expr_idx)?;
-                EagerQualifiedTy::from_parameter_use(self.db, liason, ty, contract)
+            RawExprVariant::ThisValue {
+                opt_this_ty,
+                opt_this_liason,
+            } => {
+                let this_ty = derived_not_none!(opt_this_ty)?;
+                let this_liason = derived_not_none!(opt_this_liason)?;
+                let this_contract = self.eager_expr_contract(raw_expr_idx)?;
+                EagerQualifiedTy::from_parameter_use(self.db, this_liason, this_ty, this_contract)
+            }
+            RawExprVariant::ThisField {
+                opt_this_ty,
+                opt_this_liason,
+                field_ident: ident,
+                field_liason,
+                opt_field_ty,
+            } => {
+                let this_ty = derived_not_none!(opt_this_ty)?;
+                let this_liason = derived_not_none!(opt_this_liason)?;
+                let field_contract = self.eager_expr_contract(raw_expr_idx)?;
+                let field_ty = derived_not_none!(opt_field_ty)?;
+                let is_field_copyable = self.db.is_copyable(field_ty.route)?;
+                let this_contract_result: InferResult<_> = field_liason
+                    .this_eager_contract(field_contract, is_field_copyable)
+                    .bind_into(&arena[raw_expr_idx]);
+                let this_contract = this_contract_result?;
+                let this_qual = EagerQualifier::from_parameter_use(
+                    this_liason,
+                    self.db.is_copyable(this_ty)?,
+                    this_contract,
+                )?;
+                Ok(EagerQualifiedTy::new(
+                    EagerQualifier::from_field(this_qual, field_liason, is_field_copyable)?,
+                    field_ty.route,
+                ))
             }
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized")),
             RawExprVariant::Entity { route, kind } => match kind {
@@ -271,9 +300,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 derived_not_none!(self.infer_eager_expr(arena, expr))
             }
             RawExprVariant::Opn {
-                opn_variant: ref opr,
+                ref opn_variant,
                 ref opds,
-            } => self.eager_opn(arena, raw_expr_idx, opr, opds.clone(), raw_expr.range),
+            } => self.eager_opn(
+                arena,
+                raw_expr_idx,
+                opn_variant,
+                opds.clone(),
+                raw_expr.range,
+            ),
             RawExprVariant::Lambda(_, _) => todo!(),
         }
     }
@@ -431,7 +466,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             match parameter.liason {
                                 InputLiason::Pure => Ok(Some(qt)),
                                 InputLiason::GlobalRef => todo!(),
-                                InputLiason::BorrowMut => todo!(),
+                                InputLiason::LocalRefMut => todo!(),
                                 InputLiason::Move | InputLiason::MoveMut => match qt.qual {
                                     EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
                                         panic!()

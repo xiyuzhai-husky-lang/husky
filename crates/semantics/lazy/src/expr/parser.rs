@@ -81,7 +81,8 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 ..
             } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { .. } => LazyExprVariant::This { binding: todo!() },
+            RawExprVariant::ThisValue { .. } => LazyExprVariant::This { binding: todo!() },
+            RawExprVariant::ThisField { .. } => todo!(),
             RawExprVariant::FrameVariable {
                 varname,
                 init_range: init_row,
@@ -121,7 +122,9 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     raw_expr_idx,
                 ),
             },
-            RawOpnVariant::FieldAccess(_) => todo!(),
+            RawOpnVariant::FieldAccess(field_ident) => {
+                self.parse_field_access(*field_ident, opds.start, raw_expr_idx)
+            }
         }
     }
 
@@ -252,13 +255,23 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         &mut self,
         field_ident: RangedCustomIdentifier,
         this_idx: RawExprIdx,
+        raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(this_idx)?;
         let ty_decl = self.raw_expr_ty_decl(this_idx).unwrap();
+        let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
+        let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
+        let field_liason = field_decl.liason;
+        let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::FieldAccess {
                 field_ident,
                 field_kind: ty_decl.field_kind(field_ident.ident),
+                field_binding: this.qualified_ty.qual.member_binding(
+                    field_liason,
+                    field_contract,
+                    self.decl_db().is_copyable(field_decl.ty).unwrap(),
+                ),
             },
             opds: vec![this],
         })
@@ -320,7 +333,8 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { .. } => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { .. } => todo!(),
+            RawExprVariant::ThisValue { .. } => todo!(),
+            RawExprVariant::ThisField { .. } => todo!(),
             RawExprVariant::FrameVariable {
                 varname,
                 init_range: init_row,

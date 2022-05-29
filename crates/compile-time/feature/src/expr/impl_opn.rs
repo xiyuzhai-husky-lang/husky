@@ -57,7 +57,8 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::FieldAccess {
                 field_ident,
                 field_kind,
-            } => self.compile_field_access(field_ident, field_kind, opds, todo!()),
+                field_binding,
+            } => self.compile_field_access(field_ident, field_kind, opds, field_binding),
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,

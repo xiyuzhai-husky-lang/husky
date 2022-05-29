@@ -57,7 +57,7 @@ pub enum SemanticTokenKind {
     Special,
     Parameter,
     Variable,
-    ThisData,
+    ThisValue,
     FrameVariable,
     Entity(EntityKind),
     GenericPlaceholder,
@@ -74,7 +74,7 @@ impl SemanticTokenKind {
             SemanticTokenKind::Field => SemanticTokenType::PROPERTY,
             SemanticTokenKind::Special => SemanticTokenType::OPERATOR,
             SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
-            SemanticTokenKind::ThisData => SemanticTokenType::VARIABLE,
+            SemanticTokenKind::ThisValue => SemanticTokenType::VARIABLE,
             SemanticTokenKind::FrameVariable => SemanticTokenType::VARIABLE,
             SemanticTokenKind::Entity(entity_kind) => match entity_kind {
                 EntityKind::Module => SemanticTokenType::NAMESPACE,

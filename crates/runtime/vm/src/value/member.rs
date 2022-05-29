@@ -31,7 +31,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Copyable(value) => VMValue::Copyable(value),
             MemberValue::Boxed(value) => VMValue::FullyOwned(value),
             MemberValue::GlobalPure(value) => VMValue::EvalPure(value),
-            MemberValue::GlobalRef(value) => VMValue::EvalRef(value),
+            MemberValue::GlobalRef(value) => VMValue::GlobalRef(value),
             MemberValue::Moved => panic!(),
         }
     }

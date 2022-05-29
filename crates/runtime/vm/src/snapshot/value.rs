@@ -76,7 +76,7 @@ impl<'vm, 'eval: 'vm> Into<VMValue<'vm, 'eval>> for &StackValueSnapshot<'eval> {
             StackValueSnapshot::RefMut { owner, gen, .. } => todo!(),
             StackValueSnapshot::GlobalPure(value) => VMValue::EvalPure(value.clone()),
             StackValueSnapshot::Owned(value) => VMValue::FullyOwned(value.clone()),
-            StackValueSnapshot::GlobalRef(value) => VMValue::EvalRef(*value),
+            StackValueSnapshot::GlobalRef(value) => VMValue::GlobalRef(*value),
         }
     }
 }

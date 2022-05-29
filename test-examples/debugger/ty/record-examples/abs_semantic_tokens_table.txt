@@ -23,7 +23,7 @@
             token_modifiers_bitset: 0,
         },
         AbsSemanticToken {
-            kind: ThisData,
+            kind: ThisValue,
             range: 5:9..5:13,
             token_type: 18,
             token_modifiers_bitset: 0,

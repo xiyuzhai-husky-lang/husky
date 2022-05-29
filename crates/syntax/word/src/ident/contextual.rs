@@ -4,7 +4,7 @@ use super::*;
 pub enum ContextualIdentifier {
     Crate,
     Input,
-    ThisData,
+    ThisValue,
     ThisType,
 }
 impl From<ContextualIdentifier> for Identifier {
@@ -18,7 +18,7 @@ impl ContextualIdentifier {
         match self {
             ContextualIdentifier::Crate => "crate",
             ContextualIdentifier::Input => "input",
-            ContextualIdentifier::ThisData => "this",
+            ContextualIdentifier::ThisValue => "this",
             ContextualIdentifier::ThisType => "This",
         }
     }

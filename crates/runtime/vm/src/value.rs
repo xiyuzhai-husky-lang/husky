@@ -31,7 +31,7 @@ pub enum VMValue<'vm, 'eval: 'vm> {
     FullyOwned(OwnedValue<'eval, 'eval>),
     PartiallyOwned(OwnedValue<'vm, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    GlobalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     FullyOwnedRef(&'vm (dyn AnyValueDyn<'eval> + 'eval)),
     PartiallyOwnedRef(&'vm (dyn AnyValueDyn<'eval> + 'vm)),
     CopyableOrFullyOwnedMut {
@@ -57,7 +57,7 @@ impl<'vm, 'eval: 'vm> std::fmt::Debug for VMValue<'vm, 'eval> {
             }
             VMValue::FullyOwned(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
             VMValue::EvalPure(arg0) => f.debug_tuple("GlobalPure").field(arg0).finish(),
-            VMValue::EvalRef(arg0) => f.debug_tuple("GlobalRef").field(arg0).finish(),
+            VMValue::GlobalRef(arg0) => f.debug_tuple("GlobalRef").field(arg0).finish(),
             VMValue::FullyOwnedRef(value) => f.debug_tuple("Ref").field(value).finish(),
             VMValue::CopyableOrFullyOwnedMut { value, .. } => {
                 f.debug_tuple("MutRef").field(value).finish()
@@ -87,7 +87,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                 result.push_str("GlobalPure ");
                 result.push_str(&value.print_short())
             }
-            VMValue::EvalRef(value) => {
+            VMValue::GlobalRef(value) => {
                 result.push_str("GlobalRef ");
                 result.push_str(&value.print_short());
             }
@@ -113,7 +113,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(_) => todo!(),
             VMValue::FullyOwned(_) => todo!(),
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
+            VMValue::GlobalRef(_) => todo!(),
             VMValue::FullyOwnedRef(value) => value.get_json_value_dyn(),
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -141,7 +141,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             EvalValue::Copyable(value) => Self::Copyable(value),
             EvalValue::Owned(_) => todo!(),
             EvalValue::GlobalPure(value) => VMValue::EvalPure(value),
-            EvalValue::GlobalRef(value) => Self::EvalRef(value),
+            EvalValue::GlobalRef(value) => Self::GlobalRef(value),
             EvalValue::Undefined => todo!(),
         })
     }
@@ -151,7 +151,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(copyable_value) => EvalValue::Copyable(copyable_value),
             VMValue::FullyOwned(boxed_value) => EvalValue::Owned(boxed_value),
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(value) => EvalValue::GlobalRef(value),
+            VMValue::GlobalRef(value) => EvalValue::GlobalRef(value),
             VMValue::FullyOwnedRef { .. }
             | VMValue::CopyableOrFullyOwnedMut { .. }
             | VMValue::Moved => {
@@ -168,7 +168,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(primitive_value) => EvalValue::Copyable(*primitive_value),
             VMValue::FullyOwned(boxed_value) => EvalValue::Owned(boxed_value.clone()),
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(value) => EvalValue::GlobalRef(*value),
+            VMValue::GlobalRef(value) => EvalValue::GlobalRef(*value),
             VMValue::FullyOwnedRef(value) => EvalValue::Owned(value.clone_into_box_dyn().into()),
             VMValue::CopyableOrFullyOwnedMut { value, .. } => {
                 EvalValue::Owned(value.clone_into_box_dyn().into())
@@ -188,7 +188,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(v) => v.to_bool(),
             VMValue::FullyOwned(_) => todo!(),
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
+            VMValue::GlobalRef(_) => todo!(),
             VMValue::FullyOwnedRef(value) => todo!(),
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -205,7 +205,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                 _ => panic!(),
             },
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
+            VMValue::GlobalRef(_) => todo!(),
             VMValue::FullyOwnedRef { .. }
             | VMValue::CopyableOrFullyOwnedMut { .. }
             | VMValue::Moved => {
@@ -238,7 +238,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                 let ptr: *const dyn AnyValueDyn = &**value;
                 VMValue::FullyOwnedRef(&*ptr)
             }
-            VMValue::EvalRef(value) => VMValue::EvalRef(*value),
+            VMValue::GlobalRef(value) => VMValue::GlobalRef(*value),
             VMValue::FullyOwnedRef(value) => VMValue::FullyOwnedRef(*value),
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -253,7 +253,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(value) => VMValue::Copyable(*value),
             VMValue::FullyOwned(_) => todo!(),
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
+            VMValue::GlobalRef(_) => todo!(),
             VMValue::FullyOwnedRef(value) => {
                 p!(value);
                 todo!()
@@ -285,7 +285,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             }
             VMValue::Moved
             | VMValue::EvalPure(_)
-            | VMValue::EvalRef(_)
+            | VMValue::GlobalRef(_)
             | VMValue::FullyOwnedRef { .. }
             | VMValue::CopyableOrFullyOwnedMut { .. } => panic!(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -299,7 +299,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(value) => VMValue::Copyable(*value),
             VMValue::FullyOwned(value) => VMValue::FullyOwnedRef(&*value.any_ptr()),
             VMValue::EvalPure(value) => VMValue::EvalPure(value.clone()),
-            VMValue::EvalRef(value) => VMValue::EvalRef(*value),
+            VMValue::GlobalRef(value) => VMValue::GlobalRef(*value),
             VMValue::FullyOwnedRef { .. } => todo!(),
             VMValue::CopyableOrFullyOwnedMut { .. } => todo!(),
             VMValue::Moved => todo!(),
@@ -315,7 +315,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(value) => VMValue::Copyable(*value),
             VMValue::FullyOwned(_) => std::mem::replace(self, VMValue::Moved),
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
+            VMValue::GlobalRef(_) => todo!(),
             VMValue::FullyOwnedRef { .. } => todo!(),
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -330,7 +330,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(value) => Self::Copyable(*value),
             VMValue::FullyOwned(_) => std::mem::replace(self, VMValue::Moved),
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
+            VMValue::GlobalRef(_) => todo!(),
             VMValue::FullyOwnedRef { .. } => todo!(),
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -350,7 +350,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
     fn owner(&self, self_stack_idx: VMStackIdx) -> Option<VMStackIdx> {
         match self {
             VMValue::Copyable(_) | VMValue::FullyOwned(_) => Some(self_stack_idx),
-            VMValue::EvalRef(_) | VMValue::EvalPure(_) => None,
+            VMValue::GlobalRef(_) | VMValue::EvalPure(_) => None,
             VMValue::FullyOwnedRef { .. } => todo!(),
             VMValue::CopyableOrFullyOwnedMut { owner, .. } => Some(*owner),
             VMValue::Moved => todo!(),
@@ -374,7 +374,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                 },
                 VMValue::FullyOwned(value) => value.any_ref(),
                 VMValue::EvalPure(value) => (&**value),
-                VMValue::EvalRef(_) => todo!(),
+                VMValue::GlobalRef(_) => todo!(),
                 VMValue::FullyOwnedRef(value) => *value,
                 VMValue::CopyableOrFullyOwnedMut { value, .. } => *value,
                 VMValue::Moved => todo!(),
@@ -403,7 +403,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                     panic!("LocalRef cannot be mutated, this is a bug.")
                 }
                 VMValue::EvalPure(_) => panic!("GlobalPure cannot be mutated, this is a bug."),
-                VMValue::EvalRef(_) => panic!("GlobalRef cannot be mutated, this is a bug."),
+                VMValue::GlobalRef(_) => panic!("GlobalRef cannot be mutated, this is a bug."),
                 VMValue::Moved => panic!("Move cannot be mutated, this is a bug."),
                 VMValue::PartiallyOwned(_) => todo!(),
                 VMValue::PartiallyOwnedRef(_) => todo!(),
@@ -418,7 +418,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(_) => todo!(),
             VMValue::FullyOwned(_) => todo!(),
             VMValue::EvalPure(value) => value.downcast_ref(),
-            VMValue::EvalRef(value) => value.downcast_ref(),
+            VMValue::GlobalRef(value) => value.downcast_ref(),
             VMValue::FullyOwnedRef(value) => value.downcast_ref(),
             VMValue::CopyableOrFullyOwnedMut { value, .. } => value.downcast_ref(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -433,7 +433,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(_) => todo!(),
             VMValue::FullyOwned(_)
             | VMValue::EvalPure(_)
-            | VMValue::EvalRef(_)
+            | VMValue::GlobalRef(_)
             | VMValue::FullyOwnedRef { .. } => {
                 panic!()
             }
@@ -450,7 +450,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(_) => todo!(),
             VMValue::FullyOwned(_)
             | VMValue::EvalPure(_)
-            | VMValue::EvalRef(_)
+            | VMValue::GlobalRef(_)
             | VMValue::FullyOwnedRef { .. } => {
                 panic!()
             }
@@ -481,7 +481,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(_) => todo!(),
             VMValue::FullyOwned(_) => todo!(),
             VMValue::EvalPure(value) => VMValue::FullyOwned(value.clone_into_box_dyn().into()),
-            VMValue::EvalRef(_) => todo!(),
+            VMValue::GlobalRef(_) => todo!(),
             VMValue::FullyOwnedRef(value) => VMValue::FullyOwned(value.clone_into_box_dyn().into()),
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
             VMValue::PartiallyOwned(_) => todo!(),
@@ -495,7 +495,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
             VMValue::FullyOwned(value) => StackValueSnapshot::Owned(value.clone()),
             VMValue::EvalPure(value) => StackValueSnapshot::GlobalPure(value.clone()),
-            VMValue::EvalRef(value) => StackValueSnapshot::GlobalRef(*value),
+            VMValue::GlobalRef(value) => StackValueSnapshot::GlobalRef(*value),
             VMValue::FullyOwnedRef(value) => todo!(),
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
                 p!(value);
@@ -521,7 +521,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                 value.take_field(field_idx)
             }
             VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(value) => {
+            VMValue::GlobalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
                 value.access_field(field_idx, field_binding)
             }

@@ -177,7 +177,7 @@ pub(crate) fn generic_vec_element_ref_access<'vm, 'eval>(
     }
     let any_ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
     Ok(match values[0] {
-        VMValue::EvalRef(_) => VMValue::EvalRef(unsafe { &*any_ptr }),
+        VMValue::GlobalRef(_) => VMValue::GlobalRef(unsafe { &*any_ptr }),
         VMValue::FullyOwnedRef(_) => VMValue::FullyOwnedRef(unsafe { &*any_ptr }),
         _ => panic!(),
     })
@@ -229,7 +229,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::BorrowMut,
+        this_contract: InputLiason::LocalRefMut,
         input_parameters: &[StaticInputParameter {
             contract: InputLiason::Move,
             ty: "E",
@@ -252,7 +252,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
     name: "pop",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::BorrowMut,
+        this_contract: InputLiason::LocalRefMut,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],

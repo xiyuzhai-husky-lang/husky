@@ -24,7 +24,7 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
         self.opt_this_ty
     }
 
-    fn opt_this_contract(&self) -> Option<InputLiason> {
+    fn opt_this_liason(&self) -> Option<InputLiason> {
         self.opt_this_contract
     }
 
@@ -54,4 +54,8 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
     }
 
     fn rollback(&mut self, state: AtomContextState) {}
+
+    fn push_symbol(&mut self, new_symbol: Symbol) {
+        todo!()
+    }
 }

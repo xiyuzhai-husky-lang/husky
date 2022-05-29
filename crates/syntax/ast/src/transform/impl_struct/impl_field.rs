@@ -10,10 +10,23 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         let mut token_stream: TokenStream = token_group.into();
         let mut parser = AtomParser::new(self, &mut token_stream);
-        let liason = MemberLiason::from_opt_keyword(try_get!(parser, liason));
+        let field_liason = MemberLiason::from_opt_keyword(try_get!(parser, liason));
         let ident = get!(parser, sema_custom_ident, SemanticTokenKind::Field);
         eat!(parser, ":");
-        let ty = get!(parser, ranged_ty?);
+        let opt_field_ty = try_get!(parser, ranged_ty?);
+        parser.push_symbol(|atom_context| Symbol {
+            ident: ident.ident,
+            kind: SymbolKind::ThisField {
+                opt_this_ty: atom_context.opt_this_ty(),
+                opt_field_ty,
+                field_liason,
+            },
+        });
+        let ty = if let Some(ty) = opt_field_ty {
+            ty
+        } else {
+            return err!(format!("expect type"), parser.token_stream.next_range());
+        };
         let opt_expr = if try_eat!(
             parser,
             token_kind,
@@ -21,6 +34,11 @@ impl<'a> AstTransformer<'a> {
         ) {
             todo!()
         } else if try_eat!(parser, token_kind, TokenKind::Special(Special::Assign)) {
+            self.update_struct_item_context(
+                struct_item_context,
+                StructItemContext::OriginalField,
+                token_group,
+            )?;
             todo!()
         } else {
             end!(parser);
@@ -33,7 +51,7 @@ impl<'a> AstTransformer<'a> {
         };
         Ok(AstKind::FieldDefnHead {
             head: FieldDefnHead {
-                liason,
+                liason: field_liason,
                 ident,
                 ty,
                 kind: FieldKind::StructOriginal,
@@ -42,47 +60,21 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_struct_original_field(
-        &mut self,
-        token_group: &[Token],
-        struct_item_context: StructItemContext,
-    ) -> AstResult<AstKind> {
-        self.update_struct_item_context(
-            struct_item_context,
-            StructItemContext::OriginalField,
-            token_group,
-        )?;
-        todo!()
-    }
-
-    fn parse_struct_default_field(
-        &mut self,
-        token_group: &[Token],
-        struct_item_context: StructItemContext,
-    ) -> AstResult<AstKind> {
-        self.update_struct_item_context(
-            struct_item_context,
-            StructItemContext::DefaultField,
-            token_group,
-        )?;
-        todo!()
-    }
-
-    fn parse_struct_derived_eager_field(
-        &mut self,
-        token_group: &[Token],
-        struct_item_context: StructItemContext,
-        paradigm: Paradigm,
-    ) -> AstResult<AstKind> {
-        let context_update_result = self.update_struct_item_context(
-            struct_item_context,
-            StructItemContext::DerivedEagerField,
-            token_group,
-        );
-        self.context.set(AstContext::Stmt(paradigm));
-        context_update_result?;
-        todo!()
-    }
+    // fn parse_struct_derived_eager_field(
+    //     &mut self,
+    //     token_group: &[Token],
+    //     struct_item_context: StructItemContext,
+    //     paradigm: Paradigm,
+    // ) -> AstResult<AstKind> {
+    //     let context_update_result = self.update_struct_item_context(
+    //         struct_item_context,
+    //         StructItemContext::DerivedEagerField,
+    //         token_group,
+    //     );
+    //     self.context.set(AstContext::Stmt(paradigm));
+    //     context_update_result?;
+    //     todo!()
+    // }
 
     pub(super) fn parse_struct_derived_lazy_field(
         &mut self,
@@ -101,12 +93,22 @@ impl<'a> AstTransformer<'a> {
             _ => todo!(),
         };
         self.context.set(AstContext::Stmt(paradigm));
+        self.opt_this_liason.set(Some(InputLiason::GlobalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
             TokenKind::Special(Special::LightArrow) => (),
             _ => todo!(),
         }
-        let ty = atom::parse_route(self, &token_group[3..])?;
+        let ty_result = atom::parse_route(self, &token_group[3..]);
+        self.symbols.push(Symbol {
+            ident: ident.ident,
+            kind: SymbolKind::ThisField {
+                opt_this_ty: self.opt_this_ty(),
+                opt_field_ty: ty_result.clone().ok(),
+                field_liason: MemberLiason::Derived,
+            },
+        });
+        let ty = ty_result?;
         context_update_result?;
         Ok(AstKind::FieldDefnHead {
             head: FieldDefnHead {

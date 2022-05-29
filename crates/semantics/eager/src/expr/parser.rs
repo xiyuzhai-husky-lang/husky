@@ -79,7 +79,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 ..
             } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::This { opt_ty, opt_liason } => EagerExprVariant::ThisData {
+            RawExprVariant::ThisValue {
+                opt_this_ty: opt_ty,
+                opt_this_liason: opt_liason,
+            } => EagerExprVariant::ThisValue {
                 binding: {
                     let this_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
                     let this_qual = EagerQualifier::from_parameter_use(
@@ -91,6 +94,35 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     this_qual.binding(this_contract)
                 },
             },
+            RawExprVariant::ThisField {
+                field_ident: ident,
+                opt_this_ty,
+                opt_this_liason,
+                field_liason,
+                opt_field_ty,
+            } => {
+                let field_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
+                let is_field_copyable = self
+                    .decl_db()
+                    .is_copyable(opt_field_ty.unwrap().route)
+                    .unwrap();
+                let this_contract = field_liason
+                    .this_eager_contract(field_contract, is_field_copyable)
+                    .unwrap();
+                let this_qual = EagerQualifier::from_parameter_use(
+                    opt_this_liason.unwrap(),
+                    self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
+                    this_contract,
+                )?;
+                EagerExprVariant::ThisField {
+                    field_ident: ident,
+                    this_ty: opt_this_ty.unwrap(),
+                    this_binding: this_qual.binding(this_contract),
+                    field_binding: {
+                        this_qual.member_binding(field_liason, field_contract, is_field_copyable)
+                    },
+                }
+            }
         };
         if let Err(e) = self.raw_expr_ty(raw_expr_idx) {
             p!(self.contract_sheet());
@@ -192,8 +224,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         raw_opds: &RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
-        let opd_idx = raw_opds.start;
-        let this = self.parse_eager_expr(opd_idx)?;
+        let this_idx = raw_opds.start;
+        let this = self.parse_eager_expr(this_idx)?;
         let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
         let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
         let field_liason = field_decl.liason;

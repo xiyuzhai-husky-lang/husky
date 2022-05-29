@@ -9,7 +9,7 @@ struct A:
         x + 1
 
     func get_x() -> i32:
-        this.x
+        x
 
     func get_x_plus_constant() -> i32:
         c = 2

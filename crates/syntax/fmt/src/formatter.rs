@@ -169,7 +169,7 @@ impl<'a> Formatter<'a> {
             InputLiason::Pure => (),
             InputLiason::GlobalRef => self.write("&"),
             InputLiason::Move => self.write("!"),
-            InputLiason::BorrowMut => self.write("mut &"),
+            InputLiason::LocalRefMut => self.write("mut &"),
             InputLiason::MoveMut => self.write("mut !"),
             InputLiason::MemberAccess => todo!(),
         }
@@ -298,11 +298,12 @@ impl<'a> Formatter<'a> {
                 self.write("| ");
                 self.fmt_expr(&self.arena[expr])
             }
-            RawExprVariant::This { .. } => todo!(),
+            RawExprVariant::ThisValue { .. } => todo!(),
             RawExprVariant::FrameVariable {
                 varname,
                 init_range: init_row,
             } => todo!(),
+            RawExprVariant::ThisField { .. } => todo!(),
         }
     }
 

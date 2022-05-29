@@ -64,7 +64,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstKind> {
         enter_block(self);
         self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
-        self.opt_this_contract.set(Some(InputLiason::Pure));
+        self.opt_this_liason.set(Some(InputLiason::Pure));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         emsg_once!("field contract");
         let ty = atom::parse_route(self, &token_group[3..])?;

@@ -60,7 +60,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => Ok(VMValue::Copyable(value)),
             EvalValue::Owned(value) => Ok(VMValue::FullyOwned(value)),
             EvalValue::GlobalPure(value) => Ok(VMValue::EvalPure(value)),
-            EvalValue::GlobalRef(value) => Ok(VMValue::EvalRef(value)),
+            EvalValue::GlobalRef(value) => Ok(VMValue::GlobalRef(value)),
             EvalValue::Undefined => todo!(),
         }
     }

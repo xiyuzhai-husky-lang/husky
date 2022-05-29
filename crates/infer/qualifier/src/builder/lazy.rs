@@ -182,9 +182,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 varname,
                 init_range: init_row,
             } => todo!(),
-            RawExprVariant::This {
-                opt_ty,
-                opt_liason: opt_contract,
+            RawExprVariant::ThisValue {
+                opt_this_ty: opt_ty,
+                opt_this_liason: opt_contract,
             } => {
                 let ty = derived_not_none!(opt_ty)?;
                 let contract = derived_not_none!(opt_contract)?;
@@ -216,6 +216,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 ref opds,
             } => self.lazy_opn(arena, raw_expr_idx, opr, opds.clone()),
             RawExprVariant::Lambda(_, _) => todo!(),
+            RawExprVariant::ThisField { .. } => todo!(),
         }
     }
 

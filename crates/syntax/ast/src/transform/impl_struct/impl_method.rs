@@ -26,7 +26,7 @@ impl<'a> AstTransformer<'a> {
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
             parser.method_defn_head(InputLiason::Pure, Paradigm::EagerFunctional)
         })?;
-        self.opt_this_contract
+        self.opt_this_liason
             .set(Some(head.opt_this_contract.unwrap()));
         self.symbols.extend(
             head.parameters

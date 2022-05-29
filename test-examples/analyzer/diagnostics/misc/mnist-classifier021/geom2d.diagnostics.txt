@@ -1,1 +1,1 @@
-2:8..2:13	Ast Error: expect ranged_ty
+2:8..2:13	Ast Error: expect type

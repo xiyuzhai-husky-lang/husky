@@ -9,7 +9,7 @@ pub use opn::*;
 pub(crate) use parser::EagerExprParser;
 
 use entity_route::EntityRoutePtr;
-use text::TextRange;
+use text::{RangedCustomIdentifier, TextRange};
 use vm::{Binding, CopyableValue, EagerContract, InstructionId, InstructionSource, Linkage};
 use word::CustomIdentifier;
 
@@ -48,8 +48,14 @@ pub enum EagerExprVariant {
         varname: CustomIdentifier,
         binding: Binding,
     },
-    ThisData {
+    ThisValue {
         binding: Binding,
+    },
+    ThisField {
+        field_ident: RangedCustomIdentifier,
+        this_ty: EntityRoutePtr,
+        this_binding: Binding,
+        field_binding: Binding,
     },
     EntityRoute {
         route: EntityRoutePtr,
