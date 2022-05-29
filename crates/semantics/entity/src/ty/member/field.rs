@@ -20,7 +20,7 @@ impl EntityDefnVariant {
             _ => todo!(),
         };
         Ok(Self::TypeField {
-            ty: field_defn_head.ty,
+            ty: field_defn_head.ty.route,
             contract: field_defn_head.liason,
             fieldiant: variant,
         })

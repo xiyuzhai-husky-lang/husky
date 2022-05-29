@@ -192,7 +192,6 @@ impl<'a> ContractSheetBuilder<'a> {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
                     EagerContract::Pure | EagerContract::Move | EagerContract::Return => (),
-                    EagerContract::GlobalRef => todo!(),
                     EagerContract::RefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
@@ -200,7 +199,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::UseForVarInit => (),
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
-                    EagerContract::UseForAssign => todo!(),
+                    EagerContract::UseForAssignRvalue => todo!(),
                 }
                 self.infer_eager_expr(lopd, EagerContract::Pure, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);
@@ -220,7 +219,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_expr(
                     ropd,
                     match (opt_opr, is_lopd_copyable) {
-                        (None, false) => EagerContract::UseForAssign,
+                        (None, false) => EagerContract::UseForAssignRvalue,
                         _ => EagerContract::Pure,
                     },
                     arena,
@@ -241,7 +240,6 @@ impl<'a> ContractSheetBuilder<'a> {
             PrefixOpr::Minus | PrefixOpr::Not | PrefixOpr::BitNot => {
                 match contract {
                     EagerContract::Pure => (),
-                    EagerContract::GlobalRef => todo!(),
                     EagerContract::Move => todo!(),
                     EagerContract::UseForLetInit => todo!(),
                     EagerContract::UseForVarInit => todo!(),
@@ -251,7 +249,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::RefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
-                    EagerContract::UseForAssign => todo!(),
+                    EagerContract::UseForAssignRvalue => todo!(),
                 }
                 EagerContract::Pure
             }
@@ -295,7 +293,6 @@ impl<'a> ContractSheetBuilder<'a> {
                     opd,
                     match contract {
                         EagerContract::Pure | EagerContract::Return => contract,
-                        EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => todo!(),
                         EagerContract::UseForLetInit => todo!(),
                         EagerContract::UseForVarInit => todo!(),
@@ -304,7 +301,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::RefMut => todo!(),
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
-                        EagerContract::UseForAssign => todo!(),
+                        EagerContract::UseForAssignRvalue => todo!(),
                     },
                     arena,
                 );
@@ -441,7 +438,6 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_contract = match contract {
             EagerContract::Pure => EagerContract::Pure,
-            EagerContract::GlobalRef => todo!(),
             EagerContract::Move => todo!(),
             EagerContract::UseForLetInit => EagerContract::UseMemberForLetInit,
             EagerContract::UseForVarInit => todo!(),
@@ -463,7 +459,7 @@ impl<'a> ContractSheetBuilder<'a> {
             })?,
             EagerContract::UseMemberForLetInit => todo!(),
             EagerContract::UseMemberForVarInit => todo!(),
-            EagerContract::UseForAssign => {
+            EagerContract::UseForAssignRvalue => {
                 throw!(
                     format!("can't use noncopyable element for assignment without moving"),
                     arena[expr_idx].range

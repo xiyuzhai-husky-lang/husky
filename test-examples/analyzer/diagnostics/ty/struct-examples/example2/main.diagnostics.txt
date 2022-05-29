@@ -1,0 +1,2 @@
+6:9..6:10	Ast Error: expect "special" after it
+10:9..10:14	Ast Error: old context is `DerivedLazyField`

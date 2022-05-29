@@ -10,9 +10,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         let mut props: Vec<(RangedCustomIdentifier, URange)> = Vec::new();
         while !self.token_stream.empty() {
             let ranged_ident = get!(self, custom_ident);
-            no_look_pass!(self, "=");
-            no_look_pass!(self, "{");
-            self.token_stream.pop_token_slice();
+            eat!(self, "=");
+            eat!(self, "{");
+            let token_start = self.token_stream.token_position();
             let mut layer = 1;
             while layer > 0 {
                 match self.token_stream.next() {
@@ -29,8 +29,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     }
                 }
             }
-            let token_slice = self.token_stream.pop_token_slice();
-            props.push((ranged_ident, (token_slice.start)..(token_slice.end - 1)))
+            let token_end = self.token_stream.token_position() - 1;
+            props.push((ranged_ident, token_start..token_end))
         }
         Ok(props)
     }

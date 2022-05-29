@@ -80,7 +80,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
                             FieldKind::StructDerivedLazy { .. } | FieldKind::RecordDerived => {
-                                self.infer_function(&[], Some(head.ty), children, &arena)
+                                self.infer_function(&[], Some(head.ty.route), children, &arena)
                             }
                             FieldKind::StructDefault => todo!(),
                             FieldKind::StructDerivedEager => todo!(),

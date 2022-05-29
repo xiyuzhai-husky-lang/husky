@@ -1,269 +1,266 @@
+#[macro_export]
 macro_rules! try_get {
-    ($this: expr, $patt:ident) => {{
-     let saved_stream = $this.save_stream();
-     if let Some(pattern) = $this.$patt(symbol_context) {
-         Some(pattern)
-     } else {
-         $this.rollback(saved_stream);
-         None
-     }
-    }};
-
-    ($this:expr, $patt:ident?) => {{
-        let saved_stream = $this.save_stream();
-        if let Some(pattern) = $this.$patt()? {
+    ($parser: expr, $patt:ident) => {{
+        let saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt() {
             Some(pattern)
         } else {
-            $this.rollback(saved_stream);
-            None
-        }
-       }};
-
-    ($this:expr, $patt:ident, $($args:expr),*) => {{
-     let saved_stream = $this.save_stream();
-     if let Some(pattern) = $this.$patt($($args),*) {
-         Some(pattern)
-     } else {
-         $this.rollback(saved_stream);
-         None
-     }
-    }};
-
-    ($this:expr, $patt:ident?, $($args:expr),*) => {{
-        let saved_stream = $this.save_stream();
-        if let Some(pattern) = $this.$patt($($args),*)? {
-            Some(pattern)
-        } else {
-            $this.rollback(saved_stream);
+            $parser.rollback(saved_state);
             None
         }
     }};
 
-    ($this:expr, "_") => {{
-        try_get!($this, elide)
+    ($parser:expr, $patt:ident?) => {{
+        let saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt()? {
+            Some(pattern)
+        } else {
+            $parser.rollback(saved_state);
+            None
+        }
+    }};
+
+    ($parser:expr, $patt:ident, $($args:expr),*) => {{
+        let saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt($($args),*) {
+            Some(pattern)
+        } else {
+            $parser.rollback(saved_state);
+            None
+        }
+    }};
+
+    ($parser:expr, $patt:ident?, $($args:expr),*) => {{
+        let saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt($($args),*)? {
+            Some(pattern)
+        } else {
+            $parser.rollback(saved_state);
+            None
+        }
+    }};
+
+    ($parser:expr, "_") => {{
+        try_get!($parser, elide)
     }};
 }
-pub(crate) use try_get;
 
-macro_rules! next_matches {
-    ($this:expr, $patt:ident) => {{
-     let saved_stream = $this.save_stream();
-     if $this.$patt().is_some() {
-         true
-     } else {
-         $this.rollback(saved_stream);
-         false
-     }
-    }};
-
-    ($this:expr, $patt:ident, $($args:expr),+) => {{
-     let saved_stream = $this.save_stream();
-     if $this.$patt($($args),*).is_some() {
-         true
-     } else {
-         $this.rollback(saved_stream);
-         false
-     }
-    }};
-
-    ($this:expr, $patt:ident?, $($args:expr),+) => {{
-     let saved_stream = $this.save_stream();
-     if let Some(pattern) = $this.$patt($($args),*)? {
-         true
-     } else {
-         $this.rollback(saved_stream);
-         false
-     }
-    }};
-
-    ($this:expr, $patt:ident?, $($args:expr),+) => {{
-        let saved_stream = $this.save_stream();
-        if let Some(pattern) = $this.$patt($($args),*)? {
+#[macro_export]
+macro_rules! try_eat {
+    ($parser:expr, $patt:ident) => {{
+        let saved_state = $parser.save_state();
+        if $parser.$patt().is_some() {
             true
         } else {
-            $this.rollback(saved_stream);
+            $parser.rollback(saved_state);
             false
         }
     }};
 
-    ($this:expr, Special::$special:ident) => {{
-        let saved_stream = $this.save_stream();
-        if $this.special(Special::$special).is_some() {
+    ($parser:expr, $patt:ident, $($args:expr),*) => {{
+        let saved_state = $parser.save_state();
+        if $parser.$patt($($args),*).is_some() {
             true
         } else {
-            $this.rollback(saved_stream);
+            $parser.rollback(saved_state);
             false
         }
     }};
 
-    ($this:expr, "->") => {{
-        next_matches!($this, Special::LightArrow)
+    ($parser:expr, $patt:ident?, $($args:expr),*) => {{
+        let saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt($($args),*)? {
+            true
+        } else {
+            $parser.rollback(saved_state);
+            false
+        }
     }};
 
-    ($this:expr, "(") => {{
-        next_matches!($this, Special::LPar)
+    ($parser:expr, $patt:ident?, $($args:expr),*) => {{
+        let saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt($($args),*)? {
+            true
+        } else {
+            $parser.rollback(saved_state);
+            false
+        }
     }};
 
-    ($this:expr, "<") => {{
-        next_matches!($this, Special::LAngle)
+    ($parser:expr, Special::$special:ident) => {{
+        let saved_state = $parser.save_state();
+        if $parser.special(Special::$special).is_some() {
+            true
+        } else {
+            $parser.rollback(saved_state);
+            false
+        }
     }};
 
-    ($this:expr, ":") => {{
-        next_matches!($this, Special::Colon)
+    ($parser:expr, "->") => {{
+        try_eat!($parser, Special::LightArrow)
     }};
 
-    ($this:expr, "+") => {{
-        next_matches!($this, Special::Add)
+    ($parser:expr, "(") => {{
+        try_eat!($parser, Special::LPar)
     }};
 
-    ($this:expr, "'") => {{
-        next_matches!($this, Special::Lifetime)
+    ($parser:expr, "<") => {{
+        try_eat!($parser, Special::LAngle)
     }};
 
-    ($this:expr, "_") => {{
-        next_matches!($this, elide)
+    ($parser:expr, ":") => {{
+        try_eat!($parser, Special::Colon)
+    }};
+
+    ($parser:expr, "+") => {{
+        try_eat!($parser, Special::Add)
+    }};
+
+    ($parser:expr, "'") => {{
+        try_eat!($parser, Special::Lifetime)
+    }};
+
+    ($parser:expr, "_") => {{
+        try_eat!($parser, elide)
     }};
 }
-pub(crate) use next_matches;
 
+#[macro_export]
 macro_rules! get{
-    ($this: expr, $patt:ident) => {{
-        let mut saved_stream = $this.save_stream();
-        if let Some(pattern) = $this.$patt() {
+    ($parser: expr, $patt:ident) => {{
+        let mut saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt() {
             pattern
         } else {
+            $parser.rollback(saved_state);
             return err!(
-                format!("expect {}, but get {{{:?}}} instead",
-                    stringify!($patt),
-                    saved_stream.next()
-                ),
-                $this.token_stream.next_range()
+                format!("expect {}", stringify!($patt)),
+                $parser.token_stream.next_range()
             )
         }
     }};
 
-    ($this:expr, $patt:ident, $($args:expr),*) => {{
-        if let Some(pattern) = $this.$patt($($args),*) {
+    ($parser:expr, $patt:ident, $($args:expr),*) => {{
+        if let Some(pattern) = $parser.$patt($($args),*) {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
-    ($this:expr, $patt:ident?) => {{
-        let mut saved_stream = $this.save_stream();
-        if let Some(pattern) = $this.$patt()? {
+    ($parser:expr, $patt:ident?) => {{
+        let mut saved_state = $parser.save_state();
+        if let Some(pattern) = $parser.$patt()? {
             pattern
         } else {
+            $parser.rollback(saved_state);
             return err!(
-                    format!("expect {} after it, but get {{{:?}}} instead",
-                        stringify!($patt),
-                        saved_stream.next()
-                    ),
-                    $this.token_stream.next_range()
+                    format!("expect {}", stringify!($patt)),
+                    $parser.token_stream.next_range()
                 )
         }
     }};
 
-    ($this:expr, $patt:ident?, $($args:expr),*) => {{
-        if let Some(pattern) = $this.$patt($($args),*)? {
+    ($parser:expr, $patt:ident?, $($args:expr),*) => {{
+        if let Some(pattern) = $parser.$patt($($args),*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
 
-    ($this:ident.$patt:ident?) => {{
-        if let Some(pattern) = $this.$patt()? {
+    ($parser:ident.$patt:ident?) => {{
+        if let Some(pattern) = $parser.$patt()? {
             pattern
         } else {
             return err!(
                 format!("expect {:?} after it", stringify!($patt)),
-                $this.token_stream.next_range()
+                $parser.token_stream.next_range()
             )
         }
     }};
 
-    ($this:ident.$patt:ident?($($args:expr),*)) => {{
+    ($parser:ident.$patt:ident?($($args:expr),*)) => {{
         if let Some(pattern) = this.$patt($args,*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
+            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 }
-pub(crate) use get;
 
-macro_rules! no_look_pass {
-    ($this:expr, $patt:ident) => {{
-        if $this.$patt().is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
+#[macro_export]
+macro_rules! eat {
+    ($parser:expr, $patt:ident) => {{
+        if $parser.$patt().is_none() {
+            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
-    ($this:expr, $patt:ident, $($args:expr),*) => {{
-        if  $this.$patt($($args),*).is_none() {
+    ($parser:expr, $patt:ident, $($args:expr),*) => {{
+        if  $parser.$patt($($args),*).is_none() {
             return err!(
                 format!("expect {:?} after it", stringify!($patt)),
-                $this.token_stream.next_range()
+                $parser.token_stream.next_range()
             )
         }
     }};
 
-    ($this:expr, $patt:ident?) => {{
-        if $this.$patt()?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
+    ($parser:expr, $patt:ident?) => {{
+        if $parser.$patt()?.is_none() {
+            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
-    ($this:expr, $patt:ident?, $($args:expr),*) => {{
-        if  $this.$patt($($args),*)?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $this.token_stream.next_range())
+    ($parser:expr, $patt:ident?, $($args:expr),*) => {{
+        if  $parser.$patt($($args),*)?.is_none() {
+            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
-    ($this:expr, "(") => {{
-        no_look_pass!($this, special, Special::LPar)
+    ($parser:expr, "(") => {{
+        eat!($parser, special, Special::LPar)
     }};
 
-    ($this:expr, "{") => {{
-        no_look_pass!($this, special, Special::LCurl)
+    ($parser:expr, "{") => {{
+        eat!($parser, special, Special::LCurl)
     }};
 
-    ($this:expr, ":") => {{
-        no_look_pass!($this, special, Special::Colon)
+    ($parser:expr, ":") => {{
+        eat!($parser, special, Special::Colon)
     }};
 
-    ($this:expr, "=") => {{
-        no_look_pass!($this, special, Special::Assign)
+    ($parser:expr, "=") => {{
+        eat!($parser, special, Special::Assign)
     }};
 }
-pub(crate) use no_look_pass;
 
+#[macro_export]
 macro_rules! comma_list {
-    ($this:expr, $first_patt:ident?, $second_patt:ident!, $terminator:ident) => {{
+    ($parser:expr, $first_patt:ident?, $second_patt:ident!, $terminator:ident) => {{
         let mut firsts = Vec::new();
         let mut seconds = Vec::new();
         let mut done = false;
-        while let Some(item) = try_get!($this, $first_patt?) {
+        while let Some(item) = try_get!($parser, $first_patt?) {
             firsts.push(item);
-            if !next_matches!($this, Special::Comma) {
-                no_look_pass!($this, special, Special::$terminator);
+            if !try_eat!($parser, Special::Comma) {
+                eat!($parser, special, Special::$terminator);
                 done = true;
                 break;
             }
         }
-        if !done && !next_matches!($this, Special::$terminator) {
-            seconds.push($this.$second_patt()?);
+        if !done && !try_eat!($parser, Special::$terminator) {
+            seconds.push($parser.$second_patt()?);
             loop {
-                if next_matches!($this, Special::Comma) {
-                    if next_matches!($this, Special::$terminator) {
+                if try_eat!($parser, Special::Comma) {
+                    if try_eat!($parser, Special::$terminator) {
                         break;
                     }
-                    seconds.push($this.$second_patt()?);
+                    seconds.push($parser.$second_patt()?);
                 } else {
-                    no_look_pass!($this, special, Special::$terminator);
+                    eat!($parser, special, Special::$terminator);
                     break;
                 }
             }
@@ -271,18 +268,18 @@ macro_rules! comma_list {
         (firsts, seconds)
     }};
 
-    ($this:expr, $patt:ident, $terminator:ident) => {{
+    ($parser:expr, $patt:ident, $terminator:ident) => {{
         let mut args = Vec::new();
-        if !next_matches!($this, Special::$terminator) {
-            args.push(get!($this, $patt?));
+        if !try_eat!($parser, Special::$terminator) {
+            args.push(get!($parser, $patt?));
             loop {
-                if next_matches!($this, Special::Comma) {
-                    if next_matches!($this, Special::$terminator) {
+                if try_eat!($parser, Special::Comma) {
+                    if try_eat!($parser, Special::$terminator) {
                         break;
                     }
-                    args.push(get!($this, $patt?));
+                    args.push(get!($parser, $patt?));
                 } else {
-                    no_look_pass!($this, special, Special::$terminator);
+                    eat!($parser, special, Special::$terminator);
                     break;
                 }
             }
@@ -290,18 +287,18 @@ macro_rules! comma_list {
         args
     }};
 
-    ($this:expr, $patt:ident!, $terminator:ident) => {{
+    ($parser:expr, $patt:ident!, $terminator:ident) => {{
         let mut args = Vec::new();
-        if !next_matches!($this, Special::$terminator) {
-            args.push($this.$patt()?);
+        if !try_eat!($parser, Special::$terminator) {
+            args.push($parser.$patt()?);
             loop {
-                if next_matches!($this, Special::Comma) {
-                    if next_matches!($this, Special::$terminator) {
+                if try_eat!($parser, Special::Comma) {
+                    if try_eat!($parser, Special::$terminator) {
                         break;
                     }
-                    args.push($this.$patt()?);
+                    args.push($parser.$patt()?);
                 } else {
-                    no_look_pass!($this, special, Special::$terminator);
+                    eat!($parser, special, Special::$terminator);
                     break;
                 }
             }
@@ -309,31 +306,39 @@ macro_rules! comma_list {
         args
     }};
 
-    ($this:expr, $patt:ident!+, $terminator:ident) => {{
-        let mut items = vec![$this.$patt()?];
+    ($parser:expr, $patt:ident!+, $terminator:ident) => {{
+        let mut items = vec![$parser.$patt()?];
         loop {
-            if !next_matches!($this, Special::Comma) {
-                no_look_pass!($this, special, Special::$terminator);
+            if !try_eat!($parser, Special::Comma) {
+                eat!($parser, special, Special::$terminator);
                 break;
             }
-            if next_matches!($this, Special::$terminator) {
+            if try_eat!($parser, Special::$terminator) {
                 break;
             }
-            items.push($this.$patt()?);
+            items.push($parser.$patt()?);
         }
         items
     }};
 
-    ($this:expr, $patt:ident!, ")") => {{
-        comma_list!($this, $patt!, RPar)
+    ($parser:expr, $patt:ident!, ")") => {{
+        comma_list!($parser, $patt!, RPar)
     }};
 
-    ($this:expr, $patt:ident!, "|") => {{
-        comma_list!($this, $patt!, Vertical)
+    ($parser:expr, $patt:ident!, "|") => {{
+        comma_list!($parser, $patt!, Vertical)
     }};
 
-    ($this:expr, $patt:ident!+, ">") => {{
-        comma_list!($this, $patt!+, RAngle)
+    ($parser:expr, $patt:ident!+, ">") => {{
+        comma_list!($parser, $patt!+, RAngle)
     }};
 }
-pub(crate) use comma_list;
+
+#[macro_export]
+macro_rules! end {
+    ($parser: expr) => {{
+        if !$parser.token_stream.empty() {
+            return err!(format!("expect end"), $parser.token_stream.next_range());
+        }
+    }};
+}

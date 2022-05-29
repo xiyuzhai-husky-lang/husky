@@ -14,49 +14,33 @@ impl<'a> AstTransformer<'a> {
             StructItemContext::OriginalField,
             token_group,
         )?;
-        let mut iter = token_group.iter().enumerate().peekable();
-        let liason = match iter.peek().unwrap().1.kind {
-            TokenKind::Keyword(Keyword::Liason(liason_keyword)) => {
-                iter.next();
-                match liason_keyword {
-                    LiasonKeyword::Mut => FieldLiason::Mutable,
-                }
-            }
-            _ => FieldLiason::Immutable,
+        let mut token_stream: TokenStream = token_group.into();
+        let mut parser = AtomParser::new(self, &mut token_stream);
+        let liason = FieldLiason::from_opt_keyword(try_get!(parser, liason));
+        let ident = get!(parser, sema_custom_ident, SemanticTokenKind::Field);
+        eat!(parser, ":");
+        let ty = get!(parser, ranged_ty?);
+        let opt_expr = if try_eat!(
+            parser,
+            token_kind,
+            TokenKind::Special(Special::DeriveAssign)
+        ) {
+            todo!()
+        } else if try_eat!(parser, token_kind, TokenKind::Special(Special::Assign)) {
+            todo!()
+        } else {
+            end!(parser);
+            None
         };
-        if token_group.len() <= 2 {
-            return err!(
-                r#"expect
-      <original field>( = <identifier>: <type>)
-    | <default field>( = <identifier>[: <type>] ?= <expr>)
-    | <derived eager field>( = <identifier> = <expr>)"#,
-                token_group.text_range()
-            );
-        }
-        let ident = {
-            let (i, token) = iter.next().unwrap();
-            p!(i);
-            identify_token!(self, token, SemanticTokenKind::Field)
-        };
-        match iter.next().unwrap().1.kind {
-            TokenKind::Special(Special::MaybeEq) => todo!(),
-            TokenKind::Special(Special::Colon) => todo!(),
-            _ => todo!(),
-        }
-        todo!()
-        //  && token_group[1].kind == TokenKind::Special(Special::Colon) {
-        //     let ident = identify_token!(self, token_group[0], SemanticTokenKind::Field);
-        //     let ty = atom::parse_route(self, &token_group[2..])?;
-        //     Ok(AstKind::FieldDefnHead {
-        //         head: FieldDefnHead {
-        //             liason,
-        //             ident,
-        //             ty,
-        //             kind: FieldKind::StructOriginal,
-        //         },
-        //         opt_expr: todo!(),
-        //     })
-        // }
+        Ok(AstKind::FieldDefnHead {
+            head: FieldDefnHead {
+                liason,
+                ident,
+                ty,
+                kind: FieldKind::StructOriginal,
+            },
+            opt_expr,
+        })
     }
 
     fn parse_struct_original_field(

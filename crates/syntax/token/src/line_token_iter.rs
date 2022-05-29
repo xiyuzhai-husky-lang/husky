@@ -201,6 +201,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 _ => (1, Special::Assign),
             },
             ':' => match self.peek_char() {
+                '=' => self.pass_two(Special::DeriveAssign),
                 ':' => self.pass_two(Special::DoubleColon),
                 _ => (1, Special::Colon),
             },
@@ -259,10 +260,6 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             },
             '!' => match self.peek_char() {
                 '=' => self.pass_two(Special::Neq),
-                _ => (1, Special::Exclamation),
-            },
-            '?' => match self.peek_char() {
-                '=' => self.pass_two(Special::MaybeEq),
                 _ => (1, Special::Exclamation),
             },
             c => {

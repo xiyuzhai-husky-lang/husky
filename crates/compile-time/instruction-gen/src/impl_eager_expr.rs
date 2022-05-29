@@ -227,7 +227,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 Binding::Ref
                             }
                         }
-                        EagerContract::GlobalRef => todo!(),
                         EagerContract::Move => todo!(),
                         EagerContract::UseForLetInit => {
                             if self.db.is_copyable(expr.ty).unwrap() {
@@ -249,7 +248,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         EagerContract::Exec => todo!(),
                         EagerContract::UseMemberForLetInit => todo!(),
                         EagerContract::UseMemberForVarInit => todo!(),
-                        EagerContract::UseForAssign => todo!(),
+                        EagerContract::UseForAssignRvalue => todo!(),
                     },
                 ),
             },

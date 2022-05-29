@@ -19,14 +19,8 @@ impl<'a> AstTransformer<'a> {
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Feature)
         );
-        let scope = atom::parse_route(self, &token_group[3..])?;
+        let ty = atom::parse_route(self, &token_group[3..])?;
         self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
-        Ok(AstKind::FeatureDecl {
-            ident,
-            ty: RangedEntityRoute {
-                route: scope,
-                range: token_group[3..(token_group.len() - 1)].text_range(),
-            },
-        })
+        Ok(AstKind::FeatureDecl { ident, ty })
     }
 }

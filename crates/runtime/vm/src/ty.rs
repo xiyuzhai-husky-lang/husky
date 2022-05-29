@@ -58,7 +58,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                     MemberValue::Moved => todo!(),
                 },
             },
-            EagerContract::GlobalRef => todo!(),
+
             EagerContract::Move => todo!(),
             EagerContract::UseForVarInit => todo!(),
             EagerContract::Return => match self {
@@ -86,7 +86,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                 },
             },
             EagerContract::UseMemberForVarInit => todo!(),
-            EagerContract::UseForAssign => todo!(),
+            EagerContract::UseForAssignRvalue => todo!(),
         }
     }
 
@@ -98,7 +98,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
     ) -> VMValue<'vm, 'eval> {
         match contract {
             EagerContract::Pure => todo!(),
-            EagerContract::GlobalRef => todo!(),
+
             EagerContract::Move => todo!(),
             EagerContract::RefMut => match self {
                 VirtualTy::Struct { fields } => {
@@ -124,7 +124,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
             EagerContract::Return => todo!(),
             EagerContract::UseMemberForLetInit => todo!(),
             EagerContract::UseMemberForVarInit => todo!(),
-            EagerContract::UseForAssign => todo!(),
+            EagerContract::UseForAssignRvalue => todo!(),
         }
     }
 }

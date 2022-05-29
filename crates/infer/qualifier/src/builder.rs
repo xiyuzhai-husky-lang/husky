@@ -98,7 +98,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                 &arena,
                                 &[],
                                 children,
-                                Some(head.ty),
+                                Some(head.ty.route),
                                 OutputLiason::Transfer,
                             ),
                             FieldKind::StructDerivedLazy {
@@ -108,7 +108,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                 &arena,
                                 &[],
                                 children,
-                                Some(head.ty),
+                                Some(head.ty.route),
                                 OutputLiason::Transfer,
                             ),
                             _ => todo!(),

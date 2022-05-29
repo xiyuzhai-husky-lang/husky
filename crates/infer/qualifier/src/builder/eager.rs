@@ -8,7 +8,7 @@ use entity_route::EntityRoutePtr;
 use infer_error::{
     derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
 };
-use print_utils::{emsg_once, p};
+use print_utils::{emsg_once, epin, p};
 use text::RangedCustomIdentifier;
 use text::{TextRange, TextRanged};
 
@@ -36,7 +36,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     (input.ranged_ident.ident.into(), input.ranged_ident.range),
                     (|| {
                         (Ok(EagerQualifiedTy::new(
-                            EagerQualifier::from_input(input.contract, self.db.is_copyable(ty)?),
+                            EagerQualifier::from_input(input.liason, self.db.is_copyable(ty)?),
                             ty,
                         )))
                     })(),
@@ -144,7 +144,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         .eager_variable_qualified_tys
                         .insert_new((
                             (varname.ident.into(), varname.range),
-                            initial_value_qualified_ty.init_variable_qual(init_kind),
+                            initial_value_qualified_ty.init_variable_qualified_ty(init_kind),
                         ))
                 }
             }
@@ -223,14 +223,25 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match raw_expr.variant {
             RawExprVariant::Variable {
                 varname,
-                init_range: init_row,
+                init_range,
             } => match derived_not_none!(self
                 .qualified_ty_sheet
                 .eager_variable_qualified_tys
-                .get_entry((varname.into(), init_row)))?
+                .get_entry((varname.into(), init_range)))?
             .1
             {
-                Ok(qt) => Ok(qt),
+                Ok(variable_qt) => {
+                    let variable_contract = self.eager_expr_contract(raw_expr_idx)?;
+                    p!(
+                        self.entity_route_sheet.ast_text.file,
+                        arena[raw_expr_idx].range
+                    );
+                    p!(variable_qt);
+                    Ok(EagerQualifiedTy {
+                        qual: variable_qt.qual.variable_use(variable_contract)?,
+                        ty: variable_qt.ty,
+                    })
+                }
                 Err(ref e) => Err(e.derived()),
             },
             RawExprVariant::FrameVariable { .. } => Ok(EagerQualifiedTy::new(
