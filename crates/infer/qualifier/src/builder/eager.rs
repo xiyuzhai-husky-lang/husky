@@ -232,11 +232,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             {
                 Ok(variable_qt) => {
                     let variable_contract = self.eager_expr_contract(raw_expr_idx)?;
-                    p!(
-                        self.entity_route_sheet.ast_text.file,
-                        arena[raw_expr_idx].range
-                    );
-                    p!(variable_qt);
                     Ok(EagerQualifiedTy {
                         qual: variable_qt.qual.variable_use(variable_contract)?,
                         ty: variable_qt.ty,

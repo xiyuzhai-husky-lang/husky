@@ -108,6 +108,31 @@ impl LazyQualifier {
             LazyQualifier::GlobalRef => Binding::Ref,
         }
     }
+
+    pub fn variable_use(self, contract: LazyContract) -> InferResult<Self> {
+        Ok(match self {
+            LazyQualifier::Copyable => match contract {
+                LazyContract::Init => todo!(),
+                LazyContract::Return => LazyQualifier::Copyable,
+                LazyContract::UseMemberForInit => todo!(),
+                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Pure => LazyQualifier::Copyable,
+                LazyContract::Move => todo!(),
+            },
+            LazyQualifier::PureRef => todo!(),
+            LazyQualifier::GlobalRef => match contract {
+                LazyContract::Init => todo!(),
+                LazyContract::Return => todo!(),
+                LazyContract::UseMemberForInit => LazyQualifier::GlobalRef,
+                LazyContract::UseMemberForReturn => LazyQualifier::GlobalRef,
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Pure => LazyQualifier::PureRef,
+                LazyContract::Move => todo!(),
+            },
+            LazyQualifier::Transient => todo!(),
+        })
+    }
 }
 
 impl LazyQualifier {
