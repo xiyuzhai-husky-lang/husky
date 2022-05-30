@@ -1,7 +1,8 @@
 use std::ops::AddAssign;
 
 use ast::{
-    Ast, AstContext, AstKind, AstResult, RawExpr, RawExprVariant, RawStmtVariant, StructItemContext,
+    Ast, AstContext, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
+    StructItemContext,
 };
 use defn_head::InputParameter;
 use entity_kind::TyKind;
@@ -80,7 +81,7 @@ impl<'a> Formatter<'a> {
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &ast::Ast, enter_block: impl FnOnce(&mut Self)) {
         match ast.variant {
-            AstKind::TypeDefnHead {
+            AstVariant::TypeDefnHead {
                 ident,
                 ref kind,
                 generic_parameters: ref generics,
@@ -104,12 +105,12 @@ impl<'a> Formatter<'a> {
                     todo!()
                 }
             }
-            AstKind::MainDefn => {
+            AstVariant::MainDefn => {
                 enter_block(self);
                 self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
                 self.write("main:")
             }
-            AstKind::CallFormDefnHead(ref head) => {
+            AstVariant::CallFormDefnHead(ref head) => {
                 enter_block(self);
                 self.context.set((head.paradigm).into());
                 self.write(match head.paradigm {
@@ -135,28 +136,33 @@ impl<'a> Formatter<'a> {
                 }
                 self.write(":");
             }
-            AstKind::PatternDefnHead => todo!(),
-            AstKind::FieldDefnHead { ref head, opt_expr } => {
-                match head.liason {
+            AstVariant::PatternDefnHead => todo!(),
+            AstVariant::FieldDefnHead {
+                liason,
+                ranged_ident,
+                ty,
+                field_kind,
+            } => {
+                match liason {
                     MemberLiason::Immutable => (),
                     MemberLiason::Mutable => todo!(),
                     MemberLiason::Derived => todo!(),
                 }
-                self.fmt_ident(head.ranged_ident.ident.into());
+                self.fmt_ident(ranged_ident.ident.into());
                 self.write(": ");
-                self.fmt_ty(head.ty.route)
+                self.fmt_ty(ty.route)
             }
-            AstKind::Stmt(ref stmt) => self.fmt_stmt(stmt),
-            AstKind::DatasetConfigDefnHead => todo!(),
-            AstKind::EnumVariantDefnHead {
+            AstVariant::Stmt(ref stmt) => self.fmt_stmt(stmt),
+            AstVariant::DatasetConfigDefnHead => todo!(),
+            AstVariant::EnumVariantDefnHead {
                 ident,
                 variant_class: ref variant_kind,
             } => todo!(),
-            AstKind::FeatureDecl { .. } => todo!(),
-            AstKind::Use { ref use_variant } => todo!(),
-            AstKind::Submodule { ident, source_file } => todo!(),
-            AstKind::CallFormDefnHead(_) => todo!(),
-            AstKind::Visual => todo!(),
+            AstVariant::FeatureDecl { .. } => todo!(),
+            AstVariant::Use { ref use_variant } => todo!(),
+            AstVariant::Submodule { ident, source_file } => todo!(),
+            AstVariant::CallFormDefnHead(_) => todo!(),
+            AstVariant::Visual => todo!(),
         }
     }
 

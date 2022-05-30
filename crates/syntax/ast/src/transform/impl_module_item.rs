@@ -8,7 +8,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         let keyword = if let TokenKind::Keyword(keyword) = token_group[0].kind {
             self.abs_semantic_tokens.push(AbsSemanticToken::new(
                 SemanticTokenKind::Keyword,
@@ -50,21 +50,21 @@ impl<'a> AstTransformer<'a> {
                         self.context
                             .set(AstContext::Stmt(Paradigm::EagerFunctional));
                         self.use_all(RootIdentifier::Datasets.into(), token_group[0].text_range())?;
-                        AstKind::DatasetConfigDefnHead
+                        AstVariant::DatasetConfigDefnHead
                     }
                 })
             }
             Keyword::Main => {
                 enter_block(self);
                 self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
-                Ok(AstKind::MainDefn)
+                Ok(AstVariant::MainDefn)
             }
             Keyword::Visual => todo!(),
             Keyword::Liason(_) => todo!(),
         }
     }
 
-    fn parse_submodule(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    fn parse_submodule(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
         if token_group.len() < 2 {
             return err!(format!("expect mod <identifier>"), token_group.text_range());
         }
@@ -76,7 +76,7 @@ impl<'a> AstTransformer<'a> {
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Module)
         );
-        Ok(AstKind::Submodule {
+        Ok(AstVariant::Submodule {
             ident,
             source_file: derived_not_none!(self.db.get_submodule_file(&self.file, ident.ident))?,
         })

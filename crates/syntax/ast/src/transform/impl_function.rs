@@ -9,7 +9,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         paradigm: Paradigm,
         token_group: &[Token],
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         let tokens = trim_colon!(token_group; keyword, colon);
         let head = match paradigm {
             Paradigm::EagerProcedural => {
@@ -33,6 +33,6 @@ impl<'a> AstTransformer<'a> {
                 .iter()
                 .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
-        Ok(AstKind::CallFormDefnHead(head))
+        Ok(AstVariant::CallFormDefnHead(head))
     }
 }

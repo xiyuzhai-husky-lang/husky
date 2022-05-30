@@ -3,8 +3,7 @@ mod lazy;
 
 use std::sync::Arc;
 
-use ast::{AstIter, AstKind};
-use defn_head::FieldKind;
+use ast::{AstIter, AstVariant, FieldKind};
 use entity_route::EntityRouteKind;
 use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
@@ -55,21 +54,22 @@ impl<'a> ContractSheetBuilder<'a> {
             if let Some(children) = item.opt_children {
                 match item.value {
                     Ok(value) => match value.variant {
-                        AstKind::TypeDefnHead { .. } | AstKind::EnumVariantDefnHead { .. } => {
-                            self.infer_all(children)
-                        }
-                        AstKind::MainDefn => self.infer_lazy_stmts(children, &arena),
-                        AstKind::DatasetConfigDefnHead => self.infer_eager_stmts(children, &arena),
-                        AstKind::CallFormDefnHead(ref head) => {
+                        AstVariant::TypeDefnHead { .. }
+                        | AstVariant::EnumVariantDefnHead { .. } => self.infer_all(children),
+                        AstVariant::MainDefn => self.infer_lazy_stmts(children, &arena),
+                        AstVariant::DatasetConfigDefnHead => {
                             self.infer_eager_stmts(children, &arena)
                         }
-                        AstKind::CallFormDefnHead(ref head) => {
+                        AstVariant::CallFormDefnHead(ref head) => {
                             self.infer_eager_stmts(children, &arena)
                         }
-                        AstKind::Visual => self.infer_eager_stmts(children, &arena),
-                        AstKind::PatternDefnHead => todo!(),
-                        AstKind::Use { .. } => (),
-                        AstKind::FieldDefnHead { ref head, .. } => match head.field_kind {
+                        AstVariant::CallFormDefnHead(ref head) => {
+                            self.infer_eager_stmts(children, &arena)
+                        }
+                        AstVariant::Visual => self.infer_eager_stmts(children, &arena),
+                        AstVariant::PatternDefnHead => todo!(),
+                        AstVariant::Use { .. } => (),
+                        AstVariant::FieldDefnHead { field_kind, .. } => match field_kind {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
                             FieldKind::StructDerivedLazy {
@@ -80,16 +80,18 @@ impl<'a> ContractSheetBuilder<'a> {
                             }
                             | FieldKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
                             _ => {
-                                p!(head.field_kind);
+                                p!(field_kind);
                                 todo!()
                             }
                         },
-                        AstKind::Stmt(_) => todo!(),
-                        AstKind::CallFormDefnHead(ref head) => {
+                        AstVariant::Stmt(_) => todo!(),
+                        AstVariant::CallFormDefnHead(ref head) => {
                             self.infer_eager_stmts(children, &arena)
                         }
-                        AstKind::FeatureDecl { ty, .. } => self.infer_lazy_stmts(children, &arena),
-                        AstKind::Submodule { ident, source_file } => (),
+                        AstVariant::FeatureDecl { ty, .. } => {
+                            self.infer_lazy_stmts(children, &arena)
+                        }
+                        AstVariant::Submodule { ident, source_file } => (),
                     },
                     _ => (),
                 }

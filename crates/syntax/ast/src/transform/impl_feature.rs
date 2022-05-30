@@ -13,7 +13,7 @@ impl<'a> AstTransformer<'a> {
     //     }
     // }
 
-    fn parse_feature_defn_head(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    fn parse_feature_defn_head(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
         let ident = identify_token!(
             self,
             token_group[1],
@@ -21,6 +21,6 @@ impl<'a> AstTransformer<'a> {
         );
         let ty = atom::parse_route(self, &token_group[3..])?;
         self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
-        Ok(AstKind::FeatureDecl { ident, ty })
+        Ok(AstVariant::FeatureDecl { ident, ty })
     }
 }

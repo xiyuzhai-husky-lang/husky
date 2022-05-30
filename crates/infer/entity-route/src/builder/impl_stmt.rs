@@ -16,7 +16,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         for item in ast_iter {
             if let Ok(ref value) = item.value {
                 match value.variant {
-                    AstKind::Stmt(ref stmt) => match stmt.variant {
+                    AstVariant::Stmt(ref stmt) => match stmt.variant {
                         RawStmtVariant::Match { match_expr, .. } => {
                             let opt_match_expr_ty = self.infer_expr(match_expr, None, arena);
                             if let Some(children) = item.opt_children {
@@ -155,7 +155,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         for item in branch_ast_iter {
             if let Ok(ref ast) = item.value.as_ref() {
                 match ast.variant {
-                    AstKind::Stmt(RawStmt {
+                    AstVariant::Stmt(RawStmt {
                         variant:
                             RawStmtVariant::PatternBranch {
                                 pattern_branch_variant:
@@ -178,7 +178,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             }
                         }
                     }
-                    AstKind::Stmt(RawStmt {
+                    AstVariant::Stmt(RawStmt {
                         variant:
                             RawStmtVariant::PatternBranch {
                                 pattern_branch_variant: RawPatternBranchVariant::Default,

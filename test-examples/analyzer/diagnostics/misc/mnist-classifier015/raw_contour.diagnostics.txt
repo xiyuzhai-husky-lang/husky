@@ -10,17 +10,17 @@
 35:13..35:20	Ast Error: can't put case outside a match context
 37:13..37:24	Ast Error: can't put case outside a match context
 39:13..39:20	Ast Error: can't put case outside a match context
-42:13..42:19	Ast Error: keyword should be put at start
+42:13..42:18	Ast Error: keyword should be put at start
 51:9..51:16	Ast Error: can't put case outside a match context
 52:9..52:16	Ast Error: can't put case outside a match context
 53:9..53:16	Ast Error: can't put case outside a match context
 55:9..55:16	Ast Error: can't put case outside a match context
 67:9..67:16	Ast Error: can't put case outside a match context
-69:17..69:22	Ast Error: keyword should be put at start
+69:17..69:21	Ast Error: keyword should be put at start
 70:21..70:36	Ast Error: expect case stmt
 76:9..76:16	Ast Error: can't put case outside a match context
 92:9..92:16	Ast Error: can't put case outside a match context
-100:25..100:30	Ast Error: keyword should be put at start
+100:25..100:29	Ast Error: keyword should be put at start
 101:29..101:42	Ast Error: expect case stmt
 106:9..106:16	Ast Error: can't put case outside a match context
 24:11..24:27	Infer Error: Unrecognized identifier `pixel_pair_above`

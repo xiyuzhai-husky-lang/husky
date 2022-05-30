@@ -180,7 +180,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn ranged_ty(&mut self) -> AtomResult<Option<RangedEntityRoute>> {
-        let text_start = self.token_stream.text_position();
+        let text_start = self.token_stream.text_start();
         Ok(
             if let Some(AtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
                 if let EntityKind::Type(_) = kind {

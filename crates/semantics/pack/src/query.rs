@@ -1,5 +1,5 @@
 use crate::*;
-use ast::{AstKind, AstText};
+use ast::{AstText, AstVariant};
 use entity_route::EntityRouteKind;
 use file::FilePtr;
 use fold::FoldableStorage;
@@ -49,9 +49,8 @@ fn dataset_config_from_ast_text(
 ) -> SemanticResult<DatasetConfig> {
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
-            AstKind::DatasetConfigDefnHead => {
+            AstVariant::DatasetConfigDefnHead => {
                 return Ok(DatasetConfig::new(parse_func_stmts(
-                    &[],
                     this.upcast(),
                     &ast_text.arena,
                     not_none!(item.opt_children),

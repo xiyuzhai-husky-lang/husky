@@ -78,8 +78,8 @@ impl<'a> LazyStmtParser<'a> {
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             match item.value.as_ref()?.variant {
-                AstKind::Use { .. } => todo!(),
-                AstKind::Stmt(ref stmt) => {
+                AstVariant::Use { .. } => todo!(),
+                AstVariant::Stmt(ref stmt) => {
                     let variant = match stmt.variant {
                         RawStmtVariant::Loop(_) => panic!(),
                         RawStmtVariant::ConditionBranch {
@@ -153,14 +153,14 @@ impl<'a> LazyStmtParser<'a> {
         }
         while let Some(item) = iter.peek() {
             let item = match item.value.as_ref()?.variant {
-                AstKind::Stmt(RawStmt {
+                AstVariant::Stmt(RawStmt {
                     variant: RawStmtVariant::ConditionBranch { .. },
                     ..
                 }) => iter.next().unwrap(),
                 _ => break,
             };
             match item.value.as_ref()?.variant {
-                AstKind::Stmt(RawStmt {
+                AstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
                             ref condition_branch_kind,

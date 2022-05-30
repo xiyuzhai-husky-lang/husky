@@ -18,7 +18,7 @@ impl<'a> ContractSheetBuilder<'a> {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
-                    AstKind::Stmt(ref stmt) => self.infer_eager_stmt(stmt, arena),
+                    AstVariant::Stmt(ref stmt) => self.infer_eager_stmt(stmt, arena),
                     _ => (),
                 }
             }

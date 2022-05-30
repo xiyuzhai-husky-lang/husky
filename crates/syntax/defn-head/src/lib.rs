@@ -20,24 +20,6 @@ pub struct CallableDefnHead {
     pub opt_this_contract: Option<InputLiason>,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FieldDefnHead {
-    pub liason: MemberLiason,
-    pub ranged_ident: RangedCustomIdentifier,
-    pub ty: RangedEntityRoute,
-    pub field_kind: FieldKind,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldKind {
-    StructOriginal,
-    StructDefault,
-    StructDerivedEager,
-    StructDerivedLazy { paradigm: Paradigm },
-    RecordOriginal,
-    RecordDerived,
-}
-
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputParameter {
     pub ranged_ident: RangedCustomIdentifier,

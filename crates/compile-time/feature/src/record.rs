@@ -48,7 +48,7 @@ pub(crate) fn expr_record_field(
                             EntityDefnVariant::TypeField {
                                 ty,
                                 field_variant: ref field_variant,
-                                contract,
+                                liason: contract,
                             } => match field_variant {
                                 FieldDefnVariant::StructOriginal => panic!(),
                                 FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),

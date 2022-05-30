@@ -16,7 +16,7 @@ impl<'a> AstTransformer<'a> {
         token_group: &[Token],
         struct_item_context: StructItemContext,
         enter_block: impl FnOnce(&mut Self),
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => {
                 self.abs_semantic_tokens.push(AbsSemanticToken::new(
@@ -86,7 +86,7 @@ impl<'a> AstTransformer<'a> {
         token_group: &[Token],
         struct_item_context: StructItemContext,
         enter_block: impl FnOnce(&mut Self),
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         let context_update_result = self.update_struct_item_context(
             struct_item_context,
             StructItemContext::Visual,
@@ -98,6 +98,6 @@ impl<'a> AstTransformer<'a> {
         self.context.set(AstContext::Visual);
         self.opt_this_liason.set(Some(InputLiason::Pure));
         context_update_result?;
-        Ok(AstKind::Visual)
+        Ok(AstVariant::Visual)
     }
 }

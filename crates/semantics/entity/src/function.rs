@@ -24,8 +24,7 @@ impl EntityDefnVariant {
                 }
             }
             Paradigm::EagerFunctional => {
-                let stmts =
-                    parse_func_stmts(&routine_defn_head.parameters, db, arena, children, file)?;
+                let stmts = parse_func_stmts(db, arena, children, file)?;
                 EntityDefnVariant::Func {
                     generic_parameters: routine_defn_head.generic_parameters.clone(),
                     parameters: routine_defn_head.parameters.clone(),

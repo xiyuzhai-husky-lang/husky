@@ -6,7 +6,7 @@ pub use condition_branch::*;
 pub use pattern_branch::*;
 use text::TextPosition;
 
-use super::parser::EagerStmtParser;
+use super::parser::EagerParser;
 use super::*;
 use crate::*;
 use file::FilePtr;
@@ -90,11 +90,10 @@ pub enum FuncStmtVariant {
 }
 
 pub fn parse_func_stmts(
-    parameters: &[InputParameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: AstIter,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
-    EagerStmtParser::new(parameters, db, arena, file).parse_func_stmts(iter)
+    EagerParser::new(db, arena, file).parse_func_stmts(iter)
 }

@@ -7,7 +7,7 @@
     img         11:32..11:35  PureRef      datasets::cv::mnist::BinaryImage28
     result      12:9..12:15  OwnedMut     Vec<datasets::cv::mnist::BinaryImage28>
     unsearched  13:9..13:19  OwnedMut     datasets::cv::mnist::BinaryImage28
-    j           14:9..14:11  Copyable     i32
+    j           14:9..14:10  Copyable     i32
     a           16:17..16:18  Copyable     b32
     shift       17:17..17:22  Copyable     i32
     mask        18:17..18:21  OwnedMut     datasets::cv::mnist::BinaryImage28
@@ -17,59 +17,59 @@
     new_row     26:25..26:32  Copyable     b32
     old_row     33:25..33:32  Copyable     b32
     new_row     34:25..34:32  Copyable     b32
-    k           38:22..38:24  Copyable     i32
+    k           38:22..38:23  Copyable     i32
 
 [35mlazy expr qualified types
 [0m
 [35meager expr qualified types
-[0m    4:23..4:25     x                      Copyable     b32
+[0m    4:23..4:24     x                      Copyable     b32
     4:28..4:29     1                      Copyable     i32
     4:23..4:29     x << 1                 Copyable     b32
-    4:18..4:20     x                      Copyable     b32
-    4:23..4:31     x << 1)                Copyable     b32
-    4:34..4:36     x                      Copyable     b32
+    4:18..4:19     x                      Copyable     b32
+    4:23..4:30     x << 1)                Copyable     b32
+    4:34..4:35     x                      Copyable     b32
     4:39..4:40     1                      Copyable     i32
     4:34..4:40     x >> 1                 Copyable     b32
-    4:18..4:31     x | (x << 1)           Copyable     b32
+    4:18..4:30     x | (x << 1)           Copyable     b32
     4:34..4:41     x >> 1)                Copyable     b32
     4:18..4:41     x | (x << 1) | (x >> 1)   Copyable     b32
-    4:13..4:15     a                      Copyable     b32
+    4:13..4:14     a                      Copyable     b32
     4:18..4:42     x | (x << 1) | (x >> 1))   Copyable     b32
     4:13..4:42     a & (x | (x << 1) | (x >> 1))   Copyable     b32
-    5:23..5:25     y                      Copyable     b32
+    5:23..5:24     y                      Copyable     b32
     5:28..5:29     1                      Copyable     i32
     5:23..5:29     y << 1                 Copyable     b32
-    5:18..5:20     y                      Copyable     b32
-    5:23..5:31     y << 1)                Copyable     b32
-    5:34..5:36     y                      Copyable     b32
+    5:18..5:19     y                      Copyable     b32
+    5:23..5:30     y << 1)                Copyable     b32
+    5:34..5:35     y                      Copyable     b32
     5:39..5:40     1                      Copyable     i32
     5:34..5:40     y >> 1                 Copyable     b32
-    5:18..5:31     y | (y << 1)           Copyable     b32
+    5:18..5:30     y | (y << 1)           Copyable     b32
     5:34..5:41     y >> 1)                Copyable     b32
     5:18..5:41     y | (y << 1) | (y >> 1)   Copyable     b32
-    5:13..5:15     a                      Copyable     b32
+    5:13..5:14     a                      Copyable     b32
     5:18..5:42     y | (y << 1) | (y >> 1))   Copyable     b32
     5:13..5:42     a & (y | (y << 1) | (y >> 1))   Copyable     b32
-    6:11..6:13     z                      Copyable     b32
+    6:11..6:12     z                      Copyable     b32
     6:16..6:17     y                      Copyable     b32
     6:11..6:17     z != y                 Copyable     bool
-    7:9..7:11      y                      RefMut       b32
+    7:9..7:10      y                      RefMut       b32
     7:13..7:14     z                      Copyable     b32
     7:9..7:14      y = z                  Copyable     void
-    8:23..8:25     y                      Copyable     b32
+    8:23..8:24     y                      Copyable     b32
     8:28..8:29     1                      Copyable     i32
     8:23..8:29     y << 1                 Copyable     b32
-    8:18..8:20     y                      Copyable     b32
-    8:23..8:31     y << 1)                Copyable     b32
-    8:34..8:36     y                      Copyable     b32
+    8:18..8:19     y                      Copyable     b32
+    8:23..8:30     y << 1)                Copyable     b32
+    8:34..8:35     y                      Copyable     b32
     8:39..8:40     1                      Copyable     i32
     8:34..8:40     y >> 1                 Copyable     b32
-    8:18..8:31     y | (y << 1)           Copyable     b32
+    8:18..8:30     y | (y << 1)           Copyable     b32
     8:34..8:41     y >> 1)                Copyable     b32
     8:18..8:41     y | (y << 1) | (y >> 1)   Copyable     b32
-    8:13..8:15     a                      Copyable     b32
+    8:13..8:14     a                      Copyable     b32
     8:18..8:42     y | (y << 1) | (y >> 1))   Copyable     b32
-    8:9..8:11      z                      RefMut       b32
+    8:9..8:10      z                      RefMut       b32
     8:13..8:42     a & (y | (y << 1) | (y >> 1))   Copyable     b32
     8:9..8:42      z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     9:12..9:13     y                      Copyable     b32
@@ -92,25 +92,25 @@
     19:52..19:57   shift                  Copyable     i32
     19:41..19:42   a                      Copyable     b32
     19:44..19:57   1b32 << shift          Copyable     b32
-    19:13..19:21   mask[j]                CopyableMut  b32
+    19:13..19:20   mask[j]                CopyableMut  b32
     19:23..19:58   horizontal_extend(a, 1b32 << shift)   Copyable     b32
     19:13..19:58   mask[j] = horizontal_extend(a, 1b32 << shift)   Copyable     void
     20:24..20:29   false                  Copyable     bool
     21:20..21:24   flag                   Copyable     bool
     21:20..21:24   flag                   Copyable     bool
-    22:17..22:22   flag                   RefMut       bool
+    22:17..22:21   flag                   RefMut       bool
     22:24..22:28   true                   Copyable     bool
     22:17..22:28   flag = true            Copyable     void
     23:25..23:26   j                      Copyable     i32
     24:28..24:30   30                     Copyable     i32
     24:33..24:34   1                      Copyable     i32
     24:28..24:34   30 - 1                 Copyable     i32
-    25:40..25:42   i                      Copyable     i32
+    25:40..25:41   i                      Copyable     i32
     25:44..25:45   1                      Copyable     i32
     25:35..25:39   mask                   LocalRef     datasets::cv::mnist::BinaryImage28
     25:40..25:45   i + 1                  Copyable     i32
     25:35..25:46   mask[i + 1]            Copyable     b32
-    26:67..26:69   i                      Copyable     i32
+    26:67..26:68   i                      Copyable     i32
     26:71..26:72   1                      Copyable     i32
     26:63..26:66   img                    PureRef      datasets::cv::mnist::BinaryImage28
     26:67..26:72   i + 1                  Copyable     i32
@@ -118,22 +118,22 @@
     26:80..26:81   i                      Copyable     i32
     26:63..26:73   img[i + 1]             Copyable     b32
     26:75..26:82   mask[i]                Copyable     b32
-    26:35..26:43   old_row                Copyable     b32
+    26:35..26:42   old_row                Copyable     b32
     26:45..26:83   horizontal_extend(img[i + 1], mask[i])   Copyable     b32
     26:35..26:83   old_row | horizontal_extend(img[i + 1], mask[i])   Copyable     b32
     27:25..27:32   new_row                Copyable     b32
     27:25..27:32   new_row                Copyable     bool
-    29:24..29:32   old_row                Copyable     b32
+    29:24..29:31   old_row                Copyable     b32
     29:35..29:42   new_row                Copyable     b32
     29:24..29:42   old_row != new_row     Copyable     bool
-    30:25..30:30   flag                   RefMut       bool
+    30:25..30:29   flag                   RefMut       bool
     30:32..30:37   false                  Copyable     bool
     30:25..30:37   flag = false           Copyable     void
-    31:30..31:32   i                      Copyable     i32
+    31:30..31:31   i                      Copyable     i32
     31:34..31:35   1                      Copyable     i32
     31:25..31:29   mask                   RefMut       datasets::cv::mnist::BinaryImage28
     31:30..31:35   i + 1                  Copyable     i32
-    31:25..31:37   mask[i + 1]            CopyableMut  b32
+    31:25..31:36   mask[i + 1]            CopyableMut  b32
     31:39..31:46   new_row                Copyable     b32
     31:25..31:46   mask[i + 1] = new_row   Copyable     void
     32:29..32:30   j                      Copyable     i32
@@ -142,27 +142,27 @@
     33:35..33:42   mask[i]                Copyable     b32
     34:63..34:66   img                    PureRef      datasets::cv::mnist::BinaryImage28
     34:67..34:68   i                      Copyable     i32
-    34:76..34:78   i                      Copyable     i32
+    34:76..34:77   i                      Copyable     i32
     34:80..34:81   1                      Copyable     i32
     34:71..34:75   mask                   PureRef      datasets::cv::mnist::BinaryImage28
     34:76..34:81   i + 1                  Copyable     i32
     34:63..34:69   img[i]                 Copyable     b32
     34:71..34:82   mask[i + 1]            Copyable     b32
-    34:35..34:43   old_row                Copyable     b32
+    34:35..34:42   old_row                Copyable     b32
     34:45..34:83   horizontal_extend(img[i], mask[i + 1])   Copyable     b32
     34:35..34:83   old_row | horizontal_extend(img[i], mask[i + 1])   Copyable     b32
-    35:24..35:32   old_row                Copyable     b32
+    35:24..35:31   old_row                Copyable     b32
     35:35..35:42   new_row                Copyable     b32
     35:24..35:42   old_row != new_row     Copyable     bool
-    36:25..36:30   flag                   RefMut       bool
+    36:25..36:29   flag                   RefMut       bool
     36:32..36:37   false                  Copyable     bool
     36:25..36:37   flag = false           Copyable     void
     37:25..37:29   mask                   RefMut       datasets::cv::mnist::BinaryImage28
     37:30..37:31   i                      Copyable     i32
-    37:25..37:33   mask[i]                CopyableMut  b32
+    37:25..37:32   mask[i]                CopyableMut  b32
     37:35..37:42   new_row                Copyable     b32
     37:25..37:42   mask[i] = new_row      Copyable     void
-    38:17..38:19   j                      Copyable     i32
+    38:17..38:18   j                      Copyable     i32
     38:26..38:28   30                     Copyable     i32
     39:17..39:27   unsearched             RefMut       datasets::cv::mnist::BinaryImage28
     39:28..39:29   k                      Copyable     i32
@@ -170,7 +170,7 @@
     39:41..39:42   k                      Copyable     i32
     39:36..39:43   mask[k]                Copyable     b32
     39:35..39:43   ~mask[k]               Copyable     b32
-    39:17..39:31   unsearched[k]          CopyableMut  b32
+    39:17..39:30   unsearched[k]          CopyableMut  b32
     39:35..39:44   ~mask[k])              Copyable     b32
     39:17..39:44   unsearched[k] &= (~mask[k])   Copyable     void
     40:13..40:19   result                 RefMut       Vec<datasets::cv::mnist::BinaryImage28>

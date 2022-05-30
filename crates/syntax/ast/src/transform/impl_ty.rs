@@ -9,7 +9,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         ty_kw: TyKeyword,
         tokens: &[Token],
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         match ty_kw {
             TyKeyword::Struct => self.parse_struct(tokens),
             TyKeyword::Props => todo!(),
@@ -19,7 +19,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn parse_struct(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
+    fn parse_struct(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {
         if tokens.len() >= 2 {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
@@ -37,7 +37,7 @@ impl<'a> AstTransformer<'a> {
             .set(AstContext::Struct(StructItemContext::OriginalField));
         expect_head!(tokens);
         emsg_once!("struct generic placeholders");
-        Ok(AstKind::TypeDefnHead {
+        Ok(AstVariant::TypeDefnHead {
             ident: identify_token!(
                 self,
                 tokens[1],
@@ -48,7 +48,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_record(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
+    fn parse_record(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {
         if tokens.len() >= 2 {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
@@ -66,7 +66,7 @@ impl<'a> AstTransformer<'a> {
         expect_len!(tokens, 3);
         expect_head!(tokens);
         emsg_once!("record generic placeholders");
-        Ok(AstKind::TypeDefnHead {
+        Ok(AstVariant::TypeDefnHead {
             ident: identify_token!(
                 self,
                 tokens[1],
@@ -77,7 +77,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_enum(&mut self, tokens: &[Token]) -> AstResult<AstKind> {
+    fn parse_enum(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {
         expect_len!(tokens, 3);
         expect_head!(tokens);
         emsg_once!("record generic placeholders");
@@ -90,7 +90,7 @@ impl<'a> AstTransformer<'a> {
         self.context.set(AstContext::Enum(this_ty));
         self.opt_this_ty.set(Some(this_ty));
         self.opt_this_liason.set(None);
-        Ok(AstKind::TypeDefnHead {
+        Ok(AstVariant::TypeDefnHead {
             ident,
             kind: TyKind::Enum,
             generic_parameters: Default::default(),

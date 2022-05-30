@@ -151,7 +151,7 @@ fn derive_is_clonable(
             for ty_member in ty_members {
                 match ty_member {
                     TyMemberDecl::Field(field) => {
-                        if field.kind == FieldKind::StructOriginal {
+                        if field.field_kind == FieldKind::StructOriginal {
                             if !db.is_copyable(field.ty)? && !db.is_clonable(field.ty)? {
                                 p!(field.ty, db.is_copyable(field.ty), db.is_clonable(field.ty));
                                 let ty_decl = db.ty_decl(field.ty).unwrap();

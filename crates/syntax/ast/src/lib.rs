@@ -1,6 +1,7 @@
 mod context;
 mod error;
 mod expr;
+mod field;
 mod query;
 mod stmt;
 mod transform;
@@ -11,7 +12,7 @@ use std::sync::Arc;
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::*;
 pub use expr::*;
-use file::FilePtr;
+pub use field::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::*;
 pub use transform::*;
@@ -24,19 +25,20 @@ use dev_utils::*;
 use entity_kind::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use error::*;
+use file::FilePtr;
 use print_utils::*;
 use text::*;
-use vm::InitKind;
+use vm::{InitKind, MemberLiason};
 use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
-    pub variant: AstKind,
+    pub variant: AstVariant,
     pub range: TextRange,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum AstKind {
+pub enum AstVariant {
     TypeDefnHead {
         ident: RangedCustomIdentifier,
         kind: TyKind,
@@ -50,8 +52,10 @@ pub enum AstKind {
         ty: RangedEntityRoute,
     },
     FieldDefnHead {
-        head: FieldDefnHead,
-        opt_expr: Option<RawExprIdx>,
+        liason: MemberLiason,
+        ranged_ident: RangedCustomIdentifier,
+        ty: RangedEntityRoute,
+        field_kind: FieldKind,
     },
     DatasetConfigDefnHead,
     Stmt(RawStmt),
@@ -79,13 +83,13 @@ impl From<RawStmt> for Ast {
     fn from(stmt: RawStmt) -> Self {
         Self {
             range: stmt.range,
-            variant: AstKind::Stmt(stmt),
+            variant: AstVariant::Stmt(stmt),
         }
     }
 }
 
-impl From<RawStmt> for AstKind {
+impl From<RawStmt> for AstVariant {
     fn from(stmt: RawStmt) -> Self {
-        AstKind::Stmt(stmt)
+        AstVariant::Stmt(stmt)
     }
 }

@@ -8,7 +8,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => match keyword {
                 Keyword::Config(_) => todo!(),
@@ -34,7 +34,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn parse_record_original_field(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    fn parse_record_original_field(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
         if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
             if token_group.len() == 2 {
                 todo!()
@@ -42,14 +42,11 @@ impl<'a> AstTransformer<'a> {
             let ident = identify_token!(self, &token_group[0], SemanticTokenKind::Field);
             let ty = atom::parse_route(self, &token_group[2..])?;
             emsg_once!("field contract");
-            Ok(AstKind::FieldDefnHead {
-                head: FieldDefnHead {
-                    ranged_ident: ident,
-                    liason: MemberLiason::Immutable,
-                    ty,
-                    field_kind: FieldKind::RecordOriginal,
-                },
-                opt_expr: todo!(),
+            Ok(AstVariant::FieldDefnHead {
+                ranged_ident: ident,
+                liason: MemberLiason::Immutable,
+                ty,
+                field_kind: FieldKind::RecordOriginal,
             })
         } else {
             p!(token_group);
@@ -61,21 +58,18 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         enter_block(self);
         self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
         self.opt_this_liason.set(Some(InputLiason::Pure));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         emsg_once!("field contract");
         let ty = atom::parse_route(self, &token_group[3..])?;
-        Ok(AstKind::FieldDefnHead {
-            head: FieldDefnHead {
-                ranged_ident: ident,
-                ty,
-                field_kind: FieldKind::RecordDerived,
-                liason: MemberLiason::Immutable,
-            },
-            opt_expr: todo!(),
+        Ok(AstVariant::FieldDefnHead {
+            ranged_ident: ident,
+            ty,
+            field_kind: FieldKind::RecordDerived,
+            liason: MemberLiason::Immutable,
         })
     }
 }

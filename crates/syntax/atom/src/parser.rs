@@ -42,13 +42,13 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn parse_all(mut self) -> AtomResult<Vec<Atom>> {
         loop {
             if self.stack.is_concave() {
-                let text_start = self.token_stream.text_position();
+                let text_start = self.token_stream.text_start();
                 if let Some(kind) = try_get!(self, symbol?) {
                     self.push(kind, text_start)?;
                 }
             }
 
-            let text_start = self.token_stream.text_position();
+            let text_start = self.token_stream.text_start();
             if let Some(token) = self.token_stream.next() {
                 match token.kind {
                     TokenKind::Keyword(keyword) => err!(

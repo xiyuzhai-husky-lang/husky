@@ -135,7 +135,7 @@ impl TyDecl {
                 let mut keyword_parameters = IdentDict::default();
                 for ty_member in ty_members.iter() {
                     match ty_member {
-                        TyMemberDecl::Field(ref field_decl) => match field_decl.kind {
+                        TyMemberDecl::Field(ref field_decl) => match field_decl.field_kind {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
                                 primary_parameters.insert(InputDecl {
                                     liason: field_decl
@@ -145,14 +145,16 @@ impl TyDecl {
                                     ident: field_decl.ident,
                                 })
                             }
-                            FieldKind::StructDefault => keyword_parameters.insert(InputDecl {
-                                liason: field_decl
-                                    .liason
-                                    .constructor_input_liason(db.is_copyable(field_decl.ty)?),
-                                ty: field_decl.ty,
-                                ident: field_decl.ident,
-                            }),
-                            FieldKind::StructDerivedEager => break,
+                            FieldKind::StructDefault { .. } => {
+                                keyword_parameters.insert(InputDecl {
+                                    liason: field_decl
+                                        .liason
+                                        .constructor_input_liason(db.is_copyable(field_decl.ty)?),
+                                    ty: field_decl.ty,
+                                    ident: field_decl.ident,
+                                })
+                            }
+                            FieldKind::StructDerivedEager { .. } => break,
                             FieldKind::StructDerivedLazy { paradigm } => break,
                             FieldKind::RecordDerived => break,
                         },
@@ -193,7 +195,7 @@ impl TyDecl {
         let mut variants = VecMap::default();
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.variant {
-                AstKind::EnumVariantDefnHead {
+                AstVariant::EnumVariantDefnHead {
                     ident,
                     variant_class: ref raw_variant_kind,
                 } => {
@@ -216,14 +218,15 @@ impl TyDecl {
         members: &mut IdentDict<TyMemberDecl>,
     ) -> InferQueryResult<()> {
         while let Some(child) = children.peek() {
-            match child.value.as_ref()?.variant {
-                AstKind::FieldDefnHead { ref head, .. } => {
-                    match head.field_kind {
+            let ast = child.value.as_ref()?;
+            match ast.variant {
+                AstVariant::FieldDefnHead { field_kind, .. } => {
+                    match field_kind {
                         FieldKind::StructOriginal | FieldKind::RecordOriginal => (),
                         _ => break,
                     }
                     children.next();
-                    members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(head)))
+                    members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
                 }
                 _ => break,
             }
@@ -238,8 +241,9 @@ impl TyDecl {
         members: &mut IdentDict<TyMemberDecl>,
     ) -> InferQueryResult<()> {
         while let Some(child) = children.peek() {
-            match child.value.as_ref()?.variant {
-                AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
+            let ast = &child.value.as_ref()?;
+            match ast.variant {
+                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_contract {
                     Some(_) => match head.paradigm {
                         Paradigm::EagerProcedural => todo!(),
                         Paradigm::EagerFunctional => members.insert_new(TyMemberDecl::Method(
@@ -252,22 +256,22 @@ impl TyDecl {
                         head,
                     ))),
                 },
-                AstKind::Use { .. } => todo!(),
-                AstKind::FieldDefnHead { ref head, .. } => match head.field_kind {
+                AstVariant::Use { .. } => todo!(),
+                AstVariant::FieldDefnHead { field_kind, .. } => match field_kind {
                     FieldKind::StructOriginal => todo!("no original at this point"),
                     FieldKind::RecordOriginal => todo!("no original at this point"),
-                    _ => members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(head))),
+                    _ => members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast))),
                 },
-                AstKind::Visual => break,
-                AstKind::TypeDefnHead { .. }
-                | AstKind::MainDefn
-                | AstKind::CallFormDefnHead(_)
-                | AstKind::PatternDefnHead
-                | AstKind::FeatureDecl { .. }
-                | AstKind::DatasetConfigDefnHead
-                | AstKind::Stmt(_)
-                | AstKind::EnumVariantDefnHead { .. }
-                | AstKind::Submodule { .. } => todo!(),
+                AstVariant::Visual => break,
+                AstVariant::TypeDefnHead { .. }
+                | AstVariant::MainDefn
+                | AstVariant::CallFormDefnHead(_)
+                | AstVariant::PatternDefnHead
+                | AstVariant::FeatureDecl { .. }
+                | AstVariant::DatasetConfigDefnHead
+                | AstVariant::Stmt(_)
+                | AstVariant::EnumVariantDefnHead { .. }
+                | AstVariant::Submodule { .. } => todo!(),
             }
             children.next();
         }
@@ -277,7 +281,7 @@ impl TyDecl {
     fn collect_visual(children: &mut Peekable<AstIter>) -> InferQueryResult<()> {
         if let Some(child) = children.peek() {
             match child.value.as_ref()?.variant {
-                AstKind::Visual => {
+                AstVariant::Visual => {
                     children.next();
                 }
                 _ => (),
@@ -315,10 +319,10 @@ impl TyDecl {
 
     pub fn eager_fields(&self) -> impl Iterator<Item = &FieldDecl> {
         self.ty_members.iter().filter_map(|member| match member {
-            TyMemberDecl::Field(field_decl) => match field_decl.kind {
+            TyMemberDecl::Field(field_decl) => match field_decl.field_kind {
                 FieldKind::StructOriginal
-                | FieldKind::StructDefault
-                | FieldKind::StructDerivedEager => Some(field_decl as &FieldDecl),
+                | FieldKind::StructDefault { .. }
+                | FieldKind::StructDerivedEager { .. } => Some(field_decl as &FieldDecl),
                 FieldKind::StructDerivedLazy { paradigm } => None,
                 FieldKind::RecordOriginal => todo!(),
                 FieldKind::RecordDerived => todo!(),
@@ -419,7 +423,7 @@ impl TyDecl {
 
     pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind {
         match self.ty_members.get_entry(field_ident).unwrap() {
-            TyMemberDecl::Field(field) => field.kind,
+            TyMemberDecl::Field(field) => field.field_kind,
             _ => panic!(""),
         }
         // match self.kind {
@@ -621,7 +625,7 @@ pub(crate) fn ty_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstKind::TypeDefnHead {
+                AstVariant::TypeDefnHead {
                     kind,
                     ref generic_parameters,
                     ..

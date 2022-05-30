@@ -3,7 +3,7 @@ mod stmt;
 mod variable;
 mod xml;
 
-pub use expr::{EagerExpr, EagerExprVariant, EagerOpnVariant};
+pub use expr::*;
 pub use stmt::*;
 pub use variable::EagerVariable;
 pub use xml::*;
