@@ -46,7 +46,7 @@ pub enum EntityStaticDefnVariant {
     },
     Module,
     TypeField {
-        fieldiant: StaticFieldVariant,
+        field_variant: StaticFieldVariant,
     },
     Method {
         this_contract: InputLiason,

@@ -141,6 +141,12 @@ impl InterpreterQueryGroup for HuskyLangCompileTime {
     }
 }
 
+impl Upcast<dyn InstructionGenQueryGroup> for HuskyLangCompileTime {
+    fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
+        self
+    }
+}
+
 impl Upcast<dyn InterpreterQueryGroup> for HuskyLangCompileTime {
     fn upcast(&self) -> &(dyn InterpreterQueryGroup + 'static) {
         self

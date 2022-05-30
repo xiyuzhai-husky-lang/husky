@@ -17,7 +17,7 @@ pub struct MethodDecl {
     pub this_liason: InputLiason,
     pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
-    pub generic_parameters: IdentDict<GenericParameter>,
+    pub generic_parameters: IdentDict<SpatialParameter>,
     pub kind: MethodKind,
 }
 
@@ -119,7 +119,7 @@ impl MethodDecl {
                         ty: output_ty.route,
                     },
                     generic_parameters: generic_parameters.map(|static_generic_placeholder| {
-                        GenericParameter::from_static(db.upcast(), static_generic_placeholder)
+                        SpatialParameter::from_static(db.upcast(), static_generic_placeholder)
                     }),
                     kind: MethodKind::from_static(db, kind, symbol_context),
                 })

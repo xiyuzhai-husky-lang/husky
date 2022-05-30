@@ -28,10 +28,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         FeatureBranchVariant::Else => true,
                     };
                     if execute_branch {
-                        return self.eval_feature_block(
-                            &branch.block,
-                            EvalKey::Feature(branch.block.feature),
-                        );
+                        return self.eval_feature_lazy_block(&branch.block);
                     }
                 }
                 Ok(EvalValue::Undefined)

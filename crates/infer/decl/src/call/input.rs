@@ -1,4 +1,5 @@
 use atom::AtomContext;
+use vec_map::HasKey;
 
 use super::*;
 
@@ -7,6 +8,12 @@ pub struct InputDecl {
     pub liason: InputLiason,
     pub ty: EntityRoutePtr,
     pub ident: CustomIdentifier,
+}
+
+impl HasKey<CustomIdentifier> for InputDecl {
+    fn key(&self) -> CustomIdentifier {
+        self.ident
+    }
 }
 
 impl InputDecl {

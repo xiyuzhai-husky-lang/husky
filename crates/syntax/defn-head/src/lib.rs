@@ -1,6 +1,5 @@
 mod generic;
 
-use entity_kind::FieldKind;
 pub use generic::*;
 use std::sync::Arc;
 
@@ -14,7 +13,7 @@ use word::{CustomIdentifier, IdentDict, Paradigm};
 pub struct CallableDefnHead {
     pub ident: RangedCustomIdentifier,
     pub paradigm: Paradigm,
-    pub generic_parameters: IdentDict<GenericParameter>,
+    pub generic_parameters: IdentDict<SpatialParameter>,
     pub parameters: Arc<Vec<InputParameter>>,
     pub output_ty: RangedEntityRoute,
     pub output_liason: OutputLiason,
@@ -26,7 +25,17 @@ pub struct FieldDefnHead {
     pub liason: MemberLiason,
     pub ranged_ident: RangedCustomIdentifier,
     pub ty: RangedEntityRoute,
-    pub kind: FieldKind,
+    pub field_kind: FieldKind,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum FieldKind {
+    StructOriginal,
+    StructDefault,
+    StructDerivedEager,
+    StructDerivedLazy { paradigm: Paradigm },
+    RecordOriginal,
+    RecordDerived,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

@@ -12,7 +12,7 @@ use defn_head::*;
 use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
-use print_utils::{emsg_once, p};
+use print_utils::{emsg_once, msg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticInputParameter};
 use vm::{InputLiason, OutputLiason};
 use word::IdentDict;
@@ -22,8 +22,9 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct CallDecl {
     pub route: EntityRoutePtr,
-    pub generic_parameters: IdentDict<GenericParameter>,
-    pub parameters: Vec<InputDecl>,
+    pub spatial_parameters: IdentDict<SpatialParameter>,
+    pub primary_parameters: IdentDict<InputDecl>,
+    pub keyword_parameters: IdentDict<InputDecl>,
     pub output: OutputDecl,
 }
 
@@ -33,34 +34,41 @@ impl CallDecl {
             route: instantiator
                 .instantiate_entity_route(self.route)
                 .take_entity_route(),
-            generic_parameters: self
-                .generic_parameters
+            spatial_parameters: self
+                .spatial_parameters
                 .iter()
                 .filter_map(|placeholder| instantiator.instantiate_generic_placeholder(placeholder))
                 .collect(),
-            parameters: self.parameters.map(|input| input.instantiate(instantiator)),
+            primary_parameters: self
+                .primary_parameters
+                .map(|parameter| parameter.instantiate(instantiator)),
             output: self.output.instantiate(instantiator),
+            keyword_parameters: self
+                .primary_parameters
+                .map(|parameter| parameter.instantiate(instantiator)),
         })
     }
 
     pub(crate) fn from_ast(route: EntityRoutePtr, head: &CallableDefnHead) -> Arc<Self> {
+        msg_once!("todo: keyword parameters");
         Arc::new(CallDecl {
             route,
-            generic_parameters: head.generic_parameters.clone(),
-            parameters: head
+            spatial_parameters: head.generic_parameters.clone(),
+            primary_parameters: head
                 .parameters
                 .iter()
-                .map(|input_placeholder| input_placeholder.into())
+                .map(|parameter| parameter.into())
                 .collect(),
             output: OutputDecl {
                 ty: head.output_ty.route,
                 liason: head.output_liason,
             },
+            keyword_parameters: Default::default(),
         })
     }
 
     pub fn nargs(&self) -> u8 {
-        self.parameters.len().try_into().unwrap()
+        self.primary_parameters.len().try_into().unwrap()
     }
 }
 
@@ -141,14 +149,16 @@ pub(crate) fn routine_decl_from_static(
                 ident: db.custom_ident(input.name),
             });
             let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
+            msg_once!("todo: keyword parameters");
             Arc::new(CallDecl {
                 route,
-                generic_parameters,
-                parameters: inputs,
+                spatial_parameters: generic_parameters,
+                primary_parameters: inputs,
                 output: OutputDecl {
                     liason: output_liason,
                     ty: output_ty,
                 },
+                keyword_parameters: Default::default(),
             })
         }
         _ => panic!(),

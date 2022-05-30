@@ -47,17 +47,19 @@ pub(crate) fn expr_record_field(
                         match type_member.variant {
                             EntityDefnVariant::TypeField {
                                 ty,
-                                field_variant: ref fieldiant,
+                                field_variant: ref field_variant,
                                 contract,
-                            } => match fieldiant {
+                            } => match field_variant {
                                 FieldDefnVariant::StructOriginal => panic!(),
                                 FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),
-                                FieldDefnVariant::StructDerived { defn_repr: block } => {
+                                FieldDefnVariant::StructDerivedLazy { defn_repr: block } => {
                                     todo!()
                                 }
                                 FieldDefnVariant::RecordDerived { ref defn_repr } => {
                                     todo!()
                                 }
+                                FieldDefnVariant::StructDefault { default } => todo!(),
+                                FieldDefnVariant::StructDerivedEager { value } => todo!(),
                             },
                             _ => panic!(),
                         }

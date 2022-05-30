@@ -24,7 +24,7 @@ pub fn new_visual_instruction_sheet(
     builder.finalize()
 }
 
-fn new_func_instruction_sheet(
+pub fn new_func_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     inputs: impl Iterator<Item = CustomIdentifier>,
     stmts: &[Arc<FuncStmt>],
@@ -35,7 +35,7 @@ fn new_func_instruction_sheet(
     builder.finalize()
 }
 
-fn new_proc_instruction_sheet(
+pub fn new_proc_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     inputs: impl Iterator<Item = CustomIdentifier>,
     stmts: &[Arc<ProcStmt>],

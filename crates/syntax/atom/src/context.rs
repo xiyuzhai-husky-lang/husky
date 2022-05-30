@@ -5,7 +5,7 @@ pub use standalone::*;
 pub use symbol::*;
 
 use super::*;
-use defn_head::{GenericParameter, GenericPlaceholderVariant, InputParameter};
+use defn_head::{GenericPlaceholderVariant, InputParameter, SpatialParameter};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
 use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResult};
@@ -223,8 +223,8 @@ pub trait AtomContext {
     fn generic_parameters_from_static(
         &self,
         static_generic_parameters: &[StaticGenericPlaceholder],
-    ) -> IdentDict<GenericParameter> {
-        static_generic_parameters.map(|static_generic_placeholder| GenericParameter {
+    ) -> IdentDict<SpatialParameter> {
+        static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
             ident: self
                 .entity_syntax_db()
                 .intern_word(static_generic_placeholder.name)
@@ -235,7 +235,7 @@ pub trait AtomContext {
 
     fn generic_arguments_from_generic_parameters(
         &self,
-        generic_parameters: &[GenericParameter],
+        generic_parameters: &[SpatialParameter],
     ) -> Vec<GenericArgument> {
         generic_parameters.map(|generic_placeholder| {
             GenericArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
@@ -250,7 +250,7 @@ pub trait AtomContext {
 
     fn symbols_from_generic_parameters(
         &self,
-        generic_parameters: &[GenericParameter],
+        generic_parameters: &[SpatialParameter],
     ) -> Vec<Symbol> {
         let mut symbols = Vec::new();
         for generic_placeholder in generic_parameters.iter() {

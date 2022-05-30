@@ -20,8 +20,8 @@ impl<'a> dyn DeclQueryGroup + 'a {
     pub fn generic_parameters_from_static(
         &self,
         static_generic_parameters: &[StaticGenericPlaceholder],
-    ) -> IdentDict<GenericParameter> {
-        static_generic_parameters.map(|static_generic_placeholder| GenericParameter {
+    ) -> IdentDict<SpatialParameter> {
+        static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
             ident: self.intern_word(static_generic_placeholder.name).custom(),
             variant: GenericPlaceholderVariant::Type { traits: vec![] },
         })
@@ -29,7 +29,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
 
     pub fn generic_arguments_from_generic_parameters(
         &self,
-        generic_parameters: &[GenericParameter],
+        generic_parameters: &[SpatialParameter],
     ) -> Vec<GenericArgument> {
         generic_parameters.map(|generic_placeholder| {
             GenericArgument::EntityRoute(self.intern_entity_route(EntityRoute {
@@ -44,7 +44,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
 
     pub fn symbols_from_generic_parameters(
         &self,
-        generic_parameters: &[GenericParameter],
+        generic_parameters: &[SpatialParameter],
     ) -> Vec<Symbol> {
         let mut symbols = Vec::new();
         for generic_placeholder in generic_parameters.iter() {

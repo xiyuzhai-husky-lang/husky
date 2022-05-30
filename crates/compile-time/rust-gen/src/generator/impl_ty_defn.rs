@@ -41,12 +41,12 @@ impl<'a> RustGenerator<'a> {
             match member.variant {
                 EntityDefnVariant::TypeField {
                     ty,
-                    field_variant: ref fieldiant,
+                    field_variant: ref field_variant,
                     contract,
                 } => {
-                    match fieldiant {
+                    match field_variant {
                         FieldDefnVariant::StructOriginal => (),
-                        FieldDefnVariant::StructDerived { .. } => break,
+                        FieldDefnVariant::StructDerivedLazy { .. } => break,
                         _ => panic!(),
                     }
                     self.result += "    pub(crate) ";

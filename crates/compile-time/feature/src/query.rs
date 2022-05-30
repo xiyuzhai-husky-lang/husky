@@ -14,6 +14,7 @@ pub trait FeatureQueryGroup:
     AllocateUniqueFeature
     + PackageQueryGroup
     + Upcast<dyn EntityDefnQueryGroup>
+    + Upcast<dyn InstructionGenQueryGroup>
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
     + ResolveLinkage

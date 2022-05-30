@@ -4,7 +4,7 @@ mod lazy;
 use std::sync::Arc;
 
 use ast::{AstIter, AstKind};
-use entity_kind::FieldKind;
+use defn_head::FieldKind;
 use entity_route::EntityRouteKind;
 use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
@@ -69,7 +69,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         AstKind::Visual => self.infer_eager_stmts(children, &arena),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
-                        AstKind::FieldDefnHead { ref head, .. } => match head.kind {
+                        AstKind::FieldDefnHead { ref head, .. } => match head.field_kind {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
                             FieldKind::StructDerivedLazy {
@@ -80,7 +80,7 @@ impl<'a> ContractSheetBuilder<'a> {
                             }
                             | FieldKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
                             _ => {
-                                p!(head.kind);
+                                p!(head.field_kind);
                                 todo!()
                             }
                         },

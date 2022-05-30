@@ -40,7 +40,7 @@ pub enum AstKind {
     TypeDefnHead {
         ident: RangedCustomIdentifier,
         kind: TyKind,
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
     },
     MainDefn,
     CallFormDefnHead(CallableDefnHead),

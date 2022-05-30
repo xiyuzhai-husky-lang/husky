@@ -46,24 +46,24 @@ fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: Pat
 
 async fn test_all_packages_in_dir(dir: PathBuf) {
     assert!(dir.is_dir());
-    let package_paths = collect_all_package_dirs(dir);
+    let package_dirs = collect_all_package_dirs(dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
         print_utils::CYAN,
         print_utils::RESET,
-        package_paths.len()
+        package_dirs.len()
     );
 
-    for package_path in package_paths {
+    for package_dir in package_dirs {
         let mut compile_time = HuskyLangCompileTime::default();
-        init_compile_time_from_dir(&mut compile_time, package_path.to_path_buf());
+        init_compile_time_from_dir(&mut compile_time, package_dir.to_path_buf());
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,
             print_utils::RESET,
-            package_path.as_os_str().to_str().unwrap(),
+            package_dir.as_os_str().to_str().unwrap(),
         );
-        match Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, package_path))
+        match Debugger::new(|compile_time| init_compile_time_from_dir(compile_time, package_dir))
             .serve_on_error("localhost:51617", 0)
             .await
         {

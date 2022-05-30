@@ -458,7 +458,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let call_decl = derived_unwrap!(self.db.call_decl(route));
                 let opt_opd_qualified_tys = zip(
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.parameters.iter(),
+                    call_decl.primary_parameters.iter(),
                 )
                 .map(
                     |(opd_idx, parameter)| -> InferResult<Option<EagerQualifiedTy>> {

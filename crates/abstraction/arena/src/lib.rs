@@ -213,6 +213,10 @@ impl<T> ArenaIdx<T> {
             phantom: PhantomData,
         }
     }
+
+    pub fn is(self, raw: usize) -> bool {
+        self.raw == raw
+    }
 }
 
 impl<T> core::ops::Index<ArenaIdx<T>> for Arena<T> {

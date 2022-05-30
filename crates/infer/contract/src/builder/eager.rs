@@ -129,8 +129,16 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
     ) {
         let infer_result = match arena[raw_expr_idx].variant {
-            RawExprVariant::Variable { .. }
-            | RawExprVariant::FrameVariable { .. }
+            RawExprVariant::Variable {
+                varname,
+                init_range,
+            } => {
+                if init_range.start.i() == 32 {
+                    p!(raw_expr_idx, varname, init_range);
+                }
+                Ok(())
+            }
+            RawExprVariant::FrameVariable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
             | RawExprVariant::CopyableLiteral(_)
@@ -383,7 +391,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 let call_decl = derived_unwrap!(self.db.call_decl(route));
                 for (argument, parameter) in zip(
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.parameters.iter(),
+                    call_decl.primary_parameters.iter(),
                 ) {
                     let argument_contract_result: InferResult<_> = parameter
                         .liason

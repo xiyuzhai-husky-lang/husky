@@ -76,7 +76,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 ref this,
                 field_ident,
                 ref repr,
-            } => self.eval_feature_repr(repr, EvalKey::Feature(repr.feature())),
+            } => self.eval_feature_repr(repr),
             FeatureExprVariant::This { ref repr } => todo!(),
             FeatureExprVariant::GlobalInput => Ok(EvalValue::GlobalPure(self.eval_input.clone())),
             FeatureExprVariant::PatternCall {} => todo!(),
@@ -85,7 +85,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 field_ident,
                 ref repr,
                 ..
-            } => self.eval_feature_repr(repr, EvalKey::Feature(repr.feature())),
+            } => self.eval_feature_repr(repr),
             FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
@@ -105,13 +105,11 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
             } => {
                 let parent: *const dyn AnyValueDyn<'eval> =
                     self.eval_feature_expr(this)?.any_global_ref();
-                self.eval_feature_repr(
-                    repr,
-                    EvalKey::StructDerivedField::<'eval> {
-                        parent,
-                        field_ident: field_ident.ident,
-                    },
-                )
+                let eval_key = EvalKey::StructDerivedField::<'eval> {
+                    parent,
+                    field_ident: field_ident.ident,
+                };
+                self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
         }
     }
@@ -119,7 +117,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
     fn eval_routine_call(
         &mut self,
         opt_instrns: Option<&InstructionSheet>,
-        maybe_compiled: Option<Linkage>,
+        opt_linkage: Option<Linkage>,
         arguments: &[Arc<FeatureExpr>],
         has_this: bool,
     ) -> EvalResult<'eval> {
@@ -127,6 +125,13 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
         let values = arguments
             .iter()
             .map(|expr| VMValue::from_eval(self.eval_feature_expr(expr)?));
-        eval_fast(db.upcast(), opt_instrns, maybe_compiled, values)
+        msg_once!("kwargs");
+        eval_fast(
+            db.upcast(),
+            opt_instrns,
+            opt_linkage,
+            values,
+            [].into_iter(),
+        )
     }
 }

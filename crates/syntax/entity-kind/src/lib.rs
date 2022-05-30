@@ -66,13 +66,3 @@ pub enum MemberKind {
     TraitAssociatedConstSize,
     TraitAssociatedAny,
 }
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldKind {
-    StructOriginal,
-    StructDefault,
-    StructDerivedEager,
-    StructDerivedLazy { paradigm: Paradigm },
-    RecordOriginal,
-    RecordDerived,
-}

@@ -47,7 +47,7 @@ impl<'a> AstTransformer<'a> {
                     ranged_ident: ident,
                     liason: MemberLiason::Immutable,
                     ty,
-                    kind: FieldKind::RecordOriginal,
+                    field_kind: FieldKind::RecordOriginal,
                 },
                 opt_expr: todo!(),
             })
@@ -72,7 +72,7 @@ impl<'a> AstTransformer<'a> {
             head: FieldDefnHead {
                 ranged_ident: ident,
                 ty,
-                kind: FieldKind::RecordDerived,
+                field_kind: FieldKind::RecordDerived,
                 liason: MemberLiason::Immutable,
             },
             opt_expr: todo!(),

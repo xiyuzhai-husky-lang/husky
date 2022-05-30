@@ -5,7 +5,6 @@ mod impl_stmt;
 
 use super::*;
 use ast::{AstIter, AstText};
-use entity_kind::FieldKind;
 use fold::LocalStack;
 use std::sync::Arc;
 use text::TextRanged;
@@ -76,7 +75,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         AstKind::Visual => self.infer_function(&[], None, children, &arena),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
-                        AstKind::FieldDefnHead { ref head, .. } => match head.kind {
+                        AstKind::FieldDefnHead { ref head, .. } => match head.field_kind {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
                             FieldKind::StructDerivedLazy { .. } | FieldKind::RecordDerived => {

@@ -13,7 +13,7 @@ use word::IdentDict;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitDecl {
     pub trai: EntityRoutePtr,
-    pub generic_parameters: IdentDict<GenericParameter>,
+    pub generic_parameters: IdentDict<SpatialParameter>,
     pub members: IdentDict<TraitMemberDecl>,
 }
 

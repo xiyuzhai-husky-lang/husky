@@ -4,7 +4,7 @@ mod lazy;
 use std::sync::Arc;
 
 use ast::{AstIter, AstKind, RawExprArena};
-use entity_kind::FieldKind;
+use defn_head::FieldKind;
 use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
 use infer_contract::{ContractSheet, InferContract};
@@ -89,7 +89,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         ),
                         AstKind::PatternDefnHead => todo!(),
                         AstKind::Use { .. } => (),
-                        AstKind::FieldDefnHead { ref head, .. } => match head.kind {
+                        AstKind::FieldDefnHead { ref head, .. } => match head.field_kind {
                             FieldKind::StructOriginal => (),
                             FieldKind::RecordOriginal => (),
                             FieldKind::StructDerivedLazy {
