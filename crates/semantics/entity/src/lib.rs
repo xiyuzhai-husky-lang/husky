@@ -21,7 +21,7 @@ pub use query::*;
 pub use trai::*;
 pub use ty::*;
 
-use ast::AstKind;
+use ast::AstVariant;
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
@@ -180,7 +180,7 @@ pub enum EntityDefnVariant {
     TypeField {
         ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
-        contract: MemberLiason,
+        liason: MemberLiason,
     },
     Method {
         generic_parameters: IdentDict<SpatialParameter>,
@@ -303,7 +303,7 @@ pub(crate) fn main_defn(
     let ast_text = this.ast_text(main_file)?;
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
-            AstKind::MainDefn => {
+            AstVariant::MainDefn => {
                 return Ok(Arc::new(MainDefn {
                     defn_repr: DefinitionRepr::LazyBlock {
                         stmts: parse_lazy_stmts(
@@ -360,7 +360,7 @@ pub(crate) fn entity_defn(
             let ast_head = value.as_ref()?;
 
             let (ident, entity_kind) = match ast_head.variant {
-                AstKind::TypeDefnHead {
+                AstVariant::TypeDefnHead {
                     ident,
                     kind,
                     generic_parameters: ref generics,
@@ -378,7 +378,7 @@ pub(crate) fn entity_defn(
                         )?,
                     )
                 }
-                AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_contract {
                     Some(_) => return Ok(db.member_defn(entity_route)),
                     None => (
                         head.ident,
@@ -391,23 +391,25 @@ pub(crate) fn entity_defn(
                         )?,
                     ),
                 },
-                AstKind::FieldDefnHead { .. } => return Ok(db.member_defn(entity_route)),
-                AstKind::PatternDefnHead => todo!(),
-                AstKind::Use { .. } => todo!(),
-                AstKind::MainDefn | AstKind::DatasetConfigDefnHead | AstKind::Stmt(_) => panic!(),
-                AstKind::EnumVariantDefnHead {
+                AstVariant::FieldDefnHead { .. } => return Ok(db.member_defn(entity_route)),
+                AstVariant::PatternDefnHead => todo!(),
+                AstVariant::Use { .. } => todo!(),
+                AstVariant::MainDefn | AstVariant::DatasetConfigDefnHead | AstVariant::Stmt(_) => {
+                    panic!()
+                }
+                AstVariant::EnumVariantDefnHead {
                     ident,
                     variant_class,
                 } => (
                     ident,
                     EntityDefnVariant::enum_variant(db, ident, variant_class, opt_children),
                 ),
-                AstKind::FeatureDecl { ident, ty } => (
+                AstVariant::FeatureDecl { ident, ty } => (
                     ident,
                     EntityDefnVariant::feature(db, ty, not_none!(opt_children), arena, file)?,
                 ),
-                AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::Visual => todo!(),
+                AstVariant::Submodule { ident, source_file } => todo!(),
+                AstVariant::Visual => todo!(),
             };
             Ok(EntityDefn::new(
                 ident.ident.into(),

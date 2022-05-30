@@ -1,14 +1,17 @@
 mod opn;
 mod parser;
 
-use std::sync::Arc;
-
+use crate::*;
+use ast::{AstIter, RawExprArena, RawExprIdx};
 use file::FilePtr;
 use infer_qualifier::{EagerQualifiedTy, EagerQualifier};
+use infer_total::InferQueryGroup;
 pub use opn::*;
 pub(crate) use parser::EagerExprParser;
+use std::sync::Arc;
 
 use entity_route::EntityRoutePtr;
+use semantics_error::SemanticResultArc;
 use text::{RangedCustomIdentifier, TextRange};
 use vm::{Binding, CopyableValue, EagerContract, InstructionId, InstructionSource, Linkage};
 use word::CustomIdentifier;
@@ -71,4 +74,13 @@ pub enum EagerExprVariant {
         Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
         Box<EagerExpr>,
     ),
+}
+
+pub fn parse_eager_expr(
+    db: &dyn InferQueryGroup,
+    arena: &RawExprArena,
+    file: FilePtr,
+    raw_expr_idx: RawExprIdx,
+) -> SemanticResultArc<EagerExpr> {
+    EagerParser::new(db, arena, file).parse_eager_expr(raw_expr_idx)
 }

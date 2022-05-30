@@ -68,10 +68,15 @@ pub fn eval_feature_expr<'eval>(
 pub fn eval_feature_repr<'eval>(
     db: &dyn FeatureQueryGroup,
     repr: &FeatureRepr,
-    input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut EvalSheet<'eval>,
-) {
-    todo!()
+) -> EvalResult<'eval> {
+    let mut evaluator = FeatureEvaluator {
+        db,
+        eval_input,
+        sheet,
+    };
+    evaluator.eval_feature_repr(repr)
 }
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {

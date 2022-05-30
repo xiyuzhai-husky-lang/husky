@@ -4,7 +4,7 @@ use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub(super) fn handle_special(&mut self, special: Special, token: &Token) -> AtomResult<()> {
-        let text_start = self.token_stream.text_position();
+        let text_start = self.token_stream.text_start();
         match special {
             Special::DoubleColon => err!(
                 "unexpected double colon, maybe the identifier before is not recognized as scope",

@@ -3,11 +3,11 @@ use std::iter::Peekable;
 use vm::{EagerContract, InitKind, XmlTagKind};
 use word::IdentPairDict;
 
-use super::parser::EagerStmtParser;
+use super::parser::EagerParser;
 use super::*;
 use crate::*;
 
-impl<'a> EagerStmtParser<'a> {
+impl<'a> EagerParser<'a> {
     pub(super) fn parse_func_stmts(
         &mut self,
         iter: AstIter,
@@ -16,8 +16,8 @@ impl<'a> EagerStmtParser<'a> {
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             match item.value.as_ref()?.variant {
-                AstKind::Use { .. } => todo!(),
-                AstKind::Stmt(ref stmt) => {
+                AstVariant::Use { .. } => todo!(),
+                AstVariant::Stmt(ref stmt) => {
                     let variant = match stmt.variant {
                         RawStmtVariant::Loop(_) => todo!(),
                         RawStmtVariant::ConditionBranch {
@@ -68,7 +68,7 @@ impl<'a> EagerStmtParser<'a> {
                         instruction_id: Default::default(),
                     }))
                 }
-                AstKind::FeatureDecl { .. } => todo!(),
+                AstVariant::FeatureDecl { .. } => todo!(),
                 _ => panic!(),
             }
         }
@@ -97,14 +97,14 @@ impl<'a> EagerStmtParser<'a> {
         }
         while let Some(item) = iter.peek() {
             let item = match item.value.as_ref()?.variant {
-                AstKind::Stmt(RawStmt {
+                AstVariant::Stmt(RawStmt {
                     variant: RawStmtVariant::ConditionBranch { .. },
                     ..
                 }) => iter.next().unwrap(),
                 _ => break,
             };
             match item.value.as_ref()?.variant {
-                AstKind::Stmt(RawStmt {
+                AstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
                             ref condition_branch_kind,
@@ -145,7 +145,7 @@ impl<'a> EagerStmtParser<'a> {
                 .map(|item| {
                     let value = item.value.as_ref().unwrap();
                     match value.variant {
-                        AstKind::Stmt(RawStmt {
+                        AstVariant::Stmt(RawStmt {
                             variant:
                                 RawStmtVariant::PatternBranch {
                                     ref pattern_branch_variant,

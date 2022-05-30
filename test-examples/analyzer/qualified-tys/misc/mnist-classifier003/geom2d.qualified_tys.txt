@@ -111,7 +111,7 @@
     37:22..37:41   this.x/this.norm())    Copyable     f32
     37:46..37:49   1.0                    Copyable     f32
     37:22..37:50   this.x/this.norm()).min(1.0)   Copyable     f32
-    38:12..38:22   cos_value              Copyable     f32
+    38:12..38:21   cos_value              Copyable     f32
     38:24..38:27   1.0                    Copyable     f32
     38:12..38:27   cos_value + 1.0        Copyable     f32
     38:30..38:35   0.001                  Copyable     f32
@@ -121,12 +121,12 @@
     42:18..42:23   180.0                  Copyable     f32
     44:14..44:18   this                   PureRef      mnist_classifier003::geom2d::Vector2d
     44:14..44:19   this.                  Copyable     f32
-    44:14..44:27   this.y.sgn()           Copyable     i32
+    44:14..44:26   this.y.sgn()           Copyable     i32
     44:14..44:33   this.y.sgn() as f32    Copyable     f32
     44:37..44:46   cos_value              Copyable     f32
-    44:14..44:35   this.y.sgn() as f32)    Copyable     f32
-    44:37..44:54   cos_value.acos()       Copyable     f32
-    44:14..44:54   this.y.sgn() as f32) * cos_value.acos()    Copyable     f32
+    44:14..44:34   this.y.sgn() as f32)   Copyable     f32
+    44:37..44:53   cos_value.acos()       Copyable     f32
+    44:14..44:53   this.y.sgn() as f32) * cos_value.acos()   Copyable     f32
     44:56..44:61   180.0                  Copyable     f32
     44:14..44:61   this.y.sgn() as f32) * cos_value.acos() * 180.0   Copyable     f32
     44:64..44:73   3.1415926              Copyable     f32
@@ -134,12 +134,12 @@
     52:17..52:21   this                   PureRef      mnist_classifier003::geom2d::Vector2d
     52:28..52:33   other                  PureRef      mnist_classifier003::geom2d::Vector2d
     52:17..52:34   this.cross(other)      Copyable     f32
-    53:12..53:18   cross                  Copyable     f32
+    53:12..53:17   cross                  Copyable     f32
     53:21..53:24   0.0                    Copyable     f32
     53:12..53:24   cross == 0.0           Copyable     bool
     55:20..55:24   this                   PureRef      mnist_classifier003::geom2d::Vector2d
     55:29..55:34   other                  PureRef      mnist_classifier003::geom2d::Vector2d
-    55:20..55:36   this.dot(other)        Copyable     f32
+    55:20..55:35   this.dot(other)        Copyable     f32
     55:38..55:41   0.0                    Copyable     f32
     55:20..55:41   this.dot(other) > 0.0   Copyable     bool
     56:13..56:14   0                      Copyable     i32
@@ -147,26 +147,26 @@
     58:13..58:24   cross.sgn()            Copyable     i32
     61:21..61:25   this                   PureRef      mnist_classifier003::geom2d::Vector2d
     61:21..61:32   this.norm()            Copyable     f32
-    62:16..62:26   this_norm              Copyable     f32
+    62:16..62:25   this_norm              Copyable     f32
     62:28..62:31   0.0                    Copyable     f32
     62:16..62:31   this_norm > 0.0        Copyable     bool
     63:22..63:27   other                  PureRef      mnist_classifier003::geom2d::Vector2d
     63:22..63:34   other.norm()           Copyable     f32
-    64:16..64:27   other_norm             Copyable     f32
+    64:16..64:26   other_norm             Copyable     f32
     64:29..64:32   0.0                    Copyable     f32
     64:16..64:32   other_norm > 0.0       Copyable     bool
     65:22..65:26   this                   PureRef      mnist_classifier003::geom2d::Vector2d
     65:31..65:36   other                  PureRef      mnist_classifier003::geom2d::Vector2d
-    65:41..65:51   this_norm              Copyable     f32
+    65:41..65:50   this_norm              Copyable     f32
     65:53..65:63   other_norm             Copyable     f32
     65:41..65:63   this_norm * other_norm   Copyable     f32
-    65:22..65:38   this.dot(other)        Copyable     f32
+    65:22..65:37   this.dot(other)        Copyable     f32
     65:41..65:64   this_norm * other_norm)   Copyable     f32
     65:22..65:64   this.dot(other) / (this_norm * other_norm)   Copyable     f32
     65:22..65:65   this.dot(other) / (this_norm * other_norm))   Copyable     f32
     65:70..65:73   1.0                    Copyable     f32
     65:22..65:74   this.dot(other) / (this_norm * other_norm)).min(1.0)   Copyable     f32
-    66:12..66:22   cos_value              Copyable     f32
+    66:12..66:21   cos_value              Copyable     f32
     66:24..66:27   1.0                    Copyable     f32
     66:12..66:27   cos_value + 1.0        Copyable     f32
     66:30..66:35   0.001                  Copyable     f32
@@ -176,13 +176,13 @@
     70:18..70:23   180.0                  Copyable     f32
     72:26..72:30   this                   PureRef      mnist_classifier003::geom2d::Vector2d
     72:53..72:58   other                  PureRef      mnist_classifier003::geom2d::Vector2d
-    72:26..72:60   this.rotation_direction_to(other)    Copyable     i32
+    72:26..72:59   this.rotation_direction_to(other)   Copyable     i32
     72:26..72:66   this.rotation_direction_to(other) as f32   Copyable     f32
     72:70..72:79   cos_value              Copyable     f32
-    72:26..72:68   this.rotation_direction_to(other) as f32)    Copyable     f32
+    72:26..72:67   this.rotation_direction_to(other) as f32)   Copyable     f32
     72:70..72:86   cos_value.acos()       Copyable     f32
     72:26..72:86   this.rotation_direction_to(other) as f32) * cos_value.acos()   Copyable     f32
-    73:13..73:23   arc_angle              Copyable     f32
+    73:13..73:22   arc_angle              Copyable     f32
     73:25..73:30   180.0                  Copyable     f32
     73:13..73:30   arc_angle * 180.0      Copyable     f32
     73:33..73:42   3.1415926              Copyable     f32

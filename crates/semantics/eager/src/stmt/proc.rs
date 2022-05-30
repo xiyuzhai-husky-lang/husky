@@ -14,7 +14,7 @@ use std::sync::Arc;
 use text::RangedCustomIdentifier;
 use vm::{InitKind, InstructionId, InstructionSource, VMStackIdx};
 
-use parser::EagerStmtParser;
+use parser::EagerParser;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ProcStmt {
@@ -76,5 +76,5 @@ pub fn parse_impr_stmts(
     iter: fold::FoldableIter<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
-    EagerStmtParser::new(parameters, db, arena, file).parse_proc_stmts(iter)
+    EagerParser::new(db, arena, file).parse_proc_stmts(iter)
 }

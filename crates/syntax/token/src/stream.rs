@@ -19,7 +19,7 @@ impl<'a> TokenStream<'a> {
         self.next >= self.tokens.len()
     }
 
-    pub fn text_position(&self) -> TextPosition {
+    pub fn text_start(&self) -> TextPosition {
         if self.next < self.tokens.len() {
             self.tokens[self.next].range.start
         } else {
@@ -27,12 +27,16 @@ impl<'a> TokenStream<'a> {
         }
     }
 
+    fn text_end(&self) -> TextPosition {
+        self.tokens[self.next - 1].range.end
+    }
+
     pub fn token_position(&self) -> usize {
         self.next
     }
 
     pub fn text_range(&self, text_start: TextPosition) -> TextRange {
-        (text_start..self.text_position()).into()
+        (text_start..self.text_end()).into()
     }
 
     pub fn save_state(&self) -> TokenStreamState {

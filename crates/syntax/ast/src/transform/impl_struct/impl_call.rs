@@ -6,7 +6,7 @@ impl<'a> AstTransformer<'a> {
         token_group: &[Token],
         struct_item_context: StructItemContext,
         enter_block: impl FnOnce(&mut Self),
-    ) -> AstResult<AstKind> {
+    ) -> AstResult<AstVariant> {
         let context_update_result = self.update_struct_item_context(
             struct_item_context,
             StructItemContext::AssociatedCall,
@@ -31,6 +31,6 @@ impl<'a> AstTransformer<'a> {
                 .iter()
                 .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
-        Ok(AstKind::CallFormDefnHead(head))
+        Ok(AstVariant::CallFormDefnHead(head))
     }
 }

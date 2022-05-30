@@ -1,10 +1,10 @@
+use super::*;
+use ast::FieldKind;
 use entity_kind::TyKind;
 use entity_route::EntityRoute;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
 use vm::{Binding, LazyContract};
-
-use super::*;
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -267,8 +267,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     _ => panic!(),
                 }
             }
-            FieldKind::StructDefault => todo!(),
-            FieldKind::StructDerivedEager => todo!(),
+            FieldKind::StructDefault { .. } => todo!(),
+            FieldKind::StructDerivedEager { .. } => todo!(),
         }
     }
 

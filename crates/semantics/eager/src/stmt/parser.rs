@@ -7,7 +7,7 @@ use vm::{VMRuntimeResult, VMStackIdx};
 
 use super::*;
 
-pub(super) struct EagerStmtParser<'a> {
+pub(crate) struct EagerParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,
     pub(super) arena: &'a RawExprArena,
     pub(super) file: FilePtr,
@@ -16,13 +16,8 @@ pub(super) struct EagerStmtParser<'a> {
     qualified_ty_sheet: Arc<QualifiedTySheet>,
 }
 
-impl<'a> EagerStmtParser<'a> {
-    pub(super) fn new(
-        parameters: &[InputParameter],
-        db: &'a dyn InferQueryGroup,
-        arena: &'a RawExprArena,
-        file: FilePtr,
-    ) -> Self {
+impl<'a> EagerParser<'a> {
+    pub(crate) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
         emsg_once!("check no errors in entity_route_sheet");
         let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
         Self {
@@ -36,7 +31,7 @@ impl<'a> EagerStmtParser<'a> {
     }
 }
 
-impl<'a> InferEntityRoute for EagerStmtParser<'a> {
+impl<'a> InferEntityRoute for EagerParser<'a> {
     fn decl_db(&self) -> &dyn infer_decl::DeclQueryGroup {
         self.db.upcast()
     }
@@ -46,19 +41,19 @@ impl<'a> InferEntityRoute for EagerStmtParser<'a> {
     }
 }
 
-impl<'a> InferContract for EagerStmtParser<'a> {
+impl<'a> InferContract for EagerParser<'a> {
     fn contract_sheet(&self) -> &ContractSheet {
         &self.contract_sheet
     }
 }
 
-impl<'a> InferQualifiedTy for EagerStmtParser<'a> {
+impl<'a> InferQualifiedTy for EagerParser<'a> {
     fn qualified_ty_sheet(&self) -> &infer_qualifier::QualifiedTySheet {
         &self.qualified_ty_sheet
     }
 }
 
-impl<'a> EagerExprParser<'a> for EagerStmtParser<'a> {
+impl<'a> EagerExprParser<'a> for EagerParser<'a> {
     fn arena(&self) -> &'a RawExprArena {
         self.arena
     }

@@ -34,7 +34,7 @@ impl EntityDefnVariant {
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
         let (ident, kind, generic_parameters) = match head.variant {
-            AstKind::TypeDefnHead {
+            AstVariant::TypeDefnHead {
                 ident,
                 kind,
                 ref generic_parameters,
@@ -60,7 +60,7 @@ impl EntityDefnVariant {
                     EntityDefnVariant::TypeField {
                         ty,
                         field_variant: ref field_variant,
-                        contract,
+                        liason: contract,
                     } => match field_variant {
                         FieldDefnVariant::RecordOriginal => InputParameter {
                             ranged_ident: ident,
@@ -88,7 +88,7 @@ impl EntityDefnVariant {
                     EntityDefnVariant::TypeField {
                         ty,
                         field_variant: ref field_variant,
-                        contract,
+                        liason: contract,
                     } => match field_variant {
                         FieldDefnVariant::StructOriginal => InputParameter {
                             ranged_ident: ident,
@@ -222,7 +222,7 @@ impl EntityDefnVariant {
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
             match ast.variant {
-                AstKind::EnumVariantDefnHead {
+                AstVariant::EnumVariantDefnHead {
                     ident,
                     variant_class: raw_variant_kind,
                 } => {
@@ -307,8 +307,8 @@ impl EntityDefnVariant {
         };
         let ref ast = item.value.as_ref().unwrap();
         match ast.variant {
-            AstKind::Visual => Some(VisualizerSource::Custom {
-                stmts: parse_func_stmts(&[], db, arena, item.opt_children.clone().unwrap(), file)
+            AstVariant::Visual => Some(VisualizerSource::Custom {
+                stmts: parse_func_stmts(db, arena, item.opt_children.clone().unwrap(), file)
                     .unwrap(),
             }),
             _ => None,

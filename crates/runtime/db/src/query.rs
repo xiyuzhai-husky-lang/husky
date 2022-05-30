@@ -17,12 +17,10 @@ pub trait EvalFeature {
     fn session(&self) -> &Arc<Mutex<Session<'static>>>;
 
     fn eval_feature_repr(&self, repr: &FeatureRepr, input_id: usize) -> EvalResult<'static> {
-        match repr {
-            FeatureRepr::Expr(_) => todo!(),
-            FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block, input_id),
-            FeatureRepr::FuncBlock(_) => todo!(),
-            FeatureRepr::ProcBlock(_) => todo!(),
-        }
+        let dev = &mut self.session().lock().unwrap().dev;
+        let sheet = &mut dev.sheets[input_id];
+        let input = dev.loader.load(input_id).input;
+        eval_feature_repr(self.feature_query_group(), repr, input, sheet)
     }
 
     fn eval_feature_lazy_block(

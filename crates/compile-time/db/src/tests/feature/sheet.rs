@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use feature::{eval_feature_lazy_block, EvalKey, EvalSheet};
+use feature::{eval_feature_lazy_block, eval_feature_repr, EvalKey, EvalSheet};
 
 use crate::*;
 
@@ -28,15 +28,8 @@ main:
     let main_file = db.intern_file("haha/main.hsk".into());
     let main_block = db.main_feature_repr(main_file).unwrap();
     let mut sheet = EvalSheet::default();
-    todo!()
-    // let result = eval_feature_block(
-    //     &db,
-    //     &main_block,
-    //     Arc::new(1i32),
-    //     &mut sheet,
-    //     EvalKey::Feature(main_block.feature),
-    // )
-    // .unwrap()
-    // .primitive();
-    // should_eq!(result, 1.into());
+    let result = eval_feature_repr(&db, &main_block, Arc::new(1i32), &mut sheet)
+        .unwrap()
+        .primitive();
+    should_eq!(result, 1.into());
 }

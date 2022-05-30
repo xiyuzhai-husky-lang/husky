@@ -1,4 +1,4 @@
-use defn_head::FieldKind;
+use ast::FieldKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use text::RangedCustomIdentifier;
 use vm::*;

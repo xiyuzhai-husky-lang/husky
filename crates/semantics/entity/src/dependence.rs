@@ -447,7 +447,7 @@ impl EntityDefn {
                 EntityDefnVariant::TypeField {
                     ty,
                     field_variant: ref field_variant,
-                    contract,
+                    liason: contract,
                 } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),

@@ -101,10 +101,10 @@ pub(crate) fn call_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstKind::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
-                AstKind::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
+                AstVariant::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
+                AstVariant::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
                 // type constructor
-                AstKind::TypeDefnHead { .. } => {
+                AstVariant::TypeDefnHead { .. } => {
                     let ty_decl = db.ty_decl(route)?;
                     Ok(ty_decl.opt_type_call.clone().expect("todo"))
                 }

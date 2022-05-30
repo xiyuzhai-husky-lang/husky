@@ -10,7 +10,7 @@ pub struct FieldDecl {
     pub ident: CustomIdentifier,
     pub liason: MemberLiason,
     pub ty: EntityRoutePtr,
-    pub kind: FieldKind,
+    pub field_kind: FieldKind,
 }
 
 impl FieldDecl {
@@ -24,19 +24,27 @@ impl FieldDecl {
                 ident: db.intern_word(static_decl.name).custom(),
                 liason: todo!(),
                 ty: todo!(),
-                kind: match *field_variant {},
+                field_kind: match *field_variant {},
             },
             _ => panic!(""),
         }
     }
 
-    pub fn from_ast(field_defn_head: &FieldDefnHead) -> Arc<Self> {
-        Arc::new(Self {
-            ident: field_defn_head.ranged_ident.ident,
-            liason: field_defn_head.liason,
-            ty: field_defn_head.ty.route,
-            kind: field_defn_head.field_kind,
-        })
+    pub fn from_ast(ast: &Ast) -> Arc<Self> {
+        match ast.variant {
+            AstVariant::FieldDefnHead {
+                liason,
+                ranged_ident,
+                ty,
+                field_kind,
+            } => Arc::new(Self {
+                ident: ranged_ident.ident,
+                liason,
+                ty: ty.route,
+                field_kind,
+            }),
+            _ => panic!(),
+        }
     }
 }
 

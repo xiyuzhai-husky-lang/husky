@@ -45,19 +45,18 @@ impl EntityDefnVariant {
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
             let (ident, variant): (CustomIdentifier, _) = match ast.variant {
-                AstKind::TypeDefnHead {
+                AstVariant::TypeDefnHead {
                     ident,
                     kind,
                     ref generic_parameters,
                 } => todo!(),
-                AstKind::MainDefn => todo!(),
-                AstKind::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                AstVariant::MainDefn => todo!(),
+                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_contract {
                     Some(this_contract) => {
                         let method_source = match head.paradigm {
                             Paradigm::EagerProcedural => todo!(),
                             Paradigm::EagerFunctional => {
                                 let stmts = semantics_eager::parse_func_stmts(
-                                    &head.parameters,
                                     db,
                                     arena,
                                     child.opt_children.clone().unwrap(),
@@ -94,28 +93,28 @@ impl EntityDefnVariant {
                         )?,
                     ),
                 },
-                AstKind::PatternDefnHead => todo!(),
-                AstKind::FeatureDecl { ident, ty } => todo!(),
-                AstKind::Use { .. } => todo!(),
-                AstKind::FieldDefnHead { ref head, .. } => (
-                    head.ranged_ident.ident,
+                AstVariant::PatternDefnHead => todo!(),
+                AstVariant::FeatureDecl { ident, ty } => todo!(),
+                AstVariant::Use { .. } => todo!(),
+                AstVariant::FieldDefnHead { ranged_ident, .. } => (
+                    ranged_ident.ident,
                     EntityDefnVariant::type_field_from_ast(
                         db,
                         arena,
                         file,
                         ty_route,
-                        head,
+                        ast,
                         child.opt_children.clone(),
                     )?,
                 ),
-                AstKind::DatasetConfigDefnHead => todo!(),
-                AstKind::Stmt(_) => todo!(),
-                AstKind::EnumVariantDefnHead {
+                AstVariant::DatasetConfigDefnHead => todo!(),
+                AstVariant::Stmt(_) => todo!(),
+                AstVariant::EnumVariantDefnHead {
                     ident,
                     variant_class,
                 } => todo!(),
-                AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::Visual => break,
+                AstVariant::Submodule { ident, source_file } => todo!(),
+                AstVariant::Visual => break,
             };
             children.next();
             members.insert_new(EntityDefn::new(

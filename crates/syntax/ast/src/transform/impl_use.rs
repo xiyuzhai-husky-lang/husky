@@ -5,7 +5,7 @@ use entity_route::{EntityRoute, EntityRouteKind};
 use text::TextRange;
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_use(&mut self, token_group: &[Token]) -> AstResult<AstKind> {
+    pub(super) fn parse_use(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
         if token_group.len() <= 1 {
             return err!("expect route after keyword `use`", token_group.text_range());
         }
@@ -40,7 +40,7 @@ impl<'a> AstTransformer<'a> {
                 _ => todo!(),
             };
             self.use_all(parent, atoms[0].range)?;
-            Ok(AstKind::Use {
+            Ok(AstVariant::Use {
                 use_variant: UseVariant::All { parent },
             })
         } else {
@@ -63,7 +63,7 @@ impl<'a> AstTransformer<'a> {
                 }
             };
             self.use_route(route)?;
-            Ok(AstKind::Use {
+            Ok(AstVariant::Use {
                 use_variant: UseVariant::Route { route },
             })
         }

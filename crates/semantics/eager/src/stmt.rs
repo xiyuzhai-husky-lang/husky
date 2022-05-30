@@ -3,6 +3,7 @@ mod parser;
 mod proc;
 
 pub use func::*;
+pub use parser::*;
 pub use proc::*;
 
 use crate::expr::EagerExprParser;

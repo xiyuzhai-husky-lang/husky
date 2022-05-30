@@ -1,11 +1,11 @@
 use std::iter::Peekable;
 
-use super::{parser::EagerStmtParser, *};
+use super::{parser::EagerParser, *};
 use crate::*;
 
 type IterType<'a> = fold::FoldableIter<'a, AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>;
 
-impl<'a> EagerStmtParser<'a> {
+impl<'a> EagerParser<'a> {
     fn parse_boundary(&mut self, boundary: RawBoundary) -> SemanticResult<Boundary> {
         let bound = if let Some(bound) = boundary.opt_bound {
             Some(self.parse_eager_expr(bound)?)
@@ -27,29 +27,29 @@ impl<'a> EagerStmtParser<'a> {
         while let Some(item) = iter.next() {
             let instruction_id = InstructionId::default();
             stmts.push(Arc::new(match item.value.as_ref()?.variant {
-                AstKind::TypeDefnHead { .. } => todo!(),
-                AstKind::MainDefn => todo!(),
-                AstKind::DatasetConfigDefnHead => todo!(),
-                AstKind::CallFormDefnHead { .. } => todo!(),
-                AstKind::PatternDefnHead => todo!(),
-                AstKind::Use { .. } => todo!(),
-                AstKind::Stmt(ref stmt) => ProcStmt {
+                AstVariant::TypeDefnHead { .. } => todo!(),
+                AstVariant::MainDefn => todo!(),
+                AstVariant::DatasetConfigDefnHead => todo!(),
+                AstVariant::CallFormDefnHead { .. } => todo!(),
+                AstVariant::PatternDefnHead => todo!(),
+                AstVariant::Use { .. } => todo!(),
+                AstVariant::Stmt(ref stmt) => ProcStmt {
                     file: self.file,
                     range: stmt.range,
                     indent: item.indent,
                     variant: self.parse_proc_stmt(stmt, item.opt_children, &mut iter)?,
                     instruction_id,
                 },
-                AstKind::EnumVariantDefnHead {
+                AstVariant::EnumVariantDefnHead {
                     ident,
                     variant_class: ref variant_kind,
                 } => todo!(),
-                AstKind::FieldDefnHead { .. } => todo!(),
-                AstKind::CallFormDefnHead { .. } => todo!(),
-                AstKind::FeatureDecl { .. } => todo!(),
-                AstKind::Submodule { ident, source_file } => todo!(),
-                AstKind::CallFormDefnHead(_) => todo!(),
-                AstKind::Visual => todo!(),
+                AstVariant::FieldDefnHead { .. } => todo!(),
+                AstVariant::CallFormDefnHead { .. } => todo!(),
+                AstVariant::FeatureDecl { .. } => todo!(),
+                AstVariant::Submodule { ident, source_file } => todo!(),
+                AstVariant::CallFormDefnHead(_) => todo!(),
+                AstVariant::Visual => todo!(),
             }))
         }
         Ok(Arc::new(stmts))
@@ -135,7 +135,7 @@ impl<'a> EagerStmtParser<'a> {
         }
         while let Some(item) = iter.peek() {
             let item = match item.value.as_ref()?.variant {
-                AstKind::Stmt(RawStmt {
+                AstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
                             ref condition_branch_kind,
@@ -150,7 +150,7 @@ impl<'a> EagerStmtParser<'a> {
                 _ => break,
             };
             match item.value.as_ref()?.variant {
-                AstKind::Stmt(RawStmt {
+                AstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
                             condition_branch_kind,
@@ -268,7 +268,7 @@ impl<'a> EagerStmtParser<'a> {
                 .map(|item| {
                     let value = item.value.as_ref().unwrap();
                     match value.variant {
-                        AstKind::Stmt(RawStmt {
+                        AstVariant::Stmt(RawStmt {
                             variant:
                                 RawStmtVariant::PatternBranch {
                                     ref pattern_branch_variant,
