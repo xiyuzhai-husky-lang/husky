@@ -4,7 +4,7 @@ use crate::*;
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(super) fn eval_feature_block(
         &mut self,
-        block: &FeatureBlock,
+        block: &FeatureLazyBlock,
         eval_key: EvalKey<'eval>,
     ) -> EvalResult<'eval> {
         self.cache(eval_key, |this: &mut Self| {

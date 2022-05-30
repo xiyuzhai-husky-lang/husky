@@ -41,7 +41,7 @@ impl<'a> RustGenerator<'a> {
             match member.variant {
                 EntityDefnVariant::TypeField {
                     ty,
-                    ref fieldiant,
+                    field_variant: ref fieldiant,
                     contract,
                 } => {
                     match fieldiant {

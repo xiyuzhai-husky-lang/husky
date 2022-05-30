@@ -4,7 +4,7 @@ use crate::{eval::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureBranch {
-    pub block: Arc<FeatureBlock>,
+    pub block: Arc<FeatureLazyBlock>,
     pub variant: FeatureBranchVariant,
     pub(crate) eval_id: FeatureEvalId,
 }

@@ -95,9 +95,9 @@ impl EntityDefn {
         let mut builder = DependeeMapBuilder::new(db);
         match self.variant {
             EntityDefnVariant::Module { .. } => Default::default(),
-            EntityDefnVariant::Feature { ty, ref lazy_stmts } => {
+            EntityDefnVariant::Feature { ty, ref defn_repr } => {
                 builder.push(ty.route);
-                extract_lazy_stmts_dependees(lazy_stmts, &mut builder);
+                extract_defn_repr_dependees(defn_repr, &mut builder);
             }
             EntityDefnVariant::Func {
                 ref parameters,
@@ -140,19 +140,19 @@ impl EntityDefn {
                 EnumVariantDefnVariant::Constant => (),
             },
             EntityDefnVariant::TypeField {
-                ty, ref fieldiant, ..
+                ty,
+                field_variant: ref fieldiant,
+                ..
             } => {
                 builder.push(ty);
                 match fieldiant {
                     FieldDefnVariant::StructOriginal => todo!(),
                     FieldDefnVariant::RecordOriginal => todo!(),
-                    FieldDefnVariant::StructDerived { block } => match block {
-                        Block::Lazy { stmts } => todo!(),
-                        Block::Func { stmts } => todo!(),
-                        Block::Proc { stmts } => todo!(),
-                    },
-                    FieldDefnVariant::RecordDerived { stmts } => {
-                        extract_lazy_stmts_dependees(stmts, &mut builder)
+                    FieldDefnVariant::StructDerived { defn_repr } => {
+                        extract_defn_repr_dependees(defn_repr, &mut builder)
+                    }
+                    FieldDefnVariant::RecordDerived { defn_repr } => {
+                        extract_defn_repr_dependees(defn_repr, &mut builder)
                     }
                 }
             }
@@ -217,13 +217,25 @@ impl EntityDefn {
             builder.push(output.route);
         }
 
-        fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], v: &mut DependeeMapBuilder) {
+        fn extract_defn_repr_dependees(
+            defn_repr: &DefinitionRepr,
+            builder: &mut DependeeMapBuilder,
+        ) {
+            match defn_repr {
+                DefinitionRepr::EagerExpr {} => todo!(),
+                DefinitionRepr::LazyBlock { stmts } => extract_lazy_stmts_dependees(stmts, builder),
+                DefinitionRepr::FuncBlock { stmts } => extract_func_stmts_dependees(stmts, builder),
+                DefinitionRepr::ProcBlock { stmts } => extract_proc_stmts_dependees(stmts, builder),
+            }
+        }
+
+        fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], builder: &mut DependeeMapBuilder) {
             for stmt in stmts {
                 match stmt.variant {
                     LazyStmtVariant::Init { varname, ref value } => todo!(),
                     LazyStmtVariant::Assert { ref condition } => todo!(),
                     LazyStmtVariant::Return { ref result } => {
-                        extract_lazy_expr_dependees(result, v)
+                        extract_lazy_expr_dependees(result, builder)
                     }
                     LazyStmtVariant::ConditionFlow { ref branches } => todo!(),
                     LazyStmtVariant::Match { .. } => todo!(),
@@ -414,7 +426,7 @@ impl EntityDefn {
             match member_defn.variant {
                 EntityDefnVariant::Main(_) => todo!(),
                 EntityDefnVariant::Module { .. } => panic!("shouldn't be here"),
-                EntityDefnVariant::Feature { ty, ref lazy_stmts } => todo!(),
+                EntityDefnVariant::Feature { ty, ref defn_repr } => todo!(),
                 EntityDefnVariant::Func { .. } => todo!(),
                 EntityDefnVariant::Proc { .. } => todo!(),
                 EntityDefnVariant::Type { .. } => todo!(),
@@ -422,7 +434,7 @@ impl EntityDefn {
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TypeField {
                     ty,
-                    ref fieldiant,
+                    field_variant: ref fieldiant,
                     contract,
                 } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),

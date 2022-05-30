@@ -8,9 +8,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         msg_once!("ad hoc");
         match repr {
             FeatureRepr::Expr(expr) => self.eval_feature_expr(expr),
-            FeatureRepr::Block(block) => {
+            FeatureRepr::LazyBlock(block) => {
                 self.eval_feature_block(block, EvalKey::Feature(block.feature))
             }
+            FeatureRepr::FuncBlock(_) => todo!(),
+            FeatureRepr::ProcBlock(_) => todo!(),
         }
     }
 }

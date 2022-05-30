@@ -9,7 +9,7 @@ use crate::*;
 
 #[derive(Debug, Clone)]
 pub enum TraceVariant<'eval> {
-    Main(Arc<FeatureBlock>),
+    Main(FeatureRepr),
     FeatureStmt(Arc<FeatureStmt>),
     FeatureBranch(Arc<FeatureBranch>),
     FeatureExpr(Arc<FeatureExpr>),
@@ -67,7 +67,7 @@ impl<'eval> TraceVariant<'eval> {
 
     pub fn file_and_range(&self) -> (FilePtr, TextRange) {
         match self {
-            TraceVariant::Main(ref block) => (block.file, block.range),
+            TraceVariant::Main(ref block) => (block.file(), block.text_range()),
             TraceVariant::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
             TraceVariant::FeatureExpr(ref expr) => (expr.expr.file, expr.expr.range),
             TraceVariant::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
@@ -126,6 +126,11 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureExprVariant::PatternCall {} => true,
                 FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
                 FeatureExprVariant::ElementAccess { ref opds, .. } => false,
+                FeatureExprVariant::StructDerivedFieldAccess {
+                    ref this,
+                    field_ident,
+                    ref block,
+                } => todo!(),
             },
             TraceVariant::EagerExpr {
                 ref expr,

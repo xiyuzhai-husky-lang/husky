@@ -5,7 +5,7 @@ use word::IdentDict;
 #[derive(Debug, Clone)]
 pub struct Object {
     pub fields: Vec<Arc<FeatureExpr>>,
-    pub field_features: Vec<Arc<FeatureBlock>>,
+    pub field_features: Vec<Arc<FeatureLazyBlock>>,
 }
 
 impl<'eval> Into<EvalValue<'eval>> for Object {

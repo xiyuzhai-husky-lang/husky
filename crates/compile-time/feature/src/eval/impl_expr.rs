@@ -53,9 +53,10 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 );
                 result
             }
-            FeatureExprVariant::EntityFeature { ref block, .. } => {
-                self.eval_feature_block(block, EvalKey::Feature(block.feature))
-            }
+            FeatureExprVariant::EntityFeature {
+                repr: ref block, ..
+            } => todo!(),
+            // self.eval_feature_block(block, EvalKey::Feature(block.feature)),
             FeatureExprVariant::NewRecord {
                 ty,
                 ref entity,
@@ -97,6 +98,11 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 ];
                 (linkage.call)(&mut values).map(|mut value| value.into_eval())
             }
+            FeatureExprVariant::StructDerivedFieldAccess {
+                ref this,
+                field_ident,
+                ref block,
+            } => todo!(),
         }
     }
 

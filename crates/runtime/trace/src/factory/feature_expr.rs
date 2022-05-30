@@ -123,6 +123,11 @@ impl<'eval> TraceFactory<'eval> {
                 tokens.push(special!("]", associated_trace));
                 tokens
             }
+            FeatureExprVariant::StructDerivedFieldAccess {
+                ref this,
+                field_ident,
+                ref block,
+            } => todo!(),
         };
     }
 
