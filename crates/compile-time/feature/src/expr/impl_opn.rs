@@ -164,7 +164,54 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            FieldKind::StructDerivedLazy { .. } => todo!(),
+            FieldKind::StructDerivedLazy { .. } => {
+                let this_ty_defn = self.db.entity_defn(this.expr.ty()).unwrap();
+                let field_uid =
+                    self.db
+                        .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
+                            this.expr.ty(),
+                            field_ident.ident,
+                            vec![],
+                        )));
+                match this_ty_defn.variant {
+                    EntityDefnVariant::Type { ref ty_members, .. } => {
+                        match ty_members.get_entry(field_ident.ident).unwrap().variant {
+                            EntityDefnVariant::TypeField {
+                                ref field_variant, ..
+                            } => match field_variant {
+                                FieldDefnVariant::StructDerived { ref defn_repr } => {
+                                    todo!()
+                                    // let block = FeatureLazyBlock::new(
+                                    //     self.db,
+                                    //     Some(this.clone().into()),
+                                    //     defn_repr.clone(),
+                                    //     &[],
+                                    //     self.db.features(),
+                                    // );
+                                    // let feature = self.db.features().alloc(
+                                    //     Feature::RecordDerivedFieldAccess {
+                                    //         this: this.feature,
+                                    //         field_uid,
+                                    //     },
+                                    // );
+                                    // let feature_expr_kind =
+                                    //     FeatureExprVariant::StructDerivedFieldAccess {
+                                    //         this,
+                                    //         field_ident,
+                                    //         block,
+                                    //     };
+                                    // (feature_expr_kind, feature)
+                                }
+                                _ => {
+                                    panic!()
+                                }
+                            },
+                            _ => panic!(),
+                        }
+                    }
+                    _ => panic!(),
+                }
+            }
             FieldKind::RecordOriginal => {
                 let repr = self
                     .db
@@ -189,39 +236,41 @@ impl<'a> FeatureExprBuilder<'a> {
                             vec![],
                         )));
                 match this_ty_defn.variant {
-                    EntityDefnVariant::Type {
-                        ty_members: ref type_members,
-                        ..
-                    } => match type_members.get_entry(field_ident.ident).unwrap().variant {
-                        EntityDefnVariant::TypeField { ref fieldiant, .. } => match fieldiant {
-                            FieldDefnVariant::StructOriginal | FieldDefnVariant::RecordOriginal => {
-                                panic!()
-                            }
-                            FieldDefnVariant::StructDerived { block } => todo!(),
-                            FieldDefnVariant::RecordDerived { stmts } => {
-                                let block = FeatureBlock::new(
-                                    self.db,
-                                    Some(this.clone().into()),
-                                    stmts,
-                                    &[],
-                                    self.db.features(),
-                                );
-                                let feature =
-                                    self.db.features().alloc(Feature::RecordDerivedFieldAccess {
-                                        this: this.feature,
-                                        field_uid,
-                                    });
-                                let feature_expr_kind =
-                                    FeatureExprVariant::RecordDerivedFieldAccess {
-                                        this,
-                                        field_ident,
-                                        block,
-                                    };
-                                (feature_expr_kind, feature)
-                            }
-                        },
-                        _ => panic!(),
-                    },
+                    EntityDefnVariant::Type { ref ty_members, .. } => {
+                        match ty_members.get_entry(field_ident.ident).unwrap().variant {
+                            EntityDefnVariant::TypeField {
+                                ref field_variant, ..
+                            } => match field_variant {
+                                FieldDefnVariant::RecordDerived { defn_repr } => {
+                                    todo!()
+                                    // let block = FeatureLazyBlock::new(
+                                    //     self.db,
+                                    //     Some(this.clone().into()),
+                                    //     defn_repr.clone(),
+                                    //     &[],
+                                    //     self.db.features(),
+                                    // );
+                                    // let feature = self.db.features().alloc(
+                                    //     Feature::RecordDerivedFieldAccess {
+                                    //         this: this.feature,
+                                    //         field_uid,
+                                    //     },
+                                    // );
+                                    // let feature_expr_kind =
+                                    //     FeatureExprVariant::RecordDerivedFieldAccess {
+                                    //         this,
+                                    //         field_ident,
+                                    //         block,
+                                    //     };
+                                    // (feature_expr_kind, feature)
+                                }
+                                _ => {
+                                    panic!()
+                                }
+                            },
+                            _ => panic!(),
+                        }
+                    }
                     _ => panic!(),
                 }
             }
@@ -257,9 +306,10 @@ impl<'a> FeatureExprBuilder<'a> {
         match this.variant {
             FeatureExprVariant::Variable { .. } => todo!(),
             FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
-            FeatureExprVariant::EntityFeature { ref block, .. } => {
-                self.derive_record_field_value_from_block(block, field_ident)
-            }
+            FeatureExprVariant::EntityFeature {
+                repr: ref block, ..
+            } => todo!(),
+            // self.derive_record_field_value_from_block(block, field_ident),
             FeatureExprVariant::NewRecord {
                 ref entity,
                 ref opds,
@@ -288,6 +338,11 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
+            FeatureExprVariant::StructDerivedFieldAccess {
+                ref this,
+                field_ident,
+                ref block,
+            } => todo!(),
         }
     }
 
@@ -297,20 +352,21 @@ impl<'a> FeatureExprBuilder<'a> {
     // },
     fn derive_record_field_value_from_block(
         &self,
-        block: &FeatureBlock,
+        block: &FeatureLazyBlock,
         field_ident: CustomIdentifier,
     ) -> Arc<FeatureExpr> {
-        let stmt_features = block.stmt_features();
-        if stmt_features.len() == 1 {
-            match block.stmts.last().unwrap().variant {
-                FeatureStmtVariant::Return { ref result } => {
-                    self.record_field_value(result, field_ident)
-                }
-                FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
-                _ => panic!(),
-            }
-        } else {
-            todo!()
-        }
+        todo!()
+        // let stmt_features = block.stmt_features();
+        // if stmt_features.len() == 1 {
+        //     match block.stmts.last().unwrap().variant {
+        //         FeatureStmtVariant::Return { ref result } => {
+        //             self.record_field_value(result, field_ident)
+        //         }
+        //         FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
+        //         _ => panic!(),
+        //     }
+        // } else {
+        //     todo!()
+        // }
     }
 }

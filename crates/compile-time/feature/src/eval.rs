@@ -15,9 +15,9 @@ use vm::{AnyValueDyn, EvalValue};
 use crate::*;
 use vm::EvalResult;
 
-pub fn eval_feature_block<'eval>(
+pub fn eval_feature_lazy_block<'eval>(
     db: &dyn FeatureQueryGroup,
-    block: &FeatureBlock,
+    block: &FeatureLazyBlock,
     eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut EvalSheet<'eval>,
     eval_key: EvalKey<'eval>,

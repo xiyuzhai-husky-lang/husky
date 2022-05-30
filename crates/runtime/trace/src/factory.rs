@@ -4,6 +4,7 @@ mod expr;
 mod feature_block;
 mod feature_branch;
 mod feature_expr;
+mod feature_repr;
 mod feature_stmt;
 mod func_stmt;
 mod proc_stmt;
@@ -170,10 +171,22 @@ impl<'eval> TraceFactory<'eval> {
 pub trait CreateTrace<'eval>: AskCompileTime {
     fn trace_factory(&self) -> &TraceFactory<'eval>;
 
+    fn feature_repr_subtraces(
+        &self,
+        parent: &Trace<'eval>,
+        feature_repr: &FeatureRepr,
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
+        let text = &self.compile_time().text(parent.file).unwrap();
+        Arc::new(
+            self.trace_factory()
+                .feature_repr_subtraces(parent, feature_repr, text),
+        )
+    }
+
     fn feature_block_subtraces(
         &self,
         parent: &Trace<'eval>,
-        feature_block: &FeatureBlock,
+        feature_block: &FeatureLazyBlock,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = &self.compile_time().text(parent.file).unwrap();
         Arc::new(

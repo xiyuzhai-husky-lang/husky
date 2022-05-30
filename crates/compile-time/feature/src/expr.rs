@@ -66,10 +66,15 @@ pub enum FeatureExprVariant {
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
+    StructDerivedFieldAccess {
+        this: Arc<FeatureExpr>,
+        field_ident: RangedCustomIdentifier,
+        block: Arc<FeatureLazyBlock>,
+    },
     RecordDerivedFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
-        block: Arc<FeatureBlock>,
+        block: Arc<FeatureLazyBlock>,
     },
     ElementAccess {
         opds: Vec<Arc<FeatureExpr>>,
@@ -85,7 +90,7 @@ pub enum FeatureExprVariant {
     PatternCall {},
     EntityFeature {
         route: EntityRoutePtr,
-        block: Arc<FeatureBlock>,
+        repr: FeatureRepr,
     },
     GlobalInput,
     NewRecord {
@@ -174,7 +179,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     let feature = self.features.alloc(Feature::EntityFeature { route, uid });
                     let kind = FeatureExprVariant::EntityFeature {
                         route,
-                        block: self.db.scoped_feature_block(route).unwrap(),
+                        repr: self.db.entity_feature_repr(route).unwrap(),
                     };
                     (kind, feature)
                 }

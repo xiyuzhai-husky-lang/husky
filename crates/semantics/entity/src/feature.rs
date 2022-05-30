@@ -6,7 +6,7 @@ use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MainDefn {
-    pub stmts: Arc<Vec<Arc<LazyStmt>>>,
+    pub defn_repr: DefinitionRepr,
     pub file: FilePtr,
 }
 
@@ -20,6 +20,9 @@ impl EntityDefnVariant {
     ) -> SemanticResult<EntityDefnVariant> {
         let lazy_stmts = semantics_lazy::parse_lazy_stmts(&[], db.upcast(), arena, children, file)?;
         // let feature_block = FeatureBlock::new(db, lazy_stmts, &[], db.features());
-        Ok(EntityDefnVariant::Feature { ty, lazy_stmts })
+        Ok(EntityDefnVariant::Feature {
+            ty,
+            defn_repr: DefinitionRepr::LazyBlock { stmts: lazy_stmts },
+        })
     }
 }

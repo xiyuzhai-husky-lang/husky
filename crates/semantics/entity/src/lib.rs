@@ -1,7 +1,7 @@
 mod dependence;
+mod feature;
 mod function;
 mod module;
-mod morphism;
 mod query;
 mod subentities;
 mod trai;
@@ -12,10 +12,10 @@ use atom::{
     AtomContext, AtomContextStandalone,
 };
 use entity_syntax::EntityLocus;
+pub use feature::*;
 pub use function::*;
 use map_collect::MapCollect;
 use module::module_defn;
-pub use morphism::*;
 use print_utils::{msg_once, p};
 pub use query::*;
 pub use trai::*;
@@ -144,7 +144,7 @@ pub enum EntityDefnVariant {
     },
     Feature {
         ty: RangedEntityRoute,
-        lazy_stmts: Arc<Vec<Arc<LazyStmt>>>,
+        defn_repr: DefinitionRepr,
     },
     Func {
         generic_parameters: IdentDict<GenericParameter>,
@@ -179,7 +179,7 @@ pub enum EntityDefnVariant {
     Builtin,
     TypeField {
         ty: EntityRoutePtr,
-        fieldiant: FieldDefnVariant,
+        field_variant: FieldDefnVariant,
         contract: MemberLiason,
     },
     Method {
@@ -305,13 +305,15 @@ pub(crate) fn main_defn(
         match item.value.as_ref()?.variant {
             AstKind::MainDefn => {
                 return Ok(Arc::new(MainDefn {
-                    stmts: parse_lazy_stmts(
-                        &[],
-                        this.upcast(),
-                        &ast_text.arena,
-                        not_none!(item.opt_children),
-                        main_file,
-                    )?,
+                    defn_repr: DefinitionRepr::LazyBlock {
+                        stmts: parse_lazy_stmts(
+                            &[],
+                            this.upcast(),
+                            &ast_text.arena,
+                            not_none!(item.opt_children),
+                            main_file,
+                        )?,
+                    },
                     file: main_file,
                 }))
             }

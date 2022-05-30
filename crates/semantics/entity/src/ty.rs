@@ -59,7 +59,7 @@ impl EntityDefnVariant {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
-                        ref fieldiant,
+                        field_variant: ref fieldiant,
                         contract,
                     } => match fieldiant {
                         FieldDefnVariant::RecordOriginal => InputParameter {
@@ -87,7 +87,7 @@ impl EntityDefnVariant {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
-                        ref fieldiant,
+                        field_variant: ref fieldiant,
                         contract,
                     } => match fieldiant {
                         FieldDefnVariant::StructOriginal => InputParameter {

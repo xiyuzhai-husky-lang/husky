@@ -11,9 +11,9 @@ impl EntityDefnVariant {
         let variant = match field_defn_head.kind {
             FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
             FieldKind::StructDerivedLazy { paradigm } => FieldDefnVariant::StructDerived {
-                block: match paradigm {
-                    Paradigm::LazyFunctional => Block::Lazy { stmts: todo!() },
-                    Paradigm::EagerFunctional => Block::Func {
+                defn_repr: Arc::new(match paradigm {
+                    Paradigm::LazyFunctional => DefinitionRepr::LazyBlock { stmts: todo!() },
+                    Paradigm::EagerFunctional => DefinitionRepr::FuncBlock {
                         stmts: semantics_eager::parse_func_stmts(
                             &[],
                             db,
@@ -23,18 +23,26 @@ impl EntityDefnVariant {
                         )?,
                     },
                     Paradigm::EagerProcedural => todo!(),
-                },
+                }),
             },
             FieldKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
             FieldKind::RecordDerived => FieldDefnVariant::RecordDerived {
-                stmts: semantics_lazy::parse_lazy_stmts(&[], db, arena, children.unwrap(), file)?,
+                defn_repr: Arc::new(DefinitionRepr::LazyBlock {
+                    stmts: semantics_lazy::parse_lazy_stmts(
+                        &[],
+                        db,
+                        arena,
+                        children.unwrap(),
+                        file,
+                    )?,
+                }),
             },
             _ => todo!(),
         };
         Ok(Self::TypeField {
             ty: field_defn_head.ty.route,
             contract: field_defn_head.liason,
-            fieldiant: variant,
+            field_variant: variant,
         })
     }
 
@@ -87,13 +95,14 @@ impl EntityDefnVariant {
 pub enum FieldDefnVariant {
     StructOriginal,
     RecordOriginal,
-    StructDerived { block: Block },
-    RecordDerived { stmts: Arc<Vec<Arc<LazyStmt>>> },
+    StructDerived { defn_repr: Arc<DefinitionRepr> },
+    RecordDerived { defn_repr: Arc<DefinitionRepr> },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum Block {
-    Lazy { stmts: Arc<Vec<Arc<LazyStmt>>> },
-    Func { stmts: Arc<Vec<Arc<FuncStmt>>> },
-    Proc { stmts: Arc<Vec<Arc<ProcStmt>>> },
+pub enum DefinitionRepr {
+    EagerExpr {},
+    LazyBlock { stmts: Arc<Vec<Arc<LazyStmt>>> },
+    FuncBlock { stmts: Arc<Vec<Arc<FuncStmt>>> },
+    ProcBlock { stmts: Arc<Vec<Arc<ProcStmt>>> },
 }

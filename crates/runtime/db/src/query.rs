@@ -16,16 +16,32 @@ pub trait EvalFeature {
     fn feature_query_group(&self) -> &dyn FeatureQueryGroup;
     fn session(&self) -> &Arc<Mutex<Session<'static>>>;
 
-    fn eval_feature_block(
+    fn eval_feature_repr(
         &self,
-        block: &FeatureBlock,
+        repr: &FeatureRepr,
+        input_id: usize,
+        eval_key: EvalKey<'static>,
+    ) -> EvalResult<'static> {
+        match repr {
+            FeatureRepr::Expr(_) => todo!(),
+            FeatureRepr::LazyBlock(block) => {
+                self.eval_feature_lazy_block(block, input_id, eval_key)
+            }
+            FeatureRepr::FuncBlock(_) => todo!(),
+            FeatureRepr::ProcBlock(_) => todo!(),
+        }
+    }
+
+    fn eval_feature_lazy_block(
+        &self,
+        block: &FeatureLazyBlock,
         input_id: usize,
         eval_key: EvalKey<'static>,
     ) -> EvalResult<'static> {
         let dev = &mut self.session().lock().unwrap().dev;
         let sheet = &mut dev.sheets[input_id];
         let input = dev.loader.load(input_id).input;
-        eval_feature_block(self.feature_query_group(), block, input, sheet, eval_key)
+        eval_feature_lazy_block(self.feature_query_group(), block, input, sheet, eval_key)
     }
 
     fn eval_feature_stmt(&self, stmt: &FeatureStmt, input_id: usize) -> EvalResult<'static> {
@@ -71,7 +87,7 @@ pub fn root_traces(this: &dyn RuntimeQueryGroup) -> Arc<Vec<TraceId>> {
             None,
             pack_main,
             0,
-            TraceVariant::Main(compile_time.main_feature_block(pack_main).unwrap()),
+            TraceVariant::Main(compile_time.main_feature_repr(pack_main).unwrap()),
         )
         .id()])
 }
@@ -83,7 +99,7 @@ pub fn subtraces(
 ) -> Arc<Vec<Arc<Trace<'static>>>> {
     let trace: &Trace = &db.trace(trace_id);
     match trace.variant {
-        TraceVariant::Main(ref block) => db.feature_block_subtraces(&trace, block),
+        TraceVariant::Main(ref repr) => db.feature_repr_subtraces(&trace, repr),
         TraceVariant::FeatureStmt(_)
         | TraceVariant::FeatureCallInput { .. }
         | TraceVariant::FuncStmt { .. }
@@ -272,6 +288,11 @@ fn feature_expr_subtraces(
         FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
         FeatureExprVariant::GlobalInput => panic!(),
         FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
+        FeatureExprVariant::StructDerivedFieldAccess {
+            ref this,
+            field_ident,
+            ref block,
+        } => todo!(),
     })
 }
 
@@ -282,10 +303,10 @@ pub fn trace_stalk(
 ) -> Arc<TraceStalk<'static>> {
     let trace: &Trace = &this.trace(trace_id);
     Arc::new(match trace.variant {
-        TraceVariant::Main(ref block) => TraceStalk {
+        TraceVariant::Main(ref repr) => TraceStalk {
             extra_tokens: vec![
                 trace::fade!(" = "),
-                this.eval_feature_block(block, input_id, EvalKey::Feature(block.feature))
+                this.eval_feature_repr(repr, input_id, EvalKey::Feature(repr.feature()))
                     .into(),
             ],
         },

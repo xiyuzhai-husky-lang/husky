@@ -11,7 +11,9 @@ pub(crate) fn record_field_repr(
 ) -> FeatureRepr {
     match this {
         FeatureRepr::Expr(ref expr) => expr_record_field(db, expr, field_ident),
-        FeatureRepr::Block(ref block) => block_record_memb(db, block, field_ident),
+        FeatureRepr::LazyBlock(ref block) => block_record_memb(db, block, field_ident),
+        FeatureRepr::FuncBlock(_) => todo!(),
+        FeatureRepr::ProcBlock(_) => todo!(),
     }
 }
 
@@ -23,8 +25,9 @@ pub(crate) fn expr_record_field(
     match this.variant {
         FeatureExprVariant::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
         FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
-        FeatureExprVariant::EntityFeature { ref block, .. } => {
-            block_record_memb(db, block, field_ident)
+        FeatureExprVariant::EntityFeature { ref repr, .. } => {
+            todo!()
+            // block_record_memb(db, repr.clone(), field_ident)
         }
         FeatureExprVariant::NewRecord {
             ref entity,
@@ -44,15 +47,15 @@ pub(crate) fn expr_record_field(
                         match type_member.variant {
                             EntityDefnVariant::TypeField {
                                 ty,
-                                ref fieldiant,
+                                field_variant: ref fieldiant,
                                 contract,
                             } => match fieldiant {
                                 FieldDefnVariant::StructOriginal => panic!(),
                                 FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),
-                                FieldDefnVariant::StructDerived { block } => {
+                                FieldDefnVariant::StructDerived { defn_repr: block } => {
                                     todo!()
                                 }
-                                FieldDefnVariant::RecordDerived { stmts } => {
+                                FieldDefnVariant::RecordDerived { ref defn_repr } => {
                                     todo!()
                                 }
                             },
@@ -85,24 +88,29 @@ pub(crate) fn expr_record_field(
         FeatureExprVariant::PatternCall {} => todo!(),
         FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
         FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
+        FeatureExprVariant::StructDerivedFieldAccess {
+            ref this,
+            field_ident,
+            ref block,
+        } => todo!(),
     }
 }
 
 pub(crate) fn block_record_memb(
     db: &dyn FeatureQueryGroup,
-    this: &Arc<FeatureBlock>,
+    this: &Arc<FeatureLazyBlock>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
-    let stmt_features = this.stmt_features();
-    if stmt_features.len() == 1 {
-        match this.stmts.last().unwrap().variant {
-            FeatureStmtVariant::Return { ref result } => {
-                db.record_field_repr(result.clone().into(), field_ident)
-            }
-            FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
-            _ => panic!(),
-        }
-    } else {
-        todo!()
-    }
+    // let stmt_features = this.stmt_features();
+    // if stmt_features.len() == 1 {
+    //     match this.stmts.last().unwrap().variant {
+    //         FeatureStmtVariant::Return { ref result } => {
+    //             db.record_field_repr(result.clone().into(), field_ident)
+    //         }
+    //         FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
+    //         _ => panic!(),
+    //     }
+    // } else {
+    todo!()
+    // }
 }

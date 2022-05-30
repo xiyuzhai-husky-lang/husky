@@ -3,7 +3,7 @@ use instruction_gen::InstructionGenQueryGroup;
 use linkage_table::ResolveLinkage;
 use pack_semantics::*;
 use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant};
-use semantics_error::SemanticResultArc;
+use semantics_error::{SemanticResult, SemanticResultArc};
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
 
@@ -18,28 +18,33 @@ pub trait FeatureQueryGroup:
     + Upcast<dyn InterpreterQueryGroup>
     + ResolveLinkage
 {
-    fn main_feature_block(&self, main_file: file::FilePtr) -> SemanticResultArc<FeatureBlock>;
-    fn scoped_feature_block(&self, scope: EntityRoutePtr) -> SemanticResultArc<FeatureBlock>;
+    fn main_feature_repr(&self, main_file: file::FilePtr) -> SemanticResult<FeatureRepr>;
+    fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> SemanticResult<FeatureRepr>;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
 }
 
-fn main_feature_block(
+fn main_feature_repr(
     db: &dyn FeatureQueryGroup,
     main_file: file::FilePtr,
-) -> SemanticResultArc<FeatureBlock> {
+) -> SemanticResult<FeatureRepr> {
     let pack = db.package(main_file)?;
     let main = &*pack.main_defn;
-    Ok(FeatureBlock::new(db, None, &main.stmts, &[], db.features()))
+    Ok(FeatureRepr::from_defn(
+        db,
+        None,
+        &main.defn_repr,
+        db.features(),
+    ))
 }
 
-fn scoped_feature_block(
+fn entity_feature_repr(
     db: &dyn FeatureQueryGroup,
-    scope: EntityRoutePtr,
-) -> SemanticResultArc<FeatureBlock> {
-    let entity = db.entity_defn(scope)?;
+    entity_route: EntityRoutePtr,
+) -> SemanticResult<FeatureRepr> {
+    let entity = db.entity_defn(entity_route)?;
     match entity.variant {
-        EntityDefnVariant::Feature { ref lazy_stmts, .. } => {
-            Ok(FeatureBlock::new(db, None, lazy_stmts, &[], db.features()))
+        EntityDefnVariant::Feature { ref defn_repr, .. } => {
+            Ok(FeatureRepr::from_defn(db, None, defn_repr, db.features()))
         }
         _ => todo!(),
     }

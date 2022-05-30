@@ -1,3 +1,4 @@
+mod block;
 mod branch;
 mod eval;
 mod expr;
@@ -6,16 +7,15 @@ mod query;
 mod record;
 mod repr;
 mod stmt;
-mod this;
 mod unique_allocate;
 
+pub use block::*;
 pub use branch::{FeatureBranch, FeatureBranchVariant};
 pub use eval::*;
 pub use expr::{FeatureExpr, FeatureExprVariant};
 pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use repr::*;
 pub use stmt::{FeatureStmt, FeatureStmtVariant};
-pub use this::FeatureBlock;
 pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
 };
