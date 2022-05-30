@@ -138,7 +138,7 @@ impl<'a> FeatureExprBuilder<'a> {
         let this_ty_decl = self.db.ty_decl(this.expr.ty()).unwrap();
         match field_access_kind {
             FieldKind::StructOriginal => {
-                let feature = self.features.alloc(Feature::StructOriginalFieldAccess {
+                let feature = self.features.alloc(Feature::FieldAccess {
                     this: this.feature,
                     field_ident: field_ident.ident,
                 });
@@ -180,27 +180,20 @@ impl<'a> FeatureExprBuilder<'a> {
                                 ref field_variant, ..
                             } => match field_variant {
                                 FieldDefnVariant::StructDerived { ref defn_repr } => {
-                                    todo!()
-                                    // let block = FeatureLazyBlock::new(
-                                    //     self.db,
-                                    //     Some(this.clone().into()),
-                                    //     defn_repr.clone(),
-                                    //     &[],
-                                    //     self.db.features(),
-                                    // );
-                                    // let feature = self.db.features().alloc(
-                                    //     Feature::RecordDerivedFieldAccess {
-                                    //         this: this.feature,
-                                    //         field_uid,
-                                    //     },
-                                    // );
-                                    // let feature_expr_kind =
-                                    //     FeatureExprVariant::StructDerivedFieldAccess {
-                                    //         this,
-                                    //         field_ident,
-                                    //         block,
-                                    //     };
-                                    // (feature_expr_kind, feature)
+                                    let repr = FeatureRepr::from_defn(
+                                        self.db,
+                                        Some(this.clone().into()),
+                                        defn_repr,
+                                        self.db.features(),
+                                    );
+                                    let feature = repr.feature();
+                                    let feature_expr_kind =
+                                        FeatureExprVariant::StructDerivedFieldAccess {
+                                            this,
+                                            field_ident,
+                                            repr,
+                                        };
+                                    (feature_expr_kind, feature)
                                 }
                                 _ => {
                                     panic!()
@@ -341,7 +334,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprVariant::StructDerivedFieldAccess {
                 ref this,
                 field_ident,
-                ref block,
+                ref repr,
             } => todo!(),
         }
     }

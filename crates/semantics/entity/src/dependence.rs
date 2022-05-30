@@ -224,8 +224,18 @@ impl EntityDefn {
             match defn_repr {
                 DefinitionRepr::EagerExpr {} => todo!(),
                 DefinitionRepr::LazyBlock { stmts } => extract_lazy_stmts_dependees(stmts, builder),
-                DefinitionRepr::FuncBlock { stmts } => extract_func_stmts_dependees(stmts, builder),
-                DefinitionRepr::ProcBlock { stmts } => extract_proc_stmts_dependees(stmts, builder),
+                DefinitionRepr::FuncBlock {
+                    stmts,
+                    file,
+                    range,
+                    route,
+                } => {
+                    builder.push(*route);
+                    extract_func_stmts_dependees(stmts, builder)
+                }
+                DefinitionRepr::ProcBlock { stmts, file, range } => {
+                    extract_proc_stmts_dependees(stmts, builder)
+                }
             }
         }
 

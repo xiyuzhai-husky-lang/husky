@@ -291,7 +291,7 @@ fn feature_expr_subtraces(
         FeatureExprVariant::StructDerivedFieldAccess {
             ref this,
             field_ident,
-            ref block,
+            ref repr,
         } => todo!(),
     })
 }

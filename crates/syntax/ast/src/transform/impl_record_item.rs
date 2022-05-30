@@ -44,7 +44,7 @@ impl<'a> AstTransformer<'a> {
             emsg_once!("field contract");
             Ok(AstKind::FieldDefnHead {
                 head: FieldDefnHead {
-                    ident,
+                    ranged_ident: ident,
                     liason: MemberLiason::Immutable,
                     ty,
                     kind: FieldKind::RecordOriginal,
@@ -70,7 +70,7 @@ impl<'a> AstTransformer<'a> {
         let ty = atom::parse_route(self, &token_group[3..])?;
         Ok(AstKind::FieldDefnHead {
             head: FieldDefnHead {
-                ident,
+                ranged_ident: ident,
                 ty,
                 kind: FieldKind::RecordDerived,
                 liason: MemberLiason::Immutable,

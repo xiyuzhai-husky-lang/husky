@@ -8,7 +8,7 @@ pub struct FeatureFuncBlock {
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    stmts: Avec<FuncStmt>,
+    pub stmts: Avec<FuncStmt>,
 }
 
 impl std::hash::Hash for FeatureFuncBlock {

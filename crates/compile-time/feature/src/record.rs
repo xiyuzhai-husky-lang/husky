@@ -91,7 +91,7 @@ pub(crate) fn expr_record_field(
         FeatureExprVariant::StructDerivedFieldAccess {
             ref this,
             field_ident,
-            ref block,
+            ref repr,
         } => todo!(),
     }
 }

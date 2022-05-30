@@ -76,16 +76,16 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 ref this,
                 field_ident,
                 ref repr,
-            } => self.eval_feature_repr(repr),
+            } => self.eval_feature_repr(repr, EvalKey::Feature(repr.feature())),
             FeatureExprVariant::This { ref repr } => todo!(),
             FeatureExprVariant::GlobalInput => Ok(EvalValue::GlobalPure(self.eval_input.clone())),
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
-                ref block,
+                ref repr,
                 ..
-            } => self.eval_feature_block(block, EvalKey::Feature(block.feature)),
+            } => self.eval_feature_repr(repr, EvalKey::Feature(repr.feature())),
             FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
@@ -101,7 +101,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
             FeatureExprVariant::StructDerivedFieldAccess {
                 ref this,
                 field_ident,
-                ref block,
+                ref repr,
             } => todo!(),
         }
     }

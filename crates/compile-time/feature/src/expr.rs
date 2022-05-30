@@ -69,12 +69,12 @@ pub enum FeatureExprVariant {
     StructDerivedFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
-        block: Arc<FeatureLazyBlock>,
+        repr: FeatureRepr,
     },
     RecordDerivedFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
-        block: Arc<FeatureLazyBlock>,
+        repr: FeatureRepr,
     },
     ElementAccess {
         opds: Vec<Arc<FeatureExpr>>,

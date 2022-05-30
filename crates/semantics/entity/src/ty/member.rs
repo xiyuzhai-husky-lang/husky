@@ -98,11 +98,12 @@ impl EntityDefnVariant {
                 AstKind::FeatureDecl { ident, ty } => todo!(),
                 AstKind::Use { .. } => todo!(),
                 AstKind::FieldDefnHead { ref head, .. } => (
-                    head.ident.ident,
+                    head.ranged_ident.ident,
                     EntityDefnVariant::type_field_from_ast(
                         db,
                         arena,
                         file,
+                        ty_route,
                         head,
                         child.opt_children.clone(),
                     )?,
