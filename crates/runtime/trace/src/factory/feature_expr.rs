@@ -126,7 +126,7 @@ impl<'eval> TraceFactory<'eval> {
             FeatureExprVariant::StructDerivedFieldAccess {
                 ref this,
                 field_ident,
-                ref block,
+                ref repr,
             } => todo!(),
         };
     }

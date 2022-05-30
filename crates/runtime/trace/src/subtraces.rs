@@ -39,7 +39,7 @@ impl<'eval> Trace<'eval> {
                 FeatureExprVariant::StructDerivedFieldAccess {
                     ref this,
                     field_ident,
-                    ref block,
+                    ref repr,
                 } => todo!(),
             },
             TraceVariant::EagerExpr { ref expr, .. } => {

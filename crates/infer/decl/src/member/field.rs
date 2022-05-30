@@ -33,7 +33,7 @@ impl FieldDecl {
 
     pub fn from_ast(field_defn_head: &FieldDefnHead) -> Arc<Self> {
         Arc::new(Self {
-            ident: field_defn_head.ident.ident,
+            ident: field_defn_head.ranged_ident.ident,
             liason: field_defn_head.liason,
             ty: field_defn_head.ty.route,
             kind: field_defn_head.kind,

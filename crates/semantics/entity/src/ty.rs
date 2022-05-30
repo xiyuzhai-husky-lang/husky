@@ -51,7 +51,7 @@ impl EntityDefnVariant {
             _ => Default::default(),
         };
 
-        Self::collect_original_fields(db, arena, file, &mut children, &mut ty_members, ty)?;
+        Self::collect_original_fields(db, arena, file, ty, &mut children, &mut ty_members)?;
 
         let opt_type_call = match kind {
             TyKind::Enum => None,

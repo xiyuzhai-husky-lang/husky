@@ -18,7 +18,7 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Expr(expr) => expr.feature,
             FeatureRepr::LazyBlock(block) => block.feature,
-            FeatureRepr::FuncBlock(_) => todo!(),
+            FeatureRepr::FuncBlock(block) => block.feature,
             FeatureRepr::ProcBlock(_) => todo!(),
         }
     }
@@ -52,8 +52,29 @@ impl FeatureRepr {
             DefinitionRepr::LazyBlock { stmts } => {
                 FeatureRepr::LazyBlock(FeatureLazyBlock::new(db, opt_this, stmts, &[], features))
             }
-            DefinitionRepr::FuncBlock { stmts } => todo!(),
-            DefinitionRepr::ProcBlock { stmts } => todo!(),
+            DefinitionRepr::FuncBlock {
+                stmts,
+                file,
+                range,
+                route,
+            } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
+                symbols: vec![],
+                feature: features.alloc(match opt_this {
+                    Some(this) => Feature::FieldAccess {
+                        this: this.feature(),
+                        field_ident: route.ident().custom(),
+                    },
+                    None => Feature::EntityFeature {
+                        route: *route,
+                        uid: db.entity_uid(*route),
+                    },
+                }),
+                file: *file,
+                range: *range,
+                eval_id: Default::default(),
+                stmts: stmts.clone(),
+            })),
+            DefinitionRepr::ProcBlock { stmts, file, range } => todo!(),
         }
     }
 }

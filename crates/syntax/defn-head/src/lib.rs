@@ -24,7 +24,7 @@ pub struct CallableDefnHead {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FieldDefnHead {
     pub liason: MemberLiason,
-    pub ident: RangedCustomIdentifier,
+    pub ranged_ident: RangedCustomIdentifier,
     pub ty: RangedEntityRoute,
     pub kind: FieldKind,
 }

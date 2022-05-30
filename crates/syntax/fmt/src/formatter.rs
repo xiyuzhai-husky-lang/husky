@@ -142,7 +142,7 @@ impl<'a> Formatter<'a> {
                     MemberLiason::Mutable => todo!(),
                     MemberLiason::Derived => todo!(),
                 }
-                self.fmt_ident(head.ident.ident.into());
+                self.fmt_ident(head.ranged_ident.ident.into());
                 self.write(": ");
                 self.fmt_ty(head.ty.route)
             }
