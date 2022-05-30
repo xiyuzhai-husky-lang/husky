@@ -27,34 +27,48 @@ impl<'a> AstTransformer<'a> {
         } else {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
-        let opt_expr = if try_eat!(
-            parser,
-            token_kind,
-            TokenKind::Special(Special::DeriveAssign)
-        ) {
-            todo!()
-        } else if try_eat!(parser, token_kind, TokenKind::Special(Special::Assign)) {
-            self.update_struct_item_context(
-                struct_item_context,
-                StructItemContext::OriginalField,
-                token_group,
-            )?;
-            todo!()
-        } else {
-            end!(parser);
-            self.update_struct_item_context(
-                struct_item_context,
-                StructItemContext::OriginalField,
-                token_group,
-            )?;
-            None
-        };
+        let (field_kind, opt_expr) =
+            if try_eat!(parser, token_kind, TokenKind::Special(Special::Assign)) {
+                let atoms = parser.parse_all()?;
+                self.update_struct_item_context(
+                    struct_item_context,
+                    StructItemContext::DefaultField,
+                    token_group,
+                )?;
+                (
+                    FieldKind::StructDefault,
+                    Some(self.parse_expr_from_atoms(atoms)?),
+                )
+            } else if try_eat!(
+                parser,
+                token_kind,
+                TokenKind::Special(Special::DeriveAssign)
+            ) {
+                let atoms = parser.parse_all()?;
+                self.update_struct_item_context(
+                    struct_item_context,
+                    StructItemContext::DerivedEagerField,
+                    token_group,
+                )?;
+                (
+                    FieldKind::StructDerivedEager,
+                    Some(self.parse_expr_from_atoms(atoms)?),
+                )
+            } else {
+                end!(parser);
+                self.update_struct_item_context(
+                    struct_item_context,
+                    StructItemContext::OriginalField,
+                    token_group,
+                )?;
+                (FieldKind::StructOriginal, None)
+            };
         Ok(AstKind::FieldDefnHead {
             head: FieldDefnHead {
                 liason: field_liason,
                 ranged_ident: ident,
                 ty,
-                kind: FieldKind::StructOriginal,
+                field_kind,
             },
             opt_expr,
         })
@@ -115,7 +129,7 @@ impl<'a> AstTransformer<'a> {
                 liason: MemberLiason::Derived,
                 ranged_ident: ident,
                 ty,
-                kind: FieldKind::StructDerivedLazy { paradigm },
+                field_kind: FieldKind::StructDerivedLazy { paradigm },
             },
             opt_expr: None,
         })

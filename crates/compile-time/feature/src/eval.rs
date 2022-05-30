@@ -20,14 +20,13 @@ pub fn eval_feature_lazy_block<'eval>(
     block: &FeatureLazyBlock,
     eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut EvalSheet<'eval>,
-    eval_key: EvalKey<'eval>,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator {
         db,
         eval_input,
         sheet,
     };
-    evaluator.eval_feature_block(block, eval_key)
+    evaluator.eval_feature_lazy_block(block)
 }
 
 pub fn eval_feature_stmt<'eval>(

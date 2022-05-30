@@ -6,6 +6,10 @@ use token::Token;
 impl<'a> AstTransformer<'a> {
     pub fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {
         let atoms = self.parse_atoms(tokens, |parser| parser.parse_all())?;
+        self.parse_expr_from_atoms(atoms)
+    }
+
+    pub(crate) fn parse_expr_from_atoms(&mut self, atoms: Vec<Atom>) -> AstResult<RawExprIdx> {
         should!(atoms.len() > 0);
         let mut atom_iter = atoms.into_iter().peekable();
         let mut stack = ExprStack::new(&mut self.arena);

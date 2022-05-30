@@ -1,5 +1,5 @@
 use check_utils::should_eq;
-use defn_head::{GenericParameter, GenericPlaceholderVariant};
+use defn_head::{GenericPlaceholderVariant, SpatialParameter};
 use entity_route::*;
 use entity_syntax::*;
 use map_collect::MapCollect;
@@ -8,7 +8,7 @@ use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
     pub db: &'a dyn EntityRouteSalsaQueryGroup,
-    pub generic_parameters: &'a [GenericParameter],
+    pub generic_parameters: &'a [SpatialParameter],
     pub dst_generics: &'a [GenericArgument],
 }
 
@@ -83,14 +83,14 @@ impl<'a> Instantiator<'a> {
 
     pub fn instantiate_generic_placeholder(
         &self,
-        placeholder: &GenericParameter,
-    ) -> Option<GenericParameter> {
+        placeholder: &SpatialParameter,
+    ) -> Option<SpatialParameter> {
         for targeted_placeholder in self.generic_parameters.iter() {
             if targeted_placeholder.ident == placeholder.ident {
                 todo!()
             }
         }
-        Some(GenericParameter {
+        Some(SpatialParameter {
             ident: placeholder.ident,
             variant: match placeholder.variant {
                 GenericPlaceholderVariant::Const => GenericPlaceholderVariant::Const,

@@ -1,5 +1,6 @@
 use avec::Avec;
 use file::FilePtr;
+use instruction_gen::new_func_instruction_sheet;
 use semantics_eager::ProcStmt;
 use semantics_entity::DefinitionRepr;
 
@@ -58,9 +59,18 @@ impl FeatureRepr {
                 range,
                 route,
             } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
-                symbols: vec![],
+                file: *file,
+                range: *range,
+                eval_id: Default::default(),
+                stmts: stmts.clone(),
+                instruction_sheet: new_func_instruction_sheet(
+                    db.upcast(),
+                    [].into_iter(),
+                    stmts,
+                    opt_this.is_some(),
+                ),
                 feature: features.alloc(match opt_this {
-                    Some(this) => Feature::FieldAccess {
+                    Some(ref this) => Feature::FieldAccess {
                         this: this.feature(),
                         field_ident: route.ident().custom(),
                     },
@@ -69,10 +79,7 @@ impl FeatureRepr {
                         uid: db.entity_uid(*route),
                     },
                 }),
-                file: *file,
-                range: *range,
-                eval_id: Default::default(),
-                stmts: stmts.clone(),
+                opt_this,
             })),
             DefinitionRepr::ProcBlock { stmts, file, range } => todo!(),
         }

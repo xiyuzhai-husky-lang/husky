@@ -50,6 +50,7 @@ impl<'sess> Session<'sess> {
             Some(&compile_time.dataset_config_instruction_sheet(pack.main_defn.file)),
             None,
             [].into_iter(),
+            [].into_iter(),
         )?
         .owned()?
         .take()?;

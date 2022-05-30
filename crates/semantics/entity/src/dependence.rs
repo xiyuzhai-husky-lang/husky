@@ -141,19 +141,21 @@ impl EntityDefn {
             },
             EntityDefnVariant::TypeField {
                 ty,
-                field_variant: ref fieldiant,
+                ref field_variant,
                 ..
             } => {
                 builder.push(ty);
-                match fieldiant {
+                match field_variant {
                     FieldDefnVariant::StructOriginal => todo!(),
                     FieldDefnVariant::RecordOriginal => todo!(),
-                    FieldDefnVariant::StructDerived { defn_repr } => {
+                    FieldDefnVariant::StructDerivedLazy { defn_repr } => {
                         extract_defn_repr_dependees(defn_repr, &mut builder)
                     }
                     FieldDefnVariant::RecordDerived { defn_repr } => {
                         extract_defn_repr_dependees(defn_repr, &mut builder)
                     }
+                    FieldDefnVariant::StructDefault { default } => todo!(),
+                    FieldDefnVariant::StructDerivedEager { value } => todo!(),
                 }
             }
             EntityDefnVariant::Method {
@@ -444,7 +446,7 @@ impl EntityDefn {
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TypeField {
                     ty,
-                    field_variant: ref fieldiant,
+                    field_variant: ref field_variant,
                     contract,
                 } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),

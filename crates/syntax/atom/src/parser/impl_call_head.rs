@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use crate::*;
-use defn_head::{CallableDefnHead, GenericParameter, GenericPlaceholderVariant, InputParameter};
+use defn_head::{CallableDefnHead, GenericPlaceholderVariant, InputParameter, SpatialParameter};
 use entity_route::*;
 use token::SemanticTokenKind;
 use vm::{InputLiason, OutputLiason};
@@ -77,7 +77,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         })
     }
 
-    fn parameters(&mut self) -> AtomResult<IdentDict<GenericParameter>> {
+    fn parameters(&mut self) -> AtomResult<IdentDict<SpatialParameter>> {
         if try_eat!(self, "<") {
             match IdentDict::from_vec(comma_list![self, parameter!+, ">"]) {
                 Ok(generic_parameters) => Ok(generic_parameters),
@@ -88,7 +88,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    fn parameter(&mut self) -> AtomResult<GenericParameter> {
+    fn parameter(&mut self) -> AtomResult<SpatialParameter> {
         let ranged_ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if try_eat!(self, ":") {
@@ -102,7 +102,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 SemanticTokenKind::GenericPlaceholder,
                 ranged_ident.range,
             ));
-        Ok(GenericParameter {
+        Ok(SpatialParameter {
             ident: ranged_ident.ident,
             variant: GenericPlaceholderVariant::Type { traits },
         })

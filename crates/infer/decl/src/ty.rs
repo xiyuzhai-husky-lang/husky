@@ -6,7 +6,7 @@ mod vec;
 use std::iter::Peekable;
 
 use check_utils::{should, should_eq};
-use entity_kind::{EnumVariantKind, FieldKind};
+use entity_kind::EnumVariantKind;
 use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
@@ -24,13 +24,13 @@ use fold::LocalStack;
 use map_collect::MapCollect;
 use text::*;
 use vec_map::VecMap;
-use vm::{OutputLiason, TySignature};
+use vm::{MemberLiason, OutputLiason, TySignature};
 use word::{IdentArcDict, IdentDict, Paradigm};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {
     pub this_ty: EntityRoutePtr,
-    pub generic_parameters: IdentDict<GenericParameter>,
+    pub generic_parameters: IdentDict<SpatialParameter>,
     pub ty_members: IdentDict<TyMemberDecl>,
     pub variants: IdentDict<EnumVariantDecl>,
     pub kind: TyKind,
@@ -106,7 +106,7 @@ impl TyDecl {
         arena: &RawExprArena,
         ty: EntityRoutePtr,
         kind: TyKind,
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         children: AstIter,
     ) -> InferQueryResultArc<Self> {
         let generic_arguments = db.generic_arguments_from_generic_parameters(&generic_parameters);
@@ -131,12 +131,13 @@ impl TyDecl {
         let opt_type_call = match kind {
             TyKind::Enum => None,
             TyKind::Record | TyKind::Struct => {
-                let mut inputs = vec![];
+                let mut primary_parameters = IdentDict::default();
+                let mut keyword_parameters = IdentDict::default();
                 for ty_member in ty_members.iter() {
                     match ty_member {
                         TyMemberDecl::Field(ref field_decl) => match field_decl.kind {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
-                                inputs.push(InputDecl {
+                                primary_parameters.insert(InputDecl {
                                     liason: field_decl
                                         .liason
                                         .constructor_input_liason(db.is_copyable(field_decl.ty)?),
@@ -144,19 +145,29 @@ impl TyDecl {
                                     ident: field_decl.ident,
                                 })
                             }
-                            _ => break,
+                            FieldKind::StructDefault => keyword_parameters.insert(InputDecl {
+                                liason: field_decl
+                                    .liason
+                                    .constructor_input_liason(db.is_copyable(field_decl.ty)?),
+                                ty: field_decl.ty,
+                                ident: field_decl.ident,
+                            }),
+                            FieldKind::StructDerivedEager => break,
+                            FieldKind::StructDerivedLazy { paradigm } => break,
+                            FieldKind::RecordDerived => break,
                         },
                         TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
                     }
                 }
                 Some(Arc::new(CallDecl {
                     route: ty,
-                    parameters: inputs,
+                    spatial_parameters: generic_parameters.clone(),
+                    primary_parameters,
+                    keyword_parameters,
                     output: OutputDecl {
                         ty,
                         liason: OutputLiason::Transfer,
                     },
-                    generic_parameters: generic_parameters.clone(),
                 }))
             }
             TyKind::Primitive => todo!(),
@@ -207,7 +218,7 @@ impl TyDecl {
         while let Some(child) = children.peek() {
             match child.value.as_ref()?.variant {
                 AstKind::FieldDefnHead { ref head, .. } => {
-                    match head.kind {
+                    match head.field_kind {
                         FieldKind::StructOriginal | FieldKind::RecordOriginal => (),
                         _ => break,
                     }
@@ -242,7 +253,7 @@ impl TyDecl {
                     ))),
                 },
                 AstKind::Use { .. } => todo!(),
-                AstKind::FieldDefnHead { ref head, .. } => match head.kind {
+                AstKind::FieldDefnHead { ref head, .. } => match head.field_kind {
                     FieldKind::StructOriginal => todo!("no original at this point"),
                     FieldKind::RecordOriginal => todo!("no original at this point"),
                     _ => members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(head))),
@@ -278,7 +289,7 @@ impl TyDecl {
     pub(crate) fn new(
         db: &dyn DeclQueryGroup,
         this_ty: EntityRoutePtr,
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         type_members: IdentDict<TyMemberDecl>,
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,

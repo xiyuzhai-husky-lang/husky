@@ -147,19 +147,19 @@ pub enum EntityDefnVariant {
         defn_repr: DefinitionRepr,
     },
     Func {
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<InputParameter>>,
         output: RangedEntityRoute,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     Proc {
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<InputParameter>>,
         output: RangedEntityRoute,
         stmts: Avec<ProcStmt>,
     },
     Type {
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         ty_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
@@ -169,7 +169,7 @@ pub enum EntityDefnVariant {
         opt_visualizer_source: Option<VisualizerSource>,
     },
     Trait {
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         members: IdentDict<Arc<EntityDefn>>,
     },
     EnumVariant {
@@ -183,7 +183,7 @@ pub enum EntityDefnVariant {
         contract: MemberLiason,
     },
     Method {
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         this_contract: InputLiason,
         parameters: Arc<Vec<InputParameter>>,
         output_ty: RangedEntityRoute,
@@ -272,7 +272,7 @@ impl EntityDefnVariant {
                 ref kind,
             } => EntityDefnVariant::Method {
                 generic_parameters: generic_parameters.map(|static_generic_placeholder| {
-                    GenericParameter::from_static(
+                    SpatialParameter::from_static(
                         symbol_context.entity_syntax_db(),
                         static_generic_placeholder,
                     )

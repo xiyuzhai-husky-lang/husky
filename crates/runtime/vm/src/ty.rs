@@ -104,30 +104,29 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
     ) -> VMValue<'vm, 'eval> {
         match field_binding {
             Binding::Ref => todo!(),
-            Binding::RefMut => todo!(),
+            Binding::RefMut => match self {
+                VirtualTy::Struct { fields } => {
+                    let field_value = &mut fields.data_mut()[field_idx].1;
+                    let ptr: *mut dyn AnyValueDyn = match field_value {
+                        MemberValue::Copyable(ref mut value) => value.any_mut(),
+                        MemberValue::Boxed(_) => todo!(),
+                        MemberValue::GlobalPure(_) => todo!(),
+                        MemberValue::GlobalRef(_) => todo!(),
+                        MemberValue::Moved => todo!(),
+                    };
+                    VMValue::CopyableOrFullyOwnedMut {
+                        value: unsafe { &mut *ptr },
+                        owner,
+                        gen: (),
+                    }
+                }
+            },
             Binding::Move => todo!(),
             Binding::Copy => todo!(),
         }
         //  EagerContract::Pure => todo!(),
 
         // EagerContract::Move => todo!(),
-        // EagerContract::RefMut => match self {
-        //     VirtualTy::Struct { fields } => {
-        //         let field_value = &mut fields.data_mut()[field_idx].1;
-        //         let ptr: *mut dyn AnyValueDyn = match field_value {
-        //             MemberValue::Copyable(ref mut value) => value.any_mut(),
-        //             MemberValue::Boxed(_) => todo!(),
-        //             MemberValue::GlobalPure(_) => todo!(),
-        //             MemberValue::GlobalRef(_) => todo!(),
-        //             MemberValue::Moved => todo!(),
-        //         };
-        //         VMValue::CopyableOrFullyOwnedMut {
-        //             value: unsafe { &mut *ptr },
-        //             owner,
-        //             gen: (),
-        //         }
-        //     }
-        // },
         // EagerContract::MoveMut => todo!(),
         // EagerContract::Exec => todo!(),
         // EagerContract::UseForLetInit => todo!(),

@@ -1,4 +1,4 @@
-use entity_kind::{FieldKind, TyKind};
+use entity_kind::TyKind;
 use entity_route::EntityRoute;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
@@ -179,7 +179,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             EntityDefnVariant::TypeField {
                                 ref field_variant, ..
                             } => match field_variant {
-                                FieldDefnVariant::StructDerived { ref defn_repr } => {
+                                FieldDefnVariant::StructDerivedLazy { ref defn_repr } => {
                                     let repr = FeatureRepr::from_defn(
                                         self.db,
                                         Some(this.clone().into()),

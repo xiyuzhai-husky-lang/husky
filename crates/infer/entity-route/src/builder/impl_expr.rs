@@ -446,12 +446,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Entity { route, kind, .. } => {
                 let call_decl_result: InferResult<_> = self.db.call_decl(route).bind_into(caller);
                 let call_decl = call_decl_result?;
-                if call_decl.parameters.len() != total_opds.end - total_opds.start - 1 {
+                if call_decl.primary_parameters.len() != total_opds.end - total_opds.start - 1 {
                     self.entity_route_sheet.extra_errors.push(InferError {
                         variant: InferErrorVariant::Original {
                             message: format!(
                                 "expect {} arguments, but get {} arguments",
-                                call_decl.parameters.len(),
+                                call_decl.primary_parameters.len(),
                                 total_opds.end - total_opds.start - 1
                             ),
                             range,
@@ -461,7 +461,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 for (argument, parameter) in zip(
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.parameters.iter(),
+                    call_decl.primary_parameters.iter(),
                 ) {
                     self.infer_expr(argument, Some(parameter.ty), arena);
                 }

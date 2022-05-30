@@ -59,9 +59,9 @@ impl EntityDefnVariant {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
-                        field_variant: ref fieldiant,
+                        field_variant: ref field_variant,
                         contract,
-                    } => match fieldiant {
+                    } => match field_variant {
                         FieldDefnVariant::RecordOriginal => InputParameter {
                             ranged_ident: ident,
                             liason: contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
@@ -71,7 +71,7 @@ impl EntityDefnVariant {
                             },
                         },
                         _ => {
-                            p!(fieldiant);
+                            p!(field_variant);
                             panic!()
                         }
                     },
@@ -87,9 +87,9 @@ impl EntityDefnVariant {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TypeField {
                         ty,
-                        field_variant: ref fieldiant,
+                        field_variant: ref field_variant,
                         contract,
-                    } => match fieldiant {
+                    } => match field_variant {
                         FieldDefnVariant::StructOriginal => InputParameter {
                             ranged_ident: ident,
                             liason: contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
@@ -128,7 +128,7 @@ impl EntityDefnVariant {
     }
 
     fn new_ty(
-        generic_parameters: IdentDict<GenericParameter>,
+        generic_parameters: IdentDict<SpatialParameter>,
         type_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,

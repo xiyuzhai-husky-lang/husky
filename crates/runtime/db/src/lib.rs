@@ -68,6 +68,13 @@ impl HuskyLangRuntime {
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
+        for module in compile_time.all_modules() {
+            let diagnostics_reserve = compile_time.diagnostics_reserve(module);
+            if diagnostics_reserve.len() > 0 {
+                p!(diagnostics_reserve.data());
+                panic!("diagnostic errors")
+            }
+        }
         let package_main = all_main_files[0];
         let pack = match compile_time.package(package_main) {
             Ok(pack) => pack,

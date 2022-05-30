@@ -9,9 +9,9 @@ impl EntityDefnVariant {
         field_defn_head: &FieldDefnHead,
         children: Option<AstIter>,
     ) -> SemanticResult<Self> {
-        let variant = match field_defn_head.kind {
+        let variant = match field_defn_head.field_kind {
             FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
-            FieldKind::StructDerivedLazy { paradigm } => FieldDefnVariant::StructDerived {
+            FieldKind::StructDerivedLazy { paradigm } => FieldDefnVariant::StructDerivedLazy {
                 defn_repr: Arc::new(match paradigm {
                     Paradigm::LazyFunctional => DefinitionRepr::LazyBlock { stmts: todo!() },
                     Paradigm::EagerFunctional => {
@@ -48,7 +48,8 @@ impl EntityDefnVariant {
                     )?,
                 }),
             },
-            _ => todo!(),
+            FieldKind::StructDefault => todo!(),
+            FieldKind::StructDerivedEager => todo!(),
         };
         Ok(Self::TypeField {
             ty: field_defn_head.ty.route,
@@ -69,7 +70,7 @@ impl EntityDefnVariant {
             let ast = child.value.as_ref()?;
             match ast.variant {
                 AstKind::FieldDefnHead { ref head, .. } => {
-                    match head.kind {
+                    match head.field_kind {
                         FieldKind::StructOriginal => (),
                         FieldKind::RecordOriginal => (),
                         _ => break,
@@ -106,8 +107,10 @@ impl EntityDefnVariant {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FieldDefnVariant {
     StructOriginal,
+    StructDefault { default: Arc<EagerExpr> },
+    StructDerivedEager { value: Arc<EagerExpr> },
+    StructDerivedLazy { defn_repr: Arc<DefinitionRepr> },
     RecordOriginal,
-    StructDerived { defn_repr: Arc<DefinitionRepr> },
     RecordDerived { defn_repr: Arc<DefinitionRepr> },
 }
 

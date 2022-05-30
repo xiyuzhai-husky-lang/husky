@@ -40,6 +40,7 @@ impl RuntimeVisualizer {
                 Some(instruction_sheet),
                 None,
                 vec![Ok(VMValue::FullyOwnedRef(value))].into_iter(),
+                [].into_iter(),
             ) {
                 Ok(value) => {
                     let xml_value: XmlValue = value.owned().unwrap().take().unwrap();

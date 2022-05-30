@@ -253,7 +253,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 let call_decl = derived_unwrap!(self.db.call_decl(route));
                 for (argument, parameter) in zip(
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.parameters.iter(),
+                    call_decl.primary_parameters.iter(),
                 ) {
                     let argument_contract_result: InferResult<_> = parameter
                         .liason

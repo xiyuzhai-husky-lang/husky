@@ -121,7 +121,7 @@ impl EntityDefnVariant {
                     output_liason,
                     method_variant,
                     generic_parameters: generic_parameters.map(|generic_placeholder| {
-                        GenericParameter::from_static(
+                        SpatialParameter::from_static(
                             context.entity_syntax_db(),
                             generic_placeholder,
                         )
