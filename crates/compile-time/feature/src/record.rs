@@ -59,7 +59,9 @@ pub(crate) fn expr_record_field(
                                     todo!()
                                 }
                                 FieldDefnVariant::StructDefault { default } => todo!(),
-                                FieldDefnVariant::StructDerivedEager { value } => todo!(),
+                                FieldDefnVariant::StructDerivedEager { derivation: value } => {
+                                    todo!()
+                                }
                             },
                             _ => panic!(),
                         }

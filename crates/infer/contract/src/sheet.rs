@@ -38,9 +38,6 @@ impl ContractSheet {
         if let Some(contract_result) = self.eager_expr_contract_results.get(raw_expr_idx) {
             contract_result.clone()
         } else {
-            p!(self.eager_expr_contract_results);
-            p!(self.entity_route_sheet.ast_text.arena[raw_expr_idx]);
-            p!(raw_expr_idx);
             Err(derived!(format!("contract not inferred")))
         }
     }

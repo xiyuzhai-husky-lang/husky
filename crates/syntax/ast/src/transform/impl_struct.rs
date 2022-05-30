@@ -45,11 +45,11 @@ impl<'a> AstTransformer<'a> {
                         p!(self.context, keyword);
                         todo!()
                     },
-                    Keyword::Liason(_) =>  self.parse_struct_eager_field(token_group, struct_item_context),
+                    Keyword::Liason(_) =>  self.parse_struct_eager_field(token_group, struct_item_context, enter_block),
                 }
             },
             TokenKind::Identifier(_) => {
-                self.parse_struct_eager_field(token_group, struct_item_context)
+                self.parse_struct_eager_field(token_group, struct_item_context, enter_block)
             },
             TokenKind::Decorator(_) => {
                 self.parse_struct_associated_routine(token_group, struct_item_context, enter_block)

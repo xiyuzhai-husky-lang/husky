@@ -125,7 +125,7 @@ impl MemberLiason {
         }
     }
 
-    pub fn constructor_input_liason(&self, is_copyable: bool) -> InputLiason {
+    pub fn constructor_input_liason(self, is_copyable: bool) -> InputLiason {
         match self {
             MemberLiason::Immutable => {
                 if is_copyable {

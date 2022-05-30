@@ -61,7 +61,11 @@ impl EntityDefnVariant {
                     FieldKind::StructDefault { default } => FieldDefnVariant::StructDefault {
                         default: parse_eager_expr(db, arena, file, default)?,
                     },
-                    FieldKind::StructDerivedEager { .. } => todo!(),
+                    FieldKind::StructDerivedEager { derivation } => {
+                        FieldDefnVariant::StructDerivedEager {
+                            derivation: parse_eager_expr(db, arena, file, derivation)?,
+                        }
+                    }
                 };
                 Ok(Self::TypeField {
                     ty: ty.route,
@@ -127,7 +131,7 @@ impl EntityDefnVariant {
 pub enum FieldDefnVariant {
     StructOriginal,
     StructDefault { default: Arc<EagerExpr> },
-    StructDerivedEager { value: Arc<EagerExpr> },
+    StructDerivedEager { derivation: Arc<EagerExpr> },
     StructDerivedLazy { defn_repr: Arc<DefinitionRepr> },
     RecordOriginal,
     RecordDerived { defn_repr: Arc<DefinitionRepr> },
