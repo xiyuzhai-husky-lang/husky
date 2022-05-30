@@ -130,14 +130,16 @@ impl<'a> FeatureExprBuilder<'a> {
     fn compile_field_access(
         &self,
         field_ident: RangedCustomIdentifier,
-        field_access_kind: FieldKind,
+        field_kind: FieldKind,
         opds: &[Arc<LazyExpr>],
         field_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let this = self.new_expr(opds[0].clone());
         let this_ty_decl = self.db.ty_decl(this.expr.ty()).unwrap();
-        match field_access_kind {
-            FieldKind::StructOriginal => {
+        match field_kind {
+            FieldKind::StructOriginal
+            | FieldKind::StructDefault { .. }
+            | FieldKind::StructDerivedEager { .. } => {
                 let feature = self.features.alloc(Feature::FieldAccess {
                     this: this.feature,
                     field_ident: field_ident.ident,
@@ -267,8 +269,6 @@ impl<'a> FeatureExprBuilder<'a> {
                     _ => panic!(),
                 }
             }
-            FieldKind::StructDefault { .. } => todo!(),
-            FieldKind::StructDerivedEager { .. } => todo!(),
         }
     }
 

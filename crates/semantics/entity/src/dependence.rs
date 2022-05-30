@@ -155,7 +155,7 @@ impl EntityDefn {
                         extract_defn_repr_dependees(defn_repr, &mut builder)
                     }
                     FieldDefnVariant::StructDefault { default } => todo!(),
-                    FieldDefnVariant::StructDerivedEager { value } => todo!(),
+                    FieldDefnVariant::StructDerivedEager { derivation: value } => todo!(),
                 }
             }
             EntityDefnVariant::Method {

@@ -198,7 +198,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn infer_eager_expr(
+    pub(super) fn infer_eager_expr(
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,

@@ -7,6 +7,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         token_group: &[Token],
         struct_item_context: StructItemContext,
+        enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         let mut token_stream: TokenStream = token_group.into();
         let mut parser = AtomParser::new(self, &mut token_stream);
@@ -28,12 +29,17 @@ impl<'a> AstTransformer<'a> {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
         let field_kind = if try_eat!(parser, token_kind, TokenKind::Special(Special::Assign)) {
-            let atoms = parser.parse_all()?;
             self.update_struct_item_context(
                 struct_item_context,
                 StructItemContext::DefaultField,
                 token_group,
             )?;
+            enter_block(self);
+            self.context
+                .set(AstContext::Stmt(Paradigm::EagerFunctional));
+            self.opt_this_liason.set(Some(InputLiason::Pure));
+            let mut parser = AtomParser::new(self, &mut token_stream);
+            let atoms = parser.parse_all()?;
             FieldKind::StructDefault {
                 default: self.parse_expr_from_atoms(atoms)?,
             }
@@ -42,12 +48,17 @@ impl<'a> AstTransformer<'a> {
             token_kind,
             TokenKind::Special(Special::DeriveAssign)
         ) {
-            let atoms = parser.parse_all()?;
             self.update_struct_item_context(
                 struct_item_context,
                 StructItemContext::DerivedEagerField,
                 token_group,
             )?;
+            enter_block(self);
+            self.context
+                .set(AstContext::Stmt(Paradigm::EagerFunctional));
+            self.opt_this_liason.set(Some(InputLiason::Pure));
+            let mut parser = AtomParser::new(self, &mut token_stream);
+            let atoms = parser.parse_all()?;
             FieldKind::StructDerivedEager {
                 derivation: self.parse_expr_from_atoms(atoms)?,
             }

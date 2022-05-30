@@ -44,58 +44,77 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         self.enter_block();
         let arena = self.entity_route_sheet.ast_text.arena.clone();
         for item in ast_iter {
+            let ast = match item.value.as_ref() {
+                Ok(ast) => ast,
+                Err(_) => continue,
+            };
+            match ast.variant {
+                AstVariant::FieldDefnHead {
+                    liason,
+                    ranged_ident,
+                    ty,
+                    field_kind,
+                } => match field_kind {
+                    FieldKind::StructDefault { default } => {
+                        self.infer_expr(default, Some(ty.route), &arena);
+                    }
+                    FieldKind::StructDerivedEager { derivation } => {
+                        self.infer_expr(derivation, Some(ty.route), &arena);
+                    }
+                    _ => (),
+                },
+                _ => (),
+            }
             if let Some(children) = item.opt_children {
-                match item.value {
-                    Ok(value) => match value.variant {
-                        AstVariant::TypeDefnHead { .. }
-                        | AstVariant::EnumVariantDefnHead { .. } => self.infer_all(children),
-                        AstVariant::MainDefn => {
-                            let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
-                            self.infer_function(&[], opt_output_ty, children, &arena)
-                        }
-                        AstVariant::DatasetConfigDefnHead => self.infer_function(
-                            &[],
-                            Some(RootIdentifier::DatasetType.into()),
-                            children,
-                            &arena,
-                        ),
-                        AstVariant::CallFormDefnHead(ref head) => self.infer_function(
-                            &head.parameters,
-                            Some(head.output_ty.route),
-                            children,
-                            &arena,
-                        ),
-                        AstVariant::CallFormDefnHead(ref head) => self.infer_function(
-                            &head.parameters,
-                            Some(head.output_ty.route),
-                            children,
-                            &arena,
-                        ),
-                        AstVariant::Visual => self.infer_function(&[], None, children, &arena),
-                        AstVariant::PatternDefnHead => todo!(),
-                        AstVariant::Use { .. } => (),
-                        AstVariant::FieldDefnHead { field_kind, ty, .. } => match field_kind {
-                            FieldKind::StructOriginal => (),
-                            FieldKind::RecordOriginal => (),
-                            FieldKind::StructDerivedLazy { .. } | FieldKind::RecordDerived => {
-                                self.infer_function(&[], Some(ty.route), children, &arena)
-                            }
-                            FieldKind::StructDefault { .. } => todo!(),
-                            FieldKind::StructDerivedEager { .. } => todo!(),
-                        },
-                        AstVariant::Stmt(_) => todo!(),
-                        AstVariant::CallFormDefnHead(ref head) => self.infer_function(
-                            &head.parameters,
-                            Some(head.output_ty.route),
-                            children,
-                            &arena,
-                        ),
-                        AstVariant::FeatureDecl { ty, .. } => {
+                match ast.variant {
+                    AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
+                        self.infer_all(children)
+                    }
+                    AstVariant::MainDefn => {
+                        let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
+                        self.infer_function(&[], opt_output_ty, children, &arena)
+                    }
+                    AstVariant::DatasetConfigDefnHead => self.infer_function(
+                        &[],
+                        Some(RootIdentifier::DatasetType.into()),
+                        children,
+                        &arena,
+                    ),
+                    AstVariant::CallFormDefnHead(ref head) => self.infer_function(
+                        &head.parameters,
+                        Some(head.output_ty.route),
+                        children,
+                        &arena,
+                    ),
+                    AstVariant::CallFormDefnHead(ref head) => self.infer_function(
+                        &head.parameters,
+                        Some(head.output_ty.route),
+                        children,
+                        &arena,
+                    ),
+                    AstVariant::Visual => self.infer_function(&[], None, children, &arena),
+                    AstVariant::PatternDefnHead => todo!(),
+                    AstVariant::Use { .. } => (),
+                    AstVariant::FieldDefnHead { field_kind, ty, .. } => match field_kind {
+                        FieldKind::StructOriginal => (),
+                        FieldKind::RecordOriginal => (),
+                        FieldKind::StructDerivedLazy { .. } | FieldKind::RecordDerived => {
                             self.infer_function(&[], Some(ty.route), children, &arena)
                         }
-                        AstVariant::Submodule { ident, source_file } => (),
+                        FieldKind::StructDefault { .. } => todo!(),
+                        FieldKind::StructDerivedEager { .. } => todo!(),
                     },
-                    _ => (),
+                    AstVariant::Stmt(_) => todo!(),
+                    AstVariant::CallFormDefnHead(ref head) => self.infer_function(
+                        &head.parameters,
+                        Some(head.output_ty.route),
+                        children,
+                        &arena,
+                    ),
+                    AstVariant::FeatureDecl { ty, .. } => {
+                        self.infer_function(&[], Some(ty.route), children, &arena)
+                    }
+                    AstVariant::Submodule { ident, source_file } => (),
                 }
             }
         }

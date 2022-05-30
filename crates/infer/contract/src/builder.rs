@@ -9,6 +9,7 @@ use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
+use vm::MemberLiason;
 use word::{Paradigm, RootIdentifier};
 
 use crate::*;
@@ -51,49 +52,82 @@ impl<'a> ContractSheetBuilder<'a> {
             .arena
             .clone();
         for item in ast_iter {
-            if let Some(children) = item.opt_children {
-                match item.value {
-                    Ok(value) => match value.variant {
-                        AstVariant::TypeDefnHead { .. }
-                        | AstVariant::EnumVariantDefnHead { .. } => self.infer_all(children),
-                        AstVariant::MainDefn => self.infer_lazy_stmts(children, &arena),
-                        AstVariant::DatasetConfigDefnHead => {
-                            self.infer_eager_stmts(children, &arena)
+            let ast = match item.value.as_ref() {
+                Ok(ast) => ast,
+                Err(_) => continue,
+            };
+            match ast.variant {
+                AstVariant::FieldDefnHead {
+                    liason,
+                    ranged_ident,
+                    ty,
+                    field_kind,
+                } => match field_kind {
+                    FieldKind::StructDefault { default } => {
+                        msg_once!("todo: handle ref");
+                        if let Ok(is_field_copyable) = self.db.is_copyable(ty.route) {
+                            let contract = match is_field_copyable {
+                                true => EagerContract::Pure,
+                                false => match liason {
+                                    MemberLiason::Immutable => EagerContract::Move,
+                                    MemberLiason::Mutable => EagerContract::MoveMut,
+                                    MemberLiason::Derived => panic!(),
+                                },
+                            };
+                            self.infer_eager_expr(default, contract, &arena)
                         }
-                        AstVariant::CallFormDefnHead(ref head) => {
-                            self.infer_eager_stmts(children, &arena)
+                    }
+                    FieldKind::StructDerivedEager { derivation } => {
+                        msg_once!("todo: handle ref");
+                        if let Ok(is_field_copyable) = self.db.is_copyable(ty.route) {
+                            let contract = match is_field_copyable {
+                                true => EagerContract::Pure,
+                                false => EagerContract::Move,
+                            };
+                            self.infer_eager_expr(derivation, contract, &arena)
                         }
-                        AstVariant::CallFormDefnHead(ref head) => {
-                            self.infer_eager_stmts(children, &arena)
-                        }
-                        AstVariant::Visual => self.infer_eager_stmts(children, &arena),
-                        AstVariant::PatternDefnHead => todo!(),
-                        AstVariant::Use { .. } => (),
-                        AstVariant::FieldDefnHead { field_kind, .. } => match field_kind {
-                            FieldKind::StructOriginal => (),
-                            FieldKind::RecordOriginal => (),
-                            FieldKind::StructDerivedLazy {
-                                paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
-                            } => self.infer_eager_stmts(children, &arena),
-                            FieldKind::StructDerivedLazy {
-                                paradigm: Paradigm::LazyFunctional,
-                            }
-                            | FieldKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
-                            _ => {
-                                p!(field_kind);
-                                todo!()
-                            }
-                        },
-                        AstVariant::Stmt(_) => todo!(),
-                        AstVariant::CallFormDefnHead(ref head) => {
-                            self.infer_eager_stmts(children, &arena)
-                        }
-                        AstVariant::FeatureDecl { ty, .. } => {
-                            self.infer_lazy_stmts(children, &arena)
-                        }
-                        AstVariant::Submodule { ident, source_file } => (),
-                    },
+                    }
                     _ => (),
+                },
+                _ => (),
+            }
+            if let Some(children) = item.opt_children {
+                match ast.variant {
+                    AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
+                        self.infer_all(children)
+                    }
+                    AstVariant::MainDefn => self.infer_lazy_stmts(children, &arena),
+                    AstVariant::DatasetConfigDefnHead => self.infer_eager_stmts(children, &arena),
+                    AstVariant::CallFormDefnHead(ref head) => {
+                        self.infer_eager_stmts(children, &arena)
+                    }
+                    AstVariant::CallFormDefnHead(ref head) => {
+                        self.infer_eager_stmts(children, &arena)
+                    }
+                    AstVariant::Visual => self.infer_eager_stmts(children, &arena),
+                    AstVariant::PatternDefnHead => todo!(),
+                    AstVariant::Use { .. } => (),
+                    AstVariant::FieldDefnHead {
+                        field_kind,
+                        liason,
+                        ranged_ident,
+                        ty,
+                    } => match field_kind {
+                        FieldKind::StructDerivedLazy {
+                            paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
+                        } => self.infer_eager_stmts(children, &arena),
+                        FieldKind::StructDerivedLazy {
+                            paradigm: Paradigm::LazyFunctional,
+                        }
+                        | FieldKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
+                        _ => (),
+                    },
+                    AstVariant::Stmt(_) => todo!(),
+                    AstVariant::CallFormDefnHead(ref head) => {
+                        self.infer_eager_stmts(children, &arena)
+                    }
+                    AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_stmts(children, &arena),
+                    AstVariant::Submodule { ident, source_file } => (),
                 }
             }
         }

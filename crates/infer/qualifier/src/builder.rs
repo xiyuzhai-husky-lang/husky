@@ -45,90 +45,109 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     pub(super) fn infer_ast(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
         for item in ast_iter {
+            let ast = match item.value.as_ref() {
+                Ok(ast) => ast,
+                Err(_) => continue,
+            };
+            match ast.variant {
+                AstVariant::FieldDefnHead {
+                    liason,
+                    ranged_ident,
+                    ty,
+                    field_kind,
+                } => match field_kind {
+                    FieldKind::StructDefault { default } => {
+                        self.infer_eager_expr(arena, default);
+                    }
+                    FieldKind::StructDerivedEager { derivation } => {
+                        self.infer_eager_expr(arena, derivation);
+                    }
+                    _ => (),
+                },
+                _ => (),
+            }
             if let Some(children) = item.opt_children {
-                match item.value {
-                    Ok(value) => match value.variant {
-                        AstVariant::TypeDefnHead { .. }
-                        | AstVariant::EnumVariantDefnHead { .. } => self.infer_ast(children, arena),
-                        AstVariant::MainDefn => self.infer_lazy_call_form(
-                            &arena,
-                            &[],
-                            children,
-                            self.db.global_output_ty(self.main_file).ok(),
-                            OutputLiason::Transfer,
-                        ),
-                        AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(
-                            &arena,
-                            &[],
-                            children,
-                            Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
-                            OutputLiason::Transfer,
-                        ),
-                        AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
-                            &arena,
-                            &head.parameters,
-                            children,
-                            Some(head.output_ty.route),
-                            head.output_liason,
-                        ),
-                        AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
-                            &arena,
-                            &head.parameters,
-                            children,
-                            Some(head.output_ty.route),
-                            head.output_liason,
-                        ),
-                        AstVariant::Visual => self.infer_eager_call_form(
-                            &arena,
-                            &[],
-                            children,
-                            None,
-                            OutputLiason::Transfer,
-                        ),
-                        AstVariant::PatternDefnHead => todo!(),
-                        AstVariant::Use { .. } => (),
-                        AstVariant::FieldDefnHead { field_kind, ty, .. } => match field_kind {
-                            FieldKind::StructOriginal => (),
-                            FieldKind::RecordOriginal => (),
-                            FieldKind::StructDerivedLazy {
-                                paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
-                            } => self.infer_eager_call_form(
-                                &arena,
-                                &[],
-                                children,
-                                Some(ty.route),
-                                OutputLiason::Transfer,
-                            ),
-                            FieldKind::StructDerivedLazy {
-                                paradigm: Paradigm::LazyFunctional,
-                            }
-                            | FieldKind::RecordDerived => self.infer_lazy_call_form(
-                                &arena,
-                                &[],
-                                children,
-                                Some(ty.route),
-                                OutputLiason::Transfer,
-                            ),
-                            _ => todo!(),
-                        },
-                        AstVariant::Stmt(_) => todo!(),
-                        AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
-                            &arena,
-                            &head.parameters,
-                            children,
-                            Some(head.output_ty.route),
-                            head.output_liason,
-                        ),
-                        AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_call_form(
+                match ast.variant {
+                    AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
+                        self.infer_ast(children, arena)
+                    }
+                    AstVariant::MainDefn => self.infer_lazy_call_form(
+                        &arena,
+                        &[],
+                        children,
+                        self.db.global_output_ty(self.main_file).ok(),
+                        OutputLiason::Transfer,
+                    ),
+                    AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(
+                        &arena,
+                        &[],
+                        children,
+                        Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
+                        OutputLiason::Transfer,
+                    ),
+                    AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
+                        &arena,
+                        &head.parameters,
+                        children,
+                        Some(head.output_ty.route),
+                        head.output_liason,
+                    ),
+                    AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
+                        &arena,
+                        &head.parameters,
+                        children,
+                        Some(head.output_ty.route),
+                        head.output_liason,
+                    ),
+                    AstVariant::Visual => self.infer_eager_call_form(
+                        &arena,
+                        &[],
+                        children,
+                        None,
+                        OutputLiason::Transfer,
+                    ),
+                    AstVariant::PatternDefnHead => todo!(),
+                    AstVariant::Use { .. } => (),
+                    AstVariant::FieldDefnHead { field_kind, ty, .. } => match field_kind {
+                        FieldKind::StructOriginal => (),
+                        FieldKind::RecordOriginal => (),
+                        FieldKind::StructDerivedLazy {
+                            paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
+                        } => self.infer_eager_call_form(
                             &arena,
                             &[],
                             children,
                             Some(ty.route),
                             OutputLiason::Transfer,
                         ),
-                        AstVariant::Submodule { ident, source_file } => (),
+                        FieldKind::StructDerivedLazy {
+                            paradigm: Paradigm::LazyFunctional,
+                        }
+                        | FieldKind::RecordDerived => self.infer_lazy_call_form(
+                            &arena,
+                            &[],
+                            children,
+                            Some(ty.route),
+                            OutputLiason::Transfer,
+                        ),
+                        _ => todo!(),
                     },
-                    _ => (),
+                    AstVariant::Stmt(_) => todo!(),
+                    AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
+                        &arena,
+                        &head.parameters,
+                        children,
+                        Some(head.output_ty.route),
+                        head.output_liason,
+                    ),
+                    AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_call_form(
+                        &arena,
+                        &[],
+                        children,
+                        Some(ty.route),
+                        OutputLiason::Transfer,
+                    ),
+                    AstVariant::Submodule { ident, source_file } => (),
                 }
             }
         }
