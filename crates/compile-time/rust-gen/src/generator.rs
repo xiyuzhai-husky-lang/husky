@@ -66,7 +66,7 @@ impl<'a> RustGenerator<'a> {
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::TypeField {
                     ty,
-                    field_variant: ref fieldiant,
+                    field_variant: ref field_variant,
                     contract,
                 } => todo!(),
                 EntityDefnVariant::Method { .. } => todo!(),
