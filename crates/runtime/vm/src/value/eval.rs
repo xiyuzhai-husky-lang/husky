@@ -123,4 +123,14 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Undefined => todo!(),
         }
     }
+
+    pub fn any_global_ref(&self) -> &'eval (dyn AnyValueDyn<'eval> + 'eval) {
+        match self {
+            EvalValue::Copyable(value) => panic!(),
+            EvalValue::Owned(value) => panic!(),
+            EvalValue::GlobalPure(value) => panic!(),
+            EvalValue::GlobalRef(value) => *value,
+            EvalValue::Undefined => todo!(),
+        }
+    }
 }

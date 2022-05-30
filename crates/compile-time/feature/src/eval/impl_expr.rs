@@ -102,7 +102,17 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
                 ref this,
                 field_ident,
                 ref repr,
-            } => todo!(),
+            } => {
+                let parent: *const dyn AnyValueDyn<'eval> =
+                    self.eval_feature_expr(this)?.any_global_ref();
+                self.eval_feature_repr(
+                    repr,
+                    EvalKey::StructDerivedField::<'eval> {
+                        parent,
+                        field_ident: field_ident.ident,
+                    },
+                )
+            }
         }
     }
 

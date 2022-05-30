@@ -233,22 +233,13 @@ impl<'a> InstructionSheetBuilder<'a> {
                         match ty_decl.kind {
                             TyKind::Struct => InstructionVariant::NewVirtualStruct {
                                 fields: ty_decl
-                                    .fields()
+                                    .eager_fields()
                                     .map(|decl| (decl.ident, decl.liason))
                                     .collect(),
                             },
                             TyKind::Enum => todo!(),
                             TyKind::Record => todo!(),
                             TyKind::Vec => panic!(),
-                            // self.push_instruction(Instruction::new(
-                            //     InstructionKind::RoutineCallCompiled {
-                            //         linkage: todo!(),
-                            //         // self.db.linkage_table().vec_constructor(self.db.entity_uid(
-                            //         //     ranged_ty.route.generic_arguments[0].as_entity_route(),
-                            //         // )),
-                            //     },
-                            //     expr.clone(),
-                            // )),
                             _ => todo!(),
                         }
                     };
