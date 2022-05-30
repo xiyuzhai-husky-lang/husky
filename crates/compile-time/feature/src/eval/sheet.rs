@@ -13,7 +13,7 @@ pub struct EvalSheet<'eval> {
 pub enum EvalKey<'eval> {
     Feature(FeaturePtr),
     StructDerivedField {
-        parent: *const dyn AnyValueDyn<'eval>,
+        parent: *const (dyn AnyValueDyn<'eval> + 'eval),
         field_ident: CustomIdentifier,
     },
 }

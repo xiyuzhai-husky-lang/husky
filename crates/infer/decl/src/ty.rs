@@ -302,9 +302,16 @@ impl TyDecl {
         self.ty_members.position(field_ident).unwrap()
     }
 
-    pub fn fields(&self) -> impl Iterator<Item = &FieldDecl> {
+    pub fn eager_fields(&self) -> impl Iterator<Item = &FieldDecl> {
         self.ty_members.iter().filter_map(|member| match member {
-            TyMemberDecl::Field(field_decl) => Some(field_decl as &FieldDecl),
+            TyMemberDecl::Field(field_decl) => match field_decl.kind {
+                FieldKind::StructOriginal
+                | FieldKind::StructDefault
+                | FieldKind::StructDerivedEager => Some(field_decl as &FieldDecl),
+                FieldKind::StructDerivedLazy { paradigm } => None,
+                FieldKind::RecordOriginal => todo!(),
+                FieldKind::RecordDerived => todo!(),
+            },
             _ => None,
         })
     }

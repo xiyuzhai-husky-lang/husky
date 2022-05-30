@@ -6,6 +6,7 @@ use std::collections::HashMap;
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use indexmap::IndexMap;
+use print_utils::p;
 pub use query::InterpreterQueryGroup;
 use text::TextRange;
 use word::{CustomIdentifier, Identifier};
@@ -84,6 +85,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
         &mut self,
         fields: &[(CustomIdentifier, MemberLiason)],
     ) -> VMRuntimeResult<()> {
+        p!(fields, self.stack.len());
         let inputs = self.stack.drain(fields.len().try_into().unwrap());
         let value = VirtualTy::new_struct(inputs, fields).into();
         self.stack.push(value);
