@@ -80,14 +80,14 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisValue {
-                opt_this_ty: opt_ty,
-                opt_this_liason: opt_liason,
+                opt_this_ty,
+                opt_this_liason,
             } => EagerExprVariant::ThisValue {
                 binding: {
                     let this_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
                     let this_qual = EagerQualifier::from_parameter_use(
-                        opt_liason.unwrap(),
-                        self.decl_db().is_copyable(opt_ty.unwrap()).unwrap(),
+                        opt_this_liason.unwrap(),
+                        self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
                         this_contract,
                     )
                     .unwrap();

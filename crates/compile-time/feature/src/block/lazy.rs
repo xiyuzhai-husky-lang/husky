@@ -54,10 +54,9 @@ impl FeatureLazyBlock {
     }
 
     pub(crate) fn stmt_features(&self) -> Vec<FeaturePtr> {
-        todo!()
-        // self.stmts
-        //     .iter()
-        //     .filter_map(|stmt| stmt.opt_feature)
-        //     .collect()
+        self.stmts
+            .iter()
+            .filter_map(|stmt| stmt.opt_feature)
+            .collect()
     }
 }

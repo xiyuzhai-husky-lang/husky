@@ -12,10 +12,13 @@ impl<'a> AstTransformer<'a> {
         match token_group[0].kind {
             TokenKind::Keyword(keyword) => match keyword {
                 Keyword::Config(_) => todo!(),
-                Keyword::Paradigm(_) => {
-                    // Keyword::Def => self.parse_record_derived_field(token_group, enter_block),
-                    todo!()
-                }
+                Keyword::Paradigm(paradigm) => match paradigm {
+                    Paradigm::LazyFunctional => {
+                        self.parse_record_derived_field(token_group, enter_block)
+                    }
+                    Paradigm::EagerFunctional => todo!(),
+                    Paradigm::EagerProcedural => todo!(),
+                },
                 Keyword::Type(_) => todo!(),
                 Keyword::Stmt(_) => todo!(),
                 Keyword::Use => todo!(),

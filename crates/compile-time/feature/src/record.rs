@@ -11,7 +11,7 @@ pub(crate) fn record_field_repr(
 ) -> FeatureRepr {
     match this {
         FeatureRepr::Expr(ref expr) => expr_record_field(db, expr, field_ident),
-        FeatureRepr::LazyBlock(ref block) => block_record_memb(db, block, field_ident),
+        FeatureRepr::LazyBlock(ref block) => block_record_field(db, block, field_ident),
         FeatureRepr::FuncBlock(_) => todo!(),
         FeatureRepr::ProcBlock(_) => todo!(),
     }
@@ -26,8 +26,7 @@ pub(crate) fn expr_record_field(
         FeatureExprVariant::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
         FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
         FeatureExprVariant::EntityFeature { ref repr, .. } => {
-            todo!()
-            // block_record_memb(db, repr.clone(), field_ident)
+            record_field_repr(db, repr.clone(), field_ident)
         }
         FeatureExprVariant::NewRecord {
             ref entity,
@@ -100,21 +99,21 @@ pub(crate) fn expr_record_field(
     }
 }
 
-pub(crate) fn block_record_memb(
+pub(crate) fn block_record_field(
     db: &dyn FeatureQueryGroup,
     this: &Arc<FeatureLazyBlock>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
-    // let stmt_features = this.stmt_features();
-    // if stmt_features.len() == 1 {
-    //     match this.stmts.last().unwrap().variant {
-    //         FeatureStmtVariant::Return { ref result } => {
-    //             db.record_field_repr(result.clone().into(), field_ident)
-    //         }
-    //         FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
-    //         _ => panic!(),
-    //     }
-    // } else {
-    todo!()
-    // }
+    let stmt_features = this.stmt_features();
+    if stmt_features.len() == 1 {
+        match this.stmts.last().unwrap().variant {
+            FeatureStmtVariant::Return { ref result } => {
+                db.record_field_repr(result.clone().into(), field_ident)
+            }
+            FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
+            _ => panic!(),
+        }
+    } else {
+        todo!()
+    }
 }

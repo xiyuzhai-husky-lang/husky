@@ -25,16 +25,14 @@ impl<'a> AstTransformer<'a> {
             Keyword::Paradigm(paradigm) => {
                 enter_block(self);
                 match token_group[2].kind {
-                    TokenKind::Special(Special::LightArrow) => todo!(),
+                    TokenKind::Special(Special::LightArrow) => {
+                        self.parse_feature_defn_head(token_group)
+                    }
                     TokenKind::Special(Special::LPar) => {
                         self.parse_function_defn_head(paradigm, token_group)
                     }
                     _ => todo!(),
                 }
-                // Keyword::Def => {
-                //     enter_block(self);
-                //     self.parse_morphism_decl(token_group)
-                // }
             }
             Keyword::Type(ty_kw) => {
                 enter_block(self);

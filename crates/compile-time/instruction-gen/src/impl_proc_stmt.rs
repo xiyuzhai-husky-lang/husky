@@ -20,19 +20,19 @@ impl<'a> InstructionSheetBuilder<'a> {
                 init_kind,
                 ..
             } => {
-                self.compile_eager_expr(initial_value);
+                self.compile_eager_expr(initial_value, self.sheet.variable_stack.next_stack_idx());
                 self.def_variable(varname.ident)
             }
             ProcStmtVariant::Assert { ref condition } => {
-                self.compile_eager_expr(condition);
+                self.compile_eager_expr(condition, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
             }
             ProcStmtVariant::Return { ref result } => {
-                self.compile_eager_expr(result);
+                self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
             }
             ProcStmtVariant::Execute { ref expr } => {
-                self.compile_eager_expr(expr);
+                self.compile_eager_expr(expr, self.sheet.variable_stack.next_stack_idx());
             }
             ProcStmtVariant::Loop {
                 ref loop_variant,
@@ -53,7 +53,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref match_expr,
                 ref branches,
             } => {
-                self.compile_eager_expr(match_expr);
+                self.compile_eager_expr(match_expr, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(
                     InstructionVariant::PatternMatch {
                         branches: self.compile_proc_pattern_match(branches),
@@ -122,7 +122,10 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             LoopVariant::While { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
-                block_sheet_builder.compile_eager_expr(condition);
+                block_sheet_builder.compile_eager_expr(
+                    condition,
+                    block_sheet_builder.sheet.variable_stack.next_stack_idx(),
+                );
                 block_sheet_builder.push_instruction(Instruction::new(
                     InstructionVariant::BreakIfFalse,
                     loop_stmt.clone(),
@@ -140,7 +143,10 @@ impl<'a> InstructionSheetBuilder<'a> {
             LoopVariant::DoWhile { condition } => {
                 let mut block_sheet_builder = self.subsheet_builder();
                 block_sheet_builder.compile_proc_stmts(body_stmts);
-                block_sheet_builder.compile_eager_expr(condition);
+                block_sheet_builder.compile_eager_expr(
+                    condition,
+                    block_sheet_builder.sheet.variable_stack.next_stack_idx(),
+                );
                 block_sheet_builder.push_instruction(Instruction::new(
                     InstructionVariant::BreakIfFalse,
                     loop_stmt.clone(),
@@ -159,7 +165,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_boundary(&mut self, boundary: &Boundary, loop_stmt: &Arc<ProcStmt>) {
         if let Some(ref bound) = boundary.opt_bound {
-            self.compile_eager_expr(bound)
+            self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx())
         } else {
             self.push_instruction(Instruction::new(
                 InstructionVariant::PushPrimitiveLiteral(0i32.into()),
@@ -179,9 +185,15 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ProcConditionBranchVariant::If { ref condition } => {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
-                                let mut condition_sheet = self.subsheet_builder();
-                                condition_sheet.compile_eager_expr(condition);
-                                Some(condition_sheet.finalize())
+                                let mut condition_sheet_builder = self.subsheet_builder();
+                                condition_sheet_builder.compile_eager_expr(
+                                    condition,
+                                    condition_sheet_builder
+                                        .sheet
+                                        .variable_stack
+                                        .next_stack_idx(),
+                                );
+                                Some(condition_sheet_builder.finalize())
                             },
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
@@ -193,9 +205,15 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ProcConditionBranchVariant::Elif { ref condition } => {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
-                                let mut condition_sheet = self.subsheet_builder();
-                                condition_sheet.compile_eager_expr(condition);
-                                Some(condition_sheet.finalize())
+                                let mut condition_sheet_builder = self.subsheet_builder();
+                                condition_sheet_builder.compile_eager_expr(
+                                    condition,
+                                    condition_sheet_builder
+                                        .sheet
+                                        .variable_stack
+                                        .next_stack_idx(),
+                                );
+                                Some(condition_sheet_builder.finalize())
                             },
                             body: {
                                 let mut body_sheet = self.subsheet_builder();

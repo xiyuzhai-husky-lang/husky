@@ -3,11 +3,28 @@ use arrayvec::ArrayVec;
 use check_utils::should_eq;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, p};
-use std::fmt::Write;
+use std::{fmt::Write, ops::Add};
 use word::CustomIdentifier;
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VMStackIdx(u8);
+
+impl Add<u8> for VMStackIdx {
+    type Output = Self;
+
+    fn add(self, rhs: u8) -> Self::Output {
+        VMStackIdx(self.0 + rhs)
+    }
+}
+
+impl Add<usize> for VMStackIdx {
+    type Output = Self;
+
+    fn add(self, rhs: usize) -> Self::Output {
+        let rhs: u8 = rhs.try_into().unwrap();
+        VMStackIdx(self.0 + rhs)
+    }
+}
 
 impl std::fmt::Debug for VMStackIdx {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -156,6 +173,10 @@ impl VariableStack {
 
     pub fn len(&self) -> usize {
         self.non_this_variables.len()
+    }
+
+    pub fn next_stack_idx(&self) -> VMStackIdx {
+        VMStackIdx::new(self.non_this_variables.len()).unwrap()
     }
 
     pub fn stack_idx(&self, ident0: CustomIdentifier) -> VMStackIdx {

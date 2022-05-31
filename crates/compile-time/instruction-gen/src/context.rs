@@ -1,5 +1,7 @@
+use vm::VMStackIdx;
+
 #[derive(Copy, Clone, Debug)]
 pub(crate) enum InstructionGenContext {
     Normal,
-    NewVirtualStruct,
+    NewVirtualStruct { output_stack_idx: VMStackIdx },
 }

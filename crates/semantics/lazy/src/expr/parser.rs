@@ -7,7 +7,7 @@ use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
-use infer_qualifier::InferQualifiedTy;
+use infer_qualifier::{InferQualifiedTy, LazyQualifier};
 use text::RangedCustomIdentifier;
 use vm::*;
 use word::{CustomIdentifier, RootIdentifier};
@@ -81,7 +81,21 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 ..
             } => self.parse_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::ThisValue { .. } => LazyExprVariant::This { binding: todo!() },
+            RawExprVariant::ThisValue {
+                opt_this_ty,
+                opt_this_liason,
+            } => LazyExprVariant::This {
+                binding: {
+                    let this_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+                    let this_qual = LazyQualifier::from_parameter_use(
+                        opt_this_liason.unwrap(),
+                        self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
+                        this_contract,
+                    )
+                    .unwrap();
+                    this_qual.binding(this_contract)
+                },
+            },
             RawExprVariant::ThisField { .. } => todo!(),
             RawExprVariant::FrameVariable {
                 varname,
