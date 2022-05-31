@@ -18,7 +18,7 @@ pub enum HistoryEntry<'eval> {
         body_instruction_sheet: Arc<InstructionSheet>,
         mutations: Vec<MutationData<'eval>>,
     },
-    ConditionFlow {
+    ControlFlow {
         opt_branch_entered: Option<u8>,
         vm_branches: Avec<VMConditionBranch>,
         control: ControlSnapshot<'eval>,
@@ -46,7 +46,7 @@ impl<'eval> HistoryEntry<'eval> {
                 Ok(mutations[0].after.clone())
             }
             HistoryEntry::Loop { .. } => todo!(),
-            HistoryEntry::ConditionFlow {
+            HistoryEntry::ControlFlow {
                 opt_branch_entered: enter,
                 ..
             } => todo!(),

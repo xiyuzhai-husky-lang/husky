@@ -29,7 +29,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
         self.exec_loop(
             loop_kind,
             body,
-            |interpreter| interpreter.save_snapshot(),
+            |interpreter| interpreter.save_snapshot(format!("loop frame")),
             |interpreter, frame_var_value, control| {
                 let (snapshot, mutations) = interpreter.collect_block_mutations();
                 interpreter.frames.push(LoopFrameData {

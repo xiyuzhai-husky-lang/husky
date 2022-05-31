@@ -35,12 +35,12 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                     Mode::Fast => self.exec_all(&b.body, Mode::Fast),
                     Mode::TrackMutation => self.exec_all(&b.body, Mode::TrackMutation),
                     Mode::TrackHistory => {
-                        self.save_snapshot();
-                        let control = self.exec_all(&b.body, Mode::TrackHistory);
+                        self.save_snapshot(format!("condition flow"));
+                        let control = self.exec_all(&b.body, Mode::TrackMutation);
                         let (stack_snapshot, mutations) = self.collect_block_mutations();
                         self.history.write(
                             ins,
-                            HistoryEntry::ConditionFlow {
+                            HistoryEntry::ControlFlow {
                                 opt_branch_entered: Some(i.try_into().unwrap()),
                                 stack_snapshot,
                                 control: control.snapshot(),
@@ -58,9 +58,9 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                 if mode == Mode::TrackHistory {
                     self.history.write(
                         ins,
-                        HistoryEntry::ConditionFlow {
+                        HistoryEntry::ControlFlow {
                             opt_branch_entered: None,
-                            stack_snapshot: self.stack.snapshot(),
+                            stack_snapshot: self.stack.snapshot(format!("control flow")),
                             control: ControlSnapshot::None,
                             mutations: Vec::new(),
                             vm_branches: branches.clone(),

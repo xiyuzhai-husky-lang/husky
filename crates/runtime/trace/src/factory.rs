@@ -191,7 +191,7 @@ pub trait CreateTrace<'eval>: AskCompileTime {
         let text = &self.compile_time().text(parent.file).unwrap();
         Arc::new(
             self.trace_factory()
-                .feature_block_subtraces(parent, feature_block, text),
+                .feature_lazy_block_subtraces(parent, feature_block, text),
         )
     }
 

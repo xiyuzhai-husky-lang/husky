@@ -124,7 +124,7 @@ pub fn subtraces(
                         stack_snapshot,
                         body,
                     ),
-                    HistoryEntry::ConditionFlow {
+                    HistoryEntry::ControlFlow {
                         opt_branch_entered: enter,
                         ..
                     } => todo!(),
@@ -166,7 +166,7 @@ pub fn subtraces(
             ref branch,
             ..
         } => match history.get(stmt).unwrap() {
-            HistoryEntry::ConditionFlow {
+            HistoryEntry::ControlFlow {
                 stack_snapshot,
                 opt_branch_entered: branch_entered,
                 ..

@@ -11,7 +11,9 @@ impl<'eval> TraceFactory<'eval> {
     ) -> Vec<Arc<Trace<'eval>>> {
         match feature_repr {
             FeatureRepr::Expr(_) => todo!(),
-            FeatureRepr::LazyBlock(_) => todo!(),
+            FeatureRepr::LazyBlock(feature_block) => {
+                self.feature_lazy_block_subtraces(parent, feature_block, text)
+            }
             FeatureRepr::FuncBlock(_) => todo!(),
             FeatureRepr::ProcBlock(_) => todo!(),
         }

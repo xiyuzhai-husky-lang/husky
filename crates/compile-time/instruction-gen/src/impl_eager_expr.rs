@@ -295,10 +295,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                         }
                         TyKind::Primitive => todo!(),
-                        TyKind::Vec => InstructionVariant::CallCompiled {
+                        TyKind::Vec | TyKind::Array => InstructionVariant::CallCompiled {
                             linkage: self.db.type_call_linkage(ranged_ty.route).unwrap(),
                         },
-                        TyKind::Array => todo!(),
                         TyKind::Other => todo!(),
                     },
                     _ => panic!(),
