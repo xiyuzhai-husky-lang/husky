@@ -7,7 +7,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         base_route: "b32",
         generic_parameters: &[],
         static_trait_impls: &[],
-        type_members: &[&B32_TRAILING_ZEROS, &B32_LAST_BITS],
+        type_members: &[&B32_LEADING_ZEROS, &B32_TRAILING_ZEROS, &B32_LAST_BITS],
         variants: &[],
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer::Compiled(|value| {
@@ -17,6 +17,29 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             }
         }),
         opt_type_call: None,
+    },
+    dev_src: static_dev_src!(),
+};
+
+pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
+    name: "leading_zeros",
+    subscopes: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_contract: InputLiason::Pure,
+        input_parameters: &[],
+        output_ty: "i32",
+        output_liason: OutputLiason::Transfer,
+        generic_parameters: &[],
+        kind: MethodStaticDefnVariant::TypeMethod {
+            source: LinkageSource::Transfer(Linkage {
+                call: |values| {
+                    Ok(VMValue::Copyable(
+                        (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
+                    ))
+                },
+                nargs: 1,
+            }),
+        },
     },
     dev_src: static_dev_src!(),
 };
