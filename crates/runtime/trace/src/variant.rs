@@ -169,7 +169,7 @@ impl<'eval> TraceVariant<'eval> {
             } => {
                 if let Some(entry) = history.get(stmt) {
                     match entry {
-                        HistoryEntry::ConditionFlow {
+                        HistoryEntry::ControlFlow {
                             opt_branch_entered: branch_entered,
                             ..
                         } => {
@@ -238,7 +238,7 @@ impl<'eval> TraceVariant<'eval> {
             } => {
                 if let Some(entry) = history.get(stmt) {
                     match entry {
-                        HistoryEntry::ConditionFlow {
+                        HistoryEntry::ControlFlow {
                             opt_branch_entered, ..
                         } => {
                             if let Some(branch_entered) = opt_branch_entered {

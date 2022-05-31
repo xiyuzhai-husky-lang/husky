@@ -78,6 +78,6 @@ impl<'eval> TraceFactory<'eval> {
         // }
         // subtraces.extend();
         // Arc::new(subtraces)
-        Arc::new(self.feature_block_subtraces(parent, &branch.block, text))
+        Arc::new(self.feature_lazy_block_subtraces(parent, &branch.block, text))
     }
 }

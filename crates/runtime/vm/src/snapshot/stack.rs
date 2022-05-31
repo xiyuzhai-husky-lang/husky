@@ -2,6 +2,7 @@ use crate::*;
 
 #[derive(Debug, Clone)]
 pub struct StackSnapshot<'eval> {
+    pub message: String, // for debug
     pub(crate) values: Vec<StackValueSnapshot<'eval>>,
 }
 

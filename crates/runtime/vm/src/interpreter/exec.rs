@@ -130,7 +130,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                             self.exec_loop_tracking_mutation(loop_kind, body).into()
                         }
                         Mode::TrackHistory => {
-                            self.save_snapshot();
+                            self.save_snapshot("Loop".to_string());
                             let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
                             let (snapshot, mutations) = self.collect_block_mutations();
                             self.history.write(

@@ -107,8 +107,9 @@ impl<'vm, 'eval: 'vm> VMStack<'vm, 'eval> {
         self.values.last_mut().unwrap()
     }
 
-    pub(crate) fn snapshot(&mut self) -> StackSnapshot<'eval> {
+    pub(crate) fn snapshot(&mut self, message: String) -> StackSnapshot<'eval> {
         StackSnapshot {
+            message,
             values: self
                 .values
                 .iter_mut()

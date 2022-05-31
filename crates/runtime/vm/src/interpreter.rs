@@ -6,7 +6,7 @@ use std::collections::HashMap;
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use indexmap::IndexMap;
-use print_utils::p;
+use print_utils::{p, ps};
 pub use query::InterpreterQueryGroup;
 use text::TextRange;
 use word::{CustomIdentifier, Identifier};
@@ -91,11 +91,13 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
         Ok(())
     }
 
-    fn save_snapshot(&mut self) {
-        if let Some(_) = self.opt_snapshot_saved {
+    fn save_snapshot(&mut self, message: String) {
+        if let Some(ref snapshot) = self.opt_snapshot_saved {
+            ps!(snapshot.message);
+            ps!(message);
             panic!()
         }
-        self.opt_snapshot_saved = Some(self.stack.snapshot());
+        self.opt_snapshot_saved = Some(self.stack.snapshot(message));
     }
 
     fn record_mutation(

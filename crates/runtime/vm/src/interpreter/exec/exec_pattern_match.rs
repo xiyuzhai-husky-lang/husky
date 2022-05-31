@@ -41,7 +41,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                     Mode::Fast => self.exec_all(&b.body, Mode::Fast),
                     Mode::TrackMutation => self.exec_all(&b.body, Mode::TrackMutation),
                     Mode::TrackHistory => {
-                        self.save_snapshot();
+                        self.save_snapshot("Pattern Matching".to_string());
                         let control = self.exec_all(&b.body, Mode::TrackHistory);
                         let (stack_snapshot, mutations) = self.collect_block_mutations();
                         self.history.write(
@@ -66,7 +66,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                         ins,
                         HistoryEntry::PatternMatching {
                             opt_branch_entered: None,
-                            stack_snapshot: self.stack.snapshot(),
+                            stack_snapshot: self.stack.snapshot(format!("Pattern matching")),
                             control: ControlSnapshot::None,
                             mutations: Vec::new(),
                             vm_branches: branches.clone(),

@@ -496,7 +496,9 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
             VMValue::FullyOwned(value) => StackValueSnapshot::Owned(value.clone()),
             VMValue::EvalPure(value) => StackValueSnapshot::GlobalPure(value.clone()),
             VMValue::GlobalRef(value) => StackValueSnapshot::GlobalRef(*value),
-            VMValue::FullyOwnedRef(value) => todo!(),
+            VMValue::FullyOwnedRef(value) => {
+                StackValueSnapshot::FullyOwnedRef(value.clone_into_arc_dyn())
+            }
             VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
                 p!(value);
                 todo!()

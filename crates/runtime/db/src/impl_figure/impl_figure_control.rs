@@ -68,7 +68,7 @@ impl HuskyLangRuntime {
                 ref history,
                 ..
             } => match history.get(stmt).unwrap() {
-                HistoryEntry::ConditionFlow {
+                HistoryEntry::ControlFlow {
                     opt_branch_entered: branch_entered,
                     mutations,
                     ..

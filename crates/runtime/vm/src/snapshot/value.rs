@@ -6,6 +6,7 @@ pub enum StackValueSnapshot<'eval> {
     GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     GlobalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     Owned(OwnedValue<'eval, 'eval>),
+    FullyOwnedRef(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     RefMut {
         value: EvalValue<'eval>,
         owner: VMStackIdx,
@@ -22,6 +23,7 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::Owned(snapshared_value) => snapshared_value.any_ref(),
             StackValueSnapshot::RefMut { value, .. } => value.any_ref(),
             StackValueSnapshot::GlobalRef(value) => *value,
+            StackValueSnapshot::FullyOwnedRef(_) => todo!(),
         }
     }
 
@@ -32,6 +34,7 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::GlobalRef(value) => EvalValue::GlobalRef(*value),
             StackValueSnapshot::Owned(value) => EvalValue::Owned(value.clone()),
             StackValueSnapshot::RefMut { value, owner, gen } => value.clone(),
+            StackValueSnapshot::FullyOwnedRef(_) => todo!(),
         }
     }
 }
@@ -59,6 +62,7 @@ impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
                 .debug_struct("StackValueSnapshot::GlobalRef")
                 .field("value", value)
                 .finish(),
+            StackValueSnapshot::FullyOwnedRef(_) => todo!(),
         }
     }
 }
@@ -77,6 +81,7 @@ impl<'vm, 'eval: 'vm> Into<VMValue<'vm, 'eval>> for &StackValueSnapshot<'eval> {
             StackValueSnapshot::GlobalPure(value) => VMValue::EvalPure(value.clone()),
             StackValueSnapshot::Owned(value) => VMValue::FullyOwned(value.clone()),
             StackValueSnapshot::GlobalRef(value) => VMValue::GlobalRef(*value),
+            StackValueSnapshot::FullyOwnedRef(_) => todo!(),
         }
     }
 }
