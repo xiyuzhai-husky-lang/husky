@@ -56,6 +56,7 @@ pub enum EagerExprVariant {
     },
     ThisField {
         field_ident: RangedCustomIdentifier,
+        field_idx: usize,
         this_ty: EntityRoutePtr,
         this_binding: Binding,
         field_binding: Binding,

@@ -1,3 +1,4 @@
+mod context;
 mod impl_basic;
 mod impl_eager_expr;
 mod impl_func_stmt;
@@ -7,7 +8,9 @@ mod query;
 
 pub use query::*;
 
+use context::*;
 use entity_route::*;
+use fold::LocalValue;
 use print_utils::*;
 use semantics_eager::*;
 use semantics_entity::*;
@@ -49,6 +52,7 @@ pub fn new_proc_instruction_sheet(
 struct InstructionSheetBuilder<'a> {
     db: &'a dyn InstructionGenQueryGroup,
     sheet: InstructionSheet,
+    context: LocalValue<InstructionGenContext>,
 }
 
 impl<'a> InstructionSheetBuilder<'a> {
@@ -60,6 +64,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         Self {
             db,
             sheet: InstructionSheet::new(inputs, has_this),
+            context: LocalValue::new(InstructionGenContext::Normal),
         }
     }
 
@@ -67,6 +72,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         Self {
             db: self.db,
             sheet: self.sheet.init_subsheet(),
+            context: LocalValue::new(InstructionGenContext::Normal),
         }
     }
 

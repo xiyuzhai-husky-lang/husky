@@ -95,7 +95,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 },
             },
             RawExprVariant::ThisField {
-                field_ident: ident,
+                field_ident,
                 opt_this_ty,
                 opt_this_liason,
                 field_liason,
@@ -114,8 +114,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
                     this_contract,
                 )?;
+                let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
                 EagerExprVariant::ThisField {
-                    field_ident: ident,
+                    field_ident,
+                    field_idx: ty_decl.field_idx(field_ident.ident),
                     this_ty: opt_this_ty.unwrap(),
                     this_binding: this_qual.binding(this_contract),
                     field_binding: {

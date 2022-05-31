@@ -34,8 +34,8 @@ impl PartialEq for Instruction {
 impl Eq for Instruction {}
 
 impl Instruction {
-    pub fn new(kind: InstructionVariant, src: Arc<dyn InstructionSource>) -> Self {
-        Self { variant: kind, src }
+    pub fn new(variant: InstructionVariant, src: Arc<dyn InstructionSource>) -> Self {
+        Self { variant, src }
     }
 
     pub fn id(&self) -> InstructionId {
