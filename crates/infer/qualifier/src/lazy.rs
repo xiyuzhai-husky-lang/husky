@@ -120,7 +120,15 @@ impl LazyQualifier {
                 LazyContract::Pure => LazyQualifier::Copyable,
                 LazyContract::Move => todo!(),
             },
-            LazyQualifier::PureRef => todo!(),
+            LazyQualifier::PureRef => match contract {
+                LazyContract::Init => todo!(),
+                LazyContract::Return => todo!(),
+                LazyContract::UseMemberForInit => todo!(),
+                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::GlobalRef => todo!(),
+                LazyContract::Pure => LazyQualifier::PureRef,
+                LazyContract::Move => todo!(),
+            },
             LazyQualifier::GlobalRef => match contract {
                 LazyContract::Init => todo!(),
                 LazyContract::Return => todo!(),
@@ -163,6 +171,31 @@ impl LazyQualifier {
         } else {
             todo!()
         })
+    }
+
+    pub fn from_parameter_use(
+        input_liason: InputLiason,
+        is_copyable: bool,
+        contract: LazyContract,
+    ) -> InferResult<Self> {
+        Self::from_parameter(input_liason, is_copyable).variable_use(contract)
+    }
+
+    pub fn from_parameter(input_liason: InputLiason, is_copyable: bool) -> Self {
+        match input_liason {
+            InputLiason::Pure => {
+                if is_copyable {
+                    LazyQualifier::Copyable
+                } else {
+                    LazyQualifier::PureRef
+                }
+            }
+            InputLiason::GlobalRef => LazyQualifier::GlobalRef,
+            InputLiason::Move => todo!(),
+            InputLiason::LocalRefMut => todo!(),
+            InputLiason::MoveMut => todo!(),
+            InputLiason::MemberAccess => todo!(),
+        }
     }
 
     pub fn method_opt_output_binding(

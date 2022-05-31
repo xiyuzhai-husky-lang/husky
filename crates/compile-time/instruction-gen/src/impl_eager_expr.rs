@@ -8,7 +8,11 @@ use static_defn::LinkageSource;
 use vm::*;
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(super) fn compile_eager_expr(&mut self, expr: &Arc<EagerExpr>) {
+    pub(super) fn compile_eager_expr(
+        &mut self,
+        expr: &Arc<EagerExpr>,
+        output_stack_idx: VMStackIdx,
+    ) {
         match expr.variant {
             EagerExprVariant::Variable { varname, binding } => {
                 let stack_idx = self.sheet.variable_stack.stack_idx(varname);
@@ -28,11 +32,13 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionVariant::PushPrimitiveLiteral(value),
                 expr.clone(),
             )),
-            EagerExprVariant::Bracketed(ref expr) => self.compile_eager_expr(expr),
+            EagerExprVariant::Bracketed(ref expr) => {
+                self.compile_eager_expr(expr, output_stack_idx)
+            }
             EagerExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
-            } => self.compile_opn(opn_variant, opds, expr),
+            } => self.compile_opn(opn_variant, opds, expr, output_stack_idx),
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::ThisValue { binding } => self.push_instruction(Instruction::new(
                 InstructionVariant::PushVariable {
@@ -82,7 +88,17 @@ impl<'a> InstructionSheetBuilder<'a> {
                         expr.clone(),
                     ))
                 }
-                InstructionGenContext::NewVirtualStruct => todo!(),
+                InstructionGenContext::NewVirtualStruct { output_stack_idx } => self
+                    .push_instruction(Instruction::new(
+                        InstructionVariant::PushVariable {
+                            varname: field_ident.ident.into(),
+                            stack_idx: output_stack_idx + field_idx,
+                            binding: field_binding,
+                            range: expr.range,
+                            ty: expr.ty(),
+                        },
+                        expr.clone(),
+                    )),
             },
             EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushEnumKindLiteral(EnumKindValue {
@@ -99,9 +115,10 @@ impl<'a> InstructionSheetBuilder<'a> {
         opn_variant: &EagerOpnVariant,
         opds: &[Arc<EagerExpr>],
         expr: &Arc<EagerExpr>,
+        output_stack_idx: VMStackIdx,
     ) {
-        for opd in opds {
-            self.compile_eager_expr(opd);
+        for (i, opd) in opds.iter().enumerate() {
+            self.compile_eager_expr(opd, output_stack_idx + i);
         }
         match opn_variant {
             EagerOpnVariant::Binary { opr, this_ty } => {
@@ -231,7 +248,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref ty_decl,
             } => {
                 let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
-                match ty_defn.variant {
+                let instruction_kind = match ty_defn.variant {
                     EntityDefnVariant::Type {
                         kind,
                         ref ty_members,
@@ -241,7 +258,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                         TyKind::Record => todo!(),
                         TyKind::Struct => {
                             self.context.enter();
-                            self.context.set(InstructionGenContext::NewVirtualStruct);
+                            self.context
+                                .set(InstructionGenContext::NewVirtualStruct { output_stack_idx });
                             for (i, ty_member) in ty_members.iter().enumerate() {
                                 match ty_member.variant {
                                     EntityDefnVariant::TypeField {
@@ -252,11 +270,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                                         FieldDefnVariant::StructOriginal => (),
                                         FieldDefnVariant::StructDefault { default } => {
                                             msg_once!("handle keyword arguments");
-                                            self.compile_eager_expr(default)
+                                            self.compile_eager_expr(default, output_stack_idx + i)
                                         }
-                                        FieldDefnVariant::StructDerivedEager { derivation } => {
-                                            self.compile_eager_expr(derivation)
-                                        }
+                                        FieldDefnVariant::StructDerivedEager { derivation } => self
+                                            .compile_eager_expr(derivation, output_stack_idx + i),
                                         FieldDefnVariant::StructDerivedLazy { .. } => break,
                                         FieldDefnVariant::RecordOriginal
                                         | FieldDefnVariant::RecordDerived { .. } => panic!(),
@@ -265,26 +282,28 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 }
                             }
                             self.context.exit();
-                            let instruction_kind =
-                                if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
-                                    InstructionVariant::CallCompiled { linkage }
-                                } else {
-                                    InstructionVariant::NewVirtualStruct {
-                                        fields: ty_decl
-                                            .eager_fields()
-                                            .map(|decl| (decl.ident, decl.liason))
-                                            .collect(),
-                                    }
-                                };
-                            self.push_instruction(Instruction::new(instruction_kind, expr.clone()))
+
+                            if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
+                                InstructionVariant::CallCompiled { linkage }
+                            } else {
+                                InstructionVariant::NewVirtualStruct {
+                                    fields: ty_decl
+                                        .eager_fields()
+                                        .map(|decl| (decl.ident, decl.liason))
+                                        .collect(),
+                                }
+                            }
                         }
                         TyKind::Primitive => todo!(),
-                        TyKind::Vec => todo!(),
+                        TyKind::Vec => InstructionVariant::CallCompiled {
+                            linkage: self.db.type_call_linkage(ranged_ty.route).unwrap(),
+                        },
                         TyKind::Array => todo!(),
                         TyKind::Other => todo!(),
                     },
                     _ => panic!(),
-                }
+                };
+                self.push_instruction(Instruction::new(instruction_kind, expr.clone()))
             }
         }
     }

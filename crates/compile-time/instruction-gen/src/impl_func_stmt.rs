@@ -17,15 +17,15 @@ impl<'a> InstructionSheetBuilder<'a> {
                 varname,
                 ref initial_value,
             } => {
-                self.compile_eager_expr(initial_value);
+                self.compile_eager_expr(initial_value, self.sheet.variable_stack.next_stack_idx());
                 self.def_variable(varname.ident)
             }
             FuncStmtVariant::Assert { ref condition } => {
-                self.compile_eager_expr(condition);
+                self.compile_eager_expr(condition, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
             }
             FuncStmtVariant::Return { ref result } => {
-                self.compile_eager_expr(result);
+                self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
             }
             FuncStmtVariant::ConditionFlow { ref branches } => {
@@ -40,7 +40,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref match_expr,
                 ref branches,
             } => {
-                self.compile_eager_expr(match_expr);
+                self.compile_eager_expr(match_expr, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(
                     InstructionVariant::PatternMatch {
                         branches: self.compile_func_pattern_match(branches),
@@ -66,9 +66,15 @@ impl<'a> InstructionSheetBuilder<'a> {
                     FuncConditionBranchVariant::If { ref condition } => {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
-                                let mut condition_sheet = self.subsheet_builder();
-                                condition_sheet.compile_eager_expr(condition);
-                                Some(condition_sheet.finalize())
+                                let mut condition_sheet_builder = self.subsheet_builder();
+                                condition_sheet_builder.compile_eager_expr(
+                                    condition,
+                                    condition_sheet_builder
+                                        .sheet
+                                        .variable_stack
+                                        .next_stack_idx(),
+                                );
+                                Some(condition_sheet_builder.finalize())
                             },
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
@@ -80,9 +86,15 @@ impl<'a> InstructionSheetBuilder<'a> {
                     FuncConditionBranchVariant::Elif { ref condition } => {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
-                                let mut condition_sheet = self.subsheet_builder();
-                                condition_sheet.compile_eager_expr(condition);
-                                Some(condition_sheet.finalize())
+                                let mut condition_sheet_builder = self.subsheet_builder();
+                                condition_sheet_builder.compile_eager_expr(
+                                    condition,
+                                    condition_sheet_builder
+                                        .sheet
+                                        .variable_stack
+                                        .next_stack_idx(),
+                                );
+                                Some(condition_sheet_builder.finalize())
                             },
                             body: {
                                 let mut body_sheet = self.subsheet_builder();

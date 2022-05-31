@@ -13,7 +13,10 @@ impl<'a> AstTransformer<'a> {
     //     }
     // }
 
-    fn parse_feature_defn_head(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
+    pub(super) fn parse_feature_defn_head(
+        &mut self,
+        token_group: &[Token],
+    ) -> AstResult<AstVariant> {
         let ident = identify_token!(
             self,
             token_group[1],
