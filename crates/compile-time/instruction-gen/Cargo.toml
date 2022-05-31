@@ -30,3 +30,4 @@ linkage-table = { path = "../linkage-table", version = "0.0.0" }
 static-defn = { path = "../../syntax/static-defn", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 visual-semantics = { path = "../../semantics/visual", version = "0.0.0" }
+ast = { path = "../../syntax/ast", version = "0.0.0" }

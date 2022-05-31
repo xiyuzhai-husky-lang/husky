@@ -1,5 +1,6 @@
 use crate::*;
 
+use ast::FieldKind;
 use entity_kind::TyKind;
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
@@ -45,40 +46,44 @@ impl<'a> InstructionSheetBuilder<'a> {
             )),
             EagerExprVariant::ThisField {
                 field_ident,
+                field_idx,
                 this_ty,
                 this_binding,
                 field_binding,
-            } => {
-                self.push_instruction(Instruction::new(
-                    InstructionVariant::PushVariable {
-                        varname: ContextualIdentifier::ThisValue.into(),
-                        stack_idx: VMStackIdx::this(),
-                        binding: this_binding,
-                        range: expr.range,
-                        ty: expr.ty(),
-                    },
-                    expr.clone(),
-                ));
-                self.push_instruction(Instruction::new(
-                    if let Some(field_access_fp) =
-                        self.db.field_access_fp(this_ty, field_ident.ident)
-                    {
-                        InstructionVariant::FieldAccessCompiled {
-                            linkage: field_access_fp,
-                        }
-                    } else {
-                        let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
-                        InstructionVariant::FieldAccessInterpreted {
-                            field_idx: this_ty_decl
-                                .field_idx(field_ident.ident)
-                                .try_into()
-                                .unwrap(),
-                            field_binding,
-                        }
-                    },
-                    expr.clone(),
-                ))
-            }
+            } => match self.context.value() {
+                InstructionGenContext::Normal => {
+                    self.push_instruction(Instruction::new(
+                        InstructionVariant::PushVariable {
+                            varname: ContextualIdentifier::ThisValue.into(),
+                            stack_idx: VMStackIdx::this(),
+                            binding: this_binding,
+                            range: expr.range,
+                            ty: expr.ty(),
+                        },
+                        expr.clone(),
+                    ));
+                    self.push_instruction(Instruction::new(
+                        if let Some(field_access_fp) =
+                            self.db.field_access_fp(this_ty, field_ident.ident)
+                        {
+                            InstructionVariant::FieldAccessCompiled {
+                                linkage: field_access_fp,
+                            }
+                        } else {
+                            let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
+                            InstructionVariant::FieldAccessInterpreted {
+                                field_idx: this_ty_decl
+                                    .field_idx(field_ident.ident)
+                                    .try_into()
+                                    .unwrap(),
+                                field_binding,
+                            }
+                        },
+                        expr.clone(),
+                    ))
+                }
+                InstructionGenContext::NewVirtualStruct => todo!(),
+            },
             EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushEnumKindLiteral(EnumKindValue {
                     kind_idx: self.db.enum_literal_as_u8(route),
@@ -91,14 +96,14 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_opn(
         &mut self,
-        opn_kind: &EagerOpnVariant,
+        opn_variant: &EagerOpnVariant,
         opds: &[Arc<EagerExpr>],
         expr: &Arc<EagerExpr>,
     ) {
         for opd in opds {
             self.compile_eager_expr(opd);
         }
-        match opn_kind {
+        match opn_variant {
             EagerOpnVariant::Binary { opr, this_ty } => {
                 let ins_kind = InstructionVariant::OprOpn {
                     opn: match opr {
@@ -225,25 +230,61 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ranged_ty,
                 ref ty_decl,
             } => {
-                emsg_once!("TypeCall compiled");
-                let instruction_kind =
-                    if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
-                        InstructionVariant::CallCompiled { linkage }
-                    } else {
-                        match ty_decl.kind {
-                            TyKind::Struct => InstructionVariant::NewVirtualStruct {
-                                fields: ty_decl
-                                    .eager_fields()
-                                    .map(|decl| (decl.ident, decl.liason))
-                                    .collect(),
-                            },
-                            TyKind::Enum => todo!(),
-                            TyKind::Record => todo!(),
-                            TyKind::Vec => panic!(),
-                            _ => todo!(),
+                let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
+                match ty_defn.variant {
+                    EntityDefnVariant::Type {
+                        kind,
+                        ref ty_members,
+                        ..
+                    } => match kind {
+                        TyKind::Enum => todo!(),
+                        TyKind::Record => todo!(),
+                        TyKind::Struct => {
+                            self.context.enter();
+                            self.context.set(InstructionGenContext::NewVirtualStruct);
+                            for (i, ty_member) in ty_members.iter().enumerate() {
+                                match ty_member.variant {
+                                    EntityDefnVariant::TypeField {
+                                        ty,
+                                        ref field_variant,
+                                        liason,
+                                    } => match field_variant {
+                                        FieldDefnVariant::StructOriginal => (),
+                                        FieldDefnVariant::StructDefault { default } => {
+                                            msg_once!("handle keyword arguments");
+                                            self.compile_eager_expr(default)
+                                        }
+                                        FieldDefnVariant::StructDerivedEager { derivation } => {
+                                            self.compile_eager_expr(derivation)
+                                        }
+                                        FieldDefnVariant::StructDerivedLazy { .. } => break,
+                                        FieldDefnVariant::RecordOriginal
+                                        | FieldDefnVariant::RecordDerived { .. } => panic!(),
+                                    },
+                                    _ => break,
+                                }
+                            }
+                            self.context.exit();
+                            let instruction_kind =
+                                if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
+                                    InstructionVariant::CallCompiled { linkage }
+                                } else {
+                                    InstructionVariant::NewVirtualStruct {
+                                        fields: ty_decl
+                                            .eager_fields()
+                                            .map(|decl| (decl.ident, decl.liason))
+                                            .collect(),
+                                    }
+                                };
+                            self.push_instruction(Instruction::new(instruction_kind, expr.clone()))
                         }
-                    };
-                self.push_instruction(Instruction::new(instruction_kind, expr.clone()))
+                        TyKind::Primitive => todo!(),
+                        TyKind::Vec => todo!(),
+                        TyKind::Array => todo!(),
+                        TyKind::Other => todo!(),
+                    },
+                    _ => panic!(),
+                }
             }
         }
     }
