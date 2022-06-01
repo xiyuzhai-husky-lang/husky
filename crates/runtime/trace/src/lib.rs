@@ -1,6 +1,7 @@
 mod associated_traces;
 mod factory;
 mod figure;
+mod query;
 mod stalk;
 mod subtraces;
 #[cfg(test)]
@@ -8,8 +9,9 @@ mod tests;
 mod token;
 mod variant;
 
-pub use factory::{CreateTrace, TraceFactory, TraceId};
+pub use factory::{ProduceTrace, TraceFactory, TraceId};
 pub use figure::*;
+pub use query::*;
 pub use stalk::TraceStalk;
 pub use token::{TokenProps, TraceTokenKind};
 pub use variant::TraceVariant;
@@ -37,13 +39,6 @@ pub struct Trace<'eval> {
     pub compile_time_version: usize,
     pub has_subtraces: bool,
     pub reachable: bool,
-}
-
-#[derive(Debug, Clone, Serialize)]
-pub struct LineProps<'eval> {
-    pub indent: Indent,
-    pub tokens: Vec<TokenProps<'eval>>,
-    pub idx: usize,
 }
 
 impl<'eval> PartialEq for Trace<'eval> {
@@ -105,4 +100,11 @@ impl<'eval> Trace<'eval> {
     pub fn id(&self) -> TraceId {
         self.id
     }
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct LineProps<'eval> {
+    pub indent: Indent,
+    pub tokens: Vec<TokenProps<'eval>>,
+    pub idx: usize,
 }

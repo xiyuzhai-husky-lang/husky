@@ -4,6 +4,7 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
+salsa = "0.17.0-pre.2"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 check-utils = { path = "../../utils/check", version = "0.0.0" }

@@ -23,12 +23,12 @@ use futures::executor::{block_on, ThreadPool};
 use gui::handle_query;
 use notif::handle_notif;
 use print_utils::*;
-use runtime_db::{HuskyLangRuntime, RuntimeQueryGroup};
+use runtime_db::*;
 use state::DebuggerState;
 use std::sync::{Mutex, RwLock};
 use std::{collections::HashMap, convert::Infallible, net::ToSocketAddrs, path::Path, sync::Arc};
 use test_utils::TestResult;
-use trace::{CreateTrace, FigureProps, Trace, TraceId, TraceStalk, TraceTokenKind};
+use trace::*;
 use warp::Filter;
 
 pub struct Debugger {
