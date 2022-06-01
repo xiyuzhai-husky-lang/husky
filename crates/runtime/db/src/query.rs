@@ -1,57 +1,19 @@
+use crate::*;
 use datasets::LabeledData;
 use defn_head::InputParameter;
+use eval_feature::EvalFeature;
 use feature::*;
 use semantics_eager::ProcStmtVariant;
 use semantics_entity::EntityDefnVariant;
 use text::TextQueryGroup;
+use trace::*;
 use upcast::Upcast;
 use visual_runtime::VisualQueryGroup;
 use vm::{exec_debug, EvalResult, HistoryEntry, InstructionSheet, InterpreterQueryGroup};
 
-use trace::*;
-
-use crate::*;
-
-pub trait EvalFeature {
-    fn feature_query_group(&self) -> &dyn FeatureQueryGroup;
-    fn session(&self) -> &Arc<Mutex<Session<'static>>>;
-
-    fn eval_feature_repr(&self, repr: &FeatureRepr, input_id: usize) -> EvalResult<'static> {
-        let dev = &mut self.session().lock().unwrap().dev;
-        let sheet = &mut dev.sheets[input_id];
-        let input = dev.loader.load(input_id).input;
-        eval_feature_repr(self.feature_query_group(), repr, input, sheet)
-    }
-
-    fn eval_feature_lazy_block(
-        &self,
-        block: &FeatureLazyBlock,
-        input_id: usize,
-    ) -> EvalResult<'static> {
-        let dev = &mut self.session().lock().unwrap().dev;
-        let sheet = &mut dev.sheets[input_id];
-        let input = dev.loader.load(input_id).input;
-        eval_feature_lazy_block(self.feature_query_group(), block, input, sheet)
-    }
-
-    fn eval_feature_stmt(&self, stmt: &FeatureStmt, input_id: usize) -> EvalResult<'static> {
-        let dev = &mut self.session().lock().unwrap().dev;
-        let sheet = &mut dev.sheets[input_id];
-        let input = dev.loader.load(input_id).input;
-        eval_feature_stmt(self.feature_query_group(), stmt, input, sheet)
-    }
-
-    fn eval_feature_expr(&self, expr: &FeatureExpr, input_id: usize) -> EvalResult<'static> {
-        let dev = &mut self.session().lock().unwrap().dev;
-        let sheet = &mut dev.sheets[input_id];
-        let input = dev.loader.load(input_id).input;
-        eval_feature_expr(self.feature_query_group(), expr, input, sheet)
-    }
-}
-
 #[salsa::query_group(RuntimeQueryGroupStorage)]
 pub trait RuntimeQueryGroup:
-    AskCompileTime + CreateTrace<'static> + EvalFeature + VisualQueryGroup
+    AskCompileTime + CreateTrace<'static> + EvalFeature<'static> + VisualQueryGroup
 {
     #[salsa::input]
     fn pack_main(&self) -> FilePtr;
@@ -139,7 +101,7 @@ pub fn subtraces(
             } => todo!(),
         },
         TraceVariant::FeatureExpr(ref expr) => {
-            feature_expr_subtraces(db, trace, expr, effective_opt_input_id)
+            db.feature_expr_subtraces(trace, expr, effective_opt_input_id)
         }
         TraceVariant::FeatureBranch(ref branch) => db.feature_branch_subtraces(trace, branch),
         TraceVariant::EagerExpr {
@@ -182,108 +144,6 @@ pub fn subtraces(
             _ => panic!(),
         },
     }
-}
-
-fn feature_expr_subtraces(
-    db: &dyn RuntimeQueryGroup,
-    parent: &Trace,
-    expr: &FeatureExpr,
-    opt_input_id: Option<usize>,
-) -> Arc<Vec<Arc<Trace<'static>>>> {
-    Arc::new(match expr.variant {
-        FeatureExprVariant::PrimitiveLiteral(_)
-        | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-        | FeatureExprVariant::Variable { .. } => vec![],
-        FeatureExprVariant::RoutineCall {
-            ref opt_instruction_sheet,
-            ref routine_defn,
-            ref opds,
-            has_this,
-            ..
-        } => {
-            let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
-            if let Some(input_id) = opt_input_id {
-                let mut subtraces = vec![];
-                let mut func_input_values = vec![];
-                subtraces.push(db.trace_factory().new_call_head(
-                    routine_defn.clone(),
-                    &db.compile_time().text(routine_defn.file).unwrap(),
-                ));
-                let parameters: &[InputParameter] = match routine_defn.variant {
-                    EntityDefnVariant::Func { ref parameters, .. } => parameters,
-                    EntityDefnVariant::Proc {
-                        parameters: ref parameters,
-                        ..
-                    } => parameters,
-                    _ => panic!(),
-                };
-                for (i, func_input) in opds.iter().enumerate() {
-                    subtraces.push(db.new_trace(
-                        Some(parent.id()),
-                        expr.expr.file,
-                        4,
-                        TraceVariant::FeatureCallInput {
-                            input: func_input.clone(),
-                            ident: parameters[i].ranged_ident.ident,
-                        },
-                    ));
-                    match db.eval_feature_expr(func_input, input_id) {
-                        Ok(value) => func_input_values.push(value.into_stack().unwrap()),
-                        Err(_) => return Arc::new(subtraces),
-                    }
-                }
-                let history = exec_debug(
-                    db.compile_time(),
-                    instruction_sheet,
-                    func_input_values.into_iter(),
-                );
-                match routine_defn.variant {
-                    EntityDefnVariant::Func { ref stmts, .. } => {
-                        subtraces.extend(db.trace_factory().func_stmts_traces(
-                            parent.id(),
-                            4,
-                            stmts,
-                            &db.compile_time().text(routine_defn.file).unwrap(),
-                            &history,
-                        ));
-                    }
-                    EntityDefnVariant::Proc { ref stmts, .. } => {
-                        subtraces.extend(db.trace_factory().proc_stmts_traces(
-                            parent.id(),
-                            4,
-                            stmts,
-                            &db.compile_time().text(routine_defn.file).unwrap(),
-                            &history,
-                        ));
-                    }
-                    _ => panic!(),
-                }
-                subtraces
-            } else {
-                vec![]
-            }
-        }
-
-        FeatureExprVariant::EntityFeature { .. } => todo!(),
-        FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-        FeatureExprVariant::RecordOriginalFieldAccess {
-            ref this,
-            field_ident,
-            ..
-        } => todo!(),
-        FeatureExprVariant::This { ref repr } => todo!(),
-        FeatureExprVariant::PatternCall {} => todo!(),
-        FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-        FeatureExprVariant::StructOriginalFieldAccess { .. } => panic!(),
-        FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
-        FeatureExprVariant::GlobalInput => panic!(),
-        FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
-        FeatureExprVariant::StructDerivedFieldAccess {
-            ref this,
-            field_ident,
-            ref repr,
-        } => todo!(),
-    })
 }
 
 pub fn trace_stalk(
