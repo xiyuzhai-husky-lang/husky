@@ -53,12 +53,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     liason,
                     ranged_ident,
                     ty,
-                    field_kind,
+                    field_ast_kind: field_kind,
                 } => match field_kind {
-                    FieldKind::StructDefault { default } => {
+                    FieldAstKind::StructDefault { default } => {
                         self.infer_expr(default, Some(ty.route), &arena);
                     }
-                    FieldKind::StructDerivedEager { derivation } => {
+                    FieldAstKind::StructDerivedEager { derivation } => {
                         self.infer_expr(derivation, Some(ty.route), &arena);
                     }
                     _ => (),
@@ -95,14 +95,18 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     AstVariant::Visual => self.infer_function(&[], None, children, &arena),
                     AstVariant::PatternDefnHead => todo!(),
                     AstVariant::Use { .. } => (),
-                    AstVariant::FieldDefnHead { field_kind, ty, .. } => match field_kind {
-                        FieldKind::StructOriginal => (),
-                        FieldKind::RecordOriginal => (),
-                        FieldKind::StructDerivedLazy { .. } | FieldKind::RecordDerived => {
+                    AstVariant::FieldDefnHead {
+                        field_ast_kind: field_kind,
+                        ty,
+                        ..
+                    } => match field_kind {
+                        FieldAstKind::StructOriginal => (),
+                        FieldAstKind::RecordOriginal => (),
+                        FieldAstKind::StructDerivedLazy { .. } | FieldAstKind::RecordDerived => {
                             self.infer_function(&[], Some(ty.route), children, &arena)
                         }
-                        FieldKind::StructDefault { .. } => todo!(),
-                        FieldKind::StructDerivedEager { .. } => todo!(),
+                        FieldAstKind::StructDefault { .. } => todo!(),
+                        FieldAstKind::StructDerivedEager { .. } => todo!(),
                     },
                     AstVariant::Stmt(_) => todo!(),
                     AstVariant::CallFormDefnHead(ref head) => self.infer_function(

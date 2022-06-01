@@ -6,7 +6,7 @@ use static_defn::{EntityStaticDefnVariant, LinkageSource};
 pub use table::*;
 
 use check_utils::*;
-use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, GenericArgument};
+use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use map_collect::MapCollect;
 use print_utils::p;
 use semantics_entity::{
@@ -36,7 +36,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
         let std_ops_index_trai = self.intern_entity_route(EntityRoute {
             kind: self.entity_route_menu().std_ops_index_trai.kind,
-            generic_arguments: vec![GenericArgument::EntityRoute(opd_tys[1])],
+            spatial_arguments: vec![SpatialArgument::EntityRoute(opd_tys[1])],
         });
         let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
         match index_trai_impl.member_impls[1].variant {

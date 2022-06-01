@@ -12,9 +12,9 @@ impl<'a> AstTransformer<'a> {
             return err!(format!("expect xml"), token_group.text_range());
         }
         let variant = match token_group[0].kind {
-            TokenKind::Special(Special::LAngle) => {
+            TokenKind::Special(SpecialToken::LAngle) => {
                 match token_group.last().unwrap().kind {
-                    TokenKind::Special(Special::XmlKet) => (),
+                    TokenKind::Special(SpecialToken::XmlKet) => (),
                     _ => return err!(format!("expect `/>`"), token_group[0].range),
                 }
                 if token_group.len() == 2 {

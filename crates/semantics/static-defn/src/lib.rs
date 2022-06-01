@@ -7,7 +7,7 @@ use dev_utils::StaticDevSource;
 pub use root::*;
 pub use ty::*;
 
-use entity_kind::{EntityKind, MemberKind, RoutineKind, TyKind};
+use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
 use vm::{InputLiason, Linkage, OutputLiason};
 
@@ -29,11 +29,11 @@ pub enum EntityStaticDefnVariant {
         linkage: Linkage,
         routine_kind: RoutineKind,
     },
-    Type {
+    Ty {
         base_route: &'static str,
         generic_parameters: &'static [StaticGenericPlaceholder],
         static_trait_impls: &'static [StaticTraitImplDefn],
-        type_members: &'static [&'static EntityStaticDefn],
+        ty_members: &'static [&'static EntityStaticDefn],
         variants: &'static [EntityStaticDefn],
         kind: TyKind,
         visualizer: StaticVisualizer,
@@ -45,8 +45,8 @@ pub enum EntityStaticDefnVariant {
         members: &'static [EntityStaticDefn],
     },
     Module,
-    TypeField {
-        field_variant: StaticFieldVariant,
+    TyField {
+        field_kind: FieldKind,
     },
     Method {
         this_contract: InputLiason,
@@ -70,13 +70,13 @@ impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
             EntityStaticDefnVariant::Routine { .. } => EntityKind::Function { is_lazy: false },
-            EntityStaticDefnVariant::Type { kind, .. } => EntityKind::Type(*kind),
+            EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
             EntityStaticDefnVariant::Method { .. } => EntityKind::Member(MemberKind::Method),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => EntityKind::Type(TyKind::Other),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }
     }

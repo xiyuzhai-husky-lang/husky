@@ -515,7 +515,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         trai,
                     },
                 },
-                generic_arguments,
+                spatial_arguments: generic_arguments,
             })),
         );
         Ok(method_decl.output.ty)
@@ -537,7 +537,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let index_trai = self.db.intern_entity_route(EntityRoute {
             kind: self.db.entity_route_menu().std_ops_index_trai.kind,
-            generic_arguments: vec![GenericArgument::EntityRoute(index_ty)],
+            spatial_arguments: vec![SpatialArgument::EntityRoute(index_ty)],
         });
         let trai_impl = ok_or!(
             this_ty_decl.trait_impl(index_trai),

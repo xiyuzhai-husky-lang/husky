@@ -9,7 +9,7 @@ impl<'a> AstTransformer<'a> {
         if token_group.len() <= 1 {
             return err!("expect route after keyword `use`", token_group.text_range());
         }
-        if token_group.last().unwrap().kind == TokenKind::Special(Special::Star) {
+        if token_group.last().unwrap().kind == TokenKind::Special(SpecialToken::Star) {
             // use all
             must_be!(
                 token_group.len() >= 4,
@@ -18,7 +18,7 @@ impl<'a> AstTransformer<'a> {
             );
             let second_last_token = &token_group[token_group.len() - 2];
             must_be!(
-                second_last_token.kind == TokenKind::Special(Special::DoubleColon),
+                second_last_token.kind == TokenKind::Special(SpecialToken::DoubleColon),
                 "expect `::`",
                 second_last_token.range
             );
@@ -32,7 +32,7 @@ impl<'a> AstTransformer<'a> {
             );
             let parent = match atoms[0].kind {
                 AtomVariant::EntityRoute { route, .. } => {
-                    if route.generic_arguments.len() != 0 {
+                    if route.spatial_arguments.len() != 0 {
                         todo!("expect no generics")
                     }
                     route
@@ -51,7 +51,7 @@ impl<'a> AstTransformer<'a> {
             } else {
                 match atoms[0].kind {
                     AtomVariant::EntityRoute { route, .. } => {
-                        if route.generic_arguments.len() != 0 {
+                        if route.spatial_arguments.len() != 0 {
                             todo!("expect no generics")
                         }
                         route
@@ -81,7 +81,7 @@ impl<'a> AstTransformer<'a> {
                         ident: ident.into(),
                         kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child { parent, ident },
-                            generic_arguments: vec![],
+                            spatial_arguments: vec![],
                         })),
                     })
                 }),
@@ -90,7 +90,7 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn use_route(&mut self, route: EntityRoutePtr) -> AstResult<()> {
-        if route.generic_arguments.len() != 0 {
+        if route.spatial_arguments.len() != 0 {
             todo!()
         }
         self.symbols.push(Symbol {

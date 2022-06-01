@@ -1,5 +1,5 @@
 use crate::*;
-use entity_route::GenericArgument;
+use entity_route::SpatialArgument;
 use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use text::RangedCustomIdentifier;
 use text::Row;

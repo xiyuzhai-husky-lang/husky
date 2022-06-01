@@ -8,15 +8,15 @@ pub enum TokenKind {
     Decorator(Decorator),
     Keyword(Keyword),
     Identifier(Identifier),
-    Special(Special),
+    Special(SpecialToken),
     WordOpr(WordOpr),
     PrimitiveLiteral(CopyableValue),
     Unrecognized(char),
     IllFormedLiteral(CopyableValue),
 }
 
-impl From<Special> for TokenKind {
-    fn from(special: Special) -> Self {
+impl From<SpecialToken> for TokenKind {
+    fn from(special: SpecialToken) -> Self {
         TokenKind::Special(special)
     }
 }

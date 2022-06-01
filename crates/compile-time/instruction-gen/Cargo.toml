@@ -27,7 +27,7 @@ vm = { path = "../../runtime/vm", version = "0.0.0" }
 compile-time-dir = { path = "../../compile-time/dir", version = "0.0.0" }
 infer-decl = { path = "../../infer/decl", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
-static-defn = { path = "../../syntax/static-defn", version = "0.0.0" }
+static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 visual-semantics = { path = "../../semantics/visual", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }

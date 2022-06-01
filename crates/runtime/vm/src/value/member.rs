@@ -94,8 +94,18 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Moved => todo!(),
         }
     }
+}
 
-    pub fn get_json_value(&self) -> serde_json::value::Value {
+impl<'eval> AnyValue<'eval> for MemberValue<'eval> {
+    fn static_type_id() -> StaticTypeId {
+        todo!()
+    }
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        "Any".into()
+    }
+
+    fn to_json_value(&self) -> serde_json::value::Value {
         match self {
             MemberValue::Copyable(value) => value.get_primitive_json_value(),
             MemberValue::Boxed(value) => value.get_json_value(),

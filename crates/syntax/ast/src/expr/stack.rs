@@ -1,6 +1,6 @@
 use crate::*;
 use check_utils::should;
-use entity_route::{GenericArgument, RangedEntityRoute};
+use entity_route::{RangedEntityRoute, SpatialArgument};
 use text::RangedCustomIdentifier;
 use text::{TextPosition, TextRange};
 use vm::*;
@@ -46,7 +46,7 @@ impl ExprStackOpr {
         bra: Bracket,
         attr: ListStartAttr,
         start: TextPosition,
-        generic_arguments: Vec<GenericArgument>,
+        generic_arguments: Vec<SpatialArgument>,
     ) -> Self {
         Self {
             precedence: Precedence::None,
@@ -113,7 +113,7 @@ impl<'a> ExprStack<'a> {
         bra: Bracket,
         attr: ListStartAttr,
         start: TextPosition,
-        generic_arguments: Vec<GenericArgument>,
+        generic_arguments: Vec<SpatialArgument>,
     ) {
         let attached = attr.attached();
         self.oprs.push(ExprStackOpr::list_start(
@@ -349,7 +349,7 @@ impl<'a> ExprStack<'a> {
     fn synthesize_opr(
         &mut self,
         opr: RawOpnVariant,
-        generic_arguments: Vec<GenericArgument>,
+        generic_arguments: Vec<SpatialArgument>,
         n_opds: usize,
         range: TextRange,
     ) {

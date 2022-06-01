@@ -55,7 +55,7 @@ pub enum AstVariant {
         liason: MemberLiason,
         ranged_ident: RangedCustomIdentifier,
         ty: RangedEntityRoute,
-        field_kind: FieldKind,
+        field_ast_kind: FieldAstKind,
     },
     DatasetConfigDefnHead,
     Stmt(RawStmt),

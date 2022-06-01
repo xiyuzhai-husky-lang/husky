@@ -82,7 +82,7 @@ pub(crate) fn call_decl(
             EntityStaticDefnVariant::Routine { .. } => {
                 routine_decl_from_static(db, vec![], route, static_defn)
             }
-            EntityStaticDefnVariant::Type { .. } => match db.ty_decl(route)?.opt_type_call {
+            EntityStaticDefnVariant::Ty { .. } => match db.ty_decl(route)?.opt_type_call {
                 Some(ref ty_call) => ty_call.clone(),
                 None => return Err(query_error!(format!("no type call for {:?}", route))),
             },

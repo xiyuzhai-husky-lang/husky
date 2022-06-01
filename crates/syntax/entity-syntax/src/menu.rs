@@ -10,15 +10,27 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
             parent: std_mod,
             ident: db.intern_word("ops").custom(),
         },
-        generic_arguments: vec![],
+        spatial_arguments: vec![],
     });
     let std_ops_index_trai = db.intern_entity_route(EntityRoute {
         kind: EntityRouteKind::Child {
             parent: std_ops_mod,
             ident: db.intern_word("Index").custom(),
         },
-        generic_arguments: vec![],
+        spatial_arguments: vec![],
     });
+    let std_slice_mod = db.intern_entity_route(EntityRoute {
+        kind: EntityRouteKind::Child {
+            parent: std_mod,
+            ident: db.intern_word("slice").custom(),
+        },
+        spatial_arguments: vec![],
+    });
+    let std_slice_cyclic_slice = db.make_subroute(
+        std_slice_mod,
+        db.intern_word("CyclicSlice").custom(),
+        vec![],
+    );
     Arc::new(EntityRouteMenu {
         clone_trait: EntityRoutePtr::Root(RootIdentifier::CloneTrait),
         copy_trait: EntityRoutePtr::Root(RootIdentifier::CopyTrait),
@@ -29,6 +41,7 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
         std_mod,
         std_ops_mod,
         std_ops_index_trai,
+        std_slice_cyclic_slice,
     })
 }
 
@@ -43,4 +56,5 @@ pub struct EntityRouteMenu {
     pub std_ops_index_trai: EntityRoutePtr,
     pub std_mod: EntityRoutePtr,
     pub std_ops_mod: EntityRoutePtr,
+    pub std_slice_cyclic_slice: EntityRoutePtr,
 }

@@ -4,7 +4,7 @@ use check_utils::should_eq;
 pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "Vec",
         generic_parameters: &[StaticGenericPlaceholder {
             name: "E",
@@ -70,7 +70,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 dev_src: static_dev_src!(),
             },
         ],
-        type_members: &[&VEC_LEN, &VEC_PUSH, &VEC_POP, &VEC_FIRST, &VEC_LAST],
+        ty_members: &[&VEC_LEN, &VEC_PUSH, &VEC_POP, &VEC_FIRST, &VEC_LAST],
         variants: &[],
         kind: TyKind::Vec,
         visualizer: StaticVisualizer::Vec,

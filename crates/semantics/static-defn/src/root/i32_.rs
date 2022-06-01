@@ -3,11 +3,11 @@ use super::*;
 pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "i32",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "i32",
         generic_parameters: &[],
         static_trait_impls: &[],
-        type_members: &[&I32_MIN, &I32_MAX, &I32_SGN, &I32_ABS],
+        ty_members: &[&I32_MIN, &I32_MAX, &I32_SGN, &I32_ABS],
         variants: &[],
         kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,

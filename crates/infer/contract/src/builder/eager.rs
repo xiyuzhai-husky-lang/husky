@@ -132,12 +132,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Variable {
                 varname,
                 init_range,
-            } => {
-                if init_range.start.i() == 32 {
-                    p!(raw_expr_idx, varname, init_range);
-                }
-                Ok(())
-            }
+            } => Ok(()),
             RawExprVariant::FrameVariable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }

@@ -6,7 +6,7 @@ mod vec;
 use std::iter::Peekable;
 
 use check_utils::{should, should_eq};
-use entity_kind::EnumVariantKind;
+use entity_kind::{EnumVariantKind, FieldKind};
 use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
@@ -42,11 +42,11 @@ pub struct TyDecl {
 impl TyDecl {
     fn from_static(db: &dyn DeclQueryGroup, static_defn: &EntityStaticDefn) -> Arc<Self> {
         match static_defn.variant {
-            EntityStaticDefnVariant::Type {
+            EntityStaticDefnVariant::Ty {
                 base_route,
                 generic_parameters,
                 static_trait_impls,
-                type_members,
+                ty_members: type_members,
                 variants,
                 kind,
                 opt_type_call,
@@ -67,7 +67,7 @@ impl TyDecl {
                 let base_ty = symbol_context.entity_route_from_str(base_route).unwrap();
                 let this_ty = db.intern_entity_route(EntityRoute {
                     kind: base_ty.kind,
-                    generic_arguments,
+                    spatial_arguments: generic_arguments,
                 });
                 symbol_context.opt_this_ty = Some(this_ty);
                 let opt_type_call = opt_type_call.map(|type_call| {
@@ -112,7 +112,7 @@ impl TyDecl {
         let generic_arguments = db.generic_arguments_from_generic_parameters(&generic_parameters);
         let this_ty = db.intern_entity_route(EntityRoute {
             kind: ty.kind,
-            generic_arguments,
+            spatial_arguments: generic_arguments,
         });
         let mut children = children.peekable();
         let mut ty_members = IdentDict::default();
@@ -145,17 +145,15 @@ impl TyDecl {
                                     ident: field_decl.ident,
                                 })
                             }
-                            FieldKind::StructDefault { .. } => {
-                                keyword_parameters.insert(InputDecl {
-                                    liason: field_decl
-                                        .liason
-                                        .constructor_input_liason(db.is_copyable(field_decl.ty)?),
-                                    ty: field_decl.ty,
-                                    ident: field_decl.ident,
-                                })
-                            }
-                            FieldKind::StructDerivedEager { .. } => break,
-                            FieldKind::StructDerivedLazy { paradigm } => break,
+                            FieldKind::StructDefault => keyword_parameters.insert(InputDecl {
+                                liason: field_decl
+                                    .liason
+                                    .constructor_input_liason(db.is_copyable(field_decl.ty)?),
+                                ty: field_decl.ty,
+                                ident: field_decl.ident,
+                            }),
+                            FieldKind::StructDerivedEager => break,
+                            FieldKind::StructDerivedLazy => break,
                             FieldKind::RecordDerived => break,
                         },
                         TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
@@ -220,9 +218,12 @@ impl TyDecl {
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref()?;
             match ast.variant {
-                AstVariant::FieldDefnHead { field_kind, .. } => {
+                AstVariant::FieldDefnHead {
+                    field_ast_kind: field_kind,
+                    ..
+                } => {
                     match field_kind {
-                        FieldKind::StructOriginal | FieldKind::RecordOriginal => (),
+                        FieldAstKind::StructOriginal | FieldAstKind::RecordOriginal => (),
                         _ => break,
                     }
                     children.next();
@@ -257,9 +258,12 @@ impl TyDecl {
                     ))),
                 },
                 AstVariant::Use { .. } => todo!(),
-                AstVariant::FieldDefnHead { field_kind, .. } => match field_kind {
-                    FieldKind::StructOriginal => todo!("no original at this point"),
-                    FieldKind::RecordOriginal => todo!("no original at this point"),
+                AstVariant::FieldDefnHead {
+                    field_ast_kind: field_kind,
+                    ..
+                } => match field_kind {
+                    FieldAstKind::StructOriginal => todo!("no original at this point"),
+                    FieldAstKind::RecordOriginal => todo!("no original at this point"),
                     _ => members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast))),
                 },
                 AstVariant::Visual => break,
@@ -321,9 +325,9 @@ impl TyDecl {
         self.ty_members.iter().filter_map(|member| match member {
             TyMemberDecl::Field(field_decl) => match field_decl.field_kind {
                 FieldKind::StructOriginal
-                | FieldKind::StructDefault { .. }
-                | FieldKind::StructDerivedEager { .. } => Some(field_decl as &FieldDecl),
-                FieldKind::StructDerivedLazy { paradigm } => None,
+                | FieldKind::StructDefault
+                | FieldKind::StructDerivedEager => Some(field_decl as &FieldDecl),
+                FieldKind::StructDerivedLazy => None,
                 FieldKind::RecordOriginal => todo!(),
                 FieldKind::RecordDerived => todo!(),
             },
@@ -593,14 +597,14 @@ pub(crate) fn ty_decl(
         EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
-            EntityStaticDefnVariant::Type { .. } => {
+            EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn);
-                if ty_route.generic_arguments.len() > 0 {
+                if ty_route.spatial_arguments.len() > 0 {
                     assert_eq!(
-                        ty_route.generic_arguments.len(),
+                        ty_route.spatial_arguments.len(),
                         base_decl.generic_parameters.len()
                     );
-                    base_decl.instantiate(db, &ty_route.generic_arguments)
+                    base_decl.instantiate(db, &ty_route.spatial_arguments)
                 } else {
                     base_decl
                 }
@@ -609,7 +613,7 @@ pub(crate) fn ty_decl(
             EntityStaticDefnVariant::Method { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }),
         EntityLocus::WithinBuiltinModule => todo!(),
@@ -630,7 +634,7 @@ pub(crate) fn ty_decl(
                     ref generic_parameters,
                     ..
                 } => {
-                    if ty_route.generic_arguments.len() > 0 {
+                    if ty_route.spatial_arguments.len() > 0 {
                         todo!()
                     } else {
                         TyDecl::from_ast(

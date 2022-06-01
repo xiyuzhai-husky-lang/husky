@@ -49,10 +49,10 @@ pub trait AtomContext {
     fn builtin_type_atom(
         &self,
         ident: RootIdentifier,
-        generics: Vec<GenericArgument>,
+        generics: Vec<SpatialArgument>,
         tail: TextRange,
     ) -> Atom {
-        let scope = EntityRoute::new_builtin(ident.into(), generics);
+        let scope = EntityRoute::new_root(ident.into(), generics);
         let kind = AtomVariant::EntityRoute {
             route: self.entity_syntax_db().intern_entity_route(scope),
             kind: EntityKind::Type(match ident {
@@ -98,7 +98,7 @@ pub trait AtomContext {
                                 .opt_package_main()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
-                        generic_arguments: vec![],
+                        spatial_arguments: vec![],
                     }),
                 )),
                 ContextualIdentifier::ThisValue => Ok(SymbolKind::ThisValue {
@@ -236,14 +236,14 @@ pub trait AtomContext {
     fn generic_arguments_from_generic_parameters(
         &self,
         generic_parameters: &[SpatialParameter],
-    ) -> Vec<GenericArgument> {
+    ) -> Vec<SpatialArgument> {
         generic_parameters.map(|generic_placeholder| {
-            GenericArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
+            SpatialArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
-                generic_arguments: vec![],
+                spatial_arguments: vec![],
             }))
         })
     }
@@ -262,7 +262,7 @@ pub trait AtomContext {
                             ident: generic_placeholder.ident,
                             entity_kind: generic_placeholder.entity_kind(),
                         },
-                        generic_arguments: vec![],
+                        spatial_arguments: vec![],
                     },
                 )),
             })

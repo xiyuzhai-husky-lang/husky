@@ -7,10 +7,12 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-word = { path = "../word", version = "0.0.0" }
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+word = { path = "../../syntax/word", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
-entity-kind = { path = "../entity-kind", version = "0.0.0" }
-visual-syntax = { path = "../visual", version = "0.0.0" }
+entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
+visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }

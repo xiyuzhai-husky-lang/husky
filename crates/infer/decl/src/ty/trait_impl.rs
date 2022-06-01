@@ -2,7 +2,7 @@ use atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,
 };
-use entity_kind::MemberKind;
+use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
@@ -231,10 +231,10 @@ impl TraitMemberImplDecl {
         }
     }
 
-    pub fn generic_argument(&self) -> GenericArgument {
+    pub fn generic_argument(&self) -> SpatialArgument {
         match self {
             TraitMemberImplDecl::Method(_) => todo!(),
-            TraitMemberImplDecl::AssociatedType { ident, ty } => GenericArgument::EntityRoute(*ty),
+            TraitMemberImplDecl::AssociatedType { ident, ty } => SpatialArgument::EntityRoute(*ty),
             TraitMemberImplDecl::Call {} => todo!(),
             TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
         }
@@ -253,7 +253,7 @@ impl TraitMemberImplDecl {
                 EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => todo!(),
                 EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => Some((
                     db.intern_word(static_member_impl.name).custom(),
-                    GenericArgument::EntityRoute(symbol_context.entity_route_from_str(ty).unwrap()),
+                    SpatialArgument::EntityRoute(symbol_context.entity_route_from_str(ty).unwrap()),
                 )),
                 EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
                 _ => panic!(),

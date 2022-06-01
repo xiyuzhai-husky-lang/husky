@@ -87,9 +87,9 @@ macro_rules! try_eat {
         }
     }};
 
-    ($parser:expr, Special::$special:ident) => {{
+    ($parser:expr, SpecialToken::$special:ident) => {{
         let saved_state = $parser.save_state();
-        if $parser.special(Special::$special).is_some() {
+        if $parser.special(SpecialToken::$special).is_some() {
             true
         } else {
             $parser.rollback(saved_state);
@@ -98,27 +98,27 @@ macro_rules! try_eat {
     }};
 
     ($parser:expr, "->") => {{
-        try_eat!($parser, Special::LightArrow)
+        try_eat!($parser, SpecialToken::LightArrow)
     }};
 
     ($parser:expr, "(") => {{
-        try_eat!($parser, Special::LPar)
+        try_eat!($parser, SpecialToken::LPar)
     }};
 
     ($parser:expr, "<") => {{
-        try_eat!($parser, Special::LAngle)
+        try_eat!($parser, SpecialToken::LAngle)
     }};
 
     ($parser:expr, ":") => {{
-        try_eat!($parser, Special::Colon)
+        try_eat!($parser, SpecialToken::Colon)
     }};
 
     ($parser:expr, "+") => {{
-        try_eat!($parser, Special::Add)
+        try_eat!($parser, SpecialToken::Add)
     }};
 
     ($parser:expr, "'") => {{
-        try_eat!($parser, Special::Lifetime)
+        try_eat!($parser, SpecialToken::Lifetime)
     }};
 
     ($parser:expr, "_") => {{
@@ -221,19 +221,19 @@ macro_rules! eat {
     }};
 
     ($parser:expr, "(") => {{
-        eat!($parser, special, Special::LPar)
+        eat!($parser, special, SpecialToken::LPar)
     }};
 
     ($parser:expr, "{") => {{
-        eat!($parser, special, Special::LCurl)
+        eat!($parser, special, SpecialToken::LCurl)
     }};
 
     ($parser:expr, ":") => {{
-        eat!($parser, special, Special::Colon)
+        eat!($parser, special, SpecialToken::Colon)
     }};
 
     ($parser:expr, "=") => {{
-        eat!($parser, special, Special::Assign)
+        eat!($parser, special, SpecialToken::Assign)
     }};
 }
 
@@ -245,22 +245,22 @@ macro_rules! comma_list {
         let mut done = false;
         while let Some(item) = try_get!($parser, $first_patt?) {
             firsts.push(item);
-            if !try_eat!($parser, Special::Comma) {
-                eat!($parser, special, Special::$terminator);
+            if !try_eat!($parser, SpecialToken::Comma) {
+                eat!($parser, special, SpecialToken::$terminator);
                 done = true;
                 break;
             }
         }
-        if !done && !try_eat!($parser, Special::$terminator) {
+        if !done && !try_eat!($parser, SpecialToken::$terminator) {
             seconds.push($parser.$second_patt()?);
             loop {
-                if try_eat!($parser, Special::Comma) {
-                    if try_eat!($parser, Special::$terminator) {
+                if try_eat!($parser, SpecialToken::Comma) {
+                    if try_eat!($parser, SpecialToken::$terminator) {
                         break;
                     }
                     seconds.push($parser.$second_patt()?);
                 } else {
-                    eat!($parser, special, Special::$terminator);
+                    eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -270,16 +270,16 @@ macro_rules! comma_list {
 
     ($parser:expr, $patt:ident, $terminator:ident) => {{
         let mut args = Vec::new();
-        if !try_eat!($parser, Special::$terminator) {
+        if !try_eat!($parser, SpecialToken::$terminator) {
             args.push(get!($parser, $patt?));
             loop {
-                if try_eat!($parser, Special::Comma) {
-                    if try_eat!($parser, Special::$terminator) {
+                if try_eat!($parser, SpecialToken::Comma) {
+                    if try_eat!($parser, SpecialToken::$terminator) {
                         break;
                     }
                     args.push(get!($parser, $patt?));
                 } else {
-                    eat!($parser, special, Special::$terminator);
+                    eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -289,16 +289,16 @@ macro_rules! comma_list {
 
     ($parser:expr, $patt:ident!, $terminator:ident) => {{
         let mut args = Vec::new();
-        if !try_eat!($parser, Special::$terminator) {
+        if !try_eat!($parser, SpecialToken::$terminator) {
             args.push($parser.$patt()?);
             loop {
-                if try_eat!($parser, Special::Comma) {
-                    if try_eat!($parser, Special::$terminator) {
+                if try_eat!($parser, SpecialToken::Comma) {
+                    if try_eat!($parser, SpecialToken::$terminator) {
                         break;
                     }
                     args.push($parser.$patt()?);
                 } else {
-                    eat!($parser, special, Special::$terminator);
+                    eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -309,11 +309,11 @@ macro_rules! comma_list {
     ($parser:expr, $patt:ident!+, $terminator:ident) => {{
         let mut items = vec![$parser.$patt()?];
         loop {
-            if !try_eat!($parser, Special::Comma) {
-                eat!($parser, special, Special::$terminator);
+            if !try_eat!($parser, SpecialToken::Comma) {
+                eat!($parser, special, SpecialToken::$terminator);
                 break;
             }
-            if try_eat!($parser, Special::$terminator) {
+            if try_eat!($parser, SpecialToken::$terminator) {
                 break;
             }
             items.push($parser.$patt()?);

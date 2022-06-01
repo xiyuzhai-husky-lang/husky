@@ -54,12 +54,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     liason,
                     ranged_ident,
                     ty,
-                    field_kind,
+                    field_ast_kind: field_kind,
                 } => match field_kind {
-                    FieldKind::StructDefault { default } => {
+                    FieldAstKind::StructDefault { default } => {
                         self.infer_eager_expr(arena, default);
                     }
-                    FieldKind::StructDerivedEager { derivation } => {
+                    FieldAstKind::StructDerivedEager { derivation } => {
                         self.infer_eager_expr(arena, derivation);
                     }
                     _ => (),
@@ -108,10 +108,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     ),
                     AstVariant::PatternDefnHead => todo!(),
                     AstVariant::Use { .. } => (),
-                    AstVariant::FieldDefnHead { field_kind, ty, .. } => match field_kind {
-                        FieldKind::StructOriginal => (),
-                        FieldKind::RecordOriginal => (),
-                        FieldKind::StructDerivedLazy {
+                    AstVariant::FieldDefnHead {
+                        field_ast_kind: field_kind,
+                        ty,
+                        ..
+                    } => match field_kind {
+                        FieldAstKind::StructOriginal => (),
+                        FieldAstKind::RecordOriginal => (),
+                        FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
                         } => self.infer_eager_call_form(
                             &arena,
@@ -120,10 +124,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             Some(ty.route),
                             OutputLiason::Transfer,
                         ),
-                        FieldKind::StructDerivedLazy {
+                        FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::LazyFunctional,
                         }
-                        | FieldKind::RecordDerived => self.infer_lazy_call_form(
+                        | FieldAstKind::RecordDerived => self.infer_lazy_call_form(
                             &arena,
                             &[],
                             children,

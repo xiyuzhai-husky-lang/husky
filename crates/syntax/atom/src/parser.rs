@@ -10,13 +10,14 @@ mod utils;
 
 use super::{stack::AtomStack, *};
 use check_utils::should;
-use entity_route::{EntityKind, EntityRoute, EntityRouteKind, GenericArgument, RangedEntityRoute};
+use entity_route::{EntityKind, EntityRoute, EntityRouteKind, RangedEntityRoute, SpatialArgument};
 use file::URange;
 use print_utils::p;
 use std::iter::Peekable;
 use text::TextRange;
 use token::{
-    identify_token, AbsSemanticToken, SemanticTokenKind, Special, Token, TokenKind, TokenStream,
+    identify_token, AbsSemanticToken, SemanticTokenKind, SpecialToken, Token, TokenKind,
+    TokenStream,
 };
 use utils::*;
 use vm::{BinaryOpr, Bracket, PureBinaryOpr};
@@ -55,7 +56,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         "keyword should be put at start",
                         self.token_stream.text_range(text_start)
                     )?,
-                    TokenKind::Special(Special::Colon) => {
+                    TokenKind::Special(SpecialToken::Colon) => {
                         if let Some(_) = self.token_stream.next() {
                             err!("unexpected colon", token.range)?
                         } else {

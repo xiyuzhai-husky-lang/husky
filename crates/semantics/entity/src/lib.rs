@@ -206,9 +206,7 @@ impl EntityDefnVariant {
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Type { .. } => {
-                Self::ty_from_static(symbol_context, static_defn)
-            }
+            EntityStaticDefnVariant::Ty { .. } => Self::ty_from_static(symbol_context, static_defn),
             EntityStaticDefnVariant::Trait {
                 base_route,
                 generic_parameters,
@@ -229,7 +227,7 @@ impl EntityDefnVariant {
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_trai = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
-                    generic_arguments,
+                    spatial_arguments: generic_arguments,
                 });
                 let member_kinds: Vec<_> = members.map(|member| {
                     (
@@ -289,7 +287,7 @@ impl EntityDefnVariant {
                 method_variant: MethodDefnVariant::from_static(symbol_context, kind),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
-            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }

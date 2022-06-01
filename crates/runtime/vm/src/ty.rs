@@ -165,7 +165,7 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
             VirtualTy::Struct { fields } => serde_json::value::Value::Object(
                 fields
                     .iter()
-                    .map(|(ident, value)| (ident.as_str().to_string(), value.get_json_value()))
+                    .map(|(ident, value)| (ident.as_str().to_string(), value.to_json_value()))
                     .collect(),
             ),
         }

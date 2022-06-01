@@ -30,14 +30,14 @@ impl<'a> dyn DeclQueryGroup + 'a {
     pub fn generic_arguments_from_generic_parameters(
         &self,
         generic_parameters: &[SpatialParameter],
-    ) -> Vec<GenericArgument> {
+    ) -> Vec<SpatialArgument> {
         generic_parameters.map(|generic_placeholder| {
-            GenericArgument::EntityRoute(self.intern_entity_route(EntityRoute {
+            SpatialArgument::EntityRoute(self.intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
-                generic_arguments: vec![],
+                spatial_arguments: vec![],
             }))
         })
     }
@@ -55,7 +55,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                         ident: generic_placeholder.ident,
                         entity_kind: generic_placeholder.entity_kind(),
                     },
-                    generic_arguments: vec![],
+                    spatial_arguments: vec![],
                 })),
             })
         }

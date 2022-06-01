@@ -8,7 +8,7 @@ struct LineSegmentInterval:
 struct LineSegment:
     mut start: Point2d
     mut end: Point2d
-    mut interval: LineSegmentInterval
+    mut interval: [%]Point2d
 
     func displacement() -> Vector2d:
         this.start.to(this.end)
@@ -164,4 +164,4 @@ func get_line_segment(ct: RawContour, start: i32, end: i32) -> LineSegment:
     L = ct.points.len()
     pt_start = ct.points[start%L].clone()
     pt_end = ct.points[end%L].clone()
-    LineSegment(pt_start, pt_end, LineSegmentInterval(start, end))
+    LineSegment(pt_start, pt_end, ct.points.cyclic_slice(start, end))

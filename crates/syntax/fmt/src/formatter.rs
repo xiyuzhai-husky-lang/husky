@@ -141,7 +141,7 @@ impl<'a> Formatter<'a> {
                 liason,
                 ranged_ident,
                 ty,
-                field_kind,
+                field_ast_kind: field_kind,
             } => {
                 match liason {
                     MemberLiason::Immutable => (),

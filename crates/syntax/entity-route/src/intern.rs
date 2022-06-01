@@ -80,7 +80,7 @@ impl Deref for EntityRoutePtr {
                             kind: EntityRouteKind::Root {
                                 ident: RootIdentifier::$reserved,
                             },
-                            generic_arguments: vec![],
+                            spatial_arguments: vec![],
                         };
                     )*
 
@@ -95,7 +95,7 @@ impl Deref for EntityRoutePtr {
 
         const THIS_TYPE_ROUTE: &EntityRoute = &EntityRoute {
             kind: EntityRouteKind::ThisType,
-            generic_arguments: vec![],
+            spatial_arguments: vec![],
         };
 
         match self {
@@ -156,13 +156,13 @@ pub trait AllocateUniqueScope {
     fn make_route(
         &self,
         route: EntityRoutePtr,
-        generic_arguments: Vec<GenericArgument>,
+        generic_arguments: Vec<SpatialArgument>,
     ) -> EntityRoutePtr {
-        let mut generics = route.generic_arguments.clone();
+        let mut generics = route.spatial_arguments.clone();
         generics.extend(generic_arguments);
         self.intern_entity_route(EntityRoute {
             kind: route.kind,
-            generic_arguments: generics,
+            spatial_arguments: generics,
         })
     }
 
@@ -170,11 +170,11 @@ pub trait AllocateUniqueScope {
         &self,
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
-        generics: Vec<GenericArgument>,
+        generics: Vec<SpatialArgument>,
     ) -> EntityRoutePtr {
         self.intern_entity_route(EntityRoute {
             kind: EntityRouteKind::Child { parent, ident },
-            generic_arguments: generics,
+            spatial_arguments: generics,
         })
     }
 }

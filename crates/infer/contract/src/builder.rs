@@ -3,7 +3,7 @@ mod lazy;
 
 use std::sync::Arc;
 
-use ast::{AstIter, AstVariant, FieldKind};
+use ast::{AstIter, AstVariant, FieldAstKind};
 use entity_route::EntityRouteKind;
 use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
@@ -61,9 +61,9 @@ impl<'a> ContractSheetBuilder<'a> {
                     liason,
                     ranged_ident,
                     ty,
-                    field_kind,
+                    field_ast_kind: field_kind,
                 } => match field_kind {
-                    FieldKind::StructDefault { default } => {
+                    FieldAstKind::StructDefault { default } => {
                         msg_once!("todo: handle ref");
                         if let Ok(is_field_copyable) = self.db.is_copyable(ty.route) {
                             let contract = match is_field_copyable {
@@ -77,7 +77,7 @@ impl<'a> ContractSheetBuilder<'a> {
                             self.infer_eager_expr(default, contract, &arena)
                         }
                     }
-                    FieldKind::StructDerivedEager { derivation } => {
+                    FieldAstKind::StructDerivedEager { derivation } => {
                         msg_once!("todo: handle ref");
                         if let Ok(is_field_copyable) = self.db.is_copyable(ty.route) {
                             let contract = match is_field_copyable {
@@ -108,18 +108,18 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::PatternDefnHead => todo!(),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
-                        field_kind,
+                        field_ast_kind: field_kind,
                         liason,
                         ranged_ident,
                         ty,
                     } => match field_kind {
-                        FieldKind::StructDerivedLazy {
+                        FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
                         } => self.infer_eager_stmts(children, &arena),
-                        FieldKind::StructDerivedLazy {
+                        FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::LazyFunctional,
                         }
-                        | FieldKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
+                        | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
                         _ => (),
                     },
                     AstVariant::Stmt(_) => todo!(),
