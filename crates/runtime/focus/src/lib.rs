@@ -13,22 +13,6 @@ impl Default for Focus {
 }
 
 impl Focus {
-    pub fn effective_opt_input_id_for_subtraces(&self, trace: &Trace) -> Option<usize> {
-        match trace.variant {
-            TraceVariant::Main(_) => todo!(),
-            TraceVariant::FeatureStmt(_) => todo!(),
-            TraceVariant::FeatureBranch(_) => todo!(),
-            TraceVariant::FeatureExpr(_) => todo!(),
-            TraceVariant::FeatureCallInput { .. } => todo!(),
-            TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::ProcStmt { .. } => todo!(),
-            TraceVariant::LoopFrame { .. } => todo!(),
-            TraceVariant::EagerExpr { .. } => todo!(),
-            TraceVariant::CallHead { .. } => todo!(),
-            TraceVariant::ProcBranch { .. } => todo!(),
-        }
-    }
-
     pub fn figure_key(&self, trace_id: TraceId) -> String {
         format!("{}:{}", self.key(), trace_id.0)
     }

@@ -1,9 +1,9 @@
 mod impl_figure;
 mod query;
-mod session;
 mod tests;
 
 use datasets::LabeledData;
+use eval_feature::{EvalFeature, Session};
 use focus::Focus;
 pub use impl_figure::*;
 use indexmap::IndexMap;
@@ -15,7 +15,6 @@ use check_utils::*;
 use compile_time_db::*;
 use file::{FilePtr, FileQueryGroup};
 use print_utils::*;
-use session::Session;
 use std::{
     borrow::Cow,
     collections::HashMap,
@@ -52,7 +51,7 @@ impl CreateTrace<'static> for HuskyLangRuntime {
     }
 }
 
-impl EvalFeature for HuskyLangRuntime {
+impl EvalFeature<'static> for HuskyLangRuntime {
     fn session(&self) -> &Arc<Mutex<Session<'static>>> {
         &self.session
     }

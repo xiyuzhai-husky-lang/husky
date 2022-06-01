@@ -11,13 +11,18 @@ mod proc_stmt;
 
 use avec::Avec;
 use compile_time_db::{AskCompileTime, HuskyLangCompileTime};
+use defn_head::InputParameter;
+use eval_feature::EvalFeature;
 use expr::ExprTokenConfig;
 use feature::*;
 use semantics_eager::*;
 use serde::Deserialize;
 use sync_utils::ARwLock;
 use text::{Text, TextQueryGroup};
-use vm::{History, InstructionSheet, LoopFrameData, StackSnapshot, VMLoopKind, VariableStack};
+use vm::{
+    exec_debug, History, HistoryEntry, InstructionSheet, LoopFrameData, StackSnapshot, VMLoopKind,
+    VariableStack,
+};
 
 use crate::*;
 
@@ -168,7 +173,7 @@ impl<'eval> TraceFactory<'eval> {
     // }
 }
 
-pub trait CreateTrace<'eval>: AskCompileTime {
+pub trait CreateTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
     fn trace_factory(&self) -> &TraceFactory<'eval>;
 
     fn feature_repr_subtraces(
@@ -205,6 +210,107 @@ pub trait CreateTrace<'eval>: AskCompileTime {
             .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
     }
 
+    fn feature_expr_subtraces(
+        &self,
+        parent: &Trace,
+        expr: &FeatureExpr,
+        opt_input_id: Option<usize>,
+    ) -> Arc<Vec<Arc<Trace<'eval>>>> {
+        Arc::new(match expr.variant {
+            FeatureExprVariant::PrimitiveLiteral(_)
+            | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+            | FeatureExprVariant::Variable { .. } => vec![],
+            FeatureExprVariant::RoutineCall {
+                ref opt_instruction_sheet,
+                ref routine_defn,
+                ref opds,
+                has_this,
+                ..
+            } => {
+                let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
+                if let Some(input_id) = opt_input_id {
+                    let mut subtraces = vec![];
+                    let mut func_input_values = vec![];
+                    subtraces.push(self.trace_factory().new_call_head(
+                        routine_defn.clone(),
+                        &self.compile_time().text(routine_defn.file).unwrap(),
+                    ));
+                    let parameters: &[InputParameter] = match routine_defn.variant {
+                        EntityDefnVariant::Func { ref parameters, .. } => parameters,
+                        EntityDefnVariant::Proc {
+                            parameters: ref parameters,
+                            ..
+                        } => parameters,
+                        _ => panic!(),
+                    };
+                    for (i, func_input) in opds.iter().enumerate() {
+                        subtraces.push(self.new_trace(
+                            Some(parent.id()),
+                            expr.expr.file,
+                            4,
+                            TraceVariant::FeatureCallInput {
+                                input: func_input.clone(),
+                                ident: parameters[i].ranged_ident.ident,
+                            },
+                        ));
+                        match self.eval_feature_expr(func_input, input_id) {
+                            Ok(value) => func_input_values.push(value.into_stack().unwrap()),
+                            Err(_) => return Arc::new(subtraces),
+                        }
+                    }
+                    let history = exec_debug(
+                        self.compile_time(),
+                        instruction_sheet,
+                        func_input_values.into_iter(),
+                    );
+                    match routine_defn.variant {
+                        EntityDefnVariant::Func { ref stmts, .. } => {
+                            subtraces.extend(self.trace_factory().func_stmts_traces(
+                                parent.id(),
+                                4,
+                                stmts,
+                                &self.compile_time().text(routine_defn.file).unwrap(),
+                                &history,
+                            ));
+                        }
+                        EntityDefnVariant::Proc { ref stmts, .. } => {
+                            subtraces.extend(self.trace_factory().proc_stmts_traces(
+                                parent.id(),
+                                4,
+                                stmts,
+                                &self.compile_time().text(routine_defn.file).unwrap(),
+                                &history,
+                            ));
+                        }
+                        _ => panic!(),
+                    }
+                    subtraces
+                } else {
+                    vec![]
+                }
+            }
+            FeatureExprVariant::EntityFeature { .. } => todo!(),
+            FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+            FeatureExprVariant::RecordOriginalFieldAccess {
+                ref this,
+                field_ident,
+                ..
+            } => todo!(),
+            FeatureExprVariant::This { ref repr } => todo!(),
+            FeatureExprVariant::PatternCall {} => todo!(),
+            FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+            FeatureExprVariant::StructOriginalFieldAccess { .. } => panic!(),
+            FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
+            FeatureExprVariant::GlobalInput => panic!(),
+            FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
+            FeatureExprVariant::StructDerivedFieldAccess {
+                ref this,
+                field_ident,
+                ref repr,
+            } => todo!(),
+        })
+    }
+
     fn eager_expr_subtraces(
         &self,
         parent: &Trace<'eval>,
@@ -221,10 +327,21 @@ pub trait CreateTrace<'eval>: AskCompileTime {
             EagerExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
-            } => todo!(),
+            } => self.eager_opn_subtraces(parent, expr, history, opn_variant, opds),
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
         }
+    }
+
+    fn eager_opn_subtraces(
+        &self,
+        parent: &Trace<'eval>,
+        expr: &Arc<EagerExpr>,
+        history: &Arc<History<'eval>>,
+        opn_variant: &EagerOpnVariant,
+        opds: &[Arc<EagerExpr>],
+    ) -> Avec<Trace<'eval>> {
+        todo!()
     }
 
     fn loop_subtraces(

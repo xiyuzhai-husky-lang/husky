@@ -1,3 +1,5 @@
+use print_utils::test_print;
+
 use crate::*;
 
 #[test]
