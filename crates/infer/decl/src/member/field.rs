@@ -1,4 +1,5 @@
 use crate::*;
+use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
 use vec_map::HasKey;
@@ -20,11 +21,11 @@ impl FieldDecl {
 
     pub fn from_static(db: &dyn DeclQueryGroup, static_decl: &EntityStaticDefn) -> Self {
         match static_decl.variant {
-            EntityStaticDefnVariant::TypeField { ref field_variant } => Self {
+            EntityStaticDefnVariant::TyField { field_kind } => Self {
                 ident: db.intern_word(static_decl.name).custom(),
                 liason: todo!(),
                 ty: todo!(),
-                field_kind: match *field_variant {},
+                field_kind,
             },
             _ => panic!(""),
         }
@@ -36,12 +37,12 @@ impl FieldDecl {
                 liason,
                 ranged_ident,
                 ty,
-                field_kind,
+                field_ast_kind,
             } => Arc::new(Self {
                 ident: ranged_ident.ident,
                 liason,
                 ty: ty.route,
-                field_kind,
+                field_kind: field_ast_kind.into(),
             }),
             _ => panic!(),
         }

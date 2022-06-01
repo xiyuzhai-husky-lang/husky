@@ -1,7 +1,7 @@
 use vm::Bracket;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub enum Special {
+pub enum SpecialToken {
     LAngle,            // <
     Leq,               // <=
     RAngle,            // >
@@ -47,65 +47,67 @@ pub enum Special {
     DoubleExclamation, // !!
     Semicolon,         // ;
     XmlKet,            // />
+    At,                // @
 }
 
-impl Special {
+impl SpecialToken {
     pub fn code(&self) -> &'static str {
         match self {
-            Special::LAngle => "<",
-            Special::Leq => "<=",
-            Special::RAngle => ">",
-            Special::Geq => ">=",
-            Special::Neq => "!=",
-            Special::DeriveAssign => "?=",
-            Special::Eq => "==",
-            Special::Shl => "<<",
-            Special::Shr => ">>",
-            Special::LCurl => "{",
-            Special::RCurl => "}",
-            Special::LBox => "[",
-            Special::RBox => "]",
-            Special::LPar => "(",
-            Special::RPar => ")",
-            Special::Add => "+",
-            Special::SubOrMinus => "-",
-            Special::Star => "*",
-            Special::Div => "/",
-            Special::Power => "**",
-            Special::And => "&&",
-            Special::DoubleVertical => "||",
-            Special::BitNot => "~",
-            Special::Modulo => "%",
-            Special::MemberAccess => ".",
-            Special::LightArrow => "->",
-            Special::HeavyArrow => "=>",
-            Special::DoubleColon => "::",
-            Special::Colon => ":",
-            Special::Comma => ",",
-            Special::Ambersand => "&",
-            Special::Incr => "++",
-            Special::Decr => "--",
-            Special::Vertical => "|",
-            Special::Assign => "=",
-            Special::AddAssign => "+=",
-            Special::SubAssign => "-=",
-            Special::MulAssign => "*=",
-            Special::DivAssign => "/=",
-            Special::Exclamation => "!",
-            Special::BitOrAssign => "|=",
-            Special::BitAndAssign => "&=",
-            Special::DoubleExclamation => "!!",
-            Special::Semicolon => ";",
-            Special::XmlKet => "/>",
+            SpecialToken::LAngle => "<",
+            SpecialToken::Leq => "<=",
+            SpecialToken::RAngle => ">",
+            SpecialToken::Geq => ">=",
+            SpecialToken::Neq => "!=",
+            SpecialToken::DeriveAssign => "?=",
+            SpecialToken::Eq => "==",
+            SpecialToken::Shl => "<<",
+            SpecialToken::Shr => ">>",
+            SpecialToken::LCurl => "{",
+            SpecialToken::RCurl => "}",
+            SpecialToken::LBox => "[",
+            SpecialToken::RBox => "]",
+            SpecialToken::LPar => "(",
+            SpecialToken::RPar => ")",
+            SpecialToken::Add => "+",
+            SpecialToken::SubOrMinus => "-",
+            SpecialToken::Star => "*",
+            SpecialToken::Div => "/",
+            SpecialToken::Power => "**",
+            SpecialToken::And => "&&",
+            SpecialToken::DoubleVertical => "||",
+            SpecialToken::BitNot => "~",
+            SpecialToken::Modulo => "%",
+            SpecialToken::MemberAccess => ".",
+            SpecialToken::LightArrow => "->",
+            SpecialToken::HeavyArrow => "=>",
+            SpecialToken::DoubleColon => "::",
+            SpecialToken::Colon => ":",
+            SpecialToken::Comma => ",",
+            SpecialToken::Ambersand => "&",
+            SpecialToken::Incr => "++",
+            SpecialToken::Decr => "--",
+            SpecialToken::Vertical => "|",
+            SpecialToken::Assign => "=",
+            SpecialToken::AddAssign => "+=",
+            SpecialToken::SubAssign => "-=",
+            SpecialToken::MulAssign => "*=",
+            SpecialToken::DivAssign => "/=",
+            SpecialToken::Exclamation => "!",
+            SpecialToken::BitOrAssign => "|=",
+            SpecialToken::BitAndAssign => "&=",
+            SpecialToken::DoubleExclamation => "!!",
+            SpecialToken::Semicolon => ";",
+            SpecialToken::XmlKet => "/>",
+            SpecialToken::At => "@",
         }
     }
 
     pub fn opt_bra(&self) -> Option<Bracket> {
         match self {
-            Special::LAngle => Some(Bracket::Angle),
-            Special::LCurl => Some(Bracket::Curl),
-            Special::LBox => Some(Bracket::Box),
-            Special::LPar => Some(Bracket::Par),
+            SpecialToken::LAngle => Some(Bracket::Angle),
+            SpecialToken::LCurl => Some(Bracket::Curl),
+            SpecialToken::LBox => Some(Bracket::Box),
+            SpecialToken::LPar => Some(Bracket::Par),
             _ => None,
         }
     }

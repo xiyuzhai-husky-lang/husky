@@ -3,17 +3,17 @@ use vm::{InputLiason, MemberLiason, OutputLiason};
 
 use crate::*;
 
-pub static STD_OPS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
+pub static STD_OPS_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ops",
     subscopes: &[
-        ("Index", &INDEX_TRAIT_DEFN),
-        ("IndexMut", &INDEX_TRAIT_DEFN),
+        ("Index", &STD_OPS_INDEX_DEFN),
+        ("IndexMut", &STD_OPS_INDEX_DEFN),
     ],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 
-pub static INDEX_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
+pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Index",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Trait {

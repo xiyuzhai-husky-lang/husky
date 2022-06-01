@@ -25,10 +25,10 @@ impl<'a> AstTransformer<'a> {
             Keyword::Paradigm(paradigm) => {
                 enter_block(self);
                 match token_group[2].kind {
-                    TokenKind::Special(Special::LightArrow) => {
+                    TokenKind::Special(SpecialToken::LightArrow) => {
                         self.parse_feature_defn_head(token_group)
                     }
-                    TokenKind::Special(Special::LPar) => {
+                    TokenKind::Special(SpecialToken::LPar) => {
                         self.parse_function_defn_head(paradigm, token_group)
                     }
                     _ => todo!(),

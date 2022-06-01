@@ -179,7 +179,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         }
     }
 
-    fn pass_two(&mut self, special: Special) -> (usize, Special) {
+    fn pass_two(&mut self, special: SpecialToken) -> (usize, SpecialToken) {
         self.char_iter.next();
         (2, special)
     }
@@ -196,71 +196,72 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     fn next_special(&mut self, j_start: usize, c_start: char) -> Option<Token> {
         let (len, special) = match c_start {
             '=' => match self.peek_char() {
-                '=' => self.pass_two(Special::Eq),
-                '>' => self.pass_two(Special::HeavyArrow),
-                _ => (1, Special::Assign),
+                '=' => self.pass_two(SpecialToken::Eq),
+                '>' => self.pass_two(SpecialToken::HeavyArrow),
+                _ => (1, SpecialToken::Assign),
             },
             ':' => match self.peek_char() {
-                '=' => self.pass_two(Special::DeriveAssign),
-                ':' => self.pass_two(Special::DoubleColon),
-                _ => (1, Special::Colon),
+                '=' => self.pass_two(SpecialToken::DeriveAssign),
+                ':' => self.pass_two(SpecialToken::DoubleColon),
+                _ => (1, SpecialToken::Colon),
             },
-            '(' => (1, Special::LPar),
-            '[' => (1, Special::LBox),
-            '{' => (1, Special::LCurl),
-            ')' => (1, Special::RPar),
-            ']' => (1, Special::RBox),
-            '}' => (1, Special::RCurl),
-            ',' => (1, Special::Comma),
+            '(' => (1, SpecialToken::LPar),
+            '[' => (1, SpecialToken::LBox),
+            '{' => (1, SpecialToken::LCurl),
+            ')' => (1, SpecialToken::RPar),
+            ']' => (1, SpecialToken::RBox),
+            '}' => (1, SpecialToken::RCurl),
+            ',' => (1, SpecialToken::Comma),
+            '@' => (1, SpecialToken::At),
             '&' => match self.peek_char() {
-                '&' => self.pass_two(Special::And),
-                '=' => self.pass_two(Special::BitAndAssign),
-                _ => (1, Special::Ambersand),
+                '&' => self.pass_two(SpecialToken::And),
+                '=' => self.pass_two(SpecialToken::BitAndAssign),
+                _ => (1, SpecialToken::Ambersand),
             },
             '|' => match self.peek_char() {
-                '|' => self.pass_two(Special::DoubleVertical),
-                '=' => self.pass_two(Special::BitOrAssign),
-                _ => (1, Special::Vertical),
+                '|' => self.pass_two(SpecialToken::DoubleVertical),
+                '=' => self.pass_two(SpecialToken::BitOrAssign),
+                _ => (1, SpecialToken::Vertical),
             },
-            '~' => (1, Special::BitNot),
-            '.' => (1, Special::MemberAccess),
-            ';' => (1, Special::Semicolon),
-            '%' => (1, Special::Modulo),
+            '~' => (1, SpecialToken::BitNot),
+            '.' => (1, SpecialToken::MemberAccess),
+            ';' => (1, SpecialToken::Semicolon),
+            '%' => (1, SpecialToken::Modulo),
             '-' => match self.peek_char() {
-                '=' => self.pass_two(Special::SubAssign),
-                '-' => self.pass_two(Special::Decr),
-                '>' => self.pass_two(Special::LightArrow),
-                _ => (1, Special::SubOrMinus),
+                '=' => self.pass_two(SpecialToken::SubAssign),
+                '-' => self.pass_two(SpecialToken::Decr),
+                '>' => self.pass_two(SpecialToken::LightArrow),
+                _ => (1, SpecialToken::SubOrMinus),
             },
             '<' => match self.peek_char() {
-                '<' => self.pass_two(Special::Shl), // <<
-                '=' => self.pass_two(Special::Leq),
-                _ => (1, Special::LAngle),
+                '<' => self.pass_two(SpecialToken::Shl), // <<
+                '=' => self.pass_two(SpecialToken::Leq),
+                _ => (1, SpecialToken::LAngle),
             },
             '>' => match self.peek_char() {
-                '>' => self.pass_two(Special::Shr), // >>
-                '=' => self.pass_two(Special::Geq),
-                _ => (1, Special::RAngle),
+                '>' => self.pass_two(SpecialToken::Shr), // >>
+                '=' => self.pass_two(SpecialToken::Geq),
+                _ => (1, SpecialToken::RAngle),
             },
             '*' => match self.peek_char() {
-                '*' => self.pass_two(Special::Power),
-                '=' => self.pass_two(Special::MulAssign),
-                _ => (1, Special::Star),
+                '*' => self.pass_two(SpecialToken::Power),
+                '=' => self.pass_two(SpecialToken::MulAssign),
+                _ => (1, SpecialToken::Star),
             },
             '/' => match self.peek_char() {
                 '/' => return None,
-                '>' => self.pass_two(Special::XmlKet),
-                '=' => self.pass_two(Special::DivAssign),
-                _ => (1, Special::Div),
+                '>' => self.pass_two(SpecialToken::XmlKet),
+                '=' => self.pass_two(SpecialToken::DivAssign),
+                _ => (1, SpecialToken::Div),
             },
             '+' => match self.peek_char() {
-                '+' => self.pass_two(Special::Incr),
-                '=' => self.pass_two(Special::AddAssign),
-                _ => (1, Special::Add),
+                '+' => self.pass_two(SpecialToken::Incr),
+                '=' => self.pass_two(SpecialToken::AddAssign),
+                _ => (1, SpecialToken::Add),
             },
             '!' => match self.peek_char() {
-                '=' => self.pass_two(Special::Neq),
-                _ => (1, Special::Exclamation),
+                '=' => self.pass_two(SpecialToken::Neq),
+                _ => (1, SpecialToken::Exclamation),
             },
             c => {
                 return Some(Token::new(

@@ -32,9 +32,9 @@ fn eval_input_ty_from_ast(
                         match dataset_type.kind {
                             EntityRouteKind::Root {
                                 ident: RootIdentifier::DatasetType,
-                            } => match dataset_type.generic_arguments[0] {
-                                GenericArgument::Const(_) => todo!(),
-                                GenericArgument::EntityRoute(input_ty) => Ok(input_ty),
+                            } => match dataset_type.spatial_arguments[0] {
+                                SpatialArgument::Const(_) => todo!(),
+                                SpatialArgument::EntityRoute(input_ty) => Ok(input_ty),
                             },
                             _ => panic!(),
                         }
@@ -75,9 +75,9 @@ fn global_output_ty_from_ast(
                         match dataset_type.kind {
                             EntityRouteKind::Root {
                                 ident: RootIdentifier::DatasetType,
-                            } => match dataset_type.generic_arguments[1] {
-                                GenericArgument::Const(_) => todo!(),
-                                GenericArgument::EntityRoute(output_ty) => Ok(output_ty),
+                            } => match dataset_type.spatial_arguments[1] {
+                                SpatialArgument::Const(_) => todo!(),
+                                SpatialArgument::EntityRoute(output_ty) => Ok(output_ty),
                             },
                             _ => panic!(),
                         }

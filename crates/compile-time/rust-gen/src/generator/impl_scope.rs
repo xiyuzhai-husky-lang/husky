@@ -21,15 +21,15 @@ impl<'a> RustGenerator<'a> {
                 ident,
             } => todo!(),
         }
-        if scope.generic_arguments.len() > 0 {
+        if scope.spatial_arguments.len() > 0 {
             self.write("<");
-            for i in 0..scope.generic_arguments.len() {
+            for i in 0..scope.spatial_arguments.len() {
                 if i > 0 {
                     self.write(", ")
                 }
-                match scope.generic_arguments[i] {
-                    GenericArgument::Const(_) => todo!(),
-                    GenericArgument::EntityRoute(entity_route) => {
+                match scope.spatial_arguments[i] {
+                    SpatialArgument::Const(_) => todo!(),
+                    SpatialArgument::EntityRoute(entity_route) => {
                         self.gen_entity_route(entity_route)
                     }
                 }

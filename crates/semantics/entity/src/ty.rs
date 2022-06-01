@@ -154,11 +154,11 @@ impl EntityDefnVariant {
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
-            EntityStaticDefnVariant::Type {
+            EntityStaticDefnVariant::Ty {
                 base_route,
                 generic_parameters,
                 static_trait_impls: ref trait_impls,
-                ref type_members,
+                ty_members: ref type_members,
                 ref variants,
                 kind,
                 visualizer,
@@ -179,7 +179,7 @@ impl EntityDefnVariant {
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_ty = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
-                    generic_arguments,
+                    spatial_arguments: generic_arguments,
                 });
                 let symbols = symbol_context.symbols_from_generic_parameters(&generic_parameters);
                 symbol_context.symbols = symbols.into();
@@ -239,7 +239,7 @@ impl EntityDefnVariant {
                                 parent: ty_route,
                                 ident: ident.ident,
                             },
-                            generic_arguments: vec![],
+                            spatial_arguments: vec![],
                         }),
                         file,
                         ast.range,

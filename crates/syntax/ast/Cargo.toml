@@ -29,6 +29,6 @@ entity-syntax = { path = "../entity-syntax", version = "0.0.0" }
 syntax-types = { path = "../types", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
-static-defn = { path = "../static-defn", version = "0.0.0" }
+static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }
 atom = { path = "../atom", version = "0.0.0" }
 defn-head = { path = "../defn-head", version = "0.0.0" }

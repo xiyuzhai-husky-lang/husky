@@ -15,7 +15,7 @@ pub use error::*;
 pub use kind::TokenKind;
 pub use query::*;
 pub use semantic_token::*;
-pub use special::Special;
+pub use special::SpecialToken;
 pub use stream::*;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 

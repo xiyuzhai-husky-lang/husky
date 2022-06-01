@@ -17,8 +17,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             while layer > 0 {
                 match self.token_stream.next() {
                     Some(token) => match token.kind {
-                        TokenKind::Special(Special::LCurl) => layer += 1,
-                        TokenKind::Special(Special::RCurl) => layer -= 1,
+                        TokenKind::Special(SpecialToken::LCurl) => layer += 1,
+                        TokenKind::Special(SpecialToken::RCurl) => layer -= 1,
                         _ => (),
                     },
                     None => {

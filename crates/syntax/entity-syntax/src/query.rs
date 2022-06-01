@@ -163,7 +163,7 @@ fn entity_locus(
                 let ty_source = db.entity_locus(ty).unwrap();
                 match ty_source {
                     EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
-                        EntityStaticDefnVariant::Type { .. } => {
+                        EntityStaticDefnVariant::Ty { .. } => {
                             Ok(EntityLocus::StaticTypeAsTraitMember)
                         }
                         _ => panic!(),
@@ -193,7 +193,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Vec => &VEC_TYPE_DEFN,
         RootIdentifier::Tuple => todo!(),
         RootIdentifier::Debug => todo!(),
-        RootIdentifier::Std => &STD_MODULE_DEFN,
+        RootIdentifier::Std => &STD_DEFN,
         RootIdentifier::Core => todo!(),
         RootIdentifier::Fp => todo!(),
         RootIdentifier::Fn => todo!(),
@@ -230,7 +230,7 @@ pub trait EntityRouteQueryGroup:
         &self,
         parent_scope: EntityRoutePtr,
         ident: CustomIdentifier,
-        generics: Vec<GenericArgument>,
+        generics: Vec<SpatialArgument>,
     ) -> EntitySyntaxResult<EntityRoutePtr> {
         let parent_subscope_table = self.subroute_table(parent_scope)?;
         if parent_subscope_table.has_subscope(ident, &generics) {
@@ -338,7 +338,7 @@ pub trait EntityRouteQueryGroup:
                     Identifier::Builtin(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
                         kind: EntityRouteKind::Child { parent, ident },
-                        generic_arguments: vec![],
+                        spatial_arguments: vec![],
                     })),
                     Identifier::Contextual(_) => todo!(),
                 },

@@ -1,6 +1,6 @@
 use super::*;
-use ast::FieldKind;
-use entity_kind::TyKind;
+use ast::FieldAstKind;
+use entity_kind::{FieldKind, TyKind};
 use entity_route::EntityRoute;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
@@ -138,8 +138,8 @@ impl<'a> FeatureExprBuilder<'a> {
         let this_ty_decl = self.db.ty_decl(this.expr.ty()).unwrap();
         match field_kind {
             FieldKind::StructOriginal
-            | FieldKind::StructDefault { .. }
-            | FieldKind::StructDerivedEager { .. } => {
+            | FieldKind::StructDefault
+            | FieldKind::StructDerivedEager => {
                 let feature = self.features.alloc(Feature::FieldAccess {
                     this: this.feature,
                     field_ident: field_ident.ident,

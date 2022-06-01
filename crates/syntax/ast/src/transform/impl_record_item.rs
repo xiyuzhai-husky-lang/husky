@@ -38,7 +38,8 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_record_original_field(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
-        if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(Special::Colon) {
+        if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(SpecialToken::Colon)
+        {
             if token_group.len() == 2 {
                 todo!()
             }
@@ -49,7 +50,7 @@ impl<'a> AstTransformer<'a> {
                 ranged_ident: ident,
                 liason: MemberLiason::Immutable,
                 ty,
-                field_kind: FieldKind::RecordOriginal,
+                field_ast_kind: FieldAstKind::RecordOriginal,
             })
         } else {
             p!(token_group);
@@ -71,7 +72,7 @@ impl<'a> AstTransformer<'a> {
         Ok(AstVariant::FieldDefnHead {
             ranged_ident: ident,
             ty,
-            field_kind: FieldKind::RecordDerived,
+            field_ast_kind: FieldAstKind::RecordDerived,
             liason: MemberLiason::Immutable,
         })
     }

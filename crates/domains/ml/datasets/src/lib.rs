@@ -17,7 +17,7 @@ pub static DATASETS_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
 pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "Dataset",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "Dataset",
         generic_parameters: &[
             StaticGenericPlaceholder {
@@ -30,7 +30,7 @@ pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
             },
         ],
         static_trait_impls: &[],
-        type_members: &[],
+        ty_members: &[],
         variants: &[],
         kind: TyKind::Other,
         visualizer: TRIVIAL_VISUALIZER,

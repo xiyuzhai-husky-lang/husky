@@ -1,13 +1,13 @@
 mod b32;
 mod f32_;
 mod i32_;
-mod static_std;
+mod std_;
 mod vec;
 
 pub use b32::*;
 pub use f32_::*;
 pub use i32_::*;
-pub use static_std::*;
+pub use std_::*;
 pub use vec::*;
 
 use dev_utils::{dev_src, static_dev_src};
@@ -48,11 +48,11 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "void",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "void",
         generic_parameters: &[],
         static_trait_impls: &[],
-        type_members: &[],
+        ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
@@ -64,11 +64,11 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "b64",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "b64",
         generic_parameters: &[],
         static_trait_impls: &[],
-        type_members: &[],
+        ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,
@@ -80,11 +80,11 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "bool",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "bool",
         generic_parameters: &[],
         static_trait_impls: &[],
-        type_members: &[],
+        ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
         visualizer: TRIVIAL_VISUALIZER,

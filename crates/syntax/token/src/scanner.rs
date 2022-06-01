@@ -96,7 +96,7 @@ impl<'token> TokenScanner<'token> {
         TokenGroup {
             indent: group_indent,
             tokens: first_line.tokens.start..{
-                if self.last_token(first_line).kind == TokenKind::Special(Special::Colon) {
+                if self.last_token(first_line).kind == TokenKind::Special(SpecialToken::Colon) {
                     if let Some(line) = line_iter.peek() {
                         match line.indent.within(group_indent) {
                             Ok(is_within) => {
@@ -130,7 +130,7 @@ impl<'token> TokenScanner<'token> {
                                     if is_within {
                                         line_iter.next();
                                         if self.last_token(line).kind
-                                            == TokenKind::Special(Special::Colon)
+                                            == TokenKind::Special(SpecialToken::Colon)
                                         {
                                             break line.tokens.end;
                                         }
@@ -138,9 +138,9 @@ impl<'token> TokenScanner<'token> {
                                         fn bind_to_last_line(kind: TokenKind) -> bool {
                                             match kind {
                                                 TokenKind::Special(special) => match special {
-                                                    Special::RCurl => true,
-                                                    Special::RBox => true,
-                                                    Special::RPar => true,
+                                                    SpecialToken::RCurl => true,
+                                                    SpecialToken::RBox => true,
+                                                    SpecialToken::RPar => true,
                                                     _ => false,
                                                 },
                                                 _ => false,

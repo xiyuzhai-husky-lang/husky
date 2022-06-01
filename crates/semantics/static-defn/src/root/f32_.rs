@@ -3,11 +3,11 @@ use super::*;
 pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "f32",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "f32",
         generic_parameters: &[],
         static_trait_impls: &[],
-        type_members: &[
+        ty_members: &[
             &F32_MIN, &F32_MAX, &F32_SGN, &F32_ABS, &F32_SQRT, &F32_COS, &F32_SIN, &F32_TAN,
             &F32_ACOS, &F32_ASIN, &F32_ATAN,
         ],

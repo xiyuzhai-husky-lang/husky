@@ -1,4 +1,4 @@
-use entity_route::GenericArgument;
+use entity_route::SpatialArgument;
 
 use super::*;
 
@@ -13,7 +13,7 @@ pub enum ListOpr {
     StructInit,
     MethodCall {
         ranged_ident: RangedCustomIdentifier,
-        generic_arguments: Vec<GenericArgument>,
+        generic_arguments: Vec<SpatialArgument>,
     },
 }
 
@@ -29,7 +29,7 @@ pub enum ListStartAttr {
     Attach,
     MethodAttach {
         ranged_ident: RangedCustomIdentifier,
-        generic_arguments: Vec<GenericArgument>,
+        generic_arguments: Vec<SpatialArgument>,
     },
 }
 

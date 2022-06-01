@@ -14,11 +14,11 @@ impl EntityDefnVariant {
                 liason,
                 ranged_ident,
                 ty,
-                field_kind,
+                field_ast_kind: field_kind,
             } => {
                 let field_variant = match field_kind {
-                    FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
-                    FieldKind::StructDerivedLazy { paradigm } => {
+                    FieldAstKind::StructOriginal => FieldDefnVariant::StructOriginal,
+                    FieldAstKind::StructDerivedLazy { paradigm } => {
                         FieldDefnVariant::StructDerivedLazy {
                             defn_repr: Arc::new(match paradigm {
                                 Paradigm::LazyFunctional => {
@@ -46,8 +46,8 @@ impl EntityDefnVariant {
                             }),
                         }
                     }
-                    FieldKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
-                    FieldKind::RecordDerived => FieldDefnVariant::RecordDerived {
+                    FieldAstKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
+                    FieldAstKind::RecordDerived => FieldDefnVariant::RecordDerived {
                         defn_repr: Arc::new(DefinitionRepr::LazyBlock {
                             stmts: semantics_lazy::parse_lazy_stmts(
                                 &[],
@@ -58,10 +58,10 @@ impl EntityDefnVariant {
                             )?,
                         }),
                     },
-                    FieldKind::StructDefault { default } => FieldDefnVariant::StructDefault {
+                    FieldAstKind::StructDefault { default } => FieldDefnVariant::StructDefault {
                         default: parse_eager_expr(db, arena, file, default)?,
                     },
-                    FieldKind::StructDerivedEager { derivation } => {
+                    FieldAstKind::StructDerivedEager { derivation } => {
                         FieldDefnVariant::StructDerivedEager {
                             derivation: parse_eager_expr(db, arena, file, derivation)?,
                         }
@@ -89,13 +89,13 @@ impl EntityDefnVariant {
             let ast = child.value.as_ref()?;
             match ast.variant {
                 AstVariant::FieldDefnHead {
-                    field_kind,
+                    field_ast_kind: field_kind,
                     ranged_ident,
                     ..
                 } => {
                     match field_kind {
-                        FieldKind::StructOriginal => (),
-                        FieldKind::RecordOriginal => (),
+                        FieldAstKind::StructOriginal => (),
+                        FieldAstKind::RecordOriginal => (),
                         _ => break,
                     }
                     members.insert_new(EntityDefn::new(
@@ -113,7 +113,7 @@ impl EntityDefnVariant {
                                 parent: ty_route,
                                 ident: ranged_ident.ident,
                             },
-                            generic_arguments: vec![],
+                            spatial_arguments: vec![],
                         }),
                         file,
                         ast.range,

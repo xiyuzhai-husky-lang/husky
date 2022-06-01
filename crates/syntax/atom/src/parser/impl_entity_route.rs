@@ -13,7 +13,7 @@ use super::*;
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomVariant>> {
         Ok(if let Some(token) = self.token_stream.next() {
-            if token.kind == Special::LBox.into() {
+            if token.kind == SpecialToken::LBox.into() {
                 self.atom_context
                     .push_abs_semantic_token(AbsSemanticToken::new(
                         SemanticTokenKind::Special,
@@ -107,8 +107,17 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn symbolic_ty(&mut self) -> AtomResult<EntityRoutePtr> {
-        let route = if try_eat!(self, Special::RBox) {
+        let route = if try_eat!(self, SpecialToken::RBox) {
             self.vec_ty()
+        } else if try_eat!(self, SpecialToken::Modulo) {
+            eat!(self, token_kind, SpecialToken::RBox.into());
+            let element = self.generic()?;
+            Ok(self
+                .atom_context
+                .entity_syntax_db()
+                .entity_route_menu()
+                .std_slice_cyclic_slice
+                .call([element]))
         } else {
             self.array_ty()
         }?;
@@ -124,7 +133,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     fn array_ty(&mut self) -> AtomResult<EntityRoute> {
         let size = get!(self, usize_literal);
-        eat!(self, special, Special::RBox);
+        eat!(self, special, SpecialToken::RBox);
         let element = self.generic()?;
         Ok(EntityRoute::array(element, size))
     }
@@ -135,7 +144,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             .atom_context
             .entity_syntax_db()
             .make_route(route, generic_arguments);
-        while try_eat!(self, Special::DoubleColon) {
+        while try_eat!(self, SpecialToken::DoubleColon) {
             let ranged_ident = get!(self, custom_ident);
             let generics = self.generics(route)?;
             route = self.atom_context.entity_syntax_db().make_subroute(
@@ -197,8 +206,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         )
     }
 
-    fn generics(&mut self, route: EntityRoutePtr) -> AtomResult<Vec<GenericArgument>> {
-        if route.generic_arguments.len() > 0 {
+    fn generics(&mut self, route: EntityRoutePtr) -> AtomResult<Vec<SpatialArgument>> {
+        if route.spatial_arguments.len() > 0 {
             todo!()
         }
         match route.kind {
@@ -247,7 +256,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    fn func_args(&mut self) -> AtomResult<Vec<GenericArgument>> {
+    fn func_args(&mut self) -> AtomResult<Vec<SpatialArgument>> {
         eat!(self, "(");
         let mut args = comma_list![self, generic!, RPar];
         args.push(if try_eat!(self, "->") {
@@ -258,15 +267,15 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         Ok(args)
     }
 
-    pub(crate) fn angled_generics(&mut self) -> AtomResult<Vec<GenericArgument>> {
-        Ok(if try_eat!(self, Special::LAngle) {
+    pub(crate) fn angled_generics(&mut self) -> AtomResult<Vec<SpatialArgument>> {
+        Ok(if try_eat!(self, SpecialToken::LAngle) {
             comma_list![self, generic!+, ">"]
         } else {
             Vec::new()
         })
     }
 
-    fn generic(&mut self) -> AtomResult<GenericArgument> {
+    fn generic(&mut self) -> AtomResult<SpatialArgument> {
         Ok(if try_eat!(self, "(") {
             let mut args = comma_list!(self, generic!, ")");
             let scope = if try_eat!(self, "->") {

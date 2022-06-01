@@ -133,10 +133,10 @@ impl TraitDecl {
                 let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
                 let generic_arguments =
                     db.generic_arguments_from_generic_parameters(&generic_parameters);
-                should_eq!(base_route.generic_arguments.len(), 0);
+                should_eq!(base_route.spatial_arguments.len(), 0);
                 let trai = db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
-                    generic_arguments,
+                    spatial_arguments: generic_arguments,
                 });
                 symbol_context.kind = AtomContextKind::Trait {
                     this_trai: trai,
@@ -158,7 +158,7 @@ impl TraitDecl {
     pub fn instantiate(
         &self,
         db: &dyn DeclQueryGroup,
-        dst_generics: &[GenericArgument],
+        dst_generics: &[SpatialArgument],
     ) -> Arc<Self> {
         should_eq!(self.generic_parameters.len(), dst_generics.len());
         let instantiator = Instantiator {
@@ -188,11 +188,11 @@ pub(crate) fn trait_decl(
     match entity_source {
         EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Type { .. } => todo!(),
+            EntityStaticDefnVariant::Ty { .. } => todo!(),
             EntityStaticDefnVariant::Trait { .. } => {
                 let base_decl = TraitDecl::from_static(db, static_defn);
-                if entity_route.generic_arguments.len() > 0 {
-                    Ok(base_decl.instantiate(db, &entity_route.generic_arguments))
+                if entity_route.spatial_arguments.len() > 0 {
+                    Ok(base_decl.instantiate(db, &entity_route.spatial_arguments))
                 } else {
                     Ok(base_decl)
                 }
@@ -201,7 +201,7 @@ pub(crate) fn trait_decl(
             EntityStaticDefnVariant::Method { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
         },
         EntityLocus::WithinBuiltinModule => todo!(),

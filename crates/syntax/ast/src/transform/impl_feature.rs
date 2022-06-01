@@ -8,7 +8,7 @@ impl<'a> AstTransformer<'a> {
     //     expect_head!(token_group);
     //     expect_at_least!(token_group, token_group.text_range(), 5);
     //     match token_group[2].kind {
-    //         TokenKind::Special(Special::LightArrow) => self.parse_feature_decl(token_group),
+    //         TokenKind::Special(SpecialToken::LightArrow) => self.parse_feature_decl(token_group),
     //         _ => todo!(),
     //     }
     // }

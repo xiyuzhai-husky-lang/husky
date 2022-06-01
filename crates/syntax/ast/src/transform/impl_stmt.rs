@@ -47,7 +47,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Else => {
                     must_be!(token_group.len() == 2, "expect one tokens after", kw_range);
                     must_be!(
-                        token_group[1].kind == TokenKind::Special(Special::Colon),
+                        token_group[1].kind == TokenKind::Special(SpecialToken::Colon),
                         "expect `:` at the end",
                         token_group[0].text_range()
                     );
@@ -125,7 +125,7 @@ impl<'a> AstTransformer<'a> {
             AstContext::Stmt(Paradigm::LazyFunctional)
             | AstContext::Stmt(Paradigm::EagerFunctional)
             | AstContext::Visual => {
-                if token_group.len() > 2 && token_group[1].kind == Special::Assign.into() {
+                if token_group.len() > 2 && token_group[1].kind == SpecialToken::Assign.into() {
                     // declarative initialization
                     let varname =
                         identify_token!(self, token_group[0], SemanticTokenKind::Variable);
@@ -157,7 +157,7 @@ impl<'a> AstTransformer<'a> {
             }
             AstContext::Stmt(Paradigm::EagerProcedural) => {
                 let (expr_tokens, discard) = match token_group.last().unwrap().kind {
-                    TokenKind::Special(Special::Semicolon) => {
+                    TokenKind::Special(SpecialToken::Semicolon) => {
                         (&token_group[..(token_group.len() - 1)], true)
                     }
                     _ => (token_group, false),
@@ -200,7 +200,7 @@ impl<'a> AstTransformer<'a> {
         expect_at_least!(tokens, kw_range, 3);
         let varname = identify_token!(self, &tokens[0], SemanticTokenKind::Variable);
         self.symbols.push(Symbol::variable(varname));
-        expect_token_kind!(tokens[1], Special::Assign);
+        expect_token_kind!(tokens[1], SpecialToken::Assign);
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtVariant::Init {
             init_kind: kind,

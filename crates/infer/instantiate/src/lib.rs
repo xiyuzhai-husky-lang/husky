@@ -9,7 +9,7 @@ use word::CustomIdentifier;
 pub struct Instantiator<'a> {
     pub db: &'a dyn EntityRouteSalsaQueryGroup,
     pub generic_parameters: &'a [SpatialParameter],
-    pub dst_generics: &'a [GenericArgument],
+    pub dst_generics: &'a [SpatialArgument],
 }
 
 impl<'a> Instantiator<'a> {
@@ -19,9 +19,9 @@ impl<'a> Instantiator<'a> {
             .position(|p| p.ident == ident)
     }
 
-    pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> GenericArgument {
+    pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> SpatialArgument {
         match self.db.entity_kind(src_scope).unwrap() {
-            EntityKind::Module => GenericArgument::EntityRoute(src_scope),
+            EntityKind::Module => SpatialArgument::EntityRoute(src_scope),
             EntityKind::EnumLiteral => todo!(),
             _ => {
                 let (kind, mut generics) = match src_scope.kind {
@@ -38,12 +38,12 @@ impl<'a> Instantiator<'a> {
                     EntityRouteKind::Generic { ident, .. } => {
                         if let Some(idx) = self.find_generic(ident) {
                             match self.dst_generics[idx] {
-                                GenericArgument::Const(value) => {
-                                    should_eq!(src_scope.generic_arguments.len(), 0);
-                                    return GenericArgument::Const(value);
+                                SpatialArgument::Const(value) => {
+                                    should_eq!(src_scope.spatial_arguments.len(), 0);
+                                    return SpatialArgument::Const(value);
                                 }
-                                GenericArgument::EntityRoute(scope) => {
-                                    (scope.kind, scope.generic_arguments.clone())
+                                SpatialArgument::EntityRoute(scope) => {
+                                    (scope.kind, scope.spatial_arguments.clone())
                                 }
                             }
                         } else {
@@ -59,10 +59,10 @@ impl<'a> Instantiator<'a> {
                     } => todo!(),
                 };
                 // convention: A<B,C> = A<B><C>
-                generics.extend(self.instantiate_generic_arguments(&src_scope.generic_arguments));
-                GenericArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
+                generics.extend(self.instantiate_generic_arguments(&src_scope.spatial_arguments));
+                SpatialArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
                     kind,
-                    generic_arguments: generics,
+                    spatial_arguments: generics,
                 }))
             }
         }
@@ -70,13 +70,13 @@ impl<'a> Instantiator<'a> {
 
     fn instantiate_generic_arguments(
         &self,
-        src_generic_arguments: &[GenericArgument],
-    ) -> Vec<GenericArgument> {
+        src_generic_arguments: &[SpatialArgument],
+    ) -> Vec<SpatialArgument> {
         src_generic_arguments
             .iter()
             .map(|src_generic| match src_generic {
-                GenericArgument::Const(_) => *src_generic,
-                GenericArgument::EntityRoute(scope) => self.instantiate_entity_route(*scope),
+                SpatialArgument::Const(_) => *src_generic,
+                SpatialArgument::EntityRoute(scope) => self.instantiate_entity_route(*scope),
             })
             .collect()
     }

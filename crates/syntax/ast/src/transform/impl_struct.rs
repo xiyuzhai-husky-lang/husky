@@ -26,10 +26,10 @@ impl<'a> AstTransformer<'a> {
                 match keyword {
                     Keyword::Paradigm(routine_keyword) => {
                         match token_group[2].kind {
-                            TokenKind::Special(Special::LPar) => {
+                            TokenKind::Special(SpecialToken::LPar) => {
                                 self.parse_struct_method(token_group, struct_item_context, enter_block)
                             },
-                            TokenKind::Special(Special::LightArrow) =>{
+                            TokenKind::Special(SpecialToken::LightArrow) =>{
                                 self.parse_struct_derived_lazy_field(token_group, struct_item_context, enter_block)
                             },
                             _=> todo!(),

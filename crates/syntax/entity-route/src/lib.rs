@@ -11,7 +11,7 @@ use word::{CustomIdentifier, Identifier, RootIdentifier};
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
     pub kind: EntityRouteKind,
-    pub generic_arguments: Vec<GenericArgument>,
+    pub spatial_arguments: Vec<SpatialArgument>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -48,15 +48,15 @@ impl std::fmt::Debug for EntityRoute {
                 ident.fmt(f)?
             }
         };
-        if self.generic_arguments.len() > 0 {
+        if self.spatial_arguments.len() > 0 {
             f.write_str("<")?;
-            for (i, generic) in self.generic_arguments.iter().enumerate() {
+            for (i, generic) in self.spatial_arguments.iter().enumerate() {
                 if i > 0 {
                     f.write_str(", ")?;
                 }
                 match generic {
-                    GenericArgument::Const(_) => todo!(),
-                    GenericArgument::EntityRoute(scope) => scope.fmt(f)?,
+                    SpatialArgument::Const(_) => todo!(),
+                    SpatialArgument::EntityRoute(scope) => scope.fmt(f)?,
                 }
             }
             f.write_str(">")?;
@@ -67,29 +67,29 @@ impl std::fmt::Debug for EntityRoute {
 
 // the actual value that is passed to the generic entity
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum GenericArgument {
+pub enum SpatialArgument {
     Const(usize),
     EntityRoute(EntityRoutePtr),
 }
 
-impl GenericArgument {
+impl SpatialArgument {
     pub fn take_entity_route(&self) -> EntityRoutePtr {
         match self {
-            GenericArgument::Const(_) => panic!(),
-            GenericArgument::EntityRoute(scope) => *scope,
+            SpatialArgument::Const(_) => panic!(),
+            SpatialArgument::EntityRoute(scope) => *scope,
         }
     }
 }
 
-impl From<usize> for GenericArgument {
+impl From<usize> for SpatialArgument {
     fn from(size: usize) -> Self {
         Self::Const(size)
     }
 }
 
-impl From<EntityRoutePtr> for GenericArgument {
+impl From<EntityRoutePtr> for SpatialArgument {
     fn from(scope: EntityRoutePtr) -> Self {
-        GenericArgument::EntityRoute(scope)
+        SpatialArgument::EntityRoute(scope)
     }
 }
 
@@ -137,7 +137,7 @@ impl EntityRoute {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
             kind: EntityRouteKind::Package { main, ident },
-            generic_arguments: Vec::new(),
+            spatial_arguments: Vec::new(),
         }
     }
 
@@ -156,34 +156,43 @@ impl EntityRoute {
     pub fn subroute(
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
-        generics: Vec<GenericArgument>,
+        generics: Vec<SpatialArgument>,
     ) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::Child { parent, ident },
-            generic_arguments: generics,
+            spatial_arguments: generics,
         }
     }
 
-    pub fn new_builtin(
-        ident: RootIdentifier,
-        generic_arguments: Vec<GenericArgument>,
-    ) -> EntityRoute {
+    pub fn new_root(ident: RootIdentifier, generic_arguments: Vec<SpatialArgument>) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::Root { ident },
-            generic_arguments,
+            spatial_arguments: generic_arguments,
         }
     }
 
-    pub fn vec(element: GenericArgument) -> Self {
-        Self::new_builtin(RootIdentifier::Vec, vec![element])
+    pub fn call(
+        &self,
+        new_spatial_arguments: impl IntoIterator<Item = SpatialArgument>,
+    ) -> EntityRoute {
+        let mut spatial_arguments = self.spatial_arguments.clone();
+        spatial_arguments.extend(new_spatial_arguments);
+        EntityRoute {
+            kind: self.kind,
+            spatial_arguments,
+        }
     }
 
-    pub fn array(element: GenericArgument, size: usize) -> Self {
-        Self::new_builtin(RootIdentifier::Array, vec![element, size.into()])
+    pub fn vec(element: SpatialArgument) -> Self {
+        Self::new_root(RootIdentifier::Vec, vec![element])
     }
 
-    pub fn tuple_or_void(args: Vec<GenericArgument>) -> Self {
-        EntityRoute::new_builtin(
+    pub fn array(element: SpatialArgument, size: usize) -> Self {
+        Self::new_root(RootIdentifier::Array, vec![element, size.into()])
+    }
+
+    pub fn tuple_or_void(args: Vec<SpatialArgument>) -> Self {
+        EntityRoute::new_root(
             if args.len() > 0 {
                 RootIdentifier::Tuple
             } else {
@@ -193,8 +202,8 @@ impl EntityRoute {
         )
     }
 
-    pub fn default_func_type(args: Vec<GenericArgument>) -> Self {
-        EntityRoute::new_builtin(word::default_func_type(), args)
+    pub fn default_func_type(args: Vec<SpatialArgument>) -> Self {
+        EntityRoute::new_root(word::default_func_type(), args)
     }
 
     pub fn is_builtin(&self) -> bool {
@@ -224,6 +233,6 @@ impl EntityRoute {
 
 impl From<RootIdentifier> for EntityRoute {
     fn from(ident: RootIdentifier) -> Self {
-        Self::new_builtin(ident, Vec::new())
+        Self::new_root(ident, Vec::new())
     }
 }

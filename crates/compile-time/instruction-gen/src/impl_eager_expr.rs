@@ -1,6 +1,6 @@
 use crate::*;
 
-use ast::FieldKind;
+use ast::FieldAstKind;
 use entity_kind::TyKind;
 use infer_decl::TyDecl;
 use map_collect::MapCollect;

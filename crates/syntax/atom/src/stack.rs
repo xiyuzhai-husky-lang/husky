@@ -1,4 +1,4 @@
-use entity_route::{EntityKind, GenericArgument};
+use entity_route::{EntityKind, SpatialArgument};
 use vm::*;
 use word::RootIdentifier;
 
@@ -145,7 +145,7 @@ impl AtomStack {
     fn pop_par_list_of_types(
         &mut self,
         tail: &mut TextRange,
-    ) -> AtomResult<(ListStartAttr, Vec<GenericArgument>)> {
+    ) -> AtomResult<(ListStartAttr, Vec<SpatialArgument>)> {
         let mut types = Vec::new();
         match self.pop(tail)?.kind {
             AtomVariant::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),

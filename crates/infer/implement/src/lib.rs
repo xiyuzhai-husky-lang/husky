@@ -1,4 +1,4 @@
-use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, GenericArgument};
+use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use entity_syntax::EntityRouteSalsaQueryGroup;
 use print_utils::p;
 use word::CustomIdentifier;
@@ -6,14 +6,14 @@ use word::CustomIdentifier;
 pub struct Implementor<'a> {
     db: &'a dyn EntityRouteSalsaQueryGroup,
     this_ty: EntityRoutePtr,
-    member_impls: &'a [(CustomIdentifier, GenericArgument)],
+    member_impls: &'a [(CustomIdentifier, SpatialArgument)],
 }
 
 impl<'a> Implementor<'a> {
     pub fn new(
         db: &'a dyn EntityRouteSalsaQueryGroup,
         this_ty: EntityRoutePtr,
-        member_impls: &'a [(CustomIdentifier, GenericArgument)],
+        member_impls: &'a [(CustomIdentifier, SpatialArgument)],
     ) -> Self {
         Self {
             db,
@@ -22,7 +22,7 @@ impl<'a> Implementor<'a> {
         }
     }
 
-    pub fn generic_argument(&self, ident0: CustomIdentifier) -> GenericArgument {
+    pub fn generic_argument(&self, ident0: CustomIdentifier) -> SpatialArgument {
         self.member_impls
             .iter()
             .find_map(|(ident, generic_argument)| {
@@ -60,7 +60,7 @@ impl Implementable for EntityRoutePtr {
             EntityRouteKind::Child { parent, ident } => match parent.kind {
                 EntityRouteKind::ThisType => {
                     let ty = implementor.generic_argument(ident).take_entity_route();
-                    (ty.kind, ty.generic_arguments.clone())
+                    (ty.kind, ty.spatial_arguments.clone())
                 }
                 _ => todo!(),
             },
@@ -68,7 +68,7 @@ impl Implementable for EntityRoutePtr {
             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
             EntityRouteKind::ThisType => (
                 implementor.this_ty.kind,
-                implementor.this_ty.generic_arguments.clone(),
+                implementor.this_ty.spatial_arguments.clone(),
             ),
             EntityRouteKind::TypeAsTraitMember {
                 ty: parent,
@@ -76,24 +76,24 @@ impl Implementable for EntityRoutePtr {
                 ident,
             } => todo!(),
         };
-        for generic_argument in self.generic_arguments.iter() {
+        for generic_argument in self.spatial_arguments.iter() {
             generic_arguments.push(generic_argument.implement(implementor))
         }
         implementor.db.intern_entity_route(EntityRoute {
             kind,
-            generic_arguments,
+            spatial_arguments: generic_arguments,
         })
     }
 }
 
-impl Implementable for GenericArgument {
+impl Implementable for SpatialArgument {
     type Target = Self;
 
     fn implement(&self, implementor: &Implementor) -> Self::Target {
         match self {
-            GenericArgument::Const(value) => GenericArgument::Const(*value),
-            GenericArgument::EntityRoute(entity_route) => {
-                GenericArgument::EntityRoute(entity_route.implement(implementor))
+            SpatialArgument::Const(value) => SpatialArgument::Const(*value),
+            SpatialArgument::EntityRoute(entity_route) => {
+                SpatialArgument::EntityRoute(entity_route.implement(implementor))
             }
         }
     }

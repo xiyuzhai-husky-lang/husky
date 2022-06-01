@@ -28,7 +28,7 @@ impl<'a> AstTransformer<'a> {
         } else {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
-        let field_kind = if try_eat!(parser, token_kind, TokenKind::Special(Special::Assign)) {
+        let field_kind = if try_eat!(parser, token_kind, TokenKind::Special(SpecialToken::Assign)) {
             self.update_struct_item_context(
                 struct_item_context,
                 StructItemContext::DefaultField,
@@ -40,13 +40,13 @@ impl<'a> AstTransformer<'a> {
             self.opt_this_liason.set(Some(InputLiason::Pure));
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all()?;
-            FieldKind::StructDefault {
+            FieldAstKind::StructDefault {
                 default: self.parse_expr_from_atoms(atoms)?,
             }
         } else if try_eat!(
             parser,
             token_kind,
-            TokenKind::Special(Special::DeriveAssign)
+            TokenKind::Special(SpecialToken::DeriveAssign)
         ) {
             self.update_struct_item_context(
                 struct_item_context,
@@ -59,7 +59,7 @@ impl<'a> AstTransformer<'a> {
             self.opt_this_liason.set(Some(InputLiason::Pure));
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all()?;
-            FieldKind::StructDerivedEager {
+            FieldAstKind::StructDerivedEager {
                 derivation: self.parse_expr_from_atoms(atoms)?,
             }
         } else {
@@ -69,13 +69,13 @@ impl<'a> AstTransformer<'a> {
                 StructItemContext::OriginalField,
                 token_group,
             )?;
-            FieldKind::StructOriginal
+            FieldAstKind::StructOriginal
         };
         Ok(AstVariant::FieldDefnHead {
             liason: field_liason,
             ranged_ident: ident,
             ty,
-            field_kind,
+            field_ast_kind: field_kind,
         })
     }
 
@@ -115,7 +115,7 @@ impl<'a> AstTransformer<'a> {
         self.opt_this_liason.set(Some(InputLiason::GlobalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
-            TokenKind::Special(Special::LightArrow) => (),
+            TokenKind::Special(SpecialToken::LightArrow) => (),
             _ => todo!(),
         }
         let ty_result = atom::parse_route(self, &token_group[3..]);
@@ -133,7 +133,7 @@ impl<'a> AstTransformer<'a> {
             liason: MemberLiason::Derived,
             ranged_ident: ident,
             ty,
-            field_kind: FieldKind::StructDerivedLazy { paradigm },
+            field_ast_kind: FieldAstKind::StructDerivedLazy { paradigm },
         })
     }
 }

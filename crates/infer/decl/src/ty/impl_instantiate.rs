@@ -5,7 +5,7 @@ impl TyDecl {
     pub fn instantiate(
         &self,
         db: &dyn DeclQueryGroup,
-        dst_generics: &[GenericArgument],
+        dst_generics: &[SpatialArgument],
     ) -> Arc<Self> {
         should_eq!(self.generic_parameters.len(), dst_generics.len());
         let instantiator = Instantiator {

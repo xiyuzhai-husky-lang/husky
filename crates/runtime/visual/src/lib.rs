@@ -49,7 +49,7 @@ impl RuntimeVisualizer {
                 Err(_) => todo!(),
             },
             RuntimeVisualizer::Vec { ty, .. } => {
-                let elem_ty = ty.generic_arguments[0].take_entity_route();
+                let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = db.visualizer(elem_ty);
                 let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
                 VisualProps::Group(

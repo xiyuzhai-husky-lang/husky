@@ -3,14 +3,18 @@ use vm::*;
 use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
-    pub(super) fn handle_special(&mut self, special: Special, token: &Token) -> AtomResult<()> {
+    pub(super) fn handle_special(
+        &mut self,
+        special: SpecialToken,
+        token: &Token,
+    ) -> AtomResult<()> {
         let text_start = self.token_stream.text_start();
         match special {
-            Special::DoubleColon => err!(
+            SpecialToken::DoubleColon => err!(
                 "unexpected double colon, maybe the identifier before is not recognized as scope",
                 self.token_stream.text_range(text_start)
             )?,
-            Special::DoubleVertical => self.stack.push(Atom::new(
+            SpecialToken::DoubleVertical => self.stack.push(Atom::new(
                 self.token_stream.text_range(text_start),
                 if !self.stack.is_concave() {
                     BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
@@ -18,7 +22,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     AtomVariant::LambdaHead(Vec::new())
                 },
             )),
-            Special::Vertical => {
+            SpecialToken::Vertical => {
                 if self.stack.is_concave() {
                     let lambda_head = self.lambda_head()?;
                     self.stack.push(Atom::new(
@@ -32,7 +36,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     ))
                 }
             }
-            Special::Ambersand => self.stack.push(Atom::new(
+            SpecialToken::Ambersand => self.stack.push(Atom::new(
                 self.token_stream.text_range(text_start),
                 if self.stack.is_concave() {
                     PrefixOpr::Shared.into()
@@ -40,21 +44,21 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
                 },
             )),
-            Special::Exclamation => self.stack.push(Atom::new(
+            SpecialToken::Exclamation => self.stack.push(Atom::new(
                 self.token_stream.text_range(text_start),
                 PrefixOpr::Not.into(),
             )),
-            Special::LPar => Ok(self
+            SpecialToken::LPar => Ok(self
                 .stack
                 .start_list(Bracket::Par, self.token_stream.text_range(text_start))),
-            Special::LBox => Ok(self
+            SpecialToken::LBox => Ok(self
                 .stack
                 .start_list(Bracket::Box, self.token_stream.text_range(text_start))),
-            Special::LCurl => Ok(self
+            SpecialToken::LCurl => Ok(self
                 .stack
                 .start_list(Bracket::Curl, self.token_stream.text_range(text_start))),
-            Special::RPar => {
-                if try_eat!(self, Special::LightArrow) {
+            SpecialToken::RPar => {
+                if try_eat!(self, SpecialToken::LightArrow) {
                     let output = get!(self, ty?);
                     self.stack.make_func_type(
                         self.atom_context,
@@ -70,19 +74,19 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     )
                 }
             }
-            Special::RBox => self.stack.end_list_or_make_type(
+            SpecialToken::RBox => self.stack.end_list_or_make_type(
                 Bracket::Box,
                 ListEndAttr::None,
                 self.token_stream.text_range(text_start),
                 self.atom_context,
             ),
-            Special::RCurl => self.stack.end_list_or_make_type(
+            SpecialToken::RCurl => self.stack.end_list_or_make_type(
                 Bracket::Curl,
                 ListEndAttr::None,
                 self.token_stream.text_range(text_start),
                 self.atom_context,
             ),
-            Special::SubOrMinus => {
+            SpecialToken::SubOrMinus => {
                 if self.stack.is_convex() {
                     self.stack.push(Atom::new(
                         self.token_stream.text_range(text_start),
@@ -95,7 +99,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     ))
                 }
             }
-            Special::MemberAccess => {
+            SpecialToken::MemberAccess => {
                 let range = self.token_stream.text_range(text_start);
                 let field_ident_token = self
                     .token_stream
@@ -115,7 +119,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     let generic_arguments = self.angled_generics()?;
                     match self.token_stream.next() {
                         Some(token) => match token.kind {
-                            TokenKind::Special(Special::LPar) => {
+                            TokenKind::Special(SpecialToken::LPar) => {
                                 self.token_stream.text_range(text_start);
                             }
                             _ => todo!(),

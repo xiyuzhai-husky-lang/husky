@@ -5,7 +5,7 @@ use word::{Keyword, LiasonKeyword};
 use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
-    pub fn special(&mut self, target: Special) -> Option<()> {
+    pub fn special(&mut self, target: SpecialToken) -> Option<()> {
         self.token_kind(target.into())
     }
 

@@ -39,7 +39,7 @@ fn func_pointer_with_implicitly_void_return_type() {
     should_eq!(atoms.len(), 1);
     let atom = &atoms[0];
     if let AtomVariant::EntityRoute { route, .. } = atom.kind {
-        should_eq!(route.generic_arguments.len(), 3);
+        should_eq!(route.spatial_arguments.len(), 3);
     } else {
         panic!()
     }

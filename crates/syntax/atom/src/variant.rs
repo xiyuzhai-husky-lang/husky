@@ -1,6 +1,6 @@
 use entity_route::{EntityKind, RangedEntityRoute};
 use text::*;
-use token::Special;
+use token::SpecialToken;
 use vm::{
     BinaryOpr, Bracket, CopyableValue, InputLiason, ListEndAttr, ListStartAttr, MemberLiason,
     PrefixOpr, PureBinaryOpr, SuffixOpr,
@@ -67,57 +67,58 @@ impl From<SuffixOpr> for AtomVariant {
     }
 }
 
-impl From<Special> for AtomVariant {
-    fn from(special: Special) -> Self {
+impl From<SpecialToken> for AtomVariant {
+    fn from(special: SpecialToken) -> Self {
         match special {
-            Special::DoubleColon
-            | Special::Colon
-            | Special::Vertical
-            | Special::Ambersand
-            | Special::Exclamation
-            | Special::DoubleVertical
-            | Special::LightArrow
-            | Special::HeavyArrow
-            | Special::LPar
-            | Special::LBox
-            | Special::LCurl
-            | Special::RCurl
-            | Special::RBox
-            | Special::RPar
-            | Special::SubOrMinus
-            | Special::MemberAccess => {
+            SpecialToken::DoubleColon
+            | SpecialToken::Colon
+            | SpecialToken::Vertical
+            | SpecialToken::Ambersand
+            | SpecialToken::Exclamation
+            | SpecialToken::DoubleVertical
+            | SpecialToken::LightArrow
+            | SpecialToken::HeavyArrow
+            | SpecialToken::LPar
+            | SpecialToken::LBox
+            | SpecialToken::LCurl
+            | SpecialToken::RCurl
+            | SpecialToken::RBox
+            | SpecialToken::RPar
+            | SpecialToken::SubOrMinus
+            | SpecialToken::MemberAccess => {
                 p!(special);
                 panic!()
             }
-            Special::Assign => BinaryOpr::Assign(None).into(),
-            Special::AddAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Add)).into(),
-            Special::SubAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Sub)).into(),
-            Special::MulAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Mul)).into(),
-            Special::DivAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Div)).into(),
-            Special::BitOrAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitOr)).into(),
-            Special::BitAndAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitAnd)).into(),
-            Special::LAngle => BinaryOpr::Pure(PureBinaryOpr::Less).into(),
-            Special::Leq => BinaryOpr::Pure(PureBinaryOpr::Leq).into(),
-            Special::RAngle => BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
-            Special::Geq => BinaryOpr::Pure(PureBinaryOpr::Geq).into(),
-            Special::Neq => BinaryOpr::Pure(PureBinaryOpr::Neq).into(),
-            Special::Eq => BinaryOpr::Pure(PureBinaryOpr::Eq).into(),
-            Special::Shl => BinaryOpr::Pure(PureBinaryOpr::Shl).into(),
-            Special::Shr => BinaryOpr::Pure(PureBinaryOpr::Shr).into(),
-            Special::Add => BinaryOpr::Pure(PureBinaryOpr::Add).into(),
-            Special::Star => BinaryOpr::Pure(PureBinaryOpr::Mul).into(),
-            Special::Div => BinaryOpr::Pure(PureBinaryOpr::Div).into(),
-            Special::Power => BinaryOpr::Pure(PureBinaryOpr::Power).into(),
-            Special::And => BinaryOpr::Pure(PureBinaryOpr::And).into(),
-            Special::BitNot => PrefixOpr::BitNot.into(),
-            Special::DoubleExclamation => PrefixOpr::Move.into(),
-            Special::Modulo => BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into(),
-            Special::Incr => AtomVariant::Suffix(SuffixOpr::Incr),
-            Special::Decr => AtomVariant::Suffix(SuffixOpr::Decr),
-            Special::Comma => AtomVariant::ListItem,
-            Special::Semicolon => AtomVariant::SilentEnd,
-            Special::XmlKet => todo!(),
-            Special::DeriveAssign => todo!(),
+            SpecialToken::Assign => BinaryOpr::Assign(None).into(),
+            SpecialToken::AddAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Add)).into(),
+            SpecialToken::SubAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Sub)).into(),
+            SpecialToken::MulAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Mul)).into(),
+            SpecialToken::DivAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Div)).into(),
+            SpecialToken::BitOrAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitOr)).into(),
+            SpecialToken::BitAndAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitAnd)).into(),
+            SpecialToken::LAngle => BinaryOpr::Pure(PureBinaryOpr::Less).into(),
+            SpecialToken::Leq => BinaryOpr::Pure(PureBinaryOpr::Leq).into(),
+            SpecialToken::RAngle => BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
+            SpecialToken::Geq => BinaryOpr::Pure(PureBinaryOpr::Geq).into(),
+            SpecialToken::Neq => BinaryOpr::Pure(PureBinaryOpr::Neq).into(),
+            SpecialToken::Eq => BinaryOpr::Pure(PureBinaryOpr::Eq).into(),
+            SpecialToken::Shl => BinaryOpr::Pure(PureBinaryOpr::Shl).into(),
+            SpecialToken::Shr => BinaryOpr::Pure(PureBinaryOpr::Shr).into(),
+            SpecialToken::Add => BinaryOpr::Pure(PureBinaryOpr::Add).into(),
+            SpecialToken::Star => BinaryOpr::Pure(PureBinaryOpr::Mul).into(),
+            SpecialToken::Div => BinaryOpr::Pure(PureBinaryOpr::Div).into(),
+            SpecialToken::Power => BinaryOpr::Pure(PureBinaryOpr::Power).into(),
+            SpecialToken::And => BinaryOpr::Pure(PureBinaryOpr::And).into(),
+            SpecialToken::BitNot => PrefixOpr::BitNot.into(),
+            SpecialToken::DoubleExclamation => PrefixOpr::Move.into(),
+            SpecialToken::Modulo => BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into(),
+            SpecialToken::Incr => AtomVariant::Suffix(SuffixOpr::Incr),
+            SpecialToken::Decr => AtomVariant::Suffix(SuffixOpr::Decr),
+            SpecialToken::Comma => AtomVariant::ListItem,
+            SpecialToken::Semicolon => AtomVariant::SilentEnd,
+            SpecialToken::XmlKet => todo!(),
+            SpecialToken::DeriveAssign => todo!(),
+            SpecialToken::At => todo!(),
         }
     }
 }

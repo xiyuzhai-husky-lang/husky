@@ -13,7 +13,7 @@ use word::{CustomIdentifier, Decorator, Keyword};
 use crate::EntityRouteSalsaQueryGroup;
 use crate::{error::*, *};
 use text::{RangedCustomIdentifier, TextRange, TextRanged};
-use token::{Special, Token, TokenGroupIter, TokenKind};
+use token::{SpecialToken, Token, TokenGroupIter, TokenKind};
 use word::Identifier;
 
 pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {
@@ -21,10 +21,10 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
         Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) | Keyword::Liason(_) => None,
         Keyword::Mod => Some(EntityKind::Module),
         Keyword::Paradigm(paradigm) => Some(match third_token.kind {
-            TokenKind::Special(Special::LPar) => EntityKind::Function {
+            TokenKind::Special(SpecialToken::LPar) => EntityKind::Function {
                 is_lazy: paradigm.is_lazy(),
             },
-            TokenKind::Special(Special::LightArrow) => EntityKind::Feature,
+            TokenKind::Special(SpecialToken::LightArrow) => EntityKind::Feature,
             _ => {
                 p!(third_token);
                 todo!()
@@ -131,7 +131,7 @@ impl SubrouteTable {
     pub fn has_subscope(
         &self,
         ident: CustomIdentifier,
-        generic_arguments: &[GenericArgument],
+        generic_arguments: &[SpatialArgument],
     ) -> bool {
         if generic_arguments.len() > 0 {
             todo!()
@@ -193,8 +193,8 @@ impl SubrouteTable {
             .collect();
         match data.variant {
             EntityStaticDefnVariant::Routine { .. } | EntityStaticDefnVariant::Module => (),
-            EntityStaticDefnVariant::Type {
-                type_members,
+            EntityStaticDefnVariant::Ty {
+                ty_members: type_members,
                 variants,
                 ..
             } => {
@@ -202,7 +202,7 @@ impl SubrouteTable {
                     entries.push(SubrouteEntry {
                         ident: Some(db.intern_word(type_member.name).custom()),
                         kind: EntityKind::Member(match type_member.variant {
-                            EntityStaticDefnVariant::TypeField { .. } => MemberKind::Field,
+                            EntityStaticDefnVariant::TyField { .. } => MemberKind::Field,
                             EntityStaticDefnVariant::Method { .. } => MemberKind::Method,
                             _ => panic!(),
                         }),
@@ -217,7 +217,7 @@ impl SubrouteTable {
             EntityStaticDefnVariant::Method { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-            EntityStaticDefnVariant::TypeField { .. } => todo!(),
+            EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
         }
         Self {

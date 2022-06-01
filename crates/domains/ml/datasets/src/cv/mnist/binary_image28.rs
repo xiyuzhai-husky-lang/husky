@@ -6,7 +6,7 @@ use vm::{AnyValue, AnyValueDyn, StaticTypeId};
 pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "BinaryImage28",
     subscopes: &[],
-    variant: EntityStaticDefnVariant::Type {
+    variant: EntityStaticDefnVariant::Ty {
         base_route: "datasets::cv::mnist::BinaryImage28",
         generic_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
@@ -85,7 +85,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                 },
             ],
         }],
-        type_members: &[],
+        ty_members: &[],
         variants: &[],
         kind: TyKind::Array,
         visualizer: StaticVisualizer::Compiled(BinaryImage28::visualize),
