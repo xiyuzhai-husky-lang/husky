@@ -173,7 +173,7 @@ impl<'eval> TraceFactory<'eval> {
     // }
 }
 
-pub trait CreateTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
+pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
     fn trace_factory(&self) -> &TraceFactory<'eval>;
 
     fn feature_repr_subtraces(
@@ -317,36 +317,12 @@ pub trait CreateTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
         expr: &Arc<EagerExpr>,
         history: &Arc<History<'eval>>,
     ) -> Avec<Trace<'eval>> {
-        match expr.variant {
-            EagerExprVariant::Variable { .. } => todo!(),
-            EagerExprVariant::ThisValue { .. } => todo!(),
-            EagerExprVariant::ThisField { .. } => todo!(),
-            EagerExprVariant::EntityRoute { route } => todo!(),
-            EagerExprVariant::PrimitiveLiteral(_) => todo!(),
-            EagerExprVariant::Bracketed(_) => todo!(),
-            EagerExprVariant::Opn {
-                ref opn_variant,
-                ref opds,
-            } => self.eager_opn_subtraces(parent, expr, history, opn_variant, opds),
-            EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::EnumKindLiteral(_) => todo!(),
-        }
-    }
-
-    fn eager_opn_subtraces(
-        &self,
-        parent: &Trace<'eval>,
-        expr: &Arc<EagerExpr>,
-        history: &Arc<History<'eval>>,
-        opn_variant: &EagerOpnVariant,
-        opds: &[Arc<EagerExpr>],
-    ) -> Avec<Trace<'eval>> {
         todo!()
+        // self.trace_factory()
     }
 
     fn loop_subtraces(
         &self,
-        compile_time: &HuskyLangCompileTime,
         parent: &Trace,
         loop_kind: VMLoopKind,
         loop_stmt: &Arc<ProcStmt>,
@@ -354,14 +330,12 @@ pub trait CreateTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
-        let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().loop_subtraces(
-            compile_time,
+            self.compile_time(),
             parent,
             loop_kind,
             loop_stmt,
             stmts,
-            text,
             stack_snapshot,
             body_instruction_sheet,
         )

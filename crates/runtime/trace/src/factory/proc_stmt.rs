@@ -288,10 +288,10 @@ impl<'eval> TraceFactory<'eval> {
         loop_kind: VMLoopKind,
         loop_stmt: &Arc<ProcStmt>,
         body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
-        text: &Text,
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
+        let text = compile_time.text(parent.file).unwrap();
         let frames = exec_loop_debug(
             compile_time.upcast(),
             loop_kind,
@@ -311,7 +311,7 @@ impl<'eval> TraceFactory<'eval> {
                             body_instruction_sheet: body_instruction_sheet.clone(),
                             loop_frame_data,
                         },
-                        text,
+                        &text,
                     )
                 })
                 .collect(),

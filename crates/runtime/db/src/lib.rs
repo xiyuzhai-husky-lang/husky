@@ -21,11 +21,11 @@ use std::{
     sync::{Arc, Mutex},
 };
 use text::TextQueryGroupStorage;
-use trace::{CreateTrace, FigureProps, Trace, TraceFactory, TraceId, TraceStalk, TraceVariant};
+use trace::*;
 use visual_runtime::*;
 use vm::{AnyValueDyn, Instruction};
 
-#[salsa::database(VisualQueryGroupStorage, RuntimeQueryGroupStorage)]
+#[salsa::database(VisualQueryGroupStorage, TraceQueryGroupStorage)]
 pub struct HuskyLangRuntime {
     storage: salsa::Storage<HuskyLangRuntime>,
     compile_time: HuskyLangCompileTime,
@@ -45,7 +45,7 @@ impl AskCompileTime for HuskyLangRuntime {
     }
 }
 
-impl CreateTrace<'static> for HuskyLangRuntime {
+impl ProduceTrace<'static> for HuskyLangRuntime {
     fn trace_factory(&self) -> &trace::TraceFactory<'static> {
         &self.traces
     }

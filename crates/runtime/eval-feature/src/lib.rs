@@ -1,7 +1,5 @@
-mod eval;
 mod session;
 
-pub use eval::*;
 pub use session::*;
 
 use compile_time_db::FeatureQueryGroup;
